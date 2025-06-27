@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,15 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  *       S3KeyPrefix: "STRING_VALUE",
  *     },
  *     AuditImagesLimit: Number("int"),
+ *     ChallengePreferences: [ // ChallengePreferences
+ *       { // ChallengePreference
+ *         Type: "FaceMovementAndLightChallenge" || "FaceMovementChallenge", // required
+ *         Versions: { // Versions
+ *           Minimum: "STRING_VALUE",
+ *           Maximum: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *   },
  *   ClientRequestToken: "STRING_VALUE",
  * };
@@ -88,6 +98,7 @@ export interface CreateFaceLivenessSessionCommandOutput extends CreateFaceLivene
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class CreateFaceLivenessSessionCommand extends $Command
@@ -98,9 +109,7 @@ export class CreateFaceLivenessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +121,16 @@ export class CreateFaceLivenessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFaceLivenessSessionCommand)
   .de(de_CreateFaceLivenessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFaceLivenessSessionRequest;
+      output: CreateFaceLivenessSessionResponse;
+    };
+    sdk: {
+      input: CreateFaceLivenessSessionCommandInput;
+      output: CreateFaceLivenessSessionCommandOutput;
+    };
+  };
+}

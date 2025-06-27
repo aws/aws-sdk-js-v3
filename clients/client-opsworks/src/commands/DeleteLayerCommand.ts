@@ -12,7 +12,8 @@ import { de_DeleteLayerCommand, se_DeleteLayerCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface DeleteLayerCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DeleteLayerCommand extends $Command
@@ -76,9 +78,7 @@ export class DeleteLayerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class DeleteLayerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLayerCommand)
   .de(de_DeleteLayerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLayerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLayerCommandInput;
+      output: DeleteLayerCommandOutput;
+    };
+  };
+}

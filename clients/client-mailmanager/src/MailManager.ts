@@ -13,6 +13,16 @@ import {
   CreateAddonSubscriptionCommandOutput,
 } from "./commands/CreateAddonSubscriptionCommand";
 import {
+  CreateAddressListCommand,
+  CreateAddressListCommandInput,
+  CreateAddressListCommandOutput,
+} from "./commands/CreateAddressListCommand";
+import {
+  CreateAddressListImportJobCommand,
+  CreateAddressListImportJobCommandInput,
+  CreateAddressListImportJobCommandOutput,
+} from "./commands/CreateAddressListImportJobCommand";
+import {
   CreateArchiveCommand,
   CreateArchiveCommandInput,
   CreateArchiveCommandOutput,
@@ -44,6 +54,11 @@ import {
   DeleteAddonSubscriptionCommandOutput,
 } from "./commands/DeleteAddonSubscriptionCommand";
 import {
+  DeleteAddressListCommand,
+  DeleteAddressListCommandInput,
+  DeleteAddressListCommandOutput,
+} from "./commands/DeleteAddressListCommand";
+import {
   DeleteArchiveCommand,
   DeleteArchiveCommandInput,
   DeleteArchiveCommandOutput,
@@ -65,6 +80,11 @@ import {
   DeleteTrafficPolicyCommandOutput,
 } from "./commands/DeleteTrafficPolicyCommand";
 import {
+  DeregisterMemberFromAddressListCommand,
+  DeregisterMemberFromAddressListCommandInput,
+  DeregisterMemberFromAddressListCommandOutput,
+} from "./commands/DeregisterMemberFromAddressListCommand";
+import {
   GetAddonInstanceCommand,
   GetAddonInstanceCommandInput,
   GetAddonInstanceCommandOutput,
@@ -74,6 +94,16 @@ import {
   GetAddonSubscriptionCommandInput,
   GetAddonSubscriptionCommandOutput,
 } from "./commands/GetAddonSubscriptionCommand";
+import {
+  GetAddressListCommand,
+  GetAddressListCommandInput,
+  GetAddressListCommandOutput,
+} from "./commands/GetAddressListCommand";
+import {
+  GetAddressListImportJobCommand,
+  GetAddressListImportJobCommandInput,
+  GetAddressListImportJobCommandOutput,
+} from "./commands/GetAddressListImportJobCommand";
 import { GetArchiveCommand, GetArchiveCommandInput, GetArchiveCommandOutput } from "./commands/GetArchiveCommand";
 import {
   GetArchiveExportCommand,
@@ -105,6 +135,11 @@ import {
   GetIngressPointCommandInput,
   GetIngressPointCommandOutput,
 } from "./commands/GetIngressPointCommand";
+import {
+  GetMemberOfAddressListCommand,
+  GetMemberOfAddressListCommandInput,
+  GetMemberOfAddressListCommandOutput,
+} from "./commands/GetMemberOfAddressListCommand";
 import { GetRelayCommand, GetRelayCommandInput, GetRelayCommandOutput } from "./commands/GetRelayCommand";
 import { GetRuleSetCommand, GetRuleSetCommandInput, GetRuleSetCommandOutput } from "./commands/GetRuleSetCommand";
 import {
@@ -122,6 +157,16 @@ import {
   ListAddonSubscriptionsCommandInput,
   ListAddonSubscriptionsCommandOutput,
 } from "./commands/ListAddonSubscriptionsCommand";
+import {
+  ListAddressListImportJobsCommand,
+  ListAddressListImportJobsCommandInput,
+  ListAddressListImportJobsCommandOutput,
+} from "./commands/ListAddressListImportJobsCommand";
+import {
+  ListAddressListsCommand,
+  ListAddressListsCommandInput,
+  ListAddressListsCommandOutput,
+} from "./commands/ListAddressListsCommand";
 import {
   ListArchiveExportsCommand,
   ListArchiveExportsCommandInput,
@@ -142,6 +187,11 @@ import {
   ListIngressPointsCommandInput,
   ListIngressPointsCommandOutput,
 } from "./commands/ListIngressPointsCommand";
+import {
+  ListMembersOfAddressListCommand,
+  ListMembersOfAddressListCommandInput,
+  ListMembersOfAddressListCommandOutput,
+} from "./commands/ListMembersOfAddressListCommand";
 import { ListRelaysCommand, ListRelaysCommandInput, ListRelaysCommandOutput } from "./commands/ListRelaysCommand";
 import {
   ListRuleSetsCommand,
@@ -159,6 +209,16 @@ import {
   ListTrafficPoliciesCommandOutput,
 } from "./commands/ListTrafficPoliciesCommand";
 import {
+  RegisterMemberToAddressListCommand,
+  RegisterMemberToAddressListCommandInput,
+  RegisterMemberToAddressListCommandOutput,
+} from "./commands/RegisterMemberToAddressListCommand";
+import {
+  StartAddressListImportJobCommand,
+  StartAddressListImportJobCommandInput,
+  StartAddressListImportJobCommandOutput,
+} from "./commands/StartAddressListImportJobCommand";
+import {
   StartArchiveExportCommand,
   StartArchiveExportCommandInput,
   StartArchiveExportCommandOutput,
@@ -168,6 +228,11 @@ import {
   StartArchiveSearchCommandInput,
   StartArchiveSearchCommandOutput,
 } from "./commands/StartArchiveSearchCommand";
+import {
+  StopAddressListImportJobCommand,
+  StopAddressListImportJobCommandInput,
+  StopAddressListImportJobCommandOutput,
+} from "./commands/StopAddressListImportJobCommand";
 import {
   StopArchiveExportCommand,
   StopArchiveExportCommandInput,
@@ -210,6 +275,8 @@ import { MailManagerClient, MailManagerClientConfig } from "./MailManagerClient"
 const commands = {
   CreateAddonInstanceCommand,
   CreateAddonSubscriptionCommand,
+  CreateAddressListCommand,
+  CreateAddressListImportJobCommand,
   CreateArchiveCommand,
   CreateIngressPointCommand,
   CreateRelayCommand,
@@ -217,13 +284,17 @@ const commands = {
   CreateTrafficPolicyCommand,
   DeleteAddonInstanceCommand,
   DeleteAddonSubscriptionCommand,
+  DeleteAddressListCommand,
   DeleteArchiveCommand,
   DeleteIngressPointCommand,
   DeleteRelayCommand,
   DeleteRuleSetCommand,
   DeleteTrafficPolicyCommand,
+  DeregisterMemberFromAddressListCommand,
   GetAddonInstanceCommand,
   GetAddonSubscriptionCommand,
+  GetAddressListCommand,
+  GetAddressListImportJobCommand,
   GetArchiveCommand,
   GetArchiveExportCommand,
   GetArchiveMessageCommand,
@@ -231,21 +302,28 @@ const commands = {
   GetArchiveSearchCommand,
   GetArchiveSearchResultsCommand,
   GetIngressPointCommand,
+  GetMemberOfAddressListCommand,
   GetRelayCommand,
   GetRuleSetCommand,
   GetTrafficPolicyCommand,
   ListAddonInstancesCommand,
   ListAddonSubscriptionsCommand,
+  ListAddressListImportJobsCommand,
+  ListAddressListsCommand,
   ListArchiveExportsCommand,
   ListArchivesCommand,
   ListArchiveSearchesCommand,
   ListIngressPointsCommand,
+  ListMembersOfAddressListCommand,
   ListRelaysCommand,
   ListRuleSetsCommand,
   ListTagsForResourceCommand,
   ListTrafficPoliciesCommand,
+  RegisterMemberToAddressListCommand,
+  StartAddressListImportJobCommand,
   StartArchiveExportCommand,
   StartArchiveSearchCommand,
+  StopAddressListImportJobCommand,
   StopArchiveExportCommand,
   StopArchiveSearchCommand,
   TagResourceCommand,
@@ -290,6 +368,40 @@ export interface MailManager {
     args: CreateAddonSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateAddonSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAddressListCommand}
+   */
+  createAddressList(
+    args: CreateAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAddressListCommandOutput>;
+  createAddressList(
+    args: CreateAddressListCommandInput,
+    cb: (err: any, data?: CreateAddressListCommandOutput) => void
+  ): void;
+  createAddressList(
+    args: CreateAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAddressListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAddressListImportJobCommand}
+   */
+  createAddressListImportJob(
+    args: CreateAddressListImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAddressListImportJobCommandOutput>;
+  createAddressListImportJob(
+    args: CreateAddressListImportJobCommandInput,
+    cb: (err: any, data?: CreateAddressListImportJobCommandOutput) => void
+  ): void;
+  createAddressListImportJob(
+    args: CreateAddressListImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAddressListImportJobCommandOutput) => void
   ): void;
 
   /**
@@ -394,6 +506,23 @@ export interface MailManager {
   ): void;
 
   /**
+   * @see {@link DeleteAddressListCommand}
+   */
+  deleteAddressList(
+    args: DeleteAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAddressListCommandOutput>;
+  deleteAddressList(
+    args: DeleteAddressListCommandInput,
+    cb: (err: any, data?: DeleteAddressListCommandOutput) => void
+  ): void;
+  deleteAddressList(
+    args: DeleteAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAddressListCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteArchiveCommand}
    */
   deleteArchive(args: DeleteArchiveCommandInput, options?: __HttpHandlerOptions): Promise<DeleteArchiveCommandOutput>;
@@ -461,6 +590,23 @@ export interface MailManager {
   ): void;
 
   /**
+   * @see {@link DeregisterMemberFromAddressListCommand}
+   */
+  deregisterMemberFromAddressList(
+    args: DeregisterMemberFromAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeregisterMemberFromAddressListCommandOutput>;
+  deregisterMemberFromAddressList(
+    args: DeregisterMemberFromAddressListCommandInput,
+    cb: (err: any, data?: DeregisterMemberFromAddressListCommandOutput) => void
+  ): void;
+  deregisterMemberFromAddressList(
+    args: DeregisterMemberFromAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeregisterMemberFromAddressListCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAddonInstanceCommand}
    */
   getAddonInstance(
@@ -492,6 +638,37 @@ export interface MailManager {
     args: GetAddonSubscriptionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAddonSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAddressListCommand}
+   */
+  getAddressList(
+    args: GetAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAddressListCommandOutput>;
+  getAddressList(args: GetAddressListCommandInput, cb: (err: any, data?: GetAddressListCommandOutput) => void): void;
+  getAddressList(
+    args: GetAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAddressListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAddressListImportJobCommand}
+   */
+  getAddressListImportJob(
+    args: GetAddressListImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAddressListImportJobCommandOutput>;
+  getAddressListImportJob(
+    args: GetAddressListImportJobCommandInput,
+    cb: (err: any, data?: GetAddressListImportJobCommandOutput) => void
+  ): void;
+  getAddressListImportJob(
+    args: GetAddressListImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAddressListImportJobCommandOutput) => void
   ): void;
 
   /**
@@ -605,6 +782,23 @@ export interface MailManager {
   ): void;
 
   /**
+   * @see {@link GetMemberOfAddressListCommand}
+   */
+  getMemberOfAddressList(
+    args: GetMemberOfAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMemberOfAddressListCommandOutput>;
+  getMemberOfAddressList(
+    args: GetMemberOfAddressListCommandInput,
+    cb: (err: any, data?: GetMemberOfAddressListCommandOutput) => void
+  ): void;
+  getMemberOfAddressList(
+    args: GetMemberOfAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMemberOfAddressListCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRelayCommand}
    */
   getRelay(args: GetRelayCommandInput, options?: __HttpHandlerOptions): Promise<GetRelayCommandOutput>;
@@ -680,6 +874,41 @@ export interface MailManager {
   ): void;
 
   /**
+   * @see {@link ListAddressListImportJobsCommand}
+   */
+  listAddressListImportJobs(
+    args: ListAddressListImportJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAddressListImportJobsCommandOutput>;
+  listAddressListImportJobs(
+    args: ListAddressListImportJobsCommandInput,
+    cb: (err: any, data?: ListAddressListImportJobsCommandOutput) => void
+  ): void;
+  listAddressListImportJobs(
+    args: ListAddressListImportJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAddressListImportJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAddressListsCommand}
+   */
+  listAddressLists(): Promise<ListAddressListsCommandOutput>;
+  listAddressLists(
+    args: ListAddressListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAddressListsCommandOutput>;
+  listAddressLists(
+    args: ListAddressListsCommandInput,
+    cb: (err: any, data?: ListAddressListsCommandOutput) => void
+  ): void;
+  listAddressLists(
+    args: ListAddressListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAddressListsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListArchiveExportsCommand}
    */
   listArchiveExports(
@@ -744,6 +973,23 @@ export interface MailManager {
   ): void;
 
   /**
+   * @see {@link ListMembersOfAddressListCommand}
+   */
+  listMembersOfAddressList(
+    args: ListMembersOfAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMembersOfAddressListCommandOutput>;
+  listMembersOfAddressList(
+    args: ListMembersOfAddressListCommandInput,
+    cb: (err: any, data?: ListMembersOfAddressListCommandOutput) => void
+  ): void;
+  listMembersOfAddressList(
+    args: ListMembersOfAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMembersOfAddressListCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListRelaysCommand}
    */
   listRelays(): Promise<ListRelaysCommandOutput>;
@@ -803,6 +1049,40 @@ export interface MailManager {
   ): void;
 
   /**
+   * @see {@link RegisterMemberToAddressListCommand}
+   */
+  registerMemberToAddressList(
+    args: RegisterMemberToAddressListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RegisterMemberToAddressListCommandOutput>;
+  registerMemberToAddressList(
+    args: RegisterMemberToAddressListCommandInput,
+    cb: (err: any, data?: RegisterMemberToAddressListCommandOutput) => void
+  ): void;
+  registerMemberToAddressList(
+    args: RegisterMemberToAddressListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RegisterMemberToAddressListCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAddressListImportJobCommand}
+   */
+  startAddressListImportJob(
+    args: StartAddressListImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAddressListImportJobCommandOutput>;
+  startAddressListImportJob(
+    args: StartAddressListImportJobCommandInput,
+    cb: (err: any, data?: StartAddressListImportJobCommandOutput) => void
+  ): void;
+  startAddressListImportJob(
+    args: StartAddressListImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAddressListImportJobCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartArchiveExportCommand}
    */
   startArchiveExport(
@@ -834,6 +1114,23 @@ export interface MailManager {
     args: StartArchiveSearchCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartArchiveSearchCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopAddressListImportJobCommand}
+   */
+  stopAddressListImportJob(
+    args: StopAddressListImportJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopAddressListImportJobCommandOutput>;
+  stopAddressListImportJob(
+    args: StopAddressListImportJobCommandInput,
+    cb: (err: any, data?: StopAddressListImportJobCommandOutput) => void
+  ): void;
+  stopAddressListImportJob(
+    args: StopAddressListImportJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopAddressListImportJobCommandOutput) => void
   ): void;
 
   /**
@@ -961,14 +1258,7 @@ export interface MailManager {
 }
 
 /**
- * <fullname>AWS SES Mail Manager API</fullname>
- *          <p>
- *             <a href="http://aws.amazon.com/ses">AWS SES Mail Manager API</a> contains operations and data types
- *          that comprise the Mail Manager feature of Amazon Simple Email Service.</p>
- *          <p>Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen
- *          your organization's email infrastructure, simplify email workflow management, and
- *          streamline email compliance control. To learn more, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/eb.html">Mail Manager chapter</a> in the Amazon SES Developer
- *          Guide.</p>
+ * <fullname>Amazon SES Mail Manager API</fullname> <p>The Amazon SES Mail Manager API contains operations and data types that comprise the Mail Manager feature of <a href="http://aws.amazon.com/ses">Amazon Simple Email Service (SES)</a>.</p> <p>Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen your organization's email infrastructure, simplify email workflow management, and streamline email compliance control. To learn more, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/eb.html">Mail Manager chapter</a> in the <i>Amazon SES Developer Guide</i>.</p>
  * @public
  */
 export class MailManager extends MailManagerClient implements MailManager {}

@@ -21,7 +21,8 @@ import { de_AdminCreateUserCommand, se_AdminCreateUserCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,6 +40,18 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * <p>Creates a new user in the specified user pool.</p>
  *          <p>If <code>MessageAction</code> isn't set, the default is to send a welcome message via
  *             email or phone (SMS).</p>
+ *          <p>This message is based on a template that you configured in your call to create or
+ *             update a user pool. This template includes your custom sign-up instructions and
+ *             placeholders for user name and temporary password.</p>
+ *          <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
+ *             for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
+ *          <p>In either case, if the user has a password, they will be in the
+ *                 <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and set their password.
+ *             Your invitation message template must have the <code>\{####\}</code> password placeholder
+ *             if your users have passwords. If your template doesn't have this placeholder, Amazon Cognito
+ *             doesn't deliver the invitation message. In this case, you must update your message
+ *             template and resend the password with a new <code>AdminCreateUser</code> request with a
+ *                 <code>MessageAction</code> value of <code>RESEND</code>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -47,7 +60,7 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -56,13 +69,6 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>This message is based on a template that you configured in your call to create or
- *             update a user pool. This template includes your custom sign-up instructions and
- *             placeholders for user name and temporary password.</p>
- *          <p>Alternatively, you can call <code>AdminCreateUser</code> with <code>SUPPRESS</code>
- *             for the <code>MessageAction</code> parameter, and Amazon Cognito won't send any email. </p>
- *          <p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
- *             they sign in and change their password.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -208,67 +214,67 @@ export interface AdminCreateUserCommandOutput extends AdminCreateUserResponse, _
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
- * @public
+ *
  * @example An AdminCreateUser request for for a test user named John.
  * ```javascript
  * // This request submits a value for all possible parameters for AdminCreateUser.
  * const input = {
- *   "DesiredDeliveryMediums": [
+ *   DesiredDeliveryMediums: [
  *     "SMS"
  *   ],
- *   "MessageAction": "SUPPRESS",
- *   "TemporaryPassword": "This-is-my-test-99!",
- *   "UserAttributes": [
+ *   MessageAction: "SUPPRESS",
+ *   TemporaryPassword: "This-is-my-test-99!",
+ *   UserAttributes: [
  *     {
- *       "Name": "name",
- *       "Value": "John"
+ *       Name: "name",
+ *       Value: "John"
  *     },
  *     {
- *       "Name": "phone_number",
- *       "Value": "+12065551212"
+ *       Name: "phone_number",
+ *       Value: "+12065551212"
  *     },
  *     {
- *       "Name": "email",
- *       "Value": "testuser@example.com"
+ *       Name: "email",
+ *       Value: "testuser@example.com"
  *     }
  *   ],
- *   "UserPoolId": "us-east-1_EXAMPLE",
- *   "Username": "testuser"
+ *   UserPoolId: "us-east-1_EXAMPLE",
+ *   Username: "testuser"
  * };
  * const command = new AdminCreateUserCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "User": {
- *     "Attributes": [
+ *   User: {
+ *     Attributes: [
  *       {
- *         "Name": "sub",
- *         "Value": "d16b4aa8-8633-4abd-93b3-5062a8e1b5f8"
+ *         Name: "sub",
+ *         Value: "d16b4aa8-8633-4abd-93b3-5062a8e1b5f8"
  *       },
  *       {
- *         "Name": "name",
- *         "Value": "John"
+ *         Name: "name",
+ *         Value: "John"
  *       },
  *       {
- *         "Name": "phone_number",
- *         "Value": "+12065551212"
+ *         Name: "phone_number",
+ *         Value: "+12065551212"
  *       },
  *       {
- *         "Name": "email",
- *         "Value": "testuser@example.com"
+ *         Name: "email",
+ *         Value: "testuser@example.com"
  *       }
  *     ],
- *     "Enabled": true,
- *     "UserCreateDate": 1689980857.949,
- *     "UserLastModifiedDate": 1689980857.949,
- *     "UserStatus": "FORCE_CHANGE_PASSWORD",
- *     "Username": "testuser"
+ *     Enabled: true,
+ *     UserCreateDate: 1.689980857949E9,
+ *     UserLastModifiedDate: 1.689980857949E9,
+ *     UserStatus: "FORCE_CHANGE_PASSWORD",
+ *     Username: "testuser"
  *   }
  * }
  * *\/
- * // example id: an-admincreateuser-request-for-for-a-test-user-named-john-1689980900481
  * ```
  *
+ * @public
  */
 export class AdminCreateUserCommand extends $Command
   .classBuilder<
@@ -278,9 +284,7 @@ export class AdminCreateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -292,4 +296,16 @@ export class AdminCreateUserCommand extends $Command
   .f(AdminCreateUserRequestFilterSensitiveLog, AdminCreateUserResponseFilterSensitiveLog)
   .ser(se_AdminCreateUserCommand)
   .de(de_AdminCreateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminCreateUserRequest;
+      output: AdminCreateUserResponse;
+    };
+    sdk: {
+      input: AdminCreateUserCommandInput;
+      output: AdminCreateUserCommandOutput;
+    };
+  };
+}

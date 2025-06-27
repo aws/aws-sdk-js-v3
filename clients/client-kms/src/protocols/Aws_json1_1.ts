@@ -43,6 +43,7 @@ import {
   DeleteImportedKeyMaterialCommandInput,
   DeleteImportedKeyMaterialCommandOutput,
 } from "../commands/DeleteImportedKeyMaterialCommand";
+import { DeriveSharedSecretCommandInput, DeriveSharedSecretCommandOutput } from "../commands/DeriveSharedSecretCommand";
 import {
   DescribeCustomKeyStoresCommandInput,
   DescribeCustomKeyStoresCommandOutput,
@@ -149,6 +150,8 @@ import {
   DeleteCustomKeyStoreRequest,
   DeleteImportedKeyMaterialRequest,
   DependencyTimeoutException,
+  DeriveSharedSecretRequest,
+  DeriveSharedSecretResponse,
   DescribeCustomKeyStoresRequest,
   DescribeCustomKeyStoresResponse,
   DescribeKeyRequest,
@@ -383,6 +386,19 @@ export const se_DeleteImportedKeyMaterialCommand = async (
   const headers: __HeaderBag = sharedHeaders("DeleteImportedKeyMaterial");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeriveSharedSecretCommand
+ */
+export const se_DeriveSharedSecretCommand = async (
+  input: DeriveSharedSecretCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeriveSharedSecret");
+  let body: any;
+  body = JSON.stringify(se_DeriveSharedSecretRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1110,9 +1126,32 @@ export const de_DeleteImportedKeyMaterialCommand = async (
   if (output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
-  await collectBody(output.body, context);
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
   const response: DeleteImportedKeyMaterialCommandOutput = {
     $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeriveSharedSecretCommand
+ */
+export const de_DeriveSharedSecretCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeriveSharedSecretCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeriveSharedSecretResponse(data, context);
+  const response: DeriveSharedSecretCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -2868,6 +2907,20 @@ const se_DecryptRequest = (input: DecryptRequest, context: __SerdeContext): any 
 
 // se_DeleteImportedKeyMaterialRequest omitted.
 
+/**
+ * serializeAws_json1_1DeriveSharedSecretRequest
+ */
+const se_DeriveSharedSecretRequest = (input: DeriveSharedSecretRequest, context: __SerdeContext): any => {
+  return take(input, {
+    DryRun: [],
+    GrantTokens: _json,
+    KeyAgreementAlgorithm: [],
+    KeyId: [],
+    PublicKey: context.base64Encoder,
+    Recipient: (_) => se_RecipientInfo(_, context),
+  });
+};
+
 // se_DescribeCustomKeyStoresRequest omitted.
 
 // se_DescribeKeyRequest omitted.
@@ -2977,7 +3030,10 @@ const se_ImportKeyMaterialRequest = (input: ImportKeyMaterialRequest, context: _
     EncryptedKeyMaterial: context.base64Encoder,
     ExpirationModel: [],
     ImportToken: context.base64Encoder,
+    ImportType: [],
     KeyId: [],
+    KeyMaterialDescription: [],
+    KeyMaterialId: [],
     ValidTo: (_) => _.getTime() / 1_000,
   });
 };
@@ -3199,13 +3255,29 @@ const de_DecryptResponse = (output: any, context: __SerdeContext): DecryptRespon
     CiphertextForRecipient: context.base64Decoder,
     EncryptionAlgorithm: __expectString,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     Plaintext: context.base64Decoder,
   }) as any;
 };
 
 // de_DeleteCustomKeyStoreResponse omitted.
 
+// de_DeleteImportedKeyMaterialResponse omitted.
+
 // de_DependencyTimeoutException omitted.
+
+/**
+ * deserializeAws_json1_1DeriveSharedSecretResponse
+ */
+const de_DeriveSharedSecretResponse = (output: any, context: __SerdeContext): DeriveSharedSecretResponse => {
+  return take(output, {
+    CiphertextForRecipient: context.base64Decoder,
+    KeyAgreementAlgorithm: __expectString,
+    KeyId: __expectString,
+    KeyOrigin: __expectString,
+    SharedSecret: context.base64Decoder,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1DescribeCustomKeyStoresResponse
@@ -3257,6 +3329,7 @@ const de_GenerateDataKeyPairResponse = (output: any, context: __SerdeContext): G
   return take(output, {
     CiphertextForRecipient: context.base64Decoder,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     KeyPairSpec: __expectString,
     PrivateKeyCiphertextBlob: context.base64Decoder,
     PrivateKeyPlaintext: context.base64Decoder,
@@ -3273,6 +3346,7 @@ const de_GenerateDataKeyPairWithoutPlaintextResponse = (
 ): GenerateDataKeyPairWithoutPlaintextResponse => {
   return take(output, {
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     KeyPairSpec: __expectString,
     PrivateKeyCiphertextBlob: context.base64Decoder,
     PublicKey: context.base64Decoder,
@@ -3287,6 +3361,7 @@ const de_GenerateDataKeyResponse = (output: any, context: __SerdeContext): Gener
     CiphertextBlob: context.base64Decoder,
     CiphertextForRecipient: context.base64Decoder,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
     Plaintext: context.base64Decoder,
   }) as any;
 };
@@ -3301,6 +3376,7 @@ const de_GenerateDataKeyWithoutPlaintextResponse = (
   return take(output, {
     CiphertextBlob: context.base64Decoder,
     KeyId: __expectString,
+    KeyMaterialId: __expectString,
   }) as any;
 };
 
@@ -3359,6 +3435,7 @@ const de_GetPublicKeyResponse = (output: any, context: __SerdeContext): GetPubli
   return take(output, {
     CustomerMasterKeySpec: __expectString,
     EncryptionAlgorithms: _json,
+    KeyAgreementAlgorithms: _json,
     KeyId: __expectString,
     KeySpec: __expectString,
     KeyUsage: __expectString,
@@ -3424,6 +3501,8 @@ const de_GrantListEntry = (output: any, context: __SerdeContext): GrantListEntry
 
 // de_InvalidMarkerException omitted.
 
+// de_KeyAgreementAlgorithmSpecList omitted.
+
 // de_KeyList omitted.
 
 // de_KeyListEntry omitted.
@@ -3437,6 +3516,7 @@ const de_KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
     Arn: __expectString,
     CloudHsmClusterId: __expectString,
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    CurrentKeyMaterialId: __expectString,
     CustomKeyStoreId: __expectString,
     CustomerMasterKeySpec: __expectString,
     DeletionDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3444,6 +3524,7 @@ const de_KeyMetadata = (output: any, context: __SerdeContext): KeyMetadata => {
     Enabled: __expectBoolean,
     EncryptionAlgorithms: _json,
     ExpirationModel: __expectString,
+    KeyAgreementAlgorithms: _json,
     KeyId: __expectString,
     KeyManager: __expectString,
     KeySpec: __expectString,
@@ -3532,9 +3613,11 @@ const de_ReEncryptResponse = (output: any, context: __SerdeContext): ReEncryptRe
   return take(output, {
     CiphertextBlob: context.base64Decoder,
     DestinationEncryptionAlgorithm: __expectString,
+    DestinationKeyMaterialId: __expectString,
     KeyId: __expectString,
     SourceEncryptionAlgorithm: __expectString,
     SourceKeyId: __expectString,
+    SourceKeyMaterialId: __expectString,
   }) as any;
 };
 
@@ -3568,9 +3651,15 @@ const de_RotationsList = (output: any, context: __SerdeContext): RotationsListEn
  */
 const de_RotationsListEntry = (output: any, context: __SerdeContext): RotationsListEntry => {
   return take(output, {
+    ExpirationModel: __expectString,
+    ImportState: __expectString,
     KeyId: __expectString,
+    KeyMaterialDescription: __expectString,
+    KeyMaterialId: __expectString,
+    KeyMaterialState: __expectString,
     RotationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RotationType: __expectString,
+    ValidTo: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 

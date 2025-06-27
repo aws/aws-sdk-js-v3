@@ -12,7 +12,8 @@ import { de_DescribeResourceCommand, se_DescribeResourceCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * //     LastModified: new Date("TIMESTAMP"),
  * //     WithFederation: true || false,
  * //     HybridAccessEnabled: true || false,
+ * //     WithPrivilegedAccess: true || false,
  * //   },
  * // };
  *
@@ -72,6 +74,7 @@ export interface DescribeResourceCommandOutput extends DescribeResourceResponse,
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeResourceCommand extends $Command
@@ -82,9 +85,7 @@ export class DescribeResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +97,16 @@ export class DescribeResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourceCommand)
   .de(de_DescribeResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourceRequest;
+      output: DescribeResourceResponse;
+    };
+    sdk: {
+      input: DescribeResourceCommandInput;
+      output: DescribeResourceCommandOutput;
+    };
+  };
+}

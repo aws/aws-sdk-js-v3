@@ -16,7 +16,8 @@ import { de_ImportCertificateCommand, se_ImportCertificateCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,74 +32,7 @@ export interface ImportCertificateCommandInput extends ImportCertificateRequest 
 export interface ImportCertificateCommandOutput extends ImportCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with
- *       ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated
- *         services</a> allow only certificate types and keys they support to be associated with
- *       their resources. Further, their support differs depending on whether the certificate is
- *       imported into IAM or into ACM. For more information, see the documentation for each
- *       service. For more information about importing certificates into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing
- *         Certificates</a> in the <i>Certificate Manager User Guide</i>. </p>
- *          <note>
- *             <p>ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for certificates that you import.</p>
- *          </note>
- *          <p>Note the following guidelines when importing third party certificates:</p>
- *          <ul>
- *             <li>
- *                <p>You must enter the private key that matches the certificate you are importing.</p>
- *             </li>
- *             <li>
- *                <p>The private key must be unencrypted. You cannot import a private key that is protected
- *           by a password or a passphrase.</p>
- *             </li>
- *             <li>
- *                <p>The private key must be no larger than 5 KB (5,120 bytes).</p>
- *             </li>
- *             <li>
- *                <p>If the certificate you are importing is not self-signed, you must enter its
- *           certificate chain.</p>
- *             </li>
- *             <li>
- *                <p>If a certificate chain is included, the issuer must be the subject of one of the
- *           certificates in the chain.</p>
- *             </li>
- *             <li>
- *                <p>The certificate, private key, and certificate chain must be PEM-encoded.</p>
- *             </li>
- *             <li>
- *                <p>The current time must be between the <code>Not Before</code> and <code>Not
- *             After</code> certificate fields.</p>
- *             </li>
- *             <li>
- *                <p>The <code>Issuer</code> field must not be empty.</p>
- *             </li>
- *             <li>
- *                <p>The OCSP authority URL, if present, must not exceed 1000 characters.</p>
- *             </li>
- *             <li>
- *                <p>To import a new certificate, omit the <code>CertificateArn</code> argument. Include
- *           this argument only when you want to replace a previously imported certificate.</p>
- *             </li>
- *             <li>
- *                <p>When you import a certificate by using the CLI, you must specify the certificate, the
- *           certificate chain, and the private key by their file names preceded by
- *             <code>fileb://</code>. For example, you can specify a certificate saved in the
- *             <code>C:\temp</code> folder as <code>fileb://C:\temp\certificate_to_import.pem</code>.
- *           If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs.
- *         </p>
- *             </li>
- *             <li>
- *                <p>When you import a certificate by using an SDK, you must specify the certificate, the
- *           certificate chain, and the private key files in the manner required by the programming
- *           language you're using. </p>
- *             </li>
- *             <li>
- *                <p>The cryptographic algorithm of an imported certificate must match the algorithm of the
- *           signing CA. For example, if the signing CA key type is RSA, then the certificate key type
- *           must also be RSA.</p>
- *             </li>
- *          </ul>
- *          <p>This operation returns the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
- *         Resource Name (ARN)</a> of the imported certificate.</p>
+ * <p>Imports a certificate into Certificate Manager (ACM) to use with services that are integrated with ACM. Note that <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-services.html">integrated services</a> allow only certificate types and keys they support to be associated with their resources. Further, their support differs depending on whether the certificate is imported into IAM or into ACM. For more information, see the documentation for each service. For more information about importing certificates into ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing Certificates</a> in the <i>Certificate Manager User Guide</i>. </p> <note> <p>ACM does not provide <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-renewal.html">managed renewal</a> for certificates that you import.</p> </note> <p>Note the following guidelines when importing third party certificates:</p> <ul> <li> <p>You must enter the private key that matches the certificate you are importing.</p> </li> <li> <p>The private key must be unencrypted. You cannot import a private key that is protected by a password or a passphrase.</p> </li> <li> <p>The private key must be no larger than 5 KB (5,120 bytes).</p> </li> <li> <p>The certificate, private key, and certificate chain must be PEM-encoded.</p> </li> <li> <p>The current time must be between the <code>Not Before</code> and <code>Not After</code> certificate fields.</p> </li> <li> <p>The <code>Issuer</code> field must not be empty.</p> </li> <li> <p>The OCSP authority URL, if present, must not exceed 1000 characters.</p> </li> <li> <p>To import a new certificate, omit the <code>CertificateArn</code> argument. Include this argument only when you want to replace a previously imported certificate.</p> </li> <li> <p>When you import a certificate by using the CLI, you must specify the certificate, the certificate chain, and the private key by their file names preceded by <code>fileb://</code>. For example, you can specify a certificate saved in the <code>C:\temp</code> folder as <code>fileb://C:\temp\certificate_to_import.pem</code>. If you are making an HTTP or HTTPS Query request, include these arguments as BLOBs. </p> </li> <li> <p>When you import a certificate by using an SDK, you must specify the certificate, the certificate chain, and the private key files in the manner required by the programming language you're using. </p> </li> <li> <p>The cryptographic algorithm of an imported certificate must match the algorithm of the signing CA. For example, if the signing CA key type is RSA, then the certificate key type must also be RSA.</p> </li> </ul> <p>This operation returns the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the imported certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -138,15 +72,13 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *  <p>An input parameter was invalid.</p>
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
- *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>An ACM quota has been exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link TagPolicyException} (client fault)
  *  <p>A specified tag did not comply with an existing tag policy and was rejected.</p>
@@ -156,6 +88,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
+ *
  *
  * @public
  */
@@ -167,9 +100,7 @@ export class ImportCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -181,4 +112,16 @@ export class ImportCertificateCommand extends $Command
   .f(ImportCertificateRequestFilterSensitiveLog, void 0)
   .ser(se_ImportCertificateCommand)
   .de(de_ImportCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCertificateRequest;
+      output: ImportCertificateResponse;
+    };
+    sdk: {
+      input: ImportCertificateCommandInput;
+      output: ImportCertificateCommandOutput;
+    };
+  };
+}

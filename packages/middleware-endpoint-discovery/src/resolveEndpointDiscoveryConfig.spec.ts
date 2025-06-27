@@ -1,23 +1,32 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { resolveEndpointDiscoveryConfig } from "./resolveEndpointDiscoveryConfig";
 
-jest.mock("@aws-sdk/endpoint-cache");
+vi.mock("@aws-sdk/endpoint-cache");
 
 describe(resolveEndpointDiscoveryConfig.name, () => {
-  const endpointDiscoveryCommandCtor = jest.fn();
-  const mockInput = {
+  const endpointDiscoveryCommandCtor = vi.fn();
+  const mockInput = () => ({
     isCustomEndpoint: false,
-    credentials: jest.fn(),
-    endpointDiscoveryEnabledProvider: jest.fn(),
-  };
+    credentials: vi.fn(),
+    endpointDiscoveryEnabledProvider: vi.fn(),
+  });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
+  });
+
+  it("maintains object custody", () => {
+    const input = {
+      credentials: vi.fn(),
+      endpointDiscoveryEnabledProvider: async () => false,
+    };
+    expect(resolveEndpointDiscoveryConfig(input, { endpointDiscoveryCommandCtor })).toBe(input);
   });
 
   it("assigns endpointDiscoveryCommandCtor in resolvedConfig", () => {
-    const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
+    const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput(), { endpointDiscoveryCommandCtor });
     expect(resolvedConfig.endpointDiscoveryCommandCtor).toStrictEqual(endpointDiscoveryCommandCtor);
   });
 
@@ -26,7 +35,7 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
       const endpointCacheSize = 100;
       resolveEndpointDiscoveryConfig(
         {
-          ...mockInput,
+          ...mockInput(),
           endpointCacheSize,
         },
         { endpointDiscoveryCommandCtor }
@@ -35,28 +44,30 @@ describe(resolveEndpointDiscoveryConfig.name, () => {
     });
 
     it("creates cache of size 1000 if endpointCacheSize not passed", () => {
-      resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
+      resolveEndpointDiscoveryConfig(mockInput(), { endpointDiscoveryCommandCtor });
       expect(EndpointCache).toBeCalledWith(1000);
     });
   });
 
   describe("endpointDiscoveryEnabled", () => {
-    it.each<boolean>([false, true])(`sets to value passed in the config: %s`, (endpointDiscoveryEnabled) => {
+    it.each<boolean>([false, true])(`sets to value passed in the config: %s`, async (endpointDiscoveryEnabled) => {
+      const input = mockInput();
       const resolvedConfig = resolveEndpointDiscoveryConfig(
         {
-          ...mockInput,
+          ...input,
           endpointDiscoveryEnabled,
         },
         { endpointDiscoveryCommandCtor }
       );
-      expect(resolvedConfig.endpointDiscoveryEnabled()).resolves.toBe(endpointDiscoveryEnabled);
-      expect(mockInput.endpointDiscoveryEnabledProvider).not.toHaveBeenCalled();
+      await expect(resolvedConfig.endpointDiscoveryEnabled()).resolves.toBe(endpointDiscoveryEnabled);
+      expect(input.endpointDiscoveryEnabledProvider).not.toHaveBeenCalled();
       expect(resolvedConfig.isClientEndpointDiscoveryEnabled).toStrictEqual(true);
     });
 
     it(`sets to endpointDiscoveryEnabledProvider if value is not passed`, () => {
-      const resolvedConfig = resolveEndpointDiscoveryConfig(mockInput, { endpointDiscoveryCommandCtor });
-      expect(resolvedConfig.endpointDiscoveryEnabled).toBe(mockInput.endpointDiscoveryEnabledProvider);
+      const input = mockInput();
+      const resolvedConfig = resolveEndpointDiscoveryConfig(input, { endpointDiscoveryCommandCtor });
+      expect(resolvedConfig.endpointDiscoveryEnabled).toBe(input.endpointDiscoveryEnabledProvider);
       expect(resolvedConfig.isClientEndpointDiscoveryEnabled).toStrictEqual(false);
     });
   });

@@ -28,8 +28,8 @@
 export * from "./CloudWatchEventsClient";
 export * from "./CloudWatchEvents";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { CloudWatchEventsExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { CloudWatchEventsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

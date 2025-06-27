@@ -12,7 +12,8 @@ import { de_DescribeLogGroupsCommand, se_DescribeLogGroupsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface DescribeLogGroupsCommandInput extends DescribeLogGroupsRequest 
 export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the specified log groups. You can list all your log groups or filter the results by prefix.
+ * <p>Returns information about log groups. You can return all your log groups or filter the results by prefix.
  *       The results are ASCII-sorted by log group name.</p>
- *          <p>CloudWatch Logs doesn’t support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
+ *          <p>CloudWatch Logs doesn't support IAM policies that control access to the <code>DescribeLogGroups</code> action by using the
  *       <code>aws:ResourceTag/<i>key-name</i>
  *             </code> condition key. Other CloudWatch Logs actions
  *       do support the use of the <code>aws:ResourceTag/<i>key-name</i>
@@ -54,7 +55,10 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  *   nextToken: "STRING_VALUE",
  *   limit: Number("int"),
  *   includeLinkedAccounts: true || false,
- *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS",
+ *   logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
+ *   logGroupIdentifiers: [ // DescribeLogGroupsLogGroupIdentifiers
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new DescribeLogGroupsCommand(input);
  * const response = await client.send(command);
@@ -72,7 +76,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //       inheritedProperties: [ // InheritedProperties
  * //         "ACCOUNT_DATA_PROTECTION",
  * //       ],
- * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS",
+ * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS" || "DELIVERY",
  * //       logGroupArn: "STRING_VALUE",
  * //     },
  * //   ],
@@ -96,6 +100,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeLogGroupsCommand extends $Command
@@ -106,9 +111,7 @@ export class DescribeLogGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +123,16 @@ export class DescribeLogGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLogGroupsCommand)
   .de(de_DescribeLogGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLogGroupsRequest;
+      output: DescribeLogGroupsResponse;
+    };
+    sdk: {
+      input: DescribeLogGroupsCommandInput;
+      output: DescribeLogGroupsCommandOutput;
+    };
+  };
+}

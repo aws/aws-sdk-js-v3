@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,7 @@ export interface CreateStateMachineAliasCommandOutput extends CreateStateMachine
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class CreateStateMachineAliasCommand extends $Command
@@ -139,9 +141,7 @@ export class CreateStateMachineAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class CreateStateMachineAliasCommand extends $Command
   .f(CreateStateMachineAliasInputFilterSensitiveLog, void 0)
   .ser(se_CreateStateMachineAliasCommand)
   .de(de_CreateStateMachineAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStateMachineAliasInput;
+      output: CreateStateMachineAliasOutput;
+    };
+    sdk: {
+      input: CreateStateMachineAliasCommandInput;
+      output: CreateStateMachineAliasCommandOutput;
+    };
+  };
+}

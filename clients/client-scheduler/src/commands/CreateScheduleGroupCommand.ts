@@ -12,7 +12,8 @@ import { SchedulerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface CreateScheduleGroupCommandOutput extends CreateScheduleGroupOut
  * @throws {@link SchedulerServiceException}
  * <p>Base exception class for all service exceptions from Scheduler service.</p>
  *
+ *
  * @public
  */
 export class CreateScheduleGroupCommand extends $Command
@@ -86,9 +88,7 @@ export class CreateScheduleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchedulerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class CreateScheduleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScheduleGroupCommand)
   .de(de_CreateScheduleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScheduleGroupInput;
+      output: CreateScheduleGroupOutput;
+    };
+    sdk: {
+      input: CreateScheduleGroupCommandInput;
+      output: CreateScheduleGroupCommandOutput;
+    };
+  };
+}

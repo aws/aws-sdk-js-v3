@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,7 +52,7 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  * //       nsInstanceDescription: "STRING_VALUE", // required
  * //       nsdId: "STRING_VALUE", // required
  * //       nsdInfoId: "STRING_VALUE", // required
- * //       nsState: "INSTANTIATED" || "NOT_INSTANTIATED" || "IMPAIRED" || "STOPPED" || "DELETED" || "INSTANTIATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "TERMINATE_IN_PROGRESS", // required
+ * //       nsState: "INSTANTIATED" || "NOT_INSTANTIATED" || "UPDATED" || "IMPAIRED" || "UPDATE_FAILED" || "STOPPED" || "DELETED" || "INSTANTIATE_IN_PROGRESS" || "INTENT_TO_UPDATE_IN_PROGRESS" || "UPDATE_IN_PROGRESS" || "TERMINATE_IN_PROGRESS", // required
  * //       metadata: { // ListSolNetworkInstanceMetadata
  * //         createdAt: new Date("TIMESTAMP"), // required
  * //         lastModified: new Date("TIMESTAMP"), // required
@@ -78,10 +79,69 @@ export interface ListSolNetworkInstancesCommandOutput extends ListSolNetworkInst
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example List Sol Network Instantiate instances
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListSolNetworkInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   networkInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:network-instance/ni-07aa863e53460a2a6",
+ *       id: "ni-07aa863e53460a2a6",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceDescription: "Network service for CITY",
+ *       nsInstanceName: "CITY Instance",
+ *       nsState: "INSTANTIATED",
+ *       nsdId: "e851fd14-abe3-4535-85e6-6060636fd519",
+ *       nsdInfoId: "np-0d5b823eb5c2a9241"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List Sol Network Instances with nextToken and maxResults
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: ""
+ * };
+ * const command = new ListSolNetworkInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   networkInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:network-instance/ni-07aa863e53460a2a6",
+ *       id: "ni-07aa863e53460a2a6",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceDescription: "Network service for CITY",
+ *       nsInstanceName: "CITY Instance",
+ *       nsState: "INSTANTIATED",
+ *       nsdId: "e851fd14-abe3-4535-85e6-6060636fd519",
+ *       nsdInfoId: "np-0d5b823eb5c2a9241"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -93,9 +153,7 @@ export class ListSolNetworkInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +165,16 @@ export class ListSolNetworkInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSolNetworkInstancesCommand)
   .de(de_ListSolNetworkInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSolNetworkInstancesInput;
+      output: ListSolNetworkInstancesOutput;
+    };
+    sdk: {
+      input: ListSolNetworkInstancesCommandInput;
+      output: ListSolNetworkInstancesCommandOutput;
+    };
+  };
+}

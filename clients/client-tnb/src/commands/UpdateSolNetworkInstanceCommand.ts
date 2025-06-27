@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,6 +35,7 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
 /**
  * <p>Update a network instance.</p>
  *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
+ *          <p>Choose the <i>updateType</i> parameter to target the necessary update of the network instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,10 +44,14 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  * const client = new TnbClient(config);
  * const input = { // UpdateSolNetworkInstanceInput
  *   nsInstanceId: "STRING_VALUE", // required
- *   updateType: "MODIFY_VNF_INFORMATION", // required
+ *   updateType: "MODIFY_VNF_INFORMATION" || "UPDATE_NS", // required
  *   modifyVnfInfoData: { // UpdateSolNetworkModify
  *     vnfInstanceId: "STRING_VALUE", // required
  *     vnfConfigurableProperties: "DOCUMENT_VALUE", // required
+ *   },
+ *   updateNs: { // UpdateSolNetworkServiceData
+ *     nsdInfoId: "STRING_VALUE", // required
+ *     additionalParamsForNs: "DOCUMENT_VALUE",
  *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
@@ -84,10 +90,70 @@ export interface UpdateSolNetworkInstanceCommandOutput extends UpdateSolNetworkI
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example Update a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   modifyVnfInfoData: {
+ *     vnfConfigurableProperties: {
+ *       pcf.pods: "10",
+ *       pcf.port: "8080"
+ *     },
+ *     vnfInstanceId: "fi-0d5b823eb5c2a9241"
+ *   },
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   },
+ *   updateType: "MODIFY_VNF_INFORMATION"
+ * };
+ * const command = new UpdateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example Update a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   nsInstanceId: "ni-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   },
+ *   updateNs: {
+ *     additionalParamsForNs: {
+ *       availability_zone: "us-west-2a",
+ *       cidr_block: "10.0.0.0/16"
+ *     },
+ *     nsdInfoId: "np-0d5b823eb5c2a9241"
+ *   },
+ *   updateType: "UPDATE_NS"
+ * };
+ * const command = new UpdateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nsLcmOpOccId: "no-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -99,9 +165,7 @@ export class UpdateSolNetworkInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +177,16 @@ export class UpdateSolNetworkInstanceCommand extends $Command
   .f(UpdateSolNetworkInstanceInputFilterSensitiveLog, UpdateSolNetworkInstanceOutputFilterSensitiveLog)
   .ser(se_UpdateSolNetworkInstanceCommand)
   .de(de_UpdateSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSolNetworkInstanceInput;
+      output: UpdateSolNetworkInstanceOutput;
+    };
+    sdk: {
+      input: UpdateSolNetworkInstanceCommandInput;
+      output: UpdateSolNetworkInstanceCommandOutput;
+    };
+  };
+}

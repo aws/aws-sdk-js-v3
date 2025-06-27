@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_1";
+import { UpdateAccountRequest, UpdateAccountResponse } from "../models/models_0";
 import { de_UpdateAccountCommand, se_UpdateAccountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface UpdateAccountCommandOutput extends UpdateAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountCommand extends $Command
@@ -103,9 +105,7 @@ export class UpdateAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class UpdateAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountCommand)
   .de(de_UpdateAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountRequest;
+      output: UpdateAccountResponse;
+    };
+    sdk: {
+      input: UpdateAccountCommandInput;
+      output: UpdateAccountCommandOutput;
+    };
+  };
+}

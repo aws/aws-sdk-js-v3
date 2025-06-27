@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,7 @@ export interface ListAnnotationStoreVersionsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- * Lists the versions of an annotation store.
- * </p>
+ * <p> Lists the versions of an annotation store. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +95,7 @@ export interface ListAnnotationStoreVersionsCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListAnnotationStoreVersionsCommand extends $Command
@@ -106,9 +106,7 @@ export class ListAnnotationStoreVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +118,16 @@ export class ListAnnotationStoreVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnnotationStoreVersionsCommand)
   .de(de_ListAnnotationStoreVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnnotationStoreVersionsRequest;
+      output: ListAnnotationStoreVersionsResponse;
+    };
+    sdk: {
+      input: ListAnnotationStoreVersionsCommandInput;
+      output: ListAnnotationStoreVersionsCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListQueueEnvironmentsRequest, ListQueueEnvironmentsResponse } from "../models/models_0";
+import { ListQueueEnvironmentsRequest, ListQueueEnvironmentsResponse } from "../models/models_1";
 import { de_ListQueueEnvironmentsCommand, se_ListQueueEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,11 +75,11 @@ export interface ListQueueEnvironmentsCommandOutput extends ListQueueEnvironment
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -90,9 +91,7 @@ export class ListQueueEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class ListQueueEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueueEnvironmentsCommand)
   .de(de_ListQueueEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueueEnvironmentsRequest;
+      output: ListQueueEnvironmentsResponse;
+    };
+    sdk: {
+      input: ListQueueEnvironmentsCommandInput;
+      output: ListQueueEnvironmentsCommandOutput;
+    };
+  };
+}

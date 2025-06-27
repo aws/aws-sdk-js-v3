@@ -16,7 +16,8 @@ import { de_UpdateAccessPolicyCommand, se_UpdateAccessPolicyCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface UpdateAccessPolicyCommandOutput extends UpdateAccessPolicyRespo
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccessPolicyCommand extends $Command
@@ -97,9 +99,7 @@ export class UpdateAccessPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class UpdateAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessPolicyCommand)
   .de(de_UpdateAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessPolicyRequest;
+      output: UpdateAccessPolicyResponse;
+    };
+    sdk: {
+      input: UpdateAccessPolicyCommandInput;
+      output: UpdateAccessPolicyCommandOutput;
+    };
+  };
+}

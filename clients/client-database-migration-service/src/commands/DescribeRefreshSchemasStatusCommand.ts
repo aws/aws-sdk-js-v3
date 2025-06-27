@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,23 +76,23 @@ export interface DescribeRefreshSchemasStatusCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe refresh schema status
  * ```javascript
  * // Returns the status of the refresh-schemas operation.
  * const input = {
- *   "EndpointArn": ""
+ *   EndpointArn: ""
  * };
  * const command = new DescribeRefreshSchemasStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RefreshSchemasStatus": {}
+ *   RefreshSchemasStatus:   { /* empty *\/ }
  * }
  * *\/
- * // example id: describe-refresh-schema-status-1481755303497
  * ```
  *
+ * @public
  */
 export class DescribeRefreshSchemasStatusCommand extends $Command
   .classBuilder<
@@ -101,9 +102,7 @@ export class DescribeRefreshSchemasStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeRefreshSchemasStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRefreshSchemasStatusCommand)
   .de(de_DescribeRefreshSchemasStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRefreshSchemasStatusMessage;
+      output: DescribeRefreshSchemasStatusResponse;
+    };
+    sdk: {
+      input: DescribeRefreshSchemasStatusCommandInput;
+      output: DescribeRefreshSchemasStatusCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -111,6 +112,7 @@ export interface GetResourcesSummaryCommandOutput extends GetResourcesSummaryOut
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class GetResourcesSummaryCommand extends $Command
@@ -121,9 +123,7 @@ export class GetResourcesSummaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +135,16 @@ export class GetResourcesSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcesSummaryCommand)
   .de(de_GetResourcesSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetResourcesSummaryOutput;
+    };
+    sdk: {
+      input: GetResourcesSummaryCommandInput;
+      output: GetResourcesSummaryCommandOutput;
+    };
+  };
+}

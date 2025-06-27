@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,6 +39,8 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  *   Name: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   DryRunId: "STRING_VALUE",
+ *   RunType: "CANARY_RUN" || "DRY_RUN",
  * };
  * const command = new GetCanaryRunsCommand(input);
  * const response = await client.send(command);
@@ -45,17 +48,24 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * //   CanaryRuns: [ // CanaryRuns
  * //     { // CanaryRun
  * //       Id: "STRING_VALUE",
+ * //       ScheduledRunId: "STRING_VALUE",
+ * //       RetryAttempt: Number("int"),
  * //       Name: "STRING_VALUE",
  * //       Status: { // CanaryRunStatus
  * //         State: "RUNNING" || "PASSED" || "FAILED",
  * //         StateReason: "STRING_VALUE",
  * //         StateReasonCode: "CANARY_FAILURE" || "EXECUTION_FAILURE",
+ * //         TestResult: "PASSED" || "FAILED" || "UNKNOWN",
  * //       },
  * //       Timeline: { // CanaryRunTimeline
  * //         Started: new Date("TIMESTAMP"),
  * //         Completed: new Date("TIMESTAMP"),
+ * //         MetricTimestampForRunAndRetries: new Date("TIMESTAMP"),
  * //       },
  * //       ArtifactS3Location: "STRING_VALUE",
+ * //       DryRunConfig: { // CanaryDryRunConfigOutput
+ * //         DryRunId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -81,6 +91,7 @@ export interface GetCanaryRunsCommandOutput extends GetCanaryRunsResponse, __Met
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class GetCanaryRunsCommand extends $Command
@@ -91,9 +102,7 @@ export class GetCanaryRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +114,16 @@ export class GetCanaryRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCanaryRunsCommand)
   .de(de_GetCanaryRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCanaryRunsRequest;
+      output: GetCanaryRunsResponse;
+    };
+    sdk: {
+      input: GetCanaryRunsCommandInput;
+      output: GetCanaryRunsCommandOutput;
+    };
+  };
+}

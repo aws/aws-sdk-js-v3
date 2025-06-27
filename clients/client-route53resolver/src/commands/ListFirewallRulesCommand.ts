@@ -12,7 +12,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,7 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //     { // FirewallRule
  * //       FirewallRuleGroupId: "STRING_VALUE",
  * //       FirewallDomainListId: "STRING_VALUE",
+ * //       FirewallThreatProtectionId: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Priority: Number("int"),
  * //       Action: "ALLOW" || "BLOCK" || "ALERT",
@@ -62,6 +64,8 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * //       ModificationTime: "STRING_VALUE",
  * //       FirewallDomainRedirectionAction: "INSPECT_REDIRECTION_DOMAIN" || "TRUST_REDIRECTION_DOMAIN",
  * //       Qtype: "STRING_VALUE",
+ * //       DnsThreatProtection: "DGA" || "DNS_TUNNELING",
+ * //       ConfidenceThreshold: "LOW" || "MEDIUM" || "HIGH",
  * //     },
  * //   ],
  * // };
@@ -95,6 +99,7 @@ export interface ListFirewallRulesCommandOutput extends ListFirewallRulesRespons
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListFirewallRulesCommand extends $Command
@@ -105,9 +110,7 @@ export class ListFirewallRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +122,16 @@ export class ListFirewallRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallRulesCommand)
   .de(de_ListFirewallRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallRulesRequest;
+      output: ListFirewallRulesResponse;
+    };
+    sdk: {
+      input: ListFirewallRulesCommandInput;
+      output: ListFirewallRulesCommandOutput;
+    };
+  };
+}

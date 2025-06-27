@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,10 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @see {@link DeleteReplicationSubnetGroupCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
@@ -67,18 +72,21 @@ export interface DeleteReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Replication Subnet Group
  * ```javascript
  * // Deletes a replication subnet group.
  * const input = {
- *   "ReplicationSubnetGroupIdentifier": "us-west-2ab-vpc-215ds366"
+ *   ReplicationSubnetGroupIdentifier: "us-west-2ab-vpc-215ds366"
  * };
  * const command = new DeleteReplicationSubnetGroupCommand(input);
- * await client.send(command);
- * // example id: delete-replication-subnet-group-1481752728597
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteReplicationSubnetGroupCommand extends $Command
   .classBuilder<
@@ -88,9 +96,7 @@ export class DeleteReplicationSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +108,16 @@ export class DeleteReplicationSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationSubnetGroupCommand)
   .de(de_DeleteReplicationSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationSubnetGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReplicationSubnetGroupCommandInput;
+      output: DeleteReplicationSubnetGroupCommandOutput;
+    };
+  };
+}

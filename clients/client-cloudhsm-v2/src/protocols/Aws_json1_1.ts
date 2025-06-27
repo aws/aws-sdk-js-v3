@@ -26,8 +26,13 @@ import { CreateHsmCommandInput, CreateHsmCommandOutput } from "../commands/Creat
 import { DeleteBackupCommandInput, DeleteBackupCommandOutput } from "../commands/DeleteBackupCommand";
 import { DeleteClusterCommandInput, DeleteClusterCommandOutput } from "../commands/DeleteClusterCommand";
 import { DeleteHsmCommandInput, DeleteHsmCommandOutput } from "../commands/DeleteHsmCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import { DescribeBackupsCommandInput, DescribeBackupsCommandOutput } from "../commands/DescribeBackupsCommand";
 import { DescribeClustersCommandInput, DescribeClustersCommandOutput } from "../commands/DescribeClustersCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import { InitializeClusterCommandInput, InitializeClusterCommandOutput } from "../commands/InitializeClusterCommand";
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import {
@@ -35,6 +40,7 @@ import {
   ModifyBackupAttributesCommandOutput,
 } from "../commands/ModifyBackupAttributesCommand";
 import { ModifyClusterCommandInput, ModifyClusterCommandOutput } from "../commands/ModifyClusterCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { RestoreBackupCommandInput, RestoreBackupCommandOutput } from "../commands/RestoreBackupCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -45,6 +51,7 @@ import {
   CloudHsmAccessDeniedException,
   CloudHsmInternalFailureException,
   CloudHsmInvalidRequestException,
+  CloudHsmResourceLimitExceededException,
   CloudHsmResourceNotFoundException,
   CloudHsmServiceException,
   CloudHsmTagException,
@@ -59,17 +66,20 @@ import {
   DeleteClusterRequest,
   DeleteClusterResponse,
   DeleteHsmRequest,
+  DeleteResourcePolicyRequest,
   DescribeBackupsRequest,
   DescribeBackupsResponse,
   DescribeClustersRequest,
   DescribeClustersResponse,
   DestinationBackup,
+  GetResourcePolicyRequest,
   InitializeClusterRequest,
   ListTagsRequest,
   ModifyBackupAttributesRequest,
   ModifyBackupAttributesResponse,
   ModifyClusterRequest,
   ModifyClusterResponse,
+  PutResourcePolicyRequest,
   RestoreBackupRequest,
   RestoreBackupResponse,
   Tag,
@@ -156,6 +166,19 @@ export const se_DeleteHsmCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeBackupsCommand
  */
 export const se_DescribeBackupsCommand = async (
@@ -176,6 +199,19 @@ export const se_DescribeClustersCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeClusters");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -228,6 +264,19 @@ export const se_ModifyClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -393,6 +442,26 @@ export const de_DeleteHsmCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeBackupsCommand
  */
 export const de_DescribeBackupsCommand = async (
@@ -426,6 +495,26 @@ export const de_DescribeClustersCommand = async (
   let contents: any = {};
   contents = de_DescribeClustersResponse(data, context);
   const response: DescribeClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -506,6 +595,26 @@ export const de_ModifyClusterCommand = async (
   let contents: any = {};
   contents = de_ModifyClusterResponse(data, context);
   const response: ModifyClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -600,6 +709,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "CloudHsmTagException":
     case "com.amazonaws.cloudhsmv2#CloudHsmTagException":
       throw await de_CloudHsmTagExceptionRes(parsedOutput, context);
+    case "CloudHsmResourceLimitExceededException":
+    case "com.amazonaws.cloudhsmv2#CloudHsmResourceLimitExceededException":
+      throw await de_CloudHsmResourceLimitExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -652,6 +764,22 @@ const de_CloudHsmInvalidRequestExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new CloudHsmInvalidRequestException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1CloudHsmResourceLimitExceededExceptionRes
+ */
+const de_CloudHsmResourceLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CloudHsmResourceLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new CloudHsmResourceLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -720,11 +848,15 @@ const de_CloudHsmTagExceptionRes = async (
 
 // se_DeleteHsmRequest omitted.
 
+// se_DeleteResourcePolicyRequest omitted.
+
 // se_DescribeBackupsRequest omitted.
 
 // se_DescribeClustersRequest omitted.
 
 // se_Filters omitted.
+
+// se_GetResourcePolicyRequest omitted.
 
 // se_InitializeClusterRequest omitted.
 
@@ -733,6 +865,8 @@ const de_CloudHsmTagExceptionRes = async (
 // se_ModifyBackupAttributesRequest omitted.
 
 // se_ModifyClusterRequest omitted.
+
+// se_PutResourcePolicyRequest omitted.
 
 // se_RestoreBackupRequest omitted.
 
@@ -755,12 +889,15 @@ const de_CloudHsmTagExceptionRes = async (
  */
 const de_Backup = (output: any, context: __SerdeContext): Backup => {
   return take(output, {
+    BackupArn: __expectString,
     BackupId: __expectString,
     BackupState: __expectString,
     ClusterId: __expectString,
     CopyTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     CreateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeleteTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HsmType: __expectString,
+    Mode: __expectString,
     NeverExpires: __expectBoolean,
     SourceBackup: __expectString,
     SourceCluster: __expectString,
@@ -791,6 +928,8 @@ const de_Backups = (output: any, context: __SerdeContext): Backup[] => {
 
 // de_CloudHsmInvalidRequestException omitted.
 
+// de_CloudHsmResourceLimitExceededException omitted.
+
 // de_CloudHsmResourceNotFoundException omitted.
 
 // de_CloudHsmServiceException omitted.
@@ -808,7 +947,10 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     ClusterId: __expectString,
     CreateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     HsmType: __expectString,
+    HsmTypeRollbackExpiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Hsms: _json,
+    Mode: __expectString,
+    NetworkType: __expectString,
     PreCoPassword: __expectString,
     SecurityGroup: __expectString,
     SourceBackupId: __expectString,
@@ -872,6 +1014,8 @@ const de_DeleteClusterResponse = (output: any, context: __SerdeContext): DeleteC
 
 // de_DeleteHsmResponse omitted.
 
+// de_DeleteResourcePolicyResponse omitted.
+
 /**
  * deserializeAws_json1_1DescribeBackupsResponse
  */
@@ -906,6 +1050,8 @@ const de_DestinationBackup = (output: any, context: __SerdeContext): Destination
 
 // de_ExternalSubnetMapping omitted.
 
+// de_GetResourcePolicyResponse omitted.
+
 // de_Hsm omitted.
 
 // de_Hsms omitted.
@@ -931,6 +1077,8 @@ const de_ModifyClusterResponse = (output: any, context: __SerdeContext): ModifyC
     Cluster: (_: any) => de_Cluster(_, context),
   }) as any;
 };
+
+// de_PutResourcePolicyResponse omitted.
 
 /**
  * deserializeAws_json1_1RestoreBackupResponse

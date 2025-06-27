@@ -1,30 +1,36 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { BuildHandlerArguments, RequestHandler } from "@smithy/types";
+import { describe, expect, test as it } from "vitest";
 
 import { websocketEndpointMiddleware } from "./middleware-websocket-endpoint";
 
 describe(websocketEndpointMiddleware.name, () => {
   const config = { requestHandler: { metadata: { handlerProtocol: "websocket/h1.1" } } as RequestHandler<any, any> };
   const handlerOption = { headerPrefix: "some-thing" };
-  it("should skip non-http request", (done) => {
+  it("should skip non-http request", async () => {
     const nonHttpRequest = {
       foo: "bar",
     };
+    let resolve: (resolved?: unknown) => void;
+    const promise = new Promise((r) => (resolve = r));
     const next = (args: BuildHandlerArguments<any>) => {
       expect(args.request).toEqual(nonHttpRequest);
-      done();
+      resolve();
     };
     const mw = websocketEndpointMiddleware(config, handlerOption);
     mw(next as any, {} as any)({ request: nonHttpRequest, input: {} });
+    await promise;
   });
 
-  it("should update endpoint to websocket url", (done) => {
+  it("should update endpoint to websocket url", async () => {
     const request = new HttpRequest({
       protocol: "https:",
       hostname: "foo.us-east-1.amazonaws.com",
       path: "/stream-operation",
       method: "POST",
     });
+    let resolve: (resolved?: unknown) => void;
+    const promise = new Promise((r) => (resolve = r));
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
@@ -32,13 +38,14 @@ describe(websocketEndpointMiddleware.name, () => {
       expect(processed.hostname).toEqual("foo.us-east-1.amazonaws.com");
       expect(processed.path).toEqual("/stream-operation-websocket");
       expect(processed.method).toEqual("GET");
-      done();
+      resolve();
     };
     const mw = websocketEndpointMiddleware(config, handlerOption);
     mw(next as any, {} as any)({ request, input: {} });
+    await promise;
   });
 
-  it("should remove content-type and sha256 hash header", (done) => {
+  it("should remove content-type and sha256 hash header without transferring them to query parameters", async () => {
     const request = new HttpRequest({
       headers: {
         "content-type": "application/vnd.amazon.eventstream",
@@ -47,32 +54,39 @@ describe(websocketEndpointMiddleware.name, () => {
         "X-Amz-Content-Sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
       },
     });
+    let resolve: (resolved?: unknown) => void;
+    const promise = new Promise((r) => (resolve = r));
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
-      expect(processed.headers["content-type"]).toBeUndefined();
-      expect(processed.headers["Content-Type"]).toBeUndefined();
-      expect(processed.headers["x-amz-content-sha256"]).toBeUndefined();
-      expect(processed.headers["X-Amz-Content-Sha256"]).toBeUndefined();
-      done();
+      const queryKeys = Object.keys(processed.query).map((key) => key.toLowerCase());
+      expect(queryKeys).not.toContain("content-type");
+      expect(queryKeys).not.toContain("x-amz-content-sha256");
+      resolve();
     };
     const mw = websocketEndpointMiddleware(config, handlerOption);
     mw(next as any, {} as any)({ request, input: {} });
+    await promise;
   });
 
-  it("should contains host header after adjustment", (done) => {
+  it("should contain only a host header after adjustment", async () => {
     const request = new HttpRequest({});
+    let resolve: (resolved?: unknown) => void;
+    const promise = new Promise((r) => (resolve = r));
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
+      const headerKeys = Object.keys(processed.headers).map((key) => key.toLowerCase());
+      expect(headerKeys).toEqual(["host"]);
       expect(processed.headers["host"]).toBeDefined();
-      done();
+      resolve();
     };
     const mw = websocketEndpointMiddleware(config, handlerOption);
     mw(next as any, {} as any)({ request, input: {} });
+    await promise;
   });
 
-  it("should move API parameters from headers to query", (done) => {
+  it("should move API parameters from headers to query", async () => {
     const request = new HttpRequest({
       headers: {
         "x-amzn-transcribe-language-code": "en-US",
@@ -82,6 +96,8 @@ describe(websocketEndpointMiddleware.name, () => {
         "x-amzn-transcribe-sample-rate": "44100",
       },
     });
+    let resolve: (resolved?: unknown) => void;
+    const promise = new Promise((r) => (resolve = r));
     const next = (args: BuildHandlerArguments<any>) => {
       expect(HttpRequest.isInstance(args.request)).toBeTruthy();
       const processed = args.request as HttpRequest;
@@ -92,9 +108,10 @@ describe(websocketEndpointMiddleware.name, () => {
         "vocabulary-name": "abc",
         "sample-rate": "44100",
       });
-      done();
+      resolve();
     };
     const mw = websocketEndpointMiddleware(config, { headerPrefix: "x-amzn-transcribe-" });
     mw(next as any, {} as any)({ request, input: {} });
+    await promise;
   });
 });

@@ -13,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,16 @@ export interface PutBucketAclCommandInput extends PutBucketAclRequest {}
 export interface PutBucketAclCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
+ *  Email Grantee ACLs created prior to this date will continue to work and remain accessible through the Amazon Web Services Management Console, Command Line Interface (CLI), SDKs,
+ *  and REST API. However, you will no longer be able to create new Email Grantee ACLs.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <note>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the permissions on an existing bucket using access control lists (ACL). For more
  *          information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Using ACLs</a>. To set the ACL of a
@@ -151,7 +160,10 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *             <dt>Grantee Values</dt>
  *             <dd>
  *                <p>You can specify the person (grantee) to whom you're assigning access rights
- *                   (using request elements) in the following ways:</p>
+ *                  (using request elements) in the following ways. For examples of how to specify these
+ *                  grantee values in JSON format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html">
+ *                    Enabling Amazon S3 server access logging</a> in the
+ *                  <i>Amazon S3 User Guide</i>.</p>
  *                <ul>
  *                   <li>
  *                      <p>By the person's ID:</p>
@@ -257,7 +269,7 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  *   },
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
  *   GrantReadACP: "STRING_VALUE",
@@ -280,20 +292,23 @@ export interface PutBucketAclCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Put bucket acl
  * ```javascript
  * // The following example replaces existing ACL on a bucket. The ACL grants the bucket owner (specified using the owner ID) and write permission to the LogDelivery group. Because this is a replace operation, you must specify all the grants in your request. To incrementally add or remove ACL grants, you might use the console.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "GrantFullControl": "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
- *   "GrantWrite": "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
+ *   Bucket: "examplebucket",
+ *   GrantFullControl: "id=examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484",
+ *   GrantWrite: "uri=http://acs.amazonaws.com/groups/s3/LogDelivery"
  * };
  * const command = new PutBucketAclCommand(input);
- * await client.send(command);
- * // example id: put-bucket-acl-1482260397033
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketAclCommand extends $Command
   .classBuilder<
@@ -313,8 +328,7 @@ export class PutBucketAclCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -324,4 +338,16 @@ export class PutBucketAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketAclCommand)
   .de(de_PutBucketAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketAclRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketAclCommandInput;
+      output: PutBucketAclCommandOutput;
+    };
+  };
+}

@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,9 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  *   AcceleratorArn: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
  *   IpAddressType: "IPV4" || "DUAL_STACK",
+ *   IpAddresses: [ // IpAddresses
+ *     "STRING_VALUE",
+ *   ],
  *   Enabled: true || false,
  * };
  * const command = new UpdateCustomRoutingAcceleratorCommand(input);
@@ -84,14 +88,21 @@ export interface UpdateCustomRoutingAcceleratorCommandOutput
  * @throws {@link AcceleratorNotFoundException} (client fault)
  *  <p>The accelerator that you specified doesn't exist.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>You can't use both of those options.</p>
+ *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>There was an internal error for Global Accelerator.</p>
  *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>An argument that you specified is invalid.</p>
  *
+ * @throws {@link TransactionInProgressException} (client fault)
+ *  <p>There's already a transaction in progress. Another transaction can't be processed.</p>
+ *
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
+ *
  *
  * @public
  */
@@ -103,9 +114,7 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +126,16 @@ export class UpdateCustomRoutingAcceleratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCustomRoutingAcceleratorCommand)
   .de(de_UpdateCustomRoutingAcceleratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCustomRoutingAcceleratorRequest;
+      output: UpdateCustomRoutingAcceleratorResponse;
+    };
+    sdk: {
+      input: UpdateCustomRoutingAcceleratorCommandInput;
+      output: UpdateCustomRoutingAcceleratorCommandOutput;
+    };
+  };
+}

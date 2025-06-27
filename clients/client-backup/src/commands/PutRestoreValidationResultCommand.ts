@@ -12,7 +12,8 @@ import { de_PutRestoreValidationResultCommand, se_PutRestoreValidationResultComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface PutRestoreValidationResultCommandOutput extends __MetadataBeare
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class PutRestoreValidationResultCommand extends $Command
@@ -85,9 +87,7 @@ export class PutRestoreValidationResultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class PutRestoreValidationResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRestoreValidationResultCommand)
   .de(de_PutRestoreValidationResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRestoreValidationResultInput;
+      output: {};
+    };
+    sdk: {
+      input: PutRestoreValidationResultCommandInput;
+      output: PutRestoreValidationResultCommandOutput;
+    };
+  };
+}

@@ -14,7 +14,7 @@ The following reference lists the available API actions, and data types for Even
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-scheduler
+To install this package, simply type add or install @aws-sdk/client-scheduler
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-scheduler`

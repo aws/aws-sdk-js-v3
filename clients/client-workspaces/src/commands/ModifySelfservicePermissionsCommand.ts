@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,11 +69,15 @@ export interface ModifySelfservicePermissionsCommandOutput
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +89,7 @@ export class ModifySelfservicePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +101,16 @@ export class ModifySelfservicePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySelfservicePermissionsCommand)
   .de(de_ModifySelfservicePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySelfservicePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifySelfservicePermissionsCommandInput;
+      output: ModifySelfservicePermissionsCommandOutput;
+    };
+  };
+}

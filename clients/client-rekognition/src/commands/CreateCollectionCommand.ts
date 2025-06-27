@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,24 +99,24 @@ export interface CreateCollectionCommandOutput extends CreateCollectionResponse,
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To create a collection
  * ```javascript
  * // This operation creates a Rekognition collection for storing image data.
  * const input = {
- *   "CollectionId": "myphotos"
+ *   CollectionId: "myphotos"
  * };
  * const command = new CreateCollectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CollectionArn": "aws:rekognition:us-west-2:123456789012:collection/myphotos",
- *   "StatusCode": 200
+ *   CollectionArn: "aws:rekognition:us-west-2:123456789012:collection/myphotos",
+ *   StatusCode: 200
  * }
  * *\/
- * // example id: to-create-a-collection-1481833313674
  * ```
  *
+ * @public
  */
 export class CreateCollectionCommand extends $Command
   .classBuilder<
@@ -125,9 +126,7 @@ export class CreateCollectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class CreateCollectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCollectionCommand)
   .de(de_CreateCollectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCollectionRequest;
+      output: CreateCollectionResponse;
+    };
+    sdk: {
+      input: CreateCollectionCommandInput;
+      output: CreateCollectionCommandOutput;
+    };
+  };
+}

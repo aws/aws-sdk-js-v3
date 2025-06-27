@@ -16,7 +16,8 @@ import { de_DescribeResourceServerCommand, se_DescribeResourceServerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface DescribeResourceServerCommandInput extends DescribeResourceServ
 export interface DescribeResourceServerCommandOutput extends DescribeResourceServerResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a resource server.</p>
+ * <p>Describes a resource server. For more information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,6 +88,7 @@ export interface DescribeResourceServerCommandOutput extends DescribeResourceSer
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeResourceServerCommand extends $Command
@@ -97,9 +99,7 @@ export class DescribeResourceServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class DescribeResourceServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeResourceServerCommand)
   .de(de_DescribeResourceServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeResourceServerRequest;
+      output: DescribeResourceServerResponse;
+    };
+    sdk: {
+      input: DescribeResourceServerCommandInput;
+      output: DescribeResourceServerCommandOutput;
+    };
+  };
+}

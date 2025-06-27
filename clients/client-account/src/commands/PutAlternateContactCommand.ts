@@ -12,7 +12,8 @@ import { de_PutAlternateContactCommand, se_PutAlternateContactCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,7 @@ export interface PutAlternateContactCommandInput extends PutAlternateContactRequ
 export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p>
- *          <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or
- *                 updating the alternate contacts</a>.</p>
- *          <note>
- *             <p>Before you can update the alternate contact information for an
- *      Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management
- *      and Organizations.  For more information, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enabling trusted access for
- *      Amazon Web Services Account Management</a>.</p>
- *          </note>
+ * <p>Modifies the specified alternate contact attached to an Amazon Web Services account.</p> <p>For complete details about how to use the alternate contact operations, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-update-contact.html">Access or updating the alternate contacts</a>.</p> <note> <p>Before you can update the alternate contact information for an Amazon Web Services account that is managed by Organizations, you must first enable integration between Amazon Web Services Account Management and Organizations. For more information, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/using-orgs-trusted-access.html">Enabling trusted access for Amazon Web Services Account Management</a>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,22 +56,20 @@ export interface PutAlternateContactCommandOutput extends __MetadataBearer {}
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required
- *             permissions.</p>
+ *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
- *             later.</p>
+ *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle
- *             limit.</p>
+ *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
+ *
  *
  * @public
  */
@@ -90,9 +81,7 @@ export class PutAlternateContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +93,16 @@ export class PutAlternateContactCommand extends $Command
   .f(PutAlternateContactRequestFilterSensitiveLog, void 0)
   .ser(se_PutAlternateContactCommand)
   .de(de_PutAlternateContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAlternateContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAlternateContactCommandInput;
+      output: PutAlternateContactCommandOutput;
+    };
+  };
+}

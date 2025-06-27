@@ -12,7 +12,8 @@ import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,8 +31,8 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * <p>Modifies the provisioned throughput settings, global secondary indexes, or DynamoDB
  *             Streams settings for a given table.</p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version).
- *             </p>
+ *             <p>For global tables, this operation only applies to global tables using Version
+ *                 2019.11.21 (Current version). </p>
  *          </important>
  *          <p>You can only perform one of the following operations at once:</p>
  *          <ul>
@@ -84,6 +85,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *           MaxReadRequestUnits: Number("long"),
  *           MaxWriteRequestUnits: Number("long"),
  *         },
+ *         WarmThroughput: { // WarmThroughput
+ *           ReadUnitsPerSecond: Number("long"),
+ *           WriteUnitsPerSecond: Number("long"),
+ *         },
  *       },
  *       Create: { // CreateGlobalSecondaryIndexAction
  *         IndexName: "STRING_VALUE", // required
@@ -106,6 +111,10 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *         OnDemandThroughput: {
  *           MaxReadRequestUnits: Number("long"),
  *           MaxWriteRequestUnits: Number("long"),
+ *         },
+ *         WarmThroughput: {
+ *           ReadUnitsPerSecond: Number("long"),
+ *           WriteUnitsPerSecond: Number("long"),
  *         },
  *       },
  *       Delete: { // DeleteGlobalSecondaryIndexAction
@@ -175,9 +184,14 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
+ *   MultiRegionConsistency: "EVENTUAL" || "STRONG",
  *   OnDemandThroughput: {
  *     MaxReadRequestUnits: Number("long"),
  *     MaxWriteRequestUnits: Number("long"),
+ *   },
+ *   WarmThroughput: {
+ *     ReadUnitsPerSecond: Number("long"),
+ *     WriteUnitsPerSecond: Number("long"),
  *   },
  * };
  * const command = new UpdateTableCommand(input);
@@ -265,6 +279,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -287,6 +306,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -295,6 +319,11 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -331,6 +360,12 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
  * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *
@@ -364,9 +399,19 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *             this limit may result in request throttling.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example, you
- *             attempted to recreate an existing table, or tried to delete a table currently in the
- *                 <code>CREATING</code> state.</p>
+ *  <p>The operation conflicts with the resource's availability. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You attempted to recreate an existing table.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a resource that was already being updated.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
@@ -375,59 +420,8 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
- * @example To modify a table's provisioned throughput
- * ```javascript
- * // This example increases the provisioned read and write capacity on the Music table.
- * const input = {
- *   "ProvisionedThroughput": {
- *     "ReadCapacityUnits": 10,
- *     "WriteCapacityUnits": 10
- *   },
- *   "TableName": "MusicCollection"
- * };
- * const command = new UpdateTableCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TableDescription": {
- *     "AttributeDefinitions": [
- *       {
- *         "AttributeName": "Artist",
- *         "AttributeType": "S"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "AttributeType": "S"
- *       }
- *     ],
- *     "CreationDateTime": "1421866952.062",
- *     "ItemCount": 0,
- *     "KeySchema": [
- *       {
- *         "AttributeName": "Artist",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "ProvisionedThroughput": {
- *       "LastIncreaseDateTime": "1421874759.194",
- *       "NumberOfDecreasesToday": 1,
- *       "ReadCapacityUnits": 1,
- *       "WriteCapacityUnits": 1
- *     },
- *     "TableName": "MusicCollection",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "UPDATING"
- *   }
- * }
- * *\/
- * // example id: to-modify-a-tables-provisioned-throughput-1476118076147
- * ```
  *
+ * @public
  */
 export class UpdateTableCommand extends $Command
   .classBuilder<
@@ -439,6 +433,7 @@ export class UpdateTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -451,4 +446,16 @@ export class UpdateTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableCommand)
   .de(de_UpdateTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableInput;
+      output: UpdateTableOutput;
+    };
+    sdk: {
+      input: UpdateTableCommandInput;
+      output: UpdateTableCommandOutput;
+    };
+  };
+}

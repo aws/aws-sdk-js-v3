@@ -16,7 +16,8 @@ import { de_GetReportDefinitionCommand, se_GetReportDefinitionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface GetReportDefinitionCommandOutput extends GetReportDefinitionRes
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class GetReportDefinitionCommand extends $Command
@@ -89,9 +91,7 @@ export class GetReportDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReportDefinitionCommand)
   .de(de_GetReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReportDefinitionRequest;
+      output: GetReportDefinitionResult;
+    };
+    sdk: {
+      input: GetReportDefinitionCommandInput;
+      output: GetReportDefinitionCommandOutput;
+    };
+  };
+}

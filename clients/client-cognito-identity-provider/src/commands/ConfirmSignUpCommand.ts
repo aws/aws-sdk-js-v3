@@ -14,13 +14,15 @@ import {
   ConfirmSignUpRequest,
   ConfirmSignUpRequestFilterSensitiveLog,
   ConfirmSignUpResponse,
+  ConfirmSignUpResponseFilterSensitiveLog,
 } from "../models/models_0";
 import { de_ConfirmSignUpCommand, se_ConfirmSignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,18 +37,15 @@ export interface ConfirmSignUpCommandInput extends ConfirmSignUpRequest {}
 export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __MetadataBearer {}
 
 /**
- * <p>This public API operation provides a code that Amazon Cognito sent to your user when they
- *             signed up in your user pool via the <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SignUp.html">SignUp</a>
- *             API operation. After your user enters their code, they confirm ownership of the email
- *             address or phone number that they provided, and their user account becomes active.
- *             Depending on your user pool configuration, your users will receive their confirmation
- *             code in an email or SMS message.</p>
+ * <p>Confirms the account of a new user. This public API operation submits a code that
+ *             Amazon Cognito sent to your user when they signed up in your user pool. After your user enters
+ *             their code, they confirm ownership of the email address or phone number that they
+ *             provided, and their user account becomes active. Depending on your user pool
+ *             configuration, your users will receive their confirmation code in an email or SMS
+ *             message.</p>
  *          <p>Local users who signed up in your user pool are the only type of user who can confirm
  *             sign-up with a code. Users who federate through an external identity provider (IdP) have
- *             already been confirmed by their IdP. Administrator-created users, users created with the
- *                 <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminCreateUser.html">AdminCreateUser</a> API operation, confirm their accounts when they respond to
- *             their invitation email message and choose a password. They do not receive a confirmation
- *             code. Instead, they receive a temporary password.</p>
+ *             already been confirmed by their IdP.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -75,10 +74,13 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  *   ClientMetadata: { // ClientMetadataType
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   Session: "STRING_VALUE",
  * };
  * const command = new ConfirmSignUpCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // ConfirmSignUpResponse
+ * //   Session: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -149,6 +151,7 @@ export interface ConfirmSignUpCommandOutput extends ConfirmSignUpResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ConfirmSignUpCommand extends $Command
@@ -159,9 +162,7 @@ export class ConfirmSignUpCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,7 +171,19 @@ export class ConfirmSignUpCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "ConfirmSignUp", {})
   .n("CognitoIdentityProviderClient", "ConfirmSignUpCommand")
-  .f(ConfirmSignUpRequestFilterSensitiveLog, void 0)
+  .f(ConfirmSignUpRequestFilterSensitiveLog, ConfirmSignUpResponseFilterSensitiveLog)
   .ser(se_ConfirmSignUpCommand)
   .de(de_ConfirmSignUpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmSignUpRequest;
+      output: ConfirmSignUpResponse;
+    };
+    sdk: {
+      input: ConfirmSignUpCommandInput;
+      output: ConfirmSignUpCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Deletes the tags from the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -72,18 +73,21 @@ export interface DeleteBucketTaggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete bucket tags
  * ```javascript
  * // The following example deletes bucket tags.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new DeleteBucketTaggingCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-tags-1483043846509
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketTaggingCommand extends $Command
   .classBuilder<
@@ -109,4 +113,16 @@ export class DeleteBucketTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketTaggingCommand)
   .de(de_DeleteBucketTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketTaggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketTaggingCommandInput;
+      output: DeleteBucketTaggingCommandOutput;
+    };
+  };
+}

@@ -67,6 +67,7 @@ import {
 } from "../commands/UpdateScheduledQueryCommand";
 import {
   AccessDeniedException,
+  AccountSettingsNotificationConfiguration,
   CancelQueryRequest,
   ColumnInfo,
   ConflictException,
@@ -92,9 +93,15 @@ import {
   ParameterMapping,
   PrepareQueryRequest,
   PrepareQueryResponse,
+  ProvisionedCapacityRequest,
+  QueryComputeRequest,
   QueryExecutionException,
+  QueryInsights,
+  QueryInsightsResponse,
   QueryRequest,
   QueryResponse,
+  QuerySpatialCoverage,
+  QuerySpatialCoverageMax,
   QueryStatus,
   ResourceNotFoundException,
   Row,
@@ -102,6 +109,8 @@ import {
   ScheduleConfiguration,
   ScheduledQuery,
   ScheduledQueryDescription,
+  ScheduledQueryInsights,
+  ScheduledQueryInsightsResponse,
   ScheduledQueryRunSummary,
   SelectColumn,
   ServiceQuotaExceededException,
@@ -782,6 +791,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_AccountSettingsNotificationConfiguration omitted.
+
 // se_CancelQueryRequest omitted.
 
 /**
@@ -823,6 +834,7 @@ const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, co
   return take(input, {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     InvocationTime: (_) => _.getTime() / 1_000,
+    QueryInsights: _json,
     ScheduledQueryArn: [],
   });
 };
@@ -845,6 +857,12 @@ const se_ExecuteScheduledQueryRequest = (input: ExecuteScheduledQueryRequest, co
 
 // se_PrepareQueryRequest omitted.
 
+// se_ProvisionedCapacityRequest omitted.
+
+// se_QueryComputeRequest omitted.
+
+// se_QueryInsights omitted.
+
 /**
  * serializeAws_json1_0QueryRequest
  */
@@ -853,6 +871,7 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     MaxRows: [],
     NextToken: [],
+    QueryInsights: _json,
     QueryString: [],
   });
 };
@@ -860,6 +879,8 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
 // se_S3Configuration omitted.
 
 // se_ScheduleConfiguration omitted.
+
+// se_ScheduledQueryInsights omitted.
 
 // se_SnsConfiguration omitted.
 
@@ -882,6 +903,8 @@ const se_QueryRequest = (input: QueryRequest, context: __SerdeContext): any => {
 // se_UpdateScheduledQueryRequest omitted.
 
 // de_AccessDeniedException omitted.
+
+// de_AccountSettingsNotificationConfiguration omitted.
 
 // de_CancelQueryResponse omitted.
 
@@ -967,6 +990,8 @@ const de_DescribeScheduledQueryResponse = (output: any, context: __SerdeContext)
 
 // de_InvalidEndpointException omitted.
 
+// de_LastUpdate omitted.
+
 /**
  * deserializeAws_json1_0ListScheduledQueriesResponse
  */
@@ -1013,6 +1038,8 @@ const de_ParameterMappingList = (output: any, context: __SerdeContext): Paramete
   return retVal;
 };
 
+// de_PartitionKeyList omitted.
+
 /**
  * deserializeAws_json1_0PrepareQueryResponse
  */
@@ -1024,7 +1051,27 @@ const de_PrepareQueryResponse = (output: any, context: __SerdeContext): PrepareQ
   }) as any;
 };
 
+// de_ProvisionedCapacityResponse omitted.
+
+// de_QueryComputeResponse omitted.
+
 // de_QueryExecutionException omitted.
+
+/**
+ * deserializeAws_json1_0QueryInsightsResponse
+ */
+const de_QueryInsightsResponse = (output: any, context: __SerdeContext): QueryInsightsResponse => {
+  return take(output, {
+    OutputBytes: __expectLong,
+    OutputRows: __expectLong,
+    QuerySpatialCoverage: (_: any) => de_QuerySpatialCoverage(_, context),
+    QueryTableCount: __expectLong,
+    QueryTemporalRange: _json,
+    UnloadPartitionCount: __expectLong,
+    UnloadWrittenBytes: __expectLong,
+    UnloadWrittenRows: __expectLong,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0QueryResponse
@@ -1034,8 +1081,29 @@ const de_QueryResponse = (output: any, context: __SerdeContext): QueryResponse =
     ColumnInfo: (_: any) => de_ColumnInfoList(_, context),
     NextToken: __expectString,
     QueryId: __expectString,
+    QueryInsightsResponse: (_: any) => de_QueryInsightsResponse(_, context),
     QueryStatus: (_: any) => de_QueryStatus(_, context),
     Rows: (_: any) => de_RowList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0QuerySpatialCoverage
+ */
+const de_QuerySpatialCoverage = (output: any, context: __SerdeContext): QuerySpatialCoverage => {
+  return take(output, {
+    Max: (_: any) => de_QuerySpatialCoverageMax(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0QuerySpatialCoverageMax
+ */
+const de_QuerySpatialCoverageMax = (output: any, context: __SerdeContext): QuerySpatialCoverageMax => {
+  return take(output, {
+    PartitionKey: _json,
+    TableArn: __expectString,
+    Value: __limitedParseDouble,
   }) as any;
 };
 
@@ -1049,6 +1117,10 @@ const de_QueryStatus = (output: any, context: __SerdeContext): QueryStatus => {
     ProgressPercentage: __limitedParseDouble,
   }) as any;
 };
+
+// de_QueryTemporalRange omitted.
+
+// de_QueryTemporalRangeMax omitted.
 
 // de_ResourceNotFoundException omitted.
 
@@ -1120,6 +1192,19 @@ const de_ScheduledQueryDescription = (output: any, context: __SerdeContext): Sch
 };
 
 /**
+ * deserializeAws_json1_0ScheduledQueryInsightsResponse
+ */
+const de_ScheduledQueryInsightsResponse = (output: any, context: __SerdeContext): ScheduledQueryInsightsResponse => {
+  return take(output, {
+    OutputBytes: __expectLong,
+    OutputRows: __expectLong,
+    QuerySpatialCoverage: (_: any) => de_QuerySpatialCoverage(_, context),
+    QueryTableCount: __expectLong,
+    QueryTemporalRange: _json,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0ScheduledQueryList
  */
 const de_ScheduledQueryList = (output: any, context: __SerdeContext): ScheduledQuery[] => {
@@ -1140,6 +1225,7 @@ const de_ScheduledQueryRunSummary = (output: any, context: __SerdeContext): Sche
     ExecutionStats: _json,
     FailureReason: __expectString,
     InvocationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    QueryInsightsResponse: (_: any) => de_ScheduledQueryInsightsResponse(_, context),
     RunStatus: __expectString,
     TriggerTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;

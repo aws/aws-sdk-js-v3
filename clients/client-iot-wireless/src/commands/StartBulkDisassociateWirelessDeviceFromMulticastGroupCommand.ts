@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOut
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extends $Command
@@ -94,9 +96,7 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand extend
   .f(void 0, void 0)
   .ser(se_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand)
   .de(de_StartBulkDisassociateWirelessDeviceFromMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBulkDisassociateWirelessDeviceFromMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandInput;
+      output: StartBulkDisassociateWirelessDeviceFromMulticastGroupCommandOutput;
+    };
+  };
+}

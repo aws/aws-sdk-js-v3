@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface BatchPutScheduledUpdateGroupActionCommandOutput
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
+ *
  * @public
  */
 export class BatchPutScheduledUpdateGroupActionCommand extends $Command
@@ -100,9 +102,7 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class BatchPutScheduledUpdateGroupActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutScheduledUpdateGroupActionCommand)
   .de(de_BatchPutScheduledUpdateGroupActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutScheduledUpdateGroupActionType;
+      output: BatchPutScheduledUpdateGroupActionAnswer;
+    };
+    sdk: {
+      input: BatchPutScheduledUpdateGroupActionCommandInput;
+      output: BatchPutScheduledUpdateGroupActionCommandOutput;
+    };
+  };
+}

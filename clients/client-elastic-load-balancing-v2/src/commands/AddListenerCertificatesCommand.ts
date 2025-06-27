@@ -16,7 +16,8 @@ import { de_AddListenerCertificatesCommand, se_AddListenerCertificatesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,9 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  *       or TLS listener.</p>
  *          <p>If the certificate in already in the certificate list, the call is successful but the
  *       certificate is not added again.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html">HTTPS
- *         listeners</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html">TLS
- *         listeners</a> in the <i>Network Load Balancers Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html">SSL
+ *         certificates</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html">Server
+ *         certificates</a> in the <i>Network Load Balancers Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +85,7 @@ export interface AddListenerCertificatesCommandOutput extends AddListenerCertifi
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class AddListenerCertificatesCommand extends $Command
@@ -94,9 +96,7 @@ export class AddListenerCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class AddListenerCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddListenerCertificatesCommand)
   .de(de_AddListenerCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddListenerCertificatesInput;
+      output: AddListenerCertificatesOutput;
+    };
+    sdk: {
+      input: AddListenerCertificatesCommandInput;
+      output: AddListenerCertificatesCommandOutput;
+    };
+  };
+}

@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { GreetingWithErrorsInput, GreetingWithErrorsOutput } from "../models/models_0";
 import { de_GreetingWithErrorsCommand, se_GreetingWithErrorsCommand } from "../protocols/Aws_json1_0";
@@ -10,7 +12,8 @@ import { de_GreetingWithErrorsCommand, se_GreetingWithErrorsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,15 +62,16 @@ export interface GreetingWithErrorsCommandOutput extends GreetingWithErrorsOutpu
  * @throws {@link InvalidGreeting} (client fault)
  *  This error is thrown when an invalid greeting value is provided.
  *
+ * @throws {@link ComplexError} (client fault)
+ *  This error is thrown when a request is invalid.
+ *
  * @throws {@link FooError} (server fault)
  *  This error has test cases that test some of the dark corners of Amazon service
  * framework history. It should only be implemented by clients.
  *
- * @throws {@link ComplexError} (client fault)
- *  This error is thrown when a request is invalid.
- *
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
+ *
  *
  * @public
  */
@@ -79,12 +83,28 @@ export class GreetingWithErrorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("JsonRpc10", "GreetingWithErrors", {})
   .n("JSONRPC10Client", "GreetingWithErrorsCommand")
   .f(void 0, void 0)
   .ser(se_GreetingWithErrorsCommand)
   .de(de_GreetingWithErrorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GreetingWithErrorsInput;
+      output: GreetingWithErrorsOutput;
+    };
+    sdk: {
+      input: GreetingWithErrorsCommandInput;
+      output: GreetingWithErrorsCommandOutput;
+    };
+  };
+}

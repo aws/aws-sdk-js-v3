@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { FSxClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../FSxClient";
-import { CreateVolumeRequest, CreateVolumeResponse, CreateVolumeResponseFilterSensitiveLog } from "../models/models_0";
+import { CreateVolumeRequest } from "../models/models_0";
+import { CreateVolumeResponse, CreateVolumeResponseFilterSensitiveLog } from "../models/models_1";
 import { de_CreateVolumeCommand, se_CreateVolumeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -194,10 +196,10 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
- * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
+ * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
  * //         TargetFileSystemValues: { // FileSystem
  * //           OwnerId: "STRING_VALUE",
  * //           CreationTime: new Date("TIMESTAMP"),
@@ -208,7 +210,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //             Message: "STRING_VALUE",
  * //           },
  * //           StorageCapacity: Number("int"),
- * //           StorageType: "SSD" || "HDD",
+ * //           StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //           VpcId: "STRING_VALUE",
  * //           SubnetIds: [ // SubnetIds
  * //             "STRING_VALUE",
@@ -294,13 +296,23 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //             },
+ * //             EfaEnabled: true || false,
+ * //             ThroughputCapacity: Number("int"),
+ * //             DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
- * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
+ * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
  * //               TargetFileSystemValues: {
  * //                 OwnerId: "STRING_VALUE",
  * //                 CreationTime: new Date("TIMESTAMP"),
@@ -311,7 +323,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //                   Message: "STRING_VALUE",
  * //                 },
  * //                 StorageCapacity: Number("int"),
- * //                 StorageType: "SSD" || "HDD",
+ * //                 StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //                 VpcId: "STRING_VALUE",
  * //                 SubnetIds: [
  * //                   "STRING_VALUE",
@@ -392,12 +404,22 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //                       "STRING_VALUE",
  * //                     ],
  * //                   },
+ * //                   MetadataConfiguration: {
+ * //                     Iops: Number("int"),
+ * //                     Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //                   },
+ * //                   EfaEnabled: true || false,
+ * //                   ThroughputCapacity: Number("int"),
+ * //                   DataReadCacheConfiguration: {
+ * //                     SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //                     SizeGiB: Number("int"),
+ * //                   },
  * //                 },
  * //                 AdministrativeActions: "<AdministrativeActions>",
  * //                 OntapConfiguration: { // OntapFileSystemConfiguration
  * //                   AutomaticBackupRetentionDays: Number("int"),
  * //                   DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //                   DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //                   DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
  * //                   EndpointIpAddressRange: "STRING_VALUE",
  * //                   Endpoints: { // FileSystemEndpoints
  * //                     Intercluster: { // FileSystemEndpoint
@@ -433,7 +455,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //                   CopyTagsToBackups: true || false,
  * //                   CopyTagsToVolumes: true || false,
  * //                   DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //                   DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
+ * //                   DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1",
  * //                   ThroughputCapacity: Number("int"),
  * //                   WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //                   DiskIopsConfiguration: {
@@ -447,6 +469,10 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //                     "STRING_VALUE",
  * //                   ],
  * //                   EndpointIpAddress: "STRING_VALUE",
+ * //                   ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ * //                     SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //                     SizeGiB: Number("int"),
+ * //                   },
  * //                 },
  * //               },
  * //               FailureDetails: { // AdministrativeActionFailureDetails
@@ -572,7 +598,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //           OntapConfiguration: {
  * //             AutomaticBackupRetentionDays: Number("int"),
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
  * //             EndpointIpAddressRange: "STRING_VALUE",
  * //             Endpoints: {
  * //               Intercluster: {
@@ -608,7 +634,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //             CopyTagsToBackups: true || false,
  * //             CopyTagsToVolumes: true || false,
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
+ * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1",
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //             DiskIopsConfiguration: "<DiskIopsConfiguration>",
@@ -619,6 +645,10 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  * //               "STRING_VALUE",
  * //             ],
  * //             EndpointIpAddress: "STRING_VALUE",
+ * //             ReadCacheConfiguration: {
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //         },
  * //         FailureDetails: {
@@ -710,7 +740,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *             some service limits by contacting Amazon Web ServicesSupport.</p>
  *
  * @throws {@link StorageVirtualMachineNotFound} (client fault)
  *  <p>No FSx for ONTAP SVMs were found based upon the supplied parameters.</p>
@@ -720,6 +750,7 @@ export interface CreateVolumeCommandOutput extends CreateVolumeResponse, __Metad
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
+ *
  *
  * @public
  */
@@ -731,9 +762,7 @@ export class CreateVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -745,4 +774,16 @@ export class CreateVolumeCommand extends $Command
   .f(void 0, CreateVolumeResponseFilterSensitiveLog)
   .ser(se_CreateVolumeCommand)
   .de(de_CreateVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVolumeRequest;
+      output: CreateVolumeResponse;
+    };
+    sdk: {
+      input: CreateVolumeCommandInput;
+      output: CreateVolumeCommandOutput;
+    };
+  };
+}

@@ -10,7 +10,7 @@ import { KinesisVideoServiceException as __BaseException } from "./KinesisVideoS
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -33,7 +33,7 @@ export class AccessDeniedException extends __BaseException {
 export class AccountChannelLimitExceededException extends __BaseException {
   readonly name: "AccountChannelLimitExceededException" = "AccountChannelLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -55,7 +55,7 @@ export class AccountChannelLimitExceededException extends __BaseException {
 export class AccountStreamLimitExceededException extends __BaseException {
   readonly name: "AccountStreamLimitExceededException" = "AccountStreamLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -131,7 +131,7 @@ export interface SingleMasterConfiguration {
    *             discarded.</p>
    * @public
    */
-  MessageTtlSeconds?: number;
+  MessageTtlSeconds?: number | undefined;
 }
 
 /**
@@ -143,44 +143,44 @@ export interface ChannelInfo {
    * <p>The name of the signaling channel.</p>
    * @public
    */
-  ChannelName?: string;
+  ChannelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
    * @public
    */
-  ChannelARN?: string;
+  ChannelARN?: string | undefined;
 
   /**
    * <p>The type of the signaling channel.</p>
    * @public
    */
-  ChannelType?: ChannelType;
+  ChannelType?: ChannelType | undefined;
 
   /**
    * <p>Current status of the signaling channel.</p>
    * @public
    */
-  ChannelStatus?: Status;
+  ChannelStatus?: Status | undefined;
 
   /**
    * <p>The time at which the signaling channel was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>A structure that contains the configuration for the <code>SINGLE_MASTER</code> channel
    *             type.</p>
    * @public
    */
-  SingleMasterConfiguration?: SingleMasterConfiguration;
+  SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
 
   /**
    * <p>The current version of the signaling channel.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 }
 
 /**
@@ -209,13 +209,13 @@ export interface ChannelNameCondition {
    *             operator, which finds signaling channels whose names begin with a given prefix.</p>
    * @public
    */
-  ComparisonOperator?: ComparisonOperator;
+  ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
    * <p>A value to compare.</p>
    * @public
    */
-  ComparisonValue?: string;
+  ComparisonValue?: string | undefined;
 }
 
 /**
@@ -255,7 +255,7 @@ export type ChannelRole = (typeof ChannelRole)[keyof typeof ChannelRole];
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -317,20 +317,20 @@ export interface CreateSignalingChannelInput {
    *                 <code>SINGLE_MASTER</code> is the only supported channel type. </p>
    * @public
    */
-  ChannelType?: ChannelType;
+  ChannelType?: ChannelType | undefined;
 
   /**
    * <p>A structure containing the configuration for the <code>SINGLE_MASTER</code> channel
    *             type. </p>
    * @public
    */
-  SingleMasterConfiguration?: SingleMasterConfiguration;
+  SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
 
   /**
    * <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -341,7 +341,7 @@ export interface CreateSignalingChannelOutput {
    * <p>The Amazon Resource Name (ARN) of the created channel.</p>
    * @public
    */
-  ChannelARN?: string;
+  ChannelARN?: string | undefined;
 }
 
 /**
@@ -351,7 +351,7 @@ export interface CreateSignalingChannelOutput {
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -390,7 +390,7 @@ export class InvalidArgumentException extends __BaseException {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -413,7 +413,7 @@ export class ResourceInUseException extends __BaseException {
 export class TagsPerResourceExceededLimitException extends __BaseException {
   readonly name: "TagsPerResourceExceededLimitException" = "TagsPerResourceExceededLimitException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -440,7 +440,7 @@ export interface CreateStreamInput {
    *          </note>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>A name for the stream that you are creating.</p>
@@ -460,7 +460,7 @@ export interface CreateStreamInput {
    *             JSON).</p>
    * @public
    */
-  MediaType?: string;
+  MediaType?: string | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key that you want Kinesis Video
@@ -470,7 +470,7 @@ export interface CreateStreamInput {
    *          <p> For more information, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">DescribeKey</a>. </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The number of hours that you want to retain the data in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream.</p>
@@ -481,14 +481,14 @@ export interface CreateStreamInput {
    *             buffer when either limit is reached.</p>
    * @public
    */
-  DataRetentionInHours?: number;
+  DataRetentionInHours?: number | undefined;
 
   /**
    * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
    *             (the value is optional).</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -499,7 +499,7 @@ export interface CreateStreamOutput {
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -510,7 +510,7 @@ export interface CreateStreamOutput {
 export class DeviceStreamLimitExceededException extends __BaseException {
   readonly name: "DeviceStreamLimitExceededException" = "DeviceStreamLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -532,7 +532,7 @@ export class DeviceStreamLimitExceededException extends __BaseException {
 export class InvalidDeviceException extends __BaseException {
   readonly name: "InvalidDeviceException" = "InvalidDeviceException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -555,13 +555,13 @@ export interface DeleteEdgeConfigurationInput {
    * <p>The name of the stream from which to delete the edge configuration. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -576,7 +576,7 @@ export interface DeleteEdgeConfigurationOutput {}
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -599,7 +599,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class StreamEdgeConfigurationNotFoundException extends __BaseException {
   readonly name: "StreamEdgeConfigurationNotFoundException" = "StreamEdgeConfigurationNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -631,7 +631,7 @@ export interface DeleteSignalingChannelInput {
    *                 <code>ListSignalingChannels</code> API operations.</p>
    * @public
    */
-  CurrentVersion?: string;
+  CurrentVersion?: string | undefined;
 }
 
 /**
@@ -648,7 +648,7 @@ export interface DeleteSignalingChannelOutput {}
 export class VersionMismatchException extends __BaseException {
   readonly name: "VersionMismatchException" = "VersionMismatchException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -681,7 +681,7 @@ export interface DeleteStreamInput {
    *             stream.</p>
    * @public
    */
-  CurrentVersion?: string;
+  CurrentVersion?: string | undefined;
 }
 
 /**
@@ -696,7 +696,7 @@ export interface DeleteStreamOutput {}
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -737,13 +737,13 @@ export interface LocalSizeConfig {
    * <p>The overall maximum size of the media that you want to store for a stream on the Edge Agent. </p>
    * @public
    */
-  MaxLocalMediaSizeInMB?: number;
+  MaxLocalMediaSizeInMB?: number | undefined;
 
   /**
    * <p>The strategy to perform when a stream’s <code>MaxLocalMediaSizeInMB</code> limit is reached.</p>
    * @public
    */
-  StrategyOnFullSize?: StrategyOnFullSize;
+  StrategyOnFullSize?: StrategyOnFullSize | undefined;
 }
 
 /**
@@ -756,13 +756,13 @@ export interface DeletionConfig {
    *             time is 720 hours, which translates to 30 days.</p>
    * @public
    */
-  EdgeRetentionInHours?: number;
+  EdgeRetentionInHours?: number | undefined;
 
   /**
    * <p>The value of the local size required in order to delete the edge configuration.</p>
    * @public
    */
-  LocalSizeConfig?: LocalSizeConfig;
+  LocalSizeConfig?: LocalSizeConfig | undefined;
 
   /**
    * <p>The <code>boolean</code> value used to indicate whether or not you want to mark the media for deletion, once it has been uploaded to
@@ -774,7 +774,7 @@ export interface DeletionConfig {
    *             that the media files are not being deleted before they are initially uploaded to the  Amazon Web Services cloud.</p>
    * @public
    */
-  DeleteAfterUpload?: boolean;
+  DeleteAfterUpload?: boolean | undefined;
 }
 
 /**
@@ -787,13 +787,13 @@ export interface DescribeEdgeConfigurationInput {
    *         </p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream. Specify either the <code>StreamName</code>or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -820,25 +820,25 @@ export interface LastRecorderStatus {
    * <p>A description of a recorder job’s latest status.</p>
    * @public
    */
-  JobStatusDetails?: string;
+  JobStatusDetails?: string | undefined;
 
   /**
    * <p>The timestamp at which the recorder job was last executed and media stored to local disk.</p>
    * @public
    */
-  LastCollectedTime?: Date;
+  LastCollectedTime?: Date | undefined;
 
   /**
    * <p>The timestamp at which the recorder status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The status of the latest recorder job.</p>
    * @public
    */
-  RecorderStatus?: RecorderStatus;
+  RecorderStatus?: RecorderStatus | undefined;
 }
 
 /**
@@ -865,25 +865,25 @@ export interface LastUploaderStatus {
    * <p>A description of an uploader job’s latest status.</p>
    * @public
    */
-  JobStatusDetails?: string;
+  JobStatusDetails?: string | undefined;
 
   /**
    * <p>The timestamp at which the uploader job was last executed and media collected to the cloud.</p>
    * @public
    */
-  LastCollectedTime?: Date;
+  LastCollectedTime?: Date | undefined;
 
   /**
    * <p>The timestamp at which the uploader status was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The status of the latest uploader job.</p>
    * @public
    */
-  UploaderStatus?: UploaderStatus;
+  UploaderStatus?: UploaderStatus | undefined;
 }
 
 /**
@@ -895,13 +895,13 @@ export interface EdgeAgentStatus {
    * <p>The latest status of a stream’s edge recording job.</p>
    * @public
    */
-  LastRecorderStatus?: LastRecorderStatus;
+  LastRecorderStatus?: LastRecorderStatus | undefined;
 
   /**
    * <p>The latest status of a stream’s edge to cloud uploader job.</p>
    * @public
    */
-  LastUploaderStatus?: LastUploaderStatus;
+  LastUploaderStatus?: LastUploaderStatus | undefined;
 }
 
 /**
@@ -995,7 +995,7 @@ export interface RecorderConfig {
    *         then the Edge Agent will always be set to recording mode.</p>
    * @public
    */
-  ScheduleConfig?: ScheduleConfig;
+  ScheduleConfig?: ScheduleConfig | undefined;
 }
 
 /**
@@ -1042,14 +1042,14 @@ export interface EdgeConfig {
    *             schedule upload jobs for the recorded media files from the Edge Agent to a Kinesis Video Stream.</p>
    * @public
    */
-  UploaderConfig?: UploaderConfig;
+  UploaderConfig?: UploaderConfig | undefined;
 
   /**
    * <p>The deletion configuration is made up of the retention time (<code>EdgeRetentionInHours</code>) and local size configuration
    *         (<code>LocalSizeConfig</code>) details that are used to make the deletion.</p>
    * @public
    */
-  DeletionConfig?: DeletionConfig;
+  DeletionConfig?: DeletionConfig | undefined;
 }
 
 /**
@@ -1079,37 +1079,37 @@ export interface DescribeEdgeConfigurationOutput {
    * <p>The name of the stream from which the edge configuration was updated.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The timestamp at which a stream’s edge configuration was first created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The timestamp at which a stream’s edge configuration was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The latest status of the edge configuration update.</p>
    * @public
    */
-  SyncStatus?: SyncStatus;
+  SyncStatus?: SyncStatus | undefined;
 
   /**
    * <p>A description of the generated failure status.</p>
    * @public
    */
-  FailedStatusDetails?: string;
+  FailedStatusDetails?: string | undefined;
 
   /**
    * <p>A description of the stream's edge configuration that will be used to sync
@@ -1117,13 +1117,13 @@ export interface DescribeEdgeConfigurationOutput {
    *             on an IoT Hub Device setup at your premise.</p>
    * @public
    */
-  EdgeConfig?: EdgeConfig;
+  EdgeConfig?: EdgeConfig | undefined;
 
   /**
    * <p>An object that contains the latest status details for an edge agent's recorder and uploader jobs. Use this information to determine the current health of an edge agent.</p>
    * @public
    */
-  EdgeAgentStatus?: EdgeAgentStatus;
+  EdgeAgentStatus?: EdgeAgentStatus | undefined;
 }
 
 /**
@@ -1134,13 +1134,13 @@ export interface DescribeImageGenerationConfigurationInput {
    * <p>The name of the stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.  </p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from which to retrieve the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1246,7 +1246,7 @@ export interface ImageGenerationConfiguration {
    *             key will be set to 80.</p>
    * @public
    */
-  FormatConfig?: Partial<Record<FormatConfigKey, string>>;
+  FormatConfig?: Partial<Record<FormatConfigKey, string>> | undefined;
 
   /**
    * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and
@@ -1254,7 +1254,7 @@ export interface ImageGenerationConfiguration {
    *             provided, its original aspect ratio will be used to calculate the <code>HeightPixels</code> ratio. If neither parameter is provided, the original image size will be returned.</p>
    * @public
    */
-  WidthPixels?: number;
+  WidthPixels?: number | undefined;
 
   /**
    * <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both
@@ -1263,7 +1263,7 @@ export interface ImageGenerationConfiguration {
    *             If neither parameter is provided, the original image size will be returned.</p>
    * @public
    */
-  HeightPixels?: number;
+  HeightPixels?: number | undefined;
 }
 
 /**
@@ -1274,7 +1274,7 @@ export interface DescribeImageGenerationConfigurationOutput {
    * <p>The structure that contains the information required for the Kinesis video stream (KVS) images delivery. If this structure is null, the configuration will be deleted from the stream.</p>
    * @public
    */
-  ImageGenerationConfiguration?: ImageGenerationConfiguration;
+  ImageGenerationConfiguration?: ImageGenerationConfiguration | undefined;
 }
 
 /**
@@ -1285,25 +1285,25 @@ export interface DescribeMappedResourceConfigurationInput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to provide in your next request, to get another batch of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1315,13 +1315,13 @@ export interface MappedResourceConfigurationListItem {
    * <p>The type of the associated resource for the kinesis video stream.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Kinesis Video Stream resource, associated with the stream.</p>
    * @public
    */
-  ARN?: string;
+  ARN?: string | undefined;
 }
 
 /**
@@ -1332,13 +1332,13 @@ export interface DescribeMappedResourceConfigurationOutput {
    * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
    * @public
    */
-  MappedResourceConfigurationList?: MappedResourceConfigurationListItem[];
+  MappedResourceConfigurationList?: MappedResourceConfigurationListItem[] | undefined;
 
   /**
    * <p>The token that was used in the <code>NextToken</code>request to fetch the next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1349,13 +1349,13 @@ export interface DescribeMediaStorageConfigurationInput {
    * <p>The name of the channel.</p>
    * @public
    */
-  ChannelName?: string;
+  ChannelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the channel.</p>
    * @public
    */
-  ChannelARN?: string;
+  ChannelARN?: string | undefined;
 }
 
 /**
@@ -1394,7 +1394,7 @@ export interface MediaStorageConfiguration {
    * <p>The Amazon Resource Name (ARN) of the stream. </p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The status of the media storage configuration.</p>
@@ -1411,7 +1411,7 @@ export interface DescribeMediaStorageConfigurationOutput {
    * <p>A structure that encapsulates, or contains, the media storage configuration properties.</p>
    * @public
    */
-  MediaStorageConfiguration?: MediaStorageConfiguration;
+  MediaStorageConfiguration?: MediaStorageConfiguration | undefined;
 }
 
 /**
@@ -1422,13 +1422,13 @@ export interface DescribeNotificationConfigurationInput {
    * <p>The name of the stream from which to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to retrieve the notification configuration. You must specify either the <code>StreamName</code> or the StreamARN.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1469,7 +1469,7 @@ export interface DescribeNotificationConfigurationOutput {
    * <p>The structure that contains the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
    * @public
    */
-  NotificationConfiguration?: NotificationConfiguration;
+  NotificationConfiguration?: NotificationConfiguration | undefined;
 }
 
 /**
@@ -1480,13 +1480,13 @@ export interface DescribeSignalingChannelInput {
    * <p>The name of the signaling channel that you want to describe.</p>
    * @public
    */
-  ChannelName?: string;
+  ChannelName?: string | undefined;
 
   /**
    * <p>The ARN of the signaling channel that you want to describe.</p>
    * @public
    */
-  ChannelARN?: string;
+  ChannelARN?: string | undefined;
 }
 
 /**
@@ -1498,7 +1498,7 @@ export interface DescribeSignalingChannelOutput {
    *             properties.</p>
    * @public
    */
-  ChannelInfo?: ChannelInfo;
+  ChannelInfo?: ChannelInfo | undefined;
 }
 
 /**
@@ -1509,13 +1509,13 @@ export interface DescribeStreamInput {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 }
 
 /**
@@ -1527,56 +1527,56 @@ export interface StreamInfo {
    * <p>The name of the device that is associated with the stream.</p>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The <code>MediaType</code> of the stream. </p>
    * @public
    */
-  MediaType?: string;
+  MediaType?: string | undefined;
 
   /**
    * <p>The ID of the Key Management Service (KMS) key that Kinesis Video Streams
    *             uses to encrypt data on the stream.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The version of the stream.</p>
    * @public
    */
-  Version?: string;
+  Version?: string | undefined;
 
   /**
    * <p>The status of the stream.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>A time stamp that indicates when the stream was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>How long the stream retains data, in hours.</p>
    * @public
    */
-  DataRetentionInHours?: number;
+  DataRetentionInHours?: number | undefined;
 }
 
 /**
@@ -1587,7 +1587,7 @@ export interface DescribeStreamOutput {
    * <p>An object that describes the stream.</p>
    * @public
    */
-  StreamInfo?: StreamInfo;
+  StreamInfo?: StreamInfo | undefined;
 }
 
 /**
@@ -1599,7 +1599,7 @@ export interface GetDataEndpointInput {
    *             either this parameter or a <code>StreamARN</code> in the request.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to get the endpoint for.
@@ -1607,7 +1607,7 @@ export interface GetDataEndpointInput {
    *         </p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The name of the API action for which to get an endpoint.</p>
@@ -1625,7 +1625,7 @@ export interface GetDataEndpointOutput {
    *             this endpoint in your application.</p>
    * @public
    */
-  DataEndpoint?: string;
+  DataEndpoint?: string | undefined;
 }
 
 /**
@@ -1641,7 +1641,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             an <code>HTTPS</code> endpoint.</p>
    * @public
    */
-  Protocols?: ChannelProtocol[];
+  Protocols?: ChannelProtocol[] | undefined;
 
   /**
    * <p>This property is used to determine messaging permissions in this
@@ -1652,7 +1652,7 @@ export interface SingleMasterChannelEndpointConfiguration {
    *             another <code>MASTER</code> client on this signaling channel. </p>
    * @public
    */
-  Role?: ChannelRole;
+  Role?: ChannelRole | undefined;
 }
 
 /**
@@ -1671,7 +1671,7 @@ export interface GetSignalingChannelEndpointInput {
    *             channel type.</p>
    * @public
    */
-  SingleMasterChannelEndpointConfiguration?: SingleMasterChannelEndpointConfiguration;
+  SingleMasterChannelEndpointConfiguration?: SingleMasterChannelEndpointConfiguration | undefined;
 }
 
 /**
@@ -1686,14 +1686,14 @@ export interface ResourceEndpointListItem {
    *                 <code>GetSignalingChannelEndpoint</code> API.</p>
    * @public
    */
-  Protocol?: ChannelProtocol;
+  Protocol?: ChannelProtocol | undefined;
 
   /**
    * <p>The endpoint of the signaling channel returned by the
    *                 <code>GetSignalingChannelEndpoint</code> API.</p>
    * @public
    */
-  ResourceEndpoint?: string;
+  ResourceEndpoint?: string | undefined;
 }
 
 /**
@@ -1704,7 +1704,7 @@ export interface GetSignalingChannelEndpointOutput {
    * <p>A list of endpoints for the specified signaling channel.</p>
    * @public
    */
-  ResourceEndpointList?: ResourceEndpointListItem[];
+  ResourceEndpointList?: ResourceEndpointListItem[] | undefined;
 }
 
 /**
@@ -1714,7 +1714,7 @@ export interface GetSignalingChannelEndpointOutput {
 export class InvalidResourceFormatException extends __BaseException {
   readonly name: "InvalidResourceFormatException" = "InvalidResourceFormatException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1743,14 +1743,14 @@ export interface ListEdgeAgentConfigurationsInput {
    * <p>The maximum number of edge configurations to return in the response. The default is 5.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If you specify this parameter, when the result of a <code>ListEdgeAgentConfigurations</code> operation is truncated, the call returns the <code>NextToken</code> in the response. To get another batch of edge configurations, provide this token in your next request.
    *         </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1762,37 +1762,37 @@ export interface ListEdgeAgentConfigurationsEdgeConfig {
    * <p>The name of the stream.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The timestamp when the stream first created the edge config.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The timestamp when the stream last updated the edge config.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The current sync status of the stream's edge configuration.</p>
    * @public
    */
-  SyncStatus?: SyncStatus;
+  SyncStatus?: SyncStatus | undefined;
 
   /**
    * <p>A description of the generated failure status.</p>
    * @public
    */
-  FailedStatusDetails?: string;
+  FailedStatusDetails?: string | undefined;
 
   /**
    * <p>A description of the stream's edge configuration that will be used to sync
@@ -1800,7 +1800,7 @@ export interface ListEdgeAgentConfigurationsEdgeConfig {
    *             on an IoT Hub Device setup at your premise.</p>
    * @public
    */
-  EdgeConfig?: EdgeConfig;
+  EdgeConfig?: EdgeConfig | undefined;
 }
 
 /**
@@ -1811,13 +1811,13 @@ export interface ListEdgeAgentConfigurationsOutput {
    * <p>A description of a single stream's edge configuration.</p>
    * @public
    */
-  EdgeConfigs?: ListEdgeAgentConfigurationsEdgeConfig[];
+  EdgeConfigs?: ListEdgeAgentConfigurationsEdgeConfig[] | undefined;
 
   /**
    * <p>If the response is truncated, the call returns this element with a given token. To get the next batch of edge configurations, use this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1828,7 +1828,7 @@ export interface ListSignalingChannelsInput {
    * <p>The maximum number of channels to return in the response. The default is 500.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If you specify this parameter, when the result of a <code>ListSignalingChannels</code>
@@ -1836,13 +1836,13 @@ export interface ListSignalingChannelsInput {
    *             get another batch of channels, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Optional: Returns only the channels that satisfy a specific condition.</p>
    * @public
    */
-  ChannelNameCondition?: ChannelNameCondition;
+  ChannelNameCondition?: ChannelNameCondition | undefined;
 }
 
 /**
@@ -1853,14 +1853,14 @@ export interface ListSignalingChannelsOutput {
    * <p>An array of <code>ChannelInfo</code> objects.</p>
    * @public
    */
-  ChannelInfoList?: ChannelInfo[];
+  ChannelInfoList?: ChannelInfo[] | undefined;
 
   /**
    * <p>If the response is truncated, the call returns this element with a token. To get the
    *             next batch of streams, use this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1876,13 +1876,13 @@ export interface StreamNameCondition {
    *             operator, which finds streams whose names start with a given prefix.</p>
    * @public
    */
-  ComparisonOperator?: ComparisonOperator;
+  ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
    * <p>A value to compare.</p>
    * @public
    */
-  ComparisonValue?: string;
+  ComparisonValue?: string | undefined;
 }
 
 /**
@@ -1894,7 +1894,7 @@ export interface ListStreamsInput {
    *             10,000.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>If you specify this parameter, when the result of a <code>ListStreams</code>
@@ -1902,14 +1902,14 @@ export interface ListStreamsInput {
    *             get another batch of streams, provide this token in your next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Optional: Returns only streams that satisfy a specific condition. Currently, you
    *             can specify only the prefix of a stream name as a condition. </p>
    * @public
    */
-  StreamNameCondition?: StreamNameCondition;
+  StreamNameCondition?: StreamNameCondition | undefined;
 }
 
 /**
@@ -1920,14 +1920,14 @@ export interface ListStreamsOutput {
    * <p>An array of <code>StreamInfo</code> objects.</p>
    * @public
    */
-  StreamInfoList?: StreamInfo[];
+  StreamInfoList?: StreamInfo[] | undefined;
 
   /**
    * <p>If the response is truncated, the call returns this element with a token. To get
    *             the next batch of streams, use this token in your next request. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1940,7 +1940,7 @@ export interface ListTagsForResourceInput {
    *             fetch the next batch of tags. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list
@@ -1960,13 +1960,13 @@ export interface ListTagsForResourceOutput {
    *             fetch the next set of tags. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A map of tag keys and values associated with the specified signaling channel.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1979,20 +1979,20 @@ export interface ListTagsForStreamInput {
    *             fetch the next batch of tags.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream that you want to list tags
    *             for.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The name of the stream that you want to list tags for.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 }
 
 /**
@@ -2005,13 +2005,13 @@ export interface ListTagsForStreamOutput {
    *             the next set of tags.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A map of tag keys and values associated with the specified stream.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2021,7 +2021,7 @@ export interface ListTagsForStreamOutput {
 export class NoDataRetentionException extends __BaseException {
   readonly name: "NoDataRetentionException" = "NoDataRetentionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2045,14 +2045,14 @@ export interface StartEdgeConfigurationUpdateInput {
    *             or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the stream. Specify either the
    *             <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The edge configuration details required to invoke the update process.</p>
@@ -2069,25 +2069,25 @@ export interface StartEdgeConfigurationUpdateOutput {
    * <p>The name of the stream from which the edge configuration was updated.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The timestamp at which a stream’s edge configuration was first created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The timestamp at which a stream’s edge configuration was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p> The current sync status of the stream's edge configuration. When you invoke this API, the sync
@@ -2095,13 +2095,13 @@ export interface StartEdgeConfigurationUpdateOutput {
    *             to get the latest status of the edge configuration.</p>
    * @public
    */
-  SyncStatus?: SyncStatus;
+  SyncStatus?: SyncStatus | undefined;
 
   /**
    * <p>A description of the generated failure status.</p>
    * @public
    */
-  FailedStatusDetails?: string;
+  FailedStatusDetails?: string | undefined;
 
   /**
    * <p>A description of the stream's edge configuration that will be used to sync
@@ -2109,7 +2109,7 @@ export interface StartEdgeConfigurationUpdateOutput {
    *             on an IoT Hub Device setup at your premise.</p>
    * @public
    */
-  EdgeConfig?: EdgeConfig;
+  EdgeConfig?: EdgeConfig | undefined;
 }
 
 /**
@@ -2145,13 +2145,13 @@ export interface TagStreamInput {
    *             to.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The name of the stream that you want to add the tag or tags to.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>A list of tags to associate with the specified stream. Each tag is a key-value pair
@@ -2198,13 +2198,13 @@ export interface UntagStreamInput {
    *             from.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The name of the stream that you want to remove tags from.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>A list of the keys of the tags that you want to remove.</p>
@@ -2241,14 +2241,14 @@ export interface UpdateDataRetentionInput {
    * <p>The name of the stream whose retention period you want to change.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream whose retention period you want to
    *             change.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The version of the stream whose retention period you want to change. To get the
@@ -2285,20 +2285,20 @@ export interface UpdateImageGenerationConfigurationInput {
    * <p>The name of the stream from which to update the image generation configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the image generation configuration. You must specify either the <code>StreamName</code>
    *             or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The structure that contains the information required for the KVS images delivery. If the structure is null, the configuration will be deleted from the stream.</p>
    * @public
    */
-  ImageGenerationConfiguration?: ImageGenerationConfiguration;
+  ImageGenerationConfiguration?: ImageGenerationConfiguration | undefined;
 }
 
 /**
@@ -2336,19 +2336,19 @@ export interface UpdateNotificationConfigurationInput {
    * <p>The name of the stream from which to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Kinesis video stream from where you want to update the notification configuration. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The structure containing the information required for notifications. If the structure is null, the configuration will be deleted from the stream.</p>
    * @public
    */
-  NotificationConfiguration?: NotificationConfiguration;
+  NotificationConfiguration?: NotificationConfiguration | undefined;
 }
 
 /**
@@ -2378,7 +2378,7 @@ export interface UpdateSignalingChannelInput {
    *             the signaling channel that you want to update. </p>
    * @public
    */
-  SingleMasterConfiguration?: SingleMasterConfiguration;
+  SingleMasterConfiguration?: SingleMasterConfiguration | undefined;
 }
 
 /**
@@ -2396,13 +2396,13 @@ export interface UpdateStreamInput {
    *             account and region.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The ARN of the stream whose metadata you want to update.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The version of the stream whose metadata you want to update.</p>
@@ -2418,7 +2418,7 @@ export interface UpdateStreamInput {
    *          </note>
    * @public
    */
-  DeviceName?: string;
+  DeviceName?: string | undefined;
 
   /**
    * <p>The stream's media type. Use <code>MediaType</code> to specify the type of content
@@ -2431,7 +2431,7 @@ export interface UpdateStreamInput {
    *                 <code>MediaType</code>.</p>
    * @public
    */
-  MediaType?: string;
+  MediaType?: string | undefined;
 }
 
 /**

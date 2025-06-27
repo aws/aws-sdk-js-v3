@@ -18,7 +18,7 @@ Reference</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appfabric
+To install this package, simply type add or install @aws-sdk/client-appfabric
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appfabric`

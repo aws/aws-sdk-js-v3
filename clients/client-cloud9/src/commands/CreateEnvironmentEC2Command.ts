@@ -16,7 +16,8 @@ import { de_CreateEnvironmentEC2Command, se_CreateEnvironmentEC2Command } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,6 +34,12 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
 /**
  * <p>Creates an Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and
  *       then connects from the instance to the environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,29 +102,29 @@ export interface CreateEnvironmentEC2CommandOutput extends CreateEnvironmentEC2R
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example CreateEnvironmentEC2
  * ```javascript
  * //
  * const input = {
- *   "name": "my-demo-environment",
- *   "automaticStopTimeMinutes": 60,
- *   "description": "This is my demonstration environment.",
- *   "imageId": "amazonlinux-2023-x86_64",
- *   "instanceType": "t2.micro",
- *   "ownerArn": "arn:aws:iam::123456789012:user/MyDemoUser",
- *   "subnetId": "subnet-6300cd1b"
+ *   automaticStopTimeMinutes: 60,
+ *   description: "This is my demonstration environment.",
+ *   imageId: "amazonlinux-2023-x86_64",
+ *   instanceType: "t2.micro",
+ *   name: "my-demo-environment",
+ *   ownerArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *   subnetId: "subnet-6300cd1b"
  * };
  * const command = new CreateEnvironmentEC2Command(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX"
  * }
  * *\/
- * // example id: createenvironmentec2-1516821730547
  * ```
  *
+ * @public
  */
 export class CreateEnvironmentEC2Command extends $Command
   .classBuilder<
@@ -127,9 +134,7 @@ export class CreateEnvironmentEC2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +146,16 @@ export class CreateEnvironmentEC2Command extends $Command
   .f(CreateEnvironmentEC2RequestFilterSensitiveLog, void 0)
   .ser(se_CreateEnvironmentEC2Command)
   .de(de_CreateEnvironmentEC2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentEC2Request;
+      output: CreateEnvironmentEC2Result;
+    };
+    sdk: {
+      input: CreateEnvironmentEC2CommandInput;
+      output: CreateEnvironmentEC2CommandOutput;
+    };
+  };
+}

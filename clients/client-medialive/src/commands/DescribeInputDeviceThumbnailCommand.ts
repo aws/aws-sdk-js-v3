@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,11 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * };
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.Body.transformToByteArray();
+ * // const str = await response.Body.transformToString();
+ * // response.Body.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // DescribeInputDeviceThumbnailResponse
  * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   ContentType: "image/jpeg",
@@ -91,6 +97,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeInputDeviceThumbnailCommand extends $Command
@@ -101,9 +108,7 @@ export class DescribeInputDeviceThumbnailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +120,16 @@ export class DescribeInputDeviceThumbnailCommand extends $Command
   .f(void 0, DescribeInputDeviceThumbnailResponseFilterSensitiveLog)
   .ser(se_DescribeInputDeviceThumbnailCommand)
   .de(de_DescribeInputDeviceThumbnailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInputDeviceThumbnailRequest;
+      output: DescribeInputDeviceThumbnailResponse;
+    };
+    sdk: {
+      input: DescribeInputDeviceThumbnailCommandInput;
+      output: DescribeInputDeviceThumbnailCommandOutput;
+    };
+  };
+}

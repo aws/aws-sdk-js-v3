@@ -12,7 +12,8 @@ import { de_ExecuteStatementCommand, se_ExecuteStatementCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,8 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *             items (if using the Limit parameter) or a maximum of 1 MB of data (and then apply any
  *             filtering to the results using <code>WHERE</code> clause). If
  *                 <code>LastEvaluatedKey</code> is present in the response, you need to paginate the
- *             result set. If <code>NextToken</code> is present, you need to paginate the result set and include
- *             <code>NextToken</code>.</p>
+ *             result set. If <code>NextToken</code> is present, you need to paginate the result set
+ *             and include <code>NextToken</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -189,7 +190,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ConditionalCheckFailedException} (client fault)
- *  <p>A condition specified in the operation could not be evaluated.</p>
+ *  <p>A condition specified in the operation failed to be evaluated.</p>
  *
  * @throws {@link DuplicateItemException} (client fault)
  *  <p> There was an attempt to insert an item with the same primary key as an item that
@@ -210,7 +211,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -224,6 +225,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ExecuteStatementCommand extends $Command
@@ -234,9 +236,7 @@ export class ExecuteStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -248,4 +248,16 @@ export class ExecuteStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteStatementCommand)
   .de(de_ExecuteStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteStatementInput;
+      output: ExecuteStatementOutput;
+    };
+    sdk: {
+      input: ExecuteStatementCommandInput;
+      output: ExecuteStatementCommandOutput;
+    };
+  };
+}

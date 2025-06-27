@@ -12,7 +12,8 @@ import { de_StartClusterCommand, se_StartClusterCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,45 @@ export interface StartClusterCommandOutput extends StartClusterOutput, __Metadat
  * @throws {@link DocDBElasticServiceException}
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
+ *
+ * @example Basic Start Cluster Example
+ * ```javascript
+ * // update applied
+ * const input = {
+ *   clusterArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster/$CLUSTER_ID"
+ * };
+ * const command = new StartClusterCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     adminUserName: "sampleAdminUser",
+ *     authType: "PLAIN_TEXT",
+ *     backupRetentionPeriod: 1,
+ *     clusterArn: "arn:aws:docdb-elastic:us-east-1:$AWS_ACCOUNT_ID:cluster/$CLUSTER_ID",
+ *     clusterEndpoint: "sampleClusterName.us-east-1.docdb-elastic.amazonaws.com",
+ *     clusterName: "sampleClusterName",
+ *     createTime: "2000-01-01T00:00:00.000Z",
+ *     kmsKeyId: "AWS_OWNED_KMS_KEY",
+ *     preferredBackupWindow: "01:00-01:30",
+ *     preferredMaintenanceWindow: "mon:00:00-mon:00:30",
+ *     shardCapacity: 2,
+ *     shardCount: 2,
+ *     shardInstanceCount: 1,
+ *     shards:     [],
+ *     status: "STARTING",
+ *     subnetIds: [
+ *       "subnetId1",
+ *       "subnetId2"
+ *     ],
+ *     vpcSecurityGroupIds: [
+ *       "vpcSgId1, vpcSgId2"
+ *     ]
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class StartClusterCommand extends $Command
@@ -107,9 +147,7 @@ export class StartClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBElasticClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +159,16 @@ export class StartClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartClusterCommand)
   .de(de_StartClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartClusterInput;
+      output: StartClusterOutput;
+    };
+    sdk: {
+      input: StartClusterCommandInput;
+      output: StartClusterCommandOutput;
+    };
+  };
+}

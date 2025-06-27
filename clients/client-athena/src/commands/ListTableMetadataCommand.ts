@@ -12,7 +12,8 @@ import { de_ListTableMetadataCommand, se_ListTableMetadataCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface ListTableMetadataCommandOutput extends ListTableMetadataOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListTableMetadataCommand extends $Command
@@ -110,9 +112,7 @@ export class ListTableMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class ListTableMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTableMetadataCommand)
   .de(de_ListTableMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTableMetadataInput;
+      output: ListTableMetadataOutput;
+    };
+    sdk: {
+      input: ListTableMetadataCommandInput;
+      output: ListTableMetadataCommandOutput;
+    };
+  };
+}

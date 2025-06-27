@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { XmlNode, XmlText } from "./";
 
 describe("package index", () => {

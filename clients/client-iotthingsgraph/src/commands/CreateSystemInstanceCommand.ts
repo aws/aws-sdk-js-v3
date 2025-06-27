@@ -12,7 +12,8 @@ import { de_CreateSystemInstanceCommand, se_CreateSystemInstanceCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class CreateSystemInstanceCommand extends $Command
@@ -116,9 +118,7 @@ export class CreateSystemInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class CreateSystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSystemInstanceCommand)
   .de(de_CreateSystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSystemInstanceRequest;
+      output: CreateSystemInstanceResponse;
+    };
+    sdk: {
+      input: CreateSystemInstanceCommandInput;
+      output: CreateSystemInstanceCommandOutput;
+    };
+  };
+}

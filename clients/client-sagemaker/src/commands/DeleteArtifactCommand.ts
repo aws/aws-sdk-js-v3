@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteArtifactCommandInput extends DeleteArtifactRequest {}
 export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be
- *         specified.</p>
+ * <p>Deletes an artifact. Either <code>ArtifactArn</code> or <code>Source</code> must be specified.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +67,7 @@ export interface DeleteArtifactCommandOutput extends DeleteArtifactResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteArtifactCommand extends $Command
@@ -77,9 +78,7 @@ export class DeleteArtifactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class DeleteArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteArtifactCommand)
   .de(de_DeleteArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteArtifactRequest;
+      output: DeleteArtifactResponse;
+    };
+    sdk: {
+      input: DeleteArtifactCommandInput;
+      output: DeleteArtifactCommandOutput;
+    };
+  };
+}

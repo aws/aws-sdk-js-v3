@@ -12,7 +12,8 @@ import { de_DisableKeyCommand, se_DisableKeyCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,13 +29,12 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Sets the state of a KMS key to disabled. This change temporarily prevents use of the KMS
- *       key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#cryptographic-operations">cryptographic operations</a>. </p>
- *          <p>For more information about how key state affects the use of a KMS key, see
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>
+ *       key for <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#cryptographic-operations">cryptographic operations</a>. </p>
+ *          <p>The KMS key that you use for this operation must be in a compatible key state. For more
+ *       information about how key state affects the use of a KMS key, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the
+ *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>.</p>
- *          <p>The KMS key that you use for this operation must be in a compatible key state. For
- * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *          <p>
@@ -44,7 +44,7 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  *          </p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,18 +105,21 @@ export interface DisableKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To disable a KMS key
  * ```javascript
  * // The following example disables the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new DisableKeyCommand(input);
- * await client.send(command);
- * // example id: to-disable-a-cmk-1478566583659
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableKeyCommand extends $Command
   .classBuilder<
@@ -126,9 +129,7 @@ export class DisableKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +141,16 @@ export class DisableKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableKeyCommand)
   .de(de_DisableKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableKeyCommandInput;
+      output: DisableKeyCommandOutput;
+    };
+  };
+}

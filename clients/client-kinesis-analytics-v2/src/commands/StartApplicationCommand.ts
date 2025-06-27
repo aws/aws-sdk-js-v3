@@ -16,7 +16,8 @@ import { de_StartApplicationCommand, se_StartApplicationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,7 +62,9 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * };
  * const command = new StartApplicationCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // StartApplicationResponse
+ * //   OperationId: "STRING_VALUE",
+ * // };
  *
  * ```
  *
@@ -89,6 +92,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class StartApplicationCommand extends $Command
@@ -99,9 +103,7 @@ export class StartApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class StartApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartApplicationCommand)
   .de(de_StartApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartApplicationRequest;
+      output: StartApplicationResponse;
+    };
+    sdk: {
+      input: StartApplicationCommandInput;
+      output: StartApplicationCommandOutput;
+    };
+  };
+}

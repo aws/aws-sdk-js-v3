@@ -12,7 +12,8 @@ import { de_DescribeParametersCommand, se_DescribeParametersCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersRespo
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class DescribeParametersCommand extends $Command
@@ -98,9 +100,7 @@ export class DescribeParametersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class DescribeParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeParametersCommand)
   .de(de_DescribeParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeParametersRequest;
+      output: DescribeParametersResponse;
+    };
+    sdk: {
+      input: DescribeParametersCommandInput;
+      output: DescribeParametersCommandOutput;
+    };
+  };
+}

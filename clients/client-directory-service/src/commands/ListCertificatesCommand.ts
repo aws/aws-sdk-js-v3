@@ -12,7 +12,8 @@ import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResult, __MetadataBearer {}
 
 /**
- * <p>For the specified directory, lists all the certificates registered for a secure LDAP or client certificate authentication.</p>
+ * <p>For the specified directory, lists all the certificates registered for a secure LDAP or
+ *       client certificate authentication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +85,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResult, _
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ListCertificatesCommand extends $Command
@@ -93,9 +96,7 @@ export class ListCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class ListCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCertificatesCommand)
   .de(de_ListCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCertificatesRequest;
+      output: ListCertificatesResult;
+    };
+    sdk: {
+      input: ListCertificatesCommandInput;
+      output: ListCertificatesCommandOutput;
+    };
+  };
+}

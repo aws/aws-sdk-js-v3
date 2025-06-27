@@ -2890,7 +2890,20 @@
           "inputToken": "PageToken",
           "outputToken": "NextPageToken",
           "items": "Presets"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListPresetsSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.elastictranscoder#ListPresetsRequest": {

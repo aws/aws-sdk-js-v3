@@ -12,7 +12,8 @@ import { de_GetRevealConfigurationCommand, se_GetRevealConfigurationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface GetRevealConfigurationCommandOutput extends GetRevealConfigurat
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class GetRevealConfigurationCommand extends $Command
@@ -82,9 +84,7 @@ export class GetRevealConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class GetRevealConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRevealConfigurationCommand)
   .de(de_GetRevealConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetRevealConfigurationResponse;
+    };
+    sdk: {
+      input: GetRevealConfigurationCommandInput;
+      output: GetRevealConfigurationCommandOutput;
+    };
+  };
+}

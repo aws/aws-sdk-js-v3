@@ -1,16 +1,26 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import type { SsoProfile } from "@aws-sdk/credential-provider-sso";
-import type { CredentialProviderOptions } from "@aws-sdk/types";
-import type { Profile } from "@smithy/types";
+import type { IniSection, Profile } from "@smithy/types";
+
+import type { FromIniInit } from "./fromIni";
 
 /**
  * @internal
  */
-export const resolveSsoCredentials = async (profile: string, options: CredentialProviderOptions = {}) => {
+export const resolveSsoCredentials = async (profile: string, profileData: IniSection, options: FromIniInit = {}) => {
   const { fromSSO } = await import("@aws-sdk/credential-provider-sso");
   return fromSSO({
     profile,
     logger: options.logger,
-  })();
+    parentClientConfig: options.parentClientConfig,
+    clientConfig: options.clientConfig,
+  })().then((creds) => {
+    if (profileData.sso_session) {
+      return setCredentialFeature(creds, "CREDENTIALS_PROFILE_SSO", "r");
+    } else {
+      return setCredentialFeature(creds, "CREDENTIALS_PROFILE_SSO_LEGACY", "t");
+    }
+  });
 };
 
 /**

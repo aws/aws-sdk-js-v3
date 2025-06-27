@@ -12,7 +12,8 @@ import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface ListCertificatesCommandInput extends ListCertificatesRequest {}
 export interface ListCertificatesCommandOutput extends ListCertificatesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of certificate ARNs and domain names. You can request that only
- *       certificates that match a specific status be listed. You can also filter by specific
- *       attributes of the certificate. Default filtering returns only <code>RSA_2048</code>
- *       certificates. For more information, see <a>Filters</a>.</p>
+ * <p>Retrieves a list of certificate ARNs and domain names. You can request that only certificates that match a specific status be listed. You can also filter by specific attributes of the certificate. Default filtering returns only <code>RSA_2048</code> certificates. For more information, see <a>Filters</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +49,8 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  *     keyTypes: [ // KeyAlgorithmList
  *       "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
  *     ],
+ *     exportOption: "ENABLED" || "DISABLED",
+ *     managedBy: "CLOUDFRONT",
  *   },
  *   NextToken: "STRING_VALUE",
  *   MaxItems: Number("int"),
@@ -78,6 +78,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * //       ExtendedKeyUsages: [ // ExtendedKeyUsageNames
  * //         "TLS_WEB_SERVER_AUTHENTICATION" || "TLS_WEB_CLIENT_AUTHENTICATION" || "CODE_SIGNING" || "EMAIL_PROTECTION" || "TIME_STAMPING" || "OCSP_SIGNING" || "IPSEC_END_SYSTEM" || "IPSEC_TUNNEL" || "IPSEC_USER" || "ANY" || "NONE" || "CUSTOM",
  * //       ],
+ * //       ExportOption: "ENABLED" || "DISABLED",
  * //       InUse: true || false,
  * //       Exported: true || false,
  * //       RenewalEligibility: "ELIGIBLE" || "INELIGIBLE",
@@ -87,6 +88,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * //       IssuedAt: new Date("TIMESTAMP"),
  * //       ImportedAt: new Date("TIMESTAMP"),
  * //       RevokedAt: new Date("TIMESTAMP"),
+ * //       ManagedBy: "CLOUDFRONT",
  * //     },
  * //   ],
  * // };
@@ -100,13 +102,14 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @see {@link ACMClientResolvedConfig | config} for ACMClient's `config` shape.
  *
  * @throws {@link InvalidArgsException} (client fault)
- *  <p>One or more of of request parameters specified is not valid.</p>
+ *  <p>One or more of request parameters specified is not valid.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The supplied input failed to satisfy constraints of an Amazon Web Services service.</p>
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
+ *
  *
  * @public
  */
@@ -118,9 +121,7 @@ export class ListCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +133,16 @@ export class ListCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCertificatesCommand)
   .de(de_ListCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCertificatesRequest;
+      output: ListCertificatesResponse;
+    };
+    sdk: {
+      input: ListCertificatesCommandInput;
+      output: ListCertificatesCommandOutput;
+    };
+  };
+}

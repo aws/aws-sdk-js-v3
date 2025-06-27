@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeImageRequest, DescribeImageResponse } from "../models/models_2";
+import { DescribeImageRequest, DescribeImageResponse } from "../models/models_3";
 import { de_DescribeImageCommand, se_DescribeImageCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DescribeImageCommandInput extends DescribeImageRequest {}
 export interface DescribeImageCommandOutput extends DescribeImageResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a SageMaker image.</p>
+ * <p>Describes a SageMaker AI image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,7 @@ export interface DescribeImageCommandOutput extends DescribeImageResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeImageCommand extends $Command
@@ -75,9 +77,7 @@ export class DescribeImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DescribeImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImageCommand)
   .de(de_DescribeImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImageRequest;
+      output: DescribeImageResponse;
+    };
+    sdk: {
+      input: DescribeImageCommandInput;
+      output: DescribeImageCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DeleteSubscriberCommand, se_DeleteSubscriberCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class DeleteSubscriberCommand extends $Command
@@ -97,9 +99,7 @@ export class DeleteSubscriberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class DeleteSubscriberCommand extends $Command
   .f(DeleteSubscriberRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteSubscriberCommand)
   .de(de_DeleteSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriberCommandInput;
+      output: DeleteSubscriberCommandOutput;
+    };
+  };
+}

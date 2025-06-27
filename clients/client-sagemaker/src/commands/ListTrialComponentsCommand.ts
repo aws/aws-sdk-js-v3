@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,26 +28,7 @@ export interface ListTrialComponentsCommandInput extends ListTrialComponentsRequ
 export interface ListTrialComponentsCommandOutput extends ListTrialComponentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the trial components in your account. You can sort the list by trial component name
- *       or creation time. You can filter the list to show only components that were created in a
- *       specific time range. You can also filter on one of the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>ExperimentName</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>SourceArn</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>TrialName</code>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Lists the trial components in your account. You can sort the list by trial component name or creation time. You can filter the list to show only components that were created in a specific time range. You can also filter on one of the following:</p> <ul> <li> <p> <code>ExperimentName</code> </p> </li> <li> <p> <code>SourceArn</code> </p> </li> <li> <p> <code>TrialName</code> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,6 +105,7 @@ export interface ListTrialComponentsCommandOutput extends ListTrialComponentsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListTrialComponentsCommand extends $Command
@@ -133,9 +116,7 @@ export class ListTrialComponentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +128,16 @@ export class ListTrialComponentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrialComponentsCommand)
   .de(de_ListTrialComponentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrialComponentsRequest;
+      output: ListTrialComponentsResponse;
+    };
+    sdk: {
+      input: ListTrialComponentsCommandInput;
+      output: ListTrialComponentsCommandOutput;
+    };
+  };
+}

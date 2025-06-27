@@ -12,7 +12,8 @@ import { de_ModifyReplicationGroupCommand, se_ModifyReplicationGroupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,11 @@ export interface ModifyReplicationGroupCommandInput extends ModifyReplicationGro
 export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Modifies the settings for a replication group. This is limited to Redis 7 and newer.</p>
+ * <p>Modifies the settings for a replication group. This is limited to Valkey and Redis OSS 7 and above.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/scaling-redis-cluster-mode-enabled.html">Scaling for Amazon ElastiCache for Redis (cluster mode enabled)</a> in
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/scaling-redis-cluster-mode-enabled.html">Scaling for Valkey or Redis OSS (cluster mode enabled)</a> in
  *                     the ElastiCache User Guide</p>
  *             </li>
  *             <li>
@@ -41,7 +42,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *             </li>
  *          </ul>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Valkey or Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +69,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *   CacheParameterGroupName: "STRING_VALUE",
  *   NotificationTopicStatus: "STRING_VALUE",
  *   ApplyImmediately: true || false,
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
  *   SnapshotRetentionLimit: Number("int"),
@@ -225,6 +227,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -249,7 +252,7 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -292,81 +295,81 @@ export interface ModifyReplicationGroupCommandOutput extends ModifyReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ModifyReplicationGroup
  * ```javascript
  * //
  * const input = {
- *   "ApplyImmediately": true,
- *   "ReplicationGroupDescription": "Modified replication group",
- *   "ReplicationGroupId": "my-redis-rg",
- *   "SnapshotRetentionLimit": 30,
- *   "SnapshottingClusterId": "my-redis-rg-001"
+ *   ApplyImmediately: true,
+ *   ReplicationGroupDescription: "Modified replication group",
+ *   ReplicationGroupId: "my-redis-rg",
+ *   SnapshotRetentionLimit: 30,
+ *   SnapshottingClusterId: "my-redis-rg-001"
  * };
  * const command = new ModifyReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "enabled",
- *     "Description": "Modified replication group",
- *     "MemberClusters": [
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "enabled",
+ *     Description: "Modified replication group",
+ *     MemberClusters: [
  *       "my-redis-rg-001",
  *       "my-redis-rg-002",
  *       "my-redis-rg-003"
  *     ],
- *     "NodeGroups": [
+ *     NodeGroups: [
  *       {
- *         "NodeGroupId": "0001",
- *         "NodeGroupMembers": [
+ *         NodeGroupId: "0001",
+ *         NodeGroupMembers: [
  *           {
- *             "CacheClusterId": "my-redis-rg-001",
- *             "CacheNodeId": "0001",
- *             "CurrentRole": "primary",
- *             "PreferredAvailabilityZone": "us-east-1b",
- *             "ReadEndpoint": {
- *               "Address": "my-redis-rg-001.abcdef.0001.use1.cache.amazonaws.com",
- *               "Port": 6379
+ *             CacheClusterId: "my-redis-rg-001",
+ *             CacheNodeId: "0001",
+ *             CurrentRole: "primary",
+ *             PreferredAvailabilityZone: "us-east-1b",
+ *             ReadEndpoint: {
+ *               Address: "my-redis-rg-001.abcdef.0001.use1.cache.amazonaws.com",
+ *               Port: 6379
  *             }
  *           },
  *           {
- *             "CacheClusterId": "my-redis-rg-002",
- *             "CacheNodeId": "0001",
- *             "CurrentRole": "replica",
- *             "PreferredAvailabilityZone": "us-east-1a",
- *             "ReadEndpoint": {
- *               "Address": "my-redis-rg-002.abcdef.0001.use1.cache.amazonaws.com",
- *               "Port": 6379
+ *             CacheClusterId: "my-redis-rg-002",
+ *             CacheNodeId: "0001",
+ *             CurrentRole: "replica",
+ *             PreferredAvailabilityZone: "us-east-1a",
+ *             ReadEndpoint: {
+ *               Address: "my-redis-rg-002.abcdef.0001.use1.cache.amazonaws.com",
+ *               Port: 6379
  *             }
  *           },
  *           {
- *             "CacheClusterId": "my-redis-rg-003",
- *             "CacheNodeId": "0001",
- *             "CurrentRole": "replica",
- *             "PreferredAvailabilityZone": "us-east-1c",
- *             "ReadEndpoint": {
- *               "Address": "my-redis-rg-003.abcdef.0001.use1.cache.amazonaws.com",
- *               "Port": 6379
+ *             CacheClusterId: "my-redis-rg-003",
+ *             CacheNodeId: "0001",
+ *             CurrentRole: "replica",
+ *             PreferredAvailabilityZone: "us-east-1c",
+ *             ReadEndpoint: {
+ *               Address: "my-redis-rg-003.abcdef.0001.use1.cache.amazonaws.com",
+ *               Port: 6379
  *             }
  *           }
  *         ],
- *         "PrimaryEndpoint": {
- *           "Address": "my-redis-rg.abcdef.ng.0001.use1.cache.amazonaws.com",
- *           "Port": 6379
+ *         PrimaryEndpoint: {
+ *           Address: "my-redis-rg.abcdef.ng.0001.use1.cache.amazonaws.com",
+ *           Port: 6379
  *         },
- *         "Status": "available"
+ *         Status: "available"
  *       }
  *     ],
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "my-redis-rg",
- *     "SnapshottingClusterId": "my-redis-rg-002",
- *     "Status": "available"
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "my-redis-rg",
+ *     SnapshottingClusterId: "my-redis-rg-002",
+ *     Status: "available"
  *   }
  * }
  * *\/
- * // example id: modifyreplicationgroup-1483039689581
  * ```
  *
+ * @public
  */
 export class ModifyReplicationGroupCommand extends $Command
   .classBuilder<
@@ -376,9 +379,7 @@ export class ModifyReplicationGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -390,4 +391,16 @@ export class ModifyReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationGroupCommand)
   .de(de_ModifyReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationGroupMessage;
+      output: ModifyReplicationGroupResult;
+    };
+    sdk: {
+      input: ModifyReplicationGroupCommandInput;
+      output: ModifyReplicationGroupCommandOutput;
+    };
+  };
+}

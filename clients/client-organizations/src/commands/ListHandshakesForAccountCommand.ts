@@ -16,7 +16,8 @@ import { de_ListHandshakesForAccountCommand, se_ListHandshakesForAccountCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -168,6 +169,10 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -208,6 +213,9 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -230,64 +238,64 @@ export interface ListHandshakesForAccountCommandOutput extends ListHandshakesFor
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of the handshakes sent to an account
  * ```javascript
  * // The following example shows you how to get a list of handshakes that are associated with the account of the credentials used to call the operation:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListHandshakesForAccountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshakes": [
+ *   Handshakes: [
  *     {
- *       "Action": "INVITE",
- *       "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *       "ExpirationTimestamp": "2017-01-28T14:35:23.3Z",
- *       "Id": "h-examplehandshakeid111",
- *       "Parties": [
+ *       Action: "INVITE",
+ *       Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *       ExpirationTimestamp: "2017-01-28T14:35:23.3Z",
+ *       Id: "h-examplehandshakeid111",
+ *       Parties: [
  *         {
- *           "Id": "o-exampleorgid",
- *           "Type": "ORGANIZATION"
+ *           Id: "o-exampleorgid",
+ *           Type: "ORGANIZATION"
  *         },
  *         {
- *           "Id": "juan@example.com",
- *           "Type": "EMAIL"
+ *           Id: "juan@example.com",
+ *           Type: "EMAIL"
  *         }
  *       ],
- *       "RequestedTimestamp": "2017-01-13T14:35:23.3Z",
- *       "Resources": [
+ *       RequestedTimestamp: "2017-01-13T14:35:23.3Z",
+ *       Resources: [
  *         {
- *           "Resources": [
+ *           Resources: [
  *             {
- *               "Type": "MASTER_EMAIL",
- *               "Value": "bill@amazon.com"
+ *               Type: "MASTER_EMAIL",
+ *               Value: "bill@amazon.com"
  *             },
  *             {
- *               "Type": "MASTER_NAME",
- *               "Value": "Org Master Account"
+ *               Type: "MASTER_NAME",
+ *               Value: "Org Master Account"
  *             },
  *             {
- *               "Type": "ORGANIZATION_FEATURE_SET",
- *               "Value": "FULL"
+ *               Type: "ORGANIZATION_FEATURE_SET",
+ *               Value: "FULL"
  *             }
  *           ],
- *           "Type": "ORGANIZATION",
- *           "Value": "o-exampleorgid"
+ *           Type: "ORGANIZATION",
+ *           Value: "o-exampleorgid"
  *         },
  *         {
- *           "Type": "EMAIL",
- *           "Value": "juan@example.com"
+ *           Type: "EMAIL",
+ *           Value: "juan@example.com"
  *         }
  *       ],
- *       "State": "OPEN"
+ *       State: "OPEN"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-the-handshakes-sent-to-an-account-1472510214747
  * ```
  *
+ * @public
  */
 export class ListHandshakesForAccountCommand extends $Command
   .classBuilder<
@@ -297,9 +305,7 @@ export class ListHandshakesForAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -311,4 +317,16 @@ export class ListHandshakesForAccountCommand extends $Command
   .f(void 0, ListHandshakesForAccountResponseFilterSensitiveLog)
   .ser(se_ListHandshakesForAccountCommand)
   .de(de_ListHandshakesForAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHandshakesForAccountRequest;
+      output: ListHandshakesForAccountResponse;
+    };
+    sdk: {
+      input: ListHandshakesForAccountCommandInput;
+      output: ListHandshakesForAccountCommandOutput;
+    };
+  };
+}

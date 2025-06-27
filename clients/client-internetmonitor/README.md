@@ -25,7 +25,7 @@ the locations and ASNs (typically, internet service providers or ISPs) that comm
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-internetmonitor
+To install this package, simply type add or install @aws-sdk/client-internetmonitor
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-internetmonitor`

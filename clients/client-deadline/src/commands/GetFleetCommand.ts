@@ -12,7 +12,8 @@ import { de_GetFleetCommand, se_GetFleetCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //         ],
  * //       },
  * //       storageProfileId: "STRING_VALUE",
+ * //       tagPropagationMode: "NO_PROPAGATION" || "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
  * //     },
  * //     serviceManagedEc2: { // ServiceManagedEc2FleetConfiguration
  * //       instanceCapabilities: { // ServiceManagedEc2InstanceCapabilities
@@ -110,6 +112,18 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //           sizeGiB: Number("int"),
  * //           iops: Number("int"),
  * //           throughputMiB: Number("int"),
+ * //         },
+ * //         acceleratorCapabilities: { // AcceleratorCapabilities
+ * //           selections: [ // AcceleratorSelections // required
+ * //             { // AcceleratorSelection
+ * //               name: "t4" || "a10g" || "l4" || "l40s", // required
+ * //               runtime: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           count: {
+ * //             min: Number("int"), // required
+ * //             max: Number("int"),
+ * //           },
  * //         },
  * //         allowedInstanceTypes: [ // InstanceTypes
  * //           "STRING_VALUE",
@@ -136,7 +150,12 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  * //       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //         type: "on-demand" || "spot", // required
  * //       },
+ * //       storageProfileId: "STRING_VALUE",
  * //     },
+ * //   },
+ * //   hostConfiguration: { // HostConfiguration
+ * //     scriptBody: "STRING_VALUE", // required
+ * //     scriptTimeoutSeconds: Number("int"),
  * //   },
  * //   capabilities: { // FleetCapabilities
  * //     amounts: [ // FleetAmountCapabilities
@@ -183,11 +202,11 @@ export interface GetFleetCommandOutput extends GetFleetResponse, __MetadataBeare
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -199,9 +218,7 @@ export class GetFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +230,16 @@ export class GetFleetCommand extends $Command
   .f(void 0, GetFleetResponseFilterSensitiveLog)
   .ser(se_GetFleetCommand)
   .de(de_GetFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFleetRequest;
+      output: GetFleetResponse;
+    };
+    sdk: {
+      input: GetFleetCommandInput;
+      output: GetFleetCommandOutput;
+    };
+  };
+}

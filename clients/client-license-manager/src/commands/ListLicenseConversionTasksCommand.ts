@@ -12,7 +12,8 @@ import { de_ListLicenseConversionTasksCommand, se_ListLicenseConversionTasksComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,9 +56,21 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * //       ResourceArn: "STRING_VALUE",
  * //       SourceLicenseContext: { // LicenseConversionContext
  * //         UsageOperation: "STRING_VALUE",
+ * //         ProductCodes: [ // ProductCodeList
+ * //           { // ProductCodeListItem
+ * //             ProductCodeId: "STRING_VALUE", // required
+ * //             ProductCodeType: "marketplace", // required
+ * //           },
+ * //         ],
  * //       },
  * //       DestinationLicenseContext: {
  * //         UsageOperation: "STRING_VALUE",
+ * //         ProductCodes: [
+ * //           {
+ * //             ProductCodeId: "STRING_VALUE", // required
+ * //             ProductCodeType: "marketplace", // required
+ * //           },
+ * //         ],
  * //       },
  * //       Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
  * //       StatusMessage: "STRING_VALUE",
@@ -96,6 +109,7 @@ export interface ListLicenseConversionTasksCommandOutput extends ListLicenseConv
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListLicenseConversionTasksCommand extends $Command
@@ -106,9 +120,7 @@ export class ListLicenseConversionTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +132,16 @@ export class ListLicenseConversionTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLicenseConversionTasksCommand)
   .de(de_ListLicenseConversionTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLicenseConversionTasksRequest;
+      output: ListLicenseConversionTasksResponse;
+    };
+    sdk: {
+      input: ListLicenseConversionTasksCommandInput;
+      output: ListLicenseConversionTasksCommandOutput;
+    };
+  };
+}

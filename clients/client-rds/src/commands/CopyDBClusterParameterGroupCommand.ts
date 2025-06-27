@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,30 +84,30 @@ export interface CopyDBClusterParameterGroupCommandOutput extends CopyDBClusterP
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To copy a DB cluster parameter group
  * ```javascript
  * // This example copies a DB cluster parameter group.
  * const input = {
- *   "SourceDBClusterParameterGroupIdentifier": "mydbclusterparametergroup",
- *   "TargetDBClusterParameterGroupDescription": "My DB cluster parameter group copy",
- *   "TargetDBClusterParameterGroupIdentifier": "mydbclusterparametergroup-copy"
+ *   SourceDBClusterParameterGroupIdentifier: "mydbclusterparametergroup",
+ *   TargetDBClusterParameterGroupDescription: "My DB cluster parameter group copy",
+ *   TargetDBClusterParameterGroupIdentifier: "mydbclusterparametergroup-copy"
  * };
  * const command = new CopyDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterParameterGroup": {
- *     "DBClusterParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup-copy",
- *     "DBClusterParameterGroupName": "mydbclusterparametergroup-copy",
- *     "DBParameterGroupFamily": "aurora-mysql5.7",
- *     "Description": "My DB cluster parameter group copy"
+ *   DBClusterParameterGroup: {
+ *     DBClusterParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:cluster-pg:mydbclusterparametergroup-copy",
+ *     DBClusterParameterGroupName: "mydbclusterparametergroup-copy",
+ *     DBParameterGroupFamily: "aurora-mysql5.7",
+ *     Description: "My DB cluster parameter group copy"
  *   }
  * }
  * *\/
- * // example id: copy-db-cluster-parameter-group-6fefaffe-cde9-4dba-9f0b-d3f593572fe4
  * ```
  *
+ * @public
  */
 export class CopyDBClusterParameterGroupCommand extends $Command
   .classBuilder<
@@ -116,9 +117,7 @@ export class CopyDBClusterParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class CopyDBClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBClusterParameterGroupCommand)
   .de(de_CopyDBClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBClusterParameterGroupMessage;
+      output: CopyDBClusterParameterGroupResult;
+    };
+    sdk: {
+      input: CopyDBClusterParameterGroupCommandInput;
+      output: CopyDBClusterParameterGroupCommandOutput;
+    };
+  };
+}

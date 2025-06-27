@@ -16,7 +16,8 @@ import { de_GetPasswordDataCommand, se_GetPasswordDataCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * <p>Retrieves the encrypted administrator password for a running Windows instance.</p>
  *          <p>The Windows password is generated at boot by the <code>EC2Config</code> service or
  *                 <code>EC2Launch</code> scripts (Windows Server 2016 and later). This usually only
- *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2launch.html">EC2Launch</a> in the
+ *             happens the first time an instance is launched. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/UsingConfig_WinAMI.html">EC2Config</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2launch.html">EC2Launch</a> in the
  *                 <i>Amazon EC2 User Guide</i>.</p>
  *          <p>For the <code>EC2Config</code> service, the password is not generated for rebundled
  *             AMIs unless <code>Ec2SetPassword</code> is enabled before bundling.</p>
@@ -58,8 +59,8 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * const response = await client.send(command);
  * // { // GetPasswordDataResult
  * //   InstanceId: "STRING_VALUE",
- * //   PasswordData: "STRING_VALUE",
  * //   Timestamp: new Date("TIMESTAMP"),
+ * //   PasswordData: "STRING_VALUE",
  * // };
  *
  * ```
@@ -73,6 +74,7 @@ export interface GetPasswordDataCommandOutput extends GetPasswordDataResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetPasswordDataCommand extends $Command
@@ -83,9 +85,7 @@ export class GetPasswordDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class GetPasswordDataCommand extends $Command
   .f(void 0, GetPasswordDataResultFilterSensitiveLog)
   .ser(se_GetPasswordDataCommand)
   .de(de_GetPasswordDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPasswordDataRequest;
+      output: GetPasswordDataResult;
+    };
+    sdk: {
+      input: GetPasswordDataCommandInput;
+      output: GetPasswordDataCommandOutput;
+    };
+  };
+}

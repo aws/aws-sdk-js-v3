@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,13 +33,7 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a response headers policy configuration.</p>
- *          <p>To get a response headers policy configuration, you must provide the policy's
- * 			identifier. If the response headers policy is attached to a distribution's cache
- * 			behavior, you can get the policy's identifier using <code>ListDistributions</code> or
- * 				<code>GetDistribution</code>. If the response headers policy is not attached to a
- * 			cache behavior, you can get the identifier using
- * 				<code>ListResponseHeadersPolicies</code>.</p>
+ * <p>Gets a response headers policy configuration.</p> <p>To get a response headers policy configuration, you must provide the policy's identifier. If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -155,6 +150,7 @@ export interface GetResponseHeadersPolicyConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetResponseHeadersPolicyConfigCommand extends $Command
@@ -165,9 +161,7 @@ export class GetResponseHeadersPolicyConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +173,16 @@ export class GetResponseHeadersPolicyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResponseHeadersPolicyConfigCommand)
   .de(de_GetResponseHeadersPolicyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResponseHeadersPolicyConfigRequest;
+      output: GetResponseHeadersPolicyConfigResult;
+    };
+    sdk: {
+      input: GetResponseHeadersPolicyConfigCommandInput;
+      output: GetResponseHeadersPolicyConfigCommandOutput;
+    };
+  };
+}

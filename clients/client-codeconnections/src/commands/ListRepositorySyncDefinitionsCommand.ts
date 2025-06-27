@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface ListRepositorySyncDefinitionsCommandOutput
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class ListRepositorySyncDefinitionsCommand extends $Command
@@ -93,9 +95,7 @@ export class ListRepositorySyncDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListRepositorySyncDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRepositorySyncDefinitionsCommand)
   .de(de_ListRepositorySyncDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRepositorySyncDefinitionsInput;
+      output: ListRepositorySyncDefinitionsOutput;
+    };
+    sdk: {
+      input: ListRepositorySyncDefinitionsCommandInput;
+      output: ListRepositorySyncDefinitionsCommandOutput;
+    };
+  };
+}

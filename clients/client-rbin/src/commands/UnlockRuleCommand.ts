@@ -12,7 +12,8 @@ import { RbinClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,12 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * //   LockState: "locked" || "pending_unlock" || "unlocked",
  * //   LockEndTime: new Date("TIMESTAMP"),
  * //   RuleArn: "STRING_VALUE",
+ * //   ExcludeResourceTags: [ // ExcludeResourceTags
+ * //     {
+ * //       ResourceTagKey: "STRING_VALUE", // required
+ * //       ResourceTagValue: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -89,6 +96,7 @@ export interface UnlockRuleCommandOutput extends UnlockRuleResponse, __MetadataB
  * @throws {@link RbinServiceException}
  * <p>Base exception class for all service exceptions from Rbin service.</p>
  *
+ *
  * @public
  */
 export class UnlockRuleCommand extends $Command
@@ -99,9 +107,7 @@ export class UnlockRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RbinClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +119,16 @@ export class UnlockRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnlockRuleCommand)
   .de(de_UnlockRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnlockRuleRequest;
+      output: UnlockRuleResponse;
+    };
+    sdk: {
+      input: UnlockRuleCommandInput;
+      output: UnlockRuleCommandOutput;
+    };
+  };
+}

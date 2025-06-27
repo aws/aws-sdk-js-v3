@@ -9,8 +9,8 @@
 export * from "./LicenseManagerClient";
 export * from "./LicenseManager";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { LicenseManagerExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { LicenseManagerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

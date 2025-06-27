@@ -58,6 +58,11 @@ import {
   DeleteSchemaMappingCommandOutput,
 } from "./commands/DeleteSchemaMappingCommand";
 import {
+  GenerateMatchIdCommand,
+  GenerateMatchIdCommandInput,
+  GenerateMatchIdCommandOutput,
+} from "./commands/GenerateMatchIdCommand";
+import {
   GetIdMappingJobCommand,
   GetIdMappingJobCommandInput,
   GetIdMappingJobCommandOutput,
@@ -185,6 +190,7 @@ const commands = {
   DeleteMatchingWorkflowCommand,
   DeletePolicyStatementCommand,
   DeleteSchemaMappingCommand,
+  GenerateMatchIdCommand,
   GetIdMappingJobCommand,
   GetIdMappingWorkflowCommand,
   GetIdNamespaceCommand,
@@ -399,6 +405,20 @@ export interface EntityResolution {
     args: DeleteSchemaMappingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSchemaMappingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateMatchIdCommand}
+   */
+  generateMatchId(
+    args: GenerateMatchIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMatchIdCommandOutput>;
+  generateMatchId(args: GenerateMatchIdCommandInput, cb: (err: any, data?: GenerateMatchIdCommandOutput) => void): void;
+  generateMatchId(
+    args: GenerateMatchIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateMatchIdCommandOutput) => void
   ): void;
 
   /**
@@ -811,17 +831,7 @@ export interface EntityResolution {
 }
 
 /**
- * <p>Welcome to the <i>Entity Resolution API Reference</i>.</p>
- *          <p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity
- *          resolution capabilities that enable developers and analysts at advertising and marketing
- *          companies to build an accurate and complete view of their consumers.</p>
- *          <p> With Entity Resolution, you can match source records containing consumer identifiers,
- *          such as name, email address, and phone number. This is true even when these records have
- *          incomplete or conflicting identifiers. For example, Entity Resolution can effectively match
- *          a source record from a customer relationship management (CRM) system with a source record
- *          from a marketing system containing campaign information.</p>
- *          <p>To learn more about Entity Resolution concepts, procedures, and best practices, see the
- *             <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
+ * <p>Welcome to the <i>Entity Resolution API Reference</i>.</p> <p>Entity Resolution is an Amazon Web Services service that provides pre-configured entity resolution capabilities that enable developers and analysts at advertising and marketing companies to build an accurate and complete view of their consumers.</p> <p> With Entity Resolution, you can match source records containing consumer identifiers, such as name, email address, and phone number. This is true even when these records have incomplete or conflicting identifiers. For example, Entity Resolution can effectively match a source record from a customer relationship management (CRM) system with a source record from a marketing system containing campaign information.</p> <p>To learn more about Entity Resolution concepts, procedures, and best practices, see the <a href="https://docs.aws.amazon.com/entityresolution/latest/userguide/what-is-service.html">Entity Resolution User Guide</a>.</p>
  * @public
  */
 export class EntityResolution extends EntityResolutionClient implements EntityResolution {}

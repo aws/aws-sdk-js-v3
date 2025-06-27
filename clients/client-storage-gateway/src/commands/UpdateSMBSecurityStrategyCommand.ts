@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,13 @@ export interface UpdateSMBSecurityStrategyCommandInput extends UpdateSMBSecurity
 export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurityStrategyOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the SMB security strategy on a file gateway. This action is only supported in
- *          file gateways.</p>
+ * <p>Updates the SMB security strategy level for an Amazon S3 file gateway. This
+ *          action is only supported for Amazon S3 file gateways.</p>
  *          <note>
- *             <p>This API is called Security level in the User Guide.</p>
- *             <p>A higher security level can affect performance of the gateway.</p>
+ *             <p>For information about configuring this setting using the Amazon Web Services console,
+ *             see <a href="https://docs.aws.amazon.com/filegateway/latest/files3/security-strategy.html">Setting a security level for your gateway</a> in the <i>Amazon S3
+ *                File Gateway User Guide</i>.</p>
+ *             <p>A higher security strategy level can affect performance of the gateway.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,6 +71,7 @@ export interface UpdateSMBSecurityStrategyCommandOutput extends UpdateSMBSecurit
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateSMBSecurityStrategyCommand extends $Command
@@ -78,9 +82,7 @@ export class UpdateSMBSecurityStrategyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +94,16 @@ export class UpdateSMBSecurityStrategyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSMBSecurityStrategyCommand)
   .de(de_UpdateSMBSecurityStrategyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSMBSecurityStrategyInput;
+      output: UpdateSMBSecurityStrategyOutput;
+    };
+    sdk: {
+      input: UpdateSMBSecurityStrategyCommandInput;
+      output: UpdateSMBSecurityStrategyCommandOutput;
+    };
+  };
+}

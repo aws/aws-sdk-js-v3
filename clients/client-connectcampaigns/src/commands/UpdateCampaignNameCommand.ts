@@ -12,7 +12,8 @@ import { de_UpdateCampaignNameCommand, se_UpdateCampaignNameCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface UpdateCampaignNameCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class UpdateCampaignNameCommand extends $Command
@@ -78,9 +80,7 @@ export class UpdateCampaignNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class UpdateCampaignNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCampaignNameCommand)
   .de(de_UpdateCampaignNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCampaignNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCampaignNameCommandInput;
+      output: UpdateCampaignNameCommandOutput;
+    };
+  };
+}

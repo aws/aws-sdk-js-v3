@@ -12,7 +12,8 @@ import { de_BatchGetCodeSnippetCommand, se_BatchGetCodeSnippetCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface BatchGetCodeSnippetCommandInput extends BatchGetCodeSnippetRequ
 export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves code snippets from findings that Amazon Inspector detected code vulnerabilities in.</p>
+ * <p>Retrieves code snippets from findings that Amazon Inspector detected code vulnerabilities
+ *          in.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +82,8 @@ export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetRes
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -94,6 +98,7 @@ export interface BatchGetCodeSnippetCommandOutput extends BatchGetCodeSnippetRes
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class BatchGetCodeSnippetCommand extends $Command
@@ -104,9 +109,7 @@ export class BatchGetCodeSnippetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +121,16 @@ export class BatchGetCodeSnippetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetCodeSnippetCommand)
   .de(de_BatchGetCodeSnippetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCodeSnippetRequest;
+      output: BatchGetCodeSnippetResponse;
+    };
+    sdk: {
+      input: BatchGetCodeSnippetCommandInput;
+      output: BatchGetCodeSnippetCommandOutput;
+    };
+  };
+}

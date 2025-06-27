@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateConnectClientAddInRequest, UpdateConnectClientAddInResult } from "../models/models_0";
+import { UpdateConnectClientAddInRequest, UpdateConnectClientAddInResult } from "../models/models_1";
 import { de_UpdateConnectClientAddInCommand, se_UpdateConnectClientAddInCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface UpdateConnectClientAddInCommandOutput extends UpdateConnectClie
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectClientAddInCommand extends $Command
@@ -75,9 +77,7 @@ export class UpdateConnectClientAddInCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class UpdateConnectClientAddInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectClientAddInCommand)
   .de(de_UpdateConnectClientAddInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectClientAddInRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConnectClientAddInCommandInput;
+      output: UpdateConnectClientAddInCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -277,6 +278,7 @@ export interface ListTestExecutionResultItemsCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListTestExecutionResultItemsCommand extends $Command
@@ -287,9 +289,7 @@ export class ListTestExecutionResultItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -301,4 +301,16 @@ export class ListTestExecutionResultItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestExecutionResultItemsCommand)
   .de(de_ListTestExecutionResultItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestExecutionResultItemsRequest;
+      output: ListTestExecutionResultItemsResponse;
+    };
+    sdk: {
+      input: ListTestExecutionResultItemsCommandInput;
+      output: ListTestExecutionResultItemsCommandOutput;
+    };
+  };
+}

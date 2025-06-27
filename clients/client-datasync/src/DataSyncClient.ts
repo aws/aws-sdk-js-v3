@@ -53,7 +53,6 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
-import { AddStorageSystemCommandInput, AddStorageSystemCommandOutput } from "./commands/AddStorageSystemCommand";
 import {
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
@@ -93,10 +92,6 @@ import { DeleteAgentCommandInput, DeleteAgentCommandOutput } from "./commands/De
 import { DeleteLocationCommandInput, DeleteLocationCommandOutput } from "./commands/DeleteLocationCommand";
 import { DeleteTaskCommandInput, DeleteTaskCommandOutput } from "./commands/DeleteTaskCommand";
 import { DescribeAgentCommandInput, DescribeAgentCommandOutput } from "./commands/DescribeAgentCommand";
-import {
-  DescribeDiscoveryJobCommandInput,
-  DescribeDiscoveryJobCommandOutput,
-} from "./commands/DescribeDiscoveryJobCommand";
 import {
   DescribeLocationAzureBlobCommandInput,
   DescribeLocationAzureBlobCommandOutput,
@@ -138,63 +133,52 @@ import {
   DescribeLocationSmbCommandInput,
   DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
-import {
-  DescribeStorageSystemCommandInput,
-  DescribeStorageSystemCommandOutput,
-} from "./commands/DescribeStorageSystemCommand";
-import {
-  DescribeStorageSystemResourceMetricsCommandInput,
-  DescribeStorageSystemResourceMetricsCommandOutput,
-} from "./commands/DescribeStorageSystemResourceMetricsCommand";
-import {
-  DescribeStorageSystemResourcesCommandInput,
-  DescribeStorageSystemResourcesCommandOutput,
-} from "./commands/DescribeStorageSystemResourcesCommand";
 import { DescribeTaskCommandInput, DescribeTaskCommandOutput } from "./commands/DescribeTaskCommand";
 import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
-import {
-  GenerateRecommendationsCommandInput,
-  GenerateRecommendationsCommandOutput,
-} from "./commands/GenerateRecommendationsCommand";
 import { ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
-import { ListDiscoveryJobsCommandInput, ListDiscoveryJobsCommandOutput } from "./commands/ListDiscoveryJobsCommand";
 import { ListLocationsCommandInput, ListLocationsCommandOutput } from "./commands/ListLocationsCommand";
-import { ListStorageSystemsCommandInput, ListStorageSystemsCommandOutput } from "./commands/ListStorageSystemsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListTaskExecutionsCommandInput, ListTaskExecutionsCommandOutput } from "./commands/ListTaskExecutionsCommand";
 import { ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
-import {
-  RemoveStorageSystemCommandInput,
-  RemoveStorageSystemCommandOutput,
-} from "./commands/RemoveStorageSystemCommand";
-import { StartDiscoveryJobCommandInput, StartDiscoveryJobCommandOutput } from "./commands/StartDiscoveryJobCommand";
 import { StartTaskExecutionCommandInput, StartTaskExecutionCommandOutput } from "./commands/StartTaskExecutionCommand";
-import { StopDiscoveryJobCommandInput, StopDiscoveryJobCommandOutput } from "./commands/StopDiscoveryJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
-import { UpdateDiscoveryJobCommandInput, UpdateDiscoveryJobCommandOutput } from "./commands/UpdateDiscoveryJobCommand";
 import {
   UpdateLocationAzureBlobCommandInput,
   UpdateLocationAzureBlobCommandOutput,
 } from "./commands/UpdateLocationAzureBlobCommand";
+import { UpdateLocationEfsCommandInput, UpdateLocationEfsCommandOutput } from "./commands/UpdateLocationEfsCommand";
+import {
+  UpdateLocationFsxLustreCommandInput,
+  UpdateLocationFsxLustreCommandOutput,
+} from "./commands/UpdateLocationFsxLustreCommand";
+import {
+  UpdateLocationFsxOntapCommandInput,
+  UpdateLocationFsxOntapCommandOutput,
+} from "./commands/UpdateLocationFsxOntapCommand";
+import {
+  UpdateLocationFsxOpenZfsCommandInput,
+  UpdateLocationFsxOpenZfsCommandOutput,
+} from "./commands/UpdateLocationFsxOpenZfsCommand";
+import {
+  UpdateLocationFsxWindowsCommandInput,
+  UpdateLocationFsxWindowsCommandOutput,
+} from "./commands/UpdateLocationFsxWindowsCommand";
 import { UpdateLocationHdfsCommandInput, UpdateLocationHdfsCommandOutput } from "./commands/UpdateLocationHdfsCommand";
 import { UpdateLocationNfsCommandInput, UpdateLocationNfsCommandOutput } from "./commands/UpdateLocationNfsCommand";
 import {
   UpdateLocationObjectStorageCommandInput,
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
+import { UpdateLocationS3CommandInput, UpdateLocationS3CommandOutput } from "./commands/UpdateLocationS3Command";
 import { UpdateLocationSmbCommandInput, UpdateLocationSmbCommandOutput } from "./commands/UpdateLocationSmbCommand";
-import {
-  UpdateStorageSystemCommandInput,
-  UpdateStorageSystemCommandOutput,
-} from "./commands/UpdateStorageSystemCommand";
 import { UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommandInput,
@@ -215,7 +199,6 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
-  | AddStorageSystemCommandInput
   | CancelTaskExecutionCommandInput
   | CreateAgentCommandInput
   | CreateLocationAzureBlobCommandInput
@@ -234,7 +217,6 @@ export type ServiceInputTypes =
   | DeleteLocationCommandInput
   | DeleteTaskCommandInput
   | DescribeAgentCommandInput
-  | DescribeDiscoveryJobCommandInput
   | DescribeLocationAzureBlobCommandInput
   | DescribeLocationEfsCommandInput
   | DescribeLocationFsxLustreCommandInput
@@ -246,33 +228,28 @@ export type ServiceInputTypes =
   | DescribeLocationObjectStorageCommandInput
   | DescribeLocationS3CommandInput
   | DescribeLocationSmbCommandInput
-  | DescribeStorageSystemCommandInput
-  | DescribeStorageSystemResourceMetricsCommandInput
-  | DescribeStorageSystemResourcesCommandInput
   | DescribeTaskCommandInput
   | DescribeTaskExecutionCommandInput
-  | GenerateRecommendationsCommandInput
   | ListAgentsCommandInput
-  | ListDiscoveryJobsCommandInput
   | ListLocationsCommandInput
-  | ListStorageSystemsCommandInput
   | ListTagsForResourceCommandInput
   | ListTaskExecutionsCommandInput
   | ListTasksCommandInput
-  | RemoveStorageSystemCommandInput
-  | StartDiscoveryJobCommandInput
   | StartTaskExecutionCommandInput
-  | StopDiscoveryJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateAgentCommandInput
-  | UpdateDiscoveryJobCommandInput
   | UpdateLocationAzureBlobCommandInput
+  | UpdateLocationEfsCommandInput
+  | UpdateLocationFsxLustreCommandInput
+  | UpdateLocationFsxOntapCommandInput
+  | UpdateLocationFsxOpenZfsCommandInput
+  | UpdateLocationFsxWindowsCommandInput
   | UpdateLocationHdfsCommandInput
   | UpdateLocationNfsCommandInput
   | UpdateLocationObjectStorageCommandInput
+  | UpdateLocationS3CommandInput
   | UpdateLocationSmbCommandInput
-  | UpdateStorageSystemCommandInput
   | UpdateTaskCommandInput
   | UpdateTaskExecutionCommandInput;
 
@@ -280,7 +257,6 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
-  | AddStorageSystemCommandOutput
   | CancelTaskExecutionCommandOutput
   | CreateAgentCommandOutput
   | CreateLocationAzureBlobCommandOutput
@@ -299,7 +275,6 @@ export type ServiceOutputTypes =
   | DeleteLocationCommandOutput
   | DeleteTaskCommandOutput
   | DescribeAgentCommandOutput
-  | DescribeDiscoveryJobCommandOutput
   | DescribeLocationAzureBlobCommandOutput
   | DescribeLocationEfsCommandOutput
   | DescribeLocationFsxLustreCommandOutput
@@ -311,33 +286,28 @@ export type ServiceOutputTypes =
   | DescribeLocationObjectStorageCommandOutput
   | DescribeLocationS3CommandOutput
   | DescribeLocationSmbCommandOutput
-  | DescribeStorageSystemCommandOutput
-  | DescribeStorageSystemResourceMetricsCommandOutput
-  | DescribeStorageSystemResourcesCommandOutput
   | DescribeTaskCommandOutput
   | DescribeTaskExecutionCommandOutput
-  | GenerateRecommendationsCommandOutput
   | ListAgentsCommandOutput
-  | ListDiscoveryJobsCommandOutput
   | ListLocationsCommandOutput
-  | ListStorageSystemsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTaskExecutionsCommandOutput
   | ListTasksCommandOutput
-  | RemoveStorageSystemCommandOutput
-  | StartDiscoveryJobCommandOutput
   | StartTaskExecutionCommandOutput
-  | StopDiscoveryJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateAgentCommandOutput
-  | UpdateDiscoveryJobCommandOutput
   | UpdateLocationAzureBlobCommandOutput
+  | UpdateLocationEfsCommandOutput
+  | UpdateLocationFsxLustreCommandOutput
+  | UpdateLocationFsxOntapCommandOutput
+  | UpdateLocationFsxOpenZfsCommandOutput
+  | UpdateLocationFsxWindowsCommandOutput
   | UpdateLocationHdfsCommandOutput
   | UpdateLocationNfsCommandOutput
   | UpdateLocationObjectStorageCommandOutput
+  | UpdateLocationS3CommandOutput
   | UpdateLocationSmbCommandOutput
-  | UpdateStorageSystemCommandOutput
   | UpdateTaskCommandOutput
   | UpdateTaskExecutionCommandOutput;
 
@@ -433,6 +403,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -478,11 +467,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type DataSyncClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -498,11 +487,11 @@ export interface DataSyncClientConfig extends DataSyncClientConfigType {}
 export type DataSyncClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -514,9 +503,9 @@ export interface DataSyncClientResolvedConfig extends DataSyncClientResolvedConf
 
 /**
  * <fullname>DataSync</fullname>
- *          <p>DataSync is an online data movement and discovery service that simplifies data migration
- *       and helps you quickly, easily, and securely transfer your file or object data to, from, and
- *       between Amazon Web Services storage services.</p>
+ *          <p>DataSync is an online data movement service that simplifies data
+ *       migration and helps you quickly, easily, and securely transfer your file or object data to,
+ *       from, and between Amazon Web Services storage services.</p>
  *          <p>This API interface reference includes documentation for using DataSync
  *       programmatically. For complete information, see the <i>
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
@@ -537,26 +526,30 @@ export class DataSyncClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<DataSyncClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultDataSyncHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: DataSyncClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -569,14 +562,5 @@ export class DataSyncClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultDataSyncHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: DataSyncClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

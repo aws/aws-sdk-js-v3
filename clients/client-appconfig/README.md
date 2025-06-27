@@ -16,7 +16,7 @@ and dynamic configurations, you can update block lists, allow lists, throttling 
 logging verbosity, and perform other operational tuning to quickly respond to issues in
 production environments.</p>
 <note>
-<p>AppConfig is a capability of Amazon Web Services Systems Manager.</p>
+<p>AppConfig is a tool in Amazon Web Services Systems Manager.</p>
 </note>
 <p>Despite the fact that application configuration content can vary greatly from
 application to application, AppConfig supports the following use cases, which
@@ -159,7 +159,7 @@ Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appconfig
+To install this package, simply type add or install @aws-sdk/client-appconfig
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appconfig`
@@ -466,6 +466,14 @@ DeleteHostedConfigurationVersion
 </details>
 <details>
 <summary>
+GetAccountSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/GetAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/GetAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/GetAccountSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetApplication
 </summary>
 
@@ -638,6 +646,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateAccountSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appconfig/command/UpdateAccountSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateAccountSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appconfig/Interface/UpdateAccountSettingsCommandOutput/)
 
 </details>
 <details>

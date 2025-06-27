@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +30,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the Region the bucket resides in. You set the bucket's Region using the
  *             <code>LocationConstraint</code> request parameter in a <code>CreateBucket</code>
@@ -69,7 +71,7 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * const command = new GetBucketLocationCommand(input);
  * const response = await client.send(command);
  * // { // GetBucketLocationOutput
- * //   LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-north-1" || "eu-south-1" || "eu-south-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
+ * //   LocationConstraint: "af-south-1" || "ap-east-1" || "ap-northeast-1" || "ap-northeast-2" || "ap-northeast-3" || "ap-south-1" || "ap-south-2" || "ap-southeast-1" || "ap-southeast-2" || "ap-southeast-3" || "ap-southeast-4" || "ap-southeast-5" || "ca-central-1" || "cn-north-1" || "cn-northwest-1" || "EU" || "eu-central-1" || "eu-central-2" || "eu-north-1" || "eu-south-1" || "eu-south-2" || "eu-west-1" || "eu-west-2" || "eu-west-3" || "il-central-1" || "me-central-1" || "me-south-1" || "sa-east-1" || "us-east-2" || "us-gov-east-1" || "us-gov-west-1" || "us-west-1" || "us-west-2",
  * // };
  *
  * ```
@@ -83,23 +85,23 @@ export interface GetBucketLocationCommandOutput extends GetBucketLocationOutput,
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get bucket location
  * ```javascript
  * // The following example returns bucket location.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketLocationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LocationConstraint": "us-west-2"
+ *   LocationConstraint: "us-west-2"
  * }
  * *\/
- * // example id: to-get-bucket-location-1481594573609
  * ```
  *
+ * @public
  */
 export class GetBucketLocationCommand extends $Command
   .classBuilder<
@@ -118,6 +120,7 @@ export class GetBucketLocationCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetBucketLocation", {})
@@ -125,4 +128,16 @@ export class GetBucketLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketLocationCommand)
   .de(de_GetBucketLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketLocationRequest;
+      output: GetBucketLocationOutput;
+    };
+    sdk: {
+      input: GetBucketLocationCommandInput;
+      output: GetBucketLocationCommandOutput;
+    };
+  };
+}

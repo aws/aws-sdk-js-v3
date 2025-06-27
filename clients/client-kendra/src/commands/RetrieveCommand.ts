@@ -12,7 +12,8 @@ import { de_RetrieveCommand, se_RetrieveCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,13 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  *                 units</a> that you set for your index. For more information on what's included
  *             in a single capacity unit and the default base capacity for an index, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting
  *                 capacity</a>.</p>
+ *          <important>
+ *             <p>If you're using an Amazon Kendra Gen AI Enterprise Edition index, you can only use
+ *                     <code>ATTRIBUTE_FILTER</code> to filter search results by user context. If
+ *                 you're using an Amazon Kendra Gen AI Enterprise Edition index and you try to use
+ *                     <code>USER_TOKEN</code> to configure user context policy, Amazon Kendra returns a
+ *                     <code>ValidationException</code> error.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -258,6 +266,7 @@ export interface RetrieveCommandOutput extends RetrieveResult, __MetadataBearer 
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class RetrieveCommand extends $Command
@@ -268,9 +277,7 @@ export class RetrieveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -282,4 +289,16 @@ export class RetrieveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetrieveCommand)
   .de(de_RetrieveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveRequest;
+      output: RetrieveResult;
+    };
+    sdk: {
+      input: RetrieveCommandInput;
+      output: RetrieveCommandOutput;
+    };
+  };
+}

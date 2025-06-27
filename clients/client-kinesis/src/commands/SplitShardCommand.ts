@@ -12,7 +12,8 @@ import { de_SplitShardCommand, se_SplitShardCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -125,6 +126,7 @@ export interface SplitShardCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class SplitShardCommand extends $Command
@@ -151,4 +153,16 @@ export class SplitShardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SplitShardCommand)
   .de(de_SplitShardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SplitShardInput;
+      output: {};
+    };
+    sdk: {
+      input: SplitShardCommandInput;
+      output: SplitShardCommandOutput;
+    };
+  };
+}

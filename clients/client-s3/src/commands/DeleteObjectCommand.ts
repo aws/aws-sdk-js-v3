@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,8 +50,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                      </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *                      <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *             </ul>
@@ -115,7 +118,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *             <dd>
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following action is related to <code>DeleteObject</code>:</p>
@@ -140,6 +143,9 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *   RequestPayer: "requester",
  *   BypassGovernanceRetention: true || false,
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfMatch: "STRING_VALUE",
+ *   IfMatchLastModifiedTime: new Date("TIMESTAMP"),
+ *   IfMatchSize: Number("long"),
  * };
  * const command = new DeleteObjectCommand(input);
  * const response = await client.send(command);
@@ -160,31 +166,36 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete an object (from a non-versioned bucket)
  * ```javascript
  * // The following example deletes an object from a non-versioned bucket.
  * const input = {
- *   "Bucket": "ExampleBucket",
- *   "Key": "HappyFace.jpg"
+ *   Bucket: "ExampleBucket",
+ *   Key: "HappyFace.jpg"
  * };
  * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-from-a-non-versioned-bucket-1481588533089
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To delete an object
  * ```javascript
  * // The following example deletes an object from an S3 bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "objectkey.jpg"
+ *   Bucket: "examplebucket",
+ *   Key: "objectkey.jpg"
  * };
  * const command = new DeleteObjectCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-object-1472850136595
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteObjectCommand extends $Command
   .classBuilder<
@@ -203,6 +214,7 @@ export class DeleteObjectCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "DeleteObject", {})
@@ -210,4 +222,16 @@ export class DeleteObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteObjectCommand)
   .de(de_DeleteObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteObjectRequest;
+      output: DeleteObjectOutput;
+    };
+    sdk: {
+      input: DeleteObjectCommandInput;
+      output: DeleteObjectCommandOutput;
+    };
+  };
+}

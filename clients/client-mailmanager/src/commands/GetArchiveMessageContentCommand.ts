@@ -12,7 +12,8 @@ import { de_GetArchiveMessageContentCommand, se_GetArchiveMessageContentCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface GetArchiveMessageContentCommandInput extends GetArchiveMessageC
 export interface GetArchiveMessageContentCommandOutput extends GetArchiveMessageContentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the textual content of a specific email message stored in the archive. Attachments are not
- *             included.
- *         </p>
+ * <p>Returns the textual content of a specific email message stored in the archive. Attachments are not included. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +68,7 @@ export interface GetArchiveMessageContentCommandOutput extends GetArchiveMessage
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveMessageContentCommand extends $Command
@@ -79,9 +79,7 @@ export class GetArchiveMessageContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +91,16 @@ export class GetArchiveMessageContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetArchiveMessageContentCommand)
   .de(de_GetArchiveMessageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveMessageContentRequest;
+      output: GetArchiveMessageContentResponse;
+    };
+    sdk: {
+      input: GetArchiveMessageContentCommandInput;
+      output: GetArchiveMessageContentCommandOutput;
+    };
+  };
+}

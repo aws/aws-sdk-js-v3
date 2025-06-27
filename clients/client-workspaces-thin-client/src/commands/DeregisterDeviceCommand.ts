@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,9 +60,7 @@ export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse,
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The server encountered an internal error and is unable to complete the request.</p>
@@ -78,6 +77,7 @@ export interface DeregisterDeviceCommandOutput extends DeregisterDeviceResponse,
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class DeregisterDeviceCommand extends $Command
@@ -88,9 +88,7 @@ export class DeregisterDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +100,16 @@ export class DeregisterDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterDeviceCommand)
   .de(de_DeregisterDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterDeviceCommandInput;
+      output: DeregisterDeviceCommandOutput;
+    };
+  };
+}

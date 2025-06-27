@@ -12,7 +12,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,28 +69,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListTagsForResources call
  * ```javascript
  * //
  * const input = {
- *   "ResourceARN": "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9"
+ *   ResourceARN: "arn:aws:b2bi:us-west-2:123456789012:profile/p-60fbc37c87f04fce9"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "sampleKey",
- *       "Value": "SampleValue"
+ *       Key: "sampleKey",
+ *       Value: "SampleValue"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
@@ -99,9 +100,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

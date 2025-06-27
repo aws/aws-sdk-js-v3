@@ -12,7 +12,8 @@ import { de_AssociateDiscoveredResourceCommand, se_AssociateDiscoveredResourceCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface AssociateDiscoveredResourceCommandOutput extends AssociateDisco
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class AssociateDiscoveredResourceCommand extends $Command
@@ -108,9 +110,7 @@ export class AssociateDiscoveredResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class AssociateDiscoveredResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateDiscoveredResourceCommand)
   .de(de_AssociateDiscoveredResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateDiscoveredResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateDiscoveredResourceCommandInput;
+      output: AssociateDiscoveredResourceCommandOutput;
+    };
+  };
+}

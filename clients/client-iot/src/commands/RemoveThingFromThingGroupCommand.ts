@@ -12,7 +12,8 @@ import { de_RemoveThingFromThingGroupCommand, se_RemoveThingFromThingGroupComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface RemoveThingFromThingGroupCommandOutput extends RemoveThingFromT
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class RemoveThingFromThingGroupCommand extends $Command
@@ -83,9 +85,7 @@ export class RemoveThingFromThingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class RemoveThingFromThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveThingFromThingGroupCommand)
   .de(de_RemoveThingFromThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveThingFromThingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveThingFromThingGroupCommandInput;
+      output: RemoveThingFromThingGroupCommandOutput;
+    };
+  };
+}

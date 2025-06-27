@@ -12,7 +12,8 @@ import { de_ActivateOrganizationsAccessCommand, se_ActivateOrganizationsAccessCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface ActivateOrganizationsAccessCommandInput extends ActivateOrganiz
 export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Activate trusted access with Organizations. With trusted access between StackSets and Organizations
- *    activated, the management account has permissions to create and manage StackSets for your
- *    organization.</p>
+ * <p>Activate trusted access with Organizations. With trusted access between StackSets
+ *       and Organizations activated, the management account has permissions to create
+ *       and manage StackSets for your organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,7 @@ export interface ActivateOrganizationsAccessCommandOutput extends ActivateOrgani
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ActivateOrganizationsAccessCommand extends $Command
@@ -68,9 +70,7 @@ export class ActivateOrganizationsAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +82,16 @@ export class ActivateOrganizationsAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ActivateOrganizationsAccessCommand)
   .de(de_ActivateOrganizationsAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: ActivateOrganizationsAccessCommandInput;
+      output: ActivateOrganizationsAccessCommandOutput;
+    };
+  };
+}

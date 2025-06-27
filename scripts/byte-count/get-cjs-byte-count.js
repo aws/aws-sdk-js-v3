@@ -5,6 +5,7 @@ const { readdirSync, statSync, rmSync, writeFileSync } = require("fs");
 const { spawnProcess } = require("../utils/spawn-process");
 const walk = require("../utils/walk");
 const assert = require("assert");
+const { listFolders } = require("../utils/list-folders");
 
 /**
  *
@@ -20,7 +21,7 @@ locations.clients = join(locations.root, "clients");
 (async () => {
   const packs = [];
 
-  for await (const clientFolderName of readdirSync(locations.clients)) {
+  for await (const clientFolderName of listFolders(locations.clients)) {
     const clientLocation = join(locations.clients, clientFolderName);
     const clientPkgJsonLocation = join(clientLocation, "package.json");
     const pkg = require(clientPkgJsonLocation);
@@ -50,7 +51,7 @@ locations.clients = join(locations.root, "clients");
   let bytes = 0;
   const packFiles = [];
 
-  for await (file of walk(locations.clients)) {
+  for await (const file of walk(locations.clients)) {
     if (file.includes("aws-sdk-client-") && file.endsWith(".tgz")) {
       bytes += statSync(file).size;
       packFiles.push(file);

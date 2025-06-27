@@ -12,7 +12,8 @@ import { de_GetSimilarProfilesCommand, se_GetSimilarProfilesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,10 @@ export interface GetSimilarProfilesCommandInput extends GetSimilarProfilesReques
 export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a set of profiles that belong to the same matching group using the <code>matchId</code> or
- *          <code>profileId</code>. You can also specify the type of matching that you want for finding similar profiles using
- *          either <code>RULE_BASED_MATCHING</code> or <code>ML_BASED_MATCHING</code>.</p>
+ * <p>Returns a set of profiles that belong to the same matching group using the
+ *             <code>matchId</code> or <code>profileId</code>. You can also specify the type of
+ *          matching that you want for finding similar profiles using either
+ *             <code>RULE_BASED_MATCHING</code> or <code>ML_BASED_MATCHING</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +85,7 @@ export interface GetSimilarProfilesCommandOutput extends GetSimilarProfilesRespo
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetSimilarProfilesCommand extends $Command
@@ -93,9 +96,7 @@ export class GetSimilarProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class GetSimilarProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSimilarProfilesCommand)
   .de(de_GetSimilarProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSimilarProfilesRequest;
+      output: GetSimilarProfilesResponse;
+    };
+    sdk: {
+      input: GetSimilarProfilesCommandInput;
+      output: GetSimilarProfilesCommandOutput;
+    };
+  };
+}

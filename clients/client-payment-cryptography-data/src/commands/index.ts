@@ -3,6 +3,7 @@ export * from "./DecryptDataCommand";
 export * from "./EncryptDataCommand";
 export * from "./GenerateCardValidationDataCommand";
 export * from "./GenerateMacCommand";
+export * from "./GenerateMacEmvPinChangeCommand";
 export * from "./GeneratePinDataCommand";
 export * from "./ReEncryptDataCommand";
 export * from "./TranslatePinDataCommand";

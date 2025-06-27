@@ -12,7 +12,8 @@ import { de_DeregisterResourceCommand, se_DeregisterResourceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DeregisterResourceCommandOutput extends DeregisterResourceRespo
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DeregisterResourceCommand extends $Command
@@ -75,9 +77,7 @@ export class DeregisterResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DeregisterResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterResourceCommand)
   .de(de_DeregisterResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterResourceCommandInput;
+      output: DeregisterResourceCommandOutput;
+    };
+  };
+}

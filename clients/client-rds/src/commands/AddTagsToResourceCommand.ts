@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,24 +94,27 @@ export interface AddTagsToResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To add tags to a resource
  * ```javascript
  * // This example adds a tag to an option group.
  * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:992648334831:og:mymysqloptiongroup",
- *   "Tags": [
+ *   ResourceName: "arn:aws:rds:us-east-1:992648334831:og:mymysqloptiongroup",
+ *   Tags: [
  *     {
- *       "Key": "Staging",
- *       "Value": "LocationDB"
+ *       Key: "Staging",
+ *       Value: "LocationDB"
  *     }
  *   ]
  * };
  * const command = new AddTagsToResourceCommand(input);
- * await client.send(command);
- * // example id: add-tags-to-resource-fa99ef50-228b-449d-b893-ca4d4e9768ab
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddTagsToResourceCommand extends $Command
   .classBuilder<
@@ -120,9 +124,7 @@ export class AddTagsToResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +136,16 @@ export class AddTagsToResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsToResourceCommand)
   .de(de_AddTagsToResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsToResourceMessage;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsToResourceCommandInput;
+      output: AddTagsToResourceCommandOutput;
+    };
+  };
+}

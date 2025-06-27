@@ -10,13 +10,14 @@ import {
   GetGroupProfileInput,
   GetGroupProfileOutput,
   GetGroupProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetGroupProfileCommand, se_GetGroupProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetGroupProfileCommandOutput extends GetGroupProfileOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetGroupProfileCommand extends $Command
@@ -90,9 +92,7 @@ export class GetGroupProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetGroupProfileCommand extends $Command
   .f(void 0, GetGroupProfileOutputFilterSensitiveLog)
   .ser(se_GetGroupProfileCommand)
   .de(de_GetGroupProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupProfileInput;
+      output: GetGroupProfileOutput;
+    };
+    sdk: {
+      input: GetGroupProfileCommandInput;
+      output: GetGroupProfileCommandOutput;
+    };
+  };
+}

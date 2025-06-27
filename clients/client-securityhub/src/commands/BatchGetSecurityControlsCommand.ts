@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,65 +113,65 @@ export interface BatchGetSecurityControlsCommandOutput extends BatchGetSecurityC
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get security control details
  * ```javascript
  * // The following example gets details for the specified controls in the current AWS account and AWS Region.
  * const input = {
- *   "SecurityControlIds": [
+ *   SecurityControlIds: [
  *     "ACM.1",
  *     "APIGateway.1"
  *   ]
  * };
  * const command = new BatchGetSecurityControlsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityControls": [
+ *   SecurityControls: [
  *     {
- *       "Description": "This AWS control checks whether ACM Certificates in your account are marked for expiration within a specified time period. Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.",
- *       "LastUpdateReason": "Stayed with default value",
- *       "Parameters": {
- *         "daysToExpiration": {
- *           "Value": {
- *             "Integer": 30
+ *       Description: "This AWS control checks whether ACM Certificates in your account are marked for expiration within a specified time period. Certificates provided by ACM are automatically renewed. ACM does not automatically renew certificates that you import.",
+ *       LastUpdateReason: "Stayed with default value",
+ *       Parameters: {
+ *         daysToExpiration: {
+ *           Value: {
+ *             Integer: 30
  *           },
- *           "ValueType": "DEFAULT"
+ *           ValueType: "DEFAULT"
  *         }
  *       },
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
- *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:123456789012:security-control/ACM.1",
- *       "SecurityControlId": "ACM.1",
- *       "SecurityControlStatus": "ENABLED",
- *       "SeverityRating": "MEDIUM",
- *       "Title": "Imported and ACM-issued certificates should be renewed after a specified time period",
- *       "UpdateStatus": "UPDATING"
+ *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/ACM.1/remediation",
+ *       SecurityControlArn: "arn:aws:securityhub:us-west-2:123456789012:security-control/ACM.1",
+ *       SecurityControlId: "ACM.1",
+ *       SecurityControlStatus: "ENABLED",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "Imported and ACM-issued certificates should be renewed after a specified time period",
+ *       UpdateStatus: "UPDATING"
  *     },
  *     {
- *       "Description": "This control checks whether all stages of Amazon API Gateway REST and WebSocket APIs have logging enabled. The control fails if logging is not enabled for all methods of a stage or if loggingLevel is neither ERROR nor INFO.",
- *       "LastUpdateReason": "Updated control parameters to comply with internal requirements",
- *       "Parameters": {
- *         "loggingLevel": {
- *           "Value": {
- *             "Enum": "ERROR"
+ *       Description: "This control checks whether all stages of Amazon API Gateway REST and WebSocket APIs have logging enabled. The control fails if logging is not enabled for all methods of a stage or if loggingLevel is neither ERROR nor INFO.",
+ *       LastUpdateReason: "Updated control parameters to comply with internal requirements",
+ *       Parameters: {
+ *         loggingLevel: {
+ *           Value: {
+ *             Enum: "ERROR"
  *           },
- *           "ValueType": "CUSTOM"
+ *           ValueType: "CUSTOM"
  *         }
  *       },
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
- *       "SecurityControlArn": "arn:aws:securityhub:us-west-2:123456789012:security-control/APIGateway.1",
- *       "SecurityControlId": "APIGateway.1",
- *       "SecurityControlStatus": "ENABLED",
- *       "SeverityRating": "MEDIUM",
- *       "Title": "API Gateway REST and WebSocket API execution logging should be enabled",
- *       "UpdateStatus": "UPDATING"
+ *       RemediationUrl: "https://docs.aws.amazon.com/console/securityhub/APIGateway.1/remediation",
+ *       SecurityControlArn: "arn:aws:securityhub:us-west-2:123456789012:security-control/APIGateway.1",
+ *       SecurityControlId: "APIGateway.1",
+ *       SecurityControlStatus: "ENABLED",
+ *       SeverityRating: "MEDIUM",
+ *       Title: "API Gateway REST and WebSocket API execution logging should be enabled",
+ *       UpdateStatus: "UPDATING"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-security-control-details--1683234478355
  * ```
  *
+ * @public
  */
 export class BatchGetSecurityControlsCommand extends $Command
   .classBuilder<
@@ -180,9 +181,7 @@ export class BatchGetSecurityControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +193,16 @@ export class BatchGetSecurityControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetSecurityControlsCommand)
   .de(de_BatchGetSecurityControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetSecurityControlsRequest;
+      output: BatchGetSecurityControlsResponse;
+    };
+    sdk: {
+      input: BatchGetSecurityControlsCommandInput;
+      output: BatchGetSecurityControlsCommandOutput;
+    };
+  };
+}

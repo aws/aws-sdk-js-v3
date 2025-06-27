@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResult } from "../models/models_5";
+import { ExportTransitGatewayRoutesRequest, ExportTransitGatewayRoutesResult } from "../models/models_6";
 import { de_ExportTransitGatewayRoutesCommand, se_ExportTransitGatewayRoutesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,8 +31,8 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * <p>Exports routes from the specified transit gateway route table to the specified S3 bucket.
  *          By default, all routes are exported. Alternatively, you can filter by CIDR range.</p>
  *          <p>The routes are saved to the specified bucket in a JSON file. For more information, see
- *                 <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export Route Tables
- *                 to Amazon S3</a> in <i>Transit Gateways</i>.</p>
+ *                 <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-route-tables.html#tgw-export-route-tables">Export route tables
+ *                    to Amazon S3</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +69,7 @@ export interface ExportTransitGatewayRoutesCommandOutput extends ExportTransitGa
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ExportTransitGatewayRoutesCommand extends $Command
@@ -78,9 +80,7 @@ export class ExportTransitGatewayRoutesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class ExportTransitGatewayRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportTransitGatewayRoutesCommand)
   .de(de_ExportTransitGatewayRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportTransitGatewayRoutesRequest;
+      output: ExportTransitGatewayRoutesResult;
+    };
+    sdk: {
+      input: ExportTransitGatewayRoutesCommandInput;
+      output: ExportTransitGatewayRoutesCommandOutput;
+    };
+  };
+}

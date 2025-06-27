@@ -12,7 +12,8 @@ import { de_GetIntegrationCommand, se_GetIntegrationCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface GetIntegrationCommandOutput extends GetIntegrationResult, __Met
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetIntegrationCommand extends $Command
@@ -100,9 +102,7 @@ export class GetIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class GetIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIntegrationCommand)
   .de(de_GetIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIntegrationRequest;
+      output: GetIntegrationResult;
+    };
+    sdk: {
+      input: GetIntegrationCommandInput;
+      output: GetIntegrationCommandOutput;
+    };
+  };
+}

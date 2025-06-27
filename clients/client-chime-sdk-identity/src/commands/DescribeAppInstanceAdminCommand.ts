@@ -16,7 +16,8 @@ import { de_DescribeAppInstanceAdminCommand, se_DescribeAppInstanceAdminCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppInstanceAdminCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeAppInstanceAdminCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeAppInstanceAdminCommand extends $Command
   .f(void 0, DescribeAppInstanceAdminResponseFilterSensitiveLog)
   .ser(se_DescribeAppInstanceAdminCommand)
   .de(de_DescribeAppInstanceAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppInstanceAdminRequest;
+      output: DescribeAppInstanceAdminResponse;
+    };
+    sdk: {
+      input: DescribeAppInstanceAdminCommandInput;
+      output: DescribeAppInstanceAdminCommandOutput;
+    };
+  };
+}

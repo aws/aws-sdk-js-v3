@@ -12,7 +12,8 @@ import { de_UntagDeliveryStreamCommand, se_UntagDeliveryStreamCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface UntagDeliveryStreamCommandInput extends UntagDeliveryStreamInpu
 export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Removes tags from the specified delivery stream. Removed tags are deleted, and you
+ * <p>Removes tags from the specified Firehose stream. Removed tags are deleted, and you
  *          can't recover them after this operation successfully completes.</p>
  *          <p>If you specify a tag that doesn't exist, the operation ignores it.</p>
  *          <p>This operation has a limit of five transactions per second per account. </p>
@@ -70,6 +71,7 @@ export interface UntagDeliveryStreamCommandOutput extends UntagDeliveryStreamOut
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class UntagDeliveryStreamCommand extends $Command
@@ -80,9 +82,7 @@ export class UntagDeliveryStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class UntagDeliveryStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagDeliveryStreamCommand)
   .de(de_UntagDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagDeliveryStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: UntagDeliveryStreamCommandInput;
+      output: UntagDeliveryStreamCommandOutput;
+    };
+  };
+}

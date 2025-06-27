@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface StopReplicationToReplicaCommandOutput extends StopReplicationTo
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
+ *
  * @public
  */
 export class StopReplicationToReplicaCommand extends $Command
@@ -99,9 +101,7 @@ export class StopReplicationToReplicaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class StopReplicationToReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopReplicationToReplicaCommand)
   .de(de_StopReplicationToReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopReplicationToReplicaRequest;
+      output: StopReplicationToReplicaResponse;
+    };
+    sdk: {
+      input: StopReplicationToReplicaCommandInput;
+      output: StopReplicationToReplicaCommandOutput;
+    };
+  };
+}

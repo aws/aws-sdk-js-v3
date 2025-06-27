@@ -12,7 +12,7 @@ With Amazon DocumentDB, you can run the same application code and use the same d
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-docdb
+To install this package, simply type add or install @aws-sdk/client-docdb
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-docdb`
@@ -491,6 +491,14 @@ FailoverDBCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb/command/FailoverDBClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb/Interface/FailoverDBClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb/Interface/FailoverDBClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
+FailoverGlobalCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb/command/FailoverGlobalClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb/Interface/FailoverGlobalClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb/Interface/FailoverGlobalClusterCommandOutput/)
 
 </details>
 <details>

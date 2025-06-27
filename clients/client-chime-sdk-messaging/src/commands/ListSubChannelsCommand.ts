@@ -21,7 +21,8 @@ import { de_ListSubChannelsCommand, se_ListSubChannelsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface ListSubChannelsCommandOutput extends ListSubChannelsResponse, _
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class ListSubChannelsCommand extends $Command
@@ -101,9 +103,7 @@ export class ListSubChannelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class ListSubChannelsCommand extends $Command
   .f(ListSubChannelsRequestFilterSensitiveLog, ListSubChannelsResponseFilterSensitiveLog)
   .ser(se_ListSubChannelsCommand)
   .de(de_ListSubChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubChannelsRequest;
+      output: ListSubChannelsResponse;
+    };
+    sdk: {
+      input: ListSubChannelsCommandInput;
+      output: ListSubChannelsCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,4 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { AwsIdentityProperties, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { Logger } from "@smithy/types";
 
@@ -35,12 +35,21 @@ export function fromCognitoIdentityPool({
     ? `aws:cognito-identity-credentials:${identityPoolId}:${userIdentifier}`
     : undefined;
 
-  let provider: CognitoIdentityCredentialProvider = async () => {
+  let provider: CognitoIdentityCredentialProvider = async (awsIdentityProperties?: AwsIdentityProperties) => {
     const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
+
+    const fromConfigs = (property: "region" | "profile"): any =>
+      clientConfig?.[property] ??
+      parentClientConfig?.[property] ??
+      awsIdentityProperties?.callerClientConfig?.[property];
+
     const _client =
       client ??
       new CognitoIdentityClient(
-        Object.assign({}, clientConfig ?? {}, { region: clientConfig?.region ?? parentClientConfig?.region })
+        Object.assign({}, clientConfig ?? {}, {
+          region: fromConfigs("region"),
+          profile: fromConfigs("profile"),
+        })
       );
 
     let identityId: string | undefined = (cacheKey && (await cache.getItem(cacheKey))) as string | undefined;
@@ -65,11 +74,11 @@ export function fromCognitoIdentityPool({
       identityId,
     });
 
-    return provider();
+    return provider(awsIdentityProperties);
   };
 
-  return () =>
-    provider().catch(async (err) => {
+  return (awsIdentityProperties?: AwsIdentityProperties) =>
+    provider(awsIdentityProperties).catch(async (err) => {
       if (cacheKey) {
         Promise.resolve(cache.removeItem(cacheKey)).catch(() => {});
       }

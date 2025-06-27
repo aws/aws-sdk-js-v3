@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { LookoutEquipmentServiceException as __BaseException } from "./LookoutEquipmentServiceException";
@@ -78,7 +78,7 @@ export interface DatasetSchema {
    * <p>The data schema used within the given dataset.</p>
    * @public
    */
-  InlineDataSchema?: __LazyJsonString | string;
+  InlineDataSchema?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -114,27 +114,27 @@ export interface CreateDatasetRequest {
    *          column names, and data types. </p>
    * @public
    */
-  DatasetSchema?: DatasetSchema;
+  DatasetSchema?: DatasetSchema | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout
    *          for Equipment. </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p> A unique identifier for the request. If you do not set the client request token, Amazon
    *          Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Any tags associated with the ingested data described in the dataset. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -161,19 +161,19 @@ export interface CreateDatasetResponse {
    * <p>The name of the dataset being created. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the dataset being created. </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the <code>CreateDataset</code> operation. </p>
    * @public
    */
-  Status?: DatasetStatus;
+  Status?: DatasetStatus | undefined;
 }
 
 /**
@@ -277,13 +277,13 @@ export interface InferenceInputNameConfiguration {
    *          (-). </p>
    * @public
    */
-  TimestampFormat?: string;
+  TimestampFormat?: string | undefined;
 
   /**
    * <p>Indicates the delimiter character used between items in the data. </p>
    * @public
    */
-  ComponentTimestampDelimiter?: string;
+  ComponentTimestampDelimiter?: string | undefined;
 }
 
 /**
@@ -302,7 +302,7 @@ export interface InferenceS3InputConfiguration {
    * <p>The prefix for the S3 bucket used for the input data for the inference. </p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -316,21 +316,21 @@ export interface InferenceInputConfiguration {
    *             Amazon S3 location of input data.</p>
    * @public
    */
-  S3InputConfiguration?: InferenceS3InputConfiguration;
+  S3InputConfiguration?: InferenceS3InputConfiguration | undefined;
 
   /**
    * <p>Indicates the difference between your time zone and Coordinated Universal Time
    *          (UTC).</p>
    * @public
    */
-  InputTimeZoneOffset?: string;
+  InputTimeZoneOffset?: string | undefined;
 
   /**
    * <p>Specifies configuration information for the input data for the inference, including
    *          timestamp format and delimiter. </p>
    * @public
    */
-  InferenceInputNameConfiguration?: InferenceInputNameConfiguration;
+  InferenceInputNameConfiguration?: InferenceInputNameConfiguration | undefined;
 }
 
 /**
@@ -349,7 +349,7 @@ export interface InferenceS3OutputConfiguration {
    * <p> The prefix for the S3 bucket used for the output results from the inference. </p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -369,7 +369,7 @@ export interface InferenceOutputConfiguration {
    * <p>The ID number for the KMS key key used to encrypt the inference output. </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -418,7 +418,7 @@ export interface CreateInferenceSchedulerRequest {
    *             the inference process</a>.</p>
    * @public
    */
-  DataDelayOffsetInMinutes?: number;
+  DataDelayOffsetInMinutes?: number | undefined;
 
   /**
    * <p> How often data is uploaded to the source Amazon S3 bucket for the input data. The value
@@ -457,20 +457,20 @@ export interface CreateInferenceSchedulerRequest {
    *          Amazon Lookout for Equipment. </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p> A unique identifier for the request. If you do not set the client request token, Amazon
    *          Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Any tags associated with the inference scheduler. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -512,19 +512,19 @@ export interface CreateInferenceSchedulerResponse {
    * <p>The Amazon Resource Name (ARN) of the inference scheduler being created. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>The name of inference scheduler being created. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p>Indicates the status of the <code>CreateInferenceScheduler</code> operation. </p>
    * @public
    */
-  Status?: InferenceSchedulerStatus;
+  Status?: InferenceSchedulerStatus | undefined;
 
   /**
    * <p>Provides a quality assessment for a model that uses labels.
@@ -541,7 +541,7 @@ export interface CreateInferenceSchedulerResponse {
    *          Amazon Lookout for Equipment</a>.</p>
    * @public
    */
-  ModelQuality?: ModelQuality;
+  ModelQuality?: ModelQuality | undefined;
 }
 
 /**
@@ -619,7 +619,7 @@ export interface CreateLabelRequest {
    *          security of your data. </p>
    * @public
    */
-  FaultCode?: string;
+  FaultCode?: string | undefined;
 
   /**
    * <p> Metadata providing additional information about the label. </p>
@@ -627,7 +627,7 @@ export interface CreateLabelRequest {
    *          security of your data.</p>
    * @public
    */
-  Notes?: string;
+  Notes?: string | undefined;
 
   /**
    * <p> Indicates that a label pertains to a particular piece of equipment. </p>
@@ -635,14 +635,14 @@ export interface CreateLabelRequest {
    *          security of your data.</p>
    * @public
    */
-  Equipment?: string;
+  Equipment?: string | undefined;
 
   /**
    * <p> A unique identifier for the request to create a label. If you do not set the client
    *          request token, Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -653,7 +653,7 @@ export interface CreateLabelResponse {
    * <p> The ID of the label that you have created. </p>
    * @public
    */
-  LabelId?: string;
+  LabelId?: string | undefined;
 }
 
 /**
@@ -675,14 +675,14 @@ export interface CreateLabelGroupRequest {
    *          security of your data.</p>
    * @public
    */
-  FaultCodes?: string[];
+  FaultCodes?: string[] | undefined;
 
   /**
    * <p> A unique identifier for the request to create a label group. If you do not set the
    *          client request token, Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p> Tags that provide metadata about the label group you are creating. </p>
@@ -690,7 +690,7 @@ export interface CreateLabelGroupRequest {
    *          security of your data.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -702,13 +702,13 @@ export interface CreateLabelGroupResponse {
    *          for service usage. Follow best practices for the security of your data. </p>
    * @public
    */
-  LabelGroupName?: string;
+  LabelGroupName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the label group that you have created. </p>
    * @public
    */
-  LabelGroupArn?: string;
+  LabelGroupArn?: string | undefined;
 }
 
 /**
@@ -759,7 +759,7 @@ export interface DataPreProcessingConfiguration {
    *          </p>
    * @public
    */
-  TargetSamplingRate?: TargetSamplingRate;
+  TargetSamplingRate?: TargetSamplingRate | undefined;
 }
 
 /**
@@ -778,7 +778,7 @@ export interface LabelsS3InputConfiguration {
    * <p> The prefix for the S3 bucket used for the label data. </p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -791,13 +791,13 @@ export interface LabelsInputConfiguration {
    * <p>Contains location information for the S3 location being used for label data. </p>
    * @public
    */
-  S3InputConfiguration?: LabelsS3InputConfiguration;
+  S3InputConfiguration?: LabelsS3InputConfiguration | undefined;
 
   /**
    * <p> The name of the label group to be used for label data. </p>
    * @public
    */
-  LabelGroupName?: string;
+  LabelGroupName?: string | undefined;
 }
 
 /**
@@ -822,7 +822,7 @@ export interface ModelDiagnosticsS3OutputConfiguration {
    *          the file path and filename of the model evaluation file. </p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 }
 
 /**
@@ -840,7 +840,7 @@ export interface ModelDiagnosticsOutputConfiguration {
    * <p>The Amazon Web Services Key Management Service (KMS) key identifier to encrypt the pointwise model diagnostics files.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 }
 
 /**
@@ -863,56 +863,56 @@ export interface CreateModelRequest {
    * <p>The data schema for the machine learning model being created. </p>
    * @public
    */
-  DatasetSchema?: DatasetSchema;
+  DatasetSchema?: DatasetSchema | undefined;
 
   /**
    * <p>The input configuration for the labels being used for the machine learning model that's
    *          being created. </p>
    * @public
    */
-  LabelsInputConfiguration?: LabelsInputConfiguration;
+  LabelsInputConfiguration?: LabelsInputConfiguration | undefined;
 
   /**
    * <p>A unique identifier for the request. If you do not set the client request token, Amazon
    *          Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Indicates the time reference in the dataset that should be used to begin the subset of
    *          training data for the machine learning model. </p>
    * @public
    */
-  TrainingDataStartTime?: Date;
+  TrainingDataStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the time reference in the dataset that should be used to end the subset of
    *          training data for the machine learning model. </p>
    * @public
    */
-  TrainingDataEndTime?: Date;
+  TrainingDataEndTime?: Date | undefined;
 
   /**
    * <p>Indicates the time reference in the dataset that should be used to begin the subset of
    *          evaluation data for the machine learning model. </p>
    * @public
    */
-  EvaluationDataStartTime?: Date;
+  EvaluationDataStartTime?: Date | undefined;
 
   /**
    * <p> Indicates the time reference in the dataset that should be used to end the subset of
    *          evaluation data for the machine learning model. </p>
    * @public
    */
-  EvaluationDataEndTime?: Date;
+  EvaluationDataEndTime?: Date | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of a role with permission to access the data source
    *          being used to create the machine learning model. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
@@ -926,20 +926,20 @@ export interface CreateModelRequest {
    *          </p>
    * @public
    */
-  DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
+  DataPreProcessingConfiguration?: DataPreProcessingConfiguration | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout
    *          for Equipment. </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p> Any tags associated with the machine learning model being created. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Indicates that the asset associated with this sensor has been shut off. As long as this
@@ -947,7 +947,7 @@ export interface CreateModelRequest {
    *          evaluation, or inference.</p>
    * @public
    */
-  OffCondition?: string;
+  OffCondition?: string | undefined;
 
   /**
    * <p>The Amazon S3 location where you want Amazon Lookout for Equipment to save the pointwise model diagnostics.
@@ -956,7 +956,7 @@ export interface CreateModelRequest {
    *       You must also specify the <code>RoleArn</code> request parameter.</p>
    * @public
    */
-  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration | undefined;
 }
 
 /**
@@ -983,13 +983,13 @@ export interface CreateModelResponse {
    * <p>The Amazon Resource Name (ARN) of the model being created. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the <code>CreateModel</code> operation. </p>
    * @public
    */
-  Status?: ModelStatus;
+  Status?: ModelStatus | undefined;
 }
 
 /**
@@ -1021,7 +1021,7 @@ export interface CreateRetrainingSchedulerRequest {
    *          nearest UTC day.</p>
    * @public
    */
-  RetrainingStartDate?: Date;
+  RetrainingStartDate?: Date | undefined;
 
   /**
    * <p>This parameter uses the <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> standard to set the frequency at which you want retraining to occur in
@@ -1056,14 +1056,14 @@ export interface CreateRetrainingSchedulerRequest {
    *             are manually activated</a>.</p>
    * @public
    */
-  PromoteMode?: ModelPromoteMode;
+  PromoteMode?: ModelPromoteMode | undefined;
 
   /**
    * <p>A unique identifier for the request. If you do not set the client request token, Amazon
    *          Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1090,19 +1090,19 @@ export interface CreateRetrainingSchedulerResponse {
    * <p>The name of the model that you added the retraining scheduler to. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The ARN of the model that you added the retraining scheduler to. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The status of the retraining scheduler. </p>
    * @public
    */
-  Status?: RetrainingSchedulerStatus;
+  Status?: RetrainingSchedulerStatus | undefined;
 }
 
 /**
@@ -1396,7 +1396,7 @@ export interface IngestedFilesSummary {
    *          format is invalid (for example, a jpg or pdf) or not readable.</p>
    * @public
    */
-  DiscardedFiles?: S3Object[];
+  DiscardedFiles?: S3Object[] | undefined;
 }
 
 /**
@@ -1416,7 +1416,7 @@ export interface IngestionS3InputConfiguration {
    *       </p>
    * @public
    */
-  Prefix?: string;
+  Prefix?: string | undefined;
 
   /**
    * <p> The pattern for matching the Amazon S3 files that will be used for ingestion.
@@ -1428,7 +1428,7 @@ export interface IngestionS3InputConfiguration {
    *          hyphen)</p>
    * @public
    */
-  KeyPattern?: string;
+  KeyPattern?: string | undefined;
 }
 
 /**
@@ -1469,46 +1469,46 @@ export interface DescribeDataIngestionJobResponse {
    * <p>Indicates the job ID of the data ingestion job. </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset being used in the data ingestion job.
    *       </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>Specifies the S3 location configuration for the data input for the data ingestion job.
    *       </p>
    * @public
    */
-  IngestionInputConfiguration?: IngestionInputConfiguration;
+  IngestionInputConfiguration?: IngestionInputConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role with permission to access the data source
    *          being ingested. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The time at which the data ingestion job was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Indicates the status of the <code>DataIngestionJob</code> operation. </p>
    * @public
    */
-  Status?: IngestionJobStatus;
+  Status?: IngestionJobStatus | undefined;
 
   /**
    * <p>Specifies the reason for failure when a data ingestion job has failed. </p>
    * @public
    */
-  FailedReason?: string;
+  FailedReason?: string | undefined;
 
   /**
    * <p> Gives statistics about a completed ingestion job. These statistics primarily relate to
@@ -1516,48 +1516,48 @@ export interface DescribeDataIngestionJobResponse {
    *          UnsupportedDateFormats, InsufficientSensorData, and DuplicateTimeStamps. </p>
    * @public
    */
-  DataQualitySummary?: DataQualitySummary;
+  DataQualitySummary?: DataQualitySummary | undefined;
 
   /**
    * <p>Gives statistics about how many files have been ingested, and which files have not been
    *          ingested, for a particular ingestion job.</p>
    * @public
    */
-  IngestedFilesSummary?: IngestedFilesSummary;
+  IngestedFilesSummary?: IngestedFilesSummary | undefined;
 
   /**
    * <p> Provides details about status of the ingestion job that is currently in progress.
    *       </p>
    * @public
    */
-  StatusDetail?: string;
+  StatusDetail?: string | undefined;
 
   /**
    * <p> Indicates the size of the ingested dataset. </p>
    * @public
    */
-  IngestedDataSize?: number;
+  IngestedDataSize?: number | undefined;
 
   /**
    * <p> Indicates the earliest timestamp corresponding to data that was successfully ingested
    *          during this specific ingestion job. </p>
    * @public
    */
-  DataStartTime?: Date;
+  DataStartTime?: Date | undefined;
 
   /**
    * <p> Indicates the latest timestamp corresponding to data that was successfully ingested
    *          during this specific ingestion job. </p>
    * @public
    */
-  DataEndTime?: Date;
+  DataEndTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source dataset from which the data used for the
    *          data ingestion job was imported from.</p>
    * @public
    */
-  SourceDatasetArn?: string;
+  SourceDatasetArn?: string | undefined;
 }
 
 /**
@@ -1579,52 +1579,52 @@ export interface DescribeDatasetResponse {
    * <p>The name of the dataset being described. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset being described. </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>Specifies the time the dataset was created in Lookout for Equipment. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Specifies the time the dataset was last updated, if it was. </p>
    * @public
    */
-  LastUpdatedAt?: Date;
+  LastUpdatedAt?: Date | undefined;
 
   /**
    * <p>Indicates the status of the dataset. </p>
    * @public
    */
-  Status?: DatasetStatus;
+  Status?: DatasetStatus | undefined;
 
   /**
    * <p>A JSON description of the data that is in each time series dataset, including names,
    *          column names, and data types. </p>
    * @public
    */
-  Schema?: __LazyJsonString | string;
+  Schema?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key used to encrypt dataset data by Amazon Lookout
    *          for Equipment. </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies the S3 location configuration for the data input for the data ingestion job.
    *       </p>
    * @public
    */
-  IngestionInputConfiguration?: IngestionInputConfiguration;
+  IngestionInputConfiguration?: IngestionInputConfiguration | undefined;
 
   /**
    * <p> Gives statistics associated with the given dataset for the latest successful associated
@@ -1633,42 +1633,42 @@ export interface DescribeDatasetResponse {
    *          InsufficientSensorData, and DuplicateTimeStamps. </p>
    * @public
    */
-  DataQualitySummary?: DataQualitySummary;
+  DataQualitySummary?: DataQualitySummary | undefined;
 
   /**
    * <p>IngestedFilesSummary associated with the given dataset for the latest successful
    *          associated ingestion job id. </p>
    * @public
    */
-  IngestedFilesSummary?: IngestedFilesSummary;
+  IngestedFilesSummary?: IngestedFilesSummary | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the IAM role that you are using for this the data
    *          ingestion job. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p> Indicates the earliest timestamp corresponding to data that was successfully ingested
    *          during the most recent ingestion of this particular dataset. </p>
    * @public
    */
-  DataStartTime?: Date;
+  DataStartTime?: Date | undefined;
 
   /**
    * <p> Indicates the latest timestamp corresponding to data that was successfully ingested
    *          during the most recent ingestion of this particular dataset. </p>
    * @public
    */
-  DataEndTime?: Date;
+  DataEndTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source dataset from which the current data being
    *          described was imported from.</p>
    * @public
    */
-  SourceDatasetArn?: string;
+  SourceDatasetArn?: string | undefined;
 }
 
 /**
@@ -1705,32 +1705,32 @@ export interface DescribeInferenceSchedulerResponse {
    *          being described. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the machine learning model of the inference scheduler being described.
    *       </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The name of the inference scheduler being described. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the inference scheduler being described. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    * @public
    */
-  Status?: InferenceSchedulerStatus;
+  Status?: InferenceSchedulerStatus | undefined;
 
   /**
    * <p> A period of time (in minutes) by which inference on the data is delayed after the data
@@ -1742,7 +1742,7 @@ export interface DescribeInferenceSchedulerResponse {
    *          restart the scheduler when uploading new data.</p>
    * @public
    */
-  DataDelayOffsetInMinutes?: number;
+  DataDelayOffsetInMinutes?: number | undefined;
 
   /**
    * <p>Specifies how often data is uploaded to the source S3 bucket for the input data. This
@@ -1752,54 +1752,54 @@ export interface DescribeInferenceSchedulerResponse {
    *          this example, it starts once every 5 minutes. </p>
    * @public
    */
-  DataUploadFrequency?: DataUploadFrequency;
+  DataUploadFrequency?: DataUploadFrequency | undefined;
 
   /**
    * <p>Specifies the time at which the inference scheduler was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Specifies the time at which the inference scheduler was last updated, if it was. </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p> Specifies configuration information for the input data for the inference scheduler,
    *          including delimiter, format, and dataset location. </p>
    * @public
    */
-  DataInputConfiguration?: InferenceInputConfiguration;
+  DataInputConfiguration?: InferenceInputConfiguration | undefined;
 
   /**
    * <p> Specifies information for the output results for the inference scheduler, including
    *          the output S3 location. </p>
    * @public
    */
-  DataOutputConfiguration?: InferenceOutputConfiguration;
+  DataOutputConfiguration?: InferenceOutputConfiguration | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for
    *          the inference scheduler being described. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key used to encrypt inference scheduler data by
    *          Amazon Lookout for Equipment. </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
    *          (anomalous events found) or Normal (no anomalous events found).</p>
    * @public
    */
-  LatestInferenceResult?: LatestInferenceResult;
+  LatestInferenceResult?: LatestInferenceResult | undefined;
 }
 
 /**
@@ -1827,37 +1827,37 @@ export interface DescribeLabelResponse {
    * <p> The name of the requested label group. </p>
    * @public
    */
-  LabelGroupName?: string;
+  LabelGroupName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the requested label group. </p>
    * @public
    */
-  LabelGroupArn?: string;
+  LabelGroupArn?: string | undefined;
 
   /**
    * <p> The ID of the requested label. </p>
    * @public
    */
-  LabelId?: string;
+  LabelId?: string | undefined;
 
   /**
    * <p> The start time of the requested label. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p> The end time of the requested label. </p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p> Indicates whether a labeled event represents an anomaly. </p>
    * @public
    */
-  Rating?: LabelRating;
+  Rating?: LabelRating | undefined;
 
   /**
    * <p> Indicates the type of anomaly associated with the label. </p>
@@ -1865,7 +1865,7 @@ export interface DescribeLabelResponse {
    *          security of your data.</p>
    * @public
    */
-  FaultCode?: string;
+  FaultCode?: string | undefined;
 
   /**
    * <p>Metadata providing additional information about the label.</p>
@@ -1873,19 +1873,19 @@ export interface DescribeLabelResponse {
    *          security of your data.</p>
    * @public
    */
-  Notes?: string;
+  Notes?: string | undefined;
 
   /**
    * <p> Indicates that a label pertains to a particular piece of equipment. </p>
    * @public
    */
-  Equipment?: string;
+  Equipment?: string | undefined;
 
   /**
    * <p> The time at which the label was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 }
 
 /**
@@ -1907,32 +1907,32 @@ export interface DescribeLabelGroupResponse {
    * <p> The name of the label group. </p>
    * @public
    */
-  LabelGroupName?: string;
+  LabelGroupName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the label group. </p>
    * @public
    */
-  LabelGroupArn?: string;
+  LabelGroupArn?: string | undefined;
 
   /**
    * <p> Codes indicating the type of anomaly associated with the labels in the lagbel group.
    *       </p>
    * @public
    */
-  FaultCodes?: string[];
+  FaultCodes?: string[] | undefined;
 
   /**
    * <p> The time at which the label group was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p> The time at which the label group was updated. </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -1971,75 +1971,75 @@ export interface DescribeModelResponse {
    * <p>The name of the machine learning model being described. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the machine learning model being described. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the dataset being used by the machine learning being described. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The Amazon Resouce Name (ARN) of the dataset used to create the machine learning model
    *          being described. </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>A JSON description of the data that is in each time series dataset, including names,
    *          column names, and data types. </p>
    * @public
    */
-  Schema?: __LazyJsonString | string;
+  Schema?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Specifies configuration information about the labels input, including its S3 location.
    *       </p>
    * @public
    */
-  LabelsInputConfiguration?: LabelsInputConfiguration;
+  LabelsInputConfiguration?: LabelsInputConfiguration | undefined;
 
   /**
    * <p> Indicates the time reference in the dataset that was used to begin the subset of
    *          training data for the machine learning model. </p>
    * @public
    */
-  TrainingDataStartTime?: Date;
+  TrainingDataStartTime?: Date | undefined;
 
   /**
    * <p> Indicates the time reference in the dataset that was used to end the subset of training
    *          data for the machine learning model. </p>
    * @public
    */
-  TrainingDataEndTime?: Date;
+  TrainingDataEndTime?: Date | undefined;
 
   /**
    * <p> Indicates the time reference in the dataset that was used to begin the subset of
    *          evaluation data for the machine learning model. </p>
    * @public
    */
-  EvaluationDataStartTime?: Date;
+  EvaluationDataStartTime?: Date | undefined;
 
   /**
    * <p> Indicates the time reference in the dataset that was used to end the subset of
    *          evaluation data for the machine learning model. </p>
    * @public
    */
-  EvaluationDataEndTime?: Date;
+  EvaluationDataEndTime?: Date | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for
    *          the machine learning model being described. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
@@ -2053,34 +2053,34 @@ export interface DescribeModelResponse {
    *          </p>
    * @public
    */
-  DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
+  DataPreProcessingConfiguration?: DataPreProcessingConfiguration | undefined;
 
   /**
    * <p>Specifies the current status of the model being described. Status describes the status
    *          of the most recent action of the model. </p>
    * @public
    */
-  Status?: ModelStatus;
+  Status?: ModelStatus | undefined;
 
   /**
    * <p>Indicates the time at which the training of the machine learning model began. </p>
    * @public
    */
-  TrainingExecutionStartTime?: Date;
+  TrainingExecutionStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the time at which the training of the machine learning model was completed.
    *       </p>
    * @public
    */
-  TrainingExecutionEndTime?: Date;
+  TrainingExecutionEndTime?: Date | undefined;
 
   /**
    * <p>If the training of the machine learning model failed, this indicates the reason for that
    *          failure. </p>
    * @public
    */
-  FailedReason?: string;
+  FailedReason?: string | undefined;
 
   /**
    * <p>The Model Metrics show an aggregated summary of the model's performance within the
@@ -2088,27 +2088,27 @@ export interface DescribeModelResponse {
    *          model. </p>
    * @public
    */
-  ModelMetrics?: __LazyJsonString | string;
+  ModelMetrics?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>Indicates the last time the machine learning model was updated. The type of update is
    *          not specified. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Indicates the time and date at which the machine learning model was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key used to encrypt model data by Amazon Lookout
    *          for Equipment. </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p>Indicates that the asset associated with this sensor has been shut off. As long as this
@@ -2116,68 +2116,68 @@ export interface DescribeModelResponse {
    *          inference.</p>
    * @public
    */
-  OffCondition?: string;
+  OffCondition?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source model version. This field appears if the
    *          active model version was imported.</p>
    * @public
    */
-  SourceModelVersionArn?: string;
+  SourceModelVersionArn?: string | undefined;
 
   /**
    * <p>The date and time when the import job was started. This field appears if the active
    *          model version was imported.</p>
    * @public
    */
-  ImportJobStartTime?: Date;
+  ImportJobStartTime?: Date | undefined;
 
   /**
    * <p>The date and time when the import job was completed. This field appears if the active
    *          model version was imported.</p>
    * @public
    */
-  ImportJobEndTime?: Date;
+  ImportJobEndTime?: Date | undefined;
 
   /**
    * <p>The name of the model version used by the inference schedular when running a scheduled
    *          inference execution.</p>
    * @public
    */
-  ActiveModelVersion?: number;
+  ActiveModelVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model version used by the inference scheduler when
    *          running a scheduled inference execution.</p>
    * @public
    */
-  ActiveModelVersionArn?: string;
+  ActiveModelVersionArn?: string | undefined;
 
   /**
    * <p>The date the active model version was activated.</p>
    * @public
    */
-  ModelVersionActivatedAt?: Date;
+  ModelVersionActivatedAt?: Date | undefined;
 
   /**
    * <p>The model version that was set as the active model version prior to the current active
    *          model version.</p>
    * @public
    */
-  PreviousActiveModelVersion?: number;
+  PreviousActiveModelVersion?: number | undefined;
 
   /**
    * <p>The ARN of the model version that was set as the active model version prior to the
    *          current active model version.</p>
    * @public
    */
-  PreviousActiveModelVersionArn?: string;
+  PreviousActiveModelVersionArn?: string | undefined;
 
   /**
    * <p>The date and time when the previous active model version was activated.</p>
    * @public
    */
-  PreviousModelVersionActivatedAt?: Date;
+  PreviousModelVersionActivatedAt?: Date | undefined;
 
   /**
    * <p>If the model version was retrained, this field shows a summary of the performance of the
@@ -2185,70 +2185,70 @@ export interface DescribeModelResponse {
    *          object to compare the new model version and the prior model version.</p>
    * @public
    */
-  PriorModelMetrics?: __LazyJsonString | string;
+  PriorModelMetrics?: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>If the model version was generated by retraining and the training failed, this indicates
    *          the reason for that failure. </p>
    * @public
    */
-  LatestScheduledRetrainingFailedReason?: string;
+  LatestScheduledRetrainingFailedReason?: string | undefined;
 
   /**
    * <p>Indicates the status of the most recent scheduled retraining run. </p>
    * @public
    */
-  LatestScheduledRetrainingStatus?: ModelVersionStatus;
+  LatestScheduledRetrainingStatus?: ModelVersionStatus | undefined;
 
   /**
    * <p>Indicates the most recent model version that was generated by retraining. </p>
    * @public
    */
-  LatestScheduledRetrainingModelVersion?: number;
+  LatestScheduledRetrainingModelVersion?: number | undefined;
 
   /**
    * <p>Indicates the start time of the most recent scheduled retraining run. </p>
    * @public
    */
-  LatestScheduledRetrainingStartTime?: Date;
+  LatestScheduledRetrainingStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the number of days of data used in the most recent scheduled retraining run.
    *       </p>
    * @public
    */
-  LatestScheduledRetrainingAvailableDataInDays?: number;
+  LatestScheduledRetrainingAvailableDataInDays?: number | undefined;
 
   /**
    * <p>Indicates the date and time that the next scheduled retraining run will start on. Lookout for Equipment
    *          truncates the time you provide to the nearest UTC day.</p>
    * @public
    */
-  NextScheduledRetrainingStartDate?: Date;
+  NextScheduledRetrainingStartDate?: Date | undefined;
 
   /**
    * <p>Indicates the start time of the inference data that has been accumulated. </p>
    * @public
    */
-  AccumulatedInferenceDataStartTime?: Date;
+  AccumulatedInferenceDataStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the end time of the inference data that has been accumulated. </p>
    * @public
    */
-  AccumulatedInferenceDataEndTime?: Date;
+  AccumulatedInferenceDataEndTime?: Date | undefined;
 
   /**
    * <p>Indicates the status of the retraining scheduler. </p>
    * @public
    */
-  RetrainingSchedulerStatus?: RetrainingSchedulerStatus;
+  RetrainingSchedulerStatus?: RetrainingSchedulerStatus | undefined;
 
   /**
    * <p>Configuration information for the model's pointwise model diagnostics.</p>
    * @public
    */
-  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration | undefined;
 
   /**
    * <p>Provides a quality assessment for a model that uses labels. If Lookout for Equipment determines that the
@@ -2264,7 +2264,7 @@ export interface DescribeModelResponse {
    *          Amazon Lookout for Equipment</a>.</p>
    * @public
    */
-  ModelQuality?: ModelQuality;
+  ModelQuality?: ModelQuality | undefined;
 }
 
 /**
@@ -2307,70 +2307,70 @@ export interface DescribeModelVersionResponse {
    * <p>The name of the machine learning model that this version belongs to.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the parent machine learning model that this version
    *          belong to.</p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The version of the machine learning model.</p>
    * @public
    */
-  ModelVersion?: number;
+  ModelVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model version.</p>
    * @public
    */
-  ModelVersionArn?: string;
+  ModelVersionArn?: string | undefined;
 
   /**
    * <p>The current status of the model version.</p>
    * @public
    */
-  Status?: ModelVersionStatus;
+  Status?: ModelVersionStatus | undefined;
 
   /**
    * <p>Indicates whether this model version was created by training or by importing.</p>
    * @public
    */
-  SourceType?: ModelVersionSourceType;
+  SourceType?: ModelVersionSourceType | undefined;
 
   /**
    * <p>The name of the dataset used to train the model version.</p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset used to train the model version.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The schema of the data used to train the model version.</p>
    * @public
    */
-  Schema?: string;
+  Schema?: string | undefined;
 
   /**
    * <p>Contains the configuration information for the S3 location being used to hold label
    *          data. </p>
    * @public
    */
-  LabelsInputConfiguration?: LabelsInputConfiguration;
+  LabelsInputConfiguration?: LabelsInputConfiguration | undefined;
 
   /**
    * <p>The date on which the training data began being gathered. If you imported the version,
    *          this is the date that the training data in the source version began being gathered.</p>
    * @public
    */
-  TrainingDataStartTime?: Date;
+  TrainingDataStartTime?: Date | undefined;
 
   /**
    * <p>The date on which the training data finished being gathered. If you imported the
@@ -2378,7 +2378,7 @@ export interface DescribeModelVersionResponse {
    *          gathered.</p>
    * @public
    */
-  TrainingDataEndTime?: Date;
+  TrainingDataEndTime?: Date | undefined;
 
   /**
    * <p>The date on which the data in the evaluation set began being gathered. If you imported
@@ -2386,7 +2386,7 @@ export interface DescribeModelVersionResponse {
    *          being gathered.</p>
    * @public
    */
-  EvaluationDataStartTime?: Date;
+  EvaluationDataStartTime?: Date | undefined;
 
   /**
    * <p>The date on which the data in the evaluation set began being gathered. If you imported
@@ -2394,14 +2394,14 @@ export interface DescribeModelVersionResponse {
    *          being gathered.</p>
    * @public
    */
-  EvaluationDataEndTime?: Date;
+  EvaluationDataEndTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the role that was used to train the model
    *          version.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The configuration is the <code>TargetSamplingRate</code>, which is the sampling rate of
@@ -2415,52 +2415,52 @@ export interface DescribeModelVersionResponse {
    *          </p>
    * @public
    */
-  DataPreProcessingConfiguration?: DataPreProcessingConfiguration;
+  DataPreProcessingConfiguration?: DataPreProcessingConfiguration | undefined;
 
   /**
    * <p>The time when the training of the version began.</p>
    * @public
    */
-  TrainingExecutionStartTime?: Date;
+  TrainingExecutionStartTime?: Date | undefined;
 
   /**
    * <p>The time when the training of the version completed.</p>
    * @public
    */
-  TrainingExecutionEndTime?: Date;
+  TrainingExecutionEndTime?: Date | undefined;
 
   /**
    * <p>The failure message if the training of the model version failed.</p>
    * @public
    */
-  FailedReason?: string;
+  FailedReason?: string | undefined;
 
   /**
    * <p>Shows an aggregated summary, in JSON format, of the model's performance within the
    *          evaluation time range. These metrics are created when evaluating the model.</p>
    * @public
    */
-  ModelMetrics?: string;
+  ModelMetrics?: string | undefined;
 
   /**
    * <p>Indicates the last time the machine learning model version was updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Indicates the time and date at which the machine learning model version was
    *          created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The identifier of the KMS key key used to encrypt model version data by
    *          Amazon Lookout for Equipment.</p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p>Indicates that the asset associated with this sensor has been shut off. As long as this
@@ -2468,35 +2468,35 @@ export interface DescribeModelVersionResponse {
    *          evaluation, or inference.</p>
    * @public
    */
-  OffCondition?: string;
+  OffCondition?: string | undefined;
 
   /**
    * <p>If model version was imported, then this field is the arn of the source model
    *          version.</p>
    * @public
    */
-  SourceModelVersionArn?: string;
+  SourceModelVersionArn?: string | undefined;
 
   /**
    * <p>The date and time when the import job began. This field appears if the model version was
    *          imported.</p>
    * @public
    */
-  ImportJobStartTime?: Date;
+  ImportJobStartTime?: Date | undefined;
 
   /**
    * <p>The date and time when the import job completed. This field appears if the model version
    *          was imported.</p>
    * @public
    */
-  ImportJobEndTime?: Date;
+  ImportJobEndTime?: Date | undefined;
 
   /**
    * <p>The size in bytes of the imported data. This field appears if the model version was
    *          imported.</p>
    * @public
    */
-  ImportedDataSizeInBytes?: number;
+  ImportedDataSizeInBytes?: number | undefined;
 
   /**
    * <p>If the model version was retrained, this field shows a summary of the performance of the
@@ -2504,21 +2504,21 @@ export interface DescribeModelVersionResponse {
    *          object to compare the new model version and the prior model version.</p>
    * @public
    */
-  PriorModelMetrics?: string;
+  PriorModelMetrics?: string | undefined;
 
   /**
    * <p>Indicates the number of days of data used in the most recent scheduled retraining run.
    *       </p>
    * @public
    */
-  RetrainingAvailableDataInDays?: number;
+  RetrainingAvailableDataInDays?: number | undefined;
 
   /**
    * <p>Indicates whether the model version was promoted to be the active version after
    *          retraining or if there was an error with or cancellation of the retraining. </p>
    * @public
    */
-  AutoPromotionResult?: AutoPromotionResult;
+  AutoPromotionResult?: AutoPromotionResult | undefined;
 
   /**
    * <p>Indicates the reason for the <code>AutoPromotionResult</code>. For example, a model
@@ -2528,19 +2528,19 @@ export interface DescribeModelVersionResponse {
    *          better than the previous model. </p>
    * @public
    */
-  AutoPromotionResultReason?: string;
+  AutoPromotionResultReason?: string | undefined;
 
   /**
    * <p>The Amazon S3 location where Amazon Lookout for Equipment saves the pointwise model diagnostics for the model version.</p>
    * @public
    */
-  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration | undefined;
 
   /**
    * <p>The Amazon S3 output prefix for where Lookout for Equipment saves the pointwise model diagnostics for the model version.</p>
    * @public
    */
-  ModelDiagnosticsResultsObject?: S3Object;
+  ModelDiagnosticsResultsObject?: S3Object | undefined;
 
   /**
    * <p>Provides a quality assessment for a model that uses labels. If Lookout for Equipment determines that the
@@ -2556,7 +2556,7 @@ export interface DescribeModelVersionResponse {
    *          Amazon Lookout for Equipment</a>.</p>
    * @public
    */
-  ModelQuality?: ModelQuality;
+  ModelQuality?: ModelQuality | undefined;
 }
 
 /**
@@ -2579,25 +2579,25 @@ export interface DescribeResourcePolicyResponse {
    * <p>A unique identifier for a revision of the resource policy.</p>
    * @public
    */
-  PolicyRevisionId?: string;
+  PolicyRevisionId?: string | undefined;
 
   /**
    * <p>The resource policy in a JSON-formatted string.</p>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
 
   /**
    * <p>The time when the resource policy was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The time when the resource policy was last modified.</p>
    * @public
    */
-  LastModifiedTime?: Date;
+  LastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2619,39 +2619,39 @@ export interface DescribeRetrainingSchedulerResponse {
    * <p>The name of the model that the retraining scheduler is attached to. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The ARN of the model that the retraining scheduler is attached to. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The start date for the retraining scheduler. Lookout for Equipment truncates the time you provide to the
    *          nearest UTC day.</p>
    * @public
    */
-  RetrainingStartDate?: Date;
+  RetrainingStartDate?: Date | undefined;
 
   /**
    * <p>The frequency at which the model retraining is set. This follows the <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a>
    *          guidelines.</p>
    * @public
    */
-  RetrainingFrequency?: string;
+  RetrainingFrequency?: string | undefined;
 
   /**
    * <p>The number of past days of data used for retraining.</p>
    * @public
    */
-  LookbackWindow?: string;
+  LookbackWindow?: string | undefined;
 
   /**
    * <p>The status of the retraining scheduler. </p>
    * @public
    */
-  Status?: RetrainingSchedulerStatus;
+  Status?: RetrainingSchedulerStatus | undefined;
 
   /**
    * <p>Indicates how the service uses new models. In <code>MANAGED</code> mode, new models are
@@ -2660,19 +2660,19 @@ export interface DescribeRetrainingSchedulerResponse {
    *             activated</a>.</p>
    * @public
    */
-  PromoteMode?: ModelPromoteMode;
+  PromoteMode?: ModelPromoteMode | undefined;
 
   /**
    * <p>Indicates the time and date at which the retraining scheduler was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>Indicates the time and date at which the retraining scheduler was updated. </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -2691,27 +2691,27 @@ export interface ImportDatasetRequest {
    *          with the name of the source dataset.</p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you do not set the client request token,
    *          Amazon Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key key used to encrypt model data by Amazon Lookout for Equipment.
    *       </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p>Any tags associated with the dataset to be created.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2722,25 +2722,25 @@ export interface ImportDatasetResponse {
    * <p>The name of the created machine learning dataset.</p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset that was imported.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The status of the <code>ImportDataset</code> operation.</p>
    * @public
    */
-  Status?: DatasetStatus;
+  Status?: DatasetStatus | undefined;
 
   /**
    * <p>A unique identifier for the job of importing the dataset.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 }
 
 /**
@@ -2775,7 +2775,7 @@ export interface ImportModelVersionRequest {
    *          name of the source model.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The name of the dataset for the machine learning model being imported. </p>
@@ -2788,34 +2788,34 @@ export interface ImportModelVersionRequest {
    *          data. </p>
    * @public
    */
-  LabelsInputConfiguration?: LabelsInputConfiguration;
+  LabelsInputConfiguration?: LabelsInputConfiguration | undefined;
 
   /**
    * <p>A unique identifier for the request. If you do not set the client request token,
    *          Amazon Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a role with permission to access the data source being
    *          used to create the machine learning model. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>Provides the identifier of the KMS key key used to encrypt model data by Amazon Lookout for Equipment.
    *       </p>
    * @public
    */
-  ServerSideKmsKeyId?: string;
+  ServerSideKmsKeyId?: string | undefined;
 
   /**
    * <p>The tags associated with the machine learning model to be created. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Indicates how to import the accumulated inference data when a model version is imported.
@@ -2835,7 +2835,7 @@ export interface ImportModelVersionRequest {
    *          </ul>
    * @public
    */
-  InferenceDataImportStrategy?: InferenceDataImportStrategy;
+  InferenceDataImportStrategy?: InferenceDataImportStrategy | undefined;
 }
 
 /**
@@ -2846,31 +2846,31 @@ export interface ImportModelVersionResponse {
    * <p>The name for the machine learning model.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model being created. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model version being created. </p>
    * @public
    */
-  ModelVersionArn?: string;
+  ModelVersionArn?: string | undefined;
 
   /**
    * <p>The version of the model being created.</p>
    * @public
    */
-  ModelVersion?: number;
+  ModelVersion?: number | undefined;
 
   /**
    * <p>The status of the <code>ImportModelVersion</code> operation. </p>
    * @public
    */
-  Status?: ModelVersionStatus;
+  Status?: ModelVersionStatus | undefined;
 }
 
 /**
@@ -2881,26 +2881,26 @@ export interface ListDataIngestionJobsRequest {
    * <p>The name of the dataset being used for the data ingestion job. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>An opaque pagination token indicating where to continue the listing of data ingestion
    *          jobs. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Specifies the maximum number of data ingestion jobs to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Indicates the status of the data ingestion job. </p>
    * @public
    */
-  Status?: IngestionJobStatus;
+  Status?: IngestionJobStatus | undefined;
 }
 
 /**
@@ -2913,32 +2913,32 @@ export interface DataIngestionJobSummary {
    * <p>Indicates the job ID of the data ingestion job. </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The name of the dataset used for the data ingestion job. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset used in the data ingestion job. </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p> Specifies information for the input data for the data inference job, including data
    *             Amazon S3 location parameters. </p>
    * @public
    */
-  IngestionInputConfiguration?: IngestionInputConfiguration;
+  IngestionInputConfiguration?: IngestionInputConfiguration | undefined;
 
   /**
    * <p>Indicates the status of the data ingestion job. </p>
    * @public
    */
-  Status?: IngestionJobStatus;
+  Status?: IngestionJobStatus | undefined;
 }
 
 /**
@@ -2950,14 +2950,14 @@ export interface ListDataIngestionJobsResponse {
    *          jobs. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies information about the specific data ingestion job, including dataset name and
    *          status. </p>
    * @public
    */
-  DataIngestionJobSummaries?: DataIngestionJobSummary[];
+  DataIngestionJobSummaries?: DataIngestionJobSummary[] | undefined;
 }
 
 /**
@@ -2969,19 +2969,19 @@ export interface ListDatasetsRequest {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Specifies the maximum number of datasets to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The beginning of the name of the datasets to be listed. </p>
    * @public
    */
-  DatasetNameBeginsWith?: string;
+  DatasetNameBeginsWith?: string | undefined;
 }
 
 /**
@@ -2994,25 +2994,25 @@ export interface DatasetSummary {
    * <p>The name of the dataset. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the specified dataset. </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the dataset. </p>
    * @public
    */
-  Status?: DatasetStatus;
+  Status?: DatasetStatus | undefined;
 
   /**
    * <p>The time at which the dataset was created in Amazon Lookout for Equipment. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 }
 
 /**
@@ -3024,14 +3024,14 @@ export interface ListDatasetsResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Provides information about the specified dataset, including creation time, dataset ARN,
    *          and status. </p>
    * @public
    */
-  DatasetSummaries?: DatasetSummary[];
+  DatasetSummaries?: DatasetSummary[] | undefined;
 }
 
 /**
@@ -3043,13 +3043,13 @@ export interface ListInferenceEventsRequest {
    *          events.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of inference events to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The name of the inference scheduler for the inference events listed. </p>
@@ -3083,38 +3083,38 @@ export interface InferenceEventSummary {
    *          event. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>The name of the inference scheduler being used for the inference events. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p>Indicates the starting time of an inference event. </p>
    * @public
    */
-  EventStartTime?: Date;
+  EventStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the ending time of an inference event. </p>
    * @public
    */
-  EventEndTime?: Date;
+  EventEndTime?: Date | undefined;
 
   /**
    * <p> An array which specifies the names and values of all sensors contributing to an
    *          inference event.</p>
    * @public
    */
-  Diagnostics?: string;
+  Diagnostics?: string | undefined;
 
   /**
    * <p> Indicates the size of an inference event in seconds. </p>
    * @public
    */
-  EventDurationInSeconds?: number;
+  EventDurationInSeconds?: number | undefined;
 }
 
 /**
@@ -3126,7 +3126,7 @@ export interface ListInferenceEventsResponse {
    *          executions. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Provides an array of information about the individual inference events returned from the
@@ -3134,7 +3134,7 @@ export interface ListInferenceEventsResponse {
    *          event end time, diagnostics, and so on. </p>
    * @public
    */
-  InferenceEventSummaries?: InferenceEventSummary[];
+  InferenceEventSummaries?: InferenceEventSummary[] | undefined;
 }
 
 /**
@@ -3161,13 +3161,13 @@ export interface ListInferenceExecutionsRequest {
    *          executions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of inference executions to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The name of the inference scheduler for the inference execution listed. </p>
@@ -3180,20 +3180,20 @@ export interface ListInferenceExecutionsRequest {
    *          execution. </p>
    * @public
    */
-  DataStartTimeAfter?: Date;
+  DataStartTimeAfter?: Date | undefined;
 
   /**
    * <p>The time reference in the inferenced dataset before which Amazon Lookout for Equipment stopped the
    *          inference execution. </p>
    * @public
    */
-  DataEndTimeBefore?: Date;
+  DataEndTimeBefore?: Date | undefined;
 
   /**
    * <p>The status of the inference execution. </p>
    * @public
    */
-  Status?: InferenceExecutionStatus;
+  Status?: InferenceExecutionStatus | undefined;
 }
 
 /**
@@ -3206,55 +3206,55 @@ export interface InferenceExecutionSummary {
    * <p>The name of the machine learning model being used for the inference execution. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the machine learning model used for the inference
    *          execution. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the inference scheduler being used for the inference execution. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the inference scheduler being used for the inference
    *          execution. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>Indicates the start time at which the inference scheduler began the specific inference
    *          execution. </p>
    * @public
    */
-  ScheduledStartTime?: Date;
+  ScheduledStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the time reference in the dataset at which the inference execution began.
    *       </p>
    * @public
    */
-  DataStartTime?: Date;
+  DataStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the time reference in the dataset at which the inference execution stopped.
    *       </p>
    * @public
    */
-  DataEndTime?: Date;
+  DataEndTime?: Date | undefined;
 
   /**
    * <p> Specifies configuration information for the input data for the inference scheduler,
    *          including delimiter, format, and dataset location. </p>
    * @public
    */
-  DataInputConfiguration?: InferenceInputConfiguration;
+  DataInputConfiguration?: InferenceInputConfiguration | undefined;
 
   /**
    * <p> Specifies configuration information for the output results from for the inference
@@ -3262,38 +3262,38 @@ export interface InferenceExecutionSummary {
    *       </p>
    * @public
    */
-  DataOutputConfiguration?: InferenceOutputConfiguration;
+  DataOutputConfiguration?: InferenceOutputConfiguration | undefined;
 
   /**
    * <p>The S3 object that the inference execution results were uploaded to.</p>
    * @public
    */
-  CustomerResultObject?: S3Object;
+  CustomerResultObject?: S3Object | undefined;
 
   /**
    * <p>Indicates the status of the inference execution. </p>
    * @public
    */
-  Status?: InferenceExecutionStatus;
+  Status?: InferenceExecutionStatus | undefined;
 
   /**
    * <p> Specifies the reason for failure when an inference execution has failed. </p>
    * @public
    */
-  FailedReason?: string;
+  FailedReason?: string | undefined;
 
   /**
    * <p>The model version used for the inference execution.</p>
    * @public
    */
-  ModelVersion?: number;
+  ModelVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Number (ARN) of the model version used for the inference
    *          execution.</p>
    * @public
    */
-  ModelVersionArn?: string;
+  ModelVersionArn?: string | undefined;
 }
 
 /**
@@ -3305,7 +3305,7 @@ export interface ListInferenceExecutionsResponse {
    *          executions. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Provides an array of information about the individual inference executions returned from
@@ -3319,7 +3319,7 @@ export interface ListInferenceExecutionsResponse {
    *          </note>
    * @public
    */
-  InferenceExecutionSummaries?: InferenceExecutionSummary[];
+  InferenceExecutionSummaries?: InferenceExecutionSummary[] | undefined;
 }
 
 /**
@@ -3331,32 +3331,32 @@ export interface ListInferenceSchedulersRequest {
    *          schedulers. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Specifies the maximum number of inference schedulers to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The beginning of the name of the inference schedulers to be listed. </p>
    * @public
    */
-  InferenceSchedulerNameBeginsWith?: string;
+  InferenceSchedulerNameBeginsWith?: string | undefined;
 
   /**
    * <p>The name of the machine learning model used by the inference scheduler to be listed.
    *       </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>Specifies the current status of the inference schedulers.</p>
    * @public
    */
-  Status?: InferenceSchedulerStatus;
+  Status?: InferenceSchedulerStatus | undefined;
 }
 
 /**
@@ -3369,32 +3369,32 @@ export interface InferenceSchedulerSummary {
    * <p>The name of the machine learning model used for the inference scheduler. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the machine learning model used by the inference
    *          scheduler. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the inference scheduler. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the inference scheduler. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    * @public
    */
-  Status?: InferenceSchedulerStatus;
+  Status?: InferenceSchedulerStatus | undefined;
 
   /**
    * <p>A period of time (in minutes) by which inference on the data is delayed after the data
@@ -3406,7 +3406,7 @@ export interface InferenceSchedulerSummary {
    *          restart the scheduler when uploading new data. </p>
    * @public
    */
-  DataDelayOffsetInMinutes?: number;
+  DataDelayOffsetInMinutes?: number | undefined;
 
   /**
    * <p>How often data is uploaded to the source S3 bucket for the input data. This value is the
@@ -3416,14 +3416,14 @@ export interface InferenceSchedulerSummary {
    *          data. In this example, it starts once every 5 minutes. </p>
    * @public
    */
-  DataUploadFrequency?: DataUploadFrequency;
+  DataUploadFrequency?: DataUploadFrequency | undefined;
 
   /**
    * <p>Indicates whether the latest execution for the inference scheduler was Anomalous
    *          (anomalous events found) or Normal (no anomalous events found).</p>
    * @public
    */
-  LatestInferenceResult?: LatestInferenceResult;
+  LatestInferenceResult?: LatestInferenceResult | undefined;
 }
 
 /**
@@ -3435,14 +3435,14 @@ export interface ListInferenceSchedulersResponse {
    *          schedulers. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Provides information about the specified inference scheduler, including data upload
    *          frequency, model name and ARN, and status. </p>
    * @public
    */
-  InferenceSchedulerSummaries?: InferenceSchedulerSummary[];
+  InferenceSchedulerSummaries?: InferenceSchedulerSummary[] | undefined;
 }
 
 /**
@@ -3453,20 +3453,20 @@ export interface ListLabelGroupsRequest {
    * <p> The beginning of the name of the label groups to be listed. </p>
    * @public
    */
-  LabelGroupNameBeginsWith?: string;
+  LabelGroupNameBeginsWith?: string | undefined;
 
   /**
    * <p> An opaque pagination token indicating where to continue the listing of label groups.
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Specifies the maximum number of label groups to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3478,25 +3478,25 @@ export interface LabelGroupSummary {
    * <p> The name of the label group. </p>
    * @public
    */
-  LabelGroupName?: string;
+  LabelGroupName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the label group. </p>
    * @public
    */
-  LabelGroupArn?: string;
+  LabelGroupArn?: string | undefined;
 
   /**
    * <p> The time at which the label group was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p> The time at which the label group was updated. </p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 }
 
 /**
@@ -3508,13 +3508,13 @@ export interface ListLabelGroupsResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> A summary of the label groups. </p>
    * @public
    */
-  LabelGroupSummaries?: LabelGroupSummary[];
+  LabelGroupSummaries?: LabelGroupSummary[] | undefined;
 }
 
 /**
@@ -3532,38 +3532,38 @@ export interface ListLabelsRequest {
    *       </p>
    * @public
    */
-  IntervalStartTime?: Date;
+  IntervalStartTime?: Date | undefined;
 
   /**
    * <p> Returns all labels with a start time earlier than the end time given. </p>
    * @public
    */
-  IntervalEndTime?: Date;
+  IntervalEndTime?: Date | undefined;
 
   /**
    * <p> Returns labels with a particular fault code. </p>
    * @public
    */
-  FaultCode?: string;
+  FaultCode?: string | undefined;
 
   /**
    * <p> Lists the labels that pertain to a particular piece of equipment. </p>
    * @public
    */
-  Equipment?: string;
+  Equipment?: string | undefined;
 
   /**
    * <p> An opaque pagination token indicating where to continue the listing of label groups.
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Specifies the maximum number of labels to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3575,37 +3575,37 @@ export interface LabelSummary {
    * <p> The name of the label group. </p>
    * @public
    */
-  LabelGroupName?: string;
+  LabelGroupName?: string | undefined;
 
   /**
    * <p> The ID of the label. </p>
    * @public
    */
-  LabelId?: string;
+  LabelId?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the label group. </p>
    * @public
    */
-  LabelGroupArn?: string;
+  LabelGroupArn?: string | undefined;
 
   /**
    * <p> The timestamp indicating the start of the label. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p> The timestamp indicating the end of the label. </p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p> Indicates whether a labeled event represents an anomaly. </p>
    * @public
    */
-  Rating?: LabelRating;
+  Rating?: LabelRating | undefined;
 
   /**
    * <p> Indicates the type of anomaly associated with the label. </p>
@@ -3613,19 +3613,19 @@ export interface LabelSummary {
    *          security of your data.</p>
    * @public
    */
-  FaultCode?: string;
+  FaultCode?: string | undefined;
 
   /**
    * <p> Indicates that a label pertains to a particular piece of equipment. </p>
    * @public
    */
-  Equipment?: string;
+  Equipment?: string | undefined;
 
   /**
    * <p> The time at which the label was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 }
 
 /**
@@ -3637,7 +3637,7 @@ export interface ListLabelsResponse {
    *       </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> A summary of the items in the label group. </p>
@@ -3648,7 +3648,7 @@ export interface ListLabelsResponse {
    *          </note>
    * @public
    */
-  LabelSummaries?: LabelSummary[];
+  LabelSummaries?: LabelSummary[] | undefined;
 }
 
 /**
@@ -3660,32 +3660,32 @@ export interface ListModelsRequest {
    *          models. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> Specifies the maximum number of machine learning models to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The status of the machine learning model. </p>
    * @public
    */
-  Status?: ModelStatus;
+  Status?: ModelStatus | undefined;
 
   /**
    * <p>The beginning of the name of the machine learning models being listed. </p>
    * @public
    */
-  ModelNameBeginsWith?: string;
+  ModelNameBeginsWith?: string | undefined;
 
   /**
    * <p>The beginning of the name of the dataset of the machine learning models to be listed.
    *       </p>
    * @public
    */
-  DatasetNameBeginsWith?: string;
+  DatasetNameBeginsWith?: string | undefined;
 }
 
 /**
@@ -3698,44 +3698,44 @@ export interface ModelSummary {
    * <p>The name of the machine learning model. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the machine learning model. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the dataset being used for the machine learning model. </p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the dataset used to create the model. </p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the machine learning model. </p>
    * @public
    */
-  Status?: ModelStatus;
+  Status?: ModelStatus | undefined;
 
   /**
    * <p>The time at which the specific model was created. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The model version that the inference scheduler uses to run an inference
    *          execution.</p>
    * @public
    */
-  ActiveModelVersion?: number;
+  ActiveModelVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model version that is set as active. The active
@@ -3743,44 +3743,44 @@ export interface ModelSummary {
    *          execution.</p>
    * @public
    */
-  ActiveModelVersionArn?: string;
+  ActiveModelVersionArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the most recent scheduled retraining run. </p>
    * @public
    */
-  LatestScheduledRetrainingStatus?: ModelVersionStatus;
+  LatestScheduledRetrainingStatus?: ModelVersionStatus | undefined;
 
   /**
    * <p>Indicates the most recent model version that was generated by retraining. </p>
    * @public
    */
-  LatestScheduledRetrainingModelVersion?: number;
+  LatestScheduledRetrainingModelVersion?: number | undefined;
 
   /**
    * <p>Indicates the start time of the most recent scheduled retraining run. </p>
    * @public
    */
-  LatestScheduledRetrainingStartTime?: Date;
+  LatestScheduledRetrainingStartTime?: Date | undefined;
 
   /**
    * <p>Indicates the date that the next scheduled retraining run will start on. Lookout for Equipment truncates
    *          the time you provide to <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-types.html#parameter-type-timestamp">the nearest UTC day</a>.</p>
    * @public
    */
-  NextScheduledRetrainingStartDate?: Date;
+  NextScheduledRetrainingStartDate?: Date | undefined;
 
   /**
    * <p>Indicates the status of the retraining scheduler. </p>
    * @public
    */
-  RetrainingSchedulerStatus?: RetrainingSchedulerStatus;
+  RetrainingSchedulerStatus?: RetrainingSchedulerStatus | undefined;
 
   /**
    * <p>Output configuration information for the pointwise model diagnostics for an Amazon Lookout for Equipment model.</p>
    * @public
    */
-  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration | undefined;
 
   /**
    * <p>Provides a quality assessment for a model that uses labels. If Lookout for Equipment determines that the
@@ -3796,7 +3796,7 @@ export interface ModelSummary {
    *          Amazon Lookout for Equipment</a>.</p>
    * @public
    */
-  ModelQuality?: ModelQuality;
+  ModelQuality?: ModelQuality | undefined;
 }
 
 /**
@@ -3808,14 +3808,14 @@ export interface ListModelsResponse {
    *          models. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Provides information on the specified model, including created time, model and dataset
    *          ARNs, and status. </p>
    * @public
    */
-  ModelSummaries?: ModelSummary[];
+  ModelSummaries?: ModelSummary[] | undefined;
 }
 
 /**
@@ -3836,49 +3836,49 @@ export interface ListModelVersionsRequest {
    *          request to list the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of machine learning model versions to list.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filter the results based on the current status of the model version.</p>
    * @public
    */
-  Status?: ModelVersionStatus;
+  Status?: ModelVersionStatus | undefined;
 
   /**
    * <p>Filter the results based on the way the model version was generated.</p>
    * @public
    */
-  SourceType?: ModelVersionSourceType;
+  SourceType?: ModelVersionSourceType | undefined;
 
   /**
    * <p>Filter results to return all the model versions created before this time.</p>
    * @public
    */
-  CreatedAtEndTime?: Date;
+  CreatedAtEndTime?: Date | undefined;
 
   /**
    * <p>Filter results to return all the model versions created after this time.</p>
    * @public
    */
-  CreatedAtStartTime?: Date;
+  CreatedAtStartTime?: Date | undefined;
 
   /**
    * <p>Specifies the highest version of the model to return in the list.</p>
    * @public
    */
-  MaxModelVersion?: number;
+  MaxModelVersion?: number | undefined;
 
   /**
    * <p>Specifies the lowest version of the model to return in the list.</p>
    * @public
    */
-  MinModelVersion?: number;
+  MinModelVersion?: number | undefined;
 }
 
 /**
@@ -3890,44 +3890,44 @@ export interface ModelVersionSummary {
    * <p>The name of the model that this model version is a version of.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model that this model version is a version
    *          of.</p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The version of the model.</p>
    * @public
    */
-  ModelVersion?: number;
+  ModelVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the model version.</p>
    * @public
    */
-  ModelVersionArn?: string;
+  ModelVersionArn?: string | undefined;
 
   /**
    * <p>The time when this model version was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The current status of the model version.</p>
    * @public
    */
-  Status?: ModelVersionStatus;
+  Status?: ModelVersionStatus | undefined;
 
   /**
    * <p>Indicates how this model version was generated.</p>
    * @public
    */
-  SourceType?: ModelVersionSourceType;
+  SourceType?: ModelVersionSourceType | undefined;
 
   /**
    * <p>Provides a quality assessment for a model that uses labels. If Lookout for Equipment determines that the
@@ -3942,7 +3942,7 @@ export interface ModelVersionSummary {
    *          Amazon Lookout for Equipment</a>.</p>
    * @public
    */
-  ModelQuality?: ModelQuality;
+  ModelQuality?: ModelQuality | undefined;
 }
 
 /**
@@ -3956,7 +3956,7 @@ export interface ListModelVersionsResponse {
    *          request to list the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Provides information on the specified model version, including the created time, model
@@ -3968,7 +3968,7 @@ export interface ListModelVersionsResponse {
    *          </note>
    * @public
    */
-  ModelVersionSummaries?: ModelVersionSummary[];
+  ModelVersionSummaries?: ModelVersionSummary[] | undefined;
 }
 
 /**
@@ -3980,27 +3980,27 @@ export interface ListRetrainingSchedulersRequest {
    *          begin with the value you specify. </p>
    * @public
    */
-  ModelNameBeginsWith?: string;
+  ModelNameBeginsWith?: string | undefined;
 
   /**
    * <p>Specify this field to only list retraining schedulers whose status matches the value you
    *          specify. </p>
    * @public
    */
-  Status?: RetrainingSchedulerStatus;
+  Status?: RetrainingSchedulerStatus | undefined;
 
   /**
    * <p>If the number of results exceeds the maximum, a pagination token is returned. Use the
    *          token in the request to show the next page of retraining schedulers.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of retraining schedulers to list. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4013,39 +4013,39 @@ export interface RetrainingSchedulerSummary {
    * <p>The name of the model that the retraining scheduler is attached to. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The ARN of the model that the retraining scheduler is attached to. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The status of the retraining scheduler. </p>
    * @public
    */
-  Status?: RetrainingSchedulerStatus;
+  Status?: RetrainingSchedulerStatus | undefined;
 
   /**
    * <p>The start date for the retraining scheduler. Lookout for Equipment truncates the time you provide to the
    *          nearest UTC day.</p>
    * @public
    */
-  RetrainingStartDate?: Date;
+  RetrainingStartDate?: Date | undefined;
 
   /**
    * <p>The frequency at which the model retraining is set. This follows the <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a>
    *          guidelines.</p>
    * @public
    */
-  RetrainingFrequency?: string;
+  RetrainingFrequency?: string | undefined;
 
   /**
    * <p>The number of past days of data used for retraining.</p>
    * @public
    */
-  LookbackWindow?: string;
+  LookbackWindow?: string | undefined;
 }
 
 /**
@@ -4057,14 +4057,14 @@ export interface ListRetrainingSchedulersResponse {
    *          model ARN, status, and start date. </p>
    * @public
    */
-  RetrainingSchedulerSummaries?: RetrainingSchedulerSummary[];
+  RetrainingSchedulerSummaries?: RetrainingSchedulerSummary[] | undefined;
 
   /**
    * <p>If the number of results exceeds the maximum, this pagination token is returned. Use
    *          this token in the request to show the next page of retraining schedulers.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4083,20 +4083,20 @@ export interface ListSensorStatisticsRequest {
    *          be submitted as inputs. </p>
    * @public
    */
-  IngestionJobId?: string;
+  IngestionJobId?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of sensors for which to retrieve statistics. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An opaque pagination token indicating where to continue the listing of sensor
    *          statistics. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4129,7 +4129,7 @@ export interface CategoricalValues {
    * <p> Indicates the number of categories in the data. </p>
    * @public
    */
-  NumberOfCategory?: number;
+  NumberOfCategory?: number | undefined;
 }
 
 /**
@@ -4167,13 +4167,13 @@ export interface LargeTimestampGaps {
    * <p> Indicates the number of large timestamp gaps, if there are any. </p>
    * @public
    */
-  NumberOfLargeTimestampGaps?: number;
+  NumberOfLargeTimestampGaps?: number | undefined;
 
   /**
    * <p> Indicates the size of the largest timestamp gap, in days. </p>
    * @public
    */
-  MaxTimestampGapInDays?: number;
+  MaxTimestampGapInDays?: number | undefined;
 }
 
 /**
@@ -4207,7 +4207,7 @@ export interface MonotonicValues {
    * <p> Indicates the monotonicity of values. Can be INCREASING, DECREASING, or STATIC. </p>
    * @public
    */
-  Monotonicity?: Monotonicity;
+  Monotonicity?: Monotonicity | undefined;
 }
 
 /**
@@ -4234,90 +4234,90 @@ export interface SensorStatisticsSummary {
    *          belong to. </p>
    * @public
    */
-  ComponentName?: string;
+  ComponentName?: string | undefined;
 
   /**
    * <p> Name of the sensor that the statistics belong to. </p>
    * @public
    */
-  SensorName?: string;
+  SensorName?: string | undefined;
 
   /**
    * <p> Parameter that indicates whether data exists for the sensor that the statistics belong
    *          to. </p>
    * @public
    */
-  DataExists?: boolean;
+  DataExists?: boolean | undefined;
 
   /**
    * <p> Parameter that describes the total number of, and percentage of, values that are
    *          missing for the sensor that the statistics belong to. </p>
    * @public
    */
-  MissingValues?: CountPercent;
+  MissingValues?: CountPercent | undefined;
 
   /**
    * <p> Parameter that describes the total number of, and percentage of, values that are
    *          invalid for the sensor that the statistics belong to. </p>
    * @public
    */
-  InvalidValues?: CountPercent;
+  InvalidValues?: CountPercent | undefined;
 
   /**
    * <p> Parameter that describes the total number of invalid date entries associated with the
    *          sensor that the statistics belong to. </p>
    * @public
    */
-  InvalidDateEntries?: CountPercent;
+  InvalidDateEntries?: CountPercent | undefined;
 
   /**
    * <p> Parameter that describes the total number of duplicate timestamp records associated
    *          with the sensor that the statistics belong to. </p>
    * @public
    */
-  DuplicateTimestamps?: CountPercent;
+  DuplicateTimestamps?: CountPercent | undefined;
 
   /**
    * <p> Parameter that describes potential risk about whether data associated with the sensor
    *          is categorical. </p>
    * @public
    */
-  CategoricalValues?: CategoricalValues;
+  CategoricalValues?: CategoricalValues | undefined;
 
   /**
    * <p> Parameter that describes potential risk about whether data associated with the sensor
    *          has more than one operating mode. </p>
    * @public
    */
-  MultipleOperatingModes?: MultipleOperatingModes;
+  MultipleOperatingModes?: MultipleOperatingModes | undefined;
 
   /**
    * <p> Parameter that describes potential risk about whether data associated with the sensor
    *          contains one or more large gaps between consecutive timestamps. </p>
    * @public
    */
-  LargeTimestampGaps?: LargeTimestampGaps;
+  LargeTimestampGaps?: LargeTimestampGaps | undefined;
 
   /**
    * <p> Parameter that describes potential risk about whether data associated with the sensor
    *          is mostly monotonic. </p>
    * @public
    */
-  MonotonicValues?: MonotonicValues;
+  MonotonicValues?: MonotonicValues | undefined;
 
   /**
    * <p> Indicates the time reference to indicate the beginning of valid data associated with
    *          the sensor that the statistics belong to. </p>
    * @public
    */
-  DataStartTime?: Date;
+  DataStartTime?: Date | undefined;
 
   /**
    * <p> Indicates the time reference to indicate the end of valid data associated with the
    *          sensor that the statistics belong to. </p>
    * @public
    */
-  DataEndTime?: Date;
+  DataEndTime?: Date | undefined;
 }
 
 /**
@@ -4330,14 +4330,14 @@ export interface ListSensorStatisticsResponse {
    *          values, and the number and percentage of duplicate timestamps. </p>
    * @public
    */
-  SensorStatisticsSummaries?: SensorStatisticsSummary[];
+  SensorStatisticsSummaries?: SensorStatisticsSummary[] | undefined;
 
   /**
    * <p>An opaque pagination token indicating where to continue the listing of sensor
    *          statistics. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4360,7 +4360,7 @@ export interface ListTagsForResourceResponse {
    * <p> Any tags associated with the resource. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4384,14 +4384,14 @@ export interface PutResourcePolicyRequest {
    * <p>A unique identifier for a revision of the resource policy.</p>
    * @public
    */
-  PolicyRevisionId?: string;
+  PolicyRevisionId?: string | undefined;
 
   /**
    * <p>A unique identifier for the request. If you do not set the client request token,
    *          Amazon Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -4402,13 +4402,13 @@ export interface PutResourcePolicyResponse {
    * <p>The Amazon Resource Name (ARN) of the resource for which the policy was created.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>A unique identifier for a revision of the resource policy.</p>
    * @public
    */
-  PolicyRevisionId?: string;
+  PolicyRevisionId?: string | undefined;
 }
 
 /**
@@ -4440,7 +4440,7 @@ export interface StartDataIngestionJobRequest {
    *          Lookout for Equipment generates one. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -4451,13 +4451,13 @@ export interface StartDataIngestionJobResponse {
    * <p>Indicates the job ID of the data ingestion job. </p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>Indicates the status of the <code>StartDataIngestionJob</code> operation. </p>
    * @public
    */
-  Status?: IngestionJobStatus;
+  Status?: IngestionJobStatus | undefined;
 }
 
 /**
@@ -4480,31 +4480,31 @@ export interface StartInferenceSchedulerResponse {
    *          scheduler. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the machine learning model being used by the inference scheduler. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The name of the inference scheduler being started. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the inference scheduler being started. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    * @public
    */
-  Status?: InferenceSchedulerStatus;
+  Status?: InferenceSchedulerStatus | undefined;
 }
 
 /**
@@ -4526,19 +4526,19 @@ export interface StartRetrainingSchedulerResponse {
    * <p>The name of the model whose retraining scheduler is being started. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The ARN of the model whose retraining scheduler is being started. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The status of the retraining scheduler. </p>
    * @public
    */
-  Status?: RetrainingSchedulerStatus;
+  Status?: RetrainingSchedulerStatus | undefined;
 }
 
 /**
@@ -4561,32 +4561,32 @@ export interface StopInferenceSchedulerResponse {
    *          scheduler being stopped. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The name of the machine learning model used by the inference scheduler being stopped.
    *       </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The name of the inference scheduler being stopped. </p>
    * @public
    */
-  InferenceSchedulerName?: string;
+  InferenceSchedulerName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the inference schedule being stopped. </p>
    * @public
    */
-  InferenceSchedulerArn?: string;
+  InferenceSchedulerArn?: string | undefined;
 
   /**
    * <p>Indicates the status of the inference scheduler. </p>
    * @public
    */
-  Status?: InferenceSchedulerStatus;
+  Status?: InferenceSchedulerStatus | undefined;
 }
 
 /**
@@ -4608,19 +4608,19 @@ export interface StopRetrainingSchedulerResponse {
    * <p>The name of the model whose retraining scheduler is being stopped. </p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The ARN of the model whose retraining scheduler is being stopped. </p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The status of the retraining scheduler. </p>
    * @public
    */
-  Status?: RetrainingSchedulerStatus;
+  Status?: RetrainingSchedulerStatus | undefined;
 }
 
 /**
@@ -4698,42 +4698,42 @@ export interface UpdateActiveModelVersionResponse {
    *          set.</p>
    * @public
    */
-  ModelName?: string;
+  ModelName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the machine learning model for which the active model
    *          version was set.</p>
    * @public
    */
-  ModelArn?: string;
+  ModelArn?: string | undefined;
 
   /**
    * <p>The version that is currently active of the machine learning model for which the active
    *          model version was set.</p>
    * @public
    */
-  CurrentActiveVersion?: number;
+  CurrentActiveVersion?: number | undefined;
 
   /**
    * <p>The previous version that was active of the machine learning model for which the active
    *          model version was set.</p>
    * @public
    */
-  PreviousActiveVersion?: number;
+  PreviousActiveVersion?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the machine learning model version that is the current
    *          active model version.</p>
    * @public
    */
-  CurrentActiveVersionArn?: string;
+  CurrentActiveVersionArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the machine learning model version that was the
    *          previous active model version.</p>
    * @public
    */
-  PreviousActiveVersionArn?: string;
+  PreviousActiveVersionArn?: string | undefined;
 }
 
 /**
@@ -4756,7 +4756,7 @@ export interface UpdateInferenceSchedulerRequest {
    *          restart the scheduler when uploading new data.</p>
    * @public
    */
-  DataDelayOffsetInMinutes?: number;
+  DataDelayOffsetInMinutes?: number | undefined;
 
   /**
    * <p>How often data is uploaded to the source S3 bucket for the input data. The value chosen
@@ -4766,28 +4766,28 @@ export interface UpdateInferenceSchedulerRequest {
    *          your data. In this example, it starts once every 5 minutes. </p>
    * @public
    */
-  DataUploadFrequency?: DataUploadFrequency;
+  DataUploadFrequency?: DataUploadFrequency | undefined;
 
   /**
    * <p> Specifies information for the input data for the inference scheduler, including
    *          delimiter, format, and dataset location. </p>
    * @public
    */
-  DataInputConfiguration?: InferenceInputConfiguration;
+  DataInputConfiguration?: InferenceInputConfiguration | undefined;
 
   /**
    * <p> Specifies information for the output results from the inference scheduler, including
    *          the output S3 location. </p>
    * @public
    */
-  DataOutputConfiguration?: InferenceOutputConfiguration;
+  DataOutputConfiguration?: InferenceOutputConfiguration | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of a role with permission to access the data source for
    *          the inference scheduler. </p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -4806,7 +4806,7 @@ export interface UpdateLabelGroupRequest {
    *          security of your data.</p>
    * @public
    */
-  FaultCodes?: string[];
+  FaultCodes?: string[] | undefined;
 }
 
 /**
@@ -4824,20 +4824,20 @@ export interface UpdateModelRequest {
    *          data. </p>
    * @public
    */
-  LabelsInputConfiguration?: LabelsInputConfiguration;
+  LabelsInputConfiguration?: LabelsInputConfiguration | undefined;
 
   /**
    * <p>The ARN of the model to update.</p>
    * @public
    */
-  RoleArn?: string;
+  RoleArn?: string | undefined;
 
   /**
    * <p>The Amazon S3 location where you want Amazon Lookout for Equipment to save the pointwise model diagnostics for the model.
    *          You must also specify the <code>RoleArn</code> request parameter.</p>
    * @public
    */
-  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration | undefined;
 }
 
 /**
@@ -4855,7 +4855,7 @@ export interface UpdateRetrainingSchedulerRequest {
    *          nearest UTC day.</p>
    * @public
    */
-  RetrainingStartDate?: Date;
+  RetrainingStartDate?: Date | undefined;
 
   /**
    * <p>This parameter uses the <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO 8601</a> standard to set the frequency at which you want retraining to occur in
@@ -4875,13 +4875,13 @@ export interface UpdateRetrainingSchedulerRequest {
    *          </ul>
    * @public
    */
-  RetrainingFrequency?: string;
+  RetrainingFrequency?: string | undefined;
 
   /**
    * <p>The number of past days of data that will be used for retraining.</p>
    * @public
    */
-  LookbackWindow?: string;
+  LookbackWindow?: string | undefined;
 
   /**
    * <p>Indicates how the service will use new models. In <code>MANAGED</code> mode, new models
@@ -4890,5 +4890,5 @@ export interface UpdateRetrainingSchedulerRequest {
    *             are manually activated</a>.</p>
    * @public
    */
-  PromoteMode?: ModelPromoteMode;
+  PromoteMode?: ModelPromoteMode | undefined;
 }

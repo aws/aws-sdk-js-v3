@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyInstanceCapacityReservationAttributesRequest,
   ModifyInstanceCapacityReservationAttributesResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_ModifyInstanceCapacityReservationAttributesCommand,
   se_ModifyInstanceCapacityReservationAttributesCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,9 +37,10 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to configure an
- * 			instance to target a specific Capacity Reservation, run in any <code>open</code> Capacity Reservation with matching
- * 			attributes, or run On-Demand Instance capacity.</p>
+ * <p>Modifies the Capacity Reservation settings for a stopped instance. Use this action to
+ * 			configure an instance to target a specific Capacity Reservation, run in any
+ * 				<code>open</code> Capacity Reservation with matching attributes, run in On-Demand
+ * 			Instance capacity, or only run in a Capacity Reservation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +50,7 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * const input = { // ModifyInstanceCapacityReservationAttributesRequest
  *   InstanceId: "STRING_VALUE", // required
  *   CapacityReservationSpecification: { // CapacityReservationSpecification
- *     CapacityReservationPreference: "open" || "none",
+ *     CapacityReservationPreference: "capacity-reservations-only" || "open" || "none",
  *     CapacityReservationTarget: { // CapacityReservationTarget
  *       CapacityReservationId: "STRING_VALUE",
  *       CapacityReservationResourceGroupArn: "STRING_VALUE",
@@ -73,6 +75,7 @@ export interface ModifyInstanceCapacityReservationAttributesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
@@ -83,9 +86,7 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +98,16 @@ export class ModifyInstanceCapacityReservationAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceCapacityReservationAttributesCommand)
   .de(de_ModifyInstanceCapacityReservationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceCapacityReservationAttributesRequest;
+      output: ModifyInstanceCapacityReservationAttributesResult;
+    };
+    sdk: {
+      input: ModifyInstanceCapacityReservationAttributesCommandInput;
+      output: ModifyInstanceCapacityReservationAttributesCommandOutput;
+    };
+  };
+}

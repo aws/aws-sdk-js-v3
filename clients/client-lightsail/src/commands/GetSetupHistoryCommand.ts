@@ -12,7 +12,8 @@ import { de_GetSetupHistoryCommand, se_GetSetupHistoryCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,7 @@ export interface GetSetupHistoryCommandOutput extends GetSetupHistoryResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetSetupHistoryCommand extends $Command
@@ -123,9 +125,7 @@ export class GetSetupHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class GetSetupHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSetupHistoryCommand)
   .de(de_GetSetupHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSetupHistoryRequest;
+      output: GetSetupHistoryResult;
+    };
+    sdk: {
+      input: GetSetupHistoryCommandInput;
+      output: GetSetupHistoryCommandOutput;
+    };
+  };
+}

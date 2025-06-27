@@ -12,7 +12,8 @@ import { de_DescribeTypeCommand, se_DescribeTypeCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,9 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
 
 /**
  * <p>Returns detailed information about an extension that has been registered.</p>
- *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information about that specific
- *    extension version. Otherwise, it returns information about the default extension version.</p>
+ *          <p>If you specify a <code>VersionId</code>, <code>DescribeType</code> returns information
+ *       about that specific extension version. Otherwise, it returns information about the default
+ *       extension version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,6 +107,7 @@ export interface DescribeTypeCommandOutput extends DescribeTypeOutput, __Metadat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeTypeCommand extends $Command
@@ -115,9 +118,7 @@ export class DescribeTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +130,16 @@ export class DescribeTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTypeCommand)
   .de(de_DescribeTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTypeInput;
+      output: DescribeTypeOutput;
+    };
+    sdk: {
+      input: DescribeTypeCommandInput;
+      output: DescribeTypeCommandOutput;
+    };
+  };
+}

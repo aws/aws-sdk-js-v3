@@ -12,7 +12,8 @@ import { de_ListProvisioningTemplatesCommand, se_ListProvisioningTemplatesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListProvisioningTemplatesCommandOutput extends ListProvisioning
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListProvisioningTemplatesCommand extends $Command
@@ -89,9 +91,7 @@ export class ListProvisioningTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListProvisioningTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProvisioningTemplatesCommand)
   .de(de_ListProvisioningTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProvisioningTemplatesRequest;
+      output: ListProvisioningTemplatesResponse;
+    };
+    sdk: {
+      input: ListProvisioningTemplatesCommandInput;
+      output: ListProvisioningTemplatesCommandOutput;
+    };
+  };
+}

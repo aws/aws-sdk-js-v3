@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,14 +28,7 @@ export interface DeleteCompilationJobCommandInput extends DeleteCompilationJobRe
 export interface DeleteCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified compilation job. This action deletes only the compilation job
- *             resource in Amazon SageMaker. It doesn't delete other resources that are related to
- *             that job, such as the model artifacts that the job creates, the compilation logs in
- *                 CloudWatch, the compiled model, or the IAM role.</p>
- *          <p>You can delete a compilation job only if its current status is <code>COMPLETED</code>,
- *                 <code>FAILED</code>, or <code>STOPPED</code>. If the job status is
- *                 <code>STARTING</code> or <code>INPROGRESS</code>, stop the job, and then delete it
- *             after its status becomes <code>STOPPED</code>.</p>
+ * <p>Deletes the specified compilation job. This action deletes only the compilation job resource in Amazon SageMaker AI. It doesn't delete other resources that are related to that job, such as the model artifacts that the job creates, the compilation logs in CloudWatch, the compiled model, or the IAM role.</p> <p>You can delete a compilation job only if its current status is <code>COMPLETED</code>, <code>FAILED</code>, or <code>STOPPED</code>. If the job status is <code>STARTING</code> or <code>INPROGRESS</code>, stop the job, and then delete it after its status becomes <code>STOPPED</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +56,7 @@ export interface DeleteCompilationJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteCompilationJobCommand extends $Command
@@ -72,9 +67,7 @@ export class DeleteCompilationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +79,16 @@ export class DeleteCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCompilationJobCommand)
   .de(de_DeleteCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCompilationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCompilationJobCommandInput;
+      output: DeleteCompilationJobCommandOutput;
+    };
+  };
+}

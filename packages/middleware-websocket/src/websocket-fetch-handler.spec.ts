@@ -1,19 +1,20 @@
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
 import { HttpRequest } from "@smithy/protocol-http";
-import WS from "jest-websocket-mock";
 import { WebSocket } from "mock-socket";
 import { PassThrough } from "stream";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+import WS from "vitest-websocket-mock";
 
 import { WebSocketFetchHandler } from "./websocket-fetch-handler";
 
-jest.mock("@smithy/fetch-http-handler");
+vi.mock("@smithy/fetch-http-handler");
 
 describe(WebSocketFetchHandler.name, () => {
   const mockHostname = "localhost:6789";
   const mockUrl = `ws://${mockHostname}/`;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("should handle WebSocket connections", () => {
@@ -117,7 +118,7 @@ describe(WebSocketFetchHandler.name, () => {
     it("should return retryable error if cannot setup ws connection", async () => {
       expect.assertions(5);
       const originalFn = setTimeout;
-      (global as any).setTimeout = jest.fn().mockImplementation(setTimeout);
+      (global as any).setTimeout = vi.fn().mockImplementation(setTimeout);
       const connectionTimeout = 1000;
       const handler = new WebSocketFetchHandler(async () => ({ connectionTimeout }));
       //Using Node stream is fine because they are also async iterables.
@@ -138,7 +139,7 @@ describe(WebSocketFetchHandler.name, () => {
         expect(err.$metadata).toBeDefined();
         expect(err.$metadata.httpStatusCode >= 500).toBe(true);
         expect(
-          ((global as any).setTimeout as jest.Mock).mock.calls.filter((args) => {
+          ((global as any).setTimeout as any).mock.calls.filter((args: any) => {
             //find the 'setTimeout' call from the websocket handler
             return args[0].toString().indexOf("$metadata") >= 0;
           })[0][1]

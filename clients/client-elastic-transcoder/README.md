@@ -12,7 +12,7 @@ AWS SDK for JavaScript ElasticTranscoder Client for Node.js, Browser and React N
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-elastic-transcoder
+To install this package, simply type add or install @aws-sdk/client-elastic-transcoder
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-elastic-transcoder`

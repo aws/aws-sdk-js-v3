@@ -12,7 +12,8 @@ import { de_DeleteClassifierCommand, se_DeleteClassifierCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,7 @@ export interface DeleteClassifierCommandOutput extends DeleteClassifierResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteClassifierCommand extends $Command
@@ -68,9 +70,7 @@ export class DeleteClassifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +82,16 @@ export class DeleteClassifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClassifierCommand)
   .de(de_DeleteClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClassifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteClassifierCommandInput;
+      output: DeleteClassifierCommandOutput;
+    };
+  };
+}

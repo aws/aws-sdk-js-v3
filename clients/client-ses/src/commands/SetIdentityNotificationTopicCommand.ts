@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,20 +65,23 @@ export interface SetIdentityNotificationTopicCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SetIdentityNotificationTopic
  * ```javascript
  * // The following example sets the Amazon SNS topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with the specified identity as the Source:
  * const input = {
- *   "Identity": "user@example.com",
- *   "NotificationType": "Bounce",
- *   "SnsTopic": "arn:aws:sns:us-west-2:111122223333:MyTopic"
+ *   Identity: "user@example.com",
+ *   NotificationType: "Bounce",
+ *   SnsTopic: "arn:aws:sns:us-west-2:111122223333:MyTopic"
  * };
  * const command = new SetIdentityNotificationTopicCommand(input);
- * await client.send(command);
- * // example id: setidentitynotificationtopic-1469057854966
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetIdentityNotificationTopicCommand extends $Command
   .classBuilder<
@@ -87,9 +91,7 @@ export class SetIdentityNotificationTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class SetIdentityNotificationTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetIdentityNotificationTopicCommand)
   .de(de_SetIdentityNotificationTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetIdentityNotificationTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetIdentityNotificationTopicCommandInput;
+      output: SetIdentityNotificationTopicCommandOutput;
+    };
+  };
+}

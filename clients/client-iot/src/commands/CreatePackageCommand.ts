@@ -17,7 +17,8 @@ import { de_CreatePackageCommand, se_CreatePackageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,14 +66,14 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
  *             is unavailable.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A limit has been exceeded.</p>
+ *  <p>Service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
@@ -82,6 +83,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  *
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
+ *
  *
  * @public
  */
@@ -93,9 +95,7 @@ export class CreatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class CreatePackageCommand extends $Command
   .f(CreatePackageRequestFilterSensitiveLog, CreatePackageResponseFilterSensitiveLog)
   .ser(se_CreatePackageCommand)
   .de(de_CreatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageRequest;
+      output: CreatePackageResponse;
+    };
+    sdk: {
+      input: CreatePackageCommandInput;
+      output: CreatePackageCommandOutput;
+    };
+  };
+}

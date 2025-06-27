@@ -17,7 +17,7 @@ programmatically and includes detailed information about data types and errors.<
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-identitystore
+To install this package, simply type add or install @aws-sdk/client-identitystore
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-identitystore`

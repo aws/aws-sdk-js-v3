@@ -12,7 +12,8 @@ import { de_DeleteMetricPolicyCommand, se_DeleteMetricPolicyCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DeleteMetricPolicyCommandOutput extends DeleteMetricPolicyOutpu
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class DeleteMetricPolicyCommand extends $Command
@@ -75,9 +77,7 @@ export class DeleteMetricPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DeleteMetricPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMetricPolicyCommand)
   .de(de_DeleteMetricPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMetricPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMetricPolicyCommandInput;
+      output: DeleteMetricPolicyCommandOutput;
+    };
+  };
+}

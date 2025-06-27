@@ -12,7 +12,8 @@ import { de_DeregisterTransitGatewayCommand, se_DeregisterTransitGatewayCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface DeregisterTransitGatewayCommandOutput extends DeregisterTransit
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DeregisterTransitGatewayCommand extends $Command
@@ -92,9 +94,7 @@ export class DeregisterTransitGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class DeregisterTransitGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterTransitGatewayCommand)
   .de(de_DeregisterTransitGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTransitGatewayRequest;
+      output: DeregisterTransitGatewayResponse;
+    };
+    sdk: {
+      input: DeregisterTransitGatewayCommandInput;
+      output: DeregisterTransitGatewayCommandOutput;
+    };
+  };
+}

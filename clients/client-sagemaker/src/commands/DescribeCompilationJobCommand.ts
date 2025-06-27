@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface DescribeCompilationJobCommandInput extends DescribeCompilationJ
 export interface DescribeCompilationJobCommandOutput extends DescribeCompilationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about a model compilation job.</p>
- *          <p>To create a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html">CreateCompilationJob</a>. To get information about multiple model compilation
- *             jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
+ * <p>Returns information about a model compilation job.</p> <p>To create a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html">CreateCompilationJob</a>. To get information about multiple model compilation jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,6 +107,7 @@ export interface DescribeCompilationJobCommandOutput extends DescribeCompilation
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeCompilationJobCommand extends $Command
@@ -118,9 +118,7 @@ export class DescribeCompilationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +130,16 @@ export class DescribeCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCompilationJobCommand)
   .de(de_DescribeCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCompilationJobRequest;
+      output: DescribeCompilationJobResponse;
+    };
+    sdk: {
+      input: DescribeCompilationJobCommandInput;
+      output: DescribeCompilationJobCommandOutput;
+    };
+  };
+}

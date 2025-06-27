@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface AssociateUserToPermissionGroupCommandOutput
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class AssociateUserToPermissionGroupCommand extends $Command
@@ -92,9 +94,7 @@ export class AssociateUserToPermissionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class AssociateUserToPermissionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateUserToPermissionGroupCommand)
   .de(de_AssociateUserToPermissionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateUserToPermissionGroupRequest;
+      output: AssociateUserToPermissionGroupResponse;
+    };
+    sdk: {
+      input: AssociateUserToPermissionGroupCommandInput;
+      output: AssociateUserToPermissionGroupCommandOutput;
+    };
+  };
+}

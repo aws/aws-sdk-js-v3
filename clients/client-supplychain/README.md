@@ -16,7 +16,7 @@ All AWS Supply chain API operations are Amazon-authenticated and certificate-sig
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-supplychain
+To install this package, simply type add or install @aws-sdk/client-supplychain
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-supplychain`
@@ -29,16 +29,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `SupplyChainClient` and
-the commands you need, for example `GetBillOfMaterialsImportJobCommand`:
+the commands you need, for example `ListInstancesCommand`:
 
 ```js
 // ES5 example
-const { SupplyChainClient, GetBillOfMaterialsImportJobCommand } = require("@aws-sdk/client-supplychain");
+const { SupplyChainClient, ListInstancesCommand } = require("@aws-sdk/client-supplychain");
 ```
 
 ```ts
 // ES6+ example
-import { SupplyChainClient, GetBillOfMaterialsImportJobCommand } from "@aws-sdk/client-supplychain";
+import { SupplyChainClient, ListInstancesCommand } from "@aws-sdk/client-supplychain";
 ```
 
 ### Usage
@@ -57,7 +57,7 @@ const client = new SupplyChainClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new GetBillOfMaterialsImportJobCommand(params);
+const command = new ListInstancesCommand(params);
 ```
 
 #### Async/await
@@ -136,7 +136,7 @@ const client = new AWS.SupplyChain({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.getBillOfMaterialsImportJob(params);
+  const data = await client.listInstances(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -144,7 +144,7 @@ try {
 
 // Promises.
 client
-  .getBillOfMaterialsImportJob(params)
+  .listInstances(params)
   .then((data) => {
     // process data.
   })
@@ -153,7 +153,7 @@ client
   });
 
 // callbacks.
-client.getBillOfMaterialsImportJob(params, (err, data) => {
+client.listInstances(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -219,6 +219,70 @@ CreateBillOfMaterialsImportJob
 </details>
 <details>
 <summary>
+CreateDataIntegrationFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/CreateDataIntegrationFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataIntegrationFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataIntegrationFlowCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDataLakeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/CreateDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/CreateDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/CreateInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/CreateInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDataIntegrationFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteDataIntegrationFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataIntegrationFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataIntegrationFlowCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDataLakeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/DeleteInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/DeleteInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetBillOfMaterialsImportJob
 </summary>
 
@@ -227,9 +291,161 @@ GetBillOfMaterialsImportJob
 </details>
 <details>
 <summary>
+GetDataIntegrationEvent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataIntegrationEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationEventCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataIntegrationFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataIntegrationFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataIntegrationFlowExecution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataIntegrationFlowExecutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowExecutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataIntegrationFlowExecutionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataLakeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/GetInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/GetInstanceCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataIntegrationEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataIntegrationEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataIntegrationFlowExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataIntegrationFlowExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationFlowExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationFlowExecutionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataIntegrationFlows
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataIntegrationFlowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationFlowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataIntegrationFlowsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataLakeDatasets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataLakeDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeDatasetsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataLakeNamespaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListDataLakeNamespacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeNamespacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListDataLakeNamespacesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListTagsForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 SendDataIntegrationEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/SendDataIntegrationEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/SendDataIntegrationEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/SendDataIntegrationEventCommandOutput/)
+
+</details>
+<details>
+<summary>
+TagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UntagResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataIntegrationFlow
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateDataIntegrationFlowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataIntegrationFlowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataIntegrationFlowCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataLakeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateDataLakeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataLakeNamespace
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateDataLakeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateDataLakeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateInstance
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/supplychain/command/UpdateInstanceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateInstanceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-supplychain/Interface/UpdateInstanceCommandOutput/)
 
 </details>

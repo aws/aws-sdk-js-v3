@@ -1,4 +1,5 @@
-import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients/sts";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromWebToken } from "./fromWebToken";
 
@@ -15,14 +16,14 @@ const MOCK_CREDS = {
   sessionToken: "sessionToken",
 };
 
-jest.mock("@aws-sdk/client-sts", () => ({
-  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockReturnValue(() => {}),
+vi.mock("@aws-sdk/nested-clients/sts", () => ({
+  getDefaultRoleAssumerWithWebIdentity: vi.fn().mockReturnValue(() => {}),
 }));
 
 describe("fromWebToken", () => {
   afterEach(() => {
-    jest.clearAllMocks();
-    jest.restoreAllMocks();
+    vi.clearAllMocks();
+    vi.restoreAllMocks();
   });
   it("dynamically imports roleAssumerWithWebIdentity if not provided", async () => {
     await fromWebToken({
@@ -64,7 +65,7 @@ describe("fromWebToken", () => {
 
   it("generates a random value for RoleSessionName if not available", async () => {
     const mockDateNow = Date.now();
-    const spyDateNow = jest.spyOn(Date, "now").mockReturnValueOnce(mockDateNow);
+    const spyDateNow = vi.spyOn(Date, "now").mockReturnValueOnce(mockDateNow);
 
     const creds = await fromWebToken({
       webIdentityToken: mockToken,

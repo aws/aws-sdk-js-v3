@@ -12,7 +12,8 @@ import { de_DescribeSnapshotsCommand, se_DescribeSnapshotsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,34 @@ export interface DescribeSnapshotsCommandOutput extends DescribeSnapshotsResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To describe snapshots
+ * ```javascript
+ * // The following example obtains information about a specified directory snapshot.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Limit: 0,
+ *   SnapshotIds: [
+ *     "s-9267f6da4e"
+ *   ]
+ * };
+ * const command = new DescribeSnapshotsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Snapshots: [
+ *     {
+ *       DirectoryId: "d-92673c8a8f",
+ *       SnapshotId: "s-9267f6da4e",
+ *       StartTime: 1.481289211615E9,
+ *       Status: "Completed",
+ *       Type: "Auto"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeSnapshotsCommand extends $Command
@@ -100,9 +129,7 @@ export class DescribeSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +141,16 @@ export class DescribeSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotsCommand)
   .de(de_DescribeSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotsRequest;
+      output: DescribeSnapshotsResult;
+    };
+    sdk: {
+      input: DescribeSnapshotsCommandInput;
+      output: DescribeSnapshotsCommandOutput;
+    };
+  };
+}

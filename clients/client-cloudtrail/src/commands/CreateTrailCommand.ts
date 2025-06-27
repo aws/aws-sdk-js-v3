@@ -12,7 +12,8 @@ import { de_CreateTrailCommand, se_CreateTrailCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,7 +104,11 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *          organization resource in a required service.</p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InsufficientS3BucketPolicyException} (client fault)
@@ -207,7 +212,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *  <p>This exception is thrown when the specified S3 bucket does not exist.</p>
  *
  * @throws {@link TagsLimitExceededException} (client fault)
- *  <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ *  <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
@@ -227,6 +232,7 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class CreateTrailCommand extends $Command
@@ -237,9 +243,7 @@ export class CreateTrailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -251,4 +255,16 @@ export class CreateTrailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrailCommand)
   .de(de_CreateTrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrailRequest;
+      output: CreateTrailResponse;
+    };
+    sdk: {
+      input: CreateTrailCommandInput;
+      output: CreateTrailCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListExportsCommand, se_ListExportsCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListExportsCommandOutput extends ListExportsOutput, __MetadataB
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ListExportsCommand extends $Command
@@ -94,6 +96,7 @@ export class ListExportsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -106,4 +109,16 @@ export class ListExportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExportsCommand)
   .de(de_ListExportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExportsInput;
+      output: ListExportsOutput;
+    };
+    sdk: {
+      input: ListExportsCommandInput;
+      output: ListExportsCommandOutput;
+    };
+  };
+}

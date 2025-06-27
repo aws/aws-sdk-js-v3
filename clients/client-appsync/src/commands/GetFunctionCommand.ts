@@ -12,7 +12,8 @@ import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,17 +76,19 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>The resource specified in the request was not found. Check the resource, and then try again.</p>
+ *  <p>The resource specified in the request was not found. Check the resource, and then try
+ *          again.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>You aren't authorized to perform this operation.</p>
  *
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
+ *
  *
  * @public
  */
@@ -97,9 +100,7 @@ export class GetFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class GetFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFunctionCommand)
   .de(de_GetFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionRequest;
+      output: GetFunctionResponse;
+    };
+    sdk: {
+      input: GetFunctionCommandInput;
+      output: GetFunctionCommandOutput;
+    };
+  };
+}

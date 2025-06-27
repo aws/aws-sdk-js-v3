@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface StartInputDeviceMaintenanceWindowCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class StartInputDeviceMaintenanceWindowCommand extends $Command
@@ -94,9 +96,7 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class StartInputDeviceMaintenanceWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInputDeviceMaintenanceWindowCommand)
   .de(de_StartInputDeviceMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInputDeviceMaintenanceWindowRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartInputDeviceMaintenanceWindowCommandInput;
+      output: StartInputDeviceMaintenanceWindowCommandOutput;
+    };
+  };
+}

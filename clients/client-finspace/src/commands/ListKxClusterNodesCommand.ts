@@ -12,7 +12,8 @@ import { de_ListKxClusterNodesCommand, se_ListKxClusterNodesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface ListKxClusterNodesCommandOutput extends ListKxClusterNodesRespo
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxClusterNodesCommand extends $Command
@@ -94,9 +96,7 @@ export class ListKxClusterNodesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListKxClusterNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxClusterNodesCommand)
   .de(de_ListKxClusterNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxClusterNodesRequest;
+      output: ListKxClusterNodesResponse;
+    };
+    sdk: {
+      input: ListKxClusterNodesCommandInput;
+      output: ListKxClusterNodesCommandOutput;
+    };
+  };
+}

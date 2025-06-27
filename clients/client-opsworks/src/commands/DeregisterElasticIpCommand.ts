@@ -12,7 +12,8 @@ import { de_DeregisterElasticIpCommand, se_DeregisterElasticIpCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DeregisterElasticIpCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DeregisterElasticIpCommand extends $Command
@@ -74,9 +76,7 @@ export class DeregisterElasticIpCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DeregisterElasticIpCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterElasticIpCommand)
   .de(de_DeregisterElasticIpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterElasticIpRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterElasticIpCommandInput;
+      output: DeregisterElasticIpCommandOutput;
+    };
+  };
+}

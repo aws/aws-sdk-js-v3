@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { UpdateSAMLProviderRequest, UpdateSAMLProviderResponse } from "../models/models_1";
+import {
+  UpdateSAMLProviderRequest,
+  UpdateSAMLProviderRequestFilterSensitiveLog,
+  UpdateSAMLProviderResponse,
+} from "../models/models_1";
 import { de_UpdateSAMLProviderCommand, se_UpdateSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +32,9 @@ export interface UpdateSAMLProviderCommandInput extends UpdateSAMLProviderReques
 export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the metadata document for an existing SAML provider resource object.</p>
- *          <note>
- *             <p>This operation requires <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4</a>.</p>
- *          </note>
+ * <p>Updates the metadata document, SAML encryption settings, and private keys for an
+ *             existing SAML provider. To rotate private keys, add your new private key and then remove
+ *             the old key in a separate request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,8 +42,11 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * // const { IAMClient, UpdateSAMLProviderCommand } = require("@aws-sdk/client-iam"); // CommonJS import
  * const client = new IAMClient(config);
  * const input = { // UpdateSAMLProviderRequest
- *   SAMLMetadataDocument: "STRING_VALUE", // required
+ *   SAMLMetadataDocument: "STRING_VALUE",
  *   SAMLProviderArn: "STRING_VALUE", // required
+ *   AssertionEncryptionMode: "Required" || "Allowed",
+ *   AddPrivateKey: "STRING_VALUE",
+ *   RemovePrivateKey: "STRING_VALUE",
  * };
  * const command = new UpdateSAMLProviderCommand(input);
  * const response = await client.send(command);
@@ -74,6 +81,7 @@ export interface UpdateSAMLProviderCommandOutput extends UpdateSAMLProviderRespo
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class UpdateSAMLProviderCommand extends $Command
@@ -84,9 +92,7 @@ export class UpdateSAMLProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,7 +101,19 @@ export class UpdateSAMLProviderCommand extends $Command
   })
   .s("AWSIdentityManagementV20100508", "UpdateSAMLProvider", {})
   .n("IAMClient", "UpdateSAMLProviderCommand")
-  .f(void 0, void 0)
+  .f(UpdateSAMLProviderRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateSAMLProviderCommand)
   .de(de_UpdateSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSAMLProviderRequest;
+      output: UpdateSAMLProviderResponse;
+    };
+    sdk: {
+      input: UpdateSAMLProviderCommandInput;
+      output: UpdateSAMLProviderCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_StartTaskCommand, se_StartTaskCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,11 +33,13 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *          <note>
  *             <p>On March 21, 2024, a change was made to resolve the task definition revision before authorization. When a task definition revision is not specified, authorization will occur using the latest revision of a task definition.</p>
  *          </note>
- *          <p>Starting April 15, 2023, Amazon Web Services will not onboard new customers to Amazon Elastic Inference (EI), and will help current customers migrate their workloads to options that offer better price and performance. After April 15, 2023, new customers will not be able to launch instances with Amazon EI accelerators in Amazon SageMaker, Amazon ECS, or Amazon EC2. However, customers who have used Amazon EI at least once during the past 30-day period are considered current customers and will be able to continue using the service. </p>
- *          <p>Alternatively, you can use <a>RunTask</a> to place tasks for you. For more
+ *          <note>
+ *             <p>Amazon Elastic Inference (EI) is no longer available to customers.</p>
+ *          </note>
+ *          <p>Alternatively, you can use<code>RunTask</code> to place tasks for you. For more
  * 			information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          <p>You can attach Amazon EBS volumes to Amazon ECS tasks by configuring the volume when creating or
- * 			updating a service. For more infomation, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
+ * 			updating a service. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ebs-volumes.html#ebs-volume-types">Amazon EBS volumes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,6 +126,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *         volumeType: "STRING_VALUE",
  *         sizeInGiB: Number("int"),
  *         snapshotId: "STRING_VALUE",
+ *         volumeInitializationRate: Number("int"),
  *         iops: Number("int"),
  *         throughput: Number("int"),
  *         tagSpecifications: [ // EBSTagSpecifications
@@ -141,7 +145,7 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *         terminationPolicy: { // TaskManagedEBSVolumeTerminationPolicy
  *           deleteOnTermination: true || false, // required
  *         },
- *         filesystemType: "ext3" || "ext4" || "xfs",
+ *         filesystemType: "ext3" || "ext4" || "xfs" || "ntfs",
  *       },
  *     },
  *   ],
@@ -305,6 +309,10 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * //       ephemeralStorage: {
  * //         sizeInGiB: Number("int"), // required
  * //       },
+ * //       fargateEphemeralStorage: { // TaskEphemeralStorage
+ * //         sizeInGiB: Number("int"),
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures
@@ -330,11 +338,13 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -344,6 +354,62 @@ export interface StartTaskCommandOutput extends StartTaskResponse, __MetadataBea
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To start a new task
+ * ```javascript
+ * // This example starts a new task in the cluster "MyCluster" on the specified container instance using the latest revision of the "hello-world" task definition.
+ * const input = {
+ *   cluster: "MyCluster",
+ *   containerInstances: [
+ *     "4c543eed-f83f-47da-b1d8-3d23f1da4c64"
+ *   ],
+ *   taskDefinition: "hello-world"
+ * };
+ * const command = new StartTaskCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   tasks: [
+ *     {
+ *       clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/default",
+ *       containerInstanceArn: "arn:aws:ecs:us-east-1:012345678910:container-instance/default/4c543eed-f83f-47da-b1d8-3d23f1da4c64",
+ *       containers: [
+ *         {
+ *           containerArn: "arn:aws:ecs:us-east-1:012345678910:container/e76594d4-27e1-4c74-98b5-46a6435eb769",
+ *           lastStatus: "PENDING",
+ *           name: "wordpress",
+ *           taskArn: "arn:aws:ecs:us-east-1:012345678910:task/default/fdf2c302-468c-4e55-b884-5331d816e7fb"
+ *         },
+ *         {
+ *           containerArn: "arn:aws:ecs:us-east-1:012345678910:container/default/b19106ea-4fa8-4f1d-9767-96922c82b070",
+ *           lastStatus: "PENDING",
+ *           name: "mysql",
+ *           taskArn: "arn:aws:ecs:us-east-1:012345678910:task/default/fdf2c302-468c-4e55-b884-5331d816e7fb"
+ *         }
+ *       ],
+ *       createdAt: 1.479765460842E9,
+ *       desiredStatus: "RUNNING",
+ *       lastStatus: "PENDING",
+ *       overrides: {
+ *         containerOverrides: [
+ *           {
+ *             name: "wordpress"
+ *           },
+ *           {
+ *             name: "mysql"
+ *           }
+ *         ]
+ *       },
+ *       taskArn: "arn:aws:ecs:us-east-1:012345678910:task/default/fdf2c302-468c-4e55-b884-5331d816e7fb",
+ *       taskDefinitionArn: "arn:aws:ecs:us-east-1:012345678910:task-definition/hello_world:6",
+ *       version: 1
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -355,9 +421,7 @@ export class StartTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -369,4 +433,16 @@ export class StartTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartTaskCommand)
   .de(de_StartTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTaskRequest;
+      output: StartTaskResponse;
+    };
+    sdk: {
+      input: StartTaskCommandInput;
+      output: StartTaskCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,26 +82,26 @@ export interface CreateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To create an application
  * ```javascript
  * // The following create-application example creates an application in AWS AppConfig.
  * const input = {
- *   "Description": "An application used for creating an example.",
- *   "Name": "example-application"
+ *   Description: "An application used for creating an example.",
+ *   Name: "example-application"
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Description": "An application used for creating an example.",
- *   "Id": "339ohji",
- *   "Name": "example-application"
+ *   Description: "An application used for creating an example.",
+ *   Id: "339ohji",
+ *   Name: "example-application"
  * }
  * *\/
- * // example id: to-create-an-application-1632264511615
  * ```
  *
+ * @public
  */
 export class CreateApplicationCommand extends $Command
   .classBuilder<
@@ -110,9 +111,7 @@ export class CreateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class CreateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationRequest;
+      output: Application;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,42 +84,42 @@ export interface ListLocalDisksCommandOutput extends ListLocalDisksOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To list the gateway's local disks
  * ```javascript
  * // The request returns a list of all disks, specifying which are configured as working storage, cache storage, or stored volume or not configured at all.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new ListLocalDisksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Disks": [
+ *   Disks: [
  *     {
- *       "DiskAllocationType": "CACHE_STORAGE",
- *       "DiskId": "pci-0000:03:00.0-scsi-0:0:0:0",
- *       "DiskNode": "SCSI(0:0)",
- *       "DiskPath": "/dev/sda",
- *       "DiskSizeInBytes": 1099511627776,
- *       "DiskStatus": "missing"
+ *       DiskAllocationType: "CACHE_STORAGE",
+ *       DiskId: "pci-0000:03:00.0-scsi-0:0:0:0",
+ *       DiskNode: "SCSI(0:0)",
+ *       DiskPath: "/dev/sda",
+ *       DiskSizeInBytes: 1099511627776,
+ *       DiskStatus: "missing"
  *     },
  *     {
- *       "DiskAllocationResource": "",
- *       "DiskAllocationType": "UPLOAD_BUFFER",
- *       "DiskId": "pci-0000:03:00.0-scsi-0:0:1:0",
- *       "DiskNode": "SCSI(0:1)",
- *       "DiskPath": "/dev/sdb",
- *       "DiskSizeInBytes": 1099511627776,
- *       "DiskStatus": "present"
+ *       DiskAllocationResource: "",
+ *       DiskAllocationType: "UPLOAD_BUFFER",
+ *       DiskId: "pci-0000:03:00.0-scsi-0:0:1:0",
+ *       DiskNode: "SCSI(0:1)",
+ *       DiskPath: "/dev/sdb",
+ *       DiskSizeInBytes: 1099511627776,
+ *       DiskStatus: "present"
  *     }
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-list-the-gateways-local-disks-1472079564618
  * ```
  *
+ * @public
  */
 export class ListLocalDisksCommand extends $Command
   .classBuilder<
@@ -128,9 +129,7 @@ export class ListLocalDisksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class ListLocalDisksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLocalDisksCommand)
   .de(de_ListLocalDisksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLocalDisksInput;
+      output: ListLocalDisksOutput;
+    };
+    sdk: {
+      input: ListLocalDisksCommandInput;
+      output: ListLocalDisksCommandOutput;
+    };
+  };
+}

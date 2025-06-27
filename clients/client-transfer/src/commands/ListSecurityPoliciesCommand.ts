@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface ListSecurityPoliciesCommandInput extends ListSecurityPoliciesRe
 export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the security policies that are attached to your servers and SFTP connectors. For more information
- *       about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
- *         policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security
- *           policies for SFTP connectors</a>.</p>
+ * <p>Lists the security policies that are attached to your servers and SFTP connectors. For more information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security policies for SFTP connectors</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +71,7 @@ export interface ListSecurityPoliciesCommandOutput extends ListSecurityPoliciesR
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class ListSecurityPoliciesCommand extends $Command
@@ -83,9 +82,7 @@ export class ListSecurityPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +94,16 @@ export class ListSecurityPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecurityPoliciesCommand)
   .de(de_ListSecurityPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecurityPoliciesRequest;
+      output: ListSecurityPoliciesResponse;
+    };
+    sdk: {
+      input: ListSecurityPoliciesCommandInput;
+      output: ListSecurityPoliciesCommandOutput;
+    };
+  };
+}

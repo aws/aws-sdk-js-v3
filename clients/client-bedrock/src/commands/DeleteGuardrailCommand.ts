@@ -12,7 +12,8 @@ import { de_DeleteGuardrailCommand, se_DeleteGuardrailCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,7 @@ export interface DeleteGuardrailCommandInput extends DeleteGuardrailRequest {}
 export interface DeleteGuardrailCommandOutput extends DeleteGuardrailResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a guardrail.</p>
- *          <ul>
- *             <li>
- *                <p>To delete a guardrail, only specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field. If you delete a guardrail, all of its versions will be deleted.</p>
- *             </li>
- *             <li>
- *                <p>To delete a version of a guardrail, specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field and the version in the <code>guardrailVersion</code> field.</p>
- *             </li>
- *          </ul>
+ * <p>Deletes a guardrail.</p> <ul> <li> <p>To delete a guardrail, only specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field. If you delete a guardrail, all of its versions will be deleted.</p> </li> <li> <p>To delete a version of a guardrail, specify the ARN of the guardrail in the <code>guardrailIdentifier</code> field and the version in the <code>guardrailVersion</code> field.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +72,7 @@ export interface DeleteGuardrailCommandOutput extends DeleteGuardrailResponse, _
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class DeleteGuardrailCommand extends $Command
@@ -89,9 +83,7 @@ export class DeleteGuardrailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +95,16 @@ export class DeleteGuardrailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGuardrailCommand)
   .de(de_DeleteGuardrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGuardrailRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGuardrailCommandInput;
+      output: DeleteGuardrailCommandOutput;
+    };
+  };
+}

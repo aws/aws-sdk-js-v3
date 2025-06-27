@@ -8,6 +8,16 @@ import {
   AssociateMemberCommandOutput,
 } from "./commands/AssociateMemberCommand";
 import {
+  BatchAssociateCodeSecurityScanConfigurationCommand,
+  BatchAssociateCodeSecurityScanConfigurationCommandInput,
+  BatchAssociateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/BatchAssociateCodeSecurityScanConfigurationCommand";
+import {
+  BatchDisassociateCodeSecurityScanConfigurationCommand,
+  BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+  BatchDisassociateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/BatchDisassociateCodeSecurityScanConfigurationCommand";
+import {
   BatchGetAccountStatusCommand,
   BatchGetAccountStatusCommandInput,
   BatchGetAccountStatusCommandOutput,
@@ -53,6 +63,16 @@ import {
   CreateCisScanConfigurationCommandOutput,
 } from "./commands/CreateCisScanConfigurationCommand";
 import {
+  CreateCodeSecurityIntegrationCommand,
+  CreateCodeSecurityIntegrationCommandInput,
+  CreateCodeSecurityIntegrationCommandOutput,
+} from "./commands/CreateCodeSecurityIntegrationCommand";
+import {
+  CreateCodeSecurityScanConfigurationCommand,
+  CreateCodeSecurityScanConfigurationCommandInput,
+  CreateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/CreateCodeSecurityScanConfigurationCommand";
+import {
   CreateFilterCommand,
   CreateFilterCommandInput,
   CreateFilterCommandOutput,
@@ -72,6 +92,16 @@ import {
   DeleteCisScanConfigurationCommandInput,
   DeleteCisScanConfigurationCommandOutput,
 } from "./commands/DeleteCisScanConfigurationCommand";
+import {
+  DeleteCodeSecurityIntegrationCommand,
+  DeleteCodeSecurityIntegrationCommandInput,
+  DeleteCodeSecurityIntegrationCommandOutput,
+} from "./commands/DeleteCodeSecurityIntegrationCommand";
+import {
+  DeleteCodeSecurityScanConfigurationCommand,
+  DeleteCodeSecurityScanConfigurationCommandInput,
+  DeleteCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/DeleteCodeSecurityScanConfigurationCommand";
 import {
   DeleteFilterCommand,
   DeleteFilterCommandInput,
@@ -109,6 +139,26 @@ import {
   GetCisScanResultDetailsCommandInput,
   GetCisScanResultDetailsCommandOutput,
 } from "./commands/GetCisScanResultDetailsCommand";
+import {
+  GetClustersForImageCommand,
+  GetClustersForImageCommandInput,
+  GetClustersForImageCommandOutput,
+} from "./commands/GetClustersForImageCommand";
+import {
+  GetCodeSecurityIntegrationCommand,
+  GetCodeSecurityIntegrationCommandInput,
+  GetCodeSecurityIntegrationCommandOutput,
+} from "./commands/GetCodeSecurityIntegrationCommand";
+import {
+  GetCodeSecurityScanCommand,
+  GetCodeSecurityScanCommandInput,
+  GetCodeSecurityScanCommandOutput,
+} from "./commands/GetCodeSecurityScanCommand";
+import {
+  GetCodeSecurityScanConfigurationCommand,
+  GetCodeSecurityScanConfigurationCommandInput,
+  GetCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/GetCodeSecurityScanConfigurationCommand";
 import {
   GetConfigurationCommand,
   GetConfigurationCommandInput,
@@ -165,6 +215,21 @@ import {
   ListCisScansCommandInput,
   ListCisScansCommandOutput,
 } from "./commands/ListCisScansCommand";
+import {
+  ListCodeSecurityIntegrationsCommand,
+  ListCodeSecurityIntegrationsCommandInput,
+  ListCodeSecurityIntegrationsCommandOutput,
+} from "./commands/ListCodeSecurityIntegrationsCommand";
+import {
+  ListCodeSecurityScanConfigurationAssociationsCommand,
+  ListCodeSecurityScanConfigurationAssociationsCommandInput,
+  ListCodeSecurityScanConfigurationAssociationsCommandOutput,
+} from "./commands/ListCodeSecurityScanConfigurationAssociationsCommand";
+import {
+  ListCodeSecurityScanConfigurationsCommand,
+  ListCodeSecurityScanConfigurationsCommandInput,
+  ListCodeSecurityScanConfigurationsCommandOutput,
+} from "./commands/ListCodeSecurityScanConfigurationsCommand";
 import {
   ListCoverageCommand,
   ListCoverageCommandInput,
@@ -228,6 +293,11 @@ import {
   StartCisSessionCommandOutput,
 } from "./commands/StartCisSessionCommand";
 import {
+  StartCodeSecurityScanCommand,
+  StartCodeSecurityScanCommandInput,
+  StartCodeSecurityScanCommandOutput,
+} from "./commands/StartCodeSecurityScanCommand";
+import {
   StopCisSessionCommand,
   StopCisSessionCommandInput,
   StopCisSessionCommandOutput,
@@ -243,6 +313,16 @@ import {
   UpdateCisScanConfigurationCommandInput,
   UpdateCisScanConfigurationCommandOutput,
 } from "./commands/UpdateCisScanConfigurationCommand";
+import {
+  UpdateCodeSecurityIntegrationCommand,
+  UpdateCodeSecurityIntegrationCommandInput,
+  UpdateCodeSecurityIntegrationCommandOutput,
+} from "./commands/UpdateCodeSecurityIntegrationCommand";
+import {
+  UpdateCodeSecurityScanConfigurationCommand,
+  UpdateCodeSecurityScanConfigurationCommandInput,
+  UpdateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/UpdateCodeSecurityScanConfigurationCommand";
 import {
   UpdateConfigurationCommand,
   UpdateConfigurationCommandInput,
@@ -277,6 +357,8 @@ import { Inspector2Client, Inspector2ClientConfig } from "./Inspector2Client";
 
 const commands = {
   AssociateMemberCommand,
+  BatchAssociateCodeSecurityScanConfigurationCommand,
+  BatchDisassociateCodeSecurityScanConfigurationCommand,
   BatchGetAccountStatusCommand,
   BatchGetCodeSnippetCommand,
   BatchGetFindingDetailsCommand,
@@ -286,10 +368,14 @@ const commands = {
   CancelFindingsReportCommand,
   CancelSbomExportCommand,
   CreateCisScanConfigurationCommand,
+  CreateCodeSecurityIntegrationCommand,
+  CreateCodeSecurityScanConfigurationCommand,
   CreateFilterCommand,
   CreateFindingsReportCommand,
   CreateSbomExportCommand,
   DeleteCisScanConfigurationCommand,
+  DeleteCodeSecurityIntegrationCommand,
+  DeleteCodeSecurityScanConfigurationCommand,
   DeleteFilterCommand,
   DescribeOrganizationConfigurationCommand,
   DisableCommand,
@@ -299,6 +385,10 @@ const commands = {
   EnableDelegatedAdminAccountCommand,
   GetCisScanReportCommand,
   GetCisScanResultDetailsCommand,
+  GetClustersForImageCommand,
+  GetCodeSecurityIntegrationCommand,
+  GetCodeSecurityScanCommand,
+  GetCodeSecurityScanConfigurationCommand,
   GetConfigurationCommand,
   GetDelegatedAdminAccountCommand,
   GetEc2DeepInspectionConfigurationCommand,
@@ -311,6 +401,9 @@ const commands = {
   ListCisScanResultsAggregatedByChecksCommand,
   ListCisScanResultsAggregatedByTargetResourceCommand,
   ListCisScansCommand,
+  ListCodeSecurityIntegrationsCommand,
+  ListCodeSecurityScanConfigurationAssociationsCommand,
+  ListCodeSecurityScanConfigurationsCommand,
   ListCoverageCommand,
   ListCoverageStatisticsCommand,
   ListDelegatedAdminAccountsCommand,
@@ -325,10 +418,13 @@ const commands = {
   SendCisSessionHealthCommand,
   SendCisSessionTelemetryCommand,
   StartCisSessionCommand,
+  StartCodeSecurityScanCommand,
   StopCisSessionCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateCisScanConfigurationCommand,
+  UpdateCodeSecurityIntegrationCommand,
+  UpdateCodeSecurityScanConfigurationCommand,
   UpdateConfigurationCommand,
   UpdateEc2DeepInspectionConfigurationCommand,
   UpdateEncryptionKeyCommand,
@@ -350,6 +446,40 @@ export interface Inspector2 {
     args: AssociateMemberCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateMemberCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchAssociateCodeSecurityScanConfigurationCommand}
+   */
+  batchAssociateCodeSecurityScanConfiguration(
+    args: BatchAssociateCodeSecurityScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchAssociateCodeSecurityScanConfigurationCommandOutput>;
+  batchAssociateCodeSecurityScanConfiguration(
+    args: BatchAssociateCodeSecurityScanConfigurationCommandInput,
+    cb: (err: any, data?: BatchAssociateCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+  batchAssociateCodeSecurityScanConfiguration(
+    args: BatchAssociateCodeSecurityScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchAssociateCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDisassociateCodeSecurityScanConfigurationCommand}
+   */
+  batchDisassociateCodeSecurityScanConfiguration(
+    args: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDisassociateCodeSecurityScanConfigurationCommandOutput>;
+  batchDisassociateCodeSecurityScanConfiguration(
+    args: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+    cb: (err: any, data?: BatchDisassociateCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+  batchDisassociateCodeSecurityScanConfiguration(
+    args: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDisassociateCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -508,6 +638,40 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link CreateCodeSecurityIntegrationCommand}
+   */
+  createCodeSecurityIntegration(
+    args: CreateCodeSecurityIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCodeSecurityIntegrationCommandOutput>;
+  createCodeSecurityIntegration(
+    args: CreateCodeSecurityIntegrationCommandInput,
+    cb: (err: any, data?: CreateCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+  createCodeSecurityIntegration(
+    args: CreateCodeSecurityIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCodeSecurityScanConfigurationCommand}
+   */
+  createCodeSecurityScanConfiguration(
+    args: CreateCodeSecurityScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCodeSecurityScanConfigurationCommandOutput>;
+  createCodeSecurityScanConfiguration(
+    args: CreateCodeSecurityScanConfigurationCommandInput,
+    cb: (err: any, data?: CreateCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+  createCodeSecurityScanConfiguration(
+    args: CreateCodeSecurityScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateFilterCommand}
    */
   createFilter(args: CreateFilterCommandInput, options?: __HttpHandlerOptions): Promise<CreateFilterCommandOutput>;
@@ -567,6 +731,40 @@ export interface Inspector2 {
     args: DeleteCisScanConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCisScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCodeSecurityIntegrationCommand}
+   */
+  deleteCodeSecurityIntegration(
+    args: DeleteCodeSecurityIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCodeSecurityIntegrationCommandOutput>;
+  deleteCodeSecurityIntegration(
+    args: DeleteCodeSecurityIntegrationCommandInput,
+    cb: (err: any, data?: DeleteCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+  deleteCodeSecurityIntegration(
+    args: DeleteCodeSecurityIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCodeSecurityScanConfigurationCommand}
+   */
+  deleteCodeSecurityScanConfiguration(
+    args: DeleteCodeSecurityScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCodeSecurityScanConfigurationCommandOutput>;
+  deleteCodeSecurityScanConfiguration(
+    args: DeleteCodeSecurityScanConfigurationCommandInput,
+    cb: (err: any, data?: DeleteCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+  deleteCodeSecurityScanConfiguration(
+    args: DeleteCodeSecurityScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -704,6 +902,74 @@ export interface Inspector2 {
     args: GetCisScanResultDetailsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCisScanResultDetailsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetClustersForImageCommand}
+   */
+  getClustersForImage(
+    args: GetClustersForImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetClustersForImageCommandOutput>;
+  getClustersForImage(
+    args: GetClustersForImageCommandInput,
+    cb: (err: any, data?: GetClustersForImageCommandOutput) => void
+  ): void;
+  getClustersForImage(
+    args: GetClustersForImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetClustersForImageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCodeSecurityIntegrationCommand}
+   */
+  getCodeSecurityIntegration(
+    args: GetCodeSecurityIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCodeSecurityIntegrationCommandOutput>;
+  getCodeSecurityIntegration(
+    args: GetCodeSecurityIntegrationCommandInput,
+    cb: (err: any, data?: GetCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+  getCodeSecurityIntegration(
+    args: GetCodeSecurityIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCodeSecurityScanCommand}
+   */
+  getCodeSecurityScan(
+    args: GetCodeSecurityScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCodeSecurityScanCommandOutput>;
+  getCodeSecurityScan(
+    args: GetCodeSecurityScanCommandInput,
+    cb: (err: any, data?: GetCodeSecurityScanCommandOutput) => void
+  ): void;
+  getCodeSecurityScan(
+    args: GetCodeSecurityScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCodeSecurityScanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCodeSecurityScanConfigurationCommand}
+   */
+  getCodeSecurityScanConfiguration(
+    args: GetCodeSecurityScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCodeSecurityScanConfigurationCommandOutput>;
+  getCodeSecurityScanConfiguration(
+    args: GetCodeSecurityScanConfigurationCommandInput,
+    cb: (err: any, data?: GetCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+  getCodeSecurityScanConfiguration(
+    args: GetCodeSecurityScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -897,6 +1163,59 @@ export interface Inspector2 {
     args: ListCisScansCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCisScansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCodeSecurityIntegrationsCommand}
+   */
+  listCodeSecurityIntegrations(): Promise<ListCodeSecurityIntegrationsCommandOutput>;
+  listCodeSecurityIntegrations(
+    args: ListCodeSecurityIntegrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeSecurityIntegrationsCommandOutput>;
+  listCodeSecurityIntegrations(
+    args: ListCodeSecurityIntegrationsCommandInput,
+    cb: (err: any, data?: ListCodeSecurityIntegrationsCommandOutput) => void
+  ): void;
+  listCodeSecurityIntegrations(
+    args: ListCodeSecurityIntegrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeSecurityIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCodeSecurityScanConfigurationAssociationsCommand}
+   */
+  listCodeSecurityScanConfigurationAssociations(
+    args: ListCodeSecurityScanConfigurationAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeSecurityScanConfigurationAssociationsCommandOutput>;
+  listCodeSecurityScanConfigurationAssociations(
+    args: ListCodeSecurityScanConfigurationAssociationsCommandInput,
+    cb: (err: any, data?: ListCodeSecurityScanConfigurationAssociationsCommandOutput) => void
+  ): void;
+  listCodeSecurityScanConfigurationAssociations(
+    args: ListCodeSecurityScanConfigurationAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeSecurityScanConfigurationAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCodeSecurityScanConfigurationsCommand}
+   */
+  listCodeSecurityScanConfigurations(): Promise<ListCodeSecurityScanConfigurationsCommandOutput>;
+  listCodeSecurityScanConfigurations(
+    args: ListCodeSecurityScanConfigurationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCodeSecurityScanConfigurationsCommandOutput>;
+  listCodeSecurityScanConfigurations(
+    args: ListCodeSecurityScanConfigurationsCommandInput,
+    cb: (err: any, data?: ListCodeSecurityScanConfigurationsCommandOutput) => void
+  ): void;
+  listCodeSecurityScanConfigurations(
+    args: ListCodeSecurityScanConfigurationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCodeSecurityScanConfigurationsCommandOutput) => void
   ): void;
 
   /**
@@ -1115,6 +1434,23 @@ export interface Inspector2 {
   ): void;
 
   /**
+   * @see {@link StartCodeSecurityScanCommand}
+   */
+  startCodeSecurityScan(
+    args: StartCodeSecurityScanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCodeSecurityScanCommandOutput>;
+  startCodeSecurityScan(
+    args: StartCodeSecurityScanCommandInput,
+    cb: (err: any, data?: StartCodeSecurityScanCommandOutput) => void
+  ): void;
+  startCodeSecurityScan(
+    args: StartCodeSecurityScanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCodeSecurityScanCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopCisSessionCommand}
    */
   stopCisSession(
@@ -1165,6 +1501,40 @@ export interface Inspector2 {
     args: UpdateCisScanConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCisScanConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCodeSecurityIntegrationCommand}
+   */
+  updateCodeSecurityIntegration(
+    args: UpdateCodeSecurityIntegrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCodeSecurityIntegrationCommandOutput>;
+  updateCodeSecurityIntegration(
+    args: UpdateCodeSecurityIntegrationCommandInput,
+    cb: (err: any, data?: UpdateCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+  updateCodeSecurityIntegration(
+    args: UpdateCodeSecurityIntegrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCodeSecurityIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateCodeSecurityScanConfigurationCommand}
+   */
+  updateCodeSecurityScanConfiguration(
+    args: UpdateCodeSecurityScanConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCodeSecurityScanConfigurationCommandOutput>;
+  updateCodeSecurityScanConfiguration(
+    args: UpdateCodeSecurityScanConfigurationCommandInput,
+    cb: (err: any, data?: UpdateCodeSecurityScanConfigurationCommandOutput) => void
+  ): void;
+  updateCodeSecurityScanConfiguration(
+    args: UpdateCodeSecurityScanConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCodeSecurityScanConfigurationCommandOutput) => void
   ): void;
 
   /**

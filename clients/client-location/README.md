@@ -10,7 +10,7 @@ AWS SDK for JavaScript Location Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-location
+To install this package, simply type add or install @aws-sdk/client-location
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-location`
@@ -429,6 +429,14 @@ DisassociateTrackerConsumer
 </details>
 <details>
 <summary>
+ForecastGeofenceEvents
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/ForecastGeofenceEventsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/ForecastGeofenceEventsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/ForecastGeofenceEventsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDevicePosition
 </summary>
 
@@ -665,5 +673,13 @@ UpdateTracker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/UpdateTrackerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/UpdateTrackerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/UpdateTrackerCommandOutput/)
+
+</details>
+<details>
+<summary>
+VerifyDevicePosition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/location/command/VerifyDevicePositionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/VerifyDevicePositionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-location/Interface/VerifyDevicePositionCommandOutput/)
 
 </details>

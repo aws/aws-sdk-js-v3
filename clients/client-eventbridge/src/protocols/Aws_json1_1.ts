@@ -128,6 +128,7 @@ import { UpdateEndpointCommandInput, UpdateEndpointCommandOutput } from "../comm
 import { UpdateEventBusCommandInput, UpdateEventBusCommandOutput } from "../commands/UpdateEventBusCommand";
 import { EventBridgeServiceException as __BaseException } from "../models/EventBridgeServiceException";
 import {
+  AccessDeniedException,
   ActivateEventSourceRequest,
   ApiDestination,
   AppSyncParameters,
@@ -145,6 +146,8 @@ import {
   ConnectionHeaderParameter,
   ConnectionHttpParameters,
   ConnectionQueryStringParameter,
+  ConnectivityResourceConfigurationArn,
+  ConnectivityResourceParameters,
   CreateApiDestinationRequest,
   CreateApiDestinationResponse,
   CreateArchiveRequest,
@@ -261,6 +264,7 @@ import {
   TagResourceRequest,
   Target,
   TestEventPatternRequest,
+  ThrottlingException,
   UntagResourceRequest,
   UpdateApiDestinationRequest,
   UpdateApiDestinationResponse,
@@ -2168,6 +2172,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidEventPatternException":
     case "com.amazonaws.eventbridge#InvalidEventPatternException":
       throw await de_InvalidEventPatternExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.eventbridge#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.eventbridge#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ManagedRuleException":
     case "com.amazonaws.eventbridge#ManagedRuleException":
       throw await de_ManagedRuleExceptionRes(parsedOutput, context);
@@ -2182,6 +2192,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -2357,6 +2383,19 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 // se_ActivateEventSourceRequest omitted.
 
 // se_AppSyncParameters omitted.
@@ -2390,6 +2429,10 @@ const de_ResourceNotFoundExceptionRes = async (
 // se_ConnectionQueryStringParameter omitted.
 
 // se_ConnectionQueryStringParametersList omitted.
+
+// se_ConnectivityResourceConfigurationArn omitted.
+
+// se_ConnectivityResourceParameters omitted.
 
 // se_CreateApiDestinationRequest omitted.
 
@@ -2682,6 +2725,8 @@ const se_StartReplayRequest = (input: StartReplayRequest, context: __SerdeContex
 
 // se_UpdateEventBusRequest omitted.
 
+// de_AccessDeniedException omitted.
+
 /**
  * deserializeAws_json1_1ApiDestination
  */
@@ -2915,12 +2960,17 @@ const de_DescribeArchiveResponse = (output: any, context: __SerdeContext): Descr
     EventCount: __expectLong,
     EventPattern: __expectString,
     EventSourceArn: __expectString,
+    KmsKeyIdentifier: __expectString,
     RetentionDays: __expectInt32,
     SizeBytes: __expectLong,
     State: __expectString,
     StateReason: __expectString,
   }) as any;
 };
+
+// de_DescribeConnectionConnectivityParameters omitted.
+
+// de_DescribeConnectionResourceParameters omitted.
 
 /**
  * deserializeAws_json1_1DescribeConnectionResponse
@@ -2933,6 +2983,8 @@ const de_DescribeConnectionResponse = (output: any, context: __SerdeContext): De
     ConnectionState: __expectString,
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    InvocationConnectivityParameters: _json,
+    KmsKeyIdentifier: __expectString,
     LastAuthorizedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Name: __expectString,
@@ -3392,6 +3444,8 @@ const de_StartReplayResponse = (output: any, context: __SerdeContext): StartRepl
 // de_TargetList omitted.
 
 // de_TestEventPatternResponse omitted.
+
+// de_ThrottlingException omitted.
 
 // de_TransformerPaths omitted.
 

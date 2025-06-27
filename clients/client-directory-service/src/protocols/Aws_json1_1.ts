@@ -83,6 +83,10 @@ import {
   DescribeDirectoriesCommandOutput,
 } from "../commands/DescribeDirectoriesCommand";
 import {
+  DescribeDirectoryDataAccessCommandInput,
+  DescribeDirectoryDataAccessCommandOutput,
+} from "../commands/DescribeDirectoryDataAccessCommand";
+import {
   DescribeDomainControllersCommandInput,
   DescribeDomainControllersCommandOutput,
 } from "../commands/DescribeDomainControllersCommand";
@@ -110,6 +114,10 @@ import {
   DisableClientAuthenticationCommandInput,
   DisableClientAuthenticationCommandOutput,
 } from "../commands/DisableClientAuthenticationCommand";
+import {
+  DisableDirectoryDataAccessCommandInput,
+  DisableDirectoryDataAccessCommandOutput,
+} from "../commands/DisableDirectoryDataAccessCommand";
 import { DisableLDAPSCommandInput, DisableLDAPSCommandOutput } from "../commands/DisableLDAPSCommand";
 import { DisableRadiusCommandInput, DisableRadiusCommandOutput } from "../commands/DisableRadiusCommand";
 import { DisableSsoCommandInput, DisableSsoCommandOutput } from "../commands/DisableSsoCommand";
@@ -117,6 +125,10 @@ import {
   EnableClientAuthenticationCommandInput,
   EnableClientAuthenticationCommandOutput,
 } from "../commands/EnableClientAuthenticationCommand";
+import {
+  EnableDirectoryDataAccessCommandInput,
+  EnableDirectoryDataAccessCommandOutput,
+} from "../commands/EnableDirectoryDataAccessCommand";
 import { EnableLDAPSCommandInput, EnableLDAPSCommandOutput } from "../commands/EnableLDAPSCommand";
 import { EnableRadiusCommandInput, EnableRadiusCommandOutput } from "../commands/EnableRadiusCommand";
 import { EnableSsoCommandInput, EnableSsoCommandOutput } from "../commands/EnableSsoCommand";
@@ -221,6 +233,7 @@ import {
   DescribeConditionalForwardersRequest,
   DescribeDirectoriesRequest,
   DescribeDirectoriesResult,
+  DescribeDirectoryDataAccessRequest,
   DescribeDomainControllersRequest,
   DescribeDomainControllersResult,
   DescribeEventTopicsRequest,
@@ -250,12 +263,14 @@ import {
   DirectoryUnavailableException,
   DirectoryVpcSettings,
   DisableClientAuthenticationRequest,
+  DisableDirectoryDataAccessRequest,
   DisableLDAPSRequest,
   DisableRadiusRequest,
   DisableSsoRequest,
   DomainController,
   DomainControllerLimitExceededException,
   EnableClientAuthenticationRequest,
+  EnableDirectoryDataAccessRequest,
   EnableLDAPSRequest,
   EnableRadiusRequest,
   EnableSsoRequest,
@@ -656,6 +671,19 @@ export const se_DescribeDirectoriesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeDirectoryDataAccessCommand
+ */
+export const se_DescribeDirectoryDataAccessCommand = async (
+  input: DescribeDirectoryDataAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeDirectoryDataAccess");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeDomainControllersCommand
  */
 export const se_DescribeDomainControllersCommand = async (
@@ -786,6 +814,19 @@ export const se_DisableClientAuthenticationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DisableDirectoryDataAccessCommand
+ */
+export const se_DisableDirectoryDataAccessCommand = async (
+  input: DisableDirectoryDataAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DisableDirectoryDataAccess");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DisableLDAPSCommand
  */
 export const se_DisableLDAPSCommand = async (
@@ -832,6 +873,19 @@ export const se_EnableClientAuthenticationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("EnableClientAuthentication");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1EnableDirectoryDataAccessCommand
+ */
+export const se_EnableDirectoryDataAccessCommand = async (
+  input: EnableDirectoryDataAccessCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("EnableDirectoryDataAccess");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1702,6 +1756,26 @@ export const de_DescribeDirectoriesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeDirectoryDataAccessCommand
+ */
+export const de_DescribeDirectoryDataAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeDirectoryDataAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DescribeDirectoryDataAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeDomainControllersCommand
  */
 export const de_DescribeDomainControllersCommand = async (
@@ -1902,6 +1976,26 @@ export const de_DisableClientAuthenticationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DisableDirectoryDataAccessCommand
+ */
+export const de_DisableDirectoryDataAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableDirectoryDataAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DisableDirectoryDataAccessCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DisableLDAPSCommand
  */
 export const de_DisableLDAPSCommand = async (
@@ -1975,6 +2069,26 @@ export const de_EnableClientAuthenticationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: EnableClientAuthenticationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1EnableDirectoryDataAccessCommand
+ */
+export const de_EnableDirectoryDataAccessCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableDirectoryDataAccessCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EnableDirectoryDataAccessCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2617,6 +2731,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidClientAuthStatusException":
     case "com.amazonaws.directoryservice#InvalidClientAuthStatusException":
       throw await de_InvalidClientAuthStatusExceptionRes(parsedOutput, context);
+    case "DirectoryInDesiredStateException":
+    case "com.amazonaws.directoryservice#DirectoryInDesiredStateException":
+      throw await de_DirectoryInDesiredStateExceptionRes(parsedOutput, context);
     case "InvalidLDAPSStatusException":
     case "com.amazonaws.directoryservice#InvalidLDAPSStatusException":
       throw await de_InvalidLDAPSStatusExceptionRes(parsedOutput, context);
@@ -2650,9 +2767,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DirectoryNotSharedException":
     case "com.amazonaws.directoryservice#DirectoryNotSharedException":
       throw await de_DirectoryNotSharedExceptionRes(parsedOutput, context);
-    case "DirectoryInDesiredStateException":
-    case "com.amazonaws.directoryservice#DirectoryInDesiredStateException":
-      throw await de_DirectoryInDesiredStateExceptionRes(parsedOutput, context);
     case "DomainControllerLimitExceededException":
     case "com.amazonaws.directoryservice#DomainControllerLimitExceededException":
       throw await de_DomainControllerLimitExceededExceptionRes(parsedOutput, context);
@@ -3316,6 +3430,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_DescribeDirectoriesRequest omitted.
 
+// se_DescribeDirectoryDataAccessRequest omitted.
+
 // se_DescribeDomainControllersRequest omitted.
 
 // se_DescribeEventTopicsRequest omitted.
@@ -3342,6 +3458,8 @@ const de_UserDoesNotExistExceptionRes = async (
 
 // se_DisableClientAuthenticationRequest omitted.
 
+// se_DisableDirectoryDataAccessRequest omitted.
+
 // se_DisableLDAPSRequest omitted.
 
 // se_DisableRadiusRequest omitted.
@@ -3353,6 +3471,8 @@ const de_UserDoesNotExistExceptionRes = async (
 // se_DomainControllerIds omitted.
 
 // se_EnableClientAuthenticationRequest omitted.
+
+// se_EnableDirectoryDataAccessRequest omitted.
 
 // se_EnableLDAPSRequest omitted.
 
@@ -3624,6 +3744,8 @@ const de_DescribeDirectoriesResult = (output: any, context: __SerdeContext): Des
   }) as any;
 };
 
+// de_DescribeDirectoryDataAccessResult omitted.
+
 /**
  * deserializeAws_json1_1DescribeDomainControllersResult
  */
@@ -3786,6 +3908,8 @@ const de_DirectoryDescriptions = (output: any, context: __SerdeContext): Directo
 
 // de_DisableClientAuthenticationResult omitted.
 
+// de_DisableDirectoryDataAccessResult omitted.
+
 // de_DisableLDAPSResult omitted.
 
 // de_DisableRadiusResult omitted.
@@ -3827,6 +3951,8 @@ const de_DomainControllers = (output: any, context: __SerdeContext): DomainContr
 };
 
 // de_EnableClientAuthenticationResult omitted.
+
+// de_EnableDirectoryDataAccessResult omitted.
 
 // de_EnableLDAPSResult omitted.
 

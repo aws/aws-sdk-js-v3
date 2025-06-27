@@ -51,6 +51,7 @@ import {
   GetExperimentTemplateCommandInput,
   GetExperimentTemplateCommandOutput,
 } from "../commands/GetExperimentTemplateCommand";
+import { GetSafetyLeverCommandInput, GetSafetyLeverCommandOutput } from "../commands/GetSafetyLeverCommand";
 import {
   GetTargetAccountConfigurationCommandInput,
   GetTargetAccountConfigurationCommandOutput,
@@ -94,6 +95,10 @@ import {
   UpdateExperimentTemplateCommandOutput,
 } from "../commands/UpdateExperimentTemplateCommand";
 import {
+  UpdateSafetyLeverStateCommandInput,
+  UpdateSafetyLeverStateCommandOutput,
+} from "../commands/UpdateSafetyLeverStateCommand";
+import {
   UpdateTargetAccountConfigurationCommandInput,
   UpdateTargetAccountConfigurationCommandOutput,
 } from "../commands/UpdateTargetAccountConfigurationCommand";
@@ -103,6 +108,7 @@ import {
   CreateExperimentTemplateActionInput,
   CreateExperimentTemplateExperimentOptionsInput,
   CreateExperimentTemplateLogConfigurationInput,
+  CreateExperimentTemplateReportConfigurationInput,
   CreateExperimentTemplateStopConditionInput,
   CreateExperimentTemplateTargetInput,
   Experiment,
@@ -110,17 +116,23 @@ import {
   ExperimentSummary,
   ExperimentTemplate,
   ExperimentTemplateCloudWatchLogsLogConfigurationInput,
+  ExperimentTemplateReportConfigurationDataSourcesInput,
+  ExperimentTemplateReportConfigurationOutputsInput,
   ExperimentTemplateS3LogConfigurationInput,
   ExperimentTemplateSummary,
   ExperimentTemplateTargetInputFilter,
+  ReportConfigurationCloudWatchDashboardInput,
+  ReportConfigurationS3OutputInput,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   StartExperimentExperimentOptionsInput,
   UpdateExperimentTemplateActionInputItem,
   UpdateExperimentTemplateExperimentOptionsInput,
   UpdateExperimentTemplateLogConfigurationInput,
+  UpdateExperimentTemplateReportConfigurationInput,
   UpdateExperimentTemplateStopConditionInput,
   UpdateExperimentTemplateTargetInput,
+  UpdateSafetyLeverStateInput,
   ValidationException,
 } from "../models/models_0";
 
@@ -143,6 +155,7 @@ export const se_CreateExperimentTemplateCommand = async (
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       experimentOptions: (_) => _json(_),
+      experimentReportConfiguration: (_) => _json(_),
       logConfiguration: (_) => _json(_),
       roleArn: [],
       stopConditions: (_) => _json(_),
@@ -272,6 +285,22 @@ export const se_GetExperimentTemplateCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/experimentTemplates/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetSafetyLeverCommand
+ */
+export const se_GetSafetyLeverCommand = async (
+  input: GetSafetyLeverCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/safetyLevers/{id}");
   b.p("id", () => input.id!, "{id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
@@ -540,7 +569,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [() => input.tagKeys !== void 0, () => (input[_tK]! || []).map((_entry) => _entry as any)],
+    [_tK]: [() => input.tagKeys !== void 0, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -566,10 +595,34 @@ export const se_UpdateExperimentTemplateCommand = async (
       actions: (_) => _json(_),
       description: [],
       experimentOptions: (_) => _json(_),
+      experimentReportConfiguration: (_) => _json(_),
       logConfiguration: (_) => _json(_),
       roleArn: [],
       stopConditions: (_) => _json(_),
       targets: (_) => _json(_),
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSafetyLeverStateCommand
+ */
+export const se_UpdateSafetyLeverStateCommand = async (
+  input: UpdateSafetyLeverStateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/safetyLevers/{id}/state");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      state: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -764,6 +817,27 @@ export const de_GetExperimentTemplateCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     experimentTemplate: (_) => de_ExperimentTemplate(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetSafetyLeverCommand
+ */
+export const de_GetSafetyLeverCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetSafetyLeverCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    safetyLever: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1084,6 +1158,27 @@ export const de_UpdateExperimentTemplateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateSafetyLeverStateCommand
+ */
+export const de_UpdateSafetyLeverStateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSafetyLeverStateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    safetyLever: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateTargetAccountConfigurationCommand
  */
 export const de_UpdateTargetAccountConfigurationCommand = async (
@@ -1219,6 +1314,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_CreateExperimentTemplateLogConfigurationInput omitted.
 
+// se_CreateExperimentTemplateReportConfigurationInput omitted.
+
 // se_CreateExperimentTemplateStopConditionInput omitted.
 
 // se_CreateExperimentTemplateStopConditionInputList omitted.
@@ -1235,6 +1332,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ExperimentTemplateCloudWatchLogsLogConfigurationInput omitted.
 
+// se_ExperimentTemplateReportConfigurationDataSourcesInput omitted.
+
+// se_ExperimentTemplateReportConfigurationOutputsInput omitted.
+
 // se_ExperimentTemplateS3LogConfigurationInput omitted.
 
 // se_ExperimentTemplateTargetFilterInputList omitted.
@@ -1244,6 +1345,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ExperimentTemplateTargetInputFilter omitted.
 
 // se_ExperimentTemplateTargetParameterMap omitted.
+
+// se_ReportConfigurationCloudWatchDashboardInput omitted.
+
+// se_ReportConfigurationCloudWatchDashboardInputList omitted.
+
+// se_ReportConfigurationS3OutputInput omitted.
 
 // se_ResourceArnList omitted.
 
@@ -1259,6 +1366,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_UpdateExperimentTemplateLogConfigurationInput omitted.
 
+// se_UpdateExperimentTemplateReportConfigurationInput omitted.
+
 // se_UpdateExperimentTemplateStopConditionInput omitted.
 
 // se_UpdateExperimentTemplateStopConditionInputList omitted.
@@ -1266,6 +1375,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_UpdateExperimentTemplateTargetInput omitted.
 
 // se_UpdateExperimentTemplateTargetInputMap omitted.
+
+// se_UpdateSafetyLeverStateInput omitted.
 
 // de_Action omitted.
 
@@ -1291,6 +1402,8 @@ const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     experimentOptions: _json,
+    experimentReport: _json,
+    experimentReportConfiguration: _json,
     experimentTemplateId: __expectString,
     id: __expectString,
     logConfiguration: _json,
@@ -1343,9 +1456,33 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
 
 // de_ExperimentCloudWatchLogsLogConfiguration omitted.
 
+// de_ExperimentError omitted.
+
 // de_ExperimentLogConfiguration omitted.
 
 // de_ExperimentOptions omitted.
+
+// de_ExperimentReport omitted.
+
+// de_ExperimentReportConfiguration omitted.
+
+// de_ExperimentReportConfigurationCloudWatchDashboard omitted.
+
+// de_ExperimentReportConfigurationCloudWatchDashboardList omitted.
+
+// de_ExperimentReportConfigurationDataSources omitted.
+
+// de_ExperimentReportConfigurationOutputs omitted.
+
+// de_ExperimentReportConfigurationOutputsS3Configuration omitted.
+
+// de_ExperimentReportError omitted.
+
+// de_ExperimentReportS3Report omitted.
+
+// de_ExperimentReportS3ReportList omitted.
+
+// de_ExperimentReportState omitted.
 
 // de_ExperimentS3LogConfiguration omitted.
 
@@ -1410,6 +1547,7 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     experimentOptions: _json,
+    experimentReportConfiguration: _json,
     id: __expectString,
     lastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     logConfiguration: _json,
@@ -1436,6 +1574,16 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
 // de_ExperimentTemplateExperimentOptions omitted.
 
 // de_ExperimentTemplateLogConfiguration omitted.
+
+// de_ExperimentTemplateReportConfiguration omitted.
+
+// de_ExperimentTemplateReportConfigurationCloudWatchDashboard omitted.
+
+// de_ExperimentTemplateReportConfigurationCloudWatchDashboardList omitted.
+
+// de_ExperimentTemplateReportConfigurationDataSources omitted.
+
+// de_ExperimentTemplateReportConfigurationOutputs omitted.
 
 // de_ExperimentTemplateS3LogConfiguration omitted.
 
@@ -1481,11 +1629,17 @@ const de_ExperimentTemplateSummaryList = (output: any, context: __SerdeContext):
 
 // de_ExperimentTemplateTargetParameterMap omitted.
 
+// de_ReportConfigurationS3Output omitted.
+
 // de_ResolvedTarget omitted.
 
 // de_ResolvedTargetList omitted.
 
 // de_ResourceArnList omitted.
+
+// de_SafetyLever omitted.
+
+// de_SafetyLeverState omitted.
 
 // de_TagMap omitted.
 
@@ -1518,13 +1672,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _eTI = "experimentTemplateId";
 const _mR = "maxResults";

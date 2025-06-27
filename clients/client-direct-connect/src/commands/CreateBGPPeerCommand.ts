@@ -12,7 +12,8 @@ import { de_CreateBGPPeerCommand, se_CreateBGPPeerCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,7 @@ export interface CreateBGPPeerCommandOutput extends CreateBGPPeerResponse, __Met
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateBGPPeerCommand extends $Command
@@ -141,9 +143,7 @@ export class CreateBGPPeerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class CreateBGPPeerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBGPPeerCommand)
   .de(de_CreateBGPPeerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBGPPeerRequest;
+      output: CreateBGPPeerResponse;
+    };
+    sdk: {
+      input: CreateBGPPeerCommandInput;
+      output: CreateBGPPeerCommandOutput;
+    };
+  };
+}

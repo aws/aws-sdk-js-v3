@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface ModifyAccountCommandOutput extends ModifyAccountResult, __Metad
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyAccountCommand extends $Command
@@ -79,9 +81,7 @@ export class ModifyAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class ModifyAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyAccountCommand)
   .de(de_ModifyAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyAccountCommandInput;
+      output: ModifyAccountCommandOutput;
+    };
+  };
+}

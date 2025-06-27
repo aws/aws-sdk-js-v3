@@ -11,7 +11,7 @@ AWS SDK for JavaScript IoTSiteWise Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotsitewise
+To install this package, simply type add or install @aws-sdk/client-iotsitewise
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotsitewise`
@@ -318,6 +318,14 @@ CreateDashboard
 </details>
 <details>
 <summary>
+CreateDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/CreateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/CreateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/CreateDatasetCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateGateway
 </summary>
 
@@ -378,6 +386,14 @@ DeleteDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DeleteDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DeleteDashboardCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DeleteDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DeleteDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DeleteDatasetCommandOutput/)
 
 </details>
 <details>
@@ -482,6 +498,14 @@ DescribeDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DescribeDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DescribeDashboardCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/DescribeDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DescribeDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/DescribeDatasetCommandOutput/)
 
 </details>
 <details>
@@ -614,6 +638,14 @@ GetInterpolatedAssetPropertyValues
 </details>
 <details>
 <summary>
+InvokeAssistant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/InvokeAssistantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/InvokeAssistantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/InvokeAssistantCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListAccessPolicies
 </summary>
 
@@ -706,6 +738,14 @@ ListDashboards
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListDashboardsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/ListDashboardsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/ListDashboardsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDatasets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/ListDatasetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/ListDatasetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/ListDatasetsCommandOutput/)
 
 </details>
 <details>
@@ -842,6 +882,14 @@ UpdateDashboard
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/UpdateDashboardCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/UpdateDashboardCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/UpdateDashboardCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataset
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/iotsitewise/command/UpdateDatasetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/UpdateDatasetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-iotsitewise/Interface/UpdateDatasetCommandOutput/)
 
 </details>
 <details>

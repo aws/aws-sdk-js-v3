@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,20 +83,23 @@ export interface DeleteProjectPolicyCommandOutput extends DeleteProjectPolicyRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example DeleteProjectPolicy
  * ```javascript
  * // This operation deletes a revision of an existing project policy from an Amazon Rekognition Custom Labels project.
  * const input = {
- *   "PolicyName": "testPolicy1",
- *   "PolicyRevisionId": "3b274c25e9203a56a99e00e3ff205fbc",
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/1656557123456"
+ *   PolicyName: "testPolicy1",
+ *   PolicyRevisionId: "3b274c25e9203a56a99e00e3ff205fbc",
+ *   ProjectArn: "arn:aws:rekognition:us-east-1:111122223333:project/SourceProject/1656557123456"
  * };
  * const command = new DeleteProjectPolicyCommand(input);
- * await client.send(command);
- * // example id: deleteprojectpolicy-1658204413810
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteProjectPolicyCommand extends $Command
   .classBuilder<
@@ -105,9 +109,7 @@ export class DeleteProjectPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +121,16 @@ export class DeleteProjectPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProjectPolicyCommand)
   .de(de_DeleteProjectPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProjectPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProjectPolicyCommandInput;
+      output: DeleteProjectPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteEventSourceMappingCommand, se_DeleteEventSourceMappingCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,9 +99,39 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //   ],
  * //   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ * //         { // KafkaSchemaRegistryAccessConfig
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ * //         { // KafkaSchemaValidationConfig
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: {
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [
+ * //         {
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [
+ * //         {
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   ScalingConfig: { // ScalingConfig
  * //     MaximumConcurrency: Number("int"),
@@ -109,6 +140,21 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount",
+ * //     ],
+ * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
  * //   },
  * // };
  *
@@ -142,6 +188,28 @@ export interface DeleteEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To delete a Lambda function event source mapping
+ * ```javascript
+ * // The following example deletes an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
+ * const input = {
+ *   UUID: "14e0db71-xmpl-4eb5-b481-8945cf9d10c2"
+ * };
+ * const command = new DeleteEventSourceMappingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BatchSize: 5,
+ *   EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:my-queue",
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function",
+ *   LastModified: "2016-11-21T19:49:20.006Z",
+ *   State: "Enabled",
+ *   StateTransitionReason: "USER_INITIATED",
+ *   UUID: "14e0db71-xmpl-4eb5-b481-8945cf9d10c2"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteEventSourceMappingCommand extends $Command
@@ -152,9 +220,7 @@ export class DeleteEventSourceMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +232,16 @@ export class DeleteEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventSourceMappingCommand)
   .de(de_DeleteEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: DeleteEventSourceMappingCommandInput;
+      output: DeleteEventSourceMappingCommandOutput;
+    };
+  };
+}

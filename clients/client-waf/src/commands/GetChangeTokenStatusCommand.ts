@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,23 +85,23 @@ export interface GetChangeTokenStatusCommandOutput extends GetChangeTokenStatusR
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To get the change token status
  * ```javascript
  * // The following example returns the status of a change token with the ID abcd12f2-46da-4fdb-b8d5-fbd4c466928f.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * };
  * const command = new GetChangeTokenStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeTokenStatus": "PENDING"
+ *   ChangeTokenStatus: "PENDING"
  * }
  * *\/
- * // example id: getchangetokenstatus-1474658417107
  * ```
  *
+ * @public
  */
 export class GetChangeTokenStatusCommand extends $Command
   .classBuilder<
@@ -110,9 +111,7 @@ export class GetChangeTokenStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class GetChangeTokenStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChangeTokenStatusCommand)
   .de(de_GetChangeTokenStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChangeTokenStatusRequest;
+      output: GetChangeTokenStatusResponse;
+    };
+    sdk: {
+      input: GetChangeTokenStatusCommandInput;
+      output: GetChangeTokenStatusCommandOutput;
+    };
+  };
+}

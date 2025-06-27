@@ -12,7 +12,8 @@ import { de_SetVaultNotificationsCommand, se_SetVaultNotificationsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,26 +110,29 @@ export interface SetVaultNotificationsCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To configure a vault to post a message to an Amazon SNS topic when jobs complete
  * ```javascript
  * // The example sets the examplevault notification configuration.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault",
- *   "vaultNotificationConfig": {
- *     "Events": [
+ *   accountId: "-",
+ *   vaultName: "examplevault",
+ *   vaultNotificationConfig: {
+ *     Events: [
  *       "ArchiveRetrievalCompleted",
  *       "InventoryRetrievalCompleted"
  *     ],
- *     "SNSTopic": "arn:aws:sns:us-west-2:012345678901:mytopic"
+ *     SNSTopic: "arn:aws:sns:us-west-2:012345678901:mytopic"
  *   }
  * };
  * const command = new SetVaultNotificationsCommand(input);
- * await client.send(command);
- * // example id: to-configure-a-vault-to-post-a-message-to-an-amazon-simple-notification-service-amazon-sns-topic-when-jobs-complete-1482186397475
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetVaultNotificationsCommand extends $Command
   .classBuilder<
@@ -138,9 +142,7 @@ export class SetVaultNotificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +154,16 @@ export class SetVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetVaultNotificationsCommand)
   .de(de_SetVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetVaultNotificationsInput;
+      output: {};
+    };
+    sdk: {
+      input: SetVaultNotificationsCommandInput;
+      output: SetVaultNotificationsCommandOutput;
+    };
+  };
+}

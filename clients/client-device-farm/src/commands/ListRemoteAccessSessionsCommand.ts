@@ -12,7 +12,8 @@ import { de_ListRemoteAccessSessionsCommand, se_ListRemoteAccessSessionsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -126,6 +127,10 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * //         ],
  * //         vpcId: "STRING_VALUE", // required
  * //       },
+ * //       deviceProxy: { // DeviceProxy
+ * //         host: "STRING_VALUE", // required
+ * //         port: Number("int"), // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -154,24 +159,24 @@ export interface ListRemoteAccessSessionsCommandOutput extends ListRemoteAccessS
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about a remote access session
  * ```javascript
  * // The following example returns information about a specific Device Farm remote access session.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:session:EXAMPLE-GUID-123-456",
+ *   nextToken: "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE="
  * };
  * const command = new ListRemoteAccessSessionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "remoteAccessSessions": []
+ *   remoteAccessSessions:   []
  * }
  * *\/
- * // example id: to-get-information-about-a-remote-access-session-1472581144803
  * ```
  *
+ * @public
  */
 export class ListRemoteAccessSessionsCommand extends $Command
   .classBuilder<
@@ -181,9 +186,7 @@ export class ListRemoteAccessSessionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -195,4 +198,16 @@ export class ListRemoteAccessSessionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRemoteAccessSessionsCommand)
   .de(de_ListRemoteAccessSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRemoteAccessSessionsRequest;
+      output: ListRemoteAccessSessionsResult;
+    };
+    sdk: {
+      input: ListRemoteAccessSessionsCommandInput;
+      output: ListRemoteAccessSessionsCommandOutput;
+    };
+  };
+}

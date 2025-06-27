@@ -33,6 +33,10 @@ import {
 import { CreateTagsCommandInput, CreateTagsCommandOutput } from "../commands/CreateTagsCommand";
 import { CreateUserCommandInput, CreateUserCommandOutput } from "../commands/CreateUserCommand";
 import { DeleteBrokerCommandInput, DeleteBrokerCommandOutput } from "../commands/DeleteBrokerCommand";
+import {
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "../commands/DeleteConfigurationCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import { DeleteUserCommandInput, DeleteUserCommandOutput } from "../commands/DeleteUserCommand";
 import { DescribeBrokerCommandInput, DescribeBrokerCommandOutput } from "../commands/DescribeBrokerCommand";
@@ -238,6 +242,22 @@ export const se_DeleteBrokerCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteConfigurationCommand
+ */
+export const se_DeleteConfigurationCommand = async (
+  input: DeleteConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/configurations/{ConfigurationId}");
+  b.p("ConfigurationId", () => input.ConfigurationId!, "{ConfigurationId}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteTagsCommand
  */
 export const se_DeleteTagsCommand = async (
@@ -249,10 +269,7 @@ export const se_DeleteTagsCommand = async (
   b.bp("/v1/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -698,6 +715,27 @@ export const de_DeleteBrokerCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     BrokerId: [, __expectString, `brokerId`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConfigurationCommand
+ */
+export const de_DeleteConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConfigurationId: [, __expectString, `configurationId`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -1808,13 +1846,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _ET = "EngineType";
 const _HIT = "HostInstanceType";

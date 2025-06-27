@@ -12,7 +12,8 @@ import { de_GetLinkCommand, se_GetLinkCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface GetLinkCommandInput extends GetLinkInput {}
 export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Returns complete information about one link.</p>
- *          <p>To use this operation, provide the link ARN. To retrieve a list of link ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
+ * <p>Returns complete information about one link.</p> <p>To use this operation, provide the link ARN. To retrieve a list of link ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +37,7 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * const client = new OAMClient(config);
  * const input = { // GetLinkInput
  *   Identifier: "STRING_VALUE", // required
+ *   IncludeTags: true || false,
  * };
  * const command = new GetLinkCommand(input);
  * const response = await client.send(command);
@@ -85,6 +86,7 @@ export interface GetLinkCommandOutput extends GetLinkOutput, __MetadataBearer {}
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class GetLinkCommand extends $Command
@@ -95,9 +97,7 @@ export class GetLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class GetLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLinkCommand)
   .de(de_GetLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLinkInput;
+      output: GetLinkOutput;
+    };
+    sdk: {
+      input: GetLinkCommandInput;
+      output: GetLinkCommandOutput;
+    };
+  };
+}

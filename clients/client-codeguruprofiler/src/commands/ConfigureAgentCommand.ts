@@ -12,7 +12,8 @@ import { de_ConfigureAgentCommand, se_ConfigureAgentCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface ConfigureAgentCommandOutput extends ConfigureAgentResponse, __M
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class ConfigureAgentCommand extends $Command
@@ -90,9 +92,7 @@ export class ConfigureAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class ConfigureAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfigureAgentCommand)
   .de(de_ConfigureAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfigureAgentRequest;
+      output: ConfigureAgentResponse;
+    };
+    sdk: {
+      input: ConfigureAgentCommandInput;
+      output: ConfigureAgentCommandOutput;
+    };
+  };
+}

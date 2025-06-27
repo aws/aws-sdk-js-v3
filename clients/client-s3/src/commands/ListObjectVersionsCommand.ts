@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +29,15 @@ export interface ListObjectVersionsCommandInput extends ListObjectVersionsReques
 export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
+ *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <note>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns metadata about all versions of the objects in a bucket. You can also use request
  *          parameters as selection criteria to return metadata about a subset of all the object
@@ -98,8 +107,9 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * //     { // ObjectVersion
  * //       ETag: "STRING_VALUE",
  * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //       ],
+ * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
  * //       StorageClass: "STANDARD",
  * //       Key: "STRING_VALUE",
@@ -152,51 +162,51 @@ export interface ListObjectVersionsCommandOutput extends ListObjectVersionsOutpu
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list object versions
  * ```javascript
  * // The following example returns versions of an object with specific key name prefix.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Prefix": "HappyFace.jpg"
+ *   Bucket: "examplebucket",
+ *   Prefix: "HappyFace.jpg"
  * };
  * const command = new ListObjectVersionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Versions": [
+ *   Versions: [
  *     {
- *       "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *       "IsLatest": true,
- *       "Key": "HappyFace.jpg",
- *       "LastModified": "2016-12-15T01:19:41.000Z",
- *       "Owner": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"6805f2cfc46c0f04559748bb039d69ae"`,
+ *       IsLatest: true,
+ *       Key: "HappyFace.jpg",
+ *       LastModified: "2016-12-15T01:19:41.000Z",
+ *       Owner: {
+ *         DisplayName: "owner-display-name",
+ *         ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 3191,
- *       "StorageClass": "STANDARD",
- *       "VersionId": "null"
+ *       Size: 3191,
+ *       StorageClass: "STANDARD",
+ *       VersionId: "null"
  *     },
  *     {
- *       "ETag": "\"6805f2cfc46c0f04559748bb039d69ae\"",
- *       "IsLatest": false,
- *       "Key": "HappyFace.jpg",
- *       "LastModified": "2016-12-13T00:58:26.000Z",
- *       "Owner": {
- *         "DisplayName": "owner-display-name",
- *         "ID": "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"6805f2cfc46c0f04559748bb039d69ae"`,
+ *       IsLatest: false,
+ *       Key: "HappyFace.jpg",
+ *       LastModified: "2016-12-13T00:58:26.000Z",
+ *       Owner: {
+ *         DisplayName: "owner-display-name",
+ *         ID: "examplee7a2f25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 3191,
- *       "StorageClass": "STANDARD",
- *       "VersionId": "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
+ *       Size: 3191,
+ *       StorageClass: "STANDARD",
+ *       VersionId: "PHtexPGjH2y.zBgT8LmB7wwLI2mpbz.k"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-object-versions-1481910996058
  * ```
  *
+ * @public
  */
 export class ListObjectVersionsCommand extends $Command
   .classBuilder<
@@ -215,6 +225,7 @@ export class ListObjectVersionsCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "ListObjectVersions", {})
@@ -222,4 +233,16 @@ export class ListObjectVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectVersionsCommand)
   .de(de_ListObjectVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectVersionsRequest;
+      output: ListObjectVersionsOutput;
+    };
+    sdk: {
+      input: ListObjectVersionsCommandInput;
+      output: ListObjectVersionsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteSiteCommand, se_DeleteSiteCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteSiteCommandOutput extends DeleteSiteOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class DeleteSiteCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteSiteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteSiteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSiteCommand)
   .de(de_DeleteSiteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSiteInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSiteCommandInput;
+      output: DeleteSiteCommandOutput;
+    };
+  };
+}

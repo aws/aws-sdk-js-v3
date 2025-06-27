@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,6 +34,12 @@ export interface DescribeEnvironmentMembershipsCommandOutput
 
 /**
  * <p>Gets information about environment members for an Cloud9 development environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,93 +102,91 @@ export interface DescribeEnvironmentMembershipsCommandOutput
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
- * @example DescribeEnvironmentMemberships1
- * ```javascript
- * // The following example gets information about all of the environment members for the specified development environment.
- * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
- * };
- * const command = new DescribeEnvironmentMembershipsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "memberships": [
- *     {
- *       "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *       "permissions": "read-write",
- *       "userArn": "arn:aws:iam::123456789012:user/AnotherDemoUser",
- *       "userId": "AIDAJ3BA6O2FMJWCWXHEX"
- *     },
- *     {
- *       "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *       "permissions": "owner",
- *       "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
- *       "userId": "AIDAJNUEDQAQWFELJDLEX"
- *     }
- *   ]
- * }
- * *\/
- * // example id: describeenvironmentmemberships1-1516823070453
- * ```
  *
  * @example DescribeEnvironmentMemberships2
  * ```javascript
  * // The following example gets information about the owner of the specified development environment.
  * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *   "permissions": [
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *   permissions: [
  *     "owner"
  *   ]
  * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "memberships": [
+ *   memberships: [
  *     {
- *       "environmentId": "8d9967e2f0624182b74e7690ad69ebEX",
- *       "permissions": "owner",
- *       "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
- *       "userId": "AIDAJNUEDQAQWFELJDLEX"
+ *       environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *       permissions: "owner",
+ *       userArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *       userId: "AIDAJNUEDQAQWFELJDLEX"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describeenvironmentmemberships2-1516823191355
  * ```
  *
  * @example DescribeEnvironmentMemberships3
  * ```javascript
  * // The following example gets development environment membership information for the specified user.
  * const input = {
- *   "userArn": "arn:aws:iam::123456789012:user/MyDemoUser"
+ *   userArn: "arn:aws:iam::123456789012:user/MyDemoUser"
  * };
  * const command = new DescribeEnvironmentMembershipsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "memberships": [
+ *   memberships: [
  *     {
- *       "environmentId": "10a75714bd494714929e7f5ec4125aEX",
- *       "lastAccess": "2018-01-19T11:06:13Z",
- *       "permissions": "owner",
- *       "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
- *       "userId": "AIDAJNUEDQAQWFELJDLEX"
+ *       environmentId: "10a75714bd494714929e7f5ec4125aEX",
+ *       lastAccess: "2018-01-19T11:06:13Z",
+ *       permissions: "owner",
+ *       userArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *       userId: "AIDAJNUEDQAQWFELJDLEX"
  *     },
  *     {
- *       "environmentId": "12bfc3cd537f41cb9776f8af5525c9EX",
- *       "lastAccess": "2018-01-19T11:39:19Z",
- *       "permissions": "owner",
- *       "userArn": "arn:aws:iam::123456789012:user/MyDemoUser",
- *       "userId": "AIDAJNUEDQAQWFELJDLEX"
+ *       environmentId: "12bfc3cd537f41cb9776f8af5525c9EX",
+ *       lastAccess: "2018-01-19T11:39:19Z",
+ *       permissions: "owner",
+ *       userArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *       userId: "AIDAJNUEDQAQWFELJDLEX"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describeenvironmentmemberships3-1516823268793
  * ```
  *
+ * @example DescribeEnvironmentMemberships1
+ * ```javascript
+ * // The following example gets information about all of the environment members for the specified development environment.
+ * const input = {
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX"
+ * };
+ * const command = new DescribeEnvironmentMembershipsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   memberships: [
+ *     {
+ *       environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *       permissions: "read-write",
+ *       userArn: "arn:aws:iam::123456789012:user/AnotherDemoUser",
+ *       userId: "AIDAJ3BA6O2FMJWCWXHEX"
+ *     },
+ *     {
+ *       environmentId: "8d9967e2f0624182b74e7690ad69ebEX",
+ *       permissions: "owner",
+ *       userArn: "arn:aws:iam::123456789012:user/MyDemoUser",
+ *       userId: "AIDAJNUEDQAQWFELJDLEX"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class DescribeEnvironmentMembershipsCommand extends $Command
   .classBuilder<
@@ -191,9 +196,7 @@ export class DescribeEnvironmentMembershipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -205,4 +208,16 @@ export class DescribeEnvironmentMembershipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEnvironmentMembershipsCommand)
   .de(de_DescribeEnvironmentMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentMembershipsRequest;
+      output: DescribeEnvironmentMembershipsResult;
+    };
+    sdk: {
+      input: DescribeEnvironmentMembershipsCommandInput;
+      output: DescribeEnvironmentMembershipsCommandOutput;
+    };
+  };
+}

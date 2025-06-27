@@ -12,7 +12,8 @@ import { de_DeleteScraperCommand, se_DeleteScraperCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteScraperCommandInput extends DeleteScraperRequest {}
 export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>DeleteScraper</code> operation deletes one scraper, and stops any metrics
- *             collection that the scraper performs.</p>
+ * <p>The <code>DeleteScraper</code> operation deletes one scraper, and stops any metrics collection that the scraper performs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,11 +72,30 @@ export interface DeleteScraperCommandOutput extends DeleteScraperResponse, __Met
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
+ *
+ * @example DeleteScraper with optional clientToken input
+ * ```javascript
+ * //
+ * const input = {
+ *   clientToken: "token",
+ *   scraperId: "scraper-123"
+ * };
+ * const command = new DeleteScraperCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scraperId: "scraper-123",
+ *   status: {
+ *     statusCode: "DELETING"
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -88,9 +107,7 @@ export class DeleteScraperCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +119,16 @@ export class DeleteScraperCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScraperCommand)
   .de(de_DeleteScraperCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScraperRequest;
+      output: DeleteScraperResponse;
+    };
+    sdk: {
+      input: DeleteScraperCommandInput;
+      output: DeleteScraperCommandOutput;
+    };
+  };
+}

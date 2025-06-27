@@ -12,7 +12,8 @@ import { de_ListVodSourcesCommand, se_ListVodSourcesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface ListVodSourcesCommandOutput extends ListVodSourcesResponse, __M
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class ListVodSourcesCommand extends $Command
@@ -85,9 +87,7 @@ export class ListVodSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListVodSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVodSourcesCommand)
   .de(de_ListVodSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVodSourcesRequest;
+      output: ListVodSourcesResponse;
+    };
+    sdk: {
+      input: ListVodSourcesCommandInput;
+      output: ListVodSourcesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteConnectorCommand, se_DeleteConnectorCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface DeleteConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectorCommand extends $Command
@@ -92,9 +94,7 @@ export class DeleteConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class DeleteConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectorCommand)
   .de(de_DeleteConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConnectorCommandInput;
+      output: DeleteConnectorCommandOutput;
+    };
+  };
+}

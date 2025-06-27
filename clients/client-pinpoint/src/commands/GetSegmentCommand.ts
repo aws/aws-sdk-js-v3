@@ -12,7 +12,8 @@ import { de_GetSegmentCommand, se_GetSegmentCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -228,6 +229,7 @@ export interface GetSegmentCommandOutput extends GetSegmentResponse, __MetadataB
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetSegmentCommand extends $Command
@@ -238,9 +240,7 @@ export class GetSegmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -252,4 +252,16 @@ export class GetSegmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSegmentCommand)
   .de(de_GetSegmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSegmentRequest;
+      output: GetSegmentResponse;
+    };
+    sdk: {
+      input: GetSegmentCommandInput;
+      output: GetSegmentCommandOutput;
+    };
+  };
+}

@@ -20,7 +20,8 @@ import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -156,6 +157,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         IncludeControlDetails: true || false,
  * //         IncludeNullAndEmpty: true || false,
  * //         NoHexPrefix: true || false,
+ * //         UseLargeIntegerValue: true || false,
  * //       },
  * //       KafkaSettings: { // KafkaSettings
  * //         Broker: "STRING_VALUE",
@@ -178,6 +180,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         NoHexPrefix: true || false,
  * //         SaslMechanism: "scram-sha-512" || "plain",
  * //         SslEndpointIdentificationAlgorithm: "none" || "https",
+ * //         UseLargeIntegerValue: true || false,
  * //       },
  * //       ElasticsearchSettings: { // ElasticsearchSettings
  * //         ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -253,6 +256,9 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         MapLongVarcharAs: "wstring" || "clob" || "nclob",
  * //         DatabaseMode: "default" || "babelfish",
  * //         BabelfishDatabaseName: "STRING_VALUE",
+ * //         DisableUnicodeSourceFilter: true || false,
+ * //         ServiceAccessRoleArn: "STRING_VALUE",
+ * //         AuthenticationMethod: "password" || "iam",
  * //       },
  * //       MySQLSettings: { // MySQLSettings
  * //         AfterConnectScript: "STRING_VALUE",
@@ -270,6 +276,8 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecretId: "STRING_VALUE",
  * //         ExecuteTimeout: Number("int"),
+ * //         ServiceAccessRoleArn: "STRING_VALUE",
+ * //         AuthenticationMethod: "password" || "iam",
  * //       },
  * //       OracleSettings: { // OracleSettings
  * //         AddSupplementalLogging: true || false,
@@ -317,6 +325,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         TrimSpaceInChar: true || false,
  * //         ConvertTimestampWithZoneToUTC: true || false,
  * //         OpenTransactionWindow: Number("int"),
+ * //         AuthenticationMethod: "password" || "kerberos",
  * //       },
  * //       SybaseSettings: { // SybaseSettings
  * //         DatabaseName: "STRING_VALUE",
@@ -345,6 +354,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * //         TrimSpaceInChar: true || false,
  * //         TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  * //         ForceLobLookup: true || false,
+ * //         AuthenticationMethod: "password" || "kerberos",
  * //       },
  * //       IBMDb2Settings: { // IBMDb2Settings
  * //         DatabaseName: "STRING_VALUE",
@@ -427,34 +437,34 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe endpoints
  * ```javascript
  * // Returns information about the endpoints for your account in the current region.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeEndpointsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoints": [],
- *   "Marker": ""
+ *   Endpoints:   [],
+ *   Marker: ""
  * }
  * *\/
- * // example id: describe-endpoints-1481754926060
  * ```
  *
+ * @public
  */
 export class DescribeEndpointsCommand extends $Command
   .classBuilder<
@@ -464,9 +474,7 @@ export class DescribeEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -478,4 +486,16 @@ export class DescribeEndpointsCommand extends $Command
   .f(void 0, DescribeEndpointsResponseFilterSensitiveLog)
   .ser(se_DescribeEndpointsCommand)
   .de(de_DescribeEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointsMessage;
+      output: DescribeEndpointsResponse;
+    };
+    sdk: {
+      input: DescribeEndpointsCommandInput;
+      output: DescribeEndpointsCommandOutput;
+    };
+  };
+}

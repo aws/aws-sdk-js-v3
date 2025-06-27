@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DeleteEnvironmentBlueprintConfigurationInput,
   DeleteEnvironmentBlueprintConfigurationOutput,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DeleteEnvironmentBlueprintConfigurationCommand,
   se_DeleteEnvironmentBlueprintConfigurationCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DeleteEnvironmentBlueprintConfigurationCommandOutput
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
@@ -87,9 +89,7 @@ export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DeleteEnvironmentBlueprintConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentBlueprintConfigurationCommand)
   .de(de_DeleteEnvironmentBlueprintConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentBlueprintConfigurationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentBlueprintConfigurationCommandInput;
+      output: DeleteEnvironmentBlueprintConfigurationCommandOutput;
+    };
+  };
+}

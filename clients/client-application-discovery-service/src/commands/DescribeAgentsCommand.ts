@@ -20,7 +20,8 @@ import { de_DescribeAgentsCommand, se_DescribeAgentsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,7 @@ export interface DescribeAgentsCommandOutput extends DescribeAgentsResponse, __M
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeAgentsCommand extends $Command
@@ -123,9 +125,7 @@ export class DescribeAgentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class DescribeAgentsCommand extends $Command
   .f(void 0, DescribeAgentsResponseFilterSensitiveLog)
   .ser(se_DescribeAgentsCommand)
   .de(de_DescribeAgentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAgentsRequest;
+      output: DescribeAgentsResponse;
+    };
+    sdk: {
+      input: DescribeAgentsCommandInput;
+      output: DescribeAgentsCommandOutput;
+    };
+  };
+}

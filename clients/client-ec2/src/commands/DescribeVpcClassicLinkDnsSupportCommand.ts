@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,11 +48,11 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * // const { EC2Client, DescribeVpcClassicLinkDnsSupportCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVpcClassicLinkDnsSupportRequest
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  *   VpcIds: [ // VpcClassicLinkIdList
  *     "STRING_VALUE",
  *   ],
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
  * };
  * const command = new DescribeVpcClassicLinkDnsSupportCommand(input);
  * const response = await client.send(command);
@@ -76,6 +77,7 @@ export interface DescribeVpcClassicLinkDnsSupportCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcClassicLinkDnsSupportCommand extends $Command
@@ -86,9 +88,7 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class DescribeVpcClassicLinkDnsSupportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcClassicLinkDnsSupportCommand)
   .de(de_DescribeVpcClassicLinkDnsSupportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcClassicLinkDnsSupportRequest;
+      output: DescribeVpcClassicLinkDnsSupportResult;
+    };
+    sdk: {
+      input: DescribeVpcClassicLinkDnsSupportCommandInput;
+      output: DescribeVpcClassicLinkDnsSupportCommandOutput;
+    };
+  };
+}

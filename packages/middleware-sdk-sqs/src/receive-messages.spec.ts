@@ -1,11 +1,12 @@
 import { ChecksumConstructor } from "@smithy/types";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { receiveMessageMiddleware } from "./receive-message";
 
 describe("receiveMessageMiddleware", () => {
-  const mockHashUpdate = jest.fn();
-  const mockHashDigest = jest.fn().mockReturnValue(new Uint8Array(1));
-  const mockHashReset = jest.fn();
+  const mockHashUpdate = vi.fn();
+  const mockHashDigest = vi.fn().mockReturnValue(new Uint8Array(1));
+  const mockHashReset = vi.fn();
   const MockHash: ChecksumConstructor = class {} as any;
   MockHash.prototype.update = mockHashUpdate;
   MockHash.prototype.digest = mockHashDigest;
@@ -18,7 +19,7 @@ describe("receiveMessageMiddleware", () => {
   });
 
   it("should only call next once", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         Messages: [
           { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
@@ -34,7 +35,7 @@ describe("receiveMessageMiddleware", () => {
   });
 
   it("should do nothing if the checksums match", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         Messages: [
           { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
@@ -53,7 +54,7 @@ describe("receiveMessageMiddleware", () => {
   });
 
   it("should throw if the checksum does not match", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         Messages: [
           { Body: "foo", MD5OfBody: "00", MessageId: "fooMessage" },
@@ -71,7 +72,7 @@ describe("receiveMessageMiddleware", () => {
   });
 
   it("ignores checksum if md5=false in config", async () => {
-    const next = jest.fn().mockReturnValue({
+    const next = vi.fn().mockReturnValue({
       output: {
         Messages: [
           { Body: "foo", MD5OfBody: "XXYYZZ", MessageId: "fooMessage" },

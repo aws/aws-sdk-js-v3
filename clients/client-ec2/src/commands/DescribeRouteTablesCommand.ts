@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_4";
+import { DescribeRouteTablesRequest, DescribeRouteTablesResult } from "../models/models_5";
 import { de_DescribeRouteTablesCommand, se_DescribeRouteTablesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface DescribeRouteTablesCommandInput extends DescribeRouteTablesRequ
 export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your route tables.</p>
+ * <p>Describes your route tables. The default is to describe all your route tables.
+ *            Alternatively, you can specify specific route table IDs or filter the results to
+ *            include only the route tables that match specific criteria.</p>
  *          <p>Each subnet in your VPC must be associated with a route table. If a subnet is not explicitly associated with any route table, it is implicitly associated with the main route table. This command does not return the subnet ID for implicit associations.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route tables</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
@@ -38,6 +41,12 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * // const { EC2Client, DescribeRouteTablesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeRouteTablesRequest
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
+ *   DryRun: true || false,
+ *   RouteTableIds: [ // RouteTableIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -46,12 +55,6 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   RouteTableIds: [ // RouteTableIdStringList
- *     "STRING_VALUE",
- *   ],
- *   NextToken: "STRING_VALUE",
- *   MaxResults: Number("int"),
  * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);
@@ -95,6 +98,7 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * //           State: "active" || "blackhole",
  * //           VpcPeeringConnectionId: "STRING_VALUE",
  * //           CoreNetworkArn: "STRING_VALUE",
+ * //           OdbNetworkArn: "STRING_VALUE",
  * //         },
  * //       ],
  * //       Tags: [ // TagList
@@ -121,46 +125,46 @@ export interface DescribeRouteTablesCommandOutput extends DescribeRouteTablesRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a route table
  * ```javascript
  * // This example describes the specified route table.
  * const input = {
- *   "RouteTableIds": [
+ *   RouteTableIds: [
  *     "rtb-1f382e7d"
  *   ]
  * };
  * const command = new DescribeRouteTablesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RouteTables": [
+ *   RouteTables: [
  *     {
- *       "Associations": [
+ *       Associations: [
  *         {
- *           "Main": true,
- *           "RouteTableAssociationId": "rtbassoc-d8ccddba",
- *           "RouteTableId": "rtb-1f382e7d"
+ *           Main: true,
+ *           RouteTableAssociationId: "rtbassoc-d8ccddba",
+ *           RouteTableId: "rtb-1f382e7d"
  *         }
  *       ],
- *       "PropagatingVgws": [],
- *       "RouteTableId": "rtb-1f382e7d",
- *       "Routes": [
+ *       PropagatingVgws:       [],
+ *       RouteTableId: "rtb-1f382e7d",
+ *       Routes: [
  *         {
- *           "DestinationCidrBlock": "10.0.0.0/16",
- *           "GatewayId": "local",
- *           "State": "active"
+ *           DestinationCidrBlock: "10.0.0.0/16",
+ *           GatewayId: "local",
+ *           State: "active"
  *         }
  *       ],
- *       "Tags": [],
- *       "VpcId": "vpc-a01106c2"
+ *       Tags:       [],
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-route-tables-1
  * ```
  *
+ * @public
  */
 export class DescribeRouteTablesCommand extends $Command
   .classBuilder<
@@ -170,9 +174,7 @@ export class DescribeRouteTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +186,16 @@ export class DescribeRouteTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRouteTablesCommand)
   .de(de_DescribeRouteTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRouteTablesRequest;
+      output: DescribeRouteTablesResult;
+    };
+    sdk: {
+      input: DescribeRouteTablesCommandInput;
+      output: DescribeRouteTablesCommandOutput;
+    };
+  };
+}

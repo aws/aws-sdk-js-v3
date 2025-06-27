@@ -12,7 +12,8 @@ import { de_ListActionExecutionsCommand, se_ListActionExecutionsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,7 +63,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //       status: "InProgress" || "Abandoned" || "Succeeded" || "Failed",
  * //       input: { // ActionExecutionInput
  * //         actionTypeId: { // ActionTypeId
- * //           category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //           category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //           owner: "AWS" || "ThirdParty" || "Custom", // required
  * //           provider: "STRING_VALUE", // required
  * //           version: "STRING_VALUE", // required
@@ -104,6 +105,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //             code: "STRING_VALUE",
  * //             message: "STRING_VALUE",
  * //           },
+ * //           logStreamARN: "STRING_VALUE",
  * //         },
  * //         outputVariables: { // OutputVariablesMap
  * //           "<keys>": "STRING_VALUE",
@@ -139,6 +141,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class ListActionExecutionsCommand extends $Command
@@ -149,9 +152,7 @@ export class ListActionExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +164,16 @@ export class ListActionExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActionExecutionsCommand)
   .de(de_ListActionExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActionExecutionsInput;
+      output: ListActionExecutionsOutput;
+    };
+    sdk: {
+      input: ListActionExecutionsCommandInput;
+      output: ListActionExecutionsCommandOutput;
+    };
+  };
+}

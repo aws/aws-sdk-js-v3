@@ -12,7 +12,8 @@ import { de_StopStreamEncryptionCommand, se_StopStreamEncryptionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface StopStreamEncryptionCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class StopStreamEncryptionCommand extends $Command
@@ -120,4 +122,16 @@ export class StopStreamEncryptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopStreamEncryptionCommand)
   .de(de_StopStreamEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopStreamEncryptionInput;
+      output: {};
+    };
+    sdk: {
+      input: StopStreamEncryptionCommandInput;
+      output: StopStreamEncryptionCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateAppImageConfigRequest, CreateAppImageConfigResponse } from "../models/models_0";
+import { CreateAppImageConfigRequest, CreateAppImageConfigResponse } from "../models/models_1";
 import { de_CreateAppImageConfigCommand, se_CreateAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateAppImageConfigCommandInput extends CreateAppImageConfigRe
 export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a configuration for running a SageMaker image as a KernelGateway app. The
- *          configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the
- *          kernels in the image.</p>
+ * <p>Creates a configuration for running a SageMaker AI image as a KernelGateway app. The configuration specifies the Amazon Elastic File System storage volume on the image, and a list of the kernels in the image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,6 +113,7 @@ export interface CreateAppImageConfigCommandOutput extends CreateAppImageConfigR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateAppImageConfigCommand extends $Command
@@ -124,9 +124,7 @@ export class CreateAppImageConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +136,16 @@ export class CreateAppImageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppImageConfigCommand)
   .de(de_CreateAppImageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppImageConfigRequest;
+      output: CreateAppImageConfigResponse;
+    };
+    sdk: {
+      input: CreateAppImageConfigCommandInput;
+      output: CreateAppImageConfigCommandOutput;
+    };
+  };
+}

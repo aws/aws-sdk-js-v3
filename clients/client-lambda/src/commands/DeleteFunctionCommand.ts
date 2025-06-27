@@ -12,7 +12,8 @@ import { de_DeleteFunctionCommand, se_DeleteFunctionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter.
  *       Otherwise, all versions and aliases are deleted. This doesn't require the user to have explicit
  *       permissions for <a>DeleteAlias</a>.</p>
- *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services and resources that invoke your function
+ *          <p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services services and resources that invoke your function
  *       directly, delete the trigger in the service where you originally configured it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +73,21 @@ export interface DeleteFunctionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To delete a version of a Lambda function
+ * ```javascript
+ * // The following example deletes version 1 of a Lambda function named my-function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Qualifier: "1"
+ * };
+ * const command = new DeleteFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteFunctionCommand extends $Command
@@ -82,9 +98,7 @@ export class DeleteFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +110,16 @@ export class DeleteFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFunctionCommand)
   .de(de_DeleteFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFunctionCommandInput;
+      output: DeleteFunctionCommandOutput;
+    };
+  };
+}

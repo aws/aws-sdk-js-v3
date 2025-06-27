@@ -12,7 +12,8 @@ import { de_ListCoreDefinitionVersionsCommand, se_ListCoreDefinitionVersionsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface ListCoreDefinitionVersionsCommandOutput extends ListCoreDefinit
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class ListCoreDefinitionVersionsCommand extends $Command
@@ -77,9 +79,7 @@ export class ListCoreDefinitionVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class ListCoreDefinitionVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoreDefinitionVersionsCommand)
   .de(de_ListCoreDefinitionVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoreDefinitionVersionsRequest;
+      output: ListCoreDefinitionVersionsResponse;
+    };
+    sdk: {
+      input: ListCoreDefinitionVersionsCommandInput;
+      output: ListCoreDefinitionVersionsCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchContentRequest, SearchContentResponse } from "../models/models_0";
+import { SearchContentRequest, SearchContentResponse } from "../models/models_1";
 import { de_SearchContentCommand, se_SearchContentCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface SearchContentCommandOutput extends SearchContentResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class SearchContentCommand extends $Command
@@ -104,9 +106,7 @@ export class SearchContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class SearchContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchContentCommand)
   .de(de_SearchContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchContentRequest;
+      output: SearchContentResponse;
+    };
+    sdk: {
+      input: SearchContentCommandInput;
+      output: SearchContentCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListAssessmentTargetsCommand, se_ListAssessmentTargetsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,26 +74,26 @@ export interface ListAssessmentTargetsCommandOutput extends ListAssessmentTarget
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example List assessment targets
  * ```javascript
  * // Lists the ARNs of the assessment targets within this AWS account.
  * const input = {
- *   "maxResults": 123
+ *   maxResults: 123
  * };
  * const command = new ListAssessmentTargetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "assessmentTargetArns": [
+ *   assessmentTargetArns: [
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
  *   ],
- *   "nextToken": "1"
+ *   nextToken: "1"
  * }
  * *\/
- * // example id: list-assessment-targets-1481066540849
  * ```
  *
+ * @public
  */
 export class ListAssessmentTargetsCommand extends $Command
   .classBuilder<
@@ -102,9 +103,7 @@ export class ListAssessmentTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class ListAssessmentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssessmentTargetsCommand)
   .de(de_ListAssessmentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentTargetsRequest;
+      output: ListAssessmentTargetsResponse;
+    };
+    sdk: {
+      input: ListAssessmentTargetsCommandInput;
+      output: ListAssessmentTargetsCommandOutput;
+    };
+  };
+}

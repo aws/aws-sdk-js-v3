@@ -12,7 +12,8 @@ import { de_CreateBucketCommand, se_CreateBucketCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * <p>Creates an Amazon Lightsail bucket.</p>
  *          <p>A bucket is a cloud storage resource available in the Lightsail object storage service.
  *       Use buckets to store objects such as data and its descriptive metadata. For more information
- *       about buckets, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
+ *       about buckets, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/buckets-in-amazon-lightsail">Buckets in Amazon Lightsail</a> in the <i>Amazon Lightsail Developer
  *         Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -147,6 +148,7 @@ export interface CreateBucketCommandOutput extends CreateBucketResult, __Metadat
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateBucketCommand extends $Command
@@ -157,9 +159,7 @@ export class CreateBucketCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +171,16 @@ export class CreateBucketCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBucketCommand)
   .de(de_CreateBucketCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBucketRequest;
+      output: CreateBucketResult;
+    };
+    sdk: {
+      input: CreateBucketCommandInput;
+      output: CreateBucketCommandOutput;
+    };
+  };
+}

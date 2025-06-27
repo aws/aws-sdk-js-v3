@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetDataQualityResultRequest, BatchGetDataQualityResultResponse } from "../models/models_0";
+import {
+  BatchGetDataQualityResultRequest,
+  BatchGetDataQualityResultResponse,
+  BatchGetDataQualityResultResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_BatchGetDataQualityResultCommand, se_BatchGetDataQualityResultCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,6 +50,7 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //   Results: [ // DataQualityResultsList // required
  * //     { // DataQualityResult
  * //       ResultId: "STRING_VALUE",
+ * //       ProfileId: "STRING_VALUE",
  * //       Score: Number("double"),
  * //       DataSource: { // DataSource
  * //         GlueTable: { // GlueTable
@@ -73,6 +79,10 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           EvaluatedMetrics: { // EvaluatedMetricsMap
  * //             "<keys>": Number("double"),
  * //           },
+ * //           EvaluatedRule: "STRING_VALUE",
+ * //           RuleMetrics: { // RuleMetricsMap
+ * //             "<keys>": Number("double"),
+ * //           },
  * //         },
  * //       ],
  * //       AnalyzerResults: [ // DataQualityAnalyzerResults
@@ -90,6 +100,7 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           Description: "STRING_VALUE",
  * //           MetricBasedObservation: { // MetricBasedObservation
  * //             MetricName: "STRING_VALUE",
+ * //             StatisticId: "STRING_VALUE",
  * //             MetricValues: { // DataQualityMetricValues
  * //               ActualValue: Number("double"),
  * //               ExpectedValue: Number("double"),
@@ -102,6 +113,14 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * //           },
  * //         },
  * //       ],
+ * //       AggregatedMetrics: { // DataQualityAggregatedMetrics
+ * //         TotalRowsProcessed: Number("double"),
+ * //         TotalRowsPassed: Number("double"),
+ * //         TotalRowsFailed: Number("double"),
+ * //         TotalRulesProcessed: Number("double"),
+ * //         TotalRulesPassed: Number("double"),
+ * //         TotalRulesFailed: Number("double"),
+ * //       },
  * //     },
  * //   ],
  * //   ResultsNotFound: [ // DataQualityResultIds
@@ -129,6 +148,7 @@ export interface BatchGetDataQualityResultCommandOutput extends BatchGetDataQual
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDataQualityResultCommand extends $Command
@@ -139,9 +159,7 @@ export class BatchGetDataQualityResultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,7 +168,19 @@ export class BatchGetDataQualityResultCommand extends $Command
   })
   .s("AWSGlue", "BatchGetDataQualityResult", {})
   .n("GlueClient", "BatchGetDataQualityResultCommand")
-  .f(void 0, void 0)
+  .f(void 0, BatchGetDataQualityResultResponseFilterSensitiveLog)
   .ser(se_BatchGetDataQualityResultCommand)
   .de(de_BatchGetDataQualityResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDataQualityResultRequest;
+      output: BatchGetDataQualityResultResponse;
+    };
+    sdk: {
+      input: BatchGetDataQualityResultCommandInput;
+      output: BatchGetDataQualityResultCommandOutput;
+    };
+  };
+}

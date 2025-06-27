@@ -17,7 +17,8 @@ import { de_GetWorkUnitResultsCommand, se_GetWorkUnitResultsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,11 @@ export interface GetWorkUnitResultsCommandOutput
  * };
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.ResultStream.transformToByteArray();
+ * // const str = await response.ResultStream.transformToString();
+ * // response.ResultStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetWorkUnitResultsResponse
  * //   ResultStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
@@ -80,6 +86,7 @@ export interface GetWorkUnitResultsCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class GetWorkUnitResultsCommand extends $Command
@@ -90,9 +97,7 @@ export class GetWorkUnitResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +109,16 @@ export class GetWorkUnitResultsCommand extends $Command
   .f(GetWorkUnitResultsRequestFilterSensitiveLog, GetWorkUnitResultsResponseFilterSensitiveLog)
   .ser(se_GetWorkUnitResultsCommand)
   .de(de_GetWorkUnitResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkUnitResultsRequest;
+      output: GetWorkUnitResultsResponse;
+    };
+    sdk: {
+      input: GetWorkUnitResultsCommandInput;
+      output: GetWorkUnitResultsCommandOutput;
+    };
+  };
+}

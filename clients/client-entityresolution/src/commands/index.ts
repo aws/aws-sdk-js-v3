@@ -10,6 +10,7 @@ export * from "./DeleteIdNamespaceCommand";
 export * from "./DeleteMatchingWorkflowCommand";
 export * from "./DeletePolicyStatementCommand";
 export * from "./DeleteSchemaMappingCommand";
+export * from "./GenerateMatchIdCommand";
 export * from "./GetIdMappingJobCommand";
 export * from "./GetIdMappingWorkflowCommand";
 export * from "./GetIdNamespaceCommand";

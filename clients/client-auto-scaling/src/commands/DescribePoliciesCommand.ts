@@ -12,7 +12,8 @@ import { de_DescribePoliciesCommand, se_DescribePoliciesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * //           ],
  * //           Statistic: "Average" || "Minimum" || "Maximum" || "SampleCount" || "Sum",
  * //           Unit: "STRING_VALUE",
+ * //           Period: Number("int"),
  * //           Metrics: [ // TargetTrackingMetricDataQueries
  * //             { // TargetTrackingMetricDataQuery
  * //               Id: "STRING_VALUE", // required
@@ -107,8 +109,10 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * //                 },
  * //                 Stat: "STRING_VALUE", // required
  * //                 Unit: "STRING_VALUE",
+ * //                 Period: Number("int"),
  * //               },
  * //               Label: "STRING_VALUE",
+ * //               Period: Number("int"),
  * //               ReturnData: true || false,
  * //             },
  * //           ],
@@ -223,42 +227,42 @@ export interface DescribePoliciesCommandOutput extends PoliciesType, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe scaling policies
  * ```javascript
  * // This example describes the policies for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribePoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScalingPolicies": [
+ *   ScalingPolicies: [
  *     {
- *       "AdjustmentType": "ChangeInCapacity",
- *       "Alarms": [],
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2233f3d7-6290-403b-b632-93c553560106:autoScalingGroupName/my-auto-scaling-group:policyName/ScaleIn",
- *       "PolicyName": "ScaleIn",
- *       "ScalingAdjustment": -1
+ *       AdjustmentType: "ChangeInCapacity",
+ *       Alarms:       [],
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       PolicyARN: "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2233f3d7-6290-403b-b632-93c553560106:autoScalingGroupName/my-auto-scaling-group:policyName/ScaleIn",
+ *       PolicyName: "ScaleIn",
+ *       ScalingAdjustment: -1
  *     },
  *     {
- *       "AdjustmentType": "PercentChangeInCapacity",
- *       "Alarms": [],
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "Cooldown": 60,
- *       "MinAdjustmentStep": 2,
- *       "PolicyARN": "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2b435159-cf77-4e89-8c0e-d63b497baad7:autoScalingGroupName/my-auto-scaling-group:policyName/ScalePercentChange",
- *       "PolicyName": "ScalePercentChange",
- *       "ScalingAdjustment": 25
+ *       AdjustmentType: "PercentChangeInCapacity",
+ *       Alarms:       [],
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       Cooldown: 60,
+ *       MinAdjustmentStep: 2,
+ *       PolicyARN: "arn:aws:autoscaling:us-west-2:123456789012:scalingPolicy:2b435159-cf77-4e89-8c0e-d63b497baad7:autoScalingGroupName/my-auto-scaling-group:policyName/ScalePercentChange",
+ *       PolicyName: "ScalePercentChange",
+ *       ScalingAdjustment: 25
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-policies-1
  * ```
  *
+ * @public
  */
 export class DescribePoliciesCommand extends $Command
   .classBuilder<
@@ -268,9 +272,7 @@ export class DescribePoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -282,4 +284,16 @@ export class DescribePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePoliciesCommand)
   .de(de_DescribePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePoliciesType;
+      output: PoliciesType;
+    };
+    sdk: {
+      input: DescribePoliciesCommandInput;
+      output: DescribePoliciesCommandOutput;
+    };
+  };
+}

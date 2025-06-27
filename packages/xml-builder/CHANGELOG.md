@@ -3,6 +3,140 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/xml-builder
+
+
+
+
+
 # [3.575.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.574.0...v3.575.0) (2024-05-13)
 
 **Note:** Version bump only for package @aws-sdk/xml-builder

@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,13 +39,13 @@ export interface CreateApplicationPresignedUrlCommandOutput
 /**
  * <p>Creates and returns a URL that you can use to connect to
  *             an application's extension.</p>
- *         <p>The IAM role or user used to call this API defines the permissions to access the
+ *          <p>The IAM role or user used to call this API defines the permissions to access the
  *       extension. After the presigned URL is created, no additional permission is required to access
  *       this URL. IAM authorization policies for this API are also enforced for every HTTP request
  *       that attempts to connect to the extension. </p>
- *         <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>
+ *          <p>You    control the amount of time that the URL will be valid using the <code>SessionExpirationDurationInSeconds</code>
  *         parameter. If you do not provide this parameter, the returned URL is valid for twelve hours.</p>
- *         <note>
+ *          <note>
  *             <p>The URL that you get from a call to CreateApplicationPresignedUrl must be used within 3 minutes
  *             to be valid.
  *             If you first try to use the URL after the 3-minute limit expires, the service returns an HTTP 403 Forbidden error.</p>
@@ -86,6 +87,7 @@ export interface CreateApplicationPresignedUrlCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationPresignedUrlCommand extends $Command
@@ -96,9 +98,7 @@ export class CreateApplicationPresignedUrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CreateApplicationPresignedUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationPresignedUrlCommand)
   .de(de_CreateApplicationPresignedUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationPresignedUrlRequest;
+      output: CreateApplicationPresignedUrlResponse;
+    };
+    sdk: {
+      input: CreateApplicationPresignedUrlCommandInput;
+      output: CreateApplicationPresignedUrlCommandOutput;
+    };
+  };
+}

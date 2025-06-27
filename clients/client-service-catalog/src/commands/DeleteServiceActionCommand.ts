@@ -12,7 +12,8 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,9 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  * @see {@link DeleteServiceActionCommandOutput} for command's `response` shape.
  * @see {@link ServiceCatalogClientResolvedConfig | config} for ServiceCatalogClient's `config` shape.
  *
+ * @throws {@link InvalidParametersException} (client fault)
+ *  <p>One or more parameters provided to the operation are not valid.</p>
+ *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>A resource that is currently in use. Ensure that the resource is not in use and retry the operation.</p>
  *
@@ -59,6 +63,7 @@ export interface DeleteServiceActionCommandOutput extends DeleteServiceActionOut
  *
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
+ *
  *
  * @public
  */
@@ -70,9 +75,7 @@ export class DeleteServiceActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +87,16 @@ export class DeleteServiceActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceActionCommand)
   .de(de_DeleteServiceActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceActionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceActionCommandInput;
+      output: DeleteServiceActionCommandOutput;
+    };
+  };
+}

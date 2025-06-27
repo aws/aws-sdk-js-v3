@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -168,52 +169,52 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Create service
  * ```javascript
  * // Example: Create service
  * const input = {
- *   "CreatorRequestId": "567c1193-6b00-4308-bd57-ad38a8822d25",
- *   "DnsConfig": {
- *     "DnsRecords": [
+ *   CreatorRequestId: "567c1193-6b00-4308-bd57-ad38a8822d25",
+ *   DnsConfig: {
+ *     DnsRecords: [
  *       {
- *         "TTL": 60,
- *         "Type": "A"
+ *         TTL: 60,
+ *         Type: "A"
  *       }
  *     ],
- *     "NamespaceId": "ns-ylexjili4cdxy3xm",
- *     "RoutingPolicy": "MULTIVALUE"
+ *     NamespaceId: "ns-ylexjili4cdxy3xm",
+ *     RoutingPolicy: "MULTIVALUE"
  *   },
- *   "Name": "myservice",
- *   "NamespaceId": "ns-ylexjili4cdxy3xm"
+ *   Name: "myservice",
+ *   NamespaceId: "ns-ylexjili4cdxy3xm"
  * };
  * const command = new CreateServiceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Service": {
- *     "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
- *     "CreateDate": 1587081768.334,
- *     "CreatorRequestId": "567c1193-6b00-4308-bd57-ad38a8822d25",
- *     "DnsConfig": {
- *       "DnsRecords": [
+ *   Service: {
+ *     Arn: "arn:aws:servicediscovery:us-west-2:123456789012:service/srv-p5zdwlg5uvvzjita",
+ *     CreateDate: 1.587081768334E9,
+ *     CreatorRequestId: "567c1193-6b00-4308-bd57-ad38a8822d25",
+ *     DnsConfig: {
+ *       DnsRecords: [
  *         {
- *           "TTL": 60,
- *           "Type": "A"
+ *           TTL: 60,
+ *           Type: "A"
  *         }
  *       ],
- *       "NamespaceId": "ns-ylexjili4cdxy3xm",
- *       "RoutingPolicy": "MULTIVALUE"
+ *       NamespaceId: "ns-ylexjili4cdxy3xm",
+ *       RoutingPolicy: "MULTIVALUE"
  *     },
- *     "Id": "srv-p5zdwlg5uvvzjita",
- *     "Name": "myservice",
- *     "NamespaceId": "ns-ylexjili4cdxy3xm"
+ *     Id: "srv-p5zdwlg5uvvzjita",
+ *     Name: "myservice",
+ *     NamespaceId: "ns-ylexjili4cdxy3xm"
  *   }
  * }
  * *\/
- * // example id: example-create-service-1587235913584
  * ```
  *
+ * @public
  */
 export class CreateServiceCommand extends $Command
   .classBuilder<
@@ -223,9 +224,7 @@ export class CreateServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -237,4 +236,16 @@ export class CreateServiceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServiceCommand)
   .de(de_CreateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceRequest;
+      output: CreateServiceResponse;
+    };
+    sdk: {
+      input: CreateServiceCommandInput;
+      output: CreateServiceCommandOutput;
+    };
+  };
+}

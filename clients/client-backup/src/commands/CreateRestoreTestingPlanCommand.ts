@@ -16,7 +16,8 @@ import { de_CreateRestoreTestingPlanCommand, se_CreateRestoreTestingPlanCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,11 +32,10 @@ export interface CreateRestoreTestingPlanCommandInput extends CreateRestoreTesti
 export interface CreateRestoreTestingPlanCommandOutput extends CreateRestoreTestingPlanOutput, __MetadataBearer {}
 
 /**
- * <p>This is the first of two steps to create a restore testing
- *          plan; once this request is successful, finish the procedure with
- *          request CreateRestoreTestingSelection.</p>
- *          <p>You must include the parameter RestoreTestingPlan. You may
- *          optionally include CreatorRequestId and Tags.</p>
+ * <p>Creates a restore testing plan.</p>
+ *          <p>The first of two steps to create a restore testing
+ *          plan. After this request is successful, finish the procedure using
+ *          CreateRestoreTestingSelection.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,6 +107,7 @@ export interface CreateRestoreTestingPlanCommandOutput extends CreateRestoreTest
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateRestoreTestingPlanCommand extends $Command
@@ -117,9 +118,7 @@ export class CreateRestoreTestingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class CreateRestoreTestingPlanCommand extends $Command
   .f(CreateRestoreTestingPlanInputFilterSensitiveLog, void 0)
   .ser(se_CreateRestoreTestingPlanCommand)
   .de(de_CreateRestoreTestingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRestoreTestingPlanInput;
+      output: CreateRestoreTestingPlanOutput;
+    };
+    sdk: {
+      input: CreateRestoreTestingPlanCommandInput;
+      output: CreateRestoreTestingPlanCommandOutput;
+    };
+  };
+}

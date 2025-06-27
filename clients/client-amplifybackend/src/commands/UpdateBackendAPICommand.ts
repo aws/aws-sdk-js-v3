@@ -12,7 +12,8 @@ import { de_UpdateBackendAPICommand, se_UpdateBackendAPICommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface UpdateBackendAPICommandOutput extends UpdateBackendAPIResponse,
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class UpdateBackendAPICommand extends $Command
@@ -119,9 +121,7 @@ export class UpdateBackendAPICommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class UpdateBackendAPICommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBackendAPICommand)
   .de(de_UpdateBackendAPICommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBackendAPIRequest;
+      output: UpdateBackendAPIResponse;
+    };
+    sdk: {
+      input: UpdateBackendAPICommandInput;
+      output: UpdateBackendAPICommandOutput;
+    };
+  };
+}

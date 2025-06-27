@@ -12,7 +12,8 @@ import { de_UpdateSecurityProfileCommand, se_UpdateSecurityProfileCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -209,6 +210,7 @@ export interface UpdateSecurityProfileCommandOutput extends UpdateSecurityProfil
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateSecurityProfileCommand extends $Command
@@ -219,9 +221,7 @@ export class UpdateSecurityProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -233,4 +233,16 @@ export class UpdateSecurityProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityProfileCommand)
   .de(de_UpdateSecurityProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityProfileRequest;
+      output: UpdateSecurityProfileResponse;
+    };
+    sdk: {
+      input: UpdateSecurityProfileCommandInput;
+      output: UpdateSecurityProfileCommandOutput;
+    };
+  };
+}

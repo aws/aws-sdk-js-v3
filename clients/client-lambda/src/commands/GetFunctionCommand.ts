@@ -12,7 +12,8 @@ import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * //   Configuration: { // FunctionConfiguration
  * //     FunctionName: "STRING_VALUE",
  * //     FunctionArn: "STRING_VALUE",
- * //     Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ * //     Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  * //     Role: "STRING_VALUE",
  * //     Handler: "STRING_VALUE",
  * //     CodeSize: Number("long"),
@@ -151,9 +152,14 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * //     Location: "STRING_VALUE",
  * //     ImageUri: "STRING_VALUE",
  * //     ResolvedImageUri: "STRING_VALUE",
+ * //     SourceKMSKeyArn: "STRING_VALUE",
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   TagsError: { // TagsError
+ * //     ErrorCode: "STRING_VALUE", // required
+ * //     Message: "STRING_VALUE", // required
  * //   },
  * //   Concurrency: { // Concurrency
  * //     ReservedConcurrentExecutions: Number("int"),
@@ -183,6 +189,56 @@ export interface GetFunctionCommandOutput extends GetFunctionResponse, __Metadat
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get a Lambda function
+ * ```javascript
+ * // The following example returns code and configuration details for version 1 of a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Qualifier: "1"
+ * };
+ * const command = new GetFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Code: {
+ *     Location: "https://awslambda-us-west-2-tasks.s3.us-west-2.amazonaws.com/snapshots/123456789012/my-function-e7d9d1ed-xmpl-4f79-904a-4b87f2681f30?versionId=sH3TQwBOaUy...",
+ *     RepositoryType: "S3"
+ *   },
+ *   Configuration: {
+ *     CodeSha256: "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
+ *     CodeSize: 5797206,
+ *     Description: "Process image objects from Amazon S3.",
+ *     Environment: {
+ *       Variables: {
+ *         BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *         PREFIX: "inbound"
+ *       }
+ *     },
+ *     FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *     FunctionName: "my-function",
+ *     Handler: "index.handler",
+ *     KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *     LastModified: "2020-04-10T19:06:32.563+0000",
+ *     LastUpdateStatus: "Successful",
+ *     MemorySize: 256,
+ *     RevisionId: "b75dcd81-xmpl-48a8-a75a-93ba8b5b9727",
+ *     Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *     Runtime: "nodejs12.x",
+ *     State: "Active",
+ *     Timeout: 15,
+ *     TracingConfig: {
+ *       Mode: "Active"
+ *     },
+ *     Version: "$LATEST"
+ *   },
+ *   Tags: {
+ *     DEPARTMENT: "Assets"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetFunctionCommand extends $Command
@@ -193,9 +249,7 @@ export class GetFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +261,16 @@ export class GetFunctionCommand extends $Command
   .f(void 0, GetFunctionResponseFilterSensitiveLog)
   .ser(se_GetFunctionCommand)
   .de(de_GetFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionRequest;
+      output: GetFunctionResponse;
+    };
+    sdk: {
+      input: GetFunctionCommandInput;
+      output: GetFunctionCommandOutput;
+    };
+  };
+}

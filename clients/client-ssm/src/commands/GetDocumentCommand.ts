@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,7 +52,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * //   Status: "Creating" || "Active" || "Updating" || "Deleting" || "Failed",
  * //   StatusInformation: "STRING_VALUE",
  * //   Content: "STRING_VALUE",
- * //   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //   DocumentFormat: "YAML" || "JSON" || "TEXT",
  * //   Requires: [ // DocumentRequiresList
  * //     { // DocumentRequires
@@ -93,6 +94,7 @@ export interface GetDocumentCommandOutput extends GetDocumentResult, __MetadataB
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetDocumentCommand extends $Command
@@ -103,9 +105,7 @@ export class GetDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDocumentCommand)
   .de(de_GetDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDocumentRequest;
+      output: GetDocumentResult;
+    };
+    sdk: {
+      input: GetDocumentCommandInput;
+      output: GetDocumentCommandOutput;
+    };
+  };
+}

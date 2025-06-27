@@ -12,7 +12,8 @@ import { de_ListMultipartUploadsCommand, se_ListMultipartUploadsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,47 +105,47 @@ export interface ListMultipartUploadsCommandOutput extends ListMultipartUploadsO
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To list all the in-progress multipart uploads for a vault
  * ```javascript
  * // The example lists all the in-progress multipart uploads for the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new ListMultipartUploadsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "null",
- *   "UploadsList": [
+ *   Marker: "null",
+ *   UploadsList: [
  *     {
- *       "ArchiveDescription": "archive 1",
- *       "CreationDate": "2012-03-19T23:20:59.130Z",
- *       "MultipartUploadId": "xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev",
- *       "PartSizeInBytes": 4194304,
- *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *       ArchiveDescription: "archive 1",
+ *       CreationDate: "2012-03-19T23:20:59.130Z",
+ *       MultipartUploadId: "xsQdFIRsfJr20CW2AbZBKpRZAFTZSJIMtL2hYf8mvp8dM0m4RUzlaqoEye6g3h3ecqB_zqwB7zLDMeSWhwo65re4C4Ev",
+ *       PartSizeInBytes: 4194304,
+ *       VaultARN: "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
  *     },
  *     {
- *       "ArchiveDescription": "archive 2",
- *       "CreationDate": "2012-04-01T15:00:00.000Z",
- *       "MultipartUploadId": "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
- *       "PartSizeInBytes": 4194304,
- *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *       ArchiveDescription: "archive 2",
+ *       CreationDate: "2012-04-01T15:00:00.000Z",
+ *       MultipartUploadId: "nPyGOnyFcx67qqX7E-0tSGiRi88hHMOwOxR-_jNyM6RjVMFfV29lFqZ3rNsSaWBugg6OP92pRtufeHdQH7ClIpSF6uJc",
+ *       PartSizeInBytes: 4194304,
+ *       VaultARN: "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
  *     },
  *     {
- *       "ArchiveDescription": "archive 3",
- *       "CreationDate": "2012-03-20T17:03:43.221Z",
- *       "MultipartUploadId": "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
- *       "PartSizeInBytes": 4194304,
- *       "VaultARN": "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
+ *       ArchiveDescription: "archive 3",
+ *       CreationDate: "2012-03-20T17:03:43.221Z",
+ *       MultipartUploadId: "qt-RBst_7yO8gVIonIBsAxr2t-db0pE4s8MNeGjKjGdNpuU-cdSAcqG62guwV9r5jh5mLyFPzFEitTpNE7iQfHiu1XoV",
+ *       PartSizeInBytes: 4194304,
+ *       VaultARN: "arn:aws:glacier:us-west-2:012345678901:vaults/examplevault"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-all-the-in-progress-multipart-uploads-for-a-vault-1481935250590
  * ```
  *
+ * @public
  */
 export class ListMultipartUploadsCommand extends $Command
   .classBuilder<
@@ -154,9 +155,7 @@ export class ListMultipartUploadsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +167,16 @@ export class ListMultipartUploadsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultipartUploadsCommand)
   .de(de_ListMultipartUploadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultipartUploadsInput;
+      output: ListMultipartUploadsOutput;
+    };
+    sdk: {
+      input: ListMultipartUploadsCommandInput;
+      output: ListMultipartUploadsCommandOutput;
+    };
+  };
+}

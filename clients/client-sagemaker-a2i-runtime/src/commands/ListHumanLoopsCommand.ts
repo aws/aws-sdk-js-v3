@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface ListHumanLoopsCommandOutput extends ListHumanLoopsResponse, __M
  * @throws {@link SageMakerA2IRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerA2IRuntime service.</p>
  *
+ *
  * @public
  */
 export class ListHumanLoopsCommand extends $Command
@@ -99,9 +101,7 @@ export class ListHumanLoopsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerA2IRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class ListHumanLoopsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHumanLoopsCommand)
   .de(de_ListHumanLoopsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHumanLoopsRequest;
+      output: ListHumanLoopsResponse;
+    };
+    sdk: {
+      input: ListHumanLoopsCommandInput;
+      output: ListHumanLoopsCommandOutput;
+    };
+  };
+}

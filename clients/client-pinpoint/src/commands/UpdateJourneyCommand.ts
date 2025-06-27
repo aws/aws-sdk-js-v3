@@ -12,7 +12,8 @@ import { de_UpdateJourneyCommand, se_UpdateJourneyCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -845,6 +846,7 @@ export interface UpdateJourneyCommandOutput extends UpdateJourneyResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class UpdateJourneyCommand extends $Command
@@ -855,9 +857,7 @@ export class UpdateJourneyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -869,4 +869,16 @@ export class UpdateJourneyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJourneyCommand)
   .de(de_UpdateJourneyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJourneyRequest;
+      output: UpdateJourneyResponse;
+    };
+    sdk: {
+      input: UpdateJourneyCommandInput;
+      output: UpdateJourneyCommandOutput;
+    };
+  };
+}

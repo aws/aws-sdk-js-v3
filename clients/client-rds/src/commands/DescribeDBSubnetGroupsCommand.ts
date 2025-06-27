@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,59 +95,59 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe a DB subnet group
  * ```javascript
  * // The following example retrieves the details of the specified DB subnet group.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeDBSubnetGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSubnetGroups": [
+ *   DBSubnetGroups: [
  *     {
- *       "DBSubnetGroupArn": "arn:aws:rds:us-east-1:123456789012:subgrp:mydbsubnetgroup",
- *       "DBSubnetGroupDescription": "My DB Subnet Group",
- *       "DBSubnetGroupName": "mydbsubnetgroup",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
+ *       DBSubnetGroupArn: "arn:aws:rds:us-east-1:123456789012:subgrp:mydbsubnetgroup",
+ *       DBSubnetGroupDescription: "My DB Subnet Group",
+ *       DBSubnetGroupName: "mydbsubnetgroup",
+ *       SubnetGroupStatus: "Complete",
+ *       Subnets: [
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1a"
  *           },
- *           "SubnetIdentifier": "subnet-d8c8e7f4",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-d8c8e7f4",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1f"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1f"
  *           },
- *           "SubnetIdentifier": "subnet-718fdc7d",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-718fdc7d",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1a"
  *           },
- *           "SubnetIdentifier": "subnet-cbc8e7e7",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-cbc8e7e7",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-east-1a"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-east-1a"
  *           },
- *           "SubnetIdentifier": "subnet-0ccde220",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-0ccde220",
+ *           SubnetStatus: "Active"
  *         }
  *       ],
- *       "VpcId": "vpc-971c12ee"
+ *       VpcId: "vpc-971c12ee"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-db-subnet-group-1680280764611
  * ```
  *
+ * @public
  */
 export class DescribeDBSubnetGroupsCommand extends $Command
   .classBuilder<
@@ -156,9 +157,7 @@ export class DescribeDBSubnetGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +169,16 @@ export class DescribeDBSubnetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSubnetGroupsCommand)
   .de(de_DescribeDBSubnetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSubnetGroupsMessage;
+      output: DBSubnetGroupMessage;
+    };
+    sdk: {
+      input: DescribeDBSubnetGroupsCommandInput;
+      output: DescribeDBSubnetGroupsCommandOutput;
+    };
+  };
+}

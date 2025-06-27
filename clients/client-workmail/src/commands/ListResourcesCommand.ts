@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListResourcesRequest, ListResourcesResponse } from "../models/models_0";
+import {
+  ListResourcesRequest,
+  ListResourcesResponse,
+  ListResourcesResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListResourcesCommand, se_ListResourcesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } from "../WorkMailClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +92,7 @@ export interface ListResourcesCommandOutput extends ListResourcesResponse, __Met
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesCommand extends $Command
@@ -97,9 +103,7 @@ export class ListResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,7 +112,19 @@ export class ListResourcesCommand extends $Command
   })
   .s("WorkMailService", "ListResources", {})
   .n("WorkMailClient", "ListResourcesCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListResourcesResponseFilterSensitiveLog)
   .ser(se_ListResourcesCommand)
   .de(de_ListResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesRequest;
+      output: ListResourcesResponse;
+    };
+    sdk: {
+      input: ListResourcesCommandInput;
+      output: ListResourcesCommandOutput;
+    };
+  };
+}

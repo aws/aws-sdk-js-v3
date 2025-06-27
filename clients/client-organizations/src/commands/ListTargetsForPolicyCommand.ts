@@ -12,7 +12,8 @@ import { de_ListTargetsForPolicyCommand, se_ListTargetsForPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,7 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,6 +138,10 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -177,6 +182,9 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -205,42 +213,42 @@ export interface ListTargetsForPolicyCommandOutput extends ListTargetsForPolicyR
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of roots, OUs, and accounts to which a policy is attached
  * ```javascript
  * // The following example shows how to get the list of roots, OUs, and accounts to which the specified policy is attached:/n/n
  * const input = {
- *   "PolicyId": "p-FullAWSAccess"
+ *   PolicyId: "p-FullAWSAccess"
  * };
  * const command = new ListTargetsForPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Targets": [
+ *   Targets: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
- *       "Name": "Root",
- *       "TargetId": "r-examplerootid111",
- *       "Type": "ROOT"
+ *       Arn: "arn:aws:organizations::111111111111:root/o-exampleorgid/r-examplerootid111",
+ *       Name: "Root",
+ *       TargetId: "r-examplerootid111",
+ *       Type: "ROOT"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333;",
- *       "Name": "Developer Test Account",
- *       "TargetId": "333333333333",
- *       "Type": "ACCOUNT"
+ *       Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333;",
+ *       Name: "Developer Test Account",
+ *       TargetId: "333333333333",
+ *       Type: "ACCOUNT"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *       "Name": "Accounting",
- *       "TargetId": "ou-examplerootid111-exampleouid111",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *       Name: "Accounting",
+ *       TargetId: "ou-examplerootid111-exampleouid111",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-roots-ous-and-accounts-to-which-a-policy-is-attached
  * ```
  *
+ * @public
  */
 export class ListTargetsForPolicyCommand extends $Command
   .classBuilder<
@@ -250,9 +258,7 @@ export class ListTargetsForPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -264,4 +270,16 @@ export class ListTargetsForPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTargetsForPolicyCommand)
   .de(de_ListTargetsForPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTargetsForPolicyRequest;
+      output: ListTargetsForPolicyResponse;
+    };
+    sdk: {
+      input: ListTargetsForPolicyCommandInput;
+      output: ListTargetsForPolicyCommandOutput;
+    };
+  };
+}

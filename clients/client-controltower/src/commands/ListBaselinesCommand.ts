@@ -12,7 +12,8 @@ import { de_ListBaselinesCommand, se_ListBaselinesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListBaselinesCommandInput extends ListBaselinesInput {}
 export interface ListBaselinesCommandOutput extends ListBaselinesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a summary list of all available baselines. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Returns a summary list of all available baselines. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +75,7 @@ export interface ListBaselinesCommandOutput extends ListBaselinesOutput, __Metad
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListBaselinesCommand extends $Command
@@ -86,9 +86,7 @@ export class ListBaselinesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +98,16 @@ export class ListBaselinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBaselinesCommand)
   .de(de_ListBaselinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBaselinesInput;
+      output: ListBaselinesOutput;
+    };
+    sdk: {
+      input: ListBaselinesCommandInput;
+      output: ListBaselinesCommandOutput;
+    };
+  };
+}

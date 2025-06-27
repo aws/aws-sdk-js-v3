@@ -12,7 +12,8 @@ import { de_GetDeploymentCommand, se_GetDeploymentCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,10 +56,10 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * //   GrowthType: "LINEAR" || "EXPONENTIAL",
  * //   GrowthFactor: Number("float"),
  * //   FinalBakeTimeInMinutes: Number("int"),
- * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   EventLog: [ // DeploymentEvents
  * //     { // DeploymentEvent
- * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED",
+ * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED" || "REVERT_COMPLETED",
  * //       TriggeredBy: "USER" || "APPCONFIG" || "CLOUDWATCH_ALARM" || "INTERNAL_ERROR",
  * //       Description: "STRING_VALUE",
  * //       ActionInvocations: [ // ActionInvocations
@@ -113,84 +114,8 @@ export interface GetDeploymentCommandOutput extends Deployment, __MetadataBearer
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
- * @example To retrieve deployment details
- * ```javascript
- * // The following get-deployment example lists details of the deployment to the application in the specified environment and deployment.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "DeploymentNumber": 1,
- *   "EnvironmentId": "54j1r29"
- * };
- * const command = new GetDeploymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ApplicationId": "339ohji",
- *   "CompletedAt": "2021-09-17T21:59:03.888000+00:00",
- *   "ConfigurationLocationUri": "ssm-parameter://Example-Parameter",
- *   "ConfigurationName": "Example-Configuration-Profile",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ConfigurationVersion": "1",
- *   "DeploymentDurationInMinutes": 15,
- *   "DeploymentNumber": 1,
- *   "DeploymentStrategyId": "1225qzk",
- *   "EnvironmentId": "54j1r29",
- *   "EventLog": [
- *     {
- *       "Description": "Deployment completed",
- *       "EventType": "DEPLOYMENT_COMPLETED",
- *       "OccurredAt": "2021-09-17T21:59:03.888000+00:00",
- *       "TriggeredBy": "APPCONFIG"
- *     },
- *     {
- *       "Description": "Deployment bake time started",
- *       "EventType": "BAKE_TIME_STARTED",
- *       "OccurredAt": "2021-09-17T21:58:57.722000+00:00",
- *       "TriggeredBy": "APPCONFIG"
- *     },
- *     {
- *       "Description": "Configuration available to 100.00% of clients",
- *       "EventType": "PERCENTAGE_UPDATED",
- *       "OccurredAt": "2021-09-17T21:55:56.816000+00:00",
- *       "TriggeredBy": "APPCONFIG"
- *     },
- *     {
- *       "Description": "Configuration available to 75.00% of clients",
- *       "EventType": "PERCENTAGE_UPDATED",
- *       "OccurredAt": "2021-09-17T21:52:56.567000+00:00",
- *       "TriggeredBy": "APPCONFIG"
- *     },
- *     {
- *       "Description": "Configuration available to 50.00% of clients",
- *       "EventType": "PERCENTAGE_UPDATED",
- *       "OccurredAt": "2021-09-17T21:49:55.737000+00:00",
- *       "TriggeredBy": "APPCONFIG"
- *     },
- *     {
- *       "Description": "Configuration available to 25.00% of clients",
- *       "EventType": "PERCENTAGE_UPDATED",
- *       "OccurredAt": "2021-09-17T21:46:55.187000+00:00",
- *       "TriggeredBy": "APPCONFIG"
- *     },
- *     {
- *       "Description": "Deployment started",
- *       "EventType": "DEPLOYMENT_STARTED",
- *       "OccurredAt": "2021-09-17T21:43:54.205000+00:00",
- *       "TriggeredBy": "USER"
- *     }
- *   ],
- *   "FinalBakeTimeInMinutes": 0,
- *   "GrowthFactor": 25,
- *   "GrowthType": "LINEAR",
- *   "PercentageComplete": 100,
- *   "StartedAt": "2021-09-17T21:43:54.205000+00:00",
- *   "State": "COMPLETE"
- * }
- * *\/
- * // example id: to-retrieve-deployment-details-1633976766883
- * ```
  *
+ * @public
  */
 export class GetDeploymentCommand extends $Command
   .classBuilder<
@@ -200,9 +125,7 @@ export class GetDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +137,16 @@ export class GetDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeploymentCommand)
   .de(de_GetDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentRequest;
+      output: Deployment;
+    };
+    sdk: {
+      input: GetDeploymentCommandInput;
+      output: GetDeploymentCommandOutput;
+    };
+  };
+}

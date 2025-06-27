@@ -9,6 +9,7 @@ export * from "./DecryptCommand";
 export * from "./DeleteAliasCommand";
 export * from "./DeleteCustomKeyStoreCommand";
 export * from "./DeleteImportedKeyMaterialCommand";
+export * from "./DeriveSharedSecretCommand";
 export * from "./DescribeCustomKeyStoresCommand";
 export * from "./DescribeKeyCommand";
 export * from "./DisableKeyCommand";

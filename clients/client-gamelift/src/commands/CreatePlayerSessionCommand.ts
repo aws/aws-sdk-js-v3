@@ -17,7 +17,8 @@ import { de_CreatePlayerSessionCommand, se_CreatePlayerSessionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  *          <p>If successful, a slot is reserved in the game session for the player and a new
  *                 <code>PlayerSessions</code> object is returned with a player session ID. The player
  *             references the player session ID when sending a connection request to the game session,
- *             and the game server can use it to validate the player reservation with the Amazon GameLift
+ *             and the game server can use it to validate the player reservation with the Amazon GameLift Servers
  *             service. Player sessions cannot be updated. </p>
  *          <p>The maximum number of players per game session is 200. It is not adjustable. </p>
  *          <p>
@@ -106,7 +107,7 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
  *  <p>The service is unable to resolve the routing for a particular alias because it has a
@@ -120,6 +121,7 @@ export interface CreatePlayerSessionCommandOutput extends CreatePlayerSessionOut
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreatePlayerSessionCommand extends $Command
@@ -130,9 +132,7 @@ export class CreatePlayerSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class CreatePlayerSessionCommand extends $Command
   .f(CreatePlayerSessionInputFilterSensitiveLog, CreatePlayerSessionOutputFilterSensitiveLog)
   .ser(se_CreatePlayerSessionCommand)
   .de(de_CreatePlayerSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePlayerSessionInput;
+      output: CreatePlayerSessionOutput;
+    };
+    sdk: {
+      input: CreatePlayerSessionCommandInput;
+      output: CreatePlayerSessionCommandOutput;
+    };
+  };
+}

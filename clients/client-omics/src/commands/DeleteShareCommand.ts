@@ -12,7 +12,8 @@ import { de_DeleteShareCommand, se_DeleteShareCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteShareCommandInput extends DeleteShareRequest {}
 export interface DeleteShareCommandOutput extends DeleteShareResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a resource share. If you are the resource owner, the subscriber will no longer have
- *       access to the shared resource. If you are the subscriber, this operation deletes your access to the share.</p>
+ * <p>Deletes a resource share. If you are the resource owner, the subscriber will no longer have access to the shared resource. If you are the subscriber, this operation deletes your access to the share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +76,7 @@ export interface DeleteShareCommandOutput extends DeleteShareResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteShareCommand extends $Command
@@ -86,9 +87,7 @@ export class DeleteShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class DeleteShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteShareCommand)
   .de(de_DeleteShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteShareRequest;
+      output: DeleteShareResponse;
+    };
+    sdk: {
+      input: DeleteShareCommandInput;
+      output: DeleteShareCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_RequestEnvironmentInfoCommand, se_RequestEnvironmentInfoCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,19 +70,22 @@ export interface RequestEnvironmentInfoCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To request tailed logs
  * ```javascript
  * // The following operation requests logs from an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env",
- *   "InfoType": "tail"
+ *   EnvironmentName: "my-env",
+ *   InfoType: "tail"
  * };
  * const command = new RequestEnvironmentInfoCommand(input);
- * await client.send(command);
- * // example id: to-request-tailed-logs-1456277657045
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RequestEnvironmentInfoCommand extends $Command
   .classBuilder<
@@ -91,9 +95,7 @@ export class RequestEnvironmentInfoCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +107,16 @@ export class RequestEnvironmentInfoCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestEnvironmentInfoCommand)
   .de(de_RequestEnvironmentInfoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestEnvironmentInfoMessage;
+      output: {};
+    };
+    sdk: {
+      input: RequestEnvironmentInfoCommandInput;
+      output: RequestEnvironmentInfoCommandOutput;
+    };
+  };
+}

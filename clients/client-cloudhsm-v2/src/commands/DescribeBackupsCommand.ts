@@ -12,7 +12,8 @@ import { de_DescribeBackupsCommand, se_DescribeBackupsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,14 @@ export interface DescribeBackupsCommandInput extends DescribeBackupsRequest {}
 export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about backups of AWS CloudHSM clusters.</p>
+ * <p>Gets information about backups of CloudHSM clusters. Lists either the backups you own or the backups shared with you when the Shared parameter is true.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the backups. When the response contains only a subset of backups, it includes a
  *         <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code>
  *       request to get more backups. When you receive a response with no <code>NextToken</code> (or an
  *       empty or null value), that means there are no more backups to get.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> Yes. Customers can describe backups in other Amazon Web Services accounts that are shared with them.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,6 +50,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *       "STRING_VALUE",
  *     ],
  *   },
+ *   Shared: true || false,
  *   SortAscending: true || false,
  * };
  * const command = new DescribeBackupsCommand(input);
@@ -55,6 +59,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //   Backups: [ // Backups
  * //     { // Backup
  * //       BackupId: "STRING_VALUE", // required
+ * //       BackupArn: "STRING_VALUE",
  * //       BackupState: "CREATE_IN_PROGRESS" || "READY" || "DELETED" || "PENDING_DELETION",
  * //       ClusterId: "STRING_VALUE",
  * //       CreateTimestamp: new Date("TIMESTAMP"),
@@ -70,6 +75,8 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * //           Value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       HsmType: "STRING_VALUE",
+ * //       Mode: "FIPS" || "NON_FIPS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -88,7 +95,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -107,6 +114,7 @@ export interface DescribeBackupsCommandOutput extends DescribeBackupsResponse, _
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBackupsCommand extends $Command
@@ -117,9 +125,7 @@ export class DescribeBackupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +137,16 @@ export class DescribeBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBackupsCommand)
   .de(de_DescribeBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBackupsRequest;
+      output: DescribeBackupsResponse;
+    };
+    sdk: {
+      input: DescribeBackupsCommandInput;
+      output: DescribeBackupsCommandOutput;
+    };
+  };
+}

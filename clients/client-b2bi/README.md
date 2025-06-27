@@ -20,7 +20,7 @@ on a later command. For details, see <a href="https://docs.aws.amazon.com/cli/la
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-b2bi
+To install this package, simply type add or install @aws-sdk/client-b2bi
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-b2bi`
@@ -239,6 +239,14 @@ CreateProfile
 </details>
 <details>
 <summary>
+CreateStarterMappingTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/CreateStarterMappingTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/CreateStarterMappingTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/CreateStarterMappingTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateTransformer
 </summary>
 
@@ -275,6 +283,14 @@ DeleteTransformer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/DeleteTransformerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/DeleteTransformerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/DeleteTransformerCommandOutput/)
+
+</details>
+<details>
+<summary>
+GenerateMapping
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/GenerateMappingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/GenerateMappingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/GenerateMappingCommandOutput/)
 
 </details>
 <details>
@@ -371,6 +387,14 @@ TagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/TagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+TestConversion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/b2bi/command/TestConversionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TestConversionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-b2bi/Interface/TestConversionCommandOutput/)
 
 </details>
 <details>

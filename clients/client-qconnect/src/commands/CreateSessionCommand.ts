@@ -12,7 +12,8 @@ import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,11 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  *       },
  *     ],
  *   },
+ *   aiAgentConfiguration: { // AIAgentConfigurationMap
+ *     "<keys>": { // AIAgentConfigurationData
+ *       aiAgentId: "STRING_VALUE", // required
+ *     },
+ *   },
  * };
  * const command = new CreateSessionCommand(input);
  * const response = await client.send(command);
@@ -99,6 +105,12 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     origin: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -128,6 +140,7 @@ export interface CreateSessionCommandOutput extends CreateSessionResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateSessionCommand extends $Command
@@ -138,9 +151,7 @@ export class CreateSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +163,16 @@ export class CreateSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSessionCommand)
   .de(de_CreateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSessionRequest;
+      output: CreateSessionResponse;
+    };
+    sdk: {
+      input: CreateSessionCommandInput;
+      output: CreateSessionCommandOutput;
+    };
+  };
+}

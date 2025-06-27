@@ -12,7 +12,8 @@ import { de_UpdatePackagingGroupCommand, se_UpdatePackagingGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface UpdatePackagingGroupCommandOutput extends UpdatePackagingGroupR
  * @throws {@link MediaPackageVodServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageVod service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackagingGroupCommand extends $Command
@@ -100,9 +102,7 @@ export class UpdatePackagingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageVodClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class UpdatePackagingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackagingGroupCommand)
   .de(de_UpdatePackagingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackagingGroupRequest;
+      output: UpdatePackagingGroupResponse;
+    };
+    sdk: {
+      input: UpdatePackagingGroupCommandInput;
+      output: UpdatePackagingGroupCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_UpdateProblemCommand, se_UpdateProblemCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface UpdateProblemCommandOutput extends UpdateProblemResponse, __Met
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class UpdateProblemCommand extends $Command
@@ -78,9 +80,7 @@ export class UpdateProblemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class UpdateProblemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProblemCommand)
   .de(de_UpdateProblemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProblemRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateProblemCommandInput;
+      output: UpdateProblemCommandOutput;
+    };
+  };
+}

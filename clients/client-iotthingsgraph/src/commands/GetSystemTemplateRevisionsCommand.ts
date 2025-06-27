@@ -12,7 +12,8 @@ import { de_GetSystemTemplateRevisionsCommand, se_GetSystemTemplateRevisionsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface GetSystemTemplateRevisionsCommandOutput extends GetSystemTempla
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class GetSystemTemplateRevisionsCommand extends $Command
@@ -89,9 +91,7 @@ export class GetSystemTemplateRevisionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetSystemTemplateRevisionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSystemTemplateRevisionsCommand)
   .de(de_GetSystemTemplateRevisionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSystemTemplateRevisionsRequest;
+      output: GetSystemTemplateRevisionsResponse;
+    };
+    sdk: {
+      input: GetSystemTemplateRevisionsCommandInput;
+      output: GetSystemTemplateRevisionsCommandOutput;
+    };
+  };
+}

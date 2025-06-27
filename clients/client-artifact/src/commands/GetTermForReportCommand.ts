@@ -12,7 +12,8 @@ import { de_GetTermForReportCommand, se_GetTermForReportCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,24 @@ export interface GetTermForReportCommandOutput extends GetTermForReportResponse,
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ *
+ * @example Invoke GetTermForReport operation on the latest version of a specific report
+ * ```javascript
+ * // The GetTermForReport operation is invoked on a reportId and on a optional version.
+ *                         If callers do not provide a version, it will default to the report's latest version.
+ * const input = {
+ *   reportId: "report-abcdef0123456789"
+ * };
+ * const command = new GetTermForReportCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   documentPresignedUrl: "<Presigned S3 URL>",
+ *   termToken: "term-token-abcdefghijklm01234567890"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetTermForReportCommand extends $Command
@@ -87,9 +106,7 @@ export class GetTermForReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +118,16 @@ export class GetTermForReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTermForReportCommand)
   .de(de_GetTermForReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTermForReportRequest;
+      output: GetTermForReportResponse;
+    };
+    sdk: {
+      input: GetTermForReportCommandInput;
+      output: GetTermForReportCommandOutput;
+    };
+  };
+}

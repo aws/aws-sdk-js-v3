@@ -12,7 +12,8 @@ import { de_CreateAnalyzerCommand, se_CreateAnalyzerCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,37 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  *   configuration: { // AnalyzerConfiguration Union: only one key present
  *     unusedAccess: { // UnusedAccessConfiguration
  *       unusedAccessAge: Number("int"),
+ *       analysisRule: { // AnalysisRule
+ *         exclusions: [ // AnalysisRuleCriteriaList
+ *           { // AnalysisRuleCriteria
+ *             accountIds: [ // AccountIdsList
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceTags: [ // TagsList
+ *               {
+ *                 "<keys>": "STRING_VALUE",
+ *               },
+ *             ],
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     internalAccess: { // InternalAccessConfiguration
+ *       analysisRule: { // InternalAccessAnalysisRule
+ *         inclusions: [ // InternalAccessAnalysisRuleCriteriaList
+ *           { // InternalAccessAnalysisRuleCriteria
+ *             accountIds: [
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceTypes: [ // ResourceTypeList
+ *               "STRING_VALUE",
+ *             ],
+ *             resourceArns: [ // ResourceArnsList
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *       },
  *     },
  *   },
  * };
@@ -101,6 +133,7 @@ export interface CreateAnalyzerCommandOutput extends CreateAnalyzerResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class CreateAnalyzerCommand extends $Command
@@ -111,9 +144,7 @@ export class CreateAnalyzerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +156,16 @@ export class CreateAnalyzerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAnalyzerCommand)
   .de(de_CreateAnalyzerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAnalyzerRequest;
+      output: CreateAnalyzerResponse;
+    };
+    sdk: {
+      input: CreateAnalyzerCommandInput;
+      output: CreateAnalyzerCommandOutput;
+    };
+  };
+}

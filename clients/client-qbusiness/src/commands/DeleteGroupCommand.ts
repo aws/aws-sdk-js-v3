@@ -12,7 +12,8 @@ import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,7 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a group so that all users and sub groups that belong to the group can no
- *             longer access documents only available to that group. For example, after deleting the
- *             group "Summer Interns", all interns who belonged to that group no longer see intern-only
- *             documents in their chat results. </p>
- *          <p>If you want to delete, update, or replace users or sub groups of a group, you need to
- *             use the <code>PutGroup</code> operation. For example, if a user in the group
- *             "Engineering" leaves the engineering team and another user takes their place, you
- *             provide an updated list of users or sub groups that belong to the "Engineering" group
- *             when calling <code>PutGroup</code>.</p>
+ * <p>Deletes a group so that all users and sub groups that belong to the group can no longer access documents only available to that group. For example, after deleting the group "Summer Interns", all interns who belonged to that group no longer see intern-only documents in their chat results. </p> <p>If you want to delete, update, or replace users or sub groups of a group, you need to use the <code>PutGroup</code> operation. For example, if a user in the group "Engineering" leaves the engineering team and another user takes their place, you provide an updated list of users or sub groups that belong to the "Engineering" group when calling <code>PutGroup</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,31 +54,26 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required
- *             permission policies and user accounts and try again.</p>
+ *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *  <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
- *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try
- *             again.</p>
+ *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
- *             correct input and try again.</p>
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
+ *
  *
  * @public
  */
@@ -97,9 +85,7 @@ export class DeleteGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +97,16 @@ export class DeleteGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGroupCommand)
   .de(de_DeleteGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGroupCommandInput;
+      output: DeleteGroupCommandOutput;
+    };
+  };
+}

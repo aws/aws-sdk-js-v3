@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,20 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //         minSize: Number("int"),
  * //         maxSize: Number("int"),
  * //         instanceType: "STRING_VALUE",
+ * //         allocationStrategy: "Prioritized" || "LowestPrice",
+ * //         estimatedInstanceHourReductionPercentage: Number("double"),
+ * //         type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //         mixedInstanceTypes: [ // MixedInstanceTypes
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       currentInstanceGpuInfo: { // GpuInfo
+ * //         gpus: [ // Gpus
+ * //           { // Gpu
+ * //             gpuCount: Number("int"),
+ * //             gpuMemorySizeInMiB: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       recommendationOptions: [ // AutoScalingGroupRecommendationOptions
  * //         { // AutoScalingGroupRecommendationOption
@@ -100,6 +115,20 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //             minSize: Number("int"),
  * //             maxSize: Number("int"),
  * //             instanceType: "STRING_VALUE",
+ * //             allocationStrategy: "Prioritized" || "LowestPrice",
+ * //             estimatedInstanceHourReductionPercentage: Number("double"),
+ * //             type: "SingleInstanceType" || "MixedInstanceTypes",
+ * //             mixedInstanceTypes: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           instanceGpuInfo: {
+ * //             gpus: [
+ * //               {
+ * //                 gpuCount: Number("int"),
+ * //                 gpuMemorySizeInMiB: Number("int"),
+ * //               },
+ * //             ],
  * //           },
  * //           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
  * //             {
@@ -117,15 +146,6 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
- * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
- * //           instanceGpuInfo: { // GpuInfo
- * //             gpus: [ // Gpus
- * //               { // Gpu
- * //                 gpuCount: Number("int"),
- * //                 gpuMemorySizeInMiB: Number("int"),
- * //               },
- * //             ],
- * //           },
  * //           savingsOpportunityAfterDiscounts: { // AutoScalingGroupSavingsOpportunityAfterDiscounts
  * //             savingsOpportunityPercentage: Number("double"),
  * //             estimatedMonthlySavings: { // AutoScalingGroupEstimatedMonthlySavings
@@ -133,6 +153,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -177,14 +198,6 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * //       inferredWorkloadTypes: [ // InferredWorkloadTypes
  * //         "AmazonEmr" || "ApacheCassandra" || "ApacheHadoop" || "Memcached" || "Nginx" || "PostgreSql" || "Redis" || "Kafka" || "SQLServer",
  * //       ],
- * //       currentInstanceGpuInfo: {
- * //         gpus: [
- * //           {
- * //             gpuCount: Number("int"),
- * //             gpuMemorySizeInMiB: Number("int"),
- * //           },
- * //         ],
- * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
@@ -232,6 +245,7 @@ export interface GetAutoScalingGroupRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetAutoScalingGroupRecommendationsCommand extends $Command
@@ -242,9 +256,7 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -256,4 +268,16 @@ export class GetAutoScalingGroupRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoScalingGroupRecommendationsCommand)
   .de(de_GetAutoScalingGroupRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutoScalingGroupRecommendationsRequest;
+      output: GetAutoScalingGroupRecommendationsResponse;
+    };
+    sdk: {
+      input: GetAutoScalingGroupRecommendationsCommandInput;
+      output: GetAutoScalingGroupRecommendationsCommandOutput;
+    };
+  };
+}

@@ -124,8 +124,12 @@ import { MediaTailorServiceException as __BaseException } from "../models/MediaT
 import {
   AccessConfiguration,
   AdBreak,
+  AdConditioningConfiguration,
   AdMarkerPassthrough,
   AdMarkupType,
+  AdsInteractionExcludeEventType,
+  AdsInteractionLog,
+  AdsInteractionPublishOptInEventType,
   Alert,
   AlternateMedia,
   AudienceMedia,
@@ -145,12 +149,18 @@ import {
   KeyValuePair,
   LivePreRollConfiguration,
   LiveSource,
+  LoggingStrategy,
   LogType,
   ManifestProcessingRules,
+  ManifestServiceExcludeEventType,
+  ManifestServiceInteractionLog,
   PlaybackConfiguration,
   PrefetchConsumption,
   PrefetchRetrieval,
   PrefetchSchedule,
+  RecurringConsumption,
+  RecurringPrefetchConfiguration,
+  RecurringRetrieval,
   RequestOutputItem,
   ScheduleAdBreak,
   ScheduleConfiguration,
@@ -163,6 +173,7 @@ import {
   SpliceInsertMessage,
   TimeShiftConfiguration,
   TimeSignalMessage,
+  TrafficShapingRetrievalWindow,
   Transition,
   UpdateProgramScheduleConfiguration,
   UpdateProgramTransition,
@@ -207,6 +218,9 @@ export const se_ConfigureLogsForPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AdsInteractionLog: (_) => _json(_),
+      EnabledLoggingStrategies: (_) => _json(_),
+      ManifestServiceInteractionLog: (_) => _json(_),
       PercentEnabled: [],
       PlaybackConfigurationName: [],
     })
@@ -287,7 +301,9 @@ export const se_CreatePrefetchScheduleCommand = async (
   body = JSON.stringify(
     take(input, {
       Consumption: (_) => se_PrefetchConsumption(_, context),
+      RecurringPrefetchConfiguration: (_) => se_RecurringPrefetchConfiguration(_, context),
       Retrieval: (_) => se_PrefetchRetrieval(_, context),
+      ScheduleType: [],
       StreamId: [],
     })
   );
@@ -758,6 +774,7 @@ export const se_ListPrefetchSchedulesCommand = async (
     take(input, {
       MaxResults: [],
       NextToken: [],
+      ScheduleType: [],
       StreamId: [],
     })
   );
@@ -858,6 +875,7 @@ export const se_PutPlaybackConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AdConditioningConfiguration: (_) => _json(_),
       AdDecisionServerUrl: [],
       AvailSuppression: (_) => _json(_),
       Bumper: (_) => _json(_),
@@ -946,10 +964,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1119,6 +1134,9 @@ export const de_ConfigureLogsForPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdsInteractionLog: _json,
+    EnabledLoggingStrategies: _json,
+    ManifestServiceInteractionLog: _json,
     PercentEnabled: __expectInt32,
     PlaybackConfigurationName: __expectString,
   });
@@ -1204,7 +1222,9 @@ export const de_CreatePrefetchScheduleCommand = async (
     Consumption: (_) => de_PrefetchConsumption(_, context),
     Name: __expectString,
     PlaybackConfigurationName: __expectString,
+    RecurringPrefetchConfiguration: (_) => de_RecurringPrefetchConfiguration(_, context),
     Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    ScheduleType: __expectString,
     StreamId: __expectString,
   });
   Object.assign(contents, doc);
@@ -1642,6 +1662,7 @@ export const de_GetPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -1686,7 +1707,9 @@ export const de_GetPrefetchScheduleCommand = async (
     Consumption: (_) => de_PrefetchConsumption(_, context),
     Name: __expectString,
     PlaybackConfigurationName: __expectString,
+    RecurringPrefetchConfiguration: (_) => de_RecurringPrefetchConfiguration(_, context),
     Retrieval: (_) => de_PrefetchRetrieval(_, context),
+    ScheduleType: __expectString,
     StreamId: __expectString,
   });
   Object.assign(contents, doc);
@@ -1900,6 +1923,7 @@ export const de_PutPlaybackConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -2181,6 +2205,10 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se___adsInteractionExcludeEventTypesList omitted.
+
+// se___adsInteractionPublishOptInEventTypesList omitted.
+
 // se___listOfAdBreak omitted.
 
 // se___listOfAlternateMedia omitted.
@@ -2189,7 +2217,11 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se___listOfAvailMatchingCriteria omitted.
 
+// se___listOfLoggingStrategies omitted.
+
 // se___listOfSegmentDeliveryConfiguration omitted.
+
+// se___manifestServiceExcludeEventTypesList omitted.
 
 // se___mapOf__string omitted.
 
@@ -2199,9 +2231,13 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AdBreakMetadataList omitted.
 
+// se_AdConditioningConfiguration omitted.
+
 // se_AdMarkerPassthrough omitted.
 
 // se_adMarkupTypes omitted.
+
+// se_AdsInteractionLog omitted.
 
 // se_AlternateMedia omitted.
 
@@ -2243,6 +2279,8 @@ const de_BadRequestExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ManifestProcessingRules omitted.
 
+// se_ManifestServiceInteractionLog omitted.
+
 /**
  * serializeAws_restJson1PrefetchConsumption
  */
@@ -2262,8 +2300,26 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
     DynamicVariables: _json,
     EndTime: (_) => _.getTime() / 1_000,
     StartTime: (_) => _.getTime() / 1_000,
+    TrafficShapingRetrievalWindow: _json,
+    TrafficShapingType: [],
   });
 };
+
+// se_RecurringConsumption omitted.
+
+/**
+ * serializeAws_restJson1RecurringPrefetchConfiguration
+ */
+const se_RecurringPrefetchConfiguration = (input: RecurringPrefetchConfiguration, context: __SerdeContext): any => {
+  return take(input, {
+    EndTime: (_) => _.getTime() / 1_000,
+    RecurringConsumption: _json,
+    RecurringRetrieval: _json,
+    StartTime: (_) => _.getTime() / 1_000,
+  });
+};
+
+// se_RecurringRetrieval omitted.
 
 // se_RequestOutputItem omitted.
 
@@ -2287,11 +2343,17 @@ const se_PrefetchRetrieval = (input: PrefetchRetrieval, context: __SerdeContext)
 
 // se_TimeSignalMessage omitted.
 
+// se_TrafficShapingRetrievalWindow omitted.
+
 // se_Transition omitted.
 
 // se_UpdateProgramScheduleConfiguration omitted.
 
 // se_UpdateProgramTransition omitted.
+
+// de___adsInteractionExcludeEventTypesList omitted.
+
+// de___adsInteractionPublishOptInEventTypesList omitted.
 
 // de___listOf__string omitted.
 
@@ -2338,6 +2400,8 @@ const de___listOfLiveSource = (output: any, context: __SerdeContext): LiveSource
     });
   return retVal;
 };
+
+// de___listOfLoggingStrategies omitted.
 
 /**
  * deserializeAws_restJson1__listOfPlaybackConfiguration
@@ -2413,6 +2477,8 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
   return retVal;
 };
 
+// de___manifestServiceExcludeEventTypesList omitted.
+
 // de___mapOf__string omitted.
 
 // de_AccessConfiguration omitted.
@@ -2425,9 +2491,13 @@ const de___listOfVodSource = (output: any, context: __SerdeContext): VodSource[]
 
 // de_AdBreakOpportunity omitted.
 
+// de_AdConditioningConfiguration omitted.
+
 // de_AdMarkerPassthrough omitted.
 
 // de_adMarkupTypes omitted.
+
+// de_AdsInteractionLog omitted.
 
 /**
  * deserializeAws_restJson1Alert
@@ -2524,11 +2594,14 @@ const de_LiveSource = (output: any, context: __SerdeContext): LiveSource => {
 
 // de_ManifestProcessingRules omitted.
 
+// de_ManifestServiceInteractionLog omitted.
+
 /**
  * deserializeAws_restJson1PlaybackConfiguration
  */
 const de_PlaybackConfiguration = (output: any, context: __SerdeContext): PlaybackConfiguration => {
   return take(output, {
+    AdConditioningConfiguration: _json,
     AdDecisionServerUrl: __expectString,
     AvailSuppression: _json,
     Bumper: _json,
@@ -2571,6 +2644,8 @@ const de_PrefetchRetrieval = (output: any, context: __SerdeContext): PrefetchRet
     DynamicVariables: _json,
     EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    TrafficShapingRetrievalWindow: _json,
+    TrafficShapingType: __expectString,
   }) as any;
 };
 
@@ -2583,10 +2658,28 @@ const de_PrefetchSchedule = (output: any, context: __SerdeContext): PrefetchSche
     Consumption: (_: any) => de_PrefetchConsumption(_, context),
     Name: __expectString,
     PlaybackConfigurationName: __expectString,
+    RecurringPrefetchConfiguration: (_: any) => de_RecurringPrefetchConfiguration(_, context),
     Retrieval: (_: any) => de_PrefetchRetrieval(_, context),
+    ScheduleType: __expectString,
     StreamId: __expectString,
   }) as any;
 };
+
+// de_RecurringConsumption omitted.
+
+/**
+ * deserializeAws_restJson1RecurringPrefetchConfiguration
+ */
+const de_RecurringPrefetchConfiguration = (output: any, context: __SerdeContext): RecurringPrefetchConfiguration => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RecurringConsumption: _json,
+    RecurringRetrieval: _json,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_RecurringRetrieval omitted.
 
 // de_ResponseOutputItem omitted.
 
@@ -2656,6 +2749,8 @@ const de_SourceLocation = (output: any, context: __SerdeContext): SourceLocation
 
 // de_TimeSignalMessage omitted.
 
+// de_TrafficShapingRetrievalWindow omitted.
+
 /**
  * deserializeAws_restJson1VodSource
  */
@@ -2682,13 +2777,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Audience";
 const _DM = "DurationMinutes";

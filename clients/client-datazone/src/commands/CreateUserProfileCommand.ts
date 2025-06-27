@@ -10,13 +10,14 @@ import {
   CreateUserProfileInput,
   CreateUserProfileOutput,
   CreateUserProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateUserProfileCommand, se_CreateUserProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface CreateUserProfileCommandOutput extends CreateUserProfileOutput,
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateUserProfileCommand extends $Command
@@ -102,9 +104,7 @@ export class CreateUserProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CreateUserProfileCommand extends $Command
   .f(void 0, CreateUserProfileOutputFilterSensitiveLog)
   .ser(se_CreateUserProfileCommand)
   .de(de_CreateUserProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserProfileInput;
+      output: CreateUserProfileOutput;
+    };
+    sdk: {
+      input: CreateUserProfileCommandInput;
+      output: CreateUserProfileCommandOutput;
+    };
+  };
+}

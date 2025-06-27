@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,15 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * //         CustomerManagedKeyEnabled: true || false,
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
+ * //       NativeApplicationOidcOptions: { // NativeApplicationOidcOptions
+ * //         PublicSigningKeyEndpoint: "STRING_VALUE",
+ * //         Issuer: "STRING_VALUE",
+ * //         AuthorizationEndpoint: "STRING_VALUE",
+ * //         TokenEndpoint: "STRING_VALUE",
+ * //         UserInfoEndpoint: "STRING_VALUE",
+ * //         ClientId: "STRING_VALUE",
+ * //         Scope: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -111,6 +121,7 @@ export interface DescribeVerifiedAccessTrustProvidersCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVerifiedAccessTrustProvidersCommand extends $Command
@@ -121,9 +132,7 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +144,16 @@ export class DescribeVerifiedAccessTrustProvidersCommand extends $Command
   .f(void 0, DescribeVerifiedAccessTrustProvidersResultFilterSensitiveLog)
   .ser(se_DescribeVerifiedAccessTrustProvidersCommand)
   .de(de_DescribeVerifiedAccessTrustProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessTrustProvidersRequest;
+      output: DescribeVerifiedAccessTrustProvidersResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessTrustProvidersCommandInput;
+      output: DescribeVerifiedAccessTrustProvidersCommandOutput;
+    };
+  };
+}

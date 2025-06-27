@@ -12,7 +12,8 @@ import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an application. An application has to be in a stopped or created state in order
- *          to be deleted.</p>
+ * <p>Deletes an application. An application has to be in a stopped or created state in order to be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,11 +57,11 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
+ *
  *
  * @public
  */
@@ -73,9 +73,7 @@ export class DeleteApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +85,16 @@ export class DeleteApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationCommand)
   .de(de_DeleteApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationCommandInput;
+      output: DeleteApplicationCommandOutput;
+    };
+  };
+}

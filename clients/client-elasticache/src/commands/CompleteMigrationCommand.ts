@@ -12,7 +12,8 @@ import { de_CompleteMigrationCommand, se_CompleteMigrationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -160,6 +161,7 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -183,6 +185,7 @@ export interface CompleteMigrationCommandOutput extends CompleteMigrationRespons
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class CompleteMigrationCommand extends $Command
@@ -193,9 +196,7 @@ export class CompleteMigrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +208,16 @@ export class CompleteMigrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CompleteMigrationCommand)
   .de(de_CompleteMigrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteMigrationMessage;
+      output: CompleteMigrationResponse;
+    };
+    sdk: {
+      input: CompleteMigrationCommandInput;
+      output: CompleteMigrationCommandOutput;
+    };
+  };
+}

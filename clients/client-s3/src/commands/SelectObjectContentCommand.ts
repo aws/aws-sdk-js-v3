@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getSsecPlugin } from "@aws-sdk/middleware-ssec";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
@@ -18,7 +19,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +36,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>This action filters the contents of an Amazon S3 object based on a simple structured query
  *          language (SQL) statement. In the request, along with the SQL expression, you must also
@@ -243,6 +245,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class SelectObjectContentCommand extends $Command
@@ -261,6 +264,7 @@ export class SelectObjectContentCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
       getSsecPlugin(config),
     ];
   })
@@ -276,4 +280,16 @@ export class SelectObjectContentCommand extends $Command
   .f(SelectObjectContentRequestFilterSensitiveLog, SelectObjectContentOutputFilterSensitiveLog)
   .ser(se_SelectObjectContentCommand)
   .de(de_SelectObjectContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SelectObjectContentRequest;
+      output: SelectObjectContentOutput;
+    };
+    sdk: {
+      input: SelectObjectContentCommandInput;
+      output: SelectObjectContentCommandOutput;
+    };
+  };
+}

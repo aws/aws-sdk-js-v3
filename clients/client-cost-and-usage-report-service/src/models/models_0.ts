@@ -39,7 +39,7 @@ export interface DeleteReportDefinitionResponse {
    * <p>Whether the deletion was successful or not.</p>
    * @public
    */
-  ResponseMessage?: string;
+  ResponseMessage?: string | undefined;
 }
 
 /**
@@ -53,7 +53,7 @@ export class InternalErrorException extends __BaseException {
    * <p>A message to show the detail of the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -79,7 +79,7 @@ export class ValidationException extends __BaseException {
    * <p>A message to show the detail of the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -103,13 +103,13 @@ export interface DescribeReportDefinitionsRequest {
    * <p>The maximum number of results that Amazon Web Services returns for the operation.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A generic string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -182,13 +182,13 @@ export interface ReportStatus {
    * <p>A timestamp that gives the date of a report delivery.</p>
    * @public
    */
-  lastDelivery?: string;
+  lastDelivery?: string | undefined;
 
   /**
    * <p>An enum that gives the status of a report delivery.</p>
    * @public
    */
-  lastStatus?: LastStatus;
+  lastStatus?: LastStatus | undefined;
 }
 
 /**
@@ -322,21 +322,21 @@ export interface ReportDefinition {
    * <p>A list of manifests that you want Amazon Web Services to create for this report.</p>
    * @public
    */
-  AdditionalArtifacts?: AdditionalArtifact[];
+  AdditionalArtifacts?: AdditionalArtifact[] | undefined;
 
   /**
    * <p>Whether you want Amazon Web Services to update your reports after they have been finalized if Amazon Web Services detects charges related to
    *       previous months. These charges can include refunds, credits, or support fees.</p>
    * @public
    */
-  RefreshClosedReports?: boolean;
+  RefreshClosedReports?: boolean | undefined;
 
   /**
    * <p>Whether you want Amazon Web Services to overwrite the previous version of each report or
    *          to deliver the report in addition to the previous versions.</p>
    * @public
    */
-  ReportVersioning?: ReportVersioning;
+  ReportVersioning?: ReportVersioning | undefined;
 
   /**
    * <p>
@@ -344,13 +344,13 @@ export interface ReportDefinition {
    *          </p>
    * @public
    */
-  BillingViewArn?: string;
+  BillingViewArn?: string | undefined;
 
   /**
    * <p>The status of the report.</p>
    * @public
    */
-  ReportStatus?: ReportStatus;
+  ReportStatus?: ReportStatus | undefined;
 }
 
 /**
@@ -362,13 +362,13 @@ export interface DescribeReportDefinitionsResponse {
    * <p>An Amazon Web Services Cost and Usage Report list owned by the account.</p>
    * @public
    */
-  ReportDefinitions?: ReportDefinition[];
+  ReportDefinitions?: ReportDefinition[] | undefined;
 
   /**
    * <p>A generic string.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -411,7 +411,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags assigned to the report definition resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -425,7 +425,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>A message to show the detail of the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -477,7 +477,7 @@ export class DuplicateReportNameException extends __BaseException {
    * <p>A message to show the detail of the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -508,7 +508,7 @@ export interface PutReportDefinitionRequest {
    * <p>The tags to be assigned to the report definition resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -528,7 +528,7 @@ export class ReportLimitReachedException extends __BaseException {
    * <p>A message to show the detail of the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

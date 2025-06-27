@@ -16,7 +16,8 @@ import { de_ListDistributionsCommand, se_ListDistributionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,7 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //       { // DistributionSummary
  * //         Id: "STRING_VALUE", // required
  * //         ARN: "STRING_VALUE", // required
+ * //         ETag: "STRING_VALUE",
  * //         Status: "STRING_VALUE", // required
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
  * //         DomainName: "STRING_VALUE", // required
@@ -96,6 +98,11 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
+ * //               VpcOriginConfig: { // VpcOriginConfig
+ * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
+ * //                 OriginKeepaliveTimeout: Number("int"),
+ * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
@@ -127,6 +134,7 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },
@@ -185,6 +193,9 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //           CachePolicyId: "STRING_VALUE",
  * //           OriginRequestPolicyId: "STRING_VALUE",
  * //           ResponseHeadersPolicyId: "STRING_VALUE",
+ * //           GrpcConfig: { // GrpcConfig
+ * //             Enabled: true || false, // required
+ * //           },
  * //           ForwardedValues: { // ForwardedValues
  * //             QueryString: true || false, // required
  * //             Cookies: { // CookiePreference
@@ -268,6 +279,9 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //               CachePolicyId: "STRING_VALUE",
  * //               OriginRequestPolicyId: "STRING_VALUE",
  * //               ResponseHeadersPolicyId: "STRING_VALUE",
+ * //               GrpcConfig: {
+ * //                 Enabled: true || false, // required
+ * //               },
  * //               ForwardedValues: {
  * //                 QueryString: true || false, // required
  * //                 Cookies: {
@@ -310,7 +324,7 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //           ],
  * //         },
  * //         Comment: "STRING_VALUE", // required
- * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All", // required
+ * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None", // required
  * //         Enabled: true || false, // required
  * //         ViewerCertificate: { // ViewerCertificate
  * //           CloudFrontDefaultCertificate: true || false,
@@ -340,6 +354,8 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * //           },
  * //         ],
  * //         Staging: true || false, // required
+ * //         ConnectionMode: "direct" || "tenant-only",
+ * //         AnycastIpListId: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -359,6 +375,7 @@ export interface ListDistributionsCommandOutput extends ListDistributionsResult,
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListDistributionsCommand extends $Command
@@ -369,9 +386,7 @@ export class ListDistributionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -383,4 +398,16 @@ export class ListDistributionsCommand extends $Command
   .f(void 0, ListDistributionsResultFilterSensitiveLog)
   .ser(se_ListDistributionsCommand)
   .de(de_ListDistributionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsRequest;
+      output: ListDistributionsResult;
+    };
+    sdk: {
+      input: ListDistributionsCommandInput;
+      output: ListDistributionsCommandOutput;
+    };
+  };
+}

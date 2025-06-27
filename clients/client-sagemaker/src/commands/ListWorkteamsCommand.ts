@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListWorkteamsCommandInput extends ListWorkteamsRequest {}
 export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if
- *             no work team satisfies the filter specified in the <code>NameContains</code>
- *             parameter.</p>
+ * <p>Gets a list of private work teams that you have defined in a region. The list may be empty if no work team satisfies the filter specified in the <code>NameContains</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,6 +98,7 @@ export interface ListWorkteamsCommandOutput extends ListWorkteamsResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListWorkteamsCommand extends $Command
@@ -109,9 +109,7 @@ export class ListWorkteamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +121,16 @@ export class ListWorkteamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkteamsCommand)
   .de(de_ListWorkteamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkteamsRequest;
+      output: ListWorkteamsResponse;
+    };
+    sdk: {
+      input: ListWorkteamsCommandInput;
+      output: ListWorkteamsCommandOutput;
+    };
+  };
+}

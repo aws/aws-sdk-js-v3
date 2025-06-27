@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetReviewTemplateCommandOutput extends GetReviewTemplateOutput,
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetReviewTemplateCommand extends $Command
@@ -97,9 +99,7 @@ export class GetReviewTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetReviewTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReviewTemplateCommand)
   .de(de_GetReviewTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReviewTemplateInput;
+      output: GetReviewTemplateOutput;
+    };
+    sdk: {
+      input: GetReviewTemplateCommandInput;
+      output: GetReviewTemplateCommandOutput;
+    };
+  };
+}

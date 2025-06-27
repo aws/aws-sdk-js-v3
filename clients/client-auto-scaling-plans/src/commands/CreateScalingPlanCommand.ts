@@ -12,7 +12,8 @@ import { de_CreateScalingPlanCommand, se_CreateScalingPlanCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -135,6 +136,7 @@ export interface CreateScalingPlanCommandOutput extends CreateScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ *
  * @public
  */
 export class CreateScalingPlanCommand extends $Command
@@ -145,9 +147,7 @@ export class CreateScalingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingPlansClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class CreateScalingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateScalingPlanCommand)
   .de(de_CreateScalingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateScalingPlanRequest;
+      output: CreateScalingPlanResponse;
+    };
+    sdk: {
+      input: CreateScalingPlanCommandInput;
+      output: CreateScalingPlanCommandOutput;
+    };
+  };
+}

@@ -19,7 +19,7 @@ Amazon OpenSearch Serverless?</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opensearchserverless
+To install this package, simply type add or install @aws-sdk/client-opensearchserverless
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opensearchserverless`

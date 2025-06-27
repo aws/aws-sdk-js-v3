@@ -12,7 +12,8 @@ import { de_DeleteStudioCommand, se_DeleteStudioCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface DeleteStudioCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class DeleteStudioCommand extends $Command
@@ -69,9 +71,7 @@ export class DeleteStudioCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +83,16 @@ export class DeleteStudioCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStudioCommand)
   .de(de_DeleteStudioCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStudioInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStudioCommandInput;
+      output: DeleteStudioCommandOutput;
+    };
+  };
+}

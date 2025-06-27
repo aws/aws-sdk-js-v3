@@ -29,6 +29,17 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.appconfig#AccountSettings": {
+      "type": "structure",
+      "members": {
+        "DeletionProtection": {
+          "target": "com.amazonaws.appconfig#DeletionProtectionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>A parameter to configure deletion protection. Deletion protection prevents a user from\n         deleting a configuration profile or an environment if AppConfig has called either\n            <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or  for the\n         configuration profile or from the environment during the specified interval. The default\n         interval for <code>ProtectionPeriodInMinutes</code> is 60.</p>"
+          }
+        }
+      }
+    },
     "com.amazonaws.appconfig#Action": {
       "type": "structure",
       "members": {
@@ -58,7 +69,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>An action defines the tasks that the extension performs during the AppConfig\n         workflow. Each action includes an action point such as\n            <code>ON_CREATE_HOSTED_CONFIGURATION</code>, <code>PRE_DEPLOYMENT</code>, or\n            <code>ON_DEPLOYMENT</code>. Each action also includes a name, a URI to an Lambda function, and an Amazon Resource Name (ARN) for an Identity and Access Management\n         assume role. You specify the name, URI, and ARN for each <i>action point</i>\n         defined in the extension. You can specify the following actions for an extension:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>PRE_CREATE_HOSTED_CONFIGURATION_VERSION</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PRE_START_DEPLOYMENT</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_START</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_STEP</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_BAKING</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_COMPLETE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_ROLLED_BACK</code>\n               </p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>An action defines the tasks that the extension performs during the AppConfig\n         workflow. Each action includes an action point, as shown in the following list: </p>\n         <ul>\n            <li>\n               <p>\n                  <code>PRE_CREATE_HOSTED_CONFIGURATION_VERSION</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>PRE_START_DEPLOYMENT</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>AT_DEPLOYMENT_TICK</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_START</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_STEP</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_BAKING</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_COMPLETE</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>ON_DEPLOYMENT_ROLLED_BACK</code>\n               </p>\n            </li>\n         </ul>\n         <p>Each action also includes a name, a URI to an Lambda function, and an\n         Amazon Resource Name (ARN) for an Identity and Access Management assume role. You specify the name,\n         URI, and ARN for each <i>action point</i> defined in the extension.</p>"
       }
     },
     "com.amazonaws.appconfig#ActionInvocation": {
@@ -142,6 +153,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "PRE_START_DEPLOYMENT"
+          }
+        },
+        "AT_DEPLOYMENT_TICK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AT_DEPLOYMENT_TICK"
           }
         },
         "ON_DEPLOYMENT_START": {
@@ -238,6 +255,9 @@
           "target": "com.amazonaws.appconfig#DeleteHostedConfigurationVersion"
         },
         {
+          "target": "com.amazonaws.appconfig#GetAccountSettings"
+        },
+        {
           "target": "com.amazonaws.appconfig#GetApplication"
         },
         {
@@ -304,6 +324,9 @@
           "target": "com.amazonaws.appconfig#UntagResource"
         },
         {
+          "target": "com.amazonaws.appconfig#UpdateAccountSettings"
+        },
+        {
           "target": "com.amazonaws.appconfig#UpdateApplication"
         },
         {
@@ -337,7 +360,7 @@
           "name": "appconfig"
         },
         "aws.protocols#restJson1": {},
-        "smithy.api#documentation": "<p>AppConfig feature flags and dynamic configurations help software builders\n         quickly and securely adjust application behavior in production environments without full\n         code deployments. AppConfig speeds up software release frequency, improves\n         application resiliency, and helps you address emergent issues more quickly. With feature\n         flags, you can gradually release new capabilities to users and measure the impact of those\n         changes before fully deploying the new capabilities to all users. With operational flags\n         and dynamic configurations, you can update block lists, allow lists, throttling limits,\n         logging verbosity, and perform other operational tuning to quickly respond to issues in\n         production environments.</p>\n         <note>\n            <p>AppConfig is a capability of Amazon Web Services Systems Manager.</p>\n         </note>\n         <p>Despite the fact that application configuration content can vary greatly from\n         application to application, AppConfig supports the following use cases, which\n         cover a broad spectrum of customer needs:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Feature flags and toggles</b> - Safely release new\n               capabilities to your customers in a controlled environment. Instantly roll back\n               changes if you experience a problem.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Application tuning</b> - Carefully introduce\n               application changes while testing the impact of those changes with users in\n               production environments.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Allow list or block list</b> - Control access to\n               premium features or instantly block specific users without deploying new code.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <b>Centralized configuration storage</b> - Keep your\n               configuration data organized and consistent across all of your workloads. You can use\n                  AppConfig to deploy configuration data stored in the AppConfig\n               hosted configuration store, Secrets Manager, Systems Manager, Parameter\n               Store, or Amazon S3.</p>\n            </li>\n         </ul>\n         <p>\n            <b>How AppConfig works</b>\n         </p>\n         <p>This section provides a high-level description of how AppConfig works and how\n         you get started.</p>\n         <dl>\n            <dt>1. Identify configuration values in code you want to manage in the cloud</dt>\n            <dd>\n               <p>Before you start creating AppConfig artifacts, we recommend you\n                  identify configuration data in your code that you want to dynamically manage using\n                     AppConfig. Good examples include feature flags or toggles, allow and\n                  block lists, logging verbosity, service limits, and throttling rules, to name a\n                  few.</p>\n               <p>If your configuration data already exists in the cloud, you can take advantage\n                  of AppConfig validation, deployment, and extension features to further\n                  streamline configuration data management.</p>\n            </dd>\n            <dt>2. Create an application namespace</dt>\n            <dd>\n               <p>To create a namespace, you create an AppConfig artifact called an\n                  application. An application is simply an organizational construct like a\n                  folder.</p>\n            </dd>\n            <dt>3. Create environments</dt>\n            <dd>\n               <p>For each AppConfig application, you define one or more environments.\n                  An environment is a logical grouping of targets, such as applications in a\n                     <code>Beta</code> or <code>Production</code> environment, Lambda functions,\n                  or containers. You can also define environments for application subcomponents,\n                  such as the <code>Web</code>, <code>Mobile</code>, and\n                  <code>Back-end</code>.</p>\n               <p>You can configure Amazon CloudWatch alarms for each environment. The system monitors\n                  alarms during a configuration deployment. If an alarm is triggered, the system\n                  rolls back the configuration.</p>\n            </dd>\n            <dt>4. Create a configuration profile</dt>\n            <dd>\n               <p>A configuration profile includes, among other things, a URI that enables\n                     AppConfig to locate your configuration data in its stored location\n                  and a profile type. AppConfig supports two configuration profile types:\n                  feature flags and freeform configurations. Feature flag configuration profiles\n                  store their data in the AppConfig hosted configuration store and the URI\n                  is simply <code>hosted</code>. For freeform configuration profiles, you can store\n                  your data in the AppConfig hosted configuration store or any Amazon Web Services\n                  service that integrates with AppConfig, as described in <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html\">Creating\n                     a free form configuration profile</a> in the the <i>AppConfig User Guide</i>.</p>\n               <p>A configuration profile can also include optional validators to ensure your\n                  configuration data is syntactically and semantically correct. AppConfig\n                  performs a check using the validators when you start a deployment. If any errors\n                  are detected, the deployment rolls back to the previous configuration data.</p>\n            </dd>\n            <dt>5. Deploy configuration data</dt>\n            <dd>\n               <p>When you create a new deployment, you specify the following:</p>\n               <ul>\n                  <li>\n                     <p>An application ID</p>\n                  </li>\n                  <li>\n                     <p>A configuration profile ID</p>\n                  </li>\n                  <li>\n                     <p>A configuration version</p>\n                  </li>\n                  <li>\n                     <p>An environment ID where you want to deploy the configuration data</p>\n                  </li>\n                  <li>\n                     <p>A deployment strategy ID that defines how fast you want the changes to\n                        take effect</p>\n                  </li>\n               </ul>\n               <p>When you call the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html\">StartDeployment</a> API action, AppConfig performs the following\n                  tasks:</p>\n               <ol>\n                  <li>\n                     <p>Retrieves the configuration data from the underlying data store by using\n                        the location URI in the configuration profile.</p>\n                  </li>\n                  <li>\n                     <p>Verifies the configuration data is syntactically and semantically correct\n                        by using the validators you specified when you created your configuration\n                        profile.</p>\n                  </li>\n                  <li>\n                     <p>Caches a copy of the data so it is ready to be retrieved by your\n                        application. This cached copy is called the <i>deployed\n                           data</i>.</p>\n                  </li>\n               </ol>\n            </dd>\n            <dt>6. Retrieve the configuration</dt>\n            <dd>\n               <p>You can configure AppConfig Agent as a local host and have the agent\n                  poll AppConfig for configuration updates. The agent calls the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> API actions and caches your configuration data\n                  locally. To retrieve the data, your application makes an HTTP call to the\n                  localhost server. AppConfig Agent supports several use cases, as\n                  described in <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html\">Simplified\n                     retrieval methods</a> in the the <i>AppConfig User\n                     Guide</i>.</p>\n               <p>If AppConfig Agent isn't supported for your use case, you can\n                  configure your application to poll AppConfig for configuration updates\n                  by directly calling the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> API actions. </p>\n            </dd>\n         </dl>\n         <p>This reference is intended to be used with the <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html\">AppConfig User\n         Guide</a>.</p>",
+        "smithy.api#documentation": "<p>AppConfig feature flags and dynamic configurations help software builders\n         quickly and securely adjust application behavior in production environments without full\n         code deployments. AppConfig speeds up software release frequency, improves\n         application resiliency, and helps you address emergent issues more quickly. With feature\n         flags, you can gradually release new capabilities to users and measure the impact of those\n         changes before fully deploying the new capabilities to all users. With operational flags\n         and dynamic configurations, you can update block lists, allow lists, throttling limits,\n         logging verbosity, and perform other operational tuning to quickly respond to issues in\n         production environments.</p>\n         <note>\n            <p>AppConfig is a tool in Amazon Web Services Systems Manager.</p>\n         </note>\n         <p>Despite the fact that application configuration content can vary greatly from\n         application to application, AppConfig supports the following use cases, which\n         cover a broad spectrum of customer needs:</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Feature flags and toggles</b> - Safely release new\n               capabilities to your customers in a controlled environment. Instantly roll back\n               changes if you experience a problem.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Application tuning</b> - Carefully introduce\n               application changes while testing the impact of those changes with users in\n               production environments.</p>\n            </li>\n            <li>\n               <p>\n                  <b>Allow list or block list</b> - Control access to\n               premium features or instantly block specific users without deploying new code.\n            </p>\n            </li>\n            <li>\n               <p>\n                  <b>Centralized configuration storage</b> - Keep your\n               configuration data organized and consistent across all of your workloads. You can use\n                  AppConfig to deploy configuration data stored in the AppConfig\n               hosted configuration store, Secrets Manager, Systems Manager, Parameter\n               Store, or Amazon S3.</p>\n            </li>\n         </ul>\n         <p>\n            <b>How AppConfig works</b>\n         </p>\n         <p>This section provides a high-level description of how AppConfig works and how\n         you get started.</p>\n         <dl>\n            <dt>1. Identify configuration values in code you want to manage in the cloud</dt>\n            <dd>\n               <p>Before you start creating AppConfig artifacts, we recommend you\n                  identify configuration data in your code that you want to dynamically manage using\n                     AppConfig. Good examples include feature flags or toggles, allow and\n                  block lists, logging verbosity, service limits, and throttling rules, to name a\n                  few.</p>\n               <p>If your configuration data already exists in the cloud, you can take advantage\n                  of AppConfig validation, deployment, and extension features to further\n                  streamline configuration data management.</p>\n            </dd>\n            <dt>2. Create an application namespace</dt>\n            <dd>\n               <p>To create a namespace, you create an AppConfig artifact called an\n                  application. An application is simply an organizational construct like a\n                  folder.</p>\n            </dd>\n            <dt>3. Create environments</dt>\n            <dd>\n               <p>For each AppConfig application, you define one or more environments.\n                  An environment is a logical grouping of targets, such as applications in a\n                     <code>Beta</code> or <code>Production</code> environment, Lambda functions,\n                  or containers. You can also define environments for application subcomponents,\n                  such as the <code>Web</code>, <code>Mobile</code>, and\n                  <code>Back-end</code>.</p>\n               <p>You can configure Amazon CloudWatch alarms for each environment. The system monitors\n                  alarms during a configuration deployment. If an alarm is triggered, the system\n                  rolls back the configuration.</p>\n            </dd>\n            <dt>4. Create a configuration profile</dt>\n            <dd>\n               <p>A configuration profile includes, among other things, a URI that enables\n                     AppConfig to locate your configuration data in its stored location\n                  and a profile type. AppConfig supports two configuration profile types:\n                  feature flags and freeform configurations. Feature flag configuration profiles\n                  store their data in the AppConfig hosted configuration store and the URI\n                  is simply <code>hosted</code>. For freeform configuration profiles, you can store\n                  your data in the AppConfig hosted configuration store or any Amazon Web Services\n                  service that integrates with AppConfig, as described in <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-free-form-configurations-creating.html\">Creating\n                     a free form configuration profile</a> in the the <i>AppConfig User Guide</i>.</p>\n               <p>A configuration profile can also include optional validators to ensure your\n                  configuration data is syntactically and semantically correct. AppConfig\n                  performs a check using the validators when you start a deployment. If any errors\n                  are detected, the deployment rolls back to the previous configuration data.</p>\n            </dd>\n            <dt>5. Deploy configuration data</dt>\n            <dd>\n               <p>When you create a new deployment, you specify the following:</p>\n               <ul>\n                  <li>\n                     <p>An application ID</p>\n                  </li>\n                  <li>\n                     <p>A configuration profile ID</p>\n                  </li>\n                  <li>\n                     <p>A configuration version</p>\n                  </li>\n                  <li>\n                     <p>An environment ID where you want to deploy the configuration data</p>\n                  </li>\n                  <li>\n                     <p>A deployment strategy ID that defines how fast you want the changes to\n                        take effect</p>\n                  </li>\n               </ul>\n               <p>When you call the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_StartDeployment.html\">StartDeployment</a> API action, AppConfig performs the following\n                  tasks:</p>\n               <ol>\n                  <li>\n                     <p>Retrieves the configuration data from the underlying data store by using\n                        the location URI in the configuration profile.</p>\n                  </li>\n                  <li>\n                     <p>Verifies the configuration data is syntactically and semantically correct\n                        by using the validators you specified when you created your configuration\n                        profile.</p>\n                  </li>\n                  <li>\n                     <p>Caches a copy of the data so it is ready to be retrieved by your\n                        application. This cached copy is called the <i>deployed\n                           data</i>.</p>\n                  </li>\n               </ol>\n            </dd>\n            <dt>6. Retrieve the configuration</dt>\n            <dd>\n               <p>You can configure AppConfig Agent as a local host and have the agent\n                  poll AppConfig for configuration updates. The agent calls the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> API actions and caches your configuration data\n                  locally. To retrieve the data, your application makes an HTTP call to the\n                  localhost server. AppConfig Agent supports several use cases, as\n                  described in <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-simplified-methods.html\">Simplified\n                     retrieval methods</a> in the the <i>AppConfig User\n                     Guide</i>.</p>\n               <p>If AppConfig Agent isn't supported for your use case, you can\n                  configure your application to poll AppConfig for configuration updates\n                  by directly calling the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> API actions. </p>\n            </dd>\n         </dl>\n         <p>This reference is intended to be used with the <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html\">AppConfig User\n         Guide</a>.</p>",
         "smithy.api#title": "Amazon AppConfig",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -1424,7 +1447,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:[a-z]+:([a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\d{1})?:(\\d{12})?:[a-zA-Z0-9-_/:.]+$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z-]*)?:[a-z]+:((eusc-)?[a-z]{2}((-gov)|(-iso([a-z]?)))?-[a-z]+-\\d{1})?:(\\d{12})?:[a-zA-Z0-9-_/:.]+$"
       }
     },
     "com.amazonaws.appconfig#BadRequestDetails": {
@@ -1818,14 +1841,14 @@
         "LocationUri": {
           "target": "com.amazonaws.appconfig#Uri",
           "traits": {
-            "smithy.api#documentation": "<p>A URI to locate the configuration. You can specify the following:</p>\n         <ul>\n            <li>\n               <p>For the AppConfig hosted configuration store and for feature flags,\n               specify <code>hosted</code>.</p>\n            </li>\n            <li>\n               <p>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either the parameter name in\n               the format <code>ssm-parameter://<parameter name></code> or the ARN.</p>\n            </li>\n            <li>\n               <p>For an Amazon Web Services\n               CodePipeline pipeline, specify the URI in the following format:\n                  <code>codepipeline</code>://<pipeline name>.</p>\n            </li>\n            <li>\n               <p>For an Secrets Manager secret, specify the URI in the following format:\n                  <code>secretsmanager</code>://<secret name>.</p>\n            </li>\n            <li>\n               <p>For an Amazon S3 object, specify the URI in the following format:\n                  <code>s3://<bucket>/<objectKey> </code>. Here is an example:\n                  <code>s3://my-bucket/my-app/us-east-1/my-config.json</code>\n               </p>\n            </li>\n            <li>\n               <p>For an SSM document, specify either the document name in the format\n                  <code>ssm-document://<document name></code> or the Amazon Resource Name\n               (ARN).</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>A URI to locate the configuration. You can specify the following:</p>\n         <ul>\n            <li>\n               <p>For the AppConfig hosted configuration store and for feature flags,\n               specify <code>hosted</code>.</p>\n            </li>\n            <li>\n               <p>For an Amazon Web Services Systems Manager Parameter Store parameter, specify either the parameter name in\n               the format <code>ssm-parameter://<parameter name></code> or the ARN.</p>\n            </li>\n            <li>\n               <p>For an Amazon Web Services\n               CodePipeline pipeline, specify the URI in the following format:\n                  <code>codepipeline</code>://<pipeline name>.</p>\n            </li>\n            <li>\n               <p>For an Secrets Manager secret, specify the URI in the following format:\n                  <code>secretsmanager</code>://<secret name>.</p>\n            </li>\n            <li>\n               <p>For an Amazon S3 object, specify the URI in the following format:\n                  <code>s3://<bucket>/<objectKey> </code>. Here is an example:\n                     <code>s3://amzn-s3-demo-bucket/my-app/us-east-1/my-config.json</code>\n               </p>\n            </li>\n            <li>\n               <p>For an SSM document, specify either the document name in the format\n                  <code>ssm-document://<document name></code> or the Amazon Resource Name\n               (ARN).</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
         "RetrievalRoleArn": {
           "target": "com.amazonaws.appconfig#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n            <code>LocationUri</code>.</p>\n         <important>\n            <p>A retrieval role ARN is not required for configurations stored in the AppConfig hosted configuration store. It is required for all other sources that\n            store your configuration. </p>\n         </important>"
+            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n            <code>LocationUri</code>.</p>\n         <important>\n            <p>A retrieval role ARN is not required for configurations stored in CodePipeline or the AppConfig hosted configuration store. It is required for all other sources that\n            store your configuration. </p>\n         </important>"
           }
         },
         "Validators": {
@@ -2235,7 +2258,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new configuration in the AppConfig hosted configuration\n         store.</p>",
+        "smithy.api#documentation": "<p>Creates a new configuration in the AppConfig hosted configuration store. If\n         you're creating a feature flag, we recommend you familiarize yourself with the JSON schema\n         for feature flag data. For more information, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags\">Type reference for AWS.AppConfig.FeatureFlags</a> in the\n            <i>AppConfig User Guide</i>.</p>",
         "smithy.api#examples": [
           {
             "title": "To create a hosted configuration version",
@@ -2291,7 +2314,7 @@
         "Content": {
           "target": "com.amazonaws.appconfig#Blob",
           "traits": {
-            "smithy.api#documentation": "<p>The content of the configuration or the configuration data.</p>",
+            "smithy.api#documentation": "<p>The configuration data, as bytes.</p>\n         <note>\n            <p>AppConfig accepts any type of data, including text formats like JSON or\n            TOML, or binary formats like protocol buffers or compressed data.</p>\n         </note>",
             "smithy.api#httpPayload": {},
             "smithy.api#required": {}
           }
@@ -2344,7 +2367,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an application. Deleting an application does not delete a configuration from a\n         host.</p>",
+        "smithy.api#documentation": "<p>Deletes an application.</p>",
         "smithy.api#examples": [
           {
             "title": "To delete an application",
@@ -2400,7 +2423,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a configuration profile. Deleting a configuration profile does not delete a\n         configuration from a host.</p>",
+        "smithy.api#documentation": "<p>Deletes a configuration profile.</p>\n         <p>To prevent users from unintentionally deleting actively-used configuration profiles,\n         enable <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html\">deletion\n         protection</a>.</p>",
         "smithy.api#examples": [
           {
             "title": "To delete a configuration profile",
@@ -2436,6 +2459,13 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
+        },
+        "DeletionProtectionCheck": {
+          "target": "com.amazonaws.appconfig#DeletionProtectionCheck",
+          "traits": {
+            "smithy.api#documentation": "<p>A parameter to configure deletion protection. Deletion protection prevents a user from\n         deleting a configuration profile if your application has called either <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or  for the\n         configuration profile during the specified interval. </p>\n         <p>This parameter supports the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BYPASS</code>: Instructs AppConfig to bypass the deletion\n               protection check and delete a configuration profile even if deletion protection would\n               have otherwise prevented it.</p>\n            </li>\n            <li>\n               <p>\n                  <code>APPLY</code>: Instructs the deletion protection check to run, even if\n               deletion protection is disabled at the account level. <code>APPLY</code> also forces\n               the deletion protection check to run against resources created in the past hour,\n               which are normally excluded from deletion protection checks. </p>\n            </li>\n            <li>\n               <p>\n                  <code>ACCOUNT_DEFAULT</code>: The default setting, which instructs AppConfig to implement the deletion protection value specified in the\n                  <code>UpdateAccountSettings</code> API.</p>\n            </li>\n         </ul>",
+            "smithy.api#httpHeader": "x-amzn-deletion-protection-check"
+          }
         }
       },
       "traits": {
@@ -2462,7 +2492,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a\n         configuration from a host.</p>",
+        "smithy.api#documentation": "<p>Deletes a deployment strategy.</p>",
         "smithy.api#examples": [
           {
             "title": "To delete a deployment strategy",
@@ -2518,7 +2548,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an environment. Deleting an environment does not delete a configuration from a\n         host.</p>",
+        "smithy.api#documentation": "<p>Deletes an environment.</p>\n         <p>To prevent users from unintentionally deleting actively-used environments, enable <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/deletion-protection.html\">deletion\n            protection</a>.</p>",
         "smithy.api#examples": [
           {
             "title": "To delete an environment",
@@ -2539,6 +2569,14 @@
     "com.amazonaws.appconfig#DeleteEnvironmentRequest": {
       "type": "structure",
       "members": {
+        "EnvironmentId": {
+          "target": "com.amazonaws.appconfig#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the environment that you want to delete.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
         "ApplicationId": {
           "target": "com.amazonaws.appconfig#Id",
           "traits": {
@@ -2547,12 +2585,11 @@
             "smithy.api#required": {}
           }
         },
-        "EnvironmentId": {
-          "target": "com.amazonaws.appconfig#Id",
+        "DeletionProtectionCheck": {
+          "target": "com.amazonaws.appconfig#DeletionProtectionCheck",
           "traits": {
-            "smithy.api#documentation": "<p>The ID of the environment that you want to delete.</p>",
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A parameter to configure deletion protection. Deletion protection prevents a user from\n         deleting an environment if your application called either <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or  in the\n         environment during the specified interval. </p>\n         <p>This parameter supports the following values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>BYPASS</code>: Instructs AppConfig to bypass the deletion\n               protection check and delete a configuration profile even if deletion protection would\n               have otherwise prevented it. </p>\n            </li>\n            <li>\n               <p>\n                  <code>APPLY</code>: Instructs the deletion protection check to run, even if\n               deletion protection is disabled at the account level. <code>APPLY</code> also forces\n               the deletion protection check to run against resources created in the past hour,\n               which are normally excluded from deletion protection checks.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ACCOUNT_DEFAULT</code>: The default setting, which instructs AppConfig to implement the deletion protection value specified in the\n                  <code>UpdateAccountSettings</code> API.</p>\n            </li>\n         </ul>",
+            "smithy.api#httpHeader": "x-amzn-deletion-protection-check"
           }
         }
       },
@@ -2726,6 +2763,59 @@
       },
       "traits": {
         "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.appconfig#DeletionProtectionCheck": {
+      "type": "enum",
+      "members": {
+        "ACCOUNT_DEFAULT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACCOUNT_DEFAULT"
+          }
+        },
+        "APPLY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "APPLY"
+          }
+        },
+        "BYPASS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYPASS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.appconfig#DeletionProtectionDuration": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 15,
+          "max": 1440
+        }
+      }
+    },
+    "com.amazonaws.appconfig#DeletionProtectionSettings": {
+      "type": "structure",
+      "members": {
+        "Enabled": {
+          "target": "com.amazonaws.appconfig#Boolean",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>A parameter that indicates if deletion protection is enabled or not.</p>"
+          }
+        },
+        "ProtectionPeriodInMinutes": {
+          "target": "com.amazonaws.appconfig#DeletionProtectionDuration",
+          "traits": {
+            "smithy.api#documentation": "<p>The time interval during which AppConfig monitors for calls to <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or  for a\n         configuration profile or from an environment. AppConfig returns an error if a\n         user calls  or  for the designated configuration profile or\n         environment. To bypass the error and delete a configuration profile or an environment,\n         specify <code>BYPASS</code> for the <code>DeletionProtectionCheck</code> parameter for\n         either  or .</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A parameter to configure deletion protection. Deletion protection prevents a user from\n         deleting a configuration profile or an environment if AppConfig has called either\n            <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or  for the\n         configuration profile or from the environment during the specified interval.</p>\n         <p>The default interval specified by <code>ProtectionPeriodInMinutes</code> is 60.\n            <code>DeletionProtectionCheck</code> skips configuration profiles and environments that\n         were created in the past hour.</p>"
       }
     },
     "com.amazonaws.appconfig#Deployment": {
@@ -2944,6 +3034,12 @@
           "traits": {
             "smithy.api#enumValue": "DEPLOYMENT_COMPLETED"
           }
+        },
+        "REVERT_COMPLETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVERT_COMPLETED"
+          }
         }
       }
     },
@@ -2996,6 +3092,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ROLLED_BACK"
+          }
+        },
+        "REVERTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVERTED"
           }
         }
       }
@@ -3211,7 +3313,8 @@
         "smithy.api#length": {
           "min": 1,
           "max": 10
-        }
+        },
+        "smithy.api#sensitive": {}
       }
     },
     "com.amazonaws.appconfig#Environment": {
@@ -3286,6 +3389,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "ROLLED_BACK"
+          }
+        },
+        "REVERTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "REVERTED"
           }
         }
       }
@@ -3520,6 +3629,31 @@
         "smithy.api#default": 0
       }
     },
+    "com.amazonaws.appconfig#GetAccountSettings": {
+      "type": "operation",
+      "input": {
+        "target": "smithy.api#Unit"
+      },
+      "output": {
+        "target": "com.amazonaws.appconfig#AccountSettings"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appconfig#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.appconfig#InternalServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Returns information about the status of the <code>DeletionProtection</code>\n         parameter.</p>",
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/settings",
+          "code": 200
+        }
+      }
+    },
     "com.amazonaws.appconfig#GetApplication": {
       "type": "operation",
       "input": {
@@ -3600,7 +3734,7 @@
         "smithy.api#deprecated": {
           "message": "This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession."
         },
-        "smithy.api#documentation": "<p>(Deprecated) Retrieves the latest deployed configuration.</p>\n         <important>\n            <p>Note the following important information.</p>\n            <ul>\n               <li>\n                  <p>This API action is deprecated. Calls to receive configuration data should use\n                  the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs instead. </p>\n               </li>\n               <li>\n                  <p>\n                     <code>GetConfiguration</code> is a priced call. For more information, see\n                     <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p>\n               </li>\n            </ul>\n         </important>",
+        "smithy.api#documentation": "<p>(Deprecated) Retrieves the latest deployed configuration.</p>\n         <important>\n            <p>Note the following important information.</p>\n            <ul>\n               <li>\n                  <p>This API action is deprecated. Calls to receive configuration data should use\n                  the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs instead. </p>\n               </li>\n               <li>\n                  <p>\n                     <a>GetConfiguration</a> is a priced call. For more information, see\n                     <a href=\"https://aws.amazon.com/systems-manager/pricing/\">Pricing</a>.</p>\n               </li>\n            </ul>\n         </important>",
         "smithy.api#examples": [
           {
             "title": "To retrieve configuration details",
@@ -3731,7 +3865,7 @@
         "ClientConfigurationVersion": {
           "target": "com.amazonaws.appconfig#Version",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration version returned in the most recent <code>GetConfiguration</code>\n         response.</p>\n         <important>\n            <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>\n            parameter to identify the configuration version on your clients. If you don’t send\n               <code>ClientConfigurationVersion</code> with each call to\n               <code>GetConfiguration</code>, your clients receive the current configuration. You\n            are charged each time your clients receive a configuration.</p>\n            <p>To avoid excess charges, we recommend you use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs, which track the client configuration version on\n            your behalf. If you choose to continue using <code>GetConfiguration</code>, we recommend\n            that you include the <code>ClientConfigurationVersion</code> value with every call to\n               <code>GetConfiguration</code>. The value to use for\n               <code>ClientConfigurationVersion</code> comes from the\n               <code>ConfigurationVersion</code> attribute returned by <code>GetConfiguration</code>\n            when there is new or updated data, and should be saved for subsequent calls to\n               <code>GetConfiguration</code>.</p>\n         </important>\n         <p>For more information about working with configurations, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-retrieving-the-configuration.html\">Retrieving the\n            Configuration</a> in the <i>AppConfig User Guide</i>.</p>",
+            "smithy.api#documentation": "<p>The configuration version returned in the most recent <a>GetConfiguration</a>\n         response.</p>\n         <important>\n            <p>AppConfig uses the value of the <code>ClientConfigurationVersion</code>\n            parameter to identify the configuration version on your clients. If you don’t send\n               <code>ClientConfigurationVersion</code> with each call to <a>GetConfiguration</a>, your clients receive the current configuration. You are\n            charged each time your clients receive a configuration.</p>\n            <p>To avoid excess charges, we recommend you use the <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/StartConfigurationSession.html\">StartConfigurationSession</a> and <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/GetLatestConfiguration.html\">GetLatestConfiguration</a> APIs, which track the client configuration version on\n            your behalf. If you choose to continue using <a>GetConfiguration</a>, we\n            recommend that you include the <code>ClientConfigurationVersion</code> value with every\n            call to <a>GetConfiguration</a>. The value to use for\n               <code>ClientConfigurationVersion</code> comes from the\n               <code>ConfigurationVersion</code> attribute returned by <a>GetConfiguration</a> when there is new or updated data, and should be saved\n            for subsequent calls to <a>GetConfiguration</a>.</p>\n         </important>\n         <p>For more information about working with configurations, see <a href=\"http://docs.aws.amazon.com/appconfig/latest/userguide/retrieving-feature-flags.html\">Retrieving feature flags and\n            configuration data in AppConfig</a> in the <i>AppConfig\n            User Guide</i>.</p>",
             "smithy.api#httpQuery": "client_configuration_version"
           }
         }
@@ -3765,6 +3899,43 @@
           "method": "GET",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}/deployments/{DeploymentNumber}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "DeploymentComplete": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "COMPLETE",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "ROLLED_BACK",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "REVERTED",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
@@ -3904,6 +4075,43 @@
           "method": "GET",
           "uri": "/applications/{ApplicationId}/environments/{EnvironmentId}",
           "code": 200
+        },
+        "smithy.waiters#waitable": {
+          "EnvironmentReadyForDeployment": {
+            "acceptors": [
+              {
+                "state": "success",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "ReadyForDeployment",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "RolledBack",
+                    "comparator": "stringEquals"
+                  }
+                }
+              },
+              {
+                "state": "failure",
+                "matcher": {
+                  "output": {
+                    "path": "State",
+                    "expected": "Reverted",
+                    "comparator": "stringEquals"
+                  }
+                }
+              }
+            ],
+            "minDelay": 30
+          }
         }
       }
     },
@@ -4913,7 +5121,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists configurations stored in the AppConfig hosted configuration store by\n         version.</p>",
+        "smithy.api#documentation": "<p>Lists configurations stored in the AppConfig hosted configuration store by\n         version. </p>",
         "smithy.api#examples": [
           {
             "title": "To list the available hosted configuration versions",
@@ -4969,7 +5177,7 @@
         "MaxResults": {
           "target": "com.amazonaws.appconfig#MaxResults",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum number of items to return for this call. The call also returns a token that\n         you can specify in a subsequent call to get the next set of results.</p>",
+            "smithy.api#documentation": "<p>The maximum number of items to return for this call. If <code>MaxResults</code> is not\n         provided in the call, AppConfig returns the maximum of 50. The call also returns\n         a token that you can specify in a subsequent call to get the next set of results.</p>",
             "smithy.api#httpQuery": "max_results"
           }
         },
@@ -5284,7 +5492,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^((arn):(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov):(iam)::\\d{12}:role[/].*)$"
+        "smithy.api#pattern": "^((arn):(aws|aws-cn|aws-iso|aws-iso-[a-z]{1}|aws-us-gov|aws-eusc):(iam)::\\d{12}:role[/].*)$"
       }
     },
     "com.amazonaws.appconfig#ServiceQuotaExceededException": {
@@ -5420,7 +5628,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Stops a deployment. This API action works only on deployments that have a status of\n            <code>DEPLOYING</code>. This action moves the deployment to a status of\n            <code>ROLLED_BACK</code>.</p>",
+        "smithy.api#documentation": "<p>Stops a deployment. This API action works only on deployments that have a status of\n            <code>DEPLOYING</code>, unless an <code>AllowRevert</code> parameter is supplied. If the\n            <code>AllowRevert</code> parameter is supplied, the status of an in-progress deployment\n         will be <code>ROLLED_BACK</code>. The status of a completed deployment will be\n            <code>REVERTED</code>. AppConfig only allows a revert within 72 hours of\n         deployment completion.</p>",
         "smithy.api#examples": [
           {
             "title": "To stop configuration deployment",
@@ -5472,6 +5680,14 @@
             "smithy.api#documentation": "<p>The sequence number of the deployment.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "AllowRevert": {
+          "target": "com.amazonaws.appconfig#Boolean",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>A Boolean that enables AppConfig to rollback a <code>COMPLETED</code>\n         deployment to the previous configuration version. This action moves the deployment to a\n         status of <code>REVERTED</code>.</p>",
+            "smithy.api#httpHeader": "Allow-Revert"
           }
         }
       },
@@ -5718,6 +5934,45 @@
         "smithy.api#input": {}
       }
     },
+    "com.amazonaws.appconfig#UpdateAccountSettings": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.appconfig#UpdateAccountSettingsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.appconfig#AccountSettings"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.appconfig#BadRequestException"
+        },
+        {
+          "target": "com.amazonaws.appconfig#InternalServerException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the value of the <code>DeletionProtection</code> parameter.</p>",
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/settings",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.appconfig#UpdateAccountSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "DeletionProtection": {
+          "target": "com.amazonaws.appconfig#DeletionProtectionSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>A parameter to configure deletion protection. Deletion protection prevents a user from\n         deleting a configuration profile or an environment if AppConfig has called either\n            <a href=\"https://docs.aws.amazon.com/appconfig/2019-10-09/APIReference/API_appconfigdata_GetLatestConfiguration.html\">GetLatestConfiguration</a> or  for the\n         configuration profile or from the environment during the specified interval. The default\n         interval for <code>ProtectionPeriodInMinutes</code> is 60.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
     "com.amazonaws.appconfig#UpdateApplication": {
       "type": "operation",
       "input": {
@@ -5857,7 +6112,7 @@
           }
         },
         "Name": {
-          "target": "com.amazonaws.appconfig#Name",
+          "target": "com.amazonaws.appconfig#LongName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the configuration profile.</p>"
           }
@@ -5871,7 +6126,7 @@
         "RetrievalRoleArn": {
           "target": "com.amazonaws.appconfig#RoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n            <code>LocationUri</code>.</p>"
+            "smithy.api#documentation": "<p>The ARN of an IAM role with permission to access the configuration at the specified\n            <code>LocationUri</code>.</p>\n         <important>\n            <p>A retrieval role ARN is not required for configurations stored in CodePipeline or the AppConfig hosted configuration store. It is required for all other sources that\n            store your configuration. </p>\n         </important>"
           }
         },
         "Validators": {
@@ -6295,7 +6550,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A validator provides a syntactic or semantic check to ensure the configuration that you\n         want to deploy functions as intended. To validate your application configuration data, you\n         provide a schema or an Amazon Web Services Lambda function that runs against the configuration. The\n         configuration deployment or update can only proceed when the configuration data is\n         valid.</p>"
+        "smithy.api#documentation": "<p>A validator provides a syntactic or semantic check to ensure the configuration that you\n         want to deploy functions as intended. To validate your application configuration data, you\n         provide a schema or an Amazon Web Services Lambda function that runs against the configuration. The\n         configuration deployment or update can only proceed when the configuration data is valid.\n         For more information, see <a href=\"https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-profile.html#appconfig-creating-configuration-and-profile-validators\">About validators</a> in the <i>AppConfig User Guide</i>.</p>"
       }
     },
     "com.amazonaws.appconfig#ValidatorList": {

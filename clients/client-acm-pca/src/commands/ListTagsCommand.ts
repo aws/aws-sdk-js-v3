@@ -12,7 +12,8 @@ import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,20 +39,20 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * // const { ACMPCAClient, ListTagsCommand } = require("@aws-sdk/client-acm-pca"); // CommonJS import
  * const client = new ACMPCAClient(config);
  * const input = { // ListTagsRequest
- *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   CertificateAuthorityArn: "STRING_VALUE", // required
  * };
  * const command = new ListTagsCommand(input);
  * const response = await client.send(command);
  * // { // ListTagsResponse
+ * //   NextToken: "STRING_VALUE",
  * //   Tags: [ // TagList
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -69,12 +70,16 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link InvalidStateException} (client fault)
  *  <p>The state of the private CA does not allow this action to occur.</p>
  *
+ * @throws {@link RequestFailedException} (client fault)
+ *  <p>The request has failed for an unspecified reason.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A resource such as a private CA, S3 bucket, certificate, audit report, or policy
  * 			cannot be found.</p>
  *
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
+ *
  *
  * @public
  */
@@ -86,9 +91,7 @@ export class ListTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +103,16 @@ export class ListTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsCommand)
   .de(de_ListTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsRequest;
+      output: ListTagsResponse;
+    };
+    sdk: {
+      input: ListTagsCommandInput;
+      output: ListTagsCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_5";
+import { DisassociateInstanceEventWindowRequest, DisassociateInstanceEventWindowResult } from "../models/models_6";
 import {
   de_DisassociateInstanceEventWindowCommand,
   se_DisassociateInstanceEventWindowCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface DisassociateInstanceEventWindowCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisassociateInstanceEventWindowCommand extends $Command
@@ -119,9 +121,7 @@ export class DisassociateInstanceEventWindowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class DisassociateInstanceEventWindowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateInstanceEventWindowCommand)
   .de(de_DisassociateInstanceEventWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateInstanceEventWindowRequest;
+      output: DisassociateInstanceEventWindowResult;
+    };
+    sdk: {
+      input: DisassociateInstanceEventWindowCommandInput;
+      output: DisassociateInstanceEventWindowCommandOutput;
+    };
+  };
+}

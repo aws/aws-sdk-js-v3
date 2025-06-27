@@ -1,13 +1,23 @@
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { locationConstraintMiddleware } from "./";
+import { resolveLocationConstraintConfig } from "./configuration";
 
 describe("locationConstrainMiddleware", () => {
-  const next = jest.fn();
+  const next = vi.fn();
   const basicInput = {
     foo: "bar",
   };
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
+  });
+
+  describe("config resolver", () => {
+    it("maintains object custody", () => {
+      const input = {} as any;
+      expect(resolveLocationConstraintConfig(input)).toBe(input);
+    });
   });
 
   describe("for region us-east-1", () => {

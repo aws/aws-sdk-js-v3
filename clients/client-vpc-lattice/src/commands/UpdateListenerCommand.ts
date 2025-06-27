@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,9 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
@@ -106,6 +110,7 @@ export interface UpdateListenerCommandOutput extends UpdateListenerResponse, __M
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
+ *
  *
  * @public
  */
@@ -117,9 +122,7 @@ export class UpdateListenerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +134,16 @@ export class UpdateListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateListenerCommand)
   .de(de_UpdateListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateListenerRequest;
+      output: UpdateListenerResponse;
+    };
+    sdk: {
+      input: UpdateListenerCommandInput;
+      output: UpdateListenerCommandOutput;
+    };
+  };
+}

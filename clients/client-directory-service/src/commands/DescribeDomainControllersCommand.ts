@@ -12,7 +12,8 @@ import { de_DescribeDomainControllersCommand, se_DescribeDomainControllersComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,7 +54,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * //       VpcId: "STRING_VALUE",
  * //       SubnetId: "STRING_VALUE",
  * //       AvailabilityZone: "STRING_VALUE",
- * //       Status: "Creating" || "Active" || "Impaired" || "Restoring" || "Deleting" || "Deleted" || "Failed",
+ * //       Status: "Creating" || "Active" || "Impaired" || "Restoring" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       StatusReason: "STRING_VALUE",
  * //       LaunchTime: new Date("TIMESTAMP"),
  * //       StatusLastUpdatedDateTime: new Date("TIMESTAMP"),
@@ -91,6 +92,7 @@ export interface DescribeDomainControllersCommandOutput extends DescribeDomainCo
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainControllersCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeDomainControllersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeDomainControllersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDomainControllersCommand)
   .de(de_DescribeDomainControllersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDomainControllersRequest;
+      output: DescribeDomainControllersResult;
+    };
+    sdk: {
+      input: DescribeDomainControllersCommandInput;
+      output: DescribeDomainControllersCommandOutput;
+    };
+  };
+}

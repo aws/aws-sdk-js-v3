@@ -12,7 +12,8 @@ import { de_PutLifecycleConfigurationCommand, se_PutLifecycleConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,8 +50,8 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
  *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
  *                <note>
- *                   <p> The Archive storage class is available only for file systems that use the Elastic Throughput mode
- * and the General Purpose Performance mode. </p>
+ *                   <p> The Archive storage class is available only for file systems that use the Elastic throughput mode
+ * and the General Purpose performance mode. </p>
  *                </note>
  *             </li>
  *          </ul>
@@ -75,7 +76,7 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  *          <ul>
  *             <li>
  *                <p>The ID for the file system for which you are enabling, disabling, or modifying
- *           Lifecycle management.</p>
+ *           lifecycle management.</p>
  *             </li>
  *             <li>
  *                <p>A <code>LifecyclePolicies</code> array of <code>LifecyclePolicy</code> objects that
@@ -144,32 +145,32 @@ export interface PutLifecycleConfigurationCommandOutput extends LifecycleConfigu
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example Creates a new lifecycleconfiguration object for a file system
  * ```javascript
  * // This operation enables lifecycle management on a file system by creating a new LifecycleConfiguration object. A LifecycleConfiguration object defines when files in an Amazon EFS file system are automatically transitioned to the lower-cost EFS Infrequent Access (IA) storage class. A LifecycleConfiguration applies to all files in a file system.
  * const input = {
- *   "FileSystemId": "fs-01234567",
- *   "LifecyclePolicies": [
+ *   FileSystemId: "fs-01234567",
+ *   LifecyclePolicies: [
  *     {
- *       "TransitionToIA": "AFTER_30_DAYS"
+ *       TransitionToIA: "AFTER_30_DAYS"
  *     }
  *   ]
  * };
  * const command = new PutLifecycleConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LifecyclePolicies": [
+ *   LifecyclePolicies: [
  *     {
- *       "TransitionToIA": "AFTER_30_DAYS"
+ *       TransitionToIA: "AFTER_30_DAYS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: creates-a-new-lifecycleconfiguration-object-for-a-file-system-1551201594692
  * ```
  *
+ * @public
  */
 export class PutLifecycleConfigurationCommand extends $Command
   .classBuilder<
@@ -179,9 +180,7 @@ export class PutLifecycleConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +192,16 @@ export class PutLifecycleConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLifecycleConfigurationCommand)
   .de(de_PutLifecycleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLifecycleConfigurationRequest;
+      output: LifecycleConfigurationDescription;
+    };
+    sdk: {
+      input: PutLifecycleConfigurationCommandInput;
+      output: PutLifecycleConfigurationCommandOutput;
+    };
+  };
+}

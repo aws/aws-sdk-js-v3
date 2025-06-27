@@ -12,7 +12,8 @@ import { de_CreateArchiveRuleCommand, se_CreateArchiveRuleCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateArchiveRuleCommandInput extends CreateArchiveRuleRequest 
 export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive
- *          new findings that meet the criteria you define when you create the rule.</p>
- *          <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
+ * <p>Creates an archive rule for the specified analyzer. Archive rules automatically archive new findings that meet the criteria you define when you create the rule.</p> <p>To learn about filter keys that you can use to create an archive rule, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-reference-filter-keys.html">IAM Access Analyzer filter keys</a> in the <b>IAM User Guide</b>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +90,7 @@ export interface CreateArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class CreateArchiveRuleCommand extends $Command
@@ -101,9 +101,7 @@ export class CreateArchiveRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +113,16 @@ export class CreateArchiveRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateArchiveRuleCommand)
   .de(de_CreateArchiveRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateArchiveRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateArchiveRuleCommandInput;
+      output: CreateArchiveRuleCommandOutput;
+    };
+  };
+}

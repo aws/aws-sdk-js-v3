@@ -16,7 +16,8 @@ import { de_GetDASHStreamingSessionURLCommand, se_GetDASHStreamingSessionURLComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -255,6 +256,7 @@ export interface GetDASHStreamingSessionURLCommandOutput extends GetDASHStreamin
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class GetDASHStreamingSessionURLCommand extends $Command
@@ -265,9 +267,7 @@ export class GetDASHStreamingSessionURLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -279,4 +279,16 @@ export class GetDASHStreamingSessionURLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDASHStreamingSessionURLCommand)
   .de(de_GetDASHStreamingSessionURLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDASHStreamingSessionURLInput;
+      output: GetDASHStreamingSessionURLOutput;
+    };
+    sdk: {
+      input: GetDASHStreamingSessionURLCommandInput;
+      output: GetDASHStreamingSessionURLCommandOutput;
+    };
+  };
+}

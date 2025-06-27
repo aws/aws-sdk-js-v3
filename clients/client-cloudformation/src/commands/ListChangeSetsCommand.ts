@@ -12,7 +12,8 @@ import { de_ListChangeSetsCommand, se_ListChangeSetsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,9 @@ export interface ListChangeSetsCommandInput extends ListChangeSetsInput {}
 export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation lists change sets that are
- *    in the <code>CREATE_IN_PROGRESS</code> or <code>CREATE_PENDING</code> state.</p>
+ * <p>Returns the ID and status of each active change set for a stack. For example, CloudFormation
+ *       lists change sets that are in the <code>CREATE_IN_PROGRESS</code> or
+ *         <code>CREATE_PENDING</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +75,7 @@ export interface ListChangeSetsCommandOutput extends ListChangeSetsOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListChangeSetsCommand extends $Command
@@ -83,9 +86,7 @@ export class ListChangeSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +98,16 @@ export class ListChangeSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChangeSetsCommand)
   .de(de_ListChangeSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChangeSetsInput;
+      output: ListChangeSetsOutput;
+    };
+    sdk: {
+      input: ListChangeSetsCommandInput;
+      output: ListChangeSetsCommandOutput;
+    };
+  };
+}

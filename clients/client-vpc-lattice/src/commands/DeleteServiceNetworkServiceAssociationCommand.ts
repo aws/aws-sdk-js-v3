@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes the association between a specified service and the specific service network. This
+ * <p>Deletes the association between a service and a service network. This
  *    operation fails if an association is still in progress.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +87,7 @@ export interface DeleteServiceNetworkServiceAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class DeleteServiceNetworkServiceAssociationCommand extends $Command
@@ -96,9 +98,7 @@ export class DeleteServiceNetworkServiceAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DeleteServiceNetworkServiceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteServiceNetworkServiceAssociationCommand)
   .de(de_DeleteServiceNetworkServiceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceNetworkServiceAssociationRequest;
+      output: DeleteServiceNetworkServiceAssociationResponse;
+    };
+    sdk: {
+      input: DeleteServiceNetworkServiceAssociationCommandInput;
+      output: DeleteServiceNetworkServiceAssociationCommandOutput;
+    };
+  };
+}

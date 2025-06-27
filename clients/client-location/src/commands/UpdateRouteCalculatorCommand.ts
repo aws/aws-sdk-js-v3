@@ -12,7 +12,8 @@ import { de_UpdateRouteCalculatorCommand, se_UpdateRouteCalculatorCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface UpdateRouteCalculatorCommandOutput extends UpdateRouteCalculato
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class UpdateRouteCalculatorCommand extends $Command
@@ -84,9 +86,7 @@ export class UpdateRouteCalculatorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class UpdateRouteCalculatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRouteCalculatorCommand)
   .de(de_UpdateRouteCalculatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRouteCalculatorRequest;
+      output: UpdateRouteCalculatorResponse;
+    };
+    sdk: {
+      input: UpdateRouteCalculatorCommandInput;
+      output: UpdateRouteCalculatorCommandOutput;
+    };
+  };
+}

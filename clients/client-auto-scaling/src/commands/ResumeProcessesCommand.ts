@@ -12,7 +12,8 @@ import { de_ResumeProcessesCommand, se_ResumeProcessesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,8 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
 /**
  * <p>Resumes the specified suspended auto scaling processes, or all suspended process, for
  *             the specified Auto Scaling group.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
- *                 resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume
+ *                 Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,21 +66,24 @@ export interface ResumeProcessesCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To resume Auto Scaling processes
  * ```javascript
  * // This example resumes the specified suspended scaling process for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ScalingProcesses": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   ScalingProcesses: [
  *     "AlarmNotification"
  *   ]
  * };
  * const command = new ResumeProcessesCommand(input);
- * await client.send(command);
- * // example id: autoscaling-resume-processes-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ResumeProcessesCommand extends $Command
   .classBuilder<
@@ -89,9 +93,7 @@ export class ResumeProcessesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +105,16 @@ export class ResumeProcessesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeProcessesCommand)
   .de(de_ResumeProcessesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalingProcessQuery;
+      output: {};
+    };
+    sdk: {
+      input: ResumeProcessesCommandInput;
+      output: ResumeProcessesCommandOutput;
+    };
+  };
+}

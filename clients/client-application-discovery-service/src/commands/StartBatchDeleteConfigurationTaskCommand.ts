@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,9 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link HomeRegionNotSetException} (client fault)
  *  <p>The home Region is not set. Set the home Region to continue.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more parameters are not valid. Verify the parameters and try again.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of one or more parameters are either invalid or out of range. Verify the
  *       parameter values and try again.</p>
@@ -94,6 +98,7 @@ export interface StartBatchDeleteConfigurationTaskCommandOutput
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class StartBatchDeleteConfigurationTaskCommand extends $Command
@@ -104,9 +109,7 @@ export class StartBatchDeleteConfigurationTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +121,16 @@ export class StartBatchDeleteConfigurationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBatchDeleteConfigurationTaskCommand)
   .de(de_StartBatchDeleteConfigurationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBatchDeleteConfigurationTaskRequest;
+      output: StartBatchDeleteConfigurationTaskResponse;
+    };
+    sdk: {
+      input: StartBatchDeleteConfigurationTaskCommandInput;
+      output: StartBatchDeleteConfigurationTaskCommandOutput;
+    };
+  };
+}

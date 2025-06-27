@@ -12,7 +12,8 @@ import { de_GetFarmCommand, se_GetFarmCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,11 +72,11 @@ export interface GetFarmCommandOutput extends GetFarmResponse, __MetadataBearer 
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +88,7 @@ export class GetFarmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class GetFarmCommand extends $Command
   .f(void 0, GetFarmResponseFilterSensitiveLog)
   .ser(se_GetFarmCommand)
   .de(de_GetFarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFarmRequest;
+      output: GetFarmResponse;
+    };
+    sdk: {
+      input: GetFarmCommandInput;
+      output: GetFarmCommandOutput;
+    };
+  };
+}

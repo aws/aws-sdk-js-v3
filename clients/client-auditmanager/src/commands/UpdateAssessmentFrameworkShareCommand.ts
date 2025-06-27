@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface UpdateAssessmentFrameworkShareCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssessmentFrameworkShareCommand extends $Command
@@ -111,9 +113,7 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class UpdateAssessmentFrameworkShareCommand extends $Command
   .f(void 0, UpdateAssessmentFrameworkShareResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentFrameworkShareCommand)
   .de(de_UpdateAssessmentFrameworkShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentFrameworkShareRequest;
+      output: UpdateAssessmentFrameworkShareResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentFrameworkShareCommandInput;
+      output: UpdateAssessmentFrameworkShareCommandOutput;
+    };
+  };
+}

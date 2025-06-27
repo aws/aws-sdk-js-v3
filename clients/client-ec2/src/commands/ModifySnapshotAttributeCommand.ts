@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifySnapshotAttributeRequest } from "../models/models_6";
+import { ModifySnapshotAttributeRequest } from "../models/models_7";
 import { de_ModifySnapshotAttributeCommand, se_ModifySnapshotAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,14 +47,14 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  *   CreateVolumePermission: { // CreateVolumePermissionModifications
  *     Add: [ // CreateVolumePermissionList
  *       { // CreateVolumePermission
- *         Group: "all",
  *         UserId: "STRING_VALUE",
+ *         Group: "all",
  *       },
  *     ],
  *     Remove: [
  *       {
- *         Group: "all",
  *         UserId: "STRING_VALUE",
+ *         Group: "all",
  *       },
  *     ],
  *   },
@@ -82,39 +83,44 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To modify a snapshot attribute
- * ```javascript
- * // This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.
- * const input = {
- *   "Attribute": "createVolumePermission",
- *   "OperationType": "remove",
- *   "SnapshotId": "snap-1234567890abcdef0",
- *   "UserIds": [
- *     "123456789012"
- *   ]
- * };
- * const command = new ModifySnapshotAttributeCommand(input);
- * await client.send(command);
- * // example id: to-modify-a-snapshot-attribute-1472508385907
- * ```
  *
  * @example To make a snapshot public
  * ```javascript
  * // This example makes the snapshot ``snap-1234567890abcdef0`` public.
  * const input = {
- *   "Attribute": "createVolumePermission",
- *   "GroupNames": [
+ *   Attribute: "createVolumePermission",
+ *   GroupNames: [
  *     "all"
  *   ],
- *   "OperationType": "add",
- *   "SnapshotId": "snap-1234567890abcdef0"
+ *   OperationType: "add",
+ *   SnapshotId: "snap-1234567890abcdef0"
  * };
  * const command = new ModifySnapshotAttributeCommand(input);
- * await client.send(command);
- * // example id: to-make-a-snapshot-public-1472508470529
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @example To modify a snapshot attribute
+ * ```javascript
+ * // This example modifies snapshot ``snap-1234567890abcdef0`` to remove the create volume permission for a user with the account ID ``123456789012``. If the command succeeds, no output is returned.
+ * const input = {
+ *   Attribute: "createVolumePermission",
+ *   OperationType: "remove",
+ *   SnapshotId: "snap-1234567890abcdef0",
+ *   UserIds: [
+ *     "123456789012"
+ *   ]
+ * };
+ * const command = new ModifySnapshotAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ModifySnapshotAttributeCommand extends $Command
   .classBuilder<
@@ -124,9 +130,7 @@ export class ModifySnapshotAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +142,16 @@ export class ModifySnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifySnapshotAttributeCommand)
   .de(de_ModifySnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifySnapshotAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifySnapshotAttributeCommandInput;
+      output: ModifySnapshotAttributeCommandOutput;
+    };
+  };
+}

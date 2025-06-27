@@ -16,7 +16,8 @@ import { de_DescribeApplicationCommand, se_DescribeApplicationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,7 +52,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //     ApplicationARN: "STRING_VALUE", // required
  * //     ApplicationDescription: "STRING_VALUE",
  * //     ApplicationName: "STRING_VALUE", // required
- * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18", // required
+ * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20", // required
  * //     ServiceExecutionRole: "STRING_VALUE",
  * //     ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
  * //     ApplicationVersionId: Number("long"), // required
@@ -221,6 +222,9 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
  * //       },
+ * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
+ * //         RollbackEnabled: true || false, // required
+ * //       },
  * //       VpcConfigurationDescriptions: [ // VpcConfigurationDescriptions
  * //         { // VpcConfigurationDescription
  * //           VpcConfigurationId: "STRING_VALUE", // required
@@ -278,6 +282,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * //     },
  * //     ApplicationVersionUpdatedFrom: Number("long"),
  * //     ApplicationVersionRolledBackFrom: Number("long"),
+ * //     ApplicationVersionCreateTimestamp: new Date("TIMESTAMP"),
  * //     ConditionalToken: "STRING_VALUE",
  * //     ApplicationVersionRolledBackTo: Number("long"),
  * //     ApplicationMode: "STREAMING" || "INTERACTIVE",
@@ -304,6 +309,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationCommand extends $Command
@@ -314,9 +320,7 @@ export class DescribeApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -328,4 +332,16 @@ export class DescribeApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationCommand)
   .de(de_DescribeApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationRequest;
+      output: DescribeApplicationResponse;
+    };
+    sdk: {
+      input: DescribeApplicationCommandInput;
+      output: DescribeApplicationCommandOutput;
+    };
+  };
+}

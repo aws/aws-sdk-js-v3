@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface RequestCancelWorkflowExecutionCommandOutput extends __MetadataB
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class RequestCancelWorkflowExecutionCommand extends $Command
@@ -109,9 +111,7 @@ export class RequestCancelWorkflowExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class RequestCancelWorkflowExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestCancelWorkflowExecutionCommand)
   .de(de_RequestCancelWorkflowExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestCancelWorkflowExecutionInput;
+      output: {};
+    };
+    sdk: {
+      input: RequestCancelWorkflowExecutionCommandInput;
+      output: RequestCancelWorkflowExecutionCommandOutput;
+    };
+  };
+}

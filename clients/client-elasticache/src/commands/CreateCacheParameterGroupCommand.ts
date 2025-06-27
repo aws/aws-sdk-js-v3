@@ -12,7 +12,8 @@ import { de_CreateCacheParameterGroupCommand, se_CreateCacheParameterGroupComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ParameterGroups.html">Parameters and
+ *                   <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ParameterGroups.html">Parameters and
  *                         Parameter Groups</a> in the ElastiCache User Guide.</p>
  *             </li>
  *          </ul>
@@ -107,29 +108,29 @@ export interface CreateCacheParameterGroupCommandOutput extends CreateCacheParam
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheParameterGroup
  * ```javascript
  * // Creates the Amazon ElastiCache parameter group custom-redis2-8.
  * const input = {
- *   "CacheParameterGroupFamily": "redis2.8",
- *   "CacheParameterGroupName": "custom-redis2-8",
- *   "Description": "Custom Redis 2.8 parameter group."
+ *   CacheParameterGroupFamily: "redis2.8",
+ *   CacheParameterGroupName: "custom-redis2-8",
+ *   Description: "Custom Redis 2.8 parameter group."
  * };
  * const command = new CreateCacheParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheParameterGroup": {
- *     "CacheParameterGroupFamily": "redis2.8",
- *     "CacheParameterGroupName": "custom-redis2-8",
- *     "Description": "Custom Redis 2.8 parameter group."
+ *   CacheParameterGroup: {
+ *     CacheParameterGroupFamily: "redis2.8",
+ *     CacheParameterGroupName: "custom-redis2-8",
+ *     Description: "Custom Redis 2.8 parameter group."
  *   }
  * }
  * *\/
- * // example id: createcacheparametergroup-1474997699362
  * ```
  *
+ * @public
  */
 export class CreateCacheParameterGroupCommand extends $Command
   .classBuilder<
@@ -139,9 +140,7 @@ export class CreateCacheParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class CreateCacheParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheParameterGroupCommand)
   .de(de_CreateCacheParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheParameterGroupMessage;
+      output: CreateCacheParameterGroupResult;
+    };
+    sdk: {
+      input: CreateCacheParameterGroupCommandInput;
+      output: CreateCacheParameterGroupCommandOutput;
+    };
+  };
+}

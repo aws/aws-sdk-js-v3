@@ -12,7 +12,8 @@ import { de_DescribeClassicLinkInstancesCommand, se_DescribeClassicLinkInstances
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * <note>
  *             <p>This action is deprecated.</p>
  *          </note>
- *          <p>Describes one or more of your linked EC2-Classic instances. This request only returns
+ *          <p>Describes your linked EC2-Classic instances. This request only returns
  * 			information about EC2-Classic instances linked to a VPC through ClassicLink. You cannot
  * 			use this request to return information about other instances.</p>
  * @example
@@ -42,6 +43,10 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * // const { EC2Client, DescribeClassicLinkInstancesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeClassicLinkInstancesRequest
+ *   DryRun: true || false,
+ *   InstanceIds: [ // InstanceIdStringList
+ *     "STRING_VALUE",
+ *   ],
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -50,12 +55,8 @@ export interface DescribeClassicLinkInstancesCommandOutput
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
- *   InstanceIds: [ // InstanceIdStringList
- *     "STRING_VALUE",
- *   ],
- *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeClassicLinkInstancesCommand(input);
  * const response = await client.send(command);
@@ -64,8 +65,8 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * //     { // ClassicLinkInstance
  * //       Groups: [ // GroupIdentifierList
  * //         { // GroupIdentifier
- * //           GroupName: "STRING_VALUE",
  * //           GroupId: "STRING_VALUE",
+ * //           GroupName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       InstanceId: "STRING_VALUE",
@@ -92,6 +93,7 @@ export interface DescribeClassicLinkInstancesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeClassicLinkInstancesCommand extends $Command
@@ -102,9 +104,7 @@ export class DescribeClassicLinkInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class DescribeClassicLinkInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClassicLinkInstancesCommand)
   .de(de_DescribeClassicLinkInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClassicLinkInstancesRequest;
+      output: DescribeClassicLinkInstancesResult;
+    };
+    sdk: {
+      input: DescribeClassicLinkInstancesCommandInput;
+      output: DescribeClassicLinkInstancesCommandOutput;
+    };
+  };
+}

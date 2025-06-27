@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,18 +28,7 @@ export interface DeleteWorkforceCommandInput extends DeleteWorkforceRequest {}
 export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to delete a workforce.</p>
- *          <p>If you want to create a new workforce in an Amazon Web Services Region where
- *       a workforce already exists, use this operation to delete the
- *       existing workforce and then use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html">CreateWorkforce</a>
- *       to create a new workforce.</p>
- *          <important>
- *             <p>If a private workforce contains one or more work teams, you must use
- *                 the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a>
- *             operation to delete all work teams before you delete the workforce.
- *             If you try to delete a workforce that contains one or more work teams,
- *             you will recieve a <code>ResourceInUse</code> error.</p>
- *          </important>
+ * <p>Use this operation to delete a workforce.</p> <p>If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use this operation to delete the existing workforce and then use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateWorkforce.html">CreateWorkforce</a> to create a new workforce.</p> <important> <p>If a private workforce contains one or more work teams, you must use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkteam.html">DeleteWorkteam</a> operation to delete all work teams before you delete the workforce. If you try to delete a workforce that contains one or more work teams, you will receive a <code>ResourceInUse</code> error.</p> </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +53,7 @@ export interface DeleteWorkforceCommandOutput extends DeleteWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkforceCommand extends $Command
@@ -73,9 +64,7 @@ export class DeleteWorkforceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +76,16 @@ export class DeleteWorkforceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkforceCommand)
   .de(de_DeleteWorkforceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkforceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkforceCommandInput;
+      output: DeleteWorkforceCommandOutput;
+    };
+  };
+}

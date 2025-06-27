@@ -12,7 +12,8 @@ import { de_ListDeviceInstancesCommand, se_ListDeviceInstancesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface ListDeviceInstancesCommandOutput extends ListDeviceInstancesRes
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class ListDeviceInstancesCommand extends $Command
@@ -99,9 +101,7 @@ export class ListDeviceInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class ListDeviceInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeviceInstancesCommand)
   .de(de_ListDeviceInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeviceInstancesRequest;
+      output: ListDeviceInstancesResult;
+    };
+    sdk: {
+      input: ListDeviceInstancesCommandInput;
+      output: ListDeviceInstancesCommandOutput;
+    };
+  };
+}

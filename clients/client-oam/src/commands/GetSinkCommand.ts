@@ -12,7 +12,8 @@ import { de_GetSinkCommand, se_GetSinkCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface GetSinkCommandInput extends GetSinkInput {}
 export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
 
 /**
- * <p>Returns complete information about one monitoring account sink.</p>
- *          <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
+ * <p>Returns complete information about one monitoring account sink.</p> <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +37,7 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * const client = new OAMClient(config);
  * const input = { // GetSinkInput
  *   Identifier: "STRING_VALUE", // required
+ *   IncludeTags: true || false,
  * };
  * const command = new GetSinkCommand(input);
  * const response = await client.send(command);
@@ -72,6 +73,7 @@ export interface GetSinkCommandOutput extends GetSinkOutput, __MetadataBearer {}
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class GetSinkCommand extends $Command
@@ -82,9 +84,7 @@ export class GetSinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class GetSinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSinkCommand)
   .de(de_GetSinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSinkInput;
+      output: GetSinkOutput;
+    };
+    sdk: {
+      input: GetSinkCommandInput;
+      output: GetSinkCommandOutput;
+    };
+  };
+}

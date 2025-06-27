@@ -12,7 +12,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,6 +117,7 @@ export interface RegisterUserCommandOutput extends RegisterUserResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class RegisterUserCommand extends $Command
@@ -126,9 +128,7 @@ export class RegisterUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class RegisterUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterUserCommand)
   .de(de_RegisterUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterUserRequest;
+      output: RegisterUserResponse;
+    };
+    sdk: {
+      input: RegisterUserCommandInput;
+      output: RegisterUserCommandOutput;
+    };
+  };
+}

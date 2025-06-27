@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_6";
+import { MoveAddressToVpcRequest, MoveAddressToVpcResult } from "../models/models_7";
 import { de_MoveAddressToVpcCommand, se_MoveAddressToVpcCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,23 +65,23 @@ export interface MoveAddressToVpcCommandOutput extends MoveAddressToVpcResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To move an address to EC2-VPC
  * ```javascript
  * // This example moves the specified Elastic IP address to the EC2-VPC platform.
  * const input = {
- *   "PublicIp": "54.123.4.56"
+ *   PublicIp: "54.123.4.56"
  * };
  * const command = new MoveAddressToVpcCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": "MoveInProgress"
+ *   Status: "MoveInProgress"
  * }
  * *\/
- * // example id: ec2-move-address-to-vpc-1
  * ```
  *
+ * @public
  */
 export class MoveAddressToVpcCommand extends $Command
   .classBuilder<
@@ -90,9 +91,7 @@ export class MoveAddressToVpcCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class MoveAddressToVpcCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MoveAddressToVpcCommand)
   .de(de_MoveAddressToVpcCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MoveAddressToVpcRequest;
+      output: MoveAddressToVpcResult;
+    };
+    sdk: {
+      input: MoveAddressToVpcCommandInput;
+      output: MoveAddressToVpcCommandOutput;
+    };
+  };
+}

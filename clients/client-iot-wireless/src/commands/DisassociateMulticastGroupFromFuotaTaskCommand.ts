@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates a multicast group from a fuota task.</p>
+ * <p>Disassociates a multicast group from a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +78,7 @@ export interface DisassociateMulticastGroupFromFuotaTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command
@@ -87,9 +89,7 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DisassociateMulticastGroupFromFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMulticastGroupFromFuotaTaskCommand)
   .de(de_DisassociateMulticastGroupFromFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMulticastGroupFromFuotaTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMulticastGroupFromFuotaTaskCommandInput;
+      output: DisassociateMulticastGroupFromFuotaTaskCommandOutput;
+    };
+  };
+}

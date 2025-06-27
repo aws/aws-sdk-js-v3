@@ -12,7 +12,8 @@ import { de_ListProfilesCommand, se_ListProfilesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,37 +65,49 @@ export interface ListProfilesCommandOutput extends ListProfilesResponse, __Metad
  * @see {@link ListProfilesCommandOutput} for command's `response` shape.
  * @see {@link B2biClientResolvedConfig | config} for B2biClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have sufficient access to perform this action.</p>
+ *
+ * @throws {@link InternalServerException} (server fault)
+ *  <p>This exception is thrown when an error occurs in the Amazon Web Services B2B Data Interchange service.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to throttling: the data speed and rendering may be limited depending on various parameters and conditions.</p>
+ *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>Occurs when a B2BI object cannot be validated against a request from another object.</p>
+ *
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListProfiles call
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo"
+ *   maxResults: 50,
+ *   nextToken: "foo"
  * };
  * const command = new ListProfilesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "nextToken": "foo",
- *   "profiles": [
+ *   nextToken: "foo",
+ *   profiles: [
  *     {
- *       "name": "Shipping Profile",
- *       "businessName": "John's Trucking",
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "logGroupName": "b2bi/p-60fbc37c87f04fce9-Logs",
- *       "logging": "ENABLED",
- *       "profileId": "p-60fbc37c87f04fce9"
+ *       businessName: "John's Trucking",
+ *       createdAt: "2023-11-01T21:51:05.504Z",
+ *       logGroupName: "b2bi/p-60fbc37c87f04fce9-Logs",
+ *       logging: "ENABLED",
+ *       name: "Shipping Profile",
+ *       profileId: "p-60fbc37c87f04fce9"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListProfilesCommand extends $Command
   .classBuilder<
@@ -104,9 +117,7 @@ export class ListProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +129,16 @@ export class ListProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfilesCommand)
   .de(de_ListProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfilesRequest;
+      output: ListProfilesResponse;
+    };
+    sdk: {
+      input: ListProfilesCommandInput;
+      output: ListProfilesCommandOutput;
+    };
+  };
+}

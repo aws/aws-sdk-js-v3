@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -117,6 +118,15 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @throws {@link InvalidName} (client fault)
  *  <p>The provided name is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link StateMachineDeleting} (client fault)
  *  <p>The specified state machine is being deleted.</p>
  *
@@ -129,6 +139,7 @@ export interface StartExecutionCommandOutput extends StartExecutionOutput, __Met
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class StartExecutionCommand extends $Command
@@ -139,9 +150,7 @@ export class StartExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +162,16 @@ export class StartExecutionCommand extends $Command
   .f(StartExecutionInputFilterSensitiveLog, void 0)
   .ser(se_StartExecutionCommand)
   .de(de_StartExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExecutionInput;
+      output: StartExecutionOutput;
+    };
+    sdk: {
+      input: StartExecutionCommandInput;
+      output: StartExecutionCommandOutput;
+    };
+  };
+}

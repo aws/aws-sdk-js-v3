@@ -12,7 +12,8 @@ import { de_DeregisterTypeCommand, se_DeregisterTypeCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,14 +28,16 @@ export interface DeregisterTypeCommandInput extends DeregisterTypeInput {}
 export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation registry, removing it from
- *    active use. Deprecated extensions or extension versions cannot be used in CloudFormation operations.</p>
- *          <p>To deregister an entire extension, you must individually deregister all active versions of that extension. If an
- *    extension has only a single active version, deregistering that version results in the extension itself being
- *    deregistered and marked as deprecated in the registry.</p>
- *          <p>You can't deregister the default version of an extension if there are other active version of that extension. If
- *    you do deregister the default version of an extension, the extension type itself is deregistered as well and marked
- *    as deprecated.</p>
+ * <p>Marks an extension or extension version as <code>DEPRECATED</code> in the CloudFormation
+ *       registry, removing it from active use. Deprecated extensions or extension versions cannot be
+ *       used in CloudFormation operations.</p>
+ *          <p>To deregister an entire extension, you must individually deregister all active versions of
+ *       that extension. If an extension has only a single active version, deregistering that version
+ *       results in the extension itself being deregistered and marked as deprecated in the
+ *       registry.</p>
+ *          <p>You can't deregister the default version of an extension if there are other active version
+ *       of that extension. If you do deregister the default version of an extension, the extension
+ *       type itself is deregistered as well and marked as deprecated.</p>
  *          <p>To view the deprecation status of an extension or extension version, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -69,6 +72,7 @@ export interface DeregisterTypeCommandOutput extends DeregisterTypeOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeregisterTypeCommand extends $Command
@@ -79,9 +83,7 @@ export class DeregisterTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +95,16 @@ export class DeregisterTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterTypeCommand)
   .de(de_DeregisterTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterTypeCommandInput;
+      output: DeregisterTypeCommandOutput;
+    };
+  };
+}

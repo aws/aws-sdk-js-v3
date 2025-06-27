@@ -16,7 +16,8 @@ import { de_CreateSyncConfigurationCommand, se_CreateSyncConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface CreateSyncConfigurationCommandOutput extends CreateSyncConfigur
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class CreateSyncConfigurationCommand extends $Command
@@ -110,9 +112,7 @@ export class CreateSyncConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class CreateSyncConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSyncConfigurationCommand)
   .de(de_CreateSyncConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSyncConfigurationInput;
+      output: CreateSyncConfigurationOutput;
+    };
+    sdk: {
+      input: CreateSyncConfigurationCommandInput;
+      output: CreateSyncConfigurationCommandOutput;
+    };
+  };
+}

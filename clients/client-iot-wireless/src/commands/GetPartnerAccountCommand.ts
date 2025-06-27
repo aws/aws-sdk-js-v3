@@ -16,7 +16,8 @@ import { de_GetPartnerAccountCommand, se_GetPartnerAccountCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface GetPartnerAccountCommandOutput extends GetPartnerAccountRespons
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetPartnerAccountCommand extends $Command
@@ -87,9 +89,7 @@ export class GetPartnerAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class GetPartnerAccountCommand extends $Command
   .f(void 0, GetPartnerAccountResponseFilterSensitiveLog)
   .ser(se_GetPartnerAccountCommand)
   .de(de_GetPartnerAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPartnerAccountRequest;
+      output: GetPartnerAccountResponse;
+    };
+    sdk: {
+      input: GetPartnerAccountCommandInput;
+      output: GetPartnerAccountCommandOutput;
+    };
+  };
+}

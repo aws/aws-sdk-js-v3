@@ -12,7 +12,8 @@ import { de_ListRulesPackagesCommand, se_ListRulesPackagesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,19 +69,19 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example List rules packages
  * ```javascript
  * // Lists all available Amazon Inspector rules packages.
  * const input = {
- *   "maxResults": 123
+ *   maxResults: 123
  * };
  * const command = new ListRulesPackagesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "nextToken": "1",
- *   "rulesPackageArns": [
+ *   nextToken: "1",
+ *   rulesPackageArns: [
  *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-9hgA516p",
  *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
  *     "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
@@ -88,9 +89,9 @@ export interface ListRulesPackagesCommandOutput extends ListRulesPackagesRespons
  *   ]
  * }
  * *\/
- * // example id: list-rules-packages-1481066954883
  * ```
  *
+ * @public
  */
 export class ListRulesPackagesCommand extends $Command
   .classBuilder<
@@ -100,9 +101,7 @@ export class ListRulesPackagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class ListRulesPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRulesPackagesCommand)
   .de(de_ListRulesPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRulesPackagesRequest;
+      output: ListRulesPackagesResponse;
+    };
+    sdk: {
+      input: ListRulesPackagesCommandInput;
+      output: ListRulesPackagesCommandOutput;
+    };
+  };
+}

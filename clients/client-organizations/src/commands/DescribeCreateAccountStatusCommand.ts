@@ -16,7 +16,8 @@ import { de_DescribeCreateAccountStatusCommand, se_DescribeCreateAccountStatusCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface DescribeCreateAccountStatusCommandOutput
 /**
  * <p>Retrieves the current status of an asynchronous request to create an account.</p>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,6 +138,10 @@ export interface DescribeCreateAccountStatusCommandOutput
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -177,6 +182,9 @@ export interface DescribeCreateAccountStatusCommandOutput
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -202,27 +210,27 @@ export interface DescribeCreateAccountStatusCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get information about a request to create an account
  * ```javascript
  * // The following example shows how to request the status about a previous request to create an account in an organization. This operation can be called only by a principal from the organization's master account. In the example, the specified "createAccountRequestId" comes from the response of the original call to "CreateAccount":
  * const input = {
- *   "CreateAccountRequestId": "car-exampleaccountcreationrequestid"
+ *   CreateAccountRequestId: "car-exampleaccountcreationrequestid"
  * };
  * const command = new DescribeCreateAccountStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatus": {
- *     "AccountId": "333333333333",
- *     "Id": "car-exampleaccountcreationrequestid",
- *     "State": "SUCCEEDED"
+ *   CreateAccountStatus: {
+ *     AccountId: "333333333333",
+ *     Id: "car-exampleaccountcreationrequestid",
+ *     State: "SUCCEEDED"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-a-request-to-create-an-account-1472503727223
  * ```
  *
+ * @public
  */
 export class DescribeCreateAccountStatusCommand extends $Command
   .classBuilder<
@@ -232,9 +240,7 @@ export class DescribeCreateAccountStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -246,4 +252,16 @@ export class DescribeCreateAccountStatusCommand extends $Command
   .f(void 0, DescribeCreateAccountStatusResponseFilterSensitiveLog)
   .ser(se_DescribeCreateAccountStatusCommand)
   .de(de_DescribeCreateAccountStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCreateAccountStatusRequest;
+      output: DescribeCreateAccountStatusResponse;
+    };
+    sdk: {
+      input: DescribeCreateAccountStatusCommandInput;
+      output: DescribeCreateAccountStatusCommandOutput;
+    };
+  };
+}

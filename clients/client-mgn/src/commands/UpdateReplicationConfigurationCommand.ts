@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -132,6 +133,7 @@ export interface UpdateReplicationConfigurationCommandOutput extends Replication
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UpdateReplicationConfigurationCommand extends $Command
@@ -142,9 +144,7 @@ export class UpdateReplicationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +156,16 @@ export class UpdateReplicationConfigurationCommand extends $Command
   .f(UpdateReplicationConfigurationRequestFilterSensitiveLog, ReplicationConfigurationFilterSensitiveLog)
   .ser(se_UpdateReplicationConfigurationCommand)
   .de(de_UpdateReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReplicationConfigurationRequest;
+      output: ReplicationConfiguration;
+    };
+    sdk: {
+      input: UpdateReplicationConfigurationCommandInput;
+      output: UpdateReplicationConfigurationCommandOutput;
+    };
+  };
+}

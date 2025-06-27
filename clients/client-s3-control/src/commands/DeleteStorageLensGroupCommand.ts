@@ -13,7 +13,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,7 @@ export interface DeleteStorageLensGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteStorageLensGroupCommand extends $Command
@@ -87,4 +89,16 @@ export class DeleteStorageLensGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStorageLensGroupCommand)
   .de(de_DeleteStorageLensGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStorageLensGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStorageLensGroupCommandInput;
+      output: DeleteStorageLensGroupCommandOutput;
+    };
+  };
+}

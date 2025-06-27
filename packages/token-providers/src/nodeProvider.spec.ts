@@ -1,12 +1,13 @@
 import { chain, memoize, TokenProviderError } from "@smithy/property-provider";
 import { loadSharedConfigFiles } from "@smithy/shared-ini-file-loader";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromSso } from "./fromSso";
 import { nodeProvider } from "./nodeProvider";
 
-jest.mock("@smithy/property-provider");
-jest.mock("@smithy/shared-ini-file-loader");
-jest.mock("./fromSso");
+vi.mock("@smithy/property-provider");
+vi.mock("@smithy/shared-ini-file-loader");
+vi.mock("./fromSso");
 
 describe(nodeProvider.name, () => {
   const mockToken = {
@@ -18,9 +19,9 @@ describe(nodeProvider.name, () => {
     profile: "mockProfile",
   };
 
-  const mockSsoFn = jest.fn();
-  const mockChainFn = jest.fn();
-  const mockMemoizeFn = jest.fn().mockResolvedValue(mockToken);
+  const mockSsoFn = vi.fn();
+  const mockChainFn = vi.fn();
+  const mockMemoizeFn = vi.fn().mockResolvedValue(mockToken);
 
   beforeEach(() => {
     [
@@ -28,15 +29,15 @@ describe(nodeProvider.name, () => {
       [chain, mockChainFn],
       [memoize, mockMemoizeFn],
     ].forEach(([fromFn, mockFn]) => {
-      (fromFn as jest.Mock).mockReturnValue(mockFn);
+      vi.mocked(fromFn).mockReturnValue(mockFn as any);
     });
   });
 
   afterEach(async () => {
     expect(chain).toHaveBeenCalledWith(mockSsoFn, expect.any(Function));
 
-    const errorFnIndex = (chain as jest.Mock).mock.calls[0].length;
-    const errorFn = (chain as jest.Mock).mock.calls[0][errorFnIndex - 1];
+    const errorFnIndex = vi.mocked(chain).mock.calls[0].length;
+    const errorFn = vi.mocked(chain).mock.calls[0][errorFnIndex - 1];
     const expectedError = new TokenProviderError("Could not load token from any providers", false);
     try {
       await errorFn();
@@ -47,7 +48,7 @@ describe(nodeProvider.name, () => {
 
     expect(memoize).toHaveBeenCalledWith(mockChainFn, expect.any(Function), expect.any(Function));
 
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("creates provider chain and memoizes it", async () => {
@@ -64,30 +65,30 @@ describe(nodeProvider.name, () => {
   describe("memoize isExpired", () => {
     const mockDateNow = Date.now();
     beforeEach(async () => {
-      jest.spyOn(Date, "now").mockReturnValueOnce(mockDateNow);
+      vi.spyOn(Date, "now").mockReturnValueOnce(mockDateNow);
       await nodeProvider(mockInit)();
     });
 
     it("returns true if expiration is defined, and token has expired", () => {
-      const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
+      const memoizeExpiredFn = vi.mocked(memoize).mock.calls[0][1];
       const expiration = new Date(mockDateNow - 24 * 60 * 60 * 1000);
       expect(memoizeExpiredFn({ expiration })).toEqual(true);
     });
 
     it("returns true if expiration is defined, and token expires in <5 mins", () => {
-      const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
+      const memoizeExpiredFn = vi.mocked(memoize).mock.calls[0][1];
       const expiration = new Date(mockDateNow + 299 * 1000);
       expect(memoizeExpiredFn({ expiration })).toEqual(true);
     });
 
     it("returns false if expiration is defined, but token expires in >5 mins", () => {
-      const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
+      const memoizeExpiredFn = vi.mocked(memoize).mock.calls[0][1];
       const expiration = new Date(mockDateNow + 301 * 1000);
       expect(memoizeExpiredFn({ expiration })).toEqual(false);
     });
 
     it("returns false if expiration is not defined", () => {
-      const memoizeExpiredFn = (memoize as jest.Mock).mock.calls[0][1];
+      const memoizeExpiredFn = vi.mocked(memoize).mock.calls[0][1];
       expect(memoizeExpiredFn({})).toEqual(false);
     });
   });
@@ -98,13 +99,13 @@ describe(nodeProvider.name, () => {
     });
 
     it("returns true if expiration is not defined", () => {
-      const memoizeRefreshFn = (memoize as jest.Mock).mock.calls[0][2];
+      const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2]!;
       const expiration = Date.now();
       expect(memoizeRefreshFn({ expiration })).toEqual(true);
     });
 
     it("returns false if expiration is not defined", () => {
-      const memoizeRefreshFn = (memoize as jest.Mock).mock.calls[0][2];
+      const memoizeRefreshFn = vi.mocked(memoize).mock.calls[0][2]!;
       expect(memoizeRefreshFn({})).toEqual(false);
     });
   });

@@ -11,13 +11,14 @@ import {
   UpdateSubscriptionTargetInputFilterSensitiveLog,
   UpdateSubscriptionTargetOutput,
   UpdateSubscriptionTargetOutputFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateSubscriptionTargetCommand, se_UpdateSubscriptionTargetCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,7 +76,7 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * //   updatedBy: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"),
- * //   manageAccessRole: "STRING_VALUE", // required
+ * //   manageAccessRole: "STRING_VALUE",
  * //   applicableAssetTypes: [ // ApplicableAssetTypes // required
  * //     "STRING_VALUE",
  * //   ],
@@ -120,6 +121,7 @@ export interface UpdateSubscriptionTargetCommandOutput extends UpdateSubscriptio
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubscriptionTargetCommand extends $Command
@@ -130,9 +132,7 @@ export class UpdateSubscriptionTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class UpdateSubscriptionTargetCommand extends $Command
   .f(UpdateSubscriptionTargetInputFilterSensitiveLog, UpdateSubscriptionTargetOutputFilterSensitiveLog)
   .ser(se_UpdateSubscriptionTargetCommand)
   .de(de_UpdateSubscriptionTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriptionTargetInput;
+      output: UpdateSubscriptionTargetOutput;
+    };
+    sdk: {
+      input: UpdateSubscriptionTargetCommandInput;
+      output: UpdateSubscriptionTargetCommandOutput;
+    };
+  };
+}

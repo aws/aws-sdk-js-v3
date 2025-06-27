@@ -12,7 +12,8 @@ import { de_ListCustomModelsCommand, se_ListCustomModelsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListCustomModelsCommandInput extends ListCustomModelsRequest {}
 export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Returns a list of the custom models that you have created with the <code>CreateModelCustomizationJob</code> operation.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,8 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  *   nextToken: "STRING_VALUE",
  *   sortBy: "CreationTime",
  *   sortOrder: "Ascending" || "Descending",
+ *   isOwned: true || false,
+ *   modelStatus: "Active" || "Creating" || "Failed",
  * };
  * const command = new ListCustomModelsCommand(input);
  * const response = await client.send(command);
@@ -57,7 +59,9 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       baseModelArn: "STRING_VALUE", // required
  * //       baseModelName: "STRING_VALUE", // required
- * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //       customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
+ * //       ownerAccountId: "STRING_VALUE",
+ * //       modelStatus: "Active" || "Creating" || "Failed",
  * //     },
  * //   ],
  * // };
@@ -85,6 +89,7 @@ export interface ListCustomModelsCommandOutput extends ListCustomModelsResponse,
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListCustomModelsCommand extends $Command
@@ -95,9 +100,7 @@ export class ListCustomModelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +112,16 @@ export class ListCustomModelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomModelsCommand)
   .de(de_ListCustomModelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomModelsRequest;
+      output: ListCustomModelsResponse;
+    };
+    sdk: {
+      input: ListCustomModelsCommandInput;
+      output: ListCustomModelsCommandOutput;
+    };
+  };
+}

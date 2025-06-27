@@ -12,7 +12,8 @@ import { de_ListPipelineExecutionsCommand, se_ListPipelineExecutionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,11 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
 
 /**
  * <p>Gets a summary of the most recent executions for a pipeline.</p>
+ *          <note>
+ *             <p>When applying the filter for pipeline executions that have succeeded in the stage,
+ *                 the operation returns all executions in the current pipeline version beginning on
+ *                 February 1, 2024.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,6 +106,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class ListPipelineExecutionsCommand extends $Command
@@ -110,9 +117,7 @@ export class ListPipelineExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +129,16 @@ export class ListPipelineExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPipelineExecutionsCommand)
   .de(de_ListPipelineExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipelineExecutionsInput;
+      output: ListPipelineExecutionsOutput;
+    };
+    sdk: {
+      input: ListPipelineExecutionsCommandInput;
+      output: ListPipelineExecutionsCommandOutput;
+    };
+  };
+}

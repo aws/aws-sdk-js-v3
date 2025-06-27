@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -155,6 +156,7 @@ export interface GetServiceGraphCommandOutput extends GetServiceGraphResult, __M
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class GetServiceGraphCommand extends $Command
@@ -165,9 +167,7 @@ export class GetServiceGraphCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +179,16 @@ export class GetServiceGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceGraphCommand)
   .de(de_GetServiceGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceGraphRequest;
+      output: GetServiceGraphResult;
+    };
+    sdk: {
+      input: GetServiceGraphCommandInput;
+      output: GetServiceGraphCommandOutput;
+    };
+  };
+}

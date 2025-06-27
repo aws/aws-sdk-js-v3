@@ -10,8 +10,8 @@
 export * from "./PersonalizeEventsClient";
 export * from "./PersonalizeEvents";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { PersonalizeEventsExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { PersonalizeEventsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

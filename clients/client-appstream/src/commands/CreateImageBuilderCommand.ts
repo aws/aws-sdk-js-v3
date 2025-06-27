@@ -12,7 +12,8 @@ import { de_CreateImageBuilderCommand, se_CreateImageBuilderCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,7 +86,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * //       ],
  * //     },
  * //     InstanceType: "STRING_VALUE",
- * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ * //     Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  * //     IamRoleArn: "STRING_VALUE",
  * //     State: "PENDING" || "UPDATING_AGENT" || "RUNNING" || "STOPPING" || "STOPPED" || "REBOOTING" || "SNAPSHOTTING" || "DELETING" || "FAILED" || "UPDATING" || "PENDING_QUALIFICATION",
  * //     StateChangeReason: { // ImageBuilderStateChangeReason
@@ -116,6 +117,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * //         VpceId: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     LatestAppstreamAgentVersion: "TRUE" || "FALSE",
  * //   },
  * // };
  *
@@ -163,6 +165,7 @@ export interface CreateImageBuilderCommandOutput extends CreateImageBuilderResul
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateImageBuilderCommand extends $Command
@@ -173,9 +176,7 @@ export class CreateImageBuilderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -187,4 +188,16 @@ export class CreateImageBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageBuilderCommand)
   .de(de_CreateImageBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageBuilderRequest;
+      output: CreateImageBuilderResult;
+    };
+    sdk: {
+      input: CreateImageBuilderCommandInput;
+      output: CreateImageBuilderCommandOutput;
+    };
+  };
+}

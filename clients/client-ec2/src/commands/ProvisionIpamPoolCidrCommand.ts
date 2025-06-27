@@ -12,7 +12,8 @@ import { de_ProvisionIpamPoolCidrCommand, se_ProvisionIpamPoolCidrCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,8 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  *   },
  *   NetmaskLength: Number("int"),
  *   ClientToken: "STRING_VALUE",
+ *   VerificationMethod: "remarks-x509" || "dns-token",
+ *   IpamExternalResourceVerificationTokenId: "STRING_VALUE",
  * };
  * const command = new ProvisionIpamPoolCidrCommand(input);
  * const response = await client.send(command);
@@ -73,6 +76,7 @@ export interface ProvisionIpamPoolCidrCommandOutput extends ProvisionIpamPoolCid
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ProvisionIpamPoolCidrCommand extends $Command
@@ -83,9 +87,7 @@ export class ProvisionIpamPoolCidrCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +99,16 @@ export class ProvisionIpamPoolCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ProvisionIpamPoolCidrCommand)
   .de(de_ProvisionIpamPoolCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ProvisionIpamPoolCidrRequest;
+      output: ProvisionIpamPoolCidrResult;
+    };
+    sdk: {
+      input: ProvisionIpamPoolCidrCommandInput;
+      output: ProvisionIpamPoolCidrCommandOutput;
+    };
+  };
+}

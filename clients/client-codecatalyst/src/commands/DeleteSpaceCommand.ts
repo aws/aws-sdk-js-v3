@@ -12,7 +12,8 @@ import { de_DeleteSpaceCommand, se_DeleteSpaceCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface DeleteSpaceCommandOutput extends DeleteSpaceResponse, __Metadat
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class DeleteSpaceCommand extends $Command
@@ -88,9 +90,7 @@ export class DeleteSpaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class DeleteSpaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSpaceCommand)
   .de(de_DeleteSpaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSpaceRequest;
+      output: DeleteSpaceResponse;
+    };
+    sdk: {
+      input: DeleteSpaceCommandInput;
+      output: DeleteSpaceCommandOutput;
+    };
+  };
+}

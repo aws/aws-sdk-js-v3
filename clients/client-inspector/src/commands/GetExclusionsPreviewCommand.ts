@@ -12,7 +12,8 @@ import { de_GetExclusionsPreviewCommand, se_GetExclusionsPreviewCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface GetExclusionsPreviewCommandOutput extends GetExclusionsPreviewR
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ *
  * @public
  */
 export class GetExclusionsPreviewCommand extends $Command
@@ -104,9 +106,7 @@ export class GetExclusionsPreviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class GetExclusionsPreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetExclusionsPreviewCommand)
   .de(de_GetExclusionsPreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExclusionsPreviewRequest;
+      output: GetExclusionsPreviewResponse;
+    };
+    sdk: {
+      input: GetExclusionsPreviewCommandInput;
+      output: GetExclusionsPreviewCommandOutput;
+    };
+  };
+}

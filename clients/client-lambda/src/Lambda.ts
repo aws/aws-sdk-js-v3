@@ -117,6 +117,11 @@ import {
   GetFunctionEventInvokeConfigCommandOutput,
 } from "./commands/GetFunctionEventInvokeConfigCommand";
 import {
+  GetFunctionRecursionConfigCommand,
+  GetFunctionRecursionConfigCommandInput,
+  GetFunctionRecursionConfigCommandOutput,
+} from "./commands/GetFunctionRecursionConfigCommand";
+import {
   GetFunctionUrlConfigCommand,
   GetFunctionUrlConfigCommandInput,
   GetFunctionUrlConfigCommandOutput,
@@ -228,6 +233,11 @@ import {
   PutFunctionEventInvokeConfigCommandOutput,
 } from "./commands/PutFunctionEventInvokeConfigCommand";
 import {
+  PutFunctionRecursionConfigCommand,
+  PutFunctionRecursionConfigCommandInput,
+  PutFunctionRecursionConfigCommandOutput,
+} from "./commands/PutFunctionRecursionConfigCommand";
+import {
   PutProvisionedConcurrencyConfigCommand,
   PutProvisionedConcurrencyConfigCommandInput,
   PutProvisionedConcurrencyConfigCommandOutput,
@@ -313,6 +323,7 @@ const commands = {
   GetFunctionConcurrencyCommand,
   GetFunctionConfigurationCommand,
   GetFunctionEventInvokeConfigCommand,
+  GetFunctionRecursionConfigCommand,
   GetFunctionUrlConfigCommand,
   GetLayerVersionCommand,
   GetLayerVersionByArnCommand,
@@ -340,6 +351,7 @@ const commands = {
   PutFunctionCodeSigningConfigCommand,
   PutFunctionConcurrencyCommand,
   PutFunctionEventInvokeConfigCommand,
+  PutFunctionRecursionConfigCommand,
   PutProvisionedConcurrencyConfigCommand,
   PutRuntimeManagementConfigCommand,
   RemoveLayerVersionPermissionCommand,
@@ -764,6 +776,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link GetFunctionRecursionConfigCommand}
+   */
+  getFunctionRecursionConfig(
+    args: GetFunctionRecursionConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFunctionRecursionConfigCommandOutput>;
+  getFunctionRecursionConfig(
+    args: GetFunctionRecursionConfigCommandInput,
+    cb: (err: any, data?: GetFunctionRecursionConfigCommandOutput) => void
+  ): void;
+  getFunctionRecursionConfig(
+    args: GetFunctionRecursionConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFunctionRecursionConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFunctionUrlConfigCommand}
    */
   getFunctionUrlConfig(
@@ -1179,6 +1208,23 @@ export interface Lambda {
   ): void;
 
   /**
+   * @see {@link PutFunctionRecursionConfigCommand}
+   */
+  putFunctionRecursionConfig(
+    args: PutFunctionRecursionConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutFunctionRecursionConfigCommandOutput>;
+  putFunctionRecursionConfig(
+    args: PutFunctionRecursionConfigCommandInput,
+    cb: (err: any, data?: PutFunctionRecursionConfigCommandOutput) => void
+  ): void;
+  putFunctionRecursionConfig(
+    args: PutFunctionRecursionConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutFunctionRecursionConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutProvisionedConcurrencyConfigCommand}
    */
   putProvisionedConcurrencyConfig(
@@ -1400,7 +1446,7 @@ export interface Lambda {
  *       line tools to access the API. For installation instructions, see <a href="http://aws.amazon.com/tools/">Tools for
  *         Amazon Web Services</a>. </p>
  *          <p>For a list of Region-specific endpoints that Lambda supports,
- *       see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/">Lambda
+ *       see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html">Lambda
  *         endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p>
  *          <p>When making the API calls, you will need to
  *       authenticate your request by providing a signature. Lambda supports signature version 4. For more information,

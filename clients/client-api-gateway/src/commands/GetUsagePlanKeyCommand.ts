@@ -12,7 +12,8 @@ import { de_GetUsagePlanKeyCommand, se_GetUsagePlanKeyCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface GetUsagePlanKeyCommandOutput extends UsagePlanKey, __MetadataBe
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetUsagePlanKeyCommand extends $Command
@@ -80,9 +82,7 @@ export class GetUsagePlanKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class GetUsagePlanKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsagePlanKeyCommand)
   .de(de_GetUsagePlanKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsagePlanKeyRequest;
+      output: UsagePlanKey;
+    };
+    sdk: {
+      input: GetUsagePlanKeyCommandInput;
+      output: GetUsagePlanKeyCommandOutput;
+    };
+  };
+}

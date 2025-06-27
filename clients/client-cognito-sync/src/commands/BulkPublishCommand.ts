@@ -12,7 +12,8 @@ import { de_BulkPublishCommand, se_BulkPublishCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface BulkPublishCommandOutput extends BulkPublishResponse, __Metadat
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class BulkPublishCommand extends $Command
@@ -86,9 +88,7 @@ export class BulkPublishCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class BulkPublishCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BulkPublishCommand)
   .de(de_BulkPublishCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BulkPublishRequest;
+      output: BulkPublishResponse;
+    };
+    sdk: {
+      input: BulkPublishCommandInput;
+      output: BulkPublishCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsRequest, GetFindingsResponse, GetFindingsResponseFilterSensitiveLog } from "../models/models_0";
+import { GetFindingsRequest } from "../models/models_0";
+import { GetFindingsResponse, GetFindingsResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +114,15 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //               EffectivePermission: "STRING_VALUE",
  * //             },
+ * //             S3ObjectDetails: [ // S3ObjectDetails
+ * //               { // S3ObjectDetail
+ * //                 ObjectArn: "STRING_VALUE",
+ * //                 Key: "STRING_VALUE",
+ * //                 ETag: "STRING_VALUE",
+ * //                 Hash: "STRING_VALUE",
+ * //                 VersionId: "STRING_VALUE",
+ * //               },
+ * //             ],
  * //           },
  * //         ],
  * //         InstanceDetails: { // InstanceDetails
@@ -314,6 +325,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //             ],
  * //             Group: "STRING_VALUE",
+ * //             LaunchType: "STRING_VALUE",
  * //           },
  * //         },
  * //         ContainerDetails: {
@@ -339,6 +351,15 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //           EngineVersion: "STRING_VALUE",
  * //           DbClusterIdentifier: "STRING_VALUE",
  * //           DbInstanceArn: "STRING_VALUE",
+ * //           Tags: "<Tags>",
+ * //         },
+ * //         RdsLimitlessDbDetails: { // RdsLimitlessDbDetails
+ * //           DbShardGroupIdentifier: "STRING_VALUE",
+ * //           DbShardGroupResourceId: "STRING_VALUE",
+ * //           DbShardGroupArn: "STRING_VALUE",
+ * //           Engine: "STRING_VALUE",
+ * //           EngineVersion: "STRING_VALUE",
+ * //           DbClusterIdentifier: "STRING_VALUE",
  * //           Tags: "<Tags>",
  * //         },
  * //         RdsDbUserDetails: { // RdsDbUserDetails
@@ -431,6 +452,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               IpAddressV4: "STRING_VALUE",
  * //               IpAddressV6: "STRING_VALUE",
  * //             },
+ * //             LocalNetworkInterface: "STRING_VALUE",
  * //             RemoteIpDetails: {
  * //               City: {
  * //                 CityName: "STRING_VALUE",
@@ -792,12 +814,226 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //               },
  * //             },
  * //           },
+ * //           Sequence: { // Sequence
+ * //             Uid: "STRING_VALUE", // required
+ * //             Description: "STRING_VALUE", // required
+ * //             Actors: [ // Actors
+ * //               { // Actor
+ * //                 Id: "STRING_VALUE", // required
+ * //                 User: { // User
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Uid: "STRING_VALUE", // required
+ * //                   Type: "STRING_VALUE", // required
+ * //                   CredentialUid: "STRING_VALUE",
+ * //                   Account: { // Account
+ * //                     Uid: "STRING_VALUE", // required
+ * //                     Name: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 Session: { // Session
+ * //                   Uid: "STRING_VALUE",
+ * //                   MfaStatus: "ENABLED" || "DISABLED",
+ * //                   CreatedTime: new Date("TIMESTAMP"),
+ * //                   Issuer: "STRING_VALUE",
+ * //                 },
+ * //                 Process: { // ActorProcess
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Path: "STRING_VALUE", // required
+ * //                   Sha256: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //             ],
+ * //             Resources: [ // Resources
+ * //               { // ResourceV2
+ * //                 Uid: "STRING_VALUE", // required
+ * //                 Name: "STRING_VALUE",
+ * //                 AccountId: "STRING_VALUE",
+ * //                 ResourceType: "EC2_INSTANCE" || "EC2_NETWORK_INTERFACE" || "S3_BUCKET" || "S3_OBJECT" || "ACCESS_KEY" || "EKS_CLUSTER" || "KUBERNETES_WORKLOAD" || "CONTAINER", // required
+ * //                 Region: "STRING_VALUE",
+ * //                 Service: "STRING_VALUE",
+ * //                 CloudPartition: "STRING_VALUE",
+ * //                 Tags: "<Tags>",
+ * //                 Data: { // ResourceData
+ * //                   S3Bucket: { // S3Bucket
+ * //                     OwnerId: "STRING_VALUE",
+ * //                     CreatedAt: new Date("TIMESTAMP"),
+ * //                     EncryptionType: "STRING_VALUE",
+ * //                     EncryptionKeyArn: "STRING_VALUE",
+ * //                     EffectivePermission: "STRING_VALUE",
+ * //                     PublicReadAccess: "BLOCKED" || "ALLOWED",
+ * //                     PublicWriteAccess: "BLOCKED" || "ALLOWED",
+ * //                     AccountPublicAccess: { // PublicAccessConfiguration
+ * //                       PublicAclAccess: "BLOCKED" || "ALLOWED",
+ * //                       PublicPolicyAccess: "BLOCKED" || "ALLOWED",
+ * //                       PublicAclIgnoreBehavior: "IGNORED" || "NOT_IGNORED",
+ * //                       PublicBucketRestrictBehavior: "RESTRICTED" || "NOT_RESTRICTED",
+ * //                     },
+ * //                     BucketPublicAccess: {
+ * //                       PublicAclAccess: "BLOCKED" || "ALLOWED",
+ * //                       PublicPolicyAccess: "BLOCKED" || "ALLOWED",
+ * //                       PublicAclIgnoreBehavior: "IGNORED" || "NOT_IGNORED",
+ * //                       PublicBucketRestrictBehavior: "RESTRICTED" || "NOT_RESTRICTED",
+ * //                     },
+ * //                     S3ObjectUids: [ // S3ObjectUids
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   Ec2Instance: { // Ec2Instance
+ * //                     AvailabilityZone: "STRING_VALUE",
+ * //                     ImageDescription: "STRING_VALUE",
+ * //                     InstanceState: "STRING_VALUE",
+ * //                     IamInstanceProfile: {
+ * //                       Arn: "STRING_VALUE",
+ * //                       Id: "STRING_VALUE",
+ * //                     },
+ * //                     InstanceType: "STRING_VALUE",
+ * //                     OutpostArn: "STRING_VALUE",
+ * //                     Platform: "STRING_VALUE",
+ * //                     ProductCodes: [
+ * //                       {
+ * //                         Code: "STRING_VALUE",
+ * //                         ProductType: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     Ec2NetworkInterfaceUids: [ // Ec2NetworkInterfaceUids
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   AccessKey: { // AccessKey
+ * //                     PrincipalId: "STRING_VALUE",
+ * //                     UserName: "STRING_VALUE",
+ * //                     UserType: "STRING_VALUE",
+ * //                   },
+ * //                   Ec2NetworkInterface: { // Ec2NetworkInterface
+ * //                     Ipv6Addresses: [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     PrivateIpAddresses: [
+ * //                       {
+ * //                         PrivateDnsName: "STRING_VALUE",
+ * //                         PrivateIpAddress: "STRING_VALUE",
+ * //                       },
+ * //                     ],
+ * //                     PublicIp: "STRING_VALUE",
+ * //                     SecurityGroups: "<SecurityGroups>",
+ * //                     SubNetId: "STRING_VALUE",
+ * //                     VpcId: "STRING_VALUE",
+ * //                   },
+ * //                   S3Object: { // S3Object
+ * //                     ETag: "STRING_VALUE",
+ * //                     Key: "STRING_VALUE",
+ * //                     VersionId: "STRING_VALUE",
+ * //                   },
+ * //                   EksCluster: { // EksCluster
+ * //                     Arn: "STRING_VALUE",
+ * //                     CreatedAt: new Date("TIMESTAMP"),
+ * //                     Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED" || "UPDATING" || "PENDING",
+ * //                     VpcId: "STRING_VALUE",
+ * //                     Ec2InstanceUids: [ // Ec2InstanceUids
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   },
+ * //                   KubernetesWorkload: { // KubernetesWorkload
+ * //                     ContainerUids: [ // ContainerUids
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Namespace: "STRING_VALUE",
+ * //                     KubernetesResourcesTypes: "PODS" || "JOBS" || "CRONJOBS" || "DEPLOYMENTS" || "DAEMONSETS" || "STATEFULSETS" || "REPLICASETS" || "REPLICATIONCONTROLLERS",
+ * //                   },
+ * //                   Container: { // ContainerFindingResource
+ * //                     Image: "STRING_VALUE", // required
+ * //                     ImageUid: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //               },
+ * //             ],
+ * //             Endpoints: [ // NetworkEndpoints
+ * //               { // NetworkEndpoint
+ * //                 Id: "STRING_VALUE", // required
+ * //                 Ip: "STRING_VALUE",
+ * //                 Domain: "STRING_VALUE",
+ * //                 Port: Number("int"),
+ * //                 Location: { // NetworkGeoLocation
+ * //                   City: "STRING_VALUE", // required
+ * //                   Country: "STRING_VALUE", // required
+ * //                   Latitude: Number("double"), // required
+ * //                   Longitude: Number("double"), // required
+ * //                 },
+ * //                 AutonomousSystem: { // AutonomousSystem
+ * //                   Name: "STRING_VALUE", // required
+ * //                   Number: Number("int"), // required
+ * //                 },
+ * //                 Connection: { // NetworkConnection
+ * //                   Direction: "INBOUND" || "OUTBOUND", // required
+ * //                 },
+ * //               },
+ * //             ],
+ * //             Signals: [ // Signals // required
+ * //               { // Signal
+ * //                 Uid: "STRING_VALUE", // required
+ * //                 Type: "FINDING" || "CLOUD_TRAIL" || "S3_DATA_EVENTS" || "EKS_AUDIT_LOGS" || "FLOW_LOGS" || "DNS_LOGS" || "RUNTIME_MONITORING", // required
+ * //                 Description: "STRING_VALUE",
+ * //                 Name: "STRING_VALUE", // required
+ * //                 CreatedAt: new Date("TIMESTAMP"), // required
+ * //                 UpdatedAt: new Date("TIMESTAMP"), // required
+ * //                 FirstSeenAt: new Date("TIMESTAMP"), // required
+ * //                 LastSeenAt: new Date("TIMESTAMP"), // required
+ * //                 Severity: Number("double"),
+ * //                 Count: Number("int"), // required
+ * //                 ResourceUids: [ // ResourceUids
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 ActorIds: [ // ActorIds
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 EndpointIds: [ // EndpointIds
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 SignalIndicators: [ // Indicators
+ * //                   { // Indicator
+ * //                     Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS", // required
+ * //                     Values: [ // IndicatorValues
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                     Title: "STRING_VALUE",
+ * //                   },
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             SequenceIndicators: [
+ * //               {
+ * //                 Key: "SUSPICIOUS_USER_AGENT" || "SUSPICIOUS_NETWORK" || "MALICIOUS_IP" || "TOR_IP" || "ATTACK_TACTIC" || "HIGH_RISK_API" || "ATTACK_TECHNIQUE" || "UNUSUAL_API_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_ACCOUNT" || "UNUSUAL_ASN_FOR_USER" || "SUSPICIOUS_PROCESS" || "MALICIOUS_DOMAIN" || "MALICIOUS_PROCESS" || "CRYPTOMINING_IP" || "CRYPTOMINING_DOMAIN" || "CRYPTOMINING_PROCESS", // required
+ * //                 Values: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 Title: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             AdditionalSequenceTypes: [ // AdditionalSequenceTypes
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         MalwareScanDetails: { // MalwareScanDetails
+ * //           Threats: [ // Threats
+ * //             { // Threat
+ * //               Name: "STRING_VALUE",
+ * //               Source: "STRING_VALUE",
+ * //               ItemPaths: [ // ItemPaths
+ * //                 { // ItemPath
+ * //                   NestedItemPath: "STRING_VALUE",
+ * //                   Hash: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       Severity: Number("double"), // required
  * //       Title: "STRING_VALUE",
  * //       Type: "STRING_VALUE", // required
  * //       UpdatedAt: "STRING_VALUE", // required
+ * //       AssociatedAttackSequenceArn: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -819,6 +1055,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetFindingsCommand extends $Command
@@ -829,9 +1066,7 @@ export class GetFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -843,4 +1078,16 @@ export class GetFindingsCommand extends $Command
   .f(void 0, GetFindingsResponseFilterSensitiveLog)
   .ser(se_GetFindingsCommand)
   .de(de_GetFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingsRequest;
+      output: GetFindingsResponse;
+    };
+    sdk: {
+      input: GetFindingsCommandInput;
+      output: GetFindingsCommandOutput;
+    };
+  };
+}

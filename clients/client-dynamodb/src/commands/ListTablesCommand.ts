@@ -12,7 +12,8 @@ import { de_ListTablesCommand, se_ListTablesCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,16 +66,16 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To list tables
  * ```javascript
  * // This example lists all of the tables associated with the current AWS account and endpoint.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListTablesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TableNames": [
+ *   TableNames: [
  *     "Forum",
  *     "ProductCatalog",
  *     "Reply",
@@ -82,9 +83,9 @@ export interface ListTablesCommandOutput extends ListTablesOutput, __MetadataBea
  *   ]
  * }
  * *\/
- * // example id: to-list-tables-1475884741238
  * ```
  *
+ * @public
  */
 export class ListTablesCommand extends $Command
   .classBuilder<
@@ -94,9 +95,7 @@ export class ListTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class ListTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTablesCommand)
   .de(de_ListTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTablesInput;
+      output: ListTablesOutput;
+    };
+    sdk: {
+      input: ListTablesCommandInput;
+      output: ListTablesCommandOutput;
+    };
+  };
+}

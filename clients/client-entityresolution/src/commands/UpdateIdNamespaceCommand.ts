@@ -12,7 +12,8 @@ import { de_UpdateIdNamespaceCommand, se_UpdateIdNamespaceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,24 @@ export interface UpdateIdNamespaceCommandOutput extends UpdateIdNamespaceOutput,
  *   ],
  *   idMappingWorkflowProperties: [ // IdNamespaceIdMappingWorkflowPropertiesList
  *     { // IdNamespaceIdMappingWorkflowProperties
- *       idMappingType: "PROVIDER", // required
+ *       idMappingType: "PROVIDER" || "RULE_BASED", // required
+ *       ruleBasedProperties: { // NamespaceRuleBasedProperties
+ *         rules: [ // RuleList
+ *           { // Rule
+ *             ruleName: "STRING_VALUE", // required
+ *             matchingKeys: [ // MatchingKeys // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
+ *         ],
+ *         ruleDefinitionTypes: [ // IdMappingWorkflowRuleDefinitionTypeList
+ *           "SOURCE" || "TARGET",
+ *         ],
+ *         attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY",
+ *         recordMatchingModels: [ // RecordMatchingModelList
+ *           "ONE_SOURCE_TO_ONE_TARGET" || "MANY_SOURCE_TO_ONE_TARGET",
+ *         ],
+ *       },
  *       providerProperties: { // NamespaceProviderProperties
  *         providerServiceArn: "STRING_VALUE", // required
  *         providerConfiguration: "DOCUMENT_VALUE",
@@ -68,7 +86,24 @@ export interface UpdateIdNamespaceCommandOutput extends UpdateIdNamespaceOutput,
  * //   ],
  * //   idMappingWorkflowProperties: [ // IdNamespaceIdMappingWorkflowPropertiesList
  * //     { // IdNamespaceIdMappingWorkflowProperties
- * //       idMappingType: "PROVIDER", // required
+ * //       idMappingType: "PROVIDER" || "RULE_BASED", // required
+ * //       ruleBasedProperties: { // NamespaceRuleBasedProperties
+ * //         rules: [ // RuleList
+ * //           { // Rule
+ * //             ruleName: "STRING_VALUE", // required
+ * //             matchingKeys: [ // MatchingKeys // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         ruleDefinitionTypes: [ // IdMappingWorkflowRuleDefinitionTypeList
+ * //           "SOURCE" || "TARGET",
+ * //         ],
+ * //         attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY",
+ * //         recordMatchingModels: [ // RecordMatchingModelList
+ * //           "ONE_SOURCE_TO_ONE_TARGET" || "MANY_SOURCE_TO_ONE_TARGET",
+ * //         ],
+ * //       },
  * //       providerProperties: { // NamespaceProviderProperties
  * //         providerServiceArn: "STRING_VALUE", // required
  * //         providerConfiguration: "DOCUMENT_VALUE",
@@ -90,31 +125,23 @@ export interface UpdateIdNamespaceCommandOutput extends UpdateIdNamespaceOutput,
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
- *             403</code>
- *          </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource could not be found. <code>HTTP Status Code: 404</code>
- *          </p>
+ *  <p>The resource could not be found. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
- *          429</code>
- *          </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
+ *
  *
  * @public
  */
@@ -126,9 +153,7 @@ export class UpdateIdNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +165,16 @@ export class UpdateIdNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIdNamespaceCommand)
   .de(de_UpdateIdNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIdNamespaceInput;
+      output: UpdateIdNamespaceOutput;
+    };
+    sdk: {
+      input: UpdateIdNamespaceCommandInput;
+      output: UpdateIdNamespaceCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_BatchGetStreamKeyCommand, se_BatchGetStreamKeyCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface BatchGetStreamKeyCommandOutput extends BatchGetStreamKeyRespons
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class BatchGetStreamKeyCommand extends $Command
@@ -86,9 +88,7 @@ export class BatchGetStreamKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class BatchGetStreamKeyCommand extends $Command
   .f(void 0, BatchGetStreamKeyResponseFilterSensitiveLog)
   .ser(se_BatchGetStreamKeyCommand)
   .de(de_BatchGetStreamKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetStreamKeyRequest;
+      output: BatchGetStreamKeyResponse;
+    };
+    sdk: {
+      input: BatchGetStreamKeyCommandInput;
+      output: BatchGetStreamKeyCommandOutput;
+    };
+  };
+}

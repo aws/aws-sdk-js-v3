@@ -12,7 +12,8 @@ import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,7 +113,11 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *  <p>The event data store is inactive.</p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InvalidEventDataStoreCategoryException} (client fault)
@@ -138,6 +143,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class StartImportCommand extends $Command
@@ -148,9 +154,7 @@ export class StartImportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +166,16 @@ export class StartImportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartImportCommand)
   .de(de_StartImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportRequest;
+      output: StartImportResponse;
+    };
+    sdk: {
+      input: StartImportCommandInput;
+      output: StartImportCommandOutput;
+    };
+  };
+}

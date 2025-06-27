@@ -217,6 +217,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -262,11 +281,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type WorkSpacesThinClientClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -282,11 +301,11 @@ export interface WorkSpacesThinClientClientConfig extends WorkSpacesThinClientCl
 export type WorkSpacesThinClientClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -297,18 +316,7 @@ export type WorkSpacesThinClientClientResolvedConfigType = __SmithyResolvedConfi
 export interface WorkSpacesThinClientClientResolvedConfig extends WorkSpacesThinClientClientResolvedConfigType {}
 
 /**
- * <p>Amazon WorkSpaces Thin Client is an affordable device built to work with Amazon Web Services End User
- *             Computing (EUC) virtual desktops to provide users with a complete cloud desktop
- *             solution. WorkSpaces Thin Client is a compact device designed to connect up to two monitors and USB
- *             devices like a keyboard, mouse, headset, and webcam. To maximize endpoint security, WorkSpaces Thin Client
- *             devices do not allow local data storage or installation of unapproved applications. The
- *             WorkSpaces Thin Client device ships preloaded with device management software.</p>
- *          <p>You can use these APIs to complete WorkSpaces Thin Client tasks, such as creating environments or
- *             viewing devices. For more information about WorkSpaces Thin Client, including the required permissions to
- *             use the service, see the <a href="https://docs.aws.amazon.com/workspaces-thin-client/latest/ag/">Amazon WorkSpaces Thin Client Administrator Guide</a>. For
- *             more information about using the Command Line Interface (CLI) to manage
- *             your WorkSpaces Thin Client resources, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces-thin-client/index.html">WorkSpaces Thin Client section of the
- *                     CLI Reference</a>.</p>
+ * <p>Amazon WorkSpaces Thin Client is an affordable device built to work with Amazon Web Services End User Computing (EUC) virtual desktops to provide users with a complete cloud desktop solution. WorkSpaces Thin Client is a compact device designed to connect up to two monitors and USB devices like a keyboard, mouse, headset, and webcam. To maximize endpoint security, WorkSpaces Thin Client devices do not allow local data storage or installation of unapproved applications. The WorkSpaces Thin Client device ships preloaded with device management software.</p> <p>You can use these APIs to complete WorkSpaces Thin Client tasks, such as creating environments or viewing devices. For more information about WorkSpaces Thin Client, including the required permissions to use the service, see the <a href="https://docs.aws.amazon.com/workspaces-thin-client/latest/ag/">Amazon WorkSpaces Thin Client Administrator Guide</a>. For more information about using the Command Line Interface (CLI) to manage your WorkSpaces Thin Client resources, see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces-thin-client/index.html">WorkSpaces Thin Client section of the CLI Reference</a>.</p>
  * @public
  */
 export class WorkSpacesThinClientClient extends __Client<
@@ -324,26 +332,30 @@ export class WorkSpacesThinClientClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WorkSpacesThinClientClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultWorkSpacesThinClientHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: WorkSpacesThinClientClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -356,14 +368,5 @@ export class WorkSpacesThinClientClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultWorkSpacesThinClientHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: WorkSpacesThinClientClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

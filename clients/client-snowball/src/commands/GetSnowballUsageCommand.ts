@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,24 +57,24 @@ export interface GetSnowballUsageCommandOutput extends GetSnowballUsageResult, _
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To see your Snowball service limit and the number of Snowballs you have in use
  * ```javascript
  * // Returns information about the Snowball service limit for your account, and also the number of Snowballs your account has in use.
- * //
- * // The default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
- * const input = {};
+ *
+ * The default service limit for the number of Snowballs that you can have at one time is 1. If you want to increase your service limit, contact AWS Support.
+ * const input = { /* empty *\/ };
  * const command = new GetSnowballUsageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SnowballLimit": 1,
- *   "SnowballsInUse": 0
+ *   SnowballLimit: 1,
+ *   SnowballsInUse: 0
  * }
  * *\/
- * // example id: to-see-your-snowball-service-limit-and-the-number-of-snowballs-you-have-in-use-1482863394588
  * ```
  *
+ * @public
  */
 export class GetSnowballUsageCommand extends $Command
   .classBuilder<
@@ -83,9 +84,7 @@ export class GetSnowballUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class GetSnowballUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSnowballUsageCommand)
   .de(de_GetSnowballUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSnowballUsageResult;
+    };
+    sdk: {
+      input: GetSnowballUsageCommandInput;
+      output: GetSnowballUsageCommandOutput;
+    };
+  };
+}

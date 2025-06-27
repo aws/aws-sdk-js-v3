@@ -12,7 +12,8 @@ import { de_CreatePackageImportJobCommand, se_CreatePackageImportJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface CreatePackageImportJobCommandOutput extends CreatePackageImport
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class CreatePackageImportJobCommand extends $Command
@@ -101,9 +103,7 @@ export class CreatePackageImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class CreatePackageImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePackageImportJobCommand)
   .de(de_CreatePackageImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageImportJobRequest;
+      output: CreatePackageImportJobResponse;
+    };
+    sdk: {
+      input: CreatePackageImportJobCommandInput;
+      output: CreatePackageImportJobCommandOutput;
+    };
+  };
+}

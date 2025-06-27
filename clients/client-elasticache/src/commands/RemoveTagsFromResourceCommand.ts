@@ -12,7 +12,8 @@ import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  *             A tag is a key-value pair where the key and value are case-sensitive. You can use tags
  *             to categorize and track all your ElastiCache resources, with the exception of global
  *             replication group. When you add or remove tags on replication groups, those actions will
- *             be replicated to all nodes in the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
+ *             be replicated to all nodes in the replication group. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +87,7 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  *  <p>The requested replication group is not in the <code>available</code> state.</p>
  *
  * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
- *  <p>The state of the serverless cache snapshot was not received. Available for Redis only.</p>
+ *  <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
  *  <p>The account for these credentials is not currently active.</p>
@@ -101,7 +102,7 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
+ *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
  *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
@@ -118,13 +119,13 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example RemoveTagsFromResource
  * ```javascript
  * // Removes tags identified by a list of tag keys from the list of tags on the specified resource.
  * const input = {
- *   "ResourceName": "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
- *   "TagKeys": [
+ *   ResourceName: "arn:aws:elasticache:us-east-1:1234567890:cluster:my-mem-cluster",
+ *   TagKeys: [
  *     "A",
  *     "C",
  *     "E"
@@ -132,35 +133,35 @@ export interface RemoveTagsFromResourceCommandOutput extends TagListMessage, __M
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagList": [
+ *   TagList: [
  *     {
- *       "Key": "B",
- *       "Value": "Banana"
+ *       Key: "B",
+ *       Value: "Banana"
  *     },
  *     {
- *       "Key": "D",
- *       "Value": "Dog"
+ *       Key: "D",
+ *       Value: "Dog"
  *     },
  *     {
- *       "Key": "F",
- *       "Value": "Fox"
+ *       Key: "F",
+ *       Value: "Fox"
  *     },
  *     {
- *       "Key": "I",
- *       "Value": ""
+ *       Key: "I",
+ *       Value: ""
  *     },
  *     {
- *       "Key": "K",
- *       "Value": "Kite"
+ *       Key: "K",
+ *       Value: "Kite"
  *     }
  *   ]
  * }
  * *\/
- * // example id: removetagsfromresource-1483037920947
  * ```
  *
+ * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<
@@ -170,9 +171,7 @@ export class RemoveTagsFromResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +183,16 @@ export class RemoveTagsFromResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromResourceCommand)
   .de(de_RemoveTagsFromResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromResourceMessage;
+      output: TagListMessage;
+    };
+    sdk: {
+      input: RemoveTagsFromResourceCommandInput;
+      output: RemoveTagsFromResourceCommandOutput;
+    };
+  };
+}

@@ -6,14 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ResumeGameServerGroupInput } from "../models/models_0";
-import { ResumeGameServerGroupOutput } from "../models/models_1";
+import { ResumeGameServerGroupInput, ResumeGameServerGroupOutput } from "../models/models_1";
 import { de_ResumeGameServerGroupCommand, se_ResumeGameServerGroupCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +29,7 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Reinstates activity on a game
  *             server group after it has been suspended. A game server group might be suspended by the
@@ -45,7 +45,7 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -103,13 +103,14 @@ export interface ResumeGameServerGroupCommandOutput extends ResumeGameServerGrou
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -121,9 +122,7 @@ export class ResumeGameServerGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class ResumeGameServerGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeGameServerGroupCommand)
   .de(de_ResumeGameServerGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeGameServerGroupInput;
+      output: ResumeGameServerGroupOutput;
+    };
+    sdk: {
+      input: ResumeGameServerGroupCommandInput;
+      output: ResumeGameServerGroupCommandOutput;
+    };
+  };
+}

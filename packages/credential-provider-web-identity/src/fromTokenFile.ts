@@ -1,4 +1,5 @@
-import { CredentialProviderOptions } from "@aws-sdk/types";
+import { setCredentialFeature } from "@aws-sdk/core/client";
+import { AttributedAwsCredentialIdentity, CredentialProviderOptions } from "@aws-sdk/types";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import type { AwsCredentialIdentityProvider } from "@smithy/types";
 import { readFileSync } from "fs";
@@ -40,10 +41,16 @@ export const fromTokenFile =
       });
     }
 
-    return fromWebToken({
+    const credentials: AttributedAwsCredentialIdentity = await fromWebToken({
       ...init,
       webIdentityToken: readFileSync(webIdentityTokenFile, { encoding: "ascii" }),
       roleArn,
       roleSessionName,
     })();
+
+    if (webIdentityTokenFile === process.env[ENV_TOKEN_FILE]) {
+      setCredentialFeature(credentials, "CREDENTIALS_ENV_VARS_STS_WEB_ID_TOKEN", "h");
+    }
+
+    return credentials;
   };

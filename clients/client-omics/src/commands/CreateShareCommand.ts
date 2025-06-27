@@ -12,7 +12,8 @@ import { de_CreateShareCommand, se_CreateShareCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,20 +28,7 @@ export interface CreateShareCommandInput extends CreateShareRequest {}
 export interface CreateShareCommandOutput extends CreateShareResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a cross-account shared resource. The resource owner makes an offer to share the resource
- *       with the principal subscriber (an AWS user with a different account than the resource owner).</p>
- *          <p>The following resources support cross-account sharing:</p>
- *          <ul>
- *             <li>
- *                <p>Healthomics variant stores</p>
- *             </li>
- *             <li>
- *                <p>Healthomics annotation stores</p>
- *             </li>
- *             <li>
- *                <p>Private workflows</p>
- *             </li>
- *          </ul>
+ * <p>Creates a cross-account shared resource. The resource owner makes an offer to share the resource with the principal subscriber (an AWS user with a different account than the resource owner).</p> <p>The following resources support cross-account sharing:</p> <ul> <li> <p>HealthOmics variant stores</p> </li> <li> <p>HealthOmics annotation stores</p> </li> <li> <p>Private workflows</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +80,7 @@ export interface CreateShareCommandOutput extends CreateShareResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class CreateShareCommand extends $Command
@@ -102,9 +91,7 @@ export class CreateShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +103,16 @@ export class CreateShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateShareCommand)
   .de(de_CreateShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateShareRequest;
+      output: CreateShareResponse;
+    };
+    sdk: {
+      input: CreateShareCommandInput;
+      output: CreateShareCommandOutput;
+    };
+  };
+}

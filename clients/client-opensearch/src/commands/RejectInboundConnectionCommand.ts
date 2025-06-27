@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_0";
+import { RejectInboundConnectionRequest, RejectInboundConnectionResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_RejectInboundConnectionCommand, se_RejectInboundConnectionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface RejectInboundConnectionCommandOutput extends RejectInboundConne
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class RejectInboundConnectionCommand extends $Command
@@ -92,9 +94,7 @@ export class RejectInboundConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class RejectInboundConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectInboundConnectionCommand)
   .de(de_RejectInboundConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectInboundConnectionRequest;
+      output: RejectInboundConnectionResponse;
+    };
+    sdk: {
+      input: RejectInboundConnectionCommandInput;
+      output: RejectInboundConnectionCommandOutput;
+    };
+  };
+}

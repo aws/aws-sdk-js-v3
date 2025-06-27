@@ -12,7 +12,8 @@ import { de_DescribeBackupPolicyCommand, se_DescribeBackupPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,13 +66,14 @@ export interface DescribeBackupPolicyCommandOutput extends BackupPolicyDescripti
  *  <p>Returned if an error occurred on the server side.</p>
  *
  * @throws {@link PolicyNotFound} (client fault)
- *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ *  <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Returned if the Backup service is not available in the Amazon Web Services Region in which the request was made.</p>
  *
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
+ *
  *
  * @public
  */
@@ -83,9 +85,7 @@ export class DescribeBackupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class DescribeBackupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBackupPolicyCommand)
   .de(de_DescribeBackupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBackupPolicyRequest;
+      output: BackupPolicyDescription;
+    };
+    sdk: {
+      input: DescribeBackupPolicyCommandInput;
+      output: DescribeBackupPolicyCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopCompilationJobRequest } from "../models/models_4";
+import { StopCompilationJobRequest } from "../models/models_5";
 import { de_StopCompilationJobCommand, se_StopCompilationJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface StopCompilationJobCommandInput extends StopCompilationJobReques
 export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a model compilation job.</p>
- *          <p> To stop a job, Amazon SageMaker sends the algorithm the SIGTERM signal. This gracefully shuts the
- *             job down. If the job hasn't stopped, it sends the SIGKILL signal.</p>
- *          <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker changes the
- *                 <code>CompilationJobStatus</code> of the job to <code>Stopping</code>. After Amazon
- *             SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to
- *                 <code>Stopped</code>. </p>
+ * <p>Stops a model compilation job.</p> <p> To stop a job, Amazon SageMaker AI sends the algorithm the SIGTERM signal. This gracefully shuts the job down. If the job hasn't stopped, it sends the SIGKILL signal.</p> <p>When it receives a <code>StopCompilationJob</code> request, Amazon SageMaker AI changes the <code>CompilationJobStatus</code> of the job to <code>Stopping</code>. After Amazon SageMaker stops the job, it sets the <code>CompilationJobStatus</code> to <code>Stopped</code>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +56,7 @@ export interface StopCompilationJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopCompilationJobCommand extends $Command
@@ -71,9 +67,7 @@ export class StopCompilationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +79,16 @@ export class StopCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCompilationJobCommand)
   .de(de_StopCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCompilationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCompilationJobCommandInput;
+      output: StopCompilationJobCommandOutput;
+    };
+  };
+}

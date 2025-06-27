@@ -100,6 +100,7 @@ import {
   CreateHsmConfigurationCommandInput,
   CreateHsmConfigurationCommandOutput,
 } from "../commands/CreateHsmConfigurationCommand";
+import { CreateIntegrationCommandInput, CreateIntegrationCommandOutput } from "../commands/CreateIntegrationCommand";
 import {
   CreateRedshiftIdcApplicationCommandInput,
   CreateRedshiftIdcApplicationCommandOutput,
@@ -163,6 +164,7 @@ import {
   DeleteHsmConfigurationCommandInput,
   DeleteHsmConfigurationCommandOutput,
 } from "../commands/DeleteHsmConfigurationCommand";
+import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "../commands/DeleteIntegrationCommand";
 import { DeletePartnerCommandInput, DeletePartnerCommandOutput } from "../commands/DeletePartnerCommand";
 import {
   DeleteRedshiftIdcApplicationCommandInput,
@@ -186,6 +188,10 @@ import {
 } from "../commands/DeleteSnapshotScheduleCommand";
 import { DeleteTagsCommandInput, DeleteTagsCommandOutput } from "../commands/DeleteTagsCommand";
 import { DeleteUsageLimitCommandInput, DeleteUsageLimitCommandOutput } from "../commands/DeleteUsageLimitCommand";
+import {
+  DeregisterNamespaceCommandInput,
+  DeregisterNamespaceCommandOutput,
+} from "../commands/DeregisterNamespaceCommand";
 import {
   DescribeAccountAttributesCommandInput,
   DescribeAccountAttributesCommandOutput,
@@ -273,6 +279,10 @@ import {
   DescribeInboundIntegrationsCommandInput,
   DescribeInboundIntegrationsCommandOutput,
 } from "../commands/DescribeInboundIntegrationsCommand";
+import {
+  DescribeIntegrationsCommandInput,
+  DescribeIntegrationsCommandOutput,
+} from "../commands/DescribeIntegrationsCommand";
 import {
   DescribeLoggingStatusCommandInput,
   DescribeLoggingStatusCommandOutput,
@@ -410,6 +420,7 @@ import {
   ModifyEventSubscriptionCommandInput,
   ModifyEventSubscriptionCommandOutput,
 } from "../commands/ModifyEventSubscriptionCommand";
+import { ModifyIntegrationCommandInput, ModifyIntegrationCommandOutput } from "../commands/ModifyIntegrationCommand";
 import {
   ModifyRedshiftIdcApplicationCommandInput,
   ModifyRedshiftIdcApplicationCommandOutput,
@@ -434,6 +445,7 @@ import {
 } from "../commands/PurchaseReservedNodeOfferingCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { RebootClusterCommandInput, RebootClusterCommandOutput } from "../commands/RebootClusterCommand";
+import { RegisterNamespaceCommandInput, RegisterNamespaceCommandOutput } from "../commands/RegisterNamespaceCommand";
 import { RejectDataShareCommandInput, RejectDataShareCommandOutput } from "../commands/RejectDataShareCommand";
 import {
   ResetClusterParameterGroupCommandInput,
@@ -570,6 +582,7 @@ import {
   CreateHsmClientCertificateResult,
   CreateHsmConfigurationMessage,
   CreateHsmConfigurationResult,
+  CreateIntegrationMessage,
   CreateRedshiftIdcApplicationMessage,
   CreateRedshiftIdcApplicationResult,
   CreateScheduledActionMessage,
@@ -602,6 +615,7 @@ import {
   DeleteEventSubscriptionMessage,
   DeleteHsmClientCertificateMessage,
   DeleteHsmConfigurationMessage,
+  DeleteIntegrationMessage,
   DeleteRedshiftIdcApplicationMessage,
   DeleteResourcePolicyMessage,
   DeleteScheduledActionMessage,
@@ -612,17 +626,7 @@ import {
   DependentServiceAccessDeniedFault,
   DependentServiceRequestThrottlingFault,
   DependentServiceUnavailableFault,
-  DescribeAccountAttributesMessage,
-  DescribeAuthenticationProfilesMessage,
-  DescribeAuthenticationProfilesResult,
-  DescribeClusterDbRevisionsMessage,
-  DescribeClusterParameterGroupsMessage,
-  DescribeClusterParametersMessage,
-  DescribeClusterSecurityGroupsMessage,
-  DescribeClustersMessage,
-  DescribeClusterSnapshotsMessage,
-  DescribeClusterSubnetGroupsMessage,
-  DescribeClusterTracksMessage,
+  DeregisterNamespaceInputMessage,
   EC2SecurityGroup,
   ElasticIpStatus,
   Endpoint,
@@ -646,6 +650,15 @@ import {
   HsmConfigurationQuotaExceededFault,
   HsmStatus,
   InsufficientClusterCapacityFault,
+  Integration,
+  IntegrationAlreadyExistsFault,
+  IntegrationConflictOperationFault,
+  IntegrationConflictStateFault,
+  IntegrationError,
+  IntegrationNotFoundFault,
+  IntegrationQuotaExceededFault,
+  IntegrationSourceNotFoundFault,
+  IntegrationTargetNotFoundFault,
   InvalidAuthenticationProfileRequestFault,
   InvalidAuthorizationStateFault,
   InvalidClusterParameterGroupStateFault,
@@ -677,7 +690,7 @@ import {
   LakeFormationQuery,
   LakeFormationScopeUnion,
   LimitExceededFault,
-  MaintenanceTrack,
+  NamespaceIdentifierUnion,
   NetworkInterface,
   NumberOfNodesPerClusterLimitExceededFault,
   NumberOfNodesQuotaExceededFault,
@@ -687,6 +700,8 @@ import {
   PartnerNotFoundFault,
   PauseClusterMessage,
   PendingModifiedValues,
+  ProvisionedIdentifier,
+  ReadWriteAccess,
   RecurringCharge,
   RedshiftIdcApplication,
   RedshiftIdcApplicationAlreadyExistsFault,
@@ -706,6 +721,7 @@ import {
   RestoreStatus,
   ResumeClusterMessage,
   RevisionTarget,
+  S3AccessGrantsScopeUnion,
   ScheduledAction,
   ScheduledActionAlreadyExistsFault,
   ScheduledActionNotFoundFault,
@@ -714,6 +730,7 @@ import {
   ScheduledActionTypeUnsupportedFault,
   ScheduleDefinitionTypeUnsupportedFault,
   SecondaryClusterInfo,
+  ServerlessIdentifier,
   ServiceIntegrationsUnion,
   Snapshot,
   SnapshotCopyGrant,
@@ -721,12 +738,10 @@ import {
   SnapshotCopyGrantNotFoundFault,
   SnapshotCopyGrantQuotaExceededFault,
   SnapshotErrorMessage,
-  SnapshotMessage,
   SnapshotSchedule,
   SnapshotScheduleAlreadyExistsFault,
   SnapshotScheduleNotFoundFault,
   SnapshotScheduleQuotaExceededFault,
-  SnapshotSortingEntity,
   SNSInvalidTopicFault,
   SNSNoAuthorizationFault,
   SNSTopicArnNotFoundFault,
@@ -737,15 +752,12 @@ import {
   SubscriptionEventIdNotFoundFault,
   SubscriptionNotFoundFault,
   SubscriptionSeverityNotFoundFault,
-  SupportedOperation,
   SupportedPlatform,
   Tag,
   TagLimitExceededFault,
-  TrackListMessage,
   UnauthorizedOperation,
   UnauthorizedPartnerIntegrationFault,
   UnsupportedOperationFault,
-  UpdateTarget,
   UsageLimit,
   UsageLimitAlreadyExistsFault,
   UsageLimitNotFoundFault,
@@ -753,6 +765,18 @@ import {
   VpcSecurityGroupMembership,
 } from "../models/models_0";
 import {
+  DeregisterNamespaceOutputMessage,
+  DescribeAccountAttributesMessage,
+  DescribeAuthenticationProfilesMessage,
+  DescribeAuthenticationProfilesResult,
+  DescribeClusterDbRevisionsMessage,
+  DescribeClusterParameterGroupsMessage,
+  DescribeClusterParametersMessage,
+  DescribeClusterSecurityGroupsMessage,
+  DescribeClustersMessage,
+  DescribeClusterSnapshotsMessage,
+  DescribeClusterSubnetGroupsMessage,
+  DescribeClusterTracksMessage,
   DescribeClusterVersionsMessage,
   DescribeCustomDomainAssociationsMessage,
   DescribeDataSharesForConsumerMessage,
@@ -771,6 +795,8 @@ import {
   DescribeHsmClientCertificatesMessage,
   DescribeHsmConfigurationsMessage,
   DescribeInboundIntegrationsMessage,
+  DescribeIntegrationsFilter,
+  DescribeIntegrationsMessage,
   DescribeLoggingStatusMessage,
   DescribeNodeConfigurationOptionsMessage,
   DescribeOrderableClusterOptionsMessage,
@@ -823,8 +849,7 @@ import {
   IncompatibleOrderableOptions,
   InProgressTableRestoreQuotaExceededFault,
   InsufficientS3BucketPolicyFault,
-  IntegrationError,
-  IntegrationNotFoundFault,
+  IntegrationsMessage,
   InvalidPolicyFault,
   InvalidRestoreFault,
   InvalidS3BucketNameFault,
@@ -833,6 +858,7 @@ import {
   ListRecommendationsMessage,
   ListRecommendationsResult,
   LoggingStatus,
+  MaintenanceTrack,
   ModifyAquaInputMessage,
   ModifyAquaOutputMessage,
   ModifyAuthenticationProfileMessage,
@@ -856,6 +882,7 @@ import {
   ModifyEndpointAccessMessage,
   ModifyEventSubscriptionMessage,
   ModifyEventSubscriptionResult,
+  ModifyIntegrationMessage,
   ModifyRedshiftIdcApplicationMessage,
   ModifyRedshiftIdcApplicationResult,
   ModifyScheduledActionMessage,
@@ -879,6 +906,8 @@ import {
   Recommendation,
   RecommendedAction,
   ReferenceLink,
+  RegisterNamespaceInputMessage,
+  RegisterNamespaceOutputMessage,
   RejectDataShareMessage,
   ReservedNodeConfigurationOption,
   ReservedNodeExchangeNotFoundFault,
@@ -907,17 +936,22 @@ import {
   SnapshotCopyAlreadyEnabledFault,
   SnapshotCopyDisabledFault,
   SnapshotCopyGrantMessage,
+  SnapshotMessage,
   SnapshotScheduleUpdateInProgressFault,
+  SnapshotSortingEntity,
   SubnetAlreadyInUse,
+  SupportedOperation,
   TableLimitExceededFault,
   TableRestoreNotFoundFault,
   TableRestoreStatus,
   TableRestoreStatusMessage,
   TaggedResource,
   TaggedResourceListMessage,
+  TrackListMessage,
   UnknownSnapshotCopyRegionFault,
   UnsupportedOptionFault,
   UpdatePartnerStatusInputMessage,
+  UpdateTarget,
   UsageLimitList,
 } from "../models/models_1";
 import { RedshiftServiceException as __BaseException } from "../models/RedshiftServiceException";
@@ -1297,6 +1331,23 @@ export const se_CreateHsmConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_queryCreateIntegrationCommand
+ */
+export const se_CreateIntegrationCommand = async (
+  input: CreateIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_CreateIntegrationMessage(input, context),
+    [_A]: _CI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryCreateRedshiftIdcApplicationCommand
  */
 export const se_CreateRedshiftIdcApplicationCommand = async (
@@ -1603,6 +1654,23 @@ export const se_DeleteHsmConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_queryDeleteIntegrationCommand
+ */
+export const se_DeleteIntegrationCommand = async (
+  input: DeleteIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeleteIntegrationMessage(input, context),
+    [_A]: _DI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryDeletePartnerCommand
  */
 export const se_DeletePartnerCommand = async (
@@ -1733,6 +1801,23 @@ export const se_DeleteUsageLimitCommand = async (
   body = buildFormUrlencodedString({
     ...se_DeleteUsageLimitMessage(input, context),
     [_A]: _DUL,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDeregisterNamespaceCommand
+ */
+export const se_DeregisterNamespaceCommand = async (
+  input: DeregisterNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DeregisterNamespaceInputMessage(input, context),
+    [_A]: _DN,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2141,6 +2226,23 @@ export const se_DescribeInboundIntegrationsCommand = async (
   body = buildFormUrlencodedString({
     ...se_DescribeInboundIntegrationsMessage(input, context),
     [_A]: _DII,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryDescribeIntegrationsCommand
+ */
+export const se_DescribeIntegrationsCommand = async (
+  input: DescribeIntegrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_DescribeIntegrationsMessage(input, context),
+    [_A]: _DIe,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2842,6 +2944,23 @@ export const se_ModifyEventSubscriptionCommand = async (
 };
 
 /**
+ * serializeAws_queryModifyIntegrationCommand
+ */
+export const se_ModifyIntegrationCommand = async (
+  input: ModifyIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ModifyIntegrationMessage(input, context),
+    [_A]: _MI,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_queryModifyRedshiftIdcApplicationCommand
  */
 export const se_ModifyRedshiftIdcApplicationCommand = async (
@@ -2989,6 +3108,23 @@ export const se_RebootClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_RebootClusterMessage(input, context),
     [_A]: _RC,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryRegisterNamespaceCommand
+ */
+export const se_RegisterNamespaceCommand = async (
+  input: RegisterNamespaceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_RegisterNamespaceInputMessage(input, context),
+    [_A]: _RN,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3622,6 +3758,26 @@ export const de_CreateHsmConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_queryCreateIntegrationCommand
+ */
+export const de_CreateIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.CreateIntegrationResult, context);
+  const response: CreateIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryCreateRedshiftIdcApplicationCommand
  */
 export const de_CreateRedshiftIdcApplicationCommand = async (
@@ -3958,6 +4114,26 @@ export const de_DeleteHsmConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_queryDeleteIntegrationCommand
+ */
+export const de_DeleteIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.DeleteIntegrationResult, context);
+  const response: DeleteIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryDeletePartnerCommand
  */
 export const de_DeletePartnerCommand = async (
@@ -4092,6 +4268,26 @@ export const de_DeleteUsageLimitCommand = async (
   await collectBody(output.body, context);
   const response: DeleteUsageLimitCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDeregisterNamespaceCommand
+ */
+export const de_DeregisterNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeregisterNamespaceOutputMessage(data.DeregisterNamespaceResult, context);
+  const response: DeregisterNamespaceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -4570,6 +4766,26 @@ export const de_DescribeInboundIntegrationsCommand = async (
   let contents: any = {};
   contents = de_InboundIntegrationsMessage(data.DescribeInboundIntegrationsResult, context);
   const response: DescribeInboundIntegrationsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryDescribeIntegrationsCommand
+ */
+export const de_DescribeIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeIntegrationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_IntegrationsMessage(data.DescribeIntegrationsResult, context);
+  const response: DescribeIntegrationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -5397,6 +5613,26 @@ export const de_ModifyEventSubscriptionCommand = async (
 };
 
 /**
+ * deserializeAws_queryModifyIntegrationCommand
+ */
+export const de_ModifyIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ModifyIntegrationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_Integration(data.ModifyIntegrationResult, context);
+  const response: ModifyIntegrationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_queryModifyRedshiftIdcApplicationCommand
  */
 export const de_ModifyRedshiftIdcApplicationCommand = async (
@@ -5570,6 +5806,26 @@ export const de_RebootClusterCommand = async (
   let contents: any = {};
   contents = de_RebootClusterResult(data.RebootClusterResult, context);
   const response: RebootClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryRegisterNamespaceCommand
+ */
+export const de_RegisterNamespaceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterNamespaceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_RegisterNamespaceOutputMessage(data.RegisterNamespaceResult, context);
+  const response: RegisterNamespaceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -6040,6 +6296,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "HsmConfigurationQuotaExceededFault":
     case "com.amazonaws.redshift#HsmConfigurationQuotaExceededFault":
       throw await de_HsmConfigurationQuotaExceededFaultRes(parsedOutput, context);
+    case "IntegrationAlreadyExistsFault":
+    case "com.amazonaws.redshift#IntegrationAlreadyExistsFault":
+      throw await de_IntegrationAlreadyExistsFaultRes(parsedOutput, context);
+    case "IntegrationConflictOperationFault":
+    case "com.amazonaws.redshift#IntegrationConflictOperationFault":
+      throw await de_IntegrationConflictOperationFaultRes(parsedOutput, context);
+    case "IntegrationQuotaExceededFault":
+    case "com.amazonaws.redshift#IntegrationQuotaExceededFault":
+      throw await de_IntegrationQuotaExceededFaultRes(parsedOutput, context);
+    case "IntegrationSourceNotFoundFault":
+    case "com.amazonaws.redshift#IntegrationSourceNotFoundFault":
+      throw await de_IntegrationSourceNotFoundFaultRes(parsedOutput, context);
+    case "IntegrationTargetNotFoundFault":
+    case "com.amazonaws.redshift#IntegrationTargetNotFoundFault":
+      throw await de_IntegrationTargetNotFoundFaultRes(parsedOutput, context);
     case "DependentServiceAccessDenied":
     case "com.amazonaws.redshift#DependentServiceAccessDeniedFault":
       throw await de_DependentServiceAccessDeniedFaultRes(parsedOutput, context);
@@ -6118,6 +6389,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidHsmConfigurationStateFault":
     case "com.amazonaws.redshift#InvalidHsmConfigurationStateFault":
       throw await de_InvalidHsmConfigurationStateFaultRes(parsedOutput, context);
+    case "IntegrationConflictStateFault":
+    case "com.amazonaws.redshift#IntegrationConflictStateFault":
+      throw await de_IntegrationConflictStateFaultRes(parsedOutput, context);
+    case "IntegrationNotFoundFault":
+    case "com.amazonaws.redshift#IntegrationNotFoundFault":
+      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
     case "ScheduledActionNotFound":
     case "com.amazonaws.redshift#ScheduledActionNotFoundFault":
       throw await de_ScheduledActionNotFoundFaultRes(parsedOutput, context);
@@ -6133,9 +6410,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "UsageLimitNotFound":
     case "com.amazonaws.redshift#UsageLimitNotFoundFault":
       throw await de_UsageLimitNotFoundFaultRes(parsedOutput, context);
-    case "IntegrationNotFoundFault":
-    case "com.amazonaws.redshift#IntegrationNotFoundFault":
-      throw await de_IntegrationNotFoundFaultRes(parsedOutput, context);
     case "AccessToSnapshotDenied":
     case "com.amazonaws.redshift#AccessToSnapshotDeniedFault":
       throw await de_AccessToSnapshotDeniedFaultRes(parsedOutput, context);
@@ -7070,6 +7344,54 @@ const de_InsufficientS3BucketPolicyFaultRes = async (
 };
 
 /**
+ * deserializeAws_queryIntegrationAlreadyExistsFaultRes
+ */
+const de_IntegrationAlreadyExistsFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationAlreadyExistsFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationAlreadyExistsFault(body.Error, context);
+  const exception = new IntegrationAlreadyExistsFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationConflictOperationFaultRes
+ */
+const de_IntegrationConflictOperationFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationConflictOperationFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationConflictOperationFault(body.Error, context);
+  const exception = new IntegrationConflictOperationFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationConflictStateFaultRes
+ */
+const de_IntegrationConflictStateFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationConflictStateFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationConflictStateFault(body.Error, context);
+  const exception = new IntegrationConflictStateFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_queryIntegrationNotFoundFaultRes
  */
 const de_IntegrationNotFoundFaultRes = async (
@@ -7079,6 +7401,54 @@ const de_IntegrationNotFoundFaultRes = async (
   const body = parsedOutput.body;
   const deserialized: any = de_IntegrationNotFoundFault(body.Error, context);
   const exception = new IntegrationNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationQuotaExceededFaultRes
+ */
+const de_IntegrationQuotaExceededFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationQuotaExceededFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationQuotaExceededFault(body.Error, context);
+  const exception = new IntegrationQuotaExceededFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationSourceNotFoundFaultRes
+ */
+const de_IntegrationSourceNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationSourceNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationSourceNotFoundFault(body.Error, context);
+  const exception = new IntegrationSourceNotFoundFault({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_queryIntegrationTargetNotFoundFaultRes
+ */
+const de_IntegrationTargetNotFoundFaultRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<IntegrationTargetNotFoundFault> => {
+  const body = parsedOutput.body;
+  const deserialized: any = de_IntegrationTargetNotFoundFault(body.Error, context);
+  const exception = new IntegrationTargetNotFoundFault({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -8463,8 +8833,8 @@ const se_AuthorizeDataShareMessage = (input: AuthorizeDataShareMessage, context:
   if (input[_DSAa] != null) {
     entries[_DSAa] = input[_DSAa];
   }
-  if (input[_CI] != null) {
-    entries[_CI] = input[_CI];
+  if (input[_CIo] != null) {
+    entries[_CIo] = input[_CIo];
   }
   if (input[_AW] != null) {
     entries[_AW] = input[_AW];
@@ -8642,6 +9012,22 @@ const se_ClusterSecurityGroupNameList = (input: string[], context: __SerdeContex
       continue;
     }
     entries[`ClusterSecurityGroupName.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryConsumerIdentifierList
+ */
+const se_ConsumerIdentifierList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`member.${counter}`] = entry;
     counter++;
   }
   return entries;
@@ -9119,6 +9505,46 @@ const se_CreateHsmConfigurationMessage = (input: CreateHsmConfigurationMessage, 
 };
 
 /**
+ * serializeAws_queryCreateIntegrationMessage
+ */
+const se_CreateIntegrationMessage = (input: CreateIntegrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SAo] != null) {
+    entries[_SAo] = input[_SAo];
+  }
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
+  }
+  if (input[_IN] != null) {
+    entries[_IN] = input[_IN];
+  }
+  if (input[_KMSKI] != null) {
+    entries[_KMSKI] = input[_KMSKI];
+  }
+  if (input[_TL] != null) {
+    const memberEntries = se_TagList(input[_TL], context);
+    if (input[_TL]?.length === 0) {
+      entries.TagList = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagList.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_AEC] != null) {
+    const memberEntries = se_EncryptionContextMap(input[_AEC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `AdditionalEncryptionContext.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryCreateRedshiftIdcApplicationMessage
  */
 const se_CreateRedshiftIdcApplicationMessage = (
@@ -9132,8 +9558,8 @@ const se_CreateRedshiftIdcApplicationMessage = (
   if (input[_RIAN] != null) {
     entries[_RIAN] = input[_RIAN];
   }
-  if (input[_IN] != null) {
-    entries[_IN] = input[_IN];
+  if (input[_INd] != null) {
+    entries[_INd] = input[_INd];
   }
   if (input[_IDN] != null) {
     entries[_IDN] = input[_IDN];
@@ -9172,8 +9598,8 @@ const se_CreateScheduledActionMessage = (input: CreateScheduledActionMessage, co
   if (input[_SAN] != null) {
     entries[_SAN] = input[_SAN];
   }
-  if (input[_TA] != null) {
-    const memberEntries = se_ScheduledActionType(input[_TA], context);
+  if (input[_TAa] != null) {
+    const memberEntries = se_ScheduledActionType(input[_TAa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetAction.${key}`;
       entries[loc] = value;
@@ -9269,8 +9695,8 @@ const se_CreateSnapshotScheduleMessage = (input: CreateSnapshotScheduleMessage, 
  */
 const se_CreateTagsMessage = (input: CreateTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_RN] != null) {
-    entries[_RN] = input[_RN];
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
   if (input[_T] != null) {
     const memberEntries = se_TagList(input[_T], context);
@@ -9345,8 +9771,8 @@ const se_DeauthorizeDataShareMessage = (input: DeauthorizeDataShareMessage, cont
   if (input[_DSAa] != null) {
     entries[_DSAa] = input[_DSAa];
   }
-  if (input[_CI] != null) {
-    entries[_CI] = input[_CI];
+  if (input[_CIo] != null) {
+    entries[_CIo] = input[_CIo];
   }
   return entries;
 };
@@ -9522,6 +9948,17 @@ const se_DeleteHsmConfigurationMessage = (input: DeleteHsmConfigurationMessage, 
 };
 
 /**
+ * serializeAws_queryDeleteIntegrationMessage
+ */
+const se_DeleteIntegrationMessage = (input: DeleteIntegrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IA] != null) {
+    entries[_IA] = input[_IA];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryDeleteRedshiftIdcApplicationMessage
  */
 const se_DeleteRedshiftIdcApplicationMessage = (
@@ -9584,8 +10021,8 @@ const se_DeleteSnapshotScheduleMessage = (input: DeleteSnapshotScheduleMessage, 
  */
 const se_DeleteTagsMessage = (input: DeleteTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_RN] != null) {
-    entries[_RN] = input[_RN];
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
   if (input[_TK] != null) {
     const memberEntries = se_TagKeyList(input[_TK], context);
@@ -9607,6 +10044,31 @@ const se_DeleteUsageLimitMessage = (input: DeleteUsageLimitMessage, context: __S
   const entries: any = {};
   if (input[_ULI] != null) {
     entries[_ULI] = input[_ULI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDeregisterNamespaceInputMessage
+ */
+const se_DeregisterNamespaceInputMessage = (input: DeregisterNamespaceInputMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NIa] != null) {
+    const memberEntries = se_NamespaceIdentifierUnion(input[_NIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NamespaceIdentifier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CIon] != null) {
+    const memberEntries = se_ConsumerIdentifierList(input[_CIon], context);
+    if (input[_CIon]?.length === 0) {
+      entries.ConsumerIdentifiers = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConsumerIdentifiers.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -10271,14 +10733,97 @@ const se_DescribeInboundIntegrationsMessage = (
   if (input[_IA] != null) {
     entries[_IA] = input[_IA];
   }
-  if (input[_TAa] != null) {
-    entries[_TAa] = input[_TAa];
+  if (input[_TA] != null) {
+    entries[_TA] = input[_TA];
   }
   if (input[_MR] != null) {
     entries[_MR] = input[_MR];
   }
   if (input[_M] != null) {
     entries[_M] = input[_M];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeIntegrationsFilter
+ */
+const se_DescribeIntegrationsFilter = (input: DescribeIntegrationsFilter, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_N] != null) {
+    entries[_N] = input[_N];
+  }
+  if (input[_Va] != null) {
+    const memberEntries = se_DescribeIntegrationsFilterValueList(input[_Va], context);
+    if (input[_Va]?.length === 0) {
+      entries.Values = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Values.${key}`;
+      entries[loc] = value;
+    });
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeIntegrationsFilterList
+ */
+const se_DescribeIntegrationsFilterList = (input: DescribeIntegrationsFilter[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_DescribeIntegrationsFilter(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`DescribeIntegrationsFilter.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeIntegrationsFilterValueList
+ */
+const se_DescribeIntegrationsFilterValueList = (input: string[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    entries[`Value.${counter}`] = entry;
+    counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryDescribeIntegrationsMessage
+ */
+const se_DescribeIntegrationsMessage = (input: DescribeIntegrationsMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IA] != null) {
+    entries[_IA] = input[_IA];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
+  }
+  if (input[_Fi] != null) {
+    const memberEntries = se_DescribeIntegrationsFilterList(input[_Fi], context);
+    if (input[_Fi]?.length === 0) {
+      entries.Filters = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `Filters.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -10370,8 +10915,8 @@ const se_DescribePartnersInputMessage = (input: DescribePartnersInputMessage, co
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
   }
-  if (input[_DN] != null) {
-    entries[_DN] = input[_DN];
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
@@ -10617,8 +11162,8 @@ const se_DescribeTableRestoreStatusMessage = (
  */
 const se_DescribeTagsMessage = (input: DescribeTagsMessage, context: __SerdeContext): any => {
   const entries: any = {};
-  if (input[_RN] != null) {
-    entries[_RN] = input[_RN];
+  if (input[_RNe] != null) {
+    entries[_RNe] = input[_RNe];
   }
   if (input[_RT] != null) {
     entries[_RT] = input[_RT];
@@ -10790,6 +11335,22 @@ const se_EnableSnapshotCopyMessage = (input: EnableSnapshotCopyMessage, context:
   if (input[_MSRP] != null) {
     entries[_MSRP] = input[_MSRP];
   }
+  return entries;
+};
+
+/**
+ * serializeAws_queryEncryptionContextMap
+ */
+const se_EncryptionContextMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  Object.keys(input)
+    .filter((key) => input[key as keyof typeof input] != null)
+    .forEach((key) => {
+      entries[`entry.${counter}.key`] = key;
+      entries[`entry.${counter}.value`] = input[key as keyof typeof input]!;
+      counter++;
+    });
   return entries;
 };
 
@@ -11425,6 +11986,23 @@ const se_ModifyEventSubscriptionMessage = (input: ModifyEventSubscriptionMessage
 };
 
 /**
+ * serializeAws_queryModifyIntegrationMessage
+ */
+const se_ModifyIntegrationMessage = (input: ModifyIntegrationMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_IA] != null) {
+    entries[_IA] = input[_IA];
+  }
+  if (input[_D] != null) {
+    entries[_D] = input[_D];
+  }
+  if (input[_IN] != null) {
+    entries[_IN] = input[_IN];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryModifyRedshiftIdcApplicationMessage
  */
 const se_ModifyRedshiftIdcApplicationMessage = (
@@ -11435,8 +12013,8 @@ const se_ModifyRedshiftIdcApplicationMessage = (
   if (input[_RIAA] != null) {
     entries[_RIAA] = input[_RIAA];
   }
-  if (input[_IN] != null) {
-    entries[_IN] = input[_IN];
+  if (input[_INd] != null) {
+    entries[_INd] = input[_INd];
   }
   if (input[_IRA] != null) {
     entries[_IRA] = input[_IRA];
@@ -11475,8 +12053,8 @@ const se_ModifyScheduledActionMessage = (input: ModifyScheduledActionMessage, co
   if (input[_SAN] != null) {
     entries[_SAN] = input[_SAN];
   }
-  if (input[_TA] != null) {
-    const memberEntries = se_ScheduledActionType(input[_TA], context);
+  if (input[_TAa] != null) {
+    const memberEntries = se_ScheduledActionType(input[_TAa], context);
     Object.entries(memberEntries).forEach(([key, value]) => {
       const loc = `TargetAction.${key}`;
       entries[loc] = value;
@@ -11558,6 +12136,33 @@ const se_ModifyUsageLimitMessage = (input: ModifyUsageLimitMessage, context: __S
   if (input[_BA] != null) {
     entries[_BA] = input[_BA];
   }
+  return entries;
+};
+
+/**
+ * serializeAws_queryNamespaceIdentifierUnion
+ */
+const se_NamespaceIdentifierUnion = (input: NamespaceIdentifierUnion, context: __SerdeContext): any => {
+  const entries: any = {};
+  NamespaceIdentifierUnion.visit(input, {
+    ServerlessIdentifier: (value) => {
+      const memberEntries = se_ServerlessIdentifier(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `ServerlessIdentifier.${key}`;
+        entries[loc] = value;
+      });
+    },
+    ProvisionedIdentifier: (value) => {
+      const memberEntries = se_ProvisionedIdentifier(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `ProvisionedIdentifier.${key}`;
+        entries[loc] = value;
+      });
+    },
+    _: (name: string, value: any) => {
+      entries[name] = value;
+    },
+  });
   return entries;
 };
 
@@ -11672,8 +12277,8 @@ const se_PartnerIntegrationInputMessage = (input: PartnerIntegrationInputMessage
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
   }
-  if (input[_DN] != null) {
-    entries[_DN] = input[_DN];
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
@@ -11685,6 +12290,17 @@ const se_PartnerIntegrationInputMessage = (input: PartnerIntegrationInputMessage
  * serializeAws_queryPauseClusterMessage
  */
 const se_PauseClusterMessage = (input: PauseClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CIl] != null) {
+    entries[_CIl] = input[_CIl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryProvisionedIdentifier
+ */
+const se_ProvisionedIdentifier = (input: ProvisionedIdentifier, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
@@ -11724,12 +12340,48 @@ const se_PutResourcePolicyMessage = (input: PutResourcePolicyMessage, context: _
 };
 
 /**
+ * serializeAws_queryReadWriteAccess
+ */
+const se_ReadWriteAccess = (input: ReadWriteAccess, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_Au] != null) {
+    entries[_Au] = input[_Au];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryRebootClusterMessage
  */
 const se_RebootClusterMessage = (input: RebootClusterMessage, context: __SerdeContext): any => {
   const entries: any = {};
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryRegisterNamespaceInputMessage
+ */
+const se_RegisterNamespaceInputMessage = (input: RegisterNamespaceInputMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NIa] != null) {
+    const memberEntries = se_NamespaceIdentifierUnion(input[_NIa], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `NamespaceIdentifier.${key}`;
+      entries[loc] = value;
+    });
+  }
+  if (input[_CIon] != null) {
+    const memberEntries = se_ConsumerIdentifierList(input[_CIon], context);
+    if (input[_CIon]?.length === 0) {
+      entries.ConsumerIdentifiers = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ConsumerIdentifiers.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -12075,6 +12727,45 @@ const se_RotateEncryptionKeyMessage = (input: RotateEncryptionKeyMessage, contex
 };
 
 /**
+ * serializeAws_queryS3AccessGrantsScopeUnion
+ */
+const se_S3AccessGrantsScopeUnion = (input: S3AccessGrantsScopeUnion, context: __SerdeContext): any => {
+  const entries: any = {};
+  S3AccessGrantsScopeUnion.visit(input, {
+    ReadWriteAccess: (value) => {
+      const memberEntries = se_ReadWriteAccess(value, context);
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `ReadWriteAccess.${key}`;
+        entries[loc] = value;
+      });
+    },
+    _: (name: string, value: any) => {
+      entries[name] = value;
+    },
+  });
+  return entries;
+};
+
+/**
+ * serializeAws_queryS3AccessGrantsServiceIntegrations
+ */
+const se_S3AccessGrantsServiceIntegrations = (input: S3AccessGrantsScopeUnion[], context: __SerdeContext): any => {
+  const entries: any = {};
+  let counter = 1;
+  for (const entry of input) {
+    if (entry === null) {
+      continue;
+    }
+    const memberEntries = se_S3AccessGrantsScopeUnion(entry, context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      entries[`member.${counter}.${key}`] = value;
+    });
+    counter++;
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryScheduledActionFilter
  */
 const se_ScheduledActionFilter = (input: ScheduledActionFilter, context: __SerdeContext): any => {
@@ -12160,6 +12851,20 @@ const se_ScheduleDefinitionList = (input: string[], context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_queryServerlessIdentifier
+ */
+const se_ServerlessIdentifier = (input: ServerlessIdentifier, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_NIa] != null) {
+    entries[_NIa] = input[_NIa];
+  }
+  if (input[_WI] != null) {
+    entries[_WI] = input[_WI];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryServiceIntegrationList
  */
 const se_ServiceIntegrationList = (input: ServiceIntegrationsUnion[], context: __SerdeContext): any => {
@@ -12191,6 +12896,16 @@ const se_ServiceIntegrationsUnion = (input: ServiceIntegrationsUnion, context: _
       }
       Object.entries(memberEntries).forEach(([key, value]) => {
         const loc = `LakeFormation.${key}`;
+        entries[loc] = value;
+      });
+    },
+    S3AccessGrants: (value) => {
+      const memberEntries = se_S3AccessGrantsServiceIntegrations(value, context);
+      if (value?.length === 0) {
+        entries.S3AccessGrants = [];
+      }
+      Object.entries(memberEntries).forEach(([key, value]) => {
+        const loc = `S3AccessGrants.${key}`;
         entries[loc] = value;
       });
     },
@@ -12358,8 +13073,8 @@ const se_UpdatePartnerStatusInputMessage = (input: UpdatePartnerStatusInputMessa
   if (input[_CIl] != null) {
     entries[_CIl] = input[_CIl];
   }
-  if (input[_DN] != null) {
-    entries[_DN] = input[_DN];
+  if (input[_DNa] != null) {
+    entries[_DNa] = input[_DNa];
   }
   if (input[_PN] != null) {
     entries[_PN] = input[_PN];
@@ -14129,6 +14844,9 @@ const de_DataShare = (output: any, context: __SerdeContext): DataShare => {
   if (output[_MB] != null) {
     contents[_MB] = __expectString(output[_MB]);
   }
+  if (output[_DST] != null) {
+    contents[_DST] = __expectString(output[_DST]);
+  }
   return contents;
 };
 
@@ -14137,8 +14855,8 @@ const de_DataShare = (output: any, context: __SerdeContext): DataShare => {
  */
 const de_DataShareAssociation = (output: any, context: __SerdeContext): DataShareAssociation => {
   const contents: any = {};
-  if (output[_CI] != null) {
-    contents[_CI] = __expectString(output[_CI]);
+  if (output[_CIo] != null) {
+    contents[_CIo] = __expectString(output[_CIo]);
   }
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
@@ -14330,6 +15048,20 @@ const de_DependentServiceUnavailableFault = (
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryDeregisterNamespaceOutputMessage
+ */
+const de_DeregisterNamespaceOutputMessage = (
+  output: any,
+  context: __SerdeContext
+): DeregisterNamespaceOutputMessage => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
   }
   return contents;
 };
@@ -14566,6 +15298,19 @@ const de_EnableSnapshotCopyResult = (output: any, context: __SerdeContext): Enab
     contents[_Clu] = de_Cluster(output[_Clu], context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryEncryptionContextMap
+ */
+const de_EncryptionContextMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return output.reduce((acc: any, pair: any) => {
+    if (pair["value"] === null) {
+      return acc;
+    }
+    acc[pair["key"]] = __expectString(pair["value"]) as any;
+    return acc;
+  }, {});
 };
 
 /**
@@ -15340,8 +16085,8 @@ const de_InboundIntegration = (output: any, context: __SerdeContext): InboundInt
   if (output[_SAo] != null) {
     contents[_SAo] = __expectString(output[_SAo]);
   }
-  if (output[_TAa] != null) {
-    contents[_TAa] = __expectString(output[_TAa]);
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
   }
   if (output[_St] != null) {
     contents[_St] = __expectString(output[_St]);
@@ -15435,6 +16180,89 @@ const de_InsufficientS3BucketPolicyFault = (output: any, context: __SerdeContext
 };
 
 /**
+ * deserializeAws_queryIntegration
+ */
+const de_Integration = (output: any, context: __SerdeContext): Integration => {
+  const contents: any = {};
+  if (output[_IA] != null) {
+    contents[_IA] = __expectString(output[_IA]);
+  }
+  if (output[_IN] != null) {
+    contents[_IN] = __expectString(output[_IN]);
+  }
+  if (output[_SAo] != null) {
+    contents[_SAo] = __expectString(output[_SAo]);
+  }
+  if (output[_TA] != null) {
+    contents[_TA] = __expectString(output[_TA]);
+  }
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output.Errors === "") {
+    contents[_Er] = [];
+  } else if (output[_Er] != null && output[_Er][_IE] != null) {
+    contents[_Er] = de_IntegrationErrorList(__getArrayIfSingleItem(output[_Er][_IE]), context);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_KMSKI] != null) {
+    contents[_KMSKI] = __expectString(output[_KMSKI]);
+  }
+  if (output.AdditionalEncryptionContext === "") {
+    contents[_AEC] = {};
+  } else if (output[_AEC] != null && output[_AEC][_e] != null) {
+    contents[_AEC] = de_EncryptionContextMap(__getArrayIfSingleItem(output[_AEC][_e]), context);
+  }
+  if (output.Tags === "") {
+    contents[_T] = [];
+  } else if (output[_T] != null && output[_T][_Ta] != null) {
+    contents[_T] = de_TagList(__getArrayIfSingleItem(output[_T][_Ta]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationAlreadyExistsFault
+ */
+const de_IntegrationAlreadyExistsFault = (output: any, context: __SerdeContext): IntegrationAlreadyExistsFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationConflictOperationFault
+ */
+const de_IntegrationConflictOperationFault = (
+  output: any,
+  context: __SerdeContext
+): IntegrationConflictOperationFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationConflictStateFault
+ */
+const de_IntegrationConflictStateFault = (output: any, context: __SerdeContext): IntegrationConflictStateFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryIntegrationError
  */
 const de_IntegrationError = (output: any, context: __SerdeContext): IntegrationError => {
@@ -15460,9 +16288,69 @@ const de_IntegrationErrorList = (output: any, context: __SerdeContext): Integrat
 };
 
 /**
+ * deserializeAws_queryIntegrationList
+ */
+const de_IntegrationList = (output: any, context: __SerdeContext): Integration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Integration(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryIntegrationNotFoundFault
  */
 const de_IntegrationNotFoundFault = (output: any, context: __SerdeContext): IntegrationNotFoundFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationQuotaExceededFault
+ */
+const de_IntegrationQuotaExceededFault = (output: any, context: __SerdeContext): IntegrationQuotaExceededFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationsMessage
+ */
+const de_IntegrationsMessage = (output: any, context: __SerdeContext): IntegrationsMessage => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output.Integrations === "") {
+    contents[_In] = [];
+  } else if (output[_In] != null && output[_In][_Int] != null) {
+    contents[_In] = de_IntegrationList(__getArrayIfSingleItem(output[_In][_Int]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationSourceNotFoundFault
+ */
+const de_IntegrationSourceNotFoundFault = (output: any, context: __SerdeContext): IntegrationSourceNotFoundFault => {
+  const contents: any = {};
+  if (output[_m] != null) {
+    contents[_m] = __expectString(output[_m]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryIntegrationTargetNotFoundFault
+ */
+const de_IntegrationTargetNotFoundFault = (output: any, context: __SerdeContext): IntegrationTargetNotFoundFault => {
   const contents: any = {};
   if (output[_m] != null) {
     contents[_m] = __expectString(output[_m]);
@@ -16380,8 +17268,8 @@ const de_ParametersList = (output: any, context: __SerdeContext): Parameter[] =>
  */
 const de_PartnerIntegrationInfo = (output: any, context: __SerdeContext): PartnerIntegrationInfo => {
   const contents: any = {};
-  if (output[_DN] != null) {
-    contents[_DN] = __expectString(output[_DN]);
+  if (output[_DNa] != null) {
+    contents[_DNa] = __expectString(output[_DNa]);
   }
   if (output[_PN] != null) {
     contents[_PN] = __expectString(output[_PN]);
@@ -16417,8 +17305,8 @@ const de_PartnerIntegrationInfoList = (output: any, context: __SerdeContext): Pa
  */
 const de_PartnerIntegrationOutputMessage = (output: any, context: __SerdeContext): PartnerIntegrationOutputMessage => {
   const contents: any = {};
-  if (output[_DN] != null) {
-    contents[_DN] = __expectString(output[_DN]);
+  if (output[_DNa] != null) {
+    contents[_DNa] = __expectString(output[_DNa]);
   }
   if (output[_PN] != null) {
     contents[_PN] = __expectString(output[_PN]);
@@ -16519,8 +17407,8 @@ const de_PurchaseReservedNodeOfferingResult = (
   context: __SerdeContext
 ): PurchaseReservedNodeOfferingResult => {
   const contents: any = {};
-  if (output[_RNe] != null) {
-    contents[_RNe] = de_ReservedNode(output[_RNe], context);
+  if (output[_RNes] != null) {
+    contents[_RNes] = de_ReservedNode(output[_RNes], context);
   }
   return contents;
 };
@@ -16532,6 +17420,17 @@ const de_PutResourcePolicyResult = (output: any, context: __SerdeContext): PutRe
   const contents: any = {};
   if (output[_RPe] != null) {
     contents[_RPe] = de_ResourcePolicy(output[_RPe], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryReadWriteAccess
+ */
+const de_ReadWriteAccess = (output: any, context: __SerdeContext): ReadWriteAccess => {
+  const contents: any = {};
+  if (output[_Au] != null) {
+    contents[_Au] = __expectString(output[_Au]);
   }
   return contents;
 };
@@ -16676,8 +17575,8 @@ const de_RedshiftIdcApplication = (output: any, context: __SerdeContext): Redshi
   if (output[_RIAA] != null) {
     contents[_RIAA] = __expectString(output[_RIAA]);
   }
-  if (output[_IN] != null) {
-    contents[_IN] = __expectString(output[_IN]);
+  if (output[_INd] != null) {
+    contents[_INd] = __expectString(output[_INd]);
   }
   if (output[_IDN] != null) {
     contents[_IDN] = __expectString(output[_IDN]);
@@ -16780,6 +17679,17 @@ const de_ReferenceLinkList = (output: any, context: __SerdeContext): ReferenceLi
     .map((entry: any) => {
       return de_ReferenceLink(entry, context);
     });
+};
+
+/**
+ * deserializeAws_queryRegisterNamespaceOutputMessage
+ */
+const de_RegisterNamespaceOutputMessage = (output: any, context: __SerdeContext): RegisterNamespaceOutputMessage => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  return contents;
 };
 
 /**
@@ -17067,9 +17977,9 @@ const de_ReservedNodesMessage = (output: any, context: __SerdeContext): Reserved
     contents[_M] = __expectString(output[_M]);
   }
   if (output.ReservedNodes === "") {
-    contents[_RNes] = [];
-  } else if (output[_RNes] != null && output[_RNes][_RNe] != null) {
-    contents[_RNes] = de_ReservedNodeList(__getArrayIfSingleItem(output[_RNes][_RNe]), context);
+    contents[_RNese] = [];
+  } else if (output[_RNese] != null && output[_RNese][_RNes] != null) {
+    contents[_RNese] = de_ReservedNodeList(__getArrayIfSingleItem(output[_RNese][_RNes]), context);
   }
   return contents;
 };
@@ -17378,6 +18288,29 @@ const de_RotateEncryptionKeyResult = (output: any, context: __SerdeContext): Rot
 };
 
 /**
+ * deserializeAws_queryS3AccessGrantsScopeUnion
+ */
+const de_S3AccessGrantsScopeUnion = (output: any, context: __SerdeContext): S3AccessGrantsScopeUnion => {
+  if (output[_RWA] != null) {
+    return {
+      ReadWriteAccess: de_ReadWriteAccess(output[_RWA], context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
+
+/**
+ * deserializeAws_queryS3AccessGrantsServiceIntegrations
+ */
+const de_S3AccessGrantsServiceIntegrations = (output: any, context: __SerdeContext): S3AccessGrantsScopeUnion[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_S3AccessGrantsScopeUnion(__expectUnion(entry), context);
+    });
+};
+
+/**
  * deserializeAws_queryScheduledAction
  */
 const de_ScheduledAction = (output: any, context: __SerdeContext): ScheduledAction => {
@@ -17385,8 +18318,8 @@ const de_ScheduledAction = (output: any, context: __SerdeContext): ScheduledActi
   if (output[_SAN] != null) {
     contents[_SAN] = __expectString(output[_SAN]);
   }
-  if (output[_TA] != null) {
-    contents[_TA] = de_ScheduledActionType(output[_TA], context);
+  if (output[_TAa] != null) {
+    contents[_TAa] = de_ScheduledActionType(output[_TAa], context);
   }
   if (output[_Sc] != null) {
     contents[_Sc] = __expectString(output[_Sc]);
@@ -17596,6 +18529,15 @@ const de_ServiceIntegrationsUnion = (output: any, context: __SerdeContext): Serv
   } else if (output[_LF] != null && output[_LF][_me] != null) {
     return {
       LakeFormation: de_LakeFormationServiceIntegrations(__getArrayIfSingleItem(output[_LF][_me]), context),
+    };
+  }
+  if (output.S3AccessGrants === "") {
+    return {
+      [_SAG]: [],
+    };
+  } else if (output[_SAG] != null && output[_SAG][_me] != null) {
+    return {
+      S3AccessGrants: de_S3AccessGrantsServiceIntegrations(__getArrayIfSingleItem(output[_SAG][_me]), context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -18329,8 +19271,8 @@ const de_TaggedResource = (output: any, context: __SerdeContext): TaggedResource
   if (output[_Ta] != null) {
     contents[_Ta] = de_Tag(output[_Ta], context);
   }
-  if (output[_RN] != null) {
-    contents[_RN] = __expectString(output[_RN]);
+  if (output[_RNe] != null) {
+    contents[_RNe] = __expectString(output[_RNe]);
   }
   if (output[_RT] != null) {
     contents[_RT] = __expectString(output[_RT]);
@@ -18710,6 +19652,7 @@ const _ADS = "AuthorizeDataShare";
 const _ADSC = "AssociateDataShareConsumer";
 const _AEA = "AuthorizeEndpointAccess";
 const _AEAs = "AssociateEntireAccount";
+const _AEC = "AdditionalEncryptionContext";
 const _AI = "AdditionalInfo";
 const _AIBSIMB = "ActualIncrementalBackupSizeInMegaBytes";
 const _AIR = "AddIamRoles";
@@ -18790,10 +19733,12 @@ const _CEA = "CreateEndpointAccess";
 const _CES = "CreateEventSubscription";
 const _CHC = "CreateHsmConfiguration";
 const _CHCC = "CreateHsmClientCertificate";
-const _CI = "ConsumerIdentifier";
+const _CI = "CreateIntegration";
 const _CIDRIP = "CIDRIP";
 const _CIR = "ClusterIamRole";
 const _CIl = "ClusterIdentifier";
+const _CIo = "ConsumerIdentifier";
+const _CIon = "ConsumerIdentifiers";
 const _CN = "ClusterNodes";
 const _CNA = "ClusterNamespaceArn";
 const _CPG = "ClusterParameterGroups";
@@ -18870,8 +19815,10 @@ const _DHC = "DeleteHsmConfiguration";
 const _DHCC = "DeleteHsmClientCertificate";
 const _DHCCe = "DescribeHsmClientCertificates";
 const _DHCe = "DescribeHsmConfigurations";
+const _DI = "DeleteIntegration";
 const _DII = "DescribeInboundIntegrations";
 const _DIRA = "DefaultIamRoleArn";
+const _DIe = "DescribeIntegrations";
 const _DL = "DisableLogging";
 const _DLS = "DescribeLoggingStatus";
 const _DM = "DeferMaintenance";
@@ -18881,8 +19828,9 @@ const _DMI = "DeferMaintenanceIdentifier";
 const _DMST = "DeferMaintenanceStartTime";
 const _DMW = "DeferredMaintenanceWindows";
 const _DMWe = "DeferredMaintenanceWindow";
-const _DN = "DatabaseName";
+const _DN = "DeregisterNamespace";
 const _DNCO = "DescribeNodeConfigurationOptions";
+const _DNa = "DatabaseName";
 const _DNb = "DbName";
 const _DOCO = "DescribeOrderableClusterOptions";
 const _DP = "DeletePartner";
@@ -18909,6 +19857,7 @@ const _DSCG = "DeleteSnapshotCopyGrant";
 const _DSCGe = "DescribeSnapshotCopyGrants";
 const _DSS = "DeleteSnapshotSchedule";
 const _DSSe = "DescribeSnapshotSchedules";
+const _DST = "DataShareType";
 const _DSa = "DataShares";
 const _DSi = "DisassociateSchedule";
 const _DSu = "DurationSeconds";
@@ -19013,7 +19962,8 @@ const _IIA = "IdcInstanceArn";
 const _IIn = "InboundIntegration";
 const _IM = "IsModifiable";
 const _IMAA = "IdcManagedApplicationArn";
-const _IN = "IdentityNamespace";
+const _IN = "IntegrationName";
+const _INd = "IdentityNamespace";
 const _IOS = "IdcOnboardStatus";
 const _IPR = "IPRanges";
 const _IPRa = "IPRange";
@@ -19025,8 +19975,11 @@ const _ITC = "ImportTablesCompleted";
 const _ITIP = "ImportTablesInProgress";
 const _ITNS = "ImportTablesNotStarted";
 const _Id = "Id";
+const _In = "Integrations";
+const _Int = "Integration";
 const _K = "Key";
 const _KKI = "KmsKeyId";
+const _KMSKI = "KMSKeyId";
 const _L = "Link";
 const _LDT = "LogDestinationType";
 const _LE = "LogExports";
@@ -19057,6 +20010,7 @@ const _MCSS = "ModifyClusterSnapshotSchedule";
 const _MEA = "ModifyEndpointAccess";
 const _MES = "ModifyEventSubscription";
 const _MEV = "MinimumEngineVersion";
+const _MI = "ModifyIntegration";
 const _MMP = "ManageMasterPassword";
 const _MPSA = "MasterPasswordSecretArn";
 const _MPSKKI = "MasterPasswordSecretKmsKeyId";
@@ -19085,6 +20039,7 @@ const _NCO = "NodeConfigurationOption";
 const _NCOL = "NodeConfigurationOptionList";
 const _NI = "NextInvocations";
 const _NII = "NetworkInterfaceId";
+const _NIa = "NamespaceIdentifier";
 const _NIe = "NetworkInterfaces";
 const _NIet = "NetworkInterface";
 const _NMWST = "NextMaintenanceWindowStartTime";
@@ -19155,7 +20110,7 @@ const _RIAe = "RedshiftIdcApplications";
 const _RIR = "RemoveIamRoles";
 const _RL = "ReferenceLinks";
 const _RLe = "ReferenceLink";
-const _RN = "ResourceName";
+const _RN = "RegisterNamespace";
 const _RNCO = "ReservedNodeConfigurationOption";
 const _RNCOL = "ReservedNodeConfigurationOptionList";
 const _RNERI = "ReservedNodeExchangeRequestId";
@@ -19167,8 +20122,9 @@ const _RNOI = "ReservedNodeOfferingId";
 const _RNOT = "ReservedNodeOfferingType";
 const _RNOe = "ReservedNodeOffering";
 const _RNT = "RestorableNodeTypes";
-const _RNe = "ReservedNode";
-const _RNes = "ReservedNodes";
+const _RNe = "ResourceName";
+const _RNes = "ReservedNode";
+const _RNese = "ReservedNodes";
 const _RO = "ResourceOwner";
 const _RP = "RetentionPeriod";
 const _RPe = "ResourcePolicy";
@@ -19182,11 +20138,13 @@ const _RTeco = "RecommendationText";
 const _RTeq = "RequestTime";
 const _RTes = "ResizeType";
 const _RTev = "RevisionTargets";
+const _RWA = "ReadWriteAccess";
 const _Re = "Recommendations";
 const _Rec = "Recommendation";
 const _S = "Severity";
 const _SA = "SnapshotArn";
 const _SAD = "ScheduledActionDescription";
+const _SAG = "S3AccessGrants";
 const _SAN = "ScheduledActionName";
 const _SAS = "ScheduleAssociationState";
 const _SAT = "ScheduledActionTime";
@@ -19261,15 +20219,16 @@ const _Str = "String";
 const _Su = "Subnets";
 const _Sub = "Subnet";
 const _T = "Tags";
-const _TA = "TargetAction";
+const _TA = "TargetArn";
 const _TAT = "TargetActionType";
-const _TAa = "TargetArn";
+const _TAa = "TargetAction";
 const _TBSIMB = "TotalBackupSizeInMegaBytes";
 const _TCT = "TargetClusterType";
 const _TDIMB = "TotalDataInMegaBytes";
 const _TDN = "TargetDatabaseName";
 const _TET = "TargetEncryptionType";
 const _TK = "TagKeys";
+const _TL = "TagList";
 const _TNON = "TargetNumberOfNodes";
 const _TNT = "TargetNodeType";
 const _TPSIMB = "TotalProvisionedStorageInMegaBytes";
@@ -19312,6 +20271,8 @@ const _VSGIp = "VpcSecurityGroupId";
 const _VSGp = "VpcSecurityGroup";
 const _Va = "Values";
 const _Val = "Value";
+const _WI = "WorkgroupIdentifier";
+const _e = "entry";
 const _i = "item";
 const _m = "message";
 const _me = "member";

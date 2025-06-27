@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeLocalGatewayVirtualInterfacesRequest,
   DescribeLocalGatewayVirtualInterfacesResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeLocalGatewayVirtualInterfacesCommand,
   se_DescribeLocalGatewayVirtualInterfacesCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,11 +67,15 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * //     { // LocalGatewayVirtualInterface
  * //       LocalGatewayVirtualInterfaceId: "STRING_VALUE",
  * //       LocalGatewayId: "STRING_VALUE",
+ * //       LocalGatewayVirtualInterfaceGroupId: "STRING_VALUE",
+ * //       LocalGatewayVirtualInterfaceArn: "STRING_VALUE",
+ * //       OutpostLagId: "STRING_VALUE",
  * //       Vlan: Number("int"),
  * //       LocalAddress: "STRING_VALUE",
  * //       PeerAddress: "STRING_VALUE",
  * //       LocalBgpAsn: Number("int"),
  * //       PeerBgpAsn: Number("int"),
+ * //       PeerBgpAsnExtended: Number("long"),
  * //       OwnerId: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -78,6 +83,7 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ConfigurationState: "pending" || "available" || "deleting" || "deleted",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -94,6 +100,7 @@ export interface DescribeLocalGatewayVirtualInterfacesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command
@@ -104,9 +111,7 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +123,16 @@ export class DescribeLocalGatewayVirtualInterfacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocalGatewayVirtualInterfacesCommand)
   .de(de_DescribeLocalGatewayVirtualInterfacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocalGatewayVirtualInterfacesRequest;
+      output: DescribeLocalGatewayVirtualInterfacesResult;
+    };
+    sdk: {
+      input: DescribeLocalGatewayVirtualInterfacesCommandInput;
+      output: DescribeLocalGatewayVirtualInterfacesCommandOutput;
+    };
+  };
+}

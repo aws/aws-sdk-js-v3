@@ -12,7 +12,8 @@ import { de_GetBaselineOperationCommand, se_GetBaselineOperationCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface GetBaselineOperationCommandInput extends GetBaselineOperationIn
 export interface GetBaselineOperationCommandOutput extends GetBaselineOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the details of an asynchronous baseline operation, as initiated by any of these APIs: <code>EnableBaseline</code>, <code>DisableBaseline</code>, <code>UpdateEnabledBaseline</code>, <code>ResetEnabledBaseline</code>. A status message is displayed in case of operation failure. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Returns the details of an asynchronous baseline operation, as initiated by any of these APIs: <code>EnableBaseline</code>, <code>DisableBaseline</code>, <code>UpdateEnabledBaseline</code>, <code>ResetEnabledBaseline</code>. A status message is displayed in case of operation failure. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +77,7 @@ export interface GetBaselineOperationCommandOutput extends GetBaselineOperationO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetBaselineOperationCommand extends $Command
@@ -88,9 +88,7 @@ export class GetBaselineOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +100,16 @@ export class GetBaselineOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBaselineOperationCommand)
   .de(de_GetBaselineOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBaselineOperationInput;
+      output: GetBaselineOperationOutput;
+    };
+    sdk: {
+      input: GetBaselineOperationCommandInput;
+      output: GetBaselineOperationCommandOutput;
+    };
+  };
+}

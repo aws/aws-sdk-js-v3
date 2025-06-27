@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteGlossaryInput, DeleteGlossaryOutput } from "../models/models_0";
+import { DeleteGlossaryInput, DeleteGlossaryOutput } from "../models/models_1";
 import { de_DeleteGlossaryCommand, se_DeleteGlossaryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeleteGlossaryCommandOutput extends DeleteGlossaryOutput, __Met
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteGlossaryCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteGlossaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteGlossaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGlossaryCommand)
   .de(de_DeleteGlossaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGlossaryInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGlossaryCommandInput;
+      output: DeleteGlossaryCommandOutput;
+    };
+  };
+}

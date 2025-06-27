@@ -12,7 +12,8 @@ import { de_DeleteVoiceConnectorCommand, se_DeleteVoiceConnectorCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class DeleteVoiceConnectorCommand extends $Command
@@ -88,9 +90,7 @@ export class DeleteVoiceConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class DeleteVoiceConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVoiceConnectorCommand)
   .de(de_DeleteVoiceConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceConnectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVoiceConnectorCommandInput;
+      output: DeleteVoiceConnectorCommandOutput;
+    };
+  };
+}

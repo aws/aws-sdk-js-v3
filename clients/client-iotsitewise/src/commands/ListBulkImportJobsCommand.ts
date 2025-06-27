@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_0";
+import { ListBulkImportJobsRequest, ListBulkImportJobsResponse } from "../models/models_1";
 import { de_ListBulkImportJobsCommand, se_ListBulkImportJobsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface ListBulkImportJobsCommandOutput extends ListBulkImportJobsRespo
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListBulkImportJobsCommand extends $Command
@@ -90,9 +92,7 @@ export class ListBulkImportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class ListBulkImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBulkImportJobsCommand)
   .de(de_ListBulkImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBulkImportJobsRequest;
+      output: ListBulkImportJobsResponse;
+    };
+    sdk: {
+      input: ListBulkImportJobsCommandInput;
+      output: ListBulkImportJobsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_GetLogDeliveryConfigurationCommand, se_GetLogDeliveryConfigurationCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,28 @@ export interface GetLogDeliveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the detailed activity logging configuration for a user pool.</p>
+ * <p>Given a user pool ID, returns the logging configuration. User pools can export
+ *             message-delivery error and threat-protection activity logs to external Amazon Web Services services. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html">Exporting user pool logs</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,10 +72,16 @@ export interface GetLogDeliveryConfigurationCommandOutput
  * //     UserPoolId: "STRING_VALUE", // required
  * //     LogConfigurations: [ // LogConfigurationListType // required
  * //       { // LogConfigurationType
- * //         LogLevel: "ERROR", // required
- * //         EventSource: "userNotification", // required
+ * //         LogLevel: "ERROR" || "INFO", // required
+ * //         EventSource: "userNotification" || "userAuthEvents", // required
  * //         CloudWatchLogsConfiguration: { // CloudWatchLogsConfigurationType
  * //           LogGroupArn: "STRING_VALUE",
+ * //         },
+ * //         S3Configuration: { // S3ConfigurationType
+ * //           BucketArn: "STRING_VALUE",
+ * //         },
+ * //         FirehoseConfiguration: { // FirehoseConfigurationType
+ * //           StreamArn: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],
@@ -89,6 +117,7 @@ export interface GetLogDeliveryConfigurationCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetLogDeliveryConfigurationCommand extends $Command
@@ -99,9 +128,7 @@ export class GetLogDeliveryConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +140,16 @@ export class GetLogDeliveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLogDeliveryConfigurationCommand)
   .de(de_GetLogDeliveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLogDeliveryConfigurationRequest;
+      output: GetLogDeliveryConfigurationResponse;
+    };
+    sdk: {
+      input: GetLogDeliveryConfigurationCommandInput;
+      output: GetLogDeliveryConfigurationCommandOutput;
+    };
+  };
+}

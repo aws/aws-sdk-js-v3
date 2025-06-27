@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { ConnectCasesServiceException as __BaseException } from "./ConnectCasesServiceException";
 
@@ -57,7 +57,7 @@ export interface EmptyFieldValue {}
 /**
  * <p>Object to store union of Field values.</p>
  *          <note>
- *             <p>The <code>Summary</code> system field accepts 1500 characters while all other fields
+ *             <p>The <code>Summary</code> system field accepts 3000 characters while all other fields
  *         accept 500 characters.</p>
  *          </note>
  * @public
@@ -190,10 +190,10 @@ export interface FieldValue {
 }
 
 /**
- * <p>Represents the identity of the person who performed the action.</p>
+ * <p>Represents the entity that performed the action.</p>
  * @public
  */
-export type UserUnion = UserUnion.UserArnMember | UserUnion.$UnknownMember;
+export type UserUnion = UserUnion.CustomEntityMember | UserUnion.UserArnMember | UserUnion.$UnknownMember;
 
 /**
  * @public
@@ -205,6 +205,17 @@ export namespace UserUnion {
    */
   export interface UserArnMember {
     userArn: string;
+    customEntity?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Any provided entity.</p>
+   * @public
+   */
+  export interface CustomEntityMember {
+    userArn?: never;
+    customEntity: string;
     $unknown?: never;
   }
 
@@ -213,16 +224,19 @@ export namespace UserUnion {
    */
   export interface $UnknownMember {
     userArn?: never;
+    customEntity?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     userArn: (value: string) => T;
+    customEntity: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: UserUnion, visitor: Visitor<T>): T => {
     if (value.userArn !== undefined) return visitor.userArn(value.userArn);
+    if (value.customEntity !== undefined) return visitor.customEntity(value.customEntity);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -257,13 +271,13 @@ export interface CreateCaseRequest {
    *             <a href="https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/">Making retries safe with idempotent APIs</a>.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
-   * <p>Represents the identity of the person who performed the action.</p>
+   * <p>Represents the entity that performed the action.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -296,7 +310,7 @@ export class InternalServerException extends __BaseException {
    * <p>Advice to clients on when the call can be safely retried.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -427,7 +441,7 @@ export interface GetCaseRequest {
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -450,13 +464,13 @@ export interface GetCaseResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -480,14 +494,14 @@ export interface GetCaseAuditEventsRequest {
    *       This is also the default when no other value is provided.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous response in
    *       the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -621,7 +635,7 @@ export interface AuditEventField {
    * <p>Union of potential field value types.</p>
    * @public
    */
-  oldValue?: AuditEventFieldValueUnion;
+  oldValue?: AuditEventFieldValueUnion | undefined;
 
   /**
    * <p>Union of potential field value types.</p>
@@ -636,10 +650,10 @@ export interface AuditEventField {
  */
 export interface AuditEventPerformedBy {
   /**
-   * <p>Represents the identity of the person who performed the action.</p>
+   * <p>Represents the entity that performed the action.</p>
    * @public
    */
-  user?: UserUnion;
+  user?: UserUnion | undefined;
 
   /**
    * <p>Unique identifier of an IAM role.</p>
@@ -656,6 +670,7 @@ export const RelatedItemType = {
   COMMENT: "Comment",
   CONTACT: "Contact",
   FILE: "File",
+  SLA: "Sla",
 } as const;
 
 /**
@@ -699,7 +714,7 @@ export interface AuditEvent {
    * <p>The Type of the related item.</p>
    * @public
    */
-  relatedItemType?: RelatedItemType;
+  relatedItemType?: RelatedItemType | undefined;
 
   /**
    * <p>Time at which an Audit History event took place.</p>
@@ -717,7 +732,7 @@ export interface AuditEvent {
    * <p>Information of the user which performed the audit.</p>
    * @public
    */
-  performedBy?: AuditEventPerformedBy;
+  performedBy?: AuditEventPerformedBy | undefined;
 }
 
 /**
@@ -729,7 +744,7 @@ export interface GetCaseAuditEventsResponse {
    *       return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of case audits where each represents a particular edit of the case.</p>
@@ -758,14 +773,14 @@ export interface ListCasesForContactRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -800,7 +815,7 @@ export interface ListCasesForContactResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -859,6 +874,94 @@ export interface FileContent {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const SlaType = {
+  CASE_FIELD: "CaseField",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaType = (typeof SlaType)[keyof typeof SlaType];
+
+/**
+ * <p>Represents the input configuration of an SLA being created.</p>
+ * @public
+ */
+export interface SlaInputConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Type of SLA.</p>
+   * @public
+   */
+  type: SlaType | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in SlaInputConfiguration.
+   *       The SLA is considered met if any one of these target field values matches the actual field value.</p>
+   * @public
+   */
+  targetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target duration in minutes within which an SLA should be completed.</p>
+   * @public
+   */
+  targetSlaMinutes: number | undefined;
+}
+
+/**
+ * <p>Represents the content of an SLA.</p>
+ * @public
+ */
+export type SlaInputContent = SlaInputContent.SlaInputConfigurationMember | SlaInputContent.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace SlaInputContent {
+  /**
+   * <p>Represents an input SLA configuration.</p>
+   * @public
+   */
+  export interface SlaInputConfigurationMember {
+    slaInputConfiguration: SlaInputConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    slaInputConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    slaInputConfiguration: (value: SlaInputConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: SlaInputContent, visitor: Visitor<T>): T => {
+    if (value.slaInputConfiguration !== undefined) return visitor.slaInputConfiguration(value.slaInputConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
  * <p>Represents the content of a related item to be created.</p>
  * @public
  */
@@ -866,6 +969,7 @@ export type RelatedItemInputContent =
   | RelatedItemInputContent.CommentMember
   | RelatedItemInputContent.ContactMember
   | RelatedItemInputContent.FileMember
+  | RelatedItemInputContent.SlaMember
   | RelatedItemInputContent.$UnknownMember;
 
 /**
@@ -880,6 +984,7 @@ export namespace RelatedItemInputContent {
     contact: Contact;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -891,6 +996,7 @@ export namespace RelatedItemInputContent {
     contact?: never;
     comment: CommentContent;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -902,6 +1008,19 @@ export namespace RelatedItemInputContent {
     contact?: never;
     comment?: never;
     file: FileContent;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be created.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaInputContent;
     $unknown?: never;
   }
 
@@ -912,6 +1031,7 @@ export namespace RelatedItemInputContent {
     contact?: never;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -919,6 +1039,7 @@ export namespace RelatedItemInputContent {
     contact: (value: Contact) => T;
     comment: (value: CommentContent) => T;
     file: (value: FileContent) => T;
+    sla: (value: SlaInputContent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -926,6 +1047,7 @@ export namespace RelatedItemInputContent {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -962,7 +1084,7 @@ export interface CreateRelatedItemRequest {
    * <p>Represents the creator of the related item.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -1018,13 +1140,13 @@ export interface ContactFilter {
    * <p>A list of channels to filter on for related items of type <code>Contact</code>.</p>
    * @public
    */
-  channel?: string[];
+  channel?: string[] | undefined;
 
   /**
    * <p>A unique identifier of a contact in Amazon Connect.</p>
    * @public
    */
-  contactArn?: string;
+  contactArn?: string | undefined;
 }
 
 /**
@@ -1036,7 +1158,41 @@ export interface FileFilter {
    * <p>The Amazon Resource Name (ARN) of the file.</p>
    * @public
    */
-  fileArn?: string;
+  fileArn?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SlaStatus = {
+  ACTIVE: "Active",
+  MET: "Met",
+  NOT_MET: "NotMet",
+  OVERDUE: "Overdue",
+} as const;
+
+/**
+ * @public
+ */
+export type SlaStatus = (typeof SlaStatus)[keyof typeof SlaStatus];
+
+/**
+ * <p>A filter for related items of type <code>SLA</code>.</p>
+ * @public
+ */
+export interface SlaFilter {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Status of an SLA.</p>
+   * @public
+   */
+  status?: SlaStatus | undefined;
 }
 
 /**
@@ -1047,6 +1203,7 @@ export type RelatedItemTypeFilter =
   | RelatedItemTypeFilter.CommentMember
   | RelatedItemTypeFilter.ContactMember
   | RelatedItemTypeFilter.FileMember
+  | RelatedItemTypeFilter.SlaMember
   | RelatedItemTypeFilter.$UnknownMember;
 
 /**
@@ -1061,6 +1218,7 @@ export namespace RelatedItemTypeFilter {
     contact: ContactFilter;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1072,6 +1230,7 @@ export namespace RelatedItemTypeFilter {
     contact?: never;
     comment: CommentFilter;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1083,6 +1242,19 @@ export namespace RelatedItemTypeFilter {
     contact?: never;
     comment?: never;
     file: FileFilter;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p> Filter for related items of type <code>SLA</code>.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaFilter;
     $unknown?: never;
   }
 
@@ -1093,6 +1265,7 @@ export namespace RelatedItemTypeFilter {
     contact?: never;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -1100,6 +1273,7 @@ export namespace RelatedItemTypeFilter {
     contact: (value: ContactFilter) => T;
     comment: (value: CommentFilter) => T;
     file: (value: FileFilter) => T;
+    sla: (value: SlaFilter) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1107,6 +1281,7 @@ export namespace RelatedItemTypeFilter {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1131,20 +1306,20 @@ export interface SearchRelatedItemsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The list of types of related items and their parameters to use for filtering.</p>
    * @public
    */
-  filters?: RelatedItemTypeFilter[];
+  filters?: RelatedItemTypeFilter[] | undefined;
 }
 
 /**
@@ -1173,6 +1348,66 @@ export interface ContactContent {
 }
 
 /**
+ * <p>Represents an SLA configuration.</p>
+ * @public
+ */
+export interface SlaConfiguration {
+  /**
+   * <p>Name of an SLA.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>Type of SLA.</p>
+   * @public
+   */
+  type: SlaType | undefined;
+
+  /**
+   * <p>Status of an SLA.</p>
+   * @public
+   */
+  status: SlaStatus | undefined;
+
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId?: string | undefined;
+
+  /**
+   * <p>Represents a list of target field values for the fieldId specified in SlaConfiguration.</p>
+   * @public
+   */
+  targetFieldValues?: FieldValueUnion[] | undefined;
+
+  /**
+   * <p>Target time by which an SLA should be completed.</p>
+   * @public
+   */
+  targetTime: Date | undefined;
+
+  /**
+   * <p>Time at which an SLA was completed.</p>
+   * @public
+   */
+  completionTime?: Date | undefined;
+}
+
+/**
+ * <p>Represents the content of an SLA to be returned to agents.</p>
+ * @public
+ */
+export interface SlaContent {
+  /**
+   * <p>Represents an SLA configuration.</p>
+   * @public
+   */
+  slaConfiguration: SlaConfiguration | undefined;
+}
+
+/**
  * <p>Represents the content of a particular type of related item.</p>
  * @public
  */
@@ -1180,6 +1415,7 @@ export type RelatedItemContent =
   | RelatedItemContent.CommentMember
   | RelatedItemContent.ContactMember
   | RelatedItemContent.FileMember
+  | RelatedItemContent.SlaMember
   | RelatedItemContent.$UnknownMember;
 
 /**
@@ -1194,6 +1430,7 @@ export namespace RelatedItemContent {
     contact: ContactContent;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1205,6 +1442,7 @@ export namespace RelatedItemContent {
     contact?: never;
     comment: CommentContent;
     file?: never;
+    sla?: never;
     $unknown?: never;
   }
 
@@ -1216,6 +1454,19 @@ export namespace RelatedItemContent {
     contact?: never;
     comment?: never;
     file: FileContent;
+    sla?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Represents the content of an SLA to be returned to agents.</p>
+   * @public
+   */
+  export interface SlaMember {
+    contact?: never;
+    comment?: never;
+    file?: never;
+    sla: SlaContent;
     $unknown?: never;
   }
 
@@ -1226,6 +1477,7 @@ export namespace RelatedItemContent {
     contact?: never;
     comment?: never;
     file?: never;
+    sla?: never;
     $unknown: [string, any];
   }
 
@@ -1233,6 +1485,7 @@ export namespace RelatedItemContent {
     contact: (value: ContactContent) => T;
     comment: (value: CommentContent) => T;
     file: (value: FileContent) => T;
+    sla: (value: SlaContent) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -1240,6 +1493,7 @@ export namespace RelatedItemContent {
     if (value.contact !== undefined) return visitor.contact(value.contact);
     if (value.comment !== undefined) return visitor.comment(value.comment);
     if (value.file !== undefined) return visitor.file(value.file);
+    if (value.sla !== undefined) return visitor.sla(value.sla);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1277,13 +1531,13 @@ export interface SearchRelatedItemsResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Represents the creator of the related item.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
@@ -1294,7 +1548,7 @@ export interface SearchRelatedItemsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of items related to a case. </p>
@@ -1497,7 +1751,7 @@ export interface SearchCasesResponseItem {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1508,7 +1762,7 @@ export interface SearchCasesResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of case documents where each case contains the properties <code>CaseId</code> and
@@ -1542,16 +1796,648 @@ export interface UpdateCaseRequest {
   fields: FieldValue[] | undefined;
 
   /**
-   * <p>Represents the identity of the person who performed the action.</p>
+   * <p>Represents the entity that performed the action.</p>
    * @public
    */
-  performedBy?: UserUnion;
+  performedBy?: UserUnion | undefined;
 }
 
 /**
  * @public
  */
 export interface UpdateCaseResponse {}
+
+/**
+ * <p>Object containing case rule identifier information.</p>
+ * @public
+ */
+export interface CaseRuleIdentifier {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>List of case rule identifiers.</p>
+   * @public
+   */
+  caseRules: CaseRuleIdentifier[] | undefined;
+}
+
+/**
+ * <p>Represents the left hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type OperandOne = OperandOne.FieldIdMember | OperandOne.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperandOne {
+  /**
+   * <p>The field ID that this operand should take the value of.</p>
+   * @public
+   */
+  export interface FieldIdMember {
+    fieldId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    fieldId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    fieldId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OperandOne, visitor: Visitor<T>): T => {
+    if (value.fieldId !== undefined) return visitor.fieldId(value.fieldId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Represents an empty operand value. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface EmptyOperandValue {}
+
+/**
+ * <p>Represents the right hand operand in the condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type OperandTwo =
+  | OperandTwo.BooleanValueMember
+  | OperandTwo.DoubleValueMember
+  | OperandTwo.EmptyValueMember
+  | OperandTwo.StringValueMember
+  | OperandTwo.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace OperandTwo {
+  /**
+   * <p>String value type.</p>
+   * @public
+   */
+  export interface StringValueMember {
+    stringValue: string;
+    booleanValue?: never;
+    doubleValue?: never;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Boolean value type.</p>
+   * @public
+   */
+  export interface BooleanValueMember {
+    stringValue?: never;
+    booleanValue: boolean;
+    doubleValue?: never;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Double value type.</p>
+   * @public
+   */
+  export interface DoubleValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    doubleValue: number;
+    emptyValue?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Empty value type.</p>
+   * @public
+   */
+  export interface EmptyValueMember {
+    stringValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    emptyValue: EmptyOperandValue;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    stringValue?: never;
+    booleanValue?: never;
+    doubleValue?: never;
+    emptyValue?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    stringValue: (value: string) => T;
+    booleanValue: (value: boolean) => T;
+    doubleValue: (value: number) => T;
+    emptyValue: (value: EmptyOperandValue) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: OperandTwo, visitor: Visitor<T>): T => {
+    if (value.stringValue !== undefined) return visitor.stringValue(value.stringValue);
+    if (value.booleanValue !== undefined) return visitor.booleanValue(value.booleanValue);
+    if (value.doubleValue !== undefined) return visitor.doubleValue(value.doubleValue);
+    if (value.emptyValue !== undefined) return visitor.emptyValue(value.emptyValue);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Boolean operands for a condition. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface BooleanOperands {
+  /**
+   * <p>Represents the left hand operand in the condition.</p>
+   * @public
+   */
+  operandOne: OperandOne | undefined;
+
+  /**
+   * <p>Represents the right hand operand in the condition.</p>
+   * @public
+   */
+  operandTwo: OperandTwo | undefined;
+
+  /**
+   * <p>The value of the outer rule if the condition evaluates to true.</p>
+   * @public
+   */
+  result: boolean | undefined;
+}
+
+/**
+ * <p>Boolean condition for a rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type BooleanCondition =
+  | BooleanCondition.EqualToMember
+  | BooleanCondition.NotEqualToMember
+  | BooleanCondition.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace BooleanCondition {
+  /**
+   * <p>Tests that operandOne is equal to operandTwo.</p>
+   * @public
+   */
+  export interface EqualToMember {
+    equalTo: BooleanOperands;
+    notEqualTo?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Tests that operandOne is not equal to operandTwo.</p>
+   * @public
+   */
+  export interface NotEqualToMember {
+    equalTo?: never;
+    notEqualTo: BooleanOperands;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    equalTo?: never;
+    notEqualTo?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    equalTo: (value: BooleanOperands) => T;
+    notEqualTo: (value: BooleanOperands) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: BooleanCondition, visitor: Visitor<T>): T => {
+    if (value.equalTo !== undefined) return visitor.equalTo(value.equalTo);
+    if (value.notEqualTo !== undefined) return visitor.notEqualTo(value.notEqualTo);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Required rule type, used to indicate whether a field is required.
+ *       In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface RequiredCaseRule {
+  /**
+   * <p>The value of the rule (that is, whether the field is required) should none of the conditions
+   *       evaluate to true.</p>
+   * @public
+   */
+  defaultValue: boolean | undefined;
+
+  /**
+   * <p>List of conditions for the required rule; the first condition to evaluate to true dictates
+   *       the value of the rule.</p>
+   * @public
+   */
+  conditions: BooleanCondition[] | undefined;
+}
+
+/**
+ * <p>Represents what rule type should take place, under what conditions.
+ *       In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export type CaseRuleDetails = CaseRuleDetails.RequiredMember | CaseRuleDetails.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace CaseRuleDetails {
+  /**
+   * <p>Required rule type, used to indicate whether a field is required.</p>
+   * @public
+   */
+  export interface RequiredMember {
+    required: RequiredCaseRule;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    required?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    required: (value: RequiredCaseRule) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: CaseRuleDetails, visitor: Visitor<T>): T => {
+    if (value.required !== undefined) return visitor.required(value.required);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * <p>Detailed case rule information. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface GetCaseRuleResponse {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the case rule.</p>
+   * @public
+   */
+  caseRuleArn: string | undefined;
+
+  /**
+   * <p>Represents what rule type should take place, under what conditions.</p>
+   * @public
+   */
+  rule: CaseRuleDetails | undefined;
+
+  /**
+   * <p>Description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Indicates whether the resource has been deleted.</p>
+   * @public
+   */
+  deleted?: boolean | undefined;
+
+  /**
+   * <p>Timestamp when the resource was created.</p>
+   * @public
+   */
+  createdTime?: Date | undefined;
+
+  /**
+   * <p>Timestamp when the resource was created or last modified.</p>
+   * @public
+   */
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Error for batch describe case rules API failure. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface CaseRuleError {
+  /**
+   * <p>The case rule identifier that caused the error.</p>
+   * @public
+   */
+  id: string | undefined;
+
+  /**
+   * <p>Error code from getting a case rule.</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * <p>Error message from getting a case rule.</p>
+   * @public
+   */
+  message?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetCaseRuleResponse {
+  /**
+   * <p>List of detailed case rule information.</p>
+   * @public
+   */
+  caseRules: GetCaseRuleResponse[] | undefined;
+
+  /**
+   * <p>List of case rule errors.</p>
+   * @public
+   */
+  errors: CaseRuleError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Represents what rule type should take place, under what conditions.</p>
+   * @public
+   */
+  rule: CaseRuleDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateCaseRuleResponse {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of a case rule.</p>
+   * @public
+   */
+  caseRuleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteCaseRuleResponse {}
+
+/**
+ * @public
+ */
+export interface ListCaseRulesRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per page.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next set of results. Use the value returned in the previous
+   * response in the next request to retrieve the next set of results.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RuleType = {
+  REQUIRED: "Required",
+} as const;
+
+/**
+ * @public
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
+/**
+ * <p>Summary information of this case rule. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface CaseRuleSummary {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the case rule. </p>
+   * @public
+   */
+  caseRuleArn: string | undefined;
+
+  /**
+   * <p>Possible types for a rule.</p>
+   * @public
+   */
+  ruleType: RuleType | undefined;
+
+  /**
+   * <p>Description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListCaseRulesResponse {
+  /**
+   * <p>A list of field summary objects.</p>
+   * @public
+   */
+  caseRules: CaseRuleSummary[] | undefined;
+
+  /**
+   * <p>The token for the next set of results. This is null if there are no more results to return.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCaseRuleRequest {
+  /**
+   * <p>Unique identifier of a Cases domain.</p>
+   * @public
+   */
+  domainId: string | undefined;
+
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
+  /**
+   * <p>Name of the case rule.</p>
+   * @public
+   */
+  name?: string | undefined;
+
+  /**
+   * <p>Description of a case rule.</p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>Represents what rule type should take place, under what conditions.</p>
+   * @public
+   */
+  rule?: CaseRuleDetails | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateCaseRuleResponse {}
 
 /**
  * @public
@@ -1664,13 +2550,13 @@ export interface EventIncludedData {
    * <p>Details of what case data is published through the case event stream.</p>
    * @public
    */
-  caseData?: CaseEventIncludedData;
+  caseData?: CaseEventIncludedData | undefined;
 
   /**
    * <p>Details of what related item data is published through the case event stream.</p>
    * @public
    */
-  relatedItemData?: RelatedItemEventIncludedData;
+  relatedItemData?: RelatedItemEventIncludedData | undefined;
 }
 
 /**
@@ -1690,7 +2576,7 @@ export interface EventBridgeConfiguration {
    *       stream.</p>
    * @public
    */
-  includedData?: EventIncludedData;
+  includedData?: EventIncludedData | undefined;
 }
 
 /**
@@ -1754,7 +2640,7 @@ export interface GetDomainResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1765,14 +2651,14 @@ export interface ListDomainsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1813,7 +2699,7 @@ export interface ListDomainsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1877,7 +2763,7 @@ export interface FieldError {
    * <p>The error message from getting a field.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1940,7 +2826,7 @@ export interface GetFieldResponse {
    * <p>Description of the field.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Type of the field.</p>
@@ -1958,25 +2844,25 @@ export interface GetFieldResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>Timestamp at which the resource was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2078,7 +2964,7 @@ export interface BatchPutFieldOptionsResponse {
    * <p>A list of field errors. </p>
    * @public
    */
-  errors?: FieldOptionError[];
+  errors?: FieldOptionError[] | undefined;
 }
 
 /**
@@ -2107,7 +2993,7 @@ export interface CreateFieldRequest {
    * <p>The description of the field.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2169,21 +3055,21 @@ export interface ListFieldOptionsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of <code>FieldOption</code> values to filter on for
    *       <code>ListFieldOptions</code>.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -2200,7 +3086,7 @@ export interface ListFieldOptionsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2217,14 +3103,14 @@ export interface ListFieldsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2277,7 +3163,7 @@ export interface ListFieldsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2300,13 +3186,13 @@ export interface UpdateFieldRequest {
    * <p>The name of the field.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of a field.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -2335,7 +3221,7 @@ export interface FieldGroup {
    * <p>Name of the field group.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Represents an ordered list containing field related information.</p>
@@ -2392,7 +3278,7 @@ export interface LayoutSections {
    * <p>Ordered list containing different kinds of sections that can be added.</p>
    * @public
    */
-  sections?: Section[];
+  sections?: Section[] | undefined;
 }
 
 /**
@@ -2405,13 +3291,13 @@ export interface BasicLayout {
    * <p>This represents sections in a panel of the page layout.</p>
    * @public
    */
-  topPanel?: LayoutSections;
+  topPanel?: LayoutSections | undefined;
 
   /**
    * <p>This represents sections in a tab of the page layout.</p>
    * @public
    */
-  moreInfo?: LayoutSections;
+  moreInfo?: LayoutSections | undefined;
 }
 
 /**
@@ -2566,25 +3452,25 @@ export interface GetLayoutResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>Timestamp at which the resource was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
 }
 
 /**
@@ -2601,14 +3487,14 @@ export interface ListLayoutsRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2649,7 +3535,7 @@ export interface ListLayoutsResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2672,14 +3558,14 @@ export interface UpdateLayoutRequest {
    * <p>The name of the layout. It must be unique per domain.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Information about which fields will be present in the layout, the order of the
    *       fields.</p>
    * @public
    */
-  content?: LayoutContent;
+  content?: LayoutContent | undefined;
 }
 
 /**
@@ -2706,7 +3592,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2735,7 +3621,7 @@ export interface LayoutConfiguration {
    * <p> Unique identifier of a layout. </p>
    * @public
    */
-  defaultLayout?: string;
+  defaultLayout?: string | undefined;
 }
 
 /**
@@ -2743,6 +3629,27 @@ export interface LayoutConfiguration {
  * @public
  */
 export interface RequiredField {
+  /**
+   * <p>Unique identifier of a field.</p>
+   * @public
+   */
+  fieldId: string | undefined;
+}
+
+/**
+ * <p>An association representing a case rule acting upon a field. In the Amazon Connect admin website, case rules are known as <i>case field conditions</i>.
+ * For more
+ *       information about case field conditions, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">Add case field conditions to a
+ *         case template</a>.</p>
+ * @public
+ */
+export interface TemplateRule {
+  /**
+   * <p>Unique identifier of a case rule.</p>
+   * @public
+   */
+  caseRuleId: string | undefined;
+
   /**
    * <p>Unique identifier of a field.</p>
    * @public
@@ -2784,26 +3691,33 @@ export interface CreateTemplateRequest {
    * <p>A brief description of the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration of layouts associated to the template.</p>
    * @public
    */
-  layoutConfiguration?: LayoutConfiguration;
+  layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
    * @public
    */
-  requiredFields?: RequiredField[];
+  requiredFields?: RequiredField[] | undefined;
 
   /**
    * <p>The status of the template.</p>
    * @public
    */
-  status?: TemplateStatus;
+  status?: TemplateStatus | undefined;
+
+  /**
+   * <p>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case field conditions</a>) on a template.
+   *     </p>
+   * @public
+   */
+  rules?: TemplateRule[] | undefined;
 }
 
 /**
@@ -2888,26 +3802,26 @@ export interface GetTemplateResponse {
    * <p>A brief description of the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration of layouts associated to the template.</p>
    * @public
    */
-  layoutConfiguration?: LayoutConfiguration;
+  layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
    * @public
    */
-  requiredFields?: RequiredField[];
+  requiredFields?: RequiredField[] | undefined;
 
   /**
    * <p>A map of of key-value pairs that represent tags on a resource. Tags are used to organize, track, or control access for this resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The status of the template.</p>
@@ -2919,19 +3833,25 @@ export interface GetTemplateResponse {
    * <p>Denotes whether or not the resource has been deleted.</p>
    * @public
    */
-  deleted?: boolean;
+  deleted?: boolean | undefined;
 
   /**
    * <p>Timestamp at which the resource was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>Timestamp at which the resource was created or last modified.</p>
    * @public
    */
-  lastModifiedTime?: Date;
+  lastModifiedTime?: Date | undefined;
+
+  /**
+   * <p>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case field conditions</a>) on a template. </p>
+   * @public
+   */
+  rules?: TemplateRule[] | undefined;
 }
 
 /**
@@ -2948,20 +3868,20 @@ export interface ListTemplatesRequest {
    * <p>The maximum number of results to return per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A list of status values to filter on.</p>
    * @public
    */
-  status?: TemplateStatus[];
+  status?: TemplateStatus[] | undefined;
 }
 
 /**
@@ -3008,7 +3928,7 @@ export interface ListTemplatesResponse {
    * <p>The token for the next set of results. This is null if there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3031,32 +3951,38 @@ export interface UpdateTemplateRequest {
    * <p>The name of the template. It must be unique per domain.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A brief description of the template.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Configuration of layouts associated to the template.</p>
    * @public
    */
-  layoutConfiguration?: LayoutConfiguration;
+  layoutConfiguration?: LayoutConfiguration | undefined;
 
   /**
    * <p>A list of fields that must contain a value for a case to be successfully created with this
    *       template.</p>
    * @public
    */
-  requiredFields?: RequiredField[];
+  requiredFields?: RequiredField[] | undefined;
 
   /**
    * <p>The status of the template.</p>
    * @public
    */
-  status?: TemplateStatus;
+  status?: TemplateStatus | undefined;
+
+  /**
+   * <p>A list of case rules (also known as <a href="https://docs.aws.amazon.com/connect/latest/adminguide/case-field-conditions.html">case field conditions</a>) on a template.</p>
+   * @public
+   */
+  rules?: TemplateRule[] | undefined;
 }
 
 /**
@@ -3187,37 +4113,201 @@ export interface SearchCasesRequest {
    *       also the default value when no other value is provided.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next set of results. Use the value returned in the previous
    * response in the next request to retrieve the next set of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>A word or phrase used to perform a quick search.</p>
    * @public
    */
-  searchTerm?: string;
+  searchTerm?: string | undefined;
 
   /**
    * <p>A list of filter objects.</p>
    * @public
    */
-  filter?: CaseFilter;
+  filter?: CaseFilter | undefined;
 
   /**
    * <p>A list of sorts where each sort specifies a field and their sort order to be applied to
    *       the results. </p>
    * @public
    */
-  sorts?: Sort[];
+  sorts?: Sort[] | undefined;
 
   /**
    * <p>The list of field identifiers to be returned as part of the response.</p>
    * @public
    */
-  fields?: FieldIdentifier[];
+  fields?: FieldIdentifier[] | undefined;
 }
+
+/**
+ * @internal
+ */
+export const UserUnionFilterSensitiveLog = (obj: UserUnion): any => {
+  if (obj.userArn !== undefined) return { userArn: obj.userArn };
+  if (obj.customEntity !== undefined) return { customEntity: SENSITIVE_STRING };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateCaseRequestFilterSensitiveLog = (obj: CreateCaseRequest): any => ({
+  ...obj,
+  ...(obj.fields && { fields: obj.fields.map((item) => item) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const AuditEventPerformedByFilterSensitiveLog = (obj: AuditEventPerformedBy): any => ({
+  ...obj,
+  ...(obj.user && { user: UserUnionFilterSensitiveLog(obj.user) }),
+});
+
+/**
+ * @internal
+ */
+export const AuditEventFilterSensitiveLog = (obj: AuditEvent): any => ({
+  ...obj,
+  ...(obj.fields && { fields: obj.fields.map((item) => item) }),
+  ...(obj.performedBy && { performedBy: AuditEventPerformedByFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const GetCaseAuditEventsResponseFilterSensitiveLog = (obj: GetCaseAuditEventsResponse): any => ({
+  ...obj,
+  ...(obj.auditEvents && { auditEvents: obj.auditEvents.map((item) => AuditEventFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaInputConfigurationFilterSensitiveLog = (obj: SlaInputConfiguration): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.targetFieldValues && { targetFieldValues: obj.targetFieldValues.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaInputContentFilterSensitiveLog = (obj: SlaInputContent): any => {
+  if (obj.slaInputConfiguration !== undefined)
+    return { slaInputConfiguration: SlaInputConfigurationFilterSensitiveLog(obj.slaInputConfiguration) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const RelatedItemInputContentFilterSensitiveLog = (obj: RelatedItemInputContent): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaInputContentFilterSensitiveLog(obj.sla) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const CreateRelatedItemRequestFilterSensitiveLog = (obj: CreateRelatedItemRequest): any => ({
+  ...obj,
+  ...(obj.content && { content: RelatedItemInputContentFilterSensitiveLog(obj.content) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaFilterFilterSensitiveLog = (obj: SlaFilter): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemTypeFilterFilterSensitiveLog = (obj: RelatedItemTypeFilter): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaFilterFilterSensitiveLog(obj.sla) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsRequestFilterSensitiveLog = (obj: SearchRelatedItemsRequest): any => ({
+  ...obj,
+  ...(obj.filters && { filters: obj.filters.map((item) => RelatedItemTypeFilterFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaConfigurationFilterSensitiveLog = (obj: SlaConfiguration): any => ({
+  ...obj,
+  ...(obj.name && { name: SENSITIVE_STRING }),
+  ...(obj.targetFieldValues && { targetFieldValues: obj.targetFieldValues.map((item) => item) }),
+});
+
+/**
+ * @internal
+ */
+export const SlaContentFilterSensitiveLog = (obj: SlaContent): any => ({
+  ...obj,
+  ...(obj.slaConfiguration && { slaConfiguration: SlaConfigurationFilterSensitiveLog(obj.slaConfiguration) }),
+});
+
+/**
+ * @internal
+ */
+export const RelatedItemContentFilterSensitiveLog = (obj: RelatedItemContent): any => {
+  if (obj.contact !== undefined) return { contact: obj.contact };
+  if (obj.comment !== undefined) return { comment: obj.comment };
+  if (obj.file !== undefined) return { file: obj.file };
+  if (obj.sla !== undefined) return { sla: SlaContentFilterSensitiveLog(obj.sla) };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsResponseItemFilterSensitiveLog = (obj: SearchRelatedItemsResponseItem): any => ({
+  ...obj,
+  ...(obj.content && { content: RelatedItemContentFilterSensitiveLog(obj.content) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});
+
+/**
+ * @internal
+ */
+export const SearchRelatedItemsResponseFilterSensitiveLog = (obj: SearchRelatedItemsResponse): any => ({
+  ...obj,
+  ...(obj.relatedItems && {
+    relatedItems: obj.relatedItems.map((item) => SearchRelatedItemsResponseItemFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateCaseRequestFilterSensitiveLog = (obj: UpdateCaseRequest): any => ({
+  ...obj,
+  ...(obj.fields && { fields: obj.fields.map((item) => item) }),
+  ...(obj.performedBy && { performedBy: UserUnionFilterSensitiveLog(obj.performedBy) }),
+});

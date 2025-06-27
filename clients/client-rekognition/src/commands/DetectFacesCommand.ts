@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -189,75 +190,75 @@ export interface DetectFacesCommandOutput extends DetectFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To detect faces in an image
  * ```javascript
  * // This operation detects faces in an image stored in an AWS S3 bucket.
  * const input = {
- *   "Image": {
- *     "S3Object": {
- *       "Bucket": "mybucket",
- *       "Name": "myphoto"
+ *   Image: {
+ *     S3Object: {
+ *       Bucket: "mybucket",
+ *       Name: "myphoto"
  *     }
  *   }
  * };
  * const command = new DetectFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FaceDetails": [
+ *   FaceDetails: [
  *     {
- *       "BoundingBox": {
- *         "Height": 0.18000000715255737,
- *         "Left": 0.5555555820465088,
- *         "Top": 0.33666667342185974,
- *         "Width": 0.23999999463558197
+ *       BoundingBox: {
+ *         Height: 0.18000000715255737,
+ *         Left: 0.5555555820465088,
+ *         Top: 0.33666667342185974,
+ *         Width: 0.23999999463558197
  *       },
- *       "Confidence": 100,
- *       "Landmarks": [
+ *       Confidence: 100,
+ *       Landmarks: [
  *         {
- *           "Type": "eyeLeft",
- *           "X": 0.6394737362861633,
- *           "Y": 0.40819624066352844
+ *           Type: "eyeLeft",
+ *           X: 0.6394737362861633,
+ *           Y: 0.40819624066352844
  *         },
  *         {
- *           "Type": "eyeRight",
- *           "X": 0.7266660928726196,
- *           "Y": 0.41039225459098816
+ *           Type: "eyeRight",
+ *           X: 0.7266660928726196,
+ *           Y: 0.41039225459098816
  *         },
  *         {
- *           "Type": "eyeRight",
- *           "X": 0.6912462115287781,
- *           "Y": 0.44240960478782654
+ *           Type: "eyeRight",
+ *           X: 0.6912462115287781,
+ *           Y: 0.44240960478782654
  *         },
  *         {
- *           "Type": "mouthDown",
- *           "X": 0.6306198239326477,
- *           "Y": 0.46700039505958557
+ *           Type: "mouthDown",
+ *           X: 0.6306198239326477,
+ *           Y: 0.46700039505958557
  *         },
  *         {
- *           "Type": "mouthUp",
- *           "X": 0.7215608954429626,
- *           "Y": 0.47114261984825134
+ *           Type: "mouthUp",
+ *           X: 0.7215608954429626,
+ *           Y: 0.47114261984825134
  *         }
  *       ],
- *       "Pose": {
- *         "Pitch": 4.050806522369385,
- *         "Roll": 0.9950747489929199,
- *         "Yaw": 13.693790435791016
+ *       Pose: {
+ *         Pitch: 4.050806522369385,
+ *         Roll: 0.9950747489929199,
+ *         Yaw: 13.693790435791016
  *       },
- *       "Quality": {
- *         "Brightness": 37.60169982910156,
- *         "Sharpness": 80
+ *       Quality: {
+ *         Brightness: 37.60169982910156,
+ *         Sharpness: 80
  *       }
  *     }
  *   ],
- *   "OrientationCorrection": "ROTATE_0"
+ *   OrientationCorrection: "ROTATE_0"
  * }
  * *\/
- * // example id: to-detect-faces-in-an-image-1481841782793
  * ```
  *
+ * @public
  */
 export class DetectFacesCommand extends $Command
   .classBuilder<
@@ -267,9 +268,7 @@ export class DetectFacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -281,4 +280,16 @@ export class DetectFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectFacesCommand)
   .de(de_DetectFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectFacesRequest;
+      output: DetectFacesResponse;
+    };
+    sdk: {
+      input: DetectFacesCommandInput;
+      output: DetectFacesCommandOutput;
+    };
+  };
+}

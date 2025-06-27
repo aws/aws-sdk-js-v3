@@ -16,7 +16,8 @@ import { de_CreateRuleSetCommand, se_CreateRuleSetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,12 +50,27 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           BooleanExpression: { // RuleBooleanExpression
  *             Evaluate: { // RuleBooleanToEvaluate Union: only one key present
  *               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ *               Analysis: { // Analysis
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
+ *               IsInAddressList: { // RuleIsInAddressList
+ *                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ *                 AddressLists: [ // RuleAddressListArnList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
  *           },
  *           StringExpression: { // RuleStringExpression
  *             Evaluate: { // RuleStringToEvaluate Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ *               MimeHeaderAttribute: "STRING_VALUE",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // RuleStringList // required
@@ -80,7 +96,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           VerdictExpression: { // RuleVerdictExpression
  *             Evaluate: { // RuleVerdictToEvaluate Union: only one key present
  *               Attribute: "SPF" || "DKIM",
- *               Analysis: { // Analysis
+ *               Analysis: {
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
  *               },
@@ -103,12 +119,27 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           BooleanExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
+ *               IsInAddressList: {
+ *                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ *                 AddressLists: [ // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
  *           },
  *           StringExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ *               MimeHeaderAttribute: "STRING_VALUE",
+ *               Analysis: {
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // required
@@ -134,10 +165,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *           VerdictExpression: {
  *             Evaluate: {//  Union: only one key present
  *               Attribute: "SPF" || "DKIM",
- *               Analysis: {
- *                 Analyzer: "STRING_VALUE", // required
- *                 ResultField: "STRING_VALUE", // required
- *               },
+ *               Analysis: "<Analysis>",
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS", // required
  *             Values: [ // required
@@ -189,6 +217,19 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  *             MailboxArn: "STRING_VALUE", // required
  *             RoleArn: "STRING_VALUE", // required
  *           },
+ *           DeliverToQBusiness: { // DeliverToQBusinessAction
+ *             ActionFailurePolicy: "CONTINUE" || "DROP",
+ *             ApplicationId: "STRING_VALUE", // required
+ *             IndexId: "STRING_VALUE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *           },
+ *           PublishToSns: { // SnsAction
+ *             ActionFailurePolicy: "CONTINUE" || "DROP",
+ *             TopicArn: "STRING_VALUE", // required
+ *             RoleArn: "STRING_VALUE", // required
+ *             Encoding: "UTF-8" || "BASE64",
+ *             PayloadType: "HEADERS" || "CONTENT",
+ *           },
  *         },
  *       ],
  *     },
@@ -226,6 +267,7 @@ export interface CreateRuleSetCommandOutput extends CreateRuleSetResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleSetCommand extends $Command
@@ -236,9 +278,7 @@ export class CreateRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -250,4 +290,16 @@ export class CreateRuleSetCommand extends $Command
   .f(CreateRuleSetRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRuleSetCommand)
   .de(de_CreateRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleSetRequest;
+      output: CreateRuleSetResponse;
+    };
+    sdk: {
+      input: CreateRuleSetCommandInput;
+      output: CreateRuleSetCommandOutput;
+    };
+  };
+}

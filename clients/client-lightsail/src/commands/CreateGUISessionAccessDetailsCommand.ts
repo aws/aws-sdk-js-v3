@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,8 +38,8 @@ export interface CreateGUISessionAccessDetailsCommandOutput
 
 /**
  * <p>Creates two URLs that are used to access a virtual computer’s graphical user interface
- *       (GUI) session. The primary URL initiates a web-based NICE DCV session to the virtual
- *       computer's application. The secondary URL initiates a web-based NICE DCV session to the
+ *       (GUI) session. The primary URL initiates a web-based Amazon DCV session to the virtual
+ *       computer's application. The secondary URL initiates a web-based Amazon DCV session to the
  *       virtual computer's operating session. </p>
  *          <p>Use <code>StartGUISession</code> to open the session.</p>
  * @example
@@ -100,6 +101,7 @@ export interface CreateGUISessionAccessDetailsCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateGUISessionAccessDetailsCommand extends $Command
@@ -110,9 +112,7 @@ export class CreateGUISessionAccessDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class CreateGUISessionAccessDetailsCommand extends $Command
   .f(void 0, CreateGUISessionAccessDetailsResultFilterSensitiveLog)
   .ser(se_CreateGUISessionAccessDetailsCommand)
   .de(de_CreateGUISessionAccessDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGUISessionAccessDetailsRequest;
+      output: CreateGUISessionAccessDetailsResult;
+    };
+    sdk: {
+      input: CreateGUISessionAccessDetailsCommandInput;
+      output: CreateGUISessionAccessDetailsCommandOutput;
+    };
+  };
+}

@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "outDir": "dist-cjs"
+    "outDir": "dist-cjs",
+    "noCheck": true
   }
 }

@@ -16,7 +16,8 @@ import { de_ListEnrollmentStatusesCommand, se_ListEnrollmentStatusesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,7 @@ export interface ListEnrollmentStatusesCommandInput extends ListEnrollmentStatus
 export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatusesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the enrollment status for an account. It can also return the list of accounts
- *       that are enrolled under the organization.</p>
+ * <p>Retrieves the enrollment status for an account. It can also return the list of accounts that are enrolled under the organization.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,18 +72,17 @@ export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatu
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
+ *
  *
  * @public
  */
@@ -95,9 +94,7 @@ export class ListEnrollmentStatusesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +106,16 @@ export class ListEnrollmentStatusesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnrollmentStatusesCommand)
   .de(de_ListEnrollmentStatusesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnrollmentStatusesRequest;
+      output: ListEnrollmentStatusesResponse;
+    };
+    sdk: {
+      input: ListEnrollmentStatusesCommandInput;
+      output: ListEnrollmentStatusesCommandOutput;
+    };
+  };
+}

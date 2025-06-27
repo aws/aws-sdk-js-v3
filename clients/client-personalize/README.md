@@ -11,7 +11,7 @@ recommendations to customers.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-personalize
+To install this package, simply type add or install @aws-sdk/client-personalize
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-personalize`
@@ -762,5 +762,13 @@ UpdateRecommender
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/UpdateRecommenderCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/UpdateRecommenderCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/UpdateRecommenderCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSolution
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/personalize/command/UpdateSolutionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/UpdateSolutionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-personalize/Interface/UpdateSolutionCommandOutput/)
 
 </details>

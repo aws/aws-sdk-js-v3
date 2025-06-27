@@ -5,14 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFindingsRequest, GetFindingsResponse } from "../models/models_2";
+import { GetFindingsRequest } from "../models/models_2";
+import { GetFindingsResponse } from "../models/models_3";
 import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +30,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
 
 /**
  * <p>Returns a list of findings that match the specified criteria.</p>
- *          <p>If finding aggregation is enabled, then when you call <code>GetFindings</code> from the aggregation Region, the results include all of the matching findings from both the aggregation Region and the linked Regions.</p>
+ *          <p>If cross-Region aggregation is enabled, then when you call <code>GetFindings</code> from the home Region, the results include all of the matching findings from both the home Region and linked Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,31 +42,31 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  *     ProductArn: [ // StringFilterList
  *       { // StringFilter
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     AwsAccountId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Id: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     GeneratorId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Region: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Type: "<StringFilterList>",
@@ -4497,6 +4499,87 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * //       },
  * //       ProcessedAt: "STRING_VALUE",
  * //       AwsAccountName: "STRING_VALUE",
+ * //       Detection: { // Detection
+ * //         Sequence: { // Sequence
+ * //           Uid: "STRING_VALUE",
+ * //           Actors: [ // ActorsList
+ * //             { // Actor
+ * //               Id: "STRING_VALUE",
+ * //               User: { // ActorUser
+ * //                 Name: "STRING_VALUE",
+ * //                 Uid: "STRING_VALUE",
+ * //                 Type: "STRING_VALUE",
+ * //                 CredentialUid: "STRING_VALUE",
+ * //                 Account: { // UserAccount
+ * //                   Uid: "STRING_VALUE",
+ * //                   Name: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               Session: { // ActorSession
+ * //                 Uid: "STRING_VALUE",
+ * //                 MfaStatus: "ENABLED" || "DISABLED",
+ * //                 CreatedTime: Number("long"),
+ * //                 Issuer: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //           ],
+ * //           Endpoints: [ // NetworkEndpointsList
+ * //             { // NetworkEndpoint
+ * //               Id: "STRING_VALUE",
+ * //               Ip: "STRING_VALUE",
+ * //               Domain: "STRING_VALUE",
+ * //               Port: Number("int"),
+ * //               Location: { // NetworkGeoLocation
+ * //                 City: "STRING_VALUE",
+ * //                 Country: "STRING_VALUE",
+ * //                 Lat: Number("double"),
+ * //                 Lon: Number("double"),
+ * //               },
+ * //               AutonomousSystem: { // NetworkAutonomousSystem
+ * //                 Name: "STRING_VALUE",
+ * //                 Number: Number("int"),
+ * //               },
+ * //               Connection: { // NetworkConnection
+ * //                 Direction: "INBOUND" || "OUTBOUND",
+ * //               },
+ * //             },
+ * //           ],
+ * //           Signals: [ // SignalsList
+ * //             { // Signal
+ * //               Type: "STRING_VALUE",
+ * //               Id: "STRING_VALUE",
+ * //               Title: "STRING_VALUE",
+ * //               ProductArn: "STRING_VALUE",
+ * //               ResourceIds: "<NonEmptyStringList>",
+ * //               SignalIndicators: [ // IndicatorsList
+ * //                 { // Indicator
+ * //                   Key: "STRING_VALUE",
+ * //                   Values: "<NonEmptyStringList>",
+ * //                   Title: "STRING_VALUE",
+ * //                   Type: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               Name: "STRING_VALUE",
+ * //               CreatedAt: Number("long"),
+ * //               UpdatedAt: Number("long"),
+ * //               FirstSeenAt: Number("long"),
+ * //               LastSeenAt: Number("long"),
+ * //               Severity: Number("double"),
+ * //               Count: Number("int"),
+ * //               ActorIds: "<NonEmptyStringList>",
+ * //               EndpointIds: "<NonEmptyStringList>",
+ * //             },
+ * //           ],
+ * //           SequenceIndicators: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Values: "<NonEmptyStringList>",
+ * //               Title: "STRING_VALUE",
+ * //               Type: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -4527,118 +4610,118 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get a list of findings
  * ```javascript
  * // The following example returns a filtered and sorted list of Security Hub findings.
  * const input = {
- *   "Filters": {
- *     "AwsAccountId": [
+ *   Filters: {
+ *     AwsAccountId: [
  *       {
- *         "Comparison": "PREFIX",
- *         "Value": "123456789012"
+ *         Comparison: "PREFIX",
+ *         Value: "123456789012"
  *       }
  *     ]
  *   },
- *   "MaxResults": 1
+ *   MaxResults: 1
  * };
  * const command = new GetFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Findings": [
+ *   Findings: [
  *     {
- *       "AwsAccountId": "123456789012",
- *       "CompanyName": "AWS",
- *       "Compliance": {
- *         "AssociatedStandards": [
+ *       AwsAccountId: "123456789012",
+ *       CompanyName: "AWS",
+ *       Compliance: {
+ *         AssociatedStandards: [
  *           {
- *             "StandardsId": "standards/aws-foundational-security-best-practices/v/1.0.0"
+ *             StandardsId: "standards/aws-foundational-security-best-practices/v/1.0.0"
  *           },
  *           {
- *             "StandardsId": "standards/pci-dss/v/3.2.1"
+ *             StandardsId: "standards/pci-dss/v/3.2.1"
  *           },
  *           {
- *             "StandardsId": "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
+ *             StandardsId: "ruleset/cis-aws-foundations-benchmark/v/1.2.0"
  *           },
  *           {
- *             "StandardsId": "standards/cis-aws-foundations-benchmark/v/1.4.0"
+ *             StandardsId: "standards/cis-aws-foundations-benchmark/v/1.4.0"
  *           },
  *           {
- *             "StandardsId": "standards/service-managed-aws-control-tower/v/1.0.0"
+ *             StandardsId: "standards/service-managed-aws-control-tower/v/1.0.0"
  *           }
  *         ],
- *         "RelatedRequirements": [
+ *         RelatedRequirements: [
  *           "PCI DSS v3.2.1/3.4",
  *           "CIS AWS Foundations Benchmark v1.2.0/2.7",
  *           "CIS AWS Foundations Benchmark v1.4.0/3.7"
  *         ],
- *         "SecurityControlId": "CloudTrail.2",
- *         "Status": "FAILED"
+ *         SecurityControlId: "CloudTrail.2",
+ *         Status: "FAILED"
  *       },
- *       "CreatedAt": "2022-10-06T02:18:23.076Z",
- *       "Description": "This AWS control checks whether AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) customer master key (CMK) encryption. The check will pass if the KmsKeyId is defined.",
- *       "FindingProviderFields": {
- *         "Severity": {
- *           "Label": "MEDIUM",
- *           "Original": "MEDIUM"
+ *       CreatedAt: "2022-10-06T02:18:23.076Z",
+ *       Description: "This AWS control checks whether AWS CloudTrail is configured to use the server side encryption (SSE) AWS Key Management Service (AWS KMS) customer master key (CMK) encryption. The check will pass if the KmsKeyId is defined.",
+ *       FindingProviderFields: {
+ *         Severity: {
+ *           Label: "MEDIUM",
+ *           Original: "MEDIUM"
  *         },
- *         "Types": [
+ *         Types: [
  *           "Software and Configuration Checks/Industry and Regulatory Standards"
  *         ]
  *       },
- *       "FirstObservedAt": "2022-10-06T02:18:23.076Z",
- *       "GeneratorId": "security-control/CloudTrail.2",
- *       "Id": "arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "LastObservedAt": "2022-10-28T16:10:06.956Z",
- *       "ProductArn": "arn:aws:securityhub:us-east-2::product/aws/securityhub",
- *       "ProductFields": {
- *         "RelatedAWSResources:0/name": "securityhub-cloud-trail-encryption-enabled-fe95bf3f",
- *         "RelatedAWSResources:0/type": "AWS::Config::ConfigRule",
- *         "Resources:0/Id": "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
- *         "aws/securityhub/CompanyName": "AWS",
- *         "aws/securityhub/FindingId": "arn:aws:securityhub:us-east-2::product/aws/securityhub/arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *         "aws/securityhub/ProductName": "Security Hub"
+ *       FirstObservedAt: "2022-10-06T02:18:23.076Z",
+ *       GeneratorId: "security-control/CloudTrail.2",
+ *       Id: "arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       LastObservedAt: "2022-10-28T16:10:06.956Z",
+ *       ProductArn: "arn:aws:securityhub:us-east-2::product/aws/securityhub",
+ *       ProductFields: {
+ *         RelatedAWSResources:0/name: "securityhub-cloud-trail-encryption-enabled-fe95bf3f",
+ *         RelatedAWSResources:0/type: "AWS::Config::ConfigRule",
+ *         Resources:0/Id: "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
+ *         aws/securityhub/CompanyName: "AWS",
+ *         aws/securityhub/FindingId: "arn:aws:securityhub:us-east-2::product/aws/securityhub/arn:aws:securityhub:us-east-2:123456789012:security-control/CloudTrail.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *         aws/securityhub/ProductName: "Security Hub"
  *       },
- *       "ProductName": "Security Hub",
- *       "RecordState": "ACTIVE",
- *       "Region": "us-east-2",
- *       "Remediation": {
- *         "Recommendation": {
- *           "Text": "For directions on how to correct this issue, consult the AWS Security Hub controls documentation.",
- *           "Url": "https://docs.aws.amazon.com/console/securityhub/CloudTrail.2/remediation"
+ *       ProductName: "Security Hub",
+ *       RecordState: "ACTIVE",
+ *       Region: "us-east-2",
+ *       Remediation: {
+ *         Recommendation: {
+ *           Text: "For directions on how to correct this issue, consult the AWS Security Hub controls documentation.",
+ *           Url: "https://docs.aws.amazon.com/console/securityhub/CloudTrail.2/remediation"
  *         }
  *       },
- *       "Resources": [
+ *       Resources: [
  *         {
- *           "Id": "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
- *           "Partition": "aws",
- *           "Region": "us-east-2",
- *           "Type": "AwsCloudTrailTrail"
+ *           Id: "arn:aws:cloudtrail:us-east-2:123456789012:trail/AWSMacieTrail-DO-NOT-EDIT",
+ *           Partition: "aws",
+ *           Region: "us-east-2",
+ *           Type: "AwsCloudTrailTrail"
  *         }
  *       ],
- *       "SchemaVersion": "2018-10-08",
- *       "Severity": {
- *         "Label": "MEDIUM",
- *         "Normalized": 40,
- *         "Original": "MEDIUM"
+ *       SchemaVersion: "2018-10-08",
+ *       Severity: {
+ *         Label: "MEDIUM",
+ *         Normalized: 40,
+ *         Original: "MEDIUM"
  *       },
- *       "Title": "CloudTrail should have encryption at-rest enabled",
- *       "Types": [
+ *       Title: "CloudTrail should have encryption at-rest enabled",
+ *       Types: [
  *         "Software and Configuration Checks/Industry and Regulatory Standards"
  *       ],
- *       "UpdatedAt": "2022-10-28T16:10:00.093Z",
- *       "Workflow": {
- *         "Status": "NEW"
+ *       UpdatedAt: "2022-10-28T16:10:00.093Z",
+ *       Workflow: {
+ *         Status: "NEW"
  *       },
- *       "WorkflowState": "NEW"
+ *       WorkflowState: "NEW"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-findings-1677181069931
  * ```
  *
+ * @public
  */
 export class GetFindingsCommand extends $Command
   .classBuilder<
@@ -4648,9 +4731,7 @@ export class GetFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -4662,4 +4743,16 @@ export class GetFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingsCommand)
   .de(de_GetFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingsRequest;
+      output: GetFindingsResponse;
+    };
+    sdk: {
+      input: GetFindingsCommandInput;
+      output: GetFindingsCommandOutput;
+    };
+  };
+}

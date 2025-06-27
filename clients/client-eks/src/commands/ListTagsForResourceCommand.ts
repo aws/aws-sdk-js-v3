@@ -12,7 +12,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,25 +65,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
- * @public
+ *
  * @example To list tags for a cluster
  * ```javascript
  * // This example lists all of the tags for the `beta` cluster.
  * const input = {
- *   "resourceArn": "arn:aws:eks:us-west-2:012345678910:cluster/beta"
+ *   resourceArn: "arn:aws:eks:us-west-2:012345678910:cluster/beta"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tags": {
- *     "aws:tag:domain": "beta"
+ *   tags: {
+ *     aws:tag:domain: "beta"
  *   }
  * }
  * *\/
- * // example id: to-list-tags-for-a-cluster-1568666903378
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
@@ -92,9 +93,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

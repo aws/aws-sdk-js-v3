@@ -12,7 +12,8 @@ import { de_UpdateRuleMetadataCommand, se_UpdateRuleMetadataCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateRuleMetadataCommandOutput extends UpdateRuleMetadataResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleMetadataCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateRuleMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateRuleMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleMetadataCommand)
   .de(de_UpdateRuleMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleMetadataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRuleMetadataCommandInput;
+      output: UpdateRuleMetadataCommandOutput;
+    };
+  };
+}

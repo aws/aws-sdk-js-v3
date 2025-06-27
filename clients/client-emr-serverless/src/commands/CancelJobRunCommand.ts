@@ -12,7 +12,8 @@ import { de_CancelJobRunCommand, se_CancelJobRunCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,6 +38,7 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  * const input = { // CancelJobRunRequest
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
+ *   shutdownGracePeriodInSeconds: Number("int"),
  * };
  * const command = new CancelJobRunCommand(input);
  * const response = await client.send(command);
@@ -60,11 +62,11 @@ export interface CancelJobRunCommandOutput extends CancelJobRunResponse, __Metad
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
+ *
  *
  * @public
  */
@@ -76,9 +78,7 @@ export class CancelJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class CancelJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelJobRunCommand)
   .de(de_CancelJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelJobRunRequest;
+      output: CancelJobRunResponse;
+    };
+    sdk: {
+      input: CancelJobRunCommandInput;
+      output: CancelJobRunCommandOutput;
+    };
+  };
+}

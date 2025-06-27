@@ -12,7 +12,8 @@ import { de_AssociateVirtualInterfaceCommand, se_AssociateVirtualInterfaceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -117,6 +118,7 @@ export interface AssociateVirtualInterfaceCommandOutput extends VirtualInterface
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AssociateVirtualInterfaceCommand extends $Command
@@ -127,9 +129,7 @@ export class AssociateVirtualInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class AssociateVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateVirtualInterfaceCommand)
   .de(de_AssociateVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateVirtualInterfaceRequest;
+      output: VirtualInterface;
+    };
+    sdk: {
+      input: AssociateVirtualInterfaceCommandInput;
+      output: AssociateVirtualInterfaceCommandOutput;
+    };
+  };
+}

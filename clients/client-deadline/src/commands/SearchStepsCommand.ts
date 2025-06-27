@@ -12,7 +12,8 @@ import { de_SearchStepsCommand, se_SearchStepsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,7 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  *         },
  *         searchTermFilter: { // SearchTermFilterExpression
  *           searchTerm: "STRING_VALUE", // required
+ *           matchType: "FUZZY_MATCH" || "CONTAINS",
  *         },
  *         stringFilter: { // StringFilterExpression
  *           name: "STRING_VALUE", // required
@@ -76,6 +78,7 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  *               },
  *               searchTermFilter: {
  *                 searchTerm: "STRING_VALUE", // required
+ *                 matchType: "FUZZY_MATCH" || "CONTAINS",
  *               },
  *               stringFilter: {
  *                 name: "STRING_VALUE", // required
@@ -125,6 +128,7 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  * //       taskRunStatusCounts: { // TaskRunStatusCounts
  * //         "<keys>": Number("int"),
  * //       },
+ * //       taskFailureRetryCount: Number("int"),
  * //       createdAt: new Date("TIMESTAMP"),
  * //       startedAt: new Date("TIMESTAMP"),
  * //       endedAt: new Date("TIMESTAMP"),
@@ -164,11 +168,11 @@ export interface SearchStepsCommandOutput extends SearchStepsResponse, __Metadat
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -180,9 +184,7 @@ export class SearchStepsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +196,16 @@ export class SearchStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchStepsCommand)
   .de(de_SearchStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchStepsRequest;
+      output: SearchStepsResponse;
+    };
+    sdk: {
+      input: SearchStepsCommandInput;
+      output: SearchStepsCommandOutput;
+    };
+  };
+}

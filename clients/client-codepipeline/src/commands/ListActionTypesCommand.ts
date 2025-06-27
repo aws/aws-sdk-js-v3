@@ -12,7 +12,8 @@ import { de_ListActionTypesCommand, se_ListActionTypesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * //   actionTypes: [ // ActionTypeList // required
  * //     { // ActionType
  * //       id: { // ActionTypeId
- * //         category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //         category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //         owner: "AWS" || "ThirdParty" || "Custom", // required
  * //         provider: "STRING_VALUE", // required
  * //         version: "STRING_VALUE", // required
@@ -99,6 +100,7 @@ export interface ListActionTypesCommandOutput extends ListActionTypesOutput, __M
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class ListActionTypesCommand extends $Command
@@ -109,9 +111,7 @@ export class ListActionTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class ListActionTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActionTypesCommand)
   .de(de_ListActionTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActionTypesInput;
+      output: ListActionTypesOutput;
+    };
+    sdk: {
+      input: ListActionTypesCommandInput;
+      output: ListActionTypesCommandOutput;
+    };
+  };
+}

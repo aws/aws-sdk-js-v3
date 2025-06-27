@@ -12,7 +12,8 @@ import { de_DescribeVaultCommand, se_DescribeVaultCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,28 +91,28 @@ export interface DescribeVaultCommandOutput extends DescribeVaultOutput, __Metad
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To retrieve information about a vault
  * ```javascript
  * // The example retrieves data about a vault named my-vault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   vaultName: "my-vault"
  * };
  * const command = new DescribeVaultCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreationDate": "2016-09-23T19:27:18.665Z",
- *   "NumberOfArchives": 0,
- *   "SizeInBytes": 0,
- *   "VaultARN": "arn:aws:glacier:us-west-2:111122223333:vaults/my-vault",
- *   "VaultName": "my-vault"
+ *   CreationDate: "2016-09-23T19:27:18.665Z",
+ *   NumberOfArchives: 0,
+ *   SizeInBytes: 0,
+ *   VaultARN: "arn:aws:glacier:us-west-2:111122223333:vaults/my-vault",
+ *   VaultName: "my-vault"
  * }
  * *\/
- * // example id: 3c1c6e9d-f5a2-427a-aa6a-f439eacfc05f
  * ```
  *
+ * @public
  */
 export class DescribeVaultCommand extends $Command
   .classBuilder<
@@ -121,9 +122,7 @@ export class DescribeVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class DescribeVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVaultCommand)
   .de(de_DescribeVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVaultInput;
+      output: DescribeVaultOutput;
+    };
+    sdk: {
+      input: DescribeVaultCommandInput;
+      output: DescribeVaultCommandOutput;
+    };
+  };
+}

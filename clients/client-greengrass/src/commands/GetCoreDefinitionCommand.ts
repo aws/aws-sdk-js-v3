@@ -12,7 +12,8 @@ import { de_GetCoreDefinitionCommand, se_GetCoreDefinitionCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface GetCoreDefinitionCommandOutput extends GetCoreDefinitionRespons
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class GetCoreDefinitionCommand extends $Command
@@ -76,9 +78,7 @@ export class GetCoreDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class GetCoreDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreDefinitionCommand)
   .de(de_GetCoreDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreDefinitionRequest;
+      output: GetCoreDefinitionResponse;
+    };
+    sdk: {
+      input: GetCoreDefinitionCommandInput;
+      output: GetCoreDefinitionCommandOutput;
+    };
+  };
+}

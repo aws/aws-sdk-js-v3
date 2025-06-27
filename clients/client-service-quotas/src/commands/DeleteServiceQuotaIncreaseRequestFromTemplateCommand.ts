@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Command
@@ -103,9 +105,7 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class DeleteServiceQuotaIncreaseRequestFromTemplateCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_DeleteServiceQuotaIncreaseRequestFromTemplateCommand)
   .de(de_DeleteServiceQuotaIncreaseRequestFromTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceQuotaIncreaseRequestFromTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput;
+      output: DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput;
+    };
+  };
+}

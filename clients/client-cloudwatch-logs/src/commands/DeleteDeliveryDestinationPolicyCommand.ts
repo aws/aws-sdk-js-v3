@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteDeliveryDestinationPolicyCommandOutput extends __Metadata
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DeleteDeliveryDestinationPolicyCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteDeliveryDestinationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteDeliveryDestinationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeliveryDestinationPolicyCommand)
   .de(de_DeleteDeliveryDestinationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeliveryDestinationPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeliveryDestinationPolicyCommandInput;
+      output: DeleteDeliveryDestinationPolicyCommandOutput;
+    };
+  };
+}

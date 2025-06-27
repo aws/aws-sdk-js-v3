@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCaseRequest, CreateCaseResponse } from "../models/models_0";
+import { CreateCaseRequest, CreateCaseRequestFilterSensitiveLog, CreateCaseResponse } from "../models/models_0";
 import { de_CreateCaseCommand, se_CreateCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,11 +31,9 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * <note>
  *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
  *          </note>
- *
  *          <p>Creates a case in the specified Cases domain. Case system and custom fields are taken
  *       as an array id/value pairs with a declared data types.</p>
  *          <p>The following fields are required when creating a case:</p>
- *
  *          <ul>
  *             <li>
  *                <p>
@@ -73,6 +72,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  *   clientToken: "STRING_VALUE",
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",
+ *     customEntity: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateCaseCommand(input);
@@ -115,6 +115,7 @@ export interface CreateCaseCommandOutput extends CreateCaseResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateCaseCommand extends $Command
@@ -125,9 +126,7 @@ export class CreateCaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,7 +135,19 @@ export class CreateCaseCommand extends $Command
   })
   .s("AmazonConnectCases", "CreateCase", {})
   .n("ConnectCasesClient", "CreateCaseCommand")
-  .f(void 0, void 0)
+  .f(CreateCaseRequestFilterSensitiveLog, void 0)
   .ser(se_CreateCaseCommand)
   .de(de_CreateCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCaseRequest;
+      output: CreateCaseResponse;
+    };
+    sdk: {
+      input: CreateCaseCommandInput;
+      output: CreateCaseCommandOutput;
+    };
+  };
+}

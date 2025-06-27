@@ -1,5 +1,8 @@
 import { Provider, RegionInfoProvider } from "@smithy/types";
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 export interface BucketEndpointInputConfig {
   /**
    * Whether to use the bucket name as the endpoint for this request. The bucket
@@ -33,6 +36,9 @@ export interface BucketEndpointInputConfig {
   disableMultiregionAccessPoints?: boolean | Provider<boolean>;
 }
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 interface PreviouslyResolved {
   isCustomEndpoint?: boolean;
   region: Provider<string>;
@@ -41,6 +47,9 @@ interface PreviouslyResolved {
   useDualstackEndpoint: Provider<boolean>;
 }
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 export interface BucketEndpointResolvedConfig {
   /**
    * Whether the endpoint is specified by caller.
@@ -70,7 +79,7 @@ export interface BucketEndpointResolvedConfig {
   /**
    * Resolved value for input config {@link BucketEndpointInputConfig.useArnRegion}
    */
-  useArnRegion: Provider<boolean>;
+  useArnRegion: Provider<boolean | undefined>;
   /**
    * Resolved value for input config {@link RegionInputConfig.region}
    */
@@ -83,6 +92,9 @@ export interface BucketEndpointResolvedConfig {
   disableMultiregionAccessPoints: Provider<boolean>;
 }
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 export function resolveBucketEndpointConfig<T>(
   input: T & PreviouslyResolved & BucketEndpointInputConfig
 ): T & BucketEndpointResolvedConfig {
@@ -90,11 +102,12 @@ export function resolveBucketEndpointConfig<T>(
     bucketEndpoint = false,
     forcePathStyle = false,
     useAccelerateEndpoint = false,
-    useArnRegion = false,
+    // useArnRegion has specific behavior when undefined instead of false.
+    useArnRegion,
     disableMultiregionAccessPoints = false,
   } = input;
-  return {
-    ...input,
+
+  return Object.assign(input, {
     bucketEndpoint,
     forcePathStyle,
     useAccelerateEndpoint,
@@ -103,5 +116,5 @@ export function resolveBucketEndpointConfig<T>(
       typeof disableMultiregionAccessPoints === "function"
         ? disableMultiregionAccessPoints
         : () => Promise.resolve(disableMultiregionAccessPoints),
-  };
+  });
 }

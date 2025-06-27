@@ -16,7 +16,8 @@ import { de_ListApplicationSnapshotsCommand, se_ListApplicationSnapshotsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * //       SnapshotStatus: "CREATING" || "READY" || "DELETING" || "FAILED", // required
  * //       ApplicationVersionId: Number("long"), // required
  * //       SnapshotCreationTimestamp: new Date("TIMESTAMP"),
- * //       RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18",
+ * //       RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -76,6 +77,7 @@ export interface ListApplicationSnapshotsCommandOutput extends ListApplicationSn
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationSnapshotsCommand extends $Command
@@ -86,9 +88,7 @@ export class ListApplicationSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListApplicationSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationSnapshotsCommand)
   .de(de_ListApplicationSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationSnapshotsRequest;
+      output: ListApplicationSnapshotsResponse;
+    };
+    sdk: {
+      input: ListApplicationSnapshotsCommandInput;
+      output: ListApplicationSnapshotsCommandOutput;
+    };
+  };
+}

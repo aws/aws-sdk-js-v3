@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,10 @@ export interface BatchGetTracesCommandInput extends BatchGetTracesRequest {}
 export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __MetadataBearer {}
 
 /**
- * <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
+ * <note>
+ *             <p>You cannot find traces through this API if Transaction Search is enabled since trace is not indexed in X-Ray.</p>
+ *          </note>
+ *          <p>Retrieves a list of traces specified by ID. Each trace is a collection of segment
  *       documents that originates from a single request. Use <code>GetTraceSummaries</code> to get a
  *       list of trace IDs.</p>
  * @example
@@ -81,6 +85,7 @@ export interface BatchGetTracesCommandOutput extends BatchGetTracesResult, __Met
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class BatchGetTracesCommand extends $Command
@@ -91,9 +96,7 @@ export class BatchGetTracesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +108,16 @@ export class BatchGetTracesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetTracesCommand)
   .de(de_BatchGetTracesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetTracesRequest;
+      output: BatchGetTracesResult;
+    };
+    sdk: {
+      input: BatchGetTracesCommandInput;
+      output: BatchGetTracesCommandOutput;
+    };
+  };
+}

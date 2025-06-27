@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeHubRequest, DescribeHubResponse } from "../models/models_2";
+import { DescribeHubRequest, DescribeHubResponse } from "../models/models_3";
 import { de_DescribeHubCommand, se_DescribeHubCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface DescribeHubCommandInput extends DescribeHubRequest {}
 export interface DescribeHubCommandOutput extends DescribeHubResponse, __MetadataBearer {}
 
 /**
- * <p>Describe a hub.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
+ * <p>Describes a hub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +71,7 @@ export interface DescribeHubCommandOutput extends DescribeHubResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeHubCommand extends $Command
@@ -83,9 +82,7 @@ export class DescribeHubCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +94,16 @@ export class DescribeHubCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHubCommand)
   .de(de_DescribeHubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHubRequest;
+      output: DescribeHubResponse;
+    };
+    sdk: {
+      input: DescribeHubCommandInput;
+      output: DescribeHubCommandOutput;
+    };
+  };
+}

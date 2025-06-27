@@ -12,7 +12,8 @@ import { de_PutSubscriptionFilterCommand, se_PutSubscriptionFilterCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,12 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *          <p>Each log group can have up to two subscription filters associated with it. If you are
  *       updating an existing filter, you must specify the correct name in <code>filterName</code>.
  *       </p>
+ *          <p>Using regular expressions in filter patterns is supported. For these filters,
+ *       there is a quotas of quota of two regular expression patterns within a single filter pattern. There
+ *       is also a quota of five regular expression patterns per log group.
+ *       For more information about using regular expressions in filter patterns,
+ *       see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/FilterAndPatternSyntax.html">
+ *         Filter pattern syntax for metric filters, subscription filters, filter log events, and Live Tail</a>.</p>
  *          <p>To perform a <code>PutSubscriptionFilter</code> operation for any destination except a Lambda function,
  *     you must also have the
  *       <code>iam:PassRole</code> permission.</p>
@@ -70,6 +77,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  *   destinationArn: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE",
  *   distribution: "Random" || "ByLogStream",
+ *   applyOnTransformedLogs: true || false,
  * };
  * const command = new PutSubscriptionFilterCommand(input);
  * const response = await client.send(command);
@@ -82,6 +90,9 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * @see {@link PutSubscriptionFilterCommandInput} for command's `input` shape.
  * @see {@link PutSubscriptionFilterCommandOutput} for command's `response` shape.
  * @see {@link CloudWatchLogsClientResolvedConfig | config} for CloudWatchLogsClient's `config` shape.
+ *
+ * @throws {@link InvalidOperationException} (client fault)
+ *  <p>The operation is not valid on the specified resource.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>A parameter is specified incorrectly.</p>
@@ -101,6 +112,7 @@ export interface PutSubscriptionFilterCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutSubscriptionFilterCommand extends $Command
@@ -111,9 +123,7 @@ export class PutSubscriptionFilterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +135,16 @@ export class PutSubscriptionFilterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSubscriptionFilterCommand)
   .de(de_PutSubscriptionFilterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSubscriptionFilterRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutSubscriptionFilterCommandInput;
+      output: PutSubscriptionFilterCommandOutput;
+    };
+  };
+}

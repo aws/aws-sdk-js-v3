@@ -16,7 +16,8 @@ import { de_ListRecommendationsCommand, se_ListRecommendationsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,10 +53,10 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  *       "STRING_VALUE",
  *     ],
  *     resourceTypes: [ // ResourceTypeList
- *       "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances",
+ *       "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
  *     ],
  *     actionTypes: [ // ActionTypeList
- *       "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton",
+ *       "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete" || "ScaleIn",
  *     ],
  *     tags: [ // TagList
  *       { // Tag
@@ -129,18 +130,17 @@ export interface ListRecommendationsCommandOutput extends ListRecommendationsRes
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
+ *
  *
  * @public
  */
@@ -152,9 +152,7 @@ export class ListRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +164,16 @@ export class ListRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecommendationsCommand)
   .de(de_ListRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendationsRequest;
+      output: ListRecommendationsResponse;
+    };
+    sdk: {
+      input: ListRecommendationsCommandInput;
+      output: ListRecommendationsCommandOutput;
+    };
+  };
+}

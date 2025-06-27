@@ -12,7 +12,8 @@ import { de_FailoverDBClusterCommand, se_FailoverDBClusterCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,11 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -125,6 +131,7 @@ export interface FailoverDBClusterCommandOutput extends FailoverDBClusterResult,
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class FailoverDBClusterCommand extends $Command
@@ -135,9 +142,7 @@ export class FailoverDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +154,16 @@ export class FailoverDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverDBClusterCommand)
   .de(de_FailoverDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverDBClusterMessage;
+      output: FailoverDBClusterResult;
+    };
+    sdk: {
+      input: FailoverDBClusterCommandInput;
+      output: FailoverDBClusterCommandOutput;
+    };
+  };
+}

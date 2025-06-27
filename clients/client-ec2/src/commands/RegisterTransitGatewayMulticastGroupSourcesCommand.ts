@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,8 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
 /**
  * <p>Registers sources (network interfaces) with the specified  transit gateway multicast group.</p>
  *          <p>A multicast source is a network interface attached to a supported instance that sends
- *             multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast
- *                 Considerations</a> in <i>Amazon VPC Transit Gateways</i>.</p>
+ *             multicast traffic. For more information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-multicast-overview.html">Multicast
+ *                 on transit gateways</a> in the <i>Amazon Web Services Transit Gateways Guide</i>.</p>
  *          <p>After you add the source, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the source was added to the multicast
  *             group.</p>
  * @example
@@ -79,6 +80,7 @@ export interface RegisterTransitGatewayMulticastGroupSourcesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
@@ -89,9 +91,7 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class RegisterTransitGatewayMulticastGroupSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterTransitGatewayMulticastGroupSourcesCommand)
   .de(de_RegisterTransitGatewayMulticastGroupSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTransitGatewayMulticastGroupSourcesRequest;
+      output: RegisterTransitGatewayMulticastGroupSourcesResult;
+    };
+    sdk: {
+      input: RegisterTransitGatewayMulticastGroupSourcesCommandInput;
+      output: RegisterTransitGatewayMulticastGroupSourcesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListTopicRulesCommand, se_ListTopicRulesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ListTopicRulesCommandOutput extends ListTopicRulesResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListTopicRulesCommand extends $Command
@@ -86,9 +88,7 @@ export class ListTopicRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListTopicRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTopicRulesCommand)
   .de(de_ListTopicRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTopicRulesRequest;
+      output: ListTopicRulesResponse;
+    };
+    sdk: {
+      input: ListTopicRulesCommandInput;
+      output: ListTopicRulesCommandOutput;
+    };
+  };
+}

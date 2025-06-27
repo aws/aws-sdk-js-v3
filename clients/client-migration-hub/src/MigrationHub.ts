@@ -13,6 +13,11 @@ import {
   AssociateDiscoveredResourceCommandOutput,
 } from "./commands/AssociateDiscoveredResourceCommand";
 import {
+  AssociateSourceResourceCommand,
+  AssociateSourceResourceCommandInput,
+  AssociateSourceResourceCommandOutput,
+} from "./commands/AssociateSourceResourceCommand";
+import {
   CreateProgressUpdateStreamCommand,
   CreateProgressUpdateStreamCommandInput,
   CreateProgressUpdateStreamCommandOutput,
@@ -43,6 +48,11 @@ import {
   DisassociateDiscoveredResourceCommandOutput,
 } from "./commands/DisassociateDiscoveredResourceCommand";
 import {
+  DisassociateSourceResourceCommand,
+  DisassociateSourceResourceCommandInput,
+  DisassociateSourceResourceCommandOutput,
+} from "./commands/DisassociateSourceResourceCommand";
+import {
   ImportMigrationTaskCommand,
   ImportMigrationTaskCommandInput,
   ImportMigrationTaskCommandOutput,
@@ -68,10 +78,20 @@ import {
   ListMigrationTasksCommandOutput,
 } from "./commands/ListMigrationTasksCommand";
 import {
+  ListMigrationTaskUpdatesCommand,
+  ListMigrationTaskUpdatesCommandInput,
+  ListMigrationTaskUpdatesCommandOutput,
+} from "./commands/ListMigrationTaskUpdatesCommand";
+import {
   ListProgressUpdateStreamsCommand,
   ListProgressUpdateStreamsCommandInput,
   ListProgressUpdateStreamsCommandOutput,
 } from "./commands/ListProgressUpdateStreamsCommand";
+import {
+  ListSourceResourcesCommand,
+  ListSourceResourcesCommandInput,
+  ListSourceResourcesCommandOutput,
+} from "./commands/ListSourceResourcesCommand";
 import {
   NotifyApplicationStateCommand,
   NotifyApplicationStateCommandInput,
@@ -92,18 +112,22 @@ import { MigrationHubClient, MigrationHubClientConfig } from "./MigrationHubClie
 const commands = {
   AssociateCreatedArtifactCommand,
   AssociateDiscoveredResourceCommand,
+  AssociateSourceResourceCommand,
   CreateProgressUpdateStreamCommand,
   DeleteProgressUpdateStreamCommand,
   DescribeApplicationStateCommand,
   DescribeMigrationTaskCommand,
   DisassociateCreatedArtifactCommand,
   DisassociateDiscoveredResourceCommand,
+  DisassociateSourceResourceCommand,
   ImportMigrationTaskCommand,
   ListApplicationStatesCommand,
   ListCreatedArtifactsCommand,
   ListDiscoveredResourcesCommand,
   ListMigrationTasksCommand,
+  ListMigrationTaskUpdatesCommand,
   ListProgressUpdateStreamsCommand,
+  ListSourceResourcesCommand,
   NotifyApplicationStateCommand,
   NotifyMigrationTaskStateCommand,
   PutResourceAttributesCommand,
@@ -142,6 +166,23 @@ export interface MigrationHub {
     args: AssociateDiscoveredResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateDiscoveredResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSourceResourceCommand}
+   */
+  associateSourceResource(
+    args: AssociateSourceResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSourceResourceCommandOutput>;
+  associateSourceResource(
+    args: AssociateSourceResourceCommandInput,
+    cb: (err: any, data?: AssociateSourceResourceCommandOutput) => void
+  ): void;
+  associateSourceResource(
+    args: AssociateSourceResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSourceResourceCommandOutput) => void
   ): void;
 
   /**
@@ -247,6 +288,23 @@ export interface MigrationHub {
   ): void;
 
   /**
+   * @see {@link DisassociateSourceResourceCommand}
+   */
+  disassociateSourceResource(
+    args: DisassociateSourceResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSourceResourceCommandOutput>;
+  disassociateSourceResource(
+    args: DisassociateSourceResourceCommandInput,
+    cb: (err: any, data?: DisassociateSourceResourceCommandOutput) => void
+  ): void;
+  disassociateSourceResource(
+    args: DisassociateSourceResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSourceResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ImportMigrationTaskCommand}
    */
   importMigrationTask(
@@ -334,6 +392,23 @@ export interface MigrationHub {
   ): void;
 
   /**
+   * @see {@link ListMigrationTaskUpdatesCommand}
+   */
+  listMigrationTaskUpdates(
+    args: ListMigrationTaskUpdatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMigrationTaskUpdatesCommandOutput>;
+  listMigrationTaskUpdates(
+    args: ListMigrationTaskUpdatesCommandInput,
+    cb: (err: any, data?: ListMigrationTaskUpdatesCommandOutput) => void
+  ): void;
+  listMigrationTaskUpdates(
+    args: ListMigrationTaskUpdatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMigrationTaskUpdatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProgressUpdateStreamsCommand}
    */
   listProgressUpdateStreams(): Promise<ListProgressUpdateStreamsCommandOutput>;
@@ -349,6 +424,23 @@ export interface MigrationHub {
     args: ListProgressUpdateStreamsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListProgressUpdateStreamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSourceResourcesCommand}
+   */
+  listSourceResources(
+    args: ListSourceResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSourceResourcesCommandOutput>;
+  listSourceResources(
+    args: ListSourceResourcesCommandInput,
+    cb: (err: any, data?: ListSourceResourcesCommandOutput) => void
+  ): void;
+  listSourceResources(
+    args: ListSourceResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSourceResourcesCommandOutput) => void
   ): void;
 
   /**

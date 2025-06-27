@@ -12,7 +12,7 @@ AWS SDK for JavaScript Glue Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-glue
+To install this package, simply type add or install @aws-sdk/client-glue
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-glue`
@@ -327,6 +327,14 @@ BatchGetWorkflows
 </details>
 <details>
 <summary>
+BatchPutDataQualityStatisticAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/BatchPutDataQualityStatisticAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/BatchPutDataQualityStatisticAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/BatchPutDataQualityStatisticAnnotationCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchStopJobRun
 </summary>
 
@@ -391,10 +399,26 @@ CreateBlueprint
 </details>
 <details>
 <summary>
+CreateCatalog
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateCatalogCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateClassifier
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateClassifierCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateClassifierCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateClassifierCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>
@@ -443,6 +467,30 @@ CreateDevEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateDevEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateDevEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateDevEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateIntegrationResourceProperty
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateIntegrationResourcePropertyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateIntegrationResourcePropertyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateIntegrationResourcePropertyCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateIntegrationTableProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateIntegrationTablePropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateIntegrationTablePropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateIntegrationTablePropertiesCommandOutput/)
 
 </details>
 <details>
@@ -543,6 +591,14 @@ CreateTrigger
 </details>
 <details>
 <summary>
+CreateUsageProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/CreateUsageProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateUsageProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/CreateUsageProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateUserDefinedFunction
 </summary>
 
@@ -567,6 +623,14 @@ DeleteBlueprint
 </details>
 <details>
 <summary>
+DeleteCatalog
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteCatalogCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteClassifier
 </summary>
 
@@ -587,6 +651,14 @@ DeleteColumnStatisticsForTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteColumnStatisticsForTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsForTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsForTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>
@@ -635,6 +707,22 @@ DeleteDevEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteDevEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteDevEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteDevEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIntegrationTableProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteIntegrationTablePropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteIntegrationTablePropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteIntegrationTablePropertiesCommandOutput/)
 
 </details>
 <details>
@@ -751,6 +839,14 @@ DeleteTrigger
 </details>
 <details>
 <summary>
+DeleteUsageProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteUsageProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteUsageProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteUsageProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteUserDefinedFunction
 </summary>
 
@@ -763,6 +859,38 @@ DeleteWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DeleteWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DeleteWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeConnectionType
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DescribeConnectionTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeConnectionTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeConnectionTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeEntity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DescribeEntityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeEntityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeEntityCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeInboundIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DescribeInboundIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeInboundIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeInboundIntegrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/DescribeIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/DescribeIntegrationsCommandOutput/)
 
 </details>
 <details>
@@ -791,10 +919,26 @@ GetBlueprintRuns
 </details>
 <details>
 <summary>
+GetCatalog
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetCatalogCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCatalogImportStatus
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetCatalogImportStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetCatalogImportStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetCatalogImportStatusCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCatalogs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetCatalogsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetCatalogsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetCatalogsCommandOutput/)
 
 </details>
 <details>
@@ -843,6 +987,14 @@ GetColumnStatisticsTaskRuns
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetColumnStatisticsTaskRunsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskRunsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskRunsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>
@@ -927,6 +1079,22 @@ GetDataflowGraph
 </details>
 <details>
 <summary>
+GetDataQualityModel
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDataQualityModelCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataQualityModelResult
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDataQualityModelResultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelResultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDataQualityModelResultCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataQualityResult
 </summary>
 
@@ -971,6 +1139,30 @@ GetDevEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetDevEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDevEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetDevEndpointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEntityRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetEntityRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetEntityRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetEntityRecordsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIntegrationResourceProperty
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetIntegrationResourcePropertyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetIntegrationResourcePropertyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetIntegrationResourcePropertyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetIntegrationTableProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetIntegrationTablePropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetIntegrationTablePropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetIntegrationTablePropertiesCommandOutput/)
 
 </details>
 <details>
@@ -1263,6 +1455,14 @@ GetUnfilteredTableMetadata
 </details>
 <details>
 <summary>
+GetUsageProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/GetUsageProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetUsageProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/GetUsageProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetUserDefinedFunction
 </summary>
 
@@ -1335,6 +1535,14 @@ ListColumnStatisticsTaskRuns
 </details>
 <details>
 <summary>
+ListConnectionTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListConnectionTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListConnectionTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListConnectionTypesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCrawlers
 </summary>
 
@@ -1391,10 +1599,34 @@ ListDataQualityRulesets
 </details>
 <details>
 <summary>
+ListDataQualityStatisticAnnotations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListDataQualityStatisticAnnotationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticAnnotationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticAnnotationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataQualityStatistics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListDataQualityStatisticsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDataQualityStatisticsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDevEndpoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListDevEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDevEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListDevEndpointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListEntities
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListEntitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListEntitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListEntitiesCommandOutput/)
 
 </details>
 <details>
@@ -1471,6 +1703,14 @@ ListTriggers
 </details>
 <details>
 <summary>
+ListUsageProfiles
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ListUsageProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListUsageProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ListUsageProfilesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListWorkflows
 </summary>
 
@@ -1479,10 +1719,26 @@ ListWorkflows
 </details>
 <details>
 <summary>
+ModifyIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/ModifyIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ModifyIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/ModifyIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutDataCatalogEncryptionSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutDataCatalogEncryptionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogEncryptionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataCatalogEncryptionSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutDataQualityProfileAnnotation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/PutDataQualityProfileAnnotationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataQualityProfileAnnotationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/PutDataQualityProfileAnnotationCommandOutput/)
 
 </details>
 <details>
@@ -1583,6 +1839,14 @@ StartColumnStatisticsTaskRun
 </details>
 <details>
 <summary>
+StartColumnStatisticsTaskRunSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StartColumnStatisticsTaskRunScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartColumnStatisticsTaskRunScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StartColumnStatisticsTaskRunScheduleCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartCrawler
 </summary>
 
@@ -1679,6 +1943,14 @@ StopColumnStatisticsTaskRun
 </details>
 <details>
 <summary>
+StopColumnStatisticsTaskRunSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/StopColumnStatisticsTaskRunScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopColumnStatisticsTaskRunScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/StopColumnStatisticsTaskRunScheduleCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopCrawler
 </summary>
 
@@ -1727,6 +1999,14 @@ TagResource
 </details>
 <details>
 <summary>
+TestConnection
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/TestConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/TestConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/TestConnectionCommandOutput/)
+
+</details>
+<details>
+<summary>
 UntagResource
 </summary>
 
@@ -1739,6 +2019,14 @@ UpdateBlueprint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateBlueprintCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateBlueprintCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateBlueprintCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCatalog
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateCatalogCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateCatalogCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateCatalogCommandOutput/)
 
 </details>
 <details>
@@ -1763,6 +2051,14 @@ UpdateColumnStatisticsForTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateColumnStatisticsForTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsForTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsForTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateColumnStatisticsTaskSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateColumnStatisticsTaskSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsTaskSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateColumnStatisticsTaskSettingsCommandOutput/)
 
 </details>
 <details>
@@ -1811,6 +2107,22 @@ UpdateDevEndpoint
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateDevEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateDevEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateDevEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIntegrationResourceProperty
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateIntegrationResourcePropertyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateIntegrationResourcePropertyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateIntegrationResourcePropertyCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIntegrationTableProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateIntegrationTablePropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateIntegrationTablePropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateIntegrationTablePropertiesCommandOutput/)
 
 </details>
 <details>
@@ -1891,6 +2203,14 @@ UpdateTrigger
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateTriggerCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateUsageProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/glue/command/UpdateUsageProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateUsageProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-glue/Interface/UpdateUsageProfileCommandOutput/)
 
 </details>
 <details>

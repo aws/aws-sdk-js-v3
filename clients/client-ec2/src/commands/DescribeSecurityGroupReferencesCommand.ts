@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSecurityGroupReferencesRequest, DescribeSecurityGroupReferencesResult } from "../models/models_4";
+import { DescribeSecurityGroupReferencesRequest, DescribeSecurityGroupReferencesResult } from "../models/models_5";
 import {
   de_DescribeSecurityGroupReferencesCommand,
   se_DescribeSecurityGroupReferencesCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface DescribeSecurityGroupReferencesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
+ * <p>Describes the VPCs on the other side of a VPC peering or Transit Gateway connection that are referencing the security groups you've specified in this request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,31 +70,31 @@ export interface DescribeSecurityGroupReferencesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe security group references
  * ```javascript
  * // This example describes the security group references for the specified security group.
  * const input = {
- *   "GroupId": [
+ *   GroupId: [
  *     "sg-903004f8"
  *   ]
  * };
  * const command = new DescribeSecurityGroupReferencesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityGroupReferenceSet": [
+ *   SecurityGroupReferenceSet: [
  *     {
- *       "GroupId": "sg-903004f8",
- *       "ReferencingVpcId": "vpc-1a2b3c4d",
- *       "VpcPeeringConnectionId": "pcx-b04deed9"
+ *       GroupId: "sg-903004f8",
+ *       ReferencingVpcId: "vpc-1a2b3c4d",
+ *       VpcPeeringConnectionId: "pcx-b04deed9"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-security-group-references-1529354312088
  * ```
  *
+ * @public
  */
 export class DescribeSecurityGroupReferencesCommand extends $Command
   .classBuilder<
@@ -103,9 +104,7 @@ export class DescribeSecurityGroupReferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +116,16 @@ export class DescribeSecurityGroupReferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecurityGroupReferencesCommand)
   .de(de_DescribeSecurityGroupReferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecurityGroupReferencesRequest;
+      output: DescribeSecurityGroupReferencesResult;
+    };
+    sdk: {
+      input: DescribeSecurityGroupReferencesCommandInput;
+      output: DescribeSecurityGroupReferencesCommandOutput;
+    };
+  };
+}

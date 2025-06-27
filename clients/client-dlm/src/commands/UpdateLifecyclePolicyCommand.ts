@@ -12,7 +12,8 @@ import { de_UpdateLifecyclePolicyCommand, se_UpdateLifecyclePolicyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *       "VOLUME" || "INSTANCE",
  *     ],
  *     ResourceLocations: [ // ResourceLocationList
- *       "CLOUD" || "OUTPOST",
+ *       "CLOUD" || "OUTPOST" || "LOCAL_ZONE",
  *     ],
  *     TargetTags: [ // TargetTagList
  *       { // Tag
@@ -72,7 +73,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  *           },
  *         ],
  *         CreateRule: { // CreateRule
- *           Location: "CLOUD" || "OUTPOST_LOCAL",
+ *           Location: "CLOUD" || "OUTPOST_LOCAL" || "LOCAL_ZONE",
  *           Interval: Number("int"),
  *           IntervalUnit: "HOURS",
  *           Times: [ // TimesList
@@ -250,6 +251,7 @@ export interface UpdateLifecyclePolicyCommandOutput extends UpdateLifecyclePolic
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ *
  * @public
  */
 export class UpdateLifecyclePolicyCommand extends $Command
@@ -260,9 +262,7 @@ export class UpdateLifecyclePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DLMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -274,4 +274,16 @@ export class UpdateLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLifecyclePolicyCommand)
   .de(de_UpdateLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLifecyclePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLifecyclePolicyCommandInput;
+      output: UpdateLifecyclePolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateCachePolicyCommand, se_CreateCachePolicyCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,29 +28,7 @@ export interface CreateCachePolicyCommandInput extends CreateCachePolicyRequest 
 export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult, __MetadataBearer {}
 
 /**
- * <p>Creates a cache policy.</p>
- *          <p>After you create a cache policy, you can attach it to one or more cache behaviors.
- * 			When it's attached to a cache behavior, the cache policy determines the
- * 			following:</p>
- *          <ul>
- *             <li>
- *                <p>The values that CloudFront includes in the <i>cache key</i>. These
- * 					values can include HTTP headers, cookies, and URL query strings. CloudFront uses the
- * 					cache key to find an object in its cache that it can return to the
- * 					viewer.</p>
- *             </li>
- *             <li>
- *                <p>The default, minimum, and maximum time to live (TTL) values that you want
- * 					objects to stay in the CloudFront cache.</p>
- *             </li>
- *          </ul>
- *          <p>The headers, cookies, and query strings that are included in the cache key are also included
- * 			in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an
- * 			object in its cache that matches the request's cache key. If you want to send values to
- * 			the origin but <i>not</i> include them in the cache key, use
- * 			<code>OriginRequestPolicy</code>.</p>
- *          <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * <p>Creates a cache policy.</p> <p>After you create a cache policy, you can attach it to one or more cache behaviors. When it's attached to a cache behavior, the cache policy determines the following:</p> <ul> <li> <p>The values that CloudFront includes in the <i>cache key</i>. These values can include HTTP headers, cookies, and URL query strings. CloudFront uses the cache key to find an object in its cache that it can return to the viewer.</p> </li> <li> <p>The default, minimum, and maximum time to live (TTL) values that you want objects to stay in the CloudFront cache.</p> </li> </ul> <p>The headers, cookies, and query strings that are included in the cache key are also included in requests that CloudFront sends to the origin. CloudFront sends a request when it can't find an object in its cache that matches the request's cache key. If you want to send values to the origin but <i>not</i> include them in the cache key, use <code>OriginRequestPolicy</code>.</p> <p>For more information about cache policies, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/controlling-the-cache-key.html">Controlling the cache key</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -157,38 +136,29 @@ export interface CreateCachePolicyCommandOutput extends CreateCachePolicyResult,
  *  <p>Access denied.</p>
  *
  * @throws {@link CachePolicyAlreadyExists} (client fault)
- *  <p>A cache policy with this name already exists. You must provide a unique name. To
- * 			modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
+ *  <p>A cache policy with this name already exists. You must provide a unique name. To modify an existing cache policy, use <code>UpdateCachePolicy</code>.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link TooManyCachePolicies} (client fault)
- *  <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of cache policies for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyCookiesInCachePolicy} (client fault)
- *  <p>The number of cookies in the cache policy exceeds the maximum. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of cookies in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyHeadersInCachePolicy} (client fault)
- *  <p>The number of headers in the cache policy exceeds the maximum. For more information,
- * 			see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of headers in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyQueryStringsInCachePolicy} (client fault)
- *  <p>The number of query strings in the cache policy exceeds the maximum. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of query strings in the cache policy exceeds the maximum. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -200,9 +170,7 @@ export class CreateCachePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +182,16 @@ export class CreateCachePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCachePolicyCommand)
   .de(de_CreateCachePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCachePolicyRequest;
+      output: CreateCachePolicyResult;
+    };
+    sdk: {
+      input: CreateCachePolicyCommandInput;
+      output: CreateCachePolicyCommandOutput;
+    };
+  };
+}

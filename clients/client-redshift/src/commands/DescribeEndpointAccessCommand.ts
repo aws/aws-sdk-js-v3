@@ -12,7 +12,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface DescribeEndpointAccessCommandOutput extends EndpointAccessList,
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeEndpointAccessCommand extends $Command
@@ -110,9 +112,7 @@ export class DescribeEndpointAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class DescribeEndpointAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEndpointAccessCommand)
   .de(de_DescribeEndpointAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointAccessMessage;
+      output: EndpointAccessList;
+    };
+    sdk: {
+      input: DescribeEndpointAccessCommandInput;
+      output: DescribeEndpointAccessCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,27 +97,27 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the default engine and system parameter information for the Aurora database engine
  * ```javascript
  * // The following example retrieves the details of the default engine and system parameter information for Aurora DB clusters with MySQL 5.7 compatibility.
  * const input = {
- *   "DBParameterGroupFamily": "aurora-mysql5.7"
+ *   DBParameterGroupFamily: "aurora-mysql5.7"
  * };
  * const command = new DescribeEngineDefaultClusterParametersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EngineDefaults": {
- *     "Parameters": [
+ *   EngineDefaults: {
+ *     Parameters: [
  *       {
- *         "ApplyType": "dynamic",
- *         "DataType": "string",
- *         "Description": "IAM role ARN used to load data from AWS S3",
- *         "IsModifiable": true,
- *         "ParameterName": "aurora_load_from_s3_role",
- *         "Source": "engine-default",
- *         "SupportedEngineModes": [
+ *         ApplyType: "dynamic",
+ *         DataType: "string",
+ *         Description: "IAM role ARN used to load data from AWS S3",
+ *         IsModifiable: true,
+ *         ParameterName: "aurora_load_from_s3_role",
+ *         Source: "engine-default",
+ *         SupportedEngineModes: [
  *           "provisioned"
  *         ]
  *       }
@@ -124,9 +125,9 @@ export interface DescribeEngineDefaultClusterParametersCommandOutput
  *   }
  * }
  * *\/
- * // example id: to-describe-the-default-engine-and-system-parameter-information-for-the-aurora-database-engine-1680280902332
  * ```
  *
+ * @public
  */
 export class DescribeEngineDefaultClusterParametersCommand extends $Command
   .classBuilder<
@@ -136,9 +137,7 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +149,16 @@ export class DescribeEngineDefaultClusterParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEngineDefaultClusterParametersCommand)
   .de(de_DescribeEngineDefaultClusterParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEngineDefaultClusterParametersMessage;
+      output: DescribeEngineDefaultClusterParametersResult;
+    };
+    sdk: {
+      input: DescribeEngineDefaultClusterParametersCommandInput;
+      output: DescribeEngineDefaultClusterParametersCommandOutput;
+    };
+  };
+}

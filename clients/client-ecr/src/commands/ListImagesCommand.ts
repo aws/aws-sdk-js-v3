@@ -12,7 +12,8 @@ import { de_ListImagesCommand, se_ListImagesCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,28 +84,28 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To list all images in a repository
  * ```javascript
  * // This example lists all of the images in the repository named ubuntu in the default registry in the current account.
  * const input = {
- *   "repositoryName": "ubuntu"
+ *   repositoryName: "ubuntu"
  * };
  * const command = new ListImagesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "imageIds": [
+ *   imageIds: [
  *     {
- *       "imageDigest": "sha256:764f63476bdff6d83a09ba2a818f0d35757063724a9ac3ba5019c56f74ebf42a",
- *       "imageTag": "precise"
+ *       imageDigest: "sha256:764f63476bdff6d83a09ba2a818f0d35757063724a9ac3ba5019c56f74ebf42a",
+ *       imageTag: "precise"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listimages-example-1470868161594
  * ```
  *
+ * @public
  */
 export class ListImagesCommand extends $Command
   .classBuilder<
@@ -114,9 +115,7 @@ export class ListImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class ListImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagesCommand)
   .de(de_ListImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagesRequest;
+      output: ListImagesResponse;
+    };
+    sdk: {
+      input: ListImagesCommandInput;
+      output: ListImagesCommandOutput;
+    };
+  };
+}

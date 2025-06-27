@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,69 +79,8 @@ export interface ListClusterJobsCommandOutput extends ListClusterJobsResult, __M
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
- * @example To get a list of jobs in a cluster that you've created for AWS Snowball
- * ```javascript
- * // Returns an array of JobListEntry objects of the specified length. Each JobListEntry object is for a job in the specified cluster and contains a job's state, a job's ID, and other information.
- * const input = {
- *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
- * };
- * const command = new ListClusterJobsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "JobListEntries": [
- *     {
- *       "CreationDate": "1480475524.0",
- *       "Description": "MyClustrer-node-001",
- *       "IsMaster": false,
- *       "JobId": "JID123e4567-e89b-12d3-a456-426655440000",
- *       "JobState": "New",
- *       "JobType": "LOCAL_USE",
- *       "SnowballType": "EDGE"
- *     },
- *     {
- *       "CreationDate": "1480475525.0",
- *       "Description": "MyClustrer-node-002",
- *       "IsMaster": false,
- *       "JobId": "JID123e4567-e89b-12d3-a456-426655440001",
- *       "JobState": "New",
- *       "JobType": "LOCAL_USE",
- *       "SnowballType": "EDGE"
- *     },
- *     {
- *       "CreationDate": "1480475525.0",
- *       "Description": "MyClustrer-node-003",
- *       "IsMaster": false,
- *       "JobId": "JID123e4567-e89b-12d3-a456-426655440002",
- *       "JobState": "New",
- *       "JobType": "LOCAL_USE",
- *       "SnowballType": "EDGE"
- *     },
- *     {
- *       "CreationDate": "1480475525.0",
- *       "Description": "MyClustrer-node-004",
- *       "IsMaster": false,
- *       "JobId": "JID123e4567-e89b-12d3-a456-426655440003",
- *       "JobState": "New",
- *       "JobType": "LOCAL_USE",
- *       "SnowballType": "EDGE"
- *     },
- *     {
- *       "CreationDate": "1480475525.0",
- *       "Description": "MyClustrer-node-005",
- *       "IsMaster": false,
- *       "JobId": "JID123e4567-e89b-12d3-a456-426655440004",
- *       "JobState": "New",
- *       "JobType": "LOCAL_USE",
- *       "SnowballType": "EDGE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-a-list-of-jobs-in-a-cluster-that-youve-created-for-aws-snowball-1482863105773
- * ```
  *
+ * @public
  */
 export class ListClusterJobsCommand extends $Command
   .classBuilder<
@@ -150,9 +90,7 @@ export class ListClusterJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +102,16 @@ export class ListClusterJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClusterJobsCommand)
   .de(de_ListClusterJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClusterJobsRequest;
+      output: ListClusterJobsResult;
+    };
+    sdk: {
+      input: ListClusterJobsCommandInput;
+      output: ListClusterJobsCommandOutput;
+    };
+  };
+}

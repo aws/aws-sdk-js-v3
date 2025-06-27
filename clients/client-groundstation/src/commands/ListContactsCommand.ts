@@ -12,7 +12,8 @@ import { de_ListContactsCommand, se_ListContactsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
  *   statusList: [ // StatusList // required
- *     "STRING_VALUE",
+ *     "SCHEDULING" || "FAILED_TO_SCHEDULE" || "SCHEDULED" || "CANCELLED" || "AWS_CANCELLED" || "PREPASS" || "PASS" || "POSTPASS" || "COMPLETED" || "FAILED" || "AVAILABLE" || "CANCELLING" || "AWS_FAILED",
  *   ],
  *   startTime: new Date("TIMESTAMP"), // required
  *   endTime: new Date("TIMESTAMP"), // required
@@ -63,11 +64,11 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * //       prePassStartTime: new Date("TIMESTAMP"),
  * //       postPassEndTime: new Date("TIMESTAMP"),
  * //       groundStation: "STRING_VALUE",
- * //       contactStatus: "STRING_VALUE",
+ * //       contactStatus: "SCHEDULING" || "FAILED_TO_SCHEDULE" || "SCHEDULED" || "CANCELLED" || "AWS_CANCELLED" || "PREPASS" || "PASS" || "POSTPASS" || "COMPLETED" || "FAILED" || "AVAILABLE" || "CANCELLING" || "AWS_FAILED",
  * //       errorMessage: "STRING_VALUE",
  * //       maximumElevation: { // Elevation
  * //         value: Number("double"), // required
- * //         unit: "STRING_VALUE", // required
+ * //         unit: "DEGREE_ANGLE" || "RADIAN", // required
  * //       },
  * //       region: "STRING_VALUE",
  * //       tags: { // TagsMap
@@ -99,6 +100,7 @@ export interface ListContactsCommandOutput extends ListContactsResponse, __Metad
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListContactsCommand extends $Command
@@ -109,9 +111,7 @@ export class ListContactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class ListContactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContactsCommand)
   .de(de_ListContactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContactsRequest;
+      output: ListContactsResponse;
+    };
+    sdk: {
+      input: ListContactsCommandInput;
+      output: ListContactsCommandOutput;
+    };
+  };
+}

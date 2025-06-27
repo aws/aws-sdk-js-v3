@@ -10,6 +10,9 @@ export interface NumberValue {
   readonly value: string;
 }
 
+/**
+ * @public
+ */
 export type NativeAttributeValue =
   | NativeScalarAttributeValue
   | { [key: string]: NativeAttributeValue }
@@ -17,6 +20,9 @@ export type NativeAttributeValue =
   | Set<number | bigint | NumberValue | string | NativeAttributeBinary | undefined>
   | InstanceType<{ new (...args: any[]): any }>; // accepts any class instance with options.convertClassInstanceToMap
 
+/**
+ * @public
+ */
 export type NativeScalarAttributeValue =
   | null
   | undefined
@@ -36,12 +42,17 @@ declare global {
   interface File {}
 }
 
+type IfDefined<T> = {} extends T ? never : T;
+
+/**
+ * @public
+ */
 export type NativeAttributeBinary =
   | ArrayBuffer
-  | Blob
-  | Buffer
+  | IfDefined<Blob>
+  | IfDefined<Buffer>
   | DataView
-  | File
+  | IfDefined<File>
   | Int8Array
   | Uint8Array
   | Uint8ClampedArray

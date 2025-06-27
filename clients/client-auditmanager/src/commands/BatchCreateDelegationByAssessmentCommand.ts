@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +113,7 @@ export interface BatchCreateDelegationByAssessmentCommandOutput
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class BatchCreateDelegationByAssessmentCommand extends $Command
@@ -122,9 +124,7 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class BatchCreateDelegationByAssessmentCommand extends $Command
   )
   .ser(se_BatchCreateDelegationByAssessmentCommand)
   .de(de_BatchCreateDelegationByAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateDelegationByAssessmentRequest;
+      output: BatchCreateDelegationByAssessmentResponse;
+    };
+    sdk: {
+      input: BatchCreateDelegationByAssessmentCommandInput;
+      output: BatchCreateDelegationByAssessmentCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ValidateTemplateCommand, se_ValidateTemplateCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface ValidateTemplateCommandInput extends ValidateTemplateInput {}
 export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, __MetadataBearer {}
 
 /**
- * <p>Validates a specified template. CloudFormation first checks if the template is valid JSON. If it isn't, CloudFormation
- *    checks if the template is valid YAML. If both these checks fail, CloudFormation returns a template validation
- *    error.</p>
+ * <p>Validates a specified template. CloudFormation first checks if the template is valid JSON. If
+ *       it isn't, CloudFormation checks if the template is valid YAML. If both these checks fail,
+ *       CloudFormation returns a template validation error.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +73,7 @@ export interface ValidateTemplateCommandOutput extends ValidateTemplateOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ValidateTemplateCommand extends $Command
@@ -82,9 +84,7 @@ export class ValidateTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ValidateTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidateTemplateCommand)
   .de(de_ValidateTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateTemplateInput;
+      output: ValidateTemplateOutput;
+    };
+    sdk: {
+      input: ValidateTemplateCommandInput;
+      output: ValidateTemplateCommandOutput;
+    };
+  };
+}

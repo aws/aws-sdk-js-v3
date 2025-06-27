@@ -12,7 +12,8 @@ import { de_DeleteRestoreTestingPlanCommand, se_DeleteRestoreTestingPlanCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface DeleteRestoreTestingPlanCommandOutput extends __MetadataBearer 
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DeleteRestoreTestingPlanCommand extends $Command
@@ -71,9 +73,7 @@ export class DeleteRestoreTestingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeleteRestoreTestingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRestoreTestingPlanCommand)
   .de(de_DeleteRestoreTestingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRestoreTestingPlanInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRestoreTestingPlanCommandInput;
+      output: DeleteRestoreTestingPlanCommandOutput;
+    };
+  };
+}

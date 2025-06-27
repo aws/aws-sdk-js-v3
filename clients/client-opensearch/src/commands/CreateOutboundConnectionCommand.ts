@@ -12,7 +12,8 @@ import { de_CreateOutboundConnectionCommand, se_CreateOutboundConnectionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,6 +116,7 @@ export interface CreateOutboundConnectionCommandOutput extends CreateOutboundCon
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class CreateOutboundConnectionCommand extends $Command
@@ -125,9 +127,7 @@ export class CreateOutboundConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class CreateOutboundConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOutboundConnectionCommand)
   .de(de_CreateOutboundConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOutboundConnectionRequest;
+      output: CreateOutboundConnectionResponse;
+    };
+    sdk: {
+      input: CreateOutboundConnectionCommandInput;
+      output: CreateOutboundConnectionCommandOutput;
+    };
+  };
+}

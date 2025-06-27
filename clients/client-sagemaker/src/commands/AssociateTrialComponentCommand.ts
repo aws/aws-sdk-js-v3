@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface AssociateTrialComponentCommandInput extends AssociateTrialCompo
 export interface AssociateTrialComponentCommandOutput extends AssociateTrialComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Associates a trial component with a trial. A trial component can be associated with
- *       multiple trials. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
+ * <p>Associates a trial component with a trial. A trial component can be associated with multiple trials. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,14 +55,14 @@ export interface AssociateTrialComponentCommandOutput extends AssociateTrialComp
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -74,9 +74,7 @@ export class AssociateTrialComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +86,16 @@ export class AssociateTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrialComponentCommand)
   .de(de_AssociateTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrialComponentRequest;
+      output: AssociateTrialComponentResponse;
+    };
+    sdk: {
+      input: AssociateTrialComponentCommandInput;
+      output: AssociateTrialComponentCommandOutput;
+    };
+  };
+}

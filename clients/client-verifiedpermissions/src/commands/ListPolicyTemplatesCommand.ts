@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,91 +84,41 @@ export interface ListPolicyTemplatesCommandOutput extends ListPolicyTemplatesOut
  *  <p>The request failed because it exceeded a throttling quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request failed because one or more input parameters don't satisfy their constraint
- *             requirements. The output is provided as a list of fields and a reason for each field that
- *             isn't valid.</p>
- *          <p>The possible reasons include the following:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>UnrecognizedEntityType</b>
- *                </p>
- *                <p>The policy includes an entity type that isn't found in the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnrecognizedActionId</b>
- *                </p>
- *                <p>The policy includes an action id that isn't found in the schema.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>InvalidActionApplication</b>
- *                </p>
- *                <p>The policy includes an action that, according to the schema, doesn't support
- *                     the specified principal and resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnexpectedType</b>
- *                </p>
- *                <p>The policy included an operand that isn't a valid type for the specified
- *                     operation.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>IncompatibleTypes</b>
- *                </p>
- *                <p>The types of elements included in a <code>set</code>, or the types of
- *                     expressions used in an <code>if...then...else</code> clause aren't compatible in
- *                     this context.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>MissingAttribute</b>
- *                </p>
- *                <p>The policy attempts to access a record or entity attribute that isn't
- *                     specified in the schema. Test for the existence of the attribute first before
- *                     attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
- *                         <i>Cedar Policy Language Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>UnsafeOptionalAttributeAccess</b>
- *                </p>
- *                <p>The policy attempts to access a record or entity attribute that is optional
- *                     and isn't guaranteed to be present. Test for the existence of the attribute
- *                     first before attempting to access its value. For more information, see the
- *                         <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the
- *                         <i>Cedar Policy Language Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>ImpossiblePolicy</b>
- *                </p>
- *                <p>Cedar has determined that a policy condition always evaluates to false. If
- *                     the policy is always false, it can never apply to any query, and so it can never
- *                     affect an authorization decision.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>WrongNumberArguments</b>
- *                </p>
- *                <p>The policy references an extension type with the wrong number of
- *                     arguments.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>FunctionArgumentValidationError</b>
- *                </p>
- *                <p>Cedar couldn't parse the argument passed to an extension type. For example,
- *                     a string that is to be parsed as an IPv4 address can contain only digits and the
- *                     period character.</p>
- *             </li>
- *          </ul>
+ *  <p>The request failed because one or more input parameters don't satisfy their constraint requirements. The output is provided as a list of fields and a reason for each field that isn't valid.</p> <p>The possible reasons include the following:</p> <ul> <li> <p> <b>UnrecognizedEntityType</b> </p> <p>The policy includes an entity type that isn't found in the schema.</p> </li> <li> <p> <b>UnrecognizedActionId</b> </p> <p>The policy includes an action id that isn't found in the schema.</p> </li> <li> <p> <b>InvalidActionApplication</b> </p> <p>The policy includes an action that, according to the schema, doesn't support the specified principal and resource.</p> </li> <li> <p> <b>UnexpectedType</b> </p> <p>The policy included an operand that isn't a valid type for the specified operation.</p> </li> <li> <p> <b>IncompatibleTypes</b> </p> <p>The types of elements included in a <code>set</code>, or the types of expressions used in an <code>if...then...else</code> clause aren't compatible in this context.</p> </li> <li> <p> <b>MissingAttribute</b> </p> <p>The policy attempts to access a record or entity attribute that isn't specified in the schema. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>UnsafeOptionalAttributeAccess</b> </p> <p>The policy attempts to access a record or entity attribute that is optional and isn't guaranteed to be present. Test for the existence of the attribute first before attempting to access its value. For more information, see the <a href="https://docs.cedarpolicy.com/policies/syntax-operators.html#has-presence-of-attribute-test">has (presence of attribute test) operator</a> in the <i>Cedar Policy Language Guide</i>.</p> </li> <li> <p> <b>ImpossiblePolicy</b> </p> <p>Cedar has determined that a policy condition always evaluates to false. If the policy is always false, it can never apply to any query, and so it can never affect an authorization decision.</p> </li> <li> <p> <b>WrongNumberArguments</b> </p> <p>The policy references an extension type with the wrong number of arguments.</p> </li> <li> <p> <b>FunctionArgumentValidationError</b> </p> <p>Cedar couldn't parse the argument passed to an extension type. For example, a string that is to be parsed as an IPv4 address can contain only digits and the period character.</p> </li> </ul>
  *
  * @throws {@link VerifiedPermissionsServiceException}
  * <p>Base exception class for all service exceptions from VerifiedPermissions service.</p>
+ *
+ *
+ * @example ListPolicyTemplates
+ * ```javascript
+ * // The following example retrieves a list of all of the policy templates in the specified policy store.
+ * const input = {
+ *   policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a"
+ * };
+ * const command = new ListPolicyTemplatesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   policyTemplates: [
+ *     {
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       description: "Generic template",
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyTemplateId: "PTEXAMPLEabcdefg111111"
+ *     },
+ *     {
+ *       createdDate: "2024-08-12T18:20:50.99Z",
+ *       description: "Template for research dept",
+ *       lastUpdatedDate: "2024-08-12T18:20:50.99Z",
+ *       policyStoreId: "C7v5xMplfFH3i3e4Jrzb1a",
+ *       policyTemplateId: "PTEXAMPLEabcdefg222222"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -179,9 +130,7 @@ export class ListPolicyTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VerifiedPermissionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +142,16 @@ export class ListPolicyTemplatesCommand extends $Command
   .f(void 0, ListPolicyTemplatesOutputFilterSensitiveLog)
   .ser(se_ListPolicyTemplatesCommand)
   .de(de_ListPolicyTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyTemplatesInput;
+      output: ListPolicyTemplatesOutput;
+    };
+    sdk: {
+      input: ListPolicyTemplatesCommandInput;
+      output: ListPolicyTemplatesCommandOutput;
+    };
+  };
+}

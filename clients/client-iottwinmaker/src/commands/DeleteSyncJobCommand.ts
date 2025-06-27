@@ -12,7 +12,8 @@ import { de_DeleteSyncJobCommand, se_DeleteSyncJobCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface DeleteSyncJobCommandOutput extends DeleteSyncJobResponse, __Met
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteSyncJobCommand extends $Command
@@ -83,9 +85,7 @@ export class DeleteSyncJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class DeleteSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSyncJobCommand)
   .de(de_DeleteSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSyncJobRequest;
+      output: DeleteSyncJobResponse;
+    };
+    sdk: {
+      input: DeleteSyncJobCommandInput;
+      output: DeleteSyncJobCommandOutput;
+    };
+  };
+}

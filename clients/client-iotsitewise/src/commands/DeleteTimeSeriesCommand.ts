@@ -12,7 +12,8 @@ import { de_DeleteTimeSeriesCommand, se_DeleteTimeSeriesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface DeleteTimeSeriesCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteTimeSeriesCommand extends $Command
@@ -106,9 +108,7 @@ export class DeleteTimeSeriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class DeleteTimeSeriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTimeSeriesCommand)
   .de(de_DeleteTimeSeriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTimeSeriesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTimeSeriesCommandInput;
+      output: DeleteTimeSeriesCommandOutput;
+    };
+  };
+}

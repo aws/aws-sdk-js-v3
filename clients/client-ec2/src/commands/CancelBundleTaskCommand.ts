@@ -16,7 +16,8 @@ import { de_CancelBundleTaskCommand, se_CancelBundleTaskCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,15 +47,11 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * const response = await client.send(command);
  * // { // CancelBundleTaskResult
  * //   BundleTask: { // BundleTask
- * //     BundleId: "STRING_VALUE",
- * //     BundleTaskError: { // BundleTaskError
- * //       Code: "STRING_VALUE",
- * //       Message: "STRING_VALUE",
- * //     },
  * //     InstanceId: "STRING_VALUE",
- * //     Progress: "STRING_VALUE",
- * //     StartTime: new Date("TIMESTAMP"),
+ * //     BundleId: "STRING_VALUE",
  * //     State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     UpdateTime: new Date("TIMESTAMP"),
  * //     Storage: { // Storage
  * //       S3: { // S3Storage
  * //         AWSAccessKeyId: "STRING_VALUE",
@@ -64,7 +61,11 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * //         UploadPolicySignature: "STRING_VALUE",
  * //       },
  * //     },
- * //     UpdateTime: new Date("TIMESTAMP"),
+ * //     Progress: "STRING_VALUE",
+ * //     BundleTaskError: { // BundleTaskError
+ * //       Code: "STRING_VALUE",
+ * //       Message: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -79,6 +80,7 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CancelBundleTaskCommand extends $Command
@@ -89,9 +91,7 @@ export class CancelBundleTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class CancelBundleTaskCommand extends $Command
   .f(void 0, CancelBundleTaskResultFilterSensitiveLog)
   .ser(se_CancelBundleTaskCommand)
   .de(de_CancelBundleTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelBundleTaskRequest;
+      output: CancelBundleTaskResult;
+    };
+    sdk: {
+      input: CancelBundleTaskCommandInput;
+      output: CancelBundleTaskCommandOutput;
+    };
+  };
+}

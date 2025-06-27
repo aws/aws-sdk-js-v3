@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/models_3";
+import { DescribeDataSourcePermissionsRequest, DescribeDataSourcePermissionsResponse } from "../models/models_4";
 import {
   de_DescribeDataSourcePermissionsCommand,
   se_DescribeDataSourcePermissionsCommand,
@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface DescribeDataSourcePermissionsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSourcePermissionsCommand extends $Command
@@ -99,9 +101,7 @@ export class DescribeDataSourcePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DescribeDataSourcePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSourcePermissionsCommand)
   .de(de_DescribeDataSourcePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSourcePermissionsRequest;
+      output: DescribeDataSourcePermissionsResponse;
+    };
+    sdk: {
+      input: DescribeDataSourcePermissionsCommandInput;
+      output: DescribeDataSourcePermissionsCommandOutput;
+    };
+  };
+}

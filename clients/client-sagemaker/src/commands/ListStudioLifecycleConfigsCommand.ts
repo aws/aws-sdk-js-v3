@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListStudioLifecycleConfigsCommandInput extends ListStudioLifecy
 export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifecycleConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the Amazon SageMaker Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
+ * <p>Lists the Amazon SageMaker AI Studio Lifecycle Configurations in your Amazon Web Services Account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +76,7 @@ export interface ListStudioLifecycleConfigsCommandOutput extends ListStudioLifec
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListStudioLifecycleConfigsCommand extends $Command
@@ -85,9 +87,7 @@ export class ListStudioLifecycleConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListStudioLifecycleConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStudioLifecycleConfigsCommand)
   .de(de_ListStudioLifecycleConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStudioLifecycleConfigsRequest;
+      output: ListStudioLifecycleConfigsResponse;
+    };
+    sdk: {
+      input: ListStudioLifecycleConfigsCommandInput;
+      output: ListStudioLifecycleConfigsCommandOutput;
+    };
+  };
+}

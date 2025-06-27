@@ -12,7 +12,8 @@ import { de_ListDeploymentEventsCommand, se_ListDeploymentEventsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,37 @@ export interface ListDeploymentEventsCommandOutput extends ListDeploymentEventsO
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example List all actions taken during a deployment.
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentId: "4c1b59c1-659c-467f-b6e9-6ef6f9d28e1d"
+ * };
+ * const command = new ListDeploymentEventsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   deploymentEvents: [
+ *     {
+ *       description: "Creates a new secure parameter",
+ *       name: "Create secure parameter",
+ *       status: "COMPLETED",
+ *       statusReason: "",
+ *       timestamp: "2023-04-24T13:10:39.123Z"
+ *     },
+ *     {
+ *       description: "Creates a resource group with all the application resources",
+ *       name: "Create resource group",
+ *       status: "COMPLETED",
+ *       statusReason: "",
+ *       timestamp: "2023-04-24T13:10:42.238Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListDeploymentEventsCommand extends $Command
@@ -85,9 +117,7 @@ export class ListDeploymentEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +129,16 @@ export class ListDeploymentEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentEventsCommand)
   .de(de_ListDeploymentEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentEventsInput;
+      output: ListDeploymentEventsOutput;
+    };
+    sdk: {
+      input: ListDeploymentEventsCommandInput;
+      output: ListDeploymentEventsCommandOutput;
+    };
+  };
+}

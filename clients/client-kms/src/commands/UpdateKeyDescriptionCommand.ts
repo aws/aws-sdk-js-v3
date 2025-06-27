@@ -12,7 +12,8 @@ import { de_UpdateKeyDescriptionCommand, se_UpdateKeyDescriptionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,7 +52,7 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,19 +114,22 @@ export interface UpdateKeyDescriptionCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To update the description of a KMS key
  * ```javascript
  * // The following example updates the description of the specified KMS key.
  * const input = {
- *   "Description": "Example description that indicates the intended use of this KMS key.",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   Description: "Example description that indicates the intended use of this KMS key.",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new UpdateKeyDescriptionCommand(input);
- * await client.send(command);
- * // example id: to-update-the-description-of-a-cmk-1481574808619
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateKeyDescriptionCommand extends $Command
   .classBuilder<
@@ -135,9 +139,7 @@ export class UpdateKeyDescriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +151,16 @@ export class UpdateKeyDescriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKeyDescriptionCommand)
   .de(de_UpdateKeyDescriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKeyDescriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateKeyDescriptionCommandInput;
+      output: UpdateKeyDescriptionCommandOutput;
+    };
+  };
+}

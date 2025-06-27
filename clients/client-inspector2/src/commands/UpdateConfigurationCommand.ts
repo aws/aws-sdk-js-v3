@@ -12,7 +12,8 @@ import { de_UpdateConfigurationCommand, se_UpdateConfigurationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface UpdateConfigurationCommandInput extends UpdateConfigurationRequ
 export interface UpdateConfigurationCommandOutput extends UpdateConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector delegated administrator this updates the setting for all accounts you manage. Member accounts in an organization cannot update this setting.</p>
+ * <p>Updates setting configurations for your Amazon Inspector account. When you use this API as an Amazon Inspector
+ *          delegated administrator this updates the setting for all accounts you manage. Member
+ *          accounts in an organization cannot update this setting.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +41,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *   ecrConfiguration: { // EcrConfiguration
  *     rescanDuration: "STRING_VALUE", // required
  *     pullDateRescanDuration: "STRING_VALUE",
+ *     pullDateRescanMode: "STRING_VALUE",
  *   },
  *   ec2Configuration: { // Ec2Configuration
  *     scanMode: "STRING_VALUE", // required
@@ -57,6 +61,8 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -71,6 +77,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfigurationCommand extends $Command
@@ -81,9 +88,7 @@ export class UpdateConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +100,16 @@ export class UpdateConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationCommand)
   .de(de_UpdateConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationCommandInput;
+      output: UpdateConfigurationCommandOutput;
+    };
+  };
+}

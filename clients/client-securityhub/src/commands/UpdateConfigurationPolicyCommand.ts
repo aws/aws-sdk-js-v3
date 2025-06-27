@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateConfigurationPolicyRequest, UpdateConfigurationPolicyResponse } from "../models/models_2";
+import { UpdateConfigurationPolicyRequest, UpdateConfigurationPolicyResponse } from "../models/models_3";
 import { de_UpdateConfigurationPolicyCommand, se_UpdateConfigurationPolicyCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -172,87 +173,87 @@ export interface UpdateConfigurationPolicyCommandOutput extends UpdateConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update a configuration policy
  * ```javascript
  * // This operation updates the specified configuration policy.
  * const input = {
- *   "ConfigurationPolicy": {
- *     "SecurityHub": {
- *       "EnabledStandardIdentifiers": [
+ *   ConfigurationPolicy: {
+ *     SecurityHub: {
+ *       EnabledStandardIdentifiers: [
  *         "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *         "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
  *       ],
- *       "SecurityControlsConfiguration": {
- *         "DisabledSecurityControlIdentifiers": [
+ *       SecurityControlsConfiguration: {
+ *         DisabledSecurityControlIdentifiers: [
  *           "CloudWatch.1",
  *           "CloudWatch.2"
  *         ],
- *         "SecurityControlCustomParameters": [
+ *         SecurityControlCustomParameters: [
  *           {
- *             "Parameters": {
- *               "daysToExpiration": {
- *                 "Value": {
- *                   "Integer": 21
+ *             Parameters: {
+ *               daysToExpiration: {
+ *                 Value: {
+ *                   Integer: 21
  *                 },
- *                 "ValueType": "CUSTOM"
+ *                 ValueType: "CUSTOM"
  *               }
  *             },
- *             "SecurityControlId": "ACM.1"
+ *             SecurityControlId: "ACM.1"
  *           }
  *         ]
  *       },
- *       "ServiceEnabled": true
+ *       ServiceEnabled: true
  *     }
  *   },
- *   "Description": "Updated configuration policy for testing FSBP and CIS",
- *   "Identifier": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "Name": "TestConfigurationPolicy",
- *   "UpdatedReason": "Enabling ACM.2"
+ *   Description: "Updated configuration policy for testing FSBP and CIS",
+ *   Identifier: "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   Name: "TestConfigurationPolicy",
+ *   UpdatedReason: "Enabling ACM.2"
  * };
  * const command = new UpdateConfigurationPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ConfigurationPolicy": {
- *     "SecurityHub": {
- *       "EnabledStandardIdentifiers": [
+ *   Arn: "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ConfigurationPolicy: {
+ *     SecurityHub: {
+ *       EnabledStandardIdentifiers: [
  *         "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *         "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
  *       ],
- *       "SecurityControlsConfiguration": {
- *         "DisabledSecurityControlIdentifiers": [
+ *       SecurityControlsConfiguration: {
+ *         DisabledSecurityControlIdentifiers: [
  *           "CloudWatch.1",
  *           "CloudWatch.2"
  *         ],
- *         "SecurityControlCustomParameters": [
+ *         SecurityControlCustomParameters: [
  *           {
- *             "Parameters": {
- *               "daysToExpiration": {
- *                 "Value": {
- *                   "Integer": 21
+ *             Parameters: {
+ *               daysToExpiration: {
+ *                 Value: {
+ *                   Integer: 21
  *                 },
- *                 "ValueType": "CUSTOM"
+ *                 ValueType: "CUSTOM"
  *               }
  *             },
- *             "SecurityControlId": "ACM.1"
+ *             SecurityControlId: "ACM.1"
  *           }
  *         ]
  *       },
- *       "ServiceEnabled": true
+ *       ServiceEnabled: true
  *     }
  *   },
- *   "CreatedAt": "2023-01-11T06:17:17.154Z",
- *   "Description": "Updated configuration policy for testing FSBP and CIS",
- *   "Id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "Name": "TestConfigurationPolicy",
- *   "UpdatedAt": "2023-01-12T06:17:17.154Z"
+ *   CreatedAt: "2023-01-11T06:17:17.154Z",
+ *   Description: "Updated configuration policy for testing FSBP and CIS",
+ *   Id: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   Name: "TestConfigurationPolicy",
+ *   UpdatedAt: "2023-01-12T06:17:17.154Z"
  * }
  * *\/
- * // example id: to-update-a-configuration-policy-1695174120555
  * ```
  *
+ * @public
  */
 export class UpdateConfigurationPolicyCommand extends $Command
   .classBuilder<
@@ -262,9 +263,7 @@ export class UpdateConfigurationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -276,4 +275,16 @@ export class UpdateConfigurationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationPolicyCommand)
   .de(de_UpdateConfigurationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationPolicyRequest;
+      output: UpdateConfigurationPolicyResponse;
+    };
+    sdk: {
+      input: UpdateConfigurationPolicyCommandInput;
+      output: UpdateConfigurationPolicyCommandOutput;
+    };
+  };
+}

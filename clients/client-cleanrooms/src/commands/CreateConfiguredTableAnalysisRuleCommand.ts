@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule
- *          can be created for a given configured table.</p>
+ * <p>Creates a new analysis rule for a configured table. Currently, only one analysis rule can be created for a given configured table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *         listColumns: [ // required
  *           "STRING_VALUE",
  *         ],
+ *         additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  *       },
  *       aggregation: { // AnalysisRuleAggregation
  *         aggregateColumns: [ // AggregateColumnList // required
@@ -85,12 +86,17 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *             type: "STRING_VALUE", // required
  *           },
  *         ],
+ *         additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  *       },
  *       custom: { // AnalysisRuleCustom
  *         allowedAnalyses: [ // AllowedAnalysesList // required
  *           "STRING_VALUE",
  *         ],
  *         allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ *           "STRING_VALUE",
+ *         ],
+ *         additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ *         disallowedOutputColumns: [
  *           "STRING_VALUE",
  *         ],
  *         differentialPrivacy: { // DifferentialPrivacyConfiguration
@@ -122,6 +128,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * //           listColumns: [ // required
  * //             "STRING_VALUE",
  * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  * //         },
  * //         aggregation: { // AnalysisRuleAggregation
  * //           aggregateColumns: [ // AggregateColumnList // required
@@ -152,12 +159,17 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * //               type: "STRING_VALUE", // required
  * //             },
  * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  * //         },
  * //         custom: { // AnalysisRuleCustom
  * //           allowedAnalyses: [ // AllowedAnalysesList // required
  * //             "STRING_VALUE",
  * //           ],
  * //           allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           disallowedOutputColumns: [
  * //             "STRING_VALUE",
  * //           ],
  * //           differentialPrivacy: { // DifferentialPrivacyConfiguration
@@ -196,6 +208,9 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>Request references a resource which does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>Request denied because service quota has been exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Request was denied due to request throttling.</p>
  *
@@ -204,6 +219,7 @@ export interface CreateConfiguredTableAnalysisRuleCommandOutput
  *
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
+ *
  *
  * @public
  */
@@ -215,9 +231,7 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -229,4 +243,16 @@ export class CreateConfiguredTableAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfiguredTableAnalysisRuleCommand)
   .de(de_CreateConfiguredTableAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfiguredTableAnalysisRuleInput;
+      output: CreateConfiguredTableAnalysisRuleOutput;
+    };
+    sdk: {
+      input: CreateConfiguredTableAnalysisRuleCommandInput;
+      output: CreateConfiguredTableAnalysisRuleCommandOutput;
+    };
+  };
+}

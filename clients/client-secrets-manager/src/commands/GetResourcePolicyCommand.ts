@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,25 +94,35 @@ export interface GetResourcePolicyCommandOutput extends GetResourcePolicyRespons
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To retrieve the resource-based policy attached to a secret
  * ```javascript
  * // The following example shows how to retrieve the resource-based policy that is attached to a secret.
  * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new GetResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   ResourcePolicy: `{
+ * "Version":"2012-10-17",
+ * "Statement":[{
+ * "Effect":"Allow",
+ * "Principal":{
+ * "AWS":"arn:aws:iam::123456789012:root"
+ * },
+ * "Action":"secretsmanager:GetSecretValue",
+ * "Resource":"*"
+ * }]
+ * }`
  * }
  * *\/
- * // example id: to-retrieve-the-resource-based-policy-attached-to-a-secret-1530209677536
  * ```
  *
+ * @public
  */
 export class GetResourcePolicyCommand extends $Command
   .classBuilder<
@@ -121,9 +132,7 @@ export class GetResourcePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +144,16 @@ export class GetResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcePolicyCommand)
   .de(de_GetResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcePolicyRequest;
+      output: GetResourcePolicyResponse;
+    };
+    sdk: {
+      input: GetResourcePolicyCommandInput;
+      output: GetResourcePolicyCommandOutput;
+    };
+  };
+}

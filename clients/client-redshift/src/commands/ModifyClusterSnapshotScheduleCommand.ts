@@ -15,7 +15,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface ModifyClusterSnapshotScheduleCommandOutput extends __MetadataBe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyClusterSnapshotScheduleCommand extends $Command
@@ -77,9 +79,7 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class ModifyClusterSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterSnapshotScheduleCommand)
   .de(de_ModifyClusterSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterSnapshotScheduleMessage;
+      output: {};
+    };
+    sdk: {
+      input: ModifyClusterSnapshotScheduleCommandInput;
+      output: ModifyClusterSnapshotScheduleCommandOutput;
+    };
+  };
+}

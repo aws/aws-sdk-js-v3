@@ -5,11 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetSoftwareSetRequest,
-  GetSoftwareSetResponse,
-  GetSoftwareSetResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetSoftwareSetRequest, GetSoftwareSetResponse } from "../models/models_0";
 import { de_GetSoftwareSetCommand, se_GetSoftwareSetCommand } from "../protocols/Aws_restJson1";
 import {
   ServiceInputTypes,
@@ -20,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,9 +58,6 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * //       },
  * //     ],
  * //     arn: "STRING_VALUE",
- * //     tags: { // TagsMap
- * //       "<keys>": "STRING_VALUE",
- * //     },
  * //   },
  * // };
  *
@@ -93,6 +87,7 @@ export interface GetSoftwareSetCommandOutput extends GetSoftwareSetResponse, __M
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class GetSoftwareSetCommand extends $Command
@@ -103,9 +98,7 @@ export class GetSoftwareSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,7 +107,19 @@ export class GetSoftwareSetCommand extends $Command
   })
   .s("ThinClient", "GetSoftwareSet", {})
   .n("WorkSpacesThinClientClient", "GetSoftwareSetCommand")
-  .f(void 0, GetSoftwareSetResponseFilterSensitiveLog)
+  .f(void 0, void 0)
   .ser(se_GetSoftwareSetCommand)
   .de(de_GetSoftwareSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSoftwareSetRequest;
+      output: GetSoftwareSetResponse;
+    };
+    sdk: {
+      input: GetSoftwareSetCommandInput;
+      output: GetSoftwareSetCommandOutput;
+    };
+  };
+}

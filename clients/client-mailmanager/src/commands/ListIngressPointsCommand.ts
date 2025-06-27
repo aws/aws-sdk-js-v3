@@ -12,7 +12,8 @@ import { de_ListIngressPointsCommand, se_ListIngressPointsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,74 @@ export interface ListIngressPointsCommandOutput extends ListIngressPointsRespons
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example List IngressPoints
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListIngressPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPoints: [
+ *     {
+ *       ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *       IngressPointId: "inp-12345",
+ *       IngressPointName: "ingressPointName",
+ *       Status: "ACTIVE",
+ *       Type: "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List IngressPoints with PageSize
+ * ```javascript
+ * //
+ * const input = {
+ *   PageSize: 10
+ * };
+ * const command = new ListIngressPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPoints: [
+ *     {
+ *       ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *       IngressPointId: "inp-12345",
+ *       IngressPointName: "ingressPointName",
+ *       Status: "ACTIVE",
+ *       Type: "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List IngressPoints with NextToken
+ * ```javascript
+ * //
+ * const input = {
+ *   NextToken: "nextToken"
+ * };
+ * const command = new ListIngressPointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPoints: [
+ *     {
+ *       ARecord: "abcde123.prod.us-east-1.email-border.ses.aws.a2z.com",
+ *       IngressPointId: "inp-12345",
+ *       IngressPointName: "ingressPointName",
+ *       Status: "ACTIVE",
+ *       Type: "OPEN"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIngressPointsCommand extends $Command
@@ -77,9 +146,7 @@ export class ListIngressPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +158,16 @@ export class ListIngressPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIngressPointsCommand)
   .de(de_ListIngressPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIngressPointsRequest;
+      output: ListIngressPointsResponse;
+    };
+    sdk: {
+      input: ListIngressPointsCommandInput;
+      output: ListIngressPointsCommandOutput;
+    };
+  };
+}

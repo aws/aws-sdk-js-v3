@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { CreatePortalRequest, CreatePortalResponse } from "../models/models_0";
+import { CreatePortalRequest, CreatePortalRequestFilterSensitiveLog, CreatePortalResponse } from "../models/models_0";
 import { de_CreatePortalCommand, se_CreatePortalCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,14 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *     alarmRoleArn: "STRING_VALUE", // required
  *     notificationLambdaArn: "STRING_VALUE",
  *   },
+ *   portalType: "SITEWISE_PORTAL_V1" || "SITEWISE_PORTAL_V2",
+ *   portalTypeConfiguration: { // PortalTypeConfiguration
+ *     "<keys>": { // PortalTypeEntry
+ *       portalTools: [ // PortalTools
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   },
  * };
  * const command = new CreatePortalCommand(input);
  * const response = await client.send(command);
@@ -67,7 +76,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * //   portalArn: "STRING_VALUE", // required
  * //   portalStartUrl: "STRING_VALUE", // required
  * //   portalStatus: { // PortalStatus
- * //     state: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
+ * //     state: "CREATING" || "PENDING" || "UPDATING" || "DELETING" || "ACTIVE" || "FAILED", // required
  * //     error: { // MonitorErrorDetails
  * //       code: "INTERNAL_FAILURE" || "VALIDATION_ERROR" || "LIMIT_EXCEEDED",
  * //       message: "STRING_VALUE",
@@ -109,6 +118,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class CreatePortalCommand extends $Command
@@ -119,9 +129,7 @@ export class CreatePortalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,7 +138,19 @@ export class CreatePortalCommand extends $Command
   })
   .s("AWSIoTSiteWise", "CreatePortal", {})
   .n("IoTSiteWiseClient", "CreatePortalCommand")
-  .f(void 0, void 0)
+  .f(CreatePortalRequestFilterSensitiveLog, void 0)
   .ser(se_CreatePortalCommand)
   .de(de_CreatePortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePortalRequest;
+      output: CreatePortalResponse;
+    };
+    sdk: {
+      input: CreatePortalCommandInput;
+      output: CreatePortalCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeAccessPolicyCommand, se_DescribeAccessPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface DescribeAccessPolicyCommandOutput extends DescribeAccessPolicyR
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccessPolicyCommand extends $Command
@@ -107,9 +109,7 @@ export class DescribeAccessPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class DescribeAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccessPolicyCommand)
   .de(de_DescribeAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccessPolicyRequest;
+      output: DescribeAccessPolicyResponse;
+    };
+    sdk: {
+      input: DescribeAccessPolicyCommandInput;
+      output: DescribeAccessPolicyCommandOutput;
+    };
+  };
+}

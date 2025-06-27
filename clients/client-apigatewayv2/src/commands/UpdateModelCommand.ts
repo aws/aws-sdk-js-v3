@@ -12,7 +12,8 @@ import { de_UpdateModelCommand, se_UpdateModelCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateModelCommandOutput extends UpdateModelResponse, __Metadat
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateModelCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateModelCommand)
   .de(de_UpdateModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelRequest;
+      output: UpdateModelResponse;
+    };
+    sdk: {
+      input: UpdateModelCommandInput;
+      output: UpdateModelCommandOutput;
+    };
+  };
+}

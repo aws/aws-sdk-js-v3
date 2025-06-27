@@ -2,6 +2,7 @@ import "./aws";
 
 import { existsSync, readdirSync } from "fs";
 import { resolve } from "path";
+import { describe, expect, test as it } from "vitest";
 
 import { resolveEndpoint } from "./resolveEndpoint";
 import { EndpointError } from "./types";
@@ -25,7 +26,7 @@ describe(resolveEndpoint.name, () => {
 
       for (const testCase of testCases) {
         const { documentation, params } = testCase;
-        (testCase.skip ? xit : it)(documentation, () => {
+        (testCase.skip ? it.skip : it)(documentation, () => {
           const _expect = testCase.expect;
 
           const { endpoint, error } = _expect;

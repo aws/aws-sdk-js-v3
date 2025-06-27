@@ -16,7 +16,8 @@ import { de_ListAccountsForParentCommand, se_ListAccountsForParentCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,7 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,6 +148,10 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -187,6 +192,9 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -212,42 +220,42 @@ export interface ListAccountsForParentCommandOutput extends ListAccountsForParen
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the accounts in a root or OU
  * ```javascript
  * // The following example shows how to request a list of the accounts in an OU:/n/n
  * const input = {
- *   "ParentId": "ou-examplerootid111-exampleouid111"
+ *   ParentId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new ListAccountsForParentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Accounts": [
+ *   Accounts: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333",
- *       "Email": "juan@example.com",
- *       "Id": "333333333333",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": 1481835795.536,
- *       "Name": "Development Account",
- *       "Status": "ACTIVE"
+ *       Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/333333333333",
+ *       Email: "juan@example.com",
+ *       Id: "333333333333",
+ *       JoinedMethod: "INVITED",
+ *       JoinedTimestamp: 1.481835795536E9,
+ *       Name: "Development Account",
+ *       Status: "ACTIVE"
  *     },
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/444444444444",
- *       "Email": "anika@example.com",
- *       "Id": "444444444444",
- *       "JoinedMethod": "INVITED",
- *       "JoinedTimestamp": 1481835812.143,
- *       "Name": "Test Account",
- *       "Status": "ACTIVE"
+ *       Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/444444444444",
+ *       Email: "anika@example.com",
+ *       Id: "444444444444",
+ *       JoinedMethod: "INVITED",
+ *       JoinedTimestamp: 1.481835812143E9,
+ *       Name: "Test Account",
+ *       Status: "ACTIVE"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-accounts-in-a-root-or-ou-1472509590974
  * ```
  *
+ * @public
  */
 export class ListAccountsForParentCommand extends $Command
   .classBuilder<
@@ -257,9 +265,7 @@ export class ListAccountsForParentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -271,4 +277,16 @@ export class ListAccountsForParentCommand extends $Command
   .f(void 0, ListAccountsForParentResponseFilterSensitiveLog)
   .ser(se_ListAccountsForParentCommand)
   .de(de_ListAccountsForParentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountsForParentRequest;
+      output: ListAccountsForParentResponse;
+    };
+    sdk: {
+      input: ListAccountsForParentCommandInput;
+      output: ListAccountsForParentCommandOutput;
+    };
+  };
+}

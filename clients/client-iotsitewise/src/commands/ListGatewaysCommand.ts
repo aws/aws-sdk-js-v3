@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_0";
+import { ListGatewaysRequest, ListGatewaysResponse } from "../models/models_1";
 import { de_ListGatewaysCommand, se_ListGatewaysCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,12 +52,17 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * //         },
  * //         greengrassV2: { // GreengrassV2
  * //           coreDeviceThingName: "STRING_VALUE", // required
+ * //           coreDeviceOperatingSystem: "LINUX_AARCH64" || "LINUX_AMD64" || "WINDOWS_AMD64",
+ * //         },
+ * //         siemensIE: { // SiemensIE
+ * //           iotCoreThingName: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       gatewayVersion: "STRING_VALUE",
  * //       gatewayCapabilitySummaries: [ // GatewayCapabilitySummaries
  * //         { // GatewayCapabilitySummary
  * //           capabilityNamespace: "STRING_VALUE", // required
- * //           capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN", // required
+ * //           capabilitySyncStatus: "IN_SYNC" || "OUT_OF_SYNC" || "SYNC_FAILED" || "UNKNOWN" || "NOT_APPLICABLE", // required
  * //         },
  * //       ],
  * //       creationDate: new Date("TIMESTAMP"), // required
@@ -90,6 +96,7 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListGatewaysCommand extends $Command
@@ -100,9 +107,7 @@ export class ListGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +119,16 @@ export class ListGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGatewaysCommand)
   .de(de_ListGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGatewaysRequest;
+      output: ListGatewaysResponse;
+    };
+    sdk: {
+      input: ListGatewaysCommandInput;
+      output: ListGatewaysCommandOutput;
+    };
+  };
+}

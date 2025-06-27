@@ -1,7 +1,8 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>
+ * <fullname>webrtc</fullname>
+ *          <p>
  *     </p>
  *
  * @packageDocumentation
@@ -9,8 +10,8 @@
 export * from "./KinesisVideoWebRTCStorageClient";
 export * from "./KinesisVideoWebRTCStorage";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { KinesisVideoWebRTCStorageExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { KinesisVideoWebRTCStorageExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

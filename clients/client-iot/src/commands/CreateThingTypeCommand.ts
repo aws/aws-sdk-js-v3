@@ -12,7 +12,8 @@ import { de_CreateThingTypeCommand, se_CreateThingTypeCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,10 @@ export interface CreateThingTypeCommandInput extends CreateThingTypeRequest {}
 export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new thing type.</p>
+ * <p>Creates a new thing type. If this call is made multiple times using
+ * 			the same thing type name and configuration, the call will succeed. If this call is made with
+ * 			the same thing type name but different configuration a <code>ResourceAlreadyExistsException</code> is thrown.
+ * 		</p>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">CreateThingType</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -42,6 +46,15 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  *     searchableAttributes: [ // SearchableAttributes
  *       "STRING_VALUE",
  *     ],
+ *     mqtt5Configuration: { // Mqtt5Configuration
+ *       propagatingAttributes: [ // PropagatingAttributeList
+ *         { // PropagatingAttribute
+ *           userPropertyKey: "STRING_VALUE",
+ *           thingAttribute: "STRING_VALUE",
+ *           connectionAttribute: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
  *   },
  *   tags: [ // TagList
  *     { // Tag
@@ -87,6 +100,7 @@ export interface CreateThingTypeCommandOutput extends CreateThingTypeResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateThingTypeCommand extends $Command
@@ -97,9 +111,7 @@ export class CreateThingTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +123,16 @@ export class CreateThingTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateThingTypeCommand)
   .de(de_CreateThingTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateThingTypeRequest;
+      output: CreateThingTypeResponse;
+    };
+    sdk: {
+      input: CreateThingTypeCommandInput;
+      output: CreateThingTypeCommandOutput;
+    };
+  };
+}

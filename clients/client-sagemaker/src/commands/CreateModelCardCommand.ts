@@ -16,7 +16,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,7 @@ export interface CreateModelCardCommandInput extends CreateModelCardRequest {}
 export interface CreateModelCardCommandOutput extends CreateModelCardResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Amazon SageMaker Model Card.</p>
- *          <p>For information about how to use model cards, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html">Amazon SageMaker Model Card</a>.</p>
+ * <p>Creates an Amazon SageMaker Model Card.</p> <p>For information about how to use model cards, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html">Amazon SageMaker Model Card</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,15 +68,14 @@ export interface CreateModelCardCommandOutput extends CreateModelCardResponse, _
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -88,9 +87,7 @@ export class CreateModelCardCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +99,16 @@ export class CreateModelCardCommand extends $Command
   .f(CreateModelCardRequestFilterSensitiveLog, void 0)
   .ser(se_CreateModelCardCommand)
   .de(de_CreateModelCardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelCardRequest;
+      output: CreateModelCardResponse;
+    };
+    sdk: {
+      input: CreateModelCardCommandInput;
+      output: CreateModelCardCommandOutput;
+    };
+  };
+}

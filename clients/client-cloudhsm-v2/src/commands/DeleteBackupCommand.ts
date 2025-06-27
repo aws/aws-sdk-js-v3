@@ -12,7 +12,8 @@ import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,11 @@ export interface DeleteBackupCommandInput extends DeleteBackupRequest {}
 export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days
+ * <p>Deletes a specified CloudHSM backup. A backup can be restored up to 7 days
  *             after the DeleteBackup request is made. For more information on restoring a backup, see
  *                 <a>RestoreBackup</a>.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,6 +47,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * // { // DeleteBackupResponse
  * //   Backup: { // Backup
  * //     BackupId: "STRING_VALUE", // required
+ * //     BackupArn: "STRING_VALUE",
  * //     BackupState: "CREATE_IN_PROGRESS" || "READY" || "DELETED" || "PENDING_DELETION",
  * //     ClusterId: "STRING_VALUE",
  * //     CreateTimestamp: new Date("TIMESTAMP"),
@@ -59,6 +63,8 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     HsmType: "STRING_VALUE",
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *
@@ -75,7 +81,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -91,6 +97,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackupCommand extends $Command
@@ -101,9 +108,7 @@ export class DeleteBackupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +120,16 @@ export class DeleteBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupCommand)
   .de(de_DeleteBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupRequest;
+      output: DeleteBackupResponse;
+    };
+    sdk: {
+      input: DeleteBackupCommandInput;
+      output: DeleteBackupCommandOutput;
+    };
+  };
+}

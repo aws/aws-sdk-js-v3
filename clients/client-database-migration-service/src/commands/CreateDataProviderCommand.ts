@@ -16,7 +16,8 @@ import { de_CreateDataProviderCommand, se_CreateDataProviderCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,8 @@ export interface CreateDataProviderCommandInput extends CreateDataProviderMessag
 export interface CreateDataProviderCommandOutput extends CreateDataProviderResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a data provider using the provided settings. A data provider stores
- *          a data store type and location information about your database. </p>
+ * <p>Creates a data provider using the provided settings. A data provider stores a data store
+ *          type and location information about your database. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,11 +44,14 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *   DataProviderName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Engine: "STRING_VALUE", // required
+ *   Virtual: true || false,
  *   Settings: { // DataProviderSettings Union: only one key present
  *     RedshiftSettings: { // RedshiftDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
  *       DatabaseName: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -55,12 +59,16 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MySqlSettings: { // MySqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     OracleSettings: { // OracleDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -73,6 +81,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  *       SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  *       SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -80,6 +90,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     DocDbSettings: { // DocDbDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -93,6 +105,26 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *       Port: Number("int"),
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
+ *     },
+ *     IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
+ *     },
+ *     IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MongoDbSettings: { // MongoDbDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -122,11 +154,14 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //     DataProviderCreationTime: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
+ * //     Virtual: true || false,
  * //     Settings: { // DataProviderSettings Union: only one key present
  * //       RedshiftSettings: { // RedshiftDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         DatabaseName: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -134,12 +169,16 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MySqlSettings: { // MySqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       OracleSettings: { // OracleDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -152,6 +191,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -159,6 +200,8 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       DocDbSettings: { // DocDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -172,6 +215,26 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MongoDbSettings: { // MongoDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -199,6 +262,9 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link ResourceAlreadyExistsFault} (client fault)
  *  <p>The resource you are attempting to create already exists.</p>
  *
@@ -208,52 +274,52 @@ export interface CreateDataProviderCommandOutput extends CreateDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Create Data Provider
  * ```javascript
  * // Creates the data provider with the specified parameters.
  * const input = {
- *   "DataProviderName": "sqlServer-dev",
- *   "Description": "description",
- *   "Engine": "sqlserver",
- *   "Settings": {
- *     "MicrosoftSqlServerSettings": {
- *       "DatabaseName": "DatabaseName",
- *       "Port": 11112,
- *       "ServerName": "ServerName2",
- *       "SslMode": "none"
+ *   DataProviderName: "sqlServer-dev",
+ *   Description: "description",
+ *   Engine: "sqlserver",
+ *   Settings: {
+ *     MicrosoftSqlServerSettings: {
+ *       DatabaseName: "DatabaseName",
+ *       Port: 11112,
+ *       ServerName: "ServerName2",
+ *       SslMode: "none"
  *     }
  *   },
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "access",
- *       "Value": "authorizedusers"
+ *       Key: "access",
+ *       Value: "authorizedusers"
  *     }
  *   ]
  * };
  * const command = new CreateDataProviderCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DataProvider": {
- *     "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-dataprovider",
- *     "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
- *     "DataProviderName": "my-target-dataprovider",
- *     "Engine": "postgres",
- *     "Settings": {
- *       "PostgreSqlSettings": {
- *         "DatabaseName": "target",
- *         "Port": 5432,
- *         "ServerName": "postrgesql.a1b2c3d4e5f6.us-east-1.rds.amazonaws.com",
- *         "SslMode": "none"
+ *   DataProvider: {
+ *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-dataprovider",
+ *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
+ *     DataProviderName: "my-target-dataprovider",
+ *     Engine: "postgres",
+ *     Settings: {
+ *       PostgreSqlSettings: {
+ *         DatabaseName: "target",
+ *         Port: 5432,
+ *         ServerName: "postrgesql.a1b2c3d4e5f6.us-east-1.rds.amazonaws.com",
+ *         SslMode: "none"
  *       }
  *     }
  *   }
  * }
  * *\/
- * // example id: create-data-provider-1689726511871
  * ```
  *
+ * @public
  */
 export class CreateDataProviderCommand extends $Command
   .classBuilder<
@@ -263,9 +329,7 @@ export class CreateDataProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -277,4 +341,16 @@ export class CreateDataProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataProviderCommand)
   .de(de_CreateDataProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataProviderMessage;
+      output: CreateDataProviderResponse;
+    };
+    sdk: {
+      input: CreateDataProviderCommandInput;
+      output: CreateDataProviderCommandOutput;
+    };
+  };
+}

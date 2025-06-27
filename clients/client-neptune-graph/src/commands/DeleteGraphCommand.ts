@@ -12,7 +12,8 @@ import { de_DeleteGraphCommand, se_DeleteGraphCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DeleteGraphCommandOutput extends DeleteGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class DeleteGraphCommand extends $Command
@@ -111,4 +113,16 @@ export class DeleteGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGraphCommand)
   .de(de_DeleteGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGraphInput;
+      output: DeleteGraphOutput;
+    };
+    sdk: {
+      input: DeleteGraphCommandInput;
+      output: DeleteGraphCommandOutput;
+    };
+  };
+}

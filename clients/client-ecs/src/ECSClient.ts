@@ -93,6 +93,14 @@ import {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
+import {
+  DescribeServiceDeploymentsCommandInput,
+  DescribeServiceDeploymentsCommandOutput,
+} from "./commands/DescribeServiceDeploymentsCommand";
+import {
+  DescribeServiceRevisionsCommandInput,
+  DescribeServiceRevisionsCommandOutput,
+} from "./commands/DescribeServiceRevisionsCommand";
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "./commands/DescribeServicesCommand";
 import {
   DescribeTaskDefinitionCommandInput,
@@ -116,6 +124,10 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
+import {
+  ListServiceDeploymentsCommandInput,
+  ListServiceDeploymentsCommandOutput,
+} from "./commands/ListServiceDeploymentsCommand";
 import {
   ListServicesByNamespaceCommandInput,
   ListServicesByNamespaceCommandOutput,
@@ -154,6 +166,10 @@ import {
 } from "./commands/RegisterTaskDefinitionCommand";
 import { RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
 import { StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import {
+  StopServiceDeploymentCommandInput,
+  StopServiceDeploymentCommandOutput,
+} from "./commands/StopServiceDeploymentCommand";
 import { StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommandInput,
@@ -227,6 +243,8 @@ export type ServiceInputTypes =
   | DescribeCapacityProvidersCommandInput
   | DescribeClustersCommandInput
   | DescribeContainerInstancesCommandInput
+  | DescribeServiceDeploymentsCommandInput
+  | DescribeServiceRevisionsCommandInput
   | DescribeServicesCommandInput
   | DescribeTaskDefinitionCommandInput
   | DescribeTaskSetsCommandInput
@@ -238,6 +256,7 @@ export type ServiceInputTypes =
   | ListAttributesCommandInput
   | ListClustersCommandInput
   | ListContainerInstancesCommandInput
+  | ListServiceDeploymentsCommandInput
   | ListServicesByNamespaceCommandInput
   | ListServicesCommandInput
   | ListTagsForResourceCommandInput
@@ -252,6 +271,7 @@ export type ServiceInputTypes =
   | RegisterTaskDefinitionCommandInput
   | RunTaskCommandInput
   | StartTaskCommandInput
+  | StopServiceDeploymentCommandInput
   | StopTaskCommandInput
   | SubmitAttachmentStateChangesCommandInput
   | SubmitContainerStateChangeCommandInput
@@ -288,6 +308,8 @@ export type ServiceOutputTypes =
   | DescribeCapacityProvidersCommandOutput
   | DescribeClustersCommandOutput
   | DescribeContainerInstancesCommandOutput
+  | DescribeServiceDeploymentsCommandOutput
+  | DescribeServiceRevisionsCommandOutput
   | DescribeServicesCommandOutput
   | DescribeTaskDefinitionCommandOutput
   | DescribeTaskSetsCommandOutput
@@ -299,6 +321,7 @@ export type ServiceOutputTypes =
   | ListAttributesCommandOutput
   | ListClustersCommandOutput
   | ListContainerInstancesCommandOutput
+  | ListServiceDeploymentsCommandOutput
   | ListServicesByNamespaceCommandOutput
   | ListServicesCommandOutput
   | ListTagsForResourceCommandOutput
@@ -313,6 +336,7 @@ export type ServiceOutputTypes =
   | RegisterTaskDefinitionCommandOutput
   | RunTaskCommandOutput
   | StartTaskCommandOutput
+  | StopServiceDeploymentCommandOutput
   | StopTaskCommandOutput
   | SubmitAttachmentStateChangesCommandOutput
   | SubmitContainerStateChangeCommandOutput
@@ -421,6 +445,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -466,11 +509,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type ECSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -486,11 +529,11 @@ export interface ECSClientConfig extends ECSClientConfigType {}
 export type ECSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -529,26 +572,30 @@ export class ECSClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<ECSClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultECSHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: ECSClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -561,14 +608,5 @@ export class ECSClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultECSHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: ECSClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

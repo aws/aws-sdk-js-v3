@@ -12,7 +12,8 @@ import { de_GetOriginRequestPolicyCommand, se_GetOriginRequestPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,21 +28,7 @@ export interface GetOriginRequestPolicyCommandInput extends GetOriginRequestPoli
 export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Gets an origin request policy, including the following metadata:</p>
- *          <ul>
- *             <li>
- *                <p>The policy's identifier.</p>
- *             </li>
- *             <li>
- *                <p>The date and time when the policy was last modified.</p>
- *             </li>
- *          </ul>
- *          <p>To get an origin request policy, you must provide the policy's identifier. If the
- * 			origin request policy is attached to a distribution's cache behavior, you can get the
- * 			policy's identifier using <code>ListDistributions</code> or
- * 			<code>GetDistribution</code>. If the origin request policy is not attached to a cache
- * 			behavior, you can get the identifier using
- * 			<code>ListOriginRequestPolicies</code>.</p>
+ * <p>Gets an origin request policy, including the following metadata:</p> <ul> <li> <p>The policy's identifier.</p> </li> <li> <p>The date and time when the policy was last modified.</p> </li> </ul> <p>To get an origin request policy, you must provide the policy's identifier. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +96,7 @@ export interface GetOriginRequestPolicyCommandOutput extends GetOriginRequestPol
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetOriginRequestPolicyCommand extends $Command
@@ -119,9 +107,7 @@ export class GetOriginRequestPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +119,16 @@ export class GetOriginRequestPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginRequestPolicyCommand)
   .de(de_GetOriginRequestPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginRequestPolicyRequest;
+      output: GetOriginRequestPolicyResult;
+    };
+    sdk: {
+      input: GetOriginRequestPolicyCommandInput;
+      output: GetOriginRequestPolicyCommandOutput;
+    };
+  };
+}

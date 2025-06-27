@@ -12,7 +12,8 @@ import { de_DeleteIdentitiesCommand, se_DeleteIdentitiesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,8 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
 /**
  * <p>Deletes identities from an identity pool. You can specify a list of 1-60 identities
  *          that you want to delete.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +74,7 @@ export interface DeleteIdentitiesCommandOutput extends DeleteIdentitiesResponse,
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class DeleteIdentitiesCommand extends $Command
@@ -82,9 +85,7 @@ export class DeleteIdentitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +97,16 @@ export class DeleteIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentitiesCommand)
   .de(de_DeleteIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentitiesInput;
+      output: DeleteIdentitiesResponse;
+    };
+    sdk: {
+      input: DeleteIdentitiesCommandInput;
+      output: DeleteIdentitiesCommandOutput;
+    };
+  };
+}

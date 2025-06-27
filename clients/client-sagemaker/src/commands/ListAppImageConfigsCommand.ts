@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListAppImageConfigsCommandInput extends ListAppImageConfigsRequ
 export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the AppImageConfigs in your account and their properties. The list can be
- *          filtered by creation time or modified time, and whether the AppImageConfig name contains
- *          a specified string.</p>
+ * <p>Lists the AppImageConfigs in your account and their properties. The list can be filtered by creation time or modified time, and whether the AppImageConfig name contains a specified string.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,6 +120,7 @@ export interface ListAppImageConfigsCommandOutput extends ListAppImageConfigsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListAppImageConfigsCommand extends $Command
@@ -131,9 +131,7 @@ export class ListAppImageConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +143,16 @@ export class ListAppImageConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppImageConfigsCommand)
   .de(de_ListAppImageConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppImageConfigsRequest;
+      output: ListAppImageConfigsResponse;
+    };
+    sdk: {
+      input: ListAppImageConfigsCommandInput;
+      output: ListAppImageConfigsCommandOutput;
+    };
+  };
+}

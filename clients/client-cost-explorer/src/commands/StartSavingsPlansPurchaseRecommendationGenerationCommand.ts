@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,7 +73,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  *  <p>The requested data is unavailable.</p>
  *
  * @throws {@link GenerationExistsException} (client fault)
- *  <p>A request to generate a recommendation is already in progress.</p>
+ *  <p>A request to generate a recommendation or analysis is already in progress.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
@@ -84,6 +85,7 @@ export interface StartSavingsPlansPurchaseRecommendationGenerationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $Command
@@ -94,9 +96,7 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class StartSavingsPlansPurchaseRecommendationGenerationCommand extends $C
   .f(void 0, void 0)
   .ser(se_StartSavingsPlansPurchaseRecommendationGenerationCommand)
   .de(de_StartSavingsPlansPurchaseRecommendationGenerationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: StartSavingsPlansPurchaseRecommendationGenerationResponse;
+    };
+    sdk: {
+      input: StartSavingsPlansPurchaseRecommendationGenerationCommandInput;
+      output: StartSavingsPlansPurchaseRecommendationGenerationCommandOutput;
+    };
+  };
+}

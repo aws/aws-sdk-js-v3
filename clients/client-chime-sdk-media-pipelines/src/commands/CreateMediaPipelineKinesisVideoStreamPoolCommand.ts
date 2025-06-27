@@ -24,7 +24,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,22 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an Kinesis video stream pool for the media pipeline.</p>
+ * <p>Creates an Amazon Kinesis Video Stream pool for use with media stream
+ *          pipelines.</p>
+ *          <note>
+ *             <p>If a meeting uses an opt-in Region as its
+ *          <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion">MediaRegion</a>,
+ *          the KVS stream must be in that same Region. For example, if a meeting uses the <code>af-south-1</code> Region, the KVS stream must also be in <code>af-south-1</code>. However, if the meeting uses a
+ *          Region that AWS turns on by default, the KVS stream can be in any available Region, including an opt-in Region. For example, if the meeting uses <code>ca-central-1</code>, the KVS stream can be in
+ *          <code>eu-west-2</code>, <code>us-east-1</code>, <code>af-south-1</code>, or any other Region that the Amazon Chime SDK supports.</p>
+ *             <p>To learn  which AWS Region a meeting uses, call the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_GetMeeting.html">GetMeeting</a> API and
+ *             use the <a href="https://docs.aws.amazon.com/chime-sdk/latest/APIReference/API_meeting-chime_CreateMeeting.html#chimesdk-meeting-chime_CreateMeeting-request-MediaRegion">MediaRegion</a>
+ *             parameter from the response.</p>
+ *             <p>For more information about opt-in Regions, refer to <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/sdk-available-regions.html">Available Regions</a> in the
+ *             <i>Amazon Chime SDK Developer Guide</i>, and
+ *             <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#rande-manage-enable.html">Specify which AWS Regions your account can use</a>,
+ *             in the <i>AWS Account Management Reference Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +133,7 @@ export interface CreateMediaPipelineKinesisVideoStreamPoolCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
@@ -127,9 +144,7 @@ export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +159,16 @@ export class CreateMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   )
   .ser(se_CreateMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_CreateMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaPipelineKinesisVideoStreamPoolRequest;
+      output: CreateMediaPipelineKinesisVideoStreamPoolResponse;
+    };
+    sdk: {
+      input: CreateMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: CreateMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface GetTerminologyCommandOutput extends GetTerminologyResponse, __M
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class GetTerminologyCommand extends $Command
@@ -109,9 +111,7 @@ export class GetTerminologyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class GetTerminologyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTerminologyCommand)
   .de(de_GetTerminologyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTerminologyRequest;
+      output: GetTerminologyResponse;
+    };
+    sdk: {
+      input: GetTerminologyCommandInput;
+      output: GetTerminologyCommandOutput;
+    };
+  };
+}

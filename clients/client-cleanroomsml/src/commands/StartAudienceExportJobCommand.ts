@@ -12,7 +12,8 @@ import { de_StartAudienceExportJobCommand, se_StartAudienceExportJobCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface StartAudienceExportJobCommandOutput extends __MetadataBearer {}
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class StartAudienceExportJobCommand extends $Command
@@ -83,9 +85,7 @@ export class StartAudienceExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class StartAudienceExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAudienceExportJobCommand)
   .de(de_StartAudienceExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAudienceExportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartAudienceExportJobCommandInput;
+      output: StartAudienceExportJobCommandOutput;
+    };
+  };
+}

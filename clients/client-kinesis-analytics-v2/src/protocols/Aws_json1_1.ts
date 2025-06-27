@@ -83,6 +83,10 @@ import {
   DescribeApplicationCommandOutput,
 } from "../commands/DescribeApplicationCommand";
 import {
+  DescribeApplicationOperationCommandInput,
+  DescribeApplicationOperationCommandOutput,
+} from "../commands/DescribeApplicationOperationCommand";
+import {
   DescribeApplicationSnapshotCommandInput,
   DescribeApplicationSnapshotCommandOutput,
 } from "../commands/DescribeApplicationSnapshotCommand";
@@ -94,6 +98,10 @@ import {
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
 } from "../commands/DiscoverInputSchemaCommand";
+import {
+  ListApplicationOperationsCommandInput,
+  ListApplicationOperationsCommandOutput,
+} from "../commands/ListApplicationOperationsCommand";
 import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import {
   ListApplicationSnapshotsCommandInput,
@@ -134,9 +142,13 @@ import {
   ApplicationConfigurationUpdate,
   ApplicationDetail,
   ApplicationMaintenanceConfigurationUpdate,
+  ApplicationOperationInfo,
+  ApplicationOperationInfoDetails,
   ApplicationRestoreConfiguration,
   ApplicationSnapshotConfiguration,
   ApplicationSnapshotConfigurationUpdate,
+  ApplicationSystemRollbackConfiguration,
+  ApplicationSystemRollbackConfigurationUpdate,
   CatalogConfiguration,
   CatalogConfigurationUpdate,
   CheckpointConfiguration,
@@ -162,6 +174,8 @@ import {
   DeleteApplicationVpcConfigurationRequest,
   DeployAsApplicationConfiguration,
   DeployAsApplicationConfigurationUpdate,
+  DescribeApplicationOperationRequest,
+  DescribeApplicationOperationResponse,
   DescribeApplicationRequest,
   DescribeApplicationResponse,
   DescribeApplicationSnapshotRequest,
@@ -202,6 +216,8 @@ import {
   LambdaOutput,
   LambdaOutputUpdate,
   LimitExceededException,
+  ListApplicationOperationsRequest,
+  ListApplicationOperationsResponse,
   ListApplicationSnapshotsRequest,
   ListApplicationSnapshotsResponse,
   ListApplicationsRequest,
@@ -481,6 +497,19 @@ export const se_DescribeApplicationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeApplicationOperationCommand
+ */
+export const se_DescribeApplicationOperationCommand = async (
+  input: DescribeApplicationOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeApplicationOperation");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeApplicationSnapshotCommand
  */
 export const se_DescribeApplicationSnapshotCommand = async (
@@ -514,6 +543,19 @@ export const se_DiscoverInputSchemaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DiscoverInputSchema");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListApplicationOperationsCommand
+ */
+export const se_ListApplicationOperationsCommand = async (
+  input: ListApplicationOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListApplicationOperations");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1003,6 +1045,26 @@ export const de_DescribeApplicationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeApplicationOperationCommand
+ */
+export const de_DescribeApplicationOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeApplicationOperationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeApplicationOperationResponse(data, context);
+  const response: DescribeApplicationOperationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeApplicationSnapshotCommand
  */
 export const de_DescribeApplicationSnapshotCommand = async (
@@ -1056,6 +1118,26 @@ export const de_DiscoverInputSchemaCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DiscoverInputSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListApplicationOperationsCommand
+ */
+export const de_ListApplicationOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationOperationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListApplicationOperationsResponse(data, context);
+  const response: ListApplicationOperationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1591,6 +1673,7 @@ const se_ApplicationConfiguration = (input: ApplicationConfiguration, context: _
   return take(input, {
     ApplicationCodeConfiguration: (_) => se_ApplicationCodeConfiguration(_, context),
     ApplicationSnapshotConfiguration: _json,
+    ApplicationSystemRollbackConfiguration: _json,
     EnvironmentProperties: _json,
     FlinkApplicationConfiguration: _json,
     SqlApplicationConfiguration: _json,
@@ -1606,6 +1689,7 @@ const se_ApplicationConfigurationUpdate = (input: ApplicationConfigurationUpdate
   return take(input, {
     ApplicationCodeConfigurationUpdate: (_) => se_ApplicationCodeConfigurationUpdate(_, context),
     ApplicationSnapshotConfigurationUpdate: _json,
+    ApplicationSystemRollbackConfigurationUpdate: _json,
     EnvironmentPropertyUpdates: _json,
     FlinkApplicationConfigurationUpdate: _json,
     SqlApplicationConfigurationUpdate: _json,
@@ -1621,6 +1705,10 @@ const se_ApplicationConfigurationUpdate = (input: ApplicationConfigurationUpdate
 // se_ApplicationSnapshotConfiguration omitted.
 
 // se_ApplicationSnapshotConfigurationUpdate omitted.
+
+// se_ApplicationSystemRollbackConfiguration omitted.
+
+// se_ApplicationSystemRollbackConfigurationUpdate omitted.
 
 // se_CatalogConfiguration omitted.
 
@@ -1721,6 +1809,8 @@ const se_DeleteApplicationSnapshotRequest = (input: DeleteApplicationSnapshotReq
 
 // se_DeployAsApplicationConfigurationUpdate omitted.
 
+// se_DescribeApplicationOperationRequest omitted.
+
 // se_DescribeApplicationRequest omitted.
 
 // se_DescribeApplicationSnapshotRequest omitted.
@@ -1790,6 +1880,8 @@ const se_DeleteApplicationSnapshotRequest = (input: DeleteApplicationSnapshotReq
 // se_LambdaOutput omitted.
 
 // se_LambdaOutputUpdate omitted.
+
+// se_ListApplicationOperationsRequest omitted.
 
 // se_ListApplicationSnapshotsRequest omitted.
 
@@ -1949,6 +2041,7 @@ const de_ApplicationDetail = (output: any, context: __SerdeContext): Application
     ApplicationMode: __expectString,
     ApplicationName: __expectString,
     ApplicationStatus: __expectString,
+    ApplicationVersionCreateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ApplicationVersionId: __expectLong,
     ApplicationVersionRolledBackFrom: __expectLong,
     ApplicationVersionRolledBackTo: __expectLong,
@@ -1964,6 +2057,45 @@ const de_ApplicationDetail = (output: any, context: __SerdeContext): Application
 
 // de_ApplicationMaintenanceConfigurationDescription omitted.
 
+/**
+ * deserializeAws_json1_1ApplicationOperationInfo
+ */
+const de_ApplicationOperationInfo = (output: any, context: __SerdeContext): ApplicationOperationInfo => {
+  return take(output, {
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Operation: __expectString,
+    OperationId: __expectString,
+    OperationStatus: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ApplicationOperationInfoDetails
+ */
+const de_ApplicationOperationInfoDetails = (output: any, context: __SerdeContext): ApplicationOperationInfoDetails => {
+  return take(output, {
+    ApplicationVersionChangeDetails: _json,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Operation: __expectString,
+    OperationFailureDetails: _json,
+    OperationStatus: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ApplicationOperationInfoList
+ */
+const de_ApplicationOperationInfoList = (output: any, context: __SerdeContext): ApplicationOperationInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ApplicationOperationInfo(entry, context);
+    });
+  return retVal;
+};
+
 // de_ApplicationRestoreConfiguration omitted.
 
 // de_ApplicationSnapshotConfigurationDescription omitted.
@@ -1971,6 +2103,10 @@ const de_ApplicationDetail = (output: any, context: __SerdeContext): Application
 // de_ApplicationSummaries omitted.
 
 // de_ApplicationSummary omitted.
+
+// de_ApplicationSystemRollbackConfigurationDescription omitted.
+
+// de_ApplicationVersionChangeDetails omitted.
 
 // de_ApplicationVersionSummaries omitted.
 
@@ -2026,6 +2162,18 @@ const de_CreateApplicationResponse = (output: any, context: __SerdeContext): Cre
 // de_DeployAsApplicationConfigurationDescription omitted.
 
 /**
+ * deserializeAws_json1_1DescribeApplicationOperationResponse
+ */
+const de_DescribeApplicationOperationResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeApplicationOperationResponse => {
+  return take(output, {
+    ApplicationOperationInfoDetails: (_: any) => de_ApplicationOperationInfoDetails(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1DescribeApplicationResponse
  */
 const de_DescribeApplicationResponse = (output: any, context: __SerdeContext): DescribeApplicationResponse => {
@@ -2063,6 +2211,8 @@ const de_DescribeApplicationVersionResponse = (
 // de_DiscoverInputSchemaResponse omitted.
 
 // de_EnvironmentPropertyDescriptions omitted.
+
+// de_ErrorInfo omitted.
 
 // de_FlinkApplicationConfigurationDescription omitted.
 
@@ -2105,6 +2255,19 @@ const de_DescribeApplicationVersionResponse = (
 // de_LimitExceededException omitted.
 
 /**
+ * deserializeAws_json1_1ListApplicationOperationsResponse
+ */
+const de_ListApplicationOperationsResponse = (
+  output: any,
+  context: __SerdeContext
+): ListApplicationOperationsResponse => {
+  return take(output, {
+    ApplicationOperationInfoList: (_: any) => de_ApplicationOperationInfoList(_, context),
+    NextToken: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1ListApplicationSnapshotsResponse
  */
 const de_ListApplicationSnapshotsResponse = (
@@ -2128,6 +2291,8 @@ const de_ListApplicationSnapshotsResponse = (
 // de_MavenReference omitted.
 
 // de_MonitoringConfigurationDescription omitted.
+
+// de_OperationFailureDetails omitted.
 
 // de_OutputDescription omitted.
 
@@ -2171,6 +2336,7 @@ const de_ListApplicationSnapshotsResponse = (
 const de_RollbackApplicationResponse = (output: any, context: __SerdeContext): RollbackApplicationResponse => {
   return take(output, {
     ApplicationDetail: (_: any) => de_ApplicationDetail(_, context),
+    OperationId: __expectString,
   }) as any;
 };
 
@@ -2245,6 +2411,7 @@ const de_SnapshotSummaries = (output: any, context: __SerdeContext): SnapshotDet
 const de_UpdateApplicationResponse = (output: any, context: __SerdeContext): UpdateApplicationResponse => {
   return take(output, {
     ApplicationDetail: (_: any) => de_ApplicationDetail(_, context),
+    OperationId: __expectString,
   }) as any;
 };
 

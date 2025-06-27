@@ -232,6 +232,7 @@ import {
   DeviceFilter,
   DeviceMinutes,
   DevicePoolCompatibilityResult,
+  DeviceProxy,
   DeviceSelectionConfiguration,
   ExecutionConfiguration,
   ExecutionResult,
@@ -3195,6 +3196,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_DeviceHostPaths omitted.
 
+// se_DeviceProxy omitted.
+
 // se_DeviceSelectionConfiguration omitted.
 
 // se_ExecutionConfiguration omitted.
@@ -3214,6 +3217,7 @@ const se_GetDevicePoolCompatibilityRequest = (
     appArn: [],
     configuration: (_) => se_ScheduleRunConfiguration(_, context),
     devicePoolArn: [],
+    projectArn: [],
     test: _json,
     testType: [],
   });
@@ -3347,6 +3351,7 @@ const se_ScheduleRunConfiguration = (input: ScheduleRunConfiguration, context: _
     auxiliaryApps: _json,
     billingMethod: [],
     customerArtifactPaths: _json,
+    deviceProxy: _json,
     extraDataPackageArn: [],
     locale: [],
     location: (_) => se_Location(_, context),
@@ -3611,6 +3616,8 @@ const de_DevicePoolCompatibilityResults = (output: any, context: __SerdeContext)
 };
 
 // de_DevicePools omitted.
+
+// de_DeviceProxy omitted.
 
 /**
  * deserializeAws_json1_1Devices
@@ -4200,6 +4207,7 @@ const de_RemoteAccessSession = (output: any, context: __SerdeContext): RemoteAcc
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     device: (_: any) => de_Device(_, context),
     deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
+    deviceProxy: _json,
     deviceUdid: __expectString,
     endpoint: __expectString,
     hostAddress: __expectString,
@@ -4260,6 +4268,7 @@ const de_Run = (output: any, context: __SerdeContext): Run => {
     customerArtifactPaths: _json,
     deviceMinutes: (_: any) => de_DeviceMinutes(_, context),
     devicePoolArn: __expectString,
+    deviceProxy: _json,
     deviceSelectionResult: _json,
     eventCount: __expectInt32,
     jobTimeoutMinutes: __expectInt32,

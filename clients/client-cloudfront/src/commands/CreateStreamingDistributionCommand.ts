@@ -12,7 +12,8 @@ import { de_CreateStreamingDistributionCommand, se_CreateStreamingDistributionCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateStreamingDistributionCommandInput extends CreateStreaming
 export interface CreateStreamingDistributionCommandOutput extends CreateStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP)
- * 			distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion
- * 			forum.</p>
+ * <p>This API is deprecated. Amazon CloudFront is deprecating real-time messaging protocol (RTMP) distributions on December 31, 2020. For more information, <a href="http://forums.aws.amazon.com/ann.jspa?annID=7356">read the announcement</a> on the Amazon CloudFront discussion forum.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +61,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *         "STRING_VALUE",
  *       ],
  *     },
- *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  *     Enabled: true || false, // required
  *   },
  * };
@@ -115,7 +114,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //     },
  * //   },
@@ -138,8 +137,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *  <p>The CNAME specified is already defined for CloudFront.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -154,19 +152,16 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *  <p>The origin access identity is not valid or doesn't exist.</p>
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the
- * 				<code>Content-Type</code> header is set.</p>
+ *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  *
  * @throws {@link StreamingDistributionAlreadyExists} (client fault)
- *  <p>The caller reference you attempted to create the streaming distribution with is
- * 			associated with another distribution</p>
+ *  <p>The caller reference you attempted to create the streaming distribution with is associated with another distribution</p>
  *
  * @throws {@link TooManyStreamingDistributionCNAMEs} (client fault)
  *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  *
  * @throws {@link TooManyStreamingDistributions} (client fault)
- *  <p>Processing your request would cause you to exceed the maximum number of streaming
- * 			distributions allowed.</p>
+ *  <p>Processing your request would cause you to exceed the maximum number of streaming distributions allowed.</p>
  *
  * @throws {@link TooManyTrustedSigners} (client fault)
  *  <p>Your request contains more trusted signers than are allowed per distribution.</p>
@@ -176,6 +171,7 @@ export interface CreateStreamingDistributionCommandOutput extends CreateStreamin
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -187,9 +183,7 @@ export class CreateStreamingDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +195,16 @@ export class CreateStreamingDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStreamingDistributionCommand)
   .de(de_CreateStreamingDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamingDistributionRequest;
+      output: CreateStreamingDistributionResult;
+    };
+    sdk: {
+      input: CreateStreamingDistributionCommandInput;
+      output: CreateStreamingDistributionCommandOutput;
+    };
+  };
+}

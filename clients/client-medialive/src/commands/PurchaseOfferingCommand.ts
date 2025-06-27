@@ -12,7 +12,8 @@ import { de_PurchaseOfferingCommand, se_PurchaseOfferingCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,7 +72,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * //     ReservationId: "STRING_VALUE",
  * //     ResourceSpecification: { // ReservationResourceSpecification
  * //       ChannelClass: "STANDARD" || "SINGLE_PIPELINE",
- * //       Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK",
+ * //       Codec: "MPEG2" || "AVC" || "HEVC" || "AUDIO" || "LINK" || "AV1",
  * //       MaximumBitrate: "MAX_10_MBPS" || "MAX_20_MBPS" || "MAX_50_MBPS",
  * //       MaximumFramerate: "MAX_30_FPS" || "MAX_60_FPS",
  * //       Resolution: "SD" || "HD" || "FHD" || "UHD",
@@ -123,6 +124,7 @@ export interface PurchaseOfferingCommandOutput extends PurchaseOfferingResponse,
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class PurchaseOfferingCommand extends $Command
@@ -133,9 +135,7 @@ export class PurchaseOfferingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class PurchaseOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PurchaseOfferingCommand)
   .de(de_PurchaseOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PurchaseOfferingRequest;
+      output: PurchaseOfferingResponse;
+    };
+    sdk: {
+      input: PurchaseOfferingCommandInput;
+      output: PurchaseOfferingCommandOutput;
+    };
+  };
+}

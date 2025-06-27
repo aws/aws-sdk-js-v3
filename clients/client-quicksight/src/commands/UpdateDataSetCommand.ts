@@ -9,14 +9,15 @@ import {
   UpdateDataSetRequest,
   UpdateDataSetRequestFilterSensitiveLog,
   UpdateDataSetResponse,
-} from "../models/models_4";
+} from "../models/models_5";
 import { de_UpdateDataSetCommand, se_UpdateDataSetCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -277,6 +278,15 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  *       },
  *     },
  *   ],
+ *   PerformanceConfiguration: { // PerformanceConfiguration
+ *     UniqueKeys: [ // UniqueKeyList
+ *       { // UniqueKey
+ *         ColumnNames: [ // UniqueKeyColumnNameList // required
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateDataSetCommand(input);
  * const response = await client.send(command);
@@ -330,6 +340,7 @@ export interface UpdateDataSetCommandOutput extends UpdateDataSetResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSetCommand extends $Command
@@ -340,9 +351,7 @@ export class UpdateDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -354,4 +363,16 @@ export class UpdateDataSetCommand extends $Command
   .f(UpdateDataSetRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateDataSetCommand)
   .de(de_UpdateDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSetRequest;
+      output: UpdateDataSetResponse;
+    };
+    sdk: {
+      input: UpdateDataSetCommandInput;
+      output: UpdateDataSetCommandOutput;
+    };
+  };
+}

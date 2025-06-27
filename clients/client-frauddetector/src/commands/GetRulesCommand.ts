@@ -12,7 +12,8 @@ import { de_GetRulesCommand, se_GetRulesCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface GetRulesCommandOutput extends GetRulesResult, __MetadataBearer 
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetRulesCommand extends $Command
@@ -100,9 +102,7 @@ export class GetRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class GetRulesCommand extends $Command
   .f(void 0, GetRulesResultFilterSensitiveLog)
   .ser(se_GetRulesCommand)
   .de(de_GetRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRulesRequest;
+      output: GetRulesResult;
+    };
+    sdk: {
+      input: GetRulesCommandInput;
+      output: GetRulesCommandOutput;
+    };
+  };
+}

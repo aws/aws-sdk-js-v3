@@ -12,7 +12,8 @@ import { de_GetRunCommand, se_GetRunCommand } from "../protocols/Aws_restJson1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface GetRunCommandInput extends GetRunRequest {}
 export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow run.</p>
- *          <p>If a workflow is shared with you, you cannot export information about the run.</p>
+ * <p>Gets information about a workflow run.</p> <p>If a workflow is shared with you, you cannot export information about the run.</p> <p>Amazon Web Services HealthOmics stores a fixed number of runs that are available to the console and API. If GetRun doesn't return the requested run, you can find run logs for all runs in the CloudWatch logs. For more information about viewing the run logs, see <a href="https://docs.aws.amazon.com/omics/latest/dev/cloudwatch-logs.html">CloudWatch logs</a> in the <i>in the Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +46,9 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * // { // GetRunResponse
  * //   arn: "STRING_VALUE",
  * //   id: "STRING_VALUE",
+ * //   cacheId: "STRING_VALUE",
+ * //   cacheBehavior: "STRING_VALUE",
+ * //   engineVersion: "STRING_VALUE",
  * //   status: "STRING_VALUE",
  * //   workflowId: "STRING_VALUE",
  * //   workflowType: "STRING_VALUE",
@@ -82,6 +85,8 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * //   runOutputUri: "STRING_VALUE",
  * //   storageType: "STRING_VALUE",
  * //   workflowOwnerId: "STRING_VALUE",
+ * //   workflowVersionName: "STRING_VALUE",
+ * //   workflowUuid: "STRING_VALUE",
  * // };
  *
  * ```
@@ -119,6 +124,7 @@ export interface GetRunCommandOutput extends GetRunResponse, __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetRunCommand extends $Command
@@ -129,9 +135,7 @@ export class GetRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +147,16 @@ export class GetRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRunCommand)
   .de(de_GetRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRunRequest;
+      output: GetRunResponse;
+    };
+    sdk: {
+      input: GetRunCommandInput;
+      output: GetRunCommandOutput;
+    };
+  };
+}

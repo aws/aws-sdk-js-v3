@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,37 +90,37 @@ export interface DescribeLoadBalancerPolicyTypesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe a load balancer policy type defined by Elastic Load Balancing
  * ```javascript
  * // This example describes the specified load balancer policy type.
  * const input = {
- *   "PolicyTypeNames": [
+ *   PolicyTypeNames: [
  *     "ProxyProtocolPolicyType"
  *   ]
  * };
  * const command = new DescribeLoadBalancerPolicyTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyTypeDescriptions": [
+ *   PolicyTypeDescriptions: [
  *     {
- *       "Description": "Policy that controls whether to include the IP address and port of the originating request for TCP messages. This policy operates on TCP listeners only.",
- *       "PolicyAttributeTypeDescriptions": [
+ *       Description: "Policy that controls whether to include the IP address and port of the originating request for TCP messages. This policy operates on TCP listeners only.",
+ *       PolicyAttributeTypeDescriptions: [
  *         {
- *           "AttributeName": "ProxyProtocol",
- *           "AttributeType": "Boolean",
- *           "Cardinality": "ONE"
+ *           AttributeName: "ProxyProtocol",
+ *           AttributeType: "Boolean",
+ *           Cardinality: "ONE"
  *         }
  *       ],
- *       "PolicyTypeName": "ProxyProtocolPolicyType"
+ *       PolicyTypeName: "ProxyProtocolPolicyType"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-describe-load-balancer-policy-types-1
  * ```
  *
+ * @public
  */
 export class DescribeLoadBalancerPolicyTypesCommand extends $Command
   .classBuilder<
@@ -129,9 +130,7 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class DescribeLoadBalancerPolicyTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLoadBalancerPolicyTypesCommand)
   .de(de_DescribeLoadBalancerPolicyTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLoadBalancerPolicyTypesInput;
+      output: DescribeLoadBalancerPolicyTypesOutput;
+    };
+    sdk: {
+      input: DescribeLoadBalancerPolicyTypesCommandInput;
+      output: DescribeLoadBalancerPolicyTypesCommandOutput;
+    };
+  };
+}

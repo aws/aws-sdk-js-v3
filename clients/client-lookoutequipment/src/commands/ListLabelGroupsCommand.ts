@@ -12,7 +12,8 @@ import { de_ListLabelGroupsCommand, se_ListLabelGroupsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListLabelGroupsCommandOutput extends ListLabelGroupsResponse, _
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ListLabelGroupsCommand extends $Command
@@ -89,9 +91,7 @@ export class ListLabelGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListLabelGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLabelGroupsCommand)
   .de(de_ListLabelGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLabelGroupsRequest;
+      output: ListLabelGroupsResponse;
+    };
+    sdk: {
+      input: ListLabelGroupsCommandInput;
+      output: ListLabelGroupsCommandOutput;
+    };
+  };
+}

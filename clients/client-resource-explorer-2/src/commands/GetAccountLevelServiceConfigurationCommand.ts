@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,7 @@ export interface GetAccountLevelServiceConfigurationCommandOutput
 /**
  * <p>Retrieves the status of your account's Amazon Web Services service access, and validates the service
  *             linked role required to access the multi-account search feature. Only the management
- *             account or a delegated administrator with service access enabled can invoke this API
- *             call. </p>
+ *             account can invoke this API call. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +84,7 @@ export interface GetAccountLevelServiceConfigurationCommandOutput
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class GetAccountLevelServiceConfigurationCommand extends $Command
@@ -94,9 +95,7 @@ export class GetAccountLevelServiceConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class GetAccountLevelServiceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountLevelServiceConfigurationCommand)
   .de(de_GetAccountLevelServiceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountLevelServiceConfigurationOutput;
+    };
+    sdk: {
+      input: GetAccountLevelServiceConfigurationCommandInput;
+      output: GetAccountLevelServiceConfigurationCommandOutput;
+    };
+  };
+}

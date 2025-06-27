@@ -16,7 +16,8 @@ import { de_CreateLegalHoldCommand, se_CreateLegalHoldCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,10 +32,10 @@ export interface CreateLegalHoldCommandInput extends CreateLegalHoldInput {}
 export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __MetadataBearer {}
 
 /**
- * <p>This action creates a legal hold on a recovery point (backup). A legal hold
- *          is a restraint on altering or deleting a backup until an authorized user cancels the
- *          legal hold. Any actions to delete or disassociate a recovery point will fail with
- *          an error if one or more active legal holds are on the recovery point.</p>
+ * <p>Creates a legal hold on a recovery point (backup). A legal hold is a restraint on
+ *          altering or deleting a backup until an authorized user cancels the legal hold. Any actions
+ *          to delete or disassociate a recovery point will fail with an error if one or more active
+ *          legal holds are on the recovery point.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +110,7 @@ export interface CreateLegalHoldCommandOutput extends CreateLegalHoldOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateLegalHoldCommand extends $Command
@@ -119,9 +121,7 @@ export class CreateLegalHoldCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class CreateLegalHoldCommand extends $Command
   .f(CreateLegalHoldInputFilterSensitiveLog, void 0)
   .ser(se_CreateLegalHoldCommand)
   .de(de_CreateLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLegalHoldInput;
+      output: CreateLegalHoldOutput;
+    };
+    sdk: {
+      input: CreateLegalHoldCommandInput;
+      output: CreateLegalHoldCommandOutput;
+    };
+  };
+}

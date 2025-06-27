@@ -16,7 +16,8 @@ import { de_BatchMeterUsageCommand, se_BatchMeterUsageCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,32 +32,38 @@ export interface BatchMeterUsageCommandInput extends BatchMeterUsageRequest {}
 export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __MetadataBearer {}
 
 /**
- * <p>
- *             <code>BatchMeterUsage</code> is called from a SaaS application listed on AWS
- *             Marketplace to post metering records for a set of customers.</p>
- *          <p>For identical requests, the API is idempotent; requests can be retried with the same
- *             records or a subset of the input records.</p>
- *          <p>Every request to <code>BatchMeterUsage</code> is for one product. If you need to meter
- *             usage for multiple products, you must make multiple calls to
- *                 <code>BatchMeterUsage</code>.</p>
- *          <p>Usage records are expected to be submitted as quickly as possible after the event that
- *             is being recorded, and are not accepted more than 6 hours after the event.</p>
+ * <important>
+ *             <p>
+ *                 The <code>CustomerIdentifier</code> parameter is scheduled for deprecation. Use <code>CustomerAWSAccountID</code> instead.</p>
+ *             <p>These parameters are mutually exclusive. You can't specify both <code>CustomerIdentifier</code> and <code>CustomerAWSAccountID</code> in the same request.
+ *             </p>
+ *          </important>
+ *          <p>To post metering records for customers, SaaS applications call
+ *         <code>BatchMeterUsage</code>, which is used for metering SaaS flexible
+ *       consumption pricing (FCP). Identical requests are idempotent and can be
+ *       retried with the same records or a subset of records. Each
+ *         <code>BatchMeterUsage</code> request is for only one product. If you
+ *       want to meter usage for multiple products, you must make multiple
+ *         <code>BatchMeterUsage</code> calls.</p>
+ *          <p>Usage records should be submitted in quick succession following a
+ *       recorded event. Usage records aren't accepted 6 hours or more after an
+ *       event.</p>
  *          <p>
- *             <code>BatchMeterUsage</code> can process up to 25 <code>UsageRecords</code> at a
- *             time.</p>
- *          <p>A <code>UsageRecord</code> can optionally include multiple usage allocations, to
- *             provide customers with usage data split into buckets by tags that you define (or allow
- *             the customer to define).</p>
+ *             <code>BatchMeterUsage</code> can process up to 25
+ *         <code>UsageRecords</code> at a time, and each request must be less than
+ *       1 MB in size. Optionally, you can have multiple usage allocations for
+ *       usage data that's split into buckets according to predefined tags.</p>
  *          <p>
- *             <code>BatchMeterUsage</code> returns a list of <code>UsageRecordResult</code> objects,
- *             showing the result for each <code>UsageRecord</code>, as well as a list of
- *                 <code>UnprocessedRecords</code>, indicating errors in the service side that you
- *             should retry.</p>
- *          <p>
- *             <code>BatchMeterUsage</code> requests must be less than 1MB in size.</p>
+ *             <code>BatchMeterUsage</code> returns a list of
+ *         <code>UsageRecordResult</code> objects, which have each
+ *         <code>UsageRecord</code>. It also returns a list of
+ *         <code>UnprocessedRecords</code>, which indicate errors on the service
+ *       side that should be retried.</p>
+ *          <p>For Amazon Web Services Regions that support <code>BatchMeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#batchmeterusage-region-support">BatchMeterUsage Region support</a>.
+ *       </p>
  *          <note>
- *             <p>For an example of using <code>BatchMeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example"> BatchMeterUsage code example</a> in the <i>AWS Marketplace Seller
- *                     Guide</i>.</p>
+ *             <p>For an example of <code>BatchMeterUsage</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-batchmeterusage-example"> BatchMeterUsage code example</a> in the <i>Amazon Web Services Marketplace Seller
+ *           Guide</i>.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -68,7 +75,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *   UsageRecords: [ // UsageRecordList // required
  *     { // UsageRecord
  *       Timestamp: new Date("TIMESTAMP"), // required
- *       CustomerIdentifier: "STRING_VALUE", // required
+ *       CustomerIdentifier: "STRING_VALUE",
  *       Dimension: "STRING_VALUE", // required
  *       Quantity: Number("int"),
  *       UsageAllocations: [ // UsageAllocations
@@ -82,6 +89,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *           ],
  *         },
  *       ],
+ *       CustomerAWSAccountId: "STRING_VALUE",
  *     },
  *   ],
  *   ProductCode: "STRING_VALUE", // required
@@ -93,7 +101,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //     { // UsageRecordResult
  * //       UsageRecord: { // UsageRecord
  * //         Timestamp: new Date("TIMESTAMP"), // required
- * //         CustomerIdentifier: "STRING_VALUE", // required
+ * //         CustomerIdentifier: "STRING_VALUE",
  * //         Dimension: "STRING_VALUE", // required
  * //         Quantity: Number("int"),
  * //         UsageAllocations: [ // UsageAllocations
@@ -107,6 +115,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //             ],
  * //           },
  * //         ],
+ * //         CustomerAWSAccountId: "STRING_VALUE",
  * //       },
  * //       MeteringRecordId: "STRING_VALUE",
  * //       Status: "Success" || "CustomerNotSubscribed" || "DuplicateRecord",
@@ -115,7 +124,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //   UnprocessedRecords: [ // UsageRecordList
  * //     {
  * //       Timestamp: new Date("TIMESTAMP"), // required
- * //       CustomerIdentifier: "STRING_VALUE", // required
+ * //       CustomerIdentifier: "STRING_VALUE",
  * //       Dimension: "STRING_VALUE", // required
  * //       Quantity: Number("int"),
  * //       UsageAllocations: [
@@ -129,6 +138,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * //           ],
  * //         },
  * //       ],
+ * //       CustomerAWSAccountId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -146,7 +156,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *             message with details on the AWS forums.</p>
+ *             message with details on the Amazon Web Services forums.</p>
  *
  * @throws {@link InvalidCustomerIdentifierException} (client fault)
  *  <p>You have metered usage for a <code>CustomerIdentifier</code> that does not
@@ -160,8 +170,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  *  <p>The tag is invalid, or the number of tags is greater than 5.</p>
  *
  * @throws {@link InvalidUsageAllocationsException} (client fault)
- *  <p>The usage allocation objects are invalid, or the number of allocations is greater than
- *             500 for a single usage record.</p>
+ *  <p>Sum of allocated usage quantities is not equal to the usage quantity.</p>
  *
  * @throws {@link InvalidUsageDimensionException} (client fault)
  *  <p>The usage dimension does not match one of the <code>UsageDimensions</code> associated
@@ -180,6 +189,7 @@ export interface BatchMeterUsageCommandOutput extends BatchMeterUsageResult, __M
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
  *
+ *
  * @public
  */
 export class BatchMeterUsageCommand extends $Command
@@ -190,9 +200,7 @@ export class BatchMeterUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -204,4 +212,16 @@ export class BatchMeterUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchMeterUsageCommand)
   .de(de_BatchMeterUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchMeterUsageRequest;
+      output: BatchMeterUsageResult;
+    };
+    sdk: {
+      input: BatchMeterUsageCommandInput;
+      output: BatchMeterUsageCommandOutput;
+    };
+  };
+}

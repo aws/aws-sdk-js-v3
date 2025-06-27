@@ -19,7 +19,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface CreateAvailabilityConfigurationCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CreateAvailabilityConfigurationCommand extends $Command
@@ -98,9 +100,7 @@ export class CreateAvailabilityConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class CreateAvailabilityConfigurationCommand extends $Command
   .f(CreateAvailabilityConfigurationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAvailabilityConfigurationCommand)
   .de(de_CreateAvailabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAvailabilityConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAvailabilityConfigurationCommandInput;
+      output: CreateAvailabilityConfigurationCommandOutput;
+    };
+  };
+}

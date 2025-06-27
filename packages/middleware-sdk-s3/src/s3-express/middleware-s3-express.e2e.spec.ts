@@ -3,14 +3,13 @@ import { STS } from "@aws-sdk/client-sts";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import http from "http";
 import https from "https";
+import { afterAll, beforeAll, describe, expect, test as it } from "vitest";
 
 const region = "us-east-1";
 const zone = "use1-az6";
 const suffix = `${zone}--x-s3`;
 
 describe("s3 express CRUD test suite", () => {
-  jest.setTimeout(30000);
-
   let s3: S3; // test subject.
   let controller: S3; // separate test-assistant client.
   let bucketName: string; // test bucket (temp)
@@ -147,7 +146,7 @@ describe("s3 express CRUD test suite", () => {
     expect(data).toEqual("abcd");
   });
 
-  xit("can presign put", async () => {
+  it.skip("can presign put", async () => {
     const body = Buffer.from("abcd");
     const putObject = new PutObjectCommand({
       Bucket: bucketName,
@@ -187,7 +186,7 @@ describe("s3 express CRUD test suite", () => {
 
     expect(data).toEqual("xyz");
   });
-});
+}, 30_000);
 
 async function createClientAndRecorder() {
   const sts = new STS({ region });
@@ -216,11 +215,9 @@ async function createClientAndRecorder() {
       }
 
       const commandName = context.commandName + s3ExpressSuffix;
-      const input = args.input;
+      const input = args.input as any;
       const commandRecorder = (recorder.calls[commandName] = recorder.calls[commandName] ?? {});
-      // @ts-expect-error Element implicitly has an 'any' type
       commandRecorder[input["Bucket"] ?? "-"] |= 0;
-      // @ts-expect-error Element implicitly has an 'any' type
       commandRecorder[input["Bucket"] ?? "-"]++;
 
       return continuation;

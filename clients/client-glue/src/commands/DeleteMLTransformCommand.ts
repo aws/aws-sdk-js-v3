@@ -12,7 +12,8 @@ import { de_DeleteMLTransformCommand, se_DeleteMLTransformCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeleteMLTransformCommandOutput extends DeleteMLTransformRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeleteMLTransformCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteMLTransformCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteMLTransformCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMLTransformCommand)
   .de(de_DeleteMLTransformCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMLTransformRequest;
+      output: DeleteMLTransformResponse;
+    };
+    sdk: {
+      input: DeleteMLTransformCommandInput;
+      output: DeleteMLTransformCommandOutput;
+    };
+  };
+}

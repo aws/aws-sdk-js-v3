@@ -174,7 +174,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS\n      or TLS listener.</p>\n         <p>If the certificate in already in the certificate list, the call is successful but the\n      certificate is not added again.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html\">HTTPS\n        listeners</a> in the <i>Application Load Balancers Guide</i> or <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html\">TLS\n        listeners</a> in the <i>Network Load Balancers Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Adds the specified SSL server certificate to the certificate list for the specified HTTPS\n      or TLS listener.</p>\n         <p>If the certificate in already in the certificate list, the call is successful but the\n      certificate is not added again.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html\">SSL\n        certificates</a> in the <i>Application Load Balancers Guide</i> or <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html\">Server \n        certificates</a> in the <i>Network Load Balancers Guide</i>.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#AddListenerCertificatesInput": {
@@ -362,6 +362,49 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#AdministrativeOverride": {
+      "type": "structure",
+      "members": {
+        "State": {
+          "target": "com.amazonaws.elasticloadbalancingv2#TargetAdministrativeOverrideStateEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the override.</p>"
+          }
+        },
+        "Reason": {
+          "target": "com.amazonaws.elasticloadbalancingv2#TargetAdministrativeOverrideReasonEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason code for the state.</p>"
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.elasticloadbalancingv2#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>A description of the override state that provides additional details.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the override status applied to a target.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#AdvertiseTrustStoreCaNamesEnum": {
+      "type": "enum",
+      "members": {
+        "on": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "on"
+          }
+        },
+        "off": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "off"
+          }
+        }
       }
     },
     "com.amazonaws.elasticloadbalancingv2#AllocationId": {
@@ -732,6 +775,12 @@
           "traits": {
             "smithy.api#documentation": "<p>[Network Load Balancers] If you need static IP addresses for your load balancer, you can\n      specify one Elastic IP address per Availability Zone when you create an internal-facing load\n      balancer. For internal load balancers, you can specify a private IP address from the IPv4\n      range of the subnet.</p>"
           }
+        },
+        "SourceNatIpv6Prefixes": {
+          "target": "com.amazonaws.elasticloadbalancingv2#SourceNatIpv6Prefixes",
+          "traits": {
+            "smithy.api#documentation": "<p>[Network Load Balancers with UDP listeners] The IPv6 prefixes to use for source NAT.\n      For each subnet, specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or\n     <code>auto_assigned</code> to use an IPv6 prefix selected at random from the subnet CIDR\n      block.</p>"
+          }
         }
       },
       "traits": {
@@ -780,6 +829,112 @@
     },
     "com.amazonaws.elasticloadbalancingv2#CanonicalHostedZoneId": {
       "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityDecreaseRequestsLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "CapacityDecreaseRequestLimitExceeded",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>You've exceeded the daily capacity decrease limit for this reservation.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityReservationPendingException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "CapacityReservationPending",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>There is a pending capacity reservation.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityReservationStateEnum": {
+      "type": "enum",
+      "members": {
+        "PROVISIONED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "provisioned"
+          }
+        },
+        "PENDING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pending"
+          }
+        },
+        "REBALANCING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "rebalancing"
+          }
+        },
+        "FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "failed"
+          }
+        }
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityReservationStatus": {
+      "type": "structure",
+      "members": {
+        "Code": {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityReservationStateEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The status code.</p>"
+          }
+        },
+        "Reason": {
+          "target": "com.amazonaws.elasticloadbalancingv2#StateReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason code for the status.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The status of a capacity reservation.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityUnits": {
+      "type": "integer"
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityUnitsDouble": {
+      "type": "double"
+    },
+    "com.amazonaws.elasticloadbalancingv2#CapacityUnitsLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "CapacityUnitsLimitExceeded",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>You've exceeded the capacity units limit.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
     },
     "com.amazonaws.elasticloadbalancingv2#Certificate": {
       "type": "structure",
@@ -1032,19 +1187,19 @@
         "Protocol": {
           "target": "com.amazonaws.elasticloadbalancingv2#ProtocolEnum",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol for connections from clients to the load balancer. For Application Load\n      Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the\n      supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP\n      protocol if dual-stack mode is enabled. You cannot specify a protocol for a Gateway Load\n      Balancer.</p>"
+            "smithy.api#documentation": "<p>The protocol for connections from clients to the load balancer. For Application Load\n      Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the\n      supported protocols are TCP, TLS, UDP, and TCP_UDP. You can’t specify the UDP or TCP_UDP\n      protocol if dual-stack mode is enabled. You can't specify a protocol for a Gateway Load\n      Balancer.</p>"
           }
         },
         "Port": {
           "target": "com.amazonaws.elasticloadbalancingv2#Port",
           "traits": {
-            "smithy.api#documentation": "<p>The port on which the load balancer is listening. You cannot specify a port for a Gateway\n      Load Balancer.</p>"
+            "smithy.api#documentation": "<p>The port on which the load balancer is listening. You can't specify a port for a Gateway\n      Load Balancer.</p>"
           }
         },
         "SslPolicy": {
           "target": "com.amazonaws.elasticloadbalancingv2#SslPolicyName",
           "traits": {
-            "smithy.api#documentation": "<p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are\n      supported.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies\">Security policies</a> in the <i>Application Load Balancers Guide</i> and\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
+            "smithy.api#documentation": "<p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are\n      supported.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html\">Security policies</a> in the <i>Application Load Balancers Guide</i> and\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
           }
         },
         "Certificates": {
@@ -1064,7 +1219,7 @@
         "AlpnPolicy": {
           "target": "com.amazonaws.elasticloadbalancingv2#AlpnPolicyName",
           "traits": {
-            "smithy.api#documentation": "<p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You\n      can specify one policy name. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>HTTP1Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Optional</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Preferred</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>None</code>\n               </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies\">ALPN\n        policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
+            "smithy.api#documentation": "<p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You\n      can specify one policy name. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>HTTP1Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Optional</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Preferred</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>None</code>\n               </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies\">ALPN\n        policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
           }
         },
         "Tags": {
@@ -1241,13 +1396,13 @@
         "Subnets": {
           "target": "com.amazonaws.elasticloadbalancingv2#Subnets",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings, but not both. To specify an Elastic IP\n      address, specify subnet mappings instead of subnets.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers] You can specify subnets from one or more Availability\n      Zones.</p>\n         <p>[Gateway Load Balancers] You can specify subnets from one or more Availability\n      Zones.</p>"
+            "smithy.api#documentation": "<p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings, but not both. To specify an Elastic IP\n      address, specify subnet mappings instead of subnets.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more \n      Availability Zones.</p>"
           }
         },
         "SubnetMappings": {
           "target": "com.amazonaws.elasticloadbalancingv2#SubnetMappings",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings, but not both.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones. You cannot specify Elastic IP addresses for your subnets.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You\n      can specify one Elastic IP address per subnet if you need static IP addresses for your\n      internet-facing load balancer. For internal load balancers, you can specify one private IP\n      address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you\n      can specify one IPv6 address per subnet.</p>\n         <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You\n      cannot specify Elastic IP addresses for your subnets.</p>"
+            "smithy.api#documentation": "<p>The IDs of the subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings, but not both.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones. You can't specify Elastic IP addresses for your subnets.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You\n      can specify one Elastic IP address per subnet if you need static IP addresses for your\n      internet-facing load balancer. For internal load balancers, you can specify one private IP\n      address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you\n      can specify one IPv6 address per subnet.</p>\n         <p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You\n      can't specify Elastic IP addresses for your subnets.</p>"
           }
         },
         "SecurityGroups": {
@@ -1259,7 +1414,7 @@
         "Scheme": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerSchemeEnum",
           "traits": {
-            "smithy.api#documentation": "<p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an\n      Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes.\n      Therefore, Internet-facing load balancers can route requests from clients over the\n      internet.</p>\n         <p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an\n      internal load balancer is publicly resolvable to the private IP addresses of the nodes.\n      Therefore, internal load balancers can route requests only from clients with access to the VPC\n      for the load balancer.</p>\n         <p>The default is an Internet-facing load balancer.</p>\n         <p>You cannot specify a scheme for a Gateway Load Balancer.</p>"
+            "smithy.api#documentation": "<p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an\n      Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes.\n      Therefore, Internet-facing load balancers can route requests from clients over the\n      internet.</p>\n         <p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an\n      internal load balancer is publicly resolvable to the private IP addresses of the nodes.\n      Therefore, internal load balancers can route requests only from clients with access to the VPC\n      for the load balancer.</p>\n         <p>The default is an Internet-facing load balancer.</p>\n         <p>You can't specify a scheme for a Gateway Load Balancer.</p>"
           }
         },
         "Tags": {
@@ -1277,13 +1432,25 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p>\n         <p>[Application Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and \n      IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public \n      addresses, with private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> \n      (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> \n      for a load balancer with a UDP or TCP_UDP listener.</p>\n         <p>[Gateway Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> \n      (for IPv4 and IPv6 addresses).</p>"
+            "smithy.api#documentation": "<p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p>\n         <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses), \n      <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> \n      (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code> \n      (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>"
           }
         },
         "CustomerOwnedIpv4Pool": {
           "target": "com.amazonaws.elasticloadbalancingv2#CustomerOwnedIpv4Pool",
           "traits": {
             "smithy.api#documentation": "<p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP\n      pool).</p>"
+          }
+        },
+        "EnablePrefixForIpv6SourceNat": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnablePrefixForIpv6SourceNatEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix \n      from each subnet for source NAT. The IP address type must be <code>dualstack</code>. \n      The default value is <code>off</code>.</p>"
+          }
+        },
+        "IpamPools": {
+          "target": "com.amazonaws.elasticloadbalancingv2#IpamPools",
+          "traits": {
+            "smithy.api#documentation": "<p>[Application Load Balancers] The IPAM pools to use with the load balancer.</p>"
           }
         }
       },
@@ -1576,7 +1743,7 @@
         "HealthCheckEnabled": {
           "target": "com.amazonaws.elasticloadbalancingv2#HealthCheckEnabled",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,\n      health checks are disabled by default but can be enabled. If the target type is\n        <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always\n      enabled and cannot be disabled.</p>"
+            "smithy.api#documentation": "<p>Indicates whether health checks are enabled. If the target type is <code>lambda</code>,\n      health checks are disabled by default but can be enabled. If the target type is\n        <code>instance</code>, <code>ip</code>, or <code>alb</code>, health checks are always\n      enabled and can't be disabled.</p>"
           }
         },
         "HealthCheckPath": {
@@ -1630,7 +1797,7 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupIpAddressTypeEnum",
           "traits": {
-            "smithy.api#documentation": "<p>The type of IP address used for this target group. The possible values are\n        <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,\n      the IP address type defaults to <code>ipv4</code>.</p>"
+            "smithy.api#documentation": "<p>The IP address type. The default value is <code>ipv4</code>.</p>"
           }
         }
       },
@@ -1681,7 +1848,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a trust store.</p>"
+        "smithy.api#documentation": "<p>Creates a trust store.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html\">Mutual TLS for Application Load Balancers</a>.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#CreateTrustStoreInput": {
@@ -1691,7 +1858,7 @@
           "target": "com.amazonaws.elasticloadbalancingv2#TrustStoreName",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The name of the trust store.</p>\n         <p>This name must be unique per region and cannot be changed after creation.</p>",
+            "smithy.api#documentation": "<p>The name of the trust store.</p>\n         <p>This name must be unique per region and can't be changed after creation.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1758,8 +1925,28 @@
     "com.amazonaws.elasticloadbalancingv2#DNSName": {
       "type": "string"
     },
+    "com.amazonaws.elasticloadbalancingv2#DecreaseRequestsRemaining": {
+      "type": "integer"
+    },
     "com.amazonaws.elasticloadbalancingv2#Default": {
       "type": "boolean"
+    },
+    "com.amazonaws.elasticloadbalancingv2#DeleteAssociationSameAccountException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "DeleteAssociationSameAccount",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The specified association can't be within the same account.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
     },
     "com.amazonaws.elasticloadbalancingv2#DeleteListener": {
       "type": "operation",
@@ -1920,6 +2107,70 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#DeleteSharedTrustStoreAssociation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#DeleteSharedTrustStoreAssociationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#DeleteSharedTrustStoreAssociationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#DeleteAssociationSameAccountException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#TrustStoreNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Deletes a shared trust store association.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "Delete a shared trust store association",
+            "documentation": "This example deletes the association between the specified trust store and the specified load balancer.",
+            "input": {
+              "TrustStoreArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a063",
+              "ResourceArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:loadbalancer/app/my-load-balancer/80233fa81d678c2c"
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DeleteSharedTrustStoreAssociationInput": {
+      "type": "structure",
+      "members": {
+        "TrustStoreArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#TrustStoreArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the trust store.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ResourceArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DeleteSharedTrustStoreAssociationOutput": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#DeleteTargetGroup": {
       "type": "operation",
       "input": {
@@ -2029,7 +2280,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deregisters the specified targets from the specified target group. After the targets are\n      deregistered, they no longer receive traffic from the load balancer.</p>\n         <p>The load balancer stops sending requests to targets that are deregistering, but uses \n      connection draining to ensure that in-flight traffic completes on the existing connections. \n      This deregistration delay is configured by default but can be updated for each target group.</p>\n         <p>For more information, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html#deregistration-delay\">\n          Deregistration delay</a> in the <i>Application Load Balancers User Guide</i>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html#deregistration-delay\">\n          Deregistration delay</a> in the <i>Network Load Balancers User Guide</i>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-groups.html#deregistration-delay\">\n          Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i>\n               </p>\n            </li>\n         </ul>\n         <p>Note: If the specified target does not exist, the action returns successfully.</p>",
+        "smithy.api#documentation": "<p>Deregisters the specified targets from the specified target group. After the targets are\n      deregistered, they no longer receive traffic from the load balancer.</p>\n         <p>The load balancer stops sending requests to targets that are deregistering, but uses \n      connection draining to ensure that in-flight traffic completes on the existing connections. \n      This deregistration delay is configured by default but can be updated for each target group.</p>\n         <p>For more information, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/edit-target-group-attributes.html#deregistration-delay\">\n          Deregistration delay</a> in the <i>Application Load Balancers User Guide</i>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/edit-target-group-attributes.html#deregistration-delay\">\n          Deregistration delay</a> in the <i>Network Load Balancers User Guide</i>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/edit-target-group-attributes.html#deregistration-delay\">\n          Deregistration delay</a> in the <i>Gateway Load Balancers User Guide</i>\n               </p>\n            </li>\n         </ul>\n         <p>Note: If the specified target does not exist, the action returns successfully.</p>",
         "smithy.api#examples": [
           {
             "title": "To deregister a target from a target group",
@@ -2086,7 +2337,12 @@
         "target": "com.amazonaws.elasticloadbalancingv2#DescribeAccountLimitsOutput"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the current Elastic Load Balancing resource limits for your Amazon Web Services\n      account.</p>\n         <p>For more information, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n            Application Load Balancers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html\">Quotas for your\n            Network Load Balancers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html\">Quotas for your Gateway\n            Load Balancers</a>\n               </p>\n            </li>\n         </ul>"
+        "smithy.api#documentation": "<p>Describes the current Elastic Load Balancing resource limits for your Amazon Web Services\n      account.</p>\n         <p>For more information, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n            Application Load Balancers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html\">Quotas for your\n            Network Load Balancers</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/quotas-limits.html\">Quotas for your Gateway\n            Load Balancers</a>\n               </p>\n            </li>\n         </ul>",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "items": "Limits"
+        }
       }
     },
     "com.amazonaws.elasticloadbalancingv2#DescribeAccountLimitsInput": {
@@ -2129,6 +2385,128 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the capacity reservation status for the specified load balancer.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservationInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservationOutput": {
+      "type": "structure",
+      "members": {
+        "LastModifiedTime": {
+          "target": "com.amazonaws.elasticloadbalancingv2#LastModifiedTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The last time the capacity reservation was modified.</p>"
+          }
+        },
+        "DecreaseRequestsRemaining": {
+          "target": "com.amazonaws.elasticloadbalancingv2#DecreaseRequestsRemaining",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of daily capacity decreases remaining.</p>"
+          }
+        },
+        "MinimumLoadBalancerCapacity": {
+          "target": "com.amazonaws.elasticloadbalancingv2#MinimumLoadBalancerCapacity",
+          "traits": {
+            "smithy.api#documentation": "<p>The requested minimum capacity reservation for the load balancer</p>"
+          }
+        },
+        "CapacityReservationState": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ZonalCapacityReservationStates",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the capacity reservation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DescribeListenerAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#DescribeListenerAttributesInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#DescribeListenerAttributesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the attributes for the specified listener.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "Describe listener attributes",
+            "documentation": "This example describes the attributes of the specified listener.",
+            "input": {
+              "ListenerArn": "aws:elasticloadbalancing:us-east-1:123456789012:listener/net/my-listener/73e2d6bc24d8a067/d5dc06411fa5bcea"
+            },
+            "output": {}
+          }
+        ]
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DescribeListenerAttributesInput": {
+      "type": "structure",
+      "members": {
+        "ListenerArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#DescribeListenerAttributesOutput": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the listener attributes.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#DescribeListenerCertificates": {
       "type": "operation",
       "input": {
@@ -2143,7 +2521,12 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the default certificate and the certificate list for the specified HTTPS or TLS\n      listener.</p>\n         <p>If the default certificate is also in the certificate list, it appears twice in the\n      results (once with <code>IsDefault</code> set to true and once with <code>IsDefault</code> set\n      to false).</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#https-listener-certificates\">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificate\">Server certificates</a> in the <i>Network Load Balancers\n      Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Describes the default certificate and the certificate list for the specified HTTPS or TLS\n      listener.</p>\n         <p>If the default certificate is also in the certificate list, it appears twice in the\n      results (once with <code>IsDefault</code> set to true and once with <code>IsDefault</code> set\n      to false).</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/https-listener-certificates.html\">SSL certificates</a> in the <i>Application Load Balancers Guide</i> or\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/tls-listener-certificates.html\">Server certificates</a> in the <i>Network Load Balancers\n      Guide</i>.</p>",
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "items": "Certificates"
+        }
       }
     },
     "com.amazonaws.elasticloadbalancingv2#DescribeListenerCertificatesInput": {
@@ -2618,7 +3001,12 @@
               ]
             }
           }
-        ]
+        ],
+        "smithy.api#paginated": {
+          "inputToken": "Marker",
+          "outputToken": "NextMarker",
+          "items": "Rules"
+        }
       }
     },
     "com.amazonaws.elasticloadbalancingv2#DescribeRulesInput": {
@@ -2687,7 +3075,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified policies or all policies used for SSL negotiation.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies\">Security policies</a> in the <i>Application Load Balancers Guide</i> or\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Describes the specified policies or all policies used for SSL negotiation.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html\">Security policies</a> in the <i>Application Load Balancers Guide</i> and\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>",
         "smithy.api#examples": [
           {
             "title": "To describe a policy used for SSL negotiation",
@@ -3267,7 +3655,7 @@
         "Include": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListOfDescribeTargetHealthIncludeOptions",
           "traits": {
-            "smithy.api#documentation": "<p>Used to inclue anomaly detection information.</p>"
+            "smithy.api#documentation": "<p>Used to include anomaly detection information.</p>"
           }
         }
       },
@@ -3324,6 +3712,7 @@
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "NextMarker",
+          "items": "TrustStoreAssociations",
           "pageSize": "PageSize"
         }
       }
@@ -3431,10 +3820,11 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the revocation files in use by the specified \n      trust store arn, or revocation ID.</p>",
+        "smithy.api#documentation": "<p>Describes the revocation files in use by the specified trust store or revocation\n      files.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "NextMarker",
+          "items": "TrustStoreRevocations",
           "pageSize": "PageSize"
         }
       }
@@ -3507,10 +3897,11 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes all trust stores for a given account \n      by trust store arn’s or name.</p>",
+        "smithy.api#documentation": "<p>Describes all trust stores for the specified account.</p>",
         "smithy.api#paginated": {
           "inputToken": "Marker",
           "outputToken": "NextMarker",
+          "items": "TrustStores",
           "pageSize": "PageSize"
         }
       }
@@ -3693,6 +4084,9 @@
           "target": "com.amazonaws.elasticloadbalancingv2#DeleteRule"
         },
         {
+          "target": "com.amazonaws.elasticloadbalancingv2#DeleteSharedTrustStoreAssociation"
+        },
+        {
           "target": "com.amazonaws.elasticloadbalancingv2#DeleteTargetGroup"
         },
         {
@@ -3703,6 +4097,12 @@
         },
         {
           "target": "com.amazonaws.elasticloadbalancingv2#DescribeAccountLimits"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#DescribeCapacityReservation"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#DescribeListenerAttributes"
         },
         {
           "target": "com.amazonaws.elasticloadbalancingv2#DescribeListenerCertificates"
@@ -3744,13 +4144,25 @@
           "target": "com.amazonaws.elasticloadbalancingv2#DescribeTrustStores"
         },
         {
+          "target": "com.amazonaws.elasticloadbalancingv2#GetResourcePolicy"
+        },
+        {
           "target": "com.amazonaws.elasticloadbalancingv2#GetTrustStoreCaCertificatesBundle"
         },
         {
           "target": "com.amazonaws.elasticloadbalancingv2#GetTrustStoreRevocationContent"
         },
         {
+          "target": "com.amazonaws.elasticloadbalancingv2#ModifyCapacityReservation"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#ModifyIpPools"
+        },
+        {
           "target": "com.amazonaws.elasticloadbalancingv2#ModifyListener"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#ModifyListenerAttributes"
         },
         {
           "target": "com.amazonaws.elasticloadbalancingv2#ModifyLoadBalancerAttributes"
@@ -4829,6 +5241,23 @@
         }
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#EnablePrefixForIpv6SourceNatEnum": {
+      "type": "enum",
+      "members": {
+        "ON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "on"
+          }
+        },
+        "OFF": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "off"
+          }
+        }
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic": {
       "type": "string"
     },
@@ -4922,6 +5351,62 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a forward action.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#GetResourcePolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#GetResourcePolicyInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#GetResourcePolicyOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves the resource policy for a specified resource.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "Retrieve a resource policy",
+            "documentation": "This example retrieves the resource policy for the specified trust store.",
+            "input": {
+              "ResourceArn": "arn:aws:elasticloadbalancing:us-east-1:123456789012:truststore/my-trust-store/73e2d6bc24d8a067"
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#GetResourcePolicyInput": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ResourceArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#GetResourcePolicyOutput": {
+      "type": "structure",
+      "members": {
+        "Policy": {
+          "target": "com.amazonaws.elasticloadbalancingv2#Policy",
+          "traits": {
+            "smithy.api#documentation": "<p>The content of the resource policy.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.elasticloadbalancingv2#GetTrustStoreCaCertificatesBundle": {
@@ -5088,7 +5573,7 @@
         "Values": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListOfString",
           "traits": {
-            "smithy.api#documentation": "<p>The host names. The maximum size of each name is 128 characters. The comparison is\n      case insensitive. The following wildcard characters are supported: * (matches 0 or more\n      characters) and ? (matches exactly 1 character).</p>\n         <p>If you specify multiple strings, the condition is satisfied if one of the strings matches\n      the host name.</p>"
+            "smithy.api#documentation": "<p>The host names. The maximum size of each name is 128 characters. The comparison is\n      case insensitive. The following wildcard characters are supported: * (matches 0 or more\n      characters) and ? (matches exactly 1 character). You must include at least one \".\" \n      character. You can include only alphabetical characters after the final \".\" character.</p>\n         <p>If you specify multiple strings, the condition is satisfied if one of the strings matches\n      the host name.</p>"
           }
         }
       },
@@ -5105,7 +5590,7 @@
         "HttpHeaderName": {
           "target": "com.amazonaws.elasticloadbalancingv2#HttpHeaderConditionName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the HTTP header field. The maximum size is 40 characters. The header name is\n      case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not\n      supported.</p>\n         <p>You can't use an HTTP header condition to specify the host header. Use <a>HostHeaderConditionConfig</a> to specify a host header condition.</p>"
+            "smithy.api#documentation": "<p>The name of the HTTP header field. The maximum size is 40 characters. The header name is\n      case insensitive. The allowed characters are specified by RFC 7230. Wildcards are not\n      supported.</p>\n         <p>You can't use an HTTP header condition to specify the host header. Instead, use a <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#host-conditions\">host condition</a>.</p>"
           }
         },
         "Values": {
@@ -5157,6 +5642,23 @@
         "smithy.api#documentation": "<p>The specified configuration is not valid with this protocol.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#InsufficientCapacityException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "InsufficientCapacity",
+          "httpResponseCode": 500
+        },
+        "smithy.api#documentation": "<p>There is insufficient capacity to reserve.</p>",
+        "smithy.api#error": "server",
+        "smithy.api#httpError": 500
       }
     },
     "com.amazonaws.elasticloadbalancingv2#InvalidCaCertificatesBundleException": {
@@ -5321,8 +5823,35 @@
         }
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#IpamPoolId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1000
+        },
+        "smithy.api#pattern": "^(ipam-pool-)[a-zA-Z0-9]+$"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#IpamPools": {
+      "type": "structure",
+      "members": {
+        "Ipv4IpamPoolId": {
+          "target": "com.amazonaws.elasticloadbalancingv2#IpamPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The ID of the IPv4 IPAM pool.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>An IPAM pool is a collection of IP address CIDRs. \n      IPAM pools enable you to organize your IP addresses \n      according to your routing and security needs.</p>"
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#IsDefault": {
       "type": "boolean"
+    },
+    "com.amazonaws.elasticloadbalancingv2#LastModifiedTime": {
+      "type": "timestamp"
     },
     "com.amazonaws.elasticloadbalancingv2#Limit": {
       "type": "structure",
@@ -5433,6 +5962,45 @@
         "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn"
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#ListenerAttribute": {
+      "type": "structure",
+      "members": {
+        "Key": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerAttributeKey",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the attribute.</p>\n         <p>The following attribute is supported by Network Load Balancers, and Gateway Load Balancers.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>tcp.idle_timeout.seconds</code> - The tcp idle timeout value, in seconds. The \n          valid range is 60-6000 seconds. The default is 350 seconds.</p>\n            </li>\n         </ul>\n         <p>The following attributes are only supported by Application Load Balancers.</p>\n         <ul>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_mtls_clientcert_serial_number.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Mtls-Clientcert-Serial-Number</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_mtls_clientcert_issuer.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Mtls-Clientcert-Issuer</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_mtls_clientcert_subject.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Mtls-Clientcert-Subject</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_mtls_clientcert_validity.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Mtls-Clientcert-Validity</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_mtls_clientcert_leaf.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Mtls-Clientcert-Leaf</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_mtls_clientcert.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Mtls-Clientcert</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_tls_version.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Tls-Version</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.request.x_amzn_tls_cipher_suite.header_name</code> - \n          Enables you to modify the header name of the  \n          <b>X-Amzn-Tls-Cipher-Suite</b> HTTP request header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.server.enabled</code> - \n          Enables you to allow or remove the HTTP response server header.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.strict_transport_security.header_value</code> - \n          Informs browsers that the site should only be accessed using HTTPS, and that \n          any future attempts to access it using HTTP should automatically be converted \n          to HTTPS.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.access_control_allow_origin.header_value</code> - \n          Specifies which origins are allowed to access the server.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.access_control_allow_methods.header_value</code> - \n          Returns which HTTP methods are allowed when accessing the server from a different \n          origin.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.access_control_allow_headers.header_value</code> - \n          Specifies which headers can be used during the request.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.access_control_allow_credentials.header_value</code> - \n          Indicates whether the browser should include credentials such as cookies or \n          authentication when making requests.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.access_control_expose_headers.header_value</code> - \n          Returns which headers the browser can expose to the requesting client.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.access_control_max_age.header_value</code> - \n          Specifies how long the results of a preflight request can be cached, in seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.content_security_policy.header_value</code> - \n          Specifies restrictions enforced by the browser to help minimize the risk of certain \n          types of security threats.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.x_content_type_options.header_value</code> - \n          Indicates whether the MIME types advertised in the <b>Content-Type</b> \n          headers should be followed and not be changed.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.response.x_frame_options.header_value</code> - Indicates \n          whether the browser is allowed to render a page in a <b>frame</b>, \n          <b>iframe</b>, <b>embed</b> or \n          <b>object</b>.</p>\n            </li>\n         </ul>"
+          }
+        },
+        "Value": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerAttributeValue",
+          "traits": {
+            "smithy.api#documentation": "<p>The value of the attribute.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about a listener attribute.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ListenerAttributeKey": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9._]+$"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ListenerAttributeValue": {
+      "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#ListenerAttributes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ListenerAttribute"
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException": {
       "type": "structure",
       "members": {
@@ -5528,7 +6096,7 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>[Application Load Balancers] The type of IP addresses used for public or private \n      connections by the subnets attached to your load balancer. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and \n      IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public \n      addresses, with private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] The type of IP addresses \n      used for public or private connections by the subnets attached to your load \n      balancer. The possible values are <code>ipv4</code> (for only IPv4 addresses) \n      and <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>"
+            "smithy.api#documentation": "<p>The type of IP addresses used for public or private connections by the subnets \n      attached to your load balancer.</p>\n         <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses), \n      <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> \n      (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code> \n      (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>"
           }
         },
         "CustomerOwnedIpv4Pool": {
@@ -5541,6 +6109,18 @@
           "target": "com.amazonaws.elasticloadbalancingv2#EnforceSecurityGroupInboundRulesOnPrivateLinkTraffic",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether to evaluate inbound security group rules for traffic sent to a \n      Network Load Balancer through Amazon Web Services PrivateLink.</p>"
+          }
+        },
+        "EnablePrefixForIpv6SourceNat": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnablePrefixForIpv6SourceNatEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix \n      from each subnet for source NAT. The IP address type must be <code>dualstack</code>.\n      The default value is <code>off</code>.</p>"
+          }
+        },
+        "IpamPools": {
+          "target": "com.amazonaws.elasticloadbalancingv2#IpamPools",
+          "traits": {
+            "smithy.api#documentation": "<p>[Application Load Balancers] The IPAM pool in use by the load balancer, if configured.</p>"
           }
         }
       },
@@ -5601,7 +6181,7 @@
         "Key": {
           "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerAttributeKey",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the attribute.</p>\n         <p>The following attributes are supported by all load balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deletion_protection.enabled</code> - Indicates whether deletion protection is\n          enabled. The value is <code>true</code> or <code>false</code>. The default is\n            <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load\n          balancing is enabled. The possible values are <code>true</code> and <code>false</code>.\n          The default for Network Load Balancers and Gateway Load Balancers is <code>false</code>. \n          The default for Application Load Balancers is <code>true</code>, and cannot be changed.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported by both Application Load Balancers and Network Load\n      Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>access_logs.s3.enabled</code> - Indicates whether access logs are enabled. The\n          value is <code>true</code> or <code>false</code>. The default is\n          <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>access_logs.s3.bucket</code> - The name of the S3 bucket for the access logs.\n          This attribute is required if access logs are enabled. The bucket must exist in the same\n          region as the load balancer and have a bucket policy that grants Elastic Load Balancing\n          permissions to write to the bucket.</p>\n            </li>\n            <li>\n               <p>\n                  <code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the\n          access logs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ipv6.deny_all_igw_traffic</code> - Blocks internet gateway (IGW) access to the\n          load balancer. It is set to <code>false</code> for internet-facing load balancers and\n            <code>true</code> for internal load balancers, preventing unintended access to your\n          internal load balancer through an internet gateway.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported by only Application Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The\n          valid range is 1-4000 seconds. The default is 60 seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>client_keep_alive.seconds</code> - The client keep alive value, in seconds. The \n          valid range is 60-604800 seconds. The default is 3600 seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>connection_logs.s3.enabled</code> - Indicates whether connection logs are enabled. The\n          value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>connection_logs.s3.bucket</code> - The name of the S3 bucket for the connection logs.\n          This attribute is required if connection logs are enabled. The bucket must exist in the same\n          region as the load balancer and have a bucket policy that grants Elastic Load Balancing\n          permissions to write to the bucket.</p>\n            </li>\n            <li>\n               <p>\n                  <code>connection_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the\n          connection logs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.desync_mitigation_mode</code> - Determines how the load balancer\n          handles requests that might pose a security risk to your application. The possible values\n          are <code>monitor</code>, <code>defensive</code>, and <code>strictest</code>. The default\n          is <code>defensive</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.drop_invalid_header_fields.enabled</code> - Indicates whether HTTP\n          headers with invalid header fields are removed by the load balancer (<code>true</code>) or\n          routed to targets (<code>false</code>). The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.preserve_host_header.enabled</code> - Indicates whether the\n          Application Load Balancer should preserve the <code>Host</code> header in the HTTP request\n          and send it to the target without any change. The possible values are <code>true</code>\n          and <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates\n          whether the two headers (<code>x-amzn-tls-version</code> and\n            <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated\n          TLS version and cipher suite, are added to the client request before sending it to the\n          target. The <code>x-amzn-tls-version</code> header has information about the TLS protocol\n          version negotiated with the client, and the <code>x-amzn-tls-cipher-suite</code> header\n          has information about the cipher suite negotiated with the client. Both headers are in\n          OpenSSL format. The possible values for the attribute are <code>true</code> and\n            <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.xff_client_port.enabled</code> - Indicates whether the\n            <code>X-Forwarded-For</code> header should preserve the source port that the client used\n          to connect to the load balancer. The possible values are <code>true</code> and\n            <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.xff_header_processing.mode</code> - Enables you to modify,\n          preserve, or remove the <code>X-Forwarded-For</code> header in the HTTP request before the\n          Application Load Balancer sends the request to the target. The possible values are\n            <code>append</code>, <code>preserve</code>, and <code>remove</code>. The default is\n            <code>append</code>.</p>\n               <ul>\n                  <li>\n                     <p>If the value is <code>append</code>, the Application Load Balancer adds the client\n              IP address (of the last hop) to the <code>X-Forwarded-For</code> header in the HTTP\n              request before it sends it to targets.</p>\n                  </li>\n                  <li>\n                     <p>If the value is <code>preserve</code> the Application Load Balancer preserves the\n                <code>X-Forwarded-For</code> header in the HTTP request, and sends it to targets\n              without any change.</p>\n                  </li>\n                  <li>\n                     <p>If the value is <code>remove</code>, the Application Load Balancer removes the\n                <code>X-Forwarded-For</code> header in the HTTP request before it sends it to\n              targets.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The possible\n          values are <code>true</code> and <code>false</code>. The default is <code>true</code>.\n          Elastic Load Balancing requires that message header names contain only alphanumeric\n          characters and hyphens.</p>\n            </li>\n            <li>\n               <p>\n                  <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load\n          balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are <code>true</code> and <code>false</code>. The\n          default is <code>false</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported by only Network Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>dns_record.client_routing_policy</code> - Indicates how traffic is \n          distributed among the load balancer Availability Zones. The possible values are \n          <code>availability_zone_affinity</code> with 100 percent zonal affinity, \n          <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity, \n          and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name of the attribute.</p>\n         <p>The following attributes are supported by all load balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deletion_protection.enabled</code> - Indicates whether deletion protection is\n          enabled. The value is <code>true</code> or <code>false</code>. The default is\n            <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load\n          balancing is enabled. The possible values are <code>true</code> and <code>false</code>.\n          The default for Network Load Balancers and Gateway Load Balancers is <code>false</code>. \n          The default for Application Load Balancers is <code>true</code>, and can't be changed.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported by both Application Load Balancers and Network Load\n      Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>access_logs.s3.enabled</code> - Indicates whether access logs are enabled. The\n          value is <code>true</code> or <code>false</code>. The default is\n          <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>access_logs.s3.bucket</code> - The name of the S3 bucket for the access logs.\n          This attribute is required if access logs are enabled. The bucket must exist in the same\n          region as the load balancer and have a bucket policy that grants Elastic Load Balancing\n          permissions to write to the bucket.</p>\n            </li>\n            <li>\n               <p>\n                  <code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the\n          access logs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>ipv6.deny_all_igw_traffic</code> - Blocks internet gateway (IGW) access to the\n          load balancer. It is set to <code>false</code> for internet-facing load balancers and\n            <code>true</code> for internal load balancers, preventing unintended access to your\n          internal load balancer through an internet gateway.</p>\n            </li>\n            <li>\n               <p>\n                  <code>zonal_shift.config.enabled</code> - Indicates whether zonal shift is \n          enabled. The possible values are <code>true</code> and <code>false</code>. The \n          default is <code>false</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported by only Application Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The\n          valid range is 1-4000 seconds. The default is 60 seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>client_keep_alive.seconds</code> - The client keep alive value, in seconds. The \n          valid range is 60-604800 seconds. The default is 3600 seconds.</p>\n            </li>\n            <li>\n               <p>\n                  <code>connection_logs.s3.enabled</code> - Indicates whether connection logs are enabled. The\n          value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>connection_logs.s3.bucket</code> - The name of the S3 bucket for the connection logs.\n          This attribute is required if connection logs are enabled. The bucket must exist in the same\n          region as the load balancer and have a bucket policy that grants Elastic Load Balancing\n          permissions to write to the bucket.</p>\n            </li>\n            <li>\n               <p>\n                  <code>connection_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the\n          connection logs.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.desync_mitigation_mode</code> - Determines how the load balancer\n          handles requests that might pose a security risk to your application. The possible values\n          are <code>monitor</code>, <code>defensive</code>, and <code>strictest</code>. The default\n          is <code>defensive</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.drop_invalid_header_fields.enabled</code> - Indicates whether HTTP\n          headers with invalid header fields are removed by the load balancer (<code>true</code>) or\n          routed to targets (<code>false</code>). The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.preserve_host_header.enabled</code> - Indicates whether the\n          Application Load Balancer should preserve the <code>Host</code> header in the HTTP request\n          and send it to the target without any change. The possible values are <code>true</code>\n          and <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.x_amzn_tls_version_and_cipher_suite.enabled</code> - Indicates\n          whether the two headers (<code>x-amzn-tls-version</code> and\n            <code>x-amzn-tls-cipher-suite</code>), which contain information about the negotiated\n          TLS version and cipher suite, are added to the client request before sending it to the\n          target. The <code>x-amzn-tls-version</code> header has information about the TLS protocol\n          version negotiated with the client, and the <code>x-amzn-tls-cipher-suite</code> header\n          has information about the cipher suite negotiated with the client. Both headers are in\n          OpenSSL format. The possible values for the attribute are <code>true</code> and\n            <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.xff_client_port.enabled</code> - Indicates whether the\n            <code>X-Forwarded-For</code> header should preserve the source port that the client used\n          to connect to the load balancer. The possible values are <code>true</code> and\n            <code>false</code>. The default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http.xff_header_processing.mode</code> - Enables you to modify,\n          preserve, or remove the <code>X-Forwarded-For</code> header in the HTTP request before the\n          Application Load Balancer sends the request to the target. The possible values are\n            <code>append</code>, <code>preserve</code>, and <code>remove</code>. The default is\n            <code>append</code>.</p>\n               <ul>\n                  <li>\n                     <p>If the value is <code>append</code>, the Application Load Balancer adds the client\n              IP address (of the last hop) to the <code>X-Forwarded-For</code> header in the HTTP\n              request before it sends it to targets.</p>\n                  </li>\n                  <li>\n                     <p>If the value is <code>preserve</code> the Application Load Balancer preserves the\n                <code>X-Forwarded-For</code> header in the HTTP request, and sends it to targets\n              without any change.</p>\n                  </li>\n                  <li>\n                     <p>If the value is <code>remove</code>, the Application Load Balancer removes the\n                <code>X-Forwarded-For</code> header in the HTTP request before it sends it to\n              targets.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The possible\n          values are <code>true</code> and <code>false</code>. The default is <code>true</code>.\n          Elastic Load Balancing requires that message header names contain only alphanumeric\n          characters and hyphens.</p>\n            </li>\n            <li>\n               <p>\n                  <code>waf.fail_open.enabled</code> - Indicates whether to allow a WAF-enabled load\n          balancer to route requests to targets if it is unable to forward the request to Amazon Web Services WAF. The possible values are <code>true</code> and <code>false</code>. The\n          default is <code>false</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported by only Network Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>dns_record.client_routing_policy</code> - Indicates how traffic is \n          distributed among the load balancer Availability Zones. The possible values are \n          <code>availability_zone_affinity</code> with 100 percent zonal affinity, \n          <code>partial_availability_zone_affinity</code> with 85 percent zonal affinity, \n          and <code>any_availability_zone</code> with 0 percent zonal affinity.</p>\n            </li>\n         </ul>"
           }
         },
         "Value": {
@@ -5796,6 +6376,20 @@
     "com.amazonaws.elasticloadbalancingv2#Max": {
       "type": "string"
     },
+    "com.amazonaws.elasticloadbalancingv2#MinimumLoadBalancerCapacity": {
+      "type": "structure",
+      "members": {
+        "CapacityUnits": {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityUnits",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of capacity units.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The minimum capacity for a load balancer.</p>"
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#MitigationInEffectEnum": {
       "type": "enum",
       "members": {
@@ -5815,6 +6409,163 @@
     },
     "com.amazonaws.elasticloadbalancingv2#Mode": {
       "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyCapacityReservation": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ModifyCapacityReservationInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ModifyCapacityReservationOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityDecreaseRequestsLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityReservationPendingException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityUnitsLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#InsufficientCapacityException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#OperationNotPermittedException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#PriorRequestNotCompleteException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the capacity reservation of the specified load balancer.</p>\n         <p>When modifying capacity reservation, you must include at least one <code>MinimumLoadBalancerCapacity</code> \n      or <code>ResetCapacityReservation</code>.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyCapacityReservationInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MinimumLoadBalancerCapacity": {
+          "target": "com.amazonaws.elasticloadbalancingv2#MinimumLoadBalancerCapacity",
+          "traits": {
+            "smithy.api#documentation": "<p>The minimum load balancer capacity reserved.</p>"
+          }
+        },
+        "ResetCapacityReservation": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ResetCapacityReservation",
+          "traits": {
+            "smithy.api#documentation": "<p>Resets the capacity reservation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyCapacityReservationOutput": {
+      "type": "structure",
+      "members": {
+        "LastModifiedTime": {
+          "target": "com.amazonaws.elasticloadbalancingv2#LastModifiedTime",
+          "traits": {
+            "smithy.api#documentation": "<p>The last time the capacity reservation was modified.</p>"
+          }
+        },
+        "DecreaseRequestsRemaining": {
+          "target": "com.amazonaws.elasticloadbalancingv2#DecreaseRequestsRemaining",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of daily capacity decreases remaining.</p>"
+          }
+        },
+        "MinimumLoadBalancerCapacity": {
+          "target": "com.amazonaws.elasticloadbalancingv2#MinimumLoadBalancerCapacity",
+          "traits": {
+            "smithy.api#documentation": "<p>The requested minimum capacity reservation for the load balancer</p>"
+          }
+        },
+        "CapacityReservationState": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ZonalCapacityReservationStates",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the capacity reservation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyIpPools": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ModifyIpPoolsInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ModifyIpPoolsOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>[Application Load Balancers] Modify the IP pool associated to a load balancer.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyIpPoolsInput": {
+      "type": "structure",
+      "members": {
+        "LoadBalancerArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#LoadBalancerArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the load balancer.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IpamPools": {
+          "target": "com.amazonaws.elasticloadbalancingv2#IpamPools",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPAM pools to be modified.</p>"
+          }
+        },
+        "RemoveIpamPools": {
+          "target": "com.amazonaws.elasticloadbalancingv2#RemoveIpamPools",
+          "traits": {
+            "smithy.api#documentation": "<p>Remove the IP pools in use by the load balancer.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyIpPoolsOutput": {
+      "type": "structure",
+      "members": {
+        "IpamPools": {
+          "target": "com.amazonaws.elasticloadbalancingv2#IpamPools",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPAM pool ID.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
     },
     "com.amazonaws.elasticloadbalancingv2#ModifyListener": {
       "type": "operation",
@@ -5952,6 +6703,64 @@
         ]
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#ModifyListenerAttributes": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ModifyListenerAttributesInput"
+      },
+      "output": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ModifyListenerAttributesOutput"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException"
+        },
+        {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the specified attributes of the specified listener.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyListenerAttributesInput": {
+      "type": "structure",
+      "members": {
+        "ListenerArn": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the listener.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Attributes": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerAttributes",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The listener attributes.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ModifyListenerAttributesOutput": {
+      "type": "structure",
+      "members": {
+        "Attributes": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ListenerAttributes",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the listener attributes.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#ModifyListenerInput": {
       "type": "structure",
       "members": {
@@ -5966,19 +6775,19 @@
         "Port": {
           "target": "com.amazonaws.elasticloadbalancingv2#Port",
           "traits": {
-            "smithy.api#documentation": "<p>The port for connections from clients to the load balancer. You cannot specify a port for\n      a Gateway Load Balancer.</p>"
+            "smithy.api#documentation": "<p>The port for connections from clients to the load balancer. You can't specify a port for\n      a Gateway Load Balancer.</p>"
           }
         },
         "Protocol": {
           "target": "com.amazonaws.elasticloadbalancingv2#ProtocolEnum",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol for connections from clients to the load balancer. Application Load Balancers\n      support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and\n      TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is\n      enabled. You cannot specify a protocol for a Gateway Load Balancer.</p>"
+            "smithy.api#documentation": "<p>The protocol for connections from clients to the load balancer. Application Load Balancers\n      support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and\n      TCP_UDP protocols. You can’t change the protocol to UDP or TCP_UDP if dual-stack mode is\n      enabled. You can't specify a protocol for a Gateway Load Balancer.</p>"
           }
         },
         "SslPolicy": {
           "target": "com.amazonaws.elasticloadbalancingv2#SslPolicyName",
           "traits": {
-            "smithy.api#documentation": "<p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are\n      supported.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies\">Security policies</a> in the <i>Application Load Balancers Guide</i> or\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
+            "smithy.api#documentation": "<p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are\n      supported.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/describe-ssl-policies.html\">Security policies</a> in the <i>Application Load Balancers Guide</i> or\n        <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/describe-ssl-policies.html\">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
           }
         },
         "Certificates": {
@@ -5996,7 +6805,7 @@
         "AlpnPolicy": {
           "target": "com.amazonaws.elasticloadbalancingv2#AlpnPolicyName",
           "traits": {
-            "smithy.api#documentation": "<p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You\n      can specify one policy name. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>HTTP1Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Optional</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Preferred</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>None</code>\n               </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies\">ALPN\n        policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
+            "smithy.api#documentation": "<p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You\n      can specify one policy name. The following are the possible values:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>HTTP1Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Only</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Optional</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>HTTP2Preferred</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <code>None</code>\n               </p>\n            </li>\n         </ul>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html#alpn-policies\">ALPN\n        policies</a> in the <i>Network Load Balancers Guide</i>.</p>"
           }
         },
         "MutualAuthentication": {
@@ -6452,7 +7261,7 @@
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupAttributes",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The attributes.</p>",
+            "smithy.api#documentation": "<p>The target group attributes.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6467,7 +7276,7 @@
         "Attributes": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupAttributes",
           "traits": {
-            "smithy.api#documentation": "<p>Information about the attributes.</p>"
+            "smithy.api#documentation": "<p>Information about the target group attributes.</p>"
           }
         }
       },
@@ -6579,7 +7388,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Update the ca certificate bundle for a given trust store.</p>"
+        "smithy.api#documentation": "<p>Update the ca certificate bundle for the specified trust store.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#ModifyTrustStoreInput": {
@@ -6654,6 +7463,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether expired client certificates are ignored.</p>"
           }
+        },
+        "TrustStoreAssociationStatus": {
+          "target": "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates a shared trust stores association status.</p>"
+          }
+        },
+        "AdvertiseTrustStoreCaNames": {
+          "target": "com.amazonaws.elasticloadbalancingv2#AdvertiseTrustStoreCaNamesEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether trust store CA certificate names are advertised.</p>"
+          }
         }
       },
       "traits": {
@@ -6713,12 +7534,20 @@
         "Values": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListOfString",
           "traits": {
-            "smithy.api#documentation": "<p>The path patterns to compare against the request URL. The maximum size of each\n      string is 128 characters. The comparison is case sensitive. The following wildcard characters\n      are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>\n         <p>If you specify multiple strings, the condition is satisfied if one of them matches the\n      request URL. The path pattern is compared only to the path of the URL, not to its query\n      string. To compare against the query string, use <a>QueryStringConditionConfig</a>.</p>"
+            "smithy.api#documentation": "<p>The path patterns to compare against the request URL. The maximum size of each\n      string is 128 characters. The comparison is case sensitive. The following wildcard characters\n      are supported: * (matches 0 or more characters) and ? (matches exactly 1 character).</p>\n         <p>If you specify multiple strings, the condition is satisfied if one of them matches the\n      request URL. The path pattern is compared only to the path of the URL, not to its query\n      string. To compare against the query string, use a <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#query-string-conditions\">query string condition</a>.</p>"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a path pattern condition.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#Policy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
       }
     },
     "com.amazonaws.elasticloadbalancingv2#Port": {
@@ -6728,6 +7557,23 @@
           "min": 1,
           "max": 65535
         }
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#PriorRequestNotCompleteException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "PriorRequestNotComplete",
+          "httpResponseCode": 429
+        },
+        "smithy.api#documentation": "<p>This operation is not allowed while a prior request has not been completed.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 429
       }
     },
     "com.amazonaws.elasticloadbalancingv2#PriorityInUseException": {
@@ -6846,7 +7692,7 @@
         "Protocol": {
           "target": "com.amazonaws.elasticloadbalancingv2#RedirectActionProtocol",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,\n      HTTP to HTTPS, and HTTPS to HTTPS. You cannot redirect HTTPS to HTTP.</p>"
+            "smithy.api#documentation": "<p>The protocol. You can specify HTTP, HTTPS, or #{protocol}. You can redirect HTTP to HTTP,\n      HTTP to HTTPS, and HTTPS to HTTPS. You can't redirect HTTPS to HTTP.</p>"
           }
         },
         "Port": {
@@ -6962,7 +7808,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Registers the specified targets with the specified target group.</p>\n         <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you\n      register it.</p>\n         <p>By default, the load balancer routes requests to registered targets using the protocol and\n      port for the target group. Alternatively, you can override the port for a target when you\n      register it. You can register each EC2 instance or IP address with the same target group\n      multiple times using different ports.</p>\n         <p>With a Network Load Balancer, you cannot register instances by instance ID if they have\n      the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3,\n      and T1. You can register instances of these types by IP address.</p>",
+        "smithy.api#documentation": "<p>Registers the specified targets with the specified target group.</p>\n         <p>If the target is an EC2 instance, it must be in the <code>running</code> state when you\n      register it.</p>\n         <p>By default, the load balancer routes requests to registered targets using the protocol and\n      port for the target group. Alternatively, you can override the port for a target when you\n      register it. You can register each EC2 instance or IP address with the same target group\n      multiple times using different ports.</p>\n         <p>For more information, see the following:</p>\n         <ul>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/target-group-register-targets.html\">Register \n          targets for your Application Load Balancer</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/network/target-group-register-targets.html\">Register targets\n          for your Network Load Balancer</a>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/target-group-register-targets.html\">Register targets for your\n          Gateway Load Balancer</a>\n               </p>\n            </li>\n         </ul>",
         "smithy.api#examples": [
           {
             "title": "To register targets with a target group",
@@ -7028,6 +7874,23 @@
       "members": {},
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#RemoveIpamPoolEnum": {
+      "type": "enum",
+      "members": {
+        "ipv4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ipv4"
+          }
+        }
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#RemoveIpamPools": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.elasticloadbalancingv2#RemoveIpamPoolEnum"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#RemoveListenerCertificates": {
@@ -7207,6 +8070,9 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#ResetCapacityReservation": {
+      "type": "boolean"
+    },
     "com.amazonaws.elasticloadbalancingv2#ResourceArn": {
       "type": "string"
     },
@@ -7229,6 +8095,23 @@
           "httpResponseCode": 400
         },
         "smithy.api#documentation": "<p>A specified resource is in use.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ResourceNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "ResourceNotFound",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The specified resource does not exist.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -7425,7 +8308,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about a condition for a rule.</p>\n         <p>Each rule can optionally include up to one of each of the following conditions:\n        <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and\n        <code>source-ip</code>. Each rule can also optionally include one or more of each of the\n      following conditions: <code>http-header</code> and <code>query-string</code>. Note that the\n      value for a condition cannot be empty.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n      Application Load Balancers</a>.</p>"
+        "smithy.api#documentation": "<p>Information about a condition for a rule.</p>\n         <p>Each rule can optionally include up to one of each of the following conditions:\n        <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and\n        <code>source-ip</code>. Each rule can also optionally include one or more of each of the\n      following conditions: <code>http-header</code> and <code>query-string</code>. Note that the\n      value for a condition can't be empty.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html\">Quotas for your\n      Application Load Balancers</a>.</p>"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#RuleConditionList": {
@@ -7565,7 +8448,7 @@
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>Note: Internal load balancers must use the <code>ipv4</code> IP address type.</p>\n         <p>[Application Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and \n      IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public \n      addresses, with private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> \n      (for IPv4 and IPv6 addresses). You can’t specify <code>dualstack</code> \n      for a load balancer with a UDP or TCP_UDP listener.</p>\n         <p>[Gateway Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses) and <code>dualstack</code> \n      (for IPv4 and IPv6 addresses).</p>",
+            "smithy.api#documentation": "<p>The IP address type. Internal load balancers must use <code>ipv4</code>.</p>\n         <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses), \n      <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> \n      (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>\n         <p>Application Load Balancer authentication supports IPv4 addresses only when \n      connecting to an Identity Provider (IdP) or Amazon Cognito endpoint. Without a public \n      IPv4 address the load balancer can't complete the authentication process, resulting \n      in HTTP 500 errors.</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code> \n      (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>",
             "smithy.api#required": {}
           }
         }
@@ -7778,6 +8661,9 @@
           "target": "com.amazonaws.elasticloadbalancingv2#AvailabilityZoneNotSupportedException"
         },
         {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityReservationPendingException"
+        },
+        {
           "target": "com.amazonaws.elasticloadbalancingv2#InvalidConfigurationRequestException"
         },
         {
@@ -7830,19 +8716,25 @@
         "Subnets": {
           "target": "com.amazonaws.elasticloadbalancingv2#Subnets",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers] You can specify subnets from one or more Availability\n      Zones.</p>\n         <p>[Gateway Load Balancers] You can specify subnets from one or more Availability\n      Zones.</p>"
+            "smithy.api#documentation": "<p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] You can specify subnets from one or more \n      Availability Zones.</p>"
           }
         },
         "SubnetMappings": {
           "target": "com.amazonaws.elasticloadbalancingv2#SubnetMappings",
           "traits": {
-            "smithy.api#documentation": "<p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones. You cannot specify Elastic IP addresses for your subnets.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You\n      can specify one Elastic IP address per subnet if you need static IP addresses for your\n      internet-facing load balancer. For internal load balancers, you can specify one private IP\n      address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you\n      can specify one IPv6 address per subnet.</p>\n         <p>[Gateway Load Balancers] You can specify subnets from one or more Availability\n      Zones.</p>"
+            "smithy.api#documentation": "<p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You\n      must specify either subnets or subnet mappings.</p>\n         <p>[Application Load Balancers] You must specify subnets from at least two Availability\n      Zones. You can't specify Elastic IP addresses for your subnets.</p>\n         <p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p>\n         <p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local\n      Zones.</p>\n         <p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You\n      can specify one Elastic IP address per subnet if you need static IP addresses for your\n      internet-facing load balancer. For internal load balancers, you can specify one private IP\n      address per subnet from the IPv4 range of the subnet. For internet-facing load balancer, you\n      can specify one IPv6 address per subnet.</p>\n         <p>[Gateway Load Balancers] You can specify subnets from one or more Availability\n      Zones.</p>"
           }
         },
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>[Application Load Balancers] The IP address type. The possible values are \n      <code>ipv4</code> (for only IPv4 addresses), <code>dualstack</code> (for IPv4 and \n      IPv6 addresses), and <code>dualstack-without-public-ipv4</code> (for IPv6 only public \n      addresses, with private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers] The type of IP addresses used by the subnets for your load\n      balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n        <code>dualstack</code> (for IPv4 and IPv6 addresses). You can’t specify\n        <code>dualstack</code> for a load balancer with a UDP or TCP_UDP listener.</p>\n         <p>[Gateway Load Balancers] The type of IP addresses used by the subnets for your load\n      balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and\n      <code>dualstack</code> (for IPv4 and IPv6 addresses).</p>"
+            "smithy.api#documentation": "<p>The IP address type.</p>\n         <p>[Application Load Balancers] The possible values are <code>ipv4</code> (IPv4 addresses), \n      <code>dualstack</code> (IPv4 and IPv6 addresses), and <code>dualstack-without-public-ipv4</code> \n      (public IPv6 addresses and private IPv4 and IPv6 addresses).</p>\n         <p>[Network Load Balancers and Gateway Load Balancers] The possible values are <code>ipv4</code> \n      (IPv4 addresses) and <code>dualstack</code> (IPv4 and IPv6 addresses).</p>"
+          }
+        },
+        "EnablePrefixForIpv6SourceNat": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnablePrefixForIpv6SourceNatEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>[Network Load Balancers with UDP listeners] Indicates whether to use an IPv6 prefix \n      from each subnet for source NAT. The IP address type must be <code>dualstack</code>.\n      The default value is <code>off</code>.</p>"
           }
         }
       },
@@ -7862,7 +8754,13 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#IpAddressType",
           "traits": {
-            "smithy.api#documentation": "<p>[Application Load Balancers] The IP address type.</p>\n         <p>[Network Load Balancers] The IP address type.</p>\n         <p>[Gateway Load Balancers] The IP address type.</p>"
+            "smithy.api#documentation": "<p>The IP address type.</p>"
+          }
+        },
+        "EnablePrefixForIpv6SourceNat": {
+          "target": "com.amazonaws.elasticloadbalancingv2#EnablePrefixForIpv6SourceNatEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>[Network Load Balancers] Indicates whether to use an IPv6 prefix from each subnet for source NAT.</p>"
           }
         }
       },
@@ -7876,12 +8774,21 @@
         "Values": {
           "target": "com.amazonaws.elasticloadbalancingv2#ListOfString",
           "traits": {
-            "smithy.api#documentation": "<p>The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.\n      Wildcards are not supported.</p>\n         <p>If you specify multiple addresses, the condition is satisfied if the source IP address of\n      the request matches one of the CIDR blocks. This condition is not satisfied by the addresses\n      in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use\n        <a>HttpHeaderConditionConfig</a>.</p>\n         <p>The total number of values must be less than, or equal to five.</p>"
+            "smithy.api#documentation": "<p>The source IP addresses, in CIDR format. You can use both IPv4 and IPv6 addresses.\n      Wildcards are not supported.</p>\n         <p>If you specify multiple addresses, the condition is satisfied if the source IP address of\n      the request matches one of the CIDR blocks. This condition is not satisfied by the addresses\n      in the X-Forwarded-For header. To search for addresses in the X-Forwarded-For header, use\n      an <a href=\"https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#http-header-conditions\">HTTP header condition</a>.</p>\n         <p>The total number of values must be less than, or equal to five.</p>"
           }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Information about a source IP condition.</p>\n         <p>You can use this condition to route based on the IP address of the source that connects to\n      the load balancer. If a client is behind a proxy, this is the IP address of the proxy not the\n      IP address of the client.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#SourceNatIpv6Prefix": {
+      "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#SourceNatIpv6Prefixes": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.elasticloadbalancingv2#SourceNatIpv6Prefix"
       }
     },
     "com.amazonaws.elasticloadbalancingv2#SslPolicies": {
@@ -7977,6 +8884,12 @@
           "target": "com.amazonaws.elasticloadbalancingv2#IPv6Address",
           "traits": {
             "smithy.api#documentation": "<p>[Network Load Balancers] The IPv6 address.</p>"
+          }
+        },
+        "SourceNatIpv6Prefix": {
+          "target": "com.amazonaws.elasticloadbalancingv2#SourceNatIpv6Prefix",
+          "traits": {
+            "smithy.api#documentation": "<p>[Network Load Balancers with UDP listeners] The IPv6 prefix to use for source NAT.\n      Specify an IPv6 prefix (/80 netmask) from the subnet CIDR block or <code>auto_assigned</code> \n      to use an IPv6 prefix selected at random from the subnet CIDR block.</p>"
           }
         }
       },
@@ -8096,6 +9009,64 @@
           "max": 256
         },
         "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.:/=+\\-@]*)$"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#TargetAdministrativeOverrideReasonEnum": {
+      "type": "enum",
+      "members": {
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AdministrativeOverride.Unknown"
+          }
+        },
+        "NO_OVERRIDE_ENGAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AdministrativeOverride.NoOverride"
+          }
+        },
+        "ZONAL_SHIFT_ENGAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AdministrativeOverride.ZonalShiftActive"
+          }
+        },
+        "ZONAL_SHIFT_DELEGATED_TO_DNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AdministrativeOverride.ZonalShiftDelegatedToDns"
+          }
+        }
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#TargetAdministrativeOverrideStateEnum": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown"
+          }
+        },
+        "NO_OVERRIDE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "no_override"
+          }
+        },
+        "ZONAL_SHIFT_ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "zonal_shift_active"
+          }
+        },
+        "ZONAL_SHIFT_DELEGATED_TO_DNS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "zonal_shift_delegated_to_dns"
+          }
+        }
       }
     },
     "com.amazonaws.elasticloadbalancingv2#TargetDescription": {
@@ -8240,7 +9211,7 @@
         "IpAddressType": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupIpAddressTypeEnum",
           "traits": {
-            "smithy.api#documentation": "<p>The type of IP address used for this target group. The possible values are\n        <code>ipv4</code> and <code>ipv6</code>. This is an optional parameter. If not specified,\n      the IP address type defaults to <code>ipv4</code>.</p>"
+            "smithy.api#documentation": "<p>The IP address type. The default value is <code>ipv4</code>.</p>"
           }
         }
       },
@@ -8280,7 +9251,7 @@
         "Key": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupAttributeKey",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the attribute.</p>\n         <p>The following attributes are supported by all load balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deregistration_delay.timeout_seconds</code> - The amount of time, in seconds,\n          for Elastic Load Balancing to wait before changing the state of a deregistering target\n          from <code>draining</code> to <code>unused</code>. The range is 0-3600 seconds. The\n          default value is 300 seconds. If the target is a Lambda function, this attribute is not\n          supported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.enabled</code> - Indicates whether target stickiness is enabled. The\n          value is <code>true</code> or <code>false</code>. The default is\n          <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.type</code> - Indicates the type of stickiness. The possible values are:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>source_ip</code> for Network Load Balancers.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load Balancers.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <p>The following attributes are supported by Application Load Balancers and \n      Network Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross zone load \n          balancing is enabled. The value is <code>true</code>, <code>false</code> or \n          <code>use_load_balancer_configuration</code>. The default is \n          <code>use_load_balancer_configuration</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.dns_failover.minimum_healthy_targets.count</code> - \n          The minimum number of targets that must be healthy.\n          If the number of healthy targets is below this value, mark the zone as unhealthy\n          in DNS, so that traffic is routed only to healthy zones. The possible values are\n          <code>off</code> or an integer from 1 to the maximum number of targets.\n          The default is <code>off</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.dns_failover.minimum_healthy_targets.percentage</code> - \n          The minimum percentage of targets that must be healthy.\n          If the percentage of healthy targets is below this value, mark the zone as unhealthy\n          in DNS, so that traffic is routed only to healthy zones. The possible values are\n          <code>off</code> or an integer from 1 to 100. The default is <code>off</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.count</code> - \n          The minimum number of targets that must be healthy.  \n          If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets.\n          The possible values are 1 to the maximum number of targets. The default is 1.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage</code> - \n          The minimum percentage of targets that must be healthy. \n          If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets.\n          The possible values are <code>off</code> or an integer from 1 to 100.\n          The default is <code>off</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported only if the load balancer is an Application Load\n      Balancer and the target is an instance or an IP address:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>load_balancing.algorithm.type</code> - The load balancing algorithm determines\n          how the load balancer selects targets when routing requests. The value is\n            <code>round_robin</code>, <code>least_outstanding_requests</code>, or <code>weighted_random</code>. The default is\n            <code>round_robin</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>load_balancing.algorithm.anomaly_mitigation</code> - Only available when <code>load_balancing.algorithm.type</code> \n          is <code>weighted_random</code>. Indicates whether anomaly mitigation is enabled. The value is <code>on</code> \n          or <code>off</code>. The default is <code>off</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>slow_start.duration_seconds</code> - The time period, in seconds, during which a\n          newly registered target receives an increasing share of the traffic to the target group.\n          After this time period ends, the target receives its full share of traffic. The range is\n          30-900 seconds (15 minutes). The default is 0 seconds (disabled).</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.app_cookie.cookie_name</code> - Indicates the name of the\n          application-based cookie. Names that start with the following prefixes are not allowed:\n            <code>AWSALB</code>, <code>AWSALBAPP</code>, and <code>AWSALBTG</code>; they're reserved\n          for use by the load balancer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.app_cookie.duration_seconds</code> - The time period, in seconds,\n          during which requests from a client should be routed to the same target. After this time\n          period expires, the application-based cookie is considered stale. The range is 1 second to\n          1 week (604800 seconds). The default value is 1 day (86400 seconds).</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds,\n          during which requests from a client should be routed to the same target. After this time\n          period expires, the load balancer-generated cookie is considered stale. The range is 1\n          second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>\n            </li>\n         </ul>\n         <p>The following attribute is supported only if the load balancer is an Application Load\n      Balancer and the target is a Lambda function:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>lambda.multi_value_headers.enabled</code> - Indicates whether the request and\n          response headers that are exchanged between the load balancer and the Lambda function\n          include arrays of values or strings. The value is <code>true</code> or <code>false</code>.\n          The default is <code>false</code>. If the value is <code>false</code> and the request\n          contains a duplicate header field name or query parameter key, the load balancer uses the\n          last value sent by the client.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported only by Network Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deregistration_delay.connection_termination.enabled</code> - Indicates whether\n          the load balancer terminates connections at the end of the deregistration timeout. The\n          value is <code>true</code> or <code>false</code>. For new UDP/TCP_UDP target groups the \n          default is <code>true</code>. Otherwise, the default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>preserve_client_ip.enabled</code> - Indicates whether client IP preservation is\n          enabled. The value is <code>true</code> or <code>false</code>. The default is disabled if\n          the target group type is IP address and the target group protocol is TCP or TLS.\n          Otherwise, the default is enabled. Client IP preservation cannot be disabled for UDP and\n          TCP_UDP target groups.</p>\n            </li>\n            <li>\n               <p>\n                  <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is\n          enabled. The value is <code>true</code> or <code>false</code>. The default is\n            <code>false</code>. </p>\n            </li>\n            <li>\n               <p>\n                  <code>target_health_state.unhealthy.connection_termination.enabled</code> - Indicates whether \n          the load balancer terminates connections to unhealthy targets. The value is <code>true</code> \n          or <code>false</code>. The default is <code>true</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_health_state.unhealthy.draining_interval_seconds</code> - The amount of time \n          for Elastic Load Balancing to wait before changing the state of an unhealthy target from \n          <code>unhealthy.draining</code> to <code>unhealthy</code>. The range is 0-360000 seconds. \n          The default value is 0 seconds.</p>\n               <p>Note: This attribute can only be configured when \n          <code>target_health_state.unhealthy.connection_termination.enabled</code> is <code>false</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported only by Gateway Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>target_failover.on_deregistration</code> - Indicates how the Gateway Load\n          Balancer handles existing flows when a target is deregistered. The possible values are\n            <code>rebalance</code> and <code>no_rebalance</code>. The default is\n            <code>no_rebalance</code>. The two attributes\n            (<code>target_failover.on_deregistration</code> and\n            <code>target_failover.on_unhealthy</code>) can't be set independently. The value you set\n          for both attributes must be the same.  </p>\n            </li>\n            <li>\n               <p>\n                  <code>target_failover.on_unhealthy</code> - Indicates how the Gateway Load Balancer\n          handles existing flows when a target is unhealthy. The possible values are\n            <code>rebalance</code> and <code>no_rebalance</code>. The default is\n            <code>no_rebalance</code>. The two attributes\n            (<code>target_failover.on_deregistration</code> and\n            <code>target_failover.on_unhealthy</code>) cannot be set independently. The value you\n          set for both attributes must be the same.  </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The name of the attribute.</p>\n         <p>The following attributes are supported by all load balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deregistration_delay.timeout_seconds</code> - The amount of time, in seconds,\n          for Elastic Load Balancing to wait before changing the state of a deregistering target\n          from <code>draining</code> to <code>unused</code>. The range is 0-3600 seconds. The\n          default value is 300 seconds. If the target is a Lambda function, this attribute is not\n          supported.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.enabled</code> - Indicates whether target stickiness is enabled. The\n          value is <code>true</code> or <code>false</code>. The default is\n          <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.type</code> - Indicates the type of stickiness. The possible values are:</p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>lb_cookie</code> and <code>app_cookie</code> for Application Load Balancers.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>source_ip</code> for Network Load Balancers.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>source_ip_dest_ip</code> and <code>source_ip_dest_ip_proto</code> for Gateway Load Balancers.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <p>The following attributes are supported by Application Load Balancers and \n      Network Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>load_balancing.cross_zone.enabled</code> - Indicates whether cross zone load \n          balancing is enabled. The value is <code>true</code>, <code>false</code> or \n          <code>use_load_balancer_configuration</code>. The default is \n          <code>use_load_balancer_configuration</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.dns_failover.minimum_healthy_targets.count</code> - \n          The minimum number of targets that must be healthy.\n          If the number of healthy targets is below this value, mark the zone as unhealthy\n          in DNS, so that traffic is routed only to healthy zones. The possible values are\n          <code>off</code> or an integer from 1 to the maximum number of targets.\n          The default is 1.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.dns_failover.minimum_healthy_targets.percentage</code> - \n          The minimum percentage of targets that must be healthy.\n          If the percentage of healthy targets is below this value, mark the zone as unhealthy\n          in DNS, so that traffic is routed only to healthy zones. The possible values are\n          <code>off</code> or an integer from 1 to 100. The default is <code>off</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.count</code> - \n          The minimum number of targets that must be healthy.  \n          If the number of healthy targets is below this value, send traffic to all targets, including unhealthy targets.\n          The possible values are 1 to the maximum number of targets. The default is 1.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_group_health.unhealthy_state_routing.minimum_healthy_targets.percentage</code> - \n          The minimum percentage of targets that must be healthy. \n          If the percentage of healthy targets is below this value, send traffic to all targets, including unhealthy targets.\n          The possible values are <code>off</code> or an integer from 1 to 100.\n          The default is <code>off</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported only if the load balancer is an Application Load\n      Balancer and the target is an instance or an IP address:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>load_balancing.algorithm.type</code> - The load balancing algorithm determines\n          how the load balancer selects targets when routing requests. The value is\n            <code>round_robin</code>, <code>least_outstanding_requests</code>, or <code>weighted_random</code>. The default is\n            <code>round_robin</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>load_balancing.algorithm.anomaly_mitigation</code> - Only available when <code>load_balancing.algorithm.type</code> \n          is <code>weighted_random</code>. Indicates whether anomaly mitigation is enabled. The value is <code>on</code> \n          or <code>off</code>. The default is <code>off</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>slow_start.duration_seconds</code> - The time period, in seconds, during which a\n          newly registered target receives an increasing share of the traffic to the target group.\n          After this time period ends, the target receives its full share of traffic. The range is\n          30-900 seconds (15 minutes). The default is 0 seconds (disabled).</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.app_cookie.cookie_name</code> - Indicates the name of the\n          application-based cookie. Names that start with the following prefixes are not allowed:\n            <code>AWSALB</code>, <code>AWSALBAPP</code>, and <code>AWSALBTG</code>; they're reserved\n          for use by the load balancer.</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.app_cookie.duration_seconds</code> - The time period, in seconds,\n          during which requests from a client should be routed to the same target. After this time\n          period expires, the application-based cookie is considered stale. The range is 1 second to\n          1 week (604800 seconds). The default value is 1 day (86400 seconds).</p>\n            </li>\n            <li>\n               <p>\n                  <code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds,\n          during which requests from a client should be routed to the same target. After this time\n          period expires, the load balancer-generated cookie is considered stale. The range is 1\n          second to 1 week (604800 seconds). The default value is 1 day (86400 seconds). </p>\n            </li>\n         </ul>\n         <p>The following attribute is supported only if the load balancer is an Application Load\n      Balancer and the target is a Lambda function:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>lambda.multi_value_headers.enabled</code> - Indicates whether the request and\n          response headers that are exchanged between the load balancer and the Lambda function\n          include arrays of values or strings. The value is <code>true</code> or <code>false</code>.\n          The default is <code>false</code>. If the value is <code>false</code> and the request\n          contains a duplicate header field name or query parameter key, the load balancer uses the\n          last value sent by the client.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported only by Network Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>deregistration_delay.connection_termination.enabled</code> - Indicates whether\n          the load balancer terminates connections at the end of the deregistration timeout. The\n          value is <code>true</code> or <code>false</code>. For new UDP/TCP_UDP target groups the \n          default is <code>true</code>. Otherwise, the default is <code>false</code>.</p>\n            </li>\n            <li>\n               <p>\n                  <code>preserve_client_ip.enabled</code> - Indicates whether client IP preservation is\n          enabled. The value is <code>true</code> or <code>false</code>. The default is disabled if\n          the target group type is IP address and the target group protocol is TCP or TLS.\n          Otherwise, the default is enabled. Client IP preservation can't be disabled for UDP and\n          TCP_UDP target groups.</p>\n            </li>\n            <li>\n               <p>\n                  <code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is\n          enabled. The value is <code>true</code> or <code>false</code>. The default is\n            <code>false</code>. </p>\n            </li>\n            <li>\n               <p>\n                  <code>target_health_state.unhealthy.connection_termination.enabled</code> - Indicates whether \n          the load balancer terminates connections to unhealthy targets. The value is <code>true</code> \n          or <code>false</code>. The default is <code>true</code>. This attribute can't be enabled for UDP and\n          TCP_UDP target groups.</p>\n            </li>\n            <li>\n               <p>\n                  <code>target_health_state.unhealthy.draining_interval_seconds</code> - The amount of time \n          for Elastic Load Balancing to wait before changing the state of an unhealthy target from \n          <code>unhealthy.draining</code> to <code>unhealthy</code>. The range is 0-360000 seconds. \n          The default value is 0 seconds.</p>\n               <p>Note: This attribute can only be configured when \n          <code>target_health_state.unhealthy.connection_termination.enabled</code> is <code>false</code>.</p>\n            </li>\n         </ul>\n         <p>The following attributes are supported only by Gateway Load Balancers:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>target_failover.on_deregistration</code> - Indicates how the Gateway Load\n          Balancer handles existing flows when a target is deregistered. The possible values are\n            <code>rebalance</code> and <code>no_rebalance</code>. The default is\n            <code>no_rebalance</code>. The two attributes\n            (<code>target_failover.on_deregistration</code> and\n            <code>target_failover.on_unhealthy</code>) can't be set independently. The value you set\n          for both attributes must be the same.  </p>\n            </li>\n            <li>\n               <p>\n                  <code>target_failover.on_unhealthy</code> - Indicates how the Gateway Load Balancer\n          handles existing flows when a target is unhealthy. The possible values are\n            <code>rebalance</code> and <code>no_rebalance</code>. The default is\n            <code>no_rebalance</code>. The two attributes\n            (<code>target_failover.on_deregistration</code> and\n            <code>target_failover.on_unhealthy</code>) can't be set independently. The value you\n          set for both attributes must be the same.  </p>\n            </li>\n         </ul>"
           }
         },
         "Value": {
@@ -8374,7 +9345,7 @@
         "DurationSeconds": {
           "target": "com.amazonaws.elasticloadbalancingv2#TargetGroupStickinessDurationSeconds",
           "traits": {
-            "smithy.api#documentation": "<p>The time period, in seconds, during which requests from a client should be routed to the\n      same target group. The range is 1-604800 seconds (7 days).</p>"
+            "smithy.api#documentation": "<p>The time period, in seconds, during which requests from a client should be routed to the\n      same target group. The range is 1-604800 seconds (7 days). You must specify this value when\n      enabling target group stickiness.</p>"
           }
         }
       },
@@ -8468,6 +9439,12 @@
           "target": "com.amazonaws.elasticloadbalancingv2#AnomalyDetection",
           "traits": {
             "smithy.api#documentation": "<p>The anomaly detection result for the target.</p>\n         <p>If no anomalies were detected, the result is <code>normal</code>.</p>\n         <p>If anomalies were detected, the result is <code>anomalous</code>.</p>"
+          }
+        },
+        "AdministrativeOverride": {
+          "target": "com.amazonaws.elasticloadbalancingv2#AdministrativeOverride",
+          "traits": {
+            "smithy.api#documentation": "<p>The administrative override information for the target.</p>"
           }
         }
       },
@@ -8905,8 +9882,42 @@
         "smithy.api#documentation": "<p>Information about the resources a trust store is associated with.</p>"
       }
     },
+    "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ErrorDescription"
+        }
+      },
+      "traits": {
+        "aws.protocols#awsQueryError": {
+          "code": "AssociationNotFound",
+          "httpResponseCode": 400
+        },
+        "smithy.api#documentation": "<p>The specified association does not exist.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationResourceArn": {
       "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociationStatusEnum": {
+      "type": "enum",
+      "members": {
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "active"
+          }
+        },
+        "REMOVED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "removed"
+          }
+        }
+      }
     },
     "com.amazonaws.elasticloadbalancingv2#TrustStoreAssociations": {
       "type": "list",
@@ -9061,6 +10072,38 @@
     },
     "com.amazonaws.elasticloadbalancingv2#VpcId": {
       "type": "string"
+    },
+    "com.amazonaws.elasticloadbalancingv2#ZonalCapacityReservationState": {
+      "type": "structure",
+      "members": {
+        "State": {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityReservationStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The state of the capacity reservation.</p>"
+          }
+        },
+        "AvailabilityZone": {
+          "target": "com.amazonaws.elasticloadbalancingv2#ZoneName",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Availability Zone.</p>"
+          }
+        },
+        "EffectiveCapacityUnits": {
+          "target": "com.amazonaws.elasticloadbalancingv2#CapacityUnitsDouble",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of effective capacity units.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The capacity reservation status for each Availability Zone.</p>"
+      }
+    },
+    "com.amazonaws.elasticloadbalancingv2#ZonalCapacityReservationStates": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.elasticloadbalancingv2#ZonalCapacityReservationState"
+      }
     },
     "com.amazonaws.elasticloadbalancingv2#ZoneName": {
       "type": "string"

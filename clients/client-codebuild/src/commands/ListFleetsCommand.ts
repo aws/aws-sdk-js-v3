@@ -12,7 +12,8 @@ import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface ListFleetsCommandOutput extends ListFleetsOutput, __MetadataBea
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListFleetsCommand extends $Command
@@ -73,9 +75,7 @@ export class ListFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class ListFleetsCommand extends $Command
   .f(ListFleetsInputFilterSensitiveLog, void 0)
   .ser(se_ListFleetsCommand)
   .de(de_ListFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFleetsInput;
+      output: ListFleetsOutput;
+    };
+    sdk: {
+      input: ListFleetsCommandInput;
+      output: ListFleetsCommandOutput;
+    };
+  };
+}

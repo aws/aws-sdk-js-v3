@@ -12,7 +12,8 @@ import { de_CreateGraphUsingImportTaskCommand, se_CreateGraphUsingImportTaskComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,7 +63,9 @@ export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsin
  *   minProvisionedMemory: Number("int"),
  *   failOnError: true || false,
  *   source: "STRING_VALUE", // required
- *   format: "CSV" || "OPEN_CYPHER",
+ *   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ *   parquetType: "COLUMNAR",
+ *   blankNodeHandling: "convertToIri",
  *   roleArn: "STRING_VALUE", // required
  * };
  * const command = new CreateGraphUsingImportTaskCommand(input);
@@ -71,9 +74,10 @@ export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsin
  * //   graphId: "STRING_VALUE",
  * //   taskId: "STRING_VALUE", // required
  * //   source: "STRING_VALUE", // required
- * //   format: "CSV" || "OPEN_CYPHER",
+ * //   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ * //   parquetType: "COLUMNAR",
  * //   roleArn: "STRING_VALUE", // required
- * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
+ * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
  * //   importOptions: { // ImportOptions Union: only one key present
  * //     neptune: { // NeptuneImportOptions
  * //       s3ExportPath: "STRING_VALUE", // required
@@ -110,6 +114,7 @@ export interface CreateGraphUsingImportTaskCommandOutput extends CreateGraphUsin
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class CreateGraphUsingImportTaskCommand extends $Command
@@ -135,4 +140,16 @@ export class CreateGraphUsingImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGraphUsingImportTaskCommand)
   .de(de_CreateGraphUsingImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGraphUsingImportTaskInput;
+      output: CreateGraphUsingImportTaskOutput;
+    };
+    sdk: {
+      input: CreateGraphUsingImportTaskCommandInput;
+      output: CreateGraphUsingImportTaskCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateEventDestinationCommand, se_CreateEventDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,15 +32,7 @@ export interface CreateEventDestinationCommandInput extends CreateEventDestinati
 export interface CreateEventDestinationCommandOutput extends CreateEventDestinationResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new event destination in a configuration set.</p>
- *          <p>An event destination is a location where you send message events. The event options
- *             are Amazon CloudWatch, Amazon Kinesis Data Firehose, or Amazon SNS. For example,
- *             when a message is delivered successfully, you can send information about that event to
- *             an event destination, or send notifications to endpoints that are subscribed to an
- *                 Amazon SNS topic.</p>
- *          <p>Each configuration set can contain between 0 and 5 event destinations. Each event
- *             destination can contain a reference to a single destination, such as a CloudWatch
- *             or Kinesis Data Firehose destination.</p>
+ * <p>Creates a new event destination in a configuration set.</p> <p>An event destination is a location where you send message events. The event options are Amazon CloudWatch, Amazon Data Firehose, or Amazon SNS. For example, when a message is delivered successfully, you can send information about that event to an event destination, or send notifications to endpoints that are subscribed to an Amazon SNS topic. </p> <p>You can only create one event destination at a time. You must provide a value for a single event destination using either <code>CloudWatchLogsDestination</code>, <code>KinesisFirehoseDestination</code> or <code>SnsDestination</code>. If an event destination isn't provided then an exception is returned.</p> <p>Each configuration set can contain between 0 and 5 event destinations. Each event destination can contain a reference to a single destination, such as a CloudWatch or Firehose destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,18 +92,13 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time or it could be that the
- *             requested action isn't valid for the current state or configuration of the
- *             resource.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
@@ -119,14 +107,14 @@ export interface CreateEventDestinationCommandOutput extends CreateEventDestinat
  *  <p>The request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -138,9 +126,7 @@ export class CreateEventDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +138,16 @@ export class CreateEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventDestinationCommand)
   .de(de_CreateEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventDestinationRequest;
+      output: CreateEventDestinationResult;
+    };
+    sdk: {
+      input: CreateEventDestinationCommandInput;
+      output: CreateEventDestinationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * const input = { // CreateResolverRuleRequest
  *   CreatorRequestId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
- *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE", // required
+ *   RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE" || "DELEGATE", // required
  *   DomainName: "STRING_VALUE",
  *   TargetIps: [ // TargetList
  *     { // TargetAddress
@@ -46,6 +47,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  *       Port: Number("int"),
  *       Ipv6: "STRING_VALUE",
  *       Protocol: "DoH" || "Do53" || "DoH-FIPS",
+ *       ServerNameIndication: "STRING_VALUE",
  *     },
  *   ],
  *   ResolverEndpointId: "STRING_VALUE",
@@ -55,6 +57,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   DelegationRecord: "STRING_VALUE",
  * };
  * const command = new CreateResolverRuleCommand(input);
  * const response = await client.send(command);
@@ -66,7 +69,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * //     DomainName: "STRING_VALUE",
  * //     Status: "COMPLETE" || "DELETING" || "UPDATING" || "FAILED",
  * //     StatusMessage: "STRING_VALUE",
- * //     RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE",
+ * //     RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE" || "DELEGATE",
  * //     Name: "STRING_VALUE",
  * //     TargetIps: [ // TargetList
  * //       { // TargetAddress
@@ -74,6 +77,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * //         Port: Number("int"),
  * //         Ipv6: "STRING_VALUE",
  * //         Protocol: "DoH" || "Do53" || "DoH-FIPS",
+ * //         ServerNameIndication: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ResolverEndpointId: "STRING_VALUE",
@@ -81,6 +85,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * //     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
+ * //     DelegationRecord: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -124,6 +129,7 @@ export interface CreateResolverRuleCommandOutput extends CreateResolverRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class CreateResolverRuleCommand extends $Command
@@ -134,9 +140,7 @@ export class CreateResolverRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +152,16 @@ export class CreateResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResolverRuleCommand)
   .de(de_CreateResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResolverRuleRequest;
+      output: CreateResolverRuleResponse;
+    };
+    sdk: {
+      input: CreateResolverRuleCommandInput;
+      output: CreateResolverRuleCommandOutput;
+    };
+  };
+}

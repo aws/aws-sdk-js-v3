@@ -80,6 +80,14 @@ import {
   EntityTypeSort,
   Filter,
   InternalServiceException,
+  MachineLearningProductEntityIdFilter,
+  MachineLearningProductFilters,
+  MachineLearningProductLastModifiedDateFilter,
+  MachineLearningProductLastModifiedDateFilterDateRange,
+  MachineLearningProductSort,
+  MachineLearningProductTitleFilter,
+  MachineLearningProductVisibilityFilter,
+  MachineLearningProductVisibilityString,
   OfferAvailabilityEndDateFilter,
   OfferAvailabilityEndDateFilterDateRange,
   OfferBuyerAccountsFilter,
@@ -994,6 +1002,26 @@ const se_JsonDocumentType = (input: __DocumentType, context: __SerdeContext): an
   return input;
 };
 
+// se_MachineLearningProductEntityIdFilter omitted.
+
+// se_MachineLearningProductEntityIdFilterValueList omitted.
+
+// se_MachineLearningProductFilters omitted.
+
+// se_MachineLearningProductLastModifiedDateFilter omitted.
+
+// se_MachineLearningProductLastModifiedDateFilterDateRange omitted.
+
+// se_MachineLearningProductSort omitted.
+
+// se_MachineLearningProductTitleFilter omitted.
+
+// se_MachineLearningProductTitleFilterValueList omitted.
+
+// se_MachineLearningProductVisibilityFilter omitted.
+
+// se_MachineLearningProductVisibilityFilterValueList omitted.
+
 // se_OfferAvailabilityEndDateFilter omitted.
 
 // se_OfferAvailabilityEndDateFilterDateRange omitted.
@@ -1220,6 +1248,8 @@ const de_JsonDocumentType = (output: any, context: __SerdeContext): __DocumentTy
   return output;
 };
 
+// de_MachineLearningProductSummary omitted.
+
 // de_OfferBuyerAccountsList omitted.
 
 // de_OfferSummary omitted.
@@ -1247,13 +1277,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _C = "Catalog";
 const _CSI = "ChangeSetId";

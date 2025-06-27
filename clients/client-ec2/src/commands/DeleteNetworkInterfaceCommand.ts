@@ -12,7 +12,8 @@ import { de_DeleteNetworkInterfaceCommand, se_DeleteNetworkInterfaceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface DeleteNetworkInterfaceCommandInput extends DeleteNetworkInterfa
 export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
+ * <p>Deletes the specified network interface. You must detach the network interface before
+ *             you can delete it.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,18 +55,21 @@ export interface DeleteNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a network interface
  * ```javascript
  * // This example deletes the specified network interface.
  * const input = {
- *   "NetworkInterfaceId": "eni-e5aa89a3"
+ *   NetworkInterfaceId: "eni-e5aa89a3"
  * };
  * const command = new DeleteNetworkInterfaceCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-network-interface-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteNetworkInterfaceCommand extends $Command
   .classBuilder<
@@ -74,9 +79,7 @@ export class DeleteNetworkInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +91,16 @@ export class DeleteNetworkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkInterfaceCommand)
   .de(de_DeleteNetworkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkInterfaceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNetworkInterfaceCommandInput;
+      output: DeleteNetworkInterfaceCommandOutput;
+    };
+  };
+}

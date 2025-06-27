@@ -12,7 +12,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface SearchAnalysesCommandOutput extends SearchAnalysesResponse, __M
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class SearchAnalysesCommand extends $Command
@@ -109,9 +111,7 @@ export class SearchAnalysesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class SearchAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchAnalysesCommand)
   .de(de_SearchAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchAnalysesRequest;
+      output: SearchAnalysesResponse;
+    };
+    sdk: {
+      input: SearchAnalysesCommandInput;
+      output: SearchAnalysesCommandOutput;
+    };
+  };
+}

@@ -39,6 +39,11 @@ import {
   CreateSignalCatalogCommandOutput,
 } from "./commands/CreateSignalCatalogCommand";
 import {
+  CreateStateTemplateCommand,
+  CreateStateTemplateCommandInput,
+  CreateStateTemplateCommandOutput,
+} from "./commands/CreateStateTemplateCommand";
+import {
   CreateVehicleCommand,
   CreateVehicleCommandInput,
   CreateVehicleCommandOutput,
@@ -64,6 +69,11 @@ import {
   DeleteSignalCatalogCommandInput,
   DeleteSignalCatalogCommandOutput,
 } from "./commands/DeleteSignalCatalogCommand";
+import {
+  DeleteStateTemplateCommand,
+  DeleteStateTemplateCommandInput,
+  DeleteStateTemplateCommandOutput,
+} from "./commands/DeleteStateTemplateCommand";
 import {
   DeleteVehicleCommand,
   DeleteVehicleCommandInput,
@@ -106,6 +116,11 @@ import {
   GetSignalCatalogCommandInput,
   GetSignalCatalogCommandOutput,
 } from "./commands/GetSignalCatalogCommand";
+import {
+  GetStateTemplateCommand,
+  GetStateTemplateCommandInput,
+  GetStateTemplateCommandOutput,
+} from "./commands/GetStateTemplateCommand";
 import { GetVehicleCommand, GetVehicleCommandInput, GetVehicleCommandOutput } from "./commands/GetVehicleCommand";
 import {
   GetVehicleStatusCommand,
@@ -169,6 +184,11 @@ import {
   ListSignalCatalogsCommandOutput,
 } from "./commands/ListSignalCatalogsCommand";
 import {
+  ListStateTemplatesCommand,
+  ListStateTemplatesCommandInput,
+  ListStateTemplatesCommandOutput,
+} from "./commands/ListStateTemplatesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -226,6 +246,11 @@ import {
   UpdateSignalCatalogCommandOutput,
 } from "./commands/UpdateSignalCatalogCommand";
 import {
+  UpdateStateTemplateCommand,
+  UpdateStateTemplateCommandInput,
+  UpdateStateTemplateCommandOutput,
+} from "./commands/UpdateStateTemplateCommand";
+import {
   UpdateVehicleCommand,
   UpdateVehicleCommandInput,
   UpdateVehicleCommandOutput,
@@ -241,12 +266,14 @@ const commands = {
   CreateFleetCommand,
   CreateModelManifestCommand,
   CreateSignalCatalogCommand,
+  CreateStateTemplateCommand,
   CreateVehicleCommand,
   DeleteCampaignCommand,
   DeleteDecoderManifestCommand,
   DeleteFleetCommand,
   DeleteModelManifestCommand,
   DeleteSignalCatalogCommand,
+  DeleteStateTemplateCommand,
   DeleteVehicleCommand,
   DisassociateVehicleFleetCommand,
   GetCampaignCommand,
@@ -257,6 +284,7 @@ const commands = {
   GetModelManifestCommand,
   GetRegisterAccountStatusCommand,
   GetSignalCatalogCommand,
+  GetStateTemplateCommand,
   GetVehicleCommand,
   GetVehicleStatusCommand,
   ImportDecoderManifestCommand,
@@ -271,6 +299,7 @@ const commands = {
   ListModelManifestsCommand,
   ListSignalCatalogNodesCommand,
   ListSignalCatalogsCommand,
+  ListStateTemplatesCommand,
   ListTagsForResourceCommand,
   ListVehiclesCommand,
   ListVehiclesInFleetCommand,
@@ -284,6 +313,7 @@ const commands = {
   UpdateFleetCommand,
   UpdateModelManifestCommand,
   UpdateSignalCatalogCommand,
+  UpdateStateTemplateCommand,
   UpdateVehicleCommand,
 };
 
@@ -416,6 +446,23 @@ export interface IoTFleetWise {
   ): void;
 
   /**
+   * @see {@link CreateStateTemplateCommand}
+   */
+  createStateTemplate(
+    args: CreateStateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStateTemplateCommandOutput>;
+  createStateTemplate(
+    args: CreateStateTemplateCommandInput,
+    cb: (err: any, data?: CreateStateTemplateCommandOutput) => void
+  ): void;
+  createStateTemplate(
+    args: CreateStateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStateTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateVehicleCommand}
    */
   createVehicle(args: CreateVehicleCommandInput, options?: __HttpHandlerOptions): Promise<CreateVehicleCommandOutput>;
@@ -500,6 +547,23 @@ export interface IoTFleetWise {
     args: DeleteSignalCatalogCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteSignalCatalogCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteStateTemplateCommand}
+   */
+  deleteStateTemplate(
+    args: DeleteStateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteStateTemplateCommandOutput>;
+  deleteStateTemplate(
+    args: DeleteStateTemplateCommandInput,
+    cb: (err: any, data?: DeleteStateTemplateCommandOutput) => void
+  ): void;
+  deleteStateTemplate(
+    args: DeleteStateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteStateTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -655,6 +719,23 @@ export interface IoTFleetWise {
     args: GetSignalCatalogCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetSignalCatalogCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetStateTemplateCommand}
+   */
+  getStateTemplate(
+    args: GetStateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetStateTemplateCommandOutput>;
+  getStateTemplate(
+    args: GetStateTemplateCommandInput,
+    cb: (err: any, data?: GetStateTemplateCommandOutput) => void
+  ): void;
+  getStateTemplate(
+    args: GetStateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetStateTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -883,6 +964,24 @@ export interface IoTFleetWise {
   ): void;
 
   /**
+   * @see {@link ListStateTemplatesCommand}
+   */
+  listStateTemplates(): Promise<ListStateTemplatesCommandOutput>;
+  listStateTemplates(
+    args: ListStateTemplatesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStateTemplatesCommandOutput>;
+  listStateTemplates(
+    args: ListStateTemplatesCommandInput,
+    cb: (err: any, data?: ListStateTemplatesCommandOutput) => void
+  ): void;
+  listStateTemplates(
+    args: ListStateTemplatesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStateTemplatesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -1076,6 +1175,23 @@ export interface IoTFleetWise {
   ): void;
 
   /**
+   * @see {@link UpdateStateTemplateCommand}
+   */
+  updateStateTemplate(
+    args: UpdateStateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateStateTemplateCommandOutput>;
+  updateStateTemplate(
+    args: UpdateStateTemplateCommandInput,
+    cb: (err: any, data?: UpdateStateTemplateCommandOutput) => void
+  ): void;
+  updateStateTemplate(
+    args: UpdateStateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateStateTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateVehicleCommand}
    */
   updateVehicle(args: UpdateVehicleCommandInput, options?: __HttpHandlerOptions): Promise<UpdateVehicleCommandOutput>;
@@ -1095,6 +1211,9 @@ export interface IoTFleetWise {
  *             </p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/">What is Amazon Web Services IoT FleetWise?</a> in the
  *                 <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
  * @public
  */
 export class IoTFleetWise extends IoTFleetWiseClient implements IoTFleetWise {}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListDatabasesCommandOutput extends ListDatabasesOutput, __Metad
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class ListDatabasesCommand extends $Command
@@ -89,9 +91,7 @@ export class ListDatabasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListDatabasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatabasesCommand)
   .de(de_ListDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatabasesInput;
+      output: ListDatabasesOutput;
+    };
+    sdk: {
+      input: ListDatabasesCommandInput;
+      output: ListDatabasesCommandOutput;
+    };
+  };
+}

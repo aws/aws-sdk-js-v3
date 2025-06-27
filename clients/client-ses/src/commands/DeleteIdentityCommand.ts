@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,18 +55,21 @@ export interface DeleteIdentityCommandOutput extends DeleteIdentityResponse, __M
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteIdentity
  * ```javascript
  * // The following example deletes an identity from the list of identities that have been submitted for verification with Amazon SES:
  * const input = {
- *   "Identity": "user@example.com"
+ *   Identity: "user@example.com"
  * };
  * const command = new DeleteIdentityCommand(input);
- * await client.send(command);
- * // example id: deleteidentity-1469047858906
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteIdentityCommand extends $Command
   .classBuilder<
@@ -75,9 +79,7 @@ export class DeleteIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +91,16 @@ export class DeleteIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIdentityCommand)
   .de(de_DeleteIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIdentityCommandInput;
+      output: DeleteIdentityCommandOutput;
+    };
+  };
+}

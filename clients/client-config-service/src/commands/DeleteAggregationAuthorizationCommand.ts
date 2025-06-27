@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface DeleteAggregationAuthorizationCommandOutput extends __MetadataB
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteAggregationAuthorizationCommand extends $Command
@@ -71,9 +73,7 @@ export class DeleteAggregationAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeleteAggregationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAggregationAuthorizationCommand)
   .de(de_DeleteAggregationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAggregationAuthorizationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAggregationAuthorizationCommandInput;
+      output: DeleteAggregationAuthorizationCommandOutput;
+    };
+  };
+}

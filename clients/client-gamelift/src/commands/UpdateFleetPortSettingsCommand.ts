@@ -16,7 +16,8 @@ import { de_UpdateFleetPortSettingsCommand, se_UpdateFleetPortSettingsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,6 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *                 <code>InboundPermissionAuthorizations</code>, and permissions you want to remove in
  *                 <code>InboundPermissionRevocations</code>. Permissions to be removed must match
  *             existing fleet permissions. </p>
- *          <p>For a container fleet, inbound permissions must specify port numbers that are defined
- *             in the fleet's connection port settings.</p>
  *          <p>If successful, the fleet ID for the updated fleet is returned. For fleets with remote
  *             locations, port setting updates can take time to propagate across all locations. You can
  *             check the status of updates in each location by calling
@@ -48,7 +47,7 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example
@@ -115,13 +114,14 @@ export interface UpdateFleetPortSettingsCommandOutput extends UpdateFleetPortSet
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -133,9 +133,7 @@ export class UpdateFleetPortSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +145,16 @@ export class UpdateFleetPortSettingsCommand extends $Command
   .f(UpdateFleetPortSettingsInputFilterSensitiveLog, void 0)
   .ser(se_UpdateFleetPortSettingsCommand)
   .de(de_UpdateFleetPortSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetPortSettingsInput;
+      output: UpdateFleetPortSettingsOutput;
+    };
+    sdk: {
+      input: UpdateFleetPortSettingsCommandInput;
+      output: UpdateFleetPortSettingsCommandOutput;
+    };
+  };
+}

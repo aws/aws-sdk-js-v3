@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,20 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * //             },
  * //           ],
  * //         },
+ * //         IncludeChildOrganizationUnits: true || false,
+ * //         ExcludeAccounts: [ // ExcludeAccounts
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Targets: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Values: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //         TargetsMaxConcurrency: "STRING_VALUE",
+ * //         TargetsMaxErrors: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ScheduleOffset: Number("int"),
@@ -203,6 +218,7 @@ export interface UpdateAssociationStatusCommandOutput extends UpdateAssociationS
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssociationStatusCommand extends $Command
@@ -213,9 +229,7 @@ export class UpdateAssociationStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -227,4 +241,16 @@ export class UpdateAssociationStatusCommand extends $Command
   .f(void 0, UpdateAssociationStatusResultFilterSensitiveLog)
   .ser(se_UpdateAssociationStatusCommand)
   .de(de_UpdateAssociationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssociationStatusRequest;
+      output: UpdateAssociationStatusResult;
+    };
+    sdk: {
+      input: UpdateAssociationStatusCommandInput;
+      output: UpdateAssociationStatusCommandOutput;
+    };
+  };
+}

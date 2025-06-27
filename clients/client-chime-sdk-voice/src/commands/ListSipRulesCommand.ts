@@ -12,7 +12,8 @@ import { de_ListSipRulesCommand, se_ListSipRulesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface ListSipRulesCommandOutput extends ListSipRulesResponse, __Metad
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListSipRulesCommand extends $Command
@@ -102,9 +104,7 @@ export class ListSipRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class ListSipRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSipRulesCommand)
   .de(de_ListSipRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSipRulesRequest;
+      output: ListSipRulesResponse;
+    };
+    sdk: {
+      input: ListSipRulesCommandInput;
+      output: ListSipRulesCommandOutput;
+    };
+  };
+}

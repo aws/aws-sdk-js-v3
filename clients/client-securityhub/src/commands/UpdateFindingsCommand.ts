@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateFindingsRequest, UpdateFindingsResponse } from "../models/models_2";
+import { UpdateFindingsRequest, UpdateFindingsResponse } from "../models/models_3";
 import { de_UpdateFindingsCommand, se_UpdateFindingsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,11 +31,12 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * <p>
  *             <code>UpdateFindings</code> is a deprecated operation. Instead of <code>UpdateFindings</code>, use
  *             the <code>BatchUpdateFindings</code> operation.</p>
- *          <p>Updates the <code>Note</code> and <code>RecordState</code> of the Security Hub-aggregated
+ *          <p>The <code>UpdateFindings</code> operation updates the <code>Note</code> and <code>RecordState</code> of the Security Hub aggregated
  *          findings that the filter attributes specify. Any member account that can view the finding
- *          also sees the update to the finding.</p>
- *          <p>Finding updates made with <code>UpdateFindings</code> might not be persisted if the same finding is later updated by the
- *             finding provider through the <code>BatchImportFindings</code> operation.</p>
+ *          can also see the update to the finding.</p>
+ *          <p>Finding updates made with <code>UpdateFindings</code> aren't persisted if the same finding is later updated by the
+ *             finding provider through the <code>BatchImportFindings</code> operation. In addition, Security Hub doesn't
+ *             record updates made with <code>UpdateFindings</code> in the finding history.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,31 +48,31 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  *     ProductArn: [ // StringFilterList
  *       { // StringFilter
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     AwsAccountId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Id: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     GeneratorId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Region: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Type: "<StringFilterList>",
@@ -348,6 +350,7 @@ export interface UpdateFindingsCommandOutput extends UpdateFindingsResponse, __M
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
+ *
  * @public
  */
 export class UpdateFindingsCommand extends $Command
@@ -358,9 +361,7 @@ export class UpdateFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -372,4 +373,16 @@ export class UpdateFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFindingsCommand)
   .de(de_UpdateFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFindingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFindingsCommandInput;
+      output: UpdateFindingsCommandOutput;
+    };
+  };
+}

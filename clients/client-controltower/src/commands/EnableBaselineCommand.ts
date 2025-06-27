@@ -12,7 +12,8 @@ import { de_EnableBaselineCommand, se_EnableBaselineCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface EnableBaselineCommandInput extends EnableBaselineInput {}
 export interface EnableBaselineCommandOutput extends EnableBaselineOutput, __MetadataBearer {}
 
 /**
- * <p>Enable (apply) a <code>Baseline</code> to a Target. This API starts an asynchronous operation to deploy resources specified by the <code>Baseline</code> to the specified Target. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Enable (apply) a <code>Baseline</code> to a Target. This API starts an asynchronous operation to deploy resources specified by the <code>Baseline</code> to the specified Target. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +77,7 @@ export interface EnableBaselineCommandOutput extends EnableBaselineOutput, __Met
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -88,6 +87,7 @@ export interface EnableBaselineCommandOutput extends EnableBaselineOutput, __Met
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
+ *
  *
  * @public
  */
@@ -99,9 +99,7 @@ export class EnableBaselineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +111,16 @@ export class EnableBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableBaselineCommand)
   .de(de_EnableBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableBaselineInput;
+      output: EnableBaselineOutput;
+    };
+    sdk: {
+      input: EnableBaselineCommandInput;
+      output: EnableBaselineCommandOutput;
+    };
+  };
+}

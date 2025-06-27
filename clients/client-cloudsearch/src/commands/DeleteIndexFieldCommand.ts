@@ -12,7 +12,8 @@ import { de_DeleteIndexFieldCommand, se_DeleteIndexFieldCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -166,6 +167,7 @@ export interface DeleteIndexFieldCommandOutput extends DeleteIndexFieldResponse,
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteIndexFieldCommand extends $Command
@@ -176,9 +178,7 @@ export class DeleteIndexFieldCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +190,16 @@ export class DeleteIndexFieldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIndexFieldCommand)
   .de(de_DeleteIndexFieldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIndexFieldRequest;
+      output: DeleteIndexFieldResponse;
+    };
+    sdk: {
+      input: DeleteIndexFieldCommandInput;
+      output: DeleteIndexFieldCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_SearchJobsCommand, se_SearchJobsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  *         },
  *         searchTermFilter: { // SearchTermFilterExpression
  *           searchTerm: "STRING_VALUE", // required
+ *           matchType: "FUZZY_MATCH" || "CONTAINS",
  *         },
  *         stringFilter: { // StringFilterExpression
  *           name: "STRING_VALUE", // required
@@ -75,6 +77,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  *               },
  *               searchTermFilter: {
  *                 searchTerm: "STRING_VALUE", // required
+ *                 matchType: "FUZZY_MATCH" || "CONTAINS",
  *               },
  *               stringFilter: {
  *                 name: "STRING_VALUE", // required
@@ -123,6 +126,7 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //       taskRunStatusCounts: { // TaskRunStatusCounts
  * //         "<keys>": Number("int"),
  * //       },
+ * //       taskFailureRetryCount: Number("int"),
  * //       priority: Number("int"),
  * //       maxFailedTasksCount: Number("int"),
  * //       maxRetriesPerTask: Number("int"),
@@ -138,6 +142,8 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  * //           path: "STRING_VALUE",
  * //         },
  * //       },
+ * //       maxWorkerCount: Number("int"),
+ * //       sourceJobId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextItemOffset: Number("int"),
@@ -165,11 +171,11 @@ export interface SearchJobsCommandOutput extends SearchJobsResponse, __MetadataB
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -181,9 +187,7 @@ export class SearchJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -195,4 +199,16 @@ export class SearchJobsCommand extends $Command
   .f(void 0, SearchJobsResponseFilterSensitiveLog)
   .ser(se_SearchJobsCommand)
   .de(de_SearchJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchJobsRequest;
+      output: SearchJobsResponse;
+    };
+    sdk: {
+      input: SearchJobsCommandInput;
+      output: SearchJobsCommandOutput;
+    };
+  };
+}

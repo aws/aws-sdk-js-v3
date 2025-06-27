@@ -13,9 +13,10 @@ const _private = path.join(root, "private");
 const topLevelFolders = [packages, _private];
 const packageFolders = [];
 const walk = require("../utils/walk");
+const { listFolders } = require("../utils/list-folders");
 
 for (const topLevelFolder of topLevelFolders) {
-  packageFolders.push(...fs.readdirSync(topLevelFolder));
+  packageFolders.push(...listFolders(topLevelFolder));
 }
 
 const node_libraries = [
@@ -44,6 +45,8 @@ const node_libraries = [
   "util",
   "zlib",
 ];
+
+const ignored = [...node_libraries, "vitest"];
 
 (async () => {
   const errors = [];
@@ -85,7 +88,7 @@ const node_libraries = [
         ...new Set(
           [...(contents.toString().match(/(from |import\()"(.*?)"\)?;/g) ?? [])]
             .map((_) => _.replace(/(from ")|(import\(")/g, "").replace(/"\)?;$/, ""))
-            .filter((_) => !_.startsWith(".") && !node_libraries.includes(_))
+            .filter((_) => !_.startsWith(".") && !ignored.includes(_))
         )
       );
 
@@ -99,6 +102,12 @@ const node_libraries = [
           !(dependencyPackageName in (pkgJson.peerDependencies ?? {})) &&
           dependencyPackageName !== pkgJson.name
         ) {
+          if (
+            ["@aws-sdk/client-sts", "@aws-sdk/client-sso-oidc"].includes(dependency) &&
+            ["@aws-sdk/nested-clients"].includes(pkgJson.name)
+          ) {
+            continue;
+          }
           errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
         }
       }

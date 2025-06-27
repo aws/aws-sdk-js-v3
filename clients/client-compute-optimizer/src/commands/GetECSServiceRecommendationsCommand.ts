@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,6 +116,13 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           savingsOpportunityAfterDiscounts: { // ECSSavingsOpportunityAfterDiscounts
+ * //             savingsOpportunityPercentage: Number("double"),
+ * //             estimatedMonthlySavings: { // ECSEstimatedMonthlySavings
+ * //               currency: "USD" || "CNY",
+ * //               value: Number("double"),
+ * //             },
+ * //           },
  * //           projectedUtilizationMetrics: [ // ECSServiceProjectedUtilizationMetrics
  * //             { // ECSServiceProjectedUtilizationMetric
  * //               name: "Cpu" || "Memory",
@@ -133,27 +141,20 @@ export interface GetECSServiceRecommendationsCommandOutput
  * //               cpu: Number("int"),
  * //             },
  * //           ],
- * //           savingsOpportunityAfterDiscounts: { // ECSSavingsOpportunityAfterDiscounts
- * //             savingsOpportunityPercentage: Number("double"),
- * //             estimatedMonthlySavings: { // ECSEstimatedMonthlySavings
- * //               currency: "USD" || "CNY",
- * //               value: Number("double"),
- * //             },
- * //           },
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       effectiveRecommendationPreferences: { // ECSEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // ECSSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //       tags: [ // Tags
  * //         { // Tag
  * //           key: "STRING_VALUE",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       effectiveRecommendationPreferences: { // ECSEffectiveRecommendationPreferences
- * //         savingsEstimationMode: { // ECSSavingsEstimationMode
- * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
- * //         },
- * //       },
  * //     },
  * //   ],
  * //   errors: [ // GetRecommendationErrors
@@ -201,6 +202,7 @@ export interface GetECSServiceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetECSServiceRecommendationsCommand extends $Command
@@ -211,9 +213,7 @@ export class GetECSServiceRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -225,4 +225,16 @@ export class GetECSServiceRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetECSServiceRecommendationsCommand)
   .de(de_GetECSServiceRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetECSServiceRecommendationsRequest;
+      output: GetECSServiceRecommendationsResponse;
+    };
+    sdk: {
+      input: GetECSServiceRecommendationsCommandInput;
+      output: GetECSServiceRecommendationsCommandOutput;
+    };
+  };
+}

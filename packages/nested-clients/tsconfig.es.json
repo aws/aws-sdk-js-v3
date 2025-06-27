@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["dom"],
+    "outDir": "dist-es",
+    "rootDir": "src",
+    "paths": {
+      "@aws-sdk/nested-clients/sso-oidc": ["./src/submodules/sso-oidc/index.ts"],
+      "@aws-sdk/nested-clients/sts": ["./src/submodules/sts/index.ts"]
+    },
+    "noCheck": true
+  },
+  "extends": "../../tsconfig.es.json",
+  "include": ["src/"]
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,10 +81,94 @@ export interface ListSolFunctionPackagesCommandOutput extends ListSolFunctionPac
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example List information about multiple function packages without PaginationToken
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: ""
+ * };
+ * const command = new ListSolFunctionPackagesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionPackages: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-package/fp-07aa863e53460a2a6",
+ *       id: "fp-07aa863e53460a2a6",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       onboardingState: "ONBOARDED",
+ *       operationalState: "ENABLED",
+ *       usageState: "IN_USE",
+ *       vnfProductName: "NRF",
+ *       vnfProvider: "VNFBuilder",
+ *       vnfdId: "arn:aws:tnb:123456789000:vnf/nrf",
+ *       vnfdVersion: "1.0"
+ *     }
+ *   ],
+ *   nextToken: "ug2E9SheCpyAmeLItmHF99a8GNI6yAHxXIvgBkdiA2ixKvqdhYpNBLWHDl6vGnWt7Y4CB6m1Dkz86gSwcDouMO1pSrN%2BlGY2kbNtfTeMgnuB6bmwP/UU12r7MkHQyPCWMYG8OuCXkDBOYeX8qjRDTJ5vxAyrwtynaB6XDNDZA2DscCjcD7kpNzf3xlPRCwd6"
+ * }
+ * *\/
+ * ```
+ *
+ * @example List information about multiple function packages with PaginationToken
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: "ug2E9SheCpyAmeLItmHF99a8GNI6yAHxXIvgBkdiA2ixKvqdhYpNBLWHDl6vGnWt7Y4CB6m1Dkz86gSwcDouMO1pSrN%2BlGY2kbNtfTeMgnuB6bmwP/UU12r7MkHQyPCWMYG8OuCXkDBOYeX8qjRDTJ5vxAyrwtynaB6XDNDZA2DscCjcD7kpNzf3xlPRCwd6"
+ * };
+ * const command = new ListSolFunctionPackagesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionPackages: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-package/fp-07aa863e53460a2a6",
+ *       id: "fp-07aa863e53460a2a6",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       onboardingState: "ONBOARDED",
+ *       operationalState: "ENABLED",
+ *       usageState: "IN_USE",
+ *       vnfProductName: "NRF",
+ *       vnfProvider: "VNFBuilder",
+ *       vnfdId: "arn:aws:tnb:123456789000:vnf/nrf",
+ *       vnfdVersion: "1.0"
+ *     }
+ *   ],
+ *   nextToken: "ug2E9SheCpyAmeLItmHF98uvZTosFhZ1wyglENkc3UZ12UuRLmtGtojRynFjRR5zW%2FycBL6QX8AU%2B1IRWL%2BVjNNL7KBiaD87KM9WcUMQzryLtOazGHexujJncJJ0YGsxSLSrmPGx7dM1EoNKX8oxYA%3D%3D"
+ * }
+ * *\/
+ * ```
+ *
+ * @example No more function packages to return
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: "ug2E9SheCpyAmeLItmHF98uvZTosFhZ1wyglENkc3UZ12UuRLmtGtojRynFjRR5zW%2FycBL6QX8AU%2B1IRWL%2BVjNNL7KBiaD87KM9WcUMQzryLtOazGHexujJncJJ0YGsxSLSrmPGx7dM1EoNKX8oxYA%3D%3D"
+ * };
+ * const command = new ListSolFunctionPackagesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionPackages:   []
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -95,9 +180,7 @@ export class ListSolFunctionPackagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +192,16 @@ export class ListSolFunctionPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSolFunctionPackagesCommand)
   .de(de_ListSolFunctionPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSolFunctionPackagesInput;
+      output: ListSolFunctionPackagesOutput;
+    };
+    sdk: {
+      input: ListSolFunctionPackagesCommandInput;
+      output: ListSolFunctionPackagesCommandOutput;
+    };
+  };
+}

@@ -3,10 +3,11 @@
 [![NPM version](https://img.shields.io/npm/v/@aws-sdk/credential-providers/latest.svg)](https://www.npmjs.com/package/@aws-sdk/credential-providers)
 [![NPM downloads](https://img.shields.io/npm/dm/@aws-sdk/credential-providers.svg)](https://www.npmjs.com/package/@aws-sdk/credential-providers)
 
-A collection of all credential providers, with default clients.
+A collection of all credential providers.
 
 # Table of Contents
 
+1. [Terminology](#terminology)
 1. [From Cognito Identity](#fromcognitoidentity)
 1. [From Cognito Identity Pool](#fromcognitoidentitypool)
 1. [From Temporary Credentials](#fromtemporarycredentials)
@@ -24,14 +25,67 @@ A collection of all credential providers, with default clients.
    1. [Supported Configuration](#supported-configuration)
    1. [SSO login with AWS CLI](#sso-login-with-the-aws-cli)
    1. [Sample Files](#sample-files-2)
-1. [From Node.js default credentials provider chain](#fromNodeProviderChain)
+1. [From Node.js default credentials provider chain](#fromnodeproviderchain)
+1. [Creating a custom credentials chain](#createcredentialchain)
+
+## Terminology
+
+#### Credentials Provider
+
+An `AwsCredentialIdentityProvider` is any function that matches the signature:
+
+```ts
+() =>
+  Promise<{
+    /**
+     * AWS access key ID
+     */
+    readonly accessKeyId: string;
+    /**
+     * AWS secret access key
+     */
+    readonly secretAccessKey: string;
+    /**
+     * A security or session token to use with these credentials. Usually
+     * present for temporary credentials.
+     */
+    readonly sessionToken?: string;
+    /**
+     * A `Date` when the identity or credential will no longer be accepted.
+     * You can set or override this on the client side to force a refresh
+     * call of the function supplying the credentials when 5 minutes remain.
+     */
+    readonly expiration?: Date;
+  }>;
+```
+
+#### Outer and inner clients
+
+A "parent/outer/upper/caller" (position), or "data" (purpose) client refers
+to a client being initialized explicitly by the SDK user.
+
+An "inner" (position), or "credentials" (purpose) client
+refers to a client being initialized by the SDK in the course
+of retrieving credentials. Several AWS SDK credentials providers
+make use of inner clients such as Cognito, SSO, STS, and SSO-OIDC.
+
+```ts
+// Example: outer client and inner client
+const s3 = new S3Client({
+  credentials: fromIni(),
+});
+```
+
+In the above example, `S3Client` is the outer client, and
+if the `fromIni` credentials provider uses STS::AssumeRole, the
+`STSClient` initialized by the SDK is the inner client.
 
 ## `fromCognitoIdentity()`
 
 - Uses `@aws-sdk/client-cognito-identity`
 - Available in browsers & native apps
 
-The function `fromCognitoIdentity()` returns `CredentialsProvider` that retrieves credentials for
+The function `fromCognitoIdentity()` returns a credentials provider that retrieves credentials for
 the provided identity ID. See [GetCredentialsForIdentity API][getcredentialsforidentity_api]
 for more information.
 
@@ -57,9 +111,10 @@ const client = new FooClient({
       "api.twitter.com": "TWITTERTOKEN'",
       "www.digits.com": "DIGITSTOKEN",
     },
-    // Optional. Custom client config if you need overwrite default Cognito Identity client
-    // configuration.
-    clientConfig: { region },
+    // Optional overrides. This is passed to an inner Cognito client
+    // instantiated to resolve the credentials. Region and profile
+    // are inherited from the upper client if present unless overridden.
+    clientConfig: {},
   }),
 });
 ```
@@ -105,9 +160,10 @@ const client = new FooClient({
       "api.twitter.com": "TWITTERTOKEN",
       "www.digits.com": "DIGITSTOKEN",
     },
-    // Optional. Custom client config if you need overwrite default Cognito Identity client
-    // configuration.
-    clientConfig: { region },
+    // Optional overrides. This is passed to an inner Cognito client
+    // instantiated to resolve the credentials. Region and profile
+    // are inherited from the upper client if present unless overridden.
+    clientConfig: {},
   }),
 });
 ```
@@ -143,13 +199,15 @@ const client = new FooClient({
       DurationSeconds: 3600,
       // ... For more options see https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRole.html
     },
-    // Optional. Custom STS client configurations overriding the default ones.
-    clientConfig: { region },
     // Optional. A function that returns a promise fulfilled with an MFA token code for the provided
     // MFA Serial code. Required if `params` has `SerialNumber` config.
     mfaCodeProvider: async (mfaSerial) => {
       return "token";
     },
+    // Optional overrides. This is passed to an inner STS client instantiated to
+    // resolve the credentials. Region and profile
+    // are inherited from the upper client if present unless overridden.
+    clientConfig: {},
   }),
 });
 ```
@@ -171,24 +229,29 @@ const client = new FooClient({
   credentials: fromWebToken({
     // Required. ARN of the role that the caller is assuming.
     roleArn: "arn:aws:iam::1234567890:role/RoleA",
-    // Required. The OAuth 2.0 access token or OpenID Connect ID token that is provided by the
-    // identity provider.
+    // Required. The OAuth 2.0 access token or OpenID Connect ID token that is
+    // provided by the identity provider.
     webIdentityToken: await openIdProvider(),
-    // Optional. Custom STS client configurations overriding the default ones.
-    clientConfig: { region },
-    // Optional. A function that assumes a role with web identity and returns a promise fulfilled
-    // with credentials for the assumed role.
+    // Optional. A function that assumes a role with web identity and returns
+    // a promise fulfilled with credentials for the assumed role.
     roleAssumerWithWebIdentity,
     // Optional. An identifier for the assumed role session.
     roleSessionName: "session_123",
-    // Optional. The fully qualified host component of the domain name of the identity provider.
+    // Optional. The fully qualified host component of the domain name of the
+    // identity provider.
     providerId: "graph.facebook.com",
-    // Optional. ARNs of the IAM managed policies that you want to use as managed session.
+    // Optional. ARNs of the IAM managed policies that you want to use as
+    // managed session.
     policyArns: [{ arn: "arn:aws:iam::1234567890:policy/SomePolicy" }],
-    // Optional. An IAM policy in JSON format that you want to use as an inline session policy.
+    // Optional. An IAM policy in JSON format that you want to use as an
+    // inline session policy.
     policy: "JSON_STRING",
-    // Optional. The duration, in seconds, of the role session. Default to 3600.
+    // Optional. The duration, in seconds, of the role session. Default 3600.
     durationSeconds: 7200,
+    // Optional overrides. This is passed to an inner STS client
+    // instantiated to resolve the credentials. Region and profile
+    // are inherited from the upper client if present unless overridden.
+    clientConfig: {},
   }),
 });
 ```
@@ -379,7 +442,7 @@ const client = new FooClient({
   on how the file is configured.
 - Not available in browsers & native apps.
 
-`fromIni` creates `AwsCredentialIdentityProvider` functions that read from a shared credentials file at
+`fromIni` creates an `AwsCredentialIdentityProvider` function that reads from a shared credentials file at
 `~/.aws/credentials` and a shared configuration file at `~/.aws/config`. Both files are expected to
 be INI formatted with section names corresponding to profiles. Sections in the credentials file are
 treated as profile names, whereas profile sections in the config file must have the format of
@@ -394,10 +457,29 @@ import { fromIni } from "@aws-sdk/credential-providers"; // ES6 import
 // const { fromIni } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
+  // As of v3.714.0, an easy way to select a profile is to set it on the client.
+  // This will read both client configuration and credentials instructions
+  // from that profile. The order of priority is:
+  // 1. this field (only applies to this client).
+  // 2. AWS_PROFILE environment variable (affects all clients).
+  // 3. the default profile.
+  profile: "my-profile",
+
+  // Please note that the data client's region
+  // will not be used by STS requests originating from the `fromIni`
+  // provider if the profile(s) used have their own configured regions.
+  // If the profile(s) have no regions set, then the data client's
+  // region will be the fallback for the inner STS client.
+  // For SSO via `fromIni`, the `sso_region` value will be used, since it is required.
+  region: "us-west-2",
+
   credentials: fromIni({
-    // Optional. The configuration profile to use. If not specified, the provider will use the value
-    // in the `AWS_PROFILE` environment variable or a default of `default`.
-    profile: "profile",
+    // Optional. Defaults to the client's profile if that is set.
+    // You can specify a profile here as well, but this applies
+    // only to the credential resolution and not to the upper client.
+    // Use this instead of the client profile if you need a separate profile
+    // for credentials.
+    profile: "my-profile",
     // Optional. The path to the shared credentials file. If not specified, the provider will use
     // the value in the `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of
     // `~/.aws/credentials`.
@@ -411,8 +493,14 @@ const client = new FooClient({
     mfaCodeProvider: async (mfaSerial) => {
       return "token";
     },
-    // Optional. Custom STS client configurations overriding the default ones.
-    clientConfig: { region },
+    // Optional overrides. This is passed to an inner STS or SSO client
+    // instantiated to resolve the credentials. Region and profile
+    // are inherited from the upper client if present unless overridden, so
+    // it should not be necessary to set those.
+    //
+    // Warning: setting a region here overrides the region set in the config file
+    // for the selected profile.
+    clientConfig: {},
   }),
 });
 ```
@@ -539,10 +627,15 @@ import { fromProcess } from "@aws-sdk/credential-providers"; // ES6 import
 // const { fromProcess } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
+  // Optional, available on clients as of v3.714.0.
+  profile: "my-profile",
   credentials: fromProcess({
-    // Optional. The configuration profile to use. If not specified, the provider will use the value
-    // in the `AWS_PROFILE` environment variable or a default of `default`.
-    profile: "profile",
+    // Optional. Defaults to the client's profile if that is set.
+    // You can specify a profile here as well, but this applies
+    // only to the credential resolution and not to the upper client.
+    // Use this instead of the client profile if you need a separate profile
+    // for credentials.
+    profile: "my-profile",
     // Optional. The path to the shared credentials file. If not specified, the provider will use
     // the value in the `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of
     // `~/.aws/credentials`.
@@ -616,9 +709,12 @@ import { fromTokenFile } from "@aws-sdk/credential-providers"; // ES6 import
 // const { fromTokenFile } = require("@aws-sdk/credential-providers"); // CommonJS import
 
 const client = new FooClient({
+  region: "us-west-2",
   credentials: fromTokenFile({
-    // Optional. STS client config to make the assume role request.
-    clientConfig: { region }
+    // Optional overrides. This is passed to an inner STS client
+    // instantiated to resolve the credentials. Region is inherited
+    // from the upper client if present unless overridden.
+    clientConfig: {}
   });
 });
 ```
@@ -654,9 +750,14 @@ import { fromSSO } from "@aws-sdk/credential-providers"; // ES6 import
 // const { fromSSO } = require("@aws-sdk/credential-providers") // CommonJS import
 
 const client = new FooClient({
-  credentials: fromSSO({
-    // Optional. The configuration profile to use. If not specified, the provider will use the value
-    // in the `AWS_PROFILE` environment variable or `default` by default.
+  // Optional, available on clients as of v3.714.0.
+  profile: "my-sso-profile",
+  credentials: fromProcess({
+    // Optional. Defaults to the client's profile if that is set.
+    // You can specify a profile here as well, but this applies
+    // only to the credential resolution and not to the upper client.
+    // Use this instead of the client profile if you need a separate profile
+    // for credentials.
     profile: "my-sso-profile",
     // Optional. The path to the shared credentials file. If not specified, the provider will use
     // the value in the `AWS_SHARED_CREDENTIALS_FILE` environment variable or a default of
@@ -704,14 +805,14 @@ CLI profile name [123456789011_ReadOnly]: my-sso-profile<ENTER>
 
 ```javascript
 //...
-const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" })});
+const client = new FooClient({ credentials: fromSSO({ profile: "my-sso-profile" }) });
 ```
 
 Alternatively, the SSO credential provider is supported in shared INI credentials provider
 
 ```javascript
 //...
-const client = new FooClient({ credentials: fromIni({ profile: "my-sso-profile" })});
+const client = new FooClient({ credentials: fromIni({ profile: "my-sso-profile" }) });
 ```
 
 3. To log out from the current SSO session, use the AWS CLI:
@@ -777,10 +878,73 @@ messages be sent to the Instance Metadata Service
 import { fromNodeProviderChain } from "@aws-sdk/credential-providers"; // ES6 import
 // const { fromNodeProviderChain } = require("@aws-sdk/credential-providers") // CommonJS import
 const credentialProvider = fromNodeProviderChain({
-  //...any input of fromEnv(), fromSSO(), fromTokenFile(), fromIni(),
-  // fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
-  // Optional. Custom STS client configurations overriding the default ones.
-  clientConfig: { region },
+  // This provider accepts any input of fromEnv(), fromSSO(), fromTokenFile(),
+  // fromIni(), fromProcess(), fromInstanceMetadata(), fromContainerMetadata()
+  // that exist in the default credential chain.
+
+  // Optional client overrides. This is passed to an inner credentials client
+  // that may be STS, SSO, or other instantiated to resolve the credentials.
+  // Region and profile are inherited from the upper client if present
+  // unless overridden, so it should not be necessary to set those.
+  //
+  // Warning: setting a region here may override the region set in
+  // the config file for the selected profile if profile-based
+  // credentials are used.
+  clientConfig: {},
+});
+```
+
+## `createCredentialChain()`
+
+You can use this helper to create a credential chain of your own.
+
+A credential chain is created from a list of functions of the signature () => Promise<[AwsCredentialIdentity](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-smithy-types/Interface/AwsCredentialIdentity/)>,
+composed together such that the overall chain has the **same** signature.
+
+That is why you can provide the chained credential provider to the same field (`credentials`) as any single provider function.
+
+All the providers from this package are compatible, and can be used to create such a chain.
+
+As with _any_ function provided to the `credentials` SDK client constructor configuration field, if the credential object returned does not contain
+an `expiration` (type `Date`), the client will only ever call the provider function once. You do not need to memoize this function.
+
+To enable automatic refresh, the credential provider function should set an `expiration` (`Date`) field. When this expiration approaches within 5 minutes, the
+provider function will be called again by the client in the course of making SDK requests.
+
+To assist with this, the `createCredentialChain` has a chainable helper `.expireAfter(milliseconds: number)`. An example is included below.
+
+```ts
+import { fromEnv, fromIni, createCredentialChain } from "@aws-sdk/credential-providers";
+import { S3 } from "@aws-sdk/client-s3";
+
+// You can mix existing AWS SDK credential providers
+// and custom async functions returning credential objects.
+new S3({
+  credentials: createCredentialChain(
+    fromEnv(),
+    async () => {
+      // credentials customized by your code...
+      return credentials;
+    },
+    fromIni()
+  ),
+});
+
+// Set a max duration on the credentials (client side only).
+// A set expiration will cause the credentials function to be called again
+// when the time left is less than 5 minutes.
+new S3({
+  // This setting indicates expiry after 15 minutes (in milliseconds) with `15 * 60_000`.
+  // Due to the 5 minute expiry window, the function will be called approximately every
+  // 10 minutes under continuous usage of this client.
+  credentials: createCredentialChain(fromEnv(), fromIni()).expireAfter(15 * 60_000),
+});
+
+// Apply shared init properties.
+const init = { logger: console };
+
+new S3({
+  credentials: createCredentialChain(fromEnv(init), fromIni(init)),
 });
 ```
 

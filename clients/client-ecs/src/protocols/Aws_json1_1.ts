@@ -65,6 +65,14 @@ import {
   DescribeContainerInstancesCommandInput,
   DescribeContainerInstancesCommandOutput,
 } from "../commands/DescribeContainerInstancesCommand";
+import {
+  DescribeServiceDeploymentsCommandInput,
+  DescribeServiceDeploymentsCommandOutput,
+} from "../commands/DescribeServiceDeploymentsCommand";
+import {
+  DescribeServiceRevisionsCommandInput,
+  DescribeServiceRevisionsCommandOutput,
+} from "../commands/DescribeServiceRevisionsCommand";
 import { DescribeServicesCommandInput, DescribeServicesCommandOutput } from "../commands/DescribeServicesCommand";
 import {
   DescribeTaskDefinitionCommandInput,
@@ -88,6 +96,10 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "../commands/ListContainerInstancesCommand";
+import {
+  ListServiceDeploymentsCommandInput,
+  ListServiceDeploymentsCommandOutput,
+} from "../commands/ListServiceDeploymentsCommand";
 import {
   ListServicesByNamespaceCommandInput,
   ListServicesByNamespaceCommandOutput,
@@ -126,6 +138,10 @@ import {
 } from "../commands/RegisterTaskDefinitionCommand";
 import { RunTaskCommandInput, RunTaskCommandOutput } from "../commands/RunTaskCommand";
 import { StartTaskCommandInput, StartTaskCommandOutput } from "../commands/StartTaskCommand";
+import {
+  StopServiceDeploymentCommandInput,
+  StopServiceDeploymentCommandOutput,
+} from "../commands/StopServiceDeploymentCommand";
 import { StopTaskCommandInput, StopTaskCommandOutput } from "../commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommandInput,
@@ -175,7 +191,6 @@ import {
   Attribute,
   AttributeLimitExceededException,
   AutoScalingGroupProvider,
-  AutoScalingGroupProviderUpdate,
   AwsVpcConfiguration,
   BlockedException,
   CapacityProviderField,
@@ -198,9 +213,11 @@ import {
   ContainerInstanceField,
   ContainerInstanceHealthStatus,
   ContainerOverride,
+  ContainerRestartPolicy,
   ContainerStateChange,
   CreateCapacityProviderRequest,
   CreateClusterRequest,
+  CreatedAt,
   CreateServiceRequest,
   CreateServiceResponse,
   CreateTaskSetRequest,
@@ -228,6 +245,10 @@ import {
   DescribeClustersRequest,
   DescribeContainerInstancesRequest,
   DescribeContainerInstancesResponse,
+  DescribeServiceDeploymentsRequest,
+  DescribeServiceDeploymentsResponse,
+  DescribeServiceRevisionsRequest,
+  DescribeServiceRevisionsResponse,
   DescribeServicesRequest,
   DescribeServicesResponse,
   DescribeTaskDefinitionRequest,
@@ -268,6 +289,8 @@ import {
   ListAttributesRequest,
   ListClustersRequest,
   ListContainerInstancesRequest,
+  ListServiceDeploymentsRequest,
+  ListServiceDeploymentsResponse,
   ListServicesByNamespaceRequest,
   ListServicesRequest,
   ListTagsForResourceRequest,
@@ -279,12 +302,11 @@ import {
   ManagedAgent,
   ManagedAgentStateChange,
   ManagedScaling,
-  MissingVersionException,
+  ManagedStorageConfiguration,
   MountPoint,
   NamespaceNotFoundException,
   NetworkBinding,
   NetworkConfiguration,
-  NoUpdateAvailableException,
   PlacementConstraint,
   PlacementStrategy,
   PlatformDevice,
@@ -306,6 +328,7 @@ import {
   ResourceInUseException,
   ResourceNotFoundException,
   ResourceRequirement,
+  Rollback,
   RunTaskRequest,
   RunTaskResponse,
   RuntimePlatform,
@@ -318,15 +341,21 @@ import {
   ServiceConnectService,
   ServiceConnectTlsCertificateAuthority,
   ServiceConnectTlsConfiguration,
+  ServiceDeployment,
+  ServiceDeploymentBrief,
+  ServiceDeploymentNotFoundException,
+  ServiceDeploymentStatus,
   ServiceEvent,
   ServiceField,
   ServiceManagedEBSVolumeConfiguration,
   ServiceNotActiveException,
   ServiceNotFoundException,
   ServiceRegistry,
+  ServiceRevision,
   ServiceVolumeConfiguration,
   StartTaskRequest,
   StartTaskResponse,
+  StopServiceDeploymentRequest,
   StopTaskRequest,
   StopTaskResponse,
   SubmitAttachmentStateChangesRequest,
@@ -334,7 +363,6 @@ import {
   SubmitTaskStateChangeRequest,
   SystemControl,
   Tag,
-  TagResourceRequest,
   TargetNotConnectedException,
   TargetNotFoundException,
   Task,
@@ -353,6 +381,17 @@ import {
   Tmpfs,
   Ulimit,
   UnsupportedFeatureException,
+  UpdateInProgressException,
+  VersionInfo,
+  Volume,
+  VolumeFrom,
+  VpcLatticeConfiguration,
+} from "../models/models_0";
+import {
+  AutoScalingGroupProviderUpdate,
+  MissingVersionException,
+  NoUpdateAvailableException,
+  TagResourceRequest,
   UntagResourceRequest,
   UpdateCapacityProviderRequest,
   UpdateClusterRequest,
@@ -361,7 +400,6 @@ import {
   UpdateContainerAgentResponse,
   UpdateContainerInstancesStateRequest,
   UpdateContainerInstancesStateResponse,
-  UpdateInProgressException,
   UpdateServicePrimaryTaskSetRequest,
   UpdateServicePrimaryTaskSetResponse,
   UpdateServiceRequest,
@@ -370,10 +408,7 @@ import {
   UpdateTaskProtectionResponse,
   UpdateTaskSetRequest,
   UpdateTaskSetResponse,
-  VersionInfo,
-  Volume,
-  VolumeFrom,
-} from "../models/models_0";
+} from "../models/models_1";
 
 /**
  * serializeAws_json1_1CreateCapacityProviderCommand
@@ -584,6 +619,32 @@ export const se_DescribeContainerInstancesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribeServiceDeploymentsCommand
+ */
+export const se_DescribeServiceDeploymentsCommand = async (
+  input: DescribeServiceDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeServiceDeployments");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeServiceRevisionsCommand
+ */
+export const se_DescribeServiceRevisionsCommand = async (
+  input: DescribeServiceRevisionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeServiceRevisions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeServicesCommand
  */
 export const se_DescribeServicesCommand = async (
@@ -723,6 +784,19 @@ export const se_ListContainerInstancesCommand = async (
   const headers: __HeaderBag = sharedHeaders("ListContainerInstances");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListServiceDeploymentsCommand
+ */
+export const se_ListServiceDeploymentsCommand = async (
+  input: ListServiceDeploymentsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListServiceDeployments");
+  let body: any;
+  body = JSON.stringify(se_ListServiceDeploymentsRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -903,6 +977,19 @@ export const se_StartTaskCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartTask");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StopServiceDeploymentCommand
+ */
+export const se_StopServiceDeploymentCommand = async (
+  input: StopServiceDeploymentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StopServiceDeployment");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1424,6 +1511,46 @@ export const de_DescribeContainerInstancesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribeServiceDeploymentsCommand
+ */
+export const de_DescribeServiceDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServiceDeploymentsResponse(data, context);
+  const response: DescribeServiceDeploymentsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeServiceRevisionsCommand
+ */
+export const de_DescribeServiceRevisionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeServiceRevisionsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeServiceRevisionsResponse(data, context);
+  const response: DescribeServiceRevisionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeServicesCommand
  */
 export const de_DescribeServicesCommand = async (
@@ -1637,6 +1764,26 @@ export const de_ListContainerInstancesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListContainerInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListServiceDeploymentsCommand
+ */
+export const de_ListServiceDeploymentsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListServiceDeploymentsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListServiceDeploymentsResponse(data, context);
+  const response: ListServiceDeploymentsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1917,6 +2064,26 @@ export const de_StartTaskCommand = async (
   let contents: any = {};
   contents = de_StartTaskResponse(data, context);
   const response: StartTaskCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StopServiceDeploymentCommand
+ */
+export const de_StopServiceDeploymentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopServiceDeploymentCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StopServiceDeploymentCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2305,6 +2472,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConflictException":
     case "com.amazonaws.ecs#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceDeploymentNotFoundException":
+    case "com.amazonaws.ecs#ServiceDeploymentNotFoundException":
+      throw await de_ServiceDeploymentNotFoundExceptionRes(parsedOutput, context);
     case "MissingVersionException":
     case "com.amazonaws.ecs#MissingVersionException":
       throw await de_MissingVersionExceptionRes(parsedOutput, context);
@@ -2614,6 +2784,22 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 };
 
 /**
+ * deserializeAws_json1_1ServiceDeploymentNotFoundExceptionRes
+ */
+const de_ServiceDeploymentNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceDeploymentNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceDeploymentNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceNotActiveExceptionRes
  */
 const de_ServiceNotActiveExceptionRes = async (
@@ -2771,6 +2957,8 @@ const de_UpdateInProgressExceptionRes = async (
 
 // se_ContainerOverrides omitted.
 
+// se_ContainerRestartPolicy omitted.
+
 // se_ContainerStateChange omitted.
 
 // se_ContainerStateChanges omitted.
@@ -2778,6 +2966,16 @@ const de_UpdateInProgressExceptionRes = async (
 // se_CreateCapacityProviderRequest omitted.
 
 // se_CreateClusterRequest omitted.
+
+/**
+ * serializeAws_json1_1CreatedAt
+ */
+const se_CreatedAt = (input: CreatedAt, context: __SerdeContext): any => {
+  return take(input, {
+    after: (_) => _.getTime() / 1_000,
+    before: (_) => _.getTime() / 1_000,
+  });
+};
 
 // se_CreateServiceRequest omitted.
 
@@ -2833,6 +3031,10 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 // se_DescribeClustersRequest omitted.
 
 // se_DescribeContainerInstancesRequest omitted.
+
+// se_DescribeServiceDeploymentsRequest omitted.
+
+// se_DescribeServiceRevisionsRequest omitted.
 
 // se_DescribeServicesRequest omitted.
 
@@ -2902,6 +3104,8 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 
 // se_InferenceAccelerators omitted.
 
+// se_IntegerList omitted.
+
 // se_KernelCapabilities omitted.
 
 // se_KeyValuePair omitted.
@@ -2915,6 +3119,20 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 // se_ListClustersRequest omitted.
 
 // se_ListContainerInstancesRequest omitted.
+
+/**
+ * serializeAws_json1_1ListServiceDeploymentsRequest
+ */
+const se_ListServiceDeploymentsRequest = (input: ListServiceDeploymentsRequest, context: __SerdeContext): any => {
+  return take(input, {
+    cluster: [],
+    createdAt: (_) => se_CreatedAt(_, context),
+    maxResults: [],
+    nextToken: [],
+    service: [],
+    status: _json,
+  });
+};
 
 // se_ListServicesByNamespaceRequest omitted.
 
@@ -2941,6 +3159,8 @@ const se_CreateTaskSetRequest = (input: CreateTaskSetRequest, context: __SerdeCo
 // se_ManagedAgentStateChanges omitted.
 
 // se_ManagedScaling omitted.
+
+// se_ManagedStorageConfiguration omitted.
 
 // se_MountPoint omitted.
 
@@ -3087,6 +3307,8 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 
 // se_ServiceConnectTlsConfiguration omitted.
 
+// se_ServiceDeploymentStatusList omitted.
+
 // se_ServiceFieldList omitted.
 
 // se_ServiceManagedEBSVolumeConfiguration omitted.
@@ -3100,6 +3322,8 @@ const se_Scale = (input: Scale, context: __SerdeContext): any => {
 // se_ServiceVolumeConfigurations omitted.
 
 // se_StartTaskRequest omitted.
+
+// se_StopServiceDeploymentRequest omitted.
 
 // se_StopTaskRequest omitted.
 
@@ -3211,6 +3435,10 @@ const se_UpdateTaskSetRequest = (input: UpdateTaskSetRequest, context: __SerdeCo
 
 // se_VolumeList omitted.
 
+// se_VpcLatticeConfiguration omitted.
+
+// se_VpcLatticeConfigurations omitted.
+
 // de_AccessDeniedException omitted.
 
 // de_Attachment omitted.
@@ -3298,6 +3526,10 @@ const de_Container = (output: any, context: __SerdeContext): Container => {
 
 // de_ContainerDependency omitted.
 
+// de_ContainerImage omitted.
+
+// de_ContainerImages omitted.
+
 /**
  * deserializeAws_json1_1ContainerInstance
  */
@@ -3349,6 +3581,8 @@ const de_ContainerInstances = (output: any, context: __SerdeContext): ContainerI
 // de_ContainerOverride omitted.
 
 // de_ContainerOverrides omitted.
+
+// de_ContainerRestartPolicy omitted.
 
 /**
  * deserializeAws_json1_1Containers
@@ -3429,6 +3663,7 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     desiredCount: __expectInt32,
     failedTasks: __expectInt32,
+    fargateEphemeralStorage: _json,
     id: __expectString,
     launchType: __expectString,
     networkConfiguration: _json,
@@ -3444,6 +3679,7 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
     taskDefinition: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
   }) as any;
 };
 
@@ -3454,6 +3690,8 @@ const de_Deployment = (output: any, context: __SerdeContext): Deployment => {
 // de_DeploymentConfiguration omitted.
 
 // de_DeploymentController omitted.
+
+// de_DeploymentEphemeralStorage omitted.
 
 /**
  * deserializeAws_json1_1Deployments
@@ -3505,6 +3743,32 @@ const de_DescribeContainerInstancesResponse = (
   return take(output, {
     containerInstances: (_: any) => de_ContainerInstances(_, context),
     failures: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeServiceDeploymentsResponse
+ */
+const de_DescribeServiceDeploymentsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeServiceDeploymentsResponse => {
+  return take(output, {
+    failures: _json,
+    serviceDeployments: (_: any) => de_ServiceDeployments(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeServiceRevisionsResponse
+ */
+const de_DescribeServiceRevisionsResponse = (
+  output: any,
+  context: __SerdeContext
+): DescribeServiceRevisionsResponse => {
+  return take(output, {
+    failures: _json,
+    serviceRevisions: (_: any) => de_ServiceRevisions(_, context),
   }) as any;
 };
 
@@ -3646,6 +3910,8 @@ const de_InstanceHealthCheckResultList = (output: any, context: __SerdeContext):
   return retVal;
 };
 
+// de_IntegerList omitted.
+
 // de_InvalidParameterException omitted.
 
 // de_KernelCapabilities omitted.
@@ -3663,6 +3929,16 @@ const de_InstanceHealthCheckResultList = (output: any, context: __SerdeContext):
 // de_ListClustersResponse omitted.
 
 // de_ListContainerInstancesResponse omitted.
+
+/**
+ * deserializeAws_json1_1ListServiceDeploymentsResponse
+ */
+const de_ListServiceDeploymentsResponse = (output: any, context: __SerdeContext): ListServiceDeploymentsResponse => {
+  return take(output, {
+    nextToken: __expectString,
+    serviceDeployments: (_: any) => de_ServiceDeploymentsBrief(_, context),
+  }) as any;
+};
 
 // de_ListServicesByNamespaceResponse omitted.
 
@@ -3709,6 +3985,8 @@ const de_ManagedAgents = (output: any, context: __SerdeContext): ManagedAgent[] 
 };
 
 // de_ManagedScaling omitted.
+
+// de_ManagedStorageConfiguration omitted.
 
 // de_MissingVersionException omitted.
 
@@ -3844,6 +4122,17 @@ const de_Resources = (output: any, context: __SerdeContext): Resource[] => {
 };
 
 /**
+ * deserializeAws_json1_1Rollback
+ */
+const de_Rollback = (output: any, context: __SerdeContext): Rollback => {
+  return take(output, {
+    reason: __expectString,
+    serviceRevisionArn: __expectString,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1RunTaskResponse
  */
 const de_RunTaskResponse = (output: any, context: __SerdeContext): RunTaskResponse => {
@@ -3876,6 +4165,7 @@ const de_Scale = (output: any, context: __SerdeContext): Scale => {
  */
 const de_Service = (output: any, context: __SerdeContext): Service => {
   return take(output, {
+    availabilityZoneRebalancing: __expectString,
     capacityProviderStrategy: _json,
     clusterArn: __expectString,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3929,6 +4219,77 @@ const de_Service = (output: any, context: __SerdeContext): Service => {
 // de_ServiceConnectTlsConfiguration omitted.
 
 /**
+ * deserializeAws_json1_1ServiceDeployment
+ */
+const de_ServiceDeployment = (output: any, context: __SerdeContext): ServiceDeployment => {
+  return take(output, {
+    alarms: _json,
+    clusterArn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    deploymentCircuitBreaker: _json,
+    deploymentConfiguration: _json,
+    finishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    rollback: (_: any) => de_Rollback(_, context),
+    serviceArn: __expectString,
+    serviceDeploymentArn: __expectString,
+    sourceServiceRevisions: _json,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusReason: __expectString,
+    stoppedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    targetServiceRevision: _json,
+    updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+// de_ServiceDeploymentAlarms omitted.
+
+/**
+ * deserializeAws_json1_1ServiceDeploymentBrief
+ */
+const de_ServiceDeploymentBrief = (output: any, context: __SerdeContext): ServiceDeploymentBrief => {
+  return take(output, {
+    clusterArn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    finishedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    serviceArn: __expectString,
+    serviceDeploymentArn: __expectString,
+    startedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: __expectString,
+    statusReason: __expectString,
+    targetServiceRevisionArn: __expectString,
+  }) as any;
+};
+
+// de_ServiceDeploymentCircuitBreaker omitted.
+
+// de_ServiceDeploymentNotFoundException omitted.
+
+/**
+ * deserializeAws_json1_1ServiceDeployments
+ */
+const de_ServiceDeployments = (output: any, context: __SerdeContext): ServiceDeployment[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceDeployment(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1ServiceDeploymentsBrief
+ */
+const de_ServiceDeploymentsBrief = (output: any, context: __SerdeContext): ServiceDeploymentBrief[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceDeploymentBrief(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_json1_1ServiceEvent
  */
 const de_ServiceEvent = (output: any, context: __SerdeContext): ServiceEvent => {
@@ -3960,6 +4321,48 @@ const de_ServiceEvents = (output: any, context: __SerdeContext): ServiceEvent[] 
 // de_ServiceRegistries omitted.
 
 // de_ServiceRegistry omitted.
+
+/**
+ * deserializeAws_json1_1ServiceRevision
+ */
+const de_ServiceRevision = (output: any, context: __SerdeContext): ServiceRevision => {
+  return take(output, {
+    capacityProviderStrategy: _json,
+    clusterArn: __expectString,
+    containerImages: _json,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fargateEphemeralStorage: _json,
+    guardDutyEnabled: __expectBoolean,
+    launchType: __expectString,
+    loadBalancers: _json,
+    networkConfiguration: _json,
+    platformFamily: __expectString,
+    platformVersion: __expectString,
+    serviceArn: __expectString,
+    serviceConnectConfiguration: _json,
+    serviceRegistries: _json,
+    serviceRevisionArn: __expectString,
+    taskDefinition: __expectString,
+    volumeConfigurations: _json,
+    vpcLatticeConfigurations: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1ServiceRevisions
+ */
+const de_ServiceRevisions = (output: any, context: __SerdeContext): ServiceRevision[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ServiceRevision(entry, context);
+    });
+  return retVal;
+};
+
+// de_ServiceRevisionsSummaryList omitted.
+
+// de_ServiceRevisionSummary omitted.
 
 /**
  * deserializeAws_json1_1Services
@@ -3994,6 +4397,8 @@ const de_StartTaskResponse = (output: any, context: __SerdeContext): StartTaskRe
 };
 
 // de_Statistics omitted.
+
+// de_StopServiceDeploymentResponse omitted.
 
 /**
  * deserializeAws_json1_1StopTaskResponse
@@ -4048,6 +4453,7 @@ const de_Task = (output: any, context: __SerdeContext): Task => {
     enableExecuteCommand: __expectBoolean,
     ephemeralStorage: _json,
     executionStoppedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    fargateEphemeralStorage: _json,
     group: __expectString,
     healthStatus: __expectString,
     inferenceAccelerators: _json,
@@ -4081,6 +4487,7 @@ const de_TaskDefinition = (output: any, context: __SerdeContext): TaskDefinition
     containerDefinitions: _json,
     cpu: __expectString,
     deregisteredAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    enableFaultInjection: __expectBoolean,
     ephemeralStorage: _json,
     executionRoleArn: __expectString,
     family: __expectString,
@@ -4120,6 +4527,8 @@ const de_TaskDefinitionList = (output: any, context: __SerdeContext): TaskDefini
 
 // de_TaskDefinitionPlacementConstraints omitted.
 
+// de_TaskEphemeralStorage omitted.
+
 // de_TaskOverride omitted.
 
 /**
@@ -4144,6 +4553,7 @@ const de_TaskSet = (output: any, context: __SerdeContext): TaskSet => {
     computedDesiredCount: __expectInt32,
     createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     externalId: __expectString,
+    fargateEphemeralStorage: _json,
     id: __expectString,
     launchType: __expectString,
     loadBalancers: _json,
@@ -4273,6 +4683,10 @@ const de_UpdateTaskSetResponse = (output: any, context: __SerdeContext): UpdateT
 // de_VolumeFromList omitted.
 
 // de_VolumeList omitted.
+
+// de_VpcLatticeConfiguration omitted.
+
+// de_VpcLatticeConfigurations omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

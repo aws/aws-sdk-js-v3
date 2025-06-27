@@ -12,7 +12,8 @@ import { de_GetProtocolsListCommand, se_GetProtocolsListCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface GetProtocolsListCommandOutput extends GetProtocolsListResponse,
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetProtocolsListCommand extends $Command
@@ -94,9 +96,7 @@ export class GetProtocolsListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class GetProtocolsListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProtocolsListCommand)
   .de(de_GetProtocolsListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProtocolsListRequest;
+      output: GetProtocolsListResponse;
+    };
+    sdk: {
+      input: GetProtocolsListCommandInput;
+      output: GetProtocolsListCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Service for Prometheus
- *             resource. The only resources that can be tagged are workspaces and rule groups
- *             namespaces. </p>
- *          <p>If you specify a new tag key for the resource, this tag is appended to the list of
- *             tags associated with the resource. If you specify a tag key that is already associated
- *             with the resource, the new tag value that you specify replaces the previous value for
- *             that tag.</p>
+ * <p>The <code>TagResource</code> operation associates tags with an Amazon Managed Service for Prometheus resource. The only resources that can be tagged are rule groups namespaces, scrapers, and workspaces.</p> <p>If you specify a new tag key for the resource, this tag is appended to the list of tags associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag. To remove a tag, use <code>UntagResource</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,11 +66,11 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +82,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +94,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

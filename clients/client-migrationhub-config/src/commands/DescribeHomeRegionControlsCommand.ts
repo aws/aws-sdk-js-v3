@@ -16,7 +16,8 @@ import { de_DescribeHomeRegionControlsCommand, se_DescribeHomeRegionControlsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface DescribeHomeRegionControlsCommandOutput extends DescribeHomeReg
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class DescribeHomeRegionControlsCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeHomeRegionControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeHomeRegionControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHomeRegionControlsCommand)
   .de(de_DescribeHomeRegionControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHomeRegionControlsRequest;
+      output: DescribeHomeRegionControlsResult;
+    };
+    sdk: {
+      input: DescribeHomeRegionControlsCommandInput;
+      output: DescribeHomeRegionControlsCommandOutput;
+    };
+  };
+}

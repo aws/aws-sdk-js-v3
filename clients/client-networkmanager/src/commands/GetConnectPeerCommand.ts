@@ -12,7 +12,8 @@ import { de_GetConnectPeerCommand, se_GetConnectPeerCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,14 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * //       },
  * //     ],
  * //     SubnetArn: "STRING_VALUE",
+ * //     LastModificationErrors: [ // ConnectPeerErrorList
+ * //       { // ConnectPeerError
+ * //         Code: "EDGE_LOCATION_NO_FREE_IPS" || "EDGE_LOCATION_PEER_DUPLICATE" || "SUBNET_NOT_FOUND" || "IP_OUTSIDE_SUBNET_CIDR_RANGE" || "INVALID_INSIDE_CIDR_BLOCK" || "NO_ASSOCIATED_CIDR_BLOCK",
+ * //         Message: "STRING_VALUE",
+ * //         ResourceArn: "STRING_VALUE",
+ * //         RequestId: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -99,6 +108,7 @@ export interface GetConnectPeerCommandOutput extends GetConnectPeerResponse, __M
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetConnectPeerCommand extends $Command
@@ -109,9 +119,7 @@ export class GetConnectPeerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +131,16 @@ export class GetConnectPeerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectPeerCommand)
   .de(de_GetConnectPeerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectPeerRequest;
+      output: GetConnectPeerResponse;
+    };
+    sdk: {
+      input: GetConnectPeerCommandInput;
+      output: GetConnectPeerCommandOutput;
+    };
+  };
+}

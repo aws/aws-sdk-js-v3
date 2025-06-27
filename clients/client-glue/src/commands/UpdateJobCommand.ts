@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateJobRequest, UpdateJobRequestFilterSensitiveLog, UpdateJobResponse } from "../models/models_2";
+import { UpdateJobRequest, UpdateJobRequestFilterSensitiveLog, UpdateJobResponse } from "../models/models_3";
 import { de_UpdateJobCommand, se_UpdateJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,6 +39,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *   JobName: "STRING_VALUE", // required
  *   JobUpdate: { // JobUpdate
  *     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ *     JobRunQueuingEnabled: true || false,
  *     Description: "STRING_VALUE",
  *     LogUri: "STRING_VALUE",
  *     Role: "STRING_VALUE",
@@ -57,7 +59,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *       "<keys>": "STRING_VALUE",
  *     },
  *     Connections: { // ConnectionsList
- *       Connections: [ // OrchestrationStringList
+ *       Connections: [ // ConnectionStringList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -204,12 +206,12 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
- *         S3JsonSource: { // S3JsonSource
+ *         S3ExcelSource: { // S3ExcelSource
  *           Name: "STRING_VALUE", // required
  *           Paths: [ // required
  *             "STRING_VALUE",
  *           ],
- *           CompressionType: "gzip" || "bzip2",
+ *           CompressionType: "snappy" || "lzo" || "gzip" || "brotli" || "lz4" || "uncompressed" || "none",
  *           Exclusions: [
  *             "STRING_VALUE",
  *           ],
@@ -224,8 +226,8 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             EnableSamplePath: true || false,
  *             SamplePath: "STRING_VALUE",
  *           },
- *           JsonPath: "STRING_VALUE",
- *           Multiline: true || false,
+ *           NumberRows: Number("long"),
+ *           SkipFooter: Number("int"),
  *           OutputSchemas: [
  *             {
  *               Columns: [
@@ -237,10 +239,30 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
+ *         S3JsonSource: { // S3JsonSource
+ *           Name: "STRING_VALUE", // required
+ *           Paths: "<EnclosedInStringProperties>", // required
+ *           CompressionType: "gzip" || "bzip2",
+ *           Exclusions: "<EnclosedInStringProperties>",
+ *           GroupSize: "STRING_VALUE",
+ *           GroupFiles: "STRING_VALUE",
+ *           Recurse: true || false,
+ *           MaxBand: Number("int"),
+ *           MaxFilesInBand: Number("int"),
+ *           AdditionalOptions: {
+ *             BoundedSize: Number("long"),
+ *             BoundedFiles: Number("long"),
+ *             EnableSamplePath: true || false,
+ *             SamplePath: "STRING_VALUE",
+ *           },
+ *           JsonPath: "STRING_VALUE",
+ *           Multiline: true || false,
+ *           OutputSchemas: "<GlueSchemas>",
+ *         },
  *         S3ParquetSource: { // S3ParquetSource
  *           Name: "STRING_VALUE", // required
  *           Paths: "<EnclosedInStringProperties>", // required
- *           CompressionType: "snappy" || "lzo" || "gzip" || "uncompressed" || "none",
+ *           CompressionType: "snappy" || "lzo" || "gzip" || "brotli" || "lz4" || "uncompressed" || "none",
  *           Exclusions: "<EnclosedInStringProperties>",
  *           GroupSize: "STRING_VALUE",
  *           GroupFiles: "STRING_VALUE",
@@ -297,6 +319,9 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
+ *           PartitionKeys: [ // GlueStudioPathList
+ *             "<EnclosedInStringProperties>",
+ *           ],
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
  *         },
@@ -322,7 +347,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Inputs: [ // required
  *             "STRING_VALUE",
  *           ],
- *           PartitionKeys: [ // GlueStudioPathList
+ *           PartitionKeys: [
  *             "<EnclosedInStringProperties>",
  *           ],
  *           Table: "STRING_VALUE", // required
@@ -339,8 +364,24 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             "<EnclosedInStringProperties>",
  *           ],
  *           Path: "STRING_VALUE", // required
- *           Compression: "snappy" || "lzo" || "gzip" || "uncompressed" || "none",
+ *           Compression: "snappy" || "lzo" || "gzip" || "brotli" || "lz4" || "uncompressed" || "none",
+ *           NumberTargetPartitions: "STRING_VALUE",
  *           SchemaChangePolicy: { // DirectSchemaChangePolicy
+ *             EnableUpdateCatalog: true || false,
+ *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
+ *             Table: "STRING_VALUE",
+ *             Database: "STRING_VALUE",
+ *           },
+ *         },
+ *         S3HyperDirectTarget: { // S3HyperDirectTarget
+ *           Name: "STRING_VALUE", // required
+ *           Inputs: "<OneInput>", // required
+ *           PartitionKeys: [
+ *             "<EnclosedInStringProperties>",
+ *           ],
+ *           Path: "STRING_VALUE", // required
+ *           Compression: "uncompressed",
+ *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *             Table: "STRING_VALUE",
@@ -355,13 +396,32 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           ],
  *           Path: "STRING_VALUE", // required
  *           Compression: "STRING_VALUE",
- *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta", // required
+ *           NumberTargetPartitions: "STRING_VALUE",
+ *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
  *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
  *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
  *             Table: "STRING_VALUE",
  *             Database: "STRING_VALUE",
  *           },
+ *         },
+ *         S3IcebergDirectTarget: { // S3IcebergDirectTarget
+ *           Name: "STRING_VALUE", // required
+ *           Inputs: "<OneInput>", // required
+ *           PartitionKeys: "<GlueStudioPathList>",
+ *           Path: "STRING_VALUE", // required
+ *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
+ *           AdditionalOptions: {
+ *             "<keys>": "STRING_VALUE",
+ *           },
+ *           SchemaChangePolicy: {
+ *             EnableUpdateCatalog: true || false,
+ *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
+ *             Table: "STRING_VALUE",
+ *             Database: "STRING_VALUE",
+ *           },
+ *           Compression: "gzip" || "lzo" || "uncompressed" || "snappy", // required
+ *           NumberTargetPartitions: "STRING_VALUE",
  *         },
  *         ApplyMapping: { // ApplyMapping
  *           Name: "STRING_VALUE", // required
@@ -389,16 +449,12 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *         SelectFields: { // SelectFields
  *           Name: "STRING_VALUE", // required
  *           Inputs: "<OneInput>", // required
- *           Paths: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
+ *           Paths: "<GlueStudioPathList>", // required
  *         },
  *         DropFields: { // DropFields
  *           Name: "STRING_VALUE", // required
  *           Inputs: "<OneInput>", // required
- *           Paths: [ // required
- *             "<EnclosedInStringProperties>",
- *           ],
+ *           Paths: "<GlueStudioPathList>", // required
  *         },
  *         RenameField: { // RenameField
  *           Name: "STRING_VALUE", // required
@@ -786,9 +842,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Name: "STRING_VALUE", // required
  *           Database: "STRING_VALUE", // required
  *           Table: "STRING_VALUE", // required
- *           AdditionalHudiOptions: {
- *             "<keys>": "STRING_VALUE",
- *           },
+ *           AdditionalHudiOptions: "<AdditionalOptions>",
  *           OutputSchemas: "<GlueSchemas>",
  *         },
  *         S3HudiSource: { // S3HudiSource
@@ -820,8 +874,9 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Inputs: "<OneInput>", // required
  *           Path: "STRING_VALUE", // required
  *           Compression: "gzip" || "lzo" || "uncompressed" || "snappy", // required
+ *           NumberTargetPartitions: "STRING_VALUE",
  *           PartitionKeys: "<GlueStudioPathList>",
- *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta", // required
+ *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
  *           AdditionalOptions: "<AdditionalOptions>", // required
  *           SchemaChangePolicy: {
  *             EnableUpdateCatalog: true || false,
@@ -856,12 +911,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           Name: "STRING_VALUE", // required
  *           Paths: "<EnclosedInStringProperties>", // required
  *           AdditionalDeltaOptions: "<AdditionalOptions>",
- *           AdditionalOptions: {
- *             BoundedSize: Number("long"),
- *             BoundedFiles: Number("long"),
- *             EnableSamplePath: true || false,
- *             SamplePath: "STRING_VALUE",
- *           },
+ *           AdditionalOptions: "<S3DirectSourceAdditionalOptions>",
  *           OutputSchemas: "<GlueSchemas>",
  *         },
  *         S3DeltaCatalogTarget: { // S3DeltaCatalogTarget
@@ -882,14 +932,10 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *           PartitionKeys: "<GlueStudioPathList>",
  *           Path: "STRING_VALUE", // required
  *           Compression: "uncompressed" || "snappy", // required
- *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta", // required
+ *           NumberTargetPartitions: "STRING_VALUE",
+ *           Format: "json" || "csv" || "avro" || "orc" || "parquet" || "hudi" || "delta" || "iceberg" || "hyper" || "xml", // required
  *           AdditionalOptions: "<AdditionalOptions>",
- *           SchemaChangePolicy: {
- *             EnableUpdateCatalog: true || false,
- *             UpdateBehavior: "UPDATE_IN_DATABASE" || "LOG",
- *             Table: "STRING_VALUE",
- *             Database: "STRING_VALUE",
- *           },
+ *           SchemaChangePolicy: "<DirectSchemaChangePolicy>",
  *         },
  *         AmazonRedshiftSource: { // AmazonRedshiftSource
  *           Name: "STRING_VALUE",
@@ -1021,6 +1067,23 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  *             RecipeArn: "STRING_VALUE", // required
  *             RecipeVersion: "STRING_VALUE", // required
  *           },
+ *           RecipeSteps: [ // RecipeSteps
+ *             { // RecipeStep
+ *               Action: { // RecipeAction
+ *                 Operation: "STRING_VALUE", // required
+ *                 Parameters: { // ParameterMap
+ *                   "<keys>": "STRING_VALUE",
+ *                 },
+ *               },
+ *               ConditionExpressions: [ // ConditionExpressionList
+ *                 { // ConditionExpression
+ *                   Condition: "STRING_VALUE", // required
+ *                   Value: "STRING_VALUE",
+ *                   TargetColumn: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           ],
  *         },
  *         SnowflakeSource: { // SnowflakeSource
  *           Name: "STRING_VALUE", // required
@@ -1142,6 +1205,7 @@ export interface UpdateJobCommandOutput extends UpdateJobResponse, __MetadataBea
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateJobCommand extends $Command
@@ -1152,9 +1216,7 @@ export class UpdateJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1166,4 +1228,16 @@ export class UpdateJobCommand extends $Command
   .f(UpdateJobRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateJobCommand)
   .de(de_UpdateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobRequest;
+      output: UpdateJobResponse;
+    };
+    sdk: {
+      input: UpdateJobCommandInput;
+      output: UpdateJobCommandOutput;
+    };
+  };
+}

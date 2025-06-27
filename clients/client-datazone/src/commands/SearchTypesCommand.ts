@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchTypesInput, SearchTypesOutput, SearchTypesOutputFilterSensitiveLog } from "../models/models_1";
+import { SearchTypesInput, SearchTypesOutput, SearchTypesOutputFilterSensitiveLog } from "../models/models_2";
 import { de_SearchTypesCommand, se_SearchTypesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,7 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  *   domainIdentifier: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
- *   searchScope: "ASSET_TYPE" || "FORM_TYPE", // required
+ *   searchScope: "ASSET_TYPE" || "FORM_TYPE" || "LINEAGE_NODE_TYPE", // required
  *   searchText: "STRING_VALUE",
  *   searchIn: [ // SearchInList
  *     { // SearchInItem
@@ -120,6 +121,23 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  * //           },
  * //         ],
  * //       },
+ * //       lineageNodeTypeItem: { // LineageNodeTypeItem
+ * //         domainId: "STRING_VALUE", // required
+ * //         name: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //         createdAt: new Date("TIMESTAMP"),
+ * //         createdBy: "STRING_VALUE",
+ * //         updatedAt: new Date("TIMESTAMP"),
+ * //         updatedBy: "STRING_VALUE",
+ * //         revision: "STRING_VALUE", // required
+ * //         formsOutput: { // required
+ * //           "<keys>": {
+ * //             typeName: "STRING_VALUE", // required
+ * //             typeRevision: "STRING_VALUE", // required
+ * //             required: true || false,
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -152,6 +170,7 @@ export interface SearchTypesCommandOutput extends SearchTypesOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class SearchTypesCommand extends $Command
@@ -162,9 +181,7 @@ export class SearchTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +193,16 @@ export class SearchTypesCommand extends $Command
   .f(void 0, SearchTypesOutputFilterSensitiveLog)
   .ser(se_SearchTypesCommand)
   .de(de_SearchTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchTypesInput;
+      output: SearchTypesOutput;
+    };
+    sdk: {
+      input: SearchTypesCommandInput;
+      output: SearchTypesCommandOutput;
+    };
+  };
+}

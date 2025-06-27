@@ -21,7 +21,8 @@ import { de_GetDeviceCommand, se_GetDeviceCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,8 @@ export interface GetDeviceCommandInput extends GetDeviceRequest {}
 export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the device. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+ * <p>Given a device key, returns information about a remembered device for the current
+ *             user. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -116,6 +118,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetDeviceCommand extends $Command
@@ -126,9 +129,7 @@ export class GetDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +141,16 @@ export class GetDeviceCommand extends $Command
   .f(GetDeviceRequestFilterSensitiveLog, GetDeviceResponseFilterSensitiveLog)
   .ser(se_GetDeviceCommand)
   .de(de_GetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeviceRequest;
+      output: GetDeviceResponse;
+    };
+    sdk: {
+      input: GetDeviceCommandInput;
+      output: GetDeviceCommandOutput;
+    };
+  };
+}

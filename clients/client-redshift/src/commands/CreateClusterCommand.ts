@@ -17,7 +17,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,6 +40,28 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * For more information about managing clusters, go to
  * <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html">Amazon Redshift Clusters</a>
  * in the <i>Amazon Redshift Cluster Management Guide</i>.</p>
+ *          <p>VPC Block Public Access (BPA) enables you to block resources in VPCs and subnets that
+ *             you own in a Region from reaching or being reached from the internet through internet
+ *             gateways and egress-only internet gateways. If a subnet group for a
+ *             provisioned cluster is in an account with VPC BPA turned on, the following capabilities
+ *             are blocked:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Creating a public cluster</p>
+ *             </li>
+ *             <li>
+ *                <p>Restoring a public cluster</p>
+ *             </li>
+ *             <li>
+ *                <p>Modifying a private cluster to be public</p>
+ *             </li>
+ *             <li>
+ *                <p>Adding a subnet with VPC BPA turned on to the subnet group when there's at
+ *                     least one public cluster within the group</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about VPC BPA, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/security-vpc-bpa.html">Block public access to VPCs and
+ *             subnets</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -393,6 +416,7 @@ export interface CreateClusterCommandOutput extends CreateClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class CreateClusterCommand extends $Command
@@ -403,9 +427,7 @@ export class CreateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -417,4 +439,16 @@ export class CreateClusterCommand extends $Command
   .f(CreateClusterMessageFilterSensitiveLog, CreateClusterResultFilterSensitiveLog)
   .ser(se_CreateClusterCommand)
   .de(de_CreateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterMessage;
+      output: CreateClusterResult;
+    };
+    sdk: {
+      input: CreateClusterCommandInput;
+      output: CreateClusterCommandOutput;
+    };
+  };
+}

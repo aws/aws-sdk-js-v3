@@ -12,7 +12,8 @@ import { de_CreateEntitlementCommand, se_CreateEntitlementCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface CreateEntitlementCommandOutput extends CreateEntitlementResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class CreateEntitlementCommand extends $Command
@@ -103,9 +105,7 @@ export class CreateEntitlementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class CreateEntitlementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEntitlementCommand)
   .de(de_CreateEntitlementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEntitlementRequest;
+      output: CreateEntitlementResult;
+    };
+    sdk: {
+      input: CreateEntitlementCommandInput;
+      output: CreateEntitlementCommandOutput;
+    };
+  };
+}

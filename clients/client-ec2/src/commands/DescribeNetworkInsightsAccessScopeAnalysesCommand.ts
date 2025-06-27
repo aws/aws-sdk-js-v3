@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeNetworkInsightsAccessScopeAnalysesRequest,
   DescribeNetworkInsightsAccessScopeAnalysesResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeNetworkInsightsAccessScopeAnalysesCommand,
   se_DescribeNetworkInsightsAccessScopeAnalysesCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface DescribeNetworkInsightsAccessScopeAnalysesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command
@@ -109,9 +111,7 @@ export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class DescribeNetworkInsightsAccessScopeAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkInsightsAccessScopeAnalysesCommand)
   .de(de_DescribeNetworkInsightsAccessScopeAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkInsightsAccessScopeAnalysesRequest;
+      output: DescribeNetworkInsightsAccessScopeAnalysesResult;
+    };
+    sdk: {
+      input: DescribeNetworkInsightsAccessScopeAnalysesCommandInput;
+      output: DescribeNetworkInsightsAccessScopeAnalysesCommandOutput;
+    };
+  };
+}

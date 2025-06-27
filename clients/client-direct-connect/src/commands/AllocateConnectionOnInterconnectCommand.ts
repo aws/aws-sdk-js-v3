@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,9 @@ export interface AllocateConnectionOnInterconnectCommandInput extends AllocateCo
 export interface AllocateConnectionOnInterconnectCommandOutput extends Connection, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
+ * <note>
+ *             <p>Deprecated. Use <a>AllocateHostedConnection</a> instead.</p>
+ *          </note>
  *          <p>Creates a hosted connection on an interconnect.</p>
  *          <p>Allocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the specified interconnect.</p>
  *          <note>
@@ -107,6 +110,7 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AllocateConnectionOnInterconnectCommand extends $Command
@@ -117,9 +121,7 @@ export class AllocateConnectionOnInterconnectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +133,16 @@ export class AllocateConnectionOnInterconnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AllocateConnectionOnInterconnectCommand)
   .de(de_AllocateConnectionOnInterconnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AllocateConnectionOnInterconnectRequest;
+      output: Connection;
+    };
+    sdk: {
+      input: AllocateConnectionOnInterconnectCommandInput;
+      output: AllocateConnectionOnInterconnectCommandOutput;
+    };
+  };
+}

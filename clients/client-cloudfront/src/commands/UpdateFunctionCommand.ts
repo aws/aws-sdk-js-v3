@@ -10,13 +10,14 @@ import {
   UpdateFunctionRequest,
   UpdateFunctionRequestFilterSensitiveLog,
   UpdateFunctionResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_UpdateFunctionCommand, se_UpdateFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,12 +32,7 @@ export interface UpdateFunctionCommandInput extends UpdateFunctionRequest {}
 export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Updates a CloudFront function.</p>
- *          <p>You can update a function's code or the comment that describes the function. You
- * 			cannot update a function's name.</p>
- *          <p>To update a function, you provide the function's name and version (<code>ETag</code>
- * 			value) along with the updated function code. To get the name and version, you can use
- * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+ * <p>Updates a CloudFront function.</p> <p>You can update a function's code or the comment that describes the function. You cannot update a function's name.</p> <p>To update a function, you provide the function's name and version (<code>ETag</code> value) along with the updated function code. To get the name and version, you can use <code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,8 +93,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link FunctionSizeLimitExceeded} (client fault)
- *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -110,68 +105,67 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *  <p>The function does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To update a function
  * ```javascript
  * // Use the following command to update a function.
  * const input = {
- *   "FunctionCode": "function-code-changed.js",
- *   "FunctionConfig": {
- *     "Comment": "my-changed-comment",
- *     "KeyValueStoreAssociations": {
- *       "Items": [
+ *   FunctionCode: "function-code-changed.js",
+ *   FunctionConfig: {
+ *     Comment: "my-changed-comment",
+ *     KeyValueStoreAssociations: {
+ *       Items: [
  *         {
- *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           KeyValueStoreARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  *         }
  *       ],
- *       "Quantity": 1
+ *       Quantity: 1
  *     },
- *     "Runtime": "cloudfront-js-2.0"
+ *     Runtime: "cloudfront-js-2.0"
  *   },
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-function-name"
+ *   IfMatch: "ETVPDKIKX0DER",
+ *   Name: "my-function-name"
  * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "E3UN6WX5RRO2AG",
- *   "FunctionSummary": {
- *     "FunctionConfig": {
- *       "Comment": "my-changed-comment",
- *       "KeyValueStoreAssociations": {
- *         "Items": [
+ *   ETag: "E3UN6WX5RRO2AG",
+ *   FunctionSummary: {
+ *     FunctionConfig: {
+ *       Comment: "my-changed-comment",
+ *       KeyValueStoreAssociations: {
+ *         Items: [
  *           {
- *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *             KeyValueStoreARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  *           }
  *         ],
- *         "Quantity": 1
+ *         Quantity: 1
  *       },
- *       "Runtime": "cloudfront-js-2.0"
+ *       Runtime: "cloudfront-js-2.0"
  *     },
- *     "FunctionMetadata": {
- *       "CreatedTime": "2023-11-07T19:53:50.334Z",
- *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
- *       "LastModifiedTime": "2023-11-07T20:01:37.174Z",
- *       "Stage": "DEVELOPMENT"
+ *     FunctionMetadata: {
+ *       CreatedTime: "2023-11-07T19:53:50.334Z",
+ *       FunctionARN: "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       LastModifiedTime: "2023-11-07T20:01:37.174Z",
+ *       Stage: "DEVELOPMENT"
  *     },
- *     "Name": "my-function-name",
- *     "Status": "UNPUBLISHED"
+ *     Name: "my-function-name",
+ *     Status: "UNPUBLISHED"
  *   }
  * }
  * *\/
- * // example id: to-update-a-function-1699751865053
  * ```
  *
+ * @public
  */
 export class UpdateFunctionCommand extends $Command
   .classBuilder<
@@ -181,9 +175,7 @@ export class UpdateFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -195,4 +187,16 @@ export class UpdateFunctionCommand extends $Command
   .f(UpdateFunctionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateFunctionCommand)
   .de(de_UpdateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFunctionRequest;
+      output: UpdateFunctionResult;
+    };
+    sdk: {
+      input: UpdateFunctionCommandInput;
+      output: UpdateFunctionCommandOutput;
+    };
+  };
+}

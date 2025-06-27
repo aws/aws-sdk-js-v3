@@ -12,7 +12,8 @@ import { de_DeleteCustomActionTypeCommand, se_DeleteCustomActionTypeCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,7 +44,7 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * // const { CodePipelineClient, DeleteCustomActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // DeleteCustomActionTypeInput
- *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
  * };
@@ -68,6 +69,7 @@ export interface DeleteCustomActionTypeCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomActionTypeCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteCustomActionTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteCustomActionTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomActionTypeCommand)
   .de(de_DeleteCustomActionTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomActionTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomActionTypeCommandInput;
+      output: DeleteCustomActionTypeCommandOutput;
+    };
+  };
+}

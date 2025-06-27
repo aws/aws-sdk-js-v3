@@ -12,7 +12,8 @@ import { de_UpdateFuotaTaskCommand, se_UpdateFuotaTaskCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  *   RedundancyPercent: Number("int"),
  *   FragmentSizeBytes: Number("int"),
  *   FragmentIntervalMS: Number("int"),
+ *   Descriptor: "STRING_VALUE",
  * };
  * const command = new UpdateFuotaTaskCommand(input);
  * const response = await client.send(command);
@@ -80,6 +82,7 @@ export interface UpdateFuotaTaskCommandOutput extends UpdateFuotaTaskResponse, _
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdateFuotaTaskCommand extends $Command
@@ -90,9 +93,7 @@ export class UpdateFuotaTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +105,16 @@ export class UpdateFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFuotaTaskCommand)
   .de(de_UpdateFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFuotaTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateFuotaTaskCommandInput;
+      output: UpdateFuotaTaskCommandOutput;
+    };
+  };
+}

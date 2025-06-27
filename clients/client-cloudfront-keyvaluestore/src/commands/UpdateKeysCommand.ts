@@ -16,7 +16,8 @@ import { de_UpdateKeysCommand, se_UpdateKeysCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,97 @@ export interface UpdateKeysCommandOutput extends UpdateKeysResponse, __MetadataB
  * @throws {@link CloudFrontKeyValueStoreServiceException}
  * <p>Base exception class for all service exceptions from CloudFrontKeyValueStore service.</p>
  *
+ *
+ * @example Put 2 keys into the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   IfMatch: "KV0AB12C3DEF456",
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58",
+ *   Puts: [
+ *     {
+ *       Key: "key1",
+ *       Value: "value1"
+ *     },
+ *     {
+ *       Key: "key2",
+ *       Value: "value2"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateKeysCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ETag: "KV7XY89Z0ABC012",
+ *   ItemCount: 4,
+ *   TotalSizeInBytes: 15
+ * }
+ * *\/
+ * ```
+ *
+ * @example Delete 2 keys from the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   Deletes: [
+ *     {
+ *       Key: "key1"
+ *     },
+ *     {
+ *       Key: "key2"
+ *     }
+ *   ],
+ *   IfMatch: "KV0AB12C3DEF456",
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58"
+ * };
+ * const command = new UpdateKeysCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ETag: "KV7XY89Z0ABC012",
+ *   ItemCount: 4,
+ *   TotalSizeInBytes: 15
+ * }
+ * *\/
+ * ```
+ *
+ * @example Put 2 keys into and delete 1 key from the key value store with ARN 'arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58'
+ * ```javascript
+ * //
+ * const input = {
+ *   Deletes: [
+ *     {
+ *       Key: "key3"
+ *     },
+ *     {
+ *       Key: "key4"
+ *     }
+ *   ],
+ *   IfMatch: "KV0AB12C3DEF456",
+ *   KvsARN: "arn:aws:cloudfront::123456789012:key-value-store/327284aa-bcd5-499f-a3ff-26b9a9d31b58",
+ *   Puts: [
+ *     {
+ *       Key: "key1",
+ *       Value: "value1"
+ *     },
+ *     {
+ *       Key: "key2",
+ *       Value: "value2"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateKeysCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ETag: "KV7XY89Z0ABC012",
+ *   ItemCount: 4,
+ *   TotalSizeInBytes: 15
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateKeysCommand extends $Command
@@ -115,4 +207,16 @@ export class UpdateKeysCommand extends $Command
   .f(UpdateKeysRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateKeysCommand)
   .de(de_UpdateKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKeysRequest;
+      output: UpdateKeysResponse;
+    };
+    sdk: {
+      input: UpdateKeysCommandInput;
+      output: UpdateKeysCommandOutput;
+    };
+  };
+}

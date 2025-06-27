@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/models_1";
+import { ListMitigationActionsRequest, ListMitigationActionsResponse } from "../models/models_2";
 import { de_ListMitigationActionsCommand, se_ListMitigationActionsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface ListMitigationActionsCommandOutput extends ListMitigationAction
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListMitigationActionsCommand extends $Command
@@ -83,9 +85,7 @@ export class ListMitigationActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class ListMitigationActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMitigationActionsCommand)
   .de(de_ListMitigationActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMitigationActionsRequest;
+      output: ListMitigationActionsResponse;
+    };
+    sdk: {
+      input: ListMitigationActionsCommandInput;
+      output: ListMitigationActionsCommandOutput;
+    };
+  };
+}

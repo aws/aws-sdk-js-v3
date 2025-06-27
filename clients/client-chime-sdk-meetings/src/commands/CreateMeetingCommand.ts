@@ -17,7 +17,8 @@ import { de_CreateMeetingCommand, se_CreateMeetingCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -155,6 +156,7 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class CreateMeetingCommand extends $Command
@@ -165,9 +167,7 @@ export class CreateMeetingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +179,16 @@ export class CreateMeetingCommand extends $Command
   .f(CreateMeetingRequestFilterSensitiveLog, CreateMeetingResponseFilterSensitiveLog)
   .ser(se_CreateMeetingCommand)
   .de(de_CreateMeetingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMeetingRequest;
+      output: CreateMeetingResponse;
+    };
+    sdk: {
+      input: CreateMeetingCommandInput;
+      output: CreateMeetingCommandOutput;
+    };
+  };
+}

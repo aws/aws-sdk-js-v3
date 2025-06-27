@@ -25,7 +25,7 @@
  *                <p>Applying, editing, and removing tags from resource groups</p>
  *             </li>
  *             <li>
- *                <p>Resolving resource group member ARNs so they can be returned as search
+ *                <p>Resolving resource group member Amazon resource names (ARN)s so they can be returned as search
  *                     results</p>
  *             </li>
  *             <li>
@@ -41,8 +41,8 @@
 export * from "./ResourceGroupsClient";
 export * from "./ResourceGroups";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ResourceGroupsExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ResourceGroupsExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

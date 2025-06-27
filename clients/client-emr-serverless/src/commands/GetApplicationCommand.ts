@@ -16,7 +16,8 @@ import { de_GetApplicationCommand, se_GetApplicationCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -146,6 +147,14 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
  * //     },
+ * //     schedulerConfiguration: { // SchedulerConfiguration
+ * //       queueTimeoutMinutes: Number("int"),
+ * //       maxConcurrentRuns: Number("int"),
+ * //     },
+ * //     identityCenterConfiguration: { // IdentityCenterConfiguration
+ * //       identityCenterInstanceArn: "STRING_VALUE",
+ * //       identityCenterApplicationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -164,11 +173,11 @@ export interface GetApplicationCommandOutput extends GetApplicationResponse, __M
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
+ *
  *
  * @public
  */
@@ -180,9 +189,7 @@ export class GetApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +201,16 @@ export class GetApplicationCommand extends $Command
   .f(void 0, GetApplicationResponseFilterSensitiveLog)
   .ser(se_GetApplicationCommand)
   .de(de_GetApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApplicationRequest;
+      output: GetApplicationResponse;
+    };
+    sdk: {
+      input: GetApplicationCommandInput;
+      output: GetApplicationCommandOutput;
+    };
+  };
+}

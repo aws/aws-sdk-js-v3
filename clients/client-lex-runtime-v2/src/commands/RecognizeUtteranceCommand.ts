@@ -21,7 +21,8 @@ import { de_RecognizeUtteranceCommand, se_RecognizeUtteranceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -125,6 +126,11 @@ export interface RecognizeUtteranceCommandOutput
  * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.audioStream.transformToByteArray();
+ * // const str = await response.audioStream.transformToString();
+ * // response.audioStream.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // RecognizeUtteranceResponse
  * //   inputMode: "STRING_VALUE",
  * //   contentType: "STRING_VALUE",
@@ -173,6 +179,7 @@ export interface RecognizeUtteranceCommandOutput
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ *
  * @public
  */
 export class RecognizeUtteranceCommand extends $Command
@@ -183,9 +190,7 @@ export class RecognizeUtteranceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -197,4 +202,16 @@ export class RecognizeUtteranceCommand extends $Command
   .f(RecognizeUtteranceRequestFilterSensitiveLog, RecognizeUtteranceResponseFilterSensitiveLog)
   .ser(se_RecognizeUtteranceCommand)
   .de(de_RecognizeUtteranceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecognizeUtteranceRequest;
+      output: RecognizeUtteranceResponse;
+    };
+    sdk: {
+      input: RecognizeUtteranceCommandInput;
+      output: RecognizeUtteranceCommandOutput;
+    };
+  };
+}

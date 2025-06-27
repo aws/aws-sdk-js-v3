@@ -7,6 +7,7 @@ const readline = require("readline");
 const findFolders = require("./lib/findFolders");
 const findScripts = require("./lib/findScripts");
 const Package = require("./lib/Package");
+const { listFolders } = require("../utils/list-folders");
 
 /**
  * This script takes your command line arguments and infers the
@@ -21,16 +22,16 @@ async function main() {
   const root = path.join(__dirname, "..", "..");
   const argv = process.argv;
 
-  const clients = fs.readdirSync(path.join(root, "clients"));
-  const lib = fs.readdirSync(path.join(root, "lib"));
-  const packages = fs.readdirSync(path.join(root, "packages"));
-  const private = fs.readdirSync(path.join(root, "private"));
+  const clients = listFolders(path.join(root, "clients"));
+  const lib = listFolders(path.join(root, "lib"));
+  const packages = listFolders(path.join(root, "packages"));
+  const _private = listFolders(path.join(root, "private"));
 
   const allPackages = [
     ...clients.map((c) => new Package(c, path.join(root, "clients", c))),
     ...lib.map((l) => new Package(l, path.join(root, "lib", l))),
     ...packages.map((p) => new Package(p, path.join(root, "packages", p))),
-    ...private.map((p) => new Package(p, path.join(root, "private", p))),
+    ..._private.map((p) => new Package(p, path.join(root, "private", p))),
   ];
 
   const [node, dispatcher, ...rest] = argv;

@@ -12,7 +12,8 @@ import { de_GetAssessmentReportCommand, se_GetAssessmentReportCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface GetAssessmentReportCommandOutput extends GetAssessmentReportRes
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
+ *
  * @public
  */
 export class GetAssessmentReportCommand extends $Command
@@ -96,9 +98,7 @@ export class GetAssessmentReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class GetAssessmentReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssessmentReportCommand)
   .de(de_GetAssessmentReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssessmentReportRequest;
+      output: GetAssessmentReportResponse;
+    };
+    sdk: {
+      input: GetAssessmentReportCommandInput;
+      output: GetAssessmentReportCommandOutput;
+    };
+  };
+}

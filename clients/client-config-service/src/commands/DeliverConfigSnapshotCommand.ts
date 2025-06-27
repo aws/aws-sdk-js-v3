@@ -12,7 +12,8 @@ import { de_DeliverConfigSnapshotCommand, se_DeliverConfigSnapshotCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,8 +69,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @see {@link ConfigServiceClientResolvedConfig | config} for ConfigServiceClient's `config` shape.
  *
  * @throws {@link NoAvailableConfigurationRecorderException} (client fault)
- *  <p>There are no configuration recorders available to provide the
- * 			role needed to describe your resources. Create a configuration
+ *  <p>There are no customer managed configuration recorders available to record your resources. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a> operation to create the customer managed configuration
  * 			recorder.</p>
  *
  * @throws {@link NoRunningConfigurationRecorderException} (client fault)
@@ -82,6 +82,7 @@ export interface DeliverConfigSnapshotCommandOutput extends DeliverConfigSnapsho
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeliverConfigSnapshotCommand extends $Command
@@ -92,9 +93,7 @@ export class DeliverConfigSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +105,16 @@ export class DeliverConfigSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeliverConfigSnapshotCommand)
   .de(de_DeliverConfigSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeliverConfigSnapshotRequest;
+      output: DeliverConfigSnapshotResponse;
+    };
+    sdk: {
+      input: DeliverConfigSnapshotCommandInput;
+      output: DeliverConfigSnapshotCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListCompositionsCommand, se_ListCompositionsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface ListCompositionsCommandOutput extends ListCompositionsResponse,
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListCompositionsCommand extends $Command
@@ -103,9 +105,7 @@ export class ListCompositionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class ListCompositionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCompositionsCommand)
   .de(de_ListCompositionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCompositionsRequest;
+      output: ListCompositionsResponse;
+    };
+    sdk: {
+      input: ListCompositionsCommandInput;
+      output: ListCompositionsCommandOutput;
+    };
+  };
+}

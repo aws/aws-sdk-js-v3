@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteResponsePlanCommandOutput extends DeleteResponsePlanOutpu
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class DeleteResponsePlanCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteResponsePlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteResponsePlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResponsePlanCommand)
   .de(de_DeleteResponsePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResponsePlanInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResponsePlanCommandInput;
+      output: DeleteResponsePlanCommandOutput;
+    };
+  };
+}

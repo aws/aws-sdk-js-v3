@@ -12,7 +12,8 @@ import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -134,6 +135,7 @@ export interface GetFindingsCommandOutput extends GetFindingsResponse, __Metadat
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class GetFindingsCommand extends $Command
@@ -144,9 +146,7 @@ export class GetFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +158,16 @@ export class GetFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingsCommand)
   .de(de_GetFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingsRequest;
+      output: GetFindingsResponse;
+    };
+    sdk: {
+      input: GetFindingsCommandInput;
+      output: GetFindingsCommandOutput;
+    };
+  };
+}

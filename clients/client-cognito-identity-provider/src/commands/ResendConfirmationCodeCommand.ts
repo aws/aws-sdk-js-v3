@@ -14,13 +14,14 @@ import {
   ResendConfirmationCodeRequest,
   ResendConfirmationCodeRequestFilterSensitiveLog,
   ResendConfirmationCodeResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ResendConfirmationCodeCommand, se_ResendConfirmationCodeCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,11 @@ export interface ResendConfirmationCodeCommandInput extends ResendConfirmationCo
 export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationCodeResponse, __MetadataBearer {}
 
 /**
- * <p>Resends the confirmation (for confirmation of registration) to a specific user in the
- *             user pool.</p>
+ * <p>Resends the code that confirms a new account for a user who has signed up in your user
+ *             pool. Amazon Cognito sends confirmation codes to the user attribute in the
+ *                 <code>AutoVerifiedAttributes</code> property of your user pool. When you prompt new
+ *             users for the confirmation code, include a "Resend code" option that generates a call to
+ *             this API operation.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -51,7 +55,7 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -160,6 +164,7 @@ export interface ResendConfirmationCodeCommandOutput extends ResendConfirmationC
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ResendConfirmationCodeCommand extends $Command
@@ -170,9 +175,7 @@ export class ResendConfirmationCodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +187,16 @@ export class ResendConfirmationCodeCommand extends $Command
   .f(ResendConfirmationCodeRequestFilterSensitiveLog, void 0)
   .ser(se_ResendConfirmationCodeCommand)
   .de(de_ResendConfirmationCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResendConfirmationCodeRequest;
+      output: ResendConfirmationCodeResponse;
+    };
+    sdk: {
+      input: ResendConfirmationCodeCommandInput;
+      output: ResendConfirmationCodeCommandOutput;
+    };
+  };
+}

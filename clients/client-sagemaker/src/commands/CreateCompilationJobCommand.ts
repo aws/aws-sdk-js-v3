@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,37 +28,7 @@ export interface CreateCompilationJobCommandInput extends CreateCompilationJobRe
 export interface CreateCompilationJobCommandOutput extends CreateCompilationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker saves the
- *             resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p>
- *          <p>If
- *             you choose to host your model using Amazon SageMaker hosting services, you can use the resulting
- *             model artifacts as part of the model. You can also use the artifacts with
- *                 Amazon Web Services IoT Greengrass. In that case, deploy them as an ML
- *             resource.</p>
- *          <p>In the request body, you provide the following:</p>
- *          <ul>
- *             <li>
- *                <p>A name for the compilation job</p>
- *             </li>
- *             <li>
- *                <p> Information about the input model artifacts </p>
- *             </li>
- *             <li>
- *                <p>The output location for the compiled model and the device (target) that the
- *                     model runs on </p>
- *             </li>
- *             <li>
- *                <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker assumes to perform
- *                     the model compilation job. </p>
- *             </li>
- *          </ul>
- *          <p>You can also provide a <code>Tag</code> to track the model compilation job's resource
- *             use and costs. The response body contains the
- *                 <code>CompilationJobArn</code>
- *             for the compiled job.</p>
- *          <p>To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>. To get information about a particular model compilation
- *             job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>. To get information about multiple model compilation
- *             jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
+ * <p>Starts a model compilation job. After the model has been compiled, Amazon SageMaker AI saves the resulting model artifacts to an Amazon Simple Storage Service (Amazon S3) bucket that you specify. </p> <p>If you choose to host your model using Amazon SageMaker AI hosting services, you can use the resulting model artifacts as part of the model. You can also use the artifacts with Amazon Web Services IoT Greengrass. In that case, deploy them as an ML resource.</p> <p>In the request body, you provide the following:</p> <ul> <li> <p>A name for the compilation job</p> </li> <li> <p> Information about the input model artifacts </p> </li> <li> <p>The output location for the compiled model and the device (target) that the model runs on </p> </li> <li> <p>The Amazon Resource Name (ARN) of the IAM role that Amazon SageMaker AI assumes to perform the model compilation job. </p> </li> </ul> <p>You can also provide a <code>Tag</code> to track the model compilation job's resource use and costs. The response body contains the <code>CompilationJobArn</code> for the compiled job.</p> <p>To stop a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StopCompilationJob.html">StopCompilationJob</a>. To get information about a particular model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>. To get information about multiple model compilation jobs, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListCompilationJobs.html">ListCompilationJobs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -123,11 +94,11 @@ export interface CreateCompilationJobCommandOutput extends CreateCompilationJobR
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -139,9 +110,7 @@ export class CreateCompilationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +122,16 @@ export class CreateCompilationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCompilationJobCommand)
   .de(de_CreateCompilationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCompilationJobRequest;
+      output: CreateCompilationJobResponse;
+    };
+    sdk: {
+      input: CreateCompilationJobCommandInput;
+      output: CreateCompilationJobCommandOutput;
+    };
+  };
+}

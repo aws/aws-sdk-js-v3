@@ -12,7 +12,8 @@ import { de_CreateGraphqlApiCommand, se_CreateGraphqlApiCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  * const input = { // CreateGraphqlApiRequest
  *   name: "STRING_VALUE", // required
  *   logConfig: { // LogConfig
- *     fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ *     fieldLogLevel: "NONE" || "ERROR" || "ALL" || "INFO" || "DEBUG", // required
  *     cloudWatchLogsRoleArn: "STRING_VALUE", // required
  *     excludeVerboseContent: true || false,
  *   },
@@ -84,9 +85,9 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  *     authorizerUri: "STRING_VALUE", // required
  *     identityValidationExpression: "STRING_VALUE",
  *   },
- *   visibility: "GLOBAL" || "PRIVATE",
  *   apiType: "GRAPHQL" || "MERGED",
  *   mergedApiExecutionRoleArn: "STRING_VALUE",
+ *   visibility: "GLOBAL" || "PRIVATE",
  *   ownerContact: "STRING_VALUE",
  *   introspectionConfig: "ENABLED" || "DISABLED",
  *   queryDepthLimit: Number("int"),
@@ -105,7 +106,7 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  * //     apiId: "STRING_VALUE",
  * //     authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
  * //     logConfig: { // LogConfig
- * //       fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ * //       fieldLogLevel: "NONE" || "ERROR" || "ALL" || "INFO" || "DEBUG", // required
  * //       cloudWatchLogsRoleArn: "STRING_VALUE", // required
  * //       excludeVerboseContent: true || false,
  * //     },
@@ -187,12 +188,12 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  *  <p>The GraphQL API exceeded a limit. Try your request again.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link ConcurrentModificationException} (client fault)
- *  <p>Another modification is in progress at this time and it must complete before you can make your
- *          change.</p>
+ *  <p>Another modification is in progress at this time and it must complete before you can
+ *          make your change.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
@@ -206,6 +207,7 @@ export interface CreateGraphqlApiCommandOutput extends CreateGraphqlApiResponse,
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
  *
+ *
  * @public
  */
 export class CreateGraphqlApiCommand extends $Command
@@ -216,9 +218,7 @@ export class CreateGraphqlApiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -230,4 +230,16 @@ export class CreateGraphqlApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGraphqlApiCommand)
   .de(de_CreateGraphqlApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGraphqlApiRequest;
+      output: CreateGraphqlApiResponse;
+    };
+    sdk: {
+      input: CreateGraphqlApiCommandInput;
+      output: CreateGraphqlApiCommandOutput;
+    };
+  };
+}

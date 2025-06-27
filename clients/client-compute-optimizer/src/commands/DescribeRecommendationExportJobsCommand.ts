@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,7 +71,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * //           metadataKey: "STRING_VALUE",
  * //         },
  * //       },
- * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License",
+ * //       resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance" || "AuroraDBClusterStorage" || "Idle",
  * //       status: "Queued" || "InProgress" || "Complete" || "Failed",
  * //       creationTimestamp: new Date("TIMESTAMP"),
  * //       lastUpdatedTimestamp: new Date("TIMESTAMP"),
@@ -116,6 +117,7 @@ export interface DescribeRecommendationExportJobsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class DescribeRecommendationExportJobsCommand extends $Command
@@ -126,9 +128,7 @@ export class DescribeRecommendationExportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class DescribeRecommendationExportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecommendationExportJobsCommand)
   .de(de_DescribeRecommendationExportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecommendationExportJobsRequest;
+      output: DescribeRecommendationExportJobsResponse;
+    };
+    sdk: {
+      input: DescribeRecommendationExportJobsCommandInput;
+      output: DescribeRecommendationExportJobsCommandOutput;
+    };
+  };
+}

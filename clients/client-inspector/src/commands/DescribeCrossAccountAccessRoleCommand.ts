@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,23 +64,8 @@ export interface DescribeCrossAccountAccessRoleCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describte cross account access role
- * ```javascript
- * // Describes the IAM role that enables Amazon Inspector to access your AWS account.
- * const input = {};
- * const command = new DescribeCrossAccountAccessRoleCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "registeredAt": "1458069182.826",
- *   "roleArn": "arn:aws:iam::123456789012:role/inspector",
- *   "valid": true
- * }
- * *\/
- * // example id: describte-cross-account-access-role-1481064682267
- * ```
  *
+ * @public
  */
 export class DescribeCrossAccountAccessRoleCommand extends $Command
   .classBuilder<
@@ -89,9 +75,7 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +87,16 @@ export class DescribeCrossAccountAccessRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCrossAccountAccessRoleCommand)
   .de(de_DescribeCrossAccountAccessRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeCrossAccountAccessRoleResponse;
+    };
+    sdk: {
+      input: DescribeCrossAccountAccessRoleCommandInput;
+      output: DescribeCrossAccountAccessRoleCommandOutput;
+    };
+  };
+}

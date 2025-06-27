@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,6 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
 
 /**
  * <p>Import hub content.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,13 +38,14 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  * const input = { // ImportHubContentRequest
  *   HubContentName: "STRING_VALUE", // required
  *   HubContentVersion: "STRING_VALUE",
- *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  *   DocumentSchemaVersion: "STRING_VALUE", // required
  *   HubName: "STRING_VALUE", // required
  *   HubContentDisplayName: "STRING_VALUE",
  *   HubContentDescription: "STRING_VALUE",
  *   HubContentMarkdown: "STRING_VALUE",
  *   HubContentDocument: "STRING_VALUE", // required
+ *   SupportStatus: "Supported" || "Deprecated" || "Restricted",
  *   HubContentSearchKeywords: [ // HubContentSearchKeywordList
  *     "STRING_VALUE",
  *   ],
@@ -76,14 +75,14 @@ export interface ImportHubContentCommandOutput extends ImportHubContentResponse,
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -95,9 +94,7 @@ export class ImportHubContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +106,16 @@ export class ImportHubContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportHubContentCommand)
   .de(de_ImportHubContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportHubContentRequest;
+      output: ImportHubContentResponse;
+    };
+    sdk: {
+      input: ImportHubContentCommandInput;
+      output: ImportHubContentCommandOutput;
+    };
+  };
+}

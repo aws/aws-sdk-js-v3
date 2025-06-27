@@ -12,7 +12,8 @@ import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface UpdateSessionCommandInput extends UpdateSessionRequest {}
 export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a session. A session is a contextual container used for generating recommendations.
- *         Amazon Connect updates the existing Amazon Q in Connect session for each contact on which Amazon Q in Connect
- *       is enabled.</p>
+ * <p>Updates a session. A session is a contextual container used for generating
+ *       recommendations. Amazon Connect updates the existing Amazon Q in Connect session for each contact on
+ *       which Amazon Q in Connect is enabled.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +60,11 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  *         tagCondition: "<TagCondition>",
  *       },
  *     ],
+ *   },
+ *   aiAgentConfiguration: { // AIAgentConfigurationMap
+ *     "<keys>": { // AIAgentConfigurationData
+ *       aiAgentId: "STRING_VALUE", // required
+ *     },
  *   },
  * };
  * const command = new UpdateSessionCommand(input);
@@ -95,6 +101,12 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //       "<keys>": { // AIAgentConfigurationData
+ * //         aiAgentId: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     origin: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -118,6 +130,7 @@ export interface UpdateSessionCommandOutput extends UpdateSessionResponse, __Met
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateSessionCommand extends $Command
@@ -128,9 +141,7 @@ export class UpdateSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +153,16 @@ export class UpdateSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSessionCommand)
   .de(de_UpdateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSessionRequest;
+      output: UpdateSessionResponse;
+    };
+    sdk: {
+      input: UpdateSessionCommandInput;
+      output: UpdateSessionCommandOutput;
+    };
+  };
+}

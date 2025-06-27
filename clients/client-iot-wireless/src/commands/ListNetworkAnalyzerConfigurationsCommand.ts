@@ -9,7 +9,7 @@ import { IoTWirelessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 import {
   ListNetworkAnalyzerConfigurationsRequest,
   ListNetworkAnalyzerConfigurationsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_ListNetworkAnalyzerConfigurationsCommand,
   se_ListNetworkAnalyzerConfigurationsCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ListNetworkAnalyzerConfigurationsCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListNetworkAnalyzerConfigurationsCommand extends $Command
@@ -91,9 +93,7 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListNetworkAnalyzerConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNetworkAnalyzerConfigurationsCommand)
   .de(de_ListNetworkAnalyzerConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNetworkAnalyzerConfigurationsRequest;
+      output: ListNetworkAnalyzerConfigurationsResponse;
+    };
+    sdk: {
+      input: ListNetworkAnalyzerConfigurationsCommandInput;
+      output: ListNetworkAnalyzerConfigurationsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DescribeSubscribedWorkteamCommandInput extends DescribeSubscrib
 export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscribedWorkteamResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a work team provided by a vendor. It returns details about the
- *             subscription with a vendor in the Amazon Web Services Marketplace.</p>
+ * <p>Gets information about a work team provided by a vendor. It returns details about the subscription with a vendor in the Amazon Web Services Marketplace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +61,7 @@ export interface DescribeSubscribedWorkteamCommandOutput extends DescribeSubscri
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeSubscribedWorkteamCommand extends $Command
@@ -71,9 +72,7 @@ export class DescribeSubscribedWorkteamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +84,16 @@ export class DescribeSubscribedWorkteamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSubscribedWorkteamCommand)
   .de(de_DescribeSubscribedWorkteamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSubscribedWorkteamRequest;
+      output: DescribeSubscribedWorkteamResponse;
+    };
+    sdk: {
+      input: DescribeSubscribedWorkteamCommandInput;
+      output: DescribeSubscribedWorkteamCommandOutput;
+    };
+  };
+}

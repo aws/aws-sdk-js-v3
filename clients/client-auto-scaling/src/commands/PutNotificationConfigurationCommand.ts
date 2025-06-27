@@ -12,7 +12,8 @@ import { de_PutNotificationConfigurationCommand, se_PutNotificationConfiguration
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +32,9 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  *             Subscribers to the specified topic can have messages delivered to an endpoint such as a
  *             web server or an email address.</p>
  *          <p>This configuration overwrites any existing configuration.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ASGettingNotifications.html">Getting Amazon SNS
- *                 notifications when your Auto Scaling group scales</a> in the
- *                 <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-sns-notifications.html">Amazon SNS
+ *                 notification options for Amazon EC2 Auto Scaling</a> in the
+ *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you exceed your maximum limit of SNS topics, which is 10 per Auto Scaling group, the call
  *             fails.</p>
  * @example
@@ -77,22 +78,25 @@ export interface PutNotificationConfigurationCommandOutput extends __MetadataBea
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To add an Auto Scaling notification
  * ```javascript
  * // This example adds the specified notification to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "NotificationTypes": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   NotificationTypes: [
  *     "autoscaling:TEST_NOTIFICATION"
  *   ],
- *   "TopicARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
+ *   TopicARN: "arn:aws:sns:us-west-2:123456789012:my-sns-topic"
  * };
  * const command = new PutNotificationConfigurationCommand(input);
- * await client.send(command);
- * // example id: autoscaling-put-notification-configuration-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutNotificationConfigurationCommand extends $Command
   .classBuilder<
@@ -102,9 +106,7 @@ export class PutNotificationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +118,16 @@ export class PutNotificationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutNotificationConfigurationCommand)
   .de(de_PutNotificationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutNotificationConfigurationType;
+      output: {};
+    };
+    sdk: {
+      input: PutNotificationConfigurationCommandInput;
+      output: PutNotificationConfigurationCommandOutput;
+    };
+  };
+}

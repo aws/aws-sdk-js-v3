@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListCoverageRequest, ListCoverageResponse } from "../models/models_0";
+import { ListCoverageRequest, ListCoverageResponse } from "../models/models_1";
 import { de_ListCoverageCommand, se_ListCoverageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class ListCoverageCommand extends $Command
@@ -139,9 +141,7 @@ export class ListCoverageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class ListCoverageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoverageCommand)
   .de(de_ListCoverageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoverageRequest;
+      output: ListCoverageResponse;
+    };
+    sdk: {
+      input: ListCoverageCommandInput;
+      output: ListCoverageCommandOutput;
+    };
+  };
+}

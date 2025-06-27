@@ -12,7 +12,8 @@ import { de_ApplyArchiveRuleCommand, se_ApplyArchiveRuleCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ApplyArchiveRuleCommandInput extends ApplyArchiveRuleRequest {}
 export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Retroactively applies the archive rule to existing findings that meet the archive rule
- *          criteria.</p>
+ * <p>Retroactively applies the archive rule to existing findings that meet the archive rule criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +70,7 @@ export interface ApplyArchiveRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ApplyArchiveRuleCommand extends $Command
@@ -80,9 +81,7 @@ export class ApplyArchiveRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +93,16 @@ export class ApplyArchiveRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ApplyArchiveRuleCommand)
   .de(de_ApplyArchiveRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ApplyArchiveRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: ApplyArchiveRuleCommandInput;
+      output: ApplyArchiveRuleCommandOutput;
+    };
+  };
+}

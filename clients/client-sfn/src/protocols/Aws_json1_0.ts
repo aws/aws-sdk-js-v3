@@ -105,6 +105,7 @@ import {
   ValidateStateMachineDefinitionCommandOutput,
 } from "../commands/ValidateStateMachineDefinitionCommand";
 import {
+  ActivityAlreadyExists,
   ActivityDoesNotExist,
   ActivityLimitExceeded,
   ActivityListItem,
@@ -133,6 +134,7 @@ import {
   DescribeStateMachineForExecutionOutput,
   DescribeStateMachineInput,
   DescribeStateMachineOutput,
+  EncryptionConfiguration,
   ExecutionAlreadyExists,
   ExecutionDoesNotExist,
   ExecutionLimitExceeded,
@@ -144,12 +146,16 @@ import {
   HistoryEvent,
   InvalidArn,
   InvalidDefinition,
+  InvalidEncryptionConfiguration,
   InvalidExecutionInput,
   InvalidLoggingConfiguration,
   InvalidName,
   InvalidOutput,
   InvalidToken,
   InvalidTracingConfiguration,
+  KmsAccessDeniedException,
+  KmsInvalidStateException,
+  KmsThrottlingException,
   ListActivitiesInput,
   ListActivitiesOutput,
   ListExecutionsInput,
@@ -1454,12 +1460,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
   };
   const errorCode = loadRestJsonErrorCode(output, parsedOutput.body);
   switch (errorCode) {
+    case "ActivityAlreadyExists":
+    case "com.amazonaws.sfn#ActivityAlreadyExists":
+      throw await de_ActivityAlreadyExistsRes(parsedOutput, context);
     case "ActivityLimitExceeded":
     case "com.amazonaws.sfn#ActivityLimitExceeded":
       throw await de_ActivityLimitExceededRes(parsedOutput, context);
+    case "InvalidEncryptionConfiguration":
+    case "com.amazonaws.sfn#InvalidEncryptionConfiguration":
+      throw await de_InvalidEncryptionConfigurationRes(parsedOutput, context);
     case "InvalidName":
     case "com.amazonaws.sfn#InvalidName":
       throw await de_InvalidNameRes(parsedOutput, context);
+    case "KmsAccessDeniedException":
+    case "com.amazonaws.sfn#KmsAccessDeniedException":
+      throw await de_KmsAccessDeniedExceptionRes(parsedOutput, context);
+    case "KmsThrottlingException":
+    case "com.amazonaws.sfn#KmsThrottlingException":
+      throw await de_KmsThrottlingExceptionRes(parsedOutput, context);
     case "TooManyTags":
     case "com.amazonaws.sfn#TooManyTags":
       throw await de_TooManyTagsRes(parsedOutput, context);
@@ -1505,6 +1523,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ExecutionDoesNotExist":
     case "com.amazonaws.sfn#ExecutionDoesNotExist":
       throw await de_ExecutionDoesNotExistRes(parsedOutput, context);
+    case "KmsInvalidStateException":
+    case "com.amazonaws.sfn#KmsInvalidStateException":
+      throw await de_KmsInvalidStateExceptionRes(parsedOutput, context);
     case "StateMachineDoesNotExist":
     case "com.amazonaws.sfn#StateMachineDoesNotExist":
       throw await de_StateMachineDoesNotExistRes(parsedOutput, context);
@@ -1546,6 +1567,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_0ActivityAlreadyExistsRes
+ */
+const de_ActivityAlreadyExistsRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ActivityAlreadyExists> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ActivityAlreadyExists({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -1700,6 +1737,22 @@ const de_InvalidDefinitionRes = async (parsedOutput: any, context: __SerdeContex
 };
 
 /**
+ * deserializeAws_json1_0InvalidEncryptionConfigurationRes
+ */
+const de_InvalidEncryptionConfigurationRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidEncryptionConfiguration> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidEncryptionConfiguration({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_0InvalidExecutionInputRes
  */
 const de_InvalidExecutionInputRes = async (
@@ -1780,6 +1833,54 @@ const de_InvalidTracingConfigurationRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InvalidTracingConfiguration({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0KmsAccessDeniedExceptionRes
+ */
+const de_KmsAccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KmsAccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new KmsAccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0KmsInvalidStateExceptionRes
+ */
+const de_KmsInvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KmsInvalidStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new KmsInvalidStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_0KmsThrottlingExceptionRes
+ */
+const de_KmsThrottlingExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<KmsThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new KmsThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -1991,6 +2092,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeStateMachineInput omitted.
 
+// se_EncryptionConfiguration omitted.
+
 // se_GetActivityTaskInput omitted.
 
 // se_GetExecutionHistoryInput omitted.
@@ -2075,6 +2178,8 @@ const se_UpdateMapRunInput = (input: UpdateMapRunInput, context: __SerdeContext)
 
 // se_ValidateStateMachineDefinitionInput omitted.
 
+// de_ActivityAlreadyExists omitted.
+
 // de_ActivityDoesNotExist omitted.
 
 // de_ActivityFailedEventDetails omitted.
@@ -2115,6 +2220,10 @@ const de_ActivityListItem = (output: any, context: __SerdeContext): ActivityList
 // de_ActivityTimedOutEventDetails omitted.
 
 // de_ActivityWorkerLimitExceeded omitted.
+
+// de_AssignedVariables omitted.
+
+// de_AssignedVariablesDetails omitted.
 
 // de_BillingDetails omitted.
 
@@ -2170,6 +2279,7 @@ const de_DescribeActivityOutput = (output: any, context: __SerdeContext): Descri
   return take(output, {
     activityArn: __expectString,
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    encryptionConfiguration: _json,
     name: __expectString,
   }) as any;
 };
@@ -2245,6 +2355,7 @@ const de_DescribeStateMachineForExecutionOutput = (
 ): DescribeStateMachineForExecutionOutput => {
   return take(output, {
     definition: __expectString,
+    encryptionConfiguration: _json,
     label: __expectString,
     loggingConfiguration: _json,
     mapRunArn: __expectString,
@@ -2254,6 +2365,7 @@ const de_DescribeStateMachineForExecutionOutput = (
     stateMachineArn: __expectString,
     tracingConfiguration: _json,
     updateDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    variableReferences: _json,
   }) as any;
 };
 
@@ -2265,6 +2377,7 @@ const de_DescribeStateMachineOutput = (output: any, context: __SerdeContext): De
     creationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     definition: __expectString,
     description: __expectString,
+    encryptionConfiguration: _json,
     label: __expectString,
     loggingConfiguration: _json,
     name: __expectString,
@@ -2274,8 +2387,13 @@ const de_DescribeStateMachineOutput = (output: any, context: __SerdeContext): De
     status: __expectString,
     tracingConfiguration: _json,
     type: __expectString,
+    variableReferences: _json,
   }) as any;
 };
+
+// de_EncryptionConfiguration omitted.
+
+// de_EvaluationFailedEventDetails omitted.
 
 // de_ExecutionAbortedEventDetails omitted.
 
@@ -2352,6 +2470,7 @@ const de_HistoryEvent = (output: any, context: __SerdeContext): HistoryEvent => 
     activityStartedEventDetails: _json,
     activitySucceededEventDetails: _json,
     activityTimedOutEventDetails: _json,
+    evaluationFailedEventDetails: _json,
     executionAbortedEventDetails: _json,
     executionFailedEventDetails: _json,
     executionRedrivenEventDetails: _json,
@@ -2413,6 +2532,8 @@ const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent
 
 // de_InvalidDefinition omitted.
 
+// de_InvalidEncryptionConfiguration omitted.
+
 // de_InvalidExecutionInput omitted.
 
 // de_InvalidLoggingConfiguration omitted.
@@ -2424,6 +2545,12 @@ const de_HistoryEventList = (output: any, context: __SerdeContext): HistoryEvent
 // de_InvalidToken omitted.
 
 // de_InvalidTracingConfiguration omitted.
+
+// de_KmsAccessDeniedException omitted.
+
+// de_KmsInvalidStateException omitted.
+
+// de_KmsThrottlingException omitted.
 
 // de_LambdaFunctionFailedEventDetails omitted.
 
@@ -2770,6 +2897,10 @@ const de_UpdateStateMachineOutput = (output: any, context: __SerdeContext): Upda
 // de_ValidateStateMachineDefinitionOutput omitted.
 
 // de_ValidationException omitted.
+
+// de_VariableNameList omitted.
+
+// de_VariableReferences omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

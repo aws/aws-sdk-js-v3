@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpResponseCodeOutput } from "../models/models_0";
 import { de_HttpResponseCodeCommand, se_HttpResponseCodeCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
@@ -10,7 +12,8 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +54,7 @@ export interface HttpResponseCodeCommandOutput extends HttpResponseCodeOutput, _
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpResponseCodeCommand extends $Command
   .classBuilder<
@@ -60,12 +64,28 @@ export class HttpResponseCodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestXml", "HttpResponseCode", {})
   .n("RestXmlProtocolClient", "HttpResponseCodeCommand")
   .f(void 0, void 0)
   .ser(se_HttpResponseCodeCommand)
   .de(de_HttpResponseCodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: HttpResponseCodeOutput;
+    };
+    sdk: {
+      input: HttpResponseCodeCommandInput;
+      output: HttpResponseCodeCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,7 @@ export interface ListCalculatedAttributesForProfileCommandOutput
  * //       DisplayName: "STRING_VALUE",
  * //       IsDataPartial: "STRING_VALUE",
  * //       Value: "STRING_VALUE",
+ * //       LastObjectTimestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -88,6 +90,7 @@ export interface ListCalculatedAttributesForProfileCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListCalculatedAttributesForProfileCommand extends $Command
@@ -98,9 +101,7 @@ export class ListCalculatedAttributesForProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +113,16 @@ export class ListCalculatedAttributesForProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCalculatedAttributesForProfileCommand)
   .de(de_ListCalculatedAttributesForProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCalculatedAttributesForProfileRequest;
+      output: ListCalculatedAttributesForProfileResponse;
+    };
+    sdk: {
+      input: ListCalculatedAttributesForProfileCommandInput;
+      output: ListCalculatedAttributesForProfileCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutEventsCommand, se_PutEventsCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,18 +29,17 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
 
 /**
  * <p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>
- *          <p>The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated including
- *       the event and any necessary characters and keys of the JSON representation of the event. To
- *       learn more, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html">Calculating PutEvents event entry
+ *          <p>You can batch multiple event entries into one request for efficiency.
+ *       However, the total entry size must be less than 256KB. You can calculate the entry size before you send the events.
+ *       For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size">Calculating PutEvents event entry
  *         size</a> in the <i>
  *                <i>Amazon EventBridge User Guide</i>
- *             </i>
- *          </p>
+ *             </i>.</p>
  *          <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the
  *       constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of
  *       9,223,372,036,854,775,807.</p>
  *          <note>
- *             <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>
+ *             <p>PutEvents will only process nested JSON up to 1000 levels deep.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -90,6 +90,7 @@ export interface PutEventsCommandOutput extends PutEventsResponse, __MetadataBea
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class PutEventsCommand extends $Command
@@ -115,4 +116,16 @@ export class PutEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEventsCommand)
   .de(de_PutEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventsRequest;
+      output: PutEventsResponse;
+    };
+    sdk: {
+      input: PutEventsCommandInput;
+      output: PutEventsCommandOutput;
+    };
+  };
+}

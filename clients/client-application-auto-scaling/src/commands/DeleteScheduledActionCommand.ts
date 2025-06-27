@@ -16,7 +16,8 @@ import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,10 +41,10 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * // const { ApplicationAutoScalingClient, DeleteScheduledActionCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // DeleteScheduledActionRequest
- *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune" || "workspaces", // required
  *   ScheduledActionName: "STRING_VALUE", // required
  *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:cache-cluster:Nodes" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount" || "workspaces:workspacespool:DesiredUserSessions", // required
  * };
  * const command = new DeleteScheduledActionCommand(input);
  * const response = await client.send(command);
@@ -78,21 +79,24 @@ export interface DeleteScheduledActionCommandOutput extends DeleteScheduledActio
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a scheduled action
  * ```javascript
  * // This example deletes a scheduled action for the AppStream 2.0 fleet called sample-fleet.
  * const input = {
- *   "ResourceId": "fleet/sample-fleet",
- *   "ScalableDimension": "appstream:fleet:DesiredCapacity",
- *   "ScheduledActionName": "my-recurring-action",
- *   "ServiceNamespace": "appstream"
+ *   ResourceId: "fleet/sample-fleet",
+ *   ScalableDimension: "appstream:fleet:DesiredCapacity",
+ *   ScheduledActionName: "my-recurring-action",
+ *   ServiceNamespace: "appstream"
  * };
  * const command = new DeleteScheduledActionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-scheduled-action-1677963329606
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteScheduledActionCommand extends $Command
   .classBuilder<
@@ -102,9 +106,7 @@ export class DeleteScheduledActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +118,16 @@ export class DeleteScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScheduledActionCommand)
   .de(de_DeleteScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScheduledActionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScheduledActionCommandInput;
+      output: DeleteScheduledActionCommandOutput;
+    };
+  };
+}

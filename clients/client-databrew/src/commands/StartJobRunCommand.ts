@@ -12,7 +12,8 @@ import { de_StartJobRunCommand, se_StartJobRunCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class StartJobRunCommand extends $Command
@@ -76,9 +78,7 @@ export class StartJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class StartJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartJobRunCommand)
   .de(de_StartJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartJobRunRequest;
+      output: StartJobRunResponse;
+    };
+    sdk: {
+      input: StartJobRunCommandInput;
+      output: StartJobRunCommandOutput;
+    };
+  };
+}

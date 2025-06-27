@@ -12,7 +12,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,7 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * //   appArn: "STRING_VALUE", // required
  * //   appVersion: "STRING_VALUE", // required
  * //   resolutionId: "STRING_VALUE", // required
- * //   status: "STRING_VALUE", // required
+ * //   status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * // };
  *
  * ```
@@ -82,6 +83,7 @@ export interface ResolveAppVersionResourcesCommandOutput extends ResolveAppVersi
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ResolveAppVersionResourcesCommand extends $Command
@@ -92,9 +94,7 @@ export class ResolveAppVersionResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ResolveAppVersionResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResolveAppVersionResourcesCommand)
   .de(de_ResolveAppVersionResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResolveAppVersionResourcesRequest;
+      output: ResolveAppVersionResourcesResponse;
+    };
+    sdk: {
+      input: ResolveAppVersionResourcesCommandInput;
+      output: ResolveAppVersionResourcesCommandOutput;
+    };
+  };
+}

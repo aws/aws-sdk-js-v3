@@ -12,7 +12,8 @@ import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,11 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * //       capabilityConfiguration: { // AssistantCapabilityConfiguration
  * //         type: "STRING_VALUE",
  * //       },
+ * //       aiAgentConfiguration: { // AIAgentConfigurationMap
+ * //         "<keys>": { // AIAgentConfigurationData
+ * //           aiAgentId: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -83,6 +89,7 @@ export interface ListAssistantsCommandOutput extends ListAssistantsResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListAssistantsCommand extends $Command
@@ -93,9 +100,7 @@ export class ListAssistantsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +112,16 @@ export class ListAssistantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssistantsCommand)
   .de(de_ListAssistantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssistantsRequest;
+      output: ListAssistantsResponse;
+    };
+    sdk: {
+      input: ListAssistantsCommandInput;
+      output: ListAssistantsCommandOutput;
+    };
+  };
+}

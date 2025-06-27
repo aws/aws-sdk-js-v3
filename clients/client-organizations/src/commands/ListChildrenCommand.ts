@@ -12,7 +12,8 @@ import { de_ListChildrenCommand, se_ListChildrenCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -137,6 +138,10 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -177,6 +182,9 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -202,33 +210,33 @@ export interface ListChildrenCommandOutput extends ListChildrenResponse, __Metad
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of all of the child accounts and OUs in a parent root or OU
  * ```javascript
  * // The following example shows how to request a list of the child OUs in a parent root or OU:/n/n
  * const input = {
- *   "ChildType": "ORGANIZATIONAL_UNIT",
- *   "ParentId": "ou-examplerootid111-exampleouid111"
+ *   ChildType: "ORGANIZATIONAL_UNIT",
+ *   ParentId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new ListChildrenCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Children": [
+ *   Children: [
  *     {
- *       "Id": "ou-examplerootid111-exampleouid111",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Id: "ou-examplerootid111-exampleouid111",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     },
  *     {
- *       "Id": "ou-examplerootid111-exampleouid222",
- *       "Type": "ORGANIZATIONAL_UNIT"
+ *       Id: "ou-examplerootid111-exampleouid222",
+ *       Type: "ORGANIZATIONAL_UNIT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-all-of-the-child-accounts-and-OUs-in-a-parent-container
  * ```
  *
+ * @public
  */
 export class ListChildrenCommand extends $Command
   .classBuilder<
@@ -238,9 +246,7 @@ export class ListChildrenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -252,4 +258,16 @@ export class ListChildrenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChildrenCommand)
   .de(de_ListChildrenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChildrenRequest;
+      output: ListChildrenResponse;
+    };
+    sdk: {
+      input: ListChildrenCommandInput;
+      output: ListChildrenCommandOutput;
+    };
+  };
+}

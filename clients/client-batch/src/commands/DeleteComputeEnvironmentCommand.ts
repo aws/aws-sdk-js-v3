@@ -12,7 +12,8 @@ import { de_DeleteComputeEnvironmentCommand, se_DeleteComputeEnvironmentCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,18 +67,21 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To delete a compute environment
  * ```javascript
  * // This example deletes the P2OnDemand compute environment.
  * const input = {
- *   "computeEnvironment": "P2OnDemand"
+ *   computeEnvironment: "P2OnDemand"
  * };
  * const command = new DeleteComputeEnvironmentCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-compute-environment-1481153105644
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteComputeEnvironmentCommand extends $Command
   .classBuilder<
@@ -87,9 +91,7 @@ export class DeleteComputeEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class DeleteComputeEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteComputeEnvironmentCommand)
   .de(de_DeleteComputeEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteComputeEnvironmentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteComputeEnvironmentCommandInput;
+      output: DeleteComputeEnvironmentCommandOutput;
+    };
+  };
+}

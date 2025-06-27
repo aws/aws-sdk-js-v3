@@ -16,7 +16,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the accelerate configuration of an existing bucket. Amazon S3 Transfer Acceleration is a
  *          bucket-level feature that enables you to perform faster data transfers to Amazon S3.</p>
@@ -85,7 +86,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *     Status: "Enabled" || "Suspended",
  *   },
  *   ExpectedBucketOwner: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * };
  * const command = new PutBucketAccelerateConfigurationCommand(input);
  * const response = await client.send(command);
@@ -101,6 +102,7 @@ export interface PutBucketAccelerateConfigurationCommandOutput extends __Metadat
  *
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
  *
  * @public
  */
@@ -122,8 +124,7 @@ export class PutBucketAccelerateConfigurationCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: false,
       }),
     ];
@@ -133,4 +134,16 @@ export class PutBucketAccelerateConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketAccelerateConfigurationCommand)
   .de(de_PutBucketAccelerateConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketAccelerateConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketAccelerateConfigurationCommandInput;
+      output: PutBucketAccelerateConfigurationCommandOutput;
+    };
+  };
+}

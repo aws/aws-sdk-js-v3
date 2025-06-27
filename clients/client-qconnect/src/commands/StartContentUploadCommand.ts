@@ -9,14 +9,15 @@ import {
   StartContentUploadRequest,
   StartContentUploadResponse,
   StartContentUploadResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartContentUploadCommand, se_StartContentUploadCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface StartContentUploadCommandOutput extends StartContentUploadRespo
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class StartContentUploadCommand extends $Command
@@ -89,9 +91,7 @@ export class StartContentUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class StartContentUploadCommand extends $Command
   .f(void 0, StartContentUploadResponseFilterSensitiveLog)
   .ser(se_StartContentUploadCommand)
   .de(de_StartContentUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartContentUploadRequest;
+      output: StartContentUploadResponse;
+    };
+    sdk: {
+      input: StartContentUploadCommandInput;
+      output: StartContentUploadCommandOutput;
+    };
+  };
+}

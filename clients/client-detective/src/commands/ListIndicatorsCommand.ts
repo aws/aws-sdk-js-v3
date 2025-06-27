@@ -12,7 +12,8 @@ import { de_ListIndicatorsCommand, se_ListIndicatorsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -125,6 +126,7 @@ export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __M
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class ListIndicatorsCommand extends $Command
@@ -135,9 +137,7 @@ export class ListIndicatorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +149,16 @@ export class ListIndicatorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIndicatorsCommand)
   .de(de_ListIndicatorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIndicatorsRequest;
+      output: ListIndicatorsResponse;
+    };
+    sdk: {
+      input: ListIndicatorsCommandInput;
+      output: ListIndicatorsCommandOutput;
+    };
+  };
+}

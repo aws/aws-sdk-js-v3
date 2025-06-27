@@ -12,7 +12,8 @@ import { de_DeleteRepositoryPolicyCommand, se_DeleteRepositoryPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,25 +73,25 @@ export interface DeleteRepositoryPolicyCommandOutput extends DeleteRepositoryPol
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To delete the policy associated with a repository
  * ```javascript
  * // This example deletes the policy associated with the repository named ubuntu in the current account.
  * const input = {
- *   "repositoryName": "ubuntu"
+ *   repositoryName: "ubuntu"
  * };
  * const command = new DeleteRepositoryPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "policyText": "{ ... }",
- *   "registryId": "012345678901",
- *   "repositoryName": "ubuntu"
+ *   policyText: "{ ... }",
+ *   registryId: "012345678901",
+ *   repositoryName: "ubuntu"
  * }
  * *\/
- * // example id: deleterepositorypolicy-example-1470866943748
  * ```
  *
+ * @public
  */
 export class DeleteRepositoryPolicyCommand extends $Command
   .classBuilder<
@@ -100,9 +101,7 @@ export class DeleteRepositoryPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +113,16 @@ export class DeleteRepositoryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRepositoryPolicyCommand)
   .de(de_DeleteRepositoryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRepositoryPolicyRequest;
+      output: DeleteRepositoryPolicyResponse;
+    };
+    sdk: {
+      input: DeleteRepositoryPolicyCommandInput;
+      output: DeleteRepositoryPolicyCommandOutput;
+    };
+  };
+}

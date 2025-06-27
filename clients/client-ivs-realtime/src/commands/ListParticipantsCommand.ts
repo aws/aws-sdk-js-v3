@@ -12,7 +12,8 @@ import { de_ListParticipantsCommand, se_ListParticipantsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,6 +43,7 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  *   filterByState: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   filterByRecordingState: "STRING_VALUE",
  * };
  * const command = new ListParticipantsCommand(input);
  * const response = await client.send(command);
@@ -53,6 +55,11 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  * //       state: "STRING_VALUE",
  * //       firstJoinTime: new Date("TIMESTAMP"),
  * //       published: true || false,
+ * //       recordingState: "STRING_VALUE",
+ * //       replicationType: "STRING_VALUE",
+ * //       replicationState: "STRING_VALUE",
+ * //       sourceStageArn: "STRING_VALUE",
+ * //       sourceSessionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -75,6 +82,7 @@ export interface ListParticipantsCommandOutput extends ListParticipantsResponse,
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListParticipantsCommand extends $Command
@@ -85,9 +93,7 @@ export class ListParticipantsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +105,16 @@ export class ListParticipantsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListParticipantsCommand)
   .de(de_ListParticipantsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListParticipantsRequest;
+      output: ListParticipantsResponse;
+    };
+    sdk: {
+      input: ListParticipantsCommandInput;
+      output: ListParticipantsCommandOutput;
+    };
+  };
+}

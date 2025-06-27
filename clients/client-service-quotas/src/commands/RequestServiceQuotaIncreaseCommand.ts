@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Submits a quota increase request for the specified quota.</p>
+ * <p>Submits a quota increase request for the specified quota at the account or resource level.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +42,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  *   QuotaCode: "STRING_VALUE", // required
  *   DesiredValue: Number("double"), // required
  *   ContextId: "STRING_VALUE",
+ *   SupportCaseAllowed: true || false,
  * };
  * const command = new RequestServiceQuotaIncreaseCommand(input);
  * const response = await client.send(command);
@@ -109,6 +111,7 @@ export interface RequestServiceQuotaIncreaseCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class RequestServiceQuotaIncreaseCommand extends $Command
@@ -119,9 +122,7 @@ export class RequestServiceQuotaIncreaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +134,16 @@ export class RequestServiceQuotaIncreaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestServiceQuotaIncreaseCommand)
   .de(de_RequestServiceQuotaIncreaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestServiceQuotaIncreaseRequest;
+      output: RequestServiceQuotaIncreaseResponse;
+    };
+    sdk: {
+      input: RequestServiceQuotaIncreaseCommandInput;
+      output: RequestServiceQuotaIncreaseCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeEventBusCommand, se_DescribeEventBusCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DescribeEventBusCommandOutput extends DescribeEventBusResponse,
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventBusCommand extends $Command
@@ -78,9 +80,7 @@ export class DescribeEventBusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DescribeEventBusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventBusCommand)
   .de(de_DescribeEventBusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventBusRequest;
+      output: DescribeEventBusResponse;
+    };
+    sdk: {
+      input: DescribeEventBusCommandInput;
+      output: DescribeEventBusCommandOutput;
+    };
+  };
+}

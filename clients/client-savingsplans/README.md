@@ -13,7 +13,7 @@ Savings Plans User Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-savingsplans
+To install this package, simply type add or install @aws-sdk/client-savingsplans
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-savingsplans`

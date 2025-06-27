@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListContextsRequest, ListContextsResponse } from "../models/models_3";
+import { ListContextsRequest, ListContextsResponse } from "../models/models_4";
 import { de_ListContextsCommand, se_ListContextsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface ListContextsCommandOutput extends ListContextsResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListContextsCommand extends $Command
@@ -88,9 +90,7 @@ export class ListContextsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ListContextsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContextsCommand)
   .de(de_ListContextsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContextsRequest;
+      output: ListContextsResponse;
+    };
+    sdk: {
+      input: ListContextsCommandInput;
+      output: ListContextsCommandOutput;
+    };
+  };
+}

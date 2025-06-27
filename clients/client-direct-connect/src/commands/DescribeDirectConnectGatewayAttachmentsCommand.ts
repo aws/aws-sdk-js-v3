@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface DescribeDirectConnectGatewayAttachmentsCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
@@ -97,9 +99,7 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class DescribeDirectConnectGatewayAttachmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDirectConnectGatewayAttachmentsCommand)
   .de(de_DescribeDirectConnectGatewayAttachmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectConnectGatewayAttachmentsRequest;
+      output: DescribeDirectConnectGatewayAttachmentsResult;
+    };
+    sdk: {
+      input: DescribeDirectConnectGatewayAttachmentsCommandInput;
+      output: DescribeDirectConnectGatewayAttachmentsCommandOutput;
+    };
+  };
+}

@@ -27,6 +27,15 @@ import { fromSso } from "@aws-sdk/token-providers";
 const ssoToken = await fromSso();
 ```
 
+## Env Token Provider with Signing Name
+
+```ts
+import { fromEnvSigningName } from "@aws-sdk/token-providers";
+
+// returns token from environment, where token's key is based on signing name.
+const envSigningNameToken = await fromEnvSigningName({ signingName: "signing name" });
+```
+
 ## Token Provider Chain
 
 ```ts

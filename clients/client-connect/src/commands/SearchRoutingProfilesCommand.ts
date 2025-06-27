@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRoutingProfilesRequest, SearchRoutingProfilesResponse } from "../models/models_2";
+import { SearchRoutingProfilesResponse } from "../models/models_2";
+import { SearchRoutingProfilesRequest } from "../models/models_3";
 import { de_SearchRoutingProfilesCommand, se_SearchRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,7 +97,7 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * //       Description: "STRING_VALUE",
  * //       MediaConcurrencies: [ // MediaConcurrencies
  * //         { // MediaConcurrency
- * //           Channel: "VOICE" || "CHAT" || "TASK", // required
+ * //           Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  * //           Concurrency: Number("int"), // required
  * //           CrossChannelBehavior: { // CrossChannelBehavior
  * //             BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
@@ -147,6 +149,7 @@ export interface SearchRoutingProfilesCommandOutput extends SearchRoutingProfile
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchRoutingProfilesCommand extends $Command
@@ -157,9 +160,7 @@ export class SearchRoutingProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +172,16 @@ export class SearchRoutingProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchRoutingProfilesCommand)
   .de(de_SearchRoutingProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchRoutingProfilesRequest;
+      output: SearchRoutingProfilesResponse;
+    };
+    sdk: {
+      input: SearchRoutingProfilesCommandInput;
+      output: SearchRoutingProfilesCommandOutput;
+    };
+  };
+}

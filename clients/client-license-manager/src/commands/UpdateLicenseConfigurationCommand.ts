@@ -12,7 +12,8 @@ import { de_UpdateLicenseConfigurationCommand, se_UpdateLicenseConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,9 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  *  <p>The Amazon Web Services user account does not have permission to perform the action. Check the IAM
  *          policy associated with this account.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was a conflict processing the request. Try your request again.</p>
+ *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
@@ -94,6 +98,7 @@ export interface UpdateLicenseConfigurationCommandOutput extends UpdateLicenseCo
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateLicenseConfigurationCommand extends $Command
@@ -104,9 +109,7 @@ export class UpdateLicenseConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +121,16 @@ export class UpdateLicenseConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLicenseConfigurationCommand)
   .de(de_UpdateLicenseConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLicenseConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLicenseConfigurationCommandInput;
+      output: UpdateLicenseConfigurationCommandOutput;
+    };
+  };
+}

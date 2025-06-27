@@ -10,13 +10,14 @@ import {
   DeleteDataSourceInput,
   DeleteDataSourceOutput,
   DeleteDataSourceOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_DeleteDataSourceCommand, se_DeleteDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,6 +43,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  *   domainIdentifier: "STRING_VALUE", // required
  *   identifier: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   retainPermissionsOnRevokeFailure: true || false,
  * };
  * const command = new DeleteDataSourceCommand(input);
  * const response = await client.send(command);
@@ -53,7 +55,8 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -72,6 +75,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -101,6 +105,15 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //         },
  * //       },
  * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     },
  * //   },
  * //   enableSetting: "ENABLED" || "DISABLED",
  * //   publishOnImport: true || false,
@@ -128,6 +141,29 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   selfGrantStatus: { // SelfGrantStatusOutput Union: only one key present
+ * //     glueSelfGrantStatus: { // GlueSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // SelfGrantStatusDetails // required
+ * //         { // SelfGrantStatusDetail
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     redshiftSelfGrantStatus: { // RedshiftSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // required
+ * //         {
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
+ * //   retainPermissionsOnRevokeFailure: true || false,
  * // };
  *
  * ```
@@ -165,6 +201,7 @@ export interface DeleteDataSourceCommandOutput extends DeleteDataSourceOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteDataSourceCommand extends $Command
@@ -175,9 +212,7 @@ export class DeleteDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -189,4 +224,16 @@ export class DeleteDataSourceCommand extends $Command
   .f(void 0, DeleteDataSourceOutputFilterSensitiveLog)
   .ser(se_DeleteDataSourceCommand)
   .de(de_DeleteDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataSourceInput;
+      output: DeleteDataSourceOutput;
+    };
+    sdk: {
+      input: DeleteDataSourceCommandInput;
+      output: DeleteDataSourceCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UpdateStackSetCommand, se_UpdateStackSetCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,12 @@ export interface UpdateStackSetCommandInput extends UpdateStackSetInput {}
 export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the stack set, and associated stack instances in the specified accounts and Amazon Web Services Regions.</p>
- *          <p>Even if the stack set operation created by updating the stack set fails (completely or partially, below or above
- *    a specified failure tolerance), the stack set is updated with your changes. Subsequent <a>CreateStackInstances</a> calls on the specified stack set use the updated stack set.</p>
+ * <p>Updates the stack set and associated stack instances in the specified accounts and
+ *       Amazon Web Services Regions.</p>
+ *          <p>Even if the stack set operation created by updating the stack set fails (completely or
+ *       partially, below or above a specified failure tolerance), the stack set is updated with your
+ *       changes. Subsequent <a>CreateStackInstances</a> calls on the specified stack set
+ *       use the updated stack set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,6 +139,7 @@ export interface UpdateStackSetCommandOutput extends UpdateStackSetOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateStackSetCommand extends $Command
@@ -145,9 +150,7 @@ export class UpdateStackSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +162,16 @@ export class UpdateStackSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStackSetCommand)
   .de(de_UpdateStackSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStackSetInput;
+      output: UpdateStackSetOutput;
+    };
+    sdk: {
+      input: UpdateStackSetCommandInput;
+      output: UpdateStackSetCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface DisassociateQueueQuickConnectsCommandOutput extends __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateQueueQuickConnectsCommand extends $Command
@@ -85,9 +87,7 @@ export class DisassociateQueueQuickConnectsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class DisassociateQueueQuickConnectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateQueueQuickConnectsCommand)
   .de(de_DisassociateQueueQuickConnectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateQueueQuickConnectsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateQueueQuickConnectsCommandInput;
+      output: DisassociateQueueQuickConnectsCommandOutput;
+    };
+  };
+}

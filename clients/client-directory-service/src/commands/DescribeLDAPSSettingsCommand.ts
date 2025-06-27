@@ -12,7 +12,8 @@ import { de_DescribeLDAPSSettingsCommand, se_DescribeLDAPSSettingsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface DescribeLDAPSSettingsCommandOutput extends DescribeLDAPSSetting
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeLDAPSSettingsCommand extends $Command
@@ -92,9 +94,7 @@ export class DescribeLDAPSSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class DescribeLDAPSSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLDAPSSettingsCommand)
   .de(de_DescribeLDAPSSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLDAPSSettingsRequest;
+      output: DescribeLDAPSSettingsResult;
+    };
+    sdk: {
+      input: DescribeLDAPSSettingsCommandInput;
+      output: DescribeLDAPSSettingsCommandOutput;
+    };
+  };
+}

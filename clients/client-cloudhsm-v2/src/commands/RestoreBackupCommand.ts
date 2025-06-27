@@ -12,7 +12,8 @@ import { de_RestoreBackupCommand, se_RestoreBackupCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,11 @@ export interface RestoreBackupCommandInput extends RestoreBackupRequest {}
 export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __MetadataBearer {}
 
 /**
- * <p>Restores a specified AWS CloudHSM backup that is in the
- *                 <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see
+ * <p>Restores a specified CloudHSM backup that is in the
+ *                 <code>PENDING_DELETION</code> state. For more information on deleting a backup, see
  *                 <a>DeleteBackup</a>.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,6 +47,7 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * // { // RestoreBackupResponse
  * //   Backup: { // Backup
  * //     BackupId: "STRING_VALUE", // required
+ * //     BackupArn: "STRING_VALUE",
  * //     BackupState: "CREATE_IN_PROGRESS" || "READY" || "DELETED" || "PENDING_DELETION",
  * //     ClusterId: "STRING_VALUE",
  * //     CreateTimestamp: new Date("TIMESTAMP"),
@@ -59,6 +63,8 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     HsmType: "STRING_VALUE",
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *
@@ -75,7 +81,7 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -91,6 +97,7 @@ export interface RestoreBackupCommandOutput extends RestoreBackupResponse, __Met
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class RestoreBackupCommand extends $Command
@@ -101,9 +108,7 @@ export class RestoreBackupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +120,16 @@ export class RestoreBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreBackupCommand)
   .de(de_RestoreBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreBackupRequest;
+      output: RestoreBackupResponse;
+    };
+    sdk: {
+      input: RestoreBackupCommandInput;
+      output: RestoreBackupCommandOutput;
+    };
+  };
+}

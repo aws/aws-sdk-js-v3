@@ -12,7 +12,8 @@ import { de_DeleteAccountCommand, se_DeleteAccountCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DeleteAccountCommandOutput extends DeleteAccountResponse, __Met
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccountCommand extends $Command
@@ -96,9 +98,7 @@ export class DeleteAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DeleteAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccountCommand)
   .de(de_DeleteAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccountRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccountCommandInput;
+      output: DeleteAccountCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CancelLoaderJobCommand, se_CancelLoaderJobCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface CancelLoaderJobCommandOutput extends CancelLoaderJobOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class CancelLoaderJobCommand extends $Command
@@ -109,9 +111,7 @@ export class CancelLoaderJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class CancelLoaderJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelLoaderJobCommand)
   .de(de_CancelLoaderJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelLoaderJobInput;
+      output: CancelLoaderJobOutput;
+    };
+    sdk: {
+      input: CancelLoaderJobCommandInput;
+      output: CancelLoaderJobCommandOutput;
+    };
+  };
+}

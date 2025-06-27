@@ -12,7 +12,8 @@ import { de_GetSatelliteCommand, se_GetSatelliteCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * //     "STRING_VALUE",
  * //   ],
  * //   currentEphemeris: { // EphemerisMetaData
- * //     source: "STRING_VALUE", // required
+ * //     source: "CUSTOMER_PROVIDED" || "SPACE_TRACK", // required
  * //     ephemerisId: "STRING_VALUE",
  * //     epoch: new Date("TIMESTAMP"),
  * //     name: "STRING_VALUE",
@@ -74,6 +75,7 @@ export interface GetSatelliteCommandOutput extends GetSatelliteResponse, __Metad
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetSatelliteCommand extends $Command
@@ -84,9 +86,7 @@ export class GetSatelliteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class GetSatelliteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSatelliteCommand)
   .de(de_GetSatelliteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSatelliteRequest;
+      output: GetSatelliteResponse;
+    };
+    sdk: {
+      input: GetSatelliteCommandInput;
+      output: GetSatelliteCommandOutput;
+    };
+  };
+}

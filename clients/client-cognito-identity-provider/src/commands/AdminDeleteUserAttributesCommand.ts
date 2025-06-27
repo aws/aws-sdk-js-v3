@@ -20,7 +20,8 @@ import { de_AdminDeleteUserAttributesCommand, se_AdminDeleteUserAttributesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,9 @@ export interface AdminDeleteUserAttributesCommandInput extends AdminDeleteUserAt
 export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the user attributes in a user pool as an administrator. Works on any
- *             user.</p>
+ * <p>Deletes attribute values from a user. This operation doesn't affect tokens for
+ *             existing user sessions. The next ID token that the user receives will no longer have the
+ *             deleted attributes.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -106,6 +108,7 @@ export interface AdminDeleteUserAttributesCommandOutput extends AdminDeleteUserA
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminDeleteUserAttributesCommand extends $Command
@@ -116,9 +119,7 @@ export class AdminDeleteUserAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class AdminDeleteUserAttributesCommand extends $Command
   .f(AdminDeleteUserAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_AdminDeleteUserAttributesCommand)
   .de(de_AdminDeleteUserAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminDeleteUserAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminDeleteUserAttributesCommandInput;
+      output: AdminDeleteUserAttributesCommandOutput;
+    };
+  };
+}

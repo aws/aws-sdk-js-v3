@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TagResourceRequest, TagResourceResponse } from "../models/models_2";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_3";
 import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,22 +66,25 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To tag a resource
  * ```javascript
  * // The following example adds the 'Department' and 'Area' tags to the specified resource.
  * const input = {
- *   "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
- *   "Tags": {
- *     "Area": "USMidwest",
- *     "Department": "Operations"
+ *   ResourceArn: "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   Tags: {
+ *     Area: "USMidwest",
+ *     Department: "Operations"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-tag-a-resource-1678478687320
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<
@@ -90,9 +94,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +106,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

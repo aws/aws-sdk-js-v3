@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.</p>
+ * <p>Adds or overwrites one or more tags for the specified CloudHSM cluster.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,11 +63,14 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
  *  <p>The request was rejected because it is not a valid request.</p>
+ *
+ * @throws {@link CloudHsmResourceLimitExceededException} (client fault)
+ *  <p>The request was rejected because it exceeds an CloudHSM limit.</p>
  *
  * @throws {@link CloudHsmResourceNotFoundException} (client fault)
  *  <p>The request was rejected because it refers to a resource that cannot be
@@ -79,6 +85,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -89,9 +96,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +108,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

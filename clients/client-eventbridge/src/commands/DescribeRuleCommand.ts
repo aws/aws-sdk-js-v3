@@ -12,7 +12,8 @@ import { de_DescribeRuleCommand, se_DescribeRuleCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface DescribeRuleCommandOutput extends DescribeRuleResponse, __Metad
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeRuleCommand extends $Command
@@ -82,9 +84,7 @@ export class DescribeRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class DescribeRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleCommand)
   .de(de_DescribeRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleRequest;
+      output: DescribeRuleResponse;
+    };
+    sdk: {
+      input: DescribeRuleCommandInput;
+      output: DescribeRuleCommandOutput;
+    };
+  };
+}

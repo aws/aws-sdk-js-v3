@@ -13,6 +13,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -108,7 +109,7 @@ export const se_CreateDatasetCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/datasets");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -133,7 +134,7 @@ export const se_CreateModelCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -160,7 +161,7 @@ export const se_CreateProjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects");
   let body: any;
@@ -182,7 +183,7 @@ export const se_DeleteDatasetCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -201,7 +202,7 @@ export const se_DeleteModelCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -220,7 +221,7 @@ export const se_DeleteProjectCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -305,7 +306,7 @@ export const se_DetectAnomaliesCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_CTo]! || "application/octet-stream",
+    [_ct]: input[_CTo] || "application/octet-stream",
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/detect");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -429,7 +430,7 @@ export const se_StartModelCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/start");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -455,7 +456,7 @@ export const se_StartModelPackagingJobCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/modelpackagingjobs");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -481,7 +482,7 @@ export const se_StopModelCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/models/{ModelVersion}/stop");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -526,10 +527,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/2020-11-20/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -546,7 +544,7 @@ export const se_UpdateDatasetEntriesCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-    [_xact]: input[_CT]!,
+    [_xact]: input[_CT] ?? generateIdempotencyToken(),
   });
   b.bp("/2020-11-20/projects/{ProjectName}/datasets/{DatasetType}/entries");
   b.p("ProjectName", () => input.ProjectName!, "{ProjectName}", false);
@@ -1486,13 +1484,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _AC = "AnomalyClass";
 const _ACD = "AfterCreationDate";

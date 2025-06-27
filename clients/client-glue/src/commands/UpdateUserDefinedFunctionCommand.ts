@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateUserDefinedFunctionRequest, UpdateUserDefinedFunctionResponse } from "../models/models_2";
+import { UpdateUserDefinedFunctionRequest, UpdateUserDefinedFunctionResponse } from "../models/models_3";
 import { de_UpdateUserDefinedFunctionCommand, se_UpdateUserDefinedFunctionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface UpdateUserDefinedFunctionCommandOutput extends UpdateUserDefine
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserDefinedFunctionCommand extends $Command
@@ -91,9 +93,7 @@ export class UpdateUserDefinedFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class UpdateUserDefinedFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserDefinedFunctionCommand)
   .de(de_UpdateUserDefinedFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserDefinedFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserDefinedFunctionCommandInput;
+      output: UpdateUserDefinedFunctionCommandOutput;
+    };
+  };
+}

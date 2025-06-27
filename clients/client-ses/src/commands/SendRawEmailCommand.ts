@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -191,30 +192,30 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example SendRawEmail
  * ```javascript
  * // The following example sends an email with an attachment:
  * const input = {
- *   "Destinations": [],
- *   "FromArn": "",
- *   "RawMessage": {
- *     "Data": "From: sender@example.com\\nTo: recipient@example.com\\nSubject: Test email (contains an attachment)\\nMIME-Version: 1.0\\nContent-type: Multipart/Mixed; boundary=\"NextPart\"\\n\\n--NextPart\\nContent-Type: text/plain\\n\\nThis is the message body.\\n\\n--NextPart\\nContent-Type: text/plain;\\nContent-Disposition: attachment; filename=\"attachment.txt\"\\n\\nThis is the text in the attachment.\\n\\n--NextPart--"
+ *   Destinations:   [],
+ *   FromArn: "",
+ *   RawMessage: {
+ *     Data: `From: sender@example.com\nTo: recipient@example.com\nSubject: Test email (contains an attachment)\nMIME-Version: 1.0\nContent-type: Multipart/Mixed; boundary="NextPart"\n\n--NextPart\nContent-Type: text/plain\n\nThis is the message body.\n\n--NextPart\nContent-Type: text/plain;\nContent-Disposition: attachment; filename="attachment.txt"\n\nThis is the text in the attachment.\n\n--NextPart--`
  *   },
- *   "ReturnPathArn": "",
- *   "Source": "",
- *   "SourceArn": ""
+ *   ReturnPathArn: "",
+ *   Source: "",
+ *   SourceArn: ""
  * };
  * const command = new SendRawEmailCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MessageId": "EXAMPLEf3f73d99b-c63fb06f-d263-41f8-a0fb-d0dc67d56c07-000000"
+ *   MessageId: "EXAMPLEf3f73d99b-c63fb06f-d263-41f8-a0fb-d0dc67d56c07-000000"
  * }
  * *\/
- * // example id: sendrawemail-1469118548649
  * ```
  *
+ * @public
  */
 export class SendRawEmailCommand extends $Command
   .classBuilder<
@@ -224,9 +225,7 @@ export class SendRawEmailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -238,4 +237,16 @@ export class SendRawEmailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendRawEmailCommand)
   .de(de_SendRawEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendRawEmailRequest;
+      output: SendRawEmailResponse;
+    };
+    sdk: {
+      input: SendRawEmailCommandInput;
+      output: SendRawEmailCommandOutput;
+    };
+  };
+}

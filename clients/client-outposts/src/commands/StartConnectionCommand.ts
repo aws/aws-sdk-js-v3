@@ -12,7 +12,8 @@ import { de_StartConnectionCommand, se_StartConnectionCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface StartConnectionCommandOutput extends StartConnectionResponse, _
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class StartConnectionCommand extends $Command
@@ -90,9 +92,7 @@ export class StartConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class StartConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartConnectionCommand)
   .de(de_StartConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartConnectionRequest;
+      output: StartConnectionResponse;
+    };
+    sdk: {
+      input: StartConnectionCommandInput;
+      output: StartConnectionCommandOutput;
+    };
+  };
+}

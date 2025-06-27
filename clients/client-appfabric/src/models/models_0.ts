@@ -182,13 +182,13 @@ export interface AppAuthorization {
    *          <p>This field should always be <code>admin</code>.</p>
    * @public
    */
-  persona?: Persona;
+  persona?: Persona | undefined;
 
   /**
    * <p>The application URL for the OAuth flow.</p>
    * @public
    */
-  authUrl?: string;
+  authUrl?: string | undefined;
 }
 
 /**
@@ -276,7 +276,7 @@ export interface AppBundle {
    *          used to encrypt the application data.</p>
    * @public
    */
-  customerManagedKeyArn?: string;
+  customerManagedKeyArn?: string | undefined;
 }
 
 /**
@@ -318,7 +318,7 @@ export interface S3Bucket {
    * <p>The object key to use.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -494,13 +494,13 @@ export interface TaskError {
    * <p>The code of the error.</p>
    * @public
    */
-  errorCode?: string;
+  errorCode?: string | undefined;
 
   /**
    * <p>The message of the error.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -512,25 +512,25 @@ export interface UserAccessResultItem {
    * <p>The name of the application.</p>
    * @public
    */
-  app?: string;
+  app?: string | undefined;
 
   /**
    * <p>The ID of the application tenant.</p>
    * @public
    */
-  tenantId?: string;
+  tenantId?: string | undefined;
 
   /**
    * <p>The display name of the tenant.</p>
    * @public
    */
-  tenantDisplayName?: string;
+  tenantDisplayName?: string | undefined;
 
   /**
    * <p>The unique ID of the task.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>The status of the user access result item.</p>
@@ -555,49 +555,49 @@ export interface UserAccessResultItem {
    *          </ul>
    * @public
    */
-  resultStatus?: ResultStatus;
+  resultStatus?: ResultStatus | undefined;
 
   /**
    * <p>The email address of the target user.</p>
    * @public
    */
-  email?: string;
+  email?: string | undefined;
 
   /**
    * <p>The unique ID of user.</p>
    * @public
    */
-  userId?: string;
+  userId?: string | undefined;
 
   /**
    * <p>The full name of the user.</p>
    * @public
    */
-  userFullName?: string;
+  userFullName?: string | undefined;
 
   /**
    * <p>The first name of the user.</p>
    * @public
    */
-  userFirstName?: string;
+  userFirstName?: string | undefined;
 
   /**
    * <p>The last name of the user.</p>
    * @public
    */
-  userLastName?: string;
+  userLastName?: string | undefined;
 
   /**
    * <p>The status of the user returned by the application.</p>
    * @public
    */
-  userStatus?: string;
+  userStatus?: string | undefined;
 
   /**
    * <p>Contains information about an error returned from a user access task.</p>
    * @public
    */
-  taskError?: TaskError;
+  taskError?: TaskError | undefined;
 }
 
 /**
@@ -608,7 +608,7 @@ export interface BatchGetUserAccessTasksResponse {
    * <p>Contains a list of user access results.</p>
    * @public
    */
-  userAccessResultsList?: UserAccessResultItem[];
+  userAccessResultsList?: UserAccessResultItem[] | undefined;
 }
 
 /**
@@ -624,7 +624,7 @@ export class InternalServerException extends __BaseException {
    * <p>The period of time after which you should retry your request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -688,19 +688,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The code of the service.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The code for the quota exceeded.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The period of time after which you should retry your request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -770,7 +770,7 @@ export class ValidationException extends __BaseException {
    * <p>The field list.</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -845,7 +845,7 @@ export interface ConnectAppAuthorizationRequest {
    *             (<code>oauth2</code>) authorization type.</p>
    * @public
    */
-  authRequest?: AuthRequest;
+  authRequest?: AuthRequest | undefined;
 }
 
 /**
@@ -1067,13 +1067,13 @@ export interface CreateAppAuthorizationRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1152,20 +1152,20 @@ export interface CreateAppBundleRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to
    *          use to encrypt the application data. If this is not specified, an Amazon Web Services owned key is used for encryption.</p>
    * @public
    */
-  customerManagedKeyIdentifier?: string;
+  customerManagedKeyIdentifier?: string | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1297,13 +1297,13 @@ export interface CreateIngestionRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1506,13 +1506,13 @@ export interface CreateIngestionDestinationRequest {
    *          parameters, the retry fails with an <code>IdempotentParameterMismatch</code> error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A map of the key-value pairs of the tag or tags to assign to the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1576,7 +1576,7 @@ export interface IngestionDestination {
    *          </ul>
    * @public
    */
-  status?: IngestionDestinationStatus;
+  status?: IngestionDestinationStatus | undefined;
 
   /**
    * <p>The reason for the current status of the ingestion destination.</p>
@@ -1584,19 +1584,19 @@ export interface IngestionDestination {
    *             <code>Failed</code>.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The timestamp of when the ingestion destination was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp of when the ingestion destination was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -1843,7 +1843,7 @@ export interface ListAppAuthorizationsRequest {
    *          fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1853,7 +1853,7 @@ export interface ListAppAuthorizationsRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1874,7 +1874,7 @@ export interface ListAppAuthorizationsResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1888,7 +1888,7 @@ export interface ListAppBundlesRequest {
    *          fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1898,7 +1898,7 @@ export interface ListAppBundlesRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1919,7 +1919,7 @@ export interface ListAppBundlesResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1947,7 +1947,7 @@ export interface ListIngestionDestinationsRequest {
    *          fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -1957,7 +1957,7 @@ export interface ListIngestionDestinationsRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1990,7 +1990,7 @@ export interface ListIngestionDestinationsResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2011,7 +2011,7 @@ export interface ListIngestionsRequest {
    *          fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of
@@ -2021,7 +2021,7 @@ export interface ListIngestionsRequest {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2072,7 +2072,7 @@ export interface ListIngestionsResponse {
    *          an <i>HTTP 400 InvalidToken error</i>.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2095,7 +2095,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of the key-value pairs for the tag or tags assigned to the specified resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -2161,13 +2161,13 @@ export interface UserAccessTaskItem {
    * <p>The unique ID of the task.</p>
    * @public
    */
-  taskId?: string;
+  taskId?: string | undefined;
 
   /**
    * <p>Error from the task, if any.</p>
    * @public
    */
-  error?: TaskError;
+  error?: TaskError | undefined;
 }
 
 /**
@@ -2178,7 +2178,7 @@ export interface StartUserAccessTasksResponse {
    * <p>Contains a list of user access task information.</p>
    * @public
    */
-  userAccessTasksList?: UserAccessTaskItem[];
+  userAccessTasksList?: UserAccessTaskItem[] | undefined;
 }
 
 /**
@@ -2276,14 +2276,14 @@ export interface UpdateAppAuthorizationRequest {
    *             (<code>oauth2</code>), then you should provide only the OAuth2 credentials.</p>
    * @public
    */
-  credential?: Credential;
+  credential?: Credential | undefined;
 
   /**
    * <p>Contains information about an application tenant, such as the application display name
    *          and identifier.</p>
    * @public
    */
-  tenant?: Tenant;
+  tenant?: Tenant | undefined;
 }
 
 /**

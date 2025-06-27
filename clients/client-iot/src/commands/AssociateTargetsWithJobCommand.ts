@@ -12,7 +12,8 @@ import { de_AssociateTargetsWithJobCommand, se_AssociateTargetsWithJobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,14 +31,15 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * <p>Associates a group with a continuous job. The following criteria must be met: </p>
  *          <ul>
  *             <li>
- *                <p>The job must have been created with the <code>targetSelection</code> field set to
- *                     "CONTINUOUS".</p>
+ *                <p>The job must have been created with the <code>targetSelection</code> field
+ *                     set to "CONTINUOUS".</p>
  *             </li>
  *             <li>
  *                <p>The job status must currently be "IN_PROGRESS".</p>
  *             </li>
  *             <li>
- *                <p>The total number of targets associated with a job must not exceed 100.</p>
+ *                <p>The total number of targets associated with a job must not exceed
+ *                     100.</p>
  *             </li>
  *          </ul>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">AssociateTargetsWithJob</a> action.</p>
@@ -89,6 +91,7 @@ export interface AssociateTargetsWithJobCommandOutput extends AssociateTargetsWi
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class AssociateTargetsWithJobCommand extends $Command
@@ -99,9 +102,7 @@ export class AssociateTargetsWithJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class AssociateTargetsWithJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTargetsWithJobCommand)
   .de(de_AssociateTargetsWithJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTargetsWithJobRequest;
+      output: AssociateTargetsWithJobResponse;
+    };
+    sdk: {
+      input: AssociateTargetsWithJobCommandInput;
+      output: AssociateTargetsWithJobCommandOutput;
+    };
+  };
+}

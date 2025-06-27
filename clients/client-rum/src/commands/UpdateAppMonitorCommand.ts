@@ -12,7 +12,8 @@ import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,9 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * const input = { // UpdateAppMonitorRequest
  *   Name: "STRING_VALUE", // required
  *   Domain: "STRING_VALUE",
+ *   DomainList: [ // AppMonitorDomainList
+ *     "STRING_VALUE",
+ *   ],
  *   AppMonitorConfiguration: { // AppMonitorConfiguration
  *     IdentityPoolId: "STRING_VALUE",
  *     ExcludedPages: [ // Pages
@@ -69,6 +73,12 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  *   CwLogEnabled: true || false,
  *   CustomEvents: { // CustomEvents
  *     Status: "STRING_VALUE",
+ *   },
+ *   DeobfuscationConfiguration: { // DeobfuscationConfiguration
+ *     JavaScriptSourceMaps: { // JavaScriptSourceMaps
+ *       Status: "STRING_VALUE", // required
+ *       S3Uri: "STRING_VALUE",
+ *     },
  *   },
  * };
  * const command = new UpdateAppMonitorCommand(input);
@@ -104,6 +114,7 @@ export interface UpdateAppMonitorCommandOutput extends UpdateAppMonitorResponse,
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppMonitorCommand extends $Command
@@ -114,9 +125,7 @@ export class UpdateAppMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +137,16 @@ export class UpdateAppMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppMonitorCommand)
   .de(de_UpdateAppMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppMonitorRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAppMonitorCommandInput;
+      output: UpdateAppMonitorCommandOutput;
+    };
+  };
+}

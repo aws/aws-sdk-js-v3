@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,6 +63,9 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * //     PrimaryHost: "STRING_VALUE",
  * //     SQLPort: Number("int"),
  * //     LastUpdated: new Date("TIMESTAMP"),
+ * //     ConnectedComponentArns: [ // ComponentArnList
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -85,6 +89,7 @@ export interface GetDatabaseCommandOutput extends GetDatabaseOutput, __MetadataB
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class GetDatabaseCommand extends $Command
@@ -95,9 +100,7 @@ export class GetDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +112,16 @@ export class GetDatabaseCommand extends $Command
   .f(void 0, GetDatabaseOutputFilterSensitiveLog)
   .ser(se_GetDatabaseCommand)
   .de(de_GetDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDatabaseInput;
+      output: GetDatabaseOutput;
+    };
+    sdk: {
+      input: GetDatabaseCommandInput;
+      output: GetDatabaseCommandOutput;
+    };
+  };
+}

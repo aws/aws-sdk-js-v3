@@ -6,10 +6,10 @@ import { RuleSetObject } from "@smithy/types";
    or see "smithy.rules#endpointRuleSet"
    in codegen/sdk-codegen/aws-models/cost-explorer.json */
 
-const x="required",
-y="fn",
-z="argv",
-A="ref";
+const w="required",
+x="fn",
+y="argv",
+z="ref";
 const a=true,
 b="isSet",
 c="booleanEquals",
@@ -19,19 +19,18 @@ f="tree",
 g="PartitionResult",
 h="stringEquals",
 i="sigv4",
-j={[x]:false,"type":"String"},
-k={[x]:true,"default":false,"type":"Boolean"},
-l={[A]:"Endpoint"},
-m={[y]:c,[z]:[{[A]:"UseFIPS"},true]},
-n={[y]:c,[z]:[{[A]:"UseDualStack"},true]},
+j={[w]:true,"default":false,"type":"Boolean"},
+k={[w]:false,"type":"String"},
+l={[z]:"Endpoint"},
+m={[x]:c,[y]:[{[z]:"UseFIPS"},true]},
+n={[x]:c,[y]:[{[z]:"UseDualStack"},true]},
 o={},
-p={[y]:"getAttr",[z]:[{[A]:g},"name"]},
-q={[y]:c,[z]:[{[A]:"UseFIPS"},false]},
-r={[y]:c,[z]:[{[A]:"UseDualStack"},false]},
-s={[y]:"getAttr",[z]:[{[A]:g},"supportsFIPS"]},
-t={[y]:c,[z]:[true,{[y]:"getAttr",[z]:[{[A]:g},"supportsDualStack"]}]},
-u=[m],
-v=[n],
-w=[{[A]:"Region"}];
-const _data={version:"1.0",parameters:{Region:j,UseDualStack:k,UseFIPS:k,Endpoint:j},rules:[{conditions:[{[y]:b,[z]:[l]}],rules:[{conditions:u,error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{conditions:v,error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:l,properties:o,headers:o},type:e}],type:f},{conditions:[{[y]:b,[z]:w}],rules:[{conditions:[{[y]:"aws.partition",[z]:w,assign:g}],rules:[{conditions:[{[y]:h,[z]:[p,"aws"]},q,r],endpoint:{url:"https://ce.us-east-1.amazonaws.com",properties:{authSchemes:[{name:i,signingName:"ce",signingRegion:"us-east-1"}]},headers:o},type:e},{conditions:[{[y]:h,[z]:[p,"aws-cn"]},q,r],endpoint:{url:"https://ce.cn-northwest-1.amazonaws.com.cn",properties:{authSchemes:[{name:i,signingName:"ce",signingRegion:"cn-northwest-1"}]},headers:o},type:e},{conditions:[m,n],rules:[{conditions:[{[y]:c,[z]:[a,s]},t],rules:[{endpoint:{url:"https://ce-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:u,rules:[{conditions:[{[y]:c,[z]:[s,a]}],rules:[{endpoint:{url:"https://ce-fips.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:v,rules:[{conditions:[t],rules:[{endpoint:{url:"https://ce.{Region}.{PartitionResult#dualStackDnsSuffix}",properties:o,headers:o},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{endpoint:{url:"https://ce.{Region}.{PartitionResult#dnsSuffix}",properties:o,headers:o},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}]};
+p={[x]:"getAttr",[y]:[{[z]:g},"name"]},
+q={[x]:c,[y]:[{[z]:"UseFIPS"},false]},
+r={[x]:c,[y]:[{[z]:"UseDualStack"},false]},
+s={[x]:"getAttr",[y]:[{[z]:g},"supportsFIPS"]},
+t={[x]:c,[y]:[true,{[x]:"getAttr",[y]:[{[z]:g},"supportsDualStack"]}]},
+u={"authSchemes":[{"name":i,"signingRegion":"{PartitionResult#implicitGlobalRegion}"}]},
+v=[{[z]:"Region"}];
+const _data={version:"1.0",parameters:{UseDualStack:j,UseFIPS:j,Endpoint:k,Region:k},rules:[{conditions:[{[x]:b,[y]:[l]}],rules:[{conditions:[m],error:"Invalid Configuration: FIPS and custom endpoint are not supported",type:d},{rules:[{conditions:[n],error:"Invalid Configuration: Dualstack and custom endpoint are not supported",type:d},{endpoint:{url:l,properties:o,headers:o},type:e}],type:f}],type:f},{rules:[{conditions:[{[x]:b,[y]:v}],rules:[{conditions:[{[x]:"aws.partition",[y]:v,assign:g}],rules:[{conditions:[{[x]:h,[y]:[p,"aws"]},q,n],endpoint:{url:"https://ce.us-east-1.api.aws",properties:{authSchemes:[{name:i,signingRegion:"us-east-1"}]},headers:o},type:e},{conditions:[{[x]:h,[y]:[p,"aws-cn"]},q,n],endpoint:{url:"https://ce.cn-northwest-1.api.amazonwebservices.com.cn",properties:{authSchemes:[{name:i,signingRegion:"cn-northwest-1"}]},headers:o},type:e},{conditions:[{[x]:h,[y]:[p,"aws-iso"]},q,r],endpoint:{url:"https://ce.us-iso-east-1.c2s.ic.gov",properties:{authSchemes:[{name:i,signingRegion:"us-iso-east-1"}]},headers:o},type:e},{conditions:[{[x]:h,[y]:[p,"aws-iso-b"]},q,r],endpoint:{url:"https://ce.us-isob-east-1.sc2s.sgov.gov",properties:{authSchemes:[{name:i,signingRegion:"us-isob-east-1"}]},headers:o},type:e},{conditions:[{[x]:h,[y]:[p,"aws-iso-e"]},q,r],endpoint:{url:"https://ce.eu-isoe-west-1.cloud.adc-e.uk",properties:{authSchemes:[{name:i,signingRegion:"eu-isoe-west-1"}]},headers:o},type:e},{conditions:[{[x]:h,[y]:[p,"aws-iso-f"]},q,r],endpoint:{url:"https://ce.us-isof-south-1.csp.hci.ic.gov",properties:{authSchemes:[{name:i,signingRegion:"us-isof-south-1"}]},headers:o},type:e},{conditions:[m,n],rules:[{conditions:[{[x]:c,[y]:[a,s]},t],rules:[{endpoint:{url:"https://ce-fips.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dualStackDnsSuffix}",properties:u,headers:o},type:e}],type:f},{error:"FIPS and DualStack are enabled, but this partition does not support one or both",type:d}],type:f},{conditions:[m,r],rules:[{conditions:[{[x]:c,[y]:[s,a]}],rules:[{endpoint:{url:"https://ce-fips.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dnsSuffix}",properties:u,headers:o},type:e}],type:f},{error:"FIPS is enabled but this partition does not support FIPS",type:d}],type:f},{conditions:[q,n],rules:[{conditions:[t],rules:[{endpoint:{url:"https://ce.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dualStackDnsSuffix}",properties:u,headers:o},type:e}],type:f},{error:"DualStack is enabled but this partition does not support DualStack",type:d}],type:f},{endpoint:{url:"https://ce.{PartitionResult#implicitGlobalRegion}.{PartitionResult#dnsSuffix}",properties:u,headers:o},type:e}],type:f}],type:f},{error:"Invalid Configuration: Missing Region",type:d}],type:f}]};
 export const ruleSet: RuleSetObject = _data;

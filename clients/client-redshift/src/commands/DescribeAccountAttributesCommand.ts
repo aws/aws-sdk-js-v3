@@ -5,14 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { AccountAttributeList, DescribeAccountAttributesMessage } from "../models/models_0";
+import { AccountAttributeList } from "../models/models_0";
+import { DescribeAccountAttributesMessage } from "../models/models_1";
 import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +67,7 @@ export interface DescribeAccountAttributesCommandOutput extends AccountAttribute
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
@@ -75,9 +78,7 @@ export class DescribeAccountAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +90,16 @@ export class DescribeAccountAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAttributesCommand)
   .de(de_DescribeAccountAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountAttributesMessage;
+      output: AccountAttributeList;
+    };
+    sdk: {
+      input: DescribeAccountAttributesCommandInput;
+      output: DescribeAccountAttributesCommandOutput;
+    };
+  };
+}

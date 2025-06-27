@@ -338,7 +338,7 @@ const de_ResourceNotFoundExceptionRes = async (
 const se_Action = (input: Action, context: __SerdeContext): any => {
   return take(input, {
     actionId: [],
-    properties: __LazyJsonString.fromObject,
+    properties: __LazyJsonString.from,
   });
 };
 
@@ -353,7 +353,7 @@ const se_ActionInteraction = (input: ActionInteraction, context: __SerdeContext)
     eventId: [],
     eventType: [],
     impression: _json,
-    properties: __LazyJsonString.fromObject,
+    properties: __LazyJsonString.from,
     recommendationId: [],
     sessionId: [],
     timestamp: (_) => _.getTime() / 1_000,
@@ -394,7 +394,7 @@ const se_Event = (input: Event, context: __SerdeContext): any => {
     impression: _json,
     itemId: [],
     metricAttribution: _json,
-    properties: __LazyJsonString.fromObject,
+    properties: __LazyJsonString.from,
     recommendationId: [],
     sentAt: (_) => _.getTime() / 1_000,
   });
@@ -419,7 +419,7 @@ const se_EventList = (input: Event[], context: __SerdeContext): any => {
 const se_Item = (input: Item, context: __SerdeContext): any => {
   return take(input, {
     itemId: [],
-    properties: __LazyJsonString.fromObject,
+    properties: __LazyJsonString.from,
   });
 };
 
@@ -441,7 +441,7 @@ const se_ItemList = (input: Item[], context: __SerdeContext): any => {
  */
 const se_User = (input: User, context: __SerdeContext): any => {
   return take(input, {
-    properties: __LazyJsonString.fromObject,
+    properties: __LazyJsonString.from,
     userId: [],
   });
 };
@@ -468,10 +468,3 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

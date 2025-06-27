@@ -178,6 +178,7 @@ import {
   CallAnalyticsJobSummary,
   CategoryProperties,
   ChannelDefinition,
+  ClinicalNoteGenerationSettings,
   ConflictException,
   ContentRedaction,
   CreateCallAnalyticsCategoryRequest,
@@ -1805,6 +1806,8 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
 
 // se_ChannelDefinitions omitted.
 
+// se_ClinicalNoteGenerationSettings omitted.
+
 // se_ContentRedaction omitted.
 
 // se_CreateCallAnalyticsCategoryRequest omitted.
@@ -1985,6 +1988,7 @@ const de_CallAnalyticsJob = (output: any, context: __SerdeContext): CallAnalytic
     MediaSampleRateHertz: __expectInt32,
     Settings: _json,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
     Transcript: _json,
   }) as any;
 };
@@ -2035,6 +2039,7 @@ const de_CategoryProperties = (output: any, context: __SerdeContext): CategoryPr
     InputType: __expectString,
     LastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Rules: _json,
+    Tags: _json,
   }) as any;
 };
 
@@ -2053,6 +2058,8 @@ const de_CategoryPropertiesList = (output: any, context: __SerdeContext): Catego
 // de_ChannelDefinition omitted.
 
 // de_ChannelDefinitions omitted.
+
+// de_ClinicalNoteGenerationSettings omitted.
 
 // de_ConflictException omitted.
 

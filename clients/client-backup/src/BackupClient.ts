@@ -53,6 +53,10 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  AssociateBackupVaultMpaApprovalTeamCommandInput,
+  AssociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
 import { CancelLegalHoldCommandInput, CancelLegalHoldCommandOutput } from "./commands/CancelLegalHoldCommand";
 import { CreateBackupPlanCommandInput, CreateBackupPlanCommandOutput } from "./commands/CreateBackupPlanCommand";
 import {
@@ -67,6 +71,10 @@ import {
   CreateLogicallyAirGappedBackupVaultCommandOutput,
 } from "./commands/CreateLogicallyAirGappedBackupVaultCommand";
 import { CreateReportPlanCommandInput, CreateReportPlanCommandOutput } from "./commands/CreateReportPlanCommand";
+import {
+  CreateRestoreAccessBackupVaultCommandInput,
+  CreateRestoreAccessBackupVaultCommandOutput,
+} from "./commands/CreateRestoreAccessBackupVaultCommand";
 import {
   CreateRestoreTestingPlanCommandInput,
   CreateRestoreTestingPlanCommandOutput,
@@ -134,6 +142,10 @@ import { DescribeReportJobCommandInput, DescribeReportJobCommandOutput } from ".
 import { DescribeReportPlanCommandInput, DescribeReportPlanCommandOutput } from "./commands/DescribeReportPlanCommand";
 import { DescribeRestoreJobCommandInput, DescribeRestoreJobCommandOutput } from "./commands/DescribeRestoreJobCommand";
 import {
+  DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  DisassociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/DisassociateBackupVaultMpaApprovalTeamCommand";
+import {
   DisassociateRecoveryPointCommandInput,
   DisassociateRecoveryPointCommandOutput,
 } from "./commands/DisassociateRecoveryPointCommand";
@@ -164,6 +176,10 @@ import {
   GetBackupVaultNotificationsCommandOutput,
 } from "./commands/GetBackupVaultNotificationsCommand";
 import { GetLegalHoldCommandInput, GetLegalHoldCommandOutput } from "./commands/GetLegalHoldCommand";
+import {
+  GetRecoveryPointIndexDetailsCommandInput,
+  GetRecoveryPointIndexDetailsCommandOutput,
+} from "./commands/GetRecoveryPointIndexDetailsCommand";
 import {
   GetRecoveryPointRestoreMetadataCommandInput,
   GetRecoveryPointRestoreMetadataCommandOutput,
@@ -213,6 +229,10 @@ import {
   ListCopyJobSummariesCommandOutput,
 } from "./commands/ListCopyJobSummariesCommand";
 import { ListFrameworksCommandInput, ListFrameworksCommandOutput } from "./commands/ListFrameworksCommand";
+import {
+  ListIndexedRecoveryPointsCommandInput,
+  ListIndexedRecoveryPointsCommandOutput,
+} from "./commands/ListIndexedRecoveryPointsCommand";
 import { ListLegalHoldsCommandInput, ListLegalHoldsCommandOutput } from "./commands/ListLegalHoldsCommand";
 import {
   ListProtectedResourcesByBackupVaultCommandInput,
@@ -236,6 +256,10 @@ import {
 } from "./commands/ListRecoveryPointsByResourceCommand";
 import { ListReportJobsCommandInput, ListReportJobsCommandOutput } from "./commands/ListReportJobsCommand";
 import { ListReportPlansCommandInput, ListReportPlansCommandOutput } from "./commands/ListReportPlansCommand";
+import {
+  ListRestoreAccessBackupVaultsCommandInput,
+  ListRestoreAccessBackupVaultsCommandOutput,
+} from "./commands/ListRestoreAccessBackupVaultsCommand";
 import {
   ListRestoreJobsByProtectedResourceCommandInput,
   ListRestoreJobsByProtectedResourceCommandOutput,
@@ -270,6 +294,10 @@ import {
   PutRestoreValidationResultCommandInput,
   PutRestoreValidationResultCommandOutput,
 } from "./commands/PutRestoreValidationResultCommand";
+import {
+  RevokeRestoreAccessBackupVaultCommandInput,
+  RevokeRestoreAccessBackupVaultCommandOutput,
+} from "./commands/RevokeRestoreAccessBackupVaultCommand";
 import { StartBackupJobCommandInput, StartBackupJobCommandOutput } from "./commands/StartBackupJobCommand";
 import { StartCopyJobCommandInput, StartCopyJobCommandOutput } from "./commands/StartCopyJobCommand";
 import { StartReportJobCommandInput, StartReportJobCommandOutput } from "./commands/StartReportJobCommand";
@@ -283,6 +311,10 @@ import {
   UpdateGlobalSettingsCommandInput,
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
+import {
+  UpdateRecoveryPointIndexSettingsCommandInput,
+  UpdateRecoveryPointIndexSettingsCommandOutput,
+} from "./commands/UpdateRecoveryPointIndexSettingsCommand";
 import {
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
@@ -315,6 +347,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | AssociateBackupVaultMpaApprovalTeamCommandInput
   | CancelLegalHoldCommandInput
   | CreateBackupPlanCommandInput
   | CreateBackupSelectionCommandInput
@@ -323,6 +356,7 @@ export type ServiceInputTypes =
   | CreateLegalHoldCommandInput
   | CreateLogicallyAirGappedBackupVaultCommandInput
   | CreateReportPlanCommandInput
+  | CreateRestoreAccessBackupVaultCommandInput
   | CreateRestoreTestingPlanCommandInput
   | CreateRestoreTestingSelectionCommandInput
   | DeleteBackupPlanCommandInput
@@ -347,6 +381,7 @@ export type ServiceInputTypes =
   | DescribeReportJobCommandInput
   | DescribeReportPlanCommandInput
   | DescribeRestoreJobCommandInput
+  | DisassociateBackupVaultMpaApprovalTeamCommandInput
   | DisassociateRecoveryPointCommandInput
   | DisassociateRecoveryPointFromParentCommandInput
   | ExportBackupPlanTemplateCommandInput
@@ -357,6 +392,7 @@ export type ServiceInputTypes =
   | GetBackupVaultAccessPolicyCommandInput
   | GetBackupVaultNotificationsCommandInput
   | GetLegalHoldCommandInput
+  | GetRecoveryPointIndexDetailsCommandInput
   | GetRecoveryPointRestoreMetadataCommandInput
   | GetRestoreJobMetadataCommandInput
   | GetRestoreTestingInferredMetadataCommandInput
@@ -373,6 +409,7 @@ export type ServiceInputTypes =
   | ListCopyJobSummariesCommandInput
   | ListCopyJobsCommandInput
   | ListFrameworksCommandInput
+  | ListIndexedRecoveryPointsCommandInput
   | ListLegalHoldsCommandInput
   | ListProtectedResourcesByBackupVaultCommandInput
   | ListProtectedResourcesCommandInput
@@ -381,6 +418,7 @@ export type ServiceInputTypes =
   | ListRecoveryPointsByResourceCommandInput
   | ListReportJobsCommandInput
   | ListReportPlansCommandInput
+  | ListRestoreAccessBackupVaultsCommandInput
   | ListRestoreJobSummariesCommandInput
   | ListRestoreJobsByProtectedResourceCommandInput
   | ListRestoreJobsCommandInput
@@ -391,6 +429,7 @@ export type ServiceInputTypes =
   | PutBackupVaultLockConfigurationCommandInput
   | PutBackupVaultNotificationsCommandInput
   | PutRestoreValidationResultCommandInput
+  | RevokeRestoreAccessBackupVaultCommandInput
   | StartBackupJobCommandInput
   | StartCopyJobCommandInput
   | StartReportJobCommandInput
@@ -401,6 +440,7 @@ export type ServiceInputTypes =
   | UpdateBackupPlanCommandInput
   | UpdateFrameworkCommandInput
   | UpdateGlobalSettingsCommandInput
+  | UpdateRecoveryPointIndexSettingsCommandInput
   | UpdateRecoveryPointLifecycleCommandInput
   | UpdateRegionSettingsCommandInput
   | UpdateReportPlanCommandInput
@@ -411,6 +451,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | AssociateBackupVaultMpaApprovalTeamCommandOutput
   | CancelLegalHoldCommandOutput
   | CreateBackupPlanCommandOutput
   | CreateBackupSelectionCommandOutput
@@ -419,6 +460,7 @@ export type ServiceOutputTypes =
   | CreateLegalHoldCommandOutput
   | CreateLogicallyAirGappedBackupVaultCommandOutput
   | CreateReportPlanCommandOutput
+  | CreateRestoreAccessBackupVaultCommandOutput
   | CreateRestoreTestingPlanCommandOutput
   | CreateRestoreTestingSelectionCommandOutput
   | DeleteBackupPlanCommandOutput
@@ -443,6 +485,7 @@ export type ServiceOutputTypes =
   | DescribeReportJobCommandOutput
   | DescribeReportPlanCommandOutput
   | DescribeRestoreJobCommandOutput
+  | DisassociateBackupVaultMpaApprovalTeamCommandOutput
   | DisassociateRecoveryPointCommandOutput
   | DisassociateRecoveryPointFromParentCommandOutput
   | ExportBackupPlanTemplateCommandOutput
@@ -453,6 +496,7 @@ export type ServiceOutputTypes =
   | GetBackupVaultAccessPolicyCommandOutput
   | GetBackupVaultNotificationsCommandOutput
   | GetLegalHoldCommandOutput
+  | GetRecoveryPointIndexDetailsCommandOutput
   | GetRecoveryPointRestoreMetadataCommandOutput
   | GetRestoreJobMetadataCommandOutput
   | GetRestoreTestingInferredMetadataCommandOutput
@@ -469,6 +513,7 @@ export type ServiceOutputTypes =
   | ListCopyJobSummariesCommandOutput
   | ListCopyJobsCommandOutput
   | ListFrameworksCommandOutput
+  | ListIndexedRecoveryPointsCommandOutput
   | ListLegalHoldsCommandOutput
   | ListProtectedResourcesByBackupVaultCommandOutput
   | ListProtectedResourcesCommandOutput
@@ -477,6 +522,7 @@ export type ServiceOutputTypes =
   | ListRecoveryPointsByResourceCommandOutput
   | ListReportJobsCommandOutput
   | ListReportPlansCommandOutput
+  | ListRestoreAccessBackupVaultsCommandOutput
   | ListRestoreJobSummariesCommandOutput
   | ListRestoreJobsByProtectedResourceCommandOutput
   | ListRestoreJobsCommandOutput
@@ -487,6 +533,7 @@ export type ServiceOutputTypes =
   | PutBackupVaultLockConfigurationCommandOutput
   | PutBackupVaultNotificationsCommandOutput
   | PutRestoreValidationResultCommandOutput
+  | RevokeRestoreAccessBackupVaultCommandOutput
   | StartBackupJobCommandOutput
   | StartCopyJobCommandOutput
   | StartReportJobCommandOutput
@@ -497,6 +544,7 @@ export type ServiceOutputTypes =
   | UpdateBackupPlanCommandOutput
   | UpdateFrameworkCommandOutput
   | UpdateGlobalSettingsCommandOutput
+  | UpdateRecoveryPointIndexSettingsCommandOutput
   | UpdateRecoveryPointLifecycleCommandOutput
   | UpdateRegionSettingsCommandOutput
   | UpdateReportPlanCommandOutput
@@ -595,6 +643,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -640,11 +707,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type BackupClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -660,11 +727,11 @@ export interface BackupClientConfig extends BackupClientConfigType {}
 export type BackupClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -695,26 +762,30 @@ export class BackupClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<BackupClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultBackupHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: BackupClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -727,14 +798,5 @@ export class BackupClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultBackupHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: BackupClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

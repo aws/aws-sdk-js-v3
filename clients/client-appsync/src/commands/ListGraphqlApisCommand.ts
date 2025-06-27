@@ -12,7 +12,8 @@ import { de_ListGraphqlApisCommand, se_ListGraphqlApisCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,7 +50,7 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * //       apiId: "STRING_VALUE",
  * //       authenticationType: "API_KEY" || "AWS_IAM" || "AMAZON_COGNITO_USER_POOLS" || "OPENID_CONNECT" || "AWS_LAMBDA",
  * //       logConfig: { // LogConfig
- * //         fieldLogLevel: "NONE" || "ERROR" || "ALL", // required
+ * //         fieldLogLevel: "NONE" || "ERROR" || "ALL" || "INFO" || "DEBUG", // required
  * //         cloudWatchLogsRoleArn: "STRING_VALUE", // required
  * //         excludeVerboseContent: true || false,
  * //       },
@@ -130,8 +131,8 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
@@ -141,6 +142,7 @@ export interface ListGraphqlApisCommandOutput extends ListGraphqlApisResponse, _
  *
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
+ *
  *
  * @public
  */
@@ -152,9 +154,7 @@ export class ListGraphqlApisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +166,16 @@ export class ListGraphqlApisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGraphqlApisCommand)
   .de(de_ListGraphqlApisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGraphqlApisRequest;
+      output: ListGraphqlApisResponse;
+    };
+    sdk: {
+      input: ListGraphqlApisCommandInput;
+      output: ListGraphqlApisCommandOutput;
+    };
+  };
+}

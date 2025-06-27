@@ -12,7 +12,8 @@ import { de_ModifyDBParameterGroupCommand, se_ModifyDBParameterGroupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface ModifyDBParameterGroupCommandOutput extends DBParameterGroupNam
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBParameterGroupCommand extends $Command
@@ -106,9 +108,7 @@ export class ModifyDBParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class ModifyDBParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBParameterGroupCommand)
   .de(de_ModifyDBParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBParameterGroupMessage;
+      output: DBParameterGroupNameMessage;
+    };
+    sdk: {
+      input: ModifyDBParameterGroupCommandInput;
+      output: ModifyDBParameterGroupCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface UpdateFirewallPolicyChangeProtectionCommandOutput
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class UpdateFirewallPolicyChangeProtectionCommand extends $Command
@@ -112,9 +114,7 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class UpdateFirewallPolicyChangeProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFirewallPolicyChangeProtectionCommand)
   .de(de_UpdateFirewallPolicyChangeProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFirewallPolicyChangeProtectionRequest;
+      output: UpdateFirewallPolicyChangeProtectionResponse;
+    };
+    sdk: {
+      input: UpdateFirewallPolicyChangeProtectionCommandInput;
+      output: UpdateFirewallPolicyChangeProtectionCommandOutput;
+    };
+  };
+}

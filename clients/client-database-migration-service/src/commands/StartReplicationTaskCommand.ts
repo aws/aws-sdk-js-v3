@@ -16,7 +16,8 @@ import { de_StartReplicationTaskCommand, se_StartReplicationTaskCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -107,36 +108,36 @@ export interface StartReplicationTaskCommandOutput extends StartReplicationTaskR
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Start replication task
  * ```javascript
  * // Starts the replication task.
  * const input = {
- *   "CdcStartTime": "2016-12-14T13:33:20Z",
- *   "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
- *   "StartReplicationTaskType": "start-replication"
+ *   CdcStartTime: "2016-12-14T13:33:20Z",
+ *   ReplicationTaskArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *   StartReplicationTaskType: "start-replication"
  * };
  * const command = new StartReplicationTaskCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationTask": {
- *     "MigrationType": "full-load",
- *     "ReplicationInstanceArn": "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
- *     "ReplicationTaskArn": "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
- *     "ReplicationTaskCreationDate": "2016-12-14T18:25:43Z",
- *     "ReplicationTaskIdentifier": "task1",
- *     "ReplicationTaskSettings": "{\"TargetMetadata\":{\"TargetSchema\":\"\",\"SupportLobs\":true,\"FullLobMode\":true,\"LobChunkSize\":64,\"LimitedSizeLobMode\":false,\"LobMaxSize\":0},\"FullLoadSettings\":{\"FullLoadEnabled\":true,\"ApplyChangesEnabled\":false,\"TargetTablePrepMode\":\"DROP_AND_CREATE\",\"CreatePkAfterFullLoad\":false,\"StopTaskCachedChangesApplied\":false,\"StopTaskCachedChangesNotApplied\":false,\"ResumeEnabled\":false,\"ResumeMinTableSize\":100000,\"ResumeOnlyClusteredPKTables\":true,\"MaxFullLoadSubTasks\":8,\"TransactionConsistencyTimeout\":600,\"CommitRate\":10000},\"Logging\":{\"EnableLogging\":false}}",
- *     "SourceEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
- *     "Status": "creating",
- *     "TableMappings": "file://mappingfile.json",
- *     "TargetEndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
+ *   ReplicationTask: {
+ *     MigrationType: "full-load",
+ *     ReplicationInstanceArn: "arn:aws:dms:us-east-1:123456789012:rep:6UTDJGBOUS3VI3SUWA66XFJCJQ",
+ *     ReplicationTaskArn: "arn:aws:dms:us-east-1:123456789012:task:OEAMB3NXSTZ6LFYZFEPPBBXPYM",
+ *     ReplicationTaskCreationDate: "2016-12-14T18:25:43Z",
+ *     ReplicationTaskIdentifier: "task1",
+ *     ReplicationTaskSettings: `{"TargetMetadata":{"TargetSchema":"","SupportLobs":true,"FullLobMode":true,"LobChunkSize":64,"LimitedSizeLobMode":false,"LobMaxSize":0},"FullLoadSettings":{"FullLoadEnabled":true,"ApplyChangesEnabled":false,"TargetTablePrepMode":"DROP_AND_CREATE","CreatePkAfterFullLoad":false,"StopTaskCachedChangesApplied":false,"StopTaskCachedChangesNotApplied":false,"ResumeEnabled":false,"ResumeMinTableSize":100000,"ResumeOnlyClusteredPKTables":true,"MaxFullLoadSubTasks":8,"TransactionConsistencyTimeout":600,"CommitRate":10000},"Logging":{"EnableLogging":false}}`,
+ *     SourceEndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:ZW5UAN6P4E77EC7YWHK4RZZ3BE",
+ *     Status: "creating",
+ *     TableMappings: "file://mappingfile.json",
+ *     TargetEndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E"
  *   }
  * }
  * *\/
- * // example id: start-replication-task-1481762706778
  * ```
  *
+ * @public
  */
 export class StartReplicationTaskCommand extends $Command
   .classBuilder<
@@ -146,9 +147,7 @@ export class StartReplicationTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class StartReplicationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReplicationTaskCommand)
   .de(de_StartReplicationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationTaskMessage;
+      output: StartReplicationTaskResponse;
+    };
+    sdk: {
+      input: StartReplicationTaskCommandInput;
+      output: StartReplicationTaskCommandOutput;
+    };
+  };
+}

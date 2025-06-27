@@ -12,7 +12,8 @@ import { de_ListCustomPluginsCommand, se_ListCustomPluginsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class ListCustomPluginsCommand extends $Command
@@ -119,9 +121,7 @@ export class ListCustomPluginsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class ListCustomPluginsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomPluginsCommand)
   .de(de_ListCustomPluginsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomPluginsRequest;
+      output: ListCustomPluginsResponse;
+    };
+    sdk: {
+      input: ListCustomPluginsCommandInput;
+      output: ListCustomPluginsCommandOutput;
+    };
+  };
+}

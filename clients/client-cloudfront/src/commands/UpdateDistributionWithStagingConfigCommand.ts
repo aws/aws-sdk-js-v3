@@ -10,7 +10,7 @@ import {
   UpdateDistributionWithStagingConfigRequest,
   UpdateDistributionWithStagingConfigResult,
   UpdateDistributionWithStagingConfigResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_UpdateDistributionWithStagingConfigCommand,
   se_UpdateDistributionWithStagingConfigCommand,
@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,29 +37,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Copies the staging distribution's configuration to its corresponding primary
- * 			distribution. The primary distribution retains its <code>Aliases</code> (also known as
- * 			alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value,
- * 			but otherwise its configuration is overwritten to match the staging distribution.</p>
- *          <p>You can use this operation in a continuous deployment workflow after you have tested
- * 			configuration changes on the staging distribution. After using a continuous deployment
- * 			policy to move a portion of your domain name's traffic to the staging distribution and
- * 			verifying that it works as intended, you can use this operation to copy the staging
- * 			distribution's configuration to the primary distribution. This action will disable the
- * 			continuous deployment policy and move your domain's traffic back to the primary distribution.</p>
- *          <p>This API operation requires the following IAM permissions:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Copies the staging distribution's configuration to its corresponding primary distribution. The primary distribution retains its <code>Aliases</code> (also known as alternate domain names or CNAMEs) and <code>ContinuousDeploymentPolicyId</code> value, but otherwise its configuration is overwritten to match the staging distribution.</p> <p>You can use this operation in a continuous deployment workflow after you have tested configuration changes on the staging distribution. After using a continuous deployment policy to move a portion of your domain name's traffic to the staging distribution and verifying that it works as intended, you can use this operation to copy the staging distribution's configuration to the primary distribution. This action will disable the continuous deployment policy and move your domain's traffic back to the primary distribution.</p> <p>This API operation requires the following IAM permissions:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_GetDistribution.html">GetDistribution</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,6 +130,11 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },
+ * //             VpcOriginConfig: { // VpcOriginConfig
+ * //               VpcOriginId: "STRING_VALUE", // required
+ * //               OriginReadTimeout: Number("int"),
+ * //               OriginKeepaliveTimeout: Number("int"),
+ * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
@@ -182,6 +166,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },
@@ -240,6 +225,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //         CachePolicyId: "STRING_VALUE",
  * //         OriginRequestPolicyId: "STRING_VALUE",
  * //         ResponseHeadersPolicyId: "STRING_VALUE",
+ * //         GrpcConfig: { // GrpcConfig
+ * //           Enabled: true || false, // required
+ * //         },
  * //         ForwardedValues: { // ForwardedValues
  * //           QueryString: true || false, // required
  * //           Cookies: { // CookiePreference
@@ -323,6 +311,9 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //             CachePolicyId: "STRING_VALUE",
  * //             OriginRequestPolicyId: "STRING_VALUE",
  * //             ResponseHeadersPolicyId: "STRING_VALUE",
+ * //             GrpcConfig: {
+ * //               Enabled: true || false, // required
+ * //             },
  * //             ForwardedValues: {
  * //               QueryString: true || false, // required
  * //               Cookies: {
@@ -366,12 +357,12 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //       },
  * //       Comment: "STRING_VALUE", // required
  * //       Logging: { // LoggingConfig
- * //         Enabled: true || false, // required
- * //         IncludeCookies: true || false, // required
- * //         Bucket: "STRING_VALUE", // required
- * //         Prefix: "STRING_VALUE", // required
+ * //         Enabled: true || false,
+ * //         IncludeCookies: true || false,
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //       ViewerCertificate: { // ViewerCertificate
  * //         CloudFrontDefaultCertificate: true || false,
@@ -396,6 +387,22 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * //       IsIPV6Enabled: true || false,
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
+ * //       AnycastIpListId: "STRING_VALUE",
+ * //       TenantConfig: { // TenantConfig
+ * //         ParameterDefinitions: [ // ParameterDefinitions
+ * //           { // ParameterDefinition
+ * //             Name: "STRING_VALUE", // required
+ * //             Definition: { // ParameterDefinitionSchema
+ * //               StringSchema: { // StringSchemaConfig
+ * //                 Comment: "STRING_VALUE",
+ * //                 DefaultValue: "STRING_VALUE",
+ * //                 Required: true || false, // required
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       ConnectionMode: "direct" || "tenant-only",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
@@ -421,16 +428,17 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * @throws {@link CNAMEAlreadyExists} (client fault)
  *  <p>The CNAME specified is already defined for CloudFront.</p>
  *
+ * @throws {@link EntityNotFound} (client fault)
+ *  <p>The entity was not found.</p>
+ *
  * @throws {@link IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior} (client fault)
- *  <p>The specified configuration for field-level encryption can't be associated with the
- * 			specified cache behavior.</p>
+ *  <p>The specified configuration for field-level encryption can't be associated with the specified cache behavior.</p>
  *
  * @throws {@link IllegalUpdate} (client fault)
  *  <p>The update contains modifications that are not allowed.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -442,9 +450,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *  <p>An invalid error code was specified.</p>
  *
  * @throws {@link InvalidForwardCookies} (client fault)
- *  <p>Your request contains forward cookies option which doesn't match with the expectation
- * 			for the <code>whitelisted</code> list of cookie names. Either list of cookie names has
- * 			been specified when not allowed or list of cookie names is missing when expected.</p>
+ *  <p>Your request contains forward cookies option which doesn't match with the expectation for the <code>whitelisted</code> list of cookie names. Either list of cookie names has been specified when not allowed or list of cookie names is missing when expected.</p>
  *
  * @throws {@link InvalidFunctionAssociation} (client fault)
  *  <p>A CloudFront function association is invalid.</p>
@@ -483,13 +489,10 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *  <p>The query string parameters specified are not valid.</p>
  *
  * @throws {@link InvalidRelativePath} (client fault)
- *  <p>The relative path is too big, is not URL-encoded, or does not begin with a slash
- * 			(/).</p>
+ *  <p>The relative path is too big, is not URL-encoded, or does not begin with a slash (/).</p>
  *
  * @throws {@link InvalidRequiredProtocol} (client fault)
- *  <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol
- * 			in your request, or omit the <code>RequiredProtocols</code> element from your
- * 			distribution configuration.</p>
+ *  <p>This operation requires the HTTPS protocol. Ensure that you specify the HTTPS protocol in your request, or omit the <code>RequiredProtocols</code> element from your distribution configuration.</p>
  *
  * @throws {@link InvalidResponseCode} (client fault)
  *  <p>A response code is not valid.</p>
@@ -501,15 +504,10 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *  <p>A viewer certificate specified is not valid.</p>
  *
  * @throws {@link InvalidWebACLId} (client fault)
- *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
- * 			version of WAF, use the ACL ARN, for example
- * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
- * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
- * 				<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the
- * 				<code>Content-Type</code> header is set.</p>
+ *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  *
  * @throws {@link NoSuchCachePolicy} (client fault)
  *  <p>The cache policy does not exist.</p>
@@ -533,8 +531,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *  <p>The response headers policy does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link RealtimeLogConfigOwnerMismatch} (client fault)
  *  <p>The specified real-time log configuration belongs to a different Amazon Web Services account.</p>
@@ -546,79 +543,55 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  *  <p>You cannot create anymore custom SSL/TLS certificates.</p>
  *
  * @throws {@link TooManyCookieNamesInWhiteList} (client fault)
- *  <p>Your request contains more cookie names in the whitelist than are allowed per cache
- * 			behavior.</p>
+ *  <p>Your request contains more cookie names in the whitelist than are allowed per cache behavior.</p>
  *
  * @throws {@link TooManyDistributionCNAMEs} (client fault)
  *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToCachePolicy} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified cache
- * 			policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The maximum number of distributions have been associated with the specified cache policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToFieldLevelEncryptionConfig} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified
- * 			configuration for field-level encryption.</p>
+ *  <p>The maximum number of distributions have been associated with the specified configuration for field-level encryption.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToKeyGroup} (client fault)
- *  <p>The number of distributions that reference this key group is more than the maximum
- * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of distributions that reference this key group is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToOriginAccessControl} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified origin
- * 			access control.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The maximum number of distributions have been associated with the specified origin access control.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToOriginRequestPolicy} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified origin
- * 			request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The maximum number of distributions have been associated with the specified origin request policy. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsAssociatedToResponseHeadersPolicy} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified response
- * 			headers policy.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The maximum number of distributions have been associated with the specified response headers policy.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsWithFunctionAssociations} (client fault)
- *  <p>You have reached the maximum number of distributions that are associated with a CloudFront
- * 			function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of distributions that are associated with a CloudFront function. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyDistributionsWithLambdaAssociations} (client fault)
- *  <p>Processing your request would cause the maximum number of distributions with
- * 			Lambda@Edge function associations per owner to be exceeded.</p>
+ *  <p>Processing your request would cause the maximum number of distributions with Lambda@Edge function associations per owner to be exceeded.</p>
  *
  * @throws {@link TooManyDistributionsWithSingleFunctionARN} (client fault)
- *  <p>The maximum number of distributions have been associated with the specified
- * 			Lambda@Edge function.</p>
+ *  <p>The maximum number of distributions have been associated with the specified Lambda@Edge function.</p>
  *
  * @throws {@link TooManyFunctionAssociations} (client fault)
- *  <p>You have reached the maximum number of CloudFront function associations for this
- * 			distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of CloudFront function associations for this distribution. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyHeadersInForwardedValues} (client fault)
  *  <p>Your request contains too many headers in forwarded values.</p>
  *
  * @throws {@link TooManyKeyGroupsAssociatedToDistribution} (client fault)
- *  <p>The number of key groups referenced by this distribution is more than the maximum
- * 			allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of key groups referenced by this distribution is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyLambdaFunctionAssociations} (client fault)
- *  <p>Your request contains more Lambda@Edge function associations than are allowed per
- * 			distribution.</p>
+ *  <p>Your request contains more Lambda@Edge function associations than are allowed per distribution.</p>
  *
  * @throws {@link TooManyOriginCustomHeaders} (client fault)
  *  <p>Your request contains too many origin custom headers.</p>
  *
  * @throws {@link TooManyOriginGroupsPerDistribution} (client fault)
- *  <p>Processing your request would cause you to exceed the maximum number of origin groups
- * 			allowed.</p>
+ *  <p>Processing your request would cause you to exceed the maximum number of origin groups allowed.</p>
  *
  * @throws {@link TooManyOrigins} (client fault)
  *  <p>You cannot create more origins for the distribution.</p>
@@ -638,6 +611,7 @@ export interface UpdateDistributionWithStagingConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateDistributionWithStagingConfigCommand extends $Command
@@ -648,9 +622,7 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -662,4 +634,16 @@ export class UpdateDistributionWithStagingConfigCommand extends $Command
   .f(void 0, UpdateDistributionWithStagingConfigResultFilterSensitiveLog)
   .ser(se_UpdateDistributionWithStagingConfigCommand)
   .de(de_UpdateDistributionWithStagingConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDistributionWithStagingConfigRequest;
+      output: UpdateDistributionWithStagingConfigResult;
+    };
+    sdk: {
+      input: UpdateDistributionWithStagingConfigCommandInput;
+      output: UpdateDistributionWithStagingConfigCommandOutput;
+    };
+  };
+}

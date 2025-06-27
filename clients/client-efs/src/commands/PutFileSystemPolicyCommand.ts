@@ -12,7 +12,8 @@ import { de_PutFileSystemPolicyCommand, se_PutFileSystemPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,8 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  *       exactly one file system policy, which can be the default policy or an explicit policy set or
  *       updated using this API operation. EFS file system policies have a 20,000 character
  *       limit. When an explicit policy is set, it overrides the default policy. For more information
- *       about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">Default EFS
- *         File System Policy</a>. </p>
+ *       about the default file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/iam-access-control-nfs-efs.html#default-filesystempolicy">
+ *         Default EFS file system policy</a>. </p>
  *          <note>
  *             <p>EFS file system policies have a 20,000 character limit.</p>
  *          </note>
@@ -87,6 +88,7 @@ export interface PutFileSystemPolicyCommandOutput extends FileSystemPolicyDescri
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class PutFileSystemPolicyCommand extends $Command
@@ -97,9 +99,7 @@ export class PutFileSystemPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class PutFileSystemPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFileSystemPolicyCommand)
   .de(de_PutFileSystemPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFileSystemPolicyRequest;
+      output: FileSystemPolicyDescription;
+    };
+    sdk: {
+      input: PutFileSystemPolicyCommandInput;
+      output: PutFileSystemPolicyCommandOutput;
+    };
+  };
+}

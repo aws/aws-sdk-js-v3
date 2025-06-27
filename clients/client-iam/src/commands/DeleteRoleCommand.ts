@@ -12,7 +12,8 @@ import { de_DeleteRoleCommand, se_DeleteRoleCommand } from "../protocols/Aws_que
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,18 +102,21 @@ export interface DeleteRoleCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete an IAM role
  * ```javascript
  * // The following command removes the role named Test-Role.
  * const input = {
- *   "RoleName": "Test-Role"
+ *   RoleName: "Test-Role"
  * };
  * const command = new DeleteRoleCommand(input);
- * await client.send(command);
- * // example id: 053cdf74-9bda-44b8-bdbb-140fd5a32603
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRoleCommand extends $Command
   .classBuilder<
@@ -122,9 +126,7 @@ export class DeleteRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +138,16 @@ export class DeleteRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoleCommand)
   .de(de_DeleteRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRoleCommandInput;
+      output: DeleteRoleCommandOutput;
+    };
+  };
+}

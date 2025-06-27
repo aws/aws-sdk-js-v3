@@ -12,7 +12,8 @@ import { de_CreateSequenceStoreCommand, se_CreateSequenceStoreCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,12 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  *   clientToken: "STRING_VALUE",
  *   fallbackLocation: "STRING_VALUE",
  *   eTagAlgorithmFamily: "STRING_VALUE",
+ *   propagatedSetLevelTags: [ // PropagatedSetLevelTags
+ *     "STRING_VALUE",
+ *   ],
+ *   s3AccessConfig: { // S3AccessConfig
+ *     accessLogLocation: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateSequenceStoreCommand(input);
  * const response = await client.send(command);
@@ -62,6 +69,16 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   fallbackLocation: "STRING_VALUE",
  * //   eTagAlgorithmFamily: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   propagatedSetLevelTags: [ // PropagatedSetLevelTags
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   s3Access: { // SequenceStoreS3Access
+ * //     s3Uri: "STRING_VALUE",
+ * //     s3AccessPointArn: "STRING_VALUE",
+ * //     accessLogLocation: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -93,6 +110,7 @@ export interface CreateSequenceStoreCommandOutput extends CreateSequenceStoreRes
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class CreateSequenceStoreCommand extends $Command
@@ -103,9 +121,7 @@ export class CreateSequenceStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +133,16 @@ export class CreateSequenceStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSequenceStoreCommand)
   .de(de_CreateSequenceStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSequenceStoreRequest;
+      output: CreateSequenceStoreResponse;
+    };
+    sdk: {
+      input: CreateSequenceStoreCommandInput;
+      output: CreateSequenceStoreCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UploadLayerPartCommand, se_UploadLayerPartCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  * @throws {@link ECRPUBLICServiceException}
  * <p>Base exception class for all service exceptions from ECRPUBLIC service.</p>
  *
+ *
  * @public
  */
 export class UploadLayerPartCommand extends $Command
@@ -108,9 +110,7 @@ export class UploadLayerPartCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRPUBLICClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class UploadLayerPartCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UploadLayerPartCommand)
   .de(de_UploadLayerPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadLayerPartRequest;
+      output: UploadLayerPartResponse;
+    };
+    sdk: {
+      input: UploadLayerPartCommandInput;
+      output: UploadLayerPartCommandOutput;
+    };
+  };
+}

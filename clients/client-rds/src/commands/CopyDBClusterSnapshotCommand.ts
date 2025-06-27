@@ -13,7 +13,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -155,49 +156,49 @@ export interface CopyDBClusterSnapshotCommandOutput extends CopyDBClusterSnapsho
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To copy a DB cluster snapshot
  * ```javascript
  * // The following example creates a copy of a DB cluster snapshot, including its tags.
  * const input = {
- *   "CopyTags": true,
- *   "SourceDBClusterSnapshotIdentifier": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:myaurora-2019-06-04-09-16",
- *   "TargetDBClusterSnapshotIdentifier": "myclustersnapshotcopy"
+ *   CopyTags: true,
+ *   SourceDBClusterSnapshotIdentifier: "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:myaurora-2019-06-04-09-16",
+ *   TargetDBClusterSnapshotIdentifier: "myclustersnapshotcopy"
  * };
  * const command = new CopyDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterSnapshot": {
- *     "AllocatedStorage": 0,
- *     "AvailabilityZones": [
+ *   DBClusterSnapshot: {
+ *     AllocatedStorage: 0,
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1b",
  *       "us-east-1e"
  *     ],
- *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
- *     "DBClusterIdentifier": "myaurora",
- *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:myclustersnapshotcopy",
- *     "DBClusterSnapshotIdentifier": "myclustersnapshotcopy",
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *     "LicenseModel": "aurora-mysql",
- *     "MasterUsername": "myadmin",
- *     "PercentProgress": 100,
- *     "Port": 0,
- *     "SnapshotCreateTime": "2019-06-04T09:16:42.649Z",
- *     "SnapshotType": "manual",
- *     "Status": "available",
- *     "StorageEncrypted": true,
- *     "VpcId": "vpc-123example"
+ *     ClusterCreateTime: "2019-04-15T14:18:42.785Z",
+ *     DBClusterIdentifier: "myaurora",
+ *     DBClusterSnapshotArn: "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:myclustersnapshotcopy",
+ *     DBClusterSnapshotIdentifier: "myclustersnapshotcopy",
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.04.2",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     LicenseModel: "aurora-mysql",
+ *     MasterUsername: "myadmin",
+ *     PercentProgress: 100,
+ *     Port: 0,
+ *     SnapshotCreateTime: "2019-06-04T09:16:42.649Z",
+ *     SnapshotType: "manual",
+ *     Status: "available",
+ *     StorageEncrypted: true,
+ *     VpcId: "vpc-123example"
  *   }
  * }
  * *\/
- * // example id: to-copy-a-db-cluster-snapshot-1679695109979
  * ```
  *
+ * @public
  */
 export class CopyDBClusterSnapshotCommand extends $Command
   .classBuilder<
@@ -207,9 +208,7 @@ export class CopyDBClusterSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -222,4 +221,16 @@ export class CopyDBClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyDBClusterSnapshotCommand)
   .de(de_CopyDBClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyDBClusterSnapshotMessage;
+      output: CopyDBClusterSnapshotResult;
+    };
+    sdk: {
+      input: CopyDBClusterSnapshotCommandInput;
+      output: CopyDBClusterSnapshotCommandOutput;
+    };
+  };
+}

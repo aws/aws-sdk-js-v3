@@ -12,7 +12,8 @@ import { de_AssociateTrunkInterfaceCommand, se_AssociateTrunkInterfaceCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,10 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
 
 /**
  * <p>Associates a branch network interface with a trunk network interface.</p>
- *          <p>Before you create the association, run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">create-network-interface</a> command and set
- *             <code>--interface-type</code> to <code>trunk</code>. You must also create a network interface for each branch network interface that you want to associate with the trunk network interface.</p>
+ *          <p>Before you create the association, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateNetworkInterface.html">CreateNetworkInterface</a> command and set the interface type
+ *             to <code>trunk</code>. You must also create a network interface for
+ *             each branch network interface that you want to associate with the trunk
+ *             network interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +78,7 @@ export interface AssociateTrunkInterfaceCommandOutput extends AssociateTrunkInte
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssociateTrunkInterfaceCommand extends $Command
@@ -85,9 +89,7 @@ export class AssociateTrunkInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +101,16 @@ export class AssociateTrunkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrunkInterfaceCommand)
   .de(de_AssociateTrunkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrunkInterfaceRequest;
+      output: AssociateTrunkInterfaceResult;
+    };
+    sdk: {
+      input: AssociateTrunkInterfaceCommandInput;
+      output: AssociateTrunkInterfaceCommandOutput;
+    };
+  };
+}

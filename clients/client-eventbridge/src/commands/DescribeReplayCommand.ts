@@ -12,7 +12,8 @@ import { de_DescribeReplayCommand, se_DescribeReplayCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface DescribeReplayCommandOutput extends DescribeReplayResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplayCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeReplayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeReplayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplayCommand)
   .de(de_DescribeReplayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplayRequest;
+      output: DescribeReplayResponse;
+    };
+    sdk: {
+      input: DescribeReplayCommandInput;
+      output: DescribeReplayCommandOutput;
+    };
+  };
+}

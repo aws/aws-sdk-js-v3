@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeVpcsRequest, DescribeVpcsResult } from "../models/models_5";
+import { DescribeVpcsRequest, DescribeVpcsResult } from "../models/models_6";
 import { de_DescribeVpcsCommand, se_DescribeVpcsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface DescribeVpcsCommandInput extends DescribeVpcsRequest {}
 export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your VPCs.</p>
+ * <p>Describes your VPCs. The default is to describe all your VPCs.
+ *           Alternatively, you can specify specific VPC IDs or filter the results to
+ *           include only the VPCs that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,19 +49,16 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  *   VpcIds: [ // VpcIdStringList
  *     "STRING_VALUE",
  *   ],
- *   DryRun: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new DescribeVpcsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVpcsResult
+ * //   NextToken: "STRING_VALUE",
  * //   Vpcs: [ // VpcList
  * //     { // Vpc
- * //       CidrBlock: "STRING_VALUE",
- * //       DhcpOptionsId: "STRING_VALUE",
- * //       State: "pending" || "available",
- * //       VpcId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       InstanceTenancy: "default" || "dedicated" || "host",
  * //       Ipv6CidrBlockAssociationSet: [ // VpcIpv6CidrBlockAssociationSet
@@ -71,6 +71,8 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * //           },
  * //           NetworkBorderGroup: "STRING_VALUE",
  * //           Ipv6Pool: "STRING_VALUE",
+ * //           Ipv6AddressAttribute: "public" || "private",
+ * //           IpSource: "amazon" || "byoip" || "none",
  * //         },
  * //       ],
  * //       CidrBlockAssociationSet: [ // VpcCidrBlockAssociationSet
@@ -84,15 +86,56 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * //         },
  * //       ],
  * //       IsDefault: true || false,
- * //       Tags: [ // TagList
- * //         { // Tag
+ * //       EncryptionControl: { // VpcEncryptionControl
+ * //         VpcId: "STRING_VALUE",
+ * //         VpcEncryptionControlId: "STRING_VALUE",
+ * //         Mode: "monitor" || "enforce",
+ * //         State: "enforce-in-progress" || "monitor-in-progress" || "enforce-failed" || "monitor-failed" || "deleting" || "deleted" || "available" || "creating" || "delete-failed",
+ * //         StateMessage: "STRING_VALUE",
+ * //         ResourceExclusions: { // VpcEncryptionControlExclusions
+ * //           InternetGateway: { // VpcEncryptionControlExclusion
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           EgressOnlyInternetGateway: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           NatGateway: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           VirtualPrivateGateway: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //           VpcPeering: {
+ * //             State: "enabling" || "enabled" || "disabling" || "disabled",
+ * //             StateMessage: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       Tags: [
+ * //         {
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //         InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //       },
+ * //       VpcId: "STRING_VALUE",
+ * //       State: "pending" || "available",
+ * //       CidrBlock: "STRING_VALUE",
+ * //       DhcpOptionsId: "STRING_VALUE",
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -106,40 +149,40 @@ export interface DescribeVpcsCommandOutput extends DescribeVpcsResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a VPC
  * ```javascript
  * // This example describes the specified VPC.
  * const input = {
- *   "VpcIds": [
+ *   VpcIds: [
  *     "vpc-a01106c2"
  *   ]
  * };
  * const command = new DescribeVpcsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Vpcs": [
+ *   Vpcs: [
  *     {
- *       "CidrBlock": "10.0.0.0/16",
- *       "DhcpOptionsId": "dopt-7a8b9c2d",
- *       "InstanceTenancy": "default",
- *       "IsDefault": false,
- *       "State": "available",
- *       "Tags": [
+ *       CidrBlock: "10.0.0.0/16",
+ *       DhcpOptionsId: "dopt-7a8b9c2d",
+ *       InstanceTenancy: "default",
+ *       IsDefault: false,
+ *       State: "available",
+ *       Tags: [
  *         {
- *           "Key": "Name",
- *           "Value": "MyVPC"
+ *           Key: "Name",
+ *           Value: "MyVPC"
  *         }
  *       ],
- *       "VpcId": "vpc-a01106c2"
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-vpcs-1
  * ```
  *
+ * @public
  */
 export class DescribeVpcsCommand extends $Command
   .classBuilder<
@@ -149,9 +192,7 @@ export class DescribeVpcsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +204,16 @@ export class DescribeVpcsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcsCommand)
   .de(de_DescribeVpcsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcsRequest;
+      output: DescribeVpcsResult;
+    };
+    sdk: {
+      input: DescribeVpcsCommandInput;
+      output: DescribeVpcsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,48 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  *       queryQueueSize: Number("int"),
  *       tracingType: "log" || "jaeger",
  *       metricsDisabled: true || false,
+ *       httpIdleTimeout: { // Duration
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       httpReadHeaderTimeout: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       httpReadTimeout: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       httpWriteTimeout: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       influxqlMaxSelectBuckets: Number("long"),
+ *       influxqlMaxSelectPoint: Number("long"),
+ *       influxqlMaxSelectSeries: Number("long"),
+ *       pprofDisabled: true || false,
+ *       queryInitialMemoryBytes: Number("long"),
+ *       queryMaxMemoryBytes: Number("long"),
+ *       queryMemoryBytes: Number("long"),
+ *       sessionLength: Number("int"),
+ *       sessionRenewDisabled: true || false,
+ *       storageCacheMaxMemorySize: Number("long"),
+ *       storageCacheSnapshotMemorySize: Number("long"),
+ *       storageCacheSnapshotWriteColdDuration: {
+ *         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ *         value: Number("long"), // required
+ *       },
+ *       storageCompactFullWriteColdDuration: "<Duration>",
+ *       storageCompactThroughputBurst: Number("long"),
+ *       storageMaxConcurrentCompactions: Number("int"),
+ *       storageMaxIndexLogFileSize: Number("long"),
+ *       storageNoValidateFieldSize: true || false,
+ *       storageRetentionCheckInterval: "<Duration>",
+ *       storageSeriesFileMaxConcurrentSnapshotCompactions: Number("int"),
+ *       storageSeriesIdSetCacheSize: Number("long"),
+ *       storageWalMaxConcurrentWrites: Number("int"),
+ *       storageWalMaxWriteDelay: "<Duration>",
+ *       uiDisabled: true || false,
  *     },
  *   },
  *   tags: { // RequestTagMap
@@ -72,6 +115,48 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * //       queryQueueSize: Number("int"),
  * //       tracingType: "log" || "jaeger",
  * //       metricsDisabled: true || false,
+ * //       httpIdleTimeout: { // Duration
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       httpReadHeaderTimeout: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       httpReadTimeout: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       httpWriteTimeout: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       influxqlMaxSelectBuckets: Number("long"),
+ * //       influxqlMaxSelectPoint: Number("long"),
+ * //       influxqlMaxSelectSeries: Number("long"),
+ * //       pprofDisabled: true || false,
+ * //       queryInitialMemoryBytes: Number("long"),
+ * //       queryMaxMemoryBytes: Number("long"),
+ * //       queryMemoryBytes: Number("long"),
+ * //       sessionLength: Number("int"),
+ * //       sessionRenewDisabled: true || false,
+ * //       storageCacheMaxMemorySize: Number("long"),
+ * //       storageCacheSnapshotMemorySize: Number("long"),
+ * //       storageCacheSnapshotWriteColdDuration: {
+ * //         durationType: "hours" || "minutes" || "seconds" || "milliseconds", // required
+ * //         value: Number("long"), // required
+ * //       },
+ * //       storageCompactFullWriteColdDuration: "<Duration>",
+ * //       storageCompactThroughputBurst: Number("long"),
+ * //       storageMaxConcurrentCompactions: Number("int"),
+ * //       storageMaxIndexLogFileSize: Number("long"),
+ * //       storageNoValidateFieldSize: true || false,
+ * //       storageRetentionCheckInterval: "<Duration>",
+ * //       storageSeriesFileMaxConcurrentSnapshotCompactions: Number("int"),
+ * //       storageSeriesIdSetCacheSize: Number("long"),
+ * //       storageWalMaxConcurrentWrites: Number("int"),
+ * //       storageWalMaxWriteDelay: "<Duration>",
+ * //       uiDisabled: true || false,
  * //     },
  * //   },
  * // };
@@ -108,6 +193,7 @@ export interface CreateDbParameterGroupCommandOutput extends CreateDbParameterGr
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDbParameterGroupCommand extends $Command
@@ -118,9 +204,7 @@ export class CreateDbParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +216,16 @@ export class CreateDbParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDbParameterGroupCommand)
   .de(de_CreateDbParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDbParameterGroupInput;
+      output: CreateDbParameterGroupOutput;
+    };
+    sdk: {
+      input: CreateDbParameterGroupCommandInput;
+      output: CreateDbParameterGroupCommandOutput;
+    };
+  };
+}

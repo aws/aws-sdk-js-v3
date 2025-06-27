@@ -12,7 +12,8 @@ import { de_ComposeEnvironmentsCommand, se_ComposeEnvironmentsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,6 +116,7 @@ export interface ComposeEnvironmentsCommandOutput extends EnvironmentDescription
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
+ *
  * @public
  */
 export class ComposeEnvironmentsCommand extends $Command
@@ -125,9 +127,7 @@ export class ComposeEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class ComposeEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ComposeEnvironmentsCommand)
   .de(de_ComposeEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ComposeEnvironmentsMessage;
+      output: EnvironmentDescriptionsMessage;
+    };
+    sdk: {
+      input: ComposeEnvironmentsCommandInput;
+      output: ComposeEnvironmentsCommandOutput;
+    };
+  };
+}

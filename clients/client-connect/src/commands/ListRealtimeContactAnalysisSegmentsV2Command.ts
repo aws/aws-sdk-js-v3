@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListRealtimeContactAnalysisSegmentsV2Request,
   ListRealtimeContactAnalysisSegmentsV2Response,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_ListRealtimeContactAnalysisSegmentsV2Command,
   se_ListRealtimeContactAnalysisSegmentsV2Command,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,12 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides a list of analysis segments for a real-time analysis session. </p>
+ * <p>Provides a list of analysis segments for a real-time chat analysis session. This API
+ *    supports CHAT channels only. </p>
+ *          <important>
+ *             <p>This API does not support VOICE. If you attempt to use it for VOICE, an
+ *      <code>InvalidRequestException</code> occurs.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +56,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  *   NextToken: "STRING_VALUE",
  *   OutputType: "Raw" || "Redacted", // required
  *   SegmentTypes: [ // RealTimeContactAnalysisSegmentTypes // required
- *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments",
+ *     "Transcript" || "Categories" || "Issues" || "Event" || "Attachments" || "PostContactSummary",
  *   ],
  * };
  * const command = new ListRealtimeContactAnalysisSegmentsV2Command(input);
@@ -139,6 +145,11 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  * //           AbsoluteTime: new Date("TIMESTAMP"),
  * //         },
  * //       },
+ * //       PostContactSummary: { // RealTimeContactAnalysisSegmentPostContactSummary
+ * //         Content: "STRING_VALUE",
+ * //         Status: "FAILED" || "COMPLETED", // required
+ * //         FailureCode: "QUOTA_EXCEEDED" || "INSUFFICIENT_CONVERSATION_CONTENT" || "FAILED_SAFETY_GUIDELINES" || "INVALID_ANALYSIS_CONFIGURATION" || "INTERNAL_ERROR",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -164,7 +175,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  * @throws {@link OutputTypeNotFoundException} (client fault)
  *  <p>Thrown for analyzed content when requested OutputType was not enabled for a given contact.
  *    For example, if an OutputType.Raw was requested for a contact that had `RedactedOnly` Redaction
- *    policy set in Contact flow.</p>
+ *    policy set in the flow.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource was not found.</p>
@@ -174,6 +185,7 @@ export interface ListRealtimeContactAnalysisSegmentsV2CommandOutput
  *
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
+ *
  *
  * @public
  */
@@ -185,9 +197,7 @@ export class ListRealtimeContactAnalysisSegmentsV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -199,4 +209,16 @@ export class ListRealtimeContactAnalysisSegmentsV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_ListRealtimeContactAnalysisSegmentsV2Command)
   .de(de_ListRealtimeContactAnalysisSegmentsV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRealtimeContactAnalysisSegmentsV2Request;
+      output: ListRealtimeContactAnalysisSegmentsV2Response;
+    };
+    sdk: {
+      input: ListRealtimeContactAnalysisSegmentsV2CommandInput;
+      output: ListRealtimeContactAnalysisSegmentsV2CommandOutput;
+    };
+  };
+}

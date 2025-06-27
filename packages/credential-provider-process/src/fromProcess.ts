@@ -1,6 +1,5 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { CredentialProviderOptions, RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import { AwsCredentialIdentityProvider } from "@smithy/types";
 
 import { resolveProcessCredentials } from "./resolveProcessCredentials";
 
@@ -16,9 +15,15 @@ export interface FromProcessInit extends SourceProfileInit, CredentialProviderOp
  * in ini files.
  */
 export const fromProcess =
-  (init: FromProcessInit = {}): AwsCredentialIdentityProvider =>
-  async () => {
+  (init: FromProcessInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  async ({ callerClientConfig } = {}) => {
     init.logger?.debug("@aws-sdk/credential-provider-process - fromProcess");
     const profiles = await parseKnownFiles(init);
-    return resolveProcessCredentials(getProfileName(init), profiles, init.logger);
+    return resolveProcessCredentials(
+      getProfileName({
+        profile: init.profile ?? callerClientConfig?.profile,
+      }),
+      profiles,
+      init.logger
+    );
   };

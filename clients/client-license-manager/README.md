@@ -11,7 +11,7 @@ Amazon Web Services accounts and on-premises servers.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-license-manager
+To install this package, simply type add or install @aws-sdk/client-license-manager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-license-manager`

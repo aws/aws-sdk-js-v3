@@ -12,7 +12,8 @@ import { de_StopFailbackCommand, se_StopFailbackCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface StopFailbackCommandOutput extends __MetadataBearer {}
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class StopFailbackCommand extends $Command
@@ -74,9 +76,7 @@ export class StopFailbackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class StopFailbackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopFailbackCommand)
   .de(de_StopFailbackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopFailbackRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopFailbackCommandInput;
+      output: StopFailbackCommandOutput;
+    };
+  };
+}

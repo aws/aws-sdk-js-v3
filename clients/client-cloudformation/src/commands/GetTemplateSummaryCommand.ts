@@ -12,7 +12,8 @@ import { de_GetTemplateSummaryCommand, se_GetTemplateSummaryCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,14 @@ export interface GetTemplateSummaryCommandInput extends GetTemplateSummaryInput 
 export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutput, __MetadataBearer {}
 
 /**
- * <p>Returns information about a new or existing template. The <code>GetTemplateSummary</code> action is useful for
- *    viewing parameter information, such as default parameter values and parameter types, before you create or update a
- *    stack or stack set.</p>
- *          <p>You can use the <code>GetTemplateSummary</code> action when you submit a template, or you can get template
- *    information for a stack set, or a running or deleted stack.</p>
- *          <p>For deleted stacks, <code>GetTemplateSummary</code> returns the template information for up to 90 days after the
- *    stack has been deleted. If the template doesn't exist, a <code>ValidationError</code> is returned.</p>
+ * <p>Returns information about a new or existing template. The <code>GetTemplateSummary</code>
+ *       action is useful for viewing parameter information, such as default parameter values and
+ *       parameter types, before you create or update a stack or stack set.</p>
+ *          <p>You can use the <code>GetTemplateSummary</code> action when you submit a template, or you
+ *       can get template information for a stack set, or a running or deleted stack.</p>
+ *          <p>For deleted stacks, <code>GetTemplateSummary</code> returns the template information for
+ *       up to 90 days after the stack has been deleted. If the template doesn't exist, a
+ *         <code>ValidationError</code> is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,6 +114,7 @@ export interface GetTemplateSummaryCommandOutput extends GetTemplateSummaryOutpu
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateSummaryCommand extends $Command
@@ -122,9 +125,7 @@ export class GetTemplateSummaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +137,16 @@ export class GetTemplateSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateSummaryCommand)
   .de(de_GetTemplateSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateSummaryInput;
+      output: GetTemplateSummaryOutput;
+    };
+    sdk: {
+      input: GetTemplateSummaryCommandInput;
+      output: GetTemplateSummaryCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteAnalysisSchemeCommand, se_DeleteAnalysisSchemeCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface DeleteAnalysisSchemeCommandOutput extends DeleteAnalysisSchemeR
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnalysisSchemeCommand extends $Command
@@ -100,9 +102,7 @@ export class DeleteAnalysisSchemeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class DeleteAnalysisSchemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnalysisSchemeCommand)
   .de(de_DeleteAnalysisSchemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnalysisSchemeRequest;
+      output: DeleteAnalysisSchemeResponse;
+    };
+    sdk: {
+      input: DeleteAnalysisSchemeCommandInput;
+      output: DeleteAnalysisSchemeCommandOutput;
+    };
+  };
+}

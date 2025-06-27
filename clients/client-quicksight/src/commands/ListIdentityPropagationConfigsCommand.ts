@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,7 @@ export interface ListIdentityPropagationConfigsCommandOutput
  * // { // ListIdentityPropagationConfigsResponse
  * //   Services: [ // AuthorizedTargetsByServices
  * //     { // AuthorizedTargetsByService
- * //       Service: "REDSHIFT",
+ * //       Service: "REDSHIFT" || "QBUSINESS",
  * //       AuthorizedTargets: [ // AuthorizedTargetsList
  * //         "STRING_VALUE",
  * //       ],
@@ -90,6 +91,7 @@ export interface ListIdentityPropagationConfigsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListIdentityPropagationConfigsCommand extends $Command
@@ -100,9 +102,7 @@ export class ListIdentityPropagationConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListIdentityPropagationConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdentityPropagationConfigsCommand)
   .de(de_ListIdentityPropagationConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdentityPropagationConfigsRequest;
+      output: ListIdentityPropagationConfigsResponse;
+    };
+    sdk: {
+      input: ListIdentityPropagationConfigsCommandInput;
+      output: ListIdentityPropagationConfigsCommandOutput;
+    };
+  };
+}

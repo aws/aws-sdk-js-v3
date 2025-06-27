@@ -12,7 +12,8 @@ import { de_EnterStandbyCommand, se_EnterStandbyCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,38 +87,38 @@ export interface EnterStandbyCommandOutput extends EnterStandbyAnswer, __Metadat
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To move instances into standby mode
  * ```javascript
  * // This example puts the specified instance into standby mode.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ],
- *   "ShouldDecrementDesiredCapacity": true
+ *   ShouldDecrementDesiredCapacity: true
  * };
  * const command = new EnterStandbyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Activities": [
+ *   Activities: [
  *     {
- *       "ActivityId": "ffa056b4-6ed3-41ba-ae7c-249dfae6eba1",
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "Cause": "At 2015-04-12T15:10:23Z instance i-93633f9b was moved to standby in response to a user request, shrinking the capacity from 2 to 1.",
- *       "Description": "Moving EC2 instance to Standby: i-93633f9b",
- *       "Details": "details",
- *       "Progress": 50,
- *       "StartTime": "2015-04-12T15:10:23.640Z",
- *       "StatusCode": "InProgress"
+ *       ActivityId: "ffa056b4-6ed3-41ba-ae7c-249dfae6eba1",
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       Cause: "At 2015-04-12T15:10:23Z instance i-93633f9b was moved to standby in response to a user request, shrinking the capacity from 2 to 1.",
+ *       Description: "Moving EC2 instance to Standby: i-93633f9b",
+ *       Details: "details",
+ *       Progress: 50,
+ *       StartTime: "2015-04-12T15:10:23.640Z",
+ *       StatusCode: "InProgress"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-enter-standby-1
  * ```
  *
+ * @public
  */
 export class EnterStandbyCommand extends $Command
   .classBuilder<
@@ -127,9 +128,7 @@ export class EnterStandbyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class EnterStandbyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnterStandbyCommand)
   .de(de_EnterStandbyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnterStandbyQuery;
+      output: EnterStandbyAnswer;
+    };
+    sdk: {
+      input: EnterStandbyCommandInput;
+      output: EnterStandbyCommandOutput;
+    };
+  };
+}

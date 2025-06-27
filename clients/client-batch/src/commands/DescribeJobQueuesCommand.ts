@@ -12,7 +12,8 @@ import { de_DescribeJobQueuesCommand, se_DescribeJobQueuesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,40 +95,40 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To describe a job queue
  * ```javascript
  * // This example describes the HighPriority job queue.
  * const input = {
- *   "jobQueues": [
+ *   jobQueues: [
  *     "HighPriority"
  *   ]
  * };
  * const command = new DescribeJobQueuesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobQueues": [
+ *   jobQueues: [
  *     {
- *       "computeEnvironmentOrder": [
+ *       computeEnvironmentOrder: [
  *         {
- *           "computeEnvironment": "arn:aws:batch:us-east-1:012345678910:compute-environment/C4OnDemand",
- *           "order": 1
+ *           computeEnvironment: "arn:aws:batch:us-east-1:012345678910:compute-environment/C4OnDemand",
+ *           order: 1
  *         }
  *       ],
- *       "jobQueueArn": "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
- *       "jobQueueName": "HighPriority",
- *       "priority": 1,
- *       "state": "ENABLED",
- *       "status": "VALID",
- *       "statusReason": "JobQueue Healthy"
+ *       jobQueueArn: "arn:aws:batch:us-east-1:012345678910:job-queue/HighPriority",
+ *       jobQueueName: "HighPriority",
+ *       priority: 1,
+ *       state: "ENABLED",
+ *       status: "VALID",
+ *       statusReason: "JobQueue Healthy"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-job-queue-1481153995804
  * ```
  *
+ * @public
  */
 export class DescribeJobQueuesCommand extends $Command
   .classBuilder<
@@ -137,9 +138,7 @@ export class DescribeJobQueuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +150,16 @@ export class DescribeJobQueuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeJobQueuesCommand)
   .de(de_DescribeJobQueuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobQueuesRequest;
+      output: DescribeJobQueuesResponse;
+    };
+    sdk: {
+      input: DescribeJobQueuesCommandInput;
+      output: DescribeJobQueuesCommandOutput;
+    };
+  };
+}

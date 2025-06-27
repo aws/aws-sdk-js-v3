@@ -12,7 +12,8 @@ import { de_VerifyTrustCommand, se_VerifyTrustCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,22 @@ export interface VerifyTrustCommandOutput extends VerifyTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To verify a trust
+ * ```javascript
+ * // The following example verifies a trust relationship between your Microsoft AD in the AWS cloud and an external domain.
+ * const input = {
+ *   TrustId: "t-9267353df0"
+ * };
+ * const command = new VerifyTrustCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrustId: "t-9267353df0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class VerifyTrustCommand extends $Command
@@ -82,9 +99,7 @@ export class VerifyTrustCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +111,16 @@ export class VerifyTrustCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifyTrustCommand)
   .de(de_VerifyTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyTrustRequest;
+      output: VerifyTrustResult;
+    };
+    sdk: {
+      input: VerifyTrustCommandInput;
+      output: VerifyTrustCommandOutput;
+    };
+  };
+}

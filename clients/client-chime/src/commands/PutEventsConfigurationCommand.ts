@@ -11,13 +11,14 @@ import {
   PutEventsConfigurationRequestFilterSensitiveLog,
   PutEventsConfigurationResponse,
   PutEventsConfigurationResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_PutEventsConfigurationCommand, se_PutEventsConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface PutEventsConfigurationCommandOutput extends PutEventsConfigurat
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class PutEventsConfigurationCommand extends $Command
@@ -99,9 +101,7 @@ export class PutEventsConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class PutEventsConfigurationCommand extends $Command
   .f(PutEventsConfigurationRequestFilterSensitiveLog, PutEventsConfigurationResponseFilterSensitiveLog)
   .ser(se_PutEventsConfigurationCommand)
   .de(de_PutEventsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEventsConfigurationRequest;
+      output: PutEventsConfigurationResponse;
+    };
+    sdk: {
+      input: PutEventsConfigurationCommandInput;
+      output: PutEventsConfigurationCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTopicPermissionsRequest, DescribeTopicPermissionsResponse } from "../models/models_3";
+import { DescribeTopicPermissionsRequest, DescribeTopicPermissionsResponse } from "../models/models_4";
 import { de_DescribeTopicPermissionsCommand, se_DescribeTopicPermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface DescribeTopicPermissionsCommandOutput extends DescribeTopicPerm
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTopicPermissionsCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeTopicPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeTopicPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTopicPermissionsCommand)
   .de(de_DescribeTopicPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicPermissionsRequest;
+      output: DescribeTopicPermissionsResponse;
+    };
+    sdk: {
+      input: DescribeTopicPermissionsCommandInput;
+      output: DescribeTopicPermissionsCommandOutput;
+    };
+  };
+}

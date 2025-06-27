@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest } from "../models/models_1";
+import { UntagResourceRequest } from "../models/models_2";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface UntagResourceCommandInput extends UntagResourceRequest {}
 export interface UntagResourceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Remove tags from a CloudFront resource.</p>
+ * <p>Remove tags from a CloudFront resource. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/tagging.html">Tagging a distribution</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +70,7 @@ export interface UntagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -79,9 +81,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

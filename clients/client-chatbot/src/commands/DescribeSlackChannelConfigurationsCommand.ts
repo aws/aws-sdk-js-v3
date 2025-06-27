@@ -9,6 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeSlackChannelConfigurationsRequest,
   DescribeSlackChannelConfigurationsResult,
+  DescribeSlackChannelConfigurationsResultFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_DescribeSlackChannelConfigurationsCommand,
@@ -18,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +37,7 @@ export interface DescribeSlackChannelConfigurationsCommandOutput
     __MetadataBearer {}
 
 /**
- * Lists Slack Channel Configurations optionally filtered by ChatConfigurationArn
+ * <p>Lists Slack channel configurations optionally filtered by ChatConfigurationArn</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +76,8 @@ export interface DescribeSlackChannelConfigurationsCommandOutput
  * //           TagValue: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       State: "STRING_VALUE",
+ * //       StateReason: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -87,16 +91,17 @@ export interface DescribeSlackChannelConfigurationsCommandOutput
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link DescribeSlackChannelConfigurationsException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
+ *
  *
  * @public
  */
@@ -108,9 +113,7 @@ export class DescribeSlackChannelConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,7 +122,19 @@ export class DescribeSlackChannelConfigurationsCommand extends $Command
   })
   .s("WheatleyOrchestration_20171011", "DescribeSlackChannelConfigurations", {})
   .n("ChatbotClient", "DescribeSlackChannelConfigurationsCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeSlackChannelConfigurationsResultFilterSensitiveLog)
   .ser(se_DescribeSlackChannelConfigurationsCommand)
   .de(de_DescribeSlackChannelConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSlackChannelConfigurationsRequest;
+      output: DescribeSlackChannelConfigurationsResult;
+    };
+    sdk: {
+      input: DescribeSlackChannelConfigurationsCommandInput;
+      output: DescribeSlackChannelConfigurationsCommandOutput;
+    };
+  };
+}

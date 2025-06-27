@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,35 +103,35 @@ export interface DescribeGatewayInformationCommandOutput extends DescribeGateway
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe metadata about the gateway
  * ```javascript
  * // Returns metadata about a gateway such as its name, network interfaces, configured time zone, and the state (whether the gateway is running or not).
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeGatewayInformationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "GatewayId": "sgw-AABB1122",
- *   "GatewayName": "My_Gateway",
- *   "GatewayNetworkInterfaces": [
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   GatewayId: "sgw-AABB1122",
+ *   GatewayName: "My_Gateway",
+ *   GatewayNetworkInterfaces: [
  *     {
- *       "Ipv4Address": "10.35.69.216"
+ *       Ipv4Address: "10.35.69.216"
  *     }
  *   ],
- *   "GatewayState": "STATE_RUNNING",
- *   "GatewayTimezone": "GMT-8:00",
- *   "GatewayType": "STORED",
- *   "LastSoftwareUpdate": "2016-01-02T16:00:00",
- *   "NextUpdateAvailabilityDate": "2017-01-02T16:00:00"
+ *   GatewayState: "STATE_RUNNING",
+ *   GatewayTimezone: "GMT-8:00",
+ *   GatewayType: "STORED",
+ *   LastSoftwareUpdate: "2016-01-02T16:00:00",
+ *   NextUpdateAvailabilityDate: "2017-01-02T16:00:00"
  * }
  * *\/
- * // example id: to-describe-metadata-about-the-gateway-1471467849079
  * ```
  *
+ * @public
  */
 export class DescribeGatewayInformationCommand extends $Command
   .classBuilder<
@@ -140,9 +141,7 @@ export class DescribeGatewayInformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class DescribeGatewayInformationCommand extends $Command
   .f(void 0, DescribeGatewayInformationOutputFilterSensitiveLog)
   .ser(se_DescribeGatewayInformationCommand)
   .de(de_DescribeGatewayInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGatewayInformationInput;
+      output: DescribeGatewayInformationOutput;
+    };
+    sdk: {
+      input: DescribeGatewayInformationCommandInput;
+      output: DescribeGatewayInformationCommandOutput;
+    };
+  };
+}

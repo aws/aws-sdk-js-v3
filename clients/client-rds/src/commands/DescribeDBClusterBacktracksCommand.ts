@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,40 +90,40 @@ export interface DescribeDBClusterBacktracksCommandOutput extends DBClusterBackt
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe backtracks for a DB cluster
  * ```javascript
  * // The following example retrieves details about the specified DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster"
+ *   DBClusterIdentifier: "mydbcluster"
  * };
  * const command = new DescribeDBClusterBacktracksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterBacktracks": [
+ *   DBClusterBacktracks: [
  *     {
- *       "BacktrackIdentifier": "2f5f5294-0dd2-44c9-9f50-EXAMPLE",
- *       "BacktrackRequestCreationTime": "2021-02-12T14:36:18.819Z",
- *       "BacktrackTo": "2021-02-12T04:59:22Z",
- *       "BacktrackedFrom": "2021-02-12T14:37:31.640Z",
- *       "DBClusterIdentifier": "mydbcluster",
- *       "Status": "COMPLETED"
+ *       BacktrackIdentifier: "2f5f5294-0dd2-44c9-9f50-EXAMPLE",
+ *       BacktrackRequestCreationTime: "2021-02-12T14:36:18.819Z",
+ *       BacktrackTo: "2021-02-12T04:59:22Z",
+ *       BacktrackedFrom: "2021-02-12T14:37:31.640Z",
+ *       DBClusterIdentifier: "mydbcluster",
+ *       Status: "COMPLETED"
  *     },
  *     {
- *       "BacktrackIdentifier": "3c7a6421-af2a-4ea3-ae95-EXAMPLE",
- *       "BacktrackRequestCreationTime": "2021-02-12T00:07:53.487Z",
- *       "BacktrackTo": "2021-02-11T22:53:46Z",
- *       "BacktrackedFrom": "2021-02-12T00:09:27.006Z",
- *       "DBClusterIdentifier": "mydbcluster",
- *       "Status": "COMPLETED"
+ *       BacktrackIdentifier: "3c7a6421-af2a-4ea3-ae95-EXAMPLE",
+ *       BacktrackRequestCreationTime: "2021-02-12T00:07:53.487Z",
+ *       BacktrackTo: "2021-02-11T22:53:46Z",
+ *       BacktrackedFrom: "2021-02-12T00:09:27.006Z",
+ *       DBClusterIdentifier: "mydbcluster",
+ *       Status: "COMPLETED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-backtracks-for-a-db-cluster-1680212191454
  * ```
  *
+ * @public
  */
 export class DescribeDBClusterBacktracksCommand extends $Command
   .classBuilder<
@@ -132,9 +133,7 @@ export class DescribeDBClusterBacktracksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class DescribeDBClusterBacktracksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterBacktracksCommand)
   .de(de_DescribeDBClusterBacktracksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterBacktracksMessage;
+      output: DBClusterBacktrackMessage;
+    };
+    sdk: {
+      input: DescribeDBClusterBacktracksCommandInput;
+      output: DescribeDBClusterBacktracksCommandOutput;
+    };
+  };
+}

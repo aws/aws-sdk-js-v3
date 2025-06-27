@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ListProfilePermissionsCommandOutput extends ListProfilePermissi
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class ListProfilePermissionsCommand extends $Command
@@ -91,9 +93,7 @@ export class ListProfilePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListProfilePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfilePermissionsCommand)
   .de(de_ListProfilePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfilePermissionsRequest;
+      output: ListProfilePermissionsResponse;
+    };
+    sdk: {
+      input: ListProfilePermissionsCommandInput;
+      output: ListProfilePermissionsCommandOutput;
+    };
+  };
+}

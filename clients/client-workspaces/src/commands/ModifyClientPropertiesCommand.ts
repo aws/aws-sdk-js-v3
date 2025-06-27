@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,11 +60,15 @@ export interface ModifyClientPropertiesCommandOutput extends ModifyClientPropert
  * @throws {@link InvalidParameterValuesException} (client fault)
  *  <p>One or more parameter values are not valid.</p>
  *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
+ *
  *
  * @public
  */
@@ -75,9 +80,7 @@ export class ModifyClientPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +92,16 @@ export class ModifyClientPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClientPropertiesCommand)
   .de(de_ModifyClientPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClientPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyClientPropertiesCommandInput;
+      output: ModifyClientPropertiesCommandOutput;
+    };
+  };
+}

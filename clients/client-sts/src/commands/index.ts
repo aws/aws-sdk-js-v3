@@ -2,6 +2,7 @@
 export * from "./AssumeRoleCommand";
 export * from "./AssumeRoleWithSAMLCommand";
 export * from "./AssumeRoleWithWebIdentityCommand";
+export * from "./AssumeRootCommand";
 export * from "./DecodeAuthorizationMessageCommand";
 export * from "./GetAccessKeyInfoCommand";
 export * from "./GetCallerIdentityCommand";

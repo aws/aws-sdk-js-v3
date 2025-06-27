@@ -10,14 +10,15 @@ import {
   SendCommandRequestFilterSensitiveLog,
   SendCommandResult,
   SendCommandResultFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_2";
 import { de_SendCommandCommand, se_SendCommandCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -221,6 +222,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class SendCommandCommand extends $Command
@@ -231,9 +233,7 @@ export class SendCommandCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -245,4 +245,16 @@ export class SendCommandCommand extends $Command
   .f(SendCommandRequestFilterSensitiveLog, SendCommandResultFilterSensitiveLog)
   .ser(se_SendCommandCommand)
   .de(de_SendCommandCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendCommandRequest;
+      output: SendCommandResult;
+    };
+    sdk: {
+      input: SendCommandCommandInput;
+      output: SendCommandCommandOutput;
+    };
+  };
+}

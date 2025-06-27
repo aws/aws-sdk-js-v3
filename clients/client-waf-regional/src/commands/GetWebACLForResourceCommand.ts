@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -118,6 +119,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetWebACLForResourceCommand extends $Command
@@ -128,9 +130,7 @@ export class GetWebACLForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class GetWebACLForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebACLForResourceCommand)
   .de(de_GetWebACLForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebACLForResourceRequest;
+      output: GetWebACLForResourceResponse;
+    };
+    sdk: {
+      input: GetWebACLForResourceCommandInput;
+      output: GetWebACLForResourceCommandOutput;
+    };
+  };
+}

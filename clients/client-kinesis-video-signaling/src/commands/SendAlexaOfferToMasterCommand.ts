@@ -16,7 +16,8 @@ import { de_SendAlexaOfferToMasterCommand, se_SendAlexaOfferToMasterCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface SendAlexaOfferToMasterCommandOutput extends SendAlexaOfferToMas
  * @throws {@link KinesisVideoSignalingServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoSignaling service.</p>
  *
+ *
  * @public
  */
 export class SendAlexaOfferToMasterCommand extends $Command
@@ -88,9 +90,7 @@ export class SendAlexaOfferToMasterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoSignalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class SendAlexaOfferToMasterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendAlexaOfferToMasterCommand)
   .de(de_SendAlexaOfferToMasterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendAlexaOfferToMasterRequest;
+      output: SendAlexaOfferToMasterResponse;
+    };
+    sdk: {
+      input: SendAlexaOfferToMasterCommandInput;
+      output: SendAlexaOfferToMasterCommandOutput;
+    };
+  };
+}

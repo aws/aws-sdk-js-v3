@@ -12,7 +12,8 @@ import { de_ListLinksCommand, se_ListLinksCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListLinksCommandInput extends ListLinksInput {}
 export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBearer {}
 
 /**
- * <p>Use this operation in a source account to return a list of links to monitoring account sinks that
- *       this source account has.</p>
- *          <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
+ * <p>Use this operation in a source account to return a list of links to monitoring account sinks that this source account has.</p> <p>To find a list of links for one monitoring account sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListAttachedLinks.html">ListAttachedLinks</a> from within the monitoring account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +76,7 @@ export interface ListLinksCommandOutput extends ListLinksOutput, __MetadataBeare
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class ListLinksCommand extends $Command
@@ -87,9 +87,7 @@ export class ListLinksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +99,16 @@ export class ListLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLinksCommand)
   .de(de_ListLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLinksInput;
+      output: ListLinksOutput;
+    };
+    sdk: {
+      input: ListLinksCommandInput;
+      output: ListLinksCommandOutput;
+    };
+  };
+}

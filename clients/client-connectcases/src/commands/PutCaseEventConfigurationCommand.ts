@@ -12,7 +12,8 @@ import { de_PutCaseEventConfigurationCommand, se_PutCaseEventConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,11 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>The requested operation would cause a conflict with the current state of a service
+ *       resource associated with the request. Resolve the conflict before retrying this request. See
+ *       the accompanying error message for details.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>We couldn't process your request because of an issue with the server. Try again
  *       later.</p>
@@ -87,6 +93,7 @@ export interface PutCaseEventConfigurationCommandOutput extends PutCaseEventConf
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class PutCaseEventConfigurationCommand extends $Command
@@ -97,9 +104,7 @@ export class PutCaseEventConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +116,16 @@ export class PutCaseEventConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutCaseEventConfigurationCommand)
   .de(de_PutCaseEventConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutCaseEventConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutCaseEventConfigurationCommandInput;
+      output: PutCaseEventConfigurationCommandOutput;
+    };
+  };
+}

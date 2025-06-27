@@ -21,7 +21,8 @@ import { de_GetUICustomizationCommand, se_GetUICustomizationCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,11 +37,11 @@ export interface GetUICustomizationCommandInput extends GetUICustomizationReques
 export interface GetUICustomizationCommandOutput extends GetUICustomizationResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the user interface (UI) Customization information for a particular app client's
- *             app UI, if any such information exists for the client. If nothing is set for the
- *             particular client, but there is an existing pool level customization (the app
- *                 <code>clientId</code> is <code>ALL</code>), then that information is returned. If
- *             nothing is present, then an empty shape is returned.</p>
+ * <p>Given a user pool ID or app client, returns information about classic hosted UI
+ *             branding that you applied, if any. Returns user-pool level branding information if no
+ *             app client branding is applied, or if you don't specify an app client ID. Returns
+ *             an empty object if you haven't applied hosted UI branding to either the client or
+ *             the user pool. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/hosted-ui-classic-branding.html">Hosted UI (classic) branding</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +95,7 @@ export interface GetUICustomizationCommandOutput extends GetUICustomizationRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetUICustomizationCommand extends $Command
@@ -104,9 +106,7 @@ export class GetUICustomizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class GetUICustomizationCommand extends $Command
   .f(GetUICustomizationRequestFilterSensitiveLog, GetUICustomizationResponseFilterSensitiveLog)
   .ser(se_GetUICustomizationCommand)
   .de(de_GetUICustomizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUICustomizationRequest;
+      output: GetUICustomizationResponse;
+    };
+    sdk: {
+      input: GetUICustomizationCommandInput;
+      output: GetUICustomizationCommandOutput;
+    };
+  };
+}

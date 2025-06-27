@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -138,6 +139,7 @@ export interface ListPreviewRotationShiftsCommandOutput extends ListPreviewRotat
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListPreviewRotationShiftsCommand extends $Command
@@ -148,9 +150,7 @@ export class ListPreviewRotationShiftsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +162,16 @@ export class ListPreviewRotationShiftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPreviewRotationShiftsCommand)
   .de(de_ListPreviewRotationShiftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPreviewRotationShiftsRequest;
+      output: ListPreviewRotationShiftsResult;
+    };
+    sdk: {
+      input: ListPreviewRotationShiftsCommandInput;
+      output: ListPreviewRotationShiftsCommandOutput;
+    };
+  };
+}

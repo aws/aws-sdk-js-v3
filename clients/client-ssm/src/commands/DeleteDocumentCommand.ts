@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface DeleteDocumentCommandOutput extends DeleteDocumentResult, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DeleteDocumentCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDocumentCommand)
   .de(de_DeleteDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDocumentRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDocumentCommandInput;
+      output: DeleteDocumentCommandOutput;
+    };
+  };
+}

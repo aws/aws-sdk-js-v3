@@ -12,7 +12,8 @@ import { de_AssociateLexBotCommand, se_AssociateLexBotCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,6 +43,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  *     Name: "STRING_VALUE", // required
  *     LexRegion: "STRING_VALUE", // required
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateLexBotCommand(input);
  * const response = await client.send(command);
@@ -79,6 +81,7 @@ export interface AssociateLexBotCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateLexBotCommand extends $Command
@@ -89,9 +92,7 @@ export class AssociateLexBotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +104,16 @@ export class AssociateLexBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateLexBotCommand)
   .de(de_AssociateLexBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLexBotRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateLexBotCommandInput;
+      output: AssociateLexBotCommandOutput;
+    };
+  };
+}

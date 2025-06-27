@@ -5,14 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelPackageGroupInput, CreateModelPackageGroupOutput } from "../models/models_1";
+import { CreateModelPackageGroupInput } from "../models/models_1";
+import { CreateModelPackageGroupOutput } from "../models/models_2";
 import { de_CreateModelPackageGroupCommand, se_CreateModelPackageGroupCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,11 +61,11 @@ export interface CreateModelPackageGroupCommandOutput extends CreateModelPackage
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -75,9 +77,7 @@ export class CreateModelPackageGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class CreateModelPackageGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelPackageGroupCommand)
   .de(de_CreateModelPackageGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelPackageGroupInput;
+      output: CreateModelPackageGroupOutput;
+    };
+    sdk: {
+      input: CreateModelPackageGroupCommandInput;
+      output: CreateModelPackageGroupCommandOutput;
+    };
+  };
+}

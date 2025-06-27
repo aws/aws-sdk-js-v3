@@ -16,7 +16,8 @@ import { de_DescribeEventCategoriesCommand, se_DescribeEventCategoriesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,7 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
 /**
  * <p>Lists categories for all event source types, or, if specified, for a specified source
  *          type. You can see a list of the event categories and source types in <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">Working with Events
- *             and Notifications</a> in the <i>Database Migration Service User
- *             Guide.</i>
+ *             and Notifications</a> in the <i>Database Migration Service User Guide.</i>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,6 +77,7 @@ export interface DescribeEventCategoriesCommandOutput extends DescribeEventCateg
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventCategoriesCommand extends $Command
@@ -87,9 +88,7 @@ export class DescribeEventCategoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +100,16 @@ export class DescribeEventCategoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventCategoriesCommand)
   .de(de_DescribeEventCategoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventCategoriesMessage;
+      output: DescribeEventCategoriesResponse;
+    };
+    sdk: {
+      input: DescribeEventCategoriesCommandInput;
+      output: DescribeEventCategoriesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteAnalysisTemplateCommand, se_DeleteAnalysisTemplateCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteAnalysisTemplateCommandOutput extends DeleteAnalysisTempl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class DeleteAnalysisTemplateCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteAnalysisTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteAnalysisTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAnalysisTemplateCommand)
   .de(de_DeleteAnalysisTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAnalysisTemplateInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAnalysisTemplateCommandInput;
+      output: DeleteAnalysisTemplateCommandOutput;
+    };
+  };
+}

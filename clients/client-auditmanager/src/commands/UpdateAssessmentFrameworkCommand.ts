@@ -17,7 +17,8 @@ import { de_UpdateAssessmentFrameworkCommand, se_UpdateAssessmentFrameworkComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,7 +77,7 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * //           { // Control
  * //             arn: "STRING_VALUE",
  * //             id: "STRING_VALUE",
- * //             type: "Standard" || "Custom",
+ * //             type: "Standard" || "Custom" || "Core",
  * //             name: "STRING_VALUE",
  * //             description: "STRING_VALUE",
  * //             testingInformation: "STRING_VALUE",
@@ -89,7 +90,7 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * //                 sourceName: "STRING_VALUE",
  * //                 sourceDescription: "STRING_VALUE",
  * //                 sourceSetUpOption: "System_Controls_Mapping" || "Procedural_Controls_Mapping",
- * //                 sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL",
+ * //                 sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL" || "Common_Control" || "Core_Control",
  * //                 sourceKeyword: { // SourceKeyword
  * //                   keywordInputType: "SELECT_FROM_LIST" || "UPLOAD_FILE" || "INPUT_TEXT",
  * //                   keywordValue: "STRING_VALUE",
@@ -105,6 +106,7 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * //             tags: { // TagMap
  * //               "<keys>": "STRING_VALUE",
  * //             },
+ * //             state: "ACTIVE" || "END_OF_SUPPORT",
  * //           },
  * //         ],
  * //       },
@@ -144,6 +146,7 @@ export interface UpdateAssessmentFrameworkCommandOutput extends UpdateAssessment
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssessmentFrameworkCommand extends $Command
@@ -154,9 +157,7 @@ export class UpdateAssessmentFrameworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +169,16 @@ export class UpdateAssessmentFrameworkCommand extends $Command
   .f(UpdateAssessmentFrameworkRequestFilterSensitiveLog, UpdateAssessmentFrameworkResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentFrameworkCommand)
   .de(de_UpdateAssessmentFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentFrameworkRequest;
+      output: UpdateAssessmentFrameworkResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentFrameworkCommandInput;
+      output: UpdateAssessmentFrameworkCommandOutput;
+    };
+  };
+}

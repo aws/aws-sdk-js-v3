@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: { // JA3Fingerprint
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: { // JA4Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: { // UriFragment
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -180,6 +187,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -243,6 +256,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -300,6 +319,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               },
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -446,6 +471,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -573,6 +604,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                     UriPath: { // RateLimitUriPath
  * //                       TextTransformations: "<TextTransformations>", // required
  * //                     },
+ * //                     JA3Fingerprint: { // RateLimitJA3Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     JA4Fingerprint: { // RateLimitJA4Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     ASN: {},
  * //                   },
  * //                 ],
  * //               },
@@ -725,6 +763,20 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                       },
  * //                       EnableRegexInPath: true || false,
  * //                     },
+ * //                     AWSManagedRulesAntiDDoSRuleSet: { // AWSManagedRulesAntiDDoSRuleSet
+ * //                       ClientSideActionConfig: { // ClientSideActionConfig
+ * //                         Challenge: { // ClientSideAction
+ * //                           UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                           Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                           ExemptUriRegularExpressions: [ // RegularExpressionList
+ * //                             { // Regex
+ * //                               RegexString: "STRING_VALUE",
+ * //                             },
+ * //                           ],
+ * //                         },
+ * //                       },
+ * //                       SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                     },
  * //                   },
  * //                 ],
  * //                 RuleActionOverrides: [
@@ -763,6 +815,15 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
  * //               },
+ * //               AsnMatchStatement: { // AsnMatchStatement
+ * //                 AsnList: [ // AsnList // required
+ * //                   Number("long"),
+ * //                 ],
+ * //                 ForwardedIPConfig: {
+ * //                   HeaderName: "STRING_VALUE", // required
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //               },
  * //             },
  * //             ForwardedIPConfig: {
  * //               HeaderName: "STRING_VALUE", // required
@@ -794,6 +855,13 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                 UriPath: {
  * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
+ * //                 JA3Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 JA4Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 ASN: {},
  * //               },
  * //             ],
  * //           },
@@ -934,6 +1002,20 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //                   },
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -971,6 +1053,12 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * //             RegexString: "STRING_VALUE", // required
  * //             FieldToMatch: "<FieldToMatch>", // required
  * //             TextTransformations: "<TextTransformations>", // required
+ * //           },
+ * //           AsnMatchStatement: {
+ * //             AsnList: [ // required
+ * //               Number("long"),
+ * //             ],
+ * //             ForwardedIPConfig: "<ForwardedIPConfig>",
  * //           },
  * //         },
  * //         Action: "<RuleAction>",
@@ -1071,6 +1159,7 @@ export interface GetRuleGroupCommandOutput extends GetRuleGroupResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class GetRuleGroupCommand extends $Command
@@ -1081,9 +1170,7 @@ export class GetRuleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1095,4 +1182,16 @@ export class GetRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuleGroupCommand)
   .de(de_GetRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleGroupRequest;
+      output: GetRuleGroupResponse;
+    };
+    sdk: {
+      input: GetRuleGroupCommandInput;
+      output: GetRuleGroupCommandOutput;
+    };
+  };
+}

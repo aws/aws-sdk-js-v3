@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,12 +38,10 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  *          an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing
  *          image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p>
  *          <p> For each object that the model version detects on an image, the API returns a
- *             (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>). Each
- *             <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
- *          of confidence that the image contains the object (<code>Confidence</code>), and object
- *          location information, if it exists, for the label on the image (<code>Geometry</code>).
- *          Note that for the <code>DetectCustomLabelsLabels</code> operation, <code>Polygons</code>
- *          are not returned in the <code>Geometry</code> section of the response.</p>
+ *          (<code>CustomLabel</code>) object in an array (<code>CustomLabels</code>).
+ *          Each <code>CustomLabel</code> object provides the label name (<code>Name</code>), the level
+ *          of confidence that the image contains the object (<code>Confidence</code>), and
+ *          object location information, if it exists,  for the label on the image (<code>Geometry</code>). </p>
  *          <p>To filter labels that are returned, specify a value for <code>MinConfidence</code>.
  *          <code>DetectCustomLabelsLabels</code> only returns labels with a confidence that's higher than
  *          the specified value.
@@ -163,40 +162,40 @@ export interface DetectCustomLabelsCommandOutput extends DetectCustomLabelsRespo
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To detect custom labels in an image with an Amazon Rekognition Custom Labels model
  * ```javascript
  * // Detects custom labels in an image with an Amazon Rekognition Custom Labels model
  * const input = {
- *   "Image": {
- *     "S3Object": {
- *       "Bucket": "custom-labels-console-us-east-1-1111111111",
- *       "Name": "assets/flowers_1_test_dataset/camellia4.jpg"
+ *   Image: {
+ *     S3Object: {
+ *       Bucket: "custom-labels-console-us-east-1-1111111111",
+ *       Name: "assets/flowers_1_test_dataset/camellia4.jpg"
  *     }
  *   },
- *   "MaxResults": 100,
- *   "MinConfidence": 50,
- *   "ProjectVersionArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/my-project.2023-07-31T11.49.37/1690829378219"
+ *   MaxResults: 100,
+ *   MinConfidence: 50,
+ *   ProjectVersionArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/version/my-project.2023-07-31T11.49.37/1690829378219"
  * };
  * const command = new DetectCustomLabelsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomLabels": [
+ *   CustomLabels: [
  *     {
- *       "Confidence": 67.56399536132812,
- *       "Name": "with_leaves"
+ *       Confidence: 67.56399536132812,
+ *       Name: "with_leaves"
  *     },
  *     {
- *       "Confidence": 50.65699768066406,
- *       "Name": "without_leaves"
+ *       Confidence: 50.65699768066406,
+ *       Name: "without_leaves"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-detect-custom-labels-in-images-with-an-amazon-rekognition-custom-labels-model-1690832037913
  * ```
  *
+ * @public
  */
 export class DetectCustomLabelsCommand extends $Command
   .classBuilder<
@@ -206,9 +205,7 @@ export class DetectCustomLabelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -220,4 +217,16 @@ export class DetectCustomLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectCustomLabelsCommand)
   .de(de_DetectCustomLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectCustomLabelsRequest;
+      output: DetectCustomLabelsResponse;
+    };
+    sdk: {
+      input: DetectCustomLabelsCommandInput;
+      output: DetectCustomLabelsCommandOutput;
+    };
+  };
+}

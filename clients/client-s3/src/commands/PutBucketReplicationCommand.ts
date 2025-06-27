@@ -13,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,16 +30,15 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p> Creates a replication configuration or replaces an existing one. For more information,
  *          see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/replication.html">Replication</a> in the <i>Amazon S3 User Guide</i>. </p>
  *          <p>Specify the replication configuration in the request body. In the replication
  *          configuration, you provide the name of the destination bucket or buckets where you want
  *          Amazon S3 to replicate objects, the IAM role that Amazon S3 can assume to replicate objects on your
- *          behalf, and other relevant information. You can invoke this request for a specific
- *          Amazon Web Services Region by using the
- *          <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion">
+ *          behalf, and other relevant information. You can invoke this request for a specific Amazon Web Services
+ *          Region by using the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html#condition-keys-requestedregion">
  *                <code>aws:RequestedRegion</code>
  *             </a> condition key.</p>
  *          <p>A replication configuration must include at least one rule, and can contain a maximum of
@@ -111,7 +111,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * const input = { // PutBucketReplicationRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ReplicationConfiguration: { // ReplicationConfiguration
  *     Role: "STRING_VALUE", // required
  *     Rules: [ // ReplicationRules // required
@@ -119,7 +119,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *         ID: "STRING_VALUE",
  *         Priority: Number("int"),
  *         Prefix: "STRING_VALUE",
- *         Filter: { // ReplicationRuleFilter Union: only one key present
+ *         Filter: { // ReplicationRuleFilter
  *           Prefix: "STRING_VALUE",
  *           Tag: { // Tag
  *             Key: "STRING_VALUE", // required
@@ -150,7 +150,7 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  *         Destination: { // Destination
  *           Bucket: "STRING_VALUE", // required
  *           Account: "STRING_VALUE",
- *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ *           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  *           AccessControlTranslation: { // AccessControlTranslation
  *             Owner: "Destination", // required
  *           },
@@ -194,31 +194,34 @@ export interface PutBucketReplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set replication configuration on a bucket
  * ```javascript
  * // The following example sets replication configuration on a bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "ReplicationConfiguration": {
- *     "Role": "arn:aws:iam::123456789012:role/examplerole",
- *     "Rules": [
+ *   Bucket: "examplebucket",
+ *   ReplicationConfiguration: {
+ *     Role: "arn:aws:iam::123456789012:role/examplerole",
+ *     Rules: [
  *       {
- *         "Destination": {
- *           "Bucket": "arn:aws:s3:::destinationbucket",
- *           "StorageClass": "STANDARD"
+ *         Destination: {
+ *           Bucket: "arn:aws:s3:::destinationbucket",
+ *           StorageClass: "STANDARD"
  *         },
- *         "Prefix": "",
- *         "Status": "Enabled"
+ *         Prefix: "",
+ *         Status: "Enabled"
  *       }
  *     ]
  *   }
  * };
  * const command = new PutBucketReplicationCommand(input);
- * await client.send(command);
- * // example id: id-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketReplicationCommand extends $Command
   .classBuilder<
@@ -238,8 +241,7 @@ export class PutBucketReplicationCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -249,4 +251,16 @@ export class PutBucketReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketReplicationCommand)
   .de(de_PutBucketReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketReplicationCommandInput;
+      output: PutBucketReplicationCommandOutput;
+    };
+  };
+}

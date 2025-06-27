@@ -12,7 +12,8 @@ import { de_DisposePackageVersionsCommand, se_DisposePackageVersionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,7 +50,7 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   versions: [ // PackageVersionList // required
@@ -116,6 +117,7 @@ export interface DisposePackageVersionsCommandOutput extends DisposePackageVersi
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DisposePackageVersionsCommand extends $Command
@@ -126,9 +128,7 @@ export class DisposePackageVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class DisposePackageVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisposePackageVersionsCommand)
   .de(de_DisposePackageVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisposePackageVersionsRequest;
+      output: DisposePackageVersionsResult;
+    };
+    sdk: {
+      input: DisposePackageVersionsCommandInput;
+      output: DisposePackageVersionsCommandOutput;
+    };
+  };
+}

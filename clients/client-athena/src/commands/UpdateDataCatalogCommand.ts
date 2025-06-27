@@ -12,7 +12,8 @@ import { de_UpdateDataCatalogCommand, se_UpdateDataCatalogCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * const client = new AthenaClient(config);
  * const input = { // UpdateDataCatalogInput
  *   Name: "STRING_VALUE", // required
- *   Type: "LAMBDA" || "GLUE" || "HIVE", // required
+ *   Type: "LAMBDA" || "GLUE" || "HIVE" || "FEDERATED", // required
  *   Description: "STRING_VALUE",
  *   Parameters: { // ParametersMap
  *     "<keys>": "STRING_VALUE",
@@ -65,6 +66,7 @@ export interface UpdateDataCatalogCommandOutput extends UpdateDataCatalogOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataCatalogCommand extends $Command
@@ -75,9 +77,7 @@ export class UpdateDataCatalogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class UpdateDataCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataCatalogCommand)
   .de(de_UpdateDataCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataCatalogInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDataCatalogCommandInput;
+      output: UpdateDataCatalogCommandOutput;
+    };
+  };
+}

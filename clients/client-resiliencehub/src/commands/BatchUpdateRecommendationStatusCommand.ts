@@ -15,7 +15,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,7 +52,8 @@ export interface BatchUpdateRecommendationStatusCommandOutput
  *         targetRegion: "STRING_VALUE",
  *       },
  *       excluded: true || false, // required
- *       excludeReason: "STRING_VALUE",
+ *       appComponentId: "STRING_VALUE",
+ *       excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  *     },
  *   ],
  * };
@@ -69,7 +71,8 @@ export interface BatchUpdateRecommendationStatusCommandOutput
  * //         targetRegion: "STRING_VALUE",
  * //       },
  * //       excluded: true || false, // required
- * //       excludeReason: "STRING_VALUE",
+ * //       appComponentId: "STRING_VALUE",
+ * //       excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
  * //     },
  * //   ],
  * //   failedEntries: [ // BatchUpdateRecommendationStatusFailedEntries // required
@@ -109,6 +112,7 @@ export interface BatchUpdateRecommendationStatusCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class BatchUpdateRecommendationStatusCommand extends $Command
@@ -119,9 +123,7 @@ export class BatchUpdateRecommendationStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +135,16 @@ export class BatchUpdateRecommendationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateRecommendationStatusCommand)
   .de(de_BatchUpdateRecommendationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateRecommendationStatusRequest;
+      output: BatchUpdateRecommendationStatusResponse;
+    };
+    sdk: {
+      input: BatchUpdateRecommendationStatusCommandInput;
+      output: BatchUpdateRecommendationStatusCommandOutput;
+    };
+  };
+}

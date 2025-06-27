@@ -12,7 +12,8 @@ import { de_GetPolicyCommand, se_GetPolicyCommand } from "../protocols/Aws_query
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface GetPolicyCommandOutput extends GetPolicyResponse, __MetadataBea
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class GetPolicyCommand extends $Command
@@ -103,9 +105,7 @@ export class GetPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPolicyCommand)
   .de(de_GetPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPolicyRequest;
+      output: GetPolicyResponse;
+    };
+    sdk: {
+      input: GetPolicyCommandInput;
+      output: GetPolicyCommandOutput;
+    };
+  };
+}

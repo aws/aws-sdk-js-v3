@@ -16,7 +16,8 @@ import { de_ListWorkloadsCommand, se_ListWorkloadsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,8 +54,9 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsResponse, __Met
  * //       WorkloadId: "STRING_VALUE",
  * //       ComponentName: "STRING_VALUE",
  * //       WorkloadName: "STRING_VALUE",
- * //       Tier: "CUSTOM" || "DEFAULT" || "DOT_NET_CORE" || "DOT_NET_WORKER" || "DOT_NET_WEB_TIER" || "DOT_NET_WEB" || "SQL_SERVER" || "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP" || "MYSQL" || "POSTGRESQL" || "JAVA_JMX" || "ORACLE" || "SAP_HANA_MULTI_NODE" || "SAP_HANA_SINGLE_NODE" || "SAP_HANA_HIGH_AVAILABILITY" || "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE" || "SHAREPOINT" || "ACTIVE_DIRECTORY" || "SAP_NETWEAVER_STANDARD" || "SAP_NETWEAVER_DISTRIBUTED" || "SAP_NETWEAVER_HIGH_AVAILABILITY",
+ * //       Tier: "CUSTOM" || "DEFAULT" || "DOT_NET_CORE" || "DOT_NET_WORKER" || "DOT_NET_WEB_TIER" || "DOT_NET_WEB" || "SQL_SERVER" || "SQL_SERVER_ALWAYSON_AVAILABILITY_GROUP" || "MYSQL" || "POSTGRESQL" || "JAVA_JMX" || "ORACLE" || "SAP_HANA_MULTI_NODE" || "SAP_HANA_SINGLE_NODE" || "SAP_HANA_HIGH_AVAILABILITY" || "SAP_ASE_SINGLE_NODE" || "SAP_ASE_HIGH_AVAILABILITY" || "SQL_SERVER_FAILOVER_CLUSTER_INSTANCE" || "SHAREPOINT" || "ACTIVE_DIRECTORY" || "SAP_NETWEAVER_STANDARD" || "SAP_NETWEAVER_DISTRIBUTED" || "SAP_NETWEAVER_HIGH_AVAILABILITY",
  * //       WorkloadRemarks: "STRING_VALUE",
+ * //       MissingWorkloadConfig: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -80,6 +82,7 @@ export interface ListWorkloadsCommandOutput extends ListWorkloadsResponse, __Met
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class ListWorkloadsCommand extends $Command
@@ -90,9 +93,7 @@ export class ListWorkloadsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +105,16 @@ export class ListWorkloadsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkloadsCommand)
   .de(de_ListWorkloadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkloadsRequest;
+      output: ListWorkloadsResponse;
+    };
+    sdk: {
+      input: ListWorkloadsCommandInput;
+      output: ListWorkloadsCommandOutput;
+    };
+  };
+}

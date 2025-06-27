@@ -16,7 +16,8 @@ import { de_AdminDisableProviderForUserCommand, se_AdminDisableProviderForUserCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,13 +40,11 @@ export interface AdminDisableProviderForUserCommandOutput
  *             to deactivate is a linked external IdP user, any link between that user and an existing
  *             user is removed. When the external user signs in again, and the user is no longer
  *             attached to the previously linked <code>DestinationUser</code>, the user must create a
- *             new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p>
- *          <p>The <code>ProviderName</code> must match the value specified when creating an IdP for
- *             the pool. </p>
- *          <p>To deactivate a native username + password user, the <code>ProviderName</code> value
- *             must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be
- *                 <code>Cognito_Subject</code>. The <code>ProviderAttributeValue</code> must be the
- *             name that is used in the user pool for the user.</p>
+ *             new user account.</p>
+ *          <p>The value of <code>ProviderName</code> must match the name of a user pool IdP.</p>
+ *          <p>To deactivate a local user, set <code>ProviderName</code> to <code>Cognito</code> and
+ *             the <code>ProviderAttributeName</code> to <code>Cognito_Subject</code>. The
+ *                 <code>ProviderAttributeValue</code> must be user's local username.</p>
  *          <p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for
  *             social IdPs. The <code>ProviderAttributeValue</code> must always be the exact subject
  *             that was used when the user was originally linked as a source user.</p>
@@ -53,12 +52,11 @@ export interface AdminDisableProviderForUserCommandOutput
  *             not yet been used to sign in, the <code>ProviderAttributeName</code> and
  *                 <code>ProviderAttributeValue</code> must be the same values that were used for the
  *                 <code>SourceUser</code> when the identities were originally linked using <code>
- *                 AdminLinkProviderForUser</code> call. (If the linking was done with
- *                 <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same
- *             applies here). However, if the user has already signed in, the
- *                 <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and
- *                 <code>ProviderAttributeValue</code> must be the subject of the SAML
- *             assertion.</p>
+ *                 AdminLinkProviderForUser</code> call. This is also true if the linking was done with
+ *                 <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>. If the user
+ *             has already signed in, the <code>ProviderAttributeName</code> must be
+ *                 <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the
+ *                 <code>NameID</code> from their SAML assertion.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -136,6 +134,7 @@ export interface AdminDisableProviderForUserCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminDisableProviderForUserCommand extends $Command
@@ -146,9 +145,7 @@ export class AdminDisableProviderForUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +157,16 @@ export class AdminDisableProviderForUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AdminDisableProviderForUserCommand)
   .de(de_AdminDisableProviderForUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminDisableProviderForUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminDisableProviderForUserCommandInput;
+      output: AdminDisableProviderForUserCommandOutput;
+    };
+  };
+}

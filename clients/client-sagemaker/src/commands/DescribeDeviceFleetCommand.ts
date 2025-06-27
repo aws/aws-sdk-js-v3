@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DescribeDeviceFleetCommandOutput extends DescribeDeviceFleetRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeviceFleetCommand extends $Command
@@ -79,9 +81,7 @@ export class DescribeDeviceFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DescribeDeviceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDeviceFleetCommand)
   .de(de_DescribeDeviceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeviceFleetRequest;
+      output: DescribeDeviceFleetResponse;
+    };
+    sdk: {
+      input: DescribeDeviceFleetCommandInput;
+      output: DescribeDeviceFleetCommandOutput;
+    };
+  };
+}

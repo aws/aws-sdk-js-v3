@@ -12,7 +12,8 @@ import { de_GetUserDefinedFunctionCommand, se_GetUserDefinedFunctionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface GetUserDefinedFunctionCommandOutput extends GetUserDefinedFunct
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetUserDefinedFunctionCommand extends $Command
@@ -95,9 +97,7 @@ export class GetUserDefinedFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class GetUserDefinedFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserDefinedFunctionCommand)
   .de(de_GetUserDefinedFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserDefinedFunctionRequest;
+      output: GetUserDefinedFunctionResponse;
+    };
+    sdk: {
+      input: GetUserDefinedFunctionCommandInput;
+      output: GetUserDefinedFunctionCommandOutput;
+    };
+  };
+}

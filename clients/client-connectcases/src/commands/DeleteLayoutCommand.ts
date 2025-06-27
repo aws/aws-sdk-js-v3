@@ -12,7 +12,8 @@ import { de_DeleteLayoutCommand, se_DeleteLayoutCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface DeleteLayoutCommandInput extends DeleteLayoutRequest {}
 export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a layout from a cases template. You can delete up to 100 layouts per domain.</p>
- *
+ * <p>Deletes a layout from a cases template. You can delete up to 100 layouts per
+ *       domain.</p>
  *          <p>After a layout is deleted:</p>
  *          <ul>
  *             <li>
@@ -36,7 +37,7 @@ export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __Metad
  *             </li>
  *             <li>
  *                <p>You cannot update a deleted layout by calling <code>UpdateLayout</code>; it throws a
- *           <code>ValidationException</code>.</p>
+ *             <code>ValidationException</code>.</p>
  *             </li>
  *             <li>
  *                <p>Deleted layouts are not included in the <code>ListLayouts</code> response.</p>
@@ -89,6 +90,7 @@ export interface DeleteLayoutCommandOutput extends DeleteLayoutResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class DeleteLayoutCommand extends $Command
@@ -99,9 +101,7 @@ export class DeleteLayoutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DeleteLayoutCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLayoutCommand)
   .de(de_DeleteLayoutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLayoutRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLayoutCommandInput;
+      output: DeleteLayoutCommandOutput;
+    };
+  };
+}

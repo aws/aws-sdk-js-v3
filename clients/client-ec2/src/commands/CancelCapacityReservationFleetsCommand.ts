@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,16 +33,17 @@ export interface CancelCapacityReservationFleetsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity Reservation
- * 			Fleet, the following happens:</p>
+ * <p>Cancels one or more Capacity Reservation Fleets. When you cancel a Capacity
+ * 			Reservation Fleet, the following happens:</p>
  *          <ul>
  *             <li>
- *                <p>The Capacity Reservation Fleet's status changes to <code>cancelled</code>.</p>
+ *                <p>The Capacity Reservation Fleet's status changes to
+ * 					<code>cancelled</code>.</p>
  *             </li>
  *             <li>
- *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances running
- * 					in the Capacity Reservations at the time of cancelling the Fleet continue to run in
- * 					shared capacity.</p>
+ *                <p>The individual Capacity Reservations in the Fleet are cancelled. Instances
+ * 					running in the Capacity Reservations at the time of cancelling the Fleet
+ * 					continue to run in shared capacity.</p>
  *             </li>
  *             <li>
  *                <p>The Fleet stops creating new Capacity Reservations.</p>
@@ -91,6 +93,7 @@ export interface CancelCapacityReservationFleetsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CancelCapacityReservationFleetsCommand extends $Command
@@ -101,9 +104,7 @@ export class CancelCapacityReservationFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class CancelCapacityReservationFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelCapacityReservationFleetsCommand)
   .de(de_CancelCapacityReservationFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelCapacityReservationFleetsRequest;
+      output: CancelCapacityReservationFleetsResult;
+    };
+    sdk: {
+      input: CancelCapacityReservationFleetsCommandInput;
+      output: CancelCapacityReservationFleetsCommandOutput;
+    };
+  };
+}

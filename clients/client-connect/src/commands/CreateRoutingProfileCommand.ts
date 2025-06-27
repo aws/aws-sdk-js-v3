@@ -12,7 +12,8 @@ import { de_CreateRoutingProfileCommand, se_CreateRoutingProfileCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,7 +44,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *     { // RoutingProfileQueueConfig
  *       QueueReference: { // RoutingProfileQueueReference
  *         QueueId: "STRING_VALUE", // required
- *         Channel: "VOICE" || "CHAT" || "TASK", // required
+ *         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *       },
  *       Priority: Number("int"), // required
  *       Delay: Number("int"), // required
@@ -51,7 +52,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  *   ],
  *   MediaConcurrencies: [ // MediaConcurrencies // required
  *     { // MediaConcurrency
- *       Channel: "VOICE" || "CHAT" || "TASK", // required
+ *       Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL", // required
  *       Concurrency: Number("int"), // required
  *       CrossChannelBehavior: { // CrossChannelBehavior
  *         BehaviorType: "ROUTE_CURRENT_CHANNEL_ONLY" || "ROUTE_ANY_CHANNEL", // required
@@ -102,6 +103,7 @@ export interface CreateRoutingProfileCommandOutput extends CreateRoutingProfileR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateRoutingProfileCommand extends $Command
@@ -112,9 +114,7 @@ export class CreateRoutingProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class CreateRoutingProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRoutingProfileCommand)
   .de(de_CreateRoutingProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRoutingProfileRequest;
+      output: CreateRoutingProfileResponse;
+    };
+    sdk: {
+      input: CreateRoutingProfileCommandInput;
+      output: CreateRoutingProfileCommandOutput;
+    };
+  };
+}

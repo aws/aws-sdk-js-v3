@@ -5,19 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  QueryAssistantRequest,
-  QueryAssistantRequestFilterSensitiveLog,
-  QueryAssistantResponse,
-  QueryAssistantResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { QueryAssistantRequest, QueryAssistantRequestFilterSensitiveLog } from "../models/models_0";
+import { QueryAssistantResponse, QueryAssistantResponseFilterSensitiveLog } from "../models/models_1";
 import { de_QueryAssistantCommand, se_QueryAssistantCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +47,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * const client = new QConnectClient(config);
  * const input = { // QueryAssistantRequest
  *   assistantId: "STRING_VALUE", // required
- *   queryText: "STRING_VALUE", // required
+ *   queryText: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   sessionId: "STRING_VALUE",
@@ -63,6 +60,15 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  *       },
  *     },
  *   ],
+ *   queryInputData: { // QueryInputData Union: only one key present
+ *     queryTextInputData: { // QueryTextInputData
+ *       text: "STRING_VALUE", // required
+ *     },
+ *     intentInputData: { // IntentInputData
+ *       intentId: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   overrideKnowledgeBaseSearchType: "STRING_VALUE",
  * };
  * const command = new QueryAssistantCommand(input);
  * const response = await client.send(command);
@@ -76,6 +82,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //           knowledgeBaseId: "STRING_VALUE",
  * //           contentArn: "STRING_VALUE",
  * //           contentId: "STRING_VALUE",
+ * //           sourceURL: "STRING_VALUE",
+ * //           referenceType: "STRING_VALUE",
  * //         },
  * //         title: { // DocumentText
  * //           text: "STRING_VALUE",
@@ -104,6 +112,8 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //             knowledgeBaseId: "STRING_VALUE",
  * //             contentArn: "STRING_VALUE",
  * //             contentId: "STRING_VALUE",
+ * //             sourceURL: "STRING_VALUE",
+ * //             referenceType: "STRING_VALUE",
  * //           },
  * //           generativeReference: { // GenerativeReference
  * //             modelId: "STRING_VALUE",
@@ -169,6 +179,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
  * //                   },
+ * //                   intentDetectedData: { // IntentDetectedDataDetails
+ * //                     intent: "STRING_VALUE", // required
+ * //                     intentId: "STRING_VALUE", // required
+ * //                   },
  * //                   sourceContentData: { // SourceContentDataDetails
  * //                     id: "STRING_VALUE", // required
  * //                     type: "STRING_VALUE", // required
@@ -180,6 +194,17 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //                       relevanceScore: Number("double"),
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
+ * //                     citationSpan: { // CitationSpan
+ * //                       beginOffsetInclusive: Number("int"),
+ * //                       endOffsetExclusive: Number("int"),
+ * //                     },
+ * //                   },
+ * //                   generativeChunkData: { // GenerativeChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     references: [
+ * //                       "<DataSummary>",
+ * //                     ],
+ * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
  * //                 },
  * //               },
@@ -189,6 +214,10 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //               relevanceLevel: "STRING_VALUE",
  * //             },
  * //           },
+ * //           intentDetectedData: {
+ * //             intent: "STRING_VALUE", // required
+ * //             intentId: "STRING_VALUE", // required
+ * //           },
  * //           sourceContentData: {
  * //             id: "STRING_VALUE", // required
  * //             type: "STRING_VALUE", // required
@@ -197,6 +226,17 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * //               excerpt: "<DocumentText>",
  * //             },
  * //             rankingData: "<RankingData>", // required
+ * //             citationSpan: {
+ * //               beginOffsetInclusive: Number("int"),
+ * //               endOffsetExclusive: Number("int"),
+ * //             },
+ * //           },
+ * //           generativeChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             references: [
+ * //               "<DataSummary>",
+ * //             ],
+ * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },
  * //       },
@@ -231,6 +271,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class QueryAssistantCommand extends $Command
@@ -241,9 +282,7 @@ export class QueryAssistantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -255,4 +294,16 @@ export class QueryAssistantCommand extends $Command
   .f(QueryAssistantRequestFilterSensitiveLog, QueryAssistantResponseFilterSensitiveLog)
   .ser(se_QueryAssistantCommand)
   .de(de_QueryAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryAssistantRequest;
+      output: QueryAssistantResponse;
+    };
+    sdk: {
+      input: QueryAssistantCommandInput;
+      output: QueryAssistantCommandOutput;
+    };
+  };
+}

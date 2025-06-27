@@ -1,21 +1,30 @@
 import "@aws-sdk/signature-v4-crt";
 
-import { Credentials } from "@aws-sdk/types";
+import { ChecksumAlgorithm, S3, SelectObjectContentEventStream } from "@aws-sdk/client-s3";
+import { afterAll, afterEach, beforeAll, describe, expect, test as it } from "vitest";
 
-import { S3, SelectObjectContentEventStream } from "../../src/index";
+import { getIntegTestResources } from "../../../../tests/e2e/get-integ-test-resources";
 import { createBuffer } from "./helpers";
-
-const region: string | undefined = (globalThis as any).defaultRegion || process?.env?.AWS_SMOKE_TEST_REGION;
-const credentials: Credentials | undefined = (globalThis as any).credentials || undefined;
-const Bucket = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_BUCKET || process?.env?.AWS_SMOKE_TEST_BUCKET;
-const mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
 
 let Key = `${Date.now()}`;
 
 describe("@aws-sdk/client-s3", () => {
-  const client = new S3({
-    region: region,
-    credentials,
+  let client: S3;
+  let Bucket: string;
+  let region: string;
+  let mrapArn: string;
+
+  beforeAll(async () => {
+    const integTestResourcesEnv = await getIntegTestResources();
+    Object.assign(process.env, integTestResourcesEnv);
+
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+    mrapArn = (globalThis as any)?.window?.__env__?.AWS_SMOKE_TEST_MRAP_ARN || process?.env?.AWS_SMOKE_TEST_MRAP_ARN;
+
+    Key = ``;
+
+    client = new S3({ region });
   });
 
   describe("PutObject", () => {
@@ -26,8 +35,8 @@ describe("@aws-sdk/client-s3", () => {
       await client.deleteObject({ Bucket, Key });
     });
     it("should succeed with Node.js readable stream body", async () => {
-      const length = 10 * 1000; // 10KB
-      const chunkSize = 10;
+      const length = 100 * 1024; // 100KB
+      const chunkSize = 8 * 1024; // 8KB
       const { Readable } = require("stream");
       let sizeLeft = length;
       const inputStream = new Readable({
@@ -54,8 +63,7 @@ describe("@aws-sdk/client-s3", () => {
     });
   });
 
-  describe("GetObject", function () {
-    jest.setTimeout(10 * 1000);
+  describe("GetObject", () => {
     beforeAll(async () => {
       Key = `${Date.now()}`;
     });
@@ -64,30 +72,47 @@ describe("@aws-sdk/client-s3", () => {
       await client.deleteObject({ Bucket, Key });
     });
 
-    it("should succeed with valid body payload", async () => {
+    it("should succeed with valid body payload with checksums", async () => {
       // prepare the object.
       const body = createBuffer("1MB");
+      let bodyChecksum = "";
+
+      const bodyChecksumReader = (next: any) => async (args: any) => {
+        const checksumValue = args.request.headers["x-amz-checksum-crc32"];
+        if (checksumValue) {
+          bodyChecksum = checksumValue;
+        }
+        return next(args);
+      };
+      client.middlewareStack.addRelativeTo(bodyChecksumReader, {
+        name: "bodyChecksumReader",
+        relation: "before",
+        toMiddleware: "deserializerMiddleware",
+      });
 
       try {
-        await client.putObject({ Bucket, Key, Body: body });
+        await client.putObject({ Bucket, Key, Body: body, ChecksumAlgorithm: ChecksumAlgorithm.CRC32 });
       } catch (e) {
         console.error("failed to put");
         throw e;
       }
 
+      expect(bodyChecksum).not.toEqual("");
+
       try {
         // eslint-disable-next-line no-var
-        var result = await client.getObject({ Bucket, Key });
+        var result = await client.getObject({ Bucket, Key, ChecksumMode: "ENABLED" });
       } catch (e) {
         console.error("failed to get");
         throw e;
       }
 
       expect(result.$metadata.httpStatusCode).toEqual(200);
+      expect(result.ChecksumCRC32).toEqual(bodyChecksum);
       const { Readable } = require("stream");
       expect(result.Body).toBeInstanceOf(Readable);
     });
-  });
+  }, 10_000);
 
   describe("ListObjects", () => {
     beforeAll(async () => {

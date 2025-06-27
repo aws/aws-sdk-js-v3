@@ -12,7 +12,8 @@ import { de_GetAliasCommand, se_GetAliasCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,27 @@ export interface GetAliasCommandOutput extends AliasConfiguration, __MetadataBea
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get a Lambda function alias
+ * ```javascript
+ * // The following example returns details about an alias named BLUE for a function named my-function
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Name: "BLUE"
+ * };
+ * const command = new GetAliasCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AliasArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function:BLUE",
+ *   Description: "Production environment BLUE.",
+ *   FunctionVersion: "3",
+ *   Name: "BLUE",
+ *   RevisionId: "594f41fb-xmpl-4c20-95c7-6ca5f2a92c93"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetAliasCommand extends $Command
@@ -86,9 +108,7 @@ export class GetAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +120,16 @@ export class GetAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAliasCommand)
   .de(de_GetAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAliasRequest;
+      output: AliasConfiguration;
+    };
+    sdk: {
+      input: GetAliasCommandInput;
+      output: GetAliasCommandOutput;
+    };
+  };
+}

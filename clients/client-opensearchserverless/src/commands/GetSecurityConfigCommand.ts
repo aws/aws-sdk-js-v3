@@ -16,7 +16,8 @@ import { de_GetSecurityConfigCommand, se_GetSecurityConfigCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,7 +56,16 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * //       metadata: "STRING_VALUE", // required
  * //       userAttribute: "STRING_VALUE",
  * //       groupAttribute: "STRING_VALUE",
+ * //       openSearchServerlessEntityId: "STRING_VALUE",
  * //       sessionTimeout: Number("int"),
+ * //     },
+ * //     iamIdentityCenterOptions: { // IamIdentityCenterConfigOptions
+ * //       instanceArn: "STRING_VALUE",
+ * //       applicationArn: "STRING_VALUE",
+ * //       applicationName: "STRING_VALUE",
+ * //       applicationDescription: "STRING_VALUE",
+ * //       userAttribute: "STRING_VALUE",
+ * //       groupAttribute: "STRING_VALUE",
  * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
@@ -83,6 +93,7 @@ export interface GetSecurityConfigCommandOutput extends GetSecurityConfigRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class GetSecurityConfigCommand extends $Command
@@ -93,9 +104,7 @@ export class GetSecurityConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +116,16 @@ export class GetSecurityConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSecurityConfigCommand)
   .de(de_GetSecurityConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecurityConfigRequest;
+      output: GetSecurityConfigResponse;
+    };
+    sdk: {
+      input: GetSecurityConfigCommandInput;
+      output: GetSecurityConfigCommandOutput;
+    };
+  };
+}

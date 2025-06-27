@@ -6,17 +6,44 @@
 
 AWS SDK for JavaScript AppIntegrations Client for Node.js, Browser and React Native.
 
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_AppIntegrations_Service.html">Amazon AppIntegrations
+actions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_AppIntegrations_Service.html">Amazon AppIntegrations
+data types</a>
+</p>
+</li>
+</ul>
 <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
 applications.</p>
 <p>For information about how you can use external applications with Amazon Connect, see
-<a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
-integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents
-using Amazon Connect Wisdom</a> in the <i>Amazon Connect Administrator
-Guide</i>.</p>
+the following topics in the <i>Amazon Connect Administrator
+Guide</i>:</p>
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/adminguide/3p-apps.html">Third-party
+applications (3p apps) in the agent workspace</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html">Use
+Amazon Q in Connect for generative AI–powered agent assistance in
+real-time</a>
+</p>
+</li>
+</ul>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appintegrations
+To install this package, simply type add or install @aws-sdk/client-appintegrations
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appintegrations`
@@ -227,6 +254,14 @@ CreateDataIntegration
 </details>
 <details>
 <summary>
+CreateDataIntegrationAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appintegrations/command/CreateDataIntegrationAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/CreateDataIntegrationAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/CreateDataIntegrationAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEventIntegration
 </summary>
 
@@ -367,6 +402,14 @@ UpdateDataIntegration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appintegrations/command/UpdateDataIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/UpdateDataIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/UpdateDataIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataIntegrationAssociation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appintegrations/command/UpdateDataIntegrationAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/UpdateDataIntegrationAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appintegrations/Interface/UpdateDataIntegrationAssociationCommandOutput/)
 
 </details>
 <details>

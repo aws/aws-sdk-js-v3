@@ -27,7 +27,7 @@ see the <a href="https://docs.aws.amazon.com/cli/latest/reference/workspaces/ind
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces
+To install this package, simply type add or install @aws-sdk/client-workspaces
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces`
@@ -350,6 +350,14 @@ CreateWorkspaces
 </details>
 <details>
 <summary>
+CreateWorkspacesPool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/CreateWorkspacesPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CreateWorkspacesPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/CreateWorkspacesPoolCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteAccountLinkInvitation
 </summary>
 
@@ -598,6 +606,22 @@ DescribeWorkspaceSnapshots
 </details>
 <details>
 <summary>
+DescribeWorkspacesPools
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/DescribeWorkspacesPoolsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DescribeWorkspacesPoolsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DescribeWorkspacesPoolsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeWorkspacesPoolSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/DescribeWorkspacesPoolSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DescribeWorkspacesPoolSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/DescribeWorkspacesPoolSessionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateConnectionAlias
 </summary>
 
@@ -694,6 +718,14 @@ ModifyClientProperties
 </details>
 <details>
 <summary>
+ModifyEndpointEncryptionMode
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ModifyEndpointEncryptionModeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyEndpointEncryptionModeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyEndpointEncryptionModeCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifySamlProperties
 </summary>
 
@@ -706,6 +738,14 @@ ModifySelfservicePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ModifySelfservicePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifySelfservicePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifySelfservicePermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyStreamingProperties
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/ModifyStreamingPropertiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyStreamingPropertiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/ModifyStreamingPropertiesCommandOutput/)
 
 </details>
 <details>
@@ -798,6 +838,14 @@ StartWorkspaces
 </details>
 <details>
 <summary>
+StartWorkspacesPool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/StartWorkspacesPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/StartWorkspacesPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/StartWorkspacesPoolCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopWorkspaces
 </summary>
 
@@ -806,10 +854,34 @@ StopWorkspaces
 </details>
 <details>
 <summary>
+StopWorkspacesPool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/StopWorkspacesPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/StopWorkspacesPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/StopWorkspacesPoolCommandOutput/)
+
+</details>
+<details>
+<summary>
 TerminateWorkspaces
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/TerminateWorkspacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/TerminateWorkspacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/TerminateWorkspacesCommandOutput/)
+
+</details>
+<details>
+<summary>
+TerminateWorkspacesPool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/TerminateWorkspacesPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/TerminateWorkspacesPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/TerminateWorkspacesPoolCommandOutput/)
+
+</details>
+<details>
+<summary>
+TerminateWorkspacesPoolSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/TerminateWorkspacesPoolSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/TerminateWorkspacesPoolSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/TerminateWorkspacesPoolSessionCommandOutput/)
 
 </details>
 <details>
@@ -850,5 +922,13 @@ UpdateWorkspaceImagePermission
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/UpdateWorkspaceImagePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/UpdateWorkspaceImagePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/UpdateWorkspaceImagePermissionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateWorkspacesPool
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces/command/UpdateWorkspacesPoolCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/UpdateWorkspacesPoolCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces/Interface/UpdateWorkspacesPoolCommandOutput/)
 
 </details>

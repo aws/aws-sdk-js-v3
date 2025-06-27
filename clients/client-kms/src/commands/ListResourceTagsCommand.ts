@@ -12,7 +12,8 @@ import { de_ListResourceTagsCommand, se_ListResourceTagsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,8 +31,8 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * <p>Returns all tags on the specified KMS key.</p>
  *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services resources</a> in
  *       the <i>Amazon Web Services General Reference</i>. For information about using
- *       tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging
- *         keys</a>.</p>
+ *       tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tags in
+ *         KMS</a>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *          <p>
@@ -63,7 +64,7 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,37 +116,37 @@ export interface ListResourceTagsCommandOutput extends ListResourceTagsResponse,
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To list tags for a KMS key
  * ```javascript
  * // The following example lists tags for a KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new ListResourceTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "TagKey": "CostCenter",
- *       "TagValue": "87654"
+ *       TagKey: "CostCenter",
+ *       TagValue: "87654"
  *     },
  *     {
- *       "TagKey": "CreatedBy",
- *       "TagValue": "ExampleUser"
+ *       TagKey: "CreatedBy",
+ *       TagValue: "ExampleUser"
  *     },
  *     {
- *       "TagKey": "Purpose",
- *       "TagValue": "Test"
+ *       TagKey: "Purpose",
+ *       TagValue: "Test"
  *     }
  *   ],
- *   "Truncated": false
+ *   Truncated: false
  * }
  * *\/
- * // example id: to-list-tags-for-a-cmk-1483996855796
  * ```
  *
+ * @public
  */
 export class ListResourceTagsCommand extends $Command
   .classBuilder<
@@ -155,9 +156,7 @@ export class ListResourceTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +168,16 @@ export class ListResourceTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceTagsCommand)
   .de(de_ListResourceTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceTagsRequest;
+      output: ListResourceTagsResponse;
+    };
+    sdk: {
+      input: ListResourceTagsCommandInput;
+      output: ListResourceTagsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UpdateMetricSetCommand, se_UpdateMetricSetCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -183,6 +184,7 @@ export interface UpdateMetricSetCommandOutput extends UpdateMetricSetResponse, _
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class UpdateMetricSetCommand extends $Command
@@ -193,9 +195,7 @@ export class UpdateMetricSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +207,16 @@ export class UpdateMetricSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMetricSetCommand)
   .de(de_UpdateMetricSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMetricSetRequest;
+      output: UpdateMetricSetResponse;
+    };
+    sdk: {
+      input: UpdateMetricSetCommandInput;
+      output: UpdateMetricSetCommandOutput;
+    };
+  };
+}

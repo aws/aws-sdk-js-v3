@@ -14,6 +14,11 @@ import {
   CreateLoggingConfigurationCommandOutput,
 } from "./commands/CreateLoggingConfigurationCommand";
 import {
+  CreateQueryLoggingConfigurationCommand,
+  CreateQueryLoggingConfigurationCommandInput,
+  CreateQueryLoggingConfigurationCommandOutput,
+} from "./commands/CreateQueryLoggingConfigurationCommand";
+import {
   CreateRuleGroupsNamespaceCommand,
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
@@ -38,6 +43,11 @@ import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
+import {
+  DeleteQueryLoggingConfigurationCommand,
+  DeleteQueryLoggingConfigurationCommandInput,
+  DeleteQueryLoggingConfigurationCommandOutput,
+} from "./commands/DeleteQueryLoggingConfigurationCommand";
 import {
   DeleteRuleGroupsNamespaceCommand,
   DeleteRuleGroupsNamespaceCommandInput,
@@ -64,6 +74,11 @@ import {
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
 import {
+  DescribeQueryLoggingConfigurationCommand,
+  DescribeQueryLoggingConfigurationCommandInput,
+  DescribeQueryLoggingConfigurationCommandOutput,
+} from "./commands/DescribeQueryLoggingConfigurationCommand";
+import {
   DescribeRuleGroupsNamespaceCommand,
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
@@ -78,6 +93,11 @@ import {
   DescribeWorkspaceCommandInput,
   DescribeWorkspaceCommandOutput,
 } from "./commands/DescribeWorkspaceCommand";
+import {
+  DescribeWorkspaceConfigurationCommand,
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "./commands/DescribeWorkspaceConfigurationCommand";
 import {
   GetDefaultScraperConfigurationCommand,
   GetDefaultScraperConfigurationCommandInput,
@@ -125,27 +145,46 @@ import {
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
 import {
+  UpdateQueryLoggingConfigurationCommand,
+  UpdateQueryLoggingConfigurationCommandInput,
+  UpdateQueryLoggingConfigurationCommandOutput,
+} from "./commands/UpdateQueryLoggingConfigurationCommand";
+import {
+  UpdateScraperCommand,
+  UpdateScraperCommandInput,
+  UpdateScraperCommandOutput,
+} from "./commands/UpdateScraperCommand";
+import {
   UpdateWorkspaceAliasCommand,
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
+import {
+  UpdateWorkspaceConfigurationCommand,
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "./commands/UpdateWorkspaceConfigurationCommand";
 
 const commands = {
   CreateAlertManagerDefinitionCommand,
   CreateLoggingConfigurationCommand,
+  CreateQueryLoggingConfigurationCommand,
   CreateRuleGroupsNamespaceCommand,
   CreateScraperCommand,
   CreateWorkspaceCommand,
   DeleteAlertManagerDefinitionCommand,
   DeleteLoggingConfigurationCommand,
+  DeleteQueryLoggingConfigurationCommand,
   DeleteRuleGroupsNamespaceCommand,
   DeleteScraperCommand,
   DeleteWorkspaceCommand,
   DescribeAlertManagerDefinitionCommand,
   DescribeLoggingConfigurationCommand,
+  DescribeQueryLoggingConfigurationCommand,
   DescribeRuleGroupsNamespaceCommand,
   DescribeScraperCommand,
   DescribeWorkspaceCommand,
+  DescribeWorkspaceConfigurationCommand,
   GetDefaultScraperConfigurationCommand,
   ListRuleGroupsNamespacesCommand,
   ListScrapersCommand,
@@ -156,7 +195,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateLoggingConfigurationCommand,
+  UpdateQueryLoggingConfigurationCommand,
+  UpdateScraperCommand,
   UpdateWorkspaceAliasCommand,
+  UpdateWorkspaceConfigurationCommand,
 };
 
 export interface Amp {
@@ -192,6 +234,23 @@ export interface Amp {
     args: CreateLoggingConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateQueryLoggingConfigurationCommand}
+   */
+  createQueryLoggingConfiguration(
+    args: CreateQueryLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateQueryLoggingConfigurationCommandOutput>;
+  createQueryLoggingConfiguration(
+    args: CreateQueryLoggingConfigurationCommandInput,
+    cb: (err: any, data?: CreateQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+  createQueryLoggingConfiguration(
+    args: CreateQueryLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateQueryLoggingConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -272,6 +331,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DeleteQueryLoggingConfigurationCommand}
+   */
+  deleteQueryLoggingConfiguration(
+    args: DeleteQueryLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteQueryLoggingConfigurationCommandOutput>;
+  deleteQueryLoggingConfiguration(
+    args: DeleteQueryLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DeleteQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+  deleteQueryLoggingConfiguration(
+    args: DeleteQueryLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteRuleGroupsNamespaceCommand}
    */
   deleteRuleGroupsNamespace(
@@ -348,6 +424,23 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link DescribeQueryLoggingConfigurationCommand}
+   */
+  describeQueryLoggingConfiguration(
+    args: DescribeQueryLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeQueryLoggingConfigurationCommandOutput>;
+  describeQueryLoggingConfiguration(
+    args: DescribeQueryLoggingConfigurationCommandInput,
+    cb: (err: any, data?: DescribeQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+  describeQueryLoggingConfiguration(
+    args: DescribeQueryLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeRuleGroupsNamespaceCommand}
    */
   describeRuleGroupsNamespace(
@@ -393,6 +486,23 @@ export interface Amp {
     args: DescribeWorkspaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeWorkspaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeWorkspaceConfigurationCommand}
+   */
+  describeWorkspaceConfiguration(
+    args: DescribeWorkspaceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspaceConfigurationCommandOutput>;
+  describeWorkspaceConfiguration(
+    args: DescribeWorkspaceConfigurationCommandInput,
+    cb: (err: any, data?: DescribeWorkspaceConfigurationCommandOutput) => void
+  ): void;
+  describeWorkspaceConfiguration(
+    args: DescribeWorkspaceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspaceConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -548,6 +658,34 @@ export interface Amp {
   ): void;
 
   /**
+   * @see {@link UpdateQueryLoggingConfigurationCommand}
+   */
+  updateQueryLoggingConfiguration(
+    args: UpdateQueryLoggingConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueryLoggingConfigurationCommandOutput>;
+  updateQueryLoggingConfiguration(
+    args: UpdateQueryLoggingConfigurationCommandInput,
+    cb: (err: any, data?: UpdateQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+  updateQueryLoggingConfiguration(
+    args: UpdateQueryLoggingConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueryLoggingConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateScraperCommand}
+   */
+  updateScraper(args: UpdateScraperCommandInput, options?: __HttpHandlerOptions): Promise<UpdateScraperCommandOutput>;
+  updateScraper(args: UpdateScraperCommandInput, cb: (err: any, data?: UpdateScraperCommandOutput) => void): void;
+  updateScraper(
+    args: UpdateScraperCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateScraperCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateWorkspaceAliasCommand}
    */
   updateWorkspaceAlias(
@@ -563,27 +701,27 @@ export interface Amp {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceAliasCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateWorkspaceConfigurationCommand}
+   */
+  updateWorkspaceConfiguration(
+    args: UpdateWorkspaceConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspaceConfigurationCommandOutput>;
+  updateWorkspaceConfiguration(
+    args: UpdateWorkspaceConfigurationCommandInput,
+    cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
+  ): void;
+  updateWorkspaceConfiguration(
+    args: UpdateWorkspaceConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspaceConfigurationCommandOutput) => void
+  ): void;
 }
 
 /**
- * <p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for
- *             container metrics that makes it easier to securely monitor container environments at
- *             scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data
- *             model and query language that you use today to monitor the performance of your
- *             containerized workloads, and also enjoy improved scalability, availability, and security
- *             without having to manage the underlying infrastructure.</p>
- *          <p>For more information about Amazon Managed Service for Prometheus, see the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a> User Guide.</p>
- *          <p>Amazon Managed Service for Prometheus includes two APIs.</p>
- *          <ul>
- *             <li>
- *                <p>Use the Amazon Web Services API described in this guide to manage Amazon Managed Service for Prometheus resources, such as workspaces, rule groups, and alert
- *                     managers.</p>
- *             </li>
- *             <li>
- *                <p>Use the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis">Prometheus-compatible API</a> to work within your Prometheus
- *                     workspace.</p>
- *             </li>
- *          </ul>
+ * <p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for container metrics that makes it easier to securely monitor container environments at scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data model and query language that you use today to monitor the performance of your containerized workloads, and also enjoy improved scalability, availability, and security without having to manage the underlying infrastructure.</p> <p>For more information about Amazon Managed Service for Prometheus, see the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a> User Guide.</p> <p>Amazon Managed Service for Prometheus includes two APIs.</p> <ul> <li> <p>Use the Amazon Web Services API described in this guide to manage Amazon Managed Service for Prometheus resources, such as workspaces, rule groups, and alert managers.</p> </li> <li> <p>Use the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis">Prometheus-compatible API</a> to work within your Prometheus workspace.</p> </li> </ul>
  * @public
  */
 export class Amp extends AmpClient implements Amp {}

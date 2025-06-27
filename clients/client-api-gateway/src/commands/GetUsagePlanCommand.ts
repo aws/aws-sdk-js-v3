@@ -12,7 +12,8 @@ import { de_GetUsagePlanCommand, se_GetUsagePlanCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface GetUsagePlanCommandOutput extends UsagePlan, __MetadataBearer {
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetUsagePlanCommand extends $Command
@@ -103,9 +105,7 @@ export class GetUsagePlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetUsagePlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsagePlanCommand)
   .de(de_GetUsagePlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsagePlanRequest;
+      output: UsagePlan;
+    };
+    sdk: {
+      input: GetUsagePlanCommandInput;
+      output: GetUsagePlanCommandOutput;
+    };
+  };
+}

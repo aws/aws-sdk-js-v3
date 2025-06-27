@@ -16,7 +16,8 @@ import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelCommand extends $Command
@@ -112,9 +114,7 @@ export class CreateChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class CreateChannelCommand extends $Command
   .f(void 0, CreateChannelResponseFilterSensitiveLog)
   .ser(se_CreateChannelCommand)
   .de(de_CreateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelRequest;
+      output: CreateChannelResponse;
+    };
+    sdk: {
+      input: CreateChannelCommandInput;
+      output: CreateChannelCommandOutput;
+    };
+  };
+}

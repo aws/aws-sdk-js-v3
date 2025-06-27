@@ -18,7 +18,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,33 +84,33 @@ export interface DescribeDBClusterSnapshotAttributesCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe the attribute names and values for a DB cluster snapshot
  * ```javascript
  * // The following example retrieves details of the attribute names and values for the specified DB cluster snapshot.
  * const input = {
- *   "DBClusterSnapshotIdentifier": "myclustersnapshot"
+ *   DBClusterSnapshotIdentifier: "myclustersnapshot"
  * };
  * const command = new DescribeDBClusterSnapshotAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterSnapshotAttributesResult": {
- *     "DBClusterSnapshotAttributes": [
+ *   DBClusterSnapshotAttributesResult: {
+ *     DBClusterSnapshotAttributes: [
  *       {
- *         "AttributeName": "restore",
- *         "AttributeValues": [
+ *         AttributeName: "restore",
+ *         AttributeValues: [
  *           "123456789012"
  *         ]
  *       }
  *     ],
- *     "DBClusterSnapshotIdentifier": "myclustersnapshot"
+ *     DBClusterSnapshotIdentifier: "myclustersnapshot"
  *   }
  * }
  * *\/
- * // example id: to-describe-the-attribute-names-and-values-for-a-db-cluster-snapshot-1680216238905
  * ```
  *
+ * @public
  */
 export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   .classBuilder<
@@ -119,9 +120,7 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class DescribeDBClusterSnapshotAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterSnapshotAttributesCommand)
   .de(de_DescribeDBClusterSnapshotAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterSnapshotAttributesMessage;
+      output: DescribeDBClusterSnapshotAttributesResult;
+    };
+    sdk: {
+      input: DescribeDBClusterSnapshotAttributesCommandInput;
+      output: DescribeDBClusterSnapshotAttributesCommandOutput;
+    };
+  };
+}

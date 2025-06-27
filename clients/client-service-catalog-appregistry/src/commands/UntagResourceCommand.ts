@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -79,9 +81,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

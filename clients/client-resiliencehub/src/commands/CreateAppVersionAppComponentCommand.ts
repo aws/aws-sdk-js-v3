@@ -15,7 +15,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,9 @@ export interface CreateAppVersionAppComponentCommandOutput
 /**
  * <p>Creates a new Application Component in the Resilience Hub application.</p>
  *          <note>
- *             <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *             <p>This API updates the Resilience Hub application draft version. To use this
+ *         Application Component for running assessments, you must publish the Resilience Hub
+ *         application using the <code>PublishAppVersion</code> API.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +113,7 @@ export interface CreateAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class CreateAppVersionAppComponentCommand extends $Command
@@ -120,9 +124,7 @@ export class CreateAppVersionAppComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +136,16 @@ export class CreateAppVersionAppComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppVersionAppComponentCommand)
   .de(de_CreateAppVersionAppComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppVersionAppComponentRequest;
+      output: CreateAppVersionAppComponentResponse;
+    };
+    sdk: {
+      input: CreateAppVersionAppComponentCommandInput;
+      output: CreateAppVersionAppComponentCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   versions: [ // PackageVersionList // required
@@ -114,6 +115,7 @@ export interface UpdatePackageVersionsStatusCommandOutput extends UpdatePackageV
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageVersionsStatusCommand extends $Command
@@ -124,9 +126,7 @@ export class UpdatePackageVersionsStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class UpdatePackageVersionsStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackageVersionsStatusCommand)
   .de(de_UpdatePackageVersionsStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageVersionsStatusRequest;
+      output: UpdatePackageVersionsStatusResult;
+    };
+    sdk: {
+      input: UpdatePackageVersionsStatusCommandInput;
+      output: UpdatePackageVersionsStatusCommandOutput;
+    };
+  };
+}

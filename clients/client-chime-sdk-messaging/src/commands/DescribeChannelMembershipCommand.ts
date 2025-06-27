@@ -20,7 +20,8 @@ import { de_DescribeChannelMembershipCommand, se_DescribeChannelMembershipComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class DescribeChannelMembershipCommand extends $Command
@@ -115,9 +117,7 @@ export class DescribeChannelMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class DescribeChannelMembershipCommand extends $Command
   .f(void 0, DescribeChannelMembershipResponseFilterSensitiveLog)
   .ser(se_DescribeChannelMembershipCommand)
   .de(de_DescribeChannelMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelMembershipRequest;
+      output: DescribeChannelMembershipResponse;
+    };
+    sdk: {
+      input: DescribeChannelMembershipCommandInput;
+      output: DescribeChannelMembershipCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateDBClusterEndpointCommand, se_CreateDBClusterEndpointCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface CreateDBClusterEndpointCommandOutput extends CreateDBClusterEnd
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class CreateDBClusterEndpointCommand extends $Command
@@ -111,9 +113,7 @@ export class CreateDBClusterEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class CreateDBClusterEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBClusterEndpointCommand)
   .de(de_CreateDBClusterEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBClusterEndpointMessage;
+      output: CreateDBClusterEndpointOutput;
+    };
+    sdk: {
+      input: CreateDBClusterEndpointCommandInput;
+      output: CreateDBClusterEndpointCommandOutput;
+    };
+  };
+}

@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   CreateVpcEndpointConnectionNotificationRequest,
   CreateVpcEndpointConnectionNotificationResult,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_CreateVpcEndpointConnectionNotificationCommand,
   se_CreateVpcEndpointConnectionNotificationCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,8 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
 /**
  * <p>Creates a connection notification for a specified VPC endpoint or VPC endpoint
  *             service. A connection notification notifies you of specific endpoint events. You must
- *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Create a Topic</a> in
- *             the <i>Amazon Simple Notification Service Developer Guide</i>.</p>
+ *             create an SNS topic to receive notifications. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Creating an Amazon SNS topic</a> in
+ *             the <i>Amazon SNS Developer Guide</i>.</p>
  *          <p>You can create a connection notification for interface endpoints only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -70,6 +71,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     ConnectionNotificationState: "Enabled" || "Disabled",
+ * //     ServiceRegion: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };
@@ -85,6 +87,7 @@ export interface CreateVpcEndpointConnectionNotificationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcEndpointConnectionNotificationCommand extends $Command
@@ -95,9 +98,7 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +110,16 @@ export class CreateVpcEndpointConnectionNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcEndpointConnectionNotificationCommand)
   .de(de_CreateVpcEndpointConnectionNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcEndpointConnectionNotificationRequest;
+      output: CreateVpcEndpointConnectionNotificationResult;
+    };
+    sdk: {
+      input: CreateVpcEndpointConnectionNotificationCommandInput;
+      output: CreateVpcEndpointConnectionNotificationCommandOutput;
+    };
+  };
+}

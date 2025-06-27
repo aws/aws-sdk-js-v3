@@ -18,11 +18,16 @@ package software.amazon.smithy.aws.typescript.codegen;
 import static software.amazon.smithy.model.knowledge.HttpBinding.Location.DOCUMENT;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.auth.UnsignedPayloadTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
+import software.amazon.smithy.aws.traits.protocols.AwsQueryErrorTrait;
 import software.amazon.smithy.model.knowledge.HttpBindingIndex;
 import software.amazon.smithy.model.knowledge.NeighborProviderIndex;
 import software.amazon.smithy.model.neighbor.Walker;
@@ -30,6 +35,7 @@ import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.Shape;
+import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.shapes.ShapeVisitor;
 import software.amazon.smithy.model.traits.IdempotencyTokenTrait;
 import software.amazon.smithy.model.traits.TimestampFormatTrait;
@@ -46,6 +52,7 @@ import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator;
 import software.amazon.smithy.typescript.codegen.integration.ProtocolGenerator.GenerationContext;
 import software.amazon.smithy.typescript.codegen.util.StringStore;
 import software.amazon.smithy.utils.IoUtils;
+import software.amazon.smithy.utils.SetUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -249,7 +256,7 @@ final class AwsProtocolUtils {
 
                     // Include the uuid package and import the v4 function as our more clearly named alias.
                     writer.addDependency(TypeScriptDependency.UUID);
-                    writer.addDependency(AwsDependency.UUID_GENERATOR_TYPES);
+                    writer.addDependency(TypeScriptDependency.UUID_TYPES);
                     writer.addImport("v4", "generateIdempotencyToken", TypeScriptDependency.UUID);
                 });
     }
@@ -299,16 +306,49 @@ final class AwsProtocolUtils {
                 AwsProtocolUtils::filterMalformedRequestTests).run();
     }
 
+    /**
+     * @return map of error full shape id to alias strings having AwsQueryCompat error code.
+     */
+    static Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
+                                                        Collection<OperationShape> operations) {
+        Map<String, TreeSet<String>> aliases = new HashMap<>();
+        ServiceShape service = context.getService();
+        boolean awsQueryCompatible = service.hasTrait(AwsQueryCompatibleTrait.class);
+        if (awsQueryCompatible) {
+            for (OperationShape operation : operations) {
+                List<ShapeId> errors = operation.getErrors();
+                for (ShapeId error : errors) {
+                    Shape errorShape = context.getModel().expectShape(error);
+                    if (errorShape.hasTrait(AwsQueryErrorTrait.class)) {
+                        String alias = errorShape.expectTrait(AwsQueryErrorTrait.class).getCode();
+                        aliases.computeIfAbsent(error.toString(), k -> new TreeSet<>()).add(alias);
+                    }
+                }
+            }
+        }
+        return aliases;
+    }
+
     private static boolean filterProtocolTests(
             ServiceShape service,
             OperationShape operation,
             HttpMessageTestCase testCase,
             TypeScriptSettings settings
     ) {
-        // TODO: Remove when requestCompression has been implemented.
-        if (testCase.getId().startsWith("SDKAppliedContentEncoding_")
-            || testCase.getId().startsWith("SDKAppendsGzipAndIgnoresHttpProvidedEncoding_")
-            || testCase.getId().startsWith("SDKAppendedGzipAfterProvidedEncoding_")) {
+        // TODO: Remove when upstream tests update to serialize empty headers.
+        if (testCase.getId().contains("NullAndEmptyHeaders")) {
+            return true;
+        }
+
+        // TODO This test has an arbitrary root XML name NestedXmlMapWithXmlNameRequest
+        // TODO which doesn't match the input structure. We will need to update
+        // TODO the test comparator stub to ignore this if that is indeed intended.
+        if (testCase.getId().contains("NestedXmlMapWithXmlNameSerializes")) {
+            return true;
+        }
+
+        // TODO: remove when Glacier AccountID hyphen customization is implemented: SMITHY-2614
+        if (testCase.getId().equals("GlacierAccountId")) {
             return true;
         }
 
@@ -316,18 +356,13 @@ final class AwsProtocolUtils {
             return true;
         }
 
-        // TODO: remove when there's a decision on separator to use
-        // https://github.com/awslabs/smithy/issues/1014
-        if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {
-            return true;
-        }
-
-        // TODO: implementation change pending.
-        List<String> extraUnionKey = Arrays.asList(
-            "RestXmlHttpPayloadWithUnsetUnion",
-            "RestJsonHttpPayloadWithUnsetUnion"
-        );
-        if (extraUnionKey.contains(testCase.getId())) {
+        // not implemented in server sdk.
+        if (SetUtils.of(
+            "SDKAppendedGzipAfterProvidedEncoding_restJson1",
+            "SDKAppliedContentEncoding_restJson1",
+            "RestJsonHttpPayloadWithUnsetUnion",
+            "RestJsonMustSupportParametersInContentType"
+        ).contains(testCase.getId()) && settings.generateServerSdk()) {
             return true;
         }
 
@@ -385,6 +420,17 @@ final class AwsProtocolUtils {
         );
 
         if (typeCoercionCases.contains(testCase.getId())) {
+            return true;
+        }
+
+        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6246
+        if (testCase.getId().equals("RestJsonStringPayloadNoContentType")
+            || testCase.getId().equals("RestJsonWithBodyExpectsApplicationJsonContentTypeNoHeaders")) {
+            return true;
+        }
+
+        // ToDo: https://github.com/aws/aws-sdk-js-v3/issues/6907
+        if (testCase.getId().equals("RestJsonWithoutBodyEmptyInputExpectsEmptyContentType")) {
             return true;
         }
 

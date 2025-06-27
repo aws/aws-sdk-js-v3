@@ -12,7 +12,8 @@ import { de_GetFileUploadURLCommand, se_GetFileUploadURLCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface GetFileUploadURLCommandOutput extends GetFileUploadURLResponse,
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetFileUploadURLCommand extends $Command
@@ -88,9 +90,7 @@ export class GetFileUploadURLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class GetFileUploadURLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFileUploadURLCommand)
   .de(de_GetFileUploadURLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFileUploadURLRequest;
+      output: GetFileUploadURLResponse;
+    };
+    sdk: {
+      input: GetFileUploadURLCommandInput;
+      output: GetFileUploadURLCommandOutput;
+    };
+  };
+}

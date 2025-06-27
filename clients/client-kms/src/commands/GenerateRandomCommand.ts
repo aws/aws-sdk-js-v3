@@ -16,7 +16,8 @@ import { de_GenerateRandomCommand, se_GenerateRandomCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,8 +45,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *       to provide the attestation document for the enclave. Instead of plaintext bytes, the response
  *       includes the plaintext bytes encrypted under the public key from the attestation document
  *         (<code>CiphertextForRecipient</code>).For information about the interaction between KMS and Amazon Web Services Nitro Enclaves, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/services-nitro-enclaves.html">How Amazon Web Services Nitro Enclaves uses KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>For more information about entropy and random number generation, see
- *       <a href="https://docs.aws.amazon.com/kms/latest/cryptographic-details/">Key Management Service Cryptographic Details</a>.</p>
+ *          <p>For more information about entropy and random number generation, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-cryptography.html#entropy-and-random-numbers">Entropy and random number generation</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: Not applicable.
  *         <code>GenerateRandom</code> does not use any account-specific resources, such as KMS
@@ -54,7 +54,7 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:GenerateRandom</a> (IAM policy)</p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -139,44 +139,23 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate random data
  * ```javascript
  * // The following example generates 32 bytes of random data.
  * const input = {
- *   "NumberOfBytes": 32
+ *   NumberOfBytes: 32
  * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Plaintext": "<binary data>"
+ *   Plaintext: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-random-data-1
  * ```
  *
- * @example To generate random data
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext (unencrypted) byte string, GenerateRandom returns the byte string encrypted by the public key from the enclave's attestation document.
- * const input = {
- *   "NumberOfBytes": 1024,
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateRandomCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "Plaintext": ""
- * }
- * *\/
- * // example id: to-generate-random-data-2
- * ```
- *
+ * @public
  */
 export class GenerateRandomCommand extends $Command
   .classBuilder<
@@ -186,9 +165,7 @@ export class GenerateRandomCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +177,16 @@ export class GenerateRandomCommand extends $Command
   .f(void 0, GenerateRandomResponseFilterSensitiveLog)
   .ser(se_GenerateRandomCommand)
   .de(de_GenerateRandomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateRandomRequest;
+      output: GenerateRandomResponse;
+    };
+    sdk: {
+      input: GenerateRandomCommandInput;
+      output: GenerateRandomCommandOutput;
+    };
+  };
+}

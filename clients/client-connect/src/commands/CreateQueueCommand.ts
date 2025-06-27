@@ -12,7 +12,8 @@ import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateQueueCommandInput extends CreateQueueRequest {}
 export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Creates a new queue for the specified Amazon Connect instance.</p>
+ * <p>Creates a new queue for the specified Amazon Connect instance.</p>
  *          <important>
  *             <ul>
  *                <li>
@@ -65,6 +65,9 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *     OutboundCallerIdName: "STRING_VALUE",
  *     OutboundCallerIdNumberId: "STRING_VALUE",
  *     OutboundFlowId: "STRING_VALUE",
+ *   },
+ *   OutboundEmailConfig: { // OutboundEmailConfig
+ *     OutboundEmailAddressId: "STRING_VALUE",
  *   },
  *   HoursOfOperationId: "STRING_VALUE", // required
  *   MaxContacts: Number("int"),
@@ -114,6 +117,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateQueueCommand extends $Command
@@ -124,9 +128,7 @@ export class CreateQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +140,16 @@ export class CreateQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQueueCommand)
   .de(de_CreateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueRequest;
+      output: CreateQueueResponse;
+    };
+    sdk: {
+      input: CreateQueueCommandInput;
+      output: CreateQueueCommandOutput;
+    };
+  };
+}

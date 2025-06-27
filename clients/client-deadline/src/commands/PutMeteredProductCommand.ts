@@ -12,7 +12,8 @@ import { de_PutMeteredProductCommand, se_PutMeteredProductCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,11 +64,11 @@ export interface PutMeteredProductCommandOutput extends PutMeteredProductRespons
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -79,9 +80,7 @@ export class PutMeteredProductCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class PutMeteredProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMeteredProductCommand)
   .de(de_PutMeteredProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMeteredProductRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMeteredProductCommandInput;
+      output: PutMeteredProductCommandOutput;
+    };
+  };
+}

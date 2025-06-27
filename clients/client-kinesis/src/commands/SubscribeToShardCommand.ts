@@ -16,7 +16,8 @@ import { de_SubscribeToShardCommand, se_SubscribeToShardCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  *             seconds or more after a successful call, the second call takes over the subscription and
  *             the previous connection expires or fails with a
  *             <code>ResourceInUseException</code>.</p>
- *          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+ *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -159,6 +160,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class SubscribeToShardCommand extends $Command
@@ -192,4 +194,16 @@ export class SubscribeToShardCommand extends $Command
   .f(void 0, SubscribeToShardOutputFilterSensitiveLog)
   .ser(se_SubscribeToShardCommand)
   .de(de_SubscribeToShardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeToShardInput;
+      output: SubscribeToShardOutput;
+    };
+    sdk: {
+      input: SubscribeToShardCommandInput;
+      output: SubscribeToShardCommandOutput;
+    };
+  };
+}

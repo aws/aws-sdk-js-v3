@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,18 +59,21 @@ export interface DeleteOptionGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete an option group
  * ```javascript
  * // The following example deletes the specified option group.
  * const input = {
- *   "OptionGroupName": "myoptiongroup"
+ *   OptionGroupName: "myoptiongroup"
  * };
  * const command = new DeleteOptionGroupCommand(input);
- * await client.send(command);
- * // example id: to-delete-an-option-group-1680128894360
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteOptionGroupCommand extends $Command
   .classBuilder<
@@ -79,9 +83,7 @@ export class DeleteOptionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +95,16 @@ export class DeleteOptionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOptionGroupCommand)
   .de(de_DeleteOptionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOptionGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOptionGroupCommandInput;
+      output: DeleteOptionGroupCommandOutput;
+    };
+  };
+}

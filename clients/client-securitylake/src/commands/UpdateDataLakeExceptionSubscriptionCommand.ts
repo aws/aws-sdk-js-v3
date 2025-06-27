@@ -18,7 +18,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface UpdateDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataLakeExceptionSubscriptionCommand extends $Command
@@ -98,9 +100,7 @@ export class UpdateDataLakeExceptionSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class UpdateDataLakeExceptionSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataLakeExceptionSubscriptionCommand)
   .de(de_UpdateDataLakeExceptionSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataLakeExceptionSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDataLakeExceptionSubscriptionCommandInput;
+      output: UpdateDataLakeExceptionSubscriptionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetPublicKeyCommand, se_GetPublicKeyCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,12 +48,13 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyUsage">KeyUsage</a>: Whether the key is used for encryption or signing.</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyUsage">KeyUsage</a>: Whether the key is used for encryption, signing, or deriving a shared
+ *           secret.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-EncryptionAlgorithms">EncryptionAlgorithms</a> or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-SigningAlgorithms">SigningAlgorithms</a>: A list of the encryption algorithms or the signing
- *           algorithms for the key.</p>
+ *                   <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-EncryptionAlgorithms">EncryptionAlgorithms</a>, <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-KeyAgreementAlgorithms">KeyAgreementAlgorithms</a>, or <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_GetPublicKey.html#KMS-GetPublicKey-response-SigningAlgorithms">SigningAlgorithms</a>: A list of the encryption algorithms, key agreement
+ *           algorithms, or signing algorithms for the key.</p>
  *             </li>
  *          </ul>
  *          <p>Although KMS cannot enforce these restrictions on external operations, it is crucial
@@ -63,7 +65,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *       operation.</p>
  *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you
  *       must specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as
- *       the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+ *       the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
  *         verification with SM2 key pairs</a>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -77,7 +79,7 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *          </p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,13 +98,16 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * //   KeyId: "STRING_VALUE",
  * //   PublicKey: new Uint8Array(),
  * //   CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
- * //   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
- * //   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ * //   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87",
+ * //   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  * //   EncryptionAlgorithms: [ // EncryptionAlgorithmSpecList
  * //     "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * //   ],
  * //   SigningAlgorithms: [ // SigningAlgorithmSpecList
- * //     "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //     "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256",
+ * //   ],
+ * //   KeyAgreementAlgorithms: [ // KeyAgreementAlgorithmSpecList
+ * //     "ECDH",
  * //   ],
  * // };
  *
@@ -144,8 +149,9 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -188,30 +194,30 @@ export interface GetPublicKeyCommandOutput extends GetPublicKeyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To download the public key of an asymmetric KMS key
  * ```javascript
  * // This example gets the public key of an asymmetric RSA KMS key used for encryption and decryption. The operation returns the key spec, key usage, and encryption or signing algorithms to help you use the public key correctly outside of AWS KMS.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
  * };
  * const command = new GetPublicKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomerMasterKeySpec": "RSA_4096",
- *   "EncryptionAlgorithms": [
+ *   CustomerMasterKeySpec: "RSA_4096",
+ *   EncryptionAlgorithms: [
  *     "RSAES_OAEP_SHA_1",
  *     "RSAES_OAEP_SHA_256"
  *   ],
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "KeyUsage": "ENCRYPT_DECRYPT",
- *   "PublicKey": "<binary data>"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   KeyUsage: "ENCRYPT_DECRYPT",
+ *   PublicKey: "<binary data>"
  * }
  * *\/
- * // example id: to-download-the-public-key-of-an-asymmetric-kms-key-1628621691873
  * ```
  *
+ * @public
  */
 export class GetPublicKeyCommand extends $Command
   .classBuilder<
@@ -221,9 +227,7 @@ export class GetPublicKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -235,4 +239,16 @@ export class GetPublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPublicKeyCommand)
   .de(de_GetPublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPublicKeyRequest;
+      output: GetPublicKeyResponse;
+    };
+    sdk: {
+      input: GetPublicKeyCommandInput;
+      output: GetPublicKeyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeDatasetCommand, se_DescribeDatasetCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface DescribeDatasetCommandOutput extends DescribeDatasetResponse, _
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class DescribeDatasetCommand extends $Command
@@ -99,9 +101,7 @@ export class DescribeDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutVisionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DescribeDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDatasetCommand)
   .de(de_DescribeDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDatasetRequest;
+      output: DescribeDatasetResponse;
+    };
+    sdk: {
+      input: DescribeDatasetCommandInput;
+      output: DescribeDatasetCommandOutput;
+    };
+  };
+}

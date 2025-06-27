@@ -12,7 +12,8 @@ import { de_UpdateTaskExecutionCommand, se_UpdateTaskExecutionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,8 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  *             <p>Currently, the only <code>Option</code> that you can modify with
  *           <code>UpdateTaskExecution</code> is <code>
  *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_Options.html#DataSync-Type-Options-BytesPerSecond">BytesPerSecond</a>
- *                </code>, which throttles bandwidth for a running or queued
- *         task execution.</p>
+ *                </code>, which throttles bandwidth for a running or queued task
+ *         execution.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -83,6 +84,7 @@ export interface UpdateTaskExecutionCommandOutput extends UpdateTaskExecutionRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateTaskExecutionCommand extends $Command
@@ -93,9 +95,7 @@ export class UpdateTaskExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class UpdateTaskExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTaskExecutionCommand)
   .de(de_UpdateTaskExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTaskExecutionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTaskExecutionCommandInput;
+      output: UpdateTaskExecutionCommandOutput;
+    };
+  };
+}

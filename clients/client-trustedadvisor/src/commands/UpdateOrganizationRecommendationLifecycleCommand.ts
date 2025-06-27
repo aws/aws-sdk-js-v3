@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TrustedAdvisorClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,23 @@ export interface UpdateOrganizationRecommendationLifecycleCommandOutput extends 
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example Update the lifecycle stage of an AWS Organization's Recommendation that is managed by AWS Trusted Advisor Priority
+ * ```javascript
+ * //
+ * const input = {
+ *   lifecycleStage: "dismissed",
+ *   organizationRecommendationIdentifier: "arn:aws:trustedadvisor:::organization-recommendation/96b5e5ca-7930-444c-90c6-06d386128100",
+ *   updateReason: "Does not apply to this resource",
+ *   updateReasonCode: "not_applicable"
+ * };
+ * const command = new UpdateOrganizationRecommendationLifecycleCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateOrganizationRecommendationLifecycleCommand extends $Command
@@ -92,9 +110,7 @@ export class UpdateOrganizationRecommendationLifecycleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +122,16 @@ export class UpdateOrganizationRecommendationLifecycleCommand extends $Command
   .f(UpdateOrganizationRecommendationLifecycleRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateOrganizationRecommendationLifecycleCommand)
   .de(de_UpdateOrganizationRecommendationLifecycleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOrganizationRecommendationLifecycleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateOrganizationRecommendationLifecycleCommandInput;
+      output: UpdateOrganizationRecommendationLifecycleCommandOutput;
+    };
+  };
+}

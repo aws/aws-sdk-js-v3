@@ -12,7 +12,8 @@ import { de_UpdateAgentStatusCommand, se_UpdateAgentStatusCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  *   agentId: "STRING_VALUE", // required
  *   taskId: "STRING_VALUE", // required
  *   aggregateStatus: { // AggregateStatus
- *     status: "STRING_VALUE", // required
+ *     status: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE", // required
  *     signatureMap: { // SignatureMap
  *       "<keys>": true || false,
  *     },
@@ -50,7 +51,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  *     { // ComponentStatusData
  *       componentType: "STRING_VALUE", // required
  *       capabilityArn: "STRING_VALUE", // required
- *       status: "STRING_VALUE", // required
+ *       status: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE", // required
  *       bytesSent: Number("long"),
  *       bytesReceived: Number("long"),
  *       packetsDropped: Number("long"),
@@ -84,6 +85,7 @@ export interface UpdateAgentStatusCommandOutput extends UpdateAgentStatusRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentStatusCommand extends $Command
@@ -94,9 +96,7 @@ export class UpdateAgentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class UpdateAgentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAgentStatusCommand)
   .de(de_UpdateAgentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentStatusRequest;
+      output: UpdateAgentStatusResponse;
+    };
+    sdk: {
+      input: UpdateAgentStatusCommandInput;
+      output: UpdateAgentStatusCommandOutput;
+    };
+  };
+}

@@ -16,15 +16,15 @@ export { DynamoDBDocumentClientCommand, $Command };
  * @public
  */
 export type ExecuteStatementCommandInput = Omit<__ExecuteStatementCommandInput, "Parameters"> & {
-  Parameters?: NativeAttributeValue[];
+  Parameters?: NativeAttributeValue[] | undefined;
 };
 
 /**
  * @public
  */
 export type ExecuteStatementCommandOutput = Omit<__ExecuteStatementCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[];
-  LastEvaluatedKey?: Record<string, NativeAttributeValue>;
+  Items?: Record<string, NativeAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

@@ -16,7 +16,8 @@ import { de_GetPackageVersionAssetCommand, se_GetPackageVersionAssetCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,7 @@ export interface GetPackageVersionAssetCommandOutput
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -59,6 +60,11 @@ export interface GetPackageVersionAssetCommandOutput
  * };
  * const command = new GetPackageVersionAssetCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.asset.transformToByteArray();
+ * // const str = await response.asset.transformToString();
+ * // response.asset.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetPackageVersionAssetResult
  * //   asset: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   assetName: "STRING_VALUE",
@@ -105,6 +111,7 @@ export interface GetPackageVersionAssetCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class GetPackageVersionAssetCommand extends $Command
@@ -115,9 +122,7 @@ export class GetPackageVersionAssetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +134,16 @@ export class GetPackageVersionAssetCommand extends $Command
   .f(void 0, GetPackageVersionAssetResultFilterSensitiveLog)
   .ser(se_GetPackageVersionAssetCommand)
   .de(de_GetPackageVersionAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageVersionAssetRequest;
+      output: GetPackageVersionAssetResult;
+    };
+    sdk: {
+      input: GetPackageVersionAssetCommandInput;
+      output: GetPackageVersionAssetCommandOutput;
+    };
+  };
+}

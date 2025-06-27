@@ -12,7 +12,8 @@ import { de_CreateWebhookCommand, se_CreateWebhookCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,14 +51,19 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  *   filterGroups: [ // FilterGroups
  *     [ // FilterGroup
  *       { // WebhookFilter
- *         type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME", // required
+ *         type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME" || "ORGANIZATION_NAME", // required
  *         pattern: "STRING_VALUE", // required
  *         excludeMatchedPattern: true || false,
  *       },
  *     ],
  *   ],
- *   buildType: "BUILD" || "BUILD_BATCH",
+ *   buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  *   manualCreation: true || false,
+ *   scopeConfiguration: { // ScopeConfiguration
+ *     name: "STRING_VALUE", // required
+ *     domain: "STRING_VALUE",
+ *     scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
+ *   },
  * };
  * const command = new CreateWebhookCommand(input);
  * const response = await client.send(command);
@@ -70,15 +76,22 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * //     filterGroups: [ // FilterGroups
  * //       [ // FilterGroup
  * //         { // WebhookFilter
- * //           type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME", // required
+ * //           type: "EVENT" || "BASE_REF" || "HEAD_REF" || "ACTOR_ACCOUNT_ID" || "FILE_PATH" || "COMMIT_MESSAGE" || "WORKFLOW_NAME" || "TAG_NAME" || "RELEASE_NAME" || "REPOSITORY_NAME" || "ORGANIZATION_NAME", // required
  * //           pattern: "STRING_VALUE", // required
  * //           excludeMatchedPattern: true || false,
  * //         },
  * //       ],
  * //     ],
- * //     buildType: "BUILD" || "BUILD_BATCH",
+ * //     buildType: "BUILD" || "BUILD_BATCH" || "RUNNER_BUILDKITE_BUILD",
  * //     manualCreation: true || false,
  * //     lastModifiedSecret: new Date("TIMESTAMP"),
+ * //     scopeConfiguration: { // ScopeConfiguration
+ * //       name: "STRING_VALUE", // required
+ * //       domain: "STRING_VALUE",
+ * //       scope: "GITHUB_ORGANIZATION" || "GITHUB_GLOBAL" || "GITLAB_GROUP", // required
+ * //     },
+ * //     status: "CREATING" || "CREATE_FAILED" || "ACTIVE" || "DELETING",
+ * //     statusMessage: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -106,6 +119,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookOutput, __Metad
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class CreateWebhookCommand extends $Command
@@ -116,9 +130,7 @@ export class CreateWebhookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +142,16 @@ export class CreateWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWebhookCommand)
   .de(de_CreateWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebhookInput;
+      output: CreateWebhookOutput;
+    };
+    sdk: {
+      input: CreateWebhookCommandInput;
+      output: CreateWebhookCommandOutput;
+    };
+  };
+}

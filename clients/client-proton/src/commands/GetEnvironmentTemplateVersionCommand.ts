@@ -19,7 +19,8 @@ import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface GetEnvironmentTemplateVersionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentTemplateVersionCommand extends $Command
@@ -102,9 +104,7 @@ export class GetEnvironmentTemplateVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class GetEnvironmentTemplateVersionCommand extends $Command
   .f(void 0, GetEnvironmentTemplateVersionOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentTemplateVersionCommand)
   .de(de_GetEnvironmentTemplateVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentTemplateVersionInput;
+      output: GetEnvironmentTemplateVersionOutput;
+    };
+    sdk: {
+      input: GetEnvironmentTemplateVersionCommandInput;
+      output: GetEnvironmentTemplateVersionCommandOutput;
+    };
+  };
+}

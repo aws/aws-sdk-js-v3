@@ -12,7 +12,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface CreateSubscriberCommandInput extends CreateSubscriberRequest {}
 export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a subscription permission for accounts that are already enabled in
- *          Amazon Security Lake. You can create a subscriber with access to data in the current Amazon Web Services Region.</p>
+ * <p>Creates a subscriber for accounts that are already enabled in Amazon Security Lake. You can
+ *          create a subscriber with access to data in the current Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -156,6 +157,7 @@ export interface CreateSubscriberCommandOutput extends CreateSubscriberResponse,
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class CreateSubscriberCommand extends $Command
@@ -166,9 +168,7 @@ export class CreateSubscriberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +180,16 @@ export class CreateSubscriberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSubscriberCommand)
   .de(de_CreateSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSubscriberRequest;
+      output: CreateSubscriberResponse;
+    };
+    sdk: {
+      input: CreateSubscriberCommandInput;
+      output: CreateSubscriberCommandOutput;
+    };
+  };
+}

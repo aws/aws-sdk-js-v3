@@ -12,7 +12,8 @@ import { de_DeleteQueueCommand, se_DeleteQueueCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface DeleteQueueCommandOutput extends DeleteQueueResponse, __Metadat
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class DeleteQueueCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteQueueCommand)
   .de(de_DeleteQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteQueueRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteQueueCommandInput;
+      output: DeleteQueueCommandOutput;
+    };
+  };
+}

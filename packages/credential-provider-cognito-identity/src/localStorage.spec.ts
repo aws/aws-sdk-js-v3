@@ -1,6 +1,5 @@
-/**
- * @jest-environment jsdom
- */
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
+
 import { IndexedDbStorage } from "./IndexedDbStorage";
 import { localStorage } from "./localStorage";
 

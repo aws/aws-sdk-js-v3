@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/models_3";
+import { ListHumanTaskUisRequest, ListHumanTaskUisResponse } from "../models/models_4";
 import { de_ListHumanTaskUisCommand, se_ListHumanTaskUisCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface ListHumanTaskUisCommandOutput extends ListHumanTaskUisResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListHumanTaskUisCommand extends $Command
@@ -75,9 +77,7 @@ export class ListHumanTaskUisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class ListHumanTaskUisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHumanTaskUisCommand)
   .de(de_ListHumanTaskUisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHumanTaskUisRequest;
+      output: ListHumanTaskUisResponse;
+    };
+    sdk: {
+      input: ListHumanTaskUisCommandInput;
+      output: ListHumanTaskUisCommandOutput;
+    };
+  };
+}

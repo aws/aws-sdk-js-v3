@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,23 +28,7 @@ export interface UpdateUserCommandInput extends UpdateUserRequest {}
 export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataBearer {}
 
 /**
- * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following:
- *       the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code>
- *       you specify.</p>
- *          <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the
- *       updated user.</p>
- *          <p>In the console, you can select <i>Restricted</i> when you create or update a
- *       user. This  ensures that the user can't access anything outside of their home directory. The
- *       programmatic way to configure this behavior is to update the user. Set their
- *         <code>HomeDirectoryType</code> to <code>LOGICAL</code>, and specify
- *         <code>HomeDirectoryMappings</code> with <code>Entry</code> as root (<code>/</code>) and
- *         <code>Target</code> as their home directory.</p>
- *          <p>For example, if the user's home directory is <code>/test/admin-user</code>, the following
- *       command updates the user so that their configuration in the console shows the
- *         <i>Restricted</i> flag as selected.</p>
- *          <p>
- *             <code> aws transfer update-user --server-id &lt;server-id&gt; --user-name admin-user --home-directory-type LOGICAL --home-directory-mappings "[\{\"Entry\":\"/\", \"Target\":\"/test/admin-user\"\}]"</code>
- *          </p>
+ * <p>Assigns new properties to a user. Parameters you pass modify any or all of the following: the home directory, role, and policy for the <code>UserName</code> and <code>ServerId</code> you specify.</p> <p>The response returns the <code>ServerId</code> and the <code>UserName</code> for the updated user.</p> <p>In the console, you can select <i>Restricted</i> when you create or update a user. This ensures that the user can't access anything outside of their home directory. The programmatic way to configure this behavior is to update the user. Set their <code>HomeDirectoryType</code> to <code>LOGICAL</code>, and specify <code>HomeDirectoryMappings</code> with <code>Entry</code> as root (<code>/</code>) and <code>Target</code> as their home directory.</p> <p>For example, if the user's home directory is <code>/test/admin-user</code>, the following command updates the user so that their configuration in the console shows the <i>Restricted</i> flag as selected.</p> <p> <code> aws transfer update-user --server-id &lt;server-id&gt; --user-name admin-user --home-directory-type LOGICAL --home-directory-mappings "[\{\"Entry\":\"/\", \"Target\":\"/test/admin-user\"\}]"</code> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,8 +79,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
@@ -105,6 +89,7 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -116,9 +101,7 @@ export class UpdateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +113,16 @@ export class UpdateUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserCommand)
   .de(de_UpdateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserRequest;
+      output: UpdateUserResponse;
+    };
+    sdk: {
+      input: UpdateUserCommandInput;
+      output: UpdateUserCommandOutput;
+    };
+  };
+}

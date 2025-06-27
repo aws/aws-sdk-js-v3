@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,27 @@ export interface PutProvisionedConcurrencyConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To allocate provisioned concurrency
+ * ```javascript
+ * // The following example allocates 100 provisioned concurrency for the BLUE alias of the specified function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   ProvisionedConcurrentExecutions: 100,
+ *   Qualifier: "BLUE"
+ * };
+ * const command = new PutProvisionedConcurrencyConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AllocatedProvisionedConcurrentExecutions: 0,
+ *   LastModified: "2019-11-21T19:32:12+0000",
+ *   RequestedProvisionedConcurrentExecutions: 100,
+ *   Status: "IN_PROGRESS"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutProvisionedConcurrencyConfigCommand extends $Command
@@ -91,9 +113,7 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +125,16 @@ export class PutProvisionedConcurrencyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutProvisionedConcurrencyConfigCommand)
   .de(de_PutProvisionedConcurrencyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutProvisionedConcurrencyConfigRequest;
+      output: PutProvisionedConcurrencyConfigResponse;
+    };
+    sdk: {
+      input: PutProvisionedConcurrencyConfigCommandInput;
+      output: PutProvisionedConcurrencyConfigCommandOutput;
+    };
+  };
+}

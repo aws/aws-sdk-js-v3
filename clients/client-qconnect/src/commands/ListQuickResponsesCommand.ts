@@ -9,14 +9,15 @@ import {
   ListQuickResponsesRequest,
   ListQuickResponsesResponse,
   ListQuickResponsesResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListQuickResponsesCommand, se_ListQuickResponsesCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface ListQuickResponsesCommandOutput extends ListQuickResponsesRespo
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListQuickResponsesCommand extends $Command
@@ -101,9 +103,7 @@ export class ListQuickResponsesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class ListQuickResponsesCommand extends $Command
   .f(void 0, ListQuickResponsesResponseFilterSensitiveLog)
   .ser(se_ListQuickResponsesCommand)
   .de(de_ListQuickResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQuickResponsesRequest;
+      output: ListQuickResponsesResponse;
+    };
+    sdk: {
+      input: ListQuickResponsesCommandInput;
+      output: ListQuickResponsesCommandOutput;
+    };
+  };
+}

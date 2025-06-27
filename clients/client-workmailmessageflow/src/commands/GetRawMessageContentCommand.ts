@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,11 @@ export interface GetRawMessageContentCommandOutput
  * };
  * const command = new GetRawMessageContentCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.messageContent.transformToByteArray();
+ * // const str = await response.messageContent.transformToString();
+ * // response.messageContent.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetRawMessageContentResponse
  * //   messageContent: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * // };
@@ -69,6 +75,7 @@ export interface GetRawMessageContentCommandOutput
  * @throws {@link WorkMailMessageFlowServiceException}
  * <p>Base exception class for all service exceptions from WorkMailMessageFlow service.</p>
  *
+ *
  * @public
  */
 export class GetRawMessageContentCommand extends $Command
@@ -79,9 +86,7 @@ export class GetRawMessageContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailMessageFlowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +98,16 @@ export class GetRawMessageContentCommand extends $Command
   .f(void 0, GetRawMessageContentResponseFilterSensitiveLog)
   .ser(se_GetRawMessageContentCommand)
   .de(de_GetRawMessageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRawMessageContentRequest;
+      output: GetRawMessageContentResponse;
+    };
+    sdk: {
+      input: GetRawMessageContentCommandInput;
+      output: GetRawMessageContentCommandOutput;
+    };
+  };
+}

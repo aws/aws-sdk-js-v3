@@ -1,4 +1,5 @@
 import { booleanSelector, SelectorType } from "@smithy/util-config-provider";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import {
   NODE_USE_ARN_REGION_CONFIG_OPTIONS,
@@ -6,23 +7,23 @@ import {
   NODE_USE_ARN_REGION_INI_NAME,
 } from "./NodeUseArnRegionConfigOptions";
 
-jest.mock("@smithy/util-config-provider");
+vi.mock("@smithy/util-config-provider");
 
 describe("NODE_USE_ARN_REGION_CONFIG_OPTIONS", () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const test = (func: Function, obj: Record<string, string>, key: string, type: SelectorType) => {
     it.each([true, false, undefined])("returns %s", (output) => {
-      (booleanSelector as jest.Mock).mockReturnValueOnce(output);
+      vi.mocked(booleanSelector).mockReturnValueOnce(output);
       expect(func(obj)).toEqual(output);
       expect(booleanSelector).toBeCalledWith(obj, key, type);
     });
 
     it("throws error", () => {
       const mockError = new Error("error");
-      (booleanSelector as jest.Mock).mockImplementationOnce(() => {
+      vi.mocked(booleanSelector).mockImplementationOnce(() => {
         throw mockError;
       });
       expect(() => {
@@ -43,8 +44,8 @@ describe("NODE_USE_ARN_REGION_CONFIG_OPTIONS", () => {
     test(configFileSelector, profileContent, NODE_USE_ARN_REGION_INI_NAME, SelectorType.CONFIG);
   });
 
-  it("returns false for default", () => {
+  it("returns undefined for default", () => {
     const { default: defaultValue } = NODE_USE_ARN_REGION_CONFIG_OPTIONS;
-    expect(defaultValue).toEqual(false);
+    expect(defaultValue).toEqual(undefined);
   });
 });

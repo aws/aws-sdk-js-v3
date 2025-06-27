@@ -12,7 +12,8 @@ import { de_RemoveRegionCommand, se_RemoveRegionCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -61,7 +62,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
@@ -71,6 +72,7 @@ export interface RemoveRegionCommandOutput extends RemoveRegionResult, __Metadat
  *
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
+ *
  *
  * @public
  */
@@ -82,9 +84,7 @@ export class RemoveRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class RemoveRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRegionCommand)
   .de(de_RemoveRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveRegionCommandInput;
+      output: RemoveRegionCommandOutput;
+    };
+  };
+}

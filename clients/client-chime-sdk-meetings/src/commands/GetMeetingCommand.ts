@@ -12,7 +12,8 @@ import { de_GetMeetingCommand, se_GetMeetingCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -111,6 +112,7 @@ export interface GetMeetingCommandOutput extends GetMeetingResponse, __MetadataB
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class GetMeetingCommand extends $Command
@@ -121,9 +123,7 @@ export class GetMeetingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +135,16 @@ export class GetMeetingCommand extends $Command
   .f(void 0, GetMeetingResponseFilterSensitiveLog)
   .ser(se_GetMeetingCommand)
   .de(de_GetMeetingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMeetingRequest;
+      output: GetMeetingResponse;
+    };
+    sdk: {
+      input: GetMeetingCommandInput;
+      output: GetMeetingCommandOutput;
+    };
+  };
+}

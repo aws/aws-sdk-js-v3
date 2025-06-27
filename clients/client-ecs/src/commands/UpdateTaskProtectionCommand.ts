@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTaskProtectionRequest, UpdateTaskProtectionResponse } from "../models/models_0";
+import { UpdateTaskProtectionRequest, UpdateTaskProtectionResponse } from "../models/models_1";
 import { de_UpdateTaskProtectionCommand, se_UpdateTaskProtectionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,11 +105,13 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
@@ -122,88 +125,86 @@ export interface UpdateTaskProtectionCommandOutput extends UpdateTaskProtectionR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
- * @example To set task scale-in protection for a task for 60 minutes
+ *
+ * @example To remove task scale-in protection
  * ```javascript
- * // This example enables scale-in protection for a task for 60 minutes.
+ * // This example removes scale-in protection for a task.
  * const input = {
- *   "cluster": "test-task-protection",
- *   "expiresInMinutes": 60,
- *   "protectionEnabled": true,
- *   "tasks": [
+ *   cluster: "test-task-protection",
+ *   protectionEnabled: false,
+ *   tasks: [
  *     "b8b1cf532d0e46ba8d44a40d1de16772"
  *   ]
  * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "protectedTasks": [
+ *   failures:   [],
+ *   protectedTasks: [
  *     {
- *       "expirationDate": "2022-11-02T06:56:32.553Z",
- *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       protectionEnabled: false,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
  * *\/
- * // example id: enable-the-protection-status-for-a-single-task-for-60-minutes-2022-11-02T06:56:32.553Z
+ * ```
+ *
+ * @example To set task scale-in protection for a task for 60 minutes
+ * ```javascript
+ * // This example enables scale-in protection for a task for 60 minutes.
+ * const input = {
+ *   cluster: "test-task-protection",
+ *   expiresInMinutes: 60,
+ *   protectionEnabled: true,
+ *   tasks: [
+ *     "b8b1cf532d0e46ba8d44a40d1de16772"
+ *   ]
+ * };
+ * const command = new UpdateTaskProtectionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   protectedTasks: [
+ *     {
+ *       expirationDate: "2022-11-02T06:56:32.553Z",
+ *       protectionEnabled: true,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *     }
+ *   ]
+ * }
+ * *\/
  * ```
  *
  * @example To set task scale-in protection for the default time period in minutes
  * ```javascript
  * // This example enables task scale-in protection for a task, without specifying the expiresInMinutes parameter, for the default protection period of 120 minutes.
  * const input = {
- *   "cluster": "test-task-protection",
- *   "protectionEnabled": true,
- *   "tasks": [
+ *   cluster: "test-task-protection",
+ *   protectionEnabled: true,
+ *   tasks: [
  *     "b8b1cf532d0e46ba8d44a40d1de16772"
  *   ]
  * };
  * const command = new UpdateTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "protectedTasks": [
+ *   failures:   [],
+ *   protectedTasks: [
  *     {
- *       "expirationDate": "2022-11-02T06:56:32.553Z",
- *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       expirationDate: "2022-11-02T06:56:32.553Z",
+ *       protectionEnabled: true,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
  * *\/
- * // example id: enable-the-protection-status-for-a-single-task-with-default-expiresinminutes-2022-11-02T06:56:32.553Z
  * ```
  *
- * @example To remove task scale-in protection
- * ```javascript
- * // This example removes scale-in protection for a task.
- * const input = {
- *   "cluster": "test-task-protection",
- *   "protectionEnabled": false,
- *   "tasks": [
- *     "b8b1cf532d0e46ba8d44a40d1de16772"
- *   ]
- * };
- * const command = new UpdateTaskProtectionCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "failures": [],
- *   "protectedTasks": [
- *     {
- *       "protectionEnabled": false,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
- *     }
- *   ]
- * }
- * *\/
- * // example id: disable-scale-in-protection-on-a-single-task
- * ```
- *
+ * @public
  */
 export class UpdateTaskProtectionCommand extends $Command
   .classBuilder<
@@ -213,9 +214,7 @@ export class UpdateTaskProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -227,4 +226,16 @@ export class UpdateTaskProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTaskProtectionCommand)
   .de(de_UpdateTaskProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTaskProtectionRequest;
+      output: UpdateTaskProtectionResponse;
+    };
+    sdk: {
+      input: UpdateTaskProtectionCommandInput;
+      output: UpdateTaskProtectionCommandOutput;
+    };
+  };
+}

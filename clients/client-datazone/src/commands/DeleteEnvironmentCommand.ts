@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteEnvironmentInput } from "../models/models_0";
+import { DeleteEnvironmentInput } from "../models/models_1";
 import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeleteEnvironmentCommandOutput extends __MetadataBearer {}
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentCommand)
   .de(de_DeleteEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentCommandInput;
+      output: DeleteEnvironmentCommandOutput;
+    };
+  };
+}

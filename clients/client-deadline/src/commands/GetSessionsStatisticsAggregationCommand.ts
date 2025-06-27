@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,7 @@ export interface GetSessionsStatisticsAggregationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a set of statistics for queues or farms. Before you can call the
- *             <code>GetSessionStatisticsAggregation</code> operation, you must first call the
- *             <code>StartSessionsStatisticsAggregation</code> operation. Statistics are available for
- *          1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
+ * <p>Gets a set of statistics for queues or farms. Before you can call the <code>GetSessionStatisticsAggregation</code> operation, you must first call the <code>StartSessionsStatisticsAggregation</code> operation. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,11 +102,11 @@ export interface GetSessionsStatisticsAggregationCommandOutput
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -120,9 +118,7 @@ export class GetSessionsStatisticsAggregationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +130,16 @@ export class GetSessionsStatisticsAggregationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSessionsStatisticsAggregationCommand)
   .de(de_GetSessionsStatisticsAggregationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionsStatisticsAggregationRequest;
+      output: GetSessionsStatisticsAggregationResponse;
+    };
+    sdk: {
+      input: GetSessionsStatisticsAggregationCommandInput;
+      output: GetSessionsStatisticsAggregationCommandOutput;
+    };
+  };
+}

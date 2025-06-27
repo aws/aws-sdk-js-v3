@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ListProfileSharesCommandOutput extends ListProfileSharesOutput,
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListProfileSharesCommand extends $Command
@@ -91,9 +93,7 @@ export class ListProfileSharesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListProfileSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProfileSharesCommand)
   .de(de_ListProfileSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProfileSharesInput;
+      output: ListProfileSharesOutput;
+    };
+    sdk: {
+      input: ListProfileSharesCommandInput;
+      output: ListProfileSharesCommandOutput;
+    };
+  };
+}

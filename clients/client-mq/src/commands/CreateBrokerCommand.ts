@@ -12,7 +12,8 @@ import { de_CreateBrokerCommand, se_CreateBrokerCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * const client = new MqClient(config);
  * const input = { // CreateBrokerRequest
  *   AuthenticationStrategy: "SIMPLE" || "LDAP",
- *   AutoMinorVersionUpgrade: true || false, // required
+ *   AutoMinorVersionUpgrade: true || false,
  *   BrokerName: "STRING_VALUE", // required
  *   Configuration: { // ConfigurationId
  *     Id: "STRING_VALUE", // required
@@ -49,7 +50,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  *     UseAwsOwnedKey: true || false, // required
  *   },
  *   EngineType: "ACTIVEMQ" || "RABBITMQ", // required
- *   EngineVersion: "STRING_VALUE", // required
+ *   EngineVersion: "STRING_VALUE",
  *   HostInstanceType: "STRING_VALUE", // required
  *   LdapServerMetadata: { // LdapServerMetadataInput
  *     Hosts: [ // __listOf__string // required
@@ -131,6 +132,7 @@ export interface CreateBrokerCommandOutput extends CreateBrokerResponse, __Metad
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class CreateBrokerCommand extends $Command
@@ -141,9 +143,7 @@ export class CreateBrokerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class CreateBrokerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBrokerCommand)
   .de(de_CreateBrokerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBrokerRequest;
+      output: CreateBrokerResponse;
+    };
+    sdk: {
+      input: CreateBrokerCommandInput;
+      output: CreateBrokerCommandOutput;
+    };
+  };
+}

@@ -6,15 +6,17 @@
 package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isAwsService;
+import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4AsymmetricService;
 import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isSigV4Service;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.function.Consumer;
+import software.amazon.smithy.aws.traits.auth.SigV4ATrait;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
-import software.amazon.smithy.aws.typescript.codegen.AwsCredentialProviderUtils;
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
 import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -36,18 +38,16 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Customize @aws.auth#sigv4 for AWS SDKs.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth();
+        return !settings.useLegacyAuth();
     }
 
     @Override
@@ -101,17 +101,50 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                         "credentialDefaultProvider", w ->
                             w.write("((_: unknown) => () => Promise.reject(new Error(\"Credential is missing\")))")
                     );
+                } else {
+                    return MapUtils.of(
+                        "credentials", w ->
+                            w.write("(() => () => Promise.reject(new Error(\"Credentials are missing\")))")
+                    );
                 }
             case NODE:
                 if (isAwsService(service)) {
-                    return MapUtils.of(
+                    Map<String, Consumer<TypeScriptWriter>> map = new TreeMap<String, Consumer<TypeScriptWriter>>();
+                    map.put(
                         "credentialDefaultProvider", writer -> {
                             writer
                                 .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .addImport("defaultProvider", "credentialDefaultProvider",
                                     AwsDependency.CREDENTIAL_PROVIDER_NODE)
                                 .write("credentialDefaultProvider");
-                            AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(service, writer);
+                        }
+                    );
+                    if (isSigV4AsymmetricService(model, settings)) {
+                        map.put(
+                            "sigv4aSigningRegionSet", writer -> {
+                                writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                                writer.addDependency(AwsDependency.AWS_SDK_CORE);
+                                writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                                writer.addImport(
+                                    "NODE_SIGV4A_CONFIG_OPTIONS",
+                                    null,
+                                    AwsDependency.AWS_SDK_CORE
+                                );
+                                writer.write("loadNodeConfig(NODE_SIGV4A_CONFIG_OPTIONS, loaderConfig)");
+                            }
+                        );
+                    }
+                    return map;
+                } else {
+                    // isSigV4Service and !isAwsService are implied here.
+                    return MapUtils.of(
+                        "credentials", writer -> {
+                            writer
+                                .addDependency(AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .addImport("defaultProvider", "credentialDefaultProvider",
+                                    AwsDependency.CREDENTIAL_PROVIDER_NODE)
+                                .write("credentialDefaultProvider()");
                         }
                     );
                 }
@@ -137,7 +170,7 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .build())
                 .propertiesExtractor(s -> w -> w
                     .write("""
-                      (config: $T, context) => ({
+                      (config: Partial<$T>, context) => ({
                         /**
                          * @internal
                          */
@@ -174,6 +207,41 @@ public class AwsSdkCustomizeSigV4Auth implements HttpAuthTypeScriptIntegration {
                     .write("new AwsSdkSigV4Signer()"))
                 .build();
             supportedHttpAuthSchemesIndex.putHttpAuthScheme(authScheme.getSchemeId(), authScheme);
+
+            if (isSigV4AsymmetricService(model, settings)) {
+                HttpAuthScheme authSchemeSigV4a = supportedHttpAuthSchemesIndex
+                    .getHttpAuthScheme(SigV4Trait.ID)
+                    .toBuilder()
+                    .schemeId(SigV4ATrait.ID)
+                    .addResolveConfigFunction(ResolveConfigFunction.builder()
+                        .resolveConfigFunction(Symbol.builder()
+                            .name("resolveAwsSdkSigV4AConfig")
+                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                            .addDependency(AwsDependency.AWS_SDK_CORE)
+                            .build())
+                        .inputConfig(Symbol.builder()
+                            .name("AwsSdkSigV4AAuthInputConfig")
+                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                            .addDependency(AwsDependency.AWS_SDK_CORE)
+                            .build())
+                        .previouslyResolved(Symbol.builder()
+                            .name("AwsSdkSigV4APreviouslyResolved")
+                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                            .addDependency(AwsDependency.AWS_SDK_CORE)
+                            .build())
+                        .resolvedConfig(Symbol.builder()
+                            .name("AwsSdkSigV4AAuthResolvedConfig")
+                            .namespace(AwsDependency.AWS_SDK_CORE.getPackageName(), "/")
+                            .addDependency(AwsDependency.AWS_SDK_CORE)
+                            .build())
+                        .build())
+                    .putDefaultSigner(LanguageTarget.SHARED, w -> w
+                        .addDependency(AwsDependency.AWS_SDK_CORE)
+                        .addImport("AwsSdkSigV4ASigner", null, AwsDependency.AWS_SDK_CORE)
+                        .write("new AwsSdkSigV4ASigner()"))
+                    .build();
+                supportedHttpAuthSchemesIndex.putHttpAuthScheme(authSchemeSigV4a.getSchemeId(), authSchemeSigV4a);
+            }
         }
     }
 

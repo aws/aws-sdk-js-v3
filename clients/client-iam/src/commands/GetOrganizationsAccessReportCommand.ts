@@ -12,7 +12,8 @@ import { de_GetOrganizationsAccessReportCommand, se_GetOrganizationsAccessReport
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,51 +102,51 @@ export interface GetOrganizationsAccessReportCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get details from a previously generated organizational unit report
  * ```javascript
  * // The following operation gets details about the report with the job ID: examplea-1234-b567-cde8-90fg123abcd4
  * const input = {
- *   "JobId": "examplea-1234-b567-cde8-90fg123abcd4"
+ *   JobId: "examplea-1234-b567-cde8-90fg123abcd4"
  * };
  * const command = new GetOrganizationsAccessReportCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccessDetails": [
+ *   AccessDetails: [
  *     {
- *       "EntityPath": "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-1a2b3c-k9l8m7n6o5example/111122223333",
- *       "LastAuthenticatedTime": "2019-05-25T16:29:52Z",
- *       "Region": "us-east-1",
- *       "ServiceName": "Amazon DynamoDB",
- *       "ServiceNamespace": "dynamodb",
- *       "TotalAuthenticatedEntities": 2
+ *       EntityPath: "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-1a2b3c-k9l8m7n6o5example/111122223333",
+ *       LastAuthenticatedTime: "2019-05-25T16:29:52Z",
+ *       Region: "us-east-1",
+ *       ServiceName: "Amazon DynamoDB",
+ *       ServiceNamespace: "dynamodb",
+ *       TotalAuthenticatedEntities: 2
  *     },
  *     {
- *       "EntityPath": "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-1a2b3c-k9l8m7n6o5example/123456789012",
- *       "LastAuthenticatedTime": "2019-06-15T13:12:06Z",
- *       "Region": "us-east-1",
- *       "ServiceName": "AWS Identity and Access Management",
- *       "ServiceNamespace": "iam",
- *       "TotalAuthenticatedEntities": 4
+ *       EntityPath: "o-a1b2c3d4e5/r-f6g7h8i9j0example/ou-1a2b3c-k9l8m7n6o5example/123456789012",
+ *       LastAuthenticatedTime: "2019-06-15T13:12:06Z",
+ *       Region: "us-east-1",
+ *       ServiceName: "AWS Identity and Access Management",
+ *       ServiceNamespace: "iam",
+ *       TotalAuthenticatedEntities: 4
  *     },
  *     {
- *       "ServiceName": "Amazon Simple Storage Service",
- *       "ServiceNamespace": "s3",
- *       "TotalAuthenticatedEntities": 0
+ *       ServiceName: "Amazon Simple Storage Service",
+ *       ServiceNamespace: "s3",
+ *       TotalAuthenticatedEntities: 0
  *     }
  *   ],
- *   "IsTruncated": false,
- *   "JobCompletionDate": "2019-06-18T19:47:35.241Z",
- *   "JobCreationDate": "2019-06-18T19:47:31.466Z",
- *   "JobStatus": "COMPLETED",
- *   "NumberOfServicesAccessible": 3,
- *   "NumberOfServicesNotAccessed": 1
+ *   IsTruncated: false,
+ *   JobCompletionDate: "2019-06-18T19:47:35.241Z",
+ *   JobCreationDate: "2019-06-18T19:47:31.466Z",
+ *   JobStatus: "COMPLETED",
+ *   NumberOfServicesAccessible: 3,
+ *   NumberOfServicesNotAccessed: 1
  * }
  * *\/
- * // example id: getorganizationsaccessreport-ou
  * ```
  *
+ * @public
  */
 export class GetOrganizationsAccessReportCommand extends $Command
   .classBuilder<
@@ -155,9 +156,7 @@ export class GetOrganizationsAccessReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +168,16 @@ export class GetOrganizationsAccessReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOrganizationsAccessReportCommand)
   .de(de_GetOrganizationsAccessReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOrganizationsAccessReportRequest;
+      output: GetOrganizationsAccessReportResponse;
+    };
+    sdk: {
+      input: GetOrganizationsAccessReportCommandInput;
+      output: GetOrganizationsAccessReportCommandOutput;
+    };
+  };
+}

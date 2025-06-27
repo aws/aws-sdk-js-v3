@@ -12,7 +12,8 @@ import { de_BatchGetDocumentStatusCommand, se_BatchGetDocumentStatusCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * //   Errors: [ // BatchGetDocumentStatusResponseErrors
  * //     { // BatchGetDocumentStatusResponseError
  * //       DocumentId: "STRING_VALUE",
+ * //       DataSourceId: "STRING_VALUE",
  * //       ErrorCode: "InternalError" || "InvalidRequest",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
@@ -118,6 +120,7 @@ export interface BatchGetDocumentStatusCommandOutput extends BatchGetDocumentSta
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDocumentStatusCommand extends $Command
@@ -128,9 +131,7 @@ export class BatchGetDocumentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +143,16 @@ export class BatchGetDocumentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetDocumentStatusCommand)
   .de(de_BatchGetDocumentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDocumentStatusRequest;
+      output: BatchGetDocumentStatusResponse;
+    };
+    sdk: {
+      input: BatchGetDocumentStatusCommandInput;
+      output: BatchGetDocumentStatusCommandOutput;
+    };
+  };
+}

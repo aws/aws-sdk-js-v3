@@ -6,10 +6,15 @@
 package software.amazon.smithy.aws.typescript.codegen.auth.http.integration;
 
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Objects;
+import java.util.function.Consumer;
+import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
+import software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils;
 import software.amazon.smithy.codegen.core.Symbol;
+import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.ServiceIndex;
 import software.amazon.smithy.model.knowledge.ServiceIndex.AuthSchemeMode;
@@ -18,8 +23,8 @@ import software.amazon.smithy.model.node.ObjectNode;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.DynamicTrait;
-import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
+import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -36,9 +41,9 @@ import software.amazon.smithy.typescript.codegen.auth.http.sections.DefaultHttpA
 import software.amazon.smithy.typescript.codegen.auth.http.sections.HttpAuthSchemeParametersInterfaceCodeSection;
 import software.amazon.smithy.typescript.codegen.auth.http.sections.HttpAuthSchemeProviderInterfaceCodeSection;
 import software.amazon.smithy.typescript.codegen.endpointsV2.EndpointsV2Generator;
-import software.amazon.smithy.typescript.codegen.sections.SmithyContextCodeSection;
 import software.amazon.smithy.utils.CodeInterceptor;
 import software.amazon.smithy.utils.CodeSection;
+import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -46,36 +51,54 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  *
  * This code generates `HttpAuthSchemeProvider` interfaces based on {@code @smithy.rules#endpointRuleSet} for
  * identity and auth purposes only.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implements HttpAuthTypeScriptIntegration {
-    private static final Set<ShapeId> ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES = Set.of(
-        ShapeId.from("com.amazonaws.s3#AmazonS3"),
-        ShapeId.from("com.amazonaws.eventbridge#AWSEvents"));
     private static final ShapeId SIGV4A_ID = ShapeId.from("aws.auth#sigv4a");
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth()
-            && ENDPOINT_RULESET_HTTP_AUTH_SCHEME_SERVICES.contains(settings.getService());
+        return !settings.useLegacyAuth();
     }
 
     @Override
     public List<String> runBefore() {
         return List.of(
-            AddHttpAuthSchemePlugin.class.getCanonicalName());
+            AddHttpAuthSchemePlugin.class.getCanonicalName()
+        );
     }
 
     @Override
     public List<String> runAfter() {
         return List.of(
             SupportSigV4Auth.class.getCanonicalName(),
-            AwsSdkCustomizeSigV4Auth.class.getCanonicalName());
+            AwsSdkCustomizeSigV4Auth.class.getCanonicalName()
+        );
+    }
+
+    @Override
+    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
+        TypeScriptSettings settings,
+        Model model,
+        SymbolProvider symbolProvider,
+        LanguageTarget target
+    ) {
+        if (!AwsTraitsUtils.isSigV4AsymmetricService(model, settings)) {
+            return Collections.emptyMap();
+        }
+
+        if (Objects.requireNonNull(target) == LanguageTarget.SHARED) {
+            return MapUtils.of("signerConstructor", writer -> {
+                writer
+                    .addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
+                    .addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION)
+                    .write("SignatureV4MultiRegion");
+            });
+        }
+        return Collections.emptyMap();
     }
 
     @Override
@@ -83,6 +106,10 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
         SupportedHttpAuthSchemesIndex supportedHttpAuthSchemesIndex,
         Model model,
         TypeScriptSettings settings) {
+        if (!AwsTraitsUtils.isSigV4AsymmetricService(model, settings)) {
+            return;
+        }
+
         // TODO(experimentalIdentityAndAuth): should be removed when @aws.auth#sigv4a is supported
         if (supportedHttpAuthSchemesIndex.getHttpAuthScheme(SIGV4A_ID) == null) {
             ShapeId sigv4 = ShapeId.from("aws.auth#sigv4");
@@ -98,15 +125,10 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
     public List<? extends CodeInterceptor<? extends CodeSection, TypeScriptWriter>> interceptors(
             TypeScriptCodegenContext codegenContext
     ) {
+        if (!AwsTraitsUtils.isSigV4AsymmetricService(codegenContext.model(), codegenContext.settings())) {
+            return Collections.emptyList();
+        }
         return List.of(
-            CodeInterceptor.appender(SmithyContextCodeSection.class, (w, s) -> {
-                if (s.getService().hasTrait(EndpointRuleSetTrait.ID)) {
-                    w.openBlock("endpointRuleSet: {", "},", () -> {
-                        w.write("getEndpointParameterInstructions: $T.getEndpointParameterInstructions,",
-                            codegenContext.symbolProvider().toSymbol(s.getOperation()));
-                    });
-                }
-            }),
             new CodeInterceptor<HttpAuthSchemeParametersInterfaceCodeSection, TypeScriptWriter>() {
                 @Override
                 public Class<HttpAuthSchemeParametersInterfaceCodeSection> sectionType() {
@@ -204,8 +226,10 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                     w.writeDocs("@internal");
                     w.write("""
                         interface EndpointRuleSetSmithyContext {
-                          endpointRuleSet?: {
-                            getEndpointParameterInstructions?: () => EndpointParameterInstructions;
+                          commandInstance?: {
+                            constructor?: {
+                              getEndpointParameterInstructions(): EndpointParameterInstructions;
+                            };
                           };
                         }""");
                     w.writeDocs("@internal");
@@ -247,7 +271,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                               const defaultParameters = \
                         await defaultHttpAuthSchemeParametersProvider(config, context, input);
                               const instructionsFn = (getSmithyContext(context) as \
-                        EndpointRuleSetSmithyContext)?.endpointRuleSet
+                        EndpointRuleSetSmithyContext)?.commandInstance?.constructor
                                 ?.getEndpointParameterInstructions;
                               if (!instructionsFn) {
                                 throw new Error(`getEndpointParameterInstructions() is not defined on \
@@ -349,6 +373,7 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                           HttpAuthSchemeParametersT extends HttpAuthSchemeParameters
                         > extends HttpAuthSchemeProvider<EndpointParametersT & HttpAuthSchemeParametersT> { }""");
                     w.addDependency(TypeScriptDependency.SMITHY_TYPES);
+                    w.addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION);
                     w.addImport("Logger", null, TypeScriptDependency.SMITHY_TYPES);
                     w.addImport("EndpointV2", null, TypeScriptDependency.SMITHY_TYPES);
                     w.writeDocs("@internal");
@@ -388,8 +413,16 @@ public final class AwsSdkCustomizeEndpointRuleSetHttpAuthSchemeProvider implemen
                         \\`$${resolvedName}\\` to \\`$${name}\\``);
                               }
                               let schemeId;
-                              if (name === "sigv4a" || name === "sigv4-s3express") {
+                              if (name === "sigv4a") {
                                 schemeId = "aws.auth#sigv4a";
+                                const sigv4Present = authSchemes.find(s => {
+                                  const name = s.name.toLowerCase();
+                                  return name !== "sigv4a" && name.startsWith("sigv4");
+                                });
+                                if (SignatureV4MultiRegion.sigv4aDependency() === "none" && sigv4Present) {
+                                  // sigv4a -> sigv4 fallback.
+                                  continue;
+                                }
                               } else if (name.startsWith("sigv4")) {
                                 schemeId = "aws.auth#sigv4";
                               } else {

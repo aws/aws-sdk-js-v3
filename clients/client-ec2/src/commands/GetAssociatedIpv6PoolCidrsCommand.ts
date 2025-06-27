@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_5";
+import { GetAssociatedIpv6PoolCidrsRequest, GetAssociatedIpv6PoolCidrsResult } from "../models/models_6";
 import { de_GetAssociatedIpv6PoolCidrsCommand, se_GetAssociatedIpv6PoolCidrsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface GetAssociatedIpv6PoolCidrsCommandOutput extends GetAssociatedIp
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetAssociatedIpv6PoolCidrsCommand extends $Command
@@ -73,9 +75,7 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class GetAssociatedIpv6PoolCidrsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssociatedIpv6PoolCidrsCommand)
   .de(de_GetAssociatedIpv6PoolCidrsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssociatedIpv6PoolCidrsRequest;
+      output: GetAssociatedIpv6PoolCidrsResult;
+    };
+    sdk: {
+      input: GetAssociatedIpv6PoolCidrsCommandInput;
+      output: GetAssociatedIpv6PoolCidrsCommandOutput;
+    };
+  };
+}

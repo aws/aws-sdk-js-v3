@@ -12,7 +12,8 @@ import { de_EnableControlCommand, se_EnableControlCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface EnableControlCommandInput extends EnableControlInput {}
 export interface EnableControlCommandOutput extends EnableControlOutput, __MetadataBearer {}
 
 /**
- * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services
- *          resources on the specified organizational unit and the accounts it contains. The resources
- *          created will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>This API call activates a control. It starts an asynchronous operation that creates Amazon Web Services resources on the specified organizational unit and the accounts it contains. The resources created will vary according to the control that you specify. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +76,7 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -89,6 +86,7 @@ export interface EnableControlCommandOutput extends EnableControlOutput, __Metad
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
+ *
  *
  * @public
  */
@@ -100,9 +98,7 @@ export class EnableControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +110,16 @@ export class EnableControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableControlCommand)
   .de(de_EnableControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableControlInput;
+      output: EnableControlOutput;
+    };
+    sdk: {
+      input: EnableControlCommandInput;
+      output: EnableControlCommandOutput;
+    };
+  };
+}

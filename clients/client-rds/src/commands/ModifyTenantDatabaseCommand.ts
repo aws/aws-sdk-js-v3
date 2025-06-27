@@ -17,7 +17,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,9 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  *   TenantDBName: "STRING_VALUE", // required
  *   MasterUserPassword: "STRING_VALUE",
  *   NewTenantDBName: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   RotateMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new ModifyTenantDatabaseCommand(input);
  * const response = await client.send(command);
@@ -65,6 +69,11 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * //     PendingModifiedValues: { // TenantDatabasePendingModifiedValues
  * //       MasterUserPassword: "STRING_VALUE",
  * //       TenantDBName: "STRING_VALUE",
+ * //     },
+ * //     MasterUserSecret: { // MasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
  * //     },
  * //     TagList: [ // TagList
  * //       { // Tag
@@ -90,6 +99,9 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
  * @throws {@link TenantDatabaseAlreadyExistsFault} (client fault)
  *  <p>You attempted to either create a tenant database that already exists or
  *                 modify a tenant database to use the name of an existing tenant database.</p>
@@ -99,6 +111,7 @@ export interface ModifyTenantDatabaseCommandOutput extends ModifyTenantDatabaseR
  *
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
+ *
  *
  * @public
  */
@@ -110,9 +123,7 @@ export class ModifyTenantDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +135,16 @@ export class ModifyTenantDatabaseCommand extends $Command
   .f(ModifyTenantDatabaseMessageFilterSensitiveLog, ModifyTenantDatabaseResultFilterSensitiveLog)
   .ser(se_ModifyTenantDatabaseCommand)
   .de(de_ModifyTenantDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTenantDatabaseMessage;
+      output: ModifyTenantDatabaseResult;
+    };
+    sdk: {
+      input: ModifyTenantDatabaseCommandInput;
+      output: ModifyTenantDatabaseCommandOutput;
+    };
+  };
+}

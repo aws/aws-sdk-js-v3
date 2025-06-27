@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface ListOpenIDConnectProviderTagsCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListOpenIDConnectProviderTagsCommand extends $Command
@@ -94,9 +96,7 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListOpenIDConnectProviderTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOpenIDConnectProviderTagsCommand)
   .de(de_ListOpenIDConnectProviderTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOpenIDConnectProviderTagsRequest;
+      output: ListOpenIDConnectProviderTagsResponse;
+    };
+    sdk: {
+      input: ListOpenIDConnectProviderTagsCommandInput;
+      output: ListOpenIDConnectProviderTagsCommandOutput;
+    };
+  };
+}

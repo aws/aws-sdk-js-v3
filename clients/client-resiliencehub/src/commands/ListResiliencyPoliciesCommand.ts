@@ -16,7 +16,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,9 +52,9 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * //       policyArn: "STRING_VALUE",
  * //       policyName: "STRING_VALUE",
  * //       policyDescription: "STRING_VALUE",
- * //       dataLocationConstraint: "STRING_VALUE",
- * //       tier: "STRING_VALUE",
- * //       estimatedCostTier: "STRING_VALUE",
+ * //       dataLocationConstraint: "AnyLocation" || "SameContinent" || "SameCountry",
+ * //       tier: "MissionCritical" || "Critical" || "Important" || "CoreServices" || "NonCritical" || "NotApplicable",
+ * //       estimatedCostTier: "L1" || "L2" || "L3" || "L4",
  * //       policy: { // DisruptionPolicy
  * //         "<keys>": { // FailurePolicy
  * //           rtoInSecs: Number("int"), // required
@@ -98,6 +99,7 @@ export interface ListResiliencyPoliciesCommandOutput extends ListResiliencyPolic
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListResiliencyPoliciesCommand extends $Command
@@ -108,9 +110,7 @@ export class ListResiliencyPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class ListResiliencyPoliciesCommand extends $Command
   .f(void 0, ListResiliencyPoliciesResponseFilterSensitiveLog)
   .ser(se_ListResiliencyPoliciesCommand)
   .de(de_ListResiliencyPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResiliencyPoliciesRequest;
+      output: ListResiliencyPoliciesResponse;
+    };
+    sdk: {
+      input: ListResiliencyPoliciesCommandInput;
+      output: ListResiliencyPoliciesCommandOutput;
+    };
+  };
+}

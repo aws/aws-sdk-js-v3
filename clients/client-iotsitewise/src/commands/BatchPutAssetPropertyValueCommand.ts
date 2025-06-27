@@ -12,7 +12,8 @@ import { de_BatchPutAssetPropertyValueCommand, se_BatchPutAssetPropertyValueComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * // const { IoTSiteWiseClient, BatchPutAssetPropertyValueCommand } = require("@aws-sdk/client-iotsitewise"); // CommonJS import
  * const client = new IoTSiteWiseClient(config);
  * const input = { // BatchPutAssetPropertyValueRequest
+ *   enablePartialEntryProcessing: true || false,
  *   entries: [ // PutAssetPropertyValueEntries // required
  *     { // PutAssetPropertyValueEntry
  *       entryId: "STRING_VALUE", // required
@@ -72,6 +74,9 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  *             integerValue: Number("int"),
  *             doubleValue: Number("double"),
  *             booleanValue: true || false,
+ *             nullValue: { // PropertyValueNullValue
+ *               valueType: "D" || "B" || "S" || "I" || "U", // required
+ *             },
  *           },
  *           timestamp: { // TimeInNanos
  *             timeInSeconds: Number("long"), // required
@@ -145,6 +150,7 @@ export interface BatchPutAssetPropertyValueCommandOutput extends BatchPutAssetPr
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class BatchPutAssetPropertyValueCommand extends $Command
@@ -155,9 +161,7 @@ export class BatchPutAssetPropertyValueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +173,16 @@ export class BatchPutAssetPropertyValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutAssetPropertyValueCommand)
   .de(de_BatchPutAssetPropertyValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutAssetPropertyValueRequest;
+      output: BatchPutAssetPropertyValueResponse;
+    };
+    sdk: {
+      input: BatchPutAssetPropertyValueCommandInput;
+      output: BatchPutAssetPropertyValueCommandOutput;
+    };
+  };
+}

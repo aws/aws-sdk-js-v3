@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartVariantImportRequest, StartVariantImportResponse } from "../models/models_0";
+import { StartVariantImportRequest, StartVariantImportResponse } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { de_StartVariantImportJobCommand, se_StartVariantImportJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface StartVariantImportJobCommandOutput extends StartVariantImportRe
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class StartVariantImportJobCommand extends $Command
@@ -92,9 +94,7 @@ export class StartVariantImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class StartVariantImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartVariantImportJobCommand)
   .de(de_StartVariantImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartVariantImportRequest;
+      output: StartVariantImportResponse;
+    };
+    sdk: {
+      input: StartVariantImportJobCommandInput;
+      output: StartVariantImportJobCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListActiveViolationsCommand, se_ListActiveViolationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -141,6 +142,7 @@ export interface ListActiveViolationsCommandOutput extends ListActiveViolationsR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListActiveViolationsCommand extends $Command
@@ -151,9 +153,7 @@ export class ListActiveViolationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +165,16 @@ export class ListActiveViolationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListActiveViolationsCommand)
   .de(de_ListActiveViolationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListActiveViolationsRequest;
+      output: ListActiveViolationsResponse;
+    };
+    sdk: {
+      input: ListActiveViolationsCommandInput;
+      output: ListActiveViolationsCommandOutput;
+    };
+  };
+}

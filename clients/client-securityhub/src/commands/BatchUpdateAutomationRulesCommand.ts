@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,31 +51,31 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  *         ProductArn: [ // StringFilterList
  *           { // StringFilter
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *           },
  *         ],
  *         AwsAccountId: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *           },
  *         ],
  *         Id: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *           },
  *         ],
  *         GeneratorId: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *           },
  *         ],
  *         Type: [
  *           {
  *             Value: "STRING_VALUE",
- *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *           },
  *         ],
  *         FirstObservedAt: [ // DateFilterList
@@ -270,36 +271,36 @@ export interface BatchUpdateAutomationRulesCommandOutput extends BatchUpdateAuto
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update one ore more automation rules
  * ```javascript
  * // The following example updates the specified automation rules.
  * const input = {
- *   "UpdateAutomationRulesRequestItems": [
+ *   UpdateAutomationRulesRequestItems: [
  *     {
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "RuleOrder": 15,
- *       "RuleStatus": "ENABLED"
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       RuleOrder: 15,
+ *       RuleStatus: "ENABLED"
  *     },
  *     {
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "RuleStatus": "DISABLED"
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       RuleStatus: "DISABLED"
  *     }
  *   ]
  * };
  * const command = new BatchUpdateAutomationRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProcessedAutomationRules": [
+ *   ProcessedAutomationRules: [
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *   ]
  * }
  * *\/
- * // example id: to-update-one-ore-more-automation-rules-1684771025347
  * ```
  *
+ * @public
  */
 export class BatchUpdateAutomationRulesCommand extends $Command
   .classBuilder<
@@ -309,9 +310,7 @@ export class BatchUpdateAutomationRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -323,4 +322,16 @@ export class BatchUpdateAutomationRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateAutomationRulesCommand)
   .de(de_BatchUpdateAutomationRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateAutomationRulesRequest;
+      output: BatchUpdateAutomationRulesResponse;
+    };
+    sdk: {
+      input: BatchUpdateAutomationRulesCommandInput;
+      output: BatchUpdateAutomationRulesCommandOutput;
+    };
+  };
+}

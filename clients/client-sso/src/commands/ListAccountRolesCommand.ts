@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListAccountRolesCommandOutput extends ListAccountRolesResponse,
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ *
  * @public
  */
 export class ListAccountRolesCommand extends $Command
@@ -92,9 +94,7 @@ export class ListAccountRolesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListAccountRolesCommand extends $Command
   .f(ListAccountRolesRequestFilterSensitiveLog, void 0)
   .ser(se_ListAccountRolesCommand)
   .de(de_ListAccountRolesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountRolesRequest;
+      output: ListAccountRolesResponse;
+    };
+    sdk: {
+      input: ListAccountRolesCommandInput;
+      output: ListAccountRolesCommandOutput;
+    };
+  };
+}

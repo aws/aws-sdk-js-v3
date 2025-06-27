@@ -12,7 +12,8 @@ import { de_DeregisterVolumeCommand, se_DeregisterVolumeCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DeregisterVolumeCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DeregisterVolumeCommand extends $Command
@@ -75,9 +77,7 @@ export class DeregisterVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DeregisterVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterVolumeCommand)
   .de(de_DeregisterVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterVolumeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterVolumeCommandInput;
+      output: DeregisterVolumeCommandOutput;
+    };
+  };
+}

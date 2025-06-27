@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * //       RoleARN: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -100,6 +102,7 @@ export interface AddApplicationCloudWatchLoggingOptionCommandOutput
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
@@ -110,9 +113,7 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +125,16 @@ export class AddApplicationCloudWatchLoggingOptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddApplicationCloudWatchLoggingOptionCommand)
   .de(de_AddApplicationCloudWatchLoggingOptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddApplicationCloudWatchLoggingOptionRequest;
+      output: AddApplicationCloudWatchLoggingOptionResponse;
+    };
+    sdk: {
+      input: AddApplicationCloudWatchLoggingOptionCommandInput;
+      output: AddApplicationCloudWatchLoggingOptionCommandOutput;
+    };
+  };
+}

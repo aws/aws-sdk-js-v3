@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,9 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //                   Dimensions: { // DescriptiveMap
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
+ * //                   Filter: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
  * //                   Value: Number("double"),
  * //                 },
  * //               },
@@ -106,6 +110,9 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //                   Metric: "STRING_VALUE",
  * //                   DisplayName: "STRING_VALUE",
  * //                   Dimensions: {
+ * //                     "<keys>": "STRING_VALUE",
+ * //                   },
+ * //                   Filter: {
  * //                     "<keys>": "STRING_VALUE",
  * //                   },
  * //                   Value: Number("double"),
@@ -129,6 +136,7 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //               Dimensions: {
  * //                 "<keys>": "STRING_VALUE",
  * //               },
+ * //               Filter: "<DescriptiveMap>",
  * //               Value: Number("double"),
  * //             },
  * //           },
@@ -138,9 +146,8 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * //             PerformanceInsightsMetric: {
  * //               Metric: "STRING_VALUE",
  * //               DisplayName: "STRING_VALUE",
- * //               Dimensions: {
- * //                 "<keys>": "STRING_VALUE",
- * //               },
+ * //               Dimensions: "<DescriptiveMap>",
+ * //               Filter: "<DescriptiveMap>",
  * //               Value: Number("double"),
  * //             },
  * //           },
@@ -170,6 +177,7 @@ export interface GetPerformanceAnalysisReportCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class GetPerformanceAnalysisReportCommand extends $Command
@@ -180,9 +188,7 @@ export class GetPerformanceAnalysisReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +200,16 @@ export class GetPerformanceAnalysisReportCommand extends $Command
   .f(void 0, GetPerformanceAnalysisReportResponseFilterSensitiveLog)
   .ser(se_GetPerformanceAnalysisReportCommand)
   .de(de_GetPerformanceAnalysisReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPerformanceAnalysisReportRequest;
+      output: GetPerformanceAnalysisReportResponse;
+    };
+    sdk: {
+      input: GetPerformanceAnalysisReportCommandInput;
+      output: GetPerformanceAnalysisReportCommandOutput;
+    };
+  };
+}

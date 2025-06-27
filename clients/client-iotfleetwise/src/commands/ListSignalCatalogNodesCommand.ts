@@ -12,7 +12,8 @@ import { de_ListSignalCatalogNodesCommand, se_ListSignalCatalogNodesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -147,6 +148,7 @@ export interface ListSignalCatalogNodesCommandOutput extends ListSignalCatalogNo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListSignalCatalogNodesCommand extends $Command
@@ -157,9 +159,7 @@ export class ListSignalCatalogNodesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +171,16 @@ export class ListSignalCatalogNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSignalCatalogNodesCommand)
   .de(de_ListSignalCatalogNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSignalCatalogNodesRequest;
+      output: ListSignalCatalogNodesResponse;
+    };
+    sdk: {
+      input: ListSignalCatalogNodesCommandInput;
+      output: ListSignalCatalogNodesCommandOutput;
+    };
+  };
+}

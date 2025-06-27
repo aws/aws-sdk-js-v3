@@ -12,7 +12,8 @@ import { de_GetAdmChannelCommand, se_GetAdmChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface GetAdmChannelCommandOutput extends GetAdmChannelResponse, __Met
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetAdmChannelCommand extends $Command
@@ -96,9 +98,7 @@ export class GetAdmChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class GetAdmChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdmChannelCommand)
   .de(de_GetAdmChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAdmChannelRequest;
+      output: GetAdmChannelResponse;
+    };
+    sdk: {
+      input: GetAdmChannelCommandInput;
+      output: GetAdmChannelCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateSecurityConfigCommand, se_CreateSecurityConfigCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,7 +49,13 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  *     metadata: "STRING_VALUE", // required
  *     userAttribute: "STRING_VALUE",
  *     groupAttribute: "STRING_VALUE",
+ *     openSearchServerlessEntityId: "STRING_VALUE",
  *     sessionTimeout: Number("int"),
+ *   },
+ *   iamIdentityCenterOptions: { // CreateIamIdentityCenterConfigOptions
+ *     instanceArn: "STRING_VALUE", // required
+ *     userAttribute: "STRING_VALUE",
+ *     groupAttribute: "STRING_VALUE",
  *   },
  *   clientToken: "STRING_VALUE",
  * };
@@ -64,7 +71,16 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * //       metadata: "STRING_VALUE", // required
  * //       userAttribute: "STRING_VALUE",
  * //       groupAttribute: "STRING_VALUE",
+ * //       openSearchServerlessEntityId: "STRING_VALUE",
  * //       sessionTimeout: Number("int"),
+ * //     },
+ * //     iamIdentityCenterOptions: { // IamIdentityCenterConfigOptions
+ * //       instanceArn: "STRING_VALUE",
+ * //       applicationArn: "STRING_VALUE",
+ * //       applicationName: "STRING_VALUE",
+ * //       applicationDescription: "STRING_VALUE",
+ * //       userAttribute: "STRING_VALUE",
+ * //       groupAttribute: "STRING_VALUE",
  * //     },
  * //     createdDate: Number("long"),
  * //     lastModifiedDate: Number("long"),
@@ -97,6 +113,7 @@ export interface CreateSecurityConfigCommandOutput extends CreateSecurityConfigR
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateSecurityConfigCommand extends $Command
@@ -107,9 +124,7 @@ export class CreateSecurityConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +136,16 @@ export class CreateSecurityConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSecurityConfigCommand)
   .de(de_CreateSecurityConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecurityConfigRequest;
+      output: CreateSecurityConfigResponse;
+    };
+    sdk: {
+      input: CreateSecurityConfigCommandInput;
+      output: CreateSecurityConfigCommandOutput;
+    };
+  };
+}

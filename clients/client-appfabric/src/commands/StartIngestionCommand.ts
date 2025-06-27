@@ -12,7 +12,8 @@ import { de_StartIngestionCommand, se_StartIngestionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface StartIngestionCommandOutput extends StartIngestionResponse, __M
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class StartIngestionCommand extends $Command
@@ -82,9 +84,7 @@ export class StartIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class StartIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartIngestionCommand)
   .de(de_StartIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartIngestionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartIngestionCommandInput;
+      output: StartIngestionCommandOutput;
+    };
+  };
+}

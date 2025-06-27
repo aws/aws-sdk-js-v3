@@ -248,6 +248,7 @@ import {
   DisassociateOpsItemRelatedItemCommandInput,
   DisassociateOpsItemRelatedItemCommandOutput,
 } from "./commands/DisassociateOpsItemRelatedItemCommand";
+import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "./commands/GetAccessTokenCommand";
 import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -270,6 +271,10 @@ import {
   GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "./commands/GetDeployablePatchSnapshotForInstanceCommand";
 import { GetDocumentCommandInput, GetDocumentCommandOutput } from "./commands/GetDocumentCommand";
+import {
+  GetExecutionPreviewCommandInput,
+  GetExecutionPreviewCommandOutput,
+} from "./commands/GetExecutionPreviewCommand";
 import { GetInventoryCommandInput, GetInventoryCommandOutput } from "./commands/GetInventoryCommand";
 import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "./commands/GetInventorySchemaCommand";
 import {
@@ -350,6 +355,8 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "./commands/ListInventoryEntriesCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "./commands/ListNodesCommand";
+import { ListNodesSummaryCommandInput, ListNodesSummaryCommandOutput } from "./commands/ListNodesSummaryCommand";
 import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "./commands/ListOpsItemEventsCommand";
 import {
   ListOpsItemRelatedItemsCommandInput,
@@ -406,6 +413,7 @@ import {
   SendAutomationSignalCommandOutput,
 } from "./commands/SendAutomationSignalCommand";
 import { SendCommandCommandInput, SendCommandCommandOutput } from "./commands/SendCommandCommand";
+import { StartAccessRequestCommandInput, StartAccessRequestCommandOutput } from "./commands/StartAccessRequestCommand";
 import {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
@@ -418,6 +426,10 @@ import {
   StartChangeRequestExecutionCommandInput,
   StartChangeRequestExecutionCommandOutput,
 } from "./commands/StartChangeRequestExecutionCommand";
+import {
+  StartExecutionPreviewCommandInput,
+  StartExecutionPreviewCommandOutput,
+} from "./commands/StartExecutionPreviewCommand";
 import { StartSessionCommandInput, StartSessionCommandOutput } from "./commands/StartSessionCommand";
 import {
   StopAutomationExecutionCommandInput,
@@ -550,6 +562,7 @@ export type ServiceInputTypes =
   | DescribePatchPropertiesCommandInput
   | DescribeSessionsCommandInput
   | DisassociateOpsItemRelatedItemCommandInput
+  | GetAccessTokenCommandInput
   | GetAutomationExecutionCommandInput
   | GetCalendarStateCommandInput
   | GetCommandInvocationCommandInput
@@ -557,6 +570,7 @@ export type ServiceInputTypes =
   | GetDefaultPatchBaselineCommandInput
   | GetDeployablePatchSnapshotForInstanceCommandInput
   | GetDocumentCommandInput
+  | GetExecutionPreviewCommandInput
   | GetInventoryCommandInput
   | GetInventorySchemaCommandInput
   | GetMaintenanceWindowCommandInput
@@ -586,6 +600,8 @@ export type ServiceInputTypes =
   | ListDocumentVersionsCommandInput
   | ListDocumentsCommandInput
   | ListInventoryEntriesCommandInput
+  | ListNodesCommandInput
+  | ListNodesSummaryCommandInput
   | ListOpsItemEventsCommandInput
   | ListOpsItemRelatedItemsCommandInput
   | ListOpsMetadataCommandInput
@@ -606,9 +622,11 @@ export type ServiceInputTypes =
   | ResumeSessionCommandInput
   | SendAutomationSignalCommandInput
   | SendCommandCommandInput
+  | StartAccessRequestCommandInput
   | StartAssociationsOnceCommandInput
   | StartAutomationExecutionCommandInput
   | StartChangeRequestExecutionCommandInput
+  | StartExecutionPreviewCommandInput
   | StartSessionCommandInput
   | StopAutomationExecutionCommandInput
   | TerminateSessionCommandInput
@@ -695,6 +713,7 @@ export type ServiceOutputTypes =
   | DescribePatchPropertiesCommandOutput
   | DescribeSessionsCommandOutput
   | DisassociateOpsItemRelatedItemCommandOutput
+  | GetAccessTokenCommandOutput
   | GetAutomationExecutionCommandOutput
   | GetCalendarStateCommandOutput
   | GetCommandInvocationCommandOutput
@@ -702,6 +721,7 @@ export type ServiceOutputTypes =
   | GetDefaultPatchBaselineCommandOutput
   | GetDeployablePatchSnapshotForInstanceCommandOutput
   | GetDocumentCommandOutput
+  | GetExecutionPreviewCommandOutput
   | GetInventoryCommandOutput
   | GetInventorySchemaCommandOutput
   | GetMaintenanceWindowCommandOutput
@@ -731,6 +751,8 @@ export type ServiceOutputTypes =
   | ListDocumentVersionsCommandOutput
   | ListDocumentsCommandOutput
   | ListInventoryEntriesCommandOutput
+  | ListNodesCommandOutput
+  | ListNodesSummaryCommandOutput
   | ListOpsItemEventsCommandOutput
   | ListOpsItemRelatedItemsCommandOutput
   | ListOpsMetadataCommandOutput
@@ -751,9 +773,11 @@ export type ServiceOutputTypes =
   | ResumeSessionCommandOutput
   | SendAutomationSignalCommandOutput
   | SendCommandCommandOutput
+  | StartAccessRequestCommandOutput
   | StartAssociationsOnceCommandOutput
   | StartAutomationExecutionCommandOutput
   | StartChangeRequestExecutionCommandOutput
+  | StartExecutionPreviewCommandOutput
   | StartSessionCommandOutput
   | StopAutomationExecutionCommandOutput
   | TerminateSessionCommandOutput
@@ -865,6 +889,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -910,11 +953,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type SSMClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -930,11 +973,11 @@ export interface SSMClientConfig extends SSMClientConfigType {}
 export type SSMClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -954,16 +997,17 @@ export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
  *          </p>
  *          <ul>
  *             <li>
- *                <p>For information about each of the capabilities that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html#systems-manager-capabilities">Systems Manager capabilities</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *                <p>For information about each of the tools that comprise Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-tools.html">Using
+ *       Systems Manager tools</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *             </li>
  *             <li>
- *                <p>For details about predefined runbooks for Automation, a capability of Amazon Web Services Systems Manager, see the
+ *                <p>For details about predefined runbooks for Automation, a tool in Amazon Web Services Systems Manager, see the
  *        <i>
  *                      <a href="https://docs.aws.amazon.com/systems-manager-automation-runbooks/latest/userguide/automation-runbook-reference.html">Systems Manager Automation runbook reference</a>
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about AppConfig, a capability of Systems Manager, see the <i>
+ *                <p>For information about AppConfig, a tool in Systems Manager, see the <i>
  *                      <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/">AppConfig User Guide</a>
  *                   </i>
  *      and the <i>
@@ -972,7 +1016,7 @@ export interface SSMClientResolvedConfig extends SSMClientResolvedConfigType {}
  *                   </i>.</p>
  *             </li>
  *             <li>
- *                <p>For information about Incident Manager, a capability of Systems Manager, see the <i>
+ *                <p>For information about Incident Manager, a tool in Systems Manager, see the <i>
  *                      <a href="https://docs.aws.amazon.com/incident-manager/latest/userguide/">Systems Manager Incident Manager User
  *        Guide</a>
  *                   </i> and the <i>
@@ -996,26 +1040,30 @@ export class SSMClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<SSMClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultSSMHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: SSMClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -1028,14 +1076,5 @@ export class SSMClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSSMHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: SSMClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

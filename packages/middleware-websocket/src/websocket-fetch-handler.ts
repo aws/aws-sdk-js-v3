@@ -128,7 +128,7 @@ export class WebSocketFetchHandler {
    */
   private removeNotUsableSockets(url: string): void {
     this.sockets[url] = (this.sockets[url] ?? []).filter(
-      (socket) => ![WebSocket.CLOSING, WebSocket.CLOSED].includes(socket.readyState)
+      (socket) => !([WebSocket.CLOSING, WebSocket.CLOSED] as number[]).includes(socket.readyState)
     );
   }
 

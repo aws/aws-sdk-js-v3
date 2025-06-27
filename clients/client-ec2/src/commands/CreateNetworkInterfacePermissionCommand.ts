@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,10 @@ export interface CreateNetworkInterfacePermissionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Grants an Amazon Web Services-authorized account permission to attach the specified network interface to
- *             an instance in their account.</p>
- *          <p>You can grant permission to a single Amazon Web Services account only, and only one account at a time.</p>
+ * <p>Grants an Amazon Web Services-authorized account permission to attach the specified
+ *             network interface to an instance in their account.</p>
+ *          <p>You can grant permission to a single Amazon Web Services account only, and only one
+ *             account at a time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +77,7 @@ export interface CreateNetworkInterfacePermissionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateNetworkInterfacePermissionCommand extends $Command
@@ -85,9 +88,7 @@ export class CreateNetworkInterfacePermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +100,16 @@ export class CreateNetworkInterfacePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNetworkInterfacePermissionCommand)
   .de(de_CreateNetworkInterfacePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkInterfacePermissionRequest;
+      output: CreateNetworkInterfacePermissionResult;
+    };
+    sdk: {
+      input: CreateNetworkInterfacePermissionCommandInput;
+      output: CreateNetworkInterfacePermissionCommandOutput;
+    };
+  };
+}

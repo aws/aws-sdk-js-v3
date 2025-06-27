@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_1";
+import { UpdateStreamingDistributionRequest, UpdateStreamingDistributionResult } from "../models/models_2";
 import { de_UpdateStreamingDistributionCommand, se_UpdateStreamingDistributionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,7 +61,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  *         "STRING_VALUE",
  *       ],
  *     },
- *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ *     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  *     Enabled: true || false, // required
  *   },
  *   Id: "STRING_VALUE", // required
@@ -115,7 +116,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //     },
  * //   },
@@ -140,8 +141,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  *  <p>The update contains modifications that are not allowed.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -156,15 +156,13 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  *  <p>The origin access identity is not valid or doesn't exist.</p>
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the
- * 				<code>Content-Type</code> header is set.</p>
+ *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  *
  * @throws {@link NoSuchStreamingDistribution} (client fault)
  *  <p>The specified streaming distribution does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link TooManyStreamingDistributionCNAMEs} (client fault)
  *  <p>Your request contains more CNAMEs than are allowed per distribution.</p>
@@ -178,6 +176,7 @@ export interface UpdateStreamingDistributionCommandOutput extends UpdateStreamin
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateStreamingDistributionCommand extends $Command
@@ -188,9 +187,7 @@ export class UpdateStreamingDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -202,4 +199,16 @@ export class UpdateStreamingDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStreamingDistributionCommand)
   .de(de_UpdateStreamingDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStreamingDistributionRequest;
+      output: UpdateStreamingDistributionResult;
+    };
+    sdk: {
+      input: UpdateStreamingDistributionCommandInput;
+      output: UpdateStreamingDistributionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,10 @@ export interface ListServiceQuotasCommandInput extends ListServiceQuotasRequest 
 export interface ListServiceQuotasCommandOutput extends ListServiceQuotasResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the applied quota values for the specified Amazon Web Service. For some quotas, only
+ * <p>Lists the applied quota values for the specified Amazon Web Services service. For some quotas, only
  *             the default values are available. If the applied quota value is not available for a
- *             quota, the quota is not retrieved.</p>
+ *             quota, the quota is not retrieved. Filter responses to return applied quota values at either the account level,
+ *             resource level, or all levels.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +82,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
  * //       },
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -114,6 +117,7 @@ export interface ListServiceQuotasCommandOutput extends ListServiceQuotasRespons
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class ListServiceQuotasCommand extends $Command
@@ -124,9 +128,7 @@ export class ListServiceQuotasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +140,16 @@ export class ListServiceQuotasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListServiceQuotasCommand)
   .de(de_ListServiceQuotasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListServiceQuotasRequest;
+      output: ListServiceQuotasResponse;
+    };
+    sdk: {
+      input: ListServiceQuotasCommandInput;
+      output: ListServiceQuotasCommandOutput;
+    };
+  };
+}

@@ -39,6 +39,11 @@ import {
   GetExperimentTemplateCommandOutput,
 } from "./commands/GetExperimentTemplateCommand";
 import {
+  GetSafetyLeverCommand,
+  GetSafetyLeverCommandInput,
+  GetSafetyLeverCommandOutput,
+} from "./commands/GetSafetyLeverCommand";
+import {
   GetTargetAccountConfigurationCommand,
   GetTargetAccountConfigurationCommandInput,
   GetTargetAccountConfigurationCommandOutput,
@@ -106,6 +111,11 @@ import {
   UpdateExperimentTemplateCommandOutput,
 } from "./commands/UpdateExperimentTemplateCommand";
 import {
+  UpdateSafetyLeverStateCommand,
+  UpdateSafetyLeverStateCommandInput,
+  UpdateSafetyLeverStateCommandOutput,
+} from "./commands/UpdateSafetyLeverStateCommand";
+import {
   UpdateTargetAccountConfigurationCommand,
   UpdateTargetAccountConfigurationCommandInput,
   UpdateTargetAccountConfigurationCommandOutput,
@@ -121,6 +131,7 @@ const commands = {
   GetExperimentCommand,
   GetExperimentTargetAccountConfigurationCommand,
   GetExperimentTemplateCommand,
+  GetSafetyLeverCommand,
   GetTargetAccountConfigurationCommand,
   GetTargetResourceTypeCommand,
   ListActionsCommand,
@@ -136,6 +147,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateExperimentTemplateCommand,
+  UpdateSafetyLeverStateCommand,
   UpdateTargetAccountConfigurationCommand,
 };
 
@@ -262,6 +274,20 @@ export interface Fis {
     args: GetExperimentTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetExperimentTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSafetyLeverCommand}
+   */
+  getSafetyLever(
+    args: GetSafetyLeverCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSafetyLeverCommandOutput>;
+  getSafetyLever(args: GetSafetyLeverCommandInput, cb: (err: any, data?: GetSafetyLeverCommandOutput) => void): void;
+  getSafetyLever(
+    args: GetSafetyLeverCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSafetyLeverCommandOutput) => void
   ): void;
 
   /**
@@ -497,6 +523,23 @@ export interface Fis {
   ): void;
 
   /**
+   * @see {@link UpdateSafetyLeverStateCommand}
+   */
+  updateSafetyLeverState(
+    args: UpdateSafetyLeverStateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSafetyLeverStateCommandOutput>;
+  updateSafetyLeverState(
+    args: UpdateSafetyLeverStateCommandInput,
+    cb: (err: any, data?: UpdateSafetyLeverStateCommandOutput) => void
+  ): void;
+  updateSafetyLeverState(
+    args: UpdateSafetyLeverStateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSafetyLeverStateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTargetAccountConfigurationCommand}
    */
   updateTargetAccountConfiguration(
@@ -515,7 +558,7 @@ export interface Fis {
 }
 
 /**
- * <p>Fault Injection Service is a managed service that enables you to perform fault injection
+ * <p>Amazon Web Services Fault Injection Service is a managed service that enables you to perform fault injection
  *            experiments on your Amazon Web Services workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">Fault Injection Service User Guide</a>.</p>
  * @public
  */

@@ -12,7 +12,8 @@ import { de_CreateInstanceCommand, se_CreateInstanceCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResult, __Met
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class CreateInstanceCommand extends $Command
@@ -108,9 +110,7 @@ export class CreateInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class CreateInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInstanceCommand)
   .de(de_CreateInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceRequest;
+      output: CreateInstanceResult;
+    };
+    sdk: {
+      input: CreateInstanceCommandInput;
+      output: CreateInstanceCommandOutput;
+    };
+  };
+}

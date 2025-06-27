@@ -12,7 +12,8 @@ import { de_ListReportsCommand, se_ListReportsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,10 +46,10 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * //     { // ReportSummary
  * //       id: "STRING_VALUE",
  * //       name: "STRING_VALUE",
- * //       state: "STRING_VALUE",
+ * //       state: "PUBLISHED" || "UNPUBLISHED",
  * //       arn: "STRING_VALUE",
  * //       version: Number("long"),
- * //       uploadState: "STRING_VALUE",
+ * //       uploadState: "PROCESSING" || "COMPLETE" || "FAILED" || "FAULT",
  * //       description: "STRING_VALUE",
  * //       periodStart: new Date("TIMESTAMP"),
  * //       periodEnd: new Date("TIMESTAMP"),
@@ -57,6 +58,7 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * //       companyName: "STRING_VALUE",
  * //       productName: "STRING_VALUE",
  * //       statusMessage: "STRING_VALUE",
+ * //       acceptanceType: "PASSTHROUGH" || "EXPLICIT",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -91,6 +93,36 @@ export interface ListReportsCommandOutput extends ListReportsResponse, __Metadat
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ *
+ * @example Invoke ListReports operation
+ * ```javascript
+ * // The ListReports operation returns a collection of report resources.
+ * const input = { /* empty *\/ };
+ * const command = new ListReportsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nextToken: "gPFEGk7CF4wS901w7ppYclt7gPFEGk7CF4wS901w7ppYclt7gPFEGk7CF4wS901w7ppYclt7",
+ *   reports: [
+ *     {
+ *       arn: "arn:aws:artifact:us-east-1::report/report-abcdef0123456789",
+ *       category: "Artifact Category",
+ *       companyName: "AWS",
+ *       description: "Description of report",
+ *       id: "report-abcdef0123456789",
+ *       name: "Name of report",
+ *       periodEnd: "2022-04-01T20:32:04Z",
+ *       periodStart: "2022-04-01T20:32:04Z",
+ *       productName: "Product of report",
+ *       series: "Artifact Series",
+ *       state: "PUBLISHED",
+ *       version: 1
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListReportsCommand extends $Command
@@ -101,9 +133,7 @@ export class ListReportsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +145,16 @@ export class ListReportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReportsCommand)
   .de(de_ListReportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReportsRequest;
+      output: ListReportsResponse;
+    };
+    sdk: {
+      input: ListReportsCommandInput;
+      output: ListReportsCommandOutput;
+    };
+  };
+}

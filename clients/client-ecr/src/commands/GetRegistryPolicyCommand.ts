@@ -12,7 +12,8 @@ import { de_GetRegistryPolicyCommand, se_GetRegistryPolicyCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface GetRegistryPolicyCommandOutput extends GetRegistryPolicyRespons
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class GetRegistryPolicyCommand extends $Command
@@ -76,9 +78,7 @@ export class GetRegistryPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class GetRegistryPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRegistryPolicyCommand)
   .de(de_GetRegistryPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetRegistryPolicyResponse;
+    };
+    sdk: {
+      input: GetRegistryPolicyCommandInput;
+      output: GetRegistryPolicyCommandOutput;
+    };
+  };
+}

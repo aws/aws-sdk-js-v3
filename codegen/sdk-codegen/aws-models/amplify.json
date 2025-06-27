@@ -1093,28 +1093,34 @@
         "platform": {
           "target": "com.amazonaws.amplify#Platform",
           "traits": {
-            "smithy.api#documentation": "<p>The platform for the Amplify app. For a static app, set the platform type to\n                <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform\n            type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR\n            support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>",
+            "smithy.api#documentation": "<p>The platform for the Amplify app. For a static app, set the platform type to\n                <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform\n            type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR\n            support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>\n         <p>If you are deploying an SSG only app with Next.js 14 or later, you must use the\n            platform type <code>WEB_COMPUTE</code>.</p>",
             "smithy.api#required": {}
           }
         },
         "createTime": {
           "target": "com.amazonaws.amplify#CreateTime",
           "traits": {
-            "smithy.api#documentation": "<p>Creates a date and time for the Amplify app. </p>",
+            "smithy.api#documentation": "<p>A timestamp of when Amplify created the application.</p>",
             "smithy.api#required": {}
           }
         },
         "updateTime": {
           "target": "com.amazonaws.amplify#UpdateTime",
           "traits": {
-            "smithy.api#documentation": "<p>Updates the date and time for the Amplify app. </p>",
+            "smithy.api#documentation": "<p>A timestamp of when Amplify updated the application.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "computeRoleArn": {
+          "target": "com.amazonaws.amplify#ComputeRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role for an SSR app. The\n            Compute role allows the Amplify Hosting compute service to securely\n            access specific Amazon Web Services resources based on the role's permissions. For more\n            information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute\n                role</a> in the <i>Amplify User Guide</i>.</p>"
           }
         },
         "iamServiceRoleArn": {
           "target": "com.amazonaws.amplify#ServiceRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name\n            (ARN) of the Amplify app. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</p>"
           }
         },
         "environmentVariables": {
@@ -1203,6 +1209,30 @@
           "target": "com.amazonaws.amplify#RepositoryCloneMethod",
           "traits": {
             "smithy.api#documentation": "<note>\n            <p>This is for internal use.</p>\n         </note>\n         <p>The Amplify service uses this parameter to specify the authentication protocol to use\n            to access the Git repository for an Amplify app. Amplify specifies <code>TOKEN</code>\n            for a GitHub repository, <code>SIGV4</code> for an Amazon Web Services CodeCommit\n            repository, and <code>SSH</code> for GitLab and Bitbucket repositories.</p>"
+          }
+        },
+        "cacheConfig": {
+          "target": "com.amazonaws.amplify#CacheConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The cache configuration for the Amplify app. If you don't specify the\n            cache configuration <code>type</code>, Amplify uses the default\n                <code>AMPLIFY_MANAGED</code> setting.</p>"
+          }
+        },
+        "webhookCreateTime": {
+          "target": "com.amazonaws.amplify#webhookCreateTime",
+          "traits": {
+            "smithy.api#documentation": "<p>A timestamp of when Amplify created the webhook in your Git\n            repository.</p>"
+          }
+        },
+        "wafConfiguration": {
+          "target": "com.amazonaws.amplify#WafConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the Firewall configuration for the Amplify app. Firewall\n            support enables you to protect your hosted applications with a direct integration with\n                WAF.</p>"
+          }
+        },
+        "jobConfig": {
+          "target": "com.amazonaws.amplify#JobConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The configuration details that apply to the jobs for an Amplify app.</p>"
           }
         }
       },
@@ -1436,7 +1466,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the backend associated with an Amplify\n            <code>Branch</code>.</p>\n         <p>This property is available to Amplify Gen 2 apps only. When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>"
+        "smithy.api#documentation": "<p>Describes the backend associated with an Amplify\n            <code>Branch</code>.</p>\n         <p>This property is available to Amplify Gen 2 apps only. When you deploy\n            an application with Amplify Gen 2, you provision the app's backend infrastructure using\n            Typescript code.</p>"
       }
     },
     "com.amazonaws.amplify#BackendEnvironment": {
@@ -1484,7 +1514,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Describes the backend environment associated with a <code>Branch</code> of a Gen 1\n                Amplify app. Amplify Gen 1 applications are created\n            using Amplify Studio or the Amplify command line\n            interface (CLI).</p>"
+        "smithy.api#documentation": "<p>Describes the backend environment associated with a <code>Branch</code> of a Gen 1\n                Amplify app. Amplify Gen 1 applications are created\n            using Amplify Studio or the Amplify command line interface\n            (CLI).</p>"
       }
     },
     "com.amazonaws.amplify#BackendEnvironmentArn": {
@@ -1581,14 +1611,14 @@
         "createTime": {
           "target": "com.amazonaws.amplify#CreateTime",
           "traits": {
-            "smithy.api#documentation": "<p> The creation date and time for a branch that is part of an Amplify app. </p>",
+            "smithy.api#documentation": "<p>A timestamp of when Amplify created the branch.</p>",
             "smithy.api#required": {}
           }
         },
         "updateTime": {
           "target": "com.amazonaws.amplify#UpdateTime",
           "traits": {
-            "smithy.api#documentation": "<p> The last updated date and time for a branch that is part of an Amplify app. </p>",
+            "smithy.api#documentation": "<p>A timestamp for the last updated time for a branch.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1604,6 +1634,12 @@
           "traits": {
             "smithy.api#documentation": "<p> Enables auto-building on push for a branch of an Amplify app. </p>",
             "smithy.api#required": {}
+          }
+        },
+        "enableSkewProtection": {
+          "target": "com.amazonaws.amplify#EnableSkewProtection",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the skew protection feature is enabled for the branch.</p>\n         <p>Deployment skew protection is available to Amplify applications to\n            eliminate version skew issues between client and servers in web applications. When you\n            apply skew protection to a branch, you can ensure that your clients always interact with\n            the correct version of server-side assets, regardless of when a deployment occurs. For\n            more information about skew protection, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html\">Skew protection for Amplify deployments</a> in the <i>Amplify User\n                Guide</i>.</p>"
           }
         },
         "customDomains": {
@@ -1706,11 +1742,17 @@
         "backendEnvironmentArn": {
           "target": "com.amazonaws.amplify#BackendEnvironmentArn",
           "traits": {
-            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app. </p>\n         <p>This property is available to Amplify Gen 1 apps only. When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>"
+            "smithy.api#documentation": "<p> The Amazon Resource Name (ARN) for a backend environment that is part of an Amplify app. </p>\n         <p>This property is available to Amplify Gen 1 apps only. When you deploy\n            an application with Amplify Gen 2, you provision the app's backend infrastructure using\n            Typescript code.</p>"
           }
         },
         "backend": {
           "target": "com.amazonaws.amplify#Backend"
+        },
+        "computeRoleArn": {
+          "target": "com.amazonaws.amplify#ComputeRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role for a branch of an SSR\n            app. The Compute role allows the Amplify Hosting compute service to\n            securely access specific Amazon Web Services resources based on the role's permissions.\n            For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute\n                role</a> in the <i>Amplify User Guide</i>.</p>"
+          }
         }
       },
       "traits": {
@@ -1749,6 +1791,29 @@
         }
       }
     },
+    "com.amazonaws.amplify#BuildComputeType": {
+      "type": "enum",
+      "members": {
+        "STANDARD_8GB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDARD_8GB"
+          }
+        },
+        "LARGE_16GB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "LARGE_16GB"
+          }
+        },
+        "XLARGE_72GB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "XLARGE_72GB"
+          }
+        }
+      }
+    },
     "com.amazonaws.amplify#BuildSpec": {
       "type": "string",
       "traits": {
@@ -1761,13 +1826,45 @@
         "smithy.api#sensitive": {}
       }
     },
+    "com.amazonaws.amplify#CacheConfig": {
+      "type": "structure",
+      "members": {
+        "type": {
+          "target": "com.amazonaws.amplify#CacheConfigType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of cache configuration to use for an Amplify app.</p>\n         <p>The <code>AMPLIFY_MANAGED</code> cache configuration automatically applies an\n            optimized cache configuration for your app based on its platform, routing rules, and\n            rewrite rules.</p>\n         <p>The <code>AMPLIFY_MANAGED_NO_COOKIES</code> cache configuration type is the same as\n                <code>AMPLIFY_MANAGED</code>, except that it excludes all cookies from the cache\n            key. This is the default setting.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the cache configuration for an Amplify app.</p>\n         <p>For more information about how Amplify applies an optimal cache\n            configuration for your app based on the type of content that is being served, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/managing-cache-configuration\">Managing cache configuration</a> in the <i>Amplify User\n                guide</i>.</p>"
+      }
+    },
+    "com.amazonaws.amplify#CacheConfigType": {
+      "type": "enum",
+      "members": {
+        "AMPLIFY_MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AMPLIFY_MANAGED"
+          }
+        },
+        "AMPLIFY_MANAGED_NO_COOKIES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AMPLIFY_MANAGED_NO_COOKIES"
+          }
+        }
+      }
+    },
     "com.amazonaws.amplify#Certificate": {
       "type": "structure",
       "members": {
         "type": {
           "target": "com.amazonaws.amplify#CertificateType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of SSL/TLS certificate that you want to use.</p>\n         <p>Specify <code>AMPLIFY_MANAGED</code> to use the default certificate that Amplify\n            provisions for you.</p>\n         <p>Specify <code>CUSTOM</code> to use your own certificate that you have already added to\n                Certificate Manager in your Amazon Web Services account. Make sure you request (or\n            import) the certificate in the US East (N. Virginia) Region (us-east-1). For more\n            information about using ACM, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html\">Importing certificates into\n                    Certificate Manager</a> in the <i>ACM User\n                guide</i> .</p>",
+            "smithy.api#documentation": "<p>The type of SSL/TLS certificate that you want to use.</p>\n         <p>Specify <code>AMPLIFY_MANAGED</code> to use the default certificate that Amplify\n            provisions for you.</p>\n         <p>Specify <code>CUSTOM</code> to use your own certificate that you have already added to\n                Certificate Manager in your Amazon Web Services account. Make sure you request (or\n            import) the certificate in the US East (N. Virginia) Region (us-east-1). For more\n            information about using ACM, see <a href=\"https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html\">Importing certificates into\n                    Certificate Manager</a> in the <i>ACM User\n                guide</i>.</p>",
             "smithy.api#required": {}
           }
         },
@@ -1871,6 +1968,16 @@
     "com.amazonaws.amplify#CommitTime": {
       "type": "timestamp"
     },
+    "com.amazonaws.amplify#ComputeRoleArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1000
+        },
+        "smithy.api#pattern": "^(?s)"
+      }
+    },
     "com.amazonaws.amplify#Condition": {
       "type": "string",
       "traits": {
@@ -1943,13 +2050,19 @@
         "platform": {
           "target": "com.amazonaws.amplify#Platform",
           "traits": {
-            "smithy.api#documentation": "<p>The platform for the Amplify app. For a static app, set the platform type to\n                <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform\n            type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR\n            support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>"
+            "smithy.api#documentation": "<p>The platform for the Amplify app. For a static app, set the platform type to\n                <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform\n            type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR\n            support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>\n         <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set\n            the platform type to <code>WEB_COMPUTE</code> and set the artifacts\n                <code>baseDirectory</code> to <code>.next</code> in the application's build\n            settings. For an example of the build specification settings, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/deploy-nextjs-app.html#build-setting-detection-ssg-14\">Amplify build settings for a Next.js 14 SSG application</a> in the\n                <i>Amplify Hosting User Guide</i>.</p>"
+          }
+        },
+        "computeRoleArn": {
+          "target": "com.amazonaws.amplify#ComputeRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app.\n            The SSR Compute role allows the Amplify Hosting compute service to\n            securely access specific Amazon Web Services resources based on the role's permissions.\n            For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute\n                role</a> in the <i>Amplify User Guide</i>.</p>"
           }
         },
         "iamServiceRoleArn": {
           "target": "com.amazonaws.amplify#ServiceRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</p>"
           }
         },
         "oauthToken": {
@@ -2035,6 +2148,18 @@
           "traits": {
             "smithy.api#documentation": "<p>The automated branch creation configuration for an Amplify app. </p>"
           }
+        },
+        "jobConfig": {
+          "target": "com.amazonaws.amplify#JobConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the configuration details that apply to the jobs for an Amplify app.</p>"
+          }
+        },
+        "cacheConfig": {
+          "target": "com.amazonaws.amplify#CacheConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The cache configuration for the Amplify app.</p>"
+          }
         }
       },
       "traits": {
@@ -2082,7 +2207,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new backend environment for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2 applications. \n            When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>",
+        "smithy.api#documentation": "<p>Creates a new backend environment for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2\n            applications. When you deploy an application with Amplify Gen 2, you provision the app's\n            backend infrastructure using Typescript code.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/apps/{appId}/backendenvironments",
@@ -2227,6 +2352,12 @@
             "smithy.api#documentation": "<p> Enables auto building for the branch. </p>"
           }
         },
+        "enableSkewProtection": {
+          "target": "com.amazonaws.amplify#EnableSkewProtection",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the skew protection feature is enabled for the branch.</p>\n         <p>Deployment skew protection is available to Amplify applications to\n            eliminate version skew issues between client and servers in web applications. When you\n            apply skew protection to a branch, you can ensure that your clients always interact with\n            the correct version of server-side assets, regardless of when a deployment occurs. For\n            more information about skew protection, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html\">Skew protection for Amplify deployments</a> in the <i>Amplify User\n                Guide</i>.</p>"
+          }
+        },
         "environmentVariables": {
           "target": "com.amazonaws.amplify#EnvironmentVariables",
           "traits": {
@@ -2290,13 +2421,19 @@
         "backendEnvironmentArn": {
           "target": "com.amazonaws.amplify#BackendEnvironmentArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify\n            app. </p>\n         <p>This field is available to Amplify Gen 1 apps only where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI).</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1\n            Amplify app. </p>\n         <p>This field is available to Amplify Gen 1 apps only where the backend is\n            created using Amplify Studio or the Amplify command line\n            interface (CLI).</p>"
           }
         },
         "backend": {
           "target": "com.amazonaws.amplify#Backend",
           "traits": {
-            "smithy.api#documentation": "<p>The backend for a <code>Branch</code> of an Amplify app. Use for a\n            backend created from an CloudFormation stack.</p>\n         <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>"
+            "smithy.api#documentation": "<p>The backend for a <code>Branch</code> of an Amplify app. Use for a\n            backend created from an CloudFormation stack.</p>\n         <p>This field is available to Amplify Gen 2 apps only. When you deploy an\n            application with Amplify Gen 2, you provision the app's backend infrastructure using\n            Typescript code.</p>"
+          }
+        },
+        "computeRoleArn": {
+          "target": "com.amazonaws.amplify#ComputeRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of\n            an SSR app. The SSR Compute role allows the Amplify Hosting compute\n            service to securely access specific Amazon Web Services resources based on the role's\n            permissions. For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute role</a> in the <i>Amplify User\n                Guide</i>.</p>"
           }
         }
       },
@@ -2344,7 +2481,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a deployment for a manually deployed Amplify app. Manually deployed apps are\n            not connected to a repository. </p>\n         <p>The maximum duration between the <code>CreateDeployment</code> call and the\n                <code>StartDeployment</code> call cannot exceed 8 hours. If the duration exceeds 8\n            hours, the <code>StartDeployment</code> call and the associated <code>Job</code> will\n            fail.</p>",
+        "smithy.api#documentation": "<p>Creates a deployment for a manually deployed Amplify app. Manually deployed apps are\n            not connected to a Git repository. </p>\n         <p>The maximum duration between the <code>CreateDeployment</code> call and the\n                <code>StartDeployment</code> call cannot exceed 8 hours. If the duration exceeds 8\n            hours, the <code>StartDeployment</code> call and the associated <code>Job</code> will\n            fail.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/apps/{appId}/branches/{branchName}/deployments",
@@ -2787,7 +2924,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a backend environment for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2 applications. \n            When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>",
+        "smithy.api#documentation": "<p>Deletes a backend environment for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2\n            applications. When you deploy an application with Amplify Gen 2, you provision the app's\n            backend infrastructure using Typescript code.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/apps/{appId}/backendenvironments/{environmentName}",
@@ -3389,6 +3526,9 @@
     "com.amazonaws.amplify#EnablePullRequestPreview": {
       "type": "boolean"
     },
+    "com.amazonaws.amplify#EnableSkewProtection": {
+      "type": "boolean"
+    },
     "com.amazonaws.amplify#EndTime": {
       "type": "timestamp"
     },
@@ -3719,7 +3859,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a backend environment for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2 applications. \n            When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>",
+        "smithy.api#documentation": "<p>Returns a backend environment for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2\n            applications. When you deploy an application with Amplify Gen 2, you provision the app's\n            backend infrastructure using Typescript code.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/apps/{appId}/backendenvironments/{environmentName}",
@@ -4102,6 +4242,21 @@
         }
       }
     },
+    "com.amazonaws.amplify#JobConfig": {
+      "type": "structure",
+      "members": {
+        "buildComputeType": {
+          "target": "com.amazonaws.amplify#BuildComputeType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the size of the build instance. Amplify supports three\n            instance sizes: <code>STANDARD_8GB</code>, <code>LARGE_16GB</code>, and\n                <code>XLARGE_72GB</code>. If you don't specify a value, Amplify uses\n            the <code>STANDARD_8GB</code> default.</p>\n         <p>The following list describes the CPU, memory, and storage capacity for each build\n            instance type:</p>\n         <dl>\n            <dt>STANDARD_8GB</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>vCPUs: 4</p>\n                  </li>\n                  <li>\n                     <p>Memory: 8 GiB</p>\n                  </li>\n                  <li>\n                     <p>Disk space: 128 GB</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>LARGE_16GB</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>vCPUs: 8</p>\n                  </li>\n                  <li>\n                     <p>Memory: 16 GiB</p>\n                  </li>\n                  <li>\n                     <p>Disk space: 128 GB</p>\n                  </li>\n               </ul>\n            </dd>\n            <dt>XLARGE_72GB</dt>\n            <dd>\n               <ul>\n                  <li>\n                     <p>vCPUs: 36</p>\n                  </li>\n                  <li>\n                     <p>Memory: 72 GiB</p>\n                  </li>\n                  <li>\n                     <p>Disk space: 256 GB</p>\n                  </li>\n               </ul>\n            </dd>\n         </dl>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the configuration details that apply to the jobs for an Amplify app.</p>\n         <p>Use <code>JobConfig</code> to apply configuration to jobs, such as customizing the build instance size when you create or\n            update an Amplify app. For more information about customizable build\n            instances, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/custom-build-instance.html\">Custom build instances</a> in the <i>Amplify User Guide</i>.</p>"
+      }
+    },
     "com.amazonaws.amplify#JobId": {
       "type": "string",
       "traits": {
@@ -4125,6 +4280,12 @@
     "com.amazonaws.amplify#JobStatus": {
       "type": "enum",
       "members": {
+        "CREATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATED"
+          }
+        },
         "PENDING": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -4209,7 +4370,7 @@
         "commitTime": {
           "target": "com.amazonaws.amplify#CommitTime",
           "traits": {
-            "smithy.api#documentation": "<p> The commit date and time for the job. </p>",
+            "smithy.api#documentation": "<p>The commit date and time for the job. </p>",
             "smithy.api#required": {}
           }
         },
@@ -4236,8 +4397,20 @@
         "jobType": {
           "target": "com.amazonaws.amplify#JobType",
           "traits": {
-            "smithy.api#documentation": "<p> The type for the job. If the value is <code>RELEASE</code>, the job was manually\n            released from its source by using the <code>StartJob</code> API. If the value is\n                <code>RETRY</code>, the job was manually retried using the <code>StartJob</code>\n            API. If the value is <code>WEB_HOOK</code>, the job was automatically triggered by\n            webhooks. </p>",
+            "smithy.api#documentation": "<p> The type for the job. If the value is <code>RELEASE</code>, the job was manually\n            released from its source by using the <code>StartJob</code> API. This value is available\n            only for apps that are connected to a repository.</p>\n         <p>If the value is <code>RETRY</code>, the job was manually retried using the\n                <code>StartJob</code> API. If the value is <code>WEB_HOOK</code>, the job was\n            automatically triggered by webhooks. If the value is <code>MANUAL</code>, the job is for\n            a manually deployed app. Manually deployed apps are not connected to a Git\n            repository.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "sourceUrl": {
+          "target": "com.amazonaws.amplify#SourceUrl",
+          "traits": {
+            "smithy.api#documentation": "<p>The source URL for the files to deploy. The source URL can be either an HTTP GET URL\n            that is publicly accessible and downloads a single .zip file, or an Amazon S3\n            bucket and prefix.</p>"
+          }
+        },
+        "sourceUrlType": {
+          "target": "com.amazonaws.amplify#SourceUrlType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of source specified by the <code>sourceURL</code>. If the value is\n                <code>ZIP</code>, the source is a .zip file. If the value is\n                <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and prefix. If\n            no value is specified, the default is <code>ZIP</code>.</p>"
           }
         }
       },
@@ -4399,7 +4572,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Returns a list of artifacts for a specified app, branch, and job. </p>",
+        "smithy.api#documentation": "<p>Returns a list of end-to-end testing artifacts for a specified app, branch, and\n            job.</p>\n         <p>To return the build artifacts, use the <a href=\"https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html\">GetJob</a> API.</p>\n         <p>For more information about Amplify testing support, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html\">Setting up\n                end-to-end Cypress tests for your Amplify application</a> in the\n                    <i>Amplify Hosting User Guide</i>. </p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/apps/{appId}/branches/{branchName}/jobs/{jobId}/artifacts",
@@ -4497,7 +4670,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the backend environments for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2 applications. \n            When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>",
+        "smithy.api#documentation": "<p>Lists the backend environments for an Amplify app. </p>\n         <p>This API is available only to Amplify Gen 1 applications where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI). This API isn’t available to Amplify Gen 2\n            applications. When you deploy an application with Amplify Gen 2, you provision the app's\n            backend infrastructure using Typescript code.</p>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/apps/{appId}/backendenvironments",
@@ -5235,7 +5408,24 @@
           "min": 0,
           "max": 3000
         },
-        "smithy.api#pattern": "^(?s)"
+        "smithy.api#pattern": "^(s3|https|http)://"
+      }
+    },
+    "com.amazonaws.amplify#SourceUrlType": {
+      "type": "enum",
+      "members": {
+        "ZIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ZIP"
+          }
+        },
+        "BUCKET_PREFIX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BUCKET_PREFIX"
+          }
+        }
       }
     },
     "com.amazonaws.amplify#StackArn": {
@@ -5319,7 +5509,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Starts a deployment for a manually deployed app. Manually deployed apps are not\n            connected to a repository. </p>\n         <p>The maximum duration between the <code>CreateDeployment</code> call and the\n                <code>StartDeployment</code> call cannot exceed 8 hours. If the duration exceeds 8\n            hours, the <code>StartDeployment</code> call and the associated <code>Job</code> will\n            fail.</p>",
+        "smithy.api#documentation": "<p>Starts a deployment for a manually deployed app. Manually deployed apps are not\n            connected to a Git repository. </p>\n         <p>The maximum duration between the <code>CreateDeployment</code> call and the\n                <code>StartDeployment</code> call cannot exceed 8 hours. If the duration exceeds 8\n            hours, the <code>StartDeployment</code> call and the associated <code>Job</code> will\n            fail.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/apps/{appId}/branches/{branchName}/deployments/start",
@@ -5341,7 +5531,7 @@
         "branchName": {
           "target": "com.amazonaws.amplify#BranchName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the branch to use for the job. </p>",
+            "smithy.api#documentation": "<p>The name of the branch to use for the deployment job. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -5349,13 +5539,19 @@
         "jobId": {
           "target": "com.amazonaws.amplify#JobId",
           "traits": {
-            "smithy.api#documentation": "<p>The job ID for this deployment, generated by the create deployment request. </p>"
+            "smithy.api#documentation": "<p>The job ID for this deployment that is generated by the <code>CreateDeployment</code>\n            request. </p>"
           }
         },
         "sourceUrl": {
           "target": "com.amazonaws.amplify#SourceUrl",
           "traits": {
-            "smithy.api#documentation": "<p>The source URL for this deployment, used when calling start deployment without create\n            deployment. The source URL can be any HTTP GET URL that is publicly accessible and\n            downloads a single .zip file. </p>"
+            "smithy.api#documentation": "<p>The source URL for the deployment that is used when calling\n                <code>StartDeployment</code> without <code>CreateDeployment</code>. The source URL\n            can be either an HTTP GET URL that is publicly accessible and downloads a single .zip\n            file, or an Amazon S3 bucket and prefix.</p>"
+          }
+        },
+        "sourceUrlType": {
+          "target": "com.amazonaws.amplify#SourceUrlType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of source specified by the <code>sourceURL</code>. If the value is\n                <code>ZIP</code>, the source is a .zip file. If the value is\n                <code>BUCKET_PREFIX</code>, the source is an Amazon S3 bucket and prefix. If\n            no value is specified, the default is <code>ZIP</code>.</p>"
           }
         }
       },
@@ -5554,7 +5750,7 @@
         "artifactsUrl": {
           "target": "com.amazonaws.amplify#ArtifactsUrl",
           "traits": {
-            "smithy.api#documentation": "<p> The URL to the artifact for the execution step. </p>"
+            "smithy.api#documentation": "<p> The URL to the build artifact for the execution step. </p>"
           }
         },
         "testArtifactsUrl": {
@@ -6069,13 +6265,19 @@
         "platform": {
           "target": "com.amazonaws.amplify#Platform",
           "traits": {
-            "smithy.api#documentation": "<p>The platform for the Amplify app. For a static app, set the platform type to\n                <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform\n            type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR\n            support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>"
+            "smithy.api#documentation": "<p>The platform for the Amplify app. For a static app, set the platform type to\n                <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform\n            type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR\n            support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>\n         <p>If you are deploying an SSG only app with Next.js version 14 or later, you must set\n            the platform type to <code>WEB_COMPUTE</code>.</p>"
+          }
+        },
+        "computeRoleArn": {
+          "target": "com.amazonaws.amplify#ComputeRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to assign to an SSR app.\n            The SSR Compute role allows the Amplify Hosting compute service to\n            securely access specific Amazon Web Services resources based on the role's permissions.\n            For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute\n                role</a> in the <i>Amplify User Guide</i>.</p>"
           }
         },
         "iamServiceRoleArn": {
           "target": "com.amazonaws.amplify#ServiceRoleArn",
           "traits": {
-            "smithy.api#documentation": "<p>The AWS Identity and Access Management (IAM) service role for an Amplify app. </p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM service role for the Amplify app.</p>"
           }
         },
         "environmentVariables": {
@@ -6160,6 +6362,18 @@
           "target": "com.amazonaws.amplify#AccessToken",
           "traits": {
             "smithy.api#documentation": "<p>The personal access token for a GitHub repository for an Amplify app. The personal\n            access token is used to authorize access to a GitHub repository using the Amplify GitHub\n            App. The token is not stored.</p>\n         <p>Use <code>accessToken</code> for GitHub repositories only. To authorize access to a\n            repository provider such as Bitbucket or CodeCommit, use <code>oauthToken</code>.</p>\n         <p>You must specify either <code>accessToken</code> or <code>oauthToken</code> when you\n            update an app.</p>\n         <p>Existing Amplify apps deployed from a GitHub repository using OAuth continue to work\n            with CI/CD. However, we strongly recommend that you migrate these apps to use the GitHub\n            App. For more information, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/setting-up-GitHub-access.html#migrating-to-github-app-auth\">Migrating an existing OAuth app to the Amplify GitHub App</a> in the\n                <i>Amplify User Guide</i> .</p>"
+          }
+        },
+        "jobConfig": {
+          "target": "com.amazonaws.amplify#JobConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the configuration details that apply to the jobs for an Amplify app.</p>"
+          }
+        },
+        "cacheConfig": {
+          "target": "com.amazonaws.amplify#CacheConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The cache configuration for the Amplify app.</p>"
           }
         }
       },
@@ -6267,6 +6481,12 @@
             "smithy.api#documentation": "<p> Enables auto building for the branch. </p>"
           }
         },
+        "enableSkewProtection": {
+          "target": "com.amazonaws.amplify#EnableSkewProtection",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether the skew protection feature is enabled for the branch.</p>\n         <p>Deployment skew protection is available to Amplify applications to\n            eliminate version skew issues between client and servers in web applications. When you\n            apply skew protection to a branch, you can ensure that your clients always interact with\n            the correct version of server-side assets, regardless of when a deployment occurs. For\n            more information about skew protection, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/skew-protection.html\">Skew protection for Amplify deployments</a> in the <i>Amplify User\n                Guide</i>.</p>"
+          }
+        },
         "environmentVariables": {
           "target": "com.amazonaws.amplify#EnvironmentVariables",
           "traits": {
@@ -6324,13 +6544,19 @@
         "backendEnvironmentArn": {
           "target": "com.amazonaws.amplify#BackendEnvironmentArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1 Amplify\n            app. </p>\n         <p>This field is available to Amplify Gen 1 apps only where the\n            backend is created using Amplify Studio or the Amplify\n            command line interface (CLI).</p>"
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for a backend environment that is part of a Gen 1\n            Amplify app. </p>\n         <p>This field is available to Amplify Gen 1 apps only where the backend is\n            created using Amplify Studio or the Amplify command line\n            interface (CLI).</p>"
           }
         },
         "backend": {
           "target": "com.amazonaws.amplify#Backend",
           "traits": {
-            "smithy.api#documentation": "<p>The backend for a <code>Branch</code> of an Amplify app. Use for a\n            backend created from an CloudFormation stack.</p>\n         <p>This field is available to Amplify Gen 2 apps only. When you deploy an application with\n            Amplify Gen 2, you provision the app's backend infrastructure using Typescript\n            code.</p>"
+            "smithy.api#documentation": "<p>The backend for a <code>Branch</code> of an Amplify app. Use for a\n            backend created from an CloudFormation stack.</p>\n         <p>This field is available to Amplify Gen 2 apps only. When you deploy an\n            application with Amplify Gen 2, you provision the app's backend infrastructure using\n            Typescript code.</p>"
+          }
+        },
+        "computeRoleArn": {
+          "target": "com.amazonaws.amplify#ComputeRoleArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the IAM role to assign to a branch of\n            an SSR app. The SSR Compute role allows the Amplify Hosting compute\n            service to securely access specific Amazon Web Services resources based on the role's\n            permissions. For more information about the SSR Compute role, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/amplify-SSR-compute-role.html\">Adding an SSR Compute role</a> in the <i>Amplify User\n                Guide</i>.</p>"
           }
         }
       },
@@ -6601,6 +6827,77 @@
     "com.amazonaws.amplify#Verified": {
       "type": "boolean"
     },
+    "com.amazonaws.amplify#WafConfiguration": {
+      "type": "structure",
+      "members": {
+        "webAclArn": {
+          "target": "com.amazonaws.amplify#WebAclArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the web ACL associated with an Amplify app.</p>"
+          }
+        },
+        "wafStatus": {
+          "target": "com.amazonaws.amplify#WafStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The status of the process to associate or disassociate a web ACL to an Amplify app.</p>"
+          }
+        },
+        "statusReason": {
+          "target": "com.amazonaws.amplify#StatusReason",
+          "traits": {
+            "smithy.api#documentation": "<p>The reason for the current status of the Firewall configuration.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Firewall configuration for a hosted Amplify application.\n            Firewall support enables you to protect your web applications with a direct integration\n            with WAF. For more information about using WAF protections\n            for an Amplify application, see <a href=\"https://docs.aws.amazon.com/amplify/latest/userguide/WAF-integration.html\">Firewall support for hosted\n                sites</a> in the <i>Amplify User Guide</i>. </p>"
+      }
+    },
+    "com.amazonaws.amplify#WafStatus": {
+      "type": "enum",
+      "members": {
+        "ASSOCIATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATING"
+          }
+        },
+        "ASSOCIATION_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATION_FAILED"
+          }
+        },
+        "ASSOCIATION_SUCCESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ASSOCIATION_SUCCESS"
+          }
+        },
+        "DISASSOCIATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISASSOCIATING"
+          }
+        },
+        "DISASSOCIATION_FAILED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISASSOCIATION_FAILED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.amplify#WebAclArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 512
+        },
+        "smithy.api#pattern": "^arn:aws:wafv2:"
+      }
+    },
     "com.amazonaws.amplify#Webhook": {
       "type": "structure",
       "members": {
@@ -6625,6 +6922,12 @@
             "smithy.api#required": {}
           }
         },
+        "appId": {
+          "target": "com.amazonaws.amplify#AppId",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique ID of an Amplify app.</p>"
+          }
+        },
         "branchName": {
           "target": "com.amazonaws.amplify#BranchName",
           "traits": {
@@ -6642,14 +6945,14 @@
         "createTime": {
           "target": "com.amazonaws.amplify#CreateTime",
           "traits": {
-            "smithy.api#documentation": "<p>The create date and time for a webhook. </p>",
+            "smithy.api#documentation": "<p>A timestamp of when Amplify created the webhook in your Git\n            repository.</p>",
             "smithy.api#required": {}
           }
         },
         "updateTime": {
           "target": "com.amazonaws.amplify#UpdateTime",
           "traits": {
-            "smithy.api#documentation": "<p>Updates the date and time for a webhook. </p>",
+            "smithy.api#documentation": "<p>A timestamp of when Amplify updated the webhook in your Git\n            repository.</p>",
             "smithy.api#required": {}
           }
         }
@@ -6691,6 +6994,9 @@
       "member": {
         "target": "com.amazonaws.amplify#Webhook"
       }
+    },
+    "com.amazonaws.amplify#webhookCreateTime": {
+      "type": "timestamp"
     }
   }
 }

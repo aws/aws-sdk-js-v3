@@ -12,7 +12,8 @@ import { de_GetMetricDataCommand, se_GetMetricDataCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,8 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
 
 /**
  * <p>Gets historical metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics
- *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For a description of each historical metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  *          <note>
  *             <p>We recommend using the <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricDataV2.html">GetMetricDataV2</a> API. It
  *     provides more flexibility, features, and the ability to query longer time ranges than
@@ -54,7 +55,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  *       "STRING_VALUE",
  *     ],
  *     Channels: [ // Channels
- *       "VOICE" || "CHAT" || "TASK",
+ *       "VOICE" || "CHAT" || "TASK" || "EMAIL",
  *     ],
  *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
@@ -91,7 +92,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
  * //         },
- * //         Channel: "VOICE" || "CHAT" || "TASK",
+ * //         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //         RoutingProfile: { // RoutingProfileReference
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
@@ -142,6 +143,7 @@ export interface GetMetricDataCommandOutput extends GetMetricDataResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetMetricDataCommand extends $Command
@@ -152,9 +154,7 @@ export class GetMetricDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +166,16 @@ export class GetMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricDataCommand)
   .de(de_GetMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricDataRequest;
+      output: GetMetricDataResponse;
+    };
+    sdk: {
+      input: GetMetricDataCommandInput;
+      output: GetMetricDataCommandOutput;
+    };
+  };
+}

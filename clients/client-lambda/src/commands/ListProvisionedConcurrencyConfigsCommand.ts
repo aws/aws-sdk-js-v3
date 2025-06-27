@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,39 @@ export interface ListProvisionedConcurrencyConfigsCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get a list of provisioned concurrency configurations
+ * ```javascript
+ * // The following example returns a list of provisioned concurrency configurations for a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function"
+ * };
+ * const command = new ListProvisionedConcurrencyConfigsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ProvisionedConcurrencyConfigs: [
+ *     {
+ *       AllocatedProvisionedConcurrentExecutions: 100,
+ *       AvailableProvisionedConcurrentExecutions: 100,
+ *       FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:GREEN",
+ *       LastModified: "2019-12-31T20:29:00+0000",
+ *       RequestedProvisionedConcurrentExecutions: 100,
+ *       Status: "READY"
+ *     },
+ *     {
+ *       AllocatedProvisionedConcurrentExecutions: 100,
+ *       AvailableProvisionedConcurrentExecutions: 100,
+ *       FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:BLUE",
+ *       LastModified: "2019-12-31T20:28:49+0000",
+ *       RequestedProvisionedConcurrentExecutions: 100,
+ *       Status: "READY"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListProvisionedConcurrencyConfigsCommand extends $Command
@@ -97,9 +131,7 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +143,16 @@ export class ListProvisionedConcurrencyConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProvisionedConcurrencyConfigsCommand)
   .de(de_ListProvisionedConcurrencyConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProvisionedConcurrencyConfigsRequest;
+      output: ListProvisionedConcurrencyConfigsResponse;
+    };
+    sdk: {
+      input: ListProvisionedConcurrencyConfigsCommandInput;
+      output: ListProvisionedConcurrencyConfigsCommandOutput;
+    };
+  };
+}

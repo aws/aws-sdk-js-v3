@@ -16,7 +16,8 @@ import { de_TerminateRecoveryInstancesCommand, se_TerminateRecoveryInstancesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,7 @@ export interface TerminateRecoveryInstancesCommandOutput extends TerminateRecove
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class TerminateRecoveryInstancesCommand extends $Command
@@ -139,9 +141,7 @@ export class TerminateRecoveryInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class TerminateRecoveryInstancesCommand extends $Command
   .f(void 0, TerminateRecoveryInstancesResponseFilterSensitiveLog)
   .ser(se_TerminateRecoveryInstancesCommand)
   .de(de_TerminateRecoveryInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateRecoveryInstancesRequest;
+      output: TerminateRecoveryInstancesResponse;
+    };
+    sdk: {
+      input: TerminateRecoveryInstancesCommandInput;
+      output: TerminateRecoveryInstancesCommandOutput;
+    };
+  };
+}

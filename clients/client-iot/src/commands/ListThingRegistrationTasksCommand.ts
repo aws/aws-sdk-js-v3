@@ -12,7 +12,8 @@ import { de_ListThingRegistrationTasksCommand, se_ListThingRegistrationTasksComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface ListThingRegistrationTasksCommandOutput extends ListThingRegist
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListThingRegistrationTasksCommand extends $Command
@@ -82,9 +84,7 @@ export class ListThingRegistrationTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ListThingRegistrationTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListThingRegistrationTasksCommand)
   .de(de_ListThingRegistrationTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListThingRegistrationTasksRequest;
+      output: ListThingRegistrationTasksResponse;
+    };
+    sdk: {
+      input: ListThingRegistrationTasksCommandInput;
+      output: ListThingRegistrationTasksCommandOutput;
+    };
+  };
+}

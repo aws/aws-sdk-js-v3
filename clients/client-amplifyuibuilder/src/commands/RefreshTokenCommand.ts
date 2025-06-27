@@ -17,7 +17,8 @@ import { de_RefreshTokenCommand, se_RefreshTokenCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface RefreshTokenCommandOutput extends RefreshTokenResponse, __Metad
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class RefreshTokenCommand extends $Command
@@ -80,9 +82,7 @@ export class RefreshTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class RefreshTokenCommand extends $Command
   .f(RefreshTokenRequestFilterSensitiveLog, RefreshTokenResponseFilterSensitiveLog)
   .ser(se_RefreshTokenCommand)
   .de(de_RefreshTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RefreshTokenRequest;
+      output: RefreshTokenResponse;
+    };
+    sdk: {
+      input: RefreshTokenCommandInput;
+      output: RefreshTokenCommandOutput;
+    };
+  };
+}

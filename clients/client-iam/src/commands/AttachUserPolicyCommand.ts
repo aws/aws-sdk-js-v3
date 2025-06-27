@@ -12,7 +12,8 @@ import { de_AttachUserPolicyCommand, se_AttachUserPolicyCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,19 +83,22 @@ export interface AttachUserPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To attach a managed policy to an IAM user
  * ```javascript
  * // The following command attaches the AWS managed policy named AdministratorAccess to the IAM user named Alice.
  * const input = {
- *   "PolicyArn": "arn:aws:iam::aws:policy/AdministratorAccess",
- *   "UserName": "Alice"
+ *   PolicyArn: "arn:aws:iam::aws:policy/AdministratorAccess",
+ *   UserName: "Alice"
  * };
  * const command = new AttachUserPolicyCommand(input);
- * await client.send(command);
- * // example id: 1372ebd8-9475-4b1a-a479-23b6fd4b8b3e
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachUserPolicyCommand extends $Command
   .classBuilder<
@@ -104,9 +108,7 @@ export class AttachUserPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class AttachUserPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachUserPolicyCommand)
   .de(de_AttachUserPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachUserPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachUserPolicyCommandInput;
+      output: AttachUserPolicyCommandOutput;
+    };
+  };
+}

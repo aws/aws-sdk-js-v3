@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,30 +60,26 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
+ *  <p>The specified ID is invalid.</p>
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
+ *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
+ *             deleted.</p>
  *
  * @throws {@link RequestThrottled} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
+ *                     request.</p>
  *             </li>
  *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *                <p>Ensure that the request rate is within the Amazon SQS limits for
+ *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
+ *                         Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  *
@@ -91,6 +88,7 @@ export interface UntagQueueCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
+ *
  *
  * @public
  */
@@ -102,9 +100,7 @@ export class UntagQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +112,16 @@ export class UntagQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagQueueCommand)
   .de(de_UntagQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagQueueRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagQueueCommandInput;
+      output: UntagQueueCommandOutput;
+    };
+  };
+}

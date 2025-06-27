@@ -12,7 +12,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,17 +29,17 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
 
 /**
  * <p>Adds a resource to the Resilience Hub application and assigns it to the specified
- *       Application Components. If you specify a new Application Component, Resilience Hub will automatically
- *       create the Application Component.</p>
+ *       Application Components. If you specify a new Application Component, Resilience Hub will
+ *       automatically create the Application Component.</p>
  *          <note>
  *             <ul>
  *                <li>
  *                   <p>This action has no effect outside Resilience Hub.</p>
  *                </li>
  *                <li>
- *                   <p>This API updates the Resilience Hub application draft version. To use this resource
- *             for running resiliency assessments, you must publish the Resilience Hub application using
- *             the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this
+ *             resource for running resiliency assessments, you must publish the Resilience Hub
+ *             application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
  *                   <p>To update application version with new <code>physicalResourceID</code>, you must
@@ -92,7 +93,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * //     },
  * //     physicalResourceId: { // PhysicalResourceId
  * //       identifier: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
+ * //       type: "Arn" || "Native", // required
  * //       awsRegion: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //     },
@@ -115,7 +116,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * //       ],
  * //     },
  * //     excluded: true || false,
- * //     sourceType: "STRING_VALUE",
+ * //     sourceType: "AppTemplate" || "Discovered",
  * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
@@ -159,6 +160,7 @@ export interface CreateAppVersionResourceCommandOutput extends CreateAppVersionR
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class CreateAppVersionResourceCommand extends $Command
@@ -169,9 +171,7 @@ export class CreateAppVersionResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +183,16 @@ export class CreateAppVersionResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAppVersionResourceCommand)
   .de(de_CreateAppVersionResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppVersionResourceRequest;
+      output: CreateAppVersionResourceResponse;
+    };
+    sdk: {
+      input: CreateAppVersionResourceCommandInput;
+      output: CreateAppVersionResourceCommandOutput;
+    };
+  };
+}

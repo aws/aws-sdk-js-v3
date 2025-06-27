@@ -12,7 +12,8 @@ import { de_DownloadDefaultKeyPairCommand, se_DownloadDefaultKeyPairCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DownloadDefaultKeyPairCommandOutput extends DownloadDefaultKeyP
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DownloadDefaultKeyPairCommand extends $Command
@@ -96,9 +98,7 @@ export class DownloadDefaultKeyPairCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DownloadDefaultKeyPairCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DownloadDefaultKeyPairCommand)
   .de(de_DownloadDefaultKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DownloadDefaultKeyPairResult;
+    };
+    sdk: {
+      input: DownloadDefaultKeyPairCommandInput;
+      output: DownloadDefaultKeyPairCommandOutput;
+    };
+  };
+}

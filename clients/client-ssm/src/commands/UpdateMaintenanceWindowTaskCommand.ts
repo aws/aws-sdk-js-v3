@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -288,6 +289,7 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateMaintenanceWindowTaskCommand extends $Command
@@ -298,9 +300,7 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -312,4 +312,16 @@ export class UpdateMaintenanceWindowTaskCommand extends $Command
   .f(UpdateMaintenanceWindowTaskRequestFilterSensitiveLog, UpdateMaintenanceWindowTaskResultFilterSensitiveLog)
   .ser(se_UpdateMaintenanceWindowTaskCommand)
   .de(de_UpdateMaintenanceWindowTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMaintenanceWindowTaskRequest;
+      output: UpdateMaintenanceWindowTaskResult;
+    };
+    sdk: {
+      input: UpdateMaintenanceWindowTaskCommandInput;
+      output: UpdateMaintenanceWindowTaskCommandOutput;
+    };
+  };
+}

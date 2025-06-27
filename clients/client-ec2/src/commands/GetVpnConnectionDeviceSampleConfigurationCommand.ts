@@ -10,7 +10,7 @@ import {
   GetVpnConnectionDeviceSampleConfigurationRequest,
   GetVpnConnectionDeviceSampleConfigurationResult,
   GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_GetVpnConnectionDeviceSampleConfigurationCommand,
   se_GetVpnConnectionDeviceSampleConfigurationCommand,
@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  *   VpnConnectionId: "STRING_VALUE", // required
  *   VpnConnectionDeviceTypeId: "STRING_VALUE", // required
  *   InternetKeyExchangeVersion: "STRING_VALUE",
+ *   SampleType: "STRING_VALUE",
  *   DryRun: true || false,
  * };
  * const command = new GetVpnConnectionDeviceSampleConfigurationCommand(input);
@@ -68,6 +70,7 @@ export interface GetVpnConnectionDeviceSampleConfigurationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
@@ -78,9 +81,7 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +93,16 @@ export class GetVpnConnectionDeviceSampleConfigurationCommand extends $Command
   .f(void 0, GetVpnConnectionDeviceSampleConfigurationResultFilterSensitiveLog)
   .ser(se_GetVpnConnectionDeviceSampleConfigurationCommand)
   .de(de_GetVpnConnectionDeviceSampleConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVpnConnectionDeviceSampleConfigurationRequest;
+      output: GetVpnConnectionDeviceSampleConfigurationResult;
+    };
+    sdk: {
+      input: GetVpnConnectionDeviceSampleConfigurationCommandInput;
+      output: GetVpnConnectionDeviceSampleConfigurationCommandOutput;
+    };
+  };
+}

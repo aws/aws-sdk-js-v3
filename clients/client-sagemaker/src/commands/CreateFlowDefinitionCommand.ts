@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,11 +94,11 @@ export interface CreateFlowDefinitionCommandOutput extends CreateFlowDefinitionR
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -109,9 +110,7 @@ export class CreateFlowDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class CreateFlowDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFlowDefinitionCommand)
   .de(de_CreateFlowDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFlowDefinitionRequest;
+      output: CreateFlowDefinitionResponse;
+    };
+    sdk: {
+      input: CreateFlowDefinitionCommandInput;
+      output: CreateFlowDefinitionCommandOutput;
+    };
+  };
+}

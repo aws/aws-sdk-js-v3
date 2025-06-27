@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   PutDedicatedIpPoolScalingAttributesRequest,
   PutDedicatedIpPoolScalingAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutDedicatedIpPoolScalingAttributesCommand,
   se_PutDedicatedIpPoolScalingAttributesCommand,
@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,19 +78,22 @@ export interface PutDedicatedIpPoolScalingAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
- * @public
+ *
  * @example Used to convert a dedicated IP pool to a different scaling mode.
  * ```javascript
  * // This example converts a dedicated IP pool from STANDARD to MANAGED.
  * const input = {
- *   "PoolName": "sample-ses-pool",
- *   "ScalingMode": "MANAGED"
+ *   PoolName: "sample-ses-pool",
+ *   ScalingMode: "MANAGED"
  * };
  * const command = new PutDedicatedIpPoolScalingAttributesCommand(input);
- * await client.send(command);
- * // example id: put-dedicated-ip-pool-scaling-attributes-example-1683639172
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutDedicatedIpPoolScalingAttributesCommand extends $Command
   .classBuilder<
@@ -99,9 +103,7 @@ export class PutDedicatedIpPoolScalingAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class PutDedicatedIpPoolScalingAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDedicatedIpPoolScalingAttributesCommand)
   .de(de_PutDedicatedIpPoolScalingAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDedicatedIpPoolScalingAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDedicatedIpPoolScalingAttributesCommandInput;
+      output: PutDedicatedIpPoolScalingAttributesCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetNetworkInterfaceAttributeRequest } from "../models/models_7";
+import { ResetNetworkInterfaceAttributeRequest } from "../models/models_8";
 import {
   de_ResetNetworkInterfaceAttributeCommand,
   se_ResetNetworkInterfaceAttributeCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,8 @@ export interface ResetNetworkInterfaceAttributeCommandInput extends ResetNetwork
 export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Resets a network interface attribute. You can specify only one attribute at a time.</p>
+ * <p>Resets a network interface attribute. You can specify only one attribute at a
+ *             time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +59,7 @@ export interface ResetNetworkInterfaceAttributeCommandOutput extends __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ResetNetworkInterfaceAttributeCommand extends $Command
@@ -67,9 +70,7 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -81,4 +82,16 @@ export class ResetNetworkInterfaceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetNetworkInterfaceAttributeCommand)
   .de(de_ResetNetworkInterfaceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetNetworkInterfaceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetNetworkInterfaceAttributeCommandInput;
+      output: ResetNetworkInterfaceAttributeCommandOutput;
+    };
+  };
+}

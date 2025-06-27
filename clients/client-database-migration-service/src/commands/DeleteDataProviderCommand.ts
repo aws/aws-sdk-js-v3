@@ -16,7 +16,8 @@ import { de_DeleteDataProviderCommand, se_DeleteDataProviderCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,11 +55,14 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * //     DataProviderCreationTime: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
+ * //     Virtual: true || false,
  * //     Settings: { // DataProviderSettings Union: only one key present
  * //       RedshiftSettings: { // RedshiftDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         DatabaseName: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -66,12 +70,16 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MySqlSettings: { // MySqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       OracleSettings: { // OracleDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -84,6 +92,8 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * //         SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -91,6 +101,8 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       DocDbSettings: { // DocDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -104,6 +116,26 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MongoDbSettings: { // MongoDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -131,6 +163,9 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
@@ -140,36 +175,36 @@ export interface DeleteDataProviderCommandOutput extends DeleteDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Data Provider
  * ```javascript
  * // Deletes the specified data provider.
  * const input = {
- *   "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
  * };
  * const command = new DeleteDataProviderCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DataProvider": {
- *     "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *     "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
- *     "DataProviderName": "my-target-data-provider",
- *     "Engine": "postgres",
- *     "Settings": {
- *       "PostgreSqlSettings": {
- *         "DatabaseName": "target",
- *         "Port": 5432,
- *         "ServerName": "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *         "SslMode": "none"
+ *   DataProvider: {
+ *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
+ *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
+ *     DataProviderName: "my-target-data-provider",
+ *     Engine: "postgres",
+ *     Settings: {
+ *       PostgreSqlSettings: {
+ *         DatabaseName: "target",
+ *         Port: 5432,
+ *         ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
+ *         SslMode: "none"
  *       }
  *     }
  *   }
  * }
  * *\/
- * // example id: delete-data-provider-1689724476356
  * ```
  *
+ * @public
  */
 export class DeleteDataProviderCommand extends $Command
   .classBuilder<
@@ -179,9 +214,7 @@ export class DeleteDataProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +226,16 @@ export class DeleteDataProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDataProviderCommand)
   .de(de_DeleteDataProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDataProviderMessage;
+      output: DeleteDataProviderResponse;
+    };
+    sdk: {
+      input: DeleteDataProviderCommandInput;
+      output: DeleteDataProviderCommandOutput;
+    };
+  };
+}

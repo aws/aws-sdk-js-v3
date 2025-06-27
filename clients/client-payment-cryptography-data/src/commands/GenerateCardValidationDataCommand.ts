@@ -9,6 +9,7 @@ import {
   GenerateCardValidationDataInput,
   GenerateCardValidationDataInputFilterSensitiveLog,
   GenerateCardValidationDataOutput,
+  GenerateCardValidationDataOutputFilterSensitiveLog,
 } from "../models/models_0";
 import {
   PaymentCryptographyDataClientResolvedConfig,
@@ -20,7 +21,8 @@ import { de_GenerateCardValidationDataCommand, se_GenerateCardValidationDataComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,26 +37,7 @@ export interface GenerateCardValidationDataCommandInput extends GenerateCardVali
 export interface GenerateCardValidationDataCommandOutput extends GenerateCardValidationDataOutput, __MetadataBearer {}
 
 /**
- * <p>Generates card-related validation data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2), or Card Security Codes (CSC). For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/generate-card-data.html">Generate card data</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p>
- *          <p>This operation generates a CVV or CSC value that is printed on a payment credit or debit card during card production. The CVV or CSC, PAN (Primary Account Number) and expiration date of the card are required to check its validity during transaction processing. To begin this operation, a CVK (Card Verification Key) encryption key is required. You can use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a> or <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a> to establish a CVK within Amazon Web Services Payment Cryptography. The <code>KeyModesOfUse</code> should be set to <code>Generate</code> and <code>Verify</code> for a CVK encryption key. </p>
- *          <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p>
- *          <p>
- *             <b>Cross-account use</b>: This operation can't be used across different Amazon Web Services accounts.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>VerifyCardValidationData</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Generates card-related validation data using algorithms such as Card Verification Values (CVV/CVV2), Dynamic Card Verification Values (dCVV/dCVV2), or Card Security Codes (CSC). For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/generate-card-data.html">Generate card data</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p> <p>This operation generates a CVV or CSC value that is printed on a payment credit or debit card during card production. The CVV or CSC, PAN (Primary Account Number) and expiration date of the card are required to check its validity during transaction processing. To begin this operation, a CVK (Card Verification Key) encryption key is required. You can use <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_CreateKey.html">CreateKey</a> or <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a> to establish a CVK within Amazon Web Services Payment Cryptography. The <code>KeyModesOfUse</code> should be set to <code>Generate</code> and <code>Verify</code> for a CVK encryption key. </p> <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p> <p> <b>Cross-account use</b>: This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_ImportKey.html">ImportKey</a> </p> </li> <li> <p> <a>VerifyCardValidationData</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,6 +116,7 @@ export interface GenerateCardValidationDataCommandOutput extends GenerateCardVal
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class GenerateCardValidationDataCommand extends $Command
@@ -143,9 +127,7 @@ export class GenerateCardValidationDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,7 +136,19 @@ export class GenerateCardValidationDataCommand extends $Command
   })
   .s("PaymentCryptographyDataPlane", "GenerateCardValidationData", {})
   .n("PaymentCryptographyDataClient", "GenerateCardValidationDataCommand")
-  .f(GenerateCardValidationDataInputFilterSensitiveLog, void 0)
+  .f(GenerateCardValidationDataInputFilterSensitiveLog, GenerateCardValidationDataOutputFilterSensitiveLog)
   .ser(se_GenerateCardValidationDataCommand)
   .de(de_GenerateCardValidationDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateCardValidationDataInput;
+      output: GenerateCardValidationDataOutput;
+    };
+    sdk: {
+      input: GenerateCardValidationDataCommandInput;
+      output: GenerateCardValidationDataCommandOutput;
+    };
+  };
+}

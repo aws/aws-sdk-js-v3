@@ -12,7 +12,8 @@ import { de_AttachVolumeCommand, se_AttachVolumeCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,18 @@ export interface AttachVolumeCommandInput extends AttachVolumeRequest {}
 export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataBearer {}
 
 /**
- * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
- *       with the specified device name.</p>
- *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
- *       more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
- *          <p>After you attach an EBS volume, you must make it available. For more information, see
- *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p>
+ * <p>Attaches an Amazon EBS volume to a <code>running</code> or <code>stopped</code>
+ *       instance, and exposes it to the instance with the specified device name.</p>
+ *          <note>
+ *             <p>The maximum number of Amazon EBS volumes that you can attach to an instance depends on the
+ *         instance type. If you exceed the volume attachment limit for an instance type, the attachment
+ *         request fails with the <code>AttachmentLimitExceeded</code> error. For more information,
+ *         see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/volume_limits.html">Instance
+ *           volume limits</a>.</p>
+ *          </note>
+ *          <p>After you attach an EBS volume, you must make it available for use. For more information,
+ *       see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make an
+ *         EBS volume available for use</a>.</p>
  *          <p>If a volume has an Amazon Web Services Marketplace product code:</p>
  *          <ul>
  *             <li>
@@ -67,14 +74,14 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
  * // { // VolumeAttachment
- * //   AttachTime: new Date("TIMESTAMP"),
- * //   Device: "STRING_VALUE",
- * //   InstanceId: "STRING_VALUE",
- * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
- * //   VolumeId: "STRING_VALUE",
  * //   DeleteOnTermination: true || false,
  * //   AssociatedResource: "STRING_VALUE",
  * //   InstanceOwningService: "STRING_VALUE",
+ * //   VolumeId: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * //   Device: "STRING_VALUE",
+ * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //   AttachTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
@@ -88,29 +95,29 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To attach a volume to an instance
  * ```javascript
  * // This example attaches a volume (``vol-1234567890abcdef0``) to an instance (``i-01474ef662b89480``) as ``/dev/sdf``.
  * const input = {
- *   "Device": "/dev/sdf",
- *   "InstanceId": "i-01474ef662b89480",
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   Device: "/dev/sdf",
+ *   InstanceId: "i-01474ef662b89480",
+ *   VolumeId: "vol-1234567890abcdef0"
  * };
  * const command = new AttachVolumeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AttachTime": "2016-08-29T18:52:32.724Z",
- *   "Device": "/dev/sdf",
- *   "InstanceId": "i-01474ef662b89480",
- *   "State": "attaching",
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   AttachTime: "2016-08-29T18:52:32.724Z",
+ *   Device: "/dev/sdf",
+ *   InstanceId: "i-01474ef662b89480",
+ *   State: "attaching",
+ *   VolumeId: "vol-1234567890abcdef0"
  * }
  * *\/
- * // example id: to-attach-a-volume-to-an-instance-1472499213109
  * ```
  *
+ * @public
  */
 export class AttachVolumeCommand extends $Command
   .classBuilder<
@@ -120,9 +127,7 @@ export class AttachVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +139,16 @@ export class AttachVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachVolumeCommand)
   .de(de_AttachVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachVolumeRequest;
+      output: VolumeAttachment;
+    };
+    sdk: {
+      input: AttachVolumeCommandInput;
+      output: AttachVolumeCommandOutput;
+    };
+  };
+}

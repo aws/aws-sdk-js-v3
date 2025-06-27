@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/models_4";
+import { DescribeLaunchTemplatesRequest, DescribeLaunchTemplatesResult } from "../models/models_5";
 import { de_DescribeLaunchTemplatesCommand, se_DescribeLaunchTemplatesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,10 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       Operator: { // OperatorResponse
+ * //         Managed: true || false,
+ * //         Principal: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -86,34 +91,34 @@ export interface DescribeLaunchTemplatesCommandOutput extends DescribeLaunchTemp
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a launch template
  * ```javascript
  * // This example describes the specified launch template.
  * const input = {
- *   "LaunchTemplateIds": [
+ *   LaunchTemplateIds: [
  *     "lt-01238c059e3466abc"
  *   ]
  * };
  * const command = new DescribeLaunchTemplatesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LaunchTemplates": [
+ *   LaunchTemplates: [
  *     {
- *       "CreateTime": "2018-01-16T04:32:57.000Z",
- *       "CreatedBy": "arn:aws:iam::123456789012:root",
- *       "DefaultVersionNumber": 1,
- *       "LatestVersionNumber": 1,
- *       "LaunchTemplateId": "lt-01238c059e3466abc",
- *       "LaunchTemplateName": "my-template"
+ *       CreateTime: "2018-01-16T04:32:57.000Z",
+ *       CreatedBy: "arn:aws:iam::123456789012:root",
+ *       DefaultVersionNumber: 1,
+ *       LatestVersionNumber: 1,
+ *       LaunchTemplateId: "lt-01238c059e3466abc",
+ *       LaunchTemplateName: "my-template"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-launch-template-1529344182862
  * ```
  *
+ * @public
  */
 export class DescribeLaunchTemplatesCommand extends $Command
   .classBuilder<
@@ -123,9 +128,7 @@ export class DescribeLaunchTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +140,16 @@ export class DescribeLaunchTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLaunchTemplatesCommand)
   .de(de_DescribeLaunchTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLaunchTemplatesRequest;
+      output: DescribeLaunchTemplatesResult;
+    };
+    sdk: {
+      input: DescribeLaunchTemplatesCommandInput;
+      output: DescribeLaunchTemplatesCommandOutput;
+    };
+  };
+}

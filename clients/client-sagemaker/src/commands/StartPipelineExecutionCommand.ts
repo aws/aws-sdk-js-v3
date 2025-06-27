@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_4";
+import { StartPipelineExecutionRequest, StartPipelineExecutionResponse } from "../models/models_5";
 import { de_StartPipelineExecutionCommand, se_StartPipelineExecutionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,18 +73,17 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -95,9 +95,7 @@ export class StartPipelineExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +107,16 @@ export class StartPipelineExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPipelineExecutionCommand)
   .de(de_StartPipelineExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPipelineExecutionRequest;
+      output: StartPipelineExecutionResponse;
+    };
+    sdk: {
+      input: StartPipelineExecutionCommandInput;
+      output: StartPipelineExecutionCommandOutput;
+    };
+  };
+}

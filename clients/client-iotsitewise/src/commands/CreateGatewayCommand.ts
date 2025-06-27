@@ -12,7 +12,8 @@ import { de_CreateGatewayCommand, se_CreateGatewayCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,8 +45,13 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  *     },
  *     greengrassV2: { // GreengrassV2
  *       coreDeviceThingName: "STRING_VALUE", // required
+ *       coreDeviceOperatingSystem: "LINUX_AARCH64" || "LINUX_AMD64" || "WINDOWS_AMD64",
+ *     },
+ *     siemensIE: { // SiemensIE
+ *       iotCoreThingName: "STRING_VALUE", // required
  *     },
  *   },
+ *   gatewayVersion: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -90,6 +96,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class CreateGatewayCommand extends $Command
@@ -100,9 +107,7 @@ export class CreateGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +119,16 @@ export class CreateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGatewayCommand)
   .de(de_CreateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGatewayRequest;
+      output: CreateGatewayResponse;
+    };
+    sdk: {
+      input: CreateGatewayCommandInput;
+      output: CreateGatewayCommandOutput;
+    };
+  };
+}

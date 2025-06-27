@@ -14,7 +14,7 @@ endpoints</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-opensearch
+To install this package, simply type add or install @aws-sdk/client-opensearch
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-opensearch`
@@ -27,16 +27,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `OpenSearchClient` and
-the commands you need, for example `ListDomainNamesCommand`:
+the commands you need, for example `ListApplicationsCommand`:
 
 ```js
 // ES5 example
-const { OpenSearchClient, ListDomainNamesCommand } = require("@aws-sdk/client-opensearch");
+const { OpenSearchClient, ListApplicationsCommand } = require("@aws-sdk/client-opensearch");
 ```
 
 ```ts
 // ES6+ example
-import { OpenSearchClient, ListDomainNamesCommand } from "@aws-sdk/client-opensearch";
+import { OpenSearchClient, ListApplicationsCommand } from "@aws-sdk/client-opensearch";
 ```
 
 ### Usage
@@ -55,7 +55,7 @@ const client = new OpenSearchClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListDomainNamesCommand(params);
+const command = new ListApplicationsCommand(params);
 ```
 
 #### Async/await
@@ -134,7 +134,7 @@ const client = new AWS.OpenSearch({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listDomainNames(params);
+  const data = await client.listApplications(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -142,7 +142,7 @@ try {
 
 // Promises.
 client
-  .listDomainNames(params)
+  .listApplications(params)
   .then((data) => {
     // process data.
   })
@@ -151,7 +151,7 @@ client
   });
 
 // callbacks.
-client.listDomainNames(params, (err, data) => {
+client.listApplications(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -225,6 +225,14 @@ AddDataSource
 </details>
 <details>
 <summary>
+AddDirectQueryDataSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/AddDirectQueryDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/AddDirectQueryDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/AddDirectQueryDataSourceCommandOutput/)
+
+</details>
+<details>
+<summary>
 AddTags
 </summary>
 
@@ -237,6 +245,14 @@ AssociatePackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/AssociatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/AssociatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/AssociatePackageCommandOutput/)
+
+</details>
+<details>
+<summary>
+AssociatePackages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/AssociatePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/AssociatePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/AssociatePackagesCommandOutput/)
 
 </details>
 <details>
@@ -261,6 +277,14 @@ CancelServiceSoftwareUpdate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/CancelServiceSoftwareUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/CancelServiceSoftwareUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/CancelServiceSoftwareUpdateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/CreateApplicationCommandOutput/)
 
 </details>
 <details>
@@ -297,10 +321,26 @@ CreateVpcEndpoint
 </details>
 <details>
 <summary>
+DeleteApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/DeleteApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DeleteApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DeleteApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDataSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/DeleteDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DeleteDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DeleteDataSourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDirectQueryDataSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/DeleteDirectQueryDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DeleteDirectQueryDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DeleteDirectQueryDataSourceCommandOutput/)
 
 </details>
 <details>
@@ -473,6 +513,22 @@ DissociatePackage
 </details>
 <details>
 <summary>
+DissociatePackages
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/DissociatePackagesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DissociatePackagesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/DissociatePackagesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/GetApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCompatibleVersions
 </summary>
 
@@ -485,6 +541,14 @@ GetDataSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/GetDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetDataSourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDirectQueryDataSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/GetDirectQueryDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetDirectQueryDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/GetDirectQueryDataSourceCommandOutput/)
 
 </details>
 <details>
@@ -521,10 +585,26 @@ GetUpgradeStatus
 </details>
 <details>
 <summary>
+ListApplications
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListApplicationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListApplicationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListApplicationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDataSources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListDataSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListDataSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListDataSourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDirectQueryDataSources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/ListDirectQueryDataSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListDirectQueryDataSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/ListDirectQueryDataSourcesCommandOutput/)
 
 </details>
 <details>
@@ -665,10 +745,26 @@ StartServiceSoftwareUpdate
 </details>
 <details>
 <summary>
+UpdateApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/UpdateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateDataSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/UpdateDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateDataSourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDirectQueryDataSource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/UpdateDirectQueryDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateDirectQueryDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdateDirectQueryDataSourceCommandOutput/)
 
 </details>
 <details>
@@ -685,6 +781,14 @@ UpdatePackage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/UpdatePackageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdatePackageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdatePackageCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdatePackageScope
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/UpdatePackageScopeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdatePackageScopeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/UpdatePackageScopeCommandOutput/)
 
 </details>
 <details>

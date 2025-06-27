@@ -12,7 +12,8 @@ import { de_DeleteChannelCommand, se_DeleteChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,21 @@ export interface DeleteChannelCommandOutput extends DeleteChannelResponse, __Met
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Deleting a Channel
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel"
+ * };
+ * const command = new DeleteChannelCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteChannelCommand extends $Command
@@ -78,9 +94,7 @@ export class DeleteChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +106,16 @@ export class DeleteChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelCommand)
   .de(de_DeleteChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelCommandInput;
+      output: DeleteChannelCommandOutput;
+    };
+  };
+}

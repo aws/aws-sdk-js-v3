@@ -12,7 +12,8 @@ import { de_DetachLoadBalancersCommand, se_DetachLoadBalancersCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
 
 /**
  * <note>
- *             <p>This API operation is superseded by <a>DetachTrafficSources</a>, which
+ *             <p>This API operation is superseded by <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a>, which
  *                 can detach multiple traffic sources types. We recommend using
  *                     <code>DetachTrafficSources</code> to simplify how you manage traffic sources.
  *                 However, we continue to support <code>DetachLoadBalancers</code>. You can use both
@@ -37,10 +38,11 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  *          </note>
  *          <p>Detaches one or more Classic Load Balancers from the specified Auto Scaling group.</p>
  *          <p>This operation detaches only Classic Load Balancers. If you have Application Load Balancers, Network Load Balancers, or
- *             Gateway Load Balancers, use the <a>DetachLoadBalancerTargetGroups</a> API instead.</p>
+ *             Gateway Load Balancers, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachLoadBalancerTargetGroups.html">DetachLoadBalancerTargetGroups</a> API instead.</p>
  *          <p>When you detach a load balancer, it enters the <code>Removing</code> state while
  *             deregistering the instances in the group. When all instances are deregistered, then you
- *             can no longer describe the load balancer using the <a>DescribeLoadBalancers</a> API call. The instances remain running.</p>
+ *             can no longer describe the load balancer using the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a>
+ *             API call. The instances remain running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,21 +74,24 @@ export interface DetachLoadBalancersCommandOutput extends DetachLoadBalancersRes
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To detach a load balancer from an Auto Scaling group
  * ```javascript
  * // This example detaches the specified load balancer from the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "LoadBalancerNames": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ]
  * };
  * const command = new DetachLoadBalancersCommand(input);
- * await client.send(command);
- * // example id: autoscaling-detach-load-balancers-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachLoadBalancersCommand extends $Command
   .classBuilder<
@@ -96,9 +101,7 @@ export class DetachLoadBalancersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +113,16 @@ export class DetachLoadBalancersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachLoadBalancersCommand)
   .de(de_DetachLoadBalancersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachLoadBalancersType;
+      output: {};
+    };
+    sdk: {
+      input: DetachLoadBalancersCommandInput;
+      output: DetachLoadBalancersCommandOutput;
+    };
+  };
+}

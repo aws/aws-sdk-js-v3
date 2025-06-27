@@ -12,7 +12,8 @@ import { de_RemoveTagsFromStreamCommand, se_RemoveTagsFromStreamCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface RemoveTagsFromStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class RemoveTagsFromStreamCommand extends $Command
@@ -112,4 +114,16 @@ export class RemoveTagsFromStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromStreamCommand)
   .de(de_RemoveTagsFromStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromStreamCommandInput;
+      output: RemoveTagsFromStreamCommandOutput;
+    };
+  };
+}

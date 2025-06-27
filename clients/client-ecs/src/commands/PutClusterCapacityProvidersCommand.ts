@@ -12,7 +12,8 @@ import { de_PutClusterCapacityProvidersCommand, se_PutClusterCapacityProvidersCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,9 @@ export interface PutClusterCapacityProvidersCommandOutput
  * 			strategy for the cluster. If the specified cluster has existing capacity providers
  * 			associated with it, you must specify all existing capacity providers in addition to any
  * 			new ones you want to add. Any existing capacity providers that are associated with a
- * 			cluster that are omitted from a <a>PutClusterCapacityProviders</a> API call
- * 			will be disassociated with the cluster. You can only disassociate an existing capacity
- * 			provider from a cluster if it's not being used by any existing tasks.</p>
+ * 			cluster that are omitted from a <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_PutClusterCapacityProviders.html">PutClusterCapacityProviders</a> API call will be disassociated with the
+ * 			cluster. You can only disassociate an existing capacity provider from a cluster if it's
+ * 			not being used by any existing tasks.</p>
  *          <p>When creating a service or running a task on a cluster, if no capacity provider or
  * 			launch type is specified, then the cluster's default capacity provider strategy is used.
  * 			We recommend that you define a default capacity provider strategy for your cluster.
@@ -79,6 +80,10 @@ export interface PutClusterCapacityProvidersCommandOutput
  * //           s3EncryptionEnabled: true || false,
  * //           s3KeyPrefix: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //         fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "STRING_VALUE",
@@ -148,11 +153,13 @@ export interface PutClusterCapacityProvidersCommandOutput
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ResourceInUseException} (client fault)
  *  <p>The specified resource is in-use and can't be removed.</p>
@@ -170,6 +177,253 @@ export interface PutClusterCapacityProvidersCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ *
+ * @example To add an existing capacity provider to a cluuster
+ * ```javascript
+ * // This example adds an existing capacity provider "MyCapacityProvider2" to a cluster that already has the capacity provider "MyCapacityProvider1" associated with it. Both "MyCapacityProvider2" and "MyCapacityProvider1" need to be specified.
+ * const input = {
+ *   capacityProviders: [
+ *     "MyCapacityProvider1",
+ *     "MyCapacityProvider2"
+ *   ],
+ *   cluster: "MyCluster",
+ *   defaultCapacityProviderStrategy: [
+ *     {
+ *       capacityProvider: "MyCapacityProvider1",
+ *       weight: 1
+ *     },
+ *     {
+ *       capacityProvider: "MyCapacityProvider2",
+ *       weight: 1
+ *     }
+ *   ]
+ * };
+ * const command = new PutClusterCapacityProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider1"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *           }
+ *         ],
+ *         id: "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
+ *         status: "ACTIVE",
+ *         type: "as_policy"
+ *       },
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider2"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *           }
+ *         ],
+ *         id: "ae592060-2382-4663-9476-b015c685593c",
+ *         status: "ACTIVE",
+ *         type: "as_policy"
+ *       }
+ *     ],
+ *     attachmentsStatus: "UPDATE_IN_PROGRESS",
+ *     capacityProviders: [
+ *       "MyCapacityProvider1",
+ *       "MyCapacityProvider2"
+ *     ],
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "MyCluster",
+ *     defaultCapacityProviderStrategy: [
+ *       {
+ *         base: 0,
+ *         capacityProvider: "MyCapacityProvider1",
+ *         weight: 1
+ *       },
+ *       {
+ *         base: 0,
+ *         capacityProvider: "MyCapacityProvider2",
+ *         weight: 1
+ *       }
+ *     ],
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
+ *       {
+ *         name: "containerInsights",
+ *         value: "enabled"
+ *       }
+ *     ],
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To remove a capacity provider from a cluster
+ * ```javascript
+ * // This example removes a capacity provider "MyCapacityProvider2" from a cluster that has both "MyCapacityProvider2" and "MyCapacityProvider1" associated with it. Only "MyCapacityProvider1" needs to be specified in this scenario.
+ * const input = {
+ *   capacityProviders: [
+ *     "MyCapacityProvider1"
+ *   ],
+ *   cluster: "MyCluster",
+ *   defaultCapacityProviderStrategy: [
+ *     {
+ *       base: 0,
+ *       capacityProvider: "MyCapacityProvider1",
+ *       weight: 1
+ *     }
+ *   ]
+ * };
+ * const command = new PutClusterCapacityProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider1"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *           }
+ *         ],
+ *         id: "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
+ *         status: "ACTIVE",
+ *         type: "as_policy"
+ *       },
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider2"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *           }
+ *         ],
+ *         id: "ae592060-2382-4663-9476-b015c685593c",
+ *         status: "DELETING",
+ *         type: "as_policy"
+ *       }
+ *     ],
+ *     attachmentsStatus: "UPDATE_IN_PROGRESS",
+ *     capacityProviders: [
+ *       "MyCapacityProvider1"
+ *     ],
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "MyCluster",
+ *     defaultCapacityProviderStrategy: [
+ *       {
+ *         base: 0,
+ *         capacityProvider: "MyCapacityProvider1",
+ *         weight: 1
+ *       }
+ *     ],
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
+ *       {
+ *         name: "containerInsights",
+ *         value: "enabled"
+ *       }
+ *     ],
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
+ * @example To remove all capacity providers from a cluster
+ * ```javascript
+ * // This example removes all capacity providers associated with a cluster.
+ * const input = {
+ *   capacityProviders:   [],
+ *   cluster: "MyCluster",
+ *   defaultCapacityProviderStrategy:   []
+ * };
+ * const command = new PutClusterCapacityProvidersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     attachments: [
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider1"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *           }
+ *         ],
+ *         id: "0fb0c8f4-6edd-4de1-9b09-17e470ee1918",
+ *         status: "DELETING",
+ *         type: "as_policy"
+ *       },
+ *       {
+ *         details: [
+ *           {
+ *             name: "capacityProviderName",
+ *             value: "MyCapacityProvider2"
+ *           },
+ *           {
+ *             name: "scalingPolicyName",
+ *             value: "ECSManagedAutoScalingPolicy-a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
+ *           }
+ *         ],
+ *         id: "ae592060-2382-4663-9476-b015c685593c",
+ *         status: "DELETING",
+ *         type: "as_policy"
+ *       }
+ *     ],
+ *     attachmentsStatus: "UPDATE_IN_PROGRESS",
+ *     capacityProviders:     [],
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "MyCluster",
+ *     defaultCapacityProviderStrategy:     [],
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
+ *       {
+ *         name: "containerInsights",
+ *         value: "enabled"
+ *       }
+ *     ],
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutClusterCapacityProvidersCommand extends $Command
@@ -180,9 +434,7 @@ export class PutClusterCapacityProvidersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +446,16 @@ export class PutClusterCapacityProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutClusterCapacityProvidersCommand)
   .de(de_PutClusterCapacityProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutClusterCapacityProvidersRequest;
+      output: PutClusterCapacityProvidersResponse;
+    };
+    sdk: {
+      input: PutClusterCapacityProvidersCommandInput;
+      output: PutClusterCapacityProvidersCommandOutput;
+    };
+  };
+}

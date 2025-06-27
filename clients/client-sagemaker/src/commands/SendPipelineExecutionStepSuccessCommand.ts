@@ -15,7 +15,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,7 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Notifies the pipeline that the execution of a callback step succeeded and provides a
- *         list of the step's output parameters. When a callback step is run, the pipeline generates
- *         a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
+ * <p>Notifies the pipeline that the execution of a callback step succeeded and provides a list of the step's output parameters. When a callback step is run, the pipeline generates a callback token and includes the token in a message sent to Amazon Simple Queue Service (Amazon SQS).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,18 +65,17 @@ export interface SendPipelineExecutionStepSuccessCommandOutput
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an
- *       <code>Experiment</code> or <code>Artifact</code>.</p>
+ *  <p>There was a conflict when you attempted to modify a SageMaker entity such as an <code>Experiment</code> or <code>Artifact</code>.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -89,9 +87,7 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +99,16 @@ export class SendPipelineExecutionStepSuccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendPipelineExecutionStepSuccessCommand)
   .de(de_SendPipelineExecutionStepSuccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendPipelineExecutionStepSuccessRequest;
+      output: SendPipelineExecutionStepSuccessResponse;
+    };
+    sdk: {
+      input: SendPipelineExecutionStepSuccessCommandInput;
+      output: SendPipelineExecutionStepSuccessCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_FailoverGlobalClusterCommand, se_FailoverGlobalClusterCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,8 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * const input = { // FailoverGlobalClusterMessage
  *   GlobalClusterIdentifier: "STRING_VALUE", // required
  *   TargetDbClusterIdentifier: "STRING_VALUE", // required
+ *   AllowDataLoss: true || false,
+ *   Switchover: true || false,
  * };
  * const command = new FailoverGlobalClusterCommand(input);
  * const response = await client.send(command);
@@ -72,6 +75,12 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * //         IsWriter: true || false,
  * //       },
  * //     ],
+ * //     FailoverState: { // FailoverState
+ * //       Status: "pending" || "failing-over" || "cancelling",
+ * //       FromDbClusterArn: "STRING_VALUE",
+ * //       ToDbClusterArn: "STRING_VALUE",
+ * //       IsDataLossAllowed: true || false,
+ * //     },
  * //   },
  * // };
  *
@@ -99,6 +108,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class FailoverGlobalClusterCommand extends $Command
@@ -109,9 +119,7 @@ export class FailoverGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +131,16 @@ export class FailoverGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverGlobalClusterCommand)
   .de(de_FailoverGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverGlobalClusterMessage;
+      output: FailoverGlobalClusterResult;
+    };
+    sdk: {
+      input: FailoverGlobalClusterCommandInput;
+      output: FailoverGlobalClusterCommandOutput;
+    };
+  };
+}

@@ -29,10 +29,90 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.workspaces#AGAModeForDirectoryEnum": {
+      "type": "enum",
+      "members": {
+        "ENABLED_AUTO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_AUTO"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#AGAModeForWorkSpaceEnum": {
+      "type": "enum",
+      "members": {
+        "ENABLED_AUTO": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED_AUTO"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "INHERITED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INHERITED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#AGAPreferredProtocolForDirectory": {
+      "type": "enum",
+      "members": {
+        "TCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TCP"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#AGAPreferredProtocolForWorkSpace": {
+      "type": "enum",
+      "members": {
+        "TCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TCP"
+          }
+        },
+        "NONE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NONE"
+          }
+        },
+        "INHERITED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INHERITED"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#ARN": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^arn:aws:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-za-z0-9_/.-]{0,127}$"
+        "smithy.api#pattern": "^arn:aws[a-z-]{0,7}:[A-Za-z0-9][A-za-z0-9_/.-]{0,62}:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:[A-Za-z0-9][A-Za-z0-9:_/+=,@.\\\\-]{0,1023}$"
       }
     },
     "com.amazonaws.workspaces#AcceptAccountLinkInvitation": {
@@ -77,7 +157,7 @@
         "ClientToken": {
           "target": "com.amazonaws.workspaces#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>"
+            "smithy.api#documentation": "<p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>"
           }
         }
       },
@@ -109,6 +189,64 @@
       "traits": {
         "smithy.api#documentation": "<p>The user is not authorized to access a resource.</p>",
         "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workspaces#AccessEndpoint": {
+      "type": "structure",
+      "members": {
+        "AccessEndpointType": {
+          "target": "com.amazonaws.workspaces#AccessEndpointType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the type of access endpoint.</p>"
+          }
+        },
+        "VpcEndpointId": {
+          "target": "com.amazonaws.workspaces#AlphanumericDashUnderscoreNonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the VPC endpoint to use for access.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the access type and endpoint for a WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#AccessEndpointConfig": {
+      "type": "structure",
+      "members": {
+        "AccessEndpoints": {
+          "target": "com.amazonaws.workspaces#AccessEndpointList",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates a list of access endpoints associated with this directory.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InternetFallbackProtocols": {
+          "target": "com.amazonaws.workspaces#InternetFallbackProtocolList",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates a list of protocols that fallback to using the public Internet when streaming over a VPC endpoint is not available.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the access endpoint configuration for a WorkSpace.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#AccessEndpointList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#AccessEndpoint"
+      }
+    },
+    "com.amazonaws.workspaces#AccessEndpointType": {
+      "type": "enum",
+      "members": {
+        "STREAMING_WSP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STREAMING_WSP"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#AccessPropertyValue": {
@@ -251,6 +389,44 @@
         "target": "com.amazonaws.workspaces#AccountModification"
       }
     },
+    "com.amazonaws.workspaces#ActiveDirectoryConfig": {
+      "type": "structure",
+      "members": {
+        "DomainName": {
+          "target": "com.amazonaws.workspaces#DomainName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the domain.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ServiceAccountSecretArn": {
+          "target": "com.amazonaws.workspaces#SecretsManagerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the secret ARN on the service account.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the Active Directory config.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ActiveUserSessions": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.workspaces#ActualUserSessions": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.workspaces#AddInName": {
       "type": "string",
       "traits": {
@@ -273,6 +449,12 @@
     },
     "com.amazonaws.workspaces#Alias": {
       "type": "string"
+    },
+    "com.amazonaws.workspaces#AlphanumericDashUnderscoreNonEmptyString": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9\\_\\-]{1,1000}$"
+      }
     },
     "com.amazonaws.workspaces#AmazonUuid": {
       "type": "string",
@@ -404,6 +586,71 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.workspaces#ApplicationResourceAssociation"
+      }
+    },
+    "com.amazonaws.workspaces#ApplicationSettingsRequest": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.workspaces#ApplicationSettingsStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Enables or disables persistent application settings for users during their pool sessions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SettingsGroup": {
+          "target": "com.amazonaws.workspaces#SettingsGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>The path prefix for the S3 bucket where users’ persistent application settings are stored. \n         You can allow the same persistent application settings to be used across multiple pools by specifying \n         the same settings group for each pool.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The persistent application settings for WorkSpaces Pools users.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ApplicationSettingsResponse": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.workspaces#ApplicationSettingsStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether persistent application settings are enabled for users during their pool sessions.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SettingsGroup": {
+          "target": "com.amazonaws.workspaces#SettingsGroup",
+          "traits": {
+            "smithy.api#documentation": "<p>The path prefix for the S3 bucket where users’ persistent application settings are stored.</p>"
+          }
+        },
+        "S3BucketName": {
+          "target": "com.amazonaws.workspaces#S3BucketName",
+          "traits": {
+            "smithy.api#documentation": "<p>The S3 bucket where users’ persistent application settings are stored. When persistent \n         application settings are enabled for the first time for an account in an Amazon Web Services Region, \n         an S3 bucket is created. The bucket is unique to the Amazon Web Services account and the Region.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the persistent application settings for WorkSpaces Pools users.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ApplicationSettingsStatusEnum": {
+      "type": "enum",
+      "members": {
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        },
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#AssociateConnectionAlias": {
@@ -764,6 +1011,17 @@
         }
       }
     },
+    "com.amazonaws.workspaces#AuthenticationType": {
+      "type": "enum",
+      "members": {
+        "SAML": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SAML"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#AuthorizeIpRules": {
       "type": "operation",
       "input": {
@@ -820,6 +1078,14 @@
       "members": {},
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#AvailableUserSessions": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
       }
     },
     "com.amazonaws.workspaces#AwsAccount": {
@@ -946,6 +1212,57 @@
             "smithy.api#enumValue": "STANDBY"
           }
         }
+      }
+    },
+    "com.amazonaws.workspaces#Capacity": {
+      "type": "structure",
+      "members": {
+        "DesiredUserSessions": {
+          "target": "com.amazonaws.workspaces#DesiredUserSessions",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired number of user sessions for the WorkSpaces in the pool.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the user capacity for a pool of WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#CapacityStatus": {
+      "type": "structure",
+      "members": {
+        "AvailableUserSessions": {
+          "target": "com.amazonaws.workspaces#AvailableUserSessions",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of user sessions currently available for streaming from your pool.</p>\n         <p>AvailableUserSessions = ActualUserSessions - ActiveUserSessions</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DesiredUserSessions": {
+          "target": "com.amazonaws.workspaces#DesiredUserSessions",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of sessions slots that are either running or pending. This \n         represents the total number of concurrent streaming sessions your pool can support \n         in a steady state.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ActualUserSessions": {
+          "target": "com.amazonaws.workspaces#ActualUserSessions",
+          "traits": {
+            "smithy.api#documentation": "<p>The total number of user sessions that are available for streaming or are currently \n         streaming in your pool.</p>\n         <p>ActualUserSessions = AvailableUserSessions + ActiveUserSessions</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ActiveUserSessions": {
+          "target": "com.amazonaws.workspaces#ActiveUserSessions",
+          "traits": {
+            "smithy.api#documentation": "<p>The number of user sessions currently being used for your pool.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the capacity status for a pool of WorkSpaces.</p>"
       }
     },
     "com.amazonaws.workspaces#CertificateAuthorityArn": {
@@ -1177,6 +1494,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "POWERPRO"
+          }
+        },
+        "GENERALPURPOSE_4XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GENERALPURPOSE_4XLARGE"
+          }
+        },
+        "GENERALPURPOSE_8XLARGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "GENERALPURPOSE_8XLARGE"
           }
         },
         "GRAPHICSPRO": {
@@ -1528,7 +1857,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Copies the specified image from the specified Region to the current Region. For more\n         information about copying images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html\"> Copy a Custom WorkSpaces\n            Image</a>.</p>\n         <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>\n         <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>\n         <important>\n            <p>Before copying a shared image, be sure to verify that it has been shared from the\n            correct Amazon Web Services account. To determine if an image has been shared and to see\n            the ID of the Amazon Web Services account that owns an image, use the <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\">DescribeWorkSpaceImages</a> and <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html\">DescribeWorkspaceImagePermissions</a> API operations. </p>\n         </important>"
+        "smithy.api#documentation": "<p>Copies the specified image from the specified Region to the current Region. For more\n         information about copying images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html\"> Copy a Custom WorkSpaces\n            Image</a>.</p>\n         <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>\n         <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>\n         <important>\n            <p>Before copying a shared image, be sure to verify that it has been shared from the\n            correct Amazon Web Services account. To determine if an image has been shared and to see\n            the ID of the Amazon Web Services account that owns an image, use the <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImages.html\">DescribeWorkSpaceImages</a> and <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaceImagePermissions.html\">DescribeWorkspaceImagePermissions</a> API operations. </p>\n         </important>"
       }
     },
     "com.amazonaws.workspaces#CopyWorkspaceImageRequest": {
@@ -1625,7 +1954,7 @@
         "ClientToken": {
           "target": "com.amazonaws.workspaces#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>"
+            "smithy.api#documentation": "<p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>"
           }
         }
       },
@@ -2305,7 +2634,120 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates one or more WorkSpaces.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces\n               Core. Contact your account team to be allow-listed to use this value. For more\n               information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces\n                  Core</a>.</p>\n               </li>\n               <li>\n                  <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles\n                  because <code>WSP</code> is the default protocol for those bundles.</p>\n               </li>\n               <li>\n                  <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces\n               Core.</p>\n               </li>\n            </ul>\n         </note>"
+        "smithy.api#documentation": "<p>Creates one or more WorkSpaces.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces are created.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>The <code>MANUAL</code> running mode value is only supported by Amazon WorkSpaces\n               Core. Contact your account team to be allow-listed to use this value. For more\n               information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces\n                  Core</a>.</p>\n               </li>\n               <li>\n                  <p>You don't need to specify the <code>PCOIP</code> protocol for Linux bundles\n                  because <code>DCV</code> (formerly WSP) is the default protocol for those bundles.</p>\n               </li>\n               <li>\n                  <p>User-decoupled WorkSpaces are only supported by Amazon WorkSpaces\n               Core.</p>\n               </li>\n               <li>\n                  <p>Review your running mode to ensure you are using one that is optimal for your needs and budget.\n                  For more information on switching running modes, see \n                  <a href=\"http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F\">\n                     Can I switch between hourly and monthly billing?</a>\n                  </p>\n               </li>\n            </ul>\n         </note>"
+      }
+    },
+    "com.amazonaws.workspaces#CreateWorkspacesPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#CreateWorkspacesPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#CreateWorkspacesPoolResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates a pool of WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#CreateWorkspacesPoolRequest": {
+      "type": "structure",
+      "members": {
+        "PoolName": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.workspaces#UpdateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The pool description.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the bundle for the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory for the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Capacity": {
+          "target": "com.amazonaws.workspaces#Capacity",
+          "traits": {
+            "smithy.api#documentation": "<p>The user capacity of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Tags": {
+          "target": "com.amazonaws.workspaces#TagList",
+          "traits": {
+            "smithy.api#documentation": "<p>The tags for the pool.</p>"
+          }
+        },
+        "ApplicationSettings": {
+          "target": "com.amazonaws.workspaces#ApplicationSettingsRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the application settings of the pool.</p>"
+          }
+        },
+        "TimeoutSettings": {
+          "target": "com.amazonaws.workspaces#TimeoutSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the timeout settings of the pool.</p>"
+          }
+        },
+        "RunningMode": {
+          "target": "com.amazonaws.workspaces#PoolsRunningMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The running mode for the pool.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#CreateWorkspacesPoolResult": {
+      "type": "structure",
+      "members": {
+        "WorkspacesPool": {
+          "target": "com.amazonaws.workspaces#WorkspacesPool",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the pool to create.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspaces#CreateWorkspacesRequest": {
@@ -2551,12 +2993,6 @@
     "com.amazonaws.workspaces#DefaultWorkspaceCreationProperties": {
       "type": "structure",
       "members": {
-        "EnableWorkDocs": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Specifies whether the directory is enabled for Amazon WorkDocs.</p>"
-          }
-        },
         "EnableInternetAccess": {
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
@@ -2585,6 +3021,12 @@
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
             "smithy.api#documentation": "<p>Specifies whether maintenance mode is enabled for WorkSpaces. For more information, see\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html\">WorkSpace\n            Maintenance</a>.</p>"
+          }
+        },
+        "InstanceIamRoleArn": {
+          "target": "com.amazonaws.workspaces#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the IAM role ARN of the instance.</p>"
           }
         }
       },
@@ -2674,7 +3116,7 @@
         "ClientToken": {
           "target": "com.amazonaws.workspaces#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>A string of up to 64 ASCII characters that Amazon EFS uses to ensure idempotent creation.</p>"
+            "smithy.api#documentation": "<p>A string of up to 64 ASCII characters that Amazon WorkSpaces uses to ensure idempotent creation.</p>"
           }
         }
       },
@@ -4194,6 +4636,75 @@
         }
       }
     },
+    "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilter": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the WorkSpaces to filter.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The values for filtering WorkSpaces</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the filter conditions for the WorkSpaces to return.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterName": {
+      "type": "enum",
+      "members": {
+        "USER_IDENTITY_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "USER_IDENTITY_TYPE"
+          }
+        },
+        "WORKSPACE_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKSPACE_TYPE"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[0-9a-zA-Z\\*\\.\\\\/\\?-_]{0,64}$"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
     "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesRequest": {
       "type": "structure",
       "members": {
@@ -4201,6 +4712,12 @@
           "target": "com.amazonaws.workspaces#DirectoryIdList",
           "traits": {
             "smithy.api#documentation": "<p>The identifiers of the directories. If the value is null, all directories are\n         retrieved.</p>"
+          }
+        },
+        "WorkspaceDirectoryNames": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryNameList",
+          "traits": {
+            "smithy.api#documentation": "<p>The names of the WorkSpace directories.</p>"
           }
         },
         "Limit": {
@@ -4213,6 +4730,12 @@
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated,\n         provide this token to receive the next set of results.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspaceDirectoriesFilterList",
+          "traits": {
+            "smithy.api#documentation": "<p>The filter condition for the WorkSpaces.</p>"
           }
         }
       },
@@ -4466,7 +4989,20 @@
           "outputToken": "NextToken",
           "items": "Workspaces",
           "pageSize": "Limit"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "DescribeWorkspacesSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.workspaces#DescribeWorkspacesConnectionStatus": {
@@ -4519,6 +5055,260 @@
           "target": "com.amazonaws.workspaces#PaginationToken",
           "traits": {
             "smithy.api#documentation": "<p>The token to use to retrieve the next page of results. This value is null when there are\n         no more results to return. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolSessions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolSessionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolSessionsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Retrieves a list that describes the streaming sessions for a specified pool.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolSessionsRequest": {
+      "type": "structure",
+      "members": {
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolUserId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.workspaces#Limit50",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum size of each page of results. The default value is 20 and the maximum value\n         is 50.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated, \n         provide this token to receive the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolSessionsResult": {
+      "type": "structure",
+      "members": {
+        "Sessions": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolSessions",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the pool sessions.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated, \n         provide this token to receive the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPools": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the specified WorkSpaces Pools.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilter": {
+      "type": "structure",
+      "members": {
+        "Name": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the pool to filter.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Values": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterValues",
+          "traits": {
+            "smithy.api#documentation": "<p>The values for filtering WorkSpaces Pools.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Operator": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterOperator",
+          "traits": {
+            "smithy.api#documentation": "<p>The operator values for filtering WorkSpaces Pools.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the filter conditions for WorkSpaces Pools to return.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterName": {
+      "type": "enum",
+      "members": {
+        "POOLNAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PoolName"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterOperator": {
+      "type": "enum",
+      "members": {
+        "EQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EQUALS"
+          }
+        },
+        "NOTEQUALS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOTEQUALS"
+          }
+        },
+        "CONTAINS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONTAINS"
+          }
+        },
+        "NOTCONTAINS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOTCONTAINS"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterValue": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 128
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]+$"
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilterValue"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilters": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilter"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsRequest": {
+      "type": "structure",
+      "members": {
+        "PoolIds": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolIds",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the WorkSpaces Pools.</p>"
+          }
+        },
+        "Filters": {
+          "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolsFilters",
+          "traits": {
+            "smithy.api#documentation": "<p>The filter conditions for the WorkSpaces Pool to return.</p>"
+          }
+        },
+        "Limit": {
+          "target": "com.amazonaws.workspaces#Limit",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum number of items to return.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated, \n         provide this token to receive the next set of results.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#DescribeWorkspacesPoolsResult": {
+      "type": "structure",
+      "members": {
+        "WorkspacesPools": {
+          "target": "com.amazonaws.workspaces#WorkspacesPools",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the WorkSpaces Pools.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.workspaces#PaginationToken",
+          "traits": {
+            "smithy.api#documentation": "<p>If you received a <code>NextToken</code> from a previous call that was paginated, \n         provide this token to receive the next set of results.</p>"
           }
         }
       },
@@ -4599,6 +5389,14 @@
     "com.amazonaws.workspaces#Description": {
       "type": "string"
     },
+    "com.amazonaws.workspaces#DesiredUserSessions": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.workspaces#DirectoryId": {
       "type": "string",
       "traits": {
@@ -4606,7 +5404,7 @@
           "min": 10,
           "max": 65
         },
-        "smithy.api#pattern": "^d-[0-9a-f]{8,63}$"
+        "smithy.api#pattern": "^(d-[0-9a-f]{8,63}$)|(wsd-[0-9a-z]{8,63}$)$"
       }
     },
     "com.amazonaws.workspaces#DirectoryIdList": {
@@ -4698,6 +5496,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
         },
         {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
@@ -4801,16 +5602,48 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.workspaces#DisconnectTimeoutInSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 60,
+          "max": 36000
+        }
+      }
+    },
     "com.amazonaws.workspaces#DnsIpAddresses": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.workspaces#IpAddress"
       }
     },
+    "com.amazonaws.workspaces#DomainName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^([a-zA-Z0-9]+[.-])+([a-zA-Z0-9])+$"
+      }
+    },
     "com.amazonaws.workspaces#Ec2ImageId": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^ami\\-([a-f0-9]{8}|[a-f0-9]{17})$"
+      }
+    },
+    "com.amazonaws.workspaces#EndpointEncryptionMode": {
+      "type": "enum",
+      "members": {
+        "STANDARD_TLS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STANDARD_TLS"
+          }
+        },
+        "FIPS_VALIDATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIPS_VALIDATED"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#ErrorDetails": {
@@ -4838,6 +5671,9 @@
       "member": {
         "target": "com.amazonaws.workspaces#ErrorDetails"
       }
+    },
+    "com.amazonaws.workspaces#ErrorMessage": {
+      "type": "string"
     },
     "com.amazonaws.workspaces#ErrorType": {
       "type": "string"
@@ -5026,6 +5862,77 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#GlobalAcceleratorForDirectory": {
+      "type": "structure",
+      "members": {
+        "Mode": {
+          "target": "com.amazonaws.workspaces#AGAModeForDirectoryEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if Global Accelerator for directory is enabled or disabled.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PreferredProtocol": {
+          "target": "com.amazonaws.workspaces#AGAPreferredProtocolForDirectory",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the preferred protocol for Global Accelerator.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Global Accelerator for directory</p>"
+      }
+    },
+    "com.amazonaws.workspaces#GlobalAcceleratorForWorkSpace": {
+      "type": "structure",
+      "members": {
+        "Mode": {
+          "target": "com.amazonaws.workspaces#AGAModeForWorkSpaceEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if Global Accelerator for WorkSpaces is enabled, disabled, \n         or the same mode as the associated directory.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PreferredProtocol": {
+          "target": "com.amazonaws.workspaces#AGAPreferredProtocolForWorkSpace",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the preferred protocol for Global Accelerator.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the Global Accelerator for WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#IDCConfig": {
+      "type": "structure",
+      "members": {
+        "InstanceArn": {
+          "target": "com.amazonaws.workspaces#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the identity center instance.</p>"
+          }
+        },
+        "ApplicationArn": {
+          "target": "com.amazonaws.workspaces#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configurations of the identity center.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#IdleDisconnectTimeoutInSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0,
+          "max": 36000
+        }
       }
     },
     "com.amazonaws.workspaces#ImageAssociatedResourceType": {
@@ -5304,7 +6211,7 @@
         "IngestionProcess": {
           "target": "com.amazonaws.workspaces#WorkspaceImageIngestionProcess",
           "traits": {
-            "smithy.api#documentation": "<p>The ingestion process to be used when importing the image, depending on which protocol\n         you want to use for your BYOL Workspace image, either PCoIP, WorkSpaces Streaming Protocol \n         (WSP), or bring your own protocol (BYOP). To use WSP, specify a value that ends in \n         <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>. \n         To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>\n         <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify \n         <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>, \n         depending on the protocol.</p>\n         <note>\n            <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values\n            are only supported by Amazon WorkSpaces Core. Contact your account team to be\n            allow-listed to use these values. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p>\n         </note>",
+            "smithy.api#documentation": "<p>The ingestion process to be used when importing the image, depending on which protocol\n         you want to use for your BYOL Workspace image, either PCoIP, WSP, or \n         bring your own protocol (BYOP). To use DCV, specify a value that ends in \n         <code>_WSP</code>. To use PCoIP, specify a value that does not end in <code>_WSP</code>. \n         To use BYOP, specify a value that ends in <code>_BYOP</code>.</p>\n         <p>For non-GPU-enabled bundles (bundles other than Graphics or GraphicsPro), specify \n         <code>BYOL_REGULAR</code>, <code>BYOL_REGULAR_WSP</code>, or <code>BYOL_REGULAR_BYOP</code>, \n         depending on the protocol.</p>\n         <note>\n            <p>The <code>BYOL_REGULAR_BYOP</code> and <code>BYOL_GRAPHICS_G4DN_BYOP</code> values\n            are only supported by Amazon WorkSpaces Core. Contact your account team to be\n            allow-listed to use these values. For more information, see <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -5331,7 +6238,7 @@
         "Applications": {
           "target": "com.amazonaws.workspaces#ApplicationList",
           "traits": {
-            "smithy.api#documentation": "<p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 and 11\n         BYOL images. For more information about subscribing to Office for BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring\n            Your Own Windows Desktop Licenses</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Although this parameter is an array, only one item is allowed at this time.</p>\n               </li>\n               <li>\n                  <p>Windows 11 only supports <code>Microsoft_Office_2019</code>.</p>\n               </li>\n            </ul>\n         </note>"
+            "smithy.api#documentation": "<p>If specified, the version of Microsoft Office to subscribe to. Valid only for Windows 10 and 11\n         BYOL images. For more information about subscribing to Office for BYOL images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/byol-windows-images.html\"> Bring\n            Your Own Windows Desktop Licenses</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Although this parameter is an array, only one item is allowed at this\n                  time.</p>\n               </li>\n               <li>\n                  <p>During the image import process, non-GPU DCV (formerly WSP) WorkSpaces with Windows 11 support\n                  only <code>Microsoft_Office_2019</code>. GPU DCV (formerly WSP) WorkSpaces with Windows 11 do not\n                  support Office installation.</p>\n               </li>\n            </ul>\n         </note>"
           }
         }
       },
@@ -5370,6 +6277,38 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Unexpected server error occured.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.workspaces#InternetFallbackProtocol": {
+      "type": "enum",
+      "members": {
+        "PCOIP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PCOIP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#InternetFallbackProtocolList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#InternetFallbackProtocol"
+      }
+    },
+    "com.amazonaws.workspaces#InvalidParameterCombinationException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.workspaces#ExceptionMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The exception error message.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Two or more of the selected parameter values cannot be used together.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -5595,6 +6534,15 @@
         }
       }
     },
+    "com.amazonaws.workspaces#Limit50": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 1,
+          "max": 50
+        }
+      }
+    },
     "com.amazonaws.workspaces#LinkId": {
       "type": "string",
       "traits": {
@@ -5788,6 +6736,49 @@
           "min": 1,
           "max": 5
         }
+      }
+    },
+    "com.amazonaws.workspaces#MaxUserDurationInSeconds": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 600,
+          "max": 432000
+        }
+      }
+    },
+    "com.amazonaws.workspaces#MaximumLength": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
+    "com.amazonaws.workspaces#MicrosoftEntraConfig": {
+      "type": "structure",
+      "members": {
+        "TenantId": {
+          "target": "com.amazonaws.workspaces#MicrosoftEntraConfigTenantId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the tenant.</p>"
+          }
+        },
+        "ApplicationConfigSecretArn": {
+          "target": "com.amazonaws.workspaces#SecretsManagerArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the application config.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the configurations of the Microsoft Entra.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#MicrosoftEntraConfigTenantId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9-]{1,100}$"
       }
     },
     "com.amazonaws.workspaces#MigrateWorkspace": {
@@ -6062,6 +7053,9 @@
           "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
         },
         {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
         }
       ],
@@ -6092,6 +7086,58 @@
       }
     },
     "com.amazonaws.workspaces#ModifyClientPropertiesResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#ModifyEndpointEncryptionMode": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#ModifyEndpointEncryptionModeRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#ModifyEndpointEncryptionModeResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the endpoint encryption mode that allows you to configure the specified\n         directory between Standard TLS and FIPS 140-2 validated mode. </p>"
+      }
+    },
+    "com.amazonaws.workspaces#ModifyEndpointEncryptionModeRequest": {
+      "type": "structure",
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p> The identifier of the directory.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EndpointEncryptionMode": {
+          "target": "com.amazonaws.workspaces#EndpointEncryptionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The encryption mode used for endpoint connections when streaming to WorkSpaces Personal\n         or WorkSpace Pools.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#ModifyEndpointEncryptionModeResponse": {
       "type": "structure",
       "members": {},
       "traits": {
@@ -6174,6 +7220,9 @@
           "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
         },
         {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
         }
       ],
@@ -6210,6 +7259,60 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.workspaces#ModifyStreamingProperties": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#ModifyStreamingPropertiesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#ModifyStreamingPropertiesResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Modifies the specified streaming properties.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#ModifyStreamingPropertiesRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the resource.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "StreamingProperties": {
+          "target": "com.amazonaws.workspaces#StreamingProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming properties to configure.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#ModifyStreamingPropertiesResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.workspaces#ModifyWorkspaceAccessProperties": {
       "type": "operation",
       "input": {
@@ -6221,6 +7324,15 @@
       "errors": [
         {
           "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterCombinationException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
         },
         {
           "target": "com.amazonaws.workspaces#ResourceNotFoundException"
@@ -6438,6 +7550,26 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.workspaces#NetworkAccessConfiguration": {
+      "type": "structure",
+      "members": {
+        "EniPrivateIpAddress": {
+          "target": "com.amazonaws.workspaces#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The private IP address of the elastic network interface that is attached to instances in your VPC.</p>"
+          }
+        },
+        "EniId": {
+          "target": "com.amazonaws.workspaces#NonEmptyString",
+          "traits": {
+            "smithy.api#documentation": "<p>The resource identifier of the elastic network interface that is attached to instances in your \n         VPC. All network interfaces have the eni-xxxxxxxx resource identifier.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the network details of a WorkSpaces Pool.</p>"
+      }
+    },
     "com.amazonaws.workspaces#NonEmptyString": {
       "type": "string",
       "traits": {
@@ -6527,6 +7659,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "WINDOWS_SERVER_2022"
+          }
+        },
+        "RHEL_8": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RHEL_8"
+          }
+        },
+        "ROCKY_8": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROCKY_8"
           }
         }
       }
@@ -6640,6 +7784,23 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.workspaces#PendingCreateStandbyWorkspacesRequest"
+      }
+    },
+    "com.amazonaws.workspaces#PoolsRunningMode": {
+      "type": "enum",
+      "members": {
+        "AUTO_STOP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AUTO_STOP"
+          }
+        },
+        "ALWAYS_ON": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ALWAYS_ON"
+          }
+        }
       }
     },
     "com.amazonaws.workspaces#Protocol": {
@@ -6860,6 +8021,9 @@
           "target": "com.amazonaws.workspaces#OperationNotSupportedException"
         },
         {
+          "target": "com.amazonaws.workspaces#ResourceAlreadyExistsException"
+        },
+        {
           "target": "com.amazonaws.workspaces#ResourceLimitExceededException"
         },
         {
@@ -6882,21 +8046,13 @@
         "DirectoryId": {
           "target": "com.amazonaws.workspaces#DirectoryId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the directory. You cannot register a directory if it does not have a\n         status of Active. If the directory does not have a status of Active, you will receive an\n         InvalidResourceStateException error. If you have already registered the maximum number of\n         directories that you can register with Amazon WorkSpaces, you will receive a\n         ResourceLimitExceededException error. Deregister directories that you are not using for\n         WorkSpaces, and try again.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The identifier of the directory. You cannot register a directory if it does not have a\n         status of Active. If the directory does not have a status of Active, you will receive an\n         InvalidResourceStateException error. If you have already registered the maximum number of\n         directories that you can register with Amazon WorkSpaces, you will receive a\n         ResourceLimitExceededException error. Deregister directories that you are not using for\n         WorkSpaces, and try again.</p>"
           }
         },
         "SubnetIds": {
           "target": "com.amazonaws.workspaces#SubnetIds",
           "traits": {
             "smithy.api#documentation": "<p>The identifiers of the subnets for your virtual private cloud (VPC). Make sure that the\n         subnets are in supported Availability Zones. The subnets must also be in separate\n         Availability Zones. If these conditions are not met, you will receive an\n         OperationNotSupportedException error.</p>"
-          }
-        },
-        "EnableWorkDocs": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether Amazon WorkDocs is enabled or disabled. If you have enabled this\n         parameter and WorkDocs is not available in the Region, you will receive an\n         OperationNotSupportedException error. Set <code>EnableWorkDocs</code> to disabled, and try\n         again.</p>",
-            "smithy.api#required": {}
           }
         },
         "EnableSelfService": {
@@ -6916,6 +8072,48 @@
           "traits": {
             "smithy.api#documentation": "<p>The tags associated with the directory.</p>"
           }
+        },
+        "WorkspaceDirectoryName": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the directory to register.</p>"
+          }
+        },
+        "WorkspaceDirectoryDescription": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Description of the directory to register.</p>"
+          }
+        },
+        "UserIdentityType": {
+          "target": "com.amazonaws.workspaces#UserIdentityType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of identity management the user is using.</p>"
+          }
+        },
+        "IdcInstanceArn": {
+          "target": "com.amazonaws.workspaces#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the identity center instance.</p>"
+          }
+        },
+        "MicrosoftEntraConfig": {
+          "target": "com.amazonaws.workspaces#MicrosoftEntraConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The details about Microsoft Entra config.</p>"
+          }
+        },
+        "WorkspaceType": {
+          "target": "com.amazonaws.workspaces#WorkspaceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the directory's WorkSpace type is personal or pools.</p>"
+          }
+        },
+        "ActiveDirectoryConfig": {
+          "target": "com.amazonaws.workspaces#ActiveDirectoryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>The active directory config of the directory.</p>"
+          }
         }
       },
       "traits": {
@@ -6924,7 +8122,20 @@
     },
     "com.amazonaws.workspaces#RegisterWorkspaceDirectoryResult": {
       "type": "structure",
-      "members": {},
+      "members": {
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryState",
+          "traits": {
+            "smithy.api#documentation": "<p>The registration status of the WorkSpace directory.</p>"
+          }
+        }
+      },
       "traits": {
         "smithy.api#output": {}
       }
@@ -7272,7 +8483,8 @@
         "Capacity": {
           "target": "com.amazonaws.workspaces#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The size of the root volume.</p>"
+            "smithy.api#documentation": "<p>The size of the root volume.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -7308,6 +8520,16 @@
     },
     "com.amazonaws.workspaces#RunningModeAutoStopTimeoutInMinutes": {
       "type": "integer"
+    },
+    "com.amazonaws.workspaces#S3BucketName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 3,
+          "max": 63
+        },
+        "smithy.api#pattern": "^[a-z0-9][\\.\\-a-z0-9]{1,61}[a-z0-9]$"
+      }
     },
     "com.amazonaws.workspaces#SamlProperties": {
       "type": "structure",
@@ -7368,6 +8590,12 @@
         "smithy.api#pattern": "^(http|https)\\://\\S+$"
       }
     },
+    "com.amazonaws.workspaces#SecretsManagerArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws[a-z-]{0,7}:secretsmanager:[A-za-z0-9_/.-]{0,63}:[A-za-z0-9_/.-]{0,63}:secret:[A-Za-z0-9][A-za-z0-9_/.-]{8,519}$"
+      }
+    },
     "com.amazonaws.workspaces#SecurityGroupId": {
       "type": "string",
       "traits": {
@@ -7414,6 +8642,39 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes the self-service permissions for a directory. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/enable-user-self-service-workspace-management.html\">Enable Self-Service WorkSpace Management Capabilities for Your Users</a>.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#SessionConnectionState": {
+      "type": "enum",
+      "members": {
+        "CONNECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CONNECTED"
+          }
+        },
+        "NOT_CONNECTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NOT_CONNECTED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#SessionInstanceId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^i-[a-f0-9]{8}(?:[a-f0-9]{9})?$"
+      }
+    },
+    "com.amazonaws.workspaces#SettingsGroup": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        },
+        "smithy.api#pattern": "^[A-Za-z0-9_./()!*'-]+$"
       }
     },
     "com.amazonaws.workspaces#Snapshot": {
@@ -7566,7 +8827,64 @@
         "target": "com.amazonaws.workspaces#StartWorkspacesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Starts the specified WorkSpaces.</p>\n         <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> and a\n         state of <code>STOPPED</code>.</p>"
+        "smithy.api#documentation": "<p>Starts the specified WorkSpaces.</p>\n         <p>You cannot start a WorkSpace unless it has a running mode of <code>AutoStop</code> or\n         <code>Manual</code> and a state of <code>STOPPED</code>.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StartWorkspacesPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#StartWorkspacesPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#StartWorkspacesPoolResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationInProgressException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Starts the specified pool.</p>\n         <p>You cannot start a pool unless it has a running mode of \n         <code>AutoStop</code> and a state of <code>STOPPED</code>.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StartWorkspacesPoolRequest": {
+      "type": "structure",
+      "members": {
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#StartWorkspacesPoolResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspaces#StartWorkspacesRequest": {
@@ -7633,7 +8951,58 @@
         "target": "com.amazonaws.workspaces#StopWorkspacesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p> Stops the specified WorkSpaces.</p>\n         <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a\n         state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or\n            <code>ERROR</code>.</p>"
+        "smithy.api#documentation": "<p>Stops the specified WorkSpaces.</p>\n         <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> or\n         <code>Manual</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>,\n         <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StopWorkspacesPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#StopWorkspacesPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#StopWorkspacesPoolResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationInProgressException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Stops the specified pool.</p>\n         <p>You cannot stop a WorkSpace pool unless it has a running mode of <code>AutoStop</code> \n         and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StopWorkspacesPoolRequest": {
+      "type": "structure",
+      "members": {
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#StopWorkspacesPoolResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspaces#StopWorkspacesRequest": {
@@ -7663,6 +9032,116 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#StorageConnector": {
+      "type": "structure",
+      "members": {
+        "ConnectorType": {
+          "target": "com.amazonaws.workspaces#StorageConnectorTypeEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of connector used to save user files.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Status": {
+          "target": "com.amazonaws.workspaces#StorageConnectorStatusEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the storage connetor is enabled or disabled.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the storage connector.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#StorageConnectorStatusEnum": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#StorageConnectorTypeEnum": {
+      "type": "enum",
+      "members": {
+        "HOME_FOLDER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "HOME_FOLDER"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#StorageConnectors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#StorageConnector"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
+    "com.amazonaws.workspaces#StreamingExperiencePreferredProtocolEnum": {
+      "type": "enum",
+      "members": {
+        "TCP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "TCP"
+          }
+        },
+        "UDP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UDP"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#StreamingProperties": {
+      "type": "structure",
+      "members": {
+        "StreamingExperiencePreferredProtocol": {
+          "target": "com.amazonaws.workspaces#StreamingExperiencePreferredProtocolEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the type of preferred protocol for the streaming experience.</p>"
+          }
+        },
+        "UserSettings": {
+          "target": "com.amazonaws.workspaces#UserSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the permission settings asscoiated with the user.</p>"
+          }
+        },
+        "StorageConnectors": {
+          "target": "com.amazonaws.workspaces#StorageConnectors",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the storage connector used </p>"
+          }
+        },
+        "GlobalAccelerator": {
+          "target": "com.amazonaws.workspaces#GlobalAcceleratorForDirectory",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the Global Accelerator properties.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the streaming properties.</p>"
       }
     },
     "com.amazonaws.workspaces#String2048": {
@@ -7817,7 +9296,109 @@
         "target": "com.amazonaws.workspaces#TerminateWorkspacesResult"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Terminates the specified WorkSpaces.</p>\n         <important>\n            <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data\n            is destroyed. If you need to archive any user data, contact Amazon Web Services Support before\n            terminating the WorkSpace.</p>\n         </important>\n         <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have been completely\n         terminated. After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned\n         only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely\n         returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\">\n            DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has\n         been successfully terminated.</p>\n         <note>\n            <p>Simple AD and AD Connector are made available to you free of charge to use with\n            WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector\n            directory for 30 consecutive days, this directory will be automatically deregistered for\n            use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href=\"http://aws.amazon.com/directoryservice/pricing/\">Directory Service pricing\n               terms</a>.</p>\n            <p>To delete empty directories, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html\"> Delete the\n               Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector\n            directory, you can always create a new one when you want to start using WorkSpaces\n            again.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Terminates the specified WorkSpaces.</p>\n         <important>\n            <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data\n            is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport before\n            terminating the WorkSpace.</p>\n         </important>\n         <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>\n         <p>This operation is asynchronous and returns before the WorkSpaces have been completely\n         terminated. After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned\n         only briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely\n         returned. To confirm that a WorkSpace is terminated, check for the WorkSpace ID by using\n            <a href=\"https://docs.aws.amazon.com/workspaces/latest/api/API_DescribeWorkspaces.html\">\n            DescribeWorkSpaces</a>. If the WorkSpace ID isn't returned, then the WorkSpace has\n         been successfully terminated.</p>\n         <note>\n            <p>Simple AD and AD Connector are made available to you free of charge to use with\n            WorkSpaces. If there are no WorkSpaces being used with your Simple AD or AD Connector\n            directory for 30 consecutive days, this directory will be automatically deregistered for\n            use with Amazon WorkSpaces, and you will be charged for this directory as per the <a href=\"http://aws.amazon.com/directoryservice/pricing/\">Directory Service pricing\n               terms</a>.</p>\n            <p>To delete empty directories, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/delete-workspaces-directory.html\"> Delete the\n               Directory for Your WorkSpaces</a>. If you delete your Simple AD or AD Connector\n            directory, you can always create a new one when you want to start using WorkSpaces\n            again.</p>\n         </note>"
+      }
+    },
+    "com.amazonaws.workspaces#TerminateWorkspacesPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#TerminateWorkspacesPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#TerminateWorkspacesPoolResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationInProgressException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Terminates the specified pool.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#TerminateWorkspacesPoolRequest": {
+      "type": "structure",
+      "members": {
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#TerminateWorkspacesPoolResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#TerminateWorkspacesPoolSession": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#TerminateWorkspacesPoolSessionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#TerminateWorkspacesPoolSessionResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationInProgressException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Terminates the pool session.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#TerminateWorkspacesPoolSessionRequest": {
+      "type": "structure",
+      "members": {
+        "SessionId": {
+          "target": "com.amazonaws.workspaces#AmazonUuid",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the pool session.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#TerminateWorkspacesPoolSessionResult": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.workspaces#TerminateWorkspacesRequest": {
@@ -7847,6 +9428,32 @@
       },
       "traits": {
         "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#TimeoutSettings": {
+      "type": "structure",
+      "members": {
+        "DisconnectTimeoutInSeconds": {
+          "target": "com.amazonaws.workspaces#DisconnectTimeoutInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the amount of time, in seconds, that a streaming session remains active after users disconnect. \n         If users try to reconnect to the streaming session after a disconnection or network interruption \n         within the time set, they are connected to their previous session. Otherwise, they are connected \n         to a new session with a new streaming instance.</p>"
+          }
+        },
+        "IdleDisconnectTimeoutInSeconds": {
+          "target": "com.amazonaws.workspaces#IdleDisconnectTimeoutInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time in seconds a connection will stay active while idle.</p>"
+          }
+        },
+        "MaxUserDurationInSeconds": {
+          "target": "com.amazonaws.workspaces#MaxUserDurationInSeconds",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the maximum amount of time, in seconds, that a streaming session can remain active. \n         If users are still connected to a streaming instance five minutes before this limit is reached, \n         they are prompted to save any open documents before being disconnected. After this time elapses, \n         the instance is terminated and replaced by a new instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes the timeout settings for a pool of WorkSpaces.</p>"
       }
     },
     "com.amazonaws.workspaces#Timestamp": {
@@ -8174,7 +9781,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Shares or unshares an image with one account in the same Amazon Web Services Region by\n         specifying whether that account has permission to copy the image. If the copy image\n         permission is granted, the image is shared with that account. If the copy image permission\n         is revoked, the image is unshared with the account.</p>\n         <p>After an image has been shared, the recipient account can copy the image to other\n         Regions as needed.</p>\n         <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>\n         <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>\n         <p>For more information about sharing images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html\"> Share or Unshare a Custom\n            WorkSpaces Image</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>To delete an image that has been shared, you must unshare the image before you\n                  delete it.</p>\n               </li>\n               <li>\n                  <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts\n                  isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images\n                  across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p>\n               </li>\n            </ul>\n         </note>"
+        "smithy.api#documentation": "<p>Shares or unshares an image with one account in the same Amazon Web Services Region by\n         specifying whether that account has permission to copy the image. If the copy image\n         permission is granted, the image is shared with that account. If the copy image permission\n         is revoked, the image is unshared with the account.</p>\n         <p>After an image has been shared, the recipient account can copy the image to other\n         Regions as needed.</p>\n         <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>\n         <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>\n         <p>For more information about sharing images, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html\"> Share or Unshare a Custom\n            WorkSpaces Image</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>To delete an image that has been shared, you must unshare the image before you\n                  delete it.</p>\n               </li>\n               <li>\n                  <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts\n                  isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images\n                  across accounts in Amazon Web Services GovCloud (US), contact Amazon Web ServicesSupport.</p>\n               </li>\n            </ul>\n         </note>"
       }
     },
     "com.amazonaws.workspaces#UpdateWorkspaceImagePermissionRequest": {
@@ -8213,6 +9820,135 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.workspaces#UpdateWorkspacesPool": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.workspaces#UpdateWorkspacesPoolRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.workspaces#UpdateWorkspacesPoolResult"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.workspaces#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidParameterValuesException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#InvalidResourceStateException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationInProgressException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#OperationNotSupportedException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceLimitExceededException"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ResourceNotFoundException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Updates the specified pool.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#UpdateWorkspacesPoolRequest": {
+      "type": "structure",
+      "members": {
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the specified pool to update.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.workspaces#UpdateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the specified pool to update.</p>"
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the bundle.</p>"
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory.</p>"
+          }
+        },
+        "Capacity": {
+          "target": "com.amazonaws.workspaces#Capacity",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired capacity for the pool.</p>"
+          }
+        },
+        "ApplicationSettings": {
+          "target": "com.amazonaws.workspaces#ApplicationSettingsRequest",
+          "traits": {
+            "smithy.api#documentation": "<p>The persistent application settings for users in the pool.</p>"
+          }
+        },
+        "TimeoutSettings": {
+          "target": "com.amazonaws.workspaces#TimeoutSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the timeout settings of the specified pool.</p>"
+          }
+        },
+        "RunningMode": {
+          "target": "com.amazonaws.workspaces#PoolsRunningMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired running mode for the pool. The running mode can only be updated when the pool is in a stopped state.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.workspaces#UpdateWorkspacesPoolResult": {
+      "type": "structure",
+      "members": {
+        "WorkspacesPool": {
+          "target": "com.amazonaws.workspaces#WorkspacesPool",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the specified pool.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.workspaces#UserIdentityType": {
+      "type": "enum",
+      "members": {
+        "CUSTOMER_MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER_MANAGED"
+          }
+        },
+        "AWS_DIRECTORY_SERVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_DIRECTORY_SERVICE"
+          }
+        },
+        "AWS_IAM_IDENTITY_CENTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_IAM_IDENTITY_CENTER"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#UserName": {
       "type": "string",
       "traits": {
@@ -8222,13 +9958,99 @@
         }
       }
     },
+    "com.amazonaws.workspaces#UserSetting": {
+      "type": "structure",
+      "members": {
+        "Action": {
+          "target": "com.amazonaws.workspaces#UserSettingActionEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the type of action.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Permission": {
+          "target": "com.amazonaws.workspaces#UserSettingPermissionEnum",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the setting is enabled or disabled.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MaximumLength": {
+          "target": "com.amazonaws.workspaces#MaximumLength",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the maximum character length for the specified user setting.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Information about the user's permission settings.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#UserSettingActionEnum": {
+      "type": "enum",
+      "members": {
+        "CLIPBOARD_COPY_FROM_LOCAL_DEVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLIPBOARD_COPY_FROM_LOCAL_DEVICE"
+          }
+        },
+        "CLIPBOARD_COPY_TO_LOCAL_DEVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CLIPBOARD_COPY_TO_LOCAL_DEVICE"
+          }
+        },
+        "PRINTING_TO_LOCAL_DEVICE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PRINTING_TO_LOCAL_DEVICE"
+          }
+        },
+        "SMART_CARD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SMART_CARD"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#UserSettingPermissionEnum": {
+      "type": "enum",
+      "members": {
+        "ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ENABLED"
+          }
+        },
+        "DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DISABLED"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#UserSettings": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#UserSetting"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1
+        }
+      }
+    },
     "com.amazonaws.workspaces#UserStorage": {
       "type": "structure",
       "members": {
         "Capacity": {
           "target": "com.amazonaws.workspaces#NonEmptyString",
           "traits": {
-            "smithy.api#documentation": "<p>The size of the user volume.</p>"
+            "smithy.api#documentation": "<p>The size of the user volume.</p>",
+            "smithy.api#required": {}
           }
         }
       },
@@ -8595,6 +10417,18 @@
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether users can use Linux clients to access their WorkSpaces.</p>"
           }
+        },
+        "DeviceTypeWorkSpacesThinClient": {
+          "target": "com.amazonaws.workspaces#AccessPropertyValue",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether users can access their WorkSpaces through a WorkSpaces Thin Client.</p>"
+          }
+        },
+        "AccessEndpointConfig": {
+          "target": "com.amazonaws.workspaces#AccessEndpointConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the configuration for accessing the WorkSpace.</p>"
+          }
         }
       },
       "traits": {
@@ -8765,12 +10599,6 @@
     "com.amazonaws.workspaces#WorkspaceCreationProperties": {
       "type": "structure",
       "members": {
-        "EnableWorkDocs": {
-          "target": "com.amazonaws.workspaces#BooleanObject",
-          "traits": {
-            "smithy.api#documentation": "<p>Indicates whether Amazon WorkDocs is enabled for your WorkSpaces.</p>\n         <note>\n            <p>If WorkDocs is already enabled for a WorkSpaces directory and you disable it, new\n            WorkSpaces launched in the directory will not have WorkDocs enabled. However, WorkDocs\n            remains enabled for any existing WorkSpaces, unless you either disable users' access to\n            WorkDocs or you delete the WorkDocs site. To disable users' access to WorkDocs, see\n               <a href=\"https://docs.aws.amazon.com/workdocs/latest/adminguide/inactive-user.html\">Disabling Users</a> in the <i>Amazon WorkDocs Administration\n               Guide</i>. To delete a WorkDocs site, see <a href=\"https://docs.aws.amazon.com/workdocs/latest/adminguide/manage-sites.html\">Deleting a Site</a> in the\n               <i>Amazon WorkDocs Administration Guide</i>.</p>\n            <p>If you enable WorkDocs on a directory that already has existing WorkSpaces, the\n            existing WorkSpaces and any new WorkSpaces that are launched in the directory will have\n            WorkDocs enabled.</p>\n         </note>"
-          }
-        },
         "EnableInternetAccess": {
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
@@ -8799,6 +10627,12 @@
           "target": "com.amazonaws.workspaces#BooleanObject",
           "traits": {
             "smithy.api#documentation": "<p>Indicates whether maintenance mode is enabled for your WorkSpaces. For more information,\n         see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/workspace-maintenance.html\">WorkSpace\n            Maintenance</a>. </p>"
+          }
+        },
+        "InstanceIamRoleArn": {
+          "target": "com.amazonaws.workspaces#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the IAM role ARN of the instance.</p>"
           }
         }
       },
@@ -8916,10 +10750,94 @@
           "traits": {
             "smithy.api#documentation": "<p>The certificate-based authentication properties used to authenticate SAML 2.0 Identity Provider (IdP)\n         user identities to Active Directory for WorkSpaces login.</p>"
           }
+        },
+        "EndpointEncryptionMode": {
+          "target": "com.amazonaws.workspaces#EndpointEncryptionMode",
+          "traits": {
+            "smithy.api#documentation": "<p>Endpoint encryption mode that allows you to configure the specified directory between\n         Standard TLS and FIPS 140-2 validated mode.</p>"
+          }
+        },
+        "MicrosoftEntraConfig": {
+          "target": "com.amazonaws.workspaces#MicrosoftEntraConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies details about Microsoft Entra configurations.</p>"
+          }
+        },
+        "WorkspaceDirectoryName": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name fo the WorkSpace directory.</p>"
+          }
+        },
+        "WorkspaceDirectoryDescription": {
+          "target": "com.amazonaws.workspaces#WorkspaceDirectoryDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the WorkSpace directory</p>"
+          }
+        },
+        "UserIdentityType": {
+          "target": "com.amazonaws.workspaces#UserIdentityType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the identity type of the specifired user.</p>"
+          }
+        },
+        "WorkspaceType": {
+          "target": "com.amazonaws.workspaces#WorkspaceType",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the directory's WorkSpace type is personal or pools.</p>"
+          }
+        },
+        "IDCConfig": {
+          "target": "com.amazonaws.workspaces#IDCConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies details about identity center configurations.</p>"
+          }
+        },
+        "ActiveDirectoryConfig": {
+          "target": "com.amazonaws.workspaces#ActiveDirectoryConfig",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Active Directory config.</p>"
+          }
+        },
+        "StreamingProperties": {
+          "target": "com.amazonaws.workspaces#StreamingProperties",
+          "traits": {
+            "smithy.api#documentation": "<p>The streaming properties to configure.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workspaces#Description",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message returned.</p>"
+          }
         }
       },
       "traits": {
         "smithy.api#documentation": "<p>Describes a directory that is used with Amazon WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspaceDirectoryDescription": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^([a-zA-Z0-9_])[\\\\a-zA-Z0-9_@#%*+=:?./!\\s-]{1,255}$"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspaceDirectoryName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[a-zA-Z0-9][a-zA-Z0-9_.\\s-]{1,64}$"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspaceDirectoryNameList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#WorkspaceDirectoryName"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
       }
     },
     "com.amazonaws.workspaces#WorkspaceDirectoryState": {
@@ -8970,6 +10888,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "AD_CONNECTOR"
+          }
+        },
+        "CUSTOMER_MANAGED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CUSTOMER_MANAGED"
+          }
+        },
+        "AWS_IAM_IDENTITY_CENTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AWS_IAM_IDENTITY_CENTER"
           }
         }
       }
@@ -9246,6 +11176,138 @@
           "traits": {
             "smithy.api#enumValue": "UEFINotSupported"
           }
+        },
+        "UNKNOWN_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UnknownError"
+          }
+        },
+        "APPX_PACKAGES_INSTALLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AppXPackagesInstalled"
+          }
+        },
+        "RESERVED_STORAGE_IN_USE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ReservedStorageInUse"
+          }
+        },
+        "ADDITIONAL_DRIVES_PRESENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AdditionalDrivesPresent"
+          }
+        },
+        "WINDOWS_UPDATES_REQUIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WindowsUpdatesRequired"
+          }
+        },
+        "SYSPREP_FILE_MISSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SysPrepFileMissing"
+          }
+        },
+        "USER_PROFILE_MISSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UserProfileMissing"
+          }
+        },
+        "INSUFFICIENT_DISK_SPACE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InsufficientDiskSpace"
+          }
+        },
+        "ENVIRONMENT_VARIABLES_PATH_MISSING_ENTRIES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "EnvironmentVariablesPathMissingEntries"
+          }
+        },
+        "DOMAIN_ACCOUNT_SERVICES_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DomainAccountServicesFound"
+          }
+        },
+        "INVALID_IP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InvalidIp"
+          }
+        },
+        "REMOTE_DESKTOP_SERVICES_DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RemoteDesktopServicesDisabled"
+          }
+        },
+        "WINDOWS_MODULES_INSTALLER_DISABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WindowsModulesInstallerDisabled"
+          }
+        },
+        "AMAZON_SSM_AGENT_ENABLED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AmazonSsmAgentEnabled"
+          }
+        },
+        "UNSUPPORTED_SECURITY_PROTOCOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UnsupportedSecurityProtocol"
+          }
+        },
+        "MULTIPLE_USER_PROFILES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MultipleUserProfiles"
+          }
+        },
+        "STAGED_APPX_PACKAGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StagedAppxPackage"
+          }
+        },
+        "UNSUPPORTED_OS_UPGRADE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UnsupportedOsUpgrade"
+          }
+        },
+        "INSUFFICIENT_REARM_COUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InsufficientRearmCount"
+          }
+        },
+        "INCOMPATIBLE_PROTOCOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ProtocolOSIncompatibility"
+          }
+        },
+        "INCOMPATIBLE_MEMORY_INTEGRITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MemoryIntegrityIncompatibility"
+          }
+        },
+        "RESTRICTED_DRIVE_LETTER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RestrictedDriveLetterInUse"
+          }
         }
       }
     },
@@ -9298,6 +11360,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "BYOL_REGULAR_WSP"
+          }
+        },
+        "BYOL_GRAPHICS_G4DN_WSP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BYOL_GRAPHICS_G4DN_WSP"
           }
         },
         "BYOL_REGULAR_BYOP": {
@@ -9388,7 +11456,7 @@
         "RunningMode": {
           "target": "com.amazonaws.workspaces#RunningMode",
           "traits": {
-            "smithy.api#documentation": "<p>The running mode. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html\">Manage the WorkSpace Running\n         Mode</a>.</p>\n         <note>\n            <p>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact\n            your account team to be allow-listed to use this value. For more information, see\n            <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The running mode. For more information, see <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html\">Manage the WorkSpace Running\n         Mode</a>.</p>\n         <note>\n            <p>The <code>MANUAL</code> value is only supported by Amazon WorkSpaces Core. Contact\n            your account team to be allow-listed to use this value. For more information, see\n            <a href=\"http://aws.amazon.com/workspaces/core/\">Amazon WorkSpaces Core</a>.</p>\n         </note>\n         <p>Review your running mode to ensure you are using one that is optimal for your needs and\n         budget. For more information on switching running modes, see <a href=\"http://aws.amazon.com/workspaces-family/workspaces/faqs/#:~:text=Can%20I%20switch%20between%20hourly%20and%20monthly%20billing%20on%20WorkSpaces%20Personal%3F\"> Can I switch between hourly and monthly billing?</a>\n         </p>"
           }
         },
         "RunningModeAutoStopTimeoutInMinutes": {
@@ -9418,13 +11486,19 @@
         "Protocols": {
           "target": "com.amazonaws.workspaces#ProtocolList",
           "traits": {
-            "smithy.api#documentation": "<p>The protocol. For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html\">\n            Protocols for Amazon WorkSpaces</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Only available for WorkSpaces created with PCoIP bundles.</p>\n               </li>\n               <li>\n                  <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>WSP</code>.</p>\n               </li>\n               <li>\n                  <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles \n               (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>\n               </li>\n            </ul>\n         </note>"
+            "smithy.api#documentation": "<p>The protocol. For more information, see \n         <a href=\"https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces-protocols.html\">\n            Protocols for Amazon WorkSpaces</a>.</p>\n         <note>\n            <ul>\n               <li>\n                  <p>Only available for WorkSpaces created with PCoIP bundles.</p>\n               </li>\n               <li>\n                  <p>The <code>Protocols</code> property is case sensitive. Ensure you use <code>PCOIP</code> or <code>DCV</code> (formerly WSP).</p>\n               </li>\n               <li>\n                  <p>Unavailable for Windows 7 WorkSpaces and WorkSpaces using GPU-based bundles \n               (Graphics, GraphicsPro, Graphics.g4dn, and GraphicsPro.g4dn).</p>\n               </li>\n            </ul>\n         </note>"
           }
         },
         "OperatingSystemName": {
           "target": "com.amazonaws.workspaces#OperatingSystemName",
           "traits": {
             "smithy.api#documentation": "<p>The name of the operating system.</p>"
+          }
+        },
+        "GlobalAccelerator": {
+          "target": "com.amazonaws.workspaces#GlobalAcceleratorForWorkSpace",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates the Global Accelerator properties.</p>"
           }
         }
       },
@@ -9445,7 +11519,7 @@
         "UserName": {
           "target": "com.amazonaws.workspaces#UserName",
           "traits": {
-            "smithy.api#documentation": "<p>The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace.</p>\n         <p>The reserved keyword, <code>[UNDEFINED]</code>, is used when creating user-decoupled WorkSpaces.</p>",
+            "smithy.api#documentation": "<p>The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace.</p>\n         <p>The username is not case-sensitive, but we recommend matching the case in the Directory Service directory to avoid potential incompatibilities.</p>\n         <p>The reserved keyword, <code>[UNDEFINED]</code>, is used when creating user-decoupled WorkSpaces.</p>",
             "smithy.api#required": {}
           }
         },
@@ -9489,7 +11563,7 @@
         "WorkspaceName": {
           "target": "com.amazonaws.workspaces#WorkspaceName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user-decoupled WorkSpace.</p>"
+            "smithy.api#documentation": "<p>The name of the user-decoupled WorkSpace.</p>\n         <note>\n            <p>\n               <code>WorkspaceName</code> is required if <code>UserName</code> is\n            <code>[UNDEFINED]</code> for user-decoupled WorkSpaces.\n            <code>WorkspaceName</code> is not applicable if <code>UserName</code> is specified\n            for user-assigned WorkSpaces.</p>\n         </note>"
           }
         }
       },
@@ -9672,6 +11746,23 @@
         }
       }
     },
+    "com.amazonaws.workspaces#WorkspaceType": {
+      "type": "enum",
+      "members": {
+        "PERSONAL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "PERSONAL"
+          }
+        },
+        "POOLS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "POOLS"
+          }
+        }
+      }
+    },
     "com.amazonaws.workspaces#WorkspacesDefaultRoleNotFoundException": {
       "type": "structure",
       "members": {
@@ -9720,6 +11811,530 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.workspaces#WorkspacesIpGroup"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPool": {
+      "type": "structure",
+      "members": {
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of a pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PoolArn": {
+          "target": "com.amazonaws.workspaces#ARN",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) for the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CapacityStatus": {
+          "target": "com.amazonaws.workspaces#CapacityStatus",
+          "traits": {
+            "smithy.api#documentation": "<p>The capacity status for the pool</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "PoolName": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Description": {
+          "target": "com.amazonaws.workspaces#UpdateDescription",
+          "traits": {
+            "smithy.api#documentation": "<p>The description of the pool.</p>"
+          }
+        },
+        "State": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolState",
+          "traits": {
+            "smithy.api#documentation": "<p>The current state of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CreatedAt": {
+          "target": "com.amazonaws.workspaces#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time the pool was created.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "BundleId": {
+          "target": "com.amazonaws.workspaces#BundleId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the bundle used by the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DirectoryId": {
+          "target": "com.amazonaws.workspaces#DirectoryId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the directory used by the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Errors": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolErrors",
+          "traits": {
+            "smithy.api#documentation": "<p>The pool errors.</p>"
+          }
+        },
+        "ApplicationSettings": {
+          "target": "com.amazonaws.workspaces#ApplicationSettingsResponse",
+          "traits": {
+            "smithy.api#documentation": "<p>The persistent application settings for users of the pool.</p>"
+          }
+        },
+        "TimeoutSettings": {
+          "target": "com.amazonaws.workspaces#TimeoutSettings",
+          "traits": {
+            "smithy.api#documentation": "<p>The amount of time that a pool session remains active after users disconnect. \n         If they try to reconnect to the pool session after a disconnection or network interruption \n         within this time interval, they are connected to their previous session. \n         Otherwise, they are connected to a new session with a new pool instance.</p>"
+          }
+        },
+        "RunningMode": {
+          "target": "com.amazonaws.workspaces#PoolsRunningMode",
+          "traits": {
+            "smithy.api#default": "AUTO_STOP",
+            "smithy.api#documentation": "<p>The running mode of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a pool of WorkSpaces.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolError": {
+      "type": "structure",
+      "members": {
+        "ErrorCode": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolErrorCode",
+          "traits": {
+            "smithy.api#documentation": "<p>The error code.</p>"
+          }
+        },
+        "ErrorMessage": {
+          "target": "com.amazonaws.workspaces#ErrorMessage",
+          "traits": {
+            "smithy.api#documentation": "<p>The error message.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a pool error.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolErrorCode": {
+      "type": "enum",
+      "members": {
+        "IAM_SERVICE_ROLE_IS_MISSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_SERVICE_ROLE_IS_MISSING"
+          }
+        },
+        "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_SERVICE_ROLE_MISSING_ENI_DESCRIBE_ACTION"
+          }
+        },
+        "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_SERVICE_ROLE_MISSING_ENI_CREATE_ACTION"
+          }
+        },
+        "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_SERVICE_ROLE_MISSING_ENI_DELETE_ACTION"
+          }
+        },
+        "NETWORK_INTERFACE_LIMIT_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NETWORK_INTERFACE_LIMIT_EXCEEDED"
+          }
+        },
+        "INTERNAL_SERVICE_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INTERNAL_SERVICE_ERROR"
+          }
+        },
+        "MACHINE_ROLE_IS_MISSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MACHINE_ROLE_IS_MISSING"
+          }
+        },
+        "STS_DISABLED_IN_REGION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STS_DISABLED_IN_REGION"
+          }
+        },
+        "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBNET_HAS_INSUFFICIENT_IP_ADDRESSES"
+          }
+        },
+        "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SUBNET_ACTION"
+          }
+        },
+        "SUBNET_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SUBNET_NOT_FOUND"
+          }
+        },
+        "IMAGE_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IMAGE_NOT_FOUND"
+          }
+        },
+        "INVALID_SUBNET_CONFIGURATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INVALID_SUBNET_CONFIGURATION"
+          }
+        },
+        "SECURITY_GROUPS_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "SECURITY_GROUPS_NOT_FOUND"
+          }
+        },
+        "IGW_NOT_ATTACHED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IGW_NOT_ATTACHED"
+          }
+        },
+        "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IAM_SERVICE_ROLE_MISSING_DESCRIBE_SECURITY_GROUPS_ACTION"
+          }
+        },
+        "WORKSPACES_POOL_STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKSPACES_POOL_STOPPED"
+          }
+        },
+        "WORKSPACES_POOL_INSTANCE_PROVISIONING_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "WORKSPACES_POOL_INSTANCE_PROVISIONING_FAILURE"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_FILE_NOT_FOUND"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_ACCESS_DENIED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_ACCESS_DENIED"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_LOGON_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_LOGON_FAILURE"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_INVALID_PARAMETER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_INVALID_PARAMETER"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_MORE_DATA": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_MORE_DATA"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_NO_SUCH_DOMAIN"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_NOT_SUPPORTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_NOT_SUPPORTED"
+          }
+        },
+        "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_NERR_INVALID_WORKGROUP_NAME"
+          }
+        },
+        "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_NERR_WORKSTATION_NOT_STARTED"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_DS_MACHINE_ACCOUNT_QUOTA_EXCEEDED"
+          }
+        },
+        "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_NERR_PASSWORD_EXPIRED"
+          }
+        },
+        "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_INTERNAL_SERVICE_ERROR"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_SECRET_ACTION_PERMISSION_IS_MISSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_SECRET_ACTION_PERMISSION_IS_MISSING"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_SECRET_DECRYPTION_FAILURE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_SECRET_DECRYPTION_FAILURE"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_SECRET_STATE_INVALID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_SECRET_STATE_INVALID"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_SECRET_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_SECRET_NOT_FOUND"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_SECRET_VALUE_KEY_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_SECRET_VALUE_KEY_NOT_FOUND"
+          }
+        },
+        "DOMAIN_JOIN_ERROR_SECRET_INVALID": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DOMAIN_JOIN_ERROR_SECRET_INVALID"
+          }
+        },
+        "BUNDLE_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "BUNDLE_NOT_FOUND"
+          }
+        },
+        "DIRECTORY_NOT_FOUND": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DIRECTORY_NOT_FOUND"
+          }
+        },
+        "INSUFFICIENT_PERMISSIONS_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "INSUFFICIENT_PERMISSIONS_ERROR"
+          }
+        },
+        "DEFAULT_OU_IS_MISSING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DEFAULT_OU_IS_MISSING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolErrors": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#WorkspacesPoolError"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^wspool-[0-9a-z]{9}$"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolIds": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#WorkspacesPoolId"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 25
+        }
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolName": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[A-Za-z0-9][A-Za-z0-9_.-]{0,63}$"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolSession": {
+      "type": "structure",
+      "members": {
+        "AuthenticationType": {
+          "target": "com.amazonaws.workspaces#AuthenticationType",
+          "traits": {
+            "smithy.api#documentation": "<p>The authentication method. The user is authenticated using a \n         WorkSpaces Pools URL (API) or SAML 2.0 federation (SAML).</p>"
+          }
+        },
+        "ConnectionState": {
+          "target": "com.amazonaws.workspaces#SessionConnectionState",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies whether a user is connected to the pool session.</p>"
+          }
+        },
+        "SessionId": {
+          "target": "com.amazonaws.workspaces#AmazonUuid",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the session.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "InstanceId": {
+          "target": "com.amazonaws.workspaces#SessionInstanceId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier for the instance hosting the session.</p>"
+          }
+        },
+        "PoolId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the pool.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ExpirationTime": {
+          "target": "com.amazonaws.workspaces#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the pool session ended.</p>"
+          }
+        },
+        "NetworkAccessConfiguration": {
+          "target": "com.amazonaws.workspaces#NetworkAccessConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>Describes the network details of the pool.</p>"
+          }
+        },
+        "StartTime": {
+          "target": "com.amazonaws.workspaces#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The time that the pool sission started.</p>"
+          }
+        },
+        "UserId": {
+          "target": "com.amazonaws.workspaces#WorkspacesPoolUserId",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the user.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Describes a pool session.</p>"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolSessions": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#WorkspacesPoolSession"
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolState": {
+      "type": "enum",
+      "members": {
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "CREATING"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DELETING"
+          }
+        },
+        "RUNNING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RUNNING"
+          }
+        },
+        "STARTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STARTING"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPED"
+          }
+        },
+        "STOPPING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "STOPPING"
+          }
+        },
+        "UPDATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "UPDATING"
+          }
+        }
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPoolUserId": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 2,
+          "max": 128
+        }
+      }
+    },
+    "com.amazonaws.workspaces#WorkspacesPools": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.workspaces#WorkspacesPool"
       }
     },
     "com.amazonaws.workspaces#WorkspacesService": {
@@ -9773,6 +12388,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#CreateWorkspaces"
+        },
+        {
+          "target": "com.amazonaws.workspaces#CreateWorkspacesPool"
         },
         {
           "target": "com.amazonaws.workspaces#DeleteAccountLinkInvitation"
@@ -9868,6 +12486,12 @@
           "target": "com.amazonaws.workspaces#DescribeWorkspaceSnapshots"
         },
         {
+          "target": "com.amazonaws.workspaces#DescribeWorkspacesPools"
+        },
+        {
+          "target": "com.amazonaws.workspaces#DescribeWorkspacesPoolSessions"
+        },
+        {
           "target": "com.amazonaws.workspaces#DisassociateConnectionAlias"
         },
         {
@@ -9904,10 +12528,16 @@
           "target": "com.amazonaws.workspaces#ModifyClientProperties"
         },
         {
+          "target": "com.amazonaws.workspaces#ModifyEndpointEncryptionMode"
+        },
+        {
           "target": "com.amazonaws.workspaces#ModifySamlProperties"
         },
         {
           "target": "com.amazonaws.workspaces#ModifySelfservicePermissions"
+        },
+        {
+          "target": "com.amazonaws.workspaces#ModifyStreamingProperties"
         },
         {
           "target": "com.amazonaws.workspaces#ModifyWorkspaceAccessProperties"
@@ -9943,10 +12573,22 @@
           "target": "com.amazonaws.workspaces#StartWorkspaces"
         },
         {
+          "target": "com.amazonaws.workspaces#StartWorkspacesPool"
+        },
+        {
           "target": "com.amazonaws.workspaces#StopWorkspaces"
         },
         {
+          "target": "com.amazonaws.workspaces#StopWorkspacesPool"
+        },
+        {
           "target": "com.amazonaws.workspaces#TerminateWorkspaces"
+        },
+        {
+          "target": "com.amazonaws.workspaces#TerminateWorkspacesPool"
+        },
+        {
+          "target": "com.amazonaws.workspaces#TerminateWorkspacesPoolSession"
         },
         {
           "target": "com.amazonaws.workspaces#UpdateConnectClientAddIn"
@@ -9962,6 +12604,9 @@
         },
         {
           "target": "com.amazonaws.workspaces#UpdateWorkspaceImagePermission"
+        },
+        {
+          "target": "com.amazonaws.workspaces#UpdateWorkspacesPool"
         }
       ],
       "traits": {

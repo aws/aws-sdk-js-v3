@@ -16,7 +16,8 @@ import { de_StartChangeSetCommand, se_StartChangeSetCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,6 +45,8 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *          <p>For more information about working with change sets, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/welcome.html#working-with-change-sets"> Working with change sets</a>. For information about change types for
  *             single-AMI products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#working-with-single-AMI-products">Working with single-AMI products</a>. Also, for more information about change
  *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
+ *          <p>To download "DetailsDocument" shapes, see <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+ *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,6 +127,7 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class StartChangeSetCommand extends $Command
@@ -134,9 +138,7 @@ export class StartChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +150,16 @@ export class StartChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartChangeSetCommand)
   .de(de_StartChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartChangeSetRequest;
+      output: StartChangeSetResponse;
+    };
+    sdk: {
+      input: StartChangeSetCommandInput;
+      output: StartChangeSetCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetImagePipelineCommand, se_GetImagePipelineCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,7 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * //     arn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     enhancedImageMetadataEnabled: true || false,
  * //     imageRecipeArn: "STRING_VALUE",
  * //     containerRecipeArn: "STRING_VALUE",
@@ -128,6 +129,7 @@ export interface GetImagePipelineCommandOutput extends GetImagePipelineResponse,
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetImagePipelineCommand extends $Command
@@ -138,9 +140,7 @@ export class GetImagePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +152,16 @@ export class GetImagePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImagePipelineCommand)
   .de(de_GetImagePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImagePipelineRequest;
+      output: GetImagePipelineResponse;
+    };
+    sdk: {
+      input: GetImagePipelineCommandInput;
+      output: GetImagePipelineCommandOutput;
+    };
+  };
+}

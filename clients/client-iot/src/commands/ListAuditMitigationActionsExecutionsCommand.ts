@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface ListAuditMitigationActionsExecutionsCommandOutput
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListAuditMitigationActionsExecutionsCommand extends $Command
@@ -100,9 +102,7 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListAuditMitigationActionsExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuditMitigationActionsExecutionsCommand)
   .de(de_ListAuditMitigationActionsExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuditMitigationActionsExecutionsRequest;
+      output: ListAuditMitigationActionsExecutionsResponse;
+    };
+    sdk: {
+      input: ListAuditMitigationActionsExecutionsCommandInput;
+      output: ListAuditMitigationActionsExecutionsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetSuiteRunReportCommand, se_GetSuiteRunReportCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface GetSuiteRunReportCommandOutput extends GetSuiteRunReportRespons
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class GetSuiteRunReportCommand extends $Command
@@ -75,9 +77,7 @@ export class GetSuiteRunReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class GetSuiteRunReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSuiteRunReportCommand)
   .de(de_GetSuiteRunReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSuiteRunReportRequest;
+      output: GetSuiteRunReportResponse;
+    };
+    sdk: {
+      input: GetSuiteRunReportCommandInput;
+      output: GetSuiteRunReportCommandOutput;
+    };
+  };
+}

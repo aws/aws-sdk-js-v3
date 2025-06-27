@@ -12,7 +12,8 @@ import { de_DescribeAccountPoliciesCommand, se_DescribeAccountPoliciesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,24 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
 
 /**
  * <p>Returns a list of all CloudWatch Logs account policies in the account.</p>
+ *          <p>To use this operation, you must be signed on with the correct permissions depending on the type of policy that you are retrieving information for.</p>
+ *          <ul>
+ *             <li>
+ *                <p>To see data protection policies, you must have the <code>logs:GetDataProtectionPolicy</code> and
+ *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To see subscription filter policies, you must have the <code>logs:DescribeSubscriptionFilters</code> and
+ *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To see transformer policies, you must have the <code>logs:GetTransformer</code> and <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To see field index policies, you must have the <code>logs:DescribeIndexPolicies</code> and
+ *         <code>logs:DescribeAccountPolicies</code> permissions.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,11 +54,12 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * // const { CloudWatchLogsClient, DescribeAccountPoliciesCommand } = require("@aws-sdk/client-cloudwatch-logs"); // CommonJS import
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DescribeAccountPoliciesRequest
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY", // required
  *   policyName: "STRING_VALUE",
  *   accountIdentifiers: [ // AccountIds
  *     "STRING_VALUE",
  *   ],
+ *   nextToken: "STRING_VALUE",
  * };
  * const command = new DescribeAccountPoliciesCommand(input);
  * const response = await client.send(command);
@@ -49,12 +69,13 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * //       policyName: "STRING_VALUE",
  * //       policyDocument: "STRING_VALUE",
  * //       lastUpdatedTime: Number("long"),
- * //       policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY",
+ * //       policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY",
  * //       scope: "ALL",
  * //       selectionCriteria: "STRING_VALUE",
  * //       accountId: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   nextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -80,6 +101,7 @@ export interface DescribeAccountPoliciesCommandOutput extends DescribeAccountPol
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountPoliciesCommand extends $Command
@@ -90,9 +112,7 @@ export class DescribeAccountPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +124,16 @@ export class DescribeAccountPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountPoliciesCommand)
   .de(de_DescribeAccountPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountPoliciesRequest;
+      output: DescribeAccountPoliciesResponse;
+    };
+    sdk: {
+      input: DescribeAccountPoliciesCommandInput;
+      output: DescribeAccountPoliciesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListSharesCommand, se_ListSharesCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListSharesCommandInput extends ListSharesRequest {}
 export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the resource shares associated with an account. Use the filter parameter to
- *              retrieve a specific subset of the shares.</p>
+ * <p>Retrieves the resource shares associated with an account. Use the filter parameter to retrieve a specific subset of the shares.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,6 +103,7 @@ export interface ListSharesCommandOutput extends ListSharesResponse, __MetadataB
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListSharesCommand extends $Command
@@ -113,9 +114,7 @@ export class ListSharesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ListSharesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSharesCommand)
   .de(de_ListSharesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSharesRequest;
+      output: ListSharesResponse;
+    };
+    sdk: {
+      input: ListSharesCommandInput;
+      output: ListSharesCommandOutput;
+    };
+  };
+}

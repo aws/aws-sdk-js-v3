@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,13 +37,26 @@ export interface DescribeContainerGroupDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>
- *             <b>This operation is used with the Amazon GameLift containers feature, which is currently in public preview. </b>
- *          </p>
- *          <p>Retrieves the properties of a container group definition, including all container
+ * <p>Retrieves the properties of a container group definition, including all container
  *       definitions in the group. </p>
- *          <p>To retrieve a container group definition, provide a resource identifier. If successful,
- *       this operation returns the complete properties of the container group definition.</p>
+ *          <p>
+ *             <b>Request options:</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>Retrieve the latest version of a  container group definition. Specify the container
+ *           group definition name only, or use an ARN value without a version number.</p>
+ *             </li>
+ *             <li>
+ *                <p>Retrieve a particular version. Specify the container group definition name and a
+ *           version number, or use an ARN value that includes the version number.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Results:</b>
+ *          </p>
+ *          <p>If successful, this operation returns the complete properties of a container group
+ *       definition version.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
@@ -61,6 +75,7 @@ export interface DescribeContainerGroupDefinitionCommandOutput
  * const client = new GameLiftClient(config);
  * const input = { // DescribeContainerGroupDefinitionInput
  *   Name: "STRING_VALUE", // required
+ *   VersionNumber: Number("int"),
  * };
  * const command = new DescribeContainerGroupDefinitionCommand(input);
  * const response = await client.send(command);
@@ -69,60 +84,93 @@ export interface DescribeContainerGroupDefinitionCommandOutput
  * //     ContainerGroupDefinitionArn: "STRING_VALUE",
  * //     CreationTime: new Date("TIMESTAMP"),
  * //     OperatingSystem: "AMAZON_LINUX_2023",
- * //     Name: "STRING_VALUE",
- * //     SchedulingStrategy: "REPLICA" || "DAEMON",
- * //     TotalMemoryLimit: Number("int"),
- * //     TotalCpuLimit: Number("int"),
- * //     ContainerDefinitions: [ // ContainerDefinitionList
- * //       { // ContainerDefinition
- * //         ContainerName: "STRING_VALUE", // required
- * //         ImageUri: "STRING_VALUE", // required
- * //         ResolvedImageDigest: "STRING_VALUE",
- * //         MemoryLimits: { // ContainerMemoryLimits
- * //           SoftLimit: Number("int"),
- * //           HardLimit: Number("int"),
+ * //     Name: "STRING_VALUE", // required
+ * //     ContainerGroupType: "GAME_SERVER" || "PER_INSTANCE",
+ * //     TotalMemoryLimitMebibytes: Number("int"),
+ * //     TotalVcpuLimit: Number("double"),
+ * //     GameServerContainerDefinition: { // GameServerContainerDefinition
+ * //       ContainerName: "STRING_VALUE",
+ * //       DependsOn: [ // ContainerDependencyList
+ * //         { // ContainerDependency
+ * //           ContainerName: "STRING_VALUE", // required
+ * //           Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
  * //         },
- * //         PortConfiguration: { // ContainerPortConfiguration
- * //           ContainerPortRanges: [ // ContainerPortRangeList // required
- * //             { // ContainerPortRange
+ * //       ],
+ * //       MountPoints: [ // ContainerMountPointList
+ * //         { // ContainerMountPoint
+ * //           InstancePath: "STRING_VALUE", // required
+ * //           ContainerPath: "STRING_VALUE",
+ * //           AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ * //         },
+ * //       ],
+ * //       EnvironmentOverride: [ // ContainerEnvironmentList
+ * //         { // ContainerEnvironment
+ * //           Name: "STRING_VALUE", // required
+ * //           Value: "STRING_VALUE", // required
+ * //         },
+ * //       ],
+ * //       ImageUri: "STRING_VALUE",
+ * //       PortConfiguration: { // ContainerPortConfiguration
+ * //         ContainerPortRanges: [ // ContainerPortRangeList // required
+ * //           { // ContainerPortRange
+ * //             FromPort: Number("int"), // required
+ * //             ToPort: Number("int"), // required
+ * //             Protocol: "TCP" || "UDP", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       ResolvedImageDigest: "STRING_VALUE",
+ * //       ServerSdkVersion: "STRING_VALUE",
+ * //     },
+ * //     SupportContainerDefinitions: [ // SupportContainerDefinitionList
+ * //       { // SupportContainerDefinition
+ * //         ContainerName: "STRING_VALUE",
+ * //         DependsOn: [
+ * //           {
+ * //             ContainerName: "STRING_VALUE", // required
+ * //             Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
+ * //           },
+ * //         ],
+ * //         MountPoints: [
+ * //           {
+ * //             InstancePath: "STRING_VALUE", // required
+ * //             ContainerPath: "STRING_VALUE",
+ * //             AccessLevel: "READ_ONLY" || "READ_AND_WRITE",
+ * //           },
+ * //         ],
+ * //         EnvironmentOverride: [
+ * //           {
+ * //             Name: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE", // required
+ * //           },
+ * //         ],
+ * //         Essential: true || false,
+ * //         HealthCheck: { // ContainerHealthCheck
+ * //           Command: [ // ContainerCommandStringList // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Interval: Number("int"),
+ * //           Retries: Number("int"),
+ * //           StartPeriod: Number("int"),
+ * //           Timeout: Number("int"),
+ * //         },
+ * //         ImageUri: "STRING_VALUE",
+ * //         MemoryHardLimitMebibytes: Number("int"),
+ * //         PortConfiguration: {
+ * //           ContainerPortRanges: [ // required
+ * //             {
  * //               FromPort: Number("int"), // required
  * //               ToPort: Number("int"), // required
  * //               Protocol: "TCP" || "UDP", // required
  * //             },
  * //           ],
  * //         },
- * //         Cpu: Number("int"),
- * //         HealthCheck: { // ContainerHealthCheck
- * //           Command: [ // ContainerCommandStringList // required
- * //             "STRING_VALUE",
- * //           ],
- * //           Interval: Number("int"),
- * //           Timeout: Number("int"),
- * //           Retries: Number("int"),
- * //           StartPeriod: Number("int"),
- * //         },
- * //         Command: [
- * //           "STRING_VALUE",
- * //         ],
- * //         Essential: true || false,
- * //         EntryPoint: [ // ContainerEntryPointList
- * //           "STRING_VALUE",
- * //         ],
- * //         WorkingDirectory: "STRING_VALUE",
- * //         Environment: [ // ContainerEnvironmentList
- * //           { // ContainerEnvironment
- * //             Name: "STRING_VALUE", // required
- * //             Value: "STRING_VALUE", // required
- * //           },
- * //         ],
- * //         DependsOn: [ // ContainerDependencyList
- * //           { // ContainerDependency
- * //             ContainerName: "STRING_VALUE", // required
- * //             Condition: "START" || "COMPLETE" || "SUCCESS" || "HEALTHY", // required
- * //           },
- * //         ],
+ * //         ResolvedImageDigest: "STRING_VALUE",
+ * //         Vcpu: Number("double"),
  * //       },
  * //     ],
+ * //     VersionNumber: Number("int"),
+ * //     VersionDescription: "STRING_VALUE",
  * //     Status: "READY" || "COPYING" || "FAILED",
  * //     StatusReason: "STRING_VALUE",
  * //   },
@@ -145,7 +193,7 @@ export interface DescribeContainerGroupDefinitionCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -155,6 +203,7 @@ export interface DescribeContainerGroupDefinitionCommandOutput
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -166,9 +215,7 @@ export class DescribeContainerGroupDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +227,16 @@ export class DescribeContainerGroupDefinitionCommand extends $Command
   .f(void 0, DescribeContainerGroupDefinitionOutputFilterSensitiveLog)
   .ser(se_DescribeContainerGroupDefinitionCommand)
   .de(de_DescribeContainerGroupDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContainerGroupDefinitionInput;
+      output: DescribeContainerGroupDefinitionOutput;
+    };
+    sdk: {
+      input: DescribeContainerGroupDefinitionCommandInput;
+      output: DescribeContainerGroupDefinitionCommandOutput;
+    };
+  };
+}

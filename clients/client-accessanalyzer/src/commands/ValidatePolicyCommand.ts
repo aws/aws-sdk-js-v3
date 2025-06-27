@@ -12,7 +12,8 @@ import { de_ValidatePolicyCommand, se_ValidatePolicyCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ValidatePolicyCommandInput extends ValidatePolicyRequest {}
 export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Requests the validation of a policy and returns a list of findings. The findings help
- *          you identify issues and provide actionable recommendations to resolve the issue and enable
- *          you to author functional policies that meet security best practices. </p>
+ * <p>Requests the validation of a policy and returns a list of findings. The findings help you identify issues and provide actionable recommendations to resolve the issue and enable you to author functional policies that meet security best practices. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,6 +107,7 @@ export interface ValidatePolicyCommandOutput extends ValidatePolicyResponse, __M
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class ValidatePolicyCommand extends $Command
@@ -118,9 +118,7 @@ export class ValidatePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +130,16 @@ export class ValidatePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidatePolicyCommand)
   .de(de_ValidatePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidatePolicyRequest;
+      output: ValidatePolicyResponse;
+    };
+    sdk: {
+      input: ValidatePolicyCommandInput;
+      output: ValidatePolicyCommandOutput;
+    };
+  };
+}

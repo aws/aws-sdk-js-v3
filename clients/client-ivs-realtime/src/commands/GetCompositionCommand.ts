@@ -12,7 +12,8 @@ import { de_GetCompositionCommand, se_GetCompositionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,8 +84,19 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //               "STRING_VALUE",
  * //             ],
  * //             recordingConfiguration: { // RecordingConfiguration
+ * //               hlsConfiguration: { // CompositionRecordingHlsConfiguration
+ * //                 targetSegmentDurationSeconds: Number("int"),
+ * //               },
  * //               format: "STRING_VALUE",
  * //             },
+ * //             thumbnailConfigurations: [ // CompositionThumbnailConfigurationList
+ * //               { // CompositionThumbnailConfiguration
+ * //                 targetIntervalSeconds: Number("int"),
+ * //                 storage: [ // ThumbnailStorageTypeList
+ * //                   "SEQUENTIAL" || "LATEST",
+ * //                 ],
+ * //               },
+ * //             ],
  * //           },
  * //         },
  * //         detail: { // DestinationDetail
@@ -131,6 +143,7 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class GetCompositionCommand extends $Command
@@ -141,9 +154,7 @@ export class GetCompositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +166,16 @@ export class GetCompositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCompositionCommand)
   .de(de_GetCompositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCompositionRequest;
+      output: GetCompositionResponse;
+    };
+    sdk: {
+      input: GetCompositionCommandInput;
+      output: GetCompositionCommandOutput;
+    };
+  };
+}

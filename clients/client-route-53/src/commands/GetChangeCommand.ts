@@ -13,7 +13,8 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetChangeCommandOutput extends GetChangeResponse, __MetadataBea
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class GetChangeCommand extends $Command
@@ -90,9 +92,7 @@ export class GetChangeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetChangeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChangeCommand)
   .de(de_GetChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChangeRequest;
+      output: GetChangeResponse;
+    };
+    sdk: {
+      input: GetChangeCommandInput;
+      output: GetChangeCommandOutput;
+    };
+  };
+}

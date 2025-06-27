@@ -12,7 +12,8 @@ import { de_TerminateJobCommand, se_TerminateJobCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,19 +65,22 @@ export interface TerminateJobCommandOutput extends TerminateJobResponse, __Metad
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To terminate a job
  * ```javascript
  * // This example terminates a job with the specified job ID.
  * const input = {
- *   "jobId": "61e743ed-35e4-48da-b2de-5c8333821c84",
- *   "reason": "Terminating job."
+ *   jobId: "61e743ed-35e4-48da-b2de-5c8333821c84",
+ *   reason: "Terminating job."
  * };
  * const command = new TerminateJobCommand(input);
- * await client.send(command);
- * // example id: to-terminate-a-job-1481154558276
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TerminateJobCommand extends $Command
   .classBuilder<
@@ -86,9 +90,7 @@ export class TerminateJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +102,16 @@ export class TerminateJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateJobCommand)
   .de(de_TerminateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: TerminateJobCommandInput;
+      output: TerminateJobCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetStorageConfigurationCommand, se_GetStorageConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface GetStorageConfigurationCommandOutput extends GetStorageConfigur
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class GetStorageConfigurationCommand extends $Command
@@ -91,9 +93,7 @@ export class GetStorageConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetStorageConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStorageConfigurationCommand)
   .de(de_GetStorageConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStorageConfigurationRequest;
+      output: GetStorageConfigurationResponse;
+    };
+    sdk: {
+      input: GetStorageConfigurationCommandInput;
+      output: GetStorageConfigurationCommandOutput;
+    };
+  };
+}

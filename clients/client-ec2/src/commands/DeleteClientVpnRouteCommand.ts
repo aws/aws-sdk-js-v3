@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_2";
+import { DeleteClientVpnRouteRequest, DeleteClientVpnRouteResult } from "../models/models_3";
 import { de_DeleteClientVpnRouteCommand, se_DeleteClientVpnRouteCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DeleteClientVpnRouteCommandOutput extends DeleteClientVpnRouteR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteClientVpnRouteCommand extends $Command
@@ -73,9 +75,7 @@ export class DeleteClientVpnRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteClientVpnRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClientVpnRouteCommand)
   .de(de_DeleteClientVpnRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClientVpnRouteRequest;
+      output: DeleteClientVpnRouteResult;
+    };
+    sdk: {
+      input: DeleteClientVpnRouteCommandInput;
+      output: DeleteClientVpnRouteCommandOutput;
+    };
+  };
+}

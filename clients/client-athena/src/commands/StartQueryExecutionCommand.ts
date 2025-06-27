@@ -12,7 +12,8 @@ import { de_StartQueryExecutionCommand, se_StartQueryExecutionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface StartQueryExecutionCommandOutput extends StartQueryExecutionOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class StartQueryExecutionCommand extends $Command
@@ -106,9 +108,7 @@ export class StartQueryExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class StartQueryExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartQueryExecutionCommand)
   .de(de_StartQueryExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartQueryExecutionInput;
+      output: StartQueryExecutionOutput;
+    };
+    sdk: {
+      input: StartQueryExecutionCommandInput;
+      output: StartQueryExecutionCommandOutput;
+    };
+  };
+}

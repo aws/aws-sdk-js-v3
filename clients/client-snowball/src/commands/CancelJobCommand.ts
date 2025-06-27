@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,18 +68,21 @@ export interface CancelJobCommandOutput extends CancelJobResult, __MetadataBeare
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To cancel a job for a Snowball device
  * ```javascript
  * // This operation cancels a job. You can only cancel a job before its JobState value changes to PreparingAppliance.
  * const input = {
- *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ *   JobId: "JID123e4567-e89b-12d3-a456-426655440000"
  * };
  * const command = new CancelJobCommand(input);
- * await client.send(command);
- * // example id: to-cancel-a-job-for-a-snowball-device-1482534699477
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CancelJobCommand extends $Command
   .classBuilder<
@@ -88,9 +92,7 @@ export class CancelJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +104,16 @@ export class CancelJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelJobCommand)
   .de(de_CancelJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelJobCommandInput;
+      output: CancelJobCommandOutput;
+    };
+  };
+}

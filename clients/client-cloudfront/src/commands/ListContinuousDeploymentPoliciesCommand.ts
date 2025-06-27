@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,12 +33,7 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p>
- *          <p>You can optionally specify the maximum number of items to receive in the response. If
- * 			the total number of items in the list exceeds the maximum that you specify, or the
- * 			default maximum, the response is paginated. To get the next page of items, send a
- * 			subsequent request that specifies the <code>NextMarker</code> value from the current
- * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * <p>Gets a list of the continuous deployment policies in your Amazon Web Services account.</p> <p>You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the <code>NextMarker</code> value from the current response as the <code>Marker</code> value in the subsequent request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -109,6 +105,7 @@ export interface ListContinuousDeploymentPoliciesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListContinuousDeploymentPoliciesCommand extends $Command
@@ -119,9 +116,7 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +128,16 @@ export class ListContinuousDeploymentPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContinuousDeploymentPoliciesCommand)
   .de(de_ListContinuousDeploymentPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContinuousDeploymentPoliciesRequest;
+      output: ListContinuousDeploymentPoliciesResult;
+    };
+    sdk: {
+      input: ListContinuousDeploymentPoliciesCommandInput;
+      output: ListContinuousDeploymentPoliciesCommandOutput;
+    };
+  };
+}

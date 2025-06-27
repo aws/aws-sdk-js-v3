@@ -6,7 +6,11 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateModelCustomizationJobRequest, CreateModelCustomizationJobResponse } from "../models/models_0";
+import {
+  CreateModelCustomizationJobRequest,
+  CreateModelCustomizationJobRequestFilterSensitiveLog,
+  CreateModelCustomizationJobResponse,
+} from "../models/models_1";
 import {
   de_CreateModelCustomizationJobCommand,
   se_CreateModelCustomizationJobCommand,
@@ -15,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,15 +37,7 @@ export interface CreateModelCustomizationJobCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a fine-tuning job to customize a base model.</p>
- *          <p>You specify the base foundation model and the location of the training data.
- *          After the  model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes.
- *       </p>
- *          <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p>
- *          <p>
- *          Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size.
- *          To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Creates a fine-tuning job to customize a base model.</p> <p>You specify the base foundation model and the location of the training data. After the model-customization job completes successfully, your custom model resource will be ready to use. Amazon Bedrock returns validation loss metrics and output generations after the job completes. </p> <p>For information on the format of training and validation data, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-customization-prepare.html">Prepare the datasets</a>.</p> <p> Model-customization jobs are asynchronous and the completion time depends on the base model and the training/validation data size. To monitor a job, use the <code>GetModelCustomizationJob</code> operation to retrieve the job status.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,7 +50,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   roleArn: "STRING_VALUE", // required
  *   clientRequestToken: "STRING_VALUE",
  *   baseModelIdentifier: "STRING_VALUE", // required
- *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ *   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  *   customModelKmsKeyId: "STRING_VALUE",
  *   jobTags: [ // TagList
  *     { // Tag
@@ -68,7 +65,39 @@ export interface CreateModelCustomizationJobCommandOutput
  *     },
  *   ],
  *   trainingDataConfig: { // TrainingDataConfig
- *     s3Uri: "STRING_VALUE", // required
+ *     s3Uri: "STRING_VALUE",
+ *     invocationLogsConfig: { // InvocationLogsConfig
+ *       usePromptResponse: true || false,
+ *       invocationLogSource: { // InvocationLogSource Union: only one key present
+ *         s3Uri: "STRING_VALUE",
+ *       },
+ *       requestMetadataFilters: { // RequestMetadataFilters Union: only one key present
+ *         equals: { // RequestMetadataMap
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         notEquals: {
+ *           "<keys>": "STRING_VALUE",
+ *         },
+ *         andAll: [ // RequestMetadataFiltersList
+ *           { // RequestMetadataBaseFilters
+ *             equals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             notEquals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         orAll: [
+ *           {
+ *             equals: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             notEquals: "<RequestMetadataMap>",
+ *           },
+ *         ],
+ *       },
+ *     },
  *   },
  *   validationDataConfig: { // ValidationDataConfig
  *     validators: [ // Validators // required
@@ -80,7 +109,7 @@ export interface CreateModelCustomizationJobCommandOutput
  *   outputDataConfig: { // OutputDataConfig
  *     s3Uri: "STRING_VALUE", // required
  *   },
- *   hyperParameters: { // ModelCustomizationHyperParameters // required
+ *   hyperParameters: { // ModelCustomizationHyperParameters
  *     "<keys>": "STRING_VALUE",
  *   },
  *   vpcConfig: { // VpcConfig
@@ -90,6 +119,14 @@ export interface CreateModelCustomizationJobCommandOutput
  *     securityGroupIds: [ // SecurityGroupIds // required
  *       "STRING_VALUE",
  *     ],
+ *   },
+ *   customizationConfig: { // CustomizationConfig Union: only one key present
+ *     distillationConfig: { // DistillationConfig
+ *       teacherModelConfig: { // TeacherModelConfig
+ *         teacherModelIdentifier: "STRING_VALUE", // required
+ *         maxResponseLengthForInference: Number("int"),
+ *       },
+ *     },
  *   },
  * };
  * const command = new CreateModelCustomizationJobCommand(input);
@@ -125,14 +162,14 @@ export interface CreateModelCustomizationJobCommandOutput
  *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link TooManyTagsException} (client fault)
- *  <p>The request contains more tags than can be associated with a resource (50 tags per resource).
- *          The maximum number of tags includes both existing tags and those included in your current request. </p>
+ *  <p>The request contains more tags than can be associated with a resource (50 tags per resource). The maximum number of tags includes both existing tags and those included in your current request. </p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
+ *
  *
  * @public
  */
@@ -144,9 +181,7 @@ export class CreateModelCustomizationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,7 +190,19 @@ export class CreateModelCustomizationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "CreateModelCustomizationJob", {})
   .n("BedrockClient", "CreateModelCustomizationJobCommand")
-  .f(void 0, void 0)
+  .f(CreateModelCustomizationJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateModelCustomizationJobCommand)
   .de(de_CreateModelCustomizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelCustomizationJobRequest;
+      output: CreateModelCustomizationJobResponse;
+    };
+    sdk: {
+      input: CreateModelCustomizationJobCommandInput;
+      output: CreateModelCustomizationJobCommandOutput;
+    };
+  };
+}

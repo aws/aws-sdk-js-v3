@@ -37,7 +37,7 @@ export interface AdvancedRecognitionSetting {
    * <p>Enables using the slot values as a custom vocabulary for recognizing user utterances.</p>
    * @public
    */
-  audioRecognitionStrategy?: AudioRecognitionStrategy;
+  audioRecognitionStrategy?: AudioRecognitionStrategy | undefined;
 }
 
 /**
@@ -73,25 +73,25 @@ export interface AgentTurnResult {
    * <p>The actual agent prompt for the agent turn in a test set execution.</p>
    * @public
    */
-  actualAgentPrompt?: string;
+  actualAgentPrompt?: string | undefined;
 
   /**
    * <p>Details about an error in an execution of a test set.</p>
    * @public
    */
-  errorDetails?: ExecutionErrorDetails;
+  errorDetails?: ExecutionErrorDetails | undefined;
 
   /**
    * <p>The actual elicited slot for the agent turn in a test set execution.</p>
    * @public
    */
-  actualElicitedSlot?: string;
+  actualElicitedSlot?: string | undefined;
 
   /**
    * <p>The actual intent for the agent turn in a test set execution.</p>
    * @public
    */
-  actualIntent?: string;
+  actualIntent?: string | undefined;
 }
 
 /**
@@ -226,7 +226,7 @@ export interface AggregatedUtterancesSummary {
    *          transcription of the audio utterance.</p>
    * @public
    */
-  utterance?: string;
+  utterance?: string | undefined;
 
   /**
    * <p>The number of times that the utterance was detected by Amazon Lex during
@@ -234,14 +234,14 @@ export interface AggregatedUtterancesSummary {
    *          or a slot.</p>
    * @public
    */
-  hitCount?: number;
+  hitCount?: number | undefined;
 
   /**
    * <p>The number of times that the utterance was missed by Amazon Lex An
    *          utterance is missed when it doesn't activate an intent or slot.</p>
    * @public
    */
-  missedCount?: number;
+  missedCount?: number | undefined;
 
   /**
    * <p>The date and time that the utterance was first recorded in the time
@@ -250,7 +250,7 @@ export interface AggregatedUtterancesSummary {
    *          counted.</p>
    * @public
    */
-  utteranceFirstRecordedInAggregationDuration?: Date;
+  utteranceFirstRecordedInAggregationDuration?: Date | undefined;
 
   /**
    * <p>The last date and time that an utterance was recorded in the time
@@ -258,7 +258,7 @@ export interface AggregatedUtterancesSummary {
    *          time, but only utterances within the time window are counted.</p>
    * @public
    */
-  utteranceLastRecordedInAggregationDuration?: Date;
+  utteranceLastRecordedInAggregationDuration?: Date | undefined;
 
   /**
    * <p>Aggregated utterance data may contain utterances from versions of
@@ -266,7 +266,7 @@ export interface AggregatedUtterancesSummary {
    *          this kind of data, this field is set to true.</p>
    * @public
    */
-  containsDataFromDeletedResources?: boolean;
+  containsDataFromDeletedResources?: boolean | undefined;
 }
 
 /**
@@ -350,7 +350,7 @@ export interface AnalyticsBinBySpecification {
    * <p>Specifies whether to bin the analytics data in ascending or descending order. If this field is left blank, the default order is by the key of the bin in descending order.</p>
    * @public
    */
-  order?: AnalyticsSortOrder;
+  order?: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -362,13 +362,13 @@ export interface AnalyticsBinKey {
    * <p>The criterion by which to bin the results.</p>
    * @public
    */
-  name?: AnalyticsBinByName;
+  name?: AnalyticsBinByName | undefined;
 
   /**
    * <p>The value of the criterion that defines the bin.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -618,13 +618,13 @@ export interface AnalyticsIntentGroupByKey {
    * <p>A category by which the intent analytics were grouped.</p>
    * @public
    */
-  name?: AnalyticsIntentField;
+  name?: AnalyticsIntentField | undefined;
 
   /**
    * <p>A member of the category by which the intent analytics were grouped.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -728,7 +728,7 @@ export interface AnalyticsIntentMetric {
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    * @public
    */
-  order?: AnalyticsSortOrder;
+  order?: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -762,7 +762,7 @@ export interface AnalyticsIntentMetricResult {
    *          </ul>
    * @public
    */
-  name?: AnalyticsIntentMetricName;
+  name?: AnalyticsIntentMetricName | undefined;
 
   /**
    * <p>The statistic that you requested to calculate.</p>
@@ -782,13 +782,13 @@ export interface AnalyticsIntentMetricResult {
    *          </ul>
    * @public
    */
-  statistic?: AnalyticsMetricStatistic;
+  statistic?: AnalyticsMetricStatistic | undefined;
 
   /**
    * <p>The value of the summary statistic for the metric that you requested.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -814,31 +814,31 @@ export interface AnalyticsIntentNodeSummary {
    * <p>The name of the intent at the end of the requested path.</p>
    * @public
    */
-  intentName?: string;
+  intentName?: string | undefined;
 
   /**
    * <p>The path.</p>
    * @public
    */
-  intentPath?: string;
+  intentPath?: string | undefined;
 
   /**
    * <p>The total number of sessions that follow the given path to the given intent.</p>
    * @public
    */
-  intentCount?: number;
+  intentCount?: number | undefined;
 
   /**
    * <p>The number of intents up to and including the requested path.</p>
    * @public
    */
-  intentLevel?: number;
+  intentLevel?: number | undefined;
 
   /**
    * <p>Specifies whether the node is the end of a path (<code>Exit</code>) or not (<code>Inner</code>).</p>
    * @public
    */
-  nodeType?: AnalyticsNodeType;
+  nodeType?: AnalyticsNodeType | undefined;
 }
 
 /**
@@ -850,19 +850,19 @@ export interface AnalyticsIntentResult {
    * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
    * @public
    */
-  binKeys?: AnalyticsBinKey[];
+  binKeys?: AnalyticsBinKey[] | undefined;
 
   /**
    * <p>A list of objects containing the criteria you requested for grouping results and the values of the groups.</p>
    * @public
    */
-  groupByKeys?: AnalyticsIntentGroupByKey[];
+  groupByKeys?: AnalyticsIntentGroupByKey[] | undefined;
 
   /**
    * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
    * @public
    */
-  metricsResults?: AnalyticsIntentMetricResult[];
+  metricsResults?: AnalyticsIntentMetricResult[] | undefined;
 }
 
 /**
@@ -1080,13 +1080,13 @@ export interface AnalyticsIntentStageGroupByKey {
    * <p>A category by which the intent stage analytics were grouped.</p>
    * @public
    */
-  name?: AnalyticsIntentStageField;
+  name?: AnalyticsIntentStageField | undefined;
 
   /**
    * <p>A member of the category by which the intent stage analytics were grouped.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1176,7 +1176,7 @@ export interface AnalyticsIntentStageMetric {
    * <p>Specifies whether to sort the results in ascending or descending order of the summary statistic (<code>value</code> in the response).</p>
    * @public
    */
-  order?: AnalyticsSortOrder;
+  order?: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -1210,7 +1210,7 @@ export interface AnalyticsIntentStageMetricResult {
    *          </ul>
    * @public
    */
-  name?: AnalyticsIntentStageMetricName;
+  name?: AnalyticsIntentStageMetricName | undefined;
 
   /**
    * <p>The summary statistic that you requested to calculate.</p>
@@ -1230,13 +1230,13 @@ export interface AnalyticsIntentStageMetricResult {
    *          </ul>
    * @public
    */
-  statistic?: AnalyticsMetricStatistic;
+  statistic?: AnalyticsMetricStatistic | undefined;
 
   /**
    * <p>The value of the summary statistic for the metric that you requested.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -1248,19 +1248,19 @@ export interface AnalyticsIntentStageResult {
    * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
    * @public
    */
-  binKeys?: AnalyticsBinKey[];
+  binKeys?: AnalyticsBinKey[] | undefined;
 
   /**
    * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
    * @public
    */
-  groupByKeys?: AnalyticsIntentStageGroupByKey[];
+  groupByKeys?: AnalyticsIntentStageGroupByKey[] | undefined;
 
   /**
    * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
    * @public
    */
-  metricsResults?: AnalyticsIntentStageMetricResult[];
+  metricsResults?: AnalyticsIntentStageMetricResult[] | undefined;
 }
 
 /**
@@ -1628,13 +1628,13 @@ export interface AnalyticsSessionGroupByKey {
    * <p>The category by which the session analytics were grouped.</p>
    * @public
    */
-  name?: AnalyticsSessionField;
+  name?: AnalyticsSessionField | undefined;
 
   /**
    * <p>A member of the category by which the session analytics were grouped.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -1733,7 +1733,7 @@ export interface AnalyticsSessionMetric {
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    * @public
    */
-  order?: AnalyticsSortOrder;
+  order?: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -1775,7 +1775,7 @@ export interface AnalyticsSessionMetricResult {
    *          </ul>
    * @public
    */
-  name?: AnalyticsSessionMetricName;
+  name?: AnalyticsSessionMetricName | undefined;
 
   /**
    * <p>The summary statistic that you requested to calculate.</p>
@@ -1795,13 +1795,13 @@ export interface AnalyticsSessionMetricResult {
    *          </ul>
    * @public
    */
-  statistic?: AnalyticsMetricStatistic;
+  statistic?: AnalyticsMetricStatistic | undefined;
 
   /**
    * <p>The value of the summary statistic for the metric that you requested.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -1813,19 +1813,19 @@ export interface AnalyticsSessionResult {
    * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
    * @public
    */
-  binKeys?: AnalyticsBinKey[];
+  binKeys?: AnalyticsBinKey[] | undefined;
 
   /**
    * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
    * @public
    */
-  groupByKeys?: AnalyticsSessionGroupByKey[];
+  groupByKeys?: AnalyticsSessionGroupByKey[] | undefined;
 
   /**
    * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
    * @public
    */
-  metricsResults?: AnalyticsSessionMetricResult[];
+  metricsResults?: AnalyticsSessionMetricResult[] | undefined;
 }
 
 /**
@@ -1878,7 +1878,7 @@ export interface AnalyticsUtteranceAttributeResult {
    * <p>The intent that the bot mapped the utterance to.</p>
    * @public
    */
-  lastUsedIntent?: string;
+  lastUsedIntent?: string | undefined;
 }
 
 /**
@@ -2096,13 +2096,13 @@ export interface AnalyticsUtteranceGroupByKey {
    * <p>The category by which the utterance analytics were grouped.</p>
    * @public
    */
-  name?: AnalyticsUtteranceField;
+  name?: AnalyticsUtteranceField | undefined;
 
   /**
    * <p>A member of the category by which the utterance analytics were grouped.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -2187,7 +2187,7 @@ export interface AnalyticsUtteranceMetric {
    * <p>Specifies whether to sort the results in ascending or descending order.</p>
    * @public
    */
-  order?: AnalyticsSortOrder;
+  order?: AnalyticsSortOrder | undefined;
 }
 
 /**
@@ -2217,7 +2217,7 @@ export interface AnalyticsUtteranceMetricResult {
    *          </ul>
    * @public
    */
-  name?: AnalyticsUtteranceMetricName;
+  name?: AnalyticsUtteranceMetricName | undefined;
 
   /**
    * <p>The summary statistic that you requested to calculate.</p>
@@ -2237,13 +2237,13 @@ export interface AnalyticsUtteranceMetricResult {
    *          </ul>
    * @public
    */
-  statistic?: AnalyticsMetricStatistic;
+  statistic?: AnalyticsMetricStatistic | undefined;
 
   /**
    * <p>The value of the summary statistic for the metric that you requested.</p>
    * @public
    */
-  value?: number;
+  value?: number | undefined;
 }
 
 /**
@@ -2255,25 +2255,25 @@ export interface AnalyticsUtteranceResult {
    * <p>A list of objects containing the criteria you requested for binning results and the values of the bins.</p>
    * @public
    */
-  binKeys?: AnalyticsBinKey[];
+  binKeys?: AnalyticsBinKey[] | undefined;
 
   /**
    * <p>A list of objects containing the criteria you requested for grouping results and the values of the bins.</p>
    * @public
    */
-  groupByKeys?: AnalyticsUtteranceGroupByKey[];
+  groupByKeys?: AnalyticsUtteranceGroupByKey[] | undefined;
 
   /**
    * <p>A list of objects, each of which contains a metric you want to list, the statistic for the metric you want to return, and the method by which to organize the results.</p>
    * @public
    */
-  metricsResults?: AnalyticsUtteranceMetricResult[];
+  metricsResults?: AnalyticsUtteranceMetricResult[] | undefined;
 
   /**
    * <p>A list of objects containing information about the last used intent at the time of an utterance.</p>
    * @public
    */
-  attributeResults?: AnalyticsUtteranceAttributeResult[];
+  attributeResults?: AnalyticsUtteranceAttributeResult[] | undefined;
 }
 
 /**
@@ -2302,7 +2302,7 @@ export interface AssociatedTranscript {
    *             format</a>.</p>
    * @public
    */
-  transcript?: string;
+  transcript?: string | undefined;
 }
 
 /**
@@ -2408,13 +2408,13 @@ export interface AudioAndDTMFInputSpecification {
    * <p>Specifies the settings on audio input.</p>
    * @public
    */
-  audioSpecification?: AudioSpecification;
+  audioSpecification?: AudioSpecification | undefined;
 
   /**
    * <p>Specifies the settings on DTMF input.</p>
    * @public
    */
-  dtmfSpecification?: DTMFSpecification;
+  dtmfSpecification?: DTMFSpecification | undefined;
 }
 
 /**
@@ -2427,7 +2427,7 @@ export interface S3BucketLogDestination {
    *          (KMS) key for encrypting audio log files stored in an S3 bucket.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an Amazon S3 bucket where audio
@@ -2482,7 +2482,7 @@ export interface AudioLogSetting {
    * <p>The option to enable selective conversation log capture for audio.</p>
    * @public
    */
-  selectiveLoggingEnabled?: boolean;
+  selectiveLoggingEnabled?: boolean | undefined;
 }
 
 /**
@@ -2503,14 +2503,14 @@ export interface NewCustomVocabularyItem {
    *          vocabulary list.</p>
    * @public
    */
-  weight?: number;
+  weight?: number | undefined;
 
   /**
    * <p>The display as value assigned to the new custom vocabulary item from the custom
    *          vocabulary list.</p>
    * @public
    */
-  displayAs?: string;
+  displayAs?: string | undefined;
 }
 
 /**
@@ -2573,21 +2573,21 @@ export interface FailedCustomVocabularyItem {
    *          from the custom vocabulary list.</p>
    * @public
    */
-  itemId?: string;
+  itemId?: string | undefined;
 
   /**
    * <p>The error message for the failed custom vocabulary item
    *          from the custom vocabulary list.</p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 
   /**
    * <p>The unique error code for the failed custom vocabulary item
    *          from the custom vocabulary list.</p>
    * @public
    */
-  errorCode?: ErrorCode;
+  errorCode?: ErrorCode | undefined;
 }
 
 /**
@@ -2615,14 +2615,14 @@ export interface CustomVocabularyItem {
    *          from the custom vocabulary list.</p>
    * @public
    */
-  weight?: number;
+  weight?: number | undefined;
 
   /**
    * <p>The DisplayAs value for the custom vocabulary item
    *          from the custom vocabulary list.</p>
    * @public
    */
-  displayAs?: string;
+  displayAs?: string | undefined;
 }
 
 /**
@@ -2633,14 +2633,14 @@ export interface BatchCreateCustomVocabularyItemResponse {
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The identifier of the version of the bot associated with this
    *          custom vocabulary.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The identifier of the language and locale where this custom vocabulary is used.
@@ -2648,21 +2648,21 @@ export interface BatchCreateCustomVocabularyItemResponse {
    *          For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>A list of custom vocabulary items that failed to create during the operation.
    *          The reason for the error is contained within each error object.</p>
    * @public
    */
-  errors?: FailedCustomVocabularyItem[];
+  errors?: FailedCustomVocabularyItem[] | undefined;
 
   /**
    * <p>A list of custom vocabulary items that were
    *          successfully created during the operation.</p>
    * @public
    */
-  resources?: CustomVocabularyItem[];
+  resources?: CustomVocabularyItem[] | undefined;
 }
 
 /**
@@ -2739,7 +2739,7 @@ export class ThrottlingException extends __BaseException {
    * <p>The number of seconds after which the user can invoke the API again.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -2831,14 +2831,14 @@ export interface BatchDeleteCustomVocabularyItemResponse {
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The identifier of the version of the bot associated with this custom
    *          vocabulary.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The identifier of the language and locale where this custom vocabulary is
@@ -2847,21 +2847,21 @@ export interface BatchDeleteCustomVocabularyItemResponse {
    *          languages (https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html).</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>A list of custom vocabulary items that failed to delete during the operation.
    *          The reason for the error is contained within each error object.</p>
    * @public
    */
-  errors?: FailedCustomVocabularyItem[];
+  errors?: FailedCustomVocabularyItem[] | undefined;
 
   /**
    * <p>A list of custom vocabulary items that were
    *          successfully deleted during the operation.</p>
    * @public
    */
-  resources?: CustomVocabularyItem[];
+  resources?: CustomVocabularyItem[] | undefined;
 }
 
 /**
@@ -2905,14 +2905,14 @@ export interface BatchUpdateCustomVocabularyItemResponse {
    * <p>The identifier of the bot associated with this custom vocabulary.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The identifier of the version of the bot associated with this custom
    *          vocabulary.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The identifier of the language and locale where this custom vocabulary
@@ -2920,21 +2920,51 @@ export interface BatchUpdateCustomVocabularyItemResponse {
    *          information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html"> Supported Languages </a>.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>A list of custom vocabulary items that failed to update during the operation.
    *          The reason for the error is contained within each error object.</p>
    * @public
    */
-  errors?: FailedCustomVocabularyItem[];
+  errors?: FailedCustomVocabularyItem[] | undefined;
 
   /**
    * <p>A list of custom vocabulary items that were
    *          successfully updated during the operation.</p>
    * @public
    */
-  resources?: CustomVocabularyItem[];
+  resources?: CustomVocabularyItem[] | undefined;
+}
+
+/**
+ * <p>The details on the Bedrock guardrail configuration.</p>
+ * @public
+ */
+export interface BedrockGuardrailConfiguration {
+  /**
+   * <p>The unique guardrail id for the Bedrock guardrail configuration.</p>
+   * @public
+   */
+  identifier: string | undefined;
+
+  /**
+   * <p>The guardrail version for the Bedrock guardrail configuration.</p>
+   * @public
+   */
+  version: string | undefined;
+}
+
+/**
+ * <p>The exact response fields given by the Bedrock knowledge store.</p>
+ * @public
+ */
+export interface BedrockKnowledgeStoreExactResponseFields {
+  /**
+   * <p>The answer field used for an exact response from Bedrock Knowledge Store.</p>
+   * @public
+   */
+  answerField?: string | undefined;
 }
 
 /**
@@ -2943,11 +2973,37 @@ export interface BatchUpdateCustomVocabularyItemResponse {
  */
 export interface BedrockKnowledgeStoreConfiguration {
   /**
-   * <p>The ARN of the knowledge base used.</p>
+   * <p>The base ARN of the knowledge base used.</p>
    * @public
    */
   bedrockKnowledgeBaseArn: string | undefined;
+
+  /**
+   * <p>Specifies whether to return an exact response, or to return an answer generated by the model, using the fields you specify from the database.</p>
+   * @public
+   */
+  exactResponse?: boolean | undefined;
+
+  /**
+   * <p>Contains the names of the fields used for an exact response to the user.</p>
+   * @public
+   */
+  exactResponseFields?: BedrockKnowledgeStoreExactResponseFields | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const BedrockTraceStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type BedrockTraceStatus = (typeof BedrockTraceStatus)[keyof typeof BedrockTraceStatus];
 
 /**
  * <p>Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.</p>
@@ -2959,6 +3015,24 @@ export interface BedrockModelSpecification {
    * @public
    */
   modelArn: string | undefined;
+
+  /**
+   * <p>The guardrail configuration in the Bedrock model specification details.</p>
+   * @public
+   */
+  guardrail?: BedrockGuardrailConfiguration | undefined;
+
+  /**
+   * <p>The Bedrock trace status in the Bedrock model specification details.</p>
+   * @public
+   */
+  traceStatus?: BedrockTraceStatus | undefined;
+
+  /**
+   * <p>The custom prompt used in the Bedrock model specification details.</p>
+   * @public
+   */
+  customPrompt?: string | undefined;
 }
 
 /**
@@ -2971,19 +3045,19 @@ export interface BotAliasHistoryEvent {
    * <p>The version of the bot that was used in the event. </p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The date and time that the event started.</p>
    * @public
    */
-  startDate?: Date;
+  startDate?: Date | undefined;
 
   /**
    * <p>The date and time that the event ended.</p>
    * @public
    */
-  endDate?: Date;
+  endDate?: Date | undefined;
 }
 
 /**
@@ -3038,7 +3112,7 @@ export interface BotAliasLocaleSettings {
    *          locale.</p>
    * @public
    */
-  codeHookSpecification?: CodeHookSpecification;
+  codeHookSpecification?: CodeHookSpecification | undefined;
 }
 
 /**
@@ -3067,37 +3141,37 @@ export interface BotAliasReplicaSummary {
    * <p>The bot alias ID for all the alias bot replications.</p>
    * @public
    */
-  botAliasId?: string;
+  botAliasId?: string | undefined;
 
   /**
    * <p>The replication statuses for all the alias bot replications.</p>
    * @public
    */
-  botAliasReplicationStatus?: BotAliasReplicationStatus;
+  botAliasReplicationStatus?: BotAliasReplicationStatus | undefined;
 
   /**
    * <p>The bot version for all the alias bot replications.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The creation time and date for all the alias bot replications.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The last time and date updated for all the alias bot replications.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The reasons for failure for the aliases bot replications.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 }
 
 /**
@@ -3126,46 +3200,46 @@ export interface BotAliasSummary {
    *          to get detailed information about the alias using the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBotAlias.html">DescribeBotAlias</a> operation.</p>
    * @public
    */
-  botAliasId?: string;
+  botAliasId?: string | undefined;
 
   /**
    * <p>The name of the bot alias.</p>
    * @public
    */
-  botAliasName?: string;
+  botAliasName?: string | undefined;
 
   /**
    * <p>The description of the bot alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The version of the bot that the bot alias references.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The current state of the bot alias. If the status is
    *          <code>Available</code>, the alias is ready for use.</p>
    * @public
    */
-  botAliasStatus?: BotAliasStatus;
+  botAliasStatus?: BotAliasStatus | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot alias was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot alias was last
    *          updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3310,6 +3384,18 @@ export interface DataPrivacy {
 }
 
 /**
+ * <p>Settings parameters for the error logs, whether it is enabled or disabled.</p>
+ * @public
+ */
+export interface ErrorLogSettings {
+  /**
+   * <p>Settings parameters for the error logs, when it is enabled.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
+}
+
+/**
  * <p>Provides the bot parameters required for importing a bot.</p>
  * @public
  */
@@ -3337,6 +3423,12 @@ export interface BotImportSpecification {
   dataPrivacy: DataPrivacy | undefined;
 
   /**
+   * <p>Allows you to configure destinations where error logs will be published during the bot import process.</p>
+   * @public
+   */
+  errorLogSettings?: ErrorLogSettings | undefined;
+
+  /**
    * <p>The time, in seconds, that Amazon Lex should keep information about a
    *          user's conversation with the bot. </p>
    *          <p>A user interaction remains active for the amount of time specified.
@@ -3346,7 +3438,7 @@ export interface BotImportSpecification {
    *          seconds.</p>
    * @public
    */
-  idleSessionTTLInSeconds?: number;
+  idleSessionTTLInSeconds?: number | undefined;
 
   /**
    * <p>A list of tags to add to the bot. You can only add tags when you
@@ -3355,7 +3447,7 @@ export interface BotImportSpecification {
    *          operation.</p>
    * @public
    */
-  botTags?: Record<string, string>;
+  botTags?: Record<string, string> | undefined;
 
   /**
    * <p>A list of tags to add to the test alias for a bot. You can only add
@@ -3364,7 +3456,7 @@ export interface BotImportSpecification {
    *             <code>TagResource</code> operation.</p>
    * @public
    */
-  testBotAliasTags?: Record<string, string>;
+  testBotAliasTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3473,6 +3565,8 @@ export interface BotLocaleHistoryEvent {
  * @enum
  */
 export const VoiceEngine = {
+  Generative: "generative",
+  LongForm: "long-form",
   Neural: "neural",
   Standard: "standard",
 } as const;
@@ -3485,6 +3579,29 @@ export type VoiceEngine = (typeof VoiceEngine)[keyof typeof VoiceEngine];
 /**
  * <p>Defines settings for using an Amazon Polly voice to communicate with a
  *          user.</p>
+ *          <p>Valid values include:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>standard</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>neural</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>long-form</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>generative</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface VoiceSettings {
@@ -3500,7 +3617,7 @@ export interface VoiceSettings {
    *          <p>If you do not specify a value, the default is <code>standard</code>.</p>
    * @public
    */
-  engine?: VoiceEngine;
+  engine?: VoiceEngine | undefined;
 }
 
 /**
@@ -3568,14 +3685,37 @@ export interface BotLocaleImportSpecification {
    *          </ul>
    * @public
    */
-  nluIntentConfidenceThreshold?: number;
+  nluIntentConfidenceThreshold?: number | undefined;
 
   /**
    * <p>Defines settings for using an Amazon Polly voice to communicate with a
    *          user.</p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>standard</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>neural</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>long-form</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>generative</code>
+   *                </p>
+   *             </li>
+   *          </ul>
    * @public
    */
-  voiceSettings?: VoiceSettings;
+  voiceSettings?: VoiceSettings | undefined;
 }
 
 /**
@@ -3640,40 +3780,40 @@ export interface BotLocaleSummary {
    * <p>The language and locale of the bot locale.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The name of the bot locale.</p>
    * @public
    */
-  localeName?: string;
+  localeName?: string | undefined;
 
   /**
    * <p>The description of the bot locale.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The current status of the bot locale. When the status is
    *          <code>Built</code> the locale is ready for use.</p>
    * @public
    */
-  botLocaleStatus?: BotLocaleStatus;
+  botLocaleStatus?: BotLocaleStatus | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot locale was last
    *          updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot locale was last
    *          built.</p>
    * @public
    */
-  lastBuildSubmittedDateTime?: Date;
+  lastBuildSubmittedDateTime?: Date | undefined;
 }
 
 /**
@@ -3723,7 +3863,7 @@ export interface IntentStatistics {
    *             recommendation.</p>
    * @public
    */
-  discoveredIntentCount?: number;
+  discoveredIntentCount?: number | undefined;
 }
 
 /**
@@ -3737,7 +3877,7 @@ export interface SlotTypeStatistics {
    *             recommendation.</p>
    * @public
    */
-  discoveredSlotTypeCount?: number;
+  discoveredSlotTypeCount?: number | undefined;
 }
 
 /**
@@ -3750,14 +3890,14 @@ export interface BotRecommendationResultStatistics {
    *             bot recommendation results.</p>
    * @public
    */
-  intents?: IntentStatistics;
+  intents?: IntentStatistics | undefined;
 
   /**
    * <p>Statistical information about the slot types associated with the bot
    *             recommendation results.</p>
    * @public
    */
-  slotTypes?: SlotTypeStatistics;
+  slotTypes?: SlotTypeStatistics | undefined;
 }
 
 /**
@@ -3771,19 +3911,19 @@ export interface BotRecommendationResults {
    * <p>The presigned URL link of the recommended bot definition.</p>
    * @public
    */
-  botLocaleExportUrl?: string;
+  botLocaleExportUrl?: string | undefined;
 
   /**
    * <p>The presigned url link of the associated transcript.</p>
    * @public
    */
-  associatedTranscriptsUrl?: string;
+  associatedTranscriptsUrl?: string | undefined;
 
   /**
    * <p>The statistical summary of the bot recommendation results.</p>
    * @public
    */
-  statistics?: BotRecommendationResultStatistics;
+  statistics?: BotRecommendationResultStatistics | undefined;
 }
 
 /**
@@ -3832,14 +3972,14 @@ export interface BotRecommendationSummary {
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot recommendation was
    *          last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3867,25 +4007,25 @@ export interface BotReplicaSummary {
    * <p>The replica region used in the replication statuses summary.</p>
    * @public
    */
-  replicaRegion?: string;
+  replicaRegion?: string | undefined;
 
   /**
    * <p>The creation time and date for the replicated bots.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The operation status for the replicated bot applicable.</p>
    * @public
    */
-  botReplicaStatus?: BotReplicaStatus;
+  botReplicaStatus?: BotReplicaStatus | undefined;
 
   /**
    * <p>The reasons for the failure for the replicated bot.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 }
 
 /**
@@ -3964,44 +4104,44 @@ export interface BotSummary {
    *          detailed information about the bot with the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_DescribeBot.html">DescribeBot</a> operation.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The name of the bot.</p>
    * @public
    */
-  botName?: string;
+  botName?: string | undefined;
 
   /**
    * <p>The description of the bot.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The current status of the bot. When the status is
    *          <code>Available</code> the bot is ready for use.</p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 
   /**
    * <p>The latest numerical version in use for the bot.</p>
    * @public
    */
-  latestBotVersion?: string;
+  latestBotVersion?: string | undefined;
 
   /**
    * <p>The date and time that the bot was last updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The type of the bot.</p>
    * @public
    */
-  botType?: BotType;
+  botType?: BotType | undefined;
 }
 
 /**
@@ -4074,25 +4214,25 @@ export interface BotVersionReplicaSummary {
    * <p>The bot version for the summary information for all the version replication statuses.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The version replication status for all the replicated bots.</p>
    * @public
    */
-  botVersionReplicationStatus?: BotVersionReplicationStatus;
+  botVersionReplicationStatus?: BotVersionReplicationStatus | undefined;
 
   /**
    * <p>The creation date and time of the replication status for all the replicated bots.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The reasons for replication failure for all the replicated bots.</p>
    * @public
    */
-  failureReasons?: string[];
+  failureReasons?: string[] | undefined;
 }
 
 /**
@@ -4136,34 +4276,34 @@ export interface BotVersionSummary {
    * <p>The name of the bot associated with the version.</p>
    * @public
    */
-  botName?: string;
+  botName?: string | undefined;
 
   /**
    * <p>The numeric version of the bot, or <code>DRAFT</code> to indicate
    *          that this is the version of the bot that can be updated..</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The description of the version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the bot. When the status is available, the version of
    *          the bot is ready for use.</p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 
   /**
    * <p>A timestamp of the date and time that the version was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 }
 
 /**
@@ -4202,21 +4342,21 @@ export interface BuildBotLocaleResponse {
    * <p>The identifier of the specified bot.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The version of the bot that was built. This is only the draft
    *          version of the bot.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The language and locale specified of where the bot can be
    *          used.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The bot's build status. When the status is
@@ -4226,14 +4366,14 @@ export interface BuildBotLocaleResponse {
    *          any utterance.</p>
    * @public
    */
-  botLocaleStatus?: BotLocaleStatus;
+  botLocaleStatus?: BotLocaleStatus | undefined;
 
   /**
    * <p>A timestamp indicating the date and time that the bot was last built
    *          for this locale.</p>
    * @public
    */
-  lastBuildSubmittedDateTime?: Date;
+  lastBuildSubmittedDateTime?: Date | undefined;
 }
 
 /**
@@ -4295,7 +4435,7 @@ export interface DescriptiveBotBuilderSpecification {
    * <p>An object containing information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.</p>
    * @public
    */
-  bedrockModelSpecification?: BedrockModelSpecification;
+  bedrockModelSpecification?: BedrockModelSpecification | undefined;
 }
 
 /**
@@ -4313,7 +4453,7 @@ export interface SampleUtteranceGenerationSpecification {
    * <p>Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.</p>
    * @public
    */
-  bedrockModelSpecification?: BedrockModelSpecification;
+  bedrockModelSpecification?: BedrockModelSpecification | undefined;
 }
 
 /**
@@ -4325,13 +4465,13 @@ export interface BuildtimeSettings {
    * <p>An object containing specifications for the descriptive bot building feature.</p>
    * @public
    */
-  descriptiveBotBuilder?: DescriptiveBotBuilderSpecification;
+  descriptiveBotBuilder?: DescriptiveBotBuilderSpecification | undefined;
 
   /**
    * <p>Contains specifications for the sample utterance generation feature.</p>
    * @public
    */
-  sampleUtteranceGeneration?: SampleUtteranceGenerationSpecification;
+  sampleUtteranceGeneration?: SampleUtteranceGenerationSpecification | undefined;
 }
 
 /**
@@ -4376,13 +4516,13 @@ export interface BuiltInIntentSummary {
    *          intent of a derived intent.</p>
    * @public
    */
-  intentSignature?: string;
+  intentSignature?: string | undefined;
 
   /**
    * <p>The description of the intent.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -4431,13 +4571,13 @@ export interface BuiltInSlotTypeSummary {
    *          parent slot type of a derived slot type.</p>
    * @public
    */
-  slotTypeSignature?: string;
+  slotTypeSignature?: string | undefined;
 
   /**
    * <p>The description of the built-in slot type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -4511,7 +4651,7 @@ export interface CompositeSlotTypeSetting {
    * <p>Subslots in the composite slot.</p>
    * @public
    */
-  subSlots?: SubSlotTypeComposition[];
+  subSlots?: SubSlotTypeComposition[] | undefined;
 }
 
 /**
@@ -4564,13 +4704,13 @@ export interface DialogAction {
    *          elicit from the user.</p>
    * @public
    */
-  slotToElicit?: string;
+  slotToElicit?: string | undefined;
 
   /**
    * <p>When true the next message for the intent is not used.</p>
    * @public
    */
-  suppressNextMessage?: boolean;
+  suppressNextMessage?: boolean | undefined;
 }
 
 /**
@@ -4600,7 +4740,7 @@ export interface SlotValue {
    *             <code>resolvedValues</code> list.</p>
    * @public
    */
-  interpretedValue?: string;
+  interpretedValue?: string | undefined;
 }
 
 /**
@@ -4637,7 +4777,7 @@ export interface ImageResponseCard {
    *          card.</p>
    * @public
    */
-  subtitle?: string;
+  subtitle?: string | undefined;
 
   /**
    * <p>The URL of an image to display on the response card. The image URL
@@ -4645,7 +4785,7 @@ export interface ImageResponseCard {
    *          card has access to the image.</p>
    * @public
    */
-  imageUrl?: string;
+  imageUrl?: string | undefined;
 
   /**
    * <p>A list of buttons that should be displayed on the response card. The
@@ -4653,7 +4793,7 @@ export interface ImageResponseCard {
    *          the button.</p>
    * @public
    */
-  buttons?: Button[];
+  buttons?: Button[] | undefined;
 }
 
 /**
@@ -4689,27 +4829,27 @@ export interface Message {
    * <p>A message in plain text format.</p>
    * @public
    */
-  plainTextMessage?: PlainTextMessage;
+  plainTextMessage?: PlainTextMessage | undefined;
 
   /**
    * <p>A message in a custom format defined by the client
    *          application.</p>
    * @public
    */
-  customPayload?: CustomPayload;
+  customPayload?: CustomPayload | undefined;
 
   /**
    * <p>A message in Speech Synthesis Markup Language (SSML).</p>
    * @public
    */
-  ssmlMessage?: SSMLMessage;
+  ssmlMessage?: SSMLMessage | undefined;
 
   /**
    * <p>A message that defines a response card that the client application
    *          can show to the user.</p>
    * @public
    */
-  imageResponseCard?: ImageResponseCard;
+  imageResponseCard?: ImageResponseCard | undefined;
 }
 
 /**
@@ -4730,7 +4870,7 @@ export interface MessageGroup {
    *          the user.</p>
    * @public
    */
-  variations?: Message[];
+  variations?: Message[] | undefined;
 }
 
 /**
@@ -4751,7 +4891,7 @@ export interface ResponseSpecification {
    *          Amazon Lex.</p>
    * @public
    */
-  allowInterrupt?: boolean;
+  allowInterrupt?: boolean | undefined;
 }
 
 /**
@@ -4818,7 +4958,7 @@ export interface ConversationLevelResultDetail {
    * <p>The speech transcription success or failure details of the conversation.</p>
    * @public
    */
-  speechTranscriptionResult?: TestResultMatchStatus;
+  speechTranscriptionResult?: TestResultMatchStatus | undefined;
 }
 
 /**
@@ -4866,7 +5006,7 @@ export interface ConversationLevelTestResultItem {
    * <p>The speech transcription success or failure of the test result evaluation item.</p>
    * @public
    */
-  speechTranscriptionResult?: TestResultMatchStatus;
+  speechTranscriptionResult?: TestResultMatchStatus | undefined;
 
   /**
    * <p>The intent classification of the test result evaluation item.</p>
@@ -4903,7 +5043,7 @@ export interface ConversationLevelTestResultsFilterBy {
    *       at the conversation level.</p>
    * @public
    */
-  endToEndResult?: TestResultMatchStatus;
+  endToEndResult?: TestResultMatchStatus | undefined;
 }
 
 /**
@@ -5012,7 +5152,7 @@ export interface TextLogSetting {
    * <p>The option to enable selective conversation log capture for text.</p>
    * @public
    */
-  selectiveLoggingEnabled?: boolean;
+  selectiveLoggingEnabled?: boolean | undefined;
 }
 
 /**
@@ -5025,13 +5165,13 @@ export interface ConversationLogSettings {
    * <p>The Amazon CloudWatch Logs settings for logging text and metadata.</p>
    * @public
    */
-  textLogSettings?: TextLogSetting[];
+  textLogSettings?: TextLogSetting[] | undefined;
 
   /**
    * <p>The Amazon S3 settings for logging audio to an S3 bucket.</p>
    * @public
    */
-  audioLogSettings?: AudioLogSetting[];
+  audioLogSettings?: AudioLogSetting[] | undefined;
 }
 
 /**
@@ -5050,7 +5190,7 @@ export interface CreateBotRequest {
    *          particular bot.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
@@ -5085,7 +5225,7 @@ export interface CreateBotRequest {
    *          operation.</p>
    * @public
    */
-  botTags?: Record<string, string>;
+  botTags?: Record<string, string> | undefined;
 
   /**
    * <p>A list of tags to add to the test alias for a bot. You can only add
@@ -5094,19 +5234,25 @@ export interface CreateBotRequest {
    *             <code>TagResource</code> operation.</p>
    * @public
    */
-  testBotAliasTags?: Record<string, string>;
+  testBotAliasTags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of a bot to create.</p>
    * @public
    */
-  botType?: BotType;
+  botType?: BotType | undefined;
 
   /**
    * <p>The list of bot members in a network to be created.</p>
    * @public
    */
-  botMembers?: BotMember[];
+  botMembers?: BotMember[] | undefined;
+
+  /**
+   * <p>Specifies the configuration for error logging during bot creation.</p>
+   * @public
+   */
+  errorLogSettings?: ErrorLogSettings | undefined;
 }
 
 /**
@@ -5118,37 +5264,37 @@ export interface CreateBotResponse {
    *          the bot when you call other Amazon Lex API operations.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The name specified for the bot.</p>
    * @public
    */
-  botName?: string;
+  botName?: string | undefined;
 
   /**
    * <p>The description specified for the bot.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The IAM role specified for the bot.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The data privacy settings specified for the bot.</p>
    * @public
    */
-  dataPrivacy?: DataPrivacy;
+  dataPrivacy?: DataPrivacy | undefined;
 
   /**
    * <p>The session idle time specified for the bot.</p>
    * @public
    */
-  idleSessionTTLInSeconds?: number;
+  idleSessionTTLInSeconds?: number | undefined;
 
   /**
    * <p>Shows the current status of the bot. The bot is first in the
@@ -5157,38 +5303,44 @@ export interface CreateBotResponse {
    *          you can use the <code>DRAFT</code> version of the bot.</p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 
   /**
    * <p>A timestamp indicating the date and time that the bot was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>A list of tags associated with the bot.</p>
    * @public
    */
-  botTags?: Record<string, string>;
+  botTags?: Record<string, string> | undefined;
 
   /**
    * <p>A list of tags associated with the test alias for the bot.</p>
    * @public
    */
-  testBotAliasTags?: Record<string, string>;
+  testBotAliasTags?: Record<string, string> | undefined;
 
   /**
    * <p>The type of a bot that was created.</p>
    * @public
    */
-  botType?: BotType;
+  botType?: BotType | undefined;
 
   /**
    * <p>The list of bots in a network that was created.</p>
    * @public
    */
-  botMembers?: BotMember[];
+  botMembers?: BotMember[] | undefined;
+
+  /**
+   * <p>Specifies configuration settings for delivering error logs to Cloudwatch Logs in an Amazon Lex bot response.</p>
+   * @public
+   */
+  errorLogSettings?: ErrorLogSettings | undefined;
 }
 
 /**
@@ -5220,7 +5372,7 @@ export interface CreateBotAliasRequest {
    *          the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The version of the bot that this alias points to. You can use the
@@ -5228,7 +5380,7 @@ export interface CreateBotAliasRequest {
    *          bot version associated with the alias.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>Maps configuration information to a specific locale. You can use
@@ -5236,7 +5388,7 @@ export interface CreateBotAliasRequest {
    *          functions in different locales.</p>
    * @public
    */
-  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings> | undefined;
 
   /**
    * <p>Specifies whether Amazon Lex logs text and audio for a conversation with
@@ -5245,14 +5397,14 @@ export interface CreateBotAliasRequest {
    *          logs store audio input in Amazon S3.</p>
    * @public
    */
-  conversationLogSettings?: ConversationLogSettings;
+  conversationLogSettings?: ConversationLogSettings | undefined;
 
   /**
    * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
    *          user utterances.</p>
    * @public
    */
-  sentimentAnalysisSettings?: SentimentAnalysisSettings;
+  sentimentAnalysisSettings?: SentimentAnalysisSettings | undefined;
 
   /**
    * <p>The unique identifier of the bot that the alias applies to.</p>
@@ -5267,7 +5419,7 @@ export interface CreateBotAliasRequest {
    *             <code>TagResource</code> operation.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -5278,44 +5430,44 @@ export interface CreateBotAliasResponse {
    * <p>The unique identifier of the bot alias.</p>
    * @public
    */
-  botAliasId?: string;
+  botAliasId?: string | undefined;
 
   /**
    * <p>The name specified for the bot alias.</p>
    * @public
    */
-  botAliasName?: string;
+  botAliasName?: string | undefined;
 
   /**
    * <p>The description specified for the bot alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The version of the bot associated with this alias.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>Configuration information for a specific locale.</p>
    * @public
    */
-  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
+  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings> | undefined;
 
   /**
    * <p>The conversation log settings specified for the alias.</p>
    * @public
    */
-  conversationLogSettings?: ConversationLogSettings;
+  conversationLogSettings?: ConversationLogSettings | undefined;
 
   /**
    * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
    *          user utterances.</p>
    * @public
    */
-  sentimentAnalysisSettings?: SentimentAnalysisSettings;
+  sentimentAnalysisSettings?: SentimentAnalysisSettings | undefined;
 
   /**
    * <p>The current status of the alias. The alias is first put into the
@@ -5325,26 +5477,38 @@ export interface CreateBotAliasResponse {
    *          an alias.</p>
    * @public
    */
-  botAliasStatus?: BotAliasStatus;
+  botAliasStatus?: BotAliasStatus | undefined;
 
   /**
    * <p>The unique identifier of the bot that this alias applies to.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>A Unix timestamp indicating the date and time that the bot alias was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>A list of tags associated with the bot alias.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Specifies whether the assisted nlu feature is turned on or off.</p>
+ * @public
+ */
+export interface NluImprovementSpecification {
+  /**
+   * <p>Specifies whether the assisted nlu feature is enabled.</p>
+   * @public
+   */
+  enabled: boolean | undefined;
 }
 
 /**
@@ -5362,7 +5526,7 @@ export interface SlotResolutionImprovementSpecification {
    * <p>An object containing information about the Amazon Bedrock model used to assist slot resolution.</p>
    * @public
    */
-  bedrockModelSpecification?: BedrockModelSpecification;
+  bedrockModelSpecification?: BedrockModelSpecification | undefined;
 }
 
 /**
@@ -5374,7 +5538,13 @@ export interface RuntimeSettings {
    * <p>An object containing specifications for the assisted slot resolution feature.</p>
    * @public
    */
-  slotResolutionImprovement?: SlotResolutionImprovementSpecification;
+  slotResolutionImprovement?: SlotResolutionImprovementSpecification | undefined;
+
+  /**
+   * <p>An object containing specifications for the assisted nlu feature.</p>
+   * @public
+   */
+  nluImprovement?: NluImprovementSpecification | undefined;
 }
 
 /**
@@ -5386,13 +5556,13 @@ export interface GenerativeAISettings {
    * <p>Contains specifications about the Amazon Lex runtime generative AI capabilities from Amazon Bedrock that you can turn on for your bot.</p>
    * @public
    */
-  runtimeSettings?: RuntimeSettings;
+  runtimeSettings?: RuntimeSettings | undefined;
 
   /**
    * <p>Contains specifications about the Amazon Lex build time generative AI capabilities from Amazon Bedrock that you can turn on for your bot.</p>
    * @public
    */
-  buildtimeSettings?: BuildtimeSettings;
+  buildtimeSettings?: BuildtimeSettings | undefined;
 }
 
 /**
@@ -5426,7 +5596,7 @@ export interface CreateBotLocaleRequest {
    *          locale in lists.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Determines the threshold where Amazon Lex will insert the
@@ -5463,13 +5633,13 @@ export interface CreateBotLocaleRequest {
    *          user.</p>
    * @public
    */
-  voiceSettings?: VoiceSettings;
+  voiceSettings?: VoiceSettings | undefined;
 
   /**
    * <p>Contains specifications about the generative AI capabilities from Amazon Bedrock that you can turn on for your bot.</p>
    * @public
    */
-  generativeAISettings?: GenerativeAISettings;
+  generativeAISettings?: GenerativeAISettings | undefined;
 }
 
 /**
@@ -5480,31 +5650,31 @@ export interface CreateBotLocaleResponse {
    * <p>The specified bot identifier.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The specified bot version.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The specified locale name.</p>
    * @public
    */
-  localeName?: string;
+  localeName?: string | undefined;
 
   /**
    * <p>The specified locale identifier.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The specified description of the bot locale.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The specified confidence threshold for inserting the
@@ -5512,14 +5682,14 @@ export interface CreateBotLocaleResponse {
    *             <code>AMAZON.KendraSearchIntent</code> intents.</p>
    * @public
    */
-  nluIntentConfidenceThreshold?: number;
+  nluIntentConfidenceThreshold?: number | undefined;
 
   /**
    * <p>The Amazon Polly voice ID that Amazon Lex uses for voice interaction with the
    *          user.</p>
    * @public
    */
-  voiceSettings?: VoiceSettings;
+  voiceSettings?: VoiceSettings | undefined;
 
   /**
    * <p>The status of the bot.</p>
@@ -5535,20 +5705,20 @@ export interface CreateBotLocaleResponse {
    *          is <code>NotBuilt</code>.</p>
    * @public
    */
-  botLocaleStatus?: BotLocaleStatus;
+  botLocaleStatus?: BotLocaleStatus | undefined;
 
   /**
    * <p>A timestamp specifying the date and time that the bot locale was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>Contains specifications about the generative AI capabilities from Amazon Bedrock that you can turn on for your bot.</p>
    * @public
    */
-  generativeAISettings?: GenerativeAISettings;
+  generativeAISettings?: GenerativeAISettings | undefined;
 }
 
 /**
@@ -5576,31 +5746,31 @@ export interface CreateBotReplicaResponse {
    * <p>The unique bot ID of the replicated bot generated.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The region of the replicated bot generated.</p>
    * @public
    */
-  replicaRegion?: string;
+  replicaRegion?: string | undefined;
 
   /**
    * <p>The source region for the source bot used for the replicated bot generated.</p>
    * @public
    */
-  sourceRegion?: string;
+  sourceRegion?: string | undefined;
 
   /**
    * <p>The creation date and time of the replicated bot generated.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The operational status of the replicated bot generated.</p>
    * @public
    */
-  botReplicaStatus?: BotReplicaStatus;
+  botReplicaStatus?: BotReplicaStatus | undefined;
 }
 
 /**
@@ -5618,7 +5788,7 @@ export interface CreateBotVersionRequest {
    *          the version in lists.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies the locales that Amazon Lex adds to this version. You can
@@ -5638,25 +5808,25 @@ export interface CreateBotVersionResponse {
    * <p>The bot identifier specified in the request.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The description of the version specified in the request.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The version number assigned to the version.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The source versions used for each locale in the new version.</p>
    * @public
    */
-  botVersionLocaleSpecification?: Record<string, BotVersionLocaleDetails>;
+  botVersionLocaleSpecification?: Record<string, BotVersionLocaleDetails> | undefined;
 
   /**
    * <p>When you send a request to create or update a bot, Amazon Lex sets the
@@ -5665,14 +5835,14 @@ export interface CreateBotVersionResponse {
    *          the bot, it sets status to <code>Failed</code>.</p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 
   /**
    * <p>A timestamp of the date and time that the version was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 }
 
 /**
@@ -5737,25 +5907,25 @@ export interface ExportResourceSpecification {
    * <p>Parameters for exporting a bot.</p>
    * @public
    */
-  botExportSpecification?: BotExportSpecification;
+  botExportSpecification?: BotExportSpecification | undefined;
 
   /**
    * <p>Parameters for exporting a bot locale.</p>
    * @public
    */
-  botLocaleExportSpecification?: BotLocaleExportSpecification;
+  botLocaleExportSpecification?: BotLocaleExportSpecification | undefined;
 
   /**
    * <p>The parameters required to export a custom vocabulary.</p>
    * @public
    */
-  customVocabularyExportSpecification?: CustomVocabularyExportSpecification;
+  customVocabularyExportSpecification?: CustomVocabularyExportSpecification | undefined;
 
   /**
    * <p>Specifications for the test set that is exported as a resource.</p>
    * @public
    */
-  testSetExportSpecification?: TestSetExportSpecification;
+  testSetExportSpecification?: TestSetExportSpecification | undefined;
 }
 
 /**
@@ -5781,7 +5951,7 @@ export interface CreateExportRequest {
    *          transit between Amazon Lex and your local computer.</p>
    * @public
    */
-  filePassword?: string;
+  filePassword?: string | undefined;
 }
 
 /**
@@ -5808,21 +5978,21 @@ export interface CreateExportResponse {
    * <p>An identifier for a specific request to create an export.</p>
    * @public
    */
-  exportId?: string;
+  exportId?: string | undefined;
 
   /**
    * <p>A description of the type of resource that was exported, either a
    *          bot or a bot locale.</p>
    * @public
    */
-  resourceSpecification?: ExportResourceSpecification;
+  resourceSpecification?: ExportResourceSpecification | undefined;
 
   /**
    * <p>The file format used for the bot or bot locale definition
    *          files.</p>
    * @public
    */
-  fileFormat?: ImportExportFileFormat;
+  fileFormat?: ImportExportFileFormat | undefined;
 
   /**
    * <p>The status of the export. When the status is <code>Completed</code>,
@@ -5830,14 +6000,14 @@ export interface CreateExportResponse {
    *          pre-signed S3 URL link to your exported bot or bot locale.</p>
    * @public
    */
-  exportStatus?: ExportStatus;
+  exportStatus?: ExportStatus | undefined;
 
   /**
    * <p>The date and time that the request to export a bot was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 }
 
 /**
@@ -5880,7 +6050,7 @@ export interface FulfillmentStartResponseSpecification {
    *          is playing.</p>
    * @public
    */
-  allowInterrupt?: boolean;
+  allowInterrupt?: boolean | undefined;
 }
 
 /**
@@ -5910,7 +6080,7 @@ export interface FulfillmentUpdateResponseSpecification {
    *          is playing.</p>
    * @public
    */
-  allowInterrupt?: boolean;
+  allowInterrupt?: boolean | undefined;
 }
 
 /**
@@ -5934,21 +6104,21 @@ export interface FulfillmentUpdatesSpecification {
    *          when the fulfillment Lambda functions starts running.</p>
    * @public
    */
-  startResponse?: FulfillmentStartResponseSpecification;
+  startResponse?: FulfillmentStartResponseSpecification | undefined;
 
   /**
    * <p>Provides configuration information for messages sent periodically to
    *          the user while the fulfillment Lambda function is running.</p>
    * @public
    */
-  updateResponse?: FulfillmentUpdateResponseSpecification;
+  updateResponse?: FulfillmentUpdateResponseSpecification | undefined;
 
   /**
    * <p>The length of time that the fulfillment Lambda function should run
    *          before it times out.</p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 }
 
 /**
@@ -5981,7 +6151,7 @@ export interface ElicitationCodeHookInvocationSetting {
    *          hook is happening.</p>
    * @public
    */
-  invocationLabel?: string;
+  invocationLabel?: string | undefined;
 }
 
 /**
@@ -6037,7 +6207,7 @@ export interface PromptAttemptSpecification {
    * <p>Indicates whether the user can interrupt a speech prompt attempt from the bot.</p>
    * @public
    */
-  allowInterrupt?: boolean;
+  allowInterrupt?: boolean | undefined;
 
   /**
    * <p>Indicates the allowed input types of the prompt attempt.</p>
@@ -6049,13 +6219,13 @@ export interface PromptAttemptSpecification {
    * <p>Specifies the settings on audio and DTMF input.</p>
    * @public
    */
-  audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification;
+  audioAndDTMFInputSpecification?: AudioAndDTMFInputSpecification | undefined;
 
   /**
    * <p>Specifies the settings on text input.</p>
    * @public
    */
-  textInputSpecification?: TextInputSpecification;
+  textInputSpecification?: TextInputSpecification | undefined;
 }
 
 /**
@@ -6083,19 +6253,19 @@ export interface PromptSpecification {
    *          bot.</p>
    * @public
    */
-  allowInterrupt?: boolean;
+  allowInterrupt?: boolean | undefined;
 
   /**
    * <p>Indicates how a message is selected from a message group among retries.</p>
    * @public
    */
-  messageSelectionStrategy?: MessageSelectionStrategy;
+  messageSelectionStrategy?: MessageSelectionStrategy | undefined;
 
   /**
    * <p>Specifies the advanced settings on each attempt of the prompt.</p>
    * @public
    */
-  promptAttemptsSpecification?: Partial<Record<PromptAttempt, PromptAttemptSpecification>>;
+  promptAttemptsSpecification?: Partial<Record<PromptAttempt, PromptAttemptSpecification>> | undefined;
 }
 
 /**
@@ -6119,7 +6289,7 @@ export interface KendraConfiguration {
    *          custom query string to query the Amazon Kendra index.</p>
    * @public
    */
-  queryFilterStringEnabled?: boolean;
+  queryFilterStringEnabled?: boolean | undefined;
 
   /**
    * <p>A query filter that Amazon Lex sends to Amazon Kendra to filter the response from
@@ -6128,7 +6298,7 @@ export interface KendraConfiguration {
    *          queries</a>.</p>
    * @public
    */
-  queryFilterString?: string;
+  queryFilterString?: string | undefined;
 }
 
 /**
@@ -6161,6 +6331,30 @@ export interface OutputContext {
 }
 
 /**
+ * <p>The configuration details of the Qinconnect assistant.</p>
+ * @public
+ */
+export interface QInConnectAssistantConfiguration {
+  /**
+   * <p>The assistant Arn details of the Qinconnect assistant configuration.</p>
+   * @public
+   */
+  assistantArn: string | undefined;
+}
+
+/**
+ * <p>The configuration details of the Qinconnect intent.</p>
+ * @public
+ */
+export interface QInConnectIntentConfiguration {
+  /**
+   * <p>The Qinconnect assistant configuration details of the Qinconnect intent.</p>
+   * @public
+   */
+  qInConnectAssistantConfiguration?: QInConnectAssistantConfiguration | undefined;
+}
+
+/**
  * <p>Contains details about the configuration of the Amazon Kendra index used for the <code>AMAZON.QnAIntent</code>.</p>
  * @public
  */
@@ -6175,19 +6369,19 @@ export interface QnAKendraConfiguration {
    * <p>Specifies whether to enable an Amazon Kendra filter string or not.</p>
    * @public
    */
-  queryFilterStringEnabled?: boolean;
+  queryFilterStringEnabled?: boolean | undefined;
 
   /**
    * <p>Contains the Amazon Kendra filter string to use if enabled. For more information on the Amazon Kendra search filter JSON format, see <a href="https://docs.aws.amazon.com/kendra/latest/dg/filtering.html#search-filtering">Using document attributes to filter search results</a>.</p>
    * @public
    */
-  queryFilterString?: string;
+  queryFilterString?: string | undefined;
 
   /**
    * <p>Specifies whether to return an exact response from the Amazon Kendra index or to let the Amazon Bedrock model you select generate a response based on the results. To use this feature, you must first add FAQ questions to your index by following the steps at <a href="https://docs.aws.amazon.com/kendra/latest/dg/in-creating-faq.html">Adding frequently asked questions (FAQs) to an index</a>.</p>
    * @public
    */
-  exactResponse?: boolean;
+  exactResponse?: boolean | undefined;
 }
 
 /**
@@ -6229,19 +6423,19 @@ export interface OpensearchConfiguration {
    * <p>Specifies whether to return an exact response or to return an answer generated by the model using the fields you specify from the database.</p>
    * @public
    */
-  exactResponse?: boolean;
+  exactResponse?: boolean | undefined;
 
   /**
    * <p>Contains the names of the fields used for an exact response to the user.</p>
    * @public
    */
-  exactResponseFields?: ExactResponseFields;
+  exactResponseFields?: ExactResponseFields | undefined;
 
   /**
    * <p>Contains a list of fields from the Amazon OpenSearch Service that the model can use to generate the answer to the query.</p>
    * @public
    */
-  includeFields?: string[];
+  includeFields?: string[] | undefined;
 }
 
 /**
@@ -6253,19 +6447,19 @@ export interface DataSourceConfiguration {
    * <p>Contains details about the configuration of the Amazon OpenSearch Service database used for the <code>AMAZON.QnAIntent</code>. To create a domain, follow the steps at <a href="https://docs.aws.amazon.com/opensearch-service/latest/developerguide/createupdatedomains.html">Creating and managing Amazon OpenSearch Service domains</a>.</p>
    * @public
    */
-  opensearchConfiguration?: OpensearchConfiguration;
+  opensearchConfiguration?: OpensearchConfiguration | undefined;
 
   /**
    * <p>Contains details about the configuration of the Amazon Kendra index used for the <code>AMAZON.QnAIntent</code>. To create a Amazon Kendra index, follow the steps at <a href="https://docs.aws.amazon.com/kendra/latest/dg/create-index.html">Creating an index</a>.</p>
    * @public
    */
-  kendraConfiguration?: QnAKendraConfiguration;
+  kendraConfiguration?: QnAKendraConfiguration | undefined;
 
   /**
    * <p>Contains details about the configuration of the Amazon Bedrock knowledge base used for the <code>AMAZON.QnAIntent</code>. To set up a knowledge base, follow the steps at <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/knowledge-base.html">Building a knowledge base</a>.</p>
    * @public
    */
-  bedrockKnowledgeStoreConfiguration?: BedrockKnowledgeStoreConfiguration;
+  bedrockKnowledgeStoreConfiguration?: BedrockKnowledgeStoreConfiguration | undefined;
 }
 
 /**
@@ -6277,13 +6471,13 @@ export interface QnAIntentConfiguration {
    * <p>Contains details about the configuration of the data source used for the <code>AMAZON.QnAIntent</code>.</p>
    * @public
    */
-  dataSourceConfiguration?: DataSourceConfiguration;
+  dataSourceConfiguration?: DataSourceConfiguration | undefined;
 
   /**
    * <p>Contains information about the Amazon Bedrock model used to interpret the prompt used in descriptive bot building.</p>
    * @public
    */
-  bedrockModelConfiguration?: BedrockModelSpecification;
+  bedrockModelConfiguration?: BedrockModelSpecification | undefined;
 }
 
 /**
@@ -6333,7 +6527,7 @@ export interface CreateResourcePolicyResponse {
    *          resource policy was attached to.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The current revision of the resource policy. Use the revision ID to
@@ -6342,7 +6536,7 @@ export interface CreateResourcePolicyResponse {
    *          resource, or update a resource.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 }
 
 /**
@@ -6371,13 +6565,13 @@ export interface Principal {
    *          an Amazon Lex action.</p>
    * @public
    */
-  service?: string;
+  service?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the principal.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -6433,7 +6627,7 @@ export interface CreateResourcePolicyStatementRequest {
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition.html">IAM JSON policy elements: Condition </a>.</p>
    * @public
    */
-  condition?: Record<string, Record<string, string>>;
+  condition?: Record<string, Record<string, string>> | undefined;
 
   /**
    * <p>The identifier of the revision of the policy to edit. If this
@@ -6443,7 +6637,7 @@ export interface CreateResourcePolicyStatementRequest {
    *          the policy with the new values.</p>
    * @public
    */
-  expectedRevisionId?: string;
+  expectedRevisionId?: string | undefined;
 }
 
 /**
@@ -6455,7 +6649,7 @@ export interface CreateResourcePolicyStatementResponse {
    *          resource policy is attached to.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The current revision of the resource policy. Use the revision ID to
@@ -6464,7 +6658,7 @@ export interface CreateResourcePolicyStatementResponse {
    *          resource, or update a resource.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 }
 
 /**
@@ -6484,7 +6678,7 @@ export interface MultipleValuesSetting {
    *          value is <code>false</code>.</p>
    * @public
    */
-  allowMultipleValues?: boolean;
+  allowMultipleValues?: boolean | undefined;
 }
 
 /**
@@ -6575,7 +6769,7 @@ export interface StillWaitingResponseSpecification {
    *          the message is being played.</p>
    * @public
    */
-  allowInterrupt?: boolean;
+  allowInterrupt?: boolean | undefined;
 }
 
 /**
@@ -6603,7 +6797,7 @@ export interface WaitAndContinueSpecification {
    *          that the bot is still waiting for input from the user.</p>
    * @public
    */
-  stillWaitingResponse?: StillWaitingResponseSpecification;
+  stillWaitingResponse?: StillWaitingResponseSpecification | undefined;
 
   /**
    * <p>Specifies whether the bot will wait for a user to respond. When this
@@ -6612,7 +6806,7 @@ export interface WaitAndContinueSpecification {
    *          true.</p>
    * @public
    */
-  active?: boolean;
+  active?: boolean | undefined;
 }
 
 /**
@@ -6632,7 +6826,7 @@ export interface SubSlotValueElicitationSetting {
    *          for a slot.</p>
    * @public
    */
-  defaultValueSpecification?: SlotDefaultValueSpecification;
+  defaultValueSpecification?: SlotDefaultValueSpecification | undefined;
 
   /**
    * <p>Specifies a list of message groups that Amazon Lex sends to a user to
@@ -6647,14 +6841,14 @@ export interface SubSlotValueElicitationSetting {
    *       of understanding user utterances. This is similar to <code>SampleUtterances</code> for slots.</p>
    * @public
    */
-  sampleUtterances?: SampleUtterance[];
+  sampleUtterances?: SampleUtterance[] | undefined;
 
   /**
    * <p>Specifies the prompts that Amazon Lex uses while a bot is waiting for
    *          customer input. </p>
    * @public
    */
-  waitAndContinueSpecification?: WaitAndContinueSpecification;
+  waitAndContinueSpecification?: WaitAndContinueSpecification | undefined;
 }
 
 /**
@@ -6685,13 +6879,13 @@ export interface SubSlotSetting {
    * <p>The expression text for defining the constituent sub slots in the composite slot using logical AND and OR operators.</p>
    * @public
    */
-  expression?: string;
+  expression?: string | undefined;
 
   /**
    * <p>Specifications for the constituent sub slots of a composite slot.</p>
    * @public
    */
-  slotSpecifications?: Record<string, Specifications>;
+  slotSpecifications?: Record<string, Specifications> | undefined;
 }
 
 /**
@@ -6756,7 +6950,7 @@ export interface GrammarSlotTypeSource {
    * <p>The KMS key required to decrypt the contents of the grammar, if any.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -6768,7 +6962,7 @@ export interface GrammarSlotTypeSetting {
    * <p>The source of the grammar used to create the slot type.</p>
    * @public
    */
-  source?: GrammarSlotTypeSource;
+  source?: GrammarSlotTypeSource | undefined;
 }
 
 /**
@@ -6780,7 +6974,7 @@ export interface ExternalSourceSetting {
    * <p>Settings required for a slot type based on a grammar that you provide.</p>
    * @public
    */
-  grammarSlotTypeSetting?: GrammarSlotTypeSetting;
+  grammarSlotTypeSetting?: GrammarSlotTypeSetting | undefined;
 }
 
 /**
@@ -6806,13 +7000,13 @@ export interface SlotTypeValue {
    * <p>The value of the slot type entry.</p>
    * @public
    */
-  sampleValue?: SampleValue;
+  sampleValue?: SampleValue | undefined;
 
   /**
    * <p>Additional values related to the slot type entry.</p>
    * @public
    */
-  synonyms?: SampleValue[];
+  synonyms?: SampleValue[] | undefined;
 }
 
 /**
@@ -6900,7 +7094,7 @@ export interface SlotValueSelectionSetting {
    * <p>A regular expression used to validate the value of a slot.</p>
    * @public
    */
-  regexFilter?: SlotValueRegexFilter;
+  regexFilter?: SlotValueRegexFilter | undefined;
 
   /**
    * <p>Provides settings that enable advanced recognition settings for slot
@@ -6908,7 +7102,7 @@ export interface SlotValueSelectionSetting {
    *          vocabulary for recognizing user utterances.</p>
    * @public
    */
-  advancedRecognitionSetting?: AdvancedRecognitionSetting;
+  advancedRecognitionSetting?: AdvancedRecognitionSetting | undefined;
 }
 
 /**
@@ -6927,7 +7121,7 @@ export interface CreateSlotTypeRequest {
    *          the slot type in lists.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of <code>SlotTypeValue</code> objects that defines the values
@@ -6936,7 +7130,7 @@ export interface CreateSlotTypeRequest {
    *          values that it resolves for a slot.</p>
    * @public
    */
-  slotTypeValues?: SlotTypeValue[];
+  slotTypeValues?: SlotTypeValue[] | undefined;
 
   /**
    * <p>Determines the strategy that Amazon Lex uses to select a value from the
@@ -6959,7 +7153,7 @@ export interface CreateSlotTypeRequest {
    *          parameter, the default is <code>ORIGINAL_VALUE</code>.</p>
    * @public
    */
-  valueSelectionSetting?: SlotValueSelectionSetting;
+  valueSelectionSetting?: SlotValueSelectionSetting | undefined;
 
   /**
    * <p>The built-in slot type used as a parent of this slot type. When you
@@ -6968,7 +7162,7 @@ export interface CreateSlotTypeRequest {
    *          <p>Only <code>AMAZON.AlphaNumeric</code> is supported.</p>
    * @public
    */
-  parentSlotTypeSignature?: string;
+  parentSlotTypeSignature?: string | undefined;
 
   /**
    * <p>The identifier of the bot associated with this slot type.</p>
@@ -6997,13 +7191,13 @@ export interface CreateSlotTypeRequest {
    *          type.</p>
    * @public
    */
-  externalSourceSetting?: ExternalSourceSetting;
+  externalSourceSetting?: ExternalSourceSetting | undefined;
 
   /**
    * <p>Specifications for a composite slot type.</p>
    * @public
    */
-  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting | undefined;
 }
 
 /**
@@ -7016,77 +7210,77 @@ export interface CreateSlotTypeResponse {
    *             <code>DeleteSlotType</code> operations.</p>
    * @public
    */
-  slotTypeId?: string;
+  slotTypeId?: string | undefined;
 
   /**
    * <p>The name specified for the slot type.</p>
    * @public
    */
-  slotTypeName?: string;
+  slotTypeName?: string | undefined;
 
   /**
    * <p>The description specified for the slot type.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The list of values that the slot type can assume.</p>
    * @public
    */
-  slotTypeValues?: SlotTypeValue[];
+  slotTypeValues?: SlotTypeValue[] | undefined;
 
   /**
    * <p>The strategy that Amazon Lex uses to select a value from the list of
    *          possible values.</p>
    * @public
    */
-  valueSelectionSetting?: SlotValueSelectionSetting;
+  valueSelectionSetting?: SlotValueSelectionSetting | undefined;
 
   /**
    * <p>The signature of the base slot type specified for the slot
    *          type.</p>
    * @public
    */
-  parentSlotTypeSignature?: string;
+  parentSlotTypeSignature?: string | undefined;
 
   /**
    * <p>The identifier for the bot associated with the slot type.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The version of the bot associated with the slot type.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The specified language and local specified for the slot type.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>A timestamp of the date and time that the slot type was
    *          created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The type of external information used to create the slot
    *          type.</p>
    * @public
    */
-  externalSourceSetting?: ExternalSourceSetting;
+  externalSourceSetting?: ExternalSourceSetting | undefined;
 
   /**
    * <p>Specifications for a composite slot type.</p>
    * @public
    */
-  compositeSlotTypeSetting?: CompositeSlotTypeSetting;
+  compositeSlotTypeSetting?: CompositeSlotTypeSetting | undefined;
 }
 
 /**
@@ -7125,7 +7319,7 @@ export interface TestSetDiscrepancyReportResourceTarget {
    *  test set discrepancy report.</p>
    * @public
    */
-  botAliasTarget?: TestSetDiscrepancyReportBotAliasTarget;
+  botAliasTarget?: TestSetDiscrepancyReportBotAliasTarget | undefined;
 }
 
 /**
@@ -7153,25 +7347,25 @@ export interface CreateTestSetDiscrepancyReportResponse {
    * <p>The unique identifier of the test set discrepancy report to describe.</p>
    * @public
    */
-  testSetDiscrepancyReportId?: string;
+  testSetDiscrepancyReportId?: string | undefined;
 
   /**
    * <p>The creation date and time for the test set discrepancy report.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>The test set Id for the test set discrepancy report.</p>
    * @public
    */
-  testSetId?: string;
+  testSetId?: string | undefined;
 
   /**
    * <p>The target bot for the test set discrepancy report.</p>
    * @public
    */
-  target?: TestSetDiscrepancyReportResourceTarget;
+  target?: TestSetDiscrepancyReportResourceTarget | undefined;
 }
 
 /**
@@ -7188,14 +7382,14 @@ export interface CreateUploadUrlResponse {
    *             <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_StartImport.html">StartImport</a> operation.</p>
    * @public
    */
-  importId?: string;
+  importId?: string | undefined;
 
   /**
    * <p>A pre-signed S3 write URL. Upload the zip archive file that contains
    *          the definition of your bot or bot locale.</p>
    * @public
    */
-  uploadUrl?: string;
+  uploadUrl?: string | undefined;
 }
 
 /**
@@ -7280,7 +7474,7 @@ export interface DeleteBotRequest {
    *          another resource.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -7291,14 +7485,14 @@ export interface DeleteBotResponse {
    * <p>The unique identifier of the bot that Amazon Lex is deleting.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The current status of the bot. The status is <code>Deleting</code>
    *          while the bot and its associated resources are being deleted.</p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 }
 
 /**
@@ -7327,7 +7521,7 @@ export interface DeleteBotAliasRequest {
    *          another resource.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -7338,14 +7532,14 @@ export interface DeleteBotAliasResponse {
    * <p>The unique identifier of the bot alias to delete.</p>
    * @public
    */
-  botAliasId?: string;
+  botAliasId?: string | undefined;
 
   /**
    * <p>The unique identifier of the bot that contains the alias to
    *          delete.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The current status of the alias. The status is <code>Deleting</code>
@@ -7354,7 +7548,7 @@ export interface DeleteBotAliasResponse {
    *          the <code>ListBotAliases</code> operation.</p>
    * @public
    */
-  botAliasStatus?: BotAliasStatus;
+  botAliasStatus?: BotAliasStatus | undefined;
 }
 
 /**
@@ -7390,19 +7584,19 @@ export interface DeleteBotLocaleResponse {
    * <p>The identifier of the bot that contained the deleted locale.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The version of the bot that contained the deleted locale.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The language and locale of the deleted locale.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The status of deleting the bot locale. The locale first enters the
@@ -7410,7 +7604,7 @@ export interface DeleteBotLocaleResponse {
    *          longer appears in the list of locales for the bot.</p>
    * @public
    */
-  botLocaleStatus?: BotLocaleStatus;
+  botLocaleStatus?: BotLocaleStatus | undefined;
 }
 
 /**
@@ -7438,19 +7632,19 @@ export interface DeleteBotReplicaResponse {
    * <p>The unique bot ID of the replicated bot generated.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The region of the replicated bot generated.</p>
    * @public
    */
-  replicaRegion?: string;
+  replicaRegion?: string | undefined;
 
   /**
    * <p>The operational status of the replicated bot generated.</p>
    * @public
    */
-  botReplicaStatus?: BotReplicaStatus;
+  botReplicaStatus?: BotReplicaStatus | undefined;
 }
 
 /**
@@ -7478,7 +7672,7 @@ export interface DeleteBotVersionRequest {
    *          another resource.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -7489,19 +7683,19 @@ export interface DeleteBotVersionResponse {
    * <p>The identifier of the bot that is being deleted.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The version of the bot that is being deleted.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The current status of the bot. </p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 }
 
 /**
@@ -7539,27 +7733,27 @@ export interface DeleteCustomVocabularyResponse {
    *       was removed from.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The version of the bot that the custom vocabulary
    *          was removed from.</p>
    * @public
    */
-  botVersion?: string;
+  botVersion?: string | undefined;
 
   /**
    * <p>The locale identifier for the locale that the
    *          custom vocabulary was removed from.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The status of removing the custom vocabulary.</p>
    * @public
    */
-  customVocabularyStatus?: CustomVocabularyStatus;
+  customVocabularyStatus?: CustomVocabularyStatus | undefined;
 }
 
 /**
@@ -7581,7 +7775,7 @@ export interface DeleteExportResponse {
    * <p>The unique identifier of the deleted export.</p>
    * @public
    */
-  exportId?: string;
+  exportId?: string | undefined;
 
   /**
    * <p>The current status of the deletion. When the deletion is complete,
@@ -7590,7 +7784,7 @@ export interface DeleteExportResponse {
    *          fail.</p>
    * @public
    */
-  exportStatus?: ExportStatus;
+  exportStatus?: ExportStatus | undefined;
 }
 
 /**
@@ -7628,7 +7822,7 @@ export interface DeleteImportResponse {
    * <p>The unique identifier of the deleted import.</p>
    * @public
    */
-  importId?: string;
+  importId?: string | undefined;
 
   /**
    * <p>The current status of the deletion. When the deletion is complete,
@@ -7636,7 +7830,7 @@ export interface DeleteImportResponse {
    *          fail.</p>
    * @public
    */
-  importStatus?: ImportStatus;
+  importStatus?: ImportStatus | undefined;
 }
 
 /**
@@ -7688,7 +7882,7 @@ export interface DeleteResourcePolicyRequest {
    *          policy.</p>
    * @public
    */
-  expectedRevisionId?: string;
+  expectedRevisionId?: string | undefined;
 }
 
 /**
@@ -7700,7 +7894,7 @@ export interface DeleteResourcePolicyResponse {
    *          resource policy was deleted from.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The current revision of the resource policy. Use the revision ID to
@@ -7709,7 +7903,7 @@ export interface DeleteResourcePolicyResponse {
    *          resource, or update a resource.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 }
 
 /**
@@ -7737,7 +7931,7 @@ export interface DeleteResourcePolicyStatementRequest {
    *          of the statement. </p>
    * @public
    */
-  expectedRevisionId?: string;
+  expectedRevisionId?: string | undefined;
 }
 
 /**
@@ -7749,7 +7943,7 @@ export interface DeleteResourcePolicyStatementResponse {
    *          resource policy statement was removed from.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The current revision of the resource policy. Use the revision ID to
@@ -7758,7 +7952,7 @@ export interface DeleteResourcePolicyStatementResponse {
    *          resource, or update a resource.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 }
 
 /**
@@ -7836,7 +8030,7 @@ export interface DeleteSlotTypeRequest {
    *          type even if a slot uses it.</p>
    * @public
    */
-  skipResourceInUseCheck?: boolean;
+  skipResourceInUseCheck?: boolean | undefined;
 }
 
 /**
@@ -7868,14 +8062,14 @@ export interface DeleteUtterancesRequest {
    *          languages</a>.</p>
    * @public
    */
-  localeId?: string;
+  localeId?: string | undefined;
 
   /**
    * <p>The unique identifier of the session with the user. The ID is
    *          returned in the response from the <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeText.html">RecognizeText</a> and <a href="https://docs.aws.amazon.com/lexv2/latest/APIReference/API_runtime_RecognizeUtterance.html">RecognizeUtterance</a> operations.</p>
    * @public
    */
-  sessionId?: string;
+  sessionId?: string | undefined;
 }
 
 /**
@@ -7902,40 +8096,40 @@ export interface DescribeBotResponse {
    * <p>The unique identifier of the bot.</p>
    * @public
    */
-  botId?: string;
+  botId?: string | undefined;
 
   /**
    * <p>The name of the bot.</p>
    * @public
    */
-  botName?: string;
+  botName?: string | undefined;
 
   /**
    * <p>The description of the bot. </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
    *          access the bot.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>Settings for managing data privacy of the bot and its conversations
    *          with users.</p>
    * @public
    */
-  dataPrivacy?: DataPrivacy;
+  dataPrivacy?: DataPrivacy | undefined;
 
   /**
    * <p>The maximum time in seconds that Amazon Lex retains the data gathered in
    *          a conversation.</p>
    * @public
    */
-  idleSessionTTLInSeconds?: number;
+  idleSessionTTLInSeconds?: number | undefined;
 
   /**
    * <p>The current status of the bot. When the status is
@@ -7943,368 +8137,45 @@ export interface DescribeBotResponse {
    *          with users.</p>
    * @public
    */
-  botStatus?: BotStatus;
+  botStatus?: BotStatus | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot was created.</p>
    * @public
    */
-  creationDateTime?: Date;
+  creationDateTime?: Date | undefined;
 
   /**
    * <p>A timestamp of the date and time that the bot was last
    *          updated.</p>
    * @public
    */
-  lastUpdatedDateTime?: Date;
+  lastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The type of the bot that was described.</p>
    * @public
    */
-  botType?: BotType;
+  botType?: BotType | undefined;
 
   /**
    * <p>The list of bots in the network that was described.</p>
    * @public
    */
-  botMembers?: BotMember[];
+  botMembers?: BotMember[] | undefined;
 
   /**
    * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
    *          a list of reasons that the bot couldn't be built.</p>
    * @public
    */
-  failureReasons?: string[];
-}
-
-/**
- * @public
- */
-export interface DescribeBotAliasRequest {
-  /**
-   * <p>The identifier of the bot alias to describe.</p>
-   * @public
-   */
-  botAliasId: string | undefined;
+  failureReasons?: string[] | undefined;
 
   /**
-   * <p>The identifier of the bot associated with the bot alias to
-   *          describe.</p>
+   * <p>Contains the configuration for error logging that specifies where and how bot errors are recorded, including destinations like CloudWatch Logs.</p>
    * @public
    */
-  botId: string | undefined;
-}
-
-/**
- * <p>A network of bots.</p>
- * @public
- */
-export interface ParentBotNetwork {
-  /**
-   * <p>The identifier of the network of bots assigned by Amazon Lex.</p>
-   * @public
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the network of bots.</p>
-   * @public
-   */
-  botVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBotAliasResponse {
-  /**
-   * <p>The identifier of the bot alias.</p>
-   * @public
-   */
-  botAliasId?: string;
-
-  /**
-   * <p>The name of the bot alias.</p>
-   * @public
-   */
-  botAliasName?: string;
-
-  /**
-   * <p>The description of the bot alias.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The version of the bot associated with the bot alias.</p>
-   * @public
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The locale settings that are unique to the alias.</p>
-   * @public
-   */
-  botAliasLocaleSettings?: Record<string, BotAliasLocaleSettings>;
-
-  /**
-   * <p>Specifics of how Amazon Lex logs text and audio conversations with the
-   *          bot associated with the alias.</p>
-   * @public
-   */
-  conversationLogSettings?: ConversationLogSettings;
-
-  /**
-   * <p>Determines whether Amazon Lex will use Amazon Comprehend to detect the sentiment of
-   *          user utterances.</p>
-   * @public
-   */
-  sentimentAnalysisSettings?: SentimentAnalysisSettings;
-
-  /**
-   * <p>A list of events that affect a bot alias. For example, an event is
-   *          recorded when the version that the alias points to changes.</p>
-   * @public
-   */
-  botAliasHistoryEvents?: BotAliasHistoryEvent[];
-
-  /**
-   * <p>The current status of the alias. When the alias is
-   *             <code>Available</code>, the alias is ready for use with your
-   *          bot.</p>
-   * @public
-   */
-  botAliasStatus?: BotAliasStatus;
-
-  /**
-   * <p>The identifier of the bot associated with the bot alias.</p>
-   * @public
-   */
-  botId?: string;
-
-  /**
-   * <p>A timestamp of the date and time that the alias was created.</p>
-   * @public
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>A timestamp of the date and time that the alias was last
-   *          updated.</p>
-   * @public
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>A list of the networks to which the bot alias you described belongs.</p>
-   * @public
-   */
-  parentBotNetworks?: ParentBotNetwork[];
-}
-
-/**
- * @public
- */
-export interface DescribeBotLocaleRequest {
-  /**
-   * <p>The identifier of the bot associated with the locale.</p>
-   * @public
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot associated with the
-   *          locale.</p>
-   * @public
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The unique identifier of the locale to describe. The string must
-   *          match one of the supported locales. For more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>. </p>
-   * @public
-   */
-  localeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBotLocaleResponse {
-  /**
-   * <p>The identifier of the bot associated with the locale.</p>
-   * @public
-   */
-  botId?: string;
-
-  /**
-   * <p>The version of the bot associated with the
-   *          locale.</p>
-   * @public
-   */
-  botVersion?: string;
-
-  /**
-   * <p>The unique identifier of the described locale.</p>
-   * @public
-   */
-  localeId?: string;
-
-  /**
-   * <p>The name of the locale.</p>
-   * @public
-   */
-  localeName?: string;
-
-  /**
-   * <p>The description of the locale.</p>
-   * @public
-   */
-  description?: string;
-
-  /**
-   * <p>The confidence threshold where Amazon Lex inserts the
-   *             <code>AMAZON.FallbackIntent</code> and
-   *             <code>AMAZON.KendraSearchIntent</code> intents in the list of
-   *          possible intents for an utterance.</p>
-   * @public
-   */
-  nluIntentConfidenceThreshold?: number;
-
-  /**
-   * <p>The Amazon Polly voice Amazon Lex uses for voice interaction with the
-   *          user.</p>
-   * @public
-   */
-  voiceSettings?: VoiceSettings;
-
-  /**
-   * <p>The number of intents defined for the locale.</p>
-   * @public
-   */
-  intentsCount?: number;
-
-  /**
-   * <p>The number of slot types defined for the locale.</p>
-   * @public
-   */
-  slotTypesCount?: number;
-
-  /**
-   * <p>The status of the bot. If the status is <code>Failed</code>, the
-   *          reasons for the failure are listed in the <code>failureReasons</code>
-   *          field.</p>
-   * @public
-   */
-  botLocaleStatus?: BotLocaleStatus;
-
-  /**
-   * <p>if <code>botLocaleStatus</code> is <code>Failed</code>, Amazon Lex
-   *          explains why it failed to build the bot.</p>
-   * @public
-   */
-  failureReasons?: string[];
-
-  /**
-   * <p>The date and time that the locale was created.</p>
-   * @public
-   */
-  creationDateTime?: Date;
-
-  /**
-   * <p>The date and time that the locale was last updated.</p>
-   * @public
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * <p>The date and time that the locale was last submitted for
-   *          building.</p>
-   * @public
-   */
-  lastBuildSubmittedDateTime?: Date;
-
-  /**
-   * <p>History of changes, such as when a locale is used in an alias, that
-   *          have taken place for the locale.</p>
-   * @public
-   */
-  botLocaleHistoryEvents?: BotLocaleHistoryEvent[];
-
-  /**
-   * <p>Recommended actions to take to resolve an error in the
-   *             <code>failureReasons</code> field.</p>
-   * @public
-   */
-  recommendedActions?: string[];
-
-  /**
-   * <p>Contains settings for Amazon Bedrock's generative AI features for your bot locale.</p>
-   * @public
-   */
-  generativeAISettings?: GenerativeAISettings;
-}
-
-/**
- * @public
- */
-export interface DescribeBotRecommendationRequest {
-  /**
-   * <p>The unique identifier of the bot associated with the bot
-   *          recommendation.</p>
-   * @public
-   */
-  botId: string | undefined;
-
-  /**
-   * <p>The version of the bot associated with the bot
-   *          recommendation.</p>
-   * @public
-   */
-  botVersion: string | undefined;
-
-  /**
-   * <p>The identifier of the language and locale of the bot recommendation
-   *          to describe. The string must match one of the supported locales. For
-   *          more information, see <a href="https://docs.aws.amazon.com/lexv2/latest/dg/how-languages.html">Supported languages</a>.</p>
-   * @public
-   */
-  localeId: string | undefined;
-
-  /**
-   * <p>The identifier of the bot recommendation to describe.</p>
-   * @public
-   */
-  botRecommendationId: string | undefined;
-}
-
-/**
- * <p>The object representing the passwords that were used to encrypt the
- *             data related to the bot recommendation, as well as the KMS key ARN used
- *             to encrypt the associated metadata.</p>
- * @public
- */
-export interface EncryptionSetting {
-  /**
-   * <p>The KMS key ARN used to encrypt the metadata associated with the bot
-   *             recommendation.</p>
-   * @public
-   */
-  kmsKeyArn?: string;
-
-  /**
-   * <p>The password used to encrypt the recommended bot recommendation
-   *             file.</p>
-   * @public
-   */
-  botLocaleExportPassword?: string;
-
-  /**
-   * <p>The password used to encrypt the associated transcript file.</p>
-   * @public
-   */
-  associatedTranscriptsPassword?: string;
+  errorLogSettings?: ErrorLogSettings | undefined;
 }
 
 /**
@@ -8313,13 +8184,4 @@ export interface EncryptionSetting {
 export const CreateExportRequestFilterSensitiveLog = (obj: CreateExportRequest): any => ({
   ...obj,
   ...(obj.filePassword && { filePassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const EncryptionSettingFilterSensitiveLog = (obj: EncryptionSetting): any => ({
-  ...obj,
-  ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
-  ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
 });

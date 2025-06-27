@@ -16,7 +16,8 @@ import { de_CreateHomeRegionControlCommand, se_CreateHomeRegionControlCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface CreateHomeRegionControlCommandOutput extends CreateHomeRegionCo
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class CreateHomeRegionControlCommand extends $Command
@@ -103,9 +105,7 @@ export class CreateHomeRegionControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class CreateHomeRegionControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHomeRegionControlCommand)
   .de(de_CreateHomeRegionControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHomeRegionControlRequest;
+      output: CreateHomeRegionControlResult;
+    };
+    sdk: {
+      input: CreateHomeRegionControlCommandInput;
+      output: CreateHomeRegionControlCommandOutput;
+    };
+  };
+}

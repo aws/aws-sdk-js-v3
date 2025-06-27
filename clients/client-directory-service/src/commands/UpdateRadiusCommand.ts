@@ -12,7 +12,8 @@ import { de_UpdateRadiusCommand, se_UpdateRadiusCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,32 @@ export interface UpdateRadiusCommandOutput extends UpdateRadiusResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To update Radius
+ * ```javascript
+ * // The following example updates the Remote Authentication Dial In User Service (RADIUS) server settings for an AD Connector directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   RadiusSettings: {
+ *     AuthenticationProtocol: "PAP",
+ *     DisplayLabel: "MyRadius",
+ *     RadiusPort: 1027,
+ *     RadiusRetries: 1,
+ *     RadiusServers: [
+ *       "172.168.101.113"
+ *     ],
+ *     RadiusTimeout: 1,
+ *     SharedSecret: "12345678",
+ *     UseSameUsername: true
+ *   }
+ * };
+ * const command = new UpdateRadiusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateRadiusCommand extends $Command
@@ -87,9 +114,7 @@ export class UpdateRadiusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +126,16 @@ export class UpdateRadiusCommand extends $Command
   .f(UpdateRadiusRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateRadiusCommand)
   .de(de_UpdateRadiusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRadiusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRadiusCommandInput;
+      output: UpdateRadiusCommandOutput;
+    };
+  };
+}

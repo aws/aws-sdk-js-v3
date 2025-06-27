@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface LogoutCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOServiceException}
  * <p>Base exception class for all service exceptions from SSO service.</p>
  *
+ *
  * @public
  */
 export class LogoutCommand extends $Command
@@ -87,9 +89,7 @@ export class LogoutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class LogoutCommand extends $Command
   .f(LogoutRequestFilterSensitiveLog, void 0)
   .ser(se_LogoutCommand)
   .de(de_LogoutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LogoutRequest;
+      output: {};
+    };
+    sdk: {
+      input: LogoutCommandInput;
+      output: LogoutCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeDataSetRefreshPropertiesRequest, DescribeDataSetRefreshPropertiesResponse } from "../models/models_3";
+import { DescribeDataSetRefreshPropertiesRequest, DescribeDataSetRefreshPropertiesResponse } from "../models/models_4";
 import {
   de_DescribeDataSetRefreshPropertiesCommand,
   se_DescribeDataSetRefreshPropertiesCommand,
@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,11 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * //         },
  * //       },
  * //     },
+ * //     FailureConfiguration: { // RefreshFailureConfiguration
+ * //       EmailAlert: { // RefreshFailureEmailAlert
+ * //         AlertStatus: "ENABLED" || "DISABLED",
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -96,6 +102,7 @@ export interface DescribeDataSetRefreshPropertiesCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDataSetRefreshPropertiesCommand extends $Command
@@ -106,9 +113,7 @@ export class DescribeDataSetRefreshPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +125,16 @@ export class DescribeDataSetRefreshPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataSetRefreshPropertiesCommand)
   .de(de_DescribeDataSetRefreshPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataSetRefreshPropertiesRequest;
+      output: DescribeDataSetRefreshPropertiesResponse;
+    };
+    sdk: {
+      input: DescribeDataSetRefreshPropertiesCommandInput;
+      output: DescribeDataSetRefreshPropertiesCommandOutput;
+    };
+  };
+}

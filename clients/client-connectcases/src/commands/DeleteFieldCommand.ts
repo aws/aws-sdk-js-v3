@@ -12,7 +12,8 @@ import { de_DeleteFieldCommand, se_DeleteFieldCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,24 +36,25 @@ export interface DeleteFieldCommandOutput extends DeleteFieldResponse, __Metadat
  *             </li>
  *             <li>
  *                <p>You cannot update a deleted field by calling <code>UpdateField</code>; it throws a
- *           <code>ValidationException</code>.</p>
+ *             <code>ValidationException</code>.</p>
  *             </li>
  *             <li>
  *                <p>Deleted fields are not included in the <code>ListFields</code> response.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>CreateCase</code> with a deleted field throws a <code>ValidationException</code> denoting
- *           which field IDs in the request have been deleted.</p>
+ *                <p>Calling <code>CreateCase</code> with a deleted field throws a
+ *             <code>ValidationException</code> denoting which field IDs in the request have been
+ *           deleted.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>GetCase</code> with a deleted field ID returns the deleted field's value if one
- *           exists.</p>
+ *                <p>Calling <code>GetCase</code> with a deleted field ID returns the deleted field's value
+ *           if one exists.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>UpdateCase</code> with a deleted field ID throws a <code>ValidationException</code> if the
- *           case does not already contain a value for the deleted field. Otherwise it succeeds,
- *           allowing you to update or remove (using <code>emptyValue: \{\}</code>) the field's value from the
- *           case.</p>
+ *                <p>Calling <code>UpdateCase</code> with a deleted field ID throws a
+ *             <code>ValidationException</code> if the case does not already contain a value for the
+ *           deleted field. Otherwise it succeeds, allowing you to update or remove (using
+ *             <code>emptyValue: \{\}</code>) the field's value from the case.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -63,18 +65,20 @@ export interface DeleteFieldCommandOutput extends DeleteFieldResponse, __Metadat
  *                   <code>GetLayout</code> does not return field IDs for deleted fields.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>SearchCases</code> with the deleted field ID as a filter returns any cases that
- *           have a value for the deleted field that matches the filter criteria.</p>
+ *                <p>Calling <code>SearchCases</code> with the deleted field ID as a filter returns any
+ *           cases that have a value for the deleted field that matches the filter criteria.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>SearchCases</code> with a <code>searchTerm</code> value that matches a deleted field's value on a
- *           case returns the case in the response.</p>
+ *                <p>Calling <code>SearchCases</code> with a <code>searchTerm</code> value that matches a
+ *           deleted field's value on a case returns the case in the response.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>BatchPutFieldOptions</code> with a deleted field ID throw a <code>ValidationException</code>.</p>
+ *                <p>Calling <code>BatchPutFieldOptions</code> with a deleted field ID throw a
+ *             <code>ValidationException</code>.</p>
  *             </li>
  *             <li>
- *                <p>Calling <code>GetCaseEventConfiguration</code> does not return field IDs for deleted fields.</p>
+ *                <p>Calling <code>GetCaseEventConfiguration</code> does not return field IDs for deleted
+ *           fields.</p>
  *             </li>
  *          </ul>
  * @example
@@ -128,6 +132,7 @@ export interface DeleteFieldCommandOutput extends DeleteFieldResponse, __Metadat
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class DeleteFieldCommand extends $Command
@@ -138,9 +143,7 @@ export class DeleteFieldCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +155,16 @@ export class DeleteFieldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFieldCommand)
   .de(de_DeleteFieldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFieldRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFieldCommandInput;
+      output: DeleteFieldCommandOutput;
+    };
+  };
+}

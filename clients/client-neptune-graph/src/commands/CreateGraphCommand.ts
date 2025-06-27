@@ -12,7 +12,8 @@ import { de_CreateGraphCommand, se_CreateGraphCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface CreateGraphCommandOutput extends CreateGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class CreateGraphCommand extends $Command
@@ -121,4 +123,16 @@ export class CreateGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGraphCommand)
   .de(de_CreateGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGraphInput;
+      output: CreateGraphOutput;
+    };
+    sdk: {
+      input: CreateGraphCommandInput;
+      output: CreateGraphCommandOutput;
+    };
+  };
+}

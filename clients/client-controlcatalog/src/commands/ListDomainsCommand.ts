@@ -12,7 +12,8 @@ import { de_ListDomainsCommand, se_ListDomainsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListDomainsCommandInput extends ListDomainsRequest {}
 export interface ListDomainsCommandOutput extends ListDomainsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of domains from the Amazon Web Services Control Catalog.</p>
+ * <p>Returns a paginated list of domains from the Control Catalog.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +77,7 @@ export interface ListDomainsCommandOutput extends ListDomainsResponse, __Metadat
  * @throws {@link ControlCatalogServiceException}
  * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListDomainsCommand extends $Command
@@ -86,9 +88,7 @@ export class ListDomainsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDomainsCommand)
   .de(de_ListDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainsRequest;
+      output: ListDomainsResponse;
+    };
+    sdk: {
+      input: ListDomainsCommandInput;
+      output: ListDomainsCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,9 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  * <p>Returns drift information for resources in a stack instance.</p>
  *          <note>
  *             <p>
- *                <code>ListStackInstanceResourceDrifts</code> returns drift information for the most recent drift detection
- *     operation. If an operation is in progress, it may only return partial results.</p>
+ *                <code>ListStackInstanceResourceDrifts</code> returns drift information for the most
+ *         recent drift detection operation. If an operation is in progress, it may only return partial
+ *         results.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -106,6 +108,7 @@ export interface ListStackInstanceResourceDriftsCommandOutput
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListStackInstanceResourceDriftsCommand extends $Command
@@ -116,9 +119,7 @@ export class ListStackInstanceResourceDriftsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class ListStackInstanceResourceDriftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStackInstanceResourceDriftsCommand)
   .de(de_ListStackInstanceResourceDriftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStackInstanceResourceDriftsInput;
+      output: ListStackInstanceResourceDriftsOutput;
+    };
+    sdk: {
+      input: ListStackInstanceResourceDriftsCommandInput;
+      output: ListStackInstanceResourceDriftsCommandOutput;
+    };
+  };
+}

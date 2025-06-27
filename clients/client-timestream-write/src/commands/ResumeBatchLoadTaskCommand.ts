@@ -13,7 +13,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ResumeBatchLoadTaskCommandOutput extends ResumeBatchLoadTaskRes
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class ResumeBatchLoadTaskCommand extends $Command
@@ -86,14 +88,16 @@ export class ResumeBatchLoadTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "ResumeBatchLoadTask", {})
@@ -101,4 +105,16 @@ export class ResumeBatchLoadTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeBatchLoadTaskCommand)
   .de(de_ResumeBatchLoadTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeBatchLoadTaskRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeBatchLoadTaskCommandInput;
+      output: ResumeBatchLoadTaskCommandOutput;
+    };
+  };
+}

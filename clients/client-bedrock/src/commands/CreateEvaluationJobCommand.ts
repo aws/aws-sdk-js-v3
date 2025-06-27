@@ -6,17 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  CreateEvaluationJobRequest,
-  CreateEvaluationJobRequestFilterSensitiveLog,
-  CreateEvaluationJobResponse,
-} from "../models/models_0";
+import { CreateEvaluationJobResponse } from "../models/models_0";
+import { CreateEvaluationJobRequest, CreateEvaluationJobRequestFilterSensitiveLog } from "../models/models_1";
 import { de_CreateEvaluationJobCommand, se_CreateEvaluationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +29,7 @@ export interface CreateEvaluationJobCommandInput extends CreateEvaluationJobRequ
 export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>API operation for creating and managing Amazon Bedrock automatic model evaluation jobs and model evaluation jobs that use human workers. To learn more about the requirements for creating a model evaluation job see, <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/model-evaluation.html">Model evaluations</a>.</p>
+ * <p>Creates an evaluation job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +48,7 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  *       value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   applicationType: "ModelEvaluation" || "RagEvaluation",
  *   evaluationConfig: { // EvaluationConfig Union: only one key present
  *     automated: { // AutomatedEvaluationConfig
  *       datasetMetricConfigs: [ // EvaluationDatasetMetricConfigs // required
@@ -66,6 +65,39 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  *           ],
  *         },
  *       ],
+ *       evaluatorModelConfig: { // EvaluatorModelConfig Union: only one key present
+ *         bedrockEvaluatorModels: [ // BedrockEvaluatorModels
+ *           { // BedrockEvaluatorModel
+ *             modelIdentifier: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *       customMetricConfig: { // AutomatedEvaluationCustomMetricConfig
+ *         customMetrics: [ // AutomatedEvaluationCustomMetrics // required
+ *           { // AutomatedEvaluationCustomMetricSource Union: only one key present
+ *             customMetricDefinition: { // CustomMetricDefinition
+ *               name: "STRING_VALUE", // required
+ *               instructions: "STRING_VALUE", // required
+ *               ratingScale: [ // RatingScale
+ *                 { // RatingScaleItem
+ *                   definition: "STRING_VALUE", // required
+ *                   value: { // RatingScaleItemValue Union: only one key present
+ *                     stringValue: "STRING_VALUE",
+ *                     floatValue: Number("float"),
+ *                   },
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         ],
+ *         evaluatorModelConfig: { // CustomMetricEvaluatorModelConfig
+ *           bedrockEvaluatorModels: [ // CustomMetricBedrockEvaluatorModels // required
+ *             { // CustomMetricBedrockEvaluatorModel
+ *               modelIdentifier: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *     human: { // HumanEvaluationConfig
  *       humanWorkflowConfig: { // HumanWorkflowConfig
@@ -100,7 +132,167 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  *       { // EvaluationModelConfig Union: only one key present
  *         bedrockModel: { // EvaluationBedrockModel
  *           modelIdentifier: "STRING_VALUE", // required
- *           inferenceParams: "STRING_VALUE", // required
+ *           inferenceParams: "STRING_VALUE",
+ *           performanceConfig: { // PerformanceConfiguration
+ *             latency: "standard" || "optimized",
+ *           },
+ *         },
+ *         precomputedInferenceSource: { // EvaluationPrecomputedInferenceSource
+ *           inferenceSourceIdentifier: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     ],
+ *     ragConfigs: [ // RagConfigs
+ *       { // RAGConfig Union: only one key present
+ *         knowledgeBaseConfig: { // KnowledgeBaseConfig Union: only one key present
+ *           retrieveConfig: { // RetrieveConfig
+ *             knowledgeBaseId: "STRING_VALUE", // required
+ *             knowledgeBaseRetrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
+ *               vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
+ *                 numberOfResults: Number("int"),
+ *                 overrideSearchType: "HYBRID" || "SEMANTIC",
+ *                 filter: { // RetrievalFilter Union: only one key present
+ *                   equals: { // FilterAttribute
+ *                     key: "STRING_VALUE", // required
+ *                     value: "DOCUMENT_VALUE", // required
+ *                   },
+ *                   notEquals: {
+ *                     key: "STRING_VALUE", // required
+ *                     value: "DOCUMENT_VALUE", // required
+ *                   },
+ *                   greaterThan: {
+ *                     key: "STRING_VALUE", // required
+ *                     value: "DOCUMENT_VALUE", // required
+ *                   },
+ *                   greaterThanOrEquals: {
+ *                     key: "STRING_VALUE", // required
+ *                     value: "DOCUMENT_VALUE", // required
+ *                   },
+ *                   lessThan: {
+ *                     key: "STRING_VALUE", // required
+ *                     value: "DOCUMENT_VALUE", // required
+ *                   },
+ *                   lessThanOrEquals: "<FilterAttribute>",
+ *                   in: "<FilterAttribute>",
+ *                   notIn: "<FilterAttribute>",
+ *                   startsWith: "<FilterAttribute>",
+ *                   listContains: "<FilterAttribute>",
+ *                   stringContains: "<FilterAttribute>",
+ *                   andAll: [ // RetrievalFilterList
+ *                     {//  Union: only one key present
+ *                       equals: "<FilterAttribute>",
+ *                       notEquals: "<FilterAttribute>",
+ *                       greaterThan: "<FilterAttribute>",
+ *                       greaterThanOrEquals: "<FilterAttribute>",
+ *                       lessThan: "<FilterAttribute>",
+ *                       lessThanOrEquals: "<FilterAttribute>",
+ *                       in: "<FilterAttribute>",
+ *                       notIn: "<FilterAttribute>",
+ *                       startsWith: "<FilterAttribute>",
+ *                       listContains: "<FilterAttribute>",
+ *                       stringContains: "<FilterAttribute>",
+ *                       andAll: [
+ *                         "<RetrievalFilter>",
+ *                       ],
+ *                       orAll: [
+ *                         "<RetrievalFilter>",
+ *                       ],
+ *                     },
+ *                   ],
+ *                   orAll: [
+ *                     "<RetrievalFilter>",
+ *                   ],
+ *                 },
+ *               },
+ *             },
+ *           },
+ *           retrieveAndGenerateConfig: { // RetrieveAndGenerateConfiguration
+ *             type: "KNOWLEDGE_BASE" || "EXTERNAL_SOURCES", // required
+ *             knowledgeBaseConfiguration: { // KnowledgeBaseRetrieveAndGenerateConfiguration
+ *               knowledgeBaseId: "STRING_VALUE", // required
+ *               modelArn: "STRING_VALUE", // required
+ *               retrievalConfiguration: {
+ *                 vectorSearchConfiguration: {
+ *                   numberOfResults: Number("int"),
+ *                   overrideSearchType: "HYBRID" || "SEMANTIC",
+ *                   filter: "<RetrievalFilter>",
+ *                 },
+ *               },
+ *               generationConfiguration: { // GenerationConfiguration
+ *                 promptTemplate: { // PromptTemplate
+ *                   textPromptTemplate: "STRING_VALUE",
+ *                 },
+ *                 guardrailConfiguration: { // GuardrailConfiguration
+ *                   guardrailId: "STRING_VALUE", // required
+ *                   guardrailVersion: "STRING_VALUE", // required
+ *                 },
+ *                 kbInferenceConfig: { // KbInferenceConfig
+ *                   textInferenceConfig: { // TextInferenceConfig
+ *                     temperature: Number("float"),
+ *                     topP: Number("float"),
+ *                     maxTokens: Number("int"),
+ *                     stopSequences: [ // RAGStopSequences
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 additionalModelRequestFields: { // AdditionalModelRequestFields
+ *                   "<keys>": "DOCUMENT_VALUE",
+ *                 },
+ *               },
+ *               orchestrationConfiguration: { // OrchestrationConfiguration
+ *                 queryTransformationConfiguration: { // QueryTransformationConfiguration
+ *                   type: "QUERY_DECOMPOSITION", // required
+ *                 },
+ *               },
+ *             },
+ *             externalSourcesConfiguration: { // ExternalSourcesRetrieveAndGenerateConfiguration
+ *               modelArn: "STRING_VALUE", // required
+ *               sources: [ // ExternalSources // required
+ *                 { // ExternalSource
+ *                   sourceType: "S3" || "BYTE_CONTENT", // required
+ *                   s3Location: { // S3ObjectDoc
+ *                     uri: "STRING_VALUE", // required
+ *                   },
+ *                   byteContent: { // ByteContentDoc
+ *                     identifier: "STRING_VALUE", // required
+ *                     contentType: "STRING_VALUE", // required
+ *                     data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")                     // required
+ *                   },
+ *                 },
+ *               ],
+ *               generationConfiguration: { // ExternalSourcesGenerationConfiguration
+ *                 promptTemplate: {
+ *                   textPromptTemplate: "STRING_VALUE",
+ *                 },
+ *                 guardrailConfiguration: {
+ *                   guardrailId: "STRING_VALUE", // required
+ *                   guardrailVersion: "STRING_VALUE", // required
+ *                 },
+ *                 kbInferenceConfig: {
+ *                   textInferenceConfig: {
+ *                     temperature: Number("float"),
+ *                     topP: Number("float"),
+ *                     maxTokens: Number("int"),
+ *                     stopSequences: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 additionalModelRequestFields: {
+ *                   "<keys>": "DOCUMENT_VALUE",
+ *                 },
+ *               },
+ *             },
+ *           },
+ *         },
+ *         precomputedRagSourceConfig: { // EvaluationPrecomputedRagSourceConfig Union: only one key present
+ *           retrieveSourceConfig: { // EvaluationPrecomputedRetrieveSourceConfig
+ *             ragSourceIdentifier: "STRING_VALUE", // required
+ *           },
+ *           retrieveAndGenerateSourceConfig: { // EvaluationPrecomputedRetrieveAndGenerateSourceConfig
+ *             ragSourceIdentifier: "STRING_VALUE", // required
+ *           },
  *         },
  *       },
  *     ],
@@ -147,6 +339,7 @@ export interface CreateEvaluationJobCommandOutput extends CreateEvaluationJobRes
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateEvaluationJobCommand extends $Command
@@ -157,9 +350,7 @@ export class CreateEvaluationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +362,16 @@ export class CreateEvaluationJobCommand extends $Command
   .f(CreateEvaluationJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateEvaluationJobCommand)
   .de(de_CreateEvaluationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEvaluationJobRequest;
+      output: CreateEvaluationJobResponse;
+    };
+    sdk: {
+      input: CreateEvaluationJobCommandInput;
+      output: CreateEvaluationJobCommandOutput;
+    };
+  };
+}

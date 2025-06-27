@@ -1,4 +1,5 @@
 import { RekognitionStreaming } from "@aws-sdk/client-rekognitionstreaming";
+import { describe, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
@@ -15,13 +16,17 @@ describe("middleware-websocket", () => {
       const client = new RekognitionStreaming({
         region: "us-west-2",
         logger,
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
       });
       requireRequestsFrom(client).toMatch({
         protocol: "wss:",
         path: "/start-face-liveness-session-websocket",
         headers: {
           host: "streaming-rekognition.us-west-2.amazonaws.com",
-          "Content-Type": /^undefined$/,
+          "content-type": /^undefined$/,
           "x-amz-content-sha256": /^undefined$/,
           "user-agent": /^aws-sdk-js/,
         },
@@ -47,11 +52,7 @@ describe("middleware-websocket", () => {
         VideoWidth: "1024",
         VideoHeight: "1024",
         ChallengeVersions: "a,b,c",
-        LivenessRequestStream: {
-          [Symbol.asyncIterator]() {
-            return this as any;
-          },
-        },
+        LivenessRequestStream: (async function* () {})(),
       });
     });
   });

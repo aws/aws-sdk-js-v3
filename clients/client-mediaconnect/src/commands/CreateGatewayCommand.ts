@@ -12,7 +12,8 @@ import { de_CreateGatewayCommand, se_CreateGatewayCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface CreateGatewayCommandInput extends CreateGatewayRequest {}
 export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __MetadataBearer {}
 
 /**
- * Creates a new gateway. The request must include at least one network (up to 4).
+ * <p> Creates a new gateway. The request must include at least one network (up to four).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,7 +36,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * // const { MediaConnectClient, CreateGatewayCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // CreateGatewayRequest
- *   EgressCidrBlocks: [ // __listOf__string // required
+ *   EgressCidrBlocks: [ // __listOfString // required
  *     "STRING_VALUE",
  *   ],
  *   Name: "STRING_VALUE", // required
@@ -50,7 +51,7 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * const response = await client.send(command);
  * // { // CreateGatewayResponse
  * //   Gateway: { // Gateway
- * //     EgressCidrBlocks: [ // __listOf__string // required
+ * //     EgressCidrBlocks: [ // __listOfString // required
  * //       "STRING_VALUE",
  * //     ],
  * //     GatewayArn: "STRING_VALUE", // required
@@ -81,28 +82,29 @@ export interface CreateGatewayCommandOutput extends CreateGatewayResponse, __Met
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request. </p>
  *
  * @throws {@link CreateGateway420Exception} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>Exception raised by Elemental MediaConnect when creating the gateway. See the error message for the operation for more information on the cause of this exception. </p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The server encountered an internal error and is unable to complete the request. </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The service is currently unavailable or busy. </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
+ *
  *
  * @public
  */
@@ -114,9 +116,7 @@ export class CreateGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class CreateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGatewayCommand)
   .de(de_CreateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGatewayRequest;
+      output: CreateGatewayResponse;
+    };
+    sdk: {
+      input: CreateGatewayCommandInput;
+      output: CreateGatewayCommandOutput;
+    };
+  };
+}

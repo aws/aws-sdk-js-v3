@@ -12,7 +12,8 @@ import { de_UpdateEventSourcesConfigCommand, se_UpdateEventSourcesConfigCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface UpdateEventSourcesConfigCommandOutput extends UpdateEventSource
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class UpdateEventSourcesConfigCommand extends $Command
@@ -84,9 +86,7 @@ export class UpdateEventSourcesConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class UpdateEventSourcesConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEventSourcesConfigCommand)
   .de(de_UpdateEventSourcesConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEventSourcesConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEventSourcesConfigCommandInput;
+      output: UpdateEventSourcesConfigCommandOutput;
+    };
+  };
+}

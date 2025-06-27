@@ -12,7 +12,8 @@ import { de_GetJobDocumentCommand, se_GetJobDocumentCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,6 +38,7 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * const client = new IoTClient(config);
  * const input = { // GetJobDocumentRequest
  *   jobId: "STRING_VALUE", // required
+ *   beforeSubstitution: true || false,
  * };
  * const command = new GetJobDocumentCommand(input);
  * const response = await client.send(command);
@@ -67,6 +69,7 @@ export interface GetJobDocumentCommandOutput extends GetJobDocumentResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetJobDocumentCommand extends $Command
@@ -77,9 +80,7 @@ export class GetJobDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +92,16 @@ export class GetJobDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobDocumentCommand)
   .de(de_GetJobDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobDocumentRequest;
+      output: GetJobDocumentResponse;
+    };
+    sdk: {
+      input: GetJobDocumentCommandInput;
+      output: GetJobDocumentCommandOutput;
+    };
+  };
+}

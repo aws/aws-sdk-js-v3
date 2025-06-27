@@ -12,7 +12,8 @@ import { de_UpdateTrafficPolicyCommand, se_UpdateTrafficPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,6 +45,10 @@ export interface UpdateTrafficPolicyCommandOutput extends UpdateTrafficPolicyRes
  *           StringExpression: { // IngressStringExpression
  *             Evaluate: { // IngressStringToEvaluate Union: only one key present
  *               Attribute: "RECIPIENT",
+ *               Analysis: { // IngressAnalysis
+ *                 Analyzer: "STRING_VALUE", // required
+ *                 ResultField: "STRING_VALUE", // required
+ *               },
  *             },
  *             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  *             Values: [ // StringList // required
@@ -59,6 +64,15 @@ export interface UpdateTrafficPolicyCommandOutput extends UpdateTrafficPolicyRes
  *               "STRING_VALUE",
  *             ],
  *           },
+ *           Ipv6Expression: { // IngressIpv6Expression
+ *             Evaluate: { // IngressIpv6ToEvaluate Union: only one key present
+ *               Attribute: "SENDER_IPV6",
+ *             },
+ *             Operator: "CIDR_MATCHES" || "NOT_CIDR_MATCHES", // required
+ *             Values: [ // Ipv6Cidrs // required
+ *               "STRING_VALUE",
+ *             ],
+ *           },
  *           TlsExpression: { // IngressTlsProtocolExpression
  *             Evaluate: { // IngressTlsProtocolToEvaluate Union: only one key present
  *               Attribute: "TLS_PROTOCOL",
@@ -68,9 +82,15 @@ export interface UpdateTrafficPolicyCommandOutput extends UpdateTrafficPolicyRes
  *           },
  *           BooleanExpression: { // IngressBooleanExpression
  *             Evaluate: { // IngressBooleanToEvaluate Union: only one key present
- *               Analysis: { // IngressAnalysis
+ *               Analysis: {
  *                 Analyzer: "STRING_VALUE", // required
  *                 ResultField: "STRING_VALUE", // required
+ *               },
+ *               IsInAddressList: { // IngressIsInAddressList
+ *                 Attribute: "RECIPIENT", // required
+ *                 AddressLists: [ // IngressAddressListArnList // required
+ *                   "STRING_VALUE",
+ *                 ],
  *               },
  *             },
  *             Operator: "IS_TRUE" || "IS_FALSE", // required
@@ -107,6 +127,67 @@ export interface UpdateTrafficPolicyCommandOutput extends UpdateTrafficPolicyRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Update TrafficPolicy with new Name
+ * ```javascript
+ * //
+ * const input = {
+ *   TrafficPolicyId: "tp-12345",
+ *   TrafficPolicyName: "trafficPolicyNewName"
+ * };
+ * const command = new UpdateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update TrafficPolicy with new PolicyStatements
+ * ```javascript
+ * //
+ * const input = {
+ *   PolicyStatements: [
+ *     {
+ *       Action: "ALLOW",
+ *       Conditions: [
+ *         {
+ *           StringExpression: {
+ *             Evaluate: {
+ *               Attribute: "RECIPIENT"
+ *             },
+ *             Operator: "EQUALS",
+ *             Values: [
+ *               "example@amazon.com",
+ *               "example@gmail.com"
+ *             ]
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new UpdateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @example Update TrafficPolicy with new DefaultAction
+ * ```javascript
+ * //
+ * const input = {
+ *   DefaultAction: "ALLOW",
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new UpdateTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateTrafficPolicyCommand extends $Command
@@ -117,9 +198,7 @@ export class UpdateTrafficPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +210,16 @@ export class UpdateTrafficPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrafficPolicyCommand)
   .de(de_UpdateTrafficPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrafficPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTrafficPolicyCommandInput;
+      output: UpdateTrafficPolicyCommandOutput;
+    };
+  };
+}

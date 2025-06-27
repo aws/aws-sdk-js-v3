@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,10 @@ export interface CancelReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Cancels the specified Reserved Instance listing in the Reserved Instance Marketplace.</p>
- *          <p>For more information, see
- *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
- *         in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Cancels the specified Reserved Instance listing in the Reserved Instance
+ *       Marketplace.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
+ *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +93,7 @@ export interface CancelReservedInstancesListingCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CancelReservedInstancesListingCommand extends $Command
@@ -102,9 +104,7 @@ export class CancelReservedInstancesListingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CancelReservedInstancesListingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelReservedInstancesListingCommand)
   .de(de_CancelReservedInstancesListingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelReservedInstancesListingRequest;
+      output: CancelReservedInstancesListingResult;
+    };
+    sdk: {
+      input: CancelReservedInstancesListingCommandInput;
+      output: CancelReservedInstancesListingCommandOutput;
+    };
+  };
+}

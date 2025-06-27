@@ -12,7 +12,8 @@ import { de_CreateSecurityGroupCommand, se_CreateSecurityGroupCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +32,9 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  *          <p>A security group acts as a virtual firewall for your instance to control inbound and outbound traffic.
  *          For more information, see
  * 				<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Amazon EC2 security groups</a> in
- * 				the <i>Amazon Elastic Compute Cloud User Guide</i> and
+ * 				the <i>Amazon EC2 User Guide</i> and
  * 				<a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html">Security groups for your VPC</a> in the
- * 				<i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * 				<i>Amazon VPC User Guide</i>.</p>
  *          <p>When you create a security group, you specify a friendly name of your choice.
  *          You can't have two security groups for the same VPC with the same name.</p>
  *          <p>You have a default security group for use in your VPC. If you don't specify a security group
@@ -58,7 +59,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  *   VpcId: "STRING_VALUE",
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "outpost-lag" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "service-link-virtual-interface" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token" || "mac-modification-task",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -79,6 +80,7 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   SecurityGroupArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -92,25 +94,25 @@ export interface CreateSecurityGroupCommandOutput extends CreateSecurityGroupRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a security group for a VPC
  * ```javascript
  * // This example creates a security group for the specified VPC.
  * const input = {
- *   "Description": "My security group",
- *   "GroupName": "my-security-group",
- *   "VpcId": "vpc-1a2b3c4d"
+ *   Description: "My security group",
+ *   GroupName: "my-security-group",
+ *   VpcId: "vpc-1a2b3c4d"
  * };
  * const command = new CreateSecurityGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GroupId": "sg-903004f8"
+ *   GroupId: "sg-903004f8"
  * }
  * *\/
- * // example id: to-create-a-security-group-for-a-vpc-1529024532716
  * ```
  *
+ * @public
  */
 export class CreateSecurityGroupCommand extends $Command
   .classBuilder<
@@ -120,9 +122,7 @@ export class CreateSecurityGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class CreateSecurityGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSecurityGroupCommand)
   .de(de_CreateSecurityGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSecurityGroupRequest;
+      output: CreateSecurityGroupResult;
+    };
+    sdk: {
+      input: CreateSecurityGroupCommandInput;
+      output: CreateSecurityGroupCommandOutput;
+    };
+  };
+}

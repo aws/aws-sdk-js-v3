@@ -3,6 +3,364 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.730.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.729.0...v3.730.0) (2025-01-16)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/credential-provider-env
+
+
+
+
+
 # [3.587.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.586.0...v3.587.0) (2024-05-30)
 
 

@@ -12,7 +12,8 @@ import { de_GetCardinalityCommand, se_GetCardinalityCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface GetCardinalityCommandOutput extends GetCardinalityResponse, __M
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetCardinalityCommand extends $Command
@@ -95,9 +97,7 @@ export class GetCardinalityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class GetCardinalityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCardinalityCommand)
   .de(de_GetCardinalityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCardinalityRequest;
+      output: GetCardinalityResponse;
+    };
+    sdk: {
+      input: GetCardinalityCommandInput;
+      output: GetCardinalityCommandOutput;
+    };
+  };
+}

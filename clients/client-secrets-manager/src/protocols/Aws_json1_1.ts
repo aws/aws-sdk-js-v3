@@ -1172,6 +1172,7 @@ const se_CreateSecretRequest = (input: CreateSecretRequest, context: __SerdeCont
 const se_PutSecretValueRequest = (input: PutSecretValueRequest, context: __SerdeContext): any => {
   return take(input, {
     ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    RotationToken: [],
     SecretBinary: context.base64Encoder,
     SecretId: [],
     SecretString: [],

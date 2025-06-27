@@ -51,6 +51,10 @@ import { CreateConnectPeerCommandInput, CreateConnectPeerCommandOutput } from ".
 import { CreateCoreNetworkCommandInput, CreateCoreNetworkCommandOutput } from "../commands/CreateCoreNetworkCommand";
 import { CreateDeviceCommandInput, CreateDeviceCommandOutput } from "../commands/CreateDeviceCommand";
 import {
+  CreateDirectConnectGatewayAttachmentCommandInput,
+  CreateDirectConnectGatewayAttachmentCommandOutput,
+} from "../commands/CreateDirectConnectGatewayAttachmentCommand";
+import {
   CreateGlobalNetworkCommandInput,
   CreateGlobalNetworkCommandOutput,
 } from "../commands/CreateGlobalNetworkCommand";
@@ -146,6 +150,10 @@ import {
 } from "../commands/GetCustomerGatewayAssociationsCommand";
 import { GetDevicesCommandInput, GetDevicesCommandOutput } from "../commands/GetDevicesCommand";
 import {
+  GetDirectConnectGatewayAttachmentCommandInput,
+  GetDirectConnectGatewayAttachmentCommandOutput,
+} from "../commands/GetDirectConnectGatewayAttachmentCommand";
+import {
   GetLinkAssociationsCommandInput,
   GetLinkAssociationsCommandOutput,
 } from "../commands/GetLinkAssociationsCommand";
@@ -232,6 +240,10 @@ import { UpdateConnectionCommandInput, UpdateConnectionCommandOutput } from "../
 import { UpdateCoreNetworkCommandInput, UpdateCoreNetworkCommandOutput } from "../commands/UpdateCoreNetworkCommand";
 import { UpdateDeviceCommandInput, UpdateDeviceCommandOutput } from "../commands/UpdateDeviceCommand";
 import {
+  UpdateDirectConnectGatewayAttachmentCommandInput,
+  UpdateDirectConnectGatewayAttachmentCommandOutput,
+} from "../commands/UpdateDirectConnectGatewayAttachmentCommand";
+import {
   UpdateGlobalNetworkCommandInput,
   UpdateGlobalNetworkCommandOutput,
 } from "../commands/UpdateGlobalNetworkCommand";
@@ -260,11 +272,13 @@ import {
   ConnectPeerSummary,
   CoreNetwork,
   CoreNetworkChangeEvent,
+  CoreNetworkNetworkFunctionGroupIdentifier,
   CoreNetworkPolicy,
   CoreNetworkPolicyException,
   CoreNetworkPolicyVersion,
   CoreNetworkSegmentEdgeIdentifier,
   Device,
+  DirectConnectGatewayAttachment,
   GlobalNetwork,
   InternalServerException,
   Link,
@@ -541,6 +555,32 @@ export const se_CreateDeviceCommand = async (
       Tags: (_) => _json(_),
       Type: [],
       Vendor: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDirectConnectGatewayAttachmentCommand
+ */
+export const se_CreateDirectConnectGatewayAttachmentCommand = async (
+  input: CreateDirectConnectGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/direct-connect-gateway-attachments");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      CoreNetworkId: [],
+      DirectConnectGatewayArn: [],
+      EdgeLocations: (_) => _json(_),
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -934,7 +974,7 @@ export const se_DescribeGlobalNetworksCommand = async (
   const headers: any = {};
   b.bp("/global-networks");
   const query: any = map({
-    [_gNI]: [() => input.GlobalNetworkIds !== void 0, () => (input[_GNI]! || []).map((_entry) => _entry as any)],
+    [_gNI]: [() => input.GlobalNetworkIds !== void 0, () => input[_GNI]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1064,7 +1104,7 @@ export const se_GetConnectionsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/connections");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_cI]: [() => input.ConnectionIds !== void 0, () => (input[_CI]! || []).map((_entry) => _entry as any)],
+    [_cI]: [() => input.ConnectionIds !== void 0, () => input[_CI]! || []],
     [_dI]: [, input[_DI]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
@@ -1102,7 +1142,7 @@ export const se_GetConnectPeerAssociationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/connect-peer-associations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_cPI]: [() => input.ConnectPeerIds !== void 0, () => (input[_CPI]! || []).map((_entry) => _entry as any)],
+    [_cPI]: [() => input.ConnectPeerIds !== void 0, () => input[_CPI]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1201,7 +1241,7 @@ export const se_GetCustomerGatewayAssociationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/customer-gateway-associations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_cGA]: [() => input.CustomerGatewayArns !== void 0, () => (input[_CGA]! || []).map((_entry) => _entry as any)],
+    [_cGA]: [() => input.CustomerGatewayArns !== void 0, () => input[_CGA]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1222,13 +1262,29 @@ export const se_GetDevicesCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/devices");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_dIe]: [() => input.DeviceIds !== void 0, () => (input[_DIe]! || []).map((_entry) => _entry as any)],
+    [_dIe]: [() => input.DeviceIds !== void 0, () => input[_DIe]! || []],
     [_sI]: [, input[_SI]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDirectConnectGatewayAttachmentCommand
+ */
+export const se_GetDirectConnectGatewayAttachmentCommand = async (
+  input: GetDirectConnectGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/direct-connect-gateway-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1266,7 +1322,7 @@ export const se_GetLinksCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/links");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_lIi]: [() => input.LinkIds !== void 0, () => (input[_LIi]! || []).map((_entry) => _entry as any)],
+    [_lIi]: [() => input.LinkIds !== void 0, () => input[_LIi]! || []],
     [_sI]: [, input[_SI]!],
     [_t]: [, input[_T]!],
     [_p]: [, input[_P]!],
@@ -1453,7 +1509,7 @@ export const se_GetSitesCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/sites");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_sIi]: [() => input.SiteIds !== void 0, () => (input[_SIi]! || []).map((_entry) => _entry as any)],
+    [_sIi]: [() => input.SiteIds !== void 0, () => input[_SIi]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1490,10 +1546,7 @@ export const se_GetTransitGatewayConnectPeerAssociationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-connect-peer-associations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_tGCPA]: [
-      () => input.TransitGatewayConnectPeerArns !== void 0,
-      () => (input[_TGCPA]! || []).map((_entry) => _entry as any),
-    ],
+    [_tGCPA]: [() => input.TransitGatewayConnectPeerArns !== void 0, () => input[_TGCPA]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1530,7 +1583,7 @@ export const se_GetTransitGatewayRegistrationsCommand = async (
   b.bp("/global-networks/{GlobalNetworkId}/transit-gateway-registrations");
   b.p("GlobalNetworkId", () => input.GlobalNetworkId!, "{GlobalNetworkId}", false);
   const query: any = map({
-    [_tGA]: [() => input.TransitGatewayArns !== void 0, () => (input[_TGA]! || []).map((_entry) => _entry as any)],
+    [_tGA]: [() => input.TransitGatewayArns !== void 0, () => input[_TGA]! || []],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1731,7 +1784,7 @@ export const se_PutCoreNetworkPolicyCommand = async (
       ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       Description: [],
       LatestVersionId: [],
-      PolicyDocument: (_) => __LazyJsonString.fromObject(_),
+      PolicyDocument: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1754,7 +1807,7 @@ export const se_PutResourcePolicyCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      PolicyDocument: (_) => __LazyJsonString.fromObject(_),
+      PolicyDocument: (_) => __LazyJsonString.from(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1900,10 +1953,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1984,6 +2034,29 @@ export const se_UpdateDeviceCommand = async (
       SiteId: [],
       Type: [],
       Vendor: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateDirectConnectGatewayAttachmentCommand
+ */
+export const se_UpdateDirectConnectGatewayAttachmentCommand = async (
+  input: UpdateDirectConnectGatewayAttachmentCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/direct-connect-gateway-attachments/{AttachmentId}");
+  b.p("AttachmentId", () => input.AttachmentId!, "{AttachmentId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EdgeLocations: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -2319,6 +2392,27 @@ export const de_CreateDeviceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Device: (_) => de_Device(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDirectConnectGatewayAttachmentCommand
+ */
+export const de_CreateDirectConnectGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDirectConnectGatewayAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectConnectGatewayAttachment: (_) => de_DirectConnectGatewayAttachment(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3059,6 +3153,27 @@ export const de_GetDevicesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetDirectConnectGatewayAttachmentCommand
+ */
+export const de_GetDirectConnectGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDirectConnectGatewayAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectConnectGatewayAttachment: (_) => de_DirectConnectGatewayAttachment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetLinkAssociationsCommand
  */
 export const de_GetLinkAssociationsCommand = async (
@@ -3230,7 +3345,7 @@ export const de_GetResourcePolicyCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    PolicyDocument: (_) => new __LazyJsonString(_),
+    PolicyDocument: __LazyJsonString.from,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3801,6 +3916,27 @@ export const de_UpdateDeviceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDirectConnectGatewayAttachmentCommand
+ */
+export const de_UpdateDirectConnectGatewayAttachmentCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectConnectGatewayAttachmentCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectConnectGatewayAttachment: (_) => de_DirectConnectGatewayAttachment(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateGlobalNetworkCommand
  */
 export const de_UpdateGlobalNetworkCommand = async (
@@ -4128,7 +4264,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ConstrainedStringList omitted.
 
+// se_CoreNetworkNetworkFunctionGroupIdentifier omitted.
+
 // se_CoreNetworkSegmentEdgeIdentifier omitted.
+
+// se_ExternalRegionCodeList omitted.
 
 // se_FilterMap omitted.
 
@@ -4170,7 +4310,11 @@ const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    EdgeLocations: _json,
+    LastModificationErrors: _json,
+    NetworkFunctionGroupName: __expectString,
     OwnerAccountId: __expectString,
+    ProposedNetworkFunctionGroupChange: _json,
     ProposedSegmentChange: _json,
     ResourceArn: __expectString,
     SegmentName: __expectString,
@@ -4179,6 +4323,10 @@ const de_Attachment = (output: any, context: __SerdeContext): Attachment => {
     UpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_AttachmentError omitted.
+
+// de_AttachmentErrorList omitted.
 
 /**
  * deserializeAws_restJson1AttachmentList
@@ -4262,6 +4410,7 @@ const de_ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    LastModificationErrors: _json,
     State: __expectString,
     SubnetArn: __expectString,
     Tags: _json,
@@ -4277,6 +4426,10 @@ const de_ConnectPeer = (output: any, context: __SerdeContext): ConnectPeer => {
 // de_ConnectPeerBgpConfigurationList omitted.
 
 // de_ConnectPeerConfiguration omitted.
+
+// de_ConnectPeerError omitted.
+
+// de_ConnectPeerErrorList omitted.
 
 /**
  * deserializeAws_restJson1ConnectPeerSummary
@@ -4319,6 +4472,7 @@ const de_CoreNetwork = (output: any, context: __SerdeContext): CoreNetwork => {
     Description: __expectString,
     Edges: _json,
     GlobalNetworkId: __expectString,
+    NetworkFunctionGroups: _json,
     Segments: _json,
     State: __expectString,
     Tags: _json,
@@ -4363,6 +4517,10 @@ const de_CoreNetworkChangeEventList = (output: any, context: __SerdeContext): Co
 
 // de_CoreNetworkEdgeList omitted.
 
+// de_CoreNetworkNetworkFunctionGroup omitted.
+
+// de_CoreNetworkNetworkFunctionGroupList omitted.
+
 /**
  * deserializeAws_restJson1CoreNetworkPolicy
  */
@@ -4373,7 +4531,7 @@ const de_CoreNetworkPolicy = (output: any, context: __SerdeContext): CoreNetwork
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
-    PolicyDocument: (_: any) => new __LazyJsonString(_),
+    PolicyDocument: __LazyJsonString.from,
     PolicyErrors: _json,
     PolicyVersionId: __expectInt32,
   }) as any;
@@ -4457,6 +4615,22 @@ const de_DeviceList = (output: any, context: __SerdeContext): Device[] => {
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1DirectConnectGatewayAttachment
+ */
+const de_DirectConnectGatewayAttachment = (output: any, context: __SerdeContext): DirectConnectGatewayAttachment => {
+  return take(output, {
+    Attachment: (_: any) => de_Attachment(_, context),
+    DirectConnectGatewayArn: __expectString,
+  }) as any;
+};
+
+// de_EdgeOverride omitted.
+
+// de_EdgeSet omitted.
+
+// de_EdgeSetList omitted.
+
 // de_ExceptionContextMap omitted.
 
 // de_ExternalRegionCodeList omitted.
@@ -4523,6 +4697,10 @@ const de_LinkList = (output: any, context: __SerdeContext): Link[] => {
 };
 
 // de_Location omitted.
+
+// de_NetworkFunctionGroup omitted.
+
+// de_NetworkFunctionGroupList omitted.
 
 /**
  * deserializeAws_restJson1NetworkResource
@@ -4615,6 +4793,7 @@ const de_Peering = (output: any, context: __SerdeContext): Peering => {
     CoreNetworkId: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     EdgeLocation: __expectString,
+    LastModificationErrors: _json,
     OwnerAccountId: __expectString,
     PeeringId: __expectString,
     PeeringType: __expectString,
@@ -4623,6 +4802,10 @@ const de_Peering = (output: any, context: __SerdeContext): Peering => {
     Tags: _json,
   }) as any;
 };
+
+// de_PeeringError omitted.
+
+// de_PeeringErrorList omitted.
 
 /**
  * deserializeAws_restJson1PeeringList
@@ -4635,6 +4818,10 @@ const de_PeeringList = (output: any, context: __SerdeContext): Peering[] => {
     });
   return retVal;
 };
+
+// de_PermissionsErrorContext omitted.
+
+// de_ProposedNetworkFunctionGroupChange omitted.
 
 // de_ProposedSegmentChange omitted.
 
@@ -4668,6 +4855,12 @@ const de_RouteAnalysis = (output: any, context: __SerdeContext): RouteAnalysis =
 // de_RouteAnalysisEndpointOptions omitted.
 
 // de_RouteAnalysisPath omitted.
+
+// de_ServiceInsertionAction omitted.
+
+// de_ServiceInsertionActionList omitted.
+
+// de_ServiceInsertionSegments omitted.
 
 /**
  * deserializeAws_restJson1Site
@@ -4752,6 +4945,8 @@ const de_TransitGatewayRouteTableAttachment = (
 
 // de_ValidationExceptionFieldList omitted.
 
+// de_Via omitted.
+
 /**
  * deserializeAws_restJson1VpcAttachment
  */
@@ -4765,6 +4960,12 @@ const de_VpcAttachment = (output: any, context: __SerdeContext): VpcAttachment =
 
 // de_VpcOptions omitted.
 
+// de_WhenSentTo omitted.
+
+// de_WhenSentToSegmentsList omitted.
+
+// de_WithEdgeOverridesList omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -4776,13 +4977,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Alias";
 const _AI = "AccountId";

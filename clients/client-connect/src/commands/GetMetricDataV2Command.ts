@@ -12,7 +12,8 @@ import { de_GetMetricDataV2Command, se_GetMetricDataV2Command } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,11 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  *             <code>GetMetricDataV2</code> offers more features than <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_GetMetricData.html">GetMetricData</a>, the previous
  *    version of this API. It has new metrics, offers filtering at a metric level, and offers the
  *    ability to filter and group data by channels, queues, routing profiles, agents, and agent
- *    hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. </p>
+ *    hierarchy levels. It can retrieve historical data for the last 3 months, at varying intervals. It
+ *    does not support agent queues.</p>
  *          <p>For a description of the historical metrics that are supported by
- *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical metrics
- *     definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *     <code>GetMetricDataV2</code> and <code>GetMetricData</code>, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,6 +153,7 @@ export interface GetMetricDataV2CommandOutput extends GetMetricDataV2Response, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetMetricDataV2Command extends $Command
@@ -161,9 +164,7 @@ export class GetMetricDataV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +176,16 @@ export class GetMetricDataV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricDataV2Command)
   .de(de_GetMetricDataV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricDataV2Request;
+      output: GetMetricDataV2Response;
+    };
+    sdk: {
+      input: GetMetricDataV2CommandInput;
+      output: GetMetricDataV2CommandOutput;
+    };
+  };
+}

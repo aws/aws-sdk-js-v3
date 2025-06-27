@@ -12,7 +12,8 @@ import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,55 +83,55 @@ export interface DescribeEventsCommandOutput extends EventDescriptionsMessage, _
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view events for an environment
  * ```javascript
  * // The following operation retrieves events for an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new DescribeEventsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Events": [
+ *   Events: [
  *     {
- *       "ApplicationName": "my-app",
- *       "EnvironmentName": "my-env",
- *       "EventDate": "2015-08-20T07:06:53.535Z",
- *       "Message": "Environment health has transitioned from Info to Ok.",
- *       "Severity": "INFO"
+ *       ApplicationName: "my-app",
+ *       EnvironmentName: "my-env",
+ *       EventDate: "2015-08-20T07:06:53.535Z",
+ *       Message: "Environment health has transitioned from Info to Ok.",
+ *       Severity: "INFO"
  *     },
  *     {
- *       "ApplicationName": "my-app",
- *       "EnvironmentName": "my-env",
- *       "EventDate": "2015-08-20T07:06:02.049Z",
- *       "Message": "Environment update completed successfully.",
- *       "RequestId": "b7f3960b-4709-11e5-ba1e-07e16200da41",
- *       "Severity": "INFO"
+ *       ApplicationName: "my-app",
+ *       EnvironmentName: "my-env",
+ *       EventDate: "2015-08-20T07:06:02.049Z",
+ *       Message: "Environment update completed successfully.",
+ *       RequestId: "b7f3960b-4709-11e5-ba1e-07e16200da41",
+ *       Severity: "INFO"
  *     },
  *     {
- *       "ApplicationName": "my-app",
- *       "EnvironmentName": "my-env",
- *       "EventDate": "2015-08-13T19:16:27.561Z",
- *       "Message": "Using elasticbeanstalk-us-west-2-012445113685 as Amazon S3 storage bucket for environment data.",
- *       "RequestId": "ca8dfbf6-41ef-11e5-988b-651aa638f46b",
- *       "Severity": "INFO"
+ *       ApplicationName: "my-app",
+ *       EnvironmentName: "my-env",
+ *       EventDate: "2015-08-13T19:16:27.561Z",
+ *       Message: "Using elasticbeanstalk-us-west-2-012445113685 as Amazon S3 storage bucket for environment data.",
+ *       RequestId: "ca8dfbf6-41ef-11e5-988b-651aa638f46b",
+ *       Severity: "INFO"
  *     },
  *     {
- *       "ApplicationName": "my-app",
- *       "EnvironmentName": "my-env",
- *       "EventDate": "2015-08-13T19:16:26.581Z",
- *       "Message": "createEnvironment is starting.",
- *       "RequestId": "cdfba8f6-41ef-11e5-988b-65638f41aa6b",
- *       "Severity": "INFO"
+ *       ApplicationName: "my-app",
+ *       EnvironmentName: "my-env",
+ *       EventDate: "2015-08-13T19:16:26.581Z",
+ *       Message: "createEnvironment is starting.",
+ *       RequestId: "cdfba8f6-41ef-11e5-988b-65638f41aa6b",
+ *       Severity: "INFO"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-view-events-for-an-environment-1456277367589
  * ```
  *
+ * @public
  */
 export class DescribeEventsCommand extends $Command
   .classBuilder<
@@ -140,9 +141,7 @@ export class DescribeEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class DescribeEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventsCommand)
   .de(de_DescribeEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventsMessage;
+      output: EventDescriptionsMessage;
+    };
+    sdk: {
+      input: DescribeEventsCommandInput;
+      output: DescribeEventsCommandOutput;
+    };
+  };
+}

@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AssociatePermissionCommand,
+  AssociatePermissionCommandInput,
+  AssociatePermissionCommandOutput,
+} from "./commands/AssociatePermissionCommand";
+import {
   BatchDeleteDocumentCommand,
   BatchDeleteDocumentCommandInput,
   BatchDeleteDocumentCommandOutput,
@@ -12,13 +17,33 @@ import {
   BatchPutDocumentCommandInput,
   BatchPutDocumentCommandOutput,
 } from "./commands/BatchPutDocumentCommand";
+import {
+  CancelSubscriptionCommand,
+  CancelSubscriptionCommandInput,
+  CancelSubscriptionCommandOutput,
+} from "./commands/CancelSubscriptionCommand";
 import { ChatCommand, ChatCommandInput, ChatCommandOutput } from "./commands/ChatCommand";
 import { ChatSyncCommand, ChatSyncCommandInput, ChatSyncCommandOutput } from "./commands/ChatSyncCommand";
+import {
+  CheckDocumentAccessCommand,
+  CheckDocumentAccessCommandInput,
+  CheckDocumentAccessCommandOutput,
+} from "./commands/CheckDocumentAccessCommand";
+import {
+  CreateAnonymousWebExperienceUrlCommand,
+  CreateAnonymousWebExperienceUrlCommandInput,
+  CreateAnonymousWebExperienceUrlCommandOutput,
+} from "./commands/CreateAnonymousWebExperienceUrlCommand";
 import {
   CreateApplicationCommand,
   CreateApplicationCommandInput,
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
+import {
+  CreateDataAccessorCommand,
+  CreateDataAccessorCommandInput,
+  CreateDataAccessorCommandOutput,
+} from "./commands/CreateDataAccessorCommand";
 import {
   CreateDataSourceCommand,
   CreateDataSourceCommandInput,
@@ -35,6 +60,11 @@ import {
   CreateRetrieverCommandInput,
   CreateRetrieverCommandOutput,
 } from "./commands/CreateRetrieverCommand";
+import {
+  CreateSubscriptionCommand,
+  CreateSubscriptionCommandInput,
+  CreateSubscriptionCommandOutput,
+} from "./commands/CreateSubscriptionCommand";
 import { CreateUserCommand, CreateUserCommandInput, CreateUserCommandOutput } from "./commands/CreateUserCommand";
 import {
   CreateWebExperienceCommand,
@@ -47,6 +77,11 @@ import {
   DeleteApplicationCommandOutput,
 } from "./commands/DeleteApplicationCommand";
 import {
+  DeleteAttachmentCommand,
+  DeleteAttachmentCommandInput,
+  DeleteAttachmentCommandOutput,
+} from "./commands/DeleteAttachmentCommand";
+import {
   DeleteChatControlsConfigurationCommand,
   DeleteChatControlsConfigurationCommandInput,
   DeleteChatControlsConfigurationCommandOutput,
@@ -56,6 +91,11 @@ import {
   DeleteConversationCommandInput,
   DeleteConversationCommandOutput,
 } from "./commands/DeleteConversationCommand";
+import {
+  DeleteDataAccessorCommand,
+  DeleteDataAccessorCommandInput,
+  DeleteDataAccessorCommandOutput,
+} from "./commands/DeleteDataAccessorCommand";
 import {
   DeleteDataSourceCommand,
   DeleteDataSourceCommandInput,
@@ -80,6 +120,11 @@ import {
   DeleteWebExperienceCommandOutput,
 } from "./commands/DeleteWebExperienceCommand";
 import {
+  DisassociatePermissionCommand,
+  DisassociatePermissionCommandInput,
+  DisassociatePermissionCommandOutput,
+} from "./commands/DisassociatePermissionCommand";
+import {
   GetApplicationCommand,
   GetApplicationCommandInput,
   GetApplicationCommandOutput,
@@ -90,13 +135,20 @@ import {
   GetChatControlsConfigurationCommandOutput,
 } from "./commands/GetChatControlsConfigurationCommand";
 import {
+  GetDataAccessorCommand,
+  GetDataAccessorCommandInput,
+  GetDataAccessorCommandOutput,
+} from "./commands/GetDataAccessorCommand";
+import {
   GetDataSourceCommand,
   GetDataSourceCommandInput,
   GetDataSourceCommandOutput,
 } from "./commands/GetDataSourceCommand";
 import { GetGroupCommand, GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetIndexCommand, GetIndexCommandInput, GetIndexCommandOutput } from "./commands/GetIndexCommand";
+import { GetMediaCommand, GetMediaCommandInput, GetMediaCommandOutput } from "./commands/GetMediaCommand";
 import { GetPluginCommand, GetPluginCommandInput, GetPluginCommandOutput } from "./commands/GetPluginCommand";
+import { GetPolicyCommand, GetPolicyCommandInput, GetPolicyCommandOutput } from "./commands/GetPolicyCommand";
 import {
   GetRetrieverCommand,
   GetRetrieverCommandInput,
@@ -114,10 +166,20 @@ import {
   ListApplicationsCommandOutput,
 } from "./commands/ListApplicationsCommand";
 import {
+  ListAttachmentsCommand,
+  ListAttachmentsCommandInput,
+  ListAttachmentsCommandOutput,
+} from "./commands/ListAttachmentsCommand";
+import {
   ListConversationsCommand,
   ListConversationsCommandInput,
   ListConversationsCommandOutput,
 } from "./commands/ListConversationsCommand";
+import {
+  ListDataAccessorsCommand,
+  ListDataAccessorsCommandInput,
+  ListDataAccessorsCommandOutput,
+} from "./commands/ListDataAccessorsCommand";
 import {
   ListDataSourcesCommand,
   ListDataSourcesCommandInput,
@@ -140,12 +202,32 @@ import {
   ListMessagesCommandInput,
   ListMessagesCommandOutput,
 } from "./commands/ListMessagesCommand";
+import {
+  ListPluginActionsCommand,
+  ListPluginActionsCommandInput,
+  ListPluginActionsCommandOutput,
+} from "./commands/ListPluginActionsCommand";
 import { ListPluginsCommand, ListPluginsCommandInput, ListPluginsCommandOutput } from "./commands/ListPluginsCommand";
+import {
+  ListPluginTypeActionsCommand,
+  ListPluginTypeActionsCommandInput,
+  ListPluginTypeActionsCommandOutput,
+} from "./commands/ListPluginTypeActionsCommand";
+import {
+  ListPluginTypeMetadataCommand,
+  ListPluginTypeMetadataCommandInput,
+  ListPluginTypeMetadataCommandOutput,
+} from "./commands/ListPluginTypeMetadataCommand";
 import {
   ListRetrieversCommand,
   ListRetrieversCommandInput,
   ListRetrieversCommandOutput,
 } from "./commands/ListRetrieversCommand";
+import {
+  ListSubscriptionsCommand,
+  ListSubscriptionsCommandInput,
+  ListSubscriptionsCommandOutput,
+} from "./commands/ListSubscriptionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -158,6 +240,11 @@ import {
 } from "./commands/ListWebExperiencesCommand";
 import { PutFeedbackCommand, PutFeedbackCommandInput, PutFeedbackCommandOutput } from "./commands/PutFeedbackCommand";
 import { PutGroupCommand, PutGroupCommandInput, PutGroupCommandOutput } from "./commands/PutGroupCommand";
+import {
+  SearchRelevantContentCommand,
+  SearchRelevantContentCommandInput,
+  SearchRelevantContentCommandOutput,
+} from "./commands/SearchRelevantContentCommand";
 import {
   StartDataSourceSyncJobCommand,
   StartDataSourceSyncJobCommandInput,
@@ -185,6 +272,11 @@ import {
   UpdateChatControlsConfigurationCommandOutput,
 } from "./commands/UpdateChatControlsConfigurationCommand";
 import {
+  UpdateDataAccessorCommand,
+  UpdateDataAccessorCommandInput,
+  UpdateDataAccessorCommandOutput,
+} from "./commands/UpdateDataAccessorCommand";
+import {
   UpdateDataSourceCommand,
   UpdateDataSourceCommandInput,
   UpdateDataSourceCommandOutput,
@@ -200,6 +292,11 @@ import {
   UpdateRetrieverCommandInput,
   UpdateRetrieverCommandOutput,
 } from "./commands/UpdateRetrieverCommand";
+import {
+  UpdateSubscriptionCommand,
+  UpdateSubscriptionCommandInput,
+  UpdateSubscriptionCommandOutput,
+} from "./commands/UpdateSubscriptionCommand";
 import { UpdateUserCommand, UpdateUserCommandInput, UpdateUserCommandOutput } from "./commands/UpdateUserCommand";
 import {
   UpdateWebExperienceCommand,
@@ -209,20 +306,28 @@ import {
 import { QBusinessClient, QBusinessClientConfig } from "./QBusinessClient";
 
 const commands = {
+  AssociatePermissionCommand,
   BatchDeleteDocumentCommand,
   BatchPutDocumentCommand,
+  CancelSubscriptionCommand,
   ChatCommand,
   ChatSyncCommand,
+  CheckDocumentAccessCommand,
+  CreateAnonymousWebExperienceUrlCommand,
   CreateApplicationCommand,
+  CreateDataAccessorCommand,
   CreateDataSourceCommand,
   CreateIndexCommand,
   CreatePluginCommand,
   CreateRetrieverCommand,
+  CreateSubscriptionCommand,
   CreateUserCommand,
   CreateWebExperienceCommand,
   DeleteApplicationCommand,
+  DeleteAttachmentCommand,
   DeleteChatControlsConfigurationCommand,
   DeleteConversationCommand,
+  DeleteDataAccessorCommand,
   DeleteDataSourceCommand,
   DeleteGroupCommand,
   DeleteIndexCommand,
@@ -230,44 +335,74 @@ const commands = {
   DeleteRetrieverCommand,
   DeleteUserCommand,
   DeleteWebExperienceCommand,
+  DisassociatePermissionCommand,
   GetApplicationCommand,
   GetChatControlsConfigurationCommand,
+  GetDataAccessorCommand,
   GetDataSourceCommand,
   GetGroupCommand,
   GetIndexCommand,
+  GetMediaCommand,
   GetPluginCommand,
+  GetPolicyCommand,
   GetRetrieverCommand,
   GetUserCommand,
   GetWebExperienceCommand,
   ListApplicationsCommand,
+  ListAttachmentsCommand,
   ListConversationsCommand,
+  ListDataAccessorsCommand,
   ListDataSourcesCommand,
   ListDataSourceSyncJobsCommand,
   ListDocumentsCommand,
   ListGroupsCommand,
   ListIndicesCommand,
   ListMessagesCommand,
+  ListPluginActionsCommand,
   ListPluginsCommand,
+  ListPluginTypeActionsCommand,
+  ListPluginTypeMetadataCommand,
   ListRetrieversCommand,
+  ListSubscriptionsCommand,
   ListTagsForResourceCommand,
   ListWebExperiencesCommand,
   PutFeedbackCommand,
   PutGroupCommand,
+  SearchRelevantContentCommand,
   StartDataSourceSyncJobCommand,
   StopDataSourceSyncJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateChatControlsConfigurationCommand,
+  UpdateDataAccessorCommand,
   UpdateDataSourceCommand,
   UpdateIndexCommand,
   UpdatePluginCommand,
   UpdateRetrieverCommand,
+  UpdateSubscriptionCommand,
   UpdateUserCommand,
   UpdateWebExperienceCommand,
 };
 
 export interface QBusiness {
+  /**
+   * @see {@link AssociatePermissionCommand}
+   */
+  associatePermission(
+    args: AssociatePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociatePermissionCommandOutput>;
+  associatePermission(
+    args: AssociatePermissionCommandInput,
+    cb: (err: any, data?: AssociatePermissionCommandOutput) => void
+  ): void;
+  associatePermission(
+    args: AssociatePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociatePermissionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link BatchDeleteDocumentCommand}
    */
@@ -303,6 +438,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link CancelSubscriptionCommand}
+   */
+  cancelSubscription(
+    args: CancelSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelSubscriptionCommandOutput>;
+  cancelSubscription(
+    args: CancelSubscriptionCommandInput,
+    cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
+  ): void;
+  cancelSubscription(
+    args: CancelSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ChatCommand}
    */
   chat(args: ChatCommandInput, options?: __HttpHandlerOptions): Promise<ChatCommandOutput>;
@@ -321,6 +473,40 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link CheckDocumentAccessCommand}
+   */
+  checkDocumentAccess(
+    args: CheckDocumentAccessCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CheckDocumentAccessCommandOutput>;
+  checkDocumentAccess(
+    args: CheckDocumentAccessCommandInput,
+    cb: (err: any, data?: CheckDocumentAccessCommandOutput) => void
+  ): void;
+  checkDocumentAccess(
+    args: CheckDocumentAccessCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CheckDocumentAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnonymousWebExperienceUrlCommand}
+   */
+  createAnonymousWebExperienceUrl(
+    args: CreateAnonymousWebExperienceUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnonymousWebExperienceUrlCommandOutput>;
+  createAnonymousWebExperienceUrl(
+    args: CreateAnonymousWebExperienceUrlCommandInput,
+    cb: (err: any, data?: CreateAnonymousWebExperienceUrlCommandOutput) => void
+  ): void;
+  createAnonymousWebExperienceUrl(
+    args: CreateAnonymousWebExperienceUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnonymousWebExperienceUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateApplicationCommand}
    */
   createApplication(
@@ -335,6 +521,23 @@ export interface QBusiness {
     args: CreateApplicationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataAccessorCommand}
+   */
+  createDataAccessor(
+    args: CreateDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataAccessorCommandOutput>;
+  createDataAccessor(
+    args: CreateDataAccessorCommandInput,
+    cb: (err: any, data?: CreateDataAccessorCommandOutput) => void
+  ): void;
+  createDataAccessor(
+    args: CreateDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataAccessorCommandOutput) => void
   ): void;
 
   /**
@@ -391,6 +594,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link CreateSubscriptionCommand}
+   */
+  createSubscription(
+    args: CreateSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSubscriptionCommandOutput>;
+  createSubscription(
+    args: CreateSubscriptionCommandInput,
+    cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
+  ): void;
+  createSubscription(
+    args: CreateSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateUserCommand}
    */
   createUser(args: CreateUserCommandInput, options?: __HttpHandlerOptions): Promise<CreateUserCommandOutput>;
@@ -436,6 +656,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link DeleteAttachmentCommand}
+   */
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAttachmentCommandOutput>;
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+  deleteAttachment(
+    args: DeleteAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAttachmentCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteChatControlsConfigurationCommand}
    */
   deleteChatControlsConfiguration(
@@ -467,6 +704,23 @@ export interface QBusiness {
     args: DeleteConversationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConversationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDataAccessorCommand}
+   */
+  deleteDataAccessor(
+    args: DeleteDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataAccessorCommandOutput>;
+  deleteDataAccessor(
+    args: DeleteDataAccessorCommandInput,
+    cb: (err: any, data?: DeleteDataAccessorCommandOutput) => void
+  ): void;
+  deleteDataAccessor(
+    args: DeleteDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataAccessorCommandOutput) => void
   ): void;
 
   /**
@@ -562,6 +816,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link DisassociatePermissionCommand}
+   */
+  disassociatePermission(
+    args: DisassociatePermissionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociatePermissionCommandOutput>;
+  disassociatePermission(
+    args: DisassociatePermissionCommandInput,
+    cb: (err: any, data?: DisassociatePermissionCommandOutput) => void
+  ): void;
+  disassociatePermission(
+    args: DisassociatePermissionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociatePermissionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetApplicationCommand}
    */
   getApplication(
@@ -590,6 +861,20 @@ export interface QBusiness {
     args: GetChatControlsConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetChatControlsConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataAccessorCommand}
+   */
+  getDataAccessor(
+    args: GetDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataAccessorCommandOutput>;
+  getDataAccessor(args: GetDataAccessorCommandInput, cb: (err: any, data?: GetDataAccessorCommandOutput) => void): void;
+  getDataAccessor(
+    args: GetDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataAccessorCommandOutput) => void
   ): void;
 
   /**
@@ -626,6 +911,17 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link GetMediaCommand}
+   */
+  getMedia(args: GetMediaCommandInput, options?: __HttpHandlerOptions): Promise<GetMediaCommandOutput>;
+  getMedia(args: GetMediaCommandInput, cb: (err: any, data?: GetMediaCommandOutput) => void): void;
+  getMedia(
+    args: GetMediaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMediaCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetPluginCommand}
    */
   getPlugin(args: GetPluginCommandInput, options?: __HttpHandlerOptions): Promise<GetPluginCommandOutput>;
@@ -634,6 +930,17 @@ export interface QBusiness {
     args: GetPluginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetPluginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetPolicyCommand}
+   */
+  getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
+  getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
+  getPolicy(
+    args: GetPolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPolicyCommandOutput) => void
   ): void;
 
   /**
@@ -694,6 +1001,20 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link ListAttachmentsCommand}
+   */
+  listAttachments(
+    args: ListAttachmentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAttachmentsCommandOutput>;
+  listAttachments(args: ListAttachmentsCommandInput, cb: (err: any, data?: ListAttachmentsCommandOutput) => void): void;
+  listAttachments(
+    args: ListAttachmentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAttachmentsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListConversationsCommand}
    */
   listConversations(
@@ -708,6 +1029,23 @@ export interface QBusiness {
     args: ListConversationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConversationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDataAccessorsCommand}
+   */
+  listDataAccessors(
+    args: ListDataAccessorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataAccessorsCommandOutput>;
+  listDataAccessors(
+    args: ListDataAccessorsCommandInput,
+    cb: (err: any, data?: ListDataAccessorsCommandOutput) => void
+  ): void;
+  listDataAccessors(
+    args: ListDataAccessorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataAccessorsCommandOutput) => void
   ): void;
 
   /**
@@ -786,6 +1124,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link ListPluginActionsCommand}
+   */
+  listPluginActions(
+    args: ListPluginActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPluginActionsCommandOutput>;
+  listPluginActions(
+    args: ListPluginActionsCommandInput,
+    cb: (err: any, data?: ListPluginActionsCommandOutput) => void
+  ): void;
+  listPluginActions(
+    args: ListPluginActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPluginActionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPluginsCommand}
    */
   listPlugins(args: ListPluginsCommandInput, options?: __HttpHandlerOptions): Promise<ListPluginsCommandOutput>;
@@ -794,6 +1149,41 @@ export interface QBusiness {
     args: ListPluginsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPluginsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPluginTypeActionsCommand}
+   */
+  listPluginTypeActions(
+    args: ListPluginTypeActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPluginTypeActionsCommandOutput>;
+  listPluginTypeActions(
+    args: ListPluginTypeActionsCommandInput,
+    cb: (err: any, data?: ListPluginTypeActionsCommandOutput) => void
+  ): void;
+  listPluginTypeActions(
+    args: ListPluginTypeActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPluginTypeActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPluginTypeMetadataCommand}
+   */
+  listPluginTypeMetadata(): Promise<ListPluginTypeMetadataCommandOutput>;
+  listPluginTypeMetadata(
+    args: ListPluginTypeMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPluginTypeMetadataCommandOutput>;
+  listPluginTypeMetadata(
+    args: ListPluginTypeMetadataCommandInput,
+    cb: (err: any, data?: ListPluginTypeMetadataCommandOutput) => void
+  ): void;
+  listPluginTypeMetadata(
+    args: ListPluginTypeMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPluginTypeMetadataCommandOutput) => void
   ): void;
 
   /**
@@ -808,6 +1198,23 @@ export interface QBusiness {
     args: ListRetrieversCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRetrieversCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSubscriptionsCommand}
+   */
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSubscriptionsCommandOutput>;
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
+  ): void;
+  listSubscriptions(
+    args: ListSubscriptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSubscriptionsCommandOutput) => void
   ): void;
 
   /**
@@ -864,6 +1271,23 @@ export interface QBusiness {
     args: PutGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchRelevantContentCommand}
+   */
+  searchRelevantContent(
+    args: SearchRelevantContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchRelevantContentCommandOutput>;
+  searchRelevantContent(
+    args: SearchRelevantContentCommandInput,
+    cb: (err: any, data?: SearchRelevantContentCommandOutput) => void
+  ): void;
+  searchRelevantContent(
+    args: SearchRelevantContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchRelevantContentCommandOutput) => void
   ): void;
 
   /**
@@ -957,6 +1381,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link UpdateDataAccessorCommand}
+   */
+  updateDataAccessor(
+    args: UpdateDataAccessorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataAccessorCommandOutput>;
+  updateDataAccessor(
+    args: UpdateDataAccessorCommandInput,
+    cb: (err: any, data?: UpdateDataAccessorCommandOutput) => void
+  ): void;
+  updateDataAccessor(
+    args: UpdateDataAccessorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataAccessorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDataSourceCommand}
    */
   updateDataSource(
@@ -1010,6 +1451,23 @@ export interface QBusiness {
   ): void;
 
   /**
+   * @see {@link UpdateSubscriptionCommand}
+   */
+  updateSubscription(
+    args: UpdateSubscriptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateSubscriptionCommandOutput>;
+  updateSubscription(
+    args: UpdateSubscriptionCommandInput,
+    cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
+  ): void;
+  updateSubscription(
+    args: UpdateSubscriptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateSubscriptionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateUserCommand}
    */
   updateUser(args: UpdateUserCommandInput, options?: __HttpHandlerOptions): Promise<UpdateUserCommandOutput>;
@@ -1039,85 +1497,7 @@ export interface QBusiness {
 }
 
 /**
- * <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
- *             managed, generative-AI powered enterprise chat assistant that you can deploy within your
- *             organization. Amazon Q Business enhances employee productivity by supporting key tasks such
- *             as question-answering, knowledge discovery, writing email messages, summarizing text,
- *             drafting document outlines, and brainstorming ideas. Users ask questions of
- *             Amazon Q Business and get answers that are presented in a conversational manner. For an
- *             introduction to the service, see the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html">
- *                <i>Amazon Q Business User Guide</i>
- *             </a>.</p>
- *          <p>For an overview of the Amazon Q Business APIs, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview">Overview of Amazon Q Business API operations</a>.</p>
- *          <p>For information about the IAM access control permissions you need to
- *             use this API, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html">IAM roles for Amazon Q Business</a> in the
- *                 <i>Amazon Q Business User Guide</i>.</p>
- *          <p>You can use the following AWS SDKs to access Amazon Q Business APIs:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-cpp">AWS SDK for C++</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-go">AWS SDK for Go</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-java">AWS SDK for Java</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-javascript">AWS SDK for
- *                         JavaScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-net">AWS SDK for .NET</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/pythonsdk">AWS SDK for Python
- *                     (Boto3)</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-ruby">AWS SDK for Ruby</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>The following resources provide additional information about using the Amazon Q Business
- *             API:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <i>
- *                      <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html">Setting up for
- *                             Amazon Q Business</a>
- *                   </i>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <i>
- *                      <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html">Amazon Q Business CLI Reference</a>
- *                   </i>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <i>
- *                      <a href="https://docs.aws.amazon.com/general/latest/gr/amazonq.html">Amazon Web Services General Reference</a>
- *                   </i>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully managed, generative-AI powered enterprise chat assistant that you can deploy within your organization. Amazon Q Business enhances employee productivity by supporting key tasks such as question-answering, knowledge discovery, writing email messages, summarizing text, drafting document outlines, and brainstorming ideas. Users ask questions of Amazon Q Business and get answers that are presented in a conversational manner. For an introduction to the service, see the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html"> <i>Amazon Q Business User Guide</i> </a>.</p> <p>For an overview of the Amazon Q Business APIs, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview">Overview of Amazon Q Business API operations</a>.</p> <p>For information about the IAM access control permissions you need to use this API, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html">IAM roles for Amazon Q Business</a> in the <i>Amazon Q Business User Guide</i>.</p> <p>The following resources provide additional information about using the Amazon Q Business API:</p> <ul> <li> <p> <i> <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html">Setting up for Amazon Q Business</a> </i> </p> </li> <li> <p> <i> <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html">Amazon Q Business CLI Reference</a> </i> </p> </li> <li> <p> <i> <a href="https://docs.aws.amazon.com/general/latest/gr/amazonq.html">Amazon Web Services General Reference</a> </i> </p> </li> </ul>
  * @public
  */
 export class QBusiness extends QBusinessClient implements QBusiness {}

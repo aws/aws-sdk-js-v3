@@ -29,6 +29,53 @@
     ]
   },
   "shapes": {
+    "com.amazonaws.sagemakermetrics#BatchGetMetrics": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.sagemakermetrics#BatchGetMetricsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.sagemakermetrics#BatchGetMetricsResponse"
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Used to retrieve training metrics from SageMaker.</p>",
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/BatchGetMetrics",
+          "code": 200
+        }
+      }
+    },
+    "com.amazonaws.sagemakermetrics#BatchGetMetricsRequest": {
+      "type": "structure",
+      "members": {
+        "MetricQueries": {
+          "target": "com.amazonaws.sagemakermetrics#MetricQueryList",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>Queries made to retrieve training metrics from SageMaker.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.sagemakermetrics#BatchGetMetricsResponse": {
+      "type": "structure",
+      "members": {
+        "MetricQueryResults": {
+          "target": "com.amazonaws.sagemakermetrics#MetricQueryResultList",
+          "traits": {
+            "smithy.api#documentation": "<p>The results of a query to retrieve training metrics from SageMaker.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.sagemakermetrics#BatchPutMetrics": {
       "type": "operation",
       "input": {
@@ -38,7 +85,7 @@
         "target": "com.amazonaws.sagemakermetrics#BatchPutMetricsResponse"
       },
       "traits": {
-        "smithy.api#documentation": "<p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio and\n         retrieved with the <code>GetMetrics</code> API.\n      </p>",
+        "smithy.api#documentation": "<p>Used to ingest training metrics into SageMaker. These metrics can be visualized in SageMaker Studio.\n      </p>",
         "smithy.api#http": {
           "method": "PUT",
           "uri": "/BatchPutMetrics",
@@ -85,7 +132,7 @@
           "target": "com.amazonaws.sagemakermetrics#ExperimentEntityName",
           "traits": {
             "smithy.api#clientOptional": {},
-            "smithy.api#documentation": "<p>The name of the Trial Component to associate with the metrics.</p>",
+            "smithy.api#documentation": "<p>The name of the Trial Component to associate with the metrics. The Trial Component name must be entirely lowercase.</p>",
             "smithy.api#required": {}
           }
         },
@@ -126,11 +173,24 @@
           "min": 1,
           "max": 120
         },
-        "smithy.api#pattern": "^[a-zA-Z0-9](-*[a-zA-Z0-9]){0,119}$"
+        "smithy.api#pattern": "^[a-z0-9](-*[a-z0-9]){0,119}$"
       }
     },
     "com.amazonaws.sagemakermetrics#Integer": {
       "type": "integer"
+    },
+    "com.amazonaws.sagemakermetrics#Long": {
+      "type": "long"
+    },
+    "com.amazonaws.sagemakermetrics#Message": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": ".*"
+      }
     },
     "com.amazonaws.sagemakermetrics#MetricName": {
       "type": "string",
@@ -140,6 +200,233 @@
           "max": 255
         },
         "smithy.api#pattern": "^.+$"
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricQuery": {
+      "type": "structure",
+      "members": {
+        "MetricName": {
+          "target": "com.amazonaws.sagemakermetrics#MetricName",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The name of the metric to retrieve.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceArn": {
+          "target": "com.amazonaws.sagemakermetrics#SageMakerResourceArn",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The ARN of the SageMaker resource to retrieve metrics for.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricStat": {
+          "target": "com.amazonaws.sagemakermetrics#MetricStatistic",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The metrics stat type of metrics to retrieve.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Period": {
+          "target": "com.amazonaws.sagemakermetrics#Period",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The time period of metrics to retrieve.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "XAxisType": {
+          "target": "com.amazonaws.sagemakermetrics#XAxisType",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The x-axis type of metrics to retrieve.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Start": {
+          "target": "com.amazonaws.sagemakermetrics#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The start time of metrics to retrieve.</p>"
+          }
+        },
+        "End": {
+          "target": "com.amazonaws.sagemakermetrics#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The end time of metrics to retrieve.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies a query to retrieve training metrics from SageMaker.</p>"
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricQueryList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakermetrics#MetricQuery"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricQueryResult": {
+      "type": "structure",
+      "members": {
+        "Status": {
+          "target": "com.amazonaws.sagemakermetrics#MetricQueryResultStatus",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The status of the metric query.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Message": {
+          "target": "com.amazonaws.sagemakermetrics#Message",
+          "traits": {
+            "smithy.api#documentation": "<p>A message describing the status of the metric query.</p>"
+          }
+        },
+        "XAxisValues": {
+          "target": "com.amazonaws.sagemakermetrics#XAxisValues",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The values for the x-axis of the metrics.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "MetricValues": {
+          "target": "com.amazonaws.sagemakermetrics#MetricValues",
+          "traits": {
+            "smithy.api#clientOptional": {},
+            "smithy.api#documentation": "<p>The metric values retrieved by the query.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The result of a query to retrieve training metrics from SageMaker.</p>"
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricQueryResultList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakermetrics#MetricQueryResult"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 100
+        }
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricQueryResultStatus": {
+      "type": "enum",
+      "members": {
+        "COMPLETE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Complete"
+          }
+        },
+        "TRUNCATED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Truncated"
+          }
+        },
+        "INTERNAL_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "InternalError"
+          }
+        },
+        "VALIDATION_ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ValidationError"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricStatistic": {
+      "type": "enum",
+      "members": {
+        "MIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Min"
+          }
+        },
+        "MAX": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Max"
+          }
+        },
+        "AVG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Avg"
+          }
+        },
+        "COUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Count"
+          }
+        },
+        "STD_DEV": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "StdDev"
+          }
+        },
+        "LAST": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Last"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakermetrics#MetricValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakermetrics#Double"
+      }
+    },
+    "com.amazonaws.sagemakermetrics#Period": {
+      "type": "enum",
+      "members": {
+        "ONE_MINUTE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OneMinute"
+          }
+        },
+        "FIVE_MINUTE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FiveMinute"
+          }
+        },
+        "ONE_HOUR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "OneHour"
+          }
+        },
+        "ITERATION_NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IterationNumber"
+          }
+        }
       }
     },
     "com.amazonaws.sagemakermetrics#PutMetricsErrorCode": {
@@ -226,6 +513,9 @@
       "version": "2022-09-30",
       "operations": [
         {
+          "target": "com.amazonaws.sagemakermetrics#BatchGetMetrics"
+        },
+        {
           "target": "com.amazonaws.sagemakermetrics#BatchPutMetrics"
         }
       ],
@@ -302,8 +592,212 @@
                   "type": "error"
                 },
                 {
+                  "conditions": [
+                    {
+                      "fn": "booleanEquals",
+                      "argv": [
+                        {
+                          "ref": "UseDualStack"
+                        },
+                        true
+                      ]
+                    }
+                  ],
+                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                  "type": "error"
+                },
+                {
                   "conditions": [],
+                  "endpoint": {
+                    "url": {
+                      "ref": "Endpoint"
+                    },
+                    "properties": {},
+                    "headers": {}
+                  },
+                  "type": "endpoint"
+                }
+              ],
+              "type": "tree"
+            },
+            {
+              "conditions": [
+                {
+                  "fn": "isSet",
+                  "argv": [
+                    {
+                      "ref": "Region"
+                    }
+                  ]
+                }
+              ],
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "aws.partition",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ],
+                      "assign": "PartitionResult"
+                    }
+                  ],
                   "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        },
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseDualStack"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://metrics.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
+                    {
+                      "conditions": [
+                        {
+                          "fn": "booleanEquals",
+                          "argv": [
+                            {
+                              "ref": "UseFIPS"
+                            },
+                            true
+                          ]
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsFIPS"
+                                  ]
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "stringEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "name"
+                                      ]
+                                    },
+                                    "aws"
+                                  ]
+                                }
+                              ],
+                              "endpoint": {
+                                "url": "https://metrics-fips.sagemaker.{Region}.amazonaws.com",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            },
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://metrics.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "FIPS is enabled but this partition does not support FIPS",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
+                    },
                     {
                       "conditions": [
                         {
@@ -316,15 +810,50 @@
                           ]
                         }
                       ],
-                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                      "type": "error"
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                true,
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "supportsDualStack"
+                                  ]
+                                }
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [],
+                              "endpoint": {
+                                "url": "https://metrics.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
+                                "properties": {},
+                                "headers": {}
+                              },
+                              "type": "endpoint"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "error": "DualStack is enabled but this partition does not support DualStack",
+                          "type": "error"
+                        }
+                      ],
+                      "type": "tree"
                     },
                     {
                       "conditions": [],
                       "endpoint": {
-                        "url": {
-                          "ref": "Endpoint"
-                        },
+                        "url": "https://metrics.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
                         "properties": {},
                         "headers": {}
                       },
@@ -338,263 +867,468 @@
             },
             {
               "conditions": [],
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "isSet",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ]
-                    }
-                  ],
-                  "rules": [
-                    {
-                      "conditions": [
-                        {
-                          "fn": "aws.partition",
-                          "argv": [
-                            {
-                              "ref": "Region"
-                            }
-                          ],
-                          "assign": "PartitionResult"
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://metrics.sagemaker-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ],
-                                  "type": "tree"
-                                }
-                              ],
-                              "type": "tree"
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                              "type": "error"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseFIPS"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsFIPS"
-                                      ]
-                                    },
-                                    true
-                                  ]
-                                }
-                              ],
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://metrics.sagemaker-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ],
-                                  "type": "tree"
-                                }
-                              ],
-                              "type": "tree"
-                            },
-                            {
-                              "conditions": [],
-                              "error": "FIPS is enabled but this partition does not support FIPS",
-                              "type": "error"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "ref": "UseDualStack"
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [
-                                {
-                                  "fn": "booleanEquals",
-                                  "argv": [
-                                    true,
-                                    {
-                                      "fn": "getAttr",
-                                      "argv": [
-                                        {
-                                          "ref": "PartitionResult"
-                                        },
-                                        "supportsDualStack"
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ],
-                              "rules": [
-                                {
-                                  "conditions": [],
-                                  "rules": [
-                                    {
-                                      "conditions": [],
-                                      "endpoint": {
-                                        "url": "https://metrics.sagemaker.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                        "properties": {},
-                                        "headers": {}
-                                      },
-                                      "type": "endpoint"
-                                    }
-                                  ],
-                                  "type": "tree"
-                                }
-                              ],
-                              "type": "tree"
-                            },
-                            {
-                              "conditions": [],
-                              "error": "DualStack is enabled but this partition does not support DualStack",
-                              "type": "error"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://metrics.sagemaker.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        }
-                      ],
-                      "type": "tree"
-                    }
-                  ],
-                  "type": "tree"
-                },
-                {
-                  "conditions": [],
-                  "error": "Invalid Configuration: Missing Region",
-                  "type": "error"
-                }
-              ],
-              "type": "tree"
+              "error": "Invalid Configuration: Missing Region",
+              "type": "error"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
+            {
+              "documentation": "For region af-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.af-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "af-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-northeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-northeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-northeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-northeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-northeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-south-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-southeast-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-southeast-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-southeast-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ap-southeast-4 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ap-southeast-4.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ap-southeast-4",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-central-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics-fips.sagemaker.ca-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-central-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.ca-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region ca-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics-fips.sagemaker.ca-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "ca-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-central-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-central-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-central-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-north-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-north-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-north-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-south-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-south-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-south-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-west-3 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.eu-west-3.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "eu-west-3",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region il-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.il-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "il-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-central-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.me-central-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-central-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region me-south-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.me-south-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "me-south-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region sa-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.sa-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "sa-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics-fips.sagemaker.us-east-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-east-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics-fips.sagemaker.us-east-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-east-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics-fips.sagemaker.us-west-1.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics.sagemaker.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": false,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-west-2 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "url": "https://metrics-fips.sagemaker.us-west-2.amazonaws.com"
+                }
+              },
+              "params": {
+                "Region": "us-west-2",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
             {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
@@ -609,19 +1343,6 @@
               }
             },
             {
-              "documentation": "For region us-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://metrics.sagemaker-fips.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
               "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
@@ -632,19 +1353,6 @@
                 "Region": "us-east-1",
                 "UseFIPS": false,
                 "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-east-1 with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://metrics.sagemaker.us-east-1.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
               }
             },
             {
@@ -909,6 +1617,16 @@
         }
       }
     },
+    "com.amazonaws.sagemakermetrics#SageMakerResourceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:aws[a-z\\-]*:sagemaker:[a-z0-9\\-]*:[0-9]{12}:[a-z\\-].*/"
+      }
+    },
     "com.amazonaws.sagemakermetrics#Step": {
       "type": "integer",
       "traits": {
@@ -919,6 +1637,29 @@
     },
     "com.amazonaws.sagemakermetrics#Timestamp": {
       "type": "timestamp"
+    },
+    "com.amazonaws.sagemakermetrics#XAxisType": {
+      "type": "enum",
+      "members": {
+        "ITERATION_NUMBER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IterationNumber"
+          }
+        },
+        "TIMESTAMP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Timestamp"
+          }
+        }
+      }
+    },
+    "com.amazonaws.sagemakermetrics#XAxisValues": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.sagemakermetrics#Long"
+      }
     }
   }
 }

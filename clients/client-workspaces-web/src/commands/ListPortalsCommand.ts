@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * //       displayName: "STRING_VALUE",
  * //       creationDate: new Date("TIMESTAMP"),
  * //       browserSettingsArn: "STRING_VALUE",
+ * //       dataProtectionSettingsArn: "STRING_VALUE",
  * //       userSettingsArn: "STRING_VALUE",
  * //       networkSettingsArn: "STRING_VALUE",
  * //       trustStoreArn: "STRING_VALUE",
@@ -87,6 +89,7 @@ export interface ListPortalsCommandOutput extends ListPortalsResponse, __Metadat
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListPortalsCommand extends $Command
@@ -97,9 +100,7 @@ export class ListPortalsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class ListPortalsCommand extends $Command
   .f(void 0, ListPortalsResponseFilterSensitiveLog)
   .ser(se_ListPortalsCommand)
   .de(de_ListPortalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPortalsRequest;
+      output: ListPortalsResponse;
+    };
+    sdk: {
+      input: ListPortalsCommandInput;
+      output: ListPortalsCommandOutput;
+    };
+  };
+}

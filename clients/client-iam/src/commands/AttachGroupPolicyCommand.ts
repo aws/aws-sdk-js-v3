@@ -12,7 +12,8 @@ import { de_AttachGroupPolicyCommand, se_AttachGroupPolicyCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,19 +83,22 @@ export interface AttachGroupPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To attach a managed policy to an IAM group
  * ```javascript
  * // The following command attaches the AWS managed policy named ReadOnlyAccess to the IAM group named Finance.
  * const input = {
- *   "GroupName": "Finance",
- *   "PolicyArn": "arn:aws:iam::aws:policy/ReadOnlyAccess"
+ *   GroupName: "Finance",
+ *   PolicyArn: "arn:aws:iam::aws:policy/ReadOnlyAccess"
  * };
  * const command = new AttachGroupPolicyCommand(input);
- * await client.send(command);
- * // example id: 87551489-86f0-45db-9889-759936778f2b
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachGroupPolicyCommand extends $Command
   .classBuilder<
@@ -104,9 +108,7 @@ export class AttachGroupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class AttachGroupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachGroupPolicyCommand)
   .de(de_AttachGroupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachGroupPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: AttachGroupPolicyCommandInput;
+      output: AttachGroupPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListControlsCommand, se_ListControlsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,10 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * // const { AuditManagerClient, ListControlsCommand } = require("@aws-sdk/client-auditmanager"); // CommonJS import
  * const client = new AuditManagerClient(config);
  * const input = { // ListControlsRequest
- *   controlType: "Standard" || "Custom", // required
+ *   controlType: "Standard" || "Custom" || "Core", // required
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   controlCatalogId: "STRING_VALUE",
  * };
  * const command = new ListControlsCommand(input);
  * const response = await client.send(command);
@@ -77,6 +79,7 @@ export interface ListControlsCommandOutput extends ListControlsResponse, __Metad
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListControlsCommand extends $Command
@@ -87,9 +90,7 @@ export class ListControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class ListControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListControlsCommand)
   .de(de_ListControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListControlsRequest;
+      output: ListControlsResponse;
+    };
+    sdk: {
+      input: ListControlsCommandInput;
+      output: ListControlsCommandOutput;
+    };
+  };
+}

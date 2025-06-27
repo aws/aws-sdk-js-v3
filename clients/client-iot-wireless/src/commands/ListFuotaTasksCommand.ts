@@ -12,7 +12,8 @@ import { de_ListFuotaTasksCommand, se_ListFuotaTasksCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface ListFuotaTasksCommandOutput extends ListFuotaTasksResponse, __M
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListFuotaTasksCommand extends $Command
@@ -84,9 +86,7 @@ export class ListFuotaTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class ListFuotaTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFuotaTasksCommand)
   .de(de_ListFuotaTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFuotaTasksRequest;
+      output: ListFuotaTasksResponse;
+    };
+    sdk: {
+      input: ListFuotaTasksCommandInput;
+      output: ListFuotaTasksCommandOutput;
+    };
+  };
+}

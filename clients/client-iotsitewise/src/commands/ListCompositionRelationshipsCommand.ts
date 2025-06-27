@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTSiteWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTSiteWiseClient";
-import { ListCompositionRelationshipsRequest, ListCompositionRelationshipsResponse } from "../models/models_0";
+import { ListCompositionRelationshipsRequest, ListCompositionRelationshipsResponse } from "../models/models_1";
 import {
   de_ListCompositionRelationshipsCommand,
   se_ListCompositionRelationshipsCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,8 @@ export interface ListCompositionRelationshipsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a paginated list of composition relationships for an asset model of type <code>COMPONENT_MODEL</code>.</p>
+ * <p>Retrieves a paginated list of composition relationships for an asset model of type
+ *         <code>COMPONENT_MODEL</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +86,7 @@ export interface ListCompositionRelationshipsCommandOutput
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class ListCompositionRelationshipsCommand extends $Command
@@ -94,9 +97,7 @@ export class ListCompositionRelationshipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +109,16 @@ export class ListCompositionRelationshipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCompositionRelationshipsCommand)
   .de(de_ListCompositionRelationshipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCompositionRelationshipsRequest;
+      output: ListCompositionRelationshipsResponse;
+    };
+    sdk: {
+      input: ListCompositionRelationshipsCommandInput;
+      output: ListCompositionRelationshipsCommandOutput;
+    };
+  };
+}

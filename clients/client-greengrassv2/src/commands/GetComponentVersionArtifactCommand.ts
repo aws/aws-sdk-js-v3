@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface GetComponentVersionArtifactCommandOutput
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class GetComponentVersionArtifactCommand extends $Command
@@ -91,9 +93,7 @@ export class GetComponentVersionArtifactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetComponentVersionArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComponentVersionArtifactCommand)
   .de(de_GetComponentVersionArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComponentVersionArtifactRequest;
+      output: GetComponentVersionArtifactResponse;
+    };
+    sdk: {
+      input: GetComponentVersionArtifactCommandInput;
+      output: GetComponentVersionArtifactCommandOutput;
+    };
+  };
+}

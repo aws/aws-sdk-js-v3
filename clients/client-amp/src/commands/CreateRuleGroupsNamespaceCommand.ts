@@ -12,7 +12,8 @@ import { de_CreateRuleGroupsNamespaceCommand, se_CreateRuleGroupsNamespaceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface CreateRuleGroupsNamespaceCommandInput extends CreateRuleGroupsN
 export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroupsNamespaceResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>CreateRuleGroupsNamespace</code> operation creates a rule groups namespace
- *             within a workspace. A rule groups namespace is associated with exactly one rules file. A
- *             workspace can have multiple rule groups namespaces.</p>
- *          <p>Use this operation only to create new rule groups namespaces. To update an existing
- *             rule groups namespace, use <code>PutRuleGroupsNamespace</code>.</p>
+ * <p>The <code>CreateRuleGroupsNamespace</code> operation creates a rule groups namespace within a workspace. A rule groups namespace is associated with exactly one rules file. A workspace can have multiple rule groups namespaces.</p> <p>Use this operation only to create new rule groups namespaces. To update an existing rule groups namespace, use <code>PutRuleGroupsNamespace</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,11 +85,11 @@ export interface CreateRuleGroupsNamespaceCommandOutput extends CreateRuleGroups
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -104,9 +101,7 @@ export class CreateRuleGroupsNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +113,16 @@ export class CreateRuleGroupsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRuleGroupsNamespaceCommand)
   .de(de_CreateRuleGroupsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleGroupsNamespaceRequest;
+      output: CreateRuleGroupsNamespaceResponse;
+    };
+    sdk: {
+      input: CreateRuleGroupsNamespaceCommandInput;
+      output: CreateRuleGroupsNamespaceCommandOutput;
+    };
+  };
+}

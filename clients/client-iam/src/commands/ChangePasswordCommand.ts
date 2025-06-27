@@ -12,7 +12,8 @@ import { de_ChangePasswordCommand, se_ChangePasswordCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,19 +87,22 @@ export interface ChangePasswordCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To change the password for your IAM user
  * ```javascript
  * // The following command changes the password for the current IAM user.
  * const input = {
- *   "NewPassword": "]35d/{pB9Fo9wJ",
- *   "OldPassword": "3s0K_;xh4~8XXI"
+ *   NewPassword: "]35d/{pB9Fo9wJ",
+ *   OldPassword: "3s0K_;xh4~8XXI"
  * };
  * const command = new ChangePasswordCommand(input);
- * await client.send(command);
- * // example id: 3a80c66f-bffb-46df-947c-1e8fa583b470
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ChangePasswordCommand extends $Command
   .classBuilder<
@@ -108,9 +112,7 @@ export class ChangePasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +124,16 @@ export class ChangePasswordCommand extends $Command
   .f(ChangePasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ChangePasswordCommand)
   .de(de_ChangePasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChangePasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: ChangePasswordCommandInput;
+      output: ChangePasswordCommandOutput;
+    };
+  };
+}

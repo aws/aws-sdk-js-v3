@@ -79,6 +79,11 @@ import {
   CreateWorkspacesCommandOutput,
 } from "./commands/CreateWorkspacesCommand";
 import {
+  CreateWorkspacesPoolCommand,
+  CreateWorkspacesPoolCommandInput,
+  CreateWorkspacesPoolCommandOutput,
+} from "./commands/CreateWorkspacesPoolCommand";
+import {
   DeleteAccountLinkInvitationCommand,
   DeleteAccountLinkInvitationCommandInput,
   DeleteAccountLinkInvitationCommandOutput,
@@ -230,6 +235,16 @@ import {
   DescribeWorkspaceSnapshotsCommandOutput,
 } from "./commands/DescribeWorkspaceSnapshotsCommand";
 import {
+  DescribeWorkspacesPoolsCommand,
+  DescribeWorkspacesPoolsCommandInput,
+  DescribeWorkspacesPoolsCommandOutput,
+} from "./commands/DescribeWorkspacesPoolsCommand";
+import {
+  DescribeWorkspacesPoolSessionsCommand,
+  DescribeWorkspacesPoolSessionsCommandInput,
+  DescribeWorkspacesPoolSessionsCommandOutput,
+} from "./commands/DescribeWorkspacesPoolSessionsCommand";
+import {
   DisassociateConnectionAliasCommand,
   DisassociateConnectionAliasCommandInput,
   DisassociateConnectionAliasCommandOutput,
@@ -290,6 +305,11 @@ import {
   ModifyClientPropertiesCommandOutput,
 } from "./commands/ModifyClientPropertiesCommand";
 import {
+  ModifyEndpointEncryptionModeCommand,
+  ModifyEndpointEncryptionModeCommandInput,
+  ModifyEndpointEncryptionModeCommandOutput,
+} from "./commands/ModifyEndpointEncryptionModeCommand";
+import {
   ModifySamlPropertiesCommand,
   ModifySamlPropertiesCommandInput,
   ModifySamlPropertiesCommandOutput,
@@ -299,6 +319,11 @@ import {
   ModifySelfservicePermissionsCommandInput,
   ModifySelfservicePermissionsCommandOutput,
 } from "./commands/ModifySelfservicePermissionsCommand";
+import {
+  ModifyStreamingPropertiesCommand,
+  ModifyStreamingPropertiesCommandInput,
+  ModifyStreamingPropertiesCommandOutput,
+} from "./commands/ModifyStreamingPropertiesCommand";
 import {
   ModifyWorkspaceAccessPropertiesCommand,
   ModifyWorkspaceAccessPropertiesCommandInput,
@@ -355,15 +380,35 @@ import {
   StartWorkspacesCommandOutput,
 } from "./commands/StartWorkspacesCommand";
 import {
+  StartWorkspacesPoolCommand,
+  StartWorkspacesPoolCommandInput,
+  StartWorkspacesPoolCommandOutput,
+} from "./commands/StartWorkspacesPoolCommand";
+import {
   StopWorkspacesCommand,
   StopWorkspacesCommandInput,
   StopWorkspacesCommandOutput,
 } from "./commands/StopWorkspacesCommand";
 import {
+  StopWorkspacesPoolCommand,
+  StopWorkspacesPoolCommandInput,
+  StopWorkspacesPoolCommandOutput,
+} from "./commands/StopWorkspacesPoolCommand";
+import {
   TerminateWorkspacesCommand,
   TerminateWorkspacesCommandInput,
   TerminateWorkspacesCommandOutput,
 } from "./commands/TerminateWorkspacesCommand";
+import {
+  TerminateWorkspacesPoolCommand,
+  TerminateWorkspacesPoolCommandInput,
+  TerminateWorkspacesPoolCommandOutput,
+} from "./commands/TerminateWorkspacesPoolCommand";
+import {
+  TerminateWorkspacesPoolSessionCommand,
+  TerminateWorkspacesPoolSessionCommandInput,
+  TerminateWorkspacesPoolSessionCommandOutput,
+} from "./commands/TerminateWorkspacesPoolSessionCommand";
 import {
   UpdateConnectClientAddInCommand,
   UpdateConnectClientAddInCommandInput,
@@ -389,6 +434,11 @@ import {
   UpdateWorkspaceImagePermissionCommandInput,
   UpdateWorkspaceImagePermissionCommandOutput,
 } from "./commands/UpdateWorkspaceImagePermissionCommand";
+import {
+  UpdateWorkspacesPoolCommand,
+  UpdateWorkspacesPoolCommandInput,
+  UpdateWorkspacesPoolCommandOutput,
+} from "./commands/UpdateWorkspacesPoolCommand";
 import { WorkSpacesClient, WorkSpacesClientConfig } from "./WorkSpacesClient";
 
 const commands = {
@@ -408,6 +458,7 @@ const commands = {
   CreateWorkspaceBundleCommand,
   CreateWorkspaceImageCommand,
   CreateWorkspacesCommand,
+  CreateWorkspacesPoolCommand,
   DeleteAccountLinkInvitationCommand,
   DeleteClientBrandingCommand,
   DeleteConnectClientAddInCommand,
@@ -439,6 +490,8 @@ const commands = {
   DescribeWorkspacesCommand,
   DescribeWorkspacesConnectionStatusCommand,
   DescribeWorkspaceSnapshotsCommand,
+  DescribeWorkspacesPoolsCommand,
+  DescribeWorkspacesPoolSessionsCommand,
   DisassociateConnectionAliasCommand,
   DisassociateIpGroupsCommand,
   DisassociateWorkspaceApplicationCommand,
@@ -451,8 +504,10 @@ const commands = {
   ModifyAccountCommand,
   ModifyCertificateBasedAuthPropertiesCommand,
   ModifyClientPropertiesCommand,
+  ModifyEndpointEncryptionModeCommand,
   ModifySamlPropertiesCommand,
   ModifySelfservicePermissionsCommand,
+  ModifyStreamingPropertiesCommand,
   ModifyWorkspaceAccessPropertiesCommand,
   ModifyWorkspaceCreationPropertiesCommand,
   ModifyWorkspacePropertiesCommand,
@@ -464,13 +519,18 @@ const commands = {
   RestoreWorkspaceCommand,
   RevokeIpRulesCommand,
   StartWorkspacesCommand,
+  StartWorkspacesPoolCommand,
   StopWorkspacesCommand,
+  StopWorkspacesPoolCommand,
   TerminateWorkspacesCommand,
+  TerminateWorkspacesPoolCommand,
+  TerminateWorkspacesPoolSessionCommand,
   UpdateConnectClientAddInCommand,
   UpdateConnectionAliasPermissionCommand,
   UpdateRulesOfIpGroupCommand,
   UpdateWorkspaceBundleCommand,
   UpdateWorkspaceImagePermissionCommand,
+  UpdateWorkspacesPoolCommand,
 };
 
 export interface WorkSpaces {
@@ -732,6 +792,23 @@ export interface WorkSpaces {
     args: CreateWorkspacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkspacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateWorkspacesPoolCommand}
+   */
+  createWorkspacesPool(
+    args: CreateWorkspacesPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateWorkspacesPoolCommandOutput>;
+  createWorkspacesPool(
+    args: CreateWorkspacesPoolCommandInput,
+    cb: (err: any, data?: CreateWorkspacesPoolCommandOutput) => void
+  ): void;
+  createWorkspacesPool(
+    args: CreateWorkspacesPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateWorkspacesPoolCommandOutput) => void
   ): void;
 
   /**
@@ -1252,6 +1329,41 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link DescribeWorkspacesPoolsCommand}
+   */
+  describeWorkspacesPools(): Promise<DescribeWorkspacesPoolsCommandOutput>;
+  describeWorkspacesPools(
+    args: DescribeWorkspacesPoolsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspacesPoolsCommandOutput>;
+  describeWorkspacesPools(
+    args: DescribeWorkspacesPoolsCommandInput,
+    cb: (err: any, data?: DescribeWorkspacesPoolsCommandOutput) => void
+  ): void;
+  describeWorkspacesPools(
+    args: DescribeWorkspacesPoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspacesPoolsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeWorkspacesPoolSessionsCommand}
+   */
+  describeWorkspacesPoolSessions(
+    args: DescribeWorkspacesPoolSessionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeWorkspacesPoolSessionsCommandOutput>;
+  describeWorkspacesPoolSessions(
+    args: DescribeWorkspacesPoolSessionsCommandInput,
+    cb: (err: any, data?: DescribeWorkspacesPoolSessionsCommandOutput) => void
+  ): void;
+  describeWorkspacesPoolSessions(
+    args: DescribeWorkspacesPoolSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeWorkspacesPoolSessionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateConnectionAliasCommand}
    */
   disassociateConnectionAlias(
@@ -1450,6 +1562,23 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link ModifyEndpointEncryptionModeCommand}
+   */
+  modifyEndpointEncryptionMode(
+    args: ModifyEndpointEncryptionModeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyEndpointEncryptionModeCommandOutput>;
+  modifyEndpointEncryptionMode(
+    args: ModifyEndpointEncryptionModeCommandInput,
+    cb: (err: any, data?: ModifyEndpointEncryptionModeCommandOutput) => void
+  ): void;
+  modifyEndpointEncryptionMode(
+    args: ModifyEndpointEncryptionModeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyEndpointEncryptionModeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifySamlPropertiesCommand}
    */
   modifySamlProperties(
@@ -1481,6 +1610,23 @@ export interface WorkSpaces {
     args: ModifySelfservicePermissionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifySelfservicePermissionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyStreamingPropertiesCommand}
+   */
+  modifyStreamingProperties(
+    args: ModifyStreamingPropertiesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyStreamingPropertiesCommandOutput>;
+  modifyStreamingProperties(
+    args: ModifyStreamingPropertiesCommandInput,
+    cb: (err: any, data?: ModifyStreamingPropertiesCommandOutput) => void
+  ): void;
+  modifyStreamingProperties(
+    args: ModifyStreamingPropertiesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyStreamingPropertiesCommandOutput) => void
   ): void;
 
   /**
@@ -1588,6 +1734,7 @@ export interface WorkSpaces {
   /**
    * @see {@link RegisterWorkspaceDirectoryCommand}
    */
+  registerWorkspaceDirectory(): Promise<RegisterWorkspaceDirectoryCommandOutput>;
   registerWorkspaceDirectory(
     args: RegisterWorkspaceDirectoryCommandInput,
     options?: __HttpHandlerOptions
@@ -1662,6 +1809,23 @@ export interface WorkSpaces {
   ): void;
 
   /**
+   * @see {@link StartWorkspacesPoolCommand}
+   */
+  startWorkspacesPool(
+    args: StartWorkspacesPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartWorkspacesPoolCommandOutput>;
+  startWorkspacesPool(
+    args: StartWorkspacesPoolCommandInput,
+    cb: (err: any, data?: StartWorkspacesPoolCommandOutput) => void
+  ): void;
+  startWorkspacesPool(
+    args: StartWorkspacesPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartWorkspacesPoolCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopWorkspacesCommand}
    */
   stopWorkspaces(
@@ -1673,6 +1837,23 @@ export interface WorkSpaces {
     args: StopWorkspacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopWorkspacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopWorkspacesPoolCommand}
+   */
+  stopWorkspacesPool(
+    args: StopWorkspacesPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopWorkspacesPoolCommandOutput>;
+  stopWorkspacesPool(
+    args: StopWorkspacesPoolCommandInput,
+    cb: (err: any, data?: StopWorkspacesPoolCommandOutput) => void
+  ): void;
+  stopWorkspacesPool(
+    args: StopWorkspacesPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopWorkspacesPoolCommandOutput) => void
   ): void;
 
   /**
@@ -1690,6 +1871,40 @@ export interface WorkSpaces {
     args: TerminateWorkspacesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: TerminateWorkspacesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateWorkspacesPoolCommand}
+   */
+  terminateWorkspacesPool(
+    args: TerminateWorkspacesPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateWorkspacesPoolCommandOutput>;
+  terminateWorkspacesPool(
+    args: TerminateWorkspacesPoolCommandInput,
+    cb: (err: any, data?: TerminateWorkspacesPoolCommandOutput) => void
+  ): void;
+  terminateWorkspacesPool(
+    args: TerminateWorkspacesPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateWorkspacesPoolCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TerminateWorkspacesPoolSessionCommand}
+   */
+  terminateWorkspacesPoolSession(
+    args: TerminateWorkspacesPoolSessionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<TerminateWorkspacesPoolSessionCommandOutput>;
+  terminateWorkspacesPoolSession(
+    args: TerminateWorkspacesPoolSessionCommandInput,
+    cb: (err: any, data?: TerminateWorkspacesPoolSessionCommandOutput) => void
+  ): void;
+  terminateWorkspacesPoolSession(
+    args: TerminateWorkspacesPoolSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TerminateWorkspacesPoolSessionCommandOutput) => void
   ): void;
 
   /**
@@ -1776,6 +1991,23 @@ export interface WorkSpaces {
     args: UpdateWorkspaceImagePermissionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateWorkspaceImagePermissionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateWorkspacesPoolCommand}
+   */
+  updateWorkspacesPool(
+    args: UpdateWorkspacesPoolCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateWorkspacesPoolCommandOutput>;
+  updateWorkspacesPool(
+    args: UpdateWorkspacesPoolCommandInput,
+    cb: (err: any, data?: UpdateWorkspacesPoolCommandOutput) => void
+  ): void;
+  updateWorkspacesPool(
+    args: UpdateWorkspacesPoolCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateWorkspacesPoolCommandOutput) => void
   ): void;
 }
 

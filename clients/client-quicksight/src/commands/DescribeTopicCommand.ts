@@ -9,14 +9,15 @@ import {
   DescribeTopicRequest,
   DescribeTopicResponse,
   DescribeTopicResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_DescribeTopicCommand, se_DescribeTopicCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -175,7 +176,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //                 FractionDigits: Number("int"),
  * //                 Prefix: "STRING_VALUE",
  * //                 Suffix: "STRING_VALUE",
- * //                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                 NegativeFormat: { // NegativeFormat
  * //                   Prefix: "STRING_VALUE",
  * //                   Suffix: "STRING_VALUE",
@@ -217,7 +218,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //                 FractionDigits: Number("int"),
  * //                 Prefix: "STRING_VALUE",
  * //                 Suffix: "STRING_VALUE",
- * //                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS",
+ * //                 UnitScaler: "NONE" || "AUTO" || "THOUSANDS" || "MILLIONS" || "BILLIONS" || "TRILLIONS" || "LAKHS" || "CRORES",
  * //                 NegativeFormat: {
  * //                   Prefix: "STRING_VALUE",
  * //                   Suffix: "STRING_VALUE",
@@ -294,6 +295,9 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * //         ],
  * //       },
  * //     ],
+ * //     ConfigOptions: { // TopicConfigOptions
+ * //       QBusinessInsightsEnabled: true || false,
+ * //     },
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
@@ -328,6 +332,7 @@ export interface DescribeTopicCommandOutput extends DescribeTopicResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTopicCommand extends $Command
@@ -338,9 +343,7 @@ export class DescribeTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -352,4 +355,16 @@ export class DescribeTopicCommand extends $Command
   .f(void 0, DescribeTopicResponseFilterSensitiveLog)
   .ser(se_DescribeTopicCommand)
   .de(de_DescribeTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicRequest;
+      output: DescribeTopicResponse;
+    };
+    sdk: {
+      input: DescribeTopicCommandInput;
+      output: DescribeTopicCommandOutput;
+    };
+  };
+}

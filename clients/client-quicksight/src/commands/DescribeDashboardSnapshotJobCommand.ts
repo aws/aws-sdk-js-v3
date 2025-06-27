@@ -9,7 +9,7 @@ import {
   DescribeDashboardSnapshotJobRequest,
   DescribeDashboardSnapshotJobResponse,
   DescribeDashboardSnapshotJobResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeDashboardSnapshotJobCommand,
   se_DescribeDashboardSnapshotJobCommand,
@@ -19,7 +19,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -169,6 +170,7 @@ export interface DescribeDashboardSnapshotJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeDashboardSnapshotJobCommand extends $Command
@@ -179,9 +181,7 @@ export class DescribeDashboardSnapshotJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +193,16 @@ export class DescribeDashboardSnapshotJobCommand extends $Command
   .f(void 0, DescribeDashboardSnapshotJobResponseFilterSensitiveLog)
   .ser(se_DescribeDashboardSnapshotJobCommand)
   .de(de_DescribeDashboardSnapshotJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDashboardSnapshotJobRequest;
+      output: DescribeDashboardSnapshotJobResponse;
+    };
+    sdk: {
+      input: DescribeDashboardSnapshotJobCommandInput;
+      output: DescribeDashboardSnapshotJobCommandOutput;
+    };
+  };
+}

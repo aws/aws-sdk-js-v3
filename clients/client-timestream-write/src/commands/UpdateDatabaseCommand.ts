@@ -13,7 +13,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TimestreamWriteClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface UpdateDatabaseCommandOutput extends UpdateDatabaseResponse, __M
  * @throws {@link TimestreamWriteServiceException}
  * <p>Base exception class for all service exceptions from TimestreamWrite service.</p>
  *
+ *
  * @public
  */
 export class UpdateDatabaseCommand extends $Command
@@ -102,14 +104,16 @@ export class UpdateDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamWriteClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
-      getEndpointDiscoveryPlugin(config, { clientStack: cs, isDiscoveredEndpointRequired: true, options: o }),
+      getEndpointDiscoveryPlugin(config, {
+        clientStack: cs,
+        isDiscoveredEndpointRequired: true,
+        options: o,
+      }),
     ];
   })
   .s("Timestream_20181101", "UpdateDatabase", {})
@@ -117,4 +121,16 @@ export class UpdateDatabaseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDatabaseCommand)
   .de(de_UpdateDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDatabaseRequest;
+      output: UpdateDatabaseResponse;
+    };
+    sdk: {
+      input: UpdateDatabaseCommandInput;
+      output: UpdateDatabaseCommandOutput;
+    };
+  };
+}

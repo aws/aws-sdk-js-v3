@@ -12,7 +12,8 @@ import { de_DeregisterEventTopicCommand, se_DeregisterEventTopicCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,21 @@ export interface DeregisterEventTopicCommandOutput extends DeregisterEventTopicR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To remove an event topic
+ * ```javascript
+ * // The following example removes the specified directory as a publisher to the specified SNS topic.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   TopicName: "snstopicexample"
+ * };
+ * const command = new DeregisterEventTopicCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeregisterEventTopicCommand extends $Command
@@ -75,9 +91,7 @@ export class DeregisterEventTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +103,16 @@ export class DeregisterEventTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterEventTopicCommand)
   .de(de_DeregisterEventTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterEventTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterEventTopicCommandInput;
+      output: DeregisterEventTopicCommandOutput;
+    };
+  };
+}

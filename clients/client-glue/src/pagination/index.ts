@@ -1,3 +1,5 @@
+export * from "./DescribeEntityPaginator";
+
 export * from "./GetBlueprintRunsPaginator";
 
 export * from "./GetClassifiersPaginator";
@@ -15,10 +17,9 @@ export * from "./GetDatabasesPaginator";
 export * from "./GetDevEndpointsPaginator";
 
 export * from "./GetJobRunsPaginator";
-
-export * from "./GetJobsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
+export * from "./GetJobsPaginator";
 export * from "./GetMLTaskRunsPaginator";
 export * from "./GetMLTransformsPaginator";
 export * from "./GetPartitionIndexesPaginator";
@@ -33,6 +34,7 @@ export * from "./GetUserDefinedFunctionsPaginator";
 export * from "./GetWorkflowRunsPaginator";
 export * from "./ListBlueprintsPaginator";
 export * from "./ListColumnStatisticsTaskRunsPaginator";
+export * from "./ListConnectionTypesPaginator";
 export * from "./ListCrawlersPaginator";
 export * from "./ListCustomEntityTypesPaginator";
 export * from "./ListDataQualityResultsPaginator";
@@ -40,6 +42,7 @@ export * from "./ListDataQualityRuleRecommendationRunsPaginator";
 export * from "./ListDataQualityRulesetEvaluationRunsPaginator";
 export * from "./ListDataQualityRulesetsPaginator";
 export * from "./ListDevEndpointsPaginator";
+export * from "./ListEntitiesPaginator";
 export * from "./ListJobsPaginator";
 export * from "./ListMLTransformsPaginator";
 export * from "./ListRegistriesPaginator";
@@ -48,5 +51,6 @@ export * from "./ListSchemasPaginator";
 export * from "./ListSessionsPaginator";
 export * from "./ListTableOptimizerRunsPaginator";
 export * from "./ListTriggersPaginator";
+export * from "./ListUsageProfilesPaginator";
 export * from "./ListWorkflowsPaginator";
 export * from "./SearchTablesPaginator";

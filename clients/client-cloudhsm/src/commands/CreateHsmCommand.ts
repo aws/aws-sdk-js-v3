@@ -12,7 +12,8 @@ import { de_CreateHsmCommand, se_CreateHsmCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class CreateHsmCommand extends $Command
@@ -101,9 +103,7 @@ export class CreateHsmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class CreateHsmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHsmCommand)
   .de(de_CreateHsmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHsmRequest;
+      output: CreateHsmResponse;
+    };
+    sdk: {
+      input: CreateHsmCommandInput;
+      output: CreateHsmCommandOutput;
+    };
+  };
+}

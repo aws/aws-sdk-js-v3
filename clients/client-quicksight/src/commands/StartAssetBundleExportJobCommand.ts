@@ -12,7 +12,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,7 +77,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *       { // AssetBundleExportJobDataSetOverrideProperties
  *         Arn: "STRING_VALUE", // required
  *         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
- *           "Name",
+ *           "Name" || "RefreshFailureEmailAlertStatus",
  *         ],
  *       },
  *     ],
@@ -104,12 +105,22 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  *         ],
  *       },
  *     ],
+ *     Folders: [ // AssetBundleExportJobFolderOverridePropertiesList
+ *       { // AssetBundleExportJobFolderOverrideProperties
+ *         Arn: "STRING_VALUE", // required
+ *         Properties: [ // AssetBundleExportJobFolderPropertyToOverrideList // required
+ *           "Name" || "ParentFolderArn",
+ *         ],
+ *       },
+ *     ],
  *   },
  *   IncludePermissions: true || false,
  *   IncludeTags: true || false,
  *   ValidationStrategy: { // AssetBundleExportJobValidationStrategy
  *     StrictModeForAllResources: true || false,
  *   },
+ *   IncludeFolderMemberships: true || false,
+ *   IncludeFolderMembers: "RECURSE" || "ONE_LEVEL" || "NONE",
  * };
  * const command = new StartAssetBundleExportJobCommand(input);
  * const response = await client.send(command);
@@ -158,6 +169,7 @@ export interface StartAssetBundleExportJobCommandOutput extends StartAssetBundle
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class StartAssetBundleExportJobCommand extends $Command
@@ -168,9 +180,7 @@ export class StartAssetBundleExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +192,16 @@ export class StartAssetBundleExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAssetBundleExportJobCommand)
   .de(de_StartAssetBundleExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAssetBundleExportJobRequest;
+      output: StartAssetBundleExportJobResponse;
+    };
+    sdk: {
+      input: StartAssetBundleExportJobCommandInput;
+      output: StartAssetBundleExportJobCommandOutput;
+    };
+  };
+}

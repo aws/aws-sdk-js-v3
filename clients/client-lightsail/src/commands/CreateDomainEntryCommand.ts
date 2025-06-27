@@ -12,7 +12,8 @@ import { de_CreateDomainEntryCommand, se_CreateDomainEntryCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  *       (SOA), service locator (SRV), or text (TXT).</p>
  *          <p>The <code>create domain entry</code> operation supports tag-based access control via
  *       resource tags applied to the resource identified by <code>domain name</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,6 +116,7 @@ export interface CreateDomainEntryCommandOutput extends CreateDomainEntryResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateDomainEntryCommand extends $Command
@@ -125,9 +127,7 @@ export class CreateDomainEntryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class CreateDomainEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDomainEntryCommand)
   .de(de_CreateDomainEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainEntryRequest;
+      output: CreateDomainEntryResult;
+    };
+    sdk: {
+      input: CreateDomainEntryCommandInput;
+      output: CreateDomainEntryCommandOutput;
+    };
+  };
+}

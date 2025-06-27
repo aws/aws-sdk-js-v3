@@ -12,7 +12,8 @@ import { de_CreateConditionalForwarderCommand, se_CreateConditionalForwarderComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,7 +60,7 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
  *  <p>The specified entity already exists.</p>
@@ -79,6 +80,24 @@ export interface CreateConditionalForwarderCommandOutput extends CreateCondition
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To create a conditional forwarder
+ * ```javascript
+ * // The following example creates a conditional forwarder associated with your AWS directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   DnsIpAddrs: [
+ *     "172.30.21.228"
+ *   ],
+ *   RemoteDomainName: "sales.example.com"
+ * };
+ * const command = new CreateConditionalForwarderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateConditionalForwarderCommand extends $Command
@@ -89,9 +108,7 @@ export class CreateConditionalForwarderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +120,16 @@ export class CreateConditionalForwarderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConditionalForwarderCommand)
   .de(de_CreateConditionalForwarderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConditionalForwarderRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConditionalForwarderCommandInput;
+      output: CreateConditionalForwarderCommandOutput;
+    };
+  };
+}

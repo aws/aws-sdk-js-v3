@@ -12,7 +12,8 @@ import { de_BatchGetQueryExecutionCommand, se_BatchGetQueryExecutionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,12 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * //       QueryExecutionId: "STRING_VALUE",
  * //       Query: "STRING_VALUE",
  * //       StatementType: "DDL" || "DML" || "UTILITY",
+ * //       ManagedQueryResultsConfiguration: { // ManagedQueryResultsConfiguration
+ * //         Enabled: true || false, // required
+ * //         EncryptionConfiguration: { // ManagedQueryResultsEncryptionConfiguration
+ * //           KmsKey: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //       ResultConfiguration: { // ResultConfiguration
  * //         OutputLocation: "STRING_VALUE",
  * //         EncryptionConfiguration: { // EncryptionConfiguration
@@ -142,6 +149,7 @@ export interface BatchGetQueryExecutionCommandOutput extends BatchGetQueryExecut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class BatchGetQueryExecutionCommand extends $Command
@@ -152,9 +160,7 @@ export class BatchGetQueryExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +172,16 @@ export class BatchGetQueryExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetQueryExecutionCommand)
   .de(de_BatchGetQueryExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetQueryExecutionInput;
+      output: BatchGetQueryExecutionOutput;
+    };
+    sdk: {
+      input: BatchGetQueryExecutionCommandInput;
+      output: BatchGetQueryExecutionCommandOutput;
+    };
+  };
+}

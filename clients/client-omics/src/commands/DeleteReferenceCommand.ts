@@ -12,7 +12,8 @@ import { de_DeleteReferenceCommand, se_DeleteReferenceCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeleteReferenceCommandOutput extends DeleteReferenceResponse, _
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteReferenceCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteReferenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteReferenceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReferenceCommand)
   .de(de_DeleteReferenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReferenceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReferenceCommandInput;
+      output: DeleteReferenceCommandOutput;
+    };
+  };
+}

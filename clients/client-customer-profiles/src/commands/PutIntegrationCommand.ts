@@ -16,7 +16,8 @@ import { de_PutIntegrationCommand, se_PutIntegrationCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *          Amazon AppFlow and Amazon Connect.</p>
  *          <p>An integration can belong to only one domain.</p>
  *          <p>To add or remove tags on an existing Integration, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html"> TagResource
- *       </a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">
+ *             </a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">
  *          UntagResource</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -118,6 +119,10 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  *   ObjectTypeNames: { // ObjectTypeNames
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   RoleArn: "STRING_VALUE",
+ *   EventTriggerNames: [ // EventTriggerNames
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new PutIntegrationCommand(input);
  * const response = await client.send(command);
@@ -135,6 +140,10 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * //   },
  * //   WorkflowId: "STRING_VALUE",
  * //   IsUnstructured: true || false,
+ * //   RoleArn: "STRING_VALUE",
+ * //   EventTriggerNames: [ // EventTriggerNames
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
@@ -163,6 +172,7 @@ export interface PutIntegrationCommandOutput extends PutIntegrationResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class PutIntegrationCommand extends $Command
@@ -173,9 +183,7 @@ export class PutIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -187,4 +195,16 @@ export class PutIntegrationCommand extends $Command
   .f(PutIntegrationRequestFilterSensitiveLog, void 0)
   .ser(se_PutIntegrationCommand)
   .de(de_PutIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutIntegrationRequest;
+      output: PutIntegrationResponse;
+    };
+    sdk: {
+      input: PutIntegrationCommandInput;
+      output: PutIntegrationCommandOutput;
+    };
+  };
+}

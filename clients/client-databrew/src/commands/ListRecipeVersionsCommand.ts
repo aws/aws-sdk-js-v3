@@ -12,7 +12,8 @@ import { de_ListRecipeVersionsCommand, se_ListRecipeVersionsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface ListRecipeVersionsCommandOutput extends ListRecipeVersionsRespo
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListRecipeVersionsCommand extends $Command
@@ -105,9 +107,7 @@ export class ListRecipeVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class ListRecipeVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecipeVersionsCommand)
   .de(de_ListRecipeVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecipeVersionsRequest;
+      output: ListRecipeVersionsResponse;
+    };
+    sdk: {
+      input: ListRecipeVersionsCommandInput;
+      output: ListRecipeVersionsCommandOutput;
+    };
+  };
+}

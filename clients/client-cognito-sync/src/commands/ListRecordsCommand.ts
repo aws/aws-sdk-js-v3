@@ -12,7 +12,8 @@ import { de_ListRecordsCommand, se_ListRecordsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -150,6 +151,7 @@ export interface ListRecordsCommandOutput extends ListRecordsResponse, __Metadat
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class ListRecordsCommand extends $Command
@@ -160,9 +162,7 @@ export class ListRecordsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +174,16 @@ export class ListRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecordsCommand)
   .de(de_ListRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecordsRequest;
+      output: ListRecordsResponse;
+    };
+    sdk: {
+      input: ListRecordsCommandInput;
+      output: ListRecordsCommandOutput;
+    };
+  };
+}

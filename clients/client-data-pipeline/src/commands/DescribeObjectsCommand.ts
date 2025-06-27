@@ -12,7 +12,8 @@ import { de_DescribeObjectsCommand, se_DescribeObjectsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -143,6 +144,7 @@ export interface DescribeObjectsCommandOutput extends DescribeObjectsOutput, __M
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class DescribeObjectsCommand extends $Command
@@ -153,9 +155,7 @@ export class DescribeObjectsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +167,16 @@ export class DescribeObjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeObjectsCommand)
   .de(de_DescribeObjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeObjectsInput;
+      output: DescribeObjectsOutput;
+    };
+    sdk: {
+      input: DescribeObjectsCommandInput;
+      output: DescribeObjectsCommandOutput;
+    };
+  };
+}

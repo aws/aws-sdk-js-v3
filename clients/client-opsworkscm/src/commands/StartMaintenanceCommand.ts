@@ -17,7 +17,8 @@ import { de_StartMaintenanceCommand, se_StartMaintenanceCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -118,6 +119,7 @@ export interface StartMaintenanceCommandOutput extends StartMaintenanceResponse,
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class StartMaintenanceCommand extends $Command
@@ -128,9 +130,7 @@ export class StartMaintenanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class StartMaintenanceCommand extends $Command
   .f(StartMaintenanceRequestFilterSensitiveLog, StartMaintenanceResponseFilterSensitiveLog)
   .ser(se_StartMaintenanceCommand)
   .de(de_StartMaintenanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMaintenanceRequest;
+      output: StartMaintenanceResponse;
+    };
+    sdk: {
+      input: StartMaintenanceCommandInput;
+      output: StartMaintenanceCommandOutput;
+    };
+  };
+}

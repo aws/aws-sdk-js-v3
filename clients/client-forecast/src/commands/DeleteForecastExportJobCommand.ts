@@ -12,7 +12,8 @@ import { de_DeleteForecastExportJobCommand, se_DeleteForecastExportJobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DeleteForecastExportJobCommandOutput extends __MetadataBearer {
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DeleteForecastExportJobCommand extends $Command
@@ -75,9 +77,7 @@ export class DeleteForecastExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DeleteForecastExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteForecastExportJobCommand)
   .de(de_DeleteForecastExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteForecastExportJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteForecastExportJobCommandInput;
+      output: DeleteForecastExportJobCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteInternetGatewayRequest } from "../models/models_2";
+import { DeleteInternetGatewayRequest } from "../models/models_3";
 import { de_DeleteInternetGatewayCommand, se_DeleteInternetGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,18 +55,21 @@ export interface DeleteInternetGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete an Internet gateway
  * ```javascript
  * // This example deletes the specified Internet gateway.
  * const input = {
- *   "InternetGatewayId": "igw-c0a643a9"
+ *   InternetGatewayId: "igw-c0a643a9"
  * };
  * const command = new DeleteInternetGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-internet-gateway-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteInternetGatewayCommand extends $Command
   .classBuilder<
@@ -75,9 +79,7 @@ export class DeleteInternetGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +91,16 @@ export class DeleteInternetGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInternetGatewayCommand)
   .de(de_DeleteInternetGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInternetGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteInternetGatewayCommandInput;
+      output: DeleteInternetGatewayCommandOutput;
+    };
+  };
+}

@@ -58,6 +58,10 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateDataProtectionSettingsCommandInput,
+  AssociateDataProtectionSettingsCommandOutput,
+} from "./commands/AssociateDataProtectionSettingsCommand";
+import {
   AssociateIpAccessSettingsCommandInput,
   AssociateIpAccessSettingsCommandOutput,
 } from "./commands/AssociateIpAccessSettingsCommand";
@@ -82,6 +86,10 @@ import {
   CreateBrowserSettingsCommandOutput,
 } from "./commands/CreateBrowserSettingsCommand";
 import {
+  CreateDataProtectionSettingsCommandInput,
+  CreateDataProtectionSettingsCommandOutput,
+} from "./commands/CreateDataProtectionSettingsCommand";
+import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
@@ -104,6 +112,10 @@ import {
   DeleteBrowserSettingsCommandInput,
   DeleteBrowserSettingsCommandOutput,
 } from "./commands/DeleteBrowserSettingsCommand";
+import {
+  DeleteDataProtectionSettingsCommandInput,
+  DeleteDataProtectionSettingsCommandOutput,
+} from "./commands/DeleteDataProtectionSettingsCommand";
 import {
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
@@ -128,6 +140,10 @@ import {
   DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
 import {
+  DisassociateDataProtectionSettingsCommandInput,
+  DisassociateDataProtectionSettingsCommandOutput,
+} from "./commands/DisassociateDataProtectionSettingsCommand";
+import {
   DisassociateIpAccessSettingsCommandInput,
   DisassociateIpAccessSettingsCommandOutput,
 } from "./commands/DisassociateIpAccessSettingsCommand";
@@ -147,7 +163,12 @@ import {
   DisassociateUserSettingsCommandInput,
   DisassociateUserSettingsCommandOutput,
 } from "./commands/DisassociateUserSettingsCommand";
+import { ExpireSessionCommandInput, ExpireSessionCommandOutput } from "./commands/ExpireSessionCommand";
 import { GetBrowserSettingsCommandInput, GetBrowserSettingsCommandOutput } from "./commands/GetBrowserSettingsCommand";
+import {
+  GetDataProtectionSettingsCommandInput,
+  GetDataProtectionSettingsCommandOutput,
+} from "./commands/GetDataProtectionSettingsCommand";
 import {
   GetIdentityProviderCommandInput,
   GetIdentityProviderCommandOutput,
@@ -162,6 +183,7 @@ import {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
+import { GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
   GetTrustStoreCertificateCommandInput,
   GetTrustStoreCertificateCommandOutput,
@@ -177,6 +199,10 @@ import {
   ListBrowserSettingsCommandOutput,
 } from "./commands/ListBrowserSettingsCommand";
 import {
+  ListDataProtectionSettingsCommandInput,
+  ListDataProtectionSettingsCommandOutput,
+} from "./commands/ListDataProtectionSettingsCommand";
+import {
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
 } from "./commands/ListIdentityProvidersCommand";
@@ -189,6 +215,7 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
 import { ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import { ListSessionsCommandInput, ListSessionsCommandOutput } from "./commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -209,6 +236,10 @@ import {
   UpdateBrowserSettingsCommandInput,
   UpdateBrowserSettingsCommandOutput,
 } from "./commands/UpdateBrowserSettingsCommand";
+import {
+  UpdateDataProtectionSettingsCommandInput,
+  UpdateDataProtectionSettingsCommandOutput,
+} from "./commands/UpdateDataProtectionSettingsCommand";
 import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
@@ -244,12 +275,14 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateBrowserSettingsCommandInput
+  | AssociateDataProtectionSettingsCommandInput
   | AssociateIpAccessSettingsCommandInput
   | AssociateNetworkSettingsCommandInput
   | AssociateTrustStoreCommandInput
   | AssociateUserAccessLoggingSettingsCommandInput
   | AssociateUserSettingsCommandInput
   | CreateBrowserSettingsCommandInput
+  | CreateDataProtectionSettingsCommandInput
   | CreateIdentityProviderCommandInput
   | CreateIpAccessSettingsCommandInput
   | CreateNetworkSettingsCommandInput
@@ -258,6 +291,7 @@ export type ServiceInputTypes =
   | CreateUserAccessLoggingSettingsCommandInput
   | CreateUserSettingsCommandInput
   | DeleteBrowserSettingsCommandInput
+  | DeleteDataProtectionSettingsCommandInput
   | DeleteIdentityProviderCommandInput
   | DeleteIpAccessSettingsCommandInput
   | DeleteNetworkSettingsCommandInput
@@ -266,26 +300,32 @@ export type ServiceInputTypes =
   | DeleteUserAccessLoggingSettingsCommandInput
   | DeleteUserSettingsCommandInput
   | DisassociateBrowserSettingsCommandInput
+  | DisassociateDataProtectionSettingsCommandInput
   | DisassociateIpAccessSettingsCommandInput
   | DisassociateNetworkSettingsCommandInput
   | DisassociateTrustStoreCommandInput
   | DisassociateUserAccessLoggingSettingsCommandInput
   | DisassociateUserSettingsCommandInput
+  | ExpireSessionCommandInput
   | GetBrowserSettingsCommandInput
+  | GetDataProtectionSettingsCommandInput
   | GetIdentityProviderCommandInput
   | GetIpAccessSettingsCommandInput
   | GetNetworkSettingsCommandInput
   | GetPortalCommandInput
   | GetPortalServiceProviderMetadataCommandInput
+  | GetSessionCommandInput
   | GetTrustStoreCertificateCommandInput
   | GetTrustStoreCommandInput
   | GetUserAccessLoggingSettingsCommandInput
   | GetUserSettingsCommandInput
   | ListBrowserSettingsCommandInput
+  | ListDataProtectionSettingsCommandInput
   | ListIdentityProvidersCommandInput
   | ListIpAccessSettingsCommandInput
   | ListNetworkSettingsCommandInput
   | ListPortalsCommandInput
+  | ListSessionsCommandInput
   | ListTagsForResourceCommandInput
   | ListTrustStoreCertificatesCommandInput
   | ListTrustStoresCommandInput
@@ -294,6 +334,7 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateBrowserSettingsCommandInput
+  | UpdateDataProtectionSettingsCommandInput
   | UpdateIdentityProviderCommandInput
   | UpdateIpAccessSettingsCommandInput
   | UpdateNetworkSettingsCommandInput
@@ -307,12 +348,14 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateBrowserSettingsCommandOutput
+  | AssociateDataProtectionSettingsCommandOutput
   | AssociateIpAccessSettingsCommandOutput
   | AssociateNetworkSettingsCommandOutput
   | AssociateTrustStoreCommandOutput
   | AssociateUserAccessLoggingSettingsCommandOutput
   | AssociateUserSettingsCommandOutput
   | CreateBrowserSettingsCommandOutput
+  | CreateDataProtectionSettingsCommandOutput
   | CreateIdentityProviderCommandOutput
   | CreateIpAccessSettingsCommandOutput
   | CreateNetworkSettingsCommandOutput
@@ -321,6 +364,7 @@ export type ServiceOutputTypes =
   | CreateUserAccessLoggingSettingsCommandOutput
   | CreateUserSettingsCommandOutput
   | DeleteBrowserSettingsCommandOutput
+  | DeleteDataProtectionSettingsCommandOutput
   | DeleteIdentityProviderCommandOutput
   | DeleteIpAccessSettingsCommandOutput
   | DeleteNetworkSettingsCommandOutput
@@ -329,26 +373,32 @@ export type ServiceOutputTypes =
   | DeleteUserAccessLoggingSettingsCommandOutput
   | DeleteUserSettingsCommandOutput
   | DisassociateBrowserSettingsCommandOutput
+  | DisassociateDataProtectionSettingsCommandOutput
   | DisassociateIpAccessSettingsCommandOutput
   | DisassociateNetworkSettingsCommandOutput
   | DisassociateTrustStoreCommandOutput
   | DisassociateUserAccessLoggingSettingsCommandOutput
   | DisassociateUserSettingsCommandOutput
+  | ExpireSessionCommandOutput
   | GetBrowserSettingsCommandOutput
+  | GetDataProtectionSettingsCommandOutput
   | GetIdentityProviderCommandOutput
   | GetIpAccessSettingsCommandOutput
   | GetNetworkSettingsCommandOutput
   | GetPortalCommandOutput
   | GetPortalServiceProviderMetadataCommandOutput
+  | GetSessionCommandOutput
   | GetTrustStoreCertificateCommandOutput
   | GetTrustStoreCommandOutput
   | GetUserAccessLoggingSettingsCommandOutput
   | GetUserSettingsCommandOutput
   | ListBrowserSettingsCommandOutput
+  | ListDataProtectionSettingsCommandOutput
   | ListIdentityProvidersCommandOutput
   | ListIpAccessSettingsCommandOutput
   | ListNetworkSettingsCommandOutput
   | ListPortalsCommandOutput
+  | ListSessionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListTrustStoreCertificatesCommandOutput
   | ListTrustStoresCommandOutput
@@ -357,6 +407,7 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateBrowserSettingsCommandOutput
+  | UpdateDataProtectionSettingsCommandOutput
   | UpdateIdentityProviderCommandOutput
   | UpdateIpAccessSettingsCommandOutput
   | UpdateNetworkSettingsCommandOutput
@@ -457,6 +508,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -502,11 +572,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type WorkSpacesWebClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -522,11 +592,11 @@ export interface WorkSpacesWebClientConfig extends WorkSpacesWebClientConfigType
 export type WorkSpacesWebClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -537,12 +607,13 @@ export type WorkSpacesWebClientResolvedConfigType = __SmithyResolvedConfiguratio
 export interface WorkSpacesWebClientResolvedConfig extends WorkSpacesWebClientResolvedConfigType {}
 
 /**
- * <p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate
- *          secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide
- *          their employees with access to internal websites and SaaS web applications without the
- *          administrative burden of appliances or specialized client software. WorkSpaces Web provides
- *          simple policy tools tailored for user interactions, while offloading common tasks like
- *          capacity management, scaling, and maintaining browser images.</p>
+ * <p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+ *          specifically to facilitate secure, web-based workloads. WorkSpaces Secure Browser makes it
+ *          easy for customers to safely provide their employees with access to internal websites and
+ *          SaaS web applications without the administrative burden of appliances or specialized client
+ *          software. WorkSpaces Secure Browser provides simple policy tools tailored for user
+ *          interactions, while offloading common tasks like capacity management, scaling, and
+ *          maintaining browser images.</p>
  * @public
  */
 export class WorkSpacesWebClient extends __Client<
@@ -558,26 +629,30 @@ export class WorkSpacesWebClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WorkSpacesWebClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultWorkSpacesWebHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: WorkSpacesWebClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -590,14 +665,5 @@ export class WorkSpacesWebClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultWorkSpacesWebHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: WorkSpacesWebClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

@@ -1,5 +1,9 @@
-import type { CredentialProviderOptions } from "@aws-sdk/types";
-import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
+import type {
+  AwsIdentityProperties,
+  CredentialProviderOptions,
+  RuntimeConfigAwsCredentialIdentityProvider,
+} from "@aws-sdk/types";
+import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
 /**
  * @public
@@ -151,21 +155,23 @@ export interface FromWebTokenInit
  * @internal
  */
 export const fromWebToken =
-  (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
-  async () => {
+  (init: FromWebTokenInit): RuntimeConfigAwsCredentialIdentityProvider =>
+  async (awsIdentityProperties?: AwsIdentityProperties) => {
     init.logger?.debug("@aws-sdk/credential-provider-web-identity - fromWebToken");
     const { roleArn, roleSessionName, webIdentityToken, providerId, policyArns, policy, durationSeconds } = init;
 
     let { roleAssumerWithWebIdentity } = init;
 
     if (!roleAssumerWithWebIdentity) {
-      // @ts-ignore Cannot find module '@aws-sdk/client-sts'
-      const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/client-sts");
+      const { getDefaultRoleAssumerWithWebIdentity } = await import("@aws-sdk/nested-clients/sts");
       roleAssumerWithWebIdentity = getDefaultRoleAssumerWithWebIdentity(
         {
           ...init.clientConfig,
           credentialProviderLogger: init.logger,
-          parentClientConfig: init.parentClientConfig,
+          parentClientConfig: {
+            ...awsIdentityProperties?.callerClientConfig,
+            ...init.parentClientConfig,
+          },
         },
         init.clientPlugins
       );

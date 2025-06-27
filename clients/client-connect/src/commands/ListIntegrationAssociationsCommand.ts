@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * const client = new ConnectClient(config);
  * const input = { // ListIntegrationAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   IntegrationArn: "STRING_VALUE",
@@ -55,7 +56,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * //       IntegrationAssociationId: "STRING_VALUE",
  * //       IntegrationAssociationArn: "STRING_VALUE",
  * //       InstanceId: "STRING_VALUE",
- * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER",
+ * //       IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL",
  * //       IntegrationArn: "STRING_VALUE",
  * //       SourceApplicationUrl: "STRING_VALUE",
  * //       SourceApplicationName: "STRING_VALUE",
@@ -88,6 +89,7 @@ export interface ListIntegrationAssociationsCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListIntegrationAssociationsCommand extends $Command
@@ -98,9 +100,7 @@ export class ListIntegrationAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListIntegrationAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIntegrationAssociationsCommand)
   .de(de_ListIntegrationAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIntegrationAssociationsRequest;
+      output: ListIntegrationAssociationsResponse;
+    };
+    sdk: {
+      input: ListIntegrationAssociationsCommandInput;
+      output: ListIntegrationAssociationsCommandOutput;
+    };
+  };
+}

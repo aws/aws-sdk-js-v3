@@ -9,7 +9,9 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  extendedEncodeURIComponent as __extendedEncodeURIComponent,
   map,
+  resolvedPath as __resolvedPath,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -19,6 +21,14 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import {
+  DeregisterSubscriptionProviderCommandInput,
+  DeregisterSubscriptionProviderCommandOutput,
+} from "../commands/DeregisterSubscriptionProviderCommand";
+import {
+  GetRegisteredSubscriptionProviderCommandInput,
+  GetRegisteredSubscriptionProviderCommandOutput,
+} from "../commands/GetRegisteredSubscriptionProviderCommand";
 import { GetServiceSettingsCommandInput, GetServiceSettingsCommandOutput } from "../commands/GetServiceSettingsCommand";
 import {
   ListLinuxSubscriptionInstancesCommandInput,
@@ -29,6 +39,20 @@ import {
   ListLinuxSubscriptionsCommandOutput,
 } from "../commands/ListLinuxSubscriptionsCommand";
 import {
+  ListRegisteredSubscriptionProvidersCommandInput,
+  ListRegisteredSubscriptionProvidersCommandOutput,
+} from "../commands/ListRegisteredSubscriptionProvidersCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
+  RegisterSubscriptionProviderCommandInput,
+  RegisterSubscriptionProviderCommandOutput,
+} from "../commands/RegisterSubscriptionProviderCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
   UpdateServiceSettingsCommandInput,
   UpdateServiceSettingsCommandOutput,
 } from "../commands/UpdateServiceSettingsCommand";
@@ -37,9 +61,55 @@ import {
   Filter,
   InternalServerException,
   LinuxSubscriptionsDiscoverySettings,
+  ResourceNotFoundException,
+  SubscriptionProviderSource,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1DeregisterSubscriptionProviderCommand
+ */
+export const se_DeregisterSubscriptionProviderCommand = async (
+  input: DeregisterSubscriptionProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/subscription/DeregisterSubscriptionProvider");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SubscriptionProviderArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRegisteredSubscriptionProviderCommand
+ */
+export const se_GetRegisteredSubscriptionProviderCommand = async (
+  input: GetRegisteredSubscriptionProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/subscription/GetRegisteredSubscriptionProvider");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SubscriptionProviderArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1GetServiceSettingsCommand
@@ -49,12 +119,9 @@ export const se_GetServiceSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/subscription/GetServiceSettings");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -108,6 +175,112 @@ export const se_ListLinuxSubscriptionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListRegisteredSubscriptionProvidersCommand
+ */
+export const se_ListRegisteredSubscriptionProvidersCommand = async (
+  input: ListRegisteredSubscriptionProvidersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/subscription/ListRegisteredSubscriptionProviders");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      MaxResults: [],
+      NextToken: [],
+      SubscriptionProviderSources: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RegisterSubscriptionProviderCommand
+ */
+export const se_RegisterSubscriptionProviderCommand = async (
+  input: RegisterSubscriptionProviderCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/subscription/RegisterSubscriptionProvider");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      SecretArn: [],
+      SubscriptionProviderSource: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateServiceSettingsCommand
  */
 export const se_UpdateServiceSettingsCommand = async (
@@ -129,6 +302,49 @@ export const se_UpdateServiceSettingsCommand = async (
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1DeregisterSubscriptionProviderCommand
+ */
+export const de_DeregisterSubscriptionProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeregisterSubscriptionProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRegisteredSubscriptionProviderCommand
+ */
+export const de_GetRegisteredSubscriptionProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRegisteredSubscriptionProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    LastSuccessfulDataRetrievalTime: __expectString,
+    SecretArn: __expectString,
+    SubscriptionProviderArn: __expectString,
+    SubscriptionProviderSource: __expectString,
+    SubscriptionProviderStatus: __expectString,
+    SubscriptionProviderStatusMessage: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -201,6 +417,106 @@ export const de_ListLinuxSubscriptionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRegisteredSubscriptionProvidersCommand
+ */
+export const de_ListRegisteredSubscriptionProvidersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRegisteredSubscriptionProvidersCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RegisteredSubscriptionProviders: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1RegisterSubscriptionProviderCommand
+ */
+export const de_RegisterSubscriptionProviderCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RegisterSubscriptionProviderCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    SubscriptionProviderArn: __expectString,
+    SubscriptionProviderSource: __expectString,
+    SubscriptionProviderStatus: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateServiceSettingsCommand
  */
 export const de_UpdateServiceSettingsCommand = async (
@@ -238,6 +554,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.licensemanagerlinuxsubscriptions#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.licensemanagerlinuxsubscriptions#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -269,6 +588,26 @@ const de_InternalServerExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new InternalServerException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -317,6 +656,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_StringList omitted.
 
+// se_SubscriptionProviderSourceList omitted.
+
+// se_Tags omitted.
+
 // de_Instance omitted.
 
 // de_InstanceList omitted.
@@ -325,6 +668,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_ProductCodeList omitted.
 
+// de_RegisteredSubscriptionProvider omitted.
+
+// de_RegisteredSubscriptionProviderList omitted.
+
 // de_StringList omitted.
 
 // de_StringMap omitted.
@@ -332,6 +679,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_Subscription omitted.
 
 // de_SubscriptionList omitted.
+
+// de_Tags omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
@@ -345,9 +694,4 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+const _tK = "tagKeys";

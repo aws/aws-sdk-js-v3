@@ -10,7 +10,7 @@ import { S3OutpostsServiceException as __BaseException } from "./S3OutpostsServi
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -32,7 +32,7 @@ export class AccessDeniedException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -96,14 +96,14 @@ export interface CreateEndpointRequest {
    *          </note>
    * @public
    */
-  AccessType?: EndpointAccessType;
+  AccessType?: EndpointAccessType | undefined;
 
   /**
    * <p>The ID of the customer-owned IPv4 address pool (CoIP pool) for the endpoint. IP addresses
    *             are allocated from this pool for the endpoint.</p>
    * @public
    */
-  CustomerOwnedIpv4Pool?: string;
+  CustomerOwnedIpv4Pool?: string | undefined;
 }
 
 /**
@@ -114,7 +114,7 @@ export interface CreateEndpointResult {
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 }
 
 /**
@@ -124,7 +124,7 @@ export interface CreateEndpointResult {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -146,7 +146,7 @@ export class InternalServerException extends __BaseException {
 export class OutpostOfflineException extends __BaseException {
   readonly name: "OutpostOfflineException" = "OutpostOfflineException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -168,7 +168,7 @@ export class OutpostOfflineException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -190,7 +190,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -212,7 +212,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -253,13 +253,13 @@ export interface FailedReason {
    * <p>The failure code, if any, for a create or delete endpoint operation.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>Additional error details describing the endpoint failure and recommended action.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -271,7 +271,7 @@ export interface NetworkInterface {
    * <p>The ID for the network interface.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 }
 
 /**
@@ -303,73 +303,73 @@ export interface Endpoint {
    * <p>The Amazon Resource Name (ARN) of the endpoint.</p>
    * @public
    */
-  EndpointArn?: string;
+  EndpointArn?: string | undefined;
 
   /**
    * <p>The ID of the Outposts.</p>
    * @public
    */
-  OutpostsId?: string;
+  OutpostsId?: string | undefined;
 
   /**
    * <p>The VPC CIDR committed by this endpoint.</p>
    * @public
    */
-  CidrBlock?: string;
+  CidrBlock?: string | undefined;
 
   /**
    * <p>The status of the endpoint.</p>
    * @public
    */
-  Status?: EndpointStatus;
+  Status?: EndpointStatus | undefined;
 
   /**
    * <p>The time the endpoint was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The network interface of the endpoint.</p>
    * @public
    */
-  NetworkInterfaces?: NetworkInterface[];
+  NetworkInterfaces?: NetworkInterface[] | undefined;
 
   /**
    * <p>The ID of the VPC used for the endpoint.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The ID of the subnet used for the endpoint.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The ID of the security group used for the endpoint.</p>
    * @public
    */
-  SecurityGroupId?: string;
+  SecurityGroupId?: string | undefined;
 
   /**
    * <p>The type of connectivity used to access the Amazon S3 on Outposts endpoint.</p>
    * @public
    */
-  AccessType?: EndpointAccessType;
+  AccessType?: EndpointAccessType | undefined;
 
   /**
    * <p>The ID of the customer-owned IPv4 address pool used for the endpoint.</p>
    * @public
    */
-  CustomerOwnedIpv4Pool?: string;
+  CustomerOwnedIpv4Pool?: string | undefined;
 
   /**
    * <p>The failure reason, if any, for a create or delete endpoint operation.</p>
    * @public
    */
-  FailedReason?: FailedReason;
+  FailedReason?: FailedReason | undefined;
 }
 
 /**
@@ -381,13 +381,13 @@ export interface ListEndpointsRequest {
    *             provide that value here to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of endpoints that will be returned in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -398,14 +398,14 @@ export interface ListEndpointsResult {
    * <p>The list of endpoints associated with the specified Outpost.</p>
    * @public
    */
-  Endpoints?: Endpoint[];
+  Endpoints?: Endpoint[] | undefined;
 
   /**
    * <p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>,
    *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -419,13 +419,13 @@ export interface ListOutpostsWithS3Request {
    *             additional Outposts.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of Outposts to return. The limit is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -437,31 +437,31 @@ export interface Outpost {
    * <p>Specifies the unique Amazon Resource Name (ARN) for the outpost.</p>
    * @public
    */
-  OutpostArn?: string;
+  OutpostArn?: string | undefined;
 
   /**
    * <p>Specifies the unique S3 on Outposts ARN for use with Resource Access Manager (RAM).</p>
    * @public
    */
-  S3OutpostArn?: string;
+  S3OutpostArn?: string | undefined;
 
   /**
    * <p>Specifies the unique identifier for the outpost.</p>
    * @public
    */
-  OutpostId?: string;
+  OutpostId?: string | undefined;
 
   /**
    * <p>Returns the Amazon Web Services account ID of the outpost owner. Useful for comparing owned versus shared outposts.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The Amazon S3 capacity of the outpost in bytes.</p>
    * @public
    */
-  CapacityInBytes?: number;
+  CapacityInBytes?: number | undefined;
 }
 
 /**
@@ -483,13 +483,13 @@ export interface ListOutpostsWithS3Result {
    *          </ul>
    * @public
    */
-  Outposts?: Outpost[];
+  Outposts?: Outpost[] | undefined;
 
   /**
    * <p>Returns a token that you can use to call <code>ListOutpostsWithS3</code> again and receive additional results, if there are any.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -501,13 +501,13 @@ export interface ListSharedEndpointsRequest {
    *             can provide that value here to retrieve the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of endpoints that will be returned in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services Outpost.</p>
@@ -524,12 +524,12 @@ export interface ListSharedEndpointsResult {
    * <p>The list of endpoints associated with the specified Outpost that have been shared by Amazon Web Services Resource Access Manager (RAM).</p>
    * @public
    */
-  Endpoints?: Endpoint[];
+  Endpoints?: Endpoint[] | undefined;
 
   /**
    * <p>If the number of endpoints associated with the specified Outpost exceeds <code>MaxResults</code>,
    *             you can include this value in subsequent calls to this operation to retrieve more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }

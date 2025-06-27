@@ -12,7 +12,8 @@ import { de_PutKeyPolicyCommand, se_PutKeyPolicyCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,8 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *       For help writing and formatting a JSON policy document, see the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies.html">IAM JSON Policy Reference</a> in the <i>
  *                <i>Identity and Access Management User Guide</i>
  *             </i>. For examples of adding a key policy in multiple programming languages,
- *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-key-policies.html#put-policy">Setting a key policy</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_PutKeyPolicy_section.html">Use
+ *         PutKeyPolicy with an Amazon Web Services SDK or CLI</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
  *          <p>
@@ -42,7 +44,7 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *          </p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,8 +102,9 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The request was rejected because the specified policy is not syntactically or semantically
@@ -118,20 +121,96 @@ export interface PutKeyPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To attach a key policy to a KMS key
  * ```javascript
  * // The following example attaches a key policy to the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Policy": "{\n    \"Version\": \"2012-10-17\",\n    \"Id\": \"custom-policy-2016-12-07\",\n    \"Statement\": [\n        {\n            \"Sid\": \"Enable IAM User Permissions\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:aws:iam::111122223333:root\"\n            },\n            \"Action\": \"kms:*\",\n            \"Resource\": \"*\"\n        },\n        {\n            \"Sid\": \"Allow access for Key Administrators\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": [\n                    \"arn:aws:iam::111122223333:user/ExampleAdminUser\",\n                    \"arn:aws:iam::111122223333:role/ExampleAdminRole\"\n                ]\n            },\n            \"Action\": [\n                \"kms:Create*\",\n                \"kms:Describe*\",\n                \"kms:Enable*\",\n                \"kms:List*\",\n                \"kms:Put*\",\n                \"kms:Update*\",\n                \"kms:Revoke*\",\n                \"kms:Disable*\",\n                \"kms:Get*\",\n                \"kms:Delete*\",\n                \"kms:ScheduleKeyDeletion\",\n                \"kms:CancelKeyDeletion\"\n            ],\n            \"Resource\": \"*\"\n        },\n        {\n            \"Sid\": \"Allow use of the key\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:aws:iam::111122223333:role/ExamplePowerUserRole\"\n            },\n            \"Action\": [\n                \"kms:Encrypt\",\n                \"kms:Decrypt\",\n                \"kms:ReEncrypt*\",\n                \"kms:GenerateDataKey*\",\n                \"kms:DescribeKey\"\n            ],\n            \"Resource\": \"*\"\n        },\n        {\n            \"Sid\": \"Allow attachment of persistent resources\",\n            \"Effect\": \"Allow\",\n            \"Principal\": {\n                \"AWS\": \"arn:aws:iam::111122223333:role/ExamplePowerUserRole\"\n            },\n            \"Action\": [\n                \"kms:CreateGrant\",\n                \"kms:ListGrants\",\n                \"kms:RevokeGrant\"\n            ],\n            \"Resource\": \"*\",\n            \"Condition\": {\n                \"Bool\": {\n                    \"kms:GrantIsForAWSResource\": \"true\"\n                }\n            }\n        }\n    ]\n}\n",
- *   "PolicyName": "default"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Policy: `{
+ *     "Version": "2012-10-17",
+ *     "Id": "custom-policy-2016-12-07",
+ *     "Statement": [
+ *         {
+ *             "Sid": "Enable IAM User Permissions",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "AWS": "arn:aws:iam::111122223333:root"
+ *             },
+ *             "Action": "kms:*",
+ *             "Resource": "*"
+ *         },
+ *         {
+ *             "Sid": "Allow access for Key Administrators",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "AWS": [
+ *                     "arn:aws:iam::111122223333:user/ExampleAdminUser",
+ *                     "arn:aws:iam::111122223333:role/ExampleAdminRole"
+ *                 ]
+ *             },
+ *             "Action": [
+ *                 "kms:Create*",
+ *                 "kms:Describe*",
+ *                 "kms:Enable*",
+ *                 "kms:List*",
+ *                 "kms:Put*",
+ *                 "kms:Update*",
+ *                 "kms:Revoke*",
+ *                 "kms:Disable*",
+ *                 "kms:Get*",
+ *                 "kms:Delete*",
+ *                 "kms:ScheduleKeyDeletion",
+ *                 "kms:CancelKeyDeletion"
+ *             ],
+ *             "Resource": "*"
+ *         },
+ *         {
+ *             "Sid": "Allow use of the key",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "AWS": "arn:aws:iam::111122223333:role/ExamplePowerUserRole"
+ *             },
+ *             "Action": [
+ *                 "kms:Encrypt",
+ *                 "kms:Decrypt",
+ *                 "kms:ReEncrypt*",
+ *                 "kms:GenerateDataKey*",
+ *                 "kms:DescribeKey"
+ *             ],
+ *             "Resource": "*"
+ *         },
+ *         {
+ *             "Sid": "Allow attachment of persistent resources",
+ *             "Effect": "Allow",
+ *             "Principal": {
+ *                 "AWS": "arn:aws:iam::111122223333:role/ExamplePowerUserRole"
+ *             },
+ *             "Action": [
+ *                 "kms:CreateGrant",
+ *                 "kms:ListGrants",
+ *                 "kms:RevokeGrant"
+ *             ],
+ *             "Resource": "*",
+ *             "Condition": {
+ *                 "Bool": {
+ *                     "kms:GrantIsForAWSResource": "true"
+ *                 }
+ *             }
+ *         }
+ *     ]
+ * }
+ * `,
+ *   PolicyName: "default"
  * };
  * const command = new PutKeyPolicyCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-key-policy-to-a-cmk-1481147345018
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutKeyPolicyCommand extends $Command
   .classBuilder<
@@ -141,9 +220,7 @@ export class PutKeyPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +232,16 @@ export class PutKeyPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutKeyPolicyCommand)
   .de(de_PutKeyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutKeyPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutKeyPolicyCommandInput;
+      output: PutKeyPolicyCommandOutput;
+    };
+  };
+}

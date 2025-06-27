@@ -1,10 +1,12 @@
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { accountIdDefaultMiddleware } from "./account-id-default";
 
 describe("accountIdDefaultMiddleware", () => {
-  const next = jest.fn();
+  const next = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("adds default accountId if not set on input", async () => {

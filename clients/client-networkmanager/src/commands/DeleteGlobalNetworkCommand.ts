@@ -12,7 +12,8 @@ import { de_DeleteGlobalNetworkCommand, se_DeleteGlobalNetworkCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DeleteGlobalNetworkCommandOutput extends DeleteGlobalNetworkRes
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteGlobalNetworkCommand extends $Command
@@ -96,9 +98,7 @@ export class DeleteGlobalNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DeleteGlobalNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGlobalNetworkCommand)
   .de(de_DeleteGlobalNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGlobalNetworkRequest;
+      output: DeleteGlobalNetworkResponse;
+    };
+    sdk: {
+      input: DeleteGlobalNetworkCommandInput;
+      output: DeleteGlobalNetworkCommandOutput;
+    };
+  };
+}

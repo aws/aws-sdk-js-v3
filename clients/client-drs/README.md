@@ -10,7 +10,7 @@ AWS SDK for JavaScript Drs Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-drs
+To install this package, simply type add or install @aws-sdk/client-drs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-drs`

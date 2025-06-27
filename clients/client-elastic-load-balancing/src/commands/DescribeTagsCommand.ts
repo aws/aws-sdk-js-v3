@@ -16,7 +16,8 @@ import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,39 +74,39 @@ export interface DescribeTagsCommandOutput extends DescribeTagsOutput, __Metadat
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To describe the tags for a load balancer
  * ```javascript
  * // This example describes the tags for the specified load balancer.
  * const input = {
- *   "LoadBalancerNames": [
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ]
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagDescriptions": [
+ *   TagDescriptions: [
  *     {
- *       "LoadBalancerName": "my-load-balancer",
- *       "Tags": [
+ *       LoadBalancerName: "my-load-balancer",
+ *       Tags: [
  *         {
- *           "Key": "project",
- *           "Value": "lima"
+ *           Key: "project",
+ *           Value: "lima"
  *         },
  *         {
- *           "Key": "department",
- *           "Value": "digital-media"
+ *           Key: "department",
+ *           Value: "digital-media"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: elb-describe-tags-1
  * ```
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<
@@ -115,9 +116,7 @@ export class DescribeTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +128,16 @@ export class DescribeTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTagsCommand)
   .de(de_DescribeTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTagsInput;
+      output: DescribeTagsOutput;
+    };
+    sdk: {
+      input: DescribeTagsCommandInput;
+      output: DescribeTagsCommandOutput;
+    };
+  };
+}

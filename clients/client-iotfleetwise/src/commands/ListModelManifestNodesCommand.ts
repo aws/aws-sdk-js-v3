@@ -12,7 +12,8 @@ import { de_ListModelManifestNodesCommand, se_ListModelManifestNodesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -146,6 +147,7 @@ export interface ListModelManifestNodesCommandOutput extends ListModelManifestNo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListModelManifestNodesCommand extends $Command
@@ -156,9 +158,7 @@ export class ListModelManifestNodesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +170,16 @@ export class ListModelManifestNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelManifestNodesCommand)
   .de(de_ListModelManifestNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelManifestNodesRequest;
+      output: ListModelManifestNodesResponse;
+    };
+    sdk: {
+      input: ListModelManifestNodesCommandInput;
+      output: ListModelManifestNodesCommandOutput;
+    };
+  };
+}

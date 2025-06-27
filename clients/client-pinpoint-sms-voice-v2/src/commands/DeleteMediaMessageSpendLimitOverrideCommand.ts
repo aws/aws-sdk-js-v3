@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,11 +40,7 @@ export interface DeleteMediaMessageSpendLimitOverrideCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes an account-level monthly spending limit override for sending multimedia messages (MMS).
- *            Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the
- *            <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more
- *            information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas for Server Migration Service</a>
- *            in the <i>Server Migration Service User Guide</i>.</p>
+ * <p>Deletes an account-level monthly spending limit override for sending multimedia messages (MMS). Deleting a spend limit override will set the <code>EnforcedLimit</code> to equal the <code>MaxLimit</code>, which is controlled by Amazon Web Services. For more information on spend limits (quotas) see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/quotas.html">Quotas for Server Migration Service</a> in the <i>Server Migration Service User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,22 +63,20 @@ export interface DeleteMediaMessageSpendLimitOverrideCommandOutput
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -93,9 +88,7 @@ export class DeleteMediaMessageSpendLimitOverrideCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +100,16 @@ export class DeleteMediaMessageSpendLimitOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaMessageSpendLimitOverrideCommand)
   .de(de_DeleteMediaMessageSpendLimitOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DeleteMediaMessageSpendLimitOverrideResult;
+    };
+    sdk: {
+      input: DeleteMediaMessageSpendLimitOverrideCommandInput;
+      output: DeleteMediaMessageSpendLimitOverrideCommandOutput;
+    };
+  };
+}

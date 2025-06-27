@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListAccountsRequest, ListAccountsRequestFilterSensitiveLog, ListAccountsResponse } from "../models/models_1";
+import { ListAccountsRequest, ListAccountsRequestFilterSensitiveLog, ListAccountsResponse } from "../models/models_0";
 import { de_ListAccountsCommand, se_ListAccountsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface ListAccountsCommandOutput extends ListAccountsResponse, __Metad
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListAccountsCommand extends $Command
@@ -109,9 +111,7 @@ export class ListAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class ListAccountsCommand extends $Command
   .f(ListAccountsRequestFilterSensitiveLog, void 0)
   .ser(se_ListAccountsCommand)
   .de(de_ListAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccountsRequest;
+      output: ListAccountsResponse;
+    };
+    sdk: {
+      input: ListAccountsCommandInput;
+      output: ListAccountsCommandOutput;
+    };
+  };
+}

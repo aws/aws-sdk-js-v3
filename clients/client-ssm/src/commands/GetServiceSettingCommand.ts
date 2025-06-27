@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface GetServiceSettingCommandOutput extends GetServiceSettingResult,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetServiceSettingCommand extends $Command
@@ -91,9 +93,7 @@ export class GetServiceSettingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetServiceSettingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceSettingCommand)
   .de(de_GetServiceSettingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceSettingRequest;
+      output: GetServiceSettingResult;
+    };
+    sdk: {
+      input: GetServiceSettingCommandInput;
+      output: GetServiceSettingCommandOutput;
+    };
+  };
+}

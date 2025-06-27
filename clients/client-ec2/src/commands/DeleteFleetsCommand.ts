@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_2";
+import { DeleteFleetsRequest, DeleteFleetsResult } from "../models/models_3";
 import { de_DeleteFleetsCommand, se_DeleteFleetsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,16 +28,18 @@ export interface DeleteFleetsCommandInput extends DeleteFleetsRequest {}
 export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified EC2 Fleets.</p>
- *          <p>After you delete an EC2 Fleet, it launches no new instances.</p>
- *          <p>You must also specify whether a deleted EC2 Fleet should terminate its instances. If you
- *          choose to terminate the instances, the EC2 Fleet enters the <code>deleted_terminating</code>
- *          state. Otherwise, the EC2 Fleet enters the <code>deleted_running</code> state, and the instances
- *          continue to run until they are interrupted or you terminate them manually.</p>
- *          <p>For <code>instant</code> fleets, EC2 Fleet must terminate the instances when the fleet is
- *          deleted. Up to 1000 instances can be terminated in a single request to delete
- *             <code>instant</code> fleets. A deleted <code>instant</code> fleet with running instances
- *          is not supported.</p>
+ * <p>Deletes the specified EC2 Fleet request.</p>
+ *          <p>After you delete an EC2 Fleet request, it launches no new instances.</p>
+ *          <p>You must also specify whether a deleted EC2 Fleet request should terminate its instances. If
+ *          you choose to terminate the instances, the EC2 Fleet request enters the
+ *             <code>deleted_terminating</code> state. Otherwise, it enters the
+ *             <code>deleted_running</code> state, and the instances continue to run until they are
+ *          interrupted or you terminate them manually.</p>
+ *          <p>A deleted <code>instant</code> fleet with running instances is not supported. When you
+ *          delete an <code>instant</code> fleet, Amazon EC2 automatically terminates all its instances. For
+ *          fleets with more than 1000 instances, the deletion request might fail. If your fleet has
+ *          more than 1000 instances, first terminate most of the instances manually, leaving 1000 or
+ *          fewer. Then delete the fleet, and the remaining instances will be terminated automatically.</p>
  *          <p class="title">
  *             <b>Restrictions</b>
  *          </p>
@@ -58,8 +61,8 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  *                deleted.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#delete-fleet">Delete an EC2
- *          Fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/delete-fleet.html">Delete an EC2 Fleet request and the instances
+ *             in the fleet</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,6 +108,7 @@ export interface DeleteFleetsCommandOutput extends DeleteFleetsResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteFleetsCommand extends $Command
@@ -115,9 +119,7 @@ export class DeleteFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +131,16 @@ export class DeleteFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetsCommand)
   .de(de_DeleteFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetsRequest;
+      output: DeleteFleetsResult;
+    };
+    sdk: {
+      input: DeleteFleetsCommandInput;
+      output: DeleteFleetsCommandOutput;
+    };
+  };
+}

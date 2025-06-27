@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./ApplyPendingMaintenanceActionCommand";
 export * from "./CopyClusterSnapshotCommand";
 export * from "./CreateClusterCommand";
 export * from "./CreateClusterSnapshotCommand";
@@ -6,8 +7,10 @@ export * from "./DeleteClusterCommand";
 export * from "./DeleteClusterSnapshotCommand";
 export * from "./GetClusterCommand";
 export * from "./GetClusterSnapshotCommand";
+export * from "./GetPendingMaintenanceActionCommand";
 export * from "./ListClusterSnapshotsCommand";
 export * from "./ListClustersCommand";
+export * from "./ListPendingMaintenanceActionsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./RestoreClusterFromSnapshotCommand";
 export * from "./StartClusterCommand";

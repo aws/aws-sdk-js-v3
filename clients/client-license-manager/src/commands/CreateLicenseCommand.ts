@@ -12,7 +12,8 @@ import { de_CreateLicenseCommand, se_CreateLicenseCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,12 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  *     },
  *   ],
  *   ClientToken: "STRING_VALUE", // required
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateLicenseCommand(input);
  * const response = await client.send(command);
@@ -117,6 +124,7 @@ export interface CreateLicenseCommandOutput extends CreateLicenseResponse, __Met
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class CreateLicenseCommand extends $Command
@@ -127,9 +135,7 @@ export class CreateLicenseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +147,16 @@ export class CreateLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLicenseCommand)
   .de(de_CreateLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLicenseRequest;
+      output: CreateLicenseResponse;
+    };
+    sdk: {
+      input: CreateLicenseCommandInput;
+      output: CreateLicenseCommandOutput;
+    };
+  };
+}

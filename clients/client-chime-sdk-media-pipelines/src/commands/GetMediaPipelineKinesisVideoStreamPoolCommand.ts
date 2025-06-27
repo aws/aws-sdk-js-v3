@@ -23,7 +23,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface GetMediaPipelineKinesisVideoStreamPoolCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class GetMediaPipelineKinesisVideoStreamPoolCommand extends $Command
@@ -111,9 +113,7 @@ export class GetMediaPipelineKinesisVideoStreamPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class GetMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   .f(void 0, GetMediaPipelineKinesisVideoStreamPoolResponseFilterSensitiveLog)
   .ser(se_GetMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_GetMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaPipelineKinesisVideoStreamPoolRequest;
+      output: GetMediaPipelineKinesisVideoStreamPoolResponse;
+    };
+    sdk: {
+      input: GetMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: GetMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

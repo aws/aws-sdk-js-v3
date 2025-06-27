@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,9 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Registers a set of tag keys to include in scheduled event notifications for your resources.
- *    		</p>
+ * <p>Registers a set of tag keys to include in scheduled event notifications for your
+ *          resources.
+ *          </p>
  *          <p>To remove tags, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeregisterInstanceEventNotificationAttributes.html">DeregisterInstanceEventNotificationAttributes</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -76,6 +78,7 @@ export interface RegisterInstanceEventNotificationAttributesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class RegisterInstanceEventNotificationAttributesCommand extends $Command
@@ -86,9 +89,7 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +101,16 @@ export class RegisterInstanceEventNotificationAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterInstanceEventNotificationAttributesCommand)
   .de(de_RegisterInstanceEventNotificationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterInstanceEventNotificationAttributesRequest;
+      output: RegisterInstanceEventNotificationAttributesResult;
+    };
+    sdk: {
+      input: RegisterInstanceEventNotificationAttributesCommandInput;
+      output: RegisterInstanceEventNotificationAttributesCommandOutput;
+    };
+  };
+}

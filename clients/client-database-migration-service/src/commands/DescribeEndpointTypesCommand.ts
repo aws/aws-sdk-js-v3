@@ -16,7 +16,8 @@ import { de_DescribeEndpointTypesCommand, se_DescribeEndpointTypesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,34 +77,34 @@ export interface DescribeEndpointTypesCommandOutput extends DescribeEndpointType
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe endpoint types
  * ```javascript
  * // Returns information about the type of endpoints available.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeEndpointTypesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "SupportedEndpointTypes": []
+ *   Marker: "",
+ *   SupportedEndpointTypes:   []
  * }
  * *\/
- * // example id: describe-endpoint-types-1481754742591
  * ```
  *
+ * @public
  */
 export class DescribeEndpointTypesCommand extends $Command
   .classBuilder<
@@ -113,9 +114,7 @@ export class DescribeEndpointTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class DescribeEndpointTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEndpointTypesCommand)
   .de(de_DescribeEndpointTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointTypesMessage;
+      output: DescribeEndpointTypesResponse;
+    };
+    sdk: {
+      input: DescribeEndpointTypesCommandInput;
+      output: DescribeEndpointTypesCommandOutput;
+    };
+  };
+}

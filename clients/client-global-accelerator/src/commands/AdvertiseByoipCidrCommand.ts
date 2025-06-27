@@ -16,7 +16,8 @@ import { de_AdvertiseByoipCidrCommand, se_AdvertiseByoipCidrCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrRespo
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class AdvertiseByoipCidrCommand extends $Command
@@ -99,9 +101,7 @@ export class AdvertiseByoipCidrCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class AdvertiseByoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AdvertiseByoipCidrCommand)
   .de(de_AdvertiseByoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdvertiseByoipCidrRequest;
+      output: AdvertiseByoipCidrResponse;
+    };
+    sdk: {
+      input: AdvertiseByoipCidrCommandInput;
+      output: AdvertiseByoipCidrCommandOutput;
+    };
+  };
+}

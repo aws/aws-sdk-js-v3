@@ -4,11 +4,11 @@
     "lib": ["dom"],
     "noImplicitAny": true,
     "noImplicitThis": true,
-    "noImplicitUseStrict": true,
     "outDir": "dist-es",
     "rootDir": "src",
     "strict": false,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "noCheck": true
   },
   "extends": "../../tsconfig.es.json",
   "include": ["src/"]

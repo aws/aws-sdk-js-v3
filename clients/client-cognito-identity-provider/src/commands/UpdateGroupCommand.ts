@@ -16,7 +16,8 @@ import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface UpdateGroupCommandInput extends UpdateGroupRequest {}
 export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the specified group with the specified attributes.</p>
+ * <p>Given the name of a user pool group, updates any of the properties for precedence,
+ *             IAM role, or description. For more information about user pool groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -108,6 +110,7 @@ export interface UpdateGroupCommandOutput extends UpdateGroupResponse, __Metadat
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class UpdateGroupCommand extends $Command
@@ -118,9 +121,7 @@ export class UpdateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +133,16 @@ export class UpdateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGroupCommand)
   .de(de_UpdateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGroupRequest;
+      output: UpdateGroupResponse;
+    };
+    sdk: {
+      input: UpdateGroupCommandInput;
+      output: UpdateGroupCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -130,6 +131,7 @@ export interface CreateSafetyRuleCommandOutput extends CreateSafetyRuleResponse,
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class CreateSafetyRuleCommand extends $Command
@@ -140,9 +142,7 @@ export class CreateSafetyRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +154,16 @@ export class CreateSafetyRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSafetyRuleCommand)
   .de(de_CreateSafetyRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSafetyRuleRequest;
+      output: CreateSafetyRuleResponse;
+    };
+    sdk: {
+      input: CreateSafetyRuleCommandInput;
+      output: CreateSafetyRuleCommandOutput;
+    };
+  };
+}

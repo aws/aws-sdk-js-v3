@@ -12,7 +12,8 @@ import { de_DeleteArchiveCommand, se_DeleteArchiveCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,20 +94,23 @@ export interface DeleteArchiveCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To delete an archive
  * ```javascript
  * // The example deletes the archive specified by the archive ID.
  * const input = {
- *   "accountId": "-",
- *   "archiveId": "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   archiveId: "NkbByEejwEggmBz2fTHgJrg0XBoDfjP4q6iu87-TjhqG6eGoOY9Z8i1_AUyUsuhPAdTqLHy8pTl5nfCFJmDl2yEZONi5L26Omw12vcs01MNGntHEQL8MBfGlqrEXAMPLEArchiveId",
+ *   vaultName: "examplevault"
  * };
  * const command = new DeleteArchiveCommand(input);
- * await client.send(command);
- * // example id: delete-archive-1481667809463
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteArchiveCommand extends $Command
   .classBuilder<
@@ -116,9 +120,7 @@ export class DeleteArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +132,16 @@ export class DeleteArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteArchiveCommand)
   .de(de_DeleteArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteArchiveInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteArchiveCommandInput;
+      output: DeleteArchiveCommandOutput;
+    };
+  };
+}

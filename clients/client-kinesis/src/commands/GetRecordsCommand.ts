@@ -12,7 +12,8 @@ import { de_GetRecordsCommand, se_GetRecordsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -134,6 +135,10 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link ExpiredIteratorException} (client fault)
  *  <p>The provided iterator exceeds the maximum age allowed.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -179,6 +184,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class GetRecordsCommand extends $Command
@@ -205,4 +211,16 @@ export class GetRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecordsCommand)
   .de(de_GetRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecordsInput;
+      output: GetRecordsOutput;
+    };
+    sdk: {
+      input: GetRecordsCommandInput;
+      output: GetRecordsCommandOutput;
+    };
+  };
+}

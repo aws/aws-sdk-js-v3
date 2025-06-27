@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,11 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the applications to which a specified principal is assigned.</p>
+ * <p>Lists the applications to which a specified principal is assigned. You must provide a
+ *             filter when calling this action from a member account against your organization instance
+ *             of IAM Identity Center. A filter is not required when called from the management account against an
+ *             organization instance of IAM Identity Center, or from a member account against an account instance of
+ *             IAM Identity Center in the same account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +99,7 @@ export interface ListApplicationAssignmentsForPrincipalCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationAssignmentsForPrincipalCommand extends $Command
@@ -104,9 +110,7 @@ export class ListApplicationAssignmentsForPrincipalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +122,16 @@ export class ListApplicationAssignmentsForPrincipalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationAssignmentsForPrincipalCommand)
   .de(de_ListApplicationAssignmentsForPrincipalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationAssignmentsForPrincipalRequest;
+      output: ListApplicationAssignmentsForPrincipalResponse;
+    };
+    sdk: {
+      input: ListApplicationAssignmentsForPrincipalCommandInput;
+      output: ListApplicationAssignmentsForPrincipalCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
 import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>List the tags associated with the specified resource.</p>
- *          <p>For more information, see  <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html">Tagging resources</a> in the Amazon Bedrock User Guide.</p>
+ * <p>List the tags associated with the specified resource.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Tagging resources</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +75,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command
@@ -85,9 +86,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,14 +28,16 @@ export interface GetQueueUrlCommandInput extends GetQueueUrlRequest {}
 export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataBearer {}
 
 /**
- * <p>Returns the URL of an existing Amazon SQS queue.</p>
- *          <p>To access a queue that belongs to another AWS account, use the
+ * <p>The <code>GetQueueUrl</code> API returns the URL of an existing Amazon SQS queue. This is
+ *             useful when you know the queue's name but need to retrieve its URL for further
+ *             operations.</p>
+ *          <p>To access a queue owned by another Amazon Web Services account, use the
  *                 <code>QueueOwnerAWSAccountId</code> parameter to specify the account ID of the
- *             queue's owner. The queue's owner must grant you permission to access the queue. For more
- *             information about shared queue access, see <code>
+ *             queue's owner. Note that the queue owner must grant you the necessary permissions to
+ *             access the queue. For more information about accessing shared queues, see the
+ *                     <code>
  *                <a>AddPermission</a>
- *             </code>
- *             or see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow Developers to Write Messages to a Shared Queue</a> in the <i>Amazon SQS
+ *             </code> API or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-writing-an-sqs-policy.html#write-messages-to-shared-queue">Allow developers to write messages to a shared queue</a> in the <i>Amazon SQS
  *                 Developer Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,30 +64,26 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
+ *  <p>The specified ID is invalid.</p>
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
+ *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
+ *             deleted.</p>
  *
  * @throws {@link RequestThrottled} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
+ *                     request.</p>
  *             </li>
  *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *                <p>Ensure that the request rate is within the Amazon SQS limits for
+ *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
+ *                         Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  *
@@ -93,6 +92,7 @@ export interface GetQueueUrlCommandOutput extends GetQueueUrlResult, __MetadataB
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
+ *
  *
  * @public
  */
@@ -104,9 +104,7 @@ export class GetQueueUrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +116,16 @@ export class GetQueueUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueueUrlCommand)
   .de(de_GetQueueUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueueUrlRequest;
+      output: GetQueueUrlResult;
+    };
+    sdk: {
+      input: GetQueueUrlCommandInput;
+      output: GetQueueUrlCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_RegisterConnectorCommand, se_RegisterConnectorCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface RegisterConnectorCommandOutput extends RegisterConnectorRespons
  * @throws {@link AppflowServiceException}
  * <p>Base exception class for all service exceptions from Appflow service.</p>
  *
+ *
  * @public
  */
 export class RegisterConnectorCommand extends $Command
@@ -106,9 +108,7 @@ export class RegisterConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppflowClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class RegisterConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterConnectorCommand)
   .de(de_RegisterConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterConnectorRequest;
+      output: RegisterConnectorResponse;
+    };
+    sdk: {
+      input: RegisterConnectorCommandInput;
+      output: RegisterConnectorCommandOutput;
+    };
+  };
+}

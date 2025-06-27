@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Adds the specified tags to the specified resource.</p>
  *          <p>Some of the supported resource types are agents, routing profiles, queues, quick connects,
- *    contact flows, agent statuses, hours of operation, phone numbers, security profiles, and task
- *    templates. For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
+ *    flows, agent statuses, hours of operation, phone numbers, security profiles, and task templates.
+ *    For a complete list, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/tagging.html">Tagging resources in Amazon Connect</a>.</p>
  *          <p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect
  *     Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
@@ -76,6 +77,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -86,9 +88,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

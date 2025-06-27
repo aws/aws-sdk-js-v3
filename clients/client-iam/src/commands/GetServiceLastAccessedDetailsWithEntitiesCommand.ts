@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,48 +120,48 @@ export interface GetServiceLastAccessedDetailsWithEntitiesCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get sntity details from a previously-generated report
  * ```javascript
  * // The following operation returns details about the entities that attempted to access the IAM service.
  * const input = {
- *   "JobId": "examplef-1305-c245-eba4-71fe298bcda7",
- *   "ServiceNamespace": "iam"
+ *   JobId: "examplef-1305-c245-eba4-71fe298bcda7",
+ *   ServiceNamespace: "iam"
  * };
  * const command = new GetServiceLastAccessedDetailsWithEntitiesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EntityDetailsList": [
+ *   EntityDetailsList: [
  *     {
- *       "EntityInfo": {
- *         "Arn": "arn:aws:iam::123456789012:user/AWSExampleUser01",
- *         "Id": "AIDAEX2EXAMPLEB6IGCDC",
- *         "Name": "AWSExampleUser01",
- *         "Path": "/",
- *         "Type": "USER"
+ *       EntityInfo: {
+ *         Arn: "arn:aws:iam::123456789012:user/AWSExampleUser01",
+ *         Id: "AIDAEX2EXAMPLEB6IGCDC",
+ *         Name: "AWSExampleUser01",
+ *         Path: "/",
+ *         Type: "USER"
  *       },
- *       "LastAuthenticated": "2018-10-24T19:10:00Z"
+ *       LastAuthenticated: "2018-10-24T19:10:00Z"
  *     },
  *     {
- *       "EntityInfo": {
- *         "Arn": "arn:aws:iam::123456789012:role/AWSExampleRole01",
- *         "Id": "AROAEAEXAMPLEIANXSIU4",
- *         "Name": "AWSExampleRole01",
- *         "Path": "/",
- *         "Type": "ROLE"
+ *       EntityInfo: {
+ *         Arn: "arn:aws:iam::123456789012:role/AWSExampleRole01",
+ *         Id: "AROAEAEXAMPLEIANXSIU4",
+ *         Name: "AWSExampleRole01",
+ *         Path: "/",
+ *         Type: "ROLE"
  *       }
  *     }
  *   ],
- *   "IsTruncated": false,
- *   "JobCompletionDate": "2018-10-24T19:47:35.241Z",
- *   "JobCreationDate": "2018-10-24T19:47:31.466Z",
- *   "JobStatus": "COMPLETED"
+ *   IsTruncated: false,
+ *   JobCompletionDate: "2018-10-24T19:47:35.241Z",
+ *   JobCreationDate: "2018-10-24T19:47:31.466Z",
+ *   JobStatus: "COMPLETED"
  * }
  * *\/
- * // example id: getserviceaccessdetailsentity-policy-1541697621384
  * ```
  *
+ * @public
  */
 export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command
   .classBuilder<
@@ -170,9 +171,7 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +183,16 @@ export class GetServiceLastAccessedDetailsWithEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceLastAccessedDetailsWithEntitiesCommand)
   .de(de_GetServiceLastAccessedDetailsWithEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceLastAccessedDetailsWithEntitiesRequest;
+      output: GetServiceLastAccessedDetailsWithEntitiesResponse;
+    };
+    sdk: {
+      input: GetServiceLastAccessedDetailsWithEntitiesCommandInput;
+      output: GetServiceLastAccessedDetailsWithEntitiesCommandOutput;
+    };
+  };
+}

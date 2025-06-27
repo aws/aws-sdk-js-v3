@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface BatchGetGraphMemberDatasourcesCommandOutput
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class BatchGetGraphMemberDatasourcesCommand extends $Command
@@ -103,9 +105,7 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class BatchGetGraphMemberDatasourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetGraphMemberDatasourcesCommand)
   .de(de_BatchGetGraphMemberDatasourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetGraphMemberDatasourcesRequest;
+      output: BatchGetGraphMemberDatasourcesResponse;
+    };
+    sdk: {
+      input: BatchGetGraphMemberDatasourcesCommandInput;
+      output: BatchGetGraphMemberDatasourcesCommandOutput;
+    };
+  };
+}

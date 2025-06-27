@@ -12,7 +12,8 @@ import { de_RebootNodeCommand, se_RebootNodeCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -134,6 +135,7 @@ export interface RebootNodeCommandOutput extends RebootNodeResponse, __MetadataB
  * @throws {@link DAXServiceException}
  * <p>Base exception class for all service exceptions from DAX service.</p>
  *
+ *
  * @public
  */
 export class RebootNodeCommand extends $Command
@@ -144,9 +146,7 @@ export class RebootNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DAXClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +158,16 @@ export class RebootNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootNodeCommand)
   .de(de_RebootNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootNodeRequest;
+      output: RebootNodeResponse;
+    };
+    sdk: {
+      input: RebootNodeCommandInput;
+      output: RebootNodeCommandOutput;
+    };
+  };
+}

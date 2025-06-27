@@ -12,7 +12,8 @@ import { de_CreateCapacityProviderCommand, se_CreateCapacityProviderCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -107,6 +108,8 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>The limit for the resource was exceeded.</p>
@@ -124,6 +127,46 @@ export interface CreateCapacityProviderCommandOutput extends CreateCapacityProvi
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ *
+ * @example To create a capacity provider
+ * ```javascript
+ * // This example creates a capacity provider that uses the specified Auto Scaling group MyASG and has managed scaling and manager termination protection enabled.
+ * const input = {
+ *   autoScalingGroupProvider: {
+ *     autoScalingGroupArn: "arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:57ffcb94-11f0-4d6d-bf60-3bac5EXAMPLE:autoScalingGroupName/MyASG",
+ *     managedScaling: {
+ *       status: "ENABLED",
+ *       targetCapacity: 100
+ *     },
+ *     managedTerminationProtection: "ENABLED"
+ *   },
+ *   name: "MyCapacityProvider"
+ * };
+ * const command = new CreateCapacityProviderCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   capacityProvider: {
+ *     autoScalingGroupProvider: {
+ *       autoScalingGroupArn: "arn:aws:autoscaling:us-east-1:132456789012:autoScalingGroup:57ffcb94-11f0-4d6d-bf60-3bac5EXAMPLE:autoScalingGroupName/MyASG",
+ *       managedScaling: {
+ *         instanceWarmupPeriod: 300,
+ *         maximumScalingStepSize: 10000,
+ *         minimumScalingStepSize: 1,
+ *         status: "ENABLED",
+ *         targetCapacity: 100
+ *       },
+ *       managedTerminationProtection: "ENABLED"
+ *     },
+ *     capacityProviderArn: "arn:aws:ecs:us-east-1:123456789012:capacity-provider/MyCapacityProvider",
+ *     name: "MyCapacityProvider",
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateCapacityProviderCommand extends $Command
@@ -134,9 +177,7 @@ export class CreateCapacityProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +189,16 @@ export class CreateCapacityProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCapacityProviderCommand)
   .de(de_CreateCapacityProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCapacityProviderRequest;
+      output: CreateCapacityProviderResponse;
+    };
+    sdk: {
+      input: CreateCapacityProviderCommandInput;
+      output: CreateCapacityProviderCommandOutput;
+    };
+  };
+}

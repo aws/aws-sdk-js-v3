@@ -12,7 +12,8 @@ import { de_ListAudienceGenerationJobsCommand, se_ListAudienceGenerationJobsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ListAudienceGenerationJobsCommandOutput extends ListAudienceGen
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class ListAudienceGenerationJobsCommand extends $Command
@@ -86,9 +88,7 @@ export class ListAudienceGenerationJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListAudienceGenerationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAudienceGenerationJobsCommand)
   .de(de_ListAudienceGenerationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAudienceGenerationJobsRequest;
+      output: ListAudienceGenerationJobsResponse;
+    };
+    sdk: {
+      input: ListAudienceGenerationJobsCommandInput;
+      output: ListAudienceGenerationJobsCommandOutput;
+    };
+  };
+}

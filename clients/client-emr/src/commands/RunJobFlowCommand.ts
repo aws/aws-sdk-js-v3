@@ -12,7 +12,8 @@ import { de_RunJobFlowCommand, se_RunJobFlowCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -174,6 +175,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             },
  *             Configurations: "<ConfigurationList>",
  *             CustomAmiId: "STRING_VALUE",
+ *             Priority: Number("double"),
  *           },
  *         ],
  *         LaunchSpecifications: { // InstanceFleetProvisioningSpecifications
@@ -181,10 +183,10 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *             TimeoutDurationMinutes: Number("int"), // required
  *             TimeoutAction: "SWITCH_TO_ON_DEMAND" || "TERMINATE_CLUSTER", // required
  *             BlockDurationMinutes: Number("int"),
- *             AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified",
+ *             AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  *           },
  *           OnDemandSpecification: { // OnDemandProvisioningSpecification
- *             AllocationStrategy: "lowest-price", // required
+ *             AllocationStrategy: "lowest-price" || "prioritized", // required
  *             CapacityReservationOptions: { // OnDemandCapacityReservationOptions
  *               UsageStrategy: "use-capacity-reservations-first",
  *               CapacityReservationPreference: "open" || "none",
@@ -194,12 +196,20 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *         },
  *         ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *           SpotResizeSpecification: { // SpotResizingSpecification
- *             TimeoutDurationMinutes: Number("int"), // required
+ *             TimeoutDurationMinutes: Number("int"),
+ *             AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  *           },
  *           OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *             TimeoutDurationMinutes: Number("int"), // required
+ *             TimeoutDurationMinutes: Number("int"),
+ *             AllocationStrategy: "lowest-price" || "prioritized",
+ *             CapacityReservationOptions: {
+ *               UsageStrategy: "use-capacity-reservations-first",
+ *               CapacityReservationPreference: "open" || "none",
+ *               CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *             },
  *           },
  *         },
+ *         Context: "STRING_VALUE",
  *       },
  *     ],
  *     Ec2KeyName: "STRING_VALUE",
@@ -310,6 +320,8 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *       MaximumOnDemandCapacityUnits: Number("int"),
  *       MaximumCoreCapacityUnits: Number("int"),
  *     },
+ *     UtilizationPerformanceIndex: Number("int"),
+ *     ScalingStrategy: "DEFAULT" || "ADVANCED",
  *   },
  *   PlacementGroupConfigs: [ // PlacementGroupConfigList
  *     { // PlacementGroupConfig
@@ -346,6 +358,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class RunJobFlowCommand extends $Command
@@ -356,9 +369,7 @@ export class RunJobFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -370,4 +381,16 @@ export class RunJobFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RunJobFlowCommand)
   .de(de_RunJobFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RunJobFlowInput;
+      output: RunJobFlowOutput;
+    };
+    sdk: {
+      input: RunJobFlowCommandInput;
+      output: RunJobFlowCommandOutput;
+    };
+  };
+}

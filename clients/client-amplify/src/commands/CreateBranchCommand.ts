@@ -17,7 +17,8 @@ import { de_CreateBranchCommand, se_CreateBranchCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  *   framework: "STRING_VALUE",
  *   enableNotification: true || false,
  *   enableAutoBuild: true || false,
+ *   enableSkewProtection: true || false,
  *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -65,6 +67,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  *   backend: { // Backend
  *     stackArn: "STRING_VALUE",
  *   },
+ *   computeRoleArn: "STRING_VALUE",
  * };
  * const command = new CreateBranchCommand(input);
  * const response = await client.send(command);
@@ -85,6 +88,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     enableAutoBuild: true || false, // required
+ * //     enableSkewProtection: true || false,
  * //     customDomains: [ // CustomDomains // required
  * //       "STRING_VALUE",
  * //     ],
@@ -108,6 +112,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -140,6 +145,7 @@ export interface CreateBranchCommandOutput extends CreateBranchResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class CreateBranchCommand extends $Command
@@ -150,9 +156,7 @@ export class CreateBranchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +168,16 @@ export class CreateBranchCommand extends $Command
   .f(CreateBranchRequestFilterSensitiveLog, CreateBranchResultFilterSensitiveLog)
   .ser(se_CreateBranchCommand)
   .de(de_CreateBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBranchRequest;
+      output: CreateBranchResult;
+    };
+    sdk: {
+      input: CreateBranchCommandInput;
+      output: CreateBranchCommandOutput;
+    };
+  };
+}

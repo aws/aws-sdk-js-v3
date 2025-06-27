@@ -12,7 +12,8 @@ import { de_BatchWriteItemCommand, se_BatchWriteItemCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,10 +36,10 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *             for the API call. For more details on this distinction, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html">Naming Rules and Data Types</a>.</p>
  *          <note>
  *             <p>
- *                <code>BatchWriteItem</code> cannot update items. If you perform a <code>BatchWriteItem</code>
- *                 operation on an existing item, that item's values will be overwritten by the
- *                 operation and it will appear like it was updated. To update items, we recommend you
- *                 use the <code>UpdateItem</code> action.</p>
+ *                <code>BatchWriteItem</code> cannot update items. If you perform a
+ *                     <code>BatchWriteItem</code> operation on an existing item, that item's values
+ *                 will be overwritten by the operation and it will appear like it was updated. To
+ *                 update items, we recommend you use the <code>UpdateItem</code> action.</p>
  *          </note>
  *          <p>The individual <code>PutItem</code> and <code>DeleteItem</code> operations specified
  *             in <code>BatchWriteItem</code> are atomic; however <code>BatchWriteItem</code> as a
@@ -49,10 +50,13 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *                 <code>BatchWriteItem</code> in a loop. Each iteration would check for unprocessed
  *             items and submit a new <code>BatchWriteItem</code> request with those unprocessed items
  *             until all items have been processed.</p>
- *          <p>If <i>none</i> of the items can be processed due to insufficient
- *             provisioned throughput on all of the tables in the request, then
- *                 <code>BatchWriteItem</code> returns a
- *                 <code>ProvisionedThroughputExceededException</code>.</p>
+ *          <p>For tables and indexes with provisioned capacity, if none of the items can be
+ *             processed due to insufficient provisioned throughput on all of the tables in the
+ *             request, then <code>BatchWriteItem</code> returns a
+ *                 <code>ProvisionedThroughputExceededException</code>. For all tables and indexes, if
+ *             none of the items can be processed due to other throttling scenarios (such as exceeding
+ *             partition level limits), then <code>BatchWriteItem</code> returns a
+ *                 <code>ThrottlingException</code>.</p>
  *          <important>
  *             <p>If DynamoDB returns any unprocessed items, you should retry the batch operation on
  *                 those items. However, <i>we strongly recommend that you use an exponential
@@ -309,7 +313,7 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -319,54 +323,54 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To add multiple items to a table
  * ```javascript
  * // This example adds three new items to the Music table using a batch of three PutItem requests.
  * const input = {
- *   "RequestItems": {
- *     "Music": [
+ *   RequestItems: {
+ *     Music: [
  *       {
- *         "PutRequest": {
- *           "Item": {
- *             "AlbumTitle": {
- *               "S": "Somewhat Famous"
+ *         PutRequest: {
+ *           Item: {
+ *             AlbumTitle: {
+ *               S: "Somewhat Famous"
  *             },
- *             "Artist": {
- *               "S": "No One You Know"
+ *             Artist: {
+ *               S: "No One You Know"
  *             },
- *             "SongTitle": {
- *               "S": "Call Me Today"
+ *             SongTitle: {
+ *               S: "Call Me Today"
  *             }
  *           }
  *         }
  *       },
  *       {
- *         "PutRequest": {
- *           "Item": {
- *             "AlbumTitle": {
- *               "S": "Songs About Life"
+ *         PutRequest: {
+ *           Item: {
+ *             AlbumTitle: {
+ *               S: "Songs About Life"
  *             },
- *             "Artist": {
- *               "S": "Acme Band"
+ *             Artist: {
+ *               S: "Acme Band"
  *             },
- *             "SongTitle": {
- *               "S": "Happy Day"
+ *             SongTitle: {
+ *               S: "Happy Day"
  *             }
  *           }
  *         }
  *       },
  *       {
- *         "PutRequest": {
- *           "Item": {
- *             "AlbumTitle": {
- *               "S": "Blue Sky Blues"
+ *         PutRequest: {
+ *           Item: {
+ *             AlbumTitle: {
+ *               S: "Blue Sky Blues"
  *             },
- *             "Artist": {
- *               "S": "No One You Know"
+ *             Artist: {
+ *               S: "No One You Know"
  *             },
- *             "SongTitle": {
- *               "S": "Scared of My Shadow"
+ *             SongTitle: {
+ *               S: "Scared of My Shadow"
  *             }
  *           }
  *         }
@@ -375,10 +379,13 @@ export interface BatchWriteItemCommandOutput extends BatchWriteItemOutput, __Met
  *   }
  * };
  * const command = new BatchWriteItemCommand(input);
- * await client.send(command);
- * // example id: to-add-multiple-items-to-a-table-1476118519747
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class BatchWriteItemCommand extends $Command
   .classBuilder<
@@ -390,6 +397,7 @@ export class BatchWriteItemCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArnList: { type: "operationContextParams", get: (input?: any) => Object.keys(input?.RequestItems ?? {}) },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -402,4 +410,16 @@ export class BatchWriteItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchWriteItemCommand)
   .de(de_BatchWriteItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchWriteItemInput;
+      output: BatchWriteItemOutput;
+    };
+    sdk: {
+      input: BatchWriteItemCommandInput;
+      output: BatchWriteItemCommandOutput;
+    };
+  };
+}

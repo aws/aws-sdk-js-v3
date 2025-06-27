@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class PutAppInstanceRetentionSettingsCommand extends $Command
@@ -98,9 +100,7 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class PutAppInstanceRetentionSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAppInstanceRetentionSettingsCommand)
   .de(de_PutAppInstanceRetentionSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAppInstanceRetentionSettingsRequest;
+      output: PutAppInstanceRetentionSettingsResponse;
+    };
+    sdk: {
+      input: PutAppInstanceRetentionSettingsCommandInput;
+      output: PutAppInstanceRetentionSettingsCommandOutput;
+    };
+  };
+}

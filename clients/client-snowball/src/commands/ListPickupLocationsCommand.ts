@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,33 +79,33 @@ export interface ListPickupLocationsCommandOutput extends ListPickupLocationsRes
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To get a list of locations from which the customer can choose to pickup a device.
  * ```javascript
  * // Returns a specified number of Address objects. Each Address is a pickup location address for Snow Family devices.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListPickupLocationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Addresses": [
+ *   Addresses: [
  *     {
- *       "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *       "City": "Seattle",
- *       "Company": "My Company",
- *       "Country": "US",
- *       "Name": "My Name",
- *       "PhoneNumber": "425-555-5555",
- *       "PostalCode": "98101",
- *       "StateOrProvince": "WA",
- *       "Street1": "123 Main Street"
+ *       AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *       City: "Seattle",
+ *       Company: "My Company",
+ *       Country: "US",
+ *       Name: "My Name",
+ *       PhoneNumber: "425-555-5555",
+ *       PostalCode: "98101",
+ *       StateOrProvince: "WA",
+ *       Street1: "123 Main Street"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-locations-from-which-the-customer-can-choose-to-pickup-a-device-1482542167627
  * ```
  *
+ * @public
  */
 export class ListPickupLocationsCommand extends $Command
   .classBuilder<
@@ -114,9 +115,7 @@ export class ListPickupLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class ListPickupLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPickupLocationsCommand)
   .de(de_ListPickupLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPickupLocationsRequest;
+      output: ListPickupLocationsResult;
+    };
+    sdk: {
+      input: ListPickupLocationsCommandInput;
+      output: ListPickupLocationsCommandOutput;
+    };
+  };
+}

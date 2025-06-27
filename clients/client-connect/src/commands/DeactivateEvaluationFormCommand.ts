@@ -12,7 +12,8 @@ import { de_DeactivateEvaluationFormCommand, se_DeactivateEvaluationFormCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeactivateEvaluationFormCommandOutput extends DeactivateEvaluat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DeactivateEvaluationFormCommand extends $Command
@@ -84,9 +86,7 @@ export class DeactivateEvaluationFormCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeactivateEvaluationFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeactivateEvaluationFormCommand)
   .de(de_DeactivateEvaluationFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeactivateEvaluationFormRequest;
+      output: DeactivateEvaluationFormResponse;
+    };
+    sdk: {
+      input: DeactivateEvaluationFormCommandInput;
+      output: DeactivateEvaluationFormCommandOutput;
+    };
+  };
+}

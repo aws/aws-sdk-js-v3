@@ -12,7 +12,8 @@ import { de_PutOriginEndpointPolicyCommand, se_PutOriginEndpointPolicyCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,23 @@ export interface PutOriginEndpointPolicyCommandOutput extends PutOriginEndpointP
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Creating an Origin Endpoint Policy
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpoint",
+ *   Policy: "{...}"
+ * };
+ * const command = new PutOriginEndpointPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutOriginEndpointPolicyCommand extends $Command
@@ -83,9 +101,7 @@ export class PutOriginEndpointPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +113,16 @@ export class PutOriginEndpointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutOriginEndpointPolicyCommand)
   .de(de_PutOriginEndpointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutOriginEndpointPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutOriginEndpointPolicyCommandInput;
+      output: PutOriginEndpointPolicyCommandOutput;
+    };
+  };
+}

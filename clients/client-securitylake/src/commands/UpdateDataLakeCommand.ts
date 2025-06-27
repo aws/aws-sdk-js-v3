@@ -12,7 +12,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,17 @@ export interface UpdateDataLakeCommandInput extends UpdateDataLakeRequest {}
 export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __MetadataBearer {}
 
 /**
- * <p>Specifies where to store your security data and for how long. You can add a rollup
- *          Region to consolidate data from multiple Amazon Web Services Regions.</p>
+ * <p>You can use <code>UpdateDataLake</code> to specify where to store your security data, how it should
+ *          be encrypted at rest and for how long. You can add a <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/manage-regions.html#add-rollup-region">Rollup
+ *             Region</a> to consolidate data from multiple Amazon Web Services Regions, replace
+ *          default encryption (SSE-S3) with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">Customer Manged Key</a>,
+ *          or specify transition and expiration actions through storage <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html">Lifecycle management</a>. The <code>UpdateDataLake</code> API works as an "upsert" operation that performs an insert if the specified item or record does not exist, or an update if it
+ *          already exists. Security Lake securely stores your data at rest using Amazon Web Services encryption solutions. For more details, see <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/data-protection.html">Data protection in Amazon Security Lake</a>.</p>
+ *          <p>For example, omitting the key <code>encryptionConfiguration</code> from a Region that is
+ *          included in an update call that currently uses KMS will leave that Region's KMS key in
+ *          place, but specifying <code>encryptionConfiguration: \{kmsKeyId: 'S3_MANAGED_KEY'\}</code>
+ *          for that same Region will reset the key to <code>S3-managed</code>.</p>
+ *          <p>For more details about lifecycle management and how to update retention settings for one or more Regions after enabling Security Lake, see the <a href="https://docs.aws.amazon.com/security-lake/latest/userguide/lifecycle-management.html">Amazon Security Lake User Guide</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -140,6 +150,7 @@ export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __M
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataLakeCommand extends $Command
@@ -150,9 +161,7 @@ export class UpdateDataLakeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +173,16 @@ export class UpdateDataLakeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataLakeCommand)
   .de(de_UpdateDataLakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataLakeRequest;
+      output: UpdateDataLakeResponse;
+    };
+    sdk: {
+      input: UpdateDataLakeCommandInput;
+      output: UpdateDataLakeCommandOutput;
+    };
+  };
+}

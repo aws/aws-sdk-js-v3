@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface ListTrialsCommandInput extends ListTrialsRequest {}
 export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the trials in your account. Specify an experiment name to limit the list to the
- *       trials that are part of that experiment. Specify a trial component name to limit the list to
- *       the trials that associated with that trial component. The list can be filtered to show only
- *       trials that were created in a specific time range. The list can be sorted by trial name or
- *       creation time.</p>
+ * <p>Lists the trials in your account. Specify an experiment name to limit the list to the trials that are part of that experiment. Specify a trial component name to limit the list to the trials that associated with that trial component. The list can be filtered to show only trials that were created in a specific time range. The list can be sorted by trial name or creation time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +78,7 @@ export interface ListTrialsCommandOutput extends ListTrialsResponse, __MetadataB
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListTrialsCommand extends $Command
@@ -91,9 +89,7 @@ export class ListTrialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +101,16 @@ export class ListTrialsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrialsCommand)
   .de(de_ListTrialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrialsRequest;
+      output: ListTrialsResponse;
+    };
+    sdk: {
+      input: ListTrialsCommandInput;
+      output: ListTrialsCommandOutput;
+    };
+  };
+}

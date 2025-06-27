@@ -12,7 +12,8 @@ import { de_GetControlOperationCommand, se_GetControlOperationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface GetControlOperationCommandInput extends GetControlOperationInpu
 export interface GetControlOperationCommandOutput extends GetControlOperationOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the status of a particular <code>EnableControl</code> or
- *          <code>DisableControl</code> operation. Displays a message in case of error. Details for an
- *          operation are available for 90 days. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Returns the status of a particular <code>EnableControl</code> or <code>DisableControl</code> operation. Displays a message in case of error. Details for an operation are available for 90 days. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,7 +42,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * const response = await client.send(command);
  * // { // GetControlOperationOutput
  * //   controlOperation: { // ControlOperation
- * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL",
+ * //     operationType: "ENABLE_CONTROL" || "DISABLE_CONTROL" || "UPDATE_ENABLED_CONTROL" || "RESET_ENABLED_CONTROL",
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
  * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
@@ -83,6 +80,7 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class GetControlOperationCommand extends $Command
@@ -93,9 +91,7 @@ export class GetControlOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +103,16 @@ export class GetControlOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetControlOperationCommand)
   .de(de_GetControlOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetControlOperationInput;
+      output: GetControlOperationOutput;
+    };
+    sdk: {
+      input: GetControlOperationCommandInput;
+      output: GetControlOperationCommandOutput;
+    };
+  };
+}

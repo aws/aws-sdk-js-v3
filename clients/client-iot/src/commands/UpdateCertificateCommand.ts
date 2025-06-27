@@ -12,7 +12,8 @@ import { de_UpdateCertificateCommand, se_UpdateCertificateCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface UpdateCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateCertificateCommand extends $Command
@@ -91,9 +93,7 @@ export class UpdateCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class UpdateCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCertificateCommand)
   .de(de_UpdateCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCertificateCommandInput;
+      output: UpdateCertificateCommandOutput;
+    };
+  };
+}

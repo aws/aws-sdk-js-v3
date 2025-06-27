@@ -12,7 +12,8 @@ import { de_DeleteWorkGroupCommand, se_DeleteWorkGroupCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,6 +63,7 @@ export interface DeleteWorkGroupCommandOutput extends DeleteWorkGroupOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkGroupCommand extends $Command
@@ -72,9 +74,7 @@ export class DeleteWorkGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class DeleteWorkGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkGroupCommand)
   .de(de_DeleteWorkGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkGroupInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkGroupCommandInput;
+      output: DeleteWorkGroupCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetEventActionCommand, se_GetEventActionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,9 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * //     },
  * //   },
  * //   Id: "STRING_VALUE",
+ * //   Tags: { // MapOf__string
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * //   UpdatedAt: new Date("TIMESTAMP"),
  * // };
  *
@@ -86,6 +90,7 @@ export interface GetEventActionCommandOutput extends GetEventActionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetEventActionCommand extends $Command
@@ -96,9 +101,7 @@ export class GetEventActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +113,16 @@ export class GetEventActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventActionCommand)
   .de(de_GetEventActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventActionRequest;
+      output: GetEventActionResponse;
+    };
+    sdk: {
+      input: GetEventActionCommandInput;
+      output: GetEventActionCommandOutput;
+    };
+  };
+}

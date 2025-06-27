@@ -16,7 +16,8 @@ import { de_GetPackageVersionCommand, se_GetPackageVersionCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,10 +54,26 @@ export interface GetPackageVersionCommandOutput extends GetPackageVersionRespons
  * //   attributes: { // ResourceAttributes
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   artifact: { // PackageVersionArtifact
+ * //     s3Location: { // S3Location
+ * //       bucket: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   },
  * //   status: "DRAFT" || "PUBLISHED" || "DEPRECATED",
  * //   errorReason: "STRING_VALUE",
  * //   creationDate: new Date("TIMESTAMP"),
  * //   lastModifiedDate: new Date("TIMESTAMP"),
+ * //   sbom: { // Sbom
+ * //     s3Location: {
+ * //       bucket: "STRING_VALUE",
+ * //       key: "STRING_VALUE",
+ * //       version: "STRING_VALUE",
+ * //     },
+ * //   },
+ * //   sbomValidationStatus: "IN_PROGRESS" || "FAILED" || "SUCCEEDED",
+ * //   recipe: "STRING_VALUE",
  * // };
  *
  * ```
@@ -83,6 +100,7 @@ export interface GetPackageVersionCommandOutput extends GetPackageVersionRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetPackageVersionCommand extends $Command
@@ -93,9 +111,7 @@ export class GetPackageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +123,16 @@ export class GetPackageVersionCommand extends $Command
   .f(void 0, GetPackageVersionResponseFilterSensitiveLog)
   .ser(se_GetPackageVersionCommand)
   .de(de_GetPackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageVersionRequest;
+      output: GetPackageVersionResponse;
+    };
+    sdk: {
+      input: GetPackageVersionCommandInput;
+      output: GetPackageVersionCommandOutput;
+    };
+  };
+}

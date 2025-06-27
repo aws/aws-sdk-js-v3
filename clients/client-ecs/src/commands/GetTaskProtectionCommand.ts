@@ -12,7 +12,8 @@ import { de_GetTaskProtectionCommand, se_GetTaskProtectionCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,11 +77,13 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
@@ -94,33 +97,33 @@ export interface GetTaskProtectionCommandOutput extends GetTaskProtectionRespons
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To get the protection status of a task
  * ```javascript
  * // In this example, we get the protection status for a single task.
  * const input = {
- *   "cluster": "test-task-protection",
- *   "tasks": [
+ *   cluster: "test-task-protection",
+ *   tasks: [
  *     "b8b1cf532d0e46ba8d44a40d1de16772"
  *   ]
  * };
  * const command = new GetTaskProtectionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "protectedTasks": [
+ *   failures:   [],
+ *   protectedTasks: [
  *     {
- *       "expirationDate": "2022-11-02T06:56:32.553Z",
- *       "protectionEnabled": true,
- *       "taskArn": "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
+ *       expirationDate: "2022-11-02T06:56:32.553Z",
+ *       protectionEnabled: true,
+ *       taskArn: "arn:aws:ecs:us-west-2:012345678910:task/default/b8b1cf532d0e46ba8d44a40d1de16772"
  *     }
  *   ]
  * }
  * *\/
- * // example id: get-the-protection-status-for-a-single-task-2022-11-02T06:56:32.553Z
  * ```
  *
+ * @public
  */
 export class GetTaskProtectionCommand extends $Command
   .classBuilder<
@@ -130,9 +133,7 @@ export class GetTaskProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +145,16 @@ export class GetTaskProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTaskProtectionCommand)
   .de(de_GetTaskProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaskProtectionRequest;
+      output: GetTaskProtectionResponse;
+    };
+    sdk: {
+      input: GetTaskProtectionCommandInput;
+      output: GetTaskProtectionCommandOutput;
+    };
+  };
+}

@@ -4,6 +4,26 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { SFNServiceException as __BaseException } from "./SFNServiceException";
 
 /**
+ * <p>Activity already exists. <code>EncryptionConfiguration</code> may not be updated.</p>
+ * @public
+ */
+export class ActivityAlreadyExists extends __BaseException {
+  readonly name: "ActivityAlreadyExists" = "ActivityAlreadyExists";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ActivityAlreadyExists, __BaseException>) {
+    super({
+      name: "ActivityAlreadyExists",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ActivityAlreadyExists.prototype);
+  }
+}
+
+/**
  * <p>The specified activity does not exist.</p>
  * @public
  */
@@ -32,13 +52,13 @@ export interface ActivityFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -115,10 +135,10 @@ export interface ActivityListItem {
 export interface HistoryEventExecutionDataDetails {
   /**
    * <p>Indicates whether input or output was truncated in the response. Always <code>false</code>
-   *       for API calls.</p>
+   *       for API calls. In CloudWatch logs, the value will be true if the data is truncated due to size limits.</p>
    * @public
    */
-  truncated?: boolean;
+  truncated?: boolean | undefined;
 }
 
 /**
@@ -136,25 +156,25 @@ export interface ActivityScheduledEventDetails {
    * <p>The JSON data input to the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Contains details about the input for an execution history event.</p>
    * @public
    */
-  inputDetails?: HistoryEventExecutionDataDetails;
+  inputDetails?: HistoryEventExecutionDataDetails | undefined;
 
   /**
    * <p>The maximum allowed duration of the activity task.</p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 
   /**
    * <p>The maximum allowed duration between two heartbeats for the activity task.</p>
    * @public
    */
-  heartbeatInSeconds?: number;
+  heartbeatInSeconds?: number | undefined;
 }
 
 /**
@@ -167,13 +187,13 @@ export interface ActivityScheduleFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -186,7 +206,7 @@ export interface ActivityStartedEventDetails {
    *       workers when calling <a>GetActivityTask</a>.</p>
    * @public
    */
-  workerName?: string;
+  workerName?: string | undefined;
 }
 
 /**
@@ -199,13 +219,13 @@ export interface ActivitySucceededEventDetails {
    * <p>The JSON data output by the activity task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Contains details about the output of an execution history event.</p>
    * @public
    */
-  outputDetails?: HistoryEventExecutionDataDetails;
+  outputDetails?: HistoryEventExecutionDataDetails | undefined;
 }
 
 /**
@@ -217,13 +237,13 @@ export interface ActivityTimedOutEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the timeout.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -248,6 +268,65 @@ export class ActivityWorkerLimitExceeded extends __BaseException {
 }
 
 /**
+ * <p>Provides details about assigned variables in an execution history event.</p>
+ * @public
+ */
+export interface AssignedVariablesDetails {
+  /**
+   * <p>Indicates whether assigned variables were truncated in the response. Always <code>false</code>
+   *     for API calls. In CloudWatch logs, the value will be true if the data is truncated due to size limits.</p>
+   * @public
+   */
+  truncated?: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EncryptionType = {
+  AWS_OWNED_KEY: "AWS_OWNED_KEY",
+  CUSTOMER_MANAGED_KMS_KEY: "CUSTOMER_MANAGED_KMS_KEY",
+} as const;
+
+/**
+ * @public
+ */
+export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType];
+
+/**
+ * <p>Settings to configure server-side encryption. </p>
+ *          <p>
+ *         For additional control over security, you can encrypt your data using a <b>customer-managed key</b> for  Step Functions state machines and activities. You can configure a symmetric KMS key and data key reuse period when creating or updating a <b>State Machine</b>, and when creating an <b>Activity</b>. The execution history and state machine definition will be encrypted with the key applied to the State Machine. Activity inputs will be encrypted with the key applied to the Activity.
+ *     </p>
+ *          <note>
+ *             <p> Step Functions automatically enables encryption at rest using  Amazon Web Services owned keys at no charge. However, KMS charges apply when using a customer managed key. For more information about pricing, see <a href="https://aws.amazon.com/kms/pricing/">Key Management Service pricing</a>.</p>
+ *          </note>
+ *          <p>For more information on KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/overview.html">What is  Key Management Service?</a>
+ *          </p>
+ * @public
+ */
+export interface EncryptionConfiguration {
+  /**
+   * <p>An alias, alias ARN, key ID, or key ARN of a symmetric encryption KMS key to encrypt data. To specify a KMS key in a different Amazon Web Services  account, you must use the key ARN or alias ARN.</p>
+   * @public
+   */
+  kmsKeyId?: string | undefined;
+
+  /**
+   * <p>Maximum duration that Step Functions will reuse data keys. When the period expires, Step Functions will call <code>GenerateDataKey</code>. Only applies to customer managed keys.</p>
+   * @public
+   */
+  kmsDataKeyReusePeriodSeconds?: number | undefined;
+
+  /**
+   * <p>Encryption type</p>
+   * @public
+   */
+  type: EncryptionType | undefined;
+}
+
+/**
  * <p>Tags are key-value pairs that can be associated with Step Functions state machines and
  *       activities.</p>
  *          <p>An array of key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/cost-alloc-tags.html">Using
@@ -262,13 +341,13 @@ export interface Tag {
    * <p>The key of a tag.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The value of a tag.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -314,7 +393,13 @@ export interface CreateActivityInput {
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
+
+  /**
+   * <p>Settings to configure server-side encryption.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -332,6 +417,26 @@ export interface CreateActivityOutput {
    * @public
    */
   creationDate: Date | undefined;
+}
+
+/**
+ * <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ * @public
+ */
+export class InvalidEncryptionConfiguration extends __BaseException {
+  readonly name: "InvalidEncryptionConfiguration" = "InvalidEncryptionConfiguration";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEncryptionConfiguration, __BaseException>) {
+    super({
+      name: "InvalidEncryptionConfiguration",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEncryptionConfiguration.prototype);
+  }
 }
 
 /**
@@ -355,6 +460,46 @@ export class InvalidName extends __BaseException {
 }
 
 /**
+ * <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ * @public
+ */
+export class KmsAccessDeniedException extends __BaseException {
+  readonly name: "KmsAccessDeniedException" = "KmsAccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsAccessDeniedException, __BaseException>) {
+    super({
+      name: "KmsAccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsAccessDeniedException.prototype);
+  }
+}
+
+/**
+ * <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ * @public
+ */
+export class KmsThrottlingException extends __BaseException {
+  readonly name: "KmsThrottlingException" = "KmsThrottlingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsThrottlingException, __BaseException>) {
+    super({
+      name: "KmsThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsThrottlingException.prototype);
+  }
+}
+
+/**
  * <p>You've exceeded the number of tags allowed for a resource. See the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html"> Limits Topic</a> in the
  *       Step Functions Developer Guide.</p>
  * @public
@@ -362,7 +507,7 @@ export class InvalidName extends __BaseException {
 export class TooManyTags extends __BaseException {
   readonly name: "TooManyTags" = "TooManyTags";
   readonly $fault: "client" = "client";
-  resourceName?: string;
+  resourceName?: string | undefined;
   /**
    * @internal
    */
@@ -409,7 +554,7 @@ export interface CloudWatchLogsLogGroup {
    *          </p>
    * @public
    */
-  logGroupArn?: string;
+  logGroupArn?: string | undefined;
 }
 
 /**
@@ -421,7 +566,7 @@ export interface LogDestination {
    * <p>An object describing a CloudWatch log group. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-logs-loggroup.html">AWS::Logs::LogGroup</a> in the CloudFormation User Guide.</p>
    * @public
    */
-  cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup;
+  cloudWatchLogsLogGroup?: CloudWatchLogsLogGroup | undefined;
 }
 
 /**
@@ -450,21 +595,21 @@ export interface LoggingConfiguration {
    * <p>Defines which category of execution history events are logged.</p>
    * @public
    */
-  level?: LogLevel;
+  level?: LogLevel | undefined;
 
   /**
    * <p>Determines whether execution data is included in your log. When set to <code>false</code>,
    *       data is excluded.</p>
    * @public
    */
-  includeExecutionData?: boolean;
+  includeExecutionData?: boolean | undefined;
 
   /**
    * <p>An array of objects that describes where your execution history events will be logged.
    *       Limited to size 1. Required, if your log level is not set to <code>OFF</code>.</p>
    * @public
    */
-  destinations?: LogDestination[];
+  destinations?: LogDestination[] | undefined;
 }
 
 /**
@@ -478,7 +623,7 @@ export interface TracingConfiguration {
    * <p>When set to <code>true</code>, X-Ray tracing is enabled.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -545,7 +690,7 @@ export interface CreateStateMachineInput {
    *       has been created.</p>
    * @public
    */
-  type?: StateMachineType;
+  type?: StateMachineType | undefined;
 
   /**
    * <p>Defines what execution history events are logged and where they are logged.</p>
@@ -556,7 +701,7 @@ export interface CreateStateMachineInput {
    *          </note>
    * @public
    */
-  loggingConfiguration?: LoggingConfiguration;
+  loggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
    * <p>Tags to be added when creating a state machine.</p>
@@ -567,25 +712,31 @@ export interface CreateStateMachineInput {
    *          <p>Tags may only contain Unicode letters, digits, white space, or these symbols: <code>_ . : / = + - @</code>.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Selects whether X-Ray tracing is enabled.</p>
    * @public
    */
-  tracingConfiguration?: TracingConfiguration;
+  tracingConfiguration?: TracingConfiguration | undefined;
 
   /**
    * <p>Set to <code>true</code> to publish the first version of the state machine during creation. The default is <code>false</code>.</p>
    * @public
    */
-  publish?: boolean;
+  publish?: boolean | undefined;
 
   /**
    * <p>Sets description about the state machine version. You can only set the description if the <code>publish</code> parameter is set to <code>true</code>. Otherwise, if you set <code>versionDescription</code>, but <code>publish</code> to <code>false</code>, this API action throws <code>ValidationException</code>.</p>
    * @public
    */
-  versionDescription?: string;
+  versionDescription?: string | undefined;
+
+  /**
+   * <p>Settings to configure server-side encryption.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -608,7 +759,7 @@ export interface CreateStateMachineOutput {
    * <p>The Amazon Resource Name (ARN) that identifies the created state machine version. If you do not set the <code>publish</code> parameter to <code>true</code>, this field returns null value.</p>
    * @public
    */
-  stateMachineVersionArn?: string;
+  stateMachineVersionArn?: string | undefined;
 }
 
 /**
@@ -652,7 +803,7 @@ export class InvalidDefinition extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>Configuration is not valid.</p>
  * @public
  */
 export class InvalidLoggingConfiguration extends __BaseException {
@@ -755,7 +906,7 @@ export class StateMachineLimitExceeded extends __BaseException {
 }
 
 /**
- * <p></p>
+ * <p>State machine type is not supported.</p>
  * @public
  */
 export class StateMachineTypeNotSupported extends __BaseException {
@@ -801,7 +952,7 @@ export class ValidationException extends __BaseException {
    * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * @internal
@@ -832,9 +983,8 @@ export interface RoutingConfigurationListItem {
   stateMachineVersionArn: string | undefined;
 
   /**
-   * <p>The percentage of traffic you want to route to a state machine
-   *       version. The sum of the weights in the routing
-   *       configuration must be equal to 100.</p>
+   * <p>The percentage of traffic you want to route to a state machine version. The sum of the
+   *       weights in the routing configuration must be equal to 100.</p>
    * @public
    */
   weight: number | undefined;
@@ -848,7 +998,7 @@ export interface CreateStateMachineAliasInput {
    * <p>A description for the state machine alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the state machine alias.</p>
@@ -892,7 +1042,7 @@ export interface CreateStateMachineAliasOutput {
 export class ResourceNotFound extends __BaseException {
   readonly name: "ResourceNotFound" = "ResourceNotFound";
   readonly $fault: "client" = "client";
-  resourceName?: string;
+  resourceName?: string | undefined;
   /**
    * @internal
    */
@@ -1046,7 +1196,27 @@ export interface DescribeActivityOutput {
    * @public
    */
   creationDate: Date | undefined;
+
+  /**
+   * <p>Settings for configured server-side encryption.</p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IncludedData = {
+  ALL_DATA: "ALL_DATA",
+  METADATA_ONLY: "METADATA_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type IncludedData = (typeof IncludedData)[keyof typeof IncludedData];
 
 /**
  * @public
@@ -1057,6 +1227,12 @@ export interface DescribeExecutionInput {
    * @public
    */
   executionArn: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call DescribeStateMachine API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -1069,7 +1245,7 @@ export interface CloudWatchEventsExecutionDataDetails {
    *       for API calls. </p>
    * @public
    */
-  included?: boolean;
+  included?: boolean | undefined;
 }
 
 /**
@@ -1147,7 +1323,7 @@ export interface DescribeExecutionOutput {
    *          <p>To enable logging with CloudWatch Logs, the name should only contain  0-9, A-Z, a-z, - and _.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The current status of the execution.</p>
@@ -1165,19 +1341,19 @@ export interface DescribeExecutionOutput {
    * <p>If the execution ended, the date the execution stopped.</p>
    * @public
    */
-  stopDate?: Date;
+  stopDate?: Date | undefined;
 
   /**
    * <p>The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Provides details about execution input or output.</p>
    * @public
    */
-  inputDetails?: CloudWatchEventsExecutionDataDetails;
+  inputDetails?: CloudWatchEventsExecutionDataDetails | undefined;
 
   /**
    * <p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
@@ -1187,37 +1363,37 @@ export interface DescribeExecutionOutput {
    *          </note>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Provides details about execution input or output.</p>
    * @public
    */
-  outputDetails?: CloudWatchEventsExecutionDataDetails;
+  outputDetails?: CloudWatchEventsExecutionDataDetails | undefined;
 
   /**
    * <p>The X-Ray trace header that was passed to the execution.</p>
    * @public
    */
-  traceHeader?: string;
+  traceHeader?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies a Map Run, which dispatched this execution.</p>
    * @public
    */
-  mapRunArn?: string;
+  mapRunArn?: string | undefined;
 
   /**
    * <p>The error string if the state machine execution failed.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>The cause string if the state machine execution failed.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine version associated with the execution. The version ARN is a combination of state machine ARN and the version number separated by a colon (:). For example, <code>stateMachineARN:1</code>.</p>
@@ -1225,7 +1401,7 @@ export interface DescribeExecutionOutput {
    *       state machine version or alias ARN, Step Functions returns a null value.</p>
    * @public
    */
-  stateMachineVersionArn?: string;
+  stateMachineVersionArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine alias associated with the execution. The alias ARN is a combination of state machine ARN and the alias name separated by a colon (:). For example, <code>stateMachineARN:PROD</code>.</p>
@@ -1233,20 +1409,20 @@ export interface DescribeExecutionOutput {
    *       state machine version ARN, this field will be null.</p>
    * @public
    */
-  stateMachineAliasArn?: string;
+  stateMachineAliasArn?: string | undefined;
 
   /**
    * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is only updated if you successfully redrive an execution.</p>
    * @public
    */
-  redriveCount?: number;
+  redriveCount?: number | undefined;
 
   /**
    * <p>The date the execution was last redriven. If you have not yet redriven an execution, the <code>redriveDate</code> is null.</p>
    *          <p>The <code>redriveDate</code> is unavailable if you redrive a Map Run that starts child workflow executions of type <code>EXPRESS</code>.</p>
    * @public
    */
-  redriveDate?: Date;
+  redriveDate?: Date | undefined;
 
   /**
    * <p>Indicates whether or not an execution can be redriven at a given point in time.</p>
@@ -1264,7 +1440,7 @@ export interface DescribeExecutionOutput {
    *          </ul>
    * @public
    */
-  redriveStatus?: ExecutionRedriveStatus;
+  redriveStatus?: ExecutionRedriveStatus | undefined;
 
   /**
    * <p>When <code>redriveStatus</code> is <code>NOT_REDRIVABLE</code>, <code>redriveStatusReason</code> specifies the reason why an execution cannot be redriven.</p>
@@ -1308,7 +1484,7 @@ export interface DescribeExecutionOutput {
    *          </ul>
    * @public
    */
-  redriveStatusReason?: string;
+  redriveStatusReason?: string | undefined;
 }
 
 /**
@@ -1328,6 +1504,50 @@ export class ExecutionDoesNotExist extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, ExecutionDoesNotExist.prototype);
+  }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const KmsKeyState = {
+  CREATING: "CREATING",
+  DISABLED: "DISABLED",
+  PENDING_DELETION: "PENDING_DELETION",
+  PENDING_IMPORT: "PENDING_IMPORT",
+  UNAVAILABLE: "UNAVAILABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type KmsKeyState = (typeof KmsKeyState)[keyof typeof KmsKeyState];
+
+/**
+ * <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ * @public
+ */
+export class KmsInvalidStateException extends __BaseException {
+  readonly name: "KmsInvalidStateException" = "KmsInvalidStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Current status of the KMS; key. For example: <code>DISABLED</code>, <code>PENDING_DELETION</code>, <code>PENDING_IMPORT</code>, <code>UNAVAILABLE</code>, <code>CREATING</code>.</p>
+   * @public
+   */
+  kmsKeyState?: KmsKeyState | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<KmsInvalidStateException, __BaseException>) {
+    super({
+      name: "KmsInvalidStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, KmsInvalidStateException.prototype);
+    this.kmsKeyState = opts.kmsKeyState;
   }
 }
 
@@ -1399,13 +1619,13 @@ export interface MapRunExecutionCounts {
    * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> child workflow executions that cannot be redriven because their execution status is terminal. For example, child workflows with an execution status of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> and a <code>redriveStatus</code> of <code>NOT_REDRIVABLE</code>.</p>
    * @public
    */
-  failuresNotRedrivable?: number;
+  failuresNotRedrivable?: number | undefined;
 
   /**
    * <p>The number of unsuccessful child workflow executions currently waiting to be redriven. The status of these child workflow executions could be <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> in the original execution attempt or a previous redrive attempt.</p>
    * @public
    */
-  pendingRedrive?: number;
+  pendingRedrive?: number | undefined;
 }
 
 /**
@@ -1465,13 +1685,13 @@ export interface MapRunItemCounts {
    * <p>The number of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> items in child workflow executions that cannot be redriven because the execution status of those child workflows is terminal. For example, child workflows with an execution status of <code>FAILED</code>, <code>ABORTED</code>, or <code>TIMED_OUT</code> and a <code>redriveStatus</code> of <code>NOT_REDRIVABLE</code>.</p>
    * @public
    */
-  failuresNotRedrivable?: number;
+  failuresNotRedrivable?: number | undefined;
 
   /**
    * <p>The number of unsuccessful items in child workflow executions currently waiting to be redriven.</p>
    * @public
    */
-  pendingRedrive?: number;
+  pendingRedrive?: number | undefined;
 }
 
 /**
@@ -1522,7 +1742,7 @@ export interface DescribeMapRunOutput {
    * <p>The date when the Map Run was stopped.</p>
    * @public
    */
-  stopDate?: Date;
+  stopDate?: Date | undefined;
 
   /**
    * <p>The maximum number of child workflow executions configured to run in parallel for the Map Run at the same time.</p>
@@ -1558,13 +1778,13 @@ export interface DescribeMapRunOutput {
    * <p>The number of times you've redriven a Map Run. If you have not yet redriven a Map Run, the <code>redriveCount</code> is 0. This count is only updated if you successfully redrive a Map Run.</p>
    * @public
    */
-  redriveCount?: number;
+  redriveCount?: number | undefined;
 
   /**
    * <p>The date a Map Run was last redriven. If you have not yet redriven a Map Run, the <code>redriveDate</code> is null.</p>
    * @public
    */
-  redriveDate?: Date;
+  redriveDate?: Date | undefined;
 }
 
 /**
@@ -1577,6 +1797,17 @@ export interface DescribeStateMachineInput {
    * @public
    */
   stateMachineArn: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   *          <note>
+   *             <p>
+   *             When calling a labelled ARN for an encrypted state machine, the <code>includedData = METADATA_ONLY</code> parameter will not apply because Step Functions needs to decrypt the entire state machine definition to get the Distributed Map state’s definition. In this case, the API caller needs to have <code>kms:Decrypt</code> permission.
+   *         </p>
+   *          </note>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -1636,10 +1867,11 @@ export interface DescribeStateMachineOutput {
    * <p>The current status of the state machine.</p>
    * @public
    */
-  status?: StateMachineStatus;
+  status?: StateMachineStatus | undefined;
 
   /**
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
+   *          <p>If called with <code>includedData = METADATA_ONLY</code>, the returned definition will be <code>\{\}</code>.</p>
    * @public
    */
   definition: string | undefined;
@@ -1670,19 +1902,19 @@ export interface DescribeStateMachineOutput {
    *       options.</p>
    * @public
    */
-  loggingConfiguration?: LoggingConfiguration;
+  loggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
    * <p>Selects whether X-Ray tracing is enabled.</p>
    * @public
    */
-  tracingConfiguration?: TracingConfiguration;
+  tracingConfiguration?: TracingConfiguration | undefined;
 
   /**
    * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This parameter is present only if the <code>stateMachineArn</code> specified in input is a qualified state machine ARN.</p>
    * @public
    */
-  label?: string;
+  label?: string | undefined;
 
   /**
    * <p>The revision identifier for the state machine.</p>
@@ -1691,13 +1923,25 @@ export interface DescribeStateMachineOutput {
    *         <code>definition</code> and <code>roleArn</code>.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The description of the state machine version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
+
+  /**
+   * <p>Settings to configure server-side encryption. </p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A map of <b>state name</b> to a list of variables referenced by that state. States that do not use variable references will not be shown in the response.</p>
+   * @public
+   */
+  variableReferences?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1739,38 +1983,38 @@ export interface DescribeStateMachineAliasOutput {
    * <p>The Amazon Resource Name (ARN) of the state machine alias.</p>
    * @public
    */
-  stateMachineAliasArn?: string;
+  stateMachineAliasArn?: string | undefined;
 
   /**
    * <p>The name of the state machine alias.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A description of the alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The routing configuration of the alias.</p>
    * @public
    */
-  routingConfiguration?: RoutingConfigurationListItem[];
+  routingConfiguration?: RoutingConfigurationListItem[] | undefined;
 
   /**
    * <p>The date the state machine alias was created.</p>
    * @public
    */
-  creationDate?: Date;
+  creationDate?: Date | undefined;
 
   /**
    * <p>The date the state machine alias was last updated.</p>
    *          <p>For a newly created state machine, this is the same as the creation date.</p>
    * @public
    */
-  updateDate?: Date;
+  updateDate?: Date | undefined;
 }
 
 /**
@@ -1782,6 +2026,12 @@ export interface DescribeStateMachineForExecutionInput {
    * @public
    */
   executionArn: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -1824,32 +2074,44 @@ export interface DescribeStateMachineForExecutionOutput {
    *       options.</p>
    * @public
    */
-  loggingConfiguration?: LoggingConfiguration;
+  loggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
    * <p>Selects whether X-Ray tracing is enabled.</p>
    * @public
    */
-  tracingConfiguration?: TracingConfiguration;
+  tracingConfiguration?: TracingConfiguration | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow execution. This field is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
    * @public
    */
-  mapRunArn?: string;
+  mapRunArn?: string | undefined;
 
   /**
    * <p>A user-defined or an auto-generated string that identifies a <code>Map</code> state. This ﬁeld is returned only if the <code>executionArn</code> is a child workflow execution that was started by a Distributed Map state.</p>
    * @public
    */
-  label?: string;
+  label?: string | undefined;
 
   /**
    * <p>The revision identifier for the state machine. The first revision ID when you create the state machine is null.</p>
    *          <p>Use the state machine <code>revisionId</code> parameter to compare the revision of a state machine with the configuration of the state machine used for executions without performing a diff of the properties, such as <code>definition</code> and <code>roleArn</code>.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
+
+  /**
+   * <p>Settings to configure server-side encryption. </p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
+
+  /**
+   * <p>A map of <b>state name</b> to a list of variables referenced by that state. States that do not use variable references will not be shown in the response.</p>
+   * @public
+   */
+  variableReferences?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -1868,7 +2130,7 @@ export interface GetActivityTaskInput {
    *       assigned to. This name is used when it is logged in the execution history.</p>
    * @public
    */
-  workerName?: string;
+  workerName?: string | undefined;
 }
 
 /**
@@ -1882,13 +2144,13 @@ export interface GetActivityTaskOutput {
    *       task.</p>
    * @public
    */
-  taskToken?: string;
+  taskToken?: string | undefined;
 
   /**
    * <p>The string that contains the JSON input data for the task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 }
 
 /**
@@ -1907,27 +2169,57 @@ export interface GetExecutionHistoryInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Lists events in descending order of their <code>timeStamp</code>.</p>
    * @public
    */
-  reverseOrder?: boolean;
+  reverseOrder?: boolean | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>You can select whether execution data (input or output of a history event) is returned.
    *       The default is <code>true</code>.</p>
    * @public
    */
-  includeExecutionData?: boolean;
+  includeExecutionData?: boolean | undefined;
+}
+
+/**
+ * <p>Contains details about an evaluation failure that occurred while processing a state, for example, when a JSONata expression throws an error. This event will only be present in state machines that have <b> QueryLanguage</b> set to JSONata, or individual states set to JSONata.</p>
+ * @public
+ */
+export interface EvaluationFailedEventDetails {
+  /**
+   * <p>The error code of the failure.</p>
+   * @public
+   */
+  error?: string | undefined;
+
+  /**
+   * <p>A more detailed explanation of the cause of the failure.</p>
+   * @public
+   */
+  cause?: string | undefined;
+
+  /**
+   * <p>The location of the field in the state in which the evaluation error occurred.</p>
+   * @public
+   */
+  location?: string | undefined;
+
+  /**
+   * <p>The name of the state in which the evaluation error occurred.</p>
+   * @public
+   */
+  state: string | undefined;
 }
 
 /**
@@ -1939,13 +2231,13 @@ export interface ExecutionAbortedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -1957,13 +2249,13 @@ export interface ExecutionFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -1975,7 +2267,7 @@ export interface ExecutionRedrivenEventDetails {
    * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is not updated for redrives that failed to start or are pending to be redriven.</p>
    * @public
    */
-  redriveCount?: number;
+  redriveCount?: number | undefined;
 }
 
 /**
@@ -1987,31 +2279,31 @@ export interface ExecutionStartedEventDetails {
    * <p>The JSON data input to the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Contains details about the input for an execution history event.</p>
    * @public
    */
-  inputDetails?: HistoryEventExecutionDataDetails;
+  inputDetails?: HistoryEventExecutionDataDetails | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used for executing Lambda tasks.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies a state machine alias used for starting the state machine execution.</p>
    * @public
    */
-  stateMachineAliasArn?: string;
+  stateMachineAliasArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that identifies a state machine version used for starting the state machine execution.</p>
    * @public
    */
-  stateMachineVersionArn?: string;
+  stateMachineVersionArn?: string | undefined;
 }
 
 /**
@@ -2023,13 +2315,13 @@ export interface ExecutionSucceededEventDetails {
    * <p>The JSON data output by the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Contains details about the output of an execution history event.</p>
    * @public
    */
-  outputDetails?: HistoryEventExecutionDataDetails;
+  outputDetails?: HistoryEventExecutionDataDetails | undefined;
 }
 
 /**
@@ -2041,13 +2333,13 @@ export interface ExecutionTimedOutEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the timeout.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2059,13 +2351,13 @@ export interface LambdaFunctionFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2077,7 +2369,7 @@ export interface TaskCredentials {
    * <p>The ARN of an IAM role that Step Functions assumes for the task. The role can allow cross-account access to resources.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -2095,25 +2387,25 @@ export interface LambdaFunctionScheduledEventDetails {
    * <p>The JSON data input to the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Contains details about input for an execution history event.</p>
    * @public
    */
-  inputDetails?: HistoryEventExecutionDataDetails;
+  inputDetails?: HistoryEventExecutionDataDetails | undefined;
 
   /**
    * <p>The maximum allowed duration of the Lambda function.</p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 
   /**
    * <p>The credentials that Step Functions uses for the task.</p>
    * @public
    */
-  taskCredentials?: TaskCredentials;
+  taskCredentials?: TaskCredentials | undefined;
 }
 
 /**
@@ -2126,13 +2418,13 @@ export interface LambdaFunctionScheduleFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2144,13 +2436,13 @@ export interface LambdaFunctionStartFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2163,13 +2455,13 @@ export interface LambdaFunctionSucceededEventDetails {
    * <p>The JSON data output by the Lambda function. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Contains details about the output of an execution history event.</p>
    * @public
    */
-  outputDetails?: HistoryEventExecutionDataDetails;
+  outputDetails?: HistoryEventExecutionDataDetails | undefined;
 }
 
 /**
@@ -2181,13 +2473,13 @@ export interface LambdaFunctionTimedOutEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the timeout.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2199,13 +2491,13 @@ export interface MapIterationEventDetails {
    * <p>The name of the iteration’s parent Map state.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The index of the array belonging to the Map state iteration.</p>
    * @public
    */
-  index?: number;
+  index?: number | undefined;
 }
 
 /**
@@ -2217,13 +2509,13 @@ export interface MapRunFailedEventDetails {
    * <p>The error code of the Map Run failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2235,13 +2527,13 @@ export interface MapRunRedrivenEventDetails {
    * <p>The Amazon Resource Name (ARN) of a Map Run that was redriven.</p>
    * @public
    */
-  mapRunArn?: string;
+  mapRunArn?: string | undefined;
 
   /**
    * <p>The number of times the Map Run has been redriven at this point in the execution's history including this event. The redrive count for a redriven Map Run is always greater than 0.</p>
    * @public
    */
-  redriveCount?: number;
+  redriveCount?: number | undefined;
 }
 
 /**
@@ -2253,7 +2545,7 @@ export interface MapRunStartedEventDetails {
    * <p>The Amazon Resource Name (ARN) of a Map Run that was started.</p>
    * @public
    */
-  mapRunArn?: string;
+  mapRunArn?: string | undefined;
 }
 
 /**
@@ -2265,7 +2557,7 @@ export interface MapStateStartedEventDetails {
    * <p>The size of the array for Map state iterations.</p>
    * @public
    */
-  length?: number;
+  length?: number | undefined;
 }
 
 /**
@@ -2283,13 +2575,13 @@ export interface StateEnteredEventDetails {
    * <p>The string that contains the JSON input data for the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Contains details about the input for an execution history event.</p>
    * @public
    */
-  inputDetails?: HistoryEventExecutionDataDetails;
+  inputDetails?: HistoryEventExecutionDataDetails | undefined;
 }
 
 /**
@@ -2329,13 +2621,25 @@ export interface StateExitedEventDetails {
    * <p>The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Contains details about the output of an execution history event.</p>
    * @public
    */
-  outputDetails?: HistoryEventExecutionDataDetails;
+  outputDetails?: HistoryEventExecutionDataDetails | undefined;
+
+  /**
+   * <p>Map of variable name and value as a serialized JSON representation.</p>
+   * @public
+   */
+  assignedVariables?: Record<string, string> | undefined;
+
+  /**
+   * <p>Provides details about input or output in an execution history event.</p>
+   * @public
+   */
+  assignedVariablesDetails?: AssignedVariablesDetails | undefined;
 }
 
 /**
@@ -2359,13 +2663,13 @@ export interface TaskFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2402,19 +2706,19 @@ export interface TaskScheduledEventDetails {
    * <p>The maximum allowed duration of the task.</p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 
   /**
    * <p>The maximum allowed duration between two heartbeats for the task.</p>
    * @public
    */
-  heartbeatInSeconds?: number;
+  heartbeatInSeconds?: number | undefined;
 
   /**
    * <p>The credentials that Step Functions uses for the task.</p>
    * @public
    */
-  taskCredentials?: TaskCredentials;
+  taskCredentials?: TaskCredentials | undefined;
 }
 
 /**
@@ -2456,13 +2760,13 @@ export interface TaskStartFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2486,13 +2790,13 @@ export interface TaskSubmitFailedEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2516,13 +2820,13 @@ export interface TaskSubmittedEventDetails {
    * <p>The response from a resource when a task has started. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Contains details about the output of an execution history event.</p>
    * @public
    */
-  outputDetails?: HistoryEventExecutionDataDetails;
+  outputDetails?: HistoryEventExecutionDataDetails | undefined;
 }
 
 /**
@@ -2547,13 +2851,13 @@ export interface TaskSucceededEventDetails {
    *       the output of the related task. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Contains details about the output of an execution history event.</p>
    * @public
    */
-  outputDetails?: HistoryEventExecutionDataDetails;
+  outputDetails?: HistoryEventExecutionDataDetails | undefined;
 }
 
 /**
@@ -2577,13 +2881,13 @@ export interface TaskTimedOutEventDetails {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -2599,6 +2903,7 @@ export const HistoryEventType = {
   ActivityTimedOut: "ActivityTimedOut",
   ChoiceStateEntered: "ChoiceStateEntered",
   ChoiceStateExited: "ChoiceStateExited",
+  EvaluationFailed: "EvaluationFailed",
   ExecutionAborted: "ExecutionAborted",
   ExecutionFailed: "ExecutionFailed",
   ExecutionRedriven: "ExecutionRedriven",
@@ -2686,226 +2991,232 @@ export interface HistoryEvent {
    * <p>The id of the previous event.</p>
    * @public
    */
-  previousEventId?: number;
+  previousEventId?: number | undefined;
 
   /**
    * <p>Contains details about an activity that failed during an execution.</p>
    * @public
    */
-  activityFailedEventDetails?: ActivityFailedEventDetails;
+  activityFailedEventDetails?: ActivityFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about an activity schedule event that failed during an execution.</p>
    * @public
    */
-  activityScheduleFailedEventDetails?: ActivityScheduleFailedEventDetails;
+  activityScheduleFailedEventDetails?: ActivityScheduleFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about an activity scheduled during an execution.</p>
    * @public
    */
-  activityScheduledEventDetails?: ActivityScheduledEventDetails;
+  activityScheduledEventDetails?: ActivityScheduledEventDetails | undefined;
 
   /**
    * <p>Contains details about the start of an activity during an execution.</p>
    * @public
    */
-  activityStartedEventDetails?: ActivityStartedEventDetails;
+  activityStartedEventDetails?: ActivityStartedEventDetails | undefined;
 
   /**
    * <p>Contains details about an activity that successfully terminated during an
    *       execution.</p>
    * @public
    */
-  activitySucceededEventDetails?: ActivitySucceededEventDetails;
+  activitySucceededEventDetails?: ActivitySucceededEventDetails | undefined;
 
   /**
    * <p>Contains details about an activity timeout that occurred during an execution.</p>
    * @public
    */
-  activityTimedOutEventDetails?: ActivityTimedOutEventDetails;
+  activityTimedOutEventDetails?: ActivityTimedOutEventDetails | undefined;
 
   /**
    * <p>Contains details about the failure of a task.</p>
    * @public
    */
-  taskFailedEventDetails?: TaskFailedEventDetails;
+  taskFailedEventDetails?: TaskFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about a task that was scheduled.</p>
    * @public
    */
-  taskScheduledEventDetails?: TaskScheduledEventDetails;
+  taskScheduledEventDetails?: TaskScheduledEventDetails | undefined;
 
   /**
    * <p>Contains details about a task that failed to start.</p>
    * @public
    */
-  taskStartFailedEventDetails?: TaskStartFailedEventDetails;
+  taskStartFailedEventDetails?: TaskStartFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about a task that was started.</p>
    * @public
    */
-  taskStartedEventDetails?: TaskStartedEventDetails;
+  taskStartedEventDetails?: TaskStartedEventDetails | undefined;
 
   /**
    * <p>Contains details about a task that where the submit failed.</p>
    * @public
    */
-  taskSubmitFailedEventDetails?: TaskSubmitFailedEventDetails;
+  taskSubmitFailedEventDetails?: TaskSubmitFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about a submitted task.</p>
    * @public
    */
-  taskSubmittedEventDetails?: TaskSubmittedEventDetails;
+  taskSubmittedEventDetails?: TaskSubmittedEventDetails | undefined;
 
   /**
    * <p>Contains details about a task that succeeded.</p>
    * @public
    */
-  taskSucceededEventDetails?: TaskSucceededEventDetails;
+  taskSucceededEventDetails?: TaskSucceededEventDetails | undefined;
 
   /**
    * <p>Contains details about a task that timed out.</p>
    * @public
    */
-  taskTimedOutEventDetails?: TaskTimedOutEventDetails;
+  taskTimedOutEventDetails?: TaskTimedOutEventDetails | undefined;
 
   /**
    * <p>Contains details about an execution failure event.</p>
    * @public
    */
-  executionFailedEventDetails?: ExecutionFailedEventDetails;
+  executionFailedEventDetails?: ExecutionFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about the start of the execution.</p>
    * @public
    */
-  executionStartedEventDetails?: ExecutionStartedEventDetails;
+  executionStartedEventDetails?: ExecutionStartedEventDetails | undefined;
 
   /**
    * <p>Contains details about the successful termination of the execution.</p>
    * @public
    */
-  executionSucceededEventDetails?: ExecutionSucceededEventDetails;
+  executionSucceededEventDetails?: ExecutionSucceededEventDetails | undefined;
 
   /**
    * <p>Contains details about an abort of an execution.</p>
    * @public
    */
-  executionAbortedEventDetails?: ExecutionAbortedEventDetails;
+  executionAbortedEventDetails?: ExecutionAbortedEventDetails | undefined;
 
   /**
    * <p>Contains details about the execution timeout that occurred during the execution.</p>
    * @public
    */
-  executionTimedOutEventDetails?: ExecutionTimedOutEventDetails;
+  executionTimedOutEventDetails?: ExecutionTimedOutEventDetails | undefined;
 
   /**
    * <p>Contains details about the redrive attempt of an execution.</p>
    * @public
    */
-  executionRedrivenEventDetails?: ExecutionRedrivenEventDetails;
+  executionRedrivenEventDetails?: ExecutionRedrivenEventDetails | undefined;
 
   /**
    * <p>Contains details about Map state that was started.</p>
    * @public
    */
-  mapStateStartedEventDetails?: MapStateStartedEventDetails;
+  mapStateStartedEventDetails?: MapStateStartedEventDetails | undefined;
 
   /**
    * <p>Contains details about an iteration of a Map state that was started.</p>
    * @public
    */
-  mapIterationStartedEventDetails?: MapIterationEventDetails;
+  mapIterationStartedEventDetails?: MapIterationEventDetails | undefined;
 
   /**
    * <p>Contains details about an iteration of a Map state that succeeded.</p>
    * @public
    */
-  mapIterationSucceededEventDetails?: MapIterationEventDetails;
+  mapIterationSucceededEventDetails?: MapIterationEventDetails | undefined;
 
   /**
    * <p>Contains details about an iteration of a Map state that failed.</p>
    * @public
    */
-  mapIterationFailedEventDetails?: MapIterationEventDetails;
+  mapIterationFailedEventDetails?: MapIterationEventDetails | undefined;
 
   /**
    * <p>Contains details about an iteration of a Map state that was aborted.</p>
    * @public
    */
-  mapIterationAbortedEventDetails?: MapIterationEventDetails;
+  mapIterationAbortedEventDetails?: MapIterationEventDetails | undefined;
 
   /**
    * <p>Contains details about a Lambda function that failed during an execution.</p>
    * @public
    */
-  lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails;
+  lambdaFunctionFailedEventDetails?: LambdaFunctionFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about a failed Lambda function schedule event that occurred during an
    *       execution.</p>
    * @public
    */
-  lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails;
+  lambdaFunctionScheduleFailedEventDetails?: LambdaFunctionScheduleFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about a Lambda function scheduled during an execution.</p>
    * @public
    */
-  lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails;
+  lambdaFunctionScheduledEventDetails?: LambdaFunctionScheduledEventDetails | undefined;
 
   /**
    * <p>Contains details about a lambda function that failed to start during an execution.</p>
    * @public
    */
-  lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails;
+  lambdaFunctionStartFailedEventDetails?: LambdaFunctionStartFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about a Lambda function that terminated successfully during an
    *       execution.</p>
    * @public
    */
-  lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails;
+  lambdaFunctionSucceededEventDetails?: LambdaFunctionSucceededEventDetails | undefined;
 
   /**
    * <p>Contains details about a Lambda function timeout that occurred during an execution.</p>
    * @public
    */
-  lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails;
+  lambdaFunctionTimedOutEventDetails?: LambdaFunctionTimedOutEventDetails | undefined;
 
   /**
    * <p>Contains details about a state entered during an execution.</p>
    * @public
    */
-  stateEnteredEventDetails?: StateEnteredEventDetails;
+  stateEnteredEventDetails?: StateEnteredEventDetails | undefined;
 
   /**
    * <p>Contains details about an exit from a state during an execution.</p>
    * @public
    */
-  stateExitedEventDetails?: StateExitedEventDetails;
+  stateExitedEventDetails?: StateExitedEventDetails | undefined;
 
   /**
    * <p>Contains details, such as <code>mapRunArn</code>, and the start date and time of a Map Run. <code>mapRunArn</code> is the Amazon Resource Name (ARN) of the Map Run that was started.</p>
    * @public
    */
-  mapRunStartedEventDetails?: MapRunStartedEventDetails;
+  mapRunStartedEventDetails?: MapRunStartedEventDetails | undefined;
 
   /**
    * <p>Contains error and cause details about a Map Run that failed.</p>
    * @public
    */
-  mapRunFailedEventDetails?: MapRunFailedEventDetails;
+  mapRunFailedEventDetails?: MapRunFailedEventDetails | undefined;
 
   /**
    * <p>Contains details about the redrive attempt of a Map Run.</p>
    * @public
    */
-  mapRunRedrivenEventDetails?: MapRunRedrivenEventDetails;
+  mapRunRedrivenEventDetails?: MapRunRedrivenEventDetails | undefined;
+
+  /**
+   * <p>Contains details about an evaluation failure that occurred while processing a state.</p>
+   * @public
+   */
+  evaluationFailedEventDetails?: EvaluationFailedEventDetails | undefined;
 }
 
 /**
@@ -2923,7 +3234,7 @@ export interface GetExecutionHistoryOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2956,14 +3267,14 @@ export interface ListActivitiesInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2981,7 +3292,7 @@ export interface ListActivitiesOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3008,14 +3319,14 @@ export interface ListExecutionsInput {
    *          <p>You can also return a list of executions associated with a specific <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a> or <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>, by specifying an alias ARN or a version ARN in the <code>stateMachineArn</code> parameter.</p>
    * @public
    */
-  stateMachineArn?: string;
+  stateMachineArn?: string | undefined;
 
   /**
    * <p>If specified, only list the executions whose current execution status matches the given
    *       filter.</p>
    * @public
    */
-  statusFilter?: ExecutionStatus;
+  statusFilter?: ExecutionStatus | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -3023,21 +3334,21 @@ export interface ListExecutionsInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Map Run that started the child workflow executions. If the <code>mapRunArn</code> field is specified, a list of all of the child workflow executions started by a Map Run is returned. For more information, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-examine-map-run.html">Examining Map Run</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>You can specify either a <code>mapRunArn</code> or a <code>stateMachineArn</code>, but not both.</p>
    * @public
    */
-  mapRunArn?: string;
+  mapRunArn?: string | undefined;
 
   /**
    * <p>Sets a filter to list executions based on whether or not they have been redriven.</p>
@@ -3046,7 +3357,7 @@ export interface ListExecutionsInput {
    *          <p>If you provide a state machine ARN in <code>redriveFilter</code>, the API returns a validation exception.</p>
    * @public
    */
-  redriveFilter?: ExecutionRedriveFilter;
+  redriveFilter?: ExecutionRedriveFilter | undefined;
 }
 
 /**
@@ -3110,19 +3421,19 @@ export interface ExecutionListItem {
    * <p>If the execution already ended, the date the execution stopped.</p>
    * @public
    */
-  stopDate?: Date;
+  stopDate?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of a Map Run. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>mapRunArn</code> isn't returned.</p>
    * @public
    */
-  mapRunArn?: string;
+  mapRunArn?: string | undefined;
 
   /**
    * <p>The total number of items processed in a child workflow execution. This field is returned only if <code>mapRunArn</code> was specified in the <code>ListExecutions</code> API action. If <code>stateMachineArn</code> was specified in <code>ListExecutions</code>, the <code>itemCount</code> field isn't returned.</p>
    * @public
    */
-  itemCount?: number;
+  itemCount?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine version associated with the execution.</p>
@@ -3130,26 +3441,26 @@ export interface ExecutionListItem {
    *          <p>If the execution was started using a <code>stateMachineAliasArn</code>, both the <code>stateMachineAliasArn</code> and <code>stateMachineVersionArn</code> parameters contain the respective values.</p>
    * @public
    */
-  stateMachineVersionArn?: string;
+  stateMachineVersionArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the state machine alias used to start an execution.</p>
    *          <p>If the state machine execution was started with an unqualified ARN or a version ARN, it returns null.</p>
    * @public
    */
-  stateMachineAliasArn?: string;
+  stateMachineAliasArn?: string | undefined;
 
   /**
    * <p>The number of times you've redriven an execution. If you have not yet redriven an execution, the <code>redriveCount</code> is 0. This count is only updated when you successfully redrive an execution.</p>
    * @public
    */
-  redriveCount?: number;
+  redriveCount?: number | undefined;
 
   /**
    * <p>The date the execution was last redriven.</p>
    * @public
    */
-  redriveDate?: Date;
+  redriveDate?: Date | undefined;
 }
 
 /**
@@ -3167,7 +3478,7 @@ export interface ListExecutionsOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3186,14 +3497,14 @@ export interface ListMapRunsInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3229,7 +3540,7 @@ export interface MapRunListItem {
    * <p>The date on which the Map Run stopped.</p>
    * @public
    */
-  stopDate?: Date;
+  stopDate?: Date | undefined;
 }
 
 /**
@@ -3247,7 +3558,7 @@ export interface ListMapRunsOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3266,7 +3577,7 @@ export interface ListStateMachineAliasesInput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -3274,7 +3585,7 @@ export interface ListStateMachineAliasesInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3310,7 +3621,7 @@ export interface ListStateMachineAliasesOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3323,14 +3634,14 @@ export interface ListStateMachinesInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If <code>nextToken</code> is returned, there are more results available. The value of <code>nextToken</code> is a unique pagination token for each page.
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3395,7 +3706,7 @@ export interface ListStateMachinesOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3413,7 +3724,7 @@ export interface ListStateMachineVersionsInput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that are returned per call. You can use <code>nextToken</code> to obtain further pages of results.
@@ -3421,7 +3732,7 @@ export interface ListStateMachineVersionsInput {
    *          <p>This is only an upper limit. The actual number of results returned per call might be fewer than the specified maximum.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3457,7 +3768,7 @@ export interface ListStateMachineVersionsOutput {
    *     Make the call again using the returned token to retrieve the next page. Keep all other arguments unchanged. Each pagination token expires after 24 hours. Using an expired pagination token will return an <i>HTTP 400 InvalidToken</i> error.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3479,7 +3790,7 @@ export interface ListTagsForResourceOutput {
    * <p>An array of tags associated with the resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -3505,13 +3816,13 @@ export interface PublishStateMachineVersionInput {
    *          </note>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>An optional description of the state machine version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -3586,7 +3897,7 @@ export interface RedriveExecutionInput {
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don’t specify a client token, the Amazon Web Services SDK automatically generates a client token and uses it for the request to ensure idempotency. The API will return idempotent responses for the last 10 client tokens used to successfully redrive the execution. These client tokens are valid for up to 15 minutes after they are first used.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3616,13 +3927,13 @@ export interface SendTaskFailureInput {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -3817,8 +4128,7 @@ export interface StartExecutionInput {
   stateMachineArn: string | undefined;
 
   /**
-   * <p>Optional name of the execution.
-   *       This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
+   * <p>Optional name of the execution. This name must be unique for your Amazon Web Services account, Region, and state machine for 90 days. For more information,
    *     see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
    *     Limits Related to State Machine Executions</a> in the <i>Step Functions Developer Guide</i>.</p>
    *          <p>If you don't provide a name for the execution, Step Functions automatically generates a universally unique identifier (UUID) as the execution name.</p>
@@ -3846,7 +4156,7 @@ export interface StartExecutionInput {
    *          <p>To enable logging with CloudWatch Logs, the name should only contain  0-9, A-Z, a-z, - and _.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The string that contains the JSON input data for the execution, for example:</p>
@@ -3861,14 +4171,14 @@ export interface StartExecutionInput {
    *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
    *       payload.</p>
    * @public
    */
-  traceHeader?: string;
+  traceHeader?: string | undefined;
 }
 
 /**
@@ -3902,7 +4212,7 @@ export interface StartSyncExecutionInput {
    * <p>The name of the execution.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The string that contains the JSON input data for the execution, for example:</p>
@@ -3917,14 +4227,20 @@ export interface StartSyncExecutionInput {
    *          <p>Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Passes the X-Ray trace header. The trace header can also be passed in the request
    *       payload.</p>
    * @public
    */
-  traceHeader?: string;
+  traceHeader?: string | undefined;
+
+  /**
+   * <p>If your state machine definition is encrypted with a KMS key, callers must have <code>kms:Decrypt</code> permission to decrypt the definition. Alternatively, you can call the API with <code>includedData = METADATA_ONLY</code> to get a successful response without the encrypted definition.</p>
+   * @public
+   */
+  includedData?: IncludedData | undefined;
 }
 
 /**
@@ -3936,13 +4252,13 @@ export interface BillingDetails {
    * <p>Billed memory consumption of your workflow, in MB.</p>
    * @public
    */
-  billedMemoryUsedInMB?: number;
+  billedMemoryUsedInMB?: number | undefined;
 
   /**
    * <p>Billed duration of your workflow, in milliseconds.</p>
    * @public
    */
-  billedDurationInMilliseconds?: number;
+  billedDurationInMilliseconds?: number | undefined;
 }
 
 /**
@@ -3974,13 +4290,13 @@ export interface StartSyncExecutionOutput {
    * <p>The Amazon Resource Name (ARN) that identifies the state machine.</p>
    * @public
    */
-  stateMachineArn?: string;
+  stateMachineArn?: string | undefined;
 
   /**
    * <p>The name of the execution.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The date the execution is started.</p>
@@ -4004,25 +4320,25 @@ export interface StartSyncExecutionOutput {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 
   /**
    * <p>The string that contains the JSON input data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Provides details about execution input or output.</p>
    * @public
    */
-  inputDetails?: CloudWatchEventsExecutionDataDetails;
+  inputDetails?: CloudWatchEventsExecutionDataDetails | undefined;
 
   /**
    * <p>The JSON output data of the execution. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
@@ -4032,26 +4348,26 @@ export interface StartSyncExecutionOutput {
    *          </note>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>Provides details about execution input or output.</p>
    * @public
    */
-  outputDetails?: CloudWatchEventsExecutionDataDetails;
+  outputDetails?: CloudWatchEventsExecutionDataDetails | undefined;
 
   /**
    * <p>The X-Ray trace header that was passed to the execution.</p>
    * @public
    */
-  traceHeader?: string;
+  traceHeader?: string | undefined;
 
   /**
    * <p>An object that describes workflow billing details, including billed duration and memory
    *       use.</p>
    * @public
    */
-  billingDetails?: BillingDetails;
+  billingDetails?: BillingDetails | undefined;
 }
 
 /**
@@ -4068,13 +4384,13 @@ export interface StopExecutionInput {
    * <p>The error code of the failure.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A more detailed explanation of the cause of the failure.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 }
 
 /**
@@ -4140,13 +4456,13 @@ export interface TestStateInput {
    * <p>The Amazon Resource Name (ARN) of the execution role with the required IAM permissions for the state.</p>
    * @public
    */
-  roleArn: string | undefined;
+  roleArn?: string | undefined;
 
   /**
    * <p>A string that contains the JSON input data for the state.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
    * <p>Determines the values to return when a state is tested. You can specify one of the following types:</p>
@@ -4167,7 +4483,7 @@ export interface TestStateInput {
    *          <p>Each of these levels also provide information about the status of the state execution and the next state to transition to.</p>
    * @public
    */
-  inspectionLevel?: InspectionLevel;
+  inspectionLevel?: InspectionLevel | undefined;
 
   /**
    * <p>Specifies whether or not to include secret information in the test result. For HTTP Tasks, a secret includes the data that an EventBridge connection adds to modify the HTTP request headers, query parameters, and body. Step Functions doesn't omit any information included in the state definition or the HTTP response.</p>
@@ -4175,7 +4491,13 @@ export interface TestStateInput {
    *          <p>By default, <code>revealSecrets</code> is set to <code>false</code>.</p>
    * @public
    */
-  revealSecrets?: boolean;
+  revealSecrets?: boolean | undefined;
+
+  /**
+   * <p>JSON object literal that sets variables used in the state under test. Object keys are the variable names and values are the variable values.</p>
+   * @public
+   */
+  variables?: string | undefined;
 }
 
 /**
@@ -4187,31 +4509,31 @@ export interface InspectionDataRequest {
    * <p>The protocol used to make the HTTP request.</p>
    * @public
    */
-  protocol?: string;
+  protocol?: string | undefined;
 
   /**
    * <p>The HTTP method used for the HTTP request.</p>
    * @public
    */
-  method?: string;
+  method?: string | undefined;
 
   /**
    * <p>The API endpoint used for the HTTP request.</p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 
   /**
    * <p>The request headers associated with the HTTP request.</p>
    * @public
    */
-  headers?: string;
+  headers?: string | undefined;
 
   /**
    * <p>The request body for the HTTP request.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 }
 
 /**
@@ -4223,31 +4545,31 @@ export interface InspectionDataResponse {
    * <p>The protocol used to return the HTTP response.</p>
    * @public
    */
-  protocol?: string;
+  protocol?: string | undefined;
 
   /**
    * <p>The HTTP response status code for the HTTP response.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>The message associated with the HTTP status code.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The response headers associated with the HTTP response.</p>
    * @public
    */
-  headers?: string;
+  headers?: string | undefined;
 
   /**
    * <p>The HTTP response returned.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 }
 
 /**
@@ -4259,49 +4581,61 @@ export interface InspectionData {
    * <p>The raw state input.</p>
    * @public
    */
-  input?: string;
+  input?: string | undefined;
 
   /**
-   * <p>The input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">InputPath</a> filter.</p>
+   * <p>The input after Step Functions applies an Arguments filter. This event will only be present when QueryLanguage for the state machine or individual states is set to JSONata. For more info, see <a href="https://docs.aws.amazon.com/step-functions/latest/dg/data-transform.html">Transforming data with Step Functions</a>.</p>
    * @public
    */
-  afterInputPath?: string;
+  afterArguments?: string | undefined;
 
   /**
-   * <p>The effective input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">Parameters</a> filter.</p>
+   * <p>The input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-inputpath">InputPath</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
-  afterParameters?: string;
+  afterInputPath?: string | undefined;
+
+  /**
+   * <p>The effective input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-parameters">Parameters</a> filter. Not populated when QueryLanguage is JSONata.</p>
+   * @public
+   */
+  afterParameters?: string | undefined;
 
   /**
    * <p>The state's raw result.</p>
    * @public
    */
-  result?: string;
+  result?: string | undefined;
 
   /**
-   * <p>The effective result after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">ResultSelector</a> filter.</p>
+   * <p>The effective result after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-inputpath-params.html#input-output-resultselector">ResultSelector</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
-  afterResultSelector?: string;
+  afterResultSelector?: string | undefined;
 
   /**
-   * <p>The effective result combined with the raw state input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">ResultPath</a> filter.</p>
+   * <p>The effective result combined with the raw state input after Step Functions applies the <a href="https://docs.aws.amazon.com/step-functions/latest/dg/input-output-resultpath.html">ResultPath</a> filter. Not populated when QueryLanguage is JSONata.</p>
    * @public
    */
-  afterResultPath?: string;
+  afterResultPath?: string | undefined;
 
   /**
    * <p>The raw HTTP request that is sent when you test an HTTP Task.</p>
    * @public
    */
-  request?: InspectionDataRequest;
+  request?: InspectionDataRequest | undefined;
 
   /**
    * <p>The raw HTTP response that is returned when you test an HTTP Task.</p>
    * @public
    */
-  response?: InspectionDataResponse;
+  response?: InspectionDataResponse | undefined;
+
+  /**
+   * <p>JSON string that contains the set of workflow variables after execution of the state. The set will include variables assigned in the state and variables set up as test state input.</p>
+   * @public
+   */
+  variables?: string | undefined;
 }
 
 /**
@@ -4328,37 +4662,37 @@ export interface TestStateOutput {
    * <p>The JSON output data of the state. Length constraints apply to the payload size, and are expressed as bytes in UTF-8 encoding.</p>
    * @public
    */
-  output?: string;
+  output?: string | undefined;
 
   /**
    * <p>The error returned when the execution of a state fails.</p>
    * @public
    */
-  error?: string;
+  error?: string | undefined;
 
   /**
    * <p>A detailed explanation of the cause for the error when the execution of a state fails.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 
   /**
    * <p>Returns additional details about the state's execution, including its input and output data processing flow, and HTTP request and response information. The <code>inspectionLevel</code> request parameter specifies which details are returned.</p>
    * @public
    */
-  inspectionData?: InspectionData;
+  inspectionData?: InspectionData | undefined;
 
   /**
    * <p>The name of the next state to transition to. If you haven't defined a next state in your definition or if the execution of the state fails, this ﬁeld doesn't contain a value.</p>
    * @public
    */
-  nextState?: string;
+  nextState?: string | undefined;
 
   /**
    * <p>The execution status of the state.</p>
    * @public
    */
-  status?: TestExecutionStatus;
+  status?: TestExecutionStatus | undefined;
 }
 
 /**
@@ -4397,19 +4731,19 @@ export interface UpdateMapRunInput {
    * <p>The maximum number of child workflow executions that can be specified to run in parallel for the Map Run at the same time.</p>
    * @public
    */
-  maxConcurrency?: number;
+  maxConcurrency?: number | undefined;
 
   /**
    * <p>The maximum percentage of failed items before the Map Run fails.</p>
    * @public
    */
-  toleratedFailurePercentage?: number;
+  toleratedFailurePercentage?: number | undefined;
 
   /**
    * <p>The maximum number of failed items before the Map Run fails.</p>
    * @public
    */
-  toleratedFailureCount?: number;
+  toleratedFailureCount?: number | undefined;
 }
 
 /**
@@ -4452,26 +4786,26 @@ export interface UpdateStateMachineInput {
    * <p>The Amazon States Language definition of the state machine. See <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html">Amazon States Language</a>.</p>
    * @public
    */
-  definition?: string;
+  definition?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role of the state machine.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 
   /**
    * <p>Use the <code>LoggingConfiguration</code> data type to set CloudWatch Logs
    *       options.</p>
    * @public
    */
-  loggingConfiguration?: LoggingConfiguration;
+  loggingConfiguration?: LoggingConfiguration | undefined;
 
   /**
    * <p>Selects whether X-Ray tracing is enabled.</p>
    * @public
    */
-  tracingConfiguration?: TracingConfiguration;
+  tracingConfiguration?: TracingConfiguration | undefined;
 
   /**
    * <p>Specifies whether the state machine version is published. The default is
@@ -4479,14 +4813,20 @@ export interface UpdateStateMachineInput {
    *         <code>publish</code> to <code>true</code>.</p>
    * @public
    */
-  publish?: boolean;
+  publish?: boolean | undefined;
 
   /**
    * <p>An optional description of the state machine version to publish.</p>
    *          <p>You can only specify the <code>versionDescription</code> parameter if you've set <code>publish</code> to <code>true</code>.</p>
    * @public
    */
-  versionDescription?: string;
+  versionDescription?: string | undefined;
+
+  /**
+   * <p>Settings to configure server-side encryption. </p>
+   * @public
+   */
+  encryptionConfiguration?: EncryptionConfiguration | undefined;
 }
 
 /**
@@ -4503,14 +4843,14 @@ export interface UpdateStateMachineOutput {
    * <p>The revision identifier for the updated state machine.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the published state machine version.</p>
    *          <p>If the <code>publish</code> parameter isn't set to <code>true</code>, this field returns null.</p>
    * @public
    */
-  stateMachineVersionArn?: string;
+  stateMachineVersionArn?: string | undefined;
 }
 
 /**
@@ -4527,14 +4867,14 @@ export interface UpdateStateMachineAliasInput {
    * <p>A description of the state machine alias.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The routing configuration of the state machine alias.</p>
    *          <p>An array of <code>RoutingConfig</code> objects that specifies up to two state machine versions that the alias starts executions for.</p>
    * @public
    */
-  routingConfiguration?: RoutingConfigurationListItem[];
+  routingConfiguration?: RoutingConfigurationListItem[] | undefined;
 }
 
 /**
@@ -4547,6 +4887,21 @@ export interface UpdateStateMachineAliasOutput {
    */
   updateDate: Date | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ValidateStateMachineDefinitionSeverity = {
+  ERROR: "ERROR",
+  WARNING: "WARNING",
+} as const;
+
+/**
+ * @public
+ */
+export type ValidateStateMachineDefinitionSeverity =
+  (typeof ValidateStateMachineDefinitionSeverity)[keyof typeof ValidateStateMachineDefinitionSeverity];
 
 /**
  * @public
@@ -4563,32 +4918,121 @@ export interface ValidateStateMachineDefinitionInput {
    * <p>The target type of state machine for this definition. The default is <code>STANDARD</code>.</p>
    * @public
    */
-  type?: StateMachineType;
+  type?: StateMachineType | undefined;
+
+  /**
+   * <p>Minimum level of diagnostics to return. <code>ERROR</code> returns only <code>ERROR</code> diagnostics, whereas <code>WARNING</code> returns both <code>WARNING</code> and <code>ERROR</code> diagnostics. The default is <code>ERROR</code>. </p>
+   * @public
+   */
+  severity?: ValidateStateMachineDefinitionSeverity | undefined;
+
+  /**
+   * <p>The maximum number of diagnostics that are returned per call. The default and maximum value is 100. Setting the value to 0 will also use the default of 100.</p>
+   *          <p>If the number of diagnostics returned in the response exceeds <code>maxResults</code>, the value of the <code>truncated</code> field in the response will be set to <code>true</code>.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
 }
 
 /**
- * @public
- * @enum
- */
-export const ValidateStateMachineDefinitionSeverity = {
-  ERROR: "ERROR",
-} as const;
-
-/**
- * @public
- */
-export type ValidateStateMachineDefinitionSeverity =
-  (typeof ValidateStateMachineDefinitionSeverity)[keyof typeof ValidateStateMachineDefinitionSeverity];
-
-/**
- * <p>Describes an error found during validation. Validation errors found in the definition
- *             return in the response as <b>diagnostic elements</b>, rather
- *             than raise an exception.</p>
+ * <p>Describes potential issues found during state machine validation. Rather than raise an
+ *             exception, validation will return a list of <b>diagnostic
+ *             elements</b> containing diagnostic information. </p>
+ *          <note>
+ *             <p>The <a href="https://docs.aws.amazon.com/step-functions/latest/apireference/API_ValidateStateMachineDefinition.html">ValidateStateMachineDefinitionlAPI</a> might add
+ *                 new diagnostics in the future, adjust diagnostic codes, or change the message
+ *                 wording. Your automated processes should only rely on the value of the <b>result</b> field value (OK, FAIL). Do <b>not</b> rely on the exact order, count, or
+ *                 wording of diagnostic messages.</p>
+ *          </note>
+ *          <p>
+ *             <b>List of warning codes</b>
+ *          </p>
+ *          <dl>
+ *             <dt>NO_DOLLAR</dt>
+ *             <dd>
+ *                <p>No <code>.$</code> on a field that appears to be a JSONPath or Intrinsic Function.</p>
+ *             </dd>
+ *             <dt>NO_PATH</dt>
+ *             <dd>
+ *                <p>Field value looks like a path, but field name does not end with 'Path'.</p>
+ *             </dd>
+ *             <dt>PASS_RESULT_IS_STATIC</dt>
+ *             <dd>
+ *                <p>Attempt to use a path in the result of a pass state.</p>
+ *             </dd>
+ *          </dl>
+ *          <p>
+ *             <b>List of error codes</b>
+ *          </p>
+ *          <dl>
+ *             <dt>INVALID_JSON_DESCRIPTION</dt>
+ *             <dd>
+ *                <p>JSON syntax problem found.</p>
+ *             </dd>
+ *             <dt>MISSING_DESCRIPTION</dt>
+ *             <dd>
+ *                <p>Received a null or empty workflow input.</p>
+ *             </dd>
+ *             <dt>SCHEMA_VALIDATION_FAILED</dt>
+ *             <dd>
+ *                <p>Schema validation reported errors.</p>
+ *             </dd>
+ *             <dt>INVALID_RESOURCE</dt>
+ *             <dd>
+ *                <p>The value of a Task-state resource field is invalid.</p>
+ *             </dd>
+ *             <dt>MISSING_END_STATE</dt>
+ *             <dd>
+ *                <p>The workflow does not have a terminal state.</p>
+ *             </dd>
+ *             <dt>DUPLICATE_STATE_NAME</dt>
+ *             <dd>
+ *                <p>The same state name appears more than once.</p>
+ *             </dd>
+ *             <dt>INVALID_STATE_NAME</dt>
+ *             <dd>
+ *                <p>The state name does not follow the naming convention.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_EMPTY</dt>
+ *             <dd>
+ *                <p>The state machine name has not been specified.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_INVALID</dt>
+ *             <dd>
+ *                <p>The state machine name does not follow the naming convention.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_TOO_LONG</dt>
+ *             <dd>
+ *                <p>The state name exceeds the allowed length.</p>
+ *             </dd>
+ *             <dt>STATE_MACHINE_NAME_ALREADY_EXISTS</dt>
+ *             <dd>
+ *                <p>The state name already exists.</p>
+ *             </dd>
+ *             <dt>DUPLICATE_LABEL_NAME</dt>
+ *             <dd>
+ *                <p>A label name appears more than once.</p>
+ *             </dd>
+ *             <dt>INVALID_LABEL_NAME</dt>
+ *             <dd>
+ *                <p>You have provided an invalid label name.</p>
+ *             </dd>
+ *             <dt>MISSING_TRANSITION_TARGET</dt>
+ *             <dd>
+ *                <p>The value of "Next" field doesn't match a known state name.</p>
+ *             </dd>
+ *             <dt>TOO_DEEPLY_NESTED</dt>
+ *             <dd>
+ *                <p>The states are too deeply nested.</p>
+ *             </dd>
+ *          </dl>
  * @public
  */
 export interface ValidateStateMachineDefinitionDiagnostic {
   /**
    * <p>A value of <code>ERROR</code> means that you cannot create or update a state machine with this definition.</p>
+   *          <p>
+   *             <code>WARNING</code> level diagnostics alert you to potential issues, but they will not prevent you from creating or updating your state machine.</p>
    * @public
    */
   severity: ValidateStateMachineDefinitionSeverity | undefined;
@@ -4610,7 +5054,7 @@ export interface ValidateStateMachineDefinitionDiagnostic {
    *          <p>For errors specific to a field, the location could be in the format: <code>/States/<StateName>/<FieldName></code>, for example: <code>/States/FailState/ErrorPath</code>.</p>
    * @public
    */
-  location?: string;
+  location?: string | undefined;
 }
 
 /**
@@ -4640,12 +5084,16 @@ export interface ValidateStateMachineDefinitionOutput {
   result: ValidateStateMachineDefinitionResultCode | undefined;
 
   /**
-   * <p>If the result is <code>OK</code>, this field will be empty. When there are errors,
-   *             this field will contain an array of <b>Diagnostic</b> objects
-   *             to help you troubleshoot.</p>
+   * <p>An array of diagnostic errors and warnings found during validation of the state machine definition. Since <b>warnings</b> do not prevent deploying your workflow definition, the <b>result</b> value could be <code>OK</code> even when warning diagnostics are present in the response.</p>
    * @public
    */
   diagnostics: ValidateStateMachineDefinitionDiagnostic[] | undefined;
+
+  /**
+   * <p>The result value will be <code>true</code> if the number of diagnostics found in the workflow definition exceeds <code>maxResults</code>. When all diagnostics results are returned, the value will be <code>false</code>.</p>
+   * @public
+   */
+  truncated?: boolean | undefined;
 }
 
 /**
@@ -4727,6 +5175,7 @@ export const DescribeStateMachineOutputFilterSensitiveLog = (obj: DescribeStateM
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
   ...(obj.description && { description: SENSITIVE_STRING }),
+  ...(obj.variableReferences && { variableReferences: SENSITIVE_STRING }),
 });
 
 /**
@@ -4745,6 +5194,7 @@ export const DescribeStateMachineForExecutionOutputFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+  ...(obj.variableReferences && { variableReferences: SENSITIVE_STRING }),
 });
 
 /**
@@ -4753,6 +5203,16 @@ export const DescribeStateMachineForExecutionOutputFilterSensitiveLog = (
 export const GetActivityTaskOutputFilterSensitiveLog = (obj: GetActivityTaskOutput): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EvaluationFailedEventDetailsFilterSensitiveLog = (obj: EvaluationFailedEventDetails): any => ({
+  ...obj,
+  ...(obj.error && { error: SENSITIVE_STRING }),
+  ...(obj.cause && { cause: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
 });
 
 /**
@@ -4881,6 +5341,7 @@ export const StateEnteredEventDetailsFilterSensitiveLog = (obj: StateEnteredEven
 export const StateExitedEventDetailsFilterSensitiveLog = (obj: StateExitedEventDetails): any => ({
   ...obj,
   ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.assignedVariables && { assignedVariables: SENSITIVE_STRING }),
 });
 
 /**
@@ -5042,6 +5503,9 @@ export const HistoryEventFilterSensitiveLog = (obj: HistoryEvent): any => ({
   ...(obj.mapRunFailedEventDetails && {
     mapRunFailedEventDetails: MapRunFailedEventDetailsFilterSensitiveLog(obj.mapRunFailedEventDetails),
   }),
+  ...(obj.evaluationFailedEventDetails && {
+    evaluationFailedEventDetails: EvaluationFailedEventDetailsFilterSensitiveLog(obj.evaluationFailedEventDetails),
+  }),
 });
 
 /**
@@ -5120,6 +5584,7 @@ export const TestStateInputFilterSensitiveLog = (obj: TestStateInput): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
   ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.variables && { variables: SENSITIVE_STRING }),
 });
 
 /**
@@ -5128,11 +5593,13 @@ export const TestStateInputFilterSensitiveLog = (obj: TestStateInput): any => ({
 export const InspectionDataFilterSensitiveLog = (obj: InspectionData): any => ({
   ...obj,
   ...(obj.input && { input: SENSITIVE_STRING }),
+  ...(obj.afterArguments && { afterArguments: SENSITIVE_STRING }),
   ...(obj.afterInputPath && { afterInputPath: SENSITIVE_STRING }),
   ...(obj.afterParameters && { afterParameters: SENSITIVE_STRING }),
   ...(obj.result && { result: SENSITIVE_STRING }),
   ...(obj.afterResultSelector && { afterResultSelector: SENSITIVE_STRING }),
   ...(obj.afterResultPath && { afterResultPath: SENSITIVE_STRING }),
+  ...(obj.variables && { variables: SENSITIVE_STRING }),
 });
 
 /**
@@ -5171,4 +5638,28 @@ export const ValidateStateMachineDefinitionInputFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.definition && { definition: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateStateMachineDefinitionDiagnosticFilterSensitiveLog = (
+  obj: ValidateStateMachineDefinitionDiagnostic
+): any => ({
+  ...obj,
+  ...(obj.code && { code: SENSITIVE_STRING }),
+  ...(obj.message && { message: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateStateMachineDefinitionOutputFilterSensitiveLog = (
+  obj: ValidateStateMachineDefinitionOutput
+): any => ({
+  ...obj,
+  ...(obj.diagnostics && {
+    diagnostics: obj.diagnostics.map((item) => ValidateStateMachineDefinitionDiagnosticFilterSensitiveLog(item)),
+  }),
 });

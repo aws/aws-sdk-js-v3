@@ -16,7 +16,8 @@ import { de_GetSessionCommand, se_GetSessionCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface GetSessionCommandOutput extends GetSessionResponse, __MetadataB
  * @throws {@link LexRuntimeServiceServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeService service.</p>
  *
+ *
  * @public
  */
 export class GetSessionCommand extends $Command
@@ -124,9 +126,7 @@ export class GetSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class GetSessionCommand extends $Command
   .f(void 0, GetSessionResponseFilterSensitiveLog)
   .ser(se_GetSessionCommand)
   .de(de_GetSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionRequest;
+      output: GetSessionResponse;
+    };
+    sdk: {
+      input: GetSessionCommandInput;
+      output: GetSessionCommandOutput;
+    };
+  };
+}

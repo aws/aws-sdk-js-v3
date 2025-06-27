@@ -207,6 +207,7 @@ import {
   SourceConfiguration,
   SpeakerSearchTask,
   SqsQueueSinkConfiguration,
+  SseAwsKeyManagementParams,
   StreamChannelDefinition,
   StreamConfiguration,
   Tag,
@@ -241,9 +242,11 @@ export const se_CreateMediaCapturePipelineCommand = async (
       ChimeSdkMeetingConfiguration: (_) => _json(_),
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
       SinkArn: [],
+      SinkIamRoleArn: [],
       SinkType: [],
       SourceArn: [],
       SourceType: [],
+      SseAwsKeyManagementParams: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -1886,6 +1889,8 @@ const se_KinesisVideoStreamRecordingSourceRuntimeConfiguration = (
 
 // se_SqsQueueSinkConfiguration omitted.
 
+// se_SseAwsKeyManagementParams omitted.
+
 // se_StreamChannelDefinition omitted.
 
 // se_StreamConfiguration omitted.
@@ -2054,9 +2059,11 @@ const de_MediaCapturePipeline = (output: any, context: __SerdeContext): MediaCap
     MediaPipelineArn: __expectString,
     MediaPipelineId: __expectString,
     SinkArn: __expectString,
+    SinkIamRoleArn: __expectString,
     SinkType: __expectString,
     SourceArn: __expectString,
     SourceType: __expectString,
+    SseAwsKeyManagementParams: _json,
     Status: __expectString,
     UpdatedTimestamp: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
@@ -2234,6 +2241,8 @@ const de_SpeakerSearchTask = (output: any, context: __SerdeContext): SpeakerSear
 
 // de_SqsQueueSinkConfiguration omitted.
 
+// de_SseAwsKeyManagementParams omitted.
+
 // de_StreamChannelDefinition omitted.
 
 // de_StreamConfiguration omitted.
@@ -2291,13 +2300,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _NT = "NextToken";

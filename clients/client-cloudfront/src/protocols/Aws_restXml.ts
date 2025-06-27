@@ -11,6 +11,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
+  isSerializableHeaderValue,
   map,
   parseBoolean as __parseBoolean,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
@@ -27,17 +28,37 @@ import {
 } from "@smithy/types";
 
 import { AssociateAliasCommandInput, AssociateAliasCommandOutput } from "../commands/AssociateAliasCommand";
+import {
+  AssociateDistributionTenantWebACLCommandInput,
+  AssociateDistributionTenantWebACLCommandOutput,
+} from "../commands/AssociateDistributionTenantWebACLCommand";
+import {
+  AssociateDistributionWebACLCommandInput,
+  AssociateDistributionWebACLCommandOutput,
+} from "../commands/AssociateDistributionWebACLCommand";
 import { CopyDistributionCommandInput, CopyDistributionCommandOutput } from "../commands/CopyDistributionCommand";
+import {
+  CreateAnycastIpListCommandInput,
+  CreateAnycastIpListCommandOutput,
+} from "../commands/CreateAnycastIpListCommand";
 import { CreateCachePolicyCommandInput, CreateCachePolicyCommandOutput } from "../commands/CreateCachePolicyCommand";
 import {
   CreateCloudFrontOriginAccessIdentityCommandInput,
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "../commands/CreateCloudFrontOriginAccessIdentityCommand";
 import {
+  CreateConnectionGroupCommandInput,
+  CreateConnectionGroupCommandOutput,
+} from "../commands/CreateConnectionGroupCommand";
+import {
   CreateContinuousDeploymentPolicyCommandInput,
   CreateContinuousDeploymentPolicyCommandOutput,
 } from "../commands/CreateContinuousDeploymentPolicyCommand";
 import { CreateDistributionCommandInput, CreateDistributionCommandOutput } from "../commands/CreateDistributionCommand";
+import {
+  CreateDistributionTenantCommandInput,
+  CreateDistributionTenantCommandOutput,
+} from "../commands/CreateDistributionTenantCommand";
 import {
   CreateDistributionWithTagsCommandInput,
   CreateDistributionWithTagsCommandOutput,
@@ -52,6 +73,10 @@ import {
 } from "../commands/CreateFieldLevelEncryptionProfileCommand";
 import { CreateFunctionCommandInput, CreateFunctionCommandOutput } from "../commands/CreateFunctionCommand";
 import { CreateInvalidationCommandInput, CreateInvalidationCommandOutput } from "../commands/CreateInvalidationCommand";
+import {
+  CreateInvalidationForDistributionTenantCommandInput,
+  CreateInvalidationForDistributionTenantCommandOutput,
+} from "../commands/CreateInvalidationForDistributionTenantCommand";
 import { CreateKeyGroupCommandInput, CreateKeyGroupCommandOutput } from "../commands/CreateKeyGroupCommand";
 import {
   CreateKeyValueStoreCommandInput,
@@ -86,16 +111,29 @@ import {
   CreateStreamingDistributionWithTagsCommandInput,
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "../commands/CreateStreamingDistributionWithTagsCommand";
+import { CreateVpcOriginCommandInput, CreateVpcOriginCommandOutput } from "../commands/CreateVpcOriginCommand";
+import {
+  DeleteAnycastIpListCommandInput,
+  DeleteAnycastIpListCommandOutput,
+} from "../commands/DeleteAnycastIpListCommand";
 import { DeleteCachePolicyCommandInput, DeleteCachePolicyCommandOutput } from "../commands/DeleteCachePolicyCommand";
 import {
   DeleteCloudFrontOriginAccessIdentityCommandInput,
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "../commands/DeleteCloudFrontOriginAccessIdentityCommand";
 import {
+  DeleteConnectionGroupCommandInput,
+  DeleteConnectionGroupCommandOutput,
+} from "../commands/DeleteConnectionGroupCommand";
+import {
   DeleteContinuousDeploymentPolicyCommandInput,
   DeleteContinuousDeploymentPolicyCommandOutput,
 } from "../commands/DeleteContinuousDeploymentPolicyCommand";
 import { DeleteDistributionCommandInput, DeleteDistributionCommandOutput } from "../commands/DeleteDistributionCommand";
+import {
+  DeleteDistributionTenantCommandInput,
+  DeleteDistributionTenantCommandOutput,
+} from "../commands/DeleteDistributionTenantCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommandInput,
   DeleteFieldLevelEncryptionConfigCommandOutput,
@@ -135,11 +173,21 @@ import {
   DeleteStreamingDistributionCommandInput,
   DeleteStreamingDistributionCommandOutput,
 } from "../commands/DeleteStreamingDistributionCommand";
+import { DeleteVpcOriginCommandInput, DeleteVpcOriginCommandOutput } from "../commands/DeleteVpcOriginCommand";
 import { DescribeFunctionCommandInput, DescribeFunctionCommandOutput } from "../commands/DescribeFunctionCommand";
 import {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "../commands/DescribeKeyValueStoreCommand";
+import {
+  DisassociateDistributionTenantWebACLCommandInput,
+  DisassociateDistributionTenantWebACLCommandOutput,
+} from "../commands/DisassociateDistributionTenantWebACLCommand";
+import {
+  DisassociateDistributionWebACLCommandInput,
+  DisassociateDistributionWebACLCommandOutput,
+} from "../commands/DisassociateDistributionWebACLCommand";
+import { GetAnycastIpListCommandInput, GetAnycastIpListCommandOutput } from "../commands/GetAnycastIpListCommand";
 import { GetCachePolicyCommandInput, GetCachePolicyCommandOutput } from "../commands/GetCachePolicyCommand";
 import {
   GetCachePolicyConfigCommandInput,
@@ -154,6 +202,11 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "../commands/GetCloudFrontOriginAccessIdentityConfigCommand";
 import {
+  GetConnectionGroupByRoutingEndpointCommandInput,
+  GetConnectionGroupByRoutingEndpointCommandOutput,
+} from "../commands/GetConnectionGroupByRoutingEndpointCommand";
+import { GetConnectionGroupCommandInput, GetConnectionGroupCommandOutput } from "../commands/GetConnectionGroupCommand";
+import {
   GetContinuousDeploymentPolicyCommandInput,
   GetContinuousDeploymentPolicyCommandOutput,
 } from "../commands/GetContinuousDeploymentPolicyCommand";
@@ -166,6 +219,14 @@ import {
   GetDistributionConfigCommandInput,
   GetDistributionConfigCommandOutput,
 } from "../commands/GetDistributionConfigCommand";
+import {
+  GetDistributionTenantByDomainCommandInput,
+  GetDistributionTenantByDomainCommandOutput,
+} from "../commands/GetDistributionTenantByDomainCommand";
+import {
+  GetDistributionTenantCommandInput,
+  GetDistributionTenantCommandOutput,
+} from "../commands/GetDistributionTenantCommand";
 import {
   GetFieldLevelEncryptionCommandInput,
   GetFieldLevelEncryptionCommandOutput,
@@ -184,8 +245,16 @@ import {
 } from "../commands/GetFieldLevelEncryptionProfileConfigCommand";
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "../commands/GetFunctionCommand";
 import { GetInvalidationCommandInput, GetInvalidationCommandOutput } from "../commands/GetInvalidationCommand";
+import {
+  GetInvalidationForDistributionTenantCommandInput,
+  GetInvalidationForDistributionTenantCommandOutput,
+} from "../commands/GetInvalidationForDistributionTenantCommand";
 import { GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "../commands/GetKeyGroupCommand";
 import { GetKeyGroupConfigCommandInput, GetKeyGroupConfigCommandOutput } from "../commands/GetKeyGroupConfigCommand";
+import {
+  GetManagedCertificateDetailsCommandInput,
+  GetManagedCertificateDetailsCommandOutput,
+} from "../commands/GetManagedCertificateDetailsCommand";
 import {
   GetMonitoringSubscriptionCommandInput,
   GetMonitoringSubscriptionCommandOutput,
@@ -228,6 +297,8 @@ import {
   GetStreamingDistributionConfigCommandInput,
   GetStreamingDistributionConfigCommandOutput,
 } from "../commands/GetStreamingDistributionConfigCommand";
+import { GetVpcOriginCommandInput, GetVpcOriginCommandOutput } from "../commands/GetVpcOriginCommand";
+import { ListAnycastIpListsCommandInput, ListAnycastIpListsCommandOutput } from "../commands/ListAnycastIpListsCommand";
 import { ListCachePoliciesCommandInput, ListCachePoliciesCommandOutput } from "../commands/ListCachePoliciesCommand";
 import {
   ListCloudFrontOriginAccessIdentitiesCommandInput,
@@ -238,13 +309,25 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "../commands/ListConflictingAliasesCommand";
 import {
+  ListConnectionGroupsCommandInput,
+  ListConnectionGroupsCommandOutput,
+} from "../commands/ListConnectionGroupsCommand";
+import {
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "../commands/ListContinuousDeploymentPoliciesCommand";
 import {
+  ListDistributionsByAnycastIpListIdCommandInput,
+  ListDistributionsByAnycastIpListIdCommandOutput,
+} from "../commands/ListDistributionsByAnycastIpListIdCommand";
+import {
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "../commands/ListDistributionsByCachePolicyIdCommand";
+import {
+  ListDistributionsByConnectionModeCommandInput,
+  ListDistributionsByConnectionModeCommandOutput,
+} from "../commands/ListDistributionsByConnectionModeCommand";
 import {
   ListDistributionsByKeyGroupCommandInput,
   ListDistributionsByKeyGroupCommandOutput,
@@ -262,10 +345,26 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "../commands/ListDistributionsByResponseHeadersPolicyIdCommand";
 import {
+  ListDistributionsByVpcOriginIdCommandInput,
+  ListDistributionsByVpcOriginIdCommandOutput,
+} from "../commands/ListDistributionsByVpcOriginIdCommand";
+import {
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
 } from "../commands/ListDistributionsByWebACLIdCommand";
 import { ListDistributionsCommandInput, ListDistributionsCommandOutput } from "../commands/ListDistributionsCommand";
+import {
+  ListDistributionTenantsByCustomizationCommandInput,
+  ListDistributionTenantsByCustomizationCommandOutput,
+} from "../commands/ListDistributionTenantsByCustomizationCommand";
+import {
+  ListDistributionTenantsCommandInput,
+  ListDistributionTenantsCommandOutput,
+} from "../commands/ListDistributionTenantsCommand";
+import {
+  ListDomainConflictsCommandInput,
+  ListDomainConflictsCommandOutput,
+} from "../commands/ListDomainConflictsCommand";
 import {
   ListFieldLevelEncryptionConfigsCommandInput,
   ListFieldLevelEncryptionConfigsCommandOutput,
@@ -276,6 +375,10 @@ import {
 } from "../commands/ListFieldLevelEncryptionProfilesCommand";
 import { ListFunctionsCommandInput, ListFunctionsCommandOutput } from "../commands/ListFunctionsCommand";
 import { ListInvalidationsCommandInput, ListInvalidationsCommandOutput } from "../commands/ListInvalidationsCommand";
+import {
+  ListInvalidationsForDistributionTenantCommandInput,
+  ListInvalidationsForDistributionTenantCommandOutput,
+} from "../commands/ListInvalidationsForDistributionTenantCommand";
 import { ListKeyGroupsCommandInput, ListKeyGroupsCommandOutput } from "../commands/ListKeyGroupsCommand";
 import { ListKeyValueStoresCommandInput, ListKeyValueStoresCommandOutput } from "../commands/ListKeyValueStoresCommand";
 import {
@@ -303,6 +406,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import { ListVpcOriginsCommandInput, ListVpcOriginsCommandOutput } from "../commands/ListVpcOriginsCommand";
 import { PublishFunctionCommandInput, PublishFunctionCommandOutput } from "../commands/PublishFunctionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { TestFunctionCommandInput, TestFunctionCommandOutput } from "../commands/TestFunctionCommand";
@@ -313,14 +417,26 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "../commands/UpdateCloudFrontOriginAccessIdentityCommand";
 import {
+  UpdateConnectionGroupCommandInput,
+  UpdateConnectionGroupCommandOutput,
+} from "../commands/UpdateConnectionGroupCommand";
+import {
   UpdateContinuousDeploymentPolicyCommandInput,
   UpdateContinuousDeploymentPolicyCommandOutput,
 } from "../commands/UpdateContinuousDeploymentPolicyCommand";
 import { UpdateDistributionCommandInput, UpdateDistributionCommandOutput } from "../commands/UpdateDistributionCommand";
 import {
+  UpdateDistributionTenantCommandInput,
+  UpdateDistributionTenantCommandOutput,
+} from "../commands/UpdateDistributionTenantCommand";
+import {
   UpdateDistributionWithStagingConfigCommandInput,
   UpdateDistributionWithStagingConfigCommandOutput,
 } from "../commands/UpdateDistributionWithStagingConfigCommand";
+import {
+  UpdateDomainAssociationCommandInput,
+  UpdateDomainAssociationCommandOutput,
+} from "../commands/UpdateDomainAssociationCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommandInput,
   UpdateFieldLevelEncryptionConfigCommandOutput,
@@ -356,6 +472,11 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "../commands/UpdateStreamingDistributionCommand";
+import { UpdateVpcOriginCommandInput, UpdateVpcOriginCommandOutput } from "../commands/UpdateVpcOriginCommand";
+import {
+  VerifyDnsConfigurationCommandInput,
+  VerifyDnsConfigurationCommandOutput,
+} from "../commands/VerifyDnsConfigurationCommand";
 import { CloudFrontServiceException as __BaseException } from "../models/CloudFrontServiceException";
 import {
   AccessDenied,
@@ -364,6 +485,9 @@ import {
   Aliases,
   AliasICPRecordal,
   AllowedMethods,
+  AnycastIpList,
+  AnycastIpListCollection,
+  AnycastIpListSummary,
   BatchTooLarge,
   CacheBehavior,
   CacheBehaviors,
@@ -379,10 +503,13 @@ import {
   CachePolicySummary,
   CannotChangeImmutablePublicKeyFields,
   CannotDeleteEntityWhileInUse,
+  CannotUpdateEntityWhileInUse,
+  Certificate,
   CloudFrontOriginAccessIdentity,
   CloudFrontOriginAccessIdentityAlreadyExists,
   CloudFrontOriginAccessIdentityConfig,
   CNAMEAlreadyExists,
+  ConnectionGroup,
   ContentTypeProfile,
   ContentTypeProfileConfig,
   ContentTypeProfiles,
@@ -397,17 +524,21 @@ import {
   CustomErrorResponse,
   CustomErrorResponses,
   CustomHeaders,
+  Customizations,
   CustomOriginConfig,
   DefaultCacheBehavior,
   Distribution,
   DistributionAlreadyExists,
   DistributionConfig,
   DistributionConfigWithTags,
+  DistributionTenant,
+  DomainItem,
+  DomainResult,
   EncryptionEntities,
   EncryptionEntity,
-  EndPoint,
   EntityAlreadyExists,
   EntityLimitExceeded,
+  EntityNotFound,
   EntitySizeLimitExceeded,
   FieldLevelEncryption,
   FieldLevelEncryptionConfig,
@@ -426,6 +557,8 @@ import {
   FunctionSizeLimitExceeded,
   FunctionSummary,
   GeoRestriction,
+  GeoRestrictionCustomization,
+  GrpcConfig,
   Headers,
   IllegalFieldLevelEncryptionConfigAssociationWithCacheBehavior,
   IllegalOriginAccessConfiguration,
@@ -433,6 +566,7 @@ import {
   ImportSource,
   InconsistentQuantities,
   InvalidArgument,
+  InvalidAssociation,
   Invalidation,
   InvalidationBatch,
   InvalidDefaultRootObject,
@@ -468,10 +602,10 @@ import {
   KeyValueStoreAssociation,
   KeyValueStoreAssociations,
   KGKeyPairIds,
-  KinesisStreamConfig,
   LambdaFunctionAssociation,
   LambdaFunctionAssociations,
   LoggingConfig,
+  ManagedCertificateRequest,
   Method,
   MissingBody,
   MonitoringSubscription,
@@ -496,43 +630,24 @@ import {
   OriginGroupMember,
   OriginGroupMembers,
   OriginGroups,
-  OriginRequestPolicy,
-  OriginRequestPolicyAlreadyExists,
-  OriginRequestPolicyConfig,
-  OriginRequestPolicyCookiesConfig,
-  OriginRequestPolicyHeadersConfig,
-  OriginRequestPolicyQueryStringsConfig,
   Origins,
   OriginShield,
   OriginSslProtocols,
+  Parameter,
+  ParameterDefinition,
+  ParameterDefinitionSchema,
   ParametersInCacheKeyAndForwardedToOrigin,
   Paths,
   PreconditionFailed,
-  PublicKey,
-  PublicKeyAlreadyExists,
-  PublicKeyConfig,
   QueryArgProfile,
   QueryArgProfileConfig,
   QueryArgProfileEmpty,
   QueryArgProfiles,
   QueryStringCacheKeys,
   QueryStringNames,
-  RealtimeLogConfig,
-  RealtimeLogConfigAlreadyExists,
   RealtimeLogConfigOwnerMismatch,
   RealtimeMetricsSubscriptionConfig,
-  ResponseHeadersPolicyAccessControlAllowHeaders,
-  ResponseHeadersPolicyAccessControlAllowMethods,
   ResponseHeadersPolicyAccessControlAllowMethodsValues,
-  ResponseHeadersPolicyAccessControlAllowOrigins,
-  ResponseHeadersPolicyAccessControlExposeHeaders,
-  ResponseHeadersPolicyContentSecurityPolicy,
-  ResponseHeadersPolicyContentTypeOptions,
-  ResponseHeadersPolicyCorsConfig,
-  ResponseHeadersPolicyCustomHeader,
-  ResponseHeadersPolicyCustomHeadersConfig,
-  ResponseHeadersPolicyRemoveHeader,
-  ResponseHeadersPolicyRemoveHeadersConfig,
   Restrictions,
   S3OriginConfig,
   SessionStickinessConfig,
@@ -541,8 +656,10 @@ import {
   StagingDistributionDnsNames,
   StagingDistributionInUse,
   StatusCodes,
+  StringSchemaConfig,
   Tag,
   Tags,
+  TenantConfig,
   TooManyCacheBehaviors,
   TooManyCachePolicies,
   TooManyCertificates,
@@ -550,7 +667,6 @@ import {
   TooManyContinuousDeploymentPolicies,
   TooManyCookieNamesInWhiteList,
   TooManyCookiesInCachePolicy,
-  TooManyCookiesInOriginRequestPolicy,
   TooManyDistributionCNAMEs,
   TooManyDistributions,
   TooManyDistributionsAssociatedToCachePolicy,
@@ -572,22 +688,16 @@ import {
   TooManyFunctions,
   TooManyHeadersInCachePolicy,
   TooManyHeadersInForwardedValues,
-  TooManyHeadersInOriginRequestPolicy,
   TooManyInvalidationsInProgress,
   TooManyKeyGroups,
   TooManyKeyGroupsAssociatedToDistribution,
   TooManyLambdaFunctionAssociations,
-  TooManyOriginAccessControls,
   TooManyOriginCustomHeaders,
   TooManyOriginGroupsPerDistribution,
-  TooManyOriginRequestPolicies,
   TooManyOrigins,
-  TooManyPublicKeys,
   TooManyPublicKeysInKeyGroup,
   TooManyQueryStringParameters,
   TooManyQueryStringsInCachePolicy,
-  TooManyQueryStringsInOriginRequestPolicy,
-  TooManyRealtimeLogConfigs,
   TooManyTrustedSigners,
   TrafficConfig,
   TrustedKeyGroupDoesNotExist,
@@ -596,6 +706,8 @@ import {
   TrustedSigners,
   UnsupportedOperation,
   ViewerCertificate,
+  VpcOriginConfig,
+  WebAclCustomization,
 } from "../models/models_0";
 import {
   CloudFrontOriginAccessIdentityInUse,
@@ -603,13 +715,19 @@ import {
   CloudFrontOriginAccessIdentitySummary,
   ConflictingAlias,
   ConflictingAliasesList,
+  ConnectionGroupAssociationFilter,
+  ConnectionGroupSummary,
   ContinuousDeploymentPolicyList,
   ContinuousDeploymentPolicySummary,
   DistributionIdList,
   DistributionList,
   DistributionNotDisabled,
+  DistributionResourceId,
   DistributionSummary,
-  EntityNotFound,
+  DistributionTenantAssociationFilter,
+  DistributionTenantSummary,
+  DomainConflict,
+  EndPoint,
   FieldLevelEncryptionConfigInUse,
   FieldLevelEncryptionList,
   FieldLevelEncryptionProfileInUse,
@@ -624,6 +742,8 @@ import {
   KeyGroupList,
   KeyGroupSummary,
   KeyValueStoreList,
+  KinesisStreamConfig,
+  ManagedCertificateDetails,
   NoSuchCloudFrontOriginAccessIdentity,
   NoSuchFunctionExists,
   NoSuchInvalidation,
@@ -634,22 +754,45 @@ import {
   OriginAccessControlInUse,
   OriginAccessControlList,
   OriginAccessControlSummary,
+  OriginRequestPolicy,
+  OriginRequestPolicyAlreadyExists,
+  OriginRequestPolicyConfig,
+  OriginRequestPolicyCookiesConfig,
+  OriginRequestPolicyHeadersConfig,
   OriginRequestPolicyInUse,
   OriginRequestPolicyList,
+  OriginRequestPolicyQueryStringsConfig,
   OriginRequestPolicySummary,
+  PublicKey,
+  PublicKeyAlreadyExists,
+  PublicKeyConfig,
   PublicKeyInUse,
   PublicKeyList,
   PublicKeySummary,
+  RealtimeLogConfig,
+  RealtimeLogConfigAlreadyExists,
   RealtimeLogConfigInUse,
   RealtimeLogConfigs,
   ResourceInUse,
+  ResourceNotDisabled,
   ResponseHeadersPolicy,
+  ResponseHeadersPolicyAccessControlAllowHeaders,
+  ResponseHeadersPolicyAccessControlAllowMethods,
+  ResponseHeadersPolicyAccessControlAllowOrigins,
+  ResponseHeadersPolicyAccessControlExposeHeaders,
   ResponseHeadersPolicyAlreadyExists,
   ResponseHeadersPolicyConfig,
+  ResponseHeadersPolicyContentSecurityPolicy,
+  ResponseHeadersPolicyContentTypeOptions,
+  ResponseHeadersPolicyCorsConfig,
+  ResponseHeadersPolicyCustomHeader,
+  ResponseHeadersPolicyCustomHeadersConfig,
   ResponseHeadersPolicyFrameOptions,
   ResponseHeadersPolicyInUse,
   ResponseHeadersPolicyList,
   ResponseHeadersPolicyReferrerPolicy,
+  ResponseHeadersPolicyRemoveHeader,
+  ResponseHeadersPolicyRemoveHeadersConfig,
   ResponseHeadersPolicySecurityHeadersConfig,
   ResponseHeadersPolicyServerTimingHeadersConfig,
   ResponseHeadersPolicyStrictTransportSecurity,
@@ -660,20 +803,35 @@ import {
   StreamingDistributionAlreadyExists,
   StreamingDistributionConfig,
   StreamingDistributionConfigWithTags,
-  StreamingDistributionList,
   StreamingDistributionNotDisabled,
   StreamingDistributionSummary,
   StreamingLoggingConfig,
-  TagKeys,
-  TestFunctionFailed,
-  TestResult,
   TooLongCSPInResponseHeadersPolicy,
+  TooManyCookiesInOriginRequestPolicy,
   TooManyCustomHeadersInResponseHeadersPolicy,
+  TooManyHeadersInOriginRequestPolicy,
+  TooManyOriginAccessControls,
+  TooManyOriginRequestPolicies,
+  TooManyPublicKeys,
+  TooManyQueryStringsInOriginRequestPolicy,
+  TooManyRealtimeLogConfigs,
   TooManyRemoveHeadersInResponseHeadersPolicy,
   TooManyResponseHeadersPolicies,
   TooManyStreamingDistributionCNAMEs,
   TooManyStreamingDistributions,
+  ValidationTokenDetail,
+  VpcOrigin,
+  VpcOriginEndpointConfig,
 } from "../models/models_1";
+import {
+  DnsConfiguration,
+  StreamingDistributionList,
+  TagKeys,
+  TestFunctionFailed,
+  TestResult,
+  VpcOriginList,
+  VpcOriginSummary,
+} from "../models/models_2";
 
 /**
  * serializeAws_restXmlAssociateAliasCommand
@@ -695,6 +853,58 @@ export const se_AssociateAliasCommand = async (
 };
 
 /**
+ * serializeAws_restXmlAssociateDistributionTenantWebACLCommand
+ */
+export const se_AssociateDistributionTenantWebACLCommand = async (
+  input: AssociateDistributionTenantWebACLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/distribution-tenant/{Id}/associate-web-acl");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_ADTWACLR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_WACLA] != null) {
+    bn.c(__XmlNode.of(_s, input[_WACLA]).n(_WACLA));
+  }
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlAssociateDistributionWebACLCommand
+ */
+export const se_AssociateDistributionWebACLCommand = async (
+  input: AssociateDistributionWebACLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/distribution/{Id}/associate-web-acl");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_ADWACLR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_WACLA] != null) {
+    bn.c(__XmlNode.of(_s, input[_WACLA]).n(_WACLA));
+  }
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlCopyDistributionCommand
  */
 export const se_CopyDistributionCommand = async (
@@ -704,7 +914,7 @@ export const se_CopyDistributionCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/xml",
-    [_s]: [() => isSerializableHeaderValue(input[_S]), () => input[_S]!.toString()],
+    [_st]: [() => isSerializableHeaderValue(input[_S]), () => input[_S]!.toString()],
     [_im]: input[_IM]!,
   });
   b.bp("/2020-05-31/distribution/{PrimaryDistributionId}/copy");
@@ -714,10 +924,40 @@ export const se_CopyDistributionCommand = async (
   const bn = new __XmlNode(_CDR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
   if (input[_E] != null) {
     bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlCreateAnycastIpListCommand
+ */
+export const se_CreateAnycastIpListCommand = async (
+  input: CreateAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/anycast-ip-list");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CAILR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_IC] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_IC])).n(_IC));
+  }
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_AILN, input[_N]).n(_N));
+  }
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
   }
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -773,6 +1013,42 @@ export const se_CreateCloudFrontOriginAccessIdentityCommand = async (
 };
 
 /**
+ * serializeAws_restXmlCreateConnectionGroupCommand
+ */
+export const se_CreateConnectionGroupCommand = async (
+  input: CreateConnectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/connection-group");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CCGR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_AILI] != null) {
+    bn.c(__XmlNode.of(_s, input[_AILI]).n(_AILI));
+  }
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_IE])).n(_IE));
+  }
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
+  }
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlCreateContinuousDeploymentPolicyCommand
  */
 export const se_CreateContinuousDeploymentPolicyCommand = async (
@@ -816,6 +1092,50 @@ export const se_CreateDistributionCommand = async (
     contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
     body += contents.toString();
   }
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlCreateDistributionTenantCommand
+ */
+export const se_CreateDistributionTenantCommand = async (
+  input: CreateDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/distribution-tenant");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CDTR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_CGI] != null) {
+    bn.c(__XmlNode.of(_s, input[_CGI]).n(_CGI));
+  }
+  if (input[_C] != null) {
+    bn.c(se_Customizations(input[_C], context).n(_C));
+  }
+  if (input[_DI] != null) {
+    bn.c(__XmlNode.of(_s, input[_DI]).n(_DI));
+  }
+  bn.lc(input, "Domains", "Domains", () => se_DomainList(input[_D]!, context));
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  if (input[_MCR] != null) {
+    bn.c(se_ManagedCertificateRequest(input[_MCR], context).n(_MCR));
+  }
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
+  }
+  bn.lc(input, "Parameters", "Parameters", () => se_Parameters(input[_P]!, context));
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
+  }
+  body += bn.toString();
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -951,6 +1271,31 @@ export const se_CreateInvalidationCommand = async (
 };
 
 /**
+ * serializeAws_restXmlCreateInvalidationForDistributionTenantCommand
+ */
+export const se_CreateInvalidationForDistributionTenantCommand = async (
+  input: CreateInvalidationForDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/distribution-tenant/{Id}/invalidation");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  let contents: any;
+  if (input.InvalidationBatch !== undefined) {
+    contents = se_InvalidationBatch(input.InvalidationBatch, context);
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlCreateKeyGroupCommand
  */
 export const se_CreateKeyGroupCommand = async (
@@ -990,8 +1335,8 @@ export const se_CreateKeyValueStoreCommand = async (
   body = _ve;
   const bn = new __XmlNode(_CKVSR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_KVSC, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_KVSC, input[_Co]).n(_Co));
   }
   if (input[_IS] != null) {
     bn.c(se_ImportSource(input[_IS], context).n(_IS));
@@ -1120,7 +1465,7 @@ export const se_CreateRealtimeLogConfigCommand = async (
   bn.lc(input, "EndPoints", "EndPoints", () => se_EndPointList(input[_EP]!, context));
   bn.lc(input, "Fields", "Fields", () => se_FieldList(input[_F]!, context));
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_SR] != null) {
     bn.c(__XmlNode.of(_l, String(input[_SR])).n(_SR));
@@ -1206,6 +1551,51 @@ export const se_CreateStreamingDistributionWithTagsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlCreateVpcOriginCommand
+ */
+export const se_CreateVpcOriginCommand = async (
+  input: CreateVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/vpc-origin");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_CVOR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
+  }
+  if (input[_VOEC] != null) {
+    bn.c(se_VpcOriginEndpointConfig(input[_VOEC], context).n(_VOEC));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlDeleteAnycastIpListCommand
+ */
+export const se_DeleteAnycastIpListCommand = async (
+  input: DeleteAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/anycast-ip-list/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDeleteCachePolicyCommand
  */
 export const se_DeleteCachePolicyCommand = async (
@@ -1242,6 +1632,24 @@ export const se_DeleteCloudFrontOriginAccessIdentityCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDeleteConnectionGroupCommand
+ */
+export const se_DeleteConnectionGroupCommand = async (
+  input: DeleteConnectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/connection-group/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDeleteContinuousDeploymentPolicyCommand
  */
 export const se_DeleteContinuousDeploymentPolicyCommand = async (
@@ -1271,6 +1679,24 @@ export const se_DeleteDistributionCommand = async (
     [_im]: input[_IM]!,
   });
   b.bp("/2020-05-31/distribution/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlDeleteDistributionTenantCommand
+ */
+export const se_DeleteDistributionTenantCommand = async (
+  input: DeleteDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/distribution-tenant/{Id}");
   b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
@@ -1454,10 +1880,10 @@ export const se_DeleteRealtimeLogConfigCommand = async (
   const bn = new __XmlNode(_DRLCR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input[_ARN] != null) {
-    bn.c(__XmlNode.of(_st, input[_ARN]).n(_ARN));
+    bn.c(__XmlNode.of(_s, input[_ARN]).n(_ARN));
   }
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1501,6 +1927,24 @@ export const se_DeleteStreamingDistributionCommand = async (
 };
 
 /**
+ * serializeAws_restXmlDeleteVpcOriginCommand
+ */
+export const se_DeleteVpcOriginCommand = async (
+  input: DeleteVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/vpc-origin/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlDescribeFunctionCommand
  */
 export const se_DescribeFunctionCommand = async (
@@ -1530,6 +1974,58 @@ export const se_DescribeKeyValueStoreCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/key-value-store/{Name}");
   b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlDisassociateDistributionTenantWebACLCommand
+ */
+export const se_DisassociateDistributionTenantWebACLCommand = async (
+  input: DisassociateDistributionTenantWebACLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/distribution-tenant/{Id}/disassociate-web-acl");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlDisassociateDistributionWebACLCommand
+ */
+export const se_DisassociateDistributionWebACLCommand = async (
+  input: DisassociateDistributionWebACLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/distribution/{Id}/disassociate-web-acl");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetAnycastIpListCommand
+ */
+export const se_GetAnycastIpListCommand = async (
+  input: GetAnycastIpListCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/anycast-ip-list/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1600,6 +2096,40 @@ export const se_GetCloudFrontOriginAccessIdentityConfigCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetConnectionGroupCommand
+ */
+export const se_GetConnectionGroupCommand = async (
+  input: GetConnectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/connection-group/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetConnectionGroupByRoutingEndpointCommand
+ */
+export const se_GetConnectionGroupByRoutingEndpointCommand = async (
+  input: GetConnectionGroupByRoutingEndpointCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/connection-group");
+  const query: any = map({
+    [_RE]: [, __expectNonNull(input[_RE]!, `RoutingEndpoint`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlGetContinuousDeploymentPolicyCommand
  */
 export const se_GetContinuousDeploymentPolicyCommand = async (
@@ -1660,6 +2190,40 @@ export const se_GetDistributionConfigCommand = async (
   b.p("Id", () => input.Id!, "{Id}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetDistributionTenantCommand
+ */
+export const se_GetDistributionTenantCommand = async (
+  input: GetDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distribution-tenant/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetDistributionTenantByDomainCommand
+ */
+export const se_GetDistributionTenantByDomainCommand = async (
+  input: GetDistributionTenantByDomainCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distribution-tenant");
+  const query: any = map({
+    [_d]: [, __expectNonNull(input[_Do]!, `Domain`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1764,6 +2328,23 @@ export const se_GetInvalidationCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetInvalidationForDistributionTenantCommand
+ */
+export const se_GetInvalidationForDistributionTenantCommand = async (
+  input: GetInvalidationForDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distribution-tenant/{DistributionTenantId}/invalidation/{Id}");
+  b.p("DistributionTenantId", () => input.DistributionTenantId!, "{DistributionTenantId}", false);
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlGetKeyGroupCommand
  */
 export const se_GetKeyGroupCommand = async (
@@ -1790,6 +2371,22 @@ export const se_GetKeyGroupConfigCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/key-group/{Id}/config");
   b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlGetManagedCertificateDetailsCommand
+ */
+export const se_GetManagedCertificateDetailsCommand = async (
+  input: GetManagedCertificateDetailsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/managed-certificate/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1924,10 +2521,10 @@ export const se_GetRealtimeLogConfigCommand = async (
   const bn = new __XmlNode(_GRLCR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input[_ARN] != null) {
-    bn.c(__XmlNode.of(_st, input[_ARN]).n(_ARN));
+    bn.c(__XmlNode.of(_s, input[_ARN]).n(_ARN));
   }
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1999,6 +2596,41 @@ export const se_GetStreamingDistributionConfigCommand = async (
 };
 
 /**
+ * serializeAws_restXmlGetVpcOriginCommand
+ */
+export const se_GetVpcOriginCommand = async (
+  input: GetVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/vpc-origin/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListAnycastIpListsCommand
+ */
+export const se_ListAnycastIpListsCommand = async (
+  input: ListAnycastIpListsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/anycast-ip-list");
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlListCachePoliciesCommand
  */
 export const se_ListCachePoliciesCommand = async (
@@ -2009,7 +2641,7 @@ export const se_ListCachePoliciesCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/cache-policy");
   const query: any = map({
-    [_T]: [, input[_T]!],
+    [_Ty]: [, input[_Ty]!],
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
@@ -2059,6 +2691,36 @@ export const se_ListConflictingAliasesCommand = async (
 };
 
 /**
+ * serializeAws_restXmlListConnectionGroupsCommand
+ */
+export const se_ListConnectionGroupsCommand = async (
+  input: ListConnectionGroupsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/connection-groups");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_LCGR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_AF] != null) {
+    bn.c(se_ConnectionGroupAssociationFilter(input[_AF], context).n(_AF));
+  }
+  if (input[_M] != null) {
+    bn.c(__XmlNode.of(_s, input[_M]).n(_M));
+  }
+  if (input[_MI] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_MI])).n(_MI));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlListContinuousDeploymentPoliciesCommand
  */
 export const se_ListContinuousDeploymentPoliciesCommand = async (
@@ -2097,6 +2759,26 @@ export const se_ListDistributionsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlListDistributionsByAnycastIpListIdCommand
+ */
+export const se_ListDistributionsByAnycastIpListIdCommand = async (
+  input: ListDistributionsByAnycastIpListIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distributionsByAnycastIpListId/{AnycastIpListId}");
+  b.p("AnycastIpListId", () => input.AnycastIpListId!, "{AnycastIpListId}", false);
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlListDistributionsByCachePolicyIdCommand
  */
 export const se_ListDistributionsByCachePolicyIdCommand = async (
@@ -2107,6 +2789,26 @@ export const se_ListDistributionsByCachePolicyIdCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/distributionsByCachePolicyId/{CachePolicyId}");
   b.p("CachePolicyId", () => input.CachePolicyId!, "{CachePolicyId}", false);
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDistributionsByConnectionModeCommand
+ */
+export const se_ListDistributionsByConnectionModeCommand = async (
+  input: ListDistributionsByConnectionModeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distributionsByConnectionMode/{ConnectionMode}");
+  b.p("ConnectionMode", () => input.ConnectionMode!, "{ConnectionMode}", false);
   const query: any = map({
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
@@ -2173,16 +2875,16 @@ export const se_ListDistributionsByRealtimeLogConfigCommand = async (
   const bn = new __XmlNode(_LDBRLCR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input[_M] != null) {
-    bn.c(__XmlNode.of(_st, input[_M]).n(_M));
+    bn.c(__XmlNode.of(_s, input[_M]).n(_M));
   }
   if (input[_MI] != null) {
     bn.c(__XmlNode.of(_i, String(input[_MI])).n(_MI));
   }
   if (input[_RLCA] != null) {
-    bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
+    bn.c(__XmlNode.of(_s, input[_RLCA]).n(_RLCA));
   }
   if (input[_RLCN] != null) {
-    bn.c(__XmlNode.of(_st, input[_RLCN]).n(_RLCN));
+    bn.c(__XmlNode.of(_s, input[_RLCN]).n(_RLCN));
   }
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -2210,6 +2912,26 @@ export const se_ListDistributionsByResponseHeadersPolicyIdCommand = async (
 };
 
 /**
+ * serializeAws_restXmlListDistributionsByVpcOriginIdCommand
+ */
+export const se_ListDistributionsByVpcOriginIdCommand = async (
+  input: ListDistributionsByVpcOriginIdCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distributionsByVpcOriginId/{VpcOriginId}");
+  b.p("VpcOriginId", () => input.VpcOriginId!, "{VpcOriginId}", false);
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlListDistributionsByWebACLIdCommand
  */
 export const se_ListDistributionsByWebACLIdCommand = async (
@@ -2226,6 +2948,102 @@ export const se_ListDistributionsByWebACLIdCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDistributionTenantsCommand
+ */
+export const se_ListDistributionTenantsCommand = async (
+  input: ListDistributionTenantsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/distribution-tenants");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_LDTR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_AF] != null) {
+    bn.c(se_DistributionTenantAssociationFilter(input[_AF], context).n(_AF));
+  }
+  if (input[_M] != null) {
+    bn.c(__XmlNode.of(_s, input[_M]).n(_M));
+  }
+  if (input[_MI] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_MI])).n(_MI));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDistributionTenantsByCustomizationCommand
+ */
+export const se_ListDistributionTenantsByCustomizationCommand = async (
+  input: ListDistributionTenantsByCustomizationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/distribution-tenants-by-customization");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_LDTBCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_CA] != null) {
+    bn.c(__XmlNode.of(_s, input[_CA]).n(_CA));
+  }
+  if (input[_M] != null) {
+    bn.c(__XmlNode.of(_s, input[_M]).n(_M));
+  }
+  if (input[_MI] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_MI])).n(_MI));
+  }
+  if (input[_WACLA] != null) {
+    bn.c(__XmlNode.of(_s, input[_WACLA]).n(_WACLA));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListDomainConflictsCommand
+ */
+export const se_ListDomainConflictsCommand = async (
+  input: ListDomainConflictsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/domain-conflicts");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_LDCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_Do] != null) {
+    bn.c(__XmlNode.of(_s, input[_Do]).n(_Do));
+  }
+  if (input[_DCVR] != null) {
+    bn.c(se_DistributionResourceId(input[_DCVR], context).n(_DCVR));
+  }
+  if (input[_M] != null) {
+    bn.c(__XmlNode.of(_s, input[_M]).n(_M));
+  }
+  if (input[_MI] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_MI])).n(_MI));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2308,6 +3126,26 @@ export const se_ListInvalidationsCommand = async (
 };
 
 /**
+ * serializeAws_restXmlListInvalidationsForDistributionTenantCommand
+ */
+export const se_ListInvalidationsForDistributionTenantCommand = async (
+  input: ListInvalidationsForDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/distribution-tenant/{Id}/invalidation");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlListKeyGroupsCommand
  */
 export const se_ListKeyGroupsCommand = async (
@@ -2376,7 +3214,7 @@ export const se_ListOriginRequestPoliciesCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/origin-request-policy");
   const query: any = map({
-    [_T]: [, input[_T]!],
+    [_Ty]: [, input[_Ty]!],
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
@@ -2434,7 +3272,7 @@ export const se_ListResponseHeadersPoliciesCommand = async (
   const headers: any = {};
   b.bp("/2020-05-31/response-headers-policy");
   const query: any = map({
-    [_T]: [, input[_T]!],
+    [_Ty]: [, input[_Ty]!],
     [_M]: [, input[_M]!],
     [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
@@ -2474,6 +3312,25 @@ export const se_ListTagsForResourceCommand = async (
   b.bp("/2020-05-31/tagging");
   const query: any = map({
     [_R]: [, __expectNonNull(input[_R]!, `Resource`)],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlListVpcOriginsCommand
+ */
+export const se_ListVpcOriginsCommand = async (
+  input: ListVpcOriginsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2020-05-31/vpc-origin");
+  const query: any = map({
+    [_M]: [, input[_M]!],
+    [_MI]: [() => input.MaxItems !== void 0, () => input[_MI]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2636,6 +3493,38 @@ export const se_UpdateCloudFrontOriginAccessIdentityCommand = async (
 };
 
 /**
+ * serializeAws_restXmlUpdateConnectionGroupCommand
+ */
+export const se_UpdateConnectionGroupCommand = async (
+  input: UpdateConnectionGroupCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/connection-group/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_UCGR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_AILI] != null) {
+    bn.c(__XmlNode.of(_s, input[_AILI]).n(_AILI));
+  }
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  if (input[_IE] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_IE])).n(_IE));
+  }
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlUpdateContinuousDeploymentPolicyCommand
  */
 export const se_UpdateContinuousDeploymentPolicyCommand = async (
@@ -2688,6 +3577,46 @@ export const se_UpdateDistributionCommand = async (
 };
 
 /**
+ * serializeAws_restXmlUpdateDistributionTenantCommand
+ */
+export const se_UpdateDistributionTenantCommand = async (
+  input: UpdateDistributionTenantCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/distribution-tenant/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_UDTR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_CGI] != null) {
+    bn.c(__XmlNode.of(_s, input[_CGI]).n(_CGI));
+  }
+  if (input[_C] != null) {
+    bn.c(se_Customizations(input[_C], context).n(_C));
+  }
+  if (input[_DI] != null) {
+    bn.c(__XmlNode.of(_s, input[_DI]).n(_DI));
+  }
+  bn.lc(input, "Domains", "Domains", () => se_DomainList(input[_D]!, context));
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
+  if (input[_MCR] != null) {
+    bn.c(se_ManagedCertificateRequest(input[_MCR], context).n(_MCR));
+  }
+  bn.lc(input, "Parameters", "Parameters", () => se_Parameters(input[_P]!, context));
+  body += bn.toString();
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restXmlUpdateDistributionWithStagingConfigCommand
  */
 export const se_UpdateDistributionWithStagingConfigCommand = async (
@@ -2705,6 +3634,34 @@ export const se_UpdateDistributionWithStagingConfigCommand = async (
   });
   let body: any;
   b.m("PUT").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlUpdateDomainAssociationCommand
+ */
+export const se_UpdateDomainAssociationCommand = async (
+  input: UpdateDomainAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/domain-association");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_UDAR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_Do] != null) {
+    bn.c(__XmlNode.of(_s, input[_Do]).n(_Do));
+  }
+  if (input[_TR] != null) {
+    bn.c(se_DistributionResourceId(input[_TR], context).n(_TR));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2833,8 +3790,8 @@ export const se_UpdateKeyValueStoreCommand = async (
   body = _ve;
   const bn = new __XmlNode(_UKVSR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_KVSC, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_KVSC, input[_Co]).n(_Co));
   }
   body += bn.toString();
   b.m("PUT").h(headers).b(body);
@@ -2936,12 +3893,12 @@ export const se_UpdateRealtimeLogConfigCommand = async (
   const bn = new __XmlNode(_URLCR);
   bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
   if (input[_ARN] != null) {
-    bn.c(__XmlNode.of(_st, input[_ARN]).n(_ARN));
+    bn.c(__XmlNode.of(_s, input[_ARN]).n(_ARN));
   }
   bn.lc(input, "EndPoints", "EndPoints", () => se_EndPointList(input[_EP]!, context));
   bn.lc(input, "Fields", "Fields", () => se_FieldList(input[_F]!, context));
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_SR] != null) {
     bn.c(__XmlNode.of(_l, String(input[_SR])).n(_SR));
@@ -3004,6 +3961,59 @@ export const se_UpdateStreamingDistributionCommand = async (
 };
 
 /**
+ * serializeAws_restXmlUpdateVpcOriginCommand
+ */
+export const se_UpdateVpcOriginCommand = async (
+  input: UpdateVpcOriginCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/xml",
+    [_im]: input[_IM]!,
+  });
+  b.bp("/2020-05-31/vpc-origin/{Id}");
+  b.p("Id", () => input.Id!, "{Id}", false);
+  let body: any;
+  let contents: any;
+  if (input.VpcOriginEndpointConfig !== undefined) {
+    contents = se_VpcOriginEndpointConfig(input.VpcOriginEndpointConfig, context);
+    body = _ve;
+    contents.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+    body += contents.toString();
+  }
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restXmlVerifyDnsConfigurationCommand
+ */
+export const se_VerifyDnsConfigurationCommand = async (
+  input: VerifyDnsConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/xml",
+  };
+  b.bp("/2020-05-31/verify-dns-configuration");
+  let body: any;
+  body = _ve;
+  const bn = new __XmlNode(_VDCR);
+  bn.a("xmlns", "http://cloudfront.amazonaws.com/doc/2020-05-31/");
+  if (input[_Do] != null) {
+    bn.c(__XmlNode.of(_s, input[_Do]).n(_Do));
+  }
+  if (input[_I] != null) {
+    bn.c(__XmlNode.of(_s, input[_I]).n(_I));
+  }
+  body += bn.toString();
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * deserializeAws_restXmlAssociateAliasCommand
  */
 export const de_AssociateAliasCommand = async (
@@ -3017,6 +4027,54 @@ export const de_AssociateAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAssociateDistributionTenantWebACLCommand
+ */
+export const de_AssociateDistributionTenantWebACLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDistributionTenantWebACLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_Id] != null) {
+    contents[_Id] = __expectString(data[_Id]);
+  }
+  if (data[_WACLA] != null) {
+    contents[_WACLA] = __expectString(data[_WACLA]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAssociateDistributionWebACLCommand
+ */
+export const de_AssociateDistributionWebACLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociateDistributionWebACLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_Id] != null) {
+    contents[_Id] = __expectString(data[_Id]);
+  }
+  if (data[_WACLA] != null) {
+    contents[_WACLA] = __expectString(data[_WACLA]);
+  }
   return contents;
 };
 
@@ -3037,6 +4095,25 @@ export const de_CopyDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateAnycastIpListCommand
+ */
+export const de_CreateAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpList = de_AnycastIpList(data, context);
   return contents;
 };
 
@@ -3081,6 +4158,25 @@ export const de_CreateCloudFrontOriginAccessIdentityCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlCreateConnectionGroupCommand
+ */
+export const de_CreateConnectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectionGroupCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlCreateContinuousDeploymentPolicyCommand
  */
 export const de_CreateContinuousDeploymentPolicyCommand = async (
@@ -3117,6 +4213,25 @@ export const de_CreateDistributionCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateDistributionTenantCommand
+ */
+export const de_CreateDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDistributionTenantCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionTenant = de_DistributionTenant(data, context);
   return contents;
 };
 
@@ -3207,6 +4322,25 @@ export const de_CreateInvalidationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateInvalidationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_L]: [, output.headers[_lo]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.Invalidation = de_Invalidation(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCreateInvalidationForDistributionTenantCommand
+ */
+export const de_CreateInvalidationForDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateInvalidationForDistributionTenantCommandOutput> => {
   if (output.statusCode !== 201 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3418,6 +4552,43 @@ export const de_CreateStreamingDistributionWithTagsCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlCreateVpcOriginCommand
+ */
+export const de_CreateVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateVpcOriginCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_L]: [, output.headers[_lo]],
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteAnycastIpListCommand
+ */
+export const de_DeleteAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDeleteCachePolicyCommand
  */
 export const de_DeleteCachePolicyCommand = async (
@@ -3452,6 +4623,23 @@ export const de_DeleteCloudFrontOriginAccessIdentityCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlDeleteConnectionGroupCommand
+ */
+export const de_DeleteConnectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectionGroupCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDeleteContinuousDeploymentPolicyCommand
  */
 export const de_DeleteContinuousDeploymentPolicyCommand = async (
@@ -3475,6 +4663,23 @@ export const de_DeleteDistributionCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDistributionCommandOutput> => {
+  if (output.statusCode !== 204 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDeleteDistributionTenantCommand
+ */
+export const de_DeleteDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDistributionTenantCommandOutput> => {
   if (output.statusCode !== 204 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3690,6 +4895,25 @@ export const de_DeleteStreamingDistributionCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlDeleteVpcOriginCommand
+ */
+export const de_DeleteVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteVpcOriginCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlDescribeFunctionCommand
  */
 export const de_DescribeFunctionCommand = async (
@@ -3724,6 +4948,67 @@ export const de_DescribeKeyValueStoreCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyValueStore = de_KeyValueStore(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDisassociateDistributionTenantWebACLCommand
+ */
+export const de_DisassociateDistributionTenantWebACLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDistributionTenantWebACLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_Id] != null) {
+    contents[_Id] = __expectString(data[_Id]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDisassociateDistributionWebACLCommand
+ */
+export const de_DisassociateDistributionWebACLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisassociateDistributionWebACLCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_Id] != null) {
+    contents[_Id] = __expectString(data[_Id]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetAnycastIpListCommand
+ */
+export const de_GetAnycastIpListCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAnycastIpListCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpList = de_AnycastIpList(data, context);
   return contents;
 };
 
@@ -3804,6 +5089,44 @@ export const de_GetCloudFrontOriginAccessIdentityConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlGetConnectionGroupCommand
+ */
+export const de_GetConnectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectionGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetConnectionGroupByRoutingEndpointCommand
+ */
+export const de_GetConnectionGroupByRoutingEndpointCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectionGroupByRoutingEndpointCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlGetContinuousDeploymentPolicyCommand
  */
 export const de_GetContinuousDeploymentPolicyCommand = async (
@@ -3876,6 +5199,44 @@ export const de_GetDistributionConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionConfig = de_DistributionConfig(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetDistributionTenantCommand
+ */
+export const de_GetDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionTenantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionTenant = de_DistributionTenant(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetDistributionTenantByDomainCommand
+ */
+export const de_GetDistributionTenantByDomainCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDistributionTenantByDomainCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionTenant = de_DistributionTenant(data, context);
   return contents;
 };
 
@@ -3994,6 +5355,24 @@ export const de_GetInvalidationCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlGetInvalidationForDistributionTenantCommand
+ */
+export const de_GetInvalidationForDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetInvalidationForDistributionTenantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.Invalidation = de_Invalidation(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlGetKeyGroupCommand
  */
 export const de_GetKeyGroupCommand = async (
@@ -4028,6 +5407,24 @@ export const de_GetKeyGroupConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.KeyGroupConfig = de_KeyGroupConfig(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGetManagedCertificateDetailsCommand
+ */
+export const de_GetManagedCertificateDetailsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetManagedCertificateDetailsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ManagedCertificateDetails = de_ManagedCertificateDetails(data, context);
   return contents;
 };
 
@@ -4260,6 +5657,43 @@ export const de_GetStreamingDistributionConfigCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlGetVpcOriginCommand
+ */
+export const de_GetVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetVpcOriginCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListAnycastIpListsCommand
+ */
+export const de_ListAnycastIpListsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAnycastIpListsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.AnycastIpLists = de_AnycastIpListCollection(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlListCachePoliciesCommand
  */
 export const de_ListCachePoliciesCommand = async (
@@ -4314,6 +5748,31 @@ export const de_ListConflictingAliasesCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlListConnectionGroupsCommand
+ */
+export const de_ListConnectionGroupsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectionGroupsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.ConnectionGroups === "") {
+    contents[_CG] = [];
+  } else if (data[_CG] != null && data[_CG][_CGS] != null) {
+    contents[_CG] = de_ConnectionGroupSummaryList(__getArrayIfSingleItem(data[_CG][_CGS]), context);
+  }
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlListContinuousDeploymentPoliciesCommand
  */
 export const de_ListContinuousDeploymentPoliciesCommand = async (
@@ -4350,6 +5809,24 @@ export const de_ListDistributionsCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlListDistributionsByAnycastIpListIdCommand
+ */
+export const de_ListDistributionsByAnycastIpListIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByAnycastIpListIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionList = de_DistributionList(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlListDistributionsByCachePolicyIdCommand
  */
 export const de_ListDistributionsByCachePolicyIdCommand = async (
@@ -4364,6 +5841,24 @@ export const de_ListDistributionsByCachePolicyIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionIdList = de_DistributionIdList(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDistributionsByConnectionModeCommand
+ */
+export const de_ListDistributionsByConnectionModeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByConnectionModeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionList = de_DistributionList(data, context);
   return contents;
 };
 
@@ -4440,6 +5935,24 @@ export const de_ListDistributionsByResponseHeadersPolicyIdCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlListDistributionsByVpcOriginIdCommand
+ */
+export const de_ListDistributionsByVpcOriginIdCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionsByVpcOriginIdCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionIdList = de_DistributionIdList(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlListDistributionsByWebACLIdCommand
  */
 export const de_ListDistributionsByWebACLIdCommand = async (
@@ -4454,6 +5967,81 @@ export const de_ListDistributionsByWebACLIdCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.DistributionList = de_DistributionList(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDistributionTenantsCommand
+ */
+export const de_ListDistributionTenantsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionTenantsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DistributionTenantList === "") {
+    contents[_DTL] = [];
+  } else if (data[_DTL] != null && data[_DTL][_DTS] != null) {
+    contents[_DTL] = de_DistributionTenantList(__getArrayIfSingleItem(data[_DTL][_DTS]), context);
+  }
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDistributionTenantsByCustomizationCommand
+ */
+export const de_ListDistributionTenantsByCustomizationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDistributionTenantsByCustomizationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DistributionTenantList === "") {
+    contents[_DTL] = [];
+  } else if (data[_DTL] != null && data[_DTL][_DTS] != null) {
+    contents[_DTL] = de_DistributionTenantList(__getArrayIfSingleItem(data[_DTL][_DTS]), context);
+  }
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListDomainConflictsCommand
+ */
+export const de_ListDomainConflictsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDomainConflictsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DomainConflicts === "") {
+    contents[_DC] = [];
+  } else if (data[_DC] != null && data[_DC][_DC] != null) {
+    contents[_DC] = de_DomainConflictsList(__getArrayIfSingleItem(data[_DC][_DC]), context);
+  }
+  if (data[_NM] != null) {
+    contents[_NM] = __expectString(data[_NM]);
+  }
   return contents;
 };
 
@@ -4518,6 +6106,24 @@ export const de_ListInvalidationsCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ListInvalidationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.InvalidationList = de_InvalidationList(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlListInvalidationsForDistributionTenantCommand
+ */
+export const de_ListInvalidationsForDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListInvalidationsForDistributionTenantCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4692,6 +6298,24 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlListVpcOriginsCommand
+ */
+export const de_ListVpcOriginsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListVpcOriginsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOriginList = de_VpcOriginList(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlPublishFunctionCommand
  */
 export const de_PublishFunctionCommand = async (
@@ -4800,6 +6424,25 @@ export const de_UpdateCloudFrontOriginAccessIdentityCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlUpdateConnectionGroupCommand
+ */
+export const de_UpdateConnectionGroupCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectionGroupCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.ConnectionGroup = de_ConnectionGroup(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlUpdateContinuousDeploymentPolicyCommand
  */
 export const de_UpdateContinuousDeploymentPolicyCommand = async (
@@ -4838,6 +6481,25 @@ export const de_UpdateDistributionCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlUpdateDistributionTenantCommand
+ */
+export const de_UpdateDistributionTenantCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDistributionTenantCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.DistributionTenant = de_DistributionTenant(data, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlUpdateDistributionWithStagingConfigCommand
  */
 export const de_UpdateDistributionWithStagingConfigCommand = async (
@@ -4853,6 +6515,30 @@ export const de_UpdateDistributionWithStagingConfigCommand = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.Distribution = de_Distribution(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlUpdateDomainAssociationCommand
+ */
+export const de_UpdateDomainAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDomainAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data[_Do] != null) {
+    contents[_Do] = __expectString(data[_Do]);
+  }
+  if (data[_RI] != null) {
+    contents[_RI] = __expectString(data[_RI]);
+  }
   return contents;
 };
 
@@ -5067,6 +6753,47 @@ export const de_UpdateStreamingDistributionCommand = async (
 };
 
 /**
+ * deserializeAws_restXmlUpdateVpcOriginCommand
+ */
+export const de_UpdateVpcOriginCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateVpcOriginCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+    [_ET]: [, output.headers[_e]],
+  });
+  const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
+  contents.VpcOrigin = de_VpcOrigin(data, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVerifyDnsConfigurationCommand
+ */
+export const de_VerifyDnsConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyDnsConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  if (data.DnsConfigurationList === "") {
+    contents[_DCL] = [];
+  } else if (data[_DCL] != null && data[_DCL][_DCn] != null) {
+    contents[_DCL] = de_DnsConfigurationList(__getArrayIfSingleItem(data[_DCL][_DCn]), context);
+  }
+  return contents;
+};
+
+/**
  * deserialize_Aws_restXmlCommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -5091,6 +6818,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyDistributionCNAMEs":
     case "com.amazonaws.cloudfront#TooManyDistributionCNAMEs":
       throw await de_TooManyDistributionCNAMEsRes(parsedOutput, context);
+    case "EntityNotFound":
+    case "com.amazonaws.cloudfront#EntityNotFound":
+      throw await de_EntityNotFoundRes(parsedOutput, context);
+    case "InvalidIfMatchVersion":
+    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
+      throw await de_InvalidIfMatchVersionRes(parsedOutput, context);
+    case "PreconditionFailed":
+    case "com.amazonaws.cloudfront#PreconditionFailed":
+      throw await de_PreconditionFailedRes(parsedOutput, context);
     case "CNAMEAlreadyExists":
     case "com.amazonaws.cloudfront#CNAMEAlreadyExists":
       throw await de_CNAMEAlreadyExistsRes(parsedOutput, context);
@@ -5121,9 +6857,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidHeadersForS3Origin":
     case "com.amazonaws.cloudfront#InvalidHeadersForS3Origin":
       throw await de_InvalidHeadersForS3OriginRes(parsedOutput, context);
-    case "InvalidIfMatchVersion":
-    case "com.amazonaws.cloudfront#InvalidIfMatchVersion":
-      throw await de_InvalidIfMatchVersionRes(parsedOutput, context);
     case "InvalidLambdaFunctionAssociation":
     case "com.amazonaws.cloudfront#InvalidLambdaFunctionAssociation":
       throw await de_InvalidLambdaFunctionAssociationRes(parsedOutput, context);
@@ -5193,9 +6926,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NoSuchResponseHeadersPolicy":
     case "com.amazonaws.cloudfront#NoSuchResponseHeadersPolicy":
       throw await de_NoSuchResponseHeadersPolicyRes(parsedOutput, context);
-    case "PreconditionFailed":
-    case "com.amazonaws.cloudfront#PreconditionFailed":
-      throw await de_PreconditionFailedRes(parsedOutput, context);
     case "RealtimeLogConfigOwnerMismatch":
     case "com.amazonaws.cloudfront#RealtimeLogConfigOwnerMismatch":
       throw await de_RealtimeLogConfigOwnerMismatchRes(parsedOutput, context);
@@ -5271,6 +7001,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TrustedSignerDoesNotExist":
     case "com.amazonaws.cloudfront#TrustedSignerDoesNotExist":
       throw await de_TrustedSignerDoesNotExistRes(parsedOutput, context);
+    case "EntityAlreadyExists":
+    case "com.amazonaws.cloudfront#EntityAlreadyExists":
+      throw await de_EntityAlreadyExistsRes(parsedOutput, context);
+    case "EntityLimitExceeded":
+    case "com.amazonaws.cloudfront#EntityLimitExceeded":
+      throw await de_EntityLimitExceededRes(parsedOutput, context);
+    case "InvalidTagging":
+    case "com.amazonaws.cloudfront#InvalidTagging":
+      throw await de_InvalidTaggingRes(parsedOutput, context);
+    case "UnsupportedOperation":
+    case "com.amazonaws.cloudfront#UnsupportedOperation":
+      throw await de_UnsupportedOperationRes(parsedOutput, context);
     case "CachePolicyAlreadyExists":
     case "com.amazonaws.cloudfront#CachePolicyAlreadyExists":
       throw await de_CachePolicyAlreadyExistsRes(parsedOutput, context);
@@ -5313,9 +7055,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NoSuchContinuousDeploymentPolicy":
     case "com.amazonaws.cloudfront#NoSuchContinuousDeploymentPolicy":
       throw await de_NoSuchContinuousDeploymentPolicyRes(parsedOutput, context);
-    case "InvalidTagging":
-    case "com.amazonaws.cloudfront#InvalidTagging":
-      throw await de_InvalidTaggingRes(parsedOutput, context);
+    case "InvalidAssociation":
+    case "com.amazonaws.cloudfront#InvalidAssociation":
+      throw await de_InvalidAssociationRes(parsedOutput, context);
     case "FieldLevelEncryptionConfigAlreadyExists":
     case "com.amazonaws.cloudfront#FieldLevelEncryptionConfigAlreadyExists":
       throw await de_FieldLevelEncryptionConfigAlreadyExistsRes(parsedOutput, context);
@@ -5361,9 +7103,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyFunctions":
     case "com.amazonaws.cloudfront#TooManyFunctions":
       throw await de_TooManyFunctionsRes(parsedOutput, context);
-    case "UnsupportedOperation":
-    case "com.amazonaws.cloudfront#UnsupportedOperation":
-      throw await de_UnsupportedOperationRes(parsedOutput, context);
     case "BatchTooLarge":
     case "com.amazonaws.cloudfront#BatchTooLarge":
       throw await de_BatchTooLargeRes(parsedOutput, context);
@@ -5379,12 +7118,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyPublicKeysInKeyGroup":
     case "com.amazonaws.cloudfront#TooManyPublicKeysInKeyGroup":
       throw await de_TooManyPublicKeysInKeyGroupRes(parsedOutput, context);
-    case "EntityAlreadyExists":
-    case "com.amazonaws.cloudfront#EntityAlreadyExists":
-      throw await de_EntityAlreadyExistsRes(parsedOutput, context);
-    case "EntityLimitExceeded":
-    case "com.amazonaws.cloudfront#EntityLimitExceeded":
-      throw await de_EntityLimitExceededRes(parsedOutput, context);
     case "EntitySizeLimitExceeded":
     case "com.amazonaws.cloudfront#EntitySizeLimitExceeded":
       throw await de_EntitySizeLimitExceededRes(parsedOutput, context);
@@ -5448,21 +7181,30 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "TooManyStreamingDistributions":
     case "com.amazonaws.cloudfront#TooManyStreamingDistributions":
       throw await de_TooManyStreamingDistributionsRes(parsedOutput, context);
-    case "CachePolicyInUse":
-    case "com.amazonaws.cloudfront#CachePolicyInUse":
-      throw await de_CachePolicyInUseRes(parsedOutput, context);
+    case "CannotDeleteEntityWhileInUse":
+    case "com.amazonaws.cloudfront#CannotDeleteEntityWhileInUse":
+      throw await de_CannotDeleteEntityWhileInUseRes(parsedOutput, context);
     case "IllegalDelete":
     case "com.amazonaws.cloudfront#IllegalDelete":
       throw await de_IllegalDeleteRes(parsedOutput, context);
+    case "CachePolicyInUse":
+    case "com.amazonaws.cloudfront#CachePolicyInUse":
+      throw await de_CachePolicyInUseRes(parsedOutput, context);
     case "CloudFrontOriginAccessIdentityInUse":
     case "com.amazonaws.cloudfront#CloudFrontOriginAccessIdentityInUse":
       throw await de_CloudFrontOriginAccessIdentityInUseRes(parsedOutput, context);
     case "NoSuchCloudFrontOriginAccessIdentity":
     case "com.amazonaws.cloudfront#NoSuchCloudFrontOriginAccessIdentity":
       throw await de_NoSuchCloudFrontOriginAccessIdentityRes(parsedOutput, context);
+    case "ResourceNotDisabled":
+    case "com.amazonaws.cloudfront#ResourceNotDisabled":
+      throw await de_ResourceNotDisabledRes(parsedOutput, context);
     case "DistributionNotDisabled":
     case "com.amazonaws.cloudfront#DistributionNotDisabled":
       throw await de_DistributionNotDisabledRes(parsedOutput, context);
+    case "ResourceInUse":
+    case "com.amazonaws.cloudfront#ResourceInUse":
+      throw await de_ResourceInUseRes(parsedOutput, context);
     case "FieldLevelEncryptionConfigInUse":
     case "com.amazonaws.cloudfront#FieldLevelEncryptionConfigInUse":
       throw await de_FieldLevelEncryptionConfigInUseRes(parsedOutput, context);
@@ -5478,15 +7220,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NoSuchResource":
     case "com.amazonaws.cloudfront#NoSuchResource":
       throw await de_NoSuchResourceRes(parsedOutput, context);
-    case "ResourceInUse":
-    case "com.amazonaws.cloudfront#ResourceInUse":
-      throw await de_ResourceInUseRes(parsedOutput, context);
-    case "CannotDeleteEntityWhileInUse":
-    case "com.amazonaws.cloudfront#CannotDeleteEntityWhileInUse":
-      throw await de_CannotDeleteEntityWhileInUseRes(parsedOutput, context);
-    case "EntityNotFound":
-    case "com.amazonaws.cloudfront#EntityNotFound":
-      throw await de_EntityNotFoundRes(parsedOutput, context);
     case "NoSuchMonitoringSubscription":
     case "com.amazonaws.cloudfront#NoSuchMonitoringSubscription":
       throw await de_NoSuchMonitoringSubscriptionRes(parsedOutput, context);
@@ -5523,6 +7256,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "CannotChangeImmutablePublicKeyFields":
     case "com.amazonaws.cloudfront#CannotChangeImmutablePublicKeyFields":
       throw await de_CannotChangeImmutablePublicKeyFieldsRes(parsedOutput, context);
+    case "CannotUpdateEntityWhileInUse":
+    case "com.amazonaws.cloudfront#CannotUpdateEntityWhileInUse":
+      throw await de_CannotUpdateEntityWhileInUseRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -5633,6 +7369,25 @@ const de_CannotDeleteEntityWhileInUseRes = async (
     contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new CannotDeleteEntityWhileInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlCannotUpdateEntityWhileInUseRes
+ */
+const de_CannotUpdateEntityWhileInUseRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<CannotUpdateEntityWhileInUse> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
+  }
+  const exception = new CannotUpdateEntityWhileInUse({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -6084,6 +7839,22 @@ const de_InvalidArgumentRes = async (parsedOutput: any, context: __SerdeContext)
     contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new InvalidArgument({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlInvalidAssociationRes
+ */
+const de_InvalidAssociationRes = async (parsedOutput: any, context: __SerdeContext): Promise<InvalidAssociation> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
+  }
+  const exception = new InvalidAssociation({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -7113,6 +8884,22 @@ const de_ResourceInUseRes = async (parsedOutput: any, context: __SerdeContext): 
     contents[_Me] = __expectString(data[_Me]);
   }
   const exception = new ResourceInUse({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body.Error);
+};
+
+/**
+ * deserializeAws_restXmlResourceNotDisabledRes
+ */
+const de_ResourceNotDisabledRes = async (parsedOutput: any, context: __SerdeContext): Promise<ResourceNotDisabled> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body.Error;
+  if (data[_Me] != null) {
+    contents[_Me] = __expectString(data[_Me]);
+  }
+  const exception = new ResourceNotDisabled({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -8267,7 +10054,7 @@ const se_AccessControlAllowHeadersList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_H);
     });
 };
@@ -8294,7 +10081,7 @@ const se_AccessControlAllowOriginsList = (input: string[], context: __SerdeConte
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_Or);
     });
 };
@@ -8306,7 +10093,7 @@ const se_AccessControlExposeHeadersList = (input: string[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_H);
     });
 };
@@ -8319,7 +10106,7 @@ const se_Aliases = (input: Aliases, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AliasList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_AliasList(input[_It]!, context));
   return bn;
 };
 
@@ -8330,7 +10117,7 @@ const se_AliasList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_CNAME);
     });
 };
@@ -8343,7 +10130,7 @@ const se_AllowedMethods = (input: AllowedMethods, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_It]!, context));
   if (input[_CM] != null) {
     bn.c(se_CachedMethods(input[_CM], context).n(_CM));
   }
@@ -8357,7 +10144,7 @@ const se_AwsAccountNumberList = (input: string[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_AAN);
     });
 };
@@ -8368,10 +10155,10 @@ const se_AwsAccountNumberList = (input: string[], context: __SerdeContext): any 
 const se_CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any => {
   const bn = new __XmlNode(_CB);
   if (input[_PP] != null) {
-    bn.c(__XmlNode.of(_st, input[_PP]).n(_PP));
+    bn.c(__XmlNode.of(_s, input[_PP]).n(_PP));
   }
   if (input[_TOI] != null) {
-    bn.c(__XmlNode.of(_st, input[_TOI]).n(_TOI));
+    bn.c(__XmlNode.of(_s, input[_TOI]).n(_TOI));
   }
   if (input[_TS] != null) {
     bn.c(se_TrustedSigners(input[_TS], context).n(_TS));
@@ -8386,8 +10173,8 @@ const se_CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any =>
   if (input[_SS] != null) {
     bn.c(__XmlNode.of(_b, String(input[_SS])).n(_SS));
   }
-  if (input[_Co] != null) {
-    bn.c(__XmlNode.of(_b, String(input[_Co])).n(_Co));
+  if (input[_Com] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Com])).n(_Com));
   }
   if (input[_LFA] != null) {
     bn.c(se_LambdaFunctionAssociations(input[_LFA], context).n(_LFA));
@@ -8396,19 +10183,22 @@ const se_CacheBehavior = (input: CacheBehavior, context: __SerdeContext): any =>
     bn.c(se_FunctionAssociations(input[_FA], context).n(_FA));
   }
   if (input[_FLEI] != null) {
-    bn.c(__XmlNode.of(_st, input[_FLEI]).n(_FLEI));
+    bn.c(__XmlNode.of(_s, input[_FLEI]).n(_FLEI));
   }
   if (input[_RLCA] != null) {
-    bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
+    bn.c(__XmlNode.of(_s, input[_RLCA]).n(_RLCA));
   }
   if (input[_CPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_CPI]).n(_CPI));
+    bn.c(__XmlNode.of(_s, input[_CPI]).n(_CPI));
   }
   if (input[_ORPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_ORPI]).n(_ORPI));
+    bn.c(__XmlNode.of(_s, input[_ORPI]).n(_ORPI));
   }
   if (input[_RHPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_RHPI]).n(_RHPI));
+    bn.c(__XmlNode.of(_s, input[_RHPI]).n(_RHPI));
+  }
+  if (input[_GC] != null) {
+    bn.c(se_GrpcConfig(input[_GC], context).n(_GC));
   }
   if (input[_FV] != null) {
     bn.c(se_ForwardedValues(input[_FV], context).n(_FV));
@@ -8445,7 +10235,7 @@ const se_CacheBehaviors = (input: CacheBehaviors, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_CacheBehaviorList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_CacheBehaviorList(input[_It]!, context));
   return bn;
 };
 
@@ -8457,7 +10247,7 @@ const se_CachedMethods = (input: CachedMethods, context: __SerdeContext): any =>
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_MethodsList(input[_It]!, context));
   return bn;
 };
 
@@ -8466,11 +10256,11 @@ const se_CachedMethods = (input: CachedMethods, context: __SerdeContext): any =>
  */
 const se_CachePolicyConfig = (input: CachePolicyConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_CPC);
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_DTTL] != null) {
     bn.c(__XmlNode.of(_l, String(input[_DTTL])).n(_DTTL));
@@ -8530,6 +10320,17 @@ const se_CachePolicyQueryStringsConfig = (input: CachePolicyQueryStringsConfig, 
 };
 
 /**
+ * serializeAws_restXmlCertificate
+ */
+const se_Certificate = (input: Certificate, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_Ce);
+  if (input[_Ar] != null) {
+    bn.c(__XmlNode.of(_s, input[_Ar]).n(_Ar));
+  }
+  return bn;
+};
+
+/**
  * serializeAws_restXmlCloudFrontOriginAccessIdentityConfig
  */
 const se_CloudFrontOriginAccessIdentityConfig = (
@@ -8538,10 +10339,21 @@ const se_CloudFrontOriginAccessIdentityConfig = (
 ): any => {
   const bn = new __XmlNode(_CFOAIC);
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlConnectionGroupAssociationFilter
+ */
+const se_ConnectionGroupAssociationFilter = (input: ConnectionGroupAssociationFilter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_CGAF);
+  if (input[_AILI] != null) {
+    bn.c(__XmlNode.of(_s, input[_AILI]).n(_AILI));
   }
   return bn;
 };
@@ -8553,10 +10365,10 @@ const se_ContentTypeProfile = (input: ContentTypeProfile, context: __SerdeContex
   const bn = new __XmlNode(_CTP);
   bn.cc(input, _Fo);
   if (input[_PI] != null) {
-    bn.c(__XmlNode.of(_st, input[_PI]).n(_PI));
+    bn.c(__XmlNode.of(_s, input[_PI]).n(_PI));
   }
   if (input[_CT] != null) {
-    bn.c(__XmlNode.of(_st, input[_CT]).n(_CT));
+    bn.c(__XmlNode.of(_s, input[_CT]).n(_CT));
   }
   return bn;
 };
@@ -8595,7 +10407,7 @@ const se_ContentTypeProfiles = (input: ContentTypeProfiles, context: __SerdeCont
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_ContentTypeProfileList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_ContentTypeProfileList(input[_It]!, context));
   return bn;
 };
 
@@ -8625,10 +10437,10 @@ const se_ContinuousDeploymentSingleHeaderConfig = (
 ): any => {
   const bn = new __XmlNode(_CDSHC);
   if (input[_H] != null) {
-    bn.c(__XmlNode.of(_st, input[_H]).n(_H));
+    bn.c(__XmlNode.of(_s, input[_H]).n(_H));
   }
   if (input[_V] != null) {
-    bn.c(__XmlNode.of(_st, input[_V]).n(_V));
+    bn.c(__XmlNode.of(_s, input[_V]).n(_V));
   }
   return bn;
 };
@@ -8657,7 +10469,7 @@ const se_CookieNameList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_N);
     });
 };
@@ -8670,7 +10482,7 @@ const se_CookieNames = (input: CookieNames, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_CookieNameList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_CookieNameList(input[_It]!, context));
   return bn;
 };
 
@@ -8697,10 +10509,10 @@ const se_CustomErrorResponse = (input: CustomErrorResponse, context: __SerdeCont
     bn.c(__XmlNode.of(_i, String(input[_EC])).n(_EC));
   }
   if (input[_RPP] != null) {
-    bn.c(__XmlNode.of(_st, input[_RPP]).n(_RPP));
+    bn.c(__XmlNode.of(_s, input[_RPP]).n(_RPP));
   }
   if (input[_RC] != null) {
-    bn.c(__XmlNode.of(_st, input[_RC]).n(_RC));
+    bn.c(__XmlNode.of(_s, input[_RC]).n(_RC));
   }
   if (input[_ECMTTL] != null) {
     bn.c(__XmlNode.of(_l, String(input[_ECMTTL])).n(_ECMTTL));
@@ -8728,7 +10540,7 @@ const se_CustomErrorResponses = (input: CustomErrorResponses, context: __SerdeCo
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_CustomErrorResponseList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_CustomErrorResponseList(input[_It]!, context));
   return bn;
 };
 
@@ -8740,7 +10552,24 @@ const se_CustomHeaders = (input: CustomHeaders, context: __SerdeContext): any =>
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginCustomHeadersList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginCustomHeadersList(input[_It]!, context));
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlCustomizations
+ */
+const se_Customizations = (input: Customizations, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_C);
+  if (input[_WA] != null) {
+    bn.c(se_WebAclCustomization(input[_WA], context).n(_WA));
+  }
+  if (input[_Ce] != null) {
+    bn.c(se_Certificate(input[_Ce], context).n(_Ce));
+  }
+  if (input[_GR] != null) {
+    bn.c(se_GeoRestrictionCustomization(input[_GR], context).n(_GR));
+  }
   return bn;
 };
 
@@ -8774,7 +10603,7 @@ const se_CustomOriginConfig = (input: CustomOriginConfig, context: __SerdeContex
 const se_DefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeContext): any => {
   const bn = new __XmlNode(_DCB);
   if (input[_TOI] != null) {
-    bn.c(__XmlNode.of(_st, input[_TOI]).n(_TOI));
+    bn.c(__XmlNode.of(_s, input[_TOI]).n(_TOI));
   }
   if (input[_TS] != null) {
     bn.c(se_TrustedSigners(input[_TS], context).n(_TS));
@@ -8789,8 +10618,8 @@ const se_DefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeCo
   if (input[_SS] != null) {
     bn.c(__XmlNode.of(_b, String(input[_SS])).n(_SS));
   }
-  if (input[_Co] != null) {
-    bn.c(__XmlNode.of(_b, String(input[_Co])).n(_Co));
+  if (input[_Com] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Com])).n(_Com));
   }
   if (input[_LFA] != null) {
     bn.c(se_LambdaFunctionAssociations(input[_LFA], context).n(_LFA));
@@ -8799,19 +10628,22 @@ const se_DefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeCo
     bn.c(se_FunctionAssociations(input[_FA], context).n(_FA));
   }
   if (input[_FLEI] != null) {
-    bn.c(__XmlNode.of(_st, input[_FLEI]).n(_FLEI));
+    bn.c(__XmlNode.of(_s, input[_FLEI]).n(_FLEI));
   }
   if (input[_RLCA] != null) {
-    bn.c(__XmlNode.of(_st, input[_RLCA]).n(_RLCA));
+    bn.c(__XmlNode.of(_s, input[_RLCA]).n(_RLCA));
   }
   if (input[_CPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_CPI]).n(_CPI));
+    bn.c(__XmlNode.of(_s, input[_CPI]).n(_CPI));
   }
   if (input[_ORPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_ORPI]).n(_ORPI));
+    bn.c(__XmlNode.of(_s, input[_ORPI]).n(_ORPI));
   }
   if (input[_RHPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_RHPI]).n(_RHPI));
+    bn.c(__XmlNode.of(_s, input[_RHPI]).n(_RHPI));
+  }
+  if (input[_GC] != null) {
+    bn.c(se_GrpcConfig(input[_GC], context).n(_GC));
   }
   if (input[_FV] != null) {
     bn.c(se_ForwardedValues(input[_FV], context).n(_FV));
@@ -8832,15 +10664,15 @@ const se_DefaultCacheBehavior = (input: DefaultCacheBehavior, context: __SerdeCo
  * serializeAws_restXmlDistributionConfig
  */
 const se_DistributionConfig = (input: DistributionConfig, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_DC);
+  const bn = new __XmlNode(_DCi);
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
   if (input[_Al] != null) {
     bn.c(se_Aliases(input[_Al], context).n(_Al));
   }
   if (input[_DRO] != null) {
-    bn.c(__XmlNode.of(_st, input[_DRO]).n(_DRO));
+    bn.c(__XmlNode.of(_s, input[_DRO]).n(_DRO));
   }
   if (input[_Ori] != null) {
     bn.c(se_Origins(input[_Ori], context).n(_Ori));
@@ -8857,8 +10689,8 @@ const se_DistributionConfig = (input: DistributionConfig, context: __SerdeContex
   if (input[_CERu] != null) {
     bn.c(se_CustomErrorResponses(input[_CERu], context).n(_CERu));
   }
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_CTo, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_CTo, input[_Co]).n(_Co));
   }
   if (input[_Lo] != null) {
     bn.c(se_LoggingConfig(input[_Lo], context).n(_Lo));
@@ -8874,18 +10706,25 @@ const se_DistributionConfig = (input: DistributionConfig, context: __SerdeContex
     bn.c(se_Restrictions(input[_Re], context).n(_Re));
   }
   if (input[_WACLI] != null) {
-    bn.c(__XmlNode.of(_st, input[_WACLI]).n(_WACLI));
+    bn.c(__XmlNode.of(_s, input[_WACLI]).n(_WACLI));
   }
   bn.cc(input, _HV);
   if (input[_IIPVE] != null) {
     bn.c(__XmlNode.of(_b, String(input[_IIPVE])).n(_IIPVE));
   }
   if (input[_CDPI] != null) {
-    bn.c(__XmlNode.of(_st, input[_CDPI]).n(_CDPI));
+    bn.c(__XmlNode.of(_s, input[_CDPI]).n(_CDPI));
   }
   if (input[_S] != null) {
     bn.c(__XmlNode.of(_b, String(input[_S])).n(_S));
   }
+  if (input[_AILI] != null) {
+    bn.c(__XmlNode.of(_s, input[_AILI]).n(_AILI));
+  }
+  if (input[_TCe] != null) {
+    bn.c(se_TenantConfig(input[_TCe], context).n(_TCe));
+  }
+  bn.cc(input, _CMo);
   return bn;
 };
 
@@ -8894,13 +10733,67 @@ const se_DistributionConfig = (input: DistributionConfig, context: __SerdeContex
  */
 const se_DistributionConfigWithTags = (input: DistributionConfigWithTags, context: __SerdeContext): any => {
   const bn = new __XmlNode(_DCWT);
-  if (input[_DC] != null) {
-    bn.c(se_DistributionConfig(input[_DC], context).n(_DC));
+  if (input[_DCi] != null) {
+    bn.c(se_DistributionConfig(input[_DCi], context).n(_DCi));
   }
-  if (input[_Ta] != null) {
-    bn.c(se_Tags(input[_Ta], context).n(_Ta));
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
   }
   return bn;
+};
+
+/**
+ * serializeAws_restXmlDistributionResourceId
+ */
+const se_DistributionResourceId = (input: DistributionResourceId, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_DRI);
+  if (input[_DI] != null) {
+    bn.c(__XmlNode.of(_s, input[_DI]).n(_DI));
+  }
+  if (input[_DTI] != null) {
+    bn.c(__XmlNode.of(_s, input[_DTI]).n(_DTI));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlDistributionTenantAssociationFilter
+ */
+const se_DistributionTenantAssociationFilter = (
+  input: DistributionTenantAssociationFilter,
+  context: __SerdeContext
+): any => {
+  const bn = new __XmlNode(_DTAF);
+  if (input[_DI] != null) {
+    bn.c(__XmlNode.of(_s, input[_DI]).n(_DI));
+  }
+  if (input[_CGI] != null) {
+    bn.c(__XmlNode.of(_s, input[_CGI]).n(_CGI));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlDomainItem
+ */
+const se_DomainItem = (input: DomainItem, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_DIo);
+  if (input[_Do] != null) {
+    bn.c(__XmlNode.of(_s, input[_Do]).n(_Do));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlDomainList
+ */
+const se_DomainList = (input: DomainItem[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const n = se_DomainItem(entry, context);
+      return n.n(_m);
+    });
 };
 
 /**
@@ -8911,7 +10804,7 @@ const se_EncryptionEntities = (input: EncryptionEntities, context: __SerdeContex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_EncryptionEntityList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_EncryptionEntityList(input[_It]!, context));
   return bn;
 };
 
@@ -8921,10 +10814,10 @@ const se_EncryptionEntities = (input: EncryptionEntities, context: __SerdeContex
 const se_EncryptionEntity = (input: EncryptionEntity, context: __SerdeContext): any => {
   const bn = new __XmlNode(_EEn);
   if (input[_PKI] != null) {
-    bn.c(__XmlNode.of(_st, input[_PKI]).n(_PKI));
+    bn.c(__XmlNode.of(_s, input[_PKI]).n(_PKI));
   }
   if (input[_PIr] != null) {
-    bn.c(__XmlNode.of(_st, input[_PIr]).n(_PIr));
+    bn.c(__XmlNode.of(_s, input[_PIr]).n(_PIr));
   }
   if (input[_FP] != null) {
     bn.c(se_FieldPatterns(input[_FP], context).n(_FP));
@@ -8950,7 +10843,7 @@ const se_EncryptionEntityList = (input: EncryptionEntity[], context: __SerdeCont
 const se_EndPoint = (input: EndPoint, context: __SerdeContext): any => {
   const bn = new __XmlNode(_EPn);
   if (input[_ST] != null) {
-    bn.c(__XmlNode.of(_st, input[_ST]).n(_ST));
+    bn.c(__XmlNode.of(_s, input[_ST]).n(_ST));
   }
   if (input[_KSC] != null) {
     bn.c(se_KinesisStreamConfig(input[_KSC], context).n(_KSC));
@@ -8976,10 +10869,10 @@ const se_EndPointList = (input: EndPoint[], context: __SerdeContext): any => {
 const se_FieldLevelEncryptionConfig = (input: FieldLevelEncryptionConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_FLEC);
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_QAPC] != null) {
     bn.c(se_QueryArgProfileConfig(input[_QAPC], context).n(_QAPC));
@@ -8999,13 +10892,13 @@ const se_FieldLevelEncryptionProfileConfig = (
 ): any => {
   const bn = new __XmlNode(_FLEPC);
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_EE] != null) {
     bn.c(se_EncryptionEntities(input[_EE], context).n(_EE));
@@ -9020,7 +10913,7 @@ const se_FieldList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_Fi);
     });
 };
@@ -9032,7 +10925,7 @@ const se_FieldPatternList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_FPi);
     });
 };
@@ -9045,7 +10938,7 @@ const se_FieldPatterns = (input: FieldPatterns, context: __SerdeContext): any =>
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_FieldPatternList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_FieldPatternList(input[_It]!, context));
   return bn;
 };
 
@@ -9099,7 +10992,7 @@ const se_FunctionAssociations = (input: FunctionAssociations, context: __SerdeCo
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_FunctionAssociationList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_FunctionAssociationList(input[_It]!, context));
   return bn;
 };
 
@@ -9108,8 +11001,8 @@ const se_FunctionAssociations = (input: FunctionAssociations, context: __SerdeCo
  */
 const se_FunctionConfig = (input: FunctionConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_FCu);
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_Ru] != null) {
     bn.c(__XmlNode.of(_FR, input[_Ru]).n(_Ru));
@@ -9124,14 +11017,37 @@ const se_FunctionConfig = (input: FunctionConfig, context: __SerdeContext): any 
  * serializeAws_restXmlGeoRestriction
  */
 const se_GeoRestriction = (input: GeoRestriction, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_GR);
+  const bn = new __XmlNode(_GRe);
   if (input[_RT] != null) {
     bn.c(__XmlNode.of(_GRT, input[_RT]).n(_RT));
   }
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_LocationList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_LocationList(input[_It]!, context));
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlGeoRestrictionCustomization
+ */
+const se_GeoRestrictionCustomization = (input: GeoRestrictionCustomization, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_GRC);
+  if (input[_RT] != null) {
+    bn.c(__XmlNode.of(_GRT, input[_RT]).n(_RT));
+  }
+  bn.lc(input, "Locations", "Locations", () => se_LocationList(input[_Loc]!, context));
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlGrpcConfig
+ */
+const se_GrpcConfig = (input: GrpcConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_GC);
+  if (input[_E] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
+  }
   return bn;
 };
 
@@ -9142,7 +11058,7 @@ const se_HeaderList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_N);
     });
 };
@@ -9155,7 +11071,7 @@ const se_Headers = (input: Headers, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_HeaderList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_HeaderList(input[_It]!, context));
   return bn;
 };
 
@@ -9168,7 +11084,7 @@ const se_ImportSource = (input: ImportSource, context: __SerdeContext): any => {
     bn.c(__XmlNode.of(_IST, input[_STo]).n(_STo));
   }
   if (input[_SARN] != null) {
-    bn.c(__XmlNode.of(_st, input[_SARN]).n(_SARN));
+    bn.c(__XmlNode.of(_s, input[_SARN]).n(_SARN));
   }
   return bn;
 };
@@ -9178,11 +11094,11 @@ const se_ImportSource = (input: ImportSource, context: __SerdeContext): any => {
  */
 const se_InvalidationBatch = (input: InvalidationBatch, context: __SerdeContext): any => {
   const bn = new __XmlNode(_IB);
-  if (input[_P] != null) {
-    bn.c(se_Paths(input[_P], context).n(_P));
+  if (input[_Pa] != null) {
+    bn.c(se_Paths(input[_Pa], context).n(_Pa));
   }
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
   return bn;
 };
@@ -9193,11 +11109,11 @@ const se_InvalidationBatch = (input: InvalidationBatch, context: __SerdeContext)
 const se_KeyGroupConfig = (input: KeyGroupConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_KGC);
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
-  bn.lc(input, "Items", "Items", () => se_PublicKeyIdList(input[_I]!, context));
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  bn.lc(input, "Items", "Items", () => se_PublicKeyIdList(input[_It]!, context));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   return bn;
 };
@@ -9231,7 +11147,7 @@ const se_KeyValueStoreAssociations = (input: KeyValueStoreAssociations, context:
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_KeyValueStoreAssociationList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_KeyValueStoreAssociationList(input[_It]!, context));
   return bn;
 };
 
@@ -9241,10 +11157,10 @@ const se_KeyValueStoreAssociations = (input: KeyValueStoreAssociations, context:
 const se_KinesisStreamConfig = (input: KinesisStreamConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_KSC);
   if (input[_RARN] != null) {
-    bn.c(__XmlNode.of(_st, input[_RARN]).n(_RARN));
+    bn.c(__XmlNode.of(_s, input[_RARN]).n(_RARN));
   }
   if (input[_SARNt] != null) {
-    bn.c(__XmlNode.of(_st, input[_SARNt]).n(_SARNt));
+    bn.c(__XmlNode.of(_s, input[_SARNt]).n(_SARNt));
   }
   return bn;
 };
@@ -9282,7 +11198,7 @@ const se_LambdaFunctionAssociations = (input: LambdaFunctionAssociations, contex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_LambdaFunctionAssociationList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_LambdaFunctionAssociationList(input[_It]!, context));
   return bn;
 };
 
@@ -9293,7 +11209,7 @@ const se_LocationList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_L);
     });
 };
@@ -9306,15 +11222,28 @@ const se_LoggingConfig = (input: LoggingConfig, context: __SerdeContext): any =>
   if (input[_E] != null) {
     bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
-  if (input[_IC] != null) {
-    bn.c(__XmlNode.of(_b, String(input[_IC])).n(_IC));
+  if (input[_ICn] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_ICn])).n(_ICn));
   }
   if (input[_B] != null) {
-    bn.c(__XmlNode.of(_st, input[_B]).n(_B));
+    bn.c(__XmlNode.of(_s, input[_B]).n(_B));
   }
   if (input[_Pr] != null) {
-    bn.c(__XmlNode.of(_st, input[_Pr]).n(_Pr));
+    bn.c(__XmlNode.of(_s, input[_Pr]).n(_Pr));
   }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlManagedCertificateRequest
+ */
+const se_ManagedCertificateRequest = (input: ManagedCertificateRequest, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_MCR);
+  bn.cc(input, _VTH);
+  if (input[_PDN] != null) {
+    bn.c(__XmlNode.of(_s, input[_PDN]).n(_PDN));
+  }
+  bn.cc(input, _CTLP);
   return bn;
 };
 
@@ -9347,13 +11276,13 @@ const se_MonitoringSubscription = (input: MonitoringSubscription, context: __Ser
 const se_Origin = (input: Origin, context: __SerdeContext): any => {
   const bn = new __XmlNode(_Or);
   if (input[_Id] != null) {
-    bn.c(__XmlNode.of(_st, input[_Id]).n(_Id));
+    bn.c(__XmlNode.of(_s, input[_Id]).n(_Id));
   }
   if (input[_DN] != null) {
-    bn.c(__XmlNode.of(_st, input[_DN]).n(_DN));
+    bn.c(__XmlNode.of(_s, input[_DN]).n(_DN));
   }
   if (input[_OP] != null) {
-    bn.c(__XmlNode.of(_st, input[_OP]).n(_OP));
+    bn.c(__XmlNode.of(_s, input[_OP]).n(_OP));
   }
   if (input[_CH] != null) {
     bn.c(se_CustomHeaders(input[_CH], context).n(_CH));
@@ -9364,8 +11293,11 @@ const se_Origin = (input: Origin, context: __SerdeContext): any => {
   if (input[_COC] != null) {
     bn.c(se_CustomOriginConfig(input[_COC], context).n(_COC));
   }
-  if (input[_CA] != null) {
-    bn.c(__XmlNode.of(_i, String(input[_CA])).n(_CA));
+  if (input[_VOC] != null) {
+    bn.c(se_VpcOriginConfig(input[_VOC], context).n(_VOC));
+  }
+  if (input[_CAo] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_CAo])).n(_CAo));
   }
   if (input[_CTon] != null) {
     bn.c(__XmlNode.of(_i, String(input[_CTon])).n(_CTon));
@@ -9374,7 +11306,7 @@ const se_Origin = (input: Origin, context: __SerdeContext): any => {
     bn.c(se_OriginShield(input[_OS], context).n(_OS));
   }
   if (input[_OACI] != null) {
-    bn.c(__XmlNode.of(_st, input[_OACI]).n(_OACI));
+    bn.c(__XmlNode.of(_s, input[_OACI]).n(_OACI));
   }
   return bn;
 };
@@ -9385,10 +11317,10 @@ const se_Origin = (input: Origin, context: __SerdeContext): any => {
 const se_OriginAccessControlConfig = (input: OriginAccessControlConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_OACC);
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
-  if (input[_D] != null) {
-    bn.c(__XmlNode.of(_st, input[_D]).n(_D));
+  if (input[_De] != null) {
+    bn.c(__XmlNode.of(_s, input[_De]).n(_De));
   }
   if (input[_SP] != null) {
     bn.c(__XmlNode.of(_OACSP, input[_SP]).n(_SP));
@@ -9408,7 +11340,7 @@ const se_OriginAccessControlConfig = (input: OriginAccessControlConfig, context:
 const se_OriginCustomHeader = (input: OriginCustomHeader, context: __SerdeContext): any => {
   const bn = new __XmlNode(_OCH);
   if (input[_HN] != null) {
-    bn.c(__XmlNode.of(_st, input[_HN]).n(_HN));
+    bn.c(__XmlNode.of(_s, input[_HN]).n(_HN));
   }
   if (input[_HVe] != null) {
     bn.c(__XmlNode.of(_sST, input[_HVe]).n(_HVe));
@@ -9434,13 +11366,16 @@ const se_OriginCustomHeadersList = (input: OriginCustomHeader[], context: __Serd
 const se_OriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
   const bn = new __XmlNode(_OGr);
   if (input[_Id] != null) {
-    bn.c(__XmlNode.of(_st, input[_Id]).n(_Id));
+    bn.c(__XmlNode.of(_s, input[_Id]).n(_Id));
   }
   if (input[_FCa] != null) {
     bn.c(se_OriginGroupFailoverCriteria(input[_FCa], context).n(_FCa));
   }
   if (input[_Mem] != null) {
     bn.c(se_OriginGroupMembers(input[_Mem], context).n(_Mem));
+  }
+  if (input[_SC] != null) {
+    bn.c(__XmlNode.of(_OGSC, input[_SC]).n(_SC));
   }
   return bn;
 };
@@ -9450,8 +11385,8 @@ const se_OriginGroup = (input: OriginGroup, context: __SerdeContext): any => {
  */
 const se_OriginGroupFailoverCriteria = (input: OriginGroupFailoverCriteria, context: __SerdeContext): any => {
   const bn = new __XmlNode(_OGFC);
-  if (input[_SC] != null) {
-    bn.c(se_StatusCodes(input[_SC], context).n(_SC));
+  if (input[_SCt] != null) {
+    bn.c(se_StatusCodes(input[_SCt], context).n(_SCt));
   }
   return bn;
 };
@@ -9474,7 +11409,7 @@ const se_OriginGroupList = (input: OriginGroup[], context: __SerdeContext): any 
 const se_OriginGroupMember = (input: OriginGroupMember, context: __SerdeContext): any => {
   const bn = new __XmlNode(_OGM);
   if (input[_OI] != null) {
-    bn.c(__XmlNode.of(_st, input[_OI]).n(_OI));
+    bn.c(__XmlNode.of(_s, input[_OI]).n(_OI));
   }
   return bn;
 };
@@ -9499,7 +11434,7 @@ const se_OriginGroupMembers = (input: OriginGroupMembers, context: __SerdeContex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginGroupMemberList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginGroupMemberList(input[_It]!, context));
   return bn;
 };
 
@@ -9511,7 +11446,7 @@ const se_OriginGroups = (input: OriginGroups, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginGroupList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginGroupList(input[_It]!, context));
   return bn;
 };
 
@@ -9532,11 +11467,11 @@ const se_OriginList = (input: Origin[], context: __SerdeContext): any => {
  */
 const se_OriginRequestPolicyConfig = (input: OriginRequestPolicyConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_ORPC);
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_HC] != null) {
     bn.c(se_OriginRequestPolicyHeadersConfig(input[_HC], context).n(_HC));
@@ -9603,7 +11538,7 @@ const se_Origins = (input: Origins, context: __SerdeContext): any => {
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_OriginList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_OriginList(input[_It]!, context));
   return bn;
 };
 
@@ -9627,8 +11562,71 @@ const se_OriginSslProtocols = (input: OriginSslProtocols, context: __SerdeContex
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_SslProtocolsList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_SslProtocolsList(input[_It]!, context));
   return bn;
+};
+
+/**
+ * serializeAws_restXmlParameter
+ */
+const se_Parameter = (input: Parameter, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_Par);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_PN, input[_N]).n(_N));
+  }
+  if (input[_V] != null) {
+    bn.c(__XmlNode.of(_PV, input[_V]).n(_V));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlParameterDefinition
+ */
+const se_ParameterDefinition = (input: ParameterDefinition, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_PD);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_PN, input[_N]).n(_N));
+  }
+  if (input[_Def] != null) {
+    bn.c(se_ParameterDefinitionSchema(input[_Def], context).n(_Def));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlParameterDefinitions
+ */
+const se_ParameterDefinitions = (input: ParameterDefinition[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const n = se_ParameterDefinition(entry, context);
+      return n.n(_m);
+    });
+};
+
+/**
+ * serializeAws_restXmlParameterDefinitionSchema
+ */
+const se_ParameterDefinitionSchema = (input: ParameterDefinitionSchema, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_PDS);
+  if (input[_SSt] != null) {
+    bn.c(se_StringSchemaConfig(input[_SSt], context).n(_SSt));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlParameters
+ */
+const se_Parameters = (input: Parameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      const n = se_Parameter(entry, context);
+      return n.n(_m);
+    });
 };
 
 /**
@@ -9664,8 +11662,8 @@ const se_PathList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
-      return n.n(_Pa);
+      const n = __XmlNode.of(_s, entry);
+      return n.n(_Pat);
     });
 };
 
@@ -9673,11 +11671,11 @@ const se_PathList = (input: string[], context: __SerdeContext): any => {
  * serializeAws_restXmlPaths
  */
 const se_Paths = (input: Paths, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_P);
+  const bn = new __XmlNode(_Pa);
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_PathList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_PathList(input[_It]!, context));
   return bn;
 };
 
@@ -9687,16 +11685,16 @@ const se_Paths = (input: Paths, context: __SerdeContext): any => {
 const se_PublicKeyConfig = (input: PublicKeyConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_PKC);
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_EK] != null) {
-    bn.c(__XmlNode.of(_st, input[_EK]).n(_EK));
+    bn.c(__XmlNode.of(_s, input[_EK]).n(_EK));
   }
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   return bn;
 };
@@ -9708,7 +11706,7 @@ const se_PublicKeyIdList = (input: string[], context: __SerdeContext): any => {
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_PK);
     });
 };
@@ -9719,10 +11717,10 @@ const se_PublicKeyIdList = (input: string[], context: __SerdeContext): any => {
 const se_QueryArgProfile = (input: QueryArgProfile, context: __SerdeContext): any => {
   const bn = new __XmlNode(_QAP);
   if (input[_QA] != null) {
-    bn.c(__XmlNode.of(_st, input[_QA]).n(_QA));
+    bn.c(__XmlNode.of(_s, input[_QA]).n(_QA));
   }
   if (input[_PI] != null) {
-    bn.c(__XmlNode.of(_st, input[_PI]).n(_PI));
+    bn.c(__XmlNode.of(_s, input[_PI]).n(_PI));
   }
   return bn;
 };
@@ -9761,7 +11759,7 @@ const se_QueryArgProfiles = (input: QueryArgProfiles, context: __SerdeContext): 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_QueryArgProfileList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_QueryArgProfileList(input[_It]!, context));
   return bn;
 };
 
@@ -9773,7 +11771,7 @@ const se_QueryStringCacheKeys = (input: QueryStringCacheKeys, context: __SerdeCo
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_QueryStringCacheKeysList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_QueryStringCacheKeysList(input[_It]!, context));
   return bn;
 };
 
@@ -9784,7 +11782,7 @@ const se_QueryStringCacheKeysList = (input: string[], context: __SerdeContext): 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_N);
     });
 };
@@ -9797,7 +11795,7 @@ const se_QueryStringNames = (input: QueryStringNames, context: __SerdeContext): 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_QueryStringNamesList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_QueryStringNamesList(input[_It]!, context));
   return bn;
 };
 
@@ -9808,7 +11806,7 @@ const se_QueryStringNamesList = (input: string[], context: __SerdeContext): any 
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_N);
     });
 };
@@ -9836,7 +11834,7 @@ const se_ResponseHeadersPolicyAccessControlAllowHeaders = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlAllowHeadersList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowHeadersList(input[_It]!, context));
   return bn;
 };
 
@@ -9851,7 +11849,7 @@ const se_ResponseHeadersPolicyAccessControlAllowMethods = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlAllowMethodsList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowMethodsList(input[_It]!, context));
   return bn;
 };
 
@@ -9866,7 +11864,7 @@ const se_ResponseHeadersPolicyAccessControlAllowOrigins = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlAllowOriginsList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlAllowOriginsList(input[_It]!, context));
   return bn;
 };
 
@@ -9881,7 +11879,7 @@ const se_ResponseHeadersPolicyAccessControlExposeHeaders = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AccessControlExposeHeadersList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_AccessControlExposeHeadersList(input[_It]!, context));
   return bn;
 };
 
@@ -9890,11 +11888,11 @@ const se_ResponseHeadersPolicyAccessControlExposeHeaders = (
  */
 const se_ResponseHeadersPolicyConfig = (input: ResponseHeadersPolicyConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_RHPC);
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_N] != null) {
-    bn.c(__XmlNode.of(_st, input[_N]).n(_N));
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
   }
   if (input[_CCo] != null) {
     bn.c(se_ResponseHeadersPolicyCorsConfig(input[_CCo], context).n(_CCo));
@@ -9926,7 +11924,7 @@ const se_ResponseHeadersPolicyContentSecurityPolicy = (
     bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
   }
   if (input[_CSP] != null) {
-    bn.c(__XmlNode.of(_st, input[_CSP]).n(_CSP));
+    bn.c(__XmlNode.of(_s, input[_CSP]).n(_CSP));
   }
   return bn;
 };
@@ -9983,10 +11981,10 @@ const se_ResponseHeadersPolicyCustomHeader = (
 ): any => {
   const bn = new __XmlNode(_RHPCH);
   if (input[_H] != null) {
-    bn.c(__XmlNode.of(_st, input[_H]).n(_H));
+    bn.c(__XmlNode.of(_s, input[_H]).n(_H));
   }
   if (input[_V] != null) {
-    bn.c(__XmlNode.of(_st, input[_V]).n(_V));
+    bn.c(__XmlNode.of(_s, input[_V]).n(_V));
   }
   if (input[_Ov] != null) {
     bn.c(__XmlNode.of(_b, String(input[_Ov])).n(_Ov));
@@ -10020,7 +12018,7 @@ const se_ResponseHeadersPolicyCustomHeadersConfig = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyCustomHeaderList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyCustomHeaderList(input[_It]!, context));
   return bn;
 };
 
@@ -10067,7 +12065,7 @@ const se_ResponseHeadersPolicyRemoveHeader = (
 ): any => {
   const bn = new __XmlNode(_RHPRH);
   if (input[_H] != null) {
-    bn.c(__XmlNode.of(_st, input[_H]).n(_H));
+    bn.c(__XmlNode.of(_s, input[_H]).n(_H));
   }
   return bn;
 };
@@ -10098,7 +12096,7 @@ const se_ResponseHeadersPolicyRemoveHeadersConfig = (
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyRemoveHeaderList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_ResponseHeadersPolicyRemoveHeaderList(input[_It]!, context));
   return bn;
 };
 
@@ -10189,7 +12187,7 @@ const se_ResponseHeadersPolicyXSSProtection = (
     bn.c(__XmlNode.of(_b, String(input[_MB])).n(_MB));
   }
   if (input[_RU] != null) {
-    bn.c(__XmlNode.of(_st, input[_RU]).n(_RU));
+    bn.c(__XmlNode.of(_s, input[_RU]).n(_RU));
   }
   return bn;
 };
@@ -10199,8 +12197,8 @@ const se_ResponseHeadersPolicyXSSProtection = (
  */
 const se_Restrictions = (input: Restrictions, context: __SerdeContext): any => {
   const bn = new __XmlNode(_Re);
-  if (input[_GR] != null) {
-    bn.c(se_GeoRestriction(input[_GR], context).n(_GR));
+  if (input[_GRe] != null) {
+    bn.c(se_GeoRestriction(input[_GRe], context).n(_GRe));
   }
   return bn;
 };
@@ -10211,10 +12209,10 @@ const se_Restrictions = (input: Restrictions, context: __SerdeContext): any => {
 const se_S3Origin = (input: S3Origin, context: __SerdeContext): any => {
   const bn = new __XmlNode(_SO);
   if (input[_DN] != null) {
-    bn.c(__XmlNode.of(_st, input[_DN]).n(_DN));
+    bn.c(__XmlNode.of(_s, input[_DN]).n(_DN));
   }
   if (input[_OAI] != null) {
-    bn.c(__XmlNode.of(_st, input[_OAI]).n(_OAI));
+    bn.c(__XmlNode.of(_s, input[_OAI]).n(_OAI));
   }
   return bn;
 };
@@ -10225,7 +12223,7 @@ const se_S3Origin = (input: S3Origin, context: __SerdeContext): any => {
 const se_S3OriginConfig = (input: S3OriginConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_SOC);
   if (input[_OAI] != null) {
-    bn.c(__XmlNode.of(_st, input[_OAI]).n(_OAI));
+    bn.c(__XmlNode.of(_s, input[_OAI]).n(_OAI));
   }
   return bn;
 };
@@ -10263,7 +12261,7 @@ const se_StagingDistributionDnsNameList = (input: string[], context: __SerdeCont
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_DNn);
     });
 };
@@ -10276,7 +12274,7 @@ const se_StagingDistributionDnsNames = (input: StagingDistributionDnsNames, cont
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_StagingDistributionDnsNameList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_StagingDistributionDnsNameList(input[_It]!, context));
   return bn;
 };
 
@@ -10288,7 +12286,7 @@ const se_StatusCodeList = (input: number[], context: __SerdeContext): any => {
     .filter((e: any) => e != null)
     .map((entry) => {
       const n = __XmlNode.of(_i, String(entry));
-      return n.n(_SCt);
+      return n.n(_SCta);
     });
 };
 
@@ -10296,11 +12294,11 @@ const se_StatusCodeList = (input: number[], context: __SerdeContext): any => {
  * serializeAws_restXmlStatusCodes
  */
 const se_StatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_SC);
+  const bn = new __XmlNode(_SCt);
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_StatusCodeList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_StatusCodeList(input[_It]!, context));
   return bn;
 };
 
@@ -10310,7 +12308,7 @@ const se_StatusCodes = (input: StatusCodes, context: __SerdeContext): any => {
 const se_StreamingDistributionConfig = (input: StreamingDistributionConfig, context: __SerdeContext): any => {
   const bn = new __XmlNode(_SDC);
   if (input[_CR] != null) {
-    bn.c(__XmlNode.of(_st, input[_CR]).n(_CR));
+    bn.c(__XmlNode.of(_s, input[_CR]).n(_CR));
   }
   if (input[_SO] != null) {
     bn.c(se_S3Origin(input[_SO], context).n(_SO));
@@ -10318,8 +12316,8 @@ const se_StreamingDistributionConfig = (input: StreamingDistributionConfig, cont
   if (input[_Al] != null) {
     bn.c(se_Aliases(input[_Al], context).n(_Al));
   }
-  if (input[_C] != null) {
-    bn.c(__XmlNode.of(_st, input[_C]).n(_C));
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
   }
   if (input[_Lo] != null) {
     bn.c(se_StreamingLoggingConfig(input[_Lo], context).n(_Lo));
@@ -10345,8 +12343,8 @@ const se_StreamingDistributionConfigWithTags = (
   if (input[_SDC] != null) {
     bn.c(se_StreamingDistributionConfig(input[_SDC], context).n(_SDC));
   }
-  if (input[_Ta] != null) {
-    bn.c(se_Tags(input[_Ta], context).n(_Ta));
+  if (input[_T] != null) {
+    bn.c(se_Tags(input[_T], context).n(_T));
   }
   return bn;
 };
@@ -10360,10 +12358,27 @@ const se_StreamingLoggingConfig = (input: StreamingLoggingConfig, context: __Ser
     bn.c(__XmlNode.of(_b, String(input[_E])).n(_E));
   }
   if (input[_B] != null) {
-    bn.c(__XmlNode.of(_st, input[_B]).n(_B));
+    bn.c(__XmlNode.of(_s, input[_B]).n(_B));
   }
   if (input[_Pr] != null) {
-    bn.c(__XmlNode.of(_st, input[_Pr]).n(_Pr));
+    bn.c(__XmlNode.of(_s, input[_Pr]).n(_Pr));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlStringSchemaConfig
+ */
+const se_StringSchemaConfig = (input: StringSchemaConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_SSCt);
+  if (input[_Co] != null) {
+    bn.c(__XmlNode.of(_s, input[_Co]).n(_Co));
+  }
+  if (input[_DV] != null) {
+    bn.c(__XmlNode.of(_PV, input[_DV]).n(_DV));
+  }
+  if (input[_Req] != null) {
+    bn.c(__XmlNode.of(_b, String(input[_Req])).n(_Req));
   }
   return bn;
 };
@@ -10372,7 +12387,7 @@ const se_StreamingLoggingConfig = (input: StreamingLoggingConfig, context: __Ser
  * serializeAws_restXmlTag
  */
 const se_Tag = (input: Tag, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_Tag);
+  const bn = new __XmlNode(_Ta);
   if (input[_K] != null) {
     bn.c(__XmlNode.of(_TK, input[_K]).n(_K));
   }
@@ -10399,7 +12414,7 @@ const se_TagKeyList = (input: string[], context: __SerdeContext): any => {
  */
 const se_TagKeys = (input: TagKeys, context: __SerdeContext): any => {
   const bn = new __XmlNode(_TKa);
-  bn.lc(input, "Items", "Items", () => se_TagKeyList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_TagKeyList(input[_It]!, context));
   return bn;
 };
 
@@ -10411,7 +12426,7 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
     .filter((e: any) => e != null)
     .map((entry) => {
       const n = se_Tag(entry, context);
-      return n.n(_Tag);
+      return n.n(_Ta);
     });
 };
 
@@ -10419,8 +12434,17 @@ const se_TagList = (input: Tag[], context: __SerdeContext): any => {
  * serializeAws_restXmlTags
  */
 const se_Tags = (input: Tags, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_Ta);
-  bn.lc(input, "Items", "Items", () => se_TagList(input[_I]!, context));
+  const bn = new __XmlNode(_T);
+  bn.lc(input, "Items", "Items", () => se_TagList(input[_It]!, context));
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlTenantConfig
+ */
+const se_TenantConfig = (input: TenantConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_TCe);
+  bn.lc(input, "ParameterDefinitions", "ParameterDefinitions", () => se_ParameterDefinitions(input[_PDa]!, context));
   return bn;
 };
 
@@ -10435,8 +12459,8 @@ const se_TrafficConfig = (input: TrafficConfig, context: __SerdeContext): any =>
   if (input[_SHCi] != null) {
     bn.c(se_ContinuousDeploymentSingleHeaderConfig(input[_SHCi], context).n(_SHCi));
   }
-  if (input[_T] != null) {
-    bn.c(__XmlNode.of(_CDPT, input[_T]).n(_T));
+  if (input[_Ty] != null) {
+    bn.c(__XmlNode.of(_CDPT, input[_Ty]).n(_Ty));
   }
   return bn;
 };
@@ -10448,7 +12472,7 @@ const se_TrustedKeyGroupIdList = (input: string[], context: __SerdeContext): any
   return input
     .filter((e: any) => e != null)
     .map((entry) => {
-      const n = __XmlNode.of(_st, entry);
+      const n = __XmlNode.of(_s, entry);
       return n.n(_KG);
     });
 };
@@ -10464,7 +12488,7 @@ const se_TrustedKeyGroups = (input: TrustedKeyGroups, context: __SerdeContext): 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_TrustedKeyGroupIdList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_TrustedKeyGroupIdList(input[_It]!, context));
   return bn;
 };
 
@@ -10479,7 +12503,7 @@ const se_TrustedSigners = (input: TrustedSigners, context: __SerdeContext): any 
   if (input[_Q] != null) {
     bn.c(__XmlNode.of(_i, String(input[_Q])).n(_Q));
   }
-  bn.lc(input, "Items", "Items", () => se_AwsAccountNumberList(input[_I]!, context));
+  bn.lc(input, "Items", "Items", () => se_AwsAccountNumberList(input[_It]!, context));
   return bn;
 };
 
@@ -10492,17 +12516,72 @@ const se_ViewerCertificate = (input: ViewerCertificate, context: __SerdeContext)
     bn.c(__XmlNode.of(_b, String(input[_CFDC])).n(_CFDC));
   }
   if (input[_IAMCI] != null) {
-    bn.c(__XmlNode.of(_st, input[_IAMCI]).n(_IAMCI));
+    bn.c(__XmlNode.of(_s, input[_IAMCI]).n(_IAMCI));
   }
   if (input[_ACMCA] != null) {
-    bn.c(__XmlNode.of(_st, input[_ACMCA]).n(_ACMCA));
+    bn.c(__XmlNode.of(_s, input[_ACMCA]).n(_ACMCA));
   }
   bn.cc(input, _SSLSM);
   bn.cc(input, _MPV);
   if (input[_Ce] != null) {
-    bn.c(__XmlNode.of(_st, input[_Ce]).n(_Ce));
+    bn.c(__XmlNode.of(_s, input[_Ce]).n(_Ce));
   }
   bn.cc(input, _CS);
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlVpcOriginConfig
+ */
+const se_VpcOriginConfig = (input: VpcOriginConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_VOC);
+  if (input[_VOI] != null) {
+    bn.c(__XmlNode.of(_s, input[_VOI]).n(_VOI));
+  }
+  if (input[_ORT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_ORT])).n(_ORT));
+  }
+  if (input[_OKT] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_OKT])).n(_OKT));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlVpcOriginEndpointConfig
+ */
+const se_VpcOriginEndpointConfig = (input: VpcOriginEndpointConfig, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_VOEC);
+  if (input[_N] != null) {
+    bn.c(__XmlNode.of(_s, input[_N]).n(_N));
+  }
+  if (input[_Ar] != null) {
+    bn.c(__XmlNode.of(_s, input[_Ar]).n(_Ar));
+  }
+  if (input[_HTTPP] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_HTTPP])).n(_HTTPP));
+  }
+  if (input[_HTTPSP] != null) {
+    bn.c(__XmlNode.of(_i, String(input[_HTTPSP])).n(_HTTPSP));
+  }
+  bn.cc(input, _OPP);
+  if (input[_OSP] != null) {
+    bn.c(se_OriginSslProtocols(input[_OSP], context).n(_OSP));
+  }
+  return bn;
+};
+
+/**
+ * serializeAws_restXmlWebAclCustomization
+ */
+const se_WebAclCustomization = (input: WebAclCustomization, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_WAC);
+  if (input[_Ac] != null) {
+    bn.c(__XmlNode.of(_CAT, input[_Ac]).n(_Ac));
+  }
+  if (input[_Ar] != null) {
+    bn.c(__XmlNode.of(_s, input[_Ar]).n(_Ar));
+  }
   return bn;
 };
 
@@ -10565,9 +12644,9 @@ const de_ActiveTrustedKeyGroups = (output: any, context: __SerdeContext): Active
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_KG] != null) {
-    contents[_I] = de_KGKeyPairIdsList(__getArrayIfSingleItem(output[_I][_KG]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KG] != null) {
+    contents[_It] = de_KGKeyPairIdsList(__getArrayIfSingleItem(output[_It][_KG]), context);
   }
   return contents;
 };
@@ -10584,9 +12663,9 @@ const de_ActiveTrustedSigners = (output: any, context: __SerdeContext): ActiveTr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Si] != null) {
-    contents[_I] = de_SignerList(__getArrayIfSingleItem(output[_I][_Si]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Si] != null) {
+    contents[_It] = de_SignerList(__getArrayIfSingleItem(output[_It][_Si]), context);
   }
   return contents;
 };
@@ -10600,9 +12679,9 @@ const de_Aliases = (output: any, context: __SerdeContext): Aliases => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CNAME] != null) {
-    contents[_I] = de_AliasList(__getArrayIfSingleItem(output[_I][_CNAME]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CNAME] != null) {
+    contents[_It] = de_AliasList(__getArrayIfSingleItem(output[_It][_CNAME]), context);
   }
   return contents;
 };
@@ -10652,14 +12731,121 @@ const de_AllowedMethods = (output: any, context: __SerdeContext): AllowedMethods
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Met] != null) {
-    contents[_I] = de_MethodsList(__getArrayIfSingleItem(output[_I][_Met]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Met] != null) {
+    contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
   }
   if (output[_CM] != null) {
     contents[_CM] = de_CachedMethods(output[_CM], context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpList
+ */
+const de_AnycastIpList = (output: any, context: __SerdeContext): AnycastIpList => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output.AnycastIps === "") {
+    contents[_AI] = [];
+  } else if (output[_AI] != null && output[_AI][_AIn] != null) {
+    contents[_AI] = de_AnycastIps(__getArrayIfSingleItem(output[_AI][_AIn]), context);
+  }
+  if (output[_IC] != null) {
+    contents[_IC] = __strictParseInt32(output[_IC]) as number;
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpListCollection
+ */
+const de_AnycastIpListCollection = (output: any, context: __SerdeContext): AnycastIpListCollection => {
+  const contents: any = {};
+  if (output.Items === "") {
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_AILS] != null) {
+    contents[_It] = de_AnycastIpListSummaries(__getArrayIfSingleItem(output[_It][_AILS]), context);
+  }
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
+  }
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  }
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
+  }
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpListSummaries
+ */
+const de_AnycastIpListSummaries = (output: any, context: __SerdeContext): AnycastIpListSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AnycastIpListSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlAnycastIpListSummary
+ */
+const de_AnycastIpListSummary = (output: any, context: __SerdeContext): AnycastIpListSummary => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_IC] != null) {
+    contents[_IC] = __strictParseInt32(output[_IC]) as number;
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlAnycastIps
+ */
+const de_AnycastIps = (output: any, context: __SerdeContext): string[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectString(entry) as any;
+    });
 };
 
 /**
@@ -10699,8 +12885,8 @@ const de_CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior =
   if (output[_SS] != null) {
     contents[_SS] = __parseBoolean(output[_SS]);
   }
-  if (output[_Co] != null) {
-    contents[_Co] = __parseBoolean(output[_Co]);
+  if (output[_Com] != null) {
+    contents[_Com] = __parseBoolean(output[_Com]);
   }
   if (output[_LFA] != null) {
     contents[_LFA] = de_LambdaFunctionAssociations(output[_LFA], context);
@@ -10722,6 +12908,9 @@ const de_CacheBehavior = (output: any, context: __SerdeContext): CacheBehavior =
   }
   if (output[_RHPI] != null) {
     contents[_RHPI] = __expectString(output[_RHPI]);
+  }
+  if (output[_GC] != null) {
+    contents[_GC] = de_GrpcConfig(output[_GC], context);
   }
   if (output[_FV] != null) {
     contents[_FV] = de_ForwardedValues(output[_FV], context);
@@ -10758,9 +12947,9 @@ const de_CacheBehaviors = (output: any, context: __SerdeContext): CacheBehaviors
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CB] != null) {
-    contents[_I] = de_CacheBehaviorList(__getArrayIfSingleItem(output[_I][_CB]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CB] != null) {
+    contents[_It] = de_CacheBehaviorList(__getArrayIfSingleItem(output[_It][_CB]), context);
   }
   return contents;
 };
@@ -10774,9 +12963,9 @@ const de_CachedMethods = (output: any, context: __SerdeContext): CachedMethods =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Met] != null) {
-    contents[_I] = de_MethodsList(__getArrayIfSingleItem(output[_I][_Met]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Met] != null) {
+    contents[_It] = de_MethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
   }
   return contents;
 };
@@ -10803,8 +12992,8 @@ const de_CachePolicy = (output: any, context: __SerdeContext): CachePolicy => {
  */
 const de_CachePolicyConfig = (output: any, context: __SerdeContext): CachePolicyConfig => {
   const contents: any = {};
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
@@ -10867,9 +13056,9 @@ const de_CachePolicyList = (output: any, context: __SerdeContext): CachePolicyLi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CPS] != null) {
-    contents[_I] = de_CachePolicySummaryList(__getArrayIfSingleItem(output[_I][_CPS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CPS] != null) {
+    contents[_It] = de_CachePolicySummaryList(__getArrayIfSingleItem(output[_It][_CPS]), context);
   }
   return contents;
 };
@@ -10893,8 +13082,8 @@ const de_CachePolicyQueryStringsConfig = (output: any, context: __SerdeContext):
  */
 const de_CachePolicySummary = (output: any, context: __SerdeContext): CachePolicySummary => {
   const contents: any = {};
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   if (output[_CPa] != null) {
     contents[_CPa] = de_CachePolicy(output[_CPa], context);
@@ -10911,6 +13100,17 @@ const de_CachePolicySummaryList = (output: any, context: __SerdeContext): CacheP
     .map((entry: any) => {
       return de_CachePolicySummary(entry, context);
     });
+};
+
+/**
+ * deserializeAws_restXmlCertificate
+ */
+const de_Certificate = (output: any, context: __SerdeContext): Certificate => {
+  const contents: any = {};
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  return contents;
 };
 
 /**
@@ -10941,8 +13141,8 @@ const de_CloudFrontOriginAccessIdentityConfig = (
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   return contents;
 };
@@ -10971,9 +13171,9 @@ const de_CloudFrontOriginAccessIdentityList = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CFOAIS] != null) {
-    contents[_I] = de_CloudFrontOriginAccessIdentitySummaryList(__getArrayIfSingleItem(output[_I][_CFOAIS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CFOAIS] != null) {
+    contents[_It] = de_CloudFrontOriginAccessIdentitySummaryList(__getArrayIfSingleItem(output[_It][_CFOAIS]), context);
   }
   return contents;
 };
@@ -10992,8 +13192,8 @@ const de_CloudFrontOriginAccessIdentitySummary = (
   if (output[_SCUI] != null) {
     contents[_SCUI] = __expectString(output[_SCUI]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   return contents;
 };
@@ -11023,8 +13223,8 @@ const de_ConflictingAlias = (output: any, context: __SerdeContext): ConflictingA
   if (output[_DI] != null) {
     contents[_DI] = __expectString(output[_DI]);
   }
-  if (output[_AI] != null) {
-    contents[_AI] = __expectString(output[_AI]);
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
   }
   return contents;
 };
@@ -11055,11 +13255,107 @@ const de_ConflictingAliasesList = (output: any, context: __SerdeContext): Confli
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CAo] != null) {
-    contents[_I] = de_ConflictingAliases(__getArrayIfSingleItem(output[_I][_CAo]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CAon] != null) {
+    contents[_It] = de_ConflictingAliases(__getArrayIfSingleItem(output[_It][_CAon]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlConnectionGroup
+ */
+const de_ConnectionGroup = (output: any, context: __SerdeContext): ConnectionGroup => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_T] != null) {
+    contents[_T] = de_Tags(output[_T], context);
+  }
+  if (output[_IE] != null) {
+    contents[_IE] = __parseBoolean(output[_IE]);
+  }
+  if (output[_RE] != null) {
+    contents[_RE] = __expectString(output[_RE]);
+  }
+  if (output[_AILI] != null) {
+    contents[_AILI] = __expectString(output[_AILI]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
+  }
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlConnectionGroupSummary
+ */
+const de_ConnectionGroupSummary = (output: any, context: __SerdeContext): ConnectionGroupSummary => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_RE] != null) {
+    contents[_RE] = __expectString(output[_RE]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
+  }
+  if (output[_AILI] != null) {
+    contents[_AILI] = __expectString(output[_AILI]);
+  }
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_ID] != null) {
+    contents[_ID] = __parseBoolean(output[_ID]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlConnectionGroupSummaryList
+ */
+const de_ConnectionGroupSummaryList = (output: any, context: __SerdeContext): ConnectionGroupSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConnectionGroupSummary(entry, context);
+    });
 };
 
 /**
@@ -11113,9 +13409,9 @@ const de_ContentTypeProfiles = (output: any, context: __SerdeContext): ContentTy
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CTP] != null) {
-    contents[_I] = de_ContentTypeProfileList(__getArrayIfSingleItem(output[_I][_CTP]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CTP] != null) {
+    contents[_It] = de_ContentTypeProfileList(__getArrayIfSingleItem(output[_It][_CTP]), context);
   }
   return contents;
 };
@@ -11172,9 +13468,9 @@ const de_ContinuousDeploymentPolicyList = (output: any, context: __SerdeContext)
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CDPS] != null) {
-    contents[_I] = de_ContinuousDeploymentPolicySummaryList(__getArrayIfSingleItem(output[_I][_CDPS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CDPS] != null) {
+    contents[_It] = de_ContinuousDeploymentPolicySummaryList(__getArrayIfSingleItem(output[_It][_CDPS]), context);
   }
   return contents;
 };
@@ -11261,9 +13557,9 @@ const de_CookieNames = (output: any, context: __SerdeContext): CookieNames => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_N] != null) {
-    contents[_I] = de_CookieNameList(__getArrayIfSingleItem(output[_I][_N]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_CookieNameList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -11322,9 +13618,9 @@ const de_CustomErrorResponses = (output: any, context: __SerdeContext): CustomEr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_CER] != null) {
-    contents[_I] = de_CustomErrorResponseList(__getArrayIfSingleItem(output[_I][_CER]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_CER] != null) {
+    contents[_It] = de_CustomErrorResponseList(__getArrayIfSingleItem(output[_It][_CER]), context);
   }
   return contents;
 };
@@ -11338,9 +13634,26 @@ const de_CustomHeaders = (output: any, context: __SerdeContext): CustomHeaders =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_OCH] != null) {
-    contents[_I] = de_OriginCustomHeadersList(__getArrayIfSingleItem(output[_I][_OCH]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OCH] != null) {
+    contents[_It] = de_OriginCustomHeadersList(__getArrayIfSingleItem(output[_It][_OCH]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlCustomizations
+ */
+const de_Customizations = (output: any, context: __SerdeContext): Customizations => {
+  const contents: any = {};
+  if (output[_WA] != null) {
+    contents[_WA] = de_WebAclCustomization(output[_WA], context);
+  }
+  if (output[_Ce] != null) {
+    contents[_Ce] = de_Certificate(output[_Ce], context);
+  }
+  if (output[_GR] != null) {
+    contents[_GR] = de_GeoRestrictionCustomization(output[_GR], context);
   }
   return contents;
 };
@@ -11394,8 +13707,8 @@ const de_DefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultC
   if (output[_SS] != null) {
     contents[_SS] = __parseBoolean(output[_SS]);
   }
-  if (output[_Co] != null) {
-    contents[_Co] = __parseBoolean(output[_Co]);
+  if (output[_Com] != null) {
+    contents[_Com] = __parseBoolean(output[_Com]);
   }
   if (output[_LFA] != null) {
     contents[_LFA] = de_LambdaFunctionAssociations(output[_LFA], context);
@@ -11417,6 +13730,9 @@ const de_DefaultCacheBehavior = (output: any, context: __SerdeContext): DefaultC
   }
   if (output[_RHPI] != null) {
     contents[_RHPI] = __expectString(output[_RHPI]);
+  }
+  if (output[_GC] != null) {
+    contents[_GC] = de_GrpcConfig(output[_GC], context);
   }
   if (output[_FV] != null) {
     contents[_FV] = de_ForwardedValues(output[_FV], context);
@@ -11462,8 +13778,8 @@ const de_Distribution = (output: any, context: __SerdeContext): Distribution => 
   if (output[_ATKG] != null) {
     contents[_ATKG] = de_ActiveTrustedKeyGroups(output[_ATKG], context);
   }
-  if (output[_DC] != null) {
-    contents[_DC] = de_DistributionConfig(output[_DC], context);
+  if (output[_DCi] != null) {
+    contents[_DCi] = de_DistributionConfig(output[_DCi], context);
   }
   if (output.AliasICPRecordals === "") {
     contents[_AICPR] = [];
@@ -11502,8 +13818,8 @@ const de_DistributionConfig = (output: any, context: __SerdeContext): Distributi
   if (output[_CERu] != null) {
     contents[_CERu] = de_CustomErrorResponses(output[_CERu], context);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_Lo] != null) {
     contents[_Lo] = de_LoggingConfig(output[_Lo], context);
@@ -11535,6 +13851,15 @@ const de_DistributionConfig = (output: any, context: __SerdeContext): Distributi
   if (output[_S] != null) {
     contents[_S] = __parseBoolean(output[_S]);
   }
+  if (output[_AILI] != null) {
+    contents[_AILI] = __expectString(output[_AILI]);
+  }
+  if (output[_TCe] != null) {
+    contents[_TCe] = de_TenantConfig(output[_TCe], context);
+  }
+  if (output[_CMo] != null) {
+    contents[_CMo] = __expectString(output[_CMo]);
+  }
   return contents;
 };
 
@@ -11559,9 +13884,9 @@ const de_DistributionIdList = (output: any, context: __SerdeContext): Distributi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_DI] != null) {
-    contents[_I] = de_DistributionIdListSummary(__getArrayIfSingleItem(output[_I][_DI]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DI] != null) {
+    contents[_It] = de_DistributionIdListSummary(__getArrayIfSingleItem(output[_It][_DI]), context);
   }
   return contents;
 };
@@ -11598,9 +13923,9 @@ const de_DistributionList = (output: any, context: __SerdeContext): Distribution
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_DS] != null) {
-    contents[_I] = de_DistributionSummaryList(__getArrayIfSingleItem(output[_I][_DS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DS] != null) {
+    contents[_It] = de_DistributionSummaryList(__getArrayIfSingleItem(output[_It][_DS]), context);
   }
   return contents;
 };
@@ -11615,6 +13940,9 @@ const de_DistributionSummary = (output: any, context: __SerdeContext): Distribut
   }
   if (output[_ARN] != null) {
     contents[_ARN] = __expectString(output[_ARN]);
+  }
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
   }
   if (output[_Sta] != null) {
     contents[_Sta] = __expectString(output[_Sta]);
@@ -11643,8 +13971,8 @@ const de_DistributionSummary = (output: any, context: __SerdeContext): Distribut
   if (output[_CERu] != null) {
     contents[_CERu] = de_CustomErrorResponses(output[_CERu], context);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_PC] != null) {
     contents[_PC] = __expectString(output[_PC]);
@@ -11675,6 +14003,12 @@ const de_DistributionSummary = (output: any, context: __SerdeContext): Distribut
   if (output[_S] != null) {
     contents[_S] = __parseBoolean(output[_S]);
   }
+  if (output[_CMo] != null) {
+    contents[_CMo] = __expectString(output[_CMo]);
+  }
+  if (output[_AILI] != null) {
+    contents[_AILI] = __expectString(output[_AILI]);
+  }
   return contents;
 };
 
@@ -11690,6 +14024,198 @@ const de_DistributionSummaryList = (output: any, context: __SerdeContext): Distr
 };
 
 /**
+ * deserializeAws_restXmlDistributionTenant
+ */
+const de_DistributionTenant = (output: any, context: __SerdeContext): DistributionTenant => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_DI] != null) {
+    contents[_DI] = __expectString(output[_DI]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output.Domains === "") {
+    contents[_D] = [];
+  } else if (output[_D] != null && output[_D][_m] != null) {
+    contents[_D] = de_DomainResultList(__getArrayIfSingleItem(output[_D][_m]), context);
+  }
+  if (output[_T] != null) {
+    contents[_T] = de_Tags(output[_T], context);
+  }
+  if (output[_C] != null) {
+    contents[_C] = de_Customizations(output[_C], context);
+  }
+  if (output.Parameters === "") {
+    contents[_P] = [];
+  } else if (output[_P] != null && output[_P][_m] != null) {
+    contents[_P] = de_Parameters(__getArrayIfSingleItem(output[_P][_m]), context);
+  }
+  if (output[_CGI] != null) {
+    contents[_CGI] = __expectString(output[_CGI]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDistributionTenantList
+ */
+const de_DistributionTenantList = (output: any, context: __SerdeContext): DistributionTenantSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DistributionTenantSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlDistributionTenantSummary
+ */
+const de_DistributionTenantSummary = (output: any, context: __SerdeContext): DistributionTenantSummary => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_DI] != null) {
+    contents[_DI] = __expectString(output[_DI]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output.Domains === "") {
+    contents[_D] = [];
+  } else if (output[_D] != null && output[_D][_m] != null) {
+    contents[_D] = de_DomainResultList(__getArrayIfSingleItem(output[_D][_m]), context);
+  }
+  if (output[_CGI] != null) {
+    contents[_CGI] = __expectString(output[_CGI]);
+  }
+  if (output[_C] != null) {
+    contents[_C] = de_Customizations(output[_C], context);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_ET] != null) {
+    contents[_ET] = __expectString(output[_ET]);
+  }
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDnsConfiguration
+ */
+const de_DnsConfiguration = (output: any, context: __SerdeContext): DnsConfiguration => {
+  const contents: any = {};
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_Rea] != null) {
+    contents[_Rea] = __expectString(output[_Rea]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDnsConfigurationList
+ */
+const de_DnsConfigurationList = (output: any, context: __SerdeContext): DnsConfiguration[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DnsConfiguration(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlDomainConflict
+ */
+const de_DomainConflict = (output: any, context: __SerdeContext): DomainConflict => {
+  const contents: any = {};
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
+  }
+  if (output[_RTe] != null) {
+    contents[_RTe] = __expectString(output[_RTe]);
+  }
+  if (output[_RI] != null) {
+    contents[_RI] = __expectString(output[_RI]);
+  }
+  if (output[_AIc] != null) {
+    contents[_AIc] = __expectString(output[_AIc]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDomainConflictsList
+ */
+const de_DomainConflictsList = (output: any, context: __SerdeContext): DomainConflict[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DomainConflict(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlDomainResult
+ */
+const de_DomainResult = (output: any, context: __SerdeContext): DomainResult => {
+  const contents: any = {};
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlDomainResultList
+ */
+const de_DomainResultList = (output: any, context: __SerdeContext): DomainResult[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_DomainResult(entry, context);
+    });
+};
+
+/**
  * deserializeAws_restXmlEncryptionEntities
  */
 const de_EncryptionEntities = (output: any, context: __SerdeContext): EncryptionEntities => {
@@ -11698,9 +14224,9 @@ const de_EncryptionEntities = (output: any, context: __SerdeContext): Encryption
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_EEn] != null) {
-    contents[_I] = de_EncryptionEntityList(__getArrayIfSingleItem(output[_I][_EEn]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_EEn] != null) {
+    contents[_It] = de_EncryptionEntityList(__getArrayIfSingleItem(output[_It][_EEn]), context);
   }
   return contents;
 };
@@ -11783,8 +14309,8 @@ const de_FieldLevelEncryptionConfig = (output: any, context: __SerdeContext): Fi
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_QAPC] != null) {
     contents[_QAPC] = de_QueryArgProfileConfig(output[_QAPC], context);
@@ -11810,9 +14336,9 @@ const de_FieldLevelEncryptionList = (output: any, context: __SerdeContext): Fiel
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_FLES] != null) {
-    contents[_I] = de_FieldLevelEncryptionSummaryList(__getArrayIfSingleItem(output[_I][_FLES]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FLES] != null) {
+    contents[_It] = de_FieldLevelEncryptionSummaryList(__getArrayIfSingleItem(output[_It][_FLES]), context);
   }
   return contents;
 };
@@ -11848,8 +14374,8 @@ const de_FieldLevelEncryptionProfileConfig = (
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_EE] != null) {
     contents[_EE] = de_EncryptionEntities(output[_EE], context);
@@ -11872,9 +14398,9 @@ const de_FieldLevelEncryptionProfileList = (output: any, context: __SerdeContext
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_FLEPS] != null) {
-    contents[_I] = de_FieldLevelEncryptionProfileSummaryList(__getArrayIfSingleItem(output[_I][_FLEPS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FLEPS] != null) {
+    contents[_It] = de_FieldLevelEncryptionProfileSummaryList(__getArrayIfSingleItem(output[_It][_FLEPS]), context);
   }
   return contents;
 };
@@ -11899,8 +14425,8 @@ const de_FieldLevelEncryptionProfileSummary = (
   if (output[_EE] != null) {
     contents[_EE] = de_EncryptionEntities(output[_EE], context);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   return contents;
 };
@@ -11930,8 +14456,8 @@ const de_FieldLevelEncryptionSummary = (output: any, context: __SerdeContext): F
   if (output[_LMT] != null) {
     contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_QAPC] != null) {
     contents[_QAPC] = de_QueryArgProfileConfig(output[_QAPC], context);
@@ -11984,9 +14510,9 @@ const de_FieldPatterns = (output: any, context: __SerdeContext): FieldPatterns =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_FPi] != null) {
-    contents[_I] = de_FieldPatternList(__getArrayIfSingleItem(output[_I][_FPi]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FPi] != null) {
+    contents[_It] = de_FieldPatternList(__getArrayIfSingleItem(output[_It][_FPi]), context);
   }
   return contents;
 };
@@ -12045,9 +14571,9 @@ const de_FunctionAssociations = (output: any, context: __SerdeContext): Function
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_FAu] != null) {
-    contents[_I] = de_FunctionAssociationList(__getArrayIfSingleItem(output[_I][_FAu]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FAu] != null) {
+    contents[_It] = de_FunctionAssociationList(__getArrayIfSingleItem(output[_It][_FAu]), context);
   }
   return contents;
 };
@@ -12057,8 +14583,8 @@ const de_FunctionAssociations = (output: any, context: __SerdeContext): Function
  */
 const de_FunctionConfig = (output: any, context: __SerdeContext): FunctionConfig => {
   const contents: any = {};
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_Ru] != null) {
     contents[_Ru] = __expectString(output[_Ru]);
@@ -12095,9 +14621,9 @@ const de_FunctionList = (output: any, context: __SerdeContext): FunctionList => 
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_FSu] != null) {
-    contents[_I] = de_FunctionSummaryList(__getArrayIfSingleItem(output[_I][_FSu]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_FSu] != null) {
+    contents[_It] = de_FunctionSummaryList(__getArrayIfSingleItem(output[_It][_FSu]), context);
   }
   return contents;
 };
@@ -12165,9 +14691,36 @@ const de_GeoRestriction = (output: any, context: __SerdeContext): GeoRestriction
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_L] != null) {
-    contents[_I] = de_LocationList(__getArrayIfSingleItem(output[_I][_L]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_L] != null) {
+    contents[_It] = de_LocationList(__getArrayIfSingleItem(output[_It][_L]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGeoRestrictionCustomization
+ */
+const de_GeoRestrictionCustomization = (output: any, context: __SerdeContext): GeoRestrictionCustomization => {
+  const contents: any = {};
+  if (output[_RT] != null) {
+    contents[_RT] = __expectString(output[_RT]);
+  }
+  if (output.Locations === "") {
+    contents[_Loc] = [];
+  } else if (output[_Loc] != null && output[_Loc][_L] != null) {
+    contents[_Loc] = de_LocationList(__getArrayIfSingleItem(output[_Loc][_L]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlGrpcConfig
+ */
+const de_GrpcConfig = (output: any, context: __SerdeContext): GrpcConfig => {
+  const contents: any = {};
+  if (output[_E] != null) {
+    contents[_E] = __parseBoolean(output[_E]);
   }
   return contents;
 };
@@ -12192,9 +14745,9 @@ const de_Headers = (output: any, context: __SerdeContext): Headers => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_N] != null) {
-    contents[_I] = de_HeaderList(__getArrayIfSingleItem(output[_I][_N]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_HeaderList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -12224,8 +14777,8 @@ const de_Invalidation = (output: any, context: __SerdeContext): Invalidation => 
  */
 const de_InvalidationBatch = (output: any, context: __SerdeContext): InvalidationBatch => {
   const contents: any = {};
-  if (output[_P] != null) {
-    contents[_P] = de_Paths(output[_P], context);
+  if (output[_Pa] != null) {
+    contents[_Pa] = de_Paths(output[_Pa], context);
   }
   if (output[_CR] != null) {
     contents[_CR] = __expectString(output[_CR]);
@@ -12254,9 +14807,9 @@ const de_InvalidationList = (output: any, context: __SerdeContext): Invalidation
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_ISnv] != null) {
-    contents[_I] = de_InvalidationSummaryList(__getArrayIfSingleItem(output[_I][_ISnv]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_ISnv] != null) {
+    contents[_It] = de_InvalidationSummaryList(__getArrayIfSingleItem(output[_It][_ISnv]), context);
   }
   return contents;
 };
@@ -12315,12 +14868,12 @@ const de_KeyGroupConfig = (output: any, context: __SerdeContext): KeyGroupConfig
     contents[_N] = __expectString(output[_N]);
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_PK] != null) {
-    contents[_I] = de_PublicKeyIdList(__getArrayIfSingleItem(output[_I][_PK]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_PK] != null) {
+    contents[_It] = de_PublicKeyIdList(__getArrayIfSingleItem(output[_It][_PK]), context);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   return contents;
 };
@@ -12340,9 +14893,9 @@ const de_KeyGroupList = (output: any, context: __SerdeContext): KeyGroupList => 
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_KGS] != null) {
-    contents[_I] = de_KeyGroupSummaryList(__getArrayIfSingleItem(output[_I][_KGS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KGS] != null) {
+    contents[_It] = de_KeyGroupSummaryList(__getArrayIfSingleItem(output[_It][_KGS]), context);
   }
   return contents;
 };
@@ -12389,9 +14942,9 @@ const de_KeyPairIds = (output: any, context: __SerdeContext): KeyPairIds => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_KPI] != null) {
-    contents[_I] = de_KeyPairIdList(__getArrayIfSingleItem(output[_I][_KPI]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KPI] != null) {
+    contents[_It] = de_KeyPairIdList(__getArrayIfSingleItem(output[_It][_KPI]), context);
   }
   return contents;
 };
@@ -12407,8 +14960,8 @@ const de_KeyValueStore = (output: any, context: __SerdeContext): KeyValueStore =
   if (output[_Id] != null) {
     contents[_Id] = __expectString(output[_Id]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_ARN] != null) {
     contents[_ARN] = __expectString(output[_ARN]);
@@ -12453,9 +15006,9 @@ const de_KeyValueStoreAssociations = (output: any, context: __SerdeContext): Key
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_KVSAe] != null) {
-    contents[_I] = de_KeyValueStoreAssociationList(__getArrayIfSingleItem(output[_I][_KVSAe]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KVSAe] != null) {
+    contents[_It] = de_KeyValueStoreAssociationList(__getArrayIfSingleItem(output[_It][_KVSAe]), context);
   }
   return contents;
 };
@@ -12475,9 +15028,9 @@ const de_KeyValueStoreList = (output: any, context: __SerdeContext): KeyValueSto
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_KVS] != null) {
-    contents[_I] = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output[_I][_KVS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KVS] != null) {
+    contents[_It] = de_KeyValueStoreSummaryList(__getArrayIfSingleItem(output[_It][_KVS]), context);
   }
   return contents;
 };
@@ -12569,9 +15122,9 @@ const de_LambdaFunctionAssociations = (output: any, context: __SerdeContext): La
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_LFAa] != null) {
-    contents[_I] = de_LambdaFunctionAssociationList(__getArrayIfSingleItem(output[_I][_LFAa]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_LFAa] != null) {
+    contents[_It] = de_LambdaFunctionAssociationList(__getArrayIfSingleItem(output[_It][_LFAa]), context);
   }
   return contents;
 };
@@ -12595,14 +15148,36 @@ const de_LoggingConfig = (output: any, context: __SerdeContext): LoggingConfig =
   if (output[_E] != null) {
     contents[_E] = __parseBoolean(output[_E]);
   }
-  if (output[_IC] != null) {
-    contents[_IC] = __parseBoolean(output[_IC]);
+  if (output[_ICn] != null) {
+    contents[_ICn] = __parseBoolean(output[_ICn]);
   }
   if (output[_B] != null) {
     contents[_B] = __expectString(output[_B]);
   }
   if (output[_Pr] != null) {
     contents[_Pr] = __expectString(output[_Pr]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlManagedCertificateDetails
+ */
+const de_ManagedCertificateDetails = (output: any, context: __SerdeContext): ManagedCertificateDetails => {
+  const contents: any = {};
+  if (output[_CA] != null) {
+    contents[_CA] = __expectString(output[_CA]);
+  }
+  if (output[_CSe] != null) {
+    contents[_CSe] = __expectString(output[_CSe]);
+  }
+  if (output[_VTH] != null) {
+    contents[_VTH] = __expectString(output[_VTH]);
+  }
+  if (output.ValidationTokenDetails === "") {
+    contents[_VTD] = [];
+  } else if (output[_VTD] != null && output[_VTD][_m] != null) {
+    contents[_VTD] = de_ValidationTokenDetailList(__getArrayIfSingleItem(output[_VTD][_m]), context);
   }
   return contents;
 };
@@ -12652,8 +15227,11 @@ const de_Origin = (output: any, context: __SerdeContext): Origin => {
   if (output[_COC] != null) {
     contents[_COC] = de_CustomOriginConfig(output[_COC], context);
   }
-  if (output[_CA] != null) {
-    contents[_CA] = __strictParseInt32(output[_CA]) as number;
+  if (output[_VOC] != null) {
+    contents[_VOC] = de_VpcOriginConfig(output[_VOC], context);
+  }
+  if (output[_CAo] != null) {
+    contents[_CAo] = __strictParseInt32(output[_CAo]) as number;
   }
   if (output[_CTon] != null) {
     contents[_CTon] = __strictParseInt32(output[_CTon]) as number;
@@ -12689,8 +15267,8 @@ const de_OriginAccessControlConfig = (output: any, context: __SerdeContext): Ori
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
   }
-  if (output[_D] != null) {
-    contents[_D] = __expectString(output[_D]);
+  if (output[_De] != null) {
+    contents[_De] = __expectString(output[_De]);
   }
   if (output[_SP] != null) {
     contents[_SP] = __expectString(output[_SP]);
@@ -12725,9 +15303,9 @@ const de_OriginAccessControlList = (output: any, context: __SerdeContext): Origi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_OACS] != null) {
-    contents[_I] = de_OriginAccessControlSummaryList(__getArrayIfSingleItem(output[_I][_OACS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OACS] != null) {
+    contents[_It] = de_OriginAccessControlSummaryList(__getArrayIfSingleItem(output[_It][_OACS]), context);
   }
   return contents;
 };
@@ -12740,8 +15318,8 @@ const de_OriginAccessControlSummary = (output: any, context: __SerdeContext): Or
   if (output[_Id] != null) {
     contents[_Id] = __expectString(output[_Id]);
   }
-  if (output[_D] != null) {
-    contents[_D] = __expectString(output[_D]);
+  if (output[_De] != null) {
+    contents[_De] = __expectString(output[_De]);
   }
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
@@ -12808,6 +15386,9 @@ const de_OriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
   if (output[_Mem] != null) {
     contents[_Mem] = de_OriginGroupMembers(output[_Mem], context);
   }
+  if (output[_SC] != null) {
+    contents[_SC] = __expectString(output[_SC]);
+  }
   return contents;
 };
 
@@ -12816,8 +15397,8 @@ const de_OriginGroup = (output: any, context: __SerdeContext): OriginGroup => {
  */
 const de_OriginGroupFailoverCriteria = (output: any, context: __SerdeContext): OriginGroupFailoverCriteria => {
   const contents: any = {};
-  if (output[_SC] != null) {
-    contents[_SC] = de_StatusCodes(output[_SC], context);
+  if (output[_SCt] != null) {
+    contents[_SCt] = de_StatusCodes(output[_SCt], context);
   }
   return contents;
 };
@@ -12864,9 +15445,9 @@ const de_OriginGroupMembers = (output: any, context: __SerdeContext): OriginGrou
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_OGM] != null) {
-    contents[_I] = de_OriginGroupMemberList(__getArrayIfSingleItem(output[_I][_OGM]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OGM] != null) {
+    contents[_It] = de_OriginGroupMemberList(__getArrayIfSingleItem(output[_It][_OGM]), context);
   }
   return contents;
 };
@@ -12880,9 +15461,9 @@ const de_OriginGroups = (output: any, context: __SerdeContext): OriginGroups => 
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_OGr] != null) {
-    contents[_I] = de_OriginGroupList(__getArrayIfSingleItem(output[_I][_OGr]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_OGr] != null) {
+    contents[_It] = de_OriginGroupList(__getArrayIfSingleItem(output[_It][_OGr]), context);
   }
   return contents;
 };
@@ -12920,8 +15501,8 @@ const de_OriginRequestPolicy = (output: any, context: __SerdeContext): OriginReq
  */
 const de_OriginRequestPolicyConfig = (output: any, context: __SerdeContext): OriginRequestPolicyConfig => {
   const contents: any = {};
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
@@ -12987,9 +15568,9 @@ const de_OriginRequestPolicyList = (output: any, context: __SerdeContext): Origi
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_ORPS] != null) {
-    contents[_I] = de_OriginRequestPolicySummaryList(__getArrayIfSingleItem(output[_I][_ORPS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_ORPS] != null) {
+    contents[_It] = de_OriginRequestPolicySummaryList(__getArrayIfSingleItem(output[_It][_ORPS]), context);
   }
   return contents;
 };
@@ -13016,8 +15597,8 @@ const de_OriginRequestPolicyQueryStringsConfig = (
  */
 const de_OriginRequestPolicySummary = (output: any, context: __SerdeContext): OriginRequestPolicySummary => {
   const contents: any = {};
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   if (output[_ORP] != null) {
     contents[_ORP] = de_OriginRequestPolicy(output[_ORP], context);
@@ -13045,9 +15626,9 @@ const de_Origins = (output: any, context: __SerdeContext): Origins => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Or] != null) {
-    contents[_I] = de_OriginList(__getArrayIfSingleItem(output[_I][_Or]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Or] != null) {
+    contents[_It] = de_OriginList(__getArrayIfSingleItem(output[_It][_Or]), context);
   }
   return contents;
 };
@@ -13075,11 +15656,72 @@ const de_OriginSslProtocols = (output: any, context: __SerdeContext): OriginSslP
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_SPs] != null) {
-    contents[_I] = de_SslProtocolsList(__getArrayIfSingleItem(output[_I][_SPs]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_SPs] != null) {
+    contents[_It] = de_SslProtocolsList(__getArrayIfSingleItem(output[_It][_SPs]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlParameter
+ */
+const de_Parameter = (output: any, context: __SerdeContext): Parameter => {
+  const contents: any = {};
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_V] != null) {
+    contents[_V] = __expectString(output[_V]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlParameterDefinition
+ */
+const de_ParameterDefinition = (output: any, context: __SerdeContext): ParameterDefinition => {
+  const contents: any = {};
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Def] != null) {
+    contents[_Def] = de_ParameterDefinitionSchema(output[_Def], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlParameterDefinitions
+ */
+const de_ParameterDefinitions = (output: any, context: __SerdeContext): ParameterDefinition[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ParameterDefinition(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlParameterDefinitionSchema
+ */
+const de_ParameterDefinitionSchema = (output: any, context: __SerdeContext): ParameterDefinitionSchema => {
+  const contents: any = {};
+  if (output[_SSt] != null) {
+    contents[_SSt] = de_StringSchemaConfig(output[_SSt], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlParameters
+ */
+const de_Parameters = (output: any, context: __SerdeContext): Parameter[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Parameter(entry, context);
+    });
 };
 
 /**
@@ -13128,9 +15770,9 @@ const de_Paths = (output: any, context: __SerdeContext): Paths => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Pa] != null) {
-    contents[_I] = de_PathList(__getArrayIfSingleItem(output[_I][_Pa]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Pat] != null) {
+    contents[_It] = de_PathList(__getArrayIfSingleItem(output[_It][_Pat]), context);
   }
   return contents;
 };
@@ -13166,8 +15808,8 @@ const de_PublicKeyConfig = (output: any, context: __SerdeContext): PublicKeyConf
   if (output[_EK] != null) {
     contents[_EK] = __expectString(output[_EK]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   return contents;
 };
@@ -13198,9 +15840,9 @@ const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKeyList =
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_PKS] != null) {
-    contents[_I] = de_PublicKeySummaryList(__getArrayIfSingleItem(output[_I][_PKS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_PKS] != null) {
+    contents[_It] = de_PublicKeySummaryList(__getArrayIfSingleItem(output[_It][_PKS]), context);
   }
   return contents;
 };
@@ -13222,8 +15864,8 @@ const de_PublicKeySummary = (output: any, context: __SerdeContext): PublicKeySum
   if (output[_EK] != null) {
     contents[_EK] = __expectString(output[_EK]);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   return contents;
 };
@@ -13287,9 +15929,9 @@ const de_QueryArgProfiles = (output: any, context: __SerdeContext): QueryArgProf
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_QAP] != null) {
-    contents[_I] = de_QueryArgProfileList(__getArrayIfSingleItem(output[_I][_QAP]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_QAP] != null) {
+    contents[_It] = de_QueryArgProfileList(__getArrayIfSingleItem(output[_It][_QAP]), context);
   }
   return contents;
 };
@@ -13303,9 +15945,9 @@ const de_QueryStringCacheKeys = (output: any, context: __SerdeContext): QueryStr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_N] != null) {
-    contents[_I] = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output[_I][_N]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_QueryStringCacheKeysList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -13330,9 +15972,9 @@ const de_QueryStringNames = (output: any, context: __SerdeContext): QueryStringN
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_N] != null) {
-    contents[_I] = de_QueryStringNamesList(__getArrayIfSingleItem(output[_I][_N]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_N] != null) {
+    contents[_It] = de_QueryStringNamesList(__getArrayIfSingleItem(output[_It][_N]), context);
   }
   return contents;
 };
@@ -13395,9 +16037,9 @@ const de_RealtimeLogConfigs = (output: any, context: __SerdeContext): RealtimeLo
     contents[_MI] = __strictParseInt32(output[_MI]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_m] != null) {
-    contents[_I] = de_RealtimeLogConfigList(__getArrayIfSingleItem(output[_I][_m]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_m] != null) {
+    contents[_It] = de_RealtimeLogConfigList(__getArrayIfSingleItem(output[_It][_m]), context);
   }
   if (output[_IT] != null) {
     contents[_IT] = __parseBoolean(output[_IT]);
@@ -13454,9 +16096,9 @@ const de_ResponseHeadersPolicyAccessControlAllowHeaders = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_H] != null) {
-    contents[_I] = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output[_I][_H]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_H] != null) {
+    contents[_It] = de_AccessControlAllowHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
   }
   return contents;
 };
@@ -13473,9 +16115,9 @@ const de_ResponseHeadersPolicyAccessControlAllowMethods = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Met] != null) {
-    contents[_I] = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output[_I][_Met]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Met] != null) {
+    contents[_It] = de_AccessControlAllowMethodsList(__getArrayIfSingleItem(output[_It][_Met]), context);
   }
   return contents;
 };
@@ -13492,9 +16134,9 @@ const de_ResponseHeadersPolicyAccessControlAllowOrigins = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Or] != null) {
-    contents[_I] = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output[_I][_Or]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Or] != null) {
+    contents[_It] = de_AccessControlAllowOriginsList(__getArrayIfSingleItem(output[_It][_Or]), context);
   }
   return contents;
 };
@@ -13511,9 +16153,9 @@ const de_ResponseHeadersPolicyAccessControlExposeHeaders = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_H] != null) {
-    contents[_I] = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output[_I][_H]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_H] != null) {
+    contents[_It] = de_AccessControlExposeHeadersList(__getArrayIfSingleItem(output[_It][_H]), context);
   }
   return contents;
 };
@@ -13523,8 +16165,8 @@ const de_ResponseHeadersPolicyAccessControlExposeHeaders = (
  */
 const de_ResponseHeadersPolicyConfig = (output: any, context: __SerdeContext): ResponseHeadersPolicyConfig => {
   const contents: any = {};
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_N] != null) {
     contents[_N] = __expectString(output[_N]);
@@ -13653,9 +16295,9 @@ const de_ResponseHeadersPolicyCustomHeadersConfig = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_RHPCH] != null) {
-    contents[_I] = de_ResponseHeadersPolicyCustomHeaderList(__getArrayIfSingleItem(output[_I][_RHPCH]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_RHPCH] != null) {
+    contents[_It] = de_ResponseHeadersPolicyCustomHeaderList(__getArrayIfSingleItem(output[_It][_RHPCH]), context);
   }
   return contents;
 };
@@ -13692,9 +16334,9 @@ const de_ResponseHeadersPolicyList = (output: any, context: __SerdeContext): Res
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_RHPS] != null) {
-    contents[_I] = de_ResponseHeadersPolicySummaryList(__getArrayIfSingleItem(output[_I][_RHPS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_RHPS] != null) {
+    contents[_It] = de_ResponseHeadersPolicySummaryList(__getArrayIfSingleItem(output[_It][_RHPS]), context);
   }
   return contents;
 };
@@ -13756,9 +16398,9 @@ const de_ResponseHeadersPolicyRemoveHeadersConfig = (
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_RHPRH] != null) {
-    contents[_I] = de_ResponseHeadersPolicyRemoveHeaderList(__getArrayIfSingleItem(output[_I][_RHPRH]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_RHPRH] != null) {
+    contents[_It] = de_ResponseHeadersPolicyRemoveHeaderList(__getArrayIfSingleItem(output[_It][_RHPRH]), context);
   }
   return contents;
 };
@@ -13837,8 +16479,8 @@ const de_ResponseHeadersPolicyStrictTransportSecurity = (
  */
 const de_ResponseHeadersPolicySummary = (output: any, context: __SerdeContext): ResponseHeadersPolicySummary => {
   const contents: any = {};
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   if (output[_RHP] != null) {
     contents[_RHP] = de_ResponseHeadersPolicy(output[_RHP], context);
@@ -13885,8 +16527,8 @@ const de_ResponseHeadersPolicyXSSProtection = (
  */
 const de_Restrictions = (output: any, context: __SerdeContext): Restrictions => {
   const contents: any = {};
-  if (output[_GR] != null) {
-    contents[_GR] = de_GeoRestriction(output[_GR], context);
+  if (output[_GRe] != null) {
+    contents[_GRe] = de_GeoRestriction(output[_GRe], context);
   }
   return contents;
 };
@@ -13986,9 +16628,9 @@ const de_StagingDistributionDnsNames = (output: any, context: __SerdeContext): S
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_DNn] != null) {
-    contents[_I] = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output[_I][_DNn]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_DNn] != null) {
+    contents[_It] = de_StagingDistributionDnsNameList(__getArrayIfSingleItem(output[_It][_DNn]), context);
   }
   return contents;
 };
@@ -14013,9 +16655,9 @@ const de_StatusCodes = (output: any, context: __SerdeContext): StatusCodes => {
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_SCt] != null) {
-    contents[_I] = de_StatusCodeList(__getArrayIfSingleItem(output[_I][_SCt]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_SCta] != null) {
+    contents[_It] = de_StatusCodeList(__getArrayIfSingleItem(output[_It][_SCta]), context);
   }
   return contents;
 };
@@ -14063,8 +16705,8 @@ const de_StreamingDistributionConfig = (output: any, context: __SerdeContext): S
   if (output[_Al] != null) {
     contents[_Al] = de_Aliases(output[_Al], context);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_Lo] != null) {
     contents[_Lo] = de_StreamingLoggingConfig(output[_Lo], context);
@@ -14102,9 +16744,9 @@ const de_StreamingDistributionList = (output: any, context: __SerdeContext): Str
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_SDS] != null) {
-    contents[_I] = de_StreamingDistributionSummaryList(__getArrayIfSingleItem(output[_I][_SDS]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_SDS] != null) {
+    contents[_It] = de_StreamingDistributionSummaryList(__getArrayIfSingleItem(output[_It][_SDS]), context);
   }
   return contents;
 };
@@ -14138,8 +16780,8 @@ const de_StreamingDistributionSummary = (output: any, context: __SerdeContext): 
   if (output[_TS] != null) {
     contents[_TS] = de_TrustedSigners(output[_TS], context);
   }
-  if (output[_C] != null) {
-    contents[_C] = __expectString(output[_C]);
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
   }
   if (output[_PC] != null) {
     contents[_PC] = __expectString(output[_PC]);
@@ -14179,6 +16821,23 @@ const de_StreamingLoggingConfig = (output: any, context: __SerdeContext): Stream
 };
 
 /**
+ * deserializeAws_restXmlStringSchemaConfig
+ */
+const de_StringSchemaConfig = (output: any, context: __SerdeContext): StringSchemaConfig => {
+  const contents: any = {};
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
+  }
+  if (output[_DV] != null) {
+    contents[_DV] = __expectString(output[_DV]);
+  }
+  if (output[_Req] != null) {
+    contents[_Req] = __parseBoolean(output[_Req]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_restXmlTag
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
@@ -14209,9 +16868,22 @@ const de_TagList = (output: any, context: __SerdeContext): Tag[] => {
 const de_Tags = (output: any, context: __SerdeContext): Tags => {
   const contents: any = {};
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_Tag] != null) {
-    contents[_I] = de_TagList(__getArrayIfSingleItem(output[_I][_Tag]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_Ta] != null) {
+    contents[_It] = de_TagList(__getArrayIfSingleItem(output[_It][_Ta]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlTenantConfig
+ */
+const de_TenantConfig = (output: any, context: __SerdeContext): TenantConfig => {
+  const contents: any = {};
+  if (output.ParameterDefinitions === "") {
+    contents[_PDa] = [];
+  } else if (output[_PDa] != null && output[_PDa][_m] != null) {
+    contents[_PDa] = de_ParameterDefinitions(__getArrayIfSingleItem(output[_PDa][_m]), context);
   }
   return contents;
 };
@@ -14252,8 +16924,8 @@ const de_TrafficConfig = (output: any, context: __SerdeContext): TrafficConfig =
   if (output[_SHCi] != null) {
     contents[_SHCi] = de_ContinuousDeploymentSingleHeaderConfig(output[_SHCi], context);
   }
-  if (output[_T] != null) {
-    contents[_T] = __expectString(output[_T]);
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
   }
   return contents;
 };
@@ -14281,9 +16953,9 @@ const de_TrustedKeyGroups = (output: any, context: __SerdeContext): TrustedKeyGr
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_KG] != null) {
-    contents[_I] = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output[_I][_KG]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_KG] != null) {
+    contents[_It] = de_TrustedKeyGroupIdList(__getArrayIfSingleItem(output[_It][_KG]), context);
   }
   return contents;
 };
@@ -14300,11 +16972,39 @@ const de_TrustedSigners = (output: any, context: __SerdeContext): TrustedSigners
     contents[_Q] = __strictParseInt32(output[_Q]) as number;
   }
   if (output.Items === "") {
-    contents[_I] = [];
-  } else if (output[_I] != null && output[_I][_AAN] != null) {
-    contents[_I] = de_AwsAccountNumberList(__getArrayIfSingleItem(output[_I][_AAN]), context);
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_AAN] != null) {
+    contents[_It] = de_AwsAccountNumberList(__getArrayIfSingleItem(output[_It][_AAN]), context);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_restXmlValidationTokenDetail
+ */
+const de_ValidationTokenDetail = (output: any, context: __SerdeContext): ValidationTokenDetail => {
+  const contents: any = {};
+  if (output[_Do] != null) {
+    contents[_Do] = __expectString(output[_Do]);
+  }
+  if (output[_RTed] != null) {
+    contents[_RTed] = __expectString(output[_RTed]);
+  }
+  if (output[_RF] != null) {
+    contents[_RF] = __expectString(output[_RF]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlValidationTokenDetailList
+ */
+const de_ValidationTokenDetailList = (output: any, context: __SerdeContext): ValidationTokenDetail[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ValidationTokenDetail(entry, context);
+    });
 };
 
 /**
@@ -14336,6 +17036,157 @@ const de_ViewerCertificate = (output: any, context: __SerdeContext): ViewerCerti
   return contents;
 };
 
+/**
+ * deserializeAws_restXmlVpcOrigin
+ */
+const de_VpcOrigin = (output: any, context: __SerdeContext): VpcOrigin => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_VOEC] != null) {
+    contents[_VOEC] = de_VpcOriginEndpointConfig(output[_VOEC], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginConfig
+ */
+const de_VpcOriginConfig = (output: any, context: __SerdeContext): VpcOriginConfig => {
+  const contents: any = {};
+  if (output[_VOI] != null) {
+    contents[_VOI] = __expectString(output[_VOI]);
+  }
+  if (output[_ORT] != null) {
+    contents[_ORT] = __strictParseInt32(output[_ORT]) as number;
+  }
+  if (output[_OKT] != null) {
+    contents[_OKT] = __strictParseInt32(output[_OKT]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginEndpointConfig
+ */
+const de_VpcOriginEndpointConfig = (output: any, context: __SerdeContext): VpcOriginEndpointConfig => {
+  const contents: any = {};
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_HTTPP] != null) {
+    contents[_HTTPP] = __strictParseInt32(output[_HTTPP]) as number;
+  }
+  if (output[_HTTPSP] != null) {
+    contents[_HTTPSP] = __strictParseInt32(output[_HTTPSP]) as number;
+  }
+  if (output[_OPP] != null) {
+    contents[_OPP] = __expectString(output[_OPP]);
+  }
+  if (output[_OSP] != null) {
+    contents[_OSP] = de_OriginSslProtocols(output[_OSP], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginList
+ */
+const de_VpcOriginList = (output: any, context: __SerdeContext): VpcOriginList => {
+  const contents: any = {};
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  if (output[_NM] != null) {
+    contents[_NM] = __expectString(output[_NM]);
+  }
+  if (output[_MI] != null) {
+    contents[_MI] = __strictParseInt32(output[_MI]) as number;
+  }
+  if (output[_IT] != null) {
+    contents[_IT] = __parseBoolean(output[_IT]);
+  }
+  if (output[_Q] != null) {
+    contents[_Q] = __strictParseInt32(output[_Q]) as number;
+  }
+  if (output.Items === "") {
+    contents[_It] = [];
+  } else if (output[_It] != null && output[_It][_VOS] != null) {
+    contents[_It] = de_VpcOriginSummaryList(__getArrayIfSingleItem(output[_It][_VOS]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginSummary
+ */
+const de_VpcOriginSummary = (output: any, context: __SerdeContext): VpcOriginSummary => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_N] != null) {
+    contents[_N] = __expectString(output[_N]);
+  }
+  if (output[_Sta] != null) {
+    contents[_Sta] = __expectString(output[_Sta]);
+  }
+  if (output[_CTr] != null) {
+    contents[_CTr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CTr]));
+  }
+  if (output[_LMT] != null) {
+    contents[_LMT] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_LMT]));
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  if (output[_OEA] != null) {
+    contents[_OEA] = __expectString(output[_OEA]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_restXmlVpcOriginSummaryList
+ */
+const de_VpcOriginSummaryList = (output: any, context: __SerdeContext): VpcOriginSummary[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_VpcOriginSummary(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_restXmlWebAclCustomization
+ */
+const de_WebAclCustomization = (output: any, context: __SerdeContext): WebAclCustomization => {
+  const contents: any = {};
+  if (output[_Ac] != null) {
+    contents[_Ac] = __expectString(output[_Ac]);
+  }
+  if (output[_Ar] != null) {
+    contents[_Ar] = __expectString(output[_Ar]);
+  }
+  return contents;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -14348,13 +17199,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _A = "Alias";
 const _AAN = "AwsAccountNumber";
 const _ACAC = "AccessControlAllowCredentials";
@@ -14364,22 +17208,36 @@ const _ACAO = "AccessControlAllowOrigins";
 const _ACEH = "AccessControlExposeHeaders";
 const _ACMAS = "AccessControlMaxAgeSec";
 const _ACMCA = "ACMCertificateArn";
-const _AI = "AccountId";
+const _ADTWACLR = "AssociateDistributionTenantWebACLRequest";
+const _ADWACLR = "AssociateDistributionWebACLRequest";
+const _AF = "AssociationFilter";
+const _AI = "AnycastIps";
 const _AICPR = "AliasICPRecordals";
 const _AICPRl = "AliasICPRecordal";
+const _AILI = "AnycastIpListId";
+const _AILN = "AnycastIpListName";
+const _AILS = "AnycastIpListSummary";
+const _AIc = "AccountId";
+const _AIn = "AnycastIp";
 const _AM = "AllowedMethods";
 const _ARN = "ARN";
 const _ATKG = "ActiveTrustedKeyGroups";
 const _ATS = "ActiveTrustedSigners";
+const _Ac = "Action";
 const _Al = "Aliases";
+const _Ar = "Arn";
 const _B = "Bucket";
-const _C = "Comment";
-const _CA = "ConnectionAttempts";
-const _CAo = "ConflictingAlias";
+const _C = "Customizations";
+const _CA = "CertificateArn";
+const _CAILR = "CreateAnycastIpListRequest";
+const _CAT = "CustomizationActionType";
+const _CAo = "ConnectionAttempts";
+const _CAon = "ConflictingAlias";
 const _CB = "CacheBehavior";
 const _CBa = "CacheBehaviors";
 const _CBo = "CookieBehavior";
 const _CC = "CookiesConfig";
+const _CCGR = "CreateConnectionGroupRequest";
 const _CCo = "CorsConfig";
 const _CDP = "ContinuousDeploymentPolicy";
 const _CDPC = "ContinuousDeploymentPolicyConfig";
@@ -14389,16 +17247,22 @@ const _CDPT = "ContinuousDeploymentPolicyType";
 const _CDR = "CopyDistributionRequest";
 const _CDSHC = "ContinuousDeploymentSingleHeaderConfig";
 const _CDSWC = "ContinuousDeploymentSingleWeightConfig";
+const _CDTR = "CreateDistributionTenantRequest";
 const _CER = "CustomErrorResponse";
 const _CERu = "CustomErrorResponses";
 const _CFDC = "CloudFrontDefaultCertificate";
 const _CFOAIC = "CloudFrontOriginAccessIdentityConfig";
 const _CFOAIS = "CloudFrontOriginAccessIdentitySummary";
 const _CFR = "CreateFunctionRequest";
+const _CG = "ConnectionGroups";
+const _CGAF = "ConnectionGroupAssociationFilter";
+const _CGI = "ConnectionGroupId";
+const _CGS = "ConnectionGroupSummary";
 const _CH = "CustomHeaders";
 const _CHC = "CustomHeadersConfig";
 const _CKVSR = "CreateKeyValueStoreRequest";
 const _CM = "CachedMethods";
+const _CMo = "ConnectionMode";
 const _CN = "CookieNames";
 const _CNAME = "CNAME";
 const _COC = "CustomOriginConfig";
@@ -14417,7 +17281,9 @@ const _CR = "CallerReference";
 const _CRLCR = "CreateRealtimeLogConfigRequest";
 const _CS = "CertificateSource";
 const _CSP = "ContentSecurityPolicy";
+const _CSe = "CertificateStatus";
 const _CT = "ContentType";
+const _CTLP = "CertificateTransparencyLoggingPreference";
 const _CTO = "ContentTypeOptions";
 const _CTP = "ContentTypeProfile";
 const _CTPC = "ContentTypeProfileConfig";
@@ -14427,20 +17293,36 @@ const _CTon = "ConnectionTimeout";
 const _CTr = "CreatedTime";
 const _CTre = "CreateTime";
 const _CU = "ComputeUtilization";
+const _CVOR = "CreateVpcOriginRequest";
 const _Ce = "Certificate";
-const _Co = "Compress";
+const _Co = "Comment";
+const _Com = "Compress";
 const _Coo = "Cookies";
-const _D = "Description";
-const _DC = "DistributionConfig";
+const _D = "Domains";
+const _DC = "DomainConflicts";
 const _DCB = "DefaultCacheBehavior";
+const _DCL = "DnsConfigurationList";
+const _DCVR = "DomainControlValidationResource";
 const _DCWT = "DistributionConfigWithTags";
+const _DCi = "DistributionConfig";
+const _DCn = "DnsConfiguration";
 const _DI = "DistributionId";
+const _DIo = "DomainItem";
 const _DN = "DomainName";
 const _DNn = "DnsName";
+const _DRI = "DistributionResourceId";
 const _DRLCR = "DeleteRealtimeLogConfigRequest";
 const _DRO = "DefaultRootObject";
 const _DS = "DistributionSummary";
+const _DTAF = "DistributionTenantAssociationFilter";
+const _DTI = "DistributionTenantId";
+const _DTL = "DistributionTenantList";
+const _DTS = "DistributionTenantSummary";
 const _DTTL = "DefaultTTL";
+const _DV = "DefaultValue";
+const _De = "Description";
+const _Def = "Definition";
+const _Do = "Domain";
 const _E = "Enabled";
 const _EAEB = "EnableAcceptEncodingBrotli";
 const _EAEG = "EnableAcceptEncodingGzip";
@@ -14487,9 +17369,12 @@ const _FWQAPIU = "ForwardWhenQueryArgProfileIsUnknown";
 const _Fi = "Field";
 const _Fo = "Format";
 const _For = "Forward";
-const _GR = "GeoRestriction";
+const _GC = "GrpcConfig";
+const _GR = "GeoRestrictions";
+const _GRC = "GeoRestrictionCustomization";
 const _GRLCR = "GetRealtimeLogConfigRequest";
 const _GRT = "GeoRestrictionType";
+const _GRe = "GeoRestriction";
 const _H = "Header";
 const _HB = "HeaderBehavior";
 const _HC = "HeadersConfig";
@@ -14499,12 +17384,15 @@ const _HTTPSP = "HTTPSPort";
 const _HV = "HttpVersion";
 const _HVe = "HeaderValue";
 const _He = "Headers";
-const _I = "Items";
+const _I = "Identifier";
 const _IAMCI = "IAMCertificateId";
 const _IB = "InvalidationBatch";
 const _IBn = "IncludeBody";
-const _IC = "IncludeCookies";
+const _IC = "IpCount";
 const _ICPRS = "ICPRecordalStatus";
+const _ICn = "IncludeCookies";
+const _ID = "IsDefault";
+const _IE = "Ipv6Enabled";
 const _IIPVE = "IsIPV6Enabled";
 const _IM = "IfMatch";
 const _IPIB = "InProgressInvalidationBatches";
@@ -14516,6 +17404,7 @@ const _ISt = "ItemSelection";
 const _IT = "IsTruncated";
 const _ITTL = "IdleTTL";
 const _Id = "Id";
+const _It = "Items";
 const _K = "Key";
 const _KG = "KeyGroup";
 const _KGC = "KeyGroupConfig";
@@ -14532,14 +17421,20 @@ const _KVSC = "KeyValueStoreComment";
 const _KVSN = "KeyValueStoreName";
 const _L = "Location";
 const _LC = "LoggingConfig";
+const _LCGR = "ListConnectionGroupsRequest";
 const _LDBRLCR = "ListDistributionsByRealtimeLogConfigRequest";
+const _LDCR = "ListDomainConflictsRequest";
+const _LDTBCR = "ListDistributionTenantsByCustomizationRequest";
+const _LDTR = "ListDistributionTenantsRequest";
 const _LFA = "LambdaFunctionAssociations";
 const _LFARN = "LambdaFunctionARN";
 const _LFAa = "LambdaFunctionAssociation";
 const _LMT = "LastModifiedTime";
 const _Lo = "Logging";
+const _Loc = "Locations";
 const _M = "Marker";
 const _MB = "ModeBlock";
+const _MCR = "ManagedCertificateRequest";
 const _MI = "MaxItems";
 const _MPV = "MinimumProtocolVersion";
 const _MS = "MonitoringSubscription";
@@ -14561,10 +17456,12 @@ const _OACSB = "OriginAccessControlSigningBehaviors";
 const _OACSP = "OriginAccessControlSigningProtocols";
 const _OAI = "OriginAccessIdentity";
 const _OCH = "OriginCustomHeader";
+const _OEA = "OriginEndpointArn";
 const _OG = "OriginGroups";
 const _OGFC = "OriginGroupFailoverCriteria";
 const _OGM = "OriginGroupMember";
 const _OGMr = "OriginGroupMembers";
+const _OGSC = "OriginGroupSelectionCriteria";
 const _OGr = "OriginGroup";
 const _OI = "OriginId";
 const _OKT = "OriginKeepaliveTimeout";
@@ -14588,8 +17485,12 @@ const _OSR = "OriginShieldRegion";
 const _Or = "Origin";
 const _Ori = "Origins";
 const _Ov = "Override";
-const _P = "Paths";
+const _P = "Parameters";
 const _PC = "PriceClass";
+const _PD = "ParameterDefinition";
+const _PDN = "PrimaryDomainName";
+const _PDS = "ParameterDefinitionSchema";
+const _PDa = "ParameterDefinitions";
 const _PI = "ProfileId";
 const _PICKAFTO = "ParametersInCacheKeyAndForwardedToOrigin";
 const _PIr = "ProviderId";
@@ -14597,8 +17498,12 @@ const _PK = "PublicKey";
 const _PKC = "PublicKeyConfig";
 const _PKI = "PublicKeyId";
 const _PKS = "PublicKeySummary";
+const _PN = "ParameterName";
 const _PP = "PathPattern";
-const _Pa = "Path";
+const _PV = "ParameterValue";
+const _Pa = "Paths";
+const _Par = "Parameter";
+const _Pat = "Path";
 const _Pr = "Prefix";
 const _Pre = "Preload";
 const _Pro = "Protection";
@@ -14616,6 +17521,8 @@ const _QSu = "QueryString";
 const _R = "Resource";
 const _RARN = "RoleARN";
 const _RC = "ResponseCode";
+const _RE = "RoutingEndpoint";
+const _RF = "RedirectFrom";
 const _RHC = "RemoveHeadersConfig";
 const _RHP = "ResponseHeadersPolicy";
 const _RHPACAH = "ResponseHeadersPolicyAccessControlAllowHeaders";
@@ -14639,6 +17546,7 @@ const _RHPSHC = "ResponseHeadersPolicySecurityHeadersConfig";
 const _RHPSTHC = "ResponseHeadersPolicyServerTimingHeadersConfig";
 const _RHPSTS = "ResponseHeadersPolicyStrictTransportSecurity";
 const _RHPXSSP = "ResponseHeadersPolicyXSSProtection";
+const _RI = "ResourceId";
 const _RLC = "RealtimeLogConfig";
 const _RLCA = "RealtimeLogConfigArn";
 const _RLCN = "RealtimeLogConfigName";
@@ -14648,16 +17556,21 @@ const _RP = "ReferrerPolicy";
 const _RPL = "ReferrerPolicyList";
 const _RPP = "ResponsePagePath";
 const _RT = "RestrictionType";
+const _RTe = "ResourceType";
+const _RTed = "RedirectTo";
 const _RU = "ReportUri";
 const _Re = "Restrictions";
+const _Rea = "Reason";
+const _Req = "Required";
 const _Ru = "Runtime";
 const _S = "Staging";
 const _SARN = "SourceARN";
 const _SARNt = "StreamARN";
 const _SB = "SigningBehavior";
-const _SC = "StatusCodes";
+const _SC = "SelectionCriteria";
 const _SCUI = "S3CanonicalUserId";
-const _SCt = "StatusCode";
+const _SCt = "StatusCodes";
+const _SCta = "StatusCode";
 const _SDC = "StreamingDistributionConfig";
 const _SDCWT = "StreamingDistributionConfigWithTags";
 const _SDDN = "StagingDistributionDnsNames";
@@ -14673,7 +17586,9 @@ const _SPs = "SslProtocol";
 const _SR = "SamplingRate";
 const _SS = "SmoothStreaming";
 const _SSC = "SessionStickinessConfig";
+const _SSCt = "StringSchemaConfig";
 const _SSLSM = "SSLSupportMethod";
+const _SSt = "StringSchema";
 const _ST = "StreamType";
 const _STHC = "ServerTimingHeadersConfig";
 const _STS = "StrictTransportSecurity";
@@ -14682,30 +17597,46 @@ const _SWC = "SingleWeightConfig";
 const _Si = "Signer";
 const _St = "Stage";
 const _Sta = "Status";
-const _T = "Type";
+const _T = "Tags";
 const _TC = "TrafficConfig";
+const _TCe = "TenantConfig";
 const _TFR = "TestFunctionRequest";
 const _TK = "TagKey";
 const _TKG = "TrustedKeyGroups";
 const _TKa = "TagKeys";
 const _TOI = "TargetOriginId";
+const _TR = "TargetResource";
 const _TS = "TrustedSigners";
 const _TV = "TagValue";
-const _Ta = "Tags";
-const _Tag = "Tag";
+const _Ta = "Tag";
+const _Ty = "Type";
+const _UCGR = "UpdateConnectionGroupRequest";
+const _UDAR = "UpdateDomainAssociationRequest";
+const _UDTR = "UpdateDistributionTenantRequest";
 const _UFR = "UpdateFunctionRequest";
 const _UKVSR = "UpdateKeyValueStoreRequest";
 const _URLCR = "UpdateRealtimeLogConfigRequest";
 const _V = "Value";
 const _VC = "ViewerCertificate";
+const _VDCR = "VerifyDnsConfigurationRequest";
+const _VOC = "VpcOriginConfig";
+const _VOEC = "VpcOriginEndpointConfig";
+const _VOI = "VpcOriginId";
+const _VOS = "VpcOriginSummary";
 const _VPP = "ViewerProtocolPolicy";
+const _VTD = "ValidationTokenDetails";
+const _VTH = "ValidationTokenHost";
 const _W = "Weight";
+const _WA = "WebAcl";
+const _WAC = "WebAclCustomization";
+const _WACLA = "WebACLArn";
 const _WACLI = "WebACLId";
 const _WN = "WhitelistedNames";
 const _WT = "WithTags";
 const _XSSP = "XSSProtection";
 const _b = "boolean";
 const _ct = "content-type";
+const _d = "domain";
 const _e = "etag";
 const _et = "ettag";
 const _f = "float";
@@ -14714,7 +17645,7 @@ const _im = "if-match";
 const _l = "long";
 const _lo = "location";
 const _m = "member";
-const _s = "staging";
+const _s = "string";
 const _sST = "sensitiveStringType";
-const _st = "string";
+const _st = "staging";
 const _ve = '<?xml version="1.0" encoding="UTF-8"?>';

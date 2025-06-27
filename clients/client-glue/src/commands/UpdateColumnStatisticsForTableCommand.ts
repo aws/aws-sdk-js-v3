@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_2";
+import { UpdateColumnStatisticsForTableRequest, UpdateColumnStatisticsForTableResponse } from "../models/models_3";
 import {
   de_UpdateColumnStatisticsForTableCommand,
   se_UpdateColumnStatisticsForTableCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -194,6 +195,7 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateColumnStatisticsForTableCommand extends $Command
@@ -204,9 +206,7 @@ export class UpdateColumnStatisticsForTableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -218,4 +218,16 @@ export class UpdateColumnStatisticsForTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateColumnStatisticsForTableCommand)
   .de(de_UpdateColumnStatisticsForTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateColumnStatisticsForTableRequest;
+      output: UpdateColumnStatisticsForTableResponse;
+    };
+    sdk: {
+      input: UpdateColumnStatisticsForTableCommandInput;
+      output: UpdateColumnStatisticsForTableCommandOutput;
+    };
+  };
+}

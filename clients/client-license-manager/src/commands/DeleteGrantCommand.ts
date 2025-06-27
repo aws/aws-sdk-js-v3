@@ -12,7 +12,8 @@ import { de_DeleteGrantCommand, se_DeleteGrantCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface DeleteGrantCommandOutput extends DeleteGrantResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteGrantCommand extends $Command
@@ -90,9 +92,7 @@ export class DeleteGrantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DeleteGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGrantCommand)
   .de(de_DeleteGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGrantRequest;
+      output: DeleteGrantResponse;
+    };
+    sdk: {
+      input: DeleteGrantCommandInput;
+      output: DeleteGrantCommandOutput;
+    };
+  };
+}

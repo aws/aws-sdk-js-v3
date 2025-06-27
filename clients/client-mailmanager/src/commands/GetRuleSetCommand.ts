@@ -12,7 +12,8 @@ import { de_GetRuleSetCommand, se_GetRuleSetCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,12 +54,27 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //           BooleanExpression: { // RuleBooleanExpression
  * //             Evaluate: { // RuleBooleanToEvaluate Union: only one key present
  * //               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ * //               Analysis: { // Analysis
+ * //                 Analyzer: "STRING_VALUE", // required
+ * //                 ResultField: "STRING_VALUE", // required
+ * //               },
+ * //               IsInAddressList: { // RuleIsInAddressList
+ * //                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ * //                 AddressLists: [ // RuleAddressListArnList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
  * //             Operator: "IS_TRUE" || "IS_FALSE", // required
  * //           },
  * //           StringExpression: { // RuleStringExpression
  * //             Evaluate: { // RuleStringToEvaluate Union: only one key present
  * //               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ * //               MimeHeaderAttribute: "STRING_VALUE",
+ * //               Analysis: {
+ * //                 Analyzer: "STRING_VALUE", // required
+ * //                 ResultField: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  * //             Values: [ // RuleStringList // required
@@ -84,7 +100,7 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //           VerdictExpression: { // RuleVerdictExpression
  * //             Evaluate: { // RuleVerdictToEvaluate Union: only one key present
  * //               Attribute: "SPF" || "DKIM",
- * //               Analysis: { // Analysis
+ * //               Analysis: {
  * //                 Analyzer: "STRING_VALUE", // required
  * //                 ResultField: "STRING_VALUE", // required
  * //               },
@@ -107,12 +123,27 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //           BooleanExpression: {
  * //             Evaluate: {//  Union: only one key present
  * //               Attribute: "READ_RECEIPT_REQUESTED" || "TLS" || "TLS_WRAPPED",
+ * //               Analysis: {
+ * //                 Analyzer: "STRING_VALUE", // required
+ * //                 ResultField: "STRING_VALUE", // required
+ * //               },
+ * //               IsInAddressList: {
+ * //                 Attribute: "RECIPIENT" || "MAIL_FROM" || "SENDER" || "FROM" || "TO" || "CC", // required
+ * //                 AddressLists: [ // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
  * //             Operator: "IS_TRUE" || "IS_FALSE", // required
  * //           },
  * //           StringExpression: {
  * //             Evaluate: {//  Union: only one key present
  * //               Attribute: "MAIL_FROM" || "HELO" || "RECIPIENT" || "SENDER" || "FROM" || "SUBJECT" || "TO" || "CC",
+ * //               MimeHeaderAttribute: "STRING_VALUE",
+ * //               Analysis: {
+ * //                 Analyzer: "STRING_VALUE", // required
+ * //                 ResultField: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  * //             Values: [ // required
@@ -138,10 +169,7 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //           VerdictExpression: {
  * //             Evaluate: {//  Union: only one key present
  * //               Attribute: "SPF" || "DKIM",
- * //               Analysis: {
- * //                 Analyzer: "STRING_VALUE", // required
- * //                 ResultField: "STRING_VALUE", // required
- * //               },
+ * //               Analysis: "<Analysis>",
  * //             },
  * //             Operator: "EQUALS" || "NOT_EQUALS", // required
  * //             Values: [ // required
@@ -193,6 +221,19 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * //             MailboxArn: "STRING_VALUE", // required
  * //             RoleArn: "STRING_VALUE", // required
  * //           },
+ * //           DeliverToQBusiness: { // DeliverToQBusinessAction
+ * //             ActionFailurePolicy: "CONTINUE" || "DROP",
+ * //             ApplicationId: "STRING_VALUE", // required
+ * //             IndexId: "STRING_VALUE", // required
+ * //             RoleArn: "STRING_VALUE", // required
+ * //           },
+ * //           PublishToSns: { // SnsAction
+ * //             ActionFailurePolicy: "CONTINUE" || "DROP",
+ * //             TopicArn: "STRING_VALUE", // required
+ * //             RoleArn: "STRING_VALUE", // required
+ * //             Encoding: "UTF-8" || "BASE64",
+ * //             PayloadType: "HEADERS" || "CONTENT",
+ * //           },
  * //         },
  * //       ],
  * //     },
@@ -216,6 +257,7 @@ export interface GetRuleSetCommandOutput extends GetRuleSetResponse, __MetadataB
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetRuleSetCommand extends $Command
@@ -226,9 +268,7 @@ export class GetRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -240,4 +280,16 @@ export class GetRuleSetCommand extends $Command
   .f(void 0, GetRuleSetResponseFilterSensitiveLog)
   .ser(se_GetRuleSetCommand)
   .de(de_GetRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleSetRequest;
+      output: GetRuleSetResponse;
+    };
+    sdk: {
+      input: GetRuleSetCommandInput;
+      output: GetRuleSetCommandOutput;
+    };
+  };
+}

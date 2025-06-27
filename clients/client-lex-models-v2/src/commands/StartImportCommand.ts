@@ -12,7 +12,8 @@ import { de_StartImportCommand, se_StartImportCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,6 +45,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *       dataPrivacy: { // DataPrivacy
  *         childDirected: true || false, // required
  *       },
+ *       errorLogSettings: { // ErrorLogSettings
+ *         enabled: true || false, // required
+ *       },
  *       idleSessionTTLInSeconds: Number("int"),
  *       botTags: { // TagMap
  *         "<keys>": "STRING_VALUE",
@@ -59,7 +63,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  *       nluIntentConfidenceThreshold: Number("double"),
  *       voiceSettings: { // VoiceSettings
  *         voiceId: "STRING_VALUE", // required
- *         engine: "standard" || "neural",
+ *         engine: "standard" || "neural" || "long-form" || "generative",
  *       },
  *     },
  *     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
@@ -100,6 +104,9 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //       dataPrivacy: { // DataPrivacy
  * //         childDirected: true || false, // required
  * //       },
+ * //       errorLogSettings: { // ErrorLogSettings
+ * //         enabled: true || false, // required
+ * //       },
  * //       idleSessionTTLInSeconds: Number("int"),
  * //       botTags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
@@ -115,7 +122,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * //       nluIntentConfidenceThreshold: Number("double"),
  * //       voiceSettings: { // VoiceSettings
  * //         voiceId: "STRING_VALUE", // required
- * //         engine: "standard" || "neural",
+ * //         engine: "standard" || "neural" || "long-form" || "generative",
  * //       },
  * //     },
  * //     customVocabularyImportSpecification: { // CustomVocabularyImportSpecification
@@ -182,6 +189,7 @@ export interface StartImportCommandOutput extends StartImportResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class StartImportCommand extends $Command
@@ -192,9 +200,7 @@ export class StartImportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +212,16 @@ export class StartImportCommand extends $Command
   .f(StartImportRequestFilterSensitiveLog, void 0)
   .ser(se_StartImportCommand)
   .de(de_StartImportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportRequest;
+      output: StartImportResponse;
+    };
+    sdk: {
+      input: StartImportCommandInput;
+      output: StartImportCommandOutput;
+    };
+  };
+}

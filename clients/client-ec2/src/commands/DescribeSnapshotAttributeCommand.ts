@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSnapshotAttributeRequest, DescribeSnapshotAttributeResult } from "../models/models_4";
+import { DescribeSnapshotAttributeRequest, DescribeSnapshotAttributeResult } from "../models/models_5";
 import { de_DescribeSnapshotAttributeCommand, se_DescribeSnapshotAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,12 +45,6 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSnapshotAttributeResult
- * //   CreateVolumePermissions: [ // CreateVolumePermissionList
- * //     { // CreateVolumePermission
- * //       Group: "all",
- * //       UserId: "STRING_VALUE",
- * //     },
- * //   ],
  * //   ProductCodes: [ // ProductCodeList
  * //     { // ProductCode
  * //       ProductCodeId: "STRING_VALUE",
@@ -57,6 +52,12 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * //     },
  * //   ],
  * //   SnapshotId: "STRING_VALUE",
+ * //   CreateVolumePermissions: [ // CreateVolumePermissionList
+ * //     { // CreateVolumePermission
+ * //       UserId: "STRING_VALUE",
+ * //       Group: "all",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -70,25 +71,25 @@ export interface DescribeSnapshotAttributeCommandOutput extends DescribeSnapshot
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe snapshot attributes
  * ```javascript
  * // This example describes the ``createVolumePermission`` attribute on a snapshot with the snapshot ID of ``snap-066877671789bd71b``.
  * const input = {
- *   "Attribute": "createVolumePermission",
- *   "SnapshotId": "snap-066877671789bd71b"
+ *   Attribute: "createVolumePermission",
+ *   SnapshotId: "snap-066877671789bd71b"
  * };
  * const command = new DescribeSnapshotAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateVolumePermissions": [],
- *   "SnapshotId": "snap-066877671789bd71b"
+ *   CreateVolumePermissions:   [],
+ *   SnapshotId: "snap-066877671789bd71b"
  * }
  * *\/
- * // example id: to-describe-snapshot-attributes-1472503199736
  * ```
  *
+ * @public
  */
 export class DescribeSnapshotAttributeCommand extends $Command
   .classBuilder<
@@ -98,9 +99,7 @@ export class DescribeSnapshotAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DescribeSnapshotAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSnapshotAttributeCommand)
   .de(de_DescribeSnapshotAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSnapshotAttributeRequest;
+      output: DescribeSnapshotAttributeResult;
+    };
+    sdk: {
+      input: DescribeSnapshotAttributeCommandInput;
+      output: DescribeSnapshotAttributeCommandOutput;
+    };
+  };
+}

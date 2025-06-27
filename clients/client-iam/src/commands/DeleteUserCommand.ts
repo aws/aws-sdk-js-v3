@@ -12,7 +12,8 @@ import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_que
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,18 +105,21 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete an IAM user
  * ```javascript
  * // The following command removes the IAM user named Bob from the current account.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new DeleteUserCommand(input);
- * await client.send(command);
- * // example id: a13dc3f9-59fe-42d9-abbb-fb98b204fdf0
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteUserCommand extends $Command
   .classBuilder<
@@ -125,9 +129,7 @@ export class DeleteUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +141,16 @@ export class DeleteUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserCommand)
   .de(de_DeleteUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserCommandInput;
+      output: DeleteUserCommandOutput;
+    };
+  };
+}

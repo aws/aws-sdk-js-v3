@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,12 @@ export interface CreateEksAnywhereSubscriptionCommandOutput
  * //     licenseArns: [ // StringList
  * //       "STRING_VALUE",
  * //     ],
+ * //     licenses: [ // LicenseList
+ * //       { // License
+ * //         id: "STRING_VALUE",
+ * //         token: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -111,6 +118,7 @@ export interface CreateEksAnywhereSubscriptionCommandOutput
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
  *
+ *
  * @public
  */
 export class CreateEksAnywhereSubscriptionCommand extends $Command
@@ -121,9 +129,7 @@ export class CreateEksAnywhereSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +141,16 @@ export class CreateEksAnywhereSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEksAnywhereSubscriptionCommand)
   .de(de_CreateEksAnywhereSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEksAnywhereSubscriptionRequest;
+      output: CreateEksAnywhereSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateEksAnywhereSubscriptionCommandInput;
+      output: CreateEksAnywhereSubscriptionCommandOutput;
+    };
+  };
+}

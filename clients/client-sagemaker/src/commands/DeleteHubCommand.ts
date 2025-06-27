@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,6 @@ export interface DeleteHubCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Delete a hub.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +59,7 @@ export interface DeleteHubCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteHubCommand extends $Command
@@ -71,9 +70,7 @@ export class DeleteHubCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +82,16 @@ export class DeleteHubCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHubCommand)
   .de(de_DeleteHubCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHubRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHubCommandInput;
+      output: DeleteHubCommandOutput;
+    };
+  };
+}

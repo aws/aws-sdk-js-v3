@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -188,37 +189,37 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To create a rule
  * ```javascript
  * // The following example creates a rule named WAFByteHeaderRule.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "MetricName": "WAFByteHeaderRule",
- *   "Name": "WAFByteHeaderRule"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   MetricName: "WAFByteHeaderRule",
+ *   Name: "WAFByteHeaderRule"
  * };
  * const command = new CreateRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Rule": {
- *     "MetricName": "WAFByteHeaderRule",
- *     "Name": "WAFByteHeaderRule",
- *     "Predicates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Rule: {
+ *     MetricName: "WAFByteHeaderRule",
+ *     Name: "WAFByteHeaderRule",
+ *     Predicates: [
  *       {
- *         "DataId": "MyByteMatchSetID",
- *         "Negated": false,
- *         "Type": "ByteMatch"
+ *         DataId: "MyByteMatchSetID",
+ *         Negated: false,
+ *         Type: "ByteMatch"
  *       }
  *     ],
- *     "RuleId": "WAFRule-1-Example"
+ *     RuleId: "WAFRule-1-Example"
  *   }
  * }
  * *\/
- * // example id: createrule-1474072675555
  * ```
  *
+ * @public
  */
 export class CreateRuleCommand extends $Command
   .classBuilder<
@@ -228,9 +229,7 @@ export class CreateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +241,16 @@ export class CreateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRuleCommand)
   .de(de_CreateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleRequest;
+      output: CreateRuleResponse;
+    };
+    sdk: {
+      input: CreateRuleCommandInput;
+      output: CreateRuleCommandOutput;
+    };
+  };
+}

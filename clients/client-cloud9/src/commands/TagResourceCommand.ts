@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,12 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * <p>Adds tags to an Cloud9 development environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  *          <important>
  *             <p>Tags that you add to an Cloud9 environment by using this method will NOT be
  *         automatically propagated to underlying resources.</p>
@@ -74,6 +81,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -84,9 +92,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +104,16 @@ export class TagResourceCommand extends $Command
   .f(TagResourceRequestFilterSensitiveLog, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

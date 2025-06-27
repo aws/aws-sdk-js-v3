@@ -12,7 +12,8 @@ import { de_CreateGrantCommand, se_CreateGrantCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
- *             </i>. For examples of working with grants in several
- *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
+ *             </i>. For examples of creating grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
  *          <p>The <code>CreateGrant</code> operation returns a <code>GrantToken</code> and a
  *         <code>GrantId</code>.</p>
  *          <ul>
@@ -45,8 +46,8 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *                <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout KMS. This state is known as <i>eventual consistency</i>. Once the grant has achieved eventual consistency, the grantee
  *           principal can use the permissions in the grant without identifying the grant. </p>
  *                <p>However, to use the permissions in the grant immediately, use the
- *             <code>GrantToken</code> that <code>CreateGrant</code> returns. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#using-grant-token">Using a
- *             grant token</a> in the <i>
+ *             <code>GrantToken</code> that <code>CreateGrant</code> returns. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/using-grant-token.html">Using a grant
+ *             token</a> in the <i>
  *                      <i>Key Management Service Developer Guide</i>
  *                   </i>.</p>
  *             </li>
@@ -91,7 +92,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,7 +104,7 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *   GranteePrincipal: "STRING_VALUE", // required
  *   RetiringPrincipal: "STRING_VALUE",
  *   Operations: [ // GrantOperationList // required
- *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac",
+ *     "Decrypt" || "Encrypt" || "GenerateDataKey" || "GenerateDataKeyWithoutPlaintext" || "ReEncryptFrom" || "ReEncryptTo" || "Sign" || "Verify" || "GetPublicKey" || "CreateGrant" || "RetireGrant" || "DescribeKey" || "GenerateDataKeyPair" || "GenerateDataKeyPairWithoutPlaintext" || "GenerateMac" || "VerifyMac" || "DeriveSharedSecret",
  *   ],
  *   Constraints: { // GrantConstraints
  *     EncryptionContextSubset: { // EncryptionContextType
@@ -176,8 +177,9 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The request was rejected because the specified entity or resource could not be
@@ -186,29 +188,29 @@ export interface CreateGrantCommandOutput extends CreateGrantResponse, __Metadat
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To create a grant
  * ```javascript
  * // The following example creates a grant that allows the specified IAM role to encrypt data with the specified KMS key.
  * const input = {
- *   "GranteePrincipal": "arn:aws:iam::111122223333:role/ExampleRole",
- *   "KeyId": "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Operations": [
+ *   GranteePrincipal: "arn:aws:iam::111122223333:role/ExampleRole",
+ *   KeyId: "arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Operations: [
  *     "Encrypt",
  *     "Decrypt"
  *   ]
  * };
  * const command = new CreateGrantCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GrantId": "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
- *   "GrantToken": "AQpAM2RhZTk1MGMyNTk2ZmZmMzEyYWVhOWViN2I1MWM4Mzc0MWFiYjc0ZDE1ODkyNGFlNTIzODZhMzgyZjBlNGY3NiKIAgEBAgB4Pa6VDCWW__MSrqnre1HIN0Grt00ViSSuUjhqOC8OT3YAAADfMIHcBgkqhkiG9w0BBwaggc4wgcsCAQAwgcUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmqLyBTAegIn9XlK5AgEQgIGXZQjkBcl1dykDdqZBUQ6L1OfUivQy7JVYO2-ZJP7m6f1g8GzV47HX5phdtONAP7K_HQIflcgpkoCqd_fUnE114mSmiagWkbQ5sqAVV3ov-VeqgrvMe5ZFEWLMSluvBAqdjHEdMIkHMlhlj4ENZbzBfo9Wxk8b8SnwP4kc4gGivedzFXo-dwN8fxjjq_ZZ9JFOj2ijIbj5FyogDCN0drOfi8RORSEuCEmPvjFRMFAwcmwFkN2NPp89amA"
+ *   GrantId: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
+ *   GrantToken: "AQpAM2RhZTk1MGMyNTk2ZmZmMzEyYWVhOWViN2I1MWM4Mzc0MWFiYjc0ZDE1ODkyNGFlNTIzODZhMzgyZjBlNGY3NiKIAgEBAgB4Pa6VDCWW__MSrqnre1HIN0Grt00ViSSuUjhqOC8OT3YAAADfMIHcBgkqhkiG9w0BBwaggc4wgcsCAQAwgcUGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMmqLyBTAegIn9XlK5AgEQgIGXZQjkBcl1dykDdqZBUQ6L1OfUivQy7JVYO2-ZJP7m6f1g8GzV47HX5phdtONAP7K_HQIflcgpkoCqd_fUnE114mSmiagWkbQ5sqAVV3ov-VeqgrvMe5ZFEWLMSluvBAqdjHEdMIkHMlhlj4ENZbzBfo9Wxk8b8SnwP4kc4gGivedzFXo-dwN8fxjjq_ZZ9JFOj2ijIbj5FyogDCN0drOfi8RORSEuCEmPvjFRMFAwcmwFkN2NPp89amA"
  * }
  * *\/
- * // example id: to-create-a-grant-1477972226782
  * ```
  *
+ * @public
  */
 export class CreateGrantCommand extends $Command
   .classBuilder<
@@ -218,9 +220,7 @@ export class CreateGrantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -232,4 +232,16 @@ export class CreateGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGrantCommand)
   .de(de_CreateGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGrantRequest;
+      output: CreateGrantResponse;
+    };
+    sdk: {
+      input: CreateGrantCommandInput;
+      output: CreateGrantCommandOutput;
+    };
+  };
+}

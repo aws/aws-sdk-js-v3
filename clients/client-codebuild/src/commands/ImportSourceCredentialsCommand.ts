@@ -16,7 +16,8 @@ import { de_ImportSourceCredentialsCommand, se_ImportSourceCredentialsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
 
 /**
  * <p> Imports the source repository credentials for an CodeBuild project that has its
- *             source code stored in a GitHub, GitHub Enterprise, or Bitbucket repository. </p>
+ *             source code stored in a GitHub, GitHub Enterprise, GitLab, GitLab Self Managed, or Bitbucket repository. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,7 +44,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  *   username: "STRING_VALUE",
  *   token: "STRING_VALUE", // required
  *   serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "GITLAB" || "GITLAB_SELF_MANAGED", // required
- *   authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS", // required
+ *   authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  *   shouldOverwrite: true || false,
  * };
  * const command = new ImportSourceCredentialsCommand(input);
@@ -73,6 +74,7 @@ export interface ImportSourceCredentialsCommandOutput extends ImportSourceCreden
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ImportSourceCredentialsCommand extends $Command
@@ -83,9 +85,7 @@ export class ImportSourceCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class ImportSourceCredentialsCommand extends $Command
   .f(ImportSourceCredentialsInputFilterSensitiveLog, void 0)
   .ser(se_ImportSourceCredentialsCommand)
   .de(de_ImportSourceCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportSourceCredentialsInput;
+      output: ImportSourceCredentialsOutput;
+    };
+    sdk: {
+      input: ImportSourceCredentialsCommandInput;
+      output: ImportSourceCredentialsCommandOutput;
+    };
+  };
+}

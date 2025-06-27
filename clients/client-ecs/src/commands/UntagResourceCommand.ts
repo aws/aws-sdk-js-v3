@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_0";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_1";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,11 +59,13 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource wasn't found.</p>
@@ -73,21 +76,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To untag a cluster.
  * ```javascript
  * // This example deletes the 'team' tag from the 'dev' cluster.
  * const input = {
- *   "resourceArn": "arn:aws:ecs:region:aws_account_id:cluster/dev",
- *   "tagKeys": [
+ *   resourceArn: "arn:aws:ecs:region:aws_account_id:cluster/dev",
+ *   tagKeys: [
  *     "team"
  *   ]
  * };
  * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-untag-a-cluster-1540582546056
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<
@@ -97,9 +103,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +115,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

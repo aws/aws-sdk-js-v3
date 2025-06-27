@@ -12,7 +12,8 @@ import { de_DefineAnalysisSchemeCommand, se_DefineAnalysisSchemeCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,6 +104,7 @@ export interface DefineAnalysisSchemeCommandOutput extends DefineAnalysisSchemeR
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DefineAnalysisSchemeCommand extends $Command
@@ -113,9 +115,7 @@ export class DefineAnalysisSchemeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class DefineAnalysisSchemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DefineAnalysisSchemeCommand)
   .de(de_DefineAnalysisSchemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DefineAnalysisSchemeRequest;
+      output: DefineAnalysisSchemeResponse;
+    };
+    sdk: {
+      input: DefineAnalysisSchemeCommandInput;
+      output: DefineAnalysisSchemeCommandOutput;
+    };
+  };
+}

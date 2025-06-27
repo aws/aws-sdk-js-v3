@@ -12,7 +12,8 @@ import { de_GetAssetPropertyValueCommand, se_GetAssetPropertyValueCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,9 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * //       integerValue: Number("int"),
  * //       doubleValue: Number("double"),
  * //       booleanValue: true || false,
+ * //       nullValue: { // PropertyValueNullValue
+ * //         valueType: "D" || "B" || "S" || "I" || "U", // required
+ * //       },
  * //     },
  * //     timestamp: { // TimeInNanos
  * //       timeInSeconds: Number("long"), // required
@@ -98,6 +102,7 @@ export interface GetAssetPropertyValueCommandOutput extends GetAssetPropertyValu
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class GetAssetPropertyValueCommand extends $Command
@@ -108,9 +113,7 @@ export class GetAssetPropertyValueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +125,16 @@ export class GetAssetPropertyValueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAssetPropertyValueCommand)
   .de(de_GetAssetPropertyValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetPropertyValueRequest;
+      output: GetAssetPropertyValueResponse;
+    };
+    sdk: {
+      input: GetAssetPropertyValueCommandInput;
+      output: GetAssetPropertyValueCommandOutput;
+    };
+  };
+}

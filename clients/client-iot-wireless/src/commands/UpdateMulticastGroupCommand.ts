@@ -12,7 +12,8 @@ import { de_UpdateMulticastGroupCommand, se_UpdateMulticastGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,6 +42,12 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  *   LoRaWAN: { // LoRaWANMulticast
  *     RfRegion: "EU868" || "US915" || "AU915" || "AS923-1" || "AS923-2" || "AS923-3" || "AS923-4" || "EU433" || "CN470" || "CN779" || "RU864" || "KR920" || "IN865",
  *     DlClass: "ClassB" || "ClassC",
+ *     ParticipatingGateways: { // ParticipatingGatewaysMulticast
+ *       GatewayList: [ // GatewayListMulticast
+ *         "STRING_VALUE",
+ *       ],
+ *       TransmissionInterval: Number("int"),
+ *     },
  *   },
  * };
  * const command = new UpdateMulticastGroupCommand(input);
@@ -76,6 +83,7 @@ export interface UpdateMulticastGroupCommandOutput extends UpdateMulticastGroupR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class UpdateMulticastGroupCommand extends $Command
@@ -86,9 +94,7 @@ export class UpdateMulticastGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +106,16 @@ export class UpdateMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMulticastGroupCommand)
   .de(de_UpdateMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateMulticastGroupCommandInput;
+      output: UpdateMulticastGroupCommandOutput;
+    };
+  };
+}

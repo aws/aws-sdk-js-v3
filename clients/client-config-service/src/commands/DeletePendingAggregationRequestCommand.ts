@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface DeletePendingAggregationRequestCommandOutput extends __Metadata
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeletePendingAggregationRequestCommand extends $Command
@@ -71,9 +73,7 @@ export class DeletePendingAggregationRequestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeletePendingAggregationRequestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePendingAggregationRequestCommand)
   .de(de_DeletePendingAggregationRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePendingAggregationRequestRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePendingAggregationRequestCommandInput;
+      output: DeletePendingAggregationRequestCommandOutput;
+    };
+  };
+}

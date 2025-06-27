@@ -20,7 +20,8 @@ import { de_ForgotPasswordCommand, se_ForgotPasswordCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,18 +36,13 @@ export interface ForgotPasswordCommandInput extends ForgotPasswordRequest {}
 export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Calling this API causes a message to be sent to the end user with a confirmation code
- *             that is required to change the user's password. For the <code>Username</code> parameter,
- *             you can use the username or user alias. The method used to send the confirmation code is
- *             sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering
- *                 User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. To
- *             use the confirmation code for resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>. </p>
- *          <p>If neither a verified phone number nor a verified email exists, this API returns
- *                 <code>InvalidParameterException</code>. If your app client has a client secret and
- *             you don't provide a <code>SECRET_HASH</code> parameter, this API returns
+ * <p>Sends a password-reset confirmation code for the currently signed-in user.</p>
+ *          <p>For the <code>Username</code> parameter, you can use the username or user
+ *             alias.</p>
+ *          <p>If neither a verified phone number nor a verified email exists, Amazon Cognito responds with an
+ *                 <code>InvalidParameterException</code> error . If your app client has a client
+ *             secret and you don't provide a <code>SECRET_HASH</code> parameter, this API returns
  *                 <code>NotAuthorizedException</code>.</p>
- *          <p>To use this API operation, your user pool must have self-service account recovery
- *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -61,7 +57,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -170,6 +166,7 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ForgotPasswordCommand extends $Command
@@ -180,9 +177,7 @@ export class ForgotPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +189,16 @@ export class ForgotPasswordCommand extends $Command
   .f(ForgotPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ForgotPasswordCommand)
   .de(de_ForgotPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ForgotPasswordRequest;
+      output: ForgotPasswordResponse;
+    };
+    sdk: {
+      input: ForgotPasswordCommandInput;
+      output: ForgotPasswordCommandOutput;
+    };
+  };
+}

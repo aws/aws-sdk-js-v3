@@ -12,7 +12,8 @@ import { de_DeleteChangeSetCommand, se_DeleteChangeSetCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,13 @@ export interface DeleteChangeSetCommandInput extends DeleteChangeSetInput {}
 export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the wrong change set.</p>
+ * <p>Deletes the specified change set. Deleting change sets ensures that no one executes the
+ *       wrong change set.</p>
  *          <p>If the call successfully completes, CloudFormation successfully deleted the change set.</p>
- *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of the nested change set,
- *    then <code>DeleteChangeSet</code> will delete all change sets that belong to the stacks hierarchy and will also
- *    delete all change sets for nested stacks with the status of <code>REVIEW_IN_PROGRESS</code>.</p>
+ *          <p>If <code>IncludeNestedStacks</code> specifies <code>True</code> during the creation of the
+ *       nested change set, then <code>DeleteChangeSet</code> will delete all change sets that belong
+ *       to the stacks hierarchy and will also delete all change sets for nested stacks with the status
+ *       of <code>REVIEW_IN_PROGRESS</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +64,7 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteChangeSetCommand extends $Command
@@ -71,9 +75,7 @@ export class DeleteChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +87,16 @@ export class DeleteChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChangeSetCommand)
   .de(de_DeleteChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChangeSetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChangeSetCommandInput;
+      output: DeleteChangeSetCommandOutput;
+    };
+  };
+}

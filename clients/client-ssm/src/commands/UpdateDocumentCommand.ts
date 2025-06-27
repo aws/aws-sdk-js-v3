@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,7 +80,7 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * //     PlatformTypes: [ // PlatformTypeList
  * //       "Windows" || "Linux" || "MacOS",
  * //     ],
- * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //     SchemaVersion: "STRING_VALUE",
  * //     LatestVersion: "STRING_VALUE",
  * //     DefaultVersion: "STRING_VALUE",
@@ -169,6 +170,7 @@ export interface UpdateDocumentCommandOutput extends UpdateDocumentResult, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdateDocumentCommand extends $Command
@@ -179,9 +181,7 @@ export class UpdateDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +193,16 @@ export class UpdateDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDocumentCommand)
   .de(de_UpdateDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDocumentRequest;
+      output: UpdateDocumentResult;
+    };
+    sdk: {
+      input: UpdateDocumentCommandInput;
+      output: UpdateDocumentCommandOutput;
+    };
+  };
+}

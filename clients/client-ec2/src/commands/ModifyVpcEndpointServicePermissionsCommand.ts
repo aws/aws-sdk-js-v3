@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyVpcEndpointServicePermissionsRequest,
   ModifyVpcEndpointServicePermissionsResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_ModifyVpcEndpointServicePermissionsCommand,
   se_ModifyVpcEndpointServicePermissionsCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
 /**
  * <p>Modifies the permissions for your VPC endpoint service. You can add or remove permissions
  *             for service consumers (Amazon Web Services accounts, users, and IAM roles) to connect to
- *             your endpoint service.</p>
+ *             your endpoint service. Principal ARNs with path components aren't supported.</p>
  *          <p>If you grant permissions to all principals, the service is public. Any users who know the name of a
  * 	        public service can send a request to attach an endpoint. If the service does not require manual approval,
  * 	        attachments are automatically approved.</p>
@@ -82,6 +83,7 @@ export interface ModifyVpcEndpointServicePermissionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVpcEndpointServicePermissionsCommand extends $Command
@@ -92,9 +94,7 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ModifyVpcEndpointServicePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVpcEndpointServicePermissionsCommand)
   .de(de_ModifyVpcEndpointServicePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVpcEndpointServicePermissionsRequest;
+      output: ModifyVpcEndpointServicePermissionsResult;
+    };
+    sdk: {
+      input: ModifyVpcEndpointServicePermissionsCommandInput;
+      output: ModifyVpcEndpointServicePermissionsCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_2";
+import { DescribeFlowDefinitionRequest, DescribeFlowDefinitionResponse } from "../models/models_3";
 import { de_DescribeFlowDefinitionCommand, se_DescribeFlowDefinitionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface DescribeFlowDefinitionCommandOutput extends DescribeFlowDefinit
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeFlowDefinitionCommand extends $Command
@@ -103,9 +105,7 @@ export class DescribeFlowDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class DescribeFlowDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFlowDefinitionCommand)
   .de(de_DescribeFlowDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFlowDefinitionRequest;
+      output: DescribeFlowDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeFlowDefinitionCommandInput;
+      output: DescribeFlowDefinitionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,22 @@ export interface UpdateMaintenanceStartTimeCommandInput extends UpdateMaintenanc
 export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenanceStartTimeOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a gateway's weekly maintenance start time information, including day and
- *          time of the week. The maintenance time is the time in your gateway's time zone.</p>
+ * <p>Updates a gateway's maintenance window schedule, with settings for monthly or
+ *          weekly cadence, specific day and time to begin maintenance, and which types of updates to
+ *          apply. Time configuration uses the gateway's time zone. You can pass values for a complete
+ *          maintenance schedule, or update policy, or both. Previous values will persist for whichever
+ *          setting you choose not to modify. If an incomplete or invalid maintenance schedule is
+ *          passed, the entire request will be rejected with an error and no changes will occur.</p>
+ *          <p>A complete maintenance schedule must include values for <i>both</i>
+ *             <code>MinuteOfHour</code> and <code>HourOfDay</code>, and <i>either</i>
+ *             <code>DayOfMonth</code>
+ *             <i>or</i>
+ *             <code>DayOfWeek</code>.</p>
+ *          <note>
+ *             <p>We recommend keeping maintenance updates turned on, except in specific use cases
+ *             where the brief disruptions caused by updating the gateway could critically impact your
+ *             deployment.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,10 +52,13 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * const client = new StorageGatewayClient(config);
  * const input = { // UpdateMaintenanceStartTimeInput
  *   GatewayARN: "STRING_VALUE", // required
- *   HourOfDay: Number("int"), // required
- *   MinuteOfHour: Number("int"), // required
+ *   HourOfDay: Number("int"),
+ *   MinuteOfHour: Number("int"),
  *   DayOfWeek: Number("int"),
  *   DayOfMonth: Number("int"),
+ *   SoftwareUpdatePreferences: { // SoftwareUpdatePreferences
+ *     AutomaticUpdatePolicy: "ALL_VERSIONS" || "EMERGENCY_VERSIONS_ONLY",
+ *   },
  * };
  * const command = new UpdateMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
@@ -67,26 +85,26 @@ export interface UpdateMaintenanceStartTimeCommandOutput extends UpdateMaintenan
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update a gateway's maintenance start time
  * ```javascript
  * // Updates a gateway's weekly maintenance start time information, including day and time of the week. The maintenance time is in your gateway's time zone.
  * const input = {
- *   "DayOfWeek": 2,
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "HourOfDay": 0,
- *   "MinuteOfHour": 30
+ *   DayOfWeek: 2,
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   HourOfDay: 0,
+ *   MinuteOfHour: 30
  * };
  * const command = new UpdateMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-update-a-gateways-maintenance-start-time-1472152552031
  * ```
  *
+ * @public
  */
 export class UpdateMaintenanceStartTimeCommand extends $Command
   .classBuilder<
@@ -96,9 +114,7 @@ export class UpdateMaintenanceStartTimeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +126,16 @@ export class UpdateMaintenanceStartTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMaintenanceStartTimeCommand)
   .de(de_UpdateMaintenanceStartTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMaintenanceStartTimeInput;
+      output: UpdateMaintenanceStartTimeOutput;
+    };
+    sdk: {
+      input: UpdateMaintenanceStartTimeCommandInput;
+      output: UpdateMaintenanceStartTimeCommandOutput;
+    };
+  };
+}

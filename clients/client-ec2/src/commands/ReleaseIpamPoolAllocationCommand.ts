@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ReleaseIpamPoolAllocationRequest, ReleaseIpamPoolAllocationResult } from "../models/models_7";
+import { ReleaseIpamPoolAllocationRequest, ReleaseIpamPoolAllocationResult } from "../models/models_8";
 import { de_ReleaseIpamPoolAllocationCommand, se_ReleaseIpamPoolAllocationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * <p>Release an allocation within an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations. You can only use this action to release manual allocations. To remove an allocation for a resource without deleting the resource, set its monitored state to false using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyIpamResourceCidr.html">ModifyIpamResourceCidr</a>. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/ipam/release-alloc-ipam.html">Release an allocation</a> in the <i>Amazon VPC IPAM User Guide</i>.
  *       </p>
  *          <note>
- *             <p>All EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual consistency</a> model.</p>
+ *             <p>All EC2 API actions follow an <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">eventual consistency</a> model.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,6 +62,7 @@ export interface ReleaseIpamPoolAllocationCommandOutput extends ReleaseIpamPoolA
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ReleaseIpamPoolAllocationCommand extends $Command
@@ -71,9 +73,7 @@ export class ReleaseIpamPoolAllocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class ReleaseIpamPoolAllocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReleaseIpamPoolAllocationCommand)
   .de(de_ReleaseIpamPoolAllocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReleaseIpamPoolAllocationRequest;
+      output: ReleaseIpamPoolAllocationResult;
+    };
+    sdk: {
+      input: ReleaseIpamPoolAllocationCommandInput;
+      output: ReleaseIpamPoolAllocationCommandOutput;
+    };
+  };
+}

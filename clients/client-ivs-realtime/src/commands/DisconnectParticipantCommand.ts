@@ -12,7 +12,8 @@ import { de_DisconnectParticipantCommand, se_DisconnectParticipantCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,9 @@ export interface DisconnectParticipantCommandInput extends DisconnectParticipant
 export interface DisconnectParticipantCommandOutput extends DisconnectParticipantResponse, __MetadataBearer {}
 
 /**
- * <p>Disconnects a specified participant and revokes the participant permanently from a
- *          specified stage.</p>
+ * <p>Disconnects a specified participant from a specified stage. If the participant is publishing using
+ *             an <a>IngestConfiguration</a>, DisconnectParticipant also updates the <code>stageArn</code>
+ * 	    in the IngestConfiguration to be an empty string.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +69,7 @@ export interface DisconnectParticipantCommandOutput extends DisconnectParticipan
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class DisconnectParticipantCommand extends $Command
@@ -77,9 +80,7 @@ export class DisconnectParticipantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +92,16 @@ export class DisconnectParticipantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisconnectParticipantCommand)
   .de(de_DisconnectParticipantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisconnectParticipantRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisconnectParticipantCommandInput;
+      output: DisconnectParticipantCommandOutput;
+    };
+  };
+}

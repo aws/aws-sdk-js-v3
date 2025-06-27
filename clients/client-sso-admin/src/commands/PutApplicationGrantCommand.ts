@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,84 @@ export interface PutApplicationGrantCommandInput extends PutApplicationGrantRequ
 export interface PutApplicationGrantCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Adds a grant to an application.</p>
+ * <p>Creates a configuration for an application to use grants. Conceptually grants are
+ *             authorization to request actions related to tokens. This configuration will be used when
+ *             parties are requesting and receiving tokens during the trusted identity propagation
+ *             process. For more information on the IAM Identity Center supported grant workflows, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-oauth2.html">SAML 2.0
+ *                 and OAuth 2.0</a>.</p>
+ *          <p>A grant is created between your applications and Identity Center instance which
+ *             enables an application to use specified mechanisms to obtain tokens. These tokens are
+ *             used by your applications to gain access to Amazon Web Services resources on behalf of users. The
+ *             following elements are within these exchanges:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Requester</b> - The application requesting access
+ *                     to Amazon Web Services resources.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Subject</b> - Typically the user that is
+ *                     requesting access to Amazon Web Services resources.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Grant</b> - Conceptually, a grant is
+ *                     authorization to access Amazon Web Services resources. These grants authorize token generation
+ *                     for authenticating access to the requester and for the request to make requests
+ *                     on behalf of the subjects. There are four types of grants:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>AuthorizationCode</b> - Allows an
+ *                             application to request authorization through a series of user-agent
+ *                             redirects.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>JWT bearer </b> - Authorizes an
+ *                             application to exchange a JSON Web Token that came from an external
+ *                             identity provider. To learn more, see <a href="https://datatracker.ietf.org/doc/html/rfc6749">RFC
+ *                             6479</a>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Refresh token</b> - Enables application
+ *                             to request new access tokens to replace expiring or expired access
+ *                             tokens.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Exchange token</b> - A grant that
+ *                             requests tokens from the authorization server by providing a ‘subject’
+ *                             token with access scope authorizing trusted identity propagation to this
+ *                             application. To learn more, see <a href="https://datatracker.ietf.org/doc/html/rfc8693">RFC
+ *                             8693</a>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Authorization server</b> - IAM Identity Center requests
+ *                     tokens.</p>
+ *             </li>
+ *          </ul>
+ *          <p>User credentials are never shared directly within these exchanges. Instead,
+ *             applications use grants to request access tokens from IAM Identity Center. For more
+ *             information, see <a href="https://datatracker.ietf.org/doc/html/rfc6749">RFC
+ *                 6479</a>.</p>
+ *          <p class="title">
+ *             <b>Use cases</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>Connecting to custom applications.</p>
+ *             </li>
+ *             <li>
+ *                <p>Configuring an Amazon Web Services service to make calls to another Amazon Web Services services using JWT
+ *                     tokens.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +173,7 @@ export interface PutApplicationGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class PutApplicationGrantCommand extends $Command
@@ -105,9 +184,7 @@ export class PutApplicationGrantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +196,16 @@ export class PutApplicationGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutApplicationGrantCommand)
   .de(de_PutApplicationGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutApplicationGrantRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutApplicationGrantCommandInput;
+      output: PutApplicationGrantCommandOutput;
+    };
+  };
+}

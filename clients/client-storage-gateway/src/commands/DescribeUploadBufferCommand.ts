@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,51 +71,50 @@ export interface DescribeUploadBufferCommandOutput extends DescribeUploadBufferO
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
- * @example To describe upload buffer of gateway
- * ```javascript
- * // Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated/used.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
- * };
- * const command = new DescribeUploadBufferCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "DiskIds": [
- *     "pci-0000:03:00.0-scsi-0:0:0:0",
- *     "pci-0000:04:00.0-scsi-0:1:0:0"
- *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "UploadBufferAllocatedInBytes": 0,
- *   "UploadBufferUsedInBytes": 161061273600
- * }
- * *\/
- * // example id: to-describe-upload-buffer-of-gateway-1471631099003
- * ```
  *
  * @example To describe upload buffer of a gateway
  * ```javascript
  * // Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated and used.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeUploadBufferCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DiskIds": [
+ *   DiskIds: [
  *     "pci-0000:03:00.0-scsi-0:0:0:0",
  *     "pci-0000:04:00.0-scsi-0:1:0:0"
  *   ],
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "UploadBufferAllocatedInBytes": 161061273600,
- *   "UploadBufferUsedInBytes": 0
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   UploadBufferAllocatedInBytes: 161061273600,
+ *   UploadBufferUsedInBytes: 0
  * }
  * *\/
- * // example id: to-describe-upload-buffer-of-a-gateway--1471904566370
  * ```
  *
+ * @example To describe upload buffer of gateway
+ * ```javascript
+ * // Returns information about the upload buffer of a gateway including disk IDs and the amount of upload buffer space allocated/used.
+ * const input = {
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ * };
+ * const command = new DescribeUploadBufferCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DiskIds: [
+ *     "pci-0000:03:00.0-scsi-0:0:0:0",
+ *     "pci-0000:04:00.0-scsi-0:1:0:0"
+ *   ],
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   UploadBufferAllocatedInBytes: 0,
+ *   UploadBufferUsedInBytes: 161061273600
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class DescribeUploadBufferCommand extends $Command
   .classBuilder<
@@ -124,9 +124,7 @@ export class DescribeUploadBufferCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +136,16 @@ export class DescribeUploadBufferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUploadBufferCommand)
   .de(de_DescribeUploadBufferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUploadBufferInput;
+      output: DescribeUploadBufferOutput;
+    };
+    sdk: {
+      input: DescribeUploadBufferCommandInput;
+      output: DescribeUploadBufferCommandOutput;
+    };
+  };
+}

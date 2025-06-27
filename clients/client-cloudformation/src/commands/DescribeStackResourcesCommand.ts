@@ -12,7 +12,8 @@ import { de_DescribeStackResourcesCommand, se_DescribeStackResourcesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,21 +28,23 @@ export interface DescribeStackResourcesCommandInput extends DescribeStackResourc
 export interface DescribeStackResourcesCommandOutput extends DescribeStackResourcesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If <code>StackName</code> is
- *    specified, all the associated resources that are part of the stack are returned. If <code>PhysicalResourceId</code>
- *    is specified, the associated resources of the stack that the resource belongs to are returned.</p>
+ * <p>Returns Amazon Web Services resource descriptions for running and deleted stacks. If
+ *         <code>StackName</code> is specified, all the associated resources that are part of the stack
+ *       are returned. If <code>PhysicalResourceId</code> is specified, the associated resources of the
+ *       stack that the resource belongs to are returned.</p>
  *          <note>
- *             <p>Only the first 100 resources will be returned. If your stack has more resources than this, you should use
- *     <code>ListStackResources</code> instead.</p>
+ *             <p>Only the first 100 resources will be returned. If your stack has more resources than
+ *         this, you should use <code>ListStackResources</code> instead.</p>
  *          </note>
- *          <p>For deleted stacks, <code>DescribeStackResources</code> returns resource information for up to 90 days after the
- *    stack has been deleted.</p>
- *          <p>You must specify either <code>StackName</code> or <code>PhysicalResourceId</code>, but not both. In addition,
- *    you can specify <code>LogicalResourceId</code> to filter the returned result. For more information about resources,
- *    the <code>LogicalResourceId</code> and <code>PhysicalResourceId</code>, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation User Guide</a>.</p>
+ *          <p>For deleted stacks, <code>DescribeStackResources</code> returns resource information for
+ *       up to 90 days after the stack has been deleted.</p>
+ *          <p>You must specify either <code>StackName</code> or <code>PhysicalResourceId</code>, but not
+ *       both. In addition, you can specify <code>LogicalResourceId</code> to filter the returned
+ *       result. For more information about resources, the <code>LogicalResourceId</code> and
+ *         <code>PhysicalResourceId</code>, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation User Guide</a>.</p>
  *          <note>
- *             <p>A <code>ValidationError</code> is returned if you specify both <code>StackName</code> and
- *     <code>PhysicalResourceId</code> in the same request.</p>
+ *             <p>A <code>ValidationError</code> is returned if you specify both <code>StackName</code>
+ *         and <code>PhysicalResourceId</code> in the same request.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,7 +68,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * //       PhysicalResourceId: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE", // required
  * //       Timestamp: new Date("TIMESTAMP"), // required
- * //       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED", // required
+ * //       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "EXPORT_FAILED" || "EXPORT_COMPLETE" || "EXPORT_IN_PROGRESS" || "EXPORT_ROLLBACK_IN_PROGRESS" || "EXPORT_ROLLBACK_FAILED" || "EXPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED", // required
  * //       ResourceStatusReason: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       DriftInformation: { // StackResourceDriftInformation
@@ -91,6 +94,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackResourcesCommand extends $Command
@@ -101,9 +105,7 @@ export class DescribeStackResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +117,16 @@ export class DescribeStackResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackResourcesCommand)
   .de(de_DescribeStackResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackResourcesInput;
+      output: DescribeStackResourcesOutput;
+    };
+    sdk: {
+      input: DescribeStackResourcesCommandInput;
+      output: DescribeStackResourcesCommandOutput;
+    };
+  };
+}

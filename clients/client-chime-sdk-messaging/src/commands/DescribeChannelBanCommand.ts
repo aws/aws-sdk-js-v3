@@ -20,7 +20,8 @@ import { de_DescribeChannelBanCommand, se_DescribeChannelBanCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class DescribeChannelBanCommand extends $Command
@@ -111,9 +113,7 @@ export class DescribeChannelBanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class DescribeChannelBanCommand extends $Command
   .f(void 0, DescribeChannelBanResponseFilterSensitiveLog)
   .ser(se_DescribeChannelBanCommand)
   .de(de_DescribeChannelBanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelBanRequest;
+      output: DescribeChannelBanResponse;
+    };
+    sdk: {
+      input: DescribeChannelBanCommandInput;
+      output: DescribeChannelBanCommandOutput;
+    };
+  };
+}

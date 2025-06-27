@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,22 +57,25 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *             <p>After you create a queue, you must wait at least one second after the queue is
  *                 created to be able to use the queue.</p>
  *          </note>
- *          <p>To get the queue URL, use the <code>
- *                <a>GetQueueUrl</a>
- *             </code> action.
- *                     <code>
- *                <a>GetQueueUrl</a>
- *             </code> requires only the
- *                 <code>QueueName</code> parameter. be aware of existing queue names:</p>
+ *          <p>To retrieve the URL of a queue, use the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_GetQueueUrl.html">
+ *                <code>GetQueueUrl</code>
+ *             </a> action. This action only requires the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html#API_CreateQueue_RequestSyntax">
+ *                <code>QueueName</code>
+ *             </a> parameter.</p>
+ *          <p>When creating queues, keep the following points in mind:</p>
  *          <ul>
  *             <li>
- *                <p>If you provide the name of an existing queue along with the exact names and
- *                     values of all the queue's attributes, <code>CreateQueue</code> returns the queue
- *                     URL for the existing queue.</p>
+ *                <p>If you specify the name of an existing queue and provide the exact same names
+ *                     and values for all its attributes, the <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_CreateQueue.html">
+ *                      <code>CreateQueue</code>
+ *                   </a> action will return the URL of the
+ *                     existing queue instead of creating a new one.</p>
  *             </li>
  *             <li>
- *                <p>If the queue name, attribute names, or attribute values don't match an
- *                     existing queue, <code>CreateQueue</code> returns an error.</p>
+ *                <p>If you attempt to create a queue with a name that already exists but with
+ *                     different attribute names or values, the <code>CreateQueue</code> action will
+ *                     return an error. This ensures that existing queues are not inadvertently
+ *                     altered.</p>
  *             </li>
  *          </ul>
  *          <note>
@@ -109,7 +113,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
+ *  <p>The specified ID is invalid.</p>
  *
  * @throws {@link InvalidAttributeName} (client fault)
  *  <p>The specified attribute doesn't exist.</p>
@@ -118,7 +122,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *  <p>A queue attribute value is invalid.</p>
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
  *
  * @throws {@link QueueDeletedRecently} (client fault)
  *  <p>You must wait 60 seconds after deleting a queue before you can create another queue
@@ -132,18 +136,13 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
+ *                     request.</p>
  *             </li>
  *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *                <p>Ensure that the request rate is within the Amazon SQS limits for
+ *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
+ *                         Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  *
@@ -152,6 +151,7 @@ export interface CreateQueueCommandOutput extends CreateQueueResult, __MetadataB
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
+ *
  *
  * @public
  */
@@ -163,9 +163,7 @@ export class CreateQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +175,16 @@ export class CreateQueueCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQueueCommand)
   .de(de_CreateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueRequest;
+      output: CreateQueueResult;
+    };
+    sdk: {
+      input: CreateQueueCommandInput;
+      output: CreateQueueCommandOutput;
+    };
+  };
+}

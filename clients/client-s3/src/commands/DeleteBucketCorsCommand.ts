@@ -12,7 +12,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Deletes the <code>cors</code> configuration information set for the bucket.</p>
  *          <p>To use this operation, you must have permission to perform the
@@ -76,18 +77,21 @@ export interface DeleteBucketCorsCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete cors configuration on a bucket.
  * ```javascript
  * // The following example deletes CORS configuration on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new DeleteBucketCorsCommand(input);
- * await client.send(command);
- * // example id: to-delete-cors-configuration-on-a-bucket-1483042856112
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketCorsCommand extends $Command
   .classBuilder<
@@ -113,4 +117,16 @@ export class DeleteBucketCorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketCorsCommand)
   .de(de_DeleteBucketCorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketCorsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketCorsCommandInput;
+      output: DeleteBucketCorsCommandOutput;
+    };
+  };
+}

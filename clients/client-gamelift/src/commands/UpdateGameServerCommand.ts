@@ -12,7 +12,8 @@ import { de_UpdateGameServerCommand, se_UpdateGameServerCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,9 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Updates information about a registered game server to help Amazon GameLift FleetIQ track game server
+ *          <p>Updates information about a registered game server to help Amazon GameLift Servers FleetIQ track game server
  *             availability. This operation is called by a game server process that is running on an
  *             instance in a game server group. </p>
  *          <p>Use this operation to update the following types of game server information. You can
@@ -61,7 +62,7 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -112,13 +113,14 @@ export interface UpdateGameServerCommandOutput extends UpdateGameServerOutput, _
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -130,9 +132,7 @@ export class UpdateGameServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class UpdateGameServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGameServerCommand)
   .de(de_UpdateGameServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGameServerInput;
+      output: UpdateGameServerOutput;
+    };
+    sdk: {
+      input: UpdateGameServerCommandInput;
+      output: UpdateGameServerCommandOutput;
+    };
+  };
+}

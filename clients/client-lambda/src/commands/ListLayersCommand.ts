@@ -12,7 +12,8 @@ import { de_ListLayersCommand, se_ListLayersCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,7 +41,7 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * // const { LambdaClient, ListLayersCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // ListLayersRequest
- *   CompatibleRuntime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ *   CompatibleRuntime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
  *   CompatibleArchitecture: "x86_64" || "arm64",
@@ -59,7 +60,7 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * //         Description: "STRING_VALUE",
  * //         CreatedDate: "STRING_VALUE",
  * //         CompatibleRuntimes: [ // CompatibleRuntimes
- * //           "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ * //           "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  * //         ],
  * //         LicenseInfo: "STRING_VALUE",
  * //         CompatibleArchitectures: [ // CompatibleArchitectures
@@ -90,6 +91,37 @@ export interface ListLayersCommandOutput extends ListLayersResponse, __MetadataB
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To list the layers that are compatible with your function's runtime
+ * ```javascript
+ * // The following example returns information about layers that are compatible with the Python 3.7 runtime.
+ * const input = {
+ *   CompatibleRuntime: "python3.7"
+ * };
+ * const command = new ListLayersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Layers: [
+ *     {
+ *       LatestMatchingVersion: {
+ *         CompatibleRuntimes: [
+ *           "python3.6",
+ *           "python3.7"
+ *         ],
+ *         CreatedDate: "2018-11-15T00:37:46.592+0000",
+ *         Description: "My layer",
+ *         LayerVersionArn: "arn:aws:lambda:us-east-2:123456789012:layer:my-layer:2",
+ *         Version: 2
+ *       },
+ *       LayerArn: "arn:aws:lambda:us-east-2:123456789012:layer:my-layer",
+ *       LayerName: "my-layer"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListLayersCommand extends $Command
@@ -100,9 +132,7 @@ export class ListLayersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +144,16 @@ export class ListLayersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLayersCommand)
   .de(de_ListLayersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLayersRequest;
+      output: ListLayersResponse;
+    };
+    sdk: {
+      input: ListLayersCommandInput;
+      output: ListLayersCommandOutput;
+    };
+  };
+}

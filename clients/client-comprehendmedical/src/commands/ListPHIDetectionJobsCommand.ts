@@ -16,7 +16,8 @@ import { de_ListPHIDetectionJobsCommand, se_ListPHIDetectionJobsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface ListPHIDetectionJobsCommandOutput extends ListPHIDetectionJobsR
  * @throws {@link ComprehendMedicalServiceException}
  * <p>Base exception class for all service exceptions from ComprehendMedical service.</p>
  *
+ *
  * @public
  */
 export class ListPHIDetectionJobsCommand extends $Command
@@ -116,9 +118,7 @@ export class ListPHIDetectionJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendMedicalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class ListPHIDetectionJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPHIDetectionJobsCommand)
   .de(de_ListPHIDetectionJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPHIDetectionJobsRequest;
+      output: ListPHIDetectionJobsResponse;
+    };
+    sdk: {
+      input: ListPHIDetectionJobsCommandInput;
+      output: ListPHIDetectionJobsCommandOutput;
+    };
+  };
+}

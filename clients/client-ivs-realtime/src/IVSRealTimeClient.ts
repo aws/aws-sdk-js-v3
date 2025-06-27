@@ -58,6 +58,10 @@ import {
   CreateEncoderConfigurationCommandOutput,
 } from "./commands/CreateEncoderConfigurationCommand";
 import {
+  CreateIngestConfigurationCommandInput,
+  CreateIngestConfigurationCommandOutput,
+} from "./commands/CreateIngestConfigurationCommand";
+import {
   CreateParticipantTokenCommandInput,
   CreateParticipantTokenCommandOutput,
 } from "./commands/CreateParticipantTokenCommand";
@@ -70,6 +74,11 @@ import {
   DeleteEncoderConfigurationCommandInput,
   DeleteEncoderConfigurationCommandOutput,
 } from "./commands/DeleteEncoderConfigurationCommand";
+import {
+  DeleteIngestConfigurationCommandInput,
+  DeleteIngestConfigurationCommandOutput,
+} from "./commands/DeleteIngestConfigurationCommand";
+import { DeletePublicKeyCommandInput, DeletePublicKeyCommandOutput } from "./commands/DeletePublicKeyCommand";
 import { DeleteStageCommandInput, DeleteStageCommandOutput } from "./commands/DeleteStageCommand";
 import {
   DeleteStorageConfigurationCommandInput,
@@ -84,23 +93,38 @@ import {
   GetEncoderConfigurationCommandInput,
   GetEncoderConfigurationCommandOutput,
 } from "./commands/GetEncoderConfigurationCommand";
+import {
+  GetIngestConfigurationCommandInput,
+  GetIngestConfigurationCommandOutput,
+} from "./commands/GetIngestConfigurationCommand";
 import { GetParticipantCommandInput, GetParticipantCommandOutput } from "./commands/GetParticipantCommand";
+import { GetPublicKeyCommandInput, GetPublicKeyCommandOutput } from "./commands/GetPublicKeyCommand";
 import { GetStageCommandInput, GetStageCommandOutput } from "./commands/GetStageCommand";
 import { GetStageSessionCommandInput, GetStageSessionCommandOutput } from "./commands/GetStageSessionCommand";
 import {
   GetStorageConfigurationCommandInput,
   GetStorageConfigurationCommandOutput,
 } from "./commands/GetStorageConfigurationCommand";
+import { ImportPublicKeyCommandInput, ImportPublicKeyCommandOutput } from "./commands/ImportPublicKeyCommand";
 import { ListCompositionsCommandInput, ListCompositionsCommandOutput } from "./commands/ListCompositionsCommand";
 import {
   ListEncoderConfigurationsCommandInput,
   ListEncoderConfigurationsCommandOutput,
 } from "./commands/ListEncoderConfigurationsCommand";
 import {
+  ListIngestConfigurationsCommandInput,
+  ListIngestConfigurationsCommandOutput,
+} from "./commands/ListIngestConfigurationsCommand";
+import {
   ListParticipantEventsCommandInput,
   ListParticipantEventsCommandOutput,
 } from "./commands/ListParticipantEventsCommand";
+import {
+  ListParticipantReplicasCommandInput,
+  ListParticipantReplicasCommandOutput,
+} from "./commands/ListParticipantReplicasCommand";
 import { ListParticipantsCommandInput, ListParticipantsCommandOutput } from "./commands/ListParticipantsCommand";
+import { ListPublicKeysCommandInput, ListPublicKeysCommandOutput } from "./commands/ListPublicKeysCommand";
 import { ListStagesCommandInput, ListStagesCommandOutput } from "./commands/ListStagesCommand";
 import { ListStageSessionsCommandInput, ListStageSessionsCommandOutput } from "./commands/ListStageSessionsCommand";
 import {
@@ -112,9 +136,21 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { StartCompositionCommandInput, StartCompositionCommandOutput } from "./commands/StartCompositionCommand";
+import {
+  StartParticipantReplicationCommandInput,
+  StartParticipantReplicationCommandOutput,
+} from "./commands/StartParticipantReplicationCommand";
 import { StopCompositionCommandInput, StopCompositionCommandOutput } from "./commands/StopCompositionCommand";
+import {
+  StopParticipantReplicationCommandInput,
+  StopParticipantReplicationCommandOutput,
+} from "./commands/StopParticipantReplicationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateIngestConfigurationCommandInput,
+  UpdateIngestConfigurationCommandOutput,
+} from "./commands/UpdateIngestConfigurationCommand";
 import { UpdateStageCommandInput, UpdateStageCommandOutput } from "./commands/UpdateStageCommand";
 import {
   ClientInputEndpointParameters,
@@ -132,31 +168,43 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | CreateEncoderConfigurationCommandInput
+  | CreateIngestConfigurationCommandInput
   | CreateParticipantTokenCommandInput
   | CreateStageCommandInput
   | CreateStorageConfigurationCommandInput
   | DeleteEncoderConfigurationCommandInput
+  | DeleteIngestConfigurationCommandInput
+  | DeletePublicKeyCommandInput
   | DeleteStageCommandInput
   | DeleteStorageConfigurationCommandInput
   | DisconnectParticipantCommandInput
   | GetCompositionCommandInput
   | GetEncoderConfigurationCommandInput
+  | GetIngestConfigurationCommandInput
   | GetParticipantCommandInput
+  | GetPublicKeyCommandInput
   | GetStageCommandInput
   | GetStageSessionCommandInput
   | GetStorageConfigurationCommandInput
+  | ImportPublicKeyCommandInput
   | ListCompositionsCommandInput
   | ListEncoderConfigurationsCommandInput
+  | ListIngestConfigurationsCommandInput
   | ListParticipantEventsCommandInput
+  | ListParticipantReplicasCommandInput
   | ListParticipantsCommandInput
+  | ListPublicKeysCommandInput
   | ListStageSessionsCommandInput
   | ListStagesCommandInput
   | ListStorageConfigurationsCommandInput
   | ListTagsForResourceCommandInput
   | StartCompositionCommandInput
+  | StartParticipantReplicationCommandInput
   | StopCompositionCommandInput
+  | StopParticipantReplicationCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateIngestConfigurationCommandInput
   | UpdateStageCommandInput;
 
 /**
@@ -164,31 +212,43 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | CreateEncoderConfigurationCommandOutput
+  | CreateIngestConfigurationCommandOutput
   | CreateParticipantTokenCommandOutput
   | CreateStageCommandOutput
   | CreateStorageConfigurationCommandOutput
   | DeleteEncoderConfigurationCommandOutput
+  | DeleteIngestConfigurationCommandOutput
+  | DeletePublicKeyCommandOutput
   | DeleteStageCommandOutput
   | DeleteStorageConfigurationCommandOutput
   | DisconnectParticipantCommandOutput
   | GetCompositionCommandOutput
   | GetEncoderConfigurationCommandOutput
+  | GetIngestConfigurationCommandOutput
   | GetParticipantCommandOutput
+  | GetPublicKeyCommandOutput
   | GetStageCommandOutput
   | GetStageSessionCommandOutput
   | GetStorageConfigurationCommandOutput
+  | ImportPublicKeyCommandOutput
   | ListCompositionsCommandOutput
   | ListEncoderConfigurationsCommandOutput
+  | ListIngestConfigurationsCommandOutput
   | ListParticipantEventsCommandOutput
+  | ListParticipantReplicasCommandOutput
   | ListParticipantsCommandOutput
+  | ListPublicKeysCommandOutput
   | ListStageSessionsCommandOutput
   | ListStagesCommandOutput
   | ListStorageConfigurationsCommandOutput
   | ListTagsForResourceCommandOutput
   | StartCompositionCommandOutput
+  | StartParticipantReplicationCommandOutput
   | StopCompositionCommandOutput
+  | StopParticipantReplicationCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateIngestConfigurationCommandOutput
   | UpdateStageCommandOutput;
 
 /**
@@ -283,6 +343,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -328,11 +407,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type IVSRealTimeClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -348,11 +427,11 @@ export interface IVSRealTimeClientConfig extends IVSRealTimeClientConfigType {}
 export type IVSRealTimeClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -363,214 +442,84 @@ export type IVSRealTimeClientResolvedConfigType = __SmithyResolvedConfiguration<
 export interface IVSRealTimeClientResolvedConfig extends IVSRealTimeClientResolvedConfigType {}
 
 /**
- * <p>
- *             <b>Introduction</b>
- *          </p>
- *          <p>The Amazon Interactive Video Service (IVS) real-time API is REST compatible, using a standard HTTP
+ * <p>The Amazon Interactive Video Service (IVS) real-time API is REST compatible, using a standard HTTP
  * 	  API and an AWS EventBridge event stream for responses. JSON is used for both requests and responses,
  * 	  including errors.
  *     </p>
- *          <p>Terminology:</p>
- *          <ul>
- *             <li>
- *                <p>A <i>stage</i>  is a virtual space where participants can exchange video in real time.</p>
- *             </li>
- *             <li>
- *                <p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
- *             </li>
- *             <li>
- *                <p>A <i>participant object</i> represents participants (people) in the stage and
- *           contains information about them. When a token is created, it includes a participant ID;
- *           when a participant uses that token to join a stage, the participant is associated with
- *           that participant ID. There is a 1:1 mapping between participant tokens and
- *           participants.</p>
- *             </li>
- *             <li>
- *                <p>Server-side composition: The <i>composition</i> process composites participants
- *           of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
- *           Composition endpoints support this process.</p>
- *             </li>
- *             <li>
- *                <p>Server-side composition: A <i>composition</i> controls the look of the outputs,
- *           including how participants are positioned in the video.</p>
- *             </li>
- *          </ul>
  *          <p>
- *             <b>Resources</b>
+ *             <b>Key Concepts</b>
  *          </p>
- *          <p>The following resources contain information about your IVS live stream (see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>):</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Stage</b> — A stage is a virtual space where participants can exchange video in real time.</p>
+ *                   <b>Stage</b> — A virtual space where participants can exchange video in real time.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Participant token</b> — A token that authenticates a participant when they join a stage.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Participant object</b> — Represents participants (people) in the stage and
+ *             contains information about them. When a token is created, it includes a participant ID;
+ *             when a participant uses that token to join a stage, the participant is associated with
+ *             that participant ID. There is a 1:1 mapping between participant tokens and
+ *             participants.</p>
  *             </li>
  *          </ul>
+ *          <p>For server-side composition:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Composition process</b> — Composites participants
+ *             of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+ *             Composition operations support this process.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Composition</b> — Controls the look of the outputs,
+ *             including how participants are positioned in the video.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For participant replication:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Source stage</b> — The stage where the participant originally joined, which is used as the source for
+ * 			replication.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Destination stage</b> — The stage to which the participant is replicated.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replicated participant</b> — A participant in a stage that is replicated to one or more destination stages.
+ * 				</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Replica participant</b> — A participant in a destination stage that is replicated from another stage
+ * 			(the source stage).</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information about your IVS live stream, also see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>.</p>
  *          <p>
  *             <b>Tagging</b>
  *          </p>
  *          <p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
  *       comprises a <i>key</i> and a <i>value</i>, both set by you. For
  *       example, you might set a tag as <code>topic:nature</code> to label a particular video
- *       category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
- *       tags and "Tag naming limits and requirements"; Amazon IVS stages has no service-specific
- *       constraints beyond what is documented there.</p>
+ *       category. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+ *       in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+ *       limits and requirements"; Amazon IVS stages has no service-specific constraints beyond what is documented there.</p>
  *          <p>Tags can help you identify and organize your AWS resources. For example, you can use the
  *       same tag for different resources to indicate that they are related. You can also use tags to
  *       manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
- *          <p>The Amazon IVS real-time API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+ *          <p>The Amazon IVS real-time API has these tag-related operations: <a>TagResource</a>, <a>UntagResource</a>, and
  *       <a>ListTagsForResource</a>. The following resource supports tagging: Stage.</p>
  *          <p>At most 50 tags can be applied to a resource.</p>
- *          <p>
- *             <b>Stages Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateParticipantToken</a> — Creates an additional token for a specified stage. This can be done after stage creation or when tokens expire.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>CreateStage</a> — Creates a new stage (and optionally participant tokens).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStage</a> — Shuts down and deletes the specified stage (disconnecting all participants).</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisconnectParticipant</a> — Disconnects a specified participant and revokes the participant permanently from a specified stage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetParticipant</a> — Gets information about the specified
- *           participant token.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStage</a> — Gets information for the specified stage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStageSession</a> — Gets information for the specified stage
- *           session.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListParticipantEvents</a> — Lists events for a specified
- *           participant that occurred during a specified stage session.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListParticipants</a> — Lists all participants in a specified stage
- *           session.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStages</a> — Gets summary information about all stages in your account, in the AWS region where the API request is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStageSessions</a> — Gets all sessions for a specified stage.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateStage</a> — Updates a stage’s configuration.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Composition Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GetComposition</a> — Gets information about the specified
- *           Composition resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListCompositions</a> — Gets summary information about all
- *           Compositions in your account, in the AWS region where the API request is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StartComposition</a> — Starts a Composition from a stage based on
- *           the configuration provided in the request.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>StopComposition</a> — Stops and deletes a Composition resource.
- *           Any broadcast from the Composition resource is stopped.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>EncoderConfiguration Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
- *           resource. Ensures that no Compositions are using this template; otherwise, returns an
- *           error.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetEncoderConfiguration</a> — Gets information about the specified
- *           EncoderConfiguration resource.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListEncoderConfigurations</a> — Gets summary information about all
- *           EncoderConfigurations in your account, in the AWS region where the API request is
- *           processed.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>StorageConfiguration Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
- * 		recording to Amazon S3.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
- * 		account, in the AWS region where the API request is processed.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Tags Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListTagsForResource</a> — Gets information about AWS tags for the
- *           specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>TagResource</a> — Adds or updates tags for the AWS resource with
- *           the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UntagResource</a> — Removes tags from the resource with the
- *           specified ARN.</p>
- *             </li>
- *          </ul>
  * @public
  */
 export class IVSRealTimeClient extends __Client<
@@ -586,26 +535,30 @@ export class IVSRealTimeClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<IVSRealTimeClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultIVSRealTimeHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: IVSRealTimeClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -618,14 +571,5 @@ export class IVSRealTimeClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultIVSRealTimeHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: IVSRealTimeClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

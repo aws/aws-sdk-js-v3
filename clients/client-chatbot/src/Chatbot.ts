@@ -4,10 +4,20 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { ChatbotClient, ChatbotClientConfig } from "./ChatbotClient";
 import {
+  AssociateToConfigurationCommand,
+  AssociateToConfigurationCommandInput,
+  AssociateToConfigurationCommandOutput,
+} from "./commands/AssociateToConfigurationCommand";
+import {
   CreateChimeWebhookConfigurationCommand,
   CreateChimeWebhookConfigurationCommandInput,
   CreateChimeWebhookConfigurationCommandOutput,
 } from "./commands/CreateChimeWebhookConfigurationCommand";
+import {
+  CreateCustomActionCommand,
+  CreateCustomActionCommandInput,
+  CreateCustomActionCommandOutput,
+} from "./commands/CreateCustomActionCommand";
 import {
   CreateMicrosoftTeamsChannelConfigurationCommand,
   CreateMicrosoftTeamsChannelConfigurationCommandInput,
@@ -23,6 +33,11 @@ import {
   DeleteChimeWebhookConfigurationCommandInput,
   DeleteChimeWebhookConfigurationCommandOutput,
 } from "./commands/DeleteChimeWebhookConfigurationCommand";
+import {
+  DeleteCustomActionCommand,
+  DeleteCustomActionCommandInput,
+  DeleteCustomActionCommandOutput,
+} from "./commands/DeleteCustomActionCommand";
 import {
   DeleteMicrosoftTeamsChannelConfigurationCommand,
   DeleteMicrosoftTeamsChannelConfigurationCommandInput,
@@ -74,15 +89,35 @@ import {
   DescribeSlackWorkspacesCommandOutput,
 } from "./commands/DescribeSlackWorkspacesCommand";
 import {
+  DisassociateFromConfigurationCommand,
+  DisassociateFromConfigurationCommandInput,
+  DisassociateFromConfigurationCommandOutput,
+} from "./commands/DisassociateFromConfigurationCommand";
+import {
   GetAccountPreferencesCommand,
   GetAccountPreferencesCommandInput,
   GetAccountPreferencesCommandOutput,
 } from "./commands/GetAccountPreferencesCommand";
 import {
+  GetCustomActionCommand,
+  GetCustomActionCommandInput,
+  GetCustomActionCommandOutput,
+} from "./commands/GetCustomActionCommand";
+import {
   GetMicrosoftTeamsChannelConfigurationCommand,
   GetMicrosoftTeamsChannelConfigurationCommandInput,
   GetMicrosoftTeamsChannelConfigurationCommandOutput,
 } from "./commands/GetMicrosoftTeamsChannelConfigurationCommand";
+import {
+  ListAssociationsCommand,
+  ListAssociationsCommandInput,
+  ListAssociationsCommandOutput,
+} from "./commands/ListAssociationsCommand";
+import {
+  ListCustomActionsCommand,
+  ListCustomActionsCommandInput,
+  ListCustomActionsCommandOutput,
+} from "./commands/ListCustomActionsCommand";
 import {
   ListMicrosoftTeamsChannelConfigurationsCommand,
   ListMicrosoftTeamsChannelConfigurationsCommandInput,
@@ -120,6 +155,11 @@ import {
   UpdateChimeWebhookConfigurationCommandOutput,
 } from "./commands/UpdateChimeWebhookConfigurationCommand";
 import {
+  UpdateCustomActionCommand,
+  UpdateCustomActionCommandInput,
+  UpdateCustomActionCommandOutput,
+} from "./commands/UpdateCustomActionCommand";
+import {
   UpdateMicrosoftTeamsChannelConfigurationCommand,
   UpdateMicrosoftTeamsChannelConfigurationCommandInput,
   UpdateMicrosoftTeamsChannelConfigurationCommandOutput,
@@ -131,10 +171,13 @@ import {
 } from "./commands/UpdateSlackChannelConfigurationCommand";
 
 const commands = {
+  AssociateToConfigurationCommand,
   CreateChimeWebhookConfigurationCommand,
+  CreateCustomActionCommand,
   CreateMicrosoftTeamsChannelConfigurationCommand,
   CreateSlackChannelConfigurationCommand,
   DeleteChimeWebhookConfigurationCommand,
+  DeleteCustomActionCommand,
   DeleteMicrosoftTeamsChannelConfigurationCommand,
   DeleteMicrosoftTeamsConfiguredTeamCommand,
   DeleteMicrosoftTeamsUserIdentityCommand,
@@ -145,8 +188,12 @@ const commands = {
   DescribeSlackChannelConfigurationsCommand,
   DescribeSlackUserIdentitiesCommand,
   DescribeSlackWorkspacesCommand,
+  DisassociateFromConfigurationCommand,
   GetAccountPreferencesCommand,
+  GetCustomActionCommand,
   GetMicrosoftTeamsChannelConfigurationCommand,
+  ListAssociationsCommand,
+  ListCustomActionsCommand,
   ListMicrosoftTeamsChannelConfigurationsCommand,
   ListMicrosoftTeamsConfiguredTeamsCommand,
   ListMicrosoftTeamsUserIdentitiesCommand,
@@ -155,11 +202,29 @@ const commands = {
   UntagResourceCommand,
   UpdateAccountPreferencesCommand,
   UpdateChimeWebhookConfigurationCommand,
+  UpdateCustomActionCommand,
   UpdateMicrosoftTeamsChannelConfigurationCommand,
   UpdateSlackChannelConfigurationCommand,
 };
 
 export interface Chatbot {
+  /**
+   * @see {@link AssociateToConfigurationCommand}
+   */
+  associateToConfiguration(
+    args: AssociateToConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateToConfigurationCommandOutput>;
+  associateToConfiguration(
+    args: AssociateToConfigurationCommandInput,
+    cb: (err: any, data?: AssociateToConfigurationCommandOutput) => void
+  ): void;
+  associateToConfiguration(
+    args: AssociateToConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateToConfigurationCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateChimeWebhookConfigurationCommand}
    */
@@ -175,6 +240,23 @@ export interface Chatbot {
     args: CreateChimeWebhookConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateChimeWebhookConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCustomActionCommand}
+   */
+  createCustomAction(
+    args: CreateCustomActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateCustomActionCommandOutput>;
+  createCustomAction(
+    args: CreateCustomActionCommandInput,
+    cb: (err: any, data?: CreateCustomActionCommandOutput) => void
+  ): void;
+  createCustomAction(
+    args: CreateCustomActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCustomActionCommandOutput) => void
   ): void;
 
   /**
@@ -226,6 +308,23 @@ export interface Chatbot {
     args: DeleteChimeWebhookConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteChimeWebhookConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCustomActionCommand}
+   */
+  deleteCustomAction(
+    args: DeleteCustomActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCustomActionCommandOutput>;
+  deleteCustomAction(
+    args: DeleteCustomActionCommandInput,
+    cb: (err: any, data?: DeleteCustomActionCommandOutput) => void
+  ): void;
+  deleteCustomAction(
+    args: DeleteCustomActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCustomActionCommandOutput) => void
   ): void;
 
   /**
@@ -403,6 +502,23 @@ export interface Chatbot {
   ): void;
 
   /**
+   * @see {@link DisassociateFromConfigurationCommand}
+   */
+  disassociateFromConfiguration(
+    args: DisassociateFromConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateFromConfigurationCommandOutput>;
+  disassociateFromConfiguration(
+    args: DisassociateFromConfigurationCommandInput,
+    cb: (err: any, data?: DisassociateFromConfigurationCommandOutput) => void
+  ): void;
+  disassociateFromConfiguration(
+    args: DisassociateFromConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateFromConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAccountPreferencesCommand}
    */
   getAccountPreferences(): Promise<GetAccountPreferencesCommandOutput>;
@@ -421,6 +537,20 @@ export interface Chatbot {
   ): void;
 
   /**
+   * @see {@link GetCustomActionCommand}
+   */
+  getCustomAction(
+    args: GetCustomActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCustomActionCommandOutput>;
+  getCustomAction(args: GetCustomActionCommandInput, cb: (err: any, data?: GetCustomActionCommandOutput) => void): void;
+  getCustomAction(
+    args: GetCustomActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCustomActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetMicrosoftTeamsChannelConfigurationCommand}
    */
   getMicrosoftTeamsChannelConfiguration(
@@ -435,6 +565,41 @@ export interface Chatbot {
     args: GetMicrosoftTeamsChannelConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetMicrosoftTeamsChannelConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociationsCommand}
+   */
+  listAssociations(
+    args: ListAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociationsCommandOutput>;
+  listAssociations(
+    args: ListAssociationsCommandInput,
+    cb: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): void;
+  listAssociations(
+    args: ListAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomActionsCommand}
+   */
+  listCustomActions(): Promise<ListCustomActionsCommandOutput>;
+  listCustomActions(
+    args: ListCustomActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomActionsCommandOutput>;
+  listCustomActions(
+    args: ListCustomActionsCommandInput,
+    cb: (err: any, data?: ListCustomActionsCommandOutput) => void
+  ): void;
+  listCustomActions(
+    args: ListCustomActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomActionsCommandOutput) => void
   ): void;
 
   /**
@@ -566,6 +731,23 @@ export interface Chatbot {
   ): void;
 
   /**
+   * @see {@link UpdateCustomActionCommand}
+   */
+  updateCustomAction(
+    args: UpdateCustomActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateCustomActionCommandOutput>;
+  updateCustomAction(
+    args: UpdateCustomActionCommandInput,
+    cb: (err: any, data?: UpdateCustomActionCommandOutput) => void
+  ): void;
+  updateCustomAction(
+    args: UpdateCustomActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCustomActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateMicrosoftTeamsChannelConfigurationCommand}
    */
   updateMicrosoftTeamsChannelConfiguration(
@@ -601,7 +783,30 @@ export interface Chatbot {
 }
 
 /**
- * AWS Chatbot API
+ * <p>The <i>AWS Chatbot API Reference</i> provides descriptions, API request parameters, and the XML response for each of the AWS Chatbot API actions.</p>
+ *          <p>AWS Chatbot APIs are currently available in the following Regions:</p>
+ *          <ul>
+ *             <li>
+ *                <p>US East (Ohio) - <code>us-east-2</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>US West (Oregon) - <code>us-west-2</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Asia Pacific (Singapore) - <code>ap-southeast-1</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Europe (Ireland) - <code>eu-west-1</code>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>The AWS Chatbot console can only be used in US East (Ohio). Your configuration data however, is stored in each of the relevant available Regions.</p>
+ *          <note>
+ *             <p>Your AWS CloudTrail events are logged in whatever Region you call from, not US East (N. Virginia) by default.</p>
+ *          </note>
  * @public
  */
 export class Chatbot extends ChatbotClient implements Chatbot {}

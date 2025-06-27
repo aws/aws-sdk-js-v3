@@ -13,7 +13,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,13 +95,13 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To modify a custom DB cluster endpoint
  * ```javascript
  * // The following example modifies the specified custom DB cluster endpoint.
  * const input = {
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "StaticMembers": [
+ *   DBClusterEndpointIdentifier: "mycustomendpoint",
+ *   StaticMembers: [
  *     "dbinstance1",
  *     "dbinstance2",
  *     "dbinstance3"
@@ -108,27 +109,27 @@ export interface ModifyDBClusterEndpointCommandOutput extends DBClusterEndpoint,
  * };
  * const command = new ModifyDBClusterEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CustomEndpointType": "READER",
- *   "DBClusterEndpointArn": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
- *   "DBClusterEndpointIdentifier": "mycustomendpoint",
- *   "DBClusterEndpointResourceIdentifier": "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
- *   "DBClusterIdentifier": "mydbcluster",
- *   "Endpoint": "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
- *   "EndpointType": "CUSTOM",
- *   "ExcludedMembers": [],
- *   "StaticMembers": [
+ *   CustomEndpointType: "READER",
+ *   DBClusterEndpointArn: "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:mycustomendpoint",
+ *   DBClusterEndpointIdentifier: "mycustomendpoint",
+ *   DBClusterEndpointResourceIdentifier: "cluster-endpoint-ANPAJ4AE5446DAEXAMPLE",
+ *   DBClusterIdentifier: "mydbcluster",
+ *   Endpoint: "mycustomendpoint.cluster-custom-cnpexample.us-east-1.rds.amazonaws.com",
+ *   EndpointType: "CUSTOM",
+ *   ExcludedMembers:   [],
+ *   StaticMembers: [
  *     "dbinstance1",
  *     "dbinstance2",
  *     "dbinstance3"
  *   ],
- *   "Status": "modifying"
+ *   Status: "modifying"
  * }
  * *\/
- * // example id: to-modify-a-custom-db-cluster-endpoint-1680307652958
  * ```
  *
+ * @public
  */
 export class ModifyDBClusterEndpointCommand extends $Command
   .classBuilder<
@@ -138,9 +139,7 @@ export class ModifyDBClusterEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +151,16 @@ export class ModifyDBClusterEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDBClusterEndpointCommand)
   .de(de_ModifyDBClusterEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBClusterEndpointMessage;
+      output: DBClusterEndpoint;
+    };
+    sdk: {
+      input: ModifyDBClusterEndpointCommandInput;
+      output: ModifyDBClusterEndpointCommandOutput;
+    };
+  };
+}

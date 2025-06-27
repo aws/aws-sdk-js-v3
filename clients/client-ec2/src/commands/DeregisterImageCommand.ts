@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeregisterImageRequest } from "../models/models_3";
+import { DeregisterImageRequest, DeregisterImageResult } from "../models/models_3";
 import { de_DeregisterImageCommand, se_DeregisterImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -24,21 +25,37 @@ export interface DeregisterImageCommandInput extends DeregisterImageRequest {}
  *
  * The output of {@link DeregisterImageCommand}.
  */
-export interface DeregisterImageCommandOutput extends __MetadataBearer {}
+export interface DeregisterImageCommandOutput extends DeregisterImageResult, __MetadataBearer {}
 
 /**
- * <p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to
- *        launch new instances.</p>
- *          <p>If you deregister an AMI that matches a Recycle Bin retention rule, the AMI is retained
- *       in the Recycle Bin for the specified retention period. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recycle Bin</a> in
- *       the <i>Amazon EC2 User Guide</i>.</p>
- *          <p>When you deregister an AMI, it doesn't affect any instances that you've already
- *        launched from the AMI. You'll continue to incur usage costs for those instances until
- *        you terminate them.</p>
- *          <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was
- * 			created for the root volume of the instance during the AMI creation process. When you
- * 			deregister an instance store-backed AMI, it doesn't affect the files that you uploaded
- * 			to Amazon S3 when you created the AMI.</p>
+ * <p>Deregisters the specified AMI. A deregistered AMI can't be used to launch new
+ *       instances.</p>
+ *          <p>If a deregistered EBS-backed AMI matches a Recycle Bin retention rule, it moves to the
+ *       Recycle Bin for the specified retention period. It can be restored before its retention period
+ *       expires, after which it is permanently deleted. If the deregistered AMI doesn't match a
+ *       retention rule, it is permanently deleted immediately. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/recycle-bin.html">Recover deleted Amazon EBS
+ *         snapshots and EBS-backed AMIs with Recycle Bin</a> in the <i>Amazon EBS User
+ *         Guide</i>.</p>
+ *          <p>When deregistering an EBS-backed AMI, you can optionally delete its associated snapshots
+ *       at the same time. However, if a snapshot is associated with multiple AMIs, it won't be deleted
+ *       even if specified for deletion, although the AMI will still be deregistered.</p>
+ *          <p>Deregistering an AMI does not delete the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Instances already launched from the AMI. You'll continue to incur usage costs for the
+ *           instances until you terminate them.</p>
+ *             </li>
+ *             <li>
+ *                <p>For EBS-backed AMIs: Snapshots that are associated with multiple AMIs. You'll continue
+ *           to incur snapshot storage costs.</p>
+ *             </li>
+ *             <li>
+ *                <p>For instance store-backed AMIs: The files uploaded to Amazon S3 during AMI creation. You'll
+ *           continue to incur S3 storage costs.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html">Deregister an Amazon EC2 AMI</a> in the
+ *         <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,11 +64,20 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * const client = new EC2Client(config);
  * const input = { // DeregisterImageRequest
  *   ImageId: "STRING_VALUE", // required
+ *   DeleteAssociatedSnapshots: true || false,
  *   DryRun: true || false,
  * };
  * const command = new DeregisterImageCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // DeregisterImageResult
+ * //   Return: true || false,
+ * //   DeleteSnapshotResults: [ // DeleteSnapshotResultSet
+ * //     { // DeleteSnapshotReturnCode
+ * //       SnapshotId: "STRING_VALUE",
+ * //       ReturnCode: "success" || "skipped" || "missing-permissions" || "internal-error" || "client-error",
+ * //     },
+ * //   ],
+ * // };
  *
  * ```
  *
@@ -64,6 +90,7 @@ export interface DeregisterImageCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeregisterImageCommand extends $Command
@@ -74,9 +101,7 @@ export class DeregisterImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +113,16 @@ export class DeregisterImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterImageCommand)
   .de(de_DeregisterImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterImageRequest;
+      output: DeregisterImageResult;
+    };
+    sdk: {
+      input: DeregisterImageCommandInput;
+      output: DeregisterImageCommandOutput;
+    };
+  };
+}

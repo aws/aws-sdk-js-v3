@@ -12,7 +12,8 @@ import { de_DeleteCacheParameterGroupCommand, se_DeleteCacheParameterGroupComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,18 +69,21 @@ export interface DeleteCacheParameterGroupCommandOutput extends __MetadataBearer
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteCacheParameterGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache parameter group custom-mem1-4.
  * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4"
+ *   CacheParameterGroupName: "custom-mem1-4"
  * };
  * const command = new DeleteCacheParameterGroupCommand(input);
- * await client.send(command);
- * // example id: deletecacheparametergroup-1475010933957
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteCacheParameterGroupCommand extends $Command
   .classBuilder<
@@ -89,9 +93,7 @@ export class DeleteCacheParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +105,16 @@ export class DeleteCacheParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCacheParameterGroupCommand)
   .de(de_DeleteCacheParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCacheParameterGroupMessage;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCacheParameterGroupCommandInput;
+      output: DeleteCacheParameterGroupCommandOutput;
+    };
+  };
+}

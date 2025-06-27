@@ -6,89 +6,11 @@
 
 AWS SDK for JavaScript QBusiness Client for Node.js, Browser and React Native.
 
-<p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully
-managed, generative-AI powered enterprise chat assistant that you can deploy within your
-organization. Amazon Q Business enhances employee productivity by supporting key tasks such
-as question-answering, knowledge discovery, writing email messages, summarizing text,
-drafting document outlines, and brainstorming ideas. Users ask questions of
-Amazon Q Business and get answers that are presented in a conversational manner. For an
-introduction to the service, see the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html">
-<i>Amazon Q Business User Guide</i>
-</a>.</p>
-<p>For an overview of the Amazon Q Business APIs, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview">Overview of Amazon Q Business API operations</a>.</p>
-<p>For information about the IAM access control permissions you need to
-use this API, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html">IAM roles for Amazon Q Business</a> in the
-<i>Amazon Q Business User Guide</i>.</p>
-<p>You can use the following AWS SDKs to access Amazon Q Business APIs:</p>
-<ul>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/sdk-for-cpp">AWS SDK for C++</a>
-</p>
-</li>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/sdk-for-go">AWS SDK for Go</a>
-</p>
-</li>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/sdk-for-java">AWS SDK for Java</a>
-</p>
-</li>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/sdk-for-javascript">AWS SDK for
-JavaScript</a>
-</p>
-</li>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/sdk-for-net">AWS SDK for .NET</a>
-</p>
-</li>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/pythonsdk">AWS SDK for Python
-(Boto3)</a>
-</p>
-</li>
-<li>
-<p>
-<a href="https://docs.aws.amazon.com/sdk-for-ruby">AWS SDK for Ruby</a>
-</p>
-</li>
-</ul>
-<p>The following resources provide additional information about using the Amazon Q Business
-API:</p>
-<ul>
-<li>
-<p>
-<i>
-<a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html">Setting up for
-Amazon Q Business</a>
-</i>
-</p>
-</li>
-<li>
-<p>
-<i>
-<a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html">Amazon Q Business CLI Reference</a>
-</i>
-</p>
-</li>
-<li>
-<p>
-<i>
-<a href="https://docs.aws.amazon.com/general/latest/gr/amazonq.html">Amazon Web Services General Reference</a>
-</i>
-</p>
-</li>
-</ul>
+<p>This is the <i>Amazon Q Business</i> API Reference. Amazon Q Business is a fully managed, generative-AI powered enterprise chat assistant that you can deploy within your organization. Amazon Q Business enhances employee productivity by supporting key tasks such as question-answering, knowledge discovery, writing email messages, summarizing text, drafting document outlines, and brainstorming ideas. Users ask questions of Amazon Q Business and get answers that are presented in a conversational manner. For an introduction to the service, see the <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/what-is.html"> <i>Amazon Q Business User Guide</i> </a>.</p> <p>For an overview of the Amazon Q Business APIs, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/api-ref.html#api-overview">Overview of Amazon Q Business API operations</a>.</p> <p>For information about the IAM access control permissions you need to use this API, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html">IAM roles for Amazon Q Business</a> in the <i>Amazon Q Business User Guide</i>.</p> <p>The following resources provide additional information about using the Amazon Q Business API:</p> <ul> <li> <p> <i> <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/setting-up.html">Setting up for Amazon Q Business</a> </i> </p> </li> <li> <p> <i> <a href="https://awscli.amazonaws.com/v2/documentation/api/latest/reference/qbusiness/index.html">Amazon Q Business CLI Reference</a> </i> </p> </li> <li> <p> <i> <a href="https://docs.aws.amazon.com/general/latest/gr/amazonq.html">Amazon Web Services General Reference</a> </i> </p> </li> </ul>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-qbusiness
+To install this package, simply type add or install @aws-sdk/client-qbusiness
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-qbusiness`
@@ -283,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociatePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/AssociatePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/AssociatePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/AssociatePermissionCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchDeleteDocument
 </summary>
 
@@ -295,6 +225,14 @@ BatchPutDocument
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/BatchPutDocumentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/BatchPutDocumentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/BatchPutDocumentCommandOutput/)
+
+</details>
+<details>
+<summary>
+CancelSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CancelSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CancelSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CancelSubscriptionCommandOutput/)
 
 </details>
 <details>
@@ -315,10 +253,34 @@ ChatSync
 </details>
 <details>
 <summary>
+CheckDocumentAccess
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CheckDocumentAccessCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CheckDocumentAccessCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CheckDocumentAccessCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAnonymousWebExperienceUrl
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CreateAnonymousWebExperienceUrlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateAnonymousWebExperienceUrlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateAnonymousWebExperienceUrlCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateApplication
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CreateApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateApplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDataAccessor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CreateDataAccessorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateDataAccessorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateDataAccessorCommandOutput/)
 
 </details>
 <details>
@@ -355,6 +317,14 @@ CreateRetriever
 </details>
 <details>
 <summary>
+CreateSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/CreateSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/CreateSubscriptionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateUser
 </summary>
 
@@ -379,6 +349,14 @@ DeleteApplication
 </details>
 <details>
 <summary>
+DeleteAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DeleteAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteChatControlsConfiguration
 </summary>
 
@@ -391,6 +369,14 @@ DeleteConversation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DeleteConversationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteConversationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteConversationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDataAccessor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DeleteDataAccessorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteDataAccessorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DeleteDataAccessorCommandOutput/)
 
 </details>
 <details>
@@ -451,6 +437,14 @@ DeleteWebExperience
 </details>
 <details>
 <summary>
+DisassociatePermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/DisassociatePermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DisassociatePermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/DisassociatePermissionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetApplication
 </summary>
 
@@ -463,6 +457,14 @@ GetChatControlsConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetChatControlsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetChatControlsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetChatControlsConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataAccessor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetDataAccessorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetDataAccessorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetDataAccessorCommandOutput/)
 
 </details>
 <details>
@@ -491,10 +493,26 @@ GetIndex
 </details>
 <details>
 <summary>
+GetMedia
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetMediaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetMediaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetMediaCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetPlugin
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetPluginCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetPluginCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetPluginCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/GetPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/GetPolicyCommandOutput/)
 
 </details>
 <details>
@@ -531,10 +549,26 @@ ListApplications
 </details>
 <details>
 <summary>
+ListAttachments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListAttachmentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListAttachmentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListAttachmentsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListConversations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListConversationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListConversationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListConversationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataAccessors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListDataAccessorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListDataAccessorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListDataAccessorsCommandOutput/)
 
 </details>
 <details>
@@ -587,6 +621,14 @@ ListMessages
 </details>
 <details>
 <summary>
+ListPluginActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListPluginActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListPluginActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListPluginActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListPlugins
 </summary>
 
@@ -595,10 +637,34 @@ ListPlugins
 </details>
 <details>
 <summary>
+ListPluginTypeActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListPluginTypeActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListPluginTypeActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListPluginTypeActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPluginTypeMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListPluginTypeMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListPluginTypeMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListPluginTypeMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRetrievers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListRetrieversCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListRetrieversCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListRetrieversCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSubscriptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/ListSubscriptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListSubscriptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/ListSubscriptionsCommandOutput/)
 
 </details>
 <details>
@@ -631,6 +697,14 @@ PutGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/PutGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/PutGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/PutGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+SearchRelevantContent
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/SearchRelevantContentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/SearchRelevantContentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/SearchRelevantContentCommandOutput/)
 
 </details>
 <details>
@@ -683,6 +757,14 @@ UpdateChatControlsConfiguration
 </details>
 <details>
 <summary>
+UpdateDataAccessor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/UpdateDataAccessorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateDataAccessorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateDataAccessorCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateDataSource
 </summary>
 
@@ -711,6 +793,14 @@ UpdateRetriever
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/UpdateRetrieverCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateRetrieverCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateRetrieverCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSubscription
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/qbusiness/command/UpdateSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-qbusiness/Interface/UpdateSubscriptionCommandOutput/)
 
 </details>
 <details>

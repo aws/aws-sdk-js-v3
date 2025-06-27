@@ -18,7 +18,8 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class NotifyUpdateProvisionedProductEngineWorkflowResultCommand extends $Command
@@ -91,9 +93,7 @@ export class NotifyUpdateProvisionedProductEngineWorkflowResultCommand extends $
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class NotifyUpdateProvisionedProductEngineWorkflowResultCommand extends $
   .f(void 0, void 0)
   .ser(se_NotifyUpdateProvisionedProductEngineWorkflowResultCommand)
   .de(de_NotifyUpdateProvisionedProductEngineWorkflowResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyUpdateProvisionedProductEngineWorkflowResultInput;
+      output: {};
+    };
+    sdk: {
+      input: NotifyUpdateProvisionedProductEngineWorkflowResultCommandInput;
+      output: NotifyUpdateProvisionedProductEngineWorkflowResultCommandOutput;
+    };
+  };
+}

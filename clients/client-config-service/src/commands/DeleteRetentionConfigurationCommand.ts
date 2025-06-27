@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,6 +63,7 @@ export interface DeleteRetentionConfigurationCommandOutput extends __MetadataBea
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteRetentionConfigurationCommand extends $Command
@@ -72,9 +74,7 @@ export class DeleteRetentionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class DeleteRetentionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRetentionConfigurationCommand)
   .de(de_DeleteRetentionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRetentionConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRetentionConfigurationCommandInput;
+      output: DeleteRetentionConfigurationCommandOutput;
+    };
+  };
+}

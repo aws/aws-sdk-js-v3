@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import { CreateRelayRequest, CreateRelayRequestFilterSensitiveLog, CreateRelayResponse } from "../models/models_0";
+import { CreateRelayRequest, CreateRelayResponse } from "../models/models_0";
 import { de_CreateRelayCommand, se_CreateRelayCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateRelayCommandInput extends CreateRelayRequest {}
 export interface CreateRelayCommandOutput extends CreateRelayResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a relay resource which can be used in rules to relay incoming emails to
- *             defined relay destinations. </p>
+ * <p>Creates a relay resource which can be used in rules to relay incoming emails to defined relay destinations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +77,7 @@ export interface CreateRelayCommandOutput extends CreateRelayResponse, __Metadat
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class CreateRelayCommand extends $Command
@@ -87,9 +88,7 @@ export class CreateRelayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,7 +97,19 @@ export class CreateRelayCommand extends $Command
   })
   .s("MailManagerSvc", "CreateRelay", {})
   .n("MailManagerClient", "CreateRelayCommand")
-  .f(CreateRelayRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateRelayCommand)
   .de(de_CreateRelayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRelayRequest;
+      output: CreateRelayResponse;
+    };
+    sdk: {
+      input: CreateRelayCommandInput;
+      output: CreateRelayCommandOutput;
+    };
+  };
+}

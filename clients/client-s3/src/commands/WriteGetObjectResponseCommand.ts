@@ -12,7 +12,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Passes transformed objects to a <code>GetObject</code> operation when using Object Lambda access points. For
  *          information about Object Lambda access points, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/transforming-objects.html">Transforming objects with
@@ -90,6 +91,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   ContentType: "STRING_VALUE",
  *   ChecksumCRC32: "STRING_VALUE",
  *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumCRC64NVME: "STRING_VALUE",
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
  *   DeleteMarker: true || false,
@@ -108,11 +110,11 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *   ReplicationStatus: "COMPLETE" || "PENDING" || "FAILED" || "REPLICA" || "COMPLETED",
  *   RequestCharged: "requester",
  *   Restore: "STRING_VALUE",
- *   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ *   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSEKMSKeyId: "STRING_VALUE",
  *   SSECustomerKeyMD5: "STRING_VALUE",
- *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ *   StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  *   TagCount: Number("int"),
  *   VersionId: "STRING_VALUE",
  *   BucketKeyEnabled: true || false,
@@ -131,6 +133,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
  *
  * @public
  */
@@ -157,4 +160,16 @@ export class WriteGetObjectResponseCommand extends $Command
   .f(WriteGetObjectResponseRequestFilterSensitiveLog, void 0)
   .ser(se_WriteGetObjectResponseCommand)
   .de(de_WriteGetObjectResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: WriteGetObjectResponseRequest;
+      output: {};
+    };
+    sdk: {
+      input: WriteGetObjectResponseCommandInput;
+      output: WriteGetObjectResponseCommandOutput;
+    };
+  };
+}

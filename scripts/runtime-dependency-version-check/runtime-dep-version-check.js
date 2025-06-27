@@ -22,27 +22,21 @@
 
 const fs = require("fs");
 const path = require("path");
+const { listFolders } = require("../utils/list-folders");
 
 const root = path.join(__dirname, "..", "..");
 
-const clients = fs.readdirSync(path.join(root, "clients"));
-const lib = fs.readdirSync(path.join(root, "lib"));
-const packages = fs.readdirSync(path.join(root, "packages"));
-const _private = fs.readdirSync(path.join(root, "private"));
+const clients = listFolders(path.join(root, "clients"), false);
+const lib = listFolders(path.join(root, "lib"), false);
+const packages = listFolders(path.join(root, "packages"), false);
+const _private = listFolders(path.join(root, "private"), false);
 
 const setCanonicalVersion = process.argv.includes("--set-smithy-version");
 const colocatedSmithy = fs.existsSync(path.join(root, "..", "smithy-typescript", "packages"));
 
-const clientPackages = [
-  ...clients.map((c) => path.join(root, "clients", c)),
-  ..._private.filter((p) => !p.endsWith("-test")).map((p) => path.join(root, "private", p)),
-];
+const clientPackages = [...clients, ..._private.filter((p) => !p.endsWith("-test"))];
 
-const nonClientPackages = [
-  ...lib.map((l) => path.join(root, "lib", l)),
-  ...packages.map((p) => path.join(root, "packages", p)),
-  ..._private.filter((p) => p.endsWith("-test")).map((p) => path.join(root, "private", p)),
-];
+const nonClientPackages = [...lib, ...packages, ..._private.filter((p) => p.endsWith("-test"))];
 
 const deps = {
   /* @namespace/name: {
@@ -50,11 +44,20 @@ const deps = {
   } */
 };
 
+const ignored = ["vitest"];
+
 readPackages(clientPackages);
 checkVersions();
 
 for (const pkg of nonClientPackages) {
-  const pkgJson = require(path.join(pkg, "package.json"));
+  const pkgJsonPath = path.join(pkg, "package.json");
+
+  // Check if package.json exists before requiring it
+  if (!fs.existsSync(pkgJsonPath)) {
+    continue;
+  }
+
+  const pkgJson = require(pkgJsonPath);
   const { dependencies = {}, devDependencies = {} } = pkgJson;
 
   for (const [name, version] of Object.entries(dependencies)) {
@@ -115,7 +118,7 @@ for (const pkg of nonClientPackages) {
     }
   }
 
-  fs.writeFileSync(path.join(pkg, "package.json"), JSON.stringify(pkgJson, null, 2) + "\n", "utf-8");
+  fs.writeFileSync(pkgJsonPath, JSON.stringify(pkgJson, null, 2) + "\n", "utf-8");
 }
 
 readPackages(nonClientPackages);
@@ -125,6 +128,9 @@ function checkVersions() {
   const errors = [];
 
   for (const [pkg, versions] of Object.entries(deps)) {
+    if (ignored.includes(pkg)) {
+      continue;
+    }
     const versionCount = Object.keys(versions).length;
     if (versionCount > 1) {
       console.error("There is more than one version of a declared runtime dependency.");
@@ -147,7 +153,14 @@ function checkVersions() {
 
 function readPackages(packages) {
   for (const pkg of packages) {
-    const pkgJson = require(path.join(pkg, "package.json"));
+    const pkgJsonPath = path.join(pkg, "package.json");
+
+    // Check if package.json exists before requiring it
+    if (!fs.existsSync(pkgJsonPath)) {
+      continue;
+    }
+
+    const pkgJson = require(pkgJsonPath);
     const { dependencies = {}, devDependencies = {} } = pkgJson;
     for (const [name, version] of Object.entries(dependencies)) {
       if (version.startsWith("file:")) {

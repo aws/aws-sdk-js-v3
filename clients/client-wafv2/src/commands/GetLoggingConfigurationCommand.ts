@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,12 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * //         JA3Fingerprint: { // JA3Fingerprint
  * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //         },
+ * //         JA4Fingerprint: { // JA4Fingerprint
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //         },
+ * //         UriFragment: { // UriFragment
+ * //           FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //         },
  * //       },
  * //     ],
  * //     ManagedByFirewallManager: true || false,
@@ -177,6 +184,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class GetLoggingConfigurationCommand extends $Command
@@ -187,9 +195,7 @@ export class GetLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +207,16 @@ export class GetLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoggingConfigurationCommand)
   .de(de_GetLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoggingConfigurationRequest;
+      output: GetLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: GetLoggingConfigurationCommandInput;
+      output: GetLoggingConfigurationCommandOutput;
+    };
+  };
+}

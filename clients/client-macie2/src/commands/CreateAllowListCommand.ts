@@ -12,7 +12,8 @@ import { de_CreateAllowListCommand, se_CreateAllowListCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface CreateAllowListCommandOutput extends CreateAllowListResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class CreateAllowListCommand extends $Command
@@ -98,9 +100,7 @@ export class CreateAllowListCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class CreateAllowListCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAllowListCommand)
   .de(de_CreateAllowListCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAllowListRequest;
+      output: CreateAllowListResponse;
+    };
+    sdk: {
+      input: CreateAllowListCommandInput;
+      output: CreateAllowListCommandOutput;
+    };
+  };
+}

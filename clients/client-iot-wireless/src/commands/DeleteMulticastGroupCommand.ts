@@ -12,7 +12,8 @@ import { de_DeleteMulticastGroupCommand, se_DeleteMulticastGroupCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteMulticastGroupCommandInput extends DeleteMulticastGroupRe
 export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a multicast group if it is not in use by a fuota task.</p>
+ * <p>Deletes a multicast group if it is not in use by a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +71,7 @@ export interface DeleteMulticastGroupCommandOutput extends DeleteMulticastGroupR
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class DeleteMulticastGroupCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteMulticastGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteMulticastGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMulticastGroupCommand)
   .de(de_DeleteMulticastGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMulticastGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMulticastGroupCommandInput;
+      output: DeleteMulticastGroupCommandOutput;
+    };
+  };
+}

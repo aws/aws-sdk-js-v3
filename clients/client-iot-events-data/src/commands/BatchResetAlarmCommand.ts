@@ -12,7 +12,8 @@ import { de_BatchResetAlarmCommand, se_BatchResetAlarmCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface BatchResetAlarmCommandOutput extends BatchResetAlarmResponse, _
  * @throws {@link IoTEventsDataServiceException}
  * <p>Base exception class for all service exceptions from IoTEventsData service.</p>
  *
+ *
  * @public
  */
 export class BatchResetAlarmCommand extends $Command
@@ -90,9 +92,7 @@ export class BatchResetAlarmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class BatchResetAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchResetAlarmCommand)
   .de(de_BatchResetAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchResetAlarmRequest;
+      output: BatchResetAlarmResponse;
+    };
+    sdk: {
+      input: BatchResetAlarmCommandInput;
+      output: BatchResetAlarmCommandOutput;
+    };
+  };
+}

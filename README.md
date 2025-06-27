@@ -103,10 +103,13 @@ to add and import following polyfills in your react-native application:
 
 - [react-native-get-random-values](https://www.npmjs.com/package/react-native-get-random-values)
 - [react-native-url-polyfill](https://www.npmjs.com/package/react-native-url-polyfill)
+- [web-streams-polyfill](https://www.npmjs.com/package/web-streams-polyfill)
 
 ```js
 import "react-native-get-random-values";
 import "react-native-url-polyfill/auto";
+import "web-streams-polyfill/dist/polyfill";
+
 import { DynamoDB } from "@aws-sdk/client-dynamodb";
 ```
 
@@ -192,8 +195,14 @@ we have them listed in [UPGRADING.md](https://github.com/aws/aws-sdk-js-v3/blob/
 
 ### General Info
 
-The Lambda provided AWS SDK is set to a specific minor version, and **NOT** the latest version. To check the minor version used by Lambda, please refer to [Lambda runtimes doc page](https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html).
-If you wish to use the latest / different version of the SDK from the one provided by lambda, we recommend that you [bundle and minify](https://aws.amazon.com/blogs/compute/optimizing-node-js-dependencies-in-aws-lambda/) your project, or [upload it as a Lambda layer](https://aws.amazon.com/blogs/compute/using-lambda-layers-to-simplify-your-development-process/).
+The Lambda provided AWS SDK is set to a specific minor version, and NOT the latest version. To
+determine which version of the SDK is included with the runtime you're using,
+see [Runtime-included SDK versions](https://docs.aws.amazon.com/lambda/latest/dg/lambda-nodejs.html#nodejs-sdk-included)
+in the Lambda Developer Guide. To maintain full control of your dependencies, and to maximize
+backward compatibility during automatic runtime updates, we recommend that you always include
+the SDK modules your code uses in your function's deployment package or in a Lambda layer.
+See [Backward compatibility](https://docs.aws.amazon.com/lambda/latest/dg/runtimes-update.html#runtime-update-compatibility)
+to learn more.
 
 The performance of the AWS SDK for JavaScript v3 on node 18 has improved from v2 as seen in the [performance benchmarking](https://aws.amazon.com/blogs/developer/reduce-lambda-cold-start-times-migrate-to-aws-sdk-for-javascript-v3/)
 
@@ -494,8 +503,6 @@ abortController.abort();
 await requestPromise;
 ```
 
-For a full pagination deep dive, please check out our [blog post](https://aws.amazon.com/blogs/developer/pagination-using-async-iterators-in-modular-aws-sdk-for-javascript/).
-
 #### AbortController Example
 
 The following code snippet shows how to upload a file using S3's putObject API in the browser with support to abort the upload. First, create a controller using the `AbortController()` constructor, then grab a reference to its associated AbortSignal object using the AbortController.signal property. When the `PutObjectCommand` is called with `.send()` operation, pass in AbortController.signal as abortSignal in the httpOptions parameter. This will allow you to abort the PutObject operation by calling `abortController.abort()`.
@@ -593,6 +600,10 @@ minor version, e.g. 3.200.0 -> 3.201.0.
 
 ## <a id="nodejs-versions"></a> Node.js versions
 
+v3.723.0 and higher requires Node.js >= 18.
+
+v3.567.0 and higher requires Node.js >= 16.
+
 v3.201.0 and higher requires Node.js >= 14.
 
 v3.46.0 to v3.200.0 requires Node.js >= 12.
@@ -643,6 +654,8 @@ bindings to be included as a dependency with your application. This functionalit
 
 - [Amazon S3 Multi-Region Access Points](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPoints.html)
 - [Amazon S3 Object Integrity](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
+- [Amazon CloudFront-KeyValueStore](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/kvs-with-functions-kvp.html)
+- [Amazon S3 CRC64-NVME checksums](https://docs.aws.amazon.com/AmazonS3/latest/userguide/checking-object-integrity.html)
 
 If the required AWS Common Runtime components are not installed, you will receive an error like:
 
@@ -684,6 +697,50 @@ import "@aws-sdk/signature-v4-crt";
 
 Only the import statement is needed. The implementation then registers itself with `@aws-sdk/signature-v4-multi-region`
 and becomes available for its use. You do not need to use any imported objects directly.
+
+Note that you can also use the native JavaScript implementation of SigV4a that does not depend on AWS CRT and can be used in browsers (unlike the CRT version). The instructions for using that package are below.
+
+### Using JavaScript (non-CRT) implementation of SigV4a
+
+Note: Use of AWS SignatureV4a in the browser (JS implementation) is not recommended, due to the bundle size of the SigV4a signing algorithm code. Consider whether there are other ways to achieve your desired application functionality without the use of sigv4a before installing these packages.
+
+AWS SDK for JavaScript v3 now supports a native JavaScript version of SigV4a that can be used in browsers and Node, and does not depend on [AWS Common Runtime (CRT)](https://docs.aws.amazon.com/sdkref/latest/guide/common-runtime.html). This is an alternative to the AWS CRT version, so you don't need to have both packages together.
+
+If neither the CRT components nor the JavaScript SigV4a implementation are installed, you will receive an error like:
+
+```console
+Neither CRT nor JS SigV4a implementation is available.
+Please load either @aws-sdk/signature-v4-crt or @aws-sdk/signature-v4a.
+```
+
+indicating that at least one of the required dependencies is missing to use the associated functionality. To install the JavaScript SigV4a dependency, follow the provided instructions.
+
+#### Installing the JavaScript SigV4a Dependency
+
+You can install the JavaScript SigV4a dependency with different commands depending on the package management tool you are using.
+If you are using NPM:
+
+```console
+npm install @aws-sdk/signature-v4a
+```
+
+If you are using Yarn:
+
+```console
+yarn add @aws-sdk/signature-v4a
+```
+
+Additionally, load the signature-v4a package by importing it.
+
+```js
+require("@aws-sdk/signature-v4a");
+// or ESM
+import "@aws-sdk/signature-v4a";
+```
+
+Only the import statement is needed. The implementation then registers itself with `@aws-sdk/signature-v4-multi-region`
+and becomes available for its use. You do not need to use any imported objects directly.
+Note that if both the CRT-based implementation and the JavaScript implementation are available, the SDK will prefer to use the CRT-based implementation for better performance. If you specifically want to use the JavaScript implementation, ensure that the CRT package is not installed or imported.
 
 #### Related issues
 

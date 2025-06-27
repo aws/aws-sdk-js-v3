@@ -17,7 +17,8 @@ import { de_StartWebRTCContactCommand, se_StartWebRTCContactCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,9 +51,11 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  *   AllowedCapabilities: { // AllowedCapabilities
  *     Customer: { // ParticipantCapabilities
  *       Video: "SEND",
+ *       ScreenShare: "SEND",
  *     },
  *     Agent: {
  *       Video: "SEND",
+ *       ScreenShare: "SEND",
  *     },
  *   },
  *   ParticipantDetails: { // ParticipantDetails
@@ -61,8 +64,11 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  *   RelatedContactId: "STRING_VALUE",
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *       Value: "STRING_VALUE",
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Arn: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
  *     },
  *   },
  *   Description: "STRING_VALUE",
@@ -123,6 +129,7 @@ export interface StartWebRTCContactCommandOutput extends StartWebRTCContactRespo
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartWebRTCContactCommand extends $Command
@@ -133,9 +140,7 @@ export class StartWebRTCContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +152,16 @@ export class StartWebRTCContactCommand extends $Command
   .f(StartWebRTCContactRequestFilterSensitiveLog, StartWebRTCContactResponseFilterSensitiveLog)
   .ser(se_StartWebRTCContactCommand)
   .de(de_StartWebRTCContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartWebRTCContactRequest;
+      output: StartWebRTCContactResponse;
+    };
+    sdk: {
+      input: StartWebRTCContactCommandInput;
+      output: StartWebRTCContactCommandOutput;
+    };
+  };
+}

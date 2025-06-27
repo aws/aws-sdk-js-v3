@@ -8,8 +8,8 @@
 export * from "./ForecastqueryClient";
 export * from "./Forecastquery";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ForecastqueryExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ForecastqueryExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

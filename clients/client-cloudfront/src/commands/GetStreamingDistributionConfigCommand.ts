@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,7 +71,7 @@ export interface GetStreamingDistributionConfigCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //     PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //     Enabled: true || false, // required
  * //   },
  * //   ETag: "STRING_VALUE",
@@ -93,6 +94,7 @@ export interface GetStreamingDistributionConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetStreamingDistributionConfigCommand extends $Command
@@ -103,9 +105,7 @@ export class GetStreamingDistributionConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetStreamingDistributionConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStreamingDistributionConfigCommand)
   .de(de_GetStreamingDistributionConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStreamingDistributionConfigRequest;
+      output: GetStreamingDistributionConfigResult;
+    };
+    sdk: {
+      input: GetStreamingDistributionConfigCommandInput;
+      output: GetStreamingDistributionConfigCommandOutput;
+    };
+  };
+}

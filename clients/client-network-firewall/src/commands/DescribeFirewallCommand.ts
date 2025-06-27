@@ -12,7 +12,8 @@ import { de_DescribeFirewallCommand, se_DescribeFirewallCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,18 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //       KeyId: "STRING_VALUE",
  * //       Type: "CUSTOMER_KMS" || "AWS_OWNED_KMS_KEY", // required
  * //     },
+ * //     NumberOfAssociations: Number("int"),
+ * //     EnabledAnalysisTypes: [ // EnabledAnalysisTypes
+ * //       "TLS_SNI" || "HTTP_HOST",
+ * //     ],
+ * //     TransitGatewayId: "STRING_VALUE",
+ * //     TransitGatewayOwnerAccountId: "STRING_VALUE",
+ * //     AvailabilityZoneMappings: [ // AvailabilityZoneMappings
+ * //       { // AvailabilityZoneMapping
+ * //         AvailabilityZone: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     AvailabilityZoneChangeProtection: true || false,
  * //   },
  * //   FirewallStatus: { // FirewallStatus
  * //     Status: "PROVISIONING" || "DELETING" || "READY", // required
@@ -98,6 +111,11 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * //           },
  * //         },
  * //       },
+ * //     },
+ * //     TransitGatewayAttachmentSyncState: { // TransitGatewayAttachmentSyncState
+ * //       AttachmentId: "STRING_VALUE",
+ * //       TransitGatewayAttachmentStatus: "CREATING" || "DELETING" || "DELETED" || "FAILED" || "ERROR" || "READY" || "PENDING_ACCEPTANCE" || "REJECTING" || "REJECTED",
+ * //       StatusMessage: "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -139,6 +157,7 @@ export interface DescribeFirewallCommandOutput extends DescribeFirewallResponse,
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DescribeFirewallCommand extends $Command
@@ -149,9 +168,7 @@ export class DescribeFirewallCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +180,16 @@ export class DescribeFirewallCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFirewallCommand)
   .de(de_DescribeFirewallCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFirewallRequest;
+      output: DescribeFirewallResponse;
+    };
+    sdk: {
+      input: DescribeFirewallCommandInput;
+      output: DescribeFirewallCommandOutput;
+    };
+  };
+}

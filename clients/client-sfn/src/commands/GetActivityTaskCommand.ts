@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,8 +83,18 @@ export interface GetActivityTaskCommandOutput extends GetActivityTaskOutput, __M
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
+ *
  *
  * @public
  */
@@ -95,9 +106,7 @@ export class GetActivityTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +118,16 @@ export class GetActivityTaskCommand extends $Command
   .f(void 0, GetActivityTaskOutputFilterSensitiveLog)
   .ser(se_GetActivityTaskCommand)
   .de(de_GetActivityTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetActivityTaskInput;
+      output: GetActivityTaskOutput;
+    };
+    sdk: {
+      input: GetActivityTaskCommandInput;
+      output: GetActivityTaskCommandOutput;
+    };
+  };
+}

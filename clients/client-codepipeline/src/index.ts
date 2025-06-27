@@ -109,6 +109,9 @@
  *             <li>
  *                <p>Invoke</p>
  *             </li>
+ *             <li>
+ *                <p>Compute</p>
+ *             </li>
  *          </ul>
  *          <p>Pipelines also include <i>transitions</i>, which allow the transition
  *             of artifacts from one stage to the next in a pipeline after the actions in one stage
@@ -201,8 +204,8 @@
 export * from "./CodePipelineClient";
 export * from "./CodePipeline";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { CodePipelineExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { CodePipelineExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

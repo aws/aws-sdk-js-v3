@@ -19,7 +19,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,42 +37,46 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
 /**
  * <p>Completes a multipart upload by assembling previously uploaded parts.</p>
  *          <p>You first initiate the multipart upload and then upload all parts using the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPart.html">UploadPart</a>
- *          operation or the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a>
- *          operation. After successfully uploading all relevant parts of an upload, you call this
- *          <code>CompleteMultipartUpload</code> operation to complete the upload. Upon receiving this request, Amazon S3 concatenates all the parts
- *          in ascending order by part number to create a new object. In the CompleteMultipartUpload
- *          request, you must provide the parts list and ensure that the parts list is complete.
- *          The CompleteMultipartUpload API operation concatenates the parts that you provide in the list. For each part in the list,
- *          you must provide the <code>PartNumber</code> value and the <code>ETag</code> value that are returned after that part
- *          was uploaded.</p>
+ *          operation or the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_UploadPartCopy.html">UploadPartCopy</a> operation.
+ *          After successfully uploading all relevant parts of an upload, you call this
+ *             <code>CompleteMultipartUpload</code> operation to complete the upload. Upon receiving
+ *          this request, Amazon S3 concatenates all the parts in ascending order by part number to create a
+ *          new object. In the CompleteMultipartUpload request, you must provide the parts list and
+ *          ensure that the parts list is complete. The CompleteMultipartUpload API operation
+ *          concatenates the parts that you provide in the list. For each part in the list, you must
+ *          provide the <code>PartNumber</code> value and the <code>ETag</code> value that are returned
+ *          after that part was uploaded.</p>
  *          <p>The processing of a CompleteMultipartUpload request could take several minutes to
  *          finalize. After Amazon S3 begins processing the request, it sends an HTTP response header that
- *          specifies a <code>200 OK</code> response. While processing is in progress, Amazon S3 periodically sends white
- *          space characters to keep the connection from timing out. A request could fail after the
- *          initial <code>200 OK</code> response has been sent. This means that a <code>200 OK</code> response can
- *          contain either a success or an error. The error response might be embedded in the <code>200 OK</code> response.
- *          If you call this API operation directly, make sure to design
- *          your application to parse the contents of the response and handle it appropriately. If you
- *          use Amazon Web Services SDKs, SDKs handle this condition. The SDKs detect the embedded error and apply
- *          error handling per your configuration settings (including automatically retrying the
- *          request as appropriate). If the condition persists, the SDKs throw an exception (or, for
- *          the SDKs that don't use exceptions, they return an error). </p>
+ *          specifies a <code>200 OK</code> response. While processing is in progress, Amazon S3
+ *          periodically sends white space characters to keep the connection from timing out. A request
+ *          could fail after the initial <code>200 OK</code> response has been sent. This means that a
+ *             <code>200 OK</code> response can contain either a success or an error. The error
+ *          response might be embedded in the <code>200 OK</code> response. If you call this API
+ *          operation directly, make sure to design your application to parse the contents of the
+ *          response and handle it appropriately. If you use Amazon Web Services SDKs, SDKs handle this condition.
+ *          The SDKs detect the embedded error and apply error handling per your configuration settings
+ *          (including automatically retrying the request as appropriate). If the condition persists,
+ *          the SDKs throw an exception (or, for the SDKs that don't use exceptions, they return an
+ *          error). </p>
  *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
- *          to retry any failed requests (including 500 error responses). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
- *          Practices</a>.</p>
+ *          to retry any failed requests (including 500 error responses). For more information, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error
+ *             Best Practices</a>.</p>
  *          <important>
  *             <p>You can't use <code>Content-Type: application/x-www-form-urlencoded</code> for the
- *             CompleteMultipartUpload requests. Also, if you don't provide a
- *                <code>Content-Type</code> header, <code>CompleteMultipartUpload</code> can still return a <code>200
- *             OK</code> response.</p>
+ *             CompleteMultipartUpload requests. Also, if you don't provide a <code>Content-Type</code>
+ *             header, <code>CompleteMultipartUpload</code> can still return a <code>200 OK</code>
+ *             response.</p>
  *          </important>
  *          <p>For more information about multipart uploads, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/uploadobjusingmpu.html">Uploading Objects Using Multipart
- *          Upload</a> in the <i>Amazon S3
- *             User Guide</i>.</p>
+ *             Upload</a> in the <i>Amazon S3 User Guide</i>.</p>
  *          <note>
  *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *                <b>Directory buckets</b> -
+ *             For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *          </note>
  *          <dl>
@@ -80,9 +85,15 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload API, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload API, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                      <p>If you provide an <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_Checksum.html">additional checksum
+ *                            value</a> in your <code>MultipartUpload</code> requests and the
+ *                         object is encrypted with Key Management Service, you must have permission to use the
+ *                            <code>kms:Decrypt</code> action for the
+ *                            <code>CompleteMultipartUpload</code> request to succeed.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -92,6 +103,10 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * Amazon Web Services CLI or SDKs create session and refresh the session token automatically to avoid service interruptions when a session expires. For more information about authorization, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_CreateSession.html">
  *                            <code>CreateSession</code>
  *                         </a>.</p>
+ *                      <p>If the object is encrypted with SSE-KMS, you must also have the
+ *                            <code>kms:GenerateDataKey</code> and <code>kms:Decrypt</code> permissions
+ *                         in IAM identity-based policies and KMS key policies for the KMS
+ *                         key.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -103,8 +118,9 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: Your proposed upload is smaller than the minimum allowed object
- *                            size. Each part must be at least 5 MB in size, except the last part.</p>
+ *                            <p>Description: Your proposed upload is smaller than the minimum
+ *                               allowed object size. Each part must be at least 5 MB in size, except
+ *                               the last part.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>
@@ -116,9 +132,9 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: One or more of the specified parts could not be found. The part
- *                            might not have been uploaded, or the specified ETag might not have
- *                            matched the uploaded part's ETag.</p>
+ *                            <p>Description: One or more of the specified parts could not be found.
+ *                               The part might not have been uploaded, or the specified ETag might not
+ *                               have matched the uploaded part's ETag.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>
@@ -130,8 +146,8 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: The list of parts was not in ascending order. The parts list
- *                            must be specified in order by part number.</p>
+ *                            <p>Description: The list of parts was not in ascending order. The
+ *                               parts list must be specified in order by part number.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 400 Bad Request</p>
@@ -143,9 +159,9 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *                      </p>
  *                      <ul>
  *                         <li>
- *                            <p>Description: The specified multipart upload does not exist. The upload ID
- *                            might be invalid, or the multipart upload might have been aborted or
- *                            completed.</p>
+ *                            <p>Description: The specified multipart upload does not exist. The
+ *                               upload ID might be invalid, or the multipart upload might have been
+ *                               aborted or completed.</p>
  *                         </li>
  *                         <li>
  *                            <p>HTTP Status Code: 404 Not Found</p>
@@ -158,7 +174,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *             <dd>
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>CompleteMultipartUpload</code>:</p>
@@ -204,6 +220,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *         ETag: "STRING_VALUE",
  *         ChecksumCRC32: "STRING_VALUE",
  *         ChecksumCRC32C: "STRING_VALUE",
+ *         ChecksumCRC64NVME: "STRING_VALUE",
  *         ChecksumSHA1: "STRING_VALUE",
  *         ChecksumSHA256: "STRING_VALUE",
  *         PartNumber: Number("int"),
@@ -213,10 +230,15 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *   UploadId: "STRING_VALUE", // required
  *   ChecksumCRC32: "STRING_VALUE",
  *   ChecksumCRC32C: "STRING_VALUE",
+ *   ChecksumCRC64NVME: "STRING_VALUE",
  *   ChecksumSHA1: "STRING_VALUE",
  *   ChecksumSHA256: "STRING_VALUE",
+ *   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
+ *   MpuObjectSize: Number("long"),
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfMatch: "STRING_VALUE",
+ *   IfNoneMatch: "STRING_VALUE",
  *   SSECustomerAlgorithm: "STRING_VALUE",
  *   SSECustomerKey: "STRING_VALUE",
  *   SSECustomerKeyMD5: "STRING_VALUE",
@@ -231,9 +253,11 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * //   ETag: "STRING_VALUE",
  * //   ChecksumCRC32: "STRING_VALUE",
  * //   ChecksumCRC32C: "STRING_VALUE",
+ * //   ChecksumCRC64NVME: "STRING_VALUE",
  * //   ChecksumSHA1: "STRING_VALUE",
  * //   ChecksumSHA256: "STRING_VALUE",
- * //   ServerSideEncryption: "AES256" || "aws:kms" || "aws:kms:dsse",
+ * //   ChecksumType: "COMPOSITE" || "FULL_OBJECT",
+ * //   ServerSideEncryption: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse",
  * //   VersionId: "STRING_VALUE",
  * //   SSEKMSKeyId: "STRING_VALUE",
  * //   BucketKeyEnabled: true || false,
@@ -251,40 +275,40 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To complete multipart upload
  * ```javascript
  * // The following example completes a multipart upload.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "bigobject",
- *   "MultipartUpload": {
- *     "Parts": [
+ *   Bucket: "examplebucket",
+ *   Key: "bigobject",
+ *   MultipartUpload: {
+ *     Parts: [
  *       {
- *         "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *         "PartNumber": "1"
+ *         ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`,
+ *         PartNumber: 1
  *       },
  *       {
- *         "ETag": "\"d8c2eafd90c266e19ab9dcacc479f8af\"",
- *         "PartNumber": "2"
+ *         ETag: `"d8c2eafd90c266e19ab9dcacc479f8af"`,
+ *         PartNumber: 2
  *       }
  *     ]
  *   },
- *   "UploadId": "7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ *   UploadId: "7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
  * };
  * const command = new CompleteMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Bucket": "acexamplebucket",
- *   "ETag": "\"4d9031c7644d8081c2829f4ea23c55f7-2\"",
- *   "Key": "bigobject",
- *   "Location": "https://examplebucket.s3.<Region>.amazonaws.com/bigobject"
+ *   Bucket: "acexamplebucket",
+ *   ETag: `"4d9031c7644d8081c2829f4ea23c55f7-2"`,
+ *   Key: "bigobject",
+ *   Location: "https://examplebucket.s3.<Region>.amazonaws.com/bigobject"
  * }
  * *\/
- * // example id: to-complete-multipart-upload-1481851590483
  * ```
  *
+ * @public
  */
 export class CompleteMultipartUploadCommand extends $Command
   .classBuilder<
@@ -312,4 +336,16 @@ export class CompleteMultipartUploadCommand extends $Command
   .f(CompleteMultipartUploadRequestFilterSensitiveLog, CompleteMultipartUploadOutputFilterSensitiveLog)
   .ser(se_CompleteMultipartUploadCommand)
   .de(de_CompleteMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CompleteMultipartUploadRequest;
+      output: CompleteMultipartUploadOutput;
+    };
+    sdk: {
+      input: CompleteMultipartUploadCommandInput;
+      output: CompleteMultipartUploadCommandOutput;
+    };
+  };
+}

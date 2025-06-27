@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,27 +78,27 @@ export interface UpdateChapCredentialsCommandOutput extends UpdateChapCredential
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update CHAP credentials for an iSCSI target
  * ```javascript
  * // Updates the Challenge-Handshake Authentication Protocol (CHAP) credentials for a specified iSCSI target.
  * const input = {
- *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
- *   "SecretToAuthenticateInitiator": "111111111111",
- *   "SecretToAuthenticateTarget": "222222222222",
- *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *   InitiatorName: "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   SecretToAuthenticateInitiator: "111111111111",
+ *   SecretToAuthenticateTarget: "222222222222",
+ *   TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
  * };
  * const command = new UpdateChapCredentialsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InitiatorName": "iqn.1991-05.com.microsoft:computername.domain.example.com",
- *   "TargetARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
+ *   InitiatorName: "iqn.1991-05.com.microsoft:computername.domain.example.com",
+ *   TargetARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:myvolume"
  * }
  * *\/
- * // example id: to-update-chap-credentials-for-an-iscsi-target-1472151325795
  * ```
  *
+ * @public
  */
 export class UpdateChapCredentialsCommand extends $Command
   .classBuilder<
@@ -107,9 +108,7 @@ export class UpdateChapCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class UpdateChapCredentialsCommand extends $Command
   .f(UpdateChapCredentialsInputFilterSensitiveLog, void 0)
   .ser(se_UpdateChapCredentialsCommand)
   .de(de_UpdateChapCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChapCredentialsInput;
+      output: UpdateChapCredentialsOutput;
+    };
+    sdk: {
+      input: UpdateChapCredentialsCommandInput;
+      output: UpdateChapCredentialsCommandOutput;
+    };
+  };
+}

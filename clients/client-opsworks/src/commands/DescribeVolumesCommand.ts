@@ -12,7 +12,8 @@ import { de_DescribeVolumesCommand, se_DescribeVolumesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface DescribeVolumesCommandOutput extends DescribeVolumesResult, __M
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class DescribeVolumesCommand extends $Command
@@ -100,9 +102,7 @@ export class DescribeVolumesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class DescribeVolumesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumesCommand)
   .de(de_DescribeVolumesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumesRequest;
+      output: DescribeVolumesResult;
+    };
+    sdk: {
+      input: DescribeVolumesCommandInput;
+      output: DescribeVolumesCommandOutput;
+    };
+  };
+}

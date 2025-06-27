@@ -12,7 +12,8 @@ import { de_CreateLoggingConfigurationCommand, se_CreateLoggingConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  * @throws {@link IvschatServiceException}
  * <p>Base exception class for all service exceptions from Ivschat service.</p>
  *
+ *
  * @public
  */
 export class CreateLoggingConfigurationCommand extends $Command
@@ -116,9 +118,7 @@ export class CreateLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvschatClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class CreateLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoggingConfigurationCommand)
   .de(de_CreateLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoggingConfigurationRequest;
+      output: CreateLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: CreateLoggingConfigurationCommandInput;
+      output: CreateLoggingConfigurationCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DeleteFleetAdvisorCollectorCommand, se_DeleteFleetAdvisorCollectorCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,12 @@ export interface DeleteFleetAdvisorCollectorCommandInput extends DeleteCollector
 export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the specified Fleet Advisor collector.</p>
+ * <important>
+ *             <p>
+ * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon Web Services DMS Fleet Advisor end of support</a>.
+ * </p>
+ *          </important>
+ *          <p>Deletes the specified Fleet Advisor collector.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +59,10 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  * @see {@link DeleteFleetAdvisorCollectorCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedFault} (client fault)
+ *  <p>DMS was denied access to the endpoint. Check that the
+ *             role is correctly configured.</p>
+ *
  * @throws {@link CollectorNotFoundFault} (client fault)
  *  <p>The specified collector doesn't exist.</p>
  *
@@ -61,6 +71,7 @@ export interface DeleteFleetAdvisorCollectorCommandOutput extends __MetadataBear
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
+ *
  *
  * @public
  */
@@ -72,9 +83,7 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +95,16 @@ export class DeleteFleetAdvisorCollectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetAdvisorCollectorCommand)
   .de(de_DeleteFleetAdvisorCollectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCollectorRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFleetAdvisorCollectorCommandInput;
+      output: DeleteFleetAdvisorCollectorCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetKeyspaceCommand, se_GetKeyspaceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface GetKeyspaceCommandInput extends GetKeyspaceRequest {}
 export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the name and the Amazon Resource Name (ARN) of the specified table.</p>
+ * <p>Returns the name of the specified keyspace, the Amazon Resource Name (ARN), the replication strategy, the Amazon Web Services Regions of a multi-Region keyspace, and the status of newly added Regions after an <code>UpdateKeyspace</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +47,13 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  * //   replicationRegions: [ // RegionList
  * //     "STRING_VALUE",
  * //   ],
+ * //   replicationGroupStatuses: [ // ReplicationGroupStatusList
+ * //     { // ReplicationGroupStatus
+ * //       region: "STRING_VALUE", // required
+ * //       keyspaceStatus: "STRING_VALUE", // required
+ * //       tablesReplicationProgress: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -63,17 +71,17 @@ export interface GetKeyspaceCommandOutput extends GetKeyspaceResponse, __Metadat
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
+ *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
+ *
  *
  * @public
  */
@@ -85,9 +93,7 @@ export class GetKeyspaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +105,16 @@ export class GetKeyspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyspaceCommand)
   .de(de_GetKeyspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyspaceRequest;
+      output: GetKeyspaceResponse;
+    };
+    sdk: {
+      input: GetKeyspaceCommandInput;
+      output: GetKeyspaceCommandOutput;
+    };
+  };
+}

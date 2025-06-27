@@ -12,7 +12,8 @@ import { de_ListArchiveSearchesCommand, se_ListArchiveSearchesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListArchiveSearchesCommandOutput extends ListArchiveSearchesRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class ListArchiveSearchesCommand extends $Command
@@ -89,9 +91,7 @@ export class ListArchiveSearchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListArchiveSearchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArchiveSearchesCommand)
   .de(de_ListArchiveSearchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArchiveSearchesRequest;
+      output: ListArchiveSearchesResponse;
+    };
+    sdk: {
+      input: ListArchiveSearchesCommandInput;
+      output: ListArchiveSearchesCommandOutput;
+    };
+  };
+}

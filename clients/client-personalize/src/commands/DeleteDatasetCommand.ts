@@ -12,7 +12,8 @@ import { de_DeleteDatasetCommand, se_DeleteDatasetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,9 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
 /**
  * <p>Deletes a dataset. You can't delete a dataset if an associated
  *         <code>DatasetImportJob</code> or <code>SolutionVersion</code> is in the
- *       CREATE PENDING or IN PROGRESS state. For more information on datasets, see
- *         <a href="https://docs.aws.amazon.com/personalize/latest/dg/API_CreateDataset.html">CreateDataset</a>.</p>
+ *       CREATE PENDING or IN PROGRESS state. For more information about deleting datasets,
+ *       see <a href="https://docs.aws.amazon.com/personalize/latest/dg/delete-dataset.html">Deleting a dataset</a>.
+ *     </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +66,7 @@ export interface DeleteDatasetCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DeleteDatasetCommand extends $Command
@@ -74,9 +77,7 @@ export class DeleteDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +89,16 @@ export class DeleteDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDatasetCommand)
   .de(de_DeleteDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDatasetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDatasetCommandInput;
+      output: DeleteDatasetCommandOutput;
+    };
+  };
+}

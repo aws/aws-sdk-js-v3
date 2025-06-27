@@ -12,7 +12,8 @@ import { de_GetDeliveryCommand, se_GetDeliveryCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,14 @@ export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __Metadat
  * //     deliverySourceName: "STRING_VALUE",
  * //     deliveryDestinationArn: "STRING_VALUE",
  * //     deliveryDestinationType: "S3" || "CWL" || "FH",
+ * //     recordFields: [ // RecordFields
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     fieldDelimiter: "STRING_VALUE",
+ * //     s3DeliveryConfiguration: { // S3DeliveryConfiguration
+ * //       suffixPath: "STRING_VALUE",
+ * //       enableHiveCompatiblePath: true || false,
+ * //     },
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -92,6 +101,7 @@ export interface GetDeliveryCommandOutput extends GetDeliveryResponse, __Metadat
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetDeliveryCommand extends $Command
@@ -102,9 +112,7 @@ export class GetDeliveryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +124,16 @@ export class GetDeliveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeliveryCommand)
   .de(de_GetDeliveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeliveryRequest;
+      output: GetDeliveryResponse;
+    };
+    sdk: {
+      input: GetDeliveryCommandInput;
+      output: GetDeliveryCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutRestApiCommand, se_PutRestApiCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  */
@@ -71,6 +72,7 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * //     types: [ // ListOfEndpointType
  * //       "REGIONAL" || "EDGE" || "PRIVATE",
  * //     ],
+ * //     ipAddressType: "ipv4" || "dualstack",
  * //     vpcEndpointIds: [
  * //       "STRING_VALUE",
  * //     ],
@@ -112,6 +114,7 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class PutRestApiCommand extends $Command
@@ -122,9 +125,7 @@ export class PutRestApiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +137,16 @@ export class PutRestApiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRestApiCommand)
   .de(de_PutRestApiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRestApiRequest;
+      output: RestApi;
+    };
+    sdk: {
+      input: PutRestApiCommandInput;
+      output: PutRestApiCommandOutput;
+    };
+  };
+}

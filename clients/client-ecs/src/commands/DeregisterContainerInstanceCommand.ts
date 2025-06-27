@@ -12,7 +12,8 @@ import { de_DeregisterContainerInstanceCommand, se_DeregisterContainerInstanceCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -153,11 +154,13 @@ export interface DeregisterContainerInstanceCommandOutput
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -165,20 +168,23 @@ export interface DeregisterContainerInstanceCommandOutput
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To deregister a container instance from a cluster
  * ```javascript
  * // This example deregisters a container instance from the specified cluster in your default region. If there are still tasks running on the container instance, you must either stop those tasks before deregistering, or use the force option.
  * const input = {
- *   "cluster": "default",
- *   "containerInstance": "container_instance_UUID",
- *   "force": true
+ *   cluster: "default",
+ *   containerInstance: "container_instance_UUID",
+ *   force: true
  * };
  * const command = new DeregisterContainerInstanceCommand(input);
- * await client.send(command);
- * // example id: bf624927-cf64-4f4b-8b7e-c024a4e682f6
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeregisterContainerInstanceCommand extends $Command
   .classBuilder<
@@ -188,9 +194,7 @@ export class DeregisterContainerInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -202,4 +206,16 @@ export class DeregisterContainerInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterContainerInstanceCommand)
   .de(de_DeregisterContainerInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterContainerInstanceRequest;
+      output: DeregisterContainerInstanceResponse;
+    };
+    sdk: {
+      input: DeregisterContainerInstanceCommandInput;
+      output: DeregisterContainerInstanceCommandOutput;
+    };
+  };
+}

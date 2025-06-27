@@ -12,7 +12,8 @@ import { de_CreatePrefetchScheduleCommand, se_CreatePrefetchScheduleCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,7 +54,35 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  *     },
  *     EndTime: new Date("TIMESTAMP"), // required
  *     StartTime: new Date("TIMESTAMP"),
+ *     TrafficShapingType: "RETRIEVAL_WINDOW",
+ *     TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
+ *       RetrievalWindowDurationSeconds: Number("int"),
+ *     },
  *   },
+ *   RecurringPrefetchConfiguration: { // RecurringPrefetchConfiguration
+ *     StartTime: new Date("TIMESTAMP"),
+ *     EndTime: new Date("TIMESTAMP"), // required
+ *     RecurringConsumption: { // RecurringConsumption
+ *       RetrievedAdExpirationSeconds: Number("int"),
+ *       AvailMatchingCriteria: [
+ *         {
+ *           DynamicVariable: "STRING_VALUE", // required
+ *           Operator: "EQUALS", // required
+ *         },
+ *       ],
+ *     },
+ *     RecurringRetrieval: { // RecurringRetrieval
+ *       DynamicVariables: {
+ *         "<keys>": "STRING_VALUE",
+ *       },
+ *       DelayAfterAvailEndSeconds: Number("int"),
+ *       TrafficShapingType: "RETRIEVAL_WINDOW",
+ *       TrafficShapingRetrievalWindow: {
+ *         RetrievalWindowDurationSeconds: Number("int"),
+ *       },
+ *     },
+ *   },
+ *   ScheduleType: "SINGLE" || "RECURRING",
  *   StreamId: "STRING_VALUE",
  * };
  * const command = new CreatePrefetchScheduleCommand(input);
@@ -78,7 +107,35 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * //     },
  * //     EndTime: new Date("TIMESTAMP"), // required
  * //     StartTime: new Date("TIMESTAMP"),
+ * //     TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //     TrafficShapingRetrievalWindow: { // TrafficShapingRetrievalWindow
+ * //       RetrievalWindowDurationSeconds: Number("int"),
+ * //     },
  * //   },
+ * //   RecurringPrefetchConfiguration: { // RecurringPrefetchConfiguration
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     EndTime: new Date("TIMESTAMP"), // required
+ * //     RecurringConsumption: { // RecurringConsumption
+ * //       RetrievedAdExpirationSeconds: Number("int"),
+ * //       AvailMatchingCriteria: [
+ * //         {
+ * //           DynamicVariable: "STRING_VALUE", // required
+ * //           Operator: "EQUALS", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //     RecurringRetrieval: { // RecurringRetrieval
+ * //       DynamicVariables: {
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       DelayAfterAvailEndSeconds: Number("int"),
+ * //       TrafficShapingType: "RETRIEVAL_WINDOW",
+ * //       TrafficShapingRetrievalWindow: {
+ * //         RetrievalWindowDurationSeconds: Number("int"),
+ * //       },
+ * //     },
+ * //   },
+ * //   ScheduleType: "SINGLE" || "RECURRING",
  * //   StreamId: "STRING_VALUE",
  * // };
  *
@@ -93,6 +150,7 @@ export interface CreatePrefetchScheduleCommandOutput extends CreatePrefetchSched
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class CreatePrefetchScheduleCommand extends $Command
@@ -103,9 +161,7 @@ export class CreatePrefetchScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +173,16 @@ export class CreatePrefetchScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePrefetchScheduleCommand)
   .de(de_CreatePrefetchScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePrefetchScheduleRequest;
+      output: CreatePrefetchScheduleResponse;
+    };
+    sdk: {
+      input: CreatePrefetchScheduleCommandInput;
+      output: CreatePrefetchScheduleCommandOutput;
+    };
+  };
+}

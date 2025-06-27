@@ -12,7 +12,8 @@ import { de_ListAssetsCommand, se_ListAssetsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,6 +63,13 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * //         InstanceFamilies: [ // InstanceFamilies
  * //           "STRING_VALUE",
  * //         ],
+ * //         InstanceTypeCapacities: [ // AssetInstanceCapacityList
+ * //           { // AssetInstanceTypeCapacity
+ * //             InstanceType: "STRING_VALUE", // required
+ * //             Count: Number("int"), // required
+ * //           },
+ * //         ],
+ * //         MaxVcpus: Number("int"),
  * //       },
  * //       AssetLocation: { // AssetLocation
  * //         RackElevation: Number("float"),
@@ -94,6 +102,7 @@ export interface ListAssetsCommandOutput extends ListAssetsOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListAssetsCommand extends $Command
@@ -104,9 +113,7 @@ export class ListAssetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +125,16 @@ export class ListAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssetsCommand)
   .de(de_ListAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssetsInput;
+      output: ListAssetsOutput;
+    };
+    sdk: {
+      input: ListAssetsCommandInput;
+      output: ListAssetsCommandOutput;
+    };
+  };
+}

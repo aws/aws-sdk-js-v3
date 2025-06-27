@@ -17,7 +17,8 @@ import { de_CreateViewCommand, se_CreateViewCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -128,6 +129,7 @@ export interface CreateViewCommandOutput extends CreateViewResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateViewCommand extends $Command
@@ -138,9 +140,7 @@ export class CreateViewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +152,16 @@ export class CreateViewCommand extends $Command
   .f(CreateViewRequestFilterSensitiveLog, CreateViewResponseFilterSensitiveLog)
   .ser(se_CreateViewCommand)
   .de(de_CreateViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateViewRequest;
+      output: CreateViewResponse;
+    };
+    sdk: {
+      input: CreateViewCommandInput;
+      output: CreateViewCommandOutput;
+    };
+  };
+}

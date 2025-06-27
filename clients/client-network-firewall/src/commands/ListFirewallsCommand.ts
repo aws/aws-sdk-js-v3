@@ -12,7 +12,8 @@ import { de_ListFirewallsCommand, se_ListFirewallsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * //     { // FirewallMetadata
  * //       FirewallName: "STRING_VALUE",
  * //       FirewallArn: "STRING_VALUE",
+ * //       TransitGatewayAttachmentId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -90,6 +92,7 @@ export interface ListFirewallsCommandOutput extends ListFirewallsResponse, __Met
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class ListFirewallsCommand extends $Command
@@ -100,9 +103,7 @@ export class ListFirewallsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +115,16 @@ export class ListFirewallsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallsCommand)
   .de(de_ListFirewallsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallsRequest;
+      output: ListFirewallsResponse;
+    };
+    sdk: {
+      input: ListFirewallsCommandInput;
+      output: ListFirewallsCommandOutput;
+    };
+  };
+}

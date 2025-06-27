@@ -12,7 +12,8 @@ import { de_DescribeMitigationActionCommand, se_DescribeMitigationActionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface DescribeMitigationActionCommandOutput extends DescribeMitigatio
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DescribeMitigationActionCommand extends $Command
@@ -107,9 +109,7 @@ export class DescribeMitigationActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class DescribeMitigationActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMitigationActionCommand)
   .de(de_DescribeMitigationActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMitigationActionRequest;
+      output: DescribeMitigationActionResponse;
+    };
+    sdk: {
+      input: DescribeMitigationActionCommandInput;
+      output: DescribeMitigationActionCommandOutput;
+    };
+  };
+}

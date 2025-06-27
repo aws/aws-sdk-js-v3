@@ -12,7 +12,8 @@ import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * const response = await client.send(command);
  * // { // GetAccountSettingsResponse
  * //   accountSettings: { // AccountSettings
- * //     notificationSubscriptionStatus: "STRING_VALUE",
+ * //     notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",
  * //   },
  * // };
  *
@@ -75,6 +76,22 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ *
+ * @example Invoke GetAccountSettings operation
+ * ```javascript
+ * // Get the current account settings.
+ * const input = { /* empty *\/ };
+ * const command = new GetAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   accountSettings: {
+ *     notificationSubscriptionStatus: "SUBSCRIBED"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetAccountSettingsCommand extends $Command
@@ -85,9 +102,7 @@ export class GetAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +114,16 @@ export class GetAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountSettingsCommand)
   .de(de_GetAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountSettingsResponse;
+    };
+    sdk: {
+      input: GetAccountSettingsCommandInput;
+      output: GetAccountSettingsCommandOutput;
+    };
+  };
+}

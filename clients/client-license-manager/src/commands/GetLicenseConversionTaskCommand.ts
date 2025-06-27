@@ -12,7 +12,8 @@ import { de_GetLicenseConversionTaskCommand, se_GetLicenseConversionTaskCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,9 +45,21 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * //   ResourceArn: "STRING_VALUE",
  * //   SourceLicenseContext: { // LicenseConversionContext
  * //     UsageOperation: "STRING_VALUE",
+ * //     ProductCodes: [ // ProductCodeList
+ * //       { // ProductCodeListItem
+ * //         ProductCodeId: "STRING_VALUE", // required
+ * //         ProductCodeType: "marketplace", // required
+ * //       },
+ * //     ],
  * //   },
  * //   DestinationLicenseContext: {
  * //     UsageOperation: "STRING_VALUE",
+ * //     ProductCodes: [
+ * //       {
+ * //         ProductCodeId: "STRING_VALUE", // required
+ * //         ProductCodeType: "marketplace", // required
+ * //       },
+ * //     ],
  * //   },
  * //   StatusMessage: "STRING_VALUE",
  * //   Status: "IN_PROGRESS" || "SUCCEEDED" || "FAILED",
@@ -82,6 +95,7 @@ export interface GetLicenseConversionTaskCommandOutput extends GetLicenseConvers
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class GetLicenseConversionTaskCommand extends $Command
@@ -92,9 +106,7 @@ export class GetLicenseConversionTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +118,16 @@ export class GetLicenseConversionTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLicenseConversionTaskCommand)
   .de(de_GetLicenseConversionTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLicenseConversionTaskRequest;
+      output: GetLicenseConversionTaskResponse;
+    };
+    sdk: {
+      input: GetLicenseConversionTaskCommandInput;
+      output: GetLicenseConversionTaskCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface UpdateConnectorCommandInput extends UpdateConnectorRequest {}
 export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters for an existing connector. Provide the
- *         <code>ConnectorId</code> for the connector that you want to update, along with the new
- *       values for the parameters to update.</p>
+ * <p>Updates some of the parameters for an existing connector. Provide the <code>ConnectorId</code> for the connector that you want to update, along with the new values for the parameters to update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +48,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
  *     MdnResponse: "SYNC" || "NONE",
  *     BasicAuthSecretId: "STRING_VALUE",
+ *     PreserveContentType: "ENABLED" || "DISABLED",
  *   },
  *   AccessRole: "STRING_VALUE",
  *   LoggingRole: "STRING_VALUE",
@@ -57,6 +57,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *     TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
  *       "STRING_VALUE",
  *     ],
+ *     MaxConcurrentConnections: Number("int"),
  *   },
  *   SecurityPolicyName: "STRING_VALUE",
  * };
@@ -84,8 +85,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
@@ -95,6 +95,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -106,9 +107,7 @@ export class UpdateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class UpdateConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectorCommand)
   .de(de_UpdateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectorRequest;
+      output: UpdateConnectorResponse;
+    };
+    sdk: {
+      input: UpdateConnectorCommandInput;
+      output: UpdateConnectorCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeConfigurationCommand, se_DescribeConfigurationCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface DescribeConfigurationCommandOutput extends DescribeConfiguratio
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class DescribeConfigurationCommand extends $Command
@@ -91,9 +93,7 @@ export class DescribeConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DescribeConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationCommand)
   .de(de_DescribeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationRequest;
+      output: DescribeConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationCommandInput;
+      output: DescribeConfigurationCommandOutput;
+    };
+  };
+}

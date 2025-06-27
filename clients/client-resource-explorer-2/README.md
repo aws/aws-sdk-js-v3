@@ -30,7 +30,7 @@ service, see the <a href="https://docs.aws.amazon.com/resource-explorer/latest/u
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-resource-explorer-2
+To install this package, simply type add or install @aws-sdk/client-resource-explorer-2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-resource-explorer-2`
@@ -305,6 +305,14 @@ GetIndex
 </details>
 <details>
 <summary>
+GetManagedView
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/GetManagedViewCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetManagedViewCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/GetManagedViewCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetView
 </summary>
 
@@ -325,6 +333,22 @@ ListIndexesForMembers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListIndexesForMembersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesForMembersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListIndexesForMembersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListManagedViews
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListManagedViewsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListManagedViewsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListManagedViewsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListResources
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/resource-explorer-2/command/ListResourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListResourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-resource-explorer-2/Interface/ListResourcesCommandOutput/)
 
 </details>
 <details>

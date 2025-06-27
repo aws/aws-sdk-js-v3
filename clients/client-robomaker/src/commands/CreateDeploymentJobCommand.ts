@@ -12,7 +12,8 @@ import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,22 @@ export interface CreateDeploymentJobCommandInput extends CreateDeploymentJobRequ
 export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobResponse, __MetadataBearer {}
 
 /**
- * <p>Deploys a specific version of a robot application to robots in a fleet.</p>
- *          <important>
- *             <p>This API is no longer supported and will throw an error if used.</p>
+ * <important>
+ *             <p>End of support notice: On September 10, 2025, Amazon Web Services
+ *          will discontinue support for Amazon Web Services RoboMaker. After September 10, 2025, you will
+ *          no longer be able to access the Amazon Web Services RoboMaker console or Amazon Web Services RoboMaker resources.
+ *          For more information on transitioning to Batch to help run containerized
+ *          simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+ *       </p>
  *          </important>
+ *          <important>
+ *             <p>This API is no longer supported and will throw an error if used. For more information, see the January 31, 2022 update in the <a href="https://docs.aws.amazon.com/robomaker/latest/dg/chapter-support-policy.html#software-support-policy-january2022">Support policy</a> page.</p>
+ *          </important>
+ *          <p>Deploys a specific version of a robot application to robots in a fleet.</p>
  *          <p>The robot application must have a numbered <code>applicationVersion</code> for
- *          consistency reasons. To create a new version, use
- *             <code>CreateRobotApplicationVersion</code> or see <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating a Robot Application Version</a>. </p>
+ *                consistency reasons. To create a new version, use <code>CreateRobotApplicationVersion</code> or see
+ *             <a href="https://docs.aws.amazon.com/robomaker/latest/dg/create-robot-application-version.html">Creating a Robot Application Version</a>.
+ *          </p>
  *          <note>
  *             <p>After 90 days, deployment jobs expire and will be deleted. They will no longer be
  *             accessible. </p>
@@ -152,6 +162,7 @@ export interface CreateDeploymentJobCommandOutput extends CreateDeploymentJobRes
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateDeploymentJobCommand extends $Command
@@ -162,9 +173,7 @@ export class CreateDeploymentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +185,16 @@ export class CreateDeploymentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeploymentJobCommand)
   .de(de_CreateDeploymentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeploymentJobRequest;
+      output: CreateDeploymentJobResponse;
+    };
+    sdk: {
+      input: CreateDeploymentJobCommandInput;
+      output: CreateDeploymentJobCommandOutput;
+    };
+  };
+}

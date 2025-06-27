@@ -12,7 +12,8 @@ import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -190,51 +191,51 @@ export interface ListJobsCommandOutput extends ListJobsOutput, __MetadataBearer 
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To list jobs for a vault
  * ```javascript
  * // The example lists jobs for the vault named my-vault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   vaultName: "my-vault"
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "JobList": [
+ *   JobList: [
  *     {
- *       "Action": "ArchiveRetrieval",
- *       "ArchiveId": "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
- *       "ArchiveSHA256TreeHash": "9628195fcdbcbbe76cdde932d4646fa7de5f219fb39823836d81f0cc0e18aa67",
- *       "ArchiveSizeInBytes": 3145728,
- *       "Completed": false,
- *       "CreationDate": "2015-07-17T21:16:13.840Z",
- *       "JobDescription": "Retrieve archive on 2015-07-17",
- *       "JobId": "l7IL5-EkXyEY9Ws95fClzIbk2O5uLYaFdAYOi-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav",
- *       "RetrievalByteRange": "0-3145727",
- *       "SHA256TreeHash": "9628195fcdbcbbe76cdde932d4646fa7de5f219fb39823836d81f0cc0e18aa67",
- *       "SNSTopic": "arn:aws:sns:us-west-2:0123456789012:my-vault",
- *       "StatusCode": "InProgress",
- *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
+ *       Action: "ArchiveRetrieval",
+ *       ArchiveId: "kKB7ymWJVpPSwhGP6ycSOAekp9ZYe_--zM_mw6k76ZFGEIWQX-ybtRDvc2VkPSDtfKmQrj0IRQLSGsNuDp-AJVlu2ccmDSyDUmZwKbwbpAdGATGDiB3hHO0bjbGehXTcApVud_wyDw",
+ *       ArchiveSHA256TreeHash: "9628195fcdbcbbe76cdde932d4646fa7de5f219fb39823836d81f0cc0e18aa67",
+ *       ArchiveSizeInBytes: 3145728,
+ *       Completed: false,
+ *       CreationDate: "2015-07-17T21:16:13.840Z",
+ *       JobDescription: "Retrieve archive on 2015-07-17",
+ *       JobId: "l7IL5-EkXyEY9Ws95fClzIbk2O5uLYaFdAYOi-azsX_Z8V6NH4yERHzars8wTKYQMX6nBDI9cMNHzyZJO59-8N9aHWav",
+ *       RetrievalByteRange: "0-3145727",
+ *       SHA256TreeHash: "9628195fcdbcbbe76cdde932d4646fa7de5f219fb39823836d81f0cc0e18aa67",
+ *       SNSTopic: "arn:aws:sns:us-west-2:0123456789012:my-vault",
+ *       StatusCode: "InProgress",
+ *       VaultARN: "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
  *     },
  *     {
- *       "Action": "InventoryRetrieval",
- *       "Completed": false,
- *       "CreationDate": "2015-07-17T20:23:41.616Z",
- *       "InventoryRetrievalParameters": {
- *         "Format": "JSON"
+ *       Action: "InventoryRetrieval",
+ *       Completed: false,
+ *       CreationDate: "2015-07-17T20:23:41.616Z",
+ *       InventoryRetrievalParameters: {
+ *         Format: "JSON"
  *       },
- *       "JobId": "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
- *       "StatusCode": "InProgress",
- *       "VaultARN": "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
+ *       JobId: "zbxcm3Z_3z5UkoroF7SuZKrxgGoDc3RloGduS7Eg-RO47Yc6FxsdGBgf_Q2DK5Ejh18CnTS5XW4_XqlNHS61dsO4CnMW",
+ *       StatusCode: "InProgress",
+ *       VaultARN: "arn:aws:glacier:us-west-2:0123456789012:vaults/my-vault"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-jobs-for-a-vault-1481920530537
  * ```
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<
@@ -244,9 +245,7 @@ export class ListJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -258,4 +257,16 @@ export class ListJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobsCommand)
   .de(de_ListJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobsInput;
+      output: ListJobsOutput;
+    };
+    sdk: {
+      input: ListJobsCommandInput;
+      output: ListJobsCommandOutput;
+    };
+  };
+}

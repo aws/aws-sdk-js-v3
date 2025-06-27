@@ -44,7 +44,7 @@ the <a href="https://help.salesforce.com/articleView?id=remoteaccess_authenticat
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-appflow
+To install this package, simply type add or install @aws-sdk/client-appflow
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-appflow`

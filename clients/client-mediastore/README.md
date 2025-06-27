@@ -11,7 +11,7 @@ You use a container endpoint to create, read, and delete objects. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediastore
+To install this package, simply type add or install @aws-sdk/client-mediastore
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediastore`

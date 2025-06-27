@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,25 @@ export interface GetTypedLinkFacetInformationCommandOutput
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To get information about a typed link facet
+ * ```javascript
+ * //
+ * const input = {
+ *   Name: "exampletypedlink8",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ * };
+ * const command = new GetTypedLinkFacetInformationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IdentityAttributeOrder: [
+ *     "22"
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetTypedLinkFacetInformationCommand extends $Command
@@ -100,9 +120,7 @@ export class GetTypedLinkFacetInformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +132,16 @@ export class GetTypedLinkFacetInformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTypedLinkFacetInformationCommand)
   .de(de_GetTypedLinkFacetInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTypedLinkFacetInformationRequest;
+      output: GetTypedLinkFacetInformationResponse;
+    };
+    sdk: {
+      input: GetTypedLinkFacetInformationCommandInput;
+      output: GetTypedLinkFacetInformationCommandOutput;
+    };
+  };
+}

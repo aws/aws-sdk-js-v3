@@ -12,7 +12,8 @@ import { de_PutExternalEvaluationCommand, se_PutExternalEvaluationCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface PutExternalEvaluationCommandOutput extends PutExternalEvaluatio
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class PutExternalEvaluationCommand extends $Command
@@ -77,9 +79,7 @@ export class PutExternalEvaluationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class PutExternalEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutExternalEvaluationCommand)
   .de(de_PutExternalEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutExternalEvaluationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutExternalEvaluationCommandInput;
+      output: PutExternalEvaluationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListEventStreamsCommand, se_ListEventStreamsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface ListEventStreamsCommandOutput extends ListEventStreamsResponse,
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class ListEventStreamsCommand extends $Command
@@ -98,9 +100,7 @@ export class ListEventStreamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListEventStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventStreamsCommand)
   .de(de_ListEventStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventStreamsRequest;
+      output: ListEventStreamsResponse;
+    };
+    sdk: {
+      input: ListEventStreamsCommandInput;
+      output: ListEventStreamsCommandOutput;
+    };
+  };
+}

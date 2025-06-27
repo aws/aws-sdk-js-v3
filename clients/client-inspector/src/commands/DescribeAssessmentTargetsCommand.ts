@@ -12,7 +12,8 @@ import { de_DescribeAssessmentTargetsCommand, se_DescribeAssessmentTargetsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,34 +79,8 @@ export interface DescribeAssessmentTargetsCommandOutput extends DescribeAssessme
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describte assessment targets
- * ```javascript
- * // Describes the assessment targets that are specified by the ARNs of the assessment targets.
- * const input = {
- *   "assessmentTargetArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq"
- *   ]
- * };
- * const command = new DescribeAssessmentTargetsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "assessmentTargets": [
- *     {
- *       "name": "ExampleAssessmentTarget",
- *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq",
- *       "createdAt": "1458074191.459",
- *       "resourceGroupArn": "arn:aws:inspector:us-west-2:123456789012:resourcegroup/0-PyGXopAI",
- *       "updatedAt": "1458074191.459"
- *     }
- *   ],
- *   "failedItems": {}
- * }
- * *\/
- * // example id: describte-assessment-targets-1481064527735
- * ```
  *
+ * @public
  */
 export class DescribeAssessmentTargetsCommand extends $Command
   .classBuilder<
@@ -115,9 +90,7 @@ export class DescribeAssessmentTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +102,16 @@ export class DescribeAssessmentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAssessmentTargetsCommand)
   .de(de_DescribeAssessmentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssessmentTargetsRequest;
+      output: DescribeAssessmentTargetsResponse;
+    };
+    sdk: {
+      input: DescribeAssessmentTargetsCommandInput;
+      output: DescribeAssessmentTargetsCommandOutput;
+    };
+  };
+}

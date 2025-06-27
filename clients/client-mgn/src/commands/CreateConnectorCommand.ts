@@ -17,7 +17,8 @@ import { de_CreateConnectorCommand, se_CreateConnectorCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface CreateConnectorCommandOutput extends Connector, __MetadataBeare
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class CreateConnectorCommand extends $Command
@@ -97,9 +99,7 @@ export class CreateConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class CreateConnectorCommand extends $Command
   .f(CreateConnectorRequestFilterSensitiveLog, ConnectorFilterSensitiveLog)
   .ser(se_CreateConnectorCommand)
   .de(de_CreateConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectorRequest;
+      output: Connector;
+    };
+    sdk: {
+      input: CreateConnectorCommandInput;
+      output: CreateConnectorCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CheckNoNewAccessCommand, se_CheckNoNewAccessCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,12 +32,7 @@ export interface CheckNoNewAccessCommandInput extends CheckNoNewAccessRequest {}
 export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Checks whether new access is allowed for an updated policy when compared to the existing
- *          policy.</p>
- *          <p>You can find examples for reference policies and learn how to set up and run a custom
- *          policy check for new access in the <a href="https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference
- *          policies in this repository are meant to be passed to the
- *             <code>existingPolicyDocument</code> request parameter.</p>
+ * <p>Checks whether new access is allowed for an updated policy when compared to the existing policy.</p> <p>You can find examples for reference policies and learn how to set up and run a custom policy check for new access in the <a href="https://github.com/aws-samples/iam-access-analyzer-custom-policy-check-samples">IAM Access Analyzer custom policy checks samples</a> repository on GitHub. The reference policies in this repository are meant to be passed to the <code>existingPolicyDocument</code> request parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +87,7 @@ export interface CheckNoNewAccessCommandOutput extends CheckNoNewAccessResponse,
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class CheckNoNewAccessCommand extends $Command
@@ -101,9 +98,7 @@ export class CheckNoNewAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +110,16 @@ export class CheckNoNewAccessCommand extends $Command
   .f(CheckNoNewAccessRequestFilterSensitiveLog, void 0)
   .ser(se_CheckNoNewAccessCommand)
   .de(de_CheckNoNewAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckNoNewAccessRequest;
+      output: CheckNoNewAccessResponse;
+    };
+    sdk: {
+      input: CheckNoNewAccessCommandInput;
+      output: CheckNoNewAccessCommandOutput;
+    };
+  };
+}

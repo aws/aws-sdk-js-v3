@@ -14,13 +14,14 @@ import {
   GlobalSignOutRequest,
   GlobalSignOutRequestFilterSensitiveLog,
   GlobalSignOutResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GlobalSignOutCommand, se_GlobalSignOutCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,7 +59,10 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  *                     requests.</p>
  *             </li>
  *          </ul>
- *          <p>Other requests might be valid until your user's token expires.</p>
+ *          <p>Other requests might be valid until your user's token expires. This operation
+ *             doesn't clear the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-managed-login.html">managed login</a> session cookie. To clear the session for
+ *             a user who signed in with managed login or the classic hosted UI, direct their browser
+ *             session to the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/logout-endpoint.html">logout endpoint</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -118,6 +122,7 @@ export interface GlobalSignOutCommandOutput extends GlobalSignOutResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GlobalSignOutCommand extends $Command
@@ -128,9 +133,7 @@ export class GlobalSignOutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +145,16 @@ export class GlobalSignOutCommand extends $Command
   .f(GlobalSignOutRequestFilterSensitiveLog, void 0)
   .ser(se_GlobalSignOutCommand)
   .de(de_GlobalSignOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GlobalSignOutRequest;
+      output: {};
+    };
+    sdk: {
+      input: GlobalSignOutCommandInput;
+      output: GlobalSignOutCommandOutput;
+    };
+  };
+}

@@ -9,7 +9,7 @@ import {
   RegisterTaskWithMaintenanceWindowRequest,
   RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog,
   RegisterTaskWithMaintenanceWindowResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_RegisterTaskWithMaintenanceWindowCommand,
   se_RegisterTaskWithMaintenanceWindowCommand,
@@ -19,7 +19,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -169,6 +170,7 @@ export interface RegisterTaskWithMaintenanceWindowCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class RegisterTaskWithMaintenanceWindowCommand extends $Command
@@ -179,9 +181,7 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +193,16 @@ export class RegisterTaskWithMaintenanceWindowCommand extends $Command
   .f(RegisterTaskWithMaintenanceWindowRequestFilterSensitiveLog, void 0)
   .ser(se_RegisterTaskWithMaintenanceWindowCommand)
   .de(de_RegisterTaskWithMaintenanceWindowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterTaskWithMaintenanceWindowRequest;
+      output: RegisterTaskWithMaintenanceWindowResult;
+    };
+    sdk: {
+      input: RegisterTaskWithMaintenanceWindowCommandInput;
+      output: RegisterTaskWithMaintenanceWindowCommandOutput;
+    };
+  };
+}

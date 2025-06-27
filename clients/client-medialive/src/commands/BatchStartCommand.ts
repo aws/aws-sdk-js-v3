@@ -12,7 +12,8 @@ import { de_BatchStartCommand, se_BatchStartCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface BatchStartCommandOutput extends BatchStartResponse, __MetadataB
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class BatchStartCommand extends $Command
@@ -107,9 +109,7 @@ export class BatchStartCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class BatchStartCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStartCommand)
   .de(de_BatchStartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStartRequest;
+      output: BatchStartResponse;
+    };
+    sdk: {
+      input: BatchStartCommandInput;
+      output: BatchStartCommandOutput;
+    };
+  };
+}

@@ -23,6 +23,7 @@ export interface EventStreamPayloadHandlerOptions {
   messageSigner: Provider<MessageSigner>;
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
+  systemClockOffset?: number;
 }
 
 /**
@@ -37,10 +38,12 @@ export interface EventStreamPayloadHandlerOptions {
 export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
   private readonly messageSigner: Provider<MessageSigner>;
   private readonly eventStreamCodec: EventStreamCodec;
+  private readonly systemClockOffsetProvider: Provider<number>;
 
   constructor(options: EventStreamPayloadHandlerOptions) {
     this.messageSigner = options.messageSigner;
     this.eventStreamCodec = new EventStreamCodec(options.utf8Encoder, options.utf8Decoder);
+    this.systemClockOffsetProvider = async () => options.systemClockOffset ?? 0;
   }
 
   async handle<T extends MetadataBearer>(
@@ -61,6 +64,22 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       objectMode: true,
     });
 
+    const match = request.headers?.authorization?.match(/Signature=([\w]+)$/);
+    // Sign the eventstream based on the signature from initial request.
+    const priorSignature = match?.[1] ?? (query?.["X-Amz-Signature"] as string) ?? "";
+    const signingStream = new EventSigningStream({
+      priorSignature,
+      eventStreamCodec: this.eventStreamCodec,
+      messageSigner: await this.messageSigner(),
+      systemClockOffsetProvider: this.systemClockOffsetProvider,
+    });
+
+    pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
+      if (err) {
+        throw err;
+      }
+    });
+
     let result: FinalizeHandlerOutput<any>;
     try {
       result = await next(args);
@@ -70,22 +89,6 @@ export class EventStreamPayloadHandler implements IEventStreamPayloadHandler {
       request.body.end();
       throw e;
     }
-
-    // If response is successful, start piping the payload stream
-    const match = (request.headers["authorization"] || "").match(/Signature=([\w]+)$/);
-    // Sign the eventstream based on the signature from initial request.
-    const priorSignature = (match || [])[1] || (query && (query["X-Amz-Signature"] as string)) || "";
-    const signingStream = new EventSigningStream({
-      priorSignature,
-      eventStreamCodec: this.eventStreamCodec,
-      messageSigner: await this.messageSigner(),
-    });
-
-    pipeline(payloadStream, signingStream, request.body, (err: NodeJS.ErrnoException | null) => {
-      if (err) {
-        throw err;
-      }
-    });
 
     return result;
   }

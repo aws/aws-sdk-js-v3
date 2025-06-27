@@ -12,7 +12,8 @@ import { de_DeletePrivateGraphEndpointCommand, se_DeletePrivateGraphEndpointComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface DeletePrivateGraphEndpointCommandOutput extends DeletePrivateGr
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class DeletePrivateGraphEndpointCommand extends $Command
@@ -100,4 +102,16 @@ export class DeletePrivateGraphEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePrivateGraphEndpointCommand)
   .de(de_DeletePrivateGraphEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePrivateGraphEndpointInput;
+      output: DeletePrivateGraphEndpointOutput;
+    };
+    sdk: {
+      input: DeletePrivateGraphEndpointCommandInput;
+      output: DeletePrivateGraphEndpointCommandOutput;
+    };
+  };
+}

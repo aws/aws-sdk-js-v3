@@ -12,7 +12,8 @@ import { de_UpdateAgentAliasCommand, se_UpdateAgentAliasCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,6 +46,7 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  *       provisionedThroughput: "STRING_VALUE",
  *     },
  *   ],
+ *   aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * };
  * const command = new UpdateAgentAliasCommand(input);
  * const response = await client.send(command);
@@ -76,10 +78,11 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  * //         startDate: new Date("TIMESTAMP"),
  * //       },
  * //     ],
- * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING", // required
+ * //     agentAliasStatus: "CREATING" || "PREPARED" || "FAILED" || "UPDATING" || "DELETING" || "DISSOCIATED", // required
  * //     failureReasons: [ // FailureReasons
  * //       "STRING_VALUE",
  * //     ],
+ * //     aliasInvocationState: "ACCEPT_INVOCATIONS" || "REJECT_INVOCATIONS",
  * //   },
  * // };
  *
@@ -115,6 +118,7 @@ export interface UpdateAgentAliasCommandOutput extends UpdateAgentAliasResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentAliasCommand extends $Command
@@ -125,9 +129,7 @@ export class UpdateAgentAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +141,16 @@ export class UpdateAgentAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAgentAliasCommand)
   .de(de_UpdateAgentAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentAliasRequest;
+      output: UpdateAgentAliasResponse;
+    };
+    sdk: {
+      input: UpdateAgentAliasCommandInput;
+      output: UpdateAgentAliasCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,7 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * //   Id: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   Monitors: [ // MonitorList
  * //     { // Monitor
  * //       AlarmArn: "STRING_VALUE", // required
@@ -79,27 +80,27 @@ export interface GetEnvironmentCommandOutput extends Environment, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To retrieve environment details
  * ```javascript
  * // The following get-environment example returns the details and state of the specified environment.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "EnvironmentId": "54j1r29"
+ *   ApplicationId: "339ohji",
+ *   EnvironmentId: "54j1r29"
  * };
  * const command = new GetEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Id": "54j1r29",
- *   "Name": "Example-Environment",
- *   "State": "READY_FOR_DEPLOYMENT"
+ *   ApplicationId: "339ohji",
+ *   Id: "54j1r29",
+ *   Name: "Example-Environment",
+ *   State: "READY_FOR_DEPLOYMENT"
  * }
  * *\/
- * // example id: to-retrieve-environment-details-1632266924806
  * ```
  *
+ * @public
  */
 export class GetEnvironmentCommand extends $Command
   .classBuilder<
@@ -109,9 +110,7 @@ export class GetEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class GetEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEnvironmentCommand)
   .de(de_GetEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentRequest;
+      output: Environment;
+    };
+    sdk: {
+      input: GetEnvironmentCommandInput;
+      output: GetEnvironmentCommandOutput;
+    };
+  };
+}

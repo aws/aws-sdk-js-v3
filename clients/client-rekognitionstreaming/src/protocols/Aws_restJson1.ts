@@ -13,6 +13,7 @@ import {
   decorateServiceException as __decorateServiceException,
   expectInt32 as __expectInt32,
   expectString as __expectString,
+  isSerializableHeaderValue,
   limitedParseFloat32 as __limitedParseFloat32,
   map,
   serializeFloat as __serializeFloat,
@@ -36,6 +37,7 @@ import {
   AccessDeniedException,
   BoundingBox,
   ChallengeConfig,
+  ChallengeEvent,
   ClientChallenge,
   ClientSessionInformationEvent,
   ColorDisplayed,
@@ -43,6 +45,8 @@ import {
   DisconnectionEvent,
   FaceMovementAndLightClientChallenge,
   FaceMovementAndLightServerChallenge,
+  FaceMovementClientChallenge,
+  FaceMovementServerChallenge,
   FreshnessColor,
   InitialFace,
   InternalServerException,
@@ -71,6 +75,7 @@ export const se_StartFaceLivenessSessionCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     [_xarslsi]: input[_SI]!,
     [_xarslvw]: input[_VW]!,
     [_xarslvh]: input[_VH]!,
@@ -345,6 +350,11 @@ const de_LivenessResponseStream = (
         DisconnectionEvent: await de_DisconnectionEvent_event(event["DisconnectionEvent"], context),
       };
     }
+    if (event["ChallengeEvent"] != null) {
+      return {
+        ChallengeEvent: await de_ChallengeEvent_event(event["ChallengeEvent"], context),
+      };
+    }
     if (event["ValidationException"] != null) {
       return {
         ValidationException: await de_ValidationException_event(event["ValidationException"], context),
@@ -376,8 +386,14 @@ const de_LivenessResponseStream = (
         ),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
+};
+const de_ChallengeEvent_event = async (output: any, context: __SerdeContext): Promise<ChallengeEvent> => {
+  const contents: ChallengeEvent = {} as any;
+  const data: any = await parseBody(output.body, context);
+  Object.assign(contents, _json(data));
+  return contents;
 };
 const de_DisconnectionEvent_event = async (output: any, context: __SerdeContext): Promise<DisconnectionEvent> => {
   const contents: DisconnectionEvent = {} as any;
@@ -458,7 +474,8 @@ const se_ClientChallenge = (input: ClientChallenge, context: __SerdeContext): an
     FaceMovementAndLightChallenge: (value) => ({
       FaceMovementAndLightChallenge: se_FaceMovementAndLightClientChallenge(value, context),
     }),
-    _: (name, value) => ({ name: value } as any),
+    FaceMovementChallenge: (value) => ({ FaceMovementChallenge: se_FaceMovementClientChallenge(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -485,6 +502,19 @@ const se_FaceMovementAndLightClientChallenge = (
   return take(input, {
     ChallengeId: [],
     ColorDisplayed: _json,
+    InitialFace: (_) => se_InitialFace(_, context),
+    TargetFace: (_) => se_TargetFace(_, context),
+    VideoEndTimestamp: [],
+    VideoStartTimestamp: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1FaceMovementClientChallenge
+ */
+const se_FaceMovementClientChallenge = (input: FaceMovementClientChallenge, context: __SerdeContext): any => {
+  return take(input, {
+    ChallengeId: [],
     InitialFace: (_) => se_InitialFace(_, context),
     TargetFace: (_) => se_TargetFace(_, context),
     VideoEndTimestamp: [],
@@ -544,6 +574,8 @@ const de_ChallengeConfig = (output: any, context: __SerdeContext): ChallengeConf
   }) as any;
 };
 
+// de_ChallengeEvent omitted.
+
 // de_ColorComponentList omitted.
 
 /**
@@ -586,6 +618,16 @@ const de_FaceMovementAndLightServerChallenge = (
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1FaceMovementServerChallenge
+ */
+const de_FaceMovementServerChallenge = (output: any, context: __SerdeContext): FaceMovementServerChallenge => {
+  return take(output, {
+    ChallengeConfig: (_: any) => de_ChallengeConfig(_, context),
+    OvalParameters: (_: any) => de_OvalParameters(_, context),
+  }) as any;
+};
+
 // de_FreshnessColor omitted.
 
 /**
@@ -610,6 +652,11 @@ const de_ServerChallenge = (output: any, context: __SerdeContext): ServerChallen
         output.FaceMovementAndLightChallenge,
         context
       ),
+    };
+  }
+  if (output.FaceMovementChallenge != null) {
+    return {
+      FaceMovementChallenge: de_FaceMovementServerChallenge(output.FaceMovementChallenge, context),
     };
   }
   return { $unknown: Object.entries(output)[0] };
@@ -644,13 +691,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _CV = "ChallengeVersions";
 const _SI = "SessionId";

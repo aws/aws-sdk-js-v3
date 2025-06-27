@@ -12,7 +12,8 @@ import { de_ResetEnabledBaselineCommand, se_ResetEnabledBaselineCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ResetEnabledBaselineCommandInput extends ResetEnabledBaselineIn
 export interface ResetEnabledBaselineCommandOutput extends ResetEnabledBaselineOutput, __MetadataBearer {}
 
 /**
- * <p>Re-enables an <code>EnabledBaseline</code> resource. For example, this API can re-apply the existing <code>Baseline</code> after a new member account is moved to the target OU. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Re-enables an <code>EnabledBaseline</code> resource. For example, this API can re-apply the existing <code>Baseline</code> after a new member account is moved to the target OU. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +65,7 @@ export interface ResetEnabledBaselineCommandOutput extends ResetEnabledBaselineO
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -76,6 +75,7 @@ export interface ResetEnabledBaselineCommandOutput extends ResetEnabledBaselineO
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +87,7 @@ export class ResetEnabledBaselineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +99,16 @@ export class ResetEnabledBaselineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetEnabledBaselineCommand)
   .de(de_ResetEnabledBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetEnabledBaselineInput;
+      output: ResetEnabledBaselineOutput;
+    };
+    sdk: {
+      input: ResetEnabledBaselineCommandInput;
+      output: ResetEnabledBaselineCommandOutput;
+    };
+  };
+}

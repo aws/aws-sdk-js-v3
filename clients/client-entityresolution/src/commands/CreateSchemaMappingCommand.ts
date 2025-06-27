@@ -12,7 +12,8 @@ import { de_CreateSchemaMappingCommand, se_CreateSchemaMappingCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateSchemaMappingCommandInput extends CreateSchemaMappingInpu
 export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a schema mapping, which defines the schema of the input customer records table.
- *          The <code>SchemaMapping</code> also provides Entity Resolution with some metadata about the
- *          table, such as the attribute types of the columns and which columns to match on.</p>
+ * <p>Creates a schema mapping, which defines the schema of the input customer records table. The <code>SchemaMapping</code> also provides Entity Resolution with some metadata about the table, such as the attribute types of the columns and which columns to match on.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,10 +41,11 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  *   mappedInputFields: [ // SchemaInputAttributes // required
  *     { // SchemaInputAttribute
  *       fieldName: "STRING_VALUE", // required
- *       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
+ *       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID" || "IPV4" || "IPV6" || "MAID", // required
  *       groupName: "STRING_VALUE",
  *       matchKey: "STRING_VALUE",
  *       subType: "STRING_VALUE",
+ *       hashed: true || false,
  *     },
  *   ],
  *   tags: { // TagMap
@@ -61,10 +61,11 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * //   mappedInputFields: [ // SchemaInputAttributes // required
  * //     { // SchemaInputAttribute
  * //       fieldName: "STRING_VALUE", // required
- * //       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID", // required
+ * //       type: "NAME" || "NAME_FIRST" || "NAME_MIDDLE" || "NAME_LAST" || "ADDRESS" || "ADDRESS_STREET1" || "ADDRESS_STREET2" || "ADDRESS_STREET3" || "ADDRESS_CITY" || "ADDRESS_STATE" || "ADDRESS_COUNTRY" || "ADDRESS_POSTALCODE" || "PHONE" || "PHONE_NUMBER" || "PHONE_COUNTRYCODE" || "EMAIL_ADDRESS" || "UNIQUE_ID" || "DATE" || "STRING" || "PROVIDER_ID" || "IPV4" || "IPV6" || "MAID", // required
  * //       groupName: "STRING_VALUE",
  * //       matchKey: "STRING_VALUE",
  * //       subType: "STRING_VALUE",
+ * //       hashed: true || false,
  * //     },
  * //   ],
  * // };
@@ -78,39 +79,26 @@ export interface CreateSchemaMappingCommandOutput extends CreateSchemaMappingOut
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
- *             403</code>
- *          </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. <code>HTTP Status Code: 400</code>
- *          </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *             Entity Resolution account limits. The error message describes the limit exceeded.
- *             <code>HTTP Status Code: 402</code>
- *          </p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
- *          429</code>
- *          </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
+ *
  *
  * @public
  */
@@ -122,9 +110,7 @@ export class CreateSchemaMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +122,16 @@ export class CreateSchemaMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSchemaMappingCommand)
   .de(de_CreateSchemaMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSchemaMappingInput;
+      output: CreateSchemaMappingOutput;
+    };
+    sdk: {
+      input: CreateSchemaMappingCommandInput;
+      output: CreateSchemaMappingCommandOutput;
+    };
+  };
+}

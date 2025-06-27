@@ -12,7 +12,8 @@ import { de_GetObjectInformationCommand, se_GetObjectInformationCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,32 @@ export interface GetObjectInformationCommandOutput extends GetObjectInformationR
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To get information about an object
+ * ```javascript
+ * //
+ * const input = {
+ *   ConsistencyLevel: "SERIALIZABLE",
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWmspn1fxfQmSQaaVKSbvEiQ"
+ *   }
+ * };
+ * const command = new GetObjectInformationCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TWmspn1fxfQmSQaaVKSbvEiQ",
+ *   SchemaFacets: [
+ *     {
+ *       FacetName: "node2",
+ *       SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetObjectInformationCommand extends $Command
@@ -99,9 +126,7 @@ export class GetObjectInformationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +138,16 @@ export class GetObjectInformationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectInformationCommand)
   .de(de_GetObjectInformationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectInformationRequest;
+      output: GetObjectInformationResponse;
+    };
+    sdk: {
+      input: GetObjectInformationCommandInput;
+      output: GetObjectInformationCommandOutput;
+    };
+  };
+}

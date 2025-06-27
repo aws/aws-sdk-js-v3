@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,9 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets the instance types that an
- *       Outpost can support in <code>InstanceTypeCapacity</code>. This will generally include instance types that
- *       are not currently configured and therefore cannot be launched with the current Outpost
- *       capacity configuration.</p>
+ * <p>Gets the instance types that an Outpost can support in <code>InstanceTypeCapacity</code>.
+ *       This will generally include instance types that are not currently configured and therefore
+ *       cannot be launched with the current Outpost capacity configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,7 +44,8 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
  * const client = new OutpostsClient(config);
  * const input = { // GetOutpostSupportedInstanceTypesInput
  *   OutpostIdentifier: "STRING_VALUE", // required
- *   OrderId: "STRING_VALUE", // required
+ *   OrderId: "STRING_VALUE",
+ *   AssetId: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -54,6 +55,7 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
  * //   InstanceTypes: [ // InstanceTypeListDefinition
  * //     { // InstanceTypeItem
  * //       InstanceType: "STRING_VALUE",
+ * //       VCPUs: Number("int"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -82,6 +84,7 @@ export interface GetOutpostSupportedInstanceTypesCommandOutput
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetOutpostSupportedInstanceTypesCommand extends $Command
@@ -92,9 +95,7 @@ export class GetOutpostSupportedInstanceTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +107,16 @@ export class GetOutpostSupportedInstanceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOutpostSupportedInstanceTypesCommand)
   .de(de_GetOutpostSupportedInstanceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOutpostSupportedInstanceTypesInput;
+      output: GetOutpostSupportedInstanceTypesOutput;
+    };
+    sdk: {
+      input: GetOutpostSupportedInstanceTypesCommandInput;
+      output: GetOutpostSupportedInstanceTypesCommandOutput;
+    };
+  };
+}

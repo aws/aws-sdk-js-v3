@@ -12,7 +12,8 @@ import { de_ListLogSubscriptionsCommand, se_ListLogSubscriptionsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface ListLogSubscriptionsCommandOutput extends ListLogSubscriptionsR
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ListLogSubscriptionsCommand extends $Command
@@ -85,9 +87,7 @@ export class ListLogSubscriptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListLogSubscriptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLogSubscriptionsCommand)
   .de(de_ListLogSubscriptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLogSubscriptionsRequest;
+      output: ListLogSubscriptionsResult;
+    };
+    sdk: {
+      input: ListLogSubscriptionsCommandInput;
+      output: ListLogSubscriptionsCommandOutput;
+    };
+  };
+}

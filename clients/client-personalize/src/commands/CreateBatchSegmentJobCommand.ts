@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateBatchSegmentJobRequest, CreateBatchSegmentJobResponse } from "../models/models_0";
+import {
+  CreateBatchSegmentJobRequest,
+  CreateBatchSegmentJobRequestFilterSensitiveLog,
+  CreateBatchSegmentJobResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateBatchSegmentJobCommand, se_CreateBatchSegmentJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +101,7 @@ export interface CreateBatchSegmentJobCommandOutput extends CreateBatchSegmentJo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchSegmentJobCommand extends $Command
@@ -106,9 +112,7 @@ export class CreateBatchSegmentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,7 +121,19 @@ export class CreateBatchSegmentJobCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateBatchSegmentJob", {})
   .n("PersonalizeClient", "CreateBatchSegmentJobCommand")
-  .f(void 0, void 0)
+  .f(CreateBatchSegmentJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBatchSegmentJobCommand)
   .de(de_CreateBatchSegmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchSegmentJobRequest;
+      output: CreateBatchSegmentJobResponse;
+    };
+    sdk: {
+      input: CreateBatchSegmentJobCommandInput;
+      output: CreateBatchSegmentJobCommandOutput;
+    };
+  };
+}

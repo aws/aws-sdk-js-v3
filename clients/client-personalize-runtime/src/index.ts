@@ -8,8 +8,8 @@
 export * from "./PersonalizeRuntimeClient";
 export * from "./PersonalizeRuntime";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { PersonalizeRuntimeExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { PersonalizeRuntimeExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

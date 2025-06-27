@@ -12,7 +12,8 @@ import { de_UpdateGlobalTableCommand, se_UpdateGlobalTableCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,24 +33,16 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *             same name as the global table, have the same key schema, have DynamoDB Streams enabled,
  *             and have the same provisioned and maximum write capacity units.</p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version), as it provides greater flexibility, higher efficiency and consumes less write capacity than
- *                 2017.11.29 (Legacy). To determine which version you are using, see
- *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the version</a>.
- *                 To update existing global tables from version 2017.11.29 (Legacy) to version
- *                 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
- *                     Updating global tables</a>.
- *             </p>
+ *             <p>This documentation is for version 2017.11.29 (Legacy) of global tables, which should be avoided for new global tables. Customers should use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Global Tables version 2019.11.21 (Current)</a> when possible, because it provides greater flexibility, higher efficiency, and consumes less write capacity than 2017.11.29 (Legacy).</p>
+ *             <p>To determine which version you're using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the global table version you are using</a>. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">Upgrading global tables</a>.</p>
  *          </important>
  *          <note>
- *             <p>
- *                 For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version). If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Version
- *                         2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a> instead.
- *             </p>
- *             <p>
- *                 Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
+ *             <p> For global tables, this operation only applies to global tables using Version
+ *                 2019.11.21 (Current version). If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Version
+ *                     2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a> instead. </p>
+ *             <p> Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
  *                 replicas in a single request, for simplicity we recommend that you issue separate
- *                 requests for adding or removing replicas.
- *             </p>
+ *                 requests for adding or removing replicas. </p>
  *          </note>
  *          <p> If global secondary indexes are specified, then the following conditions must also be
  *             met: </p>
@@ -102,6 +95,11 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -110,6 +108,11 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -156,6 +159,7 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateGlobalTableCommand extends $Command
@@ -168,6 +172,7 @@ export class UpdateGlobalTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "GlobalTableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -180,4 +185,16 @@ export class UpdateGlobalTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGlobalTableCommand)
   .de(de_UpdateGlobalTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGlobalTableInput;
+      output: UpdateGlobalTableOutput;
+    };
+    sdk: {
+      input: UpdateGlobalTableCommandInput;
+      output: UpdateGlobalTableCommandOutput;
+    };
+  };
+}

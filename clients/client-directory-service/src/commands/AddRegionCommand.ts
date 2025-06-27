@@ -12,7 +12,8 @@ import { de_AddRegionCommand, se_AddRegionCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,20 +58,20 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryAlreadyInRegionException} (client fault)
- *  <p>The Region you specified is the same Region where the Managed Microsoft AD directory
- *       was created. Specify a different Region and try again.</p>
+ *  <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created.
+ *       Specify a different Region and try again.</p>
  *
  * @throws {@link DirectoryDoesNotExistException} (client fault)
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>
@@ -91,6 +92,7 @@ export interface AddRegionCommandOutput extends AddRegionResult, __MetadataBeare
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class AddRegionCommand extends $Command
@@ -101,9 +103,7 @@ export class AddRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class AddRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddRegionCommand)
   .de(de_AddRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddRegionCommandInput;
+      output: AddRegionCommandOutput;
+    };
+  };
+}

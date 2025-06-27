@@ -12,7 +12,8 @@ import { de_ListSuiteRunsCommand, se_ListSuiteRunsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListSuiteRunsCommandOutput extends ListSuiteRunsResponse, __Met
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class ListSuiteRunsCommand extends $Command
@@ -89,9 +91,7 @@ export class ListSuiteRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListSuiteRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSuiteRunsCommand)
   .de(de_ListSuiteRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSuiteRunsRequest;
+      output: ListSuiteRunsResponse;
+    };
+    sdk: {
+      input: ListSuiteRunsCommandInput;
+      output: ListSuiteRunsCommandOutput;
+    };
+  };
+}

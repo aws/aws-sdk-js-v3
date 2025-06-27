@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDevicesRequest, ListDevicesResponse } from "../models/models_3";
+import { ListDevicesRequest, ListDevicesResponse } from "../models/models_4";
 import { de_ListDevicesCommand, se_ListDevicesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ListDevicesCommandOutput extends ListDevicesResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListDevicesCommand extends $Command
@@ -86,9 +88,7 @@ export class ListDevicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevicesCommand)
   .de(de_ListDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesRequest;
+      output: ListDevicesResponse;
+    };
+    sdk: {
+      input: ListDevicesCommandInput;
+      output: ListDevicesCommandOutput;
+    };
+  };
+}

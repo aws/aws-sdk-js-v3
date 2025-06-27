@@ -12,7 +12,8 @@ import { de_DeleteConfigCommand, se_DeleteConfigCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,13 +37,13 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const client = new GroundStationClient(config);
  * const input = { // DeleteConfigRequest
  *   configId: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
  * };
  * const command = new DeleteConfigCommand(input);
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "STRING_VALUE",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //   configArn: "STRING_VALUE",
  * // };
  *
@@ -66,6 +67,7 @@ export interface DeleteConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigCommand extends $Command
@@ -76,9 +78,7 @@ export class DeleteConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class DeleteConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigCommand)
   .de(de_DeleteConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigRequest;
+      output: ConfigIdResponse;
+    };
+    sdk: {
+      input: DeleteConfigCommandInput;
+      output: DeleteConfigCommandOutput;
+    };
+  };
+}

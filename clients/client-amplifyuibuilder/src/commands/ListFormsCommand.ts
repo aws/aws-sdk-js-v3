@@ -12,7 +12,8 @@ import { de_ListFormsCommand, se_ListFormsCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ListFormsCommand extends $Command
@@ -86,9 +88,7 @@ export class ListFormsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListFormsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFormsCommand)
   .de(de_ListFormsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFormsRequest;
+      output: ListFormsResponse;
+    };
+    sdk: {
+      input: ListFormsCommandInput;
+      output: ListFormsCommandOutput;
+    };
+  };
+}

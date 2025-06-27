@@ -12,7 +12,8 @@ import { de_ListBrokersCommand, se_ListBrokersCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ListBrokersCommandOutput extends ListBrokersResponse, __Metadat
  * @throws {@link MqServiceException}
  * <p>Base exception class for all service exceptions from Mq service.</p>
  *
+ *
  * @public
  */
 export class ListBrokersCommand extends $Command
@@ -86,9 +88,7 @@ export class ListBrokersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MqClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ListBrokersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBrokersCommand)
   .de(de_ListBrokersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBrokersRequest;
+      output: ListBrokersResponse;
+    };
+    sdk: {
+      input: ListBrokersCommandInput;
+      output: ListBrokersCommandOutput;
+    };
+  };
+}

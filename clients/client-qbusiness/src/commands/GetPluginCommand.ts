@@ -12,7 +12,8 @@ import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,7 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * //   applicationId: "STRING_VALUE",
  * //   pluginId: "STRING_VALUE",
  * //   displayName: "STRING_VALUE",
- * //   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //   type: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //   serverUrl: "STRING_VALUE",
  * //   authConfiguration: { // PluginAuthConfiguration Union: only one key present
  * //     basicAuthConfiguration: { // BasicAuthConfiguration
@@ -54,8 +55,14 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * //     oAuth2ClientCredentialConfiguration: { // OAuth2ClientCredentialConfiguration
  * //       secretArn: "STRING_VALUE", // required
  * //       roleArn: "STRING_VALUE", // required
+ * //       authorizationUrl: "STRING_VALUE",
+ * //       tokenUrl: "STRING_VALUE",
  * //     },
  * //     noAuthConfiguration: {},
+ * //     idcAuthConfiguration: { // IdcAuthConfiguration
+ * //       idcApplicationArn: "STRING_VALUE", // required
+ * //       roleArn: "STRING_VALUE", // required
+ * //     },
  * //   },
  * //   customPluginConfiguration: { // CustomPluginConfiguration
  * //     description: "STRING_VALUE", // required
@@ -84,27 +91,23 @@ export interface GetPluginCommandOutput extends GetPluginResponse, __MetadataBea
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required
- *             permission policies and user accounts and try again.</p>
+ *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
- *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try
- *             again.</p>
+ *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
- *             correct input and try again.</p>
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
+ *
  *
  * @public
  */
@@ -116,9 +119,7 @@ export class GetPluginCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class GetPluginCommand extends $Command
   .f(void 0, GetPluginResponseFilterSensitiveLog)
   .ser(se_GetPluginCommand)
   .de(de_GetPluginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPluginRequest;
+      output: GetPluginResponse;
+    };
+    sdk: {
+      input: GetPluginCommandInput;
+      output: GetPluginCommandOutput;
+    };
+  };
+}

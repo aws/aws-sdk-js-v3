@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { AccountClient, AccountClientConfig } from "./AccountClient";
 import {
+  AcceptPrimaryEmailUpdateCommand,
+  AcceptPrimaryEmailUpdateCommandInput,
+  AcceptPrimaryEmailUpdateCommandOutput,
+} from "./commands/AcceptPrimaryEmailUpdateCommand";
+import {
   DeleteAlternateContactCommand,
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
@@ -19,6 +24,11 @@ import {
   EnableRegionCommandOutput,
 } from "./commands/EnableRegionCommand";
 import {
+  GetAccountInformationCommand,
+  GetAccountInformationCommandInput,
+  GetAccountInformationCommandOutput,
+} from "./commands/GetAccountInformationCommand";
+import {
   GetAlternateContactCommand,
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
@@ -29,11 +39,21 @@ import {
   GetContactInformationCommandOutput,
 } from "./commands/GetContactInformationCommand";
 import {
+  GetPrimaryEmailCommand,
+  GetPrimaryEmailCommandInput,
+  GetPrimaryEmailCommandOutput,
+} from "./commands/GetPrimaryEmailCommand";
+import {
   GetRegionOptStatusCommand,
   GetRegionOptStatusCommandInput,
   GetRegionOptStatusCommandOutput,
 } from "./commands/GetRegionOptStatusCommand";
 import { ListRegionsCommand, ListRegionsCommandInput, ListRegionsCommandOutput } from "./commands/ListRegionsCommand";
+import {
+  PutAccountNameCommand,
+  PutAccountNameCommandInput,
+  PutAccountNameCommandOutput,
+} from "./commands/PutAccountNameCommand";
 import {
   PutAlternateContactCommand,
   PutAlternateContactCommandInput,
@@ -44,20 +64,47 @@ import {
   PutContactInformationCommandInput,
   PutContactInformationCommandOutput,
 } from "./commands/PutContactInformationCommand";
+import {
+  StartPrimaryEmailUpdateCommand,
+  StartPrimaryEmailUpdateCommandInput,
+  StartPrimaryEmailUpdateCommandOutput,
+} from "./commands/StartPrimaryEmailUpdateCommand";
 
 const commands = {
+  AcceptPrimaryEmailUpdateCommand,
   DeleteAlternateContactCommand,
   DisableRegionCommand,
   EnableRegionCommand,
+  GetAccountInformationCommand,
   GetAlternateContactCommand,
   GetContactInformationCommand,
+  GetPrimaryEmailCommand,
   GetRegionOptStatusCommand,
   ListRegionsCommand,
+  PutAccountNameCommand,
   PutAlternateContactCommand,
   PutContactInformationCommand,
+  StartPrimaryEmailUpdateCommand,
 };
 
 export interface Account {
+  /**
+   * @see {@link AcceptPrimaryEmailUpdateCommand}
+   */
+  acceptPrimaryEmailUpdate(
+    args: AcceptPrimaryEmailUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptPrimaryEmailUpdateCommandOutput>;
+  acceptPrimaryEmailUpdate(
+    args: AcceptPrimaryEmailUpdateCommandInput,
+    cb: (err: any, data?: AcceptPrimaryEmailUpdateCommandOutput) => void
+  ): void;
+  acceptPrimaryEmailUpdate(
+    args: AcceptPrimaryEmailUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptPrimaryEmailUpdateCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link DeleteAlternateContactCommand}
    */
@@ -98,6 +145,24 @@ export interface Account {
   ): void;
 
   /**
+   * @see {@link GetAccountInformationCommand}
+   */
+  getAccountInformation(): Promise<GetAccountInformationCommandOutput>;
+  getAccountInformation(
+    args: GetAccountInformationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccountInformationCommandOutput>;
+  getAccountInformation(
+    args: GetAccountInformationCommandInput,
+    cb: (err: any, data?: GetAccountInformationCommandOutput) => void
+  ): void;
+  getAccountInformation(
+    args: GetAccountInformationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccountInformationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAlternateContactCommand}
    */
   getAlternateContact(
@@ -133,6 +198,20 @@ export interface Account {
   ): void;
 
   /**
+   * @see {@link GetPrimaryEmailCommand}
+   */
+  getPrimaryEmail(
+    args: GetPrimaryEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPrimaryEmailCommandOutput>;
+  getPrimaryEmail(args: GetPrimaryEmailCommandInput, cb: (err: any, data?: GetPrimaryEmailCommandOutput) => void): void;
+  getPrimaryEmail(
+    args: GetPrimaryEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPrimaryEmailCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetRegionOptStatusCommand}
    */
   getRegionOptStatus(
@@ -159,6 +238,20 @@ export interface Account {
     args: ListRegionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRegionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccountNameCommand}
+   */
+  putAccountName(
+    args: PutAccountNameCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccountNameCommandOutput>;
+  putAccountName(args: PutAccountNameCommandInput, cb: (err: any, data?: PutAccountNameCommandOutput) => void): void;
+  putAccountName(
+    args: PutAccountNameCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccountNameCommandOutput) => void
   ): void;
 
   /**
@@ -193,6 +286,23 @@ export interface Account {
     args: PutContactInformationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutContactInformationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartPrimaryEmailUpdateCommand}
+   */
+  startPrimaryEmailUpdate(
+    args: StartPrimaryEmailUpdateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartPrimaryEmailUpdateCommandOutput>;
+  startPrimaryEmailUpdate(
+    args: StartPrimaryEmailUpdateCommandInput,
+    cb: (err: any, data?: StartPrimaryEmailUpdateCommandOutput) => void
+  ): void;
+  startPrimaryEmailUpdate(
+    args: StartPrimaryEmailUpdateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartPrimaryEmailUpdateCommandOutput) => void
   ): void;
 }
 

@@ -12,7 +12,8 @@ import { de_DeleteExtensionCommand, se_DeleteExtensionCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DeleteExtensionCommandOutput extends __MetadataBearer {}
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
+ *
  * @public
  */
 export class DeleteExtensionCommand extends $Command
@@ -73,9 +75,7 @@ export class DeleteExtensionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteExtensionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteExtensionCommand)
   .de(de_DeleteExtensionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteExtensionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteExtensionCommandInput;
+      output: DeleteExtensionCommandOutput;
+    };
+  };
+}

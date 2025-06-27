@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface CreateObservabilityConfigurationCommandOutput
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class CreateObservabilityConfigurationCommand extends $Command
@@ -108,9 +110,7 @@ export class CreateObservabilityConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class CreateObservabilityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateObservabilityConfigurationCommand)
   .de(de_CreateObservabilityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateObservabilityConfigurationRequest;
+      output: CreateObservabilityConfigurationResponse;
+    };
+    sdk: {
+      input: CreateObservabilityConfigurationCommandInput;
+      output: CreateObservabilityConfigurationCommandOutput;
+    };
+  };
+}

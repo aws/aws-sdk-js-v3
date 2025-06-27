@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,6 +46,7 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  * //   resourceId: "STRING_VALUE", // required
  * //   resourceArn: "STRING_VALUE", // required
  * //   destinationArn: "STRING_VALUE", // required
+ * //   serviceNetworkLogType: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   lastUpdatedAt: new Date("TIMESTAMP"), // required
  * // };
@@ -76,6 +78,7 @@ export interface GetAccessLogSubscriptionCommandOutput extends GetAccessLogSubsc
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetAccessLogSubscriptionCommand extends $Command
@@ -86,9 +89,7 @@ export class GetAccessLogSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +101,16 @@ export class GetAccessLogSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessLogSubscriptionCommand)
   .de(de_GetAccessLogSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessLogSubscriptionRequest;
+      output: GetAccessLogSubscriptionResponse;
+    };
+    sdk: {
+      input: GetAccessLogSubscriptionCommandInput;
+      output: GetAccessLogSubscriptionCommandOutput;
+    };
+  };
+}

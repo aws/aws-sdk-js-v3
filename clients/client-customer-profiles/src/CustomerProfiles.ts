@@ -8,6 +8,16 @@ import {
   AddProfileKeyCommandOutput,
 } from "./commands/AddProfileKeyCommand";
 import {
+  BatchGetCalculatedAttributeForProfileCommand,
+  BatchGetCalculatedAttributeForProfileCommandInput,
+  BatchGetCalculatedAttributeForProfileCommandOutput,
+} from "./commands/BatchGetCalculatedAttributeForProfileCommand";
+import {
+  BatchGetProfileCommand,
+  BatchGetProfileCommandInput,
+  BatchGetProfileCommandOutput,
+} from "./commands/BatchGetProfileCommand";
+import {
   CreateCalculatedAttributeDefinitionCommand,
   CreateCalculatedAttributeDefinitionCommandInput,
   CreateCalculatedAttributeDefinitionCommandOutput,
@@ -18,10 +28,20 @@ import {
   CreateDomainCommandOutput,
 } from "./commands/CreateDomainCommand";
 import {
+  CreateDomainLayoutCommand,
+  CreateDomainLayoutCommandInput,
+  CreateDomainLayoutCommandOutput,
+} from "./commands/CreateDomainLayoutCommand";
+import {
   CreateEventStreamCommand,
   CreateEventStreamCommandInput,
   CreateEventStreamCommandOutput,
 } from "./commands/CreateEventStreamCommand";
+import {
+  CreateEventTriggerCommand,
+  CreateEventTriggerCommandInput,
+  CreateEventTriggerCommandOutput,
+} from "./commands/CreateEventTriggerCommand";
 import {
   CreateIntegrationWorkflowCommand,
   CreateIntegrationWorkflowCommandInput,
@@ -33,6 +53,21 @@ import {
   CreateProfileCommandOutput,
 } from "./commands/CreateProfileCommand";
 import {
+  CreateSegmentDefinitionCommand,
+  CreateSegmentDefinitionCommandInput,
+  CreateSegmentDefinitionCommandOutput,
+} from "./commands/CreateSegmentDefinitionCommand";
+import {
+  CreateSegmentEstimateCommand,
+  CreateSegmentEstimateCommandInput,
+  CreateSegmentEstimateCommandOutput,
+} from "./commands/CreateSegmentEstimateCommand";
+import {
+  CreateSegmentSnapshotCommand,
+  CreateSegmentSnapshotCommandInput,
+  CreateSegmentSnapshotCommandOutput,
+} from "./commands/CreateSegmentSnapshotCommand";
+import {
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
@@ -43,10 +78,20 @@ import {
   DeleteDomainCommandOutput,
 } from "./commands/DeleteDomainCommand";
 import {
+  DeleteDomainLayoutCommand,
+  DeleteDomainLayoutCommandInput,
+  DeleteDomainLayoutCommandOutput,
+} from "./commands/DeleteDomainLayoutCommand";
+import {
   DeleteEventStreamCommand,
   DeleteEventStreamCommandInput,
   DeleteEventStreamCommandOutput,
 } from "./commands/DeleteEventStreamCommand";
+import {
+  DeleteEventTriggerCommand,
+  DeleteEventTriggerCommandInput,
+  DeleteEventTriggerCommandOutput,
+} from "./commands/DeleteEventTriggerCommand";
 import {
   DeleteIntegrationCommand,
   DeleteIntegrationCommandInput,
@@ -72,6 +117,11 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  DeleteSegmentDefinitionCommand,
+  DeleteSegmentDefinitionCommandInput,
+  DeleteSegmentDefinitionCommandOutput,
+} from "./commands/DeleteSegmentDefinitionCommand";
 import {
   DeleteWorkflowCommand,
   DeleteWorkflowCommandInput,
@@ -99,10 +149,20 @@ import {
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommand, GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
 import {
+  GetDomainLayoutCommand,
+  GetDomainLayoutCommandInput,
+  GetDomainLayoutCommandOutput,
+} from "./commands/GetDomainLayoutCommand";
+import {
   GetEventStreamCommand,
   GetEventStreamCommandInput,
   GetEventStreamCommandOutput,
 } from "./commands/GetEventStreamCommand";
+import {
+  GetEventTriggerCommand,
+  GetEventTriggerCommandInput,
+  GetEventTriggerCommandOutput,
+} from "./commands/GetEventTriggerCommand";
 import {
   GetIdentityResolutionJobCommand,
   GetIdentityResolutionJobCommandInput,
@@ -124,6 +184,26 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import {
+  GetSegmentDefinitionCommand,
+  GetSegmentDefinitionCommandInput,
+  GetSegmentDefinitionCommandOutput,
+} from "./commands/GetSegmentDefinitionCommand";
+import {
+  GetSegmentEstimateCommand,
+  GetSegmentEstimateCommandInput,
+  GetSegmentEstimateCommandOutput,
+} from "./commands/GetSegmentEstimateCommand";
+import {
+  GetSegmentMembershipCommand,
+  GetSegmentMembershipCommandInput,
+  GetSegmentMembershipCommandOutput,
+} from "./commands/GetSegmentMembershipCommand";
+import {
+  GetSegmentSnapshotCommand,
+  GetSegmentSnapshotCommandInput,
+  GetSegmentSnapshotCommandOutput,
+} from "./commands/GetSegmentSnapshotCommand";
 import {
   GetSimilarProfilesCommand,
   GetSimilarProfilesCommandInput,
@@ -150,12 +230,22 @@ import {
   ListCalculatedAttributesForProfileCommandInput,
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
+import {
+  ListDomainLayoutsCommand,
+  ListDomainLayoutsCommandInput,
+  ListDomainLayoutsCommandOutput,
+} from "./commands/ListDomainLayoutsCommand";
 import { ListDomainsCommand, ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import {
   ListEventStreamsCommand,
   ListEventStreamsCommandInput,
   ListEventStreamsCommandOutput,
 } from "./commands/ListEventStreamsCommand";
+import {
+  ListEventTriggersCommand,
+  ListEventTriggersCommandInput,
+  ListEventTriggersCommandOutput,
+} from "./commands/ListEventTriggersCommand";
 import {
   ListIdentityResolutionJobsCommand,
   ListIdentityResolutionJobsCommandInput,
@@ -166,6 +256,16 @@ import {
   ListIntegrationsCommandInput,
   ListIntegrationsCommandOutput,
 } from "./commands/ListIntegrationsCommand";
+import {
+  ListObjectTypeAttributesCommand,
+  ListObjectTypeAttributesCommandInput,
+  ListObjectTypeAttributesCommandOutput,
+} from "./commands/ListObjectTypeAttributesCommand";
+import {
+  ListProfileAttributeValuesCommand,
+  ListProfileAttributeValuesCommandInput,
+  ListProfileAttributeValuesCommandOutput,
+} from "./commands/ListProfileAttributeValuesCommand";
 import {
   ListProfileObjectsCommand,
   ListProfileObjectsCommandInput,
@@ -186,6 +286,11 @@ import {
   ListRuleBasedMatchesCommandInput,
   ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
+import {
+  ListSegmentDefinitionsCommand,
+  ListSegmentDefinitionsCommandInput,
+  ListSegmentDefinitionsCommandOutput,
+} from "./commands/ListSegmentDefinitionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -238,6 +343,16 @@ import {
   UpdateDomainCommandOutput,
 } from "./commands/UpdateDomainCommand";
 import {
+  UpdateDomainLayoutCommand,
+  UpdateDomainLayoutCommandInput,
+  UpdateDomainLayoutCommandOutput,
+} from "./commands/UpdateDomainLayoutCommand";
+import {
+  UpdateEventTriggerCommand,
+  UpdateEventTriggerCommandInput,
+  UpdateEventTriggerCommandOutput,
+} from "./commands/UpdateEventTriggerCommand";
+import {
   UpdateProfileCommand,
   UpdateProfileCommandInput,
   UpdateProfileCommandOutput,
@@ -246,45 +361,66 @@ import { CustomerProfilesClient, CustomerProfilesClientConfig } from "./Customer
 
 const commands = {
   AddProfileKeyCommand,
+  BatchGetCalculatedAttributeForProfileCommand,
+  BatchGetProfileCommand,
   CreateCalculatedAttributeDefinitionCommand,
   CreateDomainCommand,
+  CreateDomainLayoutCommand,
   CreateEventStreamCommand,
+  CreateEventTriggerCommand,
   CreateIntegrationWorkflowCommand,
   CreateProfileCommand,
+  CreateSegmentDefinitionCommand,
+  CreateSegmentEstimateCommand,
+  CreateSegmentSnapshotCommand,
   DeleteCalculatedAttributeDefinitionCommand,
   DeleteDomainCommand,
+  DeleteDomainLayoutCommand,
   DeleteEventStreamCommand,
+  DeleteEventTriggerCommand,
   DeleteIntegrationCommand,
   DeleteProfileCommand,
   DeleteProfileKeyCommand,
   DeleteProfileObjectCommand,
   DeleteProfileObjectTypeCommand,
+  DeleteSegmentDefinitionCommand,
   DeleteWorkflowCommand,
   DetectProfileObjectTypeCommand,
   GetAutoMergingPreviewCommand,
   GetCalculatedAttributeDefinitionCommand,
   GetCalculatedAttributeForProfileCommand,
   GetDomainCommand,
+  GetDomainLayoutCommand,
   GetEventStreamCommand,
+  GetEventTriggerCommand,
   GetIdentityResolutionJobCommand,
   GetIntegrationCommand,
   GetMatchesCommand,
   GetProfileObjectTypeCommand,
   GetProfileObjectTypeTemplateCommand,
+  GetSegmentDefinitionCommand,
+  GetSegmentEstimateCommand,
+  GetSegmentMembershipCommand,
+  GetSegmentSnapshotCommand,
   GetSimilarProfilesCommand,
   GetWorkflowCommand,
   GetWorkflowStepsCommand,
   ListAccountIntegrationsCommand,
   ListCalculatedAttributeDefinitionsCommand,
   ListCalculatedAttributesForProfileCommand,
+  ListDomainLayoutsCommand,
   ListDomainsCommand,
   ListEventStreamsCommand,
+  ListEventTriggersCommand,
   ListIdentityResolutionJobsCommand,
   ListIntegrationsCommand,
+  ListObjectTypeAttributesCommand,
+  ListProfileAttributeValuesCommand,
   ListProfileObjectsCommand,
   ListProfileObjectTypesCommand,
   ListProfileObjectTypeTemplatesCommand,
   ListRuleBasedMatchesCommand,
+  ListSegmentDefinitionsCommand,
   ListTagsForResourceCommand,
   ListWorkflowsCommand,
   MergeProfilesCommand,
@@ -296,6 +432,8 @@ const commands = {
   UntagResourceCommand,
   UpdateCalculatedAttributeDefinitionCommand,
   UpdateDomainCommand,
+  UpdateDomainLayoutCommand,
+  UpdateEventTriggerCommand,
   UpdateProfileCommand,
 };
 
@@ -309,6 +447,37 @@ export interface CustomerProfiles {
     args: AddProfileKeyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddProfileKeyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetCalculatedAttributeForProfileCommand}
+   */
+  batchGetCalculatedAttributeForProfile(
+    args: BatchGetCalculatedAttributeForProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetCalculatedAttributeForProfileCommandOutput>;
+  batchGetCalculatedAttributeForProfile(
+    args: BatchGetCalculatedAttributeForProfileCommandInput,
+    cb: (err: any, data?: BatchGetCalculatedAttributeForProfileCommandOutput) => void
+  ): void;
+  batchGetCalculatedAttributeForProfile(
+    args: BatchGetCalculatedAttributeForProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetCalculatedAttributeForProfileCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchGetProfileCommand}
+   */
+  batchGetProfile(
+    args: BatchGetProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetProfileCommandOutput>;
+  batchGetProfile(args: BatchGetProfileCommandInput, cb: (err: any, data?: BatchGetProfileCommandOutput) => void): void;
+  batchGetProfile(
+    args: BatchGetProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetProfileCommandOutput) => void
   ): void;
 
   /**
@@ -340,6 +509,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link CreateDomainLayoutCommand}
+   */
+  createDomainLayout(
+    args: CreateDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDomainLayoutCommandOutput>;
+  createDomainLayout(
+    args: CreateDomainLayoutCommandInput,
+    cb: (err: any, data?: CreateDomainLayoutCommandOutput) => void
+  ): void;
+  createDomainLayout(
+    args: CreateDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDomainLayoutCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEventStreamCommand}
    */
   createEventStream(
@@ -354,6 +540,23 @@ export interface CustomerProfiles {
     args: CreateEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateEventStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEventTriggerCommand}
+   */
+  createEventTrigger(
+    args: CreateEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEventTriggerCommandOutput>;
+  createEventTrigger(
+    args: CreateEventTriggerCommandInput,
+    cb: (err: any, data?: CreateEventTriggerCommandOutput) => void
+  ): void;
+  createEventTrigger(
+    args: CreateEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEventTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -385,6 +588,57 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link CreateSegmentDefinitionCommand}
+   */
+  createSegmentDefinition(
+    args: CreateSegmentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentDefinitionCommandOutput>;
+  createSegmentDefinition(
+    args: CreateSegmentDefinitionCommandInput,
+    cb: (err: any, data?: CreateSegmentDefinitionCommandOutput) => void
+  ): void;
+  createSegmentDefinition(
+    args: CreateSegmentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSegmentEstimateCommand}
+   */
+  createSegmentEstimate(
+    args: CreateSegmentEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentEstimateCommandOutput>;
+  createSegmentEstimate(
+    args: CreateSegmentEstimateCommandInput,
+    cb: (err: any, data?: CreateSegmentEstimateCommandOutput) => void
+  ): void;
+  createSegmentEstimate(
+    args: CreateSegmentEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentEstimateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateSegmentSnapshotCommand}
+   */
+  createSegmentSnapshot(
+    args: CreateSegmentSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateSegmentSnapshotCommandOutput>;
+  createSegmentSnapshot(
+    args: CreateSegmentSnapshotCommandInput,
+    cb: (err: any, data?: CreateSegmentSnapshotCommandOutput) => void
+  ): void;
+  createSegmentSnapshot(
+    args: CreateSegmentSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateSegmentSnapshotCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCalculatedAttributeDefinitionCommand}
    */
   deleteCalculatedAttributeDefinition(
@@ -413,6 +667,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link DeleteDomainLayoutCommand}
+   */
+  deleteDomainLayout(
+    args: DeleteDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDomainLayoutCommandOutput>;
+  deleteDomainLayout(
+    args: DeleteDomainLayoutCommandInput,
+    cb: (err: any, data?: DeleteDomainLayoutCommandOutput) => void
+  ): void;
+  deleteDomainLayout(
+    args: DeleteDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDomainLayoutCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEventStreamCommand}
    */
   deleteEventStream(
@@ -427,6 +698,23 @@ export interface CustomerProfiles {
     args: DeleteEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteEventStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEventTriggerCommand}
+   */
+  deleteEventTrigger(
+    args: DeleteEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEventTriggerCommandOutput>;
+  deleteEventTrigger(
+    args: DeleteEventTriggerCommandInput,
+    cb: (err: any, data?: DeleteEventTriggerCommandOutput) => void
+  ): void;
+  deleteEventTrigger(
+    args: DeleteEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEventTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -506,6 +794,23 @@ export interface CustomerProfiles {
     args: DeleteProfileObjectTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteProfileObjectTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSegmentDefinitionCommand}
+   */
+  deleteSegmentDefinition(
+    args: DeleteSegmentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSegmentDefinitionCommandOutput>;
+  deleteSegmentDefinition(
+    args: DeleteSegmentDefinitionCommandInput,
+    cb: (err: any, data?: DeleteSegmentDefinitionCommandOutput) => void
+  ): void;
+  deleteSegmentDefinition(
+    args: DeleteSegmentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSegmentDefinitionCommandOutput) => void
   ): void;
 
   /**
@@ -602,6 +907,20 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link GetDomainLayoutCommand}
+   */
+  getDomainLayout(
+    args: GetDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDomainLayoutCommandOutput>;
+  getDomainLayout(args: GetDomainLayoutCommandInput, cb: (err: any, data?: GetDomainLayoutCommandOutput) => void): void;
+  getDomainLayout(
+    args: GetDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDomainLayoutCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetEventStreamCommand}
    */
   getEventStream(
@@ -613,6 +932,20 @@ export interface CustomerProfiles {
     args: GetEventStreamCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetEventStreamCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEventTriggerCommand}
+   */
+  getEventTrigger(
+    args: GetEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEventTriggerCommandOutput>;
+  getEventTrigger(args: GetEventTriggerCommandInput, cb: (err: any, data?: GetEventTriggerCommandOutput) => void): void;
+  getEventTrigger(
+    args: GetEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEventTriggerCommandOutput) => void
   ): void;
 
   /**
@@ -689,6 +1022,74 @@ export interface CustomerProfiles {
     args: GetProfileObjectTypeTemplateCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetProfileObjectTypeTemplateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentDefinitionCommand}
+   */
+  getSegmentDefinition(
+    args: GetSegmentDefinitionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentDefinitionCommandOutput>;
+  getSegmentDefinition(
+    args: GetSegmentDefinitionCommandInput,
+    cb: (err: any, data?: GetSegmentDefinitionCommandOutput) => void
+  ): void;
+  getSegmentDefinition(
+    args: GetSegmentDefinitionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentDefinitionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentEstimateCommand}
+   */
+  getSegmentEstimate(
+    args: GetSegmentEstimateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentEstimateCommandOutput>;
+  getSegmentEstimate(
+    args: GetSegmentEstimateCommandInput,
+    cb: (err: any, data?: GetSegmentEstimateCommandOutput) => void
+  ): void;
+  getSegmentEstimate(
+    args: GetSegmentEstimateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentEstimateCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentMembershipCommand}
+   */
+  getSegmentMembership(
+    args: GetSegmentMembershipCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentMembershipCommandOutput>;
+  getSegmentMembership(
+    args: GetSegmentMembershipCommandInput,
+    cb: (err: any, data?: GetSegmentMembershipCommandOutput) => void
+  ): void;
+  getSegmentMembership(
+    args: GetSegmentMembershipCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentMembershipCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetSegmentSnapshotCommand}
+   */
+  getSegmentSnapshot(
+    args: GetSegmentSnapshotCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetSegmentSnapshotCommandOutput>;
+  getSegmentSnapshot(
+    args: GetSegmentSnapshotCommandInput,
+    cb: (err: any, data?: GetSegmentSnapshotCommandOutput) => void
+  ): void;
+  getSegmentSnapshot(
+    args: GetSegmentSnapshotCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSegmentSnapshotCommandOutput) => void
   ): void;
 
   /**
@@ -788,6 +1189,23 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link ListDomainLayoutsCommand}
+   */
+  listDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainLayoutsCommandOutput>;
+  listDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    cb: (err: any, data?: ListDomainLayoutsCommandOutput) => void
+  ): void;
+  listDomainLayouts(
+    args: ListDomainLayoutsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainLayoutsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDomainsCommand}
    */
   listDomains(): Promise<ListDomainsCommandOutput>;
@@ -814,6 +1232,23 @@ export interface CustomerProfiles {
     args: ListEventStreamsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListEventStreamsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEventTriggersCommand}
+   */
+  listEventTriggers(
+    args: ListEventTriggersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEventTriggersCommandOutput>;
+  listEventTriggers(
+    args: ListEventTriggersCommandInput,
+    cb: (err: any, data?: ListEventTriggersCommandOutput) => void
+  ): void;
+  listEventTriggers(
+    args: ListEventTriggersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEventTriggersCommandOutput) => void
   ): void;
 
   /**
@@ -848,6 +1283,40 @@ export interface CustomerProfiles {
     args: ListIntegrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListIntegrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListObjectTypeAttributesCommand}
+   */
+  listObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListObjectTypeAttributesCommandOutput>;
+  listObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    cb: (err: any, data?: ListObjectTypeAttributesCommandOutput) => void
+  ): void;
+  listObjectTypeAttributes(
+    args: ListObjectTypeAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListObjectTypeAttributesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListProfileAttributeValuesCommand}
+   */
+  listProfileAttributeValues(
+    args: ListProfileAttributeValuesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListProfileAttributeValuesCommandOutput>;
+  listProfileAttributeValues(
+    args: ListProfileAttributeValuesCommandInput,
+    cb: (err: any, data?: ListProfileAttributeValuesCommandOutput) => void
+  ): void;
+  listProfileAttributeValues(
+    args: ListProfileAttributeValuesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListProfileAttributeValuesCommandOutput) => void
   ): void;
 
   /**
@@ -917,6 +1386,23 @@ export interface CustomerProfiles {
     args: ListRuleBasedMatchesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRuleBasedMatchesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSegmentDefinitionsCommand}
+   */
+  listSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSegmentDefinitionsCommandOutput>;
+  listSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    cb: (err: any, data?: ListSegmentDefinitionsCommandOutput) => void
+  ): void;
+  listSegmentDefinitions(
+    args: ListSegmentDefinitionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSegmentDefinitionsCommandOutput) => void
   ): void;
 
   /**
@@ -1071,6 +1557,40 @@ export interface CustomerProfiles {
   ): void;
 
   /**
+   * @see {@link UpdateDomainLayoutCommand}
+   */
+  updateDomainLayout(
+    args: UpdateDomainLayoutCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainLayoutCommandOutput>;
+  updateDomainLayout(
+    args: UpdateDomainLayoutCommandInput,
+    cb: (err: any, data?: UpdateDomainLayoutCommandOutput) => void
+  ): void;
+  updateDomainLayout(
+    args: UpdateDomainLayoutCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainLayoutCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateEventTriggerCommand}
+   */
+  updateEventTrigger(
+    args: UpdateEventTriggerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEventTriggerCommandOutput>;
+  updateEventTrigger(
+    args: UpdateEventTriggerCommandInput,
+    cb: (err: any, data?: UpdateEventTriggerCommandOutput) => void
+  ): void;
+  updateEventTrigger(
+    args: UpdateEventTriggerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEventTriggerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateProfileCommand}
    */
   updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
@@ -1084,11 +1604,24 @@ export interface CustomerProfiles {
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
- *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
- *          pre-built connectors powered by AppFlow that make it easy to combine customer information
- *          from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your
- *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.
- *          If you're new to Amazon Connect, you might find it helpful to review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Amazon Connect Administrator Guide</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html">Customer Profiles actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html">Customer Profiles data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact
+ *          center that has pre-built connectors powered by AppFlow that make it easy to combine
+ *          customer information from third party applications, such as Salesforce (CRM), ServiceNow
+ *          (ITSM), and your enterprise resource planning (ERP), with contact history from your Amazon Connect contact center. </p>
+ *          <p>For more information about the Amazon Connect Customer Profiles feature, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html">Use Customer
+ *             Profiles</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
  * @public
  */
 export class CustomerProfiles extends CustomerProfilesClient implements CustomerProfiles {}

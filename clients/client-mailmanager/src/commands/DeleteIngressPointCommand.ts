@@ -12,7 +12,8 @@ import { de_DeleteIngressPointCommand, se_DeleteIngressPointCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,20 @@ export interface DeleteIngressPointCommandOutput extends DeleteIngressPointRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Delete IngressPoint
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointId: "inp-12345"
+ * };
+ * const command = new DeleteIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteIngressPointCommand extends $Command
@@ -71,9 +86,7 @@ export class DeleteIngressPointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +98,16 @@ export class DeleteIngressPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIngressPointCommand)
   .de(de_DeleteIngressPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIngressPointRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIngressPointCommandInput;
+      output: DeleteIngressPointCommandOutput;
+    };
+  };
+}

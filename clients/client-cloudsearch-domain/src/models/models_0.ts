@@ -54,7 +54,7 @@ export interface SearchRequest {
    *          information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  cursor?: string;
+  cursor?: string | undefined;
 
   /**
    * <p>Defines one or more numeric expressions that can be used to sort results or specify search or filter
@@ -67,7 +67,7 @@ export interface SearchRequest {
    *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  expr?: string;
+  expr?: string | undefined;
 
   /**
    * <p>Specifies one or more fields for which to get facet information, and options that control how the facet information is returned. Each specified field must be facet-enabled in the domain configuration. The fields and options are specified in JSON using the form <code>\{"FIELD":\{"OPTION":VALUE,"OPTION:"STRING"\},"FIELD":\{"OPTION":VALUE,"OPTION":"STRING"\}\}</code>.</p>
@@ -121,7 +121,7 @@ export interface SearchRequest {
    *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  facet?: string;
+  facet?: string | undefined;
 
   /**
    * <p>Specifies a structured query that filters the results of a search without affecting how the results are scored and sorted. You use <code>filterQuery</code> in conjunction with the <code>query</code> parameter to filter the documents that match the constraints specified in the <code>query</code> parameter. Specifying a filter controls only which matching documents are included in the results, it has no effect on how they are scored and sorted. The <code>filterQuery</code> parameter supports the full structured query syntax. </p>
@@ -129,7 +129,7 @@ export interface SearchRequest {
    *          in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  filterQuery?: string;
+  filterQuery?: string | undefined;
 
   /**
    * <p>Retrieves highlights for matches in the specified <code>text</code> or
@@ -169,13 +169,13 @@ export interface SearchRequest {
    *                     \}</code></p>
    * @public
    */
-  highlight?: string;
+  highlight?: string | undefined;
 
   /**
    * <p>Enables partial results to be returned if one or more index partitions are unavailable. When your search index is partitioned across multiple search instances, by default Amazon CloudSearch only returns results if every partition can be queried. This means that the failure of a single search instance can result in 5xx (internal server) errors. When you enable partial results, Amazon CloudSearch returns whatever results are available and includes the percentage of documents searched in the search results (percent-searched). This enables you to more gracefully degrade your users' search experience. For example, rather than displaying no results, you could display the partial results and a message indicating that the results might be incomplete due to a temporary system outage.</p>
    * @public
    */
-  partial?: boolean;
+  partial?: boolean | undefined;
 
   /**
    * <p>Specifies the search criteria for the request. How you specify the search
@@ -247,7 +247,7 @@ export interface SearchRequest {
    *       </ul>
    * @public
    */
-  queryOptions?: string;
+  queryOptions?: string | undefined;
 
   /**
    * <p>Specifies which
@@ -291,7 +291,7 @@ export interface SearchRequest {
    *       </ul>
    * @public
    */
-  queryParser?: QueryParser;
+  queryParser?: QueryParser | undefined;
 
   /**
    * <p>Specifies the field and expression values to include in the response. Multiple fields or expressions are specified as a comma-separated list. By default, a search response includes all
@@ -302,13 +302,13 @@ export interface SearchRequest {
    *          specify <code>_score</code>.  </p>
    * @public
    */
-  return?: string;
+  return?: string | undefined;
 
   /**
    * <p>Specifies the maximum number of search hits to include in the response. </p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 
   /**
    * <p>Specifies the fields or custom expressions to use to sort the search
@@ -324,14 +324,14 @@ export interface SearchRequest {
    *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/sorting-results.html">Sorting Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  sort?: string;
+  sort?: string | undefined;
 
   /**
    * <p>Specifies the offset of the first search hit you want to return. Note that the result set is zero-based; the first result is at index 0. You can specify either the <code>start</code> or <code>cursor</code> parameter in a request, they are mutually exclusive.  </p>
    *       <p>For more information, see <a href="http://docs.aws.amazon.com/cloudsearch/latest/developerguide/paginating-results.html">Paginating Results</a> in the <i>Amazon CloudSearch Developer Guide</i>.</p>
    * @public
    */
-  start?: number;
+  start?: number | undefined;
 
   /**
    * <p>Specifies one or more fields for which to get statistics information. Each specified field must be facet-enabled in the domain configuration. The fields are specified in JSON using the form:</p>
@@ -339,7 +339,7 @@ export interface SearchRequest {
    *       <p>There are currently no options supported for statistics.</p>
    * @public
    */
-  stats?: string;
+  stats?: string | undefined;
 }
 
 /**
@@ -351,13 +351,13 @@ export interface Bucket {
    * <p>The  facet value being counted.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The number of hits that contain the facet value in the specified facet field.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 }
 
 /**
@@ -369,7 +369,7 @@ export interface BucketInfo {
    * <p>A list of the calculated facet values and counts.</p>
    * @public
    */
-  buckets?: Bucket[];
+  buckets?: Bucket[] | undefined;
 }
 
 /**
@@ -381,25 +381,25 @@ export interface Hit {
    * <p>The document ID of a document that matches the search request.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The fields returned from a document that matches the search request.</p>
    * @public
    */
-  fields?: Record<string, string[]>;
+  fields?: Record<string, string[]> | undefined;
 
   /**
    * <p>The expressions returned from a document that matches the search request.</p>
    * @public
    */
-  exprs?: Record<string, string>;
+  exprs?: Record<string, string> | undefined;
 
   /**
    * <p>The highlights returned from a document that matches the search request.</p>
    * @public
    */
-  highlights?: Record<string, string>;
+  highlights?: Record<string, string> | undefined;
 }
 
 /**
@@ -411,25 +411,25 @@ export interface Hits {
    * <p>The total number of documents that match the search request.</p>
    * @public
    */
-  found?: number;
+  found?: number | undefined;
 
   /**
    * <p>The index of the first matching document.</p>
    * @public
    */
-  start?: number;
+  start?: number | undefined;
 
   /**
    * <p>A cursor that can be used to retrieve the next set of matching documents when you want to page through a large result set.</p>
    * @public
    */
-  cursor?: string;
+  cursor?: string | undefined;
 
   /**
    * <p>A document that matches the search request.</p>
    * @public
    */
-  hit?: Hit[];
+  hit?: Hit[] | undefined;
 }
 
 /**
@@ -442,51 +442,51 @@ export interface FieldStats {
    *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>min</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>min</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
    * @public
    */
-  min?: string;
+  min?: string | undefined;
 
   /**
    * <p>The maximum value found in the specified field in the result set.</p>
    *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>max</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>max</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
    * @public
    */
-  max?: string;
+  max?: string | undefined;
 
   /**
    * <p>The number of documents that contain a value in the specified field in the result set.</p>
    * @public
    */
-  count?: number;
+  count?: number | undefined;
 
   /**
    * <p>The number of documents that do not contain a value in the specified field in the result set.</p>
    * @public
    */
-  missing?: number;
+  missing?: number | undefined;
 
   /**
    * <p>The sum of the field values across the documents in the result set. <code>null</code> for date fields.</p>
    * @public
    */
-  sum?: number;
+  sum?: number | undefined;
 
   /**
    * <p>The sum of all field values in the result set squared.</p>
    * @public
    */
-  sumOfSquares?: number;
+  sumOfSquares?: number | undefined;
 
   /**
    * <p>The average of the values found in the specified field in the result set.</p>
    *        <p>If the field is numeric (<code>int</code>, <code>int-array</code>, <code>double</code>, or <code>double-array</code>), <code>mean</code> is the string representation of a double-precision 64-bit floating point value. If the field is <code>date</code> or <code>date-array</code>, <code>mean</code> is the string representation of a date with the format specified in <a href="http://tools.ietf.org/html/rfc3339">IETF RFC3339</a>: yyyy-mm-ddTHH:mm:ss.SSSZ.</p>
    * @public
    */
-  mean?: string;
+  mean?: string | undefined;
 
   /**
    * <p>The standard deviation of the values in the specified field in the result set.</p>
    * @public
    */
-  stddev?: number;
+  stddev?: number | undefined;
 }
 
 /**
@@ -498,13 +498,13 @@ export interface SearchStatus {
    * <p>How long it took to process the request, in milliseconds.</p>
    * @public
    */
-  timems?: number;
+  timems?: number | undefined;
 
   /**
    * <p>The encrypted resource ID for the request.</p>
    * @public
    */
-  rid?: string;
+  rid?: string | undefined;
 }
 
 /**
@@ -516,25 +516,25 @@ export interface SearchResponse {
    * <p>The status information returned for the search request.</p>
    * @public
    */
-  status?: SearchStatus;
+  status?: SearchStatus | undefined;
 
   /**
    * <p>The documents that match the search criteria.</p>
    * @public
    */
-  hits?: Hits;
+  hits?: Hits | undefined;
 
   /**
    * <p>The requested facet information.</p>
    * @public
    */
-  facets?: Record<string, BucketInfo>;
+  facets?: Record<string, BucketInfo> | undefined;
 
   /**
    * <p>The requested field statistics information.</p>
    * @public
    */
-  stats?: Record<string, FieldStats>;
+  stats?: Record<string, FieldStats> | undefined;
 }
 
 /**
@@ -558,7 +558,7 @@ export interface SuggestRequest {
    * <p>Specifies the maximum number of suggestions to return. </p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 }
 
 /**
@@ -570,13 +570,13 @@ export interface SuggestStatus {
    * <p>How long it took to process the request, in milliseconds.</p>
    * @public
    */
-  timems?: number;
+  timems?: number | undefined;
 
   /**
    * <p>The encrypted resource ID for the request.</p>
    * @public
    */
-  rid?: string;
+  rid?: string | undefined;
 }
 
 /**
@@ -588,19 +588,19 @@ export interface SuggestionMatch {
    * <p>The string that matches the query string specified in the <code>SuggestRequest</code>. </p>
    * @public
    */
-  suggestion?: string;
+  suggestion?: string | undefined;
 
   /**
    * <p>The relevance score of a suggested match.</p>
    * @public
    */
-  score?: number;
+  score?: number | undefined;
 
   /**
    * <p>The document ID of the suggested document.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 }
 
 /**
@@ -612,19 +612,19 @@ export interface SuggestModel {
    * <p>The query string specified in the suggest request.</p>
    * @public
    */
-  query?: string;
+  query?: string | undefined;
 
   /**
    * <p>The number of documents that were found to match the query string.</p>
    * @public
    */
-  found?: number;
+  found?: number | undefined;
 
   /**
    * <p>The documents that match the query string.</p>
    * @public
    */
-  suggestions?: SuggestionMatch[];
+  suggestions?: SuggestionMatch[] | undefined;
 }
 
 /**
@@ -636,13 +636,13 @@ export interface SuggestResponse {
    * <p>The status of a <code>SuggestRequest</code>. Contains the resource ID (<code>rid</code>) and how long it took to process the request (<code>timems</code>).</p>
    * @public
    */
-  status?: SuggestStatus;
+  status?: SuggestStatus | undefined;
 
   /**
    * <p>Container for the matching search suggestion information.</p>
    * @public
    */
-  suggest?: SuggestModel;
+  suggest?: SuggestModel | undefined;
 }
 
 /**
@@ -656,7 +656,7 @@ export class DocumentServiceException extends __BaseException {
    * <p>The return status of a document upload request, <code>error</code> or <code>success</code>.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * @internal
@@ -717,7 +717,7 @@ export interface DocumentServiceWarning {
    * <p>The description for a warning returned by the document service.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -729,25 +729,25 @@ export interface UploadDocumentsResponse {
    * <p>The status of an <code>UploadDocumentsRequest</code>.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The number of documents that were added to the search domain.</p>
    * @public
    */
-  adds?: number;
+  adds?: number | undefined;
 
   /**
    * <p>The number of documents that were deleted from the search domain.</p>
    * @public
    */
-  deletes?: number;
+  deletes?: number | undefined;
 
   /**
    * <p>Any warnings returned by the document service about the documents being uploaded.</p>
    * @public
    */
-  warnings?: DocumentServiceWarning[];
+  warnings?: DocumentServiceWarning[] | undefined;
 }
 
 /**

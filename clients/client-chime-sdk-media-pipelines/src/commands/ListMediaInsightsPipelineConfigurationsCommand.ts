@@ -23,7 +23,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface ListMediaInsightsPipelineConfigurationsCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class ListMediaInsightsPipelineConfigurationsCommand extends $Command
@@ -107,9 +109,7 @@ export class ListMediaInsightsPipelineConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class ListMediaInsightsPipelineConfigurationsCommand extends $Command
   .f(void 0, ListMediaInsightsPipelineConfigurationsResponseFilterSensitiveLog)
   .ser(se_ListMediaInsightsPipelineConfigurationsCommand)
   .de(de_ListMediaInsightsPipelineConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMediaInsightsPipelineConfigurationsRequest;
+      output: ListMediaInsightsPipelineConfigurationsResponse;
+    };
+    sdk: {
+      input: ListMediaInsightsPipelineConfigurationsCommandInput;
+      output: ListMediaInsightsPipelineConfigurationsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CancelInstanceRefreshCommand, se_CancelInstanceRefreshCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  *                 feature</a> in Amazon EC2 Auto Scaling, which helps you update instances in your Auto Scaling group
  *             after you make configuration changes.</p>
  *          <p>When you cancel an instance refresh, this does not roll back any changes that it made.
- *             Use the <a>RollbackInstanceRefresh</a> API to roll back instead.</p>
+ *             Use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html">RollbackInstanceRefresh</a> API to roll back instead.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,23 +76,23 @@ export interface CancelInstanceRefreshCommandOutput extends CancelInstanceRefres
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To cancel an instance refresh
  * ```javascript
  * // This example cancels an instance refresh operation in progress.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new CancelInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+ *   InstanceRefreshId: "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
  * }
  * *\/
- * // example id: to-cancel-an-instance-refresh-1592960979817
  * ```
  *
+ * @public
  */
 export class CancelInstanceRefreshCommand extends $Command
   .classBuilder<
@@ -101,9 +102,7 @@ export class CancelInstanceRefreshCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class CancelInstanceRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelInstanceRefreshCommand)
   .de(de_CancelInstanceRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelInstanceRefreshType;
+      output: CancelInstanceRefreshAnswer;
+    };
+    sdk: {
+      input: CancelInstanceRefreshCommandInput;
+      output: CancelInstanceRefreshCommandOutput;
+    };
+  };
+}

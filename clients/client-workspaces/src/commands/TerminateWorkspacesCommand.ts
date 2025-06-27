@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_0";
+import { TerminateWorkspacesRequest, TerminateWorkspacesResult } from "../models/models_1";
 import { de_TerminateWorkspacesCommand, se_TerminateWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * <p>Terminates the specified WorkSpaces.</p>
  *          <important>
  *             <p>Terminating a WorkSpace is a permanent action and cannot be undone. The user's data
- *             is destroyed. If you need to archive any user data, contact Amazon Web Services Support before
+ *             is destroyed. If you need to archive any user data, contact Amazon Web ServicesSupport before
  *             terminating the WorkSpace.</p>
  *          </important>
  *          <p>You can terminate a WorkSpace that is in any state except <code>SUSPENDED</code>.</p>
@@ -88,6 +89,7 @@ export interface TerminateWorkspacesCommandOutput extends TerminateWorkspacesRes
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class TerminateWorkspacesCommand extends $Command
@@ -98,9 +100,7 @@ export class TerminateWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class TerminateWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateWorkspacesCommand)
   .de(de_TerminateWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateWorkspacesRequest;
+      output: TerminateWorkspacesResult;
+    };
+    sdk: {
+      input: TerminateWorkspacesCommandInput;
+      output: TerminateWorkspacesCommandOutput;
+    };
+  };
+}

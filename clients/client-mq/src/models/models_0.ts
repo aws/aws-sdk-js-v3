@@ -12,13 +12,13 @@ export interface ActionRequired {
    * <p>The code you can use to find instructions on the action required to resolve your broker issue.</p>
    * @public
    */
-  ActionRequiredCode?: string;
+  ActionRequiredCode?: string | undefined;
 
   /**
    * <p>Information about the action required to resolve your broker issue.</p>
    * @public
    */
-  ActionRequiredInfo?: string;
+  ActionRequiredInfo?: string | undefined;
 }
 
 /**
@@ -30,7 +30,7 @@ export interface AvailabilityZone {
    * <p>Id for the availability zone.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -56,7 +56,7 @@ export interface EngineVersion {
    * <p>Id for the version.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -68,13 +68,13 @@ export interface BrokerEngineType {
    * <p>The broker's engine type.</p>
    * @public
    */
-  EngineType?: EngineType;
+  EngineType?: EngineType | undefined;
 
   /**
    * <p>The list of engine versions.</p>
    * @public
    */
-  EngineVersions?: EngineVersion[];
+  EngineVersions?: EngineVersion[] | undefined;
 }
 
 /**
@@ -86,19 +86,19 @@ export interface BrokerInstance {
    * <p>The brokers web console URL.</p>
    * @public
    */
-  ConsoleURL?: string;
+  ConsoleURL?: string | undefined;
 
   /**
    * <p>The broker's wire-level protocol endpoints.</p>
    * @public
    */
-  Endpoints?: string[];
+  Endpoints?: string[] | undefined;
 
   /**
    * <p>The IP address of the Elastic Network Interface (ENI) attached to the broker. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 }
 
 /**
@@ -139,37 +139,37 @@ export interface BrokerInstanceOption {
    * <p>The list of available az.</p>
    * @public
    */
-  AvailabilityZones?: AvailabilityZone[];
+  AvailabilityZones?: AvailabilityZone[] | undefined;
 
   /**
    * <p>The broker's engine type.</p>
    * @public
    */
-  EngineType?: EngineType;
+  EngineType?: EngineType | undefined;
 
   /**
    * <p>The broker's instance type.</p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 
   /**
    * <p>The broker's storage type.</p>
    * @public
    */
-  StorageType?: BrokerStorageType;
+  StorageType?: BrokerStorageType | undefined;
 
   /**
    * <p>The list of supported deployment modes.</p>
    * @public
    */
-  SupportedDeploymentModes?: DeploymentMode[];
+  SupportedDeploymentModes?: DeploymentMode[] | undefined;
 
   /**
    * <p>The list of supported engine versions.</p>
    * @public
    */
-  SupportedEngineVersions?: string[];
+  SupportedEngineVersions?: string[] | undefined;
 }
 
 /**
@@ -200,31 +200,31 @@ export interface BrokerSummary {
    * <p>The broker's Amazon Resource Name (ARN).</p>
    * @public
    */
-  BrokerArn?: string;
+  BrokerArn?: string | undefined;
 
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 
   /**
    * <p>The broker's name. This value is unique in your Amazon Web Services account, 1-50 characters long, and containing only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
    * @public
    */
-  BrokerName?: string;
+  BrokerName?: string | undefined;
 
   /**
    * <p>The broker's status.</p>
    * @public
    */
-  BrokerState?: BrokerState;
+  BrokerState?: BrokerState | undefined;
 
   /**
    * <p>The time when the broker was created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The broker's deployment mode.</p>
@@ -242,7 +242,7 @@ export interface BrokerSummary {
    * <p>The broker's instance type.</p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 }
 
 /**
@@ -274,7 +274,7 @@ export interface ConfigurationRevision {
    * <p>The description of the configuration revision.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Required. The revision number of the configuration.</p>
@@ -319,7 +319,7 @@ export interface Configuration {
   EngineType: EngineType | undefined;
 
   /**
-   * <p>Required. The broker engine's version. For a list of supported engine versions, see, <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version. Defaults to the latest available version for the specified broker engine type. For a list of supported engine versions, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
   EngineVersion: string | undefined;
@@ -346,7 +346,7 @@ export interface Configuration {
    * <p>The list of all tags associated with this configuration.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -364,7 +364,7 @@ export interface ConfigurationId {
    * <p>The revision number of the configuration.</p>
    * @public
    */
-  Revision?: number;
+  Revision?: number | undefined;
 }
 
 /**
@@ -391,13 +391,13 @@ export interface SanitizationWarning {
    * <p>The name of the configuration attribute that has been sanitized.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The name of the configuration element that has been sanitized.</p>
    * @public
    */
-  ElementName?: string;
+  ElementName?: string | undefined;
 
   /**
    * <p>The reason for which the configuration elements or attributes were sanitized.</p>
@@ -415,13 +415,13 @@ export interface User {
    * <p>Enables access to the ActiveMQ Web Console for the ActiveMQ user. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  ConsoleAccess?: boolean;
+  ConsoleAccess?: boolean | undefined;
 
   /**
    * <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  Groups?: string[];
+  Groups?: string[] | undefined;
 
   /**
    * <p>Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).</p>
@@ -439,7 +439,7 @@ export interface User {
    * <p>Defines if this user is intended for CRDR replication purposes.</p>
    * @public
    */
-  ReplicationUser?: boolean;
+  ReplicationUser?: boolean | undefined;
 }
 
 /**
@@ -466,7 +466,7 @@ export interface UserSummary {
    * <p>The type of change pending for the broker user.</p>
    * @public
    */
-  PendingChange?: ChangeType;
+  PendingChange?: ChangeType | undefined;
 
   /**
    * <p>Required. The username of the broker user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
@@ -486,13 +486,13 @@ export class BadRequestException extends __BaseException {
    * <p>The attribute which caused the error.</p>
    * @public
    */
-  ErrorAttribute?: string;
+  ErrorAttribute?: string | undefined;
 
   /**
    * <p>The explanation of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -517,19 +517,19 @@ export interface Configurations {
    * <p>The broker's current configuration.</p>
    * @public
    */
-  Current?: ConfigurationId;
+  Current?: ConfigurationId | undefined;
 
   /**
    * <p>The history of configurations applied to the broker.</p>
    * @public
    */
-  History?: ConfigurationId[];
+  History?: ConfigurationId[] | undefined;
 
   /**
    * <p>The broker's pending configuration.</p>
    * @public
    */
-  Pending?: ConfigurationId;
+  Pending?: ConfigurationId | undefined;
 }
 
 /**
@@ -543,13 +543,13 @@ export class ConflictException extends __BaseException {
    * <p>The attribute which caused the error.</p>
    * @public
    */
-  ErrorAttribute?: string;
+  ErrorAttribute?: string | undefined;
 
   /**
    * <p>The explanation of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -588,7 +588,7 @@ export interface EncryptionOptions {
    * <p>The customer master key (CMK) to use for the A KMS (KMS). This key is used to encrypt your data at rest. If not provided, Amazon MQ will use a default CMK to encrypt your data.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Enables the use of an Amazon Web Services owned CMK using KMS (KMS). Set to true by default, if no value is provided, for example, for RabbitMQ brokers.</p>
@@ -619,7 +619,7 @@ export interface LdapServerMetadataInput {
    * <p>Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.</p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 
   /**
    * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the \{0\} placeholder in the search filter. The client's username is substituted into the \{1\} placeholder. For example, if you set this option to (member=uid=\{1\})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
@@ -631,7 +631,7 @@ export interface LdapServerMetadataInput {
    * <p>The directory search scope for the role. If set to true, scope is to search the entire subtree.</p>
    * @public
    */
-  RoleSearchSubtree?: boolean;
+  RoleSearchSubtree?: boolean | undefined;
 
   /**
    * <p>Service account password. A service account is an account in your LDAP server that has access to initiate a connection. For example, cn=admin,dc=corp, dc=example,
@@ -658,7 +658,7 @@ export interface LdapServerMetadataInput {
    * <p>Specifies the name of the LDAP attribute for the user group membership.</p>
    * @public
    */
-  UserRoleName?: string;
+  UserRoleName?: string | undefined;
 
   /**
    * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the \{0\} placeholder in the search filter. For example, if this option is set to (uid=\{0\}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
@@ -671,7 +671,7 @@ export interface LdapServerMetadataInput {
    * <p>The directory search scope for the user. If set to true, scope is to search the entire subtree.</p>
    * @public
    */
-  UserSearchSubtree?: boolean;
+  UserSearchSubtree?: boolean | undefined;
 }
 
 /**
@@ -683,13 +683,13 @@ export interface Logs {
    * <p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  Audit?: boolean;
+  Audit?: boolean | undefined;
 
   /**
    * <p>Enables general logging.</p>
    * @public
    */
-  General?: boolean;
+  General?: boolean | undefined;
 }
 
 /**
@@ -732,7 +732,7 @@ export interface WeeklyStartTime {
    * <p>The time zone, UTC by default, in either the Country/City format, or the UTC offset format.</p>
    * @public
    */
-  TimeZone?: string;
+  TimeZone?: string | undefined;
 }
 
 /**
@@ -744,13 +744,13 @@ export interface CreateBrokerRequest {
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
-   * <p>Enables automatic upgrades to new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot. Set to true by default, if no value is specified.</p>
+   * <p>Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot. Set to true by default, if no value is specified.</p> <note><p>Must be set to true for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.</p></note>
    * @public
    */
-  AutoMinorVersionUpgrade: boolean | undefined;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>Required. The broker's name. This value must be unique in your Amazon Web Services account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p> <important><p>Do not add personally identifiable information (PII) or other confidential or sensitive information in broker names. Broker names are accessible to other Amazon Web Services services, including CloudWatch Logs. Broker names are not intended to be used for private or sensitive data.</p></important>
@@ -762,13 +762,13 @@ export interface CreateBrokerRequest {
    * <p>A list of information about the configuration.</p>
    * @public
    */
-  Configuration?: ConfigurationId;
+  Configuration?: ConfigurationId | undefined;
 
   /**
    * <p>The unique ID that the requester receives for the created broker. Amazon MQ passes your ID with the API action.</p> <note><p>We recommend using a Universally Unique Identifier (UUID) for the creatorRequestId. You may omit the creatorRequestId if your application doesn't require idempotency.</p></note>
    * @public
    */
-  CreatorRequestId?: string;
+  CreatorRequestId?: string | undefined;
 
   /**
    * <p>Required. The broker's deployment mode.</p>
@@ -780,7 +780,7 @@ export interface CreateBrokerRequest {
    * <p>Encryption options for the broker.</p>
    * @public
    */
-  EncryptionOptions?: EncryptionOptions;
+  EncryptionOptions?: EncryptionOptions | undefined;
 
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
@@ -789,10 +789,10 @@ export interface CreateBrokerRequest {
   EngineType: EngineType | undefined;
 
   /**
-   * <p>Required. The broker engine's version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version. Defaults to the latest available version for the specified broker engine type. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
-  EngineVersion: string | undefined;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Required. The broker's instance type.</p>
@@ -804,19 +804,19 @@ export interface CreateBrokerRequest {
    * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  LdapServerMetadata?: LdapServerMetadataInput;
+  LdapServerMetadata?: LdapServerMetadataInput | undefined;
 
   /**
    * <p>Enables Amazon CloudWatch logging for brokers.</p>
    * @public
    */
-  Logs?: Logs;
+  Logs?: Logs | undefined;
 
   /**
    * <p>The parameters that determine the WeeklyStartTime.</p>
    * @public
    */
-  MaintenanceWindowStartTime?: WeeklyStartTime;
+  MaintenanceWindowStartTime?: WeeklyStartTime | undefined;
 
   /**
    * <p>Enables connections from applications outside of the VPC that hosts the broker's subnets. Set to false by default, if no value is provided.</p>
@@ -828,25 +828,25 @@ export interface CreateBrokerRequest {
    * <p>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The broker's storage type.</p>
    * @public
    */
-  StorageType?: BrokerStorageType;
+  StorageType?: BrokerStorageType | undefined;
 
   /**
    * <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones. If you specify more than one subnet, the subnets must be in different Availability Zones. Amazon MQ will not be able to create VPC endpoints for your broker with multiple subnets in the same Availability Zone. A SINGLE_INSTANCE deployment requires one subnet (for example, the default subnet). An ACTIVE_STANDBY_MULTI_AZ Amazon MQ for ActiveMQ deployment requires two subnets. A CLUSTER_MULTI_AZ Amazon MQ for RabbitMQ deployment has no subnet requirements when deployed with public accessibility. Deployment without public accessibility requires at least one subnet.</p> <important><p>If you specify subnets in a <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-sharing.html">shared VPC</a> for a RabbitMQ broker, the associated VPC to which the specified subnets belong must be owned by your Amazon Web Services account. Amazon MQ will not be able to create VPC endpoints in VPCs that are not owned by your Amazon Web Services account.</p></important>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>Create tags when creating the broker.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The list of broker users (persons or applications) who can access queues and topics. For Amazon MQ for RabbitMQ brokers, one and only one administrative user is accepted and created when a broker is first provisioned. All subsequent broker users are created by making RabbitMQ API calls directly to brokers or via the RabbitMQ web console.</p>
@@ -858,13 +858,13 @@ export interface CreateBrokerRequest {
    * <p>Defines whether this broker is a part of a data replication pair.</p>
    * @public
    */
-  DataReplicationMode?: DataReplicationMode;
+  DataReplicationMode?: DataReplicationMode | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the primary broker that is used to replicate data from in a data replication pair, and is applied to the replica broker. Must be set when dataReplicationMode is set to CRDR.</p>
    * @public
    */
-  DataReplicationPrimaryBrokerArn?: string;
+  DataReplicationPrimaryBrokerArn?: string | undefined;
 }
 
 /**
@@ -875,13 +875,13 @@ export interface CreateBrokerResponse {
    * <p>The broker's Amazon Resource Name (ARN).</p>
    * @public
    */
-  BrokerArn?: string;
+  BrokerArn?: string | undefined;
 
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 }
 
 /**
@@ -895,13 +895,13 @@ export class ForbiddenException extends __BaseException {
    * <p>The attribute which caused the error.</p>
    * @public
    */
-  ErrorAttribute?: string;
+  ErrorAttribute?: string | undefined;
 
   /**
    * <p>The explanation of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -928,13 +928,13 @@ export class InternalServerErrorException extends __BaseException {
    * <p>The attribute which caused the error.</p>
    * @public
    */
-  ErrorAttribute?: string;
+  ErrorAttribute?: string | undefined;
 
   /**
    * <p>The explanation of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -961,13 +961,13 @@ export class UnauthorizedException extends __BaseException {
    * <p>The attribute which caused the error.</p>
    * @public
    */
-  ErrorAttribute?: string;
+  ErrorAttribute?: string | undefined;
 
   /**
    * <p>The explanation of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -992,7 +992,7 @@ export interface CreateConfigurationRequest {
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
@@ -1001,10 +1001,10 @@ export interface CreateConfigurationRequest {
   EngineType: EngineType | undefined;
 
   /**
-   * <p>Required. The broker engine's version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version. Defaults to the latest available version for the specified broker engine type. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
-  EngineVersion: string | undefined;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
@@ -1016,7 +1016,7 @@ export interface CreateConfigurationRequest {
    * <p>Create tags when creating the configuration.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1027,37 +1027,37 @@ export interface CreateConfigurationResponse {
    * <p>Required. The Amazon Resource Name (ARN) of the configuration.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
    * <p>Required. The date and time of the configuration.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The latest revision of the configuration.</p>
    * @public
    */
-  LatestRevision?: ConfigurationRevision;
+  LatestRevision?: ConfigurationRevision | undefined;
 
   /**
    * <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1075,7 +1075,7 @@ export interface CreateTagsRequest {
    * <p>The key-value pair for the resource tag.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1089,13 +1089,13 @@ export class NotFoundException extends __BaseException {
    * <p>The attribute which caused the error.</p>
    * @public
    */
-  ErrorAttribute?: string;
+  ErrorAttribute?: string | undefined;
 
   /**
    * <p>The explanation of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1126,13 +1126,13 @@ export interface CreateUserRequest {
    * <p>Enables access to the ActiveMQ Web Console for the ActiveMQ user.</p>
    * @public
    */
-  ConsoleAccess?: boolean;
+  ConsoleAccess?: boolean | undefined;
 
   /**
    * <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    * @public
    */
-  Groups?: string[];
+  Groups?: string[] | undefined;
 
   /**
    * <p>Required. The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).</p>
@@ -1150,7 +1150,7 @@ export interface CreateUserRequest {
    * <p>Defines if this user is intended for CRDR replication purposes.</p>
    * @public
    */
-  ReplicationUser?: boolean;
+  ReplicationUser?: boolean | undefined;
 }
 
 /**
@@ -1185,7 +1185,7 @@ export interface DataReplicationMetadataOutput {
    * <p>Describes the replica/primary broker. Only returned if this broker is currently set as a primary or replica in the broker's dataReplicationRole property.</p>
    * @public
    */
-  DataReplicationCounterpart?: DataReplicationCounterpart;
+  DataReplicationCounterpart?: DataReplicationCounterpart | undefined;
 
   /**
    * <p>Defines the role of this broker in a data replication pair. When a replica broker is promoted to primary, this role is interchanged.</p>
@@ -1213,7 +1213,29 @@ export interface DeleteBrokerResponse {
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationRequest {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the configuration.</p>
+   * @public
+   */
+  ConfigurationId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteConfigurationResponse {
+  /**
+   * <p>The unique ID that Amazon MQ generates for the configuration.</p>
+   * @public
+   */
+  ConfigurationId?: string | undefined;
 }
 
 /**
@@ -1288,7 +1310,7 @@ export interface LdapServerMetadataOutput {
    * <p>Specifies the LDAP attribute that identifies the group name attribute in the object returned from the group membership query.</p>
    * @public
    */
-  RoleName?: string;
+  RoleName?: string | undefined;
 
   /**
    * <p>The LDAP search filter used to find roles within the roleBase. The distinguished name of the user matched by userSearchMatching is substituted into the \{0\} placeholder in the search filter. The client's username is substituted into the \{1\} placeholder. For example, if you set this option to (member=uid=\{1\})for the user janedoe, the search filter becomes (member=uid=janedoe) after string substitution. It matches all role entries that have a member attribute equal to uid=janedoe under the subtree selected by the roleBase.</p>
@@ -1300,7 +1322,7 @@ export interface LdapServerMetadataOutput {
    * <p>The directory search scope for the role. If set to true, scope is to search the entire subtree.</p>
    * @public
    */
-  RoleSearchSubtree?: boolean;
+  RoleSearchSubtree?: boolean | undefined;
 
   /**
    * <p>Service account username. A service account is an account in your LDAP server that has access to initiate a connection. For example, cn=admin,dc=corp, dc=example,
@@ -1320,7 +1342,7 @@ export interface LdapServerMetadataOutput {
    * <p>Specifies the name of the LDAP attribute for the user group membership.</p>
    * @public
    */
-  UserRoleName?: string;
+  UserRoleName?: string | undefined;
 
   /**
    * <p>The LDAP search filter used to find users within the userBase. The client's username is substituted into the \{0\} placeholder in the search filter. For example, if this option is set to (uid=\{0\}) and the received username is janedoe, the search filter becomes (uid=janedoe) after string substitution. It will result in matching an entry like uid=janedoe, ou=Users,ou=corp, dc=corp, dc=example,
@@ -1333,7 +1355,7 @@ export interface LdapServerMetadataOutput {
    * <p>The directory search scope for the user. If set to true, scope is to search the entire subtree.</p>
    * @public
    */
-  UserSearchSubtree?: boolean;
+  UserSearchSubtree?: boolean | undefined;
 }
 
 /**
@@ -1345,13 +1367,13 @@ export interface PendingLogs {
    * <p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.</p>
    * @public
    */
-  Audit?: boolean;
+  Audit?: boolean | undefined;
 
   /**
    * <p>Enables general logging.</p>
    * @public
    */
-  General?: boolean;
+  General?: boolean | undefined;
 }
 
 /**
@@ -1363,13 +1385,13 @@ export interface LogsSummary {
    * <p>Enables audit logging. Every user management action made using JMX or the ActiveMQ Web Console is logged.</p>
    * @public
    */
-  Audit?: boolean;
+  Audit?: boolean | undefined;
 
   /**
    * <p>The location of the CloudWatch Logs log group where audit logs are sent.</p>
    * @public
    */
-  AuditLogGroup?: string;
+  AuditLogGroup?: string | undefined;
 
   /**
    * <p>Enables general logging.</p>
@@ -1387,7 +1409,7 @@ export interface LogsSummary {
    * <p>The list of information about logs pending to be deployed for the specified broker.</p>
    * @public
    */
-  Pending?: PendingLogs;
+  Pending?: PendingLogs | undefined;
 }
 
 /**
@@ -1398,199 +1420,199 @@ export interface DescribeBrokerResponse {
    * <p>Actions required for a broker.</p>
    * @public
    */
-  ActionsRequired?: ActionRequired[];
+  ActionsRequired?: ActionRequired[] | undefined;
 
   /**
    * <p>The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
-   * <p>Enables automatic upgrades to new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.</p>
+   * <p>Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>The broker's Amazon Resource Name (ARN).</p>
    * @public
    */
-  BrokerArn?: string;
+  BrokerArn?: string | undefined;
 
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 
   /**
    * <p>A list of information about allocated brokers.</p>
    * @public
    */
-  BrokerInstances?: BrokerInstance[];
+  BrokerInstances?: BrokerInstance[] | undefined;
 
   /**
    * <p>The broker's name. This value must be unique in your Amazon Web Services account account, 1-50 characters long, must contain only letters, numbers, dashes, and underscores, and must not contain white spaces, brackets, wildcard characters, or special characters.</p>
    * @public
    */
-  BrokerName?: string;
+  BrokerName?: string | undefined;
 
   /**
    * <p>The broker's status.</p>
    * @public
    */
-  BrokerState?: BrokerState;
+  BrokerState?: BrokerState | undefined;
 
   /**
    * <p>The list of all revisions for the specified configuration.</p>
    * @public
    */
-  Configurations?: Configurations;
+  Configurations?: Configurations | undefined;
 
   /**
    * <p>The time when the broker was created.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The broker's deployment mode.</p>
    * @public
    */
-  DeploymentMode?: DeploymentMode;
+  DeploymentMode?: DeploymentMode | undefined;
 
   /**
    * <p>Encryption options for the broker.</p>
    * @public
    */
-  EncryptionOptions?: EncryptionOptions;
+  EncryptionOptions?: EncryptionOptions | undefined;
 
   /**
    * <p>The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    * @public
    */
-  EngineType?: EngineType;
+  EngineType?: EngineType | undefined;
 
   /**
-   * <p>The broker engine's version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The broker's instance type.</p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 
   /**
    * <p>The metadata of the LDAP server used to authenticate and authorize connections to the broker.</p>
    * @public
    */
-  LdapServerMetadata?: LdapServerMetadataOutput;
+  LdapServerMetadata?: LdapServerMetadataOutput | undefined;
 
   /**
    * <p>The list of information about logs currently enabled and pending to be deployed for the specified broker.</p>
    * @public
    */
-  Logs?: LogsSummary;
+  Logs?: LogsSummary | undefined;
 
   /**
    * <p>The parameters that determine the WeeklyStartTime.</p>
    * @public
    */
-  MaintenanceWindowStartTime?: WeeklyStartTime;
+  MaintenanceWindowStartTime?: WeeklyStartTime | undefined;
 
   /**
    * <p>The authentication strategy that will be applied when the broker is rebooted. The default is SIMPLE.</p>
    * @public
    */
-  PendingAuthenticationStrategy?: AuthenticationStrategy;
+  PendingAuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
-   * <p>The broker engine version to upgrade to. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version to upgrade to. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
-  PendingEngineVersion?: string;
+  PendingEngineVersion?: string | undefined;
 
   /**
    * <p>The broker's host instance type to upgrade to. For a list of supported instance types, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types">Broker instance types</a>.</p>
    * @public
    */
-  PendingHostInstanceType?: string;
+  PendingHostInstanceType?: string | undefined;
 
   /**
    * <p>The metadata of the LDAP server that will be used to authenticate and authorize connections to the broker after it is rebooted.</p>
    * @public
    */
-  PendingLdapServerMetadata?: LdapServerMetadataOutput;
+  PendingLdapServerMetadata?: LdapServerMetadataOutput | undefined;
 
   /**
    * <p>The list of pending security groups to authorize connections to brokers.</p>
    * @public
    */
-  PendingSecurityGroups?: string[];
+  PendingSecurityGroups?: string[] | undefined;
 
   /**
    * <p>Enables connections from applications outside of the VPC that hosts the broker's subnets.</p>
    * @public
    */
-  PubliclyAccessible?: boolean;
+  PubliclyAccessible?: boolean | undefined;
 
   /**
    * <p>The list of rules (1 minimum, 125 maximum) that authorize connections to brokers.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The broker's storage type.</p>
    * @public
    */
-  StorageType?: BrokerStorageType;
+  StorageType?: BrokerStorageType | undefined;
 
   /**
    * <p>The list of groups that define which subnets and IP ranges the broker can use from different Availability Zones.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The list of all tags associated with this broker.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The list of all broker usernames for the specified broker.</p>
    * @public
    */
-  Users?: UserSummary[];
+  Users?: UserSummary[] | undefined;
 
   /**
    * <p>The replication details of the data replication-enabled broker. Only returned if dataReplicationMode is set to CRDR.</p>
    * @public
    */
-  DataReplicationMetadata?: DataReplicationMetadataOutput;
+  DataReplicationMetadata?: DataReplicationMetadataOutput | undefined;
 
   /**
    * <p>Describes whether this broker is a part of a data replication pair.</p>
    * @public
    */
-  DataReplicationMode?: DataReplicationMode;
+  DataReplicationMode?: DataReplicationMode | undefined;
 
   /**
    * <p>The pending replication details of the data replication-enabled broker. Only returned if pendingDataReplicationMode is set to CRDR.</p>
    * @public
    */
-  PendingDataReplicationMetadata?: DataReplicationMetadataOutput;
+  PendingDataReplicationMetadata?: DataReplicationMetadataOutput | undefined;
 
   /**
    * <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
    * @public
    */
-  PendingDataReplicationMode?: DataReplicationMode;
+  PendingDataReplicationMode?: DataReplicationMode | undefined;
 }
 
 /**
@@ -1601,19 +1623,19 @@ export interface DescribeBrokerEngineTypesRequest {
    * <p>Filter response by engine type.</p>
    * @public
    */
-  EngineType?: string;
+  EngineType?: string | undefined;
 
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1624,19 +1646,19 @@ export interface DescribeBrokerEngineTypesResponse {
    * <p>List of available engine types and versions.</p>
    * @public
    */
-  BrokerEngineTypes?: BrokerEngineType[];
+  BrokerEngineTypes?: BrokerEngineType[] | undefined;
 
   /**
    * <p>Required. The maximum number of engine types that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1647,31 +1669,31 @@ export interface DescribeBrokerInstanceOptionsRequest {
    * <p>Filter response by engine type.</p>
    * @public
    */
-  EngineType?: string;
+  EngineType?: string | undefined;
 
   /**
    * <p>Filter response by host instance type.</p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 
   /**
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Filter response by storage type.</p>
    * @public
    */
-  StorageType?: string;
+  StorageType?: string | undefined;
 }
 
 /**
@@ -1682,19 +1704,19 @@ export interface DescribeBrokerInstanceOptionsResponse {
    * <p>List of available broker instance options.</p>
    * @public
    */
-  BrokerInstanceOptions?: BrokerInstanceOption[];
+  BrokerInstanceOptions?: BrokerInstanceOption[] | undefined;
 
   /**
    * <p>Required. The maximum number of instance options that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1716,61 +1738,61 @@ export interface DescribeConfigurationResponse {
    * <p>Required. The ARN of the configuration.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Optional. The authentication strategy associated with the configuration. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
    * <p>Required. The date and time of the configuration revision.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>Required. The description of the configuration.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Required. The type of broker engine. Currently, Amazon MQ supports ACTIVEMQ and RABBITMQ.</p>
    * @public
    */
-  EngineType?: EngineType;
+  EngineType?: EngineType | undefined;
 
   /**
-   * <p>Required. The broker engine's version. For a list of supported engine versions, see, <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version. Defaults to the latest available version for the specified broker engine type. For a list of supported engine versions, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>Required. The latest revision of the configuration.</p>
    * @public
    */
-  LatestRevision?: ConfigurationRevision;
+  LatestRevision?: ConfigurationRevision | undefined;
 
   /**
    * <p>Required. The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The list of all tags associated with this configuration.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1798,25 +1820,25 @@ export interface DescribeConfigurationRevisionResponse {
    * <p>Required. The unique ID that Amazon MQ generates for the configuration.</p>
    * @public
    */
-  ConfigurationId?: string;
+  ConfigurationId?: string | undefined;
 
   /**
    * <p>Required. The date and time of the configuration.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>Amazon MQ for ActiveMQ: the base64-encoded XML configuration. Amazon MQ for RabbitMQ: base64-encoded Cuttlefish.</p>
    * @public
    */
-  Data?: string;
+  Data?: string | undefined;
 
   /**
    * <p>The description of the configuration.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -1845,13 +1867,13 @@ export interface UserPendingChanges {
    * <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
    * @public
    */
-  ConsoleAccess?: boolean;
+  ConsoleAccess?: boolean | undefined;
 
   /**
    * <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    * @public
    */
-  Groups?: string[];
+  Groups?: string[] | undefined;
 
   /**
    * <p>Required. The type of change pending for the ActiveMQ user.</p>
@@ -1868,37 +1890,37 @@ export interface DescribeUserResponse {
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 
   /**
    * <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
    * @public
    */
-  ConsoleAccess?: boolean;
+  ConsoleAccess?: boolean | undefined;
 
   /**
    * <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    * @public
    */
-  Groups?: string[];
+  Groups?: string[] | undefined;
 
   /**
    * <p>The status of the changes pending for the ActiveMQ user.</p>
    * @public
    */
-  Pending?: UserPendingChanges;
+  Pending?: UserPendingChanges | undefined;
 
   /**
    * <p>Required. The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>Describes whether the user is intended for data replication</p>
    * @public
    */
-  ReplicationUser?: boolean;
+  ReplicationUser?: boolean | undefined;
 }
 
 /**
@@ -1909,13 +1931,13 @@ export interface ListBrokersRequest {
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1926,13 +1948,13 @@ export interface ListBrokersResponse {
    * <p>A list of information about all brokers.</p>
    * @public
    */
-  BrokerSummaries?: BrokerSummary[];
+  BrokerSummaries?: BrokerSummary[] | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1949,13 +1971,13 @@ export interface ListConfigurationRevisionsRequest {
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1966,25 +1988,25 @@ export interface ListConfigurationRevisionsResponse {
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
    * @public
    */
-  ConfigurationId?: string;
+  ConfigurationId?: string | undefined;
 
   /**
    * <p>The maximum number of configuration revisions that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The list of all revisions for the specified configuration.</p>
    * @public
    */
-  Revisions?: ConfigurationRevision[];
+  Revisions?: ConfigurationRevision[] | undefined;
 }
 
 /**
@@ -1995,13 +2017,13 @@ export interface ListConfigurationsRequest {
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2012,19 +2034,19 @@ export interface ListConfigurationsResponse {
    * <p>The list of all revisions for the specified configuration.</p>
    * @public
    */
-  Configurations?: Configuration[];
+  Configurations?: Configuration[] | undefined;
 
   /**
    * <p>The maximum number of configurations that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2046,7 +2068,7 @@ export interface ListTagsResponse {
    * <p>The key-value pair for the resource tag.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2063,13 +2085,13 @@ export interface ListUsersRequest {
    * <p>The maximum number of brokers that Amazon MQ can return per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2080,25 +2102,25 @@ export interface ListUsersResponse {
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 
   /**
    * <p>Required. The maximum number of ActiveMQ users that can be returned per page (20 by default). This value must be an integer from 5 to 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token that specifies the next page of results Amazon MQ should return. To request the first page, leave nextToken empty.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Required. The list of all ActiveMQ usernames for the specified broker. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  Users?: UserSummary[];
+  Users?: UserSummary[] | undefined;
 }
 
 /**
@@ -2141,7 +2163,7 @@ export interface PromoteResponse {
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 }
 
 /**
@@ -2169,13 +2191,13 @@ export interface UpdateBrokerRequest {
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
-   * <p>Enables automatic upgrades to new minor versions for brokers, as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window of the broker or after a manual broker reboot.</p>
+   * <p>Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot.</p> <note><p>Must be set to true for ActiveMQ brokers version 5.18 and above and for RabbitMQ brokers version 3.13 and above.</p></note>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>The unique ID that Amazon MQ generates for the broker.</p>
@@ -2187,49 +2209,49 @@ export interface UpdateBrokerRequest {
    * <p>A list of information about the configuration.</p>
    * @public
    */
-  Configuration?: ConfigurationId;
+  Configuration?: ConfigurationId | undefined;
 
   /**
-   * <p>The broker engine version. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p> <note><p>When upgrading to ActiveMQ version 5.18 and above or RabbitMQ version 3.13 and above, you must have autoMinorVersionUpgrade set to true for the broker.</p></note>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The broker's host instance type to upgrade to. For a list of supported instance types, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types">Broker instance types</a>.</p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 
   /**
    * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  LdapServerMetadata?: LdapServerMetadataInput;
+  LdapServerMetadata?: LdapServerMetadataInput | undefined;
 
   /**
    * <p>Enables Amazon CloudWatch logging for brokers.</p>
    * @public
    */
-  Logs?: Logs;
+  Logs?: Logs | undefined;
 
   /**
    * <p>The parameters that determine the WeeklyStartTime.</p>
    * @public
    */
-  MaintenanceWindowStartTime?: WeeklyStartTime;
+  MaintenanceWindowStartTime?: WeeklyStartTime | undefined;
 
   /**
    * <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>Defines whether this broker is a part of a data replication pair.</p>
    * @public
    */
-  DataReplicationMode?: DataReplicationMode;
+  DataReplicationMode?: DataReplicationMode | undefined;
 }
 
 /**
@@ -2240,85 +2262,85 @@ export interface UpdateBrokerResponse {
    * <p>Optional. The authentication strategy used to secure the broker. The default is SIMPLE.</p>
    * @public
    */
-  AuthenticationStrategy?: AuthenticationStrategy;
+  AuthenticationStrategy?: AuthenticationStrategy | undefined;
 
   /**
-   * <p>The new boolean value that specifies whether broker engines automatically upgrade to new minor versions as new versions are released and supported by Amazon MQ.</p>
+   * <p>Enables automatic upgrades to new patch versions for brokers as new versions are released and supported by Amazon MQ. Automatic upgrades occur during the scheduled maintenance window or after a manual broker reboot.</p>
    * @public
    */
-  AutoMinorVersionUpgrade?: boolean;
+  AutoMinorVersionUpgrade?: boolean | undefined;
 
   /**
    * <p>Required. The unique ID that Amazon MQ generates for the broker.</p>
    * @public
    */
-  BrokerId?: string;
+  BrokerId?: string | undefined;
 
   /**
    * <p>The ID of the updated configuration.</p>
    * @public
    */
-  Configuration?: ConfigurationId;
+  Configuration?: ConfigurationId | undefined;
 
   /**
-   * <p>The broker engine version to upgrade to. For a list of supported engine versions, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker-engine.html">Supported engines</a>.</p>
+   * <p>The broker engine version to upgrade to. For more information, see the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/activemq-version-management.html">ActiveMQ version management</a> and the <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/rabbitmq-version-management.html">RabbitMQ version management</a> sections in the Amazon MQ Developer Guide.</p>
    * @public
    */
-  EngineVersion?: string;
+  EngineVersion?: string | undefined;
 
   /**
    * <p>The broker's host instance type to upgrade to. For a list of supported instance types, see <a href="https://docs.aws.amazon.com//amazon-mq/latest/developer-guide/broker.html#broker-instance-types">Broker instance types</a>.</p>
    * @public
    */
-  HostInstanceType?: string;
+  HostInstanceType?: string | undefined;
 
   /**
    * <p>Optional. The metadata of the LDAP server used to authenticate and authorize connections to the broker. Does not apply to RabbitMQ brokers.</p>
    * @public
    */
-  LdapServerMetadata?: LdapServerMetadataOutput;
+  LdapServerMetadata?: LdapServerMetadataOutput | undefined;
 
   /**
    * <p>The list of information about logs to be enabled for the specified broker.</p>
    * @public
    */
-  Logs?: Logs;
+  Logs?: Logs | undefined;
 
   /**
    * <p>The parameters that determine the WeeklyStartTime.</p>
    * @public
    */
-  MaintenanceWindowStartTime?: WeeklyStartTime;
+  MaintenanceWindowStartTime?: WeeklyStartTime | undefined;
 
   /**
    * <p>The list of security groups (1 minimum, 5 maximum) that authorizes connections to brokers.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>The replication details of the data replication-enabled broker. Only returned if dataReplicationMode is set to CRDR.</p>
    * @public
    */
-  DataReplicationMetadata?: DataReplicationMetadataOutput;
+  DataReplicationMetadata?: DataReplicationMetadataOutput | undefined;
 
   /**
    * <p>Describes whether this broker is a part of a data replication pair.</p>
    * @public
    */
-  DataReplicationMode?: DataReplicationMode;
+  DataReplicationMode?: DataReplicationMode | undefined;
 
   /**
    * <p>The pending replication details of the data replication-enabled broker. Only returned if pendingDataReplicationMode is set to CRDR.</p>
    * @public
    */
-  PendingDataReplicationMetadata?: DataReplicationMetadataOutput;
+  PendingDataReplicationMetadata?: DataReplicationMetadataOutput | undefined;
 
   /**
    * <p>Describes whether this broker will be a part of a data replication pair after reboot.</p>
    * @public
    */
-  PendingDataReplicationMode?: DataReplicationMode;
+  PendingDataReplicationMode?: DataReplicationMode | undefined;
 }
 
 /**
@@ -2342,7 +2364,7 @@ export interface UpdateConfigurationRequest {
    * <p>The description of the configuration.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -2353,37 +2375,37 @@ export interface UpdateConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the configuration.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Required. The date and time of the configuration.</p>
    * @public
    */
-  Created?: Date;
+  Created?: Date | undefined;
 
   /**
    * <p>The unique ID that Amazon MQ generates for the configuration.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The latest revision of the configuration.</p>
    * @public
    */
-  LatestRevision?: ConfigurationRevision;
+  LatestRevision?: ConfigurationRevision | undefined;
 
   /**
    * <p>The name of the configuration. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 1-150 characters long.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The list of the first 20 warnings about the configuration elements or attributes that were sanitized.</p>
    * @public
    */
-  Warnings?: SanitizationWarning[];
+  Warnings?: SanitizationWarning[] | undefined;
 }
 
 /**
@@ -2401,19 +2423,19 @@ export interface UpdateUserRequest {
    * <p>Enables access to the the ActiveMQ Web Console for the ActiveMQ user.</p>
    * @public
    */
-  ConsoleAccess?: boolean;
+  ConsoleAccess?: boolean | undefined;
 
   /**
    * <p>The list of groups (20 maximum) to which the ActiveMQ user belongs. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
    * @public
    */
-  Groups?: string[];
+  Groups?: string[] | undefined;
 
   /**
    * <p>The password of the user. This value must be at least 12 characters long, must contain at least 4 unique characters, and must not contain commas, colons, or equal signs (,:=).</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 
   /**
    * <p>The username of the ActiveMQ user. This value can contain only alphanumeric characters, dashes, periods, underscores, and tildes (- . _ ~). This value must be 2-100 characters long.</p>
@@ -2425,7 +2447,7 @@ export interface UpdateUserRequest {
    * <p>Defines whether the user is intended for data replication.</p>
    * @public
    */
-  ReplicationUser?: boolean;
+  ReplicationUser?: boolean | undefined;
 }
 
 /**

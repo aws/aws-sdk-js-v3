@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface AssociateTransitGatewayMulticastDomainCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssociateTransitGatewayMulticastDomainCommand extends $Command
@@ -92,9 +94,7 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class AssociateTransitGatewayMulticastDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTransitGatewayMulticastDomainCommand)
   .de(de_AssociateTransitGatewayMulticastDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTransitGatewayMulticastDomainRequest;
+      output: AssociateTransitGatewayMulticastDomainResult;
+    };
+    sdk: {
+      input: AssociateTransitGatewayMulticastDomainCommandInput;
+      output: AssociateTransitGatewayMulticastDomainCommandOutput;
+    };
+  };
+}

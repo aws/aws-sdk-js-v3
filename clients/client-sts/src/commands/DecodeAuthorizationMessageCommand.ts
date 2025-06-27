@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, STSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,29 +89,29 @@ export interface DecodeAuthorizationMessageCommandOutput extends DecodeAuthoriza
  *
  * @throws {@link InvalidAuthorizationMessageException} (client fault)
  *  <p>The error returned if the message passed to <code>DecodeAuthorizationMessage</code>
- *             was invalid. This can happen if the token contains invalid characters, such as
- *             linebreaks. </p>
+ *             was invalid. This can happen if the token contains invalid characters, such as line
+ *             breaks, or if the message has expired.</p>
  *
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
- * @public
+ *
  * @example To decode information about an authorization status of a request
  * ```javascript
  * //
  * const input = {
- *   "EncodedMessage": "<encoded-message>"
+ *   EncodedMessage: "<encoded-message>"
  * };
  * const command = new DecodeAuthorizationMessageCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DecodedMessage": "{\"allowed\": \"false\",\"explicitDeny\": \"false\",\"matchedStatements\": \"\",\"failures\": \"\",\"context\": {\"principal\": {\"id\": \"AIDACKCEVSQ6C2EXAMPLE\",\"name\": \"Bob\",\"arn\": \"arn:aws:iam::123456789012:user/Bob\"},\"action\": \"ec2:StopInstances\",\"resource\": \"arn:aws:ec2:us-east-1:123456789012:instance/i-dd01c9bd\",\"conditions\": [{\"item\": {\"key\": \"ec2:Tenancy\",\"values\": [\"default\"]},{\"item\": {\"key\": \"ec2:ResourceTag/elasticbeanstalk:environment-name\",\"values\": [\"Default-Environment\"]}},(Additional items ...)]}}"
+ *   DecodedMessage: `{"allowed": "false","explicitDeny": "false","matchedStatements": "","failures": "","context": {"principal": {"id": "AIDACKCEVSQ6C2EXAMPLE","name": "Bob","arn": "arn:aws:iam::123456789012:user/Bob"},"action": "ec2:StopInstances","resource": "arn:aws:ec2:us-east-1:123456789012:instance/i-dd01c9bd","conditions": [{"item": {"key": "ec2:Tenancy","values": ["default"]},{"item": {"key": "ec2:ResourceTag/elasticbeanstalk:environment-name","values": ["Default-Environment"]}},(Additional items ...)]}}`
  * }
  * *\/
- * // example id: to-decode-information-about-an-authorization-status-of-a-request-1480533854499
  * ```
  *
+ * @public
  */
 export class DecodeAuthorizationMessageCommand extends $Command
   .classBuilder<
@@ -120,9 +121,7 @@ export class DecodeAuthorizationMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: STSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class DecodeAuthorizationMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DecodeAuthorizationMessageCommand)
   .de(de_DecodeAuthorizationMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DecodeAuthorizationMessageRequest;
+      output: DecodeAuthorizationMessageResponse;
+    };
+    sdk: {
+      input: DecodeAuthorizationMessageCommandInput;
+      output: DecodeAuthorizationMessageCommandOutput;
+    };
+  };
+}

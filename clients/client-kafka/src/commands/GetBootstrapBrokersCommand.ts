@@ -12,7 +12,8 @@ import { de_GetBootstrapBrokersCommand, se_GetBootstrapBrokersCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface GetBootstrapBrokersCommandInput extends GetBootstrapBrokersRequ
 export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersResponse, __MetadataBearer {}
 
 /**
- * <p>A list of brokers that a client application can use to bootstrap.</p>
+ * <p>A list of brokers that a client application can use to bootstrap. This list doesn't necessarily include all of the brokers in the cluster. The following Python 3.6 example shows how you can use the Amazon Resource Name (ARN) of a cluster to get its bootstrap brokers. If you don't know the ARN of your cluster, you can use the <code>ListClusters</code> operation to get the ARNs of all the clusters in this account and Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +79,7 @@ export interface GetBootstrapBrokersCommandOutput extends GetBootstrapBrokersRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class GetBootstrapBrokersCommand extends $Command
@@ -88,9 +90,7 @@ export class GetBootstrapBrokersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class GetBootstrapBrokersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBootstrapBrokersCommand)
   .de(de_GetBootstrapBrokersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBootstrapBrokersRequest;
+      output: GetBootstrapBrokersResponse;
+    };
+    sdk: {
+      input: GetBootstrapBrokersCommandInput;
+      output: GetBootstrapBrokersCommandOutput;
+    };
+  };
+}

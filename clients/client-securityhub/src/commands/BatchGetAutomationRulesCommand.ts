@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,31 +58,31 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * //         ProductArn: [ // StringFilterList
  * //           { // StringFilter
  * //             Value: "STRING_VALUE",
- * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  * //           },
  * //         ],
  * //         AwsAccountId: [
  * //           {
  * //             Value: "STRING_VALUE",
- * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  * //           },
  * //         ],
  * //         Id: [
  * //           {
  * //             Value: "STRING_VALUE",
- * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  * //           },
  * //         ],
  * //         GeneratorId: [
  * //           {
  * //             Value: "STRING_VALUE",
- * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  * //           },
  * //         ],
  * //         Type: [
  * //           {
  * //             Value: "STRING_VALUE",
- * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ * //             Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  * //           },
  * //         ],
  * //         FirstObservedAt: [ // DateFilterList
@@ -276,103 +277,103 @@ export interface BatchGetAutomationRulesCommandOutput extends BatchGetAutomation
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update one ore more automation rules
  * ```javascript
  * // The following example updates the specified automation rules.
  * const input = {
- *   "AutomationRulesArns": [
+ *   AutomationRulesArns: [
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
  *     "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222"
  *   ]
  * };
  * const command = new BatchGetAutomationRulesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rules": [
+ *   Rules: [
  *     {
- *       "Actions": [
+ *       Actions: [
  *         {
- *           "FindingFieldsUpdate": {
- *             "Workflow": {
- *               "Status": "RESOLVED"
+ *           FindingFieldsUpdate: {
+ *             Workflow: {
+ *               Status: "RESOLVED"
  *             }
  *           },
- *           "Type": "FINDING_FIELDS_UPDATE"
+ *           Type: "FINDING_FIELDS_UPDATE"
  *         }
  *       ],
- *       "CreatedAt": "2022-08-31T01:52:33.250Z",
- *       "CreatedBy": "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
- *       "Criteria": {
- *         "AwsAccountId": [
+ *       CreatedAt: "2022-08-31T01:52:33.250Z",
+ *       CreatedBy: "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
+ *       Criteria: {
+ *         AwsAccountId: [
  *           {
- *             "Comparison": "EQUALS",
- *             "Value": "111122223333"
+ *             Comparison: "EQUALS",
+ *             Value: "111122223333"
  *           }
  *         ],
- *         "FirstObservedAt": [
+ *         FirstObservedAt: [
  *           {
- *             "DateRange": {
- *               "Unit": "DAYS",
- *               "Value": 5
+ *             DateRange: {
+ *               Unit: "DAYS",
+ *               Value: 5
  *             }
  *           }
  *         ],
- *         "Type": [
+ *         Type: [
  *           {
- *             "Comparison": "EQUALS",
- *             "Value": "Software and Configuration Checks/Industry and Regulatory Standards"
+ *             Comparison: "EQUALS",
+ *             Value: "Software and Configuration Checks/Industry and Regulatory Standards"
  *           }
  *         ]
  *       },
- *       "Description": "sample rule description 1",
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "RuleName": "sample-rule-name-1",
- *       "RuleOrder": 1,
- *       "RuleStatus": "ENABLED",
- *       "UpdatedAt": "2022-08-31T01:52:33.250Z"
+ *       Description: "sample rule description 1",
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       RuleName: "sample-rule-name-1",
+ *       RuleOrder: 1,
+ *       RuleStatus: "ENABLED",
+ *       UpdatedAt: "2022-08-31T01:52:33.250Z"
  *     },
  *     {
- *       "Actions": [
+ *       Actions: [
  *         {
- *           "FindingFieldsUpdate": {
- *             "Workflow": {
- *               "Status": "RESOLVED"
+ *           FindingFieldsUpdate: {
+ *             Workflow: {
+ *               Status: "RESOLVED"
  *             }
  *           },
- *           "Type": "FINDING_FIELDS_UPDATE"
+ *           Type: "FINDING_FIELDS_UPDATE"
  *         }
  *       ],
- *       "CreatedAt": "2022-08-31T01:52:33.250Z",
- *       "CreatedBy": "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
- *       "Criteria": {
- *         "ResourceType": [
+ *       CreatedAt: "2022-08-31T01:52:33.250Z",
+ *       CreatedBy: "AROAJURBUYQQNL5OL2TIM:TEST-16MJ75L9VBK14",
+ *       Criteria: {
+ *         ResourceType: [
  *           {
- *             "Comparison": "EQUALS",
- *             "Value": "Ec2Instance"
+ *             Comparison: "EQUALS",
+ *             Value: "Ec2Instance"
  *           }
  *         ],
- *         "SeverityLabel": [
+ *         SeverityLabel: [
  *           {
- *             "Comparison": "EQUALS",
- *             "Value": "INFORMATIONAL"
+ *             Comparison: "EQUALS",
+ *             Value: "INFORMATIONAL"
  *           }
  *         ]
  *       },
- *       "Description": "Sample rule description 2",
- *       "RuleArn": "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "RuleName": "sample-rule-name-2",
- *       "RuleOrder": 2,
- *       "RuleStatus": "ENABLED",
- *       "UpdatedAt": "2022-08-31T01:52:33.250Z"
+ *       Description: "Sample rule description 2",
+ *       RuleArn: "arn:aws:securityhub:us-east-1:123456789012:automation-rule/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       RuleName: "sample-rule-name-2",
+ *       RuleOrder: 2,
+ *       RuleStatus: "ENABLED",
+ *       UpdatedAt: "2022-08-31T01:52:33.250Z"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-update-one-ore-more-automation-rules-1684771025347
  * ```
  *
+ * @public
  */
 export class BatchGetAutomationRulesCommand extends $Command
   .classBuilder<
@@ -382,9 +383,7 @@ export class BatchGetAutomationRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -396,4 +395,16 @@ export class BatchGetAutomationRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAutomationRulesCommand)
   .de(de_BatchGetAutomationRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAutomationRulesRequest;
+      output: BatchGetAutomationRulesResponse;
+    };
+    sdk: {
+      input: BatchGetAutomationRulesCommandInput;
+      output: BatchGetAutomationRulesCommandOutput;
+    };
+  };
+}

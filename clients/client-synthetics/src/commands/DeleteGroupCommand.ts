@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteGroupCommandOutput extends DeleteGroupResponse, __Metadat
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGroupCommand)
   .de(de_DeleteGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGroupCommandInput;
+      output: DeleteGroupCommandOutput;
+    };
+  };
+}

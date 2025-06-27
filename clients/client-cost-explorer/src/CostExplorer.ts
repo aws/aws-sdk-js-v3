@@ -58,10 +58,20 @@ import {
   GetApproximateUsageRecordsCommandOutput,
 } from "./commands/GetApproximateUsageRecordsCommand";
 import {
+  GetCommitmentPurchaseAnalysisCommand,
+  GetCommitmentPurchaseAnalysisCommandInput,
+  GetCommitmentPurchaseAnalysisCommandOutput,
+} from "./commands/GetCommitmentPurchaseAnalysisCommand";
+import {
   GetCostAndUsageCommand,
   GetCostAndUsageCommandInput,
   GetCostAndUsageCommandOutput,
 } from "./commands/GetCostAndUsageCommand";
+import {
+  GetCostAndUsageComparisonsCommand,
+  GetCostAndUsageComparisonsCommandInput,
+  GetCostAndUsageComparisonsCommandOutput,
+} from "./commands/GetCostAndUsageComparisonsCommand";
 import {
   GetCostAndUsageWithResourcesCommand,
   GetCostAndUsageWithResourcesCommandInput,
@@ -72,6 +82,11 @@ import {
   GetCostCategoriesCommandInput,
   GetCostCategoriesCommandOutput,
 } from "./commands/GetCostCategoriesCommand";
+import {
+  GetCostComparisonDriversCommand,
+  GetCostComparisonDriversCommandInput,
+  GetCostComparisonDriversCommandOutput,
+} from "./commands/GetCostComparisonDriversCommand";
 import {
   GetCostForecastCommand,
   GetCostForecastCommandInput,
@@ -134,6 +149,11 @@ import {
   GetUsageForecastCommandOutput,
 } from "./commands/GetUsageForecastCommand";
 import {
+  ListCommitmentPurchaseAnalysesCommand,
+  ListCommitmentPurchaseAnalysesCommandInput,
+  ListCommitmentPurchaseAnalysesCommandOutput,
+} from "./commands/ListCommitmentPurchaseAnalysesCommand";
+import {
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagBackfillHistoryCommandInput,
   ListCostAllocationTagBackfillHistoryCommandOutput,
@@ -163,6 +183,11 @@ import {
   ProvideAnomalyFeedbackCommandInput,
   ProvideAnomalyFeedbackCommandOutput,
 } from "./commands/ProvideAnomalyFeedbackCommand";
+import {
+  StartCommitmentPurchaseAnalysisCommand,
+  StartCommitmentPurchaseAnalysisCommandInput,
+  StartCommitmentPurchaseAnalysisCommandOutput,
+} from "./commands/StartCommitmentPurchaseAnalysisCommand";
 import {
   StartCostAllocationTagBackfillCommand,
   StartCostAllocationTagBackfillCommandInput,
@@ -213,9 +238,12 @@ const commands = {
   GetAnomalyMonitorsCommand,
   GetAnomalySubscriptionsCommand,
   GetApproximateUsageRecordsCommand,
+  GetCommitmentPurchaseAnalysisCommand,
   GetCostAndUsageCommand,
+  GetCostAndUsageComparisonsCommand,
   GetCostAndUsageWithResourcesCommand,
   GetCostCategoriesCommand,
+  GetCostComparisonDriversCommand,
   GetCostForecastCommand,
   GetDimensionValuesCommand,
   GetReservationCoverageCommand,
@@ -229,12 +257,14 @@ const commands = {
   GetSavingsPlansUtilizationDetailsCommand,
   GetTagsCommand,
   GetUsageForecastCommand,
+  ListCommitmentPurchaseAnalysesCommand,
   ListCostAllocationTagBackfillHistoryCommand,
   ListCostAllocationTagsCommand,
   ListCostCategoryDefinitionsCommand,
   ListSavingsPlansPurchaseRecommendationGenerationCommand,
   ListTagsForResourceCommand,
   ProvideAnomalyFeedbackCommand,
+  StartCommitmentPurchaseAnalysisCommand,
   StartCostAllocationTagBackfillCommand,
   StartSavingsPlansPurchaseRecommendationGenerationCommand,
   TagResourceCommand,
@@ -430,6 +460,23 @@ export interface CostExplorer {
   ): void;
 
   /**
+   * @see {@link GetCommitmentPurchaseAnalysisCommand}
+   */
+  getCommitmentPurchaseAnalysis(
+    args: GetCommitmentPurchaseAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommitmentPurchaseAnalysisCommandOutput>;
+  getCommitmentPurchaseAnalysis(
+    args: GetCommitmentPurchaseAnalysisCommandInput,
+    cb: (err: any, data?: GetCommitmentPurchaseAnalysisCommandOutput) => void
+  ): void;
+  getCommitmentPurchaseAnalysis(
+    args: GetCommitmentPurchaseAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommitmentPurchaseAnalysisCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetCostAndUsageCommand}
    */
   getCostAndUsage(
@@ -441,6 +488,23 @@ export interface CostExplorer {
     args: GetCostAndUsageCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCostAndUsageCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostAndUsageComparisonsCommand}
+   */
+  getCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostAndUsageComparisonsCommandOutput>;
+  getCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    cb: (err: any, data?: GetCostAndUsageComparisonsCommandOutput) => void
+  ): void;
+  getCostAndUsageComparisons(
+    args: GetCostAndUsageComparisonsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostAndUsageComparisonsCommandOutput) => void
   ): void;
 
   /**
@@ -475,6 +539,23 @@ export interface CostExplorer {
     args: GetCostCategoriesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCostCategoriesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCostComparisonDriversCommand}
+   */
+  getCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCostComparisonDriversCommandOutput>;
+  getCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    cb: (err: any, data?: GetCostComparisonDriversCommandOutput) => void
+  ): void;
+  getCostComparisonDrivers(
+    args: GetCostComparisonDriversCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCostComparisonDriversCommandOutput) => void
   ): void;
 
   /**
@@ -690,6 +771,24 @@ export interface CostExplorer {
   ): void;
 
   /**
+   * @see {@link ListCommitmentPurchaseAnalysesCommand}
+   */
+  listCommitmentPurchaseAnalyses(): Promise<ListCommitmentPurchaseAnalysesCommandOutput>;
+  listCommitmentPurchaseAnalyses(
+    args: ListCommitmentPurchaseAnalysesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommitmentPurchaseAnalysesCommandOutput>;
+  listCommitmentPurchaseAnalyses(
+    args: ListCommitmentPurchaseAnalysesCommandInput,
+    cb: (err: any, data?: ListCommitmentPurchaseAnalysesCommandOutput) => void
+  ): void;
+  listCommitmentPurchaseAnalyses(
+    args: ListCommitmentPurchaseAnalysesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommitmentPurchaseAnalysesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCostAllocationTagBackfillHistoryCommand}
    */
   listCostAllocationTagBackfillHistory(): Promise<ListCostAllocationTagBackfillHistoryCommandOutput>;
@@ -793,6 +892,23 @@ export interface CostExplorer {
     args: ProvideAnomalyFeedbackCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ProvideAnomalyFeedbackCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCommitmentPurchaseAnalysisCommand}
+   */
+  startCommitmentPurchaseAnalysis(
+    args: StartCommitmentPurchaseAnalysisCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCommitmentPurchaseAnalysisCommandOutput>;
+  startCommitmentPurchaseAnalysis(
+    args: StartCommitmentPurchaseAnalysisCommandInput,
+    cb: (err: any, data?: StartCommitmentPurchaseAnalysisCommandOutput) => void
+  ): void;
+  startCommitmentPurchaseAnalysis(
+    args: StartCommitmentPurchaseAnalysisCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCommitmentPurchaseAnalysisCommandOutput) => void
   ): void;
 
   /**

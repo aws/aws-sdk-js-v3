@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteNetworkSettingsCommandOutput extends DeleteNetworkSetting
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class DeleteNetworkSettingsCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteNetworkSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkSettingsCommand)
   .de(de_DeleteNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNetworkSettingsCommandInput;
+      output: DeleteNetworkSettingsCommandOutput;
+    };
+  };
+}

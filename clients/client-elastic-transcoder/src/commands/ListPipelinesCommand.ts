@@ -16,7 +16,8 @@ import { de_ListPipelinesCommand, se_ListPipelinesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesResponse, __Met
  * @throws {@link ElasticTranscoderServiceException}
  * <p>Base exception class for all service exceptions from ElasticTranscoder service.</p>
  *
+ *
  * @public
  */
 export class ListPipelinesCommand extends $Command
@@ -124,9 +126,7 @@ export class ListPipelinesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticTranscoderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class ListPipelinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPipelinesCommand)
   .de(de_ListPipelinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipelinesRequest;
+      output: ListPipelinesResponse;
+    };
+    sdk: {
+      input: ListPipelinesCommandInput;
+      output: ListPipelinesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateSyncJobCommand, se_CreateSyncJobCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface CreateSyncJobCommandOutput extends CreateSyncJobResponse, __Met
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateSyncJobCommand extends $Command
@@ -89,9 +91,7 @@ export class CreateSyncJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class CreateSyncJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSyncJobCommand)
   .de(de_CreateSyncJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSyncJobRequest;
+      output: CreateSyncJobResponse;
+    };
+    sdk: {
+      input: CreateSyncJobCommandInput;
+      output: CreateSyncJobCommandOutput;
+    };
+  };
+}

@@ -13,7 +13,7 @@ see the <a href="https://docs.aws.amazon.com/ec2/latest/devguide">Amazon EC2 Dev
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ec2
+To install this package, simply type add or install @aws-sdk/client-ec2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ec2`
@@ -216,6 +216,14 @@ AcceptAddressTransfer
 </details>
 <details>
 <summary>
+AcceptCapacityReservationBillingOwnership
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AcceptCapacityReservationBillingOwnershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AcceptCapacityReservationBillingOwnershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AcceptCapacityReservationBillingOwnershipCommandOutput/)
+
+</details>
+<details>
+<summary>
 AcceptReservedInstancesExchangeQuote
 </summary>
 
@@ -336,6 +344,14 @@ AssociateAddress
 </details>
 <details>
 <summary>
+AssociateCapacityReservationBillingOwner
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateCapacityReservationBillingOwnerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateCapacityReservationBillingOwnerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateCapacityReservationBillingOwnerCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateClientVpnTargetNetwork
 </summary>
 
@@ -400,10 +416,26 @@ AssociateNatGatewayAddress
 </details>
 <details>
 <summary>
+AssociateRouteServer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateRouteServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateRouteServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateRouteServerCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateRouteTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateRouteTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateRouteTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateRouteTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+AssociateSecurityGroupVpc
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/AssociateSecurityGroupVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateSecurityGroupVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/AssociateSecurityGroupVpcCommandOutput/)
 
 </details>
 <details>
@@ -568,6 +600,14 @@ CancelConversionTask
 </details>
 <details>
 <summary>
+CancelDeclarativePoliciesReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CancelDeclarativePoliciesReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CancelDeclarativePoliciesReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CancelDeclarativePoliciesReportCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelExportTask
 </summary>
 
@@ -656,6 +696,14 @@ CreateCapacityReservation
 </details>
 <details>
 <summary>
+CreateCapacityReservationBySplitting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateCapacityReservationBySplittingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateCapacityReservationBySplittingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateCapacityReservationBySplittingCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCapacityReservationFleet
 </summary>
 
@@ -724,6 +772,14 @@ CreateDefaultVpc
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateDefaultVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateDefaultVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateDefaultVpcCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDelegateMacVolumeOwnershipTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateDelegateMacVolumeOwnershipTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateDelegateMacVolumeOwnershipTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateDelegateMacVolumeOwnershipTaskCommandOutput/)
 
 </details>
 <details>
@@ -816,6 +872,14 @@ CreateIpam
 </details>
 <details>
 <summary>
+CreateIpamExternalResourceVerificationToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateIpamExternalResourceVerificationTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamExternalResourceVerificationTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateIpamExternalResourceVerificationTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateIpamPool
 </summary>
 
@@ -892,6 +956,30 @@ CreateLocalGatewayRouteTableVpcAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLocalGatewayRouteTableVpcAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateLocalGatewayRouteTableVpcAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateLocalGatewayRouteTableVpcAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateLocalGatewayVirtualInterface
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLocalGatewayVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateLocalGatewayVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateLocalGatewayVirtualInterfaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateLocalGatewayVirtualInterfaceGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateLocalGatewayVirtualInterfaceGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateLocalGatewayVirtualInterfaceGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateLocalGatewayVirtualInterfaceGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateMacSystemIntegrityProtectionModificationTask
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateMacSystemIntegrityProtectionModificationTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateMacSystemIntegrityProtectionModificationTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateMacSystemIntegrityProtectionModificationTaskCommandOutput/)
 
 </details>
 <details>
@@ -1004,6 +1092,30 @@ CreateRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateRouteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateRouteServer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateRouteServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteServerCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateRouteServerEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateRouteServerEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteServerEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteServerEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateRouteServerPeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateRouteServerPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteServerPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateRouteServerPeerCommandOutput/)
 
 </details>
 <details>
@@ -1248,6 +1360,14 @@ CreateVpc
 </details>
 <details>
 <summary>
+CreateVpcBlockPublicAccessExclusion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/CreateVpcBlockPublicAccessExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateVpcBlockPublicAccessExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/CreateVpcBlockPublicAccessExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateVpcEndpoint
 </summary>
 
@@ -1424,6 +1544,14 @@ DeleteIpam
 </details>
 <details>
 <summary>
+DeleteIpamExternalResourceVerificationToken
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteIpamExternalResourceVerificationTokenCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamExternalResourceVerificationTokenCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteIpamExternalResourceVerificationTokenCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteIpamPool
 </summary>
 
@@ -1500,6 +1628,22 @@ DeleteLocalGatewayRouteTableVpcAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLocalGatewayRouteTableVpcAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteLocalGatewayRouteTableVpcAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteLocalGatewayRouteTableVpcAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLocalGatewayVirtualInterface
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLocalGatewayVirtualInterfaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteLocalGatewayVirtualInterfaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteLocalGatewayVirtualInterfaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteLocalGatewayVirtualInterfaceGroup
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteLocalGatewayVirtualInterfaceGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteLocalGatewayVirtualInterfaceGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteLocalGatewayVirtualInterfaceGroupCommandOutput/)
 
 </details>
 <details>
@@ -1612,6 +1756,30 @@ DeleteRoute
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteRouteCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRouteServer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteRouteServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteServerCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRouteServerEndpoint
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteRouteServerEndpointCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteServerEndpointCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteServerEndpointCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRouteServerPeer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteRouteServerPeerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteServerPeerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteRouteServerPeerCommandOutput/)
 
 </details>
 <details>
@@ -1840,6 +2008,14 @@ DeleteVpc
 </details>
 <details>
 <summary>
+DeleteVpcBlockPublicAccessExclusion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DeleteVpcBlockPublicAccessExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteVpcBlockPublicAccessExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DeleteVpcBlockPublicAccessExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteVpcEndpointConnectionNotifications
 </summary>
 
@@ -2032,10 +2208,34 @@ DescribeByoipCidrs
 </details>
 <details>
 <summary>
+DescribeCapacityBlockExtensionHistory
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeCapacityBlockExtensionHistoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityBlockExtensionHistoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityBlockExtensionHistoryCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeCapacityBlockExtensionOfferings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeCapacityBlockExtensionOfferingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityBlockExtensionOfferingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityBlockExtensionOfferingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeCapacityBlockOfferings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeCapacityBlockOfferingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityBlockOfferingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityBlockOfferingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeCapacityReservationBillingRequests
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeCapacityReservationBillingRequestsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityReservationBillingRequestsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCapacityReservationBillingRequestsCommandOutput/)
 
 </details>
 <details>
@@ -2132,6 +2332,14 @@ DescribeCustomerGateways
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeCustomerGatewaysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCustomerGatewaysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeCustomerGatewaysCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeDeclarativePoliciesReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeDeclarativePoliciesReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeDeclarativePoliciesReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeDeclarativePoliciesReportsCommandOutput/)
 
 </details>
 <details>
@@ -2360,6 +2568,14 @@ DescribeInstanceEventWindows
 </details>
 <details>
 <summary>
+DescribeInstanceImageMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeInstanceImageMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceImageMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeInstanceImageMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeInstances
 </summary>
 
@@ -2412,6 +2628,14 @@ DescribeIpamByoasn
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIpamByoasnCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamByoasnCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamByoasnCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeIpamExternalResourceVerificationTokens
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeIpamExternalResourceVerificationTokensCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamExternalResourceVerificationTokensCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeIpamExternalResourceVerificationTokensCommandOutput/)
 
 </details>
 <details>
@@ -2552,6 +2776,14 @@ DescribeMacHosts
 </details>
 <details>
 <summary>
+DescribeMacModificationTasks
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeMacModificationTasksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeMacModificationTasksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeMacModificationTasksCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeManagedPrefixLists
 </summary>
 
@@ -2640,6 +2872,14 @@ DescribeNetworkInterfaces
 </details>
 <details>
 <summary>
+DescribeOutpostLags
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeOutpostLagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeOutpostLagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeOutpostLagsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribePlacementGroups
 </summary>
 
@@ -2720,6 +2960,30 @@ DescribeReservedInstancesOfferings
 </details>
 <details>
 <summary>
+DescribeRouteServerEndpoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeRouteServerEndpointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeRouteServerEndpointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeRouteServerEndpointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeRouteServerPeers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeRouteServerPeersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeRouteServerPeersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeRouteServerPeersCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeRouteServers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeRouteServersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeRouteServersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeRouteServersCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeRouteTables
 </summary>
 
@@ -2764,6 +3028,22 @@ DescribeSecurityGroups
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeSecurityGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeSecurityGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeSecurityGroupVpcAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeSecurityGroupVpcAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeSecurityGroupVpcAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeSecurityGroupVpcAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeServiceLinkVirtualInterfaces
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeServiceLinkVirtualInterfacesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeServiceLinkVirtualInterfacesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeServiceLinkVirtualInterfacesCommandOutput/)
 
 </details>
 <details>
@@ -2868,6 +3148,14 @@ DescribeTags
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeTagsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTagsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTagsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeTrafficMirrorFilterRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeTrafficMirrorFilterRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTrafficMirrorFilterRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeTrafficMirrorFilterRulesCommandOutput/)
 
 </details>
 <details>
@@ -3064,6 +3352,22 @@ DescribeVpcAttribute
 </details>
 <details>
 <summary>
+DescribeVpcBlockPublicAccessExclusions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcBlockPublicAccessExclusionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcBlockPublicAccessExclusionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcBlockPublicAccessExclusionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeVpcBlockPublicAccessOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcBlockPublicAccessOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcBlockPublicAccessOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcBlockPublicAccessOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeVpcClassicLink
 </summary>
 
@@ -3076,6 +3380,14 @@ DescribeVpcClassicLinkDnsSupport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcClassicLinkDnsSupportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcClassicLinkDnsSupportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcClassicLinkDnsSupportCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeVpcEndpointAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DescribeVpcEndpointAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcEndpointAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DescribeVpcEndpointAssociationsCommandOutput/)
 
 </details>
 <details>
@@ -3216,6 +3528,14 @@ DisableAddressTransfer
 </details>
 <details>
 <summary>
+DisableAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisableAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableAllowedImagesSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableAwsNetworkPerformanceMetricSubscription
 </summary>
 
@@ -3288,6 +3608,14 @@ DisableIpamOrganizationAdminAccount
 </details>
 <details>
 <summary>
+DisableRouteServerPropagation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisableRouteServerPropagationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableRouteServerPropagationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisableRouteServerPropagationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableSerialConsoleAccess
 </summary>
 
@@ -3340,6 +3668,14 @@ DisassociateAddress
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateAddressCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateCapacityReservationBillingOwner
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateCapacityReservationBillingOwnerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateCapacityReservationBillingOwnerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateCapacityReservationBillingOwnerCommandOutput/)
 
 </details>
 <details>
@@ -3400,10 +3736,26 @@ DisassociateNatGatewayAddress
 </details>
 <details>
 <summary>
+DisassociateRouteServer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateRouteServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateRouteServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateRouteServerCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateRouteTable
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateRouteTableCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateRouteTableCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateRouteTableCommandOutput/)
+
+</details>
+<details>
+<summary>
+DisassociateSecurityGroupVpc
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/DisassociateSecurityGroupVpcCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateSecurityGroupVpcCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/DisassociateSecurityGroupVpcCommandOutput/)
 
 </details>
 <details>
@@ -3460,6 +3812,14 @@ EnableAddressTransfer
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableAddressTransferCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableAddressTransferCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableAddressTransferCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableAllowedImagesSettingsCommandOutput/)
 
 </details>
 <details>
@@ -3540,6 +3900,14 @@ EnableReachabilityAnalyzerOrganizationSharing
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableReachabilityAnalyzerOrganizationSharingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableReachabilityAnalyzerOrganizationSharingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableReachabilityAnalyzerOrganizationSharingCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableRouteServerPropagation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/EnableRouteServerPropagationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableRouteServerPropagationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/EnableRouteServerPropagationCommandOutput/)
 
 </details>
 <details>
@@ -3632,6 +4000,30 @@ ExportTransitGatewayRoutes
 </details>
 <details>
 <summary>
+ExportVerifiedAccessInstanceClientConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ExportVerifiedAccessInstanceClientConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ExportVerifiedAccessInstanceClientConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ExportVerifiedAccessInstanceClientConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetActiveVpnTunnelStatus
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetActiveVpnTunnelStatusCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetActiveVpnTunnelStatusCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetActiveVpnTunnelStatusCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetAllowedImagesSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAssociatedEnclaveCertificateIamRoles
 </summary>
 
@@ -3684,6 +4076,14 @@ GetConsoleScreenshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetConsoleScreenshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetConsoleScreenshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetConsoleScreenshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDeclarativePoliciesReportSummary
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetDeclarativePoliciesReportSummaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetDeclarativePoliciesReportSummaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetDeclarativePoliciesReportSummaryCommandOutput/)
 
 </details>
 <details>
@@ -3888,6 +4288,30 @@ GetReservedInstancesExchangeQuote
 </details>
 <details>
 <summary>
+GetRouteServerAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetRouteServerAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetRouteServerAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetRouteServerAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRouteServerPropagations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetRouteServerPropagationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetRouteServerPropagationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetRouteServerPropagationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRouteServerRoutingDatabase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetRouteServerRoutingDatabaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetRouteServerRoutingDatabaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetRouteServerRoutingDatabaseCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetSecurityGroupsForVpc
 </summary>
 
@@ -3988,6 +4412,14 @@ GetVerifiedAccessEndpointPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetVerifiedAccessEndpointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetVerifiedAccessEndpointTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/GetVerifiedAccessEndpointTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/GetVerifiedAccessEndpointTargetsCommandOutput/)
 
 </details>
 <details>
@@ -4216,6 +4648,14 @@ ModifyInstanceCapacityReservationAttributes
 </details>
 <details>
 <summary>
+ModifyInstanceCpuOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceCpuOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceCpuOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceCpuOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyInstanceCreditSpecification
 </summary>
 
@@ -4260,6 +4700,14 @@ ModifyInstanceMetadataOptions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceMetadataOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceMetadataOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceMetadataOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyInstanceNetworkPerformanceOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyInstanceNetworkPerformanceOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceNetworkPerformanceOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyInstanceNetworkPerformanceOptionsCommandOutput/)
 
 </details>
 <details>
@@ -4352,10 +4800,26 @@ ModifyPrivateDnsNameOptions
 </details>
 <details>
 <summary>
+ModifyPublicIpDnsNameOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyPublicIpDnsNameOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyPublicIpDnsNameOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyPublicIpDnsNameOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyReservedInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyReservedInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyReservedInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyReservedInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyRouteServer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyRouteServerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyRouteServerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyRouteServerCommandOutput/)
 
 </details>
 <details>
@@ -4528,6 +4992,22 @@ ModifyVpcAttribute
 </details>
 <details>
 <summary>
+ModifyVpcBlockPublicAccessExclusion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyVpcBlockPublicAccessExclusionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcBlockPublicAccessExclusionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcBlockPublicAccessExclusionCommandOutput/)
+
+</details>
+<details>
+<summary>
+ModifyVpcBlockPublicAccessOptions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ModifyVpcBlockPublicAccessOptionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcBlockPublicAccessOptionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ModifyVpcBlockPublicAccessOptionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyVpcEndpoint
 </summary>
 
@@ -4640,6 +5120,14 @@ MoveByoipCidrToIpam
 </details>
 <details>
 <summary>
+MoveCapacityReservationInstances
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/MoveCapacityReservationInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/MoveCapacityReservationInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/MoveCapacityReservationInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ProvisionByoipCidr
 </summary>
 
@@ -4676,6 +5164,14 @@ PurchaseCapacityBlock
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/PurchaseCapacityBlockCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/PurchaseCapacityBlockCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/PurchaseCapacityBlockCommandOutput/)
+
+</details>
+<details>
+<summary>
+PurchaseCapacityBlockExtension
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/PurchaseCapacityBlockExtensionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/PurchaseCapacityBlockExtensionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/PurchaseCapacityBlockExtensionCommandOutput/)
 
 </details>
 <details>
@@ -4740,6 +5236,14 @@ RegisterTransitGatewayMulticastGroupSources
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RegisterTransitGatewayMulticastGroupSourcesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RegisterTransitGatewayMulticastGroupSourcesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RegisterTransitGatewayMulticastGroupSourcesCommandOutput/)
+
+</details>
+<details>
+<summary>
+RejectCapacityReservationBillingOwnership
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/RejectCapacityReservationBillingOwnershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RejectCapacityReservationBillingOwnershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/RejectCapacityReservationBillingOwnershipCommandOutput/)
 
 </details>
 <details>
@@ -4812,6 +5316,14 @@ ReplaceIamInstanceProfileAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceIamInstanceProfileAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceIamInstanceProfileAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceIamInstanceProfileAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ReplaceImageCriteriaInAllowedImagesSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/ReplaceImageCriteriaInAllowedImagesSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceImageCriteriaInAllowedImagesSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/ReplaceImageCriteriaInAllowedImagesSettingsCommandOutput/)
 
 </details>
 <details>
@@ -5052,6 +5564,14 @@ SendDiagnosticInterrupt
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/SendDiagnosticInterruptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/SendDiagnosticInterruptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/SendDiagnosticInterruptCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartDeclarativePoliciesReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2/command/StartDeclarativePoliciesReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/StartDeclarativePoliciesReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2/Interface/StartDeclarativePoliciesReportCommandOutput/)
 
 </details>
 <details>

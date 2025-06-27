@@ -16,7 +16,8 @@ import { de_DeleteGroupCommand, se_DeleteGroupCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,31 @@ export interface DeleteGroupCommandInput extends DeleteGroupRequest {}
 export interface DeleteGroupCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a group.</p>
- *          <p>Calling this action requires developer credentials.</p>
+ * <p>Deletes a group from the specified user pool. When you delete a group, that group no
+ *             longer contributes to users' <code>cognito:preferred_group</code> or
+ *                 <code>cognito:groups</code> claims, and no longer influence access-control decision
+ *             that are based on group membership. For more information about user pool groups, see
+ *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +100,7 @@ export interface DeleteGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupCommand extends $Command
@@ -86,9 +111,7 @@ export class DeleteGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +123,16 @@ export class DeleteGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGroupCommand)
   .de(de_DeleteGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteGroupCommandInput;
+      output: DeleteGroupCommandOutput;
+    };
+  };
+}

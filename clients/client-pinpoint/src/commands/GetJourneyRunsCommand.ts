@@ -12,7 +12,8 @@ import { de_GetJourneyRunsCommand, se_GetJourneyRunsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,39 +89,39 @@ export interface GetJourneyRunsCommandOutput extends GetJourneyRunsResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
- * @public
+ *
  * @example To get the runs of a journey
  * ```javascript
  * // The following example gets the runs of a journey.
  * const input = {
- *   "ApplicationId": "11111111112222222222333333333344",
- *   "JourneyId": "aaaaaaaaaabbbbbbbbbbccccccccccdd"
+ *   ApplicationId: "11111111112222222222333333333344",
+ *   JourneyId: "aaaaaaaaaabbbbbbbbbbccccccccccdd"
  * };
  * const command = new GetJourneyRunsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "JourneyRunsResponse": {
- *     "Item": [
+ *   JourneyRunsResponse: {
+ *     Item: [
  *       {
- *         "RunId": "99999999998888888888777777777766",
- *         "CreationTime": "2000-01-01T00:00:00.000Z",
- *         "LastUpdateTime": "2000-01-01T00:00:05.000Z",
- *         "Status": "COMPLETED"
+ *         CreationTime: "2000-01-01T00:00:00.000Z",
+ *         LastUpdateTime: "2000-01-01T00:00:05.000Z",
+ *         RunId: "99999999998888888888777777777766",
+ *         Status: "COMPLETED"
  *       },
  *       {
- *         "RunId": "ffffffffffeeeeeeeeeeddddddddddcc",
- *         "CreationTime": "2000-01-01T00:00:10.000Z",
- *         "LastUpdateTime": "2000-01-01T00:00:10.000Z",
- *         "Status": "SCHEDULED"
+ *         CreationTime: "2000-01-01T00:00:10.000Z",
+ *         LastUpdateTime: "2000-01-01T00:00:10.000Z",
+ *         RunId: "ffffffffffeeeeeeeeeeddddddddddcc",
+ *         Status: "SCHEDULED"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-get-the-runs-of-a-journey
  * ```
  *
+ * @public
  */
 export class GetJourneyRunsCommand extends $Command
   .classBuilder<
@@ -130,9 +131,7 @@ export class GetJourneyRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class GetJourneyRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJourneyRunsCommand)
   .de(de_GetJourneyRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJourneyRunsRequest;
+      output: GetJourneyRunsResponse;
+    };
+    sdk: {
+      input: GetJourneyRunsCommandInput;
+      output: GetJourneyRunsCommandOutput;
+    };
+  };
+}

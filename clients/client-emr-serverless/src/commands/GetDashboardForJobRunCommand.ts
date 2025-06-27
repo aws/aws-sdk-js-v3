@@ -12,7 +12,8 @@ import { de_GetDashboardForJobRunCommand, se_GetDashboardForJobRunCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,7 @@ export interface GetDashboardForJobRunCommandInput extends GetDashboardForJobRun
 export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRunResponse, __MetadataBearer {}
 
 /**
- * <p>Creates and returns a URL that you can use to access the application UIs for a job
- *          run.</p>
- *          <p>For jobs in a running state, the application UI is a live user interface such as the
- *          Spark or Tez web UI. For completed jobs, the application UI is a persistent application
- *          user interface such as the Spark History Server or persistent Tez UI.</p>
- *          <note>
- *             <p>The URL is valid for one hour after you generate it. To access the application UI
- *             after that hour elapses, you must invoke the API again to generate a new URL.</p>
- *          </note>
+ * <p>Creates and returns a URL that you can use to access the application UIs for a job run.</p> <p>For jobs in a running state, the application UI is a live user interface such as the Spark or Tez web UI. For completed jobs, the application UI is a persistent application user interface such as the Spark History Server or persistent Tez UI.</p> <note> <p>The URL is valid for one hour after you generate it. To access the application UI after that hour elapses, you must invoke the API again to generate a new URL.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +39,7 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *   applicationId: "STRING_VALUE", // required
  *   jobRunId: "STRING_VALUE", // required
  *   attempt: Number("int"),
+ *   accessSystemProfileLogs: true || false,
  * };
  * const command = new GetDashboardForJobRunCommand(input);
  * const response = await client.send(command);
@@ -68,11 +62,11 @@ export interface GetDashboardForJobRunCommandOutput extends GetDashboardForJobRu
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +78,7 @@ export class GetDashboardForJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +90,16 @@ export class GetDashboardForJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDashboardForJobRunCommand)
   .de(de_GetDashboardForJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDashboardForJobRunRequest;
+      output: GetDashboardForJobRunResponse;
+    };
+    sdk: {
+      input: GetDashboardForJobRunCommandInput;
+      output: GetDashboardForJobRunCommandOutput;
+    };
+  };
+}

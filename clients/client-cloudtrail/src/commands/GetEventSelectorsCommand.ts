@@ -12,7 +12,8 @@ import { de_GetEventSelectorsCommand, se_GetEventSelectorsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,17 +33,21 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  *          <ul>
  *             <li>
  *                <p>If your event selector includes read-only events, write-only events, or all
- *                events. This applies to both management events and data events.</p>
+ *                events. This applies to management events, data events, and network activity events.</p>
  *             </li>
  *             <li>
  *                <p>If your event selector includes management events.</p>
+ *             </li>
+ *             <li>
+ *                <p>If your event selector includes network activity events, the event sources
+ *                for which you are logging network activity events.</p>
  *             </li>
  *             <li>
  *                <p>If your event selector includes data events, the resources on which you are
  *                logging data events.</p>
  *             </li>
  *          </ul>
- *          <p>For more information about logging management and data events, see the following topics
+ *          <p>For more information about logging management, data, and network activity events, see the following topics
  *          in the <i>CloudTrail User Guide</i>:</p>
  *          <ul>
  *             <li>
@@ -53,6 +58,11 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  *             <li>
  *                <p>
  *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging network activity events</a>
  *                </p>
  *             </li>
  *          </ul>
@@ -129,6 +139,8 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
@@ -172,6 +184,7 @@ export interface GetEventSelectorsCommandOutput extends GetEventSelectorsRespons
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetEventSelectorsCommand extends $Command
@@ -182,9 +195,7 @@ export class GetEventSelectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +207,16 @@ export class GetEventSelectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventSelectorsCommand)
   .de(de_GetEventSelectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventSelectorsRequest;
+      output: GetEventSelectorsResponse;
+    };
+    sdk: {
+      input: GetEventSelectorsCommandInput;
+      output: GetEventSelectorsCommandOutput;
+    };
+  };
+}

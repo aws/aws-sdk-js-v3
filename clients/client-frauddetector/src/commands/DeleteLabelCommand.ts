@@ -12,7 +12,8 @@ import { de_DeleteLabelCommand, se_DeleteLabelCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteLabelCommandOutput extends DeleteLabelResult, __MetadataB
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteLabelCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteLabelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLabelCommand)
   .de(de_DeleteLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLabelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLabelCommandInput;
+      output: DeleteLabelCommandOutput;
+    };
+  };
+}

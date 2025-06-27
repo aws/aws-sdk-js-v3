@@ -12,7 +12,8 @@ import { de_DeleteAssessmentReportCommand, se_DeleteAssessmentReportCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface DeleteAssessmentReportCommandOutput extends DeleteAssessmentRep
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssessmentReportCommand extends $Command
@@ -98,9 +100,7 @@ export class DeleteAssessmentReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class DeleteAssessmentReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssessmentReportCommand)
   .de(de_DeleteAssessmentReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssessmentReportRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssessmentReportCommandInput;
+      output: DeleteAssessmentReportCommandOutput;
+    };
+  };
+}

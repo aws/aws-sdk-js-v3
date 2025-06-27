@@ -50,13 +50,13 @@ export interface CreateDeploymentInput {
    *             <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  dryRun?: boolean;
+  dryRun?: boolean | undefined;
 
   /**
    * <p>The tags to add to the deployment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -67,7 +67,7 @@ export interface CreateDeploymentOutput {
    * <p>The ID of the deployment.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 }
 
 /**
@@ -192,13 +192,13 @@ export interface DeleteDeploymentOutput {
    * <p>The status of the deployment.</p>
    * @public
    */
-  status?: DeploymentStatus;
+  status?: DeploymentStatus | undefined;
 
   /**
    * <p>The reason for the deployment status.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 }
 
 /**
@@ -216,14 +216,14 @@ export interface ListDeploymentEventsInput {
    *          make another request with the token returned in the output.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -255,31 +255,31 @@ export interface DeploymentEventDataSummary {
    * <p>The name of the deployment event.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the deployment event.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the deployment event.</p>
    * @public
    */
-  status?: EventStatus;
+  status?: EventStatus | undefined;
 
   /**
    * <p>The reason of the deployment event status.</p>
    * @public
    */
-  statusReason?: string;
+  statusReason?: string | undefined;
 
   /**
    * <p>The timestamp of the deployment event.</p>
    * @public
    */
-  timestamp?: Date;
+  timestamp?: Date | undefined;
 }
 
 /**
@@ -290,14 +290,14 @@ export interface ListDeploymentEventsOutput {
    * <p>Lists the deployment events.</p>
    * @public
    */
-  deploymentEvents?: DeploymentEventDataSummary[];
+  deploymentEvents?: DeploymentEventDataSummary[] | undefined;
 
   /**
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -320,37 +320,37 @@ export interface DeploymentData {
    * <p>The name of the deployment.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the deployment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the workload.</p>
    * @public
    */
-  workloadName?: string;
+  workloadName?: string | undefined;
 
   /**
    * <p>The pattern name of the deployment.</p>
    * @public
    */
-  patternName?: string;
+  patternName?: string | undefined;
 
   /**
    * <p>The status of the deployment.</p>
    * @public
    */
-  status?: DeploymentStatus;
+  status?: DeploymentStatus | undefined;
 
   /**
    * <p>The time the deployment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The settings specified for the deployment. These settings define how to deploy and configure your
@@ -362,31 +362,31 @@ export interface DeploymentData {
    *             </a> operation.</p>
    * @public
    */
-  specifications?: Record<string, string>;
+  specifications?: Record<string, string> | undefined;
 
   /**
    * <p>The resource group of the deployment.</p>
    * @public
    */
-  resourceGroup?: string;
+  resourceGroup?: string | undefined;
 
   /**
    * <p>The time the deployment was deleted.</p>
    * @public
    */
-  deletedAt?: Date;
+  deletedAt?: Date | undefined;
 
   /**
    * <p>Information about the tags attached to a deployment.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the deployment.</p>
    * @public
    */
-  deploymentArn?: string;
+  deploymentArn?: string | undefined;
 }
 
 /**
@@ -397,7 +397,7 @@ export interface GetDeploymentOutput {
    * <p>An object that details the deployment.</p>
    * @public
    */
-  deployment?: DeploymentData;
+  deployment?: DeploymentData | undefined;
 }
 
 /**
@@ -425,7 +425,7 @@ export interface DeploymentFilter {
    * <p>The name of the filter. Filter names are case-sensitive.</p>
    * @public
    */
-  name?: DeploymentFilterKey;
+  name?: DeploymentFilterKey | undefined;
 
   /**
    * <p>The filter values. Filter values are case-sensitive. If you specify multiple values for
@@ -433,7 +433,7 @@ export interface DeploymentFilter {
    *          results that match any of the specified values.</p>
    * @public
    */
-  values?: string[];
+  values?: string[] | undefined;
 }
 
 /**
@@ -458,21 +458,21 @@ export interface ListDeploymentsInput {
    *          </ul>
    * @public
    */
-  filters?: DeploymentFilter[];
+  filters?: DeploymentFilter[] | undefined;
 
   /**
    * <p>The maximum number of items to return for this request. To get the next page of items,
    *          make another request with the token returned in the output.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -484,37 +484,37 @@ export interface DeploymentDataSummary {
    * <p>The name of the deployment</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the deployment.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the workload.</p>
    * @public
    */
-  workloadName?: string;
+  workloadName?: string | undefined;
 
   /**
    * <p>The name of the workload deployment pattern.</p>
    * @public
    */
-  patternName?: string;
+  patternName?: string | undefined;
 
   /**
    * <p>The status of the deployment.</p>
    * @public
    */
-  status?: DeploymentStatus;
+  status?: DeploymentStatus | undefined;
 
   /**
    * <p>The time the deployment was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 }
 
 /**
@@ -525,14 +525,14 @@ export interface ListDeploymentsOutput {
    * <p>Lists the deployments.</p>
    * @public
    */
-  deployments?: DeploymentDataSummary[];
+  deployments?: DeploymentDataSummary[] | undefined;
 
   /**
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -544,13 +544,13 @@ export interface DeploymentConditionalField {
    * <p>The name of the deployment condition.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The value of the condition.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The comparator of the condition.</p>
@@ -558,7 +558,7 @@ export interface DeploymentConditionalField {
    *          </p>
    * @public
    */
-  comparator?: string;
+  comparator?: string | undefined;
 }
 
 /**
@@ -570,31 +570,31 @@ export interface DeploymentSpecificationsField {
    * <p>The name of the deployment specification.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the deployment specification.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The allowed values of the deployment specification.</p>
    * @public
    */
-  allowedValues?: string[];
+  allowedValues?: string[] | undefined;
 
   /**
    * <p>Indicates if the deployment specification is required.</p>
    * @public
    */
-  required?: string;
+  required?: string | undefined;
 
   /**
    * <p>The conditionals used for the deployment specification.</p>
    * @public
    */
-  conditionals?: DeploymentConditionalField[];
+  conditionals?: DeploymentConditionalField[] | undefined;
 }
 
 /**
@@ -633,43 +633,43 @@ export interface WorkloadData {
    * <p>The name of the workload.</p>
    * @public
    */
-  workloadName?: string;
+  workloadName?: string | undefined;
 
   /**
    * <p>The display name of a workload.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of a workload.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The URL of a workload document.</p>
    * @public
    */
-  documentationUrl?: string;
+  documentationUrl?: string | undefined;
 
   /**
    * <p>The URL of a workload icon.</p>
    * @public
    */
-  iconUrl?: string;
+  iconUrl?: string | undefined;
 
   /**
    * <p>The status of a workload.</p>
    * @public
    */
-  status?: WorkloadStatus;
+  status?: WorkloadStatus | undefined;
 
   /**
    * <p>The message about a workload's status.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 }
 
 /**
@@ -680,7 +680,7 @@ export interface GetWorkloadOutput {
    * <p>Information about the workload.</p>
    * @public
    */
-  workload?: WorkloadData;
+  workload?: WorkloadData | undefined;
 }
 
 /**
@@ -726,43 +726,43 @@ export interface WorkloadDeploymentPatternData {
    * <p>The workload name of the deployment pattern.</p>
    * @public
    */
-  workloadName?: string;
+  workloadName?: string | undefined;
 
   /**
    * <p>The name of the deployment pattern.</p>
    * @public
    */
-  deploymentPatternName?: string;
+  deploymentPatternName?: string | undefined;
 
   /**
    * <p>The workload version name of the deployment pattern.</p>
    * @public
    */
-  workloadVersionName?: string;
+  workloadVersionName?: string | undefined;
 
   /**
    * <p>The display name of the deployment pattern.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of the deployment pattern.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the deployment pattern.</p>
    * @public
    */
-  status?: WorkloadDeploymentPatternStatus;
+  status?: WorkloadDeploymentPatternStatus | undefined;
 
   /**
    * <p>The status message of the deployment pattern.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The settings specified for the deployment. These settings define how to deploy and configure your
@@ -774,7 +774,7 @@ export interface WorkloadDeploymentPatternData {
    *             </a> operation.</p>
    * @public
    */
-  specifications?: DeploymentSpecificationsField[];
+  specifications?: DeploymentSpecificationsField[] | undefined;
 }
 
 /**
@@ -785,7 +785,7 @@ export interface GetWorkloadDeploymentPatternOutput {
    * <p>Details about the workload deployment pattern.</p>
    * @public
    */
-  workloadDeploymentPattern?: WorkloadDeploymentPatternData;
+  workloadDeploymentPattern?: WorkloadDeploymentPatternData | undefined;
 }
 
 /**
@@ -807,7 +807,7 @@ export interface ListTagsForResourceOutput {
    * <p>Information about the tags.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -863,14 +863,14 @@ export interface ListWorkloadsInput {
    *          make another request with the token returned in the output.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -882,13 +882,13 @@ export interface WorkloadDataSummary {
    * <p>The name of the workload.</p>
    * @public
    */
-  workloadName?: string;
+  workloadName?: string | undefined;
 
   /**
    * <p>The display name of the workload data.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 }
 
 /**
@@ -899,14 +899,14 @@ export interface ListWorkloadsOutput {
    * <p>Information about the workloads.</p>
    * @public
    */
-  workloads?: WorkloadDataSummary[];
+  workloads?: WorkloadDataSummary[] | undefined;
 
   /**
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -924,14 +924,14 @@ export interface ListWorkloadDeploymentPatternsInput {
    *          make another request with the token returned in the output.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token returned from a previous paginated request. Pagination continues from the end
    *          of the items returned by the previous request.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -943,43 +943,43 @@ export interface WorkloadDeploymentPatternDataSummary {
    * <p>The name of the workload.</p>
    * @public
    */
-  workloadName?: string;
+  workloadName?: string | undefined;
 
   /**
    * <p>The name of a workload deployment pattern.</p>
    * @public
    */
-  deploymentPatternName?: string;
+  deploymentPatternName?: string | undefined;
 
   /**
    * <p>The name of the workload deployment pattern version.</p>
    * @public
    */
-  workloadVersionName?: string;
+  workloadVersionName?: string | undefined;
 
   /**
    * <p>The display name of a workload deployment pattern.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The description of a workload deployment pattern.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of a workload deployment pattern.</p>
    * @public
    */
-  status?: WorkloadDeploymentPatternStatus;
+  status?: WorkloadDeploymentPatternStatus | undefined;
 
   /**
    * <p>A message about a workload deployment pattern's status.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 }
 
 /**
@@ -990,14 +990,14 @@ export interface ListWorkloadDeploymentPatternsOutput {
    * <p>Describes the workload deployment patterns.</p>
    * @public
    */
-  workloadDeploymentPatterns?: WorkloadDeploymentPatternDataSummary[];
+  workloadDeploymentPatterns?: WorkloadDeploymentPatternDataSummary[] | undefined;
 
   /**
    * <p>The token to include in another request to get the next page of items. This value is
    *             <code>null</code> when there are no more items to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**

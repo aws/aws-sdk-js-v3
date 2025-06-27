@@ -16,7 +16,8 @@ import { de_CreateBudgetActionCommand, se_CreateBudgetActionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -135,6 +136,7 @@ export interface CreateBudgetActionCommandOutput extends CreateBudgetActionRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class CreateBudgetActionCommand extends $Command
@@ -145,9 +147,7 @@ export class CreateBudgetActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class CreateBudgetActionCommand extends $Command
   .f(CreateBudgetActionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBudgetActionCommand)
   .de(de_CreateBudgetActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBudgetActionRequest;
+      output: CreateBudgetActionResponse;
+    };
+    sdk: {
+      input: CreateBudgetActionCommandInput;
+      output: CreateBudgetActionCommandOutput;
+    };
+  };
+}

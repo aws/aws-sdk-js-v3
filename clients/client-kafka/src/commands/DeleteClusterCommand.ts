@@ -12,7 +12,8 @@ import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class DeleteClusterCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterCommand)
   .de(de_DeleteClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterRequest;
+      output: DeleteClusterResponse;
+    };
+    sdk: {
+      input: DeleteClusterCommandInput;
+      output: DeleteClusterCommandOutput;
+    };
+  };
+}

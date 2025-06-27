@@ -12,7 +12,8 @@ import { de_DescribeInputDeviceCommand, se_DescribeInputDeviceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  * //         Profile: "DISABLED" || "VBR-AAC_HHE-16000" || "VBR-AAC_HE-64000" || "VBR-AAC_LC-128000" || "CBR-AAC_HQ-192000" || "CBR-AAC_HQ-256000" || "CBR-AAC_HQ-384000" || "CBR-AAC_HQ-512000",
  * //       },
  * //     ],
+ * //     InputResolution: "STRING_VALUE",
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
@@ -135,6 +137,7 @@ export interface DescribeInputDeviceCommandOutput extends DescribeInputDeviceRes
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DescribeInputDeviceCommand extends $Command
@@ -145,9 +148,7 @@ export class DescribeInputDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +160,16 @@ export class DescribeInputDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInputDeviceCommand)
   .de(de_DescribeInputDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInputDeviceRequest;
+      output: DescribeInputDeviceResponse;
+    };
+    sdk: {
+      input: DescribeInputDeviceCommandInput;
+      output: DescribeInputDeviceCommandOutput;
+    };
+  };
+}

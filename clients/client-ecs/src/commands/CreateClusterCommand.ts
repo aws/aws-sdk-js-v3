@@ -12,7 +12,8 @@ import { de_CreateClusterCommand, se_CreateClusterCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,13 +30,13 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
 /**
  * <p>Creates a new Amazon ECS cluster. By default, your account receives a <code>default</code>
  * 			cluster when you launch your first container instance. However, you can create your own
- * 			cluster with a unique name with the <code>CreateCluster</code> action.</p>
+ * 			cluster with a unique name.</p>
  *          <note>
- *             <p>When you call the <a>CreateCluster</a> API operation, Amazon ECS attempts to
- * 				create the Amazon ECS service-linked role for your account. This is so that it can manage
- * 				required resources in other Amazon Web Services services on your behalf. However, if the user that
- * 				makes the call doesn't have permissions to create the service-linked role, it isn't
- * 				created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+ *             <p>When you call the <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateCluster.html">CreateCluster</a>
+ * 				API operation, Amazon ECS attempts to create the Amazon ECS service-linked role for your
+ * 				account. This is so that it can manage required resources in other Amazon Web Services services on
+ * 				your behalf. However, if the user that makes the call doesn't have permissions to
+ * 				create the service-linked role, it isn't created. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
  * 					service-linked roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
  *          </note>
  * @example
@@ -70,6 +71,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  *         s3KeyPrefix: "STRING_VALUE",
  *       },
  *     },
+ *     managedStorageConfiguration: { // ManagedStorageConfiguration
+ *       kmsKeyId: "STRING_VALUE",
+ *       fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
+ *     },
  *   },
  *   capacityProviders: [ // StringList
  *     "STRING_VALUE",
@@ -102,6 +107,10 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * //           s3EncryptionEnabled: true || false,
  * //           s3KeyPrefix: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //         fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "STRING_VALUE",
@@ -173,6 +182,8 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link NamespaceNotFoundException} (client fault)
  *  <p>The specified namespace wasn't found.</p>
@@ -183,31 +194,31 @@ export interface CreateClusterCommandOutput extends CreateClusterResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To create a new cluster
  * ```javascript
  * // This example creates a cluster in your default region.
  * const input = {
- *   "clusterName": "my_cluster"
+ *   clusterName: "my_cluster"
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "cluster": {
- *     "activeServicesCount": 0,
- *     "clusterArn": "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
- *     "clusterName": "my_cluster",
- *     "pendingTasksCount": 0,
- *     "registeredContainerInstancesCount": 0,
- *     "runningTasksCount": 0,
- *     "status": "ACTIVE"
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     clusterArn: "arn:aws:ecs:us-east-1:012345678910:cluster/my_cluster",
+ *     clusterName: "my_cluster",
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     status: "ACTIVE"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-cluster-1472514079365
  * ```
  *
+ * @public
  */
 export class CreateClusterCommand extends $Command
   .classBuilder<
@@ -217,9 +228,7 @@ export class CreateClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -231,4 +240,16 @@ export class CreateClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterCommand)
   .de(de_CreateClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterRequest;
+      output: CreateClusterResponse;
+    };
+    sdk: {
+      input: CreateClusterCommandInput;
+      output: CreateClusterCommandOutput;
+    };
+  };
+}

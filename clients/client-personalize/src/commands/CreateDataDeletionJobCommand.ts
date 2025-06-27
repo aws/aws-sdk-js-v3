@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDataDeletionJobRequest, CreateDataDeletionJobResponse } from "../models/models_0";
+import {
+  CreateDataDeletionJobRequest,
+  CreateDataDeletionJobRequestFilterSensitiveLog,
+  CreateDataDeletionJobResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateDataDeletionJobCommand, se_CreateDataDeletionJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -133,6 +138,7 @@ export interface CreateDataDeletionJobCommandOutput extends CreateDataDeletionJo
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateDataDeletionJobCommand extends $Command
@@ -143,9 +149,7 @@ export class CreateDataDeletionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,7 +158,19 @@ export class CreateDataDeletionJobCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateDataDeletionJob", {})
   .n("PersonalizeClient", "CreateDataDeletionJobCommand")
-  .f(void 0, void 0)
+  .f(CreateDataDeletionJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDataDeletionJobCommand)
   .de(de_CreateDataDeletionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataDeletionJobRequest;
+      output: CreateDataDeletionJobResponse;
+    };
+    sdk: {
+      input: CreateDataDeletionJobCommandInput;
+      output: CreateDataDeletionJobCommandOutput;
+    };
+  };
+}

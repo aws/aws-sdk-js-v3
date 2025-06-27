@@ -13,7 +13,8 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,7 +96,8 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  *                   <li>
  *                      <p>Create a CloudWatch Logs resource policy, and give it the
  * 								permissions that Route 53 needs to create log streams and to send
- * 								query logs to log streams. For the value of <code>Resource</code>,
+ * 								query logs to log streams. You must create the CloudWatch Logs resource policy in the us-east-1
+ * 									region. For the value of <code>Resource</code>,
  * 								specify the ARN for the log group that you created in the previous
  * 								step. To use the same resource policy for all the CloudWatch Logs
  * 								log groups that you created for query logging configurations,
@@ -272,6 +274,7 @@ export interface CreateQueryLoggingConfigCommandOutput extends CreateQueryLoggin
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class CreateQueryLoggingConfigCommand extends $Command
@@ -282,9 +285,7 @@ export class CreateQueryLoggingConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -297,4 +298,16 @@ export class CreateQueryLoggingConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQueryLoggingConfigCommand)
   .de(de_CreateQueryLoggingConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueryLoggingConfigRequest;
+      output: CreateQueryLoggingConfigResponse;
+    };
+    sdk: {
+      input: CreateQueryLoggingConfigCommandInput;
+      output: CreateQueryLoggingConfigCommandOutput;
+    };
+  };
+}

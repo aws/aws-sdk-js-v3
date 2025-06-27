@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,23 +91,23 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To list the collections
  * ```javascript
  * // This operation returns a list of Rekognition collections.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListCollectionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CollectionIds": [
+ *   CollectionIds: [
  *     "myphotos"
  *   ]
  * }
  * *\/
- * // example id: to-list-the-collections-1482179199088
  * ```
  *
+ * @public
  */
 export class ListCollectionsCommand extends $Command
   .classBuilder<
@@ -116,9 +117,7 @@ export class ListCollectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class ListCollectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCollectionsCommand)
   .de(de_ListCollectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollectionsRequest;
+      output: ListCollectionsResponse;
+    };
+    sdk: {
+      input: ListCollectionsCommandInput;
+      output: ListCollectionsCommandOutput;
+    };
+  };
+}

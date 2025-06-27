@@ -23,6 +23,11 @@ import {
   CreateNamespaceCommandOutput,
 } from "./commands/CreateNamespaceCommand";
 import {
+  CreateReservationCommand,
+  CreateReservationCommandInput,
+  CreateReservationCommandOutput,
+} from "./commands/CreateReservationCommand";
+import {
   CreateScheduledActionCommand,
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -118,6 +123,16 @@ import {
   GetRecoveryPointCommandOutput,
 } from "./commands/GetRecoveryPointCommand";
 import {
+  GetReservationCommand,
+  GetReservationCommandInput,
+  GetReservationCommandOutput,
+} from "./commands/GetReservationCommand";
+import {
+  GetReservationOfferingCommand,
+  GetReservationOfferingCommandInput,
+  GetReservationOfferingCommandOutput,
+} from "./commands/GetReservationOfferingCommand";
+import {
   GetResourcePolicyCommand,
   GetResourcePolicyCommandInput,
   GetResourcePolicyCommandOutput,
@@ -133,6 +148,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "./commands/GetTableRestoreStatusCommand";
+import { GetTrackCommand, GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
 import {
   GetUsageLimitCommand,
   GetUsageLimitCommandInput,
@@ -154,6 +170,11 @@ import {
   ListEndpointAccessCommandOutput,
 } from "./commands/ListEndpointAccessCommand";
 import {
+  ListManagedWorkgroupsCommand,
+  ListManagedWorkgroupsCommandInput,
+  ListManagedWorkgroupsCommandOutput,
+} from "./commands/ListManagedWorkgroupsCommand";
+import {
   ListNamespacesCommand,
   ListNamespacesCommandInput,
   ListNamespacesCommandOutput,
@@ -163,6 +184,16 @@ import {
   ListRecoveryPointsCommandInput,
   ListRecoveryPointsCommandOutput,
 } from "./commands/ListRecoveryPointsCommand";
+import {
+  ListReservationOfferingsCommand,
+  ListReservationOfferingsCommandInput,
+  ListReservationOfferingsCommandOutput,
+} from "./commands/ListReservationOfferingsCommand";
+import {
+  ListReservationsCommand,
+  ListReservationsCommandInput,
+  ListReservationsCommandOutput,
+} from "./commands/ListReservationsCommand";
 import {
   ListScheduledActionsCommand,
   ListScheduledActionsCommandInput,
@@ -188,6 +219,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTracksCommand, ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
 import {
   ListUsageLimitsCommand,
   ListUsageLimitsCommandInput,
@@ -276,6 +308,7 @@ const commands = {
   CreateCustomDomainAssociationCommand,
   CreateEndpointAccessCommand,
   CreateNamespaceCommand,
+  CreateReservationCommand,
   CreateScheduledActionCommand,
   CreateSnapshotCommand,
   CreateSnapshotCopyConfigurationCommand,
@@ -295,21 +328,28 @@ const commands = {
   GetEndpointAccessCommand,
   GetNamespaceCommand,
   GetRecoveryPointCommand,
+  GetReservationCommand,
+  GetReservationOfferingCommand,
   GetResourcePolicyCommand,
   GetScheduledActionCommand,
   GetSnapshotCommand,
   GetTableRestoreStatusCommand,
+  GetTrackCommand,
   GetUsageLimitCommand,
   GetWorkgroupCommand,
   ListCustomDomainAssociationsCommand,
   ListEndpointAccessCommand,
+  ListManagedWorkgroupsCommand,
   ListNamespacesCommand,
   ListRecoveryPointsCommand,
+  ListReservationOfferingsCommand,
+  ListReservationsCommand,
   ListScheduledActionsCommand,
   ListSnapshotCopyConfigurationsCommand,
   ListSnapshotsCommand,
   ListTableRestoreStatusCommand,
   ListTagsForResourceCommand,
+  ListTracksCommand,
   ListUsageLimitsCommand,
   ListWorkgroupsCommand,
   PutResourcePolicyCommand,
@@ -393,6 +433,23 @@ export interface RedshiftServerless {
     args: CreateNamespaceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateNamespaceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateReservationCommand}
+   */
+  createReservation(
+    args: CreateReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateReservationCommandOutput>;
+  createReservation(
+    args: CreateReservationCommandInput,
+    cb: (err: any, data?: CreateReservationCommandOutput) => void
+  ): void;
+  createReservation(
+    args: CreateReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateReservationCommandOutput) => void
   ): void;
 
   /**
@@ -696,6 +753,37 @@ export interface RedshiftServerless {
   ): void;
 
   /**
+   * @see {@link GetReservationCommand}
+   */
+  getReservation(
+    args: GetReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationCommandOutput>;
+  getReservation(args: GetReservationCommandInput, cb: (err: any, data?: GetReservationCommandOutput) => void): void;
+  getReservation(
+    args: GetReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetReservationOfferingCommand}
+   */
+  getReservationOffering(
+    args: GetReservationOfferingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetReservationOfferingCommandOutput>;
+  getReservationOffering(
+    args: GetReservationOfferingCommandInput,
+    cb: (err: any, data?: GetReservationOfferingCommandOutput) => void
+  ): void;
+  getReservationOffering(
+    args: GetReservationOfferingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetReservationOfferingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetResourcePolicyCommand}
    */
   getResourcePolicy(
@@ -759,6 +847,17 @@ export interface RedshiftServerless {
   ): void;
 
   /**
+   * @see {@link GetTrackCommand}
+   */
+  getTrack(args: GetTrackCommandInput, options?: __HttpHandlerOptions): Promise<GetTrackCommandOutput>;
+  getTrack(args: GetTrackCommandInput, cb: (err: any, data?: GetTrackCommandOutput) => void): void;
+  getTrack(
+    args: GetTrackCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTrackCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUsageLimitCommand}
    */
   getUsageLimit(args: GetUsageLimitCommandInput, options?: __HttpHandlerOptions): Promise<GetUsageLimitCommandOutput>;
@@ -817,6 +916,24 @@ export interface RedshiftServerless {
   ): void;
 
   /**
+   * @see {@link ListManagedWorkgroupsCommand}
+   */
+  listManagedWorkgroups(): Promise<ListManagedWorkgroupsCommandOutput>;
+  listManagedWorkgroups(
+    args: ListManagedWorkgroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListManagedWorkgroupsCommandOutput>;
+  listManagedWorkgroups(
+    args: ListManagedWorkgroupsCommandInput,
+    cb: (err: any, data?: ListManagedWorkgroupsCommandOutput) => void
+  ): void;
+  listManagedWorkgroups(
+    args: ListManagedWorkgroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListManagedWorkgroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListNamespacesCommand}
    */
   listNamespaces(): Promise<ListNamespacesCommandOutput>;
@@ -847,6 +964,42 @@ export interface RedshiftServerless {
     args: ListRecoveryPointsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRecoveryPointsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReservationOfferingsCommand}
+   */
+  listReservationOfferings(): Promise<ListReservationOfferingsCommandOutput>;
+  listReservationOfferings(
+    args: ListReservationOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReservationOfferingsCommandOutput>;
+  listReservationOfferings(
+    args: ListReservationOfferingsCommandInput,
+    cb: (err: any, data?: ListReservationOfferingsCommandOutput) => void
+  ): void;
+  listReservationOfferings(
+    args: ListReservationOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReservationOfferingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListReservationsCommand}
+   */
+  listReservations(): Promise<ListReservationsCommandOutput>;
+  listReservations(
+    args: ListReservationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListReservationsCommandOutput>;
+  listReservations(
+    args: ListReservationsCommandInput,
+    cb: (err: any, data?: ListReservationsCommandOutput) => void
+  ): void;
+  listReservations(
+    args: ListReservationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListReservationsCommandOutput) => void
   ): void;
 
   /**
@@ -930,6 +1083,18 @@ export interface RedshiftServerless {
     args: ListTagsForResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTracksCommand}
+   */
+  listTracks(): Promise<ListTracksCommandOutput>;
+  listTracks(args: ListTracksCommandInput, options?: __HttpHandlerOptions): Promise<ListTracksCommandOutput>;
+  listTracks(args: ListTracksCommandInput, cb: (err: any, data?: ListTracksCommandOutput) => void): void;
+  listTracks(
+    args: ListTracksCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTracksCommandOutput) => void
   ): void;
 
   /**
@@ -1201,15 +1366,12 @@ export interface RedshiftServerless {
  * <p>This is an interface reference for Amazon Redshift Serverless.
  *            It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.
  *         </p>
- *         <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the
+ *          <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the
  *            underlying resources based on workload demands. Amazon Redshift Serverless adjusts capacity in seconds to deliver consistently high
  *            performance and simplified operations for even the most demanding and volatile workloads. Amazon Redshift Serverless lets you
  *            focus on using your data to acquire new insights for your business and customers.
  *         </p>
- *         <p>
- *            To learn more about Amazon Redshift Serverless,
- *            see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless</a>.
- *         </p>
+ *          <p> To learn more about Amazon Redshift Serverless, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless?</a>.</p>
  * @public
  */
 export class RedshiftServerless extends RedshiftServerlessClient implements RedshiftServerless {}

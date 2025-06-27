@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,59 +88,8 @@ export interface DescribeCertificatesCommandOutput extends CertificateMessage, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
- * @example To describe certificates
- * ```javascript
- * // The following example retrieves the details of the certificate associated with the user's default region.
- * const input = {};
- * const command = new DescribeCertificatesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Certificates": [
- *     {
- *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-ecc384-g1",
- *       "CertificateIdentifier": "rds-ca-ecc384-g1",
- *       "CertificateType": "CA",
- *       "CustomerOverride": false,
- *       "Thumbprint": "24a97b91cbe86911190576c35c36aab4fEXAMPLE",
- *       "ValidFrom": "2021-05-25T22:41:55+00:00",
- *       "ValidTill": "2121-05-25T23:41:55+00:00"
- *     },
- *     {
- *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-rsa4096-g1",
- *       "CertificateIdentifier": "rds-ca-rsa4096-g1",
- *       "CertificateType": "CA",
- *       "CustomerOverride": false,
- *       "Thumbprint": "9da6fa7fd2ec09c569a400d876b01b0c1EXAMPLE",
- *       "ValidFrom": "2021-05-25T22:38:35+00:00",
- *       "ValidTill": "2121-05-25T23:38:35+00:00"
- *     },
- *     {
- *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-rsa2048-g1",
- *       "CertificateIdentifier": "rds-ca-rsa2048-g1",
- *       "CertificateType": "CA",
- *       "CustomerOverride": true,
- *       "CustomerOverrideValidTill": "2061-05-25T23:34:57+00:00",
- *       "Thumbprint": "2fa77ef894d983ba9d37ad699c84ab0f6EXAMPLE",
- *       "ValidFrom": "2021-05-25T22:34:57+00:00",
- *       "ValidTill": "2061-05-25T23:34:57+00:00"
- *     },
- *     {
- *       "CertificateArn": "arn:aws:rds:us-east-1::cert:rds-ca-2019",
- *       "CertificateIdentifier": "rds-ca-2019",
- *       "CertificateType": "CA",
- *       "CustomerOverride": false,
- *       "Thumbprint": "f0ed823ed14447bab557fdf3e49274669EXAMPLE",
- *       "ValidFrom": "2019-09-19T18:16:53+00:00",
- *       "ValidTill": "2024-08-22T17:08:50+00:00"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-certificates-1680211777663
- * ```
  *
+ * @public
  */
 export class DescribeCertificatesCommand extends $Command
   .classBuilder<
@@ -149,9 +99,7 @@ export class DescribeCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +111,16 @@ export class DescribeCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCertificatesCommand)
   .de(de_DescribeCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCertificatesMessage;
+      output: CertificateMessage;
+    };
+    sdk: {
+      input: DescribeCertificatesCommandInput;
+      output: DescribeCertificatesCommandOutput;
+    };
+  };
+}

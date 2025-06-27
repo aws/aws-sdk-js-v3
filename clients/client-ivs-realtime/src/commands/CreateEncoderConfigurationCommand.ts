@@ -12,7 +12,8 @@ import { de_CreateEncoderConfigurationCommand, se_CreateEncoderConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface CreateEncoderConfigurationCommandOutput extends CreateEncoderCo
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class CreateEncoderConfigurationCommand extends $Command
@@ -106,9 +108,7 @@ export class CreateEncoderConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class CreateEncoderConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEncoderConfigurationCommand)
   .de(de_CreateEncoderConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEncoderConfigurationRequest;
+      output: CreateEncoderConfigurationResponse;
+    };
+    sdk: {
+      input: CreateEncoderConfigurationCommandInput;
+      output: CreateEncoderConfigurationCommandOutput;
+    };
+  };
+}

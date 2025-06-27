@@ -12,7 +12,8 @@ import { de_BatchGrantPermissionsCommand, se_BatchGrantPermissionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,7 +44,9 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  *         DataLakePrincipalIdentifier: "STRING_VALUE",
  *       },
  *       Resource: { // Resource
- *         Catalog: {},
+ *         Catalog: { // CatalogResource
+ *           Id: "STRING_VALUE",
+ *         },
  *         Database: { // DatabaseResource
  *           CatalogId: "STRING_VALUE",
  *           Name: "STRING_VALUE", // required
@@ -87,7 +90,7 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  *         LFTagPolicy: { // LFTagPolicyResource
  *           CatalogId: "STRING_VALUE",
  *           ResourceType: "DATABASE" || "TABLE", // required
- *           Expression: [ // Expression // required
+ *           Expression: [ // Expression
  *             { // LFTag
  *               TagKey: "STRING_VALUE", // required
  *               TagValues: [ // required
@@ -95,13 +98,21 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  *               ],
  *             },
  *           ],
+ *           ExpressionName: "STRING_VALUE",
+ *         },
+ *         LFTagExpression: { // LFTagExpressionResource
+ *           CatalogId: "STRING_VALUE",
+ *           Name: "STRING_VALUE", // required
  *         },
  *       },
  *       Permissions: [ // PermissionList
- *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *       ],
+ *       Condition: { // Condition
+ *         Expression: "STRING_VALUE",
+ *       },
  *       PermissionsWithGrantOption: [
- *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ *         "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *       ],
  *     },
  *   ],
@@ -117,7 +128,9 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * //           DataLakePrincipalIdentifier: "STRING_VALUE",
  * //         },
  * //         Resource: { // Resource
- * //           Catalog: {},
+ * //           Catalog: { // CatalogResource
+ * //             Id: "STRING_VALUE",
+ * //           },
  * //           Database: { // DatabaseResource
  * //             CatalogId: "STRING_VALUE",
  * //             Name: "STRING_VALUE", // required
@@ -161,7 +174,7 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * //           LFTagPolicy: { // LFTagPolicyResource
  * //             CatalogId: "STRING_VALUE",
  * //             ResourceType: "DATABASE" || "TABLE", // required
- * //             Expression: [ // Expression // required
+ * //             Expression: [ // Expression
  * //               { // LFTag
  * //                 TagKey: "STRING_VALUE", // required
  * //                 TagValues: [ // required
@@ -169,13 +182,21 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * //                 ],
  * //               },
  * //             ],
+ * //             ExpressionName: "STRING_VALUE",
+ * //           },
+ * //           LFTagExpression: { // LFTagExpressionResource
+ * //             CatalogId: "STRING_VALUE",
+ * //             Name: "STRING_VALUE", // required
  * //           },
  * //         },
  * //         Permissions: [ // PermissionList
- * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //         ],
+ * //         Condition: { // Condition
+ * //           Expression: "STRING_VALUE",
+ * //         },
  * //         PermissionsWithGrantOption: [
- * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ * //           "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  * //         ],
  * //       },
  * //       Error: { // ErrorDetail
@@ -203,6 +224,7 @@ export interface BatchGrantPermissionsCommandOutput extends BatchGrantPermission
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class BatchGrantPermissionsCommand extends $Command
@@ -213,9 +235,7 @@ export class BatchGrantPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -227,4 +247,16 @@ export class BatchGrantPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGrantPermissionsCommand)
   .de(de_BatchGrantPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGrantPermissionsRequest;
+      output: BatchGrantPermissionsResponse;
+    };
+    sdk: {
+      input: BatchGrantPermissionsCommandInput;
+      output: BatchGrantPermissionsCommandOutput;
+    };
+  };
+}

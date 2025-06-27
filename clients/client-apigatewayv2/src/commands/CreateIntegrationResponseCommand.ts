@@ -12,7 +12,8 @@ import { de_CreateIntegrationResponseCommand, se_CreateIntegrationResponseComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface CreateIntegrationResponseCommandOutput extends CreateIntegratio
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateIntegrationResponseCommand extends $Command
@@ -95,9 +97,7 @@ export class CreateIntegrationResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class CreateIntegrationResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIntegrationResponseCommand)
   .de(de_CreateIntegrationResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIntegrationResponseRequest;
+      output: CreateIntegrationResponseResponse;
+    };
+    sdk: {
+      input: CreateIntegrationResponseCommandInput;
+      output: CreateIntegrationResponseCommandOutput;
+    };
+  };
+}

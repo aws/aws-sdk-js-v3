@@ -1,9 +1,10 @@
-import { fromSSO, validateSsoProfile } from "@aws-sdk/credential-provider-sso";
+import { fromSSO } from "@aws-sdk/credential-provider-sso";
 import { AwsCredentialIdentity } from "@smithy/types";
+import { afterEach, describe, expect, test as it, vi } from "vitest";
 
 import { isSsoProfile, resolveSsoCredentials } from "./resolveSsoCredentials";
 
-jest.mock("@aws-sdk/credential-provider-sso");
+vi.mock("@aws-sdk/credential-provider-sso");
 
 describe(isSsoProfile.name, () => {
   it("returns false for empty profile", () => {
@@ -20,17 +21,17 @@ describe(isSsoProfile.name, () => {
 
 describe(resolveSsoCredentials.name, () => {
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("throws error when fromSSO throws error", async () => {
     const mockProfileName = "mockProfileName";
     const expectedError = new Error("error from fromSSO");
 
-    (fromSSO as jest.Mock).mockReturnValue(() => Promise.reject(expectedError));
+    vi.mocked(fromSSO).mockReturnValue(() => Promise.reject(expectedError));
 
     try {
-      await resolveSsoCredentials(mockProfileName);
+      await resolveSsoCredentials(mockProfileName, {});
       fail(`expected ${expectedError}`);
     } catch (error) {
       expect(error).toStrictEqual(expectedError);
@@ -47,12 +48,47 @@ describe(resolveSsoCredentials.name, () => {
       secretAccessKey: "mockSecretAccessKey",
     };
 
-    (fromSSO as jest.Mock).mockReturnValue(() => Promise.resolve(mockCreds));
+    vi.mocked(fromSSO).mockReturnValue(() => Promise.resolve(mockCreds));
 
-    const receivedCreds = await resolveSsoCredentials(mockProfileName);
+    const receivedCreds = await resolveSsoCredentials(mockProfileName, {});
     expect(receivedCreds).toStrictEqual(mockCreds);
     expect(fromSSO).toHaveBeenCalledWith({
       profile: mockProfileName,
+    });
+  });
+
+  it("passes through clientConfig and parentClientConfig to the fromSSO provider", async () => {
+    const mockProfileName = "mockProfileName";
+    const mockCreds: AwsCredentialIdentity = {
+      accessKeyId: "mockAccessKeyId",
+      secretAccessKey: "mockSecretAccessKey",
+    };
+    const requestHandler = vi.fn();
+    const logger = vi.fn();
+
+    vi.mocked(fromSSO).mockReturnValue(() => Promise.resolve(mockCreds));
+
+    const receivedCreds = await resolveSsoCredentials(
+      mockProfileName,
+      {},
+      {
+        clientConfig: {
+          requestHandler,
+        },
+        parentClientConfig: {
+          logger,
+        },
+      }
+    );
+    expect(receivedCreds).toStrictEqual(mockCreds);
+    expect(fromSSO).toHaveBeenCalledWith({
+      profile: mockProfileName,
+      clientConfig: {
+        requestHandler,
+      },
+      parentClientConfig: {
+        logger,
+      },
     });
   });
 });

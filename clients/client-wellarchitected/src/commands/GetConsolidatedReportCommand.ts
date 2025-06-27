@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,7 @@ export interface GetConsolidatedReportCommandOutput extends GetConsolidatedRepor
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetConsolidatedReportCommand extends $Command
@@ -123,9 +125,7 @@ export class GetConsolidatedReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class GetConsolidatedReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConsolidatedReportCommand)
   .de(de_GetConsolidatedReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConsolidatedReportInput;
+      output: GetConsolidatedReportOutput;
+    };
+    sdk: {
+      input: GetConsolidatedReportCommandInput;
+      output: GetConsolidatedReportCommandOutput;
+    };
+  };
+}

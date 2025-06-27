@@ -16,7 +16,8 @@ import { de_ListLogPatternSetsCommand, se_ListLogPatternSetsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface ListLogPatternSetsCommandOutput extends ListLogPatternSetsRespo
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class ListLogPatternSetsCommand extends $Command
@@ -85,9 +87,7 @@ export class ListLogPatternSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListLogPatternSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLogPatternSetsCommand)
   .de(de_ListLogPatternSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLogPatternSetsRequest;
+      output: ListLogPatternSetsResponse;
+    };
+    sdk: {
+      input: ListLogPatternSetsCommandInput;
+      output: ListLogPatternSetsCommandOutput;
+    };
+  };
+}

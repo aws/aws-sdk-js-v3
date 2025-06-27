@@ -6,13 +6,19 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDataSourceRequest, CreateDataSourceResponse } from "../models/models_0";
+import {
+  CreateDataSourceRequest,
+  CreateDataSourceRequestFilterSensitiveLog,
+  CreateDataSourceResponse,
+  CreateDataSourceResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateDataSourceCommand, se_CreateDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +33,9 @@ export interface CreateDataSourceCommandInput extends CreateDataSourceRequest {}
 export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Sets up a data source to be added to a knowledge base.</p>
+ * <p>Connects a knowledge base to a data source. You specify the configuration for the specific data source service in the <code>dataSourceConfiguration</code> field.</p>
  *          <important>
- *             <p>You can't change the <code>chunkingConfiguration</code> after you create the data source.</p>
+ *             <p>You can't change the <code>chunkingConfiguration</code> after you create the data source connector.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -43,13 +49,114 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   dataSourceConfiguration: { // DataSourceConfiguration
- *     type: "S3", // required
+ *     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA", // required
  *     s3Configuration: { // S3DataSourceConfiguration
  *       bucketArn: "STRING_VALUE", // required
  *       inclusionPrefixes: [ // S3Prefixes
  *         "STRING_VALUE",
  *       ],
  *       bucketOwnerAccountId: "STRING_VALUE",
+ *     },
+ *     webConfiguration: { // WebDataSourceConfiguration
+ *       sourceConfiguration: { // WebSourceConfiguration
+ *         urlConfiguration: { // UrlConfiguration
+ *           seedUrls: [ // SeedUrls
+ *             { // SeedUrl
+ *               url: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       },
+ *       crawlerConfiguration: { // WebCrawlerConfiguration
+ *         crawlerLimits: { // WebCrawlerLimits
+ *           rateLimit: Number("int"),
+ *           maxPages: Number("int"),
+ *         },
+ *         inclusionFilters: [ // FilterList
+ *           "STRING_VALUE",
+ *         ],
+ *         exclusionFilters: [
+ *           "STRING_VALUE",
+ *         ],
+ *         scope: "HOST_ONLY" || "SUBDOMAINS",
+ *         userAgent: "STRING_VALUE",
+ *         userAgentHeader: "STRING_VALUE",
+ *       },
+ *     },
+ *     confluenceConfiguration: { // ConfluenceDataSourceConfiguration
+ *       sourceConfiguration: { // ConfluenceSourceConfiguration
+ *         hostUrl: "STRING_VALUE", // required
+ *         hostType: "SAAS", // required
+ *         authType: "BASIC" || "OAUTH2_CLIENT_CREDENTIALS", // required
+ *         credentialsSecretArn: "STRING_VALUE", // required
+ *       },
+ *       crawlerConfiguration: { // ConfluenceCrawlerConfiguration
+ *         filterConfiguration: { // CrawlFilterConfiguration
+ *           type: "PATTERN", // required
+ *           patternObjectFilter: { // PatternObjectFilterConfiguration
+ *             filters: [ // PatternObjectFilterList // required
+ *               { // PatternObjectFilter
+ *                 objectType: "STRING_VALUE", // required
+ *                 inclusionFilters: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 exclusionFilters: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *     salesforceConfiguration: { // SalesforceDataSourceConfiguration
+ *       sourceConfiguration: { // SalesforceSourceConfiguration
+ *         hostUrl: "STRING_VALUE", // required
+ *         authType: "OAUTH2_CLIENT_CREDENTIALS", // required
+ *         credentialsSecretArn: "STRING_VALUE", // required
+ *       },
+ *       crawlerConfiguration: { // SalesforceCrawlerConfiguration
+ *         filterConfiguration: {
+ *           type: "PATTERN", // required
+ *           patternObjectFilter: {
+ *             filters: [ // required
+ *               {
+ *                 objectType: "STRING_VALUE", // required
+ *                 inclusionFilters: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 exclusionFilters: "<FilterList>",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
+ *     },
+ *     sharePointConfiguration: { // SharePointDataSourceConfiguration
+ *       sourceConfiguration: { // SharePointSourceConfiguration
+ *         tenantId: "STRING_VALUE",
+ *         domain: "STRING_VALUE", // required
+ *         siteUrls: [ // SharePointSiteUrls // required
+ *           "STRING_VALUE",
+ *         ],
+ *         hostType: "ONLINE", // required
+ *         authType: "OAUTH2_CLIENT_CREDENTIALS" || "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS", // required
+ *         credentialsSecretArn: "STRING_VALUE", // required
+ *       },
+ *       crawlerConfiguration: { // SharePointCrawlerConfiguration
+ *         filterConfiguration: {
+ *           type: "PATTERN", // required
+ *           patternObjectFilter: {
+ *             filters: [ // required
+ *               {
+ *                 objectType: "STRING_VALUE", // required
+ *                 inclusionFilters: "<FilterList>",
+ *                 exclusionFilters: "<FilterList>",
+ *               },
+ *             ],
+ *           },
+ *         },
+ *       },
  *     },
  *   },
  *   dataDeletionPolicy: "RETAIN" || "DELETE",
@@ -58,10 +165,62 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   },
  *   vectorIngestionConfiguration: { // VectorIngestionConfiguration
  *     chunkingConfiguration: { // ChunkingConfiguration
- *       chunkingStrategy: "FIXED_SIZE" || "NONE", // required
+ *       chunkingStrategy: "FIXED_SIZE" || "NONE" || "HIERARCHICAL" || "SEMANTIC", // required
  *       fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
  *         maxTokens: Number("int"), // required
  *         overlapPercentage: Number("int"), // required
+ *       },
+ *       hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ *         levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ *           { // HierarchicalChunkingLevelConfiguration
+ *             maxTokens: Number("int"), // required
+ *           },
+ *         ],
+ *         overlapTokens: Number("int"), // required
+ *       },
+ *       semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ *         maxTokens: Number("int"), // required
+ *         bufferSize: Number("int"), // required
+ *         breakpointPercentileThreshold: Number("int"), // required
+ *       },
+ *     },
+ *     customTransformationConfiguration: { // CustomTransformationConfiguration
+ *       intermediateStorage: { // IntermediateStorage
+ *         s3Location: { // S3Location
+ *           uri: "STRING_VALUE", // required
+ *         },
+ *       },
+ *       transformations: [ // Transformations // required
+ *         { // Transformation
+ *           transformationFunction: { // TransformationFunction
+ *             transformationLambdaConfiguration: { // TransformationLambdaConfiguration
+ *               lambdaArn: "STRING_VALUE", // required
+ *             },
+ *           },
+ *           stepToApply: "POST_CHUNKING", // required
+ *         },
+ *       ],
+ *     },
+ *     parsingConfiguration: { // ParsingConfiguration
+ *       parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION", // required
+ *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
+ *         modelArn: "STRING_VALUE", // required
+ *         parsingPrompt: { // ParsingPrompt
+ *           parsingPromptText: "STRING_VALUE", // required
+ *         },
+ *         parsingModality: "MULTIMODAL",
+ *       },
+ *       bedrockDataAutomationConfiguration: { // BedrockDataAutomationConfiguration
+ *         parsingModality: "MULTIMODAL",
+ *       },
+ *     },
+ *     contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ *       type: "BEDROCK_FOUNDATION_MODEL", // required
+ *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ *         enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ *           method: "CHUNK_ENTITY_EXTRACTION", // required
+ *         },
+ *         modelArn: "STRING_VALUE", // required
  *       },
  *     },
  *   },
@@ -76,7 +235,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //     status: "AVAILABLE" || "DELETING" || "DELETE_UNSUCCESSFUL", // required
  * //     description: "STRING_VALUE",
  * //     dataSourceConfiguration: { // DataSourceConfiguration
- * //       type: "S3", // required
+ * //       type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "REDSHIFT_METADATA", // required
  * //       s3Configuration: { // S3DataSourceConfiguration
  * //         bucketArn: "STRING_VALUE", // required
  * //         inclusionPrefixes: [ // S3Prefixes
@@ -84,16 +243,169 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //         ],
  * //         bucketOwnerAccountId: "STRING_VALUE",
  * //       },
+ * //       webConfiguration: { // WebDataSourceConfiguration
+ * //         sourceConfiguration: { // WebSourceConfiguration
+ * //           urlConfiguration: { // UrlConfiguration
+ * //             seedUrls: [ // SeedUrls
+ * //               { // SeedUrl
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //         },
+ * //         crawlerConfiguration: { // WebCrawlerConfiguration
+ * //           crawlerLimits: { // WebCrawlerLimits
+ * //             rateLimit: Number("int"),
+ * //             maxPages: Number("int"),
+ * //           },
+ * //           inclusionFilters: [ // FilterList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           exclusionFilters: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           scope: "HOST_ONLY" || "SUBDOMAINS",
+ * //           userAgent: "STRING_VALUE",
+ * //           userAgentHeader: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       confluenceConfiguration: { // ConfluenceDataSourceConfiguration
+ * //         sourceConfiguration: { // ConfluenceSourceConfiguration
+ * //           hostUrl: "STRING_VALUE", // required
+ * //           hostType: "SAAS", // required
+ * //           authType: "BASIC" || "OAUTH2_CLIENT_CREDENTIALS", // required
+ * //           credentialsSecretArn: "STRING_VALUE", // required
+ * //         },
+ * //         crawlerConfiguration: { // ConfluenceCrawlerConfiguration
+ * //           filterConfiguration: { // CrawlFilterConfiguration
+ * //             type: "PATTERN", // required
+ * //             patternObjectFilter: { // PatternObjectFilterConfiguration
+ * //               filters: [ // PatternObjectFilterList // required
+ * //                 { // PatternObjectFilter
+ * //                   objectType: "STRING_VALUE", // required
+ * //                   inclusionFilters: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   exclusionFilters: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       salesforceConfiguration: { // SalesforceDataSourceConfiguration
+ * //         sourceConfiguration: { // SalesforceSourceConfiguration
+ * //           hostUrl: "STRING_VALUE", // required
+ * //           authType: "OAUTH2_CLIENT_CREDENTIALS", // required
+ * //           credentialsSecretArn: "STRING_VALUE", // required
+ * //         },
+ * //         crawlerConfiguration: { // SalesforceCrawlerConfiguration
+ * //           filterConfiguration: {
+ * //             type: "PATTERN", // required
+ * //             patternObjectFilter: {
+ * //               filters: [ // required
+ * //                 {
+ * //                   objectType: "STRING_VALUE", // required
+ * //                   inclusionFilters: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                   exclusionFilters: "<FilterList>",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       },
+ * //       sharePointConfiguration: { // SharePointDataSourceConfiguration
+ * //         sourceConfiguration: { // SharePointSourceConfiguration
+ * //           tenantId: "STRING_VALUE",
+ * //           domain: "STRING_VALUE", // required
+ * //           siteUrls: [ // SharePointSiteUrls // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           hostType: "ONLINE", // required
+ * //           authType: "OAUTH2_CLIENT_CREDENTIALS" || "OAUTH2_SHAREPOINT_APP_ONLY_CLIENT_CREDENTIALS", // required
+ * //           credentialsSecretArn: "STRING_VALUE", // required
+ * //         },
+ * //         crawlerConfiguration: { // SharePointCrawlerConfiguration
+ * //           filterConfiguration: {
+ * //             type: "PATTERN", // required
+ * //             patternObjectFilter: {
+ * //               filters: [ // required
+ * //                 {
+ * //                   objectType: "STRING_VALUE", // required
+ * //                   inclusionFilters: "<FilterList>",
+ * //                   exclusionFilters: "<FilterList>",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //       kmsKeyArn: "STRING_VALUE",
  * //     },
  * //     vectorIngestionConfiguration: { // VectorIngestionConfiguration
  * //       chunkingConfiguration: { // ChunkingConfiguration
- * //         chunkingStrategy: "FIXED_SIZE" || "NONE", // required
+ * //         chunkingStrategy: "FIXED_SIZE" || "NONE" || "HIERARCHICAL" || "SEMANTIC", // required
  * //         fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
  * //           maxTokens: Number("int"), // required
  * //           overlapPercentage: Number("int"), // required
+ * //         },
+ * //         hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ * //           levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ * //             { // HierarchicalChunkingLevelConfiguration
+ * //               maxTokens: Number("int"), // required
+ * //             },
+ * //           ],
+ * //           overlapTokens: Number("int"), // required
+ * //         },
+ * //         semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           bufferSize: Number("int"), // required
+ * //           breakpointPercentileThreshold: Number("int"), // required
+ * //         },
+ * //       },
+ * //       customTransformationConfiguration: { // CustomTransformationConfiguration
+ * //         intermediateStorage: { // IntermediateStorage
+ * //           s3Location: { // S3Location
+ * //             uri: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //         transformations: [ // Transformations // required
+ * //           { // Transformation
+ * //             transformationFunction: { // TransformationFunction
+ * //               transformationLambdaConfiguration: { // TransformationLambdaConfiguration
+ * //                 lambdaArn: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //             stepToApply: "POST_CHUNKING", // required
+ * //           },
+ * //         ],
+ * //       },
+ * //       parsingConfiguration: { // ParsingConfiguration
+ * //         parsingStrategy: "BEDROCK_FOUNDATION_MODEL" || "BEDROCK_DATA_AUTOMATION", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfiguration
+ * //           modelArn: "STRING_VALUE", // required
+ * //           parsingPrompt: { // ParsingPrompt
+ * //             parsingPromptText: "STRING_VALUE", // required
+ * //           },
+ * //           parsingModality: "MULTIMODAL",
+ * //         },
+ * //         bedrockDataAutomationConfiguration: { // BedrockDataAutomationConfiguration
+ * //           parsingModality: "MULTIMODAL",
+ * //         },
+ * //       },
+ * //       contextEnrichmentConfiguration: { // ContextEnrichmentConfiguration
+ * //         type: "BEDROCK_FOUNDATION_MODEL", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelContextEnrichmentConfiguration
+ * //           enrichmentStrategyConfiguration: { // EnrichmentStrategyConfiguration
+ * //             method: "CHUNK_ENTITY_EXTRACTION", // required
+ * //           },
+ * //           modelArn: "STRING_VALUE", // required
  * //         },
  * //       },
  * //     },
@@ -138,6 +450,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSourceCommand extends $Command
@@ -148,9 +461,7 @@ export class CreateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,7 +470,19 @@ export class CreateDataSourceCommand extends $Command
   })
   .s("AmazonBedrockAgentBuildTimeLambda", "CreateDataSource", {})
   .n("BedrockAgentClient", "CreateDataSourceCommand")
-  .f(void 0, void 0)
+  .f(CreateDataSourceRequestFilterSensitiveLog, CreateDataSourceResponseFilterSensitiveLog)
   .ser(se_CreateDataSourceCommand)
   .de(de_CreateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceRequest;
+      output: CreateDataSourceResponse;
+    };
+    sdk: {
+      input: CreateDataSourceCommandInput;
+      output: CreateDataSourceCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,10 +71,10 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * // const { EC2Client, DescribeAccountAttributesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAccountAttributesRequest
+ *   DryRun: true || false,
  *   AttributeNames: [ // AccountAttributeNameStringList
  *     "supported-platforms" || "default-vpc",
  *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
@@ -101,103 +102,102 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a single attribute for your AWS account
  * ```javascript
  * // This example describes the supported-platforms attribute for your AWS account.
  * const input = {
- *   "AttributeNames": [
+ *   AttributeNames: [
  *     "supported-platforms"
  *   ]
  * };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccountAttributes": [
+ *   AccountAttributes: [
  *     {
- *       "AttributeName": "supported-platforms",
- *       "AttributeValues": [
+ *       AttributeName: "supported-platforms",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "EC2"
+ *           AttributeValue: "EC2"
  *         },
  *         {
- *           "AttributeValue": "VPC"
+ *           AttributeValue: "VPC"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-account-attributes-1
  * ```
  *
  * @example To describe all attributes for your AWS account
  * ```javascript
  * // This example describes the attributes for your AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAccountAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccountAttributes": [
+ *   AccountAttributes: [
  *     {
- *       "AttributeName": "supported-platforms",
- *       "AttributeValues": [
+ *       AttributeName: "supported-platforms",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "EC2"
+ *           AttributeValue: "EC2"
  *         },
  *         {
- *           "AttributeValue": "VPC"
+ *           AttributeValue: "VPC"
  *         }
  *       ]
  *     },
  *     {
- *       "AttributeName": "vpc-max-security-groups-per-interface",
- *       "AttributeValues": [
+ *       AttributeName: "vpc-max-security-groups-per-interface",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "5"
+ *           AttributeValue: "5"
  *         }
  *       ]
  *     },
  *     {
- *       "AttributeName": "max-elastic-ips",
- *       "AttributeValues": [
+ *       AttributeName: "max-elastic-ips",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "5"
+ *           AttributeValue: "5"
  *         }
  *       ]
  *     },
  *     {
- *       "AttributeName": "max-instances",
- *       "AttributeValues": [
+ *       AttributeName: "max-instances",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "20"
+ *           AttributeValue: "20"
  *         }
  *       ]
  *     },
  *     {
- *       "AttributeName": "vpc-max-elastic-ips",
- *       "AttributeValues": [
+ *       AttributeName: "vpc-max-elastic-ips",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "5"
+ *           AttributeValue: "5"
  *         }
  *       ]
  *     },
  *     {
- *       "AttributeName": "default-vpc",
- *       "AttributeValues": [
+ *       AttributeName: "default-vpc",
+ *       AttributeValues: [
  *         {
- *           "AttributeValue": "none"
+ *           AttributeValue: "none"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-account-attributes-2
  * ```
  *
+ * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
   .classBuilder<
@@ -207,9 +207,7 @@ export class DescribeAccountAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -221,4 +219,16 @@ export class DescribeAccountAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAttributesCommand)
   .de(de_DescribeAccountAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountAttributesRequest;
+      output: DescribeAccountAttributesResult;
+    };
+    sdk: {
+      input: DescribeAccountAttributesCommandInput;
+      output: DescribeAccountAttributesCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_ListCreateAccountStatusCommand, se_ListCreateAccountStatusCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -147,6 +148,10 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -187,6 +192,9 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -212,59 +220,58 @@ export interface ListCreateAccountStatusCommandOutput extends ListCreateAccountS
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To get a list of completed account creation requests made in the organization
- * ```javascript
- * // The following example shows a user requesting a list of only the completed account creation requests made for the current organization:
- * const input = {
- *   "States": [
- *     "SUCCEEDED"
- *   ]
- * };
- * const command = new ListCreateAccountStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreateAccountStatuses": [
- *     {
- *       "AccountId": "444444444444",
- *       "AccountName": "Developer Test Account",
- *       "CompletedTimestamp": "2017-01-15T13:45:23.6Z",
- *       "Id": "car-exampleaccountcreationrequestid1",
- *       "RequestedTimestamp": "2017-01-15T13:45:23.01Z",
- *       "State": "SUCCEEDED"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-a-list-of-completed-account-creation-requests-made-in-the-organization
- * ```
  *
  * @example To get a list of all account creation requests made in the organization
  * ```javascript
  * // The following example shows a user requesting a list of only the in-progress account creation requests made for the current organization:
  * const input = {
- *   "States": [
+ *   States: [
  *     "IN_PROGRESS"
  *   ]
  * };
  * const command = new ListCreateAccountStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatuses": [
+ *   CreateAccountStatuses: [
  *     {
- *       "AccountName": "Production Account",
- *       "Id": "car-exampleaccountcreationrequestid2",
- *       "RequestedTimestamp": "2017-01-15T13:45:23.01Z",
- *       "State": "IN_PROGRESS"
+ *       AccountName: "Production Account",
+ *       Id: "car-exampleaccountcreationrequestid2",
+ *       RequestedTimestamp: "2017-01-15T13:45:23.01Z",
+ *       State: "IN_PROGRESS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-get-a-list-of-all-account-creation-requests-made-in-the-organization-1472509174532
  * ```
  *
+ * @example To get a list of completed account creation requests made in the organization
+ * ```javascript
+ * // The following example shows a user requesting a list of only the completed account creation requests made for the current organization:
+ * const input = {
+ *   States: [
+ *     "SUCCEEDED"
+ *   ]
+ * };
+ * const command = new ListCreateAccountStatusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   CreateAccountStatuses: [
+ *     {
+ *       AccountId: "444444444444",
+ *       AccountName: "Developer Test Account",
+ *       CompletedTimestamp: "2017-01-15T13:45:23.6Z",
+ *       Id: "car-exampleaccountcreationrequestid1",
+ *       RequestedTimestamp: "2017-01-15T13:45:23.01Z",
+ *       State: "SUCCEEDED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ListCreateAccountStatusCommand extends $Command
   .classBuilder<
@@ -274,9 +281,7 @@ export class ListCreateAccountStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -288,4 +293,16 @@ export class ListCreateAccountStatusCommand extends $Command
   .f(void 0, ListCreateAccountStatusResponseFilterSensitiveLog)
   .ser(se_ListCreateAccountStatusCommand)
   .de(de_ListCreateAccountStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCreateAccountStatusRequest;
+      output: ListCreateAccountStatusResponse;
+    };
+    sdk: {
+      input: ListCreateAccountStatusCommandInput;
+      output: ListCreateAccountStatusCommandOutput;
+    };
+  };
+}

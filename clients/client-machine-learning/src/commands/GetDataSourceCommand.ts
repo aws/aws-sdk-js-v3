@@ -12,7 +12,8 @@ import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,6 +104,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @throws {@link MachineLearningServiceException}
  * <p>Base exception class for all service exceptions from MachineLearning service.</p>
  *
+ *
  * @public
  */
 export class GetDataSourceCommand extends $Command
@@ -113,9 +115,7 @@ export class GetDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MachineLearningClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class GetDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataSourceCommand)
   .de(de_GetDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSourceInput;
+      output: GetDataSourceOutput;
+    };
+    sdk: {
+      input: GetDataSourceCommandInput;
+      output: GetDataSourceCommandOutput;
+    };
+  };
+}

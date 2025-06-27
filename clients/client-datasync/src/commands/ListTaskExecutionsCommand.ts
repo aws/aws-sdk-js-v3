@@ -12,7 +12,8 @@ import { de_ListTaskExecutionsCommand, se_ListTaskExecutionsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * //     { // TaskExecutionListEntry
  * //       TaskExecutionArn: "STRING_VALUE",
  * //       Status: "QUEUED" || "CANCELLING" || "LAUNCHING" || "PREPARING" || "TRANSFERRING" || "VERIFYING" || "SUCCESS" || "ERROR",
+ * //       TaskMode: "BASIC" || "ENHANCED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -69,6 +71,7 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class ListTaskExecutionsCommand extends $Command
@@ -79,9 +82,7 @@ export class ListTaskExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class ListTaskExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTaskExecutionsCommand)
   .de(de_ListTaskExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaskExecutionsRequest;
+      output: ListTaskExecutionsResponse;
+    };
+    sdk: {
+      input: ListTaskExecutionsCommandInput;
+      output: ListTaskExecutionsCommandOutput;
+    };
+  };
+}

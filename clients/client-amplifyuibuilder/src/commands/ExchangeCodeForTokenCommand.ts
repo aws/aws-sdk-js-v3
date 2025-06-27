@@ -17,7 +17,8 @@ import { de_ExchangeCodeForTokenCommand, se_ExchangeCodeForTokenCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface ExchangeCodeForTokenCommandOutput extends ExchangeCodeForTokenR
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class ExchangeCodeForTokenCommand extends $Command
@@ -82,9 +84,7 @@ export class ExchangeCodeForTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ExchangeCodeForTokenCommand extends $Command
   .f(ExchangeCodeForTokenRequestFilterSensitiveLog, ExchangeCodeForTokenResponseFilterSensitiveLog)
   .ser(se_ExchangeCodeForTokenCommand)
   .de(de_ExchangeCodeForTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExchangeCodeForTokenRequest;
+      output: ExchangeCodeForTokenResponse;
+    };
+    sdk: {
+      input: ExchangeCodeForTokenCommandInput;
+      output: ExchangeCodeForTokenCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UpdateDatasetEntriesCommand, se_UpdateDatasetEntriesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class UpdateDatasetEntriesCommand extends $Command
@@ -100,9 +102,7 @@ export class UpdateDatasetEntriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutVisionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class UpdateDatasetEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDatasetEntriesCommand)
   .de(de_UpdateDatasetEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDatasetEntriesRequest;
+      output: UpdateDatasetEntriesResponse;
+    };
+    sdk: {
+      input: UpdateDatasetEntriesCommandInput;
+      output: UpdateDatasetEntriesCommandOutput;
+    };
+  };
+}

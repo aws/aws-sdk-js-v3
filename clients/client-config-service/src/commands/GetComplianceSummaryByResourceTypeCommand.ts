@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface GetComplianceSummaryByResourceTypeCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class GetComplianceSummaryByResourceTypeCommand extends $Command
@@ -96,9 +98,7 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class GetComplianceSummaryByResourceTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComplianceSummaryByResourceTypeCommand)
   .de(de_GetComplianceSummaryByResourceTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComplianceSummaryByResourceTypeRequest;
+      output: GetComplianceSummaryByResourceTypeResponse;
+    };
+    sdk: {
+      input: GetComplianceSummaryByResourceTypeCommandInput;
+      output: GetComplianceSummaryByResourceTypeCommandOutput;
+    };
+  };
+}

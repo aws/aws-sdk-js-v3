@@ -12,7 +12,8 @@ import { de_ActivateTypeCommand, se_ActivateTypeCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,10 @@ export interface ActivateTypeCommandInput extends ActivateTypeInput {}
 export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Activates a public third-party extension, making it available for use in stack templates. For more information,
- *    see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using public
- *    extensions</a> in the <i>CloudFormation User Guide</i>.</p>
- *          <p>Once you have activated a public third-party extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For more information, see
- *     <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-private.html#registry-set-configuration">Configuring extensions at
- *     the account level</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Activates a public third-party extension, making it available for use in stack templates.
+ *       Once you have activated a public third-party extension in your account and Region, use <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetTypeConfiguration.html">SetTypeConfiguration</a> to specify configuration properties for the extension. For
+ *       more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/registry-public.html">Using public
+ *         extensions</a> in the <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +76,7 @@ export interface ActivateTypeCommandOutput extends ActivateTypeOutput, __Metadat
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ActivateTypeCommand extends $Command
@@ -87,9 +87,7 @@ export class ActivateTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +99,16 @@ export class ActivateTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ActivateTypeCommand)
   .de(de_ActivateTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateTypeInput;
+      output: ActivateTypeOutput;
+    };
+    sdk: {
+      input: ActivateTypeCommandInput;
+      output: ActivateTypeCommandOutput;
+    };
+  };
+}

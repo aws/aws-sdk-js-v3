@@ -12,7 +12,8 @@ import { de_ListInstanceAttributesCommand, se_ListInstanceAttributesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,7 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * // { // ListInstanceAttributesResponse
  * //   Attributes: [ // AttributesList
  * //     { // Attribute
- * //       AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING" || "ENHANCED_CHAT_MONITORING",
+ * //       AttributeType: "INBOUND_CALLS" || "OUTBOUND_CALLS" || "CONTACTFLOW_LOGS" || "CONTACT_LENS" || "AUTO_RESOLVE_BEST_VOICES" || "USE_CUSTOM_TTS_VOICES" || "EARLY_MEDIA" || "MULTI_PARTY_CONFERENCE" || "HIGH_VOLUME_OUTBOUND" || "ENHANCED_CONTACT_MONITORING" || "ENHANCED_CHAT_MONITORING" || "MULTI_PARTY_CHAT_CONFERENCE",
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
@@ -78,6 +79,7 @@ export interface ListInstanceAttributesCommandOutput extends ListInstanceAttribu
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceAttributesCommand extends $Command
@@ -88,9 +90,7 @@ export class ListInstanceAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ListInstanceAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceAttributesCommand)
   .de(de_ListInstanceAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceAttributesRequest;
+      output: ListInstanceAttributesResponse;
+    };
+    sdk: {
+      input: ListInstanceAttributesCommandInput;
+      output: ListInstanceAttributesCommandOutput;
+    };
+  };
+}

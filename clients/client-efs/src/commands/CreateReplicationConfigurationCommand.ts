@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,95 +33,33 @@ export interface CreateReplicationConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a replication configuration that replicates an existing EFS file system
- *       to a new, read-only file system. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
- *           <i>Amazon EFS User Guide</i>. The replication configuration
- *       specifies the following:</p>
+ * <p>Creates a replication conﬁguration to either a new or existing EFS file system.
+ *       For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the <i>Amazon EFS User
+ *         Guide</i>. The replication configuration specifies the following:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>Source file system</b> – The EFS file system that
- *           you want replicated. The source file system cannot be a destination file system in an
- *           existing replication configuration.</p>
+ *                   <b>Source file system</b> – The EFS file
+ *           system that you want to replicate. </p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Amazon Web Services Region</b> – The Amazon Web Services Region in which the destination file system is created. Amazon EFS
- *           replication is available in all Amazon Web Services Regions in which EFS is available. The
- *           Region must be enabled. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference
- *             Reference Guide</i>.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Destination file system configuration</b> – The
- *           configuration of the destination file system to which the source file system will be
- *           replicated. There can only be one destination file system in a replication configuration. </p>
- *                <p>Parameters for the replication configuration include:</p>
- *                <ul>
- *                   <li>
- *                      <p>
- *                         <b>File system ID</b> – The ID of the destination
- *               file system for the replication. If no ID is provided, then EFS creates a new file
- *               system with the default settings. For existing file systems, the file system's
- *               replication overwrite protection must be disabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication#replicate-existing-destination"> Replicating to
- *                 an existing file system</a>.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Availability Zone</b> – If you want the destination file
- *               system to use One Zone storage, you must specify the Availability Zone to create the
- *               file system in. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">
- *                 EFS file system types</a> in the <i>Amazon EFS User
- *                 Guide</i>.</p>
- *                   </li>
- *                   <li>
- *                      <p>
- *                         <b>Encryption</b> – All destination file systems are created
- *               with encryption at rest enabled. You can specify the Key Management Service (KMS) key that is used to encrypt the destination file system. If you don't
- *               specify a KMS key, your service-managed KMS key for
- *                 Amazon EFS is used. </p>
- *                      <note>
- *                         <p>After the file system is created, you cannot change the KMS key.</p>
- *                      </note>
- *                   </li>
- *                </ul>
+ *                   <b>Destination file system</b> – The destination file
+ *           system to which the source file system is replicated. There can only be one destination
+ *           file system in a replication configuration. </p>
+ *                <note>
+ *                   <p>A file system can be part of only one replication configuration. </p>
+ *                </note>
+ *                <p>The destination parameters for the replication configuration depend on
+ *           whether you are replicating to a new file system or to an existing file system, and if you
+ *           are replicating across Amazon Web Services accounts. See <a>DestinationToCreate</a> for more information.</p>
  *             </li>
  *          </ul>
- *          <note>
- *             <p>After the file system is created, you cannot change the KMS key.</p>
- *          </note>
- *          <p>For new destination file systems, the following properties are set by default:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Performance mode</b> - The destination file system's
- *           performance mode matches that of the source file system, unless the destination file
- *           system uses EFS One Zone storage. In that case, the General Purpose performance mode is
- *           used. The performance mode cannot be changed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Throughput mode</b> - The destination file system's
- *           throughput mode matches that of the source file system. After the file system is created,
- *           you can modify the throughput mode.</p>
- *             </li>
- *          </ul>
- *          <ul>
- *             <li>
- *                <p>
- *                   <b>Lifecycle management</b> – Lifecycle management is not enabled
- *           on the destination file system. After the destination file system is created, you can
- *           enable lifecycle management.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <b>Automatic backups</b> – Automatic daily backups are enabled on
- *           the destination file system. After the file system is created, you can change this
- *           setting.</p>
- *             </li>
- *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html">Amazon EFS replication</a> in the
- *           <i>Amazon EFS User Guide</i>.</p>
+ *          <p>This operation requires permissions for the <code>elasticfilesystem:CreateReplicationConfiguration</code>
+ *        action. Additionally, other permissions are required depending on how you are replicating file systems.
+ *        For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication.html#efs-replication-permissions">Required permissions for replication</a>
+ *       in the <i>Amazon EFS User
+ *              Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,6 +74,7 @@ export interface CreateReplicationConfigurationCommandOutput
  *       AvailabilityZoneName: "STRING_VALUE",
  *       KmsKeyId: "STRING_VALUE",
  *       FileSystemId: "STRING_VALUE",
+ *       RoleArn: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -152,8 +92,12 @@ export interface CreateReplicationConfigurationCommandOutput
  * //       FileSystemId: "STRING_VALUE", // required
  * //       Region: "STRING_VALUE", // required
  * //       LastReplicatedTimestamp: new Date("TIMESTAMP"),
+ * //       OwnerId: "STRING_VALUE",
+ * //       StatusMessage: "STRING_VALUE",
+ * //       RoleArn: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   SourceFileSystemOwnerId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -209,6 +153,7 @@ export interface CreateReplicationConfigurationCommandOutput
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class CreateReplicationConfigurationCommand extends $Command
@@ -219,9 +164,7 @@ export class CreateReplicationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -233,4 +176,16 @@ export class CreateReplicationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationConfigurationCommand)
   .de(de_CreateReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationConfigurationRequest;
+      output: ReplicationConfigurationDescription;
+    };
+    sdk: {
+      input: CreateReplicationConfigurationCommandInput;
+      output: CreateReplicationConfigurationCommandOutput;
+    };
+  };
+}

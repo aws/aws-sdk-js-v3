@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>List all multicast groups associated with a fuota task.</p>
+ * <p>List all multicast groups associated with a FUOTA task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +82,7 @@ export interface ListMulticastGroupsByFuotaTaskCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListMulticastGroupsByFuotaTaskCommand extends $Command
@@ -91,9 +93,7 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListMulticastGroupsByFuotaTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMulticastGroupsByFuotaTaskCommand)
   .de(de_ListMulticastGroupsByFuotaTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMulticastGroupsByFuotaTaskRequest;
+      output: ListMulticastGroupsByFuotaTaskResponse;
+    };
+    sdk: {
+      input: ListMulticastGroupsByFuotaTaskCommandInput;
+      output: ListMulticastGroupsByFuotaTaskCommandOutput;
+    };
+  };
+}

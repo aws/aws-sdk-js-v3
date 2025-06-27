@@ -12,7 +12,8 @@ import { de_DeleteRuleSetCommand, se_DeleteRuleSetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,7 @@ export interface DeleteRuleSetCommandOutput extends DeleteRuleSetResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteRuleSetCommand extends $Command
@@ -68,9 +70,7 @@ export class DeleteRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +82,16 @@ export class DeleteRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRuleSetCommand)
   .de(de_DeleteRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRuleSetCommandInput;
+      output: DeleteRuleSetCommandOutput;
+    };
+  };
+}

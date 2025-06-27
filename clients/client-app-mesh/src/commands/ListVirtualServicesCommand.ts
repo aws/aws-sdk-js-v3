@@ -12,7 +12,8 @@ import { de_ListVirtualServicesCommand, se_ListVirtualServicesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface ListVirtualServicesCommandOutput extends ListVirtualServicesOut
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class ListVirtualServicesCommand extends $Command
@@ -100,9 +102,7 @@ export class ListVirtualServicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListVirtualServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVirtualServicesCommand)
   .de(de_ListVirtualServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualServicesInput;
+      output: ListVirtualServicesOutput;
+    };
+    sdk: {
+      input: ListVirtualServicesCommandInput;
+      output: ListVirtualServicesCommandOutput;
+    };
+  };
+}

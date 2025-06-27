@@ -2976,7 +2976,7 @@ const se_ActorPolicyDocument = (input: __DocumentType, context: __SerdeContext):
 const se_AuthenticationMethod = (input: AuthenticationMethod, context: __SerdeContext): any => {
   return AuthenticationMethod.visit(input, {
     Iam: (value) => ({ Iam: se_IamAuthenticationMethod(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 

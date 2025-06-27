@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface GetCurrentUserCommandOutput extends GetCurrentUserResponse, __M
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetCurrentUserCommand extends $Command
@@ -114,9 +116,7 @@ export class GetCurrentUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetCurrentUserCommand extends $Command
   .f(GetCurrentUserRequestFilterSensitiveLog, GetCurrentUserResponseFilterSensitiveLog)
   .ser(se_GetCurrentUserCommand)
   .de(de_GetCurrentUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCurrentUserRequest;
+      output: GetCurrentUserResponse;
+    };
+    sdk: {
+      input: GetCurrentUserCommandInput;
+      output: GetCurrentUserCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,8 +31,7 @@ export interface DisassociateAnalyticsDataSetCommandInput extends DisassociateAn
 export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>Removes the dataset ID associated with a given Amazon Connect instance.</p>
+ * <p>Removes the dataset ID associated with a given Amazon Connect instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +73,7 @@ export interface DisassociateAnalyticsDataSetCommandOutput extends __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateAnalyticsDataSetCommand extends $Command
@@ -83,9 +84,7 @@ export class DisassociateAnalyticsDataSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DisassociateAnalyticsDataSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAnalyticsDataSetCommand)
   .de(de_DisassociateAnalyticsDataSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAnalyticsDataSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAnalyticsDataSetCommandInput;
+      output: DisassociateAnalyticsDataSetCommandOutput;
+    };
+  };
+}

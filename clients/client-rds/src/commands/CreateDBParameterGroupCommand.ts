@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,17 +37,6 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  *             a new DB parameter group with a running DB instance, you need to reboot the DB
  *             instance without failover for the new DB parameter group and associated settings to take effect.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
- *          <important>
- *             <p>After you create a DB parameter group, you should wait at least 5 minutes
- *                 before creating your first DB instance that uses that DB parameter group as the default parameter
- *                 group. This allows Amazon RDS to fully complete the create action before the parameter
- *                 group is used as the default for a new DB instance. This is especially important for parameters
- *                 that are critical when creating the default database for a DB instance, such as the character set
- *                 for the default database defined by the <code>character_set_database</code> parameter. You can use the
- *                 <i>Parameter Groups</i> option of the <a href="https://console.aws.amazon.com/rds/">Amazon RDS console</a> or the
- *                 <i>DescribeDBParameters</i> command to verify
- *                 that your DB parameter group has been created or modified.</p>
- *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,30 +83,30 @@ export interface CreateDBParameterGroupCommandOutput extends CreateDBParameterGr
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB parameter group
  * ```javascript
  * // The following example creates a DB parameter group.
  * const input = {
- *   "DBParameterGroupFamily": "MySQL8.0",
- *   "DBParameterGroupName": "mydbparametergroup",
- *   "Description": "My new parameter group"
+ *   DBParameterGroupFamily: "MySQL8.0",
+ *   DBParameterGroupName: "mydbparametergroup",
+ *   Description: "My new parameter group"
  * };
  * const command = new CreateDBParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBParameterGroup": {
- *     "DBParameterGroupArn": "arn:aws:rds:us-east-1:123456789012:pg:mydbparametergroup",
- *     "DBParameterGroupFamily": "mysql8.0",
- *     "DBParameterGroupName": "mydbparametergroup",
- *     "Description": "My new parameter group"
+ *   DBParameterGroup: {
+ *     DBParameterGroupArn: "arn:aws:rds:us-east-1:123456789012:pg:mydbparametergroup",
+ *     DBParameterGroupFamily: "mysql8.0",
+ *     DBParameterGroupName: "mydbparametergroup",
+ *     Description: "My new parameter group"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-parameter-group-1679939227970
  * ```
  *
+ * @public
  */
 export class CreateDBParameterGroupCommand extends $Command
   .classBuilder<
@@ -126,9 +116,7 @@ export class CreateDBParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +128,16 @@ export class CreateDBParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBParameterGroupCommand)
   .de(de_CreateDBParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBParameterGroupMessage;
+      output: CreateDBParameterGroupResult;
+    };
+    sdk: {
+      input: CreateDBParameterGroupCommandInput;
+      output: CreateDBParameterGroupCommandOutput;
+    };
+  };
+}

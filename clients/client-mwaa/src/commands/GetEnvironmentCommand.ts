@@ -12,7 +12,8 @@ import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * //         ErrorMessage: "STRING_VALUE",
  * //       },
  * //       Source: "STRING_VALUE",
+ * //       WorkerReplacementStrategy: "STRING_VALUE",
  * //     },
  * //     WeeklyMaintenanceWindowStart: "STRING_VALUE",
  * //     Tags: { // TagMap
@@ -143,6 +145,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentOutput, __Met
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentCommand extends $Command
@@ -153,9 +156,7 @@ export class GetEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +168,16 @@ export class GetEnvironmentCommand extends $Command
   .f(void 0, GetEnvironmentOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentCommand)
   .de(de_GetEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentInput;
+      output: GetEnvironmentOutput;
+    };
+    sdk: {
+      input: GetEnvironmentCommandInput;
+      output: GetEnvironmentCommandOutput;
+    };
+  };
+}

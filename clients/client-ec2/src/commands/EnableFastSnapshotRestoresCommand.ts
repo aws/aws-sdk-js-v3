@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableFastSnapshotRestoresRequest, EnableFastSnapshotRestoresResult } from "../models/models_5";
+import { EnableFastSnapshotRestoresRequest, EnableFastSnapshotRestoresResult } from "../models/models_6";
 import { de_EnableFastSnapshotRestoresCommand, se_EnableFastSnapshotRestoresCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface EnableFastSnapshotRestoresCommandOutput extends EnableFastSnaps
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableFastSnapshotRestoresCommand extends $Command
@@ -103,9 +105,7 @@ export class EnableFastSnapshotRestoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class EnableFastSnapshotRestoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableFastSnapshotRestoresCommand)
   .de(de_EnableFastSnapshotRestoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableFastSnapshotRestoresRequest;
+      output: EnableFastSnapshotRestoresResult;
+    };
+    sdk: {
+      input: EnableFastSnapshotRestoresCommandInput;
+      output: EnableFastSnapshotRestoresCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UpdateGraphCommand, se_UpdateGraphCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface UpdateGraphCommandOutput extends UpdateGraphOutput, __MetadataB
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class UpdateGraphCommand extends $Command
@@ -113,4 +115,16 @@ export class UpdateGraphCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGraphCommand)
   .de(de_UpdateGraphCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGraphInput;
+      output: UpdateGraphOutput;
+    };
+    sdk: {
+      input: UpdateGraphCommandInput;
+      output: UpdateGraphCommandOutput;
+    };
+  };
+}

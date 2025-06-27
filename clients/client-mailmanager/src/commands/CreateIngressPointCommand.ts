@@ -16,7 +16,8 @@ import { de_CreateIngressPointCommand, se_CreateIngressPointCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,14 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  *   IngressPointConfiguration: { // IngressPointConfiguration Union: only one key present
  *     SmtpPassword: "STRING_VALUE",
  *     SecretArn: "STRING_VALUE",
+ *   },
+ *   NetworkConfiguration: { // NetworkConfiguration Union: only one key present
+ *     PublicNetworkConfiguration: { // PublicNetworkConfiguration
+ *       IpType: "IPV4" || "DUAL_STACK", // required
+ *     },
+ *     PrivateNetworkConfiguration: { // PrivateNetworkConfiguration
+ *       VpcEndpointId: "STRING_VALUE", // required
+ *     },
  *   },
  *   Tags: [ // TagList
  *     { // Tag
@@ -81,6 +90,85 @@ export interface CreateIngressPointCommandOutput extends CreateIngressPointRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Create Open IngressPoint
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointName: "ingressPointName",
+ *   RuleSetId: "rs-12345",
+ *   Tags: [
+ *     {
+ *       Key: "key",
+ *       Value: "value"
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345",
+ *   Type: "OPEN"
+ * };
+ * const command = new CreateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPointId: "inp-12345"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create Auth IngressPoint with Password
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointConfiguration: {
+ *     SmtpPassword: "smtpPassword"
+ *   },
+ *   IngressPointName: "ingressPointName",
+ *   RuleSetId: "rs-12345",
+ *   Tags: [
+ *     {
+ *       Key: "key",
+ *       Value: "value"
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345",
+ *   Type: "AUTH"
+ * };
+ * const command = new CreateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPointId: "inp-12345"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Create Auth IngressPoint with SecretsManager Secret
+ * ```javascript
+ * //
+ * const input = {
+ *   IngressPointConfiguration: {
+ *     SecretArn: "arn:aws:secretsmanager:us-west-2:123456789012:secret:abcde"
+ *   },
+ *   IngressPointName: "ingressPointName",
+ *   RuleSetId: "rs-12345",
+ *   Tags: [
+ *     {
+ *       Key: "key",
+ *       Value: "value"
+ *     }
+ *   ],
+ *   TrafficPolicyId: "tp-12345",
+ *   Type: "AUTH"
+ * };
+ * const command = new CreateIngressPointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IngressPointId: "inp-12345"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateIngressPointCommand extends $Command
@@ -91,9 +179,7 @@ export class CreateIngressPointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +191,16 @@ export class CreateIngressPointCommand extends $Command
   .f(CreateIngressPointRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIngressPointCommand)
   .de(de_CreateIngressPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIngressPointRequest;
+      output: CreateIngressPointResponse;
+    };
+    sdk: {
+      input: CreateIngressPointCommandInput;
+      output: CreateIngressPointCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface CreateAdditionalAssignmentsForHITCommandOutput
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class CreateAdditionalAssignmentsForHITCommand extends $Command
@@ -100,9 +102,7 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class CreateAdditionalAssignmentsForHITCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAdditionalAssignmentsForHITCommand)
   .de(de_CreateAdditionalAssignmentsForHITCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAdditionalAssignmentsForHITRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateAdditionalAssignmentsForHITCommandInput;
+      output: CreateAdditionalAssignmentsForHITCommandOutput;
+    };
+  };
+}

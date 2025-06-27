@@ -12,7 +12,8 @@ import { de_UpdateFlowOutputCommand, se_UpdateFlowOutputCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface UpdateFlowOutputCommandInput extends UpdateFlowOutputRequest {}
 export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse, __MetadataBearer {}
 
 /**
- * Updates an existing flow output.
+ * <p> Updates an existing flow output.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,7 +36,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * // const { MediaConnectClient, UpdateFlowOutputCommand } = require("@aws-sdk/client-mediaconnect"); // CommonJS import
  * const client = new MediaConnectClient(config);
  * const input = { // UpdateFlowOutputRequest
- *   CidrAllowList: [ // __listOf__string
+ *   CidrAllowList: [ // __listOfString
  *     "STRING_VALUE",
  *   ],
  *   Description: "STRING_VALUE",
@@ -75,7 +76,7 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   MinLatency: Number("int"),
  *   OutputArn: "STRING_VALUE", // required
  *   Port: Number("int"),
- *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp",
+ *   Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq",
  *   RemoteId: "STRING_VALUE",
  *   SenderControlPort: Number("int"),
  *   SenderIpAddress: "STRING_VALUE",
@@ -84,6 +85,9 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  *   VpcInterfaceAttachment: { // VpcInterfaceAttachment
  *     VpcInterfaceName: "STRING_VALUE",
  *   },
+ *   OutputStatus: "ENABLED" || "DISABLED",
+ *   NdiProgramName: "STRING_VALUE",
+ *   NdiSpeedHqQuality: Number("int"),
  * };
  * const command = new UpdateFlowOutputCommand(input);
  * const response = await client.send(command);
@@ -131,14 +135,14 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //     OutputArn: "STRING_VALUE", // required
  * //     Port: Number("int"),
  * //     Transport: { // Transport
- * //       CidrAllowList: [ // __listOf__string
+ * //       CidrAllowList: [ // __listOfString
  * //         "STRING_VALUE",
  * //       ],
  * //       MaxBitrate: Number("int"),
  * //       MaxLatency: Number("int"),
  * //       MaxSyncBuffer: Number("int"),
  * //       MinLatency: Number("int"),
- * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp", // required
+ * //       Protocol: "zixi-push" || "rtp-fec" || "rtp" || "zixi-pull" || "rist" || "st2110-jpegxs" || "cdi" || "srt-listener" || "srt-caller" || "fujitsu-qos" || "udp" || "ndi-speed-hq", // required
  * //       RemoteId: "STRING_VALUE",
  * //       SenderControlPort: Number("int"),
  * //       SenderIpAddress: "STRING_VALUE",
@@ -146,14 +150,18 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * //       SourceListenerAddress: "STRING_VALUE",
  * //       SourceListenerPort: Number("int"),
  * //       StreamId: "STRING_VALUE",
+ * //       NdiSpeedHqQuality: Number("int"),
+ * //       NdiProgramName: "STRING_VALUE",
  * //     },
  * //     VpcInterfaceAttachment: { // VpcInterfaceAttachment
  * //       VpcInterfaceName: "STRING_VALUE",
  * //     },
  * //     BridgeArn: "STRING_VALUE",
- * //     BridgePorts: [ // __listOf__integer
+ * //     BridgePorts: [ // __listOfInteger
  * //       Number("int"),
  * //     ],
+ * //     OutputStatus: "ENABLED" || "DISABLED",
+ * //     PeerIpAddress: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -166,25 +174,26 @@ export interface UpdateFlowOutputCommandOutput extends UpdateFlowOutputResponse,
  * @see {@link MediaConnectClientResolvedConfig | config} for MediaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>This exception is thrown if the request contains a semantic error. The precise meaning depends on the API, and is documented in the error message. </p>
  *
  * @throws {@link ForbiddenException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The server encountered an internal error and is unable to complete the request. </p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>One or more of the resources in the request does not exist in the system. </p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The service is currently unavailable or busy. </p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  Exception raised by AWS Elemental MediaConnect. See the error message and documentation for the operation for more information on the cause of this exception.
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link MediaConnectServiceException}
  * <p>Base exception class for all service exceptions from MediaConnect service.</p>
+ *
  *
  * @public
  */
@@ -196,9 +205,7 @@ export class UpdateFlowOutputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +217,16 @@ export class UpdateFlowOutputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFlowOutputCommand)
   .de(de_UpdateFlowOutputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFlowOutputRequest;
+      output: UpdateFlowOutputResponse;
+    };
+    sdk: {
+      input: UpdateFlowOutputCommandInput;
+      output: UpdateFlowOutputCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateContainerCommand, se_CreateContainerCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface CreateContainerCommandOutput extends CreateContainerOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class CreateContainerCommand extends $Command
@@ -88,9 +90,7 @@ export class CreateContainerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class CreateContainerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContainerCommand)
   .de(de_CreateContainerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContainerInput;
+      output: CreateContainerOutput;
+    };
+    sdk: {
+      input: CreateContainerCommandInput;
+      output: CreateContainerCommandOutput;
+    };
+  };
+}

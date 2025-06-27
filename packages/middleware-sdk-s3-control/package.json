@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-sdk-s3-control",
-  "version": "3.587.0",
+  "version": "3.830.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-sdk-s3-control",
@@ -9,9 +9,11 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest",
-    "test:integration": "jest -c jest.config.integ.js",
-    "extract:docs": "api-extractor run --local"
+    "test": "yarn g:vitest run",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "extract:docs": "api-extractor run --local",
+    "test:watch": "yarn g:vitest watch",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -26,21 +28,21 @@
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
     "@aws-sdk/util-endpoints": "*",
-    "@smithy/protocol-http": "^4.0.0",
-    "@smithy/types": "^3.0.0",
-    "@smithy/util-endpoints": "^2.0.1",
+    "@smithy/protocol-http": "^5.1.2",
+    "@smithy/types": "^4.3.1",
+    "@smithy/util-endpoints": "^3.0.6",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@smithy/middleware-stack": "^3.0.0",
+    "@smithy/middleware-stack": "^4.0.4",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.8.3"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

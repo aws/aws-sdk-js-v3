@@ -12,7 +12,8 @@ import { de_DescribeUserCommand, se_DescribeUserCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserCommand extends $Command
@@ -109,9 +111,7 @@ export class DescribeUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class DescribeUserCommand extends $Command
   .f(void 0, DescribeUserResponseFilterSensitiveLog)
   .ser(se_DescribeUserCommand)
   .de(de_DescribeUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserRequest;
+      output: DescribeUserResponse;
+    };
+    sdk: {
+      input: DescribeUserCommandInput;
+      output: DescribeUserCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,9 @@ export interface TagResourceCommandInput extends TagResourceRequest {}
 export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
- * <p>A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources.
- *
- *          When you add or remove tags on clusters, those actions will be replicated to all nodes in the cluster. For more information, see
- *
- *          <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/iam.resourcelevelpermissions.html">Resource-level permissions</a>.</p>
- *          <p>For example, you can use cost-allocation tags to your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
+ * <p> Use this operation to add tags to a resource. A tag is a key-value pair where the key and value are case-sensitive. You can use tags to categorize and track all your MemoryDB resources. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>.</p>
+ *          <p>When you add tags to multi region clusters, you might not immediately see the latest effective tags in the ListTags API response due to it being eventually consistent specifically for multi region clusters. For more information, see <a href="https://docs.aws.amazon.com/MemoryDB/latest/devguide/Tagging-Resources.html">Tagging your MemoryDB resources</a>.</p>
+ *          <p>You can specify cost-allocation tags for your MemoryDB resources, Amazon generates a cost allocation report as a comma-separated value
  *           (CSV) file with your usage and costs aggregated by your tags. You can apply tags that represent business categories
  *           (such as cost centers, application names, or owners) to organize your costs across multiple services.
  *
@@ -83,6 +81,15 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link InvalidClusterStateFault} (client fault)
  *  <p></p>
  *
+ * @throws {@link InvalidParameterValueException} (client fault)
+ *  <p></p>
+ *
+ * @throws {@link MultiRegionClusterNotFoundFault} (client fault)
+ *  <p>The specified multi-Region cluster does not exist.</p>
+ *
+ * @throws {@link MultiRegionParameterGroupNotFoundFault} (client fault)
+ *  <p>The specified multi-Region parameter group does not exist.</p>
+ *
  * @throws {@link ParameterGroupNotFoundFault} (client fault)
  *  <p></p>
  *
@@ -104,6 +111,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -114,9 +122,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +134,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: TagResourceResponse;
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

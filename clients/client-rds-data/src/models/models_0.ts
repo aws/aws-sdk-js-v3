@@ -102,6 +102,28 @@ export class DatabaseNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
+ *          The Data API request automatically resumes the DB instance. Wait a few seconds and
+ *          try again.</p>
+ * @public
+ */
+export class DatabaseResumingException extends __BaseException {
+  readonly name: "DatabaseResumingException" = "DatabaseResumingException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DatabaseResumingException, __BaseException>) {
+    super({
+      name: "DatabaseResumingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DatabaseResumingException.prototype);
+  }
+}
+
+/**
  * <p>The writer instance in the DB cluster isn't available.</p>
  * @public
  */
@@ -178,6 +200,26 @@ export class InternalServerErrorException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+  }
+}
+
+/**
+ * <p>The resource is in an invalid state.</p>
+ * @public
+ */
+export class InvalidResourceStateException extends __BaseException {
+  readonly name: "InvalidResourceStateException" = "InvalidResourceStateException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidResourceStateException, __BaseException>) {
+    super({
+      name: "InvalidResourceStateException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidResourceStateException.prototype);
   }
 }
 
@@ -264,7 +306,7 @@ export class StatementTimeoutException extends __BaseException {
    * <p>The database connection ID that executed the SQL statement.</p>
    * @public
    */
-  dbConnectionId?: number;
+  dbConnectionId?: number | undefined;
 
   /**
    * @internal
@@ -322,13 +364,13 @@ export interface BeginTransactionRequest {
    * <p>The name of the database.</p>
    * @public
    */
-  database?: string;
+  database?: string | undefined;
 
   /**
    * <p>The name of the database schema.</p>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 }
 
 /**
@@ -341,7 +383,7 @@ export interface BeginTransactionResponse {
    * <p>The transaction ID of the transaction started by the call.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 }
 
 /**
@@ -353,85 +395,85 @@ export interface ColumnMetadata {
    * <p>The name of the column.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of the column.</p>
    * @public
    */
-  type?: number;
+  type?: number | undefined;
 
   /**
    * <p>The database-specific data type of the column.</p>
    * @public
    */
-  typeName?: string;
+  typeName?: string | undefined;
 
   /**
    * <p>The label for the column.</p>
    * @public
    */
-  label?: string;
+  label?: string | undefined;
 
   /**
    * <p>The name of the schema that owns the table that includes the column.</p>
    * @public
    */
-  schemaName?: string;
+  schemaName?: string | undefined;
 
   /**
    * <p>The name of the table that includes the column.</p>
    * @public
    */
-  tableName?: string;
+  tableName?: string | undefined;
 
   /**
    * <p>A value that indicates whether the column increments automatically.</p>
    * @public
    */
-  isAutoIncrement?: boolean;
+  isAutoIncrement?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether an integer column is signed.</p>
    * @public
    */
-  isSigned?: boolean;
+  isSigned?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether the column contains currency values.</p>
    * @public
    */
-  isCurrency?: boolean;
+  isCurrency?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether the column is case-sensitive.</p>
    * @public
    */
-  isCaseSensitive?: boolean;
+  isCaseSensitive?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether the column is nullable.</p>
    * @public
    */
-  nullable?: number;
+  nullable?: number | undefined;
 
   /**
    * <p>The precision value of a decimal number column.</p>
    * @public
    */
-  precision?: number;
+  precision?: number | undefined;
 
   /**
    * <p>The scale value of a decimal number column.</p>
    * @public
    */
-  scale?: number;
+  scale?: number | undefined;
 
   /**
    * <p>The type of the column.</p>
    * @public
    */
-  arrayBaseColumnType?: number;
+  arrayBaseColumnType?: number | undefined;
 }
 
 /**
@@ -467,7 +509,7 @@ export interface CommitTransactionResponse {
    * <p>The status of the commit operation.</p>
    * @public
    */
-  transactionStatus?: string;
+  transactionStatus?: string | undefined;
 }
 
 /**
@@ -537,13 +579,13 @@ export interface ExecuteSqlRequest {
    * <p>The name of the database.</p>
    * @public
    */
-  database?: string;
+  database?: string | undefined;
 
   /**
    * <p>The name of the database schema.</p>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 }
 
 /**
@@ -555,13 +597,13 @@ export interface ResultSetMetadata {
    * <p>The number of columns in the result set.</p>
    * @public
    */
-  columnCount?: number;
+  columnCount?: number | undefined;
 
   /**
    * <p>The metadata of the columns in the result set.</p>
    * @public
    */
-  columnMetadata?: ColumnMetadata[];
+  columnMetadata?: ColumnMetadata[] | undefined;
 }
 
 /**
@@ -609,7 +651,7 @@ export interface ResultSetOptions {
    *          </note>
    * @public
    */
-  decimalReturnType?: DecimalReturnType;
+  decimalReturnType?: DecimalReturnType | undefined;
 
   /**
    * <p>A value that indicates how a field of <code>LONG</code> type is represented.
@@ -619,7 +661,7 @@ export interface ResultSetOptions {
    *         </p>
    * @public
    */
-  longReturnType?: LongReturnType;
+  longReturnType?: LongReturnType | undefined;
 }
 
 /**
@@ -688,7 +730,7 @@ export interface RollbackTransactionResponse {
    * <p>The status of the rollback operation.</p>
    * @public
    */
-  transactionStatus?: string;
+  transactionStatus?: string | undefined;
 }
 
 /**
@@ -972,13 +1014,13 @@ export interface SqlParameter {
    * <p>The name of the parameter.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The value of the parameter.</p>
    * @public
    */
-  value?: Field;
+  value?: Field | undefined;
 
   /**
    * <p>A hint that specifies the correct object type for data type mapping. Possible values
@@ -1018,7 +1060,7 @@ export interface SqlParameter {
    *          </ul>
    * @public
    */
-  typeHint?: TypeHint;
+  typeHint?: TypeHint | undefined;
 }
 
 /**
@@ -1030,7 +1072,7 @@ export interface UpdateResult {
    * <p>Values for fields generated during the request.</p>
    * @public
    */
-  generatedFields?: Field[];
+  generatedFields?: Field[] | undefined;
 }
 
 /**
@@ -1314,7 +1356,7 @@ export interface ExecuteStatementRequest {
    * <p>The name of the database.</p>
    * @public
    */
-  database?: string;
+  database?: string | undefined;
 
   /**
    * <p>The name of the database schema.</p>
@@ -1323,7 +1365,7 @@ export interface ExecuteStatementRequest {
    *          </note>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 
   /**
    * <p>The parameters for the SQL statement.</p>
@@ -1332,7 +1374,7 @@ export interface ExecuteStatementRequest {
    *          </note>
    * @public
    */
-  parameters?: SqlParameter[];
+  parameters?: SqlParameter[] | undefined;
 
   /**
    * <p>The identifier of a transaction that was started by using the
@@ -1341,13 +1383,13 @@ export interface ExecuteStatementRequest {
    *          <p>If the SQL statement is not part of a transaction, don't set this parameter.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 
   /**
    * <p>A value that indicates whether to include metadata in the results.</p>
    * @public
    */
-  includeResultMetadata?: boolean;
+  includeResultMetadata?: boolean | undefined;
 
   /**
    * <p>A value that indicates whether to continue running the statement after
@@ -1360,13 +1402,13 @@ export interface ExecuteStatementRequest {
    *          </note>
    * @public
    */
-  continueAfterTimeout?: boolean;
+  continueAfterTimeout?: boolean | undefined;
 
   /**
    * <p>Options that control how the result set is returned.</p>
    * @public
    */
-  resultSetOptions?: ResultSetOptions;
+  resultSetOptions?: ResultSetOptions | undefined;
 
   /**
    * <p>A value that indicates whether to format the result set as a single JSON string.
@@ -1378,7 +1420,7 @@ export interface ExecuteStatementRequest {
    *           in the <i>Amazon Aurora User Guide</i>.</p>
    * @public
    */
-  formatRecordsAs?: RecordsFormatType;
+  formatRecordsAs?: RecordsFormatType | undefined;
 }
 
 /**
@@ -1394,7 +1436,7 @@ export interface StructValue {
    * <p>The attributes returned in the record.</p>
    * @public
    */
-  attributes?: Value[];
+  attributes?: Value[] | undefined;
 }
 
 /**
@@ -1427,7 +1469,7 @@ export interface BatchExecuteStatementRequest {
    * <p>The name of the database.</p>
    * @public
    */
-  database?: string;
+  database?: string | undefined;
 
   /**
    * <p>The name of the database schema.</p>
@@ -1436,7 +1478,7 @@ export interface BatchExecuteStatementRequest {
    *          </note>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 
   /**
    * <p>The parameter set for the batch operation.</p>
@@ -1455,7 +1497,7 @@ export interface BatchExecuteStatementRequest {
    *          </note>
    * @public
    */
-  parameterSets?: SqlParameter[][];
+  parameterSets?: SqlParameter[][] | undefined;
 
   /**
    * <p>The identifier of a transaction that was started by using the
@@ -1465,7 +1507,7 @@ export interface BatchExecuteStatementRequest {
    *             parameter.</p>
    * @public
    */
-  transactionId?: string;
+  transactionId?: string | undefined;
 }
 
 /**
@@ -1478,7 +1520,7 @@ export interface BatchExecuteStatementResponse {
    * <p>The execution results of each batch entry.</p>
    * @public
    */
-  updateResults?: UpdateResult[];
+  updateResults?: UpdateResult[] | undefined;
 }
 
 /**
@@ -1494,7 +1536,7 @@ export interface _Record {
    * <p>The values returned in the record.</p>
    * @public
    */
-  values?: Value[];
+  values?: Value[] | undefined;
 }
 
 /**
@@ -1508,20 +1550,20 @@ export interface ExecuteStatementResponse {
    *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    * @public
    */
-  records?: Field[][];
+  records?: Field[][] | undefined;
 
   /**
    * <p>Metadata for the columns included in the results. This field is blank if the
    *         <code>formatRecordsAs</code> parameter is set to <code>JSON</code>.</p>
    * @public
    */
-  columnMetadata?: ColumnMetadata[];
+  columnMetadata?: ColumnMetadata[] | undefined;
 
   /**
    * <p>The number of records updated by the request.</p>
    * @public
    */
-  numberOfRecordsUpdated?: number;
+  numberOfRecordsUpdated?: number | undefined;
 
   /**
    * <p>Values for fields generated during a DML request.</p>
@@ -1533,7 +1575,7 @@ export interface ExecuteStatementResponse {
    *          </note>
    * @public
    */
-  generatedFields?: Field[];
+  generatedFields?: Field[] | undefined;
 
   /**
    * <p>A string value that represents the result set of a <code>SELECT</code> statement
@@ -1543,7 +1585,7 @@ export interface ExecuteStatementResponse {
    *           result set requires more than 10 MB, the call returns an error.</p>
    * @public
    */
-  formattedRecords?: string;
+  formattedRecords?: string | undefined;
 }
 
 /**
@@ -1559,13 +1601,13 @@ export interface ResultFrame {
    * <p>The result-set metadata in the result set.</p>
    * @public
    */
-  resultSetMetadata?: ResultSetMetadata;
+  resultSetMetadata?: ResultSetMetadata | undefined;
 
   /**
    * <p>The records in the result set.</p>
    * @public
    */
-  records?: _Record[];
+  records?: _Record[] | undefined;
 }
 
 /**
@@ -1581,13 +1623,13 @@ export interface SqlStatementResult {
    * <p>The result set of the SQL statement.</p>
    * @public
    */
-  resultFrame?: ResultFrame;
+  resultFrame?: ResultFrame | undefined;
 
   /**
    * <p>The number of records updated by a SQL statement.</p>
    * @public
    */
-  numberOfRecordsUpdated?: number;
+  numberOfRecordsUpdated?: number | undefined;
 }
 
 /**
@@ -1600,5 +1642,5 @@ export interface ExecuteSqlResponse {
    * <p>The results of the SQL statement or statements.</p>
    * @public
    */
-  sqlStatementResults?: SqlStatementResult[];
+  sqlStatementResults?: SqlStatementResult[] | undefined;
 }

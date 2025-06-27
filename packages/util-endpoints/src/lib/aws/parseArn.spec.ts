@@ -1,4 +1,5 @@
 import { EndpointARN } from "@aws-sdk/types";
+import { describe, expect, test as it } from "vitest";
 
 import { parseArn } from "./parseArn";
 
@@ -12,6 +13,16 @@ describe(parseArn.name, () => {
         region: "us-west-2",
         accountId: "123456789012",
         resourceId: ["accesspoint", "myendpoint"],
+      },
+    ],
+    [
+      "arn:aws:s3:us-west-2:123456789012::myendpoint",
+      {
+        partition: "aws",
+        service: "s3",
+        region: "us-west-2",
+        accountId: "123456789012",
+        resourceId: ["", "myendpoint"],
       },
     ],
     [
@@ -62,6 +73,16 @@ describe(parseArn.name, () => {
         region: "",
         accountId: "",
         resourceId: ["myTopic"],
+      },
+    ],
+    [
+      "arn:aws:s3:us-west-2:123456789012:my:folder/my:file",
+      {
+        partition: "aws",
+        service: "s3",
+        region: "us-west-2",
+        accountId: "123456789012",
+        resourceId: ["my", "folder", "my", "file"],
       },
     ],
   ];

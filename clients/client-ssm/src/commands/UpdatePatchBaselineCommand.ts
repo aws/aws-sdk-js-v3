@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  *       Configuration: "STRING_VALUE", // required
  *     },
  *   ],
+ *   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  *   Replace: true || false,
  * };
  * const command = new UpdatePatchBaselineCommand(input);
@@ -155,6 +157,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * //       Configuration: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * // };
  *
  * ```
@@ -177,6 +180,7 @@ export interface UpdatePatchBaselineCommandOutput extends UpdatePatchBaselineRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class UpdatePatchBaselineCommand extends $Command
@@ -187,9 +191,7 @@ export class UpdatePatchBaselineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +203,16 @@ export class UpdatePatchBaselineCommand extends $Command
   .f(UpdatePatchBaselineRequestFilterSensitiveLog, UpdatePatchBaselineResultFilterSensitiveLog)
   .ser(se_UpdatePatchBaselineCommand)
   .de(de_UpdatePatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePatchBaselineRequest;
+      output: UpdatePatchBaselineResult;
+    };
+    sdk: {
+      input: UpdatePatchBaselineCommandInput;
+      output: UpdatePatchBaselineCommandOutput;
+    };
+  };
+}

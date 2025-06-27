@@ -20,7 +20,8 @@ import { de_DeleteUserAttributesCommand, se_DeleteUserAttributesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,9 @@ export interface DeleteUserAttributesCommandInput extends DeleteUserAttributesRe
 export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the attributes for a user.</p>
+ * <p>Deletes attributes from the currently signed-in user. For example, your application
+ *             can submit a request to this operation when a user wants to remove their
+ *                 <code>birthdate</code> attribute value.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -101,6 +104,7 @@ export interface DeleteUserAttributesCommandOutput extends DeleteUserAttributesR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserAttributesCommand extends $Command
@@ -111,9 +115,7 @@ export class DeleteUserAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +127,16 @@ export class DeleteUserAttributesCommand extends $Command
   .f(DeleteUserAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteUserAttributesCommand)
   .de(de_DeleteUserAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserAttributesCommandInput;
+      output: DeleteUserAttributesCommandOutput;
+    };
+  };
+}

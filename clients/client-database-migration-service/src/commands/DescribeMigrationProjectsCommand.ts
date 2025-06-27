@@ -16,7 +16,8 @@ import { de_DescribeMigrationProjectsCommand, se_DescribeMigrationProjectsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface DescribeMigrationProjectsCommandInput extends DescribeMigration
 export interface DescribeMigrationProjectsCommandOutput extends DescribeMigrationProjectsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of migration projects for your account in the current region.</p>
+ * <p>Returns a paginated list of migration projects for your account in the current
+ *          region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,67 +101,70 @@ export interface DescribeMigrationProjectsCommandOutput extends DescribeMigratio
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe Migration Projects
  * ```javascript
  * // Returns a paginated list of migration projects for your account in the current region.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "migration-project-identifier",
- *       "Values": [
+ *       Name: "migration-project-identifier",
+ *       Values: [
  *         "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ12345678901"
  *       ]
  *     }
  *   ],
- *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ123456",
- *   "MaxRecords": 20
+ *   Marker: "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ123456",
+ *   MaxRecords: 20
  * };
  * const command = new DescribeMigrationProjectsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "MigrationProjects": [
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   MigrationProjects: [
  *     {
- *       "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       "InstanceProfileName": "my-instance-profile",
- *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       "MigrationProjectCreationTime": "2023-04-19T11:45:15.805253Z",
- *       "MigrationProjectName": "my-migration-project",
- *       "SchemaConversionApplicationAttributes": {
- *         "S3BucketPath": "my-s3-bucket/my_folder",
- *         "S3BucketRoleArn": "arn:aws:iam::012345678901:role/my-s3role"
+ *       InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       InstanceProfileName: "my-instance-profile",
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       MigrationProjectCreationTime: "2023-04-19T11:45:15.805253Z",
+ *       MigrationProjectName: "my-migration-project",
+ *       SchemaConversionApplicationAttributes: {
+ *         S3BucketPath: "my-s3-bucket/my_folder",
+ *         S3BucketRoleArn: "arn:aws:iam::012345678901:role/my-s3role"
  *       },
- *       "SourceDataProviderDescriptors": [
+ *       SourceDataProviderDescriptors: [
  *         {
- *           "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *           "DataProviderName": "all-source-oracle-12",
- *           "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
- *           "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/ALL.SOURCE.ORACLE_12-012345"
+ *           DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *           DataProviderName: "all-source-oracle-12",
+ *           SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/my-access-role",
+ *           SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/ALL.SOURCE.ORACLE_12-012345"
  *         }
  *       ],
- *       "TargetDataProviderDescriptors": [
+ *       TargetDataProviderDescriptors: [
  *         {
- *           "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *           "DataProviderName": "my-data-provider",
- *           "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/dmytbon-admin-access",
- *           "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/TARGET.postgresql-012345"
+ *           DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *           DataProviderName: "my-data-provider",
+ *           SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/dmytbon-admin-access",
+ *           SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:mygroup/myalias/TARGET.postgresql-012345"
  *         }
  *       ]
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-migration-projects-1689719912075
  * ```
  *
+ * @public
  */
 export class DescribeMigrationProjectsCommand extends $Command
   .classBuilder<
@@ -169,9 +174,7 @@ export class DescribeMigrationProjectsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +186,16 @@ export class DescribeMigrationProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMigrationProjectsCommand)
   .de(de_DescribeMigrationProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMigrationProjectsMessage;
+      output: DescribeMigrationProjectsResponse;
+    };
+    sdk: {
+      input: DescribeMigrationProjectsCommandInput;
+      output: DescribeMigrationProjectsCommandOutput;
+    };
+  };
+}

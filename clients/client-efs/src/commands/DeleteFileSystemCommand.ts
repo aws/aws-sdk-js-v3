@@ -12,7 +12,8 @@ import { de_DeleteFileSystemCommand, se_DeleteFileSystemCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  *     an EFS file system. This step is performed for you when you use the Amazon Web Services console
  *     to delete a file system.</p>
  *          <note>
- *             <p>You cannot delete a file system that is part of an EFS Replication configuration.
+ *             <p>You cannot delete a file system that is part of an EFS replication configuration.
  *       You need to delete the replication configuration first.</p>
  *          </note>
  *          <p> You can't delete a file system that is in use. That is, if the file system has
@@ -85,18 +86,21 @@ export interface DeleteFileSystemCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To delete a file system
  * ```javascript
  * // This operation deletes an EFS file system.
  * const input = {
- *   "FileSystemId": "fs-01234567"
+ *   FileSystemId: "fs-01234567"
  * };
  * const command = new DeleteFileSystemCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-file-system-1481847318348
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteFileSystemCommand extends $Command
   .classBuilder<
@@ -106,9 +110,7 @@ export class DeleteFileSystemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +122,16 @@ export class DeleteFileSystemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFileSystemCommand)
   .de(de_DeleteFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFileSystemRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFileSystemCommandInput;
+      output: DeleteFileSystemCommandOutput;
+    };
+  };
+}

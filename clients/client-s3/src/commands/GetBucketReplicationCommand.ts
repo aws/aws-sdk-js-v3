@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +30,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the replication configuration of a bucket.</p>
  *          <note>
@@ -80,7 +82,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * //         ID: "STRING_VALUE",
  * //         Priority: Number("int"),
  * //         Prefix: "STRING_VALUE",
- * //         Filter: { // ReplicationRuleFilter Union: only one key present
+ * //         Filter: { // ReplicationRuleFilter
  * //           Prefix: "STRING_VALUE",
  * //           Tag: { // Tag
  * //             Key: "STRING_VALUE", // required
@@ -111,7 +113,7 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * //         Destination: { // Destination
  * //           Bucket: "STRING_VALUE", // required
  * //           Account: "STRING_VALUE",
- * //           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ * //           StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "GLACIER" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  * //           AccessControlTranslation: { // AccessControlTranslation
  * //             Owner: "Destination", // required
  * //           },
@@ -150,35 +152,35 @@ export interface GetBucketReplicationCommandOutput extends GetBucketReplicationO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get replication configuration set on a bucket
  * ```javascript
  * // The following example returns replication configuration set on a bucket.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketReplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationConfiguration": {
- *     "Role": "arn:aws:iam::acct-id:role/example-role",
- *     "Rules": [
+ *   ReplicationConfiguration: {
+ *     Role: "arn:aws:iam::acct-id:role/example-role",
+ *     Rules: [
  *       {
- *         "Destination": {
- *           "Bucket": "arn:aws:s3:::destination-bucket"
+ *         Destination: {
+ *           Bucket: "arn:aws:s3:::destination-bucket"
  *         },
- *         "ID": "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
- *         "Prefix": "Tax",
- *         "Status": "Enabled"
+ *         ID: "MWIwNTkwZmItMTE3MS00ZTc3LWJkZDEtNzRmODQwYzc1OTQy",
+ *         Prefix: "Tax",
+ *         Status: "Enabled"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-get-replication-configuration-set-on-a-bucket-1481593597175
  * ```
  *
+ * @public
  */
 export class GetBucketReplicationCommand extends $Command
   .classBuilder<
@@ -197,6 +199,7 @@ export class GetBucketReplicationCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetBucketReplication", {})
@@ -204,4 +207,16 @@ export class GetBucketReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketReplicationCommand)
   .de(de_GetBucketReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketReplicationRequest;
+      output: GetBucketReplicationOutput;
+    };
+    sdk: {
+      input: GetBucketReplicationCommandInput;
+      output: GetBucketReplicationCommandOutput;
+    };
+  };
+}

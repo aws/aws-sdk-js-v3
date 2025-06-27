@@ -1,5 +1,6 @@
 import {
   AbortMultipartUploadCommand,
+  ChecksumAlgorithm,
   CompletedPart,
   CompleteMultipartUploadCommand,
   CompleteMultipartUploadCommandOutput,
@@ -33,9 +34,12 @@ export interface RawDataPart {
   lastPart?: boolean;
 }
 
-const MIN_PART_SIZE = 1024 * 1024 * 5;
-
 export class Upload extends EventEmitter {
+  /**
+   * @internal
+   * modified in testing only.
+   */
+  private static MIN_PART_SIZE = 1024 * 1024 * 5;
   /**
    * S3 multipart upload does not allow more than 10,000 parts.
    */
@@ -43,7 +47,7 @@ export class Upload extends EventEmitter {
 
   // Defaults.
   private readonly queueSize: number = 4;
-  private readonly partSize = MIN_PART_SIZE;
+  private readonly partSize = Upload.MIN_PART_SIZE;
   private readonly leavePartsOnError: boolean = false;
   private readonly tags: Tag[] = [];
 
@@ -168,13 +172,14 @@ export class Upload extends EventEmitter {
     const Location: string = (() => {
       const endpointHostnameIncludesBucket = endpoint.hostname.startsWith(`${locationBucket}.`);
       const forcePathStyle = this.client.config.forcePathStyle;
+      const optionalPort = endpoint.port ? `:${endpoint.port}` : ``;
       if (forcePathStyle) {
-        return `${endpoint.protocol}//${endpoint.hostname}/${locationBucket}/${locationKey}`;
+        return `${endpoint.protocol}//${endpoint.hostname}${optionalPort}/${locationBucket}/${locationKey}`;
       }
       if (endpointHostnameIncludesBucket) {
-        return `${endpoint.protocol}//${endpoint.hostname}/${locationKey}`;
+        return `${endpoint.protocol}//${endpoint.hostname}${optionalPort}/${locationKey}`;
       }
-      return `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}/${locationKey}`;
+      return `${endpoint.protocol}//${locationBucket}.${endpoint.hostname}${optionalPort}/${locationKey}`;
     })();
 
     this.singleUploadResult = {
@@ -195,8 +200,12 @@ export class Upload extends EventEmitter {
   }
 
   private async __createMultipartUpload(): Promise<CreateMultipartUploadCommandOutput> {
+    const requestChecksumCalculation = await this.client.config.requestChecksumCalculation();
     if (!this.createMultiPartPromise) {
       const createCommandParams = { ...this.params, Body: undefined };
+      if (requestChecksumCalculation === "WHEN_SUPPORTED") {
+        createCommandParams.ChecksumAlgorithm = this.params.ChecksumAlgorithm || ChecksumAlgorithm.CRC32;
+      }
       this.createMultiPartPromise = this.client
         .send(new CreateMultipartUploadCommand(createCommandParams))
         .then((createMpuResponse) => {
@@ -276,6 +285,9 @@ export class Upload extends EventEmitter {
       const partResult = await this.client.send(
         new UploadPartCommand({
           ...this.params,
+          // dataPart.data is chunked into a non-streaming buffer
+          // so the ContentLength from the input should not be used for MPU.
+          ContentLength: undefined,
           UploadId: this.uploadId,
           Body: dataPart.data,
           PartNumber: dataPart.partNumber,
@@ -424,9 +436,9 @@ export class Upload extends EventEmitter {
       throw new Error(`InputError: Upload requires a AWS client to do uploads with.`);
     }
 
-    if (this.partSize < MIN_PART_SIZE) {
+    if (this.partSize < Upload.MIN_PART_SIZE) {
       throw new Error(
-        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${MIN_PART_SIZE}] (5MB)`
+        `EntityTooSmall: Your proposed upload partsize [${this.partSize}] is smaller than the minimum allowed size [${Upload.MIN_PART_SIZE}] (5MB)`
       );
     }
 

@@ -18,7 +18,7 @@ and wait for it to be tested.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-iotdeviceadvisor
+To install this package, simply type add or install @aws-sdk/client-iotdeviceadvisor
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-iotdeviceadvisor`

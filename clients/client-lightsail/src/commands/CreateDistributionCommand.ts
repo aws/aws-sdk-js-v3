@@ -12,7 +12,8 @@ import { de_CreateDistributionCommand, se_CreateDistributionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * <p>Creates an Amazon Lightsail content delivery network (CDN) distribution.</p>
  *          <p>A distribution is a globally distributed network of caching servers that improve the
  *       performance of your website or web application hosted on a Lightsail instance. For more
- *       information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-content-delivery-network-distributions">Content delivery networks in Amazon Lightsail</a>.</p>
+ *       information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-content-delivery-network-distributions">Content delivery networks in Amazon Lightsail</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -219,6 +220,7 @@ export interface CreateDistributionCommandOutput extends CreateDistributionResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateDistributionCommand extends $Command
@@ -229,9 +231,7 @@ export class CreateDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -243,4 +243,16 @@ export class CreateDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDistributionCommand)
   .de(de_CreateDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDistributionRequest;
+      output: CreateDistributionResult;
+    };
+    sdk: {
+      input: CreateDistributionCommandInput;
+      output: CreateDistributionCommandOutput;
+    };
+  };
+}

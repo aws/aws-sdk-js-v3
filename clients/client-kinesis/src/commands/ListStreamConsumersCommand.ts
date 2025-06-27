@@ -12,7 +12,8 @@ import { de_ListStreamConsumersCommand, se_ListStreamConsumersCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface ListStreamConsumersCommandOutput extends ListStreamConsumersOut
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class ListStreamConsumersCommand extends $Command
@@ -112,4 +114,16 @@ export class ListStreamConsumersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamConsumersCommand)
   .de(de_ListStreamConsumersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamConsumersInput;
+      output: ListStreamConsumersOutput;
+    };
+    sdk: {
+      input: ListStreamConsumersCommandInput;
+      output: ListStreamConsumersCommandOutput;
+    };
+  };
+}

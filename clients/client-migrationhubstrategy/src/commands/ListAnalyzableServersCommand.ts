@@ -16,7 +16,8 @@ import { de_ListAnalyzableServersCommand, se_ListAnalyzableServersCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,30 @@ export interface ListAnalyzableServersCommandOutput extends ListAnalyzableServer
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
+ * @example Invoke ListAnalyzableServers
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 100,
+ *   sort: "ASC"
+ * };
+ * const command = new ListAnalyzableServersCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   analyzableServers: [
+ *     {
+ *       hostname: "Ubuntu 1",
+ *       ipAddress: "1.1.1.1",
+ *       source: "Application Discover Service",
+ *       vmId: "vm-1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListAnalyzableServersCommand extends $Command
@@ -91,9 +116,7 @@ export class ListAnalyzableServersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +128,16 @@ export class ListAnalyzableServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnalyzableServersCommand)
   .de(de_ListAnalyzableServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnalyzableServersRequest;
+      output: ListAnalyzableServersResponse;
+    };
+    sdk: {
+      input: ListAnalyzableServersCommandInput;
+      output: ListAnalyzableServersCommandOutput;
+    };
+  };
+}

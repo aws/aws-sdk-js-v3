@@ -12,7 +12,8 @@ import { de_CreateStackCommand, se_CreateStackCommand } from "../protocols/Aws_q
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,11 @@ export interface CreateStackCommandInput extends CreateStackInput {}
 export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a stack as specified in the template. After the call completes successfully, the stack creation starts.
- *    You can check the status of the stack through the <a>DescribeStacks</a> operation.</p>
+ * <p>Creates a stack as specified in the template. After the call completes successfully, the
+ *       stack creation starts. You can check the status of the stack through the <a>DescribeStacks</a> operation.</p>
+ *          <p>For more information about creating a stack and monitoring stack progress, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html">Managing Amazon Web Services
+ *         resources as a single unit with CloudFormation stacks</a> in the
+ *         <i>CloudFormation User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,6 +116,7 @@ export interface CreateStackCommandOutput extends CreateStackOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class CreateStackCommand extends $Command
@@ -122,9 +127,7 @@ export class CreateStackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +139,16 @@ export class CreateStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStackCommand)
   .de(de_CreateStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStackInput;
+      output: CreateStackOutput;
+    };
+    sdk: {
+      input: CreateStackCommandInput;
+      output: CreateStackCommandOutput;
+    };
+  };
+}

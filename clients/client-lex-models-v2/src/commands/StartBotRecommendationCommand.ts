@@ -17,7 +17,8 @@ import { de_StartBotRecommendationCommand, se_StartBotRecommendationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -146,6 +147,7 @@ export interface StartBotRecommendationCommandOutput extends StartBotRecommendat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class StartBotRecommendationCommand extends $Command
@@ -156,9 +158,7 @@ export class StartBotRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +170,16 @@ export class StartBotRecommendationCommand extends $Command
   .f(StartBotRecommendationRequestFilterSensitiveLog, StartBotRecommendationResponseFilterSensitiveLog)
   .ser(se_StartBotRecommendationCommand)
   .de(de_StartBotRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBotRecommendationRequest;
+      output: StartBotRecommendationResponse;
+    };
+    sdk: {
+      input: StartBotRecommendationCommandInput;
+      output: StartBotRecommendationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface CreateWorkteamCommandInput extends CreateWorkteamRequest {}
 export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new work team for labeling your data. A work team is defined by one or more
- *             Amazon Cognito user pools. You must first create the user pools before you can create a work
- *             team.</p>
- *          <p>You cannot create more than 25 work teams in an account and region.</p>
+ * <p>Creates a new work team for labeling your data. A work team is defined by one or more Amazon Cognito user pools. You must first create the user pools before you can create a work team.</p> <p>You cannot create more than 25 work teams in an account and region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,11 +89,11 @@ export interface CreateWorkteamCommandOutput extends CreateWorkteamResponse, __M
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -107,9 +105,7 @@ export class CreateWorkteamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +117,16 @@ export class CreateWorkteamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkteamCommand)
   .de(de_CreateWorkteamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkteamRequest;
+      output: CreateWorkteamResponse;
+    };
+    sdk: {
+      input: CreateWorkteamCommandInput;
+      output: CreateWorkteamCommandOutput;
+    };
+  };
+}

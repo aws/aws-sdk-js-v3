@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,47 +81,46 @@ export interface UpdatePrivateDnsNamespaceCommandOutput extends UpdatePrivateDns
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example To update a private DNS namespace
  * ```javascript
  * // The following example updates the description of a private DNS namespace.
  * const input = {
- *   "Id": "ns-bk3aEXAMPLE",
- *   "Namespace": {
- *     "Description": "The updated namespace description."
+ *   Id: "ns-bk3aEXAMPLE",
+ *   Namespace: {
+ *     Description: "The updated namespace description."
  *   },
- *   "UpdaterRequestId": ""
+ *   UpdaterRequestId: ""
  * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "ft52xe2koxhoeormaceymagglsdjyvEXAMPLE"
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjyvEXAMPLE"
  * }
  * *\/
- * // example id: to-update-a-private-dns-namespace-1712868389604
  * ```
  *
  * @example To update a public DNS namespace
  * ```javascript
  * // The following example updates the description of a public DNS namespace.
  * const input = {
- *   "Id": "ns-bk3aEXAMPLE",
- *   "Namespace": {
- *     "Description": "The updated namespace description."
+ *   Id: "ns-bk3aEXAMPLE",
+ *   Namespace: {
+ *     Description: "The updated namespace description."
  *   },
- *   "UpdaterRequestId": ""
+ *   UpdaterRequestId: ""
  * };
  * const command = new UpdatePrivateDnsNamespaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "ft52xe2koxhoeormaceymagglsdjEXAMPLE"
+ *   OperationId: "ft52xe2koxhoeormaceymagglsdjEXAMPLE"
  * }
  * *\/
- * // example id: to-update-a-public-dns-namespace-1712868389604
  * ```
  *
+ * @public
  */
 export class UpdatePrivateDnsNamespaceCommand extends $Command
   .classBuilder<
@@ -130,9 +130,7 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +142,16 @@ export class UpdatePrivateDnsNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePrivateDnsNamespaceCommand)
   .de(de_UpdatePrivateDnsNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePrivateDnsNamespaceRequest;
+      output: UpdatePrivateDnsNamespaceResponse;
+    };
+    sdk: {
+      input: UpdatePrivateDnsNamespaceCommandInput;
+      output: UpdatePrivateDnsNamespaceCommandOutput;
+    };
+  };
+}

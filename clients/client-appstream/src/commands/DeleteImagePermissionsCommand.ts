@@ -12,7 +12,8 @@ import { de_DeleteImagePermissionsCommand, se_DeleteImagePermissionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface DeleteImagePermissionsCommandOutput extends DeleteImagePermissi
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteImagePermissionsCommand extends $Command
@@ -69,9 +71,7 @@ export class DeleteImagePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +83,16 @@ export class DeleteImagePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImagePermissionsCommand)
   .de(de_DeleteImagePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImagePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImagePermissionsCommandInput;
+      output: DeleteImagePermissionsCommandOutput;
+    };
+  };
+}

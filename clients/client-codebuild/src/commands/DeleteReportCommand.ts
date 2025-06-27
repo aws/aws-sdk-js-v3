@@ -12,7 +12,8 @@ import { de_DeleteReportCommand, se_DeleteReportCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,7 @@ export interface DeleteReportCommandOutput extends DeleteReportOutput, __Metadat
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class DeleteReportCommand extends $Command
@@ -67,9 +69,7 @@ export class DeleteReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -81,4 +81,16 @@ export class DeleteReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReportCommand)
   .de(de_DeleteReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReportInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReportCommandInput;
+      output: DeleteReportCommandOutput;
+    };
+  };
+}

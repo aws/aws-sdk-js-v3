@@ -12,7 +12,8 @@ import { de_CreateApplicationVersionCommand, se_CreateApplicationVersionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -142,41 +143,41 @@ export interface CreateApplicationVersionCommandOutput extends ApplicationVersio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To create a new application
  * ```javascript
  * // The following operation creates a new version (v1) of an application named my-app:
  * const input = {
- *   "ApplicationName": "my-app",
- *   "AutoCreateApplication": true,
- *   "Description": "my-app-v1",
- *   "Process": true,
- *   "SourceBundle": {
- *     "S3Bucket": "my-bucket",
- *     "S3Key": "sample.war"
+ *   ApplicationName: "my-app",
+ *   AutoCreateApplication: true,
+ *   Description: "my-app-v1",
+ *   Process: true,
+ *   SourceBundle: {
+ *     S3Bucket: "my-bucket",
+ *     S3Key: "sample.war"
  *   },
- *   "VersionLabel": "v1"
+ *   VersionLabel: "v1"
  * };
  * const command = new CreateApplicationVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationVersion": {
- *     "ApplicationName": "my-app",
- *     "DateCreated": "2015-02-03T23:01:25.412Z",
- *     "DateUpdated": "2015-02-03T23:01:25.412Z",
- *     "Description": "my-app-v1",
- *     "SourceBundle": {
- *       "S3Bucket": "my-bucket",
- *       "S3Key": "sample.war"
+ *   ApplicationVersion: {
+ *     ApplicationName: "my-app",
+ *     DateCreated: "2015-02-03T23:01:25.412Z",
+ *     DateUpdated: "2015-02-03T23:01:25.412Z",
+ *     Description: "my-app-v1",
+ *     SourceBundle: {
+ *       S3Bucket: "my-bucket",
+ *       S3Key: "sample.war"
  *     },
- *     "VersionLabel": "v1"
+ *     VersionLabel: "v1"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-application-1456268895683
  * ```
  *
+ * @public
  */
 export class CreateApplicationVersionCommand extends $Command
   .classBuilder<
@@ -186,9 +187,7 @@ export class CreateApplicationVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +199,16 @@ export class CreateApplicationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationVersionCommand)
   .de(de_CreateApplicationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationVersionMessage;
+      output: ApplicationVersionDescriptionMessage;
+    };
+    sdk: {
+      input: CreateApplicationVersionCommandInput;
+      output: CreateApplicationVersionCommandOutput;
+    };
+  };
+}

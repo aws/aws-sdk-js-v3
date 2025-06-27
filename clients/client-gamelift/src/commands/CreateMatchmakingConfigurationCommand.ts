@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,16 +34,16 @@ export interface CreateMatchmakingConfigurationCommandOutput
 
 /**
  * <p>Defines a new matchmaking configuration for use with FlexMatch. Whether your are using
- *             FlexMatch with Amazon GameLift hosting or as a standalone matchmaking service, the matchmaking
+ *             FlexMatch with Amazon GameLift Servers hosting or as a standalone matchmaking service, the matchmaking
  *             configuration sets out rules for matching players and forming teams. If you're also
- *             using Amazon GameLift hosting, it defines how to start game sessions for each match. Your
+ *             using Amazon GameLift Servers hosting, it defines how to start game sessions for each match. Your
  *             matchmaking system can use multiple configurations to handle different game scenarios.
  *             All matchmaking requests identify the matchmaking configuration to use and provide
  *             player attributes consistent with that configuration. </p>
  *          <p>To create a matchmaking configuration, you must provide the following: configuration
- *             name and FlexMatch mode (with or without Amazon GameLift hosting); a rule set that specifies how
+ *             name and FlexMatch mode (with or without Amazon GameLift Servers hosting); a rule set that specifies how
  *             to evaluate players and find acceptable matches; whether player acceptance is required;
- *             and the maximum time allowed for a matchmaking attempt. When using FlexMatch with Amazon GameLift
+ *             and the maximum time allowed for a matchmaking attempt. When using FlexMatch with Amazon GameLift Servers
  *             hosting, you also need to identify the game session queue to use when starting a game
  *             session for the match.</p>
  *          <p>In addition, you must set up an Amazon Simple Notification Service topic to receive matchmaking notifications.
@@ -145,7 +146,7 @@ export interface CreateMatchmakingConfigurationCommandOutput
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TaggingFailedException} (client fault)
  *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
@@ -158,6 +159,7 @@ export interface CreateMatchmakingConfigurationCommandOutput
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateMatchmakingConfigurationCommand extends $Command
@@ -168,9 +170,7 @@ export class CreateMatchmakingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +182,16 @@ export class CreateMatchmakingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMatchmakingConfigurationCommand)
   .de(de_CreateMatchmakingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMatchmakingConfigurationInput;
+      output: CreateMatchmakingConfigurationOutput;
+    };
+    sdk: {
+      input: CreateMatchmakingConfigurationCommandInput;
+      output: CreateMatchmakingConfigurationCommandOutput;
+    };
+  };
+}

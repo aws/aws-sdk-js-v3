@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { BatchGetWorkflowsRequest, BatchGetWorkflowsResponse } from "../models/models_0";
+import { BatchGetWorkflowsRequest } from "../models/models_0";
+import { BatchGetWorkflowsResponse } from "../models/models_1";
 import { de_BatchGetWorkflowsCommand, se_BatchGetWorkflowsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +131,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                     TriggerName: "STRING_VALUE",
  * //                     JobName: "STRING_VALUE",
  * //                     JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ * //                     JobRunQueuingEnabled: true || false,
  * //                     StartedOn: new Date("TIMESTAMP"),
  * //                     LastModifiedOn: new Date("TIMESTAMP"),
  * //                     CompletedOn: new Date("TIMESTAMP"),
@@ -158,6 +161,8 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                     DPUSeconds: Number("double"),
  * //                     ExecutionClass: "FLEX" || "STANDARD",
  * //                     MaintenanceWindow: "STRING_VALUE",
+ * //                     ProfileName: "STRING_VALUE",
+ * //                     StateDetail: "STRING_VALUE",
  * //                   },
  * //                 ],
  * //               },
@@ -243,6 +248,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                   TriggerName: "STRING_VALUE",
  * //                   JobName: "STRING_VALUE",
  * //                   JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ * //                   JobRunQueuingEnabled: true || false,
  * //                   StartedOn: new Date("TIMESTAMP"),
  * //                   LastModifiedOn: new Date("TIMESTAMP"),
  * //                   CompletedOn: new Date("TIMESTAMP"),
@@ -268,6 +274,8 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * //                   DPUSeconds: Number("double"),
  * //                   ExecutionClass: "FLEX" || "STANDARD",
  * //                   MaintenanceWindow: "STRING_VALUE",
+ * //                   ProfileName: "STRING_VALUE",
+ * //                   StateDetail: "STRING_VALUE",
  * //                 },
  * //               ],
  * //             },
@@ -324,6 +332,7 @@ export interface BatchGetWorkflowsCommandOutput extends BatchGetWorkflowsRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class BatchGetWorkflowsCommand extends $Command
@@ -334,9 +343,7 @@ export class BatchGetWorkflowsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -348,4 +355,16 @@ export class BatchGetWorkflowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetWorkflowsCommand)
   .de(de_BatchGetWorkflowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetWorkflowsRequest;
+      output: BatchGetWorkflowsResponse;
+    };
+    sdk: {
+      input: BatchGetWorkflowsCommandInput;
+      output: BatchGetWorkflowsCommandOutput;
+    };
+  };
+}

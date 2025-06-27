@@ -10,6 +10,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   map,
@@ -99,19 +100,19 @@ export const se_PostContentCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
     [_xalsa]: [
       () => isSerializableHeaderValue(input[_sA]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_sA]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_sA]!))),
     ],
     [_xalra]: [
       () => isSerializableHeaderValue(input[_rA]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_rA]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_rA]!))),
     ],
     [_a]: input[_a]!,
     [_xalac]: [
       () => isSerializableHeaderValue(input[_aC]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_aC]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_aC]!))),
     ],
   });
   b.bp("/bot/{botName}/alias/{botAlias}/user/{userId}/content");
@@ -248,19 +249,19 @@ export const de_PostContentCommand = async (
     [_iN]: [, output.headers[_xalin]],
     [_nIC]: [
       () => void 0 !== output.headers[_xalnic],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalnic])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xalnic])).toString("utf8")),
     ],
     [_aI]: [
       () => void 0 !== output.headers[_xalai],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalai])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xalai])).toString("utf8")),
     ],
     [_s]: [
       () => void 0 !== output.headers[_xals],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xals])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xals])).toString("utf8")),
     ],
     [_sA]: [
       () => void 0 !== output.headers[_xalsa],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalsa])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xalsa])).toString("utf8")),
     ],
     [_sR]: [, output.headers[_xals_]],
     [_m]: [, output.headers[_xalm]],
@@ -274,7 +275,7 @@ export const de_PostContentCommand = async (
     [_sI]: [, output.headers[_xalsi]],
     [_aC]: [
       () => void 0 !== output.headers[_xalac],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalac])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xalac])).toString("utf8")),
     ],
   });
   const data: any = output.body;
@@ -333,11 +334,11 @@ export const de_PutSessionCommand = async (
     [_iN]: [, output.headers[_xalin]],
     [_s]: [
       () => void 0 !== output.headers[_xals],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xals])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xals])).toString("utf8")),
     ],
     [_sA]: [
       () => void 0 !== output.headers[_xalsa],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalsa])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xalsa])).toString("utf8")),
     ],
     [_m]: [, output.headers[_xalm]],
     [_eM]: [, output.headers[_xalem]],
@@ -347,7 +348,7 @@ export const de_PutSessionCommand = async (
     [_sI]: [, output.headers[_xalsi]],
     [_aC]: [
       () => void 0 !== output.headers[_xalac],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xalac])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xalac])).toString("utf8")),
     ],
   });
   const data: any = output.body;
@@ -707,13 +708,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _a = "accept";
 const _aC = "activeContexts";

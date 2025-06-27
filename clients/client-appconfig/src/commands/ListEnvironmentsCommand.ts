@@ -12,7 +12,8 @@ import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,7 +49,7 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * //       Id: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //       State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //       Monitors: [ // MonitorList
  * //         { // Monitor
  * //           AlarmArn: "STRING_VALUE", // required
@@ -80,30 +81,30 @@ export interface ListEnvironmentsCommandOutput extends Environments, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To list the available environments
  * ```javascript
  * // The following list-environments example lists the available environments in your AWS account for the specified application.
  * const input = {
- *   "ApplicationId": "339ohji"
+ *   ApplicationId: "339ohji"
  * };
  * const command = new ListEnvironmentsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Items": [
+ *   Items: [
  *     {
- *       "ApplicationId": "339ohji",
- *       "Id": "54j1r29",
- *       "Name": "Example-Environment",
- *       "State": "READY_FOR_DEPLOYMENT"
+ *       ApplicationId: "339ohji",
+ *       Id: "54j1r29",
+ *       Name: "Example-Environment",
+ *       State: "READY_FOR_DEPLOYMENT"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-available-environments-1632267474389
  * ```
  *
+ * @public
  */
 export class ListEnvironmentsCommand extends $Command
   .classBuilder<
@@ -113,9 +114,7 @@ export class ListEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ListEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnvironmentsCommand)
   .de(de_ListEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentsRequest;
+      output: Environments;
+    };
+    sdk: {
+      input: ListEnvironmentsCommandInput;
+      output: ListEnvironmentsCommandOutput;
+    };
+  };
+}

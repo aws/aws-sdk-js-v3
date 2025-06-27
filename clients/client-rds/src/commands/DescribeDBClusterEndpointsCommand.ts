@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,69 +91,68 @@ export interface DescribeDBClusterEndpointsCommandOutput extends DBClusterEndpoi
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe DB cluster endpoints
  * ```javascript
  * // The following example retrieves details for your DB cluster endpoints. The most common kinds of Aurora clusters have two endpoints. One endpoint has type WRITER. You can use this endpoint for all SQL statements. The other endpoint has type READER. You can use this endpoint only for SELECT and other read-only SQL statements.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeDBClusterEndpointsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterEndpoints": [
+ *   DBClusterEndpoints: [
  *     {
- *       "DBClusterIdentifier": "my-database-1",
- *       "Endpoint": "my-database-1.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "WRITER",
- *       "Status": "creating"
+ *       DBClusterIdentifier: "my-database-1",
+ *       Endpoint: "my-database-1.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *       EndpointType: "WRITER",
+ *       Status: "creating"
  *     },
  *     {
- *       "DBClusterIdentifier": "my-database-1",
- *       "Endpoint": "my-database-1.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "READER",
- *       "Status": "creating"
+ *       DBClusterIdentifier: "my-database-1",
+ *       Endpoint: "my-database-1.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *       EndpointType: "READER",
+ *       Status: "creating"
  *     },
  *     {
- *       "DBClusterIdentifier": "mydbcluster",
- *       "Endpoint": "mydbcluster.cluster-cnpexamle.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "WRITER",
- *       "Status": "available"
+ *       DBClusterIdentifier: "mydbcluster",
+ *       Endpoint: "mydbcluster.cluster-cnpexamle.us-east-1.rds.amazonaws.com",
+ *       EndpointType: "WRITER",
+ *       Status: "available"
  *     },
  *     {
- *       "DBClusterIdentifier": "mydbcluster",
- *       "Endpoint": "mydbcluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "READER",
- *       "Status": "available"
+ *       DBClusterIdentifier: "mydbcluster",
+ *       Endpoint: "mydbcluster.cluster-ro-cnpexample.us-east-1.rds.amazonaws.com",
+ *       EndpointType: "READER",
+ *       Status: "available"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-db-cluster-endpoints-1680212701970
  * ```
  *
  * @example To describe DB cluster endpoints of a single DB cluster
  * ```javascript
  * // The following example retrieves details for the DB cluster endpoints of a single specified DB cluster. Aurora Serverless clusters have only a single endpoint with a type of WRITER.
  * const input = {
- *   "DBClusterIdentifier": "serverless-cluster"
+ *   DBClusterIdentifier: "serverless-cluster"
  * };
  * const command = new DescribeDBClusterEndpointsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterEndpoints": [
+ *   DBClusterEndpoints: [
  *     {
- *       "DBClusterIdentifier": "serverless-cluster",
- *       "Endpoint": "serverless-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
- *       "EndpointType": "WRITER",
- *       "Status": "available"
+ *       DBClusterIdentifier: "serverless-cluster",
+ *       Endpoint: "serverless-cluster.cluster-cnpexample.us-east-1.rds.amazonaws.com",
+ *       EndpointType: "WRITER",
+ *       Status: "available"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-db-cluster-endpoints-of-a-single-db-cluster-1680212863842
  * ```
  *
+ * @public
  */
 export class DescribeDBClusterEndpointsCommand extends $Command
   .classBuilder<
@@ -162,9 +162,7 @@ export class DescribeDBClusterEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +174,16 @@ export class DescribeDBClusterEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterEndpointsCommand)
   .de(de_DescribeDBClusterEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterEndpointsMessage;
+      output: DBClusterEndpointMessage;
+    };
+    sdk: {
+      input: DescribeDBClusterEndpointsCommandInput;
+      output: DescribeDBClusterEndpointsCommandOutput;
+    };
+  };
+}

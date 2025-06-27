@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_0";
+import { UpdateClusterSettingsRequest, UpdateClusterSettingsResponse } from "../models/models_1";
 import { de_UpdateClusterSettingsCommand, se_UpdateClusterSettingsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,10 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * //           s3EncryptionEnabled: true || false,
  * //           s3KeyPrefix: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //         kmsKeyId: "STRING_VALUE",
+ * //         fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
  * //       },
  * //     },
  * //     status: "STRING_VALUE",
@@ -129,17 +134,57 @@ export interface UpdateClusterSettingsCommandOutput extends UpdateClusterSetting
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To update a cluster's settings
+ * ```javascript
+ * // This example enables CloudWatch Container Insights for the default cluster.
+ * const input = {
+ *   cluster: "default",
+ *   settings: [
+ *     {
+ *       name: "containerInsights",
+ *       value: "enabled"
+ *     }
+ *   ]
+ * };
+ * const command = new UpdateClusterSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   cluster: {
+ *     activeServicesCount: 0,
+ *     clusterArn: "arn:aws:ecs:us-west-2:123456789012:cluster/MyCluster",
+ *     clusterName: "default",
+ *     pendingTasksCount: 0,
+ *     registeredContainerInstancesCount: 0,
+ *     runningTasksCount: 0,
+ *     settings: [
+ *       {
+ *         name: "containerInsights",
+ *         value: "enabled"
+ *       }
+ *     ],
+ *     statistics:     [],
+ *     status: "ACTIVE",
+ *     tags:     []
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -151,9 +196,7 @@ export class UpdateClusterSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +208,16 @@ export class UpdateClusterSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClusterSettingsCommand)
   .de(de_UpdateClusterSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClusterSettingsRequest;
+      output: UpdateClusterSettingsResponse;
+    };
+    sdk: {
+      input: UpdateClusterSettingsCommandInput;
+      output: UpdateClusterSettingsCommandOutput;
+    };
+  };
+}

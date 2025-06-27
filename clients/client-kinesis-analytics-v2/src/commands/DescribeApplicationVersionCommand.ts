@@ -16,7 +16,8 @@ import { de_DescribeApplicationVersionCommand, se_DescribeApplicationVersionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //     ApplicationARN: "STRING_VALUE", // required
  * //     ApplicationDescription: "STRING_VALUE",
  * //     ApplicationName: "STRING_VALUE", // required
- * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18", // required
+ * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20", // required
  * //     ServiceExecutionRole: "STRING_VALUE",
  * //     ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
  * //     ApplicationVersionId: Number("long"), // required
@@ -222,6 +223,9 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
  * //       },
+ * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
+ * //         RollbackEnabled: true || false, // required
+ * //       },
  * //       VpcConfigurationDescriptions: [ // VpcConfigurationDescriptions
  * //         { // VpcConfigurationDescription
  * //           VpcConfigurationId: "STRING_VALUE", // required
@@ -279,6 +283,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * //     },
  * //     ApplicationVersionUpdatedFrom: Number("long"),
  * //     ApplicationVersionRolledBackFrom: Number("long"),
+ * //     ApplicationVersionCreateTimestamp: new Date("TIMESTAMP"),
  * //     ConditionalToken: "STRING_VALUE",
  * //     ApplicationVersionRolledBackTo: Number("long"),
  * //     ApplicationMode: "STREAMING" || "INTERACTIVE",
@@ -306,6 +311,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationVersionCommand extends $Command
@@ -316,9 +322,7 @@ export class DescribeApplicationVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -330,4 +334,16 @@ export class DescribeApplicationVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationVersionCommand)
   .de(de_DescribeApplicationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationVersionRequest;
+      output: DescribeApplicationVersionResponse;
+    };
+    sdk: {
+      input: DescribeApplicationVersionCommandInput;
+      output: DescribeApplicationVersionCommandOutput;
+    };
+  };
+}

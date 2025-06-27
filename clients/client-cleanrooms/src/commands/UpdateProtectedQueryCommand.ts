@@ -10,13 +10,14 @@ import {
   UpdateProtectedQueryInput,
   UpdateProtectedQueryOutput,
   UpdateProtectedQueryOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateProtectedQueryCommand, se_UpdateProtectedQueryCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,11 +66,33 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //           resultFormat: "STRING_VALUE", // required
  * //           bucket: "STRING_VALUE", // required
  * //           keyPrefix: "STRING_VALUE",
+ * //           singleFileOutput: true || false,
+ * //         },
+ * //         member: { // ProtectedQueryMemberOutputConfiguration
+ * //           accountId: "STRING_VALUE", // required
+ * //         },
+ * //         distribute: { // ProtectedQueryDistributeOutputConfiguration
+ * //           locations: [ // ProtectedQueryDistributeOutputConfigurationLocations // required
+ * //             { // ProtectedQueryDistributeOutputConfigurationLocation Union: only one key present
+ * //               s3: {
+ * //                 resultFormat: "STRING_VALUE", // required
+ * //                 bucket: "STRING_VALUE", // required
+ * //                 keyPrefix: "STRING_VALUE",
+ * //                 singleFileOutput: true || false,
+ * //               },
+ * //               member: {
+ * //                 accountId: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //     },
  * //     statistics: { // ProtectedQueryStatistics
  * //       totalDurationInMillis: Number("long"),
+ * //       billedResourceUtilization: { // BilledResourceUtilization
+ * //         units: Number("double"), // required
+ * //       },
  * //     },
  * //     result: { // ProtectedQueryResult
  * //       output: { // ProtectedQueryOutput Union: only one key present
@@ -81,6 +104,16 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //             accountId: "STRING_VALUE", // required
  * //           },
  * //         ],
+ * //         distribute: { // ProtectedQueryDistributeOutput
+ * //           s3: {
+ * //             location: "STRING_VALUE", // required
+ * //           },
+ * //           memberList: [
+ * //             {
+ * //               accountId: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //     error: { // ProtectedQueryError
@@ -97,6 +130,12 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * //           maxColumnValue: Number("float"),
  * //         },
  * //       ],
+ * //     },
+ * //     computeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //       worker: { // WorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X",
+ * //         number: Number("int"),
+ * //       },
  * //     },
  * //   },
  * // };
@@ -130,6 +169,7 @@ export interface UpdateProtectedQueryCommandOutput extends UpdateProtectedQueryO
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class UpdateProtectedQueryCommand extends $Command
@@ -140,9 +180,7 @@ export class UpdateProtectedQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +192,16 @@ export class UpdateProtectedQueryCommand extends $Command
   .f(void 0, UpdateProtectedQueryOutputFilterSensitiveLog)
   .ser(se_UpdateProtectedQueryCommand)
   .de(de_UpdateProtectedQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProtectedQueryInput;
+      output: UpdateProtectedQueryOutput;
+    };
+    sdk: {
+      input: UpdateProtectedQueryCommandInput;
+      output: UpdateProtectedQueryCommandOutput;
+    };
+  };
+}

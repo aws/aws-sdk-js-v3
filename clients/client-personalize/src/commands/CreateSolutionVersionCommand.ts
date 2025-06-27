@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateSolutionVersionRequest, CreateSolutionVersionResponse } from "../models/models_0";
+import {
+  CreateSolutionVersionRequest,
+  CreateSolutionVersionRequestFilterSensitiveLog,
+  CreateSolutionVersionResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateSolutionVersionCommand, se_CreateSolutionVersionCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -146,6 +151,7 @@ export interface CreateSolutionVersionCommandOutput extends CreateSolutionVersio
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateSolutionVersionCommand extends $Command
@@ -156,9 +162,7 @@ export class CreateSolutionVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,7 +171,19 @@ export class CreateSolutionVersionCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateSolutionVersion", {})
   .n("PersonalizeClient", "CreateSolutionVersionCommand")
-  .f(void 0, void 0)
+  .f(CreateSolutionVersionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateSolutionVersionCommand)
   .de(de_CreateSolutionVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSolutionVersionRequest;
+      output: CreateSolutionVersionResponse;
+    };
+    sdk: {
+      input: CreateSolutionVersionCommandInput;
+      output: CreateSolutionVersionCommandOutput;
+    };
+  };
+}

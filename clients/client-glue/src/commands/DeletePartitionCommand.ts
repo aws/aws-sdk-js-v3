@@ -12,7 +12,8 @@ import { de_DeletePartitionCommand, se_DeletePartitionCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DeletePartitionCommandOutput extends DeletePartitionResponse, _
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class DeletePartitionCommand extends $Command
@@ -79,9 +81,7 @@ export class DeletePartitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DeletePartitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePartitionCommand)
   .de(de_DeletePartitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePartitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePartitionCommandInput;
+      output: DeletePartitionCommandOutput;
+    };
+  };
+}

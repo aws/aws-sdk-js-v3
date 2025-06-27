@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node16/tsconfig.json",
+  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "downlevelIteration": true,
@@ -25,5 +25,5 @@
     "jsxFragmentFactory": "JSX.Fragment"
   },
   "include": ["packages/", "lib/"],
-  "exclude": ["node_modules/", "**/*.spec.ts"]
+  "exclude": ["node_modules/", "**/*.spec.ts", "vitest.*.ts"]
 }

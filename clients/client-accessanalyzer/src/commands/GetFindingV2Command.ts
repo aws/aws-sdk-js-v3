@@ -12,7 +12,8 @@ import { de_GetFindingV2Command, se_GetFindingV2Command } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface GetFindingV2CommandInput extends GetFindingV2Request {}
 export interface GetFindingV2CommandOutput extends GetFindingV2Response, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use
- *             <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM
- *          policy statement. You must have permission to perform the
- *             <code>access-analyzer:GetFinding</code> action.</p>
+ * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,17 +56,19 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * //   updatedAt: new Date("TIMESTAMP"), // required
  * //   findingDetails: [ // FindingDetailsList // required
  * //     { // FindingDetails Union: only one key present
- * //       externalAccessDetails: { // ExternalAccessDetails
+ * //       internalAccessDetails: { // InternalAccessDetails
  * //         action: [ // ActionList
  * //           "STRING_VALUE",
  * //         ],
- * //         condition: { // ConditionKeyMap // required
+ * //         condition: { // ConditionKeyMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
- * //         isPublic: true || false,
  * //         principal: { // PrincipalMap
  * //           "<keys>": "STRING_VALUE",
  * //         },
+ * //         principalOwnerAccount: "STRING_VALUE",
+ * //         accessType: "STRING_VALUE",
+ * //         principalType: "STRING_VALUE",
  * //         sources: [ // FindingSourceList
  * //           { // FindingSource
  * //             type: "STRING_VALUE", // required
@@ -78,6 +78,30 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * //             },
  * //           },
  * //         ],
+ * //         resourceControlPolicyRestriction: "STRING_VALUE",
+ * //         serviceControlPolicyRestriction: "STRING_VALUE",
+ * //       },
+ * //       externalAccessDetails: { // ExternalAccessDetails
+ * //         action: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         condition: { // required
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         isPublic: true || false,
+ * //         principal: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         sources: [
+ * //           {
+ * //             type: "STRING_VALUE", // required
+ * //             detail: {
+ * //               accessPointArn: "STRING_VALUE",
+ * //               accessPointAccount: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //         resourceControlPolicyRestriction: "STRING_VALUE",
  * //       },
  * //       unusedPermissionDetails: { // UnusedPermissionDetails
  * //         actions: [ // UnusedActionList
@@ -130,6 +154,7 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetFindingV2Command extends $Command
@@ -140,9 +165,7 @@ export class GetFindingV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +177,16 @@ export class GetFindingV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingV2Command)
   .de(de_GetFindingV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingV2Request;
+      output: GetFindingV2Response;
+    };
+    sdk: {
+      input: GetFindingV2CommandInput;
+      output: GetFindingV2CommandOutput;
+    };
+  };
+}

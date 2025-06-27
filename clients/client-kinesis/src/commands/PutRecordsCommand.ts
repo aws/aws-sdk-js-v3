@@ -12,7 +12,8 @@ import { de_PutRecordsCommand, se_PutRecordsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -132,6 +133,10 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -177,6 +182,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class PutRecordsCommand extends $Command
@@ -203,4 +209,16 @@ export class PutRecordsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecordsCommand)
   .de(de_PutRecordsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecordsInput;
+      output: PutRecordsOutput;
+    };
+    sdk: {
+      input: PutRecordsCommandInput;
+      output: PutRecordsCommandOutput;
+    };
+  };
+}

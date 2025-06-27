@@ -16,7 +16,8 @@ import { de_UpdateAssessmentStatusCommand, se_UpdateAssessmentStatusCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -198,6 +199,7 @@ export interface UpdateAssessmentStatusCommandOutput extends UpdateAssessmentSta
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssessmentStatusCommand extends $Command
@@ -208,9 +210,7 @@ export class UpdateAssessmentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -222,4 +222,16 @@ export class UpdateAssessmentStatusCommand extends $Command
   .f(void 0, UpdateAssessmentStatusResponseFilterSensitiveLog)
   .ser(se_UpdateAssessmentStatusCommand)
   .de(de_UpdateAssessmentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssessmentStatusRequest;
+      output: UpdateAssessmentStatusResponse;
+    };
+    sdk: {
+      input: UpdateAssessmentStatusCommandInput;
+      output: UpdateAssessmentStatusCommandOutput;
+    };
+  };
+}

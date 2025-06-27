@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateDatasetExportJobRequest, CreateDatasetExportJobResponse } from "../models/models_0";
+import {
+  CreateDatasetExportJobRequest,
+  CreateDatasetExportJobRequestFilterSensitiveLog,
+  CreateDatasetExportJobResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateDatasetExportJobCommand, se_CreateDatasetExportJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +110,7 @@ export interface CreateDatasetExportJobCommandOutput extends CreateDatasetExport
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateDatasetExportJobCommand extends $Command
@@ -115,9 +121,7 @@ export class CreateDatasetExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,7 +130,19 @@ export class CreateDatasetExportJobCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateDatasetExportJob", {})
   .n("PersonalizeClient", "CreateDatasetExportJobCommand")
-  .f(void 0, void 0)
+  .f(CreateDatasetExportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDatasetExportJobCommand)
   .de(de_CreateDatasetExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatasetExportJobRequest;
+      output: CreateDatasetExportJobResponse;
+    };
+    sdk: {
+      input: CreateDatasetExportJobCommandInput;
+      output: CreateDatasetExportJobCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ExportNotebookCommand, se_ExportNotebookCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface ExportNotebookCommandOutput extends ExportNotebookOutput, __Met
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ExportNotebookCommand extends $Command
@@ -83,9 +85,7 @@ export class ExportNotebookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class ExportNotebookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExportNotebookCommand)
   .de(de_ExportNotebookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExportNotebookInput;
+      output: ExportNotebookOutput;
+    };
+    sdk: {
+      input: ExportNotebookCommandInput;
+      output: ExportNotebookCommandOutput;
+    };
+  };
+}

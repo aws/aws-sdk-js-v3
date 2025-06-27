@@ -12,7 +12,8 @@ import { de_UpdateInputDeviceCommand, se_UpdateInputDeviceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *         Profile: "DISABLED" || "VBR-AAC_HHE-16000" || "VBR-AAC_HE-64000" || "VBR-AAC_LC-128000" || "CBR-AAC_HQ-192000" || "CBR-AAC_HQ-256000" || "CBR-AAC_HQ-384000" || "CBR-AAC_HQ-512000",
  *       },
  *     ],
+ *     InputResolution: "STRING_VALUE",
  *   },
  *   InputDeviceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE",
@@ -72,6 +74,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  *         Profile: "DISABLED" || "VBR-AAC_HHE-16000" || "VBR-AAC_HE-64000" || "VBR-AAC_LC-128000" || "CBR-AAC_HQ-192000" || "CBR-AAC_HQ-256000" || "CBR-AAC_HQ-384000" || "CBR-AAC_HQ-512000",
  *       },
  *     ],
+ *     InputResolution: "STRING_VALUE",
  *   },
  *   AvailabilityZone: "STRING_VALUE",
  * };
@@ -130,6 +133,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * //         Profile: "DISABLED" || "VBR-AAC_HHE-16000" || "VBR-AAC_HE-64000" || "VBR-AAC_LC-128000" || "CBR-AAC_HQ-192000" || "CBR-AAC_HQ-256000" || "CBR-AAC_HQ-384000" || "CBR-AAC_HQ-512000",
  * //       },
  * //     ],
+ * //     InputResolution: "STRING_VALUE",
  * //   },
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
@@ -176,6 +180,7 @@ export interface UpdateInputDeviceCommandOutput extends UpdateInputDeviceRespons
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateInputDeviceCommand extends $Command
@@ -186,9 +191,7 @@ export class UpdateInputDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +203,16 @@ export class UpdateInputDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInputDeviceCommand)
   .de(de_UpdateInputDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInputDeviceRequest;
+      output: UpdateInputDeviceResponse;
+    };
+    sdk: {
+      input: UpdateInputDeviceCommandInput;
+      output: UpdateInputDeviceCommandOutput;
+    };
+  };
+}

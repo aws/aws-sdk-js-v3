@@ -12,7 +12,8 @@ import { de_GetFindingCommand, se_GetFindingCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface GetFindingCommandInput extends GetFindingRequest {}
 export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use
- *             <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM
- *          policy statement. You must have permission to perform the
- *             <code>access-analyzer:GetFinding</code> action.</p>
+ * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM policy statement. You must have permission to perform the <code>access-analyzer:GetFinding</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +71,7 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * //         },
  * //       },
  * //     ],
+ * //     resourceControlPolicyRestriction: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -102,6 +101,7 @@ export interface GetFindingCommandOutput extends GetFindingResponse, __MetadataB
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetFindingCommand extends $Command
@@ -112,9 +112,7 @@ export class GetFindingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +124,16 @@ export class GetFindingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingCommand)
   .de(de_GetFindingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingRequest;
+      output: GetFindingResponse;
+    };
+    sdk: {
+      input: GetFindingCommandInput;
+      output: GetFindingCommandOutput;
+    };
+  };
+}

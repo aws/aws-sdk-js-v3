@@ -12,7 +12,8 @@ import { de_ListReferenceImportJobsCommand, se_ListReferenceImportJobsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface ListReferenceImportJobsCommandOutput extends ListReferenceImpor
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListReferenceImportJobsCommand extends $Command
@@ -99,9 +101,7 @@ export class ListReferenceImportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class ListReferenceImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReferenceImportJobsCommand)
   .de(de_ListReferenceImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReferenceImportJobsRequest;
+      output: ListReferenceImportJobsResponse;
+    };
+    sdk: {
+      input: ListReferenceImportJobsCommandInput;
+      output: ListReferenceImportJobsCommandOutput;
+    };
+  };
+}

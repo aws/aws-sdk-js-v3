@@ -13,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Creates or modifies the <code>PublicAccessBlock</code> configuration for an Amazon S3 bucket.
  *          To use this operation, you must have the <code>s3:PutBucketPublicAccessBlock</code>
@@ -77,7 +78,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * const input = { // PutPublicAccessBlockRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   PublicAccessBlockConfiguration: { // PublicAccessBlockConfiguration
  *     BlockPublicAcls: true || false,
  *     IgnorePublicAcls: true || false,
@@ -101,6 +102,7 @@ export interface PutPublicAccessBlockCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class PutPublicAccessBlockCommand extends $Command
@@ -121,8 +123,7 @@ export class PutPublicAccessBlockCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -132,4 +133,16 @@ export class PutPublicAccessBlockCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPublicAccessBlockCommand)
   .de(de_PutPublicAccessBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPublicAccessBlockRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutPublicAccessBlockCommandInput;
+      output: PutPublicAccessBlockCommandOutput;
+    };
+  };
+}

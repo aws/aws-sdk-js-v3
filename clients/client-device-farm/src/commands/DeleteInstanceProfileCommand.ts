@@ -12,7 +12,8 @@ import { de_DeleteInstanceProfileCommand, se_DeleteInstanceProfileCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DeleteInstanceProfileCommandOutput extends DeleteInstanceProfil
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class DeleteInstanceProfileCommand extends $Command
@@ -74,9 +76,7 @@ export class DeleteInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DeleteInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInstanceProfileCommand)
   .de(de_DeleteInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteInstanceProfileCommandInput;
+      output: DeleteInstanceProfileCommandOutput;
+    };
+  };
+}

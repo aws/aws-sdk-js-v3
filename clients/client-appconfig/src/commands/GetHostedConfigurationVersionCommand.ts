@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,28 +90,28 @@ export interface GetHostedConfigurationVersionCommandOutput
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To retrieve hosted configuration details
  * ```javascript
  * // The following get-hosted-configuration-version example retrieves the configuration details of the AWS AppConfig hosted configuration.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "VersionNumber": 1
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f",
+ *   VersionNumber: 1
  * };
  * const command = new GetHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ContentType": "application/json",
- *   "VersionNumber": 1
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f",
+ *   ContentType: "application/json",
+ *   VersionNumber: 1
  * }
  * *\/
- * // example id: to-retrieve-hosted-configuration-details-1632267003527
  * ```
  *
+ * @public
  */
 export class GetHostedConfigurationVersionCommand extends $Command
   .classBuilder<
@@ -120,9 +121,7 @@ export class GetHostedConfigurationVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class GetHostedConfigurationVersionCommand extends $Command
   .f(void 0, HostedConfigurationVersionFilterSensitiveLog)
   .ser(se_GetHostedConfigurationVersionCommand)
   .de(de_GetHostedConfigurationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHostedConfigurationVersionRequest;
+      output: HostedConfigurationVersion;
+    };
+    sdk: {
+      input: GetHostedConfigurationVersionCommandInput;
+      output: GetHostedConfigurationVersionCommandOutput;
+    };
+  };
+}

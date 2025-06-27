@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,7 +57,7 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //   events: [ // HistoryEventList // required
  * //     { // HistoryEvent
  * //       timestamp: new Date("TIMESTAMP"), // required
- * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded" || "ExecutionRedriven" || "MapRunRedriven", // required
+ * //       type: "ActivityFailed" || "ActivityScheduled" || "ActivityScheduleFailed" || "ActivityStarted" || "ActivitySucceeded" || "ActivityTimedOut" || "ChoiceStateEntered" || "ChoiceStateExited" || "ExecutionAborted" || "ExecutionFailed" || "ExecutionStarted" || "ExecutionSucceeded" || "ExecutionTimedOut" || "FailStateEntered" || "LambdaFunctionFailed" || "LambdaFunctionScheduled" || "LambdaFunctionScheduleFailed" || "LambdaFunctionStarted" || "LambdaFunctionStartFailed" || "LambdaFunctionSucceeded" || "LambdaFunctionTimedOut" || "MapIterationAborted" || "MapIterationFailed" || "MapIterationStarted" || "MapIterationSucceeded" || "MapStateAborted" || "MapStateEntered" || "MapStateExited" || "MapStateFailed" || "MapStateStarted" || "MapStateSucceeded" || "ParallelStateAborted" || "ParallelStateEntered" || "ParallelStateExited" || "ParallelStateFailed" || "ParallelStateStarted" || "ParallelStateSucceeded" || "PassStateEntered" || "PassStateExited" || "SucceedStateEntered" || "SucceedStateExited" || "TaskFailed" || "TaskScheduled" || "TaskStarted" || "TaskStartFailed" || "TaskStateAborted" || "TaskStateEntered" || "TaskStateExited" || "TaskSubmitFailed" || "TaskSubmitted" || "TaskSucceeded" || "TaskTimedOut" || "WaitStateAborted" || "WaitStateEntered" || "WaitStateExited" || "MapRunAborted" || "MapRunFailed" || "MapRunStarted" || "MapRunSucceeded" || "ExecutionRedriven" || "MapRunRedriven" || "EvaluationFailed", // required
  * //       id: Number("long"), // required
  * //       previousEventId: Number("long"),
  * //       activityFailedEventDetails: { // ActivityFailedEventDetails
@@ -229,6 +230,12 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //         name: "STRING_VALUE", // required
  * //         output: "STRING_VALUE",
  * //         outputDetails: "<HistoryEventExecutionDataDetails>",
+ * //         assignedVariables: { // AssignedVariables
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         assignedVariablesDetails: { // AssignedVariablesDetails
+ * //           truncated: true || false,
+ * //         },
  * //       },
  * //       mapRunStartedEventDetails: { // MapRunStartedEventDetails
  * //         mapRunArn: "STRING_VALUE",
@@ -240,6 +247,12 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * //       mapRunRedrivenEventDetails: { // MapRunRedrivenEventDetails
  * //         mapRunArn: "STRING_VALUE",
  * //         redriveCount: Number("int"),
+ * //       },
+ * //       evaluationFailedEventDetails: { // EvaluationFailedEventDetails
+ * //         error: "STRING_VALUE",
+ * //         cause: "STRING_VALUE",
+ * //         location: "STRING_VALUE",
+ * //         state: "STRING_VALUE", // required
  * //       },
  * //     },
  * //   ],
@@ -263,8 +276,18 @@ export interface GetExecutionHistoryCommandOutput extends GetExecutionHistoryOut
  * @throws {@link InvalidToken} (client fault)
  *  <p>The provided token is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
+ *
  *
  * @public
  */
@@ -276,9 +299,7 @@ export class GetExecutionHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -290,4 +311,16 @@ export class GetExecutionHistoryCommand extends $Command
   .f(void 0, GetExecutionHistoryOutputFilterSensitiveLog)
   .ser(se_GetExecutionHistoryCommand)
   .de(de_GetExecutionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetExecutionHistoryInput;
+      output: GetExecutionHistoryOutput;
+    };
+    sdk: {
+      input: GetExecutionHistoryCommandInput;
+      output: GetExecutionHistoryCommandOutput;
+    };
+  };
+}

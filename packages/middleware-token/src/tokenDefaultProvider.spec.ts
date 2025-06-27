@@ -1,8 +1,9 @@
 import { nodeProvider } from "@aws-sdk/token-providers";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { tokenDefaultProvider } from "./tokenDefaultProvider";
 
-jest.mock("@aws-sdk/token-providers");
+vi.mock("@aws-sdk/token-providers");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 
@@ -14,11 +15,11 @@ describe(tokenDefaultProvider.name, () => {
     });
 
   beforeEach(() => {
-    (nodeProvider as jest.Mock).mockReturnValue(mockOutputToken);
+    vi.mocked(nodeProvider).mockReturnValue(mockOutputToken);
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should return nodeProvider", () => {

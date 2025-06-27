@@ -12,7 +12,8 @@ import { de_DisassociateApprovedOriginCommand, se_DisassociateApprovedOriginComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,6 +39,7 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * const input = { // DisassociateApprovedOriginRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Origin: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new DisassociateApprovedOriginCommand(input);
  * const response = await client.send(command);
@@ -69,6 +71,7 @@ export interface DisassociateApprovedOriginCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateApprovedOriginCommand extends $Command
@@ -79,9 +82,7 @@ export class DisassociateApprovedOriginCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class DisassociateApprovedOriginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateApprovedOriginCommand)
   .de(de_DisassociateApprovedOriginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateApprovedOriginRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateApprovedOriginCommandInput;
+      output: DisassociateApprovedOriginCommandOutput;
+    };
+  };
+}

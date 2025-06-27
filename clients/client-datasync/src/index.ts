@@ -2,9 +2,9 @@
 /* eslint-disable */
 /**
  * <fullname>DataSync</fullname>
- *          <p>DataSync is an online data movement and discovery service that simplifies data migration
- *       and helps you quickly, easily, and securely transfer your file or object data to, from, and
- *       between Amazon Web Services storage services.</p>
+ *          <p>DataSync is an online data movement service that simplifies data
+ *       migration and helps you quickly, easily, and securely transfer your file or object data to,
+ *       from, and between Amazon Web Services storage services.</p>
  *          <p>This API interface reference includes documentation for using DataSync
  *       programmatically. For complete information, see the <i>
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User
@@ -16,8 +16,8 @@
 export * from "./DataSyncClient";
 export * from "./DataSync";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { DataSyncExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { DataSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

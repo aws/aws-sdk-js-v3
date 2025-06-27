@@ -1,6 +1,8 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
+import { commonParams } from "../endpoint/EndpointParameters";
+import { de_OnlySigv4AuthCommand, se_OnlySigv4AuthCommand } from "../protocols/Aws_restJson1";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -8,7 +10,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +50,7 @@ export interface OnlySigv4AuthCommandOutput extends __MetadataBearer {}
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class OnlySigv4AuthCommand extends $Command
   .classBuilder<
@@ -56,16 +60,28 @@ export class OnlySigv4AuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize), getSigV4AuthPlugin(config)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("Weather", "OnlySigv4Auth", {})
   .n("WeatherClient", "OnlySigv4AuthCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .build() {}
+  .ser(se_OnlySigv4AuthCommand)
+  .de(de_OnlySigv4AuthCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: OnlySigv4AuthCommandInput;
+      output: OnlySigv4AuthCommandOutput;
+    };
+  };
+}

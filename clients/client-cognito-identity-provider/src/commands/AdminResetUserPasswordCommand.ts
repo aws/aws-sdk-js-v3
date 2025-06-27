@@ -20,7 +20,8 @@ import { de_AdminResetUserPasswordCommand, se_AdminResetUserPasswordCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,10 +36,10 @@ export interface AdminResetUserPasswordCommandInput extends AdminResetUserPasswo
 export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPasswordResponse, __MetadataBearer {}
 
 /**
- * <p>Resets the specified user's password in a user pool as an administrator. Works on any
- *             user.</p>
+ * <p>Resets the specified user's password in a user pool. This operation doesn't
+ *             change the user's password, but sends a password-reset code.</p>
  *          <p>To use this API operation, your user pool must have self-service account recovery
- *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
+ *             configured.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -47,7 +48,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -56,14 +57,6 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
- *          <p>Deactivates a user's password, requiring them to change it. If a user tries to sign in
- *             after the API is called, Amazon Cognito responds with a
- *                 <code>PasswordResetRequiredException</code> error. Your app must then perform the
- *             actions that reset your user's password: the forgot-password flow. In addition, if the
- *             user pool has phone verification selected and a verified phone number exists for the
- *             user, or if email verification is selected and a verified email exists for the user,
- *             calling this API will also result in sending a message to the end user with the code to
- *             change their password.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -162,6 +155,7 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminResetUserPasswordCommand extends $Command
@@ -172,9 +166,7 @@ export class AdminResetUserPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +178,16 @@ export class AdminResetUserPasswordCommand extends $Command
   .f(AdminResetUserPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_AdminResetUserPasswordCommand)
   .de(de_AdminResetUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminResetUserPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminResetUserPasswordCommandInput;
+      output: AdminResetUserPasswordCommandOutput;
+    };
+  };
+}

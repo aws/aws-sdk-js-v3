@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,47 @@ export interface GetWorkloadDeploymentPatternCommandOutput
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Get details about a specific Workload deployment pattern
+ * ```javascript
+ * //
+ * const input = {
+ *   deploymentPatternName: "adSelfManagedNewVpc",
+ *   workloadName: "MicrosoftActiveDirectory"
+ * };
+ * const command = new GetWorkloadDeploymentPatternCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   workloadDeploymentPattern: {
+ *     deploymentPatternName: "adSelfManagedNewVpc",
+ *     description: "Builds a new AWS environment (VPC and other components), and deploys AD DS into this new VPC.",
+ *     displayName: "Self-managed AD - new VPC",
+ *     specifications: [
+ *       {
+ *         description: "Number of Availability Zones to use in the VPC.",
+ *         name: "NumberOfAZs",
+ *         required: "Yes"
+ *       },
+ *       {
+ *         description: "List of Availability Zones (AZs) to use for the subnets in the VPC.",
+ *         name: "AvailabilityZones",
+ *         required: "Yes"
+ *       },
+ *       {
+ *         description: "CIDR block for the VPC.",
+ *         name: "VPCCIDR",
+ *         required: "Yes"
+ *       }
+ *     ],
+ *     status: "ACTIVE",
+ *     workloadName: "MicrosoftActiveDirectory",
+ *     workloadVersionName: "2024-03-19-14-00-09"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetWorkloadDeploymentPatternCommand extends $Command
@@ -108,9 +150,7 @@ export class GetWorkloadDeploymentPatternCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +162,16 @@ export class GetWorkloadDeploymentPatternCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkloadDeploymentPatternCommand)
   .de(de_GetWorkloadDeploymentPatternCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkloadDeploymentPatternInput;
+      output: GetWorkloadDeploymentPatternOutput;
+    };
+    sdk: {
+      input: GetWorkloadDeploymentPatternCommandInput;
+      output: GetWorkloadDeploymentPatternCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutInsightRuleCommand, se_PutInsightRuleCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,12 @@ export interface PutInsightRuleCommandInput extends PutInsightRuleInput {}
 export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a Contributor Insights rule. Rules evaluate log events in a
- * 		CloudWatch Logs log group, enabling you to find contributor data for the log events in that log group. For more information,
- * 		see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor Insights to Analyze High-Cardinality Data</a>.</p>
- *          <p>If you create a rule, delete it, and then re-create it with the same name, historical data from the first time
- * 			the rule was created might not be available.</p>
+ * <p>Creates a Contributor Insights rule. Rules evaluate log events in a CloudWatch Logs
+ *             log group, enabling you to find contributor data for the log events in that log group.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/ContributorInsights.html">Using Contributor
+ *                 Insights to Analyze High-Cardinality Data</a>.</p>
+ *          <p>If you create a rule, delete it, and then re-create it with the same name, historical
+ *             data from the first time the rule was created might not be available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +50,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   ApplyOnTransformedLogs: true || false,
  * };
  * const command = new PutInsightRuleCommand(input);
  * const response = await client.send(command);
@@ -73,6 +76,7 @@ export interface PutInsightRuleCommandOutput extends PutInsightRuleOutput, __Met
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutInsightRuleCommand extends $Command
@@ -83,9 +87,7 @@ export class PutInsightRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +99,16 @@ export class PutInsightRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInsightRuleCommand)
   .de(de_PutInsightRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInsightRuleInput;
+      output: {};
+    };
+    sdk: {
+      input: PutInsightRuleCommandInput;
+      output: PutInsightRuleCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,8 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *       value. To edit a tag, specify an existing tag key and a new tag value.</p>
  *          <p>You can use this operation to tag a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed key</a>, but you cannot
  *       tag an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services
- *         managed key</a>, an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>, a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#keystore-concept">custom key
- *         store</a>, or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#alias-concept">alias</a>.</p>
+ *         managed key</a>, an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned key</a>, a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>,
+ *       or an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">alias</a>.</p>
  *          <p>You can also add tags to a KMS key while creating it (<a>CreateKey</a>) or
  *       replicating it (<a>ReplicateKey</a>).</p>
  *          <p>For information about using tags in KMS, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">Tagging keys</a>. For general information about
@@ -76,7 +77,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -133,8 +134,9 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The request was rejected because the specified entity or resource could not be
@@ -146,24 +148,27 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To tag a KMS key
  * ```javascript
  * // The following example tags a KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Tags": [
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Tags: [
  *     {
- *       "TagKey": "Purpose",
- *       "TagValue": "Test"
+ *       TagKey: "Purpose",
+ *       TagValue: "Test"
  *     }
  *   ]
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-tag-a-cmk-1483997246518
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<
@@ -173,9 +178,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -187,4 +190,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

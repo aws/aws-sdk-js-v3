@@ -12,7 +12,8 @@ import { de_GetCredentialReportCommand, se_GetCredentialReportCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,7 +58,7 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  *  <p>The request was rejected because the most recent credential report has expired. To
  *       generate a new credential report, use <a>GenerateCredentialReport</a>. For more
  *       information about credential report expiration, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html">Getting credential reports</a> in the
- *         <i>IAM User Guide</i>.</p>
+ *       <i>IAM User Guide</i>.</p>
  *
  * @throws {@link CredentialReportNotPresentException} (client fault)
  *  <p>The request was rejected because the credential report does not exist. To generate a
@@ -73,6 +74,7 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class GetCredentialReportCommand extends $Command
@@ -83,9 +85,7 @@ export class GetCredentialReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class GetCredentialReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCredentialReportCommand)
   .de(de_GetCredentialReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetCredentialReportResponse;
+    };
+    sdk: {
+      input: GetCredentialReportCommandInput;
+      output: GetCredentialReportCommandOutput;
+    };
+  };
+}

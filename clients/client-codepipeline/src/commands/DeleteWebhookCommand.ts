@@ -12,7 +12,8 @@ import { de_DeleteWebhookCommand, se_DeleteWebhookCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface DeleteWebhookCommandOutput extends DeleteWebhookOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class DeleteWebhookCommand extends $Command
@@ -71,9 +73,7 @@ export class DeleteWebhookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeleteWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebhookCommand)
   .de(de_DeleteWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebhookInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWebhookCommandInput;
+      output: DeleteWebhookCommandOutput;
+    };
+  };
+}

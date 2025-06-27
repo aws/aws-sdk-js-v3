@@ -5,23 +5,22 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  useFipsEndpoint?: boolean | Provider<boolean>;
-  region?: string | Provider<string>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  region?: string | undefined | Provider<string | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 }
 
-export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
+export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
-  return {
-    ...options,
+  return Object.assign(options, {
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     defaultSigningName: "codecatalyst",
-  };
+  });
 };
 
 export const commonParams = {
@@ -31,7 +30,7 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  UseFIPS?: boolean;
-  Region?: string;
-  Endpoint?: string;
+  UseFIPS?: boolean | undefined;
+  Region?: string | undefined;
+  Endpoint?: string | undefined;
 }

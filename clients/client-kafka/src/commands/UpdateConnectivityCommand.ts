@@ -12,7 +12,8 @@ import { de_UpdateConnectivityCommand, se_UpdateConnectivityCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface UpdateConnectivityCommandOutput extends UpdateConnectivityRespo
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class UpdateConnectivityCommand extends $Command
@@ -104,9 +106,7 @@ export class UpdateConnectivityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class UpdateConnectivityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConnectivityCommand)
   .de(de_UpdateConnectivityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConnectivityRequest;
+      output: UpdateConnectivityResponse;
+    };
+    sdk: {
+      input: UpdateConnectivityCommandInput;
+      output: UpdateConnectivityCommandOutput;
+    };
+  };
+}

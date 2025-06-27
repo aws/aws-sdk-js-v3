@@ -12,7 +12,8 @@ import { de_PutGeofenceCommand, se_PutGeofenceCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  *       ],
  *       Radius: Number("double"), // required
  *     },
+ *     Geobuf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   GeofenceProperties: { // PropertyMap
  *     "<keys>": "STRING_VALUE",
@@ -95,6 +97,7 @@ export interface PutGeofenceCommandOutput extends PutGeofenceResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class PutGeofenceCommand extends $Command
@@ -105,9 +108,7 @@ export class PutGeofenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class PutGeofenceCommand extends $Command
   .f(PutGeofenceRequestFilterSensitiveLog, void 0)
   .ser(se_PutGeofenceCommand)
   .de(de_PutGeofenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutGeofenceRequest;
+      output: PutGeofenceResponse;
+    };
+    sdk: {
+      input: PutGeofenceCommandInput;
+      output: PutGeofenceCommandOutput;
+    };
+  };
+}

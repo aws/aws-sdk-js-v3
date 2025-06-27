@@ -19,28 +19,32 @@ export type QueryCommandInput = Omit<
   __QueryCommandInput,
   "KeyConditions" | "QueryFilter" | "ExclusiveStartKey" | "ExpressionAttributeValues"
 > & {
-  KeyConditions?: Record<
-    string,
-    Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  QueryFilter?: Record<
-    string,
-    Omit<Condition, "AttributeValueList"> & {
-      AttributeValueList?: NativeAttributeValue[];
-    }
-  >;
-  ExclusiveStartKey?: Record<string, NativeAttributeValue>;
-  ExpressionAttributeValues?: Record<string, NativeAttributeValue>;
+  KeyConditions?:
+    | Record<
+        string,
+        Omit<Condition, "AttributeValueList"> & {
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
+      >
+    | undefined;
+  QueryFilter?:
+    | Record<
+        string,
+        Omit<Condition, "AttributeValueList"> & {
+          AttributeValueList?: NativeAttributeValue[] | undefined;
+        }
+      >
+    | undefined;
+  ExclusiveStartKey?: Record<string, NativeAttributeValue> | undefined;
+  ExpressionAttributeValues?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**
  * @public
  */
 export type QueryCommandOutput = Omit<__QueryCommandOutput, "Items" | "LastEvaluatedKey"> & {
-  Items?: Record<string, NativeAttributeValue>[];
-  LastEvaluatedKey?: Record<string, NativeAttributeValue>;
+  Items?: Record<string, NativeAttributeValue>[] | undefined;
+  LastEvaluatedKey?: Record<string, NativeAttributeValue> | undefined;
 };
 
 /**

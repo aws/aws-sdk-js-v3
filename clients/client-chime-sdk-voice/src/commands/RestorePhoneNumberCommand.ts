@@ -17,7 +17,8 @@ import { de_RestorePhoneNumberCommand, se_RestorePhoneNumberCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +113,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class RestorePhoneNumberCommand extends $Command
@@ -122,9 +124,7 @@ export class RestorePhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +136,16 @@ export class RestorePhoneNumberCommand extends $Command
   .f(RestorePhoneNumberRequestFilterSensitiveLog, RestorePhoneNumberResponseFilterSensitiveLog)
   .ser(se_RestorePhoneNumberCommand)
   .de(de_RestorePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestorePhoneNumberRequest;
+      output: RestorePhoneNumberResponse;
+    };
+    sdk: {
+      input: RestorePhoneNumberCommandInput;
+      output: RestorePhoneNumberCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListAgentsCommand, se_ListAgentsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListAgentsCommandOutput extends ListAgentsResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class ListAgentsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListAgentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListAgentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAgentsCommand)
   .de(de_ListAgentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAgentsRequest;
+      output: ListAgentsResponse;
+    };
+    sdk: {
+      input: ListAgentsCommandInput;
+      output: ListAgentsCommandOutput;
+    };
+  };
+}

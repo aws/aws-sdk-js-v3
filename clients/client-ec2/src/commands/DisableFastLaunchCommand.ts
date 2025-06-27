@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableFastLaunchRequest, DisableFastLaunchResult } from "../models/models_5";
+import { DisableFastLaunchRequest, DisableFastLaunchResult } from "../models/models_6";
 import { de_DisableFastLaunchCommand, se_DisableFastLaunchCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,13 @@ export interface DisableFastLaunchCommandInput extends DisableFastLaunchRequest 
 export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult, __MetadataBearer {}
 
 /**
- * <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned snapshots.
- * 			After you disable Windows fast launch, the AMI uses the standard launch process for each
- * 			new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable Windows fast launch again.</p>
+ * <p>Discontinue Windows fast launch for a Windows AMI, and clean up existing pre-provisioned
+ *       snapshots. After you disable Windows fast launch, the AMI uses the standard launch process for
+ *       each new instance. Amazon EC2 must remove all pre-provisioned snapshots before you can enable
+ *       Windows fast launch again.</p>
  *          <note>
- *             <p>You can only change these settings for Windows AMIs that you own or that have been shared with you.</p>
+ *             <p>You can only change these settings for Windows AMIs that you own or that have been
+ *         shared with you.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -75,6 +78,7 @@ export interface DisableFastLaunchCommandOutput extends DisableFastLaunchResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisableFastLaunchCommand extends $Command
@@ -85,9 +89,7 @@ export class DisableFastLaunchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +101,16 @@ export class DisableFastLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableFastLaunchCommand)
   .de(de_DisableFastLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableFastLaunchRequest;
+      output: DisableFastLaunchResult;
+    };
+    sdk: {
+      input: DisableFastLaunchCommandInput;
+      output: DisableFastLaunchCommandOutput;
+    };
+  };
+}

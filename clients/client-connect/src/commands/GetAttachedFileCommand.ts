@@ -12,7 +12,8 @@ import { de_GetAttachedFileCommand, se_GetAttachedFileCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, _
  * //   FileName: "STRING_VALUE",
  * //   FileSizeInBytes: Number("long"), // required
  * //   AssociatedResourceArn: "STRING_VALUE",
- * //   FileUseCaseType: "ATTACHMENT",
+ * //   FileUseCaseType: "EMAIL_MESSAGE" || "ATTACHMENT",
  * //   CreatedBy: { // CreatedByInfo Union: only one key present
  * //     ConnectUserArn: "STRING_VALUE",
  * //     AWSIdentityArn: "STRING_VALUE",
@@ -92,6 +93,7 @@ export interface GetAttachedFileCommandOutput extends GetAttachedFileResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetAttachedFileCommand extends $Command
@@ -102,9 +104,7 @@ export class GetAttachedFileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class GetAttachedFileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAttachedFileCommand)
   .de(de_GetAttachedFileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAttachedFileRequest;
+      output: GetAttachedFileResponse;
+    };
+    sdk: {
+      input: GetAttachedFileCommandInput;
+      output: GetAttachedFileCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,24 +124,24 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To delete a web ACL
  * ```javascript
  * // The following example deletes a web ACL with the ID example-46da-4444-5555-example.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "WebACLId": "example-46da-4444-5555-example"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   WebACLId: "example-46da-4444-5555-example"
  * };
  * const command = new DeleteWebACLCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deletewebacl-1472767755931
  * ```
  *
+ * @public
  */
 export class DeleteWebACLCommand extends $Command
   .classBuilder<
@@ -150,9 +151,7 @@ export class DeleteWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +163,16 @@ export class DeleteWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebACLCommand)
   .de(de_DeleteWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebACLRequest;
+      output: DeleteWebACLResponse;
+    };
+    sdk: {
+      input: DeleteWebACLCommandInput;
+      output: DeleteWebACLCommandOutput;
+    };
+  };
+}

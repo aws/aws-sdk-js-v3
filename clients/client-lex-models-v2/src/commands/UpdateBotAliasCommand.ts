@@ -12,7 +12,8 @@ import { de_UpdateBotAliasCommand, se_UpdateBotAliasCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -172,6 +173,7 @@ export interface UpdateBotAliasCommandOutput extends UpdateBotAliasResponse, __M
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateBotAliasCommand extends $Command
@@ -182,9 +184,7 @@ export class UpdateBotAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +196,16 @@ export class UpdateBotAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBotAliasCommand)
   .de(de_UpdateBotAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotAliasRequest;
+      output: UpdateBotAliasResponse;
+    };
+    sdk: {
+      input: UpdateBotAliasCommandInput;
+      output: UpdateBotAliasCommandOutput;
+    };
+  };
+}

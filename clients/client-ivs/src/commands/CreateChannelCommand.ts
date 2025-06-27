@@ -16,7 +16,8 @@ import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   insecureIngest: true || false,
  *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  *   playbackRestrictionPolicyArn: "STRING_VALUE",
+ *   multitrackInputConfiguration: { // MultitrackInputConfiguration
+ *     enabled: true || false,
+ *     policy: "ALLOW" || "REQUIRE",
+ *     maximumResolution: "SD" || "HD" || "FULL_HD",
+ *   },
+ *   containerFormat: "STRING_VALUE",
  * };
  * const command = new CreateChannelCommand(input);
  * const response = await client.send(command);
@@ -73,6 +80,12 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       passphrase: "STRING_VALUE",
  * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //     multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //       enabled: true || false,
+ * //       policy: "ALLOW" || "REQUIRE",
+ * //       maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //     },
+ * //     containerFormat: "STRING_VALUE",
  * //   },
  * //   streamKey: { // StreamKey
  * //     arn: "STRING_VALUE",
@@ -110,6 +123,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class CreateChannelCommand extends $Command
@@ -120,9 +134,7 @@ export class CreateChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +146,16 @@ export class CreateChannelCommand extends $Command
   .f(void 0, CreateChannelResponseFilterSensitiveLog)
   .ser(se_CreateChannelCommand)
   .de(de_CreateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelRequest;
+      output: CreateChannelResponse;
+    };
+    sdk: {
+      input: CreateChannelCommandInput;
+      output: CreateChannelCommandOutput;
+    };
+  };
+}

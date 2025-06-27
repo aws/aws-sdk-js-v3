@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,24 +34,24 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
 
 /**
  * <p>Requests authorization to create or delete a peer connection between the VPC for your
- *             Amazon GameLift fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
+ *             Amazon GameLift Servers fleet and a virtual private cloud (VPC) in your Amazon Web Services account. VPC peering enables the game servers on
  *             your fleet to communicate directly with other Amazon Web Services resources. After you've received
  *             authorization, use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringConnection.html">CreateVpcPeeringConnection</a> to establish the peering connection. For more
- *             information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift
+ *             information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC Peering with Amazon GameLift Servers
  *                 Fleets</a>.</p>
  *          <p>You can peer with VPCs that are owned by any Amazon Web Services account you have access to,
- *             including the account that you use to manage your Amazon GameLift fleets. You cannot peer with
+ *             including the account that you use to manage your Amazon GameLift Servers fleets. You cannot peer with
  *             VPCs that are in different Regions.</p>
  *          <p>To request authorization to create a connection, call this operation from the Amazon Web Services
- *             account with the VPC that you want to peer to your Amazon GameLift fleet. For example, to enable
+ *             account with the VPC that you want to peer to your Amazon GameLift Servers fleet. For example, to enable
  *             your game servers to retrieve data from a DynamoDB table, use the account that manages
  *             that DynamoDB resource. Identify the following values: (1) The ID of the VPC that you
- *             want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage Amazon GameLift. If
+ *             want to peer with, and (2) the ID of the Amazon Web Services account that you use to manage Amazon GameLift Servers. If
  *             successful, VPC peering is authorized for the specified VPC. </p>
  *          <p>To request authorization to delete a connection, call this operation from the Amazon Web Services
- *             account with the VPC that is peered with your Amazon GameLift fleet. Identify the following
+ *             account with the VPC that is peered with your Amazon GameLift Servers fleet. Identify the following
  *             values: (1) VPC ID that you want to delete the peering connection for, and (2) ID of the
- *             Amazon Web Services account that you use to manage Amazon GameLift. </p>
+ *             Amazon Web Services account that you use to manage Amazon GameLift Servers. </p>
  *          <p>The authorization remains valid for 24 hours unless it is canceled. You must create or
  *             delete the peering connection while the authorization is valid. </p>
  *          <p>
@@ -98,13 +99,14 @@ export interface CreateVpcPeeringAuthorizationCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -116,9 +118,7 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class CreateVpcPeeringAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcPeeringAuthorizationCommand)
   .de(de_CreateVpcPeeringAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcPeeringAuthorizationInput;
+      output: CreateVpcPeeringAuthorizationOutput;
+    };
+    sdk: {
+      input: CreateVpcPeeringAuthorizationCommandInput;
+      output: CreateVpcPeeringAuthorizationCommandOutput;
+    };
+  };
+}

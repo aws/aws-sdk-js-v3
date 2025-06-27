@@ -89,6 +89,11 @@ import {
   DeleteAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/DeleteAccessPointPolicyForObjectLambdaCommand";
 import {
+  DeleteAccessPointScopeCommand,
+  DeleteAccessPointScopeCommandInput,
+  DeleteAccessPointScopeCommandOutput,
+} from "./commands/DeleteAccessPointScopeCommand";
+import {
   DeleteBucketCommand,
   DeleteBucketCommandInput,
   DeleteBucketCommandOutput,
@@ -214,6 +219,11 @@ import {
   GetAccessPointPolicyStatusForObjectLambdaCommandInput,
   GetAccessPointPolicyStatusForObjectLambdaCommandOutput,
 } from "./commands/GetAccessPointPolicyStatusForObjectLambdaCommand";
+import {
+  GetAccessPointScopeCommand,
+  GetAccessPointScopeCommandInput,
+  GetAccessPointScopeCommandOutput,
+} from "./commands/GetAccessPointScopeCommand";
 import { GetBucketCommand, GetBucketCommandInput, GetBucketCommandOutput } from "./commands/GetBucketCommand";
 import {
   GetBucketLifecycleConfigurationCommand,
@@ -311,10 +321,20 @@ import {
   ListAccessPointsCommandOutput,
 } from "./commands/ListAccessPointsCommand";
 import {
+  ListAccessPointsForDirectoryBucketsCommand,
+  ListAccessPointsForDirectoryBucketsCommandInput,
+  ListAccessPointsForDirectoryBucketsCommandOutput,
+} from "./commands/ListAccessPointsForDirectoryBucketsCommand";
+import {
   ListAccessPointsForObjectLambdaCommand,
   ListAccessPointsForObjectLambdaCommandInput,
   ListAccessPointsForObjectLambdaCommandOutput,
 } from "./commands/ListAccessPointsForObjectLambdaCommand";
+import {
+  ListCallerAccessGrantsCommand,
+  ListCallerAccessGrantsCommandInput,
+  ListCallerAccessGrantsCommandOutput,
+} from "./commands/ListCallerAccessGrantsCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListMultiRegionAccessPointsCommand,
@@ -361,6 +381,11 @@ import {
   PutAccessPointPolicyForObjectLambdaCommandInput,
   PutAccessPointPolicyForObjectLambdaCommandOutput,
 } from "./commands/PutAccessPointPolicyForObjectLambdaCommand";
+import {
+  PutAccessPointScopeCommand,
+  PutAccessPointScopeCommandInput,
+  PutAccessPointScopeCommandOutput,
+} from "./commands/PutAccessPointScopeCommand";
 import {
   PutBucketLifecycleConfigurationCommand,
   PutBucketLifecycleConfigurationCommandInput,
@@ -463,6 +488,7 @@ const commands = {
   DeleteAccessPointForObjectLambdaCommand,
   DeleteAccessPointPolicyCommand,
   DeleteAccessPointPolicyForObjectLambdaCommand,
+  DeleteAccessPointScopeCommand,
   DeleteBucketCommand,
   DeleteBucketLifecycleConfigurationCommand,
   DeleteBucketPolicyCommand,
@@ -489,6 +515,7 @@ const commands = {
   GetAccessPointPolicyForObjectLambdaCommand,
   GetAccessPointPolicyStatusCommand,
   GetAccessPointPolicyStatusForObjectLambdaCommand,
+  GetAccessPointScopeCommand,
   GetBucketCommand,
   GetBucketLifecycleConfigurationCommand,
   GetBucketPolicyCommand,
@@ -509,7 +536,9 @@ const commands = {
   ListAccessGrantsInstancesCommand,
   ListAccessGrantsLocationsCommand,
   ListAccessPointsCommand,
+  ListAccessPointsForDirectoryBucketsCommand,
   ListAccessPointsForObjectLambdaCommand,
+  ListCallerAccessGrantsCommand,
   ListJobsCommand,
   ListMultiRegionAccessPointsCommand,
   ListRegionalBucketsCommand,
@@ -520,6 +549,7 @@ const commands = {
   PutAccessPointConfigurationForObjectLambdaCommand,
   PutAccessPointPolicyCommand,
   PutAccessPointPolicyForObjectLambdaCommand,
+  PutAccessPointScopeCommand,
   PutBucketLifecycleConfigurationCommand,
   PutBucketPolicyCommand,
   PutBucketReplicationCommand,
@@ -835,6 +865,23 @@ export interface S3Control {
     args: DeleteAccessPointPolicyForObjectLambdaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAccessPointScopeCommand}
+   */
+  deleteAccessPointScope(
+    args: DeleteAccessPointScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAccessPointScopeCommandOutput>;
+  deleteAccessPointScope(
+    args: DeleteAccessPointScopeCommandInput,
+    cb: (err: any, data?: DeleteAccessPointScopeCommandOutput) => void
+  ): void;
+  deleteAccessPointScope(
+    args: DeleteAccessPointScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAccessPointScopeCommandOutput) => void
   ): void;
 
   /**
@@ -1266,6 +1313,23 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link GetAccessPointScopeCommand}
+   */
+  getAccessPointScope(
+    args: GetAccessPointScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAccessPointScopeCommandOutput>;
+  getAccessPointScope(
+    args: GetAccessPointScopeCommandInput,
+    cb: (err: any, data?: GetAccessPointScopeCommandOutput) => void
+  ): void;
+  getAccessPointScope(
+    args: GetAccessPointScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAccessPointScopeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBucketCommand}
    */
   getBucket(args: GetBucketCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketCommandOutput>;
@@ -1590,6 +1654,24 @@ export interface S3Control {
   ): void;
 
   /**
+   * @see {@link ListAccessPointsForDirectoryBucketsCommand}
+   */
+  listAccessPointsForDirectoryBuckets(): Promise<ListAccessPointsForDirectoryBucketsCommandOutput>;
+  listAccessPointsForDirectoryBuckets(
+    args: ListAccessPointsForDirectoryBucketsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAccessPointsForDirectoryBucketsCommandOutput>;
+  listAccessPointsForDirectoryBuckets(
+    args: ListAccessPointsForDirectoryBucketsCommandInput,
+    cb: (err: any, data?: ListAccessPointsForDirectoryBucketsCommandOutput) => void
+  ): void;
+  listAccessPointsForDirectoryBuckets(
+    args: ListAccessPointsForDirectoryBucketsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAccessPointsForDirectoryBucketsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccessPointsForObjectLambdaCommand}
    */
   listAccessPointsForObjectLambda(): Promise<ListAccessPointsForObjectLambdaCommandOutput>;
@@ -1605,6 +1687,24 @@ export interface S3Control {
     args: ListAccessPointsForObjectLambdaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAccessPointsForObjectLambdaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCallerAccessGrantsCommand}
+   */
+  listCallerAccessGrants(): Promise<ListCallerAccessGrantsCommandOutput>;
+  listCallerAccessGrants(
+    args: ListCallerAccessGrantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCallerAccessGrantsCommandOutput>;
+  listCallerAccessGrants(
+    args: ListCallerAccessGrantsCommandInput,
+    cb: (err: any, data?: ListCallerAccessGrantsCommandOutput) => void
+  ): void;
+  listCallerAccessGrants(
+    args: ListCallerAccessGrantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCallerAccessGrantsCommandOutput) => void
   ): void;
 
   /**
@@ -1774,6 +1874,23 @@ export interface S3Control {
     args: PutAccessPointPolicyForObjectLambdaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutAccessPointPolicyForObjectLambdaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutAccessPointScopeCommand}
+   */
+  putAccessPointScope(
+    args: PutAccessPointScopeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutAccessPointScopeCommandOutput>;
+  putAccessPointScope(
+    args: PutAccessPointScopeCommandInput,
+    cb: (err: any, data?: PutAccessPointScopeCommandOutput) => void
+  ): void;
+  putAccessPointScope(
+    args: PutAccessPointScopeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutAccessPointScopeCommandOutput) => void
   ): void;
 
   /**

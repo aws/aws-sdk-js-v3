@@ -12,7 +12,8 @@ import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *             operation, you must first detach the policy from all organizational units (OUs), roots,
  *             and accounts.</p>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,6 +123,10 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -162,6 +167,9 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -194,20 +202,23 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To delete a policy
  * ```javascript
  * // The following example shows how to delete a policy from an organization. The example assumes that you previously detached the policy from all entities:
- * //
- * //
+ *
+ *
  * const input = {
- *   "PolicyId": "p-examplepolicyid111"
+ *   PolicyId: "p-examplepolicyid111"
  * };
  * const command = new DeletePolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-policy
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<
@@ -217,9 +228,7 @@ export class DeletePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -231,4 +240,16 @@ export class DeletePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyCommand)
   .de(de_DeletePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyCommandInput;
+      output: DeletePolicyCommandOutput;
+    };
+  };
+}

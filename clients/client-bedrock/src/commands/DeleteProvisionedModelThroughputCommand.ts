@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface DeleteProvisionedModelThroughputCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput before the commitment term is over. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Deletes a Provisioned Throughput. You can't delete a Provisioned Throughput before the commitment term is over. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/prov-throughput.html">Provisioned Throughput</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +76,7 @@ export interface DeleteProvisionedModelThroughputCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class DeleteProvisionedModelThroughputCommand extends $Command
@@ -85,9 +87,7 @@ export class DeleteProvisionedModelThroughputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class DeleteProvisionedModelThroughputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProvisionedModelThroughputCommand)
   .de(de_DeleteProvisionedModelThroughputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProvisionedModelThroughputRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProvisionedModelThroughputCommandInput;
+      output: DeleteProvisionedModelThroughputCommandOutput;
+    };
+  };
+}

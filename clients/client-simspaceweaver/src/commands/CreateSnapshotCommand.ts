@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SimSpaceWeaverClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -126,6 +127,7 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotOutput, __Met
  * @throws {@link SimSpaceWeaverServiceException}
  * <p>Base exception class for all service exceptions from SimSpaceWeaver service.</p>
  *
+ *
  * @public
  */
 export class CreateSnapshotCommand extends $Command
@@ -136,9 +138,7 @@ export class CreateSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SimSpaceWeaverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +150,16 @@ export class CreateSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSnapshotCommand)
   .de(de_CreateSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSnapshotInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateSnapshotCommandInput;
+      output: CreateSnapshotCommandOutput;
+    };
+  };
+}

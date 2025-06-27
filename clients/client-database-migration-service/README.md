@@ -20,7 +20,7 @@ in the <i>Database Migration Service User Guide.</i>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-database-migration-service
+To install this package, simply type add or install @aws-sdk/client-database-migration-service
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-database-migration-service`
@@ -250,6 +250,14 @@ CancelReplicationTaskAssessmentRun
 </details>
 <details>
 <summary>
+CreateDataMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/CreateDataMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/CreateDataMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/CreateDataMigrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateDataProvider
 </summary>
 
@@ -342,6 +350,14 @@ DeleteConnection
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DeleteConnectionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DeleteConnectionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DeleteConnectionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDataMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DeleteDataMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DeleteDataMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DeleteDataMigrationCommandOutput/)
 
 </details>
 <details>
@@ -478,6 +494,14 @@ DescribeConversionConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DescribeConversionConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeConversionConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeConversionConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeDataMigrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/DescribeDataMigrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeDataMigrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/DescribeDataMigrationsCommandOutput/)
 
 </details>
 <details>
@@ -818,6 +842,14 @@ ModifyConversionConfiguration
 </details>
 <details>
 <summary>
+ModifyDataMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/ModifyDataMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/ModifyDataMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/ModifyDataMigrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 ModifyDataProvider
 </summary>
 
@@ -946,6 +978,14 @@ RunFleetAdvisorLsaAnalysis
 </details>
 <details>
 <summary>
+StartDataMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/StartDataMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartDataMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartDataMigrationCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartExtensionPackAssociation
 </summary>
 
@@ -1030,6 +1070,14 @@ StartReplicationTaskAssessmentRun
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/StartReplicationTaskAssessmentRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartReplicationTaskAssessmentRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StartReplicationTaskAssessmentRunCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopDataMigration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/database-migration-service/command/StopDataMigrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StopDataMigrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-database-migration-service/Interface/StopDataMigrationCommandOutput/)
 
 </details>
 <details>

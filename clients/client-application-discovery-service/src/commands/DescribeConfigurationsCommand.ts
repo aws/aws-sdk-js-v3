@@ -16,7 +16,8 @@ import { de_DescribeConfigurationsCommand, se_DescribeConfigurationsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface DescribeConfigurationsCommandOutput extends DescribeConfigurati
  * @throws {@link ApplicationDiscoveryServiceServiceException}
  * <p>Base exception class for all service exceptions from ApplicationDiscoveryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeConfigurationsCommand extends $Command
@@ -114,9 +116,7 @@ export class DescribeConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationDiscoveryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class DescribeConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationsCommand)
   .de(de_DescribeConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationsRequest;
+      output: DescribeConfigurationsResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationsCommandInput;
+      output: DescribeConfigurationsCommandOutput;
+    };
+  };
+}

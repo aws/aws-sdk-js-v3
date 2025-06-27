@@ -12,7 +12,8 @@ import { de_AcceptMatchCommand, se_AcceptMatchCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             for tickets that are in this status; calls for tickets not in this status result in an
  *             error.</p>
  *          <p>To register acceptance, specify the ticket ID, one or more players, and an acceptance response.
- *             When all players have accepted, Amazon GameLift advances the matchmaking tickets to status
+ *             When all players have accepted, Amazon GameLift Servers advances the matchmaking tickets to status
  *                 <code>PLACING</code>, and attempts to create a new game session for the match. </p>
  *          <p>If any player rejects the match, or if acceptances are not received before a specified
  *             timeout, the proposed match is dropped. Each matchmaking ticket in the failed match is handled as follows: </p>
@@ -96,13 +97,14 @@ export interface AcceptMatchCommandOutput extends AcceptMatchOutput, __MetadataB
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -114,9 +116,7 @@ export class AcceptMatchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class AcceptMatchCommand extends $Command
   .f(AcceptMatchInputFilterSensitiveLog, void 0)
   .ser(se_AcceptMatchCommand)
   .de(de_AcceptMatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptMatchInput;
+      output: {};
+    };
+    sdk: {
+      input: AcceptMatchCommandInput;
+      output: AcceptMatchCommandOutput;
+    };
+  };
+}

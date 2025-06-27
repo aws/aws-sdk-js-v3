@@ -16,7 +16,8 @@ import { de_MoveReplicationTaskCommand, se_MoveReplicationTaskCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,7 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
 /**
  * <p>Moves a replication task from its current replication instance to a different target
  *          replication instance using the specified parameters. The target replication instance must
- *          be created with the same or later DMS version as the current replication
- *          instance.</p>
+ *          be created with the same or later DMS version as the current replication instance.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -110,6 +110,7 @@ export interface MoveReplicationTaskCommandOutput extends MoveReplicationTaskRes
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class MoveReplicationTaskCommand extends $Command
@@ -120,9 +121,7 @@ export class MoveReplicationTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class MoveReplicationTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MoveReplicationTaskCommand)
   .de(de_MoveReplicationTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MoveReplicationTaskMessage;
+      output: MoveReplicationTaskResponse;
+    };
+    sdk: {
+      input: MoveReplicationTaskCommandInput;
+      output: MoveReplicationTaskCommandOutput;
+    };
+  };
+}

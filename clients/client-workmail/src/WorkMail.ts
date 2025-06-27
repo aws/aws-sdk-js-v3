@@ -30,6 +30,11 @@ import {
 } from "./commands/CreateAvailabilityConfigurationCommand";
 import { CreateGroupCommand, CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import {
+  CreateIdentityCenterApplicationCommand,
+  CreateIdentityCenterApplicationCommandInput,
+  CreateIdentityCenterApplicationCommandOutput,
+} from "./commands/CreateIdentityCenterApplicationCommand";
+import {
   CreateImpersonationRoleCommand,
   CreateImpersonationRoleCommandInput,
   CreateImpersonationRoleCommandOutput,
@@ -68,6 +73,16 @@ import {
 } from "./commands/DeleteEmailMonitoringConfigurationCommand";
 import { DeleteGroupCommand, DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
 import {
+  DeleteIdentityCenterApplicationCommand,
+  DeleteIdentityCenterApplicationCommandInput,
+  DeleteIdentityCenterApplicationCommandOutput,
+} from "./commands/DeleteIdentityCenterApplicationCommand";
+import {
+  DeleteIdentityProviderConfigurationCommand,
+  DeleteIdentityProviderConfigurationCommandInput,
+  DeleteIdentityProviderConfigurationCommandOutput,
+} from "./commands/DeleteIdentityProviderConfigurationCommand";
+import {
   DeleteImpersonationRoleCommand,
   DeleteImpersonationRoleCommandInput,
   DeleteImpersonationRoleCommandOutput,
@@ -92,6 +107,11 @@ import {
   DeleteOrganizationCommandInput,
   DeleteOrganizationCommandOutput,
 } from "./commands/DeleteOrganizationCommand";
+import {
+  DeletePersonalAccessTokenCommand,
+  DeletePersonalAccessTokenCommandInput,
+  DeletePersonalAccessTokenCommandOutput,
+} from "./commands/DeletePersonalAccessTokenCommand";
 import {
   DeleteResourceCommand,
   DeleteResourceCommandInput,
@@ -128,6 +148,11 @@ import {
   DescribeGroupCommandInput,
   DescribeGroupCommandOutput,
 } from "./commands/DescribeGroupCommand";
+import {
+  DescribeIdentityProviderConfigurationCommand,
+  DescribeIdentityProviderConfigurationCommandInput,
+  DescribeIdentityProviderConfigurationCommandOutput,
+} from "./commands/DescribeIdentityProviderConfigurationCommand";
 import {
   DescribeInboundDmarcSettingsCommand,
   DescribeInboundDmarcSettingsCommandInput,
@@ -204,6 +229,11 @@ import {
   GetMobileDeviceAccessOverrideCommandOutput,
 } from "./commands/GetMobileDeviceAccessOverrideCommand";
 import {
+  GetPersonalAccessTokenMetadataCommand,
+  GetPersonalAccessTokenMetadataCommandInput,
+  GetPersonalAccessTokenMetadataCommandOutput,
+} from "./commands/GetPersonalAccessTokenMetadataCommand";
+import {
   ListAccessControlRulesCommand,
   ListAccessControlRulesCommandInput,
   ListAccessControlRulesCommandOutput,
@@ -261,6 +291,11 @@ import {
   ListOrganizationsCommandOutput,
 } from "./commands/ListOrganizationsCommand";
 import {
+  ListPersonalAccessTokensCommand,
+  ListPersonalAccessTokensCommandInput,
+  ListPersonalAccessTokensCommandOutput,
+} from "./commands/ListPersonalAccessTokensCommand";
+import {
   ListResourceDelegatesCommand,
   ListResourceDelegatesCommandInput,
   ListResourceDelegatesCommandOutput,
@@ -286,6 +321,11 @@ import {
   PutEmailMonitoringConfigurationCommandInput,
   PutEmailMonitoringConfigurationCommandOutput,
 } from "./commands/PutEmailMonitoringConfigurationCommand";
+import {
+  PutIdentityProviderConfigurationCommand,
+  PutIdentityProviderConfigurationCommandInput,
+  PutIdentityProviderConfigurationCommandOutput,
+} from "./commands/PutIdentityProviderConfigurationCommand";
 import {
   PutInboundDmarcSettingsCommand,
   PutInboundDmarcSettingsCommandInput,
@@ -384,6 +424,7 @@ const commands = {
   CreateAliasCommand,
   CreateAvailabilityConfigurationCommand,
   CreateGroupCommand,
+  CreateIdentityCenterApplicationCommand,
   CreateImpersonationRoleCommand,
   CreateMobileDeviceAccessRuleCommand,
   CreateOrganizationCommand,
@@ -394,11 +435,14 @@ const commands = {
   DeleteAvailabilityConfigurationCommand,
   DeleteEmailMonitoringConfigurationCommand,
   DeleteGroupCommand,
+  DeleteIdentityCenterApplicationCommand,
+  DeleteIdentityProviderConfigurationCommand,
   DeleteImpersonationRoleCommand,
   DeleteMailboxPermissionsCommand,
   DeleteMobileDeviceAccessOverrideCommand,
   DeleteMobileDeviceAccessRuleCommand,
   DeleteOrganizationCommand,
+  DeletePersonalAccessTokenCommand,
   DeleteResourceCommand,
   DeleteRetentionPolicyCommand,
   DeleteUserCommand,
@@ -407,6 +451,7 @@ const commands = {
   DescribeEmailMonitoringConfigurationCommand,
   DescribeEntityCommand,
   DescribeGroupCommand,
+  DescribeIdentityProviderConfigurationCommand,
   DescribeInboundDmarcSettingsCommand,
   DescribeMailboxExportJobCommand,
   DescribeOrganizationCommand,
@@ -422,6 +467,7 @@ const commands = {
   GetMailDomainCommand,
   GetMobileDeviceAccessEffectCommand,
   GetMobileDeviceAccessOverrideCommand,
+  GetPersonalAccessTokenMetadataCommand,
   ListAccessControlRulesCommand,
   ListAliasesCommand,
   ListAvailabilityConfigurationsCommand,
@@ -435,12 +481,14 @@ const commands = {
   ListMobileDeviceAccessOverridesCommand,
   ListMobileDeviceAccessRulesCommand,
   ListOrganizationsCommand,
+  ListPersonalAccessTokensCommand,
   ListResourceDelegatesCommand,
   ListResourcesCommand,
   ListTagsForResourceCommand,
   ListUsersCommand,
   PutAccessControlRuleCommand,
   PutEmailMonitoringConfigurationCommand,
+  PutIdentityProviderConfigurationCommand,
   PutInboundDmarcSettingsCommand,
   PutMailboxPermissionsCommand,
   PutMobileDeviceAccessOverrideCommand,
@@ -569,6 +617,23 @@ export interface WorkMail {
     args: CreateGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateIdentityCenterApplicationCommand}
+   */
+  createIdentityCenterApplication(
+    args: CreateIdentityCenterApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateIdentityCenterApplicationCommandOutput>;
+  createIdentityCenterApplication(
+    args: CreateIdentityCenterApplicationCommandInput,
+    cb: (err: any, data?: CreateIdentityCenterApplicationCommandOutput) => void
+  ): void;
+  createIdentityCenterApplication(
+    args: CreateIdentityCenterApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateIdentityCenterApplicationCommandOutput) => void
   ): void;
 
   /**
@@ -721,6 +786,40 @@ export interface WorkMail {
   ): void;
 
   /**
+   * @see {@link DeleteIdentityCenterApplicationCommand}
+   */
+  deleteIdentityCenterApplication(
+    args: DeleteIdentityCenterApplicationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIdentityCenterApplicationCommandOutput>;
+  deleteIdentityCenterApplication(
+    args: DeleteIdentityCenterApplicationCommandInput,
+    cb: (err: any, data?: DeleteIdentityCenterApplicationCommandOutput) => void
+  ): void;
+  deleteIdentityCenterApplication(
+    args: DeleteIdentityCenterApplicationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIdentityCenterApplicationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteIdentityProviderConfigurationCommand}
+   */
+  deleteIdentityProviderConfiguration(
+    args: DeleteIdentityProviderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteIdentityProviderConfigurationCommandOutput>;
+  deleteIdentityProviderConfiguration(
+    args: DeleteIdentityProviderConfigurationCommandInput,
+    cb: (err: any, data?: DeleteIdentityProviderConfigurationCommandOutput) => void
+  ): void;
+  deleteIdentityProviderConfiguration(
+    args: DeleteIdentityProviderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteIdentityProviderConfigurationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteImpersonationRoleCommand}
    */
   deleteImpersonationRole(
@@ -803,6 +902,23 @@ export interface WorkMail {
     args: DeleteOrganizationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteOrganizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePersonalAccessTokenCommand}
+   */
+  deletePersonalAccessToken(
+    args: DeletePersonalAccessTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePersonalAccessTokenCommandOutput>;
+  deletePersonalAccessToken(
+    args: DeletePersonalAccessTokenCommandInput,
+    cb: (err: any, data?: DeletePersonalAccessTokenCommandOutput) => void
+  ): void;
+  deletePersonalAccessToken(
+    args: DeletePersonalAccessTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePersonalAccessTokenCommandOutput) => void
   ): void;
 
   /**
@@ -921,6 +1037,23 @@ export interface WorkMail {
     args: DescribeGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeIdentityProviderConfigurationCommand}
+   */
+  describeIdentityProviderConfiguration(
+    args: DescribeIdentityProviderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeIdentityProviderConfigurationCommandOutput>;
+  describeIdentityProviderConfiguration(
+    args: DescribeIdentityProviderConfigurationCommandInput,
+    cb: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
+  ): void;
+  describeIdentityProviderConfiguration(
+    args: DescribeIdentityProviderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeIdentityProviderConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -1167,6 +1300,23 @@ export interface WorkMail {
   ): void;
 
   /**
+   * @see {@link GetPersonalAccessTokenMetadataCommand}
+   */
+  getPersonalAccessTokenMetadata(
+    args: GetPersonalAccessTokenMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPersonalAccessTokenMetadataCommandOutput>;
+  getPersonalAccessTokenMetadata(
+    args: GetPersonalAccessTokenMetadataCommandInput,
+    cb: (err: any, data?: GetPersonalAccessTokenMetadataCommandOutput) => void
+  ): void;
+  getPersonalAccessTokenMetadata(
+    args: GetPersonalAccessTokenMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPersonalAccessTokenMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAccessControlRulesCommand}
    */
   listAccessControlRules(
@@ -1374,6 +1524,23 @@ export interface WorkMail {
   ): void;
 
   /**
+   * @see {@link ListPersonalAccessTokensCommand}
+   */
+  listPersonalAccessTokens(
+    args: ListPersonalAccessTokensCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPersonalAccessTokensCommandOutput>;
+  listPersonalAccessTokens(
+    args: ListPersonalAccessTokensCommandInput,
+    cb: (err: any, data?: ListPersonalAccessTokensCommandOutput) => void
+  ): void;
+  listPersonalAccessTokens(
+    args: ListPersonalAccessTokensCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPersonalAccessTokensCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListResourceDelegatesCommand}
    */
   listResourceDelegates(
@@ -1461,6 +1628,23 @@ export interface WorkMail {
     args: PutEmailMonitoringConfigurationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutEmailMonitoringConfigurationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutIdentityProviderConfigurationCommand}
+   */
+  putIdentityProviderConfiguration(
+    args: PutIdentityProviderConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutIdentityProviderConfigurationCommandOutput>;
+  putIdentityProviderConfiguration(
+    args: PutIdentityProviderConfigurationCommandInput,
+    cb: (err: any, data?: PutIdentityProviderConfigurationCommandOutput) => void
+  ): void;
+  putIdentityProviderConfiguration(
+    args: PutIdentityProviderConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutIdentityProviderConfigurationCommandOutput) => void
   ): void;
 
   /**

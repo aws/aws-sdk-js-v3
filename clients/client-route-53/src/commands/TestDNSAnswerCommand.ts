@@ -13,7 +13,8 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * const input = { // TestDNSAnswerRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   RecordName: "STRING_VALUE", // required
- *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ *   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  *   ResolverIP: "STRING_VALUE",
  *   EDNS0ClientSubnetIP: "STRING_VALUE",
  *   EDNS0ClientSubnetMask: "STRING_VALUE",
@@ -57,7 +58,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * // { // TestDNSAnswerResponse
  * //   Nameserver: "STRING_VALUE", // required
  * //   RecordName: "STRING_VALUE", // required
- * //   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //   RecordType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //   RecordData: [ // RecordData // required
  * //     "STRING_VALUE",
  * //   ],
@@ -82,6 +83,7 @@ export interface TestDNSAnswerCommandOutput extends TestDNSAnswerResponse, __Met
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class TestDNSAnswerCommand extends $Command
@@ -92,9 +94,7 @@ export class TestDNSAnswerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class TestDNSAnswerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestDNSAnswerCommand)
   .de(de_TestDNSAnswerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestDNSAnswerRequest;
+      output: TestDNSAnswerResponse;
+    };
+    sdk: {
+      input: TestDNSAnswerCommandInput;
+      output: TestDNSAnswerCommandOutput;
+    };
+  };
+}

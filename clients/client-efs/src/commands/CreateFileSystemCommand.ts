@@ -12,7 +12,8 @@ import { de_CreateFileSystemCommand, se_CreateFileSystemCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,21 +64,21 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  *         system state.</p>
  *          </note>
  *          <p>This operation accepts an optional <code>PerformanceMode</code> parameter that you choose
- *       for your file system. We recommend <code>generalPurpose</code> performance mode for all file
- *       systems. File systems using the <code>maxIO</code> mode is a previous generation performance type that is designed for highly parallelized workloads that can tolerate higher latencies
- *           than the General Purpose mode. Max I/O mode is not supported for One Zone file systems or
+ *       for your file system. We recommend <code>generalPurpose</code>
+ *             <code>PerformanceMode</code> for all file
+ *       systems. The <code>maxIO</code> mode is a previous generation performance type that is designed for highly parallelized workloads that can tolerate higher latencies
+ *           than the <code>generalPurpose</code> mode. <code>MaxIO</code> mode is not supported for One Zone file systems or
  *           file systems that use Elastic throughput.</p>
- *          <important>
- *             <p>Due to the higher per-operation latencies with Max I/O, we recommend using General Purpose performance mode for all file systems.</p>
- *          </important>
- *          <p>The performance mode can't be changed after
- *       the file system has been created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
+ *          <p>The <code>PerformanceMode</code> can't be changed after the file system has been
+ *       created. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/performance.html#performancemodes.html">Amazon EFS performance
  *         modes</a>.</p>
- *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code> parameter.</p>
+ *          <p>You can set the throughput mode for the file system using the <code>ThroughputMode</code>
+ *       parameter.</p>
  *          <p>After the file system is fully created, Amazon EFS sets its lifecycle state to
  *         <code>available</code>, at which point you can create one or more mount targets for the file
- *       system in your VPC. For more information, see <a>CreateMountTarget</a>. You mount your Amazon EFS file system on an EC2 instances in
- *       your VPC by using the mount target. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
+ *       system in your VPC. For more information, see <a>CreateMountTarget</a>. You mount
+ *       your Amazon EFS file system on an EC2 instances in your VPC by using the mount
+ *       target. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/how-it-works.html">Amazon EFS: How it Works</a>. </p>
  *          <p>This operation requires permissions for the
  *         <code>elasticfilesystem:CreateFileSystem</code> action. </p>
  *          <p>File systems can be tagged on creation. If tags are specified in the creation action, IAM
@@ -183,48 +184,8 @@ export interface CreateFileSystemCommandOutput extends FileSystemDescription, __
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
- * @example To create a new file system
- * ```javascript
- * // This operation creates a new, encrypted file system with automatic backups enabled, and the default generalpurpose performance mode.
- * const input = {
- *   "Backup": true,
- *   "CreationToken": "tokenstring",
- *   "Encrypted": true,
- *   "PerformanceMode": "generalPurpose",
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ]
- * };
- * const command = new CreateFileSystemCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CreationTime": "1481841524.0",
- *   "CreationToken": "tokenstring",
- *   "Encrypted": true,
- *   "FileSystemId": "fs-01234567",
- *   "LifeCycleState": "creating",
- *   "NumberOfMountTargets": 0,
- *   "OwnerId": "012345678912",
- *   "PerformanceMode": "generalPurpose",
- *   "SizeInBytes": {
- *     "Value": 0
- *   },
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-create-a-new-file-system-1481840798547
- * ```
  *
+ * @public
  */
 export class CreateFileSystemCommand extends $Command
   .classBuilder<
@@ -234,9 +195,7 @@ export class CreateFileSystemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -248,4 +207,16 @@ export class CreateFileSystemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFileSystemCommand)
   .de(de_CreateFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFileSystemRequest;
+      output: FileSystemDescription;
+    };
+    sdk: {
+      input: CreateFileSystemCommandInput;
+      output: CreateFileSystemCommandOutput;
+    };
+  };
+}

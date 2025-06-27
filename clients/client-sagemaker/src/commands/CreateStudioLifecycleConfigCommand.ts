@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface CreateStudioLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon SageMaker Studio Lifecycle Configuration.</p>
+ * <p>Creates a new Amazon SageMaker AI Studio Lifecycle Configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +68,7 @@ export interface CreateStudioLifecycleConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateStudioLifecycleConfigCommand extends $Command
@@ -77,9 +79,7 @@ export class CreateStudioLifecycleConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class CreateStudioLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStudioLifecycleConfigCommand)
   .de(de_CreateStudioLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStudioLifecycleConfigRequest;
+      output: CreateStudioLifecycleConfigResponse;
+    };
+    sdk: {
+      input: CreateStudioLifecycleConfigCommandInput;
+      output: CreateStudioLifecycleConfigCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_BatchDeleteDocumentCommand, se_BatchDeleteDocumentCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * //   FailedDocuments: [ // BatchDeleteDocumentResponseFailedDocuments
  * //     { // BatchDeleteDocumentResponseFailedDocument
  * //       Id: "STRING_VALUE",
+ * //       DataSourceId: "STRING_VALUE",
  * //       ErrorCode: "InternalError" || "InvalidRequest",
  * //       ErrorMessage: "STRING_VALUE",
  * //     },
@@ -100,6 +102,7 @@ export interface BatchDeleteDocumentCommandOutput extends BatchDeleteDocumentRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class BatchDeleteDocumentCommand extends $Command
@@ -110,9 +113,7 @@ export class BatchDeleteDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +125,16 @@ export class BatchDeleteDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchDeleteDocumentCommand)
   .de(de_BatchDeleteDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDeleteDocumentRequest;
+      output: BatchDeleteDocumentResponse;
+    };
+    sdk: {
+      input: BatchDeleteDocumentCommandInput;
+      output: BatchDeleteDocumentCommandOutput;
+    };
+  };
+}

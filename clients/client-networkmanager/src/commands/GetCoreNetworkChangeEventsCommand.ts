@@ -12,7 +12,8 @@ import { de_GetCoreNetworkChangeEventsCommand, se_GetCoreNetworkChangeEventsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,7 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * // { // GetCoreNetworkChangeEventsResponse
  * //   CoreNetworkChangeEvents: [ // CoreNetworkChangeEventList
  * //     { // CoreNetworkChangeEvent
- * //       Type: "CORE_NETWORK_SEGMENT" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
+ * //       Type: "CORE_NETWORK_SEGMENT" || "NETWORK_FUNCTION_GROUP" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
  * //       Action: "ADD" || "MODIFY" || "REMOVE",
  * //       IdentifierPath: "STRING_VALUE",
  * //       EventTime: new Date("TIMESTAMP"),
@@ -53,6 +54,7 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * //       Values: { // CoreNetworkChangeEventValues
  * //         EdgeLocation: "STRING_VALUE",
  * //         SegmentName: "STRING_VALUE",
+ * //         NetworkFunctionGroupName: "STRING_VALUE",
  * //         AttachmentId: "STRING_VALUE",
  * //         Cidr: "STRING_VALUE",
  * //       },
@@ -87,6 +89,7 @@ export interface GetCoreNetworkChangeEventsCommandOutput extends GetCoreNetworkC
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetCoreNetworkChangeEventsCommand extends $Command
@@ -97,9 +100,7 @@ export class GetCoreNetworkChangeEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class GetCoreNetworkChangeEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreNetworkChangeEventsCommand)
   .de(de_GetCoreNetworkChangeEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreNetworkChangeEventsRequest;
+      output: GetCoreNetworkChangeEventsResponse;
+    };
+    sdk: {
+      input: GetCoreNetworkChangeEventsCommandInput;
+      output: GetCoreNetworkChangeEventsCommandOutput;
+    };
+  };
+}

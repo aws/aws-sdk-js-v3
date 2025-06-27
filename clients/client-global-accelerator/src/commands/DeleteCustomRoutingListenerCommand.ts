@@ -16,7 +16,8 @@ import { de_DeleteCustomRoutingListenerCommand, se_DeleteCustomRoutingListenerCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DeleteCustomRoutingListenerCommandOutput extends __MetadataBear
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomRoutingListenerCommand extends $Command
@@ -79,9 +81,7 @@ export class DeleteCustomRoutingListenerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DeleteCustomRoutingListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomRoutingListenerCommand)
   .de(de_DeleteCustomRoutingListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomRoutingListenerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomRoutingListenerCommandInput;
+      output: DeleteCustomRoutingListenerCommandOutput;
+    };
+  };
+}

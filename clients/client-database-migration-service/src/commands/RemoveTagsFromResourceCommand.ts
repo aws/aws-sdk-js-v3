@@ -16,7 +16,8 @@ import { de_RemoveTagsFromResourceCommand, se_RemoveTagsFromResourceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,12 +32,11 @@ export interface RemoveTagsFromResourceCommandInput extends RemoveTagsFromResour
 export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes metadata tags from an DMS resource, including replication instance,
- *          endpoint, subnet group, and migration task. For more information, see
- *          <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
+ * <p>Removes metadata tags from an DMS resource, including replication instance, endpoint,
+ *          subnet group, and migration task. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_Tag.html">
  *                <code>Tag</code>
- *             </a>
- *          data type description.</p>
+ *             </a> data type
+ *          description.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,25 +61,31 @@ export interface RemoveTagsFromResourceCommandOutput extends RemoveTagsFromResou
  * @see {@link RemoveTagsFromResourceCommandOutput} for command's `response` shape.
  * @see {@link DatabaseMigrationServiceClientResolvedConfig | config} for DatabaseMigrationServiceClient's `config` shape.
  *
+ * @throws {@link InvalidResourceStateFault} (client fault)
+ *  <p>The resource is in a state that prevents it from being used for database migration.</p>
+ *
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Remove tags from resource
  * ```javascript
  * // Removes metadata tags from an AWS DMS resource.
  * const input = {
- *   "ResourceArn": "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
- *   "TagKeys": []
+ *   ResourceArn: "arn:aws:dms:us-east-1:123456789012:endpoint:ASXWXJZLNWNT5HTWCGV2BUJQ7E",
+ *   TagKeys:   []
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
- * await client.send(command);
- * // example id: remove-tags-from-resource-1481762571330
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<
@@ -89,9 +95,7 @@ export class RemoveTagsFromResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +107,16 @@ export class RemoveTagsFromResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromResourceCommand)
   .de(de_RemoveTagsFromResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromResourceMessage;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromResourceCommandInput;
+      output: RemoveTagsFromResourceCommandOutput;
+    };
+  };
+}

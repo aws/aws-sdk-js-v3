@@ -1,4 +1,5 @@
 import { TokenProviderError } from "@smithy/property-provider";
+import { describe, expect, test as it } from "vitest";
 
 import { REFRESH_MESSAGE } from "./constants";
 import { validateTokenExpiry } from "./validateTokenExpiry";

@@ -1,4 +1,5 @@
 import { HandlerExecutionContext } from "@smithy/types";
+import { beforeEach, describe, expect, test as it } from "vitest";
 
 import { regionRedirectMiddleware } from "./region-redirect-middleware";
 
@@ -18,6 +19,18 @@ describe(regionRedirectMiddleware.name, () => {
     return null as any;
   };
 
+  const next400 = (arg: any) => {
+    if (call === 0) {
+      call++;
+      throw Object.assign(new Error(), {
+        name: "IllegalLocationConstraintException",
+        $metadata: { httpStatusCode: 400 },
+        $response: { headers: { "x-amz-bucket-region": redirectRegion } },
+      });
+    }
+    return null as any;
+  };
+
   beforeEach(() => {
     call = 0;
   });
@@ -26,6 +39,14 @@ describe(regionRedirectMiddleware.name, () => {
     const middleware = regionRedirectMiddleware({ region, followRegionRedirects: true });
     const context = {} as HandlerExecutionContext;
     const handler = middleware(next, context);
+    await handler({ input: null });
+    expect(context.__s3RegionRedirect).toEqual(redirectRegion);
+  });
+
+  it("set S3 region redirect on context if receiving an error with status 400", async () => {
+    const middleware = regionRedirectMiddleware({ region, followRegionRedirects: true });
+    const context = {} as HandlerExecutionContext;
+    const handler = middleware(next400, context);
     await handler({ input: null });
     expect(context.__s3RegionRedirect).toEqual(redirectRegion);
   });

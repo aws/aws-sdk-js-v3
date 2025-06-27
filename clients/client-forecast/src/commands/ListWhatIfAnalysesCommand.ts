@@ -12,7 +12,8 @@ import { de_ListWhatIfAnalysesCommand, se_ListWhatIfAnalysesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface ListWhatIfAnalysesCommandOutput extends ListWhatIfAnalysesRespo
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class ListWhatIfAnalysesCommand extends $Command
@@ -90,9 +92,7 @@ export class ListWhatIfAnalysesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class ListWhatIfAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWhatIfAnalysesCommand)
   .de(de_ListWhatIfAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWhatIfAnalysesRequest;
+      output: ListWhatIfAnalysesResponse;
+    };
+    sdk: {
+      input: ListWhatIfAnalysesCommandInput;
+      output: ListWhatIfAnalysesCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DescribeJobTemplateCommand, se_DescribeJobTemplateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -136,6 +137,7 @@ export interface DescribeJobTemplateCommandOutput extends DescribeJobTemplateRes
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class DescribeJobTemplateCommand extends $Command
@@ -146,9 +148,7 @@ export class DescribeJobTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +160,16 @@ export class DescribeJobTemplateCommand extends $Command
   .f(void 0, DescribeJobTemplateResponseFilterSensitiveLog)
   .ser(se_DescribeJobTemplateCommand)
   .de(de_DescribeJobTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeJobTemplateRequest;
+      output: DescribeJobTemplateResponse;
+    };
+    sdk: {
+      input: DescribeJobTemplateCommandInput;
+      output: DescribeJobTemplateCommandOutput;
+    };
+  };
+}

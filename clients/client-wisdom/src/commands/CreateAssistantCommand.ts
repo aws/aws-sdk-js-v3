@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface CreateAssistantCommandOutput extends CreateAssistantResponse, _
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class CreateAssistantCommand extends $Command
@@ -105,9 +107,7 @@ export class CreateAssistantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class CreateAssistantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAssistantCommand)
   .de(de_CreateAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssistantRequest;
+      output: CreateAssistantResponse;
+    };
+    sdk: {
+      input: CreateAssistantCommandInput;
+      output: CreateAssistantCommandOutput;
+    };
+  };
+}

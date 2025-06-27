@@ -12,7 +12,8 @@ import { de_ListUploadsCommand, se_ListUploadsCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,24 +83,24 @@ export interface ListUploadsCommandOutput extends ListUploadsResult, __MetadataB
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about uploads
  * ```javascript
  * // The following example returns information about uploads, given a specific Device Farm project.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:project:EXAMPLE-GUID-123-456",
+ *   nextToken: "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
  * };
  * const command = new ListUploadsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "uploads": []
+ *   uploads:   []
  * }
  * *\/
- * // example id: to-get-information-about-uploads-1472617943090
  * ```
  *
+ * @public
  */
 export class ListUploadsCommand extends $Command
   .classBuilder<
@@ -109,9 +110,7 @@ export class ListUploadsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class ListUploadsCommand extends $Command
   .f(void 0, ListUploadsResultFilterSensitiveLog)
   .ser(se_ListUploadsCommand)
   .de(de_ListUploadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUploadsRequest;
+      output: ListUploadsResult;
+    };
+    sdk: {
+      input: ListUploadsCommandInput;
+      output: ListUploadsCommandOutput;
+    };
+  };
+}

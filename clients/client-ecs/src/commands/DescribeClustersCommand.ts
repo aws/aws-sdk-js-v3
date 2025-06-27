@@ -12,7 +12,8 @@ import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
 
 /**
  * <p>Describes one or more of your clusters.</p>
+ *          <p> For CLI examples, see <a href="https://github.com/aws/aws-cli/blob/develop/awscli/examples/ecs/describe-clusters.rst">describe-clusters.rst</a> on GitHub.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +62,10 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //             s3EncryptionEnabled: true || false,
  * //             s3KeyPrefix: "STRING_VALUE",
  * //           },
+ * //         },
+ * //         managedStorageConfiguration: { // ManagedStorageConfiguration
+ * //           kmsKeyId: "STRING_VALUE",
+ * //           fargateEphemeralStorageKmsKeyId: "STRING_VALUE",
  * //         },
  * //       },
  * //       status: "STRING_VALUE",
@@ -139,6 +145,8 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -146,32 +154,32 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a cluster
  * ```javascript
  * // This example provides a description of the specified cluster in your default region.
  * const input = {
- *   "clusters": [
+ *   clusters: [
  *     "default"
  *   ]
  * };
  * const command = new DescribeClustersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "clusters": [
+ *   clusters: [
  *     {
- *       "clusterArn": "arn:aws:ecs:us-east-1:aws_account_id:cluster/default",
- *       "clusterName": "default",
- *       "status": "ACTIVE"
+ *       clusterArn: "arn:aws:ecs:us-east-1:aws_account_id:cluster/default",
+ *       clusterName: "default",
+ *       status: "ACTIVE"
  *     }
  *   ],
- *   "failures": []
+ *   failures:   []
  * }
  * *\/
- * // example id: ba88d100-9672-4231-80da-a4bd210bf728
  * ```
  *
+ * @public
  */
 export class DescribeClustersCommand extends $Command
   .classBuilder<
@@ -181,9 +189,7 @@ export class DescribeClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -195,4 +201,16 @@ export class DescribeClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClustersCommand)
   .de(de_DescribeClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClustersRequest;
+      output: DescribeClustersResponse;
+    };
+    sdk: {
+      input: DescribeClustersCommandInput;
+      output: DescribeClustersCommandOutput;
+    };
+  };
+}

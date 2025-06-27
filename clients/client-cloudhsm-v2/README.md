@@ -6,12 +6,12 @@
 
 AWS SDK for JavaScript CloudHSMV2 Client for Node.js, Browser and React Native.
 
-<p>For more information about AWS CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">AWS CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">AWS
+<p>For more information about CloudHSM, see <a href="http://aws.amazon.com/cloudhsm/">CloudHSM</a> and the <a href="https://docs.aws.amazon.com/cloudhsm/latest/userguide/">
 CloudHSM User Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudhsm-v2
+To install this package, simply type add or install @aws-sdk/client-cloudhsm-v2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudhsm-v2`
@@ -254,6 +254,14 @@ DeleteHsm
 </details>
 <details>
 <summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm-v2/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/DeleteResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeBackups
 </summary>
 
@@ -266,6 +274,14 @@ DescribeClusters
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm-v2/command/DescribeClustersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/DescribeClustersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/DescribeClustersCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm-v2/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/GetResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -298,6 +314,14 @@ ModifyCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm-v2/command/ModifyClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/ModifyClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/ModifyClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudhsm-v2/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudhsm-v2/Interface/PutResourcePolicyCommandOutput/)
 
 </details>
 <details>

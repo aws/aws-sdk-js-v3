@@ -12,7 +12,8 @@ import { de_UpdatePrimaryRegionCommand, se_UpdatePrimaryRegionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,8 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *       in <code>us-east-1</code> and a replica key in <code>eu-west-2</code>. If you run
  *         <code>UpdatePrimaryRegion</code> with a <code>PrimaryRegion</code> value of
  *         <code>eu-west-2</code>, the primary key is now the key in <code>eu-west-2</code>, and the
- *       key in <code>us-east-1</code> becomes a replica key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-update">Updating the primary Region</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       key in <code>us-east-1</code> becomes a replica key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-update.html">Change the primary key in a
+ *         set of multi-Region keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>This operation supports <i>multi-Region keys</i>, an KMS feature that lets you create multiple
  *       interoperable KMS keys in different Amazon Web Services Regions. Because these KMS keys have the same key ID, key
  *       material, and other metadata, you can use them interchangeably to encrypt data in one Amazon Web Services Region and decrypt
@@ -94,7 +96,7 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -159,23 +161,26 @@ export interface UpdatePrimaryRegionCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To update the primary Region of a multi-Region KMS key
  * ```javascript
  * // The following UpdatePrimaryRegion example changes the multi-Region replica key in the eu-central-1 Region to the primary key. The current primary key in the us-west-1 Region becomes a replica key.
- * //
- * // The KeyId parameter identifies the current primary key in the us-west-1 Region. The PrimaryRegion parameter indicates the Region of the replica key that will become the new primary key.
- * //
- * // This operation does not return any output. To verify that primary key is changed, use the DescribeKey operation.
+ *
+ * The KeyId parameter identifies the current primary key in the us-west-1 Region. The PrimaryRegion parameter indicates the Region of the replica key that will become the new primary key.
+ *
+ * This operation does not return any output. To verify that primary key is changed, use the DescribeKey operation.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *   "PrimaryRegion": "eu-central-1"
+ *   KeyId: "arn:aws:kms:us-west-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *   PrimaryRegion: "eu-central-1"
  * };
  * const command = new UpdatePrimaryRegionCommand(input);
- * await client.send(command);
- * // example id: to-update-the-primary-region-of-a-multi-region-kms-key-1660249555577
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdatePrimaryRegionCommand extends $Command
   .classBuilder<
@@ -185,9 +190,7 @@ export class UpdatePrimaryRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -199,4 +202,16 @@ export class UpdatePrimaryRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePrimaryRegionCommand)
   .de(de_UpdatePrimaryRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePrimaryRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePrimaryRegionCommandInput;
+      output: UpdatePrimaryRegionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SavingsplansClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface DescribeSavingsPlanRatesCommandOutput extends DescribeSavingsPl
  * @throws {@link SavingsplansServiceException}
  * <p>Base exception class for all service exceptions from Savingsplans service.</p>
  *
+ *
  * @public
  */
 export class DescribeSavingsPlanRatesCommand extends $Command
@@ -98,9 +100,7 @@ export class DescribeSavingsPlanRatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SavingsplansClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class DescribeSavingsPlanRatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSavingsPlanRatesCommand)
   .de(de_DescribeSavingsPlanRatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSavingsPlanRatesRequest;
+      output: DescribeSavingsPlanRatesResponse;
+    };
+    sdk: {
+      input: DescribeSavingsPlanRatesCommandInput;
+      output: DescribeSavingsPlanRatesCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_1";
+import { UpdatePublicKeyRequest, UpdatePublicKeyResult } from "../models/models_2";
 import { de_UpdatePublicKeyCommand, se_UpdatePublicKeyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface UpdatePublicKeyCommandInput extends UpdatePublicKeyRequest {}
 export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __MetadataBearer {}
 
 /**
- * <p>Update public key information. Note that the only value you can change is the
- * 			comment.</p>
+ * <p>Update public key information. Note that the only value you can change is the comment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,11 +88,11 @@ export interface UpdatePublicKeyCommandOutput extends UpdatePublicKeyResult, __M
  *  <p>The specified public key doesn't exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -104,9 +104,7 @@ export class UpdatePublicKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +116,16 @@ export class UpdatePublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePublicKeyCommand)
   .de(de_UpdatePublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePublicKeyRequest;
+      output: UpdatePublicKeyResult;
+    };
+    sdk: {
+      input: UpdatePublicKeyCommandInput;
+      output: UpdatePublicKeyCommandOutput;
+    };
+  };
+}

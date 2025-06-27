@@ -12,7 +12,8 @@ import { de_GetSpotPlacementScoresCommand, se_GetSpotPlacementScoresCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *          instance types to fulfill your Spot request, or you can specify the instance types by using
  *             <code>InstanceTypes</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-placement-score.html">Spot placement score</a> in
- *          the Amazon EC2 User Guide.</p>
+ *          the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +69,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *         Max: Number("int"),
  *       },
  *       CpuManufacturers: [ // CpuManufacturerSet
- *         "intel" || "amd" || "amazon-web-services",
+ *         "intel" || "amd" || "amazon-web-services" || "apple",
  *       ],
  *       MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *         Min: Number("double"),
@@ -126,6 +127,15 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  *         "STRING_VALUE",
  *       ],
  *       MaxSpotPriceAsPercentageOfOptimalOnDemandPrice: Number("int"),
+ *       BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *         Cpu: { // CpuPerformanceFactorRequest
+ *           References: [ // PerformanceFactorReferenceSetRequest
+ *             { // PerformanceFactorReferenceRequest
+ *               InstanceFamily: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       },
  *     },
  *   },
  *   DryRun: true || false,
@@ -156,6 +166,7 @@ export interface GetSpotPlacementScoresCommandOutput extends GetSpotPlacementSco
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetSpotPlacementScoresCommand extends $Command
@@ -166,9 +177,7 @@ export class GetSpotPlacementScoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +189,16 @@ export class GetSpotPlacementScoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSpotPlacementScoresCommand)
   .de(de_GetSpotPlacementScoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSpotPlacementScoresRequest;
+      output: GetSpotPlacementScoresResult;
+    };
+    sdk: {
+      input: GetSpotPlacementScoresCommandInput;
+      output: GetSpotPlacementScoresCommandOutput;
+    };
+  };
+}

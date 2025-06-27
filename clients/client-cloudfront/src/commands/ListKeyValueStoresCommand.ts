@@ -12,7 +12,8 @@ import { de_ListKeyValueStoresCommand, se_ListKeyValueStoresCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,44 +75,42 @@ export interface ListKeyValueStoresCommandOutput extends ListKeyValueStoresResul
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To get a list of KeyValueStores
  * ```javascript
  * // The following command retrieves a list of KeyValueStores with READY status.
  * const input = {
- *   "Marker": "",
- *   "MaxItems": "100",
- *   "Status": "READY"
+ *   Status: "READY"
  * };
  * const command = new ListKeyValueStoresCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyValueStoreList": {
- *     "Items": [
+ *   KeyValueStoreList: {
+ *     Items: [
  *       {
- *         "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *         "Comment": "",
- *         "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *         "LastModifiedTime": "2023-11-07T18:45:21.069Z",
- *         "Name": "my-keyvaluestore-name",
- *         "Status": "READY"
+ *         ARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *         Comment: "",
+ *         Id: "54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *         LastModifiedTime: "2023-11-07T18:45:21.069Z",
+ *         Name: "my-keyvaluestore-name",
+ *         Status: "READY"
  *       }
  *     ],
- *     "MaxItems": 100,
- *     "NextMarker": "",
- *     "Quantity": 1
+ *     MaxItems: 100,
+ *     NextMarker: "",
+ *     Quantity: 1
  *   }
  * }
  * *\/
- * // example id: to-get-a-list-of-key-value-store-1699751799198
  * ```
  *
+ * @public
  */
 export class ListKeyValueStoresCommand extends $Command
   .classBuilder<
@@ -121,9 +120,7 @@ export class ListKeyValueStoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +132,16 @@ export class ListKeyValueStoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeyValueStoresCommand)
   .de(de_ListKeyValueStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeyValueStoresRequest;
+      output: ListKeyValueStoresResult;
+    };
+    sdk: {
+      input: ListKeyValueStoresCommandInput;
+      output: ListKeyValueStoresCommandOutput;
+    };
+  };
+}

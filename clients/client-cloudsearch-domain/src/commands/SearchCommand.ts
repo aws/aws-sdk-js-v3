@@ -16,7 +16,8 @@ import { de_SearchCommand, se_SearchCommand } from "../protocols/Aws_restJson1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -128,6 +129,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ *
  * @public
  */
 export class SearchCommand extends $Command
@@ -138,9 +140,7 @@ export class SearchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchDomainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +152,16 @@ export class SearchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchCommand)
   .de(de_SearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchRequest;
+      output: SearchResponse;
+    };
+    sdk: {
+      input: SearchCommandInput;
+      output: SearchCommandOutput;
+    };
+  };
+}

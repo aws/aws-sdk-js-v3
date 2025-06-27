@@ -16,7 +16,8 @@ import { de_PublishPackageVersionCommand, se_PublishPackageVersionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,7 +55,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -66,7 +67,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * const command = new PublishPackageVersionCommand(input);
  * const response = await client.send(command);
  * // { // PublishPackageVersionResult
- * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //   namespace: "STRING_VALUE",
  * //   package: "STRING_VALUE",
  * //   version: "STRING_VALUE",
@@ -125,6 +126,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class PublishPackageVersionCommand extends $Command
@@ -135,9 +137,7 @@ export class PublishPackageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +149,16 @@ export class PublishPackageVersionCommand extends $Command
   .f(PublishPackageVersionRequestFilterSensitiveLog, void 0)
   .ser(se_PublishPackageVersionCommand)
   .de(de_PublishPackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishPackageVersionRequest;
+      output: PublishPackageVersionResult;
+    };
+    sdk: {
+      input: PublishPackageVersionCommandInput;
+      output: PublishPackageVersionCommandOutput;
+    };
+  };
+}

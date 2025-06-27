@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,10 +80,28 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example Get the descriptor of a Network Pacakge
+ * ```javascript
+ * //
+ * const input = {
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new GetSolNetworkPackageDescriptorCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   contentType: "text/plain",
+ *   nsd: "dGVzdCBjb250ZW50IGhlcmU="
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -94,9 +113,7 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +125,16 @@ export class GetSolNetworkPackageDescriptorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSolNetworkPackageDescriptorCommand)
   .de(de_GetSolNetworkPackageDescriptorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSolNetworkPackageDescriptorInput;
+      output: GetSolNetworkPackageDescriptorOutput;
+    };
+    sdk: {
+      input: GetSolNetworkPackageDescriptorCommandInput;
+      output: GetSolNetworkPackageDescriptorCommandOutput;
+    };
+  };
+}

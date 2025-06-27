@@ -12,7 +12,8 @@ import { de_DescribeRegistryCommand, se_DescribeRegistryCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface DescribeRegistryCommandOutput extends DescribeRegistryResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DescribeRegistryCommand extends $Command
@@ -92,9 +94,7 @@ export class DescribeRegistryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class DescribeRegistryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegistryCommand)
   .de(de_DescribeRegistryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeRegistryResponse;
+    };
+    sdk: {
+      input: DescribeRegistryCommandInput;
+      output: DescribeRegistryCommandOutput;
+    };
+  };
+}

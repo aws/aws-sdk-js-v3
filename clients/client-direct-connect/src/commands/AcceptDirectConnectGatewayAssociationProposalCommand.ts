@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,11 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
  * //         cidr: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     associatedCoreNetwork: { // AssociatedCoreNetwork
+ * //       id: "STRING_VALUE",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       attachmentId: "STRING_VALUE",
+ * //     },
  * //     virtualGatewayId: "STRING_VALUE",
  * //     virtualGatewayRegion: "STRING_VALUE",
  * //     virtualGatewayOwnerAccount: "STRING_VALUE",
@@ -96,6 +102,7 @@ export interface AcceptDirectConnectGatewayAssociationProposalCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Command
@@ -106,9 +113,7 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +125,16 @@ export class AcceptDirectConnectGatewayAssociationProposalCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_AcceptDirectConnectGatewayAssociationProposalCommand)
   .de(de_AcceptDirectConnectGatewayAssociationProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptDirectConnectGatewayAssociationProposalRequest;
+      output: AcceptDirectConnectGatewayAssociationProposalResult;
+    };
+    sdk: {
+      input: AcceptDirectConnectGatewayAssociationProposalCommandInput;
+      output: AcceptDirectConnectGatewayAssociationProposalCommandOutput;
+    };
+  };
+}

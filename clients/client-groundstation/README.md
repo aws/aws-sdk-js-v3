@@ -13,7 +13,7 @@ to build or manage your own ground station infrastructure.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-groundstation
+To install this package, simply type add or install @aws-sdk/client-groundstation
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-groundstation`

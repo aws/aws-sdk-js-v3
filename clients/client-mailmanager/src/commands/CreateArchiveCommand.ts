@@ -6,17 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateArchiveRequest,
-  CreateArchiveRequestFilterSensitiveLog,
-  CreateArchiveResponse,
-} from "../models/models_0";
+import { CreateArchiveRequest, CreateArchiveResponse } from "../models/models_0";
 import { de_CreateArchiveCommand, se_CreateArchiveCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +81,7 @@ export interface CreateArchiveCommandOutput extends CreateArchiveResponse, __Met
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class CreateArchiveCommand extends $Command
@@ -94,9 +92,7 @@ export class CreateArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,7 +101,19 @@ export class CreateArchiveCommand extends $Command
   })
   .s("MailManagerSvc", "CreateArchive", {})
   .n("MailManagerClient", "CreateArchiveCommand")
-  .f(CreateArchiveRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateArchiveCommand)
   .de(de_CreateArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateArchiveRequest;
+      output: CreateArchiveResponse;
+    };
+    sdk: {
+      input: CreateArchiveCommandInput;
+      output: CreateArchiveCommandOutput;
+    };
+  };
+}

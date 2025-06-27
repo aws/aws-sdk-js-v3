@@ -12,7 +12,8 @@ import { de_ListDeploymentTargetsCommand, se_ListDeploymentTargetsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface ListDeploymentTargetsCommandOutput extends ListDeploymentTarget
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ListDeploymentTargetsCommand extends $Command
@@ -103,9 +105,7 @@ export class ListDeploymentTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class ListDeploymentTargetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentTargetsCommand)
   .de(de_ListDeploymentTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentTargetsInput;
+      output: ListDeploymentTargetsOutput;
+    };
+    sdk: {
+      input: ListDeploymentTargetsCommandInput;
+      output: ListDeploymentTargetsCommandOutput;
+    };
+  };
+}

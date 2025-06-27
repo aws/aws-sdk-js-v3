@@ -25,7 +25,7 @@ Considerations for Synthetics Canaries</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-synthetics
+To install this package, simply type add or install @aws-sdk/client-synthetics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-synthetics`
@@ -352,6 +352,14 @@ StartCanary
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/StartCanaryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartCanaryDryRun
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/synthetics/command/StartCanaryDryRunCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryDryRunCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-synthetics/Interface/StartCanaryDryRunCommandOutput/)
 
 </details>
 <details>

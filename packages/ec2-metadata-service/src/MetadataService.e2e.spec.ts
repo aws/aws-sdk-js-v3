@@ -1,4 +1,5 @@
 import { fromInstanceMetadata } from "@aws-sdk/credential-providers";
+import { beforeAll, describe, expect, test as it, vi } from "vitest";
 
 import { MetadataService } from "./MetadataService";
 
@@ -63,7 +64,7 @@ describe("MetadataService E2E Tests", () => {
     if (!metadataServiceAvailable) {
       return;
     }
-    jest.spyOn(metadataService, "fetchMetadataToken").mockImplementation(async () => {
+    vi.spyOn(metadataService, "fetchMetadataToken").mockImplementation(async () => {
       throw { name: "TimeoutError" }; // Simulating TimeoutError
     });
     // Attempt to fetch metadata, expecting IMDSv1 fallback (request without token)
@@ -82,7 +83,7 @@ describe("MetadataService E2E Tests", () => {
     }
     const httpErrors = [403, 404, 405];
     for (const errorCode of httpErrors) {
-      jest.spyOn(metadataService, "fetchMetadataToken").mockImplementationOnce(async () => {
+      vi.spyOn(metadataService, "fetchMetadataToken").mockImplementationOnce(async () => {
         throw { statusCode: errorCode };
       });
       const metadata = (await metadataService.request("/latest/meta-data/", {})) as string;

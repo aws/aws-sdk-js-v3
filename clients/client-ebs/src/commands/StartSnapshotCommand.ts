@@ -17,7 +17,8 @@ import { de_StartSnapshotCommand, se_StartSnapshotCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,6 +124,7 @@ export interface StartSnapshotCommandOutput extends StartSnapshotResponse, __Met
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class StartSnapshotCommand extends $Command
@@ -133,9 +135,7 @@ export class StartSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class StartSnapshotCommand extends $Command
   .f(StartSnapshotRequestFilterSensitiveLog, StartSnapshotResponseFilterSensitiveLog)
   .ser(se_StartSnapshotCommand)
   .de(de_StartSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSnapshotRequest;
+      output: StartSnapshotResponse;
+    };
+    sdk: {
+      input: StartSnapshotCommandInput;
+      output: StartSnapshotCommandOutput;
+    };
+  };
+}

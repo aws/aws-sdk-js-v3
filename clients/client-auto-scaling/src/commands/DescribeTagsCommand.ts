@@ -12,7 +12,8 @@ import { de_DescribeTagsCommand, se_DescribeTagsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,15 +88,15 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe tags
  * ```javascript
  * // This example describes the tags for the specified Auto Scaling group.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "auto-scaling-group",
- *       "Values": [
+ *       Name: "auto-scaling-group",
+ *       Values: [
  *         "my-auto-scaling-group"
  *       ]
  *     }
@@ -103,29 +104,29 @@ export interface DescribeTagsCommandOutput extends TagsType, __MetadataBearer {}
  * };
  * const command = new DescribeTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Dept",
- *       "PropagateAtLaunch": true,
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "Research"
+ *       Key: "Dept",
+ *       PropagateAtLaunch: true,
+ *       ResourceId: "my-auto-scaling-group",
+ *       ResourceType: "auto-scaling-group",
+ *       Value: "Research"
  *     },
  *     {
- *       "Key": "Role",
- *       "PropagateAtLaunch": true,
- *       "ResourceId": "my-auto-scaling-group",
- *       "ResourceType": "auto-scaling-group",
- *       "Value": "WebServer"
+ *       Key: "Role",
+ *       PropagateAtLaunch: true,
+ *       ResourceId: "my-auto-scaling-group",
+ *       ResourceType: "auto-scaling-group",
+ *       Value: "WebServer"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-tags-1
  * ```
  *
+ * @public
  */
 export class DescribeTagsCommand extends $Command
   .classBuilder<
@@ -135,9 +136,7 @@ export class DescribeTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class DescribeTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTagsCommand)
   .de(de_DescribeTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTagsType;
+      output: TagsType;
+    };
+    sdk: {
+      input: DescribeTagsCommandInput;
+      output: DescribeTagsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteMetricStreamCommand, se_DeleteMetricStreamCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,8 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>The value of an input parameter is bad or out-of-range.</p>
@@ -60,6 +62,7 @@ export interface DeleteMetricStreamCommandOutput extends DeleteMetricStreamOutpu
  *
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
+ *
  *
  * @public
  */
@@ -71,9 +74,7 @@ export class DeleteMetricStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +86,16 @@ export class DeleteMetricStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMetricStreamCommand)
   .de(de_DeleteMetricStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMetricStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMetricStreamCommandInput;
+      output: DeleteMetricStreamCommandOutput;
+    };
+  };
+}

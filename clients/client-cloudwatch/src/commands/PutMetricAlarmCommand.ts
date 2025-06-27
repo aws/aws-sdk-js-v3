@@ -12,7 +12,8 @@ import { de_PutMetricAlarmCommand, se_PutMetricAlarmCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,57 +28,54 @@ export interface PutMetricAlarmCommandInput extends PutMetricAlarmInput {}
 export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Creates or updates an alarm and associates it with the specified metric, metric math expression,
- * 			anomaly detection model, or Metrics Insights query. For more information about using
- * 			a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create alarms on Metrics Insights queries</a>.</p>
+ * <p>Creates or updates an alarm and associates it with the specified metric, metric
+ *             math expression, anomaly detection model, or Metrics Insights query. For more
+ *             information about using a Metrics Insights query for an alarm, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Create_Metrics_Insights_Alarm.html">Create
+ *             alarms on Metrics Insights queries</a>.</p>
  *          <p>Alarms based on anomaly detection models cannot have Auto Scaling actions.</p>
  *          <p>When this operation creates an alarm, the alarm state is immediately set to
- * 			<code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
- * 			appropriately. Any actions associated with the new state are then executed.</p>
- *          <p>When you update an existing alarm, its state is left unchanged, but the
- * 			update completely overwrites the previous configuration of the alarm.</p>
- *          <p>If you are an IAM user, you must have
- * 			Amazon EC2 permissions for some alarm operations:</p>
+ *             <code>INSUFFICIENT_DATA</code>. The alarm is then evaluated and its state is set
+ *             appropriately. Any actions associated with the new state are then executed.</p>
+ *          <p>When you update an existing alarm, its state is left unchanged, but the update
+ *             completely overwrites the previous configuration of the alarm.</p>
+ *          <p>If you are an IAM user, you must have Amazon EC2 permissions for
+ *             some alarm operations:</p>
  *          <ul>
  *             <li>
- *                <p>The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with EC2 actions</p>
+ *                <p>The <code>iam:CreateServiceLinkedRole</code> permission for all alarms with
+ *                     EC2 actions</p>
  *             </li>
  *             <li>
  *                <p>The <code>iam:CreateServiceLinkedRole</code> permissions to create an alarm
- * 					with Systems Manager OpsItem or response plan actions.</p>
+ *                     with Systems Manager OpsItem or response plan actions.</p>
  *             </li>
  *          </ul>
- *          <p>The first time you create an alarm in the
- * 			Amazon Web Services Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch
- * 			creates the necessary service-linked role for you. The service-linked roles
- * 			are called <code>AWSServiceRoleForCloudWatchEvents</code> and
- * 			<code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>.
- * 			For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon Web Services service-linked role</a>.</p>
- *          <p>Each <code>PutMetricAlarm</code> action has a maximum uncompressed payload of 120 KB.</p>
+ *          <p>The first time you create an alarm in the Amazon Web Services Management Console, the CLI, or by using the PutMetricAlarm API, CloudWatch creates the necessary
+ *             service-linked role for you. The service-linked roles are called
+ *             <code>AWSServiceRoleForCloudWatchEvents</code> and
+ *             <code>AWSServiceRoleForCloudWatchAlarms_ActionSSM</code>. For more information, see
+ *             <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_terms-and-concepts.html#iam-term-service-linked-role">Amazon Web Services service-linked role</a>.</p>
+ *          <p>Each <code>PutMetricAlarm</code> action has a maximum uncompressed payload of 120
+ *             KB.</p>
  *          <p>
  *             <b>Cross-account alarms</b>
  *          </p>
- *          <p>You can set an alarm on metrics in the current account, or in another
- * 			account. To create a cross-account alarm that watches a metric in a different account, you must have completed the following
- * 			pre-requisites:</p>
+ *          <p>You can set an alarm on metrics in the current account, or in another account. To
+ *             create a cross-account alarm that watches a metric in a different account, you must have
+ *             completed the following pre-requisites:</p>
  *          <ul>
  *             <li>
- *                <p>The account where the metrics are located (the <i>sharing account</i>) must
- * 				already have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not already
- * 				have this role, you must create it using the instructions in <b>Set up a
- * 					sharing account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region">
- * 					Cross-account cross-Region CloudWatch console</a>. The policy for that
- * 				role must grant access
- * 				to the ID of the account where you are creating the alarm.
- * 			</p>
+ *                <p>The account where the metrics are located (the <i>sharing
+ *                     account</i>) must already have a sharing role named <b>CloudWatch-CrossAccountSharingRole</b>. If it does not
+ *                     already have this role, you must create it using the instructions in <b>Set up a sharing account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region"> Cross-account cross-Region CloudWatch console</a>. The policy
+ *                     for that role must grant access to the ID of the account where you are creating
+ *                     the alarm. </p>
  *             </li>
  *             <li>
- *                <p>The account where you are creating the alarm (the <i>monitoring account</i>) must
- * 				already have a service-linked role named
- * 				<b>AWSServiceRoleForCloudWatchCrossAccount</b> to allow
- * 				CloudWatch to assume the sharing role in the sharing account. If it does not, you must create it following the directions in <b>Set up a
- * 					monitoring account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region">
- * 						Cross-account cross-Region CloudWatch console</a>.</p>
+ *                <p>The account where you are creating the alarm (the <i>monitoring
+ *                     account</i>) must already have a service-linked role named <b>AWSServiceRoleForCloudWatchCrossAccount</b> to allow
+ *                     CloudWatch to assume the sharing role in the sharing account. If it
+ *                     does not, you must create it following the directions in <b>Set up a monitoring account</b> in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Cross-Account-Cross-Region.html#enable-cross-account-cross-Region"> Cross-account cross-Region CloudWatch console</a>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -168,6 +166,7 @@ export interface PutMetricAlarmCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class PutMetricAlarmCommand extends $Command
@@ -178,9 +177,7 @@ export class PutMetricAlarmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,4 +189,16 @@ export class PutMetricAlarmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetricAlarmCommand)
   .de(de_PutMetricAlarmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetricAlarmInput;
+      output: {};
+    };
+    sdk: {
+      input: PutMetricAlarmCommandInput;
+      output: PutMetricAlarmCommandOutput;
+    };
+  };
+}

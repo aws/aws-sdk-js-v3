@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,47 @@ export interface GetProvisionedConcurrencyConfigCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get a provisioned concurrency configuration
+ * ```javascript
+ * // The following example returns details for the provisioned concurrency configuration for the BLUE alias of the specified function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Qualifier: "BLUE"
+ * };
+ * const command = new GetProvisionedConcurrencyConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AllocatedProvisionedConcurrentExecutions: 100,
+ *   AvailableProvisionedConcurrentExecutions: 100,
+ *   LastModified: "2019-12-31T20:28:49+0000",
+ *   RequestedProvisionedConcurrentExecutions: 100,
+ *   Status: "READY"
+ * }
+ * *\/
+ * ```
+ *
+ * @example To view a provisioned concurrency configuration
+ * ```javascript
+ * // The following example displays details for the provisioned concurrency configuration for the BLUE alias of the specified function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   Qualifier: "BLUE"
+ * };
+ * const command = new GetProvisionedConcurrencyConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AllocatedProvisionedConcurrentExecutions: 100,
+ *   AvailableProvisionedConcurrentExecutions: 100,
+ *   LastModified: "2019-12-31T20:28:49+0000",
+ *   RequestedProvisionedConcurrentExecutions: 100,
+ *   Status: "READY"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetProvisionedConcurrencyConfigCommand extends $Command
@@ -90,9 +132,7 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +144,16 @@ export class GetProvisionedConcurrencyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProvisionedConcurrencyConfigCommand)
   .de(de_GetProvisionedConcurrencyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProvisionedConcurrencyConfigRequest;
+      output: GetProvisionedConcurrencyConfigResponse;
+    };
+    sdk: {
+      input: GetProvisionedConcurrencyConfigCommandInput;
+      output: GetProvisionedConcurrencyConfigCommandOutput;
+    };
+  };
+}

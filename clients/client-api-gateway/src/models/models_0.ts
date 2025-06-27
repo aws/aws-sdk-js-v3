@@ -4,6 +4,20 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 import { APIGatewayServiceException as __BaseException } from "./APIGatewayServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const AccessAssociationSourceType = {
+  VPCE: "VPCE",
+} as const;
+
+/**
+ * @public
+ */
+export type AccessAssociationSourceType =
+  (typeof AccessAssociationSourceType)[keyof typeof AccessAssociationSourceType];
+
+/**
  * <p>Access log settings, including the access log format and access log destination ARN.</p>
  * @public
  */
@@ -12,13 +26,13 @@ export interface AccessLogSettings {
    * <p>A single line format of the access logs of data, as specified by selected $context variables. The format must include at least <code>$context.requestId</code>.</p>
    * @public
    */
-  format?: string;
+  format?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with <code>amazon-apigateway-</code>.</p>
    * @public
    */
-  destinationArn?: string;
+  destinationArn?: string | undefined;
 }
 
 /**
@@ -30,13 +44,13 @@ export interface ThrottleSettings {
    * <p>The API target request burst rate limit. This allows more requests through for a period of time than the target rate limit.</p>
    * @public
    */
-  burstLimit?: number;
+  burstLimit?: number | undefined;
 
   /**
    * <p>The API target request rate limit.</p>
    * @public
    */
-  rateLimit?: number;
+  rateLimit?: number | undefined;
 }
 
 /**
@@ -48,25 +62,25 @@ export interface Account {
    * <p>The ARN of an Amazon CloudWatch role for the current Account. </p>
    * @public
    */
-  cloudwatchRoleArn?: string;
+  cloudwatchRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the API request limits configured for the current Account.</p>
    * @public
    */
-  throttleSettings?: ThrottleSettings;
+  throttleSettings?: ThrottleSettings | undefined;
 
   /**
    * <p>A list of features supported for the account. When usage plans are enabled, the features list will include an entry of <code>"UsagePlans"</code>.</p>
    * @public
    */
-  features?: string[];
+  features?: string[] | undefined;
 
   /**
    * <p>The version of the API keys used for the account.</p>
    * @public
    */
-  apiKeyVersion?: string;
+  apiKeyVersion?: string | undefined;
 }
 
 /**
@@ -78,61 +92,61 @@ export interface ApiKey {
    * <p>The identifier of the API Key.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The value of the API Key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The name of the API Key.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.</p>
    * @public
    */
-  customerId?: string;
+  customerId?: string | undefined;
 
   /**
    * <p>The description of the API Key.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies whether the API Key can be used by callers.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The timestamp when the API Key was created.</p>
    * @public
    */
-  createdDate?: Date;
+  createdDate?: Date | undefined;
 
   /**
    * <p>The timestamp when the API Key was last updated.</p>
    * @public
    */
-  lastUpdatedDate?: Date;
+  lastUpdatedDate?: Date | undefined;
 
   /**
    * <p>A list of Stage resources that are associated with the ApiKey resource.</p>
    * @public
    */
-  stageKeys?: string[];
+  stageKeys?: string[] | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -144,13 +158,13 @@ export interface ApiKeyIds {
    * <p>A list of all the ApiKey identifiers.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>A list of warning messages.</p>
    * @public
    */
-  warnings?: string[];
+  warnings?: string[] | undefined;
 }
 
 /**
@@ -162,19 +176,19 @@ export interface ApiKeys {
    * <p>A list of warning messages logged during the import of API keys when the <code>failOnWarnings</code> option is set to true.</p>
    * @public
    */
-  warnings?: string[];
+  warnings?: string[] | undefined;
 
   /**
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: ApiKey[];
+  items?: ApiKey[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -213,19 +227,19 @@ export interface ApiStage {
    * <p>API Id of the associated API stage in a usage plan.</p>
    * @public
    */
-  apiId?: string;
+  apiId?: string | undefined;
 
   /**
    * <p>API stage name of the associated API stage in a usage plan.</p>
    * @public
    */
-  stage?: string;
+  stage?: string | undefined;
 
   /**
    * <p>Map containing method level throttling information for API stage in a usage plan.</p>
    * @public
    */
-  throttle?: Record<string, ThrottleSettings>;
+  throttle?: Record<string, ThrottleSettings> | undefined;
 }
 
 /**
@@ -252,43 +266,43 @@ export interface Authorizer {
    * <p>The identifier for the authorizer resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the authorizer.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The authorizer type. Valid values are <code>TOKEN</code> for a Lambda function using a single authorization token submitted in a custom header, <code>REQUEST</code> for a Lambda function using incoming request parameters, and <code>COGNITO_USER_POOLS</code> for using an Amazon Cognito user pool.</p>
    * @public
    */
-  type?: AuthorizerType;
+  type?: AuthorizerType | undefined;
 
   /**
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    * @public
    */
-  providerARNs?: string[];
+  providerARNs?: string[] | undefined;
 
   /**
    * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
    * @public
    */
-  authType?: string;
+  authType?: string | undefined;
 
   /**
    * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    * @public
    */
-  authorizerUri?: string;
+  authorizerUri?: string | undefined;
 
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
    * @public
    */
-  authorizerCredentials?: string;
+  authorizerCredentials?: string | undefined;
 
   /**
    * <p>The identity source for which authorization is requested. For a <code>TOKEN</code> or
@@ -308,19 +322,19 @@ export interface Authorizer {
    *       authorization caching is not enabled, this property is optional. </p>
    * @public
    */
-  identitySource?: string;
+  identitySource?: string | undefined;
 
   /**
    * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
    * @public
    */
-  identityValidationExpression?: string;
+  identityValidationExpression?: string | undefined;
 
   /**
    * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
    * @public
    */
-  authorizerResultTtlInSeconds?: number;
+  authorizerResultTtlInSeconds?: number | undefined;
 }
 
 /**
@@ -332,13 +346,13 @@ export interface Authorizers {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: Authorizer[];
+  items?: Authorizer[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -390,13 +404,13 @@ export interface StageKey {
    * <p>The string identifier of the associated RestApi.</p>
    * @public
    */
-  restApiId?: string;
+  restApiId?: string | undefined;
 
   /**
    * <p>The stage name associated with the stage key.</p>
    * @public
    */
-  stageName?: string;
+  stageName?: string | undefined;
 }
 
 /**
@@ -408,49 +422,49 @@ export interface CreateApiKeyRequest {
    * <p>The name of the ApiKey.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the ApiKey.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies whether the ApiKey can be used by callers.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether (<code>true</code>) or not (<code>false</code>) the key identifier is distinct from the created API key value. This parameter is deprecated and should not be used.</p>
    * @public
    */
-  generateDistinctId?: boolean;
+  generateDistinctId?: boolean | undefined;
 
   /**
    * <p>Specifies a value of the API key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>DEPRECATED FOR USAGE PLANS - Specifies stages associated with the API key.</p>
    * @public
    */
-  stageKeys?: StageKey[];
+  stageKeys?: StageKey[] | undefined;
 
   /**
    * <p>An Amazon Web Services Marketplace customer identifier, when integrating with the Amazon Web Services SaaS Marketplace.</p>
    * @public
    */
-  customerId?: string;
+  customerId?: string | undefined;
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -460,7 +474,7 @@ export interface CreateApiKeyRequest {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  retryAfterSeconds?: string;
+  retryAfterSeconds?: string | undefined;
   /**
    * @internal
    */
@@ -502,7 +516,7 @@ export class NotFoundException extends __BaseException {
 export class TooManyRequestsException extends __BaseException {
   readonly name: "TooManyRequestsException" = "TooManyRequestsException";
   readonly $fault: "client" = "client";
-  retryAfterSeconds?: string;
+  retryAfterSeconds?: string | undefined;
   /**
    * @internal
    */
@@ -564,25 +578,25 @@ export interface CreateAuthorizerRequest {
    * <p>A list of the Amazon Cognito user pool ARNs for the <code>COGNITO_USER_POOLS</code> authorizer. Each element is of this format: <code>arn:aws:cognito-idp:\{region\}:\{account_id\}:userpool/\{user_pool_id\}</code>. For a <code>TOKEN</code> or <code>REQUEST</code> authorizer, this is not defined. </p>
    * @public
    */
-  providerARNs?: string[];
+  providerARNs?: string[] | undefined;
 
   /**
    * <p>Optional customer-defined field, used in OpenAPI imports and exports without functional impact.</p>
    * @public
    */
-  authType?: string;
+  authType?: string | undefined;
 
   /**
    * <p>Specifies the authorizer's Uniform Resource Identifier (URI). For <code>TOKEN</code> or <code>REQUEST</code> authorizers, this must be a well-formed Lambda function URI, for example, <code>arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:\{account_id\}:function:\{lambda_function_name\}/invocations</code>. In general, the URI has this form  <code>arn:aws:apigateway:\{region\}:lambda:path/\{service_api\}</code>, where <code>\{region\}</code> is the same as the region hosting the Lambda function, <code>path</code> indicates that the remaining substring in the URI should be treated as the path to the resource, including the initial <code>/</code>. For Lambda functions, this is usually of the form <code>/2015-03-31/functions/[FunctionARN]/invocations</code>.</p>
    * @public
    */
-  authorizerUri?: string;
+  authorizerUri?: string | undefined;
 
   /**
    * <p>Specifies the required credentials as an IAM role for API Gateway to invoke the authorizer. To specify an IAM role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To use resource-based permissions on the Lambda function, specify null.</p>
    * @public
    */
-  authorizerCredentials?: string;
+  authorizerCredentials?: string | undefined;
 
   /**
    * <p>The identity source for which authorization is requested. For a <code>TOKEN</code> or
@@ -604,19 +618,19 @@ export interface CreateAuthorizerRequest {
    *       optional.</p>
    * @public
    */
-  identitySource?: string;
+  identitySource?: string | undefined;
 
   /**
    * <p>A validation expression for the incoming identity token. For <code>TOKEN</code> authorizers, this value is a regular expression. For <code>COGNITO_USER_POOLS</code> authorizers, API Gateway will match the <code>aud</code> field of the incoming token from the client against the specified regular expression. It will invoke the authorizer's Lambda function when there is a match. Otherwise, it will return a 401 Unauthorized response without calling the Lambda function. The validation expression does not apply to the <code>REQUEST</code> authorizer.</p>
    * @public
    */
-  identityValidationExpression?: string;
+  identityValidationExpression?: string | undefined;
 
   /**
    * <p>The TTL in seconds of cached authorizer results. If it equals 0, authorization caching is disabled. If it is greater than 0, API Gateway will cache authorizer responses. If this field is not set, the default value is 300. The maximum value is 3600, or 1 hour.</p>
    * @public
    */
-  authorizerResultTtlInSeconds?: number;
+  authorizerResultTtlInSeconds?: number | undefined;
 }
 
 /**
@@ -628,19 +642,19 @@ export interface BasePathMapping {
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name.</p>
    * @public
    */
-  basePath?: string;
+  basePath?: string | undefined;
 
   /**
    * <p>The string identifier of the associated RestApi.</p>
    * @public
    */
-  restApiId?: string;
+  restApiId?: string | undefined;
 
   /**
    * <p>The name of the associated stage.</p>
    * @public
    */
-  stage?: string;
+  stage?: string | undefined;
 }
 
 /**
@@ -655,10 +669,16 @@ export interface CreateBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
+   * <p>The identifier for the domain name resource. Required for private custom domain names.</p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify a base path name after the domain name.</p>
    * @public
    */
-  basePath?: string;
+  basePath?: string | undefined;
 
   /**
    * <p>The string identifier of the associated RestApi.</p>
@@ -670,7 +690,7 @@ export interface CreateBasePathMappingRequest {
    * <p>The name of the API's stage that you want to use for this mapping. Specify '(none)' if you want callers to explicitly specify the stage name after any base path name.</p>
    * @public
    */
-  stage?: string;
+  stage?: string | undefined;
 }
 
 /**
@@ -702,19 +722,19 @@ export interface DeploymentCanarySettings {
    * <p>The percentage (0.0-100.0) of traffic routed to the canary deployment.</p>
    * @public
    */
-  percentTraffic?: number;
+  percentTraffic?: number | undefined;
 
   /**
    * <p>A stage variable overrides used for the canary release deployment. They can override existing stage variables or add new stage variables for the canary release deployment. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    * @public
    */
-  stageVariableOverrides?: Record<string, string>;
+  stageVariableOverrides?: Record<string, string> | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether the canary release deployment uses the stage cache or not.</p>
    * @public
    */
-  useStageCache?: boolean;
+  useStageCache?: boolean | undefined;
 }
 
 /**
@@ -732,31 +752,31 @@ export interface CreateDeploymentRequest {
    * <p>The name of the Stage resource for the Deployment resource to create.</p>
    * @public
    */
-  stageName?: string;
+  stageName?: string | undefined;
 
   /**
    * <p>The description of the Stage resource for the Deployment resource to create.</p>
    * @public
    */
-  stageDescription?: string;
+  stageDescription?: string | undefined;
 
   /**
    * <p>The description for the Deployment resource to create.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Enables a cache cluster for the Stage resource specified in the input.</p>
    * @public
    */
-  cacheClusterEnabled?: boolean;
+  cacheClusterEnabled?: boolean | undefined;
 
   /**
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    * @public
    */
-  cacheClusterSize?: CacheClusterSize;
+  cacheClusterSize?: CacheClusterSize | undefined;
 
   /**
    * <p>A map that defines the stage variables for the Stage resource that is associated
@@ -764,19 +784,19 @@ export interface CreateDeploymentRequest {
    *           must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    * @public
    */
-  variables?: Record<string, string>;
+  variables?: Record<string, string> | undefined;
 
   /**
    * <p>The input configuration for the canary deployment when the deployment is a canary release deployment. </p>
    * @public
    */
-  canarySettings?: DeploymentCanarySettings;
+  canarySettings?: DeploymentCanarySettings | undefined;
 
   /**
    * <p>Specifies whether active tracing with X-ray is enabled for the Stage.</p>
    * @public
    */
-  tracingEnabled?: boolean;
+  tracingEnabled?: boolean | undefined;
 }
 
 /**
@@ -788,13 +808,13 @@ export interface MethodSnapshot {
    * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    * @public
    */
-  authorizationType?: string;
+  authorizationType?: string | undefined;
 
   /**
    * <p>Specifies whether the method requires a valid ApiKey.</p>
    * @public
    */
-  apiKeyRequired?: boolean;
+  apiKeyRequired?: boolean | undefined;
 }
 
 /**
@@ -806,25 +826,25 @@ export interface Deployment {
    * <p>The identifier for the deployment resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The description for the deployment resource.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The date and time that the deployment resource was created.</p>
    * @public
    */
-  createdDate?: Date;
+  createdDate?: Date | undefined;
 
   /**
    * <p>A summary of the RestApi at the date and time that the deployment resource was created.</p>
    * @public
    */
-  apiSummary?: Record<string, Record<string, MethodSnapshot>>;
+  apiSummary?: Record<string, Record<string, MethodSnapshot>> | undefined;
 }
 
 /**
@@ -834,7 +854,7 @@ export interface Deployment {
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  retryAfterSeconds?: string;
+  retryAfterSeconds?: string | undefined;
   /**
    * @internal
    */
@@ -888,25 +908,25 @@ export interface DocumentationPartLocation {
    * <p>The URL path of the target. It is a valid field for the API entity types of <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>/</code> for the root resource. When an applicable child entity inherits the content of another entity of the same type with more general specifications of the other <code>location</code> attributes,  the child entity's <code>path</code> attribute must match that of the parent entity as a prefix.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The HTTP verb of a method. It is a valid field for the API entity types of  <code>METHOD</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>,  <code>REQUEST_BODY</code>, <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>*</code> for any method.  When an applicable child entity inherits the content of an entity of the same type with more general specifications of the other <code>location</code> attributes,  the child entity's <code>method</code> attribute must match that of the parent entity exactly.</p>
    * @public
    */
-  method?: string;
+  method?: string | undefined;
 
   /**
    * <p>The HTTP status code of a response. It is a valid field for the API entity types of <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>. The default value is <code>*</code> for any status code. When an applicable child  entity inherits the content of an entity of the same type with more general specifications of the other <code>location</code> attributes, the child entity's <code>statusCode</code> attribute must match that of the parent entity exactly.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>The name of the targeted API entity. It is a valid and required field for the API entity types of <code>AUTHORIZER</code>, <code>MODEL</code>, <code>PATH_PARAMETER</code>, <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code> and <code>RESPONSE_HEADER</code>. It is an invalid field for any other entity type.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -942,19 +962,19 @@ export interface DocumentationPart {
    * <p>The DocumentationPart identifier, generated by API Gateway when the <code>DocumentationPart</code> is created.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The location of the API entity to which the documentation applies. Valid fields depend on the targeted API entity type. All the valid location fields are not required. If not explicitly specified, a valid location field is treated as a wildcard and associated documentation content may be inherited by matching entities, unless overridden.</p>
    * @public
    */
-  location?: DocumentationPartLocation;
+  location?: DocumentationPartLocation | undefined;
 
   /**
    * <p>A content map of API-specific key-value pairs describing the targeted API entity. The map must be encoded as a JSON string, e.g., <code>"\{ \"description\": \"The API does ...\" \}"</code>.  Only OpenAPI-compliant documentation-related fields from the properties map are exported and, hence, published as part of the API entity definitions, while the original documentation parts are exported in a OpenAPI extension of <code>x-amazon-apigateway-documentation</code>.</p>
    * @public
    */
-  properties?: string;
+  properties?: string | undefined;
 }
 
 /**
@@ -978,13 +998,13 @@ export interface CreateDocumentationVersionRequest {
    * <p>The stage name to be associated with the new documentation snapshot.</p>
    * @public
    */
-  stageName?: string;
+  stageName?: string | undefined;
 
   /**
    * <p>A description about the new documentation snapshot.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -996,20 +1016,34 @@ export interface DocumentationVersion {
    * <p>The version identifier of the API documentation snapshot.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The date when the API documentation snapshot is created.</p>
    * @public
    */
-  createdDate?: Date;
+  createdDate?: Date | undefined;
 
   /**
    * <p>The description of the API documentation snapshot.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  dualstack: "dualstack",
+  ipv4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
 
 /**
  * @public
@@ -1027,7 +1061,7 @@ export const EndpointType = {
 export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
- * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has. </p>
+ * <p>The endpoint configuration to indicate the types of endpoints an API (RestApi) or its custom domain name (DomainName) has and the IP address types that can invoke it. </p>
  * @public
  */
 export interface EndpointConfiguration {
@@ -1035,13 +1069,21 @@ export interface EndpointConfiguration {
    * <p>A list of endpoint types of an API (RestApi) or its custom domain name (DomainName). For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>. For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>. For a private API, the endpoint type is <code>PRIVATE</code>.</p>
    * @public
    */
-  types?: EndpointType[];
+  types?: EndpointType[] | undefined;
+
+  /**
+   * <p>The IP address types that can invoke an API (RestApi) or a DomainName. Use <code>ipv4</code> to allow only IPv4 addresses to
+   *     invoke an API or DomainName, or use <code>dualstack</code> to allow both IPv4 and IPv6 addresses to invoke an API or a DomainName. For the
+   *       <code>PRIVATE</code> endpoint type, only <code>dualstack</code> is supported.</p>
+   * @public
+   */
+  ipAddressType?: IpAddressType | undefined;
 
   /**
    * <p>A list of VpcEndpointIds of an API (RestApi) against which to create Route53 ALIASes. It is only supported for <code>PRIVATE</code> endpoint type.</p>
    * @public
    */
-  vpcEndpointIds?: string[];
+  vpcEndpointIds?: string[] | undefined;
 }
 
 /**
@@ -1059,14 +1101,29 @@ export interface MutualTlsAuthenticationInput {
    *       permissions to access the S3 object.</p>
    * @public
    */
-  truststoreUri?: string;
+  truststoreUri?: string | undefined;
 
   /**
    * <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket</p>
    * @public
    */
-  truststoreVersion?: string;
+  truststoreVersion?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const RoutingMode = {
+  BASE_PATH_MAPPING_ONLY: "BASE_PATH_MAPPING_ONLY",
+  ROUTING_RULE_ONLY: "ROUTING_RULE_ONLY",
+  ROUTING_RULE_THEN_BASE_PATH_MAPPING: "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
+} as const;
+
+/**
+ * @public
+ */
+export type RoutingMode = (typeof RoutingMode)[keyof typeof RoutingMode];
 
 /**
  * @public
@@ -1094,64 +1151,64 @@ export interface CreateDomainNameRequest {
   domainName: string | undefined;
 
   /**
-   * <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
+   * <p>The user-friendly name of the certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.</p>
    * @public
    */
-  certificateName?: string;
+  certificateName?: string | undefined;
 
   /**
-   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint for this domain name provided by your certificate authority.</p>
+   * <p>[Deprecated] The body of the server certificate that will be used by edge-optimized endpoint or private endpoint for this domain name provided by your certificate authority.</p>
    * @public
    */
-  certificateBody?: string;
+  certificateBody?: string | undefined;
 
   /**
    * <p>[Deprecated] Your edge-optimized endpoint's domain name certificate's private key.</p>
    * @public
    */
-  certificatePrivateKey?: string;
+  certificatePrivateKey?: string | undefined;
 
   /**
    * <p>[Deprecated] The intermediate certificates and optionally the root certificate, one after the other without any blank lines, used by an edge-optimized endpoint for this domain name. If you include the root certificate, your certificate chain must start with intermediate certificates and end with the root certificate. Use the intermediate certificates that were provided by your certificate authority. Do not include any intermediaries that are not in the chain of trust path.</p>
    * @public
    */
-  certificateChain?: string;
+  certificateChain?: string | undefined;
 
   /**
-   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint for this domain name. Certificate Manager is the only supported source.</p>
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.</p>
    * @public
    */
-  certificateArn?: string;
+  certificateArn?: string | undefined;
 
   /**
    * <p>The user-friendly name of the certificate that will be used by regional endpoint for this domain name.</p>
    * @public
    */
-  regionalCertificateName?: string;
+  regionalCertificateName?: string | undefined;
 
   /**
    * <p>The reference to an Amazon Web Services-managed certificate that will be used by regional endpoint for this domain name. Certificate Manager is the only supported source.</p>
    * @public
    */
-  regionalCertificateArn?: string;
+  regionalCertificateArn?: string | undefined;
 
   /**
-   * <p>The endpoint configuration of this DomainName showing the endpoint types of the domain name. </p>
+   * <p>The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name. </p>
    * @public
    */
-  endpointConfiguration?: EndpointConfiguration;
+  endpointConfiguration?: EndpointConfiguration | undefined;
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    * @public
    */
-  securityPolicy?: SecurityPolicy;
+  securityPolicy?: SecurityPolicy | undefined;
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
@@ -1159,7 +1216,7 @@ export interface CreateDomainNameRequest {
    *       trusted certificate to access your API.</p>
    * @public
    */
-  mutualTlsAuthentication?: MutualTlsAuthenticationInput;
+  mutualTlsAuthentication?: MutualTlsAuthenticationInput | undefined;
 
   /**
    * <p>The ARN of the public certificate issued by ACM to validate ownership of your custom
@@ -1167,7 +1224,23 @@ export interface CreateDomainNameRequest {
    *       certificate ARN as the regionalCertificateArn.</p>
    * @public
    */
-  ownershipVerificationCertificateArn?: string;
+  ownershipVerificationCertificateArn?: string | undefined;
+
+  /**
+   * <p>A stringified JSON policy document that applies to the <code>execute-api</code> service for this DomainName regardless of the caller and Method
+   *       configuration. Supported only for private custom
+   *       domain names.</p>
+   * @public
+   */
+  policy?: string | undefined;
+
+  /**
+   * <p>
+   * The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your private APIs.
+   * </p>
+   * @public
+   */
+  routingMode?: RoutingMode | undefined;
 }
 
 /**
@@ -1202,13 +1275,13 @@ export interface MutualTlsAuthentication {
    *       permissions to access the S3 object.</p>
    * @public
    */
-  truststoreUri?: string;
+  truststoreUri?: string | undefined;
 
   /**
    * <p>The version of the S3 object that contains your truststore. To specify a version, you must have versioning enabled for the S3 bucket.</p>
    * @public
    */
-  truststoreVersion?: string;
+  truststoreVersion?: string | undefined;
 
   /**
    * <p>A list of warnings that API Gateway returns while processing your truststore. Invalid
@@ -1217,7 +1290,7 @@ export interface MutualTlsAuthentication {
    *       domain name to use the new version.</p>
    * @public
    */
-  truststoreWarnings?: string[];
+  truststoreWarnings?: string[] | undefined;
 }
 
 /**
@@ -1229,91 +1302,104 @@ export interface DomainName {
    * <p>The custom domain name as an API host name, for example, <code>my-api.example.com</code>.</p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
-   * <p>The name of the certificate that will be used by edge-optimized endpoint for this domain name.</p>
+   * <p>The identifier for the domain name resource. Supported only for private custom domain names.</p>
    * @public
    */
-  certificateName?: string;
+  domainNameId?: string | undefined;
 
   /**
-   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint for this domain name. Certificate Manager is the only supported source.</p>
+   * <p>The ARN of the domain name.
+   * </p>
    * @public
    */
-  certificateArn?: string;
+  domainNameArn?: string | undefined;
 
   /**
-   * <p>The timestamp when the certificate that was used by edge-optimized endpoint for this domain name was uploaded.</p>
+   * <p>The name of the certificate that will be used by edge-optimized endpoint or private endpoint for this domain name.</p>
    * @public
    */
-  certificateUploadDate?: Date;
+  certificateName?: string | undefined;
+
+  /**
+   * <p>The reference to an Amazon Web Services-managed certificate that will be used by edge-optimized endpoint or private endpoint for this domain name. Certificate Manager is the only supported source.</p>
+   * @public
+   */
+  certificateArn?: string | undefined;
+
+  /**
+   * <p>The timestamp when the certificate that was used by edge-optimized endpoint or private endpoint for this domain name was uploaded.</p>
+   * @public
+   */
+  certificateUploadDate?: Date | undefined;
 
   /**
    * <p>The domain name associated with the regional endpoint for this custom domain name. You set up this association by adding a DNS record that points the custom domain name to this regional domain name. The regional domain name is returned by API Gateway when you create a regional endpoint.</p>
    * @public
    */
-  regionalDomainName?: string;
+  regionalDomainName?: string | undefined;
 
   /**
    * <p>The region-specific Amazon Route 53 Hosted Zone ID of the regional endpoint. For more information, see Set up a Regional Custom Domain Name and AWS Regions and Endpoints for API Gateway. </p>
    * @public
    */
-  regionalHostedZoneId?: string;
+  regionalHostedZoneId?: string | undefined;
 
   /**
    * <p>The name of the certificate that will be used for validating the regional domain name.</p>
    * @public
    */
-  regionalCertificateName?: string;
+  regionalCertificateName?: string | undefined;
 
   /**
    * <p>The reference to an Amazon Web Services-managed certificate that will be used for validating the regional domain name. Certificate Manager is the only supported source.</p>
    * @public
    */
-  regionalCertificateArn?: string;
+  regionalCertificateArn?: string | undefined;
 
   /**
    * <p>The domain name of the Amazon CloudFront distribution associated with this custom domain name for an edge-optimized endpoint. You set up this association when adding a DNS record pointing the custom domain name to this distribution name. For more information about CloudFront distributions, see the Amazon CloudFront documentation.</p>
    * @public
    */
-  distributionDomainName?: string;
+  distributionDomainName?: string | undefined;
 
   /**
    * <p>The region-agnostic Amazon Route 53 Hosted Zone ID of the edge-optimized endpoint. The valid value is <code>Z2FDTNDATAQYW2</code> for all the regions. For more information, see Set up a Regional Custom Domain Name and AWS Regions and Endpoints for API Gateway. </p>
    * @public
    */
-  distributionHostedZoneId?: string;
+  distributionHostedZoneId?: string | undefined;
 
   /**
-   * <p>The endpoint configuration of this DomainName showing the endpoint types of the domain name. </p>
+   * <p>The endpoint configuration of this DomainName showing the endpoint types and IP address types of the domain name. </p>
    * @public
    */
-  endpointConfiguration?: EndpointConfiguration;
+  endpointConfiguration?: EndpointConfiguration | undefined;
 
   /**
    * <p>The status of the DomainName migration. The valid values are <code>AVAILABLE</code> and <code>UPDATING</code>. If the status is <code>UPDATING</code>, the domain cannot be modified further until the existing operation is complete. If it is <code>AVAILABLE</code>, the domain can be updated.</p>
    * @public
    */
-  domainNameStatus?: DomainNameStatus;
+  domainNameStatus?: DomainNameStatus | undefined;
 
   /**
    * <p>An optional text message containing detailed information about status of the DomainName migration.</p>
    * @public
    */
-  domainNameStatusMessage?: string;
+  domainNameStatusMessage?: string | undefined;
 
   /**
    * <p>The Transport Layer Security (TLS) version + cipher suite for this DomainName. The valid values are <code>TLS_1_0</code> and <code>TLS_1_2</code>.</p>
    * @public
    */
-  securityPolicy?: SecurityPolicy;
+  securityPolicy?: SecurityPolicy | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The mutual TLS authentication configuration for a custom domain name. If specified, API Gateway
@@ -1321,7 +1407,7 @@ export interface DomainName {
    *       trusted certificate to access your API.</p>
    * @public
    */
-  mutualTlsAuthentication?: MutualTlsAuthentication;
+  mutualTlsAuthentication?: MutualTlsAuthentication | undefined;
 
   /**
    * <p>The ARN of the public certificate issued by ACM to validate ownership of your custom
@@ -1329,7 +1415,106 @@ export interface DomainName {
    *       certificate ARN as the regionalCertificateArn.</p>
    * @public
    */
-  ownershipVerificationCertificateArn?: string;
+  ownershipVerificationCertificateArn?: string | undefined;
+
+  /**
+   * <p>A stringified JSON policy document that applies to the API Gateway Management service for this DomainName. This policy document controls access for access association sources to create domain name access associations with this DomainName. Supported only for private custom domain names.</p>
+   * @public
+   */
+  managementPolicy?: string | undefined;
+
+  /**
+   * <p>A stringified JSON policy document that applies to the <code>execute-api</code> service for this DomainName regardless of the caller and Method
+   *       configuration. Supported only for private custom
+   *       domain names.</p>
+   * @public
+   */
+  policy?: string | undefined;
+
+  /**
+   * <p>The routing mode for this domain name. The routing mode determines how API Gateway sends traffic from your custom domain name to your private APIs.</p>
+   * @public
+   */
+  routingMode?: RoutingMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDomainNameAccessAssociationRequest {
+  /**
+   * <p>
+   *   The ARN of the domain name.
+   * </p>
+   * @public
+   */
+  domainNameArn: string | undefined;
+
+  /**
+   * <p>
+   * The type of the domain name access association source.
+   * </p>
+   * @public
+   */
+  accessAssociationSourceType: AccessAssociationSourceType | undefined;
+
+  /**
+   * <p>
+   * The identifier of the domain name access association source. For a VPCE, the value is the VPC endpoint ID.
+   * </p>
+   * @public
+   */
+  accessAssociationSource: string | undefined;
+
+  /**
+   * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
+}
+
+/**
+ * <p>Represents a domain name access association between an access association source and a private custom domain name. With a domain name access association, an access association source can invoke a private custom domain name while isolated from the public internet.</p>
+ * @public
+ */
+export interface DomainNameAccessAssociation {
+  /**
+   * <p>The ARN of the domain name access association resource.
+   * </p>
+   * @public
+   */
+  domainNameAccessAssociationArn?: string | undefined;
+
+  /**
+   * <p>The ARN of the domain name.
+   * </p>
+   * @public
+   */
+  domainNameArn?: string | undefined;
+
+  /**
+   * <p>
+   *   The type of the domain name access association source.
+   * </p>
+   * @public
+   */
+  accessAssociationSourceType?: AccessAssociationSourceType | undefined;
+
+  /**
+   * <p>
+   *   The ARN of the domain name access association source. For a VPCE, the ARN must be a VPC endpoint.
+   * </p>
+   * @public
+   */
+  accessAssociationSource?: string | undefined;
+
+  /**
+   * <p>
+   * The collection of tags. Each tag element is associated with a given resource.
+   * </p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1353,13 +1538,13 @@ export interface CreateModelRequest {
    * <p>The description of the model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model. The maximum size of the model is 400 KB.</p>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 
   /**
    * <p>The content-type for the model.</p>
@@ -1377,31 +1562,31 @@ export interface Model {
    * <p>The identifier for the model resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of the model. Must be an alphanumeric string.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the model.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model. Do not include "\*\/" characters in the description of any properties because such "\*\/" characters may be interpreted as the closing marker for comments in some languages, such as Java or JavaScript, causing the installation of your API's SDK generated by API Gateway to fail.</p>
    * @public
    */
-  schema?: string;
+  schema?: string | undefined;
 
   /**
    * <p>The content-type for the model.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 }
 
 /**
@@ -1419,19 +1604,19 @@ export interface CreateRequestValidatorRequest {
    * <p>The name of the to-be-created RequestValidator.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether to validate request body according to the configured model schema for the method (<code>true</code>) or not (<code>false</code>).</p>
    * @public
    */
-  validateRequestBody?: boolean;
+  validateRequestBody?: boolean | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether to validate request parameters, <code>true</code>, or not <code>false</code>.</p>
    * @public
    */
-  validateRequestParameters?: boolean;
+  validateRequestParameters?: boolean | undefined;
 }
 
 /**
@@ -1443,25 +1628,25 @@ export interface RequestValidator {
    * <p>The identifier of this RequestValidator.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of this RequestValidator</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether to validate a request body according to the configured Model schema.</p>
    * @public
    */
-  validateRequestBody?: boolean;
+  validateRequestBody?: boolean | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether to validate request parameters (<code>true</code>) or not (<code>false</code>).</p>
    * @public
    */
-  validateRequestParameters?: boolean;
+  validateRequestParameters?: boolean | undefined;
 }
 
 /**
@@ -1525,33 +1710,33 @@ export interface IntegrationResponse {
    * <p>Specifies the status code that is used to map the integration response to an existing MethodResponse.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>Specifies the regular expression (regex) pattern used to choose an integration response based on the response from the back end. For example, if the success response returns nothing and the error response returns some string, you could use the <code>.+</code> regex to match error response. However, make sure that the error response does not contain any newline (<code>\n</code>) character in such cases. If the back end is an Lambda function, the Lambda function error header is matched. For all other HTTP and Amazon Web Services back ends, the HTTP status code is matched.</p>
    * @public
    */
-  selectionPattern?: string;
+  selectionPattern?: string | undefined;
 
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.\{name\}</code> or <code>integration.response.body.\{JSON-expression\}</code>, where <code>name</code> is a valid and unique response header name and <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.</p>
    * @public
    */
-  responseParameters?: Record<string, string>;
+  responseParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the templates used to transform the integration response body. Response templates are represented as a key/value map, with a content-type as the key and a template as the value.</p>
    * @public
    */
-  responseTemplates?: Record<string, string>;
+  responseTemplates?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    * @public
    */
-  contentHandling?: ContentHandlingStrategy;
+  contentHandling?: ContentHandlingStrategy | undefined;
 }
 
 /**
@@ -1573,7 +1758,7 @@ export interface TlsConfig {
    *          </important>
    * @public
    */
-  insecureSkipVerification?: boolean;
+  insecureSkipVerification?: boolean | undefined;
 }
 
 /**
@@ -1603,13 +1788,13 @@ export interface Integration {
    *          <p>For the HTTP and HTTP proxy integrations, each integration can specify a protocol (<code>http/https</code>), port and path. Standard 80 and 443 ports are supported as well as custom ports above 1024. An HTTP or HTTP proxy integration with a <code>connectionType</code> of <code>VPC_LINK</code> is referred to as a private integration and uses a VpcLink to connect API Gateway to a network load balancer of a VPC.</p>
    * @public
    */
-  type?: IntegrationType;
+  type?: IntegrationType | undefined;
 
   /**
    * <p>Specifies the integration's HTTP method type. For the Type property, if you specify <code>MOCK</code>, this property is optional. For Lambda integrations, you must set the integration method to <code>POST</code>. For all other types, you must specify this property.</p>
    * @public
    */
-  httpMethod?: string;
+  httpMethod?: string | undefined;
 
   /**
    * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint.</p>
@@ -1630,37 +1815,37 @@ export interface Integration {
    *          </p>
    * @public
    */
-  uri?: string;
+  uri?: string | undefined;
 
   /**
    * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    * @public
    */
-  connectionType?: ConnectionType;
+  connectionType?: ConnectionType | undefined;
 
   /**
    * <p>The ID of the VpcLink used for the integration when <code>connectionType=VPC_LINK</code> and undefined, otherwise.</p>
    * @public
    */
-  connectionId?: string;
+  connectionId?: string | undefined;
 
   /**
    * <p>Specifies the credentials required for the integration, if any. For AWS integrations, three options are available. To specify an IAM Role for API Gateway to assume, use the role's Amazon Resource Name (ARN). To require that the caller's identity be passed through from the request, specify the string <code>arn:aws:iam::\*:user/\*</code>. To use resource-based permissions on supported Amazon Web Services services, specify null.</p>
    * @public
    */
-  credentials?: string;
+  credentials?: string | undefined;
 
   /**
    * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    * @public
    */
-  requestParameters?: Record<string, string>;
+  requestParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    * @public
    */
-  requestTemplates?: Record<string, string>;
+  requestTemplates?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies how the method request body of an unmapped content type will be passed through
@@ -1680,44 +1865,44 @@ export interface Integration {
    *       request.</p>
    * @public
    */
-  passthroughBehavior?: string;
+  passthroughBehavior?: string | undefined;
 
   /**
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    * @public
    */
-  contentHandling?: ContentHandlingStrategy;
+  contentHandling?: ContentHandlingStrategy | undefined;
 
   /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds. You can increase the default value to longer than 29 seconds for Regional or private APIs only.</p>
    * @public
    */
-  timeoutInMillis?: number;
+  timeoutInMillis?: number | undefined;
 
   /**
    * <p>Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the <code>cacheNamespace</code>. You can specify the same <code>cacheNamespace</code> across resources to return the same cached data for requests to different resources.</p>
    * @public
    */
-  cacheNamespace?: string;
+  cacheNamespace?: string | undefined;
 
   /**
    * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for Method <code>requestParameters</code>.</p>
    * @public
    */
-  cacheKeyParameters?: string[];
+  cacheKeyParameters?: string[] | undefined;
 
   /**
    * <p>Specifies the integration's responses.</p>
    * @public
    */
-  integrationResponses?: Record<string, IntegrationResponse>;
+  integrationResponses?: Record<string, IntegrationResponse> | undefined;
 
   /**
    * <p>Specifies the TLS configuration for an integration.</p>
    * @public
    */
-  tlsConfig?: TlsConfig;
+  tlsConfig?: TlsConfig | undefined;
 }
 
 /**
@@ -1729,19 +1914,19 @@ export interface MethodResponse {
    * <p>The method response's status code.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header and the value specifies whether the associated method response header is required or not. The expression of the key must match the pattern <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. API Gateway passes certain integration response data to the method response headers specified here according to the mapping you prescribe in the API's IntegrationResponse. The integration response data that can be mapped include an integration response header expressed in <code>integration.response.header.\{name\}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.\{JSON-expression\}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    * @public
    */
-  responseParameters?: Record<string, boolean>;
+  responseParameters?: Record<string, boolean> | undefined;
 
   /**
    * <p>Specifies the Model resources used for the response's content-type. Response models are represented as a key/value map, with a content-type as the key and a Model name as the value.</p>
    * @public
    */
-  responseModels?: Record<string, string>;
+  responseModels?: Record<string, string> | undefined;
 }
 
 /**
@@ -1760,67 +1945,67 @@ export interface Method {
    * <p>The method's HTTP verb.</p>
    * @public
    */
-  httpMethod?: string;
+  httpMethod?: string | undefined;
 
   /**
    * <p>The method's authorization type. Valid values are <code>NONE</code> for open access, <code>AWS_IAM</code> for using AWS IAM permissions, <code>CUSTOM</code> for using a custom authorizer, or <code>COGNITO_USER_POOLS</code> for using a Cognito user pool.</p>
    * @public
    */
-  authorizationType?: string;
+  authorizationType?: string | undefined;
 
   /**
    * <p>The identifier of an Authorizer to use on this method. The <code>authorizationType</code> must be <code>CUSTOM</code>.</p>
    * @public
    */
-  authorizerId?: string;
+  authorizerId?: string | undefined;
 
   /**
    * <p>A boolean flag specifying whether a valid ApiKey is required to invoke this method.</p>
    * @public
    */
-  apiKeyRequired?: boolean;
+  apiKeyRequired?: boolean | undefined;
 
   /**
    * <p>The identifier of a RequestValidator for request validation.</p>
    * @public
    */
-  requestValidatorId?: string;
+  requestValidatorId?: string | undefined;
 
   /**
    * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
    * @public
    */
-  operationName?: string;
+  operationName?: string | undefined;
 
   /**
    * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key is a method request parameter name matching the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or templates.</p>
    * @public
    */
-  requestParameters?: Record<string, boolean>;
+  requestParameters?: Record<string, boolean> | undefined;
 
   /**
    * <p>A key-value map specifying data schemas, represented by Model resources, (as the mapped value) of the request payloads of given content types (as the mapping key).</p>
    * @public
    */
-  requestModels?: Record<string, string>;
+  requestModels?: Record<string, string> | undefined;
 
   /**
    * <p>Gets a method response associated with a given HTTP status code. </p>
    * @public
    */
-  methodResponses?: Record<string, MethodResponse>;
+  methodResponses?: Record<string, MethodResponse> | undefined;
 
   /**
    * <p>Gets the method's integration responsible for passing the client-submitted request to the back end and performing necessary transformations to make the request compliant with the back end.</p>
    * @public
    */
-  methodIntegration?: Integration;
+  methodIntegration?: Integration | undefined;
 
   /**
    * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    * @public
    */
-  authorizationScopes?: string[];
+  authorizationScopes?: string[] | undefined;
 }
 
 /**
@@ -1832,31 +2017,31 @@ export interface Resource {
    * <p>The resource's identifier.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The parent resource's identifier.</p>
    * @public
    */
-  parentId?: string;
+  parentId?: string | undefined;
 
   /**
    * <p>The last path segment for this resource.</p>
    * @public
    */
-  pathPart?: string;
+  pathPart?: string | undefined;
 
   /**
    * <p>The full path for this resource.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>Gets an API resource's method of a given HTTP verb.</p>
    * @public
    */
-  resourceMethods?: Record<string, Method>;
+  resourceMethods?: Record<string, Method> | undefined;
 }
 
 /**
@@ -1874,31 +2059,31 @@ export interface CreateRestApiRequest {
    * <p>The description of the RestApi.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A version identifier for the API.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The ID of the RestApi that you want to clone from.</p>
    * @public
    */
-  cloneFrom?: string;
+  cloneFrom?: string | undefined;
 
   /**
    * <p>The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.</p>
    * @public
    */
-  binaryMediaTypes?: string[];
+  binaryMediaTypes?: string[] | undefined;
 
   /**
    * <p>A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.</p>
    * @public
    */
-  minimumCompressionSize?: number;
+  minimumCompressionSize?: number | undefined;
 
   /**
    * <p>The source of the API key for metering requests according to a usage plan. Valid values
@@ -1907,25 +2092,25 @@ export interface CreateRestApiRequest {
    *       from a custom authorizer.</p>
    * @public
    */
-  apiKeySource?: ApiKeySourceType;
+  apiKeySource?: ApiKeySourceType | undefined;
 
   /**
-   * <p>The endpoint configuration of this RestApi showing the endpoint types of the API. </p>
+   * <p>The endpoint configuration of this RestApi showing the endpoint types and IP address types of the API. </p>
    * @public
    */
-  endpointConfiguration?: EndpointConfiguration;
+  endpointConfiguration?: EndpointConfiguration | undefined;
 
   /**
    * <p>A stringified JSON policy document that applies to this RestApi regardless of the caller and Method configuration.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint.
@@ -1934,7 +2119,7 @@ export interface CreateRestApiRequest {
    *       custom domain name to invoke your API, disable the default endpoint</p>
    * @public
    */
-  disableExecuteApiEndpoint?: boolean;
+  disableExecuteApiEndpoint?: boolean | undefined;
 }
 
 /**
@@ -1946,49 +2131,49 @@ export interface RestApi {
    * <p>The API's identifier. This identifier is unique across all of your APIs in API Gateway.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The API's name.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The API's description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The timestamp when the API was created.</p>
    * @public
    */
-  createdDate?: Date;
+  createdDate?: Date | undefined;
 
   /**
    * <p>A version identifier for the API.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The warning messages reported when <code>failonwarnings</code> is turned on during API import.</p>
    * @public
    */
-  warnings?: string[];
+  warnings?: string[] | undefined;
 
   /**
    * <p>The list of binary media types supported by the RestApi. By default, the RestApi supports only UTF-8-encoded text payloads.</p>
    * @public
    */
-  binaryMediaTypes?: string[];
+  binaryMediaTypes?: string[] | undefined;
 
   /**
    * <p>A nullable integer that is used to enable compression (with non-negative between 0 and 10485760 (10M) bytes, inclusive) or disable compression (with a null value) on an API. When compression is enabled, compression or decompression is not applied on the payload if the payload size is smaller than this value. Setting it to zero allows compression for any payload size.</p>
    * @public
    */
-  minimumCompressionSize?: number;
+  minimumCompressionSize?: number | undefined;
 
   /**
    * <p>The source of the API key for metering requests according to a usage plan. Valid values
@@ -1997,25 +2182,25 @@ export interface RestApi {
    *       from a custom authorizer.</p>
    * @public
    */
-  apiKeySource?: ApiKeySourceType;
+  apiKeySource?: ApiKeySourceType | undefined;
 
   /**
-   * <p>The endpoint configuration of this RestApi showing the endpoint types of the API. </p>
+   * <p>The endpoint configuration of this RestApi showing the endpoint types and IP address types of the API. </p>
    * @public
    */
-  endpointConfiguration?: EndpointConfiguration;
+  endpointConfiguration?: EndpointConfiguration | undefined;
 
   /**
    * <p>A stringified JSON policy document that applies to this RestApi regardless of the caller and Method configuration.</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies whether clients can invoke your API by using the default <code>execute-api</code> endpoint.
@@ -2024,13 +2209,13 @@ export interface RestApi {
    *       custom domain name to invoke your API, disable the default endpoint.</p>
    * @public
    */
-  disableExecuteApiEndpoint?: boolean;
+  disableExecuteApiEndpoint?: boolean | undefined;
 
   /**
    * <p>The API's root resource ID.</p>
    * @public
    */
-  rootResourceId?: string;
+  rootResourceId?: string | undefined;
 }
 
 /**
@@ -2042,25 +2227,25 @@ export interface CanarySettings {
    * <p>The percent (0-100) of traffic diverted to a canary deployment.</p>
    * @public
    */
-  percentTraffic?: number;
+  percentTraffic?: number | undefined;
 
   /**
    * <p>The ID of the canary deployment.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>Stage variables overridden for a canary release deployment, including new stage variables introduced in the canary. These stage variables are represented as a string-to-string map between stage variable names and their values.</p>
    * @public
    */
-  stageVariableOverrides?: Record<string, string>;
+  stageVariableOverrides?: Record<string, string> | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</p>
    * @public
    */
-  useStageCache?: boolean;
+  useStageCache?: boolean | undefined;
 }
 
 /**
@@ -2090,19 +2275,19 @@ export interface CreateStageRequest {
    * <p>The description of the Stage resource.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Whether cache clustering is enabled for the stage.</p>
    * @public
    */
-  cacheClusterEnabled?: boolean;
+  cacheClusterEnabled?: boolean | undefined;
 
   /**
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    * @public
    */
-  cacheClusterSize?: CacheClusterSize;
+  cacheClusterSize?: CacheClusterSize | undefined;
 
   /**
    * <p>A map that defines the stage variables for the new Stage resource. Variable names
@@ -2110,31 +2295,31 @@ export interface CreateStageRequest {
    *           <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    * @public
    */
-  variables?: Record<string, string>;
+  variables?: Record<string, string> | undefined;
 
   /**
    * <p>The version of the associated API documentation.</p>
    * @public
    */
-  documentationVersion?: string;
+  documentationVersion?: string | undefined;
 
   /**
    * <p>The canary deployment settings of this stage.</p>
    * @public
    */
-  canarySettings?: CanarySettings;
+  canarySettings?: CanarySettings | undefined;
 
   /**
    * <p>Specifies whether active tracing with X-ray is enabled for the Stage.</p>
    * @public
    */
-  tracingEnabled?: boolean;
+  tracingEnabled?: boolean | undefined;
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2179,61 +2364,61 @@ export interface MethodSetting {
    * <p>Specifies whether Amazon CloudWatch metrics are enabled for this method.</p>
    * @public
    */
-  metricsEnabled?: boolean;
+  metricsEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the logging level for this method, which affects the log entries pushed to Amazon CloudWatch Logs. Valid values are <code>OFF</code>, <code>ERROR</code>, and <code>INFO</code>. Choose <code>ERROR</code> to write only error-level entries to CloudWatch Logs, or choose <code>INFO</code> to include all <code>ERROR</code> events as well as extra informational events.</p>
    * @public
    */
-  loggingLevel?: string;
+  loggingLevel?: string | undefined;
 
   /**
    * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.</p>
    * @public
    */
-  dataTraceEnabled?: boolean;
+  dataTraceEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the throttling burst limit.</p>
    * @public
    */
-  throttlingBurstLimit?: number;
+  throttlingBurstLimit?: number | undefined;
 
   /**
    * <p>Specifies the throttling rate limit.</p>
    * @public
    */
-  throttlingRateLimit?: number;
+  throttlingRateLimit?: number | undefined;
 
   /**
    * <p>Specifies whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.</p>
    * @public
    */
-  cachingEnabled?: boolean;
+  cachingEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.</p>
    * @public
    */
-  cacheTtlInSeconds?: number;
+  cacheTtlInSeconds?: number | undefined;
 
   /**
    * <p>Specifies whether the cached responses are encrypted.</p>
    * @public
    */
-  cacheDataEncrypted?: boolean;
+  cacheDataEncrypted?: boolean | undefined;
 
   /**
    * <p>Specifies whether authorization is required for a cache invalidation request.</p>
    * @public
    */
-  requireAuthorizationForCacheControl?: boolean;
+  requireAuthorizationForCacheControl?: boolean | undefined;
 
   /**
    * <p>Specifies how to handle unauthorized requests for cache invalidation.</p>
    * @public
    */
-  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy;
+  unauthorizedCacheControlHeaderStrategy?: UnauthorizedCacheControlHeaderStrategy | undefined;
 }
 
 /**
@@ -2245,104 +2430,104 @@ export interface Stage {
    * <p>The identifier of the Deployment that the stage points to.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>The identifier of a client certificate for an API stage.</p>
    * @public
    */
-  clientCertificateId?: string;
+  clientCertificateId?: string | undefined;
 
   /**
    * <p>The name of the stage is the first path segment in the Uniform Resource Identifier (URI) of a call to API Gateway. Stage names can only contain alphanumeric characters, hyphens, and underscores. Maximum length is 128 characters.</p>
    * @public
    */
-  stageName?: string;
+  stageName?: string | undefined;
 
   /**
    * <p>The stage's description.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set <code>CachingEnabled</code> to <code>true</code> for a method. </p>
    * @public
    */
-  cacheClusterEnabled?: boolean;
+  cacheClusterEnabled?: boolean | undefined;
 
   /**
    * <p>The stage's cache capacity in GB. For more information about choosing a cache size, see <a href="https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-caching.html">Enabling API caching to enhance responsiveness</a>.</p>
    * @public
    */
-  cacheClusterSize?: CacheClusterSize;
+  cacheClusterSize?: CacheClusterSize | undefined;
 
   /**
    * <p>The status of the cache cluster for the stage, if enabled.</p>
    * @public
    */
-  cacheClusterStatus?: CacheClusterStatus;
+  cacheClusterStatus?: CacheClusterStatus | undefined;
 
   /**
    * <p>A map that defines the method settings for a Stage resource. Keys (designated as <code>/\{method_setting_key</code> below) are method paths defined as <code>\{resource_path\}/\{http_method\}</code> for an individual method override, or <code>/\*\/\*</code> for overriding all methods in the stage.  </p>
    * @public
    */
-  methodSettings?: Record<string, MethodSetting>;
+  methodSettings?: Record<string, MethodSetting> | undefined;
 
   /**
    * <p>A map that defines the stage variables for a Stage resource. Variable names can
    *           have alphanumeric and underscore characters, and the values must match <code>[A-Za-z0-9-._~:/?#&=,]+</code>.</p>
    * @public
    */
-  variables?: Record<string, string>;
+  variables?: Record<string, string> | undefined;
 
   /**
    * <p>The version of the associated API documentation.</p>
    * @public
    */
-  documentationVersion?: string;
+  documentationVersion?: string | undefined;
 
   /**
    * <p>Settings for logging access in this stage.</p>
    * @public
    */
-  accessLogSettings?: AccessLogSettings;
+  accessLogSettings?: AccessLogSettings | undefined;
 
   /**
    * <p>Settings for the canary deployment in this stage.</p>
    * @public
    */
-  canarySettings?: CanarySettings;
+  canarySettings?: CanarySettings | undefined;
 
   /**
    * <p>Specifies whether active tracing with X-ray is enabled for the Stage.</p>
    * @public
    */
-  tracingEnabled?: boolean;
+  tracingEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN of the WebAcl associated with the Stage.</p>
    * @public
    */
-  webAclArn?: string;
+  webAclArn?: string | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The timestamp when the stage was created.</p>
    * @public
    */
-  createdDate?: Date;
+  createdDate?: Date | undefined;
 
   /**
    * <p>The timestamp when the stage last updated.</p>
    * @public
    */
-  lastUpdatedDate?: Date;
+  lastUpdatedDate?: Date | undefined;
 }
 
 /**
@@ -2369,19 +2554,19 @@ export interface QuotaSettings {
    * <p>The target maximum number of requests that can be made in a given time period.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The number of requests subtracted from the given limit in the initial time period.</p>
    * @public
    */
-  offset?: number;
+  offset?: number | undefined;
 
   /**
    * <p>The time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".</p>
    * @public
    */
-  period?: QuotaPeriodType;
+  period?: QuotaPeriodType | undefined;
 }
 
 /**
@@ -2399,31 +2584,31 @@ export interface CreateUsagePlanRequest {
    * <p>The description of the usage plan.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The associated API stages of the usage plan.</p>
    * @public
    */
-  apiStages?: ApiStage[];
+  apiStages?: ApiStage[] | undefined;
 
   /**
    * <p>The throttling limits of the usage plan.</p>
    * @public
    */
-  throttle?: ThrottleSettings;
+  throttle?: ThrottleSettings | undefined;
 
   /**
    * <p>The quota of the usage plan.</p>
    * @public
    */
-  quota?: QuotaSettings;
+  quota?: QuotaSettings | undefined;
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2438,49 +2623,49 @@ export interface UsagePlan {
    * <p>The identifier of a UsagePlan resource.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name of a usage plan.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of a usage plan.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The associated API stages of a usage plan.</p>
    * @public
    */
-  apiStages?: ApiStage[];
+  apiStages?: ApiStage[] | undefined;
 
   /**
    * <p>A map containing method level throttling information for API stage in a usage plan.</p>
    * @public
    */
-  throttle?: ThrottleSettings;
+  throttle?: ThrottleSettings | undefined;
 
   /**
    * <p>The target maximum number of permitted requests per a given unit time interval.</p>
    * @public
    */
-  quota?: QuotaSettings;
+  quota?: QuotaSettings | undefined;
 
   /**
    * <p>The Amazon Web Services Marketplace product identifier to associate with the usage plan as a SaaS product on the Amazon Web Services Marketplace.</p>
    * @public
    */
-  productCode?: string;
+  productCode?: string | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2516,25 +2701,25 @@ export interface UsagePlanKey {
    * <p>The Id of a usage plan key.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The type of a usage plan key. Currently, the valid key type is <code>API_KEY</code>.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The value of a usage plan key.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The name of a usage plan key.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -2552,7 +2737,7 @@ export interface CreateVpcLinkRequest {
    * <p>The description of the VPC link.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same Amazon Web Services account of the API owner.</p>
@@ -2564,7 +2749,7 @@ export interface CreateVpcLinkRequest {
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2592,43 +2777,43 @@ export interface VpcLink {
    * <p>The identifier of the  VpcLink. It is used in an Integration to reference this VpcLink.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The name used to label and identify the VPC link.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The description of the VPC link.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The ARN of the network load balancer of the VPC targeted by the VPC link. The network load balancer must be owned by the same Amazon Web Services account of the API owner.</p>
    * @public
    */
-  targetArns?: string[];
+  targetArns?: string[] | undefined;
 
   /**
    * <p>The status of the VPC link. The valid values are <code>AVAILABLE</code>, <code>PENDING</code>, <code>DELETING</code>, or <code>FAILED</code>. Deploying an API will wait if the status is <code>PENDING</code> and will fail if the status is <code>DELETING</code>.  </p>
    * @public
    */
-  status?: VpcLinkStatus;
+  status?: VpcLinkStatus | undefined;
 
   /**
    * <p>A description about the VPC link status.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2671,6 +2856,14 @@ export interface DeleteBasePathMappingRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
 
   /**
    * <p>The base path name of the BasePathMapping resource to delete.</p>
@@ -2756,6 +2949,26 @@ export interface DeleteDomainNameRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDomainNameAccessAssociationRequest {
+  /**
+   * <p>
+   *   The ARN of the domain name access association resource.</p>
+   * @public
+   */
+  domainNameAccessAssociationArn: string | undefined;
 }
 
 /**
@@ -3088,37 +3301,37 @@ export interface ClientCertificate {
    * <p>The identifier of the client certificate.</p>
    * @public
    */
-  clientCertificateId?: string;
+  clientCertificateId?: string | undefined;
 
   /**
    * <p>The description of the client certificate.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The PEM-encoded public key of the client certificate, which can be used to configure certificate authentication in the integration endpoint .</p>
    * @public
    */
-  pemEncodedCertificate?: string;
+  pemEncodedCertificate?: string | undefined;
 
   /**
    * <p>The timestamp when the client certificate was created.</p>
    * @public
    */
-  createdDate?: Date;
+  createdDate?: Date | undefined;
 
   /**
    * <p>The timestamp when the client certificate will expire.</p>
    * @public
    */
-  expirationDate?: Date;
+  expirationDate?: Date | undefined;
 
   /**
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3130,13 +3343,13 @@ export interface GenerateClientCertificateRequest {
    * <p>The description of the ClientCertificate.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The key-value map of strings. The valid character set is [a-zA-Z+-=._:/]. The tag key can be up to 128 characters and must not start with <code>aws:</code>. The tag value can be up to 256 characters.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3160,7 +3373,7 @@ export interface GetApiKeyRequest {
    * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains the key value.</p>
    * @public
    */
-  includeValue?: boolean;
+  includeValue?: boolean | undefined;
 }
 
 /**
@@ -3172,31 +3385,31 @@ export interface GetApiKeysRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The name of queried API keys.</p>
    * @public
    */
-  nameQuery?: string;
+  nameQuery?: string | undefined;
 
   /**
    * <p>The identifier of a customer in Amazon Web Services Marketplace or an external system, such as a developer portal.</p>
    * @public
    */
-  customerId?: string;
+  customerId?: string | undefined;
 
   /**
    * <p>A boolean flag to specify whether (<code>true</code>) or not (<code>false</code>) the result contains key values.</p>
    * @public
    */
-  includeValues?: boolean;
+  includeValues?: boolean | undefined;
 }
 
 /**
@@ -3232,13 +3445,13 @@ export interface GetAuthorizersRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3251,6 +3464,13 @@ export interface GetBasePathMappingRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
 
   /**
    * <p>The base path name that callers of the API must provide as part of the URL after the domain name. This value must be unique for all of the mappings across a single API. Specify '(none)' if you do not want callers to specify any base path name after the domain name.</p>
@@ -3268,13 +3488,13 @@ export interface BasePathMappings {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: BasePathMapping[];
+  items?: BasePathMapping[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3289,16 +3509,24 @@ export interface GetBasePathMappingsRequest {
   domainName: string | undefined;
 
   /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3322,13 +3550,13 @@ export interface ClientCertificates {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: ClientCertificate[];
+  items?: ClientCertificate[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3340,13 +3568,13 @@ export interface GetClientCertificatesRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3370,7 +3598,7 @@ export interface GetDeploymentRequest {
    * <p>A query parameter to retrieve the specified embedded resources of the returned Deployment resource in the response. In a REST API call, this <code>embed</code> parameter value is a list of comma-separated strings, as in  <code>GET /restapis/\{restapi_id\}/deployments/\{deployment_id\}?embed=var1,var2</code>. The SDK and other platform-dependent libraries might use a different format for the list. Currently, this request supports only retrieval of the embedded API summary this way. Hence, the parameter value must be a single-valued list containing only the <code>"apisummary"</code> string.  For example, <code>GET /restapis/\{restapi_id\}/deployments/\{deployment_id\}?embed=apisummary</code>.</p>
    * @public
    */
-  embed?: string[];
+  embed?: string[] | undefined;
 }
 
 /**
@@ -3382,13 +3610,13 @@ export interface Deployments {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: Deployment[];
+  items?: Deployment[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3406,13 +3634,13 @@ export interface GetDeploymentsRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3442,13 +3670,13 @@ export interface DocumentationParts {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: DocumentationPart[];
+  items?: DocumentationPart[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3480,37 +3708,37 @@ export interface GetDocumentationPartsRequest {
    * <p>The type of API entities of the to-be-retrieved documentation parts. </p>
    * @public
    */
-  type?: DocumentationPartType;
+  type?: DocumentationPartType | undefined;
 
   /**
    * <p>The name of API entities of the to-be-retrieved documentation parts.</p>
    * @public
    */
-  nameQuery?: string;
+  nameQuery?: string | undefined;
 
   /**
    * <p>The path of API entities of the to-be-retrieved documentation parts.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code> for retrieving DocumentationPart resources with content and <code>UNDOCUMENTED</code> for DocumentationPart resources without content.</p>
    * @public
    */
-  locationStatus?: LocationStatusType;
+  locationStatus?: LocationStatusType | undefined;
 }
 
 /**
@@ -3540,13 +3768,13 @@ export interface DocumentationVersions {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: DocumentationVersion[];
+  items?: DocumentationVersion[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3564,13 +3792,13 @@ export interface GetDocumentationVersionsRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3583,6 +3811,75 @@ export interface GetDomainNameRequest {
    * @public
    */
   domainName: string | undefined;
+
+  /**
+   * <p>
+   *   The identifier for the domain name resource. Required for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DomainNameAccessAssociations {
+  /**
+   * <p>
+   * The current page of elements from this collection.
+   * </p>
+   * @public
+   */
+  items?: DomainNameAccessAssociation[] | undefined;
+
+  /**
+   * <p>The current pagination position in the paged result set.
+   * </p>
+   * @public
+   */
+  position?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ResourceOwner = {
+  OTHER_ACCOUNTS: "OTHER_ACCOUNTS",
+  SELF: "SELF",
+} as const;
+
+/**
+ * @public
+ */
+export type ResourceOwner = (typeof ResourceOwner)[keyof typeof ResourceOwner];
+
+/**
+ * @public
+ */
+export interface GetDomainNameAccessAssociationsRequest {
+  /**
+   * <p>The current pagination position in the paged result set.
+   * </p>
+   * @public
+   */
+  position?: string | undefined;
+
+  /**
+   * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.
+   * </p>
+   * @public
+   */
+  limit?: number | undefined;
+
+  /**
+   * <p> The owner of the domain name access association. Use <code>SELF</code> to only list the domain name access associations owned by your own account.
+   *       Use <code>OTHER_ACCOUNTS</code> to list the domain name access associations with your private custom domain names that are owned by other AWS
+   *       accounts.</p>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 }
 
 /**
@@ -3594,13 +3891,13 @@ export interface DomainNames {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: DomainName[];
+  items?: DomainName[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3612,13 +3909,20 @@ export interface GetDomainNamesRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
+
+  /**
+   * <p>The owner of the domain name access association.
+   * </p>
+   * @public
+   */
+  resourceOwner?: ResourceOwner | undefined;
 }
 
 /**
@@ -3630,19 +3934,19 @@ export interface ExportResponse {
    * <p>The content-type header value in the HTTP response. This will correspond to a valid 'accept' type in the request.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The content-disposition header value in the HTTP response.</p>
    * @public
    */
-  contentDisposition?: string;
+  contentDisposition?: string | undefined;
 
   /**
    * <p>The binary blob response to GetExport, which contains the export.</p>
    * @public
    */
-  body?: Uint8Array;
+  body?: Uint8Array | undefined;
 }
 
 /**
@@ -3673,13 +3977,13 @@ export interface GetExportRequest {
    *             <code>oas30</code> and <code>swagger</code>, any combination of the following parameters are supported: <code>extensions='integrations'</code> or <code>extensions='apigateway'</code> will export the API with x-amazon-apigateway-integration extensions. <code>extensions='authorizers'</code> will export the API with  x-amazon-apigateway-authorizer extensions. <code>postman</code> will export the API with Postman extensions, allowing for import to the Postman tool</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The content-type of the export, for example <code>application/json</code>. Currently <code>application/json</code> and <code>application/yaml</code> are supported for <code>exportType</code> of<code>oas30</code> and <code>swagger</code>. This should be specified in the <code>Accept</code> header for direct API requests.</p>
    * @public
    */
-  accepts?: string;
+  accepts?: string | undefined;
 }
 
 /**
@@ -3691,32 +3995,32 @@ export interface GatewayResponse {
    * <p>The response type of the associated GatewayResponse.</p>
    * @public
    */
-  responseType?: GatewayResponseType;
+  responseType?: GatewayResponseType | undefined;
 
   /**
    * <p>The HTTP status code for this GatewayResponse.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>Response parameters (paths, query strings and headers) of the GatewayResponse as a
    *       string-to-string map of key-value pairs.</p>
    * @public
    */
-  responseParameters?: Record<string, string>;
+  responseParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</p>
    * @public
    */
-  responseTemplates?: Record<string, string>;
+  responseTemplates?: Record<string, string> | undefined;
 
   /**
    * <p>A Boolean flag to indicate whether this GatewayResponse is the default gateway response (<code>true</code>) or not (<code>false</code>). A default gateway response is one generated by API Gateway without any customization by an API developer. </p>
    * @public
    */
-  defaultResponse?: boolean;
+  defaultResponse?: boolean | undefined;
 }
 
 /**
@@ -3746,13 +4050,13 @@ export interface GatewayResponses {
    * <p>Returns the entire collection, because of no pagination support.</p>
    * @public
    */
-  items?: GatewayResponse[];
+  items?: GatewayResponse[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set. The GatewayResponse collection does not support pagination and the position does not apply here.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3770,13 +4074,13 @@ export interface GetGatewayResponsesRequest {
    * <p>The current pagination position in the paged result set. The GatewayResponse collection does not support pagination and the position does not apply here.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500. The GatewayResponses collection does not support pagination and the limit does not apply here.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3908,7 +4212,7 @@ export interface GetModelRequest {
    * <p>A query parameter of a Boolean value to resolve (<code>true</code>) all external model references and returns a flattened model schema or not (<code>false</code>) The default is <code>false</code>.</p>
    * @public
    */
-  flatten?: boolean;
+  flatten?: boolean | undefined;
 }
 
 /**
@@ -3926,13 +4230,13 @@ export interface GetModelsRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -3944,13 +4248,13 @@ export interface Models {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: Model[];
+  items?: Model[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -3980,7 +4284,7 @@ export interface Template {
    * <p>The Apache Velocity Template Language (VTL) template content used for the template resource.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -4016,13 +4320,13 @@ export interface GetRequestValidatorsRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4034,13 +4338,13 @@ export interface RequestValidators {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: RequestValidator[];
+  items?: RequestValidator[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4064,7 +4368,7 @@ export interface GetResourceRequest {
    * <p>A query parameter to retrieve the specified resources embedded in the returned Resource representation in the response. This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/\{restapi_id\}/resources/\{resource_id\}?embed=methods</code>.</p>
    * @public
    */
-  embed?: string[];
+  embed?: string[] | undefined;
 }
 
 /**
@@ -4082,19 +4386,19 @@ export interface GetResourcesRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>A query parameter used to retrieve the specified resources embedded in the returned Resources resource in the response.  This <code>embed</code> parameter value is a list of comma-separated strings. Currently, the request supports only retrieval of the embedded Method resources this way. The query parameter value must be a single-valued list and contain the <code>"methods"</code> string. For example, <code>GET /restapis/\{restapi_id\}/resources?embed=methods</code>.</p>
    * @public
    */
-  embed?: string[];
+  embed?: string[] | undefined;
 }
 
 /**
@@ -4106,13 +4410,13 @@ export interface Resources {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: Resource[];
+  items?: Resource[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4136,13 +4440,13 @@ export interface GetRestApisRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4154,13 +4458,13 @@ export interface RestApis {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: RestApi[];
+  items?: RestApi[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4190,7 +4494,7 @@ export interface GetSdkRequest {
    * <p>A string-to-string key-value map of query parameters <code>sdkType</code>-dependent properties of the SDK. For <code>sdkType</code> of <code>objectivec</code> or <code>swift</code>,  a parameter named <code>classPrefix</code> is required. For <code>sdkType</code> of <code>android</code>, parameters named <code>groupId</code>, <code>artifactId</code>, <code>artifactVersion</code>, and <code>invokerPackage</code> are required. For <code>sdkType</code> of <code>java</code>, parameters named <code>serviceName</code> and <code>javaPackageName</code> are required. </p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -4202,19 +4506,19 @@ export interface SdkResponse {
    * <p>The content-type header value in the HTTP response.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The content-disposition header value in the HTTP response.</p>
    * @public
    */
-  contentDisposition?: string;
+  contentDisposition?: string | undefined;
 
   /**
    * <p>The binary blob response to GetSdk, which contains the generated SDK.</p>
    * @public
    */
-  body?: Uint8Array;
+  body?: Uint8Array | undefined;
 }
 
 /**
@@ -4238,31 +4542,31 @@ export interface SdkConfigurationProperty {
    * <p>The name of a an SdkType configuration property.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The user-friendly name of an SdkType configuration property.</p>
    * @public
    */
-  friendlyName?: string;
+  friendlyName?: string | undefined;
 
   /**
    * <p>The description of an SdkType configuration property.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A boolean flag of an SdkType configuration property to indicate if the associated SDK configuration property is required (<code>true</code>) or not (<code>false</code>).</p>
    * @public
    */
-  required?: boolean;
+  required?: boolean | undefined;
 
   /**
    * <p>The default value of an SdkType configuration property.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }
 
 /**
@@ -4274,25 +4578,25 @@ export interface SdkType {
    * <p>The identifier of an SdkType instance.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The user-friendly name of an SdkType instance.</p>
    * @public
    */
-  friendlyName?: string;
+  friendlyName?: string | undefined;
 
   /**
    * <p>The description of an SdkType.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A list of configuration properties of an SdkType.</p>
    * @public
    */
-  configurationProperties?: SdkConfigurationProperty[];
+  configurationProperties?: SdkConfigurationProperty[] | undefined;
 }
 
 /**
@@ -4304,13 +4608,13 @@ export interface GetSdkTypesRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4322,7 +4626,7 @@ export interface SdkTypes {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: SdkType[];
+  items?: SdkType[] | undefined;
 }
 
 /**
@@ -4358,7 +4662,7 @@ export interface GetStagesRequest {
    * <p>The stages' deployment identifiers.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 }
 
 /**
@@ -4370,7 +4674,7 @@ export interface Stages {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  item?: Stage[];
+  item?: Stage[] | undefined;
 }
 
 /**
@@ -4388,13 +4692,13 @@ export interface GetTagsRequest {
    * <p>(Not currently supported) The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>(Not currently supported) The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4406,7 +4710,7 @@ export interface Tags {
    * <p>The collection of tags. Each tag element is associated with a given resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -4424,7 +4728,7 @@ export interface GetUsageRequest {
    * <p>The Id of the API key associated with the resultant usage data.</p>
    * @public
    */
-  keyId?: string;
+  keyId?: string | undefined;
 
   /**
    * <p>The starting date (e.g., 2016-01-01) of the usage data.</p>
@@ -4442,13 +4746,13 @@ export interface GetUsageRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4460,31 +4764,31 @@ export interface Usage {
    * <p>The plan Id associated with this usage data.</p>
    * @public
    */
-  usagePlanId?: string;
+  usagePlanId?: string | undefined;
 
   /**
    * <p>The starting date of the usage data.</p>
    * @public
    */
-  startDate?: string;
+  startDate?: string | undefined;
 
   /**
    * <p>The ending date of the usage data.</p>
    * @public
    */
-  endDate?: string;
+  endDate?: string | undefined;
 
   /**
    * <p>The usage data, as daily logs of used and remaining quotas, over the specified time interval indexed over the API keys in a usage plan. For example, <code>\{..., "values" : \{ "\{api_key\}" : [ [0, 100], [10, 90], [100, 10]]\}</code>, where <code>\{api_key\}</code> stands for an API key value and the daily log entry is of the format <code>[used quota, remaining quota]</code>.</p>
    * @public
    */
-  items?: Record<string, number[][]>;
+  items?: Record<string, number[][]> | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4532,19 +4836,19 @@ export interface GetUsagePlanKeysRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 
   /**
    * <p>A query parameter specifying the name of the to-be-returned usage plan keys.</p>
    * @public
    */
-  nameQuery?: string;
+  nameQuery?: string | undefined;
 }
 
 /**
@@ -4556,13 +4860,13 @@ export interface UsagePlanKeys {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: UsagePlanKey[];
+  items?: UsagePlanKey[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4574,19 +4878,19 @@ export interface GetUsagePlansRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The identifier of the API key associated with the usage plans.</p>
    * @public
    */
-  keyId?: string;
+  keyId?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4598,13 +4902,13 @@ export interface UsagePlans {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: UsagePlan[];
+  items?: UsagePlan[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4628,13 +4932,13 @@ export interface GetVpcLinksRequest {
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 
   /**
    * <p>The maximum number of returned results per page. The default value is 25 and the maximum value is 500.</p>
    * @public
    */
-  limit?: number;
+  limit?: number | undefined;
 }
 
 /**
@@ -4646,13 +4950,13 @@ export interface VpcLinks {
    * <p>The current page of elements from this collection.</p>
    * @public
    */
-  items?: VpcLink[];
+  items?: VpcLink[] | undefined;
 
   /**
    * <p>The current pagination position in the paged result set.</p>
    * @public
    */
-  position?: string;
+  position?: string | undefined;
 }
 
 /**
@@ -4676,7 +4980,7 @@ export interface ImportApiKeysRequest {
    * <p>A query parameter to indicate whether to rollback ApiKey importation (<code>true</code>) or not (<code>false</code>) when error is encountered.</p>
    * @public
    */
-  failOnWarnings?: boolean;
+  failOnWarnings?: boolean | undefined;
 }
 
 /**
@@ -4688,13 +4992,13 @@ export interface DocumentationPartIds {
    * <p>A list of the returned documentation part identifiers.</p>
    * @public
    */
-  ids?: string[];
+  ids?: string[] | undefined;
 
   /**
    * <p>A list of warning messages reported during import of documentation parts.</p>
    * @public
    */
-  warnings?: string[];
+  warnings?: string[] | undefined;
 }
 
 /**
@@ -4726,13 +5030,13 @@ export interface ImportDocumentationPartsRequest {
    * <p>A query parameter to indicate whether to overwrite (<code>overwrite</code>) any existing DocumentationParts definition or to merge (<code>merge</code>) the new definition into the existing one. The default value is <code>merge</code>.</p>
    * @public
    */
-  mode?: PutMode;
+  mode?: PutMode | undefined;
 
   /**
    * <p>A query parameter to specify whether to rollback the documentation importation (<code>true</code>) or not (<code>false</code>) when a warning is encountered. The default value is <code>false</code>.</p>
    * @public
    */
-  failOnWarnings?: boolean;
+  failOnWarnings?: boolean | undefined;
 
   /**
    * <p>Raw byte array representing the to-be-imported documentation parts. To import from an OpenAPI file, this is a JSON object.</p>
@@ -4751,7 +5055,7 @@ export interface ImportRestApiRequest {
    *             when a warning is encountered. The default value is <code>false</code>.</p>
    * @public
    */
-  failOnWarnings?: boolean;
+  failOnWarnings?: boolean | undefined;
 
   /**
    * <p>A key-value map of context-specific query string parameters specifying the behavior of different API importing operations. The following shows operation-specific parameters and their supported values.</p>
@@ -4760,7 +5064,7 @@ export interface ImportRestApiRequest {
    *          <p> To handle imported <code>basepath</code>, set <code>parameters</code> as <code>basepath=ignore</code>, <code>basepath=prepend</code> or <code>basepath=split</code>.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The POST request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
@@ -4790,19 +5094,19 @@ export interface PutGatewayResponseRequest {
    * <p>The HTTP status code of the GatewayResponse.</p>
    * @public
    */
-  statusCode?: string;
+  statusCode?: string | undefined;
 
   /**
    * <p>Response parameters (paths, query strings and headers) of the GatewayResponse as a string-to-string map of key-value  pairs.</p>
    * @public
    */
-  responseParameters?: Record<string, string>;
+  responseParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Response templates of the GatewayResponse as a string-to-string map of key-value pairs.</p>
    * @public
    */
-  responseTemplates?: Record<string, string>;
+  responseTemplates?: Record<string, string> | undefined;
 }
 
 /**
@@ -4838,7 +5142,7 @@ export interface PutIntegrationRequest {
    * <p>The HTTP method for the integration.</p>
    * @public
    */
-  integrationHttpMethod?: string;
+  integrationHttpMethod?: string | undefined;
 
   /**
    * <p>Specifies Uniform Resource Identifier (URI) of the integration endpoint. For HTTP or
@@ -4859,75 +5163,75 @@ export interface PutIntegrationRequest {
    *       <code>arn:aws:apigateway:us-west-2:s3:path/\{bucket\}/\{key\}</code>.</p>
    * @public
    */
-  uri?: string;
+  uri?: string | undefined;
 
   /**
    * <p>The type of the network connection to the integration endpoint. The valid value is <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code> for private connections between API Gateway and a network load balancer in a VPC. The default value is <code>INTERNET</code>.</p>
    * @public
    */
-  connectionType?: ConnectionType;
+  connectionType?: ConnectionType | undefined;
 
   /**
    * <p>The ID of the VpcLink used for the integration. Specify this value only if you specify <code>VPC_LINK</code> as the connection type.</p>
    * @public
    */
-  connectionId?: string;
+  connectionId?: string | undefined;
 
   /**
    * <p>Specifies whether credentials are required for a put integration.</p>
    * @public
    */
-  credentials?: string;
+  credentials?: string | undefined;
 
   /**
    * <p>A key-value map specifying request parameters that are passed from the method request to the back end. The key is an integration request parameter name and the associated value is a method request parameter value or static value that must be enclosed within single quotes and pre-encoded as required by the back end. The method request parameter value must match the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> must be a valid and unique method request parameter name.</p>
    * @public
    */
-  requestParameters?: Record<string, string>;
+  requestParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Represents a map of Velocity templates that are applied on the request payload based on the value of the Content-Type header sent by the client. The content type value is the key in this map, and the template (as a String) is the value.</p>
    * @public
    */
-  requestTemplates?: Record<string, string>;
+  requestTemplates?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies the pass-through behavior for incoming requests based on the Content-Type header in the request, and the available mapping templates specified as the <code>requestTemplates</code> property on the Integration resource. There are three valid values:  <code>WHEN_NO_MATCH</code>, <code>WHEN_NO_TEMPLATES</code>, and <code>NEVER</code>.
    *         </p>
    * @public
    */
-  passthroughBehavior?: string;
+  passthroughBehavior?: string | undefined;
 
   /**
    * <p>Specifies a group of related cached parameters. By default, API Gateway uses the resource ID as the <code>cacheNamespace</code>. You can specify the same <code>cacheNamespace</code> across resources to return the same cached data for requests to different resources.</p>
    * @public
    */
-  cacheNamespace?: string;
+  cacheNamespace?: string | undefined;
 
   /**
    * <p>A list of request parameters whose values API Gateway caches. To be valid values for <code>cacheKeyParameters</code>, these parameters must also be specified for Method <code>requestParameters</code>.</p>
    * @public
    */
-  cacheKeyParameters?: string[];
+  cacheKeyParameters?: string[] | undefined;
 
   /**
    * <p>Specifies how to handle request payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the request payload will be passed through from the method request to integration request without modification, provided that the <code>passthroughBehavior</code> is configured to support payload pass-through.</p>
    * @public
    */
-  contentHandling?: ContentHandlingStrategy;
+  contentHandling?: ContentHandlingStrategy | undefined;
 
   /**
-   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.</p>
+   * <p>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds or 29 seconds.  You can increase the default value to longer than 29 seconds for Regional or private APIs only.</p>
    * @public
    */
-  timeoutInMillis?: number;
+  timeoutInMillis?: number | undefined;
 
   /**
    * <p>Specifies the TLS configuration for an integration.</p>
    * @public
    */
-  tlsConfig?: TlsConfig;
+  tlsConfig?: TlsConfig | undefined;
 }
 
 /**
@@ -4963,27 +5267,27 @@ export interface PutIntegrationResponseRequest {
    * <p>Specifies the selection pattern of a put integration response.</p>
    * @public
    */
-  selectionPattern?: string;
+  selectionPattern?: string | undefined;
 
   /**
    * <p>A key-value map specifying response parameters that are passed to the method response from the back end.
    *             The key is a method response header parameter name and the mapped value is an integration response header value, a static value enclosed within a pair of single quotes, or a JSON expression from the integration response body. The mapping key must match the pattern of <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. The mapped non-static value must match the pattern of <code>integration.response.header.\{name\}</code> or <code>integration.response.body.\{JSON-expression\}</code>, where <code>name</code> must be a valid and unique response header name and <code>JSON-expression</code> a valid JSON expression without the <code>$</code> prefix.</p>
    * @public
    */
-  responseParameters?: Record<string, string>;
+  responseParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies a put integration response's templates.</p>
    * @public
    */
-  responseTemplates?: Record<string, string>;
+  responseTemplates?: Record<string, string> | undefined;
 
   /**
    * <p>Specifies how to handle response payload content type conversions. Supported values are <code>CONVERT_TO_BINARY</code> and <code>CONVERT_TO_TEXT</code>, with the following behaviors:</p>
    *          <p>If this property is not defined, the response payload will be passed through from the integration response to the method response without modification.</p>
    * @public
    */
-  contentHandling?: ContentHandlingStrategy;
+  contentHandling?: ContentHandlingStrategy | undefined;
 }
 
 /**
@@ -5019,43 +5323,43 @@ export interface PutMethodRequest {
    * <p>Specifies the identifier of an Authorizer to use on this Method, if the type is CUSTOM or COGNITO_USER_POOLS. The authorizer identifier is generated by API Gateway when you created the authorizer.</p>
    * @public
    */
-  authorizerId?: string;
+  authorizerId?: string | undefined;
 
   /**
    * <p>Specifies whether the method required a valid ApiKey.</p>
    * @public
    */
-  apiKeyRequired?: boolean;
+  apiKeyRequired?: boolean | undefined;
 
   /**
    * <p>A human-friendly operation identifier for the method. For example, you can assign the <code>operationName</code> of <code>ListPets</code> for the <code>GET /pets</code> method in the <code>PetStore</code> example.</p>
    * @public
    */
-  operationName?: string;
+  operationName?: string | undefined;
 
   /**
    * <p>A key-value map defining required or optional method request parameters that can be accepted by API Gateway. A key defines a method request parameter name matching the pattern of  <code>method.request.\{location\}.\{name\}</code>, where <code>location</code> is <code>querystring</code>, <code>path</code>, or <code>header</code> and <code>name</code> is a valid and unique parameter name. The value associated with the key is a Boolean flag indicating whether the parameter is required (<code>true</code>) or optional (<code>false</code>).  The method request parameter names defined here are available in Integration to be mapped to integration request parameters or body-mapping templates.</p>
    * @public
    */
-  requestParameters?: Record<string, boolean>;
+  requestParameters?: Record<string, boolean> | undefined;
 
   /**
    * <p>Specifies the Model resources used for the request's content type. Request models are represented as a key/value map, with a content type as the key and a Model name as the value.</p>
    * @public
    */
-  requestModels?: Record<string, string>;
+  requestModels?: Record<string, string> | undefined;
 
   /**
    * <p>The identifier of a RequestValidator for validating the method request.</p>
    * @public
    */
-  requestValidatorId?: string;
+  requestValidatorId?: string | undefined;
 
   /**
    * <p>A list of authorization scopes configured on the method. The scopes are used with a <code>COGNITO_USER_POOLS</code> authorizer to authorize the method invocation. The authorization works by matching the method scopes against the scopes parsed from the access token in the incoming request. The method invocation is authorized if any method scopes matches a claimed scope in the access token. Otherwise, the invocation is not authorized. When the method scope is configured, the client must provide an access token instead of an identity token for authorization purposes.</p>
    * @public
    */
-  authorizationScopes?: string[];
+  authorizationScopes?: string[] | undefined;
 }
 
 /**
@@ -5091,13 +5395,13 @@ export interface PutMethodResponseRequest {
    * <p>A key-value map specifying required or optional response parameters that API Gateway can send back to the caller. A key defines a method response header name and the associated value is a Boolean flag indicating whether the method response parameter is required or not. The method response header names must match the pattern of <code>method.response.header.\{name\}</code>, where <code>name</code> is a valid and unique header name. The response parameter names defined here are available in the integration response to be mapped from an integration response header expressed in <code>integration.response.header.\{name\}</code>, a static value enclosed within a pair of single quotes (e.g., <code>'application/json'</code>), or a JSON expression from the back-end response payload in the form of <code>integration.response.body.\{JSON-expression\}</code>, where <code>JSON-expression</code> is a valid JSON expression without the <code>$</code> prefix.)</p>
    * @public
    */
-  responseParameters?: Record<string, boolean>;
+  responseParameters?: Record<string, boolean> | undefined;
 
   /**
    * <p>Specifies the Model resources used for the response's content type. Response models are represented as a key/value map, with a content type as the key and a Model name as the value.</p>
    * @public
    */
-  responseModels?: Record<string, string>;
+  responseModels?: Record<string, string> | undefined;
 }
 
 /**
@@ -5116,26 +5420,46 @@ export interface PutRestApiRequest {
    *         the update mode is "merge".</p>
    * @public
    */
-  mode?: PutMode;
+  mode?: PutMode | undefined;
 
   /**
    * <p>A query parameter to indicate whether to rollback the API update (<code>true</code>) or not (<code>false</code>)
    *             when a warning is encountered. The default value is <code>false</code>.</p>
    * @public
    */
-  failOnWarnings?: boolean;
+  failOnWarnings?: boolean | undefined;
 
   /**
    * <p>Custom header parameters as part of the request. For example, to exclude DocumentationParts from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code> value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters ignore=documentation --body 'file:///path/to/imported-api-body.json'</code>.</p>
    * @public
    */
-  parameters?: Record<string, string>;
+  parameters?: Record<string, string> | undefined;
 
   /**
    * <p>The PUT request body containing external API definitions. Currently, only OpenAPI definition JSON/YAML files are supported. The maximum size of the API definition file is 6MB.</p>
    * @public
    */
   body: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RejectDomainNameAccessAssociationRequest {
+  /**
+   * <p>The ARN of the domain name access association resource.
+   * </p>
+   * @public
+   */
+  domainNameAccessAssociationArn: string | undefined;
+
+  /**
+   * <p>
+   * The ARN of the domain name.
+   * </p>
+   * @public
+   */
+  domainNameArn: string | undefined;
 }
 
 /**
@@ -5177,37 +5501,37 @@ export interface TestInvokeAuthorizerRequest {
    * <p>A key-value map of headers to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, should be specified.</p>
    * @public
    */
-  headers?: Record<string, string>;
+  headers?: Record<string, string> | undefined;
 
   /**
    * <p>The headers as a map from string to list of values to simulate an incoming invocation request. This is where the incoming authorization token, or identity source, may be specified.</p>
    * @public
    */
-  multiValueHeaders?: Record<string, string[]>;
+  multiValueHeaders?: Record<string, string[]> | undefined;
 
   /**
    * <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
    * @public
    */
-  pathWithQueryString?: string;
+  pathWithQueryString?: string | undefined;
 
   /**
    * <p>The simulated request body of an incoming invocation request.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 
   /**
    * <p>A key-value map of stage variables to simulate an invocation on a deployed Stage.</p>
    * @public
    */
-  stageVariables?: Record<string, string>;
+  stageVariables?: Record<string, string> | undefined;
 
   /**
    * <p>A key-value map of additional context variables.</p>
    * @public
    */
-  additionalContext?: Record<string, string>;
+  additionalContext?: Record<string, string> | undefined;
 }
 
 /**
@@ -5219,43 +5543,43 @@ export interface TestInvokeAuthorizerResponse {
    * <p>The HTTP status code that the client would have received. Value is 0 if the authorizer succeeded.</p>
    * @public
    */
-  clientStatus?: number;
+  clientStatus?: number | undefined;
 
   /**
    * <p>The API Gateway execution log for the test authorizer request.</p>
    * @public
    */
-  log?: string;
+  log?: string | undefined;
 
   /**
    * <p>The execution latency, in ms, of the test authorizer request.</p>
    * @public
    */
-  latency?: number;
+  latency?: number | undefined;
 
   /**
    * <p>The principal identity returned by the Authorizer</p>
    * @public
    */
-  principalId?: string;
+  principalId?: string | undefined;
 
   /**
    * <p>The JSON policy document returned by the Authorizer</p>
    * @public
    */
-  policy?: string;
+  policy?: string | undefined;
 
   /**
    * <p>The authorization response.</p>
    * @public
    */
-  authorization?: Record<string, string[]>;
+  authorization?: Record<string, string[]> | undefined;
 
   /**
    * <p>The open identity claims, with any supported custom attributes, returned from the Cognito Your User Pool configured for the API.</p>
    * @public
    */
-  claims?: Record<string, string>;
+  claims?: Record<string, string> | undefined;
 }
 
 /**
@@ -5285,37 +5609,37 @@ export interface TestInvokeMethodRequest {
    * <p>The URI path, including query string, of the simulated invocation request. Use this to specify path parameters and query string parameters.</p>
    * @public
    */
-  pathWithQueryString?: string;
+  pathWithQueryString?: string | undefined;
 
   /**
    * <p>The simulated request body of an incoming invocation request.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 
   /**
    * <p>A key-value map of headers to simulate an incoming invocation request.</p>
    * @public
    */
-  headers?: Record<string, string>;
+  headers?: Record<string, string> | undefined;
 
   /**
    * <p>The headers as a map from string to list of values to simulate an incoming invocation request.</p>
    * @public
    */
-  multiValueHeaders?: Record<string, string[]>;
+  multiValueHeaders?: Record<string, string[]> | undefined;
 
   /**
    * <p>A ClientCertificate identifier to use in the test invocation. API Gateway will use the certificate when making the HTTPS request to the defined back-end endpoint.</p>
    * @public
    */
-  clientCertificateId?: string;
+  clientCertificateId?: string | undefined;
 
   /**
    * <p>A key-value map of stage variables to simulate an invocation on a deployed Stage.</p>
    * @public
    */
-  stageVariables?: Record<string, string>;
+  stageVariables?: Record<string, string> | undefined;
 }
 
 /**
@@ -5327,37 +5651,37 @@ export interface TestInvokeMethodResponse {
    * <p>The HTTP status code.</p>
    * @public
    */
-  status?: number;
+  status?: number | undefined;
 
   /**
    * <p>The body of the HTTP response.</p>
    * @public
    */
-  body?: string;
+  body?: string | undefined;
 
   /**
    * <p>The headers of the HTTP response.</p>
    * @public
    */
-  headers?: Record<string, string>;
+  headers?: Record<string, string> | undefined;
 
   /**
    * <p>The headers of the HTTP response as a map from string to list of values.</p>
    * @public
    */
-  multiValueHeaders?: Record<string, string[]>;
+  multiValueHeaders?: Record<string, string[]> | undefined;
 
   /**
    * <p>The API Gateway execution log for the test invoke request.</p>
    * @public
    */
-  log?: string;
+  log?: string | undefined;
 
   /**
    * <p>The execution latency, in ms, of the test invoke request.</p>
    * @public
    */
-  latency?: number;
+  latency?: number | undefined;
 }
 
 /**
@@ -5408,7 +5732,7 @@ export interface PatchOperation {
    *             to apply an unsupported operation on a resource will return an error message..</p>
    * @public
    */
-  op?: Op;
+  op?: Op | undefined;
 
   /**
    * <p>The op operation's target, as identified by a JSON Pointer value that references a
@@ -5420,7 +5744,7 @@ export interface PatchOperation {
    *             above. Each op operation can have only one path associated with it.</p>
    * @public
    */
-  path?: string;
+  path?: string | undefined;
 
   /**
    * <p>The new target value of the update operation. It is applicable for the add or replace
@@ -5428,7 +5752,7 @@ export interface PatchOperation {
    *             object with a pair of single quotes in a Linux shell, e.g., '\{"a": ...\}'.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 
   /**
    * <p>The copy update operation's source as identified by a JSON-Pointer value referencing
@@ -5438,7 +5762,7 @@ export interface PatchOperation {
    *             "from":"/canarySettings/deploymentId" and "path":"/deploymentId".</p>
    * @public
    */
-  from?: string;
+  from?: string | undefined;
 }
 
 /**
@@ -5450,7 +5774,7 @@ export interface UpdateAccountRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5468,7 +5792,7 @@ export interface UpdateApiKeyRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5492,7 +5816,7 @@ export interface UpdateAuthorizerRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5507,6 +5831,14 @@ export interface UpdateBasePathMappingRequest {
   domainName: string | undefined;
 
   /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>The base path of the BasePathMapping resource to change.</p>
    *          <p>To specify an empty base path, set this parameter to <code>'(none)'</code>.</p>
    * @public
@@ -5517,7 +5849,7 @@ export interface UpdateBasePathMappingRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5535,7 +5867,7 @@ export interface UpdateClientCertificateRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5559,7 +5891,7 @@ export interface UpdateDeploymentRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5583,7 +5915,7 @@ export interface UpdateDocumentationPartRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5607,7 +5939,7 @@ export interface UpdateDocumentationVersionRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5622,10 +5954,18 @@ export interface UpdateDomainNameRequest {
   domainName: string | undefined;
 
   /**
+   * <p>
+   *   The identifier for the domain name resource. Supported only for private custom domain names.
+   * </p>
+   * @public
+   */
+  domainNameId?: string | undefined;
+
+  /**
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5649,7 +5989,7 @@ export interface UpdateGatewayResponseRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5679,7 +6019,7 @@ export interface UpdateIntegrationRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5715,7 +6055,7 @@ export interface UpdateIntegrationResponseRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5745,7 +6085,7 @@ export interface UpdateMethodRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5781,7 +6121,7 @@ export interface UpdateMethodResponseRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5805,7 +6145,7 @@ export interface UpdateModelRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5829,7 +6169,7 @@ export interface UpdateRequestValidatorRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5853,7 +6193,7 @@ export interface UpdateResourceRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5871,7 +6211,7 @@ export interface UpdateRestApiRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5895,7 +6235,7 @@ export interface UpdateStageRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5919,7 +6259,7 @@ export interface UpdateUsageRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5937,7 +6277,7 @@ export interface UpdateUsagePlanRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }
 
 /**
@@ -5955,5 +6295,5 @@ export interface UpdateVpcLinkRequest {
    * <p>For more information about supported patch operations, see <a href="https://docs.aws.amazon.com/apigateway/latest/api/patch-operations.html">Patch Operations</a>.</p>
    * @public
    */
-  patchOperations?: PatchOperation[];
+  patchOperations?: PatchOperation[] | undefined;
 }

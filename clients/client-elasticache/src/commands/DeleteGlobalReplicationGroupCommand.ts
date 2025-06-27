@@ -12,7 +12,8 @@ import { de_DeleteGlobalReplicationGroupCommand, se_DeleteGlobalReplicationGroup
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,7 @@ export interface DeleteGlobalReplicationGroupCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DeleteGlobalReplicationGroupCommand extends $Command
@@ -123,9 +125,7 @@ export class DeleteGlobalReplicationGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class DeleteGlobalReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGlobalReplicationGroupCommand)
   .de(de_DeleteGlobalReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGlobalReplicationGroupMessage;
+      output: DeleteGlobalReplicationGroupResult;
+    };
+    sdk: {
+      input: DeleteGlobalReplicationGroupCommandInput;
+      output: DeleteGlobalReplicationGroupCommandOutput;
+    };
+  };
+}

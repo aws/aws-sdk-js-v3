@@ -17,7 +17,7 @@ team escalation. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ssm-incidents
+To install this package, simply type add or install @aws-sdk/client-ssm-incidents
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ssm-incidents`

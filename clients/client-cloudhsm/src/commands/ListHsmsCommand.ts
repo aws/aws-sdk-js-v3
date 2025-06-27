@@ -12,7 +12,8 @@ import { de_ListHsmsCommand, se_ListHsmsCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface ListHsmsCommandOutput extends ListHsmsResponse, __MetadataBeare
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class ListHsmsCommand extends $Command
@@ -93,9 +95,7 @@ export class ListHsmsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListHsmsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHsmsCommand)
   .de(de_ListHsmsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHsmsRequest;
+      output: ListHsmsResponse;
+    };
+    sdk: {
+      input: ListHsmsCommandInput;
+      output: ListHsmsCommandOutput;
+    };
+  };
+}

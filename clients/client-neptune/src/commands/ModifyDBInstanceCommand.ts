@@ -16,7 +16,8 @@ import { de_ModifyDBInstanceCommand, se_ModifyDBInstanceCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -300,6 +301,7 @@ export interface ModifyDBInstanceCommandOutput extends ModifyDBInstanceResult, _
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class ModifyDBInstanceCommand extends $Command
@@ -310,9 +312,7 @@ export class ModifyDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -324,4 +324,16 @@ export class ModifyDBInstanceCommand extends $Command
   .f(ModifyDBInstanceMessageFilterSensitiveLog, void 0)
   .ser(se_ModifyDBInstanceCommand)
   .de(de_ModifyDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDBInstanceMessage;
+      output: ModifyDBInstanceResult;
+    };
+    sdk: {
+      input: ModifyDBInstanceCommandInput;
+      output: ModifyDBInstanceCommandOutput;
+    };
+  };
+}

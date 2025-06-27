@@ -12,7 +12,8 @@ import { de_StopJobCommand, se_StopJobCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,9 +50,11 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * //     commitMessage: "STRING_VALUE", // required
  * //     commitTime: new Date("TIMESTAMP"), // required
  * //     startTime: new Date("TIMESTAMP"), // required
- * //     status: "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
+ * //     status: "CREATED" || "PENDING" || "PROVISIONING" || "RUNNING" || "FAILED" || "SUCCEED" || "CANCELLING" || "CANCELLED", // required
  * //     endTime: new Date("TIMESTAMP"),
  * //     jobType: "RELEASE" || "RETRY" || "MANUAL" || "WEB_HOOK", // required
+ * //     sourceUrl: "STRING_VALUE",
+ * //     sourceUrlType: "ZIP" || "BUCKET_PREFIX",
  * //   },
  * // };
  *
@@ -81,6 +84,7 @@ export interface StopJobCommandOutput extends StopJobResult, __MetadataBearer {}
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class StopJobCommand extends $Command
@@ -91,9 +95,7 @@ export class StopJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +107,16 @@ export class StopJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopJobCommand)
   .de(de_StopJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopJobRequest;
+      output: StopJobResult;
+    };
+    sdk: {
+      input: StopJobCommandInput;
+      output: StopJobCommandOutput;
+    };
+  };
+}

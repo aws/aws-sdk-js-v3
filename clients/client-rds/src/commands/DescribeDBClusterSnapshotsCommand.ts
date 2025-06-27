@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,74 +117,74 @@ export interface DescribeDBClusterSnapshotsCommandOutput extends DBClusterSnapsh
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe a DB cluster snapshot for a DB cluster
  * ```javascript
  * // The following example retrieves the details for the DB cluster snapshots for the specified DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster"
+ *   DBClusterIdentifier: "mydbcluster"
  * };
  * const command = new DescribeDBClusterSnapshotsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterSnapshots": [
+ *   DBClusterSnapshots: [
  *     {
- *       "AllocatedStorage": 0,
- *       "AvailabilityZones": [
+ *       AllocatedStorage: 0,
+ *       AvailabilityZones: [
  *         "us-east-1a",
  *         "us-east-1b",
  *         "us-east-1e"
  *       ],
- *       "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
- *       "DBClusterIdentifier": "mydbcluster",
- *       "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:814387698303:cluster-snapshot:myclustersnapshotcopy",
- *       "DBClusterSnapshotIdentifier": "myclustersnapshotcopy",
- *       "Engine": "aurora-mysql",
- *       "EngineVersion": "5.7.mysql_aurora.2.04.2",
- *       "IAMDatabaseAuthenticationEnabled": false,
- *       "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *       "LicenseModel": "aurora-mysql",
- *       "MasterUsername": "myadmin",
- *       "PercentProgress": 100,
- *       "Port": 0,
- *       "SnapshotCreateTime": "2019-06-04T09:16:42.649Z",
- *       "SnapshotType": "manual",
- *       "Status": "available",
- *       "StorageEncrypted": true,
- *       "VpcId": "vpc-6594f31c"
+ *       ClusterCreateTime: "2019-04-15T14:18:42.785Z",
+ *       DBClusterIdentifier: "mydbcluster",
+ *       DBClusterSnapshotArn: "arn:aws:rds:us-east-1:814387698303:cluster-snapshot:myclustersnapshotcopy",
+ *       DBClusterSnapshotIdentifier: "myclustersnapshotcopy",
+ *       Engine: "aurora-mysql",
+ *       EngineVersion: "5.7.mysql_aurora.2.04.2",
+ *       IAMDatabaseAuthenticationEnabled: false,
+ *       KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *       LicenseModel: "aurora-mysql",
+ *       MasterUsername: "myadmin",
+ *       PercentProgress: 100,
+ *       Port: 0,
+ *       SnapshotCreateTime: "2019-06-04T09:16:42.649Z",
+ *       SnapshotType: "manual",
+ *       Status: "available",
+ *       StorageEncrypted: true,
+ *       VpcId: "vpc-6594f31c"
  *     },
  *     {
- *       "AllocatedStorage": 0,
- *       "AvailabilityZones": [
+ *       AllocatedStorage: 0,
+ *       AvailabilityZones: [
  *         "us-east-1a",
  *         "us-east-1b",
  *         "us-east-1e"
  *       ],
- *       "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
- *       "DBClusterIdentifier": "mydbcluster",
- *       "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:mydbcluster-2019-06-20-09-16",
- *       "DBClusterSnapshotIdentifier": "rds:mydbcluster-2019-06-20-09-16",
- *       "Engine": "aurora-mysql",
- *       "EngineVersion": "5.7.mysql_aurora.2.04.2",
- *       "IAMDatabaseAuthenticationEnabled": false,
- *       "KmsKeyId": "arn:aws:kms:us-east-1:814387698303:key/AKIAIOSFODNN7EXAMPLE",
- *       "LicenseModel": "aurora-mysql",
- *       "MasterUsername": "myadmin",
- *       "PercentProgress": 100,
- *       "Port": 0,
- *       "SnapshotCreateTime": "2019-06-20T09:16:26.569Z",
- *       "SnapshotType": "automated",
- *       "Status": "available",
- *       "StorageEncrypted": true,
- *       "VpcId": "vpc-6594f31c"
+ *       ClusterCreateTime: "2019-04-15T14:18:42.785Z",
+ *       DBClusterIdentifier: "mydbcluster",
+ *       DBClusterSnapshotArn: "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:rds:mydbcluster-2019-06-20-09-16",
+ *       DBClusterSnapshotIdentifier: "rds:mydbcluster-2019-06-20-09-16",
+ *       Engine: "aurora-mysql",
+ *       EngineVersion: "5.7.mysql_aurora.2.04.2",
+ *       IAMDatabaseAuthenticationEnabled: false,
+ *       KmsKeyId: "arn:aws:kms:us-east-1:814387698303:key/AKIAIOSFODNN7EXAMPLE",
+ *       LicenseModel: "aurora-mysql",
+ *       MasterUsername: "myadmin",
+ *       PercentProgress: 100,
+ *       Port: 0,
+ *       SnapshotCreateTime: "2019-06-20T09:16:26.569Z",
+ *       SnapshotType: "automated",
+ *       Status: "available",
+ *       StorageEncrypted: true,
+ *       VpcId: "vpc-6594f31c"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-db-cluster-snapshot-for-a-db-cluster-1680216426182
  * ```
  *
+ * @public
  */
 export class DescribeDBClusterSnapshotsCommand extends $Command
   .classBuilder<
@@ -193,9 +194,7 @@ export class DescribeDBClusterSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -207,4 +206,16 @@ export class DescribeDBClusterSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterSnapshotsCommand)
   .de(de_DescribeDBClusterSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterSnapshotsMessage;
+      output: DBClusterSnapshotMessage;
+    };
+    sdk: {
+      input: DescribeDBClusterSnapshotsCommandInput;
+      output: DescribeDBClusterSnapshotsCommandOutput;
+    };
+  };
+}

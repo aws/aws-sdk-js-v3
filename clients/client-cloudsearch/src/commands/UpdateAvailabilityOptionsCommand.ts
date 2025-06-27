@@ -12,7 +12,8 @@ import { de_UpdateAvailabilityOptionsCommand, se_UpdateAvailabilityOptionsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface UpdateAvailabilityOptionsCommandOutput extends UpdateAvailabili
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdateAvailabilityOptionsCommand extends $Command
@@ -96,9 +98,7 @@ export class UpdateAvailabilityOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class UpdateAvailabilityOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAvailabilityOptionsCommand)
   .de(de_UpdateAvailabilityOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAvailabilityOptionsRequest;
+      output: UpdateAvailabilityOptionsResponse;
+    };
+    sdk: {
+      input: UpdateAvailabilityOptionsCommandInput;
+      output: UpdateAvailabilityOptionsCommandOutput;
+    };
+  };
+}

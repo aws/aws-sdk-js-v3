@@ -17,7 +17,8 @@ import { de_StartSourceNetworkRecoveryCommand, se_StartSourceNetworkRecoveryComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -140,6 +141,7 @@ export interface StartSourceNetworkRecoveryCommandOutput extends StartSourceNetw
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class StartSourceNetworkRecoveryCommand extends $Command
@@ -150,9 +152,7 @@ export class StartSourceNetworkRecoveryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +164,16 @@ export class StartSourceNetworkRecoveryCommand extends $Command
   .f(StartSourceNetworkRecoveryRequestFilterSensitiveLog, StartSourceNetworkRecoveryResponseFilterSensitiveLog)
   .ser(se_StartSourceNetworkRecoveryCommand)
   .de(de_StartSourceNetworkRecoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSourceNetworkRecoveryRequest;
+      output: StartSourceNetworkRecoveryResponse;
+    };
+    sdk: {
+      input: StartSourceNetworkRecoveryCommandInput;
+      output: StartSourceNetworkRecoveryCommandOutput;
+    };
+  };
+}

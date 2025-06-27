@@ -12,7 +12,8 @@ import { de_StartRetrainingSchedulerCommand, se_StartRetrainingSchedulerCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,25 +80,25 @@ export interface StartRetrainingSchedulerCommandOutput extends StartRetrainingSc
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Starts a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model"
+ *   ModelName: "sample-model"
  * };
  * const command = new StartRetrainingSchedulerCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ModelArn": "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ModelName": "sample-model",
- *   "Status": "PENDING"
+ *   ModelArn: "arn:aws:lookoutequipment:us-east-1:123456789012:model/sample-model/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ModelName: "sample-model",
+ *   Status: "PENDING"
  * }
  * *\/
- * // example id: starts-a-retraining-scheduler-1694019629413
  * ```
  *
+ * @public
  */
 export class StartRetrainingSchedulerCommand extends $Command
   .classBuilder<
@@ -107,9 +108,7 @@ export class StartRetrainingSchedulerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class StartRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRetrainingSchedulerCommand)
   .de(de_StartRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRetrainingSchedulerRequest;
+      output: StartRetrainingSchedulerResponse;
+    };
+    sdk: {
+      input: StartRetrainingSchedulerCommandInput;
+      output: StartRetrainingSchedulerCommandOutput;
+    };
+  };
+}

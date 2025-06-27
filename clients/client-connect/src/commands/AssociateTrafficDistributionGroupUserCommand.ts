@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,8 @@ export interface AssociateTrafficDistributionGroupUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates an agent with a traffic distribution group.</p>
+ * <p>Associates an agent with a traffic distribution group. This API can be called only in the
+ *    Region where the traffic distribution group is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +83,7 @@ export interface AssociateTrafficDistributionGroupUserCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateTrafficDistributionGroupUserCommand extends $Command
@@ -91,9 +94,7 @@ export class AssociateTrafficDistributionGroupUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class AssociateTrafficDistributionGroupUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrafficDistributionGroupUserCommand)
   .de(de_AssociateTrafficDistributionGroupUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrafficDistributionGroupUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateTrafficDistributionGroupUserCommandInput;
+      output: AssociateTrafficDistributionGroupUserCommandOutput;
+    };
+  };
+}

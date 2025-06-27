@@ -16,7 +16,8 @@ import { de_DescribeChannelCommand, se_DescribeChannelCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class DescribeChannelCommand extends $Command
@@ -108,9 +110,7 @@ export class DescribeChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class DescribeChannelCommand extends $Command
   .f(void 0, DescribeChannelResponseFilterSensitiveLog)
   .ser(se_DescribeChannelCommand)
   .de(de_DescribeChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChannelRequest;
+      output: DescribeChannelResponse;
+    };
+    sdk: {
+      input: DescribeChannelCommandInput;
+      output: DescribeChannelCommandOutput;
+    };
+  };
+}

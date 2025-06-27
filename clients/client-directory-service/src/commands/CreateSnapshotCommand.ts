@@ -12,7 +12,8 @@ import { de_CreateSnapshotCommand, se_CreateSnapshotCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,23 @@ export interface CreateSnapshotCommandOutput extends CreateSnapshotResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To create a snapshot of a directory
+ * ```javascript
+ * // The following example creates a snapshot of a Simple AD or Microsoft AD directory in the AWS cloud.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Name: "ad.example.com"
+ * };
+ * const command = new CreateSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SnapshotId: "s-9267f8d3f0"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateSnapshotCommand extends $Command
@@ -85,9 +103,7 @@ export class CreateSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +115,16 @@ export class CreateSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSnapshotCommand)
   .de(de_CreateSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSnapshotRequest;
+      output: CreateSnapshotResult;
+    };
+    sdk: {
+      input: CreateSnapshotCommandInput;
+      output: CreateSnapshotCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface CreateEmailIdentityPolicyCommandOutput extends CreateEmailIdent
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class CreateEmailIdentityPolicyCommand extends $Command
@@ -89,9 +91,7 @@ export class CreateEmailIdentityPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class CreateEmailIdentityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEmailIdentityPolicyCommand)
   .de(de_CreateEmailIdentityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEmailIdentityPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateEmailIdentityPolicyCommandInput;
+      output: CreateEmailIdentityPolicyCommandOutput;
+    };
+  };
+}

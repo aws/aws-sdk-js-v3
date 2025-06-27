@@ -12,7 +12,8 @@ import { de_StopCisSessionCommand, se_StopCisSessionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,9 @@ export interface StopCisSessionCommandInput extends StopCisSessionRequest {}
 export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __MetadataBearer {}
 
 /**
- * <p>
- *          Stops a CIS session.
- *          This API is used by the Amazon Inspector SSM plugin to communicate with the Amazon Inspector service.
- *          The Amazon Inspector SSM plugin calls this API to start a CIS scan session for the scan ID supplied by the service.
- *       </p>
+ * <p> Stops a CIS session. This API is used by the Amazon Inspector SSM plugin to
+ *          communicate with the Amazon Inspector service. The Amazon Inspector SSM plugin calls
+ *          this API to stop a CIS scan session for the scan ID supplied by the service. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,9 +76,12 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A conflict occurred.</p>
+ *  <p>A conflict occurred. This exception occurs when the same resource is being modified by
+ *          concurrent requests.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -94,6 +96,42 @@ export interface StopCisSessionCommandOutput extends StopCisSessionResponse, __M
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample StopCisSession Call
+ * ```javascript
+ * //
+ * const input = {
+ *   message: {
+ *     benchmarkProfile: "xccdf_org.cisecurity.benchmarks_profile_Level_1",
+ *     benchmarkVersion: "2.0.0",
+ *     computePlatform: {
+ *       product: "ubuntu",
+ *       vendor: "canonical",
+ *       version: "20.04"
+ *     },
+ *     progress: {
+ *       errorChecks: 1,
+ *       failedChecks: 0,
+ *       informationalChecks: 1,
+ *       notApplicableChecks: 0,
+ *       notEvaluatedChecks: 2,
+ *       successfulChecks: 5,
+ *       totalChecks: 10,
+ *       unknownChecks: 0
+ *     },
+ *     reason: "Failure Reason",
+ *     status: "FAILED"
+ *   },
+ *   scanJobId: "624b746d-e080-44ae-8c1d-48e653365a38",
+ *   sessionToken: "624b746d-e080-44ae-8c1d-48e653365a31"
+ * };
+ * const command = new StopCisSessionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class StopCisSessionCommand extends $Command
@@ -104,9 +142,7 @@ export class StopCisSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +154,16 @@ export class StopCisSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCisSessionCommand)
   .de(de_StopCisSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCisSessionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCisSessionCommandInput;
+      output: StopCisSessionCommandOutput;
+    };
+  };
+}

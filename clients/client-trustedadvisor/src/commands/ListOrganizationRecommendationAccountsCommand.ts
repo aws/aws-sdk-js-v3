@@ -19,7 +19,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TrustedAdvisorClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,32 @@ export interface ListOrganizationRecommendationAccountsCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example List all Accounts for an AWS Organization's Recommendation
+ * ```javascript
+ * //
+ * const input = {
+ *   organizationRecommendationIdentifier: "arn:aws:trustedadvisor:::organization-recommendation/9534ec9b-bf3a-44e8-8213-2ed68b39d9d5"
+ * };
+ * const command = new ListOrganizationRecommendationAccountsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   accountRecommendationLifecycleSummaries: [
+ *     {
+ *       accountId: "000000000000",
+ *       accountRecommendationArn: "arn:aws:trustedadvisor::000000000000:recommendation/9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *       lastUpdatedAt: "2023-01-17T18:25:44.552Z",
+ *       lifecycleStage: "resolved",
+ *       updateReason: "Resolved issue",
+ *       updateReasonCode: "valid_business_case"
+ *     }
+ *   ],
+ *   nextToken: "<REDACTED>"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListOrganizationRecommendationAccountsCommand extends $Command
@@ -106,9 +133,7 @@ export class ListOrganizationRecommendationAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +145,16 @@ export class ListOrganizationRecommendationAccountsCommand extends $Command
   .f(void 0, ListOrganizationRecommendationAccountsResponseFilterSensitiveLog)
   .ser(se_ListOrganizationRecommendationAccountsCommand)
   .de(de_ListOrganizationRecommendationAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationRecommendationAccountsRequest;
+      output: ListOrganizationRecommendationAccountsResponse;
+    };
+    sdk: {
+      input: ListOrganizationRecommendationAccountsCommandInput;
+      output: ListOrganizationRecommendationAccountsCommandOutput;
+    };
+  };
+}

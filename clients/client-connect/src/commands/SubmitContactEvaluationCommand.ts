@@ -12,7 +12,8 @@ import { de_SubmitContactEvaluationCommand, se_SubmitContactEvaluationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface SubmitContactEvaluationCommandOutput extends SubmitContactEvalu
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SubmitContactEvaluationCommand extends $Command
@@ -100,9 +102,7 @@ export class SubmitContactEvaluationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class SubmitContactEvaluationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitContactEvaluationCommand)
   .de(de_SubmitContactEvaluationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitContactEvaluationRequest;
+      output: SubmitContactEvaluationResponse;
+    };
+    sdk: {
+      input: SubmitContactEvaluationCommandInput;
+      output: SubmitContactEvaluationCommandOutput;
+    };
+  };
+}

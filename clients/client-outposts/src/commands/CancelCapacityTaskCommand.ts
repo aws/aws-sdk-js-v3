@@ -12,7 +12,8 @@ import { de_CancelCapacityTaskCommand, se_CancelCapacityTaskCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface CancelCapacityTaskCommandOutput extends CancelCapacityTaskOutpu
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class CancelCapacityTaskCommand extends $Command
@@ -78,9 +80,7 @@ export class CancelCapacityTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class CancelCapacityTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelCapacityTaskCommand)
   .de(de_CancelCapacityTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelCapacityTaskInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelCapacityTaskCommandInput;
+      output: CancelCapacityTaskCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,26 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * //     ProvisionedProductStatusMessage: "STRING_VALUE",
  * //   },
  * //   ProjectStatus: "Pending" || "CreateInProgress" || "CreateCompleted" || "CreateFailed" || "DeleteInProgress" || "DeleteFailed" || "DeleteCompleted" || "UpdateInProgress" || "UpdateCompleted" || "UpdateFailed", // required
+ * //   TemplateProviderDetails: [ // TemplateProviderDetailList
+ * //     { // TemplateProviderDetail
+ * //       CfnTemplateProviderDetail: { // CfnTemplateProviderDetail
+ * //         TemplateName: "STRING_VALUE", // required
+ * //         TemplateURL: "STRING_VALUE", // required
+ * //         RoleARN: "STRING_VALUE",
+ * //         Parameters: [ // CfnStackParameters
+ * //           { // CfnStackParameter
+ * //             Key: "STRING_VALUE", // required
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //         StackDetail: { // CfnStackDetail
+ * //           Name: "STRING_VALUE",
+ * //           Id: "STRING_VALUE",
+ * //           StatusMessage: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //     },
+ * //   ],
  * //   CreatedBy: { // UserContext
  * //     UserProfileArn: "STRING_VALUE",
  * //     UserProfileName: "STRING_VALUE",
@@ -95,6 +116,7 @@ export interface DescribeProjectCommandOutput extends DescribeProjectOutput, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeProjectCommand extends $Command
@@ -105,9 +127,7 @@ export class DescribeProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +139,16 @@ export class DescribeProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProjectCommand)
   .de(de_DescribeProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProjectInput;
+      output: DescribeProjectOutput;
+    };
+    sdk: {
+      input: DescribeProjectCommandInput;
+      output: DescribeProjectCommandOutput;
+    };
+  };
+}

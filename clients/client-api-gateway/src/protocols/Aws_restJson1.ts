@@ -15,6 +15,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -44,6 +45,10 @@ import {
   CreateDocumentationVersionCommandInput,
   CreateDocumentationVersionCommandOutput,
 } from "../commands/CreateDocumentationVersionCommand";
+import {
+  CreateDomainNameAccessAssociationCommandInput,
+  CreateDomainNameAccessAssociationCommandOutput,
+} from "../commands/CreateDomainNameAccessAssociationCommand";
 import { CreateDomainNameCommandInput, CreateDomainNameCommandOutput } from "../commands/CreateDomainNameCommand";
 import { CreateModelCommandInput, CreateModelCommandOutput } from "../commands/CreateModelCommand";
 import {
@@ -75,6 +80,10 @@ import {
   DeleteDocumentationVersionCommandInput,
   DeleteDocumentationVersionCommandOutput,
 } from "../commands/DeleteDocumentationVersionCommand";
+import {
+  DeleteDomainNameAccessAssociationCommandInput,
+  DeleteDomainNameAccessAssociationCommandOutput,
+} from "../commands/DeleteDomainNameAccessAssociationCommand";
 import { DeleteDomainNameCommandInput, DeleteDomainNameCommandOutput } from "../commands/DeleteDomainNameCommand";
 import {
   DeleteGatewayResponseCommandInput,
@@ -146,6 +155,10 @@ import {
   GetDocumentationVersionsCommandInput,
   GetDocumentationVersionsCommandOutput,
 } from "../commands/GetDocumentationVersionsCommand";
+import {
+  GetDomainNameAccessAssociationsCommandInput,
+  GetDomainNameAccessAssociationsCommandOutput,
+} from "../commands/GetDomainNameAccessAssociationsCommand";
 import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "../commands/GetDomainNameCommand";
 import { GetDomainNamesCommandInput, GetDomainNamesCommandOutput } from "../commands/GetDomainNamesCommand";
 import { GetExportCommandInput, GetExportCommandOutput } from "../commands/GetExportCommand";
@@ -204,6 +217,10 @@ import {
 import { PutMethodCommandInput, PutMethodCommandOutput } from "../commands/PutMethodCommand";
 import { PutMethodResponseCommandInput, PutMethodResponseCommandOutput } from "../commands/PutMethodResponseCommand";
 import { PutRestApiCommandInput, PutRestApiCommandOutput } from "../commands/PutRestApiCommand";
+import {
+  RejectDomainNameAccessAssociationCommandInput,
+  RejectDomainNameAccessAssociationCommandOutput,
+} from "../commands/RejectDomainNameAccessAssociationCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import {
   TestInvokeAuthorizerCommandInput,
@@ -362,6 +379,9 @@ export const se_CreateBasePathMappingCommand = async (
   };
   b.bp("/domainnames/{domainName}/basepathmappings");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -370,7 +390,7 @@ export const se_CreateBasePathMappingCommand = async (
       stage: [],
     })
   );
-  b.m("POST").h(headers).b(body);
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -477,9 +497,36 @@ export const se_CreateDomainNameCommand = async (
       endpointConfiguration: (_) => _json(_),
       mutualTlsAuthentication: (_) => _json(_),
       ownershipVerificationCertificateArn: [],
+      policy: [],
       regionalCertificateArn: [],
       regionalCertificateName: [],
+      routingMode: [],
       securityPolicy: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDomainNameAccessAssociationCommand
+ */
+export const se_CreateDomainNameAccessAssociationCommand = async (
+  input: CreateDomainNameAccessAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/domainnameaccessassociations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accessAssociationSource: [],
+      accessAssociationSourceType: [],
+      domainNameArn: [],
       tags: (_) => _json(_),
     })
   );
@@ -747,8 +794,11 @@ export const se_DeleteBasePathMappingCommand = async (
   b.bp("/domainnames/{domainName}/basepathmappings/{basePath}");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
   b.p("basePath", () => input.basePath!, "{basePath}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
   let body: any;
-  b.m("DELETE").h(headers).b(body);
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -830,6 +880,30 @@ export const se_DeleteDomainNameCommand = async (
   const headers: any = {};
   b.bp("/domainnames/{domainName}");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDomainNameAccessAssociationCommand
+ */
+export const se_DeleteDomainNameAccessAssociationCommand = async (
+  input: DeleteDomainNameAccessAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domainnameaccessassociations/{domainNameAccessAssociationArn}");
+  b.p(
+    "domainNameAccessAssociationArn",
+    () => input.domainNameAccessAssociationArn!,
+    "{domainNameAccessAssociationArn}",
+    false
+  );
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1124,12 +1198,9 @@ export const se_GetAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/account");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1224,8 +1295,11 @@ export const se_GetBasePathMappingCommand = async (
   b.bp("/domainnames/{domainName}/basepathmappings/{basePath}");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
   b.p("basePath", () => input.basePath!, "{basePath}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1241,6 +1315,7 @@ export const se_GetBasePathMappingsCommand = async (
   b.bp("/domainnames/{domainName}/basepathmappings");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
   const query: any = map({
+    [_dNI]: [, input[_dNI]!],
     [_p]: [, input[_p]!],
     [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
   });
@@ -1297,7 +1372,7 @@ export const se_GetDeploymentCommand = async (
   b.p("restApiId", () => input.restApiId!, "{restApiId}", false);
   b.p("deploymentId", () => input.deploymentId!, "{deploymentId}", false);
   const query: any = map({
-    [_e]: [() => input.embed !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
+    [_e]: [() => input.embed !== void 0, () => input[_e]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1413,8 +1488,31 @@ export const se_GetDomainNameCommand = async (
   const headers: any = {};
   b.bp("/domainnames/{domainName}");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
   let body: any;
-  b.m("GET").h(headers).b(body);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDomainNameAccessAssociationsCommand
+ */
+export const se_GetDomainNameAccessAssociationsCommand = async (
+  input: GetDomainNameAccessAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/domainnameaccessassociations");
+  const query: any = map({
+    [_p]: [, input[_p]!],
+    [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_rO]: [, input[_rO]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -1431,6 +1529,7 @@ export const se_GetDomainNamesCommand = async (
   const query: any = map({
     [_p]: [, input[_p]!],
     [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
+    [_rO]: [, input[_rO]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1678,7 +1777,7 @@ export const se_GetResourceCommand = async (
   b.p("restApiId", () => input.restApiId!, "{restApiId}", false);
   b.p("resourceId", () => input.resourceId!, "{resourceId}", false);
   const query: any = map({
-    [_e]: [() => input.embed !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
+    [_e]: [() => input.embed !== void 0, () => input[_e]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1699,7 +1798,7 @@ export const se_GetResourcesCommand = async (
   const query: any = map({
     [_p]: [, input[_p]!],
     [_l]: [() => input.limit !== void 0, () => input[_l]!.toString()],
-    [_e]: [() => input.embed !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
+    [_e]: [() => input.embed !== void 0, () => input[_e]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2236,6 +2335,25 @@ export const se_PutRestApiCommand = async (
 };
 
 /**
+ * serializeAws_restJson1RejectDomainNameAccessAssociationCommand
+ */
+export const se_RejectDomainNameAccessAssociationCommand = async (
+  input: RejectDomainNameAccessAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/rejectdomainnameaccessassociations");
+  const query: any = map({
+    [_dNAAA]: [, __expectNonNull(input[_dNAAA]!, `domainNameAccessAssociationArn`)],
+    [_dNA]: [, __expectNonNull(input[_dNA]!, `domainNameArn`)],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -2329,10 +2447,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2422,13 +2537,16 @@ export const se_UpdateBasePathMappingCommand = async (
   b.bp("/domainnames/{domainName}/basepathmappings/{basePath}");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
   b.p("basePath", () => input.basePath!, "{basePath}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
   let body: any;
   body = JSON.stringify(
     take(input, {
       patchOperations: (_) => _json(_),
     })
   );
-  b.m("PATCH").h(headers).b(body);
+  b.m("PATCH").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2540,13 +2658,16 @@ export const se_UpdateDomainNameCommand = async (
   };
   b.bp("/domainnames/{domainName}");
   b.p("domainName", () => input.domainName!, "{domainName}", false);
+  const query: any = map({
+    [_dNI]: [, input[_dNI]!],
+  });
   let body: any;
   body = JSON.stringify(
     take(input, {
       patchOperations: (_) => _json(_),
     })
   );
-  b.m("PATCH").h(headers).b(body);
+  b.m("PATCH").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -3039,16 +3160,46 @@ export const de_CreateDomainNameCommand = async (
     distributionDomainName: __expectString,
     distributionHostedZoneId: __expectString,
     domainName: __expectString,
+    domainNameArn: __expectString,
+    domainNameId: __expectString,
     domainNameStatus: __expectString,
     domainNameStatusMessage: __expectString,
     endpointConfiguration: _json,
+    managementPolicy: __expectString,
     mutualTlsAuthentication: _json,
     ownershipVerificationCertificateArn: __expectString,
+    policy: __expectString,
     regionalCertificateArn: __expectString,
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDomainNameAccessAssociationCommand
+ */
+export const de_CreateDomainNameAccessAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDomainNameAccessAssociationCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accessAssociationSource: __expectString,
+    accessAssociationSourceType: __expectString,
+    domainNameAccessAssociationArn: __expectString,
+    domainNameArn: __expectString,
     tags: _json,
   });
   Object.assign(contents, doc);
@@ -3405,6 +3556,23 @@ export const de_DeleteDomainNameCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteDomainNameCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDomainNameAccessAssociationCommand
+ */
+export const de_DeleteDomainNameAccessAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDomainNameAccessAssociationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -4075,17 +4243,44 @@ export const de_GetDomainNameCommand = async (
     distributionDomainName: __expectString,
     distributionHostedZoneId: __expectString,
     domainName: __expectString,
+    domainNameArn: __expectString,
+    domainNameId: __expectString,
     domainNameStatus: __expectString,
     domainNameStatusMessage: __expectString,
     endpointConfiguration: _json,
+    managementPolicy: __expectString,
     mutualTlsAuthentication: _json,
     ownershipVerificationCertificateArn: __expectString,
+    policy: __expectString,
     regionalCertificateArn: __expectString,
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDomainNameAccessAssociationsCommand
+ */
+export const de_GetDomainNameAccessAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDomainNameAccessAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: [, _json, `item`],
+    position: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5077,6 +5272,23 @@ export const de_PutRestApiCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RejectDomainNameAccessAssociationCommand
+ */
+export const de_RejectDomainNameAccessAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RejectDomainNameAccessAssociationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -5387,15 +5599,20 @@ export const de_UpdateDomainNameCommand = async (
     distributionDomainName: __expectString,
     distributionHostedZoneId: __expectString,
     domainName: __expectString,
+    domainNameArn: __expectString,
+    domainNameId: __expectString,
     domainNameStatus: __expectString,
     domainNameStatusMessage: __expectString,
     endpointConfiguration: _json,
+    managementPolicy: __expectString,
     mutualTlsAuthentication: _json,
     ownershipVerificationCertificateArn: __expectString,
+    policy: __expectString,
     regionalCertificateArn: __expectString,
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
   });
@@ -6143,19 +6360,26 @@ const de_DomainName = (output: any, context: __SerdeContext): DomainName => {
     distributionDomainName: __expectString,
     distributionHostedZoneId: __expectString,
     domainName: __expectString,
+    domainNameArn: __expectString,
+    domainNameId: __expectString,
     domainNameStatus: __expectString,
     domainNameStatusMessage: __expectString,
     endpointConfiguration: _json,
+    managementPolicy: __expectString,
     mutualTlsAuthentication: _json,
     ownershipVerificationCertificateArn: __expectString,
+    policy: __expectString,
     regionalCertificateArn: __expectString,
     regionalCertificateName: __expectString,
     regionalDomainName: __expectString,
     regionalHostedZoneId: __expectString,
+    routingMode: __expectString,
     securityPolicy: __expectString,
     tags: _json,
   }) as any;
 };
+
+// de_DomainNameAccessAssociation omitted.
 
 // de_EndpointConfiguration omitted.
 
@@ -6244,6 +6468,8 @@ const de_ListOfDomainName = (output: any, context: __SerdeContext): DomainName[]
     });
   return retVal;
 };
+
+// de_ListOfDomainNameAccessAssociation omitted.
 
 // de_ListOfEndpointType omitted.
 
@@ -6478,13 +6704,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _a = "accepts";
 const _ac = "accept";
 const _cD = "contentDisposition";
@@ -6493,6 +6712,9 @@ const _cT = "contentType";
 const _cd = "content-disposition";
 const _ct = "content-type";
 const _dI = "deploymentId";
+const _dNA = "domainNameArn";
+const _dNAAA = "domainNameAccessAssociationArn";
+const _dNI = "domainNameId";
 const _e = "embed";
 const _eD = "endDate";
 const _f = "flatten";
@@ -6510,6 +6732,7 @@ const _nQ = "nameQuery";
 const _p = "position";
 const _pa = "path";
 const _rAS = "retryAfterSeconds";
+const _rO = "resourceOwner";
 const _ra = "retry-after";
 const _sD = "startDate";
 const _t = "type";

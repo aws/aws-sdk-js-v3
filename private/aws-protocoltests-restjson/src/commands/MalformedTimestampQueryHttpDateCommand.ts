@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { MalformedTimestampQueryHttpDateInput } from "../models/models_0";
 import {
   de_MalformedTimestampQueryHttpDateCommand,
@@ -13,7 +15,8 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +57,7 @@ export interface MalformedTimestampQueryHttpDateCommandOutput extends __Metadata
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  */
 export class MalformedTimestampQueryHttpDateCommand extends $Command
   .classBuilder<
@@ -63,12 +67,28 @@ export class MalformedTimestampQueryHttpDateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "MalformedTimestampQueryHttpDate", {})
   .n("RestJsonProtocolClient", "MalformedTimestampQueryHttpDateCommand")
   .f(void 0, void 0)
   .ser(se_MalformedTimestampQueryHttpDateCommand)
   .de(de_MalformedTimestampQueryHttpDateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MalformedTimestampQueryHttpDateInput;
+      output: {};
+    };
+    sdk: {
+      input: MalformedTimestampQueryHttpDateCommandInput;
+      output: MalformedTimestampQueryHttpDateCommandOutput;
+    };
+  };
+}

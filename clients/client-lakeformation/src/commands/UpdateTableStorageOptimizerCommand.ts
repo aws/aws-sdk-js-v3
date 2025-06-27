@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface UpdateTableStorageOptimizerCommandOutput
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class UpdateTableStorageOptimizerCommand extends $Command
@@ -88,9 +90,7 @@ export class UpdateTableStorageOptimizerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class UpdateTableStorageOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableStorageOptimizerCommand)
   .de(de_UpdateTableStorageOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableStorageOptimizerRequest;
+      output: UpdateTableStorageOptimizerResponse;
+    };
+    sdk: {
+      input: UpdateTableStorageOptimizerCommandInput;
+      output: UpdateTableStorageOptimizerCommandOutput;
+    };
+  };
+}

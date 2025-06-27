@@ -13,7 +13,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ModifyClusterParameterGroupCommandOutput extends ClusterParamet
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ModifyClusterParameterGroupCommand extends $Command
@@ -91,9 +93,7 @@ export class ModifyClusterParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ModifyClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterParameterGroupCommand)
   .de(de_ModifyClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterParameterGroupMessage;
+      output: ClusterParameterGroupNameMessage;
+    };
+    sdk: {
+      input: ModifyClusterParameterGroupCommandInput;
+      output: ModifyClusterParameterGroupCommandOutput;
+    };
+  };
+}

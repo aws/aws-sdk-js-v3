@@ -12,7 +12,8 @@ import { de_GetLicenseCommand, se_GetLicenseCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,6 +120,7 @@ export interface GetLicenseCommandOutput extends GetLicenseResponse, __MetadataB
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class GetLicenseCommand extends $Command
@@ -129,9 +131,7 @@ export class GetLicenseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +143,16 @@ export class GetLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLicenseCommand)
   .de(de_GetLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLicenseRequest;
+      output: GetLicenseResponse;
+    };
+    sdk: {
+      input: GetLicenseCommandInput;
+      output: GetLicenseCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,17 +32,7 @@ export interface CreateFunctionCommandInput extends CreateFunctionRequest {}
 export interface CreateFunctionCommandOutput extends CreateFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Creates a CloudFront function.</p>
- *          <p>To create a function, you provide the function code and some configuration information
- * 			about the function. The response contains an Amazon Resource Name (ARN) that uniquely
- * 			identifies the function.</p>
- *          <p>When you create a function, it's in the <code>DEVELOPMENT</code> stage. In this stage,
- * 			you can test the function with <code>TestFunction</code>, and update it with
- * 				<code>UpdateFunction</code>.</p>
- *          <p>When you're ready to use your function with a CloudFront distribution, use
- * 				<code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code>
- * 			stage to <code>LIVE</code>. When it's live, you can attach the function to a
- * 			distribution's cache behavior, using the function's ARN.</p>
+ * <p>Creates a CloudFront function.</p> <p>To create a function, you provide the function code and some configuration information about the function. The response contains an Amazon Resource Name (ARN) that uniquely identifies the function.</p> <p>When you create a function, it's in the <code>DEVELOPMENT</code> stage. In this stage, you can test the function with <code>TestFunction</code>, and update it with <code>UpdateFunction</code>.</p> <p>When you're ready to use your function with a CloudFront distribution, use <code>PublishFunction</code> to copy the function from the <code>DEVELOPMENT</code> stage to <code>LIVE</code>. When it's live, you can attach the function to a distribution's cache behavior, using the function's ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,81 +93,76 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  * @see {@link CloudFrontClientResolvedConfig | config} for CloudFrontClient's `config` shape.
  *
  * @throws {@link FunctionAlreadyExists} (client fault)
- *  <p>A function with the same name already exists in this Amazon Web Services account. To create a
- * 			function, you must provide a unique name. To update an existing function, use
- * 				<code>UpdateFunction</code>.</p>
+ *  <p>A function with the same name already exists in this Amazon Web Services account. To create a function, you must provide a unique name. To update an existing function, use <code>UpdateFunction</code>.</p>
  *
  * @throws {@link FunctionSizeLimitExceeded} (client fault)
- *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The function is too large. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link TooManyFunctions} (client fault)
- *  <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of CloudFront functions for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To create a function
  * ```javascript
  * // Use the following command to create a function.
  * const input = {
- *   "FunctionCode": "function-code.js",
- *   "FunctionConfig": {
- *     "Comment": "my-function-comment",
- *     "KeyValueStoreAssociations": {
- *       "Items": [
+ *   FunctionCode: "function-code.js",
+ *   FunctionConfig: {
+ *     Comment: "my-function-comment",
+ *     KeyValueStoreAssociations: {
+ *       Items: [
  *         {
- *           "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *           KeyValueStoreARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  *         }
  *       ],
- *       "Quantity": 1
+ *       Quantity: 1
  *     },
- *     "Runtime": "cloudfront-js-2.0"
+ *     Runtime: "cloudfront-js-2.0"
  *   },
- *   "Name": "my-function-name"
+ *   Name: "my-function-name"
  * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "ETVPDKIKX0DER",
- *   "FunctionSummary": {
- *     "FunctionConfig": {
- *       "Comment": "my-function-comment",
- *       "KeyValueStoreAssociations": {
- *         "Items": [
+ *   ETag: "ETVPDKIKX0DER",
+ *   FunctionSummary: {
+ *     FunctionConfig: {
+ *       Comment: "my-function-comment",
+ *       KeyValueStoreAssociations: {
+ *         Items: [
  *           {
- *             "KeyValueStoreARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *             KeyValueStoreARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  *           }
  *         ],
- *         "Quantity": 1
+ *         Quantity: 1
  *       },
- *       "Runtime": "cloudfront-js-2.0"
+ *       Runtime: "cloudfront-js-2.0"
  *     },
- *     "FunctionMetadata": {
- *       "CreatedTime": "2023-11-07T19:53:50.334Z",
- *       "FunctionARN": "arn:aws:cloudfront::123456789012:function/my-function-name",
- *       "LastModifiedTime": "2023-11-07T19:53:50.334Z",
- *       "Stage": "DEVELOPMENT"
+ *     FunctionMetadata: {
+ *       CreatedTime: "2023-11-07T19:53:50.334Z",
+ *       FunctionARN: "arn:aws:cloudfront::123456789012:function/my-function-name",
+ *       LastModifiedTime: "2023-11-07T19:53:50.334Z",
+ *       Stage: "DEVELOPMENT"
  *     },
- *     "Name": "my-function-name",
- *     "Status": "UNPUBLISHED"
+ *     Name: "my-function-name",
+ *     Status: "UNPUBLISHED"
  *   },
- *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/function/arn:aws:cloudfront::123456789012:function/my-function-name"
+ *   Location: "https://cloudfront.amazonaws.com/2020-05-31/function/arn:aws:cloudfront::123456789012:function/my-function-name"
  * }
  * *\/
- * // example id: to-create-a-function-1699737558249
  * ```
  *
+ * @public
  */
 export class CreateFunctionCommand extends $Command
   .classBuilder<
@@ -186,9 +172,7 @@ export class CreateFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +184,16 @@ export class CreateFunctionCommand extends $Command
   .f(CreateFunctionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateFunctionCommand)
   .de(de_CreateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFunctionRequest;
+      output: CreateFunctionResult;
+    };
+    sdk: {
+      input: CreateFunctionCommandInput;
+      output: CreateFunctionCommandOutput;
+    };
+  };
+}

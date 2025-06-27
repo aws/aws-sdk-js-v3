@@ -17,7 +17,8 @@ import { de_DetectEntitiesCommand, se_DetectEntitiesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -176,6 +177,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DetectEntitiesCommand extends $Command
@@ -186,9 +188,7 @@ export class DetectEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +200,16 @@ export class DetectEntitiesCommand extends $Command
   .f(DetectEntitiesRequestFilterSensitiveLog, DetectEntitiesResponseFilterSensitiveLog)
   .ser(se_DetectEntitiesCommand)
   .de(de_DetectEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectEntitiesRequest;
+      output: DetectEntitiesResponse;
+    };
+    sdk: {
+      input: DetectEntitiesCommandInput;
+      output: DetectEntitiesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateTokenCommand, se_CreateTokenCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface CreateTokenCommandOutput extends CreateTokenResponse, __Metadat
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class CreateTokenCommand extends $Command
@@ -79,9 +81,7 @@ export class CreateTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class CreateTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTokenCommand)
   .de(de_CreateTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTokenRequest;
+      output: CreateTokenResponse;
+    };
+    sdk: {
+      input: CreateTokenCommandInput;
+      output: CreateTokenCommandOutput;
+    };
+  };
+}

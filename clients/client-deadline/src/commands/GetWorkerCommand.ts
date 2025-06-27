@@ -12,7 +12,8 @@ import { de_GetWorkerCommand, se_GetWorkerCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,9 +43,9 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  * const command = new GetWorkerCommand(input);
  * const response = await client.send(command);
  * // { // GetWorkerResponse
- * //   workerId: "STRING_VALUE", // required
  * //   farmId: "STRING_VALUE", // required
  * //   fleetId: "STRING_VALUE", // required
+ * //   workerId: "STRING_VALUE", // required
  * //   hostProperties: { // HostPropertiesResponse
  * //     ipAddresses: { // IpAddresses
  * //       ipV4Addresses: [ // IpV4Addresses
@@ -96,11 +97,11 @@ export interface GetWorkerCommandOutput extends GetWorkerResponse, __MetadataBea
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -112,9 +113,7 @@ export class GetWorkerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class GetWorkerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkerCommand)
   .de(de_GetWorkerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkerRequest;
+      output: GetWorkerResponse;
+    };
+    sdk: {
+      input: GetWorkerCommandInput;
+      output: GetWorkerCommandOutput;
+    };
+  };
+}

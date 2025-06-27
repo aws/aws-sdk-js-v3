@@ -12,7 +12,8 @@ import { de_DeleteConfigRuleCommand, se_DeleteConfigRuleCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,6 +37,30 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * 			receive a <code>ResourceInUseException</code>.</p>
  *          <p>You can check the state of a rule by using the
  * 				<code>DescribeConfigRules</code> request.</p>
+ *          <note>
+ *             <p>
+ *                <b>Recommendation: Stop recording resource compliance before deleting rules</b>
+ *             </p>
+ *             <p>It is highly recommended that you stop recording for the <code>AWS::Config::ResourceCompliance</code> resource type before you delete rules in your account.
+ * 				Deleting rules creates CIs for <code>AWS::Config::ResourceCompliance</code> and can affect your Config <a href="https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html">configuration recorder</a> costs.
+ *
+ * 				If you are deleting rules which evaluate a large number of resource types,
+ * 				this can lead to a spike in the number of CIs recorded.</p>
+ *             <p>Best practice:</p>
+ *             <ol>
+ *                <li>
+ *                   <p>Stop recording <code>AWS::Config::ResourceCompliance</code>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>Delete rule(s)</p>
+ *                </li>
+ *                <li>
+ *                   <p>Turn on recording for <code>AWS::Config::ResourceCompliance</code>
+ *                   </p>
+ *                </li>
+ *             </ol>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +114,7 @@ export interface DeleteConfigRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigRuleCommand extends $Command
@@ -99,9 +125,7 @@ export class DeleteConfigRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +137,16 @@ export class DeleteConfigRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigRuleCommand)
   .de(de_DeleteConfigRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigRuleCommandInput;
+      output: DeleteConfigRuleCommandOutput;
+    };
+  };
+}

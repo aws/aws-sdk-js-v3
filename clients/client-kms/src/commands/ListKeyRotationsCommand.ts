@@ -12,7 +12,8 @@ import { de_ListKeyRotationsCommand, se_ListKeyRotationsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,12 @@ export interface ListKeyRotationsCommandInput extends ListKeyRotationsRequest {}
 export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about all completed key material rotations for the specified KMS
- *       key.</p>
+ * <p>Returns information about the key materials associated with the specified KMS key. You can
+ *       use the optional <code>IncludeKeyMaterial</code> parameter to control which key materials are
+ *       included in the response.</p>
  *          <p>You must specify the KMS key in all requests. You can refine the key rotations list by
  *       limiting the number of rotations returned.</p>
- *          <p>For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotating KMS keys</a> in the
+ *          <p>For detailed information about automatic and on-demand key rotations, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">Rotate KMS keys</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Cross-account use</b>: No. You cannot perform this operation on a KMS key in a different Amazon Web Services account.</p>
@@ -48,6 +50,11 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>DeleteImportedKeyMaterial</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>DisableKeyRotation</a>
  *                </p>
  *             </li>
@@ -58,13 +65,18 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  *             </li>
  *             <li>
  *                <p>
+ *                   <a>ImportKeyMaterial</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
  *                   <a>RotateKeyOnDemand</a>
  *                </p>
  *             </li>
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +85,7 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * const client = new KMSClient(config);
  * const input = { // ListKeyRotationsRequest
  *   KeyId: "STRING_VALUE", // required
+ *   IncludeKeyMaterial: "ALL_KEY_MATERIAL" || "ROTATIONS_ONLY",
  *   Limit: Number("int"),
  *   Marker: "STRING_VALUE",
  * };
@@ -82,6 +95,12 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * //   Rotations: [ // RotationsList
  * //     { // RotationsListEntry
  * //       KeyId: "STRING_VALUE",
+ * //       KeyMaterialId: "STRING_VALUE",
+ * //       KeyMaterialDescription: "STRING_VALUE",
+ * //       ImportState: "IMPORTED" || "PENDING_IMPORT",
+ * //       KeyMaterialState: "NON_CURRENT" || "CURRENT" || "PENDING_ROTATION",
+ * //       ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
+ * //       ValidTo: new Date("TIMESTAMP"),
  * //       RotationDate: new Date("TIMESTAMP"),
  * //       RotationType: "AUTOMATIC" || "ON_DEMAND",
  * //     },
@@ -141,35 +160,8 @@ export interface ListKeyRotationsCommandOutput extends ListKeyRotationsResponse,
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To retrieve information about all completed key material rotations
- * ```javascript
- * // The following example returns information about all completed key material rotations for the specified KMS key.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new ListKeyRotationsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Rotations": [
- *     {
- *       "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "RotationDate": "2024-03-02T10:11:36.564000+00:00",
- *       "RotationType": "AUTOMATIC"
- *     },
- *     {
- *       "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *       "RotationDate": "2024-04-05T15:14:47.757000+00:00",
- *       "RotationType": "ON_DEMAND"
- *     }
- *   ],
- *   "Truncated": false
- * }
- * *\/
- * // example id: to-retrieve-information-about-all-completed-key-material-rotations-1712585167775
- * ```
  *
+ * @public
  */
 export class ListKeyRotationsCommand extends $Command
   .classBuilder<
@@ -179,9 +171,7 @@ export class ListKeyRotationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +183,16 @@ export class ListKeyRotationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKeyRotationsCommand)
   .de(de_ListKeyRotationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKeyRotationsRequest;
+      output: ListKeyRotationsResponse;
+    };
+    sdk: {
+      input: ListKeyRotationsCommandInput;
+      output: ListKeyRotationsCommandOutput;
+    };
+  };
+}

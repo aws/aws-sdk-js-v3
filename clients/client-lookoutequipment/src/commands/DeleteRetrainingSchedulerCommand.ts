@@ -12,7 +12,8 @@ import { de_DeleteRetrainingSchedulerCommand, se_DeleteRetrainingSchedulerComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,18 +77,21 @@ export interface DeleteRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Deletes a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model"
+ *   ModelName: "sample-model"
  * };
  * const command = new DeleteRetrainingSchedulerCommand(input);
- * await client.send(command);
- * // example id: deletes-a-retraining-scheduler-1694019240097
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteRetrainingSchedulerCommand extends $Command
   .classBuilder<
@@ -97,9 +101,7 @@ export class DeleteRetrainingSchedulerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +113,16 @@ export class DeleteRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRetrainingSchedulerCommand)
   .de(de_DeleteRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRetrainingSchedulerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRetrainingSchedulerCommandInput;
+      output: DeleteRetrainingSchedulerCommandOutput;
+    };
+  };
+}

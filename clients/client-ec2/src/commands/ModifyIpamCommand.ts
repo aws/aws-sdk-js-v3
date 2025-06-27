@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyIpamRequest, ModifyIpamResult } from "../models/models_6";
+import { ModifyIpamRequest, ModifyIpamResult } from "../models/models_7";
 import { de_ModifyIpamCommand, se_ModifyIpamCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,8 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  *     },
  *   ],
  *   Tier: "free" || "advanced",
+ *   EnablePrivateGua: true || false,
+ *   MeteredAccount: "ipam-owner" || "resource-owner",
  * };
  * const command = new ModifyIpamCommand(input);
  * const response = await client.send(command);
@@ -80,6 +83,8 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * //     ResourceDiscoveryAssociationCount: Number("int"),
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
+ * //     EnablePrivateGua: true || false,
+ * //     MeteredAccount: "ipam-owner" || "resource-owner",
  * //   },
  * // };
  *
@@ -94,6 +99,7 @@ export interface ModifyIpamCommandOutput extends ModifyIpamResult, __MetadataBea
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyIpamCommand extends $Command
@@ -104,9 +110,7 @@ export class ModifyIpamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +122,16 @@ export class ModifyIpamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIpamCommand)
   .de(de_ModifyIpamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIpamRequest;
+      output: ModifyIpamResult;
+    };
+    sdk: {
+      input: ModifyIpamCommandInput;
+      output: ModifyIpamCommandOutput;
+    };
+  };
+}

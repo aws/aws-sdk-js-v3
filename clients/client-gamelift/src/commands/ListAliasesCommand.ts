@@ -12,7 +12,8 @@ import { de_ListAliasesCommand, se_ListAliasesCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface ListAliasesCommandOutput extends ListAliasesOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListAliasesCommand extends $Command
@@ -104,9 +106,7 @@ export class ListAliasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class ListAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAliasesCommand)
   .de(de_ListAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAliasesInput;
+      output: ListAliasesOutput;
+    };
+    sdk: {
+      input: ListAliasesCommandInput;
+      output: ListAliasesCommandOutput;
+    };
+  };
+}

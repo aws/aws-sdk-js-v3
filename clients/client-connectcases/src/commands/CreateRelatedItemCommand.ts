@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRelatedItemRequest, CreateRelatedItemResponse } from "../models/models_0";
+import {
+  CreateRelatedItemRequest,
+  CreateRelatedItemRequestFilterSensitiveLog,
+  CreateRelatedItemResponse,
+} from "../models/models_0";
 import { de_CreateRelatedItemCommand, se_CreateRelatedItemCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,8 +47,10 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *                   <p>If you provide a value for <code>performedBy.userArn</code> you must also have
  *               <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">DescribeUser</a> permission on the ARN of the user that you provide.</p>
  *                </li>
+ *                <li>
+ *                   <p>The <code>type</code> field is reserved for internal use only.</p>
+ *                </li>
  *             </ul>
- *
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -66,9 +73,27 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  *     file: { // FileContent
  *       fileArn: "STRING_VALUE", // required
  *     },
+ *     sla: { // SlaInputContent Union: only one key present
+ *       slaInputConfiguration: { // SlaInputConfiguration
+ *         name: "STRING_VALUE", // required
+ *         type: "STRING_VALUE", // required
+ *         fieldId: "STRING_VALUE",
+ *         targetFieldValues: [ // SlaFieldValueUnionList
+ *           { // FieldValueUnion Union: only one key present
+ *             stringValue: "STRING_VALUE",
+ *             doubleValue: Number("double"),
+ *             booleanValue: true || false,
+ *             emptyValue: {},
+ *             userArnValue: "STRING_VALUE",
+ *           },
+ *         ],
+ *         targetSlaMinutes: Number("long"), // required
+ *       },
+ *     },
  *   },
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",
+ *     customEntity: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateRelatedItemCommand(input);
@@ -110,6 +135,7 @@ export interface CreateRelatedItemCommandOutput extends CreateRelatedItemRespons
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateRelatedItemCommand extends $Command
@@ -120,9 +146,7 @@ export class CreateRelatedItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,7 +155,19 @@ export class CreateRelatedItemCommand extends $Command
   })
   .s("AmazonConnectCases", "CreateRelatedItem", {})
   .n("ConnectCasesClient", "CreateRelatedItemCommand")
-  .f(void 0, void 0)
+  .f(CreateRelatedItemRequestFilterSensitiveLog, void 0)
   .ser(se_CreateRelatedItemCommand)
   .de(de_CreateRelatedItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRelatedItemRequest;
+      output: CreateRelatedItemResponse;
+    };
+    sdk: {
+      input: CreateRelatedItemCommandInput;
+      output: CreateRelatedItemCommandOutput;
+    };
+  };
+}

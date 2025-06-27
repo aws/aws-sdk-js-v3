@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,18 +80,21 @@ export interface DeleteConfigurationPolicyCommandOutput extends DeleteConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To delete a configuration policy
  * ```javascript
  * // This operation deletes the specified configuration policy.
  * const input = {
- *   "Identifier": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   Identifier: "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * };
  * const command = new DeleteConfigurationPolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-configuration-policy-1695174614062
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteConfigurationPolicyCommand extends $Command
   .classBuilder<
@@ -100,9 +104,7 @@ export class DeleteConfigurationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +116,16 @@ export class DeleteConfigurationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationPolicyCommand)
   .de(de_DeleteConfigurationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationPolicyCommandInput;
+      output: DeleteConfigurationPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeSubnetsCommand, se_DescribeSubnetsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface DescribeSubnetsCommandInput extends DescribeSubnetsRequest {}
 export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your subnets.</p>
+ * <p>Describes your subnets. The default is to describe all your subnets.
+ *           Alternatively, you can specify specific subnet IDs or filter the results to
+ *           include only the subnets that match specific criteria.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/configure-subnets.html">Subnets</a> in the
  * 				<i>Amazon VPC User Guide</i>.</p>
  * @example
@@ -48,27 +51,20 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  *   SubnetIds: [ // SubnetIdStringList
  *     "STRING_VALUE",
  *   ],
- *   DryRun: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   DryRun: true || false,
  * };
  * const command = new DescribeSubnetsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeSubnetsResult
+ * //   NextToken: "STRING_VALUE",
  * //   Subnets: [ // SubnetList
  * //     { // Subnet
- * //       AvailabilityZone: "STRING_VALUE",
  * //       AvailabilityZoneId: "STRING_VALUE",
- * //       AvailableIpAddressCount: Number("int"),
- * //       CidrBlock: "STRING_VALUE",
- * //       DefaultForAz: true || false,
  * //       EnableLniAtDeviceIndex: Number("int"),
- * //       MapPublicIpOnLaunch: true || false,
  * //       MapCustomerOwnedIpOnLaunch: true || false,
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
- * //       State: "pending" || "available" || "unavailable",
- * //       SubnetId: "STRING_VALUE",
- * //       VpcId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
  * //       AssignIpv6AddressOnCreation: true || false,
  * //       Ipv6CidrBlockAssociationSet: [ // SubnetIpv6CidrBlockAssociationSet
@@ -79,6 +75,8 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * //             State: "associating" || "associated" || "disassociating" || "disassociated" || "failing" || "failed",
  * //             StatusMessage: "STRING_VALUE",
  * //           },
+ * //           Ipv6AddressAttribute: "public" || "private",
+ * //           IpSource: "amazon" || "byoip" || "none",
  * //         },
  * //       ],
  * //       Tags: [ // TagList
@@ -96,9 +94,20 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * //         EnableResourceNameDnsARecord: true || false,
  * //         EnableResourceNameDnsAAAARecord: true || false,
  * //       },
+ * //       BlockPublicAccessStates: { // BlockPublicAccessStates
+ * //         InternetGatewayBlockMode: "off" || "block-bidirectional" || "block-ingress",
+ * //       },
+ * //       Type: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "unavailable" || "failed" || "failed-insufficient-capacity",
+ * //       VpcId: "STRING_VALUE",
+ * //       CidrBlock: "STRING_VALUE",
+ * //       AvailableIpAddressCount: Number("int"),
+ * //       AvailabilityZone: "STRING_VALUE",
+ * //       DefaultForAz: true || false,
+ * //       MapPublicIpOnLaunch: true || false,
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -112,15 +121,15 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the subnets for a VPC
  * ```javascript
  * // This example describes the subnets for the specified VPC.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "vpc-id",
- *       "Values": [
+ *       Name: "vpc-id",
+ *       Values: [
  *         "vpc-a01106c2"
  *       ]
  *     }
@@ -128,25 +137,25 @@ export interface DescribeSubnetsCommandOutput extends DescribeSubnetsResult, __M
  * };
  * const command = new DescribeSubnetsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Subnets": [
+ *   Subnets: [
  *     {
- *       "AvailabilityZone": "us-east-1c",
- *       "AvailableIpAddressCount": 251,
- *       "CidrBlock": "10.0.1.0/24",
- *       "DefaultForAz": false,
- *       "MapPublicIpOnLaunch": false,
- *       "State": "available",
- *       "SubnetId": "subnet-9d4a7b6c",
- *       "VpcId": "vpc-a01106c2"
+ *       AvailabilityZone: "us-east-1c",
+ *       AvailableIpAddressCount: 251,
+ *       CidrBlock: "10.0.1.0/24",
+ *       DefaultForAz: false,
+ *       MapPublicIpOnLaunch: false,
+ *       State: "available",
+ *       SubnetId: "subnet-9d4a7b6c",
+ *       VpcId: "vpc-a01106c2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-subnets-1
  * ```
  *
+ * @public
  */
 export class DescribeSubnetsCommand extends $Command
   .classBuilder<
@@ -156,9 +165,7 @@ export class DescribeSubnetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +177,16 @@ export class DescribeSubnetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSubnetsCommand)
   .de(de_DescribeSubnetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSubnetsRequest;
+      output: DescribeSubnetsResult;
+    };
+    sdk: {
+      input: DescribeSubnetsCommandInput;
+      output: DescribeSubnetsCommandOutput;
+    };
+  };
+}

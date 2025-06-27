@@ -12,7 +12,8 @@ import { de_UpdateFleetAttributesCommand, se_UpdateFleetAttributesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,12 +31,12 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  * <p>Updates a fleet's mutable attributes, such as game session protection and resource
  *             creation limits.</p>
  *          <p>To update fleet attributes, specify the fleet ID and the property values that you want
- *             to change. If successful, Amazon GameLift returns the identifiers for the updated fleet.</p>
+ *             to change. If successful, Amazon GameLift Servers returns the identifiers for the updated fleet.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example
@@ -99,13 +100,14 @@ export interface UpdateFleetAttributesCommandOutput extends UpdateFleetAttribute
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -117,9 +119,7 @@ export class UpdateFleetAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class UpdateFleetAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateFleetAttributesCommand)
   .de(de_UpdateFleetAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateFleetAttributesInput;
+      output: UpdateFleetAttributesOutput;
+    };
+    sdk: {
+      input: UpdateFleetAttributesCommandInput;
+      output: UpdateFleetAttributesCommandOutput;
+    };
+  };
+}

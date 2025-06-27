@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface ListCustomRoutingPortMappingsCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class ListCustomRoutingPortMappingsCommand extends $Command
@@ -114,9 +116,7 @@ export class ListCustomRoutingPortMappingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class ListCustomRoutingPortMappingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCustomRoutingPortMappingsCommand)
   .de(de_ListCustomRoutingPortMappingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCustomRoutingPortMappingsRequest;
+      output: ListCustomRoutingPortMappingsResponse;
+    };
+    sdk: {
+      input: ListCustomRoutingPortMappingsCommandInput;
+      output: ListCustomRoutingPortMappingsCommandOutput;
+    };
+  };
+}

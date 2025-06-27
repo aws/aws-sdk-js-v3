@@ -13,7 +13,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,11 +40,11 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *             sum of the individual lengths of all of the batched messages) are both 256 KiB (262,144
  *             bytes).</p>
  *          <important>
- *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p>
+ *             <p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
  *             <p>
  *                <code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code>
  *             </p>
- *             <p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p>
+ *             <p>Amazon SQS does not throw an exception or completely reject the message if it contains invalid characters. Instead, it replaces those invalid characters with <code>U+FFFD</code> before storing the message in the queue, as long as the message body contains at least one valid character.</p>
  *          </important>
  *          <p>If you don't specify the <code>DelaySeconds</code> parameter for an entry, Amazon SQS uses
  *             the default value for the queue.</p>
@@ -132,14 +133,14 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *  <p>The batch request doesn't contain any entries.</p>
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
+ *  <p>The specified ID is invalid.</p>
  *
  * @throws {@link InvalidBatchEntryId} (client fault)
  *  <p>The <code>Id</code> of a batch entry in a batch request doesn't abide by the
  *             specification.</p>
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
  *
  * @throws {@link KmsAccessDenied} (client fault)
  *  <p>The caller doesn't have the required KMS access.</p>
@@ -176,35 +177,33 @@ export interface SendMessageBatchCommandOutput extends SendMessageBatchResult, _
  *  <p>Amazon Web Services KMS throttles requests for the following conditions.</p>
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
+ *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
+ *             deleted.</p>
  *
  * @throws {@link RequestThrottled} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
+ *                     request.</p>
  *             </li>
  *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *                <p>Ensure that the request rate is within the Amazon SQS limits for
+ *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
+ *                         Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  *
  * @throws {@link TooManyEntriesInBatchRequest} (client fault)
- *  <p>The batch request contains more entries than permissible.</p>
+ *  <p>The batch request contains more entries than permissible. For Amazon SQS, the
+ *             maximum number of entries you can include in a single <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessageBatch.html">SendMessageBatch</a>, <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_DeleteMessageBatch.html">DeleteMessageBatch</a>, or <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_ChangeMessageVisibilityBatch.html">ChangeMessageVisibilityBatch</a> request is 10.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
  *  <p>Error code 400. Unsupported operation.</p>
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
+ *
  *
  * @public
  */
@@ -216,9 +215,7 @@ export class SendMessageBatchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -231,4 +228,16 @@ export class SendMessageBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendMessageBatchCommand)
   .de(de_SendMessageBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendMessageBatchRequest;
+      output: SendMessageBatchResult;
+    };
+    sdk: {
+      input: SendMessageBatchCommandInput;
+      output: SendMessageBatchCommandOutput;
+    };
+  };
+}

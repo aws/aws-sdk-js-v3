@@ -12,7 +12,8 @@ import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,29 @@ export interface CreateAliasCommandOutput extends AliasConfiguration, __Metadata
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To create an alias for a Lambda function
+ * ```javascript
+ * // The following example creates an alias named LIVE that points to version 1 of the my-function Lambda function.
+ * const input = {
+ *   Description: "alias for live version of function",
+ *   FunctionName: "my-function",
+ *   FunctionVersion: "1",
+ *   Name: "LIVE"
+ * };
+ * const command = new CreateAliasCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AliasArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:LIVE",
+ *   Description: "alias for live version of function",
+ *   FunctionVersion: "1",
+ *   Name: "LIVE",
+ *   RevisionId: "873282ed-xmpl-4dc8-a069-d0c647e470c6"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateAliasCommand extends $Command
@@ -101,9 +125,7 @@ export class CreateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +137,16 @@ export class CreateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAliasCommand)
   .de(de_CreateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAliasRequest;
+      output: AliasConfiguration;
+    };
+    sdk: {
+      input: CreateAliasCommandInput;
+      output: CreateAliasCommandOutput;
+    };
+  };
+}

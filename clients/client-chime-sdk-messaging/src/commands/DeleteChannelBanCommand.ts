@@ -16,7 +16,8 @@ import { de_DeleteChannelBanCommand, se_DeleteChannelBanCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface DeleteChannelBanCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class DeleteChannelBanCommand extends $Command
@@ -91,9 +93,7 @@ export class DeleteChannelBanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DeleteChannelBanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelBanCommand)
   .de(de_DeleteChannelBanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelBanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelBanCommandInput;
+      output: DeleteChannelBanCommandOutput;
+    };
+  };
+}

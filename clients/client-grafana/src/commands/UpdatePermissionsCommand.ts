@@ -12,7 +12,8 @@ import { de_UpdatePermissionsCommand, se_UpdatePermissionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface UpdatePermissionsCommandOutput extends UpdatePermissionsRespons
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class UpdatePermissionsCommand extends $Command
@@ -107,9 +109,7 @@ export class UpdatePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class UpdatePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePermissionsCommand)
   .de(de_UpdatePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePermissionsRequest;
+      output: UpdatePermissionsResponse;
+    };
+    sdk: {
+      input: UpdatePermissionsCommandInput;
+      output: UpdatePermissionsCommandOutput;
+    };
+  };
+}

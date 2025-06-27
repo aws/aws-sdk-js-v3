@@ -5,25 +5,24 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | Provider<string>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
-  useDualstackEndpoint?: boolean | Provider<boolean>;
+  region?: string | undefined | Provider<string | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
 }
 
-export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
+export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
-  return {
-    ...options,
+  return Object.assign(options, {
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     defaultSigningName: "neptune-graph",
-  };
+  });
 };
 
 export const commonParams = {
@@ -34,9 +33,9 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  Region?: string;
-  UseFIPS?: boolean;
-  UseDualStack?: boolean;
-  Endpoint?: string;
+  Region?: string | undefined;
+  UseFIPS?: boolean | undefined;
+  UseDualStack?: boolean | undefined;
+  Endpoint?: string | undefined;
   ApiType: string;
 }

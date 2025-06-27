@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,19 +76,22 @@ export interface AddClientIDToOpenIDConnectProviderCommandOutput extends __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To add a client ID (audience) to an Open-ID Connect (OIDC) provider
  * ```javascript
  * // The following add-client-id-to-open-id-connect-provider command adds the client ID my-application-ID to the OIDC provider named server.example.com:
  * const input = {
- *   "ClientID": "my-application-ID",
- *   "OpenIDConnectProviderArn": "arn:aws:iam::123456789012:oidc-provider/server.example.com"
+ *   ClientID: "my-application-ID",
+ *   OpenIDConnectProviderArn: "arn:aws:iam::123456789012:oidc-provider/server.example.com"
  * };
  * const command = new AddClientIDToOpenIDConnectProviderCommand(input);
- * await client.send(command);
- * // example id: 028e91f4-e2a6-4d59-9e3b-4965a3fb19be
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddClientIDToOpenIDConnectProviderCommand extends $Command
   .classBuilder<
@@ -97,9 +101,7 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +113,16 @@ export class AddClientIDToOpenIDConnectProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddClientIDToOpenIDConnectProviderCommand)
   .de(de_AddClientIDToOpenIDConnectProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddClientIDToOpenIDConnectProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddClientIDToOpenIDConnectProviderCommandInput;
+      output: AddClientIDToOpenIDConnectProviderCommandOutput;
+    };
+  };
+}

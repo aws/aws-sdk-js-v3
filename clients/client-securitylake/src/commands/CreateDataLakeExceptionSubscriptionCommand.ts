@@ -18,7 +18,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface CreateDataLakeExceptionSubscriptionCommandOutput
 
 /**
  * <p>Creates the specified notification subscription in Amazon Security Lake for the organization
- *          you specify.</p>
+ *          you specify. The notification subscription is created for exceptions that cannot be resolved by Security Lake automatically.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,6 +89,7 @@ export interface CreateDataLakeExceptionSubscriptionCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class CreateDataLakeExceptionSubscriptionCommand extends $Command
@@ -98,9 +100,7 @@ export class CreateDataLakeExceptionSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class CreateDataLakeExceptionSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDataLakeExceptionSubscriptionCommand)
   .de(de_CreateDataLakeExceptionSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataLakeExceptionSubscriptionRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateDataLakeExceptionSubscriptionCommandInput;
+      output: CreateDataLakeExceptionSubscriptionCommandOutput;
+    };
+  };
+}

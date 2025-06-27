@@ -12,7 +12,8 @@ import { de_DeleteReplicationGroupCommand, se_DeleteReplicationGroupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,16 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *             immediately begins deleting the selected resources; you cannot cancel or revert this
  *             operation.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>CreateSnapshot</code> permission is required to create a final snapshot.
+ *                     Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
+ *                </li>
+ *                <li>
+ *                   <p>This operation is valid for Redis OSS only.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -171,6 +181,7 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -201,12 +212,12 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  *  <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a
+ *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
  *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Redis.</p>
+ *                     Valkey or Redis OSS.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>
@@ -218,30 +229,30 @@ export interface DeleteReplicationGroupCommandOutput extends DeleteReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteReplicationGroup
  * ```javascript
  * // Deletes the Amazon ElastiCache replication group my-redis-rg.
  * const input = {
- *   "ReplicationGroupId": "my-redis-rg",
- *   "RetainPrimaryCluster": false
+ *   ReplicationGroupId: "my-redis-rg",
+ *   RetainPrimaryCluster: false
  * };
  * const command = new DeleteReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "disabled",
- *     "Description": "simple redis cluster",
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "my-redis-rg",
- *     "Status": "deleting"
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "disabled",
+ *     Description: "simple redis cluster",
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "my-redis-rg",
+ *     Status: "deleting"
  *   }
  * }
  * *\/
- * // example id: deletereplicationgroup-1475011641804
  * ```
  *
+ * @public
  */
 export class DeleteReplicationGroupCommand extends $Command
   .classBuilder<
@@ -251,9 +262,7 @@ export class DeleteReplicationGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -265,4 +274,16 @@ export class DeleteReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationGroupCommand)
   .de(de_DeleteReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationGroupMessage;
+      output: DeleteReplicationGroupResult;
+    };
+    sdk: {
+      input: DeleteReplicationGroupCommandInput;
+      output: DeleteReplicationGroupCommandOutput;
+    };
+  };
+}

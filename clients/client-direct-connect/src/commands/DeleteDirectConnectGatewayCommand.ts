@@ -12,7 +12,8 @@ import { de_DeleteDirectConnectGatewayCommand, se_DeleteDirectConnectGatewayComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,12 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * //     ownerAccount: "STRING_VALUE",
  * //     directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
  * //     stateChangeError: "STRING_VALUE",
+ * //     tags: [ // TagList
+ * //       { // Tag
+ * //         key: "STRING_VALUE", // required
+ * //         value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -69,6 +76,7 @@ export interface DeleteDirectConnectGatewayCommandOutput extends DeleteDirectCon
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DeleteDirectConnectGatewayCommand extends $Command
@@ -79,9 +87,7 @@ export class DeleteDirectConnectGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +99,16 @@ export class DeleteDirectConnectGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDirectConnectGatewayCommand)
   .de(de_DeleteDirectConnectGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDirectConnectGatewayRequest;
+      output: DeleteDirectConnectGatewayResult;
+    };
+    sdk: {
+      input: DeleteDirectConnectGatewayCommandInput;
+      output: DeleteDirectConnectGatewayCommandOutput;
+    };
+  };
+}

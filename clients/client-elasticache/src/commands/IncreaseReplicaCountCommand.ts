@@ -12,7 +12,8 @@ import { de_IncreaseReplicaCountCommand, se_IncreaseReplicaCountCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface IncreaseReplicaCountCommandInput extends IncreaseReplicaCountMe
 export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountResult, __MetadataBearer {}
 
 /**
- * <p>Dynamically increases the number of replicas in a Redis (cluster mode disabled)
+ * <p>Dynamically increases the number of replicas in a Valkey or Redis OSS (cluster mode disabled)
  *             replication group or the number of replica nodes in one or more node groups (shards) of
- *             a Redis (cluster mode enabled) replication group. This operation is performed with no
+ *             a Valkey or Redis OSS (cluster mode enabled) replication group. This operation is performed with no
  *             cluster down time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -176,6 +177,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -193,7 +195,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -230,6 +232,7 @@ export interface IncreaseReplicaCountCommandOutput extends IncreaseReplicaCountR
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class IncreaseReplicaCountCommand extends $Command
@@ -240,9 +243,7 @@ export class IncreaseReplicaCountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -254,4 +255,16 @@ export class IncreaseReplicaCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_IncreaseReplicaCountCommand)
   .de(de_IncreaseReplicaCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IncreaseReplicaCountMessage;
+      output: IncreaseReplicaCountResult;
+    };
+    sdk: {
+      input: IncreaseReplicaCountCommandInput;
+      output: IncreaseReplicaCountCommandOutput;
+    };
+  };
+}

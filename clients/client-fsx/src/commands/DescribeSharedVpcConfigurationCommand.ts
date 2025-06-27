@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DescribeSharedVpcConfigurationCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class DescribeSharedVpcConfigurationCommand extends $Command
@@ -74,9 +76,7 @@ export class DescribeSharedVpcConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DescribeSharedVpcConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSharedVpcConfigurationCommand)
   .de(de_DescribeSharedVpcConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeSharedVpcConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeSharedVpcConfigurationCommandInput;
+      output: DescribeSharedVpcConfigurationCommandOutput;
+    };
+  };
+}

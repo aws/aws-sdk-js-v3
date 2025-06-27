@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateProjectInput, CreateProjectOutput } from "../models/models_1";
+import { CreateProjectInput, CreateProjectOutput } from "../models/models_2";
 import { de_CreateProjectCommand, se_CreateProjectCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateProjectCommandInput extends CreateProjectInput {}
 export interface CreateProjectCommandOutput extends CreateProjectOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a machine learning (ML) project that can contain one or more templates that set
- *             up an ML pipeline from training to deploying an approved model.</p>
+ * <p>Creates a machine learning (ML) project that can contain one or more templates that set up an ML pipeline from training to deploying an approved model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,21 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   TemplateProviders: [ // CreateTemplateProviderList
+ *     { // CreateTemplateProvider
+ *       CfnTemplateProvider: { // CfnCreateTemplateProvider
+ *         TemplateName: "STRING_VALUE", // required
+ *         TemplateURL: "STRING_VALUE", // required
+ *         RoleARN: "STRING_VALUE",
+ *         Parameters: [ // CfnStackCreateParameters
+ *           { // CfnStackCreateParameter
+ *             Key: "STRING_VALUE", // required
+ *             Value: "STRING_VALUE",
+ *           },
+ *         ],
+ *       },
+ *     },
+ *   ],
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
@@ -72,11 +87,11 @@ export interface CreateProjectCommandOutput extends CreateProjectOutput, __Metad
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -88,9 +103,7 @@ export class CreateProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +115,16 @@ export class CreateProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProjectCommand)
   .de(de_CreateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProjectInput;
+      output: CreateProjectOutput;
+    };
+    sdk: {
+      input: CreateProjectCommandInput;
+      output: CreateProjectCommandOutput;
+    };
+  };
+}

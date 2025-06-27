@@ -16,7 +16,8 @@ import { de_ListEndpointGroupsCommand, se_ListEndpointGroupsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface ListEndpointGroupsCommandOutput extends ListEndpointGroupsRespo
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class ListEndpointGroupsCommand extends $Command
@@ -109,9 +111,7 @@ export class ListEndpointGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class ListEndpointGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEndpointGroupsCommand)
   .de(de_ListEndpointGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEndpointGroupsRequest;
+      output: ListEndpointGroupsResponse;
+    };
+    sdk: {
+      input: ListEndpointGroupsCommandInput;
+      output: ListEndpointGroupsCommandOutput;
+    };
+  };
+}

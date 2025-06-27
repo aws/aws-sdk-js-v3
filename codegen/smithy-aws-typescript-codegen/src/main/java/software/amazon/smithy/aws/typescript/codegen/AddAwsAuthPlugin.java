@@ -45,6 +45,7 @@ import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
+import software.amazon.smithy.typescript.codegen.integration.AddEventStreamDependency;
 import software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
 import software.amazon.smithy.utils.IoUtils;
@@ -56,7 +57,7 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 /**
  * Configure clients with AWS auth configurations and plugin.
  *
- * This is the existing control behavior for `experimentalIdentityAndAuth`.
+ * This is legacy auth behavior, and is no longer supported in development.
  */
 @SmithyInternalApi
 public final class AddAwsAuthPlugin implements TypeScriptIntegration {
@@ -67,12 +68,27 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
 
     private static final Logger LOGGER = Logger.getLogger(AddAwsAuthPlugin.class.getName());
 
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddBuiltinPlugins.class.getCanonicalName()
+        );
+    }
+
+    @Override
+    public List<String> runBefore() {
+        return List.of(
+            AddEventStreamDependency.class.getCanonicalName(),
+            AddEventStreamHandlingDependency.class.getCanonicalName()
+        );
+    }
+
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is false.
+     * Integration should only be used if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return !settings.getExperimentalIdentityAndAuth();
+        return settings.useLegacyAuth();
     }
 
     @Override
@@ -84,9 +100,8 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
     ) {
         ServiceShape service = settings.getService(model);
         if (!isSigV4Service(service) && isAwsService(service)) {
-            ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
             settings.setDefaultSigningName(
-                serviceTrait.getArnNamespace()
+                service.expectTrait(ServiceTrait.class).getArnNamespace()
             );
             return;
         }
@@ -107,15 +122,9 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
             writer.write("credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;\n");
         }
 
-        try {
-            ServiceTrait serviceTrait = service.getTrait(ServiceTrait.class).get();
-            settings.setDefaultSigningName(
-                service.getTrait(SigV4Trait.class).map(SigV4Trait::getName)
-                    .orElse(serviceTrait.getArnNamespace())
-            );
-        } catch (Exception e) {
-            LOGGER.warning("Unable to set service default signing name. A SigV4 or Service trait is needed.");
-        }
+        settings.setDefaultSigningName(
+            service.expectTrait(SigV4Trait.class).getName()
+        );
     }
 
     // Only one of AwsAuth or SigV4Auth should be used
@@ -212,7 +221,6 @@ public final class AddAwsAuthPlugin implements TypeScriptIntegration {
                             .addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE)
                             .write("credentialDefaultProvider");
-                        AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(service, writer);
                     }
                 );
             default:

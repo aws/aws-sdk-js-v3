@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,28 +92,28 @@ export interface DeleteFacesCommandOutput extends DeleteFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To delete a face
  * ```javascript
  * // This operation deletes one or more faces from a Rekognition collection.
  * const input = {
- *   "CollectionId": "myphotos",
- *   "FaceIds": [
+ *   CollectionId: "myphotos",
+ *   FaceIds: [
  *     "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
  *   ]
  * };
  * const command = new DeleteFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DeletedFaces": [
+ *   DeletedFaces: [
  *     "ff43d742-0c13-5d16-a3e8-03d3f58e980b"
  *   ]
  * }
  * *\/
- * // example id: to-delete-a-face-1482182799377
  * ```
  *
+ * @public
  */
 export class DeleteFacesCommand extends $Command
   .classBuilder<
@@ -122,9 +123,7 @@ export class DeleteFacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class DeleteFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFacesCommand)
   .de(de_DeleteFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFacesRequest;
+      output: DeleteFacesResponse;
+    };
+    sdk: {
+      input: DeleteFacesCommandInput;
+      output: DeleteFacesCommandOutput;
+    };
+  };
+}

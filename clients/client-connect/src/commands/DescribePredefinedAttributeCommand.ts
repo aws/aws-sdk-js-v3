@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,10 @@ export interface DescribePredefinedAttributeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes a predefined attribute for the specified Amazon Connect instance.</p>
+ * <p>Describes a predefined attribute for the specified Amazon Connect instance. <i>Predefined
+ *     attributes</i> are attributes in an Amazon Connect instance that can be used to route
+ *    contacts to an agent or pools of agents within a queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+ *     predefined attributes for routing contacts to agents</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +88,7 @@ export interface DescribePredefinedAttributeCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribePredefinedAttributeCommand extends $Command
@@ -94,9 +99,7 @@ export class DescribePredefinedAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +111,16 @@ export class DescribePredefinedAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePredefinedAttributeCommand)
   .de(de_DescribePredefinedAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePredefinedAttributeRequest;
+      output: DescribePredefinedAttributeResponse;
+    };
+    sdk: {
+      input: DescribePredefinedAttributeCommandInput;
+      output: DescribePredefinedAttributeCommandOutput;
+    };
+  };
+}

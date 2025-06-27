@@ -6,44 +6,11 @@
 
 AWS SDK for JavaScript PinpointSMSVoiceV2 Client for Node.js, Browser and React Native.
 
-<p>Welcome to the <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i>.
-This guide provides information about Amazon Pinpoint SMS and Voice, version 2 API
-resources, including supported HTTP methods, parameters, and schemas.</p>
-<p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with
-your recipients across multiple messaging channels. The Amazon Pinpoint SMS and
-Voice, version 2 API provides programmatic access to options that are unique to the SMS
-and voice channels. Amazon Pinpoint SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p>
-<p>If you're new to Amazon Pinpoint SMS, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html">
-Amazon Pinpoint SMS User Guide</a>. The <i>Amazon Pinpoint
-Developer Guide</i> provides tutorials, code samples, and procedures that
-demonstrate how to use Amazon Pinpoint SMS features programmatically and how to integrate
-Amazon Pinpoint functionality into mobile apps and other types of applications.
-The guide also provides key information, such as Amazon Pinpoint integration with
-other Amazon Web Services services, and the quotas that apply to use of the
-service.</p>
-<p>
-<b>Regional availability</b>
-</p>
-<p>The <i>Amazon Pinpoint SMS and Voice, version 2 API Reference</i> is
-available in several Amazon Web Services Regions and it provides an endpoint for each of
-these Regions. For a list of all the Regions and endpoints where the API is currently
-available, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#pinpoint_region">Amazon Web Services Service Endpoints</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/pinpoint.html">Amazon Pinpoint
-endpoints and quotas</a> in the Amazon Web Services General Reference. To
-learn more about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing
-Amazon Web Services Regions</a> in the Amazon Web Services General
-Reference.</p>
-<p>In each Region, Amazon Web Services maintains multiple Availability Zones. These
-Availability Zones are physically isolated from each other, but are united by private,
-low-latency, high-throughput, and highly redundant network connections. These
-Availability Zones enable us to provide very high levels of availability and redundancy,
-while also minimizing latency. To learn more about the number of Availability Zones that
-are available in each Region, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/">Amazon Web Services
-Global Infrastructure.</a>
-</p>
+<p>Welcome to the <i>AWS End User Messaging SMS and Voice, version 2 API Reference</i>. This guide provides information about AWS End User Messaging SMS and Voice, version 2 API resources, including supported HTTP methods, parameters, and schemas.</p> <p>Amazon Pinpoint is an Amazon Web Services service that you can use to engage with your recipients across multiple messaging channels. The AWS End User Messaging SMS and Voice, version 2 API provides programmatic access to options that are unique to the SMS and voice channels. AWS End User Messaging SMS and Voice, version 2 resources such as phone numbers, sender IDs, and opt-out lists can be used by the Amazon Pinpoint API.</p> <p>If you're new to AWS End User Messaging SMS and Voice, it's also helpful to review the <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/what-is-service.html"> AWS End User Messaging SMS User Guide</a>. The <i>AWS End User Messaging SMS User Guide </i> provides tutorials, code samples, and procedures that demonstrate how to use AWS End User Messaging SMS and Voice features programmatically and how to integrate functionality into mobile apps and other types of applications. The guide also provides key information, such as AWS End User Messaging SMS and Voice integration with other Amazon Web Services services, and the quotas that apply to use of the service.</p> <p> <b>Regional availability</b> </p> <p>The <i>AWS End User Messaging SMS and Voice version 2 API Reference</i> is available in several Amazon Web Services Regions and it provides an endpoint for each of these Regions. For a list of all the Regions and endpoints where the API is currently available, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande.html#pinpoint_region">Amazon Web Services Service Endpoints</a> and <a href="https://docs.aws.amazon.com/general/latest/gr/pinpoint.html">Amazon Pinpoint endpoints and quotas</a> in the Amazon Web Services General Reference. To learn more about Amazon Web Services Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing Amazon Web Services Regions</a> in the Amazon Web Services General Reference.</p> <p>In each Region, Amazon Web Services maintains multiple Availability Zones. These Availability Zones are physically isolated from each other, but are united by private, low-latency, high-throughput, and highly redundant network connections. These Availability Zones enable us to provide very high levels of availability and redundancy, while also minimizing latency. To learn more about the number of Availability Zones that are available in each Region, see <a href="https://aws.amazon.com/about-aws/global-infrastructure/">Amazon Web Services Global Infrastructure.</a> </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice-v2
+To install this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice-v2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pinpoint-sms-voice-v2`
@@ -422,6 +389,14 @@ DeleteProtectConfiguration
 </details>
 <details>
 <summary>
+DeleteProtectConfigurationRuleSetNumberOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteProtectConfigurationRuleSetNumberOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationRuleSetNumberOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteRegistration
 </summary>
 
@@ -442,6 +417,14 @@ DeleteRegistrationFieldValue
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteRegistrationFieldValueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteRegistrationFieldValueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteRegistrationFieldValueCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/DeleteResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/DeleteResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -654,10 +637,26 @@ GetProtectConfigurationCountryRuleSet
 </details>
 <details>
 <summary>
+GetResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/GetResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListPoolOriginationIdentities
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/ListPoolOriginationIdentitiesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListPoolOriginationIdentitiesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListPoolOriginationIdentitiesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListProtectConfigurationRuleSetNumberOverrides
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/ListProtectConfigurationRuleSetNumberOverridesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListProtectConfigurationRuleSetNumberOverridesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/ListProtectConfigurationRuleSetNumberOverridesCommandOutput/)
 
 </details>
 <details>
@@ -686,6 +685,14 @@ PutKeyword
 </details>
 <details>
 <summary>
+PutMessageFeedback
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutMessageFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutMessageFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutMessageFeedbackCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutOptedOutNumber
 </summary>
 
@@ -694,10 +701,26 @@ PutOptedOutNumber
 </details>
 <details>
 <summary>
+PutProtectConfigurationRuleSetNumberOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutProtectConfigurationRuleSetNumberOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutProtectConfigurationRuleSetNumberOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutProtectConfigurationRuleSetNumberOverrideCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutRegistrationFieldValue
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutRegistrationFieldValueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutRegistrationFieldValueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutRegistrationFieldValueCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutResourcePolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/PutResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/PutResourcePolicyCommandOutput/)
 
 </details>
 <details>
@@ -770,6 +793,14 @@ SetAccountDefaultProtectConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetAccountDefaultProtectConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetAccountDefaultProtectConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetAccountDefaultProtectConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+SetDefaultMessageFeedbackEnabled
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/pinpoint-sms-voice-v2/command/SetDefaultMessageFeedbackEnabledCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetDefaultMessageFeedbackEnabledCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-pinpoint-sms-voice-v2/Interface/SetDefaultMessageFeedbackEnabledCommandOutput/)
 
 </details>
 <details>

@@ -12,7 +12,8 @@ import { de_DisableSsoCommand, se_DisableSsoCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,22 @@ export interface DisableSsoCommandOutput extends DisableSsoResult, __MetadataBea
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To disable SSO
+ * ```javascript
+ * // The following example disables single sign-on for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Password: "Str0ngP@ssw0rd",
+ *   UserName: "Admin"
+ * };
+ * const command = new DisableSsoCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DisableSsoCommand extends $Command
@@ -79,9 +96,7 @@ export class DisableSsoCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +108,16 @@ export class DisableSsoCommand extends $Command
   .f(DisableSsoRequestFilterSensitiveLog, void 0)
   .ser(se_DisableSsoCommand)
   .de(de_DisableSsoCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableSsoRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableSsoCommandInput;
+      output: DisableSsoCommandOutput;
+    };
+  };
+}

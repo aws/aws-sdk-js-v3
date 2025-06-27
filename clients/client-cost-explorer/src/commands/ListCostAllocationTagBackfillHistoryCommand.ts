@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface ListCostAllocationTagBackfillHistoryCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class ListCostAllocationTagBackfillHistoryCommand extends $Command
@@ -90,9 +92,7 @@ export class ListCostAllocationTagBackfillHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class ListCostAllocationTagBackfillHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCostAllocationTagBackfillHistoryCommand)
   .de(de_ListCostAllocationTagBackfillHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCostAllocationTagBackfillHistoryRequest;
+      output: ListCostAllocationTagBackfillHistoryResponse;
+    };
+    sdk: {
+      input: ListCostAllocationTagBackfillHistoryCommandInput;
+      output: ListCostAllocationTagBackfillHistoryCommandOutput;
+    };
+  };
+}

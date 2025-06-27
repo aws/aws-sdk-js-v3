@@ -12,7 +12,8 @@ import { de_DeleteUploadCommand, se_DeleteUploadCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,18 +65,21 @@ export interface DeleteUploadCommandOutput extends DeleteUploadResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a specific upload
  * ```javascript
  * // The following example deletes a specific upload.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:upload:EXAMPLE-GUID-123-456"
+ *   arn: "arn:aws:devicefarm:us-west-2:123456789101:upload:EXAMPLE-GUID-123-456"
  * };
  * const command = new DeleteUploadCommand(input);
- * await client.send(command);
- * // example id: deleteupload-example-1470868363942
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteUploadCommand extends $Command
   .classBuilder<
@@ -85,9 +89,7 @@ export class DeleteUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +101,16 @@ export class DeleteUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUploadCommand)
   .de(de_DeleteUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUploadRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUploadCommandInput;
+      output: DeleteUploadCommandOutput;
+    };
+  };
+}

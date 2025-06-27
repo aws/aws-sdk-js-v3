@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -124,6 +125,7 @@ export interface UpdateServerEngineAttributesCommandOutput
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class UpdateServerEngineAttributesCommand extends $Command
@@ -134,9 +136,7 @@ export class UpdateServerEngineAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class UpdateServerEngineAttributesCommand extends $Command
   .f(void 0, UpdateServerEngineAttributesResponseFilterSensitiveLog)
   .ser(se_UpdateServerEngineAttributesCommand)
   .de(de_UpdateServerEngineAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServerEngineAttributesRequest;
+      output: UpdateServerEngineAttributesResponse;
+    };
+    sdk: {
+      input: UpdateServerEngineAttributesCommandInput;
+      output: UpdateServerEngineAttributesCommandOutput;
+    };
+  };
+}

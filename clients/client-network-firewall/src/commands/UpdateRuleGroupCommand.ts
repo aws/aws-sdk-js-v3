@@ -12,7 +12,8 @@ import { de_UpdateRuleGroupCommand, se_UpdateRuleGroupCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,7 +83,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *         { // StatefulRule
  *           Action: "PASS" || "DROP" || "ALERT" || "REJECT", // required
  *           Header: { // Header
- *             Protocol: "IP" || "TCP" || "UDP" || "ICMP" || "HTTP" || "FTP" || "TLS" || "SMB" || "DNS" || "DCERPC" || "SSH" || "SMTP" || "IMAP" || "MSN" || "KRB5" || "IKEV2" || "TFTP" || "NTP" || "DHCP", // required
+ *             Protocol: "IP" || "TCP" || "UDP" || "ICMP" || "HTTP" || "FTP" || "TLS" || "SMB" || "DNS" || "DCERPC" || "SSH" || "SMTP" || "IMAP" || "MSN" || "KRB5" || "IKEV2" || "TFTP" || "NTP" || "DHCP" || "HTTP2" || "QUIC", // required
  *             Source: "STRING_VALUE", // required
  *             SourcePort: "STRING_VALUE", // required
  *             Direction: "FORWARD" || "ANY", // required
@@ -180,6 +181,11 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  *     SourceUpdateToken: "STRING_VALUE",
  *   },
  *   AnalyzeRuleGroup: true || false,
+ *   SummaryConfiguration: { // SummaryConfiguration
+ *     RuleOptions: [ // SummaryRuleOptions
+ *       "SID" || "MSG" || "METADATA",
+ *     ],
+ *   },
  * };
  * const command = new UpdateRuleGroupCommand(input);
  * const response = await client.send(command);
@@ -220,6 +226,11 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * //         AnalysisDetail: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     SummaryConfiguration: { // SummaryConfiguration
+ * //       RuleOptions: [ // SummaryRuleOptions
+ * //         "SID" || "MSG" || "METADATA",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -263,6 +274,7 @@ export interface UpdateRuleGroupCommandOutput extends UpdateRuleGroupResponse, _
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleGroupCommand extends $Command
@@ -273,9 +285,7 @@ export class UpdateRuleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -287,4 +297,16 @@ export class UpdateRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleGroupCommand)
   .de(de_UpdateRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleGroupRequest;
+      output: UpdateRuleGroupResponse;
+    };
+    sdk: {
+      input: UpdateRuleGroupCommandInput;
+      output: UpdateRuleGroupCommandOutput;
+    };
+  };
+}

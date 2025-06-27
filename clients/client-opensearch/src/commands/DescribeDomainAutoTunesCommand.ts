@@ -12,7 +12,8 @@ import { de_DescribeDomainAutoTunesCommand, se_DescribeDomainAutoTunesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface DescribeDomainAutoTunesCommandOutput extends DescribeDomainAuto
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeDomainAutoTunesCommand extends $Command
@@ -93,9 +95,7 @@ export class DescribeDomainAutoTunesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class DescribeDomainAutoTunesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDomainAutoTunesCommand)
   .de(de_DescribeDomainAutoTunesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDomainAutoTunesRequest;
+      output: DescribeDomainAutoTunesResponse;
+    };
+    sdk: {
+      input: DescribeDomainAutoTunesCommandInput;
+      output: DescribeDomainAutoTunesCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateAddressRequest } from "../models/models_5";
+import { DisassociateAddressRequest } from "../models/models_6";
 import { de_DisassociateAddressCommand, se_DisassociateAddressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,6 +30,18 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
 /**
  * <p>Disassociates an Elastic IP address from the instance or network interface it's associated with.</p>
  *          <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p>
+ *          <p>An address cannot be disassociated if the all of the following conditions are met:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Network interface has a <code>publicDualStackDnsName</code> publicDnsName</p>
+ *             </li>
+ *             <li>
+ *                <p>Public IPv4 address is the primary public IPv4 address</p>
+ *             </li>
+ *             <li>
+ *                <p>Network interface only has one remaining public IPv4 address</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,18 +68,21 @@ export interface DisassociateAddressCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To disassociate an Elastic IP address
  * ```javascript
  * // This example disassociates an Elastic IP address from an instance.
  * const input = {
- *   "AssociationId": "eipassoc-2bebb745"
+ *   AssociationId: "eipassoc-2bebb745"
  * };
  * const command = new DisassociateAddressCommand(input);
- * await client.send(command);
- * // example id: ec2-disassociate-address-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisassociateAddressCommand extends $Command
   .classBuilder<
@@ -76,9 +92,7 @@ export class DisassociateAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +104,16 @@ export class DisassociateAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateAddressCommand)
   .de(de_DisassociateAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateAddressRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateAddressCommandInput;
+      output: DisassociateAddressCommandOutput;
+    };
+  };
+}

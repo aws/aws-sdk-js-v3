@@ -12,7 +12,8 @@ import { de_CreateMLTransformCommand, se_CreateMLTransformCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,6 +124,7 @@ export interface CreateMLTransformCommandOutput extends CreateMLTransformRespons
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateMLTransformCommand extends $Command
@@ -133,9 +135,7 @@ export class CreateMLTransformCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class CreateMLTransformCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMLTransformCommand)
   .de(de_CreateMLTransformCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMLTransformRequest;
+      output: CreateMLTransformResponse;
+    };
+    sdk: {
+      input: CreateMLTransformCommandInput;
+      output: CreateMLTransformCommandOutput;
+    };
+  };
+}

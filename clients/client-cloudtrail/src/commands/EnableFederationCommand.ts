@@ -12,7 +12,8 @@ import { de_EnableFederationCommand, se_EnableFederationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,7 @@ export interface EnableFederationCommandOutput extends EnableFederationResponse,
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class EnableFederationCommand extends $Command
@@ -139,9 +141,7 @@ export class EnableFederationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class EnableFederationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableFederationCommand)
   .de(de_EnableFederationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableFederationRequest;
+      output: EnableFederationResponse;
+    };
+    sdk: {
+      input: EnableFederationCommandInput;
+      output: EnableFederationCommandOutput;
+    };
+  };
+}

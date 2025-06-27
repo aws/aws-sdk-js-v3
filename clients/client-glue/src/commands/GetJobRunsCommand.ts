@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetJobRunsRequest, GetJobRunsResponse } from "../models/models_1";
+import { GetJobRunsRequest, GetJobRunsResponse } from "../models/models_2";
 import { de_GetJobRunsCommand, se_GetJobRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,8 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
 
 /**
  * <p>Retrieves metadata for all runs of a given job definition.</p>
+ *          <p>
+ *             <code>GetJobRuns</code> returns the job runs in chronological order, with the newest jobs returned first.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +53,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       TriggerName: "STRING_VALUE",
  * //       JobName: "STRING_VALUE",
  * //       JobMode: "SCRIPT" || "VISUAL" || "NOTEBOOK",
+ * //       JobRunQueuingEnabled: true || false,
  * //       StartedOn: new Date("TIMESTAMP"),
  * //       LastModifiedOn: new Date("TIMESTAMP"),
  * //       CompletedOn: new Date("TIMESTAMP"),
@@ -79,6 +83,8 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * //       DPUSeconds: Number("double"),
  * //       ExecutionClass: "FLEX" || "STANDARD",
  * //       MaintenanceWindow: "STRING_VALUE",
+ * //       ProfileName: "STRING_VALUE",
+ * //       StateDetail: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -107,6 +113,7 @@ export interface GetJobRunsCommandOutput extends GetJobRunsResponse, __MetadataB
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetJobRunsCommand extends $Command
@@ -117,9 +124,7 @@ export class GetJobRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +136,16 @@ export class GetJobRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobRunsCommand)
   .de(de_GetJobRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRunsRequest;
+      output: GetJobRunsResponse;
+    };
+    sdk: {
+      input: GetJobRunsCommandInput;
+      output: GetJobRunsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteGitHubAccountTokenCommand, se_DeleteGitHubAccountTokenCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DeleteGitHubAccountTokenCommandOutput extends DeleteGitHubAccou
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class DeleteGitHubAccountTokenCommand extends $Command
@@ -79,9 +81,7 @@ export class DeleteGitHubAccountTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DeleteGitHubAccountTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGitHubAccountTokenCommand)
   .de(de_DeleteGitHubAccountTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGitHubAccountTokenInput;
+      output: DeleteGitHubAccountTokenOutput;
+    };
+    sdk: {
+      input: DeleteGitHubAccountTokenCommandInput;
+      output: DeleteGitHubAccountTokenCommandOutput;
+    };
+  };
+}

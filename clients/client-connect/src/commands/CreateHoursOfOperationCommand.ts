@@ -12,7 +12,8 @@ import { de_CreateHoursOfOperationCommand, se_CreateHoursOfOperationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface CreateHoursOfOperationCommandOutput extends CreateHoursOfOperat
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateHoursOfOperationCommand extends $Command
@@ -106,9 +108,7 @@ export class CreateHoursOfOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class CreateHoursOfOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHoursOfOperationCommand)
   .de(de_CreateHoursOfOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHoursOfOperationRequest;
+      output: CreateHoursOfOperationResponse;
+    };
+    sdk: {
+      input: CreateHoursOfOperationCommandInput;
+      output: CreateHoursOfOperationCommandOutput;
+    };
+  };
+}

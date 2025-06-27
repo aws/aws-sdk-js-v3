@@ -12,7 +12,8 @@ import { de_ListAttachedIndicesCommand, se_ListAttachedIndicesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,30 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list the indices attached to an object
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   TargetReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new ListAttachedIndicesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IndexAttachments: [
+ *     {
+ *       IndexedAttributes:       [],
+ *       ObjectIdentifier: "AQGG_ADlfNZBzYHY_JgDt3TW45F26R1HTY2z-stwKBte_Q"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListAttachedIndicesCommand extends $Command
@@ -116,9 +141,7 @@ export class ListAttachedIndicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +153,16 @@ export class ListAttachedIndicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedIndicesCommand)
   .de(de_ListAttachedIndicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedIndicesRequest;
+      output: ListAttachedIndicesResponse;
+    };
+    sdk: {
+      input: ListAttachedIndicesCommandInput;
+      output: ListAttachedIndicesCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyInstanceAttributeRequest } from "../models/models_6";
+import { ModifyInstanceAttributeRequest } from "../models/models_7";
 import { de_ModifyInstanceAttributeCommand, se_ModifyInstanceAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,36 +49,28 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *   SourceDestCheck: { // AttributeBooleanValue
  *     Value: true || false,
  *   },
+ *   DisableApiStop: {
+ *     Value: true || false,
+ *   },
+ *   DryRun: true || false,
+ *   InstanceId: "STRING_VALUE", // required
  *   Attribute: "instanceType" || "kernel" || "ramdisk" || "userData" || "disableApiTermination" || "instanceInitiatedShutdownBehavior" || "rootDeviceName" || "blockDeviceMapping" || "productCodes" || "sourceDestCheck" || "groupSet" || "ebsOptimized" || "sriovNetSupport" || "enaSupport" || "enclaveOptions" || "disableApiStop",
+ *   Value: "STRING_VALUE",
  *   BlockDeviceMappings: [ // InstanceBlockDeviceMappingSpecificationList
  *     { // InstanceBlockDeviceMappingSpecification
  *       DeviceName: "STRING_VALUE",
  *       Ebs: { // EbsInstanceBlockDeviceSpecification
- *         DeleteOnTermination: true || false,
  *         VolumeId: "STRING_VALUE",
+ *         DeleteOnTermination: true || false,
  *       },
- *       NoDevice: "STRING_VALUE",
  *       VirtualName: "STRING_VALUE",
+ *       NoDevice: "STRING_VALUE",
  *     },
  *   ],
  *   DisableApiTermination: {
  *     Value: true || false,
  *   },
- *   DryRun: true || false,
- *   EbsOptimized: {
- *     Value: true || false,
- *   },
- *   EnaSupport: {
- *     Value: true || false,
- *   },
- *   Groups: [ // GroupIdStringList
- *     "STRING_VALUE",
- *   ],
- *   InstanceId: "STRING_VALUE", // required
- *   InstanceInitiatedShutdownBehavior: { // AttributeValue
- *     Value: "STRING_VALUE",
- *   },
- *   InstanceType: {
+ *   InstanceType: { // AttributeValue
  *     Value: "STRING_VALUE",
  *   },
  *   Kernel: {
@@ -86,14 +79,22 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *   Ramdisk: {
  *     Value: "STRING_VALUE",
  *   },
- *   SriovNetSupport: {
- *     Value: "STRING_VALUE",
- *   },
  *   UserData: { // BlobAttributeValue
  *     Value: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
- *   Value: "STRING_VALUE",
- *   DisableApiStop: {
+ *   InstanceInitiatedShutdownBehavior: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   Groups: [ // GroupIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   EbsOptimized: {
+ *     Value: true || false,
+ *   },
+ *   SriovNetSupport: {
+ *     Value: "STRING_VALUE",
+ *   },
+ *   EnaSupport: {
  *     Value: true || false,
  *   },
  * };
@@ -112,35 +113,40 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
- * @example To modify the instance type
- * ```javascript
- * // This example modifies the instance type of the specified stopped instance.
- * const input = {
- *   "InstanceId": "i-1234567890abcdef0",
- *   "InstanceType": {
- *     "Value": "m5.large"
- *   }
- * };
- * const command = new ModifyInstanceAttributeCommand(input);
- * await client.send(command);
- * // example id: to-modify-the-instance-type-1529357844378
- * ```
  *
  * @example To enable enhanced networking
  * ```javascript
  * // This example enables enhanced networking for the specified stopped instance.
  * const input = {
- *   "EnaSupport": {
- *     "Value": true
+ *   EnaSupport: {
+ *     Value: true
  *   },
- *   "InstanceId": "i-1234567890abcdef0"
+ *   InstanceId: "i-1234567890abcdef0"
  * };
  * const command = new ModifyInstanceAttributeCommand(input);
- * await client.send(command);
- * // example id: to-enable-enhanced-networking-1529358279870
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @example To modify the instance type
+ * ```javascript
+ * // This example modifies the instance type of the specified stopped instance.
+ * const input = {
+ *   InstanceId: "i-1234567890abcdef0",
+ *   InstanceType: {
+ *     Value: "m5.large"
+ *   }
+ * };
+ * const command = new ModifyInstanceAttributeCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class ModifyInstanceAttributeCommand extends $Command
   .classBuilder<
@@ -150,9 +156,7 @@ export class ModifyInstanceAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +168,16 @@ export class ModifyInstanceAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceAttributeCommand)
   .de(de_ModifyInstanceAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyInstanceAttributeCommandInput;
+      output: ModifyInstanceAttributeCommandOutput;
+    };
+  };
+}

@@ -155,6 +155,11 @@ import {
   GetLifecyclePolicyCommandInput,
   GetLifecyclePolicyCommandOutput,
 } from "./commands/GetLifecyclePolicyCommand";
+import {
+  GetMarketplaceResourceCommand,
+  GetMarketplaceResourceCommandInput,
+  GetMarketplaceResourceCommandOutput,
+} from "./commands/GetMarketplaceResourceCommand";
 import { GetWorkflowCommand, GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommand,
@@ -171,6 +176,11 @@ import {
   ImportComponentCommandInput,
   ImportComponentCommandOutput,
 } from "./commands/ImportComponentCommand";
+import {
+  ImportDiskImageCommand,
+  ImportDiskImageCommandInput,
+  ImportDiskImageCommandOutput,
+} from "./commands/ImportDiskImageCommand";
 import {
   ImportVmImageCommand,
   ImportVmImageCommandInput,
@@ -379,10 +389,12 @@ const commands = {
   GetInfrastructureConfigurationCommand,
   GetLifecycleExecutionCommand,
   GetLifecyclePolicyCommand,
+  GetMarketplaceResourceCommand,
   GetWorkflowCommand,
   GetWorkflowExecutionCommand,
   GetWorkflowStepExecutionCommand,
   ImportComponentCommand,
+  ImportDiskImageCommand,
   ImportVmImageCommand,
   ListComponentBuildVersionsCommand,
   ListComponentsCommand,
@@ -942,6 +954,23 @@ export interface Imagebuilder {
   ): void;
 
   /**
+   * @see {@link GetMarketplaceResourceCommand}
+   */
+  getMarketplaceResource(
+    args: GetMarketplaceResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetMarketplaceResourceCommandOutput>;
+  getMarketplaceResource(
+    args: GetMarketplaceResourceCommandInput,
+    cb: (err: any, data?: GetMarketplaceResourceCommandOutput) => void
+  ): void;
+  getMarketplaceResource(
+    args: GetMarketplaceResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetMarketplaceResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetWorkflowCommand}
    */
   getWorkflow(args: GetWorkflowCommandInput, options?: __HttpHandlerOptions): Promise<GetWorkflowCommandOutput>;
@@ -998,6 +1027,20 @@ export interface Imagebuilder {
     args: ImportComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ImportComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ImportDiskImageCommand}
+   */
+  importDiskImage(
+    args: ImportDiskImageCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ImportDiskImageCommandOutput>;
+  importDiskImage(args: ImportDiskImageCommandInput, cb: (err: any, data?: ImportDiskImageCommandOutput) => void): void;
+  importDiskImage(
+    args: ImportDiskImageCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ImportDiskImageCommandOutput) => void
   ): void;
 
   /**

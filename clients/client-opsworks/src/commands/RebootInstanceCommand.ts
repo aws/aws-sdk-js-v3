@@ -12,7 +12,8 @@ import { de_RebootInstanceCommand, se_RebootInstanceCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface RebootInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class RebootInstanceCommand extends $Command
@@ -74,9 +76,7 @@ export class RebootInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class RebootInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootInstanceCommand)
   .de(de_RebootInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: RebootInstanceCommandInput;
+      output: RebootInstanceCommandOutput;
+    };
+  };
+}

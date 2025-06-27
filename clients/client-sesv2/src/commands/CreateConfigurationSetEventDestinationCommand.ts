@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,9 +40,8 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * <p>Create an event destination. <i>Events</i> include message sends,
  *             deliveries, opens, clicks, bounces, and complaints. <i>Event
  *                 destinations</i> are places that you can send information about these events
- *             to. For example, you can send event data to Amazon SNS to receive notifications when you
- *             receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term
- *             storage.</p>
+ *             to. For example, you can send event data to Amazon EventBridge and associate a rule to send the event
+ *             to the specified target.</p>
  *          <p>A single configuration set can include more than one event destination.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -72,6 +72,9 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  *     },
  *     SnsDestination: { // SnsDestination
  *       TopicArn: "STRING_VALUE", // required
+ *     },
+ *     EventBridgeDestination: { // EventBridgeDestination
+ *       EventBusArn: "STRING_VALUE", // required
  *     },
  *     PinpointDestination: { // PinpointDestination
  *       ApplicationArn: "STRING_VALUE",
@@ -108,6 +111,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command
@@ -118,9 +122,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +134,16 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationSetEventDestinationCommand)
   .de(de_CreateConfigurationSetEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationSetEventDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConfigurationSetEventDestinationCommandInput;
+      output: CreateConfigurationSetEventDestinationCommandOutput;
+    };
+  };
+}

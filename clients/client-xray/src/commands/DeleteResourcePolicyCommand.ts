@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
@@ -73,9 +75,7 @@ export class DeleteResourcePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourcePolicyCommand)
   .de(de_DeleteResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourcePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourcePolicyCommandInput;
+      output: DeleteResourcePolicyCommandOutput;
+    };
+  };
+}

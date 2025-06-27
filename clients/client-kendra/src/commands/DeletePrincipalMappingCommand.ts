@@ -12,7 +12,8 @@ import { de_DeletePrincipalMappingCommand, se_DeletePrincipalMappingCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeletePrincipalMappingCommandInput extends DeletePrincipalMappi
 export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a group so that all users and sub groups that belong to the group can no
+ * <p>Deletes a group so that all users that belong to the group can no
  *             longer access documents only available to that group.</p>
  *          <p>For example, after deleting the group "Summer Interns", all interns who belonged to
  *             that group no longer see intern-only documents in their search results.</p>
@@ -91,6 +92,7 @@ export interface DeletePrincipalMappingCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DeletePrincipalMappingCommand extends $Command
@@ -101,9 +103,7 @@ export class DeletePrincipalMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DeletePrincipalMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePrincipalMappingCommand)
   .de(de_DeletePrincipalMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePrincipalMappingRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePrincipalMappingCommandInput;
+      output: DeletePrincipalMappingCommandOutput;
+    };
+  };
+}

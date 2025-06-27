@@ -20,7 +20,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,9 +49,9 @@ export interface CreateRecommendationTemplateCommandOutput
  *   recommendationIds: [ // RecommendationIdList
  *     "STRING_VALUE",
  *   ],
- *   format: "STRING_VALUE",
+ *   format: "CfnYaml" || "CfnJson",
  *   recommendationTypes: [ // RenderRecommendationTypeList
- *     "STRING_VALUE",
+ *     "Alarm" || "Sop" || "Test",
  *   ],
  *   assessmentArn: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
@@ -74,12 +75,12 @@ export interface CreateRecommendationTemplateCommandOutput
  * //       "STRING_VALUE",
  * //     ],
  * //     recommendationTypes: [ // RenderRecommendationTypeList // required
- * //       "STRING_VALUE",
+ * //       "Alarm" || "Sop" || "Test",
  * //     ],
- * //     format: "STRING_VALUE", // required
+ * //     format: "CfnYaml" || "CfnJson", // required
  * //     recommendationTemplateArn: "STRING_VALUE", // required
  * //     message: "STRING_VALUE",
- * //     status: "STRING_VALUE", // required
+ * //     status: "Pending" || "InProgress" || "Failed" || "Success", // required
  * //     name: "STRING_VALUE", // required
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
@@ -129,6 +130,7 @@ export interface CreateRecommendationTemplateCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class CreateRecommendationTemplateCommand extends $Command
@@ -139,9 +141,7 @@ export class CreateRecommendationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class CreateRecommendationTemplateCommand extends $Command
   .f(CreateRecommendationTemplateRequestFilterSensitiveLog, CreateRecommendationTemplateResponseFilterSensitiveLog)
   .ser(se_CreateRecommendationTemplateCommand)
   .de(de_CreateRecommendationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRecommendationTemplateRequest;
+      output: CreateRecommendationTemplateResponse;
+    };
+    sdk: {
+      input: CreateRecommendationTemplateCommandInput;
+      output: CreateRecommendationTemplateCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ImportSignalCatalogCommand, se_ImportSignalCatalogCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,7 +75,8 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>
@@ -91,6 +93,7 @@ export interface ImportSignalCatalogCommandOutput extends ImportSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ImportSignalCatalogCommand extends $Command
@@ -101,9 +104,7 @@ export class ImportSignalCatalogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class ImportSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportSignalCatalogCommand)
   .de(de_ImportSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportSignalCatalogRequest;
+      output: ImportSignalCatalogResponse;
+    };
+    sdk: {
+      input: ImportSignalCatalogCommandInput;
+      output: ImportSignalCatalogCommandOutput;
+    };
+  };
+}

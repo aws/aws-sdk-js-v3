@@ -12,7 +12,8 @@ import { de_CreateSignalCatalogCommand, se_CreateSignalCatalogCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -141,7 +142,8 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  *             specify the node type as branch, sensor, actuator, or attribute.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>
@@ -158,6 +160,7 @@ export interface CreateSignalCatalogCommandOutput extends CreateSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class CreateSignalCatalogCommand extends $Command
@@ -168,9 +171,7 @@ export class CreateSignalCatalogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +183,16 @@ export class CreateSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSignalCatalogCommand)
   .de(de_CreateSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSignalCatalogRequest;
+      output: CreateSignalCatalogResponse;
+    };
+    sdk: {
+      input: CreateSignalCatalogCommandInput;
+      output: CreateSignalCatalogCommandOutput;
+    };
+  };
+}

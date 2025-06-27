@@ -97,6 +97,10 @@ import {
   DeleteProtectConfigurationCommandOutput,
 } from "../commands/DeleteProtectConfigurationCommand";
 import {
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+  DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "../commands/DeleteProtectConfigurationRuleSetNumberOverrideCommand";
+import {
   DeleteRegistrationAttachmentCommandInput,
   DeleteRegistrationAttachmentCommandOutput,
 } from "../commands/DeleteRegistrationAttachmentCommand";
@@ -105,6 +109,10 @@ import {
   DeleteRegistrationFieldValueCommandInput,
   DeleteRegistrationFieldValueCommandOutput,
 } from "../commands/DeleteRegistrationFieldValueCommand";
+import {
+  DeleteResourcePolicyCommandInput,
+  DeleteResourcePolicyCommandOutput,
+} from "../commands/DeleteResourcePolicyCommand";
 import {
   DeleteTextMessageSpendLimitOverrideCommandInput,
   DeleteTextMessageSpendLimitOverrideCommandOutput,
@@ -200,10 +208,15 @@ import {
   GetProtectConfigurationCountryRuleSetCommandInput,
   GetProtectConfigurationCountryRuleSetCommandOutput,
 } from "../commands/GetProtectConfigurationCountryRuleSetCommand";
+import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
   ListPoolOriginationIdentitiesCommandInput,
   ListPoolOriginationIdentitiesCommandOutput,
 } from "../commands/ListPoolOriginationIdentitiesCommand";
+import {
+  ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+  ListProtectConfigurationRuleSetNumberOverridesCommandOutput,
+} from "../commands/ListProtectConfigurationRuleSetNumberOverridesCommand";
 import {
   ListRegistrationAssociationsCommandInput,
   ListRegistrationAssociationsCommandOutput,
@@ -213,11 +226,17 @@ import {
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
 import { PutKeywordCommandInput, PutKeywordCommandOutput } from "../commands/PutKeywordCommand";
+import { PutMessageFeedbackCommandInput, PutMessageFeedbackCommandOutput } from "../commands/PutMessageFeedbackCommand";
 import { PutOptedOutNumberCommandInput, PutOptedOutNumberCommandOutput } from "../commands/PutOptedOutNumberCommand";
+import {
+  PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+  PutProtectConfigurationRuleSetNumberOverrideCommandOutput,
+} from "../commands/PutProtectConfigurationRuleSetNumberOverrideCommand";
 import {
   PutRegistrationFieldValueCommandInput,
   PutRegistrationFieldValueCommandOutput,
 } from "../commands/PutRegistrationFieldValueCommand";
+import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "../commands/PutResourcePolicyCommand";
 import { ReleasePhoneNumberCommandInput, ReleasePhoneNumberCommandOutput } from "../commands/ReleasePhoneNumberCommand";
 import { ReleaseSenderIdCommandInput, ReleaseSenderIdCommandOutput } from "../commands/ReleaseSenderIdCommand";
 import { RequestPhoneNumberCommandInput, RequestPhoneNumberCommandOutput } from "../commands/RequestPhoneNumberCommand";
@@ -233,6 +252,10 @@ import {
   SetAccountDefaultProtectConfigurationCommandInput,
   SetAccountDefaultProtectConfigurationCommandOutput,
 } from "../commands/SetAccountDefaultProtectConfigurationCommand";
+import {
+  SetDefaultMessageFeedbackEnabledCommandInput,
+  SetDefaultMessageFeedbackEnabledCommandOutput,
+} from "../commands/SetDefaultMessageFeedbackEnabledCommand";
 import {
   SetDefaultMessageTypeCommandInput,
   SetDefaultMessageTypeCommandOutput,
@@ -317,11 +340,15 @@ import {
   DeletePoolResult,
   DeleteProtectConfigurationRequest,
   DeleteProtectConfigurationResult,
+  DeleteProtectConfigurationRuleSetNumberOverrideRequest,
+  DeleteProtectConfigurationRuleSetNumberOverrideResult,
   DeleteRegistrationAttachmentRequest,
   DeleteRegistrationAttachmentResult,
   DeleteRegistrationFieldValueRequest,
   DeleteRegistrationRequest,
   DeleteRegistrationResult,
+  DeleteResourcePolicyRequest,
+  DeleteResourcePolicyResult,
   DeleteTextMessageSpendLimitOverrideRequest,
   DeleteVerifiedDestinationNumberRequest,
   DeleteVerifiedDestinationNumberResult,
@@ -362,10 +389,14 @@ import {
   DiscardRegistrationVersionResult,
   EventType,
   GetProtectConfigurationCountryRuleSetRequest,
+  GetResourcePolicyRequest,
+  GetResourcePolicyResult,
   InternalServerException,
   KeywordFilter,
   KinesisFirehoseDestination,
   ListPoolOriginationIdentitiesRequest,
+  ListProtectConfigurationRuleSetNumberOverridesRequest,
+  ListProtectConfigurationRuleSetNumberOverridesResult,
   ListRegistrationAssociationsRequest,
   ListTagsForResourceRequest,
   MessageType,
@@ -381,10 +412,17 @@ import {
   ProtectConfigurationCountryRuleSetInformation,
   ProtectConfigurationFilter,
   ProtectConfigurationInformation,
+  ProtectConfigurationRuleSetNumberOverride,
+  ProtectConfigurationRuleSetNumberOverrideFilterItem,
   PutKeywordRequest,
+  PutMessageFeedbackRequest,
   PutOptedOutNumberRequest,
   PutOptedOutNumberResult,
+  PutProtectConfigurationRuleSetNumberOverrideRequest,
+  PutProtectConfigurationRuleSetNumberOverrideResult,
   PutRegistrationFieldValueRequest,
+  PutResourcePolicyRequest,
+  PutResourcePolicyResult,
   RegistrationAssociationFilter,
   RegistrationAttachmentFilter,
   RegistrationAttachmentsInformation,
@@ -409,6 +447,7 @@ import {
   SendVoiceMessageRequest,
   ServiceQuotaExceededException,
   SetAccountDefaultProtectConfigurationRequest,
+  SetDefaultMessageFeedbackEnabledRequest,
   SetDefaultMessageTypeRequest,
   SetDefaultSenderIdRequest,
   SetMediaMessageSpendLimitOverrideRequest,
@@ -738,6 +777,19 @@ export const se_DeleteProtectConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteProtectConfigurationRuleSetNumberOverrideCommand
+ */
+export const se_DeleteProtectConfigurationRuleSetNumberOverrideCommand = async (
+  input: DeleteProtectConfigurationRuleSetNumberOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteProtectConfigurationRuleSetNumberOverride");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteRegistrationCommand
  */
 export const se_DeleteRegistrationCommand = async (
@@ -771,6 +823,19 @@ export const se_DeleteRegistrationFieldValueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteRegistrationFieldValue");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const se_DeleteResourcePolicyCommand = async (
+  input: DeleteResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteResourcePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1115,6 +1180,19 @@ export const se_GetProtectConfigurationCountryRuleSetCommand = async (
 };
 
 /**
+ * serializeAws_json1_0GetResourcePolicyCommand
+ */
+export const se_GetResourcePolicyCommand = async (
+  input: GetResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetResourcePolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const se_ListPoolOriginationIdentitiesCommand = async (
@@ -1122,6 +1200,19 @@ export const se_ListPoolOriginationIdentitiesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListPoolOriginationIdentities");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListProtectConfigurationRuleSetNumberOverridesCommand
+ */
+export const se_ListProtectConfigurationRuleSetNumberOverridesCommand = async (
+  input: ListProtectConfigurationRuleSetNumberOverridesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListProtectConfigurationRuleSetNumberOverrides");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1167,6 +1258,19 @@ export const se_PutKeywordCommand = async (
 };
 
 /**
+ * serializeAws_json1_0PutMessageFeedbackCommand
+ */
+export const se_PutMessageFeedbackCommand = async (
+  input: PutMessageFeedbackCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutMessageFeedback");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0PutOptedOutNumberCommand
  */
 export const se_PutOptedOutNumberCommand = async (
@@ -1180,6 +1284,19 @@ export const se_PutOptedOutNumberCommand = async (
 };
 
 /**
+ * serializeAws_json1_0PutProtectConfigurationRuleSetNumberOverrideCommand
+ */
+export const se_PutProtectConfigurationRuleSetNumberOverrideCommand = async (
+  input: PutProtectConfigurationRuleSetNumberOverrideCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutProtectConfigurationRuleSetNumberOverride");
+  let body: any;
+  body = JSON.stringify(se_PutProtectConfigurationRuleSetNumberOverrideRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0PutRegistrationFieldValueCommand
  */
 export const se_PutRegistrationFieldValueCommand = async (
@@ -1187,6 +1304,19 @@ export const se_PutRegistrationFieldValueCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutRegistrationFieldValue");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0PutResourcePolicyCommand
+ */
+export const se_PutResourcePolicyCommand = async (
+  input: PutResourcePolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutResourcePolicy");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1304,6 +1434,19 @@ export const se_SetAccountDefaultProtectConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetAccountDefaultProtectConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0SetDefaultMessageFeedbackEnabledCommand
+ */
+export const se_SetDefaultMessageFeedbackEnabledCommand = async (
+  input: SetDefaultMessageFeedbackEnabledCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetDefaultMessageFeedbackEnabled");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1965,6 +2108,26 @@ export const de_DeleteProtectConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteProtectConfigurationRuleSetNumberOverrideCommand
+ */
+export const de_DeleteProtectConfigurationRuleSetNumberOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteProtectConfigurationRuleSetNumberOverrideResult(data, context);
+  const response: DeleteProtectConfigurationRuleSetNumberOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteRegistrationCommand
  */
 export const de_DeleteRegistrationCommand = async (
@@ -2018,6 +2181,26 @@ export const de_DeleteRegistrationFieldValueCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteRegistrationFieldValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyCommand
+ */
+export const de_DeleteResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DeleteResourcePolicyResult(data, context);
+  const response: DeleteResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2545,6 +2728,26 @@ export const de_GetProtectConfigurationCountryRuleSetCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0GetResourcePolicyCommand
+ */
+export const de_GetResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetResourcePolicyResult(data, context);
+  const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListPoolOriginationIdentitiesCommand
  */
 export const de_ListPoolOriginationIdentitiesCommand = async (
@@ -2558,6 +2761,26 @@ export const de_ListPoolOriginationIdentitiesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListPoolOriginationIdentitiesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListProtectConfigurationRuleSetNumberOverridesCommand
+ */
+export const de_ListProtectConfigurationRuleSetNumberOverridesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListProtectConfigurationRuleSetNumberOverridesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListProtectConfigurationRuleSetNumberOverridesResult(data, context);
+  const response: ListProtectConfigurationRuleSetNumberOverridesCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2625,6 +2848,26 @@ export const de_PutKeywordCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0PutMessageFeedbackCommand
+ */
+export const de_PutMessageFeedbackCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutMessageFeedbackCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutMessageFeedbackCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0PutOptedOutNumberCommand
  */
 export const de_PutOptedOutNumberCommand = async (
@@ -2645,6 +2888,26 @@ export const de_PutOptedOutNumberCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0PutProtectConfigurationRuleSetNumberOverrideCommand
+ */
+export const de_PutProtectConfigurationRuleSetNumberOverrideCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutProtectConfigurationRuleSetNumberOverrideCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutProtectConfigurationRuleSetNumberOverrideResult(data, context);
+  const response: PutProtectConfigurationRuleSetNumberOverrideCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0PutRegistrationFieldValueCommand
  */
 export const de_PutRegistrationFieldValueCommand = async (
@@ -2658,6 +2921,26 @@ export const de_PutRegistrationFieldValueCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: PutRegistrationFieldValueCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyCommand
+ */
+export const de_PutResourcePolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutResourcePolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_PutResourcePolicyResult(data, context);
+  const response: PutResourcePolicyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2838,6 +3121,26 @@ export const de_SetAccountDefaultProtectConfigurationCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: SetAccountDefaultProtectConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0SetDefaultMessageFeedbackEnabledCommand
+ */
+export const de_SetDefaultMessageFeedbackEnabledCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetDefaultMessageFeedbackEnabledCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: SetDefaultMessageFeedbackEnabledCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3446,11 +3749,15 @@ const se_CreateVerifiedDestinationNumberRequest = (
 
 // se_DeleteProtectConfigurationRequest omitted.
 
+// se_DeleteProtectConfigurationRuleSetNumberOverrideRequest omitted.
+
 // se_DeleteRegistrationAttachmentRequest omitted.
 
 // se_DeleteRegistrationFieldValueRequest omitted.
 
 // se_DeleteRegistrationRequest omitted.
+
+// se_DeleteResourcePolicyRequest omitted.
 
 // se_DeleteTextMessageSpendLimitOverrideRequest omitted.
 
@@ -3527,6 +3834,8 @@ const se_DisassociateOriginationIdentityRequest = (
 
 // se_GetProtectConfigurationCountryRuleSetRequest omitted.
 
+// se_GetResourcePolicyRequest omitted.
+
 // se_KeywordFilter omitted.
 
 // se_KeywordFilterList omitted.
@@ -3536,6 +3845,10 @@ const se_DisassociateOriginationIdentityRequest = (
 // se_KinesisFirehoseDestination omitted.
 
 // se_ListPoolOriginationIdentitiesRequest omitted.
+
+// se_ListProtectConfigurationRuleSetNumberOverrideFilter omitted.
+
+// se_ListProtectConfigurationRuleSetNumberOverridesRequest omitted.
 
 // se_ListRegistrationAssociationsRequest omitted.
 
@@ -3583,11 +3896,33 @@ const se_DisassociateOriginationIdentityRequest = (
 
 // se_ProtectConfigurationIdList omitted.
 
+// se_ProtectConfigurationRuleSetNumberOverrideFilterItem omitted.
+
 // se_PutKeywordRequest omitted.
+
+// se_PutMessageFeedbackRequest omitted.
 
 // se_PutOptedOutNumberRequest omitted.
 
+/**
+ * serializeAws_json1_0PutProtectConfigurationRuleSetNumberOverrideRequest
+ */
+const se_PutProtectConfigurationRuleSetNumberOverrideRequest = (
+  input: PutProtectConfigurationRuleSetNumberOverrideRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Action: [],
+    ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    DestinationPhoneNumber: [],
+    ExpirationTimestamp: (_) => _.getTime() / 1_000,
+    ProtectConfigurationId: [],
+  });
+};
+
 // se_PutRegistrationFieldValueRequest omitted.
+
+// se_PutResourcePolicyRequest omitted.
 
 // se_RegistrationAssociationFilter omitted.
 
@@ -3675,6 +4010,8 @@ const se_RequestSenderIdRequest = (input: RequestSenderIdRequest, context: __Ser
 
 // se_SetAccountDefaultProtectConfigurationRequest omitted.
 
+// se_SetDefaultMessageFeedbackEnabledRequest omitted.
+
 // se_SetDefaultMessageTypeRequest omitted.
 
 // se_SetDefaultSenderIdRequest omitted.
@@ -3743,6 +4080,7 @@ const de_ConfigurationSetInformation = (output: any, context: __SerdeContext): C
     ConfigurationSetArn: __expectString,
     ConfigurationSetName: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultMessageFeedbackEnabled: __expectBoolean,
     DefaultMessageType: __expectString,
     DefaultSenderId: __expectString,
     EventDestinations: _json,
@@ -3902,6 +4240,7 @@ const de_DeleteConfigurationSetResult = (output: any, context: __SerdeContext): 
     ConfigurationSetArn: __expectString,
     ConfigurationSetName: __expectString,
     CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DefaultMessageFeedbackEnabled: __expectBoolean,
     DefaultMessageType: __expectString,
     DefaultSenderId: __expectString,
     EventDestinations: _json,
@@ -3978,6 +4317,24 @@ const de_DeleteProtectConfigurationResult = (
 };
 
 /**
+ * deserializeAws_json1_0DeleteProtectConfigurationRuleSetNumberOverrideResult
+ */
+const de_DeleteProtectConfigurationRuleSetNumberOverrideResult = (
+  output: any,
+  context: __SerdeContext
+): DeleteProtectConfigurationRuleSetNumberOverrideResult => {
+  return take(output, {
+    Action: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    ExpirationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsoCountryCode: __expectString,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_0DeleteRegistrationAttachmentResult
  */
 const de_DeleteRegistrationAttachmentResult = (
@@ -4009,6 +4366,17 @@ const de_DeleteRegistrationResult = (output: any, context: __SerdeContext): Dele
     RegistrationId: __expectString,
     RegistrationStatus: __expectString,
     RegistrationType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0DeleteResourcePolicyResult
+ */
+const de_DeleteResourcePolicyResult = (output: any, context: __SerdeContext): DeleteResourcePolicyResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    ResourceArn: __expectString,
   }) as any;
 };
 
@@ -4193,6 +4561,17 @@ const de_DiscardRegistrationVersionResult = (
 
 // de_GetProtectConfigurationCountryRuleSetResult omitted.
 
+/**
+ * deserializeAws_json1_0GetResourcePolicyResult
+ */
+const de_GetResourcePolicyResult = (output: any, context: __SerdeContext): GetResourcePolicyResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  }) as any;
+};
+
 // de_InternalServerException omitted.
 
 // de_KeywordInformation omitted.
@@ -4202,6 +4581,21 @@ const de_DiscardRegistrationVersionResult = (
 // de_KinesisFirehoseDestination omitted.
 
 // de_ListPoolOriginationIdentitiesResult omitted.
+
+/**
+ * deserializeAws_json1_0ListProtectConfigurationRuleSetNumberOverridesResult
+ */
+const de_ListProtectConfigurationRuleSetNumberOverridesResult = (
+  output: any,
+  context: __SerdeContext
+): ListProtectConfigurationRuleSetNumberOverridesResult => {
+  return take(output, {
+    NextToken: __expectString,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
+    RuleSetNumberOverrides: (_: any) => de_ProtectConfigurationRuleSetNumberOverrideList(_, context),
+  }) as any;
+};
 
 // de_ListRegistrationAssociationsResult omitted.
 
@@ -4363,7 +4757,40 @@ const de_ProtectConfigurationInformationList = (
   return retVal;
 };
 
+/**
+ * deserializeAws_json1_0ProtectConfigurationRuleSetNumberOverride
+ */
+const de_ProtectConfigurationRuleSetNumberOverride = (
+  output: any,
+  context: __SerdeContext
+): ProtectConfigurationRuleSetNumberOverride => {
+  return take(output, {
+    Action: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    ExpirationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsoCountryCode: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0ProtectConfigurationRuleSetNumberOverrideList
+ */
+const de_ProtectConfigurationRuleSetNumberOverrideList = (
+  output: any,
+  context: __SerdeContext
+): ProtectConfigurationRuleSetNumberOverride[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ProtectConfigurationRuleSetNumberOverride(entry, context);
+    });
+  return retVal;
+};
+
 // de_PutKeywordResult omitted.
+
+// de_PutMessageFeedbackResult omitted.
 
 /**
  * deserializeAws_json1_0PutOptedOutNumberResult
@@ -4378,7 +4805,36 @@ const de_PutOptedOutNumberResult = (output: any, context: __SerdeContext): PutOp
   }) as any;
 };
 
+/**
+ * deserializeAws_json1_0PutProtectConfigurationRuleSetNumberOverrideResult
+ */
+const de_PutProtectConfigurationRuleSetNumberOverrideResult = (
+  output: any,
+  context: __SerdeContext
+): PutProtectConfigurationRuleSetNumberOverrideResult => {
+  return take(output, {
+    Action: __expectString,
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DestinationPhoneNumber: __expectString,
+    ExpirationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    IsoCountryCode: __expectString,
+    ProtectConfigurationArn: __expectString,
+    ProtectConfigurationId: __expectString,
+  }) as any;
+};
+
 // de_PutRegistrationFieldValueResult omitted.
+
+/**
+ * deserializeAws_json1_0PutResourcePolicyResult
+ */
+const de_PutResourcePolicyResult = (output: any, context: __SerdeContext): PutResourcePolicyResult => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Policy: __expectString,
+    ResourceArn: __expectString,
+  }) as any;
+};
 
 // de_RegistrationAssociationMetadata omitted.
 
@@ -4510,6 +4966,7 @@ const de_RegistrationVersionStatusHistory = (
     DeniedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DiscardedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DraftTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    RequiresAuthenticationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ReviewingTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RevokedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SubmittedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -4596,6 +5053,8 @@ const de_RequestPhoneNumberResult = (output: any, context: __SerdeContext): Requ
 // de_ServiceQuotaExceededException omitted.
 
 // de_SetAccountDefaultProtectConfigurationResult omitted.
+
+// de_SetDefaultMessageFeedbackEnabledResult omitted.
 
 // de_SetDefaultMessageTypeResult omitted.
 

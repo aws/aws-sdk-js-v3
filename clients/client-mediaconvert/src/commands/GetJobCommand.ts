@@ -12,7 +12,8 @@ import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_restJson1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,8 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //       },
  * //     ],
  * //     Id: "STRING_VALUE",
+ * //     JobEngineVersionRequested: "STRING_VALUE",
+ * //     JobEngineVersionUsed: "STRING_VALUE",
  * //     JobPercentComplete: Number("int"),
  * //     JobTemplate: "STRING_VALUE",
  * //     Messages: { // JobMessages
@@ -138,7 +141,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           },
  * //           AudioSelectors: { // __mapOfAudioSelector
  * //             "<keys>": { // AudioSelector
- * //               AudioDurationCorrection: "DISABLED" || "AUTO" || "TRACK" || "FRAME",
+ * //               AudioDurationCorrection: "DISABLED" || "AUTO" || "TRACK" || "FRAME" || "FORCE",
  * //               CustomLanguageCode: "STRING_VALUE",
  * //               DefaultSelection: "DEFAULT" || "NOT_DEFAULT",
  * //               ExternalAudioFileInput: "STRING_VALUE",
@@ -171,7 +174,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 ChannelsIn: Number("int"),
  * //                 ChannelsOut: Number("int"),
  * //               },
- * //               SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP",
+ * //               SelectorType: "PID" || "TRACK" || "LANGUAGE_CODE" || "HLS_RENDITION_GROUP" || "ALL_PCM",
  * //               Tracks: [
  * //                 Number("int"),
  * //               ],
@@ -197,6 +200,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   TerminateCaptions: "END_OF_INPUT" || "DISABLED",
  * //                 },
  * //                 FileSourceSettings: { // FileSourceSettings
+ * //                   ByteRateLimit: "ENABLED" || "DISABLED",
  * //                   Convert608To708: "UPCONVERT" || "DISABLED",
  * //                   ConvertPaintToPop: "ENABLED" || "DISABLED",
  * //                   Framerate: { // CaptionSourceFramerate
@@ -206,6 +210,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   SourceFile: "STRING_VALUE",
  * //                   TimeDelta: Number("int"),
  * //                   TimeDeltaUnits: "SECONDS" || "MILLISECONDS",
+ * //                   UpconvertSTLToTeletext: "UPCONVERT" || "DISABLED",
  * //                 },
  * //                 SourceType: "ANCILLARY" || "DVB_SUB" || "EMBEDDED" || "SCTE20" || "SCC" || "TTML" || "STL" || "SRT" || "SMI" || "SMPTE_TT" || "TELETEXT" || "NULL_SOURCE" || "IMSC" || "WEBVTT",
  * //                 TeletextSourceSettings: { // TeletextSourceSettings
@@ -237,6 +242,15 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           },
  * //           DenoiseFilter: "ENABLED" || "DISABLED",
  * //           DolbyVisionMetadataXml: "STRING_VALUE",
+ * //           DynamicAudioSelectors: { // __mapOfDynamicAudioSelector
+ * //             "<keys>": { // DynamicAudioSelector
+ * //               AudioDurationCorrection: "DISABLED" || "AUTO" || "TRACK" || "FRAME" || "FORCE",
+ * //               ExternalAudioFileInput: "STRING_VALUE",
+ * //               LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
+ * //               Offset: Number("int"),
+ * //               SelectorType: "ALL_TRACKS" || "LANGUAGE_CODE",
+ * //             },
+ * //           },
  * //           FileInput: "STRING_VALUE",
  * //           FilterEnable: "AUTO" || "DISABLE" || "FORCE",
  * //           FilterStrength: Number("int"),
@@ -279,11 +293,29 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  * //           TimecodeStart: "STRING_VALUE",
  * //           VideoGenerator: { // InputVideoGenerator
+ * //             Channels: Number("int"),
  * //             Duration: Number("int"),
+ * //             FramerateDenominator: Number("int"),
+ * //             FramerateNumerator: Number("int"),
+ * //             SampleRate: Number("int"),
  * //           },
  * //           VideoOverlays: [ // __listOfVideoOverlay
  * //             { // VideoOverlay
+ * //               Crop: { // VideoOverlayCrop
+ * //                 Height: Number("int"),
+ * //                 Unit: "PIXELS" || "PERCENTAGE",
+ * //                 Width: Number("int"),
+ * //                 X: Number("int"),
+ * //                 Y: Number("int"),
+ * //               },
  * //               EndTimecode: "STRING_VALUE",
+ * //               InitialPosition: { // VideoOverlayPosition
+ * //                 Height: Number("int"),
+ * //                 Unit: "PIXELS" || "PERCENTAGE",
+ * //                 Width: Number("int"),
+ * //                 XPosition: Number("int"),
+ * //                 YPosition: Number("int"),
+ * //               },
  * //               Input: { // VideoOverlayInput
  * //                 FileInput: "STRING_VALUE",
  * //                 InputClippings: [ // __listOfVideoOverlayInputClipping
@@ -295,7 +327,21 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 TimecodeSource: "EMBEDDED" || "ZEROBASED" || "SPECIFIEDSTART",
  * //                 TimecodeStart: "STRING_VALUE",
  * //               },
+ * //               Playback: "ONCE" || "REPEAT",
  * //               StartTimecode: "STRING_VALUE",
+ * //               Transitions: [ // __listOfVideoOverlayTransition
+ * //                 { // VideoOverlayTransition
+ * //                   EndPosition: {
+ * //                     Height: Number("int"),
+ * //                     Unit: "PIXELS" || "PERCENTAGE",
+ * //                     Width: Number("int"),
+ * //                     XPosition: Number("int"),
+ * //                     YPosition: Number("int"),
+ * //                   },
+ * //                   EndTimecode: "STRING_VALUE",
+ * //                   StartTimecode: "STRING_VALUE",
+ * //                 },
+ * //               ],
  * //             },
  * //           ],
  * //           VideoSelector: { // VideoSelector
@@ -377,6 +423,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //           AutomatedEncodingSettings: { // AutomatedEncodingSettings
  * //             AbrSettings: { // AutomatedAbrSettings
  * //               MaxAbrBitrate: Number("int"),
+ * //               MaxQualityLevel: Number("double"),
  * //               MaxRenditions: Number("int"),
  * //               MinAbrBitrate: Number("int"),
  * //               Rules: [ // __listOfAutomatedAbrRule
@@ -422,6 +469,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               BaseUrl: "STRING_VALUE",
  * //               ClientCache: "DISABLED" || "ENABLED",
  * //               CodecSpecification: "RFC_6381" || "RFC_4281",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: { // DestinationSettings
@@ -446,6 +494,10 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   DashSignaledSystemIds: [ // __listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12
  * //                     "STRING_VALUE",
  * //                   ],
+ * //                   EncryptionContractConfiguration: { // EncryptionContractConfiguration
+ * //                     SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                     SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                   },
  * //                   HlsSignaledSystemIds: [
  * //                     "STRING_VALUE",
  * //                   ],
@@ -479,7 +531,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               PtsOffsetHandlingForBFrames: "ZERO_BASED" || "MATCH_INITIAL_PTS",
  * //               SegmentControl: "SINGLE_FILE" || "SEGMENTED_FILES",
  * //               SegmentLength: Number("int"),
- * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE",
+ * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE" || "MATCH",
  * //               StreamInfResolution: "INCLUDE" || "EXCLUDE",
  * //               TargetDurationCompatibilityMode: "LEGACY" || "SPEC_COMPLIANT",
  * //               VideoCompositionOffsets: "SIGNED" || "UNSIGNED",
@@ -498,6 +550,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               ],
  * //               AudioChannelConfigSchemeIdUri: "MPEG_CHANNEL_CONFIGURATION" || "DOLBY_CHANNEL_CONFIGURATION",
  * //               BaseUrl: "STRING_VALUE",
+ * //               DashIFrameTrickPlayNameModifier: "STRING_VALUE",
  * //               DashManifestStyle: "BASIC" || "COMPACT" || "DISTINCT",
  * //               Destination: "STRING_VALUE",
  * //               DestinationSettings: {
@@ -517,6 +570,10 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 PlaybackDeviceCompatibility: "CENC_V1" || "UNENCRYPTED_SEI",
  * //                 SpekeKeyProvider: { // SpekeKeyProvider
  * //                   CertificateArn: "STRING_VALUE",
+ * //                   EncryptionContractConfiguration: {
+ * //                     SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                     SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                   },
  * //                   ResourceId: "STRING_VALUE",
  * //                   SystemIds: [ // __listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12
  * //                     "STRING_VALUE",
@@ -542,7 +599,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               PtsOffsetHandlingForBFrames: "ZERO_BASED" || "MATCH_INITIAL_PTS",
  * //               SegmentControl: "SINGLE_FILE" || "SEGMENTED_FILES",
  * //               SegmentLength: Number("int"),
- * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE",
+ * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE" || "MATCH",
  * //               VideoCompositionOffsets: "SIGNED" || "UNSIGNED",
  * //               WriteSegmentTimelineInRepresentation: "ENABLED" || "DISABLED",
  * //             },
@@ -610,6 +667,10 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 OfflineEncrypted: "ENABLED" || "DISABLED",
  * //                 SpekeKeyProvider: {
  * //                   CertificateArn: "STRING_VALUE",
+ * //                   EncryptionContractConfiguration: {
+ * //                     SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                     SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                   },
  * //                   ResourceId: "STRING_VALUE",
  * //                   SystemIds: [
  * //                     "STRING_VALUE",
@@ -643,7 +704,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               ProgressiveWriteHlsManifest: "ENABLED" || "DISABLED",
  * //               SegmentControl: "SINGLE_FILE" || "SEGMENTED_FILES",
  * //               SegmentLength: Number("int"),
- * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE",
+ * //               SegmentLengthControl: "EXACT" || "GOP_MULTIPLE" || "MATCH",
  * //               SegmentsPerSubdirectory: Number("int"),
  * //               StreamInfResolution: "INCLUDE" || "EXCLUDE",
  * //               TargetDurationCompatibilityMode: "LEGACY" || "SPEC_COMPLIANT",
@@ -678,6 +739,10 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               Encryption: { // MsSmoothEncryptionSettings
  * //                 SpekeKeyProvider: {
  * //                   CertificateArn: "STRING_VALUE",
+ * //                   EncryptionContractConfiguration: {
+ * //                     SpekeAudioPreset: "PRESET_AUDIO_1" || "PRESET_AUDIO_2" || "PRESET_AUDIO_3" || "SHARED" || "UNENCRYPTED",
+ * //                     SpekeVideoPreset: "PRESET_VIDEO_1" || "PRESET_VIDEO_2" || "PRESET_VIDEO_3" || "PRESET_VIDEO_4" || "PRESET_VIDEO_5" || "PRESET_VIDEO_6" || "PRESET_VIDEO_7" || "PRESET_VIDEO_8" || "SHARED" || "UNENCRYPTED",
+ * //                   },
  * //                   ResourceId: "STRING_VALUE",
  * //                   SystemIds: [
  * //                     "STRING_VALUE",
@@ -689,6 +754,9 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               FragmentLengthControl: "EXACT" || "GOP_MULTIPLE",
  * //               ManifestEncoding: "UTF8" || "UTF16",
  * //             },
+ * //             PerFrameMetrics: [ // __listOfFrameMetricType
+ * //               "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //             ],
  * //             Type: "HLS_GROUP_SETTINGS" || "DASH_ISO_GROUP_SETTINGS" || "FILE_GROUP_SETTINGS" || "MS_SMOOTH_GROUP_SETTINGS" || "CMAF_GROUP_SETTINGS",
  * //           },
  * //           Outputs: [ // __listOfOutput
@@ -815,7 +883,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     WavSettings: { // WavSettings
  * //                       BitDepth: Number("int"),
  * //                       Channels: Number("int"),
- * //                       Format: "RIFF" || "RF64",
+ * //                       Format: "RIFF" || "RF64" || "EXTENSIBLE",
  * //                       SampleRate: Number("int"),
  * //                     },
  * //                   },
@@ -866,6 +934,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                       HexFontColor: "STRING_VALUE",
  * //                       OutlineColor: "BLACK" || "WHITE" || "YELLOW" || "RED" || "GREEN" || "BLUE" || "AUTO",
  * //                       OutlineSize: Number("int"),
+ * //                       RemoveRubyReserveAttributes: "DISABLED" || "ENABLED",
  * //                       ShadowColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  * //                       ShadowOpacity: Number("int"),
  * //                       ShadowXOffset: Number("int"),
@@ -881,7 +950,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                       ApplyFontColor: "WHITE_TEXT_ONLY" || "ALL_TEXT",
  * //                       BackgroundColor: "NONE" || "BLACK" || "WHITE" || "AUTO",
  * //                       BackgroundOpacity: Number("int"),
- * //                       DdsHandling: "NONE" || "SPECIFIED" || "NO_DISPLAY_WINDOW",
+ * //                       DdsHandling: "NONE" || "SPECIFIED" || "NO_DISPLAY_WINDOW" || "SPECIFIED_OPTIMAL",
  * //                       DdsXCoordinate: Number("int"),
  * //                       DdsYCoordinate: Number("int"),
  * //                       FallbackFont: "BEST_MATCH" || "MONOSPACED_SANSSERIF" || "MONOSPACED_SERIF" || "PROPORTIONAL_SANSSERIF" || "PROPORTIONAL_SERIF",
@@ -934,7 +1003,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     },
  * //                     WebvttDestinationSettings: { // WebvttDestinationSettings
  * //                       Accessibility: "DISABLED" || "ENABLED",
- * //                       StylePassthrough: "ENABLED" || "DISABLED" || "STRICT",
+ * //                       StylePassthrough: "ENABLED" || "DISABLED" || "STRICT" || "MERGE",
  * //                     },
  * //                   },
  * //                   LanguageCode: "ENG" || "SPA" || "FRA" || "DEU" || "GER" || "ZHO" || "ARA" || "HIN" || "JPN" || "RUS" || "POR" || "ITA" || "URD" || "VIE" || "KOR" || "PAN" || "ABK" || "AAR" || "AFR" || "AKA" || "SQI" || "AMH" || "ARG" || "HYE" || "ASM" || "AVA" || "AVE" || "AYM" || "AZE" || "BAM" || "BAK" || "EUS" || "BEL" || "BEN" || "BIH" || "BIS" || "BOS" || "BRE" || "BUL" || "MYA" || "CAT" || "KHM" || "CHA" || "CHE" || "NYA" || "CHU" || "CHV" || "COR" || "COS" || "CRE" || "HRV" || "CES" || "DAN" || "DIV" || "NLD" || "DZO" || "ENM" || "EPO" || "EST" || "EWE" || "FAO" || "FIJ" || "FIN" || "FRM" || "FUL" || "GLA" || "GLG" || "LUG" || "KAT" || "ELL" || "GRN" || "GUJ" || "HAT" || "HAU" || "HEB" || "HER" || "HMO" || "HUN" || "ISL" || "IDO" || "IBO" || "IND" || "INA" || "ILE" || "IKU" || "IPK" || "GLE" || "JAV" || "KAL" || "KAN" || "KAU" || "KAS" || "KAZ" || "KIK" || "KIN" || "KIR" || "KOM" || "KON" || "KUA" || "KUR" || "LAO" || "LAT" || "LAV" || "LIM" || "LIN" || "LIT" || "LUB" || "LTZ" || "MKD" || "MLG" || "MSA" || "MAL" || "MLT" || "GLV" || "MRI" || "MAR" || "MAH" || "MON" || "NAU" || "NAV" || "NDE" || "NBL" || "NDO" || "NEP" || "SME" || "NOR" || "NOB" || "NNO" || "OCI" || "OJI" || "ORI" || "ORM" || "OSS" || "PLI" || "FAS" || "POL" || "PUS" || "QUE" || "QAA" || "RON" || "ROH" || "RUN" || "SMO" || "SAG" || "SAN" || "SRD" || "SRB" || "SNA" || "III" || "SND" || "SIN" || "SLK" || "SLV" || "SOM" || "SOT" || "SUN" || "SWA" || "SSW" || "SWE" || "TGL" || "TAH" || "TGK" || "TAM" || "TAT" || "TEL" || "THA" || "BOD" || "TIR" || "TON" || "TSO" || "TSN" || "TUR" || "TUK" || "TWI" || "UIG" || "UKR" || "UZB" || "VEN" || "VOL" || "WLN" || "CYM" || "FRY" || "WOL" || "XHO" || "YID" || "YOR" || "ZHA" || "ZUL" || "ORJ" || "QPC" || "TNG" || "SRP",
@@ -958,7 +1027,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   TimedMetadataSchemeIdUri: "STRING_VALUE",
  * //                   TimedMetadataValue: "STRING_VALUE",
  * //                 },
- * //                 Container: "F4V" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "WEBM" || "RAW" || "Y4M",
+ * //                 Container: "F4V" || "GIF" || "ISMV" || "M2TS" || "M3U8" || "CMFC" || "MOV" || "MP4" || "MPD" || "MXF" || "OGG" || "WEBM" || "RAW" || "Y4M",
  * //                 F4vSettings: { // F4vSettings
  * //                   MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //                 },
@@ -969,6 +1038,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   AudioPids: [ // __listOf__integerMin32Max8182
  * //                     Number("int"),
  * //                   ],
+ * //                   AudioPtsOffsetDelta: Number("int"),
  * //                   Bitrate: Number("int"),
  * //                   BufferModel: "MULTIPLEX" || "NONE",
  * //                   DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
@@ -1009,7 +1079,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   PrivateMetadataPid: Number("int"),
  * //                   ProgramNumber: Number("int"),
  * //                   PtsOffset: Number("int"),
- * //                   PtsOffsetMode: "AUTO" || "SECONDS",
+ * //                   PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  * //                   RateMode: "VBR" || "CBR",
  * //                   Scte35Esam: { // M2tsScte35Esam
  * //                     Scte35EsamPid: Number("int"),
@@ -1029,6 +1099,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   AudioPids: [
  * //                     Number("int"),
  * //                   ],
+ * //                   AudioPtsOffsetDelta: Number("int"),
  * //                   DataPTSControl: "AUTO" || "ALIGN_TO_VIDEO",
  * //                   MaxPcrInterval: Number("int"),
  * //                   NielsenId3: "INSERT" || "NONE",
@@ -1040,7 +1111,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   PrivateMetadataPid: Number("int"),
  * //                   ProgramNumber: Number("int"),
  * //                   PtsOffset: Number("int"),
- * //                   PtsOffsetMode: "AUTO" || "SECONDS",
+ * //                   PtsOffsetMode: "AUTO" || "SECONDS" || "MILLISECONDS",
  * //                   Scte35Pid: Number("int"),
  * //                   Scte35Source: "PASSTHROUGH" || "NONE",
  * //                   TimedMetadata: "PASSTHROUGH" || "NONE",
@@ -1057,11 +1128,14 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 },
  * //                 Mp4Settings: { // Mp4Settings
  * //                   AudioDuration: "DEFAULT_CODEC_DURATION" || "MATCH_VIDEO_DURATION",
+ * //                   C2paManifest: "INCLUDE" || "EXCLUDE",
+ * //                   CertificateSecret: "STRING_VALUE",
  * //                   CslgAtom: "INCLUDE" || "EXCLUDE",
  * //                   CttsVersion: Number("int"),
  * //                   FreeSpaceBox: "INCLUDE" || "EXCLUDE",
  * //                   MoovPlacement: "PROGRESSIVE_DOWNLOAD" || "NORMAL",
  * //                   Mp4MajorBrand: "STRING_VALUE",
+ * //                   SigningKmsKey: "STRING_VALUE",
  * //                 },
  * //                 MpdSettings: { // MpdSettings
  * //                   AccessibilityCaptionHints: "INCLUDE" || "EXCLUDE",
@@ -1102,18 +1176,22 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //               VideoDescription: { // VideoDescription
  * //                 AfdSignaling: "NONE" || "AUTO" || "FIXED",
  * //                 AntiAlias: "DISABLED" || "ENABLED",
+ * //                 ChromaPositionMode: "AUTO" || "FORCE_CENTER" || "FORCE_TOP_LEFT",
  * //                 CodecSettings: { // VideoCodecSettings
  * //                   Av1Settings: { // Av1Settings
  * //                     AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  * //                     BitDepth: "BIT_8" || "BIT_10",
  * //                     FilmGrainSynthesis: "DISABLED" || "ENABLED",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopSize: Number("double"),
  * //                     MaxBitrate: Number("int"),
  * //                     NumberBFramesBetweenReferenceFrames: Number("int"),
+ * //                     PerFrameMetrics: [
+ * //                       "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                     ],
  * //                     QvbrSettings: { // Av1QvbrSettings
  * //                       QvbrQualityLevel: Number("int"),
  * //                       QvbrQualityLevelFineTune: Number("double"),
@@ -1128,20 +1206,29 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                       QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  * //                     },
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
+ * //                     PerFrameMetrics: [
+ * //                       "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                     ],
  * //                     ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //                     SlowPal: "DISABLED" || "ENABLED",
  * //                     Telecine: "NONE" || "HARD",
  * //                   },
- * //                   Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
+ * //                   Codec: "AV1" || "AVC_INTRA" || "FRAME_CAPTURE" || "GIF" || "H_264" || "H_265" || "MPEG2" || "PASSTHROUGH" || "PRORES" || "UNCOMPRESSED" || "VC3" || "VP8" || "VP9" || "XAVC",
  * //                   FrameCaptureSettings: { // FrameCaptureSettings
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     MaxCaptures: Number("int"),
  * //                     Quality: Number("int"),
+ * //                   },
+ * //                   GifSettings: { // GifSettings
+ * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE",
+ * //                     FramerateDenominator: Number("int"),
+ * //                     FramerateNumerator: Number("int"),
  * //                   },
  * //                   H264Settings: { // H264Settings
  * //                     AdaptiveQuantization: "OFF" || "AUTO" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
@@ -1158,7 +1245,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     FieldEncoding: "PAFF" || "FORCE_FIELD" || "MBAFF",
  * //                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopBReference: "DISABLED" || "ENABLED",
@@ -1176,6 +1263,9 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     ParDenominator: Number("int"),
  * //                     ParNumerator: Number("int"),
+ * //                     PerFrameMetrics: [
+ * //                       "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                     ],
  * //                     QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //                     QvbrSettings: { // H264QvbrSettings
  * //                       MaxAverageBitrate: Number("int"),
@@ -1184,6 +1274,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     },
  * //                     RateControlMode: "VBR" || "CBR" || "QVBR",
  * //                     RepeatPps: "DISABLED" || "ENABLED",
+ * //                     SaliencyAwareEncoding: "DISABLED" || "PREFERRED",
  * //                     ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //                     SceneChangeDetect: "DISABLED" || "ENABLED" || "TRANSITION_DETECTION",
  * //                     Slices: Number("int"),
@@ -1194,6 +1285,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     Telecine: "NONE" || "SOFT" || "HARD",
  * //                     TemporalAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                     UnregisteredSeiTimecode: "DISABLED" || "ENABLED",
+ * //                     WriteMp4PackagingType: "AVC1" || "AVC3",
  * //                   },
  * //                   H265Settings: { // H265Settings
  * //                     AdaptiveQuantization: "OFF" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX" || "AUTO",
@@ -1205,11 +1297,12 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     Bitrate: Number("int"),
  * //                     CodecLevel: "AUTO" || "LEVEL_1" || "LEVEL_2" || "LEVEL_2_1" || "LEVEL_3" || "LEVEL_3_1" || "LEVEL_4" || "LEVEL_4_1" || "LEVEL_5" || "LEVEL_5_1" || "LEVEL_5_2" || "LEVEL_6" || "LEVEL_6_1" || "LEVEL_6_2",
  * //                     CodecProfile: "MAIN_MAIN" || "MAIN_HIGH" || "MAIN10_MAIN" || "MAIN10_HIGH" || "MAIN_422_8BIT_MAIN" || "MAIN_422_8BIT_HIGH" || "MAIN_422_10BIT_MAIN" || "MAIN_422_10BIT_HIGH",
+ * //                     Deblocking: "ENABLED" || "DISABLED",
  * //                     DynamicSubGop: "ADAPTIVE" || "STATIC",
  * //                     EndOfStreamMarkers: "INCLUDE" || "SUPPRESS",
  * //                     FlickerAdaptiveQuantization: "DISABLED" || "ENABLED",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopBReference: "DISABLED" || "ENABLED",
@@ -1227,6 +1320,9 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     ParDenominator: Number("int"),
  * //                     ParNumerator: Number("int"),
+ * //                     PerFrameMetrics: [
+ * //                       "PSNR" || "SSIM" || "MS_SSIM" || "PSNR_HVS" || "VMAF" || "QVBR",
+ * //                     ],
  * //                     QualityTuningLevel: "SINGLE_PASS" || "SINGLE_PASS_HQ" || "MULTI_PASS_HQ",
  * //                     QvbrSettings: { // H265QvbrSettings
  * //                       MaxAverageBitrate: Number("int"),
@@ -1254,7 +1350,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     CodecProfile: "MAIN" || "PROFILE_422",
  * //                     DynamicSubGop: "ADAPTIVE" || "STATIC",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopClosedCadence: Number("int"),
@@ -1271,6 +1367,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     ParDenominator: Number("int"),
  * //                     ParNumerator: Number("int"),
+ * //                     PerFrameMetrics: "<__listOfFrameMetricType>",
  * //                     QualityTuningLevel: "SINGLE_PASS" || "MULTI_PASS",
  * //                     RateControlMode: "VBR" || "CBR",
  * //                     ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
@@ -1286,13 +1383,14 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     ChromaSampling: "PRESERVE_444_SAMPLING" || "SUBSAMPLE_TO_422",
  * //                     CodecProfile: "APPLE_PRORES_422" || "APPLE_PRORES_422_HQ" || "APPLE_PRORES_422_LT" || "APPLE_PRORES_422_PROXY" || "APPLE_PRORES_4444" || "APPLE_PRORES_4444_XQ",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     InterlaceMode: "PROGRESSIVE" || "TOP_FIELD" || "BOTTOM_FIELD" || "FOLLOW_TOP_FIELD" || "FOLLOW_BOTTOM_FIELD",
  * //                     ParControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
  * //                     ParDenominator: Number("int"),
  * //                     ParNumerator: Number("int"),
+ * //                     PerFrameMetrics: "<__listOfFrameMetricType>",
  * //                     ScanTypeConversionMode: "INTERLACED" || "INTERLACED_OPTIMIZE",
  * //                     SlowPal: "DISABLED" || "ENABLED",
  * //                     Telecine: "NONE" || "HARD",
@@ -1300,7 +1398,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   UncompressedSettings: { // UncompressedSettings
  * //                     Fourcc: "I420" || "I422" || "I444",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     InterlaceMode: "INTERLACED" || "PROGRESSIVE",
@@ -1310,7 +1408,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   },
  * //                   Vc3Settings: { // Vc3Settings
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     InterlaceMode: "INTERLACED" || "PROGRESSIVE",
@@ -1322,7 +1420,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   Vp8Settings: { // Vp8Settings
  * //                     Bitrate: Number("int"),
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopSize: Number("double"),
@@ -1337,7 +1435,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                   Vp9Settings: { // Vp9Settings
  * //                     Bitrate: Number("int"),
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
  * //                     GopSize: Number("double"),
@@ -1353,9 +1451,10 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                     AdaptiveQuantization: "OFF" || "AUTO" || "LOW" || "MEDIUM" || "HIGH" || "HIGHER" || "MAX",
  * //                     EntropyEncoding: "AUTO" || "CABAC" || "CAVLC",
  * //                     FramerateControl: "INITIALIZE_FROM_SOURCE" || "SPECIFIED",
- * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER",
+ * //                     FramerateConversionAlgorithm: "DUPLICATE_DROP" || "INTERPOLATE" || "FRAMEFORMER" || "MAINTAIN_FRAME_COUNT",
  * //                     FramerateDenominator: Number("int"),
  * //                     FramerateNumerator: Number("int"),
+ * //                     PerFrameMetrics: "<__listOfFrameMetricType>",
  * //                     Profile: "XAVC_HD_INTRA_CBG" || "XAVC_4K_INTRA_CBG" || "XAVC_4K_INTRA_VBR" || "XAVC_HD" || "XAVC_4K",
  * //                     SlowPal: "DISABLED" || "ENABLED",
  * //                     Softness: Number("int"),
@@ -1413,6 +1512,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * //                 ScalingBehavior: "DEFAULT" || "STRETCH_TO_OUTPUT" || "FIT" || "FIT_NO_UPSCALE" || "FILL",
  * //                 Sharpness: Number("int"),
  * //                 TimecodeInsertion: "DISABLED" || "PIC_TIMING_SEI",
+ * //                 TimecodeTrack: "DISABLED" || "ENABLED",
  * //                 VideoPreprocessors: { // VideoPreprocessor
  * //                   ColorCorrector: { // ColorCorrector
  * //                     Brightness: Number("int"),
@@ -1583,6 +1683,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class GetJobCommand extends $Command
@@ -1593,9 +1694,7 @@ export class GetJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1607,4 +1706,16 @@ export class GetJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobCommand)
   .de(de_GetJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRequest;
+      output: GetJobResponse;
+    };
+    sdk: {
+      input: GetJobCommandInput;
+      output: GetJobCommandOutput;
+    };
+  };
+}

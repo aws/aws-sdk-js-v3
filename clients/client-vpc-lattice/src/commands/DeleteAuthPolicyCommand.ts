@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,9 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
 
 /**
  * <p>Deletes the specified auth policy. If an auth is set to <code>AWS_IAM</code> and the auth
- *    policy is deleted, all requests are denied. If you are trying to remove the auth
- *    policy completely, you must set the auth type to <code>NONE</code>. If auth is enabled on the
- *    resource, but no auth policy is set, all requests are denied.</p>
+ *    policy is deleted, all requests are denied. If you are trying to remove the auth policy
+ *    completely, you must set the auth type to <code>NONE</code>. If auth is enabled on the resource,
+ *    but no auth policy is set, all requests are denied.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +72,7 @@ export interface DeleteAuthPolicyCommandOutput extends DeleteAuthPolicyResponse,
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class DeleteAuthPolicyCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteAuthPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteAuthPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAuthPolicyCommand)
   .de(de_DeleteAuthPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAuthPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAuthPolicyCommandInput;
+      output: DeleteAuthPolicyCommandOutput;
+    };
+  };
+}

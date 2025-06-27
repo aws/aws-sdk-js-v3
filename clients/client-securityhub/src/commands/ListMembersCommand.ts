@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMembersRequest, ListMembersResponse } from "../models/models_2";
+import { ListMembersRequest, ListMembersResponse } from "../models/models_3";
 import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,38 +85,8 @@ export interface ListMembersCommandOutput extends ListMembersResponse, __Metadat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To list member account details
- * ```javascript
- * // The following example returns details about member accounts for the calling Security Hub administrator account. The response includes member accounts that are managed through AWS Organizations and those that were invited manually.
- * const input = {};
- * const command = new ListMembersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Members": [
- *     {
- *       "AccountId": "111122223333",
- *       "AdministratorId": "123456789012",
- *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
- *       "MasterId": "123456789012",
- *       "MemberStatus": "ASSOCIATED",
- *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
- *     },
- *     {
- *       "AccountId": "444455556666",
- *       "AdministratorId": "123456789012",
- *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
- *       "MasterId": "123456789012",
- *       "MemberStatus": "ASSOCIATED",
- *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-member-account-details-1678385639113
- * ```
  *
+ * @public
  */
 export class ListMembersCommand extends $Command
   .classBuilder<
@@ -125,9 +96,7 @@ export class ListMembersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +108,16 @@ export class ListMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMembersCommand)
   .de(de_ListMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMembersRequest;
+      output: ListMembersResponse;
+    };
+    sdk: {
+      input: ListMembersCommandInput;
+      output: ListMembersCommandOutput;
+    };
+  };
+}

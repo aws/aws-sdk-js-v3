@@ -12,7 +12,8 @@ import { de_PutSchemaVersionMetadataCommand, se_PutSchemaVersionMetadataCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface PutSchemaVersionMetadataCommandOutput extends PutSchemaVersionM
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class PutSchemaVersionMetadataCommand extends $Command
@@ -99,9 +101,7 @@ export class PutSchemaVersionMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class PutSchemaVersionMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSchemaVersionMetadataCommand)
   .de(de_PutSchemaVersionMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSchemaVersionMetadataInput;
+      output: PutSchemaVersionMetadataResponse;
+    };
+    sdk: {
+      input: PutSchemaVersionMetadataCommandInput;
+      output: PutSchemaVersionMetadataCommandOutput;
+    };
+  };
+}

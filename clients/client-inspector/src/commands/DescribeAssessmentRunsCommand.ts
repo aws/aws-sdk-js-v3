@@ -12,7 +12,8 @@ import { de_DescribeAssessmentRunsCommand, se_DescribeAssessmentRunsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -111,85 +112,8 @@ export interface DescribeAssessmentRunsCommandOutput extends DescribeAssessmentR
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
- * @example Describte assessment runs
- * ```javascript
- * // Describes the assessment runs that are specified by the ARNs of the assessment runs.
- * const input = {
- *   "assessmentRunArns": [
- *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE"
- *   ]
- * };
- * const command = new DescribeAssessmentRunsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "assessmentRuns": [
- *     {
- *       "name": "Run 1 for ExampleAssessmentTemplate",
- *       "arn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
- *       "assessmentTemplateArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw",
- *       "completedAt": "1458680301.4",
- *       "createdAt": "1458680170.035",
- *       "dataCollected": true,
- *       "durationInSeconds": 3600,
- *       "findingCounts": {
- *         "High": 14,
- *         "Informational": 0,
- *         "Low": 0,
- *         "Medium": 2,
- *         "Undefined": 0
- *       },
- *       "notifications": [],
- *       "rulesPackageArns": [
- *         "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-X1KXtawP"
- *       ],
- *       "startedAt": "1458680170.161",
- *       "state": "COMPLETED",
- *       "stateChangedAt": "1458680301.4",
- *       "stateChanges": [
- *         {
- *           "state": "CREATED",
- *           "stateChangedAt": "1458680170.035"
- *         },
- *         {
- *           "state": "START_DATA_COLLECTION_PENDING",
- *           "stateChangedAt": "1458680170.065"
- *         },
- *         {
- *           "state": "START_DATA_COLLECTION_IN_PROGRESS",
- *           "stateChangedAt": "1458680170.096"
- *         },
- *         {
- *           "state": "COLLECTING_DATA",
- *           "stateChangedAt": "1458680170.161"
- *         },
- *         {
- *           "state": "STOP_DATA_COLLECTION_PENDING",
- *           "stateChangedAt": "1458680239.883"
- *         },
- *         {
- *           "state": "DATA_COLLECTED",
- *           "stateChangedAt": "1458680299.847"
- *         },
- *         {
- *           "state": "EVALUATING_RULES",
- *           "stateChangedAt": "1458680300.099"
- *         },
- *         {
- *           "state": "COMPLETED",
- *           "stateChangedAt": "1458680301.4"
- *         }
- *       ],
- *       "userAttributesForFindings": []
- *     }
- *   ],
- *   "failedItems": {}
- * }
- * *\/
- * // example id: describte-assessment-runs-1481064424352
- * ```
  *
+ * @public
  */
 export class DescribeAssessmentRunsCommand extends $Command
   .classBuilder<
@@ -199,9 +123,7 @@ export class DescribeAssessmentRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +135,16 @@ export class DescribeAssessmentRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAssessmentRunsCommand)
   .de(de_DescribeAssessmentRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssessmentRunsRequest;
+      output: DescribeAssessmentRunsResponse;
+    };
+    sdk: {
+      input: DescribeAssessmentRunsCommandInput;
+      output: DescribeAssessmentRunsCommandOutput;
+    };
+  };
+}

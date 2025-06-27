@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,14 +83,14 @@ export interface DescribeCertificateCommandOutput extends DescribeCertificateRes
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -101,9 +102,7 @@ export class DescribeCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DescribeCertificateCommand extends $Command
   .f(void 0, DescribeCertificateResponseFilterSensitiveLog)
   .ser(se_DescribeCertificateCommand)
   .de(de_DescribeCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCertificateRequest;
+      output: DescribeCertificateResponse;
+    };
+    sdk: {
+      input: DescribeCertificateCommandInput;
+      output: DescribeCertificateCommandOutput;
+    };
+  };
+}

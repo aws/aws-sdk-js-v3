@@ -12,6 +12,7 @@ import {
   HttpAuthSchemeParameters,
   HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
+  Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
@@ -65,7 +66,7 @@ function createAwsAuthSigv4HttpAuthOption(
       name: "cognito-idp",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: CognitoIdentityProviderClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<CognitoIdentityProviderClientConfig>, context) => ({
       /**
        * @internal
        */
@@ -107,6 +108,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
+    case "CompleteWebAuthnRegistration": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
     case "ConfirmDevice": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
@@ -124,6 +129,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     }
     case "DeleteUserAttributes": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "DeleteWebAuthnCredential": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
@@ -147,6 +156,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
+    case "GetUserAuthFactors": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
     case "GlobalSignOut": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
@@ -156,6 +169,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     }
     case "ListDevices": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "ListWebAuthnCredentials": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
@@ -180,6 +197,10 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
       break;
     }
     case "SignUp": {
+      options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
+      break;
+    }
+    case "StartWebAuthnRegistration": {
       options.push(createSmithyApiNoAuthHttpAuthOption(authParameters));
       break;
     }
@@ -215,13 +236,21 @@ export const defaultCognitoIdentityProviderHttpAuthSchemeProvider: CognitoIdenti
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
+   */
+  authSchemePreference?: string[] | Provider<string[]>;
+
+  /**
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   httpAuthSchemes?: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   httpAuthSchemeProvider?: CognitoIdentityProviderHttpAuthSchemeProvider;
@@ -232,13 +261,21 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
  */
 export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
+   */
+  readonly authSchemePreference: Provider<string[]>;
+
+  /**
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   readonly httpAuthSchemes: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   readonly httpAuthSchemeProvider: CognitoIdentityProviderHttpAuthSchemeProvider;
@@ -251,7 +288,7 @@ export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveAwsSdkSigV4Config(config);
-  return {
-    ...config_0,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config_0, {
+    authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
+  }) as T & HttpAuthSchemeResolvedConfig;
 };

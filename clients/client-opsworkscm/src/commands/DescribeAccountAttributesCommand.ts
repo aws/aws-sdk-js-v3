@@ -12,7 +12,8 @@ import { de_DescribeAccountAttributesCommand, se_DescribeAccountAttributesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DescribeAccountAttributesCommandOutput extends DescribeAccountA
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountAttributesCommand extends $Command
@@ -73,9 +75,7 @@ export class DescribeAccountAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DescribeAccountAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountAttributesCommand)
   .de(de_DescribeAccountAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAccountAttributesResponse;
+    };
+    sdk: {
+      input: DescribeAccountAttributesCommandInput;
+      output: DescribeAccountAttributesCommandOutput;
+    };
+  };
+}

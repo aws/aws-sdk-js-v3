@@ -12,7 +12,8 @@ import { de_GetKeyPairsCommand, se_GetKeyPairsCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface GetKeyPairsCommandOutput extends GetKeyPairsResult, __MetadataB
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetKeyPairsCommand extends $Command
@@ -115,9 +117,7 @@ export class GetKeyPairsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class GetKeyPairsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyPairsCommand)
   .de(de_GetKeyPairsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyPairsRequest;
+      output: GetKeyPairsResult;
+    };
+    sdk: {
+      input: GetKeyPairsCommandInput;
+      output: GetKeyPairsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DescribeAccountCommand, se_DescribeAccountCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,7 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
 /**
  * <p>Retrieves Organizations-related information about the specified account.</p>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -135,6 +136,10 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -175,6 +180,9 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -197,28 +205,28 @@ export interface DescribeAccountCommandOutput extends DescribeAccountResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To get the details about an account
  * ```javascript
  * // The following example shows a user in the master account (111111111111) asking for details about account 555555555555:
  * const input = {
- *   "AccountId": "555555555555"
+ *   AccountId: "555555555555"
  * };
  * const command = new DescribeAccountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Account": {
- *     "Arn": "arn:aws:organizations::111111111111:account/o-exampleorgid/555555555555",
- *     "Email": "anika@example.com",
- *     "Id": "555555555555",
- *     "Name": "Beta Account"
+ *   Account: {
+ *     Arn: "arn:aws:organizations::111111111111:account/o-exampleorgid/555555555555",
+ *     Email: "anika@example.com",
+ *     Id: "555555555555",
+ *     Name: "Beta Account"
  *   }
  * }
  * *\/
- * // example id: to-get-the-details-about-an-account-1472503166868
  * ```
  *
+ * @public
  */
 export class DescribeAccountCommand extends $Command
   .classBuilder<
@@ -228,9 +236,7 @@ export class DescribeAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +248,16 @@ export class DescribeAccountCommand extends $Command
   .f(void 0, DescribeAccountResponseFilterSensitiveLog)
   .ser(se_DescribeAccountCommand)
   .de(de_DescribeAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountRequest;
+      output: DescribeAccountResponse;
+    };
+    sdk: {
+      input: DescribeAccountCommandInput;
+      output: DescribeAccountCommandOutput;
+    };
+  };
+}

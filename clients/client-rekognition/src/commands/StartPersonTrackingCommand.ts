@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,14 @@ export interface StartPersonTrackingCommandInput extends StartPersonTrackingRequ
 export interface StartPersonTrackingCommandOutput extends StartPersonTrackingResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
+ * <note>
+ *             <p>
+ *                <i>End of support notice:</i> On October 31, 2025, AWS will discontinue
+ *          support for Amazon Rekognition People Pathing. After October 31, 2025, you will no
+ *          longer be able to use the Rekognition People Pathing capability. For more information,
+ *          visit this <a href="https://aws.amazon.com/blogs/machine-learning/transitioning-from-amazon-rekognition-people-pathing-exploring-other-alternatives/">blog post</a>.</p>
+ *          </note>
+ *          <p>Starts the asynchronous tracking of a person's path in a stored video.</p>
  *          <p>Amazon Rekognition Video can track the path of people in a video stored in an Amazon S3 bucket. Use <a>Video</a> to specify the bucket name
  *        and the filename of the video. <code>StartPersonTracking</code>
  *        returns a job identifier (<code>JobId</code>) which you use to get the results of the operation.
@@ -109,6 +117,7 @@ export interface StartPersonTrackingCommandOutput extends StartPersonTrackingRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class StartPersonTrackingCommand extends $Command
@@ -119,9 +128,7 @@ export class StartPersonTrackingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +140,16 @@ export class StartPersonTrackingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPersonTrackingCommand)
   .de(de_StartPersonTrackingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPersonTrackingRequest;
+      output: StartPersonTrackingResponse;
+    };
+    sdk: {
+      input: StartPersonTrackingCommandInput;
+      output: StartPersonTrackingCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,24 @@ export interface UntagResourceCommandOutput extends UntagResourceOutput, __Metad
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Removing tags on a Launch Wizard deployment resource.
+ * ```javascript
+ * //
+ * const input = {
+ *   resourceArn: "arn:aws:launchwizard:us-east-1:123456789012:deployment/11111111-1111-1111-1111-111111111111",
+ *   tagKeys: [
+ *     "key1",
+ *     "key2"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -75,9 +94,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +106,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceInput;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

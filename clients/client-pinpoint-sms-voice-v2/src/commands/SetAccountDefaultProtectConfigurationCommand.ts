@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,8 +41,7 @@ export interface SetAccountDefaultProtectConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Set a protect configuration as your account default. You can only have one account
- *             default protect configuration at a time. The current account default protect configuration is replaced with the provided protect configuration.</p>
+ * <p>Set a protect configuration as your account default. You can only have one account default protect configuration at a time. The current account default protect configuration is replaced with the provided protect configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,25 +67,23 @@ export interface SetAccountDefaultProtectConfigurationCommandOutput
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -97,9 +95,7 @@ export class SetAccountDefaultProtectConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +107,16 @@ export class SetAccountDefaultProtectConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetAccountDefaultProtectConfigurationCommand)
   .de(de_SetAccountDefaultProtectConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetAccountDefaultProtectConfigurationRequest;
+      output: SetAccountDefaultProtectConfigurationResult;
+    };
+    sdk: {
+      input: SetAccountDefaultProtectConfigurationCommandInput;
+      output: SetAccountDefaultProtectConfigurationCommandOutput;
+    };
+  };
+}

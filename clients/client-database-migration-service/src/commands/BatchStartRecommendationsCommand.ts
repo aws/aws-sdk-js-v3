@@ -16,7 +16,8 @@ import { de_BatchStartRecommendationsCommand, se_BatchStartRecommendationsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,12 @@ export interface BatchStartRecommendationsCommandInput extends BatchStartRecomme
 export interface BatchStartRecommendationsCommandOutput extends BatchStartRecommendationsResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the analysis of up to 20 source databases to recommend target engines for each
+ * <important>
+ *             <p>
+ * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon Web Services DMS Fleet Advisor end of support</a>.
+ * </p>
+ *          </important>
+ *          <p>Starts the analysis of up to 20 source databases to recommend target engines for each
  *             source database. This is a batch version of <a href="https://docs.aws.amazon.com/dms/latest/APIReference/API_StartRecommendations.html">StartRecommendations</a>.</p>
  *          <p>The result of analysis of each source database is reported individually in the
  *             response. Because the batch request can result in a combination of successful and
@@ -87,6 +93,7 @@ export interface BatchStartRecommendationsCommandOutput extends BatchStartRecomm
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class BatchStartRecommendationsCommand extends $Command
@@ -97,9 +104,7 @@ export class BatchStartRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +116,16 @@ export class BatchStartRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchStartRecommendationsCommand)
   .de(de_BatchStartRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchStartRecommendationsRequest;
+      output: BatchStartRecommendationsResponse;
+    };
+    sdk: {
+      input: BatchStartRecommendationsCommandInput;
+      output: BatchStartRecommendationsCommandOutput;
+    };
+  };
+}

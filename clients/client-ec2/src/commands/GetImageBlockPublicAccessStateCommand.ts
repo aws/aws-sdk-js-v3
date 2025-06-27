@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetImageBlockPublicAccessStateRequest, GetImageBlockPublicAccessStateResult } from "../models/models_5";
+import { GetImageBlockPublicAccessStateRequest, GetImageBlockPublicAccessStateResult } from "../models/models_6";
 import {
   de_GetImageBlockPublicAccessStateCommand,
   se_GetImageBlockPublicAccessStateCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,8 +35,8 @@ export interface GetImageBlockPublicAccessStateCommandOutput
 /**
  * <p>Gets the current state of <i>block public access for AMIs</i> at the account
  *       level in the specified Amazon Web Services Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/sharingamis-intro.html#block-public-access-to-amis">Block
- *         public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-to-amis.html">Block
+ *       public access to your AMIs</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,6 +50,7 @@ export interface GetImageBlockPublicAccessStateCommandOutput
  * const response = await client.send(command);
  * // { // GetImageBlockPublicAccessStateResult
  * //   ImageBlockPublicAccessState: "STRING_VALUE",
+ * //   ManagedBy: "account" || "declarative-policy",
  * // };
  *
  * ```
@@ -62,6 +64,7 @@ export interface GetImageBlockPublicAccessStateCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetImageBlockPublicAccessStateCommand extends $Command
@@ -72,9 +75,7 @@ export class GetImageBlockPublicAccessStateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +87,16 @@ export class GetImageBlockPublicAccessStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImageBlockPublicAccessStateCommand)
   .de(de_GetImageBlockPublicAccessStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageBlockPublicAccessStateRequest;
+      output: GetImageBlockPublicAccessStateResult;
+    };
+    sdk: {
+      input: GetImageBlockPublicAccessStateCommandInput;
+      output: GetImageBlockPublicAccessStateCommandOutput;
+    };
+  };
+}

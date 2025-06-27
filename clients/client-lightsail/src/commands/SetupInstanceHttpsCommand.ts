@@ -16,7 +16,8 @@ import { de_SetupInstanceHttpsCommand, se_SetupInstanceHttpsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -107,6 +108,7 @@ export interface SetupInstanceHttpsCommandOutput extends SetupInstanceHttpsResul
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class SetupInstanceHttpsCommand extends $Command
@@ -117,9 +119,7 @@ export class SetupInstanceHttpsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class SetupInstanceHttpsCommand extends $Command
   .f(SetupInstanceHttpsRequestFilterSensitiveLog, void 0)
   .ser(se_SetupInstanceHttpsCommand)
   .de(de_SetupInstanceHttpsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetupInstanceHttpsRequest;
+      output: SetupInstanceHttpsResult;
+    };
+    sdk: {
+      input: SetupInstanceHttpsCommandInput;
+      output: SetupInstanceHttpsCommandOutput;
+    };
+  };
+}

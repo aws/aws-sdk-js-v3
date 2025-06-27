@@ -12,7 +12,8 @@ import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetAppMonitorDataCommandOutput extends GetAppMonitorDataRespons
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class GetAppMonitorDataCommand extends $Command
@@ -97,9 +99,7 @@ export class GetAppMonitorDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetAppMonitorDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAppMonitorDataCommand)
   .de(de_GetAppMonitorDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppMonitorDataRequest;
+      output: GetAppMonitorDataResponse;
+    };
+    sdk: {
+      input: GetAppMonitorDataCommandInput;
+      output: GetAppMonitorDataCommandOutput;
+    };
+  };
+}

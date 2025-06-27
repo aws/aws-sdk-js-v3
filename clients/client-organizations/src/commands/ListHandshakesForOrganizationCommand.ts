@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,7 +54,7 @@ export interface ListHandshakesForOrganizationCommandOutput
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -180,6 +181,10 @@ export interface ListHandshakesForOrganizationCommandOutput
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -220,6 +225,9 @@ export interface ListHandshakesForOrganizationCommandOutput
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -242,106 +250,106 @@ export interface ListHandshakesForOrganizationCommandOutput
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list of the handshakes associated with an organization
  * ```javascript
  * // The following example shows you how to get a list of handshakes associated with the current organization:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListHandshakesForOrganizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshakes": [
+ *   Handshakes: [
  *     {
- *       "Action": "INVITE",
- *       "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *       "ExpirationTimestamp": "2017-01-28T14:35:23.3Z",
- *       "Id": "h-examplehandshakeid111",
- *       "Parties": [
+ *       Action: "INVITE",
+ *       Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *       ExpirationTimestamp: "2017-01-28T14:35:23.3Z",
+ *       Id: "h-examplehandshakeid111",
+ *       Parties: [
  *         {
- *           "Id": "o-exampleorgid",
- *           "Type": "ORGANIZATION"
+ *           Id: "o-exampleorgid",
+ *           Type: "ORGANIZATION"
  *         },
  *         {
- *           "Id": "juan@example.com",
- *           "Type": "EMAIL"
+ *           Id: "juan@example.com",
+ *           Type: "EMAIL"
  *         }
  *       ],
- *       "RequestedTimestamp": "2017-01-13T14:35:23.3Z",
- *       "Resources": [
+ *       RequestedTimestamp: "2017-01-13T14:35:23.3Z",
+ *       Resources: [
  *         {
- *           "Resources": [
+ *           Resources: [
  *             {
- *               "Type": "MASTER_EMAIL",
- *               "Value": "bill@amazon.com"
+ *               Type: "MASTER_EMAIL",
+ *               Value: "bill@amazon.com"
  *             },
  *             {
- *               "Type": "MASTER_NAME",
- *               "Value": "Org Master Account"
+ *               Type: "MASTER_NAME",
+ *               Value: "Org Master Account"
  *             },
  *             {
- *               "Type": "ORGANIZATION_FEATURE_SET",
- *               "Value": "FULL"
+ *               Type: "ORGANIZATION_FEATURE_SET",
+ *               Value: "FULL"
  *             }
  *           ],
- *           "Type": "ORGANIZATION",
- *           "Value": "o-exampleorgid"
+ *           Type: "ORGANIZATION",
+ *           Value: "o-exampleorgid"
  *         },
  *         {
- *           "Type": "EMAIL",
- *           "Value": "juan@example.com"
+ *           Type: "EMAIL",
+ *           Value: "juan@example.com"
  *         }
  *       ],
- *       "State": "OPEN"
+ *       State: "OPEN"
  *     },
  *     {
- *       "Action": "INVITE",
- *       "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *       "ExpirationTimestamp": "2017-01-28T14:35:23.3Z",
- *       "Id": "h-examplehandshakeid222",
- *       "Parties": [
+ *       Action: "INVITE",
+ *       Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *       ExpirationTimestamp: "2017-01-28T14:35:23.3Z",
+ *       Id: "h-examplehandshakeid222",
+ *       Parties: [
  *         {
- *           "Id": "o-exampleorgid",
- *           "Type": "ORGANIZATION"
+ *           Id: "o-exampleorgid",
+ *           Type: "ORGANIZATION"
  *         },
  *         {
- *           "Id": "anika@example.com",
- *           "Type": "EMAIL"
+ *           Id: "anika@example.com",
+ *           Type: "EMAIL"
  *         }
  *       ],
- *       "RequestedTimestamp": "2017-01-13T14:35:23.3Z",
- *       "Resources": [
+ *       RequestedTimestamp: "2017-01-13T14:35:23.3Z",
+ *       Resources: [
  *         {
- *           "Resources": [
+ *           Resources: [
  *             {
- *               "Type": "MASTER_EMAIL",
- *               "Value": "bill@example.com"
+ *               Type: "MASTER_EMAIL",
+ *               Value: "bill@example.com"
  *             },
  *             {
- *               "Type": "MASTER_NAME",
- *               "Value": "Master Account"
+ *               Type: "MASTER_NAME",
+ *               Value: "Master Account"
  *             }
  *           ],
- *           "Type": "ORGANIZATION",
- *           "Value": "o-exampleorgid"
+ *           Type: "ORGANIZATION",
+ *           Value: "o-exampleorgid"
  *         },
  *         {
- *           "Type": "EMAIL",
- *           "Value": "anika@example.com"
+ *           Type: "EMAIL",
+ *           Value: "anika@example.com"
  *         },
  *         {
- *           "Type": "NOTES",
- *           "Value": "This is an invitation to Anika's account to join Bill's organization."
+ *           Type: "NOTES",
+ *           Value: "This is an invitation to Anika's account to join Bill's organization."
  *         }
  *       ],
- *       "State": "ACCEPTED"
+ *       State: "ACCEPTED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-the-handshakes-associated-with-an-organization-1472511206653
  * ```
  *
+ * @public
  */
 export class ListHandshakesForOrganizationCommand extends $Command
   .classBuilder<
@@ -351,9 +359,7 @@ export class ListHandshakesForOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -365,4 +371,16 @@ export class ListHandshakesForOrganizationCommand extends $Command
   .f(void 0, ListHandshakesForOrganizationResponseFilterSensitiveLog)
   .ser(se_ListHandshakesForOrganizationCommand)
   .de(de_ListHandshakesForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHandshakesForOrganizationRequest;
+      output: ListHandshakesForOrganizationResponse;
+    };
+    sdk: {
+      input: ListHandshakesForOrganizationCommandInput;
+      output: ListHandshakesForOrganizationCommandOutput;
+    };
+  };
+}

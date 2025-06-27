@@ -12,7 +12,8 @@ import { de_SetInstanceProtectionCommand, se_SetInstanceProtectionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,7 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
 /**
  * <p>Updates the instance protection settings of the specified instances. This operation
  *             cannot be called on instances in a warm pool.</p>
- *          <p>For more information about preventing instances that are part of an Auto Scaling group from
- *             terminating on scale in, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Using
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-instance-protection.html">Use
  *                 instance scale-in protection</a> in the
  *             <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If you exceed your maximum limit of instance IDs, which is 50 per Auto Scaling group, the call
@@ -73,37 +73,42 @@ export interface SetInstanceProtectionCommandOutput extends SetInstanceProtectio
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To enable instance protection for an instance
  * ```javascript
  * // This example enables instance protection for the specified instance.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ],
- *   "ProtectedFromScaleIn": true
+ *   ProtectedFromScaleIn: true
  * };
  * const command = new SetInstanceProtectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-set-instance-protection-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To disable instance protection for an instance
  * ```javascript
  * // This example disables instance protection for the specified instance.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ],
- *   "ProtectedFromScaleIn": false
+ *   ProtectedFromScaleIn: false
  * };
  * const command = new SetInstanceProtectionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-set-instance-protection-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetInstanceProtectionCommand extends $Command
   .classBuilder<
@@ -113,9 +118,7 @@ export class SetInstanceProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +130,16 @@ export class SetInstanceProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetInstanceProtectionCommand)
   .de(de_SetInstanceProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetInstanceProtectionQuery;
+      output: {};
+    };
+    sdk: {
+      input: SetInstanceProtectionCommandInput;
+      output: SetInstanceProtectionCommandOutput;
+    };
+  };
+}

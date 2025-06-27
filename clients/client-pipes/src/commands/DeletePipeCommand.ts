@@ -12,7 +12,8 @@ import { de_DeletePipeCommand, se_DeletePipeCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeletePipeCommandOutput extends DeletePipeResponse, __MetadataB
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class DeletePipeCommand extends $Command
@@ -84,9 +86,7 @@ export class DeletePipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeletePipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePipeCommand)
   .de(de_DeletePipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePipeRequest;
+      output: DeletePipeResponse;
+    };
+    sdk: {
+      input: DeletePipeCommandInput;
+      output: DeletePipeCommandOutput;
+    };
+  };
+}

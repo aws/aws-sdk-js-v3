@@ -3,6 +3,993 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.836.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.835.0...v3.836.0) (2025-06-24)
+
+
+### Features
+
+* **client-bedrock:** We are making ListFoundationModelAgreementOffers, DeleteFoundationModelAgreement, CreateFoundationModelAgreement, GetFoundationModelAvailability, PutUseCaseForModelAccess and GetUseCaseForModelAccess APIs public, previously they were console. ([cbd44d0](https://github.com/aws/aws-sdk-js-v3/commit/cbd44d0657fd2b16517d5e44d94f5a76b389da42))
+
+
+
+
+
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.834.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.833.0...v3.834.0) (2025-06-20)
+
+
+### Features
+
+* **client-bedrock:** Add support for tiers in Content Filters and Denied Topics for Amazon Bedrock Guardrails. ([b57c4ac](https://github.com/aws/aws-sdk-js-v3/commit/b57c4acdc079c53be5251becf899cbbfbf0ba676))
+
+
+
+
+
+# [3.831.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.830.0...v3.831.0) (2025-06-17)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
+
+
+### Features
+
+* **client-bedrock:** This release of the SDK has the API and documentation for the createcustommodel API. This feature lets you copy a Amazon SageMaker trained Amazon Nova model into Amazon Bedrock for inference. ([c1459bc](https://github.com/aws/aws-sdk-js-v3/commit/c1459bc0f7607023ba24cd5d27bdc0f437f38196))
+
+
+
+
+
+# [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.809.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.808.0...v3.809.0) (2025-05-13)
+
+
+### Features
+
+* **client-bedrock:** Enable cross-Region inference for Amazon Bedrock Guardrails by using the crossRegionConfig parameter when calling the CreateGuardrail or UpdateGuardrail operation. ([568eb19](https://github.com/aws/aws-sdk-js-v3/commit/568eb19882b1d6cce89ba80cc000363bbf3a4915))
+
+
+
+
+
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.800.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.799.0...v3.800.0) (2025-04-30)
+
+
+### Features
+
+* **client-bedrock:** You can now specify a cross region inference profile as a teacher model for the CreateModelCustomizationJob API. Additionally, the GetModelCustomizationJob API has been enhanced to return the sub-task statuses of a customization job within the StatusDetails response field. ([1325ef0](https://github.com/aws/aws-sdk-js-v3/commit/1325ef07278285401380bb744b8f643b38310eaf))
+
+
+
+
+
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.791.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.790.0...v3.791.0) (2025-04-17)
+
+
+### Features
+
+* **client-bedrock:** With this release, Bedrock Evaluation will now support custom metrics for evaluation. ([0cbc496](https://github.com/aws/aws-sdk-js-v3/commit/0cbc49677bec024bc9186366a758ca4f9906ab22))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.784.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.783.0...v3.784.0) (2025-04-07)
+
+
+### Features
+
+* **client-bedrock:** New options for how to handle harmful content detected by Amazon Bedrock Guardrails. ([1ceaf1b](https://github.com/aws/aws-sdk-js-v3/commit/1ceaf1b445447fb16280c80d33d5fa4806f51f9a))
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.773.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.772.0...v3.773.0) (2025-03-21)
+
+
+### Bug Fixes
+
+* **core:** revert "use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956))" ([#6958](https://github.com/aws/aws-sdk-js-v3/issues/6958)) ([9df52d1](https://github.com/aws/aws-sdk-js-v3/commit/9df52d1369e7d008ad825cb04788f257dc2f49e2))
+* **core:** use credentials provided by extensions when instantiating sigv4 signer ([#6956](https://github.com/aws/aws-sdk-js-v3/issues/6956)) ([6288dff](https://github.com/aws/aws-sdk-js-v3/commit/6288dff8d104bc7f773390376b391b1e63243b3a))
+
+
+### Features
+
+* **client-bedrock:** A CustomModelUnit(CMU) is an abstract view of the hardware utilization that Bedrock needs to host a a single copy of your custom imported model. Bedrock determines the number of CMUs that a model copy needs when you import the custom model. You can use CMUs to estimate the cost of Inference's. ([8aac7ca](https://github.com/aws/aws-sdk-js-v3/commit/8aac7ca75a76eb0ea6dc768fd2db024bdb849f37))
+
+
+
+
+
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+
+### Features
+
+* **client-bedrock:** With this release, Bedrock Evaluation will now support bring your own inference responses. ([9515a90](https://github.com/aws/aws-sdk-js-v3/commit/9515a907b56bb7f54daca1a22efc39f71e5088eb))
+
+
+
+
+
+# [3.763.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.762.0...v3.763.0) (2025-03-06)
+
+
+### Features
+
+* **client-bedrock:** This releases adds support for Custom Prompt Router ([4adb0c3](https://github.com/aws/aws-sdk-js-v3/commit/4adb0c3900ee5c1bd549e0e13fc25ce0735e9c3b))
+
+
+
+
+
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
+
+
+### Bug Fixes
+
+* **clients:** unknown union member serialization in json ([#6892](https://github.com/aws/aws-sdk-js-v3/issues/6892)) ([23d5fe8](https://github.com/aws/aws-sdk-js-v3/commit/23d5fe858d6edd5e3b9126a787a936404d0a3148))
+
+
+
+
+
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.730.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.729.0...v3.730.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **nested-clients:** create nested clients for internal use ([#6791](https://github.com/aws/aws-sdk-js-v3/issues/6791)) ([5c53685](https://github.com/aws/aws-sdk-js-v3/commit/5c5368554d13a3b798a72c53e30cd3d897621135))
+
+
+
+
+
+# [3.727.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.1...v3.727.0) (2025-01-13)
+
+
+### Features
+
+* **client-bedrock:** With this release, Bedrock Evaluation will now support latency-optimized inference for foundation models. ([ae86950](https://github.com/aws/aws-sdk-js-v3/commit/ae86950ecb25e79503c4cde6993e50327b9d951c))
+
+
+
+
+
+## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+
+### Features
+
+* **clients:** profile setting for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/issues/6728)) ([afd9eea](https://github.com/aws/aws-sdk-js-v3/commit/afd9eea89fd0d63a377123f1ca999daeefd904a7))
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.706.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.705.0...v3.706.0) (2024-12-04)
+
+
+### Features
+
+* **client-bedrock:** Introduced two APIs ListPromptRouters and GetPromptRouter for Intelligent Prompt Router feature. Add support for Bedrock Guardrails image content filter. New Bedrock Marketplace feature enabling a wider range of bedrock compatible models with self-hosted capability. ([0912614](https://github.com/aws/aws-sdk-js-v3/commit/0912614120dff0a569b3e19d2c25a82eb7b88354))
+
+
+
+
+
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-bedrock:** Tagging support for Async Invoke resources. Added support for Distillation in CreateModelCustomizationJob API. Support for videoDataDeliveryEnabled flag in invocation logging. ([44b1172](https://github.com/aws/aws-sdk-js-v3/commit/44b1172b4d1ab9bc0d8afc9d045bde5fb1d95c7b))
+
+
+
+
+
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-bedrock:** Add support for Knowledge Base Evaluations & LLM as a judge ([ac2bf51](https://github.com/aws/aws-sdk-js-v3/commit/ac2bf51b72458c859e61563be6bd9679bb9e5b18))
+
+
+
+
+
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
+
+
+### Features
+
+* **client-bedrock:** Update Application Inference Profile ([cd3a5ec](https://github.com/aws/aws-sdk-js-v3/commit/cd3a5ec8ce31adc220bfbf9f38c2a939b886c5d6))
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+
+### Features
+
+* **client-bedrock:** Adding converse support to CMI API's ([46406ae](https://github.com/aws/aws-sdk-js-v3/commit/46406aead13168fc5e895d02bb282d4aafdf3a1e))
+
+
+
+
+
+# [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Features
+
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* **clients:** allow empty string field values for headers ([#6511](https://github.com/aws/aws-sdk-js-v3/issues/6511)) ([1273ff3](https://github.com/aws/aws-sdk-js-v3/commit/1273ff317071749cfeb88caad9df7492256c03e2))
+
+
+
+
+
+# [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
+
+
+### Features
+
+* **client-bedrock:** Add support for Cross Region Inference in Bedrock Model Evaluations. ([707b387](https://github.com/aws/aws-sdk-js-v3/commit/707b387793d21a7d44d405fa2fd97028674a8d89))
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.652.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.1...v3.652.0) (2024-09-16)
+
+
+### Features
+
+* **client-bedrock:** This feature adds cross account s3 bucket and VPC support to ModelInvocation jobs. To use a cross account bucket, pass in the accountId of the bucket to s3BucketOwner in the ModelInvocationJobInputDataConfig or ModelInvocationJobOutputDataConfig. ([de21918](https://github.com/aws/aws-sdk-js-v3/commit/de21918213e870e5e056971eca84868572d1c651))
+
+
+
+
+
+## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+# [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.640.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.639.0...v3.640.0) (2024-08-27)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock SDK updates for Inference Profile. ([d49f2f3](https://github.com/aws/aws-sdk-js-v3/commit/d49f2f3cc35ee2a77e04ba5c1fed3cdad046be26))
+
+
+
+
+
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Evaluation BatchDeleteEvaluationJob API allows customers to delete evaluation jobs under terminated evaluation job statuses - Stopped, Failed, or Completed. Customers can submit a batch of 25 evaluation jobs to be deleted at once. ([06501cb](https://github.com/aws/aws-sdk-js-v3/commit/06501cbbc289dbdaf0595896fe01df2ae03a9190))
+
+
+
+
+
+# [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
+
+
+### Features
+
+* **codegen:** add Smithy RPCv2 CBOR to list of protocols ([#6096](https://github.com/aws/aws-sdk-js-v3/issues/6096)) ([5154d4f](https://github.com/aws/aws-sdk-js-v3/commit/5154d4f19bc77a7bad075b35ce135d3b5f60ad1d))
+
+
+
+
+
+# [3.634.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.633.0...v3.634.0) (2024-08-19)
+
+
+### Features
+
+* **client-bedrock:** Amazon Bedrock Batch Inference/ Model Invocation is a feature which allows customers to asynchronously run inference on a large set of records/files stored in S3. ([82332ab](https://github.com/aws/aws-sdk-js-v3/commit/82332ab6558ef63e1fde513bb502cbc71aab78a0))
+
+
+
+
+
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+
+### Features
+
+* **client-bedrock:** API and Documentation for Bedrock Model Copy feature. This feature lets you share and copy a custom model from one region to another or one account to another. ([b85315c](https://github.com/aws/aws-sdk-js-v3/commit/b85315c55b42c36c15cca0bc05c4b28e377379a7))
+
+
+
+
+
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
+
+
+### Features
+
+* **client-bedrock:** Add support for contextual grounding check for Guardrails for Amazon Bedrock. ([f8cc6bd](https://github.com/aws/aws-sdk-js-v3/commit/f8cc6bdd03acd85e0bcc4477e2ea072d941fd97b))
+
+
+
+
+
+# [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-bedrock
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

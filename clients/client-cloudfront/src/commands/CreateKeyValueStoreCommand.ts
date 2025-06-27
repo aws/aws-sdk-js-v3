@@ -12,7 +12,8 @@ import { de_CreateKeyValueStoreCommand, se_CreateKeyValueStoreCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,55 +70,54 @@ export interface CreateKeyValueStoreCommandOutput extends CreateKeyValueStoreRes
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityAlreadyExists} (client fault)
- *  <p>The key value store entity already exists. You must provide a unique key value store
- * 			entity.</p>
+ *  <p>The entity already exists. You must provide a unique entity.</p>
  *
  * @throws {@link EntityLimitExceeded} (client fault)
- *  <p>The key value store entity limit has been exceeded.</p>
+ *  <p>The entity limit has been exceeded.</p>
  *
  * @throws {@link EntitySizeLimitExceeded} (client fault)
- *  <p>The key value store entity size limit was exceeded.</p>
+ *  <p>The entity size limit was exceeded.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To create a KeyValueStore
  * ```javascript
  * // Use the following command to create a KeyValueStore.
  * const input = {
- *   "Comment": "my-key-valuestore-comment",
- *   "ImportSource": {
- *     "SourceARN": "arn:aws:s3:::my-bucket/validJSON.json",
- *     "SourceType": "S3"
+ *   Comment: "my-key-valuestore-comment",
+ *   ImportSource: {
+ *     SourceARN: "arn:aws:s3:::amzn-s3-demo-bucket/validJSON.json",
+ *     SourceType: "S3"
  *   },
- *   "Name": "my-keyvaluestore-name"
+ *   Name: "my-keyvaluestore-name"
  * };
  * const command = new CreateKeyValueStoreCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "ETVPDKIKX0DER",
- *   "KeyValueStore": {
- *     "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "Comment": "my-key-valuestore-comment",
- *     "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "LastModifiedTime": "2023-11-07T18:15:52.042Z",
- *     "Name": "my-keyvaluestore-name",
- *     "Status": "PROVISIONING"
+ *   ETag: "ETVPDKIKX0DER",
+ *   KeyValueStore: {
+ *     ARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *     Comment: "my-key-valuestore-comment",
+ *     Id: "54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *     LastModifiedTime: "2023-11-07T18:15:52.042Z",
+ *     Name: "my-keyvaluestore-name",
+ *     Status: "PROVISIONING"
  *   },
- *   "Location": "https://cloudfront.amazonaws.com/2020-05-31/key-value-store/arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
+ *   Location: "https://cloudfront.amazonaws.com/2020-05-31/key-value-store/arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889"
  * }
  * *\/
- * // example id: to-create-a-key-value-store-1699751722467
  * ```
  *
+ * @public
  */
 export class CreateKeyValueStoreCommand extends $Command
   .classBuilder<
@@ -127,9 +127,7 @@ export class CreateKeyValueStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +139,16 @@ export class CreateKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyValueStoreCommand)
   .de(de_CreateKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyValueStoreRequest;
+      output: CreateKeyValueStoreResult;
+    };
+    sdk: {
+      input: CreateKeyValueStoreCommandInput;
+      output: CreateKeyValueStoreCommandOutput;
+    };
+  };
+}

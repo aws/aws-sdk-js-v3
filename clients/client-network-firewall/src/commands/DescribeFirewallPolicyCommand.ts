@@ -12,7 +12,8 @@ import { de_DescribeFirewallPolicyCommand, se_DescribeFirewallPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //         Override: { // StatefulRuleGroupOverride
  * //           Action: "DROP_TO_ALERT",
  * //         },
+ * //         DeepThreatInspection: true || false,
  * //       },
  * //     ],
  * //     StatefulDefaultActions: [ // StatefulActions
@@ -105,6 +107,9 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * //     StatefulEngineOptions: { // StatefulEngineOptions
  * //       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  * //       StreamExceptionPolicy: "DROP" || "CONTINUE" || "REJECT",
+ * //       FlowTimeouts: { // FlowTimeouts
+ * //         TcpIdleTimeoutSeconds: Number("int"),
+ * //       },
  * //     },
  * //     TLSInspectionConfigurationArn: "STRING_VALUE",
  * //     PolicyVariables: { // PolicyVariables
@@ -156,6 +161,7 @@ export interface DescribeFirewallPolicyCommandOutput extends DescribeFirewallPol
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DescribeFirewallPolicyCommand extends $Command
@@ -166,9 +172,7 @@ export class DescribeFirewallPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +184,16 @@ export class DescribeFirewallPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFirewallPolicyCommand)
   .de(de_DescribeFirewallPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFirewallPolicyRequest;
+      output: DescribeFirewallPolicyResponse;
+    };
+    sdk: {
+      input: DescribeFirewallPolicyCommandInput;
+      output: DescribeFirewallPolicyCommandOutput;
+    };
+  };
+}

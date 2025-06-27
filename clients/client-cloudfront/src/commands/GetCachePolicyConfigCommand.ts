@@ -12,7 +12,8 @@ import { de_GetCachePolicyConfigCommand, se_GetCachePolicyConfigCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,7 @@ export interface GetCachePolicyConfigCommandInput extends GetCachePolicyConfigRe
 export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigResult, __MetadataBearer {}
 
 /**
- * <p>Gets a cache policy configuration.</p>
- *          <p>To get a cache policy configuration, you must provide the policy's identifier. If the
- * 			cache policy is attached to a distribution's cache behavior, you can get the policy's
- * 			identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the
- * 			cache policy is not attached to a cache behavior, you can get the identifier using
- * 				<code>ListCachePolicies</code>.</p>
+ * <p>Gets a cache policy configuration.</p> <p>To get a cache policy configuration, you must provide the policy's identifier. If the cache policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the cache policy is not attached to a cache behavior, you can get the identifier using <code>ListCachePolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,6 +99,7 @@ export interface GetCachePolicyConfigCommandOutput extends GetCachePolicyConfigR
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetCachePolicyConfigCommand extends $Command
@@ -113,9 +110,7 @@ export class GetCachePolicyConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +122,16 @@ export class GetCachePolicyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCachePolicyConfigCommand)
   .de(de_GetCachePolicyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCachePolicyConfigRequest;
+      output: GetCachePolicyConfigResult;
+    };
+    sdk: {
+      input: GetCachePolicyConfigCommandInput;
+      output: GetCachePolicyConfigCommandOutput;
+    };
+  };
+}

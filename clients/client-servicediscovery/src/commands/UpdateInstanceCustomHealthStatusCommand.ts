@@ -15,7 +15,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,20 +77,23 @@ export interface UpdateInstanceCustomHealthStatusCommandOutput extends __Metadat
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example UpdateInstanceCustomHealthStatus Example
  * ```javascript
  * // This example submits a request to change the health status of an instance associated with a service with a custom health check to HEALTHY.
  * const input = {
- *   "InstanceId": "i-abcd1234",
- *   "ServiceId": "srv-e4anhexample0004",
- *   "Status": "HEALTHY"
+ *   InstanceId: "i-abcd1234",
+ *   ServiceId: "srv-e4anhexample0004",
+ *   Status: "HEALTHY"
  * };
  * const command = new UpdateInstanceCustomHealthStatusCommand(input);
- * await client.send(command);
- * // example id: updateinstancecustomhealthstatus-example-1590118408574
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateInstanceCustomHealthStatusCommand extends $Command
   .classBuilder<
@@ -99,9 +103,7 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class UpdateInstanceCustomHealthStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInstanceCustomHealthStatusCommand)
   .de(de_UpdateInstanceCustomHealthStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInstanceCustomHealthStatusRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInstanceCustomHealthStatusCommandInput;
+      output: UpdateInstanceCustomHealthStatusCommandOutput;
+    };
+  };
+}

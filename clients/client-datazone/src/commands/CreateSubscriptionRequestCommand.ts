@@ -11,13 +11,14 @@ import {
   CreateSubscriptionRequestInputFilterSensitiveLog,
   CreateSubscriptionRequestOutput,
   CreateSubscriptionRequestOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_CreateSubscriptionRequestCommand, se_CreateSubscriptionRequestCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,14 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  *   ],
  *   requestReason: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   metadataForms: [ // MetadataFormInputs
+ *     { // FormInput
+ *       formName: "STRING_VALUE", // required
+ *       typeIdentifier: "STRING_VALUE",
+ *       typeRevision: "STRING_VALUE",
+ *       content: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateSubscriptionRequestCommand(input);
  * const response = await client.send(command);
@@ -93,6 +102,33 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * //               shortDescription: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           assetScope: { // AssetScope
+ * //             assetId: "STRING_VALUE", // required
+ * //             filterIds: [ // FilterIds // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             status: "STRING_VALUE", // required
+ * //             errorMessage: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //         productListing: { // SubscribedProductListing
+ * //           entityId: "STRING_VALUE",
+ * //           entityRevision: "STRING_VALUE",
+ * //           glossaryTerms: [
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //               shortDescription: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           name: "STRING_VALUE",
+ * //           description: "STRING_VALUE",
+ * //           assetListings: [ // AssetInDataProductListingItems
+ * //             { // AssetInDataProductListingItem
+ * //               entityId: "STRING_VALUE",
+ * //               entityRevision: "STRING_VALUE",
+ * //               entityType: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       },
  * //       ownerProjectId: "STRING_VALUE", // required
@@ -101,6 +137,15 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * //   ],
  * //   reviewerId: "STRING_VALUE",
  * //   decisionComment: "STRING_VALUE",
+ * //   existingSubscriptionId: "STRING_VALUE",
+ * //   metadataForms: [ // MetadataForms
+ * //     { // FormOutput
+ * //       formName: "STRING_VALUE", // required
+ * //       typeName: "STRING_VALUE",
+ * //       typeRevision: "STRING_VALUE",
+ * //       content: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -135,6 +180,7 @@ export interface CreateSubscriptionRequestCommandOutput extends CreateSubscripti
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateSubscriptionRequestCommand extends $Command
@@ -145,9 +191,7 @@ export class CreateSubscriptionRequestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +203,16 @@ export class CreateSubscriptionRequestCommand extends $Command
   .f(CreateSubscriptionRequestInputFilterSensitiveLog, CreateSubscriptionRequestOutputFilterSensitiveLog)
   .ser(se_CreateSubscriptionRequestCommand)
   .de(de_CreateSubscriptionRequestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSubscriptionRequestInput;
+      output: CreateSubscriptionRequestOutput;
+    };
+    sdk: {
+      input: CreateSubscriptionRequestCommandInput;
+      output: CreateSubscriptionRequestCommandOutput;
+    };
+  };
+}

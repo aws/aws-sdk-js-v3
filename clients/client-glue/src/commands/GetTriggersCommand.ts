@@ -12,7 +12,8 @@ import { de_GetTriggersCommand, se_GetTriggersCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface GetTriggersCommandOutput extends GetTriggersResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetTriggersCommand extends $Command
@@ -119,9 +121,7 @@ export class GetTriggersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class GetTriggersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTriggersCommand)
   .de(de_GetTriggersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTriggersRequest;
+      output: GetTriggersResponse;
+    };
+    sdk: {
+      input: GetTriggersCommandInput;
+      output: GetTriggersCommandOutput;
+    };
+  };
+}

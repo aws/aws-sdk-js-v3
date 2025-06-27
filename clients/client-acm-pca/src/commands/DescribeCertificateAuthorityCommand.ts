@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,8 +98,8 @@ export interface DescribeCertificateAuthorityCommandOutput
  * //     NotAfter: new Date("TIMESTAMP"),
  * //     FailureReason: "REQUEST_TIMED_OUT" || "UNSUPPORTED_ALGORITHM" || "OTHER",
  * //     CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
- * //       KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1", // required
- * //       SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
+ * //       KeyAlgorithm: "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1" || "SM2", // required
+ * //       SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SM3WITHSM2", // required
  * //       Subject: { // ASN1Subject
  * //         Country: "STRING_VALUE",
  * //         Organization: "STRING_VALUE",
@@ -190,6 +191,8 @@ export interface DescribeCertificateAuthorityCommandOutput
  * //         CrlDistributionPointExtensionConfiguration: { // CrlDistributionPointExtensionConfiguration
  * //           OmitExtension: true || false, // required
  * //         },
+ * //         CrlType: "COMPLETE" || "PARTITIONED",
+ * //         CustomPath: "STRING_VALUE",
  * //       },
  * //       OcspConfiguration: { // OcspConfiguration
  * //         Enabled: true || false, // required
@@ -197,7 +200,7 @@ export interface DescribeCertificateAuthorityCommandOutput
  * //       },
  * //     },
  * //     RestorableUntil: new Date("TIMESTAMP"),
- * //     KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER",
+ * //     KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER" || "CCPC_LEVEL_1_OR_HIGHER",
  * //     UsageMode: "GENERAL_PURPOSE" || "SHORT_LIVED_CERTIFICATE",
  * //   },
  * // };
@@ -221,6 +224,7 @@ export interface DescribeCertificateAuthorityCommandOutput
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class DescribeCertificateAuthorityCommand extends $Command
@@ -231,9 +235,7 @@ export class DescribeCertificateAuthorityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -245,4 +247,16 @@ export class DescribeCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCertificateAuthorityCommand)
   .de(de_DescribeCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCertificateAuthorityRequest;
+      output: DescribeCertificateAuthorityResponse;
+    };
+    sdk: {
+      input: DescribeCertificateAuthorityCommandInput;
+      output: DescribeCertificateAuthorityCommandOutput;
+    };
+  };
+}

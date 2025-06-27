@@ -26,6 +26,7 @@ import {
   AssociateServiceQuotaTemplateCommandInput,
   AssociateServiceQuotaTemplateCommandOutput,
 } from "../commands/AssociateServiceQuotaTemplateCommand";
+import { CreateSupportCaseCommandInput, CreateSupportCaseCommandOutput } from "../commands/CreateSupportCaseCommand";
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
@@ -87,6 +88,7 @@ import {
   AccessDeniedException,
   AssociateServiceQuotaTemplateRequest,
   AWSServiceAccessNotEnabledException,
+  CreateSupportCaseRequest,
   DeleteServiceQuotaIncreaseRequestFromTemplateRequest,
   DependencyAccessDeniedException,
   DisassociateServiceQuotaTemplateRequest,
@@ -146,6 +148,19 @@ export const se_AssociateServiceQuotaTemplateCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("AssociateServiceQuotaTemplate");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreateSupportCaseCommand
+ */
+export const se_CreateSupportCaseCommand = async (
+  input: CreateSupportCaseCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateSupportCase");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -399,6 +414,26 @@ export const de_AssociateServiceQuotaTemplateCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: AssociateServiceQuotaTemplateCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1CreateSupportCaseCommand
+ */
+export const de_CreateSupportCaseCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateSupportCaseCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateSupportCaseCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -802,9 +837,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "IllegalArgumentException":
     case "com.amazonaws.servicequotas#IllegalArgumentException":
       throw await de_IllegalArgumentExceptionRes(parsedOutput, context);
+    case "InvalidResourceStateException":
+    case "com.amazonaws.servicequotas#InvalidResourceStateException":
+      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
     case "NoSuchResourceException":
     case "com.amazonaws.servicequotas#NoSuchResourceException":
       throw await de_NoSuchResourceExceptionRes(parsedOutput, context);
+    case "ResourceAlreadyExistsException":
+    case "com.amazonaws.servicequotas#ResourceAlreadyExistsException":
+      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "ServiceQuotaTemplateNotInUseException":
     case "com.amazonaws.servicequotas#ServiceQuotaTemplateNotInUseException":
       throw await de_ServiceQuotaTemplateNotInUseExceptionRes(parsedOutput, context);
@@ -814,12 +855,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "QuotaExceededException":
     case "com.amazonaws.servicequotas#QuotaExceededException":
       throw await de_QuotaExceededExceptionRes(parsedOutput, context);
-    case "InvalidResourceStateException":
-    case "com.amazonaws.servicequotas#InvalidResourceStateException":
-      throw await de_InvalidResourceStateExceptionRes(parsedOutput, context);
-    case "ResourceAlreadyExistsException":
-    case "com.amazonaws.servicequotas#ResourceAlreadyExistsException":
-      throw await de_ResourceAlreadyExistsExceptionRes(parsedOutput, context);
     case "TagPolicyViolationException":
     case "com.amazonaws.servicequotas#TagPolicyViolationException":
       throw await de_TagPolicyViolationExceptionRes(parsedOutput, context);
@@ -1107,6 +1142,8 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_AssociateServiceQuotaTemplateRequest omitted.
 
+// se_CreateSupportCaseRequest omitted.
+
 // se_DeleteServiceQuotaIncreaseRequestFromTemplateRequest omitted.
 
 // se_DisassociateServiceQuotaTemplateRequest omitted.
@@ -1166,6 +1203,7 @@ const se_RequestServiceQuotaIncreaseRequest = (
     DesiredValue: __serializeFloat,
     QuotaCode: [],
     ServiceCode: [],
+    SupportCaseAllowed: [],
   });
 };
 
@@ -1180,6 +1218,8 @@ const se_RequestServiceQuotaIncreaseRequest = (
 // de_AssociateServiceQuotaTemplateResponse omitted.
 
 // de_AWSServiceAccessNotEnabledException omitted.
+
+// de_CreateSupportCaseResponse omitted.
 
 // de_DeleteServiceQuotaIncreaseRequestFromTemplateResponse omitted.
 
@@ -1403,6 +1443,7 @@ const de_RequestServiceQuotaIncreaseResponse = (
 const de_ServiceQuota = (output: any, context: __SerdeContext): ServiceQuota => {
   return take(output, {
     Adjustable: __expectBoolean,
+    Description: __expectString,
     ErrorReason: _json,
     GlobalQuota: __expectBoolean,
     Period: _json,

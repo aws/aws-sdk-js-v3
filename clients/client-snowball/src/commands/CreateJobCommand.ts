@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -322,42 +323,42 @@ export interface CreateJobCommandOutput extends CreateJobResult, __MetadataBeare
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To create a job
  * ```javascript
  * // Creates a job to import or export data between Amazon S3 and your on-premises data center. Your AWS account must have the right trust policies and permissions in place to create a job for Snowball. If you're creating a job for a node in a cluster, you only need to provide the clusterId value; the other job attributes are inherited from the cluster.
  * const input = {
- *   "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *   "Description": "My Job",
- *   "JobType": "IMPORT",
- *   "KmsKeyARN": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
- *   "Notification": {
- *     "JobStatesToNotify": [],
- *     "NotifyAll": false
+ *   AddressId: "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
+ *   Description: "My Job",
+ *   JobType: "IMPORT",
+ *   KmsKeyARN: "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
+ *   Notification: {
+ *     JobStatesToNotify:     [],
+ *     NotifyAll: false
  *   },
- *   "Resources": {
- *     "S3Resources": [
+ *   Resources: {
+ *     S3Resources: [
  *       {
- *         "BucketArn": "arn:aws:s3:::MyBucket",
- *         "KeyRange": {}
+ *         BucketArn: "arn:aws:s3:::MyBucket",
+ *         KeyRange:         { /* empty *\/ }
  *       }
  *     ]
  *   },
- *   "RoleARN": "arn:aws:iam::123456789012:role/snowball-import-S3-role",
- *   "ShippingOption": "SECOND_DAY",
- *   "SnowballCapacityPreference": "T80",
- *   "SnowballType": "STANDARD"
+ *   RoleARN: "arn:aws:iam::123456789012:role/snowball-import-S3-role",
+ *   ShippingOption: "SECOND_DAY",
+ *   SnowballCapacityPreference: "T80",
+ *   SnowballType: "STANDARD"
  * };
  * const command = new CreateJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "JobId": "JID123e4567-e89b-12d3-a456-426655440000"
+ *   JobId: "JID123e4567-e89b-12d3-a456-426655440000"
  * }
  * *\/
- * // example id: to-create-a-job-1482864834886
  * ```
  *
+ * @public
  */
 export class CreateJobCommand extends $Command
   .classBuilder<
@@ -367,9 +368,7 @@ export class CreateJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -381,4 +380,16 @@ export class CreateJobCommand extends $Command
   .f(CreateJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateJobCommand)
   .de(de_CreateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateJobRequest;
+      output: CreateJobResult;
+    };
+    sdk: {
+      input: CreateJobCommandInput;
+      output: CreateJobCommandOutput;
+    };
+  };
+}

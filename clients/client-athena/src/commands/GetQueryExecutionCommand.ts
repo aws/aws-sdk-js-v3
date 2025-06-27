@@ -12,7 +12,8 @@ import { de_GetQueryExecutionCommand, se_GetQueryExecutionCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,12 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * //     QueryExecutionId: "STRING_VALUE",
  * //     Query: "STRING_VALUE",
  * //     StatementType: "DDL" || "DML" || "UTILITY",
+ * //     ManagedQueryResultsConfiguration: { // ManagedQueryResultsConfiguration
+ * //       Enabled: true || false, // required
+ * //       EncryptionConfiguration: { // ManagedQueryResultsEncryptionConfiguration
+ * //         KmsKey: "STRING_VALUE", // required
+ * //       },
+ * //     },
  * //     ResultConfiguration: { // ResultConfiguration
  * //       OutputLocation: "STRING_VALUE",
  * //       EncryptionConfiguration: { // EncryptionConfiguration
@@ -128,6 +135,7 @@ export interface GetQueryExecutionCommandOutput extends GetQueryExecutionOutput,
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetQueryExecutionCommand extends $Command
@@ -138,9 +146,7 @@ export class GetQueryExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +158,16 @@ export class GetQueryExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryExecutionCommand)
   .de(de_GetQueryExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryExecutionInput;
+      output: GetQueryExecutionOutput;
+    };
+    sdk: {
+      input: GetQueryExecutionCommandInput;
+      output: GetQueryExecutionCommandOutput;
+    };
+  };
+}

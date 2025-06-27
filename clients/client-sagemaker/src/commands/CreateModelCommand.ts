@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,23 +28,7 @@ export interface CreateModelCommandInput extends CreateModelInput {}
 export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a model in SageMaker. In the request, you name the model and describe a primary
- *             container. For the primary container, you specify the Docker image that
- *             contains inference code, artifacts (from prior training), and a custom environment map
- *             that the inference code uses when you deploy the model for predictions.</p>
- *          <p>Use this API to create a model if you want to use SageMaker hosting services or run a batch
- *             transform job.</p>
- *          <p>To host your model, you create an endpoint configuration with the
- *                 <code>CreateEndpointConfig</code> API, and then create an endpoint with the
- *                 <code>CreateEndpoint</code> API. SageMaker then deploys all of the containers that you
- *             defined for the model in the hosting environment. </p>
- *          <p>To run a batch transform using your model, you start a job with the
- *                 <code>CreateTransformJob</code> API. SageMaker uses your model and your dataset to get
- *             inferences which are then saved to a specified S3 location.</p>
- *          <p>In the request, you also provide an IAM role that SageMaker can assume to access model
- *             artifacts and docker image for deployment on ML compute hosting instances or for batch
- *             transform jobs. In addition, you also use the IAM role to manage permissions the
- *             inference code needs. For example, if the inference code access any other Amazon Web Services resources, you grant necessary permissions via this role.</p>
+ * <p>Creates a model in SageMaker. In the request, you name the model and describe a primary container. For the primary container, you specify the Docker image that contains inference code, artifacts (from prior training), and a custom environment map that the inference code uses when you deploy the model for predictions.</p> <p>Use this API to create a model if you want to use SageMaker hosting services or run a batch transform job.</p> <p>To host your model, you create an endpoint configuration with the <code>CreateEndpointConfig</code> API, and then create an endpoint with the <code>CreateEndpoint</code> API. SageMaker then deploys all of the containers that you defined for the model in the hosting environment. </p> <p>To run a batch transform using your model, you start a job with the <code>CreateTransformJob</code> API. SageMaker uses your model and your dataset to get inferences which are then saved to a specified S3 location.</p> <p>In the request, you also provide an IAM role that SageMaker can assume to access model artifacts and docker image for deployment on ML compute hosting instances or for batch transform jobs. In addition, you also use the IAM role to manage permissions the inference code needs. For example, if the inference code access any other Amazon Web Services resources, you grant necessary permissions via this role.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,8 +56,33 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *         ModelAccessConfig: { // ModelAccessConfig
  *           AcceptEula: true || false, // required
  *         },
+ *         HubAccessConfig: { // InferenceHubAccessConfig
+ *           HubContentArn: "STRING_VALUE", // required
+ *         },
+ *         ManifestS3Uri: "STRING_VALUE",
+ *         ETag: "STRING_VALUE",
+ *         ManifestEtag: "STRING_VALUE",
  *       },
  *     },
+ *     AdditionalModelDataSources: [ // AdditionalModelDataSources
+ *       { // AdditionalModelDataSource
+ *         ChannelName: "STRING_VALUE", // required
+ *         S3DataSource: {
+ *           S3Uri: "STRING_VALUE", // required
+ *           S3DataType: "S3Prefix" || "S3Object", // required
+ *           CompressionType: "None" || "Gzip", // required
+ *           ModelAccessConfig: {
+ *             AcceptEula: true || false, // required
+ *           },
+ *           HubAccessConfig: {
+ *             HubContentArn: "STRING_VALUE", // required
+ *           },
+ *           ManifestS3Uri: "STRING_VALUE",
+ *           ETag: "STRING_VALUE",
+ *           ManifestEtag: "STRING_VALUE",
+ *         },
+ *       },
+ *     ],
  *     Environment: { // EnvironmentMap
  *       "<keys>": "STRING_VALUE",
  *     },
@@ -102,8 +112,20 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *           ModelAccessConfig: {
  *             AcceptEula: true || false, // required
  *           },
+ *           HubAccessConfig: {
+ *             HubContentArn: "STRING_VALUE", // required
+ *           },
+ *           ManifestS3Uri: "STRING_VALUE",
+ *           ETag: "STRING_VALUE",
+ *           ManifestEtag: "STRING_VALUE",
  *         },
  *       },
+ *       AdditionalModelDataSources: [
+ *         {
+ *           ChannelName: "STRING_VALUE", // required
+ *           S3DataSource: "<S3ModelDataSource>", // required
+ *         },
+ *       ],
  *       Environment: {
  *         "<keys>": "STRING_VALUE",
  *       },
@@ -149,11 +171,11 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -165,9 +187,7 @@ export class CreateModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +199,16 @@ export class CreateModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateModelCommand)
   .de(de_CreateModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateModelInput;
+      output: CreateModelOutput;
+    };
+    sdk: {
+      input: CreateModelCommandInput;
+      output: CreateModelCommandOutput;
+    };
+  };
+}

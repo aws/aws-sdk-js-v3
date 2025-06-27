@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,7 @@ export interface CreateAccessCommandInput extends CreateAccessRequest {}
 export interface CreateAccessCommandOutput extends CreateAccessResponse, __MetadataBearer {}
 
 /**
- * <p>Used by administrators to choose which groups in the directory should have access to
- *       upload and download files over the enabled protocols using Transfer Family. For example, a
- *       Microsoft Active Directory might contain 50,000 users, but only a small fraction might need
- *       the ability to transfer files to the server. An administrator can use
- *         <code>CreateAccess</code> to limit the access to the correct set of users who need this
- *       ability.</p>
+ * <p>Used by administrators to choose which groups in the directory should have access to upload and download files over the enabled protocols using Transfer Family. For example, a Microsoft Active Directory might contain 50,000 users, but only a small fraction might need the ability to transfer files to the server. An administrator can use <code>CreateAccess</code> to limit the access to the correct set of users who need this ability.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,14 +82,14 @@ export interface CreateAccessCommandOutput extends CreateAccessResponse, __Metad
  *  <p>The requested resource does not exist, or exists in a region other than the one specified for the command.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -105,9 +101,7 @@ export class CreateAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +113,16 @@ export class CreateAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessCommand)
   .de(de_CreateAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessRequest;
+      output: CreateAccessResponse;
+    };
+    sdk: {
+      input: CreateAccessCommandInput;
+      output: CreateAccessCommandOutput;
+    };
+  };
+}

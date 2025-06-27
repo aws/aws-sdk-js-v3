@@ -12,7 +12,8 @@ import { de_CancelJobCommand, se_CancelJobCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class CancelJobCommand extends $Command
@@ -80,9 +82,7 @@ export class CancelJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class CancelJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelJobCommand)
   .de(de_CancelJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelJobCommandInput;
+      output: CancelJobCommandOutput;
+    };
+  };
+}

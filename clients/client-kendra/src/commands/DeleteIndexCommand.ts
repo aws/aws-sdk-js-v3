@@ -12,7 +12,8 @@ import { de_DeleteIndexCommand, se_DeleteIndexCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,9 @@ export interface DeleteIndexCommandInput extends DeleteIndexRequest {}
 export interface DeleteIndexCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Kendra index. An exception is not thrown if the index is
- *       already being deleted. While the index is being deleted, the <code>Status</code> field
- *       returned by a call to the <code>DescribeIndex</code> API is set to
- *       <code>DELETING</code>.</p>
+ * <p>Deletes an Amazon Kendra index. An exception is not thrown if the index is already
+ *       being deleted. While the index is being deleted, the <code>Status</code> field returned by a
+ *       call to the <code>DescribeIndex</code> API is set to <code>DELETING</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +79,7 @@ export interface DeleteIndexCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DeleteIndexCommand extends $Command
@@ -89,9 +90,7 @@ export class DeleteIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class DeleteIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIndexCommand)
   .de(de_DeleteIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIndexRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteIndexCommandInput;
+      output: DeleteIndexCommandOutput;
+    };
+  };
+}

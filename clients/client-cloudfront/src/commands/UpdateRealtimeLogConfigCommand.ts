@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRealtimeLogConfigRequest, UpdateRealtimeLogConfigResult } from "../models/models_1";
+import { UpdateRealtimeLogConfigRequest, UpdateRealtimeLogConfigResult } from "../models/models_2";
 import { de_UpdateRealtimeLogConfigCommand, se_UpdateRealtimeLogConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,27 +28,7 @@ export interface UpdateRealtimeLogConfigCommandInput extends UpdateRealtimeLogCo
 export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
- * <p>Updates a real-time log configuration.</p>
- *          <p>When you update a real-time log configuration, all the parameters are updated with the
- * 			values provided in the request. You cannot update some parameters independent of others.
- * 			To update a real-time log configuration:</p>
- *          <ol>
- *             <li>
- *                <p>Call <code>GetRealtimeLogConfig</code> to get the current real-time log
- * 					configuration.</p>
- *             </li>
- *             <li>
- *                <p>Locally modify the parameters in the real-time log configuration that you want
- * 					to update.</p>
- *             </li>
- *             <li>
- *                <p>Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire
- * 					real-time log configuration, including the parameters that you modified and
- * 					those that you didn't.</p>
- *             </li>
- *          </ol>
- *          <p>You cannot update a real-time log configuration's <code>Name</code> or
- * 				<code>ARN</code>.</p>
+ * <p>Updates a real-time log configuration.</p> <p>When you update a real-time log configuration, all the parameters are updated with the values provided in the request. You cannot update some parameters independent of others. To update a real-time log configuration:</p> <ol> <li> <p>Call <code>GetRealtimeLogConfig</code> to get the current real-time log configuration.</p> </li> <li> <p>Locally modify the parameters in the real-time log configuration that you want to update.</p> </li> <li> <p>Call this API (<code>UpdateRealtimeLogConfig</code>) by providing the entire real-time log configuration, including the parameters that you modified and those that you didn't.</p> </li> </ol> <p>You cannot update a real-time log configuration's <code>Name</code> or <code>ARN</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -113,6 +94,7 @@ export interface UpdateRealtimeLogConfigCommandOutput extends UpdateRealtimeLogC
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class UpdateRealtimeLogConfigCommand extends $Command
@@ -123,9 +105,7 @@ export class UpdateRealtimeLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +117,16 @@ export class UpdateRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRealtimeLogConfigCommand)
   .de(de_UpdateRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRealtimeLogConfigRequest;
+      output: UpdateRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: UpdateRealtimeLogConfigCommandInput;
+      output: UpdateRealtimeLogConfigCommandOutput;
+    };
+  };
+}

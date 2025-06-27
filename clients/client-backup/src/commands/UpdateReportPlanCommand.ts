@@ -12,7 +12,8 @@ import { de_UpdateReportPlanCommand, se_UpdateReportPlanCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface UpdateReportPlanCommandInput extends UpdateReportPlanInput {}
 export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, __MetadataBearer {}
 
 /**
- * <p>Updates an existing report plan identified by its <code>ReportPlanName</code> with the
- *          input document in JSON format.</p>
+ * <p>Updates the specified report plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,6 +99,7 @@ export interface UpdateReportPlanCommandOutput extends UpdateReportPlanOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class UpdateReportPlanCommand extends $Command
@@ -109,9 +110,7 @@ export class UpdateReportPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class UpdateReportPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateReportPlanCommand)
   .de(de_UpdateReportPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateReportPlanInput;
+      output: UpdateReportPlanOutput;
+    };
+    sdk: {
+      input: UpdateReportPlanCommandInput;
+      output: UpdateReportPlanCommandOutput;
+    };
+  };
+}

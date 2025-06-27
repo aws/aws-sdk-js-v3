@@ -1,5 +1,5 @@
-import { AbortSignal } from "@smithy/abort-controller";
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterAll, afterEach, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 import { XhrHttpHandler } from "./xhr-http-handler";
 
@@ -35,13 +35,19 @@ class XhrMock {
     this.captureArgs("getAllResponseHeaders")();
     return `responseHeaderKey: responseHeaderValue\r\nrk2: rv2`;
   }
-  setRequestHeader = this.captureArgs("setRequestHeader");
-  open = this.captureArgs("open");
+  setRequestHeader(...args: any[]) {
+    return this.captureArgs("setRequestHeader")(...args);
+  }
+  open(...args: any[]) {
+    return this.captureArgs("open")(...args);
+  }
   send(...args: any[]) {
     this.captureArgs("send")(...args);
     this.eventListeners["readystatechange"][0]();
   }
-  abort = this.captureArgs("abort");
+  abort(...args: any[]) {
+    return this.captureArgs("abort")(...args);
+  }
   addEventListener(...args: any[]) {
     this.captureArgs("addEventListener")(...args);
     const [event, callback] = args;
@@ -57,7 +63,7 @@ describe(XhrHttpHandler.name, () => {
       public writable = {
         getWriter() {
           return {
-            releaseLock: jest.fn(),
+            releaseLock: vi.fn(),
           };
         },
         close() {},
@@ -134,9 +140,9 @@ describe(XhrHttpHandler.name, () => {
 
   it("should respond to AbortSignal", async () => {
     const handler = new XhrHttpHandler();
-    const abortSignal = new AbortSignal();
+    const abortController = new AbortController();
 
-    await handler.handle(
+    const p1 = handler.handle(
       new HttpRequest({
         method: "PUT",
         hostname: "localhost",
@@ -147,27 +153,68 @@ describe(XhrHttpHandler.name, () => {
         protocol: "http:",
         path: "/api",
       }),
-      { abortSignal }
+      { abortSignal: abortController.signal }
     );
 
     try {
-      abortSignal.abort();
+      abortController.abort();
+      await p1;
     } catch (e) {
       expect(e.toString()).toContain("Request aborted");
     }
 
     expect(XhrMock.captures).toEqual([
-      ["upload.addEventListener", "progress", expect.any(Function)],
-      ["addEventListener", "progress", expect.any(Function)],
-      ["addEventListener", "error", expect.any(Function)],
-      ["addEventListener", "timeout", expect.any(Function)],
-      ["addEventListener", "readystatechange", expect.any(Function)],
+      ["upload.addEventListener", "progress", expect.anything()],
+      ["addEventListener", "progress", expect.anything()],
+      ["addEventListener", "error", expect.anything()],
+      ["addEventListener", "timeout", expect.anything()],
+      ["addEventListener", "readystatechange", expect.anything()],
       ["open", "PUT", "http://localhost:3000/api?k=v"],
       ["setRequestHeader", "h", "1"],
       ["send", "hello"],
       ["getAllResponseHeaders"],
       ["abort"],
     ]);
+  });
+
+  it("should allow an AbortSignal to abort multiple requests", async () => {
+    const handler = new XhrHttpHandler();
+    const abortController = new AbortController();
+
+    expect(abortController.signal.addEventListener).toBeInstanceOf(Function);
+
+    const xhrs = [] as XMLHttpRequest[];
+    handler.on(XhrHttpHandler.EVENTS.BEFORE_XHR_SEND, (xhr) => {
+      xhrs.push(xhr);
+    });
+
+    const request = () =>
+      handler.handle(
+        new HttpRequest({
+          method: "PUT",
+          hostname: "localhost",
+          port: 3000,
+          query: { k: "v" },
+          headers: { h: "1" },
+          body: "hello",
+          protocol: "http:",
+          path: "/api",
+        }),
+        { abortSignal: abortController.signal }
+      );
+
+    const p1 = request().catch((_) => _);
+    const p2 = request().catch((_) => _);
+    const p3 = request().catch((_) => _);
+    abortController.abort();
+    await p1;
+    await p2;
+    await p3;
+    await request().catch((_) => _);
+    await request().catch((_) => _);
+
+    expect(xhrs.length).toEqual(3);
+    expect(XhrMock.captures.filter(([source]) => source === "abort")).toEqual([["abort"], ["abort"], ["abort"]]);
   });
 
   it("should ignore forbidden request headers", async () => {

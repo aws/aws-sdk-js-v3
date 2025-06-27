@@ -12,7 +12,8 @@ import { de_DescribePredictorCommand, se_DescribePredictorCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -204,6 +205,7 @@ export interface DescribePredictorCommandOutput extends DescribePredictorRespons
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DescribePredictorCommand extends $Command
@@ -214,9 +216,7 @@ export class DescribePredictorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -228,4 +228,16 @@ export class DescribePredictorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePredictorCommand)
   .de(de_DescribePredictorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePredictorRequest;
+      output: DescribePredictorResponse;
+    };
+    sdk: {
+      input: DescribePredictorCommandInput;
+      output: DescribePredictorCommandOutput;
+    };
+  };
+}

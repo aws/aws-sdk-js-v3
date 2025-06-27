@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,7 +41,7 @@ export interface CreateContainerServiceDeploymentCommandOutput
  *       configuration.</p>
  *          <p>You can deploy containers to your container service using container images from a public
  *       registry such as Amazon ECR Public, or from your local machine. For more information, see
- *         <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
+ *         <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-creating-container-images">Creating container images for your Amazon Lightsail container services</a> in the
  *         <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -217,6 +218,7 @@ export interface CreateContainerServiceDeploymentCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateContainerServiceDeploymentCommand extends $Command
@@ -227,9 +229,7 @@ export class CreateContainerServiceDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -241,4 +241,16 @@ export class CreateContainerServiceDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContainerServiceDeploymentCommand)
   .de(de_CreateContainerServiceDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContainerServiceDeploymentRequest;
+      output: CreateContainerServiceDeploymentResult;
+    };
+    sdk: {
+      input: CreateContainerServiceDeploymentCommandInput;
+      output: CreateContainerServiceDeploymentCommandOutput;
+    };
+  };
+}

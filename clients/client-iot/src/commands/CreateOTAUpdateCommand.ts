@@ -12,7 +12,8 @@ import { de_CreateOTAUpdateCommand, se_CreateOTAUpdateCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -177,6 +178,7 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateOTAUpdateCommand extends $Command
@@ -187,9 +189,7 @@ export class CreateOTAUpdateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -201,4 +201,16 @@ export class CreateOTAUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOTAUpdateCommand)
   .de(de_CreateOTAUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOTAUpdateRequest;
+      output: CreateOTAUpdateResponse;
+    };
+    sdk: {
+      input: CreateOTAUpdateCommandInput;
+      output: CreateOTAUpdateCommandOutput;
+    };
+  };
+}

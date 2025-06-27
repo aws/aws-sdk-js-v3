@@ -12,7 +12,8 @@ import { de_DeleteDomainNameCommand, se_DeleteDomainNameCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,7 @@ export interface DeleteDomainNameCommandOutput extends __MetadataBearer {}
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainNameCommand extends $Command
@@ -68,9 +70,7 @@ export class DeleteDomainNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +82,16 @@ export class DeleteDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDomainNameCommand)
   .de(de_DeleteDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDomainNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDomainNameCommandInput;
+      output: DeleteDomainNameCommandOutput;
+    };
+  };
+}

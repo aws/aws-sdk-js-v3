@@ -13,7 +13,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SQSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,12 +34,12 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *             information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon SQS
  *                 Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. </p>
  *          <p>Short poll is the default behavior where a weighted random set of machines is sampled
- *             on a <code>ReceiveMessage</code> call. Thus, only the messages on the sampled machines
- *             are returned. If the number of messages in the queue is small (fewer than 1,000), you
- *             most likely get fewer messages than you requested per <code>ReceiveMessage</code> call.
- *             If the number of messages in the queue is extremely small, you might not receive any
- *             messages in a particular <code>ReceiveMessage</code> response. If this happens, repeat
- *             the request. </p>
+ *             on a <code>ReceiveMessage</code> call. Therefore, only the messages on the sampled
+ *             machines are returned. If the number of messages in the queue is small (fewer than
+ *             1,000), you most likely get fewer messages than you requested per
+ *                 <code>ReceiveMessage</code> call. If the number of messages in the queue is
+ *             extremely small, you might not receive any messages in a particular
+ *                 <code>ReceiveMessage</code> response. If this happens, repeat the request.</p>
  *          <p>For each message returned, the response includes the following:</p>
  *          <ul>
  *             <li>
@@ -67,11 +68,7 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *          <p>You can provide the <code>VisibilityTimeout</code> parameter in your request. The
  *             parameter is applied to the messages that Amazon SQS returns in the response. If you don't
  *             include the parameter, the overall visibility timeout for the queue is used for the
- *             returned messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility Timeout</a> in the <i>Amazon SQS Developer
- *             Guide</i>.</p>
- *          <p>A message that isn't deleted or a message whose visibility isn't extended before the
- *             visibility timeout expires counts as a failed receive. Depending on the configuration of
- *             the queue, the message might be sent to the dead-letter queue.</p>
+ *             returned messages. The default visibility timeout for a queue is 30 seconds. </p>
  *          <note>
  *             <p>In the future, new attributes might be added. If you write code that calls this action, we recommend that you structure your code so that it can handle new attributes gracefully.</p>
  *          </note>
@@ -136,10 +133,10 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * @see {@link SQSClientResolvedConfig | config} for SQSClient's `config` shape.
  *
  * @throws {@link InvalidAddress} (client fault)
- *  <p>The <code>accountId</code> is invalid.</p>
+ *  <p>The specified ID is invalid.</p>
  *
  * @throws {@link InvalidSecurity} (client fault)
- *  <p>When the request to a queue is not HTTPS and SigV4.</p>
+ *  <p>The request was not made over HTTPS or did not use SigV4 for signing.</p>
  *
  * @throws {@link KmsAccessDenied} (client fault)
  *  <p>The caller doesn't have the required KMS access.</p>
@@ -182,24 +179,20 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *             for the queue is reached.</p>
  *
  * @throws {@link QueueDoesNotExist} (client fault)
- *  <p>The specified queue doesn't exist.</p>
+ *  <p>Ensure that the <code>QueueUrl</code> is correct and that the queue has not been
+ *             deleted.</p>
  *
  * @throws {@link RequestThrottled} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *          <ul>
  *             <li>
- *                <p>The rate of requests per second exceeds the Amazon Web Services KMS request quota for an
- *                     account and Region. </p>
+ *                <p>Exceeds the permitted request rate for the queue or for the recipient of the
+ *                     request.</p>
  *             </li>
  *             <li>
- *                <p>A burst or sustained high rate of requests to change the state of the same KMS
- *                     key. This condition is often known as a "hot key."</p>
- *             </li>
- *             <li>
- *                <p>Requests for operations on KMS keys in a Amazon Web Services CloudHSM key store
- *                     might be throttled at a lower-than-expected rate when the Amazon Web Services
- *                     CloudHSM cluster associated with the Amazon Web Services CloudHSM key store is
- *                     processing numerous commands, including those unrelated to the Amazon Web Services CloudHSM key store.</p>
+ *                <p>Ensure that the request rate is within the Amazon SQS limits for
+ *                     sending messages. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-quotas.html#quotas-requests">Amazon SQS quotas</a> in the <i>Amazon SQS
+ *                         Developer Guide</i>.</p>
  *             </li>
  *          </ul>
  *
@@ -208,6 +201,7 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  *
  * @throws {@link SQSServiceException}
  * <p>Base exception class for all service exceptions from SQS service.</p>
+ *
  *
  * @public
  */
@@ -219,9 +213,7 @@ export class ReceiveMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SQSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -234,4 +226,16 @@ export class ReceiveMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReceiveMessageCommand)
   .de(de_ReceiveMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReceiveMessageRequest;
+      output: ReceiveMessageResult;
+    };
+    sdk: {
+      input: ReceiveMessageCommandInput;
+      output: ReceiveMessageCommandOutput;
+    };
+  };
+}

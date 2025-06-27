@@ -1,17 +1,18 @@
 import { ChecksumConstructor } from "@smithy/types";
 import * as crypto from "crypto";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { isValidBase64EncodedSSECustomerKey, ssecMiddleware } from "./";
 
 describe("ssecMiddleware", () => {
-  const next = jest.fn();
-  const decoder = jest.fn().mockResolvedValue(new Uint8Array(0));
-  const base64Decoder = jest.fn();
-  const encoder1 = jest.fn();
-  const encoder2 = jest.fn();
-  const mockHashUpdate = jest.fn();
-  const mockHashReset = jest.fn();
-  const mockHashDigest = jest.fn().mockReturnValue(new Uint8Array(0));
+  const next = vi.fn();
+  const decoder = vi.fn().mockResolvedValue(new Uint8Array(0));
+  const base64Decoder = vi.fn();
+  const encoder1 = vi.fn();
+  const encoder2 = vi.fn();
+  const mockHashUpdate = vi.fn();
+  const mockHashReset = vi.fn();
+  const mockHashDigest = vi.fn().mockReturnValue(new Uint8Array(0));
   const MockHash: ChecksumConstructor = class {} as any;
   MockHash.prototype.update = mockHashUpdate;
   MockHash.prototype.digest = mockHashDigest;
@@ -69,11 +70,11 @@ describe("ssecMiddleware", () => {
 
     base64Decoder.mockReturnValue(decodedBytes);
     const mockMD5Instance = {
-      update: jest.fn().mockReturnThis(),
-      digest: jest.fn().mockReturnValue(md5Hash),
+      update: vi.fn().mockReturnThis(),
+      digest: vi.fn().mockReturnValue(md5Hash),
     };
-    const mockMD5Constructor = jest.fn().mockReturnValue(mockMD5Instance);
-    const base64Encoder = jest.fn().mockReturnValue(base64EncodedMD5Hash);
+    const mockMD5Constructor = vi.fn().mockReturnValue(mockMD5Instance);
+    const base64Encoder = vi.fn().mockReturnValue(base64EncodedMD5Hash);
 
     const handler = ssecMiddleware({
       base64Encoder,
@@ -117,12 +118,12 @@ describe("ssecMiddleware", () => {
     const base64EncodedKey = binaryKey.toString("base64");
     const base64EncodedMD5Hash = md5Hash.toString("base64");
 
-    const mockMD5Constructor = jest.fn().mockReturnValue({
-      update: jest.fn().mockReturnThis(),
-      digest: jest.fn().mockReturnValueOnce(md5Hash).mockReturnValueOnce(md5Hash),
+    const mockMD5Constructor = vi.fn().mockReturnValue({
+      update: vi.fn().mockReturnThis(),
+      digest: vi.fn().mockReturnValueOnce(md5Hash).mockReturnValueOnce(md5Hash),
     });
 
-    const base64Encoder = jest
+    const base64Encoder = vi
       .fn()
       .mockReturnValueOnce(base64EncodedKey)
       .mockReturnValueOnce(base64EncodedMD5Hash)
@@ -161,7 +162,7 @@ describe("ssecMiddleware", () => {
 
   it("should return false for an invalid base64 string", () => {
     const invalidBase64 = "invalid!@#$%";
-    const base64Decoder = jest.fn();
+    const base64Decoder = vi.fn();
     const options = { base64Decoder };
 
     const result = isValidBase64EncodedSSECustomerKey(invalidBase64, options as any);
@@ -172,7 +173,7 @@ describe("ssecMiddleware", () => {
   it("should return true for a valid base64 string and 32 bytes", () => {
     const validBase64EncodedSSECustomerKey = "QUIwMTIzNDU2Nzg5QUJDREVGQUJDREVGQUJDREVGQUI=";
     const decodedBytes = new Uint8Array(32);
-    const base64Decoder = jest.fn().mockReturnValue(decodedBytes);
+    const base64Decoder = vi.fn().mockReturnValue(decodedBytes);
     const options = { base64Decoder };
 
     const result = isValidBase64EncodedSSECustomerKey(validBase64EncodedSSECustomerKey, options as any);
@@ -183,7 +184,7 @@ describe("ssecMiddleware", () => {
 
   it("should return false for a valid base64 string but not 32 bytes", () => {
     const validBase64NonThirtyTwoBytes = "SGVsbG8=";
-    const base64Decoder = jest.fn().mockReturnValue(new Uint8Array([72, 101, 108, 108, 111]));
+    const base64Decoder = vi.fn().mockReturnValue(new Uint8Array([72, 101, 108, 108, 111]));
     const options = { base64Decoder };
 
     const result = isValidBase64EncodedSSECustomerKey(validBase64NonThirtyTwoBytes, options as any);

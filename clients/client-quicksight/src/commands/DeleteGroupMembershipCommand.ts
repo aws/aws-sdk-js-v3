@@ -12,7 +12,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface DeleteGroupMembershipCommandOutput extends DeleteGroupMembershi
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DeleteGroupMembershipCommand extends $Command
@@ -92,9 +94,7 @@ export class DeleteGroupMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class DeleteGroupMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGroupMembershipCommand)
   .de(de_DeleteGroupMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGroupMembershipRequest;
+      output: DeleteGroupMembershipResponse;
+    };
+    sdk: {
+      input: DeleteGroupMembershipCommandInput;
+      output: DeleteGroupMembershipCommandOutput;
+    };
+  };
+}

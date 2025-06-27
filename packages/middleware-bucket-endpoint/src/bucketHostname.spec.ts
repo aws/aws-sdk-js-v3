@@ -1,8 +1,12 @@
 import { parse as parseArn } from "@aws-sdk/util-arn-parser";
+import { describe, expect, test as it } from "vitest";
 
 import { bucketHostname } from "./bucketHostname";
 
-describe("bucketHostname", () => {
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
+describe.skip("bucketHostname", () => {
   const region = "us-west-2";
   describe("from bucket name", () => {
     [
@@ -565,7 +569,7 @@ describe("bucketHostname", () => {
           clientRegion: region,
           isCustomEndpoint: false,
         })
-      ).toThrow("");
+      ).toThrow();
     });
 
     it('should populate endpoint from MRAP ARN with access point name "myendpoint"', () => {

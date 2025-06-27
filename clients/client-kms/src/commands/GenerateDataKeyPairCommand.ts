@@ -16,7 +16,8 @@ import { de_GenerateDataKeyPairCommand, se_GenerateDataKeyPairCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,7 +75,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
- *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+ *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption Context</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -115,7 +116,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -146,6 +147,7 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * //   KeyId: "STRING_VALUE",
  * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2",
  * //   CiphertextForRecipient: new Uint8Array(),
+ * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -185,8 +187,9 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -229,54 +232,29 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate an RSA key pair for encryption and decryption
  * ```javascript
  * // This example generates an RSA data key pair for encryption and decryption. The operation returns a plaintext public key and private key, and a copy of the private key that is encrypted under a symmetric encryption KMS key that you specify.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyPairSpec: "RSA_3072"
  * };
  * const command = new GenerateDataKeyPairCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "PrivateKeyCiphertextBlob": "<binary data>",
- *   "PrivateKeyPlaintext": "<binary data>",
- *   "PublicKey": "<binary data>"
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyMaterialId: "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6",
+ *   KeyPairSpec: "RSA_3072",
+ *   PrivateKeyCiphertextBlob: "<binary data>",
+ *   PrivateKeyPlaintext: "<binary data>",
+ *   PublicKey: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-an-rsa-key-pair-for-encryption-and-decryption-1
  * ```
  *
- * @example To generate a data key pair for a Nitro enclave
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a plaintext copy of the private data key, GenerateDataKeyPair returns a copy of the private data key encrypted by the public key from the attestation document (CiphertextForRecipient). It returns the public data key (PublicKey) and a copy of private data key encrypted under the specified KMS key (PrivateKeyCiphertextBlob), as usual, but plaintext private data key field (PrivateKeyPlaintext) is null or empty.
- * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateDataKeyPairCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextForRecipient": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyPairSpec": "RSA_3072",
- *   "PrivateKeyCiphertextBlob": "<binary data>",
- *   "PrivateKeyPlaintext": "",
- *   "PublicKey": "<binary data>"
- * }
- * *\/
- * // example id: to-generate-a-data-key-pair-for-a-nitro-enclave-2
- * ```
- *
+ * @public
  */
 export class GenerateDataKeyPairCommand extends $Command
   .classBuilder<
@@ -286,9 +264,7 @@ export class GenerateDataKeyPairCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -300,4 +276,16 @@ export class GenerateDataKeyPairCommand extends $Command
   .f(void 0, GenerateDataKeyPairResponseFilterSensitiveLog)
   .ser(se_GenerateDataKeyPairCommand)
   .de(de_GenerateDataKeyPairCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyPairRequest;
+      output: GenerateDataKeyPairResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyPairCommandInput;
+      output: GenerateDataKeyPairCommandOutput;
+    };
+  };
+}

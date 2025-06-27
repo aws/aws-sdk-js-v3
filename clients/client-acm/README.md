@@ -6,14 +6,11 @@
 
 AWS SDK for JavaScript ACM Client for Node.js, Browser and React Native.
 
-<fullname>Certificate Manager</fullname>
-
-<p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites
-and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
+<fullname>Certificate Manager</fullname> <p>You can use Certificate Manager (ACM) to manage SSL/TLS certificates for your Amazon Web Services-based websites and applications. For more information about using ACM, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">Certificate Manager User Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-acm
+To install this package, simply type add or install @aws-sdk/client-acm
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-acm`
@@ -316,6 +313,14 @@ ResendValidationEmail
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/ResendValidationEmailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ResendValidationEmailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/ResendValidationEmailCommandOutput/)
+
+</details>
+<details>
+<summary>
+RevokeCertificate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/acm/command/RevokeCertificateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RevokeCertificateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-acm/Interface/RevokeCertificateCommandOutput/)
 
 </details>
 <details>

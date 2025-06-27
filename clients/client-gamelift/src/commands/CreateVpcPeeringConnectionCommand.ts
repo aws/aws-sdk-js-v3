@@ -12,7 +12,8 @@ import { de_CreateVpcPeeringConnectionCommand, se_CreateVpcPeeringConnectionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,18 +29,18 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
 
 /**
  * <p>Establishes a VPC peering connection between a virtual private cloud (VPC) in an Amazon Web Services account with the VPC
- *             for your Amazon GameLift fleet. VPC peering enables the game servers on your fleet to communicate
+ *             for your Amazon GameLift Servers fleet. VPC peering enables the game servers on your fleet to communicate
  *             directly with other Amazon Web Services resources. You can peer with VPCs in any Amazon Web Services account that
- *             you have access to, including the account that you use to manage your Amazon GameLift fleets. You
+ *             you have access to, including the account that you use to manage your Amazon GameLift Servers fleets. You
  *             cannot peer with VPCs that are in different Regions. For more information, see <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
- *                 Peering with Amazon GameLift Fleets</a>.</p>
+ *                 Peering with Amazon GameLift Servers Fleets</a>.</p>
  *          <p>Before calling this operation to establish the peering connection, you first need to
  *             use <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_CreateVpcPeeringAuthorization.html">CreateVpcPeeringAuthorization</a> and identify the VPC you want to peer with.
  *             Once the authorization for the specified VPC is issued, you have 24 hours to establish
  *             the connection. These two operations handle all tasks necessary to peer the two VPCs,
  *             including acceptance, updating routing tables, etc. </p>
  *          <p>To establish the connection, call this operation from the Amazon Web Services account that is used
- *             to manage the Amazon GameLift fleets. Identify the following values: (1) The ID of the fleet you
+ *             to manage the Amazon GameLift Servers fleets. Identify the following values: (1) The ID of the fleet you
  *             want to be enable a VPC peering connection for; (2) The Amazon Web Services account with the VPC that
  *             you want to peer with; and (3) The ID of the VPC you want to peer with. This operation
  *             is asynchronous. If successful, a connection request is created. You can use continuous
@@ -83,13 +84,14 @@ export interface CreateVpcPeeringConnectionCommandOutput extends CreateVpcPeerin
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -101,9 +103,7 @@ export class CreateVpcPeeringConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class CreateVpcPeeringConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcPeeringConnectionCommand)
   .de(de_CreateVpcPeeringConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcPeeringConnectionInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateVpcPeeringConnectionCommandInput;
+      output: CreateVpcPeeringConnectionCommandOutput;
+    };
+  };
+}

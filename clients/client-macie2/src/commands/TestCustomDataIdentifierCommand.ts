@@ -12,7 +12,8 @@ import { de_TestCustomDataIdentifierCommand, se_TestCustomDataIdentifierCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface TestCustomDataIdentifierCommandInput extends TestCustomDataIden
 export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIdentifierResponse, __MetadataBearer {}
 
 /**
- * <p>Tests a custom data identifier.</p>
+ * <p>Tests criteria for a custom data identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +84,7 @@ export interface TestCustomDataIdentifierCommandOutput extends TestCustomDataIde
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class TestCustomDataIdentifierCommand extends $Command
@@ -93,9 +95,7 @@ export class TestCustomDataIdentifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class TestCustomDataIdentifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestCustomDataIdentifierCommand)
   .de(de_TestCustomDataIdentifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestCustomDataIdentifierRequest;
+      output: TestCustomDataIdentifierResponse;
+    };
+    sdk: {
+      input: TestCustomDataIdentifierCommandInput;
+      output: TestCustomDataIdentifierCommandOutput;
+    };
+  };
+}

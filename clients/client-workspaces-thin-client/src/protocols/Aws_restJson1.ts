@@ -87,6 +87,7 @@ export const se_CreateEnvironmentCommand = async (
       desiredSoftwareSetId: [],
       desktopArn: [],
       desktopEndpoint: [],
+      deviceCreationTags: (_) => _json(_),
       kmsKeyArn: [],
       maintenanceWindow: (_) => _json(_),
       name: [],
@@ -413,10 +414,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -483,6 +481,7 @@ export const se_UpdateEnvironmentCommand = async (
       desiredSoftwareSetId: [],
       desktopArn: [],
       desktopEndpoint: [],
+      deviceCreationTags: (_) => _json(_),
       maintenanceWindow: (_) => _json(_),
       name: [],
       softwareSetUpdateMode: [],
@@ -1038,6 +1037,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DayOfWeekList omitted.
 
+// se_DeviceCreationTagsMap omitted.
+
 // se_MaintenanceWindow omitted.
 
 // se_TagsMap omitted.
@@ -1068,10 +1069,11 @@ const de_Device = (output: any, context: __SerdeContext): Device => {
     softwareSetUpdateSchedule: __expectString,
     softwareSetUpdateStatus: __expectString,
     status: __expectString,
-    tags: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
+
+// de_DeviceCreationTagsMap omitted.
 
 /**
  * deserializeAws_restJson1DeviceList
@@ -1120,6 +1122,7 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     desktopArn: __expectString,
     desktopEndpoint: __expectString,
     desktopType: __expectString,
+    deviceCreationTags: _json,
     id: __expectString,
     kmsKeyArn: __expectString,
     maintenanceWindow: _json,
@@ -1130,7 +1133,6 @@ const de_Environment = (output: any, context: __SerdeContext): Environment => {
     softwareSetComplianceStatus: __expectString,
     softwareSetUpdateMode: __expectString,
     softwareSetUpdateSchedule: __expectString,
-    tags: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
@@ -1185,7 +1187,6 @@ const de_SoftwareSet = (output: any, context: __SerdeContext): SoftwareSet => {
     releasedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     software: _json,
     supportedUntil: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
-    tags: _json,
     validationStatus: __expectString,
     version: __expectString,
   }) as any;
@@ -1234,13 +1235,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cT = "clientToken";
 const _mR = "maxResults";

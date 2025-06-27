@@ -17,7 +17,8 @@ import { de_GetLatestConfigurationCommand, se_GetLatestConfigurationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface GetLatestConfigurationCommandOutput
  * @throws {@link AppConfigDataServiceException}
  * <p>Base exception class for all service exceptions from AppConfigData service.</p>
  *
+ *
  * @public
  */
 export class GetLatestConfigurationCommand extends $Command
@@ -114,9 +116,7 @@ export class GetLatestConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetLatestConfigurationCommand extends $Command
   .f(void 0, GetLatestConfigurationResponseFilterSensitiveLog)
   .ser(se_GetLatestConfigurationCommand)
   .de(de_GetLatestConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLatestConfigurationRequest;
+      output: GetLatestConfigurationResponse;
+    };
+    sdk: {
+      input: GetLatestConfigurationCommandInput;
+      output: GetLatestConfigurationCommandOutput;
+    };
+  };
+}

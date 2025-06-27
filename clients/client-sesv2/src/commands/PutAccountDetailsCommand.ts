@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  *   MailType: "MARKETING" || "TRANSACTIONAL", // required
  *   WebsiteURL: "STRING_VALUE", // required
  *   ContactLanguage: "EN" || "JA",
- *   UseCaseDescription: "STRING_VALUE", // required
+ *   UseCaseDescription: "STRING_VALUE",
  *   AdditionalContactEmailAddresses: [ // AdditionalContactEmailAddresses
  *     "STRING_VALUE",
  *   ],
@@ -72,6 +73,7 @@ export interface PutAccountDetailsCommandOutput extends PutAccountDetailsRespons
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutAccountDetailsCommand extends $Command
@@ -82,9 +84,7 @@ export class PutAccountDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class PutAccountDetailsCommand extends $Command
   .f(PutAccountDetailsRequestFilterSensitiveLog, void 0)
   .ser(se_PutAccountDetailsCommand)
   .de(de_PutAccountDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountDetailsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccountDetailsCommandInput;
+      output: PutAccountDetailsCommandOutput;
+    };
+  };
+}

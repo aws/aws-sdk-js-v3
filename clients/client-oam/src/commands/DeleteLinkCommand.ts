@@ -12,7 +12,8 @@ import { de_DeleteLinkCommand, se_DeleteLinkCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteLinkCommandInput extends DeleteLinkInput {}
 export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation
- *       in the source account.</p>
+ * <p>Deletes a link between a monitoring account sink and a source account. You must run this operation in the source account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +65,7 @@ export interface DeleteLinkCommandOutput extends DeleteLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class DeleteLinkCommand extends $Command
@@ -75,9 +76,7 @@ export class DeleteLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +88,16 @@ export class DeleteLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLinkCommand)
   .de(de_DeleteLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLinkInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLinkCommandInput;
+      output: DeleteLinkCommandOutput;
+    };
+  };
+}

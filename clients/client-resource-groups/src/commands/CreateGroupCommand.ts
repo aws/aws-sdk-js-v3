@@ -12,7 +12,8 @@ import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,9 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  *       ],
  *     },
  *   ],
+ *   Criticality: Number("int"),
+ *   Owner: "STRING_VALUE",
+ *   DisplayName: "STRING_VALUE",
  * };
  * const command = new CreateGroupCommand(input);
  * const response = await client.send(command);
@@ -80,6 +84,12 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * //     GroupArn: "STRING_VALUE", // required
  * //     Name: "STRING_VALUE", // required
  * //     Description: "STRING_VALUE",
+ * //     Criticality: Number("int"),
+ * //     Owner: "STRING_VALUE",
+ * //     DisplayName: "STRING_VALUE",
+ * //     ApplicationTag: { // ApplicationTag
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
  * //   },
  * //   ResourceQuery: { // ResourceQuery
  * //     Type: "TAG_FILTERS_1_0" || "CLOUDFORMATION_STACK_1_0", // required
@@ -147,6 +157,7 @@ export interface CreateGroupCommandOutput extends CreateGroupOutput, __MetadataB
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command
@@ -157,9 +168,7 @@ export class CreateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +180,16 @@ export class CreateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGroupCommand)
   .de(de_CreateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGroupInput;
+      output: CreateGroupOutput;
+    };
+    sdk: {
+      input: CreateGroupCommandInput;
+      output: CreateGroupCommandOutput;
+    };
+  };
+}

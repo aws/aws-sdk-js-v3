@@ -16,7 +16,8 @@ import { de_StartUserImportJobCommand, se_StartUserImportJobCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,9 @@ export interface StartUserImportJobCommandInput extends StartUserImportJobReques
 export interface StartUserImportJobCommandOutput extends StartUserImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Starts the user import.</p>
+ * <p>Instructs your user pool to start importing users from a CSV file that contains their
+ *             usernames and attributes. For more information about importing users from a CSV file,
+ *             see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +97,7 @@ export interface StartUserImportJobCommandOutput extends StartUserImportJobRespo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class StartUserImportJobCommand extends $Command
@@ -104,9 +108,7 @@ export class StartUserImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class StartUserImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartUserImportJobCommand)
   .de(de_StartUserImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartUserImportJobRequest;
+      output: StartUserImportJobResponse;
+    };
+    sdk: {
+      input: StartUserImportJobCommandInput;
+      output: StartUserImportJobCommandOutput;
+    };
+  };
+}

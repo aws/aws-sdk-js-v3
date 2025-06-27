@@ -16,7 +16,8 @@ import { de_RestoreKeyCommand, se_RestoreKeyCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,31 +32,7 @@ export interface RestoreKeyCommandInput extends RestoreKeyInput {}
 export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBearer {}
 
 /**
- * <p>Cancels a scheduled key deletion during the waiting period. Use this operation to restore a <code>Key</code> that is scheduled for deletion.</p>
- *          <p>During the waiting period, the <code>KeyState</code> is <code>DELETE_PENDING</code> and <code>deletePendingTimestamp</code> contains the date and time after which the <code>Key</code> will be deleted.
- *          After <code>Key</code> is restored, the <code>KeyState</code> is <code>CREATE_COMPLETE</code>, and the value for <code>deletePendingTimestamp</code> is removed.</p>
- *          <p>
- *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Cancels a scheduled key deletion during the waiting period. Use this operation to restore a <code>Key</code> that is scheduled for deletion.</p> <p>During the waiting period, the <code>KeyState</code> is <code>DELETE_PENDING</code> and <code>deletePendingTimestamp</code> contains the date and time after which the <code>Key</code> will be deleted. After <code>Key</code> is restored, the <code>KeyState</code> is <code>CREATE_COMPLETE</code>, and the value for <code>deletePendingTimestamp</code> is removed.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,6 +74,7 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  * //     UsageStopTimestamp: new Date("TIMESTAMP"),
  * //     DeletePendingTimestamp: new Date("TIMESTAMP"),
  * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     DeriveKeyUsage: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -135,6 +113,7 @@ export interface RestoreKeyCommandOutput extends RestoreKeyOutput, __MetadataBea
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class RestoreKeyCommand extends $Command
@@ -145,9 +124,7 @@ export class RestoreKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +136,16 @@ export class RestoreKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreKeyCommand)
   .de(de_RestoreKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreKeyInput;
+      output: RestoreKeyOutput;
+    };
+    sdk: {
+      input: RestoreKeyCommandInput;
+      output: RestoreKeyCommandOutput;
+    };
+  };
+}

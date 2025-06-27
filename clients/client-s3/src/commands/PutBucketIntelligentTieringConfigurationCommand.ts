@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutBucketIntelligentTieringConfigurationRequest } from "../models/models_0";
+import { PutBucketIntelligentTieringConfigurationRequest } from "../models/models_1";
 import {
   de_PutBucketIntelligentTieringConfigurationCommand,
   se_PutBucketIntelligentTieringConfigurationCommand,
@@ -15,7 +15,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Puts a S3 Intelligent-Tiering configuration to the specified bucket. You can have up to
  *          1,000 S3 Intelligent-Tiering configurations per bucket.</p>
@@ -98,6 +99,7 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  * const input = { // PutBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
  *   IntelligentTieringConfiguration: { // IntelligentTieringConfiguration
  *     Id: "STRING_VALUE", // required
  *     Filter: { // IntelligentTieringFilter
@@ -140,6 +142,7 @@ export interface PutBucketIntelligentTieringConfigurationCommandOutput extends _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class PutBucketIntelligentTieringConfigurationCommand extends $Command
@@ -166,4 +169,16 @@ export class PutBucketIntelligentTieringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketIntelligentTieringConfigurationCommand)
   .de(de_PutBucketIntelligentTieringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketIntelligentTieringConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketIntelligentTieringConfigurationCommandInput;
+      output: PutBucketIntelligentTieringConfigurationCommandOutput;
+    };
+  };
+}

@@ -99,30 +99,51 @@ import {
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
 import {
+  BatchUpdateFindingsV2CommandInput,
+  BatchUpdateFindingsV2CommandOutput,
+} from "./commands/BatchUpdateFindingsV2Command";
+import {
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
+import {
+  ConnectorRegistrationsV2CommandInput,
+  ConnectorRegistrationsV2CommandOutput,
+} from "./commands/ConnectorRegistrationsV2Command";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "./commands/CreateActionTargetCommand";
+import { CreateAggregatorV2CommandInput, CreateAggregatorV2CommandOutput } from "./commands/CreateAggregatorV2Command";
 import {
   CreateAutomationRuleCommandInput,
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateAutomationRuleV2CommandInput,
+  CreateAutomationRuleV2CommandOutput,
+} from "./commands/CreateAutomationRuleV2Command";
+import {
   CreateConfigurationPolicyCommandInput,
   CreateConfigurationPolicyCommandOutput,
 } from "./commands/CreateConfigurationPolicyCommand";
+import { CreateConnectorV2CommandInput, CreateConnectorV2CommandOutput } from "./commands/CreateConnectorV2Command";
 import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "./commands/CreateFindingAggregatorCommand";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "./commands/CreateInsightCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "./commands/CreateMembersCommand";
+import { CreateTicketV2CommandInput, CreateTicketV2CommandOutput } from "./commands/CreateTicketV2Command";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "./commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "./commands/DeleteActionTargetCommand";
+import { DeleteAggregatorV2CommandInput, DeleteAggregatorV2CommandOutput } from "./commands/DeleteAggregatorV2Command";
+import {
+  DeleteAutomationRuleV2CommandInput,
+  DeleteAutomationRuleV2CommandOutput,
+} from "./commands/DeleteAutomationRuleV2Command";
 import {
   DeleteConfigurationPolicyCommandInput,
   DeleteConfigurationPolicyCommandOutput,
 } from "./commands/DeleteConfigurationPolicyCommand";
+import { DeleteConnectorV2CommandInput, DeleteConnectorV2CommandOutput } from "./commands/DeleteConnectorV2Command";
 import {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
@@ -140,6 +161,11 @@ import {
   DescribeOrganizationConfigurationCommandOutput,
 } from "./commands/DescribeOrganizationConfigurationCommand";
 import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "./commands/DescribeProductsCommand";
+import { DescribeProductsV2CommandInput, DescribeProductsV2CommandOutput } from "./commands/DescribeProductsV2Command";
+import {
+  DescribeSecurityHubV2CommandInput,
+  DescribeSecurityHubV2CommandOutput,
+} from "./commands/DescribeSecurityHubV2Command";
 import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "./commands/DescribeStandardsCommand";
 import {
   DescribeStandardsControlsCommandInput,
@@ -154,6 +180,10 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "./commands/DisableOrganizationAdminAccountCommand";
 import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "./commands/DisableSecurityHubCommand";
+import {
+  DisableSecurityHubV2CommandInput,
+  DisableSecurityHubV2CommandOutput,
+} from "./commands/DisableSecurityHubV2Command";
 import {
   DisassociateFromAdministratorAccountCommandInput,
   DisassociateFromAdministratorAccountCommandOutput,
@@ -176,9 +206,18 @@ import {
 } from "./commands/EnableOrganizationAdminAccountCommand";
 import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "./commands/EnableSecurityHubCommand";
 import {
+  EnableSecurityHubV2CommandInput,
+  EnableSecurityHubV2CommandOutput,
+} from "./commands/EnableSecurityHubV2Command";
+import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import { GetAggregatorV2CommandInput, GetAggregatorV2CommandOutput } from "./commands/GetAggregatorV2Command";
+import {
+  GetAutomationRuleV2CommandInput,
+  GetAutomationRuleV2CommandOutput,
+} from "./commands/GetAutomationRuleV2Command";
 import {
   GetConfigurationPolicyAssociationCommandInput,
   GetConfigurationPolicyAssociationCommandOutput,
@@ -187,6 +226,7 @@ import {
   GetConfigurationPolicyCommandInput,
   GetConfigurationPolicyCommandOutput,
 } from "./commands/GetConfigurationPolicyCommand";
+import { GetConnectorV2CommandInput, GetConnectorV2CommandOutput } from "./commands/GetConnectorV2Command";
 import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -197,6 +237,11 @@ import {
 } from "./commands/GetFindingAggregatorCommand";
 import { GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput } from "./commands/GetFindingHistoryCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import {
+  GetFindingStatisticsV2CommandInput,
+  GetFindingStatisticsV2CommandOutput,
+} from "./commands/GetFindingStatisticsV2Command";
+import { GetFindingsV2CommandInput, GetFindingsV2CommandOutput } from "./commands/GetFindingsV2Command";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "./commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "./commands/GetInsightsCommand";
 import {
@@ -206,14 +251,24 @@ import {
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetResourcesStatisticsV2CommandInput,
+  GetResourcesStatisticsV2CommandOutput,
+} from "./commands/GetResourcesStatisticsV2Command";
+import { GetResourcesV2CommandInput, GetResourcesV2CommandOutput } from "./commands/GetResourcesV2Command";
+import {
   GetSecurityControlDefinitionCommandInput,
   GetSecurityControlDefinitionCommandOutput,
 } from "./commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "./commands/InviteMembersCommand";
+import { ListAggregatorsV2CommandInput, ListAggregatorsV2CommandOutput } from "./commands/ListAggregatorsV2Command";
 import {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
+import {
+  ListAutomationRulesV2CommandInput,
+  ListAutomationRulesV2CommandOutput,
+} from "./commands/ListAutomationRulesV2Command";
 import {
   ListConfigurationPoliciesCommandInput,
   ListConfigurationPoliciesCommandOutput,
@@ -222,6 +277,7 @@ import {
   ListConfigurationPolicyAssociationsCommandInput,
   ListConfigurationPolicyAssociationsCommandOutput,
 } from "./commands/ListConfigurationPolicyAssociationsCommand";
+import { ListConnectorsV2CommandInput, ListConnectorsV2CommandOutput } from "./commands/ListConnectorsV2Command";
 import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -259,10 +315,16 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "./commands/UpdateActionTargetCommand";
+import { UpdateAggregatorV2CommandInput, UpdateAggregatorV2CommandOutput } from "./commands/UpdateAggregatorV2Command";
+import {
+  UpdateAutomationRuleV2CommandInput,
+  UpdateAutomationRuleV2CommandOutput,
+} from "./commands/UpdateAutomationRuleV2Command";
 import {
   UpdateConfigurationPolicyCommandInput,
   UpdateConfigurationPolicyCommandOutput,
 } from "./commands/UpdateConfigurationPolicyCommand";
+import { UpdateConnectorV2CommandInput, UpdateConnectorV2CommandOutput } from "./commands/UpdateConnectorV2Command";
 import {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
@@ -312,16 +374,25 @@ export type ServiceInputTypes =
   | BatchImportFindingsCommandInput
   | BatchUpdateAutomationRulesCommandInput
   | BatchUpdateFindingsCommandInput
+  | BatchUpdateFindingsV2CommandInput
   | BatchUpdateStandardsControlAssociationsCommandInput
+  | ConnectorRegistrationsV2CommandInput
   | CreateActionTargetCommandInput
+  | CreateAggregatorV2CommandInput
   | CreateAutomationRuleCommandInput
+  | CreateAutomationRuleV2CommandInput
   | CreateConfigurationPolicyCommandInput
+  | CreateConnectorV2CommandInput
   | CreateFindingAggregatorCommandInput
   | CreateInsightCommandInput
   | CreateMembersCommandInput
+  | CreateTicketV2CommandInput
   | DeclineInvitationsCommandInput
   | DeleteActionTargetCommandInput
+  | DeleteAggregatorV2CommandInput
+  | DeleteAutomationRuleV2CommandInput
   | DeleteConfigurationPolicyCommandInput
+  | DeleteConnectorV2CommandInput
   | DeleteFindingAggregatorCommandInput
   | DeleteInsightCommandInput
   | DeleteInvitationsCommandInput
@@ -330,34 +401,48 @@ export type ServiceInputTypes =
   | DescribeHubCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DescribeProductsCommandInput
+  | DescribeProductsV2CommandInput
+  | DescribeSecurityHubV2CommandInput
   | DescribeStandardsCommandInput
   | DescribeStandardsControlsCommandInput
   | DisableImportFindingsForProductCommandInput
   | DisableOrganizationAdminAccountCommandInput
   | DisableSecurityHubCommandInput
+  | DisableSecurityHubV2CommandInput
   | DisassociateFromAdministratorAccountCommandInput
   | DisassociateFromMasterAccountCommandInput
   | DisassociateMembersCommandInput
   | EnableImportFindingsForProductCommandInput
   | EnableOrganizationAdminAccountCommandInput
   | EnableSecurityHubCommandInput
+  | EnableSecurityHubV2CommandInput
   | GetAdministratorAccountCommandInput
+  | GetAggregatorV2CommandInput
+  | GetAutomationRuleV2CommandInput
   | GetConfigurationPolicyAssociationCommandInput
   | GetConfigurationPolicyCommandInput
+  | GetConnectorV2CommandInput
   | GetEnabledStandardsCommandInput
   | GetFindingAggregatorCommandInput
   | GetFindingHistoryCommandInput
+  | GetFindingStatisticsV2CommandInput
   | GetFindingsCommandInput
+  | GetFindingsV2CommandInput
   | GetInsightResultsCommandInput
   | GetInsightsCommandInput
   | GetInvitationsCountCommandInput
   | GetMasterAccountCommandInput
   | GetMembersCommandInput
+  | GetResourcesStatisticsV2CommandInput
+  | GetResourcesV2CommandInput
   | GetSecurityControlDefinitionCommandInput
   | InviteMembersCommandInput
+  | ListAggregatorsV2CommandInput
   | ListAutomationRulesCommandInput
+  | ListAutomationRulesV2CommandInput
   | ListConfigurationPoliciesCommandInput
   | ListConfigurationPolicyAssociationsCommandInput
+  | ListConnectorsV2CommandInput
   | ListEnabledProductsForImportCommandInput
   | ListFindingAggregatorsCommandInput
   | ListInvitationsCommandInput
@@ -371,7 +456,10 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateActionTargetCommandInput
+  | UpdateAggregatorV2CommandInput
+  | UpdateAutomationRuleV2CommandInput
   | UpdateConfigurationPolicyCommandInput
+  | UpdateConnectorV2CommandInput
   | UpdateFindingAggregatorCommandInput
   | UpdateFindingsCommandInput
   | UpdateInsightCommandInput
@@ -396,16 +484,25 @@ export type ServiceOutputTypes =
   | BatchImportFindingsCommandOutput
   | BatchUpdateAutomationRulesCommandOutput
   | BatchUpdateFindingsCommandOutput
+  | BatchUpdateFindingsV2CommandOutput
   | BatchUpdateStandardsControlAssociationsCommandOutput
+  | ConnectorRegistrationsV2CommandOutput
   | CreateActionTargetCommandOutput
+  | CreateAggregatorV2CommandOutput
   | CreateAutomationRuleCommandOutput
+  | CreateAutomationRuleV2CommandOutput
   | CreateConfigurationPolicyCommandOutput
+  | CreateConnectorV2CommandOutput
   | CreateFindingAggregatorCommandOutput
   | CreateInsightCommandOutput
   | CreateMembersCommandOutput
+  | CreateTicketV2CommandOutput
   | DeclineInvitationsCommandOutput
   | DeleteActionTargetCommandOutput
+  | DeleteAggregatorV2CommandOutput
+  | DeleteAutomationRuleV2CommandOutput
   | DeleteConfigurationPolicyCommandOutput
+  | DeleteConnectorV2CommandOutput
   | DeleteFindingAggregatorCommandOutput
   | DeleteInsightCommandOutput
   | DeleteInvitationsCommandOutput
@@ -414,34 +511,48 @@ export type ServiceOutputTypes =
   | DescribeHubCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DescribeProductsCommandOutput
+  | DescribeProductsV2CommandOutput
+  | DescribeSecurityHubV2CommandOutput
   | DescribeStandardsCommandOutput
   | DescribeStandardsControlsCommandOutput
   | DisableImportFindingsForProductCommandOutput
   | DisableOrganizationAdminAccountCommandOutput
   | DisableSecurityHubCommandOutput
+  | DisableSecurityHubV2CommandOutput
   | DisassociateFromAdministratorAccountCommandOutput
   | DisassociateFromMasterAccountCommandOutput
   | DisassociateMembersCommandOutput
   | EnableImportFindingsForProductCommandOutput
   | EnableOrganizationAdminAccountCommandOutput
   | EnableSecurityHubCommandOutput
+  | EnableSecurityHubV2CommandOutput
   | GetAdministratorAccountCommandOutput
+  | GetAggregatorV2CommandOutput
+  | GetAutomationRuleV2CommandOutput
   | GetConfigurationPolicyAssociationCommandOutput
   | GetConfigurationPolicyCommandOutput
+  | GetConnectorV2CommandOutput
   | GetEnabledStandardsCommandOutput
   | GetFindingAggregatorCommandOutput
   | GetFindingHistoryCommandOutput
+  | GetFindingStatisticsV2CommandOutput
   | GetFindingsCommandOutput
+  | GetFindingsV2CommandOutput
   | GetInsightResultsCommandOutput
   | GetInsightsCommandOutput
   | GetInvitationsCountCommandOutput
   | GetMasterAccountCommandOutput
   | GetMembersCommandOutput
+  | GetResourcesStatisticsV2CommandOutput
+  | GetResourcesV2CommandOutput
   | GetSecurityControlDefinitionCommandOutput
   | InviteMembersCommandOutput
+  | ListAggregatorsV2CommandOutput
   | ListAutomationRulesCommandOutput
+  | ListAutomationRulesV2CommandOutput
   | ListConfigurationPoliciesCommandOutput
   | ListConfigurationPolicyAssociationsCommandOutput
+  | ListConnectorsV2CommandOutput
   | ListEnabledProductsForImportCommandOutput
   | ListFindingAggregatorsCommandOutput
   | ListInvitationsCommandOutput
@@ -455,7 +566,10 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateActionTargetCommandOutput
+  | UpdateAggregatorV2CommandOutput
+  | UpdateAutomationRuleV2CommandOutput
   | UpdateConfigurationPolicyCommandOutput
+  | UpdateConnectorV2CommandOutput
   | UpdateFindingAggregatorCommandOutput
   | UpdateFindingsCommandOutput
   | UpdateInsightCommandOutput
@@ -556,6 +670,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -601,11 +734,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type SecurityHubClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -621,11 +754,11 @@ export interface SecurityHubClientConfig extends SecurityHubClientConfigType {}
 export type SecurityHubClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -638,7 +771,7 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
 /**
  * <p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
  *            you assess your Amazon Web Services environment against security industry standards and best practices.</p>
- *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
+ *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services services, and
  *             supported third-party products and helps you analyze your security trends and identify the highest priority security
  *             issues.</p>
  *          <p>To help you manage the security state of your organization, Security Hub supports multiple security standards.
@@ -647,10 +780,10 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *             Security Standard (PCI DSS), and the National Institute of Standards and Technology (NIST). Each standard includes
  *             several security controls, each of which represents a security best practice. Security Hub runs checks against
  *             security controls and generates control findings to help you assess your compliance against security best practices.</p>
- *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services,
+ *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services services,
  *             such as Amazon GuardDuty and Amazon Inspector, and
  *             supported third-party products. This gives you a single pane of glass into a variety of security-related issues. You
- *             can also send Security Hub findings to other Amazon Web Services and supported third-party products.</p>
+ *             can also send Security Hub findings to other Amazon Web Services services and supported third-party products.</p>
  *          <p>Security Hub offers automation features that help you triage and remediate security issues. For example,
  *            you can use automation rules to automatically update critical findings when a security check fails. You can also leverage the integration with
  *            Amazon EventBridge  to trigger automatic responses to specific findings.</p>
@@ -661,12 +794,12 @@ export interface SecurityHubClientResolvedConfig extends SecurityHubClientResolv
  *             </a>. The
  *            user guide explains key concepts and provides procedures
  *            that demonstrate how to use Security Hub features. It also provides information about topics such as
- *            integrating Security Hub with other Amazon Web Services.</p>
+ *            integrating Security Hub with other Amazon Web Services services.</p>
  *          <p>In addition to interacting with Security Hub  by making calls to the Security Hub API, you can
  *            use a current version of an Amazon Web Services command line tool or SDK. Amazon Web Services provides tools
  *             and SDKs that consist of libraries and sample code for various languages and platforms, such as PowerShell,
  *            Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic access to
- *            Security Hub  and other Amazon Web Services . They also handle tasks such as signing requests,
+ *            Security Hub  and other Amazon Web Services services . They also handle tasks such as signing requests,
  *            managing errors, and retrying requests automatically. For information about installing and using the Amazon Web Services  tools
  *            and SDKs, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>.</p>
  *          <p>With the exception of operations that are related to central configuration, Security Hub API requests are executed only in
@@ -723,26 +856,30 @@ export class SecurityHubClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<SecurityHubClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultSecurityHubHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: SecurityHubClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -755,14 +892,5 @@ export class SecurityHubClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSecurityHubHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: SecurityHubClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

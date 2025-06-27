@@ -12,7 +12,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             </li>
  *          </ul>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -140,6 +141,10 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -180,6 +185,9 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -206,6 +214,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command
@@ -216,9 +225,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -230,4 +237,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

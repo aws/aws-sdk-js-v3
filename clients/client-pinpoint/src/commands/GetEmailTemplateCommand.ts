@@ -12,7 +12,8 @@ import { de_GetEmailTemplateCommand, se_GetEmailTemplateCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface GetEmailTemplateCommandOutput extends GetEmailTemplateResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetEmailTemplateCommand extends $Command
@@ -108,9 +110,7 @@ export class GetEmailTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class GetEmailTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEmailTemplateCommand)
   .de(de_GetEmailTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEmailTemplateRequest;
+      output: GetEmailTemplateResponse;
+    };
+    sdk: {
+      input: GetEmailTemplateCommandInput;
+      output: GetEmailTemplateCommandOutput;
+    };
+  };
+}

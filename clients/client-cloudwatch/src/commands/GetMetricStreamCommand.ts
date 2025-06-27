@@ -12,7 +12,8 @@ import { de_GetMetricStreamCommand, se_GetMetricStreamCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,7 +90,8 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidParameterCombinationException} (client fault)
  *  <p>Parameters were used together that cannot be used together.</p>
@@ -106,6 +108,7 @@ export interface GetMetricStreamCommandOutput extends GetMetricStreamOutput, __M
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class GetMetricStreamCommand extends $Command
@@ -116,9 +119,7 @@ export class GetMetricStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class GetMetricStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricStreamCommand)
   .de(de_GetMetricStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetricStreamInput;
+      output: GetMetricStreamOutput;
+    };
+    sdk: {
+      input: GetMetricStreamCommandInput;
+      output: GetMetricStreamCommandOutput;
+    };
+  };
+}

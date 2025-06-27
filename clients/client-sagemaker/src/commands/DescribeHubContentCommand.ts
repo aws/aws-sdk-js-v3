@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeHubContentRequest, DescribeHubContentResponse } from "../models/models_2";
+import { DescribeHubContentRequest, DescribeHubContentResponse } from "../models/models_3";
 import { de_DescribeHubContentCommand, se_DescribeHubContentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,6 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
 
 /**
  * <p>Describe the content of a hub.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,7 +37,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * const client = new SageMakerClient(config);
  * const input = { // DescribeHubContentRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  *   HubContentName: "STRING_VALUE", // required
  *   HubContentVersion: "STRING_VALUE",
  * };
@@ -49,7 +47,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentName: "STRING_VALUE", // required
  * //   HubContentArn: "STRING_VALUE", // required
  * //   HubContentVersion: "STRING_VALUE", // required
- * //   HubContentType: "Model" || "Notebook", // required
+ * //   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  * //   DocumentSchemaVersion: "STRING_VALUE", // required
  * //   HubName: "STRING_VALUE", // required
  * //   HubArn: "STRING_VALUE", // required
@@ -57,6 +55,9 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentDescription: "STRING_VALUE",
  * //   HubContentMarkdown: "STRING_VALUE",
  * //   HubContentDocument: "STRING_VALUE", // required
+ * //   SageMakerPublicHubContentArn: "STRING_VALUE",
+ * //   ReferenceMinVersion: "STRING_VALUE",
+ * //   SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //   HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //     "STRING_VALUE",
  * //   ],
@@ -69,6 +70,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * //   HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
  * //   FailureReason: "STRING_VALUE",
  * //   CreationTime: new Date("TIMESTAMP"), // required
+ * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
@@ -85,6 +87,7 @@ export interface DescribeHubContentCommandOutput extends DescribeHubContentRespo
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeHubContentCommand extends $Command
@@ -95,9 +98,7 @@ export class DescribeHubContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +110,16 @@ export class DescribeHubContentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHubContentCommand)
   .de(de_DescribeHubContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHubContentRequest;
+      output: DescribeHubContentResponse;
+    };
+    sdk: {
+      input: DescribeHubContentCommandInput;
+      output: DescribeHubContentCommandOutput;
+    };
+  };
+}

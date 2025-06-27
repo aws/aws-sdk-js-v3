@@ -15,7 +15,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,6 +34,11 @@ export interface DescribePendingMaintenanceActionsCommandOutput
 
 /**
  * <p>Returns a list of resources (for example, DB instances) that have at least one pending maintenance action.</p>
+ *          <p>This API follows an eventual consistency model. This means that the result of the
+ *                 <code>DescribePendingMaintenanceActions</code> command might not be immediately
+ *             visible to all subsequent RDS commands. Keep this in mind when you use
+ *                 <code>DescribePendingMaintenanceActions</code> immediately after using a previous
+ *             API command such as <code>ApplyPendingMaintenanceActions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,31 +93,31 @@ export interface DescribePendingMaintenanceActionsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To list resources with at least one pending maintenance action
  * ```javascript
  * // The following example lists the pending maintenace action for a DB instance.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribePendingMaintenanceActionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PendingMaintenanceActions": [
+ *   PendingMaintenanceActions: [
  *     {
- *       "PendingMaintenanceActionDetails": [
+ *       PendingMaintenanceActionDetails: [
  *         {
- *           "Action": "system-update",
- *           "Description": "Upgrade to Aurora PostgreSQL 2.4.2"
+ *           Action: "system-update",
+ *           Description: "Upgrade to Aurora PostgreSQL 2.4.2"
  *         }
  *       ],
- *       "ResourceIdentifier": "arn:aws:rds:us-west-2:123456789012:cluster:global-db1-cl1"
+ *       ResourceIdentifier: "arn:aws:rds:us-west-2:123456789012:cluster:global-db1-cl1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-resources-with-at-least-one-pending-maintenance-action-1680283544475
  * ```
  *
+ * @public
  */
 export class DescribePendingMaintenanceActionsCommand extends $Command
   .classBuilder<
@@ -121,9 +127,7 @@ export class DescribePendingMaintenanceActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +139,16 @@ export class DescribePendingMaintenanceActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePendingMaintenanceActionsCommand)
   .de(de_DescribePendingMaintenanceActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePendingMaintenanceActionsMessage;
+      output: PendingMaintenanceActionsMessage;
+    };
+    sdk: {
+      input: DescribePendingMaintenanceActionsCommandInput;
+      output: DescribePendingMaintenanceActionsCommandOutput;
+    };
+  };
+}

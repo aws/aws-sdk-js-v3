@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCaseAuditEventsRequest, GetCaseAuditEventsResponse } from "../models/models_0";
+import {
+  GetCaseAuditEventsRequest,
+  GetCaseAuditEventsResponse,
+  GetCaseAuditEventsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetCaseAuditEventsCommand, se_GetCaseAuditEventsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +77,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * //       performedBy: { // AuditEventPerformedBy
  * //         user: { // UserUnion Union: only one key present
  * //           userArn: "STRING_VALUE",
+ * //           customEntity: "STRING_VALUE",
  * //         },
  * //         iamPrincipalArn: "STRING_VALUE", // required
  * //       },
@@ -107,6 +113,7 @@ export interface GetCaseAuditEventsCommandOutput extends GetCaseAuditEventsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class GetCaseAuditEventsCommand extends $Command
@@ -117,9 +124,7 @@ export class GetCaseAuditEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,7 +133,19 @@ export class GetCaseAuditEventsCommand extends $Command
   })
   .s("AmazonConnectCases", "GetCaseAuditEvents", {})
   .n("ConnectCasesClient", "GetCaseAuditEventsCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetCaseAuditEventsResponseFilterSensitiveLog)
   .ser(se_GetCaseAuditEventsCommand)
   .de(de_GetCaseAuditEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCaseAuditEventsRequest;
+      output: GetCaseAuditEventsResponse;
+    };
+    sdk: {
+      input: GetCaseAuditEventsCommandInput;
+      output: GetCaseAuditEventsCommandOutput;
+    };
+  };
+}

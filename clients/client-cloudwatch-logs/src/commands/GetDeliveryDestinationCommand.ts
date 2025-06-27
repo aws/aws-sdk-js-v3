@@ -12,7 +12,8 @@ import { de_GetDeliveryDestinationCommand, se_GetDeliveryDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetDeliveryDestinationCommandOutput extends GetDeliveryDestinat
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetDeliveryDestinationCommand extends $Command
@@ -90,9 +92,7 @@ export class GetDeliveryDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetDeliveryDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeliveryDestinationCommand)
   .de(de_GetDeliveryDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeliveryDestinationRequest;
+      output: GetDeliveryDestinationResponse;
+    };
+    sdk: {
+      input: GetDeliveryDestinationCommandInput;
+      output: GetDeliveryDestinationCommandOutput;
+    };
+  };
+}

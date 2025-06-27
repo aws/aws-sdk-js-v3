@@ -12,7 +12,8 @@ import { de_ListHealthEventsCommand, se_ListHealthEventsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -141,6 +142,7 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListHealthEventsCommand extends $Command
@@ -151,9 +153,7 @@ export class ListHealthEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +165,16 @@ export class ListHealthEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHealthEventsCommand)
   .de(de_ListHealthEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHealthEventsInput;
+      output: ListHealthEventsOutput;
+    };
+    sdk: {
+      input: ListHealthEventsCommandInput;
+      output: ListHealthEventsCommandOutput;
+    };
+  };
+}

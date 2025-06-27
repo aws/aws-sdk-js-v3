@@ -12,7 +12,8 @@ import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DescribeLedgerCommandOutput extends DescribeLedgerResponse, __M
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeLedgerCommand extends $Command
@@ -81,9 +83,7 @@ export class DescribeLedgerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DescribeLedgerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLedgerCommand)
   .de(de_DescribeLedgerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLedgerRequest;
+      output: DescribeLedgerResponse;
+    };
+    sdk: {
+      input: DescribeLedgerCommandInput;
+      output: DescribeLedgerCommandOutput;
+    };
+  };
+}

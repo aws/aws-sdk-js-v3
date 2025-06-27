@@ -12,7 +12,8 @@ import { de_ListTablesCommand, se_ListTablesCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListTablesCommandInput extends ListTablesRequest {}
 export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a list of tables for a specified keyspace.</p>
+ * <p>The <code>ListTables</code> operation returns a list of tables for a specified keyspace.</p> <p>To read keyspace metadata using <code>ListTables</code>, the IAM principal needs <code>Select</code> action permissions for the system keyspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,17 +68,17 @@ export interface ListTablesCommandOutput extends ListTablesResponse, __MetadataB
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
+ *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
+ *
  *
  * @public
  */
@@ -89,9 +90,7 @@ export class ListTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +102,16 @@ export class ListTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTablesCommand)
   .de(de_ListTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTablesRequest;
+      output: ListTablesResponse;
+    };
+    sdk: {
+      input: ListTablesCommandInput;
+      output: ListTablesCommandOutput;
+    };
+  };
+}

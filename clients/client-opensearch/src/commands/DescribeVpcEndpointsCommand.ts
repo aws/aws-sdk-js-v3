@@ -12,7 +12,8 @@ import { de_DescribeVpcEndpointsCommand, se_DescribeVpcEndpointsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface DescribeVpcEndpointsCommandOutput extends DescribeVpcEndpointsR
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcEndpointsCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeVpcEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeVpcEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointsCommand)
   .de(de_DescribeVpcEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointsRequest;
+      output: DescribeVpcEndpointsResponse;
+    };
+    sdk: {
+      input: DescribeVpcEndpointsCommandInput;
+      output: DescribeVpcEndpointsCommandOutput;
+    };
+  };
+}

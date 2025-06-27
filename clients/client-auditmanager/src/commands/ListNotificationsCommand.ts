@@ -16,7 +16,8 @@ import { de_ListNotificationsCommand, se_ListNotificationsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListNotificationsCommandOutput extends ListNotificationsRespons
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListNotificationsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListNotificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListNotificationsCommand extends $Command
   .f(void 0, ListNotificationsResponseFilterSensitiveLog)
   .ser(se_ListNotificationsCommand)
   .de(de_ListNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotificationsRequest;
+      output: ListNotificationsResponse;
+    };
+    sdk: {
+      input: ListNotificationsCommandInput;
+      output: ListNotificationsCommandOutput;
+    };
+  };
+}

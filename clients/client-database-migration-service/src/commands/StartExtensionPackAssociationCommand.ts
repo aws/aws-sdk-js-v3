@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,7 @@ export interface StartExtensionPackAssociationCommandOutput
 /**
  * <p>Applies the extension pack to your target database. An extension pack is an add-on
  *          module that emulates functions present in a source database that are required when
- *          converting objects to the target database.
- *       </p>
+ *          converting objects to the target database. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,23 +92,23 @@ export interface StartExtensionPackAssociationCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Start Extension Pack Association
  * ```javascript
  * // Applies the extension pack to your target database.
  * const input = {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  * };
  * const command = new StartExtensionPackAssociationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
  * }
  * *\/
- * // example id: start-extension-pack-association-1689721897266
  * ```
  *
+ * @public
  */
 export class StartExtensionPackAssociationCommand extends $Command
   .classBuilder<
@@ -118,9 +118,7 @@ export class StartExtensionPackAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +130,16 @@ export class StartExtensionPackAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExtensionPackAssociationCommand)
   .de(de_StartExtensionPackAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExtensionPackAssociationMessage;
+      output: StartExtensionPackAssociationResponse;
+    };
+    sdk: {
+      input: StartExtensionPackAssociationCommandInput;
+      output: StartExtensionPackAssociationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_AttachTrafficSourcesCommand, se_AttachTrafficSourcesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,9 +49,10 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *          </ul>
  *          <p>This operation is additive and does not detach existing traffic sources from the Auto Scaling
  *             group. </p>
- *          <p>After the operation completes, use the <a>DescribeTrafficSources</a> API to
+ *          <p>After the operation completes, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeTrafficSources.html">DescribeTrafficSources</a> API to
  *             return details about the state of the attachments between traffic sources and your Auto Scaling
- *             group. To detach a traffic source from the Auto Scaling group, call the <a>DetachTrafficSources</a> API.</p>
+ *             group. To detach a traffic source from the Auto Scaling group, call the
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DetachTrafficSources.html">DetachTrafficSources</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +67,7 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  *       Type: "STRING_VALUE",
  *     },
  *   ],
+ *   SkipZonalShiftValidation: true || false,
  * };
  * const command = new AttachTrafficSourcesCommand(input);
  * const response = await client.send(command);
@@ -88,23 +91,26 @@ export interface AttachTrafficSourcesCommandOutput extends AttachTrafficSourcesR
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To attach a target group to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified target group to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "TrafficSources": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   TrafficSources: [
  *     {
- *       "Identifier": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
+ *       Identifier: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  *     }
  *   ]
  * };
  * const command = new AttachTrafficSourcesCommand(input);
- * await client.send(command);
- * // example id: to-attach-a-target-group-to-an-auto-scaling-group-1680036570089
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachTrafficSourcesCommand extends $Command
   .classBuilder<
@@ -114,9 +120,7 @@ export class AttachTrafficSourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +132,16 @@ export class AttachTrafficSourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachTrafficSourcesCommand)
   .de(de_AttachTrafficSourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachTrafficSourcesType;
+      output: {};
+    };
+    sdk: {
+      input: AttachTrafficSourcesCommandInput;
+      output: AttachTrafficSourcesCommandOutput;
+    };
+  };
+}

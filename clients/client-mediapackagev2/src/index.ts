@@ -19,10 +19,11 @@
 export * from "./MediaPackageV2Client";
 export * from "./MediaPackageV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { MediaPackageV2ExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { MediaPackageV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
+export * from "./waiters";
 export * from "./models";
 
 export { MediaPackageV2ServiceException } from "./models/MediaPackageV2ServiceException";

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEndpointInput, UpdateEndpointOutput } from "../models/models_4";
+import { UpdateEndpointInput, UpdateEndpointOutput } from "../models/models_5";
 import { de_UpdateEndpointCommand, se_UpdateEndpointCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,26 +28,7 @@ export interface UpdateEndpointCommandInput extends UpdateEndpointInput {}
 export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __MetadataBearer {}
 
 /**
- * <p>Deploys the <code>EndpointConfig</code> specified in the request to a new fleet of
- *             instances. SageMaker shifts endpoint traffic to the new instances with the updated endpoint
- *             configuration and then deletes the old instances using the previous
- *                 <code>EndpointConfig</code> (there is no availability loss). For more information
- *             about how to control the update and traffic shifting process, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html"> Update
- *                 models in production</a>.</p>
- *          <p>When SageMaker receives the request, it sets the endpoint status to <code>Updating</code>.
- *             After updating the endpoint, it sets the status to <code>InService</code>. To check the
- *             status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API.
- *
- *         </p>
- *          <note>
- *             <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is
- *                 live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code>
- *                 operations are being performed on the endpoint. To update an endpoint, you must
- *                 create a new <code>EndpointConfig</code>.</p>
- *             <p>If you delete the <code>EndpointConfig</code> of an endpoint that is active or
- *                 being created or updated you may lose visibility into the instance type the endpoint
- *                 is using. The endpoint must be deleted in order to stop incurring charges.</p>
- *          </note>
+ * <p>Deploys the <code>EndpointConfig</code> specified in the request to a new fleet of instances. SageMaker shifts endpoint traffic to the new instances with the updated endpoint configuration and then deletes the old instances using the previous <code>EndpointConfig</code> (there is no availability loss). For more information about how to control the update and traffic shifting process, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/deployment-guardrails.html"> Update models in production</a>.</p> <p>When SageMaker receives the request, it sets the endpoint status to <code>Updating</code>. After updating the endpoint, it sets the status to <code>InService</code>. To check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API. </p> <note> <p>You must not delete an <code>EndpointConfig</code> in use by an endpoint that is live or while the <code>UpdateEndpoint</code> or <code>CreateEndpoint</code> operations are being performed on the endpoint. To update an endpoint, you must create a new <code>EndpointConfig</code>.</p> <p>If you delete the <code>EndpointConfig</code> of an endpoint that is active or being created or updated you may lose visibility into the instance type the endpoint is using. The endpoint must be deleted in order to stop incurring charges.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,11 +98,11 @@ export interface UpdateEndpointCommandOutput extends UpdateEndpointOutput, __Met
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -132,9 +114,7 @@ export class UpdateEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +126,16 @@ export class UpdateEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointCommand)
   .de(de_UpdateEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointInput;
+      output: UpdateEndpointOutput;
+    };
+    sdk: {
+      input: UpdateEndpointCommandInput;
+      output: UpdateEndpointCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { InviteMembersRequest, InviteMembersResponse } from "../models/models_2";
+import { InviteMembersRequest, InviteMembersResponse } from "../models/models_3";
 import { de_InviteMembersCommand, se_InviteMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,18 @@ export interface InviteMembersCommandInput extends InviteMembersRequest {}
 export interface InviteMembersCommandOutput extends InviteMembersResponse, __MetadataBearer {}
 
 /**
- * <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
+ * <note>
+ *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub User Guide</i>.</p>
+ *          </note>
+ *          <p>Invites other Amazon Web Services accounts to become member accounts for the Security Hub administrator account that
  *          the invitation is sent from.</p>
- *          <p>This operation is only used to invite accounts that do not belong to an organization.
- *          Organization accounts do not receive invitations.</p>
+ *          <p>This operation is only used to invite accounts that don't belong to an Amazon Web Services organization.
+ *          Organization accounts don't receive invitations.</p>
  *          <p>Before you can use this action to invite a member, you must first use the <code>CreateMembers</code> action to create the member account in Security Hub.</p>
  *          <p>When the account owner enables Security Hub and accepts the invitation to become a member
- *          account, the administrator account can view the findings generated from the member account.</p>
+ *          account, the administrator account can view the findings generated in the member account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,26 +90,26 @@ export interface InviteMembersCommandOutput extends InviteMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To invite accounts to become members
  * ```javascript
  * // The following example invites the specified AWS accounts to become member accounts associated with the calling Security Hub administrator account. You only use this operation to invite accounts that don't belong to an AWS Organizations organization.
  * const input = {
- *   "AccountIds": [
+ *   AccountIds: [
  *     "111122223333",
  *     "444455556666"
  *   ]
  * };
  * const command = new InviteMembersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-invite-accounts-to-become-members-1677775500860
  * ```
  *
+ * @public
  */
 export class InviteMembersCommand extends $Command
   .classBuilder<
@@ -113,9 +119,7 @@ export class InviteMembersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +131,16 @@ export class InviteMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InviteMembersCommand)
   .de(de_InviteMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InviteMembersRequest;
+      output: InviteMembersResponse;
+    };
+    sdk: {
+      input: InviteMembersCommandInput;
+      output: InviteMembersCommandOutput;
+    };
+  };
+}

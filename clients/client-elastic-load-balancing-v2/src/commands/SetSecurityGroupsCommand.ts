@@ -16,7 +16,8 @@ import { de_SetSecurityGroupsCommand, se_SetSecurityGroupsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,28 +80,28 @@ export interface SetSecurityGroupsCommandOutput extends SetSecurityGroupsOutput,
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To associate a security group with a load balancer
  * ```javascript
  * // This example associates the specified security group with the specified load balancer.
  * const input = {
- *   "LoadBalancerArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
- *   "SecurityGroups": [
+ *   LoadBalancerArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
+ *   SecurityGroups: [
  *     "sg-5943793c"
  *   ]
  * };
  * const command = new SetSecurityGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SecurityGroupIds": [
+ *   SecurityGroupIds: [
  *     "sg-5943793c"
  *   ]
  * }
  * *\/
- * // example id: elbv2-set-security-groups-1
  * ```
  *
+ * @public
  */
 export class SetSecurityGroupsCommand extends $Command
   .classBuilder<
@@ -110,9 +111,7 @@ export class SetSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class SetSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetSecurityGroupsCommand)
   .de(de_SetSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetSecurityGroupsInput;
+      output: SetSecurityGroupsOutput;
+    };
+    sdk: {
+      input: SetSecurityGroupsCommandInput;
+      output: SetSecurityGroupsCommandOutput;
+    };
+  };
+}

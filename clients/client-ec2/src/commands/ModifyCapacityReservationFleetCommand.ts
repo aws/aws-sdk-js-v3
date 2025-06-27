@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyCapacityReservationFleetRequest, ModifyCapacityReservationFleetResult } from "../models/models_6";
+import { ModifyCapacityReservationFleetRequest, ModifyCapacityReservationFleetResult } from "../models/models_7";
 import {
   de_ModifyCapacityReservationFleetCommand,
   se_ModifyCapacityReservationFleetCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,10 +34,11 @@ export interface ModifyCapacityReservationFleetCommandOutput
 
 /**
  * <p>Modifies a Capacity Reservation Fleet.</p>
- *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet automatically
- * 			creates new Capacity Reservations, or modifies or cancels existing Capacity Reservations in the Fleet
- * 			to meet the new total target capacity. When you modify the end date for the Fleet, the end dates for
- * 			all of the individual Capacity Reservations in the Fleet are updated accordingly.</p>
+ *          <p>When you modify the total target capacity of a Capacity Reservation Fleet, the Fleet
+ * 			automatically creates new Capacity Reservations, or modifies or cancels existing
+ * 			Capacity Reservations in the Fleet to meet the new total target capacity. When you
+ * 			modify the end date for the Fleet, the end dates for all of the individual Capacity
+ * 			Reservations in the Fleet are updated accordingly.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +69,7 @@ export interface ModifyCapacityReservationFleetCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyCapacityReservationFleetCommand extends $Command
@@ -77,9 +80,7 @@ export class ModifyCapacityReservationFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +92,16 @@ export class ModifyCapacityReservationFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCapacityReservationFleetCommand)
   .de(de_ModifyCapacityReservationFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCapacityReservationFleetRequest;
+      output: ModifyCapacityReservationFleetResult;
+    };
+    sdk: {
+      input: ModifyCapacityReservationFleetCommandInput;
+      output: ModifyCapacityReservationFleetCommandOutput;
+    };
+  };
+}

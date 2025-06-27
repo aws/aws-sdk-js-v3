@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -176,6 +177,7 @@ export interface CreateLaunchConfigurationTemplateCommandOutput extends LaunchCo
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class CreateLaunchConfigurationTemplateCommand extends $Command
@@ -186,9 +188,7 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +200,16 @@ export class CreateLaunchConfigurationTemplateCommand extends $Command
   .f(CreateLaunchConfigurationTemplateRequestFilterSensitiveLog, LaunchConfigurationTemplateFilterSensitiveLog)
   .ser(se_CreateLaunchConfigurationTemplateCommand)
   .de(de_CreateLaunchConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLaunchConfigurationTemplateRequest;
+      output: LaunchConfigurationTemplate;
+    };
+    sdk: {
+      input: CreateLaunchConfigurationTemplateCommandInput;
+      output: CreateLaunchConfigurationTemplateCommandOutput;
+    };
+  };
+}

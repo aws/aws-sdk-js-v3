@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,26 +79,26 @@ export interface GetInstancesHealthStatusCommandOutput extends GetInstancesHealt
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example GetInstancesHealthStatus example
  * ```javascript
  * // This example gets the current health status of one or more instances that are associate with a specified service.
  * const input = {
- *   "ServiceId": "srv-e4anhexample0004"
+ *   ServiceId: "srv-e4anhexample0004"
  * };
  * const command = new GetInstancesHealthStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Status": {
- *     "i-abcd1234": "HEALTHY",
- *     "i-abcd1235": "UNHEALTHY"
+ *   Status: {
+ *     i-abcd1234: "HEALTHY",
+ *     i-abcd1235: "UNHEALTHY"
  *   }
  * }
  * *\/
- * // example id: getinstanceshealthstatus-example-1590115176146
  * ```
  *
+ * @public
  */
 export class GetInstancesHealthStatusCommand extends $Command
   .classBuilder<
@@ -107,9 +108,7 @@ export class GetInstancesHealthStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +120,16 @@ export class GetInstancesHealthStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInstancesHealthStatusCommand)
   .de(de_GetInstancesHealthStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstancesHealthStatusRequest;
+      output: GetInstancesHealthStatusResponse;
+    };
+    sdk: {
+      input: GetInstancesHealthStatusCommandInput;
+      output: GetInstancesHealthStatusCommandOutput;
+    };
+  };
+}

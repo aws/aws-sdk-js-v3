@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_1";
+import { SendAutomationSignalRequest, SendAutomationSignalResult } from "../models/models_2";
 import { de_SendAutomationSignalCommand, se_SendAutomationSignalCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * const client = new SSMClient(config);
  * const input = { // SendAutomationSignalRequest
  *   AutomationExecutionId: "STRING_VALUE", // required
- *   SignalType: "Approve" || "Reject" || "StartStep" || "StopStep" || "Resume", // required
+ *   SignalType: "Approve" || "Reject" || "StartStep" || "StopStep" || "Resume" || "Revoke", // required
  *   Payload: { // AutomationParameterMap
  *     "<keys>": [ // AutomationParameterValueList
  *       "STRING_VALUE",
@@ -73,6 +74,7 @@ export interface SendAutomationSignalCommandOutput extends SendAutomationSignalR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class SendAutomationSignalCommand extends $Command
@@ -83,9 +85,7 @@ export class SendAutomationSignalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class SendAutomationSignalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendAutomationSignalCommand)
   .de(de_SendAutomationSignalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendAutomationSignalRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendAutomationSignalCommandInput;
+      output: SendAutomationSignalCommandOutput;
+    };
+  };
+}

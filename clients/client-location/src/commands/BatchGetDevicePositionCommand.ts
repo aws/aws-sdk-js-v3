@@ -16,7 +16,8 @@ import { de_BatchGetDevicePositionCommand, se_BatchGetDevicePositionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,7 +68,7 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * //       Accuracy: { // PositionalAccuracy
  * //         Horizontal: Number("double"), // required
  * //       },
- * //       PositionProperties: { // PropertyMap
+ * //       PositionProperties: { // PositionPropertyMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
@@ -101,6 +102,7 @@ export interface BatchGetDevicePositionCommandOutput extends BatchGetDevicePosit
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class BatchGetDevicePositionCommand extends $Command
@@ -111,9 +113,7 @@ export class BatchGetDevicePositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class BatchGetDevicePositionCommand extends $Command
   .f(void 0, BatchGetDevicePositionResponseFilterSensitiveLog)
   .ser(se_BatchGetDevicePositionCommand)
   .de(de_BatchGetDevicePositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetDevicePositionRequest;
+      output: BatchGetDevicePositionResponse;
+    };
+    sdk: {
+      input: BatchGetDevicePositionCommandInput;
+      output: BatchGetDevicePositionCommandOutput;
+    };
+  };
+}

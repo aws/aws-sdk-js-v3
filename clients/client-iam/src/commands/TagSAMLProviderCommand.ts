@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { TagSAMLProviderRequest } from "../models/models_0";
+import { TagSAMLProviderRequest } from "../models/models_1";
 import { de_TagSAMLProviderCommand, se_TagSAMLProviderCommand } from "../protocols/Aws_query";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,6 +116,7 @@ export interface TagSAMLProviderCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class TagSAMLProviderCommand extends $Command
@@ -125,9 +127,7 @@ export class TagSAMLProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class TagSAMLProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagSAMLProviderCommand)
   .de(de_TagSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagSAMLProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagSAMLProviderCommandInput;
+      output: TagSAMLProviderCommandOutput;
+    };
+  };
+}

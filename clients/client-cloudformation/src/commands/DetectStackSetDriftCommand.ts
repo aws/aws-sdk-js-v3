@@ -12,7 +12,8 @@ import { de_DetectStackSetDriftCommand, se_DetectStackSetDriftCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,33 +28,37 @@ export interface DetectStackSetDriftCommandInput extends DetectStackSetDriftInpu
 export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOutput, __MetadataBearer {}
 
 /**
- * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a stack set, it performs drift
- *    detection on the stack associated with each stack instance in the stack set. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">How CloudFormation performs drift
- *     detection on a stack set</a>.</p>
+ * <p>Detect drift on a stack set. When CloudFormation performs drift detection on a stack set, it
+ *       performs drift detection on the stack associated with each stack instance in the stack set.
+ *       For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Performing drift detection on
+ *         CloudFormation StackSets</a>.</p>
  *          <p>
- *             <code>DetectStackSetDrift</code> returns the <code>OperationId</code> of the stack set drift detection
- *    operation. Use this operation id with <a>DescribeStackSetOperation</a> to monitor the progress of the
- *    drift detection operation. The drift detection operation may take some time, depending on the number of stack
- *    instances included in the stack set, in addition to the number of resources included in each stack.</p>
- *          <p>Once the operation has completed, use the following actions to return drift information:</p>
+ *             <code>DetectStackSetDrift</code> returns the <code>OperationId</code> of the stack set
+ *       drift detection operation. Use this operation id with <a>DescribeStackSetOperation</a> to monitor the progress of the drift detection
+ *       operation. The drift detection operation may take some time, depending on the number of stack
+ *       instances included in the stack set, in addition to the number of resources included in each
+ *       stack.</p>
+ *          <p>Once the operation has completed, use the following actions to return drift
+ *       information:</p>
  *          <ul>
  *             <li>
- *                <p>Use <a>DescribeStackSet</a> to return detailed information about the stack set, including detailed
- *      information about the last <i>completed</i> drift operation performed on the stack set. (Information
- *      about drift operations that are in progress isn't included.)</p>
+ *                <p>Use <a>DescribeStackSet</a> to return detailed information about the stack
+ *           set, including detailed information about the last <i>completed</i> drift
+ *           operation performed on the stack set. (Information about drift operations that are in
+ *           progress isn't included.)</p>
  *             </li>
  *             <li>
- *                <p>Use <a>ListStackInstances</a> to return a list of stack instances belonging to the stack set,
- *      including the drift status and last drift time checked of each instance.</p>
+ *                <p>Use <a>ListStackInstances</a> to return a list of stack instances belonging
+ *           to the stack set, including the drift status and last drift time checked of each
+ *           instance.</p>
  *             </li>
  *             <li>
- *                <p>Use <a>DescribeStackInstance</a> to return detailed information about a specific stack instance,
- *      including its drift status and last drift time checked.</p>
+ *                <p>Use <a>DescribeStackInstance</a> to return detailed information about a
+ *           specific stack instance, including its drift status and last drift time checked.</p>
  *             </li>
  *          </ul>
- *          <p>For more information about performing a drift detection operation on a stack set, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting unmanaged changes in
- *     stack sets</a>.</p>
- *          <p>You can only run a single drift detection operation on a given stack set at one time.</p>
+ *          <p>You can only run a single drift detection operation on a given stack set at one
+ *       time.</p>
  *          <p>To stop a drift detection stack set operation, use <a>StopStackSetOperation</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -104,6 +109,7 @@ export interface DetectStackSetDriftCommandOutput extends DetectStackSetDriftOut
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DetectStackSetDriftCommand extends $Command
@@ -114,9 +120,7 @@ export class DetectStackSetDriftCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +132,16 @@ export class DetectStackSetDriftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectStackSetDriftCommand)
   .de(de_DetectStackSetDriftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectStackSetDriftInput;
+      output: DetectStackSetDriftOutput;
+    };
+    sdk: {
+      input: DetectStackSetDriftCommandInput;
+      output: DetectStackSetDriftCommandOutput;
+    };
+  };
+}

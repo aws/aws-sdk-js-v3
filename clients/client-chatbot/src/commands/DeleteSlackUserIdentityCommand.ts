@@ -12,7 +12,8 @@ import { de_DeleteSlackUserIdentityCommand, se_DeleteSlackUserIdentityCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteSlackUserIdentityCommandInput extends DeleteSlackUserIden
 export interface DeleteSlackUserIdentityCommandOutput extends DeleteSlackUserIdentityResult, __MetadataBearer {}
 
 /**
- * Deletes a Slack user identity
+ * <p>Deletes a user level permission for a Slack channel configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,16 +53,17 @@ export interface DeleteSlackUserIdentityCommandOutput extends DeleteSlackUserIde
  * @see {@link ChatbotClientResolvedConfig | config} for ChatbotClient's `config` shape.
  *
  * @throws {@link DeleteSlackUserIdentityException} (server fault)
- *  We can’t process your request right now because of a server issue. Try again later.
+ *  <p>We can’t process your request right now because of a server issue. Try again later.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
- *  Your request input doesn't meet the constraints that AWS Chatbot requires.
+ *  <p>Your request input doesn't meet the constraints required by AWS Chatbot.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  We were not able to find the resource for your request.
+ *  <p>We were unable to find the resource for your request</p>
  *
  * @throws {@link ChatbotServiceException}
  * <p>Base exception class for all service exceptions from Chatbot service.</p>
+ *
  *
  * @public
  */
@@ -73,9 +75,7 @@ export class DeleteSlackUserIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChatbotClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteSlackUserIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSlackUserIdentityCommand)
   .de(de_DeleteSlackUserIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSlackUserIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSlackUserIdentityCommandInput;
+      output: DeleteSlackUserIdentityCommandOutput;
+    };
+  };
+}

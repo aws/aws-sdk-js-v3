@@ -12,7 +12,8 @@ import { de_UpdateJobExecutionCommand, se_UpdateJobExecutionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,7 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
 
 /**
  * <p>Updates the status of a job execution.</p>
+ *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiotjobsdataplane.html">UpdateJobExecution</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,12 +74,13 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  *  <p>The certificate is invalid.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
- *  <p>The contents of the request were invalid. For example, this code is returned when an UpdateJobExecution request contains invalid status details. The message contains details about the error.</p>
+ *  <p>The contents of the request were invalid.</p>
  *
  * @throws {@link InvalidStateTransitionException} (client fault)
- *  <p>An update attempted to change the job execution to a state that is invalid because of the job execution's
- *          current state (for example, an attempt to change a request in state SUCCESS to state IN_PROGRESS). In this
- *          case, the body of the error message also contains the executionState field.</p>
+ *  <p>An update attempted to change the job execution to a state that is invalid because of
+ *          the job execution's current state (for example, an attempt to change a request in state
+ *          SUCCESS to state IN_PROGRESS). In this case, the body of the error message also contains
+ *          the executionState field.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource does not exist.</p>
@@ -91,6 +94,7 @@ export interface UpdateJobExecutionCommandOutput extends UpdateJobExecutionRespo
  * @throws {@link IoTJobsDataPlaneServiceException}
  * <p>Base exception class for all service exceptions from IoTJobsDataPlane service.</p>
  *
+ *
  * @public
  */
 export class UpdateJobExecutionCommand extends $Command
@@ -101,9 +105,7 @@ export class UpdateJobExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTJobsDataPlaneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +117,16 @@ export class UpdateJobExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateJobExecutionCommand)
   .de(de_UpdateJobExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateJobExecutionRequest;
+      output: UpdateJobExecutionResponse;
+    };
+    sdk: {
+      input: UpdateJobExecutionCommandInput;
+      output: UpdateJobExecutionCommandOutput;
+    };
+  };
+}

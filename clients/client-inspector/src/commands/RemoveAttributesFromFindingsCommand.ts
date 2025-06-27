@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,28 +88,28 @@ export interface RemoveAttributesFromFindingsCommandOutput
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Remove attributes from findings
  * ```javascript
  * // Removes entire attributes (key and value pairs) from the findings that are specified by the ARNs of the findings where an attribute with the specified key exists.
  * const input = {
- *   "attributeKeys": [
+ *   attributeKeys: [
  *     "key=Example,value=example"
  *   ],
- *   "findingArns": [
+ *   findingArns: [
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-8l1VIE0D/run/0-Z02cjjug/finding/0-T8yM9mEU"
  *   ]
  * };
  * const command = new RemoveAttributesFromFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failedItems": {}
+ *   failedItems:   { /* empty *\/ }
  * }
  * *\/
- * // example id: remove-attributes-from-findings-1481067246548
  * ```
  *
+ * @public
  */
 export class RemoveAttributesFromFindingsCommand extends $Command
   .classBuilder<
@@ -118,9 +119,7 @@ export class RemoveAttributesFromFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class RemoveAttributesFromFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveAttributesFromFindingsCommand)
   .de(de_RemoveAttributesFromFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveAttributesFromFindingsRequest;
+      output: RemoveAttributesFromFindingsResponse;
+    };
+    sdk: {
+      input: RemoveAttributesFromFindingsCommandInput;
+      output: RemoveAttributesFromFindingsCommandOutput;
+    };
+  };
+}

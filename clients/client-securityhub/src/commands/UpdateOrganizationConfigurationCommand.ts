@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_2";
+import { UpdateOrganizationConfigurationRequest, UpdateOrganizationConfigurationResponse } from "../models/models_3";
 import {
   de_UpdateOrganizationConfigurationCommand,
   se_UpdateOrganizationConfigurationCommand,
@@ -15,7 +15,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,22 +88,25 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update organization configuration
  * ```javascript
  * // This operation updates the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.
  * const input = {
- *   "AutoEnable": false,
- *   "AutoEnableStandards": "NONE",
- *   "OrganizationConfiguration": {
- *     "ConfigurationType": "CENTRAL"
+ *   AutoEnable: false,
+ *   AutoEnableStandards: "NONE",
+ *   OrganizationConfiguration: {
+ *     ConfigurationType: "CENTRAL"
  *   }
  * };
  * const command = new UpdateOrganizationConfigurationCommand(input);
- * await client.send(command);
- * // example id: to-update-organization-configuration-1678911630846
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateOrganizationConfigurationCommand extends $Command
   .classBuilder<
@@ -112,9 +116,7 @@ export class UpdateOrganizationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +128,16 @@ export class UpdateOrganizationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOrganizationConfigurationCommand)
   .de(de_UpdateOrganizationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOrganizationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateOrganizationConfigurationCommandInput;
+      output: UpdateOrganizationConfigurationCommandOutput;
+    };
+  };
+}

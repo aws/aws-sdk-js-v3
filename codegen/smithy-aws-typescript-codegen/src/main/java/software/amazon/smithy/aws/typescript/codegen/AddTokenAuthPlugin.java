@@ -29,17 +29,17 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 /**
  * Configure clients with Token auth configurations and plugin.
  *
- * This is the existing control behavior for `experimentalIdentityAndAuth`.
+ * This is legacy auth behavior, and is no longer supported in development.
  */
 @SmithyInternalApi
 public final class AddTokenAuthPlugin implements TypeScriptIntegration {
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is false.
+     * Integration should only be used if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return !settings.getExperimentalIdentityAndAuth();
+        return settings.useLegacyAuth();
     }
 
     @Override

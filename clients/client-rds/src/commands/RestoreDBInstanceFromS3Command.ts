@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  *   S3BucketName: "STRING_VALUE", // required
  *   S3Prefix: "STRING_VALUE",
  *   S3IngestionRoleArn: "STRING_VALUE", // required
+ *   DatabaseInsightsMode: "standard" || "advanced",
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
@@ -270,6 +272,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -421,6 +424,7 @@ export interface RestoreDBInstanceFromS3CommandOutput extends RestoreDBInstanceF
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class RestoreDBInstanceFromS3Command extends $Command
@@ -431,9 +435,7 @@ export class RestoreDBInstanceFromS3Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -445,4 +447,16 @@ export class RestoreDBInstanceFromS3Command extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBInstanceFromS3Command)
   .de(de_RestoreDBInstanceFromS3Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBInstanceFromS3Message;
+      output: RestoreDBInstanceFromS3Result;
+    };
+    sdk: {
+      input: RestoreDBInstanceFromS3CommandInput;
+      output: RestoreDBInstanceFromS3CommandOutput;
+    };
+  };
+}

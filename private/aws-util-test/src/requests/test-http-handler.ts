@@ -1,5 +1,6 @@
 import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Client, HttpHandlerOptions, RequestHandler, RequestHandlerOutput } from "@smithy/types";
+import { expect } from "vitest";
 
 /**
  * Instructs {@link TestHttpHandler} how to match the handled request and the expected request.
@@ -28,14 +29,6 @@ export type HttpRequestMatcher = {
 };
 
 /**
- * @internal
- */
-const MOCK_CREDENTIALS = {
-  accessKeyId: "MOCK_ACCESS_KEY_ID",
-  secretAccessKey: "MOCK_SECRET_ACCESS_KEY_ID",
-};
-
-/**
  * Supplied to test clients to assert correct requests.
  * @internal
  */
@@ -46,7 +39,30 @@ export class TestHttpHandler implements HttpHandler {
   private client?: Client<any, any, any>;
   private assertions = 0;
 
-  public constructor(public readonly matcher: HttpRequestMatcher) {}
+  public constructor(public readonly matcher: HttpRequestMatcher) {
+    const RESERVED_ENVIRONMENT_VARIABLES = {
+      AWS_DEFAULT_REGION: 1,
+      AWS_REGION: 1,
+      AWS_PROFILE: 1,
+      AWS_ACCESS_KEY_ID: 1,
+      AWS_SECRET_ACCESS_KEY: 1,
+      AWS_SESSION_TOKEN: 1,
+      AWS_CREDENTIAL_EXPIRATION: 1,
+      AWS_CREDENTIAL_SCOPE: 1,
+      AWS_EC2_METADATA_DISABLED: 1,
+      AWS_WEB_IDENTITY_TOKEN_FILE: 1,
+      AWS_ROLE_ARN: 1,
+      AWS_CONTAINER_CREDENTIALS_FULL_URI: 1,
+      AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: 1,
+      AWS_CONTAINER_AUTHORIZATION_TOKEN: 1,
+      AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE: 1,
+    };
+    for (const key in RESERVED_ENVIRONMENT_VARIABLES) {
+      delete process.env[key];
+    }
+    process.env.AWS_ACCESS_KEY_ID = "INTEGRATION_TEST_MOCK";
+    process.env.AWS_SECRET_ACCESS_KEY = "INTEGRATION_TEST_MOCK";
+  }
 
   /**
    * @param client - to watch for requests.
@@ -56,27 +72,7 @@ export class TestHttpHandler implements HttpHandler {
    */
   public watch(client: Client<any, any, any>, matcher: HttpRequestMatcher = this.matcher) {
     this.client = client;
-    this.originalRequestHandler = client.config.originalRequestHandler;
-    // mock credentials to avoid default chain lookup.
-    client.config.credentials = async () => MOCK_CREDENTIALS;
-    client.config.credentialDefaultProvider = () => {
-      return async () => {
-        return MOCK_CREDENTIALS;
-      };
-    };
-    const signerProvider = client.config.signer;
-    if (typeof signerProvider === "function") {
-      client.config.signer = async () => {
-        const _signer = await signerProvider();
-        if (typeof _signer.credentialProvider === "function") {
-          // signer is instance of SignatureV4
-          _signer.credentialProvider = async () => {
-            return MOCK_CREDENTIALS;
-          };
-        }
-        return _signer;
-      };
-    }
+    this.originalRequestHandler = client.config.requestHandler;
 
     client.config.requestHandler = new TestHttpHandler(matcher);
     if (!(client as any)[TestHttpHandler.WATCHER]) {

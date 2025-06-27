@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { PutAndGetInlineDocumentsInputOutput } from "../models/models_0";
 import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand } from "../protocols/Aws_json1_1";
@@ -10,7 +12,8 @@ import { de_PutAndGetInlineDocumentsCommand, se_PutAndGetInlineDocumentsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +55,7 @@ export interface PutAndGetInlineDocumentsCommandOutput extends PutAndGetInlineDo
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class PutAndGetInlineDocumentsCommand extends $Command
@@ -62,12 +66,28 @@ export class PutAndGetInlineDocumentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("JsonProtocol", "PutAndGetInlineDocuments", {})
   .n("JsonProtocolClient", "PutAndGetInlineDocumentsCommand")
   .f(void 0, void 0)
   .ser(se_PutAndGetInlineDocumentsCommand)
   .de(de_PutAndGetInlineDocumentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAndGetInlineDocumentsInputOutput;
+      output: PutAndGetInlineDocumentsInputOutput;
+    };
+    sdk: {
+      input: PutAndGetInlineDocumentsCommandInput;
+      output: PutAndGetInlineDocumentsCommandOutput;
+    };
+  };
+}

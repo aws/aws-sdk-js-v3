@@ -12,7 +12,8 @@ import { de_DeploySystemInstanceCommand, se_DeploySystemInstanceCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class DeploySystemInstanceCommand extends $Command
@@ -103,9 +105,7 @@ export class DeploySystemInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class DeploySystemInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeploySystemInstanceCommand)
   .de(de_DeploySystemInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeploySystemInstanceRequest;
+      output: DeploySystemInstanceResponse;
+    };
+    sdk: {
+      input: DeploySystemInstanceCommandInput;
+      output: DeploySystemInstanceCommandOutput;
+    };
+  };
+}

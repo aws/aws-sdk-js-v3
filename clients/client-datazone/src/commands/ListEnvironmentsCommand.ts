@@ -10,13 +10,14 @@ import {
   ListEnvironmentsInput,
   ListEnvironmentsOutput,
   ListEnvironmentsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,11 +65,12 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * //       updatedAt: new Date("TIMESTAMP"),
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       environmentProfileId: "STRING_VALUE", // required
+ * //       environmentProfileId: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //       awsAccountRegion: "STRING_VALUE",
  * //       provider: "STRING_VALUE", // required
  * //       status: "ACTIVE" || "CREATING" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "UPDATE_FAILED" || "DELETE_FAILED" || "VALIDATION_FAILED" || "SUSPENDED" || "DISABLED" || "EXPIRED" || "DELETED" || "INACCESSIBLE",
+ * //       environmentConfigurationId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -100,6 +102,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentsCommand extends $Command
@@ -110,9 +113,7 @@ export class ListEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +125,16 @@ export class ListEnvironmentsCommand extends $Command
   .f(void 0, ListEnvironmentsOutputFilterSensitiveLog)
   .ser(se_ListEnvironmentsCommand)
   .de(de_ListEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentsInput;
+      output: ListEnvironmentsOutput;
+    };
+    sdk: {
+      input: ListEnvironmentsCommandInput;
+      output: ListEnvironmentsCommandOutput;
+    };
+  };
+}

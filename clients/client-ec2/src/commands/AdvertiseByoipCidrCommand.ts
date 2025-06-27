@@ -12,7 +12,8 @@ import { de_AdvertiseByoipCidrCommand, se_AdvertiseByoipCidrCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface AdvertiseByoipCidrCommandOutput extends AdvertiseByoipCidrResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AdvertiseByoipCidrCommand extends $Command
@@ -91,9 +93,7 @@ export class AdvertiseByoipCidrCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class AdvertiseByoipCidrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AdvertiseByoipCidrCommand)
   .de(de_AdvertiseByoipCidrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdvertiseByoipCidrRequest;
+      output: AdvertiseByoipCidrResult;
+    };
+    sdk: {
+      input: AdvertiseByoipCidrCommandInput;
+      output: AdvertiseByoipCidrCommandOutput;
+    };
+  };
+}

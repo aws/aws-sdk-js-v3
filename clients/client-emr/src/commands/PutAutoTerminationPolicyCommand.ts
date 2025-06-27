@@ -12,7 +12,8 @@ import { de_PutAutoTerminationPolicyCommand, se_PutAutoTerminationPolicyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface PutAutoTerminationPolicyCommandOutput extends PutAutoTerminatio
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class PutAutoTerminationPolicyCommand extends $Command
@@ -73,9 +75,7 @@ export class PutAutoTerminationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class PutAutoTerminationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAutoTerminationPolicyCommand)
   .de(de_PutAutoTerminationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAutoTerminationPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: PutAutoTerminationPolicyCommandInput;
+      output: PutAutoTerminationPolicyCommandOutput;
+    };
+  };
+}

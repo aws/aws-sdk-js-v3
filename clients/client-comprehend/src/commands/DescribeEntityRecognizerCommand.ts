@@ -16,7 +16,8 @@ import { de_DescribeEntityRecognizerCommand, se_DescribeEntityRecognizerCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -149,6 +150,7 @@ export interface DescribeEntityRecognizerCommandOutput extends DescribeEntityRec
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class DescribeEntityRecognizerCommand extends $Command
@@ -159,9 +161,7 @@ export class DescribeEntityRecognizerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +173,16 @@ export class DescribeEntityRecognizerCommand extends $Command
   .f(void 0, DescribeEntityRecognizerResponseFilterSensitiveLog)
   .ser(se_DescribeEntityRecognizerCommand)
   .de(de_DescribeEntityRecognizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEntityRecognizerRequest;
+      output: DescribeEntityRecognizerResponse;
+    };
+    sdk: {
+      input: DescribeEntityRecognizerCommandInput;
+      output: DescribeEntityRecognizerCommandOutput;
+    };
+  };
+}

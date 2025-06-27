@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,9 +42,9 @@ export interface DescribeGameSessionPlacementCommandOutput
  *          <p>To get game session placement details, specify the placement ID.</p>
  *          <p>This operation is not designed to be continually called to track game session status.
  *             This practice can cause you to exceed your API limit, which results in errors. Instead,
- *             you must configure configure an Amazon Simple Notification Service (SNS) topic to receive notifications from
- *             FlexMatch or queues. Continuously polling with <code>DescribeGameSessionPlacement</code>
- *             should only be used for games in development with low game session usage. </p>
+ *             you must configure an Amazon Simple Notification Service (SNS) topic to receive notifications from FlexMatch or
+ *             queues. Continuously polling with <code>DescribeGameSessionPlacement</code> should only
+ *             be used for games in development with low game session usage. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +92,12 @@ export interface DescribeGameSessionPlacementCommandOutput
  * //     ],
  * //     GameSessionData: "STRING_VALUE",
  * //     MatchmakerData: "STRING_VALUE",
+ * //     PriorityConfigurationOverride: { // PriorityConfigurationOverride
+ * //       PlacementFallbackStrategy: "DEFAULT_AFTER_SINGLE_PASS" || "NONE",
+ * //       LocationOrder: [ // LocationOrderOverrideList // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -111,13 +118,14 @@ export interface DescribeGameSessionPlacementCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -129,9 +137,7 @@ export class DescribeGameSessionPlacementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +149,16 @@ export class DescribeGameSessionPlacementCommand extends $Command
   .f(void 0, DescribeGameSessionPlacementOutputFilterSensitiveLog)
   .ser(se_DescribeGameSessionPlacementCommand)
   .de(de_DescribeGameSessionPlacementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameSessionPlacementInput;
+      output: DescribeGameSessionPlacementOutput;
+    };
+    sdk: {
+      input: DescribeGameSessionPlacementCommandInput;
+      output: DescribeGameSessionPlacementCommandOutput;
+    };
+  };
+}

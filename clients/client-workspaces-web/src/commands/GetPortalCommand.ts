@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * //     displayName: "STRING_VALUE",
  * //     creationDate: new Date("TIMESTAMP"),
  * //     browserSettingsArn: "STRING_VALUE",
+ * //     dataProtectionSettingsArn: "STRING_VALUE",
  * //     userSettingsArn: "STRING_VALUE",
  * //     networkSettingsArn: "STRING_VALUE",
  * //     trustStoreArn: "STRING_VALUE",
@@ -91,6 +93,7 @@ export interface GetPortalCommandOutput extends GetPortalResponse, __MetadataBea
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class GetPortalCommand extends $Command
@@ -101,9 +104,7 @@ export class GetPortalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class GetPortalCommand extends $Command
   .f(void 0, GetPortalResponseFilterSensitiveLog)
   .ser(se_GetPortalCommand)
   .de(de_GetPortalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPortalRequest;
+      output: GetPortalResponse;
+    };
+    sdk: {
+      input: GetPortalCommandInput;
+      output: GetPortalCommandOutput;
+    };
+  };
+}

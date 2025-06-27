@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,9 +65,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The server encountered an internal error and is unable to complete the request.</p>
@@ -83,6 +82,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -93,9 +93,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +105,16 @@ export class UntagResourceCommand extends $Command
   .f(UntagResourceRequestFilterSensitiveLog, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

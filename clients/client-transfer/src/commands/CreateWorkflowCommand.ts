@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface CreateWorkflowCommandInput extends CreateWorkflowRequest {}
 export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>
- *       Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes.
- *       After creating a workflow, you can associate the workflow created with any transfer servers by specifying the <code>workflow-details</code> field in <code>CreateServer</code> and <code>UpdateServer</code> operations.
- *     </p>
+ * <p> Allows you to create a workflow with specified steps and step details the workflow invokes after file transfer completes. After creating a workflow, you can associate the workflow created with any transfer servers by specifying the <code>workflow-details</code> field in <code>CreateServer</code> and <code>UpdateServer</code> operations. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -193,6 +191,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkflowCommand extends $Command
@@ -203,9 +202,7 @@ export class CreateWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -217,4 +214,16 @@ export class CreateWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkflowCommand)
   .de(de_CreateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkflowRequest;
+      output: CreateWorkflowResponse;
+    };
+    sdk: {
+      input: CreateWorkflowCommandInput;
+      output: CreateWorkflowCommandOutput;
+    };
+  };
+}

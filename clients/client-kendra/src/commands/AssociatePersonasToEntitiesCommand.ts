@@ -12,7 +12,8 @@ import { de_AssociatePersonasToEntitiesCommand, se_AssociatePersonasToEntitiesCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface AssociatePersonasToEntitiesCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class AssociatePersonasToEntitiesCommand extends $Command
@@ -106,9 +108,7 @@ export class AssociatePersonasToEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class AssociatePersonasToEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociatePersonasToEntitiesCommand)
   .de(de_AssociatePersonasToEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePersonasToEntitiesRequest;
+      output: AssociatePersonasToEntitiesResponse;
+    };
+    sdk: {
+      input: AssociatePersonasToEntitiesCommandInput;
+      output: AssociatePersonasToEntitiesCommandOutput;
+    };
+  };
+}

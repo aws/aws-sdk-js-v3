@@ -9,7 +9,7 @@ AWS SDK for JavaScript ${serviceId} Client for Node.js, Browser and React Native
 ${documentation}
 
 ## Installing
-To install the this package, simply type add or install ${packageName}
+To install this package, simply type add or install ${packageName}
 using your favorite package manager:
 - `npm install ${packageName}`
 - `yarn add ${packageName}`

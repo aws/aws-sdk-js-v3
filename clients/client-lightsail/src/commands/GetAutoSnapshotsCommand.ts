@@ -12,7 +12,8 @@ import { de_GetAutoSnapshotsCommand, se_GetAutoSnapshotsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
 
 /**
  * <p>Returns the available automatic snapshots for an instance or disk. For more information,
- *       see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
+ *       see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configuring-automatic-snapshots">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +96,7 @@ export interface GetAutoSnapshotsCommandOutput extends GetAutoSnapshotsResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetAutoSnapshotsCommand extends $Command
@@ -105,9 +107,7 @@ export class GetAutoSnapshotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class GetAutoSnapshotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutoSnapshotsCommand)
   .de(de_GetAutoSnapshotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAutoSnapshotsRequest;
+      output: GetAutoSnapshotsResult;
+    };
+    sdk: {
+      input: GetAutoSnapshotsCommandInput;
+      output: GetAutoSnapshotsCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListLineageGroupsRequest, ListLineageGroupsResponse } from "../models/models_3";
+import { ListLineageGroupsRequest, ListLineageGroupsResponse } from "../models/models_4";
 import { de_ListLineageGroupsCommand, se_ListLineageGroupsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListLineageGroupsCommandInput extends ListLineageGroupsRequest 
 export interface ListLineageGroupsCommandOutput extends ListLineageGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>A list of lineage groups shared with your Amazon Web Services account.
- *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html">
- *             Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+ * <p>A list of lineage groups shared with your Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/xaccount-lineage-tracking.html"> Cross-Account Lineage Tracking </a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +69,7 @@ export interface ListLineageGroupsCommandOutput extends ListLineageGroupsRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListLineageGroupsCommand extends $Command
@@ -80,9 +80,7 @@ export class ListLineageGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +92,16 @@ export class ListLineageGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLineageGroupsCommand)
   .de(de_ListLineageGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLineageGroupsRequest;
+      output: ListLineageGroupsResponse;
+    };
+    sdk: {
+      input: ListLineageGroupsCommandInput;
+      output: ListLineageGroupsCommandOutput;
+    };
+  };
+}

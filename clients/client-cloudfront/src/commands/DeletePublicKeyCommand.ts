@@ -12,7 +12,8 @@ import { de_DeletePublicKeyCommand, se_DeletePublicKeyCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,14 +61,14 @@ export interface DeletePublicKeyCommandOutput extends __MetadataBearer {}
  *  <p>The specified public key doesn't exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link PublicKeyInUse} (client fault)
  *  <p>The specified public key is in use.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -79,9 +80,7 @@ export class DeletePublicKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeletePublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePublicKeyCommand)
   .de(de_DeletePublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePublicKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePublicKeyCommandInput;
+      output: DeletePublicKeyCommandOutput;
+    };
+  };
+}

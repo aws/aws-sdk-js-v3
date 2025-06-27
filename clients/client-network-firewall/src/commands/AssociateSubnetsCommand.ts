@@ -12,7 +12,8 @@ import { de_AssociateSubnetsCommand, se_AssociateSubnetsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +113,7 @@ export interface AssociateSubnetsCommandOutput extends AssociateSubnetsResponse,
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class AssociateSubnetsCommand extends $Command
@@ -122,9 +124,7 @@ export class AssociateSubnetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +136,16 @@ export class AssociateSubnetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateSubnetsCommand)
   .de(de_AssociateSubnetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateSubnetsRequest;
+      output: AssociateSubnetsResponse;
+    };
+    sdk: {
+      input: AssociateSubnetsCommandInput;
+      output: AssociateSubnetsCommandOutput;
+    };
+  };
+}

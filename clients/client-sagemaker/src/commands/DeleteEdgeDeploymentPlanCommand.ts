@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteEdgeDeploymentPlanCommandInput extends DeleteEdgeDeployme
 export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are
- *             inactive or there are no stages in the plan.</p>
+ * <p>Deletes an edge deployment plan if (and only if) all the stages in the plan are inactive or there are no stages in the plan.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,7 @@ export interface DeleteEdgeDeploymentPlanCommandOutput extends __MetadataBearer 
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteEdgeDeploymentPlanCommand extends $Command
@@ -66,9 +67,7 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +79,16 @@ export class DeleteEdgeDeploymentPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEdgeDeploymentPlanCommand)
   .de(de_DeleteEdgeDeploymentPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEdgeDeploymentPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEdgeDeploymentPlanCommandInput;
+      output: DeleteEdgeDeploymentPlanCommandOutput;
+    };
+  };
+}

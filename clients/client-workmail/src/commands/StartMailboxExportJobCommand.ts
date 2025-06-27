@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface StartMailboxExportJobCommandOutput extends StartMailboxExportJo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class StartMailboxExportJobCommand extends $Command
@@ -92,9 +94,7 @@ export class StartMailboxExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class StartMailboxExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMailboxExportJobCommand)
   .de(de_StartMailboxExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMailboxExportJobRequest;
+      output: StartMailboxExportJobResponse;
+    };
+    sdk: {
+      input: StartMailboxExportJobCommandInput;
+      output: StartMailboxExportJobCommandOutput;
+    };
+  };
+}

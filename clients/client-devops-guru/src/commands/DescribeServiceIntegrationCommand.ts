@@ -12,7 +12,8 @@ import { de_DescribeServiceIntegrationCommand, se_DescribeServiceIntegrationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface DescribeServiceIntegrationCommandOutput extends DescribeService
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceIntegrationCommand extends $Command
@@ -95,9 +97,7 @@ export class DescribeServiceIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class DescribeServiceIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceIntegrationCommand)
   .de(de_DescribeServiceIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeServiceIntegrationResponse;
+    };
+    sdk: {
+      input: DescribeServiceIntegrationCommandInput;
+      output: DescribeServiceIntegrationCommandOutput;
+    };
+  };
+}

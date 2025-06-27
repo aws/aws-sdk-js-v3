@@ -2,6 +2,7 @@ import { CredentialsProviderError } from "@smithy/property-provider";
 import { HttpResponse } from "@smithy/protocol-http";
 import { parseRfc3339DateTime } from "@smithy/smithy-client";
 import { Readable } from "stream";
+import { describe, expect, test as it } from "vitest";
 
 import { createGetRequest, getCredentials } from "./requestHelpers";
 
@@ -17,7 +18,7 @@ describe(getCredentials.name, () => {
     const response = new HttpResponse({
       statusCode: 200,
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
       body: Readable.from(JSON.stringify(data)),
     });
@@ -34,7 +35,7 @@ describe(getCredentials.name, () => {
     const response = new HttpResponse({
       statusCode: 400,
       headers: {
-        "Content-Type": "application/json",
+        "content-type": "application/json",
       },
       body: Readable.from(
         JSON.stringify({
@@ -57,7 +58,7 @@ describe(getCredentials.name, () => {
     const response = new HttpResponse({
       statusCode: 500,
       headers: {
-        "Content-Type": "json",
+        "content-type": "json",
       },
       body: Readable.from(JSON.stringify({})),
     });

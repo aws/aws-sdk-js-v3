@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,10 +36,7 @@ export interface StartSessionsStatisticsAggregationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts an asynchronous request for getting aggregated statistics about queues and farms.
- *          Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation.
- *          Statistics are available for 1 hour after you call the
- *             <code>StartSessionsStatisticsAggregation</code> operation.</p>
+ * <p>Starts an asynchronous request for getting aggregated statistics about queues and farms. Get the statistics using the <code>GetSessionsStatisticsAggregation</code> operation. You can only have one running aggregation for your Deadline Cloud farm. Call the <code>GetSessionsStatisticsAggregation</code> operation and check the <code>status</code> field to see if an aggregation is running. Statistics are available for 1 hour after you call the <code>StartSessionsStatisticsAggregation</code> operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,11 +91,11 @@ export interface StartSessionsStatisticsAggregationCommandOutput
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -109,9 +107,7 @@ export class StartSessionsStatisticsAggregationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +119,16 @@ export class StartSessionsStatisticsAggregationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSessionsStatisticsAggregationCommand)
   .de(de_StartSessionsStatisticsAggregationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSessionsStatisticsAggregationRequest;
+      output: StartSessionsStatisticsAggregationResponse;
+    };
+    sdk: {
+      input: StartSessionsStatisticsAggregationCommandInput;
+      output: StartSessionsStatisticsAggregationCommandOutput;
+    };
+  };
+}

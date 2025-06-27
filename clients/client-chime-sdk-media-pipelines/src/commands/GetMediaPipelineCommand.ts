@@ -20,7 +20,8 @@ import { de_GetMediaPipelineCommand, se_GetMediaPipelineCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,6 +117,11 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * //           },
  * //         },
  * //       },
+ * //       SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ * //         AwsKmsKeyId: "STRING_VALUE", // required
+ * //         AwsKmsEncryptionContext: "STRING_VALUE",
+ * //       },
+ * //       SinkIamRoleArn: "STRING_VALUE",
  * //     },
  * //     MediaLiveConnectorPipeline: { // MediaLiveConnectorPipeline
  * //       Sources: [ // LiveConnectorSourceList
@@ -342,6 +348,7 @@ export interface GetMediaPipelineCommandOutput extends GetMediaPipelineResponse,
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class GetMediaPipelineCommand extends $Command
@@ -352,9 +359,7 @@ export class GetMediaPipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -366,4 +371,16 @@ export class GetMediaPipelineCommand extends $Command
   .f(void 0, GetMediaPipelineResponseFilterSensitiveLog)
   .ser(se_GetMediaPipelineCommand)
   .de(de_GetMediaPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaPipelineRequest;
+      output: GetMediaPipelineResponse;
+    };
+    sdk: {
+      input: GetMediaPipelineCommandInput;
+      output: GetMediaPipelineCommandOutput;
+    };
+  };
+}

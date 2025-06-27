@@ -12,7 +12,8 @@ import { de_ListSchemasCommand, se_ListSchemasCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * const client = new CleanRoomsClient(config);
  * const input = { // ListSchemasInput
  *   collaborationIdentifier: "STRING_VALUE", // required
- *   schemaType: "TABLE",
+ *   schemaType: "TABLE" || "ID_MAPPING_TABLE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
  * };
@@ -46,16 +47,19 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * //   schemaSummaries: [ // SchemaSummaryList // required
  * //     { // SchemaSummary
  * //       name: "STRING_VALUE", // required
- * //       type: "TABLE", // required
+ * //       type: "TABLE" || "ID_MAPPING_TABLE", // required
  * //       creatorAccountId: "STRING_VALUE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
  * //       collaborationId: "STRING_VALUE", // required
  * //       collaborationArn: "STRING_VALUE", // required
  * //       analysisRuleTypes: [ // AnalysisRuleTypeList // required
- * //         "AGGREGATION" || "LIST" || "CUSTOM",
+ * //         "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE",
  * //       ],
- * //       analysisMethod: "STRING_VALUE",
+ * //       analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE",
+ * //       selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //         "DIRECT_QUERY" || "DIRECT_JOB",
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -87,6 +91,7 @@ export interface ListSchemasCommandOutput extends ListSchemasOutput, __MetadataB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class ListSchemasCommand extends $Command
@@ -97,9 +102,7 @@ export class ListSchemasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +114,16 @@ export class ListSchemasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSchemasCommand)
   .de(de_ListSchemasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSchemasInput;
+      output: ListSchemasOutput;
+    };
+    sdk: {
+      input: ListSchemasCommandInput;
+      output: ListSchemasCommandOutput;
+    };
+  };
+}

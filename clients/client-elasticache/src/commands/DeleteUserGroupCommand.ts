@@ -12,7 +12,8 @@ import { de_DeleteUserGroupCommand, se_DeleteUserGroupCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface DeleteUserGroupCommandInput extends DeleteUserGroupMessage {}
 export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBearer {}
 
 /**
- * <p>For Redis engine version 6.0 onwards: Deletes a user group. The user group must first
+ * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user group. The user group must first
  *             be disassociated from the replication group before it can be deleted. For more
- *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+ *             information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +90,7 @@ export interface DeleteUserGroupCommandOutput extends UserGroup, __MetadataBeare
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserGroupCommand extends $Command
@@ -99,9 +101,7 @@ export class DeleteUserGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DeleteUserGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserGroupCommand)
   .de(de_DeleteUserGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserGroupMessage;
+      output: UserGroup;
+    };
+    sdk: {
+      input: DeleteUserGroupCommandInput;
+      output: DeleteUserGroupCommandOutput;
+    };
+  };
+}

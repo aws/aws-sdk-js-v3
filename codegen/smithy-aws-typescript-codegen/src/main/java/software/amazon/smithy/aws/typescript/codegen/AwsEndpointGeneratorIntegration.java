@@ -20,8 +20,6 @@ import static software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils.isEnd
 
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import software.amazon.smithy.codegen.core.SymbolProvider;
@@ -29,13 +27,11 @@ import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.rulesengine.traits.EndpointRuleSetTrait;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptCodegenContext;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.typescript.codegen.integration.TypeScriptIntegration;
-import software.amazon.smithy.utils.MapUtils;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
@@ -74,16 +70,6 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                     }
                 );
         }
-
-        if (!settings.generateClient()
-            || !isAwsService(settings, model)
-            || settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-            return;
-        }
-
-        writerFactory.accept(Paths.get(CodegenUtils.SOURCE_FOLDER, "endpoints.ts").toString(), writer -> {
-            new EndpointGenerator(settings.getService(model), writer).run();
-        });
     }
 
     @Override
@@ -119,36 +105,5 @@ public final class AwsEndpointGeneratorIntegration implements TypeScriptIntegrat
                 + "@internal");
             writer.write("regionInfoProvider?: RegionInfoProvider;\n");
         }
-    }
-
-    @Override
-    public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
-            TypeScriptSettings settings,
-            Model model,
-            SymbolProvider symbolProvider,
-            LanguageTarget target
-    ) {
-        if (!settings.generateClient() || !isAwsService(settings, model)) {
-            return Collections.emptyMap();
-        }
-
-        if (settings.getService(model).hasTrait(EndpointRuleSetTrait.class)) {
-            if (target == LanguageTarget.SHARED) {
-                return MapUtils.of("endpointProvider", writer -> {
-                    writer.addImport("defaultEndpointResolver", null,
-                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoint/endpointResolver").toString());
-                    writer.write("defaultEndpointResolver");
-                });
-            }
-        } else {
-            if (target == LanguageTarget.SHARED) {
-                return MapUtils.of("regionInfoProvider", writer -> {
-                    writer.addImport("defaultRegionInfoProvider", "defaultRegionInfoProvider",
-                        Paths.get(".", CodegenUtils.SOURCE_FOLDER, "endpoints").toString());
-                    writer.write("defaultRegionInfoProvider");
-                });
-            }
-        }
-        return Collections.emptyMap();
     }
 }

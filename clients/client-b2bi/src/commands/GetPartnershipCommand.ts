@@ -16,7 +16,8 @@ import { de_GetPartnershipCommand, se_GetPartnershipCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,34 @@ export interface GetPartnershipCommandOutput extends GetPartnershipResponse, __M
  * //   capabilities: [ // PartnershipCapabilities
  * //     "STRING_VALUE",
  * //   ],
+ * //   capabilityOptions: { // CapabilityOptions
+ * //     outboundEdi: { // OutboundEdiOptions Union: only one key present
+ * //       x12: { // X12Envelope
+ * //         common: { // X12OutboundEdiHeaders
+ * //           interchangeControlHeaders: { // X12InterchangeControlHeaders
+ * //             senderIdQualifier: "STRING_VALUE",
+ * //             senderId: "STRING_VALUE",
+ * //             receiverIdQualifier: "STRING_VALUE",
+ * //             receiverId: "STRING_VALUE",
+ * //             repetitionSeparator: "STRING_VALUE",
+ * //             acknowledgmentRequestedCode: "STRING_VALUE",
+ * //             usageIndicatorCode: "STRING_VALUE",
+ * //           },
+ * //           functionalGroupHeaders: { // X12FunctionalGroupHeaders
+ * //             applicationSenderCode: "STRING_VALUE",
+ * //             applicationReceiverCode: "STRING_VALUE",
+ * //             responsibleAgencyCode: "STRING_VALUE",
+ * //           },
+ * //           delimiters: { // X12Delimiters
+ * //             componentSeparator: "STRING_VALUE",
+ * //             dataElementSeparator: "STRING_VALUE",
+ * //             segmentTerminator: "STRING_VALUE",
+ * //           },
+ * //           validateEdi: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * //   tradingPartnerId: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   modifiedAt: new Date("TIMESTAMP"),
@@ -85,34 +114,34 @@ export interface GetPartnershipCommandOutput extends GetPartnershipResponse, __M
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GetPartnership call
  * ```javascript
  * //
  * const input = {
- *   "partnershipId": "ps-219fa02f5b4242af8"
+ *   partnershipId: "ps-219fa02f5b4242af8"
  * };
  * const command = new GetPartnershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "b2bipartner",
- *   "capabilities": [
+ *   capabilities: [
  *     "ca-963a8121e4fc4e348"
  *   ],
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "modifiedAt": "2023-11-01T21:51:05.504Z",
- *   "partnershipArn": "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-219fa02f5b4242af8",
- *   "partnershipId": "ps-219fa02f5b4242af8",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   email: "john@example.com",
+ *   modifiedAt: "2023-11-01T21:51:05.504Z",
+ *   name: "b2bipartner",
+ *   partnershipArn: "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-219fa02f5b4242af8",
+ *   partnershipId: "ps-219fa02f5b4242af8",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9",
+ *   tradingPartnerId: "tp-2a17ca447f6f4a8a8"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetPartnershipCommand extends $Command
   .classBuilder<
@@ -122,9 +151,7 @@ export class GetPartnershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +163,16 @@ export class GetPartnershipCommand extends $Command
   .f(void 0, GetPartnershipResponseFilterSensitiveLog)
   .ser(se_GetPartnershipCommand)
   .de(de_GetPartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPartnershipRequest;
+      output: GetPartnershipResponse;
+    };
+    sdk: {
+      input: GetPartnershipCommandInput;
+      output: GetPartnershipCommandOutput;
+    };
+  };
+}

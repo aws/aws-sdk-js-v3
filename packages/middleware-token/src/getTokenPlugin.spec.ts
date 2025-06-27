@@ -1,7 +1,9 @@
+import { describe, expect, test as it, vi } from "vitest";
+
 import { getTokenPlugin } from "./getTokenPlugin";
 import { tokenMiddleware, tokenMiddlewareOptions } from "./tokenMiddleware";
 
-jest.mock("./tokenMiddleware");
+vi.mock("./tokenMiddleware");
 
 const ONE_HOUR_IN_MS = 3600 * 1000;
 
@@ -16,11 +18,11 @@ describe(getTokenPlugin.name, () => {
 
   it("applyToStack adds tokenMiddleware", () => {
     const middlewareReturn = {};
-    (tokenMiddleware as jest.Mock).mockReturnValueOnce(middlewareReturn);
+    vi.mocked(tokenMiddleware).mockReturnValueOnce(middlewareReturn as any);
 
     // @ts-ignore
     const plugin = getTokenPlugin(pluginConfig);
-    const commandStack = { addRelativeTo: jest.fn() };
+    const commandStack = { addRelativeTo: vi.fn() };
 
     // @ts-ignore
     plugin.applyToStack(commandStack);

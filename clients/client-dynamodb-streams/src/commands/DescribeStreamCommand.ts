@@ -12,7 +12,8 @@ import { de_DescribeStreamCommand, se_DescribeStreamCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,72 +97,8 @@ export interface DescribeStreamCommandOutput extends DescribeStreamOutput, __Met
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
- * @public
- * @example To describe a stream with a given stream ARN
- * ```javascript
- * // The following example describes a stream with a given stream ARN.
- * const input = {
- *   "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252"
- * };
- * const command = new DescribeStreamCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "StreamDescription": {
- *     "CreationRequestDateTime": "Wed May 20 13:51:10 PDT 2015",
- *     "KeySchema": [
- *       {
- *         "AttributeName": "ForumName",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "Subject",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "Shards": [
- *       {
- *         "SequenceNumberRange": {
- *           "EndingSequenceNumber": "20500000000000000910398",
- *           "StartingSequenceNumber": "20500000000000000910398"
- *         },
- *         "ShardId": "shardId-00000001414562045508-2bac9cd2"
- *       },
- *       {
- *         "ParentShardId": "shardId-00000001414562045508-2bac9cd2",
- *         "SequenceNumberRange": {
- *           "EndingSequenceNumber": "820400000000000001192334",
- *           "StartingSequenceNumber": "820400000000000001192334"
- *         },
- *         "ShardId": "shardId-00000001414576573621-f55eea83"
- *       },
- *       {
- *         "ParentShardId": "shardId-00000001414576573621-f55eea83",
- *         "SequenceNumberRange": {
- *           "EndingSequenceNumber": "1683700000000000001135967",
- *           "StartingSequenceNumber": "1683700000000000001135967"
- *         },
- *         "ShardId": "shardId-00000001414592258131-674fd923"
- *       },
- *       {
- *         "ParentShardId": "shardId-00000001414592258131-674fd923",
- *         "SequenceNumberRange": {
- *           "StartingSequenceNumber": "2574600000000000000935255"
- *         },
- *         "ShardId": "shardId-00000001414608446368-3a1afbaf"
- *       }
- *     ],
- *     "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
- *     "StreamLabel": "2015-05-20T20:51:10.252",
- *     "StreamStatus": "ENABLED",
- *     "StreamViewType": "NEW_AND_OLD_IMAGES",
- *     "TableName": "Forum"
- *   }
- * }
- * *\/
- * // example id: to-describe-a-stream-with-a-given-stream-arn-1473457835200
- * ```
  *
+ * @public
  */
 export class DescribeStreamCommand extends $Command
   .classBuilder<
@@ -171,9 +108,7 @@ export class DescribeStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBStreamsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -185,4 +120,16 @@ export class DescribeStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStreamCommand)
   .de(de_DescribeStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStreamInput;
+      output: DescribeStreamOutput;
+    };
+    sdk: {
+      input: DescribeStreamCommandInput;
+      output: DescribeStreamCommandOutput;
+    };
+  };
+}

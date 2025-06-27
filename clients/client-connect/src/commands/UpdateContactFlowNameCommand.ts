@@ -12,7 +12,8 @@ import { de_UpdateContactFlowNameCommand, se_UpdateContactFlowNameCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateContactFlowNameCommandOutput extends UpdateContactFlowNam
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactFlowNameCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateContactFlowNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateContactFlowNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactFlowNameCommand)
   .de(de_UpdateContactFlowNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactFlowNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactFlowNameCommandInput;
+      output: UpdateContactFlowNameCommandOutput;
+    };
+  };
+}

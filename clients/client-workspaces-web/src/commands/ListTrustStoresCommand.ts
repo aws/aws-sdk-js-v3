@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface ListTrustStoresCommandOutput extends ListTrustStoresResponse, _
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class ListTrustStoresCommand extends $Command
@@ -82,9 +84,7 @@ export class ListTrustStoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ListTrustStoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrustStoresCommand)
   .de(de_ListTrustStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrustStoresRequest;
+      output: ListTrustStoresResponse;
+    };
+    sdk: {
+      input: ListTrustStoresCommandInput;
+      output: ListTrustStoresCommandOutput;
+    };
+  };
+}

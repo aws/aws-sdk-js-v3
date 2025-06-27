@@ -16,7 +16,8 @@ import { de_UpdateStorageVirtualMachineCommand, se_UpdateStorageVirtualMachineCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -149,6 +150,7 @@ export interface UpdateStorageVirtualMachineCommandOutput
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
+ *
  * @public
  */
 export class UpdateStorageVirtualMachineCommand extends $Command
@@ -159,9 +161,7 @@ export class UpdateStorageVirtualMachineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +173,16 @@ export class UpdateStorageVirtualMachineCommand extends $Command
   .f(UpdateStorageVirtualMachineRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateStorageVirtualMachineCommand)
   .de(de_UpdateStorageVirtualMachineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStorageVirtualMachineRequest;
+      output: UpdateStorageVirtualMachineResponse;
+    };
+    sdk: {
+      input: UpdateStorageVirtualMachineCommandInput;
+      output: UpdateStorageVirtualMachineCommandOutput;
+    };
+  };
+}

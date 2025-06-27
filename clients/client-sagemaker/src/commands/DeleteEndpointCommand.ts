@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,17 +28,7 @@ export interface DeleteEndpointCommandInput extends DeleteEndpointInput {}
 export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the
- *             endpoint was created. </p>
- *          <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't
- *             need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p>
- *          <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint
- *             resources such as KMS key grants. You might still see these resources in your account
- *             for a few minutes after deleting your endpoint. Do not delete or revoke the permissions
- *             for your <code>
- *                <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a>
- *             </code>, otherwise SageMaker cannot delete these
- *             resources.</p>
+ * <p>Deletes an endpoint. SageMaker frees up all of the resources that were deployed when the endpoint was created. </p> <p>SageMaker retires any custom KMS key grants associated with the endpoint, meaning you don't need to use the <a href="http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html">RevokeGrant</a> API call.</p> <p>When you delete your endpoint, SageMaker asynchronously deletes associated endpoint resources such as KMS key grants. You might still see these resources in your account for a few minutes after deleting your endpoint. Do not delete or revoke the permissions for your <code> <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateModel.html#sagemaker-CreateModel-request-ExecutionRoleArn">ExecutionRoleArn</a> </code>, otherwise SageMaker cannot delete these resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +53,7 @@ export interface DeleteEndpointCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteEndpointCommand extends $Command
@@ -72,9 +64,7 @@ export class DeleteEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +76,16 @@ export class DeleteEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEndpointCommand)
   .de(de_DeleteEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEndpointInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEndpointCommandInput;
+      output: DeleteEndpointCommandOutput;
+    };
+  };
+}

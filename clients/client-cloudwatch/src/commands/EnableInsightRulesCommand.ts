@@ -12,7 +12,8 @@ import { de_EnableInsightRulesCommand, se_EnableInsightRulesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface EnableInsightRulesCommandInput extends EnableInsightRulesInput 
 export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>Enables the specified Contributor Insights rules. When rules are enabled, they immediately begin analyzing log data.</p>
+ * <p>Enables the specified Contributor Insights rules. When rules are enabled, they
+ *             immediately begin analyzing log data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +74,7 @@ export interface EnableInsightRulesCommandOutput extends EnableInsightRulesOutpu
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class EnableInsightRulesCommand extends $Command
@@ -82,9 +85,7 @@ export class EnableInsightRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +97,16 @@ export class EnableInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableInsightRulesCommand)
   .de(de_EnableInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableInsightRulesInput;
+      output: EnableInsightRulesOutput;
+    };
+    sdk: {
+      input: EnableInsightRulesCommandInput;
+      output: EnableInsightRulesCommandOutput;
+    };
+  };
+}

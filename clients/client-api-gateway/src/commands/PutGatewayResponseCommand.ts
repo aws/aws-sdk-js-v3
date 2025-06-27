@@ -12,7 +12,8 @@ import { de_PutGatewayResponseCommand, se_PutGatewayResponseCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface PutGatewayResponseCommandOutput extends GatewayResponse, __Meta
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class PutGatewayResponseCommand extends $Command
@@ -98,9 +100,7 @@ export class PutGatewayResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class PutGatewayResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutGatewayResponseCommand)
   .de(de_PutGatewayResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutGatewayResponseRequest;
+      output: GatewayResponse;
+    };
+    sdk: {
+      input: PutGatewayResponseCommandInput;
+      output: PutGatewayResponseCommandOutput;
+    };
+  };
+}

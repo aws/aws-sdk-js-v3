@@ -10,13 +10,14 @@ import {
   ListSubscriptionRequestsInput,
   ListSubscriptionRequestsOutput,
   ListSubscriptionRequestsOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_ListSubscriptionRequestsCommand, se_ListSubscriptionRequestsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,33 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * //                   shortDescription: "STRING_VALUE",
  * //                 },
  * //               ],
+ * //               assetScope: { // AssetScope
+ * //                 assetId: "STRING_VALUE", // required
+ * //                 filterIds: [ // FilterIds // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 status: "STRING_VALUE", // required
+ * //                 errorMessage: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             productListing: { // SubscribedProductListing
+ * //               entityId: "STRING_VALUE",
+ * //               entityRevision: "STRING_VALUE",
+ * //               glossaryTerms: [
+ * //                 {
+ * //                   name: "STRING_VALUE",
+ * //                   shortDescription: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               name: "STRING_VALUE",
+ * //               description: "STRING_VALUE",
+ * //               assetListings: [ // AssetInDataProductListingItems
+ * //                 { // AssetInDataProductListingItem
+ * //                   entityId: "STRING_VALUE",
+ * //                   entityRevision: "STRING_VALUE",
+ * //                   entityType: "STRING_VALUE",
+ * //                 },
+ * //               ],
  * //             },
  * //           },
  * //           ownerProjectId: "STRING_VALUE", // required
@@ -96,6 +124,14 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * //       ],
  * //       reviewerId: "STRING_VALUE",
  * //       decisionComment: "STRING_VALUE",
+ * //       existingSubscriptionId: "STRING_VALUE",
+ * //       metadataFormsSummary: [ // MetadataFormsSummary
+ * //         { // MetadataFormSummary
+ * //           formName: "STRING_VALUE",
+ * //           typeName: "STRING_VALUE", // required
+ * //           typeRevision: "STRING_VALUE", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -130,6 +166,7 @@ export interface ListSubscriptionRequestsCommandOutput extends ListSubscriptionR
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListSubscriptionRequestsCommand extends $Command
@@ -140,9 +177,7 @@ export class ListSubscriptionRequestsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +189,16 @@ export class ListSubscriptionRequestsCommand extends $Command
   .f(void 0, ListSubscriptionRequestsOutputFilterSensitiveLog)
   .ser(se_ListSubscriptionRequestsCommand)
   .de(de_ListSubscriptionRequestsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionRequestsInput;
+      output: ListSubscriptionRequestsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionRequestsCommandInput;
+      output: ListSubscriptionRequestsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * const input = { // DescribeOpsItemsRequest
  *   OpsItemFilters: [ // OpsItemFilters
  *     { // OpsItemFilter
- *       Key: "Status" || "CreatedBy" || "Source" || "Priority" || "Title" || "OpsItemId" || "CreatedTime" || "LastModifiedTime" || "ActualStartTime" || "ActualEndTime" || "PlannedStartTime" || "PlannedEndTime" || "OperationalData" || "OperationalDataKey" || "OperationalDataValue" || "ResourceId" || "AutomationId" || "Category" || "Severity" || "OpsItemType" || "ChangeRequestByRequesterArn" || "ChangeRequestByRequesterName" || "ChangeRequestByApproverArn" || "ChangeRequestByApproverName" || "ChangeRequestByTemplate" || "ChangeRequestByTargetsResourceGroup" || "InsightByType" || "AccountId", // required
+ *       Key: "Status" || "CreatedBy" || "Source" || "Priority" || "Title" || "OpsItemId" || "CreatedTime" || "LastModifiedTime" || "ActualStartTime" || "ActualEndTime" || "PlannedStartTime" || "PlannedEndTime" || "OperationalData" || "OperationalDataKey" || "OperationalDataValue" || "ResourceId" || "AutomationId" || "Category" || "Severity" || "OpsItemType" || "AccessRequestByRequesterArn" || "AccessRequestByRequesterId" || "AccessRequestByApproverArn" || "AccessRequestByApproverId" || "AccessRequestBySourceAccountId" || "AccessRequestBySourceOpsItemId" || "AccessRequestBySourceRegion" || "AccessRequestByIsReplica" || "AccessRequestByTargetResourceId" || "ChangeRequestByRequesterArn" || "ChangeRequestByRequesterName" || "ChangeRequestByApproverArn" || "ChangeRequestByApproverName" || "ChangeRequestByTemplate" || "ChangeRequestByTargetsResourceGroup" || "InsightByType" || "AccountId", // required
  *       Values: [ // OpsItemFilterValues // required
  *         "STRING_VALUE",
  *       ],
@@ -64,7 +65,7 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * //       LastModifiedTime: new Date("TIMESTAMP"),
  * //       Priority: Number("int"),
  * //       Source: "STRING_VALUE",
- * //       Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Rejected" || "Closed",
+ * //       Status: "Open" || "InProgress" || "Resolved" || "Pending" || "TimedOut" || "Cancelling" || "Cancelled" || "Failed" || "CompletedWithSuccess" || "CompletedWithFailure" || "Scheduled" || "RunbookInProgress" || "PendingChangeCalendarOverride" || "ChangeCalendarOverrideApproved" || "ChangeCalendarOverrideRejected" || "PendingApproval" || "Approved" || "Revoked" || "Rejected" || "Closed",
  * //       OpsItemId: "STRING_VALUE",
  * //       Title: "STRING_VALUE",
  * //       OperationalData: { // OpsItemOperationalData
@@ -98,6 +99,7 @@ export interface DescribeOpsItemsCommandOutput extends DescribeOpsItemsResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class DescribeOpsItemsCommand extends $Command
@@ -108,9 +110,7 @@ export class DescribeOpsItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class DescribeOpsItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOpsItemsCommand)
   .de(de_DescribeOpsItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOpsItemsRequest;
+      output: DescribeOpsItemsResponse;
+    };
+    sdk: {
+      input: DescribeOpsItemsCommandInput;
+      output: DescribeOpsItemsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_RestartChannelPipelinesCommand, se_RestartChannelPipelinesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,8 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //       MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
  * //         { // MediaPackageOutputDestinationSettings
  * //           ChannelId: "STRING_VALUE",
+ * //           ChannelGroup: "STRING_VALUE",
+ * //           ChannelName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -67,6 +70,16 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //           Url: "STRING_VALUE",
  * //           Username: "STRING_VALUE",
  * //         },
+ * //       ],
+ * //       SrtSettings: [ // __listOfSrtOutputDestinationSettings
+ * //         { // SrtOutputDestinationSettings
+ * //           EncryptionPassphraseSecretArn: "STRING_VALUE",
+ * //           StreamId: "STRING_VALUE",
+ * //           Url: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       LogicalInterfaceNames: [ // __listOf__string
+ * //         "STRING_VALUE",
  * //       ],
  * //     },
  * //   ],
@@ -294,6 +307,8 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             FillLineGap: "DISABLED" || "ENABLED",
  * //             FontFamily: "STRING_VALUE",
  * //             StyleControl: "EXCLUDE" || "INCLUDE",
+ * //             DefaultFontSize: Number("int"),
+ * //             DefaultLineHeight: Number("int"),
  * //           },
  * //           EmbeddedDestinationSettings: {},
  * //           EmbeddedPlusScte20DestinationSettings: {},
@@ -332,7 +347,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //         InputLossImageType: "COLOR" || "SLATE",
  * //         RepeatFrameMsec: Number("int"),
  * //       },
- * //       OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING",
+ * //       OutputLockingMode: "EPOCH_LOCKING" || "PIPELINE_LOCKING" || "DISABLED",
  * //       OutputTimingSource: "INPUT_CLOCK" || "SYSTEM_CLOCK",
  * //       SupportLowFramerateInputs: "DISABLED" || "ENABLED",
  * //       OutputLockingSettings: { // OutputLockingSettings
@@ -524,11 +539,29 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             SegmentLength: Number("int"),
  * //             SegmentLengthUnits: "MILLISECONDS" || "SECONDS",
  * //             SendDelayMs: Number("int"),
+ * //             KlvBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //             KlvNameModifier: "STRING_VALUE",
+ * //             NielsenId3NameModifier: "STRING_VALUE",
+ * //             Scte35NameModifier: "STRING_VALUE",
+ * //             Id3Behavior: "DISABLED" || "ENABLED",
+ * //             Id3NameModifier: "STRING_VALUE",
+ * //             CaptionLanguageMappings: [ // __listOfCmafIngestCaptionLanguageMapping
+ * //               { // CmafIngestCaptionLanguageMapping
+ * //                 CaptionChannel: Number("int"), // required
+ * //                 LanguageCode: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //             TimedMetadataId3Frame: "NONE" || "PRIV" || "TDRL",
+ * //             TimedMetadataId3Period: Number("int"),
+ * //             TimedMetadataPassthrough: "DISABLED" || "ENABLED",
+ * //           },
+ * //           SrtGroupSettings: { // SrtGroupSettings
+ * //             InputLossAction: "DROP_PROGRAM" || "DROP_TS" || "EMIT_PROGRAM",
  * //           },
  * //         },
  * //         Outputs: [ // __listOfOutput // required
  * //           { // Output
- * //             AudioDescriptionNames: [ // __listOf__string
+ * //             AudioDescriptionNames: [
  * //               "STRING_VALUE",
  * //             ],
  * //             CaptionDescriptionNames: [
@@ -657,6 +690,24 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               },
  * //               MultiplexOutputSettings: { // MultiplexOutputSettings
  * //                 Destination: "<OutputLocationRef>", // required
+ * //                 ContainerSettings: { // MultiplexContainerSettings
+ * //                   MultiplexM2tsSettings: { // MultiplexM2tsSettings
+ * //                     AbsentInputAudioBehavior: "DROP" || "ENCODE_SILENCE",
+ * //                     Arib: "DISABLED" || "ENABLED",
+ * //                     AudioBufferModel: "ATSC" || "DVB",
+ * //                     AudioFramesPerPes: Number("int"),
+ * //                     AudioStreamType: "ATSC" || "DVB",
+ * //                     CcDescriptor: "DISABLED" || "ENABLED",
+ * //                     Ebif: "NONE" || "PASSTHROUGH",
+ * //                     EsRateInPes: "EXCLUDE" || "INCLUDE",
+ * //                     Klv: "NONE" || "PASSTHROUGH",
+ * //                     NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                     PcrControl: "CONFIGURED_PCR_PERIOD" || "PCR_EVERY_PES_PACKET",
+ * //                     PcrPeriod: Number("int"),
+ * //                     Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                     Scte35PrerollPullupMilliseconds: Number("double"),
+ * //                   },
+ * //                 },
  * //               },
  * //               RtmpOutputSettings: { // RtmpOutputSettings
  * //                 CertificateMode: "SELF_SIGNED" || "VERIFY_AUTHENTICITY",
@@ -739,6 +790,75 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               CmafIngestOutputSettings: { // CmafIngestOutputSettings
  * //                 NameModifier: "STRING_VALUE",
  * //               },
+ * //               SrtOutputSettings: { // SrtOutputSettings
+ * //                 BufferMsec: Number("int"),
+ * //                 ContainerSettings: {
+ * //                   M2tsSettings: {
+ * //                     AbsentInputAudioBehavior: "DROP" || "ENCODE_SILENCE",
+ * //                     Arib: "DISABLED" || "ENABLED",
+ * //                     AribCaptionsPid: "STRING_VALUE",
+ * //                     AribCaptionsPidControl: "AUTO" || "USE_CONFIGURED",
+ * //                     AudioBufferModel: "ATSC" || "DVB",
+ * //                     AudioFramesPerPes: Number("int"),
+ * //                     AudioPids: "STRING_VALUE",
+ * //                     AudioStreamType: "ATSC" || "DVB",
+ * //                     Bitrate: Number("int"),
+ * //                     BufferModel: "MULTIPLEX" || "NONE",
+ * //                     CcDescriptor: "DISABLED" || "ENABLED",
+ * //                     DvbNitSettings: {
+ * //                       NetworkId: Number("int"), // required
+ * //                       NetworkName: "STRING_VALUE", // required
+ * //                       RepInterval: Number("int"),
+ * //                     },
+ * //                     DvbSdtSettings: {
+ * //                       OutputSdt: "SDT_FOLLOW" || "SDT_FOLLOW_IF_PRESENT" || "SDT_MANUAL" || "SDT_NONE",
+ * //                       RepInterval: Number("int"),
+ * //                       ServiceName: "STRING_VALUE",
+ * //                       ServiceProviderName: "STRING_VALUE",
+ * //                     },
+ * //                     DvbSubPids: "STRING_VALUE",
+ * //                     DvbTdtSettings: {
+ * //                       RepInterval: Number("int"),
+ * //                     },
+ * //                     DvbTeletextPid: "STRING_VALUE",
+ * //                     Ebif: "NONE" || "PASSTHROUGH",
+ * //                     EbpAudioInterval: "VIDEO_AND_FIXED_INTERVALS" || "VIDEO_INTERVAL",
+ * //                     EbpLookaheadMs: Number("int"),
+ * //                     EbpPlacement: "VIDEO_AND_AUDIO_PIDS" || "VIDEO_PID",
+ * //                     EcmPid: "STRING_VALUE",
+ * //                     EsRateInPes: "EXCLUDE" || "INCLUDE",
+ * //                     EtvPlatformPid: "STRING_VALUE",
+ * //                     EtvSignalPid: "STRING_VALUE",
+ * //                     FragmentTime: Number("double"),
+ * //                     Klv: "NONE" || "PASSTHROUGH",
+ * //                     KlvDataPids: "STRING_VALUE",
+ * //                     NielsenId3Behavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                     NullPacketBitrate: Number("double"),
+ * //                     PatInterval: Number("int"),
+ * //                     PcrControl: "CONFIGURED_PCR_PERIOD" || "PCR_EVERY_PES_PACKET",
+ * //                     PcrPeriod: Number("int"),
+ * //                     PcrPid: "STRING_VALUE",
+ * //                     PmtInterval: Number("int"),
+ * //                     PmtPid: "STRING_VALUE",
+ * //                     ProgramNum: Number("int"),
+ * //                     RateMode: "CBR" || "VBR",
+ * //                     Scte27Pids: "STRING_VALUE",
+ * //                     Scte35Control: "NONE" || "PASSTHROUGH",
+ * //                     Scte35Pid: "STRING_VALUE",
+ * //                     SegmentationMarkers: "EBP" || "EBP_LEGACY" || "NONE" || "PSI_SEGSTART" || "RAI_ADAPT" || "RAI_SEGSTART",
+ * //                     SegmentationStyle: "MAINTAIN_CADENCE" || "RESET_CADENCE",
+ * //                     SegmentationTime: Number("double"),
+ * //                     TimedMetadataBehavior: "NO_PASSTHROUGH" || "PASSTHROUGH",
+ * //                     TimedMetadataPid: "STRING_VALUE",
+ * //                     TransportStreamId: Number("int"),
+ * //                     VideoPid: "STRING_VALUE",
+ * //                     Scte35PrerollPullupMilliseconds: Number("double"),
+ * //                   },
+ * //                 },
+ * //                 Destination: "<OutputLocationRef>", // required
+ * //                 EncryptionType: "AES128" || "AES192" || "AES256",
+ * //                 Latency: Number("int"),
+ * //               },
  * //             },
  * //             VideoDescriptionName: "STRING_VALUE",
  * //           },
@@ -779,6 +899,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //                 PostFilterSharpening: "AUTO" || "DISABLED" || "ENABLED",
  * //                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4" || "STRENGTH_5" || "STRENGTH_6" || "STRENGTH_7" || "STRENGTH_8" || "STRENGTH_9" || "STRENGTH_10" || "STRENGTH_11" || "STRENGTH_12" || "STRENGTH_13" || "STRENGTH_14" || "STRENGTH_15" || "STRENGTH_16",
  * //               },
+ * //               BandwidthReductionFilterSettings: { // BandwidthReductionFilterSettings
+ * //                 PostFilterSharpening: "DISABLED" || "SHARPENING_1" || "SHARPENING_2" || "SHARPENING_3",
+ * //                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4",
+ * //               },
  * //             },
  * //             FixedAfd: "AFD_0000" || "AFD_0010" || "AFD_0011" || "AFD_0100" || "AFD_1000" || "AFD_1001" || "AFD_1010" || "AFD_1011" || "AFD_1101" || "AFD_1110" || "AFD_1111",
  * //             FlickerAq: "DISABLED" || "ENABLED",
@@ -817,6 +941,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //               Prefix: "STRING_VALUE",
  * //             },
+ * //             MinQp: Number("int"),
  * //           },
  * //           H265Settings: { // H265Settings
  * //             AdaptiveQuantization: "AUTO" || "HIGH" || "HIGHER" || "LOW" || "MAX" || "MEDIUM" || "OFF",
@@ -839,6 +964,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               TemporalFilterSettings: {
  * //                 PostFilterSharpening: "AUTO" || "DISABLED" || "ENABLED",
  * //                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4" || "STRENGTH_5" || "STRENGTH_6" || "STRENGTH_7" || "STRENGTH_8" || "STRENGTH_9" || "STRENGTH_10" || "STRENGTH_11" || "STRENGTH_12" || "STRENGTH_13" || "STRENGTH_14" || "STRENGTH_15" || "STRENGTH_16",
+ * //               },
+ * //               BandwidthReductionFilterSettings: {
+ * //                 PostFilterSharpening: "DISABLED" || "SHARPENING_1" || "SHARPENING_2" || "SHARPENING_3",
+ * //                 Strength: "AUTO" || "STRENGTH_1" || "STRENGTH_2" || "STRENGTH_3" || "STRENGTH_4",
  * //               },
  * //             },
  * //             FixedAfd: "AFD_0000" || "AFD_0010" || "AFD_0011" || "AFD_0100" || "AFD_1000" || "AFD_1001" || "AFD_1010" || "AFD_1011" || "AFD_1101" || "AFD_1110" || "AFD_1111",
@@ -873,6 +1002,8 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             TilePadding: "NONE" || "PADDED",
  * //             TileWidth: Number("int"),
  * //             TreeblockSize: "AUTO" || "TREE_SIZE_32X32",
+ * //             MinQp: Number("int"),
+ * //             Deblocking: "DISABLED" || "ENABLED",
  * //           },
  * //           Mpeg2Settings: { // Mpeg2Settings
  * //             AdaptiveQuantization: "AUTO" || "HIGH" || "LOW" || "MEDIUM" || "OFF",
@@ -901,6 +1032,39 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
  * //               Prefix: "STRING_VALUE",
  * //             },
+ * //           },
+ * //           Av1Settings: { // Av1Settings
+ * //             AfdSignaling: "AUTO" || "FIXED" || "NONE",
+ * //             BufSize: Number("int"),
+ * //             ColorSpaceSettings: { // Av1ColorSpaceSettings
+ * //               ColorSpacePassthroughSettings: {},
+ * //               Hdr10Settings: {
+ * //                 MaxCll: Number("int"),
+ * //                 MaxFall: Number("int"),
+ * //               },
+ * //               Rec601Settings: {},
+ * //               Rec709Settings: {},
+ * //             },
+ * //             FixedAfd: "AFD_0000" || "AFD_0010" || "AFD_0011" || "AFD_0100" || "AFD_1000" || "AFD_1001" || "AFD_1010" || "AFD_1011" || "AFD_1101" || "AFD_1110" || "AFD_1111",
+ * //             FramerateDenominator: Number("int"), // required
+ * //             FramerateNumerator: Number("int"), // required
+ * //             GopSize: Number("double"),
+ * //             GopSizeUnits: "FRAMES" || "SECONDS",
+ * //             Level: "AV1_LEVEL_2" || "AV1_LEVEL_2_1" || "AV1_LEVEL_3" || "AV1_LEVEL_3_1" || "AV1_LEVEL_4" || "AV1_LEVEL_4_1" || "AV1_LEVEL_5" || "AV1_LEVEL_5_1" || "AV1_LEVEL_5_2" || "AV1_LEVEL_5_3" || "AV1_LEVEL_6" || "AV1_LEVEL_6_1" || "AV1_LEVEL_6_2" || "AV1_LEVEL_6_3" || "AV1_LEVEL_AUTO",
+ * //             LookAheadRateControl: "HIGH" || "LOW" || "MEDIUM",
+ * //             MaxBitrate: Number("int"),
+ * //             MinIInterval: Number("int"),
+ * //             ParDenominator: Number("int"),
+ * //             ParNumerator: Number("int"),
+ * //             QvbrQualityLevel: Number("int"),
+ * //             SceneChangeDetect: "DISABLED" || "ENABLED",
+ * //             TimecodeBurninSettings: {
+ * //               FontSize: "EXTRA_SMALL_10" || "LARGE_48" || "MEDIUM_32" || "SMALL_16", // required
+ * //               Position: "BOTTOM_CENTER" || "BOTTOM_LEFT" || "BOTTOM_RIGHT" || "MIDDLE_CENTER" || "MIDDLE_LEFT" || "MIDDLE_RIGHT" || "TOP_CENTER" || "TOP_LEFT" || "TOP_RIGHT", // required
+ * //               Prefix: "STRING_VALUE",
+ * //             },
+ * //             Bitrate: Number("int"),
+ * //             RateControlMode: "CBR" || "QVBR",
  * //           },
  * //         },
  * //         Height: Number("int"),
@@ -1032,6 +1196,9 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //             Scte35Source: "MANIFEST" || "SEGMENTS",
  * //           },
  * //           ServerValidation: "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME" || "CHECK_CRYPTOGRAPHY_ONLY",
+ * //           MulticastInputSettings: { // MulticastInputSettings
+ * //             SourceIpAddress: "STRING_VALUE",
+ * //           },
  * //         },
  * //         Scte35Pid: Number("int"),
  * //         Smpte2038DataPreference: "IGNORE" || "PREFER",
@@ -1055,6 +1222,9 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //           },
  * //         },
  * //       },
+ * //       LogicalInterfaceNames: [
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   InputSpecification: { // InputSpecification
@@ -1078,6 +1248,10 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //       ActiveMotionGraphicsActionName: "STRING_VALUE",
  * //       ActiveMotionGraphicsUri: "STRING_VALUE",
  * //       PipelineId: "STRING_VALUE",
+ * //       ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //         ExpirationDate: new Date("TIMESTAMP"),
+ * //         Version: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   PipelinesRunningCount: Number("int"),
@@ -1087,16 +1261,18 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   Vpc: { // VpcOutputSettingsDescription
- * //     AvailabilityZones: [
- * //       "STRING_VALUE",
- * //     ],
- * //     NetworkInterfaceIds: [
- * //       "STRING_VALUE",
- * //     ],
- * //     SecurityGroupIds: [
- * //       "STRING_VALUE",
- * //     ],
+ * //     AvailabilityZones: "<__listOf__string>",
+ * //     NetworkInterfaceIds: "<__listOf__string>",
+ * //     SecurityGroupIds: "<__listOf__string>",
  * //     SubnetIds: "<__listOf__string>",
+ * //   },
+ * //   AnywhereSettings: { // DescribeAnywhereSettings
+ * //     ChannelPlacementGroupId: "STRING_VALUE",
+ * //     ClusterId: "STRING_VALUE",
+ * //   },
+ * //   ChannelEngineVersion: {
+ * //     ExpirationDate: new Date("TIMESTAMP"),
+ * //     Version: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -1135,6 +1311,7 @@ export interface RestartChannelPipelinesCommandOutput extends RestartChannelPipe
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class RestartChannelPipelinesCommand extends $Command
@@ -1145,9 +1322,7 @@ export class RestartChannelPipelinesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1159,4 +1334,16 @@ export class RestartChannelPipelinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestartChannelPipelinesCommand)
   .de(de_RestartChannelPipelinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestartChannelPipelinesRequest;
+      output: RestartChannelPipelinesResponse;
+    };
+    sdk: {
+      input: RestartChannelPipelinesCommandInput;
+      output: RestartChannelPipelinesCommandOutput;
+    };
+  };
+}

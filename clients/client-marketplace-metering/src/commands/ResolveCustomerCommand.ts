@@ -16,7 +16,8 @@ import { de_ResolveCustomerCommand, se_ResolveCustomerCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,16 +36,19 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *             <code>ResolveCustomer</code> is called by a SaaS application during the registration
  *             process. When a buyer visits your website during the registration process, the buyer
  *             submits a registration token through their browser. The registration token is resolved
- *             through this API to obtain a <code>CustomerIdentifier</code>
- *              along with the
- *                 <code>CustomerAWSAccountId</code> and
- *             <code>ProductCode</code>.</p>
+ *             through this API to obtain a <code>CustomerIdentifier</code> along with the
+ *                 <code>CustomerAWSAccountId</code> and <code>ProductCode</code>.</p>
  *          <note>
- *             <p>The API needs to called from the seller account id used to publish the SaaS
- *                 application to successfully resolve the token.</p>
- *             <p>For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example"> ResolveCustomer code example</a> in the <i>AWS Marketplace Seller
+ *             <p>To successfully resolve the token, the API must be called from the account that was used to publish the SaaS
+ *                 application. For an example of using <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/saas-code-examples.html#saas-resolvecustomer-example"> ResolveCustomer code example</a> in the <i>Amazon Web Services Marketplace Seller
  *                     Guide</i>.</p>
  *          </note>
+ *          <p>Permission is required for this operation. Your IAM role or user performing this
+ *             operation requires a policy to allow the <code>aws-marketplace:ResolveCustomer</code>
+ *             action. For more information, see <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsmarketplacemeteringservice.html">Actions, resources, and condition keys for Amazon Web Services Marketplace Metering Service</a> in
+ *             the <i>Service Authorization Reference</i>.</p>
+ *          <p>For Amazon Web Services Regions that support <code>ResolveCustomer</code>, see <a href="https://docs.aws.amazon.com/marketplace/latest/APIReference/metering-regions.html#resolvecustomer-region-support">ResolveCustomer Region support</a>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +86,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *
  * @throws {@link InternalServiceErrorException} (server fault)
  *  <p>An internal error has occurred. Retry your request. If the problem persists, post a
- *             message with details on the AWS forums.</p>
+ *             message with details on the Amazon Web Services forums.</p>
  *
  * @throws {@link InvalidTokenException} (client fault)
  *  <p>Registration token is invalid.</p>
@@ -92,6 +96,7 @@ export interface ResolveCustomerCommandOutput extends ResolveCustomerResult, __M
  *
  * @throws {@link MarketplaceMeteringServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceMetering service.</p>
+ *
  *
  * @public
  */
@@ -103,9 +108,7 @@ export class ResolveCustomerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceMeteringClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +120,16 @@ export class ResolveCustomerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResolveCustomerCommand)
   .de(de_ResolveCustomerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResolveCustomerRequest;
+      output: ResolveCustomerResult;
+    };
+    sdk: {
+      input: ResolveCustomerCommandInput;
+      output: ResolveCustomerCommandOutput;
+    };
+  };
+}

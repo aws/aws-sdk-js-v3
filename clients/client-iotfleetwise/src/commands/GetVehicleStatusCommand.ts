@@ -12,7 +12,8 @@ import { de_GetVehicleStatusCommand, se_GetVehicleStatusCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface GetVehicleStatusCommandInput extends GetVehicleStatusRequest {}
 export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse, __MetadataBearer {}
 
 /**
- * <p> Retrieves information about the status of a vehicle with any associated campaigns.
- *         </p>
+ * <p> Retrieves information about the status of campaigns, decoder manifests, or state templates
+ *             associated with a vehicle.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +48,7 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * //     { // VehicleStatus
  * //       campaignName: "STRING_VALUE",
  * //       vehicleName: "STRING_VALUE",
- * //       status: "CREATED" || "READY" || "HEALTHY" || "SUSPENDED" || "DELETING",
+ * //       status: "CREATED" || "READY" || "HEALTHY" || "SUSPENDED" || "DELETING" || "READY_FOR_CHECKIN",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -79,6 +80,7 @@ export interface GetVehicleStatusCommandOutput extends GetVehicleStatusResponse,
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class GetVehicleStatusCommand extends $Command
@@ -89,9 +91,7 @@ export class GetVehicleStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetVehicleStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVehicleStatusCommand)
   .de(de_GetVehicleStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVehicleStatusRequest;
+      output: GetVehicleStatusResponse;
+    };
+    sdk: {
+      input: GetVehicleStatusCommandInput;
+      output: GetVehicleStatusCommandOutput;
+    };
+  };
+}

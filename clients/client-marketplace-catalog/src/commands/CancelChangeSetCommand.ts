@@ -16,7 +16,8 @@ import { de_CancelChangeSetCommand, se_CancelChangeSetCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface CancelChangeSetCommandOutput extends CancelChangeSetResponse, _
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class CancelChangeSetCommand extends $Command
@@ -96,9 +98,7 @@ export class CancelChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CancelChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelChangeSetCommand)
   .de(de_CancelChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelChangeSetRequest;
+      output: CancelChangeSetResponse;
+    };
+    sdk: {
+      input: CancelChangeSetCommandInput;
+      output: CancelChangeSetCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,18 +28,7 @@ export interface DeleteTagsCommandInput extends DeleteTagsInput {}
 export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified tags from an SageMaker resource.</p>
- *          <p>To list a resource's tags, use the <code>ListTags</code> API. </p>
- *          <note>
- *             <p>When you call this API to delete tags from a hyperparameter tuning job, the
- *                 deleted tags are not removed from training jobs that the hyperparameter tuning job
- *                 launched before you called this API.</p>
- *          </note>
- *          <note>
- *             <p>When you call this API to delete tags from a SageMaker Domain or User Profile, the
- *                 deleted tags are not removed from Apps that the SageMaker Domain or User Profile
- *                 launched before you called this API.</p>
- *          </note>
+ * <p>Deletes the specified tags from an SageMaker resource.</p> <p>To list a resource's tags, use the <code>ListTags</code> API. </p> <note> <p>When you call this API to delete tags from a hyperparameter tuning job, the deleted tags are not removed from training jobs that the hyperparameter tuning job launched before you called this API.</p> </note> <note> <p>When you call this API to delete tags from a SageMaker Domain or User Profile, the deleted tags are not removed from Apps that the SageMaker Domain or User Profile launched before you called this API.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,6 +56,7 @@ export interface DeleteTagsCommandOutput extends DeleteTagsOutput, __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteTagsCommand extends $Command
@@ -76,9 +67,7 @@ export class DeleteTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +79,16 @@ export class DeleteTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagsCommand)
   .de(de_DeleteTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagsInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagsCommandInput;
+      output: DeleteTagsCommandOutput;
+    };
+  };
+}

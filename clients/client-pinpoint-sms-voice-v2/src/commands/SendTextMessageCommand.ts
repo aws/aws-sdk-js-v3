@@ -16,7 +16,8 @@ import { de_SendTextMessageCommand, se_SendTextMessageCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,12 +32,7 @@ export interface SendTextMessageCommandInput extends SendTextMessageRequest {}
 export interface SendTextMessageCommandOutput extends SendTextMessageResult, __MetadataBearer {}
 
 /**
- * <p>Creates a new text message and sends it to a recipient's phone number.</p>
- *          <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit
- *             depends on the destination country of your messages, as well as the type of phone number
- *             (origination number) that you use to send the message. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-limitations-mps.html">Message Parts per
- *                 Second (MPS) limits</a> in the <i>Amazon Pinpoint User
- *                 Guide</i>.</p>
+ * <p>Creates a new text message and sends it to a recipient's phone number. SendTextMessage only sends an SMS message to one recipient each time it is invoked.</p> <p>SMS throughput limits are measured in Message Parts per Second (MPS). Your MPS limit depends on the destination country of your messages, as well as the type of phone number (origination number) that you use to send the message. For more information about MPS, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message Parts per Second (MPS) limits</a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +56,7 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  *   },
  *   DryRun: true || false,
  *   ProtectConfigurationId: "STRING_VALUE",
+ *   MessageFeedbackEnabled: true || false,
  * };
  * const command = new SendTextMessageCommand(input);
  * const response = await client.send(command);
@@ -76,18 +73,13 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time or it could be that the
- *             requested action isn't valid for the current state or configuration of the
- *             resource.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
@@ -96,14 +88,14 @@ export interface SendTextMessageCommandOutput extends SendTextMessageResult, __M
  *  <p>The request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -115,9 +107,7 @@ export class SendTextMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +119,16 @@ export class SendTextMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendTextMessageCommand)
   .de(de_SendTextMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendTextMessageRequest;
+      output: SendTextMessageResult;
+    };
+    sdk: {
+      input: SendTextMessageCommandInput;
+      output: SendTextMessageCommandOutput;
+    };
+  };
+}

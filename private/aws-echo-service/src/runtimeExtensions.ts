@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 import { EchoServiceExtensionConfiguration } from "./extensionConfiguration";
@@ -17,22 +18,22 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<EchoServiceExtensionConfiguration>>(t: T) => t;
-
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const extensionConfiguration: EchoServiceExtensionConfiguration = {
-    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
-  };
+  const extensionConfiguration: EchoServiceExtensionConfiguration = Object.assign(
+    getDefaultExtensionConfiguration(runtimeConfig),
+    getHttpHandlerExtensionConfiguration(runtimeConfig),
+    getHttpAuthExtensionConfiguration(runtimeConfig)
+  );
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
-  return {
-    ...runtimeConfig,
-    ...resolveDefaultRuntimeConfig(extensionConfiguration),
-    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
-  };
+  return Object.assign(
+    runtimeConfig,
+    resolveDefaultRuntimeConfig(extensionConfiguration),
+    resolveHttpHandlerRuntimeConfig(extensionConfiguration),
+    resolveHttpAuthRuntimeConfig(extensionConfiguration)
+  );
 };

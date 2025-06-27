@@ -12,7 +12,8 @@ import { Route53DomainsClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * //   BillingRecords: [ // BillingRecords
  * //     { // BillingRecord
  * //       DomainName: "STRING_VALUE",
- * //       Operation: "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN" || "RELEASE_TO_GANDI" || "TRANSFER_ON_RENEW",
+ * //       Operation: "REGISTER_DOMAIN" || "DELETE_DOMAIN" || "TRANSFER_IN_DOMAIN" || "UPDATE_DOMAIN_CONTACT" || "UPDATE_NAMESERVER" || "CHANGE_PRIVACY_PROTECTION" || "DOMAIN_LOCK" || "ENABLE_AUTORENEW" || "DISABLE_AUTORENEW" || "ADD_DNSSEC" || "REMOVE_DNSSEC" || "EXPIRE_DOMAIN" || "TRANSFER_OUT_DOMAIN" || "CHANGE_DOMAIN_OWNER" || "RENEW_DOMAIN" || "PUSH_DOMAIN" || "INTERNAL_TRANSFER_OUT_DOMAIN" || "INTERNAL_TRANSFER_IN_DOMAIN" || "RELEASE_TO_GANDI" || "TRANSFER_ON_RENEW" || "RESTORE_DOMAIN",
  * //       InvoiceId: "STRING_VALUE",
  * //       BillDate: new Date("TIMESTAMP"),
  * //       Price: Number("double"),
@@ -72,6 +73,7 @@ export interface ViewBillingCommandOutput extends ViewBillingResponse, __Metadat
  * @throws {@link Route53DomainsServiceException}
  * <p>Base exception class for all service exceptions from Route53Domains service.</p>
  *
+ *
  * @public
  */
 export class ViewBillingCommand extends $Command
@@ -82,9 +84,7 @@ export class ViewBillingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53DomainsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ViewBillingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ViewBillingCommand)
   .de(de_ViewBillingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ViewBillingRequest;
+      output: ViewBillingResponse;
+    };
+    sdk: {
+      input: ViewBillingCommandInput;
+      output: ViewBillingCommandOutput;
+    };
+  };
+}

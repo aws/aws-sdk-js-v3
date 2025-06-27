@@ -12,7 +12,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,28 +74,28 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example List tags for resource
  * ```javascript
  * // Lists all tags associated with an assessment template.
  * const input = {
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-gcwFliYu"
+ *   resourceArn: "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-gcwFliYu"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "tags": [
+ *   tags: [
  *     {
- *       "key": "Name",
- *       "value": "Example"
+ *       key: "Name",
+ *       value: "Example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: list-tags-for-resource-1481067025240
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
@@ -104,9 +105,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

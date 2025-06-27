@@ -12,7 +12,8 @@ import { de_DescribePipeCommand, se_DescribePipeCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -397,6 +398,7 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   KmsKeyIdentifier: "STRING_VALUE",
  * // };
  *
  * ```
@@ -422,6 +424,7 @@ export interface DescribePipeCommandOutput extends DescribePipeResponse, __Metad
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class DescribePipeCommand extends $Command
@@ -432,9 +435,7 @@ export class DescribePipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -446,4 +447,16 @@ export class DescribePipeCommand extends $Command
   .f(void 0, DescribePipeResponseFilterSensitiveLog)
   .ser(se_DescribePipeCommand)
   .de(de_DescribePipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePipeRequest;
+      output: DescribePipeResponse;
+    };
+    sdk: {
+      input: DescribePipeCommandInput;
+      output: DescribePipeCommandOutput;
+    };
+  };
+}

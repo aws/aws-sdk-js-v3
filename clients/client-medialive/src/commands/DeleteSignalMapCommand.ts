@@ -12,7 +12,8 @@ import { de_DeleteSignalMapCommand, se_DeleteSignalMapCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface DeleteSignalMapCommandOutput extends __MetadataBearer {}
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class DeleteSignalMapCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteSignalMapCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteSignalMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSignalMapCommand)
   .de(de_DeleteSignalMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSignalMapRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSignalMapCommandInput;
+      output: DeleteSignalMapCommandOutput;
+    };
+  };
+}

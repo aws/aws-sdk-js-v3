@@ -6,17 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateAddonSubscriptionRequest,
-  CreateAddonSubscriptionRequestFilterSensitiveLog,
-  CreateAddonSubscriptionResponse,
-} from "../models/models_0";
+import { CreateAddonSubscriptionRequest, CreateAddonSubscriptionResponse } from "../models/models_0";
 import { de_CreateAddonSubscriptionCommand, se_CreateAddonSubscriptionCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +28,7 @@ export interface CreateAddonSubscriptionCommandInput extends CreateAddonSubscrip
 export interface CreateAddonSubscriptionCommandOutput extends CreateAddonSubscriptionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a subscription for an Add On representing the acceptance of its terms of use
- *             and additional pricing. The subscription can then be used to create an instance for use
- *             in rule sets or traffic policies.</p>
+ * <p>Creates a subscription for an Add On representing the acceptance of its terms of use and additional pricing. The subscription can then be used to create an instance for use in rule sets or traffic policies.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +71,7 @@ export interface CreateAddonSubscriptionCommandOutput extends CreateAddonSubscri
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class CreateAddonSubscriptionCommand extends $Command
@@ -86,9 +82,7 @@ export class CreateAddonSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,7 +91,19 @@ export class CreateAddonSubscriptionCommand extends $Command
   })
   .s("MailManagerSvc", "CreateAddonSubscription", {})
   .n("MailManagerClient", "CreateAddonSubscriptionCommand")
-  .f(CreateAddonSubscriptionRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateAddonSubscriptionCommand)
   .de(de_CreateAddonSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAddonSubscriptionRequest;
+      output: CreateAddonSubscriptionResponse;
+    };
+    sdk: {
+      input: CreateAddonSubscriptionCommandInput;
+      output: CreateAddonSubscriptionCommandOutput;
+    };
+  };
+}

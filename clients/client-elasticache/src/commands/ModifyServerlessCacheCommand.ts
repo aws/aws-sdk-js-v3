@@ -12,7 +12,8 @@ import { de_ModifyServerlessCacheCommand, se_ModifyServerlessCacheCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,8 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  *   ],
  *   SnapshotRetentionLimit: Number("int"),
  *   DailySnapshotTime: "STRING_VALUE",
+ *   Engine: "STRING_VALUE",
+ *   MajorEngineVersion: "STRING_VALUE",
  * };
  * const command = new ModifyServerlessCacheCommand(input);
  * const response = await client.send(command);
@@ -135,6 +138,7 @@ export interface ModifyServerlessCacheCommandOutput extends ModifyServerlessCach
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class ModifyServerlessCacheCommand extends $Command
@@ -145,9 +149,7 @@ export class ModifyServerlessCacheCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +161,16 @@ export class ModifyServerlessCacheCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyServerlessCacheCommand)
   .de(de_ModifyServerlessCacheCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyServerlessCacheRequest;
+      output: ModifyServerlessCacheResponse;
+    };
+    sdk: {
+      input: ModifyServerlessCacheCommandInput;
+      output: ModifyServerlessCacheCommandOutput;
+    };
+  };
+}

@@ -6,14 +6,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutBucketCorsRequest } from "../models/models_0";
+import { PutBucketCorsRequest } from "../models/models_1";
 import { de_PutBucketCorsCommand, se_PutBucketCorsCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Sets the <code>cors</code> configuration for your bucket. If the configuration exists,
  *          Amazon S3 replaces it.</p>
@@ -114,7 +115,7 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  *     ],
  *   },
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new PutBucketCorsCommand(input);
@@ -132,52 +133,55 @@ export interface PutBucketCorsCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To set cors configuration on a bucket.
  * ```javascript
  * // The following example enables PUT, POST, and DELETE requests from www.example.com, and enables GET requests from any domain.
  * const input = {
- *   "Bucket": "",
- *   "CORSConfiguration": {
- *     "CORSRules": [
+ *   Bucket: "",
+ *   CORSConfiguration: {
+ *     CORSRules: [
  *       {
- *         "AllowedHeaders": [
+ *         AllowedHeaders: [
  *           "*"
  *         ],
- *         "AllowedMethods": [
+ *         AllowedMethods: [
  *           "PUT",
  *           "POST",
  *           "DELETE"
  *         ],
- *         "AllowedOrigins": [
+ *         AllowedOrigins: [
  *           "http://www.example.com"
  *         ],
- *         "ExposeHeaders": [
+ *         ExposeHeaders: [
  *           "x-amz-server-side-encryption"
  *         ],
- *         "MaxAgeSeconds": 3000
+ *         MaxAgeSeconds: 3000
  *       },
  *       {
- *         "AllowedHeaders": [
+ *         AllowedHeaders: [
  *           "Authorization"
  *         ],
- *         "AllowedMethods": [
+ *         AllowedMethods: [
  *           "GET"
  *         ],
- *         "AllowedOrigins": [
+ *         AllowedOrigins: [
  *           "*"
  *         ],
- *         "MaxAgeSeconds": 3000
+ *         MaxAgeSeconds: 3000
  *       }
  *     ]
  *   },
- *   "ContentMD5": ""
+ *   ContentMD5: ""
  * };
  * const command = new PutBucketCorsCommand(input);
- * await client.send(command);
- * // example id: to-set-cors-configuration-on-a-bucket-1483037818805
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketCorsCommand extends $Command
   .classBuilder<
@@ -197,8 +201,7 @@ export class PutBucketCorsCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -208,4 +211,16 @@ export class PutBucketCorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketCorsCommand)
   .de(de_PutBucketCorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketCorsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketCorsCommandInput;
+      output: PutBucketCorsCommandOutput;
+    };
+  };
+}

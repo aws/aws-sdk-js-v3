@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,24 +71,24 @@ export interface SetLocalConsolePasswordCommandOutput extends SetLocalConsolePas
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To set a password for your VM
  * ```javascript
  * // Sets the password for your VM local console.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "LocalConsolePassword": "PassWordMustBeAtLeast6Chars."
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   LocalConsolePassword: "PassWordMustBeAtLeast6Chars."
  * };
  * const command = new SetLocalConsolePasswordCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-set-a-password-for-your-vm-1472150202632
  * ```
  *
+ * @public
  */
 export class SetLocalConsolePasswordCommand extends $Command
   .classBuilder<
@@ -97,9 +98,7 @@ export class SetLocalConsolePasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class SetLocalConsolePasswordCommand extends $Command
   .f(SetLocalConsolePasswordInputFilterSensitiveLog, void 0)
   .ser(se_SetLocalConsolePasswordCommand)
   .de(de_SetLocalConsolePasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetLocalConsolePasswordInput;
+      output: SetLocalConsolePasswordOutput;
+    };
+    sdk: {
+      input: SetLocalConsolePasswordCommandInput;
+      output: SetLocalConsolePasswordCommandOutput;
+    };
+  };
+}

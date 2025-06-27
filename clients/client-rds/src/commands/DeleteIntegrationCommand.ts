@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,30 +89,30 @@ export interface DeleteIntegrationCommandOutput extends Integration, __MetadataB
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a zero-ETL integration
  * ```javascript
  * // The following example deletes a zero-ETL integration with Amazon Redshift.
  * const input = {
- *   "IntegrationIdentifier": "5b9f3d79-7392-4a3e-896c-58eaa1b53231"
+ *   IntegrationIdentifier: "5b9f3d79-7392-4a3e-896c-58eaa1b53231"
  * };
  * const command = new DeleteIntegrationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateTime": "2023-12-28T17:20:20.629Z",
- *   "IntegrationArn": "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
- *   "IntegrationName": "my-integration",
- *   "KMSKeyId": "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
- *   "SourceArn": "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
- *   "Status": "deleting",
- *   "Tags": [],
- *   "TargetArn": "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
+ *   CreateTime: "2023-12-28T17:20:20.629Z",
+ *   IntegrationArn: "arn:aws:rds:us-east-1:123456789012:integration:5b9f3d79-7392-4a3e-896c-58eaa1b53231",
+ *   IntegrationName: "my-integration",
+ *   KMSKeyId: "arn:aws:kms:us-east-1:123456789012:key/a1b2c3d4-5678-90ab-cdef-EXAMPLEaaaaa",
+ *   SourceArn: "arn:aws:rds:us-east-1:123456789012:cluster:my-cluster",
+ *   Status: "deleting",
+ *   Tags:   [],
+ *   TargetArn: "arn:aws:redshift-serverless:us-east-1:123456789012:namespace/62c70612-0302-4db7-8414-b5e3e049f0d8"
  * }
  * *\/
- * // example id: to-delete-a-zero-etl-integration-1679688377231
  * ```
  *
+ * @public
  */
 export class DeleteIntegrationCommand extends $Command
   .classBuilder<
@@ -121,9 +122,7 @@ export class DeleteIntegrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class DeleteIntegrationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIntegrationCommand)
   .de(de_DeleteIntegrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIntegrationMessage;
+      output: Integration;
+    };
+    sdk: {
+      input: DeleteIntegrationCommandInput;
+      output: DeleteIntegrationCommandOutput;
+    };
+  };
+}

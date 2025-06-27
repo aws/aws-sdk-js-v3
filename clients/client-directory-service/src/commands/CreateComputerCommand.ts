@@ -16,7 +16,8 @@ import { de_CreateComputerCommand, se_CreateComputerCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,7 +81,7 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityAlreadyExistsException} (client fault)
  *  <p>The specified entity already exists.</p>
@@ -100,6 +101,44 @@ export interface CreateComputerCommandOutput extends CreateComputerResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To create a computer account
+ * ```javascript
+ * // The following example creates a computer account in the specified directory, and joins the computer to the directory.
+ * const input = {
+ *   ComputerAttributes: [
+ *     {
+ *       Name: "ip",
+ *       Value: "192.168.101.100"
+ *     }
+ *   ],
+ *   ComputerName: "labcomputer",
+ *   DirectoryId: "d-92654abfed",
+ *   OrganizationalUnitDistinguishedName: "OU=Computers,OU=example,DC=corp,DC=example,DC=com",
+ *   Password: "Str0ngP@ssw0rd"
+ * };
+ * const command = new CreateComputerCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Computer: {
+ *     ComputerAttributes: [
+ *       {
+ *         Name: "DistinguishedName",
+ *         Value: "CN=labcomputer,OU=Computers,OU=nickcorp,DC=seattle,DC=nickcorp,DC=com"
+ *       },
+ *       {
+ *         Name: "WindowsSamName",
+ *         Value: "labcomputer$"
+ *       }
+ *     ],
+ *     ComputerId: "S-1-5-21-1932691875-1648176379-1176097576-1124",
+ *     ComputerName: "labcomputer"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateComputerCommand extends $Command
@@ -110,9 +149,7 @@ export class CreateComputerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +161,16 @@ export class CreateComputerCommand extends $Command
   .f(CreateComputerRequestFilterSensitiveLog, void 0)
   .ser(se_CreateComputerCommand)
   .de(de_CreateComputerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateComputerRequest;
+      output: CreateComputerResult;
+    };
+    sdk: {
+      input: CreateComputerCommandInput;
+      output: CreateComputerCommandOutput;
+    };
+  };
+}

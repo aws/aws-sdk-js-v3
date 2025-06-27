@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,7 @@ export interface TerminateSessionCommandOutput extends TerminateSessionResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class TerminateSessionCommand extends $Command
@@ -68,9 +70,7 @@ export class TerminateSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +82,16 @@ export class TerminateSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateSessionCommand)
   .de(de_TerminateSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateSessionRequest;
+      output: TerminateSessionResponse;
+    };
+    sdk: {
+      input: TerminateSessionCommandInput;
+      output: TerminateSessionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeServiceUpdatesCommand, se_DescribeServiceUpdatesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DescribeServiceUpdatesCommandInput extends DescribeServiceUpdat
 export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpdatesResponse, __MetadataBearer {}
 
 /**
- * <p>Returns details of the service updates</p>
+ * <p>Returns details of the service updates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,7 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * //       Description: "STRING_VALUE",
  * //       Status: "available" || "in-progress" || "complete" || "scheduled",
  * //       Type: "security-update",
+ * //       Engine: "STRING_VALUE",
  * //       NodesUpdated: "STRING_VALUE",
  * //       AutoUpdateStartDate: new Date("TIMESTAMP"),
  * //     },
@@ -80,6 +82,7 @@ export interface DescribeServiceUpdatesCommandOutput extends DescribeServiceUpda
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceUpdatesCommand extends $Command
@@ -90,9 +93,7 @@ export class DescribeServiceUpdatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +105,16 @@ export class DescribeServiceUpdatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceUpdatesCommand)
   .de(de_DescribeServiceUpdatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceUpdatesRequest;
+      output: DescribeServiceUpdatesResponse;
+    };
+    sdk: {
+      input: DescribeServiceUpdatesCommandInput;
+      output: DescribeServiceUpdatesCommandOutput;
+    };
+  };
+}

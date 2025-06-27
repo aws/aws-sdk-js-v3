@@ -219,6 +219,7 @@ import {
   ReplicationInfoSummary,
   ReplicationStartingPosition,
   ReplicationStateInfo,
+  ReplicationTopicNameConfiguration,
   ReplicatorSummary,
   S3,
   Sasl,
@@ -1058,10 +1059,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/v1/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3053,6 +3051,18 @@ const se_ReplicationStartingPosition = (input: ReplicationStartingPosition, cont
 };
 
 /**
+ * serializeAws_restJson1ReplicationTopicNameConfiguration
+ */
+const se_ReplicationTopicNameConfiguration = (
+  input: ReplicationTopicNameConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    type: [, , `Type`],
+  });
+};
+
+/**
  * serializeAws_restJson1S3
  */
 const se_S3 = (input: S3, context: __SerdeContext): any => {
@@ -3138,6 +3148,7 @@ const se_TopicReplication = (input: TopicReplication, context: __SerdeContext): 
     copyTopicConfigurations: [, , `CopyTopicConfigurations`],
     detectAndCopyNewTopics: [, , `DetectAndCopyNewTopics`],
     startingPosition: [, (_) => se_ReplicationStartingPosition(_, context), `StartingPosition`],
+    topicNameConfiguration: [, (_) => se_ReplicationTopicNameConfiguration(_, context), `TopicNameConfiguration`],
     topicsToExclude: [, _json, `TopicsToExclude`],
     topicsToReplicate: [, _json, `TopicsToReplicate`],
   });
@@ -4136,6 +4147,18 @@ const de_ReplicationStateInfo = (output: any, context: __SerdeContext): Replicat
 };
 
 /**
+ * deserializeAws_restJson1ReplicationTopicNameConfiguration
+ */
+const de_ReplicationTopicNameConfiguration = (
+  output: any,
+  context: __SerdeContext
+): ReplicationTopicNameConfiguration => {
+  return take(output, {
+    Type: [, __expectString, `type`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1ReplicatorSummary
  */
 const de_ReplicatorSummary = (output: any, context: __SerdeContext): ReplicatorSummary => {
@@ -4252,6 +4275,7 @@ const de_TopicReplication = (output: any, context: __SerdeContext): TopicReplica
     CopyTopicConfigurations: [, __expectBoolean, `copyTopicConfigurations`],
     DetectAndCopyNewTopics: [, __expectBoolean, `detectAndCopyNewTopics`],
     StartingPosition: [, (_: any) => de_ReplicationStartingPosition(_, context), `startingPosition`],
+    TopicNameConfiguration: [, (_: any) => de_ReplicationTopicNameConfiguration(_, context), `topicNameConfiguration`],
     TopicsToExclude: [, _json, `topicsToExclude`],
     TopicsToReplicate: [, _json, `topicsToReplicate`],
   }) as any;
@@ -4418,13 +4442,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _CA = "ClusterArn";
 const _CNF = "ClusterNameFilter";

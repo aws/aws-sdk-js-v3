@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,8 +53,11 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  *       IAM policy actions for Secrets Manager</a> and <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/auth-and-access.html">Authentication
  *       and access control in Secrets Manager</a>.
  *       If you use a customer managed key, you must also have <code>kms:GenerateDataKey</code>, <code>kms:Encrypt</code>, and
- *       <code>kms:Decrypt</code> permissions on the key. If you change the KMS key and you don't have <code>kms:Encrypt</code> permission to the new key, Secrets Manager does not re-ecrypt existing secret versions with the new key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
+ *       <code>kms:Decrypt</code> permissions on the key. If you change the KMS key and you don't have <code>kms:Encrypt</code> permission to the new key, Secrets Manager does not re-encrypt existing secret versions with the new key. For more information, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security-encryption.html">
  *         Secret encryption and decryption</a>.</p>
+ *          <important>
+ *             <p>When you enter commands in a command shell, there is a risk of the command history being accessed or utilities having access to your command parameters. This is a concern if the command includes the value of a secret. Learn how to <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/security_cli-exposure-risks.html">Mitigate the risks of using command-line tools to store Secrets Manager secrets</a>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -134,63 +138,61 @@ export interface UpdateSecretCommandOutput extends UpdateSecretResponse, __Metad
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
+ * @example To create a new version of the encrypted secret value
+ * ```javascript
+ * // The following example shows how to create a new version of the secret by updating the SecretString field. Alternatively, you can use the put-secret-value operation.
+ * const input = {
+ *   SecretId: "MyTestDatabaseSecret",
+ *   SecretString: "{JSON STRING WITH CREDENTIALS}"
+ * };
+ * const command = new UpdateSecretCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ARN: "aws:arn:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret",
+ *   VersionId: "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
  * @example To update the description of a secret
  * ```javascript
  * // The following example shows how to modify the description of a secret.
  * const input = {
- *   "ClientRequestToken": "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE",
- *   "Description": "This is a new description for the secret.",
- *   "SecretId": "MyTestDatabaseSecret"
+ *   ClientRequestToken: "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE",
+ *   Description: "This is a new description for the secret.",
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-update-the-description-of-a-secret-1524002349094
  * ```
  *
  * @example To update the KMS key associated with a secret
  * ```javascript
  * // This example shows how to update the KMS customer managed key (CMK) used to encrypt the secret value. The KMS CMK must be in the same region as the secret.
  * const input = {
- *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
- *   "SecretId": "MyTestDatabaseSecret"
+ *   KmsKeyId: "arn:aws:kms:us-west-2:123456789012:key/EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE",
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new UpdateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-update-the-kms-key-associated-with-a-secret-1524002421563
  * ```
  *
- * @example To create a new version of the encrypted secret value
- * ```javascript
- * // The following example shows how to create a new version of the secret by updating the SecretString field. Alternatively, you can use the put-secret-value operation.
- * const input = {
- *   "SecretId": "MyTestDatabaseSecret",
- *   "SecretString": "{JSON STRING WITH CREDENTIALS}"
- * };
- * const command = new UpdateSecretCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ARN": "aws:arn:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret",
- *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE"
- * }
- * *\/
- * // example id: to-create-a-new-version-of-the-encrypted-secret-value-1524004651836
- * ```
- *
+ * @public
  */
 export class UpdateSecretCommand extends $Command
   .classBuilder<
@@ -200,9 +202,7 @@ export class UpdateSecretCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +214,16 @@ export class UpdateSecretCommand extends $Command
   .f(UpdateSecretRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateSecretCommand)
   .de(de_UpdateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecretRequest;
+      output: UpdateSecretResponse;
+    };
+    sdk: {
+      input: UpdateSecretCommandInput;
+      output: UpdateSecretCommandOutput;
+    };
+  };
+}

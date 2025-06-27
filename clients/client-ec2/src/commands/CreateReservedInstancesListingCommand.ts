@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,22 +33,25 @@ export interface CreateReservedInstancesListingCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance
- * 			Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your
- * 			Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
+ * <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved
+ *       Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get
+ *       a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p>
  *          <note>
  *             <p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace.
- *        Convertible Reserved Instances cannot be sold.</p>
+ *         Convertible Reserved Instances cannot be sold.</p>
  *          </note>
- *          <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
- *          <p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance
- *       Marketplace. After completing the registration process, you can create a Reserved Instance
- *       Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price
- *       to receive for them. Your Standard Reserved Instance listings then become available for purchase. To
- *       view the details of your Standard Reserved Instance listing, you can use the
- *         <a>DescribeReservedInstancesListings</a> operation.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the
- * 				<i>Amazon EC2 User Guide</i>.</p>
+ *          <p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved
+ *       Instance capacity that they no longer need with buyers who want to purchase additional
+ *       capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work
+ *       like any other Reserved Instances.</p>
+ *          <p>To sell your Standard Reserved Instances, you must first register as a seller in the
+ *       Reserved Instance Marketplace. After completing the registration process, you can create a
+ *       Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and
+ *       specify the upfront price to receive for them. Your Standard Reserved Instance listings then
+ *       become available for purchase. To view the details of your Standard Reserved Instance listing,
+ *       you can use the <a>DescribeReservedInstancesListings</a> operation.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
+ *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,16 +59,16 @@ export interface CreateReservedInstancesListingCommandOutput
  * // const { EC2Client, CreateReservedInstancesListingCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateReservedInstancesListingRequest
- *   ClientToken: "STRING_VALUE", // required
+ *   ReservedInstancesId: "STRING_VALUE", // required
  *   InstanceCount: Number("int"), // required
  *   PriceSchedules: [ // PriceScheduleSpecificationList // required
  *     { // PriceScheduleSpecification
- *       CurrencyCode: "USD",
- *       Price: Number("double"),
  *       Term: Number("long"),
+ *       Price: Number("double"),
+ *       CurrencyCode: "USD",
  *     },
  *   ],
- *   ReservedInstancesId: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE", // required
  * };
  * const command = new CreateReservedInstancesListingCommand(input);
  * const response = await client.send(command);
@@ -113,6 +117,7 @@ export interface CreateReservedInstancesListingCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateReservedInstancesListingCommand extends $Command
@@ -123,9 +128,7 @@ export class CreateReservedInstancesListingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +140,16 @@ export class CreateReservedInstancesListingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReservedInstancesListingCommand)
   .de(de_CreateReservedInstancesListingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReservedInstancesListingRequest;
+      output: CreateReservedInstancesListingResult;
+    };
+    sdk: {
+      input: CreateReservedInstancesListingCommandInput;
+      output: CreateReservedInstancesListingCommandOutput;
+    };
+  };
+}

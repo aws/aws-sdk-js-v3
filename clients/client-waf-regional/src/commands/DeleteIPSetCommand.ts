@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,24 +120,24 @@ export interface DeleteIPSetCommandOutput extends DeleteIPSetResponse, __Metadat
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To delete an IP set
  * ```javascript
  * // The following example deletes an IP match set  with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "IPSetId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   IPSetId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new DeleteIPSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: deleteipset-1472767434306
  * ```
  *
+ * @public
  */
 export class DeleteIPSetCommand extends $Command
   .classBuilder<
@@ -146,9 +147,7 @@ export class DeleteIPSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class DeleteIPSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIPSetCommand)
   .de(de_DeleteIPSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIPSetRequest;
+      output: DeleteIPSetResponse;
+    };
+    sdk: {
+      input: DeleteIPSetCommandInput;
+      output: DeleteIPSetCommandOutput;
+    };
+  };
+}

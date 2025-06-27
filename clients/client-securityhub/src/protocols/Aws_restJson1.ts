@@ -19,6 +19,7 @@ import {
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
@@ -28,10 +29,12 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AcceptAdministratorInvitationCommandInput,
@@ -79,30 +82,51 @@ import {
   BatchUpdateFindingsCommandOutput,
 } from "../commands/BatchUpdateFindingsCommand";
 import {
+  BatchUpdateFindingsV2CommandInput,
+  BatchUpdateFindingsV2CommandOutput,
+} from "../commands/BatchUpdateFindingsV2Command";
+import {
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "../commands/BatchUpdateStandardsControlAssociationsCommand";
+import {
+  ConnectorRegistrationsV2CommandInput,
+  ConnectorRegistrationsV2CommandOutput,
+} from "../commands/ConnectorRegistrationsV2Command";
 import { CreateActionTargetCommandInput, CreateActionTargetCommandOutput } from "../commands/CreateActionTargetCommand";
+import { CreateAggregatorV2CommandInput, CreateAggregatorV2CommandOutput } from "../commands/CreateAggregatorV2Command";
 import {
   CreateAutomationRuleCommandInput,
   CreateAutomationRuleCommandOutput,
 } from "../commands/CreateAutomationRuleCommand";
 import {
+  CreateAutomationRuleV2CommandInput,
+  CreateAutomationRuleV2CommandOutput,
+} from "../commands/CreateAutomationRuleV2Command";
+import {
   CreateConfigurationPolicyCommandInput,
   CreateConfigurationPolicyCommandOutput,
 } from "../commands/CreateConfigurationPolicyCommand";
+import { CreateConnectorV2CommandInput, CreateConnectorV2CommandOutput } from "../commands/CreateConnectorV2Command";
 import {
   CreateFindingAggregatorCommandInput,
   CreateFindingAggregatorCommandOutput,
 } from "../commands/CreateFindingAggregatorCommand";
 import { CreateInsightCommandInput, CreateInsightCommandOutput } from "../commands/CreateInsightCommand";
 import { CreateMembersCommandInput, CreateMembersCommandOutput } from "../commands/CreateMembersCommand";
+import { CreateTicketV2CommandInput, CreateTicketV2CommandOutput } from "../commands/CreateTicketV2Command";
 import { DeclineInvitationsCommandInput, DeclineInvitationsCommandOutput } from "../commands/DeclineInvitationsCommand";
 import { DeleteActionTargetCommandInput, DeleteActionTargetCommandOutput } from "../commands/DeleteActionTargetCommand";
+import { DeleteAggregatorV2CommandInput, DeleteAggregatorV2CommandOutput } from "../commands/DeleteAggregatorV2Command";
+import {
+  DeleteAutomationRuleV2CommandInput,
+  DeleteAutomationRuleV2CommandOutput,
+} from "../commands/DeleteAutomationRuleV2Command";
 import {
   DeleteConfigurationPolicyCommandInput,
   DeleteConfigurationPolicyCommandOutput,
 } from "../commands/DeleteConfigurationPolicyCommand";
+import { DeleteConnectorV2CommandInput, DeleteConnectorV2CommandOutput } from "../commands/DeleteConnectorV2Command";
 import {
   DeleteFindingAggregatorCommandInput,
   DeleteFindingAggregatorCommandOutput,
@@ -120,6 +144,11 @@ import {
   DescribeOrganizationConfigurationCommandOutput,
 } from "../commands/DescribeOrganizationConfigurationCommand";
 import { DescribeProductsCommandInput, DescribeProductsCommandOutput } from "../commands/DescribeProductsCommand";
+import { DescribeProductsV2CommandInput, DescribeProductsV2CommandOutput } from "../commands/DescribeProductsV2Command";
+import {
+  DescribeSecurityHubV2CommandInput,
+  DescribeSecurityHubV2CommandOutput,
+} from "../commands/DescribeSecurityHubV2Command";
 import { DescribeStandardsCommandInput, DescribeStandardsCommandOutput } from "../commands/DescribeStandardsCommand";
 import {
   DescribeStandardsControlsCommandInput,
@@ -134,6 +163,10 @@ import {
   DisableOrganizationAdminAccountCommandOutput,
 } from "../commands/DisableOrganizationAdminAccountCommand";
 import { DisableSecurityHubCommandInput, DisableSecurityHubCommandOutput } from "../commands/DisableSecurityHubCommand";
+import {
+  DisableSecurityHubV2CommandInput,
+  DisableSecurityHubV2CommandOutput,
+} from "../commands/DisableSecurityHubV2Command";
 import {
   DisassociateFromAdministratorAccountCommandInput,
   DisassociateFromAdministratorAccountCommandOutput,
@@ -156,9 +189,18 @@ import {
 } from "../commands/EnableOrganizationAdminAccountCommand";
 import { EnableSecurityHubCommandInput, EnableSecurityHubCommandOutput } from "../commands/EnableSecurityHubCommand";
 import {
+  EnableSecurityHubV2CommandInput,
+  EnableSecurityHubV2CommandOutput,
+} from "../commands/EnableSecurityHubV2Command";
+import {
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "../commands/GetAdministratorAccountCommand";
+import { GetAggregatorV2CommandInput, GetAggregatorV2CommandOutput } from "../commands/GetAggregatorV2Command";
+import {
+  GetAutomationRuleV2CommandInput,
+  GetAutomationRuleV2CommandOutput,
+} from "../commands/GetAutomationRuleV2Command";
 import {
   GetConfigurationPolicyAssociationCommandInput,
   GetConfigurationPolicyAssociationCommandOutput,
@@ -167,6 +209,7 @@ import {
   GetConfigurationPolicyCommandInput,
   GetConfigurationPolicyCommandOutput,
 } from "../commands/GetConfigurationPolicyCommand";
+import { GetConnectorV2CommandInput, GetConnectorV2CommandOutput } from "../commands/GetConnectorV2Command";
 import {
   GetEnabledStandardsCommandInput,
   GetEnabledStandardsCommandOutput,
@@ -177,6 +220,11 @@ import {
 } from "../commands/GetFindingAggregatorCommand";
 import { GetFindingHistoryCommandInput, GetFindingHistoryCommandOutput } from "../commands/GetFindingHistoryCommand";
 import { GetFindingsCommandInput, GetFindingsCommandOutput } from "../commands/GetFindingsCommand";
+import {
+  GetFindingStatisticsV2CommandInput,
+  GetFindingStatisticsV2CommandOutput,
+} from "../commands/GetFindingStatisticsV2Command";
+import { GetFindingsV2CommandInput, GetFindingsV2CommandOutput } from "../commands/GetFindingsV2Command";
 import { GetInsightResultsCommandInput, GetInsightResultsCommandOutput } from "../commands/GetInsightResultsCommand";
 import { GetInsightsCommandInput, GetInsightsCommandOutput } from "../commands/GetInsightsCommand";
 import {
@@ -186,14 +234,24 @@ import {
 import { GetMasterAccountCommandInput, GetMasterAccountCommandOutput } from "../commands/GetMasterAccountCommand";
 import { GetMembersCommandInput, GetMembersCommandOutput } from "../commands/GetMembersCommand";
 import {
+  GetResourcesStatisticsV2CommandInput,
+  GetResourcesStatisticsV2CommandOutput,
+} from "../commands/GetResourcesStatisticsV2Command";
+import { GetResourcesV2CommandInput, GetResourcesV2CommandOutput } from "../commands/GetResourcesV2Command";
+import {
   GetSecurityControlDefinitionCommandInput,
   GetSecurityControlDefinitionCommandOutput,
 } from "../commands/GetSecurityControlDefinitionCommand";
 import { InviteMembersCommandInput, InviteMembersCommandOutput } from "../commands/InviteMembersCommand";
+import { ListAggregatorsV2CommandInput, ListAggregatorsV2CommandOutput } from "../commands/ListAggregatorsV2Command";
 import {
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "../commands/ListAutomationRulesCommand";
+import {
+  ListAutomationRulesV2CommandInput,
+  ListAutomationRulesV2CommandOutput,
+} from "../commands/ListAutomationRulesV2Command";
 import {
   ListConfigurationPoliciesCommandInput,
   ListConfigurationPoliciesCommandOutput,
@@ -202,6 +260,7 @@ import {
   ListConfigurationPolicyAssociationsCommandInput,
   ListConfigurationPolicyAssociationsCommandOutput,
 } from "../commands/ListConfigurationPolicyAssociationsCommand";
+import { ListConnectorsV2CommandInput, ListConnectorsV2CommandOutput } from "../commands/ListConnectorsV2Command";
 import {
   ListEnabledProductsForImportCommandInput,
   ListEnabledProductsForImportCommandOutput,
@@ -239,10 +298,16 @@ import {
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateActionTargetCommandInput, UpdateActionTargetCommandOutput } from "../commands/UpdateActionTargetCommand";
+import { UpdateAggregatorV2CommandInput, UpdateAggregatorV2CommandOutput } from "../commands/UpdateAggregatorV2Command";
+import {
+  UpdateAutomationRuleV2CommandInput,
+  UpdateAutomationRuleV2CommandOutput,
+} from "../commands/UpdateAutomationRuleV2Command";
 import {
   UpdateConfigurationPolicyCommandInput,
   UpdateConfigurationPolicyCommandOutput,
 } from "../commands/UpdateConfigurationPolicyCommand";
+import { UpdateConnectorV2CommandInput, UpdateConnectorV2CommandOutput } from "../commands/UpdateConnectorV2Command";
 import {
   UpdateFindingAggregatorCommandInput,
   UpdateFindingAggregatorCommandOutput,
@@ -273,16 +338,22 @@ import {
   ActionLocalPortDetails,
   ActionRemoteIpDetails,
   ActionRemotePortDetails,
+  Actor,
+  ActorSession,
+  ActorUser,
   Adjustment,
   AssociatedStandard,
   AssociationFilters,
   AssociationSetDetails,
   AssociationStateDetails,
   AutomationRulesAction,
+  AutomationRulesActionV2,
   AutomationRulesConfig,
   AutomationRulesFindingFieldsUpdate,
+  AutomationRulesFindingFieldsUpdateV2,
   AutomationRulesFindingFilters,
   AutomationRulesMetadata,
+  AutomationRulesMetadataV2,
   AvailabilityZone,
   AwsAmazonMqBrokerDetails,
   AwsAmazonMqBrokerEncryptionOptionsDetails,
@@ -501,20 +572,6 @@ import {
   AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails,
   AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
-  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
   AwsMountPoint,
   CidrBlockAssociation,
   City,
@@ -522,6 +579,7 @@ import {
   DateFilter,
   DateRange,
   DnsRequestAction,
+  ExternalIntegrationConfiguration,
   GeoLocation,
   IcmpTypeCode,
   InternalException,
@@ -543,6 +601,7 @@ import {
   RouteSetDetails,
   SeverityUpdate,
   StringFilter,
+  UserAccount,
   VpcInfoCidrBlockSetDetails,
   VpcInfoIpv6CidrBlockSetDetails,
   VpcInfoPeeringOptionsDetails,
@@ -551,6 +610,20 @@ import {
 import {
   _Record,
   AwsEcsTaskDefinitionContainerDefinitionsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails,
+  AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails,
   AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails,
   AwsEcsTaskDefinitionDetails,
   AwsEcsTaskDefinitionInferenceAcceleratorsDetails,
@@ -764,28 +837,6 @@ import {
   AwsSageMakerNotebookInstanceMetadataServiceConfigurationDetails,
   AwsSecretsManagerSecretDetails,
   AwsSecretsManagerSecretRotationRules,
-  AwsSnsTopicDetails,
-  AwsSnsTopicSubscription,
-  AwsSqsQueueDetails,
-  AwsSsmComplianceSummary,
-  AwsSsmPatch,
-  AwsSsmPatchComplianceDetails,
-  AwsStepFunctionStateMachineDetails,
-  AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails,
-  AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
-  AwsStepFunctionStateMachineLoggingConfigurationDetails,
-  AwsStepFunctionStateMachineTracingConfigurationDetails,
-  AwsWafRateBasedRuleDetails,
-  AwsWafRateBasedRuleMatchPredicate,
-  AwsWafRegionalRateBasedRuleDetails,
-  AwsWafRegionalRateBasedRuleMatchPredicate,
-  AwsWafRegionalRuleDetails,
-  AwsWafRegionalRuleGroupDetails,
-  AwsWafRegionalRuleGroupRulesActionDetails,
-  AwsWafRegionalRuleGroupRulesDetails,
-  AwsWafRegionalRulePredicateListDetails,
-  AwsWafRegionalWebAclRulesListActionDetails,
-  AwsWafRegionalWebAclRulesListOverrideActionDetails,
   Cell,
   ClassificationResult,
   ClassificationStatus,
@@ -793,7 +844,7 @@ import {
   Compliance,
   CustomDataIdentifiersDetections,
   CustomDataIdentifiersResult,
-  DataClassificationDetails,
+  Detection,
   FindingProviderFields,
   FindingProviderSeverity,
   FirewallPolicyDetails,
@@ -801,9 +852,14 @@ import {
   FirewallPolicyStatelessCustomActionsDetails,
   FirewallPolicyStatelessRuleGroupReferencesDetails,
   GeneratorDetails,
+  Indicator,
   LoadBalancerState,
   Malware,
   Network,
+  NetworkAutonomousSystem,
+  NetworkConnection,
+  NetworkEndpoint,
+  NetworkGeoLocation,
   NetworkHeader,
   NetworkPathComponent,
   NetworkPathComponentDetails,
@@ -838,6 +894,8 @@ import {
   SecurityControlParameter,
   SensitiveDataDetections,
   SensitiveDataResult,
+  Sequence,
+  Signal,
   StatelessCustomActionDefinition,
   StatelessCustomPublishMetricAction,
   StatelessCustomPublishMetricActionDimension,
@@ -847,8 +905,30 @@ import {
   AwsSecurityFinding,
   AwsSecurityFindingFilters,
   AwsSecurityFindingIdentifier,
+  AwsSnsTopicDetails,
+  AwsSnsTopicSubscription,
+  AwsSqsQueueDetails,
+  AwsSsmComplianceSummary,
+  AwsSsmPatch,
+  AwsSsmPatchComplianceDetails,
+  AwsStepFunctionStateMachineDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDestinationsCloudWatchLogsLogGroupDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDestinationsDetails,
+  AwsStepFunctionStateMachineLoggingConfigurationDetails,
+  AwsStepFunctionStateMachineTracingConfigurationDetails,
+  AwsWafRateBasedRuleDetails,
+  AwsWafRateBasedRuleMatchPredicate,
+  AwsWafRegionalRateBasedRuleDetails,
+  AwsWafRegionalRateBasedRuleMatchPredicate,
+  AwsWafRegionalRuleDetails,
+  AwsWafRegionalRuleGroupDetails,
+  AwsWafRegionalRuleGroupRulesActionDetails,
+  AwsWafRegionalRuleGroupRulesDetails,
+  AwsWafRegionalRulePredicateListDetails,
   AwsWafRegionalWebAclDetails,
+  AwsWafRegionalWebAclRulesListActionDetails,
   AwsWafRegionalWebAclRulesListDetails,
+  AwsWafRegionalWebAclRulesListOverrideActionDetails,
   AwsWafRuleDetails,
   AwsWafRuleGroupDetails,
   AwsWafRuleGroupRulesActionDetails,
@@ -874,47 +954,60 @@ import {
   AwsXrayEncryptionConfigDetails,
   BooleanFilter,
   CodeVulnerabilitiesFilePath,
+  CompositeFilter,
   ConfigurationOptions,
   ConfigurationPolicyAssociation,
   ConfigurationPolicyAssociationSummary,
   ConfigurationPolicySummary,
+  ConflictException,
+  ConnectorSummary,
   ContainerDetails,
+  Criteria,
   Cvss,
+  DataClassificationDetails,
   DoubleConfigurationOptions,
   FilePaths,
   FindingHistoryRecord,
-  Insight,
+  HealthCheck,
+  InternalServerException,
   Invitation,
   IpFilter,
+  JiraCloudProviderConfiguration,
   KeywordFilter,
-  Member,
+  OcsfBooleanFilter,
+  OcsfDateFilter,
+  OcsfFindingFilters,
+  OcsfFindingIdentifier,
+  OcsfMapFilter,
+  OcsfNumberFilter,
+  OcsfStringFilter,
   OrganizationConfiguration,
   ParameterConfiguration,
-  ParameterDefinition,
   ParameterValue,
   Policy,
+  ProviderConfiguration,
   Resource,
   ResourceConflictException,
   ResourceDetails,
-  ResourceInUseException,
   SecurityControl,
   SecurityControlCustomParameter,
-  SecurityControlDefinition,
   SecurityControlsConfiguration,
   SecurityHubPolicy,
+  ServiceNowProviderConfiguration,
   Severity,
   SoftwarePackage,
   SortCriterion,
   StandardsControl,
   StandardsControlAssociationDetail,
   StandardsControlAssociationId,
-  StandardsControlAssociationSummary,
   StandardsControlAssociationUpdate,
   StandardsSubscriptionRequest,
   Target,
   Threat,
   ThreatIntelIndicator,
+  ThrottlingException,
   UpdateAutomationRulesRequestItem,
+  ValidationException,
   VolumeMount,
   Vulnerability,
   VulnerabilityCodeVulnerabilities,
@@ -924,6 +1017,25 @@ import {
   WafOverrideAction,
   Workflow,
 } from "../models/models_2";
+import {
+  GroupByRule,
+  Insight,
+  JiraCloudUpdateConfiguration,
+  Member,
+  ParameterDefinition,
+  ProviderUpdateConfiguration,
+  ResourceGroupByRule,
+  ResourceInUseException,
+  ResourceResult,
+  ResourcesCompositeFilter,
+  ResourcesDateFilter,
+  ResourcesFilters,
+  ResourcesMapFilter,
+  ResourcesNumberFilter,
+  ResourcesStringFilter,
+  SecurityControlDefinition,
+  StandardsControlAssociationSummary,
+} from "../models/models_3";
 import { SecurityHubServiceException as __BaseException } from "../models/SecurityHubServiceException";
 
 /**
@@ -1202,6 +1314,32 @@ export const se_BatchUpdateFindingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1BatchUpdateFindingsV2Command
+ */
+export const se_BatchUpdateFindingsV2Command = async (
+  input: BatchUpdateFindingsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/findingsv2/batchupdatev2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Comment: [],
+      FindingIdentifiers: (_) => _json(_),
+      MetadataUids: (_) => _json(_),
+      SeverityId: [],
+      StatusId: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand
  */
 export const se_BatchUpdateStandardsControlAssociationsCommand = async (
@@ -1224,6 +1362,29 @@ export const se_BatchUpdateStandardsControlAssociationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ConnectorRegistrationsV2Command
+ */
+export const se_ConnectorRegistrationsV2Command = async (
+  input: ConnectorRegistrationsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/connectorsv2/registrations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AuthCode: [],
+      AuthState: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateActionTargetCommand
  */
 export const se_CreateActionTargetCommand = async (
@@ -1241,6 +1402,31 @@ export const se_CreateActionTargetCommand = async (
       Description: [],
       Id: [],
       Name: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateAggregatorV2Command
+ */
+export const se_CreateAggregatorV2Command = async (
+  input: CreateAggregatorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/aggregatorv2/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      LinkedRegions: (_) => _json(_),
+      RegionLinkingMode: [],
+      Tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1277,6 +1463,35 @@ export const se_CreateAutomationRuleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateAutomationRuleV2Command
+ */
+export const se_CreateAutomationRuleV2Command = async (
+  input: CreateAutomationRuleV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automationrulesv2/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Criteria: (_) => se_Criteria(_, context),
+      Description: [],
+      RuleName: [],
+      RuleOrder: (_) => __serializeFloat(_),
+      RuleStatus: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateConfigurationPolicyCommand
  */
 export const se_CreateConfigurationPolicyCommand = async (
@@ -1294,6 +1509,33 @@ export const se_CreateConfigurationPolicyCommand = async (
       ConfigurationPolicy: (_) => se_Policy(_, context),
       Description: [],
       Name: [],
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateConnectorV2Command
+ */
+export const se_CreateConnectorV2Command = async (
+  input: CreateConnectorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/connectorsv2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Description: [],
+      KmsKeyArn: [],
+      Name: [],
+      Provider: (_) => _json(_),
       Tags: (_) => _json(_),
     })
   );
@@ -1371,6 +1613,30 @@ export const se_CreateMembersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateTicketV2Command
+ */
+export const se_CreateTicketV2Command = async (
+  input: CreateTicketV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ticketsv2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      ConnectorId: [],
+      FindingMetadataUid: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeclineInvitationsCommand
  */
 export const se_DeclineInvitationsCommand = async (
@@ -1409,6 +1675,38 @@ export const se_DeleteActionTargetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteAggregatorV2Command
+ */
+export const se_DeleteAggregatorV2Command = async (
+  input: DeleteAggregatorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/aggregatorv2/delete/{AggregatorV2Arn+}");
+  b.p("AggregatorV2Arn", () => input.AggregatorV2Arn!, "{AggregatorV2Arn+}", true);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteAutomationRuleV2Command
+ */
+export const se_DeleteAutomationRuleV2Command = async (
+  input: DeleteAutomationRuleV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automationrulesv2/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteConfigurationPolicyCommand
  */
 export const se_DeleteConfigurationPolicyCommand = async (
@@ -1419,6 +1717,22 @@ export const se_DeleteConfigurationPolicyCommand = async (
   const headers: any = {};
   b.bp("/configurationPolicy/{Identifier}");
   b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteConnectorV2Command
+ */
+export const se_DeleteConnectorV2Command = async (
+  input: DeleteConnectorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connectorsv2/{ConnectorId+}");
+  b.p("ConnectorId", () => input.ConnectorId!, "{ConnectorId+}", true);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -1550,12 +1864,9 @@ export const se_DescribeOrganizationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/organization/configuration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1577,6 +1888,40 @@ export const se_DescribeProductsCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeProductsV2Command
+ */
+export const se_DescribeProductsV2Command = async (
+  input: DescribeProductsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/productsV2");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeSecurityHubV2Command
+ */
+export const se_DescribeSecurityHubV2Command = async (
+  input: DescribeSecurityHubV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/hubv2");
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1651,6 +1996,7 @@ export const se_DisableOrganizationAdminAccountCommand = async (
   body = JSON.stringify(
     take(input, {
       AdminAccountId: [],
+      Feature: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1665,12 +2011,24 @@ export const se_DisableSecurityHubCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/accounts");
   let body: any;
-  body = "";
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DisableSecurityHubV2Command
+ */
+export const se_DisableSecurityHubV2Command = async (
+  input: DisableSecurityHubV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/hubv2");
+  let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -1683,12 +2041,9 @@ export const se_DisassociateFromAdministratorAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/administrator/disassociate");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1701,12 +2056,9 @@ export const se_DisassociateFromMasterAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/master/disassociate");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1771,6 +2123,7 @@ export const se_EnableOrganizationAdminAccountCommand = async (
   body = JSON.stringify(
     take(input, {
       AdminAccountId: [],
+      Feature: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1802,6 +2155,28 @@ export const se_EnableSecurityHubCommand = async (
 };
 
 /**
+ * serializeAws_restJson1EnableSecurityHubV2Command
+ */
+export const se_EnableSecurityHubV2Command = async (
+  input: EnableSecurityHubV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/hubv2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAdministratorAccountCommand
  */
 export const se_GetAdministratorAccountCommand = async (
@@ -1809,12 +2184,41 @@ export const se_GetAdministratorAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/administrator");
   let body: any;
-  body = "";
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAggregatorV2Command
+ */
+export const se_GetAggregatorV2Command = async (
+  input: GetAggregatorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/aggregatorv2/get/{AggregatorV2Arn+}");
+  b.p("AggregatorV2Arn", () => input.AggregatorV2Arn!, "{AggregatorV2Arn+}", true);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetAutomationRuleV2Command
+ */
+export const se_GetAutomationRuleV2Command = async (
+  input: GetAutomationRuleV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automationrulesv2/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1854,6 +2258,22 @@ export const se_GetConfigurationPolicyAssociationCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetConnectorV2Command
+ */
+export const se_GetConnectorV2Command = async (
+  input: GetConnectorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connectorsv2/{ConnectorId+}");
+  b.p("ConnectorId", () => input.ConnectorId!, "{ConnectorId+}", true);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1949,6 +2369,55 @@ export const se_GetFindingsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetFindingStatisticsV2Command
+ */
+export const se_GetFindingStatisticsV2Command = async (
+  input: GetFindingStatisticsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/findingsv2/statistics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GroupByRules: (_) => se_GroupByRules(_, context),
+      MaxStatisticResults: [],
+      SortOrder: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetFindingsV2Command
+ */
+export const se_GetFindingsV2Command = async (
+  input: GetFindingsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/findingsv2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => se_OcsfFindingFilters(_, context),
+      MaxResults: [],
+      NextToken: [],
+      SortCriteria: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetInsightResultsCommand
  */
 export const se_GetInsightResultsCommand = async (
@@ -1996,12 +2465,9 @@ export const se_GetInvitationsCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/invitations/count");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2014,12 +2480,9 @@ export const se_GetMasterAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/master");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -2040,6 +2503,55 @@ export const se_GetMembersCommand = async (
   body = JSON.stringify(
     take(input, {
       AccountIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetResourcesStatisticsV2Command
+ */
+export const se_GetResourcesStatisticsV2Command = async (
+  input: GetResourcesStatisticsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/resourcesv2/statistics");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      GroupByRules: (_) => se_ResourceGroupByRules(_, context),
+      MaxStatisticResults: [],
+      SortOrder: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetResourcesV2Command
+ */
+export const se_GetResourcesV2Command = async (
+  input: GetResourcesV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/resourcesv2");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filters: (_) => se_ResourcesFilters(_, context),
+      MaxResults: [],
+      NextToken: [],
+      SortCriteria: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -2087,6 +2599,25 @@ export const se_InviteMembersCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListAggregatorsV2Command
+ */
+export const se_ListAggregatorsV2Command = async (
+  input: ListAggregatorsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/aggregatorv2/list");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListAutomationRulesCommand
  */
 export const se_ListAutomationRulesCommand = async (
@@ -2096,6 +2627,25 @@ export const se_ListAutomationRulesCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/automationrules/list");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutomationRulesV2Command
+ */
+export const se_ListAutomationRulesV2Command = async (
+  input: ListAutomationRulesV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automationrulesv2/list");
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
@@ -2145,6 +2695,27 @@ export const se_ListConfigurationPolicyAssociationsCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListConnectorsV2Command
+ */
+export const se_ListConnectorsV2Command = async (
+  input: ListConnectorsV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/connectorsv2");
+  const query: any = map({
+    [_NT]: [, input[_NT]!],
+    [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_PN]: [, input[_PN]!],
+    [_CS]: [, input[_CS]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -2238,6 +2809,7 @@ export const se_ListOrganizationAdminAccountsCommand = async (
   const query: any = map({
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
+    [_F]: [, input[_F]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -2381,10 +2953,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2416,6 +2985,58 @@ export const se_UpdateActionTargetCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateAggregatorV2Command
+ */
+export const se_UpdateAggregatorV2Command = async (
+  input: UpdateAggregatorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/aggregatorv2/update/{AggregatorV2Arn+}");
+  b.p("AggregatorV2Arn", () => input.AggregatorV2Arn!, "{AggregatorV2Arn+}", true);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      LinkedRegions: (_) => _json(_),
+      RegionLinkingMode: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateAutomationRuleV2Command
+ */
+export const se_UpdateAutomationRuleV2Command = async (
+  input: UpdateAutomationRuleV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automationrulesv2/{Identifier}");
+  b.p("Identifier", () => input.Identifier!, "{Identifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Actions: (_) => _json(_),
+      Criteria: (_) => se_Criteria(_, context),
+      Description: [],
+      RuleName: [],
+      RuleOrder: (_) => __serializeFloat(_),
+      RuleStatus: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateConfigurationPolicyCommand
  */
 export const se_UpdateConfigurationPolicyCommand = async (
@@ -2435,6 +3056,31 @@ export const se_UpdateConfigurationPolicyCommand = async (
       Description: [],
       Name: [],
       UpdatedReason: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateConnectorV2Command
+ */
+export const se_UpdateConnectorV2Command = async (
+  input: UpdateConnectorV2CommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/connectorsv2/{ConnectorId+}");
+  b.p("ConnectorId", () => input.ConnectorId!, "{ConnectorId+}", true);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientSecret: [],
+      Description: [],
+      Provider: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -2863,6 +3509,28 @@ export const de_BatchUpdateFindingsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1BatchUpdateFindingsV2Command
+ */
+export const de_BatchUpdateFindingsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateFindingsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ProcessedFindings: _json,
+    UnprocessedFindings: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1BatchUpdateStandardsControlAssociationsCommand
  */
 export const de_BatchUpdateStandardsControlAssociationsCommand = async (
@@ -2878,6 +3546,28 @@ export const de_BatchUpdateStandardsControlAssociationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     UnprocessedAssociationUpdates: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ConnectorRegistrationsV2Command
+ */
+export const de_ConnectorRegistrationsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ConnectorRegistrationsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConnectorArn: __expectString,
+    ConnectorId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2905,6 +3595,30 @@ export const de_CreateActionTargetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateAggregatorV2Command
+ */
+export const de_CreateAggregatorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAggregatorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationRegion: __expectString,
+    AggregatorV2Arn: __expectString,
+    LinkedRegions: _json,
+    RegionLinkingMode: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateAutomationRuleCommand
  */
 export const de_CreateAutomationRuleCommand = async (
@@ -2920,6 +3634,28 @@ export const de_CreateAutomationRuleCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     RuleArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateAutomationRuleV2Command
+ */
+export const de_CreateAutomationRuleV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateAutomationRuleV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RuleArn: __expectString,
+    RuleId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2947,6 +3683,29 @@ export const de_CreateConfigurationPolicyCommand = async (
     Id: __expectString,
     Name: __expectString,
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateConnectorV2Command
+ */
+export const de_CreateConnectorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateConnectorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AuthUrl: __expectString,
+    ConnectorArn: __expectString,
+    ConnectorId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3019,6 +3778,28 @@ export const de_CreateMembersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateTicketV2Command
+ */
+export const de_CreateTicketV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTicketV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    TicketId: __expectString,
+    TicketSrcUrl: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeclineInvitationsCommand
  */
 export const de_DeclineInvitationsCommand = async (
@@ -3061,12 +3842,63 @@ export const de_DeleteActionTargetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteAggregatorV2Command
+ */
+export const de_DeleteAggregatorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAggregatorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteAutomationRuleV2Command
+ */
+export const de_DeleteAutomationRuleV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAutomationRuleV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteConfigurationPolicyCommand
  */
 export const de_DeleteConfigurationPolicyCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteConfigurationPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteConnectorV2Command
+ */
+export const de_DeleteConnectorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteConnectorV2CommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3250,6 +4082,50 @@ export const de_DescribeProductsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeProductsV2Command
+ */
+export const de_DescribeProductsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeProductsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    ProductsV2: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeSecurityHubV2Command
+ */
+export const de_DescribeSecurityHubV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeSecurityHubV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    HubV2Arn: __expectString,
+    SubscribedAt: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeStandardsCommand
  */
 export const de_DescribeStandardsCommand = async (
@@ -3345,6 +4221,23 @@ export const de_DisableSecurityHubCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisableSecurityHubV2Command
+ */
+export const de_DisableSecurityHubV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableSecurityHubV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DisassociateFromAdministratorAccountCommand
  */
 export const de_DisassociateFromAdministratorAccountCommand = async (
@@ -3429,7 +4322,12 @@ export const de_EnableOrganizationAdminAccountCommand = async (
   const contents: any = map({
     $metadata: deserializeMetadata(output),
   });
-  await collectBody(output.body, context);
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AdminAccountId: __expectString,
+    Feature: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3451,6 +4349,27 @@ export const de_EnableSecurityHubCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1EnableSecurityHubV2Command
+ */
+export const de_EnableSecurityHubV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableSecurityHubV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    HubV2Arn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAdministratorAccountCommand
  */
 export const de_GetAdministratorAccountCommand = async (
@@ -3466,6 +4385,60 @@ export const de_GetAdministratorAccountCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Administrator: (_) => de_Invitation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAggregatorV2Command
+ */
+export const de_GetAggregatorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAggregatorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationRegion: __expectString,
+    AggregatorV2Arn: __expectString,
+    LinkedRegions: _json,
+    RegionLinkingMode: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetAutomationRuleV2Command
+ */
+export const de_GetAutomationRuleV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAutomationRuleV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Actions: _json,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Criteria: (_) => de_Criteria(__expectUnion(_), context),
+    Description: __expectString,
+    RuleArn: __expectString,
+    RuleId: __expectString,
+    RuleName: __expectString,
+    RuleOrder: __limitedParseFloat32,
+    RuleStatus: __expectString,
+    UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3520,6 +4493,35 @@ export const de_GetConfigurationPolicyAssociationCommand = async (
     TargetId: __expectString,
     TargetType: __expectString,
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetConnectorV2Command
+ */
+export const de_GetConnectorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetConnectorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ConnectorArn: __expectString,
+    ConnectorId: __expectString,
+    CreatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Health: (_) => de_HealthCheck(_, context),
+    KmsKeyArn: __expectString,
+    LastUpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Name: __expectString,
+    ProviderDetail: (_) => _json(__expectUnion(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3609,6 +4611,49 @@ export const de_GetFindingsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Findings: (_) => de_AwsSecurityFindingList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFindingStatisticsV2Command
+ */
+export const de_GetFindingStatisticsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingStatisticsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GroupByResults: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetFindingsV2Command
+ */
+export const de_GetFindingsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetFindingsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Findings: (_) => de_OcsfFindingsList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3723,6 +4768,49 @@ export const de_GetMembersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetResourcesStatisticsV2Command
+ */
+export const de_GetResourcesStatisticsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcesStatisticsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    GroupByResults: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetResourcesV2Command
+ */
+export const de_GetResourcesV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetResourcesV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Resources: (_) => de_Resources(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetSecurityControlDefinitionCommand
  */
 export const de_GetSecurityControlDefinitionCommand = async (
@@ -3765,6 +4853,28 @@ export const de_InviteMembersCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListAggregatorsV2Command
+ */
+export const de_ListAggregatorsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAggregatorsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregatorsV2: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListAutomationRulesCommand
  */
 export const de_ListAutomationRulesCommand = async (
@@ -3781,6 +4891,28 @@ export const de_ListAutomationRulesCommand = async (
   const doc = take(data, {
     AutomationRulesMetadata: (_) => de_AutomationRulesMetadataList(_, context),
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutomationRulesV2Command
+ */
+export const de_ListAutomationRulesV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomationRulesV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    Rules: (_) => de_AutomationRulesMetadataListV2(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3824,6 +4956,28 @@ export const de_ListConfigurationPolicyAssociationsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ConfigurationPolicyAssociationSummaries: (_) => de_ConfigurationPolicyAssociationSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListConnectorsV2Command
+ */
+export const de_ListConnectorsV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListConnectorsV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Connectors: (_) => de_ConnectorSummaryList(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -3934,6 +5088,7 @@ export const de_ListOrganizationAdminAccountsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     AdminAccounts: _json,
+    Feature: __expectString,
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -4101,6 +5256,47 @@ export const de_UpdateActionTargetCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateAggregatorV2Command
+ */
+export const de_UpdateAggregatorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAggregatorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AggregationRegion: __expectString,
+    AggregatorV2Arn: __expectString,
+    LinkedRegions: _json,
+    RegionLinkingMode: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateAutomationRuleV2Command
+ */
+export const de_UpdateAutomationRuleV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateAutomationRuleV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateConfigurationPolicyCommand
  */
 export const de_UpdateConfigurationPolicyCommand = async (
@@ -4124,6 +5320,23 @@ export const de_UpdateConfigurationPolicyCommand = async (
     UpdatedAt: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateConnectorV2Command
+ */
+export const de_UpdateConnectorV2Command = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateConnectorV2CommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -4281,6 +5494,18 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.securityhub#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.securityhub#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "InternalServerException":
+    case "com.amazonaws.securityhub#InternalServerException":
+      throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.securityhub#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.securityhub#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "ResourceConflictException":
     case "com.amazonaws.securityhub#ResourceConflictException":
       throw await de_ResourceConflictExceptionRes(parsedOutput, context);
@@ -4320,6 +5545,24 @@ const de_AccessDeniedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1InternalExceptionRes
  */
 const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<InternalException> => {
@@ -4331,6 +5574,27 @@ const de_InternalExceptionRes = async (parsedOutput: any, context: __SerdeContex
   });
   Object.assign(contents, doc);
   const exception = new InternalException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1InternalServerExceptionRes
+ */
+const de_InternalServerExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalServerException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new InternalServerException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -4463,6 +5727,42 @@ const de_ResourceNotFoundExceptionRes = async (
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * deserializeAws_restJson1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Code: __expectString,
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ValidationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
 // se_AccountDetails omitted.
 
 // se_AccountDetailsList omitted.
@@ -4512,6 +5812,14 @@ const se_ActionRemoteIpDetails = (input: ActionRemoteIpDetails, context: __Serde
 
 // se_ActionRemotePortDetails omitted.
 
+// se_Actor omitted.
+
+// se_ActorSession omitted.
+
+// se_ActorsList omitted.
+
+// se_ActorUser omitted.
+
 // se_Adjustment omitted.
 
 // se_AdjustmentList omitted.
@@ -4540,6 +5848,10 @@ const se_AutomationRulesAction = (input: AutomationRulesAction, context: __Serde
   });
 };
 
+// se_AutomationRulesActionListV2 omitted.
+
+// se_AutomationRulesActionV2 omitted.
+
 // se_AutomationRulesArnsList omitted.
 
 /**
@@ -4561,6 +5873,8 @@ const se_AutomationRulesFindingFieldsUpdate = (
     Workflow: _json,
   });
 };
+
+// se_AutomationRulesFindingFieldsUpdateV2 omitted.
 
 /**
  * serializeAws_restJson1AutomationRulesFindingFilters
@@ -6110,6 +7424,7 @@ const se_AwsSecurityFinding = (input: AwsSecurityFinding, context: __SerdeContex
     CreatedAt: [],
     Criticality: [],
     Description: [],
+    Detection: (_) => se_Detection(_, context),
     FindingProviderFields: _json,
     FirstObservedAt: [],
     GeneratorDetails: _json,
@@ -6417,6 +7732,31 @@ const se_BatchImportFindingsRequestFindingList = (input: AwsSecurityFinding[], c
 
 // se_Compliance omitted.
 
+/**
+ * serializeAws_restJson1CompositeFilter
+ */
+const se_CompositeFilter = (input: CompositeFilter, context: __SerdeContext): any => {
+  return take(input, {
+    BooleanFilters: _json,
+    DateFilters: _json,
+    MapFilters: _json,
+    NumberFilters: (_) => se_OcsfNumberFilterList(_, context),
+    Operator: [],
+    StringFilters: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1CompositeFilterList
+ */
+const se_CompositeFilterList = (input: CompositeFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_CompositeFilter(entry, context);
+    });
+};
+
 // se_ConfigurationPolicyAssociation omitted.
 
 // se_ConfigurationPolicyAssociationsList omitted.
@@ -6424,6 +7764,16 @@ const se_BatchImportFindingsRequestFindingList = (input: AwsSecurityFinding[], c
 // se_ContainerDetails omitted.
 
 // se_Country omitted.
+
+/**
+ * serializeAws_restJson1Criteria
+ */
+const se_Criteria = (input: Criteria, context: __SerdeContext): any => {
+  return Criteria.visit(input, {
+    OcsfFindingCriteria: (value) => ({ OcsfFindingCriteria: se_OcsfFindingFilters(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_CustomDataIdentifiersDetections omitted.
 
@@ -6463,6 +7813,15 @@ const se_CvssList = (input: Cvss[], context: __SerdeContext): any => {
 
 // se_DateRange omitted.
 
+/**
+ * serializeAws_restJson1Detection
+ */
+const se_Detection = (input: Detection, context: __SerdeContext): any => {
+  return take(input, {
+    Sequence: (_) => se_Sequence(_, context),
+  });
+};
+
 // se_DisabledSecurityControlIdentifierList omitted.
 
 // se_DnsRequestAction omitted.
@@ -6470,6 +7829,8 @@ const se_CvssList = (input: Cvss[], context: __SerdeContext): any => {
 // se_EnabledSecurityControlIdentifierList omitted.
 
 // se_EnabledStandardIdentifierList omitted.
+
+// se_ExternalIntegrationConfiguration omitted.
 
 // se_FieldMap omitted.
 
@@ -6507,7 +7868,32 @@ const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
   });
 };
 
+/**
+ * serializeAws_restJson1GroupByRule
+ */
+const se_GroupByRule = (input: GroupByRule, context: __SerdeContext): any => {
+  return take(input, {
+    Filters: (_) => se_OcsfFindingFilters(_, context),
+    GroupByField: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1GroupByRules
+ */
+const se_GroupByRules = (input: GroupByRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_GroupByRule(entry, context);
+    });
+};
+
 // se_IcmpTypeCode omitted.
+
+// se_Indicator omitted.
+
+// se_IndicatorsList omitted.
 
 // se_IntegerList omitted.
 
@@ -6520,6 +7906,10 @@ const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
 // se_Ipv6CidrBlockAssociation omitted.
 
 // se_Ipv6CidrBlockAssociationList omitted.
+
+// se_JiraCloudProviderConfiguration omitted.
+
+// se_JiraCloudUpdateConfiguration omitted.
 
 // se_KeywordFilter omitted.
 
@@ -6535,7 +7925,13 @@ const se_GeoLocation = (input: GeoLocation, context: __SerdeContext): any => {
 
 // se_MapFilterList omitted.
 
+// se_MetadataUidList omitted.
+
 // se_Network omitted.
+
+// se_NetworkAutonomousSystem omitted.
+
+// se_NetworkConnection omitted.
 
 /**
  * serializeAws_restJson1NetworkConnectionAction
@@ -6548,6 +7944,44 @@ const se_NetworkConnectionAction = (input: NetworkConnectionAction, context: __S
     Protocol: [],
     RemoteIpDetails: (_) => se_ActionRemoteIpDetails(_, context),
     RemotePortDetails: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1NetworkEndpoint
+ */
+const se_NetworkEndpoint = (input: NetworkEndpoint, context: __SerdeContext): any => {
+  return take(input, {
+    AutonomousSystem: _json,
+    Connection: _json,
+    Domain: [],
+    Id: [],
+    Ip: [],
+    Location: (_) => se_NetworkGeoLocation(_, context),
+    Port: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1NetworkEndpointsList
+ */
+const se_NetworkEndpointsList = (input: NetworkEndpoint[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_NetworkEndpoint(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1NetworkGeoLocation
+ */
+const se_NetworkGeoLocation = (input: NetworkGeoLocation, context: __SerdeContext): any => {
+  return take(input, {
+    City: [],
+    Country: [],
+    Lat: __serializeFloat,
+    Lon: __serializeFloat,
   });
 };
 
@@ -6591,6 +8025,57 @@ const se_NumberFilterList = (input: NumberFilter[], context: __SerdeContext): an
 
 // se_Occurrences omitted.
 
+// se_OcsfBooleanFilter omitted.
+
+// se_OcsfBooleanFilterList omitted.
+
+// se_OcsfDateFilter omitted.
+
+// se_OcsfDateFilterList omitted.
+
+/**
+ * serializeAws_restJson1OcsfFindingFilters
+ */
+const se_OcsfFindingFilters = (input: OcsfFindingFilters, context: __SerdeContext): any => {
+  return take(input, {
+    CompositeFilters: (_) => se_CompositeFilterList(_, context),
+    CompositeOperator: [],
+  });
+};
+
+// se_OcsfFindingIdentifier omitted.
+
+// se_OcsfFindingIdentifierList omitted.
+
+// se_OcsfMapFilter omitted.
+
+// se_OcsfMapFilterList omitted.
+
+/**
+ * serializeAws_restJson1OcsfNumberFilter
+ */
+const se_OcsfNumberFilter = (input: OcsfNumberFilter, context: __SerdeContext): any => {
+  return take(input, {
+    FieldName: [],
+    Filter: (_) => se_NumberFilter(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1OcsfNumberFilterList
+ */
+const se_OcsfNumberFilterList = (input: OcsfNumberFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_OcsfNumberFilter(entry, context);
+    });
+};
+
+// se_OcsfStringFilter omitted.
+
+// se_OcsfStringFilterList omitted.
+
 // se_OrganizationConfiguration omitted.
 
 // se_Page omitted.
@@ -6633,7 +8118,7 @@ const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any 
     IntegerList: (value) => ({ IntegerList: _json(value) }),
     String: (value) => ({ String: value }),
     StringList: (value) => ({ StringList: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -6645,7 +8130,7 @@ const se_ParameterValue = (input: ParameterValue, context: __SerdeContext): any 
 const se_Policy = (input: Policy, context: __SerdeContext): any => {
   return Policy.visit(input, {
     SecurityHub: (value) => ({ SecurityHub: se_SecurityHubPolicy(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -6692,6 +8177,10 @@ const se_PortProbeDetailList = (input: PortProbeDetail[], context: __SerdeContex
 // se_PropagatingVgwSetDetails omitted.
 
 // se_PropagatingVgwSetList omitted.
+
+// se_ProviderConfiguration omitted.
+
+// se_ProviderUpdateConfiguration omitted.
 
 // se_Range omitted.
 
@@ -6837,6 +8326,27 @@ const se_ResourceDetails = (input: ResourceDetails, context: __SerdeContext): an
 };
 
 /**
+ * serializeAws_restJson1ResourceGroupByRule
+ */
+const se_ResourceGroupByRule = (input: ResourceGroupByRule, context: __SerdeContext): any => {
+  return take(input, {
+    Filters: (_) => se_ResourcesFilters(_, context),
+    GroupByField: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1ResourceGroupByRules
+ */
+const se_ResourceGroupByRules = (input: ResourceGroupByRule[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ResourceGroupByRule(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1ResourceList
  */
 const se_ResourceList = (input: Resource[], context: __SerdeContext): any => {
@@ -6846,6 +8356,73 @@ const se_ResourceList = (input: Resource[], context: __SerdeContext): any => {
       return se_Resource(entry, context);
     });
 };
+
+/**
+ * serializeAws_restJson1ResourcesCompositeFilter
+ */
+const se_ResourcesCompositeFilter = (input: ResourcesCompositeFilter, context: __SerdeContext): any => {
+  return take(input, {
+    DateFilters: _json,
+    MapFilters: _json,
+    NumberFilters: (_) => se_ResourcesNumberFilterList(_, context),
+    Operator: [],
+    StringFilters: _json,
+  });
+};
+
+/**
+ * serializeAws_restJson1ResourcesCompositeFilterList
+ */
+const se_ResourcesCompositeFilterList = (input: ResourcesCompositeFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ResourcesCompositeFilter(entry, context);
+    });
+};
+
+// se_ResourcesDateFilter omitted.
+
+// se_ResourcesDateFilterList omitted.
+
+/**
+ * serializeAws_restJson1ResourcesFilters
+ */
+const se_ResourcesFilters = (input: ResourcesFilters, context: __SerdeContext): any => {
+  return take(input, {
+    CompositeFilters: (_) => se_ResourcesCompositeFilterList(_, context),
+    CompositeOperator: [],
+  });
+};
+
+// se_ResourcesMapFilter omitted.
+
+// se_ResourcesMapFilterList omitted.
+
+/**
+ * serializeAws_restJson1ResourcesNumberFilter
+ */
+const se_ResourcesNumberFilter = (input: ResourcesNumberFilter, context: __SerdeContext): any => {
+  return take(input, {
+    FieldName: [],
+    Filter: (_) => se_NumberFilter(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1ResourcesNumberFilterList
+ */
+const se_ResourcesNumberFilterList = (input: ResourcesNumberFilter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_ResourcesNumberFilter(entry, context);
+    });
+};
+
+// se_ResourcesStringFilter omitted.
+
+// se_ResourcesStringFilterList omitted.
 
 // se_RouteSetDetails omitted.
 
@@ -6972,6 +8549,21 @@ const se_SecurityHubPolicy = (input: SecurityHubPolicy, context: __SerdeContext)
 // se_SensitiveDataResultList omitted.
 
 /**
+ * serializeAws_restJson1Sequence
+ */
+const se_Sequence = (input: Sequence, context: __SerdeContext): any => {
+  return take(input, {
+    Actors: _json,
+    Endpoints: (_) => se_NetworkEndpointsList(_, context),
+    SequenceIndicators: _json,
+    Signals: (_) => se_SignalsList(_, context),
+    Uid: [],
+  });
+};
+
+// se_ServiceNowProviderConfiguration omitted.
+
+/**
  * serializeAws_restJson1Severity
  */
 const se_Severity = (input: Severity, context: __SerdeContext): any => {
@@ -6992,6 +8584,40 @@ const se_SeverityUpdate = (input: SeverityUpdate, context: __SerdeContext): any 
     Normalized: [],
     Product: __serializeFloat,
   });
+};
+
+/**
+ * serializeAws_restJson1Signal
+ */
+const se_Signal = (input: Signal, context: __SerdeContext): any => {
+  return take(input, {
+    ActorIds: _json,
+    Count: [],
+    CreatedAt: [],
+    EndpointIds: _json,
+    FirstSeenAt: [],
+    Id: [],
+    LastSeenAt: [],
+    Name: [],
+    ProductArn: [],
+    ResourceIds: _json,
+    Severity: __serializeFloat,
+    SignalIndicators: _json,
+    Title: [],
+    Type: [],
+    UpdatedAt: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1SignalsList
+ */
+const se_SignalsList = (input: Signal[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Signal(entry, context);
+    });
 };
 
 // se_SoftwarePackage omitted.
@@ -7079,6 +8705,8 @@ const se_UpdateAutomationRulesRequestItemsList = (
       return se_UpdateAutomationRulesRequestItem(entry, context);
     });
 };
+
+// se_UserAccount omitted.
 
 // se_VolumeMount omitted.
 
@@ -7190,6 +8818,14 @@ const de_ActionRemoteIpDetails = (output: any, context: __SerdeContext): ActionR
 
 // de_ActionTargetList omitted.
 
+// de_Actor omitted.
+
+// de_ActorSession omitted.
+
+// de_ActorsList omitted.
+
+// de_ActorUser omitted.
+
 // de_Adjustment omitted.
 
 // de_AdjustmentList omitted.
@@ -7197,6 +8833,10 @@ const de_ActionRemoteIpDetails = (output: any, context: __SerdeContext): ActionR
 // de_AdminAccount omitted.
 
 // de_AdminAccounts omitted.
+
+// de_AggregatorV2 omitted.
+
+// de_AggregatorV2List omitted.
 
 // de_AssociatedStandard omitted.
 
@@ -7217,6 +8857,14 @@ const de_AutomationRulesAction = (output: any, context: __SerdeContext): Automat
     Type: __expectString,
   }) as any;
 };
+
+// de_AutomationRulesActionListV2 omitted.
+
+// de_AutomationRulesActionTypeListV2 omitted.
+
+// de_AutomationRulesActionTypeObjectV2 omitted.
+
+// de_AutomationRulesActionV2 omitted.
 
 // de_AutomationRulesArnsList omitted.
 
@@ -7270,6 +8918,8 @@ const de_AutomationRulesFindingFieldsUpdate = (
     Workflow: _json,
   }) as any;
 };
+
+// de_AutomationRulesFindingFieldsUpdateV2 omitted.
 
 /**
  * deserializeAws_restJson1AutomationRulesFindingFilters
@@ -7344,6 +8994,35 @@ const de_AutomationRulesMetadataList = (output: any, context: __SerdeContext): A
       return de_AutomationRulesMetadata(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomationRulesMetadataListV2
+ */
+const de_AutomationRulesMetadataListV2 = (output: any, context: __SerdeContext): AutomationRulesMetadataV2[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomationRulesMetadataV2(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1AutomationRulesMetadataV2
+ */
+const de_AutomationRulesMetadataV2 = (output: any, context: __SerdeContext): AutomationRulesMetadataV2 => {
+  return take(output, {
+    Actions: _json,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    RuleArn: __expectString,
+    RuleId: __expectString,
+    RuleName: __expectString,
+    RuleOrder: __limitedParseFloat32,
+    RuleStatus: __expectString,
+    UpdatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  }) as any;
 };
 
 // de_AvailabilityZone omitted.
@@ -8850,6 +10529,7 @@ const de_AwsSecurityFinding = (output: any, context: __SerdeContext): AwsSecurit
     CreatedAt: __expectString,
     Criticality: __expectInt32,
     Description: __expectString,
+    Detection: (_: any) => de_Detection(_, context),
     FindingProviderFields: _json,
     FirstObservedAt: __expectString,
     GeneratorDetails: _json,
@@ -9138,6 +10818,14 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 
 // de_BatchUpdateFindingsUnprocessedFindingsList omitted.
 
+// de_BatchUpdateFindingsV2ProcessedFinding omitted.
+
+// de_BatchUpdateFindingsV2ProcessedFindingsList omitted.
+
+// de_BatchUpdateFindingsV2UnprocessedFinding omitted.
+
+// de_BatchUpdateFindingsV2UnprocessedFindingsList omitted.
+
 // de_BooleanConfigurationOptions omitted.
 
 // de_BooleanFilter omitted.
@@ -9165,6 +10853,32 @@ const de_AwsSecurityFindingList = (output: any, context: __SerdeContext): AwsSec
 // de_CodeVulnerabilitiesFilePath omitted.
 
 // de_Compliance omitted.
+
+/**
+ * deserializeAws_restJson1CompositeFilter
+ */
+const de_CompositeFilter = (output: any, context: __SerdeContext): CompositeFilter => {
+  return take(output, {
+    BooleanFilters: _json,
+    DateFilters: _json,
+    MapFilters: _json,
+    NumberFilters: (_: any) => de_OcsfNumberFilterList(_, context),
+    Operator: __expectString,
+    StringFilters: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CompositeFilterList
+ */
+const de_CompositeFilterList = (output: any, context: __SerdeContext): CompositeFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CompositeFilter(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1ConfigurationOptions
@@ -9289,9 +11003,47 @@ const de_ConfigurationPolicySummaryList = (output: any, context: __SerdeContext)
   return retVal;
 };
 
+/**
+ * deserializeAws_restJson1ConnectorSummary
+ */
+const de_ConnectorSummary = (output: any, context: __SerdeContext): ConnectorSummary => {
+  return take(output, {
+    ConnectorArn: __expectString,
+    ConnectorId: __expectString,
+    CreatedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Description: __expectString,
+    Name: __expectString,
+    ProviderSummary: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ConnectorSummaryList
+ */
+const de_ConnectorSummaryList = (output: any, context: __SerdeContext): ConnectorSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ConnectorSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_ContainerDetails omitted.
 
 // de_Country omitted.
+
+/**
+ * deserializeAws_restJson1Criteria
+ */
+const de_Criteria = (output: any, context: __SerdeContext): Criteria => {
+  if (output.OcsfFindingCriteria != null) {
+    return {
+      OcsfFindingCriteria: de_OcsfFindingFilters(output.OcsfFindingCriteria, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 // de_CustomDataIdentifiersDetections omitted.
 
@@ -9334,6 +11086,15 @@ const de_CvssList = (output: any, context: __SerdeContext): Cvss[] => {
 
 // de_DateRange omitted.
 
+/**
+ * deserializeAws_restJson1Detection
+ */
+const de_Detection = (output: any, context: __SerdeContext): Detection => {
+  return take(output, {
+    Sequence: (_: any) => de_Sequence(_, context),
+  }) as any;
+};
+
 // de_DisabledSecurityControlIdentifierList omitted.
 
 // de_DnsRequestAction omitted.
@@ -9356,6 +11117,8 @@ const de_DoubleConfigurationOptions = (output: any, context: __SerdeContext): Do
 // de_EnumConfigurationOptions omitted.
 
 // de_EnumListConfigurationOptions omitted.
+
+// de_ExternalIntegrationConfiguration omitted.
 
 // de_FieldMap omitted.
 
@@ -9429,11 +11192,34 @@ const de_GeoLocation = (output: any, context: __SerdeContext): GeoLocation => {
   }) as any;
 };
 
+// de_GroupByResult omitted.
+
+// de_GroupByResults omitted.
+
+// de_GroupByValue omitted.
+
+// de_GroupByValues omitted.
+
+/**
+ * deserializeAws_restJson1HealthCheck
+ */
+const de_HealthCheck = (output: any, context: __SerdeContext): HealthCheck => {
+  return take(output, {
+    ConnectorStatus: __expectString,
+    LastCheckedAt: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    Message: __expectString,
+  }) as any;
+};
+
 // de_IcmpTypeCode omitted.
 
 // de_ImportFindingsError omitted.
 
 // de_ImportFindingsErrorList omitted.
+
+// de_Indicator omitted.
+
+// de_IndicatorsList omitted.
 
 /**
  * deserializeAws_restJson1Insight
@@ -9473,6 +11259,8 @@ const de_InsightList = (output: any, context: __SerdeContext): Insight[] => {
 
 // de_IntegrationTypeList omitted.
 
+// de_IntegrationV2TypeList omitted.
+
 /**
  * deserializeAws_restJson1Invitation
  */
@@ -9506,6 +11294,8 @@ const de_InvitationList = (output: any, context: __SerdeContext): Invitation[] =
 // de_Ipv6CidrBlockAssociation omitted.
 
 // de_Ipv6CidrBlockAssociationList omitted.
+
+// de_JiraCloudDetail omitted.
 
 // de_KeywordFilter omitted.
 
@@ -9550,6 +11340,10 @@ const de_MemberList = (output: any, context: __SerdeContext): Member[] => {
 
 // de_Network omitted.
 
+// de_NetworkAutonomousSystem omitted.
+
+// de_NetworkConnection omitted.
+
 /**
  * deserializeAws_restJson1NetworkConnectionAction
  */
@@ -9561,6 +11355,45 @@ const de_NetworkConnectionAction = (output: any, context: __SerdeContext): Netwo
     Protocol: __expectString,
     RemoteIpDetails: (_: any) => de_ActionRemoteIpDetails(_, context),
     RemotePortDetails: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NetworkEndpoint
+ */
+const de_NetworkEndpoint = (output: any, context: __SerdeContext): NetworkEndpoint => {
+  return take(output, {
+    AutonomousSystem: _json,
+    Connection: _json,
+    Domain: __expectString,
+    Id: __expectString,
+    Ip: __expectString,
+    Location: (_: any) => de_NetworkGeoLocation(_, context),
+    Port: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1NetworkEndpointsList
+ */
+const de_NetworkEndpointsList = (output: any, context: __SerdeContext): NetworkEndpoint[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NetworkEndpoint(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1NetworkGeoLocation
+ */
+const de_NetworkGeoLocation = (output: any, context: __SerdeContext): NetworkGeoLocation => {
+  return take(output, {
+    City: __expectString,
+    Country: __expectString,
+    Lat: __limitedParseDouble,
+    Lon: __limitedParseDouble,
   }) as any;
 };
 
@@ -9604,6 +11437,75 @@ const de_NumberFilterList = (output: any, context: __SerdeContext): NumberFilter
 };
 
 // de_Occurrences omitted.
+
+// de_OcsfBooleanFilter omitted.
+
+// de_OcsfBooleanFilterList omitted.
+
+// de_OcsfDateFilter omitted.
+
+// de_OcsfDateFilterList omitted.
+
+/**
+ * deserializeAws_restJson1OcsfFinding
+ */
+const de_OcsfFinding = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+/**
+ * deserializeAws_restJson1OcsfFindingFilters
+ */
+const de_OcsfFindingFilters = (output: any, context: __SerdeContext): OcsfFindingFilters => {
+  return take(output, {
+    CompositeFilters: (_: any) => de_CompositeFilterList(_, context),
+    CompositeOperator: __expectString,
+  }) as any;
+};
+
+// de_OcsfFindingIdentifier omitted.
+
+/**
+ * deserializeAws_restJson1OcsfFindingsList
+ */
+const de_OcsfFindingsList = (output: any, context: __SerdeContext): __DocumentType[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OcsfFinding(entry, context);
+    });
+  return retVal;
+};
+
+// de_OcsfMapFilter omitted.
+
+// de_OcsfMapFilterList omitted.
+
+/**
+ * deserializeAws_restJson1OcsfNumberFilter
+ */
+const de_OcsfNumberFilter = (output: any, context: __SerdeContext): OcsfNumberFilter => {
+  return take(output, {
+    FieldName: __expectString,
+    Filter: (_: any) => de_NumberFilter(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1OcsfNumberFilterList
+ */
+const de_OcsfNumberFilterList = (output: any, context: __SerdeContext): OcsfNumberFilter[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_OcsfNumberFilter(entry, context);
+    });
+  return retVal;
+};
+
+// de_OcsfStringFilter omitted.
+
+// de_OcsfStringFilterList omitted.
 
 // de_OrganizationConfiguration omitted.
 
@@ -9755,9 +11657,17 @@ const de_PortProbeDetailList = (output: any, context: __SerdeContext): PortProbe
 
 // de_ProductSubscriptionArnList omitted.
 
+// de_ProductsV2List omitted.
+
+// de_ProductV2 omitted.
+
 // de_PropagatingVgwSetDetails omitted.
 
 // de_PropagatingVgwSetList omitted.
+
+// de_ProviderDetail omitted.
+
+// de_ProviderSummary omitted.
 
 // de_Range omitted.
 
@@ -9793,6 +11703,13 @@ const de_Resource = (output: any, context: __SerdeContext): Resource => {
     Tags: _json,
     Type: __expectString,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ResourceConfig
+ */
+const de_ResourceConfig = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
 };
 
 /**
@@ -9902,6 +11819,10 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
   }) as any;
 };
 
+// de_ResourceFindingsSummary omitted.
+
+// de_ResourceFindingsSummaryList omitted.
+
 /**
  * deserializeAws_restJson1ResourceList
  */
@@ -9913,6 +11834,44 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
     });
   return retVal;
 };
+
+/**
+ * deserializeAws_restJson1ResourceResult
+ */
+const de_ResourceResult = (output: any, context: __SerdeContext): ResourceResult => {
+  return take(output, {
+    AccountId: __expectString,
+    FindingsSummary: _json,
+    Region: __expectString,
+    ResourceArn: __expectString,
+    ResourceCategory: __expectString,
+    ResourceConfig: (_: any) => de_ResourceConfig(_, context),
+    ResourceCreationTimeDt: __expectString,
+    ResourceDetailCaptureTimeDt: __expectString,
+    ResourceId: __expectString,
+    ResourceName: __expectString,
+    ResourceTags: _json,
+    ResourceType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Resources
+ */
+const de_Resources = (output: any, context: __SerdeContext): ResourceResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ResourceResult(entry, context);
+    });
+  return retVal;
+};
+
+// de_ResourceSeverityBreakdown omitted.
+
+// de_ResourceTag omitted.
+
+// de_ResourceTagList omitted.
 
 // de_Result omitted.
 
@@ -10102,6 +12061,21 @@ const de_SecurityHubPolicy = (output: any, context: __SerdeContext): SecurityHub
 // de_SensitiveDataResultList omitted.
 
 /**
+ * deserializeAws_restJson1Sequence
+ */
+const de_Sequence = (output: any, context: __SerdeContext): Sequence => {
+  return take(output, {
+    Actors: _json,
+    Endpoints: (_: any) => de_NetworkEndpointsList(_, context),
+    SequenceIndicators: _json,
+    Signals: (_: any) => de_SignalsList(_, context),
+    Uid: __expectString,
+  }) as any;
+};
+
+// de_ServiceNowDetail omitted.
+
+/**
  * deserializeAws_restJson1Severity
  */
 const de_Severity = (output: any, context: __SerdeContext): Severity => {
@@ -10122,6 +12096,41 @@ const de_SeverityUpdate = (output: any, context: __SerdeContext): SeverityUpdate
     Normalized: __expectInt32,
     Product: __limitedParseDouble,
   }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Signal
+ */
+const de_Signal = (output: any, context: __SerdeContext): Signal => {
+  return take(output, {
+    ActorIds: _json,
+    Count: __expectInt32,
+    CreatedAt: __expectLong,
+    EndpointIds: _json,
+    FirstSeenAt: __expectLong,
+    Id: __expectString,
+    LastSeenAt: __expectLong,
+    Name: __expectString,
+    ProductArn: __expectString,
+    ResourceIds: _json,
+    Severity: __limitedParseDouble,
+    SignalIndicators: _json,
+    Title: __expectString,
+    Type: __expectString,
+    UpdatedAt: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1SignalsList
+ */
+const de_SignalsList = (output: any, context: __SerdeContext): Signal[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Signal(entry, context);
+    });
+  return retVal;
 };
 
 // de_SoftwarePackage omitted.
@@ -10305,6 +12314,8 @@ const de_StandardsControls = (output: any, context: __SerdeContext): StandardsCo
 
 // de_UnprocessedStandardsControlAssociationUpdates omitted.
 
+// de_UserAccount omitted.
+
 // de_VolumeMount omitted.
 
 // de_VolumeMountList omitted.
@@ -10380,18 +12391,14 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
+const _CS = "ConnectorStatus";
+const _F = "Feature";
 const _HA = "HubArn";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _OA = "OnlyAssociated";
 const _PA = "ProductArn";
+const _PN = "ProviderName";
 const _SA = "StandardsArn";
 const _SCI = "SecurityControlId";
 const _TK = "TagKeys";

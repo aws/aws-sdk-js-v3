@@ -12,7 +12,8 @@ import { de_CancelUpdateStackCommand, se_CancelUpdateStackCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface CancelUpdateStackCommandInput extends CancelUpdateStackInput {}
 export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Cancels an update on the specified stack. If the call completes successfully, the stack rolls back the update
- *    and reverts to the previous stack configuration.</p>
+ * <p>Cancels an update on the specified stack. If the call completes successfully, the stack
+ *       rolls back the update and reverts to the previous stack configuration.</p>
  *          <note>
  *             <p>You can cancel only stacks that are in the <code>UPDATE_IN_PROGRESS</code> state.</p>
  *          </note>
@@ -60,6 +61,7 @@ export interface CancelUpdateStackCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class CancelUpdateStackCommand extends $Command
@@ -70,9 +72,7 @@ export class CancelUpdateStackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +84,16 @@ export class CancelUpdateStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelUpdateStackCommand)
   .de(de_CancelUpdateStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelUpdateStackInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelUpdateStackCommandInput;
+      output: CancelUpdateStackCommandOutput;
+    };
+  };
+}

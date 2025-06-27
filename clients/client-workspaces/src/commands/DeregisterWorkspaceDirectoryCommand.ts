@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface DeregisterWorkspaceDirectoryCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DeregisterWorkspaceDirectoryCommand extends $Command
@@ -95,9 +97,7 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class DeregisterWorkspaceDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterWorkspaceDirectoryCommand)
   .de(de_DeregisterWorkspaceDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterWorkspaceDirectoryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterWorkspaceDirectoryCommandInput;
+      output: DeregisterWorkspaceDirectoryCommandOutput;
+    };
+  };
+}

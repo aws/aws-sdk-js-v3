@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListScriptsInput, ListScriptsOutput } from "../models/models_0";
+import { ListScriptsInput, ListScriptsOutput } from "../models/models_1";
 import { de_ListScriptsCommand, se_ListScriptsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,7 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Servers Amazon GameLift Servers Realtime</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
@@ -95,6 +96,7 @@ export interface ListScriptsCommandOutput extends ListScriptsOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListScriptsCommand extends $Command
@@ -105,9 +107,7 @@ export class ListScriptsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class ListScriptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListScriptsCommand)
   .de(de_ListScriptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListScriptsInput;
+      output: ListScriptsOutput;
+    };
+    sdk: {
+      input: ListScriptsCommandInput;
+      output: ListScriptsCommandOutput;
+    };
+  };
+}

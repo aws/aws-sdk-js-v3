@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 import { getFlexibleChecksumsPlugin } from "@aws-sdk/middleware-flexible-checksums";
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -13,7 +14,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +31,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Uses the <code>acl</code> subresource to set the access control list (ACL) permissions
  *          for a new or existing object in an S3 bucket. You must have the <code>WRITE_ACP</code>
@@ -138,7 +140,10 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *             <dt>Grantee Values</dt>
  *             <dd>
  *                <p>You can specify the person (grantee) to whom you're assigning access rights
- *                   (using request elements) in the following ways:</p>
+ *                  (using request elements) in the following ways. For examples of how to specify these
+ *                  grantee values in JSON format, see the Amazon Web Services CLI example in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html">
+ *                    Enabling Amazon S3 server access logging</a> in the
+ *                  <i>Amazon S3 User Guide</i>.</p>
  *                <ul>
  *                   <li>
  *                      <p>By the person's ID:</p>
@@ -245,7 +250,7 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  *   },
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   GrantFullControl: "STRING_VALUE",
  *   GrantRead: "STRING_VALUE",
  *   GrantReadACP: "STRING_VALUE",
@@ -276,22 +281,25 @@ export interface PutObjectAclCommandOutput extends PutObjectAclOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To grant permissions using object ACL
  * ```javascript
  * // The following example adds grants to an object ACL. The first permission grants user1 and user2 FULL_CONTROL and the AllUsers group READ permission.
  * const input = {
- *   "AccessControlPolicy": {},
- *   "Bucket": "examplebucket",
- *   "GrantFullControl": "emailaddress=user1@example.com,emailaddress=user2@example.com",
- *   "GrantRead": "uri=http://acs.amazonaws.com/groups/global/AllUsers",
- *   "Key": "HappyFace.jpg"
+ *   AccessControlPolicy:   { /* empty *\/ },
+ *   Bucket: "examplebucket",
+ *   GrantFullControl: "emailaddress=user1@example.com,emailaddress=user2@example.com",
+ *   GrantRead: "uri=http://acs.amazonaws.com/groups/global/AllUsers",
+ *   Key: "HappyFace.jpg"
  * };
  * const command = new PutObjectAclCommand(input);
- * await client.send(command);
- * // example id: to-grant-permissions-using-object-acl-1481835549285
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutObjectAclCommand extends $Command
   .classBuilder<
@@ -311,10 +319,10 @@ export class PutObjectAclCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "PutObjectAcl", {})
@@ -322,4 +330,16 @@ export class PutObjectAclCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutObjectAclCommand)
   .de(de_PutObjectAclCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutObjectAclRequest;
+      output: PutObjectAclOutput;
+    };
+    sdk: {
+      input: PutObjectAclCommandInput;
+      output: PutObjectAclCommandOutput;
+    };
+  };
+}

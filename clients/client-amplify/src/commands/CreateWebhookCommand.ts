@@ -12,7 +12,8 @@ import { de_CreateWebhookCommand, se_CreateWebhookCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * //     webhookArn: "STRING_VALUE", // required
  * //     webhookId: "STRING_VALUE", // required
  * //     webhookUrl: "STRING_VALUE", // required
+ * //     appId: "STRING_VALUE",
  * //     branchName: "STRING_VALUE", // required
  * //     description: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
@@ -82,6 +84,7 @@ export interface CreateWebhookCommandOutput extends CreateWebhookResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class CreateWebhookCommand extends $Command
@@ -92,9 +95,7 @@ export class CreateWebhookCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +107,16 @@ export class CreateWebhookCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWebhookCommand)
   .de(de_CreateWebhookCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWebhookRequest;
+      output: CreateWebhookResult;
+    };
+    sdk: {
+      input: CreateWebhookCommandInput;
+      output: CreateWebhookCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetEventSourceMappingCommand, se_GetEventSourceMappingCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,9 +97,39 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //   ],
  * //   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ * //         { // KafkaSchemaRegistryAccessConfig
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ * //         { // KafkaSchemaValidationConfig
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: {
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [
+ * //         {
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [
+ * //         {
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   ScalingConfig: { // ScalingConfig
  * //     MaximumConcurrency: Number("int"),
@@ -107,6 +138,21 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount",
+ * //     ],
+ * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
  * //   },
  * // };
  *
@@ -133,6 +179,33 @@ export interface GetEventSourceMappingCommandOutput extends EventSourceMappingCo
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get a Lambda function's event source mapping
+ * ```javascript
+ * // The following example returns details about an event source mapping. To get a mapping's UUID, use ListEventSourceMappings.
+ * const input = {
+ *   UUID: "14e0db71-xmpl-4eb5-b481-8945cf9d10c2"
+ * };
+ * const command = new GetEventSourceMappingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BatchSize: 500,
+ *   BisectBatchOnFunctionError: false,
+ *   DestinationConfig:   { /* empty *\/ },
+ *   EventSourceArn: "arn:aws:sqs:us-east-2:123456789012:mySQSqueue",
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:myFunction",
+ *   LastModified: "2016-11-21T19:49:20.006Z",
+ *   LastProcessingResult: "No records processed",
+ *   MaximumRecordAgeInSeconds: 604800,
+ *   MaximumRetryAttempts: 10000,
+ *   State: "Creating",
+ *   StateTransitionReason: "User action",
+ *   UUID: "14e0db71-xmpl-4eb5-b481-8945cf9d10c2"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetEventSourceMappingCommand extends $Command
@@ -143,9 +216,7 @@ export class GetEventSourceMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +228,16 @@ export class GetEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEventSourceMappingCommand)
   .de(de_GetEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: GetEventSourceMappingCommandInput;
+      output: GetEventSourceMappingCommandOutput;
+    };
+  };
+}

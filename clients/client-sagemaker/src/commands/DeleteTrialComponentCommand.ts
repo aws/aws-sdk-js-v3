@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface DeleteTrialComponentCommandInput extends DeleteTrialComponentRe
 export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the specified trial component. A trial component must be disassociated from all
- *       trials before the trial component can be deleted. To disassociate a trial component from a
- *       trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
+ * <p>Deletes the specified trial component. A trial component must be disassociated from all trials before the trial component can be deleted. To disassociate a trial component from a trial, call the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DisassociateTrialComponent.html">DisassociateTrialComponent</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +58,7 @@ export interface DeleteTrialComponentCommandOutput extends DeleteTrialComponentR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrialComponentCommand extends $Command
@@ -69,9 +69,7 @@ export class DeleteTrialComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +81,16 @@ export class DeleteTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrialComponentCommand)
   .de(de_DeleteTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrialComponentRequest;
+      output: DeleteTrialComponentResponse;
+    };
+    sdk: {
+      input: DeleteTrialComponentCommandInput;
+      output: DeleteTrialComponentCommandOutput;
+    };
+  };
+}

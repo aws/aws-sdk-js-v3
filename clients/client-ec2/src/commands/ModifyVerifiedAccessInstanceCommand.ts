@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVerifiedAccessInstanceRequest, ModifyVerifiedAccessInstanceResult } from "../models/models_6";
+import { ModifyVerifiedAccessInstanceRequest, ModifyVerifiedAccessInstanceResult } from "../models/models_7";
 import { de_ModifyVerifiedAccessInstanceCommand, se_ModifyVerifiedAccessInstanceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,6 +42,7 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  *   Description: "STRING_VALUE",
  *   DryRun: true || false,
  *   ClientToken: "STRING_VALUE",
+ *   CidrEndpointsCustomSubDomain: "STRING_VALUE",
  * };
  * const command = new ModifyVerifiedAccessInstanceCommand(input);
  * const response = await client.send(command);
@@ -66,6 +68,12 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * //       },
  * //     ],
  * //     FipsEnabled: true || false,
+ * //     CidrEndpointsCustomSubDomain: { // VerifiedAccessInstanceCustomSubDomain
+ * //       SubDomain: "STRING_VALUE",
+ * //       Nameservers: [ // ValueStringList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //     },
  * //   },
  * // };
  *
@@ -80,6 +88,7 @@ export interface ModifyVerifiedAccessInstanceCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVerifiedAccessInstanceCommand extends $Command
@@ -90,9 +99,7 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +111,16 @@ export class ModifyVerifiedAccessInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVerifiedAccessInstanceCommand)
   .de(de_ModifyVerifiedAccessInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessInstanceRequest;
+      output: ModifyVerifiedAccessInstanceResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessInstanceCommandInput;
+      output: ModifyVerifiedAccessInstanceCommandOutput;
+    };
+  };
+}

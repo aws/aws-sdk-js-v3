@@ -6,19 +6,11 @@
 
 AWS SDK for JavaScript MailManager Client for Node.js, Browser and React Native.
 
-<fullname>AWS SES Mail Manager API</fullname>
-
-<p>
-<a href="http://aws.amazon.com/ses">AWS SES Mail Manager API</a> contains operations and data types
-that comprise the Mail Manager feature of Amazon Simple Email Service.</p>
-<p>Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen
-your organization's email infrastructure, simplify email workflow management, and
-streamline email compliance control. To learn more, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/eb.html">Mail Manager chapter</a> in the Amazon SES Developer
-Guide.</p>
+<fullname>Amazon SES Mail Manager API</fullname> <p>The Amazon SES Mail Manager API contains operations and data types that comprise the Mail Manager feature of <a href="http://aws.amazon.com/ses">Amazon Simple Email Service (SES)</a>.</p> <p>Mail Manager is a set of Amazon SES email gateway features designed to help you strengthen your organization's email infrastructure, simplify email workflow management, and streamline email compliance control. To learn more, see the <a href="https://docs.aws.amazon.com/ses/latest/dg/eb.html">Mail Manager chapter</a> in the <i>Amazon SES Developer Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mailmanager
+To install this package, simply type add or install @aws-sdk/client-mailmanager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mailmanager`
@@ -229,6 +221,22 @@ CreateAddonSubscription
 </details>
 <details>
 <summary>
+CreateAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/CreateAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/CreateAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/CreateAddressListCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateAddressListImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/CreateAddressListImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/CreateAddressListImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/CreateAddressListImportJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateArchive
 </summary>
 
@@ -285,6 +293,14 @@ DeleteAddonSubscription
 </details>
 <details>
 <summary>
+DeleteAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/DeleteAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/DeleteAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/DeleteAddressListCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteArchive
 </summary>
 
@@ -325,6 +341,14 @@ DeleteTrafficPolicy
 </details>
 <details>
 <summary>
+DeregisterMemberFromAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/DeregisterMemberFromAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/DeregisterMemberFromAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/DeregisterMemberFromAddressListCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAddonInstance
 </summary>
 
@@ -337,6 +361,22 @@ GetAddonSubscription
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/GetAddonSubscriptionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetAddonSubscriptionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetAddonSubscriptionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/GetAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetAddressListCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAddressListImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/GetAddressListImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetAddressListImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetAddressListImportJobCommandOutput/)
 
 </details>
 <details>
@@ -397,6 +437,14 @@ GetIngressPoint
 </details>
 <details>
 <summary>
+GetMemberOfAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/GetMemberOfAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetMemberOfAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/GetMemberOfAddressListCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRelay
 </summary>
 
@@ -437,6 +485,22 @@ ListAddonSubscriptions
 </details>
 <details>
 <summary>
+ListAddressListImportJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/ListAddressListImportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListAddressListImportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListAddressListImportJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAddressLists
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/ListAddressListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListAddressListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListAddressListsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListArchiveExports
 </summary>
 
@@ -465,6 +529,14 @@ ListIngressPoints
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/ListIngressPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListIngressPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListIngressPointsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListMembersOfAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/ListMembersOfAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListMembersOfAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/ListMembersOfAddressListCommandOutput/)
 
 </details>
 <details>
@@ -501,6 +573,22 @@ ListTrafficPolicies
 </details>
 <details>
 <summary>
+RegisterMemberToAddressList
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/RegisterMemberToAddressListCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/RegisterMemberToAddressListCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/RegisterMemberToAddressListCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartAddressListImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/StartAddressListImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/StartAddressListImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/StartAddressListImportJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartArchiveExport
 </summary>
 
@@ -513,6 +601,14 @@ StartArchiveSearch
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/StartArchiveSearchCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/StartArchiveSearchCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/StartArchiveSearchCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopAddressListImportJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mailmanager/command/StopAddressListImportJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/StopAddressListImportJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mailmanager/Interface/StopAddressListImportJobCommandOutput/)
 
 </details>
 <details>

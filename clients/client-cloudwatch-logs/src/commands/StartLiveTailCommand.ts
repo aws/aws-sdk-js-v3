@@ -16,7 +16,8 @@ import { de_StartLiveTailCommand, se_StartLiveTailCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,14 +58,18 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  *           which it starts dropping the oldest events.</p>
  *             </li>
  *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionStreamingException.html">SessionStreamingException</a>
+ *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionStreamingException">SessionStreamingException</a>
  *         object is returned if an unknown error occurs on the server side.</p>
  *             </li>
  *             <li>
- *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_SessionTimeoutException.html">SessionTimeoutException</a>
+ *                <p>A <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartLiveTailResponseStream.html#CWL-Type-StartLiveTailResponseStream-SessionTimeoutException">SessionTimeoutException</a>
  *         object is returned when the session times out, after it has been kept open for three hours.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>The <code>StartLiveTail</code> API routes requests to <code>streaming-logs.<i>Region</i>.amazonaws.com</code> using SDK host prefix injection.
+ *       VPC endpoint support is not available for this API.</p>
+ *          </note>
  *          <important>
  *             <p>You can end a session before it times out by closing the session stream or by closing the client that is receiving the
  *   stream. The session also ends if the established connection between the client and the server breaks.</p>
@@ -157,6 +162,7 @@ export interface StartLiveTailCommandOutput extends StartLiveTailResponse, __Met
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class StartLiveTailCommand extends $Command
@@ -167,9 +173,7 @@ export class StartLiveTailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -188,4 +192,16 @@ export class StartLiveTailCommand extends $Command
   .f(void 0, StartLiveTailResponseFilterSensitiveLog)
   .ser(se_StartLiveTailCommand)
   .de(de_StartLiveTailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLiveTailRequest;
+      output: StartLiveTailResponse;
+    };
+    sdk: {
+      input: StartLiveTailCommandInput;
+      output: StartLiveTailCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { de_PutProfileObjectTypeCommand, se_PutProfileObjectTypeCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
 /**
  * <p>Defines a ProfileObjectType.</p>
  *          <p>To add or remove tags on an existing ObjectType, see <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_TagResource.html">
- *          TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
+ *             TagResource</a>/<a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +51,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *   EncryptionKey: "STRING_VALUE",
  *   AllowProfileCreation: true || false,
  *   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ *   MaxProfileObjectCount: Number("int"),
  *   Fields: { // FieldMap
  *     "<keys>": { // ObjectTypeField
  *       Source: "STRING_VALUE",
@@ -61,7 +63,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  *     "<keys>": [ // ObjectTypeKeyList
  *       { // ObjectTypeKey
  *         StandardIdentifiers: [ // StandardIdentifierList
- *           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ *           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "AIR_PREFERENCE" || "HOTEL_PREFERENCE" || "AIR_BOOKING" || "AIR_SEGMENT" || "HOTEL_RESERVATION" || "HOTEL_STAY_REVENUE" || "LOYALTY" || "LOYALTY_TRANSACTION" || "LOYALTY_PROMOTION" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  *         ],
  *         FieldNames: [ // FieldNameList
  *           "STRING_VALUE",
@@ -83,6 +85,8 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * //   EncryptionKey: "STRING_VALUE",
  * //   AllowProfileCreation: true || false,
  * //   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ * //   MaxProfileObjectCount: Number("int"),
+ * //   MaxAvailableProfileObjectCount: Number("int"),
  * //   Fields: { // FieldMap
  * //     "<keys>": { // ObjectTypeField
  * //       Source: "STRING_VALUE",
@@ -94,7 +98,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * //     "<keys>": [ // ObjectTypeKeyList
  * //       { // ObjectTypeKey
  * //         StandardIdentifiers: [ // StandardIdentifierList
- * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "AIR_PREFERENCE" || "HOTEL_PREFERENCE" || "AIR_BOOKING" || "AIR_SEGMENT" || "HOTEL_RESERVATION" || "HOTEL_STAY_REVENUE" || "LOYALTY" || "LOYALTY_TRANSACTION" || "LOYALTY_PROMOTION" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  * //         ],
  * //         FieldNames: [ // FieldNameList
  * //           "STRING_VALUE",
@@ -135,6 +139,7 @@ export interface PutProfileObjectTypeCommandOutput extends PutProfileObjectTypeR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class PutProfileObjectTypeCommand extends $Command
@@ -145,9 +150,7 @@ export class PutProfileObjectTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +162,16 @@ export class PutProfileObjectTypeCommand extends $Command
   .f(PutProfileObjectTypeRequestFilterSensitiveLog, PutProfileObjectTypeResponseFilterSensitiveLog)
   .ser(se_PutProfileObjectTypeCommand)
   .de(de_PutProfileObjectTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutProfileObjectTypeRequest;
+      output: PutProfileObjectTypeResponse;
+    };
+    sdk: {
+      input: PutProfileObjectTypeCommandInput;
+      output: PutProfileObjectTypeCommandOutput;
+    };
+  };
+}

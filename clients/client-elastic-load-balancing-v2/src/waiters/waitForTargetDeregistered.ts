@@ -30,7 +30,7 @@ const checkState = async (
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "InvalidTarget") {
+    if (exception.name && exception.name == "InvalidTargetException") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }

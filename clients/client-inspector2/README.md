@@ -11,7 +11,7 @@ security vulnerabilities within your Amazon EC2, Amazon ECR, and Amazon Web Serv
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-inspector2
+To install this package, simply type add or install @aws-sdk/client-inspector2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-inspector2`
@@ -214,6 +214,22 @@ AssociateMember
 </details>
 <details>
 <summary>
+BatchAssociateCodeSecurityScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/BatchAssociateCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/BatchAssociateCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/BatchAssociateCodeSecurityScanConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchDisassociateCodeSecurityScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/BatchDisassociateCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/BatchDisassociateCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/BatchDisassociateCodeSecurityScanConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchGetAccountStatus
 </summary>
 
@@ -286,6 +302,22 @@ CreateCisScanConfiguration
 </details>
 <details>
 <summary>
+CreateCodeSecurityIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/CreateCodeSecurityIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/CreateCodeSecurityIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/CreateCodeSecurityIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateCodeSecurityScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/CreateCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/CreateCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/CreateCodeSecurityScanConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateFilter
 </summary>
 
@@ -314,6 +346,22 @@ DeleteCisScanConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/DeleteCisScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCisScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCisScanConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCodeSecurityIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/DeleteCodeSecurityIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCodeSecurityIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCodeSecurityIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCodeSecurityScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/DeleteCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/DeleteCodeSecurityScanConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -386,6 +434,38 @@ GetCisScanResultDetails
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/GetCisScanResultDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCisScanResultDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCisScanResultDetailsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetClustersForImage
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/GetClustersForImageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetClustersForImageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetClustersForImageCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCodeSecurityIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/GetCodeSecurityIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCodeSecurityIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCodeSecurityIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCodeSecurityScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/GetCodeSecurityScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCodeSecurityScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCodeSecurityScanCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCodeSecurityScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/GetCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/GetCodeSecurityScanConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -482,6 +562,30 @@ ListCisScans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/ListCisScansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCisScansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCisScansCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCodeSecurityIntegrations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/ListCodeSecurityIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCodeSecurityIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCodeSecurityIntegrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCodeSecurityScanConfigurationAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/ListCodeSecurityScanConfigurationAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCodeSecurityScanConfigurationAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCodeSecurityScanConfigurationAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCodeSecurityScanConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/ListCodeSecurityScanConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCodeSecurityScanConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/ListCodeSecurityScanConfigurationsCommandOutput/)
 
 </details>
 <details>
@@ -598,6 +702,14 @@ StartCisSession
 </details>
 <details>
 <summary>
+StartCodeSecurityScan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/StartCodeSecurityScanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/StartCodeSecurityScanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/StartCodeSecurityScanCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopCisSession
 </summary>
 
@@ -626,6 +738,22 @@ UpdateCisScanConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/UpdateCisScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateCisScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateCisScanConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCodeSecurityIntegration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/UpdateCodeSecurityIntegrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateCodeSecurityIntegrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateCodeSecurityIntegrationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCodeSecurityScanConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/inspector2/command/UpdateCodeSecurityScanConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateCodeSecurityScanConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-inspector2/Interface/UpdateCodeSecurityScanConfigurationCommandOutput/)
 
 </details>
 <details>

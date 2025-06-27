@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface ListRoutingControlsCommandOutput extends ListRoutingControlsRes
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class ListRoutingControlsCommand extends $Command
@@ -94,9 +96,7 @@ export class ListRoutingControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListRoutingControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoutingControlsCommand)
   .de(de_ListRoutingControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoutingControlsRequest;
+      output: ListRoutingControlsResponse;
+    };
+    sdk: {
+      input: ListRoutingControlsCommandInput;
+      output: ListRoutingControlsCommandOutput;
+    };
+  };
+}

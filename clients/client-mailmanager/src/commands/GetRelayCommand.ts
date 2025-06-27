@@ -12,7 +12,8 @@ import { de_GetRelayCommand, se_GetRelayCommand } from "../protocols/Aws_json1_0
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface GetRelayCommandOutput extends GetRelayResponse, __MetadataBeare
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetRelayCommand extends $Command
@@ -80,9 +82,7 @@ export class GetRelayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class GetRelayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRelayCommand)
   .de(de_GetRelayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRelayRequest;
+      output: GetRelayResponse;
+    };
+    sdk: {
+      input: GetRelayCommandInput;
+      output: GetRelayCommandOutput;
+    };
+  };
+}

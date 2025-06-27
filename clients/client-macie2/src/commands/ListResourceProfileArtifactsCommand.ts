@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface ListResourceProfileArtifactsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about objects that were selected from an S3 bucket for automated sensitive data discovery.</p>
+ * <p>Retrieves information about objects that Amazon Macie selected from an S3 bucket for automated sensitive data discovery.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +83,7 @@ export interface ListResourceProfileArtifactsCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class ListResourceProfileArtifactsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListResourceProfileArtifactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListResourceProfileArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceProfileArtifactsCommand)
   .de(de_ListResourceProfileArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceProfileArtifactsRequest;
+      output: ListResourceProfileArtifactsResponse;
+    };
+    sdk: {
+      input: ListResourceProfileArtifactsCommandInput;
+      output: ListResourceProfileArtifactsCommandOutput;
+    };
+  };
+}

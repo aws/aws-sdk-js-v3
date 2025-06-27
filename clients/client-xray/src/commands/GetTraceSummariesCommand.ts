@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, XRayClientResolvedConfig } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,8 +43,8 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  *             <code>annotation.account = "12345"</code>
  *          </p>
  *          <p>For a full list of indexed fields and keywords that you can use in filter expressions,
- *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/xray-console-filters.html">Using Filter
- *         Expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
+ *       see <a href="https://docs.aws.amazon.com/xray/latest/devguide/aws-xray-interface-console.html#xray-console-filters">Use filter
+ *         expressions</a> in the <i>Amazon Web Services X-Ray Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -240,6 +241,7 @@ export interface GetTraceSummariesCommandOutput extends GetTraceSummariesResult,
  * @throws {@link XRayServiceException}
  * <p>Base exception class for all service exceptions from XRay service.</p>
  *
+ *
  * @public
  */
 export class GetTraceSummariesCommand extends $Command
@@ -250,9 +252,7 @@ export class GetTraceSummariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: XRayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -264,4 +264,16 @@ export class GetTraceSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTraceSummariesCommand)
   .de(de_GetTraceSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTraceSummariesRequest;
+      output: GetTraceSummariesResult;
+    };
+    sdk: {
+      input: GetTraceSummariesCommandInput;
+      output: GetTraceSummariesCommandOutput;
+    };
+  };
+}

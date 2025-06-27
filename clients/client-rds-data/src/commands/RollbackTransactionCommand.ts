@@ -12,7 +12,8 @@ import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,9 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
  *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
+ *
  * @throws {@link InvalidSecretException} (client fault)
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
  *
@@ -110,6 +114,7 @@ export interface RollbackTransactionCommandOutput extends RollbackTransactionRes
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class RollbackTransactionCommand extends $Command
@@ -120,9 +125,7 @@ export class RollbackTransactionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +137,16 @@ export class RollbackTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackTransactionCommand)
   .de(de_RollbackTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackTransactionRequest;
+      output: RollbackTransactionResponse;
+    };
+    sdk: {
+      input: RollbackTransactionCommandInput;
+      output: RollbackTransactionCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,6 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
-import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.DEV_DEPENDENCY;
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.NORMAL_DEPENDENCY;
 import static software.amazon.smithy.typescript.codegen.TypeScriptDependency.PEER_DEPENDENCY;
 
@@ -59,21 +58,27 @@ public enum AwsDependency implements Dependency {
     BODY_CHECKSUM_GENERATOR_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-browser"),
     BODY_CHECKSUM_GENERATOR_NODE(NORMAL_DEPENDENCY, "@aws-sdk/body-checksum-node"),
     XML_BUILDER(NORMAL_DEPENDENCY, "@aws-sdk/xml-builder"),
-    XML_PARSER(NORMAL_DEPENDENCY, "fast-xml-parser", "4.2.5"),
-    UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
-    UUID_GENERATOR_TYPES(DEV_DEPENDENCY, "@types/uuid", "^9.0.4"),
+    /**
+     * @deprecated use SmithyDependency.UUID.
+     */
+    @Deprecated UUID_GENERATOR(NORMAL_DEPENDENCY, "uuid", "^9.0.1"),
+    /**
+     * @deprecated use SmithyDependency.UUID_TYPES.
+     */
+    @Deprecated UUID_GENERATOR_TYPES(NORMAL_DEPENDENCY, "@types/uuid", "^9.0.1"),
     MIDDLEWARE_EVENTSTREAM(NORMAL_DEPENDENCY, "@aws-sdk/middleware-eventstream"),
     AWS_SDK_EVENTSTREAM_HANDLER_NODE(NORMAL_DEPENDENCY, "@aws-sdk/eventstream-handler-node"),
     TRANSCRIBE_STREAMING_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-transcribe-streaming"),
     STS_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-sdk-sts"),
     STS_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sts"),
+    STS_CLIENT_PEER(PEER_DEPENDENCY, "@aws-sdk/client-sts"),
     SSO_OIDC_CLIENT(NORMAL_DEPENDENCY, "@aws-sdk/client-sso-oidc"),
     MIDDLEWARE_LOGGER(NORMAL_DEPENDENCY, "@aws-sdk/middleware-logger"),
     MIDDLEWARE_USER_AGENT("dependencies", "@aws-sdk/middleware-user-agent"),
     AWS_SDK_UTIL_USER_AGENT_BROWSER(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-browser"),
     AWS_SDK_UTIL_USER_AGENT_NODE(NORMAL_DEPENDENCY, "@aws-sdk/util-user-agent-node"),
     MIDDLEWARE_ENDPOINT_DISCOVERY(NORMAL_DEPENDENCY, "@aws-sdk/middleware-endpoint-discovery"),
-    AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "3.0.0"),
+    AWS_CRYPTO_SHA1_BROWSER(NORMAL_DEPENDENCY, "@aws-crypto/sha1-browser", "5.2.0"),
     SIGNATURE_V4_MULTIREGION(NORMAL_DEPENDENCY, "@aws-sdk/signature-v4-multi-region"),
     RECURSION_DETECTION_MIDDLEWARE(NORMAL_DEPENDENCY, "@aws-sdk/middleware-recursion-detection"),
     MIDDLEWARE_WEBSOCKET(NORMAL_DEPENDENCY, "@aws-sdk/middleware-websocket"),
@@ -90,7 +95,7 @@ public enum AwsDependency implements Dependency {
     // Conditionally added when EndpointRuleSetTrait is present
     UTIL_ENDPOINTS(NORMAL_DEPENDENCY, "@aws-sdk/util-endpoints"),
 
-    // feat(experimentalIdentityAndAuth): Conditionally added when @httpBearerAuth is used in an AWS service
+    // Conditionally added when @httpBearerAuth is used in an AWS service
     TOKEN_PROVIDERS(NORMAL_DEPENDENCY, "@aws-sdk/token-providers"),
     TYPES(NORMAL_DEPENDENCY, "@aws-sdk/types"),
     REGION_CONFIG_RESOLVER(NORMAL_DEPENDENCY, "@aws-sdk/region-config-resolver"),

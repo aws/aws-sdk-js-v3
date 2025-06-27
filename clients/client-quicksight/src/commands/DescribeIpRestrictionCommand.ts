@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeIpRestrictionRequest, DescribeIpRestrictionResponse } from "../models/models_3";
+import { DescribeIpRestrictionRequest, DescribeIpRestrictionResponse } from "../models/models_4";
 import { de_DescribeIpRestrictionCommand, se_DescribeIpRestrictionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface DescribeIpRestrictionCommandOutput extends DescribeIpRestrictio
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeIpRestrictionCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeIpRestrictionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeIpRestrictionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIpRestrictionCommand)
   .de(de_DescribeIpRestrictionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIpRestrictionRequest;
+      output: DescribeIpRestrictionResponse;
+    };
+    sdk: {
+      input: DescribeIpRestrictionCommandInput;
+      output: DescribeIpRestrictionCommandOutput;
+    };
+  };
+}

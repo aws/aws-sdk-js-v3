@@ -12,7 +12,8 @@ import { de_DescribeVolumeAttributeCommand, se_DescribeVolumeAttributeCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,27 +68,27 @@ export interface DescribeVolumeAttributeCommandOutput extends DescribeVolumeAttr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe a volume attribute
  * ```javascript
  * // This example describes the ``autoEnableIo`` attribute of the volume with the ID ``vol-049df61146c4d7901``.
  * const input = {
- *   "Attribute": "autoEnableIO",
- *   "VolumeId": "vol-049df61146c4d7901"
+ *   Attribute: "autoEnableIO",
+ *   VolumeId: "vol-049df61146c4d7901"
  * };
  * const command = new DescribeVolumeAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoEnableIO": {
- *     "Value": false
+ *   AutoEnableIO: {
+ *     Value: false
  *   },
- *   "VolumeId": "vol-049df61146c4d7901"
+ *   VolumeId: "vol-049df61146c4d7901"
  * }
  * *\/
- * // example id: to-describe-a-volume-attribute-1472505773492
  * ```
  *
+ * @public
  */
 export class DescribeVolumeAttributeCommand extends $Command
   .classBuilder<
@@ -97,9 +98,7 @@ export class DescribeVolumeAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class DescribeVolumeAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumeAttributeCommand)
   .de(de_DescribeVolumeAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumeAttributeRequest;
+      output: DescribeVolumeAttributeResult;
+    };
+    sdk: {
+      input: DescribeVolumeAttributeCommandInput;
+      output: DescribeVolumeAttributeCommandOutput;
+    };
+  };
+}

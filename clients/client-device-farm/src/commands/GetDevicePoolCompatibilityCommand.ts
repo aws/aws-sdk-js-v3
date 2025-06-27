@@ -12,7 +12,8 @@ import { de_GetDevicePoolCompatibilityCommand, se_GetDevicePoolCompatibilityComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,9 +38,9 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * const input = { // GetDevicePoolCompatibilityRequest
  *   devicePoolArn: "STRING_VALUE", // required
  *   appArn: "STRING_VALUE",
- *   testType: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY",
+ *   testType: "BUILTIN_FUZZ" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "INSTRUMENTATION" || "XCTEST" || "XCTEST_UI",
  *   test: { // ScheduleRunTest
- *     type: "BUILTIN_FUZZ" || "BUILTIN_EXPLORER" || "WEB_PERFORMANCE_PROFILE" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "CALABASH" || "INSTRUMENTATION" || "UIAUTOMATION" || "UIAUTOMATOR" || "XCTEST" || "XCTEST_UI" || "REMOTE_ACCESS_RECORD" || "REMOTE_ACCESS_REPLAY", // required
+ *     type: "BUILTIN_FUZZ" || "APPIUM_JAVA_JUNIT" || "APPIUM_JAVA_TESTNG" || "APPIUM_PYTHON" || "APPIUM_NODE" || "APPIUM_RUBY" || "APPIUM_WEB_JAVA_JUNIT" || "APPIUM_WEB_JAVA_TESTNG" || "APPIUM_WEB_PYTHON" || "APPIUM_WEB_NODE" || "APPIUM_WEB_RUBY" || "INSTRUMENTATION" || "XCTEST" || "XCTEST_UI", // required
  *     testPackageArn: "STRING_VALUE",
  *     testSpecArn: "STRING_VALUE",
  *     filter: "STRING_VALUE",
@@ -58,6 +59,10 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *     vpceConfigurationArns: [ // AmazonResourceNames
  *       "STRING_VALUE",
  *     ],
+ *     deviceProxy: { // DeviceProxy
+ *       host: "STRING_VALUE", // required
+ *       port: Number("int"), // required
+ *     },
  *     customerArtifactPaths: { // CustomerArtifactPaths
  *       iosPaths: [ // IosPaths
  *         "STRING_VALUE",
@@ -80,6 +85,7 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  *     ],
  *     billingMethod: "METERED" || "UNMETERED",
  *   },
+ *   projectArn: "STRING_VALUE",
  * };
  * const command = new GetDevicePoolCompatibilityCommand(input);
  * const response = await client.send(command);
@@ -231,26 +237,26 @@ export interface GetDevicePoolCompatibilityCommandOutput extends GetDevicePoolCo
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To get information about the compatibility of a device pool
  * ```javascript
  * // The following example returns information about the compatibility of a specific device pool, given its ARN.
  * const input = {
- *   "appArn": "arn:aws:devicefarm:us-west-2::app:123-456-EXAMPLE-GUID",
- *   "devicePoolArn": "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID",
- *   "testType": "APPIUM_PYTHON"
+ *   appArn: "arn:aws:devicefarm:us-west-2::app:123-456-EXAMPLE-GUID",
+ *   devicePoolArn: "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID",
+ *   testType: "APPIUM_PYTHON"
  * };
  * const command = new GetDevicePoolCompatibilityCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "compatibleDevices": [],
- *   "incompatibleDevices": []
+ *   compatibleDevices:   [],
+ *   incompatibleDevices:   []
  * }
  * *\/
- * // example id: getdevicepoolcompatibility-example-1470925003466
  * ```
  *
+ * @public
  */
 export class GetDevicePoolCompatibilityCommand extends $Command
   .classBuilder<
@@ -260,9 +266,7 @@ export class GetDevicePoolCompatibilityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -274,4 +278,16 @@ export class GetDevicePoolCompatibilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDevicePoolCompatibilityCommand)
   .de(de_GetDevicePoolCompatibilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicePoolCompatibilityRequest;
+      output: GetDevicePoolCompatibilityResult;
+    };
+    sdk: {
+      input: GetDevicePoolCompatibilityCommandInput;
+      output: GetDevicePoolCompatibilityCommandOutput;
+    };
+  };
+}

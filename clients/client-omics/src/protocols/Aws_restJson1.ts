@@ -22,6 +22,8 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
+  LazyJsonString as __LazyJsonString,
   map,
   parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   resolvedPath as __resolvedPath,
@@ -73,6 +75,7 @@ import {
   CreateReferenceStoreCommandInput,
   CreateReferenceStoreCommandOutput,
 } from "../commands/CreateReferenceStoreCommand";
+import { CreateRunCacheCommandInput, CreateRunCacheCommandOutput } from "../commands/CreateRunCacheCommand";
 import { CreateRunGroupCommandInput, CreateRunGroupCommandOutput } from "../commands/CreateRunGroupCommand";
 import {
   CreateSequenceStoreCommandInput,
@@ -81,6 +84,10 @@ import {
 import { CreateShareCommandInput, CreateShareCommandOutput } from "../commands/CreateShareCommand";
 import { CreateVariantStoreCommandInput, CreateVariantStoreCommandOutput } from "../commands/CreateVariantStoreCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
+import {
+  CreateWorkflowVersionCommandInput,
+  CreateWorkflowVersionCommandOutput,
+} from "../commands/CreateWorkflowVersionCommand";
 import {
   DeleteAnnotationStoreCommandInput,
   DeleteAnnotationStoreCommandOutput,
@@ -94,8 +101,13 @@ import {
   DeleteReferenceStoreCommandInput,
   DeleteReferenceStoreCommandOutput,
 } from "../commands/DeleteReferenceStoreCommand";
+import { DeleteRunCacheCommandInput, DeleteRunCacheCommandOutput } from "../commands/DeleteRunCacheCommand";
 import { DeleteRunCommandInput, DeleteRunCommandOutput } from "../commands/DeleteRunCommand";
 import { DeleteRunGroupCommandInput, DeleteRunGroupCommandOutput } from "../commands/DeleteRunGroupCommand";
+import {
+  DeleteS3AccessPolicyCommandInput,
+  DeleteS3AccessPolicyCommandOutput,
+} from "../commands/DeleteS3AccessPolicyCommand";
 import {
   DeleteSequenceStoreCommandInput,
   DeleteSequenceStoreCommandOutput,
@@ -103,6 +115,10 @@ import {
 import { DeleteShareCommandInput, DeleteShareCommandOutput } from "../commands/DeleteShareCommand";
 import { DeleteVariantStoreCommandInput, DeleteVariantStoreCommandOutput } from "../commands/DeleteVariantStoreCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
+import {
+  DeleteWorkflowVersionCommandInput,
+  DeleteWorkflowVersionCommandOutput,
+} from "../commands/DeleteWorkflowVersionCommand";
 import {
   GetAnnotationImportJobCommandInput,
   GetAnnotationImportJobCommandOutput,
@@ -136,9 +152,11 @@ import {
   GetReferenceMetadataCommandOutput,
 } from "../commands/GetReferenceMetadataCommand";
 import { GetReferenceStoreCommandInput, GetReferenceStoreCommandOutput } from "../commands/GetReferenceStoreCommand";
+import { GetRunCacheCommandInput, GetRunCacheCommandOutput } from "../commands/GetRunCacheCommand";
 import { GetRunCommandInput, GetRunCommandOutput } from "../commands/GetRunCommand";
 import { GetRunGroupCommandInput, GetRunGroupCommandOutput } from "../commands/GetRunGroupCommand";
 import { GetRunTaskCommandInput, GetRunTaskCommandOutput } from "../commands/GetRunTaskCommand";
+import { GetS3AccessPolicyCommandInput, GetS3AccessPolicyCommandOutput } from "../commands/GetS3AccessPolicyCommand";
 import { GetSequenceStoreCommandInput, GetSequenceStoreCommandOutput } from "../commands/GetSequenceStoreCommand";
 import { GetShareCommandInput, GetShareCommandOutput } from "../commands/GetShareCommand";
 import {
@@ -147,6 +165,7 @@ import {
 } from "../commands/GetVariantImportJobCommand";
 import { GetVariantStoreCommandInput, GetVariantStoreCommandOutput } from "../commands/GetVariantStoreCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
+import { GetWorkflowVersionCommandInput, GetWorkflowVersionCommandOutput } from "../commands/GetWorkflowVersionCommand";
 import {
   ListAnnotationImportJobsCommandInput,
   ListAnnotationImportJobsCommandOutput,
@@ -189,6 +208,7 @@ import {
   ListReferenceStoresCommandInput,
   ListReferenceStoresCommandOutput,
 } from "../commands/ListReferenceStoresCommand";
+import { ListRunCachesCommandInput, ListRunCachesCommandOutput } from "../commands/ListRunCachesCommand";
 import { ListRunGroupsCommandInput, ListRunGroupsCommandOutput } from "../commands/ListRunGroupsCommand";
 import { ListRunsCommandInput, ListRunsCommandOutput } from "../commands/ListRunsCommand";
 import { ListRunTasksCommandInput, ListRunTasksCommandOutput } from "../commands/ListRunTasksCommand";
@@ -204,6 +224,11 @@ import {
 } from "../commands/ListVariantImportJobsCommand";
 import { ListVariantStoresCommandInput, ListVariantStoresCommandOutput } from "../commands/ListVariantStoresCommand";
 import { ListWorkflowsCommandInput, ListWorkflowsCommandOutput } from "../commands/ListWorkflowsCommand";
+import {
+  ListWorkflowVersionsCommandInput,
+  ListWorkflowVersionsCommandOutput,
+} from "../commands/ListWorkflowVersionsCommand";
+import { PutS3AccessPolicyCommandInput, PutS3AccessPolicyCommandOutput } from "../commands/PutS3AccessPolicyCommand";
 import {
   StartAnnotationImportJobCommandInput,
   StartAnnotationImportJobCommandOutput,
@@ -239,9 +264,18 @@ import {
   UpdateAnnotationStoreVersionCommandInput,
   UpdateAnnotationStoreVersionCommandOutput,
 } from "../commands/UpdateAnnotationStoreVersionCommand";
+import { UpdateRunCacheCommandInput, UpdateRunCacheCommandOutput } from "../commands/UpdateRunCacheCommand";
 import { UpdateRunGroupCommandInput, UpdateRunGroupCommandOutput } from "../commands/UpdateRunGroupCommand";
+import {
+  UpdateSequenceStoreCommandInput,
+  UpdateSequenceStoreCommandOutput,
+} from "../commands/UpdateSequenceStoreCommand";
 import { UpdateVariantStoreCommandInput, UpdateVariantStoreCommandOutput } from "../commands/UpdateVariantStoreCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "../commands/UpdateWorkflowCommand";
+import {
+  UpdateWorkflowVersionCommandInput,
+  UpdateWorkflowVersionCommandOutput,
+} from "../commands/UpdateWorkflowVersionCommand";
 import { UploadReadSetPartCommandInput, UploadReadSetPartCommandOutput } from "../commands/UploadReadSetPartCommand";
 import {
   AccessDeniedException,
@@ -284,8 +318,10 @@ import {
   ReferenceStoreFilter,
   RequestTimeoutException,
   ResourceNotFoundException,
+  RunCacheListItem,
   RunGroupListItem,
   RunListItem,
+  S3AccessConfig,
   SchemaValueType,
   SequenceStoreDetail,
   SequenceStoreFilter,
@@ -305,14 +341,15 @@ import {
   TsvStoreOptions,
   TsvVersionOptions,
   ValidationException,
-  VariantImportItemSource,
   VariantImportJobItem,
   VariantStoreItem,
   VcfOptions,
   VersionOptions,
   WorkflowListItem,
   WorkflowParameter,
+  WorkflowVersionListItem,
 } from "../models/models_0";
+import { VariantImportItemSource } from "../models/models_1";
 import { OmicsServiceException as __BaseException } from "../models/OmicsServiceException";
 
 /**
@@ -644,6 +681,42 @@ export const se_CreateReferenceStoreCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateRunCacheCommand
+ */
+export const se_CreateRunCacheCommand = async (
+  input: CreateRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/runCache");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cacheBehavior: [],
+      cacheBucketOwnerId: [],
+      cacheS3Location: [],
+      description: [],
+      name: [],
+      requestId: [true, (_) => _ ?? generateIdempotencyToken()],
+      tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateRunGroupCommand
  */
 export const se_CreateRunGroupCommand = async (
@@ -694,11 +767,13 @@ export const se_CreateSequenceStoreCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
-      clientToken: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       description: [],
       eTagAlgorithmFamily: [],
       fallbackLocation: [],
       name: [],
+      propagatedSetLevelTags: (_) => _json(_),
+      s3AccessConfig: (_) => _json(_),
       sseConfig: (_) => _json(_),
       tags: (_) => _json(_),
     })
@@ -806,7 +881,51 @@ export const se_CreateWorkflowCommand = async (
       parameterTemplate: (_) => _json(_),
       requestId: [true, (_) => _ ?? generateIdempotencyToken()],
       storageCapacity: [],
+      storageType: [],
       tags: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateWorkflowVersionCommand
+ */
+export const se_CreateWorkflowVersionCommand = async (
+  input: CreateWorkflowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workflow/{workflowId}/version");
+  b.p("workflowId", () => input.workflowId!, "{workflowId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accelerators: [],
+      definitionUri: [],
+      definitionZip: (_) => context.base64Encoder(_),
+      description: [],
+      engine: [],
+      main: [],
+      parameterTemplate: (_) => _json(_),
+      requestId: [true, (_) => _ ?? generateIdempotencyToken()],
+      storageCapacity: [],
+      storageType: [],
+      tags: (_) => _json(_),
+      versionName: [],
+      workflowBucketOwnerId: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -956,6 +1075,30 @@ export const se_DeleteRunCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteRunCacheCommand
+ */
+export const se_DeleteRunCacheCommand = async (
+  input: DeleteRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/runCache/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteRunGroupCommand
  */
 export const se_DeleteRunGroupCommand = async (
@@ -970,6 +1113,30 @@ export const se_DeleteRunGroupCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteS3AccessPolicyCommand
+ */
+export const se_DeleteS3AccessPolicyCommand = async (
+  input: DeleteS3AccessPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/s3accesspolicy/{s3AccessPointArn}");
+  b.p("s3AccessPointArn", () => input.s3AccessPointArn!, "{s3AccessPointArn}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1065,6 +1232,31 @@ export const se_DeleteWorkflowCommand = async (
   const headers: any = {};
   b.bp("/workflow/{id}");
   b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteWorkflowVersionCommand
+ */
+export const se_DeleteWorkflowVersionCommand = async (
+  input: DeleteWorkflowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workflow/{workflowId}/version/{versionName}");
+  b.p("workflowId", () => input.workflowId!, "{workflowId}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
@@ -1394,7 +1586,7 @@ export const se_GetRunCommand = async (input: GetRunCommandInput, context: __Ser
   b.bp("/run/{id}");
   b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
-    [_e]: [() => input.export !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
+    [_e]: [() => input.export !== void 0, () => input[_e]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1406,6 +1598,30 @@ export const se_GetRunCommand = async (input: GetRunCommandInput, context: __Ser
   }
   b.hn(resolvedHostname);
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRunCacheCommand
+ */
+export const se_GetRunCacheCommand = async (
+  input: GetRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/runCache/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -1449,6 +1665,30 @@ export const se_GetRunTaskCommand = async (
   let { hostname: resolvedHostname } = await context.endpoint();
   if (context.disableHostPrefix !== true) {
     resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetS3AccessPolicyCommand
+ */
+export const se_GetS3AccessPolicyCommand = async (
+  input: GetS3AccessPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/s3accesspolicy/{s3AccessPointArn}");
+  b.p("s3AccessPointArn", () => input.s3AccessPointArn!, "{s3AccessPointArn}", false);
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
     if (!__isValidHostname(resolvedHostname)) {
       throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
     }
@@ -1567,7 +1807,37 @@ export const se_GetWorkflowCommand = async (
   b.p("id", () => input.id!, "{id}", false);
   const query: any = map({
     [_t]: [, input[_t]!],
-    [_e]: [() => input.export !== void 0, () => (input[_e]! || []).map((_entry) => _entry as any)],
+    [_e]: [() => input.export !== void 0, () => input[_e]! || []],
+    [_wOI]: [, input[_wOI]!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetWorkflowVersionCommand
+ */
+export const se_GetWorkflowVersionCommand = async (
+  input: GetWorkflowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workflow/{workflowId}/version/{versionName}");
+  b.p("workflowId", () => input.workflowId!, "{workflowId}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  const query: any = map({
+    [_t]: [, input[_t]!],
+    [_e]: [() => input.export !== void 0, () => input[_e]! || []],
     [_wOI]: [, input[_wOI]!],
   });
   let body: any;
@@ -1998,6 +2268,33 @@ export const se_ListReferenceStoresCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListRunCachesCommand
+ */
+export const se_ListRunCachesCommand = async (
+  input: ListRunCachesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/runCache");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_sT]: [, input[_sT]!],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListRunGroupsCommand
  */
 export const se_ListRunGroupsCommand = async (
@@ -2277,6 +2574,67 @@ export const se_ListWorkflowsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListWorkflowVersionsCommand
+ */
+export const se_ListWorkflowVersionsCommand = async (
+  input: ListWorkflowVersionsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workflow/{workflowId}/version");
+  b.p("workflowId", () => input.workflowId!, "{workflowId}", false);
+  const query: any = map({
+    [_t]: [, input[_t]!],
+    [_wOI]: [, input[_wOI]!],
+    [_sT]: [, input[_sT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutS3AccessPolicyCommand
+ */
+export const se_PutS3AccessPolicyCommand = async (
+  input: PutS3AccessPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/s3accesspolicy/{s3AccessPointArn}");
+  b.p("s3AccessPointArn", () => input.s3AccessPointArn!, "{s3AccessPointArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      s3AccessPolicy: (_) => __LazyJsonString.from(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StartAnnotationImportJobCommand
  */
 export const se_StartAnnotationImportJobCommand = async (
@@ -2459,6 +2817,8 @@ export const se_StartRunCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      cacheBehavior: [],
+      cacheId: [],
       logLevel: [],
       name: [],
       outputUri: [],
@@ -2475,6 +2835,7 @@ export const se_StartRunCommand = async (
       workflowId: [],
       workflowOwnerId: [],
       workflowType: [],
+      workflowVersionName: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2566,10 +2927,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -2648,6 +3006,39 @@ export const se_UpdateAnnotationStoreVersionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateRunCacheCommand
+ */
+export const se_UpdateRunCacheCommand = async (
+  input: UpdateRunCacheCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/runCache/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      cacheBehavior: [],
+      description: [],
+      name: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateRunGroupCommand
  */
 export const se_UpdateRunGroupCommand = async (
@@ -2679,6 +3070,42 @@ export const se_UpdateRunGroupCommand = async (
   }
   b.hn(resolvedHostname);
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateSequenceStoreCommand
+ */
+export const se_UpdateSequenceStoreCommand = async (
+  input: UpdateSequenceStoreCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/sequencestore/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      fallbackLocation: [],
+      name: [],
+      propagatedSetLevelTags: (_) => _json(_),
+      s3AccessConfig: (_) => _json(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "control-storage-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -2731,6 +3158,42 @@ export const se_UpdateWorkflowCommand = async (
     take(input, {
       description: [],
       name: [],
+      storageCapacity: [],
+      storageType: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "workflows-" + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateWorkflowVersionCommand
+ */
+export const se_UpdateWorkflowVersionCommand = async (
+  input: UpdateWorkflowVersionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workflow/{workflowId}/version/{versionName}");
+  b.p("workflowId", () => input.workflowId!, "{workflowId}", false);
+  b.p("versionName", () => input.versionName!, "{versionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      description: [],
+      storageCapacity: [],
+      storageType: [],
     })
   );
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -3024,6 +3487,30 @@ export const de_CreateReferenceStoreCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateRunCacheCommand
+ */
+export const de_CreateRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateRunCacheCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    id: __expectString,
+    status: __expectString,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateRunGroupCommand
  */
 export const de_CreateRunGroupCommand = async (
@@ -3068,7 +3555,11 @@ export const de_CreateSequenceStoreCommand = async (
     fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
+    propagatedSetLevelTags: _json,
+    s3Access: _json,
     sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3141,6 +3632,33 @@ export const de_CreateWorkflowCommand = async (
     id: __expectString,
     status: __expectString,
     tags: _json,
+    uuid: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateWorkflowVersionCommand
+ */
+export const de_CreateWorkflowVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateWorkflowVersionCommandOutput> => {
+  if (output.statusCode !== 201 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    status: __expectString,
+    tags: _json,
+    uuid: __expectString,
+    versionName: __expectString,
+    workflowId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3240,6 +3758,23 @@ export const de_DeleteRunCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteRunCacheCommand
+ */
+export const de_DeleteRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteRunCacheCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteRunGroupCommand
  */
 export const de_DeleteRunGroupCommand = async (
@@ -3247,6 +3782,23 @@ export const de_DeleteRunGroupCommand = async (
   context: __SerdeContext
 ): Promise<DeleteRunGroupCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteS3AccessPolicyCommand
+ */
+export const de_DeleteS3AccessPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteS3AccessPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
   const contents: any = map({
@@ -3322,6 +3874,23 @@ export const de_DeleteWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteWorkflowCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkflowVersionCommand
+ */
+export const de_DeleteWorkflowVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkflowVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -3551,6 +4120,7 @@ export const de_GetReadSetMetadataCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     arn: __expectString,
+    creationJobId: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     creationType: __expectString,
     description: __expectString,
@@ -3634,7 +4204,9 @@ export const de_GetReferenceMetadataCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     arn: __expectString,
+    creationJobId: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    creationType: __expectString,
     description: __expectString,
     files: _json,
     id: __expectString,
@@ -3691,9 +4263,12 @@ export const de_GetRunCommand = async (
   const doc = take(data, {
     accelerators: __expectString,
     arn: __expectString,
+    cacheBehavior: __expectString,
+    cacheId: __expectString,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     definition: __expectString,
     digest: __expectString,
+    engineVersion: __expectString,
     failureReason: __expectString,
     id: __expectString,
     logLevel: __expectString,
@@ -3720,6 +4295,38 @@ export const de_GetRunCommand = async (
     workflowId: __expectString,
     workflowOwnerId: __expectString,
     workflowType: __expectString,
+    workflowUuid: __expectString,
+    workflowVersionName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRunCacheCommand
+ */
+export const de_GetRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRunCacheCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    cacheBehavior: __expectString,
+    cacheBucketOwnerId: __expectString,
+    cacheS3Uri: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+    tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3769,6 +4376,8 @@ export const de_GetRunTaskCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    cacheHit: __expectBoolean,
+    cacheS3Uri: __expectString,
     cpus: __expectInt32,
     creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     failureReason: __expectString,
@@ -3782,6 +4391,31 @@ export const de_GetRunTaskCommand = async (
     statusMessage: __expectString,
     stopTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     taskId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetS3AccessPolicyCommand
+ */
+export const de_GetS3AccessPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetS3AccessPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    s3AccessPointArn: __expectString,
+    s3AccessPolicy: __LazyJsonString.from,
+    storeId: __expectString,
+    storeType: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3809,8 +4443,12 @@ export const de_GetSequenceStoreCommand = async (
     fallbackLocation: __expectString,
     id: __expectString,
     name: __expectString,
+    propagatedSetLevelTags: _json,
     s3Access: _json,
     sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3930,8 +4568,50 @@ export const de_GetWorkflowCommand = async (
     status: __expectString,
     statusMessage: __expectString,
     storageCapacity: __expectInt32,
+    storageType: __expectString,
     tags: _json,
     type: __expectString,
+    uuid: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetWorkflowVersionCommand
+ */
+export const de_GetWorkflowVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetWorkflowVersionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accelerators: __expectString,
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: __expectString,
+    description: __expectString,
+    digest: __expectString,
+    engine: __expectString,
+    main: __expectString,
+    metadata: _json,
+    parameterTemplate: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    storageCapacity: __expectInt32,
+    storageType: __expectString,
+    tags: _json,
+    type: __expectString,
+    uuid: __expectString,
+    versionName: __expectString,
+    workflowBucketOwnerId: __expectString,
+    workflowId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4202,6 +4882,28 @@ export const de_ListReferenceStoresCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListRunCachesCommand
+ */
+export const de_ListRunCachesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRunCachesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_RunCacheList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListRunGroupsCommand
  */
 export const de_ListRunGroupsCommand = async (
@@ -4393,6 +5095,51 @@ export const de_ListWorkflowsCommand = async (
   const doc = take(data, {
     items: (_) => de_WorkflowList(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListWorkflowVersionsCommand
+ */
+export const de_ListWorkflowVersionsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListWorkflowVersionsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: (_) => de_WorkflowVersionList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutS3AccessPolicyCommand
+ */
+export const de_PutS3AccessPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutS3AccessPolicyCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    s3AccessPointArn: __expectString,
+    storeId: __expectString,
+    storeType: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4657,6 +5404,23 @@ export const de_UpdateAnnotationStoreVersionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateRunCacheCommand
+ */
+export const de_UpdateRunCacheCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateRunCacheCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateRunGroupCommand
  */
 export const de_UpdateRunGroupCommand = async (
@@ -4670,6 +5434,39 @@ export const de_UpdateRunGroupCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateSequenceStoreCommand
+ */
+export const de_UpdateSequenceStoreCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateSequenceStoreCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    creationTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    eTagAlgorithmFamily: __expectString,
+    fallbackLocation: __expectString,
+    id: __expectString,
+    name: __expectString,
+    propagatedSetLevelTags: _json,
+    s3Access: _json,
+    sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    updateTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -4707,6 +5504,23 @@ export const de_UpdateWorkflowCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateWorkflowCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateWorkflowVersionCommand
+ */
+export const de_UpdateWorkflowVersionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkflowVersionCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -5058,6 +5872,8 @@ const se_ImportReferenceFilter = (input: ImportReferenceFilter, context: __Serde
 
 // se_ListVariantStoresFilter omitted.
 
+// se_PropagatedSetLevelTags omitted.
+
 // se_ReadOptions omitted.
 
 /**
@@ -5121,6 +5937,8 @@ const se_RunParameters = (input: __DocumentType, context: __SerdeContext): any =
   return input;
 };
 
+// se_S3AccessConfig omitted.
+
 // se_Schema omitted.
 
 // se_SchemaItem omitted.
@@ -5133,6 +5951,9 @@ const se_SequenceStoreFilter = (input: SequenceStoreFilter, context: __SerdeCont
     createdAfter: __serializeDateTime,
     createdBefore: __serializeDateTime,
     name: [],
+    status: [],
+    updatedAfter: __serializeDateTime,
+    updatedBefore: __serializeDateTime,
   });
 };
 
@@ -5437,6 +6258,8 @@ const de_MultipartReadSetUploadListItem = (output: any, context: __SerdeContext)
   }) as any;
 };
 
+// de_PropagatedSetLevelTags omitted.
+
 // de_ReadOptions omitted.
 
 // de_ReadSetBatchError omitted.
@@ -5568,6 +6391,33 @@ const de_ReferenceStoreDetailList = (output: any, context: __SerdeContext): Refe
 };
 
 /**
+ * deserializeAws_restJson1RunCacheList
+ */
+const de_RunCacheList = (output: any, context: __SerdeContext): RunCacheListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RunCacheListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RunCacheListItem
+ */
+const de_RunCacheListItem = (output: any, context: __SerdeContext): RunCacheListItem => {
+  return take(output, {
+    arn: __expectString,
+    cacheBehavior: __expectString,
+    cacheS3Uri: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    status: __expectString,
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1RunGroupList
  */
 const de_RunGroupList = (output: any, context: __SerdeContext): RunGroupListItem[] => {
@@ -5623,6 +6473,7 @@ const de_RunListItem = (output: any, context: __SerdeContext): RunListItem => {
     storageCapacity: __expectInt32,
     storageType: __expectString,
     workflowId: __expectString,
+    workflowVersionName: __expectString,
   }) as any;
 };
 
@@ -5656,6 +6507,9 @@ const de_SequenceStoreDetail = (output: any, context: __SerdeContext): SequenceS
     id: __expectString,
     name: __expectString,
     sseConfig: _json,
+    status: __expectString,
+    statusMessage: __expectString,
+    updateTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
   }) as any;
 };
 
@@ -5728,6 +6582,8 @@ const de_TaskList = (output: any, context: __SerdeContext): TaskListItem[] => {
  */
 const de_TaskListItem = (output: any, context: __SerdeContext): TaskListItem => {
   return take(output, {
+    cacheHit: __expectBoolean,
+    cacheS3Uri: __expectString,
     cpus: __expectInt32,
     creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     gpus: __expectInt32,
@@ -5853,6 +6709,35 @@ const de_WorkflowListItem = (output: any, context: __SerdeContext): WorkflowList
 
 // de_WorkflowParameterTemplate omitted.
 
+/**
+ * deserializeAws_restJson1WorkflowVersionList
+ */
+const de_WorkflowVersionList = (output: any, context: __SerdeContext): WorkflowVersionListItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_WorkflowVersionListItem(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1WorkflowVersionListItem
+ */
+const de_WorkflowVersionListItem = (output: any, context: __SerdeContext): WorkflowVersionListItem => {
+  return take(output, {
+    arn: __expectString,
+    creationTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    description: __expectString,
+    digest: __expectString,
+    metadata: _json,
+    status: __expectString,
+    type: __expectString,
+    versionName: __expectString,
+    workflowId: __expectString,
+  }) as any;
+};
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -5864,13 +6749,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _e = "export";
 const _f = "force";

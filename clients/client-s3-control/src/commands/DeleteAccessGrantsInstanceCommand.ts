@@ -14,7 +14,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,7 @@ export interface DeleteAccessGrantsInstanceCommandOutput extends __MetadataBeare
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessGrantsInstanceCommand extends $Command
@@ -88,4 +90,16 @@ export class DeleteAccessGrantsInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessGrantsInstanceCommand)
   .de(de_DeleteAccessGrantsInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessGrantsInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessGrantsInstanceCommandInput;
+      output: DeleteAccessGrantsInstanceCommandOutput;
+    };
+  };
+}

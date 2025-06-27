@@ -12,7 +12,8 @@ import { de_CreateTaskCommand, se_CreateTaskCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,10 @@ export interface CreateTaskCommandInput extends CreateTaskRequest {}
 export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataBearer {}
 
 /**
- * <p>Configures a <i>task</i>, which defines where and how DataSync transfers your
- *       data.</p>
- *          <p>A task includes a source location, destination location, and transfer options (such as bandwidth limits, scheduling, and more).</p>
+ * <p>Configures a <i>task</i>, which defines where and how DataSync
+ *       transfers your data.</p>
+ *          <p>A task includes a source location, destination location, and transfer options (such as
+ *       bandwidth limits, scheduling, and more).</p>
  *          <important>
  *             <p>If you're planning to transfer data to or from an Amazon S3 location, review
  *           <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-s3-requests">how
@@ -124,6 +126,7 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *       },
  *     },
  *   },
+ *   TaskMode: "BASIC" || "ENHANCED",
  * };
  * const command = new CreateTaskCommand(input);
  * const response = await client.send(command);
@@ -149,6 +152,7 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateTaskCommand extends $Command
@@ -159,9 +163,7 @@ export class CreateTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +175,16 @@ export class CreateTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTaskCommand)
   .de(de_CreateTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTaskRequest;
+      output: CreateTaskResponse;
+    };
+    sdk: {
+      input: CreateTaskCommandInput;
+      output: CreateTaskCommandOutput;
+    };
+  };
+}

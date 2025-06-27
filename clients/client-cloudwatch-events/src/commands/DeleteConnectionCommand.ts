@@ -12,7 +12,8 @@ import { de_DeleteConnectionCommand, se_DeleteConnectionCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteConnectionCommandOutput extends DeleteConnectionResponse,
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DeleteConnectionCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConnectionCommand)
   .de(de_DeleteConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConnectionRequest;
+      output: DeleteConnectionResponse;
+    };
+    sdk: {
+      input: DeleteConnectionCommandInput;
+      output: DeleteConnectionCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +113,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class QueryAssistantCommand extends $Command
@@ -122,9 +124,7 @@ export class QueryAssistantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +136,16 @@ export class QueryAssistantCommand extends $Command
   .f(QueryAssistantRequestFilterSensitiveLog, QueryAssistantResponseFilterSensitiveLog)
   .ser(se_QueryAssistantCommand)
   .de(de_QueryAssistantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryAssistantRequest;
+      output: QueryAssistantResponse;
+    };
+    sdk: {
+      input: QueryAssistantCommandInput;
+      output: QueryAssistantCommandOutput;
+    };
+  };
+}

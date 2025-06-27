@@ -6,6 +6,7 @@ import {
 import { getHttpHandlerExtensionConfiguration, resolveHttpHandlerRuntimeConfig } from "@smithy/protocol-http";
 import { getDefaultExtensionConfiguration, resolveDefaultRuntimeConfig } from "@smithy/smithy-client";
 
+import { getHttpAuthExtensionConfiguration, resolveHttpAuthRuntimeConfig } from "./auth/httpAuthExtensionConfiguration";
 import { LexRuntimeV2ExtensionConfiguration } from "./extensionConfiguration";
 
 /**
@@ -22,24 +23,24 @@ export interface RuntimeExtensionsConfig {
   extensions: RuntimeExtension[];
 }
 
-const asPartial = <T extends Partial<LexRuntimeV2ExtensionConfiguration>>(t: T) => t;
-
 /**
  * @internal
  */
 export const resolveRuntimeExtensions = (runtimeConfig: any, extensions: RuntimeExtension[]) => {
-  const extensionConfiguration: LexRuntimeV2ExtensionConfiguration = {
-    ...asPartial(getAwsRegionExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getDefaultExtensionConfiguration(runtimeConfig)),
-    ...asPartial(getHttpHandlerExtensionConfiguration(runtimeConfig)),
-  };
+  const extensionConfiguration: LexRuntimeV2ExtensionConfiguration = Object.assign(
+    getAwsRegionExtensionConfiguration(runtimeConfig),
+    getDefaultExtensionConfiguration(runtimeConfig),
+    getHttpHandlerExtensionConfiguration(runtimeConfig),
+    getHttpAuthExtensionConfiguration(runtimeConfig)
+  );
 
   extensions.forEach((extension) => extension.configure(extensionConfiguration));
 
-  return {
-    ...runtimeConfig,
-    ...resolveAwsRegionExtensionConfiguration(extensionConfiguration),
-    ...resolveDefaultRuntimeConfig(extensionConfiguration),
-    ...resolveHttpHandlerRuntimeConfig(extensionConfiguration),
-  };
+  return Object.assign(
+    runtimeConfig,
+    resolveAwsRegionExtensionConfiguration(extensionConfiguration),
+    resolveDefaultRuntimeConfig(extensionConfiguration),
+    resolveHttpHandlerRuntimeConfig(extensionConfiguration),
+    resolveHttpAuthRuntimeConfig(extensionConfiguration)
+  );
 };

@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { XmlEmptyListsRequest, XmlEmptyListsResponse } from "../models/models_0";
 import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
@@ -10,7 +12,8 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -157,6 +160,7 @@ export interface XmlEmptyListsCommandOutput extends XmlEmptyListsResponse, __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class XmlEmptyListsCommand extends $Command
   .classBuilder<
@@ -166,12 +170,28 @@ export class XmlEmptyListsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestXml", "XmlEmptyLists", {})
   .n("RestXmlProtocolClient", "XmlEmptyListsCommand")
   .f(void 0, void 0)
   .ser(se_XmlEmptyListsCommand)
   .de(de_XmlEmptyListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: XmlEmptyListsRequest;
+      output: XmlEmptyListsResponse;
+    };
+    sdk: {
+      input: XmlEmptyListsCommandInput;
+      output: XmlEmptyListsCommandOutput;
+    };
+  };
+}

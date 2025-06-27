@@ -12,7 +12,8 @@ import { de_ListEventBusesCommand, se_ListEventBusesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface ListEventBusesCommandOutput extends ListEventBusesResponse, __M
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class ListEventBusesCommand extends $Command
@@ -80,9 +82,7 @@ export class ListEventBusesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class ListEventBusesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventBusesCommand)
   .de(de_ListEventBusesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventBusesRequest;
+      output: ListEventBusesResponse;
+    };
+    sdk: {
+      input: ListEventBusesCommandInput;
+      output: ListEventBusesCommandOutput;
+    };
+  };
+}

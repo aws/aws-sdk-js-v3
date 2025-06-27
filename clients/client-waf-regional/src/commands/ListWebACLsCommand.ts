@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,28 +76,28 @@ export interface ListWebACLsCommandOutput extends ListWebACLsResponse, __Metadat
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To list Web ACLs
  * ```javascript
  * // The following example returns an array of up to 100 web ACLs.
  * const input = {
- *   "Limit": 100
+ *   Limit: 100
  * };
  * const command = new ListWebACLsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "WebACLs": [
+ *   WebACLs: [
  *     {
- *       "Name": "WebACLexample",
- *       "WebACLId": "webacl-1472061481310"
+ *       Name: "WebACLexample",
+ *       WebACLId: "webacl-1472061481310"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listwebacls-1475258732691
  * ```
  *
+ * @public
  */
 export class ListWebACLsCommand extends $Command
   .classBuilder<
@@ -106,9 +107,7 @@ export class ListWebACLsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class ListWebACLsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWebACLsCommand)
   .de(de_ListWebACLsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWebACLsRequest;
+      output: ListWebACLsResponse;
+    };
+    sdk: {
+      input: ListWebACLsCommandInput;
+      output: ListWebACLsCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface ListIAMPolicyAssignmentsForUserCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListIAMPolicyAssignmentsForUserCommand extends $Command
@@ -112,9 +114,7 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class ListIAMPolicyAssignmentsForUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIAMPolicyAssignmentsForUserCommand)
   .de(de_ListIAMPolicyAssignmentsForUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIAMPolicyAssignmentsForUserRequest;
+      output: ListIAMPolicyAssignmentsForUserResponse;
+    };
+    sdk: {
+      input: ListIAMPolicyAssignmentsForUserCommandInput;
+      output: ListIAMPolicyAssignmentsForUserCommandOutput;
+    };
+  };
+}

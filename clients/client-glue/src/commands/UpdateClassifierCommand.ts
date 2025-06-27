@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateClassifierRequest, UpdateClassifierResponse } from "../models/models_2";
+import { UpdateClassifierRequest, UpdateClassifierResponse } from "../models/models_3";
 import { de_UpdateClassifierCommand, se_UpdateClassifierCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface UpdateClassifierCommandOutput extends UpdateClassifierResponse,
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateClassifierCommand extends $Command
@@ -106,9 +108,7 @@ export class UpdateClassifierCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class UpdateClassifierCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateClassifierCommand)
   .de(de_UpdateClassifierCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateClassifierRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateClassifierCommandInput;
+      output: UpdateClassifierCommandOutput;
+    };
+  };
+}

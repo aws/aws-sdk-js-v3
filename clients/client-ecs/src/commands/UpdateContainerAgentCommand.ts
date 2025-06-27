@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ECSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ECSClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_0";
+import { UpdateContainerAgentRequest, UpdateContainerAgentResponse } from "../models/models_1";
 import { de_UpdateContainerAgentCommand, se_UpdateContainerAgentCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -155,11 +156,13 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link MissingVersionException} (client fault)
  *  <p>Amazon ECS can't determine the current version of the Amazon ECS container agent on the
@@ -185,6 +188,31 @@ export interface UpdateContainerAgentCommandOutput extends UpdateContainerAgentR
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
+ *
+ * @example To update the container agent version on a container instance
+ * ```javascript
+ * // This example updates the container agent version on the specified container instance in cluster MyCluster.
+ * const input = {
+ *   cluster: "MyCluster",
+ *   containerInstance: "53ac7152-dcd1-4102-81f5-208962864132"
+ * };
+ * const command = new UpdateContainerAgentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   containerInstance: {
+ *     agentConnected: true,
+ *     agentUpdateStatus: "PENDING",
+ *     versionInfo: {
+ *       agentHash: "4023248",
+ *       agentVersion: "1.0.0",
+ *       dockerVersion: "DockerVersion: 1.5.0"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateContainerAgentCommand extends $Command
@@ -195,9 +223,7 @@ export class UpdateContainerAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -209,4 +235,16 @@ export class UpdateContainerAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContainerAgentCommand)
   .de(de_UpdateContainerAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContainerAgentRequest;
+      output: UpdateContainerAgentResponse;
+    };
+    sdk: {
+      input: UpdateContainerAgentCommandInput;
+      output: UpdateContainerAgentCommandOutput;
+    };
+  };
+}

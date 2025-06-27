@@ -16,7 +16,8 @@ import { de_DeleteLoadBalancerListenersCommand, se_DeleteLoadBalancerListenersCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,21 +63,24 @@ export interface DeleteLoadBalancerListenersCommandOutput extends DeleteLoadBala
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To delete a listener from your load balancer
  * ```javascript
  * // This example deletes the listener for the specified port from the specified load balancer.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "LoadBalancerPorts": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   LoadBalancerPorts: [
  *     80
  *   ]
  * };
  * const command = new DeleteLoadBalancerListenersCommand(input);
- * await client.send(command);
- * // example id: elb-delete-load-balancer-listeners-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteLoadBalancerListenersCommand extends $Command
   .classBuilder<
@@ -86,9 +90,7 @@ export class DeleteLoadBalancerListenersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +102,16 @@ export class DeleteLoadBalancerListenersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLoadBalancerListenersCommand)
   .de(de_DeleteLoadBalancerListenersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLoadBalancerListenerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLoadBalancerListenersCommandInput;
+      output: DeleteLoadBalancerListenersCommandOutput;
+    };
+  };
+}

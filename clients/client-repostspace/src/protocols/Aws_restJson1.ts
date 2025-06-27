@@ -25,6 +25,8 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { BatchAddRoleCommandInput, BatchAddRoleCommandOutput } from "../commands/BatchAddRoleCommand";
+import { BatchRemoveRoleCommandInput, BatchRemoveRoleCommandOutput } from "../commands/BatchRemoveRoleCommand";
 import { CreateSpaceCommandInput, CreateSpaceCommandOutput } from "../commands/CreateSpaceCommand";
 import { DeleteSpaceCommandInput, DeleteSpaceCommandOutput } from "../commands/DeleteSpaceCommand";
 import { DeregisterAdminCommandInput, DeregisterAdminCommandOutput } from "../commands/DeregisterAdminCommand";
@@ -50,6 +52,54 @@ import {
   ValidationException,
 } from "../models/models_0";
 import { RepostspaceServiceException as __BaseException } from "../models/RepostspaceServiceException";
+
+/**
+ * serializeAws_restJson1BatchAddRoleCommand
+ */
+export const se_BatchAddRoleCommand = async (
+  input: BatchAddRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/spaces/{spaceId}/roles");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accessorIds: (_) => _json(_),
+      role: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchRemoveRoleCommand
+ */
+export const se_BatchRemoveRoleCommand = async (
+  input: BatchRemoveRoleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/spaces/{spaceId}/roles");
+  b.p("spaceId", () => input.spaceId!, "{spaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accessorIds: (_) => _json(_),
+      role: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateSpaceCommand
@@ -240,10 +290,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -273,6 +320,50 @@ export const se_UpdateSpaceCommand = async (
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1BatchAddRoleCommand
+ */
+export const de_BatchAddRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAddRoleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    addedAccessorIds: _json,
+    errors: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchRemoveRoleCommand
+ */
+export const de_BatchRemoveRoleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchRemoveRoleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: _json,
+    removedAccessorIds: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -356,6 +447,7 @@ export const de_GetSpaceCommand = async (
     groupAdmins: _json,
     name: __expectString,
     randomDomain: __expectString,
+    roles: _json,
     spaceId: __expectString,
     status: __expectString,
     storageLimit: __expectLong,
@@ -511,24 +603,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.repostspace#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.repostspace#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.repostspace#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.repostspace#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.repostspace#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.repostspace#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.repostspace#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.repostspace#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.repostspace#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -691,7 +783,17 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_Tags omitted.
 
+// de_AccessorIdList omitted.
+
+// de_BatchError omitted.
+
+// de_BatchErrorList omitted.
+
 // de_GroupAdmins omitted.
+
+// de_RoleList omitted.
+
+// de_Roles omitted.
 
 /**
  * deserializeAws_restJson1SpaceData
@@ -748,13 +850,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _mR = "maxResults";
 const _nT = "nextToken";

@@ -12,7 +12,8 @@ import { de_ListMissionProfilesCommand, se_ListMissionProfilesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface ListMissionProfilesCommandOutput extends ListMissionProfilesRes
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListMissionProfilesCommand extends $Command
@@ -82,9 +84,7 @@ export class ListMissionProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ListMissionProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMissionProfilesCommand)
   .de(de_ListMissionProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMissionProfilesRequest;
+      output: ListMissionProfilesResponse;
+    };
+    sdk: {
+      input: ListMissionProfilesCommandInput;
+      output: ListMissionProfilesCommandOutput;
+    };
+  };
+}

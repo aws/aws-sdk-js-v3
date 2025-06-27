@@ -12,7 +12,8 @@ import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,9 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
 /**
  * <p>Runs one or more SQL statements.</p>
  *          <note>
- *             <p>This operation isn't supported for Aurora PostgreSQL Serverless v2 and provisioned DB clusters, and for Aurora Serverless v1 DB clusters,
- *             the operation is deprecated. Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
+ *             <p>This operation isn't supported for Aurora Serverless v2 and provisioned DB clusters.
+ *             For Aurora Serverless v1 DB clusters, the operation is deprecated.
+ *             Use the <code>BatchExecuteStatement</code> or <code>ExecuteStatement</code> operation.</p>
  *          </note>
  *
  * @deprecated The ExecuteSql API is deprecated, please use the ExecuteStatement API.
@@ -144,6 +146,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class ExecuteSqlCommand extends $Command
@@ -154,9 +157,7 @@ export class ExecuteSqlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +169,16 @@ export class ExecuteSqlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteSqlCommand)
   .de(de_ExecuteSqlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteSqlRequest;
+      output: ExecuteSqlResponse;
+    };
+    sdk: {
+      input: ExecuteSqlCommandInput;
+      output: ExecuteSqlCommandOutput;
+    };
+  };
+}

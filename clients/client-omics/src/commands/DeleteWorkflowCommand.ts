@@ -12,7 +12,8 @@ import { de_DeleteWorkflowCommand, se_DeleteWorkflowCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface DeleteWorkflowCommandOutput extends __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkflowCommand extends $Command
@@ -86,9 +88,7 @@ export class DeleteWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class DeleteWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkflowCommand)
   .de(de_DeleteWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkflowRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWorkflowCommandInput;
+      output: DeleteWorkflowCommandOutput;
+    };
+  };
+}

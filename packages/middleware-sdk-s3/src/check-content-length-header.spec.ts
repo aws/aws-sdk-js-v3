@@ -1,18 +1,19 @@
 import { NoOpLogger } from "@smithy/smithy-client";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { checkContentLengthHeader } from "./check-content-length-header";
 
 describe("checkContentLengthHeaderMiddleware", () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
 
-  let spy: jest.SpyInstance;
+  let spy: any;
 
   beforeEach(() => {
-    spy = jest.spyOn(console, "warn");
+    spy = vi.spyOn(console, "warn").mockImplementation(() => {});
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("warns if uploading a payload of unknown length", async () => {
@@ -122,6 +123,26 @@ describe("checkContentLengthHeaderMiddleware", () => {
         query: {},
         headers: {
           "content-length": "5",
+        },
+      },
+      input: {},
+    });
+
+    expect(spy).not.toHaveBeenCalled();
+  });
+
+  it("does not warn if uploading a payload of known length via alternate header x-amz-decoded-content-length", async () => {
+    const handler = checkContentLengthHeader()(mockNextHandler, {});
+
+    await handler({
+      request: {
+        method: null,
+        protocol: null,
+        hostname: null,
+        path: null,
+        query: {},
+        headers: {
+          "x-amz-decoded-content-length": "5",
         },
       },
       input: {},

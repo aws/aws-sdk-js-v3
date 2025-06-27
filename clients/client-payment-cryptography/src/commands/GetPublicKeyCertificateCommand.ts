@@ -20,7 +20,8 @@ import { de_GetPublicKeyCertificateCommand, se_GetPublicKeyCertificateCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,10 +36,7 @@ export interface GetPublicKeyCertificateCommandInput extends GetPublicKeyCertifi
 export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertificateOutput, __MetadataBearer {}
 
 /**
- * <p>Gets the public key certificate of the asymmetric key pair that exists within Amazon Web Services Payment Cryptography.</p>
- *          <p>Unlike the private key of an asymmetric key, which never leaves Amazon Web Services Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code> permission can download the public key certificate of the asymmetric key. You can share the public key certificate to allow others to encrypt messages and verify signatures outside of Amazon Web Services Payment Cryptography</p>
- *          <p>
- *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
+ * <p>Gets the public key certificate of the asymmetric key pair that exists within Amazon Web Services Payment Cryptography.</p> <p>Unlike the private key of an asymmetric key, which never leaves Amazon Web Services Payment Cryptography unencrypted, callers with <code>GetPublicKeyCertificate</code> permission can download the public key certificate of the asymmetric key. You can share the public key certificate to allow others to encrypt messages and verify signatures outside of Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +82,7 @@ export interface GetPublicKeyCertificateCommandOutput extends GetPublicKeyCertif
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class GetPublicKeyCertificateCommand extends $Command
@@ -94,9 +93,7 @@ export class GetPublicKeyCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +105,16 @@ export class GetPublicKeyCertificateCommand extends $Command
   .f(void 0, GetPublicKeyCertificateOutputFilterSensitiveLog)
   .ser(se_GetPublicKeyCertificateCommand)
   .de(de_GetPublicKeyCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPublicKeyCertificateInput;
+      output: GetPublicKeyCertificateOutput;
+    };
+    sdk: {
+      input: GetPublicKeyCertificateCommandInput;
+      output: GetPublicKeyCertificateCommandOutput;
+    };
+  };
+}

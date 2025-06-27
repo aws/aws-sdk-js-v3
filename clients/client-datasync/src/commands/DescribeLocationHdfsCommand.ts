@@ -12,7 +12,8 @@ import { de_DescribeLocationHdfsCommand, se_DescribeLocationHdfsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationHdfsCommand extends $Command
@@ -93,9 +95,7 @@ export class DescribeLocationHdfsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class DescribeLocationHdfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationHdfsCommand)
   .de(de_DescribeLocationHdfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationHdfsRequest;
+      output: DescribeLocationHdfsResponse;
+    };
+    sdk: {
+      input: DescribeLocationHdfsCommandInput;
+      output: DescribeLocationHdfsCommandOutput;
+    };
+  };
+}

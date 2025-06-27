@@ -12,7 +12,8 @@ import { de_GetConnectPeerAssociationsCommand, se_GetConnectPeerAssociationsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetConnectPeerAssociationsCommandOutput extends GetConnectPeerA
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetConnectPeerAssociationsCommand extends $Command
@@ -97,9 +99,7 @@ export class GetConnectPeerAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetConnectPeerAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectPeerAssociationsCommand)
   .de(de_GetConnectPeerAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectPeerAssociationsRequest;
+      output: GetConnectPeerAssociationsResponse;
+    };
+    sdk: {
+      input: GetConnectPeerAssociationsCommandInput;
+      output: GetConnectPeerAssociationsCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetEbsDefaultKmsKeyIdRequest, ResetEbsDefaultKmsKeyIdResult } from "../models/models_7";
+import { ResetEbsDefaultKmsKeyIdRequest, ResetEbsDefaultKmsKeyIdResult } from "../models/models_8";
 import { de_ResetEbsDefaultKmsKeyIdCommand, se_ResetEbsDefaultKmsKeyIdCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ResetEbsDefaultKmsKeyIdCommand extends $Command
@@ -69,9 +71,7 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +83,16 @@ export class ResetEbsDefaultKmsKeyIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetEbsDefaultKmsKeyIdCommand)
   .de(de_ResetEbsDefaultKmsKeyIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetEbsDefaultKmsKeyIdRequest;
+      output: ResetEbsDefaultKmsKeyIdResult;
+    };
+    sdk: {
+      input: ResetEbsDefaultKmsKeyIdCommandInput;
+      output: ResetEbsDefaultKmsKeyIdCommandOutput;
+    };
+  };
+}

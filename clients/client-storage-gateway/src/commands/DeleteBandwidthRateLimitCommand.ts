@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,24 +68,24 @@ export interface DeleteBandwidthRateLimitCommandOutput extends DeleteBandwidthRa
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To delete bandwidth rate limits of gateway
  * ```javascript
  * // Deletes the bandwidth rate limits of a gateway; either the upload or download limit, or both.
  * const input = {
- *   "BandwidthType": "All",
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   BandwidthType: "All",
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DeleteBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-delete-bandwidth-rate-limits-of-gateway-1471373225520
  * ```
  *
+ * @public
  */
 export class DeleteBandwidthRateLimitCommand extends $Command
   .classBuilder<
@@ -94,9 +95,7 @@ export class DeleteBandwidthRateLimitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +107,16 @@ export class DeleteBandwidthRateLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBandwidthRateLimitCommand)
   .de(de_DeleteBandwidthRateLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBandwidthRateLimitInput;
+      output: DeleteBandwidthRateLimitOutput;
+    };
+    sdk: {
+      input: DeleteBandwidthRateLimitCommandInput;
+      output: DeleteBandwidthRateLimitCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_query";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,29 +83,29 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To get information about an IAM user
  * ```javascript
  * // The following command gets information about the IAM user named Bob.
  * const input = {
- *   "UserName": "Bob"
+ *   UserName: "Bob"
  * };
  * const command = new GetUserCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "User": {
- *     "Arn": "arn:aws:iam::123456789012:user/Bob",
- *     "CreateDate": "2012-09-21T23:03:13Z",
- *     "Path": "/",
- *     "UserId": "AKIAIOSFODNN7EXAMPLE",
- *     "UserName": "Bob"
+ *   User: {
+ *     Arn: "arn:aws:iam::123456789012:user/Bob",
+ *     CreateDate: "2012-09-21T23:03:13Z",
+ *     Path: "/",
+ *     UserId: "AKIAIOSFODNN7EXAMPLE",
+ *     UserName: "Bob"
  *   }
  * }
  * *\/
- * // example id: ede000a1-9e4c-40db-bd0a-d4f95e41a6ab
  * ```
  *
+ * @public
  */
 export class GetUserCommand extends $Command
   .classBuilder<
@@ -114,9 +115,7 @@ export class GetUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +127,16 @@ export class GetUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserCommand)
   .de(de_GetUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserRequest;
+      output: GetUserResponse;
+    };
+    sdk: {
+      input: GetUserCommandInput;
+      output: GetUserCommandOutput;
+    };
+  };
+}

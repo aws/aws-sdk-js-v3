@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVolumeAttributeRequest } from "../models/models_6";
+import { ModifyVolumeAttributeRequest } from "../models/models_7";
 import { de_ModifyVolumeAttributeCommand, se_ModifyVolumeAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,22 +63,25 @@ export interface ModifyVolumeAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To modify a volume attribute
  * ```javascript
  * // This example sets the ``autoEnableIo`` attribute of the volume with the ID ``vol-1234567890abcdef0`` to ``true``. If the command succeeds, no output is returned.
  * const input = {
- *   "AutoEnableIO": {
- *     "Value": true
+ *   AutoEnableIO: {
+ *     Value: true
  *   },
- *   "DryRun": true,
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   DryRun: true,
+ *   VolumeId: "vol-1234567890abcdef0"
  * };
  * const command = new ModifyVolumeAttributeCommand(input);
- * await client.send(command);
- * // example id: to-modify-a-volume-attribute-1472508596749
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ModifyVolumeAttributeCommand extends $Command
   .classBuilder<
@@ -87,9 +91,7 @@ export class ModifyVolumeAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class ModifyVolumeAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVolumeAttributeCommand)
   .de(de_ModifyVolumeAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVolumeAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyVolumeAttributeCommandInput;
+      output: ModifyVolumeAttributeCommandOutput;
+    };
+  };
+}

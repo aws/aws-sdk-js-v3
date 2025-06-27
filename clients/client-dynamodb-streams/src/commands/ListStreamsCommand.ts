@@ -12,7 +12,8 @@ import { de_ListStreamsCommand, se_ListStreamsCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,37 +77,37 @@ export interface ListStreamsCommandOutput extends ListStreamsOutput, __MetadataB
  * @throws {@link DynamoDBStreamsServiceException}
  * <p>Base exception class for all service exceptions from DynamoDBStreams service.</p>
  *
- * @public
+ *
  * @example To list all of the stream ARNs
  * ```javascript
  * // The following example lists all of the stream ARNs.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListStreamsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Streams": [
+ *   Streams: [
  *     {
- *       "StreamArn": "arn:aws:dynamodb:us-wesst-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
- *       "StreamLabel": "2015-05-20T20:51:10.252",
- *       "TableName": "Forum"
+ *       StreamArn: "arn:aws:dynamodb:us-wesst-2:111122223333:table/Forum/stream/2015-05-20T20:51:10.252",
+ *       StreamLabel: "2015-05-20T20:51:10.252",
+ *       TableName: "Forum"
  *     },
  *     {
- *       "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:50:02.714",
- *       "StreamLabel": "2015-05-20T20:50:02.714",
- *       "TableName": "Forum"
+ *       StreamArn: "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-20T20:50:02.714",
+ *       StreamLabel: "2015-05-20T20:50:02.714",
+ *       TableName: "Forum"
  *     },
  *     {
- *       "StreamArn": "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-19T23:03:50.641",
- *       "StreamLabel": "2015-05-19T23:03:50.641",
- *       "TableName": "Forum"
+ *       StreamArn: "arn:aws:dynamodb:us-west-2:111122223333:table/Forum/stream/2015-05-19T23:03:50.641",
+ *       StreamLabel: "2015-05-19T23:03:50.641",
+ *       TableName: "Forum"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-all-of-the-stream-arns--1473459534285
  * ```
  *
+ * @public
  */
 export class ListStreamsCommand extends $Command
   .classBuilder<
@@ -116,9 +117,7 @@ export class ListStreamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBStreamsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +129,16 @@ export class ListStreamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStreamsCommand)
   .de(de_ListStreamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStreamsInput;
+      output: ListStreamsOutput;
+    };
+    sdk: {
+      input: ListStreamsCommandInput;
+      output: ListStreamsCommandOutput;
+    };
+  };
+}

@@ -20,7 +20,8 @@ import { de_GetChannelMessageCommand, se_GetChannelMessageCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -124,6 +125,7 @@ export interface GetChannelMessageCommandOutput extends GetChannelMessageRespons
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class GetChannelMessageCommand extends $Command
@@ -134,9 +136,7 @@ export class GetChannelMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class GetChannelMessageCommand extends $Command
   .f(void 0, GetChannelMessageResponseFilterSensitiveLog)
   .ser(se_GetChannelMessageCommand)
   .de(de_GetChannelMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelMessageRequest;
+      output: GetChannelMessageResponse;
+    };
+    sdk: {
+      input: GetChannelMessageCommandInput;
+      output: GetChannelMessageCommandOutput;
+    };
+  };
+}

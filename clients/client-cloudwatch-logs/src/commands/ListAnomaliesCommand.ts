@@ -12,7 +12,8 @@ import { de_ListAnomaliesCommand, se_ListAnomaliesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __Met
  * //           enumerations: { // Enumerations
  * //             "<keys>": Number("long"),
  * //           },
+ * //           inferredTokenName: "STRING_VALUE",
  * //         },
  * //       ],
  * //       logGroupArnList: [ // LogGroupArnList // required
@@ -111,6 +113,7 @@ export interface ListAnomaliesCommandOutput extends ListAnomaliesResponse, __Met
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class ListAnomaliesCommand extends $Command
@@ -121,9 +124,7 @@ export class ListAnomaliesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +136,16 @@ export class ListAnomaliesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomaliesCommand)
   .de(de_ListAnomaliesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomaliesRequest;
+      output: ListAnomaliesResponse;
+    };
+    sdk: {
+      input: ListAnomaliesCommandInput;
+      output: ListAnomaliesCommandOutput;
+    };
+  };
+}

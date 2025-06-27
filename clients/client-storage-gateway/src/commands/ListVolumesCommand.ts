@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,44 +85,44 @@ export interface ListVolumesCommandOutput extends ListVolumesOutput, __MetadataB
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To list the iSCSI stored volumes of a gateway
  * ```javascript
  * // Lists the iSCSI stored volumes of a gateway. Results are sorted by volume ARN up to a maximum of 100 volumes.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "Limit": 2,
- *   "Marker": "1"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   Limit: 2,
+ *   Marker: "1"
  * };
  * const command = new ListVolumesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "Marker": "1",
- *   "VolumeInfos": [
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   Marker: "1",
+ *   VolumeInfos: [
  *     {
- *       "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *       "GatewayId": "sgw-12A3456B",
- *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
- *       "VolumeId": "vol-1122AABB",
- *       "VolumeSizeInBytes": 107374182400,
- *       "VolumeType": "STORED"
+ *       GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *       GatewayId: "sgw-12A3456B",
+ *       VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *       VolumeId: "vol-1122AABB",
+ *       VolumeSizeInBytes: 107374182400,
+ *       VolumeType: "STORED"
  *     },
  *     {
- *       "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C",
- *       "GatewayId": "sgw-gw-13B4567C",
- *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C/volume/vol-3344CCDD",
- *       "VolumeId": "vol-1122AABB",
- *       "VolumeSizeInBytes": 107374182400,
- *       "VolumeType": "STORED"
+ *       GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C",
+ *       GatewayId: "sgw-gw-13B4567C",
+ *       VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-13B4567C/volume/vol-3344CCDD",
+ *       VolumeId: "vol-1122AABB",
+ *       VolumeSizeInBytes: 107374182400,
+ *       VolumeType: "STORED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-iscsi-stored-volumes-of-a-gateway-1472145723653
  * ```
  *
+ * @public
  */
 export class ListVolumesCommand extends $Command
   .classBuilder<
@@ -131,9 +132,7 @@ export class ListVolumesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class ListVolumesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVolumesCommand)
   .de(de_ListVolumesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVolumesInput;
+      output: ListVolumesOutput;
+    };
+    sdk: {
+      input: ListVolumesCommandInput;
+      output: ListVolumesCommandOutput;
+    };
+  };
+}

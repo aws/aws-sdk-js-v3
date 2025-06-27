@@ -12,7 +12,8 @@ import { de_AttachNetworkInterfaceCommand, se_AttachNetworkInterfaceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,10 +36,6 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * // const { EC2Client, AttachNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AttachNetworkInterfaceRequest
- *   DeviceIndex: Number("int"), // required
- *   DryRun: true || false,
- *   InstanceId: "STRING_VALUE", // required
- *   NetworkInterfaceId: "STRING_VALUE", // required
  *   NetworkCardIndex: Number("int"),
  *   EnaSrdSpecification: { // EnaSrdSpecification
  *     EnaSrdEnabled: true || false,
@@ -46,6 +43,11 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  *       EnaSrdUdpEnabled: true || false,
  *     },
  *   },
+ *   EnaQueueCount: Number("int"),
+ *   DryRun: true || false,
+ *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   InstanceId: "STRING_VALUE", // required
+ *   DeviceIndex: Number("int"), // required
  * };
  * const command = new AttachNetworkInterfaceCommand(input);
  * const response = await client.send(command);
@@ -65,25 +67,25 @@ export interface AttachNetworkInterfaceCommandOutput extends AttachNetworkInterf
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To attach a network interface to an instance
  * ```javascript
  * // This example attaches the specified network interface to the specified instance.
  * const input = {
- *   "DeviceIndex": 1,
- *   "InstanceId": "i-1234567890abcdef0",
- *   "NetworkInterfaceId": "eni-e5aa89a3"
+ *   DeviceIndex: 1,
+ *   InstanceId: "i-1234567890abcdef0",
+ *   NetworkInterfaceId: "eni-e5aa89a3"
  * };
  * const command = new AttachNetworkInterfaceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AttachmentId": "eni-attach-66c4350a"
+ *   AttachmentId: "eni-attach-66c4350a"
  * }
  * *\/
- * // example id: ec2-attach-network-interface-1
  * ```
  *
+ * @public
  */
 export class AttachNetworkInterfaceCommand extends $Command
   .classBuilder<
@@ -93,9 +95,7 @@ export class AttachNetworkInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class AttachNetworkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachNetworkInterfaceCommand)
   .de(de_AttachNetworkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachNetworkInterfaceRequest;
+      output: AttachNetworkInterfaceResult;
+    };
+    sdk: {
+      input: AttachNetworkInterfaceCommandInput;
+      output: AttachNetworkInterfaceCommandOutput;
+    };
+  };
+}

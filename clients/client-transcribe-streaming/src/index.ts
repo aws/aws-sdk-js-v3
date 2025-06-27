@@ -1,9 +1,10 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Transcribe streaming offers three main types of real-time transcription:
- *       <b>Standard</b>, <b>Medical</b>, and
- *       <b>Call Analytics</b>.</p>
+ * <p>Amazon Transcribe streaming offers four main types of real-time transcription:
+ *       <b>Standard</b>, <b>Medical</b>,
+ *       <b>Call Analytics</b>,
+ *       and <b>Health Scribe</b>.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -23,6 +24,12 @@
  *           center audio on two different channels; if you're looking for insight into customer service calls, use this
  *           option. Refer to  for details.</p>
  *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>HealthScribe transcriptions</b> are designed to
+ *           automatically create clinical notes from patient-clinician conversations using generative AI.
+ *           Refer to [here] for details.</p>
+ *             </li>
  *          </ul>
  *
  * @packageDocumentation
@@ -30,8 +37,8 @@
 export * from "./TranscribeStreamingClient";
 export * from "./TranscribeStreaming";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { TranscribeStreamingExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { TranscribeStreamingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

@@ -12,7 +12,8 @@ import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,11 +49,11 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //   prePassStartTime: new Date("TIMESTAMP"),
  * //   postPassEndTime: new Date("TIMESTAMP"),
  * //   groundStation: "STRING_VALUE",
- * //   contactStatus: "STRING_VALUE",
+ * //   contactStatus: "SCHEDULING" || "FAILED_TO_SCHEDULE" || "SCHEDULED" || "CANCELLED" || "AWS_CANCELLED" || "PREPASS" || "PASS" || "POSTPASS" || "COMPLETED" || "FAILED" || "AVAILABLE" || "CANCELLING" || "AWS_FAILED",
  * //   errorMessage: "STRING_VALUE",
  * //   maximumElevation: { // Elevation
  * //     value: Number("double"), // required
- * //     unit: "STRING_VALUE", // required
+ * //     unit: "DEGREE_ANGLE" || "RADIAN", // required
  * //   },
  * //   tags: { // TagsMap
  * //     "<keys>": "STRING_VALUE",
@@ -61,7 +62,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //   dataflowList: [ // DataflowList
  * //     { // DataflowDetail
  * //       source: { // Source
- * //         configType: "STRING_VALUE",
+ * //         configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //         configId: "STRING_VALUE",
  * //         configDetails: { // ConfigDetails Union: only one key present
  * //           endpointDetails: { // EndpointDetails
@@ -80,7 +81,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                 name: "STRING_VALUE", // required
  * //                 port: Number("int"), // required
  * //               },
- * //               status: "STRING_VALUE",
+ * //               status: "created" || "creating" || "deleted" || "deleting" || "failed",
  * //               mtu: Number("int"),
  * //             },
  * //             awsGroundStationAgentEndpoint: { // AwsGroundStationAgentEndpoint
@@ -102,12 +103,12 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                 },
  * //                 mtu: Number("int"),
  * //               },
- * //               agentStatus: "STRING_VALUE",
- * //               auditResults: "STRING_VALUE",
+ * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ * //               auditResults: "HEALTHY" || "UNHEALTHY",
  * //             },
- * //             healthStatus: "STRING_VALUE",
+ * //             healthStatus: "HEALTHY" || "UNHEALTHY",
  * //             healthReasons: [ // CapabilityHealthReasonList
- * //               "STRING_VALUE",
+ * //               "NO_REGISTERED_AGENT" || "INVALID_IP_OWNERSHIP" || "NOT_AUTHORIZED_TO_CREATE_SLR" || "UNVERIFIED_IP_OWNERSHIP" || "INITIALIZING_DATAPLANE" || "DATAPLANE_FAILURE" || "HEALTHY",
  * //             ],
  * //           },
  * //           antennaDemodDecodeDetails: { // AntennaDemodDecodeDetails
@@ -121,7 +122,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //         dataflowSourceRegion: "STRING_VALUE",
  * //       },
  * //       destination: { // Destination
- * //         configType: "STRING_VALUE",
+ * //         configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //         configId: "STRING_VALUE",
  * //         configDetails: {//  Union: only one key present
  * //           endpointDetails: {
@@ -140,7 +141,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                 name: "STRING_VALUE", // required
  * //                 port: Number("int"), // required
  * //               },
- * //               status: "STRING_VALUE",
+ * //               status: "created" || "creating" || "deleted" || "deleting" || "failed",
  * //               mtu: Number("int"),
  * //             },
  * //             awsGroundStationAgentEndpoint: {
@@ -162,12 +163,12 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                 },
  * //                 mtu: Number("int"),
  * //               },
- * //               agentStatus: "STRING_VALUE",
- * //               auditResults: "STRING_VALUE",
+ * //               agentStatus: "SUCCESS" || "FAILED" || "ACTIVE" || "INACTIVE",
+ * //               auditResults: "HEALTHY" || "UNHEALTHY",
  * //             },
- * //             healthStatus: "STRING_VALUE",
+ * //             healthStatus: "HEALTHY" || "UNHEALTHY",
  * //             healthReasons: [
- * //               "STRING_VALUE",
+ * //               "NO_REGISTERED_AGENT" || "INVALID_IP_OWNERSHIP" || "NOT_AUTHORIZED_TO_CREATE_SLR" || "UNVERIFIED_IP_OWNERSHIP" || "INITIALIZING_DATAPLANE" || "DATAPLANE_FAILURE" || "HEALTHY",
  * //             ],
  * //           },
  * //           antennaDemodDecodeDetails: {
@@ -207,6 +208,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class DescribeContactCommand extends $Command
@@ -217,9 +219,7 @@ export class DescribeContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -231,4 +231,16 @@ export class DescribeContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeContactCommand)
   .de(de_DescribeContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactRequest;
+      output: DescribeContactResponse;
+    };
+    sdk: {
+      input: DescribeContactCommandInput;
+      output: DescribeContactCommandOutput;
+    };
+  };
+}

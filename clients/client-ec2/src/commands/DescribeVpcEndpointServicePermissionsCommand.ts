@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
 
 /**
  * <p>Describes the principals (service consumers) that are permitted to discover your VPC
- *             endpoint service.</p>
+ *             endpoint service. Principal ARNs with path components aren't supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +90,7 @@ export interface DescribeVpcEndpointServicePermissionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcEndpointServicePermissionsCommand extends $Command
@@ -99,9 +101,7 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DescribeVpcEndpointServicePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcEndpointServicePermissionsCommand)
   .de(de_DescribeVpcEndpointServicePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcEndpointServicePermissionsRequest;
+      output: DescribeVpcEndpointServicePermissionsResult;
+    };
+    sdk: {
+      input: DescribeVpcEndpointServicePermissionsCommandInput;
+      output: DescribeVpcEndpointServicePermissionsCommandOutput;
+    };
+  };
+}

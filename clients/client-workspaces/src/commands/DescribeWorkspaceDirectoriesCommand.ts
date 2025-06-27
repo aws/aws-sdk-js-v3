@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,8 +44,19 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  *   DirectoryIds: [ // DirectoryIdList
  *     "STRING_VALUE",
  *   ],
+ *   WorkspaceDirectoryNames: [ // WorkspaceDirectoryNameList
+ *     "STRING_VALUE",
+ *   ],
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Filters: [ // DescribeWorkspaceDirectoriesFilterList
+ *     { // DescribeWorkspaceDirectoriesFilter
+ *       Name: "USER_IDENTITY_TYPE" || "WORKSPACE_TYPE", // required
+ *       Values: [ // DescribeWorkspaceDirectoriesFilterValues // required
+ *         "STRING_VALUE",
+ *       ],
+ *     },
+ *   ],
  * };
  * const command = new DescribeWorkspaceDirectoriesCommand(input);
  * const response = await client.send(command);
@@ -63,16 +75,16 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //       ],
  * //       CustomerUserName: "STRING_VALUE",
  * //       IamRoleId: "STRING_VALUE",
- * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR",
+ * //       DirectoryType: "SIMPLE_AD" || "AD_CONNECTOR" || "CUSTOMER_MANAGED" || "AWS_IAM_IDENTITY_CENTER",
  * //       WorkspaceSecurityGroupId: "STRING_VALUE",
  * //       State: "REGISTERING" || "REGISTERED" || "DEREGISTERING" || "DEREGISTERED" || "ERROR",
  * //       WorkspaceCreationProperties: { // DefaultWorkspaceCreationProperties
- * //         EnableWorkDocs: true || false,
  * //         EnableInternetAccess: true || false,
  * //         DefaultOu: "STRING_VALUE",
  * //         CustomSecurityGroupId: "STRING_VALUE",
  * //         UserEnabledAsLocalAdministrator: true || false,
  * //         EnableMaintenanceMode: true || false,
+ * //         InstanceIamRoleArn: "STRING_VALUE",
  * //       },
  * //       ipGroupIds: [ // IpGroupIdList
  * //         "STRING_VALUE",
@@ -86,6 +98,18 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         DeviceTypeChromeOs: "ALLOW" || "DENY",
  * //         DeviceTypeZeroClient: "ALLOW" || "DENY",
  * //         DeviceTypeLinux: "ALLOW" || "DENY",
+ * //         DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
+ * //         AccessEndpointConfig: { // AccessEndpointConfig
+ * //           AccessEndpoints: [ // AccessEndpointList // required
+ * //             { // AccessEndpoint
+ * //               AccessEndpointType: "STREAMING_WSP",
+ * //               VpcEndpointId: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           InternetFallbackProtocols: [ // InternetFallbackProtocolList
+ * //             "PCOIP",
+ * //           ],
+ * //         },
  * //       },
  * //       Tenancy: "DEDICATED" || "SHARED",
  * //       SelfservicePermissions: { // SelfservicePermissions
@@ -104,6 +128,44 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * //         Status: "DISABLED" || "ENABLED",
  * //         CertificateAuthorityArn: "STRING_VALUE",
  * //       },
+ * //       EndpointEncryptionMode: "STANDARD_TLS" || "FIPS_VALIDATED",
+ * //       MicrosoftEntraConfig: { // MicrosoftEntraConfig
+ * //         TenantId: "STRING_VALUE",
+ * //         ApplicationConfigSecretArn: "STRING_VALUE",
+ * //       },
+ * //       WorkspaceDirectoryName: "STRING_VALUE",
+ * //       WorkspaceDirectoryDescription: "STRING_VALUE",
+ * //       UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE" || "AWS_IAM_IDENTITY_CENTER",
+ * //       WorkspaceType: "PERSONAL" || "POOLS",
+ * //       IDCConfig: { // IDCConfig
+ * //         InstanceArn: "STRING_VALUE",
+ * //         ApplicationArn: "STRING_VALUE",
+ * //       },
+ * //       ActiveDirectoryConfig: { // ActiveDirectoryConfig
+ * //         DomainName: "STRING_VALUE", // required
+ * //         ServiceAccountSecretArn: "STRING_VALUE", // required
+ * //       },
+ * //       StreamingProperties: { // StreamingProperties
+ * //         StreamingExperiencePreferredProtocol: "TCP" || "UDP",
+ * //         UserSettings: [ // UserSettings
+ * //           { // UserSetting
+ * //             Action: "CLIPBOARD_COPY_FROM_LOCAL_DEVICE" || "CLIPBOARD_COPY_TO_LOCAL_DEVICE" || "PRINTING_TO_LOCAL_DEVICE" || "SMART_CARD", // required
+ * //             Permission: "ENABLED" || "DISABLED", // required
+ * //             MaximumLength: Number("int"),
+ * //           },
+ * //         ],
+ * //         StorageConnectors: [ // StorageConnectors
+ * //           { // StorageConnector
+ * //             ConnectorType: "HOME_FOLDER", // required
+ * //             Status: "ENABLED" || "DISABLED", // required
+ * //           },
+ * //         ],
+ * //         GlobalAccelerator: { // GlobalAcceleratorForDirectory
+ * //           Mode: "ENABLED_AUTO" || "DISABLED", // required
+ * //           PreferredProtocol: "TCP" || "NONE",
+ * //         },
+ * //       },
+ * //       ErrorMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -123,6 +185,7 @@ export interface DescribeWorkspaceDirectoriesCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspaceDirectoriesCommand extends $Command
@@ -133,9 +196,7 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +208,16 @@ export class DescribeWorkspaceDirectoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceDirectoriesCommand)
   .de(de_DescribeWorkspaceDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceDirectoriesRequest;
+      output: DescribeWorkspaceDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceDirectoriesCommandInput;
+      output: DescribeWorkspaceDirectoriesCommandOutput;
+    };
+  };
+}

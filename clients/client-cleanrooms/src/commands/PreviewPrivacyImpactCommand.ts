@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PreviewPrivacyImpactInput, PreviewPrivacyImpactOutput } from "../models/models_0";
+import { PreviewPrivacyImpactInput, PreviewPrivacyImpactOutput } from "../models/models_1";
 import { de_PreviewPrivacyImpactCommand, se_PreviewPrivacyImpactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface PreviewPrivacyImpactCommandOutput extends PreviewPrivacyImpactO
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class PreviewPrivacyImpactCommand extends $Command
@@ -94,9 +96,7 @@ export class PreviewPrivacyImpactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class PreviewPrivacyImpactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PreviewPrivacyImpactCommand)
   .de(de_PreviewPrivacyImpactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PreviewPrivacyImpactInput;
+      output: PreviewPrivacyImpactOutput;
+    };
+    sdk: {
+      input: PreviewPrivacyImpactCommandInput;
+      output: PreviewPrivacyImpactCommandOutput;
+    };
+  };
+}

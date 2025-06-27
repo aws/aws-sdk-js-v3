@@ -12,7 +12,8 @@ import { de_GetQueueCommand, se_GetQueueCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,11 +98,11 @@ export interface GetQueueCommandOutput extends GetQueueResponse, __MetadataBeare
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -113,9 +114,7 @@ export class GetQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class GetQueueCommand extends $Command
   .f(void 0, GetQueueResponseFilterSensitiveLog)
   .ser(se_GetQueueCommand)
   .de(de_GetQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueueRequest;
+      output: GetQueueResponse;
+    };
+    sdk: {
+      input: GetQueueCommandInput;
+      output: GetQueueCommandOutput;
+    };
+  };
+}

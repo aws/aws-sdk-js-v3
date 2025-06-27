@@ -12,7 +12,8 @@ import { de_DescribeModelCommand, se_DescribeModelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * @throws {@link LookoutVisionServiceException}
  * <p>Base exception class for all service exceptions from LookoutVision service.</p>
  *
+ *
  * @public
  */
 export class DescribeModelCommand extends $Command
@@ -116,9 +118,7 @@ export class DescribeModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutVisionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class DescribeModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeModelCommand)
   .de(de_DescribeModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeModelRequest;
+      output: DescribeModelResponse;
+    };
+    sdk: {
+      input: DescribeModelCommandInput;
+      output: DescribeModelCommandOutput;
+    };
+  };
+}

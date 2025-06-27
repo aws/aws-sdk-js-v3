@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_4";
+import { UpdatePublicSharingSettingsRequest, UpdatePublicSharingSettingsResponse } from "../models/models_5";
 import {
   de_UpdatePublicSharingSettingsCommand,
   se_UpdatePublicSharingSettingsCommand,
@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface UpdatePublicSharingSettingsCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdatePublicSharingSettingsCommand extends $Command
@@ -108,9 +110,7 @@ export class UpdatePublicSharingSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class UpdatePublicSharingSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePublicSharingSettingsCommand)
   .de(de_UpdatePublicSharingSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePublicSharingSettingsRequest;
+      output: UpdatePublicSharingSettingsResponse;
+    };
+    sdk: {
+      input: UpdatePublicSharingSettingsCommandInput;
+      output: UpdatePublicSharingSettingsCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  *   BackupVaultName: "STRING_VALUE", // required
  *   SNSTopicArn: "STRING_VALUE", // required
  *   BackupVaultEvents: [ // BackupVaultEvents // required
- *     "BACKUP_JOB_STARTED" || "BACKUP_JOB_COMPLETED" || "BACKUP_JOB_SUCCESSFUL" || "BACKUP_JOB_FAILED" || "BACKUP_JOB_EXPIRED" || "RESTORE_JOB_STARTED" || "RESTORE_JOB_COMPLETED" || "RESTORE_JOB_SUCCESSFUL" || "RESTORE_JOB_FAILED" || "COPY_JOB_STARTED" || "COPY_JOB_SUCCESSFUL" || "COPY_JOB_FAILED" || "RECOVERY_POINT_MODIFIED" || "BACKUP_PLAN_CREATED" || "BACKUP_PLAN_MODIFIED" || "S3_BACKUP_OBJECT_FAILED" || "S3_RESTORE_OBJECT_FAILED",
+ *     "BACKUP_JOB_STARTED" || "BACKUP_JOB_COMPLETED" || "BACKUP_JOB_SUCCESSFUL" || "BACKUP_JOB_FAILED" || "BACKUP_JOB_EXPIRED" || "RESTORE_JOB_STARTED" || "RESTORE_JOB_COMPLETED" || "RESTORE_JOB_SUCCESSFUL" || "RESTORE_JOB_FAILED" || "COPY_JOB_STARTED" || "COPY_JOB_SUCCESSFUL" || "COPY_JOB_FAILED" || "RECOVERY_POINT_MODIFIED" || "BACKUP_PLAN_CREATED" || "BACKUP_PLAN_MODIFIED" || "S3_BACKUP_OBJECT_FAILED" || "S3_RESTORE_OBJECT_FAILED" || "CONTINUOUS_BACKUP_INTERRUPTED" || "RECOVERY_POINT_INDEX_COMPLETED" || "RECOVERY_POINT_INDEX_DELETED" || "RECOVERY_POINT_INDEXING_FAILED",
  *   ],
  * };
  * const command = new PutBackupVaultNotificationsCommand(input);
@@ -72,6 +73,7 @@ export interface PutBackupVaultNotificationsCommandOutput extends __MetadataBear
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class PutBackupVaultNotificationsCommand extends $Command
@@ -82,9 +84,7 @@ export class PutBackupVaultNotificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class PutBackupVaultNotificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBackupVaultNotificationsCommand)
   .de(de_PutBackupVaultNotificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBackupVaultNotificationsInput;
+      output: {};
+    };
+    sdk: {
+      input: PutBackupVaultNotificationsCommandInput;
+      output: PutBackupVaultNotificationsCommandOutput;
+    };
+  };
+}

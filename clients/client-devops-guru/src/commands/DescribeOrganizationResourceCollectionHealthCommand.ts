@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,7 @@ export interface DescribeOrganizationResourceCollectionHealthCommandOutput
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeOrganizationResourceCollectionHealthCommand extends $Command
@@ -141,9 +143,7 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class DescribeOrganizationResourceCollectionHealthCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationResourceCollectionHealthCommand)
   .de(de_DescribeOrganizationResourceCollectionHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationResourceCollectionHealthRequest;
+      output: DescribeOrganizationResourceCollectionHealthResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationResourceCollectionHealthCommandInput;
+      output: DescribeOrganizationResourceCollectionHealthCommandOutput;
+    };
+  };
+}

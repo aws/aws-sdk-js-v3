@@ -16,7 +16,8 @@ import { de_GetBotAliasesCommand, se_GetBotAliasesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface GetBotAliasesCommandOutput extends GetBotAliasesResponse, __Met
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class GetBotAliasesCommand extends $Command
@@ -107,9 +109,7 @@ export class GetBotAliasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class GetBotAliasesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBotAliasesCommand)
   .de(de_GetBotAliasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBotAliasesRequest;
+      output: GetBotAliasesResponse;
+    };
+    sdk: {
+      input: GetBotAliasesCommandInput;
+      output: GetBotAliasesCommandOutput;
+    };
+  };
+}

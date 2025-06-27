@@ -12,7 +12,8 @@ import { de_BatchUpdateVehicleCommand, se_BatchUpdateVehicleCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,37 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  *         "<keys>": "STRING_VALUE",
  *       },
  *       attributeUpdateMode: "Overwrite" || "Merge",
+ *       stateTemplatesToAdd: [ // StateTemplateAssociations
+ *         { // StateTemplateAssociation
+ *           identifier: "STRING_VALUE", // required
+ *           stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *             periodic: { // PeriodicStateTemplateUpdateStrategy
+ *               stateTemplateUpdateRate: { // TimePeriod
+ *                 unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *                 value: Number("int"), // required
+ *               },
+ *             },
+ *             onChange: {},
+ *           },
+ *         },
+ *       ],
+ *       stateTemplatesToRemove: [ // StateTemplateAssociationIdentifiers
+ *         "STRING_VALUE",
+ *       ],
+ *       stateTemplatesToUpdate: [
+ *         {
+ *           identifier: "STRING_VALUE", // required
+ *           stateTemplateUpdateStrategy: {//  Union: only one key present
+ *             periodic: {
+ *               stateTemplateUpdateRate: {
+ *                 unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *                 value: Number("int"), // required
+ *               },
+ *             },
+ *             onChange: {},
+ *           },
+ *         },
+ *       ],
  *     },
  *   ],
  * };
@@ -85,6 +117,9 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A service quota was exceeded. </p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request couldn't be completed due to throttling.</p>
  *
@@ -93,6 +128,7 @@ export interface BatchUpdateVehicleCommandOutput extends BatchUpdateVehicleRespo
  *
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
+ *
  *
  * @public
  */
@@ -104,9 +140,7 @@ export class BatchUpdateVehicleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +152,16 @@ export class BatchUpdateVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateVehicleCommand)
   .de(de_BatchUpdateVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateVehicleRequest;
+      output: BatchUpdateVehicleResponse;
+    };
+    sdk: {
+      input: BatchUpdateVehicleCommandInput;
+      output: BatchUpdateVehicleCommandOutput;
+    };
+  };
+}

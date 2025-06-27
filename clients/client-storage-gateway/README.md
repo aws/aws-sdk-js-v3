@@ -7,7 +7,12 @@
 AWS SDK for JavaScript StorageGateway Client for Node.js, Browser and React Native.
 
 <fullname>Storage Gateway Service</fullname>
+<important>
 
+<p>Amazon FSx File Gateway is no longer available to new customers. Existing
+customers of FSx File Gateway can continue to use the service normally. For
+capabilities similar to FSx File Gateway, visit <a href="https://aws.amazon.com/blogs/storage/switch-your-file-share-access-from-amazon-fsx-file-gateway-to-amazon-fsx-for-windows-file-server/">this blog post</a>.</p>
+</important>
 <p>Storage Gateway is the service that connects an on-premises software appliance
 with cloud-based storage to provide seamless and secure integration between an
 organization's on-premises IT environment and the Amazon Web Services storage
@@ -69,7 +74,7 @@ Heads-up – Longer Storage Gateway volume and snapshot IDs coming in
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-storage-gateway
+To install this package, simply type add or install @aws-sdk/client-storage-gateway
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-storage-gateway`
@@ -336,6 +341,14 @@ CancelArchival
 </details>
 <details>
 <summary>
+CancelCacheReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/CancelCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/CancelCacheReportCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelRetrieval
 </summary>
 
@@ -428,6 +441,14 @@ DeleteBandwidthRateLimit
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteBandwidthRateLimitCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteBandwidthRateLimitCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteBandwidthRateLimitCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCacheReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DeleteCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DeleteCacheReportCommandOutput/)
 
 </details>
 <details>
@@ -532,6 +553,14 @@ DescribeCachediSCSIVolumes
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeCachediSCSIVolumesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCachediSCSIVolumesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCachediSCSIVolumesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeCacheReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/DescribeCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/DescribeCacheReportCommandOutput/)
 
 </details>
 <details>
@@ -680,6 +709,14 @@ DisassociateFileSystem
 </details>
 <details>
 <summary>
+EvictFilesFailingUpload
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/EvictFilesFailingUploadCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/EvictFilesFailingUploadCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/EvictFilesFailingUploadCommandOutput/)
+
+</details>
+<details>
+<summary>
 JoinDomain
 </summary>
 
@@ -692,6 +729,14 @@ ListAutomaticTapeCreationPolicies
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListAutomaticTapeCreationPoliciesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListAutomaticTapeCreationPoliciesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListAutomaticTapeCreationPoliciesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCacheReports
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/ListCacheReportsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListCacheReportsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/ListCacheReportsCommandOutput/)
 
 </details>
 <details>
@@ -852,6 +897,14 @@ StartAvailabilityMonitorTest
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/StartAvailabilityMonitorTestCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartAvailabilityMonitorTestCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartAvailabilityMonitorTestCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartCacheReport
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/storage-gateway/command/StartCacheReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartCacheReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-storage-gateway/Interface/StartCacheReportCommandOutput/)
 
 </details>
 <details>

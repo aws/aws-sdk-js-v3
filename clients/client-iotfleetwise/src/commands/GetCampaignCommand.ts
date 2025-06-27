@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import { GetCampaignRequest, GetCampaignResponse } from "../models/models_0";
+import { GetCampaignRequest, GetCampaignResponse, GetCampaignResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetCampaignCommand, se_GetCampaignCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,9 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
 
 /**
  * <p> Retrieves information about a campaign. </p>
+ *          <important>
+ *             <p>Access to certain Amazon Web Services IoT FleetWise features is currently gated. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/fleetwise-regions.html">Amazon Web Services Region and feature availability</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +62,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //       name: "STRING_VALUE", // required
  * //       maxSampleCount: Number("long"),
  * //       minimumSamplingIntervalMs: Number("long"),
+ * //       dataPartitionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   collectionScheme: { // CollectionScheme Union: only one key present
@@ -88,6 +93,48 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * //         timestreamTableArn: "STRING_VALUE", // required
  * //         executionRoleArn: "STRING_VALUE", // required
  * //       },
+ * //       mqttTopicConfig: { // MqttTopicConfig
+ * //         mqttTopicArn: "STRING_VALUE", // required
+ * //         executionRoleArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //   ],
+ * //   dataPartitions: [ // DataPartitions
+ * //     { // DataPartition
+ * //       id: "STRING_VALUE", // required
+ * //       storageOptions: { // DataPartitionStorageOptions
+ * //         maximumSize: { // StorageMaximumSize
+ * //           unit: "MB" || "GB" || "TB", // required
+ * //           value: Number("int"), // required
+ * //         },
+ * //         storageLocation: "STRING_VALUE", // required
+ * //         minimumTimeToLive: { // StorageMinimumTimeToLive
+ * //           unit: "HOURS" || "DAYS" || "WEEKS", // required
+ * //           value: Number("int"), // required
+ * //         },
+ * //       },
+ * //       uploadOptions: { // DataPartitionUploadOptions
+ * //         expression: "STRING_VALUE", // required
+ * //         conditionLanguageVersion: Number("int"),
+ * //       },
+ * //     },
+ * //   ],
+ * //   signalsToFetch: [ // SignalFetchInformationList
+ * //     { // SignalFetchInformation
+ * //       fullyQualifiedName: "STRING_VALUE", // required
+ * //       signalFetchConfig: { // SignalFetchConfig Union: only one key present
+ * //         timeBased: { // TimeBasedSignalFetchConfig
+ * //           executionFrequencyMs: Number("long"), // required
+ * //         },
+ * //         conditionBased: { // ConditionBasedSignalFetchConfig
+ * //           conditionExpression: "STRING_VALUE", // required
+ * //           triggerMode: "ALWAYS" || "RISING_EDGE", // required
+ * //         },
+ * //       },
+ * //       conditionLanguageVersion: Number("int"),
+ * //       actions: [ // EventExpressionList // required
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * // };
@@ -118,6 +165,7 @@ export interface GetCampaignCommandOutput extends GetCampaignResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class GetCampaignCommand extends $Command
@@ -128,9 +176,7 @@ export class GetCampaignCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,7 +185,19 @@ export class GetCampaignCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "GetCampaign", {})
   .n("IoTFleetWiseClient", "GetCampaignCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetCampaignResponseFilterSensitiveLog)
   .ser(se_GetCampaignCommand)
   .de(de_GetCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCampaignRequest;
+      output: GetCampaignResponse;
+    };
+    sdk: {
+      input: GetCampaignCommandInput;
+      output: GetCampaignCommandOutput;
+    };
+  };
+}

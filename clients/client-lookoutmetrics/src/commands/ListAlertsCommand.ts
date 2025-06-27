@@ -12,7 +12,8 @@ import { de_ListAlertsCommand, se_ListAlertsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface ListAlertsCommandOutput extends ListAlertsResponse, __MetadataB
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class ListAlertsCommand extends $Command
@@ -99,9 +101,7 @@ export class ListAlertsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class ListAlertsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAlertsCommand)
   .de(de_ListAlertsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAlertsRequest;
+      output: ListAlertsResponse;
+    };
+    sdk: {
+      input: ListAlertsCommandInput;
+      output: ListAlertsCommandOutput;
+    };
+  };
+}

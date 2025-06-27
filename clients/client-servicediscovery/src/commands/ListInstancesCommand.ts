@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,31 +72,31 @@ export interface ListInstancesCommandOutput extends ListInstancesResponse, __Met
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: List service instances
  * ```javascript
  * // Example: List service instances
  * const input = {
- *   "ServiceId": "srv-qzpwvt2tfqcegapy"
+ *   ServiceId: "srv-qzpwvt2tfqcegapy"
  * };
  * const command = new ListInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Instances": [
+ *   Instances: [
  *     {
- *       "Attributes": {
- *         "AWS_INSTANCE_IPV4": "172.2.1.3",
- *         "AWS_INSTANCE_PORT": "808"
+ *       Attributes: {
+ *         AWS_INSTANCE_IPV4: "172.2.1.3",
+ *         AWS_INSTANCE_PORT: "808"
  *       },
- *       "Id": "i-06bdabbae60f65a4e"
+ *       Id: "i-06bdabbae60f65a4e"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-list-service-instances-1587236237008
  * ```
  *
+ * @public
  */
 export class ListInstancesCommand extends $Command
   .classBuilder<
@@ -105,9 +106,7 @@ export class ListInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class ListInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstancesCommand)
   .de(de_ListInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstancesRequest;
+      output: ListInstancesResponse;
+    };
+    sdk: {
+      input: ListInstancesCommandInput;
+      output: ListInstancesCommandOutput;
+    };
+  };
+}

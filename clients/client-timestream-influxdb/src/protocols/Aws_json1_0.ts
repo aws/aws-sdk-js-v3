@@ -14,18 +14,26 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { CreateDbClusterCommandInput, CreateDbClusterCommandOutput } from "../commands/CreateDbClusterCommand";
 import { CreateDbInstanceCommandInput, CreateDbInstanceCommandOutput } from "../commands/CreateDbInstanceCommand";
 import {
   CreateDbParameterGroupCommandInput,
   CreateDbParameterGroupCommandOutput,
 } from "../commands/CreateDbParameterGroupCommand";
+import { DeleteDbClusterCommandInput, DeleteDbClusterCommandOutput } from "../commands/DeleteDbClusterCommand";
 import { DeleteDbInstanceCommandInput, DeleteDbInstanceCommandOutput } from "../commands/DeleteDbInstanceCommand";
+import { GetDbClusterCommandInput, GetDbClusterCommandOutput } from "../commands/GetDbClusterCommand";
 import { GetDbInstanceCommandInput, GetDbInstanceCommandOutput } from "../commands/GetDbInstanceCommand";
 import {
   GetDbParameterGroupCommandInput,
   GetDbParameterGroupCommandOutput,
 } from "../commands/GetDbParameterGroupCommand";
+import { ListDbClustersCommandInput, ListDbClustersCommandOutput } from "../commands/ListDbClustersCommand";
 import { ListDbInstancesCommandInput, ListDbInstancesCommandOutput } from "../commands/ListDbInstancesCommand";
+import {
+  ListDbInstancesForClusterCommandInput,
+  ListDbInstancesForClusterCommandOutput,
+} from "../commands/ListDbInstancesForClusterCommand";
 import {
   ListDbParameterGroupsCommandInput,
   ListDbParameterGroupsCommandOutput,
@@ -36,18 +44,25 @@ import {
 } from "../commands/ListTagsForResourceCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateDbClusterCommandInput, UpdateDbClusterCommandOutput } from "../commands/UpdateDbClusterCommand";
 import { UpdateDbInstanceCommandInput, UpdateDbInstanceCommandOutput } from "../commands/UpdateDbInstanceCommand";
 import {
   _Parameters,
   AccessDeniedException,
   ConflictException,
+  CreateDbClusterInput,
   CreateDbInstanceInput,
   CreateDbParameterGroupInput,
+  DeleteDbClusterInput,
   DeleteDbInstanceInput,
+  Duration,
+  GetDbClusterInput,
   GetDbInstanceInput,
   GetDbParameterGroupInput,
   InfluxDBv2Parameters,
   InternalServerException,
+  ListDbClustersInput,
+  ListDbInstancesForClusterInput,
   ListDbInstancesInput,
   ListDbParameterGroupsInput,
   ListTagsForResourceRequest,
@@ -58,10 +73,24 @@ import {
   TagResourceRequest,
   ThrottlingException,
   UntagResourceRequest,
+  UpdateDbClusterInput,
   UpdateDbInstanceInput,
   ValidationException,
 } from "../models/models_0";
 import { TimestreamInfluxDBServiceException as __BaseException } from "../models/TimestreamInfluxDBServiceException";
+
+/**
+ * serializeAws_json1_0CreateDbClusterCommand
+ */
+export const se_CreateDbClusterCommand = async (
+  input: CreateDbClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateDbCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0CreateDbInstanceCommand
@@ -90,6 +119,19 @@ export const se_CreateDbParameterGroupCommand = async (
 };
 
 /**
+ * serializeAws_json1_0DeleteDbClusterCommand
+ */
+export const se_DeleteDbClusterCommand = async (
+  input: DeleteDbClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDbCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0DeleteDbInstanceCommand
  */
 export const se_DeleteDbInstanceCommand = async (
@@ -97,6 +139,19 @@ export const se_DeleteDbInstanceCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteDbInstance");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0GetDbClusterCommand
+ */
+export const se_GetDbClusterCommand = async (
+  input: GetDbClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDbCluster");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -129,6 +184,19 @@ export const se_GetDbParameterGroupCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListDbClustersCommand
+ */
+export const se_ListDbClustersCommand = async (
+  input: ListDbClustersCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDbClusters");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0ListDbInstancesCommand
  */
 export const se_ListDbInstancesCommand = async (
@@ -136,6 +204,19 @@ export const se_ListDbInstancesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListDbInstances");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0ListDbInstancesForClusterCommand
+ */
+export const se_ListDbInstancesForClusterCommand = async (
+  input: ListDbInstancesForClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDbInstancesForCluster");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -194,6 +275,19 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_json1_0UpdateDbClusterCommand
+ */
+export const se_UpdateDbClusterCommand = async (
+  input: UpdateDbClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDbCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0UpdateDbInstanceCommand
  */
 export const se_UpdateDbInstanceCommand = async (
@@ -204,6 +298,26 @@ export const se_UpdateDbInstanceCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0CreateDbClusterCommand
+ */
+export const de_CreateDbClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDbClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDbClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -247,6 +361,26 @@ export const de_CreateDbParameterGroupCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0DeleteDbClusterCommand
+ */
+export const de_DeleteDbClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDbClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDbClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0DeleteDbInstanceCommand
  */
 export const de_DeleteDbInstanceCommand = async (
@@ -260,6 +394,26 @@ export const de_DeleteDbInstanceCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteDbInstanceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0GetDbClusterCommand
+ */
+export const de_GetDbClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDbClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetDbClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -307,6 +461,26 @@ export const de_GetDbParameterGroupCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ListDbClustersCommand
+ */
+export const de_ListDbClustersCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDbClustersCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDbClustersCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0ListDbInstancesCommand
  */
 export const de_ListDbInstancesCommand = async (
@@ -320,6 +494,26 @@ export const de_ListDbInstancesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListDbInstancesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0ListDbInstancesForClusterCommand
+ */
+export const de_ListDbInstancesForClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDbInstancesForClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDbInstancesForClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -396,6 +590,26 @@ export const de_UntagResourceCommand = async (
   await collectBody(output.body, context);
   const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UpdateDbClusterCommand
+ */
+export const de_UpdateDbClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDbClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UpdateDbClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
   };
   return response;
 };
@@ -564,17 +778,29 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, body);
 };
 
+// se_CreateDbClusterInput omitted.
+
 // se_CreateDbInstanceInput omitted.
 
 // se_CreateDbParameterGroupInput omitted.
 
+// se_DeleteDbClusterInput omitted.
+
 // se_DeleteDbInstanceInput omitted.
+
+// se_Duration omitted.
+
+// se_GetDbClusterInput omitted.
 
 // se_GetDbInstanceInput omitted.
 
 // se_GetDbParameterGroupInput omitted.
 
 // se_InfluxDBv2Parameters omitted.
+
+// se_ListDbClustersInput omitted.
+
+// se_ListDbInstancesForClusterInput omitted.
 
 // se_ListDbInstancesInput omitted.
 
@@ -596,6 +822,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_UntagResourceRequest omitted.
 
+// se_UpdateDbClusterInput omitted.
+
 // se_UpdateDbInstanceInput omitted.
 
 // se_VpcSecurityGroupIdList omitted.
@@ -606,9 +834,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_ConflictException omitted.
 
+// de_CreateDbClusterOutput omitted.
+
 // de_CreateDbInstanceOutput omitted.
 
 // de_CreateDbParameterGroupOutput omitted.
+
+// de_DbClusterSummary omitted.
+
+// de_DbClusterSummaryList omitted.
+
+// de_DbInstanceForClusterSummary omitted.
+
+// de_DbInstanceForClusterSummaryList omitted.
 
 // de_DbInstanceSummary omitted.
 
@@ -618,7 +856,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_DbParameterGroupSummaryList omitted.
 
+// de_DeleteDbClusterOutput omitted.
+
 // de_DeleteDbInstanceOutput omitted.
+
+// de_Duration omitted.
+
+// de_GetDbClusterOutput omitted.
 
 // de_GetDbInstanceOutput omitted.
 
@@ -627,6 +871,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_InfluxDBv2Parameters omitted.
 
 // de_InternalServerException omitted.
+
+// de_ListDbClustersOutput omitted.
+
+// de_ListDbInstancesForClusterOutput omitted.
 
 // de_ListDbInstancesOutput omitted.
 
@@ -647,6 +895,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_ServiceQuotaExceededException omitted.
 
 // de_ThrottlingException omitted.
+
+// de_UpdateDbClusterOutput omitted.
 
 // de_UpdateDbInstanceOutput omitted.
 

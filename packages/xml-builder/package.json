@@ -1,9 +1,9 @@
 {
   "name": "@aws-sdk/xml-builder",
-  "version": "3.575.0",
+  "version": "3.821.0",
   "description": "XML builder for the AWS SDK",
   "dependencies": {
-    "@smithy/types": "^3.0.0",
+    "@smithy/types": "^4.3.1",
     "tslib": "^2.6.2"
   },
   "scripts": {
@@ -14,7 +14,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "author": {
     "name": "AWS SDK for JavaScript Team",
@@ -25,7 +26,7 @@
   "module": "./dist-es/index.js",
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -48,6 +49,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.8.3"
   }
 }

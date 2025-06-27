@@ -10,7 +10,7 @@ AWS SDK for JavaScript Health Client for Node.js, Browser and React Native.
 
 <p>The Health API provides access to the Health information that appears in the
 <a href="https://health.aws.amazon.com/health/home">Health Dashboard</a>. You can use
-the API operations to get information about events that might affect your Amazon Web Services and resources.</p>
+the API operations to get information about events that might affect your Amazon Web Services services and resources.</p>
 <p>You must have a Business, Enterprise On-Ramp, or Enterprise Support plan from <a href="http://aws.amazon.com/premiumsupport/">Amazon Web Services Support</a> to use the Health API. If you call the Health API from an
 Amazon Web Services account that doesn't have a Business, Enterprise On-Ramp, or Enterprise Support plan, you receive a
 <code>SubscriptionRequiredException</code> error.</p>
@@ -53,7 +53,7 @@ organization, you might receive several page results. Specify the
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-health
+To install this package, simply type add or install @aws-sdk/client-health
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-health`

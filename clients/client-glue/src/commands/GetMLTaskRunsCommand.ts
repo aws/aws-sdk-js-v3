@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetMLTaskRunsRequest, GetMLTaskRunsResponse } from "../models/models_1";
+import { GetMLTaskRunsRequest, GetMLTaskRunsResponse } from "../models/models_2";
 import { de_GetMLTaskRunsCommand, se_GetMLTaskRunsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface GetMLTaskRunsCommandOutput extends GetMLTaskRunsResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetMLTaskRunsCommand extends $Command
@@ -124,9 +126,7 @@ export class GetMLTaskRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class GetMLTaskRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLTaskRunsCommand)
   .de(de_GetMLTaskRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLTaskRunsRequest;
+      output: GetMLTaskRunsResponse;
+    };
+    sdk: {
+      input: GetMLTaskRunsCommandInput;
+      output: GetMLTaskRunsCommandOutput;
+    };
+  };
+}

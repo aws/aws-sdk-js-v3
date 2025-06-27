@@ -3,14 +3,17 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import {
   BucketVersioningStatus,
+  JobListDescriptor,
   JobStatus,
   LifecycleRule,
+  MultiRegionAccessPointReport,
   MultiRegionAccessPointRoute,
   ObjectLambdaConfiguration,
   PublicAccessBlockConfiguration,
   PutMultiRegionAccessPointPolicyInput,
   ReplicationConfiguration,
   S3Tag,
+  Scope,
   StorageLensConfiguration,
   StorageLensGroup,
   StorageLensTag,
@@ -18,6 +21,246 @@ import {
 } from "./models_0";
 
 import { S3ControlServiceException as __BaseException } from "./S3ControlServiceException";
+
+/**
+ * @public
+ */
+export interface ListJobsResult {
+  /**
+   * <p>If the <code>List Jobs</code> request produced more than the maximum number of results,
+   *          you can pass this value into a subsequent <code>List Jobs</code> request in order to
+   *          retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The list of current jobs and jobs that have ended within the last 30 days.</p>
+   * @public
+   */
+  Jobs?: JobListDescriptor[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMultiRegionAccessPointsRequest {
+  /**
+   * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>Not currently used. Do not use this parameter.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>Not currently used. Do not use this parameter.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListMultiRegionAccessPointsResult {
+  /**
+   * <p>The list of Multi-Region Access Points associated with the user.</p>
+   * @public
+   */
+  AccessPoints?: MultiRegionAccessPointReport[] | undefined;
+
+  /**
+   * <p>If the specified bucket has more Multi-Region Access Points than can be returned in one call to this
+   *          action, this field contains a continuation token. You can use this token tin subsequent
+   *          calls to this action to retrieve additional Multi-Region Access Points.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegionalBucketsRequest {
+  /**
+   * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The ID of the Outposts resource.</p>
+   *          <note>
+   *             <p>This ID is required by Amazon S3 on Outposts buckets.</p>
+   *          </note>
+   * @public
+   */
+  OutpostId?: string | undefined;
+}
+
+/**
+ * <p>The container for the regional bucket.</p>
+ * @public
+ */
+export interface RegionalBucket {
+  /**
+   * <p></p>
+   * @public
+   */
+  Bucket: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) for the regional bucket.</p>
+   * @public
+   */
+  BucketArn?: string | undefined;
+
+  /**
+   * <p></p>
+   * @public
+   */
+  PublicAccessBlockEnabled: boolean | undefined;
+
+  /**
+   * <p>The creation date of the regional bucket</p>
+   * @public
+   */
+  CreationDate: Date | undefined;
+
+  /**
+   * <p>The Outposts ID of the regional bucket.</p>
+   * @public
+   */
+  OutpostId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRegionalBucketsResult {
+  /**
+   * <p></p>
+   * @public
+   */
+  RegionalBucketList?: RegionalBucket[] | undefined;
+
+  /**
+   * <p>
+   *             <code>NextToken</code> is sent when <code>isTruncated</code> is true, which means there
+   *          are more buckets that can be listed. The next list requests to Amazon S3 can be continued with
+   *          this <code>NextToken</code>. <code>NextToken</code> is obfuscated and is not a real
+   *          key.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageLensConfigurationsRequest {
+  /**
+   * <p>The account ID of the requester.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>A pagination token to request the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Part of <code>ListStorageLensConfigurationResult</code>. Each entry includes the
+ *          description of the S3 Storage Lens configuration, its home Region, whether it is enabled, its
+ *          Amazon Resource Name (ARN), and config ID.</p>
+ * @public
+ */
+export interface ListStorageLensConfigurationEntry {
+  /**
+   * <p>A container for the S3 Storage Lens configuration ID.</p>
+   * @public
+   */
+  Id: string | undefined;
+
+  /**
+   * <p>The ARN of the S3 Storage Lens configuration. This property is read-only.</p>
+   * @public
+   */
+  StorageLensArn: string | undefined;
+
+  /**
+   * <p>A container for the S3 Storage Lens home Region. Your metrics data is stored and retained in
+   *          your designated S3 Storage Lens home Region.</p>
+   * @public
+   */
+  HomeRegion: string | undefined;
+
+  /**
+   * <p>A container for whether the S3 Storage Lens configuration is enabled. This property is
+   *          required.</p>
+   * @public
+   */
+  IsEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageLensConfigurationsResult {
+  /**
+   * <p>If the request produced more than the maximum number of S3 Storage Lens configuration results,
+   *          you can pass this value into a subsequent request to retrieve the next page of
+   *          results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>A list of S3 Storage Lens configurations.</p>
+   * @public
+   */
+  StorageLensConfigurationList?: ListStorageLensConfigurationEntry[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListStorageLensGroupsRequest {
+  /**
+   * <p>
+   *    The Amazon Web Services account ID that owns the Storage Lens groups.
+   * </p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The token for the next set of results, or <code>null</code> if there are no more results.
+   *    </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
 
 /**
  * <p>
@@ -64,7 +307,7 @@ export interface ListStorageLensGroupsResult {
    * </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>
@@ -72,7 +315,7 @@ export interface ListStorageLensGroupsResult {
    * </p>
    * @public
    */
-  StorageLensGroupList?: ListStorageLensGroupEntry[];
+  StorageLensGroupList?: ListStorageLensGroupEntry[] | undefined;
 }
 
 /**
@@ -85,7 +328,7 @@ export interface ListTagsForResourceRequest {
    * </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>
@@ -106,7 +349,7 @@ export interface ListTagsForResourceResult {
    * </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -114,10 +357,10 @@ export interface ListTagsForResourceResult {
  */
 export interface PutAccessGrantsInstanceResourcePolicyRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The resource policy of the S3 Access Grants instance that you are updating.</p>
@@ -129,7 +372,7 @@ export interface PutAccessGrantsInstanceResourcePolicyRequest {
    * <p>The Organization of the resource policy of the S3 Access Grants instance.</p>
    * @public
    */
-  Organization?: string;
+  Organization?: string | undefined;
 }
 
 /**
@@ -140,19 +383,19 @@ export interface PutAccessGrantsInstanceResourcePolicyResult {
    * <p>The updated resource policy of the S3 Access Grants instance.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 
   /**
    * <p>The Organization of the resource policy of the S3 Access Grants instance.</p>
    * @public
    */
-  Organization?: string;
+  Organization?: string | undefined;
 
   /**
    * <p>The date and time when you created the S3 Access Grants instance resource policy. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 }
 
 /**
@@ -163,7 +406,7 @@ export interface PutAccessPointConfigurationForObjectLambdaRequest {
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The name of the Object Lambda Access Point.</p>
@@ -186,7 +429,7 @@ export interface PutAccessPointPolicyRequest {
    * <p>The Amazon Web Services account ID for owner of the bucket associated with the specified access point.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The name of the access point that you want to associate with the specified policy.</p>
@@ -199,7 +442,7 @@ export interface PutAccessPointPolicyRequest {
   /**
    * <p>The policy that you want to apply to the specified access point. For more information about access point
    *          policies, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3
-   *             access points</a> in the <i>Amazon S3 User Guide</i>.</p>
+   *             access points</a> or <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets.html">Managing access to shared datasets in directory buckets with access points</a> in the <i>Amazon S3 User Guide</i>.</p>
    * @public
    */
   Policy: string | undefined;
@@ -213,7 +456,7 @@ export interface PutAccessPointPolicyForObjectLambdaRequest {
    * <p>The account ID for the account that owns the specified Object Lambda Access Point.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The name of the Object Lambda Access Point.</p>
@@ -229,6 +472,31 @@ export interface PutAccessPointPolicyForObjectLambdaRequest {
 }
 
 /**
+ * @public
+ */
+export interface PutAccessPointScopeRequest {
+  /**
+   * <p>
+   *          The Amazon Web Services account ID that owns the access point with scope that you want to create or replace.
+   *       </p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The name of the access point with the scope that you want to create or replace.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>Object prefixes, API operations, or a combination of both.</p>
+   * @public
+   */
+  Scope: Scope | undefined;
+}
+
+/**
  * <p>The container for the Outposts bucket lifecycle configuration.</p>
  * @public
  */
@@ -237,7 +505,7 @@ export interface LifecycleConfiguration {
    * <p>A lifecycle rule for individual objects in an Outposts bucket. </p>
    * @public
    */
-  Rules?: LifecycleRule[];
+  Rules?: LifecycleRule[] | undefined;
 }
 
 /**
@@ -248,7 +516,7 @@ export interface PutBucketLifecycleConfigurationRequest {
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The name of the bucket for which to set the configuration.</p>
@@ -260,7 +528,7 @@ export interface PutBucketLifecycleConfigurationRequest {
    * <p>Container for lifecycle rules. You can add as many as 1,000 rules.</p>
    * @public
    */
-  LifecycleConfiguration?: LifecycleConfiguration;
+  LifecycleConfiguration?: LifecycleConfiguration | undefined;
 }
 
 /**
@@ -271,7 +539,7 @@ export interface PutBucketPolicyRequest {
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Specifies the bucket.</p>
@@ -289,7 +557,7 @@ export interface PutBucketPolicyRequest {
    *          </note>
    * @public
    */
-  ConfirmRemoveSelfBucketAccess?: boolean;
+  ConfirmRemoveSelfBucketAccess?: boolean | undefined;
 
   /**
    * <p>The bucket policy as a JSON document.</p>
@@ -306,7 +574,7 @@ export interface PutBucketReplicationRequest {
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>Specifies the S3 on Outposts bucket to set the configuration for.</p>
@@ -343,7 +611,7 @@ export interface PutBucketTaggingRequest {
    * <p>The Amazon Web Services account ID of the Outposts bucket.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the bucket.</p>
@@ -385,13 +653,13 @@ export interface VersioningConfiguration {
    *          configuration for the S3 on Outposts bucket.</p>
    * @public
    */
-  MFADelete?: MFADelete;
+  MFADelete?: MFADelete | undefined;
 
   /**
    * <p>Sets the versioning state of the S3 on Outposts bucket.</p>
    * @public
    */
-  Status?: BucketVersioningStatus;
+  Status?: BucketVersioningStatus | undefined;
 }
 
 /**
@@ -402,7 +670,7 @@ export interface PutBucketVersioningRequest {
    * <p>The Amazon Web Services account ID of the S3 on Outposts bucket.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The S3 on Outposts bucket to set the versioning state for.</p>
@@ -415,7 +683,7 @@ export interface PutBucketVersioningRequest {
    *          that is displayed on your authentication device.</p>
    * @public
    */
-  MFA?: string;
+  MFA?: string | undefined;
 
   /**
    * <p>The root-level tag for the <code>VersioningConfiguration</code> parameters.</p>
@@ -432,7 +700,7 @@ export interface PutJobTaggingRequest {
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID for the S3 Batch Operations job whose tags you want to replace.</p>
@@ -459,7 +727,7 @@ export interface PutJobTaggingResult {}
 export class TooManyTagsException extends __BaseException {
   readonly name: "TooManyTagsException" = "TooManyTagsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -482,14 +750,14 @@ export interface PutMultiRegionAccessPointPolicyRequest {
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>An idempotency token used to identify the request and guarantee that requests are
    *          unique.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>A container element containing the details of the policy for the Multi-Region Access Point.</p>
@@ -507,7 +775,7 @@ export interface PutMultiRegionAccessPointPolicyResult {
    *          requests.</p>
    * @public
    */
-  RequestTokenARN?: string;
+  RequestTokenARN?: string | undefined;
 }
 
 /**
@@ -526,7 +794,7 @@ export interface PutPublicAccessBlockRequest {
    *          you want to set.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 }
 
 /**
@@ -543,7 +811,7 @@ export interface PutStorageLensConfigurationRequest {
    * <p>The account ID of the requester.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The S3 Storage Lens configuration.</p>
@@ -558,7 +826,7 @@ export interface PutStorageLensConfigurationRequest {
    *          </note>
    * @public
    */
-  Tags?: StorageLensTag[];
+  Tags?: StorageLensTag[] | undefined;
 }
 
 /**
@@ -575,7 +843,7 @@ export interface PutStorageLensConfigurationTaggingRequest {
    * <p>The account ID of the requester.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The tag set of the S3 Storage Lens configuration.</p>
@@ -600,7 +868,7 @@ export interface SubmitMultiRegionAccessPointRoutesRequest {
    * <p>The Amazon Web Services account ID for the owner of the Multi-Region Access Point.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The Multi-Region Access Point ARN.</p>
@@ -631,7 +899,7 @@ export interface TagResourceRequest {
    * </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the S3 resource that you're trying to add tags to. The tagged resource can be an S3 Storage Lens group or S3 Access Grants instance, registered location, or grant.</p>
@@ -663,7 +931,7 @@ export interface UntagResourceRequest {
    *    </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>
@@ -692,10 +960,10 @@ export interface UntagResourceResult {}
  */
 export interface UpdateAccessGrantsLocationRequest {
   /**
-   * <p>The ID of the Amazon Web Services account that is making this request.</p>
+   * <p>The Amazon Web Services account ID of the S3 Access Grants instance.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID of the registered location that you are updating. S3 Access Grants assigns this ID when you register the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
@@ -720,31 +988,31 @@ export interface UpdateAccessGrantsLocationResult {
    * <p>The date and time when you registered the location. </p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The ID of the registered location to which you are granting access. S3 Access Grants assigned this ID when you registered the location. S3 Access Grants assigns the ID <code>default</code> to the default location <code>s3://</code> and assigns an auto-generated ID to other locations that you register.  </p>
    * @public
    */
-  AccessGrantsLocationId?: string;
+  AccessGrantsLocationId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the registered location that you are updating. </p>
    * @public
    */
-  AccessGrantsLocationArn?: string;
+  AccessGrantsLocationArn?: string | undefined;
 
   /**
    * <p>The S3 URI path of the location that you are updating. You cannot update the scope of the registered location. The location scope can be the default S3 location <code>s3://</code>, the S3 path to a bucket <code>s3://<bucket></code>, or the S3 path to a bucket and prefix <code>s3://<bucket>/<prefix></code>. </p>
    * @public
    */
-  LocationScope?: string;
+  LocationScope?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role of the registered location. S3 Access Grants assumes this role to manage access to the registered location. </p>
    * @public
    */
-  IAMRoleArn?: string;
+  IAMRoleArn?: string | undefined;
 }
 
 /**
@@ -755,7 +1023,7 @@ export interface UpdateJobPriorityRequest {
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID for the job whose priority you want to update.</p>
@@ -794,7 +1062,7 @@ export interface UpdateJobPriorityResult {
 export class JobStatusException extends __BaseException {
   readonly name: "JobStatusException" = "JobStatusException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -831,7 +1099,7 @@ export interface UpdateJobStatusRequest {
    * <p>The Amazon Web Services account ID associated with the S3 Batch Operations job.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID of the job whose status you want to update.</p>
@@ -850,7 +1118,7 @@ export interface UpdateJobStatusRequest {
    *          field can be any string up to the maximum length.</p>
    * @public
    */
-  StatusUpdateReason?: string;
+  StatusUpdateReason?: string | undefined;
 }
 
 /**
@@ -861,19 +1129,19 @@ export interface UpdateJobStatusResult {
    * <p>The ID for the job whose status was updated.</p>
    * @public
    */
-  JobId?: string;
+  JobId?: string | undefined;
 
   /**
    * <p>The current status for the specified job.</p>
    * @public
    */
-  Status?: JobStatus;
+  Status?: JobStatus | undefined;
 
   /**
    * <p>The reason that the specified job's status was updated.</p>
    * @public
    */
-  StatusUpdateReason?: string;
+  StatusUpdateReason?: string | undefined;
 }
 
 /**
@@ -894,7 +1162,7 @@ export interface UpdateStorageLensGroupRequest {
    * </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>

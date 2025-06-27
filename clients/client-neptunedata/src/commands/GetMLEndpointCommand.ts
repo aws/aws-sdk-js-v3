@@ -12,7 +12,8 @@ import { de_GetMLEndpointCommand, se_GetMLEndpointCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface GetMLEndpointCommandOutput extends GetMLEndpointOutput, __Metad
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetMLEndpointCommand extends $Command
@@ -116,9 +118,7 @@ export class GetMLEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class GetMLEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMLEndpointCommand)
   .de(de_GetMLEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMLEndpointInput;
+      output: GetMLEndpointOutput;
+    };
+    sdk: {
+      input: GetMLEndpointCommandInput;
+      output: GetMLEndpointCommandOutput;
+    };
+  };
+}

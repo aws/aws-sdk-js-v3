@@ -12,7 +12,8 @@ import { de_DescribeDBSubnetGroupsCommand, se_DescribeDBSubnetGroupsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface DescribeDBSubnetGroupsCommandOutput extends DBSubnetGroupMessag
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBSubnetGroupsCommand extends $Command
@@ -97,9 +99,7 @@ export class DescribeDBSubnetGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class DescribeDBSubnetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBSubnetGroupsCommand)
   .de(de_DescribeDBSubnetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBSubnetGroupsMessage;
+      output: DBSubnetGroupMessage;
+    };
+    sdk: {
+      input: DescribeDBSubnetGroupsCommandInput;
+      output: DescribeDBSubnetGroupsCommandOutput;
+    };
+  };
+}

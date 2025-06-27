@@ -12,7 +12,8 @@ import { de_GetQueryCommand, se_GetQueryCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer 
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetQueryCommand extends $Command
@@ -105,4 +107,16 @@ export class GetQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryCommand)
   .de(de_GetQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryInput;
+      output: GetQueryOutput;
+    };
+    sdk: {
+      input: GetQueryCommandInput;
+      output: GetQueryCommandOutput;
+    };
+  };
+}

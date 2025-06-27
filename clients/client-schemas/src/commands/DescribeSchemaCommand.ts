@@ -12,7 +12,8 @@ import { SchemasClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface DescribeSchemaCommandOutput extends DescribeSchemaResponse, __M
  * @throws {@link SchemasServiceException}
  * <p>Base exception class for all service exceptions from Schemas service.</p>
  *
+ *
  * @public
  */
 export class DescribeSchemaCommand extends $Command
@@ -88,9 +90,7 @@ export class DescribeSchemaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SchemasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class DescribeSchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSchemaCommand)
   .de(de_DescribeSchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSchemaRequest;
+      output: DescribeSchemaResponse;
+    };
+    sdk: {
+      input: DescribeSchemaCommandInput;
+      output: DescribeSchemaCommandOutput;
+    };
+  };
+}

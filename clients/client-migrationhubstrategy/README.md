@@ -16,7 +16,7 @@ more information, see <a href="http://aws.amazon.com/tools/#SDKs">AWS SDKs</a>.<
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-migrationhubstrategy
+To install this package, simply type add or install @aws-sdk/client-migrationhubstrategy
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-migrationhubstrategy`

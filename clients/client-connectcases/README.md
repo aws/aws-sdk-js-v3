@@ -6,6 +6,20 @@
 
 AWS SDK for JavaScript ConnectCases Client for Node.js, Browser and React Native.
 
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Cases.html">Cases
+actions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Cases.html">Cases data
+types</a>
+</p>
+</li>
+</ul>
 <p>With Amazon Connect Cases, your agents can track and manage customer issues that require
 multiple interactions, follow-up tasks, and teams in your contact center. A case represents a
 customer issue. It records the issue, the steps and interactions taken to resolve the issue,
@@ -14,7 +28,7 @@ and the outcome. For more information, see <a href="https://docs.aws.amazon.com/
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-connectcases
+To install this package, simply type add or install @aws-sdk/client-connectcases
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-connectcases`
@@ -209,6 +223,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchGetCaseRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/BatchGetCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchGetCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/BatchGetCaseRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
 BatchGetField
 </summary>
 
@@ -229,6 +251,14 @@ CreateCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateCaseRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateCaseRuleCommandOutput/)
 
 </details>
 <details>
@@ -269,6 +299,14 @@ CreateTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/CreateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/CreateTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCaseRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/DeleteCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/DeleteCaseRuleCommandOutput/)
 
 </details>
 <details>
@@ -349,6 +387,14 @@ GetTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/GetTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/GetTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCaseRules
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/ListCaseRulesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListCaseRulesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/ListCaseRulesCommandOutput/)
 
 </details>
 <details>
@@ -453,6 +499,14 @@ UpdateCase
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCaseRule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connectcases/command/UpdateCaseRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connectcases/Interface/UpdateCaseRuleCommandOutput/)
 
 </details>
 <details>

@@ -20,8 +20,8 @@
 export * from "./CognitoSyncClient";
 export * from "./CognitoSync";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { CognitoSyncExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { CognitoSyncExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

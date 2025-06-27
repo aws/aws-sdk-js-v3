@@ -1,4 +1,4 @@
-import { Logger, RequestHandler } from "@smithy/types";
+import { Logger } from "@smithy/types";
 
 import { AwsCredentialIdentity } from "./identity";
 import { Provider } from "./util";
@@ -48,6 +48,7 @@ export type CredentialProviderOptions = {
    */
   parentClientConfig?: {
     region?: string | Provider<string>;
+    profile?: string;
     [key: string]: unknown;
   };
 };

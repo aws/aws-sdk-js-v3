@@ -12,7 +12,8 @@ import { de_ListLifecyclePoliciesCommand, se_ListLifecyclePoliciesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,6 +104,7 @@ export interface ListLifecyclePoliciesCommandOutput extends ListLifecyclePolicie
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListLifecyclePoliciesCommand extends $Command
@@ -113,9 +115,7 @@ export class ListLifecyclePoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class ListLifecyclePoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLifecyclePoliciesCommand)
   .de(de_ListLifecyclePoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLifecyclePoliciesRequest;
+      output: ListLifecyclePoliciesResponse;
+    };
+    sdk: {
+      input: ListLifecyclePoliciesCommandInput;
+      output: ListLifecyclePoliciesCommandOutput;
+    };
+  };
+}

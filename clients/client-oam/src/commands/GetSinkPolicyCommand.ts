@@ -12,7 +12,8 @@ import { de_GetSinkPolicyCommand, se_GetSinkPolicyCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface GetSinkPolicyCommandInput extends GetSinkPolicyInput {}
 export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the current sink policy attached to this sink. The sink policy specifies what
- *       accounts can attach to this sink as source accounts, and what types of data they can share.</p>
+ * <p>Returns the current sink policy attached to this sink. The sink policy specifies what accounts can attach to this sink as source accounts, and what types of data they can share.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +69,7 @@ export interface GetSinkPolicyCommandOutput extends GetSinkPolicyOutput, __Metad
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class GetSinkPolicyCommand extends $Command
@@ -79,9 +80,7 @@ export class GetSinkPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class GetSinkPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSinkPolicyCommand)
   .de(de_GetSinkPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSinkPolicyInput;
+      output: GetSinkPolicyOutput;
+    };
+    sdk: {
+      input: GetSinkPolicyCommandInput;
+      output: GetSinkPolicyCommandOutput;
+    };
+  };
+}

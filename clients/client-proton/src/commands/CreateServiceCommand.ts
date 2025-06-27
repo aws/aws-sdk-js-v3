@@ -17,7 +17,8 @@ import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -125,6 +126,7 @@ export interface CreateServiceCommandOutput extends CreateServiceOutput, __Metad
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceCommand extends $Command
@@ -135,9 +137,7 @@ export class CreateServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +149,16 @@ export class CreateServiceCommand extends $Command
   .f(CreateServiceInputFilterSensitiveLog, CreateServiceOutputFilterSensitiveLog)
   .ser(se_CreateServiceCommand)
   .de(de_CreateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceInput;
+      output: CreateServiceOutput;
+    };
+    sdk: {
+      input: CreateServiceCommandInput;
+      output: CreateServiceCommandOutput;
+    };
+  };
+}

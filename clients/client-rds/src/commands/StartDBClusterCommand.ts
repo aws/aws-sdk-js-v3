@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -170,6 +171,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //     GlobalWriteForwardingRequested: true || false,
  * //     PendingModifiedValues: { // ClusterPendingModifiedValues
@@ -206,12 +208,14 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
@@ -228,6 +232,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -257,33 +262,33 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To start a DB cluster
  * ```javascript
  * // The following example starts a DB cluster and its DB instances.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster"
+ *   DBClusterIdentifier: "mydbcluster"
  * };
  * const command = new StartDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1e",
  *       "us-east-1b"
  *     ],
- *     "BackupRetentionPeriod": 1,
- *     "DBClusterIdentifier": "mydbcluster",
- *     "DatabaseName": "mydb"
+ *     BackupRetentionPeriod: 1,
+ *     DBClusterIdentifier: "mydbcluster",
+ *     DatabaseName: "mydb"
  *   }
  * }
  * *\/
- * // example id: to-start-a-db-cluster-1680035521632
  * ```
  *
+ * @public
  */
 export class StartDBClusterCommand extends $Command
   .classBuilder<
@@ -293,9 +298,7 @@ export class StartDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -307,4 +310,16 @@ export class StartDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDBClusterCommand)
   .de(de_StartDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDBClusterMessage;
+      output: StartDBClusterResult;
+    };
+    sdk: {
+      input: StartDBClusterCommandInput;
+      output: StartDBClusterCommandOutput;
+    };
+  };
+}

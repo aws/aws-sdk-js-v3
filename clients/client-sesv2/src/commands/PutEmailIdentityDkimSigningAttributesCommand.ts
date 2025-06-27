@@ -9,7 +9,7 @@ import {
   PutEmailIdentityDkimSigningAttributesRequest,
   PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog,
   PutEmailIdentityDkimSigningAttributesResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_PutEmailIdentityDkimSigningAttributesCommand,
   se_PutEmailIdentityDkimSigningAttributesCommand,
@@ -19,7 +19,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,11 +69,12 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * const client = new SESv2Client(config);
  * const input = { // PutEmailIdentityDkimSigningAttributesRequest
  *   EmailIdentity: "STRING_VALUE", // required
- *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL", // required
+ *   SigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2", // required
  *   SigningAttributes: { // DkimSigningAttributes
  *     DomainSigningSelector: "STRING_VALUE",
  *     DomainSigningPrivateKey: "STRING_VALUE",
  *     NextSigningKeyLength: "RSA_1024_BIT" || "RSA_2048_BIT",
+ *     DomainSigningAttributesOrigin: "AWS_SES" || "EXTERNAL" || "AWS_SES_AF_SOUTH_1" || "AWS_SES_EU_NORTH_1" || "AWS_SES_AP_SOUTH_1" || "AWS_SES_EU_WEST_3" || "AWS_SES_EU_WEST_2" || "AWS_SES_EU_SOUTH_1" || "AWS_SES_EU_WEST_1" || "AWS_SES_AP_NORTHEAST_3" || "AWS_SES_AP_NORTHEAST_2" || "AWS_SES_ME_SOUTH_1" || "AWS_SES_AP_NORTHEAST_1" || "AWS_SES_IL_CENTRAL_1" || "AWS_SES_SA_EAST_1" || "AWS_SES_CA_CENTRAL_1" || "AWS_SES_AP_SOUTHEAST_1" || "AWS_SES_AP_SOUTHEAST_2" || "AWS_SES_AP_SOUTHEAST_3" || "AWS_SES_EU_CENTRAL_1" || "AWS_SES_US_EAST_1" || "AWS_SES_US_EAST_2" || "AWS_SES_US_WEST_1" || "AWS_SES_US_WEST_2",
  *   },
  * };
  * const command = new PutEmailIdentityDkimSigningAttributesCommand(input);
@@ -104,6 +106,7 @@ export interface PutEmailIdentityDkimSigningAttributesCommandOutput
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
@@ -114,9 +117,7 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +129,16 @@ export class PutEmailIdentityDkimSigningAttributesCommand extends $Command
   .f(PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog, void 0)
   .ser(se_PutEmailIdentityDkimSigningAttributesCommand)
   .de(de_PutEmailIdentityDkimSigningAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityDkimSigningAttributesRequest;
+      output: PutEmailIdentityDkimSigningAttributesResponse;
+    };
+    sdk: {
+      input: PutEmailIdentityDkimSigningAttributesCommandInput;
+      output: PutEmailIdentityDkimSigningAttributesCommandOutput;
+    };
+  };
+}

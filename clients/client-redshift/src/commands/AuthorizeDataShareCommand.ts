@@ -12,7 +12,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * //     },
  * //   ],
  * //   ManagedBy: "STRING_VALUE",
+ * //   DataShareType: "INTERNAL",
  * // };
  *
  * ```
@@ -75,6 +77,7 @@ export interface AuthorizeDataShareCommandOutput extends DataShare, __MetadataBe
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class AuthorizeDataShareCommand extends $Command
@@ -85,9 +88,7 @@ export class AuthorizeDataShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +100,16 @@ export class AuthorizeDataShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AuthorizeDataShareCommand)
   .de(de_AuthorizeDataShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AuthorizeDataShareMessage;
+      output: DataShare;
+    };
+    sdk: {
+      input: AuthorizeDataShareCommandInput;
+      output: AuthorizeDataShareCommandOutput;
+    };
+  };
+}

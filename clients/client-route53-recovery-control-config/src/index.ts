@@ -8,8 +8,8 @@
 export * from "./Route53RecoveryControlConfigClient";
 export * from "./Route53RecoveryControlConfig";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { Route53RecoveryControlConfigExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { Route53RecoveryControlConfigExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./waiters";

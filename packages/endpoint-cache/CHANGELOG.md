@@ -3,6 +3,46 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/endpoint-cache
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/endpoint-cache
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/endpoint-cache
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/endpoint-cache
+
+
+
+
+
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+**Note:** Version bump only for package @aws-sdk/endpoint-cache
+
+
+
+
+
 # [3.572.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.571.0...v3.572.0) (2024-05-08)
 
 **Note:** Version bump only for package @aws-sdk/endpoint-cache

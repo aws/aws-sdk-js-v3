@@ -12,7 +12,8 @@ import { de_CreateSuiteDefinitionCommand, se_CreateSuiteDefinitionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,7 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   clientToken: "STRING_VALUE",
  * };
  * const command = new CreateSuiteDefinitionCommand(input);
  * const response = await client.send(command);
@@ -81,6 +83,7 @@ export interface CreateSuiteDefinitionCommandOutput extends CreateSuiteDefinitio
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class CreateSuiteDefinitionCommand extends $Command
@@ -91,9 +94,7 @@ export class CreateSuiteDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class CreateSuiteDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSuiteDefinitionCommand)
   .de(de_CreateSuiteDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSuiteDefinitionRequest;
+      output: CreateSuiteDefinitionResponse;
+    };
+    sdk: {
+      input: CreateSuiteDefinitionCommandInput;
+      output: CreateSuiteDefinitionCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface UpdateEnvironmentAccountConnectionCommandOutput
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentAccountConnectionCommand extends $Command
@@ -104,9 +106,7 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class UpdateEnvironmentAccountConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnvironmentAccountConnectionCommand)
   .de(de_UpdateEnvironmentAccountConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentAccountConnectionInput;
+      output: UpdateEnvironmentAccountConnectionOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentAccountConnectionCommandInput;
+      output: UpdateEnvironmentAccountConnectionCommandOutput;
+    };
+  };
+}

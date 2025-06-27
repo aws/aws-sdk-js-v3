@@ -16,7 +16,8 @@ import { de_ListRecommendationSummariesCommand, se_ListRecommendationSummariesCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,12 +34,7 @@ export interface ListRecommendationSummariesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a concise representation of savings estimates for resources. Also returns de-duped
- *       savings across different types of recommendations.</p>
- *          <note>
- *             <p>The following filters are not supported for this API: <code>recommendationIds</code>,
- *           <code>resourceArns</code>, and <code>resourceIds</code>.</p>
- *          </note>
+ * <p>Returns a concise representation of savings estimates for resources. Also returns de-duped savings across different types of recommendations.</p> <note> <p>The following filters are not supported for this API: <code>recommendationIds</code>, <code>resourceArns</code>, and <code>resourceIds</code>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,10 +55,10 @@ export interface ListRecommendationSummariesCommandOutput
  *       "STRING_VALUE",
  *     ],
  *     resourceTypes: [ // ResourceTypeList
- *       "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances",
+ *       "Ec2Instance" || "LambdaFunction" || "EbsVolume" || "EcsService" || "Ec2AutoScalingGroup" || "Ec2InstanceSavingsPlans" || "ComputeSavingsPlans" || "SageMakerSavingsPlans" || "Ec2ReservedInstances" || "RdsReservedInstances" || "OpenSearchReservedInstances" || "RedshiftReservedInstances" || "ElastiCacheReservedInstances" || "RdsDbInstanceStorage" || "RdsDbInstance" || "AuroraDbClusterStorage" || "DynamoDbReservedCapacity" || "MemoryDbReservedInstances",
  *     ],
  *     actionTypes: [ // ActionTypeList
- *       "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton",
+ *       "Rightsize" || "Stop" || "Upgrade" || "PurchaseSavingsPlans" || "PurchaseReservedInstances" || "MigrateToGraviton" || "Delete" || "ScaleIn",
  *     ],
  *     tags: [ // TagList
  *       { // Tag
@@ -82,6 +78,9 @@ export interface ListRecommendationSummariesCommandOutput
  *   },
  *   groupBy: "STRING_VALUE", // required
  *   maxResults: Number("int"),
+ *   metrics: [ // SummaryMetricsList
+ *     "SavingsPercentage",
+ *   ],
  *   nextToken: "STRING_VALUE",
  * };
  * const command = new ListRecommendationSummariesCommand(input);
@@ -97,6 +96,9 @@ export interface ListRecommendationSummariesCommandOutput
  * //   ],
  * //   groupBy: "STRING_VALUE",
  * //   currencyCode: "STRING_VALUE",
+ * //   metrics: { // SummaryMetricsResult
+ * //     savingsPercentage: "STRING_VALUE",
+ * //   },
  * //   nextToken: "STRING_VALUE",
  * // };
  *
@@ -112,18 +114,17 @@ export interface ListRecommendationSummariesCommandOutput
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
+ *
  *
  * @public
  */
@@ -135,9 +136,7 @@ export class ListRecommendationSummariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class ListRecommendationSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecommendationSummariesCommand)
   .de(de_ListRecommendationSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecommendationSummariesRequest;
+      output: ListRecommendationSummariesResponse;
+    };
+    sdk: {
+      input: ListRecommendationSummariesCommandInput;
+      output: ListRecommendationSummariesCommandOutput;
+    };
+  };
+}

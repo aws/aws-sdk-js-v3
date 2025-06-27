@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SsmSapClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface UpdateApplicationSettingsCommandOutput extends UpdateApplicatio
  * @throws {@link SsmSapServiceException}
  * <p>Base exception class for all service exceptions from SsmSap service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationSettingsCommand extends $Command
@@ -106,9 +108,7 @@ export class UpdateApplicationSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SsmSapClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class UpdateApplicationSettingsCommand extends $Command
   .f(UpdateApplicationSettingsInputFilterSensitiveLog, void 0)
   .ser(se_UpdateApplicationSettingsCommand)
   .de(de_UpdateApplicationSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationSettingsInput;
+      output: UpdateApplicationSettingsOutput;
+    };
+    sdk: {
+      input: UpdateApplicationSettingsCommandInput;
+      output: UpdateApplicationSettingsCommandOutput;
+    };
+  };
+}

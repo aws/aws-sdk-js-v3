@@ -9,10 +9,25 @@ import {
   AssociateAliasCommandOutput,
 } from "./commands/AssociateAliasCommand";
 import {
+  AssociateDistributionTenantWebACLCommand,
+  AssociateDistributionTenantWebACLCommandInput,
+  AssociateDistributionTenantWebACLCommandOutput,
+} from "./commands/AssociateDistributionTenantWebACLCommand";
+import {
+  AssociateDistributionWebACLCommand,
+  AssociateDistributionWebACLCommandInput,
+  AssociateDistributionWebACLCommandOutput,
+} from "./commands/AssociateDistributionWebACLCommand";
+import {
   CopyDistributionCommand,
   CopyDistributionCommandInput,
   CopyDistributionCommandOutput,
 } from "./commands/CopyDistributionCommand";
+import {
+  CreateAnycastIpListCommand,
+  CreateAnycastIpListCommandInput,
+  CreateAnycastIpListCommandOutput,
+} from "./commands/CreateAnycastIpListCommand";
 import {
   CreateCachePolicyCommand,
   CreateCachePolicyCommandInput,
@@ -24,6 +39,11 @@ import {
   CreateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/CreateCloudFrontOriginAccessIdentityCommand";
 import {
+  CreateConnectionGroupCommand,
+  CreateConnectionGroupCommandInput,
+  CreateConnectionGroupCommandOutput,
+} from "./commands/CreateConnectionGroupCommand";
+import {
   CreateContinuousDeploymentPolicyCommand,
   CreateContinuousDeploymentPolicyCommandInput,
   CreateContinuousDeploymentPolicyCommandOutput,
@@ -33,6 +53,11 @@ import {
   CreateDistributionCommandInput,
   CreateDistributionCommandOutput,
 } from "./commands/CreateDistributionCommand";
+import {
+  CreateDistributionTenantCommand,
+  CreateDistributionTenantCommandInput,
+  CreateDistributionTenantCommandOutput,
+} from "./commands/CreateDistributionTenantCommand";
 import {
   CreateDistributionWithTagsCommand,
   CreateDistributionWithTagsCommandInput,
@@ -58,6 +83,11 @@ import {
   CreateInvalidationCommandInput,
   CreateInvalidationCommandOutput,
 } from "./commands/CreateInvalidationCommand";
+import {
+  CreateInvalidationForDistributionTenantCommand,
+  CreateInvalidationForDistributionTenantCommandInput,
+  CreateInvalidationForDistributionTenantCommandOutput,
+} from "./commands/CreateInvalidationForDistributionTenantCommand";
 import {
   CreateKeyGroupCommand,
   CreateKeyGroupCommandInput,
@@ -109,6 +139,16 @@ import {
   CreateStreamingDistributionWithTagsCommandOutput,
 } from "./commands/CreateStreamingDistributionWithTagsCommand";
 import {
+  CreateVpcOriginCommand,
+  CreateVpcOriginCommandInput,
+  CreateVpcOriginCommandOutput,
+} from "./commands/CreateVpcOriginCommand";
+import {
+  DeleteAnycastIpListCommand,
+  DeleteAnycastIpListCommandInput,
+  DeleteAnycastIpListCommandOutput,
+} from "./commands/DeleteAnycastIpListCommand";
+import {
   DeleteCachePolicyCommand,
   DeleteCachePolicyCommandInput,
   DeleteCachePolicyCommandOutput,
@@ -119,6 +159,11 @@ import {
   DeleteCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/DeleteCloudFrontOriginAccessIdentityCommand";
 import {
+  DeleteConnectionGroupCommand,
+  DeleteConnectionGroupCommandInput,
+  DeleteConnectionGroupCommandOutput,
+} from "./commands/DeleteConnectionGroupCommand";
+import {
   DeleteContinuousDeploymentPolicyCommand,
   DeleteContinuousDeploymentPolicyCommandInput,
   DeleteContinuousDeploymentPolicyCommandOutput,
@@ -128,6 +173,11 @@ import {
   DeleteDistributionCommandInput,
   DeleteDistributionCommandOutput,
 } from "./commands/DeleteDistributionCommand";
+import {
+  DeleteDistributionTenantCommand,
+  DeleteDistributionTenantCommandInput,
+  DeleteDistributionTenantCommandOutput,
+} from "./commands/DeleteDistributionTenantCommand";
 import {
   DeleteFieldLevelEncryptionConfigCommand,
   DeleteFieldLevelEncryptionConfigCommandInput,
@@ -189,6 +239,11 @@ import {
   DeleteStreamingDistributionCommandOutput,
 } from "./commands/DeleteStreamingDistributionCommand";
 import {
+  DeleteVpcOriginCommand,
+  DeleteVpcOriginCommandInput,
+  DeleteVpcOriginCommandOutput,
+} from "./commands/DeleteVpcOriginCommand";
+import {
   DescribeFunctionCommand,
   DescribeFunctionCommandInput,
   DescribeFunctionCommandOutput,
@@ -198,6 +253,21 @@ import {
   DescribeKeyValueStoreCommandInput,
   DescribeKeyValueStoreCommandOutput,
 } from "./commands/DescribeKeyValueStoreCommand";
+import {
+  DisassociateDistributionTenantWebACLCommand,
+  DisassociateDistributionTenantWebACLCommandInput,
+  DisassociateDistributionTenantWebACLCommandOutput,
+} from "./commands/DisassociateDistributionTenantWebACLCommand";
+import {
+  DisassociateDistributionWebACLCommand,
+  DisassociateDistributionWebACLCommandInput,
+  DisassociateDistributionWebACLCommandOutput,
+} from "./commands/DisassociateDistributionWebACLCommand";
+import {
+  GetAnycastIpListCommand,
+  GetAnycastIpListCommandInput,
+  GetAnycastIpListCommandOutput,
+} from "./commands/GetAnycastIpListCommand";
 import {
   GetCachePolicyCommand,
   GetCachePolicyCommandInput,
@@ -219,6 +289,16 @@ import {
   GetCloudFrontOriginAccessIdentityConfigCommandOutput,
 } from "./commands/GetCloudFrontOriginAccessIdentityConfigCommand";
 import {
+  GetConnectionGroupByRoutingEndpointCommand,
+  GetConnectionGroupByRoutingEndpointCommandInput,
+  GetConnectionGroupByRoutingEndpointCommandOutput,
+} from "./commands/GetConnectionGroupByRoutingEndpointCommand";
+import {
+  GetConnectionGroupCommand,
+  GetConnectionGroupCommandInput,
+  GetConnectionGroupCommandOutput,
+} from "./commands/GetConnectionGroupCommand";
+import {
   GetContinuousDeploymentPolicyCommand,
   GetContinuousDeploymentPolicyCommandInput,
   GetContinuousDeploymentPolicyCommandOutput,
@@ -238,6 +318,16 @@ import {
   GetDistributionConfigCommandInput,
   GetDistributionConfigCommandOutput,
 } from "./commands/GetDistributionConfigCommand";
+import {
+  GetDistributionTenantByDomainCommand,
+  GetDistributionTenantByDomainCommandInput,
+  GetDistributionTenantByDomainCommandOutput,
+} from "./commands/GetDistributionTenantByDomainCommand";
+import {
+  GetDistributionTenantCommand,
+  GetDistributionTenantCommandInput,
+  GetDistributionTenantCommandOutput,
+} from "./commands/GetDistributionTenantCommand";
 import {
   GetFieldLevelEncryptionCommand,
   GetFieldLevelEncryptionCommandInput,
@@ -264,12 +354,22 @@ import {
   GetInvalidationCommandInput,
   GetInvalidationCommandOutput,
 } from "./commands/GetInvalidationCommand";
+import {
+  GetInvalidationForDistributionTenantCommand,
+  GetInvalidationForDistributionTenantCommandInput,
+  GetInvalidationForDistributionTenantCommandOutput,
+} from "./commands/GetInvalidationForDistributionTenantCommand";
 import { GetKeyGroupCommand, GetKeyGroupCommandInput, GetKeyGroupCommandOutput } from "./commands/GetKeyGroupCommand";
 import {
   GetKeyGroupConfigCommand,
   GetKeyGroupConfigCommandInput,
   GetKeyGroupConfigCommandOutput,
 } from "./commands/GetKeyGroupConfigCommand";
+import {
+  GetManagedCertificateDetailsCommand,
+  GetManagedCertificateDetailsCommandInput,
+  GetManagedCertificateDetailsCommandOutput,
+} from "./commands/GetManagedCertificateDetailsCommand";
 import {
   GetMonitoringSubscriptionCommand,
   GetMonitoringSubscriptionCommandInput,
@@ -331,6 +431,16 @@ import {
   GetStreamingDistributionConfigCommandOutput,
 } from "./commands/GetStreamingDistributionConfigCommand";
 import {
+  GetVpcOriginCommand,
+  GetVpcOriginCommandInput,
+  GetVpcOriginCommandOutput,
+} from "./commands/GetVpcOriginCommand";
+import {
+  ListAnycastIpListsCommand,
+  ListAnycastIpListsCommandInput,
+  ListAnycastIpListsCommandOutput,
+} from "./commands/ListAnycastIpListsCommand";
+import {
   ListCachePoliciesCommand,
   ListCachePoliciesCommandInput,
   ListCachePoliciesCommandOutput,
@@ -346,15 +456,30 @@ import {
   ListConflictingAliasesCommandOutput,
 } from "./commands/ListConflictingAliasesCommand";
 import {
+  ListConnectionGroupsCommand,
+  ListConnectionGroupsCommandInput,
+  ListConnectionGroupsCommandOutput,
+} from "./commands/ListConnectionGroupsCommand";
+import {
   ListContinuousDeploymentPoliciesCommand,
   ListContinuousDeploymentPoliciesCommandInput,
   ListContinuousDeploymentPoliciesCommandOutput,
 } from "./commands/ListContinuousDeploymentPoliciesCommand";
 import {
+  ListDistributionsByAnycastIpListIdCommand,
+  ListDistributionsByAnycastIpListIdCommandInput,
+  ListDistributionsByAnycastIpListIdCommandOutput,
+} from "./commands/ListDistributionsByAnycastIpListIdCommand";
+import {
   ListDistributionsByCachePolicyIdCommand,
   ListDistributionsByCachePolicyIdCommandInput,
   ListDistributionsByCachePolicyIdCommandOutput,
 } from "./commands/ListDistributionsByCachePolicyIdCommand";
+import {
+  ListDistributionsByConnectionModeCommand,
+  ListDistributionsByConnectionModeCommandInput,
+  ListDistributionsByConnectionModeCommandOutput,
+} from "./commands/ListDistributionsByConnectionModeCommand";
 import {
   ListDistributionsByKeyGroupCommand,
   ListDistributionsByKeyGroupCommandInput,
@@ -376,6 +501,11 @@ import {
   ListDistributionsByResponseHeadersPolicyIdCommandOutput,
 } from "./commands/ListDistributionsByResponseHeadersPolicyIdCommand";
 import {
+  ListDistributionsByVpcOriginIdCommand,
+  ListDistributionsByVpcOriginIdCommandInput,
+  ListDistributionsByVpcOriginIdCommandOutput,
+} from "./commands/ListDistributionsByVpcOriginIdCommand";
+import {
   ListDistributionsByWebACLIdCommand,
   ListDistributionsByWebACLIdCommandInput,
   ListDistributionsByWebACLIdCommandOutput,
@@ -385,6 +515,21 @@ import {
   ListDistributionsCommandInput,
   ListDistributionsCommandOutput,
 } from "./commands/ListDistributionsCommand";
+import {
+  ListDistributionTenantsByCustomizationCommand,
+  ListDistributionTenantsByCustomizationCommandInput,
+  ListDistributionTenantsByCustomizationCommandOutput,
+} from "./commands/ListDistributionTenantsByCustomizationCommand";
+import {
+  ListDistributionTenantsCommand,
+  ListDistributionTenantsCommandInput,
+  ListDistributionTenantsCommandOutput,
+} from "./commands/ListDistributionTenantsCommand";
+import {
+  ListDomainConflictsCommand,
+  ListDomainConflictsCommandInput,
+  ListDomainConflictsCommandOutput,
+} from "./commands/ListDomainConflictsCommand";
 import {
   ListFieldLevelEncryptionConfigsCommand,
   ListFieldLevelEncryptionConfigsCommandInput,
@@ -405,6 +550,11 @@ import {
   ListInvalidationsCommandInput,
   ListInvalidationsCommandOutput,
 } from "./commands/ListInvalidationsCommand";
+import {
+  ListInvalidationsForDistributionTenantCommand,
+  ListInvalidationsForDistributionTenantCommandInput,
+  ListInvalidationsForDistributionTenantCommandOutput,
+} from "./commands/ListInvalidationsForDistributionTenantCommand";
 import {
   ListKeyGroupsCommand,
   ListKeyGroupsCommandInput,
@@ -451,6 +601,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ListVpcOriginsCommand,
+  ListVpcOriginsCommandInput,
+  ListVpcOriginsCommandOutput,
+} from "./commands/ListVpcOriginsCommand";
+import {
   PublishFunctionCommand,
   PublishFunctionCommandInput,
   PublishFunctionCommandOutput,
@@ -477,6 +632,11 @@ import {
   UpdateCloudFrontOriginAccessIdentityCommandOutput,
 } from "./commands/UpdateCloudFrontOriginAccessIdentityCommand";
 import {
+  UpdateConnectionGroupCommand,
+  UpdateConnectionGroupCommandInput,
+  UpdateConnectionGroupCommandOutput,
+} from "./commands/UpdateConnectionGroupCommand";
+import {
   UpdateContinuousDeploymentPolicyCommand,
   UpdateContinuousDeploymentPolicyCommandInput,
   UpdateContinuousDeploymentPolicyCommandOutput,
@@ -487,10 +647,20 @@ import {
   UpdateDistributionCommandOutput,
 } from "./commands/UpdateDistributionCommand";
 import {
+  UpdateDistributionTenantCommand,
+  UpdateDistributionTenantCommandInput,
+  UpdateDistributionTenantCommandOutput,
+} from "./commands/UpdateDistributionTenantCommand";
+import {
   UpdateDistributionWithStagingConfigCommand,
   UpdateDistributionWithStagingConfigCommandInput,
   UpdateDistributionWithStagingConfigCommandOutput,
 } from "./commands/UpdateDistributionWithStagingConfigCommand";
+import {
+  UpdateDomainAssociationCommand,
+  UpdateDomainAssociationCommandInput,
+  UpdateDomainAssociationCommandOutput,
+} from "./commands/UpdateDomainAssociationCommand";
 import {
   UpdateFieldLevelEncryptionConfigCommand,
   UpdateFieldLevelEncryptionConfigCommandInput,
@@ -546,19 +716,35 @@ import {
   UpdateStreamingDistributionCommandInput,
   UpdateStreamingDistributionCommandOutput,
 } from "./commands/UpdateStreamingDistributionCommand";
+import {
+  UpdateVpcOriginCommand,
+  UpdateVpcOriginCommandInput,
+  UpdateVpcOriginCommandOutput,
+} from "./commands/UpdateVpcOriginCommand";
+import {
+  VerifyDnsConfigurationCommand,
+  VerifyDnsConfigurationCommandInput,
+  VerifyDnsConfigurationCommandOutput,
+} from "./commands/VerifyDnsConfigurationCommand";
 
 const commands = {
   AssociateAliasCommand,
+  AssociateDistributionTenantWebACLCommand,
+  AssociateDistributionWebACLCommand,
   CopyDistributionCommand,
+  CreateAnycastIpListCommand,
   CreateCachePolicyCommand,
   CreateCloudFrontOriginAccessIdentityCommand,
+  CreateConnectionGroupCommand,
   CreateContinuousDeploymentPolicyCommand,
   CreateDistributionCommand,
+  CreateDistributionTenantCommand,
   CreateDistributionWithTagsCommand,
   CreateFieldLevelEncryptionConfigCommand,
   CreateFieldLevelEncryptionProfileCommand,
   CreateFunctionCommand,
   CreateInvalidationCommand,
+  CreateInvalidationForDistributionTenantCommand,
   CreateKeyGroupCommand,
   CreateKeyValueStoreCommand,
   CreateMonitoringSubscriptionCommand,
@@ -569,10 +755,14 @@ const commands = {
   CreateResponseHeadersPolicyCommand,
   CreateStreamingDistributionCommand,
   CreateStreamingDistributionWithTagsCommand,
+  CreateVpcOriginCommand,
+  DeleteAnycastIpListCommand,
   DeleteCachePolicyCommand,
   DeleteCloudFrontOriginAccessIdentityCommand,
+  DeleteConnectionGroupCommand,
   DeleteContinuousDeploymentPolicyCommand,
   DeleteDistributionCommand,
+  DeleteDistributionTenantCommand,
   DeleteFieldLevelEncryptionConfigCommand,
   DeleteFieldLevelEncryptionProfileCommand,
   DeleteFunctionCommand,
@@ -585,24 +775,34 @@ const commands = {
   DeleteRealtimeLogConfigCommand,
   DeleteResponseHeadersPolicyCommand,
   DeleteStreamingDistributionCommand,
+  DeleteVpcOriginCommand,
   DescribeFunctionCommand,
   DescribeKeyValueStoreCommand,
+  DisassociateDistributionTenantWebACLCommand,
+  DisassociateDistributionWebACLCommand,
+  GetAnycastIpListCommand,
   GetCachePolicyCommand,
   GetCachePolicyConfigCommand,
   GetCloudFrontOriginAccessIdentityCommand,
   GetCloudFrontOriginAccessIdentityConfigCommand,
+  GetConnectionGroupCommand,
+  GetConnectionGroupByRoutingEndpointCommand,
   GetContinuousDeploymentPolicyCommand,
   GetContinuousDeploymentPolicyConfigCommand,
   GetDistributionCommand,
   GetDistributionConfigCommand,
+  GetDistributionTenantCommand,
+  GetDistributionTenantByDomainCommand,
   GetFieldLevelEncryptionCommand,
   GetFieldLevelEncryptionConfigCommand,
   GetFieldLevelEncryptionProfileCommand,
   GetFieldLevelEncryptionProfileConfigCommand,
   GetFunctionCommand,
   GetInvalidationCommand,
+  GetInvalidationForDistributionTenantCommand,
   GetKeyGroupCommand,
   GetKeyGroupConfigCommand,
+  GetManagedCertificateDetailsCommand,
   GetMonitoringSubscriptionCommand,
   GetOriginAccessControlCommand,
   GetOriginAccessControlConfigCommand,
@@ -615,21 +815,31 @@ const commands = {
   GetResponseHeadersPolicyConfigCommand,
   GetStreamingDistributionCommand,
   GetStreamingDistributionConfigCommand,
+  GetVpcOriginCommand,
+  ListAnycastIpListsCommand,
   ListCachePoliciesCommand,
   ListCloudFrontOriginAccessIdentitiesCommand,
   ListConflictingAliasesCommand,
+  ListConnectionGroupsCommand,
   ListContinuousDeploymentPoliciesCommand,
   ListDistributionsCommand,
+  ListDistributionsByAnycastIpListIdCommand,
   ListDistributionsByCachePolicyIdCommand,
+  ListDistributionsByConnectionModeCommand,
   ListDistributionsByKeyGroupCommand,
   ListDistributionsByOriginRequestPolicyIdCommand,
   ListDistributionsByRealtimeLogConfigCommand,
   ListDistributionsByResponseHeadersPolicyIdCommand,
+  ListDistributionsByVpcOriginIdCommand,
   ListDistributionsByWebACLIdCommand,
+  ListDistributionTenantsCommand,
+  ListDistributionTenantsByCustomizationCommand,
+  ListDomainConflictsCommand,
   ListFieldLevelEncryptionConfigsCommand,
   ListFieldLevelEncryptionProfilesCommand,
   ListFunctionsCommand,
   ListInvalidationsCommand,
+  ListInvalidationsForDistributionTenantCommand,
   ListKeyGroupsCommand,
   ListKeyValueStoresCommand,
   ListOriginAccessControlsCommand,
@@ -639,15 +849,19 @@ const commands = {
   ListResponseHeadersPoliciesCommand,
   ListStreamingDistributionsCommand,
   ListTagsForResourceCommand,
+  ListVpcOriginsCommand,
   PublishFunctionCommand,
   TagResourceCommand,
   TestFunctionCommand,
   UntagResourceCommand,
   UpdateCachePolicyCommand,
   UpdateCloudFrontOriginAccessIdentityCommand,
+  UpdateConnectionGroupCommand,
   UpdateContinuousDeploymentPolicyCommand,
   UpdateDistributionCommand,
+  UpdateDistributionTenantCommand,
   UpdateDistributionWithStagingConfigCommand,
+  UpdateDomainAssociationCommand,
   UpdateFieldLevelEncryptionConfigCommand,
   UpdateFieldLevelEncryptionProfileCommand,
   UpdateFunctionCommand,
@@ -659,6 +873,8 @@ const commands = {
   UpdateRealtimeLogConfigCommand,
   UpdateResponseHeadersPolicyCommand,
   UpdateStreamingDistributionCommand,
+  UpdateVpcOriginCommand,
+  VerifyDnsConfigurationCommand,
 };
 
 export interface CloudFront {
@@ -677,6 +893,40 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link AssociateDistributionTenantWebACLCommand}
+   */
+  associateDistributionTenantWebACL(
+    args: AssociateDistributionTenantWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDistributionTenantWebACLCommandOutput>;
+  associateDistributionTenantWebACL(
+    args: AssociateDistributionTenantWebACLCommandInput,
+    cb: (err: any, data?: AssociateDistributionTenantWebACLCommandOutput) => void
+  ): void;
+  associateDistributionTenantWebACL(
+    args: AssociateDistributionTenantWebACLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDistributionTenantWebACLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateDistributionWebACLCommand}
+   */
+  associateDistributionWebACL(
+    args: AssociateDistributionWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDistributionWebACLCommandOutput>;
+  associateDistributionWebACL(
+    args: AssociateDistributionWebACLCommandInput,
+    cb: (err: any, data?: AssociateDistributionWebACLCommandOutput) => void
+  ): void;
+  associateDistributionWebACL(
+    args: AssociateDistributionWebACLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDistributionWebACLCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CopyDistributionCommand}
    */
   copyDistribution(
@@ -691,6 +941,23 @@ export interface CloudFront {
     args: CopyDistributionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CopyDistributionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateAnycastIpListCommand}
+   */
+  createAnycastIpList(
+    args: CreateAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAnycastIpListCommandOutput>;
+  createAnycastIpList(
+    args: CreateAnycastIpListCommandInput,
+    cb: (err: any, data?: CreateAnycastIpListCommandOutput) => void
+  ): void;
+  createAnycastIpList(
+    args: CreateAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAnycastIpListCommandOutput) => void
   ): void;
 
   /**
@@ -728,6 +995,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link CreateConnectionGroupCommand}
+   */
+  createConnectionGroup(
+    args: CreateConnectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectionGroupCommandOutput>;
+  createConnectionGroup(
+    args: CreateConnectionGroupCommandInput,
+    cb: (err: any, data?: CreateConnectionGroupCommandOutput) => void
+  ): void;
+  createConnectionGroup(
+    args: CreateConnectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectionGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateContinuousDeploymentPolicyCommand}
    */
   createContinuousDeploymentPolicy(
@@ -759,6 +1043,23 @@ export interface CloudFront {
     args: CreateDistributionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDistributionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDistributionTenantCommand}
+   */
+  createDistributionTenant(
+    args: CreateDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDistributionTenantCommandOutput>;
+  createDistributionTenant(
+    args: CreateDistributionTenantCommandInput,
+    cb: (err: any, data?: CreateDistributionTenantCommandOutput) => void
+  ): void;
+  createDistributionTenant(
+    args: CreateDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDistributionTenantCommandOutput) => void
   ): void;
 
   /**
@@ -841,6 +1142,23 @@ export interface CloudFront {
     args: CreateInvalidationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateInvalidationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateInvalidationForDistributionTenantCommand}
+   */
+  createInvalidationForDistributionTenant(
+    args: CreateInvalidationForDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateInvalidationForDistributionTenantCommandOutput>;
+  createInvalidationForDistributionTenant(
+    args: CreateInvalidationForDistributionTenantCommandInput,
+    cb: (err: any, data?: CreateInvalidationForDistributionTenantCommandOutput) => void
+  ): void;
+  createInvalidationForDistributionTenant(
+    args: CreateInvalidationForDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateInvalidationForDistributionTenantCommandOutput) => void
   ): void;
 
   /**
@@ -1008,6 +1326,37 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link CreateVpcOriginCommand}
+   */
+  createVpcOrigin(
+    args: CreateVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcOriginCommandOutput>;
+  createVpcOrigin(args: CreateVpcOriginCommandInput, cb: (err: any, data?: CreateVpcOriginCommandOutput) => void): void;
+  createVpcOrigin(
+    args: CreateVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAnycastIpListCommand}
+   */
+  deleteAnycastIpList(
+    args: DeleteAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAnycastIpListCommandOutput>;
+  deleteAnycastIpList(
+    args: DeleteAnycastIpListCommandInput,
+    cb: (err: any, data?: DeleteAnycastIpListCommandOutput) => void
+  ): void;
+  deleteAnycastIpList(
+    args: DeleteAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAnycastIpListCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCachePolicyCommand}
    */
   deleteCachePolicy(
@@ -1042,6 +1391,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link DeleteConnectionGroupCommand}
+   */
+  deleteConnectionGroup(
+    args: DeleteConnectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectionGroupCommandOutput>;
+  deleteConnectionGroup(
+    args: DeleteConnectionGroupCommandInput,
+    cb: (err: any, data?: DeleteConnectionGroupCommandOutput) => void
+  ): void;
+  deleteConnectionGroup(
+    args: DeleteConnectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectionGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteContinuousDeploymentPolicyCommand}
    */
   deleteContinuousDeploymentPolicy(
@@ -1073,6 +1439,23 @@ export interface CloudFront {
     args: DeleteDistributionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteDistributionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteDistributionTenantCommand}
+   */
+  deleteDistributionTenant(
+    args: DeleteDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDistributionTenantCommandOutput>;
+  deleteDistributionTenant(
+    args: DeleteDistributionTenantCommandInput,
+    cb: (err: any, data?: DeleteDistributionTenantCommandOutput) => void
+  ): void;
+  deleteDistributionTenant(
+    args: DeleteDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDistributionTenantCommandOutput) => void
   ): void;
 
   /**
@@ -1272,6 +1655,20 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link DeleteVpcOriginCommand}
+   */
+  deleteVpcOrigin(
+    args: DeleteVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcOriginCommandOutput>;
+  deleteVpcOrigin(args: DeleteVpcOriginCommandInput, cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void): void;
+  deleteVpcOrigin(
+    args: DeleteVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFunctionCommand}
    */
   describeFunction(
@@ -1303,6 +1700,57 @@ export interface CloudFront {
     args: DescribeKeyValueStoreCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeKeyValueStoreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateDistributionTenantWebACLCommand}
+   */
+  disassociateDistributionTenantWebACL(
+    args: DisassociateDistributionTenantWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateDistributionTenantWebACLCommandOutput>;
+  disassociateDistributionTenantWebACL(
+    args: DisassociateDistributionTenantWebACLCommandInput,
+    cb: (err: any, data?: DisassociateDistributionTenantWebACLCommandOutput) => void
+  ): void;
+  disassociateDistributionTenantWebACL(
+    args: DisassociateDistributionTenantWebACLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateDistributionTenantWebACLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateDistributionWebACLCommand}
+   */
+  disassociateDistributionWebACL(
+    args: DisassociateDistributionWebACLCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateDistributionWebACLCommandOutput>;
+  disassociateDistributionWebACL(
+    args: DisassociateDistributionWebACLCommandInput,
+    cb: (err: any, data?: DisassociateDistributionWebACLCommandOutput) => void
+  ): void;
+  disassociateDistributionWebACL(
+    args: DisassociateDistributionWebACLCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateDistributionWebACLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnycastIpListCommand}
+   */
+  getAnycastIpList(
+    args: GetAnycastIpListCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnycastIpListCommandOutput>;
+  getAnycastIpList(
+    args: GetAnycastIpListCommandInput,
+    cb: (err: any, data?: GetAnycastIpListCommandOutput) => void
+  ): void;
+  getAnycastIpList(
+    args: GetAnycastIpListCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnycastIpListCommandOutput) => void
   ): void;
 
   /**
@@ -1371,6 +1819,40 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link GetConnectionGroupCommand}
+   */
+  getConnectionGroup(
+    args: GetConnectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionGroupCommandOutput>;
+  getConnectionGroup(
+    args: GetConnectionGroupCommandInput,
+    cb: (err: any, data?: GetConnectionGroupCommandOutput) => void
+  ): void;
+  getConnectionGroup(
+    args: GetConnectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectionGroupByRoutingEndpointCommand}
+   */
+  getConnectionGroupByRoutingEndpoint(
+    args: GetConnectionGroupByRoutingEndpointCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectionGroupByRoutingEndpointCommandOutput>;
+  getConnectionGroupByRoutingEndpoint(
+    args: GetConnectionGroupByRoutingEndpointCommandInput,
+    cb: (err: any, data?: GetConnectionGroupByRoutingEndpointCommandOutput) => void
+  ): void;
+  getConnectionGroupByRoutingEndpoint(
+    args: GetConnectionGroupByRoutingEndpointCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectionGroupByRoutingEndpointCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetContinuousDeploymentPolicyCommand}
    */
   getContinuousDeploymentPolicy(
@@ -1433,6 +1915,40 @@ export interface CloudFront {
     args: GetDistributionConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDistributionConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDistributionTenantCommand}
+   */
+  getDistributionTenant(
+    args: GetDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDistributionTenantCommandOutput>;
+  getDistributionTenant(
+    args: GetDistributionTenantCommandInput,
+    cb: (err: any, data?: GetDistributionTenantCommandOutput) => void
+  ): void;
+  getDistributionTenant(
+    args: GetDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDistributionTenantCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDistributionTenantByDomainCommand}
+   */
+  getDistributionTenantByDomain(
+    args: GetDistributionTenantByDomainCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDistributionTenantByDomainCommandOutput>;
+  getDistributionTenantByDomain(
+    args: GetDistributionTenantByDomainCommandInput,
+    cb: (err: any, data?: GetDistributionTenantByDomainCommandOutput) => void
+  ): void;
+  getDistributionTenantByDomain(
+    args: GetDistributionTenantByDomainCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDistributionTenantByDomainCommandOutput) => void
   ): void;
 
   /**
@@ -1529,6 +2045,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link GetInvalidationForDistributionTenantCommand}
+   */
+  getInvalidationForDistributionTenant(
+    args: GetInvalidationForDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetInvalidationForDistributionTenantCommandOutput>;
+  getInvalidationForDistributionTenant(
+    args: GetInvalidationForDistributionTenantCommandInput,
+    cb: (err: any, data?: GetInvalidationForDistributionTenantCommandOutput) => void
+  ): void;
+  getInvalidationForDistributionTenant(
+    args: GetInvalidationForDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetInvalidationForDistributionTenantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetKeyGroupCommand}
    */
   getKeyGroup(args: GetKeyGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyGroupCommandOutput>;
@@ -1554,6 +2087,23 @@ export interface CloudFront {
     args: GetKeyGroupConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetKeyGroupConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetManagedCertificateDetailsCommand}
+   */
+  getManagedCertificateDetails(
+    args: GetManagedCertificateDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetManagedCertificateDetailsCommandOutput>;
+  getManagedCertificateDetails(
+    args: GetManagedCertificateDetailsCommandInput,
+    cb: (err: any, data?: GetManagedCertificateDetailsCommandOutput) => void
+  ): void;
+  getManagedCertificateDetails(
+    args: GetManagedCertificateDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetManagedCertificateDetailsCommandOutput) => void
   ): void;
 
   /**
@@ -1756,6 +2306,35 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link GetVpcOriginCommand}
+   */
+  getVpcOrigin(args: GetVpcOriginCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcOriginCommandOutput>;
+  getVpcOrigin(args: GetVpcOriginCommandInput, cb: (err: any, data?: GetVpcOriginCommandOutput) => void): void;
+  getVpcOrigin(
+    args: GetVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnycastIpListsCommand}
+   */
+  listAnycastIpLists(): Promise<ListAnycastIpListsCommandOutput>;
+  listAnycastIpLists(
+    args: ListAnycastIpListsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnycastIpListsCommandOutput>;
+  listAnycastIpLists(
+    args: ListAnycastIpListsCommandInput,
+    cb: (err: any, data?: ListAnycastIpListsCommandOutput) => void
+  ): void;
+  listAnycastIpLists(
+    args: ListAnycastIpListsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnycastIpListsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCachePoliciesCommand}
    */
   listCachePolicies(): Promise<ListCachePoliciesCommandOutput>;
@@ -1809,6 +2388,24 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListConnectionGroupsCommand}
+   */
+  listConnectionGroups(): Promise<ListConnectionGroupsCommandOutput>;
+  listConnectionGroups(
+    args: ListConnectionGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectionGroupsCommandOutput>;
+  listConnectionGroups(
+    args: ListConnectionGroupsCommandInput,
+    cb: (err: any, data?: ListConnectionGroupsCommandOutput) => void
+  ): void;
+  listConnectionGroups(
+    args: ListConnectionGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectionGroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListContinuousDeploymentPoliciesCommand}
    */
   listContinuousDeploymentPolicies(): Promise<ListContinuousDeploymentPoliciesCommandOutput>;
@@ -1845,6 +2442,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListDistributionsByAnycastIpListIdCommand}
+   */
+  listDistributionsByAnycastIpListId(
+    args: ListDistributionsByAnycastIpListIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByAnycastIpListIdCommandOutput>;
+  listDistributionsByAnycastIpListId(
+    args: ListDistributionsByAnycastIpListIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByAnycastIpListIdCommandOutput) => void
+  ): void;
+  listDistributionsByAnycastIpListId(
+    args: ListDistributionsByAnycastIpListIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByAnycastIpListIdCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDistributionsByCachePolicyIdCommand}
    */
   listDistributionsByCachePolicyId(
@@ -1859,6 +2473,23 @@ export interface CloudFront {
     args: ListDistributionsByCachePolicyIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributionsByCachePolicyIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionsByConnectionModeCommand}
+   */
+  listDistributionsByConnectionMode(
+    args: ListDistributionsByConnectionModeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByConnectionModeCommandOutput>;
+  listDistributionsByConnectionMode(
+    args: ListDistributionsByConnectionModeCommandInput,
+    cb: (err: any, data?: ListDistributionsByConnectionModeCommandOutput) => void
+  ): void;
+  listDistributionsByConnectionMode(
+    args: ListDistributionsByConnectionModeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByConnectionModeCommandOutput) => void
   ): void;
 
   /**
@@ -1931,6 +2562,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListDistributionsByVpcOriginIdCommand}
+   */
+  listDistributionsByVpcOriginId(
+    args: ListDistributionsByVpcOriginIdCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionsByVpcOriginIdCommandOutput>;
+  listDistributionsByVpcOriginId(
+    args: ListDistributionsByVpcOriginIdCommandInput,
+    cb: (err: any, data?: ListDistributionsByVpcOriginIdCommandOutput) => void
+  ): void;
+  listDistributionsByVpcOriginId(
+    args: ListDistributionsByVpcOriginIdCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionsByVpcOriginIdCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListDistributionsByWebACLIdCommand}
    */
   listDistributionsByWebACLId(
@@ -1945,6 +2593,59 @@ export interface CloudFront {
     args: ListDistributionsByWebACLIdCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListDistributionsByWebACLIdCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionTenantsCommand}
+   */
+  listDistributionTenants(): Promise<ListDistributionTenantsCommandOutput>;
+  listDistributionTenants(
+    args: ListDistributionTenantsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionTenantsCommandOutput>;
+  listDistributionTenants(
+    args: ListDistributionTenantsCommandInput,
+    cb: (err: any, data?: ListDistributionTenantsCommandOutput) => void
+  ): void;
+  listDistributionTenants(
+    args: ListDistributionTenantsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionTenantsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDistributionTenantsByCustomizationCommand}
+   */
+  listDistributionTenantsByCustomization(): Promise<ListDistributionTenantsByCustomizationCommandOutput>;
+  listDistributionTenantsByCustomization(
+    args: ListDistributionTenantsByCustomizationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDistributionTenantsByCustomizationCommandOutput>;
+  listDistributionTenantsByCustomization(
+    args: ListDistributionTenantsByCustomizationCommandInput,
+    cb: (err: any, data?: ListDistributionTenantsByCustomizationCommandOutput) => void
+  ): void;
+  listDistributionTenantsByCustomization(
+    args: ListDistributionTenantsByCustomizationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDistributionTenantsByCustomizationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListDomainConflictsCommand}
+   */
+  listDomainConflicts(
+    args: ListDomainConflictsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDomainConflictsCommandOutput>;
+  listDomainConflicts(
+    args: ListDomainConflictsCommandInput,
+    cb: (err: any, data?: ListDomainConflictsCommandOutput) => void
+  ): void;
+  listDomainConflicts(
+    args: ListDomainConflictsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDomainConflictsCommandOutput) => void
   ): void;
 
   /**
@@ -2010,6 +2711,23 @@ export interface CloudFront {
     args: ListInvalidationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListInvalidationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListInvalidationsForDistributionTenantCommand}
+   */
+  listInvalidationsForDistributionTenant(
+    args: ListInvalidationsForDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListInvalidationsForDistributionTenantCommandOutput>;
+  listInvalidationsForDistributionTenant(
+    args: ListInvalidationsForDistributionTenantCommandInput,
+    cb: (err: any, data?: ListInvalidationsForDistributionTenantCommandOutput) => void
+  ): void;
+  listInvalidationsForDistributionTenant(
+    args: ListInvalidationsForDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListInvalidationsForDistributionTenantCommandOutput) => void
   ): void;
 
   /**
@@ -2165,6 +2883,21 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link ListVpcOriginsCommand}
+   */
+  listVpcOrigins(): Promise<ListVpcOriginsCommandOutput>;
+  listVpcOrigins(
+    args: ListVpcOriginsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcOriginsCommandOutput>;
+  listVpcOrigins(args: ListVpcOriginsCommandInput, cb: (err: any, data?: ListVpcOriginsCommandOutput) => void): void;
+  listVpcOrigins(
+    args: ListVpcOriginsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcOriginsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PublishFunctionCommand}
    */
   publishFunction(
@@ -2246,6 +2979,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link UpdateConnectionGroupCommand}
+   */
+  updateConnectionGroup(
+    args: UpdateConnectionGroupCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectionGroupCommandOutput>;
+  updateConnectionGroup(
+    args: UpdateConnectionGroupCommandInput,
+    cb: (err: any, data?: UpdateConnectionGroupCommandOutput) => void
+  ): void;
+  updateConnectionGroup(
+    args: UpdateConnectionGroupCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectionGroupCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateContinuousDeploymentPolicyCommand}
    */
   updateContinuousDeploymentPolicy(
@@ -2280,6 +3030,23 @@ export interface CloudFront {
   ): void;
 
   /**
+   * @see {@link UpdateDistributionTenantCommand}
+   */
+  updateDistributionTenant(
+    args: UpdateDistributionTenantCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDistributionTenantCommandOutput>;
+  updateDistributionTenant(
+    args: UpdateDistributionTenantCommandInput,
+    cb: (err: any, data?: UpdateDistributionTenantCommandOutput) => void
+  ): void;
+  updateDistributionTenant(
+    args: UpdateDistributionTenantCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDistributionTenantCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateDistributionWithStagingConfigCommand}
    */
   updateDistributionWithStagingConfig(
@@ -2294,6 +3061,23 @@ export interface CloudFront {
     args: UpdateDistributionWithStagingConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDistributionWithStagingConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDomainAssociationCommand}
+   */
+  updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDomainAssociationCommandOutput>;
+  updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
+  ): void;
+  updateDomainAssociation(
+    args: UpdateDomainAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDomainAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -2474,14 +3258,41 @@ export interface CloudFront {
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateStreamingDistributionCommandOutput) => void
   ): void;
+
+  /**
+   * @see {@link UpdateVpcOriginCommand}
+   */
+  updateVpcOrigin(
+    args: UpdateVpcOriginCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateVpcOriginCommandOutput>;
+  updateVpcOrigin(args: UpdateVpcOriginCommandInput, cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void): void;
+  updateVpcOrigin(
+    args: UpdateVpcOriginCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateVpcOriginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link VerifyDnsConfigurationCommand}
+   */
+  verifyDnsConfiguration(
+    args: VerifyDnsConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<VerifyDnsConfigurationCommandOutput>;
+  verifyDnsConfiguration(
+    args: VerifyDnsConfigurationCommandInput,
+    cb: (err: any, data?: VerifyDnsConfigurationCommandOutput) => void
+  ): void;
+  verifyDnsConfiguration(
+    args: VerifyDnsConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: VerifyDnsConfigurationCommandOutput) => void
+  ): void;
 }
 
 /**
- * <fullname>Amazon CloudFront</fullname>
- *          <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers
- * 			who need detailed information about CloudFront API actions, data types, and errors. For
- * 			detailed information about CloudFront features, see the
- * 			<a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">Amazon CloudFront Developer Guide</a>.</p>
+ * <fullname>Amazon CloudFront</fullname> <p>This is the <i>Amazon CloudFront API Reference</i>. This guide is for developers who need detailed information about CloudFront API actions, data types, and errors. For detailed information about CloudFront features, see the <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html">Amazon CloudFront Developer Guide</a>.</p>
  * @public
  */
 export class CloudFront extends CloudFrontClient implements CloudFront {}

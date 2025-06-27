@@ -12,7 +12,8 @@ import { de_GetMetricConfigurationCommand, se_GetMetricConfigurationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface GetMetricConfigurationCommandOutput extends GetMetricConfigurat
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetMetricConfigurationCommand extends $Command
@@ -82,9 +84,7 @@ export class GetMetricConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class GetMetricConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetricConfigurationCommand)
   .de(de_GetMetricConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetMetricConfigurationResponse;
+    };
+    sdk: {
+      input: GetMetricConfigurationCommandInput;
+      output: GetMetricConfigurationCommandOutput;
+    };
+  };
+}

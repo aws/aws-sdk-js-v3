@@ -16,7 +16,8 @@ import { de_DescribeDirectoriesCommand, se_DescribeDirectoriesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,7 +72,7 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * //       DnsIpAddrs: [ // DnsIpAddrs
  * //         "STRING_VALUE",
  * //       ],
- * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed",
+ * //       Stage: "Requested" || "Creating" || "Created" || "Active" || "Inoperable" || "Impaired" || "Restoring" || "RestoreFailed" || "Deleting" || "Deleted" || "Failed" || "Updating",
  * //       ShareStatus: "Shared" || "PendingAcceptance" || "Rejected" || "Rejecting" || "RejectFailed" || "Sharing" || "ShareFailed" || "Deleted" || "Deleting",
  * //       ShareMethod: "ORGANIZATIONS" || "HANDSHAKE",
  * //       ShareNotes: "STRING_VALUE",
@@ -186,6 +187,53 @@ export interface DescribeDirectoriesCommandOutput extends DescribeDirectoriesRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To describe one or more directories
+ * ```javascript
+ * // The following example obtains information about a specified directory.
+ * const input = {
+ *   DirectoryIds: [
+ *     "d-92654abfed"
+ *   ],
+ *   Limit: 0
+ * };
+ * const command = new DescribeDirectoriesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryDescriptions: [
+ *     {
+ *       AccessUrl: "myaccess.awsapps.com",
+ *       Alias: "myaccess",
+ *       DirectoryId: "d-92654abfed",
+ *       DnsIpAddrs: [
+ *         "172.30.21.228",
+ *         "172.30.9.82"
+ *       ],
+ *       LaunchTime: 1.469737584772E9,
+ *       Name: "corp.example.com",
+ *       ShortName: "example",
+ *       SsoEnabled: true,
+ *       Stage: "Active",
+ *       StageLastUpdatedDateTime: 1.46973913171E9,
+ *       Type: "MicrosoftAD",
+ *       VpcSettings: {
+ *         AvailabilityZones: [
+ *           "us-west-2a",
+ *           "us-west-2b"
+ *         ],
+ *         SubnetIds: [
+ *           "subnet-ba0146de",
+ *           "subnet-bef46bc8"
+ *         ],
+ *         VpcId: "vpc-45025421"
+ *       }
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeDirectoriesCommand extends $Command
@@ -196,9 +244,7 @@ export class DescribeDirectoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +256,16 @@ export class DescribeDirectoriesCommand extends $Command
   .f(void 0, DescribeDirectoriesResultFilterSensitiveLog)
   .ser(se_DescribeDirectoriesCommand)
   .de(de_DescribeDirectoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectoriesRequest;
+      output: DescribeDirectoriesResult;
+    };
+    sdk: {
+      input: DescribeDirectoriesCommandInput;
+      output: DescribeDirectoriesCommandOutput;
+    };
+  };
+}

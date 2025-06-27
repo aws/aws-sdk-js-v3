@@ -46,6 +46,11 @@ import {
 } from "./commands/DeleteLoadBalancerCommand";
 import { DeleteRuleCommand, DeleteRuleCommandInput, DeleteRuleCommandOutput } from "./commands/DeleteRuleCommand";
 import {
+  DeleteSharedTrustStoreAssociationCommand,
+  DeleteSharedTrustStoreAssociationCommandInput,
+  DeleteSharedTrustStoreAssociationCommandOutput,
+} from "./commands/DeleteSharedTrustStoreAssociationCommand";
+import {
   DeleteTargetGroupCommand,
   DeleteTargetGroupCommandInput,
   DeleteTargetGroupCommandOutput,
@@ -65,6 +70,16 @@ import {
   DescribeAccountLimitsCommandInput,
   DescribeAccountLimitsCommandOutput,
 } from "./commands/DescribeAccountLimitsCommand";
+import {
+  DescribeCapacityReservationCommand,
+  DescribeCapacityReservationCommandInput,
+  DescribeCapacityReservationCommandOutput,
+} from "./commands/DescribeCapacityReservationCommand";
+import {
+  DescribeListenerAttributesCommand,
+  DescribeListenerAttributesCommandInput,
+  DescribeListenerAttributesCommandOutput,
+} from "./commands/DescribeListenerAttributesCommand";
 import {
   DescribeListenerCertificatesCommand,
   DescribeListenerCertificatesCommandInput,
@@ -131,6 +146,11 @@ import {
   DescribeTrustStoresCommandOutput,
 } from "./commands/DescribeTrustStoresCommand";
 import {
+  GetResourcePolicyCommand,
+  GetResourcePolicyCommandInput,
+  GetResourcePolicyCommandOutput,
+} from "./commands/GetResourcePolicyCommand";
+import {
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreCaCertificatesBundleCommandInput,
   GetTrustStoreCaCertificatesBundleCommandOutput,
@@ -140,6 +160,21 @@ import {
   GetTrustStoreRevocationContentCommandInput,
   GetTrustStoreRevocationContentCommandOutput,
 } from "./commands/GetTrustStoreRevocationContentCommand";
+import {
+  ModifyCapacityReservationCommand,
+  ModifyCapacityReservationCommandInput,
+  ModifyCapacityReservationCommandOutput,
+} from "./commands/ModifyCapacityReservationCommand";
+import {
+  ModifyIpPoolsCommand,
+  ModifyIpPoolsCommandInput,
+  ModifyIpPoolsCommandOutput,
+} from "./commands/ModifyIpPoolsCommand";
+import {
+  ModifyListenerAttributesCommand,
+  ModifyListenerAttributesCommandInput,
+  ModifyListenerAttributesCommandOutput,
+} from "./commands/ModifyListenerAttributesCommand";
 import {
   ModifyListenerCommand,
   ModifyListenerCommandInput,
@@ -212,10 +247,13 @@ const commands = {
   DeleteListenerCommand,
   DeleteLoadBalancerCommand,
   DeleteRuleCommand,
+  DeleteSharedTrustStoreAssociationCommand,
   DeleteTargetGroupCommand,
   DeleteTrustStoreCommand,
   DeregisterTargetsCommand,
   DescribeAccountLimitsCommand,
+  DescribeCapacityReservationCommand,
+  DescribeListenerAttributesCommand,
   DescribeListenerCertificatesCommand,
   DescribeListenersCommand,
   DescribeLoadBalancerAttributesCommand,
@@ -229,9 +267,13 @@ const commands = {
   DescribeTrustStoreAssociationsCommand,
   DescribeTrustStoreRevocationsCommand,
   DescribeTrustStoresCommand,
+  GetResourcePolicyCommand,
   GetTrustStoreCaCertificatesBundleCommand,
   GetTrustStoreRevocationContentCommand,
+  ModifyCapacityReservationCommand,
+  ModifyIpPoolsCommand,
   ModifyListenerCommand,
+  ModifyListenerAttributesCommand,
   ModifyLoadBalancerAttributesCommand,
   ModifyRuleCommand,
   ModifyTargetGroupCommand,
@@ -412,6 +454,23 @@ export interface ElasticLoadBalancingV2 {
   ): void;
 
   /**
+   * @see {@link DeleteSharedTrustStoreAssociationCommand}
+   */
+  deleteSharedTrustStoreAssociation(
+    args: DeleteSharedTrustStoreAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSharedTrustStoreAssociationCommandOutput>;
+  deleteSharedTrustStoreAssociation(
+    args: DeleteSharedTrustStoreAssociationCommandInput,
+    cb: (err: any, data?: DeleteSharedTrustStoreAssociationCommandOutput) => void
+  ): void;
+  deleteSharedTrustStoreAssociation(
+    args: DeleteSharedTrustStoreAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSharedTrustStoreAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteTargetGroupCommand}
    */
   deleteTargetGroup(
@@ -478,6 +537,40 @@ export interface ElasticLoadBalancingV2 {
     args: DescribeAccountLimitsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeAccountLimitsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeCapacityReservationCommand}
+   */
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeCapacityReservationCommandOutput>;
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    cb: (err: any, data?: DescribeCapacityReservationCommandOutput) => void
+  ): void;
+  describeCapacityReservation(
+    args: DescribeCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeListenerAttributesCommand}
+   */
+  describeListenerAttributes(
+    args: DescribeListenerAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeListenerAttributesCommandOutput>;
+  describeListenerAttributes(
+    args: DescribeListenerAttributesCommandInput,
+    cb: (err: any, data?: DescribeListenerAttributesCommandOutput) => void
+  ): void;
+  describeListenerAttributes(
+    args: DescribeListenerAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeListenerAttributesCommandOutput) => void
   ): void;
 
   /**
@@ -696,6 +789,23 @@ export interface ElasticLoadBalancingV2 {
   ): void;
 
   /**
+   * @see {@link GetResourcePolicyCommand}
+   */
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcePolicyCommandOutput>;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+  getResourcePolicy(
+    args: GetResourcePolicyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTrustStoreCaCertificatesBundleCommand}
    */
   getTrustStoreCaCertificatesBundle(
@@ -730,6 +840,34 @@ export interface ElasticLoadBalancingV2 {
   ): void;
 
   /**
+   * @see {@link ModifyCapacityReservationCommand}
+   */
+  modifyCapacityReservation(
+    args: ModifyCapacityReservationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyCapacityReservationCommandOutput>;
+  modifyCapacityReservation(
+    args: ModifyCapacityReservationCommandInput,
+    cb: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
+  ): void;
+  modifyCapacityReservation(
+    args: ModifyCapacityReservationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyCapacityReservationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyIpPoolsCommand}
+   */
+  modifyIpPools(args: ModifyIpPoolsCommandInput, options?: __HttpHandlerOptions): Promise<ModifyIpPoolsCommandOutput>;
+  modifyIpPools(args: ModifyIpPoolsCommandInput, cb: (err: any, data?: ModifyIpPoolsCommandOutput) => void): void;
+  modifyIpPools(
+    args: ModifyIpPoolsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyIpPoolsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ModifyListenerCommand}
    */
   modifyListener(
@@ -741,6 +879,23 @@ export interface ElasticLoadBalancingV2 {
     args: ModifyListenerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ModifyListenerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ModifyListenerAttributesCommand}
+   */
+  modifyListenerAttributes(
+    args: ModifyListenerAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ModifyListenerAttributesCommandOutput>;
+  modifyListenerAttributes(
+    args: ModifyListenerAttributesCommandInput,
+    cb: (err: any, data?: ModifyListenerAttributesCommandOutput) => void
+  ): void;
+  modifyListenerAttributes(
+    args: ModifyListenerAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ModifyListenerAttributesCommandOutput) => void
   ): void;
 
   /**

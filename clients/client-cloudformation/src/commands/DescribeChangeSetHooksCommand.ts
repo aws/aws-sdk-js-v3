@@ -12,7 +12,8 @@ import { de_DescribeChangeSetHooksCommand, se_DescribeChangeSetHooksCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface DescribeChangeSetHooksCommandInput extends DescribeChangeSetHoo
 export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHooksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the
- *    change set.</p>
+ * <p>Returns hook-related information for the change set and a list of changes that CloudFormation
+ *       makes when you run the change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +85,7 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeChangeSetHooksCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeChangeSetHooksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeChangeSetHooksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeChangeSetHooksCommand)
   .de(de_DescribeChangeSetHooksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeChangeSetHooksInput;
+      output: DescribeChangeSetHooksOutput;
+    };
+    sdk: {
+      input: DescribeChangeSetHooksCommandInput;
+      output: DescribeChangeSetHooksCommandOutput;
+    };
+  };
+}

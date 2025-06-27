@@ -16,7 +16,8 @@ import { de_RedactChannelMessageCommand, se_RedactChannelMessageCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class RedactChannelMessageCommand extends $Command
@@ -101,9 +103,7 @@ export class RedactChannelMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class RedactChannelMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RedactChannelMessageCommand)
   .de(de_RedactChannelMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RedactChannelMessageRequest;
+      output: RedactChannelMessageResponse;
+    };
+    sdk: {
+      input: RedactChannelMessageCommandInput;
+      output: RedactChannelMessageCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateAgentCommand, se_CreateAgentCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,25 +28,11 @@ export interface CreateAgentCommandInput extends CreateAgentRequest {}
 export interface CreateAgentCommandOutput extends CreateAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Activates an DataSync agent that you've deployed in your storage
- *       environment. The activation process associates the agent with your Amazon Web Services account.</p>
- *          <p>If you haven't deployed an agent yet, see the following topics to learn more:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/agent-requirements.html">Agent requirements</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/datasync/latest/userguide/configure-agent.html">Create an agent</a>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>If you're transferring between Amazon Web Services storage services, you don't need a
- *           DataSync agent. </p>
- *          </note>
+ * <p>Activates an DataSync agent that you deploy in your storage environment.
+ *       The activation process associates the agent with your Amazon Web Services account.</p>
+ *          <p>If you haven't deployed an agent yet, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html">Do I need a DataSync
+ *         agent?</a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +80,7 @@ export interface CreateAgentCommandOutput extends CreateAgentResponse, __Metadat
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateAgentCommand extends $Command
@@ -103,9 +91,7 @@ export class CreateAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +103,16 @@ export class CreateAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAgentCommand)
   .de(de_CreateAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAgentRequest;
+      output: CreateAgentResponse;
+    };
+    sdk: {
+      input: CreateAgentCommandInput;
+      output: CreateAgentCommandOutput;
+    };
+  };
+}

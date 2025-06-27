@@ -18,7 +18,8 @@ import { SageMakerRuntimeClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  */
@@ -84,6 +85,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  *   InferenceId: "STRING_VALUE",
  *   EnableExplanations: "STRING_VALUE",
  *   InferenceComponentName: "STRING_VALUE",
+ *   SessionId: "STRING_VALUE",
  * };
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
@@ -92,6 +94,8 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * //   ContentType: "STRING_VALUE",
  * //   InvokedProductionVariant: "STRING_VALUE",
  * //   CustomAttributes: "STRING_VALUE",
+ * //   NewSessionId: "STRING_VALUE",
+ * //   ClosedSessionId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -127,6 +131,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * @throws {@link SageMakerRuntimeServiceException}
  * <p>Base exception class for all service exceptions from SageMakerRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeEndpointCommand extends $Command
@@ -137,9 +142,7 @@ export class InvokeEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +154,16 @@ export class InvokeEndpointCommand extends $Command
   .f(InvokeEndpointInputFilterSensitiveLog, InvokeEndpointOutputFilterSensitiveLog)
   .ser(se_InvokeEndpointCommand)
   .de(de_InvokeEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeEndpointInput;
+      output: InvokeEndpointOutput;
+    };
+    sdk: {
+      input: InvokeEndpointCommandInput;
+      output: InvokeEndpointCommandOutput;
+    };
+  };
+}

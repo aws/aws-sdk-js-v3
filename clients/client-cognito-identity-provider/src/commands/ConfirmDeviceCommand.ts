@@ -20,7 +20,8 @@ import { de_ConfirmDeviceCommand, se_ConfirmDeviceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,10 @@ export interface ConfirmDeviceCommandInput extends ConfirmDeviceRequest {}
 export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __MetadataBearer {}
 
 /**
- * <p>Confirms tracking of the device. This API call is the call that begins device
- *             tracking. For more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+ * <p>Confirms a device that a user wants to remember. A remembered device is a "Remember me
+ *             on this device" option for user pools that perform authentication with the device key of
+ *             a trusted device in the back end, instead of a user-provided MFA code. For more
+ *             information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -72,6 +75,10 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @see {@link ConfirmDeviceCommandInput} for command's `input` shape.
  * @see {@link ConfirmDeviceCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link DeviceKeyExistsException} (client fault)
+ *  <p>This exception is thrown when a user attempts to confirm a device with a device key
+ *             that already exists.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>This exception is thrown when WAF doesn't allow your request based on a web
@@ -120,6 +127,7 @@ export interface ConfirmDeviceCommandOutput extends ConfirmDeviceResponse, __Met
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ConfirmDeviceCommand extends $Command
@@ -130,9 +138,7 @@ export class ConfirmDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +150,16 @@ export class ConfirmDeviceCommand extends $Command
   .f(ConfirmDeviceRequestFilterSensitiveLog, void 0)
   .ser(se_ConfirmDeviceCommand)
   .de(de_ConfirmDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmDeviceRequest;
+      output: ConfirmDeviceResponse;
+    };
+    sdk: {
+      input: ConfirmDeviceCommandInput;
+      output: ConfirmDeviceCommandOutput;
+    };
+  };
+}

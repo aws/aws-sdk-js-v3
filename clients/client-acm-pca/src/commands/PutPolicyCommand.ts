@@ -12,7 +12,8 @@ import { de_PutPolicyCommand, se_PutPolicyCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -110,6 +111,7 @@ export interface PutPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class PutPolicyCommand extends $Command
@@ -120,9 +122,7 @@ export class PutPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class PutPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPolicyCommand)
   .de(de_PutPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutPolicyCommandInput;
+      output: PutPolicyCommandOutput;
+    };
+  };
+}

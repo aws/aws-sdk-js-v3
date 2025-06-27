@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,17 +58,24 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * //       CanaryName: "STRING_VALUE",
  * //       LastRun: { // CanaryRun
  * //         Id: "STRING_VALUE",
+ * //         ScheduledRunId: "STRING_VALUE",
+ * //         RetryAttempt: Number("int"),
  * //         Name: "STRING_VALUE",
  * //         Status: { // CanaryRunStatus
  * //           State: "RUNNING" || "PASSED" || "FAILED",
  * //           StateReason: "STRING_VALUE",
  * //           StateReasonCode: "CANARY_FAILURE" || "EXECUTION_FAILURE",
+ * //           TestResult: "PASSED" || "FAILED" || "UNKNOWN",
  * //         },
  * //         Timeline: { // CanaryRunTimeline
  * //           Started: new Date("TIMESTAMP"),
  * //           Completed: new Date("TIMESTAMP"),
+ * //           MetricTimestampForRunAndRetries: new Date("TIMESTAMP"),
  * //         },
  * //         ArtifactS3Location: "STRING_VALUE",
+ * //         DryRunConfig: { // CanaryDryRunConfigOutput
+ * //           DryRunId: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -91,6 +99,7 @@ export interface DescribeCanariesLastRunCommandOutput extends DescribeCanariesLa
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DescribeCanariesLastRunCommand extends $Command
@@ -101,9 +110,7 @@ export class DescribeCanariesLastRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +122,16 @@ export class DescribeCanariesLastRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCanariesLastRunCommand)
   .de(de_DescribeCanariesLastRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCanariesLastRunRequest;
+      output: DescribeCanariesLastRunResponse;
+    };
+    sdk: {
+      input: DescribeCanariesLastRunCommandInput;
+      output: DescribeCanariesLastRunCommandOutput;
+    };
+  };
+}

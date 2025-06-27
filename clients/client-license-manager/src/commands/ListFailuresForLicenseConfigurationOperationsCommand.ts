@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface ListFailuresForLicenseConfigurationOperationsCommandOutput
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class ListFailuresForLicenseConfigurationOperationsCommand extends $Command
@@ -108,9 +110,7 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class ListFailuresForLicenseConfigurationOperationsCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_ListFailuresForLicenseConfigurationOperationsCommand)
   .de(de_ListFailuresForLicenseConfigurationOperationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFailuresForLicenseConfigurationOperationsRequest;
+      output: ListFailuresForLicenseConfigurationOperationsResponse;
+    };
+    sdk: {
+      input: ListFailuresForLicenseConfigurationOperationsCommandInput;
+      output: ListFailuresForLicenseConfigurationOperationsCommandOutput;
+    };
+  };
+}

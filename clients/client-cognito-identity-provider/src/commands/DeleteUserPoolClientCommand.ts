@@ -16,7 +16,8 @@ import { de_DeleteUserPoolClientCommand, se_DeleteUserPoolClientCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface DeleteUserPoolClientCommandInput extends DeleteUserPoolClientRe
 export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Allows the developer to delete the user pool client.</p>
+ * <p>Deletes a user pool app client. After you delete an app client, users can no longer
+ *             sign in to the associated application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +81,7 @@ export interface DeleteUserPoolClientCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserPoolClientCommand extends $Command
@@ -89,9 +92,7 @@ export class DeleteUserPoolClientCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +104,16 @@ export class DeleteUserPoolClientCommand extends $Command
   .f(DeleteUserPoolClientRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteUserPoolClientCommand)
   .de(de_DeleteUserPoolClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserPoolClientRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserPoolClientCommandInput;
+      output: DeleteUserPoolClientCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_StartRunCommand, se_StartRunCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,17 +28,7 @@ export interface StartRunCommandInput extends StartRunRequest {}
 export interface StartRunCommandOutput extends StartRunResponse, __MetadataBearer {}
 
 /**
- * <p>Starts a workflow run. To duplicate a run, specify the run's ID and a role ARN. The
- *       remaining parameters are copied from the previous run.</p>
- *          <p>StartRun will not support re-run for a workflow that is shared with you.</p>
- *          <p>The total number of runs in your account is subject to a quota per Region. To avoid
- *       needing to delete runs manually, you can set the retention mode to <code>REMOVE</code>.
- *       Runs with this setting are deleted automatically when the run quoata is exceeded.</p>
- *          <p>By default, the run uses STATIC storage. For STATIC storage, set the <code>storageCapacity</code> field.
- *       You can set the storage type to DYNAMIC. You do not set <code>storageCapacity</code>,
- *       because HealthOmics dynamically scales the storage up or down as required.
- *       For more information about static and dynamic storage, see <a href="https://docs.aws.amazon.com/omics/latest/dev/Using-workflows.html">Running workflows</a>
- *       in the <i>AWS HealthOmics User Guide</i>.</p>
+ * <p>Starts a new run or duplicates an existing run.</p> <p>For a new run, specify a unique <code>requestId</code>, the <code>workflowId</code>, and a role ARN. If you're using static run storage (the default), specify the required <code>storageCapacity</code>.</p> <p>You duplicate a run by specifing a unique <code>requestId</code>, the <code>runID</code> of the run to duplicate, and a role ARN.</p> <p>For more information about the optional parameters in the StartRun request, see <a href="https://docs.aws.amazon.com/omics/latest/dev/starting-a-run.html">Starting a run</a> in the <i>Amazon Web Services HealthOmics User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +41,8 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   runId: "STRING_VALUE",
  *   roleArn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
+ *   cacheId: "STRING_VALUE",
+ *   cacheBehavior: "STRING_VALUE",
  *   runGroupId: "STRING_VALUE",
  *   priority: Number("int"),
  *   parameters: "DOCUMENT_VALUE",
@@ -63,6 +56,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  *   retentionMode: "STRING_VALUE",
  *   storageType: "STRING_VALUE",
  *   workflowOwnerId: "STRING_VALUE",
+ *   workflowVersionName: "STRING_VALUE",
  * };
  * const command = new StartRunCommand(input);
  * const response = await client.send(command);
@@ -112,6 +106,7 @@ export interface StartRunCommandOutput extends StartRunResponse, __MetadataBeare
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class StartRunCommand extends $Command
@@ -122,9 +117,7 @@ export class StartRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +129,16 @@ export class StartRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRunCommand)
   .de(de_StartRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRunRequest;
+      output: StartRunResponse;
+    };
+    sdk: {
+      input: StartRunCommandInput;
+      output: StartRunCommandOutput;
+    };
+  };
+}

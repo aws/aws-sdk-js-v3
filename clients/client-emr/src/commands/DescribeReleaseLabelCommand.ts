@@ -12,7 +12,8 @@ import { de_DescribeReleaseLabelCommand, se_DescribeReleaseLabelCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DescribeReleaseLabelCommandOutput extends DescribeReleaseLabelO
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class DescribeReleaseLabelCommand extends $Command
@@ -87,9 +89,7 @@ export class DescribeReleaseLabelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DescribeReleaseLabelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReleaseLabelCommand)
   .de(de_DescribeReleaseLabelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReleaseLabelInput;
+      output: DescribeReleaseLabelOutput;
+    };
+    sdk: {
+      input: DescribeReleaseLabelCommandInput;
+      output: DescribeReleaseLabelCommandOutput;
+    };
+  };
+}

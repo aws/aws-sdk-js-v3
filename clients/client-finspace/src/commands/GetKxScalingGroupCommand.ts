@@ -12,7 +12,8 @@ import { de_GetKxScalingGroupCommand, se_GetKxScalingGroupCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface GetKxScalingGroupCommandOutput extends GetKxScalingGroupRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class GetKxScalingGroupCommand extends $Command
@@ -98,9 +100,7 @@ export class GetKxScalingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class GetKxScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKxScalingGroupCommand)
   .de(de_GetKxScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKxScalingGroupRequest;
+      output: GetKxScalingGroupResponse;
+    };
+    sdk: {
+      input: GetKxScalingGroupCommandInput;
+      output: GetKxScalingGroupCommandOutput;
+    };
+  };
+}

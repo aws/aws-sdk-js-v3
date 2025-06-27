@@ -12,7 +12,8 @@ import { de_DescribeAnomalyDetectorsCommand, se_DescribeAnomalyDetectorsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,12 @@ export interface DescribeAnomalyDetectorsCommandInput extends DescribeAnomalyDet
 export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDetectorsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists the anomaly detection models that you have created in your account.
- * 			For single metric anomaly detectors,
- * 			you can list all of the models in your account or filter the results
- * 			to only the models that are related to a certain namespace, metric name, or metric dimension.
- * 			For metric math anomaly detectors,
- * 			you can list them by adding <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array.
- * 			This will return all metric math anomaly detectors in your account.</p>
+ * <p>Lists the anomaly detection models that you have created in your account. For single
+ *             metric anomaly detectors, you can list all of the models in your account or filter the
+ *             results to only the models that are related to a certain namespace, metric name, or
+ *             metric dimension. For metric math anomaly detectors, you can list them by adding
+ *             <code>METRIC_MATH</code> to the <code>AnomalyDetectorTypes</code> array. This will
+ *             return all metric math anomaly detectors in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,7 +130,8 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @see {@link CloudWatchClientResolvedConfig | config} for CloudWatchClient's `config` shape.
  *
  * @throws {@link InternalServiceFault} (server fault)
- *  <p>Request processing has failed due to some unknown error, exception, or failure.</p>
+ *  <p>Request processing has failed due to some unknown error, exception, or
+ *             failure.</p>
  *
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The next token specified is invalid.</p>
@@ -144,6 +145,7 @@ export interface DescribeAnomalyDetectorsCommandOutput extends DescribeAnomalyDe
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnomalyDetectorsCommand extends $Command
@@ -154,9 +156,7 @@ export class DescribeAnomalyDetectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +168,16 @@ export class DescribeAnomalyDetectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAnomalyDetectorsCommand)
   .de(de_DescribeAnomalyDetectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAnomalyDetectorsInput;
+      output: DescribeAnomalyDetectorsOutput;
+    };
+    sdk: {
+      input: DescribeAnomalyDetectorsCommandInput;
+      output: DescribeAnomalyDetectorsCommandOutput;
+    };
+  };
+}

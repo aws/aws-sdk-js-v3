@@ -12,7 +12,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p> Deletes the replication configuration from the bucket.</p>
  *          <p>To use this operation, you must have permissions to perform the
@@ -80,18 +81,21 @@ export interface DeleteBucketReplicationCommandOutput extends __MetadataBearer {
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete bucket replication configuration
  * ```javascript
  * // The following example deletes replication configuration set on bucket.
  * const input = {
- *   "Bucket": "example"
+ *   Bucket: "example"
  * };
  * const command = new DeleteBucketReplicationCommand(input);
- * await client.send(command);
- * // example id: to-delete-bucket-replication-configuration-1483043684668
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketReplicationCommand extends $Command
   .classBuilder<
@@ -117,4 +121,16 @@ export class DeleteBucketReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketReplicationCommand)
   .de(de_DeleteBucketReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketReplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketReplicationCommandInput;
+      output: DeleteBucketReplicationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetManagedResourceCommand, se_GetManagedResourceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,7 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
 
 /**
  * <p>Get information about a resource that's been registered for zonal shifts with Amazon Route 53 Application Recovery Controller in this Amazon Web Services Region. Resources that are registered for
- *    		zonal shifts are managed resources in Route 53 ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
- *          <p>At this time, you can only start a zonal shift or configure zonal autoshift for Network Load Balancers and Application Load Balancers with cross-zone load balancing turned off.</p>
+ *    		zonal shifts are managed resources in ARC. You can start zonal shifts and configure zonal autoshift for managed resources.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,7 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * //       expiryTime: new Date("TIMESTAMP"), // required
  * //       startTime: new Date("TIMESTAMP"), // required
  * //       comment: "STRING_VALUE", // required
+ * //       shiftType: "ZONAL_SHIFT" || "PRACTICE_RUN" || "FIS_EXPERIMENT" || "ZONAL_AUTOSHIFT",
  * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
  * //     },
  * //   ],
@@ -115,6 +116,7 @@ export interface GetManagedResourceCommandOutput extends GetManagedResourceRespo
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class GetManagedResourceCommand extends $Command
@@ -125,9 +127,7 @@ export class GetManagedResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class GetManagedResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetManagedResourceCommand)
   .de(de_GetManagedResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetManagedResourceRequest;
+      output: GetManagedResourceResponse;
+    };
+    sdk: {
+      input: GetManagedResourceCommandInput;
+      output: GetManagedResourceCommandOutput;
+    };
+  };
+}

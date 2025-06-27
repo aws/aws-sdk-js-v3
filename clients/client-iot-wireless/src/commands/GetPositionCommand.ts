@@ -12,7 +12,8 @@ import { de_GetPositionCommand, se_GetPositionCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface GetPositionCommandOutput extends GetPositionResponse, __Metadat
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetPositionCommand extends $Command
@@ -96,9 +98,7 @@ export class GetPositionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class GetPositionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPositionCommand)
   .de(de_GetPositionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPositionRequest;
+      output: GetPositionResponse;
+    };
+    sdk: {
+      input: GetPositionCommandInput;
+      output: GetPositionCommandOutput;
+    };
+  };
+}

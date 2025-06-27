@@ -12,7 +12,8 @@ import { de_ListZonalShiftsCommand, se_ListZonalShiftsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface ListZonalShiftsCommandInput extends ListZonalShiftsRequest {}
 export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region.
- *    		<code>ListZonalShifts</code> returns customer-started zonal shifts, as well as practice run zonal shifts that Route 53 ARC started on
- *    		your behalf for zonal autoshift.</p>
- *          <p>The <code>ListZonalShifts</code> operation does not list autoshifts. For more information about listing
- *    		autoshifts, see <a href="https://docs.aws.amazon.com/arc-zonal-shift/latest/api/API_ListAutoshifts.html">"&gt;ListAutoshifts</a>.</p>
+ * <p>Lists all active and completed zonal shifts in Amazon Route 53 Application Recovery Controller in your Amazon Web Services account in this Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +53,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * //       startTime: new Date("TIMESTAMP"), // required
  * //       status: "ACTIVE" || "EXPIRED" || "CANCELED", // required
  * //       comment: "STRING_VALUE", // required
+ * //       shiftType: "ZONAL_SHIFT" || "PRACTICE_RUN" || "FIS_EXPERIMENT" || "ZONAL_AUTOSHIFT",
  * //       practiceRunOutcome: "FAILED" || "INTERRUPTED" || "PENDING" || "SUCCEEDED",
  * //     },
  * //   ],
@@ -85,6 +83,7 @@ export interface ListZonalShiftsCommandOutput extends ListZonalShiftsResponse, _
  * @throws {@link ARCZonalShiftServiceException}
  * <p>Base exception class for all service exceptions from ARCZonalShift service.</p>
  *
+ *
  * @public
  */
 export class ListZonalShiftsCommand extends $Command
@@ -95,9 +94,7 @@ export class ListZonalShiftsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ARCZonalShiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +106,16 @@ export class ListZonalShiftsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListZonalShiftsCommand)
   .de(de_ListZonalShiftsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListZonalShiftsRequest;
+      output: ListZonalShiftsResponse;
+    };
+    sdk: {
+      input: ListZonalShiftsCommandInput;
+      output: ListZonalShiftsCommandOutput;
+    };
+  };
+}

@@ -45,6 +45,11 @@ import {
   CreateStackInstancesCommandOutput,
 } from "./commands/CreateStackInstancesCommand";
 import {
+  CreateStackRefactorCommand,
+  CreateStackRefactorCommandInput,
+  CreateStackRefactorCommandOutput,
+} from "./commands/CreateStackRefactorCommand";
+import {
   CreateStackSetCommand,
   CreateStackSetCommandInput,
   CreateStackSetCommandOutput,
@@ -136,6 +141,11 @@ import {
   DescribeStackInstanceCommandOutput,
 } from "./commands/DescribeStackInstanceCommand";
 import {
+  DescribeStackRefactorCommand,
+  DescribeStackRefactorCommandInput,
+  DescribeStackRefactorCommandOutput,
+} from "./commands/DescribeStackRefactorCommand";
+import {
   DescribeStackResourceCommand,
   DescribeStackResourceCommandInput,
   DescribeStackResourceCommandOutput,
@@ -201,6 +211,11 @@ import {
   ExecuteChangeSetCommandOutput,
 } from "./commands/ExecuteChangeSetCommand";
 import {
+  ExecuteStackRefactorCommand,
+  ExecuteStackRefactorCommandInput,
+  ExecuteStackRefactorCommandOutput,
+} from "./commands/ExecuteStackRefactorCommand";
+import {
   GetGeneratedTemplateCommand,
   GetGeneratedTemplateCommandInput,
   GetGeneratedTemplateCommandOutput,
@@ -232,6 +247,11 @@ import {
   ListGeneratedTemplatesCommandInput,
   ListGeneratedTemplatesCommandOutput,
 } from "./commands/ListGeneratedTemplatesCommand";
+import {
+  ListHookResultsCommand,
+  ListHookResultsCommandInput,
+  ListHookResultsCommandOutput,
+} from "./commands/ListHookResultsCommand";
 import { ListImportsCommand, ListImportsCommandInput, ListImportsCommandOutput } from "./commands/ListImportsCommand";
 import {
   ListResourceScanRelatedResourcesCommand,
@@ -258,6 +278,16 @@ import {
   ListStackInstancesCommandInput,
   ListStackInstancesCommandOutput,
 } from "./commands/ListStackInstancesCommand";
+import {
+  ListStackRefactorActionsCommand,
+  ListStackRefactorActionsCommandInput,
+  ListStackRefactorActionsCommandOutput,
+} from "./commands/ListStackRefactorActionsCommand";
+import {
+  ListStackRefactorsCommand,
+  ListStackRefactorsCommandInput,
+  ListStackRefactorsCommandOutput,
+} from "./commands/ListStackRefactorsCommand";
 import {
   ListStackResourcesCommand,
   ListStackResourcesCommandInput,
@@ -384,6 +414,7 @@ const commands = {
   CreateGeneratedTemplateCommand,
   CreateStackCommand,
   CreateStackInstancesCommand,
+  CreateStackRefactorCommand,
   CreateStackSetCommand,
   DeactivateOrganizationsAccessCommand,
   DeactivateTypeCommand,
@@ -403,6 +434,7 @@ const commands = {
   DescribeStackDriftDetectionStatusCommand,
   DescribeStackEventsCommand,
   DescribeStackInstanceCommand,
+  DescribeStackRefactorCommand,
   DescribeStackResourceCommand,
   DescribeStackResourceDriftsCommand,
   DescribeStackResourcesCommand,
@@ -416,6 +448,7 @@ const commands = {
   DetectStackSetDriftCommand,
   EstimateTemplateCostCommand,
   ExecuteChangeSetCommand,
+  ExecuteStackRefactorCommand,
   GetGeneratedTemplateCommand,
   GetStackPolicyCommand,
   GetTemplateCommand,
@@ -424,12 +457,15 @@ const commands = {
   ListChangeSetsCommand,
   ListExportsCommand,
   ListGeneratedTemplatesCommand,
+  ListHookResultsCommand,
   ListImportsCommand,
   ListResourceScanRelatedResourcesCommand,
   ListResourceScanResourcesCommand,
   ListResourceScansCommand,
   ListStackInstanceResourceDriftsCommand,
   ListStackInstancesCommand,
+  ListStackRefactorActionsCommand,
+  ListStackRefactorsCommand,
   ListStackResourcesCommand,
   ListStacksCommand,
   ListStackSetAutoDeploymentTargetsCommand,
@@ -598,6 +634,23 @@ export interface CloudFormation {
     args: CreateStackInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateStackInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateStackRefactorCommand}
+   */
+  createStackRefactor(
+    args: CreateStackRefactorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateStackRefactorCommandOutput>;
+  createStackRefactor(
+    args: CreateStackRefactorCommandInput,
+    cb: (err: any, data?: CreateStackRefactorCommandOutput) => void
+  ): void;
+  createStackRefactor(
+    args: CreateStackRefactorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateStackRefactorCommandOutput) => void
   ): void;
 
   /**
@@ -910,6 +963,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link DescribeStackRefactorCommand}
+   */
+  describeStackRefactor(
+    args: DescribeStackRefactorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeStackRefactorCommandOutput>;
+  describeStackRefactor(
+    args: DescribeStackRefactorCommandInput,
+    cb: (err: any, data?: DescribeStackRefactorCommandOutput) => void
+  ): void;
+  describeStackRefactor(
+    args: DescribeStackRefactorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeStackRefactorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeStackResourceCommand}
    */
   describeStackResource(
@@ -1126,6 +1196,23 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link ExecuteStackRefactorCommand}
+   */
+  executeStackRefactor(
+    args: ExecuteStackRefactorCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExecuteStackRefactorCommandOutput>;
+  executeStackRefactor(
+    args: ExecuteStackRefactorCommandInput,
+    cb: (err: any, data?: ExecuteStackRefactorCommandOutput) => void
+  ): void;
+  executeStackRefactor(
+    args: ExecuteStackRefactorCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExecuteStackRefactorCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetGeneratedTemplateCommand}
    */
   getGeneratedTemplate(
@@ -1248,6 +1335,20 @@ export interface CloudFormation {
   ): void;
 
   /**
+   * @see {@link ListHookResultsCommand}
+   */
+  listHookResults(
+    args: ListHookResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHookResultsCommandOutput>;
+  listHookResults(args: ListHookResultsCommandInput, cb: (err: any, data?: ListHookResultsCommandOutput) => void): void;
+  listHookResults(
+    args: ListHookResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHookResultsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListImportsCommand}
    */
   listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
@@ -1342,6 +1443,41 @@ export interface CloudFormation {
     args: ListStackInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListStackInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStackRefactorActionsCommand}
+   */
+  listStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackRefactorActionsCommandOutput>;
+  listStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    cb: (err: any, data?: ListStackRefactorActionsCommandOutput) => void
+  ): void;
+  listStackRefactorActions(
+    args: ListStackRefactorActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackRefactorActionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListStackRefactorsCommand}
+   */
+  listStackRefactors(): Promise<ListStackRefactorsCommandOutput>;
+  listStackRefactors(
+    args: ListStackRefactorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListStackRefactorsCommandOutput>;
+  listStackRefactors(
+    args: ListStackRefactorsCommandInput,
+    cb: (err: any, data?: ListStackRefactorsCommandOutput) => void
+  ): void;
+  listStackRefactors(
+    args: ListStackRefactorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListStackRefactorsCommandOutput) => void
   ): void;
 
   /**
@@ -1761,16 +1897,16 @@ export interface CloudFormation {
 /**
  * <fullname>CloudFormation</fullname>
  *          <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments predictably and
- *    repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly reliable, highly
- *    scalable, cost-effective applications without creating or configuring the underlying Amazon Web Services
- *    infrastructure.</p>
- *          <p>With CloudFormation, you declare all your resources and dependencies in a template file. The template defines a
- *    collection of resources as a single unit called a stack. CloudFormation creates and deletes all member resources of the stack
- *    together and manages all dependencies between the resources for you.</p>
- *          <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation
- *    product page</a>.</p>
- *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information about a
- *    specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
+ *    repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
+ *    Amazon Simple Notification Service, Elastic Load Balancing, and Amazon EC2 Auto Scaling to build highly reliable, highly scalable, cost-effective
+ *    applications without creating or configuring the underlying Amazon Web Services infrastructure.</p>
+ *          <p>With CloudFormation, you declare all your resources and dependencies in a template file. The
+ *    template defines a collection of resources as a single unit called a stack. CloudFormation creates
+ *    and deletes all member resources of the stack together and manages all dependencies between the
+ *    resources for you.</p>
+ *          <p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation product page</a>.</p>
+ *          <p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information
+ *    about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
  * @public
  */
 export class CloudFormation extends CloudFormationClient implements CloudFormation {}

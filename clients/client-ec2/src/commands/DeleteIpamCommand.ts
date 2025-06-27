@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteIpamRequest, DeleteIpamResult } from "../models/models_2";
+import { DeleteIpamRequest, DeleteIpamResult } from "../models/models_3";
 import { de_DeleteIpamCommand, se_DeleteIpamCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,8 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * //     ResourceDiscoveryAssociationCount: Number("int"),
  * //     StateMessage: "STRING_VALUE",
  * //     Tier: "free" || "advanced",
+ * //     EnablePrivateGua: true || false,
+ * //     MeteredAccount: "ipam-owner" || "resource-owner",
  * //   },
  * // };
  *
@@ -84,6 +87,7 @@ export interface DeleteIpamCommandOutput extends DeleteIpamResult, __MetadataBea
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteIpamCommand extends $Command
@@ -94,9 +98,7 @@ export class DeleteIpamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class DeleteIpamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteIpamCommand)
   .de(de_DeleteIpamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteIpamRequest;
+      output: DeleteIpamResult;
+    };
+    sdk: {
+      input: DeleteIpamCommandInput;
+      output: DeleteIpamCommandOutput;
+    };
+  };
+}

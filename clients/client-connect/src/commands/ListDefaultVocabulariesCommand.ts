@@ -12,7 +12,8 @@ import { de_ListDefaultVocabulariesCommand, se_ListDefaultVocabulariesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabul
  * const client = new ConnectClient(config);
  * const input = { // ListDefaultVocabulariesRequest
  *   InstanceId: "STRING_VALUE", // required
- *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA",
+ *   LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA" || "ca-ES" || "da-DK" || "fi-FI" || "id-ID" || "ms-MY" || "nl-NL" || "no-NO" || "pl-PL" || "sv-SE" || "tl-PH",
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
  * };
@@ -46,7 +47,7 @@ export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabul
  * //   DefaultVocabularyList: [ // DefaultVocabularyList // required
  * //     { // DefaultVocabulary
  * //       InstanceId: "STRING_VALUE", // required
- * //       LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA", // required
+ * //       LanguageCode: "ar-AE" || "de-CH" || "de-DE" || "en-AB" || "en-AU" || "en-GB" || "en-IE" || "en-IN" || "en-US" || "en-WL" || "es-ES" || "es-US" || "fr-CA" || "fr-FR" || "hi-IN" || "it-IT" || "ja-JP" || "ko-KR" || "pt-BR" || "pt-PT" || "zh-CN" || "en-NZ" || "en-ZA" || "ca-ES" || "da-DK" || "fi-FI" || "id-ID" || "ms-MY" || "nl-NL" || "no-NO" || "pl-PL" || "sv-SE" || "tl-PH", // required
  * //       VocabularyId: "STRING_VALUE", // required
  * //       VocabularyName: "STRING_VALUE", // required
  * //     },
@@ -77,6 +78,7 @@ export interface ListDefaultVocabulariesCommandOutput extends ListDefaultVocabul
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListDefaultVocabulariesCommand extends $Command
@@ -87,9 +89,7 @@ export class ListDefaultVocabulariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListDefaultVocabulariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDefaultVocabulariesCommand)
   .de(de_ListDefaultVocabulariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDefaultVocabulariesRequest;
+      output: ListDefaultVocabulariesResponse;
+    };
+    sdk: {
+      input: ListDefaultVocabulariesCommandInput;
+      output: ListDefaultVocabulariesCommandOutput;
+    };
+  };
+}

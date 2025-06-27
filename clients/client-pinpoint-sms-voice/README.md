@@ -10,7 +10,7 @@ Pinpoint SMS and Voice Messaging public facing APIs
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice
+To install this package, simply type add or install @aws-sdk/client-pinpoint-sms-voice
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pinpoint-sms-voice`

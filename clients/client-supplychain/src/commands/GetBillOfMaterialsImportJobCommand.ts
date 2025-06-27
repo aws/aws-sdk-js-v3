@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SupplyChainClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,52 +88,51 @@ export interface GetBillOfMaterialsImportJobCommandOutput
  * @throws {@link SupplyChainServiceException}
  * <p>Base exception class for all service exceptions from SupplyChain service.</p>
  *
- * @public
+ *
  * @example Invoke GetBillOfMaterialsImportJob for a successful job
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "60f82bbd-71f7-4fcd-a941-472f574c5243",
- *   "jobId": "f79b359b-1515-4436-a3bf-bae7b33e47b4"
+ *   instanceId: "60f82bbd-71f7-4fcd-a941-472f574c5243",
+ *   jobId: "f79b359b-1515-4436-a3bf-bae7b33e47b4"
  * };
  * const command = new GetBillOfMaterialsImportJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "job": {
- *     "instanceId": "60f82bbd-71f7-4fcd-a941-472f574c5243",
- *     "jobId": "f79b359b-1515-4436-a3bf-bae7b33e47b4",
- *     "message": "Import job completed successfully.",
- *     "s3uri": "s3://mybucketname/pathelemene/file.csv",
- *     "status": "SUCCESS"
+ *   job: {
+ *     instanceId: "60f82bbd-71f7-4fcd-a941-472f574c5243",
+ *     jobId: "f79b359b-1515-4436-a3bf-bae7b33e47b4",
+ *     message: "Import job completed successfully.",
+ *     s3uri: "s3://mybucketname/pathelemene/file.csv",
+ *     status: "SUCCESS"
  *   }
  * }
  * *\/
- * // example id: example-1
  * ```
  *
  * @example Invoke GetBillOfMaterialsImportJob for an in-progress job
  * ```javascript
  * //
  * const input = {
- *   "instanceId": "60f82bbd-71f7-4fcd-a941-472f574c5243",
- *   "jobId": "f79b359b-1515-4436-a3bf-bae7b33e47b4"
+ *   instanceId: "60f82bbd-71f7-4fcd-a941-472f574c5243",
+ *   jobId: "f79b359b-1515-4436-a3bf-bae7b33e47b4"
  * };
  * const command = new GetBillOfMaterialsImportJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "job": {
- *     "instanceId": "60f82bbd-71f7-4fcd-a941-472f574c5243",
- *     "jobId": "f79b359b-1515-4436-a3bf-bae7b33e47b4",
- *     "s3uri": "s3://mybucketname/pathelemene/file.csv",
- *     "status": "IN_PROGRESS"
+ *   job: {
+ *     instanceId: "60f82bbd-71f7-4fcd-a941-472f574c5243",
+ *     jobId: "f79b359b-1515-4436-a3bf-bae7b33e47b4",
+ *     s3uri: "s3://mybucketname/pathelemene/file.csv",
+ *     status: "IN_PROGRESS"
  *   }
  * }
  * *\/
- * // example id: example-2
  * ```
  *
+ * @public
  */
 export class GetBillOfMaterialsImportJobCommand extends $Command
   .classBuilder<
@@ -142,9 +142,7 @@ export class GetBillOfMaterialsImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupplyChainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +154,16 @@ export class GetBillOfMaterialsImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBillOfMaterialsImportJobCommand)
   .de(de_GetBillOfMaterialsImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBillOfMaterialsImportJobRequest;
+      output: GetBillOfMaterialsImportJobResponse;
+    };
+    sdk: {
+      input: GetBillOfMaterialsImportJobCommandInput;
+      output: GetBillOfMaterialsImportJobCommandOutput;
+    };
+  };
+}

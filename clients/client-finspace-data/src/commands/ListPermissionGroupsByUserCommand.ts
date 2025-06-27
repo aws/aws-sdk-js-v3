@@ -16,7 +16,8 @@ import { de_ListPermissionGroupsByUserCommand, se_ListPermissionGroupsByUserComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface ListPermissionGroupsByUserCommandOutput extends ListPermissionG
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionGroupsByUserCommand extends $Command
@@ -95,9 +97,7 @@ export class ListPermissionGroupsByUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class ListPermissionGroupsByUserCommand extends $Command
   .f(void 0, ListPermissionGroupsByUserResponseFilterSensitiveLog)
   .ser(se_ListPermissionGroupsByUserCommand)
   .de(de_ListPermissionGroupsByUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionGroupsByUserRequest;
+      output: ListPermissionGroupsByUserResponse;
+    };
+    sdk: {
+      input: ListPermissionGroupsByUserCommandInput;
+      output: ListPermissionGroupsByUserCommandOutput;
+    };
+  };
+}

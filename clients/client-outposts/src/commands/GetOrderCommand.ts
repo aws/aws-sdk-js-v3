@@ -12,7 +12,8 @@ import { de_GetOrderCommand, se_GetOrderCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,7 +44,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * //   Order: { // Order
  * //     OutpostId: "STRING_VALUE",
  * //     OrderId: "STRING_VALUE",
- * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //     Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "DELIVERED" || "COMPLETED" || "ERROR",
  * //     LineItems: [ // LineItemListDefinition
  * //       { // LineItem
  * //         CatalogItemId: "STRING_VALUE",
@@ -69,7 +70,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * //     PaymentOption: "ALL_UPFRONT" || "NO_UPFRONT" || "PARTIAL_UPFRONT",
  * //     OrderSubmissionDate: new Date("TIMESTAMP"),
  * //     OrderFulfilledDate: new Date("TIMESTAMP"),
- * //     PaymentTerm: "THREE_YEARS" || "ONE_YEAR",
+ * //     PaymentTerm: "THREE_YEARS" || "ONE_YEAR" || "FIVE_YEARS",
  * //     OrderType: "OUTPOST" || "REPLACEMENT",
  * //   },
  * // };
@@ -94,6 +95,7 @@ export interface GetOrderCommandOutput extends GetOrderOutput, __MetadataBearer 
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetOrderCommand extends $Command
@@ -104,9 +106,7 @@ export class GetOrderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class GetOrderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOrderCommand)
   .de(de_GetOrderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOrderInput;
+      output: GetOrderOutput;
+    };
+    sdk: {
+      input: GetOrderCommandInput;
+      output: GetOrderCommandOutput;
+    };
+  };
+}

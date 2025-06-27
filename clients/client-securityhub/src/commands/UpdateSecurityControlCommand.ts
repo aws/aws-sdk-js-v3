@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSecurityControlRequest, UpdateSecurityControlResponse } from "../models/models_2";
+import { UpdateSecurityControlRequest, UpdateSecurityControlResponse } from "../models/models_3";
 import { de_UpdateSecurityControlCommand, se_UpdateSecurityControlCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,27 +103,30 @@ export interface UpdateSecurityControlCommandOutput extends UpdateSecurityContro
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update security control properties
  * ```javascript
  * // The following example updates the specified security control. Specifically, this example updates control parameters.
  * const input = {
- *   "LastUpdateReason": "Comply with internal requirements",
- *   "Parameters": {
- *     "maxCredentialUsageAge": {
- *       "Value": {
- *         "Integer": 15
+ *   LastUpdateReason: "Comply with internal requirements",
+ *   Parameters: {
+ *     maxCredentialUsageAge: {
+ *       Value: {
+ *         Integer: 15
  *       },
- *       "ValueType": "CUSTOM"
+ *       ValueType: "CUSTOM"
  *     }
  *   },
- *   "SecurityControlId": "ACM.1"
+ *   SecurityControlId: "ACM.1"
  * };
  * const command = new UpdateSecurityControlCommand(input);
- * await client.send(command);
- * // example id: to-update-security-control-properties-1699282942434
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateSecurityControlCommand extends $Command
   .classBuilder<
@@ -132,9 +136,7 @@ export class UpdateSecurityControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +148,16 @@ export class UpdateSecurityControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSecurityControlCommand)
   .de(de_UpdateSecurityControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSecurityControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSecurityControlCommandInput;
+      output: UpdateSecurityControlCommandOutput;
+    };
+  };
+}

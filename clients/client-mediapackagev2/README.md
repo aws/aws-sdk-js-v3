@@ -21,7 +21,7 @@ see the <a href="https://docs.aws.amazon.com/mediapackage/latest/apireference/wh
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mediapackagev2
+To install this package, simply type add or install @aws-sdk/client-mediapackagev2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mediapackagev2`
@@ -216,6 +216,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CancelHarvestJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/CancelHarvestJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/CancelHarvestJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/CancelHarvestJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateChannel
 </summary>
 
@@ -228,6 +236,14 @@ CreateChannelGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/CreateChannelGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/CreateChannelGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/CreateChannelGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateHarvestJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/CreateHarvestJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/CreateHarvestJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/CreateHarvestJobCommandOutput/)
 
 </details>
 <details>
@@ -304,6 +320,14 @@ GetChannelPolicy
 </details>
 <details>
 <summary>
+GetHarvestJob
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/GetHarvestJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/GetHarvestJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/GetHarvestJobCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetOriginEndpoint
 </summary>
 
@@ -336,6 +360,14 @@ ListChannels
 </details>
 <details>
 <summary>
+ListHarvestJobs
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/ListHarvestJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ListHarvestJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ListHarvestJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListOriginEndpoints
 </summary>
 
@@ -364,6 +396,22 @@ PutOriginEndpointPolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/PutOriginEndpointPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/PutOriginEndpointPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/PutOriginEndpointPolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+ResetChannelState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/ResetChannelStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetChannelStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetChannelStateCommandOutput/)
+
+</details>
+<details>
+<summary>
+ResetOriginEndpointState
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mediapackagev2/command/ResetOriginEndpointStateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetOriginEndpointStateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mediapackagev2/Interface/ResetOriginEndpointStateCommandOutput/)
 
 </details>
 <details>

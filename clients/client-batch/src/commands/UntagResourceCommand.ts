@@ -12,7 +12,8 @@ import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,21 +64,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example UntagResource Example
  * ```javascript
  * // This demonstrates calling the UntagResource action.
  * const input = {
- *   "resourceArn": "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1",
- *   "tagKeys": [
+ *   resourceArn: "arn:aws:batch:us-east-1:123456789012:job-definition/sleep30:1",
+ *   tagKeys: [
  *     "Stage"
  *   ]
  * };
  * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: untagresource-example-1591292811042
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<
@@ -87,9 +91,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

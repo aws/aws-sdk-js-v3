@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,9 @@ export interface DisassociateBrowserSettingsCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is an internal server error.</p>
  *
@@ -72,6 +76,7 @@ export interface DisassociateBrowserSettingsCommandOutput
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class DisassociateBrowserSettingsCommand extends $Command
@@ -82,9 +87,7 @@ export class DisassociateBrowserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +99,16 @@ export class DisassociateBrowserSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateBrowserSettingsCommand)
   .de(de_DisassociateBrowserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateBrowserSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateBrowserSettingsCommandInput;
+      output: DisassociateBrowserSettingsCommandOutput;
+    };
+  };
+}

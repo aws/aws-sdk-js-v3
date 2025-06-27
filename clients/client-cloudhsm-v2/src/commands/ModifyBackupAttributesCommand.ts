@@ -12,7 +12,8 @@ import { de_ModifyBackupAttributesCommand, se_ModifyBackupAttributesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface ModifyBackupAttributesCommandInput extends ModifyBackupAttribut
 export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies attributes for AWS CloudHSM backup.</p>
+ * <p>Modifies attributes for CloudHSM backup.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +46,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * // { // ModifyBackupAttributesResponse
  * //   Backup: { // Backup
  * //     BackupId: "STRING_VALUE", // required
+ * //     BackupArn: "STRING_VALUE",
  * //     BackupState: "CREATE_IN_PROGRESS" || "READY" || "DELETED" || "PENDING_DELETION",
  * //     ClusterId: "STRING_VALUE",
  * //     CreateTimestamp: new Date("TIMESTAMP"),
@@ -58,6 +62,8 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     HsmType: "STRING_VALUE",
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *
@@ -74,7 +80,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -90,6 +96,7 @@ export interface ModifyBackupAttributesCommandOutput extends ModifyBackupAttribu
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyBackupAttributesCommand extends $Command
@@ -100,9 +107,7 @@ export class ModifyBackupAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +119,16 @@ export class ModifyBackupAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyBackupAttributesCommand)
   .de(de_ModifyBackupAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyBackupAttributesRequest;
+      output: ModifyBackupAttributesResponse;
+    };
+    sdk: {
+      input: ModifyBackupAttributesCommandInput;
+      output: ModifyBackupAttributesCommandOutput;
+    };
+  };
+}

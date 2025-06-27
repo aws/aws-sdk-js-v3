@@ -12,7 +12,8 @@ import { de_SetPrincipalTagAttributeMapCommand, se_SetPrincipalTagAttributeMapCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,8 @@ export interface SetPrincipalTagAttributeMapCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
+ * <p>You can use this operation to use default (username and clientID) attribute or custom
+ *          attribute mappings.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +84,7 @@ export interface SetPrincipalTagAttributeMapCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class SetPrincipalTagAttributeMapCommand extends $Command
@@ -92,9 +95,7 @@ export class SetPrincipalTagAttributeMapCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +107,16 @@ export class SetPrincipalTagAttributeMapCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetPrincipalTagAttributeMapCommand)
   .de(de_SetPrincipalTagAttributeMapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetPrincipalTagAttributeMapInput;
+      output: SetPrincipalTagAttributeMapResponse;
+    };
+    sdk: {
+      input: SetPrincipalTagAttributeMapCommandInput;
+      output: SetPrincipalTagAttributeMapCommandOutput;
+    };
+  };
+}

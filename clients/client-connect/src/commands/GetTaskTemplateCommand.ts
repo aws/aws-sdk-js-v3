@@ -12,7 +12,8 @@ import { de_GetTaskTemplateCommand, se_GetTaskTemplateCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,7 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * //   Name: "STRING_VALUE", // required
  * //   Description: "STRING_VALUE",
  * //   ContactFlowId: "STRING_VALUE",
+ * //   SelfAssignFlowId: "STRING_VALUE",
  * //   Constraints: { // TaskTemplateConstraints
  * //     RequiredFields: [ // RequiredTaskTemplateFields
  * //       { // RequiredFieldInfo
@@ -88,7 +90,7 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * //         Name: "STRING_VALUE",
  * //       },
  * //       Description: "STRING_VALUE",
- * //       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL",
+ * //       Type: "NAME" || "DESCRIPTION" || "SCHEDULED_TIME" || "QUICK_CONNECT" || "URL" || "NUMBER" || "TEXT" || "TEXT_AREA" || "DATE_TIME" || "BOOLEAN" || "SINGLE_SELECT" || "EMAIL" || "SELF_ASSIGN" || "EXPIRY_DURATION",
  * //       SingleSelectOptions: [ // SingleSelectOptions
  * //         "STRING_VALUE",
  * //       ],
@@ -128,6 +130,7 @@ export interface GetTaskTemplateCommandOutput extends GetTaskTemplateResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetTaskTemplateCommand extends $Command
@@ -138,9 +141,7 @@ export class GetTaskTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +153,16 @@ export class GetTaskTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTaskTemplateCommand)
   .de(de_GetTaskTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaskTemplateRequest;
+      output: GetTaskTemplateResponse;
+    };
+    sdk: {
+      input: GetTaskTemplateCommandInput;
+      output: GetTaskTemplateCommandOutput;
+    };
+  };
+}

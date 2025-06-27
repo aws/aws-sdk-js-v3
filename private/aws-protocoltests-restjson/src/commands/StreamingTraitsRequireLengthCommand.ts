@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer, StreamingBlobPayloadInputTypes } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StreamingTraitsRequireLengthInput,
   StreamingTraitsRequireLengthInputFilterSensitiveLog,
@@ -16,7 +18,8 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +67,7 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class StreamingTraitsRequireLengthCommand extends $Command
@@ -74,12 +78,28 @@ export class StreamingTraitsRequireLengthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "StreamingTraitsRequireLength", {})
   .n("RestJsonProtocolClient", "StreamingTraitsRequireLengthCommand")
   .f(StreamingTraitsRequireLengthInputFilterSensitiveLog, void 0)
   .ser(se_StreamingTraitsRequireLengthCommand)
   .de(de_StreamingTraitsRequireLengthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsRequireLengthInput;
+      output: {};
+    };
+    sdk: {
+      input: StreamingTraitsRequireLengthCommandInput;
+      output: StreamingTraitsRequireLengthCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_SendMessageCommand, se_SendMessageCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,6 +33,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
 
 /**
  * <p>Sends a message.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -81,6 +83,7 @@ export interface SendMessageCommandOutput extends SendMessageResponse, __Metadat
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class SendMessageCommand extends $Command
@@ -91,9 +94,7 @@ export class SendMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class SendMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendMessageCommand)
   .de(de_SendMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendMessageRequest;
+      output: SendMessageResponse;
+    };
+    sdk: {
+      input: SendMessageCommandInput;
+      output: SendMessageCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteFileSystemCommand, se_DeleteFileSystemCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,14 +32,20 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *             is gone. Any existing automatic backups and snapshots are also deleted.</p>
  *          <p>To delete an Amazon FSx for NetApp ONTAP file system, first delete all the
  *             volumes and storage virtual machines (SVMs) on the file system. Then provide a
- *                 <code>FileSystemId</code> value to the <code>DeleFileSystem</code> operation.</p>
+ *                 <code>FileSystemId</code> value to the <code>DeleteFileSystem</code> operation.</p>
+ *          <p>Before deleting an Amazon FSx for OpenZFS file system, make sure that there aren't
+ *         any Amazon S3 access points attached to any volume. For more information on how to list S3
+ *         access points that are attached to volumes, see
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/access-points-list">Listing S3 access point attachments</a>.
+ *         For more information on how to delete S3 access points, see
+ *             <a href="https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/delete-points-list">Deleting an S3 access point attachment</a>.</p>
  *          <p>By default, when you delete an Amazon FSx for Windows File Server file system,
  *             a final backup is created upon deletion. This final backup isn't subject to the file
  *             system's retention policy, and must be manually deleted.</p>
  *          <p>To delete an Amazon FSx for Lustre file system, first
  *             <a href="https://docs.aws.amazon.com/fsx/latest/LustreGuide/unmounting-fs.html">unmount</a>
  *             it from every connected Amazon EC2 instance, then provide a <code>FileSystemId</code>
- *             value to the <code>DeleFileSystem</code> operation. By default, Amazon FSx will not
+ *             value to the <code>DeleteFileSystem</code> operation. By default, Amazon FSx will not
  *             take a final backup when the <code>DeleteFileSystem</code> operation is invoked. On file systems
  *             not linked to an Amazon S3 bucket, set <code>SkipFinalBackup</code> to <code>false</code>
  *             to take a final backup of the file system you are deleting. Backups cannot be enabled on S3-linked
@@ -162,29 +169,29 @@ export interface DeleteFileSystemCommandOutput extends DeleteFileSystemResponse,
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *             some service limits by contacting Amazon Web ServicesSupport.</p>
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
+ *
  * @example To delete a file system
  * ```javascript
  * // This operation deletes an Amazon FSx file system.
  * const input = {
- *   "FileSystemId": "fs-0498eed5fe91001ec"
+ *   FileSystemId: "fs-0498eed5fe91001ec"
  * };
  * const command = new DeleteFileSystemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FileSystemId": "fs-0498eed5fe91001ec",
- *   "Lifecycle": "DELETING"
+ *   FileSystemId: "fs-0498eed5fe91001ec",
+ *   Lifecycle: "DELETING"
  * }
  * *\/
- * // example id: to-delete-a-file-system-1481847318348
  * ```
  *
+ * @public
  */
 export class DeleteFileSystemCommand extends $Command
   .classBuilder<
@@ -194,9 +201,7 @@ export class DeleteFileSystemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -208,4 +213,16 @@ export class DeleteFileSystemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFileSystemCommand)
   .de(de_DeleteFileSystemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFileSystemRequest;
+      output: DeleteFileSystemResponse;
+    };
+    sdk: {
+      input: DeleteFileSystemCommandInput;
+      output: DeleteFileSystemCommandOutput;
+    };
+  };
+}

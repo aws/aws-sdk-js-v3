@@ -12,7 +12,8 @@ import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
 
 /**
  * <p>
- *          Deletes the resource-based policy attached to the CloudTrail channel.
+ *          Deletes the resource-based policy attached to the CloudTrail event data store, dashboard, or channel.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -51,14 +52,27 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @see {@link DeleteResourcePolicyCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not ready for an operation. This
+ *          can occur when you try to run an operation on a resource before CloudTrail has time
+ *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
+ *          operation again.</p>
+ *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *
  * @throws {@link ResourceARNNotValidException} (client fault)
  *  <p>
- *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. The following is the valid format for a resource ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+ *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
  *       </p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>This exception is thrown when the specified resource is not found.</p>
@@ -77,6 +91,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyR
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
@@ -87,9 +102,7 @@ export class DeleteResourcePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +114,16 @@ export class DeleteResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourcePolicyCommand)
   .de(de_DeleteResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourcePolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourcePolicyCommandInput;
+      output: DeleteResourcePolicyCommandOutput;
+    };
+  };
+}

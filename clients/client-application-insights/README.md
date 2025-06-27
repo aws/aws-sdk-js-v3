@@ -22,7 +22,7 @@ impactful metrics and log errors. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-application-insights
+To install this package, simply type add or install @aws-sdk/client-application-insights
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-application-insights`

@@ -12,7 +12,8 @@ import { de_GetAppCommand, se_GetAppCommand } from "../protocols/Aws_restJson1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * //     platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     computeRoleArn: "STRING_VALUE",
  * //     iamServiceRoleArn: "STRING_VALUE",
  * //     environmentVariables: { // EnvironmentVariables // required
  * //       "<keys>": "STRING_VALUE",
@@ -96,6 +98,18 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * //       pullRequestEnvironmentName: "STRING_VALUE",
  * //     },
  * //     repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //     cacheConfig: { // CacheConfig
+ * //       type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //     },
+ * //     webhookCreateTime: new Date("TIMESTAMP"),
+ * //     wafConfiguration: { // WafConfiguration
+ * //       webAclArn: "STRING_VALUE",
+ * //       wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     jobConfig: { // JobConfig
+ * //       buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ * //     },
  * //   },
  * // };
  *
@@ -122,6 +136,7 @@ export interface GetAppCommandOutput extends GetAppResult, __MetadataBearer {}
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class GetAppCommand extends $Command
@@ -132,9 +147,7 @@ export class GetAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +159,16 @@ export class GetAppCommand extends $Command
   .f(void 0, GetAppResultFilterSensitiveLog)
   .ser(se_GetAppCommand)
   .de(de_GetAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAppRequest;
+      output: GetAppResult;
+    };
+    sdk: {
+      input: GetAppCommandInput;
+      output: GetAppCommandOutput;
+    };
+  };
+}

@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { isSsoProfile } from "./isSsoProfile";
 
 describe(isSsoProfile.name, () => {

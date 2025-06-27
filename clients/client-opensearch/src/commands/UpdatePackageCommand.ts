@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_0";
+import { UpdatePackageRequest, UpdatePackageResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_UpdatePackageCommand, se_UpdatePackageCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,6 +44,16 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  *   },
  *   PackageDescription: "STRING_VALUE",
  *   CommitMessage: "STRING_VALUE",
+ *   PackageConfiguration: { // PackageConfiguration
+ *     LicenseRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ *     LicenseFilepath: "STRING_VALUE",
+ *     ConfigurationRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ *     RequiresRestartForConfigurationUpdate: true || false,
+ *   },
+ *   PackageEncryptionOptions: { // PackageEncryptionOptions
+ *     KmsKeyIdentifier: "STRING_VALUE",
+ *     EncryptionEnabled: true || false, // required
+ *   },
  * };
  * const command = new UpdatePackageCommand(input);
  * const response = await client.send(command);
@@ -50,7 +61,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * //   PackageDetails: { // PackageDetails
  * //     PackageID: "STRING_VALUE",
  * //     PackageName: "STRING_VALUE",
- * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
+ * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN" || "PACKAGE-LICENSE" || "PACKAGE-CONFIG",
  * //     PackageDescription: "STRING_VALUE",
  * //     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //     CreatedAt: new Date("TIMESTAMP"),
@@ -67,6 +78,23 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * //       Version: "STRING_VALUE",
  * //       ClassName: "STRING_VALUE",
  * //       UncompressedSizeInBytes: Number("long"),
+ * //     },
+ * //     AvailablePackageConfiguration: { // PackageConfiguration
+ * //       LicenseRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //       LicenseFilepath: "STRING_VALUE",
+ * //       ConfigurationRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //       RequiresRestartForConfigurationUpdate: true || false,
+ * //     },
+ * //     AllowListedUserList: [ // PackageUserList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PackageOwner: "STRING_VALUE",
+ * //     PackageVendingOptions: { // PackageVendingOptions
+ * //       VendingEnabled: true || false, // required
+ * //     },
+ * //     PackageEncryptionOptions: { // PackageEncryptionOptions
+ * //       KmsKeyIdentifier: "STRING_VALUE",
+ * //       EncryptionEnabled: true || false, // required
  * //     },
  * //   },
  * // };
@@ -100,6 +128,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageCommand extends $Command
@@ -110,9 +139,7 @@ export class UpdatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +151,16 @@ export class UpdatePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePackageCommand)
   .de(de_UpdatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageRequest;
+      output: UpdatePackageResponse;
+    };
+    sdk: {
+      input: UpdatePackageCommandInput;
+      output: UpdatePackageCommandOutput;
+    };
+  };
+}

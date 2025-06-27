@@ -11,7 +11,7 @@ also order and manage phone numbers, create and manage Voice Connectors and SIP 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chime-sdk-voice
+To install this package, simply type add or install @aws-sdk/client-chime-sdk-voice
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chime-sdk-voice`
@@ -358,6 +358,14 @@ DeleteVoiceConnectorEmergencyCallingConfiguration
 </details>
 <details>
 <summary>
+DeleteVoiceConnectorExternalSystemsConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/DeleteVoiceConnectorExternalSystemsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorExternalSystemsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/DeleteVoiceConnectorExternalSystemsConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteVoiceConnectorGroup
 </summary>
 
@@ -530,6 +538,14 @@ GetVoiceConnectorEmergencyCallingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorEmergencyCallingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorEmergencyCallingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorEmergencyCallingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetVoiceConnectorExternalSystemsConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/GetVoiceConnectorExternalSystemsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorExternalSystemsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/GetVoiceConnectorExternalSystemsConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -738,6 +754,14 @@ PutVoiceConnectorEmergencyCallingConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorEmergencyCallingConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorEmergencyCallingConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorEmergencyCallingConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutVoiceConnectorExternalSystemsConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chime-sdk-voice/command/PutVoiceConnectorExternalSystemsConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorExternalSystemsConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chime-sdk-voice/Interface/PutVoiceConnectorExternalSystemsConfigurationCommandOutput/)
 
 </details>
 <details>

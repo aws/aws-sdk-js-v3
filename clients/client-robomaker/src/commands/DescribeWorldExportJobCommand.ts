@@ -12,7 +12,8 @@ import { RoboMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,15 @@ export interface DescribeWorldExportJobCommandInput extends DescribeWorldExportJ
 export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a world export job.</p>
+ * <important>
+ *             <p>End of support notice: On September 10, 2025, Amazon Web Services
+ *          will discontinue support for Amazon Web Services RoboMaker. After September 10, 2025, you will
+ *          no longer be able to access the Amazon Web Services RoboMaker console or Amazon Web Services RoboMaker resources.
+ *          For more information on transitioning to Batch to help run containerized
+ *          simulations, visit <a href="https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/">https://aws.amazon.com/blogs/hpc/run-simulations-using-multiple-containers-in-a-single-aws-batch-job/</a>.
+ *       </p>
+ *          </important>
+ *          <p>Describes a world export job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +92,7 @@ export interface DescribeWorldExportJobCommandOutput extends DescribeWorldExport
  * @throws {@link RoboMakerServiceException}
  * <p>Base exception class for all service exceptions from RoboMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorldExportJobCommand extends $Command
@@ -93,9 +103,7 @@ export class DescribeWorldExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RoboMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +115,16 @@ export class DescribeWorldExportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorldExportJobCommand)
   .de(de_DescribeWorldExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorldExportJobRequest;
+      output: DescribeWorldExportJobResponse;
+    };
+    sdk: {
+      input: DescribeWorldExportJobCommandInput;
+      output: DescribeWorldExportJobCommandOutput;
+    };
+  };
+}

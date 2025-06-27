@@ -10,13 +10,14 @@ import {
   GetEnvironmentBlueprintInput,
   GetEnvironmentBlueprintOutput,
   GetEnvironmentBlueprintOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetEnvironmentBlueprintCommand, se_GetEnvironmentBlueprintCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface GetEnvironmentBlueprintCommandOutput extends GetEnvironmentBlue
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentBlueprintCommand extends $Command
@@ -114,9 +116,7 @@ export class GetEnvironmentBlueprintCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetEnvironmentBlueprintCommand extends $Command
   .f(void 0, GetEnvironmentBlueprintOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentBlueprintCommand)
   .de(de_GetEnvironmentBlueprintCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentBlueprintInput;
+      output: GetEnvironmentBlueprintOutput;
+    };
+    sdk: {
+      input: GetEnvironmentBlueprintCommandInput;
+      output: GetEnvironmentBlueprintCommandOutput;
+    };
+  };
+}

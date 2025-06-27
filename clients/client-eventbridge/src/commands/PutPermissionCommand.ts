@@ -12,7 +12,8 @@ import { de_PutPermissionCommand, se_PutPermissionCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,9 @@ export interface PutPermissionCommandInput extends PutPermissionRequest {}
 export interface PutPermissionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or
- *         Amazon Web Services organization to put events to the specified <i>event
- *         bus</i>. Amazon EventBridge (CloudWatch Events) rules in your account are
- *       triggered by these events arriving to an event bus in your account. </p>
+ * <p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization
+ *       to put events to the specified <i>event bus</i>. Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your
+ *       account. </p>
  *          <p>For another account to send events to your account, that external account must have an
  *       EventBridge rule with your account's event bus as a target.</p>
  *          <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run
@@ -92,6 +92,7 @@ export interface PutPermissionCommandOutput extends __MetadataBearer {}
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class PutPermissionCommand extends $Command
@@ -102,9 +103,7 @@ export class PutPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +115,16 @@ export class PutPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutPermissionCommand)
   .de(de_PutPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutPermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutPermissionCommandInput;
+      output: PutPermissionCommandOutput;
+    };
+  };
+}

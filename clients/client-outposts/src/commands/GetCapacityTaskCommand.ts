@@ -12,7 +12,8 @@ import { de_GetCapacityTaskCommand, se_GetCapacityTaskCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,21 +45,34 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  * //   CapacityTaskId: "STRING_VALUE",
  * //   OutpostId: "STRING_VALUE",
  * //   OrderId: "STRING_VALUE",
+ * //   AssetId: "STRING_VALUE",
  * //   RequestedInstancePools: [ // RequestedInstancePools
  * //     { // InstanceTypeCapacity
  * //       InstanceType: "STRING_VALUE", // required
  * //       Count: Number("int"), // required
  * //     },
  * //   ],
+ * //   InstancesToExclude: { // InstancesToExclude
+ * //     Instances: [ // InstanceIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AccountIds: [ // AccountIdList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     Services: [ // AWSServiceNameList
+ * //       "AWS" || "EC2" || "ELASTICACHE" || "ELB" || "RDS" || "ROUTE53",
+ * //     ],
+ * //   },
  * //   DryRun: true || false,
- * //   CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "CANCELLED",
+ * //   CapacityTaskStatus: "REQUESTED" || "IN_PROGRESS" || "FAILED" || "COMPLETED" || "WAITING_FOR_EVACUATION" || "CANCELLATION_IN_PROGRESS" || "CANCELLED",
  * //   Failed: { // CapacityTaskFailure
  * //     Reason: "STRING_VALUE", // required
- * //     Type: "UNSUPPORTED_CAPACITY_CONFIGURATION",
+ * //     Type: "UNSUPPORTED_CAPACITY_CONFIGURATION" || "UNEXPECTED_ASSET_STATE" || "BLOCKING_INSTANCES_NOT_EVACUATED" || "INTERNAL_SERVER_ERROR" || "RESOURCE_NOT_FOUND",
  * //   },
  * //   CreationDate: new Date("TIMESTAMP"),
  * //   CompletionDate: new Date("TIMESTAMP"),
  * //   LastModifiedDate: new Date("TIMESTAMP"),
+ * //   TaskActionOnBlockingInstances: "WAIT_FOR_EVACUATION" || "FAIL_TASK",
  * // };
  *
  * ```
@@ -84,6 +98,7 @@ export interface GetCapacityTaskCommandOutput extends GetCapacityTaskOutput, __M
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class GetCapacityTaskCommand extends $Command
@@ -94,9 +109,7 @@ export class GetCapacityTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +121,16 @@ export class GetCapacityTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCapacityTaskCommand)
   .de(de_GetCapacityTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCapacityTaskInput;
+      output: GetCapacityTaskOutput;
+    };
+    sdk: {
+      input: GetCapacityTaskCommandInput;
+      output: GetCapacityTaskCommandOutput;
+    };
+  };
+}

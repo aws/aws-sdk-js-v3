@@ -9,6 +9,7 @@ import {
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   resolvedPath as __resolvedPath,
@@ -180,7 +181,7 @@ export const se_RecognizeUtteranceCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    [_ct]: input[_rCTe]! || "application/octet-stream",
+    [_ct]: input[_rCTe] || "application/octet-stream",
     [_xalss]: input[_sS]!,
     [_xalra]: input[_rA]!,
     [_rct]: input[_rCT]!,
@@ -207,6 +208,7 @@ export const se_StartConversationCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
     [_xalcm]: input[_cM]!,
   });
   b.bp("/bots/{botId}/botAliases/{botAliasId}/botLocales/{localeId}/sessions/{sessionId}/conversation");
@@ -731,7 +733,7 @@ const de_StartConversationResponseEventStream = (
         BadGatewayException: await de_BadGatewayException_event(event["BadGatewayException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_AccessDeniedException_event = async (output: any, context: __SerdeContext): Promise<AccessDeniedException> => {
@@ -1299,13 +1301,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cM = "conversationMode";
 const _cT = "contentType";

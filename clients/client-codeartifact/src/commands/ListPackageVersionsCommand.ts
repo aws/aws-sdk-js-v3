@@ -12,7 +12,8 @@ import { de_ListPackageVersionsCommand, se_ListPackageVersionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   status: "Published" || "Unfinished" || "Unlisted" || "Archived" || "Disposed" || "Deleted",
@@ -55,7 +56,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * const response = await client.send(command);
  * // { // ListPackageVersionsResult
  * //   defaultDisplayVersion: "STRING_VALUE",
- * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //   namespace: "STRING_VALUE",
  * //   package: "STRING_VALUE",
  * //   versions: [ // PackageVersionSummaryList
@@ -109,6 +110,7 @@ export interface ListPackageVersionsCommandOutput extends ListPackageVersionsRes
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackageVersionsCommand extends $Command
@@ -119,9 +121,7 @@ export class ListPackageVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class ListPackageVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackageVersionsCommand)
   .de(de_ListPackageVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackageVersionsRequest;
+      output: ListPackageVersionsResult;
+    };
+    sdk: {
+      input: ListPackageVersionsCommandInput;
+      output: ListPackageVersionsCommandOutput;
+    };
+  };
+}

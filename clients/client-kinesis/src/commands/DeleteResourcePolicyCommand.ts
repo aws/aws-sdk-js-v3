@@ -12,7 +12,8 @@ import { de_DeleteResourcePolicyCommand, se_DeleteResourcePolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface DeleteResourcePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
@@ -108,4 +110,16 @@ export class DeleteResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourcePolicyCommand)
   .de(de_DeleteResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourcePolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourcePolicyCommandInput;
+      output: DeleteResourcePolicyCommandOutput;
+    };
+  };
+}

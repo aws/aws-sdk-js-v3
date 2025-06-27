@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,14 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //       recommendationOptions: [ // RecommendationOptions
  * //         { // InstanceRecommendationOption
  * //           instanceType: "STRING_VALUE",
+ * //           instanceGpuInfo: { // GpuInfo
+ * //             gpus: [ // Gpus
+ * //               { // Gpu
+ * //                 gpuCount: Number("int"),
+ * //                 gpuMemorySizeInMiB: Number("int"),
+ * //               },
+ * //             ],
+ * //           },
  * //           projectedUtilizationMetrics: [ // ProjectedUtilizationMetrics
  * //             {
  * //               name: "Cpu" || "Memory" || "EBS_READ_OPS_PER_SECOND" || "EBS_WRITE_OPS_PER_SECOND" || "EBS_READ_BYTES_PER_SECOND" || "EBS_WRITE_BYTES_PER_SECOND" || "DISK_READ_OPS_PER_SECOND" || "DISK_WRITE_OPS_PER_SECOND" || "DISK_READ_BYTES_PER_SECOND" || "DISK_WRITE_BYTES_PER_SECOND" || "NETWORK_IN_BYTES_PER_SECOND" || "NETWORK_OUT_BYTES_PER_SECOND" || "NETWORK_PACKETS_IN_PER_SECOND" || "NETWORK_PACKETS_OUT_PER_SECOND" || "GPU_PERCENTAGE" || "GPU_MEMORY_PERCENTAGE",
@@ -110,15 +119,6 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
- * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
- * //           instanceGpuInfo: { // GpuInfo
- * //             gpus: [ // Gpus
- * //               { // Gpu
- * //                 gpuCount: Number("int"),
- * //                 gpuMemorySizeInMiB: Number("int"),
- * //               },
- * //             ],
- * //           },
  * //           savingsOpportunityAfterDiscounts: { // InstanceSavingsOpportunityAfterDiscounts
  * //             savingsOpportunityPercentage: Number("double"),
  * //             estimatedMonthlySavings: { // InstanceEstimatedMonthlySavings
@@ -126,12 +126,13 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * //               value: Number("double"),
  * //             },
  * //           },
+ * //           migrationEffort: "VeryLow" || "Low" || "Medium" || "High",
  * //         },
  * //       ],
  * //       recommendationSources: [ // RecommendationSources
  * //         { // RecommendationSource
  * //           recommendationSourceArn: "STRING_VALUE",
- * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License",
+ * //           recommendationSourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage",
  * //         },
  * //       ],
  * //       lastRefreshTimestamp: new Date("TIMESTAMP"),
@@ -243,6 +244,7 @@ export interface GetEC2InstanceRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetEC2InstanceRecommendationsCommand extends $Command
@@ -253,9 +255,7 @@ export class GetEC2InstanceRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -267,4 +267,16 @@ export class GetEC2InstanceRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEC2InstanceRecommendationsCommand)
   .de(de_GetEC2InstanceRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEC2InstanceRecommendationsRequest;
+      output: GetEC2InstanceRecommendationsResponse;
+    };
+    sdk: {
+      input: GetEC2InstanceRecommendationsCommandInput;
+      output: GetEC2InstanceRecommendationsCommandOutput;
+    };
+  };
+}

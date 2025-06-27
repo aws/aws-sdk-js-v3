@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateAppImageConfigRequest, UpdateAppImageConfigResponse } from "../models/models_4";
+import { UpdateAppImageConfigRequest, UpdateAppImageConfigResponse } from "../models/models_5";
 import { de_UpdateAppImageConfigCommand, se_UpdateAppImageConfigCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface UpdateAppImageConfigCommandOutput extends UpdateAppImageConfigR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppImageConfigCommand extends $Command
@@ -116,9 +118,7 @@ export class UpdateAppImageConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class UpdateAppImageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppImageConfigCommand)
   .de(de_UpdateAppImageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppImageConfigRequest;
+      output: UpdateAppImageConfigResponse;
+    };
+    sdk: {
+      input: UpdateAppImageConfigCommandInput;
+      output: UpdateAppImageConfigCommandOutput;
+    };
+  };
+}

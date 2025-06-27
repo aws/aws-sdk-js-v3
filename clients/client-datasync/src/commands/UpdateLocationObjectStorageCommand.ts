@@ -16,7 +16,8 @@ import { de_UpdateLocationObjectStorageCommand, se_UpdateLocationObjectStorageCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,10 @@ export interface UpdateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates some parameters of an existing DataSync location for an object
- *       storage system.</p>
+ * <p>Modifies the following configuration parameters of the object storage transfer location
+ *       that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html">Configuring DataSync
+ *         transfers with an object storage system</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,12 +49,21 @@ export interface UpdateLocationObjectStorageCommandOutput
  *   ServerPort: Number("int"),
  *   ServerProtocol: "HTTPS" || "HTTP",
  *   Subdirectory: "STRING_VALUE",
+ *   ServerHostname: "STRING_VALUE",
  *   AccessKey: "STRING_VALUE",
  *   SecretKey: "STRING_VALUE",
  *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
  *   ServerCertificate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
@@ -75,6 +87,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationObjectStorageCommand extends $Command
@@ -85,9 +98,7 @@ export class UpdateLocationObjectStorageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +110,16 @@ export class UpdateLocationObjectStorageCommand extends $Command
   .f(UpdateLocationObjectStorageRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateLocationObjectStorageCommand)
   .de(de_UpdateLocationObjectStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationObjectStorageRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationObjectStorageCommandInput;
+      output: UpdateLocationObjectStorageCommandOutput;
+    };
+  };
+}

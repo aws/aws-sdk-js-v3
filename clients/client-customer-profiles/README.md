@@ -8,15 +8,28 @@ AWS SDK for JavaScript CustomerProfiles Client for Node.js, Browser and React Na
 
 <fullname>Amazon Connect Customer Profiles</fullname>
 
-<p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
-pre-built connectors powered by AppFlow that make it easy to combine customer information
-from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your
-enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.
-If you're new to Amazon Connect, you might find it helpful to review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Amazon Connect Administrator Guide</a>.</p>
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html">Customer Profiles actions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html">Customer Profiles data types</a>
+</p>
+</li>
+</ul>
+<p>Amazon Connect Customer Profiles is a unified customer profile for your contact
+center that has pre-built connectors powered by AppFlow that make it easy to combine
+customer information from third party applications, such as Salesforce (CRM), ServiceNow
+(ITSM), and your enterprise resource planning (ERP), with contact history from your Amazon Connect contact center. </p>
+<p>For more information about the Amazon Connect Customer Profiles feature, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html">Use Customer
+Profiles</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-customer-profiles
+To install this package, simply type add or install @aws-sdk/client-customer-profiles
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-customer-profiles`
@@ -219,6 +232,22 @@ AddProfileKey
 </details>
 <details>
 <summary>
+BatchGetCalculatedAttributeForProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/BatchGetCalculatedAttributeForProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/BatchGetCalculatedAttributeForProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/BatchGetCalculatedAttributeForProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchGetProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/BatchGetProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/BatchGetProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/BatchGetProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCalculatedAttributeDefinition
 </summary>
 
@@ -235,10 +264,26 @@ CreateDomain
 </details>
 <details>
 <summary>
+CreateDomainLayout
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateDomainLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateDomainLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateDomainLayoutCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEventStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateEventStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateEventStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateEventStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateEventTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateEventTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateEventTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateEventTriggerCommandOutput/)
 
 </details>
 <details>
@@ -259,6 +304,30 @@ CreateProfile
 </details>
 <details>
 <summary>
+CreateSegmentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateSegmentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateSegmentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateSegmentDefinitionCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateSegmentEstimate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateSegmentEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateSegmentEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateSegmentEstimateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateSegmentSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/CreateSegmentSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateSegmentSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/CreateSegmentSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteCalculatedAttributeDefinition
 </summary>
 
@@ -275,10 +344,26 @@ DeleteDomain
 </details>
 <details>
 <summary>
+DeleteDomainLayout
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/DeleteDomainLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteDomainLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteDomainLayoutCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteEventStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/DeleteEventStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteEventStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteEventStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteEventTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/DeleteEventTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteEventTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteEventTriggerCommandOutput/)
 
 </details>
 <details>
@@ -319,6 +404,14 @@ DeleteProfileObjectType
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/DeleteProfileObjectTypeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteProfileObjectTypeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteProfileObjectTypeCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteSegmentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/DeleteSegmentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteSegmentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/DeleteSegmentDefinitionCommandOutput/)
 
 </details>
 <details>
@@ -371,10 +464,26 @@ GetDomain
 </details>
 <details>
 <summary>
+GetDomainLayout
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetDomainLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetDomainLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetDomainLayoutCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetEventStream
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetEventStreamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetEventStreamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetEventStreamCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEventTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetEventTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetEventTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetEventTriggerCommandOutput/)
 
 </details>
 <details>
@@ -415,6 +524,38 @@ GetProfileObjectTypeTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetProfileObjectTypeTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetProfileObjectTypeTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetProfileObjectTypeTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSegmentDefinition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetSegmentDefinitionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentDefinitionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentDefinitionCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSegmentEstimate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetSegmentEstimateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentEstimateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentEstimateCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSegmentMembership
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetSegmentMembershipCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentMembershipCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentMembershipCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetSegmentSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/GetSegmentSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/GetSegmentSnapshotCommandOutput/)
 
 </details>
 <details>
@@ -467,6 +608,14 @@ ListCalculatedAttributesForProfile
 </details>
 <details>
 <summary>
+ListDomainLayouts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListDomainLayoutsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListDomainLayoutsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListDomainLayoutsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListDomains
 </summary>
 
@@ -483,6 +632,14 @@ ListEventStreams
 </details>
 <details>
 <summary>
+ListEventTriggers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListEventTriggersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListEventTriggersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListEventTriggersCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListIdentityResolutionJobs
 </summary>
 
@@ -495,6 +652,22 @@ ListIntegrations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListIntegrationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListIntegrationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListIntegrationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListObjectTypeAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListObjectTypeAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListObjectTypeAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListObjectTypeAttributesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListProfileAttributeValues
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListProfileAttributeValuesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListProfileAttributeValuesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListProfileAttributeValuesCommandOutput/)
 
 </details>
 <details>
@@ -527,6 +700,14 @@ ListRuleBasedMatches
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListRuleBasedMatchesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListRuleBasedMatchesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListRuleBasedMatchesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSegmentDefinitions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/ListSegmentDefinitionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListSegmentDefinitionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/ListSegmentDefinitionsCommandOutput/)
 
 </details>
 <details>
@@ -615,6 +796,22 @@ UpdateDomain
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/UpdateDomainCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/UpdateDomainCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/UpdateDomainCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDomainLayout
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/UpdateDomainLayoutCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/UpdateDomainLayoutCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/UpdateDomainLayoutCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEventTrigger
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/customer-profiles/command/UpdateEventTriggerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/UpdateEventTriggerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-customer-profiles/Interface/UpdateEventTriggerCommandOutput/)
 
 </details>
 <details>

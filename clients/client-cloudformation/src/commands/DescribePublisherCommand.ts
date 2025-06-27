@@ -12,7 +12,8 @@ import { de_DescribePublisherCommand, se_DescribePublisherCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,9 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
 
 /**
  * <p>Returns information about a CloudFormation extension publisher.</p>
- *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension publisher,
- *    <code>DescribePublisher</code> returns information about your own publisher account.</p>
+ *          <p>If you don't supply a <code>PublisherId</code>, and you have registered as an extension
+ *       publisher, <code>DescribePublisher</code> returns information about your own publisher
+ *       account.</p>
  *          <p>For more information about registering as a publisher, see:</p>
  *          <ul>
  *             <li>
@@ -39,9 +41,9 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  *             </li>
  *             <li>
  *                <p>
- *                   <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing
- *      extensions to make them available for public use</a> in the <i>CloudFormation CLI User
- *      Guide</i>
+ *                   <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions
+ *             to make them available for public use</a> in the
+ *             <i>CloudFormation Command Line Interface (CLI) User Guide</i>
  *                </p>
  *             </li>
  *          </ul>
@@ -77,6 +79,7 @@ export interface DescribePublisherCommandOutput extends DescribePublisherOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribePublisherCommand extends $Command
@@ -87,9 +90,7 @@ export class DescribePublisherCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class DescribePublisherCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePublisherCommand)
   .de(de_DescribePublisherCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePublisherInput;
+      output: DescribePublisherOutput;
+    };
+    sdk: {
+      input: DescribePublisherCommandInput;
+      output: DescribePublisherCommandOutput;
+    };
+  };
+}

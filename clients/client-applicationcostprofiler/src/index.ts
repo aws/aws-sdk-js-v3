@@ -13,8 +13,8 @@
 export * from "./ApplicationCostProfilerClient";
 export * from "./ApplicationCostProfiler";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ApplicationCostProfilerExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ApplicationCostProfilerExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

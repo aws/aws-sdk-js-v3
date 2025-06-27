@@ -12,7 +12,8 @@ import { de_GetMetadataGenerationRunCommand, se_GetMetadataGenerationRunCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface GetMetadataGenerationRunCommandOutput extends GetMetadataGenera
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetMetadataGenerationRunCommand extends $Command
@@ -94,9 +96,7 @@ export class GetMetadataGenerationRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class GetMetadataGenerationRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMetadataGenerationRunCommand)
   .de(de_GetMetadataGenerationRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMetadataGenerationRunInput;
+      output: GetMetadataGenerationRunOutput;
+    };
+    sdk: {
+      input: GetMetadataGenerationRunCommandInput;
+      output: GetMetadataGenerationRunCommandOutput;
+    };
+  };
+}

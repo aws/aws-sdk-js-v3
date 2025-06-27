@@ -18,7 +18,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,31 +97,31 @@ export interface GetConfigurationPolicyAssociationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get details about a configuration association
  * ```javascript
  * // This operation provides details about configuration associations for a specific target account, organizational unit, or the root.
  * const input = {
- *   "Target": {
- *     "AccountId": "111122223333"
+ *   Target: {
+ *     AccountId: "111122223333"
  *   }
  * };
  * const command = new GetConfigurationPolicyAssociationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociationStatus": "FAILED",
- *   "AssociationStatusMessage": "Configuration Policy a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 couldn’t be applied to account 111122223333 in us-east-1 Region. Retry your request.",
- *   "AssociationType": "INHERITED",
- *   "ConfigurationPolicyId": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "TargetId": "111122223333",
- *   "TargetType": "ACCOUNT",
- *   "UpdatedAt": "2023-01-11T06:17:17.154Z"
+ *   AssociationStatus: "FAILED",
+ *   AssociationStatusMessage: "Configuration Policy a1b2c3d4-5678-90ab-cdef-EXAMPLE11111 couldn't be applied to account 111122223333 in us-east-1 Region. Retry your request.",
+ *   AssociationType: "INHERITED",
+ *   ConfigurationPolicyId: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   TargetId: "111122223333",
+ *   TargetType: "ACCOUNT",
+ *   UpdatedAt: "2023-01-11T06:17:17.154Z"
  * }
  * *\/
- * // example id: to-get-details-about-a-configuration-association-1695177816371
  * ```
  *
+ * @public
  */
 export class GetConfigurationPolicyAssociationCommand extends $Command
   .classBuilder<
@@ -130,9 +131,7 @@ export class GetConfigurationPolicyAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class GetConfigurationPolicyAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfigurationPolicyAssociationCommand)
   .de(de_GetConfigurationPolicyAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfigurationPolicyAssociationRequest;
+      output: GetConfigurationPolicyAssociationResponse;
+    };
+    sdk: {
+      input: GetConfigurationPolicyAssociationCommandInput;
+      output: GetConfigurationPolicyAssociationCommandOutput;
+    };
+  };
+}

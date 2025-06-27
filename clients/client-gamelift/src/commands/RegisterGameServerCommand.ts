@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_0";
+import { RegisterGameServerInput, RegisterGameServerOutput } from "../models/models_1";
 import { de_RegisterGameServerCommand, se_RegisterGameServerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,12 +29,12 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Creates a new game server
- *             resource and notifies Amazon GameLift FleetIQ that the game server is ready to host gameplay and players.
+ *             resource and notifies Amazon GameLift Servers FleetIQ that the game server is ready to host gameplay and players.
  *             This operation is called by a game server process that is running on an instance in a
- *             game server group. Registering game servers enables Amazon GameLift FleetIQ to track available game
+ *             game server group. Registering game servers enables Amazon GameLift Servers FleetIQ to track available game
  *             servers and enables game clients and services to claim a game server for a new game
  *             session. </p>
  *          <p>To register a game server, identify the game server group and instance where the game
@@ -47,7 +48,7 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -113,6 +114,7 @@ export interface RegisterGameServerCommandOutput extends RegisterGameServerOutpu
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class RegisterGameServerCommand extends $Command
@@ -123,9 +125,7 @@ export class RegisterGameServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class RegisterGameServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterGameServerCommand)
   .de(de_RegisterGameServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterGameServerInput;
+      output: RegisterGameServerOutput;
+    };
+    sdk: {
+      input: RegisterGameServerCommandInput;
+      output: RegisterGameServerCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateClassificationJobCommand, se_CreateClassificationJobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -203,6 +204,7 @@ export interface CreateClassificationJobCommandOutput extends CreateClassificati
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class CreateClassificationJobCommand extends $Command
@@ -213,9 +215,7 @@ export class CreateClassificationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -227,4 +227,16 @@ export class CreateClassificationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClassificationJobCommand)
   .de(de_CreateClassificationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClassificationJobRequest;
+      output: CreateClassificationJobResponse;
+    };
+    sdk: {
+      input: CreateClassificationJobCommandInput;
+      output: CreateClassificationJobCommandOutput;
+    };
+  };
+}

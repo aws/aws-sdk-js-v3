@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  *          <p>If you specify more than one calendar in a request, the command returns the status of
  *     <code>OPEN</code> only if all calendars in the request are open. If one or more calendars in the
  *    request are closed, the status returned is <code>CLOSED</code>.</p>
- *          <p>For more information about Change Calendar, a capability of Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *          <p>For more information about Change Calendar, a tool in Amazon Web Services Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-change-calendar.html">Amazon Web Services Systems Manager Change Calendar</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +81,7 @@ export interface GetCalendarStateCommandOutput extends GetCalendarStateResponse,
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetCalendarStateCommand extends $Command
@@ -90,9 +92,7 @@ export class GetCalendarStateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetCalendarStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCalendarStateCommand)
   .de(de_GetCalendarStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCalendarStateRequest;
+      output: GetCalendarStateResponse;
+    };
+    sdk: {
+      input: GetCalendarStateCommandInput;
+      output: GetCalendarStateCommandOutput;
+    };
+  };
+}

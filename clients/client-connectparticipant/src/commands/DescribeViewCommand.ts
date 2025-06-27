@@ -16,7 +16,8 @@ import { de_DescribeViewCommand, se_DescribeViewCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,6 +33,7 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
 
 /**
  * <p>Retrieves the view for the specified view token.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +88,7 @@ export interface DescribeViewCommandOutput extends DescribeViewResponse, __Metad
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class DescribeViewCommand extends $Command
@@ -96,9 +99,7 @@ export class DescribeViewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class DescribeViewCommand extends $Command
   .f(void 0, DescribeViewResponseFilterSensitiveLog)
   .ser(se_DescribeViewCommand)
   .de(de_DescribeViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeViewRequest;
+      output: DescribeViewResponse;
+    };
+    sdk: {
+      input: DescribeViewCommandInput;
+      output: DescribeViewCommandOutput;
+    };
+  };
+}

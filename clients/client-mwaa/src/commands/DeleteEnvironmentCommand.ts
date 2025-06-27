@@ -12,7 +12,8 @@ import { de_DeleteEnvironmentCommand, se_DeleteEnvironmentCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteEnvironmentCommandInput extends DeleteEnvironmentInput {}
 export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput, __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon Managed Workflows for Apache Airflow (MWAA) environment.</p>
+ * <p>Deletes an Amazon Managed Workflows for Apache Airflow (Amazon MWAA) environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +62,7 @@ export interface DeleteEnvironmentCommandOutput extends DeleteEnvironmentOutput,
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentCommand extends $Command
@@ -71,9 +73,7 @@ export class DeleteEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeleteEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEnvironmentCommand)
   .de(de_DeleteEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEnvironmentCommandInput;
+      output: DeleteEnvironmentCommandOutput;
+    };
+  };
+}

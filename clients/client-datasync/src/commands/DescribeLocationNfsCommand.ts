@@ -12,7 +12,8 @@ import { de_DescribeLocationNfsCommand, se_DescribeLocationNfsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface DescribeLocationNfsCommandOutput extends DescribeLocationNfsRes
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationNfsCommand extends $Command
@@ -82,9 +84,7 @@ export class DescribeLocationNfsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class DescribeLocationNfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationNfsCommand)
   .de(de_DescribeLocationNfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationNfsRequest;
+      output: DescribeLocationNfsResponse;
+    };
+    sdk: {
+      input: DescribeLocationNfsCommandInput;
+      output: DescribeLocationNfsCommandOutput;
+    };
+  };
+}

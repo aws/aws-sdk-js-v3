@@ -12,7 +12,8 @@ import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * //     platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     computeRoleArn: "STRING_VALUE",
  * //     iamServiceRoleArn: "STRING_VALUE",
  * //     environmentVariables: { // EnvironmentVariables // required
  * //       "<keys>": "STRING_VALUE",
@@ -96,6 +98,18 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * //       pullRequestEnvironmentName: "STRING_VALUE",
  * //     },
  * //     repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //     cacheConfig: { // CacheConfig
+ * //       type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //     },
+ * //     webhookCreateTime: new Date("TIMESTAMP"),
+ * //     wafConfiguration: { // WafConfiguration
+ * //       webAclArn: "STRING_VALUE",
+ * //       wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     jobConfig: { // JobConfig
+ * //       buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ * //     },
  * //   },
  * // };
  *
@@ -125,6 +139,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppCommand extends $Command
@@ -135,9 +150,7 @@ export class DeleteAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +162,16 @@ export class DeleteAppCommand extends $Command
   .f(void 0, DeleteAppResultFilterSensitiveLog)
   .ser(se_DeleteAppCommand)
   .de(de_DeleteAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppRequest;
+      output: DeleteAppResult;
+    };
+    sdk: {
+      input: DeleteAppCommandInput;
+      output: DeleteAppCommandOutput;
+    };
+  };
+}

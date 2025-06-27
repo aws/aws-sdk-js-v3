@@ -21,7 +21,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -128,6 +129,7 @@ export interface CreateViewCommandOutput extends CreateViewOutput, __MetadataBea
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class CreateViewCommand extends $Command
@@ -138,9 +140,7 @@ export class CreateViewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +152,16 @@ export class CreateViewCommand extends $Command
   .f(CreateViewInputFilterSensitiveLog, CreateViewOutputFilterSensitiveLog)
   .ser(se_CreateViewCommand)
   .de(de_CreateViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateViewInput;
+      output: CreateViewOutput;
+    };
+    sdk: {
+      input: CreateViewCommandInput;
+      output: CreateViewCommandOutput;
+    };
+  };
+}

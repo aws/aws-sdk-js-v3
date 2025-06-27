@@ -16,7 +16,8 @@ import { de_UpdateEnvironmentCommand, se_UpdateEnvironmentCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,25 +42,12 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * const input = { // UpdateEnvironmentInput
  *   Name: "STRING_VALUE", // required
  *   ExecutionRoleArn: "STRING_VALUE",
- *   AirflowVersion: "STRING_VALUE",
- *   SourceBucketArn: "STRING_VALUE",
- *   DagS3Path: "STRING_VALUE",
- *   PluginsS3Path: "STRING_VALUE",
- *   PluginsS3ObjectVersion: "STRING_VALUE",
- *   RequirementsS3Path: "STRING_VALUE",
- *   RequirementsS3ObjectVersion: "STRING_VALUE",
- *   StartupScriptS3Path: "STRING_VALUE",
- *   StartupScriptS3ObjectVersion: "STRING_VALUE",
  *   AirflowConfigurationOptions: { // AirflowConfigurationOptions
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   AirflowVersion: "STRING_VALUE",
+ *   DagS3Path: "STRING_VALUE",
  *   EnvironmentClass: "STRING_VALUE",
- *   MaxWorkers: Number("int"),
- *   NetworkConfiguration: { // UpdateNetworkConfigurationInput
- *     SecurityGroupIds: [ // SecurityGroupList // required
- *       "STRING_VALUE",
- *     ],
- *   },
  *   LoggingConfiguration: { // LoggingConfigurationInput
  *     DagProcessingLogs: { // ModuleLoggingConfigurationInput
  *       Enabled: true || false, // required
@@ -82,12 +70,26 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  *       LogLevel: "STRING_VALUE", // required
  *     },
  *   },
- *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
- *   WebserverAccessMode: "STRING_VALUE",
+ *   MaxWorkers: Number("int"),
  *   MinWorkers: Number("int"),
- *   Schedulers: Number("int"),
- *   MinWebservers: Number("int"),
  *   MaxWebservers: Number("int"),
+ *   MinWebservers: Number("int"),
+ *   WorkerReplacementStrategy: "STRING_VALUE",
+ *   NetworkConfiguration: { // UpdateNetworkConfigurationInput
+ *     SecurityGroupIds: [ // SecurityGroupList // required
+ *       "STRING_VALUE",
+ *     ],
+ *   },
+ *   PluginsS3Path: "STRING_VALUE",
+ *   PluginsS3ObjectVersion: "STRING_VALUE",
+ *   RequirementsS3Path: "STRING_VALUE",
+ *   RequirementsS3ObjectVersion: "STRING_VALUE",
+ *   Schedulers: Number("int"),
+ *   SourceBucketArn: "STRING_VALUE",
+ *   StartupScriptS3Path: "STRING_VALUE",
+ *   StartupScriptS3ObjectVersion: "STRING_VALUE",
+ *   WebserverAccessMode: "STRING_VALUE",
+ *   WeeklyMaintenanceWindowStart: "STRING_VALUE",
  * };
  * const command = new UpdateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -115,6 +117,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentOutput,
  * @throws {@link MWAAServiceException}
  * <p>Base exception class for all service exceptions from MWAA service.</p>
  *
+ *
  * @public
  */
 export class UpdateEnvironmentCommand extends $Command
@@ -125,9 +128,7 @@ export class UpdateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MWAAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +140,16 @@ export class UpdateEnvironmentCommand extends $Command
   .f(UpdateEnvironmentInputFilterSensitiveLog, void 0)
   .ser(se_UpdateEnvironmentCommand)
   .de(de_UpdateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnvironmentInput;
+      output: UpdateEnvironmentOutput;
+    };
+    sdk: {
+      input: UpdateEnvironmentCommandInput;
+      output: UpdateEnvironmentCommandOutput;
+    };
+  };
+}

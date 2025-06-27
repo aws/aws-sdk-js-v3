@@ -16,7 +16,8 @@ import { de_UpdateHypervisorCommand, se_UpdateHypervisorCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface UpdateHypervisorCommandOutput extends UpdateHypervisorOutput, _
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateHypervisorCommand extends $Command
@@ -94,9 +96,7 @@ export class UpdateHypervisorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class UpdateHypervisorCommand extends $Command
   .f(UpdateHypervisorInputFilterSensitiveLog, void 0)
   .ser(se_UpdateHypervisorCommand)
   .de(de_UpdateHypervisorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateHypervisorInput;
+      output: UpdateHypervisorOutput;
+    };
+    sdk: {
+      input: UpdateHypervisorCommandInput;
+      output: UpdateHypervisorCommandOutput;
+    };
+  };
+}

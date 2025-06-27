@@ -115,27 +115,27 @@ export interface SsmAutomation {
    * <p>The automation document's version to use when running.</p>
    * @public
    */
-  documentVersion?: string;
+  documentVersion?: string | undefined;
 
   /**
    * <p>The account that the automation document will be run in. This can be in either the
    *       management account or an application account.</p>
    * @public
    */
-  targetAccount?: SsmTargetAccount;
+  targetAccount?: SsmTargetAccount | undefined;
 
   /**
    * <p>The key-value pair parameters to use when running the automation document.</p>
    * @public
    */
-  parameters?: Record<string, string[]>;
+  parameters?: Record<string, string[]> | undefined;
 
   /**
    * <p>The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation
    *       runbook.</p>
    * @public
    */
-  dynamicParameters?: Record<string, DynamicSsmParameterValue>;
+  dynamicParameters?: Record<string, DynamicSsmParameterValue> | undefined;
 }
 
 /**
@@ -194,7 +194,7 @@ export interface AddRegionAction {
    * <p>The KMS key ID to use to encrypt your replication set.</p>
    * @public
    */
-  sseKmsKeyId?: string;
+  sseKmsKeyId?: string | undefined;
 }
 
 /**
@@ -354,7 +354,7 @@ export interface CloudFormationStackUpdate {
    *       for deployments that are still in progress.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudFormation stack involved in the
@@ -381,7 +381,7 @@ export interface CodeDeployDeployment {
    *       deployments that are still in progress.</p>
    * @public
    */
-  endTime?: Date;
+  endTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CodeDeploy deployment group associated with
@@ -484,7 +484,7 @@ export interface Finding {
    * <p>Details about the finding.</p>
    * @public
    */
-  details?: FindingDetails;
+  details?: FindingDetails | undefined;
 }
 
 /**
@@ -553,13 +553,13 @@ export class ResourceNotFoundException extends __BaseException {
    * The identifier for the requested resource
    * @public
    */
-  resourceIdentifier?: string;
+  resourceIdentifier?: string | undefined;
 
   /**
    * The resource type
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * @internal
@@ -790,19 +790,19 @@ export class ConflictException extends __BaseException {
    * The identifier of the requested resource
    * @public
    */
-  resourceIdentifier?: string;
+  resourceIdentifier?: string | undefined;
 
   /**
    * The resource type
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * If present in the output, the operation can be retried after this time
    * @public
    */
-  retryAfter?: Date;
+  retryAfter?: Date | undefined;
 
   /**
    * @internal
@@ -830,7 +830,7 @@ export interface RegionMapInputValue {
    * <p>The KMS key used to encrypt the data in your replication set.</p>
    * @public
    */
-  sseKmsKeyId?: string;
+  sseKmsKeyId?: string | undefined;
 }
 
 /**
@@ -849,13 +849,13 @@ export interface CreateReplicationSetInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>A list of tags to add to the replication set.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -880,13 +880,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * The identifier for the requested resource
    * @public
    */
-  resourceIdentifier?: string;
+  resourceIdentifier?: string | undefined;
 
   /**
    * The resource type
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * Originating service code
@@ -1003,7 +1003,7 @@ export interface IncidentTemplate {
    *       currently happening, and context.</p>
    * @public
    */
-  summary?: string;
+  summary?: string | undefined;
 
   /**
    * <p>The string Incident Manager uses to prevent the same root cause from creating multiple
@@ -1020,21 +1020,21 @@ export interface IncidentTemplate {
    *          </note>
    * @public
    */
-  dedupeString?: string;
+  dedupeString?: string | undefined;
 
   /**
    * <p>The Amazon SNS targets that are notified when updates are made to an
    *       incident.</p>
    * @public
    */
-  notificationTargets?: NotificationTargetItem[];
+  notificationTargets?: NotificationTargetItem[] | undefined;
 
   /**
    * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is called,
    *       Incident Manager assigns the tags specified in the template to the incident.</p>
    * @public
    */
-  incidentTags?: Record<string, string>;
+  incidentTags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1122,7 +1122,7 @@ export interface CreateResponsePlanInput {
    * <p>A token ensuring that the operation is called only once with the specified details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The short format name of the response plan. Can't include spaces.</p>
@@ -1134,7 +1134,7 @@ export interface CreateResponsePlanInput {
    * <p>The long format of the response plan name. This field can contain spaces.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>Details used to create an incident when using this response plan.</p>
@@ -1146,32 +1146,32 @@ export interface CreateResponsePlanInput {
    * <p>The Chatbot chat channel used for collaboration during an incident.</p>
    * @public
    */
-  chatChannel?: ChatChannel;
+  chatChannel?: ChatChannel | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
    *       plan engages during an incident.</p>
    * @public
    */
-  engagements?: string[];
+  engagements?: string[] | undefined;
 
   /**
    * <p>The actions that the response plan starts at the beginning of an incident.</p>
    * @public
    */
-  actions?: Action[];
+  actions?: Action[] | undefined;
 
   /**
    * <p>A list of tags that you are adding to the response plan.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>Information about third-party services integrated into the response plan.</p>
    * @public
    */
-  integrations?: Integration[];
+  integrations?: Integration[] | undefined;
 }
 
 /**
@@ -1251,7 +1251,7 @@ export interface CreateTimelineEventInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record that the action adds the incident
@@ -1290,7 +1290,7 @@ export interface CreateTimelineEventInput {
    *       with the DynamoDB table as a related item.</p>
    * @public
    */
-  eventReferences?: EventReference[];
+  eventReferences?: EventReference[] | undefined;
 }
 
 /**
@@ -1456,7 +1456,7 @@ export interface EventSummary {
    * <p>A list of references in a <code>TimelineEvent</code>.</p>
    * @public
    */
-  eventReferences?: EventReference[];
+  eventReferences?: EventReference[] | undefined;
 }
 
 /**
@@ -1523,13 +1523,13 @@ export interface IncidentRecordSource {
    *       service principal assumed the role this will be left blank.</p>
    * @public
    */
-  invokedBy?: string;
+  invokedBy?: string | undefined;
 
   /**
    * <p>The resource that caused the incident to be created.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>The service that started the incident. This can be manually created from Incident Manager,
@@ -1576,7 +1576,7 @@ export interface IncidentRecord {
    *       currently happening, and context of the incident.</p>
    * @public
    */
-  summary?: string;
+  summary?: string | undefined;
 
   /**
    * <p>The current status of the incident.</p>
@@ -1625,7 +1625,7 @@ export interface IncidentRecord {
    * <p>The timestamp for when the incident was resolved. This appears as a timeline event.</p>
    * @public
    */
-  resolvedTime?: Date;
+  resolvedTime?: Date | undefined;
 
   /**
    * <p>The timestamp for when the incident was most recently modified.</p>
@@ -1643,7 +1643,7 @@ export interface IncidentRecord {
    * <p>The runbook, or automation document, that's run at the beginning of the incident.</p>
    * @public
    */
-  automationExecutions?: AutomationExecution[];
+  automationExecutions?: AutomationExecution[] | undefined;
 
   /**
    * <p>Details about the action that started the incident.</p>
@@ -1662,14 +1662,14 @@ export interface IncidentRecord {
    * <p>The chat channel used for collaboration during an incident.</p>
    * @public
    */
-  chatChannel?: ChatChannel;
+  chatChannel?: ChatChannel | undefined;
 
   /**
    * <p>The Amazon SNS targets that are notified when updates are made to an
    *       incident.</p>
    * @public
    */
-  notificationTargets?: NotificationTargetItem[];
+  notificationTargets?: NotificationTargetItem[] | undefined;
 }
 
 /**
@@ -1731,7 +1731,7 @@ export interface RegionInfo {
    * <p>The ID of the KMS key used to encrypt the data in this Amazon Web Services Region.</p>
    * @public
    */
-  sseKmsKeyId?: string;
+  sseKmsKeyId?: string | undefined;
 
   /**
    * <p>The status of the Amazon Web Services Region in the replication set.</p>
@@ -1743,7 +1743,7 @@ export interface RegionInfo {
    * <p>Information displayed about the status of the Amazon Web Services Region.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The timestamp for when Incident Manager updated the status of the Amazon Web Services Region.</p>
@@ -1794,7 +1794,7 @@ export interface ReplicationSet {
    * <p>The Amazon Resource Name (ARN) of the replication set.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The map between each Amazon Web Services Region in your replication set and the KMS key that's used to encrypt the data in that Region.</p>
@@ -1868,14 +1868,14 @@ export interface GetResourcePoliciesInput {
    * <p>The maximum number of resource policies to display for each page of results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1918,7 +1918,7 @@ export interface GetResourcePoliciesOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1952,7 +1952,7 @@ export interface GetResponsePlanOutput {
    * <p>The long format name of the response plan. Can contain spaces.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>Details used to create the incident when using this response plan.</p>
@@ -1964,27 +1964,27 @@ export interface GetResponsePlanOutput {
    * <p>The Chatbot chat channel used for collaboration during an incident.</p>
    * @public
    */
-  chatChannel?: ChatChannel;
+  chatChannel?: ChatChannel | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
    *       plan engages during an incident.</p>
    * @public
    */
-  engagements?: string[];
+  engagements?: string[] | undefined;
 
   /**
    * <p>The actions that this response plan takes at the beginning of the incident.</p>
    * @public
    */
-  actions?: Action[];
+  actions?: Action[] | undefined;
 
   /**
    * <p>Information about third-party services integrated into the Incident Manager response
    *       plan.</p>
    * @public
    */
-  integrations?: Integration[];
+  integrations?: Integration[] | undefined;
 }
 
 /**
@@ -2051,7 +2051,7 @@ export interface TimelineEvent {
    * <p>A list of references in a <code>TimelineEvent</code>.</p>
    * @public
    */
-  eventReferences?: EventReference[];
+  eventReferences?: EventReference[] | undefined;
 }
 
 /**
@@ -2105,7 +2105,7 @@ export interface IncidentRecordSummary {
    * <p>The timestamp for when the incident was resolved.</p>
    * @public
    */
-  resolvedTime?: Date;
+  resolvedTime?: Date | undefined;
 
   /**
    * <p>What caused Incident Manager to create the incident.</p>
@@ -2152,14 +2152,14 @@ export interface PagerDutyIncidentDetail {
    *       Incident Manager incident.</p>
    * @public
    */
-  autoResolve?: boolean;
+  autoResolve?: boolean | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services Secrets Manager secret that stores your PagerDuty key, either a General Access REST API Key or
    *       User Token REST API Key, and other user credentials.</p>
    * @public
    */
-  secretId?: string;
+  secretId?: string | undefined;
 }
 
 /**
@@ -2288,14 +2288,14 @@ export interface ListIncidentFindingsInput {
    * <p>The maximum number of findings to retrieve per call.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2314,7 +2314,7 @@ export interface ListIncidentFindingsOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2362,20 +2362,20 @@ export interface ListIncidentRecordsInput {
    *          </ul>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2393,7 +2393,7 @@ export interface ListIncidentRecordsOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2411,14 +2411,14 @@ export interface ListRelatedItemsInput {
    * <p>The maximum number of related items per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2436,7 +2436,7 @@ export interface RelatedItem {
    * <p>The title of the related item.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>A unique ID for a <code>RelatedItem</code>.</p>
@@ -2445,7 +2445,7 @@ export interface RelatedItem {
    *          </important>
    * @public
    */
-  generatedId?: string;
+  generatedId?: string | undefined;
 }
 
 /**
@@ -2463,7 +2463,7 @@ export interface ListRelatedItemsOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2474,14 +2474,14 @@ export interface ListReplicationSetsInput {
    * <p>The maximum number of results per page. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2499,7 +2499,7 @@ export interface ListReplicationSetsOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2510,14 +2510,14 @@ export interface ListResponsePlansInput {
    * <p>The maximum number of response plans per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2541,7 +2541,7 @@ export interface ResponsePlanSummary {
    * <p>The human readable name of the response plan. This can include spaces.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 }
 
 /**
@@ -2559,7 +2559,7 @@ export interface ListResponsePlansOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2657,33 +2657,33 @@ export interface ListTimelineEventsInput {
    *          </ul>
    * @public
    */
-  filters?: Filter[];
+  filters?: Filter[] | undefined;
 
   /**
    * <p>Sort timeline events by the specified key value pair.</p>
    * @public
    */
-  sortBy?: TimelineEventSort;
+  sortBy?: TimelineEventSort | undefined;
 
   /**
    * <p>Sorts the order of timeline events by the value specified in the <code>sortBy</code>
    *       field.</p>
    * @public
    */
-  sortOrder?: SortOrder;
+  sortOrder?: SortOrder | undefined;
 
   /**
    * <p>The maximum number of results per page.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The pagination token for the next set of items to return. (You received this token from a
    *       previous call.)</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2701,7 +2701,7 @@ export interface ListTimelineEventsOutput {
    *       additional items to return, the string is null.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2804,7 +2804,7 @@ export interface TriggerDetails {
    * <p>The Amazon Resource Name (ARN) of the source that detected the incident.</p>
    * @public
    */
-  triggerArn?: string;
+  triggerArn?: string | undefined;
 
   /**
    * <p>The timestamp for when the incident was detected.</p>
@@ -2816,7 +2816,7 @@ export interface TriggerDetails {
    * <p>Raw data passed from either Amazon EventBridge, Amazon CloudWatch, or Incident Manager when an incident is created.</p>
    * @public
    */
-  rawData?: string;
+  rawData?: string | undefined;
 }
 
 /**
@@ -2827,7 +2827,7 @@ export interface StartIncidentInput {
    * <p>A token ensuring that the operation is called only once with the specified details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan that pre-defines summary, chat
@@ -2841,7 +2841,7 @@ export interface StartIncidentInput {
    *       response plan. </p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by
@@ -2873,20 +2873,20 @@ export interface StartIncidentInput {
    *          </ul>
    * @public
    */
-  impact?: number;
+  impact?: number | undefined;
 
   /**
    * <p>Details of what created the incident record in Incident Manager.</p>
    * @public
    */
-  triggerDetails?: TriggerDetails;
+  triggerDetails?: TriggerDetails | undefined;
 
   /**
    * <p>Add related items to the incident for other responders to use. Related items are Amazon Web Services
    *       resources, external links, or files uploaded to an Amazon S3 bucket. </p>
    * @public
    */
-  relatedItems?: RelatedItem[];
+  relatedItems?: RelatedItem[] | undefined;
 }
 
 /**
@@ -2965,7 +2965,7 @@ export interface UpdateDeletionProtectionInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2982,7 +2982,7 @@ export interface UpdateIncidentRecordInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record you are updating.</p>
@@ -2994,13 +2994,13 @@ export interface UpdateIncidentRecordInput {
    * <p>A brief description of the incident.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 
   /**
    * <p>A longer description of what occurred during the incident.</p>
    * @public
    */
-  summary?: string;
+  summary?: string | undefined;
 
   /**
    * <p>Defines the impact of the incident to customers and applications. If you provide an impact
@@ -3032,20 +3032,20 @@ export interface UpdateIncidentRecordInput {
    *          </ul>
    * @public
    */
-  impact?: number;
+  impact?: number | undefined;
 
   /**
    * <p>The status of the incident. Possible statuses are <code>Open</code> or
    *         <code>Resolved</code>.</p>
    * @public
    */
-  status?: IncidentRecordStatus;
+  status?: IncidentRecordStatus | undefined;
 
   /**
    * <p>The Chatbot chat channel where responders can collaborate.</p>
    * @public
    */
-  chatChannel?: ChatChannel;
+  chatChannel?: ChatChannel | undefined;
 
   /**
    * <p>The Amazon SNS targets that Incident Manager notifies when a client updates an
@@ -3054,7 +3054,7 @@ export interface UpdateIncidentRecordInput {
    *       incident.</p>
    * @public
    */
-  notificationTargets?: NotificationTargetItem[];
+  notificationTargets?: NotificationTargetItem[] | undefined;
 }
 
 /**
@@ -3071,7 +3071,7 @@ export interface UpdateRelatedItemsInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the incident record that contains the related items that
@@ -3170,7 +3170,7 @@ export interface UpdateReplicationSetInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3186,7 +3186,7 @@ export interface UpdateResponsePlanInput {
    * <p>A token ensuring that the operation is called only once with the specified details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the response plan.</p>
@@ -3198,13 +3198,13 @@ export interface UpdateResponsePlanInput {
    * <p>The long format name of the response plan. The display name can't contain spaces.</p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>The short format name of the incident. The title can't contain spaces.</p>
    * @public
    */
-  incidentTemplateTitle?: string;
+  incidentTemplateTitle?: string | undefined;
 
   /**
    * <p>Defines the impact to the customers. Providing an impact overwrites the impact provided by
@@ -3236,48 +3236,48 @@ export interface UpdateResponsePlanInput {
    *          </ul>
    * @public
    */
-  incidentTemplateImpact?: number;
+  incidentTemplateImpact?: number | undefined;
 
   /**
    * <p>A brief summary of the incident. This typically contains what has happened, what's
    *       currently happening, and next steps.</p>
    * @public
    */
-  incidentTemplateSummary?: string;
+  incidentTemplateSummary?: string | undefined;
 
   /**
    * <p>The string Incident Manager uses to prevent duplicate incidents from being created by the same
    *       incident in the same account.</p>
    * @public
    */
-  incidentTemplateDedupeString?: string;
+  incidentTemplateDedupeString?: string | undefined;
 
   /**
    * <p>The Amazon SNS targets that are notified when updates are made to an
    *       incident.</p>
    * @public
    */
-  incidentTemplateNotificationTargets?: NotificationTargetItem[];
+  incidentTemplateNotificationTargets?: NotificationTargetItem[] | undefined;
 
   /**
    * <p>The Chatbot chat channel used for collaboration during an incident.</p>
    *          <p>Use the empty structure to remove the chat channel from the response plan.</p>
    * @public
    */
-  chatChannel?: ChatChannel;
+  chatChannel?: ChatChannel | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the contacts and escalation plans that the response
    *       plan engages during an incident.</p>
    * @public
    */
-  engagements?: string[];
+  engagements?: string[] | undefined;
 
   /**
    * <p>The actions that this response plan takes at the beginning of an incident.</p>
    * @public
    */
-  actions?: Action[];
+  actions?: Action[] | undefined;
 
   /**
    * <p>Tags to assign to the template. When the <code>StartIncident</code> API action is called,
@@ -3286,13 +3286,13 @@ export interface UpdateResponsePlanInput {
    *       record resource.</p>
    * @public
    */
-  incidentTemplateTags?: Record<string, string>;
+  incidentTemplateTags?: Record<string, string> | undefined;
 
   /**
    * <p>Information about third-party services integrated into the response plan.</p>
    * @public
    */
-  integrations?: Integration[];
+  integrations?: Integration[] | undefined;
 }
 
 /**
@@ -3309,7 +3309,7 @@ export interface UpdateTimelineEventInput {
    *       details.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the incident that includes the timeline event.</p>
@@ -3328,20 +3328,20 @@ export interface UpdateTimelineEventInput {
    * <p>The timestamp for when the event occurred.</p>
    * @public
    */
-  eventTime?: Date;
+  eventTime?: Date | undefined;
 
   /**
    * <p>The type of event. You can update events of type <code>Custom Event</code> and
    *         <code>Note</code>.</p>
    * @public
    */
-  eventType?: string;
+  eventType?: string | undefined;
 
   /**
    * <p>A short description of the event.</p>
    * @public
    */
-  eventData?: string;
+  eventData?: string | undefined;
 
   /**
    * <p>Updates all existing references in a <code>TimelineEvent</code>. A reference is an Amazon Web Services resource involved or associated with the incident. To specify a reference, enter
@@ -3356,7 +3356,7 @@ export interface UpdateTimelineEventInput {
    *          </important>
    * @public
    */
-  eventReferences?: EventReference[];
+  eventReferences?: EventReference[] | undefined;
 }
 
 /**

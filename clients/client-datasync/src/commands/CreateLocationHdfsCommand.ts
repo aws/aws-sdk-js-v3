@@ -12,7 +12,8 @@ import { de_CreateLocationHdfsCommand, se_CreateLocationHdfsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  *       (HDFS). DataSync can use this location as a source or destination for
  *       transferring data.</p>
  *          <p>Before you begin, make sure that you understand how DataSync
- *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs">accesses
- *         HDFS clusters</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html#accessing-hdfs">accesses HDFS
+ *         clusters</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +94,7 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationHdfsCommand extends $Command
@@ -103,9 +105,7 @@ export class CreateLocationHdfsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class CreateLocationHdfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocationHdfsCommand)
   .de(de_CreateLocationHdfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationHdfsRequest;
+      output: CreateLocationHdfsResponse;
+    };
+    sdk: {
+      input: CreateLocationHdfsCommandInput;
+      output: CreateLocationHdfsCommandOutput;
+    };
+  };
+}

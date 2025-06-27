@@ -12,7 +12,8 @@ import { de_PutLogEventsCommand, se_PutLogEventsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,12 +43,10 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *           all event messages in UTF-8, plus 26 bytes for each log event.</p>
  *             </li>
  *             <li>
- *                <p>None of the log events in the batch can be more than 2 hours in the future.</p>
+ *                <p>Events more than 2 hours in the future are rejected while processing remaining valid events.</p>
  *             </li>
  *             <li>
- *                <p>None of the log events in the batch can be more than 14 days in the past. Also,
- *           none of the log events can be from earlier than the retention period of the log
- *           group.</p>
+ *                <p>Events older than 14 days or preceding the log group's retention period are rejected while processing remaining valid events.</p>
  *             </li>
  *             <li>
  *                <p>The log events in the batch must be in chronological order by their timestamp. The
@@ -57,23 +56,24 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *             <code>yyyy-mm-ddThh:mm:ss</code>. For example, <code>2017-09-15T13:45:30</code>.) </p>
  *             </li>
  *             <li>
- *                <p>A batch of log events in a single request cannot span more than 24 hours. Otherwise, the operation fails.</p>
+ *                <p> A batch of log events in a single request must be in a chronological order. Otherwise, the operation fails.</p>
  *             </li>
  *             <li>
- *                <p>Each log event can be no larger than 256 KB.</p>
+ *                <p>Each log event can be no larger than 1 MB.</p>
  *             </li>
  *             <li>
  *                <p>The maximum number of log events in a batch is 10,000.</p>
  *             </li>
  *             <li>
- *                <important>
- *                   <p>The quota of five requests per second per log stream
- *           has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a
- *         per-second per-account quota. You can request an increase to the per-second throttling
- *         quota by using the Service Quotas service.</p>
- *                </important>
+ *                <p>For valid events (within 14 days in the past to 2 hours in future), the time span in a single batch cannot exceed 24 hours. Otherwise, the operation fails.</p>
  *             </li>
  *          </ul>
+ *          <important>
+ *             <p>The quota of five requests per second per log stream
+ *       has been removed. Instead, <code>PutLogEvents</code> actions are throttled based on a
+ *       per-second per-account quota. You can request an increase to the per-second throttling
+ *       quota by using the Service Quotas service.</p>
+ *          </important>
  *          <p>If a call to <code>PutLogEvents</code> returns "UnrecognizedClientException" the most
  *       likely cause is a non-valid Amazon Web Services access key ID or secret key. </p>
  * @example
@@ -92,6 +92,14 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  *     },
  *   ],
  *   sequenceToken: "STRING_VALUE",
+ *   entity: { // Entity
+ *     keyAttributes: { // EntityKeyAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *     attributes: { // EntityAttributes
+ *       "<keys>": "STRING_VALUE",
+ *     },
+ *   },
  * };
  * const command = new PutLogEventsCommand(input);
  * const response = await client.send(command);
@@ -101,6 +109,9 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * //     tooNewLogEventStartIndex: Number("int"),
  * //     tooOldLogEventEndIndex: Number("int"),
  * //     expiredLogEventEndIndex: Number("int"),
+ * //   },
+ * //   rejectedEntityInfo: { // RejectedEntityInfo
+ * //     errorType: "InvalidEntity" || "InvalidTypeValue" || "InvalidKeyAttributes" || "InvalidAttributes" || "EntitySizeTooLarge" || "UnsupportedLogGroupType" || "MissingRequiredFields", // required
  * //   },
  * // };
  *
@@ -149,6 +160,7 @@ export interface PutLogEventsCommandOutput extends PutLogEventsResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutLogEventsCommand extends $Command
@@ -159,9 +171,7 @@ export class PutLogEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +183,16 @@ export class PutLogEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLogEventsCommand)
   .de(de_PutLogEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLogEventsRequest;
+      output: PutLogEventsResponse;
+    };
+    sdk: {
+      input: PutLogEventsCommandInput;
+      output: PutLogEventsCommandOutput;
+    };
+  };
+}

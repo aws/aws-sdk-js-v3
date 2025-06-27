@@ -12,7 +12,8 @@ import { de_DeleteTaskDefinitionsCommand, se_DeleteTaskDefinitionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,13 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //             },
  * //           ],
  * //           essential: true || false,
+ * //           restartPolicy: { // ContainerRestartPolicy
+ * //             enabled: true || false, // required
+ * //             ignoredExitCodes: [ // IntegerList
+ * //               Number("int"),
+ * //             ],
+ * //             restartAttemptPeriod: Number("int"),
+ * //           },
  * //           entryPoint: [
  * //             "STRING_VALUE",
  * //           ],
@@ -163,6 +171,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //           ],
  * //           startTimeout: Number("int"),
  * //           stopTimeout: Number("int"),
+ * //           versionConsistency: "enabled" || "disabled",
  * //           hostname: "STRING_VALUE",
  * //           user: "STRING_VALUE",
  * //           workingDirectory: "STRING_VALUE",
@@ -293,7 +302,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //       ],
  * //       runtimePlatform: { // RuntimePlatform
  * //         cpuArchitecture: "X86_64" || "ARM64",
- * //         operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
+ * //         operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_2025_CORE" || "WINDOWS_SERVER_2025_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  * //       },
  * //       requiresCompatibilities: [
  * //         "EC2" || "FARGATE" || "EXTERNAL",
@@ -324,6 +333,7 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * //       ephemeralStorage: { // EphemeralStorage
  * //         sizeInGiB: Number("int"), // required
  * //       },
+ * //       enableFaultInjection: true || false,
  * //     },
  * //   ],
  * //   failures: [ // Failures
@@ -354,12 +364,61 @@ export interface DeleteTaskDefinitionsCommandOutput extends DeleteTaskDefinition
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To delete a task definition that has been deregistered
+ * ```javascript
+ * // This example deletes a specified deregistered task definition.
+ * const input = {
+ *   taskDefinitions: [
+ *     "Example-task-definition:1"
+ *   ]
+ * };
+ * const command = new DeleteTaskDefinitionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   failures:   [],
+ *   taskDefinitions: [
+ *     {
+ *       containerDefinitions: [
+ *         {
+ *           command: [
+ *             "apt-get update; apt-get install stress; while true; do stress --cpu $(( RANDOM % 4 )) -t $(( RANDOM % 10 )); done"
+ *           ],
+ *           cpu: 50,
+ *           entryPoint: [
+ *             "bash",
+ *             "-c"
+ *           ],
+ *           environment:           [],
+ *           essential: true,
+ *           image: "public.ecr.aws/docker/library/ubuntu:latest",
+ *           memory: 100,
+ *           mountPoints:           [],
+ *           name: "wave",
+ *           portMappings:           [],
+ *           volumesFrom:           []
+ *         }
+ *       ],
+ *       family: "cpu-wave",
+ *       revision: 1,
+ *       status: "DELETE_IN_PROGRESS",
+ *       taskDefinitionArn: "arn:aws:ecs:us-east-1:012345678910:task-definition/Example-task-definition:1",
+ *       volumes:       []
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -371,9 +430,7 @@ export class DeleteTaskDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -385,4 +442,16 @@ export class DeleteTaskDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTaskDefinitionsCommand)
   .de(de_DeleteTaskDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTaskDefinitionsRequest;
+      output: DeleteTaskDefinitionsResponse;
+    };
+    sdk: {
+      input: DeleteTaskDefinitionsCommandInput;
+      output: DeleteTaskDefinitionsCommandOutput;
+    };
+  };
+}

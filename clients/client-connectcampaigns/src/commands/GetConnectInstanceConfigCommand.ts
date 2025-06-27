@@ -12,7 +12,8 @@ import { de_GetConnectInstanceConfigCommand, se_GetConnectInstanceConfigCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface GetConnectInstanceConfigCommandOutput extends GetConnectInstanc
  * @throws {@link ConnectCampaignsServiceException}
  * <p>Base exception class for all service exceptions from ConnectCampaigns service.</p>
  *
+ *
  * @public
  */
 export class GetConnectInstanceConfigCommand extends $Command
@@ -84,9 +86,7 @@ export class GetConnectInstanceConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCampaignsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class GetConnectInstanceConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectInstanceConfigCommand)
   .de(de_GetConnectInstanceConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectInstanceConfigRequest;
+      output: GetConnectInstanceConfigResponse;
+    };
+    sdk: {
+      input: GetConnectInstanceConfigCommandInput;
+      output: GetConnectInstanceConfigCommandOutput;
+    };
+  };
+}

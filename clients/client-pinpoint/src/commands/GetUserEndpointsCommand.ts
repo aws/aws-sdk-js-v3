@@ -12,7 +12,8 @@ import { de_GetUserEndpointsCommand, se_GetUserEndpointsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -125,6 +126,7 @@ export interface GetUserEndpointsCommandOutput extends GetUserEndpointsResponse,
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetUserEndpointsCommand extends $Command
@@ -135,9 +137,7 @@ export class GetUserEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +149,16 @@ export class GetUserEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserEndpointsCommand)
   .de(de_GetUserEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserEndpointsRequest;
+      output: GetUserEndpointsResponse;
+    };
+    sdk: {
+      input: GetUserEndpointsCommandInput;
+      output: GetUserEndpointsCommandOutput;
+    };
+  };
+}

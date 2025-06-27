@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopTrainingJobRequest } from "../models/models_4";
+import { StopTrainingJobRequest } from "../models/models_5";
 import { de_StopTrainingJobCommand, se_StopTrainingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface StopTrainingJobCommandInput extends StopTrainingJobRequest {}
 export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the
- *                 <code>SIGTERM</code> signal, which delays job termination for 120 seconds.
- *             Algorithms might use this 120-second window to save the model artifacts, so the results
- *             of the training is not lost. </p>
- *          <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of
- *             the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to
- *                 <code>Stopped</code>.</p>
+ * <p>Stops a training job. To stop a job, SageMaker sends the algorithm the <code>SIGTERM</code> signal, which delays job termination for 120 seconds. Algorithms might use this 120-second window to save the model artifacts, so the results of the training is not lost. </p> <p>When it receives a <code>StopTrainingJob</code> request, SageMaker changes the status of the job to <code>Stopping</code>. After SageMaker stops the job, it sets the status to <code>Stopped</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +56,7 @@ export interface StopTrainingJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopTrainingJobCommand extends $Command
@@ -71,9 +67,7 @@ export class StopTrainingJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +79,16 @@ export class StopTrainingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTrainingJobCommand)
   .de(de_StopTrainingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTrainingJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTrainingJobCommandInput;
+      output: StopTrainingJobCommandOutput;
+    };
+  };
+}

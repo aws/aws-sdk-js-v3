@@ -12,7 +12,8 @@ import { de_PutResourceLogLevelCommand, se_PutResourceLogLevelCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,8 @@ export interface PutResourceLogLevelCommandInput extends PutResourceLogLevelRequ
 export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelResponse, __MetadataBearer {}
 
 /**
- * <p>Sets the log-level override for a resource-ID and resource-type. This option can be
- *             specified for a wireless gateway or a wireless device. A limit of 200 log level override
- *             can be set per account.</p>
+ * <p>Sets the log-level override for a resource ID and resource type. A limit of 200 log
+ *             level override can be set per account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,7 @@ export interface PutResourceLogLevelCommandOutput extends PutResourceLogLevelRes
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class PutResourceLogLevelCommand extends $Command
@@ -81,9 +82,7 @@ export class PutResourceLogLevelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class PutResourceLogLevelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourceLogLevelCommand)
   .de(de_PutResourceLogLevelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourceLogLevelRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutResourceLogLevelCommandInput;
+      output: PutResourceLogLevelCommandOutput;
+    };
+  };
+}

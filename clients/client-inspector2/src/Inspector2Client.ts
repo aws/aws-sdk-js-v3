@@ -55,6 +55,14 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AssociateMemberCommandInput, AssociateMemberCommandOutput } from "./commands/AssociateMemberCommand";
 import {
+  BatchAssociateCodeSecurityScanConfigurationCommandInput,
+  BatchAssociateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/BatchAssociateCodeSecurityScanConfigurationCommand";
+import {
+  BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+  BatchDisassociateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/BatchDisassociateCodeSecurityScanConfigurationCommand";
+import {
   BatchGetAccountStatusCommandInput,
   BatchGetAccountStatusCommandOutput,
 } from "./commands/BatchGetAccountStatusCommand";
@@ -87,6 +95,14 @@ import {
   CreateCisScanConfigurationCommandInput,
   CreateCisScanConfigurationCommandOutput,
 } from "./commands/CreateCisScanConfigurationCommand";
+import {
+  CreateCodeSecurityIntegrationCommandInput,
+  CreateCodeSecurityIntegrationCommandOutput,
+} from "./commands/CreateCodeSecurityIntegrationCommand";
+import {
+  CreateCodeSecurityScanConfigurationCommandInput,
+  CreateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/CreateCodeSecurityScanConfigurationCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "./commands/CreateFilterCommand";
 import {
   CreateFindingsReportCommandInput,
@@ -97,6 +113,14 @@ import {
   DeleteCisScanConfigurationCommandInput,
   DeleteCisScanConfigurationCommandOutput,
 } from "./commands/DeleteCisScanConfigurationCommand";
+import {
+  DeleteCodeSecurityIntegrationCommandInput,
+  DeleteCodeSecurityIntegrationCommandOutput,
+} from "./commands/DeleteCodeSecurityIntegrationCommand";
+import {
+  DeleteCodeSecurityScanConfigurationCommandInput,
+  DeleteCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/DeleteCodeSecurityScanConfigurationCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "./commands/DeleteFilterCommand";
 import {
   DescribeOrganizationConfigurationCommandInput,
@@ -118,6 +142,22 @@ import {
   GetCisScanResultDetailsCommandInput,
   GetCisScanResultDetailsCommandOutput,
 } from "./commands/GetCisScanResultDetailsCommand";
+import {
+  GetClustersForImageCommandInput,
+  GetClustersForImageCommandOutput,
+} from "./commands/GetClustersForImageCommand";
+import {
+  GetCodeSecurityIntegrationCommandInput,
+  GetCodeSecurityIntegrationCommandOutput,
+} from "./commands/GetCodeSecurityIntegrationCommand";
+import {
+  GetCodeSecurityScanCommandInput,
+  GetCodeSecurityScanCommandOutput,
+} from "./commands/GetCodeSecurityScanCommand";
+import {
+  GetCodeSecurityScanConfigurationCommandInput,
+  GetCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/GetCodeSecurityScanConfigurationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "./commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -151,6 +191,18 @@ import {
   ListCisScanResultsAggregatedByTargetResourceCommandOutput,
 } from "./commands/ListCisScanResultsAggregatedByTargetResourceCommand";
 import { ListCisScansCommandInput, ListCisScansCommandOutput } from "./commands/ListCisScansCommand";
+import {
+  ListCodeSecurityIntegrationsCommandInput,
+  ListCodeSecurityIntegrationsCommandOutput,
+} from "./commands/ListCodeSecurityIntegrationsCommand";
+import {
+  ListCodeSecurityScanConfigurationAssociationsCommandInput,
+  ListCodeSecurityScanConfigurationAssociationsCommandOutput,
+} from "./commands/ListCodeSecurityScanConfigurationAssociationsCommand";
+import {
+  ListCodeSecurityScanConfigurationsCommandInput,
+  ListCodeSecurityScanConfigurationsCommandOutput,
+} from "./commands/ListCodeSecurityScanConfigurationsCommand";
 import { ListCoverageCommandInput, ListCoverageCommandOutput } from "./commands/ListCoverageCommand";
 import {
   ListCoverageStatisticsCommandInput,
@@ -186,6 +238,10 @@ import {
   SendCisSessionTelemetryCommandOutput,
 } from "./commands/SendCisSessionTelemetryCommand";
 import { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "./commands/StartCisSessionCommand";
+import {
+  StartCodeSecurityScanCommandInput,
+  StartCodeSecurityScanCommandOutput,
+} from "./commands/StartCodeSecurityScanCommand";
 import { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "./commands/StopCisSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
@@ -193,6 +249,14 @@ import {
   UpdateCisScanConfigurationCommandInput,
   UpdateCisScanConfigurationCommandOutput,
 } from "./commands/UpdateCisScanConfigurationCommand";
+import {
+  UpdateCodeSecurityIntegrationCommandInput,
+  UpdateCodeSecurityIntegrationCommandOutput,
+} from "./commands/UpdateCodeSecurityIntegrationCommand";
+import {
+  UpdateCodeSecurityScanConfigurationCommandInput,
+  UpdateCodeSecurityScanConfigurationCommandOutput,
+} from "./commands/UpdateCodeSecurityScanConfigurationCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -230,6 +294,8 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateMemberCommandInput
+  | BatchAssociateCodeSecurityScanConfigurationCommandInput
+  | BatchDisassociateCodeSecurityScanConfigurationCommandInput
   | BatchGetAccountStatusCommandInput
   | BatchGetCodeSnippetCommandInput
   | BatchGetFindingDetailsCommandInput
@@ -239,10 +305,14 @@ export type ServiceInputTypes =
   | CancelFindingsReportCommandInput
   | CancelSbomExportCommandInput
   | CreateCisScanConfigurationCommandInput
+  | CreateCodeSecurityIntegrationCommandInput
+  | CreateCodeSecurityScanConfigurationCommandInput
   | CreateFilterCommandInput
   | CreateFindingsReportCommandInput
   | CreateSbomExportCommandInput
   | DeleteCisScanConfigurationCommandInput
+  | DeleteCodeSecurityIntegrationCommandInput
+  | DeleteCodeSecurityScanConfigurationCommandInput
   | DeleteFilterCommandInput
   | DescribeOrganizationConfigurationCommandInput
   | DisableCommandInput
@@ -252,6 +322,10 @@ export type ServiceInputTypes =
   | EnableDelegatedAdminAccountCommandInput
   | GetCisScanReportCommandInput
   | GetCisScanResultDetailsCommandInput
+  | GetClustersForImageCommandInput
+  | GetCodeSecurityIntegrationCommandInput
+  | GetCodeSecurityScanCommandInput
+  | GetCodeSecurityScanConfigurationCommandInput
   | GetConfigurationCommandInput
   | GetDelegatedAdminAccountCommandInput
   | GetEc2DeepInspectionConfigurationCommandInput
@@ -264,6 +338,9 @@ export type ServiceInputTypes =
   | ListCisScanResultsAggregatedByChecksCommandInput
   | ListCisScanResultsAggregatedByTargetResourceCommandInput
   | ListCisScansCommandInput
+  | ListCodeSecurityIntegrationsCommandInput
+  | ListCodeSecurityScanConfigurationAssociationsCommandInput
+  | ListCodeSecurityScanConfigurationsCommandInput
   | ListCoverageCommandInput
   | ListCoverageStatisticsCommandInput
   | ListDelegatedAdminAccountsCommandInput
@@ -278,10 +355,13 @@ export type ServiceInputTypes =
   | SendCisSessionHealthCommandInput
   | SendCisSessionTelemetryCommandInput
   | StartCisSessionCommandInput
+  | StartCodeSecurityScanCommandInput
   | StopCisSessionCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateCisScanConfigurationCommandInput
+  | UpdateCodeSecurityIntegrationCommandInput
+  | UpdateCodeSecurityScanConfigurationCommandInput
   | UpdateConfigurationCommandInput
   | UpdateEc2DeepInspectionConfigurationCommandInput
   | UpdateEncryptionKeyCommandInput
@@ -294,6 +374,8 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateMemberCommandOutput
+  | BatchAssociateCodeSecurityScanConfigurationCommandOutput
+  | BatchDisassociateCodeSecurityScanConfigurationCommandOutput
   | BatchGetAccountStatusCommandOutput
   | BatchGetCodeSnippetCommandOutput
   | BatchGetFindingDetailsCommandOutput
@@ -303,10 +385,14 @@ export type ServiceOutputTypes =
   | CancelFindingsReportCommandOutput
   | CancelSbomExportCommandOutput
   | CreateCisScanConfigurationCommandOutput
+  | CreateCodeSecurityIntegrationCommandOutput
+  | CreateCodeSecurityScanConfigurationCommandOutput
   | CreateFilterCommandOutput
   | CreateFindingsReportCommandOutput
   | CreateSbomExportCommandOutput
   | DeleteCisScanConfigurationCommandOutput
+  | DeleteCodeSecurityIntegrationCommandOutput
+  | DeleteCodeSecurityScanConfigurationCommandOutput
   | DeleteFilterCommandOutput
   | DescribeOrganizationConfigurationCommandOutput
   | DisableCommandOutput
@@ -316,6 +402,10 @@ export type ServiceOutputTypes =
   | EnableDelegatedAdminAccountCommandOutput
   | GetCisScanReportCommandOutput
   | GetCisScanResultDetailsCommandOutput
+  | GetClustersForImageCommandOutput
+  | GetCodeSecurityIntegrationCommandOutput
+  | GetCodeSecurityScanCommandOutput
+  | GetCodeSecurityScanConfigurationCommandOutput
   | GetConfigurationCommandOutput
   | GetDelegatedAdminAccountCommandOutput
   | GetEc2DeepInspectionConfigurationCommandOutput
@@ -328,6 +418,9 @@ export type ServiceOutputTypes =
   | ListCisScanResultsAggregatedByChecksCommandOutput
   | ListCisScanResultsAggregatedByTargetResourceCommandOutput
   | ListCisScansCommandOutput
+  | ListCodeSecurityIntegrationsCommandOutput
+  | ListCodeSecurityScanConfigurationAssociationsCommandOutput
+  | ListCodeSecurityScanConfigurationsCommandOutput
   | ListCoverageCommandOutput
   | ListCoverageStatisticsCommandOutput
   | ListDelegatedAdminAccountsCommandOutput
@@ -342,10 +435,13 @@ export type ServiceOutputTypes =
   | SendCisSessionHealthCommandOutput
   | SendCisSessionTelemetryCommandOutput
   | StartCisSessionCommandOutput
+  | StartCodeSecurityScanCommandOutput
   | StopCisSessionCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateCisScanConfigurationCommandOutput
+  | UpdateCodeSecurityIntegrationCommandOutput
+  | UpdateCodeSecurityScanConfigurationCommandOutput
   | UpdateConfigurationCommandOutput
   | UpdateEc2DeepInspectionConfigurationCommandOutput
   | UpdateEncryptionKeyCommandOutput
@@ -445,6 +541,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -490,11 +605,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type Inspector2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -510,11 +625,11 @@ export interface Inspector2ClientConfig extends Inspector2ClientConfigType {}
 export type Inspector2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -542,26 +657,30 @@ export class Inspector2Client extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<Inspector2ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultInspector2HttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: Inspector2ClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -574,14 +693,5 @@ export class Inspector2Client extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultInspector2HttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: Inspector2ClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

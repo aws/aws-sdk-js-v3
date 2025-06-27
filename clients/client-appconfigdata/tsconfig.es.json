@@ -3,6 +3,8 @@
   "compilerOptions": {
     "lib": ["dom"],
     "module": "esnext",
-    "outDir": "dist-es"
+    "moduleResolution": "bundler",
+    "outDir": "dist-es",
+    "noCheck": true
   }
 }

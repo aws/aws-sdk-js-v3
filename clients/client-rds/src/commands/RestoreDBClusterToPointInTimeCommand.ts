@@ -15,7 +15,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *             in time before <code>LatestRestorableTime</code> for up to
  *                 <code>BackupRetentionPeriod</code> days. The target DB cluster is created from the
  *             source DB cluster with the same configuration as the original DB cluster, except that
- *             the new DB cluster is created with the default DB security group.</p>
+ *             the new DB cluster is created with the default DB security group. Unless the
+ *             <code>RestoreType</code> is set to <code>copy-on-write</code>, the restore may occur in a
+ *             different Availability Zone (AZ) from the original DB cluster. The AZ where RDS restores
+ *             the DB cluster depends on the AZs in the specified subnet group.</p>
  *          <note>
  *             <p>For Aurora, this operation only restores the DB cluster, not the DB instances for that DB
  *                 cluster. You must invoke the <code>CreateDBInstance</code> operation to create DB
@@ -103,6 +107,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *   ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfiguration
  *     MinCapacity: Number("double"),
  *     MaxCapacity: Number("double"),
+ *     SecondsUntilAutoPause: Number("int"),
  *   },
  *   NetworkType: "STRING_VALUE",
  *   SourceDbClusterResourceId: "STRING_VALUE",
@@ -111,6 +116,11 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  *     TransitGatewayMulticastDomainId: "STRING_VALUE",
  *     ReplicaMode: "open-read-only" || "mounted",
  *   },
+ *   MonitoringInterval: Number("int"),
+ *   MonitoringRoleArn: "STRING_VALUE",
+ *   EnablePerformanceInsights: true || false,
+ *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
+ *   PerformanceInsightsRetentionPeriod: Number("int"),
  *   EngineLifecycleSupport: "STRING_VALUE",
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
@@ -239,6 +249,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //     GlobalWriteForwardingRequested: true || false,
  * //     PendingModifiedValues: { // ClusterPendingModifiedValues
@@ -275,12 +286,14 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
@@ -297,6 +310,7 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -388,70 +402,70 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To restore a DB cluster to a specified time
  * ```javascript
  * // The following example restores the DB cluster named database-4 to the latest possible time. Using copy-on-write as the restore type restores the new DB cluster as a clone of the source DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "sample-cluster-clone",
- *   "RestoreType": "copy-on-write",
- *   "SourceDBClusterIdentifier": "database-4",
- *   "UseLatestRestorableTime": true
+ *   DBClusterIdentifier: "sample-cluster-clone",
+ *   RestoreType: "copy-on-write",
+ *   SourceDBClusterIdentifier: "database-4",
+ *   UseLatestRestorableTime: true
  * };
  * const command = new RestoreDBClusterToPointInTimeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 1,
- *     "AssociatedRoles": [],
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 1,
+ *     AssociatedRoles:     [],
+ *     AvailabilityZones: [
  *       "us-west-2c",
  *       "us-west-2a",
  *       "us-west-2b"
  *     ],
- *     "BackupRetentionPeriod": 7,
- *     "CloneGroupId": "8d19331a-099a-45a4-b4aa-11aa22bb33cc44dd",
- *     "ClusterCreateTime": "2020-03-10T19:57:38.967Z",
- *     "CopyTagsToSnapshot": false,
- *     "CrossAccountClone": false,
- *     "DBClusterArn": "arn:aws:rds:us-west-2:123456789012:cluster:sample-cluster-clone",
- *     "DBClusterIdentifier": "sample-cluster-clone",
- *     "DBClusterMembers": [],
- *     "DBClusterParameterGroup": "default.aurora-postgresql10",
- *     "DBSubnetGroup": "default",
- *     "DatabaseName": "",
- *     "DbClusterResourceId": "cluster-BIZ77GDSA2XBSTNPFW1EXAMPLE",
- *     "DeletionProtection": false,
- *     "Endpoint": "sample-cluster-clone.cluster-############.us-west-2.rds.amazonaws.com",
- *     "Engine": "aurora-postgresql",
- *     "EngineMode": "provisioned",
- *     "EngineVersion": "10.7",
- *     "HostedZoneId": "Z1PVIF0EXAMPLE",
- *     "HttpEndpointEnabled": false,
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/287364e4-33e3-4755-a3b0-a1b2c3d4e5f6",
- *     "MasterUsername": "postgres",
- *     "MultiAZ": false,
- *     "Port": 5432,
- *     "PreferredBackupWindow": "09:33-10:03",
- *     "PreferredMaintenanceWindow": "sun:12:22-sun:12:52",
- *     "ReadReplicaIdentifiers": [],
- *     "ReaderEndpoint": "sample-cluster-clone.cluster-ro-############.us-west-2.rds.amazonaws.com",
- *     "Status": "creating",
- *     "StorageEncrypted": true,
- *     "VpcSecurityGroups": [
+ *     BackupRetentionPeriod: 7,
+ *     CloneGroupId: "8d19331a-099a-45a4-b4aa-11aa22bb33cc44dd",
+ *     ClusterCreateTime: "2020-03-10T19:57:38.967Z",
+ *     CopyTagsToSnapshot: false,
+ *     CrossAccountClone: false,
+ *     DBClusterArn: "arn:aws:rds:us-west-2:123456789012:cluster:sample-cluster-clone",
+ *     DBClusterIdentifier: "sample-cluster-clone",
+ *     DBClusterMembers:     [],
+ *     DBClusterParameterGroup: "default.aurora-postgresql10",
+ *     DBSubnetGroup: "default",
+ *     DatabaseName: "",
+ *     DbClusterResourceId: "cluster-BIZ77GDSA2XBSTNPFW1EXAMPLE",
+ *     DeletionProtection: false,
+ *     Endpoint: "sample-cluster-clone.cluster-############.us-west-2.rds.amazonaws.com",
+ *     Engine: "aurora-postgresql",
+ *     EngineMode: "provisioned",
+ *     EngineVersion: "10.7",
+ *     HostedZoneId: "Z1PVIF0EXAMPLE",
+ *     HttpEndpointEnabled: false,
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     KmsKeyId: "arn:aws:kms:us-west-2:123456789012:key/287364e4-33e3-4755-a3b0-a1b2c3d4e5f6",
+ *     MasterUsername: "postgres",
+ *     MultiAZ: false,
+ *     Port: 5432,
+ *     PreferredBackupWindow: "09:33-10:03",
+ *     PreferredMaintenanceWindow: "sun:12:22-sun:12:52",
+ *     ReadReplicaIdentifiers:     [],
+ *     ReaderEndpoint: "sample-cluster-clone.cluster-ro-############.us-west-2.rds.amazonaws.com",
+ *     Status: "creating",
+ *     StorageEncrypted: true,
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-########"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-########"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-cluster-to-a-specified-time-1680069105508
  * ```
  *
+ * @public
  */
 export class RestoreDBClusterToPointInTimeCommand extends $Command
   .classBuilder<
@@ -461,9 +475,7 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -475,4 +487,16 @@ export class RestoreDBClusterToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBClusterToPointInTimeCommand)
   .de(de_RestoreDBClusterToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBClusterToPointInTimeMessage;
+      output: RestoreDBClusterToPointInTimeResult;
+    };
+    sdk: {
+      input: RestoreDBClusterToPointInTimeCommandInput;
+      output: RestoreDBClusterToPointInTimeCommandOutput;
+    };
+  };
+}

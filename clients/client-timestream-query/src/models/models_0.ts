@@ -4,13 +4,13 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TimestreamQueryServiceException as __BaseException } from "./TimestreamQueryServiceException";
 
 /**
- * <p> You are not authorized to perform this action. </p>
+ * <p>You do not have the necessary permissions to access the account settings.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -23,6 +23,36 @@ export class AccessDeniedException extends __BaseException {
     Object.setPrototypeOf(this, AccessDeniedException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * <p>Details on SNS that are required to send the notification.</p>
+ * @public
+ */
+export interface SnsConfiguration {
+  /**
+   * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
+   * @public
+   */
+  TopicArn: string | undefined;
+}
+
+/**
+ * <p>Configuration settings for notifications related to account settings.</p>
+ * @public
+ */
+export interface AccountSettingsNotificationConfiguration {
+  /**
+   * <p>Details on SNS that are required to send the notification.</p>
+   * @public
+   */
+  SnsConfiguration?: SnsConfiguration | undefined;
+
+  /**
+   * <p>An Amazon Resource Name (ARN) that grants Timestream permission to publish notifications. This field is only visible if SNS Topic is provided when updating the account settings.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
 }
 
 /**
@@ -46,19 +76,17 @@ export interface CancelQueryResponse {
    *             request for the query specified by <code>QueryId</code> has already been issued. </p>
    * @public
    */
-  CancellationMessage?: string;
+  CancellationMessage?: string | undefined;
 }
 
 /**
- * <p>
- *             The service was unable to fully process this request because of an internal
- *             server error. </p>
+ * <p>An internal server error occurred while processing the request.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -74,13 +102,13 @@ export class InternalServerException extends __BaseException {
 }
 
 /**
- * <p>The requested endpoint was not valid.</p>
+ * <p>The requested endpoint is invalid.</p>
  * @public
  */
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -96,13 +124,13 @@ export class InvalidEndpointException extends __BaseException {
 }
 
 /**
- * <p>The request was denied due to request throttling.</p>
+ * <p>The request was throttled due to excessive requests.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -124,7 +152,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -163,13 +191,27 @@ export const ScalarType = {
 export type ScalarType = (typeof ScalarType)[keyof typeof ScalarType];
 
 /**
+ * @public
+ * @enum
+ */
+export const ComputeMode = {
+  ON_DEMAND: "ON_DEMAND",
+  PROVISIONED: "PROVISIONED",
+} as const;
+
+/**
+ * @public
+ */
+export type ComputeMode = (typeof ComputeMode)[keyof typeof ComputeMode];
+
+/**
  * <p> Unable to poll results for a cancelled query. </p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -214,14 +256,14 @@ export interface S3Configuration {
    *             the error report path. </p>
    * @public
    */
-  ObjectKeyPrefix?: string;
+  ObjectKeyPrefix?: string | undefined;
 
   /**
    * <p> Encryption at rest options for the error reports. If no encryption option is
    *             specified, Timestream will choose SSE_S3 as default. </p>
    * @public
    */
-  EncryptionOption?: S3EncryptionOption;
+  EncryptionOption?: S3EncryptionOption | undefined;
 }
 
 /**
@@ -237,25 +279,13 @@ export interface ErrorReportConfiguration {
 }
 
 /**
- * <p>Details on SNS that are required to send the notification.</p>
- * @public
- */
-export interface SnsConfiguration {
-  /**
-   * <p>SNS topic ARN that the scheduled query status notifications will be sent to.</p>
-   * @public
-   */
-  TopicArn: string | undefined;
-}
-
-/**
  * <p>Notification configuration for a scheduled query. A notification is sent by Timestream
  *             when a scheduled query is created, its state is updated or when it is deleted. </p>
  * @public
  */
 export interface NotificationConfiguration {
   /**
-   * <p>Details on SNS configuration. </p>
+   * <p>Details about the Amazon Simple Notification Service (SNS) configuration. This field is visible only when SNS Topic is provided when updating the account settings.  </p>
    * @public
    */
   SnsConfiguration: SnsConfiguration | undefined;
@@ -377,7 +407,7 @@ export interface MultiMeasureAttributeMapping {
    *             column name would be used.</p>
    * @public
    */
-  TargetMultiMeasureAttributeName?: string;
+  TargetMultiMeasureAttributeName?: string | undefined;
 
   /**
    * <p>Type of the attribute to be read from the source column.</p>
@@ -397,21 +427,21 @@ export interface MixedMeasureMapping {
    *             MeasureNameColumn is provided.</p>
    * @public
    */
-  MeasureName?: string;
+  MeasureName?: string | undefined;
 
   /**
    * <p>This field refers to the source column from which measure-value is to be read for
    *             result materialization.</p>
    * @public
    */
-  SourceColumn?: string;
+  SourceColumn?: string | undefined;
 
   /**
    * <p>Target measure name to be used. If not provided, the target measure name by default
    *             would be measure-name if provided, or sourceColumn otherwise. </p>
    * @public
    */
-  TargetMeasureName?: string;
+  TargetMeasureName?: string | undefined;
 
   /**
    * <p>Type of the value that is to be read from sourceColumn. If the mapping is for MULTI,
@@ -425,7 +455,7 @@ export interface MixedMeasureMapping {
    *             measures.</p>
    * @public
    */
-  MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[];
+  MultiMeasureAttributeMappings?: MultiMeasureAttributeMapping[] | undefined;
 }
 
 /**
@@ -441,7 +471,7 @@ export interface MultiMeasureMappings {
    *             from that column will be used as multi-measure name.</p>
    * @public
    */
-  TargetMultiMeasureName?: string;
+  TargetMultiMeasureName?: string | undefined;
 
   /**
    * <p>Required. Attribute mappings to be used for mapping query results to ingest data for
@@ -489,19 +519,19 @@ export interface TimestreamConfiguration {
    * <p>Multi-measure mappings.</p>
    * @public
    */
-  MultiMeasureMappings?: MultiMeasureMappings;
+  MultiMeasureMappings?: MultiMeasureMappings | undefined;
 
   /**
    * <p>Specifies how to map measures to multi-measure records.</p>
    * @public
    */
-  MixedMeasureMappings?: MixedMeasureMapping[];
+  MixedMeasureMappings?: MixedMeasureMapping[] | undefined;
 
   /**
    * <p>Name of the measure column.</p>
    * @public
    */
-  MeasureNameColumn?: string;
+  MeasureNameColumn?: string | undefined;
 }
 
 /**
@@ -558,7 +588,7 @@ export interface CreateScheduledQueryRequest {
    * <p>Configuration used for writing the result of a query.</p>
    * @public
    */
-  TargetConfiguration?: TargetConfiguration;
+  TargetConfiguration?: TargetConfiguration | undefined;
 
   /**
    * <p>Using a ClientToken makes the call to CreateScheduledQuery idempotent, in other words,
@@ -576,7 +606,7 @@ export interface CreateScheduledQueryRequest {
    *          </ul>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The ARN for the IAM role that Timestream will assume when running the scheduled query.
@@ -589,7 +619,7 @@ export interface CreateScheduledQueryRequest {
    * <p>A list of key-value pairs to label the scheduled query.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The Amazon KMS key used to encrypt the scheduled query resource, at-rest. If the
@@ -602,7 +632,7 @@ export interface CreateScheduledQueryRequest {
    *             KmsKeyId is used to encrypt the error report at rest.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Configuration for error reporting. Error reports will be generated when a problem is
@@ -630,7 +660,7 @@ export interface CreateScheduledQueryResponse {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -663,12 +693,12 @@ export interface DeleteScheduledQueryRequest {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The ARN of the scheduled query.</p>
    * @public
    */
-  ScheduledQueryArn?: string;
+  ScheduledQueryArn?: string | undefined;
   /**
    * @internal
    */
@@ -693,6 +723,87 @@ export interface DescribeAccountSettingsRequest {}
  * @public
  * @enum
  */
+export const LastUpdateStatus = {
+  FAILED: "FAILED",
+  PENDING: "PENDING",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type LastUpdateStatus = (typeof LastUpdateStatus)[keyof typeof LastUpdateStatus];
+
+/**
+ * <p>Configuration object that contains the most recent account settings update, visible only if settings have been updated previously.</p>
+ * @public
+ */
+export interface LastUpdate {
+  /**
+   * <p>The number of TimeStream Compute Units (TCUs) requested in the last account settings update.</p>
+   * @public
+   */
+  TargetQueryTCU?: number | undefined;
+
+  /**
+   * <p>The status of the last update. Can be either <code>PENDING</code>, <code>FAILED</code>, or <code>SUCCEEDED</code>.</p>
+   * @public
+   */
+  Status?: LastUpdateStatus | undefined;
+
+  /**
+   * <p>Error message describing the last account settings update status, visible only if an error occurred.</p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+}
+
+/**
+ * <p>The response to a request to update the provisioned capacity settings for querying data.</p>
+ * @public
+ */
+export interface ProvisionedCapacityResponse {
+  /**
+   * <p>The number of Timestream Compute Units (TCUs) provisioned in the account. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  ActiveQueryTCU?: number | undefined;
+
+  /**
+   * <p>An object that contains settings for notifications that are sent whenever the provisioned capacity settings are modified. This field is only visible when the compute mode is <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  NotificationConfiguration?: AccountSettingsNotificationConfiguration | undefined;
+
+  /**
+   * <p>Information about the last update to the provisioned capacity settings.</p>
+   * @public
+   */
+  LastUpdate?: LastUpdate | undefined;
+}
+
+/**
+ * <p>The response to a request to retrieve or update the compute capacity settings for querying data.</p>
+ * @public
+ */
+export interface QueryComputeResponse {
+  /**
+   * <p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai)  region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  ComputeMode?: ComputeMode | undefined;
+
+  /**
+   * <p>Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.</p>
+   * @public
+   */
+  ProvisionedCapacity?: ProvisionedCapacityResponse | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const QueryPricingModel = {
   BYTES_SCANNED: "BYTES_SCANNED",
   COMPUTE_UNITS: "COMPUTE_UNITS",
@@ -708,16 +819,28 @@ export type QueryPricingModel = (typeof QueryPricingModel)[keyof typeof QueryPri
  */
 export interface DescribeAccountSettingsResponse {
   /**
-   * <p>The maximum number of <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html">Timestream compute units</a> (TCUs) the service will use at any point in time to serve your queries.</p>
+   * <p>The maximum number of <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/tcu.html">Timestream compute units</a> (TCUs) the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. This configuration is applicable only for on-demand usage of (TCUs).
+   *
+   *
+   *         </p>
    * @public
    */
-  MaxQueryTCU?: number;
+  MaxQueryTCU?: number | undefined;
 
   /**
    * <p>The pricing model for queries in your account.</p>
+   *          <note>
+   *             <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p>
+   *          </note>
    * @public
    */
-  QueryPricingModel?: QueryPricingModel;
+  QueryPricingModel?: QueryPricingModel | undefined;
+
+  /**
+   * <p>An object that contains the usage settings for Timestream Compute Units (TCUs) in your account for the query workload. </p>
+   * @public
+   */
+  QueryCompute?: QueryComputeResponse | undefined;
 }
 
 /**
@@ -776,13 +899,13 @@ export interface S3ReportLocation {
    * <p> S3 bucket name. </p>
    * @public
    */
-  BucketName?: string;
+  BucketName?: string | undefined;
 
   /**
    * <p>S3 key. </p>
    * @public
    */
-  ObjectKey?: string;
+  ObjectKey?: string | undefined;
 }
 
 /**
@@ -795,7 +918,7 @@ export interface ErrorReportLocation {
    * <p>The S3 location where error reports are written.</p>
    * @public
    */
-  S3ReportLocation?: S3ReportLocation;
+  S3ReportLocation?: S3ReportLocation | undefined;
 }
 
 /**
@@ -808,38 +931,184 @@ export interface ExecutionStats {
    *             complete.</p>
    * @public
    */
-  ExecutionTimeInMillis?: number;
+  ExecutionTimeInMillis?: number | undefined;
 
   /**
    * <p>Data writes metered for records ingested in a single scheduled query run.</p>
    * @public
    */
-  DataWrites?: number;
+  DataWrites?: number | undefined;
 
   /**
    * <p>Bytes metered for a single scheduled query run.</p>
    * @public
    */
-  BytesMetered?: number;
+  BytesMetered?: number | undefined;
 
   /**
    * <p>Bytes scanned for a single scheduled query run.</p>
    * @public
    */
-  CumulativeBytesScanned?: number;
+  CumulativeBytesScanned?: number | undefined;
 
   /**
    * <p>The number of records ingested for a single scheduled query run. </p>
    * @public
    */
-  RecordsIngested?: number;
+  RecordsIngested?: number | undefined;
 
   /**
    * <p>Number of rows present in the output from running a query before ingestion to
    *             destination data source.</p>
    * @public
    */
-  QueryResultRows?: number;
+  QueryResultRows?: number | undefined;
+}
+
+/**
+ * <p>Provides insights into the table with the most sub-optimal spatial range scanned by your query.</p>
+ * @public
+ */
+export interface QuerySpatialCoverageMax {
+  /**
+   * <p>The maximum ratio of spatial coverage.</p>
+   * @public
+   */
+  Value?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table with the most sub-optimal spatial pruning.</p>
+   * @public
+   */
+  TableArn?: string | undefined;
+
+  /**
+   * <p>The partition key used for partitioning, which can be a default <code>measure_name</code> or a <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html">customer defined partition key</a>.</p>
+   * @public
+   */
+  PartitionKey?: string[] | undefined;
+}
+
+/**
+ * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning</p>
+ *          <p>For example, you can do the following with the <code>QuerySpatialCoverage</code> information:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Add measure_name or use <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/customer-defined-partition-keys.html">customer-defined partition key</a> (CDPK) predicates.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you've already done the preceding action, remove functions around them or clauses, such as <code>LIKE</code>.</p>
+ *             </li>
+ *          </ul>
+ * @public
+ */
+export interface QuerySpatialCoverage {
+  /**
+   * <p>Provides insights into the spatial coverage of the executed query and the table with the most inefficient spatial pruning.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> – The maximum ratio of spatial coverage.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableArn</code> – The Amazon Resource Name (ARN) of the table with sub-optimal spatial pruning.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PartitionKey</code> – The partition key used for partitioning, which can be a default <code>measure_name</code> or a CDPK.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Max?: QuerySpatialCoverageMax | undefined;
+}
+
+/**
+ * <p>Provides insights into the table with the most sub-optimal temporal pruning scanned by your query.</p>
+ * @public
+ */
+export interface QueryTemporalRangeMax {
+  /**
+   * <p>The maximum duration in nanoseconds between the start and end of the query.</p>
+   * @public
+   */
+  Value?: number | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the table which is queried with the largest time range.</p>
+   * @public
+   */
+  TableArn?: string | undefined;
+}
+
+/**
+ * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range.</p>
+ * @public
+ */
+export interface QueryTemporalRange {
+  /**
+   * <p>Encapsulates the following properties that provide insights into the most sub-optimal performing table on the temporal axis:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Value</code> – The maximum duration in nanoseconds between the start and end of the query.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TableArn</code> – The Amazon Resource Name (ARN) of the table which is queried with the largest time range.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Max?: QueryTemporalRangeMax | undefined;
+}
+
+/**
+ * <p>Provides various insights and metrics related to the <code>ExecuteScheduledQueryRequest</code> that was executed.</p>
+ * @public
+ */
+export interface ScheduledQueryInsightsResponse {
+  /**
+   * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning.</p>
+   * @public
+   */
+  QuerySpatialCoverage?: QuerySpatialCoverage | undefined;
+
+  /**
+   * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Add missing time-predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Remove functions around the time predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Add time predicates to all the sub-queries.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QueryTemporalRange?: QueryTemporalRange | undefined;
+
+  /**
+   * <p>Indicates the number of tables in the query.</p>
+   * @public
+   */
+  QueryTableCount?: number | undefined;
+
+  /**
+   * <p>Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputRows?: number | undefined;
+
+  /**
+   * <p>Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputBytes?: number | undefined;
 }
 
 /**
@@ -869,38 +1138,44 @@ export interface ScheduledQueryRunSummary {
    *         </p>
    * @public
    */
-  InvocationTime?: Date;
+  InvocationTime?: Date | undefined;
 
   /**
    * <p>The actual time when the query was run.</p>
    * @public
    */
-  TriggerTime?: Date;
+  TriggerTime?: Date | undefined;
 
   /**
    * <p>The status of a scheduled query run.</p>
    * @public
    */
-  RunStatus?: ScheduledQueryRunStatus;
+  RunStatus?: ScheduledQueryRunStatus | undefined;
 
   /**
    * <p>Runtime statistics for a scheduled run.</p>
    * @public
    */
-  ExecutionStats?: ExecutionStats;
+  ExecutionStats?: ExecutionStats | undefined;
+
+  /**
+   * <p>Provides various insights and metrics related to the run summary of the scheduled query.</p>
+   * @public
+   */
+  QueryInsightsResponse?: ScheduledQueryInsightsResponse | undefined;
 
   /**
    * <p>S3 location for error report.</p>
    * @public
    */
-  ErrorReportLocation?: ErrorReportLocation;
+  ErrorReportLocation?: ErrorReportLocation | undefined;
 
   /**
    * <p>Error message for the scheduled query in case of failure. You might have to look at
    *             the error report to get more detailed error reasons. </p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -944,7 +1219,7 @@ export interface ScheduledQueryDescription {
    * <p>Creation time of the scheduled query.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>State of the scheduled query. </p>
@@ -956,13 +1231,13 @@ export interface ScheduledQueryDescription {
    * <p>Last time the query was run.</p>
    * @public
    */
-  PreviousInvocationTime?: Date;
+  PreviousInvocationTime?: Date | undefined;
 
   /**
    * <p>The next time the scheduled query is scheduled to run.</p>
    * @public
    */
-  NextInvocationTime?: Date;
+  NextInvocationTime?: Date | undefined;
 
   /**
    * <p>Schedule configuration.</p>
@@ -980,37 +1255,37 @@ export interface ScheduledQueryDescription {
    * <p>Scheduled query target store configuration.</p>
    * @public
    */
-  TargetConfiguration?: TargetConfiguration;
+  TargetConfiguration?: TargetConfiguration | undefined;
 
   /**
    * <p>IAM role that Timestream uses to run the schedule query.</p>
    * @public
    */
-  ScheduledQueryExecutionRoleArn?: string;
+  ScheduledQueryExecutionRoleArn?: string | undefined;
 
   /**
    * <p>A customer provided KMS key used to encrypt the scheduled query resource.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Error-reporting configuration for the scheduled query.</p>
    * @public
    */
-  ErrorReportConfiguration?: ErrorReportConfiguration;
+  ErrorReportConfiguration?: ErrorReportConfiguration | undefined;
 
   /**
    * <p>Runtime summary for the last scheduled query run. </p>
    * @public
    */
-  LastRunSummary?: ScheduledQueryRunSummary;
+  LastRunSummary?: ScheduledQueryRunSummary | undefined;
 
   /**
    * <p>Runtime summary for the last five failed scheduled query runs.</p>
    * @public
    */
-  RecentlyFailedRuns?: ScheduledQueryRunSummary[];
+  RecentlyFailedRuns?: ScheduledQueryRunSummary[] | undefined;
 }
 
 /**
@@ -1022,6 +1297,42 @@ export interface DescribeScheduledQueryResponse {
    * @public
    */
   ScheduledQuery: ScheduledQueryDescription | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ScheduledQueryInsightsMode = {
+  DISABLED: "DISABLED",
+  ENABLED_WITH_RATE_CONTROL: "ENABLED_WITH_RATE_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type ScheduledQueryInsightsMode = (typeof ScheduledQueryInsightsMode)[keyof typeof ScheduledQueryInsightsMode];
+
+/**
+ * <p>Encapsulates settings for enabling <code>QueryInsights</code> on an <code>ExecuteScheduledQueryRequest</code>.</p>
+ * @public
+ */
+export interface ScheduledQueryInsights {
+  /**
+   * <p>Provides the following modes to enable <code>ScheduledQueryInsights</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_RATE_CONTROL</code> – Enables <code>ScheduledQueryInsights</code> for the queries being processed. This mode also includes a rate control mechanism, which limits the <code>QueryInsights</code> feature to 1 query per second (QPS).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Disables <code>ScheduledQueryInsights</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Mode: ScheduledQueryInsightsMode | undefined;
 }
 
 /**
@@ -1045,7 +1356,14 @@ export interface ExecuteScheduledQueryRequest {
    * <p>Not used. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p>
+   *          <p>Enabling <code>QueryInsights</code> returns insights and metrics as a part of the Amazon SNS notification for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance and cost.</p>
+   * @public
+   */
+  QueryInsights?: ScheduledQueryInsights | undefined;
 }
 
 /**
@@ -1059,13 +1377,13 @@ export interface ListScheduledQueriesRequest {
    *             to the subsequent call to <code>ListScheduledQueriesRequest</code>.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p> A pagination token to resume pagination.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1077,13 +1395,13 @@ export interface TimestreamDestination {
    * <p>Timestream database name. </p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Timestream table name. </p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 }
 
 /**
@@ -1096,7 +1414,7 @@ export interface TargetDestination {
    * <p>Query result destination details for Timestream data source.</p>
    * @public
    */
-  TimestreamDestination?: TimestreamDestination;
+  TimestreamDestination?: TimestreamDestination | undefined;
 }
 
 /**
@@ -1120,7 +1438,7 @@ export interface ScheduledQuery {
    * <p>The creation time of the scheduled query.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>State of scheduled query. </p>
@@ -1132,31 +1450,31 @@ export interface ScheduledQuery {
    * <p>The last time the scheduled query was run.</p>
    * @public
    */
-  PreviousInvocationTime?: Date;
+  PreviousInvocationTime?: Date | undefined;
 
   /**
    * <p>The next time the scheduled query is to be run.</p>
    * @public
    */
-  NextInvocationTime?: Date;
+  NextInvocationTime?: Date | undefined;
 
   /**
    * <p>Configuration for scheduled query error reporting.</p>
    * @public
    */
-  ErrorReportConfiguration?: ErrorReportConfiguration;
+  ErrorReportConfiguration?: ErrorReportConfiguration | undefined;
 
   /**
    * <p>Target data source where final scheduled query result will be written.</p>
    * @public
    */
-  TargetDestination?: TargetDestination;
+  TargetDestination?: TargetDestination | undefined;
 
   /**
    * <p>Status of the last scheduled query run.</p>
    * @public
    */
-  LastRunStatus?: ScheduledQueryRunStatus;
+  LastRunStatus?: ScheduledQueryRunStatus | undefined;
 }
 
 /**
@@ -1174,7 +1492,7 @@ export interface ListScheduledQueriesResponse {
    *             truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1192,13 +1510,13 @@ export interface ListTagsForResourceRequest {
    * <p>The maximum number of tags to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A pagination token to resume pagination.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1216,7 +1534,7 @@ export interface ListTagsForResourceResponse {
    *                 <code>ListTagsForResourceResponse</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1237,7 +1555,25 @@ export interface PrepareQueryRequest {
    *             use.</p>
    * @public
    */
-  ValidateOnly?: boolean;
+  ValidateOnly?: boolean | undefined;
+}
+
+/**
+ * <p>A request to update the provisioned capacity settings for querying data.</p>
+ * @public
+ */
+export interface ProvisionedCapacityRequest {
+  /**
+   * <p>The target compute capacity for querying data, specified in Timestream Compute Units (TCUs).</p>
+   * @public
+   */
+  TargetQueryTCU: number | undefined;
+
+  /**
+   * <p>Configuration settings for notifications related to the provisioned capacity update.</p>
+   * @public
+   */
+  NotificationConfiguration?: AccountSettingsNotificationConfiguration | undefined;
 }
 
 /**
@@ -1248,7 +1584,7 @@ export interface PrepareQueryRequest {
 export class QueryExecutionException extends __BaseException {
   readonly name: "QueryExecutionException" = "QueryExecutionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1261,6 +1597,65 @@ export class QueryExecutionException extends __BaseException {
     Object.setPrototypeOf(this, QueryExecutionException.prototype);
     this.Message = opts.Message;
   }
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const QueryInsightsMode = {
+  DISABLED: "DISABLED",
+  ENABLED_WITH_RATE_CONTROL: "ENABLED_WITH_RATE_CONTROL",
+} as const;
+
+/**
+ * @public
+ */
+export type QueryInsightsMode = (typeof QueryInsightsMode)[keyof typeof QueryInsightsMode];
+
+/**
+ * <p>
+ *             <code>QueryInsights</code> is a performance tuning feature that helps you optimize your queries, reducing costs and improving performance. With <code>QueryInsights</code>, you can assess the pruning efficiency of your queries and identify areas for improvement to enhance query performance. With <code>QueryInsights</code>, you can also analyze the effectiveness of your queries in terms of temporal and spatial pruning, and identify opportunities to improve performance. Specifically, you can evaluate how well your queries use time-based and partition key-based indexing strategies to optimize data retrieval. To optimize query performance, it's essential that you fine-tune both the temporal and spatial parameters that govern query execution.</p>
+ *          <p>The key metrics provided by <code>QueryInsights</code> are <code>QuerySpatialCoverage</code> and <code>QueryTemporalRange</code>. <code>QuerySpatialCoverage</code> indicates how much of the spatial axis the query scans, with lower values being more efficient. <code>QueryTemporalRange</code> shows the time range scanned, with narrower ranges being more performant.</p>
+ *          <p>
+ *             <b>Benefits of QueryInsights</b>
+ *          </p>
+ *          <p>The following are the key benefits of using <code>QueryInsights</code>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Identifying inefficient queries</b> – <code>QueryInsights</code> provides information on the time-based and attribute-based pruning of the tables accessed by the query. This information helps you identify the tables that are sub-optimally accessed.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Optimizing your data model and partitioning</b> – You can use the <code>QueryInsights</code> information to access and fine-tune your data model and partitioning strategy.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Tuning queries</b> – <code>QueryInsights</code> highlights opportunities to use indexes more effectively.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>The maximum number of <code>Query</code> API requests you're allowed to make with <code>QueryInsights</code> enabled is 1 query per second (QPS). If you exceed this query rate, it might result in throttling.</p>
+ *          </note>
+ * @public
+ */
+export interface QueryInsights {
+  /**
+   * <p>Provides the following modes to enable <code>QueryInsights</code>:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ENABLED_WITH_RATE_CONTROL</code> – Enables <code>QueryInsights</code> for the queries being processed. This mode also includes a rate control mechanism, which limits the <code>QueryInsights</code> feature to 1 query per second (QPS).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DISABLED</code> – Disables <code>QueryInsights</code>.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Mode: QueryInsightsMode | undefined;
 }
 
 /**
@@ -1303,7 +1698,7 @@ export interface QueryRequest {
    *          </ul>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p> A pagination token used to return a set of results. When the <code>Query</code> API
@@ -1347,7 +1742,7 @@ export interface QueryRequest {
    *          </ul>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The total number of rows to be returned in the <code>Query</code> output. The initial
@@ -1372,7 +1767,79 @@ export interface QueryRequest {
    *             number of rows to meet the 1 MB limit.</p>
    * @public
    */
-  MaxRows?: number;
+  MaxRows?: number | undefined;
+
+  /**
+   * <p>Encapsulates settings for enabling <code>QueryInsights</code>.</p>
+   *          <p>Enabling <code>QueryInsights</code> returns insights and metrics in addition to query results for the query that you executed. You can use <code>QueryInsights</code> to tune your query performance.</p>
+   * @public
+   */
+  QueryInsights?: QueryInsights | undefined;
+}
+
+/**
+ * <p>Provides various insights and metrics related to the query that you executed.</p>
+ * @public
+ */
+export interface QueryInsightsResponse {
+  /**
+   * <p>Provides insights into the spatial coverage of the query, including the table with sub-optimal (max) spatial pruning. This information can help you identify areas for improvement in your partitioning strategy to enhance spatial pruning. </p>
+   * @public
+   */
+  QuerySpatialCoverage?: QuerySpatialCoverage | undefined;
+
+  /**
+   * <p>Provides insights into the temporal range of the query, including the table with the largest (max) time range. Following are some of the potential options for optimizing time-based pruning:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Add missing time-predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Remove functions around the time predicates.</p>
+   *             </li>
+   *             <li>
+   *                <p>Add time predicates to all the sub-queries.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  QueryTemporalRange?: QueryTemporalRange | undefined;
+
+  /**
+   * <p>Indicates the number of tables in the query.</p>
+   * @public
+   */
+  QueryTableCount?: number | undefined;
+
+  /**
+   * <p>Indicates the total number of rows returned as part of the query result set. You can use this data to validate if the number of rows in the result set have changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputRows?: number | undefined;
+
+  /**
+   * <p>Indicates the size of query result set in bytes. You can use this data to validate if the result set has changed as part of the query tuning exercise.</p>
+   * @public
+   */
+  OutputBytes?: number | undefined;
+
+  /**
+   * <p>Indicates the partitions created by the <code>Unload</code> operation.</p>
+   * @public
+   */
+  UnloadPartitionCount?: number | undefined;
+
+  /**
+   * <p>Indicates the rows written by the <code>Unload</code> query.</p>
+   * @public
+   */
+  UnloadWrittenRows?: number | undefined;
+
+  /**
+   * <p>Indicates the size, in bytes, written by the <code>Unload</code> operation.</p>
+   * @public
+   */
+  UnloadWrittenBytes?: number | undefined;
 }
 
 /**
@@ -1385,14 +1852,14 @@ export interface QueryStatus {
    * <p>The progress of the query, expressed as a percentage.</p>
    * @public
    */
-  ProgressPercentage?: number;
+  ProgressPercentage?: number | undefined;
 
   /**
    * <p>The amount of data scanned by the query in bytes. This is a cumulative sum and
    *             represents the total amount of bytes scanned since the query was started. </p>
    * @public
    */
-  CumulativeBytesScanned?: number;
+  CumulativeBytesScanned?: number | undefined;
 
   /**
    * <p>The amount of data scanned by the query in bytes that you will be charged for. This is
@@ -1401,7 +1868,25 @@ export interface QueryStatus {
    *             the query completes running or when the query is cancelled. </p>
    * @public
    */
-  CumulativeBytesMetered?: number;
+  CumulativeBytesMetered?: number | undefined;
+}
+
+/**
+ * <p>A request to retrieve or update the compute capacity settings for querying data.</p>
+ * @public
+ */
+export interface QueryComputeRequest {
+  /**
+   * <p>The mode in which Timestream Compute Units (TCUs) are allocated and utilized within an account. Note that in the Asia Pacific (Mumbai)  region, the API operation only recognizes the value <code>PROVISIONED</code>.</p>
+   * @public
+   */
+  ComputeMode?: ComputeMode | undefined;
+
+  /**
+   * <p>Configuration object that contains settings for provisioned Timestream Compute Units (TCUs) in your account.</p>
+   * @public
+   */
+  ProvisionedCapacity?: ProvisionedCapacityRequest | undefined;
 }
 
 /**
@@ -1456,17 +1941,29 @@ export interface UntagResourceResponse {}
  */
 export interface UpdateAccountSettingsRequest {
   /**
-   * <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on.</p>
-   *          <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default quotas</a>.</p>
+   * <p>The maximum number of compute units the service will use at any point in time to serve your queries. To run queries, you must set a minimum capacity of 4 TCU. You can set the maximum number of TCU in multiples of 4, for example, 4, 8, 16, 32, and so on. The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for maxQueryTCU, see Default quotas. This configuration is applicable only for on-demand usage of Timestream Compute Units (TCUs).</p>
+   *          <p>The maximum value supported for <code>MaxQueryTCU</code> is 1000. To request an increase to this soft limit, contact Amazon Web Services Support. For information about the default quota for <code>maxQueryTCU</code>, see <a href="https://docs.aws.amazon.com/timestream/latest/developerguide/ts-limits.html#limits.default">Default quotas</a>.</p>
    * @public
    */
-  MaxQueryTCU?: number;
+  MaxQueryTCU?: number | undefined;
 
   /**
    * <p>The pricing model for queries in an account.</p>
+   *          <note>
+   *             <p>The <code>QueryPricingModel</code> parameter is used by several Timestream operations; however, the <code>UpdateAccountSettings</code> API operation doesn't recognize any values other than <code>COMPUTE_UNITS</code>.</p>
+   *          </note>
    * @public
    */
-  QueryPricingModel?: QueryPricingModel;
+  QueryPricingModel?: QueryPricingModel | undefined;
+
+  /**
+   * <p>Modifies the query compute settings configured in your account, including the query pricing model and provisioned Timestream Compute Units (TCUs) in your account.</p>
+   *          <note>
+   *             <p>This API is idempotent, meaning that making the same request multiple times will have the same effect as making the request once.</p>
+   *          </note>
+   * @public
+   */
+  QueryCompute?: QueryComputeRequest | undefined;
 }
 
 /**
@@ -1477,13 +1974,19 @@ export interface UpdateAccountSettingsResponse {
    * <p>The configured maximum number of compute units the service will use at any point in time to serve your queries.</p>
    * @public
    */
-  MaxQueryTCU?: number;
+  MaxQueryTCU?: number | undefined;
 
   /**
    * <p>The pricing model for an account.</p>
    * @public
    */
-  QueryPricingModel?: QueryPricingModel;
+  QueryPricingModel?: QueryPricingModel | undefined;
+
+  /**
+   * <p>Confirms the updated account settings for querying data in your account.</p>
+   * @public
+   */
+  QueryCompute?: QueryComputeResponse | undefined;
 }
 
 /**
@@ -1514,7 +2017,7 @@ export interface ColumnInfo {
    *             columns of all data types except for arrays. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The data type of the result set column. The data type can be a scalar or complex.
@@ -1539,25 +2042,25 @@ export interface Type {
    *                 types</a>.</p>
    * @public
    */
-  ScalarType?: ScalarType;
+  ScalarType?: ScalarType | undefined;
 
   /**
    * <p>Indicates if the column is an array.</p>
    * @public
    */
-  ArrayColumnInfo?: ColumnInfo;
+  ArrayColumnInfo?: ColumnInfo | undefined;
 
   /**
    * <p>Indicates if the column is a timeseries data type.</p>
    * @public
    */
-  TimeSeriesMeasureValueColumnInfo?: ColumnInfo;
+  TimeSeriesMeasureValueColumnInfo?: ColumnInfo | undefined;
 
   /**
    * <p>Indicates if the column is a row.</p>
    * @public
    */
-  RowColumnInfo?: ColumnInfo[];
+  RowColumnInfo?: ColumnInfo[] | undefined;
 }
 
 /**
@@ -1570,31 +2073,31 @@ export interface Datum {
    *             Boolean. </p>
    * @public
    */
-  ScalarValue?: string;
+  ScalarValue?: string | undefined;
 
   /**
    * <p> Indicates if the data point is a timeseries data type. </p>
    * @public
    */
-  TimeSeriesValue?: TimeSeriesDataPoint[];
+  TimeSeriesValue?: TimeSeriesDataPoint[] | undefined;
 
   /**
    * <p> Indicates if the data point is an array. </p>
    * @public
    */
-  ArrayValue?: Datum[];
+  ArrayValue?: Datum[] | undefined;
 
   /**
    * <p> Indicates if the data point is a row. </p>
    * @public
    */
-  RowValue?: Row;
+  RowValue?: Row | undefined;
 
   /**
    * <p> Indicates if the data point is null. </p>
    * @public
    */
-  NullValue?: boolean;
+  NullValue?: boolean | undefined;
 }
 
 /**
@@ -1627,7 +2130,7 @@ export interface SelectColumn {
    * <p>Name of the column.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Contains the data type of a column in a query result set. The data type can be scalar
@@ -1636,25 +2139,25 @@ export interface SelectColumn {
    *             and timeseries.</p>
    * @public
    */
-  Type?: Type;
+  Type?: Type | undefined;
 
   /**
    * <p> Database that has this column.</p>
    * @public
    */
-  DatabaseName?: string;
+  DatabaseName?: string | undefined;
 
   /**
    * <p>Table within the database that has this column. </p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>True, if the column name was aliased by the query. False otherwise.</p>
    * @public
    */
-  Aliased?: boolean;
+  Aliased?: boolean | undefined;
 }
 
 /**
@@ -1705,7 +2208,7 @@ export interface QueryResponse {
    *             next set of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p> The result set rows returned by the query. </p>
@@ -1724,7 +2227,13 @@ export interface QueryResponse {
    *             scanned.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
+
+  /**
+   * <p>Encapsulates <code>QueryInsights</code> containing insights and metrics related to the query that you executed.</p>
+   * @public
+   */
+  QueryInsightsResponse?: QueryInsightsResponse | undefined;
 }
 
 /**

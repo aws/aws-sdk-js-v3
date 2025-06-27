@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,11 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
 
 /**
  * <p>Creates a network instance.</p>
- *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed. Creating a network instance is the third step after creating a network package. For more information about network instances, <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the <i>Amazon Web Services Telco Network Builder User Guide</i>.</p>
- *          <p>Once you create a network instance, you can instantiate it. To instantiate a network, see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html">InstantiateSolNetworkInstance</a>.</p>
+ *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed. Creating a network instance is the third step after creating a network
+ *          package. For more information about network instances, <a href="https://docs.aws.amazon.com/tnb/latest/ug/network-instances.html">Network instances</a> in the
+ *                <i>Amazon Web Services Telco Network Builder User Guide</i>.</p>
+ *          <p>Once you create a network instance, you can instantiate it. To instantiate a network,
+ *          see <a href="https://docs.aws.amazon.com/tnb/latest/APIReference/API_InstantiateSolNetworkInstance.html">InstantiateSolNetworkInstance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,10 +89,38 @@ export interface CreateSolNetworkInstanceCommandOutput extends CreateSolNetworkI
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example Create a Sol Network Instance
+ * ```javascript
+ * //
+ * const input = {
+ *   nsDescription: "Test network for CITY",
+ *   nsName: "CITY Instance",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * };
+ * const command = new CreateSolNetworkInstanceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:network-instance/ni-07aa863e53460a2a6",
+ *   id: "ni-07aa863e53460a2a6",
+ *   nsInstanceName: "CITY Instance",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241",
+ *   tags: {
+ *     Name: "Resource"
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -100,9 +132,7 @@ export class CreateSolNetworkInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +144,16 @@ export class CreateSolNetworkInstanceCommand extends $Command
   .f(CreateSolNetworkInstanceInputFilterSensitiveLog, CreateSolNetworkInstanceOutputFilterSensitiveLog)
   .ser(se_CreateSolNetworkInstanceCommand)
   .de(de_CreateSolNetworkInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSolNetworkInstanceInput;
+      output: CreateSolNetworkInstanceOutput;
+    };
+    sdk: {
+      input: CreateSolNetworkInstanceCommandInput;
+      output: CreateSolNetworkInstanceCommandOutput;
+    };
+  };
+}

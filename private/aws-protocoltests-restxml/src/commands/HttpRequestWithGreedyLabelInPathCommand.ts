@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpRequestWithGreedyLabelInPathInput } from "../models/models_0";
 import {
   de_HttpRequestWithGreedyLabelInPathCommand,
@@ -13,7 +15,8 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +58,7 @@ export interface HttpRequestWithGreedyLabelInPathCommandOutput extends __Metadat
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class HttpRequestWithGreedyLabelInPathCommand extends $Command
   .classBuilder<
@@ -64,12 +68,28 @@ export class HttpRequestWithGreedyLabelInPathCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestXml", "HttpRequestWithGreedyLabelInPath", {})
   .n("RestXmlProtocolClient", "HttpRequestWithGreedyLabelInPathCommand")
   .f(void 0, void 0)
   .ser(se_HttpRequestWithGreedyLabelInPathCommand)
   .de(de_HttpRequestWithGreedyLabelInPathCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpRequestWithGreedyLabelInPathInput;
+      output: {};
+    };
+    sdk: {
+      input: HttpRequestWithGreedyLabelInPathCommandInput;
+      output: HttpRequestWithGreedyLabelInPathCommandOutput;
+    };
+  };
+}

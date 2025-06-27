@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
 
 /**
  * <p>Updates an existing state machine by modifying its <code>definition</code>,
- *         <code>roleArn</code>, or <code>loggingConfiguration</code>. Running executions will continue
+ *         <code>roleArn</code>, <code>loggingConfiguration</code>, or <code>EncryptionConfiguration</code>. Running executions will continue
  *       to use the previous <code>definition</code> and <code>roleArn</code>. You must include at
  *       least one of <code>definition</code> or <code>roleArn</code> or you will receive a
  *         <code>MissingRequiredParameter</code> error.</p>
@@ -103,6 +104,11 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  *   },
  *   publish: true || false,
  *   versionDescription: "STRING_VALUE",
+ *   encryptionConfiguration: { // EncryptionConfiguration
+ *     kmsKeyId: "STRING_VALUE",
+ *     kmsDataKeyReusePeriodSeconds: Number("int"),
+ *     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ *   },
  * };
  * const command = new UpdateStateMachineCommand(input);
  * const response = await client.send(command);
@@ -130,12 +136,21 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * @throws {@link InvalidDefinition} (client fault)
  *  <p>The provided Amazon States Language definition is not valid.</p>
  *
+ * @throws {@link InvalidEncryptionConfiguration} (client fault)
+ *  <p>Received when <code>encryptionConfiguration</code> is specified but various conditions exist which make the configuration invalid. For example, if <code>type</code> is set to <code>CUSTOMER_MANAGED_KMS_KEY</code>, but <code>kmsKeyId</code> is null, or <code>kmsDataKeyReusePeriodSeconds</code> is not between 60 and 900, or the KMS key is not symmetric or inactive.</p>
+ *
  * @throws {@link InvalidLoggingConfiguration} (client fault)
- *  <p></p>
+ *  <p>Configuration is not valid.</p>
  *
  * @throws {@link InvalidTracingConfiguration} (client fault)
  *  <p>Your <code>tracingConfiguration</code> key does not match, or <code>enabled</code> has not
  *       been set to <code>true</code> or <code>false</code>.</p>
+ *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
  *
  * @throws {@link MissingRequiredParameter} (client fault)
  *  <p>Request is missing a required parameter. This error occurs if both <code>definition</code>
@@ -157,6 +172,7 @@ export interface UpdateStateMachineCommandOutput extends UpdateStateMachineOutpu
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class UpdateStateMachineCommand extends $Command
@@ -167,9 +183,7 @@ export class UpdateStateMachineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -181,4 +195,16 @@ export class UpdateStateMachineCommand extends $Command
   .f(UpdateStateMachineInputFilterSensitiveLog, void 0)
   .ser(se_UpdateStateMachineCommand)
   .de(de_UpdateStateMachineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStateMachineInput;
+      output: UpdateStateMachineOutput;
+    };
+    sdk: {
+      input: UpdateStateMachineCommandInput;
+      output: UpdateStateMachineCommandOutput;
+    };
+  };
+}

@@ -3,11 +3,11 @@
 import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
-import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
+import { createDefaultUserAgentProvider } from "@aws-sdk/util-user-agent-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
 import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler as RequestHandler, streamCollector } from "@smithy/fetch-http-handler";
-import { invalidProvider } from "@smithy/invalid-dependency";
+import { invalidFunction, invalidProvider } from "@smithy/invalid-dependency";
 import { calculateBodyLength } from "@smithy/util-body-length-browser";
 import { DEFAULT_MAX_ATTEMPTS, DEFAULT_RETRY_MODE } from "@smithy/util-retry";
 import { BedrockRuntimeClientConfig } from "./BedrockRuntimeClient";
@@ -32,7 +32,10 @@ export const getRuntimeConfig = (config: BedrockRuntimeClientConfig) => {
       config?.credentialDefaultProvider ?? ((_: unknown) => () => Promise.reject(new Error("Credential is missing"))),
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ??
-      defaultUserAgent({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+      createDefaultUserAgentProvider({ serviceId: clientSharedValues.serviceId, clientVersion: packageInfo.version }),
+    eventStreamPayloadHandlerProvider:
+      config?.eventStreamPayloadHandlerProvider ??
+      (() => ({ handle: invalidFunction("event stream request is not supported in browser.") })),
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),

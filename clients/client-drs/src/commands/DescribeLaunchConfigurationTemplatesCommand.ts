@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface DescribeLaunchConfigurationTemplatesCommandOutput
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class DescribeLaunchConfigurationTemplatesCommand extends $Command
@@ -111,9 +113,7 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class DescribeLaunchConfigurationTemplatesCommand extends $Command
   .f(void 0, DescribeLaunchConfigurationTemplatesResponseFilterSensitiveLog)
   .ser(se_DescribeLaunchConfigurationTemplatesCommand)
   .de(de_DescribeLaunchConfigurationTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLaunchConfigurationTemplatesRequest;
+      output: DescribeLaunchConfigurationTemplatesResponse;
+    };
+    sdk: {
+      input: DescribeLaunchConfigurationTemplatesCommandInput;
+      output: DescribeLaunchConfigurationTemplatesCommandOutput;
+    };
+  };
+}

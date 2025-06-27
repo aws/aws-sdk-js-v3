@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,16 +37,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of distributions that have a cache behavior that's associated with the
- * 			specified real-time log configuration.</p>
- *          <p>You can specify the real-time log configuration by its name or its Amazon Resource
- * 			Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to
- * 			identify the real-time log configuration to list distributions for.</p>
- *          <p>You can optionally specify the maximum number of items to receive in the response. If
- * 			the total number of items in the list exceeds the maximum that you specify, or the
- * 			default maximum, the response is paginated. To get the next page of items, send a
- * 			subsequent request that specifies the <code>NextMarker</code> value from the current
- * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * <p>Gets a list of distributions that have a cache behavior that's associated with the specified real-time log configuration.</p> <p>You can specify the real-time log configuration by its name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to list distributions for.</p> <p>You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the <code>NextMarker</code> value from the current response as the <code>Marker</code> value in the subsequent request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +63,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //       { // DistributionSummary
  * //         Id: "STRING_VALUE", // required
  * //         ARN: "STRING_VALUE", // required
+ * //         ETag: "STRING_VALUE",
  * //         Status: "STRING_VALUE", // required
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
  * //         DomainName: "STRING_VALUE", // required
@@ -112,6 +105,11 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
+ * //               VpcOriginConfig: { // VpcOriginConfig
+ * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
+ * //                 OriginKeepaliveTimeout: Number("int"),
+ * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
@@ -143,6 +141,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },
@@ -201,6 +200,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           CachePolicyId: "STRING_VALUE",
  * //           OriginRequestPolicyId: "STRING_VALUE",
  * //           ResponseHeadersPolicyId: "STRING_VALUE",
+ * //           GrpcConfig: { // GrpcConfig
+ * //             Enabled: true || false, // required
+ * //           },
  * //           ForwardedValues: { // ForwardedValues
  * //             QueryString: true || false, // required
  * //             Cookies: { // CookiePreference
@@ -284,6 +286,9 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //               CachePolicyId: "STRING_VALUE",
  * //               OriginRequestPolicyId: "STRING_VALUE",
  * //               ResponseHeadersPolicyId: "STRING_VALUE",
+ * //               GrpcConfig: {
+ * //                 Enabled: true || false, // required
+ * //               },
  * //               ForwardedValues: {
  * //                 QueryString: true || false, // required
  * //                 Cookies: {
@@ -326,7 +331,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           ],
  * //         },
  * //         Comment: "STRING_VALUE", // required
- * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All", // required
+ * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None", // required
  * //         Enabled: true || false, // required
  * //         ViewerCertificate: { // ViewerCertificate
  * //           CloudFrontDefaultCertificate: true || false,
@@ -356,6 +361,8 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * //           },
  * //         ],
  * //         Staging: true || false, // required
+ * //         ConnectionMode: "direct" || "tenant-only",
+ * //         AnycastIpListId: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -375,6 +382,7 @@ export interface ListDistributionsByRealtimeLogConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListDistributionsByRealtimeLogConfigCommand extends $Command
@@ -385,9 +393,7 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -399,4 +405,16 @@ export class ListDistributionsByRealtimeLogConfigCommand extends $Command
   .f(void 0, ListDistributionsByRealtimeLogConfigResultFilterSensitiveLog)
   .ser(se_ListDistributionsByRealtimeLogConfigCommand)
   .de(de_ListDistributionsByRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByRealtimeLogConfigRequest;
+      output: ListDistributionsByRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: ListDistributionsByRealtimeLogConfigCommandInput;
+      output: ListDistributionsByRealtimeLogConfigCommandOutput;
+    };
+  };
+}

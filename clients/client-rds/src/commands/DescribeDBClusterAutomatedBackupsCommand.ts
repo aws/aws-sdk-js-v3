@@ -15,7 +15,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -110,6 +111,7 @@ export interface DescribeDBClusterAutomatedBackupsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBClusterAutomatedBackupsCommand extends $Command
@@ -120,9 +122,7 @@ export class DescribeDBClusterAutomatedBackupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class DescribeDBClusterAutomatedBackupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClusterAutomatedBackupsCommand)
   .de(de_DescribeDBClusterAutomatedBackupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClusterAutomatedBackupsMessage;
+      output: DBClusterAutomatedBackupMessage;
+    };
+    sdk: {
+      input: DescribeDBClusterAutomatedBackupsCommandInput;
+      output: DescribeDBClusterAutomatedBackupsCommandOutput;
+    };
+  };
+}

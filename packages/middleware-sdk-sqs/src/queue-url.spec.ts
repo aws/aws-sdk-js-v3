@@ -1,15 +1,16 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { FinalizeHandlerArguments, HandlerExecutionContext } from "@aws-sdk/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-import { queueUrlMiddleware } from "./queue-url";
+import { queueUrlMiddleware, resolveQueueUrlConfig } from "./queue-url";
 
 describe("queueUrlMiddleware", () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
 
   const mockContext: HandlerExecutionContext = {
     logger: {
       ...console,
-      warn: jest.fn(),
+      warn: vi.fn(),
     },
     endpointV2: void 0,
   };
@@ -23,7 +24,14 @@ describe("queueUrlMiddleware", () => {
   });
 
   afterEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
+  });
+
+  describe("config resolver", () => {
+    it("maintains object custody", () => {
+      const input = {};
+      expect(resolveQueueUrlConfig(input)).toBe(input);
+    });
   });
 
   it("should use the QueueUrl hostname as the endpoint if useQueueUrlAsEndpoint is true", async () => {

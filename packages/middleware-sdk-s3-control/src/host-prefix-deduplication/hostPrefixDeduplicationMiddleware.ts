@@ -1,6 +1,5 @@
 import {
   HandlerExecutionContext,
-  HttpRequest,
   Pluggable,
   RelativeMiddlewareOptions,
   SerializeHandler,
@@ -9,28 +8,21 @@ import {
   SerializeMiddleware,
 } from "@smithy/types";
 
-import { deduplicateHostPrefix } from "./deduplicateHostPrefix";
-
 /**
  * @internal
- * This customization handles an edge case where
- * a hostprefix may be duplicated in the endpoint ruleset resolution
- * and hostPrefix serialization via the pre-endpoints 2.0 trait,
- * and which cannot be reconciled automatically.
+ * @deprecated - the middleware is no longer necessary since hostPrefix was
+ * removed by S3Control codegen customization's model preprocessing.
  */
 export const hostPrefixDeduplicationMiddleware = (): SerializeMiddleware<any, any> => {
   return (next: SerializeHandler<any, any>, context: HandlerExecutionContext): SerializeHandler<any, any> =>
-    async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<any>> => {
-      const httpRequest: HttpRequest = (args.request ?? {}) as HttpRequest;
-      if (httpRequest?.hostname) {
-        httpRequest.hostname = deduplicateHostPrefix(httpRequest.hostname);
-      }
+    (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<any>> => {
       return next(args);
     };
 };
 
 /**
  * @internal
+ * @deprecated
  */
 export const hostPrefixDeduplicationMiddlewareOptions: RelativeMiddlewareOptions = {
   tags: ["HOST_PREFIX_DEDUPLICATION", "ENDPOINT_V2", "ENDPOINT"],
@@ -42,6 +34,7 @@ export const hostPrefixDeduplicationMiddlewareOptions: RelativeMiddlewareOptions
 
 /**
  * @internal
+ * @deprecated
  */
 export const getHostPrefixDeduplicationPlugin = <T>(config: T): Pluggable<any, any> => ({
   applyToStack: (clientStack) => {

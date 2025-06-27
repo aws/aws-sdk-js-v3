@@ -12,7 +12,8 @@ import { de_DescribeNamespaceCommand, se_DescribeNamespaceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface DescribeNamespaceCommandOutput extends DescribeNamespaceRespons
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class DescribeNamespaceCommand extends $Command
@@ -82,9 +84,7 @@ export class DescribeNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class DescribeNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNamespaceCommand)
   .de(de_DescribeNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNamespaceRequest;
+      output: DescribeNamespaceResponse;
+    };
+    sdk: {
+      input: DescribeNamespaceCommandInput;
+      output: DescribeNamespaceCommandOutput;
+    };
+  };
+}

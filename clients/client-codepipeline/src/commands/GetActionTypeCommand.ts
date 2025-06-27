@@ -12,7 +12,8 @@ import { de_GetActionTypeCommand, se_GetActionTypeCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * // const { CodePipelineClient, GetActionTypeCommand } = require("@aws-sdk/client-codepipeline"); // CommonJS import
  * const client = new CodePipelineClient(config);
  * const input = { // GetActionTypeInput
- *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ *   category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  *   owner: "STRING_VALUE", // required
  *   provider: "STRING_VALUE", // required
  *   version: "STRING_VALUE", // required
@@ -66,7 +67,7 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * //       jobTimeout: Number("int"),
  * //     },
  * //     id: { // ActionTypeIdentifier
- * //       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval", // required
+ * //       category: "Source" || "Build" || "Deploy" || "Test" || "Invoke" || "Approval" || "Compute", // required
  * //       owner: "STRING_VALUE", // required
  * //       provider: "STRING_VALUE", // required
  * //       version: "STRING_VALUE", // required
@@ -120,6 +121,7 @@ export interface GetActionTypeCommandOutput extends GetActionTypeOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class GetActionTypeCommand extends $Command
@@ -130,9 +132,7 @@ export class GetActionTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class GetActionTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetActionTypeCommand)
   .de(de_GetActionTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetActionTypeInput;
+      output: GetActionTypeOutput;
+    };
+    sdk: {
+      input: GetActionTypeCommandInput;
+      output: GetActionTypeCommandOutput;
+    };
+  };
+}

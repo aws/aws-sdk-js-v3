@@ -12,7 +12,8 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -124,6 +125,7 @@ export interface UpdateProvisionedProductCommandOutput extends UpdateProvisioned
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class UpdateProvisionedProductCommand extends $Command
@@ -134,9 +136,7 @@ export class UpdateProvisionedProductCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class UpdateProvisionedProductCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProvisionedProductCommand)
   .de(de_UpdateProvisionedProductCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProvisionedProductInput;
+      output: UpdateProvisionedProductOutput;
+    };
+    sdk: {
+      input: UpdateProvisionedProductCommandInput;
+      output: UpdateProvisionedProductCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeEphemerisCommand, se_DescribeEphemerisCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * // { // DescribeEphemerisResponse
  * //   ephemerisId: "STRING_VALUE",
  * //   satelliteId: "STRING_VALUE",
- * //   status: "STRING_VALUE",
+ * //   status: "VALIDATING" || "INVALID" || "ERROR" || "ENABLED" || "DISABLED" || "EXPIRED",
  * //   priority: Number("int"),
  * //   creationTime: new Date("TIMESTAMP"),
  * //   enabled: true || false,
@@ -68,7 +69,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * //       ephemerisData: "STRING_VALUE",
  * //     },
  * //   },
- * //   invalidReason: "STRING_VALUE",
+ * //   invalidReason: "METADATA_INVALID" || "TIME_RANGE_INVALID" || "TRAJECTORY_INVALID" || "KMS_KEY_INVALID" || "VALIDATION_ERROR",
  * // };
  *
  * ```
@@ -91,6 +92,7 @@ export interface DescribeEphemerisCommandOutput extends DescribeEphemerisRespons
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class DescribeEphemerisCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeEphemerisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeEphemerisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEphemerisCommand)
   .de(de_DescribeEphemerisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEphemerisRequest;
+      output: DescribeEphemerisResponse;
+    };
+    sdk: {
+      input: DescribeEphemerisCommandInput;
+      output: DescribeEphemerisCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetFormTypeInput, GetFormTypeOutput, GetFormTypeOutputFilterSensitiveLog } from "../models/models_0";
+import { GetFormTypeInput, GetFormTypeOutput, GetFormTypeOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetFormTypeCommand, se_GetFormTypeCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface GetFormTypeCommandOutput extends GetFormTypeOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetFormTypeCommand extends $Command
@@ -102,9 +104,7 @@ export class GetFormTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class GetFormTypeCommand extends $Command
   .f(void 0, GetFormTypeOutputFilterSensitiveLog)
   .ser(se_GetFormTypeCommand)
   .de(de_GetFormTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFormTypeInput;
+      output: GetFormTypeOutput;
+    };
+    sdk: {
+      input: GetFormTypeCommandInput;
+      output: GetFormTypeCommandOutput;
+    };
+  };
+}

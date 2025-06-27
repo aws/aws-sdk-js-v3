@@ -12,7 +12,8 @@ import { de_DescribeDimensionKeysCommand, se_DescribeDimensionKeysCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -118,6 +119,7 @@ export interface DescribeDimensionKeysCommandOutput extends DescribeDimensionKey
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class DescribeDimensionKeysCommand extends $Command
@@ -128,9 +130,7 @@ export class DescribeDimensionKeysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class DescribeDimensionKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDimensionKeysCommand)
   .de(de_DescribeDimensionKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDimensionKeysRequest;
+      output: DescribeDimensionKeysResponse;
+    };
+    sdk: {
+      input: DescribeDimensionKeysCommandInput;
+      output: DescribeDimensionKeysCommandOutput;
+    };
+  };
+}

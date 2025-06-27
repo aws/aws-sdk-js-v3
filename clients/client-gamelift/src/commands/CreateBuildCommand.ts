@@ -12,7 +12,8 @@ import { de_CreateBuildCommand, se_CreateBuildCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,31 +28,31 @@ export interface CreateBuildCommandInput extends CreateBuildInput {}
 export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new Amazon GameLift build resource for your game server binary files. Combine game
- *             server binaries into a zip file for use with Amazon GameLift. </p>
+ * <p>Creates a new Amazon GameLift Servers build resource for your game server binary files. Combine game
+ *             server binaries into a zip file for use with Amazon GameLift Servers. </p>
  *          <important>
- *             <p>When setting up a new game build for Amazon GameLift, we recommend using the CLI command <b>
+ *             <p>When setting up a new game build for Amazon GameLift Servers, we recommend using the CLI command <b>
  *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html">upload-build</a>
  *                </b>. This helper command combines two tasks: (1) it
- *                 uploads your build files from a file directory to an Amazon GameLift Amazon S3 location, and (2)
+ *                 uploads your build files from a file directory to an Amazon GameLift Servers Amazon S3 location, and (2)
  *                 it creates a new build resource.</p>
  *          </important>
  *          <p>You can use the <code>CreateBuild</code> operation in the following scenarios:</p>
  *          <ul>
  *             <li>
  *                <p>Create a new game build with build files that are in an Amazon S3 location under an
- *                     Amazon Web Services account that you control. To use this option, you give Amazon GameLift access to
+ *                     Amazon Web Services account that you control. To use this option, you give Amazon GameLift Servers access to
  *                     the Amazon S3 bucket. With permissions in place, specify a build name, operating
  *                     system, and the Amazon S3 storage location of your game build.</p>
  *             </li>
  *             <li>
- *                <p>Upload your build files to a Amazon GameLift Amazon S3 location. To use this option,
+ *                <p>Upload your build files to a Amazon GameLift Servers Amazon S3 location. To use this option,
  *                     specify a build name and operating system. This operation creates a new build
  *                     resource and also returns an Amazon S3 location with temporary access credentials.
  *                     Use the credentials to manually upload your build files to the specified Amazon S3
  *                     location. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UploadingObjects.html">Uploading Objects</a> in
  *                     the <i>Amazon S3 Developer Guide</i>. After you upload build files to
- *                     the Amazon GameLift Amazon S3 location, you can't update them. </p>
+ *                     the Amazon GameLift Servers Amazon S3 location, you can't update them. </p>
  *             </li>
  *          </ul>
  *          <p>If successful, this operation creates a new build resource with a unique build ID and
@@ -154,6 +155,7 @@ export interface CreateBuildCommandOutput extends CreateBuildOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateBuildCommand extends $Command
@@ -164,9 +166,7 @@ export class CreateBuildCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +178,16 @@ export class CreateBuildCommand extends $Command
   .f(void 0, CreateBuildOutputFilterSensitiveLog)
   .ser(se_CreateBuildCommand)
   .de(de_CreateBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBuildInput;
+      output: CreateBuildOutput;
+    };
+    sdk: {
+      input: CreateBuildCommandInput;
+      output: CreateBuildCommandOutput;
+    };
+  };
+}

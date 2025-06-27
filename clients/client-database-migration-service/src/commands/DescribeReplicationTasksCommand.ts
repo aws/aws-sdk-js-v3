@@ -10,13 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_0";
+import { DescribeReplicationTasksMessage, DescribeReplicationTasksResponse } from "../models/models_1";
 import { de_DescribeReplicationTasksCommand, se_DescribeReplicationTasksCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -107,34 +108,34 @@ export interface DescribeReplicationTasksCommandOutput extends DescribeReplicati
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe replication tasks
  * ```javascript
  * // Returns information about replication tasks for your account in the current region.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeReplicationTasksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationTasks": []
+ *   Marker: "",
+ *   ReplicationTasks:   []
  * }
  * *\/
- * // example id: describe-replication-tasks-1481755777563
  * ```
  *
+ * @public
  */
 export class DescribeReplicationTasksCommand extends $Command
   .classBuilder<
@@ -144,9 +145,7 @@ export class DescribeReplicationTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -158,4 +157,16 @@ export class DescribeReplicationTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationTasksCommand)
   .de(de_DescribeReplicationTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTasksMessage;
+      output: DescribeReplicationTasksResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTasksCommandInput;
+      output: DescribeReplicationTasksCommandOutput;
+    };
+  };
+}

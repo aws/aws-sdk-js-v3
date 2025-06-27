@@ -8,7 +8,7 @@ import { sdkStreamMixin } from "@smithy/util-stream";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
 import { defaultRestJsonProtocolHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
-import { defaultRegionInfoProvider } from "./endpoints";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { RestJsonProtocolClientConfig } from "./RestJsonProtocolClient";
 
 /**
@@ -20,6 +20,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
     httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultRestJsonProtocolHttpAuthSchemeProvider,
     httpAuthSchemes: config?.httpAuthSchemes ?? [
@@ -30,7 +31,6 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
       },
     ],
     logger: config?.logger ?? new NoOpLogger(),
-    regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
     sdkStreamMixin: config?.sdkStreamMixin ?? sdkStreamMixin,
     serviceId: config?.serviceId ?? "Rest Json Protocol",
     urlParser: config?.urlParser ?? parseUrl,

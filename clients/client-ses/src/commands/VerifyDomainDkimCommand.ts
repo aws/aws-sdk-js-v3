@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,27 +95,27 @@ export interface VerifyDomainDkimCommandOutput extends VerifyDomainDkimResponse,
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example VerifyDomainDkim
  * ```javascript
  * // The following example generates DKIM tokens for a domain that has been verified with Amazon SES:
  * const input = {
- *   "Domain": "example.com"
+ *   Domain: "example.com"
  * };
  * const command = new VerifyDomainDkimCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DkimTokens": [
+ *   DkimTokens: [
  *     "EXAMPLEq76owjnks3lnluwg65scbemvw",
  *     "EXAMPLEi3dnsj67hstzaj673klariwx2",
  *     "EXAMPLEwfbtcukvimehexktmdtaz6naj"
  *   ]
  * }
  * *\/
- * // example id: verifydomaindkim-1469049503083
  * ```
  *
+ * @public
  */
 export class VerifyDomainDkimCommand extends $Command
   .classBuilder<
@@ -124,9 +125,7 @@ export class VerifyDomainDkimCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +137,16 @@ export class VerifyDomainDkimCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifyDomainDkimCommand)
   .de(de_VerifyDomainDkimCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyDomainDkimRequest;
+      output: VerifyDomainDkimResponse;
+    };
+    sdk: {
+      input: VerifyDomainDkimCommandInput;
+      output: VerifyDomainDkimCommandOutput;
+    };
+  };
+}

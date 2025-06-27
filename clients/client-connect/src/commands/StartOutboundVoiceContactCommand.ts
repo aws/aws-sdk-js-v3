@@ -16,7 +16,8 @@ import { de_StartOutboundVoiceContactCommand, se_StartOutboundVoiceContactComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,8 +61,11 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  *   Description: "STRING_VALUE",
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *       Value: "STRING_VALUE",
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Arn: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
  *     },
  *   },
  *   RelatedContactId: "STRING_VALUE",
@@ -119,6 +123,7 @@ export interface StartOutboundVoiceContactCommandOutput extends StartOutboundVoi
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartOutboundVoiceContactCommand extends $Command
@@ -129,9 +134,7 @@ export class StartOutboundVoiceContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +146,16 @@ export class StartOutboundVoiceContactCommand extends $Command
   .f(StartOutboundVoiceContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartOutboundVoiceContactCommand)
   .de(de_StartOutboundVoiceContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartOutboundVoiceContactRequest;
+      output: StartOutboundVoiceContactResponse;
+    };
+    sdk: {
+      input: StartOutboundVoiceContactCommandInput;
+      output: StartOutboundVoiceContactCommandOutput;
+    };
+  };
+}

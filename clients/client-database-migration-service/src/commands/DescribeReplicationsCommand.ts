@@ -16,7 +16,8 @@ import { de_DescribeReplicationsCommand, se_DescribeReplicationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,31 @@ export interface DescribeReplicationsCommandOutput extends DescribeReplicationsR
  * //         DateNewProvisioningDataAvailable: new Date("TIMESTAMP"),
  * //         ReasonForNewProvisioningData: "STRING_VALUE",
  * //       },
+ * //       PremigrationAssessmentStatuses: [ // PremigrationAssessmentStatusList
+ * //         { // PremigrationAssessmentStatus
+ * //           PremigrationAssessmentRunArn: "STRING_VALUE",
+ * //           FailOnAssessmentFailure: true || false,
+ * //           Status: "STRING_VALUE",
+ * //           PremigrationAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //           AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //             IndividualAssessmentCount: Number("int"),
+ * //             IndividualAssessmentCompletedCount: Number("int"),
+ * //           },
+ * //           LastFailureMessage: "STRING_VALUE",
+ * //           ResultLocationBucket: "STRING_VALUE",
+ * //           ResultLocationFolder: "STRING_VALUE",
+ * //           ResultEncryptionMode: "STRING_VALUE",
+ * //           ResultKmsKeyArn: "STRING_VALUE",
+ * //           ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //             Passed: Number("int"),
+ * //             Failed: Number("int"),
+ * //             Error: Number("int"),
+ * //             Warning: Number("int"),
+ * //             Cancelled: Number("int"),
+ * //             Skipped: Number("int"),
+ * //           },
+ * //         },
+ * //       ],
  * //       StopReason: "STRING_VALUE",
  * //       FailureMessages: [ // StringList
  * //         "STRING_VALUE",
@@ -115,6 +141,7 @@ export interface DescribeReplicationsCommandOutput extends DescribeReplicationsR
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationsCommand extends $Command
@@ -125,9 +152,7 @@ export class DescribeReplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +164,16 @@ export class DescribeReplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationsCommand)
   .de(de_DescribeReplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationsMessage;
+      output: DescribeReplicationsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationsCommandInput;
+      output: DescribeReplicationsCommandOutput;
+    };
+  };
+}

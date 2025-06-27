@@ -16,7 +16,8 @@ import { de_ListEntitiesCommand, se_ListEntitiesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -290,6 +291,30 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *         },
  *       },
  *     },
+ *     MachineLearningProductFilters: { // MachineLearningProductFilters
+ *       EntityId: { // MachineLearningProductEntityIdFilter
+ *         ValueList: [ // MachineLearningProductEntityIdFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *       },
+ *       LastModifiedDate: { // MachineLearningProductLastModifiedDateFilter
+ *         DateRange: { // MachineLearningProductLastModifiedDateFilterDateRange
+ *           AfterValue: "STRING_VALUE",
+ *           BeforeValue: "STRING_VALUE",
+ *         },
+ *       },
+ *       ProductTitle: { // MachineLearningProductTitleFilter
+ *         ValueList: [ // MachineLearningProductTitleFilterValueList
+ *           "STRING_VALUE",
+ *         ],
+ *         WildCardValue: "STRING_VALUE",
+ *       },
+ *       Visibility: { // MachineLearningProductVisibilityFilter
+ *         ValueList: [ // MachineLearningProductVisibilityFilterValueList
+ *           "Limited" || "Public" || "Restricted" || "Draft",
+ *         ],
+ *       },
+ *     },
  *   },
  *   EntityTypeSort: { // EntityTypeSort Union: only one key present
  *     DataProductSort: { // DataProductSort
@@ -314,6 +339,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  *     },
  *     ResaleAuthorizationSort: { // ResaleAuthorizationSort
  *       SortBy: "EntityId" || "Name" || "ProductId" || "ProductName" || "ManufacturerAccountId" || "ManufacturerLegalName" || "ResellerAccountID" || "ResellerLegalName" || "Status" || "OfferExtendedStatus" || "CreatedDate" || "AvailabilityEndDate" || "LastModifiedDate",
+ *       SortOrder: "ASCENDING" || "DESCENDING",
+ *     },
+ *     MachineLearningProductSort: { // MachineLearningProductSort
+ *       SortBy: "EntityId" || "LastModifiedDate" || "ProductTitle" || "Visibility",
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   },
@@ -372,6 +401,10 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * //         CreatedDate: "STRING_VALUE",
  * //         AvailabilityEndDate: "STRING_VALUE",
  * //       },
+ * //       MachineLearningProductSummary: { // MachineLearningProductSummary
+ * //         ProductTitle: "STRING_VALUE",
+ * //         Visibility: "Limited" || "Public" || "Restricted" || "Draft",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -408,6 +441,7 @@ export interface ListEntitiesCommandOutput extends ListEntitiesResponse, __Metad
  * @throws {@link MarketplaceCatalogServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListEntitiesCommand extends $Command
@@ -418,9 +452,7 @@ export class ListEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -432,4 +464,16 @@ export class ListEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitiesCommand)
   .de(de_ListEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitiesRequest;
+      output: ListEntitiesResponse;
+    };
+    sdk: {
+      input: ListEntitiesCommandInput;
+      output: ListEntitiesCommandOutput;
+    };
+  };
+}

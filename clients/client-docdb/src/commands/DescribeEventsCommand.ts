@@ -12,7 +12,8 @@ import { de_DescribeEventsCommand, se_DescribeEventsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface DescribeEventsCommandOutput extends EventsMessage, __MetadataBe
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeEventsCommand extends $Command
@@ -93,9 +95,7 @@ export class DescribeEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class DescribeEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventsCommand)
   .de(de_DescribeEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventsMessage;
+      output: EventsMessage;
+    };
+    sdk: {
+      input: DescribeEventsCommandInput;
+      output: DescribeEventsCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_5";
+import { DisassociateNatGatewayAddressRequest, DisassociateNatGatewayAddressResult } from "../models/models_6";
 import { de_DisassociateNatGatewayAddressCommand, se_DisassociateNatGatewayAddressCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface DisassociateNatGatewayAddressCommandOutput
 
 /**
  * <p>Disassociates secondary Elastic IP addresses (EIPs) from a public NAT gateway.
- *             You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
+ *             You cannot disassociate your primary EIP. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html#nat-gateway-edit-secondary">Edit secondary IP address associations</a> in the <i>Amazon VPC User Guide</i>.</p>
  *          <p>While disassociating is in progress, you cannot associate/disassociate additional EIPs while the connections are being drained. You are, however, allowed to delete the NAT gateway.</p>
  *          <p>An EIP is released only at the end of MaxDrainDurationSeconds. It stays
  *             associated and supports the existing connections but does not support any new connections
@@ -80,6 +81,7 @@ export interface DisassociateNatGatewayAddressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisassociateNatGatewayAddressCommand extends $Command
@@ -90,9 +92,7 @@ export class DisassociateNatGatewayAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DisassociateNatGatewayAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateNatGatewayAddressCommand)
   .de(de_DisassociateNatGatewayAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateNatGatewayAddressRequest;
+      output: DisassociateNatGatewayAddressResult;
+    };
+    sdk: {
+      input: DisassociateNatGatewayAddressCommandInput;
+      output: DisassociateNatGatewayAddressCommandOutput;
+    };
+  };
+}

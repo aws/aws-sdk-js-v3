@@ -12,7 +12,8 @@ import { de_DescribeGameServerInstancesCommand, se_DescribeGameServerInstancesCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,10 +29,10 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Retrieves status
- *             information about the Amazon EC2 instances associated with a Amazon GameLift FleetIQ game server group.
+ *             information about the Amazon EC2 instances associated with a Amazon GameLift Servers FleetIQ game server group.
  *             Use this operation to detect when instances are active or not available to host new game
  *             servers.</p>
  *          <p>To request status for all instances in the game server group, provide a game server
@@ -47,7 +48,7 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -95,13 +96,14 @@ export interface DescribeGameServerInstancesCommandOutput extends DescribeGameSe
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -113,9 +115,7 @@ export class DescribeGameServerInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class DescribeGameServerInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGameServerInstancesCommand)
   .de(de_DescribeGameServerInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameServerInstancesInput;
+      output: DescribeGameServerInstancesOutput;
+    };
+    sdk: {
+      input: DescribeGameServerInstancesCommandInput;
+      output: DescribeGameServerInstancesCommandOutput;
+    };
+  };
+}

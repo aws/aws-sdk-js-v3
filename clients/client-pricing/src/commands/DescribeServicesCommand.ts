@@ -12,7 +12,8 @@ import { de_DescribeServicesCommand, se_DescribeServicesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,37 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
+ * @example To retrieve a list of services and service codes
+ * ```javascript
+ * // Retrieves the service for the given Service Code.
+ * const input = {
+ *   FormatVersion: "aws_v1",
+ *   MaxResults: 1,
+ *   ServiceCode: "AmazonEC2"
+ * };
+ * const command = new DescribeServicesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   FormatVersion: "aws_v1",
+ *   NextToken: "abcdefg123",
+ *   Services: [
+ *     {
+ *       AttributeNames: [
+ *         "volumeType",
+ *         "maxIopsvolume",
+ *         "instanceCapacity10xlarge",
+ *         "locationType",
+ *         "operation"
+ *       ],
+ *       ServiceCode: "AmazonEC2"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeServicesCommand extends $Command
@@ -101,9 +133,7 @@ export class DescribeServicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +145,16 @@ export class DescribeServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServicesCommand)
   .de(de_DescribeServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServicesRequest;
+      output: DescribeServicesResponse;
+    };
+    sdk: {
+      input: DescribeServicesCommandInput;
+      output: DescribeServicesCommandOutput;
+    };
+  };
+}

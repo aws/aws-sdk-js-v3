@@ -12,7 +12,8 @@ import { de_GetCostEstimateCommand, se_GetCostEstimateCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface GetCostEstimateCommandOutput extends GetCostEstimateResult, __M
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetCostEstimateCommand extends $Command
@@ -114,9 +116,7 @@ export class GetCostEstimateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetCostEstimateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostEstimateCommand)
   .de(de_GetCostEstimateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostEstimateRequest;
+      output: GetCostEstimateResult;
+    };
+    sdk: {
+      input: GetCostEstimateCommandInput;
+      output: GetCostEstimateCommandOutput;
+    };
+  };
+}

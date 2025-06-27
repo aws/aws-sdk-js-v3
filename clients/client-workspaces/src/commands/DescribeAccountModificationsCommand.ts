@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface DescribeAccountModificationsCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountModificationsCommand extends $Command
@@ -83,9 +85,7 @@ export class DescribeAccountModificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class DescribeAccountModificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountModificationsCommand)
   .de(de_DescribeAccountModificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountModificationsRequest;
+      output: DescribeAccountModificationsResult;
+    };
+    sdk: {
+      input: DescribeAccountModificationsCommandInput;
+      output: DescribeAccountModificationsCommandOutput;
+    };
+  };
+}

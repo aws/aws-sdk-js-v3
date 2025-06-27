@@ -12,8 +12,8 @@
 export * from "./IoTEventsDataClient";
 export * from "./IoTEventsData";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { IoTEventsDataExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { IoTEventsDataExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

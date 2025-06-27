@@ -5,16 +5,425 @@ import {
   BulkEmailEntry,
   BulkEmailEntryResult,
   Destination,
+  DkimSigningAttributes,
+  DkimSigningAttributesFilterSensitiveLog,
+  DkimSigningAttributesOrigin,
+  DkimStatus,
+  DomainDeliverabilityTrackingOption,
   EmailContent,
   EmailTemplateContent,
   EventDestinationDefinition,
+  HttpsPolicy,
   ListManagementOptions,
   MessageTag,
+  ScalingMode,
   SuppressionListReason,
   Tag,
   Topic,
   TopicPreference,
+  VdmOptions,
 } from "./models_0";
+
+/**
+ * <p>A request to change the account suppression list preferences for a specific
+ *             configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetSuppressionOptionsRequest {
+  /**
+   * <p>The name of the configuration set to change the suppression list preferences
+   *             for.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>A list that contains the reasons that email addresses are automatically added to the
+   *             suppression list for your account. This list can contain any or all of the
+   *             following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>COMPLAINT</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a
+   *                     complaint.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>BOUNCE</code> – Amazon SES adds an email address to the suppression
+   *                     list for your account when a message sent to that address results in a hard
+   *                     bounce.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SuppressedReasons?: SuppressionListReason[] | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetSuppressionOptionsResponse {}
+
+/**
+ * <p>A request to add a custom domain for tracking open and click events to a configuration
+ *             set.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The domain to use to track open and click events.</p>
+   * @public
+   */
+  CustomRedirectDomain?: string | undefined;
+
+  /**
+   * <p>The https policy to use for tracking open and click events. If the value is OPTIONAL or HttpsPolicy is not
+   *         specified, the open trackers use HTTP and click tracker use the original protocol of the link.
+   *         If the value is REQUIRE, both open and click tracker uses HTTPS and if the value is REQUIRE_OPEN_ONLY
+   *             open tracker uses HTTPS and link tracker is same as original protocol of the link.
+   *         </p>
+   * @public
+   */
+  HttpsPolicy?: HttpsPolicy | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetTrackingOptionsResponse {}
+
+/**
+ * <p>A request to add specific VDM settings to a configuration set.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsRequest {
+  /**
+   * <p>The name of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The VDM options to apply to the configuration set.</p>
+   * @public
+   */
+  VdmOptions?: VdmOptions | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutConfigurationSetVdmOptionsResponse {}
+
+/**
+ * <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolRequest {
+  /**
+   * <p>The IP address that you want to move to the dedicated IP pool. The value you specify
+   *             has to be a dedicated IP address that's associated with your Amazon Web Services account.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The name of the IP pool that you want to add the dedicated IP address to. You have to
+   *             specify an IP pool that already exists.</p>
+   * @public
+   */
+  DestinationPoolName: string | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpInPoolResponse {}
+
+/**
+ * <p>A request to convert a dedicated IP pool to a different scaling mode.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesRequest {
+  /**
+   * <p>The name of the dedicated IP pool.</p>
+   * @public
+   */
+  PoolName: string | undefined;
+
+  /**
+   * <p>The scaling mode to apply to the dedicated IP pool.</p>
+   *          <note>
+   *             <p>Changing the scaling mode from <code>MANAGED</code> to <code>STANDARD</code> is not supported.</p>
+   *          </note>
+   * @public
+   */
+  ScalingMode: ScalingMode | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpPoolScalingAttributesResponse {}
+
+/**
+ * <p>A request to change the warm-up attributes for a dedicated IP address. This operation
+ *             is useful when you want to resume the warm-up process for an existing IP address.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesRequest {
+  /**
+   * <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
+   * @public
+   */
+  Ip: string | undefined;
+
+  /**
+   * <p>The warm-up percentage that you want to associate with the dedicated IP
+   *             address.</p>
+   * @public
+   */
+  WarmupPercentage: number | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutDedicatedIpWarmupAttributesResponse {}
+
+/**
+ * <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain
+ *             access to reputation, deliverability, and other metrics for the domains that you use to
+ *             send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p>
+ *          <p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition
+ *             to any other fees that you accrue by using Amazon SES and other Amazon Web Services services. For more
+ *             information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionRequest {
+  /**
+   * <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this
+   *             value to <code>true</code>.</p>
+   * @public
+   */
+  DashboardEnabled: boolean | undefined;
+
+  /**
+   * <p>An array of objects, one for each verified domain that you use to send email and
+   *             enabled the Deliverability dashboard for.</p>
+   * @public
+   */
+  SubscribedDomains?: DomainDeliverabilityTrackingOption[] | undefined;
+}
+
+/**
+ * <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
+ * @public
+ */
+export interface PutDeliverabilityDashboardOptionResponse {}
+
+/**
+ * <p>A request to associate a configuration set with an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesRequest {
+  /**
+   * <p>The email address or domain to associate with a configuration set.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The configuration set to associate with an email identity.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response with an empty
+ *             HTTP body.</p>
+ * @public
+ */
+export interface PutEmailIdentityConfigurationSetAttributesResponse {}
+
+/**
+ * <p>A request to enable or disable DKIM signing of email that you send from an email
+ *             identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the DKIM signing configuration for the identity.</p>
+   *          <p>When you set this value <code>true</code>, then the messages that are sent from the
+   *             identity are signed using DKIM. If you set this value to <code>false</code>, your
+   *             messages are sent without DKIM signing.</p>
+   * @public
+   */
+  SigningEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimAttributesResponse {}
+
+/**
+ * <p>A request to change the DKIM attributes for an email identity.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimSigningAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>The method to use to configure DKIM for the identity. There are the following possible
+   *             values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                         DKIM</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>EXTERNAL</code> – Configure DKIM for the identity by using Bring
+   *                     Your Own DKIM (BYODKIM).</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  SigningAttributesOrigin: DkimSigningAttributesOrigin | undefined;
+
+  /**
+   * <p>An object that contains information about the private key and selector that you want
+   *             to use to configure DKIM for the identity for Bring Your Own DKIM (BYODKIM) for the
+   *             identity, or, configures the key length to be used for <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p>
+   * @public
+   */
+  SigningAttributes?: DkimSigningAttributes | undefined;
+}
+
+/**
+ * <p>If the action is successful, the service sends back an HTTP 200 response.</p>
+ *          <p>The following data is returned in JSON format by the service.</p>
+ * @public
+ */
+export interface PutEmailIdentityDkimSigningAttributesResponse {
+  /**
+   * <p>The DKIM authentication status of the identity. Amazon SES determines the authentication
+   *             status by searching for specific records in the DNS configuration for your domain. If
+   *             you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy
+   *                 DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME
+   *             records in the DNS configuration for your domain.</p>
+   *          <p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT
+   *             record that uses the selector that you specified. The value of the TXT record must be a
+   *             public key that's paired with the private key that you specified in the process of
+   *             creating the identity.</p>
+   *          <p>The status can be one of the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PENDING</code> – The verification process was initiated, but Amazon SES
+   *                     hasn't yet detected the DKIM records in the DNS configuration for the
+   *                     domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCESS</code> – The verification process completed
+   *                     successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code> – The verification process failed. This typically
+   *                     occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the
+   *                     domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES
+   *                     from determining the DKIM authentication status of the domain.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NOT_STARTED</code> – The DKIM verification process hasn't been
+   *                     initiated for the domain.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  DkimStatus?: DkimStatus | undefined;
+
+  /**
+   * <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object
+   *             contains a set of unique strings that you use to create a set of CNAME records that you
+   *             add to the DNS configuration for your domain. When Amazon SES detects these records in the
+   *             DNS configuration for your domain, the DKIM authentication process is complete.</p>
+   *          <p>If you configured DKIM authentication for the domain by providing your own
+   *             public-private key pair, then this object contains the selector that's associated with
+   *             your public key.</p>
+   *          <p>Regardless of the DKIM authentication method you use, Amazon SES searches for the
+   *             appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
+   * @public
+   */
+  DkimTokens?: string[] | undefined;
+}
+
+/**
+ * <p>A request to set the attributes that control how bounce and complaint events are
+ *             processed.</p>
+ * @public
+ */
+export interface PutEmailIdentityFeedbackAttributesRequest {
+  /**
+   * <p>The email identity.</p>
+   * @public
+   */
+  EmailIdentity: string | undefined;
+
+  /**
+   * <p>Sets the feedback forwarding configuration for the identity.</p>
+   *          <p>If the value is <code>true</code>, you receive email notifications when bounce or
+   *             complaint events occur. These notifications are sent to the address that you specified
+   *             in the <code>Return-Path</code> header of the original email.</p>
+   *          <p>You're required to have a method of tracking bounces and complaints. If you haven't
+   *             set up another mechanism for receiving bounce or complaint notifications (for example,
+   *             by setting up an event destination), you receive an email notification when these events
+   *             occur (even if this setting is disabled).</p>
+   * @public
+   */
+  EmailForwardingEnabled?: boolean | undefined;
+}
 
 /**
  * <p>An HTTP 200 response if the request succeeds, or an error message if the request
@@ -51,7 +460,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *          </ul>
    * @public
    */
-  MailFromDomain?: string;
+  MailFromDomain?: string | undefined;
 
   /**
    * <p>The action to take if the required MX record isn't found when you send an email. When
@@ -65,7 +474,7 @@ export interface PutEmailIdentityMailFromAttributesRequest {
    *             states.</p>
    * @public
    */
-  BehaviorOnMxFailure?: BehaviorOnMxFailure;
+  BehaviorOnMxFailure?: BehaviorOnMxFailure | undefined;
 }
 
 /**
@@ -114,7 +523,7 @@ export interface SendBulkEmailRequest {
    *             specify has to be verified.</p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -130,20 +539,20 @@ export interface SendBulkEmailRequest {
    *                 Guide</a>.</p>
    * @public
    */
-  FromEmailAddressIdentityArn?: string;
+  FromEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    * @public
    */
-  ReplyToAddresses?: string[];
+  ReplyToAddresses?: string[] | undefined;
 
   /**
    * <p>The address that you want bounce and complaint notifications to be sent to.</p>
    * @public
    */
-  FeedbackForwardingEmailAddress?: string;
+  FeedbackForwardingEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -160,7 +569,7 @@ export interface SendBulkEmailRequest {
    *                 Guide</a>.</p>
    * @public
    */
-  FeedbackForwardingEmailAddressIdentityArn?: string;
+  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>A list of tags, in the form of name/value pairs, to apply to an email that you send
@@ -168,7 +577,7 @@ export interface SendBulkEmailRequest {
    *             email that you define, so that you can publish email sending events.</p>
    * @public
    */
-  DefaultEmailTags?: MessageTag[];
+  DefaultEmailTags?: MessageTag[] | undefined;
 
   /**
    * <p>An object that contains the body of the message. You can specify a template
@@ -187,7 +596,13 @@ export interface SendBulkEmailRequest {
    * <p>The name of the configuration set to use when sending the email.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
 }
 
 /**
@@ -226,7 +641,7 @@ export interface SendCustomVerificationEmailRequest {
    * <p>Name of a configuration set to use when sending the verification email.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 }
 
 /**
@@ -239,7 +654,7 @@ export interface SendCustomVerificationEmailResponse {
    *                 <code>SendCustomVerificationEmail</code> operation.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -255,7 +670,7 @@ export interface SendEmailRequest {
    *             </p>
    * @public
    */
-  FromEmailAddress?: string;
+  FromEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -274,26 +689,26 @@ export interface SendEmailRequest {
    *             content.</p>
    * @public
    */
-  FromEmailAddressIdentityArn?: string;
+  FromEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>An object that contains the recipients of the email message.</p>
    * @public
    */
-  Destination?: Destination;
+  Destination?: Destination | undefined;
 
   /**
    * <p>The "Reply-to" email addresses for the message. When the recipient replies to the
    *             message, each Reply-to address receives the reply.</p>
    * @public
    */
-  ReplyToAddresses?: string[];
+  ReplyToAddresses?: string[] | undefined;
 
   /**
    * <p>The address that you want bounce and complaint notifications to be sent to.</p>
    * @public
    */
-  FeedbackForwardingEmailAddress?: string;
+  FeedbackForwardingEmailAddress?: string | undefined;
 
   /**
    * <p>This parameter is used only for sending authorization. It is the ARN of the identity
@@ -310,7 +725,7 @@ export interface SendEmailRequest {
    *                 Guide</a>.</p>
    * @public
    */
-  FeedbackForwardingEmailAddressIdentityArn?: string;
+  FeedbackForwardingEmailAddressIdentityArn?: string | undefined;
 
   /**
    * <p>An object that contains the body of the message. You can send either a Simple message,
@@ -325,20 +740,26 @@ export interface SendEmailRequest {
    *             email that you define, so that you can publish email sending events. </p>
    * @public
    */
-  EmailTags?: MessageTag[];
+  EmailTags?: MessageTag[] | undefined;
 
   /**
    * <p>The name of the configuration set to use when sending the email.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>The ID of the multi-region endpoint (global-endpoint).</p>
+   * @public
+   */
+  EndpointId?: string | undefined;
 
   /**
    * <p>An object used to specify a list or topic to which an email belongs, which will be
    *             used when a contact chooses to unsubscribe.</p>
    * @public
    */
-  ListManagementOptions?: ListManagementOptions;
+  ListManagementOptions?: ListManagementOptions | undefined;
 }
 
 /**
@@ -357,7 +778,7 @@ export interface SendEmailResponse {
    *          </note>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -503,20 +924,20 @@ export interface UpdateContactRequest {
    * <p>The contact's preference for being opted-in to or opted-out of a topic.</p>
    * @public
    */
-  TopicPreferences?: TopicPreference[];
+  TopicPreferences?: TopicPreference[] | undefined;
 
   /**
    * <p>A boolean value status noting if the contact is unsubscribed from all contact list
    *             topics.</p>
    * @public
    */
-  UnsubscribeAll?: boolean;
+  UnsubscribeAll?: boolean | undefined;
 
   /**
    * <p>The attribute data attached to a contact.</p>
    * @public
    */
-  AttributesData?: string;
+  AttributesData?: string | undefined;
 }
 
 /**
@@ -539,13 +960,13 @@ export interface UpdateContactListRequest {
    *             topics.</p>
    * @public
    */
-  Topics?: Topic[];
+  Topics?: Topic[] | undefined;
 
   /**
    * <p>A description of what the contact list is about.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -670,3 +1091,13 @@ export interface UpdateEmailTemplateRequest {
  * @public
  */
 export interface UpdateEmailTemplateResponse {}
+
+/**
+ * @internal
+ */
+export const PutEmailIdentityDkimSigningAttributesRequestFilterSensitiveLog = (
+  obj: PutEmailIdentityDkimSigningAttributesRequest
+): any => ({
+  ...obj,
+  ...(obj.SigningAttributes && { SigningAttributes: DkimSigningAttributesFilterSensitiveLog(obj.SigningAttributes) }),
+});

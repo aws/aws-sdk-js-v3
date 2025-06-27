@@ -12,7 +12,8 @@ import { de_ListImagePipelineImagesCommand, se_ListImagePipelineImagesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,7 +58,7 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * //       name: "STRING_VALUE",
  * //       type: "AMI" || "DOCKER",
  * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       osVersion: "STRING_VALUE",
  * //       state: { // ImageState
  * //         status: "PENDING" || "CREATING" || "BUILDING" || "TESTING" || "DISTRIBUTING" || "INTEGRATING" || "AVAILABLE" || "CANCELLED" || "FAILED" || "DEPRECATED" || "DELETED" || "DISABLED",
@@ -91,7 +92,7 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT" || "IMPORT_ISO",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //       deprecationTime: new Date("TIMESTAMP"),
  * //       lifecycleExecutionId: "STRING_VALUE",
@@ -138,6 +139,7 @@ export interface ListImagePipelineImagesCommandOutput extends ListImagePipelineI
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImagePipelineImagesCommand extends $Command
@@ -148,9 +150,7 @@ export class ListImagePipelineImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +162,16 @@ export class ListImagePipelineImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagePipelineImagesCommand)
   .de(de_ListImagePipelineImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagePipelineImagesRequest;
+      output: ListImagePipelineImagesResponse;
+    };
+    sdk: {
+      input: ListImagePipelineImagesCommandInput;
+      output: ListImagePipelineImagesCommandOutput;
+    };
+  };
+}

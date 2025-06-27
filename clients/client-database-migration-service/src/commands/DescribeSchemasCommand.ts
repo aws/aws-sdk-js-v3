@@ -10,13 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../DatabaseMigrationServiceClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_0";
+import { DescribeSchemasMessage, DescribeSchemasResponse } from "../models/models_1";
 import { de_DescribeSchemasCommand, se_DescribeSchemasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,26 +71,26 @@ export interface DescribeSchemasCommandOutput extends DescribeSchemasResponse, _
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe schemas
  * ```javascript
  * // Returns information about the schema for the specified endpoint.
  * const input = {
- *   "EndpointArn": "",
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   EndpointArn: "",
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeSchemasCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "Schemas": []
+ *   Marker: "",
+ *   Schemas:   []
  * }
  * *\/
- * // example id: describe-schemas-1481755933924
  * ```
  *
+ * @public
  */
 export class DescribeSchemasCommand extends $Command
   .classBuilder<
@@ -99,9 +100,7 @@ export class DescribeSchemasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribeSchemasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSchemasCommand)
   .de(de_DescribeSchemasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSchemasMessage;
+      output: DescribeSchemasResponse;
+    };
+    sdk: {
+      input: DescribeSchemasCommandInput;
+      output: DescribeSchemasCommandOutput;
+    };
+  };
+}

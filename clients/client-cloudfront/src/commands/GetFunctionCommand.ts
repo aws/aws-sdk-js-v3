@@ -13,7 +13,8 @@ import { de_GetFunctionCommand, se_GetFunctionCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,10 +36,7 @@ export type GetFunctionCommandOutputType = Omit<GetFunctionResult, "FunctionCode
 export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, __MetadataBearer {}
 
 /**
- * <p>Gets the code of a CloudFront function. To get configuration information and metadata about
- * 			a function, use <code>DescribeFunction</code>.</p>
- *          <p>To get a function's code, you must provide the function's name and stage. To get these
- * 			values, you can use <code>ListFunctions</code>.</p>
+ * <p>Gets the code of a CloudFront function. To get configuration information and metadata about a function, use <code>DescribeFunction</code>.</p> <p>To get a function's code, you must provide the function's name and stage. To get these values, you can use <code>ListFunctions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,10 +67,11 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  *  <p>The function does not exist.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +83,7 @@ export class GetFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +95,16 @@ export class GetFunctionCommand extends $Command
   .f(void 0, GetFunctionResultFilterSensitiveLog)
   .ser(se_GetFunctionCommand)
   .de(de_GetFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionRequest;
+      output: GetFunctionResult;
+    };
+    sdk: {
+      input: GetFunctionCommandInput;
+      output: GetFunctionCommandOutput;
+    };
+  };
+}

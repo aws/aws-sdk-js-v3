@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,13 +54,13 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * //       Description: "STRING_VALUE",
  * //       ImageId: "STRING_VALUE",
  * //       RootStorage: { // RootStorage
- * //         Capacity: "STRING_VALUE",
+ * //         Capacity: "STRING_VALUE", // required
  * //       },
  * //       UserStorage: { // UserStorage
- * //         Capacity: "STRING_VALUE",
+ * //         Capacity: "STRING_VALUE", // required
  * //       },
  * //       ComputeType: { // ComputeType
- * //         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         Name: "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //       },
  * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //       CreationTime: new Date("TIMESTAMP"),
@@ -84,6 +85,7 @@ export interface DescribeWorkspaceBundlesCommandOutput extends DescribeWorkspace
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeWorkspaceBundlesCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeWorkspaceBundlesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeWorkspaceBundlesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeWorkspaceBundlesCommand)
   .de(de_DescribeWorkspaceBundlesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeWorkspaceBundlesRequest;
+      output: DescribeWorkspaceBundlesResult;
+    };
+    sdk: {
+      input: DescribeWorkspaceBundlesCommandInput;
+      output: DescribeWorkspaceBundlesCommandOutput;
+    };
+  };
+}

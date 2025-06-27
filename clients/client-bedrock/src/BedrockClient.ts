@@ -54,59 +54,154 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import {
+  BatchDeleteEvaluationJobCommandInput,
+  BatchDeleteEvaluationJobCommandOutput,
+} from "./commands/BatchDeleteEvaluationJobCommand";
+import { CreateCustomModelCommandInput, CreateCustomModelCommandOutput } from "./commands/CreateCustomModelCommand";
+import {
   CreateEvaluationJobCommandInput,
   CreateEvaluationJobCommandOutput,
 } from "./commands/CreateEvaluationJobCommand";
+import {
+  CreateFoundationModelAgreementCommandInput,
+  CreateFoundationModelAgreementCommandOutput,
+} from "./commands/CreateFoundationModelAgreementCommand";
 import { CreateGuardrailCommandInput, CreateGuardrailCommandOutput } from "./commands/CreateGuardrailCommand";
 import {
   CreateGuardrailVersionCommandInput,
   CreateGuardrailVersionCommandOutput,
 } from "./commands/CreateGuardrailVersionCommand";
 import {
+  CreateInferenceProfileCommandInput,
+  CreateInferenceProfileCommandOutput,
+} from "./commands/CreateInferenceProfileCommand";
+import {
+  CreateMarketplaceModelEndpointCommandInput,
+  CreateMarketplaceModelEndpointCommandOutput,
+} from "./commands/CreateMarketplaceModelEndpointCommand";
+import { CreateModelCopyJobCommandInput, CreateModelCopyJobCommandOutput } from "./commands/CreateModelCopyJobCommand";
+import {
   CreateModelCustomizationJobCommandInput,
   CreateModelCustomizationJobCommandOutput,
 } from "./commands/CreateModelCustomizationJobCommand";
+import {
+  CreateModelImportJobCommandInput,
+  CreateModelImportJobCommandOutput,
+} from "./commands/CreateModelImportJobCommand";
+import {
+  CreateModelInvocationJobCommandInput,
+  CreateModelInvocationJobCommandOutput,
+} from "./commands/CreateModelInvocationJobCommand";
+import { CreatePromptRouterCommandInput, CreatePromptRouterCommandOutput } from "./commands/CreatePromptRouterCommand";
 import {
   CreateProvisionedModelThroughputCommandInput,
   CreateProvisionedModelThroughputCommandOutput,
 } from "./commands/CreateProvisionedModelThroughputCommand";
 import { DeleteCustomModelCommandInput, DeleteCustomModelCommandOutput } from "./commands/DeleteCustomModelCommand";
+import {
+  DeleteFoundationModelAgreementCommandInput,
+  DeleteFoundationModelAgreementCommandOutput,
+} from "./commands/DeleteFoundationModelAgreementCommand";
 import { DeleteGuardrailCommandInput, DeleteGuardrailCommandOutput } from "./commands/DeleteGuardrailCommand";
+import {
+  DeleteImportedModelCommandInput,
+  DeleteImportedModelCommandOutput,
+} from "./commands/DeleteImportedModelCommand";
+import {
+  DeleteInferenceProfileCommandInput,
+  DeleteInferenceProfileCommandOutput,
+} from "./commands/DeleteInferenceProfileCommand";
+import {
+  DeleteMarketplaceModelEndpointCommandInput,
+  DeleteMarketplaceModelEndpointCommandOutput,
+} from "./commands/DeleteMarketplaceModelEndpointCommand";
 import {
   DeleteModelInvocationLoggingConfigurationCommandInput,
   DeleteModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/DeleteModelInvocationLoggingConfigurationCommand";
+import { DeletePromptRouterCommandInput, DeletePromptRouterCommandOutput } from "./commands/DeletePromptRouterCommand";
 import {
   DeleteProvisionedModelThroughputCommandInput,
   DeleteProvisionedModelThroughputCommandOutput,
 } from "./commands/DeleteProvisionedModelThroughputCommand";
+import {
+  DeregisterMarketplaceModelEndpointCommandInput,
+  DeregisterMarketplaceModelEndpointCommandOutput,
+} from "./commands/DeregisterMarketplaceModelEndpointCommand";
 import { GetCustomModelCommandInput, GetCustomModelCommandOutput } from "./commands/GetCustomModelCommand";
 import { GetEvaluationJobCommandInput, GetEvaluationJobCommandOutput } from "./commands/GetEvaluationJobCommand";
+import {
+  GetFoundationModelAvailabilityCommandInput,
+  GetFoundationModelAvailabilityCommandOutput,
+} from "./commands/GetFoundationModelAvailabilityCommand";
 import { GetFoundationModelCommandInput, GetFoundationModelCommandOutput } from "./commands/GetFoundationModelCommand";
 import { GetGuardrailCommandInput, GetGuardrailCommandOutput } from "./commands/GetGuardrailCommand";
+import { GetImportedModelCommandInput, GetImportedModelCommandOutput } from "./commands/GetImportedModelCommand";
+import {
+  GetInferenceProfileCommandInput,
+  GetInferenceProfileCommandOutput,
+} from "./commands/GetInferenceProfileCommand";
+import {
+  GetMarketplaceModelEndpointCommandInput,
+  GetMarketplaceModelEndpointCommandOutput,
+} from "./commands/GetMarketplaceModelEndpointCommand";
+import { GetModelCopyJobCommandInput, GetModelCopyJobCommandOutput } from "./commands/GetModelCopyJobCommand";
 import {
   GetModelCustomizationJobCommandInput,
   GetModelCustomizationJobCommandOutput,
 } from "./commands/GetModelCustomizationJobCommand";
+import { GetModelImportJobCommandInput, GetModelImportJobCommandOutput } from "./commands/GetModelImportJobCommand";
+import {
+  GetModelInvocationJobCommandInput,
+  GetModelInvocationJobCommandOutput,
+} from "./commands/GetModelInvocationJobCommand";
 import {
   GetModelInvocationLoggingConfigurationCommandInput,
   GetModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/GetModelInvocationLoggingConfigurationCommand";
+import { GetPromptRouterCommandInput, GetPromptRouterCommandOutput } from "./commands/GetPromptRouterCommand";
 import {
   GetProvisionedModelThroughputCommandInput,
   GetProvisionedModelThroughputCommandOutput,
 } from "./commands/GetProvisionedModelThroughputCommand";
+import {
+  GetUseCaseForModelAccessCommandInput,
+  GetUseCaseForModelAccessCommandOutput,
+} from "./commands/GetUseCaseForModelAccessCommand";
 import { ListCustomModelsCommandInput, ListCustomModelsCommandOutput } from "./commands/ListCustomModelsCommand";
 import { ListEvaluationJobsCommandInput, ListEvaluationJobsCommandOutput } from "./commands/ListEvaluationJobsCommand";
+import {
+  ListFoundationModelAgreementOffersCommandInput,
+  ListFoundationModelAgreementOffersCommandOutput,
+} from "./commands/ListFoundationModelAgreementOffersCommand";
 import {
   ListFoundationModelsCommandInput,
   ListFoundationModelsCommandOutput,
 } from "./commands/ListFoundationModelsCommand";
 import { ListGuardrailsCommandInput, ListGuardrailsCommandOutput } from "./commands/ListGuardrailsCommand";
+import { ListImportedModelsCommandInput, ListImportedModelsCommandOutput } from "./commands/ListImportedModelsCommand";
+import {
+  ListInferenceProfilesCommandInput,
+  ListInferenceProfilesCommandOutput,
+} from "./commands/ListInferenceProfilesCommand";
+import {
+  ListMarketplaceModelEndpointsCommandInput,
+  ListMarketplaceModelEndpointsCommandOutput,
+} from "./commands/ListMarketplaceModelEndpointsCommand";
+import { ListModelCopyJobsCommandInput, ListModelCopyJobsCommandOutput } from "./commands/ListModelCopyJobsCommand";
 import {
   ListModelCustomizationJobsCommandInput,
   ListModelCustomizationJobsCommandOutput,
 } from "./commands/ListModelCustomizationJobsCommand";
+import {
+  ListModelImportJobsCommandInput,
+  ListModelImportJobsCommandOutput,
+} from "./commands/ListModelImportJobsCommand";
+import {
+  ListModelInvocationJobsCommandInput,
+  ListModelInvocationJobsCommandOutput,
+} from "./commands/ListModelInvocationJobsCommand";
+import { ListPromptRoutersCommandInput, ListPromptRoutersCommandOutput } from "./commands/ListPromptRoutersCommand";
 import {
   ListProvisionedModelThroughputsCommandInput,
   ListProvisionedModelThroughputsCommandOutput,
@@ -119,14 +214,30 @@ import {
   PutModelInvocationLoggingConfigurationCommandInput,
   PutModelInvocationLoggingConfigurationCommandOutput,
 } from "./commands/PutModelInvocationLoggingConfigurationCommand";
+import {
+  PutUseCaseForModelAccessCommandInput,
+  PutUseCaseForModelAccessCommandOutput,
+} from "./commands/PutUseCaseForModelAccessCommand";
+import {
+  RegisterMarketplaceModelEndpointCommandInput,
+  RegisterMarketplaceModelEndpointCommandOutput,
+} from "./commands/RegisterMarketplaceModelEndpointCommand";
 import { StopEvaluationJobCommandInput, StopEvaluationJobCommandOutput } from "./commands/StopEvaluationJobCommand";
 import {
   StopModelCustomizationJobCommandInput,
   StopModelCustomizationJobCommandOutput,
 } from "./commands/StopModelCustomizationJobCommand";
+import {
+  StopModelInvocationJobCommandInput,
+  StopModelInvocationJobCommandOutput,
+} from "./commands/StopModelInvocationJobCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGuardrailCommandInput, UpdateGuardrailCommandOutput } from "./commands/UpdateGuardrailCommand";
+import {
+  UpdateMarketplaceModelEndpointCommandInput,
+  UpdateMarketplaceModelEndpointCommandOutput,
+} from "./commands/UpdateMarketplaceModelEndpointCommand";
 import {
   UpdateProvisionedModelThroughputCommandInput,
   UpdateProvisionedModelThroughputCommandOutput,
@@ -146,70 +257,142 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | BatchDeleteEvaluationJobCommandInput
+  | CreateCustomModelCommandInput
   | CreateEvaluationJobCommandInput
+  | CreateFoundationModelAgreementCommandInput
   | CreateGuardrailCommandInput
   | CreateGuardrailVersionCommandInput
+  | CreateInferenceProfileCommandInput
+  | CreateMarketplaceModelEndpointCommandInput
+  | CreateModelCopyJobCommandInput
   | CreateModelCustomizationJobCommandInput
+  | CreateModelImportJobCommandInput
+  | CreateModelInvocationJobCommandInput
+  | CreatePromptRouterCommandInput
   | CreateProvisionedModelThroughputCommandInput
   | DeleteCustomModelCommandInput
+  | DeleteFoundationModelAgreementCommandInput
   | DeleteGuardrailCommandInput
+  | DeleteImportedModelCommandInput
+  | DeleteInferenceProfileCommandInput
+  | DeleteMarketplaceModelEndpointCommandInput
   | DeleteModelInvocationLoggingConfigurationCommandInput
+  | DeletePromptRouterCommandInput
   | DeleteProvisionedModelThroughputCommandInput
+  | DeregisterMarketplaceModelEndpointCommandInput
   | GetCustomModelCommandInput
   | GetEvaluationJobCommandInput
+  | GetFoundationModelAvailabilityCommandInput
   | GetFoundationModelCommandInput
   | GetGuardrailCommandInput
+  | GetImportedModelCommandInput
+  | GetInferenceProfileCommandInput
+  | GetMarketplaceModelEndpointCommandInput
+  | GetModelCopyJobCommandInput
   | GetModelCustomizationJobCommandInput
+  | GetModelImportJobCommandInput
+  | GetModelInvocationJobCommandInput
   | GetModelInvocationLoggingConfigurationCommandInput
+  | GetPromptRouterCommandInput
   | GetProvisionedModelThroughputCommandInput
+  | GetUseCaseForModelAccessCommandInput
   | ListCustomModelsCommandInput
   | ListEvaluationJobsCommandInput
+  | ListFoundationModelAgreementOffersCommandInput
   | ListFoundationModelsCommandInput
   | ListGuardrailsCommandInput
+  | ListImportedModelsCommandInput
+  | ListInferenceProfilesCommandInput
+  | ListMarketplaceModelEndpointsCommandInput
+  | ListModelCopyJobsCommandInput
   | ListModelCustomizationJobsCommandInput
+  | ListModelImportJobsCommandInput
+  | ListModelInvocationJobsCommandInput
+  | ListPromptRoutersCommandInput
   | ListProvisionedModelThroughputsCommandInput
   | ListTagsForResourceCommandInput
   | PutModelInvocationLoggingConfigurationCommandInput
+  | PutUseCaseForModelAccessCommandInput
+  | RegisterMarketplaceModelEndpointCommandInput
   | StopEvaluationJobCommandInput
   | StopModelCustomizationJobCommandInput
+  | StopModelInvocationJobCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGuardrailCommandInput
+  | UpdateMarketplaceModelEndpointCommandInput
   | UpdateProvisionedModelThroughputCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
+  | BatchDeleteEvaluationJobCommandOutput
+  | CreateCustomModelCommandOutput
   | CreateEvaluationJobCommandOutput
+  | CreateFoundationModelAgreementCommandOutput
   | CreateGuardrailCommandOutput
   | CreateGuardrailVersionCommandOutput
+  | CreateInferenceProfileCommandOutput
+  | CreateMarketplaceModelEndpointCommandOutput
+  | CreateModelCopyJobCommandOutput
   | CreateModelCustomizationJobCommandOutput
+  | CreateModelImportJobCommandOutput
+  | CreateModelInvocationJobCommandOutput
+  | CreatePromptRouterCommandOutput
   | CreateProvisionedModelThroughputCommandOutput
   | DeleteCustomModelCommandOutput
+  | DeleteFoundationModelAgreementCommandOutput
   | DeleteGuardrailCommandOutput
+  | DeleteImportedModelCommandOutput
+  | DeleteInferenceProfileCommandOutput
+  | DeleteMarketplaceModelEndpointCommandOutput
   | DeleteModelInvocationLoggingConfigurationCommandOutput
+  | DeletePromptRouterCommandOutput
   | DeleteProvisionedModelThroughputCommandOutput
+  | DeregisterMarketplaceModelEndpointCommandOutput
   | GetCustomModelCommandOutput
   | GetEvaluationJobCommandOutput
+  | GetFoundationModelAvailabilityCommandOutput
   | GetFoundationModelCommandOutput
   | GetGuardrailCommandOutput
+  | GetImportedModelCommandOutput
+  | GetInferenceProfileCommandOutput
+  | GetMarketplaceModelEndpointCommandOutput
+  | GetModelCopyJobCommandOutput
   | GetModelCustomizationJobCommandOutput
+  | GetModelImportJobCommandOutput
+  | GetModelInvocationJobCommandOutput
   | GetModelInvocationLoggingConfigurationCommandOutput
+  | GetPromptRouterCommandOutput
   | GetProvisionedModelThroughputCommandOutput
+  | GetUseCaseForModelAccessCommandOutput
   | ListCustomModelsCommandOutput
   | ListEvaluationJobsCommandOutput
+  | ListFoundationModelAgreementOffersCommandOutput
   | ListFoundationModelsCommandOutput
   | ListGuardrailsCommandOutput
+  | ListImportedModelsCommandOutput
+  | ListInferenceProfilesCommandOutput
+  | ListMarketplaceModelEndpointsCommandOutput
+  | ListModelCopyJobsCommandOutput
   | ListModelCustomizationJobsCommandOutput
+  | ListModelImportJobsCommandOutput
+  | ListModelInvocationJobsCommandOutput
+  | ListPromptRoutersCommandOutput
   | ListProvisionedModelThroughputsCommandOutput
   | ListTagsForResourceCommandOutput
   | PutModelInvocationLoggingConfigurationCommandOutput
+  | PutUseCaseForModelAccessCommandOutput
+  | RegisterMarketplaceModelEndpointCommandOutput
   | StopEvaluationJobCommandOutput
   | StopModelCustomizationJobCommandOutput
+  | StopModelInvocationJobCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGuardrailCommandOutput
+  | UpdateMarketplaceModelEndpointCommandOutput
   | UpdateProvisionedModelThroughputCommandOutput;
 
 /**
@@ -304,6 +487,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -349,11 +551,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type BedrockClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -369,11 +571,11 @@ export interface BedrockClientConfig extends BedrockClientConfigType {}
 export type BedrockClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -400,26 +602,30 @@ export class BedrockClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<BedrockClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultBedrockHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: BedrockClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -432,14 +638,5 @@ export class BedrockClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultBedrockHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: BedrockClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,24 +102,24 @@ export interface CancelRotateSecretCommandOutput extends CancelRotateSecretRespo
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To cancel scheduled rotation for a secret
  * ```javascript
  * // The following example shows how to cancel rotation for a secret. The operation sets the RotationEnabled field to false and cancels all scheduled rotations. To resume scheduled rotations, you must re-enable rotation by calling the rotate-secret operation.
  * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new CancelRotateSecretCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "Name"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "Name"
  * }
  * *\/
- * // example id: to-cancel-scheduled-rotation-for-a-secret-1523996016032
  * ```
  *
+ * @public
  */
 export class CancelRotateSecretCommand extends $Command
   .classBuilder<
@@ -128,9 +129,7 @@ export class CancelRotateSecretCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +141,16 @@ export class CancelRotateSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelRotateSecretCommand)
   .de(de_CancelRotateSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelRotateSecretRequest;
+      output: CancelRotateSecretResponse;
+    };
+    sdk: {
+      input: CancelRotateSecretCommandInput;
+      output: CancelRotateSecretCommandOutput;
+    };
+  };
+}

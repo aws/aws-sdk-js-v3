@@ -1876,6 +1876,7 @@ const de_Geometry = (output: any, context: __SerdeContext): Geometry => {
   return take(output, {
     BoundingBox: (_: any) => de_BoundingBox(_, context),
     Polygon: (_: any) => de_Polygon(_, context),
+    RotationAngle: __limitedParseFloat32,
   }) as any;
 };
 
@@ -1983,7 +1984,7 @@ const de_GetLendingAnalysisResponse = (output: any, context: __SerdeContext): Ge
  */
 const de_HumanLoopActivationOutput = (output: any, context: __SerdeContext): HumanLoopActivationOutput => {
   return take(output, {
-    HumanLoopActivationConditionsEvaluationResults: (_: any) => new __LazyJsonString(_),
+    HumanLoopActivationConditionsEvaluationResults: __LazyJsonString.from,
     HumanLoopActivationReasons: _json,
     HumanLoopArn: __expectString,
   }) as any;

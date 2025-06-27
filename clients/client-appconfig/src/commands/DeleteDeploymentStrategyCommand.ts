@@ -12,7 +12,8 @@ import { de_DeleteDeploymentStrategyCommand, se_DeleteDeploymentStrategyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteDeploymentStrategyCommandInput extends DeleteDeploymentSt
 export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a deployment strategy. Deleting a deployment strategy does not delete a
- *          configuration from a host.</p>
+ * <p>Deletes a deployment strategy.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,18 +62,21 @@ export interface DeleteDeploymentStrategyCommandOutput extends __MetadataBearer 
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To delete a deployment strategy
  * ```javascript
  * // The following delete-deployment-strategy example deletes the specified deployment strategy.
  * const input = {
- *   "DeploymentStrategyId": "1225qzk"
+ *   DeploymentStrategyId: "1225qzk"
  * };
  * const command = new DeleteDeploymentStrategyCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-deployment-strategy-1632265473708
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteDeploymentStrategyCommand extends $Command
   .classBuilder<
@@ -83,9 +86,7 @@ export class DeleteDeploymentStrategyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +98,16 @@ export class DeleteDeploymentStrategyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDeploymentStrategyCommand)
   .de(de_DeleteDeploymentStrategyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDeploymentStrategyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDeploymentStrategyCommandInput;
+      output: DeleteDeploymentStrategyCommandOutput;
+    };
+  };
+}

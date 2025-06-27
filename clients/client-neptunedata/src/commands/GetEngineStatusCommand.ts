@@ -12,7 +12,8 @@ import { de_GetEngineStatusCommand, se_GetEngineStatusCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface GetEngineStatusCommandOutput extends GetEngineStatusOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetEngineStatusCommand extends $Command
@@ -114,9 +116,7 @@ export class GetEngineStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetEngineStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEngineStatusCommand)
   .de(de_GetEngineStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetEngineStatusOutput;
+    };
+    sdk: {
+      input: GetEngineStatusCommandInput;
+      output: GetEngineStatusCommandOutput;
+    };
+  };
+}

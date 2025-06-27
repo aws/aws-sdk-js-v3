@@ -12,7 +12,8 @@ import { de_DeleteModelCommand, se_DeleteModelCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class DeleteModelCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelCommand)
   .de(de_DeleteModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelCommandInput;
+      output: DeleteModelCommandOutput;
+    };
+  };
+}

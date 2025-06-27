@@ -17,7 +17,8 @@ import { de_StartMatchmakingCommand, se_StartMatchmakingCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
 
 /**
  * <p>Uses FlexMatch to create a game match for a group of players based on custom matchmaking
- *             rules. With games that use Amazon GameLift managed hosting, this operation also triggers Amazon GameLift
+ *             rules. With games that use Amazon GameLift Servers managed hosting, this operation also triggers Amazon GameLift Servers
  *             to find hosting resources and start a new game session for the new match. Each
  *             matchmaking request includes information on one or more players and specifies the
  *             FlexMatch matchmaker to use. When a request is for multiple players, FlexMatch attempts to
@@ -60,7 +61,7 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *          </p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/flexmatchguide/gamelift-match.html">
- *                 How Amazon GameLift FlexMatch works</a>
+ *                 How Amazon GameLift Servers FlexMatch works</a>
  *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -159,13 +160,14 @@ export interface StartMatchmakingCommandOutput extends StartMatchmakingOutput, _
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnsupportedRegionException} (client fault)
  *  <p>The requested operation is not supported in the Region specified.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -177,9 +179,7 @@ export class StartMatchmakingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +191,16 @@ export class StartMatchmakingCommand extends $Command
   .f(StartMatchmakingInputFilterSensitiveLog, StartMatchmakingOutputFilterSensitiveLog)
   .ser(se_StartMatchmakingCommand)
   .de(de_StartMatchmakingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMatchmakingInput;
+      output: StartMatchmakingOutput;
+    };
+    sdk: {
+      input: StartMatchmakingCommandInput;
+      output: StartMatchmakingCommandOutput;
+    };
+  };
+}

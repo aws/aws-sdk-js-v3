@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * <p>Creates a data feed for Spot Instances, enabling you to view Spot Instance usage logs.
  *             You can create one data feed per Amazon Web Services account. For more information, see
  *             <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot Instance data feed</a>
- *             in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *             in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,8 +44,8 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * // const { EC2Client, CreateSpotDatafeedSubscriptionCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateSpotDatafeedSubscriptionRequest
- *   Bucket: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   Bucket: "STRING_VALUE", // required
  *   Prefix: "STRING_VALUE",
  * };
  * const command = new CreateSpotDatafeedSubscriptionCommand(input);
@@ -73,29 +74,29 @@ export interface CreateSpotDatafeedSubscriptionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a Spot Instance datafeed
  * ```javascript
  * // This example creates a Spot Instance data feed for your AWS account.
  * const input = {
- *   "Bucket": "my-s3-bucket",
- *   "Prefix": "spotdata"
+ *   Bucket: "my-s3-bucket",
+ *   Prefix: "spotdata"
  * };
  * const command = new CreateSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotDatafeedSubscription": {
- *     "Bucket": "my-s3-bucket",
- *     "OwnerId": "123456789012",
- *     "Prefix": "spotdata",
- *     "State": "Active"
+ *   SpotDatafeedSubscription: {
+ *     Bucket: "my-s3-bucket",
+ *     OwnerId: "123456789012",
+ *     Prefix: "spotdata",
+ *     State: "Active"
  *   }
  * }
  * *\/
- * // example id: ec2-create-spot-datafeed-subscription-1
  * ```
  *
+ * @public
  */
 export class CreateSpotDatafeedSubscriptionCommand extends $Command
   .classBuilder<
@@ -105,9 +106,7 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class CreateSpotDatafeedSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSpotDatafeedSubscriptionCommand)
   .de(de_CreateSpotDatafeedSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSpotDatafeedSubscriptionRequest;
+      output: CreateSpotDatafeedSubscriptionResult;
+    };
+    sdk: {
+      input: CreateSpotDatafeedSubscriptionCommandInput;
+      output: CreateSpotDatafeedSubscriptionCommandOutput;
+    };
+  };
+}

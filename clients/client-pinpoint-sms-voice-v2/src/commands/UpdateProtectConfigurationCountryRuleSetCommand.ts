@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,7 +41,7 @@ export interface UpdateProtectConfigurationCountryRuleSetCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Update a country rule set to <code>ALLOW</code> or <code>BLOCK</code> messages to be sent to the specified destination counties. You can update one or multiple countries at a time. The updates are only applied to the specified NumberCapability type.</p>
+ * <p>Update a country rule set to <code>ALLOW</code>, <code>BLOCK</code>, <code>MONITOR</code>, or <code>FILTER</code> messages to be sent to the specified destination counties. You can update one or multiple countries at a time. The updates are only applied to the specified NumberCapability type.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,25 +79,23 @@ export interface UpdateProtectConfigurationCountryRuleSetCommandOutput
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -108,9 +107,7 @@ export class UpdateProtectConfigurationCountryRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +119,16 @@ export class UpdateProtectConfigurationCountryRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProtectConfigurationCountryRuleSetCommand)
   .de(de_UpdateProtectConfigurationCountryRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProtectConfigurationCountryRuleSetRequest;
+      output: UpdateProtectConfigurationCountryRuleSetResult;
+    };
+    sdk: {
+      input: UpdateProtectConfigurationCountryRuleSetCommandInput;
+      output: UpdateProtectConfigurationCountryRuleSetCommandOutput;
+    };
+  };
+}

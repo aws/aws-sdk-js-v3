@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,7 +50,7 @@ export interface ListPackageVersionDependenciesCommandOutput
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -58,7 +59,7 @@ export interface ListPackageVersionDependenciesCommandOutput
  * const command = new ListPackageVersionDependenciesCommand(input);
  * const response = await client.send(command);
  * // { // ListPackageVersionDependenciesResult
- * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //   namespace: "STRING_VALUE",
  * //   package: "STRING_VALUE",
  * //   version: "STRING_VALUE",
@@ -108,6 +109,7 @@ export interface ListPackageVersionDependenciesCommandOutput
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackageVersionDependenciesCommand extends $Command
@@ -118,9 +120,7 @@ export class ListPackageVersionDependenciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +132,16 @@ export class ListPackageVersionDependenciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackageVersionDependenciesCommand)
   .de(de_ListPackageVersionDependenciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackageVersionDependenciesRequest;
+      output: ListPackageVersionDependenciesResult;
+    };
+    sdk: {
+      input: ListPackageVersionDependenciesCommandInput;
+      output: ListPackageVersionDependenciesCommandOutput;
+    };
+  };
+}

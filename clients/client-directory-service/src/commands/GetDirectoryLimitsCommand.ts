@@ -12,7 +12,8 @@ import { de_GetDirectoryLimitsCommand, se_GetDirectoryLimitsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,30 @@ export interface GetDirectoryLimitsCommandOutput extends GetDirectoryLimitsResul
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To get directory limits
+ * ```javascript
+ * // The following example obtains directory limit information for the current region.
+ * const input = { /* empty *\/ };
+ * const command = new GetDirectoryLimitsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryLimits: {
+ *     CloudOnlyDirectoriesCurrentCount: 2,
+ *     CloudOnlyDirectoriesLimit: 10,
+ *     CloudOnlyDirectoriesLimitReached: false,
+ *     CloudOnlyMicrosoftADCurrentCount: 2,
+ *     CloudOnlyMicrosoftADLimit: 10,
+ *     CloudOnlyMicrosoftADLimitReached: false,
+ *     ConnectedDirectoriesCurrentCount: 1,
+ *     ConnectedDirectoriesLimit: 10,
+ *     ConnectedDirectoriesLimitReached: false
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetDirectoryLimitsCommand extends $Command
@@ -81,9 +106,7 @@ export class GetDirectoryLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +118,16 @@ export class GetDirectoryLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDirectoryLimitsCommand)
   .de(de_GetDirectoryLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDirectoryLimitsResult;
+    };
+    sdk: {
+      input: GetDirectoryLimitsCommandInput;
+      output: GetDirectoryLimitsCommandOutput;
+    };
+  };
+}

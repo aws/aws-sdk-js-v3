@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TrustedAdvisorClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,142 @@ export interface ListOrganizationRecommendationsCommandOutput
  * @throws {@link TrustedAdvisorServiceException}
  * <p>Base exception class for all service exceptions from TrustedAdvisor service.</p>
  *
+ *
+ * @example List all of an AWS Organization's Recommendations
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListOrganizationRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nextToken: "<REDACTED>",
+ *   organizationRecommendationSummaries: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor:::organization-recommendation/9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *       awsServices: [
+ *         "lambda"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/L4dfs2Q4C5",
+ *       id: "9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *       lifecycleStage: "resolved",
+ *       name: "Lambda Runtime Deprecation Warning",
+ *       pillars: [
+ *         "security"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 0,
+ *         okCount: 0,
+ *         warningCount: 0
+ *       },
+ *       source: "ta_check",
+ *       status: "warning",
+ *       type: "priority"
+ *     },
+ *     {
+ *       arn: "arn:aws:trustedadvisor:::organization-recommendation/4ecff4d4-1bc1-4c99-a5b8-0fff9ee500d6",
+ *       awsServices: [
+ *         "lambda"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/L4dfs2Q4C5",
+ *       id: "4ecff4d4-1bc1-4c99-a5b8-0fff9ee500d6",
+ *       lifecycleStage: "resolved",
+ *       name: "Lambda Runtime Deprecation Warning",
+ *       pillars: [
+ *         "security"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 0,
+ *         okCount: 0,
+ *         warningCount: 0
+ *       },
+ *       source: "ta_check",
+ *       status: "warning",
+ *       type: "priority"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example Filter and return a max of one AWS Organization Recommendation that is a part of the "security" pillar
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 100,
+ *   pillar: "security"
+ * };
+ * const command = new ListOrganizationRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   nextToken: "<REDACTED>",
+ *   organizationRecommendationSummaries: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor:::organization-recommendation/9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *       awsServices: [
+ *         "lambda"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/L4dfs2Q4C5",
+ *       id: "9534ec9b-bf3a-44e8-8213-2ed68b39d9d5",
+ *       lifecycleStage: "resolved",
+ *       name: "Lambda Runtime Deprecation Warning",
+ *       pillars: [
+ *         "security"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 0,
+ *         okCount: 0,
+ *         warningCount: 0
+ *       },
+ *       source: "ta_check",
+ *       status: "warning",
+ *       type: "priority"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example Use the "nextToken" returned from a previous request to fetch the next page of filtered AWS Organization Recommendations that are a part of the "security" pillar
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 100,
+ *   nextToken: "<REDACTED>",
+ *   pillar: "security"
+ * };
+ * const command = new ListOrganizationRecommendationsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   organizationRecommendationSummaries: [
+ *     {
+ *       arn: "arn:aws:trustedadvisor:::organization-recommendation/4ecff4d4-1bc1-4c99-a5b8-0fff9ee500d6",
+ *       awsServices: [
+ *         "lambda"
+ *       ],
+ *       checkArn: "arn:aws:trustedadvisor:::check/L4dfs2Q4C5",
+ *       id: "4ecff4d4-1bc1-4c99-a5b8-0fff9ee500d6",
+ *       lifecycleStage: "resolved",
+ *       name: "Lambda Runtime Deprecation Warning",
+ *       pillars: [
+ *         "security"
+ *       ],
+ *       resourcesAggregates: {
+ *         errorCount: 0,
+ *         okCount: 0,
+ *         warningCount: 0
+ *       },
+ *       source: "ta_check",
+ *       status: "warning",
+ *       type: "priority"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListOrganizationRecommendationsCommand extends $Command
@@ -123,9 +260,7 @@ export class ListOrganizationRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TrustedAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +272,16 @@ export class ListOrganizationRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationRecommendationsCommand)
   .de(de_ListOrganizationRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationRecommendationsRequest;
+      output: ListOrganizationRecommendationsResponse;
+    };
+    sdk: {
+      input: ListOrganizationRecommendationsCommandInput;
+      output: ListOrganizationRecommendationsCommandOutput;
+    };
+  };
+}

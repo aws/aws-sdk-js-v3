@@ -2372,6 +2372,8 @@ const de_PutResourceSetResponse = (output: any, context: __SerdeContext): PutRes
 
 // de_Resource omitted.
 
+// de_ResourceArnList omitted.
+
 // de_ResourceIdList omitted.
 
 // de_ResourceList omitted.
@@ -2455,6 +2457,8 @@ const de_ResourceViolation = (output: any, context: __SerdeContext): ResourceVio
     ThirdPartyFirewallMissingExpectedRouteTableViolation: _json,
     ThirdPartyFirewallMissingFirewallViolation: _json,
     ThirdPartyFirewallMissingSubnetViolation: _json,
+    WebACLHasIncompatibleConfigurationViolation: _json,
+    WebACLHasOutOfScopeResourcesViolation: _json,
   }) as any;
 };
 
@@ -2532,6 +2536,10 @@ const de_ViolationDetail = (output: any, context: __SerdeContext): ViolationDeta
     ResourceViolations: (_: any) => de_ResourceViolations(_, context),
   }) as any;
 };
+
+// de_WebACLHasIncompatibleConfigurationViolation omitted.
+
+// de_WebACLHasOutOfScopeResourcesViolation omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

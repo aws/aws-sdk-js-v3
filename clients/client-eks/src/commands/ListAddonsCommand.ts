@@ -12,7 +12,8 @@ import { de_ListAddonsCommand, se_ListAddonsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,13 +73,15 @@ export interface ListAddonsCommandOutput extends ListAddonsResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
+ *
  *
  * @public
  */
@@ -90,9 +93,7 @@ export class ListAddonsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +105,16 @@ export class ListAddonsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAddonsCommand)
   .de(de_ListAddonsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAddonsRequest;
+      output: ListAddonsResponse;
+    };
+    sdk: {
+      input: ListAddonsCommandInput;
+      output: ListAddonsCommandOutput;
+    };
+  };
+}

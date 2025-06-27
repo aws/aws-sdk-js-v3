@@ -12,7 +12,8 @@ import { de_GetLoggingOptionsCommand, se_GetLoggingOptionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface GetLoggingOptionsCommandOutput extends GetLoggingOptionsRespons
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class GetLoggingOptionsCommand extends $Command
@@ -74,9 +76,7 @@ export class GetLoggingOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class GetLoggingOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoggingOptionsCommand)
   .de(de_GetLoggingOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetLoggingOptionsResponse;
+    };
+    sdk: {
+      input: GetLoggingOptionsCommandInput;
+      output: GetLoggingOptionsCommandOutput;
+    };
+  };
+}

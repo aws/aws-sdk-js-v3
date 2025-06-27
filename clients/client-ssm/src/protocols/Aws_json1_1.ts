@@ -1,5 +1,10 @@
 // smithy-typescript generated code
-import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
+import {
+  awsExpectUnion as __expectUnion,
+  loadRestJsonErrorCode,
+  parseJsonBody as parseBody,
+  parseJsonErrorBody as parseErrorBody,
+} from "@aws-sdk/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
   _json,
@@ -218,6 +223,7 @@ import {
   DisassociateOpsItemRelatedItemCommandInput,
   DisassociateOpsItemRelatedItemCommandOutput,
 } from "../commands/DisassociateOpsItemRelatedItemCommand";
+import { GetAccessTokenCommandInput, GetAccessTokenCommandOutput } from "../commands/GetAccessTokenCommand";
 import {
   GetAutomationExecutionCommandInput,
   GetAutomationExecutionCommandOutput,
@@ -240,6 +246,10 @@ import {
   GetDeployablePatchSnapshotForInstanceCommandOutput,
 } from "../commands/GetDeployablePatchSnapshotForInstanceCommand";
 import { GetDocumentCommandInput, GetDocumentCommandOutput } from "../commands/GetDocumentCommand";
+import {
+  GetExecutionPreviewCommandInput,
+  GetExecutionPreviewCommandOutput,
+} from "../commands/GetExecutionPreviewCommand";
 import { GetInventoryCommandInput, GetInventoryCommandOutput } from "../commands/GetInventoryCommand";
 import { GetInventorySchemaCommandInput, GetInventorySchemaCommandOutput } from "../commands/GetInventorySchemaCommand";
 import {
@@ -320,6 +330,8 @@ import {
   ListInventoryEntriesCommandInput,
   ListInventoryEntriesCommandOutput,
 } from "../commands/ListInventoryEntriesCommand";
+import { ListNodesCommandInput, ListNodesCommandOutput } from "../commands/ListNodesCommand";
+import { ListNodesSummaryCommandInput, ListNodesSummaryCommandOutput } from "../commands/ListNodesSummaryCommand";
 import { ListOpsItemEventsCommandInput, ListOpsItemEventsCommandOutput } from "../commands/ListOpsItemEventsCommand";
 import {
   ListOpsItemRelatedItemsCommandInput,
@@ -376,6 +388,7 @@ import {
   SendAutomationSignalCommandOutput,
 } from "../commands/SendAutomationSignalCommand";
 import { SendCommandCommandInput, SendCommandCommandOutput } from "../commands/SendCommandCommand";
+import { StartAccessRequestCommandInput, StartAccessRequestCommandOutput } from "../commands/StartAccessRequestCommand";
 import {
   StartAssociationsOnceCommandInput,
   StartAssociationsOnceCommandOutput,
@@ -388,6 +401,10 @@ import {
   StartChangeRequestExecutionCommandInput,
   StartChangeRequestExecutionCommandOutput,
 } from "../commands/StartChangeRequestExecutionCommand";
+import {
+  StartExecutionPreviewCommandInput,
+  StartExecutionPreviewCommandOutput,
+} from "../commands/StartExecutionPreviewCommand";
 import { StartSessionCommandInput, StartSessionCommandOutput } from "../commands/StartSessionCommand";
 import {
   StopAutomationExecutionCommandInput,
@@ -443,6 +460,7 @@ import {
   UpdateServiceSettingCommandOutput,
 } from "../commands/UpdateServiceSettingCommand";
 import {
+  AccessDeniedException,
   Activation,
   AddTagsToResourceRequest,
   Alarm,
@@ -536,7 +554,6 @@ import {
   DescribeMaintenanceWindowExecutionTaskInvocationsResult,
   DescribeMaintenanceWindowExecutionTasksRequest,
   DescribeMaintenanceWindowExecutionTasksResult,
-  DescribeMaintenanceWindowScheduleRequest,
   DescribeMaintenanceWindowsRequest,
   DocumentAlreadyExists,
   DocumentDescription,
@@ -654,11 +671,7 @@ import {
   Association,
   AssociationFilter,
   AssociationVersionInfo,
-  AutomationDefinitionNotFoundException,
-  AutomationDefinitionVersionNotFoundException,
   AutomationExecution,
-  AutomationExecutionLimitExceededException,
-  AutomationStepNotFoundException,
   BaselineOverride,
   CloudWatchOutputConfig,
   Command,
@@ -670,7 +683,9 @@ import {
   ComplianceItemEntry,
   ComplianceStringFilter,
   ComplianceTypeCountLimitExceededException,
+  Credentials,
   CustomSchemaCountLimitExceededException,
+  DescribeMaintenanceWindowScheduleRequest,
   DescribeMaintenanceWindowsForTargetRequest,
   DescribeMaintenanceWindowTargetsRequest,
   DescribeMaintenanceWindowTasksRequest,
@@ -693,7 +708,8 @@ import {
   DocumentReviewCommentSource,
   DocumentReviewerResponseSource,
   DocumentVersionInfo,
-  FeatureNotAvailableException,
+  GetAccessTokenRequest,
+  GetAccessTokenResponse,
   GetAutomationExecutionRequest,
   GetAutomationExecutionResult,
   GetCalendarStateRequest,
@@ -703,6 +719,8 @@ import {
   GetDeployablePatchSnapshotForInstanceRequest,
   GetDocumentRequest,
   GetDocumentResult,
+  GetExecutionPreviewRequest,
+  GetExecutionPreviewResponse,
   GetInventorySchemaRequest,
   GetMaintenanceWindowExecutionRequest,
   GetMaintenanceWindowExecutionResult,
@@ -736,22 +754,16 @@ import {
   IncompatiblePolicyException,
   InvalidAggregatorException,
   InvalidAllowedPatternException,
-  InvalidAssociation,
-  InvalidAutomationExecutionParametersException,
-  InvalidAutomationSignalException,
   InvalidDocumentType,
   InvalidFilterOption,
   InvalidInventoryGroupException,
   InvalidInventoryItemContextException,
   InvalidItemContentException,
   InvalidKeyId,
-  InvalidNotificationConfig,
-  InvalidOutputFolder,
   InvalidPluginName,
   InvalidPolicyAttributeException,
   InvalidPolicyTypeException,
   InvalidResultAttributeException,
-  InvalidRole,
   InventoryFilter,
   InventoryGroup,
   InventoryItem,
@@ -777,6 +789,8 @@ import {
   ListDocumentVersionsRequest,
   ListDocumentVersionsResult,
   ListInventoryEntriesRequest,
+  ListNodesRequest,
+  ListNodesResult,
   ListOpsItemEventsRequest,
   ListOpsItemEventsResponse,
   ListOpsItemRelatedItemsRequest,
@@ -796,6 +810,8 @@ import {
   MaintenanceWindowTaskInvocationParameters,
   MaintenanceWindowTaskParameterValueExpression,
   ModifyDocumentPermissionRequest,
+  Node,
+  NodeFilter,
   NotificationConfig,
   NotificationEvent,
   OpsFilter,
@@ -828,49 +844,70 @@ import {
   PutResourcePolicyRequest,
   RegisterDefaultPatchBaselineRequest,
   RegisterPatchBaselineForPatchGroupRequest,
-  RegisterTargetWithMaintenanceWindowRequest,
-  RegisterTaskWithMaintenanceWindowRequest,
-  RemoveTagsFromResourceRequest,
-  ResetServiceSettingRequest,
-  ResetServiceSettingResult,
   ResourceComplianceSummaryItem,
   ResourceDataSyncItem,
   ResourcePolicyLimitExceededException,
   ResultAttribute,
-  ResumeSessionRequest,
-  SendAutomationSignalRequest,
-  SendCommandRequest,
-  SendCommandResult,
   ServiceSetting,
   ServiceSettingNotFound,
   Session,
   SessionFilter,
-  StartAssociationsOnceRequest,
-  StartAutomationExecutionRequest,
   SubTypeCountLimitExceededException,
+  ThrottlingException,
   TotalSizeLimitExceededException,
   UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
   UnsupportedInventoryItemContextException,
   UnsupportedInventorySchemaVersionException,
+  UnsupportedOperationException,
   UnsupportedParameterType,
+  ValidationException,
 } from "../models/models_1";
 import {
   AssociationVersionLimitExceeded,
   AutomationDefinitionNotApprovedException,
+  AutomationDefinitionNotFoundException,
+  AutomationDefinitionVersionNotFoundException,
+  AutomationExecutionInputs,
+  AutomationExecutionLimitExceededException,
+  AutomationStepNotFoundException,
   DocumentReviews,
   DocumentVersionLimitExceeded,
   DuplicateDocumentContent,
   DuplicateDocumentVersionName,
+  ExecutionInputs,
+  FeatureNotAvailableException,
   GetInventoryRequest,
   GetOpsSummaryRequest,
+  InvalidAssociation,
+  InvalidAutomationExecutionParametersException,
+  InvalidAutomationSignalException,
   InvalidAutomationStatusUpdateException,
+  InvalidNotificationConfig,
+  InvalidOutputFolder,
+  InvalidRole,
   InvalidUpdate,
   InventoryAggregator,
+  ListNodesSummaryRequest,
+  NodeAggregator,
   OpsAggregator,
   OpsMetadataKeyLimitExceededException,
+  RegisterTargetWithMaintenanceWindowRequest,
+  RegisterTaskWithMaintenanceWindowRequest,
+  RemoveTagsFromResourceRequest,
+  ResetServiceSettingRequest,
+  ResetServiceSettingResult,
   ResourceDataSyncConflictException,
+  ResumeSessionRequest,
+  SendAutomationSignalRequest,
+  SendCommandRequest,
+  SendCommandResult,
+  ServiceQuotaExceededException,
+  StartAccessRequestRequest,
+  StartAssociationsOnceRequest,
+  StartAutomationExecutionRequest,
   StartChangeRequestExecutionRequest,
+  StartExecutionPreviewRequest,
   StartSessionRequest,
   StatusUnchanged,
   StopAutomationExecutionRequest,
@@ -1719,6 +1756,19 @@ export const se_DisassociateOpsItemRelatedItemCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GetAccessTokenCommand
+ */
+export const se_GetAccessTokenCommand = async (
+  input: GetAccessTokenCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetAccessToken");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetAutomationExecutionCommand
  */
 export const se_GetAutomationExecutionCommand = async (
@@ -1804,6 +1854,19 @@ export const se_GetDocumentCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetDocument");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetExecutionPreviewCommand
+ */
+export const se_GetExecutionPreviewCommand = async (
+  input: GetExecutionPreviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetExecutionPreview");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2187,6 +2250,32 @@ export const se_ListInventoryEntriesCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListNodesCommand
+ */
+export const se_ListNodesCommand = async (
+  input: ListNodesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListNodes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListNodesSummaryCommand
+ */
+export const se_ListNodesSummaryCommand = async (
+  input: ListNodesSummaryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListNodesSummary");
+  let body: any;
+  body = JSON.stringify(se_ListNodesSummaryRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListOpsItemEventsCommand
  */
 export const se_ListOpsItemEventsCommand = async (
@@ -2447,6 +2536,19 @@ export const se_SendCommandCommand = async (
 };
 
 /**
+ * serializeAws_json1_1StartAccessRequestCommand
+ */
+export const se_StartAccessRequestCommand = async (
+  input: StartAccessRequestCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartAccessRequest");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1StartAssociationsOnceCommand
  */
 export const se_StartAssociationsOnceCommand = async (
@@ -2482,6 +2584,19 @@ export const se_StartChangeRequestExecutionCommand = async (
   const headers: __HeaderBag = sharedHeaders("StartChangeRequestExecution");
   let body: any;
   body = JSON.stringify(se_StartChangeRequestExecutionRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartExecutionPreviewCommand
+ */
+export const se_StartExecutionPreviewCommand = async (
+  input: StartExecutionPreviewCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartExecutionPreview");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -3980,6 +4095,26 @@ export const de_DisassociateOpsItemRelatedItemCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GetAccessTokenCommand
+ */
+export const de_GetAccessTokenCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccessTokenCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetAccessTokenResponse(data, context);
+  const response: GetAccessTokenCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetAutomationExecutionCommand
  */
 export const de_GetAutomationExecutionCommand = async (
@@ -4113,6 +4248,26 @@ export const de_GetDocumentCommand = async (
   let contents: any = {};
   contents = de_GetDocumentResult(data, context);
   const response: GetDocumentCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetExecutionPreviewCommand
+ */
+export const de_GetExecutionPreviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetExecutionPreviewCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetExecutionPreviewResponse(data, context);
+  const response: GetExecutionPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -4700,6 +4855,46 @@ export const de_ListInventoryEntriesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListNodesCommand
+ */
+export const de_ListNodesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNodesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListNodesResult(data, context);
+  const response: ListNodesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListNodesSummaryCommand
+ */
+export const de_ListNodesSummaryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListNodesSummaryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListNodesSummaryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListOpsItemEventsCommand
  */
 export const de_ListOpsItemEventsCommand = async (
@@ -5100,6 +5295,26 @@ export const de_SendCommandCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1StartAccessRequestCommand
+ */
+export const de_StartAccessRequestCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartAccessRequestCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartAccessRequestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1StartAssociationsOnceCommand
  */
 export const de_StartAssociationsOnceCommand = async (
@@ -5153,6 +5368,26 @@ export const de_StartChangeRequestExecutionCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: StartChangeRequestExecutionCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartExecutionPreviewCommand
+ */
+export const de_StartExecutionPreviewCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartExecutionPreviewCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartExecutionPreviewCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -5751,6 +5986,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "OpsItemRelatedItemAssociationNotFoundException":
     case "com.amazonaws.ssm#OpsItemRelatedItemAssociationNotFoundException":
       throw await de_OpsItemRelatedItemAssociationNotFoundExceptionRes(parsedOutput, context);
+    case "AccessDeniedException":
+    case "com.amazonaws.ssm#AccessDeniedException":
+      throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.ssm#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
+    case "ValidationException":
+    case "com.amazonaws.ssm#ValidationException":
+      throw await de_ValidationExceptionRes(parsedOutput, context);
     case "InvalidDocumentType":
     case "com.amazonaws.ssm#InvalidDocumentType":
       throw await de_InvalidDocumentTypeRes(parsedOutput, context);
@@ -5787,6 +6031,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ParameterVersionLabelLimitExceeded":
     case "com.amazonaws.ssm#ParameterVersionLabelLimitExceeded":
       throw await de_ParameterVersionLabelLimitExceededRes(parsedOutput, context);
+    case "UnsupportedOperationException":
+    case "com.amazonaws.ssm#UnsupportedOperationException":
+      throw await de_UnsupportedOperationExceptionRes(parsedOutput, context);
     case "DocumentPermissionLimit":
     case "com.amazonaws.ssm#DocumentPermissionLimit":
       throw await de_DocumentPermissionLimitRes(parsedOutput, context);
@@ -5880,6 +6127,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidRole":
     case "com.amazonaws.ssm#InvalidRole":
       throw await de_InvalidRoleRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.ssm#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "InvalidAssociation":
     case "com.amazonaws.ssm#InvalidAssociation":
       throw await de_InvalidAssociationRes(parsedOutput, context);
@@ -5936,6 +6186,22 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         errorCode,
       }) as never;
   }
+};
+
+/**
+ * deserializeAws_json1_1AccessDeniedExceptionRes
+ */
+const de_AccessDeniedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<AccessDeniedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
 };
 
 /**
@@ -7743,6 +8009,22 @@ const de_ResourcePolicyNotFoundExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceSettingNotFoundRes
  */
 const de_ServiceSettingNotFoundRes = async (
@@ -7810,6 +8092,19 @@ const de_TargetNotConnectedRes = async (parsedOutput: any, context: __SerdeConte
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new TargetNotConnected({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -7939,6 +8234,22 @@ const de_UnsupportedOperatingSystemRes = async (
 };
 
 /**
+ * deserializeAws_json1_1UnsupportedOperationExceptionRes
+ */
+const de_UnsupportedOperationExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<UnsupportedOperationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new UnsupportedOperationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1UnsupportedParameterTypeRes
  */
 const de_UnsupportedParameterTypeRes = async (
@@ -7964,6 +8275,19 @@ const de_UnsupportedPlatformTypeRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new UnsupportedPlatformType({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ValidationExceptionRes
+ */
+const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ValidationException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -8021,6 +8345,8 @@ const se_AssociationStatus = (input: AssociationStatus, context: __SerdeContext)
 // se_AutomationExecutionFilterList omitted.
 
 // se_AutomationExecutionFilterValueList omitted.
+
+// se_AutomationExecutionInputs omitted.
 
 // se_AutomationParameterMap omitted.
 
@@ -8147,6 +8473,7 @@ const se_CreatePatchBaselineRequest = (input: CreatePatchBaselineRequest, contex
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: [],
     ApprovedPatchesEnableNonSecurity: [],
+    AvailableSecurityUpdatesComplianceStatus: [],
     ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
     Description: [],
     GlobalFilters: _json,
@@ -8295,6 +8622,12 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 
 // se_DocumentReviews omitted.
 
+// se_ExcludeAccounts omitted.
+
+// se_ExecutionInputs omitted.
+
+// se_GetAccessTokenRequest omitted.
+
 // se_GetAutomationExecutionRequest omitted.
 
 // se_GetCalendarStateRequest omitted.
@@ -8308,6 +8641,8 @@ const se_DeleteInventoryRequest = (input: DeleteInventoryRequest, context: __Ser
 // se_GetDeployablePatchSnapshotForInstanceRequest omitted.
 
 // se_GetDocumentRequest omitted.
+
+// se_GetExecutionPreviewRequest omitted.
 
 /**
  * serializeAws_json1_1GetInventoryRequest
@@ -8464,6 +8799,21 @@ const se_InventoryAggregatorList = (input: InventoryAggregator[], context: __Ser
 
 // se_ListInventoryEntriesRequest omitted.
 
+// se_ListNodesRequest omitted.
+
+/**
+ * serializeAws_json1_1ListNodesSummaryRequest
+ */
+const se_ListNodesSummaryRequest = (input: ListNodesSummaryRequest, context: __SerdeContext): any => {
+  return take(input, {
+    Aggregators: (_) => se_NodeAggregatorList(_, context),
+    Filters: _json,
+    MaxResults: [],
+    NextToken: [],
+    SyncName: [],
+  });
+};
+
 // se_ListOpsItemEventsRequest omitted.
 
 // se_ListOpsItemRelatedItemsRequest omitted.
@@ -8532,6 +8882,35 @@ const se_MaintenanceWindowTaskInvocationParameters = (
 // se_MetadataValue omitted.
 
 // se_ModifyDocumentPermissionRequest omitted.
+
+/**
+ * serializeAws_json1_1NodeAggregator
+ */
+const se_NodeAggregator = (input: NodeAggregator, context: __SerdeContext): any => {
+  return take(input, {
+    AggregatorType: [],
+    Aggregators: (_) => se_NodeAggregatorList(_, context),
+    AttributeName: [],
+    TypeName: [],
+  });
+};
+
+/**
+ * serializeAws_json1_1NodeAggregatorList
+ */
+const se_NodeAggregatorList = (input: NodeAggregator[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_NodeAggregator(entry, context);
+    });
+};
+
+// se_NodeFilter omitted.
+
+// se_NodeFilterList omitted.
+
+// se_NodeFilterValueList omitted.
 
 // se_NotificationConfig omitted.
 
@@ -8778,6 +9157,8 @@ const se_RegisterTaskWithMaintenanceWindowRequest = (
 
 // se_SessionManagerParameterValueList omitted.
 
+// se_StartAccessRequestRequest omitted.
+
 // se_StartAssociationsOnceRequest omitted.
 
 // se_StartAutomationExecutionRequest omitted.
@@ -8803,6 +9184,8 @@ const se_StartChangeRequestExecutionRequest = (
     Tags: _json,
   });
 };
+
+// se_StartExecutionPreviewRequest omitted.
 
 // se_StartSessionRequest omitted.
 
@@ -8923,6 +9306,8 @@ const se_UpdateOpsItemRequest = (input: UpdateOpsItemRequest, context: __SerdeCo
 // se_UpdateResourceDataSyncRequest omitted.
 
 // se_UpdateServiceSettingRequest omitted.
+
+// de_AccessDeniedException omitted.
 
 // de_AccountIdList omitted.
 
@@ -9235,6 +9620,7 @@ const de_AutomationExecution = (output: any, context: __SerdeContext): Automatio
     StepExecutionsTruncated: __expectBoolean,
     Target: __expectString,
     TargetLocations: _json,
+    TargetLocationsURL: __expectString,
     TargetMaps: _json,
     TargetParameterName: __expectString,
     Targets: _json,
@@ -9276,6 +9662,7 @@ const de_AutomationExecutionMetadata = (output: any, context: __SerdeContext): A
     Runbooks: _json,
     ScheduledTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Target: __expectString,
+    TargetLocationsURL: __expectString,
     TargetMaps: _json,
     TargetParameterName: __expectString,
     Targets: _json,
@@ -9296,6 +9683,8 @@ const de_AutomationExecutionMetadataList = (output: any, context: __SerdeContext
 };
 
 // de_AutomationExecutionNotFoundException omitted.
+
+// de_AutomationExecutionPreview omitted.
 
 // de_AutomationParameterMap omitted.
 
@@ -9520,6 +9909,18 @@ const de_CreateDocumentResult = (output: any, context: __SerdeContext): CreateDo
 // de_CreatePatchBaselineResult omitted.
 
 // de_CreateResourceDataSyncResult omitted.
+
+/**
+ * deserializeAws_json1_1Credentials
+ */
+const de_Credentials = (output: any, context: __SerdeContext): Credentials => {
+  return take(output, {
+    AccessKeyId: __expectString,
+    ExpirationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    SecretAccessKey: __expectString,
+    SessionToken: __expectString,
+  }) as any;
+};
 
 // de_CustomSchemaCountLimitExceededException omitted.
 
@@ -10029,6 +10430,10 @@ const de_EffectivePatchList = (output: any, context: __SerdeContext): EffectiveP
   return retVal;
 };
 
+// de_ExcludeAccounts omitted.
+
+// de_ExecutionPreview omitted.
+
 // de_FailedCreateAssociation omitted.
 
 // de_FailedCreateAssociationList omitted.
@@ -10036,6 +10441,16 @@ const de_EffectivePatchList = (output: any, context: __SerdeContext): EffectiveP
 // de_FailureDetails omitted.
 
 // de_FeatureNotAvailableException omitted.
+
+/**
+ * deserializeAws_json1_1GetAccessTokenResponse
+ */
+const de_GetAccessTokenResponse = (output: any, context: __SerdeContext): GetAccessTokenResponse => {
+  return take(output, {
+    AccessRequestStatus: __expectString,
+    Credentials: (_: any) => de_Credentials(_, context),
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_1GetAutomationExecutionResult
@@ -10074,6 +10489,19 @@ const de_GetDocumentResult = (output: any, context: __SerdeContext): GetDocument
     Status: __expectString,
     StatusInformation: __expectString,
     VersionName: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1GetExecutionPreviewResponse
+ */
+const de_GetExecutionPreviewResponse = (output: any, context: __SerdeContext): GetExecutionPreviewResponse => {
+  return take(output, {
+    EndedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExecutionPreview: (_: any) => _json(__expectUnion(_)),
+    ExecutionPreviewId: __expectString,
+    Status: __expectString,
+    StatusMessage: __expectString,
   }) as any;
 };
 
@@ -10257,6 +10685,7 @@ const de_GetPatchBaselineResult = (output: any, context: __SerdeContext): GetPat
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: __expectString,
     ApprovedPatchesEnableNonSecurity: __expectBoolean,
+    AvailableSecurityUpdatesComplianceStatus: __expectString,
     BaselineId: __expectString,
     CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
@@ -10340,6 +10769,8 @@ const de_InstanceAssociationStatusInfos = (output: any, context: __SerdeContext)
 
 // de_InstanceIdList omitted.
 
+// de_InstanceInfo omitted.
+
 /**
  * deserializeAws_json1_1InstanceInformation
  */
@@ -10386,6 +10817,7 @@ const de_InstanceInformationList = (output: any, context: __SerdeContext): Insta
  */
 const de_InstancePatchState = (output: any, context: __SerdeContext): InstancePatchState => {
   return take(output, {
+    AvailableSecurityUpdateCount: __expectInt32,
     BaselineId: __expectString,
     CriticalNonCompliantCount: __expectInt32,
     FailedCount: __expectInt32,
@@ -10735,6 +11167,18 @@ const de_ListDocumentVersionsResult = (output: any, context: __SerdeContext): Li
 // de_ListInventoryEntriesResult omitted.
 
 /**
+ * deserializeAws_json1_1ListNodesResult
+ */
+const de_ListNodesResult = (output: any, context: __SerdeContext): ListNodesResult => {
+  return take(output, {
+    NextToken: __expectString,
+    Nodes: (_: any) => de_NodeList(_, context),
+  }) as any;
+};
+
+// de_ListNodesSummaryResult omitted.
+
+/**
  * deserializeAws_json1_1ListOpsItemEventsResponse
  */
 const de_ListOpsItemEventsResponse = (output: any, context: __SerdeContext): ListOpsItemEventsResponse => {
@@ -10961,6 +11405,39 @@ const de_MaintenanceWindowTaskInvocationParameters = (
 // de_MetadataValue omitted.
 
 // de_ModifyDocumentPermissionResponse omitted.
+
+/**
+ * deserializeAws_json1_1Node
+ */
+const de_Node = (output: any, context: __SerdeContext): Node => {
+  return take(output, {
+    CaptureTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Id: __expectString,
+    NodeType: (_: any) => _json(__expectUnion(_)),
+    Owner: _json,
+    Region: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1NodeList
+ */
+const de_NodeList = (output: any, context: __SerdeContext): Node[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Node(entry, context);
+    });
+  return retVal;
+};
+
+// de_NodeOwnerInfo omitted.
+
+// de_NodeSummary omitted.
+
+// de_NodeSummaryList omitted.
+
+// de_NodeType omitted.
 
 // de_NonCompliantSummary omitted.
 
@@ -11431,6 +11908,8 @@ const de_PatchStatus = (output: any, context: __SerdeContext): PatchStatus => {
 
 // de_PutResourcePolicyResponse omitted.
 
+// de_RegionList omitted.
+
 // de_Regions omitted.
 
 // de_RegisterDefaultPatchBaselineResult omitted.
@@ -11607,6 +12086,8 @@ const de_SendCommandResult = (output: any, context: __SerdeContext): SendCommand
   }) as any;
 };
 
+// de_ServiceQuotaExceededException omitted.
+
 /**
  * deserializeAws_json1_1ServiceSetting
  */
@@ -11658,11 +12139,15 @@ const de_SessionList = (output: any, context: __SerdeContext): Session[] => {
 
 // de_SeveritySummary omitted.
 
+// de_StartAccessRequestResponse omitted.
+
 // de_StartAssociationsOnceResult omitted.
 
 // de_StartAutomationExecutionResult omitted.
 
 // de_StartChangeRequestExecutionResult omitted.
+
+// de_StartExecutionPreviewResponse omitted.
 
 // de_StartSessionResponse omitted.
 
@@ -11712,6 +12197,8 @@ const de_StepExecutionList = (output: any, context: __SerdeContext): StepExecuti
   return retVal;
 };
 
+// de_StepPreviewMap omitted.
+
 // de_StopAutomationExecutionResult omitted.
 
 // de_SubTypeCountLimitExceededException omitted.
@@ -11738,11 +12225,17 @@ const de_StepExecutionList = (output: any, context: __SerdeContext): StepExecuti
 
 // de_TargetParameterList omitted.
 
+// de_TargetPreview omitted.
+
+// de_TargetPreviewList omitted.
+
 // de_Targets omitted.
 
 // de_TargetValues omitted.
 
 // de_TerminateSessionResponse omitted.
+
+// de_ThrottlingException omitted.
 
 // de_TooManyTagsError omitted.
 
@@ -11761,6 +12254,8 @@ const de_StepExecutionList = (output: any, context: __SerdeContext): StepExecuti
 // de_UnsupportedInventorySchemaVersionException omitted.
 
 // de_UnsupportedOperatingSystem omitted.
+
+// de_UnsupportedOperationException omitted.
 
 // de_UnsupportedParameterType omitted.
 
@@ -11842,6 +12337,7 @@ const de_UpdatePatchBaselineResult = (output: any, context: __SerdeContext): Upd
     ApprovedPatches: _json,
     ApprovedPatchesComplianceLevel: __expectString,
     ApprovedPatchesEnableNonSecurity: __expectBoolean,
+    AvailableSecurityUpdatesComplianceStatus: __expectString,
     BaselineId: __expectString,
     CreatedDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
@@ -11858,6 +12354,8 @@ const de_UpdatePatchBaselineResult = (output: any, context: __SerdeContext): Upd
 // de_UpdateResourceDataSyncResult omitted.
 
 // de_UpdateServiceSettingResult omitted.
+
+// de_ValidationException omitted.
 
 // de_ValidNextStepList omitted.
 

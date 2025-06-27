@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * const client = new SFNClient(config);
  * const input = { // DescribeStateMachineInput
  *   stateMachineArn: "STRING_VALUE", // required
+ *   includedData: "ALL_DATA" || "METADATA_ONLY",
  * };
  * const command = new DescribeStateMachineCommand(input);
  * const response = await client.send(command);
@@ -101,6 +103,16 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * //   label: "STRING_VALUE",
  * //   revisionId: "STRING_VALUE",
  * //   description: "STRING_VALUE",
+ * //   encryptionConfiguration: { // EncryptionConfiguration
+ * //     kmsKeyId: "STRING_VALUE",
+ * //     kmsDataKeyReusePeriodSeconds: Number("int"),
+ * //     type: "AWS_OWNED_KEY" || "CUSTOMER_MANAGED_KMS_KEY", // required
+ * //   },
+ * //   variableReferences: { // VariableReferences
+ * //     "<keys>": [ // VariableNameList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //   },
  * // };
  *
  * ```
@@ -114,11 +126,21 @@ export interface DescribeStateMachineCommandOutput extends DescribeStateMachineO
  * @throws {@link InvalidArn} (client fault)
  *  <p>The provided Amazon Resource Name (ARN) is not valid.</p>
  *
+ * @throws {@link KmsAccessDeniedException} (client fault)
+ *  <p>Either your KMS key policy or API caller does not have the required permissions.</p>
+ *
+ * @throws {@link KmsInvalidStateException} (client fault)
+ *  <p>The KMS key is not in valid state, for example: Disabled or Deleted.</p>
+ *
+ * @throws {@link KmsThrottlingException} (client fault)
+ *  <p>Received when KMS returns <code>ThrottlingException</code> for a KMS call that Step Functions makes on behalf of the caller.</p>
+ *
  * @throws {@link StateMachineDoesNotExist} (client fault)
  *  <p>The specified state machine does not exist.</p>
  *
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
+ *
  *
  * @public
  */
@@ -130,9 +152,7 @@ export class DescribeStateMachineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +164,16 @@ export class DescribeStateMachineCommand extends $Command
   .f(void 0, DescribeStateMachineOutputFilterSensitiveLog)
   .ser(se_DescribeStateMachineCommand)
   .de(de_DescribeStateMachineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStateMachineInput;
+      output: DescribeStateMachineOutput;
+    };
+    sdk: {
+      input: DescribeStateMachineCommandInput;
+      output: DescribeStateMachineCommandOutput;
+    };
+  };
+}

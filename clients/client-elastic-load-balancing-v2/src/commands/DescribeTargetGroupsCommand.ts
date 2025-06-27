@@ -16,7 +16,8 @@ import { de_DescribeTargetGroupsCommand, se_DescribeTargetGroupsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,46 +103,46 @@ export interface DescribeTargetGroupsCommandOutput extends DescribeTargetGroupsO
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
- * @public
+ *
  * @example To describe a target group
  * ```javascript
  * // This example describes the specified target group.
  * const input = {
- *   "TargetGroupArns": [
+ *   TargetGroupArns: [
  *     "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067"
  *   ]
  * };
  * const command = new DescribeTargetGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TargetGroups": [
+ *   TargetGroups: [
  *     {
- *       "HealthCheckIntervalSeconds": 30,
- *       "HealthCheckPath": "/",
- *       "HealthCheckPort": "traffic-port",
- *       "HealthCheckProtocol": "HTTP",
- *       "HealthCheckTimeoutSeconds": 5,
- *       "HealthyThresholdCount": 5,
- *       "LoadBalancerArns": [
+ *       HealthCheckIntervalSeconds: 30,
+ *       HealthCheckPath: "/",
+ *       HealthCheckPort: "traffic-port",
+ *       HealthCheckProtocol: "HTTP",
+ *       HealthCheckTimeoutSeconds: 5,
+ *       HealthyThresholdCount: 5,
+ *       LoadBalancerArns: [
  *         "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"
  *       ],
- *       "Matcher": {
- *         "HttpCode": "200"
+ *       Matcher: {
+ *         HttpCode: "200"
  *       },
- *       "Port": 80,
- *       "Protocol": "HTTP",
- *       "TargetGroupArn": "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
- *       "TargetGroupName": "my-targets",
- *       "UnhealthyThresholdCount": 2,
- *       "VpcId": "vpc-3ac0fb5f"
+ *       Port: 80,
+ *       Protocol: "HTTP",
+ *       TargetGroupArn: "arn:aws:elasticloadbalancing:us-west-2:123456789012:targetgroup/my-targets/73e2d6bc24d8a067",
+ *       TargetGroupName: "my-targets",
+ *       UnhealthyThresholdCount: 2,
+ *       VpcId: "vpc-3ac0fb5f"
  *     }
  *   ]
  * }
  * *\/
- * // example id: elbv2-describe-target-groups-1
  * ```
  *
+ * @public
  */
 export class DescribeTargetGroupsCommand extends $Command
   .classBuilder<
@@ -151,9 +152,7 @@ export class DescribeTargetGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +164,16 @@ export class DescribeTargetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTargetGroupsCommand)
   .de(de_DescribeTargetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTargetGroupsInput;
+      output: DescribeTargetGroupsOutput;
+    };
+    sdk: {
+      input: DescribeTargetGroupsCommandInput;
+      output: DescribeTargetGroupsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_AbortEnvironmentUpdateCommand, se_AbortEnvironmentUpdateCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,18 +59,21 @@ export interface AbortEnvironmentUpdateCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To abort a deployment
  * ```javascript
  * // The following code aborts a running application version deployment for an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new AbortEnvironmentUpdateCommand(input);
- * await client.send(command);
- * // example id: to-abort-a-deployment-1456267848227
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AbortEnvironmentUpdateCommand extends $Command
   .classBuilder<
@@ -79,9 +83,7 @@ export class AbortEnvironmentUpdateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +95,16 @@ export class AbortEnvironmentUpdateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AbortEnvironmentUpdateCommand)
   .de(de_AbortEnvironmentUpdateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortEnvironmentUpdateMessage;
+      output: {};
+    };
+    sdk: {
+      input: AbortEnvironmentUpdateCommandInput;
+      output: AbortEnvironmentUpdateCommandOutput;
+    };
+  };
+}

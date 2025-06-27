@@ -13,7 +13,8 @@ import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 
 export interface SignerConfig {
   /**
-   * The AWS credentials to sign requests with. Uses the default credential provider chain if not specified.
+   * The AWS credentials to sign requests with.
+   * Uses the default credential provider chain if not specified.
    */
   credentials?: AwsCredentialIdentity | AwsCredentialIdentityProvider;
   /**
@@ -25,7 +26,9 @@ export interface SignerConfig {
    */
   port: number;
   /**
-   * The region the database is located in. Uses the region inferred from the runtime if omitted.
+   * The region the database is located in.
+   * Uses the region of the given profile or inferred from the runtime if
+   * both are omitted.
    */
   region?: string;
   /**
@@ -36,6 +39,15 @@ export interface SignerConfig {
    * The username to login as.
    */
   username: string;
+  /**
+   * Optional. Can be provided to configure region from a profile
+   * if operating in an environment with a file system having
+   * an AWS configuration file.
+   *
+   * The credentials will also resolve based on this profile, if using
+   * a credentials provider that includes the AWS configuration file.
+   */
+  profile?: string;
 }
 
 /**

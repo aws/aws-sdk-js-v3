@@ -43,19 +43,19 @@ export interface AccountSettings {
    * <p>The desired target status of the group lifecycle events feature. If</p>
    * @public
    */
-  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus;
+  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | undefined;
 
   /**
    * <p>The current status of the group lifecycle events feature.</p>
    * @public
    */
-  GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus;
+  GroupLifecycleEventsStatus?: GroupLifecycleEventsStatus | undefined;
 
   /**
    * <p>The text of any error message occurs during an attempt to turn group lifecycle events on or off.</p>
    * @public
    */
-  GroupLifecycleEventsStatusMessage?: string;
+  GroupLifecycleEventsStatusMessage?: string | undefined;
 }
 
 /**
@@ -65,7 +65,7 @@ export interface AccountSettings {
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -76,6 +76,129 @@ export class BadRequestException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, BadRequestException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface CancelTagSyncTaskInput {
+  /**
+   * <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+   * @public
+   */
+  TaskArn: string | undefined;
+}
+
+/**
+ * <p>The caller isn't authorized to make the request. Check permissions.</p>
+ * @public
+ */
+export class ForbiddenException extends __BaseException {
+  readonly name: "ForbiddenException" = "ForbiddenException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
+    super({
+      name: "ForbiddenException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ForbiddenException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>An internal error occurred while processing the request. Try again later.</p>
+ * @public
+ */
+export class InternalServerErrorException extends __BaseException {
+  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
+  readonly $fault: "server" = "server";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
+    super({
+      name: "InternalServerErrorException",
+      $fault: "server",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
+ * @public
+ */
+export class MethodNotAllowedException extends __BaseException {
+  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
+    super({
+      name: "MethodNotAllowedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>You've exceeded throttling limits by making too many requests in a period of
+ *             time.</p>
+ * @public
+ */
+export class TooManyRequestsException extends __BaseException {
+  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
+    super({
+      name: "TooManyRequestsException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The request was rejected because it doesn't have valid credentials for the target
+ *             resource.</p>
+ * @public
+ */
+export class UnauthorizedException extends __BaseException {
+  readonly name: "UnauthorizedException" = "UnauthorizedException";
+  readonly $fault: "client" = "client";
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
+    super({
+      name: "UnauthorizedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, UnauthorizedException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -101,7 +224,7 @@ export interface GroupConfigurationParameter {
    *                 parameters</a>.</p>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -126,7 +249,7 @@ export interface GroupConfigurationItem {
    *                 resource types and parameters</a>.</p>
    * @public
    */
-  Parameters?: GroupConfigurationParameter[];
+  Parameters?: GroupConfigurationParameter[] | undefined;
 }
 
 /**
@@ -183,7 +306,7 @@ export interface ResourceQuery {
    *                      <code>CLOUDFORMATION_STACK_1_0:</code>
    *                   </i> Specifies that you
    *                     want the group to contain the members of an CloudFormation stack. The <code>Query</code>
-   *                     contains a <code>StackIdentifier</code> element with an ARN for a CloudFormation
+   *                     contains a <code>StackIdentifier</code> element with an Amazon resource name (ARN) for a CloudFormation
    *                     stack.</p>
    *             </li>
    *             <li>
@@ -319,7 +442,7 @@ export interface CreateGroupInput {
    *             hyphens, underscores, periods, and spaces.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The resource query that determines which Amazon Web Services resources are members of this group.
@@ -331,13 +454,13 @@ export interface CreateGroupInput {
    *          </note>
    * @public
    */
-  ResourceQuery?: ResourceQuery;
+  ResourceQuery?: ResourceQuery | undefined;
 
   /**
    * <p>The tags to add to the group. A tag is key-value pair string.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A configuration associates the resource group with an Amazon Web Services service and specifies how
@@ -350,7 +473,27 @@ export interface CreateGroupInput {
    *          </note>
    * @public
    */
-  Configuration?: GroupConfigurationItem[];
+  Configuration?: GroupConfigurationItem[] | undefined;
+
+  /**
+   * <p>The critical rank of the application group on a scale of 1 to 10, with a
+   *             rank of 1 being the most critical, and a rank of 10 being least critical.</p>
+   * @public
+   */
+  Criticality?: number | undefined;
+
+  /**
+   * <p>A name, email address or other identifier for the person or group
+   *             who is considered as the owner of this application group within your organization. </p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>The name of the application group, which you can change at any time. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
 }
 
 /**
@@ -375,7 +518,7 @@ export interface CreateGroupInput {
  */
 export interface Group {
   /**
-   * <p>The ARN of the resource group.</p>
+   * <p>The Amazon resource name (ARN) of the resource group.</p>
    * @public
    */
   GroupArn: string | undefined;
@@ -390,7 +533,34 @@ export interface Group {
    * <p>The description of the resource group.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
+
+  /**
+   * <p>The critical rank of the application group on a scale of 1 to 10, with a
+   *             rank of 1 being the most critical, and a rank of 10 being least critical.</p>
+   * @public
+   */
+  Criticality?: number | undefined;
+
+  /**
+   * <p>A name, email address or other identifier for the person or group
+   *             who is considered as the owner of this application group within your organization. </p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>The name of the application group, which you can change at any time. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
+
+  /**
+   * <p>A tag that defines the application group membership. This tag is only supported
+   *             for application groups. </p>
+   * @public
+   */
+  ApplicationTag?: Record<string, string> | undefined;
 }
 
 /**
@@ -422,26 +592,26 @@ export interface GroupConfiguration {
    * <p>The configuration currently associated with the group and in effect.</p>
    * @public
    */
-  Configuration?: GroupConfigurationItem[];
+  Configuration?: GroupConfigurationItem[] | undefined;
 
   /**
    * <p>If present, the new configuration that is in the process of being applied to the
    *             group.</p>
    * @public
    */
-  ProposedConfiguration?: GroupConfigurationItem[];
+  ProposedConfiguration?: GroupConfigurationItem[] | undefined;
 
   /**
    * <p>The current status of an attempt to update the group configuration.</p>
    * @public
    */
-  Status?: GroupConfigurationStatus;
+  Status?: GroupConfigurationStatus | undefined;
 
   /**
    * <p>If present, the reason why a request to update the group configuration failed.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -452,7 +622,7 @@ export interface CreateGroupOutput {
    * <p>The description of the resource group.</p>
    * @public
    */
-  Group?: Group;
+  Group?: Group | undefined;
 
   /**
    * <p>The resource query associated with the group. For more information about resource
@@ -460,109 +630,20 @@ export interface CreateGroupOutput {
    *                 a tag-based group in Resource Groups</a>. </p>
    * @public
    */
-  ResourceQuery?: ResourceQuery;
+  ResourceQuery?: ResourceQuery | undefined;
 
   /**
    * <p>The tags associated with the group.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>The service configuration associated with the resource group. For details about the
    *             syntax of a service configuration, see <a href="https://docs.aws.amazon.com/ARG/latest/APIReference/about-slg.html">Service configurations for Resource Groups</a>.</p>
    * @public
    */
-  GroupConfiguration?: GroupConfiguration;
-}
-
-/**
- * <p>The caller isn't authorized to make the request. Check permissions.</p>
- * @public
- */
-export class ForbiddenException extends __BaseException {
-  readonly name: "ForbiddenException" = "ForbiddenException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ForbiddenException, __BaseException>) {
-    super({
-      name: "ForbiddenException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ForbiddenException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>An internal error occurred while processing the request. Try again later.</p>
- * @public
- */
-export class InternalServerErrorException extends __BaseException {
-  readonly name: "InternalServerErrorException" = "InternalServerErrorException";
-  readonly $fault: "server" = "server";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InternalServerErrorException, __BaseException>) {
-    super({
-      name: "InternalServerErrorException",
-      $fault: "server",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InternalServerErrorException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>The request uses an HTTP method that isn't allowed for the specified resource.</p>
- * @public
- */
-export class MethodNotAllowedException extends __BaseException {
-  readonly name: "MethodNotAllowedException" = "MethodNotAllowedException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<MethodNotAllowedException, __BaseException>) {
-    super({
-      name: "MethodNotAllowedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, MethodNotAllowedException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>You've exceeded throttling limits by making too many requests in a period of
- *             time.</p>
- * @public
- */
-export class TooManyRequestsException extends __BaseException {
-  readonly name: "TooManyRequestsException" = "TooManyRequestsException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<TooManyRequestsException, __BaseException>) {
-    super({
-      name: "TooManyRequestsException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, TooManyRequestsException.prototype);
-    this.Message = opts.Message;
-  }
+  GroupConfiguration?: GroupConfiguration | undefined;
 }
 
 /**
@@ -570,18 +651,18 @@ export class TooManyRequestsException extends __BaseException {
  */
 export interface DeleteGroupInput {
   /**
-   * @deprecated
-   *
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The name or the ARN of the resource group to delete.</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group to delete.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 }
 
 /**
@@ -592,7 +673,7 @@ export interface DeleteGroupOutput {
    * <p>A full description of the deleted resource group.</p>
    * @public
    */
-  Group?: Group;
+  Group?: Group | undefined;
 }
 
 /**
@@ -602,7 +683,7 @@ export interface DeleteGroupOutput {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -625,7 +706,7 @@ export interface GetAccountSettingsOutput {
    * <p>The current settings for the optional features in Resource Groups.</p>
    * @public
    */
-  AccountSettings?: AccountSettings;
+  AccountSettings?: AccountSettings | undefined;
 }
 
 /**
@@ -633,18 +714,18 @@ export interface GetAccountSettingsOutput {
  */
 export interface GetGroupInput {
   /**
-   * @deprecated
-   *
    * <p>Deprecated - don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The name or the ARN of the resource group to retrieve.</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group to retrieve.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 }
 
 /**
@@ -657,7 +738,7 @@ export interface GetGroupOutput {
    *             those additional details of the resource group.</p>
    * @public
    */
-  Group?: Group;
+  Group?: Group | undefined;
 }
 
 /**
@@ -665,11 +746,11 @@ export interface GetGroupOutput {
  */
 export interface GetGroupConfigurationInput {
   /**
-   * <p>The name or the ARN of the resource group for which you want to retrive the service
+   * <p>The name or the Amazon resource name (ARN) of the resource group for which you want to retrive the service
    *             configuration.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 }
 
 /**
@@ -682,7 +763,7 @@ export interface GetGroupConfigurationOutput {
    *                 Resource Groups</a>.</p>
    * @public
    */
-  GroupConfiguration?: GroupConfiguration;
+  GroupConfiguration?: GroupConfiguration | undefined;
 }
 
 /**
@@ -690,18 +771,18 @@ export interface GetGroupConfigurationOutput {
  */
 export interface GetGroupQueryInput {
   /**
-   * @deprecated
-   *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The name or the ARN of the resource group to query.</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group to query.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 }
 
 /**
@@ -735,7 +816,7 @@ export interface GetGroupQueryOutput {
    *                 a tag-based group in Resource Groups</a>.</p>
    * @public
    */
-  GroupQuery?: GroupQuery;
+  GroupQuery?: GroupQuery | undefined;
 }
 
 /**
@@ -743,7 +824,7 @@ export interface GetGroupQueryOutput {
  */
 export interface GetTagsInput {
   /**
-   * <p>The ARN of the resource group whose tags you want to retrieve.</p>
+   * <p>The Amazon resource name (ARN) of the resource group whose tags you want to retrieve.</p>
    * @public
    */
   Arn: string | undefined;
@@ -754,16 +835,152 @@ export interface GetTagsInput {
  */
 export interface GetTagsOutput {
   /**
-   * <p>The ARN of the tagged resource group.</p>
+   * <p>TheAmazon resource name (ARN) of the tagged resource group.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The tags associated with the specified resource group.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTagSyncTaskInput {
+  /**
+   * <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+   * @public
+   */
+  TaskArn: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TagSyncTaskStatus = {
+  ACTIVE: "ACTIVE",
+  ERROR: "ERROR",
+} as const;
+
+/**
+ * @public
+ */
+export type TagSyncTaskStatus = (typeof TagSyncTaskStatus)[keyof typeof TagSyncTaskStatus];
+
+/**
+ * @public
+ */
+export interface GetTagSyncTaskOutput {
+  /**
+   * <p>The Amazon resource name (ARN) of the application group. </p>
+   * @public
+   */
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The name of the application group. </p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The tag key. </p>
+   * @public
+   */
+  TagKey?: string | undefined;
+
+  /**
+   * <p>The tag value. </p>
+   * @public
+   */
+  TagValue?: string | undefined;
+
+  /**
+   * <p>The query you can use to define a resource group or a search for resources. A
+   *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. See the examples section for
+   *             example JSON strings. For more information about creating a resource group with a
+   *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
+   *          </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *                 '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *                 <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the role assumed by Resource Groups to tag and untag resources on your behalf. </p>
+   *          <p>For more information about this role, review <a href="https://docs.aws.amazon.com/servicecatalog/latest/arguide/app-tag-sync.html#tag-sync-role">Tag-sync required permissions</a>.
+   *         </p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of the tag-sync task. </p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The tag-sync task is actively managing resources in
+   *                     the application by adding or removing the <code>awsApplication</code> tag from resources
+   *                     when they are tagged or untagged with the specified tag key-value pair.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The tag-sync task is not actively managing resources
+   *                     in the application. Review the <code>ErrorMessage</code> for more information about
+   *                     resolving the error.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: TagSyncTaskStatus | undefined;
+
+  /**
+   * <p>The specific error message in cases where the tag-sync task status
+   *             is <code>ERROR</code>. </p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the tag-sync task was created. </p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
 }
 
 /**
@@ -771,13 +988,13 @@ export interface GetTagsOutput {
  */
 export interface GroupResourcesInput {
   /**
-   * <p>The name or the ARN of the resource group to add resources to.</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group to add resources to.</p>
    * @public
    */
   Group: string | undefined;
 
   /**
-   * <p>The list of ARNs of the resources to be added to the group. </p>
+   * <p>The list of Amazon resource names (ARNs) of the resources to be added to the group. </p>
    * @public
    */
   ResourceArns: string[] | undefined;
@@ -789,22 +1006,22 @@ export interface GroupResourcesInput {
  */
 export interface FailedResource {
   /**
-   * <p>The ARN of the resource that failed to be added or removed.</p>
+   * <p>The Amazon resource name (ARN) of the resource that failed to be added or removed.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The error message text associated with the failure.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The error code associated with the failure.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 }
 
 /**
@@ -818,7 +1035,7 @@ export interface PendingResource {
    * <p>The Amazon resource name (ARN) of the resource that's in a pending state.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 }
 
 /**
@@ -826,20 +1043,20 @@ export interface PendingResource {
  */
 export interface GroupResourcesOutput {
   /**
-   * <p>A list of ARNs of the resources that this operation successfully added to the
+   * <p>A list of Amazon resource names (ARNs) of the resources that this operation successfully added to the
    *             group.</p>
    * @public
    */
-  Succeeded?: string[];
+  Succeeded?: string[] | undefined;
 
   /**
-   * <p>A list of ARNs of any resources that this operation failed to add to the group.</p>
+   * <p>A list of Amazon resource names (ARNs) of any resources that this operation failed to add to the group.</p>
    * @public
    */
-  Failed?: FailedResource[];
+  Failed?: FailedResource[] | undefined;
 
   /**
-   * <p>A list of ARNs of any resources that this operation is still in the process adding to
+   * <p>A list of Amazon resource names (ARNs) of any resources that this operation is still in the process adding to
    *             the group. These pending additions continue asynchronously. You can check the status of
    *             pending additions by using the <code>
    *                <a>ListGroupResources</a>
@@ -848,7 +1065,176 @@ export interface GroupResourcesOutput {
    *                 <code>Status</code> field of each object in that array. </p>
    * @public
    */
-  Pending?: PendingResource[];
+  Pending?: PendingResource[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ListGroupingStatusesFilterName = {
+  ResourceArn: "resource-arn",
+  Status: "status",
+} as const;
+
+/**
+ * @public
+ */
+export type ListGroupingStatusesFilterName =
+  (typeof ListGroupingStatusesFilterName)[keyof typeof ListGroupingStatusesFilterName];
+
+/**
+ * <p>A filter name and value pair that is used to obtain more specific results from the list of grouping statuses. </p>
+ * @public
+ */
+export interface ListGroupingStatusesFilter {
+  /**
+   * <p>The name of the filter. Filter names are case-sensitive. </p>
+   * @public
+   */
+  Name: ListGroupingStatusesFilterName | undefined;
+
+  /**
+   * <p>One or more filter values. Allowed filter values vary by resource filter name, and are case-sensitive. </p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupingStatusesInput {
+  /**
+   * <p>The application group identifier, expressed as an Amazon resource name (ARN) or the application group name. </p>
+   * @public
+   */
+  Group: string | undefined;
+
+  /**
+   * <p>The maximum number of resources and their statuses returned in the
+   *             response. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The filter name and value pair that is used to return more
+   *             specific results from a list of resources. </p>
+   * @public
+   */
+  Filters?: ListGroupingStatusesFilter[] | undefined;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *             <code>NextToken</code> response in a previous request. A <code>NextToken</code>
+   *             response indicates that more output is available. Set this parameter to the
+   *             value provided by a previous call's <code>NextToken</code> response to indicate
+   *             where the output should continue from. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupingType = {
+  GROUP: "GROUP",
+  UNGROUP: "UNGROUP",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupingType = (typeof GroupingType)[keyof typeof GroupingType];
+
+/**
+ * @public
+ * @enum
+ */
+export const GroupingStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SKIPPED: "SKIPPED",
+  SUCCESS: "SUCCESS",
+} as const;
+
+/**
+ * @public
+ */
+export type GroupingStatus = (typeof GroupingStatus)[keyof typeof GroupingStatus];
+
+/**
+ * <p>The information about a grouping or ungrouping resource action. </p>
+ * @public
+ */
+export interface GroupingStatusesItem {
+  /**
+   * <p>The Amazon resource name (ARN) of a resource. </p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>Describes the resource grouping action with values of
+   *             <code>GROUP</code> or <code>UNGROUP</code>. </p>
+   * @public
+   */
+  Action?: GroupingType | undefined;
+
+  /**
+   * <p>Describes the resource grouping status with values of
+   *             <code>SUCCESS</code>, <code>FAILED</code>, <code>IN_PROGRESS</code>,
+   *             or <code>SKIPPED</code>. </p>
+   * @public
+   */
+  Status?: GroupingStatus | undefined;
+
+  /**
+   * <p>A message that explains the <code>ErrorCode</code>. </p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>Specifies the error code that was raised. </p>
+   * @public
+   */
+  ErrorCode?: string | undefined;
+
+  /**
+   * <p>A timestamp of when the status was last updated. </p>
+   * @public
+   */
+  UpdatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListGroupingStatusesOutput {
+  /**
+   * <p>The application group identifier, expressed as an Amazon resource name (ARN) or the application group name.</p>
+   * @public
+   */
+  Group?: string | undefined;
+
+  /**
+   * <p>Returns details about the grouping or ungrouping status of the
+   *             resources in the specified application group. </p>
+   * @public
+   */
+  GroupingStatuses?: GroupingStatusesItem[] | undefined;
+
+  /**
+   * <p>If present, indicates that more output is available than is included in the current response.
+   *             Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output.
+   *             You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -889,8 +1275,6 @@ export interface ResourceFilter {
  */
 export interface ListGroupResourcesInput {
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>
    *                <i>
@@ -899,15 +1283,17 @@ export interface ListGroupResourcesInput {
    *                </i>
    *             </p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The name or the ARN of the resource group</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group. </p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>Filters, formatted as <a>ResourceFilter</a> objects, that you want to apply
@@ -941,7 +1327,7 @@ export interface ListGroupResourcesInput {
    *             Amazon CloudFront stack-based queries).</p>
    * @public
    */
-  Filters?: ResourceFilter[];
+  Filters?: ResourceFilter[] | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -954,7 +1340,7 @@ export interface ListGroupResourcesInput {
    * ensure that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -963,7 +1349,7 @@ export interface ListGroupResourcesInput {
    * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -992,13 +1378,13 @@ export interface QueryError {
    * <p>Specifies the error code that was raised.</p>
    * @public
    */
-  ErrorCode?: QueryErrorCode;
+  ErrorCode?: QueryErrorCode | undefined;
 
   /**
    * <p>A message that explains the <code>ErrorCode</code>. </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -1007,16 +1393,16 @@ export interface QueryError {
  */
 export interface ResourceIdentifier {
   /**
-   * <p>The ARN of a resource.</p>
+   * <p>The Amazon resource name (ARN) of a resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The resource type of a resource, such as <code>AWS::EC2::Instance</code>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 }
 
 /**
@@ -1044,7 +1430,7 @@ export interface ResourceStatus {
    * <p>The current status.</p>
    * @public
    */
-  Name?: ResourceStatusValue;
+  Name?: ResourceStatusValue | undefined;
 }
 
 /**
@@ -1058,7 +1444,7 @@ export interface ListGroupResourcesItem {
    * <p>A structure that contains the ARN of a resource and its resource type.</p>
    * @public
    */
-  Identifier?: ResourceIdentifier;
+  Identifier?: ResourceIdentifier | undefined;
 
   /**
    * <p>A structure that contains the status of this resource's membership in the
@@ -1069,7 +1455,7 @@ export interface ListGroupResourcesItem {
    *          </note>
    * @public
    */
-  Status?: ResourceStatus;
+  Status?: ResourceStatus | undefined;
 }
 
 /**
@@ -1081,11 +1467,9 @@ export interface ListGroupResourcesOutput {
    *             group membership status.</p>
    * @public
    */
-  Resources?: ListGroupResourcesItem[];
+  Resources?: ListGroupResourcesItem[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>
    *                <b>
@@ -1095,9 +1479,11 @@ export interface ListGroupResourcesOutput {
    *                </b>
    *             </p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
-  ResourceIdentifiers?: ResourceIdentifier[];
+  ResourceIdentifiers?: ResourceIdentifier[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -1106,7 +1492,7 @@ export interface ListGroupResourcesOutput {
    * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of <code>QueryError</code> objects. Each error contains an
@@ -1115,30 +1501,7 @@ export interface ListGroupResourcesOutput {
    *             <code>CLOUDFORMATION_STACK_UNASSUMABLE_ROLE</code> and <code>RESOURCE_TYPE_NOT_SUPPORTED</code>. </p>
    * @public
    */
-  QueryErrors?: QueryError[];
-}
-
-/**
- * <p>The request was rejected because it doesn't have valid credentials for the target
- *             resource.</p>
- * @public
- */
-export class UnauthorizedException extends __BaseException {
-  readonly name: "UnauthorizedException" = "UnauthorizedException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<UnauthorizedException, __BaseException>) {
-    super({
-      name: "UnauthorizedException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, UnauthorizedException.prototype);
-    this.Message = opts.Message;
-  }
+  QueryErrors?: QueryError[] | undefined;
 }
 
 /**
@@ -1147,6 +1510,9 @@ export class UnauthorizedException extends __BaseException {
  */
 export const GroupFilterName = {
   ConfigurationType: "configuration-type",
+  Criticality: "criticality",
+  DisplayName: "display-name",
+  Owner: "owner",
   ResourceType: "resource-type",
 } as const;
 
@@ -1198,12 +1564,17 @@ export interface ListGroupsInput {
    *                <ul>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::ResourceGroups::ApplicationGroup</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::AppRegistry::Application</code>
    *                      </p>
    *                   </li>
    *                   <li>
    *                      <p>
-   *                         <code>AWS::AppRegistry::ApplicationResourceGroups</code>
+   *                         <code>AWS::AppRegistry::ApplicationResourceGroup</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -1231,7 +1602,7 @@ export interface ListGroupsInput {
    *          </ul>
    * @public
    */
-  Filters?: GroupFilter[];
+  Filters?: GroupFilter[] | undefined;
 
   /**
    * <p>The total number of results that you want included on each page of the
@@ -1244,7 +1615,7 @@ export interface ListGroupsInput {
    * ensure that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -1253,7 +1624,7 @@ export interface ListGroupsInput {
    * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1265,13 +1636,39 @@ export interface GroupIdentifier {
    * <p>The name of the resource group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The ARN of the resource group.</p>
+   * <p>The Amazon resource name (ARN) of the resource group.</p>
    * @public
    */
-  GroupArn?: string;
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The description of the application group. </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>The critical rank of the application group on a scale of 1 to 10, with a
+   *             rank of 1 being the most critical, and a rank of 10 being least critical.</p>
+   * @public
+   */
+  Criticality?: number | undefined;
+
+  /**
+   * <p>A name, email address or other identifier for the person or group
+   *             who is considered as the owner of this group within your organization. </p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>The name of the application group, which you can change at any time. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
 }
 
 /**
@@ -1283,11 +1680,9 @@ export interface ListGroupsOutput {
    *             contains both the <code>Name</code> and the <code>GroupArn</code>.</p>
    * @public
    */
-  GroupIdentifiers?: GroupIdentifier[];
+  GroupIdentifiers?: GroupIdentifier[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <important>
    *             <p>
    *                <i>
@@ -1297,9 +1692,11 @@ export interface ListGroupsOutput {
    *                </i>
    *             </p>
    *          </important>
+   *
+   * @deprecated
    * @public
    */
-  Groups?: Group[];
+  Groups?: Group[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -1308,7 +1705,183 @@ export interface ListGroupsOutput {
    * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Returns tag-sync tasks filtered by the Amazon resource name (ARN) or name of a
+ *             specified application group. </p>
+ * @public
+ */
+export interface ListTagSyncTasksFilter {
+  /**
+   * <p>The Amazon resource name (ARN) of the application group. </p>
+   * @public
+   */
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The name of the application group. </p>
+   * @public
+   */
+  GroupName?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagSyncTasksInput {
+  /**
+   * <p>The Amazon resource name (ARN) or name of the application group for which you want to return a
+   *             list of tag-sync tasks. </p>
+   * @public
+   */
+  Filters?: ListTagSyncTasksFilter[] | undefined;
+
+  /**
+   * <p>The maximum number of results to be included in the response. </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The parameter for receiving additional results if you receive a
+   *             <code>NextToken</code> response in a previous request. A <code>NextToken</code>
+   *             response indicates that more output is available. Set this parameter to the
+   *             value provided by a previous call's <code>NextToken</code> response to indicate
+   *             where the output should continue from. </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+ * @public
+ */
+export interface TagSyncTaskItem {
+  /**
+   * <p>The Amazon resource name (ARN) of the application group. </p>
+   * @public
+   */
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The name of the application group. </p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the tag-sync task. </p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The tag key. </p>
+   * @public
+   */
+  TagKey?: string | undefined;
+
+  /**
+   * <p>The tag value. </p>
+   * @public
+   */
+  TagValue?: string | undefined;
+
+  /**
+   * <p>The query you can use to define a resource group or a search for resources. A
+   *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. See the examples section for
+   *             example JSON strings. For more information about creating a resource group with a
+   *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
+   *          </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *                 '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *                 <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
+
+  /**
+   * <p>The status of the tag-sync task. </p>
+   *          <p>Valid values include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ACTIVE</code> - The tag-sync task is actively managing resources in
+   *                     the application by adding or removing the <code>awsApplication</code> tag from resources
+   *                     when they are tagged or untagged with the specified tag key-value pair.
+   *                 </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ERROR</code> - The tag-sync task is not actively managing resources
+   *                     in the application. Review the <code>ErrorMessage</code> for more information about
+   *                     resolving the error.
+   *                 </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Status?: TagSyncTaskStatus | undefined;
+
+  /**
+   * <p>The specific error message in cases where the tag-sync task status
+   *             is <code>Error</code>.</p>
+   * @public
+   */
+  ErrorMessage?: string | undefined;
+
+  /**
+   * <p>The timestamp of when the tag-sync task was created. </p>
+   * @public
+   */
+  CreatedAt?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagSyncTasksOutput {
+  /**
+   * <p>A list of tag-sync tasks and information about each task. </p>
+   * @public
+   */
+  TagSyncTasks?: TagSyncTaskItem[] | undefined;
+
+  /**
+   * <p>If present, indicates that more output is available than is included in the current response.
+   *             Use this value in the <code>NextToken</code> request parameter in a subsequent call to the operation to get the next part of the output.
+   *             You should repeat this until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1316,11 +1889,11 @@ export interface ListGroupsOutput {
  */
 export interface PutGroupConfigurationInput {
   /**
-   * <p>The name or ARN of the resource group with the configuration that you want to
+   * <p>The name or Amazon resource name (ARN) of the resource group with the configuration that you want to
    *             update.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>The new configuration to associate with the specified group. A configuration
@@ -1334,7 +1907,7 @@ export interface PutGroupConfigurationInput {
    *          </note>
    * @public
    */
-  Configuration?: GroupConfigurationItem[];
+  Configuration?: GroupConfigurationItem[] | undefined;
 }
 
 /**
@@ -1364,7 +1937,7 @@ export interface SearchResourcesInput {
    * ensure that you receive all of the results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The parameter for receiving additional results if you receive a
@@ -1373,7 +1946,7 @@ export interface SearchResourcesInput {
    * call's <code>NextToken</code> response to indicate where the output should continue from.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1385,7 +1958,7 @@ export interface SearchResourcesOutput {
    *             specified.</p>
    * @public
    */
-  ResourceIdentifiers?: ResourceIdentifier[];
+  ResourceIdentifiers?: ResourceIdentifier[] | undefined;
 
   /**
    * <p>If present, indicates that more output is available than is
@@ -1394,7 +1967,7 @@ export interface SearchResourcesOutput {
    * until the <code>NextToken</code> response element comes back as <code>null</code>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of <code>QueryError</code> objects. Each error contains an
@@ -1419,7 +1992,149 @@ export interface SearchResourcesOutput {
    *          </ul>
    * @public
    */
-  QueryErrors?: QueryError[];
+  QueryErrors?: QueryError[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTagSyncTaskInput {
+  /**
+   * <p>The Amazon resource name (ARN) or name of the application group for which you want to create a tag-sync task. </p>
+   * @public
+   */
+  Group: string | undefined;
+
+  /**
+   * <p>The tag key. Resources tagged with this tag key-value pair will be added to
+   *             the application. If a resource with this tag is later untagged, the tag-sync task removes
+   *             the resource from the application. </p>
+   *          <p>When using the <code>TagKey</code> parameter, you must also specify the <code>TagValue</code> parameter. If you specify a tag key-value pair,
+   *             you can't use the <code>ResourceQuery</code> parameter. </p>
+   * @public
+   */
+  TagKey?: string | undefined;
+
+  /**
+   * <p>The tag value. Resources tagged with this tag key-value pair will be added to
+   *             the application. If a resource with this tag is later untagged, the tag-sync task removes
+   *             the resource from the application. </p>
+   *          <p>When using the <code>TagValue</code> parameter, you must also specify the <code>TagKey</code> parameter. If you specify a tag key-value pair,
+   *             you can't use the <code>ResourceQuery</code> parameter. </p>
+   * @public
+   */
+  TagValue?: string | undefined;
+
+  /**
+   * <p>The query you can use to create the tag-sync task. With this method, all resources matching the query
+   *             are added to the specified application group. A
+   *             <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. For more information on defining a resource query for a
+   *                 tag-sync task, see the tag-based query type in <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html#getting_started-query_types">
+   *                     Types of resource group queries</a> in <i>Resource Groups User Guide</i>. </p>
+   *          <p>When using the <code>ResourceQuery</code> parameter, you cannot use the <code>TagKey</code> and <code>TagValue</code> parameters. </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *             <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *             '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *             <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *             <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *             <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>
+   * @public
+   */
+  RoleArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartTagSyncTaskOutput {
+  /**
+   * <p>The Amazon resource name (ARN) of the application group for which you want to add or remove resources. </p>
+   * @public
+   */
+  GroupArn?: string | undefined;
+
+  /**
+   * <p>The name of the application group to onboard and sync resources.</p>
+   * @public
+   */
+  GroupName?: string | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the new tag-sync task. </p>
+   * @public
+   */
+  TaskArn?: string | undefined;
+
+  /**
+   * <p>The tag key of the tag-sync task. </p>
+   * @public
+   */
+  TagKey?: string | undefined;
+
+  /**
+   * <p>The tag value of the tag-sync task. </p>
+   * @public
+   */
+  TagValue?: string | undefined;
+
+  /**
+   * <p>The query you can use to define a resource group or a search for resources. A
+   *                 <code>ResourceQuery</code> specifies both a query <code>Type</code> and a
+   *                 <code>Query</code> string as JSON string objects. See the examples section for
+   *             example JSON strings. For more information about creating a resource group with a
+   *             resource query, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/gettingstarted-query.html">Build queries and groups in
+   *                 Resource Groups</a> in the <i>Resource Groups User Guide</i>
+   *          </p>
+   *          <p>When you combine all of the elements together into a single string, any double quotes
+   *             that are embedded inside another double quote pair must be escaped by preceding the
+   *             embedded double quote with a backslash character (\). For example, a complete
+   *                 <code>ResourceQuery</code> parameter must be formatted like the following CLI
+   *             parameter example:</p>
+   *          <p>
+   *             <code>--resource-query
+   *                 '\{"Type":"TAG_FILTERS_1_0","Query":"\{\"ResourceTypeFilters\":[\"AWS::AllSupported\"],\"TagFilters\":[\{\"Key\":\"Stage\",\"Values\":[\"Test\"]\}]\}"\}'</code>
+   *          </p>
+   *          <p>In the preceding example, all of the double quote characters in the value part of the
+   *                 <code>Query</code> element must be escaped because the value itself is surrounded by
+   *             double quotes. For more information, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-parameters-quoting-strings.html">Quoting
+   *                 strings</a> in the <i>Command Line Interface User Guide</i>.</p>
+   *          <p>For the complete list of resource types that you can use in the array value for
+   *                 <code>ResourceTypeFilters</code>, see <a href="https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html">Resources
+   *                 you can use with Resource Groups and Tag Editor</a> in the
+   *                 <i>Resource Groups User Guide</i>. For example:</p>
+   *          <p>
+   *             <code>"ResourceTypeFilters":["AWS::S3::Bucket", "AWS::EC2::Instance"]</code>
+   *          </p>
+   * @public
+   */
+  ResourceQuery?: ResourceQuery | undefined;
+
+  /**
+   * <p>The Amazon resource name (ARN) of the role assumed by the service to tag and untag resources on your behalf.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1427,7 +2142,7 @@ export interface SearchResourcesOutput {
  */
 export interface TagInput {
   /**
-   * <p>The ARN of the resource group to which to add tags.</p>
+   * <p>The Amazon resource name (ARN) of the resource group to which to add tags.</p>
    * @public
    */
   Arn: string | undefined;
@@ -1445,16 +2160,16 @@ export interface TagInput {
  */
 export interface TagOutput {
   /**
-   * <p>The ARN of the tagged resource.</p>
+   * <p>The Amazon resource name (ARN) of the tagged resource.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The tags that have been added to the specified resource group.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1462,13 +2177,13 @@ export interface TagOutput {
  */
 export interface UngroupResourcesInput {
   /**
-   * <p>The name or the ARN of the resource group from which to remove the resources.</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group from which to remove the resources.</p>
    * @public
    */
   Group: string | undefined;
 
   /**
-   * <p>The ARNs of the resources to be removed from the group.</p>
+   * <p>The Amazon resource names (ARNs) of the resources to be removed from the group.</p>
    * @public
    */
   ResourceArns: string[] | undefined;
@@ -1483,14 +2198,14 @@ export interface UngroupResourcesOutput {
    *             operation.</p>
    * @public
    */
-  Succeeded?: string[];
+  Succeeded?: string[] | undefined;
 
   /**
    * <p>A list of any resources that failed to be removed from the group by this
    *             operation.</p>
    * @public
    */
-  Failed?: FailedResource[];
+  Failed?: FailedResource[] | undefined;
 
   /**
    * <p>A list of any resources that are still in the process of being removed from the group
@@ -1501,7 +2216,7 @@ export interface UngroupResourcesOutput {
    *             appears in the response.</p>
    * @public
    */
-  Pending?: PendingResource[];
+  Pending?: PendingResource[] | undefined;
 }
 
 /**
@@ -1509,7 +2224,7 @@ export interface UngroupResourcesOutput {
  */
 export interface UntagInput {
   /**
-   * <p>The ARN of the resource group from which to remove tags. The command removed both the
+   * <p>The Amazon resource name (ARN) of the resource group from which to remove tags. The command removed both the
    *             specified keys and any values associated with those keys.</p>
    * @public
    */
@@ -1527,16 +2242,16 @@ export interface UntagInput {
  */
 export interface UntagOutput {
   /**
-   * <p>The ARN of the resource group from which tags have been removed.</p>
+   * <p>The Amazon resource name (ARN) of the resource group from which tags have been removed.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The keys of the tags that were removed.</p>
    * @public
    */
-  Keys?: string[];
+  Keys?: string[] | undefined;
 }
 
 /**
@@ -1545,9 +2260,10 @@ export interface UntagOutput {
 export interface UpdateAccountSettingsInput {
   /**
    * <p>Specifies whether you want to turn <a href="https://docs.aws.amazon.com/ARG/latest/userguide/monitor-groups.html">group lifecycle events</a> on or off.</p>
+   *          <p>You can't turn on group lifecycle events if your resource groups quota is greater than 2,000. </p>
    * @public
    */
-  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus;
+  GroupLifecycleEventsDesiredStatus?: GroupLifecycleEventsDesiredStatus | undefined;
 }
 
 /**
@@ -1558,7 +2274,7 @@ export interface UpdateAccountSettingsOutput {
    * <p>A structure that displays the status of the optional features in the account.</p>
    * @public
    */
-  AccountSettings?: AccountSettings;
+  AccountSettings?: AccountSettings | undefined;
 }
 
 /**
@@ -1566,25 +2282,45 @@ export interface UpdateAccountSettingsOutput {
  */
 export interface UpdateGroupInput {
   /**
-   * @deprecated
-   *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The name or the ARN of the resource group to modify.</p>
+   * <p>The name or the ARN of the resource group to update.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>The new description that you want to update the resource group with. Descriptions can
    *             contain letters, numbers, hyphens, underscores, periods, and spaces.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
+
+  /**
+   * <p>The critical rank of the application group on a scale of 1 to 10, with a
+   *             rank of 1 being the most critical, and a rank of 10 being least critical.</p>
+   * @public
+   */
+  Criticality?: number | undefined;
+
+  /**
+   * <p>A name, email address or other identifier for the person or group
+   *             who is considered as the owner of this application group within your organization. </p>
+   * @public
+   */
+  Owner?: string | undefined;
+
+  /**
+   * <p>The name of the application group, which you can change at any time. </p>
+   * @public
+   */
+  DisplayName?: string | undefined;
 }
 
 /**
@@ -1595,7 +2331,7 @@ export interface UpdateGroupOutput {
    * <p>The update description of the resource group.</p>
    * @public
    */
-  Group?: Group;
+  Group?: Group | undefined;
 }
 
 /**
@@ -1603,18 +2339,18 @@ export interface UpdateGroupOutput {
  */
 export interface UpdateGroupQueryInput {
   /**
-   * @deprecated
-   *
    * <p>Don't use this parameter. Use <code>Group</code> instead.</p>
+   *
+   * @deprecated
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
-   * <p>The name or the ARN of the resource group to query.</p>
+   * <p>The name or the Amazon resource name (ARN) of the resource group to query.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>The resource query to determine which Amazon Web Services resources are members of this resource
@@ -1636,5 +2372,5 @@ export interface UpdateGroupQueryOutput {
    * <p>The updated resource query associated with the resource group after the update.</p>
    * @public
    */
-  GroupQuery?: GroupQuery;
+  GroupQuery?: GroupQuery | undefined;
 }

@@ -10,13 +10,19 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SignUpRequest, SignUpRequestFilterSensitiveLog, SignUpResponse } from "../models/models_1";
+import {
+  SignUpRequest,
+  SignUpRequestFilterSensitiveLog,
+  SignUpResponse,
+  SignUpResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_SignUpCommand, se_SignUpCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +37,8 @@ export interface SignUpCommandInput extends SignUpRequest {}
 export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
 
 /**
- * <p>Registers the user in the specified user pool and creates a user name, password, and
- *             user attributes.</p>
+ * <p>Registers a user with an app client and requests a user name, password, and user
+ *             attributes in the user pool.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -47,7 +53,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -56,6 +62,11 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *             of the sandbox and into production. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-sms-settings.html"> SMS message settings for Amazon Cognito user pools</a> in the <i>Amazon Cognito
  *                 Developer Guide</i>.</p>
  *          </note>
+ *          <p>You might receive a <code>LimitExceeded</code> exception in response to this request
+ *             if you have exceeded a rate quota for email or SMS messages, and if your user pool
+ *             automatically verifies email addresses or phone numbers. When you get this exception in
+ *             the response, the user is successfully created and is in an <code>UNCONFIRMED</code>
+ *             state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +77,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  *   ClientId: "STRING_VALUE", // required
  *   SecretHash: "STRING_VALUE",
  *   Username: "STRING_VALUE", // required
- *   Password: "STRING_VALUE", // required
+ *   Password: "STRING_VALUE",
  *   UserAttributes: [ // AttributeListType
  *     { // AttributeType
  *       Name: "STRING_VALUE", // required
@@ -100,6 +111,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * //     AttributeName: "STRING_VALUE",
  * //   },
  * //   UserSub: "STRING_VALUE", // required
+ * //   Session: "STRING_VALUE",
  * // };
  *
  * ```
@@ -175,6 +187,7 @@ export interface SignUpCommandOutput extends SignUpResponse, __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class SignUpCommand extends $Command
@@ -185,9 +198,7 @@ export class SignUpCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,7 +207,19 @@ export class SignUpCommand extends $Command
   })
   .s("AWSCognitoIdentityProviderService", "SignUp", {})
   .n("CognitoIdentityProviderClient", "SignUpCommand")
-  .f(SignUpRequestFilterSensitiveLog, void 0)
+  .f(SignUpRequestFilterSensitiveLog, SignUpResponseFilterSensitiveLog)
   .ser(se_SignUpCommand)
   .de(de_SignUpCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignUpRequest;
+      output: SignUpResponse;
+    };
+    sdk: {
+      input: SignUpCommandInput;
+      output: SignUpCommandOutput;
+    };
+  };
+}

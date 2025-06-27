@@ -12,7 +12,8 @@ import { de_GetTransformerJobCommand, se_GetTransformerJobCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,31 +78,31 @@ export interface GetTransformerJobCommandOutput extends GetTransformerJobRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample GetTransformerJob call
  * ```javascript
  * //
  * const input = {
- *   "transformerId": "tr-974c129999f84d8c9",
- *   "transformerJobId": "tj-vpYxfV7yQOqjMSYllEslLw"
+ *   transformerId: "tr-974c129999f84d8c9",
+ *   transformerJobId: "tj-vpYxfV7yQOqjMSYllEslLw"
  * };
  * const command = new GetTransformerJobCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "message": "Transformed, writing output",
- *   "outputFiles": [
+ *   message: "Transformed, writing output",
+ *   outputFiles: [
  *     {
- *       "key": "output/sample-214.edi.2023-11-01T10:44:03.353Z.json",
- *       "bucketName": "gt-edi-test"
+ *       bucketName: "gt-edi-test",
+ *       key: "output/sample-214.edi.2023-11-01T10:44:03.353Z.json"
  *     }
  *   ],
- *   "status": "succeeded"
+ *   status: "succeeded"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class GetTransformerJobCommand extends $Command
   .classBuilder<
@@ -111,9 +112,7 @@ export class GetTransformerJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class GetTransformerJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransformerJobCommand)
   .de(de_GetTransformerJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransformerJobRequest;
+      output: GetTransformerJobResponse;
+    };
+    sdk: {
+      input: GetTransformerJobCommandInput;
+      output: GetTransformerJobCommandOutput;
+    };
+  };
+}

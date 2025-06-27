@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,6 +44,9 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  *   ProjectName: "STRING_VALUE", // required
  *   Feature: "CONTENT_MODERATION" || "CUSTOM_LABELS",
  *   AutoUpdate: "ENABLED" || "DISABLED",
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
@@ -88,23 +92,23 @@ export interface CreateProjectCommandOutput extends CreateProjectResponse, __Met
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To create an Amazon Rekognition Custom Labels project
  * ```javascript
  * // Creates an Amazon Rekognition Custom Labels project.
  * const input = {
- *   "ProjectName": "my-project"
+ *   ProjectName: "my-project"
  * };
  * const command = new CreateProjectCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProjectArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690405809285"
+ *   ProjectArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-project/1690405809285"
  * }
  * *\/
- * // example id: to-create-an-amazon-rekognition-custom-labels-project-1690405898597
  * ```
  *
+ * @public
  */
 export class CreateProjectCommand extends $Command
   .classBuilder<
@@ -114,9 +118,7 @@ export class CreateProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +130,16 @@ export class CreateProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProjectCommand)
   .de(de_CreateProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProjectRequest;
+      output: CreateProjectResponse;
+    };
+    sdk: {
+      input: CreateProjectCommandInput;
+      output: CreateProjectCommandOutput;
+    };
+  };
+}

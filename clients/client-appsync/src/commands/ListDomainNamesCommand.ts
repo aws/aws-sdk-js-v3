@@ -12,7 +12,8 @@ import { de_ListDomainNamesCommand, se_ListDomainNamesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,6 +49,10 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  * //       certificateArn: "STRING_VALUE",
  * //       appsyncDomainName: "STRING_VALUE",
  * //       hostedZoneId: "STRING_VALUE",
+ * //       tags: { // TagMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       domainNameArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -65,14 +70,15 @@ export interface ListDomainNamesCommandOutput extends ListDomainNamesResponse, _
  *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +90,7 @@ export class ListDomainNamesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +102,16 @@ export class ListDomainNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDomainNamesCommand)
   .de(de_ListDomainNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainNamesRequest;
+      output: ListDomainNamesResponse;
+    };
+    sdk: {
+      input: ListDomainNamesCommandInput;
+      output: ListDomainNamesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateStageCommand, se_CreateStageCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -136,6 +137,7 @@ export interface CreateStageCommandOutput extends Stage, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateStageCommand extends $Command
@@ -146,9 +148,7 @@ export class CreateStageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +160,16 @@ export class CreateStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStageCommand)
   .de(de_CreateStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStageRequest;
+      output: Stage;
+    };
+    sdk: {
+      input: CreateStageCommandInput;
+      output: CreateStageCommandOutput;
+    };
+  };
+}

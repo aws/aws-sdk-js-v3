@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface GetRuleCommandInput extends GetRuleRequest {}
 export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about listener rules. You can also retrieve information about the
+ * <p>Retrieves information about the specified listener rules. You can also retrieve information about the
  *    default listener rule. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules">Listener rules</a> in the
  *     <i>Amazon VPC Lattice User Guide</i>.</p>
  * @example
@@ -116,6 +117,7 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetRuleCommand extends $Command
@@ -126,9 +128,7 @@ export class GetRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class GetRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuleCommand)
   .de(de_GetRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleRequest;
+      output: GetRuleResponse;
+    };
+    sdk: {
+      input: GetRuleCommandInput;
+      output: GetRuleCommandOutput;
+    };
+  };
+}

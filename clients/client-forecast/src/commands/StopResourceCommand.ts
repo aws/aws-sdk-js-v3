@@ -12,7 +12,8 @@ import { de_StopResourceCommand, se_StopResourceCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface StopResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class StopResourceCommand extends $Command
@@ -101,9 +103,7 @@ export class StopResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class StopResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopResourceCommand)
   .de(de_StopResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopResourceCommandInput;
+      output: StopResourceCommandOutput;
+    };
+  };
+}

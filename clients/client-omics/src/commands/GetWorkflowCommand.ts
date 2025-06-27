@@ -12,7 +12,8 @@ import { de_GetWorkflowCommand, se_GetWorkflowCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface GetWorkflowCommandInput extends GetWorkflowRequest {}
 export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a workflow.</p>
- *          <p>If a workflow is shared with you, you cannot export the workflow.</p>
+ * <p>Gets information about a workflow.</p> <p>If a workflow is shared with you, you cannot export the workflow.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +72,8 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   accelerators: "STRING_VALUE",
+ * //   storageType: "STRING_VALUE",
+ * //   uuid: "STRING_VALUE",
  * // };
  *
  * ```
@@ -109,6 +111,7 @@ export interface GetWorkflowCommandOutput extends GetWorkflowResponse, __Metadat
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetWorkflowCommand extends $Command
@@ -119,9 +122,7 @@ export class GetWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +134,16 @@ export class GetWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkflowCommand)
   .de(de_GetWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkflowRequest;
+      output: GetWorkflowResponse;
+    };
+    sdk: {
+      input: GetWorkflowCommandInput;
+      output: GetWorkflowCommandOutput;
+    };
+  };
+}

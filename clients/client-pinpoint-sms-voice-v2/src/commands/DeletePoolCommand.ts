@@ -16,7 +16,8 @@ import { de_DeletePoolCommand, se_DeletePoolCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,13 +32,7 @@ export interface DeletePoolCommandInput extends DeletePoolRequest {}
 export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBearer {}
 
 /**
- * <p>Deletes an existing pool. Deleting a pool disassociates all origination identities
- *             from that pool.</p>
- *          <p>If the pool status isn't active or if deletion protection is enabled, an error is
- *             returned.</p>
- *          <p>A pool is a collection of phone numbers and SenderIds. A pool can include one or more
- *             phone numbers and SenderIds that are associated with your Amazon Web Services
- *             account.</p>
+ * <p>Deletes an existing pool. Deleting a pool disassociates all origination identities from that pool.</p> <p>If the pool status isn't active or if deletion protection is enabled, an error is returned.</p> <p>A pool is a collection of phone numbers and SenderIds. A pool can include one or more phone numbers and SenderIds that are associated with your Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,31 +67,26 @@ export interface DeletePoolCommandOutput extends DeletePoolResult, __MetadataBea
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time or it could be that the
- *             requested action isn't valid for the current state or configuration of the
- *             resource.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -108,9 +98,7 @@ export class DeletePoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +110,16 @@ export class DeletePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePoolCommand)
   .de(de_DeletePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePoolRequest;
+      output: DeletePoolResult;
+    };
+    sdk: {
+      input: DeletePoolCommandInput;
+      output: DeletePoolCommandOutput;
+    };
+  };
+}

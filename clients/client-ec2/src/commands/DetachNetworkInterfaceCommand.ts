@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DetachNetworkInterfaceRequest } from "../models/models_5";
+import { DetachNetworkInterfaceRequest } from "../models/models_6";
 import { de_DetachNetworkInterfaceCommand, se_DetachNetworkInterfaceCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,8 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, DetachNetworkInterfaceCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DetachNetworkInterfaceRequest
- *   AttachmentId: "STRING_VALUE", // required
  *   DryRun: true || false,
+ *   AttachmentId: "STRING_VALUE", // required
  *   Force: true || false,
  * };
  * const command = new DetachNetworkInterfaceCommand(input);
@@ -54,18 +55,21 @@ export interface DetachNetworkInterfaceCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To detach a network interface from an instance
  * ```javascript
  * // This example detaches the specified network interface from its attached instance.
  * const input = {
- *   "AttachmentId": "eni-attach-66c4350a"
+ *   AttachmentId: "eni-attach-66c4350a"
  * };
  * const command = new DetachNetworkInterfaceCommand(input);
- * await client.send(command);
- * // example id: ec2-detach-network-interface-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DetachNetworkInterfaceCommand extends $Command
   .classBuilder<
@@ -75,9 +79,7 @@ export class DetachNetworkInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +91,16 @@ export class DetachNetworkInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachNetworkInterfaceCommand)
   .de(de_DetachNetworkInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachNetworkInterfaceRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachNetworkInterfaceCommandInput;
+      output: DetachNetworkInterfaceCommandOutput;
+    };
+  };
+}

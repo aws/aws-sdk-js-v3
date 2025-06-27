@@ -12,7 +12,8 @@ import { de_DeleteTrafficMirrorTargetCommand, se_DeleteTrafficMirrorTargetComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,7 @@ export interface DeleteTrafficMirrorTargetCommandOutput extends DeleteTrafficMir
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrafficMirrorTargetCommand extends $Command
@@ -66,9 +68,7 @@ export class DeleteTrafficMirrorTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +80,16 @@ export class DeleteTrafficMirrorTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrafficMirrorTargetCommand)
   .de(de_DeleteTrafficMirrorTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrafficMirrorTargetRequest;
+      output: DeleteTrafficMirrorTargetResult;
+    };
+    sdk: {
+      input: DeleteTrafficMirrorTargetCommandInput;
+      output: DeleteTrafficMirrorTargetCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface DeleteUserCommandInput extends DeleteUserRequest {}
 export interface DeleteUserCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Allows a user to delete their own user profile.</p>
+ * <p>Deletes the profile of the currently signed-in user. A deleted user profile can no
+ *             longer be used to sign in and can't be restored.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -94,6 +96,7 @@ export interface DeleteUserCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command
@@ -104,9 +107,7 @@ export class DeleteUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +119,16 @@ export class DeleteUserCommand extends $Command
   .f(DeleteUserRequestFilterSensitiveLog, void 0)
   .ser(se_DeleteUserCommand)
   .de(de_DeleteUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserCommandInput;
+      output: DeleteUserCommandOutput;
+    };
+  };
+}

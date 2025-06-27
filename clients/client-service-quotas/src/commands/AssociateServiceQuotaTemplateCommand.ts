@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface AssociateServiceQuotaTemplateCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class AssociateServiceQuotaTemplateCommand extends $Command
@@ -95,9 +97,7 @@ export class AssociateServiceQuotaTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class AssociateServiceQuotaTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateServiceQuotaTemplateCommand)
   .de(de_AssociateServiceQuotaTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: AssociateServiceQuotaTemplateCommandInput;
+      output: AssociateServiceQuotaTemplateCommandOutput;
+    };
+  };
+}

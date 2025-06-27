@@ -12,7 +12,8 @@ import { de_GetChannelsCommand, se_GetChannelsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface GetChannelsCommandOutput extends GetChannelsResponse, __Metadat
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetChannelsCommand extends $Command
@@ -99,9 +101,7 @@ export class GetChannelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class GetChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChannelsCommand)
   .de(de_GetChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelsRequest;
+      output: GetChannelsResponse;
+    };
+    sdk: {
+      input: GetChannelsCommandInput;
+      output: GetChannelsCommandOutput;
+    };
+  };
+}

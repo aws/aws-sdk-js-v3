@@ -54,6 +54,10 @@ import {
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
 import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "./commands/BatchGetTracesCommand";
+import {
+  CancelTraceRetrievalCommandInput,
+  CancelTraceRetrievalCommandOutput,
+} from "./commands/CancelTraceRetrievalCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "./commands/CreateGroupCommand";
 import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "./commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "./commands/DeleteGroupCommand";
@@ -68,6 +72,7 @@ import {
 } from "./commands/GetEncryptionConfigCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "./commands/GetGroupCommand";
 import { GetGroupsCommandInput, GetGroupsCommandOutput } from "./commands/GetGroupsCommand";
+import { GetIndexingRulesCommandInput, GetIndexingRulesCommandOutput } from "./commands/GetIndexingRulesCommand";
 import { GetInsightCommandInput, GetInsightCommandOutput } from "./commands/GetInsightCommand";
 import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "./commands/GetInsightEventsCommand";
 import {
@@ -78,6 +83,10 @@ import {
   GetInsightSummariesCommandInput,
   GetInsightSummariesCommandOutput,
 } from "./commands/GetInsightSummariesCommand";
+import {
+  GetRetrievedTracesGraphCommandInput,
+  GetRetrievedTracesGraphCommandOutput,
+} from "./commands/GetRetrievedTracesGraphCommand";
 import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "./commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
@@ -90,11 +99,19 @@ import {
   GetTimeSeriesServiceStatisticsCommandOutput,
 } from "./commands/GetTimeSeriesServiceStatisticsCommand";
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "./commands/GetTraceGraphCommand";
+import {
+  GetTraceSegmentDestinationCommandInput,
+  GetTraceSegmentDestinationCommandOutput,
+} from "./commands/GetTraceSegmentDestinationCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "./commands/GetTraceSummariesCommand";
 import {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "./commands/ListResourcePoliciesCommand";
+import {
+  ListRetrievedTracesCommandInput,
+  ListRetrievedTracesCommandOutput,
+} from "./commands/ListRetrievedTracesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -109,10 +126,19 @@ import {
   PutTelemetryRecordsCommandOutput,
 } from "./commands/PutTelemetryRecordsCommand";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "./commands/PutTraceSegmentsCommand";
+import {
+  StartTraceRetrievalCommandInput,
+  StartTraceRetrievalCommandOutput,
+} from "./commands/StartTraceRetrievalCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "./commands/UpdateGroupCommand";
+import { UpdateIndexingRuleCommandInput, UpdateIndexingRuleCommandOutput } from "./commands/UpdateIndexingRuleCommand";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "./commands/UpdateSamplingRuleCommand";
+import {
+  UpdateTraceSegmentDestinationCommandInput,
+  UpdateTraceSegmentDestinationCommandOutput,
+} from "./commands/UpdateTraceSegmentDestinationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -129,6 +155,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | BatchGetTracesCommandInput
+  | CancelTraceRetrievalCommandInput
   | CreateGroupCommandInput
   | CreateSamplingRuleCommandInput
   | DeleteGroupCommandInput
@@ -137,33 +164,41 @@ export type ServiceInputTypes =
   | GetEncryptionConfigCommandInput
   | GetGroupCommandInput
   | GetGroupsCommandInput
+  | GetIndexingRulesCommandInput
   | GetInsightCommandInput
   | GetInsightEventsCommandInput
   | GetInsightImpactGraphCommandInput
   | GetInsightSummariesCommandInput
+  | GetRetrievedTracesGraphCommandInput
   | GetSamplingRulesCommandInput
   | GetSamplingStatisticSummariesCommandInput
   | GetSamplingTargetsCommandInput
   | GetServiceGraphCommandInput
   | GetTimeSeriesServiceStatisticsCommandInput
   | GetTraceGraphCommandInput
+  | GetTraceSegmentDestinationCommandInput
   | GetTraceSummariesCommandInput
   | ListResourcePoliciesCommandInput
+  | ListRetrievedTracesCommandInput
   | ListTagsForResourceCommandInput
   | PutEncryptionConfigCommandInput
   | PutResourcePolicyCommandInput
   | PutTelemetryRecordsCommandInput
   | PutTraceSegmentsCommandInput
+  | StartTraceRetrievalCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateGroupCommandInput
-  | UpdateSamplingRuleCommandInput;
+  | UpdateIndexingRuleCommandInput
+  | UpdateSamplingRuleCommandInput
+  | UpdateTraceSegmentDestinationCommandInput;
 
 /**
  * @public
  */
 export type ServiceOutputTypes =
   | BatchGetTracesCommandOutput
+  | CancelTraceRetrievalCommandOutput
   | CreateGroupCommandOutput
   | CreateSamplingRuleCommandOutput
   | DeleteGroupCommandOutput
@@ -172,27 +207,34 @@ export type ServiceOutputTypes =
   | GetEncryptionConfigCommandOutput
   | GetGroupCommandOutput
   | GetGroupsCommandOutput
+  | GetIndexingRulesCommandOutput
   | GetInsightCommandOutput
   | GetInsightEventsCommandOutput
   | GetInsightImpactGraphCommandOutput
   | GetInsightSummariesCommandOutput
+  | GetRetrievedTracesGraphCommandOutput
   | GetSamplingRulesCommandOutput
   | GetSamplingStatisticSummariesCommandOutput
   | GetSamplingTargetsCommandOutput
   | GetServiceGraphCommandOutput
   | GetTimeSeriesServiceStatisticsCommandOutput
   | GetTraceGraphCommandOutput
+  | GetTraceSegmentDestinationCommandOutput
   | GetTraceSummariesCommandOutput
   | ListResourcePoliciesCommandOutput
+  | ListRetrievedTracesCommandOutput
   | ListTagsForResourceCommandOutput
   | PutEncryptionConfigCommandOutput
   | PutResourcePolicyCommandOutput
   | PutTelemetryRecordsCommandOutput
   | PutTraceSegmentsCommandOutput
+  | StartTraceRetrievalCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateGroupCommandOutput
-  | UpdateSamplingRuleCommandOutput;
+  | UpdateIndexingRuleCommandOutput
+  | UpdateSamplingRuleCommandOutput
+  | UpdateTraceSegmentDestinationCommandOutput;
 
 /**
  * @public
@@ -286,6 +328,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -331,11 +392,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type XRayClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -351,11 +412,11 @@ export interface XRayClientConfig extends XRayClientConfigType {}
 export type XRayClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -383,26 +444,30 @@ export class XRayClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<XRayClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultXRayHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: XRayClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -415,14 +480,5 @@ export class XRayClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultXRayHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: XRayClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

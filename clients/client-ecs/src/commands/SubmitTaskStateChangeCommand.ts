@@ -12,7 +12,8 @@ import { de_SubmitTaskStateChangeCommand, se_SubmitTaskStateChangeCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,12 +106,15 @@ export interface SubmitTaskStateChangeCommandOutput extends SubmitTaskStateChang
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
  *
  * @public
  */
@@ -122,9 +126,7 @@ export class SubmitTaskStateChangeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +138,16 @@ export class SubmitTaskStateChangeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubmitTaskStateChangeCommand)
   .de(de_SubmitTaskStateChangeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubmitTaskStateChangeRequest;
+      output: SubmitTaskStateChangeResponse;
+    };
+    sdk: {
+      input: SubmitTaskStateChangeCommandInput;
+      output: SubmitTaskStateChangeCommandOutput;
+    };
+  };
+}

@@ -11,5 +11,6 @@ export * from "./ListModelManifestNodesPaginator";
 export * from "./ListModelManifestsPaginator";
 export * from "./ListSignalCatalogNodesPaginator";
 export * from "./ListSignalCatalogsPaginator";
+export * from "./ListStateTemplatesPaginator";
 export * from "./ListVehiclesInFleetPaginator";
 export * from "./ListVehiclesPaginator";

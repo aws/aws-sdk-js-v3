@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,11 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  *           Size: Number("long"), // required
  *           SizeUnit: "HOUR" || "DAY" || "WEEK", // required
  *         },
+ *       },
+ *     },
+ *     FailureConfiguration: { // RefreshFailureConfiguration
+ *       EmailAlert: { // RefreshFailureEmailAlert
+ *         AlertStatus: "ENABLED" || "DISABLED",
  *       },
  *     },
  *   },
@@ -99,6 +105,7 @@ export interface PutDataSetRefreshPropertiesCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class PutDataSetRefreshPropertiesCommand extends $Command
@@ -109,9 +116,7 @@ export class PutDataSetRefreshPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +128,16 @@ export class PutDataSetRefreshPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDataSetRefreshPropertiesCommand)
   .de(de_PutDataSetRefreshPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDataSetRefreshPropertiesRequest;
+      output: PutDataSetRefreshPropertiesResponse;
+    };
+    sdk: {
+      input: PutDataSetRefreshPropertiesCommandInput;
+      output: PutDataSetRefreshPropertiesCommandOutput;
+    };
+  };
+}

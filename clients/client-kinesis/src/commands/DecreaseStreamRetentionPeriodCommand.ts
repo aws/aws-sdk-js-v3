@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface DecreaseStreamRetentionPeriodCommandOutput extends __MetadataBe
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class DecreaseStreamRetentionPeriodCommand extends $Command
@@ -113,4 +115,16 @@ export class DecreaseStreamRetentionPeriodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DecreaseStreamRetentionPeriodCommand)
   .de(de_DecreaseStreamRetentionPeriodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DecreaseStreamRetentionPeriodInput;
+      output: {};
+    };
+    sdk: {
+      input: DecreaseStreamRetentionPeriodCommandInput;
+      output: DecreaseStreamRetentionPeriodCommandOutput;
+    };
+  };
+}

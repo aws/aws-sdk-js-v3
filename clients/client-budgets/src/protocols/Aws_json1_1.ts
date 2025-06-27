@@ -90,6 +90,7 @@ import {
   BudgetNotificationsForAccount,
   BudgetPerformanceHistory,
   CalculatedSpend,
+  CostCategoryValues,
   CostTypes,
   CreateBudgetActionRequest,
   CreateBudgetRequest,
@@ -124,12 +125,16 @@ import {
   DuplicateRecordException,
   ExecuteBudgetActionRequest,
   ExpiredNextTokenException,
+  Expression,
+  ExpressionDimensionValues,
   HistoricalOptions,
   IamActionDefinition,
   InternalErrorException,
   InvalidNextTokenException,
   InvalidParameterException,
   ListTagsForResourceRequest,
+  MatchOption,
+  Metric,
   NotFoundException,
   Notification,
   NotificationWithSubscribers,
@@ -141,6 +146,7 @@ import {
   SsmActionDefinition,
   Subscriber,
   TagResourceRequest,
+  TagValues,
   ThrottlingException,
   TimePeriod,
   UntagResourceRequest,
@@ -1265,7 +1271,9 @@ const se_Budget = (input: Budget, context: __SerdeContext): any => {
     CalculatedSpend: _json,
     CostFilters: _json,
     CostTypes: _json,
+    FilterExpression: (_) => se_Expression(_, context),
     LastUpdatedTime: (_) => _.getTime() / 1_000,
+    Metrics: _json,
     PlannedBudgetLimits: _json,
     TimePeriod: (_) => se_TimePeriod(_, context),
     TimeUnit: [],
@@ -1273,6 +1281,8 @@ const se_Budget = (input: Budget, context: __SerdeContext): any => {
 };
 
 // se_CalculatedSpend omitted.
+
+// se_CostCategoryValues omitted.
 
 // se_CostFilters omitted.
 
@@ -1428,6 +1438,33 @@ const se_DescribeSubscribersForNotificationRequest = (
 
 // se_ExecuteBudgetActionRequest omitted.
 
+/**
+ * serializeAws_json1_1Expression
+ */
+const se_Expression = (input: Expression, context: __SerdeContext): any => {
+  return take(input, {
+    And: (_) => se_Expressions(_, context),
+    CostCategories: _json,
+    Dimensions: _json,
+    Not: (_) => se_Expression(_, context),
+    Or: (_) => se_Expressions(_, context),
+    Tags: _json,
+  });
+};
+
+// se_ExpressionDimensionValues omitted.
+
+/**
+ * serializeAws_json1_1Expressions
+ */
+const se_Expressions = (input: Expression[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Expression(entry, context);
+    });
+};
+
 // se_Groups omitted.
 
 // se_HistoricalOptions omitted.
@@ -1437,6 +1474,10 @@ const se_DescribeSubscribersForNotificationRequest = (
 // se_InstanceIds omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_MatchOptions omitted.
+
+// se_Metrics omitted.
 
 /**
  * serializeAws_json1_1Notification
@@ -1493,6 +1534,8 @@ const se_NotificationWithSubscribersList = (input: NotificationWithSubscribers[]
 // se_Subscribers omitted.
 
 // se_TagResourceRequest omitted.
+
+// se_TagValues omitted.
 
 // se_TargetIds omitted.
 
@@ -1561,6 +1604,8 @@ const se_UpdateSubscriberRequest = (input: UpdateSubscriberRequest, context: __S
 };
 
 // se_Users omitted.
+
+// se_Values omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -1661,7 +1706,9 @@ const de_Budget = (output: any, context: __SerdeContext): Budget => {
     CalculatedSpend: _json,
     CostFilters: _json,
     CostTypes: _json,
+    FilterExpression: (_: any) => de_Expression(_, context),
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Metrics: _json,
     PlannedBudgetLimits: _json,
     TimePeriod: (_: any) => de_TimePeriod(_, context),
     TimeUnit: __expectString,
@@ -1743,6 +1790,8 @@ const de_Budgets = (output: any, context: __SerdeContext): Budget[] => {
 };
 
 // de_CalculatedSpend omitted.
+
+// de_CostCategoryValues omitted.
 
 // de_CostFilters omitted.
 
@@ -1895,6 +1944,34 @@ const de_DescribeNotificationsForBudgetResponse = (
 
 // de_ExpiredNextTokenException omitted.
 
+/**
+ * deserializeAws_json1_1Expression
+ */
+const de_Expression = (output: any, context: __SerdeContext): Expression => {
+  return take(output, {
+    And: (_: any) => de_Expressions(_, context),
+    CostCategories: _json,
+    Dimensions: _json,
+    Not: (_: any) => de_Expression(_, context),
+    Or: (_: any) => de_Expressions(_, context),
+    Tags: _json,
+  }) as any;
+};
+
+// de_ExpressionDimensionValues omitted.
+
+/**
+ * deserializeAws_json1_1Expressions
+ */
+const de_Expressions = (output: any, context: __SerdeContext): Expression[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Expression(entry, context);
+    });
+  return retVal;
+};
+
 // de_Groups omitted.
 
 // de_HistoricalOptions omitted.
@@ -1910,6 +1987,10 @@ const de_DescribeNotificationsForBudgetResponse = (
 // de_InvalidParameterException omitted.
 
 // de_ListTagsForResourceResponse omitted.
+
+// de_MatchOptions omitted.
+
+// de_Metrics omitted.
 
 // de_NotFoundException omitted.
 
@@ -1962,6 +2043,8 @@ const de_Notifications = (output: any, context: __SerdeContext): Notification[] 
 
 // de_TagResourceResponse omitted.
 
+// de_TagValues omitted.
+
 // de_TargetIds omitted.
 
 // de_ThrottlingException omitted.
@@ -1997,6 +2080,8 @@ const de_UpdateBudgetActionResponse = (output: any, context: __SerdeContext): Up
 // de_UpdateSubscriberResponse omitted.
 
 // de_Users omitted.
+
+// de_Values omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

@@ -12,7 +12,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface CreateFirewallRuleGroupCommandOutput extends CreateFirewallRule
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class CreateFirewallRuleGroupCommand extends $Command
@@ -102,9 +104,7 @@ export class CreateFirewallRuleGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CreateFirewallRuleGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallRuleGroupCommand)
   .de(de_CreateFirewallRuleGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallRuleGroupRequest;
+      output: CreateFirewallRuleGroupResponse;
+    };
+    sdk: {
+      input: CreateFirewallRuleGroupCommandInput;
+      output: CreateFirewallRuleGroupCommandOutput;
+    };
+  };
+}

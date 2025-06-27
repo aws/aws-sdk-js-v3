@@ -12,7 +12,8 @@ import { de_StartArchiveSearchCommand, se_StartArchiveSearchCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface StartArchiveSearchCommandOutput extends StartArchiveSearchRespo
  *       { // ArchiveFilterCondition Union: only one key present
  *         StringExpression: { // ArchiveStringExpression
  *           Evaluate: { // ArchiveStringToEvaluate Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // StringValueList // required
@@ -60,7 +61,7 @@ export interface StartArchiveSearchCommandOutput extends StartArchiveSearchRespo
  *       {//  Union: only one key present
  *         StringExpression: {
  *           Evaluate: {//  Union: only one key present
- *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ *             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  *           },
  *           Operator: "CONTAINS", // required
  *           Values: [ // required
@@ -115,6 +116,7 @@ export interface StartArchiveSearchCommandOutput extends StartArchiveSearchRespo
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class StartArchiveSearchCommand extends $Command
@@ -125,9 +127,7 @@ export class StartArchiveSearchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class StartArchiveSearchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartArchiveSearchCommand)
   .de(de_StartArchiveSearchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartArchiveSearchRequest;
+      output: StartArchiveSearchResponse;
+    };
+    sdk: {
+      input: StartArchiveSearchCommandInput;
+      output: StartArchiveSearchCommandOutput;
+    };
+  };
+}

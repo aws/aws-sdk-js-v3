@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/models_4";
+import { DescribeKeyPairsRequest, DescribeKeyPairsResult } from "../models/models_5";
 import { de_DescribeKeyPairsCommand, se_DescribeKeyPairsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
 /**
  * <p>Describes the specified key pairs or all of your key pairs.</p>
  *          <p>For more information about key pairs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Amazon EC2 key pairs</a>
- * 				in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * 				in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +38,14 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * // const { EC2Client, DescribeKeyPairsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeKeyPairsRequest
+ *   KeyNames: [ // KeyNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   KeyPairIds: [ // KeyPairIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   IncludePublicKey: true || false,
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -45,14 +54,6 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  *       ],
  *     },
  *   ],
- *   KeyNames: [ // KeyNameStringList
- *     "STRING_VALUE",
- *   ],
- *   KeyPairIds: [ // KeyPairIdStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   IncludePublicKey: true || false,
  * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
@@ -60,8 +61,6 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * //   KeyPairs: [ // KeyPairList
  * //     { // KeyPairInfo
  * //       KeyPairId: "STRING_VALUE",
- * //       KeyFingerprint: "STRING_VALUE",
- * //       KeyName: "STRING_VALUE",
  * //       KeyType: "rsa" || "ed25519",
  * //       Tags: [ // TagList
  * //         { // Tag
@@ -71,6 +70,8 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * //       ],
  * //       PublicKey: "STRING_VALUE",
  * //       CreateTime: new Date("TIMESTAMP"),
+ * //       KeyName: "STRING_VALUE",
+ * //       KeyFingerprint: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -86,30 +87,30 @@ export interface DescribeKeyPairsCommandOutput extends DescribeKeyPairsResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To display a key pair
  * ```javascript
  * // This example displays the fingerprint for the specified key.
  * const input = {
- *   "KeyNames": [
+ *   KeyNames: [
  *     "my-key-pair"
  *   ]
  * };
  * const command = new DescribeKeyPairsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyPairs": [
+ *   KeyPairs: [
  *     {
- *       "KeyFingerprint": "1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f",
- *       "KeyName": "my-key-pair"
+ *       KeyFingerprint: "1f:51:ae:28:bf:89:e9:d8:1f:25:5d:37:2d:7d:b8:ca:9f:f5:f1:6f",
+ *       KeyName: "my-key-pair"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-key-pairs-1
  * ```
  *
+ * @public
  */
 export class DescribeKeyPairsCommand extends $Command
   .classBuilder<
@@ -119,9 +120,7 @@ export class DescribeKeyPairsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class DescribeKeyPairsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeKeyPairsCommand)
   .de(de_DescribeKeyPairsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeKeyPairsRequest;
+      output: DescribeKeyPairsResult;
+    };
+    sdk: {
+      input: DescribeKeyPairsCommandInput;
+      output: DescribeKeyPairsCommandOutput;
+    };
+  };
+}

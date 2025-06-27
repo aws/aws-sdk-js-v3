@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * const client = new ConnectClient(config);
  * const input = { // AssociateInstanceStorageConfigRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS" || "SCREEN_RECORDINGS" || "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS" || "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS", // required
+ *   ResourceType: "CHAT_TRANSCRIPTS" || "CALL_RECORDINGS" || "SCHEDULED_REPORTS" || "MEDIA_STREAMS" || "CONTACT_TRACE_RECORDS" || "AGENT_EVENTS" || "REAL_TIME_CONTACT_ANALYSIS_SEGMENTS" || "ATTACHMENTS" || "CONTACT_EVALUATIONS" || "SCREEN_RECORDINGS" || "REAL_TIME_CONTACT_ANALYSIS_CHAT_SEGMENTS" || "REAL_TIME_CONTACT_ANALYSIS_VOICE_SEGMENTS" || "EMAIL_MESSAGES", // required
  *   StorageConfig: { // InstanceStorageConfig
  *     AssociationId: "STRING_VALUE",
  *     StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE", // required
@@ -74,6 +75,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
  *       FirehoseArn: "STRING_VALUE", // required
  *     },
  *   },
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateInstanceStorageConfigCommand(input);
  * const response = await client.send(command);
@@ -110,6 +112,7 @@ export interface AssociateInstanceStorageConfigCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateInstanceStorageConfigCommand extends $Command
@@ -120,9 +123,7 @@ export class AssociateInstanceStorageConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +135,16 @@ export class AssociateInstanceStorageConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateInstanceStorageConfigCommand)
   .de(de_AssociateInstanceStorageConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateInstanceStorageConfigRequest;
+      output: AssociateInstanceStorageConfigResponse;
+    };
+    sdk: {
+      input: AssociateInstanceStorageConfigCommandInput;
+      output: AssociateInstanceStorageConfigCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,6 +40,7 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  *   OrganizationId: "STRING_VALUE", // required
  *   DeleteDirectory: true || false, // required
  *   ForceDelete: true || false,
+ *   DeleteIdentityCenterApplication: true || false,
  * };
  * const command = new DeleteOrganizationCommand(input);
  * const response = await client.send(command);
@@ -69,6 +71,7 @@ export interface DeleteOrganizationCommandOutput extends DeleteOrganizationRespo
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DeleteOrganizationCommand extends $Command
@@ -79,9 +82,7 @@ export class DeleteOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class DeleteOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOrganizationCommand)
   .de(de_DeleteOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOrganizationRequest;
+      output: DeleteOrganizationResponse;
+    };
+    sdk: {
+      input: DeleteOrganizationCommandInput;
+      output: DeleteOrganizationCommandOutput;
+    };
+  };
+}

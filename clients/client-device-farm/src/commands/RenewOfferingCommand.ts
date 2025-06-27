@@ -12,7 +12,8 @@ import { de_RenewOfferingCommand, se_RenewOfferingCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,42 +102,8 @@ export interface RenewOfferingCommandOutput extends RenewOfferingResult, __Metad
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To renew a device slot offering
- * ```javascript
- * // The following example renews a specific device slot offering.
- * const input = {
- *   "offeringId": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *   "quantity": 1
- * };
- * const command = new RenewOfferingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "offeringTransaction": {
- *     "cost": {
- *       "amount": 250,
- *       "currencyCode": "USD"
- *     },
- *     "createdOn": "1472648880",
- *     "offeringStatus": {
- *       "type": "RENEW",
- *       "effectiveOn": "1472688000",
- *       "offering": {
- *         "type": "RECURRING",
- *         "description": "Android Remote Access Unmetered Device Slot",
- *         "id": "D68B3C05-1BA6-4360-BC69-12345EXAMPLE",
- *         "platform": "ANDROID"
- *       },
- *       "quantity": 1
- *     },
- *     "transactionId": "e90f1405-8c35-4561-be43-12345EXAMPLE"
- *   }
- * }
- * *\/
- * // example id: to-renew-a-device-slot-offering-1472648899785
- * ```
  *
+ * @public
  */
 export class RenewOfferingCommand extends $Command
   .classBuilder<
@@ -146,9 +113,7 @@ export class RenewOfferingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +125,16 @@ export class RenewOfferingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RenewOfferingCommand)
   .de(de_RenewOfferingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RenewOfferingRequest;
+      output: RenewOfferingResult;
+    };
+    sdk: {
+      input: RenewOfferingCommandInput;
+      output: RenewOfferingCommandOutput;
+    };
+  };
+}

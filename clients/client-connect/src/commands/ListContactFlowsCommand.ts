@@ -12,7 +12,8 @@ import { de_ListContactFlowsCommand, se_ListContactFlowsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * const input = { // ListContactFlowsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   ContactFlowTypes: [ // ContactFlowTypes
- *     "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ *     "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  *   ],
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -54,7 +55,7 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * //       Id: "STRING_VALUE",
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
- * //       ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER",
+ * //       ContactFlowType: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN",
  * //       ContactFlowState: "ACTIVE" || "ARCHIVED",
  * //       ContactFlowStatus: "PUBLISHED" || "SAVED",
  * //     },
@@ -88,6 +89,7 @@ export interface ListContactFlowsCommandOutput extends ListContactFlowsResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListContactFlowsCommand extends $Command
@@ -98,9 +100,7 @@ export class ListContactFlowsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListContactFlowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContactFlowsCommand)
   .de(de_ListContactFlowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContactFlowsRequest;
+      output: ListContactFlowsResponse;
+    };
+    sdk: {
+      input: ListContactFlowsCommandInput;
+      output: ListContactFlowsCommandOutput;
+    };
+  };
+}

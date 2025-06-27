@@ -12,7 +12,8 @@ import { de_GetReservationUtilizationCommand, se_GetReservationUtilizationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -205,6 +206,7 @@ export interface GetReservationUtilizationCommandOutput extends GetReservationUt
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetReservationUtilizationCommand extends $Command
@@ -215,9 +217,7 @@ export class GetReservationUtilizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -229,4 +229,16 @@ export class GetReservationUtilizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservationUtilizationCommand)
   .de(de_GetReservationUtilizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservationUtilizationRequest;
+      output: GetReservationUtilizationResponse;
+    };
+    sdk: {
+      input: GetReservationUtilizationCommandInput;
+      output: GetReservationUtilizationCommandOutput;
+    };
+  };
+}

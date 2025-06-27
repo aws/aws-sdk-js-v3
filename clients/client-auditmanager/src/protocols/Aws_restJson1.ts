@@ -593,12 +593,9 @@ export const se_DeregisterAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/account/deregisterAccount");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -656,12 +653,9 @@ export const se_GetAccountStatusCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/account/status");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -901,12 +895,9 @@ export const se_GetInsightsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/insights");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -935,12 +926,9 @@ export const se_GetOrganizationAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/account/organizationAdminAccount");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -953,12 +941,9 @@ export const se_GetServicesInScopeCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/services");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1152,6 +1137,7 @@ export const se_ListControlsCommand = async (
     [_cT]: [, __expectNonNull(input[_cT]!, `controlType`)],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_cCI]: [, input[_cCI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -1318,10 +1304,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -3384,6 +3367,7 @@ const de_Control = (output: any, context: __SerdeContext): Control => {
     lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     lastUpdatedBy: __expectString,
     name: __expectString,
+    state: __expectString,
     tags: _json,
     testingInformation: __expectString,
     type: __expectString,
@@ -3817,14 +3801,8 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _aI = "assessmentId";
+const _cCI = "controlCatalogId";
 const _cDI = "controlDomainId";
 const _cI = "controlId";
 const _cSI = "controlSetId";

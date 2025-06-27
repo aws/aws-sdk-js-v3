@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,29 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *             </li>
  *          </ul>
  *          <p>
+ *             <b>Indonesia</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>PutTaxRegistration</code>: The use of this operation to submit tax information is subject to the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services service terms</a>. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>BatchPutTaxRegistration</code>: The use of this operation to submit tax information is subject to the <a href="http://aws.amazon.com/service-terms/">Amazon Web Services service terms</a>. By submitting, you’re providing consent for Amazon Web Services to validate NIK, NPWP, and NITKU data, provided by you with the Directorate General of Taxes of Indonesia in accordance with the Minister of Finance Regulation (PMK) Number 112/PMK.03/2022, through our third-party partner PT Achilles Advanced Management (OnlinePajak).</p>
+ *             </li>
+ *             <li>
+ *                <p>You must specify the <code>taxRegistrationNumberType</code> in the <code>indonesiaAdditionalInfo</code> field of the <code>additionalTaxInformation</code> object.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you specify <code>decisionNumber</code>, you must specify the <code>ppnExceptionDesignationCode</code> in the <code>indonesiaAdditionalInfo</code> field of the <code>additionalTaxInformation</code> object. If the <code>taxRegistrationNumberType</code> is set to NPWP or NITKU, valid values for <code>ppnExceptionDesignationCode</code> are either <code>01</code>, <code>02</code>, <code>03</code>, <code>07</code>, or <code>08</code>.</p>
+ *                <p>For other <code>taxRegistrationNumberType</code> values, <code>ppnExceptionDesignationCode</code> must be either <code>01</code>, <code>07</code>, or <code>08</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If <code>ppnExceptionDesignationCode</code> is <code>07</code>, you must specify the <code>decisionNumber</code> in the <code>indonesiaAdditionalInfo</code> field of the <code>additionalTaxInformation</code> object.</p>
+ *             </li>
+ *          </ul>
+ *          <p>
  *             <b>Kenya</b>
  *          </p>
  *          <ul>
@@ -82,26 +106,27 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *          </p>
  *          <ul>
  *             <li>
- *                <p>If you use this operation to set a tax registration number (TRN) in Malaysia, only
- *           resellers with a valid sales and service tax (SST) number are required to provide tax
- *           registration information.</p>
+ *                <p>The sector valid values are <code>Business</code> and <code>Individual</code>.</p>
  *             </li>
  *             <li>
- *                <p>By using this API operation to set a TRN in Malaysia, Amazon Web Services will regard you as
- *           self-declaring that you're an authorized business reseller registered with the Royal
- *           Malaysia Customs Department (RMCD) and have a valid SST number.</p>
+ *                <p>
+ *                   <code>RegistrationType</code> valid values are <code>NRIC</code> for individual, and TIN and sales and service tax (SST) for Business.</p>
+ *             </li>
+ *             <li>
+ *                <p>For individual, you can specify the <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with NRIC type, and a valid <code>MyKad</code> or NRIC number.</p>
+ *             </li>
+ *             <li>
+ *                <p>For business, you must specify a <code>businessRegistrationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a TIN type and tax identification number.</p>
+ *             </li>
+ *             <li>
+ *                <p>For business resellers, you must specify a <code>businessRegistrationNumber</code> and <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a sales and service tax (SST) type and a valid SST number.</p>
+ *             </li>
+ *             <li>
+ *                <p>For business resellers with service codes, you must specify <code>businessRegistrationNumber</code>, <code>taxInformationNumber</code>, and distinct <code>serviceTaxCodes</code> in <code>MalaysiaAdditionalInfo</code> with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.</p>
  *             </li>
  *             <li>
  *                <p>Amazon Web Services reserves the right to seek additional information and/or take other actions to
  *           support your self-declaration as appropriate.</p>
- *             </li>
- *             <li>
- *                <p>If you're not a reseller of Amazon Web Services, we don't recommend that you use
- *           this operation to set the TRN in Malaysia.</p>
- *             </li>
- *             <li>
- *                <p>Only use this API operation to upload the TRNs for accounts through which you're
- *           reselling Amazon Web Services.</p>
  *             </li>
  *             <li>
  *                <p>Amazon Web Services is currently registered under the following service tax codes. You must include
@@ -222,7 +247,7 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *   accountId: "STRING_VALUE",
  *   taxRegistrationEntry: { // TaxRegistrationEntry
  *     registrationId: "STRING_VALUE", // required
- *     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST", // required
+ *     registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC", // required
  *     legalName: "STRING_VALUE",
  *     legalAddress: { // Address
  *       addressLine1: "STRING_VALUE", // required
@@ -237,9 +262,11 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *     sector: "Business" || "Individual" || "Government",
  *     additionalTaxInformation: { // AdditionalInfoRequest
  *       malaysiaAdditionalInfo: { // MalaysiaAdditionalInfo
- *         serviceTaxCodes: [ // MalaysiaServiceTaxCodesList // required
+ *         serviceTaxCodes: [ // MalaysiaServiceTaxCodesList
  *           "Consultancy" || "Digital Service And Electronic Medium" || "IT Services" || "Training Or Coaching",
  *         ],
+ *         taxInformationNumber: "STRING_VALUE",
+ *         businessRegistrationNumber: "STRING_VALUE",
  *       },
  *       israelAdditionalInfo: { // IsraelAdditionalInfo
  *         dealerType: "Authorized" || "Non-authorized", // required
@@ -293,6 +320,28 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *       saudiArabiaAdditionalInfo: { // SaudiArabiaAdditionalInfo
  *         taxRegistrationNumberType: "TaxRegistrationNumber" || "TaxIdentificationNumber" || "CommercialRegistrationNumber",
  *       },
+ *       indonesiaAdditionalInfo: { // IndonesiaAdditionalInfo
+ *         taxRegistrationNumberType: "NIK" || "PassportNumber" || "NPWP" || "NITKU",
+ *         ppnExceptionDesignationCode: "STRING_VALUE",
+ *         decisionNumber: "STRING_VALUE",
+ *       },
+ *       vietnamAdditionalInfo: { // VietnamAdditionalInfo
+ *         enterpriseIdentificationNumber: "STRING_VALUE",
+ *         electronicTransactionCodeNumber: "STRING_VALUE",
+ *         paymentVoucherNumber: "STRING_VALUE",
+ *         paymentVoucherNumberDate: "STRING_VALUE",
+ *       },
+ *       egyptAdditionalInfo: { // EgyptAdditionalInfo
+ *         uniqueIdentificationNumber: "STRING_VALUE",
+ *         uniqueIdentificationNumberExpirationDate: "STRING_VALUE",
+ *       },
+ *       greeceAdditionalInfo: { // GreeceAdditionalInfo
+ *         contractingAuthorityCode: "STRING_VALUE",
+ *       },
+ *       uzbekistanAdditionalInfo: { // UzbekistanAdditionalInfo
+ *         taxRegistrationNumberType: "Business" || "Individual",
+ *         vatRegistrationNumber: "STRING_VALUE",
+ *       },
  *     },
  *     verificationDetails: { // VerificationDetails
  *       dateOfBirth: "STRING_VALUE",
@@ -301,6 +350,10 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  *           s3Location: { // SourceS3Location
  *             bucket: "STRING_VALUE", // required
  *             key: "STRING_VALUE", // required
+ *           },
+ *           file: { // TaxRegistrationDocFile
+ *             fileName: "STRING_VALUE", // required
+ *             fileContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
  *           },
  *         },
  *       ],
@@ -335,6 +388,7 @@ export interface PutTaxRegistrationCommandOutput extends PutTaxRegistrationRespo
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class PutTaxRegistrationCommand extends $Command
@@ -345,9 +399,7 @@ export class PutTaxRegistrationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -359,4 +411,16 @@ export class PutTaxRegistrationCommand extends $Command
   .f(PutTaxRegistrationRequestFilterSensitiveLog, void 0)
   .ser(se_PutTaxRegistrationCommand)
   .de(de_PutTaxRegistrationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutTaxRegistrationRequest;
+      output: PutTaxRegistrationResponse;
+    };
+    sdk: {
+      input: PutTaxRegistrationCommandInput;
+      output: PutTaxRegistrationCommandOutput;
+    };
+  };
+}

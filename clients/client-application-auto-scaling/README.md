@@ -25,7 +25,7 @@ resources:</p>
 <p>Amazon ECS services</p>
 </li>
 <li>
-<p>Amazon ElastiCache for Redis clusters (replication groups)</p>
+<p>Amazon ElastiCache replication groups (Redis OSS and Valkey) and Memcached clusters</p>
 </li>
 <li>
 <p>Amazon EMR clusters</p>
@@ -46,13 +46,16 @@ resources:</p>
 <p>Amazon SageMaker endpoint variants</p>
 </li>
 <li>
-<p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
-</li>
-<li>
 <p>Amazon SageMaker inference components</p>
 </li>
 <li>
+<p>Amazon SageMaker serverless endpoint provisioned concurrency</p>
+</li>
+<li>
 <p>Spot Fleets (Amazon EC2)</p>
+</li>
+<li>
+<p>Pool of WorkSpaces</p>
 </li>
 <li>
 <p>Custom resources provided by your own applications or services</p>
@@ -86,7 +89,7 @@ and scheduled scaling.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-application-auto-scaling
+To install this package, simply type add or install @aws-sdk/client-application-auto-scaling
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-application-auto-scaling`
@@ -336,6 +339,14 @@ DescribeScheduledActions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-auto-scaling/command/DescribeScheduledActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/DescribeScheduledActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/DescribeScheduledActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPredictiveScalingForecast
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/application-auto-scaling/command/GetPredictiveScalingForecastCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/GetPredictiveScalingForecastCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-application-auto-scaling/Interface/GetPredictiveScalingForecastCommandOutput/)
 
 </details>
 <details>

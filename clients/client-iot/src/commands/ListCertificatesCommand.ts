@@ -12,7 +12,8 @@ import { de_ListCertificatesCommand, se_ListCertificatesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface ListCertificatesCommandOutput extends ListCertificatesResponse,
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListCertificatesCommand extends $Command
@@ -93,9 +95,7 @@ export class ListCertificatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListCertificatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCertificatesCommand)
   .de(de_ListCertificatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCertificatesRequest;
+      output: ListCertificatesResponse;
+    };
+    sdk: {
+      input: ListCertificatesCommandInput;
+      output: ListCertificatesCommandOutput;
+    };
+  };
+}

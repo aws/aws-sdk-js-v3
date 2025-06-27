@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyInstanceMaintenanceOptionsRequest, ModifyInstanceMaintenanceOptionsResult } from "../models/models_6";
+import { ModifyInstanceMaintenanceOptionsRequest, ModifyInstanceMaintenanceOptionsResult } from "../models/models_7";
 import {
   de_ModifyInstanceMaintenanceOptionsCommand,
   se_ModifyInstanceMaintenanceOptionsCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,6 +37,8 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  *             recovery or set the recovery behavior to default. The default configuration will not
  *             enable simplified automatic recovery for an unsupported instance type. For more
  *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-recover.html#instance-configuration-recovery">Simplified automatic recovery</a>.</p>
+ *          <p>Modifies the reboot migration behavior during a user-initiated reboot of an instance
+ *             that has a pending <code>system-reboot</code> event. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/schedevents_actions_reboot.html#reboot-migration">Enable or disable reboot migration</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +48,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * const input = { // ModifyInstanceMaintenanceOptionsRequest
  *   InstanceId: "STRING_VALUE", // required
  *   AutoRecovery: "disabled" || "default",
+ *   RebootMigration: "disabled" || "default",
  *   DryRun: true || false,
  * };
  * const command = new ModifyInstanceMaintenanceOptionsCommand(input);
@@ -52,6 +56,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * // { // ModifyInstanceMaintenanceOptionsResult
  * //   InstanceId: "STRING_VALUE",
  * //   AutoRecovery: "disabled" || "default",
+ * //   RebootMigration: "disabled" || "default",
  * // };
  *
  * ```
@@ -65,6 +70,7 @@ export interface ModifyInstanceMaintenanceOptionsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceMaintenanceOptionsCommand extends $Command
@@ -75,9 +81,7 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +93,16 @@ export class ModifyInstanceMaintenanceOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceMaintenanceOptionsCommand)
   .de(de_ModifyInstanceMaintenanceOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceMaintenanceOptionsRequest;
+      output: ModifyInstanceMaintenanceOptionsResult;
+    };
+    sdk: {
+      input: ModifyInstanceMaintenanceOptionsCommandInput;
+      output: ModifyInstanceMaintenanceOptionsCommandOutput;
+    };
+  };
+}

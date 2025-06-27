@@ -92,7 +92,7 @@ export interface AssetSummary {
    *     </p>
    * @public
    */
-  size?: number;
+  size?: number | undefined;
 
   /**
    * <p>
@@ -100,7 +100,7 @@ export interface AssetSummary {
    *     </p>
    * @public
    */
-  hashes?: Partial<Record<HashAlgorithm, string>>;
+  hashes?: Partial<Record<HashAlgorithm, string>> | undefined;
 }
 
 /**
@@ -123,6 +123,7 @@ export type PackageGroupAssociationType =
  * @enum
  */
 export const PackageFormat = {
+  CARGO: "cargo",
   GENERIC: "generic",
   MAVEN: "maven",
   NPM: "npm",
@@ -148,7 +149,7 @@ export interface AssociatedPackage {
    * <p>A format that specifies the type of the associated package.</p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the associated package. The package component that specifies its
@@ -169,14 +170,14 @@ export interface AssociatedPackage {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -184,7 +185,7 @@ export interface AssociatedPackage {
    *     </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>Describes the strength of the association between the package and package group. A strong match can be thought of as an
@@ -193,7 +194,7 @@ export interface AssociatedPackage {
    *       in the <i>CodeArtifact User Guide</i>.</p>
    * @public
    */
-  associationType?: PackageGroupAssociationType;
+  associationType?: PackageGroupAssociationType | undefined;
 }
 
 /**
@@ -213,7 +214,7 @@ export interface AssociateExternalConnectionRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -267,6 +268,14 @@ export interface AssociateExternalConnectionRequest {
    *                <p>
    *                   <code>public:maven-clojars</code> - for the Clojars repository. </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:ruby-gems-org</code> - for RubyGems.org. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>public:crates-io</code> - for Crates.io. </p>
+   *             </li>
    *          </ul>
    * @public
    */
@@ -297,7 +306,7 @@ export interface RepositoryExternalConnectionInfo {
    * <p> The name of the external connection associated with a repository. </p>
    * @public
    */
-  externalConnectionName?: string;
+  externalConnectionName?: string | undefined;
 
   /**
    * <p>
@@ -324,10 +333,30 @@ export interface RepositoryExternalConnectionInfo {
    *                   <code>nuget</code>: A NuGet package.
    *         </p>
    *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>generic</code>: A generic package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ruby</code>: A Ruby package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>swift</code>: A Swift package.
+   *         </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cargo</code>: A Cargo package.
+   *         </p>
+   *             </li>
    *          </ul>
    * @public
    */
-  packageFormat?: PackageFormat;
+  packageFormat?: PackageFormat | undefined;
 
   /**
    * <p>
@@ -335,7 +364,7 @@ export interface RepositoryExternalConnectionInfo {
    *       </p>
    * @public
    */
-  status?: ExternalConnectionStatus;
+  status?: ExternalConnectionStatus | undefined;
 }
 
 /**
@@ -349,7 +378,7 @@ export interface UpstreamRepositoryInfo {
    * <p> The name of an upstream repository. </p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 }
 
 /**
@@ -368,13 +397,13 @@ export interface RepositoryDescription {
    *        </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The 12-digit account number of the Amazon Web Services account that manages the repository. </p>
    * @public
    */
-  administratorAccount?: string;
+  administratorAccount?: string | undefined;
 
   /**
    * <p>
@@ -382,7 +411,7 @@ export interface RepositoryDescription {
    *        </p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>
@@ -391,13 +420,13 @@ export interface RepositoryDescription {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the repository. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -405,7 +434,7 @@ export interface RepositoryDescription {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
@@ -413,7 +442,7 @@ export interface RepositoryDescription {
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    * @public
    */
-  upstreams?: UpstreamRepositoryInfo[];
+  upstreams?: UpstreamRepositoryInfo[] | undefined;
 
   /**
    * <p>
@@ -421,13 +450,13 @@ export interface RepositoryDescription {
    *     </p>
    * @public
    */
-  externalConnections?: RepositoryExternalConnectionInfo[];
+  externalConnections?: RepositoryExternalConnectionInfo[] | undefined;
 
   /**
    * <p>A timestamp that represents the date and time the repository was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 }
 
 /**
@@ -440,7 +469,7 @@ export interface AssociateExternalConnectionResult {
    *        </p>
    * @public
    */
-  repository?: RepositoryDescription;
+  repository?: RepositoryDescription | undefined;
 }
 
 /**
@@ -475,7 +504,7 @@ export class ConflictException extends __BaseException {
    *     </p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>
@@ -483,7 +512,7 @@ export class ConflictException extends __BaseException {
    *     </p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * @internal
@@ -535,7 +564,7 @@ export class ResourceNotFoundException extends __BaseException {
    *     </p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>
@@ -543,7 +572,7 @@ export class ResourceNotFoundException extends __BaseException {
    *     </p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * @internal
@@ -575,7 +604,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    *     </p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>
@@ -583,7 +612,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    *     </p>
    * @public
    */
-  resourceType?: ResourceType;
+  resourceType?: ResourceType | undefined;
 
   /**
    * @internal
@@ -615,7 +644,7 @@ export class ThrottlingException extends __BaseException {
    *     </p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -663,7 +692,7 @@ export class ValidationException extends __BaseException {
    *     </p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * @internal
@@ -698,7 +727,7 @@ export interface CopyPackageVersionsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -756,14 +785,14 @@ export interface CopyPackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -784,7 +813,7 @@ export interface CopyPackageVersionsRequest {
    *          </note>
    * @public
    */
-  versions?: string[];
+  versions?: string[] | undefined;
 
   /**
    * <p>
@@ -798,7 +827,7 @@ export interface CopyPackageVersionsRequest {
    *          </note>
    * @public
    */
-  versionRevisions?: Record<string, string>;
+  versionRevisions?: Record<string, string> | undefined;
 
   /**
    * <p>
@@ -809,7 +838,7 @@ export interface CopyPackageVersionsRequest {
    *      </p>
    * @public
    */
-  allowOverwrite?: boolean;
+  allowOverwrite?: boolean | undefined;
 
   /**
    * <p> Set to true to copy packages from repositories that are upstream from the source
@@ -818,7 +847,7 @@ export interface CopyPackageVersionsRequest {
    *         upstream repositories</a>. </p>
    * @public
    */
-  includeFromUpstream?: boolean;
+  includeFromUpstream?: boolean | undefined;
 }
 
 /**
@@ -882,7 +911,7 @@ export interface PackageVersionError {
    *          </ul>
    * @public
    */
-  errorCode?: PackageVersionErrorCode;
+  errorCode?: PackageVersionErrorCode | undefined;
 
   /**
    * <p>
@@ -890,7 +919,7 @@ export interface PackageVersionError {
    *      </p>
    * @public
    */
-  errorMessage?: string;
+  errorMessage?: string | undefined;
 }
 
 /**
@@ -924,7 +953,7 @@ export interface SuccessfulPackageVersionInfo {
    *     </p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 
   /**
    * <p>
@@ -932,7 +961,7 @@ export interface SuccessfulPackageVersionInfo {
    *     </p>
    * @public
    */
-  status?: PackageVersionStatus;
+  status?: PackageVersionStatus | undefined;
 }
 
 /**
@@ -945,7 +974,7 @@ export interface CopyPackageVersionsResult {
    *     </p>
    * @public
    */
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo> | undefined;
 
   /**
    * <p>
@@ -986,7 +1015,7 @@ export interface CopyPackageVersionsResult {
    *          </ul>
    * @public
    */
-  failedVersions?: Record<string, PackageVersionError>;
+  failedVersions?: Record<string, PackageVersionError> | undefined;
 }
 
 /**
@@ -1034,13 +1063,13 @@ export interface CreateDomainRequest {
    *          </important>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>One or more tag key-value pairs for the domain.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1071,19 +1100,19 @@ export interface DomainDescription {
    *        </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p> The Amazon Web Services account ID that owns the domain. </p>
    * @public
    */
-  owner?: string;
+  owner?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the domain. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -1091,7 +1120,7 @@ export interface DomainDescription {
    *       </p>
    * @public
    */
-  status?: DomainStatus;
+  status?: DomainStatus | undefined;
 
   /**
    * <p>
@@ -1099,13 +1128,13 @@ export interface DomainDescription {
    *     </p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p> The ARN of an Key Management Service (KMS) key associated with a domain. </p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 
   /**
    * <p>
@@ -1113,7 +1142,7 @@ export interface DomainDescription {
    *     </p>
    * @public
    */
-  repositoryCount?: number;
+  repositoryCount?: number | undefined;
 
   /**
    * <p>
@@ -1121,13 +1150,13 @@ export interface DomainDescription {
    *     </p>
    * @public
    */
-  assetSizeBytes?: number;
+  assetSizeBytes?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket that is used to store package assets in the domain.</p>
    * @public
    */
-  s3BucketArn?: string;
+  s3BucketArn?: string | undefined;
 }
 
 /**
@@ -1140,7 +1169,7 @@ export interface CreateDomainResult {
    *       </p>
    * @public
    */
-  domain?: DomainDescription;
+  domain?: DomainDescription | undefined;
 }
 
 /**
@@ -1162,7 +1191,7 @@ export interface CreatePackageGroupRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The pattern of the package group to create. The pattern is also the identifier of the package group. </p>
@@ -1176,7 +1205,7 @@ export interface CreatePackageGroupRequest {
    *     </p>
    * @public
    */
-  contactInfo?: string;
+  contactInfo?: string | undefined;
 
   /**
    * <p>
@@ -1184,13 +1213,13 @@ export interface CreatePackageGroupRequest {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>One or more tag key-value pairs for the package group.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1237,7 +1266,7 @@ export interface PackageGroupReference {
    *     </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -1246,7 +1275,7 @@ export interface PackageGroupReference {
    *     </p>
    * @public
    */
-  pattern?: string;
+  pattern?: string | undefined;
 }
 
 /**
@@ -1261,7 +1290,7 @@ export interface PackageGroupOriginRestriction {
    *     <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
    * @public
    */
-  mode?: PackageGroupOriginRestrictionMode;
+  mode?: PackageGroupOriginRestrictionMode | undefined;
 
   /**
    * <p>The effective package group origin restriction setting. If the value of <code>mode</code> is <code>ALLOW</code>,
@@ -1270,19 +1299,19 @@ export interface PackageGroupOriginRestriction {
    *       <code>mode</code> of the first parent group which does not have a value of <code>INHERIT</code>.</p>
    * @public
    */
-  effectiveMode?: PackageGroupOriginRestrictionMode;
+  effectiveMode?: PackageGroupOriginRestrictionMode | undefined;
 
   /**
    * <p>The parent package group that the package group origin restrictions are inherited from.</p>
    * @public
    */
-  inheritedFrom?: PackageGroupReference;
+  inheritedFrom?: PackageGroupReference | undefined;
 
   /**
    * <p>The number of repositories in the allowed repository list.</p>
    * @public
    */
-  repositoriesCount?: number;
+  repositoriesCount?: number | undefined;
 }
 
 /**
@@ -1294,7 +1323,7 @@ export interface PackageGroupOriginConfiguration {
    * <p>The origin configuration settings that determine how package versions can enter repositories.</p>
    * @public
    */
-  restrictions?: Partial<Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>>;
+  restrictions?: Partial<Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestriction>> | undefined;
 }
 
 /**
@@ -1310,7 +1339,7 @@ export interface PackageGroupDescription {
    *     </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -1318,7 +1347,7 @@ export interface PackageGroupDescription {
    *     </p>
    * @public
    */
-  pattern?: string;
+  pattern?: string | undefined;
 
   /**
    * <p>
@@ -1326,7 +1355,7 @@ export interface PackageGroupDescription {
    *     </p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>
@@ -1335,13 +1364,13 @@ export interface PackageGroupDescription {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>A timestamp that represents the date and time the package group was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>
@@ -1349,7 +1378,7 @@ export interface PackageGroupDescription {
    *     </p>
    * @public
    */
-  contactInfo?: string;
+  contactInfo?: string | undefined;
 
   /**
    * <p>
@@ -1357,13 +1386,13 @@ export interface PackageGroupDescription {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The package group origin configuration that determines how package versions can enter repositories.</p>
    * @public
    */
-  originConfiguration?: PackageGroupOriginConfiguration;
+  originConfiguration?: PackageGroupOriginConfiguration | undefined;
 
   /**
    * <p>
@@ -1371,7 +1400,7 @@ export interface PackageGroupDescription {
    *     </p>
    * @public
    */
-  parent?: PackageGroupReference;
+  parent?: PackageGroupReference | undefined;
 }
 
 /**
@@ -1384,7 +1413,7 @@ export interface CreatePackageGroupResult {
    *     </p>
    * @public
    */
-  packageGroup?: PackageGroupDescription;
+  packageGroup?: PackageGroupDescription | undefined;
 }
 
 /**
@@ -1422,7 +1451,7 @@ export interface CreateRepositoryRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The name of the repository to create. </p>
@@ -1436,7 +1465,7 @@ export interface CreateRepositoryRequest {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
@@ -1444,13 +1473,13 @@ export interface CreateRepositoryRequest {
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    * @public
    */
-  upstreams?: UpstreamRepository[];
+  upstreams?: UpstreamRepository[] | undefined;
 
   /**
    * <p>One or more tag key-value pairs for the repository.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1463,7 +1492,7 @@ export interface CreateRepositoryResult {
    *       </p>
    * @public
    */
-  repository?: RepositoryDescription;
+  repository?: RepositoryDescription | undefined;
 }
 
 /**
@@ -1485,7 +1514,7 @@ export interface DeleteDomainRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 }
 
 /**
@@ -1498,7 +1527,7 @@ export interface DeleteDomainResult {
    *        </p>
    * @public
    */
-  domain?: DomainDescription;
+  domain?: DomainDescription | undefined;
 }
 
 /**
@@ -1520,7 +1549,7 @@ export interface DeleteDomainPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -1529,7 +1558,7 @@ export interface DeleteDomainPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  policyRevision?: string;
+  policyRevision?: string | undefined;
 }
 
 /**
@@ -1545,7 +1574,7 @@ export interface ResourcePolicy {
    *       </p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>
@@ -1553,7 +1582,7 @@ export interface ResourcePolicy {
    *       </p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 
   /**
    * <p>
@@ -1561,7 +1590,7 @@ export interface ResourcePolicy {
    *     </p>
    * @public
    */
-  document?: string;
+  document?: string | undefined;
 }
 
 /**
@@ -1574,7 +1603,7 @@ export interface DeleteDomainPermissionsPolicyResult {
    *       </p>
    * @public
    */
-  policy?: ResourcePolicy;
+  policy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -1594,7 +1623,7 @@ export interface DeletePackageRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The name of the repository that contains the package to delete.</p>
@@ -1640,14 +1669,14 @@ export interface DeletePackageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the package to delete.</p>
@@ -1686,7 +1715,7 @@ export interface PackageOriginConfiguration {
    *     about the upstream and publish package origin configuration for the package.</p>
    * @public
    */
-  restrictions?: PackageOriginRestrictions;
+  restrictions?: PackageOriginRestrictions | undefined;
 }
 
 /**
@@ -1702,7 +1731,7 @@ export interface PackageSummary {
    *     </p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package. The package component that specifies its
@@ -1723,14 +1752,14 @@ export interface PackageSummary {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -1738,7 +1767,7 @@ export interface PackageSummary {
    *     </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginConfiguration.html">PackageOriginConfiguration</a>
@@ -1746,7 +1775,7 @@ export interface PackageSummary {
    *       that contains information about the upstream and publish package origin restrictions.</p>
    * @public
    */
-  originConfiguration?: PackageOriginConfiguration;
+  originConfiguration?: PackageOriginConfiguration | undefined;
 }
 
 /**
@@ -1759,7 +1788,7 @@ export interface DeletePackageResult {
    *     </p>
    * @public
    */
-  deletedPackage?: PackageSummary;
+  deletedPackage?: PackageSummary | undefined;
 }
 
 /**
@@ -1781,7 +1810,7 @@ export interface DeletePackageGroupRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The pattern of the package group to be deleted.</p>
@@ -1800,7 +1829,7 @@ export interface DeletePackageGroupResult {
    *     </p>
    * @public
    */
-  packageGroup?: PackageGroupDescription;
+  packageGroup?: PackageGroupDescription | undefined;
 }
 
 /**
@@ -1822,7 +1851,7 @@ export interface DeletePackageVersionsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -1872,14 +1901,14 @@ export interface DeletePackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -1903,7 +1932,7 @@ export interface DeletePackageVersionsRequest {
    *       </p>
    * @public
    */
-  expectedStatus?: PackageVersionStatus;
+  expectedStatus?: PackageVersionStatus | undefined;
 }
 
 /**
@@ -1917,7 +1946,7 @@ export interface DeletePackageVersionsResult {
    *      </p>
    * @public
    */
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo> | undefined;
 
   /**
    * <p>
@@ -1958,7 +1987,7 @@ export interface DeletePackageVersionsResult {
    *          </ul>
    * @public
    */
-  failedVersions?: Record<string, PackageVersionError>;
+  failedVersions?: Record<string, PackageVersionError> | undefined;
 }
 
 /**
@@ -1980,7 +2009,7 @@ export interface DeleteRepositoryRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p> The name of the repository to delete. </p>
@@ -1999,7 +2028,7 @@ export interface DeleteRepositoryResult {
    *        </p>
    * @public
    */
-  repository?: RepositoryDescription;
+  repository?: RepositoryDescription | undefined;
 }
 
 /**
@@ -2021,7 +2050,7 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -2038,7 +2067,7 @@ export interface DeleteRepositoryPermissionsPolicyRequest {
    *     </p>
    * @public
    */
-  policyRevision?: string;
+  policyRevision?: string | undefined;
 }
 
 /**
@@ -2051,7 +2080,7 @@ export interface DeleteRepositoryPermissionsPolicyResult {
    *     </p>
    * @public
    */
-  policy?: ResourcePolicy;
+  policy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -2073,7 +2102,7 @@ export interface DescribeDomainRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 }
 
 /**
@@ -2087,7 +2116,7 @@ export interface DescribeDomainResult {
    *       </p>
    * @public
    */
-  domain?: DomainDescription;
+  domain?: DomainDescription | undefined;
 }
 
 /**
@@ -2107,7 +2136,7 @@ export interface DescribePackageRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The name of the repository that contains the requested package. </p>
@@ -2153,14 +2182,14 @@ export interface DescribePackageRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the requested package.</p>
@@ -2178,7 +2207,7 @@ export interface PackageDescription {
    * <p>A format that specifies the type of the package.</p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package. The package component that specifies its
@@ -2199,26 +2228,26 @@ export interface PackageDescription {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the package.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The package origin configuration for the package.</p>
    * @public
    */
-  originConfiguration?: PackageOriginConfiguration;
+  originConfiguration?: PackageOriginConfiguration | undefined;
 }
 
 /**
@@ -2252,7 +2281,7 @@ export interface DescribePackageGroupRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The pattern of the requested package group.</p>
@@ -2270,7 +2299,7 @@ export interface DescribePackageGroupResult {
    *     that contains information about the requested package group.</p>
    * @public
    */
-  packageGroup?: PackageGroupDescription;
+  packageGroup?: PackageGroupDescription | undefined;
 }
 
 /**
@@ -2292,7 +2321,7 @@ export interface DescribePackageVersionRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p> The name of the repository that contains the package version. </p>
@@ -2341,14 +2370,14 @@ export interface DescribePackageVersionRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p> The name of the requested package version. </p>
@@ -2378,7 +2407,7 @@ export interface LicenseInfo {
    *       </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -2386,7 +2415,7 @@ export interface LicenseInfo {
    *       </p>
    * @public
    */
-  url?: string;
+  url?: string | undefined;
 }
 
 /**
@@ -2404,13 +2433,13 @@ export interface DomainEntryPoint {
    * <p>The name of the repository that a package was originally published to.</p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The name of the external connection that a package was ingested from.</p>
    * @public
    */
-  externalConnectionName?: string;
+  externalConnectionName?: string | undefined;
 }
 
 /**
@@ -2438,14 +2467,14 @@ export interface PackageVersionOrigin {
    *     information about from which repository or external connection the package version was added to the domain.</p>
    * @public
    */
-  domainEntryPoint?: DomainEntryPoint;
+  domainEntryPoint?: DomainEntryPoint | undefined;
 
   /**
    * <p>Describes how the package version was originally added to the domain. An <code>INTERNAL</code> origin type means the package version was published
    *     directly to a repository in the domain. An <code>EXTERNAL</code> origin type means the package version was ingested from an external connection.</p>
    * @public
    */
-  originType?: PackageVersionOriginType;
+  originType?: PackageVersionOriginType | undefined;
 }
 
 /**
@@ -2461,7 +2490,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package version. The package component that specifies its
@@ -2482,14 +2511,14 @@ export interface PackageVersionDescription {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -2497,7 +2526,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  packageName?: string;
+  packageName?: string | undefined;
 
   /**
    * <p>
@@ -2508,7 +2537,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  displayName?: string;
+  displayName?: string | undefined;
 
   /**
    * <p>
@@ -2516,7 +2545,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>
@@ -2525,7 +2554,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  summary?: string;
+  summary?: string | undefined;
 
   /**
    * <p>
@@ -2533,7 +2562,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  homePage?: string;
+  homePage?: string | undefined;
 
   /**
    * <p>
@@ -2541,7 +2570,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  sourceCodeRepository?: string;
+  sourceCodeRepository?: string | undefined;
 
   /**
    * <p>
@@ -2549,7 +2578,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  publishedTime?: Date;
+  publishedTime?: Date | undefined;
 
   /**
    * <p>
@@ -2557,7 +2586,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  licenses?: LicenseInfo[];
+  licenses?: LicenseInfo[] | undefined;
 
   /**
    * <p>
@@ -2565,7 +2594,7 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 
   /**
    * <p>
@@ -2573,14 +2602,14 @@ export interface PackageVersionDescription {
    *     </p>
    * @public
    */
-  status?: PackageVersionStatus;
+  status?: PackageVersionStatus | undefined;
 
   /**
    * <p>A <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageVersionOrigin.html">PackageVersionOrigin</a> object that contains
    *     information about how the package version was added to the repository.</p>
    * @public
    */
-  origin?: PackageVersionOrigin;
+  origin?: PackageVersionOrigin | undefined;
 }
 
 /**
@@ -2616,7 +2645,7 @@ export interface DescribeRepositoryRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -2637,7 +2666,7 @@ export interface DescribeRepositoryResult {
    *        </p>
    * @public
    */
-  repository?: RepositoryDescription;
+  repository?: RepositoryDescription | undefined;
 }
 
 /**
@@ -2658,7 +2687,7 @@ export interface DisassociateExternalConnectionRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The name of the repository from which the external connection will be removed. </p>
@@ -2683,7 +2712,7 @@ export interface DisassociateExternalConnectionResult {
    *     </p>
    * @public
    */
-  repository?: RepositoryDescription;
+  repository?: RepositoryDescription | undefined;
 }
 
 /**
@@ -2705,7 +2734,7 @@ export interface DisposePackageVersionsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -2756,14 +2785,14 @@ export interface DisposePackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -2787,7 +2816,7 @@ export interface DisposePackageVersionsRequest {
    *     </p>
    * @public
    */
-  versionRevisions?: Record<string, string>;
+  versionRevisions?: Record<string, string> | undefined;
 
   /**
    * <p>
@@ -2795,7 +2824,7 @@ export interface DisposePackageVersionsRequest {
    *     </p>
    * @public
    */
-  expectedStatus?: PackageVersionStatus;
+  expectedStatus?: PackageVersionStatus | undefined;
 }
 
 /**
@@ -2808,7 +2837,7 @@ export interface DisposePackageVersionsResult {
    *     </p>
    * @public
    */
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo> | undefined;
 
   /**
    * <p>
@@ -2849,7 +2878,7 @@ export interface DisposePackageVersionsResult {
    *          </ul>
    * @public
    */
-  failedVersions?: Record<string, PackageVersionError>;
+  failedVersions?: Record<string, PackageVersionError> | undefined;
 }
 
 /**
@@ -2871,7 +2900,7 @@ export interface GetAssociatedPackageGroupRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -2914,14 +2943,14 @@ export interface GetAssociatedPackageGroupRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -2940,14 +2969,14 @@ export interface GetAssociatedPackageGroupResult {
    * <p>The package group that is associated with the requested package.</p>
    * @public
    */
-  packageGroup?: PackageGroupDescription;
+  packageGroup?: PackageGroupDescription | undefined;
 
   /**
    * <p>Describes the strength of the association between the package and package group. A strong match is also known as an
    *     exact match, and a weak match is known as a relative match.</p>
    * @public
    */
-  associationType?: PackageGroupAssociationType;
+  associationType?: PackageGroupAssociationType | undefined;
 }
 
 /**
@@ -2969,7 +2998,7 @@ export interface GetAuthorizationTokenRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The time, in seconds, that the generated authorization token is valid. Valid values are
@@ -2978,7 +3007,7 @@ export interface GetAuthorizationTokenRequest {
    *     the user's role's temporary credentials.</p>
    * @public
    */
-  durationSeconds?: number;
+  durationSeconds?: number | undefined;
 }
 
 /**
@@ -2991,7 +3020,7 @@ export interface GetAuthorizationTokenResult {
    *        </p>
    * @public
    */
-  authorizationToken?: string;
+  authorizationToken?: string | undefined;
 
   /**
    * <p>
@@ -2999,7 +3028,7 @@ export interface GetAuthorizationTokenResult {
    *     </p>
    * @public
    */
-  expiration?: Date;
+  expiration?: Date | undefined;
 }
 
 /**
@@ -3021,7 +3050,7 @@ export interface GetDomainPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 }
 
 /**
@@ -3034,7 +3063,7 @@ export interface GetDomainPermissionsPolicyResult {
    *       </p>
    * @public
    */
-  policy?: ResourcePolicy;
+  policy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -3056,7 +3085,7 @@ export interface GetPackageVersionAssetRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3107,14 +3136,14 @@ export interface GetPackageVersionAssetRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -3146,7 +3175,7 @@ export interface GetPackageVersionAssetRequest {
    *     </p>
    * @public
    */
-  packageVersionRevision?: string;
+  packageVersionRevision?: string | undefined;
 }
 
 /**
@@ -3157,7 +3186,7 @@ export interface GetPackageVersionAssetResult {
    * <p> The binary file, or asset, that is downloaded.</p>
    * @public
    */
-  asset?: StreamingBlobTypes;
+  asset?: StreamingBlobTypes | undefined;
 
   /**
    * <p>
@@ -3165,7 +3194,7 @@ export interface GetPackageVersionAssetResult {
    *     </p>
    * @public
    */
-  assetName?: string;
+  assetName?: string | undefined;
 
   /**
    * <p>
@@ -3173,7 +3202,7 @@ export interface GetPackageVersionAssetResult {
    *     </p>
    * @public
    */
-  packageVersion?: string;
+  packageVersion?: string | undefined;
 
   /**
    * <p>
@@ -3181,7 +3210,7 @@ export interface GetPackageVersionAssetResult {
    *     </p>
    * @public
    */
-  packageVersionRevision?: string;
+  packageVersionRevision?: string | undefined;
 }
 
 /**
@@ -3203,7 +3232,7 @@ export interface GetPackageVersionReadmeRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3254,14 +3283,14 @@ export interface GetPackageVersionReadmeRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -3290,7 +3319,7 @@ export interface GetPackageVersionReadmeResult {
    *     </p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package version with the requested readme file. The package component that specifies its
@@ -3311,14 +3340,14 @@ export interface GetPackageVersionReadmeResult {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -3326,7 +3355,7 @@ export interface GetPackageVersionReadmeResult {
    *     </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>
@@ -3334,7 +3363,7 @@ export interface GetPackageVersionReadmeResult {
    *     </p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>
@@ -3342,7 +3371,7 @@ export interface GetPackageVersionReadmeResult {
    *     </p>
    * @public
    */
-  versionRevision?: string;
+  versionRevision?: string | undefined;
 
   /**
    * <p>
@@ -3350,8 +3379,22 @@ export interface GetPackageVersionReadmeResult {
    *     </p>
    * @public
    */
-  readme?: string;
+  readme?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const EndpointType = {
+  DUALSTACK: "dualstack",
+  IPV4: "ipv4",
+} as const;
+
+/**
+ * @public
+ */
+export type EndpointType = (typeof EndpointType)[keyof typeof EndpointType];
 
 /**
  * @public
@@ -3372,7 +3415,7 @@ export interface GetRepositoryEndpointRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3390,6 +3433,12 @@ export interface GetRepositoryEndpointRequest {
    * @public
    */
   format: PackageFormat | undefined;
+
+  /**
+   * <p>A string that specifies the type of endpoint.</p>
+   * @public
+   */
+  endpointType?: EndpointType | undefined;
 }
 
 /**
@@ -3402,7 +3451,7 @@ export interface GetRepositoryEndpointResult {
    *      </p>
    * @public
    */
-  repositoryEndpoint?: string;
+  repositoryEndpoint?: string | undefined;
 }
 
 /**
@@ -3424,7 +3473,7 @@ export interface GetRepositoryPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3445,7 +3494,7 @@ export interface GetRepositoryPermissionsPolicyResult {
    *       </p>
    * @public
    */
-  policy?: ResourcePolicy;
+  policy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -3467,7 +3516,7 @@ export interface ListAllowedRepositoriesForGroupRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The pattern of the package group from which to list allowed repositories.</p>
@@ -3487,7 +3536,7 @@ export interface ListAllowedRepositoriesForGroupRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -3495,7 +3544,7 @@ export interface ListAllowedRepositoriesForGroupRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3506,7 +3555,7 @@ export interface ListAllowedRepositoriesForGroupResult {
    * <p>The list of allowed repositories for the package group and origin configuration restriction type.</p>
    * @public
    */
-  allowedRepositories?: string[];
+  allowedRepositories?: string[] | undefined;
 
   /**
    * <p>
@@ -3514,7 +3563,7 @@ export interface ListAllowedRepositoriesForGroupResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3536,7 +3585,7 @@ export interface ListAssociatedPackagesRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3552,7 +3601,7 @@ export interface ListAssociatedPackagesRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -3560,7 +3609,7 @@ export interface ListAssociatedPackagesRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -3569,7 +3618,7 @@ export interface ListAssociatedPackagesRequest {
    *     </p>
    * @public
    */
-  preview?: boolean;
+  preview?: boolean | undefined;
 }
 
 /**
@@ -3582,7 +3631,7 @@ export interface ListAssociatedPackagesResult {
    *     </p>
    * @public
    */
-  packages?: AssociatedPackage[];
+  packages?: AssociatedPackage[] | undefined;
 
   /**
    * <p>
@@ -3590,7 +3639,7 @@ export interface ListAssociatedPackagesResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3603,7 +3652,7 @@ export interface ListDomainsRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -3611,7 +3660,7 @@ export interface ListDomainsRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3627,7 +3676,7 @@ export interface DomainSummary {
    *     </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -3636,7 +3685,7 @@ export interface DomainSummary {
    *       </p>
    * @public
    */
-  owner?: string;
+  owner?: string | undefined;
 
   /**
    * <p>
@@ -3644,7 +3693,7 @@ export interface DomainSummary {
    *     </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -3652,7 +3701,7 @@ export interface DomainSummary {
    *     </p>
    * @public
    */
-  status?: DomainStatus;
+  status?: DomainStatus | undefined;
 
   /**
    * <p>
@@ -3660,7 +3709,7 @@ export interface DomainSummary {
    *     </p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>
@@ -3668,7 +3717,7 @@ export interface DomainSummary {
    *     </p>
    * @public
    */
-  encryptionKey?: string;
+  encryptionKey?: string | undefined;
 }
 
 /**
@@ -3681,7 +3730,7 @@ export interface ListDomainsResult {
    *      </p>
    * @public
    */
-  domains?: DomainSummary[];
+  domains?: DomainSummary[] | undefined;
 
   /**
    * <p>
@@ -3689,7 +3738,7 @@ export interface ListDomainsResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3711,7 +3760,7 @@ export interface ListPackageGroupsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3719,7 +3768,7 @@ export interface ListPackageGroupsRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -3727,7 +3776,7 @@ export interface ListPackageGroupsRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -3736,7 +3785,7 @@ export interface ListPackageGroupsRequest {
    *     </p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -3750,7 +3799,7 @@ export interface PackageGroupSummary {
    *     </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -3758,7 +3807,7 @@ export interface PackageGroupSummary {
    *     </p>
    * @public
    */
-  pattern?: string;
+  pattern?: string | undefined;
 
   /**
    * <p>
@@ -3766,7 +3815,7 @@ export interface PackageGroupSummary {
    *     </p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>
@@ -3775,13 +3824,13 @@ export interface PackageGroupSummary {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>A timestamp that represents the date and time the repository was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 
   /**
    * <p>
@@ -3789,7 +3838,7 @@ export interface PackageGroupSummary {
    *     </p>
    * @public
    */
-  contactInfo?: string;
+  contactInfo?: string | undefined;
 
   /**
    * <p>
@@ -3797,13 +3846,13 @@ export interface PackageGroupSummary {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Details about the package origin configuration of a package group.</p>
    * @public
    */
-  originConfiguration?: PackageGroupOriginConfiguration;
+  originConfiguration?: PackageGroupOriginConfiguration | undefined;
 
   /**
    * <p>
@@ -3811,7 +3860,7 @@ export interface PackageGroupSummary {
    *     </p>
    * @public
    */
-  parent?: PackageGroupReference;
+  parent?: PackageGroupReference | undefined;
 }
 
 /**
@@ -3824,7 +3873,7 @@ export interface ListPackageGroupsResult {
    *     </p>
    * @public
    */
-  packageGroups?: PackageGroupSummary[];
+  packageGroups?: PackageGroupSummary[] | undefined;
 
   /**
    * <p>
@@ -3832,7 +3881,7 @@ export interface ListPackageGroupsResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3854,7 +3903,7 @@ export interface ListPackagesRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -3868,7 +3917,7 @@ export interface ListPackagesRequest {
    * <p>The format used to filter requested packages. Only packages from the provided format will be returned.</p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace prefix used to filter requested packages.
@@ -3891,14 +3940,14 @@ export interface ListPackagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -3907,7 +3956,7 @@ export interface ListPackagesRequest {
    *     </p>
    * @public
    */
-  packagePrefix?: string;
+  packagePrefix?: string | undefined;
 
   /**
    * <p>
@@ -3915,7 +3964,7 @@ export interface ListPackagesRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -3923,7 +3972,7 @@ export interface ListPackagesRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The value of the <code>Publish</code> package origin control restriction used to filter requested packages.
@@ -3931,14 +3980,14 @@ export interface ListPackagesRequest {
    *       For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
    * @public
    */
-  publish?: AllowPublish;
+  publish?: AllowPublish | undefined;
 
   /**
    * <p>The value of the <code>Upstream</code> package origin control restriction used to filter requested packages.
    *       Only packages with the provided restriction are returned. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_PackageOriginRestrictions.html">PackageOriginRestrictions</a>.</p>
    * @public
    */
-  upstream?: AllowUpstream;
+  upstream?: AllowUpstream | undefined;
 }
 
 /**
@@ -3952,7 +4001,7 @@ export interface ListPackagesResult {
    *        </p>
    * @public
    */
-  packages?: PackageSummary[];
+  packages?: PackageSummary[] | undefined;
 
   /**
    * <p>
@@ -3960,7 +4009,7 @@ export interface ListPackagesResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3982,7 +4031,7 @@ export interface ListPackageVersionAssetsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -4033,14 +4082,14 @@ export interface ListPackageVersionAssetsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4064,7 +4113,7 @@ export interface ListPackageVersionAssetsRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -4072,7 +4121,7 @@ export interface ListPackageVersionAssetsRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4085,7 +4134,7 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package version that contains the requested package version assets. The package component that specifies its
@@ -4106,14 +4155,14 @@ export interface ListPackageVersionAssetsResult {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4121,7 +4170,7 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>
@@ -4129,7 +4178,7 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>
@@ -4137,7 +4186,7 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    * @public
    */
-  versionRevision?: string;
+  versionRevision?: string | undefined;
 
   /**
    * <p>
@@ -4145,7 +4194,7 @@ export interface ListPackageVersionAssetsResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -4153,7 +4202,7 @@ export interface ListPackageVersionAssetsResult {
    *     </p>
    * @public
    */
-  assets?: AssetSummary[];
+  assets?: AssetSummary[] | undefined;
 }
 
 /**
@@ -4175,7 +4224,7 @@ export interface ListPackageVersionDependenciesRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -4202,12 +4251,6 @@ export interface ListPackageVersionDependenciesRequest {
    *                <li>
    *                   <p>Maven</p>
    *                </li>
-   *                <li>
-   *                   <p>Swift</p>
-   *                </li>
-   *                <li>
-   *                   <p>generic</p>
-   *                </li>
    *             </ul>
    *          </note>
    *          <ul>
@@ -4218,22 +4261,19 @@ export interface ListPackageVersionDependenciesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
-   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
-   *             </li>
-   *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4257,7 +4297,7 @@ export interface ListPackageVersionDependenciesRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4286,14 +4326,14 @@ export interface PackageDependency {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4301,7 +4341,7 @@ export interface PackageDependency {
    *        </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p> The type of a package dependency. The possible values depend on the package type.</p>
@@ -4326,7 +4366,7 @@ export interface PackageDependency {
    *          </ul>
    * @public
    */
-  dependencyType?: string;
+  dependencyType?: string | undefined;
 
   /**
    * <p>
@@ -4336,7 +4376,7 @@ export interface PackageDependency {
    *       </p>
    * @public
    */
-  versionRequirement?: string;
+  versionRequirement?: string | undefined;
 }
 
 /**
@@ -4349,11 +4389,19 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package version that contains the returned dependencies. The package component that specifies its
    *       namespace depends on its type. For example:</p>
+   *          <note>
+   *             <p>The namespace is required when listing dependencies from package versions of the following formats:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Maven</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    *          <ul>
    *             <li>
    *                <p>
@@ -4362,22 +4410,19 @@ export interface ListPackageVersionDependenciesResult {
    *             </li>
    *             <li>
    *                <p>
-   *           The namespace of an npm or Swift package version is its <code>scope</code>.
+   *           The namespace of an npm package version is its <code>scope</code>.
    *         </p>
    *             </li>
    *             <li>
-   *                <p>The namespace of a generic package is its <code>namespace</code>.</p>
-   *             </li>
-   *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python and NuGet package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4385,7 +4430,7 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>
@@ -4393,7 +4438,7 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>
@@ -4401,7 +4446,7 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    * @public
    */
-  versionRevision?: string;
+  versionRevision?: string | undefined;
 
   /**
    * <p>
@@ -4409,7 +4454,7 @@ export interface ListPackageVersionDependenciesResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>
@@ -4417,7 +4462,7 @@ export interface ListPackageVersionDependenciesResult {
    *     </p>
    * @public
    */
-  dependencies?: PackageDependency[];
+  dependencies?: PackageDependency[] | undefined;
 }
 
 /**
@@ -4452,7 +4497,7 @@ export interface ListPackageVersionsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -4503,14 +4548,14 @@ export interface ListPackageVersionsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4526,7 +4571,7 @@ export interface ListPackageVersionsRequest {
    *     </p>
    * @public
    */
-  status?: PackageVersionStatus;
+  status?: PackageVersionStatus | undefined;
 
   /**
    * <p>
@@ -4534,7 +4579,7 @@ export interface ListPackageVersionsRequest {
    *     </p>
    * @public
    */
-  sortBy?: PackageVersionSortType;
+  sortBy?: PackageVersionSortType | undefined;
 
   /**
    * <p>
@@ -4542,7 +4587,7 @@ export interface ListPackageVersionsRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -4550,14 +4595,14 @@ export interface ListPackageVersionsRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The <code>originType</code> used to filter package versions.
    *       Only package versions with the provided <code>originType</code> will be returned.</p>
    * @public
    */
-  originType?: PackageVersionOriginType;
+  originType?: PackageVersionOriginType | undefined;
 }
 
 /**
@@ -4583,7 +4628,7 @@ export interface PackageVersionSummary {
    *     </p>
    * @public
    */
-  revision?: string;
+  revision?: string | undefined;
 
   /**
    * <p>
@@ -4598,7 +4643,7 @@ export interface PackageVersionSummary {
    *     about how the package version was added to the repository.</p>
    * @public
    */
-  origin?: PackageVersionOrigin;
+  origin?: PackageVersionOrigin | undefined;
 }
 
 /**
@@ -4624,7 +4669,7 @@ export interface ListPackageVersionsResult {
    *          </ul>
    * @public
    */
-  defaultDisplayVersion?: string;
+  defaultDisplayVersion?: string | undefined;
 
   /**
    * <p>
@@ -4632,7 +4677,7 @@ export interface ListPackageVersionsResult {
    *     </p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package that contains the requested package versions. The package component that specifies its
@@ -4653,14 +4698,14 @@ export interface ListPackageVersionsResult {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -4668,7 +4713,7 @@ export interface ListPackageVersionsResult {
    *        </p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>
@@ -4678,7 +4723,7 @@ export interface ListPackageVersionsResult {
    *        </p>
    * @public
    */
-  versions?: PackageVersionSummary[];
+  versions?: PackageVersionSummary[] | undefined;
 
   /**
    * <p>
@@ -4686,7 +4731,7 @@ export interface ListPackageVersionsResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4698,7 +4743,7 @@ export interface ListRepositoriesRequest {
    *       with <code>repositoryPrefix</code> are returned.</p>
    * @public
    */
-  repositoryPrefix?: string;
+  repositoryPrefix?: string | undefined;
 
   /**
    * <p>
@@ -4706,7 +4751,7 @@ export interface ListRepositoriesRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -4714,7 +4759,7 @@ export interface ListRepositoriesRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4730,7 +4775,7 @@ export interface RepositorySummary {
    *       </p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>
@@ -4738,7 +4783,7 @@ export interface RepositorySummary {
    *       </p>
    * @public
    */
-  administratorAccount?: string;
+  administratorAccount?: string | undefined;
 
   /**
    * <p>
@@ -4746,7 +4791,7 @@ export interface RepositorySummary {
    *       </p>
    * @public
    */
-  domainName?: string;
+  domainName?: string | undefined;
 
   /**
    * <p>
@@ -4755,13 +4800,13 @@ export interface RepositorySummary {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p> The ARN of the repository. </p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>
@@ -4769,13 +4814,13 @@ export interface RepositorySummary {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>A timestamp that represents the date and time the repository was created.</p>
    * @public
    */
-  createdTime?: Date;
+  createdTime?: Date | undefined;
 }
 
 /**
@@ -4789,7 +4834,7 @@ export interface ListRepositoriesResult {
    *        </p>
    * @public
    */
-  repositories?: RepositorySummary[];
+  repositories?: RepositorySummary[] | undefined;
 
   /**
    * <p>
@@ -4797,7 +4842,7 @@ export interface ListRepositoriesResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4819,7 +4864,7 @@ export interface ListRepositoriesInDomainRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -4827,7 +4872,7 @@ export interface ListRepositoriesInDomainRequest {
    *        </p>
    * @public
    */
-  administratorAccount?: string;
+  administratorAccount?: string | undefined;
 
   /**
    * <p>
@@ -4836,7 +4881,7 @@ export interface ListRepositoriesInDomainRequest {
    *     </p>
    * @public
    */
-  repositoryPrefix?: string;
+  repositoryPrefix?: string | undefined;
 
   /**
    * <p>
@@ -4844,7 +4889,7 @@ export interface ListRepositoriesInDomainRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -4852,7 +4897,7 @@ export interface ListRepositoriesInDomainRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4865,7 +4910,7 @@ export interface ListRepositoriesInDomainResult {
    *      </p>
    * @public
    */
-  repositories?: RepositorySummary[];
+  repositories?: RepositorySummary[] | undefined;
 
   /**
    * <p>
@@ -4873,7 +4918,7 @@ export interface ListRepositoriesInDomainResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4895,7 +4940,7 @@ export interface ListSubPackageGroupsRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -4911,7 +4956,7 @@ export interface ListSubPackageGroupsRequest {
    *        </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>
@@ -4919,7 +4964,7 @@ export interface ListSubPackageGroupsRequest {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4932,7 +4977,7 @@ export interface ListSubPackageGroupsResult {
    *     </p>
    * @public
    */
-  packageGroups?: PackageGroupSummary[];
+  packageGroups?: PackageGroupSummary[] | undefined;
 
   /**
    * <p>
@@ -4940,7 +4985,7 @@ export interface ListSubPackageGroupsResult {
    *        </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -4962,7 +5007,7 @@ export interface ListTagsForResourceResult {
    * <p>A list of tag key and value pairs associated with the specified resource.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -4979,7 +5024,7 @@ export interface PublishPackageVersionRequest {
    * <p>The 12-digit account number of the AWS account that owns the domain. It does not include dashes or spaces.</p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The name of the repository that the package version will be published to.</p>
@@ -4998,7 +5043,7 @@ export interface PublishPackageVersionRequest {
    * <p>The namespace of the package version to publish.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the package version to publish.</p>
@@ -5045,7 +5090,7 @@ export interface PublishPackageVersionRequest {
    *          </p>
    * @public
    */
-  unfinished?: boolean;
+  unfinished?: boolean | undefined;
 }
 
 /**
@@ -5056,43 +5101,43 @@ export interface PublishPackageVersionResult {
    * <p>The format of the package version.</p>
    * @public
    */
-  format?: PackageFormat;
+  format?: PackageFormat | undefined;
 
   /**
    * <p>The namespace of the package version.</p>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the package.</p>
    * @public
    */
-  package?: string;
+  package?: string | undefined;
 
   /**
    * <p>The version of the package.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>The revision of the package version.</p>
    * @public
    */
-  versionRevision?: string;
+  versionRevision?: string | undefined;
 
   /**
    * <p>A string that contains the status of the package version. For more information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/packages-overview.html#package-version-status.html#package-version-status">Package version status</a> in the <i>CodeArtifact User Guide</i>.</p>
    * @public
    */
-  status?: PackageVersionStatus;
+  status?: PackageVersionStatus | undefined;
 
   /**
    * <p>An <a href="https://docs.aws.amazon.com/codeartifact/latest/APIReference/API_AssetSummary.html">AssetSummary</a> for the published asset.</p>
    * @public
    */
-  asset?: AssetSummary;
+  asset?: AssetSummary | undefined;
 }
 
 /**
@@ -5114,7 +5159,7 @@ export interface PutDomainPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -5123,7 +5168,7 @@ export interface PutDomainPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  policyRevision?: string;
+  policyRevision?: string | undefined;
 
   /**
    * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
@@ -5141,7 +5186,7 @@ export interface PutDomainPermissionsPolicyResult {
    * <p> The resource policy that was set after processing the request. </p>
    * @public
    */
-  policy?: ResourcePolicy;
+  policy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -5161,7 +5206,7 @@ export interface PutPackageOriginConfigurationRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>The name of the repository that contains the package.</p>
@@ -5194,14 +5239,14 @@ export interface PutPackageOriginConfigurationRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>The name of the package to be updated.</p>
@@ -5231,7 +5276,7 @@ export interface PutPackageOriginConfigurationResult {
    *       object that describes how new versions of the package can be introduced to the repository.</p>
    * @public
    */
-  originConfiguration?: PackageOriginConfiguration;
+  originConfiguration?: PackageOriginConfiguration | undefined;
 }
 
 /**
@@ -5253,7 +5298,7 @@ export interface PutRepositoryPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p> The name of the repository to set the resource policy on. </p>
@@ -5269,7 +5314,7 @@ export interface PutRepositoryPermissionsPolicyRequest {
    *       </p>
    * @public
    */
-  policyRevision?: string;
+  policyRevision?: string | undefined;
 
   /**
    * <p> A valid displayable JSON Aspen policy string to be set as the access control resource
@@ -5287,7 +5332,7 @@ export interface PutRepositoryPermissionsPolicyResult {
    * <p> The resource policy that was set after processing the request. </p>
    * @public
    */
-  policy?: ResourcePolicy;
+  policy?: ResourcePolicy | undefined;
 }
 
 /**
@@ -5353,7 +5398,7 @@ export interface UpdatePackageGroupRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -5369,7 +5414,7 @@ export interface UpdatePackageGroupRequest {
    *     </p>
    * @public
    */
-  contactInfo?: string;
+  contactInfo?: string | undefined;
 
   /**
    * <p>
@@ -5377,7 +5422,7 @@ export interface UpdatePackageGroupRequest {
    *     </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 }
 
 /**
@@ -5390,7 +5435,7 @@ export interface UpdatePackageGroupResult {
    *     </p>
    * @public
    */
-  packageGroup?: PackageGroupDescription;
+  packageGroup?: PackageGroupDescription | undefined;
 }
 
 /**
@@ -5406,13 +5451,13 @@ export interface PackageGroupAllowedRepository {
    *     </p>
    * @public
    */
-  repositoryName?: string;
+  repositoryName?: string | undefined;
 
   /**
    * <p>The origin configuration restriction type of the allowed repository.</p>
    * @public
    */
-  originRestrictionType?: PackageGroupOriginRestrictionType;
+  originRestrictionType?: PackageGroupOriginRestrictionType | undefined;
 }
 
 /**
@@ -5434,7 +5479,7 @@ export interface UpdatePackageGroupOriginConfigurationRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -5450,19 +5495,19 @@ export interface UpdatePackageGroupOriginConfigurationRequest {
    *       </p>
    * @public
    */
-  restrictions?: Partial<Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>>;
+  restrictions?: Partial<Record<PackageGroupOriginRestrictionType, PackageGroupOriginRestrictionMode>> | undefined;
 
   /**
    * <p>The repository name and restrictions to add to the allowed repository list of the specified package group.</p>
    * @public
    */
-  addAllowedRepositories?: PackageGroupAllowedRepository[];
+  addAllowedRepositories?: PackageGroupAllowedRepository[] | undefined;
 
   /**
    * <p>The repository name and restrictions to remove from the allowed repository list of the specified package group.</p>
    * @public
    */
-  removeAllowedRepositories?: PackageGroupAllowedRepository[];
+  removeAllowedRepositories?: PackageGroupAllowedRepository[] | undefined;
 }
 
 /**
@@ -5490,15 +5535,17 @@ export interface UpdatePackageGroupOriginConfigurationResult {
    *     </p>
    * @public
    */
-  packageGroup?: PackageGroupDescription;
+  packageGroup?: PackageGroupDescription | undefined;
 
   /**
    * <p>Information about the updated allowed repositories after processing the request.</p>
    * @public
    */
-  allowedRepositoryUpdates?: Partial<
-    Record<PackageGroupOriginRestrictionType, Partial<Record<PackageGroupAllowedRepositoryUpdateType, string[]>>>
-  >;
+  allowedRepositoryUpdates?:
+    | Partial<
+        Record<PackageGroupOriginRestrictionType, Partial<Record<PackageGroupAllowedRepositoryUpdateType, string[]>>>
+      >
+    | undefined;
 }
 
 /**
@@ -5520,7 +5567,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -5557,14 +5604,14 @@ export interface UpdatePackageVersionsStatusRequest {
    *             </li>
    *             <li>
    *                <p>
-   *           Python, NuGet, and Ruby package versions do not contain a corresponding component, package versions
+   *           Python, NuGet, Ruby, and Cargo package versions do not contain a corresponding component, package versions
    *           of those formats do not have a namespace.
    *         </p>
    *             </li>
    *          </ul>
    * @public
    */
-  namespace?: string;
+  namespace?: string | undefined;
 
   /**
    * <p>
@@ -5588,7 +5635,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *       package version revision. </p>
    * @public
    */
-  versionRevisions?: Record<string, string>;
+  versionRevisions?: Record<string, string> | undefined;
 
   /**
    * <p> The package version’s expected status before it is updated. If
@@ -5597,7 +5644,7 @@ export interface UpdatePackageVersionsStatusRequest {
    *         <code>expectedStatus</code>. </p>
    * @public
    */
-  expectedStatus?: PackageVersionStatus;
+  expectedStatus?: PackageVersionStatus | undefined;
 
   /**
    * <p>
@@ -5619,14 +5666,14 @@ export interface UpdatePackageVersionsStatusResult {
    *     </p>
    * @public
    */
-  successfulVersions?: Record<string, SuccessfulPackageVersionInfo>;
+  successfulVersions?: Record<string, SuccessfulPackageVersionInfo> | undefined;
 
   /**
    * <p> A list of <code>SuccessfulPackageVersionInfo</code> objects, one for each package version
    *       with a status that successfully updated. </p>
    * @public
    */
-  failedVersions?: Record<string, PackageVersionError>;
+  failedVersions?: Record<string, PackageVersionError> | undefined;
 }
 
 /**
@@ -5648,7 +5695,7 @@ export interface UpdateRepositoryRequest {
    *       </p>
    * @public
    */
-  domainOwner?: string;
+  domainOwner?: string | undefined;
 
   /**
    * <p>
@@ -5664,7 +5711,7 @@ export interface UpdateRepositoryRequest {
    *        </p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p> A list of upstream repositories to associate with the repository. The order of the upstream repositories
@@ -5672,7 +5719,7 @@ export interface UpdateRepositoryRequest {
    *         information, see <a href="https://docs.aws.amazon.com/codeartifact/latest/ug/repos-upstream.html">Working with upstream repositories</a>. </p>
    * @public
    */
-  upstreams?: UpstreamRepository[];
+  upstreams?: UpstreamRepository[] | undefined;
 }
 
 /**
@@ -5685,7 +5732,7 @@ export interface UpdateRepositoryResult {
    *        </p>
    * @public
    */
-  repository?: RepositoryDescription;
+  repository?: RepositoryDescription | undefined;
 }
 
 /**

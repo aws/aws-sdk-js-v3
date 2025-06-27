@@ -20,7 +20,8 @@ import { de_StartVoiceToneAnalysisTaskCommand, se_StartVoiceToneAnalysisTaskComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface StartVoiceToneAnalysisTaskCommandOutput extends StartVoiceToneA
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class StartVoiceToneAnalysisTaskCommand extends $Command
@@ -115,9 +117,7 @@ export class StartVoiceToneAnalysisTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class StartVoiceToneAnalysisTaskCommand extends $Command
   .f(StartVoiceToneAnalysisTaskRequestFilterSensitiveLog, void 0)
   .ser(se_StartVoiceToneAnalysisTaskCommand)
   .de(de_StartVoiceToneAnalysisTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartVoiceToneAnalysisTaskRequest;
+      output: StartVoiceToneAnalysisTaskResponse;
+    };
+    sdk: {
+      input: StartVoiceToneAnalysisTaskCommandInput;
+      output: StartVoiceToneAnalysisTaskCommandOutput;
+    };
+  };
+}

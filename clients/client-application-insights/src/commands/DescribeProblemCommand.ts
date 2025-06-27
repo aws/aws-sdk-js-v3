@@ -16,7 +16,8 @@ import { de_DescribeProblemCommand, se_DescribeProblemCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,6 +49,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * //   Problem: { // Problem
  * //     Id: "STRING_VALUE",
  * //     Title: "STRING_VALUE",
+ * //     ShortName: "STRING_VALUE",
  * //     Insights: "STRING_VALUE",
  * //     Status: "IGNORE" || "RESOLVED" || "PENDING" || "RECURRING" || "RECOVERING",
  * //     AffectedResource: "STRING_VALUE",
@@ -64,6 +66,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * //     Visibility: "IGNORED" || "VISIBLE",
  * //     ResolutionMethod: "MANUAL" || "AUTOMATIC" || "UNRESOLVED",
  * //   },
+ * //   SNSNotificationArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -86,6 +89,7 @@ export interface DescribeProblemCommandOutput extends DescribeProblemResponse, _
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class DescribeProblemCommand extends $Command
@@ -96,9 +100,7 @@ export class DescribeProblemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +112,16 @@ export class DescribeProblemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeProblemCommand)
   .de(de_DescribeProblemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeProblemRequest;
+      output: DescribeProblemResponse;
+    };
+    sdk: {
+      input: DescribeProblemCommandInput;
+      output: DescribeProblemCommandOutput;
+    };
+  };
+}

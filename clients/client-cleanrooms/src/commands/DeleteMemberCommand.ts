@@ -12,7 +12,8 @@ import { de_DeleteMemberCommand, se_DeleteMemberCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface DeleteMemberCommandInput extends DeleteMemberInput {}
 export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __MetadataBearer {}
 
 /**
- * <p>Removes the specified member from a collaboration. The removed member is placed in the
- *          Removed status and can't interact with the collaboration. The removed member's data is
- *          inaccessible to active members of the collaboration.</p>
+ * <p>Removes the specified member from a collaboration. The removed member is placed in the Removed status and can't interact with the collaboration. The removed member's data is inaccessible to active members of the collaboration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +72,7 @@ export interface DeleteMemberCommandOutput extends DeleteMemberOutput, __Metadat
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class DeleteMemberCommand extends $Command
@@ -83,9 +83,7 @@ export class DeleteMemberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +95,16 @@ export class DeleteMemberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMemberCommand)
   .de(de_DeleteMemberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMemberInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMemberCommandInput;
+      output: DeleteMemberCommandOutput;
+    };
+  };
+}

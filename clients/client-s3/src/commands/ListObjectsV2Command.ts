@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,14 +33,32 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *          use the request parameters as selection criteria to return a subset of the objects in a
  *          bucket. A <code>200 OK</code> response can contain valid or invalid XML. Make sure to
  *          design your application to parse the contents of the response and handle it appropriately.
- *
  *          For more information about listing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/ListingKeysUsingAPIs.html">Listing object keys
- *             programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list of your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
+ *             programmatically</a> in the <i>Amazon S3 User Guide</i>. To get a list of
+ *          your buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListBuckets.html">ListBuckets</a>.</p>
  *          <note>
- *             <p>
- *                <b>Directory buckets</b> - For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>General purpose bucket</b> - For general purpose buckets,
+ *                      <code>ListObjectsV2</code> doesn't return prefixes that are related only to
+ *                   in-progress multipart uploads.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> - For
+ *                   directory buckets, <code>ListObjectsV2</code> response includes the prefixes that
+ *                   are related only to in-progress multipart uploads. </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> -
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -46,11 +66,13 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - To use this operation, you must have READ access to the bucket. You must have permission to perform
- *                         the <code>s3:ListBucket</code> action. The bucket owner has this permission by default and
- *                         can grant this permission to others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *                               Access Permissions to Your Amazon S3 Resources</a> in the
- *                         <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - To
+ *                         use this operation, you must have READ access to the bucket. You must have
+ *                         permission to perform the <code>s3:ListBucket</code> action. The bucket
+ *                         owner has this permission by default and can grant this permission to
+ *                         others. For more information about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *                            Permissions to Your Amazon S3 Resources</a> in the
+ *                            <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -68,11 +90,15 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket</b> - For general purpose buckets, <code>ListObjectsV2</code> returns objects in lexicographical order based on their key names.</p>
+ *                         <b>General purpose bucket</b> - For
+ *                         general purpose buckets, <code>ListObjectsV2</code> returns objects in
+ *                         lexicographical order based on their key names.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket</b> - For directory buckets, <code>ListObjectsV2</code> does not return objects in lexicographical order.</p>
+ *                         <b>Directory bucket</b> - For
+ *                         directory buckets, <code>ListObjectsV2</code> does not return objects in
+ *                         lexicographical order.</p>
  *                   </li>
  *                </ul>
  *             </dd>
@@ -80,7 +106,7 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  *             <dd>
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <important>
@@ -137,10 +163,11 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * //       LastModified: new Date("TIMESTAMP"),
  * //       ETag: "STRING_VALUE",
  * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //       ],
+ * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
- * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",
@@ -182,45 +209,45 @@ export interface ListObjectsV2CommandOutput extends ListObjectsV2Output, __Metad
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get object list
  * ```javascript
  * // The following example retrieves object list. The request specifies max keys to limit response to include only 2 object keys.
  * const input = {
- *   "Bucket": "DOC-EXAMPLE-BUCKET",
- *   "MaxKeys": "2"
+ *   Bucket: "DOC-EXAMPLE-BUCKET",
+ *   MaxKeys: 2
  * };
  * const command = new ListObjectsV2Command(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Contents": [
+ *   Contents: [
  *     {
- *       "ETag": "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
- *       "Key": "happyface.jpg",
- *       "LastModified": "2014-11-21T19:40:05.000Z",
- *       "Size": 11,
- *       "StorageClass": "STANDARD"
+ *       ETag: `"70ee1738b6b21e2c8a43f3a5ab0eee71"`,
+ *       Key: "happyface.jpg",
+ *       LastModified: "2014-11-21T19:40:05.000Z",
+ *       Size: 11,
+ *       StorageClass: "STANDARD"
  *     },
  *     {
- *       "ETag": "\"becf17f89c30367a9a44495d62ed521a-1\"",
- *       "Key": "test.jpg",
- *       "LastModified": "2014-05-02T04:51:50.000Z",
- *       "Size": 4192256,
- *       "StorageClass": "STANDARD"
+ *       ETag: `"becf17f89c30367a9a44495d62ed521a-1"`,
+ *       Key: "test.jpg",
+ *       LastModified: "2014-05-02T04:51:50.000Z",
+ *       Size: 4192256,
+ *       StorageClass: "STANDARD"
  *     }
  *   ],
- *   "IsTruncated": true,
- *   "KeyCount": "2",
- *   "MaxKeys": "2",
- *   "Name": "DOC-EXAMPLE-BUCKET",
- *   "NextContinuationToken": "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
- *   "Prefix": ""
+ *   IsTruncated: true,
+ *   KeyCount: 2,
+ *   MaxKeys: 2,
+ *   Name: "DOC-EXAMPLE-BUCKET",
+ *   NextContinuationToken: "1w41l63U0xa8q7smH50vCxyTQqdxo69O3EmK28Bi5PcROI4wI/EyIJg==",
+ *   Prefix: ""
  * }
  * *\/
- * // example id: to-get-object-list
  * ```
  *
+ * @public
  */
 export class ListObjectsV2Command extends $Command
   .classBuilder<
@@ -239,6 +266,7 @@ export class ListObjectsV2Command extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "ListObjectsV2", {})
@@ -246,4 +274,16 @@ export class ListObjectsV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectsV2Command)
   .de(de_ListObjectsV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectsV2Request;
+      output: ListObjectsV2Output;
+    };
+    sdk: {
+      input: ListObjectsV2CommandInput;
+      output: ListObjectsV2CommandOutput;
+    };
+  };
+}

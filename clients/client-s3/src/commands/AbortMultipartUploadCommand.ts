@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,13 +36,29 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *          to abort a given multipart upload multiple times in order to completely free all storage
  *          consumed by all parts. </p>
  *          <p>To verify that all parts have been removed and prevent getting charged for the part
- *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure that
- *          the parts list is empty.</p>
+ *          storage, you should call the <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_ListParts.html">ListParts</a> API operation and ensure
+ *          that the parts list is empty.</p>
  *          <note>
- *             <p>
- *                <b>Directory buckets</b> -  For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com/<i>key-name</i>
- *                </code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> - If multipart
+ *                   uploads in a directory bucket are in progress, you can't delete the bucket until
+ *                   all the in-progress multipart uploads are aborted or completed. To delete these
+ *                   in-progress multipart uploads, use the <code>ListMultipartUploads</code> operation
+ *                   to list the in-progress multipart uploads in the bucket and use the
+ *                      <code>AbortMultipartUpload</code> operation to abort all the in-progress
+ *                   multipart uploads. </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> -
+ *                   For directory buckets, you must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>amzn-s3-demo-bucket</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com/<i>key-name</i>
+ *                      </code>. Path-style requests are not supported. For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
+ *                </li>
+ *             </ul>
  *          </note>
  *          <dl>
  *             <dt>Permissions</dt>
@@ -48,9 +66,10 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - For information about permissions required to use the multipart upload, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload
- *                         and Permissions</a> in the <i>Amazon S3
- *                            User Guide</i>.</p>
+ *                         <b>General purpose bucket permissions</b> - For
+ *                         information about permissions required to use the multipart upload, see
+ *                            <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/mpuAndPermissions.html">Multipart Upload and
+ *                            Permissions</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                   <li>
  *                      <p>
@@ -67,7 +86,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *             <dd>
  *                <p>
  *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>
- *                      <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>.</p>
+ *                      <i>Bucket-name</i>.s3express-<i>zone-id</i>.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>AbortMultipartUpload</code>:</p>
@@ -110,6 +129,7 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  *   UploadId: "STRING_VALUE", // required
  *   RequestPayer: "requester",
  *   ExpectedBucketOwner: "STRING_VALUE",
+ *   IfMatchInitiatedTime: new Date("TIMESTAMP"),
  * };
  * const command = new AbortMultipartUploadCommand(input);
  * const response = await client.send(command);
@@ -131,20 +151,23 @@ export interface AbortMultipartUploadCommandOutput extends AbortMultipartUploadO
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To abort a multipart upload
  * ```javascript
  * // The following example aborts a multipart upload.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "bigobject",
- *   "UploadId": "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
+ *   Bucket: "examplebucket",
+ *   Key: "bigobject",
+ *   UploadId: "xadcOB_7YPBOJuoFiQ9cz4P3Pe6FIZwO4f7wN93uHsNBEw97pl5eNwzExg0LAT2dUN91cOmrEQHDsP3WA60CEg--"
  * };
  * const command = new AbortMultipartUploadCommand(input);
- * await client.send(command);
- * // example id: to-abort-a-multipart-upload-1481853354987
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AbortMultipartUploadCommand extends $Command
   .classBuilder<
@@ -163,6 +186,7 @@ export class AbortMultipartUploadCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "AbortMultipartUpload", {})
@@ -170,4 +194,16 @@ export class AbortMultipartUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AbortMultipartUploadCommand)
   .de(de_AbortMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AbortMultipartUploadRequest;
+      output: AbortMultipartUploadOutput;
+    };
+    sdk: {
+      input: AbortMultipartUploadCommandInput;
+      output: AbortMultipartUploadCommandOutput;
+    };
+  };
+}

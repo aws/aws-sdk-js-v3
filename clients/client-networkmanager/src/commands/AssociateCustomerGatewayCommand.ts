@@ -12,7 +12,8 @@ import { de_AssociateCustomerGatewayCommand, se_AssociateCustomerGatewayCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface AssociateCustomerGatewayCommandOutput extends AssociateCustomer
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class AssociateCustomerGatewayCommand extends $Command
@@ -103,9 +105,7 @@ export class AssociateCustomerGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class AssociateCustomerGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateCustomerGatewayCommand)
   .de(de_AssociateCustomerGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateCustomerGatewayRequest;
+      output: AssociateCustomerGatewayResponse;
+    };
+    sdk: {
+      input: AssociateCustomerGatewayCommandInput;
+      output: AssociateCustomerGatewayCommandOutput;
+    };
+  };
+}

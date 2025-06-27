@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_3";
+import { DescribeGroupRequest, DescribeGroupResponse } from "../models/models_4";
 import { de_DescribeGroupCommand, se_DescribeGroupCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface DescribeGroupCommandOutput extends DescribeGroupResponse, __Met
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeGroupCommand extends $Command
@@ -97,9 +99,7 @@ export class DescribeGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class DescribeGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGroupCommand)
   .de(de_DescribeGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGroupRequest;
+      output: DescribeGroupResponse;
+    };
+    sdk: {
+      input: DescribeGroupCommandInput;
+      output: DescribeGroupCommandOutput;
+    };
+  };
+}

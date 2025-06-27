@@ -12,7 +12,8 @@ import { de_CreateLoggingConfigurationCommand, se_CreateLoggingConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateLoggingConfigurationCommandInput extends CreateLoggingCon
 export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>The <code>CreateLoggingConfiguration</code> operation creates a logging configuration
- *             for the workspace. Use this operation to set the CloudWatch log group to which
- *             the logs will be published to.</p>
+ * <p>The <code>CreateLoggingConfiguration</code> operation creates rules and alerting logging configuration for the workspace. Use this operation to set the CloudWatch log group to which the logs will be published to.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,11 +67,11 @@ export interface CreateLoggingConfigurationCommandOutput extends CreateLoggingCo
  *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +83,7 @@ export class CreateLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +95,16 @@ export class CreateLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoggingConfigurationCommand)
   .de(de_CreateLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoggingConfigurationRequest;
+      output: CreateLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: CreateLoggingConfigurationCommandInput;
+      output: CreateLoggingConfigurationCommandOutput;
+    };
+  };
+}

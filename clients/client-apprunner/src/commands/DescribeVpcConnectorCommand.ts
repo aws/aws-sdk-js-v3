@@ -12,7 +12,8 @@ import { de_DescribeVpcConnectorCommand, se_DescribeVpcConnectorCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface DescribeVpcConnectorCommandOutput extends DescribeVpcConnectorR
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpcConnectorCommand extends $Command
@@ -86,9 +88,7 @@ export class DescribeVpcConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class DescribeVpcConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcConnectorCommand)
   .de(de_DescribeVpcConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcConnectorRequest;
+      output: DescribeVpcConnectorResponse;
+    };
+    sdk: {
+      input: DescribeVpcConnectorCommandInput;
+      output: DescribeVpcConnectorCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteImageRecipeCommand, se_DeleteImageRecipeCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface DeleteImageRecipeCommandOutput extends DeleteImageRecipeRespons
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteImageRecipeCommand extends $Command
@@ -90,9 +92,7 @@ export class DeleteImageRecipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DeleteImageRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImageRecipeCommand)
   .de(de_DeleteImageRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImageRecipeRequest;
+      output: DeleteImageRecipeResponse;
+    };
+    sdk: {
+      input: DeleteImageRecipeCommandInput;
+      output: DeleteImageRecipeCommandOutput;
+    };
+  };
+}

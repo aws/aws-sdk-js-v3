@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,17 @@ export interface CreateApplicationCommandInput extends CreateApplicationRequest 
 export interface CreateApplicationCommandOutput extends CreateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an application in IAM Identity Center for the given application provider.</p>
+ * <p>Creates an OAuth 2.0 customer managed application in IAM Identity Center for the given
+ *             application provider.</p>
+ *          <note>
+ *             <p>This API does not support creating SAML 2.0 customer managed applications or Amazon Web Services
+ *                 managed applications. To learn how to create an Amazon Web Services managed application, see the
+ *                 application user guide. You can create a SAML 2.0 customer managed application in
+ *                 the Amazon Web Services Management Console only. See <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/customermanagedapps-saml2-setup.html">Setting
+ *                     up customer managed SAML 2.0 applications</a>. For more information on these
+ *                 application types, see <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/awsapps.html">Amazon Web Services managed
+ *                     applications</a>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -99,6 +110,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class CreateApplicationCommand extends $Command
@@ -109,9 +121,7 @@ export class CreateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +133,16 @@ export class CreateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationRequest;
+      output: CreateApplicationResponse;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

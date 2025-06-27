@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,14 @@ export interface DeclineInvitationsCommandInput extends DeclineInvitationsReques
 export interface DeclineInvitationsCommandOutput extends DeclineInvitationsResponse, __MetadataBearer {}
 
 /**
- * <p>Declines invitations to become a member account.</p>
+ * <note>
+ *             <p>We recommend using Organizations instead of Security Hub invitations to manage your member accounts.
+ *            For information, see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts-orgs.html">Managing Security Hub administrator and member accounts with Organizations</a>
+ *            in the <i>Security Hub User Guide</i>.</p>
+ *          </note>
+ *          <p>Declines invitations to become a Security Hub member account.</p>
  *          <p>A prospective member account uses this operation to decline an invitation to become a member.</p>
- *          <p>This operation is only called by member accounts that aren't part of an organization.
+ *          <p>Only member accounts that aren't part of an Amazon Web Services organization should use this operation.
  *          Organization accounts don't receive invitations.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -77,26 +83,26 @@ export interface DeclineInvitationsCommandOutput extends DeclineInvitationsRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To decline invitation to become a member account
  * ```javascript
  * // The following example declines an invitation from the Security Hub administrator account to become a member account. The invited account makes the request.
  * const input = {
- *   "AccountIds": [
+ *   AccountIds: [
  *     "123456789012",
  *     "111122223333"
  *   ]
  * };
  * const command = new DeclineInvitationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-decline-invitation-to-become-a-member-account-1675448487605
  * ```
  *
+ * @public
  */
 export class DeclineInvitationsCommand extends $Command
   .classBuilder<
@@ -106,9 +112,7 @@ export class DeclineInvitationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +124,16 @@ export class DeclineInvitationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeclineInvitationsCommand)
   .de(de_DeclineInvitationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeclineInvitationsRequest;
+      output: DeclineInvitationsResponse;
+    };
+    sdk: {
+      input: DeclineInvitationsCommandInput;
+      output: DeclineInvitationsCommandOutput;
+    };
+  };
+}

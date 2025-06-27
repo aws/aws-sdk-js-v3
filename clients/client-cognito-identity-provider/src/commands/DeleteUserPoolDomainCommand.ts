@@ -16,7 +16,8 @@ import { de_DeleteUserPoolDomainCommand, se_DeleteUserPoolDomainCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,9 @@ export interface DeleteUserPoolDomainCommandInput extends DeleteUserPoolDomainRe
 export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a domain for a user pool.</p>
+ * <p>Given a user pool ID and domain identifier, deletes a user pool domain. After you
+ *             delete a user pool domain, your managed login pages and authorization server are no
+ *             longer available.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +57,10 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * @see {@link DeleteUserPoolDomainCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
  *
+ * @throws {@link ConcurrentModificationException} (client fault)
+ *  <p>This exception is thrown if two or more modifications are happening
+ *             concurrently.</p>
+ *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
  *
@@ -71,6 +78,7 @@ export interface DeleteUserPoolDomainCommandOutput extends DeleteUserPoolDomainR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserPoolDomainCommand extends $Command
@@ -81,9 +89,7 @@ export class DeleteUserPoolDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +101,16 @@ export class DeleteUserPoolDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserPoolDomainCommand)
   .de(de_DeleteUserPoolDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserPoolDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUserPoolDomainCommandInput;
+      output: DeleteUserPoolDomainCommandOutput;
+    };
+  };
+}

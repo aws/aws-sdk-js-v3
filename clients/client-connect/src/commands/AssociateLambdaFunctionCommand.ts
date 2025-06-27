@@ -12,7 +12,8 @@ import { de_AssociateLambdaFunctionCommand, se_AssociateLambdaFunctionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,6 +40,7 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * const input = { // AssociateLambdaFunctionRequest
  *   InstanceId: "STRING_VALUE", // required
  *   FunctionArn: "STRING_VALUE", // required
+ *   ClientToken: "STRING_VALUE",
  * };
  * const command = new AssociateLambdaFunctionCommand(input);
  * const response = await client.send(command);
@@ -76,6 +78,7 @@ export interface AssociateLambdaFunctionCommandOutput extends __MetadataBearer {
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateLambdaFunctionCommand extends $Command
@@ -86,9 +89,7 @@ export class AssociateLambdaFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +101,16 @@ export class AssociateLambdaFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateLambdaFunctionCommand)
   .de(de_AssociateLambdaFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateLambdaFunctionRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateLambdaFunctionCommandInput;
+      output: AssociateLambdaFunctionCommandOutput;
+    };
+  };
+}

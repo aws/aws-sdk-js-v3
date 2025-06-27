@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,19 +69,22 @@ export interface CloneReceiptRuleSetCommandOutput extends CloneReceiptRuleSetRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example CloneReceiptRuleSet
  * ```javascript
  * // The following example creates a receipt rule set by cloning an existing one:
  * const input = {
- *   "OriginalRuleSetName": "RuleSetToClone",
- *   "RuleSetName": "RuleSetToCreate"
+ *   OriginalRuleSetName: "RuleSetToClone",
+ *   RuleSetName: "RuleSetToCreate"
  * };
  * const command = new CloneReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: clonereceiptruleset-1469055039770
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CloneReceiptRuleSetCommand extends $Command
   .classBuilder<
@@ -90,9 +94,7 @@ export class CloneReceiptRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +106,16 @@ export class CloneReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CloneReceiptRuleSetCommand)
   .de(de_CloneReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CloneReceiptRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CloneReceiptRuleSetCommandInput;
+      output: CloneReceiptRuleSetCommandOutput;
+    };
+  };
+}

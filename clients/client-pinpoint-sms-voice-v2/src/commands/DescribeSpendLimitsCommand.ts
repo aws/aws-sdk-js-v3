@@ -16,7 +16,8 @@ import { de_DescribeSpendLimitsCommand, se_DescribeSpendLimitsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,13 +32,7 @@ export interface DescribeSpendLimitsCommandInput extends DescribeSpendLimitsRequ
 export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
- *             text messages.</p>
- *          <p>When you establish an Amazon Web Services account, the account has initial monthly
- *             spend limit in a given Region. For more information on increasing your monthly spend
- *             limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
- *                 Requesting increases to your monthly SMS spending quota for Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ * <p>Describes the current monthly spend limits for sending voice and text messages.</p> <p>When you establish an Amazon Web Services account, the account has initial monthly spend limit in a given Region. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html"> Requesting increases to your monthly SMS, MMS, or Voice spending quota </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,22 +66,20 @@ export interface DescribeSpendLimitsCommandOutput extends DescribeSpendLimitsRes
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -98,9 +91,7 @@ export class DescribeSpendLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +103,16 @@ export class DescribeSpendLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpendLimitsCommand)
   .de(de_DescribeSpendLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpendLimitsRequest;
+      output: DescribeSpendLimitsResult;
+    };
+    sdk: {
+      input: DescribeSpendLimitsCommandInput;
+      output: DescribeSpendLimitsCommandOutput;
+    };
+  };
+}

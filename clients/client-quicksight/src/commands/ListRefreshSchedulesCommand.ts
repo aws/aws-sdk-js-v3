@@ -12,7 +12,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface ListRefreshSchedulesCommandOutput extends ListRefreshSchedulesR
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListRefreshSchedulesCommand extends $Command
@@ -104,9 +106,7 @@ export class ListRefreshSchedulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class ListRefreshSchedulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRefreshSchedulesCommand)
   .de(de_ListRefreshSchedulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRefreshSchedulesRequest;
+      output: ListRefreshSchedulesResponse;
+    };
+    sdk: {
+      input: ListRefreshSchedulesCommandInput;
+      output: ListRefreshSchedulesCommandOutput;
+    };
+  };
+}

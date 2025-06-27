@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,17 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *           Value: "STRING_VALUE", // required
  *         },
  *       ],
+ *       Attachments: [ // AttachmentList
+ *         { // Attachment
+ *           RawContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")           // required
+ *           ContentDisposition: "ATTACHMENT" || "INLINE",
+ *           FileName: "STRING_VALUE", // required
+ *           ContentDescription: "STRING_VALUE",
+ *           ContentId: "STRING_VALUE",
+ *           ContentTransferEncoding: "BASE64" || "QUOTED_PRINTABLE" || "SEVEN_BIT",
+ *           ContentType: "STRING_VALUE",
+ *         },
+ *       ],
  *     },
  *     Raw: { // RawMessage
  *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
@@ -105,11 +117,27 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *     Template: { // Template
  *       TemplateName: "STRING_VALUE",
  *       TemplateArn: "STRING_VALUE",
+ *       TemplateContent: { // EmailTemplateContent
+ *         Subject: "STRING_VALUE",
+ *         Text: "STRING_VALUE",
+ *         Html: "STRING_VALUE",
+ *       },
  *       TemplateData: "STRING_VALUE",
  *       Headers: [
  *         {
  *           Name: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       Attachments: [
+ *         {
+ *           RawContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")           // required
+ *           ContentDisposition: "ATTACHMENT" || "INLINE",
+ *           FileName: "STRING_VALUE", // required
+ *           ContentDescription: "STRING_VALUE",
+ *           ContentId: "STRING_VALUE",
+ *           ContentTransferEncoding: "BASE64" || "QUOTED_PRINTABLE" || "SEVEN_BIT",
+ *           ContentType: "STRING_VALUE",
  *         },
  *       ],
  *     },
@@ -121,6 +149,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *     },
  *   ],
  *   ConfigurationSetName: "STRING_VALUE",
+ *   EndpointId: "STRING_VALUE",
  *   ListManagementOptions: { // ListManagementOptions
  *     ContactListName: "STRING_VALUE", // required
  *     TopicName: "STRING_VALUE",
@@ -169,6 +198,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class SendEmailCommand extends $Command
@@ -181,6 +211,7 @@ export class SendEmailCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    EndpointId: { type: "contextParams", name: "EndpointId" },
   })
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
@@ -193,4 +224,16 @@ export class SendEmailCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendEmailCommand)
   .de(de_SendEmailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendEmailRequest;
+      output: SendEmailResponse;
+    };
+    sdk: {
+      input: SendEmailCommandInput;
+      output: SendEmailCommandOutput;
+    };
+  };
+}

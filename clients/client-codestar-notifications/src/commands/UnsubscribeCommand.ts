@@ -16,7 +16,8 @@ import { de_UnsubscribeCommand, se_UnsubscribeCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface UnsubscribeCommandOutput extends UnsubscribeResult, __MetadataB
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class UnsubscribeCommand extends $Command
@@ -74,9 +76,7 @@ export class UnsubscribeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class UnsubscribeCommand extends $Command
   .f(UnsubscribeRequestFilterSensitiveLog, void 0)
   .ser(se_UnsubscribeCommand)
   .de(de_UnsubscribeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnsubscribeRequest;
+      output: UnsubscribeResult;
+    };
+    sdk: {
+      input: UnsubscribeCommandInput;
+      output: UnsubscribeCommandOutput;
+    };
+  };
+}

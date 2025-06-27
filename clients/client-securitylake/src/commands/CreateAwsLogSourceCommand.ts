@@ -12,7 +12,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,11 @@ export interface CreateAwsLogSourceCommandInput extends CreateAwsLogSourceReques
 export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Adds a natively supported Amazon Web Service as an Amazon Security Lake source. Enables
+ * <p>Adds a natively supported Amazon Web Services service as an Amazon Security Lake source. Enables
  *          source types for member accounts in required Amazon Web Services Regions, based on the
  *          parameters you specify. You can choose any source type in any Region for either accounts
- *          that are part of a trusted organization or standalone accounts. Once you add an Amazon Web Service as a source, Security Lake starts collecting logs and events from it.</p>
- *          <p>You can use this API only to enable natively supported Amazon Web Services as a
+ *          that are part of a trusted organization or standalone accounts. Once you add an Amazon Web Services service as a source, Security Lake starts collecting logs and events from it.</p>
+ *          <p>You can use this API only to enable natively supported Amazon Web Services services as a
  *          source. Use <code>CreateCustomLogSource</code> to enable data collection from a custom
  *          source.</p>
  * @example
@@ -98,6 +99,7 @@ export interface CreateAwsLogSourceCommandOutput extends CreateAwsLogSourceRespo
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class CreateAwsLogSourceCommand extends $Command
@@ -108,9 +110,7 @@ export class CreateAwsLogSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class CreateAwsLogSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAwsLogSourceCommand)
   .de(de_CreateAwsLogSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAwsLogSourceRequest;
+      output: CreateAwsLogSourceResponse;
+    };
+    sdk: {
+      input: CreateAwsLogSourceCommandInput;
+      output: CreateAwsLogSourceCommandOutput;
+    };
+  };
+}

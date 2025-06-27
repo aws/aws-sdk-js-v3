@@ -17,7 +17,8 @@ import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -143,6 +144,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class ListUsersCommand extends $Command
@@ -153,9 +155,7 @@ export class ListUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +167,16 @@ export class ListUsersCommand extends $Command
   .f(ListUsersRequestFilterSensitiveLog, ListUsersResponseFilterSensitiveLog)
   .ser(se_ListUsersCommand)
   .de(de_ListUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersRequest;
+      output: ListUsersResponse;
+    };
+    sdk: {
+      input: ListUsersCommandInput;
+      output: ListUsersCommandOutput;
+    };
+  };
+}

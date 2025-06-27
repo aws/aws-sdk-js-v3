@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListFeatureGroupsRequest, ListFeatureGroupsResponse } from "../models/models_3";
+import { ListFeatureGroupsRequest, ListFeatureGroupsResponse } from "../models/models_4";
 import { de_ListFeatureGroupsCommand, se_ListFeatureGroupsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface ListFeatureGroupsCommandOutput extends ListFeatureGroupsRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListFeatureGroupsCommand extends $Command
@@ -84,9 +86,7 @@ export class ListFeatureGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class ListFeatureGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFeatureGroupsCommand)
   .de(de_ListFeatureGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFeatureGroupsRequest;
+      output: ListFeatureGroupsResponse;
+    };
+    sdk: {
+      input: ListFeatureGroupsCommandInput;
+      output: ListFeatureGroupsCommandOutput;
+    };
+  };
+}

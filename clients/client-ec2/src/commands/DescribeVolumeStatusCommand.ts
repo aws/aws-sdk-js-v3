@@ -12,7 +12,8 @@ import { de_DescribeVolumeStatusCommand, se_DescribeVolumeStatusCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,12 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * // const { EC2Client, DescribeVolumeStatusCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeVolumeStatusRequest
+ *   MaxResults: Number("int"),
+ *   NextToken: "STRING_VALUE",
+ *   VolumeIds: [ // VolumeIdStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -80,12 +87,6 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *       ],
  *     },
  *   ],
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   VolumeIds: [ // VolumeIdStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeVolumeStatusCommand(input);
  * const response = await client.send(command);
@@ -129,6 +130,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * //           InstanceId: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -144,53 +146,52 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the status of a single volume
  * ```javascript
  * // This example describes the status for the volume ``vol-1234567890abcdef0``.
  * const input = {
- *   "VolumeIds": [
+ *   VolumeIds: [
  *     "vol-1234567890abcdef0"
  *   ]
  * };
  * const command = new DescribeVolumeStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VolumeStatuses": [
+ *   VolumeStatuses: [
  *     {
- *       "Actions": [],
- *       "AvailabilityZone": "us-east-1a",
- *       "Events": [],
- *       "VolumeId": "vol-1234567890abcdef0",
- *       "VolumeStatus": {
- *         "Details": [
+ *       Actions:       [],
+ *       AvailabilityZone: "us-east-1a",
+ *       Events:       [],
+ *       VolumeId: "vol-1234567890abcdef0",
+ *       VolumeStatus: {
+ *         Details: [
  *           {
- *             "Name": "io-enabled",
- *             "Status": "passed"
+ *             Name: "io-enabled",
+ *             Status: "passed"
  *           },
  *           {
- *             "Name": "io-performance",
- *             "Status": "not-applicable"
+ *             Name: "io-performance",
+ *             Status: "not-applicable"
  *           }
  *         ],
- *         "Status": "ok"
+ *         Status: "ok"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-the-status-of-a-single-volume-1472507016193
  * ```
  *
  * @example To describe the status of impaired volumes
  * ```javascript
  * // This example describes the status for all volumes that are impaired. In this example output, there are no impaired volumes.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "volume-status.status",
- *       "Values": [
+ *       Name: "volume-status.status",
+ *       Values: [
  *         "impaired"
  *       ]
  *     }
@@ -198,14 +199,14 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  * };
  * const command = new DescribeVolumeStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VolumeStatuses": []
+ *   VolumeStatuses:   []
  * }
  * *\/
- * // example id: to-describe-the-status-of-impaired-volumes-1472507239821
  * ```
  *
+ * @public
  */
 export class DescribeVolumeStatusCommand extends $Command
   .classBuilder<
@@ -215,9 +216,7 @@ export class DescribeVolumeStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -229,4 +228,16 @@ export class DescribeVolumeStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumeStatusCommand)
   .de(de_DescribeVolumeStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumeStatusRequest;
+      output: DescribeVolumeStatusResult;
+    };
+    sdk: {
+      input: DescribeVolumeStatusCommandInput;
+      output: DescribeVolumeStatusCommandOutput;
+    };
+  };
+}

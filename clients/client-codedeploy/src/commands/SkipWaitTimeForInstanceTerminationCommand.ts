@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command
@@ -86,9 +88,7 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class SkipWaitTimeForInstanceTerminationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SkipWaitTimeForInstanceTerminationCommand)
   .de(de_SkipWaitTimeForInstanceTerminationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SkipWaitTimeForInstanceTerminationInput;
+      output: {};
+    };
+    sdk: {
+      input: SkipWaitTimeForInstanceTerminationCommandInput;
+      output: SkipWaitTimeForInstanceTerminationCommandOutput;
+    };
+  };
+}

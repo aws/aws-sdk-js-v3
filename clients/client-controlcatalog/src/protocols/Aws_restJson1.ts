@@ -22,7 +22,13 @@ import {
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
 
+import { GetControlCommandInput, GetControlCommandOutput } from "../commands/GetControlCommand";
 import { ListCommonControlsCommandInput, ListCommonControlsCommandOutput } from "../commands/ListCommonControlsCommand";
+import {
+  ListControlMappingsCommandInput,
+  ListControlMappingsCommandOutput,
+} from "../commands/ListControlMappingsCommand";
+import { ListControlsCommandInput, ListControlsCommandOutput } from "../commands/ListControlsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "../commands/ListDomainsCommand";
 import { ListObjectivesCommandInput, ListObjectivesCommandOutput } from "../commands/ListObjectivesCommand";
 import { ControlCatalogServiceException as __BaseException } from "../models/ControlCatalogServiceException";
@@ -30,15 +36,43 @@ import {
   AccessDeniedException,
   CommonControlFilter,
   CommonControlSummary,
+  ControlFilter,
+  ControlMappingFilter,
+  ControlSummary,
   DomainResourceFilter,
   DomainSummary,
+  ImplementationFilter,
   InternalServerException,
+  MappingType,
   ObjectiveFilter,
   ObjectiveResourceFilter,
   ObjectiveSummary,
+  ResourceNotFoundException,
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1GetControlCommand
+ */
+export const se_GetControlCommand = async (
+  input: GetControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-control");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ControlArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1ListCommonControlsCommand
@@ -60,6 +94,58 @@ export const se_ListCommonControlsCommand = async (
   body = JSON.stringify(
     take(input, {
       CommonControlFilter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListControlMappingsCommand
+ */
+export const se_ListControlMappingsCommand = async (
+  input: ListControlMappingsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-control-mappings");
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListControlsCommand
+ */
+export const se_ListControlsCommand = async (
+  input: ListControlsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-controls");
+  const query: any = map({
+    [_nT]: [, input[_NT]!],
+    [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Filter: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).q(query).b(body);
@@ -112,6 +198,37 @@ export const se_ListObjectivesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetControlCommand
+ */
+export const de_GetControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetControlCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Aliases: _json,
+    Arn: __expectString,
+    Behavior: __expectString,
+    CreateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    GovernedResources: _json,
+    Implementation: _json,
+    Name: __expectString,
+    Parameters: _json,
+    RegionConfiguration: _json,
+    Severity: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListCommonControlsCommand
  */
 export const de_ListCommonControlsCommand = async (
@@ -127,6 +244,50 @@ export const de_ListCommonControlsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     CommonControls: (_) => de_CommonControlSummaryList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListControlMappingsCommand
+ */
+export const de_ListControlMappingsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListControlMappingsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ControlMappings: _json,
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListControlsCommand
+ */
+export const de_ListControlsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListControlsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Controls: (_) => de_Controls(_, context),
     NextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -193,6 +354,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.controlcatalog#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.controlcatalog#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.controlcatalog#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
@@ -251,6 +415,26 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_restJson1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
  * deserializeAws_restJson1ThrottlingExceptionRes
  */
 const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
@@ -284,11 +468,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_CommonControlArnFilterList omitted.
+
 // se_CommonControlFilter omitted.
+
+// se_ControlArnFilterList omitted.
+
+// se_ControlFilter omitted.
+
+// se_ControlMappingFilter omitted.
 
 // se_DomainResourceFilter omitted.
 
 // se_DomainResourceFilterList omitted.
+
+// se_ImplementationFilter omitted.
+
+// se_ImplementationIdentifierFilterList omitted.
+
+// se_ImplementationTypeFilterList omitted.
+
+// se_MappingTypeFilterList omitted.
 
 // se_ObjectiveFilter omitted.
 
@@ -299,6 +499,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_AssociatedDomainSummary omitted.
 
 // de_AssociatedObjectiveSummary omitted.
+
+// de_CommonControlMappingDetails omitted.
 
 /**
  * deserializeAws_restJson1CommonControlSummary
@@ -327,6 +529,47 @@ const de_CommonControlSummaryList = (output: any, context: __SerdeContext): Comm
   return retVal;
 };
 
+// de_ControlAliases omitted.
+
+// de_ControlMapping omitted.
+
+// de_ControlMappings omitted.
+
+// de_ControlParameter omitted.
+
+// de_ControlParameters omitted.
+
+/**
+ * deserializeAws_restJson1Controls
+ */
+const de_Controls = (output: any, context: __SerdeContext): ControlSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ControlSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ControlSummary
+ */
+const de_ControlSummary = (output: any, context: __SerdeContext): ControlSummary => {
+  return take(output, {
+    Aliases: _json,
+    Arn: __expectString,
+    Behavior: __expectString,
+    CreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Description: __expectString,
+    GovernedResources: _json,
+    Implementation: _json,
+    Name: __expectString,
+    Severity: __expectString,
+  }) as any;
+};
+
+// de_DeployableRegions omitted.
+
 /**
  * deserializeAws_restJson1DomainSummary
  */
@@ -351,6 +594,16 @@ const de_DomainSummaryList = (output: any, context: __SerdeContext): DomainSumma
     });
   return retVal;
 };
+
+// de_FrameworkMappingDetails omitted.
+
+// de_GovernedResources omitted.
+
+// de_ImplementationDetails omitted.
+
+// de_ImplementationSummary omitted.
+
+// de_Mapping omitted.
 
 /**
  * deserializeAws_restJson1ObjectiveSummary
@@ -378,6 +631,8 @@ const de_ObjectiveSummaryList = (output: any, context: __SerdeContext): Objectiv
   return retVal;
 };
 
+// de_RegionConfiguration omitted.
+
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,
   requestId:
@@ -389,13 +644,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _NT = "NextToken";

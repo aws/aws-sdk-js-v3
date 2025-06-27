@@ -29,7 +29,7 @@ export const waitForCertificateIssued = async (
   params: WaiterConfiguration<ACMPCAClient>,
   input: GetCertificateCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 1, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 1, maxDelay: 60 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -41,7 +41,7 @@ export const waitUntilCertificateIssued = async (
   params: WaiterConfiguration<ACMPCAClient>,
   input: GetCertificateCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 1, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 1, maxDelay: 60 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

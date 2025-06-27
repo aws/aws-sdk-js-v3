@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableIpamOrganizationAdminAccountRequest,
   EnableIpamOrganizationAdminAccountResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_EnableIpamOrganizationAdminAccountCommand,
   se_EnableIpamOrganizationAdminAccountCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface EnableIpamOrganizationAdminAccountCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableIpamOrganizationAdminAccountCommand extends $Command
@@ -74,9 +76,7 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class EnableIpamOrganizationAdminAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableIpamOrganizationAdminAccountCommand)
   .de(de_EnableIpamOrganizationAdminAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableIpamOrganizationAdminAccountRequest;
+      output: EnableIpamOrganizationAdminAccountResult;
+    };
+    sdk: {
+      input: EnableIpamOrganizationAdminAccountCommandInput;
+      output: EnableIpamOrganizationAdminAccountCommandOutput;
+    };
+  };
+}

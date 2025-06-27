@@ -12,7 +12,8 @@ import { de_GetDownloadUrlForLayerCommand, se_GetDownloadUrlForLayerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetDownloadUrlForLayerCommandOutput extends GetDownloadUrlForLa
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class GetDownloadUrlForLayerCommand extends $Command
@@ -97,9 +99,7 @@ export class GetDownloadUrlForLayerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetDownloadUrlForLayerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDownloadUrlForLayerCommand)
   .de(de_GetDownloadUrlForLayerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDownloadUrlForLayerRequest;
+      output: GetDownloadUrlForLayerResponse;
+    };
+    sdk: {
+      input: GetDownloadUrlForLayerCommandInput;
+      output: GetDownloadUrlForLayerCommandOutput;
+    };
+  };
+}

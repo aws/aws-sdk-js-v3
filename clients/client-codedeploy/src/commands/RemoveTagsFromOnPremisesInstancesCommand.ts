@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface RemoveTagsFromOnPremisesInstancesCommandOutput extends __Metada
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class RemoveTagsFromOnPremisesInstancesCommand extends $Command
@@ -95,9 +97,7 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class RemoveTagsFromOnPremisesInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromOnPremisesInstancesCommand)
   .de(de_RemoveTagsFromOnPremisesInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromOnPremisesInstancesInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromOnPremisesInstancesCommandInput;
+      output: RemoveTagsFromOnPremisesInstancesCommandOutput;
+    };
+  };
+}

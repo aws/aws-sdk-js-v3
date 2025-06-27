@@ -3,7 +3,35 @@ import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-cli
 
 import { ElastiCacheServiceException as __BaseException } from "./ElastiCacheServiceException";
 
-import { ReplicationGroup } from "./models_0";
+import { CacheSecurityGroup, ReplicationGroup } from "./models_0";
+
+/**
+ * @public
+ */
+export interface RevokeCacheSecurityGroupIngressResult {
+  /**
+   * <p>Represents the output of one of the following operations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AuthorizeCacheSecurityGroupIngress</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>CreateCacheSecurityGroup</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>RevokeCacheSecurityGroupIngress</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  CacheSecurityGroup?: CacheSecurityGroup | undefined;
+}
 
 /**
  * <p>The targeted replication group is not available. </p>
@@ -34,13 +62,13 @@ export interface CustomerNodeEndpoint {
    * <p>The address of the node endpoint</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The port of the node endpoint</p>
    * @public
    */
-  Port?: number;
+  Port?: number | undefined;
 }
 
 /**
@@ -54,8 +82,8 @@ export interface StartMigrationMessage {
   ReplicationGroupId: string | undefined;
 
   /**
-   * <p>List of endpoints from which data should be migrated. For Redis (cluster mode
-   *             disabled), list should have only one element.</p>
+   * <p>List of endpoints from which data should be migrated. For Valkey or Redis OSS (cluster mode
+   *             disabled), the list should have only one element.</p>
    * @public
    */
   CustomerNodeEndpointList: CustomerNodeEndpoint[] | undefined;
@@ -66,10 +94,10 @@ export interface StartMigrationMessage {
  */
 export interface StartMigrationResponse {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
    * @public
    */
-  ReplicationGroup?: ReplicationGroup;
+  ReplicationGroup?: ReplicationGroup | undefined;
 }
 
 /**
@@ -159,10 +187,10 @@ export class TestFailoverNotAvailableFault extends __BaseException {
  */
 export interface TestFailoverResult {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
    * @public
    */
-  ReplicationGroup?: ReplicationGroup;
+  ReplicationGroup?: ReplicationGroup | undefined;
 }
 
 /**
@@ -188,8 +216,8 @@ export interface TestMigrationMessage {
  */
 export interface TestMigrationResponse {
   /**
-   * <p>Contains all of the attributes of a specific Redis replication group.</p>
+   * <p>Contains all of the attributes of a specific Valkey or Redis OSS replication group.</p>
    * @public
    */
-  ReplicationGroup?: ReplicationGroup;
+  ReplicationGroup?: ReplicationGroup | undefined;
 }

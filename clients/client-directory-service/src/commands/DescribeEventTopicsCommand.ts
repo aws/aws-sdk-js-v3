@@ -12,7 +12,8 @@ import { de_DescribeEventTopicsCommand, se_DescribeEventTopicsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,32 @@ export interface DescribeEventTopicsCommandOutput extends DescribeEventTopicsRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To describe event topics
+ * ```javascript
+ * // The following example obtains information about which SNS topics receive status messages from the specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   TopicNames: [
+ *     "snstopicexample"
+ *   ]
+ * };
+ * const command = new DescribeEventTopicsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   EventTopics: [
+ *     {
+ *       DirectoryId: "d-92654abfed",
+ *       Status: "Registered",
+ *       TopicArn: "arn:aws:sns:us-east-2:123456789012:snstopicexample",
+ *       TopicName: "snstopicexample"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DescribeEventTopicsCommand extends $Command
@@ -90,9 +117,7 @@ export class DescribeEventTopicsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +129,16 @@ export class DescribeEventTopicsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEventTopicsCommand)
   .de(de_DescribeEventTopicsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEventTopicsRequest;
+      output: DescribeEventTopicsResult;
+    };
+    sdk: {
+      input: DescribeEventTopicsCommandInput;
+      output: DescribeEventTopicsCommandOutput;
+    };
+  };
+}

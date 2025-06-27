@@ -10,6 +10,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   map,
+  parseRfc3339DateTimeWithOffset as __parseRfc3339DateTimeWithOffset,
   take,
   withBaseException,
 } from "@smithy/smithy-client";
@@ -20,11 +21,19 @@ import {
 } from "@smithy/types";
 
 import {
+  AcceptPrimaryEmailUpdateCommandInput,
+  AcceptPrimaryEmailUpdateCommandOutput,
+} from "../commands/AcceptPrimaryEmailUpdateCommand";
+import {
   DeleteAlternateContactCommandInput,
   DeleteAlternateContactCommandOutput,
 } from "../commands/DeleteAlternateContactCommand";
 import { DisableRegionCommandInput, DisableRegionCommandOutput } from "../commands/DisableRegionCommand";
 import { EnableRegionCommandInput, EnableRegionCommandOutput } from "../commands/EnableRegionCommand";
+import {
+  GetAccountInformationCommandInput,
+  GetAccountInformationCommandOutput,
+} from "../commands/GetAccountInformationCommand";
 import {
   GetAlternateContactCommandInput,
   GetAlternateContactCommandOutput,
@@ -33,8 +42,10 @@ import {
   GetContactInformationCommandInput,
   GetContactInformationCommandOutput,
 } from "../commands/GetContactInformationCommand";
+import { GetPrimaryEmailCommandInput, GetPrimaryEmailCommandOutput } from "../commands/GetPrimaryEmailCommand";
 import { GetRegionOptStatusCommandInput, GetRegionOptStatusCommandOutput } from "../commands/GetRegionOptStatusCommand";
 import { ListRegionsCommandInput, ListRegionsCommandOutput } from "../commands/ListRegionsCommand";
+import { PutAccountNameCommandInput, PutAccountNameCommandOutput } from "../commands/PutAccountNameCommand";
 import {
   PutAlternateContactCommandInput,
   PutAlternateContactCommandOutput,
@@ -43,6 +54,10 @@ import {
   PutContactInformationCommandInput,
   PutContactInformationCommandOutput,
 } from "../commands/PutContactInformationCommand";
+import {
+  StartPrimaryEmailUpdateCommandInput,
+  StartPrimaryEmailUpdateCommandOutput,
+} from "../commands/StartPrimaryEmailUpdateCommand";
 import { AccountServiceException as __BaseException } from "../models/AccountServiceException";
 import {
   AccessDeniedException,
@@ -54,6 +69,30 @@ import {
   TooManyRequestsException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1AcceptPrimaryEmailUpdateCommand
+ */
+export const se_AcceptPrimaryEmailUpdateCommand = async (
+  input: AcceptPrimaryEmailUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/acceptPrimaryEmailUpdate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      Otp: [],
+      PrimaryEmail: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1DeleteAlternateContactCommand
@@ -125,6 +164,28 @@ export const se_EnableRegionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetAccountInformationCommand
+ */
+export const se_GetAccountInformationCommand = async (
+  input: GetAccountInformationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/getAccountInformation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetAlternateContactCommand
  */
 export const se_GetAlternateContactCommand = async (
@@ -159,6 +220,28 @@ export const se_GetContactInformationCommand = async (
     "content-type": "application/json",
   };
   b.bp("/getContactInformation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetPrimaryEmailCommand
+ */
+export const se_GetPrimaryEmailCommand = async (
+  input: GetPrimaryEmailCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/getPrimaryEmail");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -218,6 +301,29 @@ export const se_ListRegionsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1PutAccountNameCommand
+ */
+export const se_PutAccountNameCommand = async (
+  input: PutAccountNameCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/putAccountName");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      AccountName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1PutAlternateContactCommand
  */
 export const se_PutAlternateContactCommand = async (
@@ -265,6 +371,50 @@ export const se_PutContactInformationCommand = async (
   );
   b.m("POST").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartPrimaryEmailUpdateCommand
+ */
+export const se_StartPrimaryEmailUpdateCommand = async (
+  input: StartPrimaryEmailUpdateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/startPrimaryEmailUpdate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AccountId: [],
+      PrimaryEmail: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * deserializeAws_restJson1AcceptPrimaryEmailUpdateCommand
+ */
+export const de_AcceptPrimaryEmailUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AcceptPrimaryEmailUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -319,6 +469,29 @@ export const de_EnableRegionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetAccountInformationCommand
+ */
+export const de_GetAccountInformationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetAccountInformationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    AccountCreatedDate: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    AccountId: __expectString,
+    AccountName: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetAlternateContactCommand
  */
 export const de_GetAlternateContactCommand = async (
@@ -355,6 +528,27 @@ export const de_GetContactInformationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ContactInformation: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetPrimaryEmailCommand
+ */
+export const de_GetPrimaryEmailCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPrimaryEmailCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    PrimaryEmail: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -405,6 +599,23 @@ export const de_ListRegionsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1PutAccountNameCommand
+ */
+export const de_PutAccountNameCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutAccountNameCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1PutAlternateContactCommand
  */
 export const de_PutAlternateContactCommand = async (
@@ -439,6 +650,27 @@ export const de_PutContactInformationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartPrimaryEmailUpdateCommand
+ */
+export const de_StartPrimaryEmailUpdateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartPrimaryEmailUpdateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -451,6 +683,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.account#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.account#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.account#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -463,9 +698,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.account#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.account#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -484,7 +716,9 @@ const de_AccessDeniedExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<AccessDeniedException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -501,7 +735,9 @@ const de_AccessDeniedExceptionRes = async (
  * deserializeAws_restJson1ConflictExceptionRes
  */
 const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -521,7 +757,9 @@ const de_InternalServerExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<InternalServerException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -541,7 +779,9 @@ const de_ResourceNotFoundExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<ResourceNotFoundException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -561,7 +801,9 @@ const de_TooManyRequestsExceptionRes = async (
   parsedOutput: any,
   context: __SerdeContext
 ): Promise<TooManyRequestsException> => {
-  const contents: any = map({});
+  const contents: any = map({
+    [_eT]: [, parsedOutput.headers[_xae]],
+  });
   const data: any = parsedOutput.body;
   const doc = take(data, {
     message: __expectString,
@@ -621,9 +863,5 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
+const _eT = "errorType";
+const _xae = "x-amzn-errortype";

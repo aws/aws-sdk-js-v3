@@ -104,6 +104,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateClusterCommand,
+  UpdateClusterCommandInput,
+  UpdateClusterCommandOutput,
+} from "./commands/UpdateClusterCommand";
+import {
   UpdateControlPanelCommand,
   UpdateControlPanelCommandInput,
   UpdateControlPanelCommandOutput,
@@ -145,6 +150,7 @@ const commands = {
   ListTagsForResourceCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateClusterCommand,
   UpdateControlPanelCommand,
   UpdateRoutingControlCommand,
   UpdateSafetyRuleCommand,
@@ -473,6 +479,17 @@ export interface Route53RecoveryControlConfig {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateClusterCommand}
+   */
+  updateCluster(args: UpdateClusterCommandInput, options?: __HttpHandlerOptions): Promise<UpdateClusterCommandOutput>;
+  updateCluster(args: UpdateClusterCommandInput, cb: (err: any, data?: UpdateClusterCommandOutput) => void): void;
+  updateCluster(
+    args: UpdateClusterCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterCommandOutput) => void
   ): void;
 
   /**

@@ -12,7 +12,8 @@ import { de_CancelKeyDeletionCommand, se_CancelKeyDeletionCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  *          </p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,23 +106,23 @@ export interface CancelKeyDeletionCommandOutput extends CancelKeyDeletionRespons
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To cancel deletion of a KMS key
  * ```javascript
  * // The following example cancels deletion of the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new CancelKeyDeletionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
- * // example id: to-cancel-deletion-of-a-cmk-1477428535102
  * ```
  *
+ * @public
  */
 export class CancelKeyDeletionCommand extends $Command
   .classBuilder<
@@ -131,9 +132,7 @@ export class CancelKeyDeletionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class CancelKeyDeletionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelKeyDeletionCommand)
   .de(de_CancelKeyDeletionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelKeyDeletionRequest;
+      output: CancelKeyDeletionResponse;
+    };
+    sdk: {
+      input: CancelKeyDeletionCommandInput;
+      output: CancelKeyDeletionCommandOutput;
+    };
+  };
+}

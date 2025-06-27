@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface DeleteViewCommandOutput extends DeleteViewOutput, __MetadataBea
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteViewCommand extends $Command
@@ -95,9 +97,7 @@ export class DeleteViewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class DeleteViewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteViewCommand)
   .de(de_DeleteViewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteViewInput;
+      output: DeleteViewOutput;
+    };
+    sdk: {
+      input: DeleteViewCommandInput;
+      output: DeleteViewCommandOutput;
+    };
+  };
+}

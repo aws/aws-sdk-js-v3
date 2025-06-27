@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -135,6 +136,7 @@ export interface CreateQuickResponseCommandOutput extends CreateQuickResponseRes
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class CreateQuickResponseCommand extends $Command
@@ -145,9 +147,7 @@ export class CreateQuickResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class CreateQuickResponseCommand extends $Command
   .f(CreateQuickResponseRequestFilterSensitiveLog, CreateQuickResponseResponseFilterSensitiveLog)
   .ser(se_CreateQuickResponseCommand)
   .de(de_CreateQuickResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQuickResponseRequest;
+      output: CreateQuickResponseResponse;
+    };
+    sdk: {
+      input: CreateQuickResponseCommandInput;
+      output: CreateQuickResponseCommandOutput;
+    };
+  };
+}

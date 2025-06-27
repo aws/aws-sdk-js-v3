@@ -12,7 +12,8 @@ import { de_DisableStageTransitionCommand, se_DisableStageTransitionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DisableStageTransitionCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class DisableStageTransitionCommand extends $Command
@@ -75,9 +77,7 @@ export class DisableStageTransitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DisableStageTransitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableStageTransitionCommand)
   .de(de_DisableStageTransitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableStageTransitionInput;
+      output: {};
+    };
+    sdk: {
+      input: DisableStageTransitionCommandInput;
+      output: DisableStageTransitionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateLinkCommand, se_CreateLinkCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,18 +28,7 @@ export interface CreateLinkCommandInput extends CreateLinkInput {}
 export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a link between a source account and a sink that you have created in a monitoring account. After the link is created,
- *       data is sent from the source account to the monitoring account. When you create a link, you can optionally specify filters
- *       that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>
- *          <p>Before you create a link, you must create a sink in the monitoring account and create a
- *       sink policy in that account. The sink policy must permit the source account to link to it. You
- *       can grant permission to source accounts by granting permission to an entire organization or to
- *       individual accounts.</p>
- *          <p>For more information, see
- *        <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a> and
- *        <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p>
- *          <p>Each monitoring account can be linked to as many as 100,000 source accounts.</p>
- *          <p>Each source account can be linked to as many as five monitoring accounts.</p>
+ * <p>Creates a link between a source account and a sink that you have created in a monitoring account. After the link is created, data is sent from the source account to the monitoring account. When you create a link, you can optionally specify filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p> <p>Before you create a link, you must create a sink in the monitoring account and create a sink policy in that account. The sink policy must permit the source account to link to it. You can grant permission to source accounts by granting permission to an entire organization or to individual accounts.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_CreateSink.html">CreateSink</a> and <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p> <p>Each monitoring account can be linked to as many as 100,000 source accounts.</p> <p>Each source account can be linked to as many as five monitoring accounts.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +38,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * const input = { // CreateLinkInput
  *   LabelTemplate: "STRING_VALUE", // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor",
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor" || "AWS::ApplicationSignals::Service" || "AWS::ApplicationSignals::ServiceLevelObjective",
  *   ],
  *   SinkIdentifier: "STRING_VALUE", // required
  *   Tags: { // TagMapInput
@@ -113,6 +103,7 @@ export interface CreateLinkCommandOutput extends CreateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class CreateLinkCommand extends $Command
@@ -123,9 +114,7 @@ export class CreateLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +126,16 @@ export class CreateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLinkCommand)
   .de(de_CreateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLinkInput;
+      output: CreateLinkOutput;
+    };
+    sdk: {
+      input: CreateLinkCommandInput;
+      output: CreateLinkCommandOutput;
+    };
+  };
+}

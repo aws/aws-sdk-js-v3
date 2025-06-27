@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,10 @@ export interface StopDBInstanceCommandInput extends StopDBInstanceMessage {}
 export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __MetadataBearer {}
 
 /**
- * <p>Stops an Amazon RDS DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's metadata, including its endpoint,
- *             DB parameter group, and option group membership. Amazon RDS also retains the transaction logs so you can do a point-in-time restore if
- *             necessary.</p>
+ * <p>Stops an Amazon RDS DB instance temporarily. When you stop a DB instance, Amazon RDS retains the DB instance's metadata,
+ *          including its endpoint, DB parameter group, and option group membership. Amazon RDS also retains
+ *             the transaction logs so you can do a point-in-time restore if necessary. The instance restarts automatically
+ *             after 7 days.</p>
  *          <p>For more information, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_StopInstance.html">
  *                 Stopping an Amazon RDS DB Instance Temporarily</a> in the
@@ -208,6 +210,7 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -307,25 +310,25 @@ export interface StopDBInstanceCommandOutput extends StopDBInstanceResult, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To stop a DB instance
  * ```javascript
  * // The following example stops the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance"
  * };
  * const command = new StopDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceStatus": "stopping"
+ *   DBInstance: {
+ *     DBInstanceStatus: "stopping"
  *   }
  * }
  * *\/
- * // example id: to-stop-a-db-instance-1679701630959
  * ```
  *
+ * @public
  */
 export class StopDBInstanceCommand extends $Command
   .classBuilder<
@@ -335,9 +338,7 @@ export class StopDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -349,4 +350,16 @@ export class StopDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDBInstanceCommand)
   .de(de_StopDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDBInstanceMessage;
+      output: StopDBInstanceResult;
+    };
+    sdk: {
+      input: StopDBInstanceCommandInput;
+      output: StopDBInstanceCommandOutput;
+    };
+  };
+}

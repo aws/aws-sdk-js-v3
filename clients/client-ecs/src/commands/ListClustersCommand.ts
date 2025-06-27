@@ -12,7 +12,8 @@ import { de_ListClustersCommand, se_ListClustersCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,8 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -70,24 +73,24 @@ export interface ListClustersCommandOutput extends ListClustersResponse, __Metad
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To list your available clusters
  * ```javascript
  * // This example lists all of your available clusters in your default region.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListClustersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "clusterArns": [
+ *   clusterArns: [
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/test",
  *     "arn:aws:ecs:us-east-1:<aws_account_id>:cluster/default"
  *   ]
  * }
  * *\/
- * // example id: e337d059-134f-4125-ba8e-4f499139facf
  * ```
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<
@@ -97,9 +100,7 @@ export class ListClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class ListClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClustersCommand)
   .de(de_ListClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClustersRequest;
+      output: ListClustersResponse;
+    };
+    sdk: {
+      input: ListClustersCommandInput;
+      output: ListClustersCommandOutput;
+    };
+  };
+}

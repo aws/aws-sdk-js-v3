@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface ListLanguagesCommandOutput extends ListLanguagesResponse, __Met
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class ListLanguagesCommand extends $Command
@@ -87,9 +89,7 @@ export class ListLanguagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListLanguagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLanguagesCommand)
   .de(de_ListLanguagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLanguagesRequest;
+      output: ListLanguagesResponse;
+    };
+    sdk: {
+      input: ListLanguagesCommandInput;
+      output: ListLanguagesCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { CreateCloudWatchAlarmTemplateRequest, CreateCloudWatchAlarmTemplateResponse } from "../models/models_1";
+import { CreateCloudWatchAlarmTemplateRequest, CreateCloudWatchAlarmTemplateResponse } from "../models/models_2";
 import {
   de_CreateCloudWatchAlarmTemplateCommand,
   se_CreateCloudWatchAlarmTemplateCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,9 +53,10 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
- *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET", // required
+ *   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION", // required
  *   Threshold: Number("double"), // required
  *   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing", // required
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new CreateCloudWatchAlarmTemplateCommand(input);
  * const response = await client.send(command);
@@ -75,7 +77,7 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET",
+ * //   TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION",
  * //   Threshold: Number("double"),
  * //   TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing",
  * // };
@@ -109,6 +111,7 @@ export interface CreateCloudWatchAlarmTemplateCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class CreateCloudWatchAlarmTemplateCommand extends $Command
@@ -119,9 +122,7 @@ export class CreateCloudWatchAlarmTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +134,16 @@ export class CreateCloudWatchAlarmTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCloudWatchAlarmTemplateCommand)
   .de(de_CreateCloudWatchAlarmTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCloudWatchAlarmTemplateRequest;
+      output: CreateCloudWatchAlarmTemplateResponse;
+    };
+    sdk: {
+      input: CreateCloudWatchAlarmTemplateCommandInput;
+      output: CreateCloudWatchAlarmTemplateCommandOutput;
+    };
+  };
+}

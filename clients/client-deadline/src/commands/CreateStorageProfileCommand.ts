@@ -16,7 +16,8 @@ import { de_CreateStorageProfileCommand, se_CreateStorageProfileCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,7 @@ export interface CreateStorageProfileCommandInput extends CreateStorageProfileRe
 export interface CreateStorageProfileCommandOutput extends CreateStorageProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a storage profile that specifies the operating system, file type, and file
- *          location of resources used on a farm.</p>
+ * <p>Creates a storage profile that specifies the operating system, file type, and file location of resources used on a farm.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,18 +76,17 @@ export interface CreateStorageProfileCommandOutput extends CreateStorageProfileR
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -99,9 +98,7 @@ export class CreateStorageProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +110,16 @@ export class CreateStorageProfileCommand extends $Command
   .f(CreateStorageProfileRequestFilterSensitiveLog, void 0)
   .ser(se_CreateStorageProfileCommand)
   .de(de_CreateStorageProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStorageProfileRequest;
+      output: CreateStorageProfileResponse;
+    };
+    sdk: {
+      input: CreateStorageProfileCommandInput;
+      output: CreateStorageProfileCommandOutput;
+    };
+  };
+}

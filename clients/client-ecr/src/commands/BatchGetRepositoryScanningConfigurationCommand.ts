@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface BatchGetRepositoryScanningConfigurationCommandOutput
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class BatchGetRepositoryScanningConfigurationCommand extends $Command
@@ -109,9 +111,7 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class BatchGetRepositoryScanningConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetRepositoryScanningConfigurationCommand)
   .de(de_BatchGetRepositoryScanningConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetRepositoryScanningConfigurationRequest;
+      output: BatchGetRepositoryScanningConfigurationResponse;
+    };
+    sdk: {
+      input: BatchGetRepositoryScanningConfigurationCommandInput;
+      output: BatchGetRepositoryScanningConfigurationCommandOutput;
+    };
+  };
+}

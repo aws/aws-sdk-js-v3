@@ -17,7 +17,8 @@ import { de_CreateAssessmentCommand, se_CreateAssessmentCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -221,11 +222,15 @@ export interface CreateAssessmentCommandOutput extends CreateAssessmentResponse,
  *          the Service Quotas console. For a list of Audit Manager service quotas, see <a href="https://docs.aws.amazon.com/audit-manager/latest/userguide/service-quotas.html">Quotas and
  *             restrictions for Audit Manager</a>.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The request was denied due to request throttling.</p>
+ *
  * @throws {@link ValidationException} (client fault)
  *  <p> The request has invalid or missing parameters. </p>
  *
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
+ *
  *
  * @public
  */
@@ -237,9 +242,7 @@ export class CreateAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -251,4 +254,16 @@ export class CreateAssessmentCommand extends $Command
   .f(CreateAssessmentRequestFilterSensitiveLog, CreateAssessmentResponseFilterSensitiveLog)
   .ser(se_CreateAssessmentCommand)
   .de(de_CreateAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssessmentRequest;
+      output: CreateAssessmentResponse;
+    };
+    sdk: {
+      input: CreateAssessmentCommandInput;
+      output: CreateAssessmentCommandOutput;
+    };
+  };
+}

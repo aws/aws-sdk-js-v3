@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
 } from "@smithy/smithy-client";
 
 import { PricingServiceException as __BaseException } from "./PricingServiceException";
@@ -13,7 +13,7 @@ import { PricingServiceException as __BaseException } from "./PricingServiceExce
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -39,7 +39,7 @@ export interface AttributeValue {
    * <p>The specific value of an <code>attributeName</code>.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -53,7 +53,7 @@ export interface DescribeServicesRequest {
    *       To retrieve a list of all services, leave this blank.</p>
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
 
   /**
    * <p>The format version that you want the response to be in.</p>
@@ -61,19 +61,19 @@ export interface DescribeServicesRequest {
    *          </p>
    * @public
    */
-  FormatVersion?: string;
+  FormatVersion?: string | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results that you want returned in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -91,7 +91,7 @@ export interface Service {
    * <p>The attributes that are available for this service.</p>
    * @public
    */
-  AttributeNames?: string[];
+  AttributeNames?: string[] | undefined;
 }
 
 /**
@@ -102,19 +102,19 @@ export interface DescribeServicesResponse {
    * <p>The service metadata for the service or services in the response.</p>
    * @public
    */
-  Services?: Service[];
+  Services?: Service[] | undefined;
 
   /**
    * <p>The format version of the response. For example, <code>aws_v1</code>.</p>
    * @public
    */
-  FormatVersion?: string;
+  FormatVersion?: string | undefined;
 
   /**
    * <p>The pagination token for the next set of retrievable results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -124,7 +124,7 @@ export interface DescribeServicesResponse {
 export class ExpiredNextTokenException extends __BaseException {
   readonly name: "ExpiredNextTokenException" = "ExpiredNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -147,7 +147,7 @@ export class InternalErrorException extends __BaseException {
   readonly name: "InternalErrorException" = "InternalErrorException";
   readonly $fault: "server" = "server";
   $retryable = {};
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -169,7 +169,7 @@ export class InternalErrorException extends __BaseException {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -191,7 +191,7 @@ export class InvalidNextTokenException extends __BaseException {
 export class InvalidParameterException extends __BaseException {
   readonly name: "InvalidParameterException" = "InvalidParameterException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -213,7 +213,7 @@ export class InvalidParameterException extends __BaseException {
 export class NotFoundException extends __BaseException {
   readonly name: "NotFoundException" = "NotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -239,7 +239,7 @@ export class ThrottlingException extends __BaseException {
   $retryable = {
     throttling: true,
   };
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -275,13 +275,13 @@ export interface GetAttributeValuesRequest {
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -294,13 +294,13 @@ export interface GetAttributeValuesResponse {
    *             <code>volumeType</code>.</p>
    * @public
    */
-  AttributeValues?: AttributeValue[];
+  AttributeValues?: AttributeValue[] | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -330,7 +330,7 @@ export interface GetPriceListFileUrlResponse {
    * <p>The URL to download your Price List file from. </p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 }
 
 /**
@@ -340,7 +340,7 @@ export interface GetPriceListFileUrlResponse {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -418,7 +418,7 @@ export interface GetProductsRequest {
    *          are returned.</p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 
   /**
    * <p>The format version that you want the response to be in.</p>
@@ -426,19 +426,19 @@ export interface GetProductsRequest {
    *          </p>
    * @public
    */
-  FormatVersion?: string;
+  FormatVersion?: string | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results that you want to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -449,20 +449,20 @@ export interface GetProductsResponse {
    * <p>The format version of the response. For example, aws_v1.</p>
    * @public
    */
-  FormatVersion?: string;
+  FormatVersion?: string | undefined;
 
   /**
    * <p>The list of products that match your filters. The list contains both the product metadata and
    *          the price information.</p>
    * @public
    */
-  PriceList?: (__LazyJsonString | string)[];
+  PriceList?: (__AutomaticJsonStringConversion | string)[] | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -495,7 +495,7 @@ export interface ListPriceListsRequest {
    *          applicable Regions. The available <code>RegionCode</code> list can be retrieved from <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_pricing_GetAttributeValues.html">GetAttributeValues</a> API.</p>
    * @public
    */
-  RegionCode?: string;
+  RegionCode?: string | undefined;
 
   /**
    * <p>The three alphabetical character ISO-4217 currency code that the Price List files are
@@ -508,14 +508,14 @@ export interface ListPriceListsRequest {
    * <p>The pagination token that indicates the next set of results that you want to retrieve. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return in the response.
    *       </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -535,7 +535,7 @@ export interface PriceList {
    *             </a> response. </p>
    * @public
    */
-  PriceListArn?: string;
+  PriceListArn?: string | undefined;
 
   /**
    * <p>This is used to filter the Price List by Amazon Web Services Region. For example, to get
@@ -546,14 +546,14 @@ export interface PriceList {
    *             </a> API. </p>
    * @public
    */
-  RegionCode?: string;
+  RegionCode?: string | undefined;
 
   /**
    * <p>The three alphabetical character ISO-4217 currency code the Price List files are
    *          denominated in. </p>
    * @public
    */
-  CurrencyCode?: string;
+  CurrencyCode?: string | undefined;
 
   /**
    * <p>The format you want to retrieve your Price List files. The <code>FileFormat</code> can
@@ -562,7 +562,7 @@ export interface PriceList {
    *             </a> response. </p>
    * @public
    */
-  FileFormats?: string[];
+  FileFormats?: string[] | undefined;
 }
 
 /**
@@ -573,11 +573,11 @@ export interface ListPriceListsResponse {
    * <p>The type of price list references that match your request. </p>
    * @public
    */
-  PriceLists?: PriceList[];
+  PriceLists?: PriceList[] | undefined;
 
   /**
    * <p>The pagination token that indicates the next set of results to retrieve. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }

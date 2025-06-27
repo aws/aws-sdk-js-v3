@@ -1,7 +1,8 @@
 import type { AssumeRoleWithWebIdentityParams } from "@aws-sdk/credential-provider-web-identity";
 import type { CredentialProviderOptions } from "@aws-sdk/types";
+import type { RuntimeConfigAwsCredentialIdentityProvider } from "@aws-sdk/types";
 import { getProfileName, parseKnownFiles, SourceProfileInit } from "@smithy/shared-ini-file-loader";
-import type { AwsCredentialIdentity, AwsCredentialIdentityProvider, Pluggable } from "@smithy/types";
+import type { AwsCredentialIdentity, Pluggable } from "@smithy/types";
 
 import { AssumeRoleParams } from "./resolveAssumeRoleCredentials";
 import { resolveProfileData } from "./resolveProfileData";
@@ -39,12 +40,19 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
   roleAssumerWithWebIdentity?: (params: AssumeRoleWithWebIdentityParams) => Promise<AwsCredentialIdentity>;
 
   /**
-   * STSClientConfig to be used for creating STS Client for assuming role.
+   * STSClientConfig or SSOClientConfig to be used for creating inner client
+   * for auth operations.
    * @internal
    */
   clientConfig?: any;
 
   clientPlugins?: Pluggable<any, any>[];
+
+  /**
+   * When true, always reload credentials from the file system instead of using cached values.
+   * This is useful when you need to detect changes to the credentials file.
+   */
+  ignoreCache?: boolean;
 }
 
 /**
@@ -54,9 +62,22 @@ export interface FromIniInit extends SourceProfileInit, CredentialProviderOption
  * role assumption and multi-factor authentication.
  */
 export const fromIni =
-  (init: FromIniInit = {}): AwsCredentialIdentityProvider =>
-  async () => {
+  (_init: FromIniInit = {}): RuntimeConfigAwsCredentialIdentityProvider =>
+  async ({ callerClientConfig } = {}) => {
+    const init: FromIniInit = {
+      ..._init,
+      parentClientConfig: {
+        ...callerClientConfig,
+        ..._init.parentClientConfig,
+      },
+    };
     init.logger?.debug("@aws-sdk/credential-provider-ini - fromIni");
     const profiles = await parseKnownFiles(init);
-    return resolveProfileData(getProfileName(init), profiles, init);
+    return resolveProfileData(
+      getProfileName({
+        profile: _init.profile ?? callerClientConfig?.profile,
+      }),
+      profiles,
+      init
+    );
   };

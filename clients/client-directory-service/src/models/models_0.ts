@@ -61,41 +61,41 @@ export interface SharedDirectory {
    *       shared to the consumer account.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>Identifier of the directory in the directory owner account. </p>
    * @public
    */
-  OwnerDirectoryId?: string;
+  OwnerDirectoryId?: string | undefined;
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
-   *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account
+   *       by sending a shared directory request (<code>HANDSHAKE</code>).</p>
    * @public
    */
-  ShareMethod?: ShareMethod;
+  ShareMethod?: ShareMethod | undefined;
 
   /**
    * <p>Identifier of the directory consumer account that has access to the shared directory
    *         (<code>OwnerDirectoryId</code>) in the directory owner account.</p>
    * @public
    */
-  SharedAccountId?: string;
+  SharedAccountId?: string | undefined;
 
   /**
    * <p>Identifier of the shared directory in the directory consumer account. This identifier is
    *       different for each directory owner account.</p>
    * @public
    */
-  SharedDirectoryId?: string;
+  SharedDirectoryId?: string | undefined;
 
   /**
    * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * <p>A directory share request that is sent by the directory owner to the directory consumer.
@@ -103,19 +103,19 @@ export interface SharedDirectory {
    *       whether to approve or reject the share invitation.</p>
    * @public
    */
-  ShareNotes?: string;
+  ShareNotes?: string | undefined;
 
   /**
    * <p>The date and time that the shared directory was created.</p>
    * @public
    */
-  CreatedDateTime?: Date;
+  CreatedDateTime?: Date | undefined;
 
   /**
    * <p>The date and time that the shared directory was last updated.</p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -126,7 +126,7 @@ export interface AcceptSharedDirectoryResult {
    * <p>The shared directory in the directory consumer account.</p>
    * @public
    */
-  SharedDirectory?: SharedDirectory;
+  SharedDirectory?: SharedDirectory | undefined;
 }
 
 /**
@@ -140,13 +140,13 @@ export class ClientException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -173,13 +173,13 @@ export class DirectoryAlreadySharedException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -206,13 +206,13 @@ export class EntityDoesNotExistException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -239,13 +239,13 @@ export class InvalidParameterException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -272,13 +272,13 @@ export class ServiceException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -295,7 +295,7 @@ export class ServiceException extends __BaseException {
 }
 
 /**
- * <p>Client authentication is not available in this region at this time.</p>
+ * <p>You do not have sufficient access to perform this action.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
@@ -305,13 +305,13 @@ export class AccessDeniedException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -339,13 +339,13 @@ export interface IpRoute {
    *          use a CIDR address block with /32. For example 10.0.0.0/32.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 
   /**
    * <p>Description of the address block.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -372,57 +372,57 @@ export interface AddIpRoutesRequest {
    *          <p>Inbound:</p>
    *          <ul>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 123, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 138, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom UDP Rule, Protocol: UDP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 88, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 135, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 445, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 464, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: 0.0.0.0/0</p>
+   *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 636, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
    *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 1024-65535, Source:
-   *                0.0.0.0/0</p>
+   *                Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
    *                <p>Type: Custom TCP Rule, Protocol: TCP, Range: 3268-33269, Source:
-   *                0.0.0.0/0</p>
+   *                Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: 0.0.0.0/0</p>
+   *                <p>Type: DNS (UDP), Protocol: UDP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: 0.0.0.0/0</p>
+   *                <p>Type: DNS (TCP), Protocol: TCP, Range: 53, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: LDAP, Protocol: TCP, Range: 389, Source: 0.0.0.0/0</p>
+   *                <p>Type: LDAP, Protocol: TCP, Range: 389, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *             <li>
-   *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: 0.0.0.0/0</p>
+   *                <p>Type: All ICMP, Protocol: All, Range: N/A, Source: Managed Microsoft AD VPC IPv4 CIDR</p>
    *             </li>
    *          </ul>
    *          <p></p>
@@ -436,7 +436,7 @@ export interface AddIpRoutesRequest {
    *          publicly.</p>
    * @public
    */
-  UpdateSecurityGroupForDirectoryControllers?: boolean;
+  UpdateSecurityGroupForDirectoryControllers?: boolean | undefined;
 }
 
 /**
@@ -445,7 +445,7 @@ export interface AddIpRoutesRequest {
 export interface AddIpRoutesResult {}
 
 /**
- * <p>The specified directory is unavailable or could not be found.</p>
+ * <p>The specified directory is unavailable.</p>
  * @public
  */
 export class DirectoryUnavailableException extends __BaseException {
@@ -455,13 +455,13 @@ export class DirectoryUnavailableException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -488,13 +488,13 @@ export class EntityAlreadyExistsException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -522,13 +522,13 @@ export class IpRouteLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -557,8 +557,8 @@ export interface DirectoryVpcSettings {
 
   /**
    * <p>The identifiers of the subnets for the directory servers. The two subnets must be in
-   *       different Availability Zones. Directory Service creates a directory server and a DNS
-   *       server in each of these subnets.</p>
+   *       different Availability Zones. Directory Service creates a directory server and a DNS server in each of
+   *       these subnets.</p>
    * @public
    */
   SubnetIds: string[] | undefined;
@@ -594,8 +594,8 @@ export interface AddRegionRequest {
 export interface AddRegionResult {}
 
 /**
- * <p>The Region you specified is the same Region where the Managed Microsoft AD directory
- *       was created. Specify a different Region and try again.</p>
+ * <p>The Region you specified is the same Region where the Managed Microsoft AD directory was created.
+ *       Specify a different Region and try again.</p>
  * @public
  */
 export class DirectoryAlreadyInRegionException extends __BaseException {
@@ -605,13 +605,13 @@ export class DirectoryAlreadyInRegionException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -638,13 +638,13 @@ export class DirectoryDoesNotExistException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -672,13 +672,13 @@ export class RegionLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -705,13 +705,13 @@ export class UnsupportedOperationException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -735,7 +735,7 @@ export interface Tag {
   /**
    * <p>Required name of the tag. The string value can be Unicode characters and cannot be
    *       prefixed with "aws:". The string can contain only the set of Unicode letters, digits,
-   *       white-space, '_', '.', '/', '=', '+', '-' (Java regex:
+   *       white-space, '_', '.', '/', '=', '+', '-', ':', '@'(Java regex:
    *       "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
@@ -743,7 +743,7 @@ export interface Tag {
 
   /**
    * <p>The optional value of the tag. The string value can be Unicode characters. The string
-   *       can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-'
+   *       can contain only the set of Unicode letters, digits, white-space, '_', '.', '/', '=', '+', '-', ':', '@'
    *       (Java regex: "^([\\p\{L\}\\p\{Z\}\\p\{N\}_.:/=+\\-]*)$").</p>
    * @public
    */
@@ -783,13 +783,13 @@ export class TagLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -814,13 +814,13 @@ export interface Attribute {
    * <p>The name of the attribute.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value of the attribute.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -834,13 +834,13 @@ export class AuthenticationFailedException extends __BaseException {
    * <p>The textual message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The identifier of the request that caused the exception.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -879,15 +879,17 @@ export interface CancelSchemaExtensionRequest {
 export interface CancelSchemaExtensionResult {}
 
 /**
- * <p>Contains information about the client certificate authentication settings for the <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
+ * <p>Contains information about the client certificate authentication settings for the
+ *         <code>RegisterCertificate</code> and <code>DescribeCertificate</code> operations. </p>
  * @public
  */
 export interface ClientCertAuthSettings {
   /**
-   * <p>Specifies the URL of the default OCSP server used to check for revocation status. A secondary value to any OCSP address found in the AIA extension of the user certificate.</p>
+   * <p>Specifies the URL of the default OCSP server used to check for revocation status. A
+   *       secondary value to any OCSP address found in the AIA extension of the user certificate.</p>
    * @public
    */
-  OCSPUrl?: string;
+  OCSPUrl?: string | undefined;
 }
 
 /**
@@ -931,49 +933,52 @@ export interface Certificate {
    * <p>The identifier of the certificate.</p>
    * @public
    */
-  CertificateId?: string;
+  CertificateId?: string | undefined;
 
   /**
    * <p>The state of the certificate.</p>
    * @public
    */
-  State?: CertificateState;
+  State?: CertificateState | undefined;
 
   /**
    * <p>Describes a state change for the certificate.</p>
    * @public
    */
-  StateReason?: string;
+  StateReason?: string | undefined;
 
   /**
    * <p>The common name for the certificate.</p>
    * @public
    */
-  CommonName?: string;
+  CommonName?: string | undefined;
 
   /**
    * <p>The date and time that the certificate was registered.</p>
    * @public
    */
-  RegisteredDateTime?: Date;
+  RegisteredDateTime?: Date | undefined;
 
   /**
    * <p>The date and time when the certificate will expire.</p>
    * @public
    */
-  ExpiryDateTime?: Date;
+  ExpiryDateTime?: Date | undefined;
 
   /**
-   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>The function that the registered certificate performs. Valid values include
+   *         <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is
+   *         <code>ClientLDAPS</code>.</p>
    * @public
    */
-  Type?: CertificateType;
+  Type?: CertificateType | undefined;
 
   /**
-   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
+   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate
+   *       authentication settings.</p>
    * @public
    */
-  ClientCertAuthSettings?: ClientCertAuthSettings;
+  ClientCertAuthSettings?: ClientCertAuthSettings | undefined;
 }
 
 /**
@@ -987,13 +992,13 @@ export class CertificateAlreadyExistsException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1020,13 +1025,13 @@ export class CertificateDoesNotExistException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1051,31 +1056,33 @@ export interface CertificateInfo {
    * <p>The identifier of the certificate.</p>
    * @public
    */
-  CertificateId?: string;
+  CertificateId?: string | undefined;
 
   /**
    * <p>The common name for the certificate.</p>
    * @public
    */
-  CommonName?: string;
+  CommonName?: string | undefined;
 
   /**
    * <p>The state of the certificate.</p>
    * @public
    */
-  State?: CertificateState;
+  State?: CertificateState | undefined;
 
   /**
    * <p>The date and time when the certificate will expire.</p>
    * @public
    */
-  ExpiryDateTime?: Date;
+  ExpiryDateTime?: Date | undefined;
 
   /**
-   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>The function that the registered certificate performs. Valid values include
+   *         <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is
+   *         <code>ClientLDAPS</code>.</p>
    * @public
    */
-  Type?: CertificateType;
+  Type?: CertificateType | undefined;
 }
 
 /**
@@ -1090,13 +1097,13 @@ export class CertificateInUseException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1123,13 +1130,13 @@ export class CertificateLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1179,22 +1186,26 @@ export type ClientAuthenticationType = (typeof ClientAuthenticationType)[keyof t
  */
 export interface ClientAuthenticationSettingInfo {
   /**
-   * <p>The type of client authentication for the specified directory. If no type is specified, a list of all client authentication types that are supported for the directory is retrieved. </p>
+   * <p>The type of client authentication for the specified directory. If no type is specified, a
+   *       list of all client authentication types that are supported for the directory is retrieved.
+   *     </p>
    * @public
    */
-  Type?: ClientAuthenticationType;
+  Type?: ClientAuthenticationType | undefined;
 
   /**
-   * <p>Whether the client authentication type is enabled or disabled for the specified directory.</p>
+   * <p>Whether the client authentication type is enabled or disabled for the specified
+   *       directory.</p>
    * @public
    */
-  Status?: ClientAuthenticationStatus;
+  Status?: ClientAuthenticationStatus | undefined;
 
   /**
-   * <p>The date and time when the status of the client authentication type was last updated.</p>
+   * <p>The date and time when the status of the client authentication type was last
+   *       updated.</p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -1206,20 +1217,20 @@ export interface Computer {
    * <p>The identifier of the computer.</p>
    * @public
    */
-  ComputerId?: string;
+  ComputerId?: string | undefined;
 
   /**
    * <p>The computer name.</p>
    * @public
    */
-  ComputerName?: string;
+  ComputerName?: string | undefined;
 
   /**
    * <p>An array of <a>Attribute</a> objects containing the LDAP attributes that belong to the
    *             computer account.</p>
    * @public
    */
-  ComputerAttributes?: Attribute[];
+  ComputerAttributes?: Attribute[] | undefined;
 }
 
 /**
@@ -1247,14 +1258,14 @@ export interface ConditionalForwarder {
    *       conditional forwarder.</p>
    * @public
    */
-  RemoteDomainName?: string;
+  RemoteDomainName?: string | undefined;
 
   /**
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName. This is the
    *       IP address of the DNS server that your conditional forwarder points to.</p>
    * @public
    */
-  DnsIpAddrs?: string[];
+  DnsIpAddrs?: string[] | undefined;
 
   /**
    * <p>The replication scope of the conditional forwarder. The only allowed value is
@@ -1262,7 +1273,7 @@ export interface ConditionalForwarder {
    *       controllers for your Amazon Web Services directory.</p>
    * @public
    */
-  ReplicationScope?: ReplicationScope;
+  ReplicationScope?: ReplicationScope | undefined;
 }
 
 /**
@@ -1284,8 +1295,8 @@ export interface DirectoryConnectSettings {
   SubnetIds: string[] | undefined;
 
   /**
-   * <p>A list of one or more IP addresses of DNS servers or domain controllers in your self-managed
-   *       directory.</p>
+   * <p>A list of one or more IP addresses of DNS servers or domain controllers in your
+   *       self-managed directory.</p>
    * @public
    */
   CustomerDnsIps: string[] | undefined;
@@ -1339,7 +1350,7 @@ export interface ConnectDirectoryRequest {
    * <p>The NetBIOS name of your self-managed directory, such as <code>CORP</code>.</p>
    * @public
    */
-  ShortName?: string;
+  ShortName?: string | undefined;
 
   /**
    * <p>The password for your self-managed user account.</p>
@@ -1351,7 +1362,7 @@ export interface ConnectDirectoryRequest {
    * <p>A description for the directory.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the directory.</p>
@@ -1370,7 +1381,7 @@ export interface ConnectDirectoryRequest {
    * <p>The tags to be assigned to AD Connector.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1382,7 +1393,7 @@ export interface ConnectDirectoryResult {
    * <p>The identifier of the new directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -1398,13 +1409,13 @@ export class DirectoryLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1449,13 +1460,13 @@ export interface CreateAliasResult {
    * <p>The identifier of the directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The alias for the directory.</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 }
 
 /**
@@ -1485,14 +1496,14 @@ export interface CreateComputerRequest {
    * <p>The fully-qualified distinguished name of the organizational unit to place the computer account in.</p>
    * @public
    */
-  OrganizationalUnitDistinguishedName?: string;
+  OrganizationalUnitDistinguishedName?: string | undefined;
 
   /**
    * <p>An array of <a>Attribute</a> objects that contain any LDAP attributes to apply to the
    *             computer account.</p>
    * @public
    */
-  ComputerAttributes?: Attribute[];
+  ComputerAttributes?: Attribute[] | undefined;
 }
 
 /**
@@ -1504,7 +1515,7 @@ export interface CreateComputerResult {
    * <p>A <a>Computer</a> object that represents the computer account.</p>
    * @public
    */
-  Computer?: Computer;
+  Computer?: Computer | undefined;
 }
 
 /**
@@ -1556,7 +1567,7 @@ export interface CreateDirectoryRequest {
    * <p>The NetBIOS name of the directory, such as <code>CORP</code>.</p>
    * @public
    */
-  ShortName?: string;
+  ShortName?: string | undefined;
 
   /**
    * <p>The password for the directory administrator. The directory creation process creates a
@@ -1596,7 +1607,7 @@ export interface CreateDirectoryRequest {
    * <p>A description for the directory.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The size of the directory.</p>
@@ -1609,13 +1620,13 @@ export interface CreateDirectoryRequest {
    *       the operation.</p>
    * @public
    */
-  VpcSettings?: DirectoryVpcSettings;
+  VpcSettings?: DirectoryVpcSettings | undefined;
 
   /**
    * <p>The tags to be assigned to the Simple AD directory.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1627,7 +1638,7 @@ export interface CreateDirectoryResult {
    * <p>The identifier of the directory that was created.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -1665,13 +1676,13 @@ export class InsufficientPermissionsException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1720,7 +1731,7 @@ export interface CreateMicrosoftADRequest {
    *         <code>CORP</code> for the directory DNS <code>corp.example.com</code>. </p>
    * @public
    */
-  ShortName?: string;
+  ShortName?: string | undefined;
 
   /**
    * <p>The password for the default administrative user named <code>Admin</code>.</p>
@@ -1734,7 +1745,7 @@ export interface CreateMicrosoftADRequest {
    *         <code>Directory Details</code> page after the directory is created.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
@@ -1747,13 +1758,13 @@ export interface CreateMicrosoftADRequest {
    *         <code>Enterprise</code>. <code>Enterprise</code> is the default.</p>
    * @public
    */
-  Edition?: DirectoryEdition;
+  Edition?: DirectoryEdition | undefined;
 
   /**
    * <p>The tags to be assigned to the Managed Microsoft AD directory.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1765,7 +1776,7 @@ export interface CreateMicrosoftADResult {
    * <p>The identifier of the directory that was created.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -1783,7 +1794,7 @@ export interface CreateSnapshotRequest {
    * <p>The descriptive name to apply to the snapshot.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -1795,7 +1806,7 @@ export interface CreateSnapshotResult {
    * <p>The identifier of the snapshot that was created.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 }
 
 /**
@@ -1811,13 +1822,13 @@ export class SnapshotLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -1901,7 +1912,7 @@ export interface CreateTrustRequest {
   RemoteDomainName: string | undefined;
 
   /**
-   * <p>The trust password. The must be the same password that was used when creating the trust
+   * <p>The trust password. The trust password must be the same password that was used when creating the trust
    *       relationship on the external domain.</p>
    * @public
    */
@@ -1917,19 +1928,19 @@ export interface CreateTrustRequest {
    * <p>The trust relationship type. <code>Forest</code> is the default.</p>
    * @public
    */
-  TrustType?: TrustType;
+  TrustType?: TrustType | undefined;
 
   /**
    * <p>The IP addresses of the remote DNS server associated with RemoteDomainName.</p>
    * @public
    */
-  ConditionalForwarderIpAddrs?: string[];
+  ConditionalForwarderIpAddrs?: string[] | undefined;
 
   /**
    * <p>Optional parameter to enable selective authentication for the trust.</p>
    * @public
    */
-  SelectiveAuth?: SelectiveAuth;
+  SelectiveAuth?: SelectiveAuth | undefined;
 }
 
 /**
@@ -1941,8 +1952,25 @@ export interface CreateTrustResult {
    * <p>A unique identifier for the trust relationship that was created.</p>
    * @public
    */
-  TrustId?: string;
+  TrustId?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DataAccessStatus = {
+  DISABLED: "Disabled",
+  DISABLING: "Disabling",
+  ENABLED: "Enabled",
+  ENABLING: "Enabling",
+  FAILED: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type DataAccessStatus = (typeof DataAccessStatus)[keyof typeof DataAccessStatus];
 
 /**
  * <p>Deletes a conditional forwarder.</p>
@@ -1990,7 +2018,7 @@ export interface DeleteDirectoryResult {
    * <p>The directory identifier.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -2030,7 +2058,7 @@ export interface DeleteSnapshotResult {
    * <p>The identifier of the directory snapshot that was deleted.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 }
 
 /**
@@ -2049,7 +2077,7 @@ export interface DeleteTrustRequest {
    * <p>Delete a conditional forwarder as part of a DeleteTrustRequest.</p>
    * @public
    */
-  DeleteAssociatedConditionalForwarder?: boolean;
+  DeleteAssociatedConditionalForwarder?: boolean | undefined;
 }
 
 /**
@@ -2061,7 +2089,7 @@ export interface DeleteTrustResult {
    * <p>The Trust ID of the trust relationship that was deleted.</p>
    * @public
    */
-  TrustId?: string;
+  TrustId?: string | undefined;
 }
 
 /**
@@ -2138,7 +2166,7 @@ export interface DescribeCertificateResult {
    *       reason for the state, expiration date time, and certificate common name.</p>
    * @public
    */
-  Certificate?: Certificate;
+  Certificate?: Certificate | undefined;
 }
 
 /**
@@ -2152,22 +2180,27 @@ export interface DescribeClientAuthenticationSettingsRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication for which to retrieve information. If no type is specified, a list of all client authentication types that are supported for the specified directory is retrieved.</p>
+   * <p>The type of client authentication for which to retrieve information. If no type is
+   *       specified, a list of all client authentication types that are supported for the specified
+   *       directory is retrieved.</p>
    * @public
    */
-  Type?: ClientAuthenticationType;
+  Type?: ClientAuthenticationType | undefined;
 
   /**
-   * <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is the first call.</p>
+   * <p>The <i>DescribeClientAuthenticationSettingsResult.NextToken</i> value from a
+   *       previous call to <a>DescribeClientAuthenticationSettings</a>. Pass null if this is
+   *       the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
-   * <p>The maximum number of items to return. If this value is zero, the maximum number of items is specified by the limitations of the operation. </p>
+   * <p>The maximum number of items to return. If this value is zero, the maximum number of items
+   *       is specified by the limitations of the operation. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -2175,17 +2208,20 @@ export interface DescribeClientAuthenticationSettingsRequest {
  */
 export interface DescribeClientAuthenticationSettingsResult {
   /**
-   * <p>Information about the type of client authentication for the specified directory. The following information is retrieved: The date and time when the status of the client authentication type was last updated, whether the client authentication type is enabled or disabled, and the type of client authentication.</p>
+   * <p>Information about the type of client authentication for the specified directory. The
+   *       following information is retrieved: The date and time when the status of the client
+   *       authentication type was last updated, whether the client authentication type is enabled or
+   *       disabled, and the type of client authentication.</p>
    * @public
    */
-  ClientAuthenticationSettingsInfo?: ClientAuthenticationSettingInfo[];
+  ClientAuthenticationSettingsInfo?: ClientAuthenticationSettingInfo[] | undefined;
 
   /**
-   * <p>The next token used to retrieve the client authentication settings if the number of setting types exceeds
-   *       page limit and there is another page.</p>
+   * <p>The next token used to retrieve the client authentication settings if the number of
+   *       setting types exceeds page limit and there is another page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2206,7 +2242,7 @@ export interface DescribeConditionalForwardersRequest {
    *       returned.</p>
    * @public
    */
-  RemoteDomainNames?: string[];
+  RemoteDomainNames?: string[] | undefined;
 }
 
 /**
@@ -2218,7 +2254,7 @@ export interface DescribeConditionalForwardersResult {
    * <p>The list of conditional forwarders that have been created.</p>
    * @public
    */
-  ConditionalForwarders?: ConditionalForwarder[];
+  ConditionalForwarders?: ConditionalForwarder[] | undefined;
 }
 
 /**
@@ -2232,20 +2268,20 @@ export interface DescribeDirectoriesRequest {
    *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
    * @public
    */
-  DirectoryIds?: string[];
+  DirectoryIds?: string[] | undefined;
 
   /**
    * <p>The <code>DescribeDirectoriesResult.NextToken</code> value from a previous call to <a>DescribeDirectories</a>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return. If this value is zero, the maximum number of items
    *       is specified by the limitations of the operation.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -2257,37 +2293,37 @@ export interface DirectoryConnectSettingsDescription {
    * <p>The identifier of the VPC that the AD Connector is in.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>A list of subnet identifiers in the VPC that the AD Connector is in.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The user name of the service account in your self-managed directory.</p>
    * @public
    */
-  CustomerUserName?: string;
+  CustomerUserName?: string | undefined;
 
   /**
    * <p>The security group identifier for the AD Connector directory.</p>
    * @public
    */
-  SecurityGroupId?: string;
+  SecurityGroupId?: string | undefined;
 
   /**
    * <p>A list of the Availability Zones that the directory is in.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 
   /**
    * <p>The IP addresses of the AD Connector servers.</p>
    * @public
    */
-  ConnectIps?: string[];
+  ConnectIps?: string[] | undefined;
 }
 
 /**
@@ -2333,51 +2369,50 @@ export interface RadiusSettings {
    *          load balancer.</p>
    * @public
    */
-  RadiusServers?: string[];
+  RadiusServers?: string[] | undefined;
 
   /**
    * <p>The port that your RADIUS server is using for communications. Your self-managed
    *          network must allow inbound traffic over this port from the Directory Service servers.</p>
    * @public
    */
-  RadiusPort?: number;
+  RadiusPort?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, to wait for the RADIUS server to respond.</p>
    * @public
    */
-  RadiusTimeout?: number;
+  RadiusTimeout?: number | undefined;
 
   /**
-   * <p>The maximum number of times that communication with the RADIUS server is
-   *          attempted.</p>
+   * <p>The maximum number of times that communication with the RADIUS server is retried after the initial attempt.</p>
    * @public
    */
-  RadiusRetries?: number;
+  RadiusRetries?: number | undefined;
 
   /**
    * <p>Required for enabling RADIUS on the directory.</p>
    * @public
    */
-  SharedSecret?: string;
+  SharedSecret?: string | undefined;
 
   /**
    * <p>The protocol specified for your RADIUS endpoints.</p>
    * @public
    */
-  AuthenticationProtocol?: RadiusAuthenticationProtocol;
+  AuthenticationProtocol?: RadiusAuthenticationProtocol | undefined;
 
   /**
    * <p>Not currently used.</p>
    * @public
    */
-  DisplayLabel?: string;
+  DisplayLabel?: string | undefined;
 
   /**
    * <p>Not currently used.</p>
    * @public
    */
-  UseSameUsername?: boolean;
+  UseSameUsername?: boolean | undefined;
 }
 
 /**
@@ -2404,25 +2439,25 @@ export interface DirectoryVpcSettingsDescription {
    * <p>The identifier of the VPC that the directory is in.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The identifiers of the subnets for the directory servers.</p>
    * @public
    */
-  SubnetIds?: string[];
+  SubnetIds?: string[] | undefined;
 
   /**
    * <p>The domain controller security group identifier for the directory.</p>
    * @public
    */
-  SecurityGroupId?: string;
+  SecurityGroupId?: string | undefined;
 
   /**
    * <p>The list of Availability Zones that the directory is in.</p>
    * @public
    */
-  AvailabilityZones?: string[];
+  AvailabilityZones?: string[] | undefined;
 }
 
 /**
@@ -2432,42 +2467,41 @@ export interface DirectoryVpcSettingsDescription {
  */
 export interface OwnerDirectoryDescription {
   /**
-   * <p>Identifier of the Managed Microsoft AD directory in the directory owner
-   *       account.</p>
+   * <p>Identifier of the Managed Microsoft AD directory in the directory owner account.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>Identifier of the directory owner account.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>IP address of the directory’s domain controllers.</p>
    * @public
    */
-  DnsIpAddrs?: string[];
+  DnsIpAddrs?: string[] | undefined;
 
   /**
    * <p>Information about the VPC settings for the directory.</p>
    * @public
    */
-  VpcSettings?: DirectoryVpcSettingsDescription;
+  VpcSettings?: DirectoryVpcSettingsDescription | undefined;
 
   /**
    * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
    *       server.</p>
    * @public
    */
-  RadiusSettings?: RadiusSettings;
+  RadiusSettings?: RadiusSettings | undefined;
 
   /**
    * <p>Information about the status of the RADIUS server.</p>
    * @public
    */
-  RadiusStatus?: RadiusStatus;
+  RadiusStatus?: RadiusStatus | undefined;
 }
 
 /**
@@ -2480,14 +2514,14 @@ export interface RegionsInfo {
    * <p>The Region where the Managed Microsoft AD directory was originally created.</p>
    * @public
    */
-  PrimaryRegion?: string;
+  PrimaryRegion?: string | undefined;
 
   /**
    * <p>Lists the Regions where the directory has been replicated, excluding the primary
    *       Region.</p>
    * @public
    */
-  AdditionalRegions?: string[];
+  AdditionalRegions?: string[] | undefined;
 }
 
 /**
@@ -2506,6 +2540,7 @@ export const DirectoryStage = {
   REQUESTED: "Requested",
   RESTOREFAILED: "RestoreFailed",
   RESTORING: "Restoring",
+  UPDATING: "Updating",
 } as const;
 
 /**
@@ -2538,38 +2573,38 @@ export interface DirectoryDescription {
    * <p>The directory identifier.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The fully qualified name of the directory.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The short name of the directory.</p>
    * @public
    */
-  ShortName?: string;
+  ShortName?: string | undefined;
 
   /**
    * <p>The directory size.</p>
    * @public
    */
-  Size?: DirectorySize;
+  Size?: DirectorySize | undefined;
 
   /**
    * <p>The edition associated with this directory.</p>
    * @public
    */
-  Edition?: DirectoryEdition;
+  Edition?: DirectoryEdition | undefined;
 
   /**
    * <p>The alias for the directory. If no alias has been created for the directory, the alias is
    *       the directory identifier, such as <code>d-XXXXXXXXXX</code>.</p>
    * @public
    */
-  Alias?: string;
+  Alias?: string | undefined;
 
   /**
    * <p>The access URL for the directory, such as
@@ -2578,42 +2613,42 @@ export interface DirectoryDescription {
    *         <code>d-XXXXXXXXXX</code>.</p>
    * @public
    */
-  AccessUrl?: string;
+  AccessUrl?: string | undefined;
 
   /**
    * <p>The description for the directory.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The IP addresses of the DNS servers for the directory. For a Simple AD or Microsoft AD
-   *       directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers. For
-   *       an AD Connector directory, these are the IP addresses of the DNS servers or domain controllers
-   *       in your self-managed directory to which the AD Connector is connected.</p>
+   *       directory, these are the IP addresses of the Simple AD or Microsoft AD directory servers.
+   *       For an AD Connector directory, these are the IP addresses of the DNS servers or domain
+   *       controllers in your self-managed directory to which the AD Connector is connected.</p>
    * @public
    */
-  DnsIpAddrs?: string[];
+  DnsIpAddrs?: string[] | undefined;
 
   /**
    * <p>The current stage of the directory.</p>
    * @public
    */
-  Stage?: DirectoryStage;
+  Stage?: DirectoryStage | undefined;
 
   /**
    * <p>Current directory status of the shared Managed Microsoft AD directory.</p>
    * @public
    */
-  ShareStatus?: ShareStatus;
+  ShareStatus?: ShareStatus | undefined;
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
-   *       sending a shared directory request (<code>HANDSHAKE</code>).</p>
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account
+   *       by sending a shared directory request (<code>HANDSHAKE</code>).</p>
    * @public
    */
-  ShareMethod?: ShareMethod;
+  ShareMethod?: ShareMethod | undefined;
 
   /**
    * <p>A directory share request that is sent by the directory owner to the directory consumer.
@@ -2621,33 +2656,33 @@ export interface DirectoryDescription {
    *       whether to approve or reject the share invitation.</p>
    * @public
    */
-  ShareNotes?: string;
+  ShareNotes?: string | undefined;
 
   /**
    * <p>Specifies when the directory was created.</p>
    * @public
    */
-  LaunchTime?: Date;
+  LaunchTime?: Date | undefined;
 
   /**
    * <p>The date and time that the stage was last updated.</p>
    * @public
    */
-  StageLastUpdatedDateTime?: Date;
+  StageLastUpdatedDateTime?: Date | undefined;
 
   /**
-   * <p>The directory size.</p>
+   * <p>The directory type.</p>
    * @public
    */
-  Type?: DirectoryType;
+  Type?: DirectoryType | undefined;
 
   /**
    * <p>A <a>DirectoryVpcSettingsDescription</a> object that contains additional
-   *       information about a directory. This member is only present if the directory is a Simple AD or
-   *       Managed Microsoft AD directory.</p>
+   *       information about a directory. This member is only present if the directory is a Simple AD
+   *       or Managed Microsoft AD directory.</p>
    * @public
    */
-  VpcSettings?: DirectoryVpcSettingsDescription;
+  VpcSettings?: DirectoryVpcSettingsDescription | undefined;
 
   /**
    * <p>A <a>DirectoryConnectSettingsDescription</a> object that contains additional
@@ -2655,57 +2690,57 @@ export interface DirectoryDescription {
    *       an AD Connector directory.</p>
    * @public
    */
-  ConnectSettings?: DirectoryConnectSettingsDescription;
+  ConnectSettings?: DirectoryConnectSettingsDescription | undefined;
 
   /**
    * <p>A <a>RadiusSettings</a> object that contains information about the RADIUS
    *       server configured for this directory.</p>
    * @public
    */
-  RadiusSettings?: RadiusSettings;
+  RadiusSettings?: RadiusSettings | undefined;
 
   /**
    * <p>The status of the RADIUS MFA server connection.</p>
    * @public
    */
-  RadiusStatus?: RadiusStatus;
+  RadiusStatus?: RadiusStatus | undefined;
 
   /**
    * <p>Additional information about the directory stage.</p>
    * @public
    */
-  StageReason?: string;
+  StageReason?: string | undefined;
 
   /**
    * <p>Indicates if single sign-on is enabled for the directory. For more information, see <a>EnableSso</a> and <a>DisableSso</a>.</p>
    * @public
    */
-  SsoEnabled?: boolean;
+  SsoEnabled?: boolean | undefined;
 
   /**
    * <p>The desired number of domain controllers in the directory if the directory is Microsoft
    *       AD.</p>
    * @public
    */
-  DesiredNumberOfDomainControllers?: number;
+  DesiredNumberOfDomainControllers?: number | undefined;
 
   /**
    * <p>Describes the Managed Microsoft AD directory in the directory owner account.</p>
    * @public
    */
-  OwnerDirectoryDescription?: OwnerDirectoryDescription;
+  OwnerDirectoryDescription?: OwnerDirectoryDescription | undefined;
 
   /**
    * <p>Lists the Regions where the directory has replicated.</p>
    * @public
    */
-  RegionsInfo?: RegionsInfo;
+  RegionsInfo?: RegionsInfo | undefined;
 
   /**
    * <p>The operating system (OS) version of the directory.</p>
    * @public
    */
-  OsVersion?: OSVersion;
+  OsVersion?: OSVersion | undefined;
 }
 
 /**
@@ -2714,14 +2749,14 @@ export interface DirectoryDescription {
  */
 export interface DescribeDirectoriesResult {
   /**
-   * <p>The list of <a>DirectoryDescription</a> objects that were retrieved.</p>
+   * <p>The list of available <a>DirectoryDescription</a> objects that were retrieved.</p>
    *          <p>It is possible that this list contains less than the number of items specified in the
    *         <code>Limit</code> member of the request. This occurs if there are less than the requested
    *       number of items left to retrieve, or if the limitations of the operation have been
    *       exceeded.</p>
    * @public
    */
-  DirectoryDescriptions?: DirectoryDescription[];
+  DirectoryDescriptions?: DirectoryDescription[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
@@ -2729,7 +2764,7 @@ export interface DescribeDirectoriesResult {
    *       set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2743,13 +2778,13 @@ export class InvalidNextTokenException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -2768,6 +2803,28 @@ export class InvalidNextTokenException extends __BaseException {
 /**
  * @public
  */
+export interface DescribeDirectoryDataAccessRequest {
+  /**
+   * <p>The directory identifier.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeDirectoryDataAccessResult {
+  /**
+   * <p>The current status of data access through the Directory Service Data API.</p>
+   * @public
+   */
+  DataAccessStatus?: DataAccessStatus | undefined;
+}
+
+/**
+ * @public
+ */
 export interface DescribeDomainControllersRequest {
   /**
    * <p>Identifier of the directory for which to retrieve the domain controller
@@ -2781,7 +2838,7 @@ export interface DescribeDomainControllersRequest {
    *       provided.</p>
    * @public
    */
-  DomainControllerIds?: string[];
+  DomainControllerIds?: string[] | undefined;
 
   /**
    * <p>The <i>DescribeDomainControllers.NextToken</i> value from a previous call
@@ -2789,13 +2846,13 @@ export interface DescribeDomainControllersRequest {
    *     </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -2810,6 +2867,7 @@ export const DomainControllerStatus = {
   FAILED: "Failed",
   IMPAIRED: "Impaired",
   RESTORING: "Restoring",
+  UPDATING: "Updating",
 } as const;
 
 /**
@@ -2826,61 +2884,61 @@ export interface DomainController {
    * <p>Identifier of the directory where the domain controller resides.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>Identifies a specific domain controller in the directory.</p>
    * @public
    */
-  DomainControllerId?: string;
+  DomainControllerId?: string | undefined;
 
   /**
    * <p>The IP address of the domain controller.</p>
    * @public
    */
-  DnsIpAddr?: string;
+  DnsIpAddr?: string | undefined;
 
   /**
    * <p>The identifier of the VPC that contains the domain controller.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>Identifier of the subnet in the VPC that contains the domain controller.</p>
    * @public
    */
-  SubnetId?: string;
+  SubnetId?: string | undefined;
 
   /**
    * <p>The Availability Zone where the domain controller is located.</p>
    * @public
    */
-  AvailabilityZone?: string;
+  AvailabilityZone?: string | undefined;
 
   /**
    * <p>The status of the domain controller.</p>
    * @public
    */
-  Status?: DomainControllerStatus;
+  Status?: DomainControllerStatus | undefined;
 
   /**
    * <p>A description of the domain controller state.</p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
    * <p>Specifies when the domain controller was created.</p>
    * @public
    */
-  LaunchTime?: Date;
+  LaunchTime?: Date | undefined;
 
   /**
    * <p>The date and time that the status was last updated.</p>
    * @public
    */
-  StatusLastUpdatedDateTime?: Date;
+  StatusLastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -2891,7 +2949,7 @@ export interface DescribeDomainControllersResult {
    * <p>List of the <a>DomainController</a> objects that were retrieved.</p>
    * @public
    */
-  DomainControllers?: DomainController[];
+  DomainControllers?: DomainController[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
@@ -2899,7 +2957,7 @@ export interface DescribeDomainControllersResult {
    *       next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2912,7 +2970,7 @@ export interface DescribeEventTopicsRequest {
    *       is null, associations for all Directory IDs are returned.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>A list of Amazon SNS topic names for which to obtain the information. If this member is
@@ -2921,7 +2979,7 @@ export interface DescribeEventTopicsRequest {
    *       thrown.</p>
    * @public
    */
-  TopicNames?: string[];
+  TopicNames?: string[] | undefined;
 }
 
 /**
@@ -2950,31 +3008,31 @@ export interface EventTopic {
    *       topic.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The name of an Amazon SNS topic the receives status messages from the directory.</p>
    * @public
    */
-  TopicName?: string;
+  TopicName?: string | undefined;
 
   /**
    * <p>The Amazon SNS topic ARN (Amazon Resource Name).</p>
    * @public
    */
-  TopicArn?: string;
+  TopicArn?: string | undefined;
 
   /**
    * <p>The date and time of when you associated your directory with the Amazon SNS topic.</p>
    * @public
    */
-  CreatedDateTime?: Date;
+  CreatedDateTime?: Date | undefined;
 
   /**
    * <p>The topic registration status.</p>
    * @public
    */
-  Status?: TopicStatus;
+  Status?: TopicStatus | undefined;
 }
 
 /**
@@ -2987,7 +3045,7 @@ export interface DescribeEventTopicsResult {
    *       ID.</p>
    * @public
    */
-  EventTopics?: EventTopic[];
+  EventTopics?: EventTopic[] | undefined;
 }
 
 /**
@@ -3018,19 +3076,19 @@ export interface DescribeLDAPSSettingsRequest {
    *       supported.</p>
    * @public
    */
-  Type?: LDAPSType;
+  Type?: LDAPSType | undefined;
 
   /**
    * <p>The type of next token used for pagination.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies the number of items that should be displayed on one page.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -3058,19 +3116,19 @@ export interface LDAPSSettingInfo {
    * <p>The state of the LDAPS settings.</p>
    * @public
    */
-  LDAPSStatus?: LDAPSStatus;
+  LDAPSStatus?: LDAPSStatus | undefined;
 
   /**
    * <p>Describes a state change for LDAPS.</p>
    * @public
    */
-  LDAPSStatusReason?: string;
+  LDAPSStatusReason?: string | undefined;
 
   /**
    * <p>The date and time when the LDAPS settings were last updated.</p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3082,14 +3140,14 @@ export interface DescribeLDAPSSettingsResult {
    *       enablement, state last updated date time, and the reason for the state.</p>
    * @public
    */
-  LDAPSSettingsInfo?: LDAPSSettingInfo[];
+  LDAPSSettingsInfo?: LDAPSSettingInfo[] | undefined;
 
   /**
    * <p>The next token used to retrieve the LDAPS settings if the number of setting types exceeds
    *       page limit and there is another page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3106,13 +3164,13 @@ export interface DescribeRegionsRequest {
    * <p>The name of the Region. For example, <code>us-east-1</code>.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>The <code>DescribeRegionsResult.NextToken</code> value from a previous call to <a>DescribeRegions</a>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3138,56 +3196,56 @@ export interface RegionDescription {
    * <p>The identifier of the directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The name of the Region. For example, <code>us-east-1</code>.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>Specifies whether the Region is the primary Region or an additional Region.</p>
    * @public
    */
-  RegionType?: RegionType;
+  RegionType?: RegionType | undefined;
 
   /**
    * <p>The status of the replication process for the specified Region.</p>
    * @public
    */
-  Status?: DirectoryStage;
+  Status?: DirectoryStage | undefined;
 
   /**
    * <p>Contains VPC information for the <a>CreateDirectory</a> or <a>CreateMicrosoftAD</a> operation.</p>
    * @public
    */
-  VpcSettings?: DirectoryVpcSettings;
+  VpcSettings?: DirectoryVpcSettings | undefined;
 
   /**
    * <p>The desired number of domain controllers in the specified Region for the specified
    *       directory.</p>
    * @public
    */
-  DesiredNumberOfDomainControllers?: number;
+  DesiredNumberOfDomainControllers?: number | undefined;
 
   /**
    * <p>Specifies when the Region replication began.</p>
    * @public
    */
-  LaunchTime?: Date;
+  LaunchTime?: Date | undefined;
 
   /**
    * <p>The date and time that the Region status was last updated.</p>
    * @public
    */
-  StatusLastUpdatedDateTime?: Date;
+  StatusLastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The date and time that the Region description was last updated.</p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3198,7 +3256,7 @@ export interface DescribeRegionsResult {
    * <p>List of Region information related to the directory for each replicated Region.</p>
    * @public
    */
-  RegionsDescription?: RegionDescription[];
+  RegionsDescription?: RegionDescription[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
@@ -3206,7 +3264,7 @@ export interface DescribeRegionsResult {
    *       of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3241,13 +3299,13 @@ export interface DescribeSettingsRequest {
    * <p>The status of the directory settings for which to retrieve information.</p>
    * @public
    */
-  Status?: DirectoryConfigurationStatus;
+  Status?: DirectoryConfigurationStatus | undefined;
 
   /**
    * <p>The <code>DescribeSettingsResult.NextToken</code> value from a previous call to <a>DescribeSettings</a>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3256,11 +3314,12 @@ export interface DescribeSettingsRequest {
  */
 export interface SettingEntry {
   /**
-   * <p>The type, or category, of a directory setting. Similar settings have the same type. For example, <code>Protocol</code>, <code>Cipher</code>,
-   *       or <code>Certificate-Based Authentication</code>.</p>
+   * <p>The type, or category, of a directory setting. Similar settings have the same type. For
+   *       example, <code>Protocol</code>, <code>Cipher</code>, or <code>Certificate-Based
+   *         Authentication</code>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The name of the directory setting. For example:</p>
@@ -3269,62 +3328,69 @@ export interface SettingEntry {
    *          </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
-   * <p>The valid range of values for the directory setting. These values depend on the <code>DataType</code> of your directory.</p>
+   * <p>The valid range of values for the directory setting. These values depend on the
+   *         <code>DataType</code> of your directory.</p>
    * @public
    */
-  AllowedValues?: string;
+  AllowedValues?: string | undefined;
 
   /**
    * <p>The value of the directory setting that is applied to the directory.</p>
    * @public
    */
-  AppliedValue?: string;
+  AppliedValue?: string | undefined;
 
   /**
    * <p>The value that was last requested for the directory setting.</p>
    * @public
    */
-  RequestedValue?: string;
+  RequestedValue?: string | undefined;
 
   /**
-   * <p>The overall status of the request to update the directory setting request. If the directory setting is deployed in more than one region, and the request fails in any region, the overall status is <code>Failed</code>.</p>
+   * <p>The overall status of the request to update the directory setting request. If the
+   *       directory setting is deployed in more than one region, and the request fails in any region,
+   *       the overall status is <code>Failed</code>.</p>
    * @public
    */
-  RequestStatus?: DirectoryConfigurationStatus;
+  RequestStatus?: DirectoryConfigurationStatus | undefined;
 
   /**
-   * <p>Details about the status of the request to update the directory setting. If the directory setting is deployed in more than one region, status is returned for the request in each region where the setting is deployed.</p>
+   * <p>Details about the status of the request to update the directory setting. If the directory
+   *       setting is deployed in more than one region, status is returned for the request in each region
+   *       where the setting is deployed.</p>
    * @public
    */
-  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus>;
+  RequestDetailedStatus?: Record<string, DirectoryConfigurationStatus> | undefined;
 
   /**
    * <p>The last status message for the directory status request.</p>
    * @public
    */
-  RequestStatusMessage?: string;
+  RequestStatusMessage?: string | undefined;
 
   /**
    * <p>The date and time when the directory setting was last updated.</p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 
   /**
-   * <p>The date and time when the request to update a directory setting was last submitted.</p>
+   * <p>The date and time when the request to update a directory setting was last
+   *       submitted.</p>
    * @public
    */
-  LastRequestedDateTime?: Date;
+  LastRequestedDateTime?: Date | undefined;
 
   /**
-   * <p>The data type of a directory setting. This is used to define the <code>AllowedValues</code> of a setting.
-   *       For example a data type can be <code>Boolean</code>, <code>DurationInSeconds</code>, or <code>Enum</code>.</p>
+   * <p>The data type of a directory setting. This is used to define the
+   *         <code>AllowedValues</code> of a setting. For example a data type can be
+   *       <code>Boolean</code>, <code>DurationInSeconds</code>, or <code>Enum</code>.</p>
    * @public
    */
-  DataType?: string;
+  DataType?: string | undefined;
 }
 
 /**
@@ -3335,23 +3401,25 @@ export interface DescribeSettingsResult {
    * <p>The identifier of the directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The list of <a>SettingEntry</a> objects that were retrieved.</p>
    *          <p>It is possible that this list contains less than the number of items specified in the
-   *       <code>Limit</code> member of the request. This occurs if there are less than the requested
+   *         <code>Limit</code> member of the request. This occurs if there are less than the requested
    *       number of items left to retrieve, or if the limitations of the operation have been
    *       exceeded.</p>
    * @public
    */
-  SettingEntries?: SettingEntry[];
+  SettingEntries?: SettingEntry[] | undefined;
 
   /**
-   * <p>If not null, token that indicates that more results are available. Pass this value for the <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to retrieve the next set of items. </p>
+   * <p>If not null, token that indicates that more results are available. Pass this value for the
+   *         <code>NextToken</code> parameter in a subsequent call to <code>DescribeSettings</code> to
+   *       retrieve the next set of items. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3368,20 +3436,20 @@ export interface DescribeSharedDirectoriesRequest {
    * <p>A list of identifiers of all shared directories in your account. </p>
    * @public
    */
-  SharedDirectoryIds?: string[];
+  SharedDirectoryIds?: string[] | undefined;
 
   /**
    * <p>The <code>DescribeSharedDirectoriesResult.NextToken</code> value from a previous call to
    *         <a>DescribeSharedDirectories</a>. Pass null if this is the first call. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of shared directories to return in the response object.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -3392,14 +3460,14 @@ export interface DescribeSharedDirectoriesResult {
    * <p>A list of all shared directories in your account.</p>
    * @public
    */
-  SharedDirectories?: SharedDirectory[];
+  SharedDirectories?: SharedDirectory[] | undefined;
 
   /**
    * <p>If not null, token that indicates that more results are available. Pass this value for the
    *         <code>NextToken</code> parameter in a subsequent call to <a>DescribeSharedDirectories</a> to retrieve the next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3411,7 +3479,7 @@ export interface DescribeSnapshotsRequest {
    * <p>The identifier of the directory for which to retrieve snapshot information.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>A list of identifiers of the snapshots to obtain the information for. If this member is
@@ -3419,20 +3487,20 @@ export interface DescribeSnapshotsRequest {
    *          members.</p>
    * @public
    */
-  SnapshotIds?: string[];
+  SnapshotIds?: string[] | undefined;
 
   /**
    * <p>The <i>DescribeSnapshotsResult.NextToken</i> value from a previous call to
    *             <a>DescribeSnapshots</a>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -3473,37 +3541,37 @@ export interface Snapshot {
    * <p>The directory identifier.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The snapshot identifier.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 
   /**
    * <p>The snapshot type.</p>
    * @public
    */
-  Type?: SnapshotType;
+  Type?: SnapshotType | undefined;
 
   /**
    * <p>The descriptive name of the snapshot.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The snapshot status.</p>
    * @public
    */
-  Status?: SnapshotStatus;
+  Status?: SnapshotStatus | undefined;
 
   /**
    * <p>The date and time that the snapshot was taken.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 }
 
 /**
@@ -3519,14 +3587,14 @@ export interface DescribeSnapshotsResult {
    *          exceeded.</p>
    * @public
    */
-  Snapshots?: Snapshot[];
+  Snapshots?: Snapshot[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value in the <i>NextToken</i> member of
    *          a subsequent call to <a>DescribeSnapshots</a>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3541,7 +3609,7 @@ export interface DescribeTrustsRequest {
    *       relationship.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>A list of identifiers of the trust relationships for which to obtain the information. If
@@ -3550,20 +3618,20 @@ export interface DescribeTrustsRequest {
    *          <p>An empty list results in an <code>InvalidParameterException</code> being thrown.</p>
    * @public
    */
-  TrustIds?: string[];
+  TrustIds?: string[] | undefined;
 
   /**
    * <p>The <i>DescribeTrustsResult.NextToken</i> value from a previous call to
    *         <a>DescribeTrusts</a>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of objects to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -3599,68 +3667,68 @@ export interface Trust {
    * <p>The Directory ID of the Amazon Web Services directory involved in the trust relationship.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The unique ID of the trust relationship.</p>
    * @public
    */
-  TrustId?: string;
+  TrustId?: string | undefined;
 
   /**
    * <p>The Fully Qualified Domain Name (FQDN) of the external domain involved in the trust
    *       relationship.</p>
    * @public
    */
-  RemoteDomainName?: string;
+  RemoteDomainName?: string | undefined;
 
   /**
    * <p>The trust relationship type. <code>Forest</code> is the default.</p>
    * @public
    */
-  TrustType?: TrustType;
+  TrustType?: TrustType | undefined;
 
   /**
    * <p>The trust relationship direction.</p>
    * @public
    */
-  TrustDirection?: TrustDirection;
+  TrustDirection?: TrustDirection | undefined;
 
   /**
    * <p>The trust relationship state.</p>
    * @public
    */
-  TrustState?: TrustState;
+  TrustState?: TrustState | undefined;
 
   /**
    * <p>The date and time that the trust relationship was created.</p>
    * @public
    */
-  CreatedDateTime?: Date;
+  CreatedDateTime?: Date | undefined;
 
   /**
    * <p>The date and time that the trust relationship was last updated.</p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The date and time that the TrustState was last updated.</p>
    * @public
    */
-  StateLastUpdatedDateTime?: Date;
+  StateLastUpdatedDateTime?: Date | undefined;
 
   /**
    * <p>The reason for the TrustState.</p>
    * @public
    */
-  TrustStateReason?: string;
+  TrustStateReason?: string | undefined;
 
   /**
    * <p>Current state of selective authentication for the trust.</p>
    * @public
    */
-  SelectiveAuth?: SelectiveAuth;
+  SelectiveAuth?: SelectiveAuth | undefined;
 }
 
 /**
@@ -3676,14 +3744,14 @@ export interface DescribeTrustsResult {
    *       exceeded.</p>
    * @public
    */
-  Trusts?: Trust[];
+  Trusts?: Trust[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value for the
    *         <i>NextToken</i> parameter in a subsequent call to <a>DescribeTrusts</a> to retrieve the next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3704,68 +3772,53 @@ export type UpdateType = (typeof UpdateType)[keyof typeof UpdateType];
  */
 export interface DescribeUpdateDirectoryRequest {
   /**
-   * <p>
-   *       The unique identifier of the directory.
-   *     </p>
+   * <p> The unique identifier of the directory. </p>
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>
-   *       The type of updates you want to describe for the directory.
-   *     </p>
+   * <p> The type of updates you want to describe for the directory. </p>
    * @public
    */
   UpdateType: UpdateType | undefined;
 
   /**
-   * <p>
-   *       The name of the Region.
-   *     </p>
+   * <p> The name of the Region. </p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
-   * <p>
-   *       The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to <a>DescribeUpdateDirectory</a>. Pass null if this is the first call.
-   *     </p>
+   * <p> The <code>DescribeUpdateDirectoryResult</code>. NextToken value from a previous call to
+   *         <a>DescribeUpdateDirectory</a>. Pass null if this is the first call. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *       OS version that the directory needs to be updated to.
- *     </p>
+ * <p> OS version that the directory needs to be updated to. </p>
  * @public
  */
 export interface OSUpdateSettings {
   /**
-   * <p>
-   *       OS version that the directory needs to be updated to.
-   *     </p>
+   * <p> OS version that the directory needs to be updated to. </p>
    * @public
    */
-  OSVersion?: OSVersion;
+  OSVersion?: OSVersion | undefined;
 }
 
 /**
- * <p>
- *       The value for a given type of <code>UpdateSettings</code>.
- *     </p>
+ * <p> The value for a given type of <code>UpdateSettings</code>. </p>
  * @public
  */
 export interface UpdateValue {
   /**
-   * <p>
-   *       The OS update related settings.
-   *     </p>
+   * <p> The OS update related settings. </p>
    * @public
    */
-  OSUpdateSettings?: OSUpdateSettings;
+  OSUpdateSettings?: OSUpdateSettings | undefined;
 }
 
 /**
@@ -3784,75 +3837,58 @@ export const UpdateStatus = {
 export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
 
 /**
- * <p>
- *       An entry of update information related to a requested update type.
- *     </p>
+ * <p> An entry of update information related to a requested update type. </p>
  * @public
  */
 export interface UpdateInfoEntry {
   /**
-   * <p>
-   *       The name of the Region.
-   *     </p>
+   * <p> The name of the Region. </p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
-   * <p>
-   *       The status of the update performed on the directory.
-   *     </p>
+   * <p> The status of the update performed on the directory. </p>
    * @public
    */
-  Status?: UpdateStatus;
+  Status?: UpdateStatus | undefined;
 
   /**
-   * <p>
-   *       The reason for the current status of the update type activity.
-   *     </p>
+   * <p> The reason for the current status of the update type activity. </p>
    * @public
    */
-  StatusReason?: string;
+  StatusReason?: string | undefined;
 
   /**
-   * <p>
-   *       This specifies if the update was initiated by the customer or by the service team.
+   * <p> This specifies if the update was initiated by the customer or by the service team.
    *     </p>
    * @public
    */
-  InitiatedBy?: string;
+  InitiatedBy?: string | undefined;
 
   /**
-   * <p>
-   *       The new value of the target setting.
-   *     </p>
+   * <p> The new value of the target setting. </p>
    * @public
    */
-  NewValue?: UpdateValue;
+  NewValue?: UpdateValue | undefined;
 
   /**
-   * <p>
-   *       The old value of the target setting.
-   *     </p>
+   * <p> The old value of the target setting. </p>
    * @public
    */
-  PreviousValue?: UpdateValue;
+  PreviousValue?: UpdateValue | undefined;
 
   /**
-   * <p>
-   *       The start time of the <code>UpdateDirectorySetup</code> for the particular type.
-   *     </p>
+   * <p> The start time of the <code>UpdateDirectorySetup</code> for the particular type. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
-   * <p>
-   *       The last updated date and time of a particular directory setting.
-   *     </p>
+   * <p> The last updated date and time of a particular directory setting. </p>
    * @public
    */
-  LastUpdatedDateTime?: Date;
+  LastUpdatedDateTime?: Date | undefined;
 }
 
 /**
@@ -3860,26 +3896,21 @@ export interface UpdateInfoEntry {
  */
 export interface DescribeUpdateDirectoryResult {
   /**
-   * <p>
-   *       The list of update activities on a directory for the requested update type.
-   *     </p>
+   * <p> The list of update activities on a directory for the requested update type. </p>
    * @public
    */
-  UpdateActivities?: UpdateInfoEntry[];
+  UpdateActivities?: UpdateInfoEntry[] | undefined;
 
   /**
-   * <p>
-   *       If not null, more results are available. Pass this value for the <code>NextToken</code> parameter.
-   *     </p>
+   * <p> If not null, more results are available. Pass this value for the <code>NextToken</code>
+   *       parameter. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
- * <p>
- *       The directory is already updated to desired update type settings.
- *     </p>
+ * <p> The directory is already updated to desired update type settings. </p>
  * @public
  */
 export class DirectoryInDesiredStateException extends __BaseException {
@@ -3889,13 +3920,13 @@ export class DirectoryInDesiredStateException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -3920,55 +3951,55 @@ export interface DirectoryLimits {
    * <p>The maximum number of cloud directories allowed in the Region.</p>
    * @public
    */
-  CloudOnlyDirectoriesLimit?: number;
+  CloudOnlyDirectoriesLimit?: number | undefined;
 
   /**
    * <p>The current number of cloud directories in the Region.</p>
    * @public
    */
-  CloudOnlyDirectoriesCurrentCount?: number;
+  CloudOnlyDirectoriesCurrentCount?: number | undefined;
 
   /**
    * <p>Indicates if the cloud directory limit has been reached.</p>
    * @public
    */
-  CloudOnlyDirectoriesLimitReached?: boolean;
+  CloudOnlyDirectoriesLimitReached?: boolean | undefined;
 
   /**
    * <p>The maximum number of Managed Microsoft AD directories allowed in the region.</p>
    * @public
    */
-  CloudOnlyMicrosoftADLimit?: number;
+  CloudOnlyMicrosoftADLimit?: number | undefined;
 
   /**
    * <p>The current number of Managed Microsoft AD directories in the region.</p>
    * @public
    */
-  CloudOnlyMicrosoftADCurrentCount?: number;
+  CloudOnlyMicrosoftADCurrentCount?: number | undefined;
 
   /**
    * <p>Indicates if the Managed Microsoft AD directory limit has been reached.</p>
    * @public
    */
-  CloudOnlyMicrosoftADLimitReached?: boolean;
+  CloudOnlyMicrosoftADLimitReached?: boolean | undefined;
 
   /**
    * <p>The maximum number of connected directories allowed in the Region.</p>
    * @public
    */
-  ConnectedDirectoriesLimit?: number;
+  ConnectedDirectoriesLimit?: number | undefined;
 
   /**
    * <p>The current number of connected directories in the Region.</p>
    * @public
    */
-  ConnectedDirectoriesCurrentCount?: number;
+  ConnectedDirectoriesCurrentCount?: number | undefined;
 
   /**
    * <p>Indicates if the connected directory limit has been reached.</p>
    * @public
    */
-  ConnectedDirectoriesLimitReached?: boolean;
+  ConnectedDirectoriesLimitReached?: boolean | undefined;
 }
 
 /**
@@ -3982,13 +4013,13 @@ export class DirectoryNotSharedException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -4015,7 +4046,8 @@ export interface DisableClientAuthenticationRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication to disable. Currently, only the parameter, <code>SmartCard</code> is supported.</p>
+   * <p>The type of client authentication to disable. Currently the only parameter
+   *         <code>"SmartCard"</code> is supported.</p>
    * @public
    */
   Type: ClientAuthenticationType | undefined;
@@ -4037,13 +4069,13 @@ export class InvalidClientAuthStatusException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -4058,6 +4090,22 @@ export class InvalidClientAuthStatusException extends __BaseException {
     this.RequestId = opts.RequestId;
   }
 }
+
+/**
+ * @public
+ */
+export interface DisableDirectoryDataAccessRequest {
+  /**
+   * <p>The directory identifier.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableDirectoryDataAccessResult {}
 
 /**
  * @public
@@ -4094,13 +4142,13 @@ export class InvalidLDAPSStatusException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -4156,7 +4204,7 @@ export interface DisableSsoRequest {
    *       changed.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The password of an alternate account to use to disable single-sign on. This is only used
@@ -4164,7 +4212,7 @@ export interface DisableSsoRequest {
    *       parameter.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 }
 
 /**
@@ -4184,10 +4232,10 @@ export interface EnableClientAuthenticationRequest {
   DirectoryId: string | undefined;
 
   /**
-   * <p>The type of client authentication to enable. Currently only the value <code>SmartCard</code> is
-   *       supported. Smart card authentication in AD Connector requires that you enable Kerberos
-   *       Constrained Delegation for the Service User to the LDAP service in your self-managed AD.
-   *     </p>
+   * <p>The type of client authentication to enable. Currently only the value
+   *         <code>SmartCard</code> is supported. Smart card authentication in AD Connector requires
+   *       that you enable Kerberos Constrained Delegation for the Service User to the LDAP service in
+   *       your self-managed AD. </p>
    * @public
    */
   Type: ClientAuthenticationType | undefined;
@@ -4199,8 +4247,8 @@ export interface EnableClientAuthenticationRequest {
 export interface EnableClientAuthenticationResult {}
 
 /**
- * <p>Client authentication setup could not be completed because at least one valid certificate must be
- *       registered in the system.</p>
+ * <p>Client authentication setup could not be completed because at least one valid certificate
+ *       must be registered in the system.</p>
  * @public
  */
 export class NoAvailableCertificateException extends __BaseException {
@@ -4210,13 +4258,13 @@ export class NoAvailableCertificateException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -4231,6 +4279,22 @@ export class NoAvailableCertificateException extends __BaseException {
     this.RequestId = opts.RequestId;
   }
 }
+
+/**
+ * @public
+ */
+export interface EnableDirectoryDataAccessRequest {
+  /**
+   * <p>The directory identifier.</p>
+   * @public
+   */
+  DirectoryId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableDirectoryDataAccessResult {}
 
 /**
  * @public
@@ -4302,7 +4366,7 @@ export interface EnableSsoRequest {
    *       changed.</p>
    * @public
    */
-  UserName?: string;
+  UserName?: string | undefined;
 
   /**
    * <p>The password of an alternate account to use to enable single-sign on. This is only used
@@ -4310,7 +4374,7 @@ export interface EnableSsoRequest {
    *       parameter.</p>
    * @public
    */
-  Password?: string;
+  Password?: string | undefined;
 }
 
 /**
@@ -4335,7 +4399,7 @@ export interface GetDirectoryLimitsResult {
    *       current Region.</p>
    * @public
    */
-  DirectoryLimits?: DirectoryLimits;
+  DirectoryLimits?: DirectoryLimits | undefined;
 }
 
 /**
@@ -4359,19 +4423,19 @@ export interface SnapshotLimits {
    * <p>The maximum number of manual snapshots allowed.</p>
    * @public
    */
-  ManualSnapshotsLimit?: number;
+  ManualSnapshotsLimit?: number | undefined;
 
   /**
    * <p>The current number of manual snapshots of the directory.</p>
    * @public
    */
-  ManualSnapshotsCurrentCount?: number;
+  ManualSnapshotsCurrentCount?: number | undefined;
 
   /**
    * <p>Indicates if the manual snapshot limit has been reached.</p>
    * @public
    */
-  ManualSnapshotsLimitReached?: boolean;
+  ManualSnapshotsLimitReached?: boolean | undefined;
 }
 
 /**
@@ -4384,7 +4448,7 @@ export interface GetSnapshotLimitsResult {
    *          directory.</p>
    * @public
    */
-  SnapshotLimits?: SnapshotLimits;
+  SnapshotLimits?: SnapshotLimits | undefined;
 }
 
 /**
@@ -4404,13 +4468,13 @@ export interface ListCertificatesRequest {
    *         <code>null</code>. Pass <code>null</code> if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items that should show up on one page</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4422,14 +4486,14 @@ export interface ListCertificatesResult {
    *       certificates exceeds the page limit.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>A list of certificates with basic details including certificate ID, certificate common
    *       name, certificate state.</p>
    * @public
    */
-  CertificatesInfo?: CertificateInfo[];
+  CertificatesInfo?: CertificateInfo[] | undefined;
 }
 
 /**
@@ -4447,14 +4511,14 @@ export interface ListIpRoutesRequest {
    * <p>The <i>ListIpRoutes.NextToken</i> value from a previous call to <a>ListIpRoutes</a>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of items to return. If this value is zero, the maximum number of items
    *          is specified by the limitations of the operation.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4484,37 +4548,37 @@ export interface IpRouteInfo {
    * <p>Identifier (ID) of the directory associated with the IP addresses.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>IP address block in the <a>IpRoute</a>.</p>
    * @public
    */
-  CidrIp?: string;
+  CidrIp?: string | undefined;
 
   /**
    * <p>The status of the IP address block.</p>
    * @public
    */
-  IpRouteStatusMsg?: IpRouteStatusMsg;
+  IpRouteStatusMsg?: IpRouteStatusMsg | undefined;
 
   /**
    * <p>The date and time the address block was added to the directory.</p>
    * @public
    */
-  AddedDateTime?: Date;
+  AddedDateTime?: Date | undefined;
 
   /**
    * <p>The reason for the IpRouteStatusMsg.</p>
    * @public
    */
-  IpRouteStatusReason?: string;
+  IpRouteStatusReason?: string | undefined;
 
   /**
    * <p>Description of the <a>IpRouteInfo</a>.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -4525,14 +4589,14 @@ export interface ListIpRoutesResult {
    * <p>A list of <a>IpRoute</a>s.</p>
    * @public
    */
-  IpRoutesInfo?: IpRouteInfo[];
+  IpRoutesInfo?: IpRouteInfo[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value for the
    *             <i>NextToken</i> parameter in a subsequent call to <a>ListIpRoutes</a> to retrieve the next set of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4542,23 +4606,23 @@ export interface ListLogSubscriptionsRequest {
   /**
    * <p>If a <i>DirectoryID</i> is provided, lists only the log subscription
    *       associated with that directory. If no <i>DirectoryId</i> is provided, lists all
-   *       log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for the
-   *       Amazon Web Services account or the directory, an empty list will be returned.</p>
+   *       log subscriptions associated with your Amazon Web Services account. If there are no log subscriptions for
+   *       the Amazon Web Services account or the directory, an empty list will be returned.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The token for the next set of items to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items returned.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4572,19 +4636,19 @@ export interface LogSubscription {
    *       subscription.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The name of the log group.</p>
    * @public
    */
-  LogGroupName?: string;
+  LogGroupName?: string | undefined;
 
   /**
    * <p>The date and time that the log subscription was created.</p>
    * @public
    */
-  SubscriptionCreatedDateTime?: Date;
+  SubscriptionCreatedDateTime?: Date | undefined;
 }
 
 /**
@@ -4592,16 +4656,17 @@ export interface LogSubscription {
  */
 export interface ListLogSubscriptionsResult {
   /**
-   * <p>A list of active <a>LogSubscription</a> objects for calling the Amazon Web Services account.</p>
+   * <p>A list of active <a>LogSubscription</a> objects for calling the
+   *       Amazon Web Services account.</p>
    * @public
    */
-  LogSubscriptions?: LogSubscription[];
+  LogSubscriptions?: LogSubscription[] | undefined;
 
   /**
    * <p>The token for the next set of items to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4620,13 +4685,13 @@ export interface ListSchemaExtensionsRequest {
    *         <code>ListSchemaExtensions</code>. Pass null if this is the first call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of items to return.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4659,44 +4724,44 @@ export interface SchemaExtensionInfo {
    * <p>The identifier of the directory to which the schema extension is applied.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 
   /**
    * <p>The identifier of the schema extension.</p>
    * @public
    */
-  SchemaExtensionId?: string;
+  SchemaExtensionId?: string | undefined;
 
   /**
    * <p>A description of the schema extension.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The current status of the schema extension.</p>
    * @public
    */
-  SchemaExtensionStatus?: SchemaExtensionStatus;
+  SchemaExtensionStatus?: SchemaExtensionStatus | undefined;
 
   /**
    * <p>The reason for the <code>SchemaExtensionStatus</code>.</p>
    * @public
    */
-  SchemaExtensionStatusReason?: string;
+  SchemaExtensionStatusReason?: string | undefined;
 
   /**
    * <p>The date and time that the schema extension started being applied to the
    *       directory.</p>
    * @public
    */
-  StartDateTime?: Date;
+  StartDateTime?: Date | undefined;
 
   /**
    * <p>The date and time that the schema extension was completed.</p>
    * @public
    */
-  EndDateTime?: Date;
+  EndDateTime?: Date | undefined;
 }
 
 /**
@@ -4707,7 +4772,7 @@ export interface ListSchemaExtensionsResult {
    * <p>Information about the schema extensions applied to the directory.</p>
    * @public
    */
-  SchemaExtensionsInfo?: SchemaExtensionInfo[];
+  SchemaExtensionsInfo?: SchemaExtensionInfo[] | undefined;
 
   /**
    * <p>If not null, more results are available. Pass this value for the <code>NextToken</code>
@@ -4715,7 +4780,7 @@ export interface ListSchemaExtensionsResult {
    *       of items.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4732,13 +4797,13 @@ export interface ListTagsForResourceRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -4749,13 +4814,13 @@ export interface ListTagsForResourceResult {
    * <p>List of tags returned by the ListTagsForResource operation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4769,13 +4834,13 @@ export class InvalidCertificateException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -4808,16 +4873,19 @@ export interface RegisterCertificateRequest {
   CertificateData: string | undefined;
 
   /**
-   * <p>The function that the registered certificate performs. Valid values include <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is <code>ClientLDAPS</code>.</p>
+   * <p>The function that the registered certificate performs. Valid values include
+   *         <code>ClientLDAPS</code> or <code>ClientCertAuth</code>. The default value is
+   *         <code>ClientLDAPS</code>.</p>
    * @public
    */
-  Type?: CertificateType;
+  Type?: CertificateType | undefined;
 
   /**
-   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate authentication settings.</p>
+   * <p>A <code>ClientCertAuthSettings</code> object that contains client certificate
+   *       authentication settings.</p>
    * @public
    */
-  ClientCertAuthSettings?: ClientCertAuthSettings;
+  ClientCertAuthSettings?: ClientCertAuthSettings | undefined;
 }
 
 /**
@@ -4828,7 +4896,7 @@ export interface RegisterCertificateResult {
    * <p>The identifier of the certificate.</p>
    * @public
    */
-  CertificateId?: string;
+  CertificateId?: string | undefined;
 }
 
 /**
@@ -4876,7 +4944,7 @@ export interface RejectSharedDirectoryResult {
    * <p>Identifier of the shared directory in the directory consumer account.</p>
    * @public
    */
-  SharedDirectoryId?: string;
+  SharedDirectoryId?: string | undefined;
 }
 
 /**
@@ -4952,13 +5020,13 @@ export class InvalidPasswordException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -4979,8 +5047,7 @@ export class InvalidPasswordException extends __BaseException {
  */
 export interface ResetUserPasswordRequest {
   /**
-   * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user
-   *       resides.</p>
+   * <p>Identifier of the Managed Microsoft AD or Simple AD directory in which the user resides.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5014,13 +5081,13 @@ export class UserDoesNotExistException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5065,13 +5132,13 @@ export class InvalidTargetException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5098,13 +5165,13 @@ export class OrganizationsException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5156,7 +5223,8 @@ export interface ShareTarget {
  */
 export interface ShareDirectoryRequest {
   /**
-   * <p>Identifier of the Managed Microsoft AD directory that you want to share with other Amazon Web Services accounts.</p>
+   * <p>Identifier of the Managed Microsoft AD directory that you want to share with other
+   *       Amazon Web Services accounts.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5167,7 +5235,7 @@ export interface ShareDirectoryRequest {
    *       whether to approve or reject the share invitation.</p>
    * @public
    */
-  ShareNotes?: string;
+  ShareNotes?: string | undefined;
 
   /**
    * <p>Identifier for the directory consumer account with whom the directory is to be
@@ -5178,8 +5246,8 @@ export interface ShareDirectoryRequest {
 
   /**
    * <p>The method used when sharing a directory to determine whether the directory should be
-   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account by
-   *       sending a directory sharing request (<code>HANDSHAKE</code>).</p>
+   *       shared within your Amazon Web Services organization (<code>ORGANIZATIONS</code>) or with any Amazon Web Services account
+   *       by sending a directory sharing request (<code>HANDSHAKE</code>).</p>
    * @public
    */
   ShareMethod: ShareMethod | undefined;
@@ -5194,7 +5262,7 @@ export interface ShareDirectoryResult {
    *       shared from the specified directory (<code>DirectoryId</code>).</p>
    * @public
    */
-  SharedDirectoryId?: string;
+  SharedDirectoryId?: string | undefined;
 }
 
 /**
@@ -5209,13 +5277,13 @@ export class ShareLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5272,7 +5340,7 @@ export interface StartSchemaExtensionResult {
    * <p>The identifier of the schema extension that will be applied.</p>
    * @public
    */
-  SchemaExtensionId?: string;
+  SchemaExtensionId?: string | undefined;
 }
 
 /**
@@ -5299,8 +5367,7 @@ export interface UnshareTarget {
  */
 export interface UnshareDirectoryRequest {
   /**
-   * <p>The identifier of the Managed Microsoft AD directory that you want to stop
-   *       sharing.</p>
+   * <p>The identifier of the Managed Microsoft AD directory that you want to stop sharing.</p>
    * @public
    */
   DirectoryId: string | undefined;
@@ -5322,7 +5389,7 @@ export interface UnshareDirectoryResult {
    *       unshared from the specified directory (<code>DirectoryId</code>).</p>
    * @public
    */
-  SharedDirectoryId?: string;
+  SharedDirectoryId?: string | undefined;
 }
 
 /**
@@ -5363,36 +5430,29 @@ export interface UpdateConditionalForwarderResult {}
  */
 export interface UpdateDirectorySetupRequest {
   /**
-   * <p>
-   *       The identifier of the directory on which you want to perform the update.
-   *     </p>
+   * <p> The identifier of the directory on which you want to perform the update. </p>
    * @public
    */
   DirectoryId: string | undefined;
 
   /**
-   * <p>
-   *       The type of update that needs to be performed on the directory. For example, OS.
-   *     </p>
+   * <p> The type of update that needs to be performed on the directory. For example, OS. </p>
    * @public
    */
   UpdateType: UpdateType | undefined;
 
   /**
-   * <p>
-   *       The settings for the OS update that needs to be performed on the directory.
-   *     </p>
+   * <p> The settings for the OS update that needs to be performed on the directory. </p>
    * @public
    */
-  OSUpdateSettings?: OSUpdateSettings;
+  OSUpdateSettings?: OSUpdateSettings | undefined;
 
   /**
-   * <p>
-   *       The boolean that specifies if a snapshot for the directory needs to be taken before updating the directory.
-   *     </p>
+   * <p> The boolean that specifies if a snapshot for the directory needs to be taken before
+   *       updating the directory. </p>
    * @public
    */
-  CreateSnapshotBeforeUpdate?: boolean;
+  CreateSnapshotBeforeUpdate?: boolean | undefined;
 }
 
 /**
@@ -5412,13 +5472,13 @@ export class DomainControllerLimitExceededException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5494,13 +5554,13 @@ export class IncompatibleSettingsException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5527,13 +5587,13 @@ export class UnsupportedSettingsException extends __BaseException {
    * <p>The descriptive message for the exception.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -5564,7 +5624,9 @@ export interface Setting {
   Name: string | undefined;
 
   /**
-   * <p>The value of the directory setting for which to retrieve information. For example, for <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and <code>Disable</code>.</p>
+   * <p>The value of the directory setting for which to retrieve information. For example, for
+   *         <code>TLS_1_0</code>, the valid values are: <code>Enable</code> and
+   *       <code>Disable</code>.</p>
    * @public
    */
   Value: string | undefined;
@@ -5595,7 +5657,7 @@ export interface UpdateSettingsResult {
    * <p>The identifier of the directory.</p>
    * @public
    */
-  DirectoryId?: string;
+  DirectoryId?: string | undefined;
 }
 
 /**
@@ -5612,7 +5674,7 @@ export interface UpdateTrustRequest {
    * <p>Updates selective authentication for the trust.</p>
    * @public
    */
-  SelectiveAuth?: SelectiveAuth;
+  SelectiveAuth?: SelectiveAuth | undefined;
 }
 
 /**
@@ -5623,13 +5685,13 @@ export interface UpdateTrustResult {
    * <p>The Amazon Web Services request identifier.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
 
   /**
    * <p>Identifier of the trust relationship.</p>
    * @public
    */
-  TrustId?: string;
+  TrustId?: string | undefined;
 }
 
 /**
@@ -5654,7 +5716,7 @@ export interface VerifyTrustResult {
    * <p>The unique Trust ID of the trust relationship that was verified.</p>
    * @public
    */
-  TrustId?: string;
+  TrustId?: string | undefined;
 }
 
 /**

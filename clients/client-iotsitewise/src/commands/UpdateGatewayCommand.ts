@@ -12,7 +12,8 @@ import { de_UpdateGatewayCommand, se_UpdateGatewayCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface UpdateGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateGatewayCommand extends $Command
@@ -83,9 +85,7 @@ export class UpdateGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class UpdateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGatewayCommand)
   .de(de_UpdateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateGatewayCommandInput;
+      output: UpdateGatewayCommandOutput;
+    };
+  };
+}

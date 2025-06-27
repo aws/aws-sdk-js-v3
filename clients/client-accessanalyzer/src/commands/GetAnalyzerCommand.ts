@@ -12,7 +12,8 @@ import { de_GetAnalyzerCommand, se_GetAnalyzerCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,37 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * //     configuration: { // AnalyzerConfiguration Union: only one key present
  * //       unusedAccess: { // UnusedAccessConfiguration
  * //         unusedAccessAge: Number("int"),
+ * //         analysisRule: { // AnalysisRule
+ * //           exclusions: [ // AnalysisRuleCriteriaList
+ * //             { // AnalysisRuleCriteria
+ * //               accountIds: [ // AccountIdsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               resourceTags: [ // TagsList
+ * //                 {
+ * //                   "<keys>": "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       internalAccess: { // InternalAccessConfiguration
+ * //         analysisRule: { // InternalAccessAnalysisRule
+ * //           inclusions: [ // InternalAccessAnalysisRuleCriteriaList
+ * //             { // InternalAccessAnalysisRuleCriteria
+ * //               accountIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               resourceTypes: [ // ResourceTypeList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               resourceArns: [ // ResourceArnsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //     },
  * //   },
@@ -88,6 +120,7 @@ export interface GetAnalyzerCommandOutput extends GetAnalyzerResponse, __Metadat
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetAnalyzerCommand extends $Command
@@ -98,9 +131,7 @@ export class GetAnalyzerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +143,16 @@ export class GetAnalyzerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnalyzerCommand)
   .de(de_GetAnalyzerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnalyzerRequest;
+      output: GetAnalyzerResponse;
+    };
+    sdk: {
+      input: GetAnalyzerCommandInput;
+      output: GetAnalyzerCommandOutput;
+    };
+  };
+}

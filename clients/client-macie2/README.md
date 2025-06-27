@@ -10,7 +10,7 @@ AWS SDK for JavaScript Macie2 Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-macie2
+To install this package, simply type add or install @aws-sdk/client-macie2
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-macie2`
@@ -217,6 +217,14 @@ BatchGetCustomDataIdentifiers
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/BatchGetCustomDataIdentifiersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/BatchGetCustomDataIdentifiersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/BatchGetCustomDataIdentifiersCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchUpdateAutomatedDiscoveryAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/BatchUpdateAutomatedDiscoveryAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/BatchUpdateAutomatedDiscoveryAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/BatchUpdateAutomatedDiscoveryAccountsCommandOutput/)
 
 </details>
 <details>
@@ -585,6 +593,14 @@ ListAllowLists
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/ListAllowListsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAllowListsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAllowListsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAutomatedDiscoveryAccounts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/macie2/command/ListAutomatedDiscoveryAccountsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAutomatedDiscoveryAccountsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-macie2/Interface/ListAutomatedDiscoveryAccountsCommandOutput/)
 
 </details>
 <details>

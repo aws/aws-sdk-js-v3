@@ -12,7 +12,8 @@ import { de_DescribeTrackerCommand, se_DescribeTrackerCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface DescribeTrackerCommandOutput extends DescribeTrackerResponse, _
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrackerCommand extends $Command
@@ -93,9 +95,7 @@ export class DescribeTrackerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class DescribeTrackerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrackerCommand)
   .de(de_DescribeTrackerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrackerRequest;
+      output: DescribeTrackerResponse;
+    };
+    sdk: {
+      input: DescribeTrackerCommandInput;
+      output: DescribeTrackerCommandOutput;
+    };
+  };
+}

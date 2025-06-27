@@ -16,7 +16,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,30 +116,34 @@ export interface GetSecretValueCommandOutput extends GetSecretValueResponse, __M
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To retrieve the encrypted secret value of a secret
  * ```javascript
  * // The following example shows how to retrieve a secret string value.
  * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new GetSecretValueCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "CreatedDate": 1523477145.713,
- *   "Name": "MyTestDatabaseSecret",
- *   "SecretString": "{\n  \"username\":\"david\",\n  \"password\":\"EXAMPLE-PASSWORD\"\n}\n",
- *   "VersionId": "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
- *   "VersionStages": [
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   CreatedDate: 1.523477145713E9,
+ *   Name: "MyTestDatabaseSecret",
+ *   SecretString: `{
+ *   "username":"david",
+ *   "password":"EXAMPLE-PASSWORD"
+ * }
+ * `,
+ *   VersionId: "EXAMPLE1-90ab-cdef-fedc-ba987SECRET1",
+ *   VersionStages: [
  *     "AWSPREVIOUS"
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-the-encrypted-secret-value-of-a-secret-1524000702484
  * ```
  *
+ * @public
  */
 export class GetSecretValueCommand extends $Command
   .classBuilder<
@@ -148,9 +153,7 @@ export class GetSecretValueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +165,16 @@ export class GetSecretValueCommand extends $Command
   .f(void 0, GetSecretValueResponseFilterSensitiveLog)
   .ser(se_GetSecretValueCommand)
   .de(de_GetSecretValueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecretValueRequest;
+      output: GetSecretValueResponse;
+    };
+    sdk: {
+      input: GetSecretValueCommandInput;
+      output: GetSecretValueCommandOutput;
+    };
+  };
+}

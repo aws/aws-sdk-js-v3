@@ -12,7 +12,8 @@ import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,8 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * //     },
  * //   ],
  * //   WorkgroupName: "STRING_VALUE",
+ * //   SessionId: "STRING_VALUE",
+ * //   ResultFormat: "STRING_VALUE",
  * // };
  *
  * ```
@@ -105,6 +108,7 @@ export interface DescribeStatementCommandOutput extends DescribeStatementRespons
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class DescribeStatementCommand extends $Command
@@ -115,9 +119,7 @@ export class DescribeStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +131,16 @@ export class DescribeStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStatementCommand)
   .de(de_DescribeStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStatementRequest;
+      output: DescribeStatementResponse;
+    };
+    sdk: {
+      input: DescribeStatementCommandInput;
+      output: DescribeStatementCommandOutput;
+    };
+  };
+}

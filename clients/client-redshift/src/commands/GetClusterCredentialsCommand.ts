@@ -13,7 +13,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface GetClusterCredentialsCommandOutput extends ClusterCredentials, 
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class GetClusterCredentialsCommand extends $Command
@@ -102,9 +104,7 @@ export class GetClusterCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class GetClusterCredentialsCommand extends $Command
   .f(void 0, ClusterCredentialsFilterSensitiveLog)
   .ser(se_GetClusterCredentialsCommand)
   .de(de_GetClusterCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterCredentialsMessage;
+      output: ClusterCredentials;
+    };
+    sdk: {
+      input: GetClusterCredentialsCommandInput;
+      output: GetClusterCredentialsCommandOutput;
+    };
+  };
+}

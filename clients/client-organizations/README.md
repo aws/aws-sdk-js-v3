@@ -81,7 +81,7 @@ on and find your log files, see the <a href="https://docs.aws.amazon.com/awsclou
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-organizations
+To install this package, simply type add or install @aws-sdk/client-organizations
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-organizations`

@@ -14,7 +14,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.logging.Logger;
 import software.amazon.smithy.aws.traits.auth.SigV4Trait;
-import software.amazon.smithy.aws.typescript.codegen.AwsCredentialProviderUtils;
 import software.amazon.smithy.aws.typescript.codegen.AwsDependency;
 import software.amazon.smithy.aws.typescript.codegen.AwsTraitsUtils;
 import software.amazon.smithy.codegen.core.Symbol;
@@ -42,8 +41,6 @@ import software.amazon.smithy.utils.SmithyInternalApi;
 
 /**
  * Add STS Auth customizations.
- *
- * This is the experimental behavior for `experimentalIdentityAndAuth`.
  */
 @SmithyInternalApi
 @SuppressWarnings("AbbreviationAsWordInName")
@@ -66,11 +63,11 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
     private static final String ROLE_ASSUMERS_TEST_FILE = "defaultRoleAssumers.spec";
 
     /**
-     * Integration should only be used if `experimentalIdentityAndAuth` flag is true.
+     * Integration should be skipped if the `useLegacyAuth` flag is true.
      */
     @Override
     public boolean matchesSettings(TypeScriptSettings settings) {
-        return settings.getExperimentalIdentityAndAuth() && isSTSService(settings.getService());
+        return !settings.useLegacyAuth() && isSTSService(settings.getService());
     }
 
     @Override
@@ -115,8 +112,6 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
                             .addImport("defaultProvider", "credentialDefaultProvider",
                                 AwsDependency.CREDENTIAL_PROVIDER_NODE)
                             .write("credentialDefaultProvider");
-                        AwsCredentialProviderUtils.addAwsCredentialProviderDependencies(
-                            settings.getService(model), writer);
                     }
                 );
             default:
@@ -199,10 +194,9 @@ public final class AddSTSAuthCustomizations implements HttpAuthTypeScriptIntegra
             w.openBlock("""
                 export const resolveStsAuthConfig = <T>(
                   input: T & StsAuthInputConfig
-                ): T & StsAuthResolvedConfig => ({
+                ): T & StsAuthResolvedConfig => Object.assign(input, {
                 """, "});", () -> {
                     w.write("""
-                        ...input,
                         stsClientCtor: STSClient,
                         """);
                 });

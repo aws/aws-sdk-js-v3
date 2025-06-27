@@ -17,7 +17,8 @@ import { de_CreateAccountCommand, se_CreateAccountCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,8 +71,7 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                <li>
  *                   <p>When you create an account in an organization using the Organizations console,
  *                         API, or CLI commands, the information required for the account to operate
- *                         as a standalone account, such as a payment method and signing the end user
- *                         license agreement (EULA) is <i>not</i> automatically
+ *                         as a standalone account, such as a payment method is <i>not</i> automatically
  *                         collected. If you must remove an account from your organization later, you
  *                         can do so only after you provide the missing information. For more
  *                         information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_account-before-remove.html">Considerations before removing an account from an organization</a>
@@ -87,9 +87,8 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                         If the error persists, contact <a href="https://console.aws.amazon.com/support/home#/">Amazon Web Services Support</a>.</p>
  *                </li>
  *                <li>
- *                   <p>Using <code>CreateAccount</code> to create multiple temporary accounts
- *                         isn't recommended. You can only close an account from the Billing and Cost Management console, and
- *                         you must be signed in as the root user. For information on the requirements
+ *                   <p>It isn't recommended to use <code>CreateAccount</code> to create multiple temporary accounts, and using
+ *                         the <code>CreateAccount</code> API to close accounts is subject to a 30-day usage quota. For information on the requirements
  *                         and process for closing an account, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_close.html">Closing a member
  *                             account in your organization</a> in the
  *                             <i>Organizations User Guide</i>.</p>
@@ -210,6 +209,13 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                </important>
  *             </li>
  *             <li>
+ *                <p>ALL_FEATURES_MIGRATION_ORGANIZATION_SIZE_LIMIT_EXCEEDED: Your organization has
+ *                     more than 5000 accounts, and you can only use the standard migration process for
+ *                     organizations with less than 5000 accounts. Use the assisted migration process
+ *                     to enable all features mode, or create a support case for assistance if you are
+ *                     unable to use assisted migration.</p>
+ *             </li>
+ *             <li>
  *                <p>CANNOT_REGISTER_SUSPENDED_ACCOUNT_AS_DELEGATED_ADMINISTRATOR: You cannot
  *                     register a suspended account as a delegated administrator.</p>
  *             </li>
@@ -268,15 +274,13 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *             <li>
  *                <p>MASTER_ACCOUNT_ADDRESS_DOES_NOT_MATCH_MARKETPLACE: To create an account in
  *                     this organization, you first must migrate the organization's management account
- *                     to the marketplace that corresponds to the management account's address. For
- *                     example, accounts with India addresses must be associated with the AISPL
- *                     marketplace. All accounts in an organization must be associated with the same
- *                     marketplace.</p>
+ *                     to the marketplace that corresponds to the management account's address. All
+ *                     accounts in an organization must be associated with the same marketplace.</p>
  *             </li>
  *             <li>
- *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions
- *                     in China. To create an organization, the master must have a valid business
- *                     license. For more information, contact customer support.</p>
+ *                <p>MASTER_ACCOUNT_MISSING_BUSINESS_LICENSE: Applies only to the Amazon Web Services Regions in
+ *                     China. To create an organization, the master must have a valid business license.
+ *                     For more information, contact customer support.</p>
  *             </li>
  *             <li>
  *                <p>MASTER_ACCOUNT_MISSING_CONTACT_INFO: To complete this operation, you must
@@ -344,18 +348,32 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     that you can have in an organization.</p>
  *             </li>
  *             <li>
- *                <p>SERVICE_ACCESS_NOT_ENABLED: You attempted to register a delegated
- *                     administrator before you enabled service access. Call the
- *                         <code>EnableAWSServiceAccess</code> API first.</p>
+ *                <p>POLICY_TYPE_ENABLED_FOR_THIS_SERVICE: You attempted to disable service access
+ *                     before you disabled the policy type (for example, SECURITYHUB_POLICY). To
+ *                     complete this operation, you must first disable the policy type.</p>
+ *             </li>
+ *             <li>
+ *                <p>SERVICE_ACCESS_NOT_ENABLED:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>You attempted to register a delegated administrator before you enabled
+ *                             service access. Call the <code>EnableAWSServiceAccess</code> API
+ *                             first.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>You attempted to enable a policy type before you enabled service
+ *                             access. Call the <code>EnableAWSServiceAccess</code> API first.</p>
+ *                   </li>
+ *                </ul>
  *             </li>
  *             <li>
  *                <p>TAG_POLICY_VIOLATION: You attempted to create or update a resource with tags
  *                     that are not compliant with the tag policy requirements for this account.</p>
  *             </li>
  *             <li>
- *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, there is a waiting
- *                     period before you can remove it from the organization. If you get an error that
- *                     indicates that a wait period is required, try again in a few days.</p>
+ *                <p>WAIT_PERIOD_ACTIVE: After you create an Amazon Web Services account, you must wait until at
+ *                     least seven days after the account was created. Invited accounts aren't subject
+ *                     to this waiting period.</p>
  *             </li>
  *          </ul>
  *
@@ -419,6 +437,10 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -459,6 +481,9 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -484,29 +509,29 @@ export interface CreateAccountCommandOutput extends CreateAccountResponse, __Met
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To create a new account that is automatically part of the organization
  * ```javascript
  * // The owner of an organization creates a member account in the organization. The following example shows that when the organization owner creates the member account, the account is preconfigured with the name "Production Account" and an owner email address of susan@example.com.  An IAM role is automatically created using the default name because the roleName parameter is not used. AWS Organizations sends Susan a "Welcome to AWS" email:
- * //
- * //
+ *
+ *
  * const input = {
- *   "AccountName": "Production Account",
- *   "Email": "susan@example.com"
+ *   AccountName: "Production Account",
+ *   Email: "susan@example.com"
  * };
  * const command = new CreateAccountCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CreateAccountStatus": {
- *     "Id": "car-examplecreateaccountrequestid111",
- *     "State": "IN_PROGRESS"
+ *   CreateAccountStatus: {
+ *     Id: "car-examplecreateaccountrequestid111",
+ *     State: "IN_PROGRESS"
  *   }
  * }
  * *\/
- * // example id: to-create-a-new-account-that-is-automatically-part-of-the-organization-1472501463507
  * ```
  *
+ * @public
  */
 export class CreateAccountCommand extends $Command
   .classBuilder<
@@ -516,9 +541,7 @@ export class CreateAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -530,4 +553,16 @@ export class CreateAccountCommand extends $Command
   .f(CreateAccountRequestFilterSensitiveLog, CreateAccountResponseFilterSensitiveLog)
   .ser(se_CreateAccountCommand)
   .de(de_CreateAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccountRequest;
+      output: CreateAccountResponse;
+    };
+    sdk: {
+      input: CreateAccountCommandInput;
+      output: CreateAccountCommandOutput;
+    };
+  };
+}

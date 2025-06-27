@@ -37,6 +37,8 @@ import type { AwsCredentialIdentityProvider } from "@smithy/types";
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromWebToken = (init: FromWebTokenInit): AwsCredentialIdentityProvider =>
   _fromWebToken({

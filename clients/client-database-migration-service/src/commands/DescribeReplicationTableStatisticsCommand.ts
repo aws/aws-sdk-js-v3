@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,11 @@ export interface DescribeReplicationTableStatisticsCommandOutput
  * //       ValidationSuspendedRecords: Number("long"),
  * //       ValidationState: "STRING_VALUE",
  * //       ValidationStateDetails: "STRING_VALUE",
+ * //       ResyncState: "STRING_VALUE",
+ * //       ResyncRowsAttempted: Number("long"),
+ * //       ResyncRowsSucceeded: Number("long"),
+ * //       ResyncRowsFailed: Number("long"),
+ * //       ResyncProgress: Number("double"),
  * //     },
  * //   ],
  * // };
@@ -111,6 +117,7 @@ export interface DescribeReplicationTableStatisticsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationTableStatisticsCommand extends $Command
@@ -121,9 +128,7 @@ export class DescribeReplicationTableStatisticsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +140,16 @@ export class DescribeReplicationTableStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationTableStatisticsCommand)
   .de(de_DescribeReplicationTableStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTableStatisticsMessage;
+      output: DescribeReplicationTableStatisticsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTableStatisticsCommandInput;
+      output: DescribeReplicationTableStatisticsCommandOutput;
+    };
+  };
+}

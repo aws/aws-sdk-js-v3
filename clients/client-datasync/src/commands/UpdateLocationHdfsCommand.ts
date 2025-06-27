@@ -12,7 +12,8 @@ import { de_UpdateLocationHdfsCommand, se_UpdateLocationHdfsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,10 @@ export interface UpdateLocationHdfsCommandInput extends UpdateLocationHdfsReques
 export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some parameters of a previously created location for a Hadoop Distributed File
- *       System cluster.</p>
+ * <p>Modifies the following configuration parameters of the Hadoop Distributed File System
+ *       (HDFS) transfer location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-hdfs-location.html">Configuring DataSync
+ *         transfers with an HDFS cluster</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +85,7 @@ export interface UpdateLocationHdfsCommandOutput extends UpdateLocationHdfsRespo
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationHdfsCommand extends $Command
@@ -92,9 +96,7 @@ export class UpdateLocationHdfsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +108,16 @@ export class UpdateLocationHdfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLocationHdfsCommand)
   .de(de_UpdateLocationHdfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationHdfsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationHdfsCommandInput;
+      output: UpdateLocationHdfsCommandOutput;
+    };
+  };
+}

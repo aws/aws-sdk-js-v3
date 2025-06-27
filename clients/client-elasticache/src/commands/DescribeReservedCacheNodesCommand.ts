@@ -12,7 +12,8 @@ import { de_DescribeReservedCacheNodesCommand, se_DescribeReservedCacheNodesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,18 +94,21 @@ export interface DescribeReservedCacheNodesCommandOutput extends ReservedCacheNo
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeReservedCacheNodes
  * ```javascript
  * // Returns information about reserved cache nodes for this account, or about a specified reserved cache node. If the account has no reserved cache nodes, the operation returns an empty list, as shown here.
  * const input = {
- *   "MaxRecords": 25
+ *   MaxRecords: 25
  * };
  * const command = new DescribeReservedCacheNodesCommand(input);
- * await client.send(command);
- * // example id: describereservedcachenodes-1481742348045
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DescribeReservedCacheNodesCommand extends $Command
   .classBuilder<
@@ -114,9 +118,7 @@ export class DescribeReservedCacheNodesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +130,16 @@ export class DescribeReservedCacheNodesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedCacheNodesCommand)
   .de(de_DescribeReservedCacheNodesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedCacheNodesMessage;
+      output: ReservedCacheNodeMessage;
+    };
+    sdk: {
+      input: DescribeReservedCacheNodesCommandInput;
+      output: DescribeReservedCacheNodesCommandOutput;
+    };
+  };
+}

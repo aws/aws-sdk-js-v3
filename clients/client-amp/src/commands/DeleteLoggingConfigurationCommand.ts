@@ -12,7 +12,8 @@ import { de_DeleteLoggingConfigurationCommand, se_DeleteLoggingConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteLoggingConfigurationCommandInput extends DeleteLoggingCon
 export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the logging configuration for a workspace.</p>
+ * <p>Deletes the rules and alerting logging configuration for a workspace.</p> <note> <p>These logging configurations are only for rules and alerting logs.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,11 +64,11 @@ export interface DeleteLoggingConfigurationCommandOutput extends __MetadataBeare
  *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -79,9 +80,7 @@ export class DeleteLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +92,16 @@ export class DeleteLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLoggingConfigurationCommand)
   .de(de_DeleteLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLoggingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLoggingConfigurationCommandInput;
+      output: DeleteLoggingConfigurationCommandOutput;
+    };
+  };
+}

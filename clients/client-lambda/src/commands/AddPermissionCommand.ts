@@ -12,7 +12,8 @@ import { de_AddPermissionCommand, se_AddPermissionCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,15 @@ export interface AddPermissionCommandInput extends AddPermissionRequest {}
 export interface AddPermissionCommandOutput extends AddPermissionResponse, __MetadataBearer {}
 
 /**
- * <p>Grants an Amazon Web Service, Amazon Web Services account, or Amazon Web Services organization
+ * <p>Grants a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#Principal_specifying">principal</a>
  *       permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict
  *       access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name
  *       (ARN) of that version or alias to invoke the function. Note: Lambda does not support adding policies
  *       to version $LATEST.</p>
  *          <p>To grant permission to another account, specify the account ID as the <code>Principal</code>. To grant
  *       permission to an organization defined in Organizations, specify the organization ID as the
- *         <code>PrincipalOrgID</code>. For Amazon Web Services, the principal is a domain-style identifier that
- *       the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If
+ *         <code>PrincipalOrgID</code>. For Amazon Web Services services, the principal is a domain-style identifier that
+ *       the service defines, such as <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If
  *       you grant permission to a service principal without specifying the source, other accounts could potentially
  *       configure resources in their account to invoke your Lambda function.</p>
  *          <p>This operation adds a statement to a resource-based permissions policy for the function. For more information
@@ -80,8 +81,17 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  *  <p>The permissions policy for the resource is too large. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html">Lambda quotas</a>.</p>
  *
  * @throws {@link PreconditionFailedException} (client fault)
- *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias. Call the <code>GetFunction</code> or the <code>GetAlias</code>
- *       API operation to retrieve the latest RevisionId for your resource.</p>
+ *  <p>The RevisionId provided does not match the latest RevisionId for the Lambda function or alias.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>For AddPermission and RemovePermission API operations:</b> Call <code>GetPolicy</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>For all other API operations:</b> Call <code>GetFunction</code> or <code>GetAlias</code> to retrieve the latest RevisionId for your resource.</p>
+ *             </li>
+ *          </ul>
  *
  * @throws {@link ResourceConflictException} (client fault)
  *  <p>The resource already exists, or another operation is in progress.</p>
@@ -98,6 +108,45 @@ export interface AddPermissionCommandOutput extends AddPermissionResponse, __Met
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To grant Amazon S3 permission to invoke a function
+ * ```javascript
+ * // The following example adds permission for Amazon S3 to invoke a Lambda function named my-function for notifications from a bucket named my-bucket-1xpuxmplzrlbh in account 123456789012.
+ * const input = {
+ *   Action: "lambda:InvokeFunction",
+ *   FunctionName: "my-function",
+ *   Principal: "s3.amazonaws.com",
+ *   SourceAccount: "123456789012",
+ *   SourceArn: "arn:aws:s3:::my-bucket-1xpuxmplzrlbh/*",
+ *   StatementId: "s3"
+ * };
+ * const command = new AddPermissionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Statement: `{"Sid":"s3","Effect":"Allow","Principal":{"Service":"s3.amazonaws.com"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-2:123456789012:function:my-function","Condition":{"StringEquals":{"AWS:SourceAccount":"123456789012"},"ArnLike":{"AWS:SourceArn":"arn:aws:s3:::my-bucket-1xpuxmplzrlbh"}}}`
+ * }
+ * *\/
+ * ```
+ *
+ * @example To grant another account permission to invoke a function
+ * ```javascript
+ * // The following example adds permission for account 223456789012 invoke a Lambda function named my-function.
+ * const input = {
+ *   Action: "lambda:InvokeFunction",
+ *   FunctionName: "my-function",
+ *   Principal: "223456789012",
+ *   StatementId: "xaccount"
+ * };
+ * const command = new AddPermissionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Statement: `{"Sid":"xaccount","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::223456789012:root"},"Action":"lambda:InvokeFunction","Resource":"arn:aws:lambda:us-east-2:123456789012:function:my-function"}`
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AddPermissionCommand extends $Command
@@ -108,9 +157,7 @@ export class AddPermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +169,16 @@ export class AddPermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddPermissionCommand)
   .de(de_AddPermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddPermissionRequest;
+      output: AddPermissionResponse;
+    };
+    sdk: {
+      input: AddPermissionCommandInput;
+      output: AddPermissionCommandOutput;
+    };
+  };
+}

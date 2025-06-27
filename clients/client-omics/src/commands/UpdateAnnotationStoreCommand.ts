@@ -12,7 +12,8 @@ import { de_UpdateAnnotationStoreCommand, se_UpdateAnnotationStoreCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface UpdateAnnotationStoreCommandOutput extends UpdateAnnotationStor
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnnotationStoreCommand extends $Command
@@ -102,9 +104,7 @@ export class UpdateAnnotationStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class UpdateAnnotationStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAnnotationStoreCommand)
   .de(de_UpdateAnnotationStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnnotationStoreRequest;
+      output: UpdateAnnotationStoreResponse;
+    };
+    sdk: {
+      input: UpdateAnnotationStoreCommandInput;
+      output: UpdateAnnotationStoreCommandOutput;
+    };
+  };
+}

@@ -21,7 +21,8 @@ import { de_AdminListDevicesCommand, se_AdminListDevicesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,10 @@ export interface AdminListDevicesCommandInput extends AdminListDevicesRequest {}
 export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists devices, as an administrator.</p>
+ * <p>Lists a user's registered devices. Remembered devices are used in authentication
+ *             services where you offer a "Remember me" option for users who you want to permit to sign
+ *             in without MFA from a trusted device. Users can bypass MFA while your application
+ *             performs device SRP authentication on the back end. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with devices</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -121,6 +125,7 @@ export interface AdminListDevicesCommandOutput extends AdminListDevicesResponse,
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminListDevicesCommand extends $Command
@@ -131,9 +136,7 @@ export class AdminListDevicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +148,16 @@ export class AdminListDevicesCommand extends $Command
   .f(AdminListDevicesRequestFilterSensitiveLog, AdminListDevicesResponseFilterSensitiveLog)
   .ser(se_AdminListDevicesCommand)
   .de(de_AdminListDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminListDevicesRequest;
+      output: AdminListDevicesResponse;
+    };
+    sdk: {
+      input: AdminListDevicesCommandInput;
+      output: AdminListDevicesCommandOutput;
+    };
+  };
+}

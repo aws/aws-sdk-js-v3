@@ -12,7 +12,8 @@ import { de_UntagServerCertificateCommand, se_UntagServerCertificateCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface UntagServerCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class UntagServerCertificateCommand extends $Command
@@ -90,9 +92,7 @@ export class UntagServerCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class UntagServerCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagServerCertificateCommand)
   .de(de_UntagServerCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagServerCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagServerCertificateCommandInput;
+      output: UntagServerCertificateCommandOutput;
+    };
+  };
+}

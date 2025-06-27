@@ -12,7 +12,8 @@ import { de_UpdateOrganizationalUnitCommand, se_UpdateOrganizationalUnitCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,10 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -171,6 +176,9 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -197,28 +205,28 @@ export interface UpdateOrganizationalUnitCommandOutput extends UpdateOrganizatio
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To rename an organizational unit
  * ```javascript
  * // The following example shows how to rename an OU. The output confirms the new name:/n/n
  * const input = {
- *   "Name": "AccountingOU",
- *   "OrganizationalUnitId": "ou-examplerootid111-exampleouid111"
+ *   Name: "AccountingOU",
+ *   OrganizationalUnitId: "ou-examplerootid111-exampleouid111"
  * };
  * const command = new UpdateOrganizationalUnitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OrganizationalUnit": {
- *     "Arn": "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
- *     "Id": "ou-examplerootid111-exampleouid111",
- *     "Name": "AccountingOU"
+ *   OrganizationalUnit: {
+ *     Arn: "arn:aws:organizations::111111111111:ou/o-exampleorgid/ou-examplerootid111-exampleouid111",
+ *     Id: "ou-examplerootid111-exampleouid111",
+ *     Name: "AccountingOU"
  *   }
  * }
  * *\/
- * // example id: to-rename-an-organizational-unit
  * ```
  *
+ * @public
  */
 export class UpdateOrganizationalUnitCommand extends $Command
   .classBuilder<
@@ -228,9 +236,7 @@ export class UpdateOrganizationalUnitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +248,16 @@ export class UpdateOrganizationalUnitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOrganizationalUnitCommand)
   .de(de_UpdateOrganizationalUnitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOrganizationalUnitRequest;
+      output: UpdateOrganizationalUnitResponse;
+    };
+    sdk: {
+      input: UpdateOrganizationalUnitCommandInput;
+      output: UpdateOrganizationalUnitCommandOutput;
+    };
+  };
+}

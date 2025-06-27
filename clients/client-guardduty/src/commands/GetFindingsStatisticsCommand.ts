@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/models_0";
+import { GetFindingsStatisticsRequest, GetFindingsStatisticsResponse } from "../models/models_1";
 import { de_GetFindingsStatisticsCommand, se_GetFindingsStatisticsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,10 @@ export interface GetFindingsStatisticsCommandInput extends GetFindingsStatistics
 export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatisticsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists Amazon GuardDuty findings statistics for the specified detector ID.</p>
+ * <p>Lists GuardDuty findings statistics for the specified detector ID.</p>
+ *          <p>You must provide either <code>findingStatisticTypes</code> or
+ *       <code>groupBy</code> parameter, and not both. You can use the <code>maxResults</code> and <code>orderBy</code>
+ *       parameters only when using <code>groupBy</code>.</p>
  *          <p>There might be regional differences because some flags might not be available in all the Regions where GuardDuty
  *       is currently supported. For more information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
  * @example
@@ -38,7 +42,7 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * const client = new GuardDutyClient(config);
  * const input = { // GetFindingsStatisticsRequest
  *   DetectorId: "STRING_VALUE", // required
- *   FindingStatisticTypes: [ // FindingStatisticTypes // required
+ *   FindingStatisticTypes: [ // FindingStatisticTypes
  *     "COUNT_BY_SEVERITY",
  *   ],
  *   FindingCriteria: { // FindingCriteria
@@ -67,6 +71,9 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  *       },
  *     },
  *   },
+ *   GroupBy: "ACCOUNT" || "DATE" || "FINDING_TYPE" || "RESOURCE" || "SEVERITY",
+ *   OrderBy: "ASC" || "DESC",
+ *   MaxResults: Number("int"),
  * };
  * const command = new GetFindingsStatisticsCommand(input);
  * const response = await client.send(command);
@@ -75,7 +82,46 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * //     CountBySeverity: { // CountBySeverity
  * //       "<keys>": Number("int"),
  * //     },
+ * //     GroupedByAccount: [ // GroupedByAccount
+ * //       { // AccountStatistics
+ * //         AccountId: "STRING_VALUE",
+ * //         LastGeneratedAt: new Date("TIMESTAMP"),
+ * //         TotalFindings: Number("int"),
+ * //       },
+ * //     ],
+ * //     GroupedByDate: [ // GroupedByDate
+ * //       { // DateStatistics
+ * //         Date: new Date("TIMESTAMP"),
+ * //         LastGeneratedAt: new Date("TIMESTAMP"),
+ * //         Severity: Number("double"),
+ * //         TotalFindings: Number("int"),
+ * //       },
+ * //     ],
+ * //     GroupedByFindingType: [ // GroupedByFindingType
+ * //       { // FindingTypeStatistics
+ * //         FindingType: "STRING_VALUE",
+ * //         LastGeneratedAt: new Date("TIMESTAMP"),
+ * //         TotalFindings: Number("int"),
+ * //       },
+ * //     ],
+ * //     GroupedByResource: [ // GroupedByResource
+ * //       { // ResourceStatistics
+ * //         AccountId: "STRING_VALUE",
+ * //         LastGeneratedAt: new Date("TIMESTAMP"),
+ * //         ResourceId: "STRING_VALUE",
+ * //         ResourceType: "STRING_VALUE",
+ * //         TotalFindings: Number("int"),
+ * //       },
+ * //     ],
+ * //     GroupedBySeverity: [ // GroupedBySeverity
+ * //       { // SeverityStatistics
+ * //         LastGeneratedAt: new Date("TIMESTAMP"),
+ * //         Severity: Number("double"),
+ * //         TotalFindings: Number("int"),
+ * //       },
+ * //     ],
  * //   },
+ * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -95,6 +141,7 @@ export interface GetFindingsStatisticsCommandOutput extends GetFindingsStatistic
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetFindingsStatisticsCommand extends $Command
@@ -105,9 +152,7 @@ export class GetFindingsStatisticsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +164,16 @@ export class GetFindingsStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingsStatisticsCommand)
   .de(de_GetFindingsStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingsStatisticsRequest;
+      output: GetFindingsStatisticsResponse;
+    };
+    sdk: {
+      input: GetFindingsStatisticsCommandInput;
+      output: GetFindingsStatisticsCommandOutput;
+    };
+  };
+}

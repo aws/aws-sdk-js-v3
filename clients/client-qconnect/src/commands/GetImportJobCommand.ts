@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetImportJobRequest, GetImportJobResponse, GetImportJobResponseFilterSensitiveLog } from "../models/models_0";
+import { GetImportJobRequest, GetImportJobResponse, GetImportJobResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetImportJobCommand, se_GetImportJobCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetImportJobCommandOutput extends GetImportJobResponse, __Metad
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetImportJobCommand extends $Command
@@ -97,9 +99,7 @@ export class GetImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetImportJobCommand extends $Command
   .f(void 0, GetImportJobResponseFilterSensitiveLog)
   .ser(se_GetImportJobCommand)
   .de(de_GetImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportJobRequest;
+      output: GetImportJobResponse;
+    };
+    sdk: {
+      input: GetImportJobCommandInput;
+      output: GetImportJobCommandOutput;
+    };
+  };
+}

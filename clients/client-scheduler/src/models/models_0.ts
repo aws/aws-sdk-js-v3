@@ -90,7 +90,7 @@ export interface ListTagsForResourceOutput {
    * <p>The list of tags associated with the specified resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -210,7 +210,7 @@ export interface FlexibleTimeWindow {
    * <p>The maximum time window during which a schedule can be invoked.</p>
    * @public
    */
-  MaximumWindowInMinutes?: number;
+  MaximumWindowInMinutes?: number | undefined;
 }
 
 /**
@@ -236,7 +236,7 @@ export interface DeadLetterConfig {
    * <p>The Amazon Resource Name (ARN) of the SQS queue specified as the destination for the dead-letter queue.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -255,14 +255,14 @@ export interface CapacityProviderStrategyItem {
    *          base value, if defined, is satisfied.</p>
    * @public
    */
-  weight?: number;
+  weight?: number | undefined;
 
   /**
    * <p>The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined.
    *          If no value is specified, the default value of <code>0</code> is used.</p>
    * @public
    */
-  base?: number;
+  base?: number | undefined;
 }
 
 /**
@@ -296,13 +296,13 @@ export interface AwsVpcConfiguration {
    *          If you do not specify a security group, the default security group for the VPC is used.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 
   /**
    * <p>Specifies whether the task's elastic network interface receives a public IP address. You can specify <code>ENABLED</code> only when <code>LaunchType</code> in <code>EcsParameters</code> is set to <code>FARGATE</code>.</p>
    * @public
    */
-  AssignPublicIp?: AssignPublicIp;
+  AssignPublicIp?: AssignPublicIp | undefined;
 }
 
 /**
@@ -314,7 +314,7 @@ export interface NetworkConfiguration {
    * <p>Specifies the Amazon VPC subnets and security groups for the task, and whether a public IP address is to be used. This structure is relevant only for ECS tasks that use the awsvpc network mode.</p>
    * @public
    */
-  awsvpcConfiguration?: AwsVpcConfiguration;
+  awsvpcConfiguration?: AwsVpcConfiguration | undefined;
 }
 
 /**
@@ -340,14 +340,14 @@ export interface PlacementConstraint {
    * <p>The type of constraint. Use <code>distinctInstance</code> to ensure that each task in a particular group is running on a different container instance. Use <code>memberOf</code> to restrict the selection to a group of valid candidates.</p>
    * @public
    */
-  type?: PlacementConstraintType;
+  type?: PlacementConstraintType | undefined;
 
   /**
    * <p>A cluster query language expression to apply to the constraint. You cannot specify an expression if the constraint type is <code>distinctInstance</code>.
    *          For more information, see <a href="https://docs.aws.amazon.com/latest/developerguide/cluster-query-language.html">Cluster query language</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    * @public
    */
-  expression?: string;
+  expression?: string | undefined;
 }
 
 /**
@@ -376,7 +376,7 @@ export interface PlacementStrategy {
    *          For example, if you binpack on memory, a task is placed on the instance with the least amount of remaining memory (but still enough to run the task).</p>
    * @public
    */
-  type?: PlacementStrategyType;
+  type?: PlacementStrategyType | undefined;
 
   /**
    * <p>The field to apply the placement strategy against. For the spread placement strategy, valid values are <code>instanceId</code> (or <code>instanceId</code>, which has the same effect),
@@ -384,7 +384,7 @@ export interface PlacementStrategy {
    *          <code>cpu</code> and <code>memory</code>. For the random placement strategy, this field is not used.</p>
    * @public
    */
-  field?: string;
+  field?: string | undefined;
 }
 
 /**
@@ -417,7 +417,7 @@ export interface EcsParameters {
    * <p>The number of tasks to create based on <code>TaskDefinition</code>. The default is <code>1</code>.</p>
    * @public
    */
-  TaskCount?: number;
+  TaskCount?: number | undefined;
 
   /**
    * <p>Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task.
@@ -425,56 +425,56 @@ export interface EcsParameters {
    *          For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/AWS_Fargate.html">AWS Fargate on Amazon ECS</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    * @public
    */
-  LaunchType?: LaunchType;
+  LaunchType?: LaunchType | undefined;
 
   /**
    * <p>This structure specifies the network configuration for an ECS task.</p>
    * @public
    */
-  NetworkConfiguration?: NetworkConfiguration;
+  NetworkConfiguration?: NetworkConfiguration | undefined;
 
   /**
    * <p>Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as <code>1.1.0</code>.</p>
    * @public
    */
-  PlatformVersion?: string;
+  PlatformVersion?: string | undefined;
 
   /**
    * <p>Specifies an ECS task group for the task. The maximum length is 255 characters.</p>
    * @public
    */
-  Group?: string;
+  Group?: string | undefined;
 
   /**
    * <p>The capacity provider strategy to use for the task.</p>
    * @public
    */
-  CapacityProviderStrategy?: CapacityProviderStrategyItem[];
+  CapacityProviderStrategy?: CapacityProviderStrategyItem[] | undefined;
 
   /**
    * <p>Specifies whether to enable Amazon ECS managed tags for the task. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html">Tagging Your Amazon ECS Resources</a>
    *          in the <i>Amazon ECS Developer Guide</i>.</p>
    * @public
    */
-  EnableECSManagedTags?: boolean;
+  EnableECSManagedTags?: boolean | undefined;
 
   /**
    * <p>Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.</p>
    * @public
    */
-  EnableExecuteCommand?: boolean;
+  EnableExecuteCommand?: boolean | undefined;
 
   /**
    * <p>An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime).</p>
    * @public
    */
-  PlacementConstraints?: PlacementConstraint[];
+  PlacementConstraints?: PlacementConstraint[] | undefined;
 
   /**
    * <p>The task placement strategy for a task or service.</p>
    * @public
    */
-  PlacementStrategy?: PlacementStrategy[];
+  PlacementStrategy?: PlacementStrategy[] | undefined;
 
   /**
    * <p>Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated.
@@ -485,13 +485,13 @@ export interface EcsParameters {
    *       </p>
    * @public
    */
-  PropagateTags?: PropagateTags;
+  PropagateTags?: PropagateTags | undefined;
 
   /**
    * <p>The reference ID to use for the task.</p>
    * @public
    */
-  ReferenceId?: string;
+  ReferenceId?: string | undefined;
 
   /**
    * <p>The metadata that you apply to the task to help you categorize and organize them. Each tag consists of a key and an optional value, both of which you define.
@@ -500,7 +500,7 @@ export interface EcsParameters {
    *             </a> in the <i>Amazon ECS API Reference</i>.</p>
    * @public
    */
-  Tags?: Record<string, string>[];
+  Tags?: Record<string, string>[] | undefined;
 }
 
 /**
@@ -547,14 +547,14 @@ export interface RetryPolicy {
    * <p>The maximum amount of time, in seconds, to continue to make retry attempts.</p>
    * @public
    */
-  MaximumEventAgeInSeconds?: number;
+  MaximumEventAgeInSeconds?: number | undefined;
 
   /**
    * <p>The maximum number of retry attempts to make before the request fails. Retry attempts with exponential backoff continue until either the maximum number of attempts is made or
    *          until the duration of the <code>MaximumEventAgeInSeconds</code> is reached.</p>
    * @public
    */
-  MaximumRetryAttempts?: number;
+  MaximumRetryAttempts?: number | undefined;
 }
 
 /**
@@ -586,7 +586,7 @@ export interface SageMakerPipelineParameters {
    * <p>List of parameter names and values to use when executing the SageMaker Model Building Pipeline.</p>
    * @public
    */
-  PipelineParameterList?: SageMakerPipelineParameter[];
+  PipelineParameterList?: SageMakerPipelineParameter[] | undefined;
 }
 
 /**
@@ -604,7 +604,7 @@ export interface SqsParameters {
    * <p>The FIFO message group ID to use as the target.</p>
    * @public
    */
-  MessageGroupId?: string;
+  MessageGroupId?: string | undefined;
 }
 
 /**
@@ -629,13 +629,13 @@ export interface Target {
    * <p>An object that contains information about an Amazon SQS queue that EventBridge Scheduler uses as a dead-letter queue for your schedule. If specified, EventBridge Scheduler delivers failed events that could not be successfully delivered to a target to the queue.</p>
    * @public
    */
-  DeadLetterConfig?: DeadLetterConfig;
+  DeadLetterConfig?: DeadLetterConfig | undefined;
 
   /**
    * <p>A <code>RetryPolicy</code> object that includes information about the retry policy settings, including the maximum age of an event, and the maximum number of times EventBridge Scheduler will try to deliver the event to a target.</p>
    * @public
    */
-  RetryPolicy?: RetryPolicy;
+  RetryPolicy?: RetryPolicy | undefined;
 
   /**
    * <p>The text, or well-formed JSON, passed to the target. If you are configuring a templated Lambda, AWS Step Functions, or Amazon EventBridge target,
@@ -643,7 +643,7 @@ export interface Target {
    *          delivers a default notification to the target.</p>
    * @public
    */
-  Input?: string;
+  Input?: string | undefined;
 
   /**
    * <p>The templated target type for the Amazon ECS <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_RunTask.html">
@@ -651,7 +651,7 @@ export interface Target {
    *             </a> API operation.</p>
    * @public
    */
-  EcsParameters?: EcsParameters;
+  EcsParameters?: EcsParameters | undefined;
 
   /**
    * <p>The templated target type for the EventBridge <a href="https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_PutEvents.html">
@@ -659,7 +659,7 @@ export interface Target {
    *             </a> API operation.</p>
    * @public
    */
-  EventBridgeParameters?: EventBridgeParameters;
+  EventBridgeParameters?: EventBridgeParameters | undefined;
 
   /**
    * <p>The templated target type for the Amazon Kinesis <a href="kinesis/latest/APIReference/API_PutRecord.html">
@@ -667,7 +667,7 @@ export interface Target {
    *             </a> API operation.</p>
    * @public
    */
-  KinesisParameters?: KinesisParameters;
+  KinesisParameters?: KinesisParameters | undefined;
 
   /**
    * <p>The templated target type for the Amazon SageMaker <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_StartPipelineExecution.html">
@@ -675,7 +675,7 @@ export interface Target {
    *             </a> API operation.</p>
    * @public
    */
-  SageMakerPipelineParameters?: SageMakerPipelineParameters;
+  SageMakerPipelineParameters?: SageMakerPipelineParameters | undefined;
 
   /**
    * <p>The templated target type for the Amazon SQS <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/APIReference/API_SendMessage.html">
@@ -686,7 +686,7 @@ export interface Target {
    *          <i>Amazon SQS Developer Guide</i>.</p>
    * @public
    */
-  SqsParameters?: SqsParameters;
+  SqsParameters?: SqsParameters | undefined;
 }
 
 /**
@@ -703,7 +703,7 @@ export interface CreateScheduleInput {
    * <p>The name of the schedule group to associate with this schedule. If you omit this, the default schedule group is used.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>
@@ -751,38 +751,38 @@ export interface CreateScheduleInput {
    * EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify.
    * EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
    * @public
    */
-  EndDate?: Date;
+  EndDate?: Date | undefined;
 
   /**
    * <p>The description you specify for the schedule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timezone in which the scheduling expression is evaluated.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    * @public
    */
-  State?: ScheduleState;
+  State?: ScheduleState | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the customer managed KMS key that EventBridge Scheduler will use to encrypt and decrypt your data.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The schedule's target.</p>
@@ -803,13 +803,13 @@ export interface CreateScheduleInput {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
    * @public
    */
-  ActionAfterCompletion?: ActionAfterCompletion;
+  ActionAfterCompletion?: ActionAfterCompletion | undefined;
 }
 
 /**
@@ -859,7 +859,7 @@ export interface DeleteScheduleInput {
    * <p>The name of the schedule group associated with this schedule. If you omit this, the default schedule group is used.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>
@@ -868,7 +868,7 @@ export interface DeleteScheduleInput {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -890,7 +890,7 @@ export interface GetScheduleInput {
    * <p>The name of the schedule group associated with this schedule. If you omit this, EventBridge Scheduler assumes that the schedule is associated with the default group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 }
 
 /**
@@ -901,19 +901,19 @@ export interface GetScheduleOutput {
    * <p>The Amazon Resource Name (ARN) of the schedule.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the schedule group associated with this schedule.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>The name of the schedule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -954,75 +954,75 @@ export interface GetScheduleOutput {
    * </p>
    * @public
    */
-  ScheduleExpression?: string;
+  ScheduleExpression?: string | undefined;
 
   /**
    * <p>The date, in UTC, after which the schedule can begin invoking its target. Depending on the schedule's recurrence expression, invocations might occur on, or after, the <code>StartDate</code> you specify.
    * EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify.
    * EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
    * @public
    */
-  EndDate?: Date;
+  EndDate?: Date | undefined;
 
   /**
    * <p>The description of the schedule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timezone in which the scheduling expression is evaluated.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    * @public
    */
-  State?: ScheduleState;
+  State?: ScheduleState | undefined;
 
   /**
    * <p>The time at which the schedule was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The time at which the schedule was last modified.</p>
    * @public
    */
-  LastModificationDate?: Date;
+  LastModificationDate?: Date | undefined;
 
   /**
    * <p>The ARN for a customer managed KMS Key that is be used to encrypt and decrypt your data.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The schedule target.</p>
    * @public
    */
-  Target?: Target;
+  Target?: Target | undefined;
 
   /**
    * <p>Allows you to configure a time window during which EventBridge Scheduler invokes the schedule.</p>
    * @public
    */
-  FlexibleTimeWindow?: FlexibleTimeWindow;
+  FlexibleTimeWindow?: FlexibleTimeWindow | undefined;
 
   /**
    * <p>Indicates the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
    * @public
    */
-  ActionAfterCompletion?: ActionAfterCompletion;
+  ActionAfterCompletion?: ActionAfterCompletion | undefined;
 }
 
 /**
@@ -1033,31 +1033,31 @@ export interface ListSchedulesInput {
    * <p>If specified, only lists the schedules whose associated schedule group matches the given filter.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>Schedule name prefix to return the filtered list of resources.</p>
    * @public
    */
-  NamePrefix?: string;
+  NamePrefix?: string | undefined;
 
   /**
    * <p>If specified, only lists the schedules whose current state matches the given filter.</p>
    * @public
    */
-  State?: ScheduleState;
+  State?: ScheduleState | undefined;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1081,43 +1081,43 @@ export interface ScheduleSummary {
    * <p>The Amazon Resource Name (ARN) of the schedule.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the schedule.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The name of the schedule group associated with this schedule.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    * @public
    */
-  State?: ScheduleState;
+  State?: ScheduleState | undefined;
 
   /**
    * <p>The time at which the schedule was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The time at which the schedule was last modified.</p>
    * @public
    */
-  LastModificationDate?: Date;
+  LastModificationDate?: Date | undefined;
 
   /**
    * <p>The schedule's target details.</p>
    * @public
    */
-  Target?: TargetSummary;
+  Target?: TargetSummary | undefined;
 }
 
 /**
@@ -1128,7 +1128,7 @@ export interface ListSchedulesOutput {
    * <p>Indicates whether there are additional results to retrieve. If the value is null, there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The schedules that match the specified criteria.</p>
@@ -1152,7 +1152,7 @@ export interface UpdateScheduleInput {
    *          If you omit this value, EventBridge Scheduler assumes the group is associated to the default group.</p>
    * @public
    */
-  GroupName?: string;
+  GroupName?: string | undefined;
 
   /**
    * <p>
@@ -1200,38 +1200,38 @@ export interface UpdateScheduleInput {
    * EventBridge Scheduler ignores <code>StartDate</code> for one-time schedules.</p>
    * @public
    */
-  StartDate?: Date;
+  StartDate?: Date | undefined;
 
   /**
    * <p>The date, in UTC, before which the schedule can invoke its target. Depending on the schedule's recurrence expression, invocations might stop on, or before, the <code>EndDate</code> you specify.
    * EventBridge Scheduler ignores <code>EndDate</code> for one-time schedules.</p>
    * @public
    */
-  EndDate?: Date;
+  EndDate?: Date | undefined;
 
   /**
    * <p>The description you specify for the schedule.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timezone in which the scheduling expression is evaluated.</p>
    * @public
    */
-  ScheduleExpressionTimezone?: string;
+  ScheduleExpressionTimezone?: string | undefined;
 
   /**
    * <p>Specifies whether the schedule is enabled or disabled.</p>
    * @public
    */
-  State?: ScheduleState;
+  State?: ScheduleState | undefined;
 
   /**
    * <p>The ARN for the customer managed KMS key that that you want EventBridge Scheduler to use to encrypt and decrypt your data.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The schedule target. You can use this operation to change the target that your schedule invokes.</p>
@@ -1252,13 +1252,13 @@ export interface UpdateScheduleInput {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Specifies the action that EventBridge Scheduler applies to the schedule after the schedule completes invoking the target.</p>
    * @public
    */
-  ActionAfterCompletion?: ActionAfterCompletion;
+  ActionAfterCompletion?: ActionAfterCompletion | undefined;
 }
 
 /**
@@ -1286,7 +1286,7 @@ export interface CreateScheduleGroupInput {
    * <p>The list of tags to associate with the schedule group.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>
@@ -1295,7 +1295,7 @@ export interface CreateScheduleGroupInput {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1326,7 +1326,7 @@ export interface DeleteScheduleGroupInput {
    * </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1367,31 +1367,31 @@ export interface GetScheduleGroupOutput {
    * <p>The Amazon Resource Name (ARN) of the schedule group.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the schedule group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the state of the schedule group.</p>
    * @public
    */
-  State?: ScheduleGroupState;
+  State?: ScheduleGroupState | undefined;
 
   /**
    * <p>The time at which the schedule group was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The time at which the schedule group was last modified.</p>
    * @public
    */
-  LastModificationDate?: Date;
+  LastModificationDate?: Date | undefined;
 }
 
 /**
@@ -1402,19 +1402,19 @@ export interface ListScheduleGroupsInput {
    * <p>The name prefix that you can use to return a filtered list of your schedule groups.</p>
    * @public
    */
-  NamePrefix?: string;
+  NamePrefix?: string | undefined;
 
   /**
    * <p>The token returned by a previous call to retrieve the next set of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>If specified, limits the number of results returned by this operation. The operation also returns a <code>NextToken</code> which you can use in a subsequent operation to retrieve the next set of results.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -1426,31 +1426,31 @@ export interface ScheduleGroupSummary {
    * <p>The Amazon Resource Name (ARN) of the schedule group.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name of the schedule group.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the state of the schedule group.</p>
    * @public
    */
-  State?: ScheduleGroupState;
+  State?: ScheduleGroupState | undefined;
 
   /**
    * <p>The time at which the schedule group was created.</p>
    * @public
    */
-  CreationDate?: Date;
+  CreationDate?: Date | undefined;
 
   /**
    * <p>The time at which the schedule group was last modified.</p>
    * @public
    */
-  LastModificationDate?: Date;
+  LastModificationDate?: Date | undefined;
 }
 
 /**
@@ -1461,7 +1461,7 @@ export interface ListScheduleGroupsOutput {
    * <p>Indicates whether there are additional results to retrieve. If the value is null, there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The schedule groups that match the specified criteria.</p>

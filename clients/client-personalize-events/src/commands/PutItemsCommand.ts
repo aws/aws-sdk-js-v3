@@ -16,7 +16,8 @@ import { de_PutItemsCommand, se_PutItemsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface PutItemsCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeEventsServiceException}
  * <p>Base exception class for all service exceptions from PersonalizeEvents service.</p>
  *
+ *
  * @public
  */
 export class PutItemsCommand extends $Command
@@ -83,9 +85,7 @@ export class PutItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class PutItemsCommand extends $Command
   .f(PutItemsRequestFilterSensitiveLog, void 0)
   .ser(se_PutItemsCommand)
   .de(de_PutItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutItemsRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutItemsCommandInput;
+      output: PutItemsCommandOutput;
+    };
+  };
+}

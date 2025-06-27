@@ -12,7 +12,8 @@ import { de_DeleteEntityTypeCommand, se_DeleteEntityTypeCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DeleteEntityTypeCommandOutput extends DeleteEntityTypeResult, _
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class DeleteEntityTypeCommand extends $Command
@@ -79,9 +81,7 @@ export class DeleteEntityTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DeleteEntityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEntityTypeCommand)
   .de(de_DeleteEntityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEntityTypeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEntityTypeCommandInput;
+      output: DeleteEntityTypeCommandOutput;
+    };
+  };
+}

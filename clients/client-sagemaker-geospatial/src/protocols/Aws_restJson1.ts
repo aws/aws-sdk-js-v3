@@ -296,10 +296,7 @@ export const se_GetTileCommand = async (
   b.p("y", () => input.y!.toString(), "{y}", false);
   b.p("z", () => input.z!.toString(), "{z}", false);
   const query: any = map({
-    [_IA]: [
-      __expectNonNull(input.ImageAssets, `ImageAssets`) != null,
-      () => (input[_IA]! || []).map((_entry) => _entry as any),
-    ],
+    [_IA]: [__expectNonNull(input.ImageAssets, `ImageAssets`) != null, () => input[_IA]! || []],
     [_T]: [, __expectNonNull(input[_T]!, `Target`)],
     [_A]: [, __expectNonNull(input[_A]!, `Arn`)],
     [_IM]: [() => input.ImageMask !== void 0, () => input[_IM]!.toString()],
@@ -576,10 +573,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1210,7 +1204,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AreaOfInterest = (input: AreaOfInterest, context: __SerdeContext): any => {
   return AreaOfInterest.visit(input, {
     AreaOfInterestGeometry: (value) => ({ AreaOfInterestGeometry: se_AreaOfInterestGeometry(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1221,7 +1215,7 @@ const se_AreaOfInterestGeometry = (input: AreaOfInterestGeometry, context: __Ser
   return AreaOfInterestGeometry.visit(input, {
     MultiPolygonGeometry: (value) => ({ MultiPolygonGeometry: se_MultiPolygonGeometryInput(value, context) }),
     PolygonGeometry: (value) => ({ PolygonGeometry: se_PolygonGeometryInput(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1273,7 +1267,7 @@ const se_JobConfigInput = (input: JobConfigInput, context: __SerdeContext): any 
     StackConfig: (value) => ({ StackConfig: se_StackConfigInput(value, context) }),
     TemporalStatisticsConfig: (value) => ({ TemporalStatisticsConfig: _json(value) }),
     ZonalStatisticsConfig: (value) => ({ ZonalStatisticsConfig: _json(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1391,7 +1385,7 @@ const se_Property = (input: Property, context: __SerdeContext): any => {
     ViewOffNadir: (value) => ({ ViewOffNadir: se_ViewOffNadirInput(value, context) }),
     ViewSunAzimuth: (value) => ({ ViewSunAzimuth: se_ViewSunAzimuthInput(value, context) }),
     ViewSunElevation: (value) => ({ ViewSunElevation: se_ViewSunElevationInput(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -2132,13 +2126,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _A = "Arn";
 const _ERA = "ExecutionRoleArn";

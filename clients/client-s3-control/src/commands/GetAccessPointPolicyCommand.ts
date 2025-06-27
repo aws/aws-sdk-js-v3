@@ -13,7 +13,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,10 +29,7 @@ export interface GetAccessPointPolicyCommandInput extends GetAccessPointPolicyRe
 export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyResult, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns the access point policy associated with the specified access point.</p>
+ * <p>Returns the access point policy associated with the specified access point.</p>
  *          <p>The following actions are related to <code>GetAccessPointPolicy</code>:</p>
  *          <ul>
  *             <li>
@@ -72,6 +70,7 @@ export interface GetAccessPointPolicyCommandOutput extends GetAccessPointPolicyR
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetAccessPointPolicyCommand extends $Command
@@ -85,7 +84,7 @@ export class GetAccessPointPolicyCommand extends $Command
   .ep({
     ...commonParams,
     RequiresAccountId: { type: "staticContextParams", value: true },
-    AccessPointName: { type: "contextParams", name: "AccessPointName" },
+    AccessPointName: { type: "contextParams", name: "Name" },
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
@@ -100,4 +99,16 @@ export class GetAccessPointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPointPolicyCommand)
   .de(de_GetAccessPointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPointPolicyRequest;
+      output: GetAccessPointPolicyResult;
+    };
+    sdk: {
+      input: GetAccessPointPolicyCommandInput;
+      output: GetAccessPointPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteCertificateCommand, se_DeleteCertificateCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface DeleteCertificateCommandOutput extends DeleteCertificateResult,
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class DeleteCertificateCommand extends $Command
@@ -109,9 +111,7 @@ export class DeleteCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class DeleteCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCertificateCommand)
   .de(de_DeleteCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCertificateRequest;
+      output: DeleteCertificateResult;
+    };
+    sdk: {
+      input: DeleteCertificateCommandInput;
+      output: DeleteCertificateCommandOutput;
+    };
+  };
+}

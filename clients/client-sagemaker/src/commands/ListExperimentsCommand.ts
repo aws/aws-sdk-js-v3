@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_3";
+import { ListExperimentsRequest, ListExperimentsResponse } from "../models/models_4";
 import { de_ListExperimentsCommand, se_ListExperimentsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListExperimentsCommandInput extends ListExperimentsRequest {}
 export interface ListExperimentsCommandOutput extends ListExperimentsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the experiments in your account. The list can be filtered to show only
- *       experiments that were created in a specific time range. The list can be sorted by experiment
- *       name or creation time.</p>
+ * <p>Lists all the experiments in your account. The list can be filtered to show only experiments that were created in a specific time range. The list can be sorted by experiment name or creation time.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +73,7 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListExperimentsCommand extends $Command
@@ -84,9 +84,7 @@ export class ListExperimentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +96,16 @@ export class ListExperimentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListExperimentsCommand)
   .de(de_ListExperimentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperimentsRequest;
+      output: ListExperimentsResponse;
+    };
+    sdk: {
+      input: ListExperimentsCommandInput;
+      output: ListExperimentsCommandOutput;
+    };
+  };
+}

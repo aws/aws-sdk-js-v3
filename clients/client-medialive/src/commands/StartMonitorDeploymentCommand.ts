@@ -12,7 +12,8 @@ import { de_StartMonitorDeploymentCommand, se_StartMonitorDeploymentCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -135,6 +136,7 @@ export interface StartMonitorDeploymentCommandOutput extends StartMonitorDeploym
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class StartMonitorDeploymentCommand extends $Command
@@ -145,9 +147,7 @@ export class StartMonitorDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class StartMonitorDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMonitorDeploymentCommand)
   .de(de_StartMonitorDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMonitorDeploymentRequest;
+      output: StartMonitorDeploymentResponse;
+    };
+    sdk: {
+      input: StartMonitorDeploymentCommandInput;
+      output: StartMonitorDeploymentCommandOutput;
+    };
+  };
+}

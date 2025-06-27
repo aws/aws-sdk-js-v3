@@ -16,7 +16,7 @@ export class AccessDeniedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -43,7 +43,7 @@ export class AccountHasOngoingImportException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -70,7 +70,7 @@ export class AccountNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -96,7 +96,7 @@ export class AccountNotRegisteredException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -123,7 +123,7 @@ export class AccountRegisteredException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -140,7 +140,7 @@ export class AccountRegisteredException extends __BaseException {
 
 /**
  * <p>A custom key-value pair associated with a resource such as a CloudTrail
- *          trail, event data store, or channel.</p>
+ *          trail, event data store, dashboard, or channel.</p>
  * @public
  */
 export interface Tag {
@@ -156,22 +156,24 @@ export interface Tag {
    *          characters.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
- * <p>Specifies the tags to add to a trail, event data store, or channel.</p>
+ * <p>Specifies the tags to add to a trail, event data store, dashboard, or channel.</p>
  * @public
  */
 export interface AddTagsRequest {
   /**
-   * <p>Specifies the ARN of the trail, event data store, or channel to which one or more tags will be
+   * <p>Specifies the ARN of the trail, event data store, dashboard, or channel to which one or more tags will be
    *          added.</p>
    *          <p>The format of a trail ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>The format of an event data store ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>The format of a dashboard ARN is: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
    *          </p>
    *          <p>The format of a channel ARN is:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -205,7 +207,7 @@ export class ChannelARNInvalidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -231,7 +233,7 @@ export class ChannelNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -253,6 +255,8 @@ export class ChannelNotFoundException extends __BaseException {
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
@@ -265,7 +269,7 @@ export class CloudTrailARNInvalidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -294,7 +298,7 @@ export class ConflictException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -321,7 +325,7 @@ export class EventDataStoreARNInvalidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -347,7 +351,7 @@ export class EventDataStoreNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -373,7 +377,7 @@ export class InactiveEventDataStoreException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -400,7 +404,7 @@ export class InvalidTagParameterException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -446,7 +450,7 @@ export class InvalidTrailNameException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -473,7 +477,7 @@ export class NoManagementAccountSLRExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -501,7 +505,7 @@ export class NotOrganizationMasterAccountException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -527,7 +531,7 @@ export class OperationNotPermittedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -553,7 +557,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -579,7 +583,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -595,7 +599,7 @@ export class ResourceTypeNotSupportedException extends __BaseException {
 }
 
 /**
- * <p>The number of tags per trail, event data store, or channel has exceeded the permitted amount. Currently, the limit is
+ * <p>The number of tags per trail, event data store, dashboard, or channel has exceeded the permitted amount. Currently, the limit is
  *          50.</p>
  * @public
  */
@@ -606,7 +610,7 @@ export class TagsLimitExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -632,7 +636,7 @@ export class UnsupportedOperationException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -656,1036 +660,13 @@ export interface AdvancedFieldSelector {
    * <p> A field in a CloudTrail event record on which to filter events to be logged. For
    *          event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the field is used only for
    *          selecting events as filtering is not supported.</p>
-   *          <p>For CloudTrail management events, supported fields include <code>readOnly</code>,
-   *             <code>eventCategory</code>, and <code>eventSource</code>.</p>
-   *          <p>For CloudTrail data events, supported fields include <code>readOnly</code>,
-   *          <code>eventCategory</code>, <code>eventName</code>, <code>resources.type</code>, and <code>resources.ARN</code>.</p>
-   *          <p> For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
-   *             <code>eventCategory</code>. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>readOnly</code>
-   *                   </b> - Optional. Can be set to
-   *                   <code>Equals</code> a value of <code>true</code> or <code>false</code>. If you do
-   *                not add this field, CloudTrail logs both <code>read</code> and
-   *                   <code>write</code> events. A value of <code>true</code> logs only
-   *                   <code>read</code> events. A value of <code>false</code> logs only
-   *                   <code>write</code> events.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>eventSource</code>
-   *                   </b> - For filtering
-   *                management events only. This can be set to <code>NotEquals</code>
-   *                   <code>kms.amazonaws.com</code> or <code>NotEquals</code>
-   *                   <code>rdsdata.amazonaws.com</code>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>eventName</code>
-   *                   </b> - Can use any operator.
-   *                You can use it to ﬁlter in or ﬁlter out any data event logged to CloudTrail,
-   *                such as <code>PutBucket</code> or <code>GetSnapshotBlock</code>. You can have
-   *                multiple values for this ﬁeld, separated by commas.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>eventCategory</code>
-   *                   </b> - This is required and
-   *                must be set to <code>Equals</code>.
-   *             </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                      For CloudTrail management events, the value
-   *                      must be <code>Management</code>.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                      For CloudTrail data events, the value
-   *                      must be <code>Data</code>.
-   *                   </p>
-   *                   </li>
-   *                </ul>
-   *                <p>The following are used only for event data stores:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                      For CloudTrail Insights events, the value
-   *                      must be <code>Insight</code>.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                      For Config
-   *                      configuration items, the value must be <code>ConfigurationItem</code>.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                      For Audit Manager evidence, the value must be <code>Evidence</code>.
-   *                   </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                      For non-Amazon Web Services events, the value must be <code>ActivityAuditLog</code>.
-   *                   </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>resources.type</code>
-   *                   </b> - This ﬁeld is
-   *                required for CloudTrail data events. <code>resources.type</code> can only
-   *                use the <code>Equals</code> operator, and the value can be one of the
-   *                following:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::DynamoDB::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Lambda::Function</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3::Object</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::AppConfig::Configuration</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::B2BI::Transformer</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Bedrock::AgentAlias</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Bedrock::KnowledgeBase</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Cassandra::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CloudFront::KeyValueStore</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CloudTrail::Channel</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CodeWhisperer::Customization</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::CodeWhisperer::Profile</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Cognito::IdentityPool</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::DynamoDB::Stream</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::EC2::Snapshot</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::EMRWAL::Workspace</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::FinSpace::Environment</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Glue::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::GreengrassV2::ComponentVersion</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::GreengrassV2::Deployment</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::GuardDuty::Detector</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoT::Certificate</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoT::Thing</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTSiteWise::Asset</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTSiteWise::TimeSeries</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTTwinMaker::Entity</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::IoTTwinMaker::Workspace</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::KendraRanking::ExecutionPlan</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::KinesisVideo::Stream</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ManagedBlockchain::Network</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ManagedBlockchain::Node</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::MedicalImaging::Datastore</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::NeptuneGraph::Graph</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::PCAConnectorAD::Connector</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QApps:QApp</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::Application</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::DataSource</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::Index</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::QBusiness::WebExperience</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::RDS::DBCluster</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3::AccessPoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3ObjectLambda::AccessPoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3Outposts::Object</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SageMaker::Endpoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SageMaker::ExperimentTrialComponent</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SageMaker::FeatureGroup</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ServiceDiscovery::Namespace </code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ServiceDiscovery::Service</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SCN::Instance</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SNS::PlatformEndpoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SNS::Topic</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SQS::Queue</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SSM::ManagedNode</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SSMMessages::ControlChannel</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::SWF::Domain</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ThinClient::Device</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::ThinClient::Environment</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Timestream::Database</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::Timestream::Table</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::VerifiedPermissions::PolicyStore</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::XRay::Trace</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p> You can have only one <code>resources.type</code> ﬁeld per selector. To log data
-   *                events on more than one resource type, add another selector.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <b>
-   *                      <code>resources.ARN</code>
-   *                   </b> - You can use any
-   *                operator with <code>resources.ARN</code>, but if you use <code>Equals</code> or
-   *                   <code>NotEquals</code>, the value must exactly match the ARN of a valid resource
-   *                of the type you've speciﬁed in the template as the value of resources.type.</p>
-   *                <note>
-   *                   <p>You can't use the <code>resources.ARN</code> field to filter resource types that do not have ARNs.</p>
-   *                </note>
-   *                <p>The <code>resources.ARN</code> field can be set one of the following.</p>
-   *                <p>If resources.type equals <code>AWS::S3::Object</code>, the ARN must be in
-   *                one of the following formats. To log all data events for all objects in a specific S3
-   *                bucket, use the <code>StartsWith</code> operator, and include only the bucket ARN as
-   *                the matching value.</p>
-   *                <p>The trailing slash is intentional; do not exclude it. Replace the text between
-   *                less than and greater than symbols (<>) with resource-specific information. </p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:::<bucket_name>/</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:::<bucket_name>/<object_path>/</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::DynamoDB::Table</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Lambda::Function</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:lambda:<region>:<account_ID>:function:<function_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::AppConfig::Configuration</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:appconfig:<region>:<account_ID>:application/<application_ID>/environment/<environment_ID>/configuration/<configuration_profile_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::B2BI::Transformer</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:b2bi:<region>:<account_ID>:transformer/<transformer_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Bedrock::AgentAlias</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:agent-alias/<agent_ID>/<alias_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Bedrock::KnowledgeBase</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:bedrock:<region>:<account_ID>:knowledge-base/<knowledge_base_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Cassandra::Table</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cassandra:<region>:<account_ID>:/keyspace/<keyspace_name>/table/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CloudFront::KeyValueStore</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cloudfront:<region>:<account_ID>:key-value-store/<KVS_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CloudTrail::Channel</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cloudtrail:<region>:<account_ID>:channel/<channel_UUID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Customization</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:customization/<customization_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::CodeWhisperer::Profile</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:codewhisperer:<region>:<account_ID>:profile/<profile_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::Cognito::IdentityPool</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:cognito-identity:<region>:<account_ID>:identitypool/<identity_pool_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::DynamoDB::Stream</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:dynamodb:<region>:<account_ID>:table/<table_name>/stream/<date_time></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::EC2::Snapshot</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ec2:<region>::snapshot/<snapshot_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::EMRWAL::Workspace</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:emrwal:<region>:<account_ID>:workspace/<workspace_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::FinSpace::Environment</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:finspace:<region>:<account_ID>:environment/<environment_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::Glue::Table</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:glue:<region>:<account_ID>:table/<database_name>/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::GreengrassV2::ComponentVersion</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:greengrass:<region>:<account_ID>:components/<component_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::GreengrassV2::Deployment</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:greengrass:<region>:<account_ID>:deployments/<deployment_ID</code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::GuardDuty::Detector</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:guardduty:<region>:<account_ID>:detector/<detector_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoT::Certificate</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iot:<region>:<account_ID>:cert/<certificate_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoT::Thing</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iot:<region>:<account_ID>:thing/<thing_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTSiteWise::Asset</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iotsitewise:<region>:<account_ID>:asset/<asset_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTSiteWise::TimeSeries</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iotsitewise:<region>:<account_ID>:timeseries/<timeseries_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Entity</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID>/entity/<entity_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::IoTTwinMaker::Workspace</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:iottwinmaker:<region>:<account_ID>:workspace/<workspace_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::KendraRanking::ExecutionPlan</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:kendra-ranking:<region>:<account_ID>:rescore-execution-plan/<rescore_execution_plan_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::KinesisVideo::Stream</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:kinesisvideo:<region>:<account_ID>:stream/<stream_name>/<creation_time></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Network</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:managedblockchain:::networks/<network_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ManagedBlockchain::Node</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:managedblockchain:<region>:<account_ID>:nodes/<node_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::MedicalImaging::Datastore</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:medical-imaging:<region>:<account_ID>:datastore/<data_store_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::NeptuneGraph::Graph</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:neptune-graph:<region>:<account_ID>:graph/<graph_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::PCAConnectorAD::Connector</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:pca-connector-ad:<region>:<account_ID>:connector/<connector_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QApps:QApp</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qapps:<region>:<account_ID>:application/<application_UUID>/qapp/<qapp_UUID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Application</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::DataSource</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID>/data-source/<datasource_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::Index</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/index/<index_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::QBusiness::WebExperience</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:qbusiness:<region>:<account_ID>:application/<application_ID>/web-experience/<web_experience_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::RDS::DBCluster</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:rds:<region>:<account_ID>:cluster/<cluster_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::S3::AccessPoint</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                one of the following formats. To log events on all objects in an S3 access point, we
-   *                recommend that you use only the access point ARN, don’t include the object path, and
-   *                use the <code>StartsWith</code> or <code>NotStartsWith</code> operators.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name></code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>/object/<object_path></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals
-   *                <code>AWS::S3ObjectLambda::AccessPoint</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following
-   *                format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3-object-lambda:<region>:<account_ID>:accesspoint/<access_point_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::Endpoint</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:endpoint/<endpoint_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::ExperimentTrialComponent</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:experiment-trial-component/<experiment_trial_component_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::FeatureGroup</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sagemaker:<region>:<account_ID>:feature-group/<feature_group_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SCN::Instance</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:scn:<region>:<account_ID>:instance/<instance_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Namespace</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:namespace/<namespace_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ServiceDiscovery::Service</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:servicediscovery:<region>:<account_ID>:service/<service_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::PlatformEndpoint</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sns:<region>:<account_ID>:endpoint/<endpoint_type>/<endpoint_name>/<endpoint_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SNS::Topic</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sns:<region>:<account_ID>:<topic_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SQS::Queue</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:sqs:<region>:<account_ID>:<queue_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SSM::ManagedNode</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in one of the following formats:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ssm:<region>:<account_ID>:managed-instance/<instance_ID></code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ec2:<region>:<account_ID>:instance/<instance_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SSMMessages::ControlChannel</code>, and
-   *                      the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                      in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:ssmmessages:<region>:<account_ID>:control-channel/<channel_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::SWF::Domain</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Device</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:device/<device_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::ThinClient::Environment</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:thinclient:<region>:<account_ID>:environment/<environment_ID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Database</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::Timestream::Table</code>,
-   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
-   *                must be in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:timestream:<region>:<account_ID>:database/<database_name>/table/<table_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When resources.type equals <code>AWS::VerifiedPermissions::PolicyStore</code>, and the operator is
-   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
-   *                following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:verifiedpermissions:<region>:<account_ID>:policy-store/<policy_store_UUID></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *          </ul>
+   *          <p>For more information, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>
+   *          in the <i>CloudTrail API Reference</i>.</p>
+   *          <note>
+   *             <p>Selectors don't support the use of wildcards like <code>*</code> . To match multiple values with a single condition,
+   *             you may use <code>StartsWith</code>, <code>EndsWith</code>, <code>NotStartsWith</code>, or <code>NotEndsWith</code> to explicitly match the beginning or end of the event field.</p>
+   *          </note>
    * @public
    */
   Field: string | undefined;
@@ -1697,101 +678,52 @@ export interface AdvancedFieldSelector {
    *             <code>resources.type</code> fields.</p>
    * @public
    */
-  Equals?: string[];
+  Equals?: string[] | undefined;
 
   /**
    * <p>An operator that includes events that match the first few characters of the event record
    *          field specified as the value of <code>Field</code>.</p>
    * @public
    */
-  StartsWith?: string[];
+  StartsWith?: string[] | undefined;
 
   /**
    * <p>An operator that includes events that match the last few characters of the event record
    *          field specified as the value of <code>Field</code>.</p>
    * @public
    */
-  EndsWith?: string[];
+  EndsWith?: string[] | undefined;
 
   /**
    * <p> An operator that excludes events that match the exact value of the event record field
    *          specified as the value of <code>Field</code>. </p>
    * @public
    */
-  NotEquals?: string[];
+  NotEquals?: string[] | undefined;
 
   /**
    * <p> An operator that excludes events that match the first few characters of the event
    *          record field specified as the value of <code>Field</code>. </p>
    * @public
    */
-  NotStartsWith?: string[];
+  NotStartsWith?: string[] | undefined;
 
   /**
    * <p> An operator that excludes events that match the last few characters of the event record
    *          field specified as the value of <code>Field</code>. </p>
    * @public
    */
-  NotEndsWith?: string[];
+  NotEndsWith?: string[] | undefined;
 }
 
 /**
- * <p>Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events. They help you control costs by logging only those
- *          events that are important to you. For more information about advanced event selectors, see
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a> and
- *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>.</p>
+ * <p>Advanced event selectors let you create fine-grained selectors for CloudTrail management, data, and network activity events. They help you control costs by logging only those
+ *          events that are important to you. For more information about configuring advanced event selectors, see
+ *             the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a>, <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging network activity events</a>, and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a> topics in the <i>CloudTrail User Guide</i>.</p>
  *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
- *          <p>
- *             <b>Supported CloudTrail event record fields for management events</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>eventCategory</code> (required)</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>eventSource</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>readOnly</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Supported CloudTrail event record fields for data events</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <code>eventCategory</code> (required)</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>resources.type</code> (required)</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>readOnly</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>eventName</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>resources.ARN</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <note>
- *             <p>For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
- *             <code>eventCategory</code>. </p>
- *          </note>
+ *          <p>For information about configurable advanced event selector fields, see
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelector</a>
+ *          in the <i>CloudTrail API Reference</i>.</p>
  * @public
  */
 export interface AdvancedEventSelector {
@@ -1800,7 +732,7 @@ export interface AdvancedEventSelector {
    *          for only two S3 buckets".</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Contains all selector statements in an advanced event selector.</p>
@@ -1828,13 +760,13 @@ export type BillingMode = (typeof BillingMode)[keyof typeof BillingMode];
  */
 export interface CancelQueryRequest {
   /**
-   * @deprecated
-   *
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
    *          query is running.</p>
+   *
+   * @deprecated
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>The ID of the query that you want to cancel. The <code>QueryId</code> comes from the
@@ -1842,6 +774,14 @@ export interface CancelQueryRequest {
    * @public
    */
   QueryId: string | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -1878,6 +818,14 @@ export interface CancelQueryResponse {
    * @public
    */
   QueryStatus: QueryStatus | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -1892,7 +840,7 @@ export class InactiveQueryException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1918,7 +866,7 @@ export class InvalidParameterException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1944,7 +892,7 @@ export class QueryIdNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1971,7 +919,7 @@ export class CannotDelegateManagementAccountException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1995,7 +943,7 @@ export interface Channel {
    * <p>The Amazon Resource Name (ARN) of a channel.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p> The name of the CloudTrail channel. For service-linked channels, the name is
@@ -2005,7 +953,7 @@ export interface Channel {
    *             Amazon Web Services service. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -2021,7 +969,7 @@ export class ChannelAlreadyExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2048,7 +996,7 @@ export class ChannelExistsForEDSException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2076,7 +1024,7 @@ export class ChannelMaxLimitExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2156,7 +1104,7 @@ export interface CreateChannelRequest {
    * <p>A list of tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2167,31 +1115,31 @@ export interface CreateChannelResponse {
    * <p>The Amazon Resource Name (ARN) of the new channel.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p>The name of the new channel.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The partner or external event source name.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The event data stores that log the events arriving through the channel.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2206,7 +1154,7 @@ export class InvalidEventDataStoreCategoryException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2232,7 +1180,7 @@ export class InvalidSourceException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2248,6 +1196,387 @@ export class InvalidSourceException extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const RefreshScheduleFrequencyUnit = {
+  DAYS: "DAYS",
+  HOURS: "HOURS",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshScheduleFrequencyUnit =
+  (typeof RefreshScheduleFrequencyUnit)[keyof typeof RefreshScheduleFrequencyUnit];
+
+/**
+ * <p>
+ * Specifies the frequency for a dashboard refresh schedule.
+ * </p>
+ *          <p>
+ *       For a custom dashboard, you can schedule a refresh for every 1, 6, 12, or 24 hours, or every day.
+ *    </p>
+ * @public
+ */
+export interface RefreshScheduleFrequency {
+  /**
+   * <p>
+   *    The unit to use for the refresh.
+   * </p>
+   *          <p>For custom dashboards, the unit can be <code>HOURS</code> or <code>DAYS</code>.</p>
+   *          <p>For the Highlights dashboard, the <code>Unit</code> must be <code>HOURS</code>.</p>
+   * @public
+   */
+  Unit?: RefreshScheduleFrequencyUnit | undefined;
+
+  /**
+   * <p>
+   * The value for the refresh schedule.
+   * </p>
+   *          <p>
+   *    For custom dashboards, the following values are valid when the unit is <code>HOURS</code>: <code>1</code>, <code>6</code>, <code>12</code>, <code>24</code>
+   *          </p>
+   *          <p>For custom dashboards, the only valid value when the unit is <code>DAYS</code> is <code>1</code>.</p>
+   *          <p>For the Highlights dashboard, the <code>Value</code> must be <code>6</code>.</p>
+   * @public
+   */
+  Value?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RefreshScheduleStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type RefreshScheduleStatus = (typeof RefreshScheduleStatus)[keyof typeof RefreshScheduleStatus];
+
+/**
+ * <p>
+ * The schedule for a dashboard refresh.
+ * </p>
+ * @public
+ */
+export interface RefreshSchedule {
+  /**
+   * <p>
+   * The frequency at which you want the dashboard refreshed.
+   * </p>
+   * @public
+   */
+  Frequency?: RefreshScheduleFrequency | undefined;
+
+  /**
+   * <p>
+   * Specifies whether the refresh schedule is enabled. Set the value to <code>ENABLED</code> to enable the refresh schedule, or to <code>DISABLED</code> to turn off the refresh schedule.
+   * </p>
+   * @public
+   */
+  Status?: RefreshScheduleStatus | undefined;
+
+  /**
+   * <p>
+   *    The time of day in UTC to run the schedule; for hourly only refer to minutes; default is 00:00.
+   * </p>
+   * @public
+   */
+  TimeOfDay?: string | undefined;
+}
+
+/**
+ * <p>
+ * Contains information about a widget on a CloudTrail Lake dashboard.
+ * </p>
+ * @public
+ */
+export interface RequestWidget {
+  /**
+   * <p>
+   * The query statement for the widget. For custom dashboard widgets, you can query across multiple event data stores as long as all event data stores exist in your account.
+   * </p>
+   *          <note>
+   *             <p>When a query uses <code>?</code> with <code>eventTime</code>, <code>?</code> must be surrounded by single quotes as follows: <code>'?'</code>.</p>
+   *          </note>
+   * @public
+   */
+  QueryStatement: string | undefined;
+
+  /**
+   * <p>
+   *    The optional query parameters. The following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, and <code>$Period$</code>.
+   * </p>
+   * @public
+   */
+  QueryParameters?: string[] | undefined;
+
+  /**
+   * <p>
+   *    The view properties for the widget. For more information about view properties, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-widget-properties.html">
+   *       View properties for widgets
+   *    </a> in the <i>CloudTrail User Guide</i>.
+   * </p>
+   * @public
+   */
+  ViewProperties: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDashboardRequest {
+  /**
+   * <p>
+   *    The name of the dashboard. The name must be unique to your account.
+   * </p>
+   *          <p>To create the Highlights dashboard, the name must be <code>AWSCloudTrail-Highlights</code>.</p>
+   * @public
+   */
+  Name: string | undefined;
+
+  /**
+   * <p>
+   *    The refresh schedule configuration for the dashboard.
+   * </p>
+   *          <p>To create the Highlights dashboard, you must set a refresh schedule and set the <code>Status</code> to <code>ENABLED</code>. The <code>Unit</code> for the refresh schedule must be <code>HOURS</code>
+   *    and the <code>Value</code> must be <code>6</code>.</p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  TagsList?: Tag[] | undefined;
+
+  /**
+   * <p>
+   *    Specifies whether termination protection is enabled for the dashboard. If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for a custom dashboard. A custom dashboard can have a maximum of ten widgets.
+   * </p>
+   *          <p>You do not need to specify widgets for the Highlights dashboard.</p>
+   * @public
+   */
+  Widgets?: RequestWidget[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardType = {
+  CUSTOM: "CUSTOM",
+  MANAGED: "MANAGED",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardType = (typeof DashboardType)[keyof typeof DashboardType];
+
+/**
+ * <p>
+ *    A widget on a CloudTrail Lake dashboard.
+ * </p>
+ * @public
+ */
+export interface Widget {
+  /**
+   * <p>The query alias used to identify the query for the widget.
+   * </p>
+   * @public
+   */
+  QueryAlias?: string | undefined;
+
+  /**
+   * <p>
+   * The SQL query statement for the widget.
+   * </p>
+   * @public
+   */
+  QueryStatement?: string | undefined;
+
+  /**
+   * <p>
+   *    The query parameters for the widget.
+   * </p>
+   * @public
+   */
+  QueryParameters?: string[] | undefined;
+
+  /**
+   * <p>
+   *    The view properties for the widget. For more information about view properties, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-widget-properties.html">
+   *       View properties for widgets
+   * </a> in the <i>CloudTrail User Guide</i>..
+   * </p>
+   * @public
+   */
+  ViewProperties?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDashboardResponse {
+  /**
+   * <p>
+   * The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The name of the dashboard.
+   * </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   * The dashboard type.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard.
+   * </p>
+   * @public
+   */
+  Widgets?: Widget[] | undefined;
+
+  /**
+   * <p>A list of tags.</p>
+   * @public
+   */
+  TagsList?: Tag[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule for the dashboard, if configured.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    Indicates whether termination protection is enabled for the dashboard.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ * @public
+ */
+export class InsufficientEncryptionPolicyException extends __BaseException {
+  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
+    super({
+      name: "InsufficientEncryptionPolicyException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>The query that was submitted has validation errors, or uses incorrect syntax or
+ *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
+ *             Guide</i>.</p>
+ * @public
+ */
+export class InvalidQueryStatementException extends __BaseException {
+  readonly name: "InvalidQueryStatementException" = "InvalidQueryStatementException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidQueryStatementException, __BaseException>) {
+    super({
+      name: "InvalidQueryStatementException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidQueryStatementException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * <p>
+ *    This exception is thrown when the quota is exceeded. For information about CloudTrail quotas, see <a href="https://docs.aws.amazon.com/general/latest/gr/ct.html#limits_cloudtrail">Service quotas</a>
+ *    in the <i>Amazon Web Services General Reference</i>.
+ * </p>
+ * @public
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
  * <p>This exception is thrown when trusted access has not been enabled between CloudTrail and Organizations. For more information, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_integrate_services.html#orgs_how-to-enable-disable-trusted-access">How to enable or disable trusted access</a> in the <i>Organizations User Guide</i> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/creating-an-organizational-trail-prepare.html">Prepare For Creating a Trail For Your Organization</a> in the <i>CloudTrail User Guide</i>.</p>
  * @public
  */
@@ -2258,7 +1587,7 @@ export class CloudTrailAccessNotEnabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2293,21 +1622,21 @@ export interface CreateEventDataStoreRequest {
    *          <p>For more information about how to use advanced event selectors to include events outside of Amazon Web Services events in your event data store, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-integrations-cli.html#lake-cli-create-integration">Create an integration to log events from outside Amazon Web Services</a> in the CloudTrail User Guide.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Specifies whether the event data store includes events from all Regions, or only from
    *          the Region in which the event data store is created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether an event data store collects events logged for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
@@ -2326,7 +1655,7 @@ export interface CreateEventDataStoreRequest {
    *          </note>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Specifies whether termination protection is enabled for the event data store. If
@@ -2334,13 +1663,13 @@ export interface CreateEventDataStoreRequest {
    *          protection is disabled.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the events delivered by
@@ -2383,13 +1712,13 @@ export interface CreateEventDataStoreRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the event data store should start ingesting live events. The default is true.</p>
    * @public
    */
-  StartIngestion?: boolean;
+  StartIngestion?: boolean | undefined;
 
   /**
    * <p>The billing mode for the event data store determines the cost for ingesting events and the default and maximum retention period for the event data store.</p>
@@ -2412,7 +1741,7 @@ export interface CreateEventDataStoreRequest {
    *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -2441,64 +1770,64 @@ export interface CreateEventDataStoreResponse {
    * <p>The ARN of the event data store.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of event data store creation.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors that were used to select the events for the data
    *          store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store collects events from all Regions, or only from
    *          the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of an event data store, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates whether termination protection is enabled for the event data store.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 
   /**
    * <p>The timestamp that shows when the event data store was created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp that shows when an event data store was updated, if applicable.
@@ -2506,7 +1835,7 @@ export interface CreateEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -2516,13 +1845,13 @@ export interface CreateEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -2536,7 +1865,7 @@ export class EventDataStoreAlreadyExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2562,7 +1891,7 @@ export class EventDataStoreMaxLimitExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2591,7 +1920,7 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2602,33 +1931,6 @@ export class InsufficientDependencyServiceAccessPermissionException extends __Ba
       ...opts,
     });
     Object.setPrototypeOf(this, InsufficientDependencyServiceAccessPermissionException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * <p>This exception is thrown when the policy on the S3 bucket or KMS key does
- *          not have sufficient permissions for the operation.</p>
- * @public
- */
-export class InsufficientEncryptionPolicyException extends __BaseException {
-  readonly name: "InsufficientEncryptionPolicyException" = "InsufficientEncryptionPolicyException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InsufficientEncryptionPolicyException, __BaseException>) {
-    super({
-      name: "InsufficientEncryptionPolicyException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InsufficientEncryptionPolicyException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -2671,7 +1973,7 @@ export class InvalidEventSelectorsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2697,7 +1999,7 @@ export class InvalidKmsKeyIdException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2724,7 +2026,7 @@ export class KmsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2752,7 +2054,7 @@ export class KmsKeyNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2780,7 +2082,7 @@ export class OrganizationNotInAllFeaturesModeException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2808,7 +2110,7 @@ export class OrganizationsNotInUseException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2836,7 +2138,7 @@ export class CloudTrailInvalidClientTokenIdException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2862,7 +2164,7 @@ export class CloudWatchLogsDeliveryUnavailableException extends __BaseException 
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2922,21 +2224,21 @@ export interface CreateTrailRequest {
    *          characters.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
-   * <p>Specifies the name of the Amazon SNS topic defined for notification of log file
+   * <p>Specifies the name or ARN of the Amazon SNS topic defined for notification of log file
    *          delivery. The maximum length is 256 characters.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the
    *          log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail is created in the current Region or in all Regions. The
@@ -2944,7 +2246,7 @@ export interface CreateTrailRequest {
    *          best practice, consider creating trails that log events in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies whether log file integrity validation is enabled. The default is false.</p>
@@ -2959,7 +2261,7 @@ export interface CreateTrailRequest {
    *          </note>
    * @public
    */
-  EnableLogFileValidation?: boolean;
+  EnableLogFileValidation?: boolean | undefined;
 
   /**
    * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that
@@ -2968,14 +2270,14 @@ export interface CreateTrailRequest {
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group. You must use a role that exists in your account.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by <code>alias/</code>, a fully
@@ -3009,7 +2311,7 @@ export interface CreateTrailRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is created for all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false,
@@ -3017,13 +2319,13 @@ export interface CreateTrailRequest {
    *          is the management account or delegated administrator account for an organization in Organizations.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 }
 
 /**
@@ -3036,29 +2338,29 @@ export interface CreateTrailResponse {
    * <p>Specifies the name of the trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log
    *          files.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
    *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your CloudTrail Log Files</a>.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
+   *
+   * @deprecated
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -3068,20 +2370,20 @@ export interface CreateTrailResponse {
    *          </p>
    * @public
    */
-  SnsTopicARN?: string;
+  SnsTopicARN?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the
    *          log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail exists in one Region or in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies the ARN of the trail that was created. The format of a trail ARN is:</p>
@@ -3090,27 +2392,27 @@ export interface CreateTrailResponse {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies whether log file integrity validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
    *          logs will be delivered.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -3120,13 +2422,13 @@ export interface CreateTrailResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is an organization trail.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }
 
 /**
@@ -3140,7 +2442,7 @@ export class InsufficientS3BucketPolicyException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3167,7 +2469,7 @@ export class InsufficientSnsTopicPolicyException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3194,7 +2496,7 @@ export class InvalidCloudWatchLogsLogGroupArnException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3220,7 +2522,7 @@ export class InvalidCloudWatchLogsRoleArnException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3247,7 +2549,7 @@ export class InvalidParameterCombinationException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3273,7 +2575,7 @@ export class InvalidS3BucketNameException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3299,7 +2601,7 @@ export class InvalidS3PrefixException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3325,7 +2627,7 @@ export class InvalidSnsTopicNameException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3353,7 +2655,7 @@ export class KmsKeyDisabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3379,7 +2681,7 @@ export class MaximumNumberOfTrailsExceededException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3405,7 +2707,7 @@ export class S3BucketDoesNotExistException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3433,7 +2735,7 @@ export class ThrottlingException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3459,7 +2761,7 @@ export class TrailAlreadyExistsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3485,7 +2787,7 @@ export class TrailNotProvidedException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3519,6 +2821,24 @@ export interface DeleteChannelResponse {}
 /**
  * @public
  */
+export interface DeleteDashboardRequest {
+  /**
+   * <p>
+   * The name or ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteDashboardResponse {}
+
+/**
+ * @public
+ */
 export interface DeleteEventDataStoreRequest {
   /**
    * <p>The ARN (or the ID suffix of the ARN) of the event data store to delete.</p>
@@ -3546,7 +2866,7 @@ export class EventDataStoreFederationEnabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3573,7 +2893,7 @@ export class EventDataStoreHasOngoingImportException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3600,7 +2920,7 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3621,10 +2941,15 @@ export class EventDataStoreTerminationProtectedException extends __BaseException
 export interface DeleteResourcePolicyRequest {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel you're deleting the resource-based policy from.
-   *          The following is the format of a resource ARN:
-   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
-   *       </p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel you're deleting the resource-based policy from.</p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -3637,9 +2962,16 @@ export interface DeleteResourcePolicyResponse {}
 
 /**
  * <p>
- *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid. The following is the valid format for a resource ARN:
- *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
+ *          This exception is thrown when the provided resource does not exist, or the ARN format of the resource is not valid.
  *       </p>
+ *          <p>The following is the format of an event data store ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
+ *          <p>The following is the format of a channel ARN:
+ *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+ *          </p>
  * @public
  */
 export class ResourceARNNotValidException extends __BaseException {
@@ -3649,7 +2981,7 @@ export class ResourceARNNotValidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3677,7 +3009,7 @@ export class ResourcePolicyNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3726,7 +3058,7 @@ export class InvalidHomeRegionException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3752,7 +3084,7 @@ export class TrailNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3800,7 +3132,7 @@ export class NotOrganizationManagementAccountException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3820,19 +3152,19 @@ export class NotOrganizationManagementAccountException extends __BaseException {
  */
 export interface DescribeQueryRequest {
   /**
-   * @deprecated
-   *
    * <p>The ARN (or the ID suffix of the ARN) of an event data store on which the specified
    *          query was run.</p>
+   *
+   * @deprecated
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>The query ID.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>
@@ -3840,7 +3172,23 @@ export interface DescribeQueryRequest {
    *       </p>
    * @public
    */
-  QueryAlias?: string;
+  QueryAlias?: string | undefined;
+
+  /**
+   * <p>
+   * The ID of the dashboard refresh.
+   * </p>
+   * @public
+   */
+  RefreshId?: string | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -3875,13 +3223,13 @@ export interface QueryStatisticsForDescribeQuery {
    * <p>The number of events that matched a query.</p>
    * @public
    */
-  EventsMatched?: number;
+  EventsMatched?: number | undefined;
 
   /**
    * <p>The number of events that the query scanned in the event data store.</p>
    * @public
    */
-  EventsScanned?: number;
+  EventsScanned?: number | undefined;
 
   /**
    * <p>The total bytes that the query scanned in the event data store. This value matches the
@@ -3889,19 +3237,19 @@ export interface QueryStatisticsForDescribeQuery {
    *          running.</p>
    * @public
    */
-  BytesScanned?: number;
+  BytesScanned?: number | undefined;
 
   /**
    * <p>The query's run time, in milliseconds.</p>
    * @public
    */
-  ExecutionTimeInMillis?: number;
+  ExecutionTimeInMillis?: number | undefined;
 
   /**
    * <p>The creation time of the query.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -3912,13 +3260,13 @@ export interface DescribeQueryResponse {
    * <p>The ID of the query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The SQL code of a query.</p>
    * @public
    */
-  QueryString?: string;
+  QueryString?: string | undefined;
 
   /**
    * <p>The status of a query. Values for <code>QueryStatus</code> include <code>QUEUED</code>,
@@ -3927,7 +3275,7 @@ export interface DescribeQueryResponse {
    *          </p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 
   /**
    * <p>Metadata about a query, including the number of events that were matched, the total
@@ -3935,26 +3283,44 @@ export interface DescribeQueryResponse {
    *          time.</p>
    * @public
    */
-  QueryStatistics?: QueryStatisticsForDescribeQuery;
+  QueryStatistics?: QueryStatisticsForDescribeQuery | undefined;
 
   /**
    * <p>The error message returned if a query failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p>The URI for the S3 bucket where CloudTrail delivered query results, if
    *          applicable.</p>
    * @public
    */
-  DeliveryS3Uri?: string;
+  DeliveryS3Uri?: string | undefined;
 
   /**
    * <p>The delivery status.</p>
    * @public
    */
-  DeliveryStatus?: DeliveryStatus;
+  DeliveryStatus?: DeliveryStatus | undefined;
+
+  /**
+   * <p>
+   *          The prompt used for a generated query. For information about generated queries, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html">Create CloudTrail Lake queries from natural language prompts</a>
+   *          in the <i>CloudTrail </i> user guide.
+   *       </p>
+   * @public
+   */
+  Prompt?: string | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -3989,7 +3355,7 @@ export interface DescribeTrailsRequest {
    *          </note>
    * @public
    */
-  trailNameList?: string[];
+  trailNameList?: string[] | undefined;
 
   /**
    * <p>Specifies whether to include shadow trails in the response. A shadow trail is the
@@ -3999,7 +3365,7 @@ export interface DescribeTrailsRequest {
    *          replication trails will not be returned. The default is true.</p>
    * @public
    */
-  includeShadowTrails?: boolean;
+  includeShadowTrails?: boolean | undefined;
 }
 
 /**
@@ -4012,7 +3378,7 @@ export interface Trail {
    *          128 characters.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Name of the Amazon S3 bucket into which CloudTrail delivers your trail
@@ -4020,7 +3386,7 @@ export interface Trail {
    *             Bucket naming rules</a>.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
@@ -4028,15 +3394,15 @@ export interface Trail {
    *          characters.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
+   *
+   * @deprecated
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -4047,26 +3413,26 @@ export interface Trail {
    *          </p>
    * @public
    */
-  SnsTopicARN?: string;
+  SnsTopicARN?: string | undefined;
 
   /**
    * <p>Set to <b>True</b> to include Amazon Web Services API calls
    *          from Amazon Web Services global services such as IAM. Otherwise, <b>False</b>.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail exists only in one Region or exists in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>The Region in which the trail was created.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the trail. The following is the format of a trail ARN.</p>
@@ -4075,27 +3441,27 @@ export interface Trail {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies whether log file validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies an Amazon Resource Name (ARN), a unique identifier that represents the log
    *          group to which CloudTrail logs will be delivered.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -4105,26 +3471,26 @@ export interface Trail {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies if the trail has custom event selectors.</p>
    * @public
    */
-  HasCustomEventSelectors?: boolean;
+  HasCustomEventSelectors?: boolean | undefined;
 
   /**
    * <p>Specifies whether a trail has insight types specified in an <code>InsightSelector</code>
    *          list.</p>
    * @public
    */
-  HasInsightSelectors?: boolean;
+  HasInsightSelectors?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail is an organization trail.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }
 
 /**
@@ -4142,7 +3508,7 @@ export interface DescribeTrailsResponse {
    *          customer managed keys.</p>
    * @public
    */
-  trailList?: Trail[];
+  trailList?: Trail[] | undefined;
 }
 
 /**
@@ -4158,7 +3524,7 @@ export class ConcurrentModificationException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4212,7 +3578,7 @@ export interface DisableFederationResponse {
    *       </p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -4220,7 +3586,7 @@ export interface DisableFederationResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 }
 
 /**
@@ -4253,7 +3619,7 @@ export interface EnableFederationResponse {
    *       </p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -4261,7 +3627,7 @@ export interface EnableFederationResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 
   /**
    * <p>
@@ -4269,7 +3635,89 @@ export interface EnableFederationResponse {
    *       </p>
    * @public
    */
-  FederationRoleArn?: string;
+  FederationRoleArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateQueryRequest {
+  /**
+   * <p>
+   *          The ARN (or ID suffix of the ARN) of the event data store
+   *          that you want to query. You can only specify one event data store.
+   *       </p>
+   * @public
+   */
+  EventDataStores: string[] | undefined;
+
+  /**
+   * <p>
+   *          The prompt that you want to use to generate the query. The prompt must be in English. For example prompts, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/lake-query-generator.html#lake-query-generator-examples">Example prompts</a>
+   *          in the <i>CloudTrail </i> user guide.
+   *       </p>
+   * @public
+   */
+  Prompt: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GenerateQueryResponse {
+  /**
+   * <p>
+   *          The SQL query statement generated from the prompt.
+   *       </p>
+   * @public
+   */
+  QueryStatement?: string | undefined;
+
+  /**
+   * <p>
+   *          An alias that identifies the prompt. When you run the <code>StartQuery</code> operation, you can pass in either the <code>QueryAlias</code> or
+   *          <code>QueryStatement</code> parameter.
+   *       </p>
+   * @public
+   */
+  QueryAlias?: string | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
+}
+
+/**
+ * <p>
+ *          This exception is thrown when a valid query could not be generated for the provided prompt.
+ *       </p>
+ * @public
+ */
+export class GenerateResponseException extends __BaseException {
+  readonly name: "GenerateResponseException" = "GenerateResponseException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<GenerateResponseException, __BaseException>) {
+    super({
+      name: "GenerateResponseException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, GenerateResponseException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4293,31 +3741,31 @@ export interface IngestionStatus {
    * <p>The time stamp of the most recent successful ingestion of events for the channel.</p>
    * @public
    */
-  LatestIngestionSuccessTime?: Date;
+  LatestIngestionSuccessTime?: Date | undefined;
 
   /**
    * <p>The event ID of the most recent successful ingestion of events.</p>
    * @public
    */
-  LatestIngestionSuccessEventID?: string;
+  LatestIngestionSuccessEventID?: string | undefined;
 
   /**
    * <p>The error code for the most recent failure to ingest events.</p>
    * @public
    */
-  LatestIngestionErrorCode?: string;
+  LatestIngestionErrorCode?: string | undefined;
 
   /**
    * <p>The time stamp of the most recent attempt to ingest events on the channel.</p>
    * @public
    */
-  LatestIngestionAttemptTime?: Date;
+  LatestIngestionAttemptTime?: Date | undefined;
 
   /**
    * <p>The event ID of the most recent attempt to ingest events.</p>
    * @public
    */
-  LatestIngestionAttemptEventID?: string;
+  LatestIngestionAttemptEventID?: string | undefined;
 }
 
 /**
@@ -4329,13 +3777,13 @@ export interface SourceConfig {
    * <p> Specifies whether the channel applies to a single Region or to all Regions.</p>
    * @public
    */
-  ApplyToAllRegions?: boolean;
+  ApplyToAllRegions?: boolean | undefined;
 
   /**
    * <p> The advanced event selectors that are configured for the channel.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -4346,7 +3794,7 @@ export interface GetChannelResponse {
    * <p>The ARN of an channel returned by a <code>GetChannel</code> request.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p> The name of the CloudTrail channel. For service-linked channels, the name is
@@ -4356,20 +3804,20 @@ export interface GetChannelResponse {
    *             Amazon Web Services service. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The source for the CloudTrail channel.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p> Provides information about the advanced event selectors configured for the channel, and
    *          whether the channel applies to all Regions or a single Region. </p>
    * @public
    */
-  SourceConfig?: SourceConfig;
+  SourceConfig?: SourceConfig | undefined;
 
   /**
    * <p>The destinations for the channel. For channels created for integrations,
@@ -4377,14 +3825,235 @@ export interface GetChannelResponse {
    *          For service-linked channels, the destination is the Amazon Web Services service that created the service-linked channel to receive events.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 
   /**
    * <p>A table showing information about the most recent successful and failed attempts
    *       to ingest events.</p>
    * @public
    */
-  IngestionStatus?: IngestionStatus;
+  IngestionStatus?: IngestionStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDashboardRequest {
+  /**
+   * <p>
+   * The name or ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DashboardStatus = {
+  CREATED: "CREATED",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATED: "UPDATED",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type DashboardStatus = (typeof DashboardStatus)[keyof typeof DashboardStatus];
+
+/**
+ * @public
+ */
+export interface GetDashboardResponse {
+  /**
+   * <p>
+   *    The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The type of dashboard.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   * The status of the dashboard.
+   * </p>
+   * @public
+   */
+  Status?: DashboardStatus | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard.
+   * </p>
+   * @public
+   */
+  Widgets?: Widget[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule for the dashboard, if configured.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was created.
+   * </p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was last updated.
+   * </p>
+   * @public
+   */
+  UpdatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   * The ID of the last dashboard refresh.
+   * </p>
+   * @public
+   */
+  LastRefreshId?: string | undefined;
+
+  /**
+   * <p>
+   * Provides information about failures for the last scheduled refresh.
+   * </p>
+   * @public
+   */
+  LastRefreshFailureReason?: string | undefined;
+
+  /**
+   * <p>
+   * Indicates whether termination protection is enabled for the dashboard.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEventConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to retrieve event configuration settings.</p>
+   * @public
+   */
+  EventDataStore?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const Type = {
+  RequestContext: "RequestContext",
+  TagContext: "TagContext",
+} as const;
+
+/**
+ * @public
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
+/**
+ * <p>An object that contains information types to be included in CloudTrail enriched events.</p>
+ * @public
+ */
+export interface ContextKeySelector {
+  /**
+   * <p>Specifies the type of the event record field in ContextKeySelector. Valid values include RequestContext, TagContext.</p>
+   * @public
+   */
+  Type: Type | undefined;
+
+  /**
+   * <p>A list of keys defined by Type to be included in CloudTrail enriched events. </p>
+   * @public
+   */
+  Equals: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MaxEventSize = {
+  Large: "Large",
+  Standard: "Standard",
+} as const;
+
+/**
+ * @public
+ */
+export type MaxEventSize = (typeof MaxEventSize)[keyof typeof MaxEventSize];
+
+/**
+ * @public
+ */
+export interface GetEventConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which the event configuration settings are returned.</p>
+   * @public
+   */
+  EventDataStoreArn?: string | undefined;
+
+  /**
+   * <p>The maximum allowed size for events stored in the specified event data store.</p>
+   * @public
+   */
+  MaxEventSize?: MaxEventSize | undefined;
+
+  /**
+   * <p>The list of context key selectors that are configured for the event data store.</p>
+   * @public
+   */
+  ContextKeySelectors?: ContextKeySelector[] | undefined;
+}
+
+/**
+ * <p>The event data store is not in a status that supports the operation.</p>
+ * @public
+ */
+export class InvalidEventDataStoreStatusException extends __BaseException {
+  readonly name: "InvalidEventDataStoreStatusException" = "InvalidEventDataStoreStatusException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InvalidEventDataStoreStatusException, __BaseException>) {
+    super({
+      name: "InvalidEventDataStoreStatusException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InvalidEventDataStoreStatusException.prototype);
+    this.Message = opts.Message;
+  }
 }
 
 /**
@@ -4425,57 +4094,57 @@ export interface GetEventDataStoreResponse {
    * <p>The event data store Amazon Resource Number (ARN).</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of an event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors used to select events for the data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store includes events from all Regions, or only from
    *          the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of the event data store, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that termination protection is enabled.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The timestamp of the event data store's creation.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>Shows the time that an event data store was updated, if applicable.
@@ -4483,7 +4152,7 @@ export interface GetEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -4493,13 +4162,13 @@ export interface GetEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>
@@ -4508,7 +4177,7 @@ export interface GetEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 
   /**
    * <p>
@@ -4516,14 +4185,14 @@ export interface GetEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationRoleArn?: string;
+  FederationRoleArn?: string | undefined;
 
   /**
    * <p>The partition keys for the event data store. To improve query performance and efficiency, CloudTrail Lake organizes
    *          event data into partitions based on values derived from partition keys.</p>
    * @public
    */
-  PartitionKeys?: PartitionKey[];
+  PartitionKeys?: PartitionKey[] | undefined;
 }
 
 /**
@@ -4562,11 +4231,7 @@ export interface GetEventSelectorsRequest {
 }
 
 /**
- * <p>Data events provide information about the resource operations performed on or within a resource
- *          itself. These are also known as data plane operations. You can specify up to 250 data
- *          resources for a trail.</p>
- *          <p>Configure the <code>DataResource</code> to specify the resource type and resource ARNs for which you want to log data events.</p>
- *          <p>You can specify the following resource types in your event selectors for your trail:</p>
+ * <p>You can configure the <code>DataResource</code> in an <code>EventSelector</code> to log data events for the following three resource types:</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -4584,19 +4249,21 @@ export interface GetEventSelectorsRequest {
  *                </p>
  *             </li>
  *          </ul>
+ *          <p>To log data events for all other resource types including objects stored in
+ *          <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">directory buckets</a>, you must use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>. You must also
+ *          use <code>AdvancedEventSelectors</code> if you want to filter on the <code>eventName</code> field.</p>
+ *          <p>Configure the <code>DataResource</code> to specify the resource type and resource ARNs for which you want to log data events.</p>
  *          <note>
  *             <p>The total number of allowed data resources is 250. This number can be distributed
  *             between 1 and 5 event selectors, but the total cannot exceed 250 across all
  *             selectors for the trail.</p>
- *             <p>If you are using advanced event selectors, the maximum total number of values for
- *             all conditions, across all advanced event selectors for the trail, is 500.</p>
  *          </note>
  *          <p>The following example demonstrates how logging works when you configure logging of all
- *          data events for an S3 bucket named <code>bucket-1</code>. In this example, the CloudTrail user specified an empty prefix, and the option to log both <code>Read</code>
+ *          data events for a general purpose bucket named <code>amzn-s3-demo-bucket1</code>. In this example, the CloudTrail user specified an empty prefix, and the option to log both <code>Read</code>
  *          and <code>Write</code> data events.</p>
  *          <ol>
  *             <li>
- *                <p>A user uploads an image file to <code>bucket-1</code>.</p>
+ *                <p>A user uploads an image file to <code>amzn-s3-demo-bucket1</code>.</p>
  *             </li>
  *             <li>
  *                <p>The <code>PutObject</code> API operation is an Amazon S3 object-level API.
@@ -4606,7 +4273,7 @@ export interface GetEventSelectorsRequest {
  *             </li>
  *             <li>
  *                <p>A user uploads an object to an Amazon S3 bucket named
- *                   <code>arn:aws:s3:::bucket-2</code>.</p>
+ *                <code>arn:aws:s3:::amzn-s3-demo-bucket1</code>.</p>
  *             </li>
  *             <li>
  *                <p>The <code>PutObject</code> API operation occurred for an object in an S3 bucket
@@ -4664,10 +4331,10 @@ export interface DataResource {
    *          </ul>
    *          <p>Additional resource types are available through <i>advanced</i>
    *          event selectors. For more
-   *          information about these additional resource types, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html">AdvancedFieldSelector</a>.</p>
+   *          information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelector</a>.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>An array of Amazon Resource Name (ARN) strings or partial ARN strings for the specified
@@ -4683,12 +4350,12 @@ export interface DataResource {
    *             </li>
    *             <li>
    *                <p>To log data events for all objects in an S3 bucket, specify the bucket and an
-   *                empty object prefix such as <code>arn:aws:s3:::bucket-1/</code>. The trail logs data
+   *                empty object prefix such as <code>arn:aws:s3:::amzn-s3-demo-bucket1/</code>. The trail logs data
    *                events for all objects in this S3 bucket.</p>
    *             </li>
    *             <li>
    *                <p>To log data events for specific objects, specify the S3 bucket and object prefix
-   *                such as <code>arn:aws:s3:::bucket-1/example-images</code>. The trail logs data events
+   *                such as <code>arn:aws:s3:::amzn-s3-demo-bucket1/example-images</code>. The trail logs data events
    *                for objects in this S3 bucket that match the prefix.</p>
    *             </li>
    *             <li>
@@ -4718,7 +4385,7 @@ export interface DataResource {
    *          </ul>
    * @public
    */
-  Values?: string[];
+  Values?: string[] | undefined;
 }
 
 /**
@@ -4755,7 +4422,7 @@ export interface EventSelector {
    *          <p> By default, the value is <code>All</code>.</p>
    * @public
    */
-  ReadWriteType?: ReadWriteType;
+  ReadWriteType?: ReadWriteType | undefined;
 
   /**
    * <p>Specify if you want your event selector to include management events for your
@@ -4768,19 +4435,24 @@ export interface EventSelector {
    *          information about CloudTrail pricing, see <a href="http://aws.amazon.com/cloudtrail/pricing/">CloudTrail Pricing</a>.</p>
    * @public
    */
-  IncludeManagementEvents?: boolean;
+  IncludeManagementEvents?: boolean | undefined;
 
   /**
-   * <p>CloudTrail supports data event logging for Amazon S3 objects, Lambda functions, and Amazon DynamoDB tables with basic event selectors.
+   * <p>CloudTrail supports data event logging for Amazon S3 objects in standard S3 buckets, Lambda functions, and Amazon DynamoDB tables with basic event selectors.
    *          You can specify up to 250 resources for an individual event selector, but the total number
    *          of data resources cannot exceed 250 across all event selectors in a trail. This limit does
    *          not apply if you configure resource logging for all data events.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Data
    *             Events</a> and <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/WhatIsCloudTrail-Limits.html">Limits in CloudTrail</a> in the <i>CloudTrail User
    *          Guide</i>.</p>
+   *          <note>
+   *             <p>To log data events for all other resource types including objects stored in
+   *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-buckets-overview.html">directory buckets</a>, you must use <a href="https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedEventSelector.html">AdvancedEventSelectors</a>. You must also
+   *             use <code>AdvancedEventSelectors</code> if you want to filter on the <code>eventName</code> field.</p>
+   *          </note>
    * @public
    */
-  DataResources?: DataResource[];
+  DataResources?: DataResource[] | undefined;
 
   /**
    * <p>An optional list of service event sources from which you do not want management events
@@ -4792,7 +4464,7 @@ export interface EventSelector {
    *          event sources only in Regions that support the event source.</p>
    * @public
    */
-  ExcludeManagementEventSources?: string[];
+  ExcludeManagementEventSources?: string[] | undefined;
 }
 
 /**
@@ -4803,19 +4475,19 @@ export interface GetEventSelectorsResponse {
    * <p>The specified trail ARN that has the event selectors.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>The event selectors that are configured for the trail.</p>
    * @public
    */
-  EventSelectors?: EventSelector[];
+  EventSelectors?: EventSelector[] | undefined;
 
   /**
    * <p> The advanced event selectors that are configured for the trail. </p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -4876,31 +4548,31 @@ export interface ImportStatistics {
    * <p> The number of S3 prefixes found for the import. </p>
    * @public
    */
-  PrefixesFound?: number;
+  PrefixesFound?: number | undefined;
 
   /**
    * <p> The number of S3 prefixes that completed import. </p>
    * @public
    */
-  PrefixesCompleted?: number;
+  PrefixesCompleted?: number | undefined;
 
   /**
    * <p>The number of log files that completed import.</p>
    * @public
    */
-  FilesCompleted?: number;
+  FilesCompleted?: number | undefined;
 
   /**
    * <p> The number of trail events imported into the event data store. </p>
    * @public
    */
-  EventsCompleted?: number;
+  EventsCompleted?: number | undefined;
 
   /**
    * <p> The number of failed entries. </p>
    * @public
    */
-  FailedEntries?: number;
+  FailedEntries?: number | undefined;
 }
 
 /**
@@ -4928,19 +4600,19 @@ export interface GetImportResponse {
    * <p> The ID of the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The source S3 bucket. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -4948,7 +4620,7 @@ export interface GetImportResponse {
    *       </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -4956,25 +4628,25 @@ export interface GetImportResponse {
    *       </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The timestamp of the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of when the import was updated. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p> Provides statistics for the import. CloudTrail does not update import statistics
@@ -4983,7 +4655,7 @@ export interface GetImportResponse {
    *          over the course of the import. </p>
    * @public
    */
-  ImportStatistics?: ImportStatistics;
+  ImportStatistics?: ImportStatistics | undefined;
 }
 
 /**
@@ -4997,7 +4669,7 @@ export class ImportNotFoundException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5045,7 +4717,7 @@ export interface GetInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>EventDataStore</code> parameter.</p>
    * @public
    */
-  TrailName?: string;
+  TrailName?: string | undefined;
 
   /**
    * <p>
@@ -5055,7 +4727,7 @@ export interface GetInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 }
 
 /**
@@ -5087,7 +4759,7 @@ export interface InsightSelector {
    *          unsuccessful.</p>
    * @public
    */
-  InsightType?: InsightType;
+  InsightType?: InsightType | undefined;
 }
 
 /**
@@ -5099,14 +4771,14 @@ export interface GetInsightSelectorsResponse {
    *          selectors.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>A JSON string that contains the Insight types you want to log on a trail or event data store. <code>ApiErrorRateInsight</code> and <code>ApiCallRateInsight</code> are supported
    *          as Insights types.</p>
    * @public
    */
-  InsightSelectors?: InsightSelector[];
+  InsightSelectors?: InsightSelector[] | undefined;
 
   /**
    * <p>
@@ -5114,7 +4786,7 @@ export interface GetInsightSelectorsResponse {
    *       </p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -5122,7 +4794,7 @@ export interface GetInsightSelectorsResponse {
    *       </p>
    * @public
    */
-  InsightsDestination?: string;
+  InsightsDestination?: string | undefined;
 }
 
 /**
@@ -5138,7 +4810,7 @@ export class InsightNotEnabledException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5158,13 +4830,13 @@ export class InsightNotEnabledException extends __BaseException {
  */
 export interface GetQueryResultsRequest {
   /**
-   * @deprecated
-   *
    * <p>The ARN (or ID suffix of the ARN) of the event data store against which the query was
    *          run.</p>
+   *
+   * @deprecated
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>The ID of the query for which you want to get results.</p>
@@ -5176,13 +4848,21 @@ export interface GetQueryResultsRequest {
    * <p>A token you can use to get the next page of query results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of query results to display on a single page.</p>
    * @public
    */
-  MaxQueryResults?: number;
+  MaxQueryResults?: number | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -5194,13 +4874,13 @@ export interface QueryStatistics {
    * <p>The number of results returned.</p>
    * @public
    */
-  ResultsCount?: number;
+  ResultsCount?: number | undefined;
 
   /**
    * <p>The total number of results returned by a query.</p>
    * @public
    */
-  TotalResultsCount?: number;
+  TotalResultsCount?: number | undefined;
 
   /**
    * <p>The total bytes that the query scanned in the event data store. This value matches the
@@ -5208,7 +4888,7 @@ export interface QueryStatistics {
    *          running.</p>
    * @public
    */
-  BytesScanned?: number;
+  BytesScanned?: number | undefined;
 }
 
 /**
@@ -5221,31 +4901,31 @@ export interface GetQueryResultsResponse {
    *             <code>CANCELLED</code>.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 
   /**
    * <p>Shows the count of query results.</p>
    * @public
    */
-  QueryStatistics?: QueryStatistics;
+  QueryStatistics?: QueryStatistics | undefined;
 
   /**
    * <p>Contains the individual event results of the query.</p>
    * @public
    */
-  QueryResultRows?: Record<string, string>[][];
+  QueryResultRows?: Record<string, string>[][] | undefined;
 
   /**
    * <p>A token you can use to get the next page of query results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The error message returned if a query failed.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -5259,7 +4939,7 @@ export class InvalidMaxResultsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5286,7 +4966,7 @@ export class InvalidNextTokenException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5307,10 +4987,15 @@ export class InvalidNextTokenException extends __BaseException {
 export interface GetResourcePolicyRequest {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
-   *          The following is the format of a resource ARN:
-   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
-   *       </p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -5322,19 +5007,37 @@ export interface GetResourcePolicyRequest {
 export interface GetResourcePolicyResponse {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to resource-based policy.
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to resource-based policy.
    *       </p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>
-   *          A JSON-formatted string that contains the resource-based policy attached to the CloudTrail channel.
+   *          A JSON-formatted string that contains the resource-based policy attached to the CloudTrail event data store, dashboard, or channel.
    *       </p>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
+
+  /**
+   * <p>
+   *          The default resource-based policy that is automatically generated for the delegated administrator of an Organizations organization.
+   *          This policy will be evaluated in tandem with any policy you submit for the resource. For more information about this policy,
+   *          see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html#cloudtrail-lake-organizations-eds-rbp">Default resource policy for delegated administrators</a>.
+   *       </p>
+   * @public
+   */
+  DelegatedAdminResourcePolicy?: string | undefined;
 }
 
 /**
@@ -5357,7 +5060,7 @@ export interface GetTrailResponse {
    * <p>The settings for a trail.</p>
    * @public
    */
-  Trail?: Trail;
+  Trail?: Trail | undefined;
 }
 
 /**
@@ -5368,11 +5071,14 @@ export interface GetTrailStatusRequest {
   /**
    * <p>Specifies the name or the CloudTrail ARN of the trail for which you are
    *          requesting status. To get the status of a shadow trail (a replication of the trail in
-   *          another Region), you must specify its ARN. The following is the format of a trail
-   *          ARN.</p>
+   *          another Region), you must specify its ARN.</p>
    *          <p>
-   *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
+   *          The following is the format of a trail
+   *          ARN: <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
+   *          <note>
+   *             <p>If the trail is an organization trail and you are a member account in the organization in Organizations, you must provide the full ARN of that trail, and not just the name.</p>
+   *          </note>
    * @public
    */
   Name: string | undefined;
@@ -5389,7 +5095,7 @@ export interface GetTrailStatusResponse {
    *          calls.</p>
    * @public
    */
-  IsLogging?: boolean;
+  IsLogging?: boolean | undefined;
 
   /**
    * <p>Displays any Amazon S3 error that CloudTrail encountered when attempting
@@ -5403,7 +5109,7 @@ export interface GetTrailStatusResponse {
    *          </note>
    * @public
    */
-  LatestDeliveryError?: string;
+  LatestDeliveryError?: string | undefined;
 
   /**
    * <p>Displays any Amazon SNS error that CloudTrail encountered when attempting
@@ -5412,14 +5118,14 @@ export interface GetTrailStatusResponse {
    *             Developer Guide</a>. </p>
    * @public
    */
-  LatestNotificationError?: string;
+  LatestNotificationError?: string | undefined;
 
   /**
    * <p>Specifies the date and time that CloudTrail last delivered log files to an
    *          account's Amazon S3 bucket.</p>
    * @public
    */
-  LatestDeliveryTime?: Date;
+  LatestDeliveryTime?: Date | undefined;
 
   /**
    * <p>Specifies the date and time of the most recent Amazon SNS notification that
@@ -5427,41 +5133,41 @@ export interface GetTrailStatusResponse {
    *          bucket.</p>
    * @public
    */
-  LatestNotificationTime?: Date;
+  LatestNotificationTime?: Date | undefined;
 
   /**
    * <p>Specifies the most recent date and time when CloudTrail started recording API
    *          calls for an Amazon Web Services account.</p>
    * @public
    */
-  StartLoggingTime?: Date;
+  StartLoggingTime?: Date | undefined;
 
   /**
    * <p>Specifies the most recent date and time when CloudTrail stopped recording API
    *          calls for an Amazon Web Services account.</p>
    * @public
    */
-  StopLoggingTime?: Date;
+  StopLoggingTime?: Date | undefined;
 
   /**
    * <p>Displays any CloudWatch Logs error that CloudTrail encountered when attempting
    *          to deliver logs to CloudWatch Logs.</p>
    * @public
    */
-  LatestCloudWatchLogsDeliveryError?: string;
+  LatestCloudWatchLogsDeliveryError?: string | undefined;
 
   /**
    * <p>Displays the most recent date and time when CloudTrail delivered logs to CloudWatch Logs.</p>
    * @public
    */
-  LatestCloudWatchLogsDeliveryTime?: Date;
+  LatestCloudWatchLogsDeliveryTime?: Date | undefined;
 
   /**
    * <p>Specifies the date and time that CloudTrail last delivered a digest file to an
    *          account's Amazon S3 bucket.</p>
    * @public
    */
-  LatestDigestDeliveryTime?: Date;
+  LatestDigestDeliveryTime?: Date | undefined;
 
   /**
    * <p>Displays any Amazon S3 error that CloudTrail encountered when attempting
@@ -5475,43 +5181,43 @@ export interface GetTrailStatusResponse {
    *          </note>
    * @public
    */
-  LatestDigestDeliveryError?: string;
+  LatestDigestDeliveryError?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestDeliveryAttemptTime?: string;
+  LatestDeliveryAttemptTime?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestNotificationAttemptTime?: string;
+  LatestNotificationAttemptTime?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestNotificationAttemptSucceeded?: string;
+  LatestNotificationAttemptSucceeded?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  LatestDeliveryAttemptSucceeded?: string;
+  LatestDeliveryAttemptSucceeded?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  TimeLoggingStarted?: string;
+  TimeLoggingStarted?: string | undefined;
 
   /**
    * <p>This field is no longer in use.</p>
    * @public
    */
-  TimeLoggingStopped?: string;
+  TimeLoggingStopped?: string | undefined;
 }
 
 /**
@@ -5522,7 +5228,7 @@ export interface ListChannelsRequest {
    * <p> The maximum number of CloudTrail channels to display on a single page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token
@@ -5531,7 +5237,7 @@ export interface ListChannelsRequest {
    *          'root', the call with NextToken should include those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5542,13 +5248,95 @@ export interface ListChannelsResponse {
    * <p> The list of channels in the account. </p>
    * @public
    */
-  Channels?: Channel[];
+  Channels?: Channel[] | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsRequest {
+  /**
+   * <p>
+   * Specify a name prefix to filter on.
+   * </p>
+   * @public
+   */
+  NamePrefix?: string | undefined;
+
+  /**
+   * <p>
+   * Specify a dashboard type to filter on: <code>CUSTOM</code> or <code>MANAGED</code>.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   *    A token you can use to get the next page of dashboard results.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>
+   *    The maximum number of dashboards to display on a single page.
+   * </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>
+ * Provides information about a CloudTrail Lake dashboard.
+ * </p>
+ * @public
+ */
+export interface DashboardDetail {
+  /**
+   * <p>
+   * The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The type of dashboard.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListDashboardsResponse {
+  /**
+   * <p>
+   *    Contains information about dashboards in the account, in the current Region that match the applied filters.
+   * </p>
+   * @public
+   */
+  Dashboards?: DashboardDetail[] | undefined;
+
+  /**
+   * <p>
+   *    A token you can use to get the next page of dashboard results.
+   * </p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5559,13 +5347,13 @@ export interface ListEventDataStoresRequest {
    * <p>A token you can use to get the next page of event data store results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of event data stores to display on a single page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5579,83 +5367,83 @@ export interface EventDataStore {
    * <p>The ARN of the event data store.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Indicates whether the event data store is protected from
    *          termination.</p>
+   *
+   * @deprecated
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The status of an event data store.</p>
+   *
+   * @deprecated
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The advanced event selectors that were used to select
    *          events for the data store.</p>
+   *
+   * @deprecated
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Indicates whether the event data store includes events
    *          from all Regions, or only from the Region in which it was created.</p>
+   *
+   * @deprecated
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>Indicates that an event data store is collecting logged
    *          events for an organization.</p>
+   *
+   * @deprecated
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The retention period, in days.</p>
+   *
+   * @deprecated
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The timestamp of the event data store's creation.</p>
+   *
+   * @deprecated
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>The timestamp showing when an event data store was
    *          updated, if applicable. <code>UpdatedTimestamp</code> is always either the same or newer
    *          than the time shown in <code>CreatedTimestamp</code>.</p>
+   *
+   * @deprecated
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5667,13 +5455,13 @@ export interface ListEventDataStoresResponse {
    *          Region.</p>
    * @public
    */
-  EventDataStores?: EventDataStore[];
+  EventDataStores?: EventDataStore[] | undefined;
 
   /**
    * <p>A token you can use to get the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5690,13 +5478,13 @@ export interface ListImportFailuresRequest {
    * <p> The maximum number of failures to display on a single page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p> A token you can use to get the next page of import failures. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5723,31 +5511,31 @@ export interface ImportFailureListItem {
    * <p> The location of the failure in the S3 bucket. </p>
    * @public
    */
-  Location?: string;
+  Location?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  Status?: ImportFailureStatus;
+  Status?: ImportFailureStatus | undefined;
 
   /**
    * <p> The type of import error. </p>
    * @public
    */
-  ErrorType?: string;
+  ErrorType?: string | undefined;
 
   /**
    * <p> Provides the reason the import failed. </p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 
   /**
    * <p> When the import was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -5758,13 +5546,13 @@ export interface ListImportFailuresResponse {
    * <p> Contains information about the import failures. </p>
    * @public
    */
-  Failures?: ImportFailureListItem[];
+  Failures?: ImportFailureListItem[] | undefined;
 
   /**
    * <p> A token you can use to get the next page of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5775,25 +5563,25 @@ export interface ListImportsRequest {
    * <p> The maximum number of imports to display on a single page. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destination?: string;
+  Destination?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> A token you can use to get the next page of import results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5805,31 +5593,31 @@ export interface ImportsListItem {
    * <p> The ID of the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The timestamp of the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of the import's last update. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5840,13 +5628,13 @@ export interface ListImportsResponse {
    * <p> The list of returned imports. </p>
    * @public
    */
-  Imports?: ImportsListItem[];
+  Imports?: ImportsListItem[] | undefined;
 
   /**
    * <p> A token you can use to get the next page of import results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5892,14 +5680,14 @@ export interface ListInsightsMetricDataRequest {
    *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>Specifies, in UTC, the start time for time-series data. The value specified is inclusive; results include data points with the specified time stamp.</p>
    *          <p>The default is 90 days before the time of request.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Specifies, in UTC, the end time for time-series data. The value specified is exclusive;
@@ -5907,35 +5695,35 @@ export interface ListInsightsMetricDataRequest {
    *          <p>The default is the time of request.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Granularity of data to retrieve, in seconds. Valid values are <code>60</code>, <code>300</code>, and <code>3600</code>.
    *          If you specify any other value, you will get an error. The default is 3600 seconds.</p>
    * @public
    */
-  Period?: number;
+  Period?: number | undefined;
 
   /**
-   * <p>Type of datapoints to return. Valid values are <code>NonZeroData</code> and
+   * <p>Type of data points to return. Valid values are <code>NonZeroData</code> and
    *          <code>FillWithZeros</code>. The default is <code>NonZeroData</code>.</p>
    * @public
    */
-  DataType?: InsightsMetricDataType;
+  DataType?: InsightsMetricDataType | undefined;
 
   /**
-   * <p>The maximum number of datapoints to return. Valid values are integers from 1 to 21600.
+   * <p>The maximum number of data points to return. Valid values are integers from 1 to 21600.
    *          The default value is 21600.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Returned if all datapoints can't be returned in a single call. For example, due to reaching <code>MaxResults</code>.</p>
    *          <p>Add this parameter to the request to continue retrieving results starting from the last evaluated point.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5946,13 +5734,13 @@ export interface ListInsightsMetricDataResponse {
    * <p>The Amazon Web Services service to which the request was made, such as <code>iam.amazonaws.com</code> or <code>s3.amazonaws.com</code>.</p>
    * @public
    */
-  EventSource?: string;
+  EventSource?: string | undefined;
 
   /**
    * <p>The name of the event, typically the Amazon Web Services API on which unusual levels of activity were recorded.</p>
    * @public
    */
-  EventName?: string;
+  EventName?: string | undefined;
 
   /**
    * <p>The type of CloudTrail Insights event, which is either <code>ApiCallRateInsight</code> or <code>ApiErrorRateInsight</code>.
@@ -5960,33 +5748,33 @@ export interface ListInsightsMetricDataResponse {
    *          The <code>ApiErrorRateInsight</code> Insights type analyzes management API calls that result in error codes.</p>
    * @public
    */
-  InsightType?: InsightType;
+  InsightType?: InsightType | undefined;
 
   /**
    * <p>Only returned if <code>InsightType</code> parameter was set to <code>ApiErrorRateInsight</code>.</p>
    *          <p>If returning metrics for the <code>ApiErrorRateInsight</code> Insights type, this is the error to retrieve data for. For example, <code>AccessDenied</code>.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>List of timestamps at intervals corresponding to the specified time period.</p>
    * @public
    */
-  Timestamps?: Date[];
+  Timestamps?: Date[] | undefined;
 
   /**
    * <p>List of values representing the API call rate or error rate at each timestamp. The number of values is equal to the number of timestamps.</p>
    * @public
    */
-  Values?: number[];
+  Values?: number[] | undefined;
 
   /**
    * <p>Only returned if the full results could not be returned in a single query. You can set the <code>NextToken</code> parameter
    *          in the next request to this value to continue retrieval.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6001,7 +5789,7 @@ export class InvalidTimeRangeException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6027,7 +5815,7 @@ export class InvalidTokenException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6053,20 +5841,20 @@ export interface ListPublicKeysRequest {
    *          current public key is returned.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Optionally specifies, in UTC, the end of the time range to look up public keys for
    *             CloudTrail digest files. If not specified, the current time is used.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6078,25 +5866,25 @@ export interface PublicKey {
    * <p>The DER encoded public key value in PKCS#1 format.</p>
    * @public
    */
-  Value?: Uint8Array;
+  Value?: Uint8Array | undefined;
 
   /**
    * <p>The starting time of validity of the public key.</p>
    * @public
    */
-  ValidityStartTime?: Date;
+  ValidityStartTime?: Date | undefined;
 
   /**
    * <p>The ending time of validity of the public key.</p>
    * @public
    */
-  ValidityEndTime?: Date;
+  ValidityEndTime?: Date | undefined;
 
   /**
    * <p>The fingerprint of the public key.</p>
    * @public
    */
-  Fingerprint?: string;
+  Fingerprint?: string | undefined;
 }
 
 /**
@@ -6112,13 +5900,13 @@ export interface ListPublicKeysResponse {
    *          </note>
    * @public
    */
-  PublicKeyList?: PublicKey[];
+  PublicKeyList?: PublicKey[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6134,7 +5922,7 @@ export class InvalidDateRangeException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6160,7 +5948,7 @@ export class InvalidQueryStatusException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6190,27 +5978,27 @@ export interface ListQueriesRequest {
    * <p>A token you can use to get the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of queries to show on a page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Use with <code>EndTime</code> to bound a <code>ListQueries</code> request, and limit its
    *          results to only those queries run within a specified time period.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Use with <code>StartTime</code> to bound a <code>ListQueries</code> request, and limit
    *          its results to only those queries run within a specified time period.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The status of queries that you want to return in results. Valid values for
@@ -6219,7 +6007,7 @@ export interface ListQueriesRequest {
    *             <code>CANCELLED</code>.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 }
 
 /**
@@ -6232,7 +6020,7 @@ export interface Query {
    * <p>The ID of a query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
 
   /**
    * <p>The status of the query. This can be <code>QUEUED</code>, <code>RUNNING</code>,
@@ -6240,13 +6028,13 @@ export interface Query {
    *             <code>CANCELLED</code>.</p>
    * @public
    */
-  QueryStatus?: QueryStatus;
+  QueryStatus?: QueryStatus | undefined;
 
   /**
    * <p>The creation time of a query.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 }
 
 /**
@@ -6258,13 +6046,13 @@ export interface ListQueriesResponse {
    *          query.</p>
    * @public
    */
-  Queries?: Query[];
+  Queries?: Query[] | undefined;
 
   /**
    * <p>A token you can use to get the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6273,13 +6061,15 @@ export interface ListQueriesResponse {
  */
 export interface ListTagsRequest {
   /**
-   * <p>Specifies a list of trail, event data store, or channel ARNs whose tags will be listed. The list
+   * <p>Specifies a list of trail, event data store, dashboard, or channel ARNs whose tags will be listed. The list
    *          has a limit of 20 ARNs.</p>
    *          <p> Example trail ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>Example event data store ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
    *          </p>
    *          <p>Example channel ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -6292,7 +6082,7 @@ export interface ListTagsRequest {
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6304,13 +6094,13 @@ export interface ResourceTag {
    * <p>Specifies the ARN of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>A list of tags.</p>
    * @public
    */
-  TagsList?: Tag[];
+  TagsList?: Tag[] | undefined;
 }
 
 /**
@@ -6323,13 +6113,13 @@ export interface ListTagsResponse {
    * <p>A list of resource tags.</p>
    * @public
    */
-  ResourceTagList?: ResourceTag[];
+  ResourceTagList?: ResourceTag[] | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6343,7 +6133,7 @@ export interface ListTrailsRequest {
    *          'root', the call with NextToken should include those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6356,19 +6146,19 @@ export interface TrailInfo {
    * <p>The ARN of a trail.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>The name of a trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region in which a trail was created.</p>
    * @public
    */
-  HomeRegion?: string;
+  HomeRegion?: string | undefined;
 }
 
 /**
@@ -6379,7 +6169,7 @@ export interface ListTrailsResponse {
    * <p>Returns the name, ARN, and home Region of trails in the current account.</p>
    * @public
    */
-  Trails?: TrailInfo[];
+  Trails?: TrailInfo[] | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. If the token
@@ -6389,7 +6179,7 @@ export interface ListTrailsResponse {
    *          those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6404,7 +6194,7 @@ export class InvalidEventCategoryException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6430,7 +6220,7 @@ export class InvalidLookupAttributesException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6509,21 +6299,21 @@ export interface LookupEventsRequest {
    *          item.</p>
    * @public
    */
-  LookupAttributes?: LookupAttribute[];
+  LookupAttributes?: LookupAttribute[] | undefined;
 
   /**
    * <p>Specifies that only events that occur after or at the specified time are returned. If
    *          the specified start time is after the specified end time, an error is returned.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>Specifies that only events that occur before or at the specified time are returned. If
    *          the specified end time is before the specified start time, an error is returned.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>Specifies the event category. If you do not specify an event category, events of the
@@ -6532,14 +6322,14 @@ export interface LookupEventsRequest {
    *          returned.</p>
    * @public
    */
-  EventCategory?: EventCategory;
+  EventCategory?: EventCategory | undefined;
 
   /**
    * <p>The number of events to return. Possible values are 1 through 50. The default is
    *          50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. This token
@@ -6548,7 +6338,7 @@ export interface LookupEventsRequest {
    *          'root', the call with NextToken should include those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6562,7 +6352,7 @@ export interface Resource {
    *          events by the resource types supported for a service, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/view-cloudtrail-events-console.html#filtering-cloudtrail-events">Filtering CloudTrail Events</a>.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The name of the resource referenced by the event returned. These are user-created names
@@ -6571,7 +6361,7 @@ export interface Resource {
    *          Instance.</p>
    * @public
    */
-  ResourceName?: string;
+  ResourceName?: string | undefined;
 }
 
 /**
@@ -6584,19 +6374,19 @@ export interface Event {
    * <p>The CloudTrail ID of the event returned.</p>
    * @public
    */
-  EventId?: string;
+  EventId?: string | undefined;
 
   /**
    * <p>The name of the event returned.</p>
    * @public
    */
-  EventName?: string;
+  EventName?: string | undefined;
 
   /**
    * <p>Information about whether the event is a write event or a read event. </p>
    * @public
    */
-  ReadOnly?: string;
+  ReadOnly?: string | undefined;
 
   /**
    * <p>The Amazon Web Services access key ID that was used to sign the request. If the request
@@ -6604,38 +6394,38 @@ export interface Event {
    *          credentials.</p>
    * @public
    */
-  AccessKeyId?: string;
+  AccessKeyId?: string | undefined;
 
   /**
    * <p>The date and time of the event returned.</p>
    * @public
    */
-  EventTime?: Date;
+  EventTime?: Date | undefined;
 
   /**
    * <p>The Amazon Web Services service to which the request was made.</p>
    * @public
    */
-  EventSource?: string;
+  EventSource?: string | undefined;
 
   /**
    * <p>A user name or role name of the requester that called the API in the event
    *          returned.</p>
    * @public
    */
-  Username?: string;
+  Username?: string | undefined;
 
   /**
    * <p>A list of resources referenced by the event returned.</p>
    * @public
    */
-  Resources?: Resource[];
+  Resources?: Resource[] | undefined;
 
   /**
    * <p>A JSON string that contains a representation of the event returned.</p>
    * @public
    */
-  CloudTrailEvent?: string;
+  CloudTrailEvent?: string | undefined;
 }
 
 /**
@@ -6648,7 +6438,7 @@ export interface LookupEventsResponse {
    *          first.</p>
    * @public
    */
-  Events?: Event[];
+  Events?: Event[] | undefined;
 
   /**
    * <p>The token to use to get the next page of results after a previous API call. If the token
@@ -6658,7 +6448,79 @@ export interface LookupEventsResponse {
    *          those same parameters.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+ * @public
+ */
+export class InsufficientIAMAccessPermissionException extends __BaseException {
+  readonly name: "InsufficientIAMAccessPermissionException" = "InsufficientIAMAccessPermissionException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>Brief description of the exception returned by the request.</p>
+   * @public
+   */
+  Message?: string | undefined;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<InsufficientIAMAccessPermissionException, __BaseException>) {
+    super({
+      name: "InsufficientIAMAccessPermissionException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, InsufficientIAMAccessPermissionException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ */
+export interface PutEventConfigurationRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which you want to update event configuration settings.</p>
+   * @public
+   */
+  EventDataStore?: string | undefined;
+
+  /**
+   * <p>The maximum allowed size for events to be stored in the specified event data store. If you are using context key selectors, MaxEventSize must be set to Large.</p>
+   * @public
+   */
+  MaxEventSize: MaxEventSize | undefined;
+
+  /**
+   * <p>A list of context key selectors that will be included to provide enriched event data.</p>
+   * @public
+   */
+  ContextKeySelectors: ContextKeySelector[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutEventConfigurationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) or ID suffix of the ARN of the event data store for which the event configuration settings were updated.</p>
+   * @public
+   */
+  EventDataStoreArn?: string | undefined;
+
+  /**
+   * <p>The maximum allowed size for events stored in the specified event data store.</p>
+   * @public
+   */
+  MaxEventSize?: MaxEventSize | undefined;
+
+  /**
+   * <p>The list of context key selectors that are configured for the event data store.</p>
+   * @public
+   */
+  ContextKeySelectors?: ContextKeySelector[] | undefined;
 }
 
 /**
@@ -6696,26 +6558,49 @@ export interface PutEventSelectorsRequest {
   TrailName: string | undefined;
 
   /**
-   * <p>Specifies the settings for your event selectors. You can configure up to five event
+   * <p>Specifies the settings for your event selectors. You can use event selectors to log management events and data events for the following resource types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::DynamoDB::Table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::Lambda::Function</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AWS::S3::Object</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>You can't use event selectors to log network activity events.</p>
+   *          <p>You can configure up to five event
    *          selectors for a trail. You can use either <code>EventSelectors</code> or
    *             <code>AdvancedEventSelectors</code> in a <code>PutEventSelectors</code> request, but not
    *          both. If you apply <code>EventSelectors</code> to a trail, any existing
    *             <code>AdvancedEventSelectors</code> are overwritten.</p>
    * @public
    */
-  EventSelectors?: EventSelector[];
+  EventSelectors?: EventSelector[] | undefined;
 
   /**
-   * <p> Specifies the settings for advanced event selectors. You can add advanced event
+   * <p> Specifies the settings for advanced event selectors. You can use advanced event selectors to
+   *          log management events, data events for all resource types, and network activity events.</p>
+   *          <p>You can add advanced event
    *          selectors, and conditions for your advanced event selectors, up to a maximum of 500 values
    *          for all conditions and selectors on a trail. You can use either
    *             <code>AdvancedEventSelectors</code> or <code>EventSelectors</code>, but not both. If you
    *          apply <code>AdvancedEventSelectors</code> to a trail, any existing
    *             <code>EventSelectors</code> are overwritten. For more information about advanced event
-   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>. </p>
+   *          selectors, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> and
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-network-events-with-cloudtrail.html">Logging network activity events</a>
+   *          in the <i>CloudTrail User Guide</i>. </p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -6730,19 +6615,19 @@ export interface PutEventSelectorsResponse {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies the event selectors configured for your trail.</p>
    * @public
    */
-  EventSelectors?: EventSelector[];
+  EventSelectors?: EventSelector[] | undefined;
 
   /**
    * <p>Specifies the advanced event selectors configured for your trail.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 }
 
 /**
@@ -6764,7 +6649,7 @@ export class InvalidInsightSelectorsException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6789,7 +6674,7 @@ export interface PutInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>EventDataStore</code> and <code>InsightsDestination</code> parameters.</p>
    * @public
    */
-  TrailName?: string;
+  TrailName?: string | undefined;
 
   /**
    * <p>A JSON string that contains the Insights types you want to log on a trail or event data store.
@@ -6811,7 +6696,7 @@ export interface PutInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
    * @public
    */
-  EventDataStore?: string;
+  EventDataStore?: string | undefined;
 
   /**
    * <p>
@@ -6821,7 +6706,7 @@ export interface PutInsightSelectorsRequest {
    *          <p>You cannot use this parameter with the <code>TrailName</code> parameter.</p>
    * @public
    */
-  InsightsDestination?: string;
+  InsightsDestination?: string | undefined;
 }
 
 /**
@@ -6833,7 +6718,7 @@ export interface PutInsightSelectorsResponse {
    *          selectors.</p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>A JSON string that contains the Insights event types that you want to log on a trail or event data store.
@@ -6841,14 +6726,14 @@ export interface PutInsightSelectorsResponse {
    *             <code>ApiCallRateInsight</code>.</p>
    * @public
    */
-  InsightSelectors?: InsightSelector[];
+  InsightSelectors?: InsightSelector[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the source event data store for which you want to change or add Insights
    *          selectors.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>
@@ -6856,7 +6741,7 @@ export interface PutInsightSelectorsResponse {
    *       </p>
    * @public
    */
-  InsightsDestination?: string;
+  InsightsDestination?: string | undefined;
 }
 
 /**
@@ -6865,10 +6750,15 @@ export interface PutInsightSelectorsResponse {
 export interface PutResourcePolicyRequest {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
-   *          The following is the format of a resource ARN:
-   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/MyChannel</code>.
-   *       </p>
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.</p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -6877,24 +6767,9 @@ export interface PutResourcePolicyRequest {
    * <p>
    *          A JSON-formatted string for an Amazon Web Services resource-based policy.
    *       </p>
-   *          <p>The following are requirements for the resource policy:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                Contains only one action: cloudtrail-data:PutAuditEvents
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                Contains at least one statement. The policy can have a maximum of 20 statements.
-   *             </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                Each statement contains at least one principal. A statement can have a maximum of 50 principals.
-   *             </p>
-   *             </li>
-   *          </ul>
+   *          <p> For example resource-based policies, see
+   *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/security_iam_resource-based-policy-examples.html">CloudTrail resource-based policy examples</a>
+   *          in the <i>CloudTrail User Guide</i>.</p>
    * @public
    */
   ResourcePolicy: string | undefined;
@@ -6906,43 +6781,43 @@ export interface PutResourcePolicyRequest {
 export interface PutResourcePolicyResponse {
   /**
    * <p>
-   *          The Amazon Resource Name (ARN) of the CloudTrail channel attached to the resource-based policy.
+   *          The Amazon Resource Name (ARN) of the CloudTrail event data store, dashboard, or channel attached to the resource-based policy.
    *       </p>
+   *          <p>Example event data store ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+   *          </p>
+   *          <p>Example channel ARN format:
+   *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
+   *          </p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>
-   *          The JSON-formatted string of the Amazon Web Services resource-based policy attached to the CloudTrail channel.
+   *          The JSON-formatted string of the Amazon Web Services resource-based policy attached to the CloudTrail event data store, dashboard, or channel.
    *       </p>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
+
+  /**
+   * <p>
+   *          The default resource-based policy that is automatically generated for the delegated administrator of an Organizations organization.
+   *          This policy will be evaluated in tandem with any policy you submit for the resource. For more information about this policy,
+   *          see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-organizations.html#cloudtrail-lake-organizations-eds-rbp">Default resource policy for delegated administrators</a>.
+   *       </p>
+   * @public
+   */
+  DelegatedAdminResourcePolicy?: string | undefined;
 }
 
 /**
  * <p>
  *          This exception is thrown when the resouce-based policy has syntax errors, or contains a principal that is not valid.
  *       </p>
- *          <p>The following are requirements for the resource policy:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                Contains only one action: cloudtrail-data:PutAuditEvents
- *             </p>
- *             </li>
- *             <li>
- *                <p>
- *                Contains at least one statement. The policy can have a maximum of 20 statements.
- *             </p>
- *             </li>
- *             <li>
- *                <p>
- *                Each statement contains at least one principal. A statement can have a maximum of 50 principals.
- *             </p>
- *             </li>
- *          </ul>
  * @public
  */
 export class ResourcePolicyNotValidException extends __BaseException {
@@ -6952,7 +6827,7 @@ export class ResourcePolicyNotValidException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -6979,7 +6854,7 @@ export class DelegatedAdminAccountLimitExceededException extends __BaseException
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7015,18 +6890,20 @@ export interface RegisterOrganizationDelegatedAdminRequest {
 export interface RegisterOrganizationDelegatedAdminResponse {}
 
 /**
- * <p>Specifies the tags to remove from a trail, event data store, or channel.</p>
+ * <p>Specifies the tags to remove from a trail, event data store, dashboard, or channel.</p>
  * @public
  */
 export interface RemoveTagsRequest {
   /**
-   * <p>Specifies the ARN of the trail, event data store, or channel from which tags should be
+   * <p>Specifies the ARN of the trail, event data store, dashboard, or channel from which tags should be
    *          removed.</p>
    *          <p> Example trail ARN format:
    *             <code>arn:aws:cloudtrail:us-east-2:123456789012:trail/MyTrail</code>
    *          </p>
    *          <p>Example event data store ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+   *          </p>
+   *          <p>Example dashboard ARN format: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
    *          </p>
    *          <p>Example channel ARN format:
    *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -7050,32 +6927,6 @@ export interface RemoveTagsRequest {
 export interface RemoveTagsResponse {}
 
 /**
- * <p>The event data store is not in a status that supports the operation.</p>
- * @public
- */
-export class InvalidEventDataStoreStatusException extends __BaseException {
-  readonly name: "InvalidEventDataStoreStatusException" = "InvalidEventDataStoreStatusException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidEventDataStoreStatusException, __BaseException>) {
-    super({
-      name: "InvalidEventDataStoreStatusException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidEventDataStoreStatusException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * @public
  */
 export interface RestoreEventDataStoreRequest {
@@ -7095,58 +6946,58 @@ export interface RestoreEventDataStoreResponse {
    * <p>The event data store ARN.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of the event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors that were used to select events.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store is collecting events from all Regions, or only
    *          from the Region in which the event data store was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that termination protection is enabled and the event data store cannot be
    *          automatically deleted.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The timestamp of an event data store's creation.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp that shows when an event data store was updated, if applicable.
@@ -7154,7 +7005,7 @@ export interface RestoreEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -7164,13 +7015,139 @@ export interface RestoreEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSampleQueriesRequest {
+  /**
+   * <p>
+   *          The natural language phrase to use for the semantic search. The phrase must be in English. The length constraint is in characters, not words.</p>
+   * @public
+   */
+  SearchPhrase: string | undefined;
+
+  /**
+   * <p>
+   *          The maximum number of results to return on a single page. The default value is 10.
+   *       </p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of results. The length constraint is in characters, not words.
+   *       </p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>
+ *          A search result returned by the <code>SearchSampleQueries</code> operation.
+ *       </p>
+ * @public
+ */
+export interface SearchSampleQueriesSearchResult {
+  /**
+   * <p>
+   *          The name of a sample query.
+   *       </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   *          A longer description of a sample query.
+   *       </p>
+   * @public
+   */
+  Description?: string | undefined;
+
+  /**
+   * <p>
+   *          The SQL code of the sample query.
+   *       </p>
+   * @public
+   */
+  SQL?: string | undefined;
+
+  /**
+   * <p>
+   *          A value between 0 and 1 indicating the similarity between the search phrase and result.
+   *       </p>
+   * @public
+   */
+  Relevance?: number | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SearchSampleQueriesResponse {
+  /**
+   * <p>
+   *          A list of objects containing the search results ordered from most relevant to least relevant.
+   *       </p>
+   * @public
+   */
+  SearchResults?: SearchSampleQueriesSearchResult[] | undefined;
+
+  /**
+   * <p>
+   *          A token you can use to get the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardRefreshRequest {
+  /**
+   * <p>
+   * The name or ARN of the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>
+   *    The query parameter values for the dashboard
+   * </p>
+   *          <p>For custom dashboards, the following query parameters are valid: <code>$StartTime$</code>, <code>$EndTime$</code>, and <code>$Period$</code>.</p>
+   *          <p>For managed dashboards, the following query parameters are valid: <code>$StartTime$</code>,
+   *             <code>$EndTime$</code>, <code>$Period$</code>, and <code>$EventDataStoreId$</code>. The
+   *             <code>$EventDataStoreId$</code> query parameter is required.</p>
+   * @public
+   */
+  QueryParameterValues?: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface StartDashboardRefreshResponse {
+  /**
+   * <p>
+   * The refresh ID for the dashboard.
+   * </p>
+   * @public
+   */
+  RefreshId?: string | undefined;
 }
 
 /**
@@ -7201,7 +7178,7 @@ export class InvalidImportSourceException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7225,13 +7202,13 @@ export interface StartImportRequest {
    *       </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The source S3 bucket for the import. Use this parameter for a new import. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> Use with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7241,7 +7218,7 @@ export interface StartImportRequest {
    *             <code>EndEventTime</code> before attempting to import events. </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Use with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7251,13 +7228,13 @@ export interface StartImportRequest {
    *             <code>EndEventTime</code> before attempting to import events. </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> The ID of the import. Use this parameter when you are retrying an import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 }
 
 /**
@@ -7268,19 +7245,19 @@ export interface StartImportResponse {
    * <p> The ID of the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The source S3 bucket for the import. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7288,7 +7265,7 @@ export interface StartImportResponse {
    *       </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7296,7 +7273,7 @@ export interface StartImportResponse {
    *       </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> Shows the status of the import after a <code>StartImport</code> request. An import
@@ -7304,19 +7281,19 @@ export interface StartImportResponse {
    *             <code>FAILED</code> if there were failures. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The timestamp for the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of the import's last update, if applicable. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -7344,34 +7321,6 @@ export interface StartLoggingRequest {
 export interface StartLoggingResponse {}
 
 /**
- * <p>The query that was submitted has validation errors, or uses incorrect syntax or
- *          unsupported keywords. For more information about writing a query, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/query-create-edit-query.html">Create or edit a query</a> in the <i>CloudTrail User
- *             Guide</i>.</p>
- * @public
- */
-export class InvalidQueryStatementException extends __BaseException {
-  readonly name: "InvalidQueryStatementException" = "InvalidQueryStatementException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>Brief description of the exception returned by the request.</p>
-   * @public
-   */
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<InvalidQueryStatementException, __BaseException>) {
-    super({
-      name: "InvalidQueryStatementException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, InvalidQueryStatementException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
  * <p>You are already running the maximum number of concurrent queries. The maximum number of concurrent queries is 10. Wait a minute for some
  *          queries to finish, and then run the query again.</p>
  * @public
@@ -7383,7 +7332,7 @@ export class MaxConcurrentQueriesException extends __BaseException {
    * <p>Brief description of the exception returned by the request.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -7406,13 +7355,13 @@ export interface StartQueryRequest {
    * <p>The SQL code of your query.</p>
    * @public
    */
-  QueryStatement?: string;
+  QueryStatement?: string | undefined;
 
   /**
    * <p> The URI for the S3 bucket where CloudTrail delivers the query results. </p>
    * @public
    */
-  DeliveryS3Uri?: string;
+  DeliveryS3Uri?: string | undefined;
 
   /**
    * <p>
@@ -7420,7 +7369,7 @@ export interface StartQueryRequest {
    *       </p>
    * @public
    */
-  QueryAlias?: string;
+  QueryAlias?: string | undefined;
 
   /**
    * <p>
@@ -7428,7 +7377,15 @@ export interface StartQueryRequest {
    *       </p>
    * @public
    */
-  QueryParameters?: string[];
+  QueryParameters?: string[] | undefined;
+
+  /**
+   * <p>
+   * The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -7439,7 +7396,15 @@ export interface StartQueryResponse {
    * <p>The ID of the started query.</p>
    * @public
    */
-  QueryId?: string;
+  QueryId?: string | undefined;
+
+  /**
+   * <p>
+   *    The account ID of the event data store owner.
+   * </p>
+   * @public
+   */
+  EventDataStoreOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -7477,37 +7442,37 @@ export interface StopImportResponse {
    * <p> The ID for the import. </p>
    * @public
    */
-  ImportId?: string;
+  ImportId?: string | undefined;
 
   /**
    * <p> The source S3 bucket for the import. </p>
    * @public
    */
-  ImportSource?: ImportSource;
+  ImportSource?: ImportSource | undefined;
 
   /**
    * <p> The ARN of the destination event data store. </p>
    * @public
    */
-  Destinations?: string[];
+  Destinations?: string[] | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The timestamp of the import's creation. </p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p> The timestamp of the import's last update. </p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p> Used with <code>EndEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7515,7 +7480,7 @@ export interface StopImportResponse {
    *       </p>
    * @public
    */
-  StartEventTime?: Date;
+  StartEventTime?: Date | undefined;
 
   /**
    * <p> Used with <code>StartEventTime</code> to bound a <code>StartImport</code> request, and
@@ -7523,13 +7488,13 @@ export interface StopImportResponse {
    *       </p>
    * @public
    */
-  EndEventTime?: Date;
+  EndEventTime?: Date | undefined;
 
   /**
    * <p> Returns information on the stopped import. </p>
    * @public
    */
-  ImportStatistics?: ImportStatistics;
+  ImportStatistics?: ImportStatistics | undefined;
 }
 
 /**
@@ -7571,7 +7536,7 @@ export interface UpdateChannelRequest {
    * <p>The ARNs of event data stores that you want to log events arriving through the channel.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
 
   /**
    * <p>
@@ -7579,7 +7544,7 @@ export interface UpdateChannelRequest {
    *       </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 }
 
 /**
@@ -7590,25 +7555,133 @@ export interface UpdateChannelResponse {
    * <p>The ARN of the channel that was updated.</p>
    * @public
    */
-  ChannelArn?: string;
+  ChannelArn?: string | undefined;
 
   /**
    * <p>The name of the channel that was updated.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The event source of the channel that was updated.</p>
    * @public
    */
-  Source?: string;
+  Source?: string | undefined;
 
   /**
    * <p>The event data stores that log events arriving through the channel.</p>
    * @public
    */
-  Destinations?: Destination[];
+  Destinations?: Destination[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardRequest {
+  /**
+   * <p>
+   *    The name or ARN of the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardId: string | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard. A custom dashboard can have a maximum of 10 widgets.
+   * </p>
+   *          <p>To add new widgets, pass in an array that includes the existing widgets along with any new widgets. Run the <code>GetDashboard</code> operation to get the list of widgets for the dashboard.</p>
+   *          <p>To remove widgets, pass in an array that includes the existing widgets minus the widgets you want removed.</p>
+   * @public
+   */
+  Widgets?: RequestWidget[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule configuration for the dashboard.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    Specifies whether termination protection is enabled for the dashboard. If termination protection is enabled, you cannot delete the dashboard until termination protection is disabled.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDashboardResponse {
+  /**
+   * <p>
+   * The ARN for the dashboard.
+   * </p>
+   * @public
+   */
+  DashboardArn?: string | undefined;
+
+  /**
+   * <p>
+   * The name for the dashboard.
+   * </p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>
+   * The type of dashboard.
+   * </p>
+   * @public
+   */
+  Type?: DashboardType | undefined;
+
+  /**
+   * <p>
+   * An array of widgets for the dashboard.
+   * </p>
+   * @public
+   */
+  Widgets?: Widget[] | undefined;
+
+  /**
+   * <p>
+   * The refresh schedule for the dashboard, if configured.
+   * </p>
+   * @public
+   */
+  RefreshSchedule?: RefreshSchedule | undefined;
+
+  /**
+   * <p>
+   *    Indicates whether termination protection is enabled for the dashboard.
+   * </p>
+   * @public
+   */
+  TerminationProtectionEnabled?: boolean | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was created.
+   * </p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>
+   *    The timestamp that shows when the dashboard was updated.
+   * </p>
+   * @public
+   */
+  UpdatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -7626,21 +7699,21 @@ export interface UpdateEventDataStoreRequest {
    * <p>The event data store name.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The advanced event selectors used to select events for the event data store. You can
    *          configure up to five advanced event selectors for each event data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Specifies whether an event data store collects events from all Regions, or only from the
    *          Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies whether an event data store collects events logged for an organization in
@@ -7651,7 +7724,7 @@ export interface UpdateEventDataStoreRequest {
    *          </note>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period of the event data store, in days. If <code>BillingMode</code> is set to <code>EXTENDABLE_RETENTION_PRICING</code>, you can set a retention period of
@@ -7666,14 +7739,14 @@ export interface UpdateEventDataStoreRequest {
    *          </note>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates that termination protection is enabled and the event data store cannot be
    *          automatically deleted.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the events delivered by
@@ -7716,7 +7789,7 @@ export interface UpdateEventDataStoreRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <note>
@@ -7743,7 +7816,7 @@ export interface UpdateEventDataStoreRequest {
    *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-lake-manage-costs.html">Managing CloudTrail Lake costs</a>.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -7754,57 +7827,57 @@ export interface UpdateEventDataStoreResponse {
    * <p>The ARN of the event data store.</p>
    * @public
    */
-  EventDataStoreArn?: string;
+  EventDataStoreArn?: string | undefined;
 
   /**
    * <p>The name of the event data store.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The status of an event data store.</p>
    * @public
    */
-  Status?: EventDataStoreStatus;
+  Status?: EventDataStoreStatus | undefined;
 
   /**
    * <p>The advanced event selectors that are applied to the event data store.</p>
    * @public
    */
-  AdvancedEventSelectors?: AdvancedEventSelector[];
+  AdvancedEventSelectors?: AdvancedEventSelector[] | undefined;
 
   /**
    * <p>Indicates whether the event data store includes events from all Regions, or only from
    *          the Region in which it was created.</p>
    * @public
    */
-  MultiRegionEnabled?: boolean;
+  MultiRegionEnabled?: boolean | undefined;
 
   /**
    * <p>Indicates whether an event data store is collecting logged events for an organization in
    *             Organizations.</p>
    * @public
    */
-  OrganizationEnabled?: boolean;
+  OrganizationEnabled?: boolean | undefined;
 
   /**
    * <p>The retention period, in days.</p>
    * @public
    */
-  RetentionPeriod?: number;
+  RetentionPeriod?: number | undefined;
 
   /**
    * <p>Indicates whether termination protection is enabled for the event data store.</p>
    * @public
    */
-  TerminationProtectionEnabled?: boolean;
+  TerminationProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The timestamp that shows when an event data store was first created.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp that shows when the event data store was last updated.
@@ -7812,7 +7885,7 @@ export interface UpdateEventDataStoreResponse {
    *             <code>CreatedTimestamp</code>.</p>
    * @public
    */
-  UpdatedTimestamp?: Date;
+  UpdatedTimestamp?: Date | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the events delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -7822,13 +7895,13 @@ export interface UpdateEventDataStoreResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>The billing mode for the event data store.</p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>
@@ -7837,7 +7910,7 @@ export interface UpdateEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationStatus?: FederationStatus;
+  FederationStatus?: FederationStatus | undefined;
 
   /**
    * <p>
@@ -7845,7 +7918,7 @@ export interface UpdateEventDataStoreResponse {
    *       </p>
    * @public
    */
-  FederationRoleArn?: string;
+  FederationRoleArn?: string | undefined;
 }
 
 /**
@@ -7889,7 +7962,7 @@ export interface UpdateTrailRequest {
    *             Bucket naming rules</a>.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
@@ -7897,20 +7970,20 @@ export interface UpdateTrailRequest {
    *          characters.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
-   * <p>Specifies the name of the Amazon SNS topic defined for notification of log file
+   * <p>Specifies the name or ARN of the Amazon SNS topic defined for notification of log file
    *          delivery. The maximum length is 256 characters.</p>
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail applies only to the current Region or to all Regions. The
@@ -7921,7 +7994,7 @@ export interface UpdateTrailRequest {
    *          a best practice, consider using trails that log events in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies whether log file validation is enabled. The default is false.</p>
@@ -7936,7 +8009,7 @@ export interface UpdateTrailRequest {
    *          </note>
    * @public
    */
-  EnableLogFileValidation?: boolean;
+  EnableLogFileValidation?: boolean | undefined;
 
   /**
    * <p>Specifies a log group name using an Amazon Resource Name (ARN), a unique identifier that
@@ -7945,14 +8018,14 @@ export interface UpdateTrailRequest {
    *          <p>Not required unless you specify <code>CloudWatchLogsRoleArn</code>.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group. You must use a role that exists in your account.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID to use to encrypt the logs delivered by CloudTrail. The value can be an alias name prefixed by "alias/", a fully specified ARN to
@@ -7977,7 +8050,7 @@ export interface UpdateTrailRequest {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is applied to all accounts in an organization in Organizations, or only for the current Amazon Web Services account. The default is false,
@@ -7993,7 +8066,7 @@ export interface UpdateTrailRequest {
    *          </note>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }
 
 /**
@@ -8006,29 +8079,29 @@ export interface UpdateTrailResponse {
    * <p>Specifies the name of the trail.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Specifies the name of the Amazon S3 bucket designated for publishing log
    *          files.</p>
    * @public
    */
-  S3BucketName?: string;
+  S3BucketName?: string | undefined;
 
   /**
    * <p>Specifies the Amazon S3 key prefix that comes after the name of the bucket you
    *          have designated for log file delivery. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/get-and-view-cloudtrail-log-files.html#cloudtrail-find-log-files">Finding Your IAM Log Files</a>.</p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>This field is no longer in use. Use <code>SnsTopicARN</code>.</p>
+   *
+   * @deprecated
    * @public
    */
-  SnsTopicName?: string;
+  SnsTopicName?: string | undefined;
 
   /**
    * <p>Specifies the ARN of the Amazon SNS topic that CloudTrail uses to send
@@ -8039,19 +8112,19 @@ export interface UpdateTrailResponse {
    *          </p>
    * @public
    */
-  SnsTopicARN?: string;
+  SnsTopicARN?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is publishing events from global services such as IAM to the log files.</p>
    * @public
    */
-  IncludeGlobalServiceEvents?: boolean;
+  IncludeGlobalServiceEvents?: boolean | undefined;
 
   /**
    * <p>Specifies whether the trail exists in one Region or in all Regions.</p>
    * @public
    */
-  IsMultiRegionTrail?: boolean;
+  IsMultiRegionTrail?: boolean | undefined;
 
   /**
    * <p>Specifies the ARN of the trail that was updated. The following is the format of a trail
@@ -8061,27 +8134,27 @@ export interface UpdateTrailResponse {
    *          </p>
    * @public
    */
-  TrailARN?: string;
+  TrailARN?: string | undefined;
 
   /**
    * <p>Specifies whether log file integrity validation is enabled.</p>
    * @public
    */
-  LogFileValidationEnabled?: boolean;
+  LogFileValidationEnabled?: boolean | undefined;
 
   /**
    * <p>Specifies the Amazon Resource Name (ARN) of the log group to which CloudTrail
    *          logs are delivered.</p>
    * @public
    */
-  CloudWatchLogsLogGroupArn?: string;
+  CloudWatchLogsLogGroupArn?: string | undefined;
 
   /**
    * <p>Specifies the role for the CloudWatch Logs endpoint to assume to write to a user's
    *          log group.</p>
    * @public
    */
-  CloudWatchLogsRoleArn?: string;
+  CloudWatchLogsRoleArn?: string | undefined;
 
   /**
    * <p>Specifies the KMS key ID that encrypts the logs delivered by CloudTrail. The value is a fully specified ARN to a KMS key in the
@@ -8091,11 +8164,11 @@ export interface UpdateTrailResponse {
    *          </p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies whether the trail is an organization trail.</p>
    * @public
    */
-  IsOrganizationTrail?: boolean;
+  IsOrganizationTrail?: boolean | undefined;
 }

@@ -12,7 +12,8 @@ import { de_UpdateItemCommand, se_UpdateItemCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -209,7 +210,7 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @see {@link DynamoDBClientResolvedConfig | config} for DynamoDBClient's `config` shape.
  *
  * @throws {@link ConditionalCheckFailedException} (client fault)
- *  <p>A condition specified in the operation could not be evaluated.</p>
+ *  <p>A condition specified in the operation failed to be evaluated.</p>
  *
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
@@ -226,9 +227,12 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  *             successful, unless your retry queue is too large to finish. Reduce the frequency of
  *             requests and use exponential backoff. For more information, go to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Programming.Errors.html#Programming.Errors.RetryAndBackoff">Error Retries and Exponential Backoff</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  *
+ * @throws {@link ReplicatedWriteConflictException} (client fault)
+ *  <p>The request was rejected because one or more items in the request are being modified by a request in another Region. </p>
+ *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -242,58 +246,58 @@ export interface UpdateItemCommandOutput extends UpdateItemOutput, __MetadataBea
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
+ *
  * @example To update an item in a table
  * ```javascript
  * // This example updates an item in the Music table. It adds a new attribute (Year) and modifies the AlbumTitle attribute.  All of the attributes in the item, as they appear after the update, are returned in the response.
  * const input = {
- *   "ExpressionAttributeNames": {
- *     "#AT": "AlbumTitle",
- *     "#Y": "Year"
+ *   ExpressionAttributeNames: {
+ *     #AT: "AlbumTitle",
+ *     #Y: "Year"
  *   },
- *   "ExpressionAttributeValues": {
- *     ":t": {
- *       "S": "Louder Than Ever"
+ *   ExpressionAttributeValues: {
+ *     :t: {
+ *       S: "Louder Than Ever"
  *     },
- *     ":y": {
- *       "N": "2015"
+ *     :y: {
+ *       N: "2015"
  *     }
  *   },
- *   "Key": {
- *     "Artist": {
- *       "S": "Acme Band"
+ *   Key: {
+ *     Artist: {
+ *       S: "Acme Band"
  *     },
- *     "SongTitle": {
- *       "S": "Happy Day"
+ *     SongTitle: {
+ *       S: "Happy Day"
  *     }
  *   },
- *   "ReturnValues": "ALL_NEW",
- *   "TableName": "Music",
- *   "UpdateExpression": "SET #Y = :y, #AT = :t"
+ *   ReturnValues: "ALL_NEW",
+ *   TableName: "Music",
+ *   UpdateExpression: "SET #Y = :y, #AT = :t"
  * };
  * const command = new UpdateItemCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Attributes": {
- *     "AlbumTitle": {
- *       "S": "Louder Than Ever"
+ *   Attributes: {
+ *     AlbumTitle: {
+ *       S: "Louder Than Ever"
  *     },
- *     "Artist": {
- *       "S": "Acme Band"
+ *     Artist: {
+ *       S: "Acme Band"
  *     },
- *     "SongTitle": {
- *       "S": "Happy Day"
+ *     SongTitle: {
+ *       S: "Happy Day"
  *     },
- *     "Year": {
- *       "N": "2015"
+ *     Year: {
+ *       N: "2015"
  *     }
  *   }
  * }
  * *\/
- * // example id: to-update-an-item-in-a-table-1476118250055
  * ```
  *
+ * @public
  */
 export class UpdateItemCommand extends $Command
   .classBuilder<
@@ -305,6 +309,7 @@ export class UpdateItemCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -317,4 +322,16 @@ export class UpdateItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateItemCommand)
   .de(de_UpdateItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateItemInput;
+      output: UpdateItemOutput;
+    };
+    sdk: {
+      input: UpdateItemCommandInput;
+      output: UpdateItemCommandOutput;
+    };
+  };
+}

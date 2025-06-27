@@ -12,7 +12,8 @@ import { de_DeleteRulesetCommand, se_DeleteRulesetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DeleteRulesetCommandOutput extends DeleteRulesetResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class DeleteRulesetCommand extends $Command
@@ -73,9 +75,7 @@ export class DeleteRulesetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteRulesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRulesetCommand)
   .de(de_DeleteRulesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRulesetRequest;
+      output: DeleteRulesetResponse;
+    };
+    sdk: {
+      input: DeleteRulesetCommandInput;
+      output: DeleteRulesetCommandOutput;
+    };
+  };
+}

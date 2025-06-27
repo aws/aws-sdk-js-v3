@@ -5,25 +5,24 @@ import { Endpoint, EndpointParameters as __EndpointParameters, EndpointV2, Provi
  * @public
  */
 export interface ClientInputEndpointParameters {
-  region?: string | Provider<string>;
-  useDualstackEndpoint?: boolean | Provider<boolean>;
-  useFipsEndpoint?: boolean | Provider<boolean>;
+  useDualstackEndpoint?: boolean | undefined | Provider<boolean | undefined>;
+  useFipsEndpoint?: boolean | undefined | Provider<boolean | undefined>;
   endpoint?: string | Provider<string> | Endpoint | Provider<Endpoint> | EndpointV2 | Provider<EndpointV2>;
+  region?: string | undefined | Provider<string | undefined>;
 }
 
-export type ClientResolvedEndpointParameters = ClientInputEndpointParameters & {
+export type ClientResolvedEndpointParameters = Omit<ClientInputEndpointParameters, "endpoint"> & {
   defaultSigningName: string;
 };
 
 export const resolveClientEndpointParameters = <T>(
   options: T & ClientInputEndpointParameters
 ): T & ClientResolvedEndpointParameters => {
-  return {
-    ...options,
+  return Object.assign(options, {
     useDualstackEndpoint: options.useDualstackEndpoint ?? false,
     useFipsEndpoint: options.useFipsEndpoint ?? false,
     defaultSigningName: "aws-marketplace",
-  };
+  });
 };
 
 export const commonParams = {
@@ -34,8 +33,8 @@ export const commonParams = {
 } as const;
 
 export interface EndpointParameters extends __EndpointParameters {
-  Region?: string;
-  UseDualStack?: boolean;
-  UseFIPS?: boolean;
-  Endpoint?: string;
+  UseDualStack?: boolean | undefined;
+  UseFIPS?: boolean | undefined;
+  Endpoint?: string | undefined;
+  Region?: string | undefined;
 }

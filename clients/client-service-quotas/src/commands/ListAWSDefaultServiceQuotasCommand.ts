@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists the default values for the quotas for the specified Amazon Web Service. A default
+ * <p>Lists the default values for the quotas for the specified Amazon Web Services service. A default
  *             value does not reflect any quota increases.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -79,6 +80,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * //         ContextScopeType: "STRING_VALUE",
  * //         ContextId: "STRING_VALUE",
  * //       },
+ * //       Description: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -113,6 +115,7 @@ export interface ListAWSDefaultServiceQuotasCommandOutput
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class ListAWSDefaultServiceQuotasCommand extends $Command
@@ -123,9 +126,7 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +138,16 @@ export class ListAWSDefaultServiceQuotasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAWSDefaultServiceQuotasCommand)
   .de(de_ListAWSDefaultServiceQuotasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAWSDefaultServiceQuotasRequest;
+      output: ListAWSDefaultServiceQuotasResponse;
+    };
+    sdk: {
+      input: ListAWSDefaultServiceQuotasCommandInput;
+      output: ListAWSDefaultServiceQuotasCommandOutput;
+    };
+  };
+}

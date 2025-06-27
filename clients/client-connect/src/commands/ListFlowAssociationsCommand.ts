@@ -12,7 +12,8 @@ import { de_ListFlowAssociationsCommand, se_ListFlowAssociationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  * const client = new ConnectClient(config);
  * const input = { // ListFlowAssociationsRequest
  *   InstanceId: "STRING_VALUE", // required
- *   ResourceType: "VOICE_PHONE_NUMBER",
+ *   ResourceType: "WHATSAPP_MESSAGING_PHONE_NUMBER" || "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR",
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -47,7 +48,7 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  * //     { // FlowAssociationSummary
  * //       ResourceId: "STRING_VALUE",
  * //       FlowId: "STRING_VALUE",
- * //       ResourceType: "VOICE_PHONE_NUMBER",
+ * //       ResourceType: "WHATSAPP_MESSAGING_PHONE_NUMBER" || "VOICE_PHONE_NUMBER" || "INBOUND_EMAIL" || "OUTBOUND_EMAIL" || "ANALYTICS_CONNECTOR",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -82,6 +83,7 @@ export interface ListFlowAssociationsCommandOutput extends ListFlowAssociationsR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListFlowAssociationsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListFlowAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListFlowAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFlowAssociationsCommand)
   .de(de_ListFlowAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFlowAssociationsRequest;
+      output: ListFlowAssociationsResponse;
+    };
+    sdk: {
+      input: ListFlowAssociationsCommandInput;
+      output: ListFlowAssociationsCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/models_0";
+import { UpdateDataSourceRequest, UpdateDataSourceResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_UpdateDataSourceCommand, se_UpdateDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface UpdateDataSourceCommandOutput extends UpdateDataSourceResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class UpdateDataSourceCommand extends $Command
@@ -91,9 +93,7 @@ export class UpdateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class UpdateDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDataSourceCommand)
   .de(de_UpdateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDataSourceRequest;
+      output: UpdateDataSourceResponse;
+    };
+    sdk: {
+      input: UpdateDataSourceCommandInput;
+      output: UpdateDataSourceCommandOutput;
+    };
+  };
+}

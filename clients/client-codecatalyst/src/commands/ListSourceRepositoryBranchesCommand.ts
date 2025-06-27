@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface ListSourceRepositoryBranchesCommandOutput
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class ListSourceRepositoryBranchesCommand extends $Command
@@ -101,9 +103,7 @@ export class ListSourceRepositoryBranchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class ListSourceRepositoryBranchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSourceRepositoryBranchesCommand)
   .de(de_ListSourceRepositoryBranchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSourceRepositoryBranchesRequest;
+      output: ListSourceRepositoryBranchesResponse;
+    };
+    sdk: {
+      input: ListSourceRepositoryBranchesCommandInput;
+      output: ListSourceRepositoryBranchesCommandOutput;
+    };
+  };
+}

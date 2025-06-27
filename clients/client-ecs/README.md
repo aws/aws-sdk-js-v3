@@ -23,7 +23,7 @@ You also don't need to worry about scaling your management infrastructure. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ecs
+To install this package, simply type add or install @aws-sdk/client-ecs
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ecs`
@@ -346,6 +346,22 @@ DescribeContainerInstances
 </details>
 <details>
 <summary>
+DescribeServiceDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeServiceDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeServiceDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeServiceDeploymentsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeServiceRevisions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/DescribeServiceRevisionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeServiceRevisionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/DescribeServiceRevisionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeServices
 </summary>
 
@@ -430,6 +446,14 @@ ListContainerInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/ListContainerInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListContainerInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListContainerInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListServiceDeployments
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/ListServiceDeploymentsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListServiceDeploymentsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/ListServiceDeploymentsCommandOutput/)
 
 </details>
 <details>
@@ -542,6 +566,14 @@ StartTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/StartTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/StartTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/StartTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopServiceDeployment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecs/command/StopServiceDeploymentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/StopServiceDeploymentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecs/Interface/StopServiceDeploymentCommandOutput/)
 
 </details>
 <details>

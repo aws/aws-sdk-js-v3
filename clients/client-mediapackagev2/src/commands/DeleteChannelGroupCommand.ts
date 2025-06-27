@@ -12,7 +12,8 @@ import { de_DeleteChannelGroupCommand, se_DeleteChannelGroupCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,20 @@ export interface DeleteChannelGroupCommandOutput extends DeleteChannelGroupRespo
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Deleting a Channel Group
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup"
+ * };
+ * const command = new DeleteChannelGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteChannelGroupCommand extends $Command
@@ -77,9 +92,7 @@ export class DeleteChannelGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +104,16 @@ export class DeleteChannelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteChannelGroupCommand)
   .de(de_DeleteChannelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteChannelGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteChannelGroupCommandInput;
+      output: DeleteChannelGroupCommandOutput;
+    };
+  };
+}

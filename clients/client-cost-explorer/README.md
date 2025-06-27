@@ -25,7 +25,7 @@ Management Pricing</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cost-explorer
+To install this package, simply type add or install @aws-sdk/client-cost-explorer
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cost-explorer`
@@ -308,10 +308,26 @@ GetApproximateUsageRecords
 </details>
 <details>
 <summary>
+GetCommitmentPurchaseAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCommitmentPurchaseAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCommitmentPurchaseAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCommitmentPurchaseAnalysisCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCostAndUsage
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostAndUsageCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCostAndUsageComparisons
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostAndUsageComparisonsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageComparisonsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostAndUsageComparisonsCommandOutput/)
 
 </details>
 <details>
@@ -328,6 +344,14 @@ GetCostCategories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostCategoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostCategoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostCategoriesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetCostComparisonDrivers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetCostComparisonDriversCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostComparisonDriversCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetCostComparisonDriversCommandOutput/)
 
 </details>
 <details>
@@ -436,6 +460,14 @@ GetUsageForecast
 </details>
 <details>
 <summary>
+ListCommitmentPurchaseAnalyses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ListCommitmentPurchaseAnalysesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCommitmentPurchaseAnalysesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ListCommitmentPurchaseAnalysesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCostAllocationTagBackfillHistory
 </summary>
 
@@ -480,6 +512,14 @@ ProvideAnomalyFeedback
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/ProvideAnomalyFeedbackCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/ProvideAnomalyFeedbackCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartCommitmentPurchaseAnalysis
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/StartCommitmentPurchaseAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCommitmentPurchaseAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/StartCommitmentPurchaseAnalysisCommandOutput/)
 
 </details>
 <details>

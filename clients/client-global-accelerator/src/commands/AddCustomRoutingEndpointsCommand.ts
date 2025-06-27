@@ -16,7 +16,8 @@ import { de_AddCustomRoutingEndpointsCommand, se_AddCustomRoutingEndpointsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface AddCustomRoutingEndpointsCommandOutput extends AddCustomRouting
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class AddCustomRoutingEndpointsCommand extends $Command
@@ -110,9 +112,7 @@ export class AddCustomRoutingEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class AddCustomRoutingEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddCustomRoutingEndpointsCommand)
   .de(de_AddCustomRoutingEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddCustomRoutingEndpointsRequest;
+      output: AddCustomRoutingEndpointsResponse;
+    };
+    sdk: {
+      input: AddCustomRoutingEndpointsCommandInput;
+      output: AddCustomRoutingEndpointsCommandOutput;
+    };
+  };
+}

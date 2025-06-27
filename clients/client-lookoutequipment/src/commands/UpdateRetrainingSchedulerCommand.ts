@@ -12,7 +12,8 @@ import { de_UpdateRetrainingSchedulerCommand, se_UpdateRetrainingSchedulerComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,20 +80,23 @@ export interface UpdateRetrainingSchedulerCommandOutput extends __MetadataBearer
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
- * @public
+ *
  * @example Updates a retraining scheduler
  * ```javascript
  * //
  * const input = {
- *   "ModelName": "sample-model",
- *   "RetrainingFrequency": "P1Y",
- *   "RetrainingStartDate": "2024-01-01T00:00:00Z"
+ *   ModelName: "sample-model",
+ *   RetrainingFrequency: "P1Y",
+ *   RetrainingStartDate: "2024-01-01T00:00:00Z"
  * };
  * const command = new UpdateRetrainingSchedulerCommand(input);
- * await client.send(command);
- * // example id: updates-a-retraining-scheduler-1694019840918
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateRetrainingSchedulerCommand extends $Command
   .classBuilder<
@@ -102,9 +106,7 @@ export class UpdateRetrainingSchedulerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +118,16 @@ export class UpdateRetrainingSchedulerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRetrainingSchedulerCommand)
   .de(de_UpdateRetrainingSchedulerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRetrainingSchedulerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRetrainingSchedulerCommandInput;
+      output: UpdateRetrainingSchedulerCommandOutput;
+    };
+  };
+}

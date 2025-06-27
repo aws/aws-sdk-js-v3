@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This request creates a logical container to where backups may be copied.</p>
+ * <p>Creates a logical container to where backups may be copied.</p>
  *          <p>This request includes a name, the Region, the maximum number of retention days, the
  *       minimum number of retention days, and optionally can include tags and a creator request
  *       ID.</p>
@@ -100,6 +101,7 @@ export interface CreateLogicallyAirGappedBackupVaultCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateLogicallyAirGappedBackupVaultCommand extends $Command
@@ -110,9 +112,7 @@ export class CreateLogicallyAirGappedBackupVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class CreateLogicallyAirGappedBackupVaultCommand extends $Command
   .f(CreateLogicallyAirGappedBackupVaultInputFilterSensitiveLog, void 0)
   .ser(se_CreateLogicallyAirGappedBackupVaultCommand)
   .de(de_CreateLogicallyAirGappedBackupVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLogicallyAirGappedBackupVaultInput;
+      output: CreateLogicallyAirGappedBackupVaultOutput;
+    };
+    sdk: {
+      input: CreateLogicallyAirGappedBackupVaultCommandInput;
+      output: CreateLogicallyAirGappedBackupVaultCommandOutput;
+    };
+  };
+}

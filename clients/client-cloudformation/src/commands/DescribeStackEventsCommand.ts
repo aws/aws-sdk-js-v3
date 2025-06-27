@@ -12,7 +12,8 @@ import { de_DescribeStackEventsCommand, se_DescribeStackEventsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,12 @@ export interface DescribeStackEventsCommandInput extends DescribeStackEventsInpu
 export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns all stack related events for a specified stack in reverse chronological order. For more information
- *    about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">CloudFormation stack creation
- *    events</a> in the <i>CloudFormation User Guide</i>.</p>
+ * <p>Returns all stack related events for a specified stack in reverse chronological order. For
+ *       more information about a stack's event history, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stack-resource-configuration-complete.html">Understand CloudFormation stack creation events</a> in the
+ *         <i>CloudFormation User Guide</i>.</p>
  *          <note>
- *             <p>You can list events for stacks that have failed to create or have been deleted by specifying the unique stack
- *     identifier (stack ID).</p>
+ *             <p>You can list events for stacks that have failed to create or have been deleted by
+ *         specifying the unique stack identifier (stack ID).</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,7 +57,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * //       PhysicalResourceId: "STRING_VALUE",
  * //       ResourceType: "STRING_VALUE",
  * //       Timestamp: new Date("TIMESTAMP"), // required
- * //       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED",
+ * //       ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "EXPORT_FAILED" || "EXPORT_COMPLETE" || "EXPORT_IN_PROGRESS" || "EXPORT_ROLLBACK_IN_PROGRESS" || "EXPORT_ROLLBACK_FAILED" || "EXPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED",
  * //       ResourceStatusReason: "STRING_VALUE",
  * //       ResourceProperties: "STRING_VALUE",
  * //       ClientRequestToken: "STRING_VALUE",
@@ -82,6 +83,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackEventsCommand extends $Command
@@ -92,9 +94,7 @@ export class DescribeStackEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class DescribeStackEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackEventsCommand)
   .de(de_DescribeStackEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackEventsInput;
+      output: DescribeStackEventsOutput;
+    };
+    sdk: {
+      input: DescribeStackEventsCommandInput;
+      output: DescribeStackEventsCommandOutput;
+    };
+  };
+}

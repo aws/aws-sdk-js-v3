@@ -12,7 +12,8 @@ import { de_ListParticipantEventsCommand, se_ListParticipantEventsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,7 +52,10 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * //       participantId: "STRING_VALUE",
  * //       eventTime: new Date("TIMESTAMP"),
  * //       remoteParticipantId: "STRING_VALUE",
- * //       errorCode: "STRING_VALUE",
+ * //       errorCode: "INSUFFICIENT_CAPABILITIES" || "QUOTA_EXCEEDED" || "PUBLISHER_NOT_FOUND" || "BITRATE_EXCEEDED" || "RESOLUTION_EXCEEDED" || "STREAM_DURATION_EXCEEDED" || "INVALID_AUDIO_CODEC" || "INVALID_VIDEO_CODEC" || "INVALID_PROTOCOL" || "INVALID_STREAM_KEY" || "REUSE_OF_STREAM_KEY" || "B_FRAME_PRESENT" || "INVALID_INPUT" || "INTERNAL_SERVER_EXCEPTION",
+ * //       destinationStageArn: "STRING_VALUE",
+ * //       destinationSessionId: "STRING_VALUE",
+ * //       replica: true || false,
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -74,6 +78,7 @@ export interface ListParticipantEventsCommandOutput extends ListParticipantEvent
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class ListParticipantEventsCommand extends $Command
@@ -84,9 +89,7 @@ export class ListParticipantEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +101,16 @@ export class ListParticipantEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListParticipantEventsCommand)
   .de(de_ListParticipantEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListParticipantEventsRequest;
+      output: ListParticipantEventsResponse;
+    };
+    sdk: {
+      input: ListParticipantEventsCommandInput;
+      output: ListParticipantEventsCommandOutput;
+    };
+  };
+}

@@ -1,15 +1,18 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { JSONRPC10ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JSONRPC10Client";
 import { de_HostWithPathOperationCommand, se_HostWithPathOperationCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,6 +51,7 @@ export interface HostWithPathOperationCommandOutput extends __MetadataBearer {}
  * @throws {@link JSONRPC10ServiceException}
  * <p>Base exception class for all service exceptions from JSONRPC10 service.</p>
  *
+ *
  */
 export class HostWithPathOperationCommand extends $Command
   .classBuilder<
@@ -57,12 +61,28 @@ export class HostWithPathOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JSONRPC10ClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("JsonRpc10", "HostWithPathOperation", {})
   .n("JSONRPC10Client", "HostWithPathOperationCommand")
   .f(void 0, void 0)
   .ser(se_HostWithPathOperationCommand)
   .de(de_HostWithPathOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: {};
+    };
+    sdk: {
+      input: HostWithPathOperationCommandInput;
+      output: HostWithPathOperationCommandOutput;
+    };
+  };
+}

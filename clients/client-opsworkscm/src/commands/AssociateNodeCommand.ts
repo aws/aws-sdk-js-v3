@@ -16,7 +16,8 @@ import { de_AssociateNodeCommand, se_AssociateNodeCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface AssociateNodeCommandOutput extends AssociateNodeResponse, __Met
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class AssociateNodeCommand extends $Command
@@ -103,9 +105,7 @@ export class AssociateNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class AssociateNodeCommand extends $Command
   .f(AssociateNodeRequestFilterSensitiveLog, void 0)
   .ser(se_AssociateNodeCommand)
   .de(de_AssociateNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateNodeRequest;
+      output: AssociateNodeResponse;
+    };
+    sdk: {
+      input: AssociateNodeCommandInput;
+      output: AssociateNodeCommandOutput;
+    };
+  };
+}

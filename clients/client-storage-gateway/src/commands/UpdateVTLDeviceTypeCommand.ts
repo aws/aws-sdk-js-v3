@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,24 +67,24 @@ export interface UpdateVTLDeviceTypeCommandOutput extends UpdateVTLDeviceTypeOut
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update a VTL device type
  * ```javascript
  * // Updates the type of medium changer in a gateway-VTL after a gateway-VTL is activated.
  * const input = {
- *   "DeviceType": "Medium Changer",
- *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+ *   DeviceType: "Medium Changer",
+ *   VTLDeviceARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
  * };
  * const command = new UpdateVTLDeviceTypeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
+ *   VTLDeviceARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001"
  * }
  * *\/
- * // example id: to-update-a-vtl-device-type-1472153012967
  * ```
  *
+ * @public
  */
 export class UpdateVTLDeviceTypeCommand extends $Command
   .classBuilder<
@@ -93,9 +94,7 @@ export class UpdateVTLDeviceTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class UpdateVTLDeviceTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVTLDeviceTypeCommand)
   .de(de_UpdateVTLDeviceTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVTLDeviceTypeInput;
+      output: UpdateVTLDeviceTypeOutput;
+    };
+    sdk: {
+      input: UpdateVTLDeviceTypeCommandInput;
+      output: UpdateVTLDeviceTypeCommandOutput;
+    };
+  };
+}

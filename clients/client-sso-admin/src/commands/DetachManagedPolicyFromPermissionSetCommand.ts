@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DetachManagedPolicyFromPermissionSetCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DetachManagedPolicyFromPermissionSetCommand extends $Command
@@ -96,9 +98,7 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DetachManagedPolicyFromPermissionSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachManagedPolicyFromPermissionSetCommand)
   .de(de_DetachManagedPolicyFromPermissionSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachManagedPolicyFromPermissionSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DetachManagedPolicyFromPermissionSetCommandInput;
+      output: DetachManagedPolicyFromPermissionSetCommandOutput;
+    };
+  };
+}

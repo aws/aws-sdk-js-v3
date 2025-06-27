@@ -16,7 +16,8 @@ import { de_CreateVirtualMFADeviceCommand, se_CreateVirtualMFADeviceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -126,6 +127,7 @@ export interface CreateVirtualMFADeviceCommandOutput extends CreateVirtualMFADev
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class CreateVirtualMFADeviceCommand extends $Command
@@ -136,9 +138,7 @@ export class CreateVirtualMFADeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +150,16 @@ export class CreateVirtualMFADeviceCommand extends $Command
   .f(void 0, CreateVirtualMFADeviceResponseFilterSensitiveLog)
   .ser(se_CreateVirtualMFADeviceCommand)
   .de(de_CreateVirtualMFADeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVirtualMFADeviceRequest;
+      output: CreateVirtualMFADeviceResponse;
+    };
+    sdk: {
+      input: CreateVirtualMFADeviceCommandInput;
+      output: CreateVirtualMFADeviceCommandOutput;
+    };
+  };
+}

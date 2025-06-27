@@ -12,7 +12,8 @@ import { de_DeleteKeyCommand, se_DeleteKeyCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface DeleteKeyCommandOutput extends DeleteKeyResponse, __MetadataBea
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DeleteKeyCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteKeyCommand)
   .de(de_DeleteKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteKeyCommandInput;
+      output: DeleteKeyCommandOutput;
+    };
+  };
+}

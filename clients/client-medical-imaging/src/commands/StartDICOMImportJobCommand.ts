@@ -12,7 +12,8 @@ import { de_StartDICOMImportJobCommand, se_StartDICOMImportJobCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface StartDICOMImportJobCommandOutput extends StartDICOMImportJobRes
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class StartDICOMImportJobCommand extends $Command
@@ -96,9 +98,7 @@ export class StartDICOMImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class StartDICOMImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDICOMImportJobCommand)
   .de(de_StartDICOMImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDICOMImportJobRequest;
+      output: StartDICOMImportJobResponse;
+    };
+    sdk: {
+      input: StartDICOMImportJobCommandInput;
+      output: StartDICOMImportJobCommandOutput;
+    };
+  };
+}

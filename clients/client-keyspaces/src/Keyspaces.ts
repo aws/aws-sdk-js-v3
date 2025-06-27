@@ -8,12 +8,14 @@ import {
   CreateKeyspaceCommandOutput,
 } from "./commands/CreateKeyspaceCommand";
 import { CreateTableCommand, CreateTableCommandInput, CreateTableCommandOutput } from "./commands/CreateTableCommand";
+import { CreateTypeCommand, CreateTypeCommandInput, CreateTypeCommandOutput } from "./commands/CreateTypeCommand";
 import {
   DeleteKeyspaceCommand,
   DeleteKeyspaceCommandInput,
   DeleteKeyspaceCommandOutput,
 } from "./commands/DeleteKeyspaceCommand";
 import { DeleteTableCommand, DeleteTableCommandInput, DeleteTableCommandOutput } from "./commands/DeleteTableCommand";
+import { DeleteTypeCommand, DeleteTypeCommandInput, DeleteTypeCommandOutput } from "./commands/DeleteTypeCommand";
 import { GetKeyspaceCommand, GetKeyspaceCommandInput, GetKeyspaceCommandOutput } from "./commands/GetKeyspaceCommand";
 import {
   GetTableAutoScalingSettingsCommand,
@@ -21,6 +23,7 @@ import {
   GetTableAutoScalingSettingsCommandOutput,
 } from "./commands/GetTableAutoScalingSettingsCommand";
 import { GetTableCommand, GetTableCommandInput, GetTableCommandOutput } from "./commands/GetTableCommand";
+import { GetTypeCommand, GetTypeCommandInput, GetTypeCommandOutput } from "./commands/GetTypeCommand";
 import {
   ListKeyspacesCommand,
   ListKeyspacesCommandInput,
@@ -32,6 +35,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
 import {
   RestoreTableCommand,
   RestoreTableCommandInput,
@@ -43,23 +47,33 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateKeyspaceCommand,
+  UpdateKeyspaceCommandInput,
+  UpdateKeyspaceCommandOutput,
+} from "./commands/UpdateKeyspaceCommand";
 import { UpdateTableCommand, UpdateTableCommandInput, UpdateTableCommandOutput } from "./commands/UpdateTableCommand";
 import { KeyspacesClient, KeyspacesClientConfig } from "./KeyspacesClient";
 
 const commands = {
   CreateKeyspaceCommand,
   CreateTableCommand,
+  CreateTypeCommand,
   DeleteKeyspaceCommand,
   DeleteTableCommand,
+  DeleteTypeCommand,
   GetKeyspaceCommand,
   GetTableCommand,
   GetTableAutoScalingSettingsCommand,
+  GetTypeCommand,
   ListKeyspacesCommand,
   ListTablesCommand,
   ListTagsForResourceCommand,
+  ListTypesCommand,
   RestoreTableCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateKeyspaceCommand,
   UpdateTableCommand,
 };
 
@@ -90,6 +104,17 @@ export interface Keyspaces {
   ): void;
 
   /**
+   * @see {@link CreateTypeCommand}
+   */
+  createType(args: CreateTypeCommandInput, options?: __HttpHandlerOptions): Promise<CreateTypeCommandOutput>;
+  createType(args: CreateTypeCommandInput, cb: (err: any, data?: CreateTypeCommandOutput) => void): void;
+  createType(
+    args: CreateTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTypeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteKeyspaceCommand}
    */
   deleteKeyspace(
@@ -112,6 +137,17 @@ export interface Keyspaces {
     args: DeleteTableCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTableCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTypeCommand}
+   */
+  deleteType(args: DeleteTypeCommandInput, options?: __HttpHandlerOptions): Promise<DeleteTypeCommandOutput>;
+  deleteType(args: DeleteTypeCommandInput, cb: (err: any, data?: DeleteTypeCommandOutput) => void): void;
+  deleteType(
+    args: DeleteTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTypeCommandOutput) => void
   ): void;
 
   /**
@@ -151,6 +187,17 @@ export interface Keyspaces {
     args: GetTableAutoScalingSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTableAutoScalingSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTypeCommand}
+   */
+  getType(args: GetTypeCommandInput, options?: __HttpHandlerOptions): Promise<GetTypeCommandOutput>;
+  getType(args: GetTypeCommandInput, cb: (err: any, data?: GetTypeCommandOutput) => void): void;
+  getType(
+    args: GetTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTypeCommandOutput) => void
   ): void;
 
   /**
@@ -194,6 +241,17 @@ export interface Keyspaces {
   ): void;
 
   /**
+   * @see {@link ListTypesCommand}
+   */
+  listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
+  listTypes(args: ListTypesCommandInput, cb: (err: any, data?: ListTypesCommandOutput) => void): void;
+  listTypes(
+    args: ListTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link RestoreTableCommand}
    */
   restoreTable(args: RestoreTableCommandInput, options?: __HttpHandlerOptions): Promise<RestoreTableCommandOutput>;
@@ -227,6 +285,20 @@ export interface Keyspaces {
   ): void;
 
   /**
+   * @see {@link UpdateKeyspaceCommand}
+   */
+  updateKeyspace(
+    args: UpdateKeyspaceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateKeyspaceCommandOutput>;
+  updateKeyspace(args: UpdateKeyspaceCommandInput, cb: (err: any, data?: UpdateKeyspaceCommandOutput) => void): void;
+  updateKeyspace(
+    args: UpdateKeyspaceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateKeyspaceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateTableCommand}
    */
   updateTable(args: UpdateTableCommandInput, options?: __HttpHandlerOptions): Promise<UpdateTableCommandOutput>;
@@ -239,20 +311,7 @@ export interface Keyspaces {
 }
 
 /**
- * <p>Amazon Keyspaces (for Apache Cassandra) is a scalable,
- *         highly available, and managed Apache Cassandra-compatible database service. Amazon Keyspaces makes it easy to migrate,
- *         run, and scale Cassandra workloads in the Amazon Web Services Cloud. With just a few clicks on the Amazon Web Services Management Console or a few lines of code,
- *         you can create keyspaces and tables in Amazon Keyspaces, without deploying any infrastructure or installing software. </p>
- *          <p>In addition to supporting Cassandra Query Language (CQL) requests via open-source Cassandra drivers,
- *            Amazon Keyspaces supports data definition language (DDL) operations to manage keyspaces and tables using the Amazon Web Services SDK and CLI, as well as
- *            infrastructure as code (IaC) services and tools such as CloudFormation and Terraform. This API reference describes
- *         the supported DDL operations in detail.</p>
- *          <p>For the list of all supported CQL APIs, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html">Supported Cassandra APIs, operations, and data types
- *         in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer
- *               Guide</i>.</p>
- *          <p>To learn how Amazon Keyspaces API actions are recorded with CloudTrail, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#service-name-info-in-cloudtrail">Amazon Keyspaces information in CloudTrail</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
- *          <p>For more information about Amazon Web Services APIs, for example how to implement retry logic or how to sign Amazon Web Services API requests, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a> in the <i>General Reference</i>.</p>
+ * <p>Amazon Keyspaces (for Apache Cassandra) is a scalable, highly available, and managed Apache Cassandra-compatible database service. Amazon Keyspaces makes it easy to migrate, run, and scale Cassandra workloads in the Amazon Web Services Cloud. With just a few clicks on the Amazon Web Services Management Console or a few lines of code, you can create keyspaces and tables in Amazon Keyspaces, without deploying any infrastructure or installing software. </p> <p>In addition to supporting Cassandra Query Language (CQL) requests via open-source Cassandra drivers, Amazon Keyspaces supports data definition language (DDL) operations to manage keyspaces and tables using the Amazon Web Services SDK and CLI, as well as infrastructure as code (IaC) services and tools such as CloudFormation and Terraform. This API reference describes the supported DDL operations in detail.</p> <p>For the list of all supported CQL APIs, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/cassandra-apis.html">Supported Cassandra APIs, operations, and data types in Amazon Keyspaces</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>To learn how Amazon Keyspaces API actions are recorded with CloudTrail, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/logging-using-cloudtrail.html#service-name-info-in-cloudtrail">Amazon Keyspaces information in CloudTrail</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>For more information about Amazon Web Services APIs, for example how to implement retry logic or how to sign Amazon Web Services API requests, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a> in the <i>General Reference</i>.</p>
  * @public
  */
 export class Keyspaces extends KeyspacesClient implements Keyspaces {}

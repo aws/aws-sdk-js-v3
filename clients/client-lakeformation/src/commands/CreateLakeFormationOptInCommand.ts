@@ -12,7 +12,8 @@ import { de_CreateLakeFormationOptInCommand, se_CreateLakeFormationOptInCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,9 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -83,7 +86,7 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -91,7 +94,15 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
  *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Condition: { // Condition
+ *     Expression: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateLakeFormationOptInCommand(input);
@@ -124,8 +135,12 @@ export interface CreateLakeFormationOptInCommandOutput extends CreateLakeFormati
  * @throws {@link OperationTimeoutException} (client fault)
  *  <p>The operation timed out.</p>
  *
+ * @throws {@link ResourceNumberLimitExceededException} (client fault)
+ *  <p>A resource numerical limit was exceeded.</p>
+ *
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
+ *
  *
  * @public
  */
@@ -137,9 +152,7 @@ export class CreateLakeFormationOptInCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +164,16 @@ export class CreateLakeFormationOptInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLakeFormationOptInCommand)
   .de(de_CreateLakeFormationOptInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLakeFormationOptInRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateLakeFormationOptInCommandInput;
+      output: CreateLakeFormationOptInCommandOutput;
+    };
+  };
+}

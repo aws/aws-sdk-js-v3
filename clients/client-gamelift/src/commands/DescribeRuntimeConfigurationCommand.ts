@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,9 @@ export interface DescribeRuntimeConfigurationCommandOutput
  * <p>Retrieves a fleet's runtime configuration settings. The runtime configuration
  *             determines which server processes run, and how, on computes in the fleet. For managed
  *             EC2 fleets, the runtime configuration describes server processes that run on each fleet
- *             instance. For container fleets, the runtime configuration describes server processes
- *             that run in each replica container group. You can update a fleet's runtime configuration
- *             at any time using <a>UpdateRuntimeConfiguration</a>.</p>
+ *             instance.
+ *             can update a fleet's runtime configuration at any time using
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_UpdateRuntimeConfiguration.html">UpdateRuntimeConfiguration</a>.</p>
  *          <p>To get the current runtime configuration for a fleet, provide the fleet ID. </p>
  *          <p>If successful, a <code>RuntimeConfiguration</code> object is returned for the
  *             requested fleet. If the requested fleet has been deleted, the result set is
@@ -46,7 +47,7 @@ export interface DescribeRuntimeConfigurationCommandOutput
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  *          <p>
@@ -95,13 +96,14 @@ export interface DescribeRuntimeConfigurationCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -113,9 +115,7 @@ export class DescribeRuntimeConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class DescribeRuntimeConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuntimeConfigurationCommand)
   .de(de_DescribeRuntimeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuntimeConfigurationInput;
+      output: DescribeRuntimeConfigurationOutput;
+    };
+    sdk: {
+      input: DescribeRuntimeConfigurationCommandInput;
+      output: DescribeRuntimeConfigurationCommandOutput;
+    };
+  };
+}

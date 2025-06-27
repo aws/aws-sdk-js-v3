@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,15 +33,7 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a continuous deployment policy that distributes traffic for a custom domain
- * 			name to two different CloudFront distributions.</p>
- *          <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to
- * 			create a staging distribution, then use <code>UpdateDistribution</code> to modify the
- * 			staging distribution's configuration.</p>
- *          <p>After you create and update a staging distribution, you can use a continuous
- * 			deployment policy to incrementally move traffic to the staging distribution. This
- * 			workflow enables you to test changes to a distribution's configuration before moving all
- * 			of your domain's production traffic to the new configuration.</p>
+ * <p>Creates a continuous deployment policy that distributes traffic for a custom domain name to two different CloudFront distributions.</p> <p>To use a continuous deployment policy, first use <code>CopyDistribution</code> to create a staging distribution, then use <code>UpdateDistribution</code> to modify the staging distribution's configuration.</p> <p>After you create and update a staging distribution, you can use a continuous deployment policy to incrementally move traffic to the staging distribution. This workflow enables you to test changes to a distribution's configuration before moving all of your domain's production traffic to the new configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -121,8 +114,7 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  *  <p>A continuous deployment policy with this configuration already exists.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -131,11 +123,11 @@ export interface CreateContinuousDeploymentPolicyCommandOutput
  *  <p>A continuous deployment policy for this staging distribution already exists.</p>
  *
  * @throws {@link TooManyContinuousDeploymentPolicies} (client fault)
- *  <p>You have reached the maximum number of continuous deployment policies for this
- * 			Amazon Web Services account.</p>
+ *  <p>You have reached the maximum number of continuous deployment policies for this Amazon Web Services account.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -147,9 +139,7 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +151,16 @@ export class CreateContinuousDeploymentPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContinuousDeploymentPolicyCommand)
   .de(de_CreateContinuousDeploymentPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContinuousDeploymentPolicyRequest;
+      output: CreateContinuousDeploymentPolicyResult;
+    };
+    sdk: {
+      input: CreateContinuousDeploymentPolicyCommandInput;
+      output: CreateContinuousDeploymentPolicyCommandOutput;
+    };
+  };
+}

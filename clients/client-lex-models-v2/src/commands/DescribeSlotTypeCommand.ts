@@ -12,7 +12,8 @@ import { de_DescribeSlotTypeCommand, se_DescribeSlotTypeCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -122,6 +123,7 @@ export interface DescribeSlotTypeCommandOutput extends DescribeSlotTypeResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeSlotTypeCommand extends $Command
@@ -132,9 +134,7 @@ export class DescribeSlotTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +146,16 @@ export class DescribeSlotTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSlotTypeCommand)
   .de(de_DescribeSlotTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSlotTypeRequest;
+      output: DescribeSlotTypeResponse;
+    };
+    sdk: {
+      input: DescribeSlotTypeCommandInput;
+      output: DescribeSlotTypeCommandOutput;
+    };
+  };
+}

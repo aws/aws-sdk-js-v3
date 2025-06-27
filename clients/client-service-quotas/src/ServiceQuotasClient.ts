@@ -57,6 +57,7 @@ import {
   AssociateServiceQuotaTemplateCommandInput,
   AssociateServiceQuotaTemplateCommandOutput,
 } from "./commands/AssociateServiceQuotaTemplateCommand";
+import { CreateSupportCaseCommandInput, CreateSupportCaseCommandOutput } from "./commands/CreateSupportCaseCommand";
 import {
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput,
   DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput,
@@ -130,6 +131,7 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AssociateServiceQuotaTemplateCommandInput
+  | CreateSupportCaseCommandInput
   | DeleteServiceQuotaIncreaseRequestFromTemplateCommandInput
   | DisassociateServiceQuotaTemplateCommandInput
   | GetAWSDefaultServiceQuotaCommandInput
@@ -154,6 +156,7 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AssociateServiceQuotaTemplateCommandOutput
+  | CreateSupportCaseCommandOutput
   | DeleteServiceQuotaIncreaseRequestFromTemplateCommandOutput
   | DisassociateServiceQuotaTemplateCommandOutput
   | GetAWSDefaultServiceQuotaCommandOutput
@@ -265,6 +268,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -310,11 +332,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type ServiceQuotasClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -330,11 +352,11 @@ export interface ServiceQuotasClientConfig extends ServiceQuotasClientConfigType
 export type ServiceQuotasClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -348,6 +370,8 @@ export interface ServiceQuotasClientResolvedConfig extends ServiceQuotasClientRe
  * <p>With Service Quotas, you can view and manage your quotas easily as your Amazon Web Services workloads grow.
  *             Quotas, also referred to as limits, are the maximum number of resources that you can
  *             create in your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/">Service Quotas User Guide</a>.</p>
+ *          <p>You need Amazon Web Services CLI version 2.13.20 or higher to view and manage resource-level quotas such as <code>Instances
+ *         per domain</code> for Amazon OpenSearch Service.</p>
  * @public
  */
 export class ServiceQuotasClient extends __Client<
@@ -363,26 +387,30 @@ export class ServiceQuotasClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<ServiceQuotasClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultServiceQuotasHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: ServiceQuotasClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -395,14 +423,5 @@ export class ServiceQuotasClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultServiceQuotasHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: ServiceQuotasClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

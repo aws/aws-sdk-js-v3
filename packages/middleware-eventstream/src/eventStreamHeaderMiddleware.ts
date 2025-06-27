@@ -5,7 +5,7 @@ export const eventStreamHeaderMiddleware: BuildMiddleware<any, any> = (next) => 
   if (!HttpRequest.isInstance(request)) return next(args);
   request.headers = {
     ...request.headers,
-    "Content-Type": "application/vnd.amazon.eventstream",
+    "content-type": "application/vnd.amazon.eventstream",
     "x-amz-content-sha256": "STREAMING-AWS4-HMAC-SHA256-EVENTS",
   };
   return next({

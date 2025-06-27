@@ -184,7 +184,7 @@ and the SSO documentation for your SDK.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codecatalyst
+To install this package, simply type add or install @aws-sdk/client-codecatalyst
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codecatalyst`

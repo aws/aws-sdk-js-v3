@@ -12,7 +12,8 @@ import { de_GetFacetCommand, se_GetFacetCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,26 @@ export interface GetFacetCommandOutput extends GetFacetResponse, __MetadataBeare
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To get information about a facet
+ * ```javascript
+ * //
+ * const input = {
+ *   Name: "node2",
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ * };
+ * const command = new GetFacetCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Facet: {
+ *     Name: "node2",
+ *     ObjectType: "NODE"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetFacetCommand extends $Command
@@ -95,9 +116,7 @@ export class GetFacetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +128,16 @@ export class GetFacetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFacetCommand)
   .de(de_GetFacetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFacetRequest;
+      output: GetFacetResponse;
+    };
+    sdk: {
+      input: GetFacetCommandInput;
+      output: GetFacetCommandOutput;
+    };
+  };
+}

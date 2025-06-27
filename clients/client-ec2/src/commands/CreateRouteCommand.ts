@@ -12,7 +12,8 @@ import { de_CreateRouteCommand, se_CreateRouteCommand } from "../protocols/Aws_e
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,22 +56,23 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * // const { EC2Client, CreateRouteCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // CreateRouteRequest
- *   DestinationCidrBlock: "STRING_VALUE",
- *   DestinationIpv6CidrBlock: "STRING_VALUE",
  *   DestinationPrefixListId: "STRING_VALUE",
- *   DryRun: true || false,
  *   VpcEndpointId: "STRING_VALUE",
- *   EgressOnlyInternetGatewayId: "STRING_VALUE",
- *   GatewayId: "STRING_VALUE",
- *   InstanceId: "STRING_VALUE",
- *   NatGatewayId: "STRING_VALUE",
  *   TransitGatewayId: "STRING_VALUE",
  *   LocalGatewayId: "STRING_VALUE",
  *   CarrierGatewayId: "STRING_VALUE",
- *   NetworkInterfaceId: "STRING_VALUE",
- *   RouteTableId: "STRING_VALUE", // required
- *   VpcPeeringConnectionId: "STRING_VALUE",
  *   CoreNetworkArn: "STRING_VALUE",
+ *   OdbNetworkArn: "STRING_VALUE",
+ *   DryRun: true || false,
+ *   RouteTableId: "STRING_VALUE", // required
+ *   DestinationCidrBlock: "STRING_VALUE",
+ *   GatewayId: "STRING_VALUE",
+ *   DestinationIpv6CidrBlock: "STRING_VALUE",
+ *   EgressOnlyInternetGatewayId: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
+ *   NetworkInterfaceId: "STRING_VALUE",
+ *   VpcPeeringConnectionId: "STRING_VALUE",
+ *   NatGatewayId: "STRING_VALUE",
  * };
  * const command = new CreateRouteCommand(input);
  * const response = await client.send(command);
@@ -89,20 +91,23 @@ export interface CreateRouteCommandOutput extends CreateRouteResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To create a route
  * ```javascript
  * // This example creates a route for the specified route table. The route matches all traffic (0.0.0.0/0) and routes it to the specified Internet gateway.
  * const input = {
- *   "DestinationCidrBlock": "0.0.0.0/0",
- *   "GatewayId": "igw-c0a643a9",
- *   "RouteTableId": "rtb-22574640"
+ *   DestinationCidrBlock: "0.0.0.0/0",
+ *   GatewayId: "igw-c0a643a9",
+ *   RouteTableId: "rtb-22574640"
  * };
  * const command = new CreateRouteCommand(input);
- * await client.send(command);
- * // example id: ec2-create-route-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateRouteCommand extends $Command
   .classBuilder<
@@ -112,9 +117,7 @@ export class CreateRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +129,16 @@ export class CreateRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRouteCommand)
   .de(de_CreateRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRouteRequest;
+      output: CreateRouteResult;
+    };
+    sdk: {
+      input: CreateRouteCommandInput;
+      output: CreateRouteCommandOutput;
+    };
+  };
+}

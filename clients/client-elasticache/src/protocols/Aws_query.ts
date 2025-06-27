@@ -487,7 +487,7 @@ import {
   ReshardingConfiguration,
   ReshardingStatus,
   RevokeCacheSecurityGroupIngressMessage,
-  RevokeCacheSecurityGroupIngressResult,
+  ScaleConfig,
   SecurityGroupMembership,
   ServerlessCache,
   ServerlessCacheAlreadyExistsFault,
@@ -539,6 +539,7 @@ import {
   CustomerNodeEndpoint,
   NodeGroupNotFoundFault,
   ReplicationGroupAlreadyUnderMigrationFault,
+  RevokeCacheSecurityGroupIngressResult,
   StartMigrationMessage,
   StartMigrationResponse,
   TestFailoverMessage,
@@ -6919,6 +6920,9 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
   if (input[_AI] != null) {
     entries[_AI] = input[_AI];
   }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
   }
@@ -6952,6 +6956,13 @@ const se_ModifyCacheClusterMessage = (input: ModifyCacheClusterMessage, context:
   }
   if (input[_ID] != null) {
     entries[_ID] = input[_ID];
+  }
+  if (input[_SC] != null) {
+    const memberEntries = se_ScaleConfig(input[_SC], context);
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `ScaleConfig.${key}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };
@@ -7017,6 +7028,9 @@ const se_ModifyGlobalReplicationGroupMessage = (
   }
   if (input[_CNT] != null) {
     entries[_CNT] = input[_CNT];
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
@@ -7093,6 +7107,9 @@ const se_ModifyReplicationGroupMessage = (input: ModifyReplicationGroupMessage, 
   }
   if (input[_AI] != null) {
     entries[_AI] = input[_AI];
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   if (input[_EV] != null) {
     entries[_EV] = input[_EV];
@@ -7253,6 +7270,12 @@ const se_ModifyServerlessCacheRequest = (input: ModifyServerlessCacheRequest, co
   if (input[_DST] != null) {
     entries[_DST] = input[_DST];
   }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
+  }
+  if (input[_MEV] != null) {
+    entries[_MEV] = input[_MEV];
+  }
   return entries;
 };
 
@@ -7283,6 +7306,9 @@ const se_ModifyUserGroupMessage = (input: ModifyUserGroupMessage, context: __Ser
       const loc = `UserIdsToRemove.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7320,6 +7346,9 @@ const se_ModifyUserMessage = (input: ModifyUserMessage, context: __SerdeContext)
       const loc = `AuthenticationMode.${key}`;
       entries[loc] = value;
     });
+  }
+  if (input[_E] != null) {
+    entries[_E] = input[_E];
   }
   return entries;
 };
@@ -7778,6 +7807,20 @@ const se_RevokeCacheSecurityGroupIngressMessage = (
   }
   if (input[_ECSGOI] != null) {
     entries[_ECSGOI] = input[_ECSGOI];
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_queryScaleConfig
+ */
+const se_ScaleConfig = (input: ScaleConfig, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_SP] != null) {
+    entries[_SP] = input[_SP];
+  }
+  if (input[_SIM] != null) {
+    entries[_SIM] = input[_SIM];
   }
   return entries;
 };
@@ -9063,8 +9106,8 @@ const de_CreateReplicationGroupResult = (output: any, context: __SerdeContext): 
  */
 const de_CreateServerlessCacheResponse = (output: any, context: __SerdeContext): CreateServerlessCacheResponse => {
   const contents: any = {};
-  if (output[_SC] != null) {
-    contents[_SC] = de_ServerlessCache(output[_SC], context);
+  if (output[_SCe] != null) {
+    contents[_SCe] = de_ServerlessCache(output[_SCe], context);
   }
   return contents;
 };
@@ -9202,8 +9245,8 @@ const de_DeleteReplicationGroupResult = (output: any, context: __SerdeContext): 
  */
 const de_DeleteServerlessCacheResponse = (output: any, context: __SerdeContext): DeleteServerlessCacheResponse => {
   const contents: any = {};
-  if (output[_SC] != null) {
-    contents[_SC] = de_ServerlessCache(output[_SC], context);
+  if (output[_SCe] != null) {
+    contents[_SCe] = de_ServerlessCache(output[_SCe], context);
   }
   return contents;
 };
@@ -9297,9 +9340,9 @@ const de_DescribeServerlessCachesResponse = (
     contents[_NTe] = __expectString(output[_NTe]);
   }
   if (output.ServerlessCaches === "") {
-    contents[_SCe] = [];
-  } else if (output[_SCe] != null && output[_SCe][_m] != null) {
-    contents[_SCe] = de_ServerlessCacheList(__getArrayIfSingleItem(output[_SCe][_m]), context);
+    contents[_SCer] = [];
+  } else if (output[_SCer] != null && output[_SCer][_m] != null) {
+    contents[_SCer] = de_ServerlessCacheList(__getArrayIfSingleItem(output[_SCer][_m]), context);
   }
   return contents;
 };
@@ -10073,8 +10116,8 @@ const de_ModifyReplicationGroupShardConfigurationResult = (
  */
 const de_ModifyServerlessCacheResponse = (output: any, context: __SerdeContext): ModifyServerlessCacheResponse => {
   const contents: any = {};
-  if (output[_SC] != null) {
-    contents[_SC] = de_ServerlessCache(output[_SC], context);
+  if (output[_SCe] != null) {
+    contents[_SCe] = de_ServerlessCache(output[_SCe], context);
   }
   return contents;
 };
@@ -10525,6 +10568,9 @@ const de_PendingModifiedValues = (output: any, context: __SerdeContext): Pending
   if (output[_TEM] != null) {
     contents[_TEM] = __expectString(output[_TEM]);
   }
+  if (output[_SC] != null) {
+    contents[_SC] = de_ScaleConfig(output[_SC], context);
+  }
   return contents;
 };
 
@@ -10730,6 +10776,9 @@ const de_ReplicationGroup = (output: any, context: __SerdeContext): ReplicationG
   }
   if (output[_CMl] != null) {
     contents[_CMl] = __expectString(output[_CMl]);
+  }
+  if (output[_E] != null) {
+    contents[_E] = __expectString(output[_E]);
   }
   return contents;
 };
@@ -11079,6 +11128,20 @@ const de_RevokeCacheSecurityGroupIngressResult = (
   const contents: any = {};
   if (output[_CSG] != null) {
     contents[_CSG] = de_CacheSecurityGroup(output[_CSG], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryScaleConfig
+ */
+const de_ScaleConfig = (output: any, context: __SerdeContext): ScaleConfig => {
+  const contents: any = {};
+  if (output[_SP] != null) {
+    contents[_SP] = __strictParseInt32(output[_SP]) as number;
+  }
+  if (output[_SIM] != null) {
+    contents[_SIM] = __strictParseInt32(output[_SIM]) as number;
   }
   return contents;
 };
@@ -12017,9 +12080,9 @@ const de_UserGroup = (output: any, context: __SerdeContext): UserGroup => {
     contents[_RGe] = de_UGReplicationGroupIdList(__getArrayIfSingleItem(output[_RGe][_m]), context);
   }
   if (output.ServerlessCaches === "") {
-    contents[_SCe] = [];
-  } else if (output[_SCe] != null && output[_SCe][_m] != null) {
-    contents[_SCe] = de_UGServerlessCacheIdList(__getArrayIfSingleItem(output[_SCe][_m]), context);
+    contents[_SCer] = [];
+  } else if (output[_SCer] != null && output[_SCer][_m] != null) {
+    contents[_SCer] = de_UGServerlessCacheIdList(__getArrayIfSingleItem(output[_SCer][_m]), context);
   }
   if (output[_ARN] != null) {
     contents[_ARN] = __expectString(output[_ARN]);
@@ -12529,7 +12592,7 @@ const _SA = "SnapshotArns";
 const _SATR = "SnapshotArnsToRestore";
 const _SAZ = "SubnetAvailabilityZone";
 const _SBN = "S3BucketName";
-const _SC = "ServerlessCache";
+const _SC = "ScaleConfig";
 const _SCC = "ServerlessCacheConfiguration";
 const _SCCNIRG = "ShowCacheClustersNotInReplicationGroups";
 const _SCI = "SnapshottingClusterId";
@@ -12540,12 +12603,14 @@ const _SCS = "ServerlessCacheSnapshot";
 const _SCSN = "ServerlessCacheSnapshotName";
 const _SCSe = "ServerlessCacheSnapshots";
 const _SCT = "SnapshotCreateTime";
-const _SCe = "ServerlessCaches";
+const _SCe = "ServerlessCache";
+const _SCer = "ServerlessCaches";
 const _SDM = "ScaleDownModifications";
 const _SG = "SecurityGroups";
 const _SGI = "SecurityGroupIds";
 const _SGIe = "SecurityGroupId";
 const _SI = "SubnetIds";
+const _SIM = "ScaleIntervalMinutes";
 const _SIo = "SourceIdentifier";
 const _SIu = "SubnetId";
 const _SIub = "SubnetIdentifier";
@@ -12559,6 +12624,7 @@ const _SNLUS = "ShowNodeLevelUpdateStatus";
 const _SNT = "SupportedNetworkTypes";
 const _SO = "SubnetOutpost";
 const _SOA = "SubnetOutpostArn";
+const _SP = "ScalePercentage";
 const _SRL = "SnapshotRetentionLimit";
 const _SS = "SnapshotSource";
 const _SSCSN = "SourceServerlessCacheSnapshotName";

@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,25 +85,25 @@ export interface DescribeOrderableReplicationInstancesCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe orderable replication instances
  * ```javascript
  * // Returns information about the replication instance types that can be created in the specified region.
  * const input = {
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeOrderableReplicationInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "OrderableReplicationInstances": []
+ *   Marker: "",
+ *   OrderableReplicationInstances:   []
  * }
  * *\/
- * // example id: describe-orderable-replication-instances-1481755123669
  * ```
  *
+ * @public
  */
 export class DescribeOrderableReplicationInstancesCommand extends $Command
   .classBuilder<
@@ -112,9 +113,7 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class DescribeOrderableReplicationInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrderableReplicationInstancesCommand)
   .de(de_DescribeOrderableReplicationInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrderableReplicationInstancesMessage;
+      output: DescribeOrderableReplicationInstancesResponse;
+    };
+    sdk: {
+      input: DescribeOrderableReplicationInstancesCommandInput;
+      output: DescribeOrderableReplicationInstancesCommandOutput;
+    };
+  };
+}

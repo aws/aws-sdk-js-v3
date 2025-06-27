@@ -12,7 +12,8 @@ import { de_DescribeSuggestersCommand, se_DescribeSuggestersCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DescribeSuggestersCommandOutput extends DescribeSuggestersRespo
  * @throws {@link CloudSearchServiceException}
  * <p>Base exception class for all service exceptions from CloudSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeSuggestersCommand extends $Command
@@ -96,9 +98,7 @@ export class DescribeSuggestersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DescribeSuggestersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSuggestersCommand)
   .de(de_DescribeSuggestersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSuggestersRequest;
+      output: DescribeSuggestersResponse;
+    };
+    sdk: {
+      input: DescribeSuggestersCommandInput;
+      output: DescribeSuggestersCommandOutput;
+    };
+  };
+}

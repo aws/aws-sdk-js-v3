@@ -12,7 +12,8 @@ import { de_ListStepsCommand, se_ListStepsCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,7 @@ export interface ListStepsCommandOutput extends ListStepsResponse, __MetadataBea
  * //       taskRunStatusCounts: { // TaskRunStatusCounts // required
  * //         "<keys>": Number("int"),
  * //       },
+ * //       taskFailureRetryCount: Number("int"),
  * //       targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       createdBy: "STRING_VALUE", // required
@@ -93,11 +95,11 @@ export interface ListStepsCommandOutput extends ListStepsResponse, __MetadataBea
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -109,9 +111,7 @@ export class ListStepsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class ListStepsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStepsCommand)
   .de(de_ListStepsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStepsRequest;
+      output: ListStepsResponse;
+    };
+    sdk: {
+      input: ListStepsCommandInput;
+      output: ListStepsCommandOutput;
+    };
+  };
+}

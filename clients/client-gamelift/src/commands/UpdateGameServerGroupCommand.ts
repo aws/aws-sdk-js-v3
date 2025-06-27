@@ -12,7 +12,8 @@ import { de_UpdateGameServerGroupCommand, se_UpdateGameServerGroupCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,21 +29,21 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
- *          <p>Updates Amazon GameLift FleetIQ-specific
+ *          <p>Updates Amazon GameLift Servers FleetIQ-specific
  *             properties for a game server group. Many Auto Scaling group properties are updated on
  *             the Auto Scaling group directly, including the launch template, Auto Scaling policies,
  *             and maximum/minimum/desired instance counts.</p>
  *          <p>To update the game server group, specify the game server group ID and provide the
  *             updated values. Before applying the updates, the new values are validated to ensure that
- *             Amazon GameLift FleetIQ can continue to perform instance balancing activity. If successful, a
+ *             Amazon GameLift Servers FleetIQ can continue to perform instance balancing activity. If successful, a
  *                 <code>GameServerGroup</code> object is returned.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -106,13 +107,14 @@ export interface UpdateGameServerGroupCommandOutput extends UpdateGameServerGrou
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -124,9 +126,7 @@ export class UpdateGameServerGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class UpdateGameServerGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGameServerGroupCommand)
   .de(de_UpdateGameServerGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGameServerGroupInput;
+      output: UpdateGameServerGroupOutput;
+    };
+    sdk: {
+      input: UpdateGameServerGroupCommandInput;
+      output: UpdateGameServerGroupCommandOutput;
+    };
+  };
+}

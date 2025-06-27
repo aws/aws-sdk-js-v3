@@ -12,7 +12,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,6 +32,24 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             user-defined tags so that they appear on the Billing and Cost Management console for
  *             cost allocation tracking. You can call TagResource up to five times per second, per
  *             account. </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>TagResource</code> is an asynchronous operation. If you issue a <a>ListTagsOfResource</a> request immediately after a
+ *                         <code>TagResource</code> request, DynamoDB might return your
+ *                     previous tag set, if there was one, or an empty tag set. This is because
+ *                         <code>ListTagsOfResource</code> uses an eventually consistent query, and the
+ *                     metadata for your tags or table might not be available at that moment. Wait for
+ *                     a few seconds, and then try the <code>ListTagsOfResource</code> request
+ *                     again.</p>
+ *             </li>
+ *             <li>
+ *                <p>The application or removal of tags using <code>TagResource</code> and
+ *                         <code>UntagResource</code> APIs is eventually consistent.
+ *                         <code>ListTagsOfResource</code> API will only reflect the changes after a
+ *                     few seconds.</p>
+ *             </li>
+ *          </ul>
  *          <p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a>
  *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  * @example
@@ -82,9 +101,19 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *             this limit may result in request throttling.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example, you
- *             attempted to recreate an existing table, or tried to delete a table currently in the
- *                 <code>CREATING</code> state.</p>
+ *  <p>The operation conflicts with the resource's availability. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You attempted to recreate an existing table.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a resource that was already being updated.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The operation tried to access a nonexistent table or index. The resource might not
@@ -92,6 +121,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
+ *
  *
  * @public
  */
@@ -105,6 +135,7 @@ export class TagResourceCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "ResourceArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -117,4 +148,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceInput;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

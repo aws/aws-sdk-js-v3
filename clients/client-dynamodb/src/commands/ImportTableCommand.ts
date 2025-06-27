@@ -12,7 +12,8 @@ import { de_ImportTableCommand, se_ImportTableCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *           MaxReadRequestUnits: Number("long"),
  *           MaxWriteRequestUnits: Number("long"),
  *         },
+ *         WarmThroughput: { // WarmThroughput
+ *           ReadUnitsPerSecond: Number("long"),
+ *           WriteUnitsPerSecond: Number("long"),
+ *         },
  *       },
  *     ],
  *   },
@@ -183,6 +188,10 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  * //             MaxReadRequestUnits: Number("long"),
  * //             MaxWriteRequestUnits: Number("long"),
  * //           },
+ * //           WarmThroughput: { // WarmThroughput
+ * //             ReadUnitsPerSecond: Number("long"),
+ * //             WriteUnitsPerSecond: Number("long"),
+ * //           },
  * //         },
  * //       ],
  * //     },
@@ -228,12 +237,23 @@ export interface ImportTableCommandOutput extends ImportTableOutput, __MetadataB
  *             this limit may result in request throttling.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example, you
- *             attempted to recreate an existing table, or tried to delete a table currently in the
- *                 <code>CREATING</code> state.</p>
+ *  <p>The operation conflicts with the resource's availability. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You attempted to recreate an existing table.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a resource that was already being updated.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
+ *
  *
  * @public
  */
@@ -247,6 +267,7 @@ export class ImportTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "operationContextParams", get: (input?: any) => input?.TableCreationParameters?.TableName },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -259,4 +280,16 @@ export class ImportTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportTableCommand)
   .de(de_ImportTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportTableInput;
+      output: ImportTableOutput;
+    };
+    sdk: {
+      input: ImportTableCommandInput;
+      output: ImportTableCommandOutput;
+    };
+  };
+}

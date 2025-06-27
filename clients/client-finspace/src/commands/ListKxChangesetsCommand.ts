@@ -12,7 +12,8 @@ import { de_ListKxChangesetsCommand, se_ListKxChangesetsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListKxChangesetsCommandOutput extends ListKxChangesetsResponse,
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class ListKxChangesetsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListKxChangesetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListKxChangesetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListKxChangesetsCommand)
   .de(de_ListKxChangesetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKxChangesetsRequest;
+      output: ListKxChangesetsResponse;
+    };
+    sdk: {
+      input: ListKxChangesetsCommandInput;
+      output: ListKxChangesetsCommandOutput;
+    };
+  };
+}

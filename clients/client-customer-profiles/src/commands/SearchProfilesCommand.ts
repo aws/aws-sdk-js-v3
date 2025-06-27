@@ -16,7 +16,8 @@ import { de_SearchProfilesCommand, se_SearchProfilesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,11 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
 
 /**
  * <p>Searches for profiles within a specific domain using one or more predefined search keys
- *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A search key
- *          is a data type pair that consists of a <code>KeyName</code> and <code>Values</code> list.</p>
- *          <p>This operation supports searching for profiles with a minimum of 1 key-value(s) pair and up to
- *          5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.</p>
+ *          (e.g., _fullName, _phone, _email, _account, etc.) and/or custom-defined search keys. A
+ *          search key is a data type pair that consists of a <code>KeyName</code> and
+ *             <code>Values</code> list.</p>
+ *          <p>This operation supports searching for profiles with a minimum of 1 key-value(s) pair and
+ *          up to 5 key-value(s) pairs using either <code>AND</code> or <code>OR</code> logic.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -174,6 +176,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class SearchProfilesCommand extends $Command
@@ -184,9 +187,7 @@ export class SearchProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -198,4 +199,16 @@ export class SearchProfilesCommand extends $Command
   .f(void 0, SearchProfilesResponseFilterSensitiveLog)
   .ser(se_SearchProfilesCommand)
   .de(de_SearchProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchProfilesRequest;
+      output: SearchProfilesResponse;
+    };
+    sdk: {
+      input: SearchProfilesCommandInput;
+      output: SearchProfilesCommandOutput;
+    };
+  };
+}

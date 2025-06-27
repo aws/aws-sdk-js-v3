@@ -12,7 +12,8 @@ import { de_ListBotVersionsCommand, se_ListBotVersionsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface ListBotVersionsCommandOutput extends ListBotVersionsResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListBotVersionsCommand extends $Command
@@ -102,9 +104,7 @@ export class ListBotVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class ListBotVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotVersionsCommand)
   .de(de_ListBotVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotVersionsRequest;
+      output: ListBotVersionsResponse;
+    };
+    sdk: {
+      input: ListBotVersionsCommandInput;
+      output: ListBotVersionsCommandOutput;
+    };
+  };
+}

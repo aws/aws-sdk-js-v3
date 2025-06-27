@@ -12,7 +12,8 @@ import { de_CreateBackendEnvironmentCommand, se_CreateBackendEnvironmentCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,10 +31,9 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * <p>Creates a new backend environment for an Amplify app. </p>
  *          <p>This API is available only to Amplify Gen 1 applications where the
  *             backend is created using Amplify Studio or the Amplify
- *             command line interface (CLI). This API isn’t available to Amplify Gen 2 applications.
- *             When you deploy an application with
- *             Amplify Gen 2, you provision the app's backend infrastructure using Typescript
- *             code.</p>
+ *             command line interface (CLI). This API isn’t available to Amplify Gen 2
+ *             applications. When you deploy an application with Amplify Gen 2, you provision the app's
+ *             backend infrastructure using Typescript code.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +85,7 @@ export interface CreateBackendEnvironmentCommandOutput extends CreateBackendEnvi
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class CreateBackendEnvironmentCommand extends $Command
@@ -95,9 +96,7 @@ export class CreateBackendEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class CreateBackendEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackendEnvironmentCommand)
   .de(de_CreateBackendEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackendEnvironmentRequest;
+      output: CreateBackendEnvironmentResult;
+    };
+    sdk: {
+      input: CreateBackendEnvironmentCommandInput;
+      output: CreateBackendEnvironmentCommandOutput;
+    };
+  };
+}

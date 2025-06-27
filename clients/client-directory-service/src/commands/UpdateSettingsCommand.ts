@@ -12,7 +12,8 @@ import { de_UpdateSettingsCommand, se_UpdateSettingsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,7 +65,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link IncompatibleSettingsException} (client fault)
  *  <p>The specified directory setting is not compatible with other settings.</p>
@@ -84,6 +85,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class UpdateSettingsCommand extends $Command
@@ -94,9 +96,7 @@ export class UpdateSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class UpdateSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSettingsCommand)
   .de(de_UpdateSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSettingsRequest;
+      output: UpdateSettingsResult;
+    };
+    sdk: {
+      input: UpdateSettingsCommandInput;
+      output: UpdateSettingsCommandOutput;
+    };
+  };
+}

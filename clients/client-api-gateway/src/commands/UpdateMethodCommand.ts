@@ -12,7 +12,8 @@ import { de_UpdateMethodCommand, se_UpdateMethodCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -133,6 +134,7 @@ export interface UpdateMethodCommandOutput extends Method, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class UpdateMethodCommand extends $Command
@@ -143,9 +145,7 @@ export class UpdateMethodCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +157,16 @@ export class UpdateMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMethodCommand)
   .de(de_UpdateMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMethodRequest;
+      output: Method;
+    };
+    sdk: {
+      input: UpdateMethodCommandInput;
+      output: UpdateMethodCommandOutput;
+    };
+  };
+}

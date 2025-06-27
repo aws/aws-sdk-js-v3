@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface ListTestGridSessionArtifactsCommandOutput
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class ListTestGridSessionArtifactsCommand extends $Command
@@ -93,9 +95,7 @@ export class ListTestGridSessionArtifactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListTestGridSessionArtifactsCommand extends $Command
   .f(void 0, ListTestGridSessionArtifactsResultFilterSensitiveLog)
   .ser(se_ListTestGridSessionArtifactsCommand)
   .de(de_ListTestGridSessionArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestGridSessionArtifactsRequest;
+      output: ListTestGridSessionArtifactsResult;
+    };
+    sdk: {
+      input: ListTestGridSessionArtifactsCommandInput;
+      output: ListTestGridSessionArtifactsCommandOutput;
+    };
+  };
+}

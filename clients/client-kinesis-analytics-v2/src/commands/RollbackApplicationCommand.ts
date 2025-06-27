@@ -16,7 +16,8 @@ import { de_RollbackApplicationCommand, se_RollbackApplicationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,13 +32,12 @@ export interface RollbackApplicationCommandInput extends RollbackApplicationRequ
 export interface RollbackApplicationCommandOutput extends RollbackApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Reverts the application to the previous running version. You can
- *             roll back an application if you suspect it is stuck in a transient status. </p>
- *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
- *             or <code>AUTOSCALING</code> status.</p>
- *         <p>When you rollback an application, it loads state data from the last successful snapshot.
+ * <p>Reverts the application to the previous running version. You can roll back an
+ *       application if you suspect it is stuck in a transient status or in the running status. </p>
+ *          <p>You can roll back an application only if it is in the <code>UPDATING</code>,
+ *         <code>AUTOSCALING</code>, or  <code>RUNNING</code> statuses.</p>
+ *          <p>When you rollback an application, it loads state data from the last successful snapshot.
  *         If the application has no snapshots, Managed Service for Apache Flink rejects the rollback request.</p>
- *         <p>This action is not supported for Managed Service for Apache Flink for SQL applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +55,7 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * //     ApplicationARN: "STRING_VALUE", // required
  * //     ApplicationDescription: "STRING_VALUE",
  * //     ApplicationName: "STRING_VALUE", // required
- * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18", // required
+ * //     RuntimeEnvironment: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0" || "FLINK-1_18" || "FLINK-1_19" || "FLINK-1_20", // required
  * //     ServiceExecutionRole: "STRING_VALUE",
  * //     ApplicationStatus: "DELETING" || "STARTING" || "STOPPING" || "READY" || "RUNNING" || "UPDATING" || "AUTOSCALING" || "FORCE_STOPPING" || "ROLLING_BACK" || "MAINTENANCE" || "ROLLED_BACK", // required
  * //     ApplicationVersionId: Number("long"), // required
@@ -225,6 +225,9 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * //       ApplicationSnapshotConfigurationDescription: { // ApplicationSnapshotConfigurationDescription
  * //         SnapshotsEnabled: true || false, // required
  * //       },
+ * //       ApplicationSystemRollbackConfigurationDescription: { // ApplicationSystemRollbackConfigurationDescription
+ * //         RollbackEnabled: true || false, // required
+ * //       },
  * //       VpcConfigurationDescriptions: [ // VpcConfigurationDescriptions
  * //         { // VpcConfigurationDescription
  * //           VpcConfigurationId: "STRING_VALUE", // required
@@ -282,10 +285,12 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * //     },
  * //     ApplicationVersionUpdatedFrom: Number("long"),
  * //     ApplicationVersionRolledBackFrom: Number("long"),
+ * //     ApplicationVersionCreateTimestamp: new Date("TIMESTAMP"),
  * //     ConditionalToken: "STRING_VALUE",
  * //     ApplicationVersionRolledBackTo: Number("long"),
  * //     ApplicationMode: "STREAMING" || "INTERACTIVE",
  * //   },
+ * //   OperationId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -320,6 +325,7 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  * @throws {@link KinesisAnalyticsV2ServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalyticsV2 service.</p>
  *
+ *
  * @public
  */
 export class RollbackApplicationCommand extends $Command
@@ -330,9 +336,7 @@ export class RollbackApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -344,4 +348,16 @@ export class RollbackApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackApplicationCommand)
   .de(de_RollbackApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackApplicationRequest;
+      output: RollbackApplicationResponse;
+    };
+    sdk: {
+      input: RollbackApplicationCommandInput;
+      output: RollbackApplicationCommandOutput;
+    };
+  };
+}

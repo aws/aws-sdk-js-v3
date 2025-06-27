@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeEgressOnlyInternetGatewaysRequest,
   DescribeEgressOnlyInternetGatewaysResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeEgressOnlyInternetGatewaysCommand,
   se_DescribeEgressOnlyInternetGatewaysCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,9 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your egress-only internet gateways.</p>
+ * <p>Describes your egress-only internet gateways. The default is to describe all your egress-only internet gateways.
+ *             Alternatively, you can specify specific egress-only internet gateway IDs or filter the results to
+ *             include only the egress-only internet gateways that match specific criteria.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,6 +95,7 @@ export interface DescribeEgressOnlyInternetGatewaysCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeEgressOnlyInternetGatewaysCommand extends $Command
@@ -102,9 +106,7 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +118,16 @@ export class DescribeEgressOnlyInternetGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEgressOnlyInternetGatewaysCommand)
   .de(de_DescribeEgressOnlyInternetGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEgressOnlyInternetGatewaysRequest;
+      output: DescribeEgressOnlyInternetGatewaysResult;
+    };
+    sdk: {
+      input: DescribeEgressOnlyInternetGatewaysCommandInput;
+      output: DescribeEgressOnlyInternetGatewaysCommandOutput;
+    };
+  };
+}

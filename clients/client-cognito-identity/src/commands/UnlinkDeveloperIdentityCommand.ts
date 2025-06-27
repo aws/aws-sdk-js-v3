@@ -12,7 +12,8 @@ import { de_UnlinkDeveloperIdentityCommand, se_UnlinkDeveloperIdentityCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  *          developer users will be considered new identities next time they are seen. If, for a given
  *          Cognito identity, you remove all federated identities as well as the developer user
  *          identifier, the Cognito identity becomes inaccessible.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +81,7 @@ export interface UnlinkDeveloperIdentityCommandOutput extends __MetadataBearer {
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class UnlinkDeveloperIdentityCommand extends $Command
@@ -89,9 +92,7 @@ export class UnlinkDeveloperIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +104,16 @@ export class UnlinkDeveloperIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnlinkDeveloperIdentityCommand)
   .de(de_UnlinkDeveloperIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnlinkDeveloperIdentityInput;
+      output: {};
+    };
+    sdk: {
+      input: UnlinkDeveloperIdentityCommandInput;
+      output: UnlinkDeveloperIdentityCommandOutput;
+    };
+  };
+}

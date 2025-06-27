@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  *       Connecting the private virtual interface to a Direct Connect gateway enables the possibility for connecting to multiple
  *       VPCs, including VPCs in different Amazon Web Services Regions. Connecting the private virtual interface
  *       to a VGW only provides access to a single VPC within the same Region.</p>
- *          <p>Setting the MTU of a virtual interface to 9001 (jumbo frames) can cause an update to
+ *          <p>Setting the MTU of a virtual interface to 8500 (jumbo frames) can cause an update to
  *       the underlying physical connection if it wasn't updated to support jumbo frames. Updating
  *       the connection disrupts network connectivity for all virtual interfaces associated with
  *       the connection for up to 30 seconds. To check whether your connection supports jumbo
@@ -145,6 +146,7 @@ export interface CreatePrivateVirtualInterfaceCommandOutput extends VirtualInter
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreatePrivateVirtualInterfaceCommand extends $Command
@@ -155,9 +157,7 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +169,16 @@ export class CreatePrivateVirtualInterfaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePrivateVirtualInterfaceCommand)
   .de(de_CreatePrivateVirtualInterfaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePrivateVirtualInterfaceRequest;
+      output: VirtualInterface;
+    };
+    sdk: {
+      input: CreatePrivateVirtualInterfaceCommandInput;
+      output: CreatePrivateVirtualInterfaceCommandOutput;
+    };
+  };
+}

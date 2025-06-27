@@ -12,7 +12,8 @@ import { de_GetRuntimeManagementConfigCommand, se_GetRuntimeManagementConfigComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface GetRuntimeManagementConfigCommandOutput extends GetRuntimeManag
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class GetRuntimeManagementConfigCommand extends $Command
@@ -81,9 +83,7 @@ export class GetRuntimeManagementConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class GetRuntimeManagementConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuntimeManagementConfigCommand)
   .de(de_GetRuntimeManagementConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuntimeManagementConfigRequest;
+      output: GetRuntimeManagementConfigResponse;
+    };
+    sdk: {
+      input: GetRuntimeManagementConfigCommandInput;
+      output: GetRuntimeManagementConfigCommandOutput;
+    };
+  };
+}

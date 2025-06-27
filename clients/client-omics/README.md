@@ -6,12 +6,11 @@
 
 AWS SDK for JavaScript Omics Client for Node.js, Browser and React Native.
 
-<p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the
-<i>AWS HealthOmics User Guide</i>.</p>
+<p>This is the <i>AWS HealthOmics API Reference</i>. For an introduction to the service, see <a href="https://docs.aws.amazon.com/omics/latest/dev/">What is AWS HealthOmics?</a> in the <i>AWS HealthOmics User Guide</i>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-omics
+To install this package, simply type add or install @aws-sdk/client-omics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-omics`
@@ -294,6 +293,14 @@ CreateReferenceStore
 </details>
 <details>
 <summary>
+CreateRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/CreateRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateRunCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateRunGroup
 </summary>
 
@@ -330,6 +337,14 @@ CreateWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/CreateWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateWorkflowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/CreateWorkflowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateWorkflowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/CreateWorkflowVersionCommandOutput/)
 
 </details>
 <details>
@@ -374,10 +389,26 @@ DeleteRun
 </details>
 <details>
 <summary>
+DeleteRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteRunGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteRunGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteRunGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteS3AccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteS3AccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteS3AccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteS3AccessPolicyCommandOutput/)
 
 </details>
 <details>
@@ -410,6 +441,14 @@ DeleteWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteWorkflowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/DeleteWorkflowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteWorkflowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/DeleteWorkflowVersionCommandOutput/)
 
 </details>
 <details>
@@ -518,6 +557,14 @@ GetRun
 </details>
 <details>
 <summary>
+GetRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRunGroup
 </summary>
 
@@ -530,6 +577,14 @@ GetRunTask
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetRunTaskCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunTaskCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetRunTaskCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetS3AccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetS3AccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetS3AccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetS3AccessPolicyCommandOutput/)
 
 </details>
 <details>
@@ -570,6 +625,14 @@ GetWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetWorkflowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/GetWorkflowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetWorkflowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/GetWorkflowVersionCommandOutput/)
 
 </details>
 <details>
@@ -670,6 +733,14 @@ ListReferenceStores
 </details>
 <details>
 <summary>
+ListRunCaches
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListRunCachesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunCachesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListRunCachesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListRunGroups
 </summary>
 
@@ -738,6 +809,22 @@ ListWorkflows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListWorkflowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListWorkflowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListWorkflowsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListWorkflowVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/ListWorkflowVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListWorkflowVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/ListWorkflowVersionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutS3AccessPolicy
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/PutS3AccessPolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/PutS3AccessPolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/PutS3AccessPolicyCommandOutput/)
 
 </details>
 <details>
@@ -830,10 +917,26 @@ UpdateAnnotationStoreVersion
 </details>
 <details>
 <summary>
+UpdateRunCache
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateRunCacheCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunCacheCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunCacheCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateRunGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateRunGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateRunGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateSequenceStore
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateSequenceStoreCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateSequenceStoreCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateSequenceStoreCommandOutput/)
 
 </details>
 <details>
@@ -850,6 +953,14 @@ UpdateWorkflow
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateWorkflowCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateWorkflowCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateWorkflowCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateWorkflowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/omics/command/UpdateWorkflowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateWorkflowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-omics/Interface/UpdateWorkflowVersionCommandOutput/)
 
 </details>
 <details>

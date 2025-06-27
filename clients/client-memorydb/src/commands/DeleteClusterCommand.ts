@@ -12,7 +12,8 @@ import { de_DeleteClusterCommand, se_DeleteClusterCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,12 @@ export interface DeleteClusterCommandInput extends DeleteClusterRequest {}
 export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints</p>
+ * <p>Deletes a cluster. It also deletes all associated nodes and node endpoints.</p>
+ *          <note>
+ *             <p>
+ *                <code>CreateSnapshot</code> permission is required to create a final snapshot.
+ *          Without this permission, the API call will fail with an <code>Access Denied</code> exception.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -36,6 +42,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * const client = new MemoryDBClient(config);
  * const input = { // DeleteClusterRequest
  *   ClusterName: "STRING_VALUE", // required
+ *   MultiRegionClusterName: "STRING_VALUE",
  *   FinalSnapshotName: "STRING_VALUE",
  * };
  * const command = new DeleteClusterCommand(input);
@@ -61,6 +68,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //         },
  * //       ],
  * //     },
+ * //     MultiRegionClusterName: "STRING_VALUE",
  * //     NumberOfShards: Number("int"),
  * //     Shards: [ // ShardList
  * //       { // Shard
@@ -88,6 +96,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //       Port: Number("int"),
  * //     },
  * //     NodeType: "STRING_VALUE",
+ * //     Engine: "STRING_VALUE",
  * //     EngineVersion: "STRING_VALUE",
  * //     EnginePatchVersion: "STRING_VALUE",
  * //     ParameterGroupName: "STRING_VALUE",
@@ -110,6 +119,8 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * //     ACLName: "STRING_VALUE",
  * //     AutoMinorVersionUpgrade: true || false,
  * //     DataTiering: "true" || "false",
+ * //     NetworkType: "ipv4" || "ipv6" || "dual_stack",
+ * //     IpDiscovery: "ipv4" || "ipv6",
  * //   },
  * // };
  *
@@ -142,6 +153,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterResponse, __Met
  * @throws {@link MemoryDBServiceException}
  * <p>Base exception class for all service exceptions from MemoryDB service.</p>
  *
+ *
  * @public
  */
 export class DeleteClusterCommand extends $Command
@@ -152,9 +164,7 @@ export class DeleteClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MemoryDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +176,16 @@ export class DeleteClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteClusterCommand)
   .de(de_DeleteClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteClusterRequest;
+      output: DeleteClusterResponse;
+    };
+    sdk: {
+      input: DeleteClusterCommandInput;
+      output: DeleteClusterCommandOutput;
+    };
+  };
+}

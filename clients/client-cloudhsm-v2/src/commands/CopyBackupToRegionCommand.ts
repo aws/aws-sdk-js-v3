@@ -12,7 +12,8 @@ import { de_CopyBackupToRegionCommand, se_CopyBackupToRegionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface CopyBackupToRegionCommandInput extends CopyBackupToRegionReques
 export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionResponse, __MetadataBearer {}
 
 /**
- * <p>Copy an AWS CloudHSM cluster backup to a different region.</p>
+ * <p>Copy an CloudHSM cluster backup to a different region.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +71,7 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -87,6 +90,7 @@ export interface CopyBackupToRegionCommandOutput extends CopyBackupToRegionRespo
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class CopyBackupToRegionCommand extends $Command
@@ -97,9 +101,7 @@ export class CopyBackupToRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +113,16 @@ export class CopyBackupToRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyBackupToRegionCommand)
   .de(de_CopyBackupToRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyBackupToRegionRequest;
+      output: CopyBackupToRegionResponse;
+    };
+    sdk: {
+      input: CopyBackupToRegionCommandInput;
+      output: CopyBackupToRegionCommandOutput;
+    };
+  };
+}

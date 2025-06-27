@@ -12,7 +12,8 @@ import { de_RestoreTableFromBackupCommand, se_RestoreTableFromBackupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,10 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  *       OnDemandThroughput: { // OnDemandThroughput
  *         MaxReadRequestUnits: Number("long"),
  *         MaxWriteRequestUnits: Number("long"),
+ *       },
+ *       WarmThroughput: { // WarmThroughput
+ *         ReadUnitsPerSecond: Number("long"),
+ *         WriteUnitsPerSecond: Number("long"),
  *       },
  *     },
  *   ],
@@ -203,6 +208,11 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -225,6 +235,11 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -233,6 +248,11 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -269,6 +289,12 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
  * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *
@@ -318,6 +344,7 @@ export interface RestoreTableFromBackupCommandOutput extends RestoreTableFromBac
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class RestoreTableFromBackupCommand extends $Command
@@ -330,6 +357,7 @@ export class RestoreTableFromBackupCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TargetTableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -342,4 +370,16 @@ export class RestoreTableFromBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreTableFromBackupCommand)
   .de(de_RestoreTableFromBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreTableFromBackupInput;
+      output: RestoreTableFromBackupOutput;
+    };
+    sdk: {
+      input: RestoreTableFromBackupCommandInput;
+      output: RestoreTableFromBackupCommandOutput;
+    };
+  };
+}

@@ -10,13 +10,14 @@ import {
   UpdateProfileRequest,
   UpdateProfileRequestFilterSensitiveLog,
   UpdateProfileResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_UpdateProfileCommand, se_UpdateProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -147,6 +148,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class UpdateProfileCommand extends $Command
@@ -157,9 +159,7 @@ export class UpdateProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +171,16 @@ export class UpdateProfileCommand extends $Command
   .f(UpdateProfileRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateProfileCommand)
   .de(de_UpdateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfileRequest;
+      output: UpdateProfileResponse;
+    };
+    sdk: {
+      input: UpdateProfileCommandInput;
+      output: UpdateProfileCommandOutput;
+    };
+  };
+}

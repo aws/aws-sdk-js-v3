@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/middleware-signing",
-  "version": "3.587.0",
+  "version": "3.821.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline middleware-signing",
@@ -9,9 +9,11 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --passWithNoTests",
-    "test:integration": "jest -c jest.config.integ.js",
-    "extract:docs": "api-extractor run --local"
+    "test": "yarn g:vitest run",
+    "test:integration": "yarn g:vitest run -c vitest.config.integ.ts",
+    "extract:docs": "api-extractor run --local",
+    "test:watch": "yarn g:vitest watch",
+    "test:integration:watch": "yarn g:vitest watch -c vitest.config.integ.ts"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -23,15 +25,15 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.0",
-    "@smithy/protocol-http": "^4.0.0",
-    "@smithy/signature-v4": "^3.0.0",
-    "@smithy/types": "^3.0.0",
-    "@smithy/util-middleware": "^3.0.0",
+    "@smithy/property-provider": "^4.0.4",
+    "@smithy/protocol-http": "^5.1.2",
+    "@smithy/signature-v4": "^5.1.2",
+    "@smithy/types": "^4.3.1",
+    "@smithy/util-middleware": "^4.0.4",
     "tslib": "^2.6.2"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {
@@ -54,6 +56,6 @@
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.8.3"
   }
 }

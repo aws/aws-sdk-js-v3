@@ -12,7 +12,8 @@ import { de_GetKeyRotationStatusCommand, se_GetKeyRotationStatusCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,20 +28,21 @@ export interface GetKeyRotationStatusCommandInput extends GetKeyRotationStatusRe
 export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Provides detailed information about the rotation status for a KMS key, including
- *       whether <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic rotation of the key material</a> is enabled for the specified KMS key, the
- *       <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotation-period">rotation period</a>, and the next scheduled
- *       rotation date.</p>
- *          <p>Automatic key rotation is supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks">symmetric encryption KMS keys</a>.
- *       You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key..</p>
+ * <p>Provides detailed information about the rotation status for a KMS key, including whether
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic
+ *         rotation of the key material</a> is enabled for the specified KMS key, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotation-period">rotation
+ *         period</a>, and the next scheduled rotation date.</p>
+ *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys.
+ *       You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key.</p>
  *          <p>You can enable (<a>EnableKeyRotation</a>) and disable automatic rotation (<a>DisableKeyRotation</a>) of the key material in customer managed KMS keys. Key
  *       material rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed KMS keys</a> is not
  *       configurable. KMS always rotates the key material in Amazon Web Services managed KMS keys every year. The
  *       key rotation status for Amazon Web Services managed KMS keys is always <code>true</code>.</p>
- *          <p>You can perform on-demand (<a>RotateKeyOnDemand</a>) rotation of the
- *       key material in customer managed KMS keys, regardless of whether or not automatic key rotation is enabled.
- *       You can use GetKeyRotationStatus to identify the date and time that an in progress on-demand rotation
- *       was initiated. You can use <a>ListKeyRotations</a> to view the details of completed rotations.</p>
+ *          <p>You can perform on-demand (<a>RotateKeyOnDemand</a>) rotation of the key
+ *       material in customer managed KMS keys, regardless of whether or not automatic key rotation is
+ *       enabled. You can use GetKeyRotationStatus to identify the date and time that an in progress
+ *       on-demand rotation was initiated. You can use <a>ListKeyRotations</a> to view the
+ *       details of completed rotations.</p>
  *          <note>
  *             <p>In May 2022, KMS changed the rotation schedule for Amazon Web Services managed keys from every three
  *         years to every year. For details, see <a>EnableKeyRotation</a>.</p>
@@ -94,7 +96,7 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,27 +167,8 @@ export interface GetKeyRotationStatusCommandOutput extends GetKeyRotationStatusR
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To retrieve the rotation status for a KMS key
- * ```javascript
- * // The following example retrieves detailed information about the rotation status for a KMS key, including whether automatic key rotation is enabled for the specified KMS key, the rotation period, and the next scheduled rotation date.
- * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
- * };
- * const command = new GetKeyRotationStatusCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeyRotationEnabled": true,
- *   "NextRotationDate": "2024-04-05T15:14:47.757000+00:00",
- *   "OnDemandRotationStartDate": "2024-03-02T10:11:36.564000+00:00",
- *   "RotationPeriodInDays": 365
- * }
- * *\/
- * // example id: to-retrieve-the-rotation-status-for-a-kms-key-1712500357701
- * ```
  *
+ * @public
  */
 export class GetKeyRotationStatusCommand extends $Command
   .classBuilder<
@@ -195,9 +178,7 @@ export class GetKeyRotationStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -209,4 +190,16 @@ export class GetKeyRotationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyRotationStatusCommand)
   .de(de_GetKeyRotationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyRotationStatusRequest;
+      output: GetKeyRotationStatusResponse;
+    };
+    sdk: {
+      input: GetKeyRotationStatusCommandInput;
+      output: GetKeyRotationStatusCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMessagesRequest, ListMessagesResponse } from "../models/models_0";
+import { ListMessagesRequest, ListMessagesResponse } from "../models/models_1";
 import { de_ListMessagesCommand, se_ListMessagesCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,11 +54,13 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //       attachments: [ // AttachmentsOutput
  * //         { // AttachmentOutput
  * //           name: "STRING_VALUE",
- * //           status: "FAILED" || "SUCCEEDED",
+ * //           status: "FAILED" || "SUCCESS",
  * //           error: { // ErrorDetail
  * //             errorMessage: "STRING_VALUE",
  * //             errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //           },
+ * //           attachmentId: "STRING_VALUE",
+ * //           conversationId: "STRING_VALUE",
  * //         },
  * //       ],
  * //       sourceAttribution: [ // SourceAttributions
@@ -74,13 +77,35 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               snippetExcerpt: { // SnippetExcerpt
  * //                 text: "STRING_VALUE",
  * //               },
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               sourceDetails: { // SourceDetails Union: only one key present
+ * //                 imageSourceDetails: { // ImageSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                 },
+ * //                 audioSourceDetails: { // AudioSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                   startTimeMilliseconds: Number("long"),
+ * //                   endTimeMilliseconds: Number("long"),
+ * //                   audioExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //                 },
+ * //                 videoSourceDetails: { // VideoSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                   startTimeMilliseconds: Number("long"),
+ * //                   endTimeMilliseconds: Number("long"),
+ * //                   videoExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //                 },
+ * //               },
  * //             },
  * //           ],
  * //         },
  * //       ],
  * //       actionReview: { // ActionReview
  * //         pluginId: "STRING_VALUE",
- * //         pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //         pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //         payload: { // ActionReviewPayload
  * //           "<keys>": { // ActionReviewPayloadField
  * //             displayName: "STRING_VALUE",
@@ -95,6 +120,7 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * //               },
  * //             ],
  * //             allowedFormat: "STRING_VALUE",
+ * //             arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //             required: true || false,
  * //           },
  * //         },
@@ -123,31 +149,26 @@ export interface ListMessagesCommandOutput extends ListMessagesResponse, __Metad
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required
- *             permission policies and user accounts and try again.</p>
+ *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
- *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link LicenseNotFoundException} (client fault)
- *  <p>You don't have permissions to perform the action because your license is inactive. Ask
- *             your admin to activate your license and try again after your licence is active.</p>
+ *  <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try
- *             again.</p>
+ *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
- *             correct input and try again.</p>
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
+ *
  *
  * @public
  */
@@ -159,9 +180,7 @@ export class ListMessagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +192,16 @@ export class ListMessagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMessagesCommand)
   .de(de_ListMessagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMessagesRequest;
+      output: ListMessagesResponse;
+    };
+    sdk: {
+      input: ListMessagesCommandInput;
+      output: ListMessagesCommandOutput;
+    };
+  };
+}

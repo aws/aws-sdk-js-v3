@@ -16,7 +16,8 @@ import { de_DeleteHomeRegionControlCommand, se_DeleteHomeRegionControlCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeleteHomeRegionControlCommandOutput extends DeleteHomeRegionCo
  * @throws {@link MigrationHubConfigServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubConfig service.</p>
  *
+ *
  * @public
  */
 export class DeleteHomeRegionControlCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteHomeRegionControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteHomeRegionControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHomeRegionControlCommand)
   .de(de_DeleteHomeRegionControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHomeRegionControlRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHomeRegionControlCommandInput;
+      output: DeleteHomeRegionControlCommandOutput;
+    };
+  };
+}

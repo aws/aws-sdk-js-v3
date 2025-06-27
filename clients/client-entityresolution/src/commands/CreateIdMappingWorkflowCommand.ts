@@ -12,7 +12,8 @@ import { de_CreateIdMappingWorkflowCommand, se_CreateIdMappingWorkflowCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface CreateIdMappingWorkflowCommandInput extends CreateIdMappingWork
 export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWorkflowOutput, __MetadataBearer {}
 
 /**
- * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the
- *          data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique
- *          workflow name. To modify an existing workflow, use the <code>UpdateIdMappingWorkflow</code>
- *          API.</p>
+ * <p>Creates an <code>IdMappingWorkflow</code> object which stores the configuration of the data processing job to be run. Each <code>IdMappingWorkflow</code> must have a unique workflow name. To modify an existing workflow, use the <code>UpdateIdMappingWorkflow</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,7 +52,20 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  *     },
  *   ],
  *   idMappingTechniques: { // IdMappingTechniques
- *     idMappingType: "PROVIDER", // required
+ *     idMappingType: "PROVIDER" || "RULE_BASED", // required
+ *     ruleBasedProperties: { // IdMappingRuleBasedProperties
+ *       rules: [ // RuleList
+ *         { // Rule
+ *           ruleName: "STRING_VALUE", // required
+ *           matchingKeys: [ // MatchingKeys // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       ],
+ *       ruleDefinitionType: "SOURCE" || "TARGET", // required
+ *       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ *       recordMatchingModel: "ONE_SOURCE_TO_ONE_TARGET" || "MANY_SOURCE_TO_ONE_TARGET", // required
+ *     },
  *     providerProperties: { // ProviderProperties
  *       providerServiceArn: "STRING_VALUE", // required
  *       providerConfiguration: "DOCUMENT_VALUE",
@@ -63,7 +74,7 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  *       },
  *     },
  *   },
- *   roleArn: "STRING_VALUE", // required
+ *   roleArn: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -88,7 +99,20 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * //     },
  * //   ],
  * //   idMappingTechniques: { // IdMappingTechniques
- * //     idMappingType: "PROVIDER", // required
+ * //     idMappingType: "PROVIDER" || "RULE_BASED", // required
+ * //     ruleBasedProperties: { // IdMappingRuleBasedProperties
+ * //       rules: [ // RuleList
+ * //         { // Rule
+ * //           ruleName: "STRING_VALUE", // required
+ * //           matchingKeys: [ // MatchingKeys // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
+ * //       ruleDefinitionType: "SOURCE" || "TARGET", // required
+ * //       attributeMatchingModel: "ONE_TO_ONE" || "MANY_TO_MANY", // required
+ * //       recordMatchingModel: "ONE_SOURCE_TO_ONE_TARGET" || "MANY_SOURCE_TO_ONE_TARGET", // required
+ * //     },
  * //     providerProperties: { // ProviderProperties
  * //       providerServiceArn: "STRING_VALUE", // required
  * //       providerConfiguration: "DOCUMENT_VALUE",
@@ -97,7 +121,7 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * //       },
  * //     },
  * //   },
- * //   roleArn: "STRING_VALUE", // required
+ * //   roleArn: "STRING_VALUE",
  * // };
  *
  * ```
@@ -109,39 +133,26 @@ export interface CreateIdMappingWorkflowCommandOutput extends CreateIdMappingWor
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
- *             403</code>
- *          </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource. Example: Workflow already exists, Schema already exists, Workflow is currently
- *          running, etc. <code>HTTP Status Code: 400</code>
- *          </p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource. Example: Workflow already exists, Schema already exists, Workflow is currently running, etc. </p>
  *
  * @throws {@link ExceedsLimitException} (client fault)
- *  <p>The request was rejected because it attempted to create resources beyond the current
- *             Entity Resolution account limits. The error message describes the limit exceeded.
- *             <code>HTTP Status Code: 402</code>
- *          </p>
+ *  <p>The request was rejected because it attempted to create resources beyond the current Entity Resolution account limits. The error message describes the limit exceeded. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
- *          429</code>
- *          </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
+ *
  *
  * @public
  */
@@ -153,9 +164,7 @@ export class CreateIdMappingWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +176,16 @@ export class CreateIdMappingWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIdMappingWorkflowCommand)
   .de(de_CreateIdMappingWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdMappingWorkflowInput;
+      output: CreateIdMappingWorkflowOutput;
+    };
+    sdk: {
+      input: CreateIdMappingWorkflowCommandInput;
+      output: CreateIdMappingWorkflowCommandOutput;
+    };
+  };
+}

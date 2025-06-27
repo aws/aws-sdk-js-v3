@@ -12,7 +12,8 @@ import { de_AttachInstancesCommand, se_AttachInstancesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,8 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  *          <p>If there is a Classic Load Balancer attached to your Auto Scaling group, the instances are
  *             also registered with the load balancer. If there are target groups attached to your Auto Scaling
  *             group, the instances are also registered with the target groups.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/attach-instance-asg.html">Attach EC2 instances to
- *                 your Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-detach-attach-instances.html">Detach
+ *                 or attach instances</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,21 +72,24 @@ export interface AttachInstancesCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To attach an instance to an Auto Scaling group
  * ```javascript
  * // This example attaches the specified instance to the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ]
  * };
  * const command = new AttachInstancesCommand(input);
- * await client.send(command);
- * // example id: autoscaling-attach-instances-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AttachInstancesCommand extends $Command
   .classBuilder<
@@ -95,9 +99,7 @@ export class AttachInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +111,16 @@ export class AttachInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachInstancesCommand)
   .de(de_AttachInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachInstancesQuery;
+      output: {};
+    };
+    sdk: {
+      input: AttachInstancesCommandInput;
+      output: AttachInstancesCommandOutput;
+    };
+  };
+}

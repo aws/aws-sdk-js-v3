@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,30 +76,30 @@ export interface ListVolumeRecoveryPointsCommandOutput extends ListVolumeRecover
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To list recovery points for a gateway
  * ```javascript
  * // Lists the recovery points for a specified gateway in which all data of the volume is consistent and can be used to create a snapshot.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new ListVolumeRecoveryPointsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "VolumeRecoveryPointInfos": [
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   VolumeRecoveryPointInfos: [
  *     {
- *       "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
- *       "VolumeRecoveryPointTime": "2012-09-04T21:08:44.627Z",
- *       "VolumeSizeInBytes": 536870912000
+ *       VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *       VolumeRecoveryPointTime: "2012-09-04T21:08:44.627Z",
+ *       VolumeSizeInBytes: 536870912000
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-recovery-points-for-a-gateway-1472143015088
  * ```
  *
+ * @public
  */
 export class ListVolumeRecoveryPointsCommand extends $Command
   .classBuilder<
@@ -108,9 +109,7 @@ export class ListVolumeRecoveryPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class ListVolumeRecoveryPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVolumeRecoveryPointsCommand)
   .de(de_ListVolumeRecoveryPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVolumeRecoveryPointsInput;
+      output: ListVolumeRecoveryPointsOutput;
+    };
+    sdk: {
+      input: ListVolumeRecoveryPointsCommandInput;
+      output: ListVolumeRecoveryPointsCommandOutput;
+    };
+  };
+}

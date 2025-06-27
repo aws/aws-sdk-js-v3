@@ -12,7 +12,8 @@ import { de_DescribeEnvironmentStatusCommand, se_DescribeEnvironmentStatusComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,12 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
 
 /**
  * <p>Gets status information for an Cloud9 development environment.</p>
+ *          <important>
+ *             <p>Cloud9 is no longer available to new customers. Existing customers of
+ *         Cloud9 can continue to use the service as normal.
+ *         <a href="http://aws.amazon.com/blogs/devops/how-to-migrate-from-aws-cloud9-to-aws-ide-toolkits-or-aws-cloudshell/">Learn more"</a>
+ *             </p>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,24 +83,24 @@ export interface DescribeEnvironmentStatusCommandOutput extends DescribeEnvironm
  * @throws {@link Cloud9ServiceException}
  * <p>Base exception class for all service exceptions from Cloud9 service.</p>
  *
- * @public
+ *
  * @example DescribeEnvironmentStatus
  * ```javascript
  * //
  * const input = {
- *   "environmentId": "8d9967e2f0624182b74e7690ad69ebEX"
+ *   environmentId: "8d9967e2f0624182b74e7690ad69ebEX"
  * };
  * const command = new DescribeEnvironmentStatusCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "message": "Environment is ready to use",
- *   "status": "ready"
+ *   message: "Environment is ready to use",
+ *   status: "ready"
  * }
  * *\/
- * // example id: describeenvironmentstatus-1516823462133
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentStatusCommand extends $Command
   .classBuilder<
@@ -103,9 +110,7 @@ export class DescribeEnvironmentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Cloud9ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +122,16 @@ export class DescribeEnvironmentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEnvironmentStatusCommand)
   .de(de_DescribeEnvironmentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentStatusRequest;
+      output: DescribeEnvironmentStatusResult;
+    };
+    sdk: {
+      input: DescribeEnvironmentStatusCommandInput;
+      output: DescribeEnvironmentStatusCommandOutput;
+    };
+  };
+}

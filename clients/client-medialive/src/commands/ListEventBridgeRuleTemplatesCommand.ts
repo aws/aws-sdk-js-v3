@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface ListEventBridgeRuleTemplatesCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListEventBridgeRuleTemplatesCommand extends $Command
@@ -103,9 +105,7 @@ export class ListEventBridgeRuleTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class ListEventBridgeRuleTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventBridgeRuleTemplatesCommand)
   .de(de_ListEventBridgeRuleTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventBridgeRuleTemplatesRequest;
+      output: ListEventBridgeRuleTemplatesResponse;
+    };
+    sdk: {
+      input: ListEventBridgeRuleTemplatesCommandInput;
+      output: ListEventBridgeRuleTemplatesCommandOutput;
+    };
+  };
+}

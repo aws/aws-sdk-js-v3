@@ -12,7 +12,8 @@ import { de_ListVehiclesCommand, se_ListVehiclesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,7 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  *   ],
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   listResponseScope: "METADATA_ONLY",
  * };
  * const command = new ListVehiclesCommand(input);
  * const response = await client.send(command);
@@ -90,6 +92,7 @@ export interface ListVehiclesCommandOutput extends ListVehiclesResponse, __Metad
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class ListVehiclesCommand extends $Command
@@ -100,9 +103,7 @@ export class ListVehiclesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +115,16 @@ export class ListVehiclesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVehiclesCommand)
   .de(de_ListVehiclesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVehiclesRequest;
+      output: ListVehiclesResponse;
+    };
+    sdk: {
+      input: ListVehiclesCommandInput;
+      output: ListVehiclesCommandOutput;
+    };
+  };
+}

@@ -178,7 +178,19 @@
           "target": "com.amazonaws.iam#DetachUserPolicy"
         },
         {
+          "target": "com.amazonaws.iam#DisableOrganizationsRootCredentialsManagement"
+        },
+        {
+          "target": "com.amazonaws.iam#DisableOrganizationsRootSessions"
+        },
+        {
           "target": "com.amazonaws.iam#EnableMFADevice"
+        },
+        {
+          "target": "com.amazonaws.iam#EnableOrganizationsRootCredentialsManagement"
+        },
+        {
+          "target": "com.amazonaws.iam#EnableOrganizationsRootSessions"
         },
         {
           "target": "com.amazonaws.iam#GenerateCredentialReport"
@@ -314,6 +326,9 @@
         },
         {
           "target": "com.amazonaws.iam#ListOpenIDConnectProviderTags"
+        },
+        {
+          "target": "com.amazonaws.iam#ListOrganizationsFeatures"
         },
         {
           "target": "com.amazonaws.iam#ListPolicies"
@@ -531,12 +546,6 @@
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
           "parameters": {
-            "Region": {
-              "builtIn": "AWS::Region",
-              "required": false,
-              "documentation": "The AWS region used to dispatch the request.",
-              "type": "String"
-            },
             "UseDualStack": {
               "builtIn": "AWS::UseDualStack",
               "required": true,
@@ -555,6 +564,12 @@
               "builtIn": "SDK::Endpoint",
               "required": false,
               "documentation": "Override the endpoint used to send this request",
+              "type": "String"
+            },
+            "Region": {
+              "builtIn": "AWS::Region",
+              "required": false,
+              "documentation": "The AWS region used to dispatch the request.",
               "type": "String"
             }
           },
@@ -587,530 +602,11 @@
                   "type": "error"
                 },
                 {
-                  "conditions": [
-                    {
-                      "fn": "booleanEquals",
-                      "argv": [
-                        {
-                          "ref": "UseDualStack"
-                        },
-                        true
-                      ]
-                    }
-                  ],
-                  "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
-                  "type": "error"
-                },
-                {
                   "conditions": [],
-                  "endpoint": {
-                    "url": {
-                      "ref": "Endpoint"
-                    },
-                    "properties": {},
-                    "headers": {}
-                  },
-                  "type": "endpoint"
-                }
-              ],
-              "type": "tree"
-            },
-            {
-              "conditions": [
-                {
-                  "fn": "isSet",
-                  "argv": [
-                    {
-                      "ref": "Region"
-                    }
-                  ]
-                }
-              ],
-              "rules": [
-                {
-                  "conditions": [
-                    {
-                      "fn": "aws.partition",
-                      "argv": [
-                        {
-                          "ref": "Region"
-                        }
-                      ],
-                      "assign": "PartitionResult"
-                    }
-                  ],
                   "rules": [
                     {
                       "conditions": [
                         {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.amazonaws.com",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-east-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam-fips.amazonaws.com",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-east-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-cn"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.cn-north-1.amazonaws.com.cn",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "cn-north-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-us-gov"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.us-gov.amazonaws.com",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-gov-west-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-us-gov"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.us-gov.amazonaws.com",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-gov-west-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-iso"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.us-iso-east-1.c2s.ic.gov",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-iso-east-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-iso-b"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.us-isob-east-1.sc2s.sgov.gov",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-isob-east-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-iso-e"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.eu-isoe-west-1.cloud.adc-e.uk",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "eu-isoe-west-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "stringEquals",
-                          "argv": [
-                            {
-                              "fn": "getAttr",
-                              "argv": [
-                                {
-                                  "ref": "PartitionResult"
-                                },
-                                "name"
-                              ]
-                            },
-                            "aws-iso-f"
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            false
-                          ]
-                        },
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            false
-                          ]
-                        }
-                      ],
-                      "endpoint": {
-                        "url": "https://iam.us-isof-south-1.csp.hci.ic.gov",
-                        "properties": {
-                          "authSchemes": [
-                            {
-                              "name": "sigv4",
-                              "signingName": "iam",
-                              "signingRegion": "us-isof-south-1"
-                            }
-                          ]
-                        },
-                        "headers": {}
-                      },
-                      "type": "endpoint"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        },
-                        {
                           "fn": "booleanEquals",
                           "argv": [
                             {
@@ -1120,169 +616,15 @@
                           ]
                         }
                       ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsDualStack"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://iam-fips.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseFIPS"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsFIPS"
-                                  ]
-                                },
-                                true
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://iam-fips.{Region}.{PartitionResult#dnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "FIPS is enabled but this partition does not support FIPS",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
-                    },
-                    {
-                      "conditions": [
-                        {
-                          "fn": "booleanEquals",
-                          "argv": [
-                            {
-                              "ref": "UseDualStack"
-                            },
-                            true
-                          ]
-                        }
-                      ],
-                      "rules": [
-                        {
-                          "conditions": [
-                            {
-                              "fn": "booleanEquals",
-                              "argv": [
-                                true,
-                                {
-                                  "fn": "getAttr",
-                                  "argv": [
-                                    {
-                                      "ref": "PartitionResult"
-                                    },
-                                    "supportsDualStack"
-                                  ]
-                                }
-                              ]
-                            }
-                          ],
-                          "rules": [
-                            {
-                              "conditions": [],
-                              "endpoint": {
-                                "url": "https://iam.{Region}.{PartitionResult#dualStackDnsSuffix}",
-                                "properties": {},
-                                "headers": {}
-                              },
-                              "type": "endpoint"
-                            }
-                          ],
-                          "type": "tree"
-                        },
-                        {
-                          "conditions": [],
-                          "error": "DualStack is enabled but this partition does not support DualStack",
-                          "type": "error"
-                        }
-                      ],
-                      "type": "tree"
+                      "error": "Invalid Configuration: Dualstack and custom endpoint are not supported",
+                      "type": "error"
                     },
                     {
                       "conditions": [],
                       "endpoint": {
-                        "url": "https://iam.{Region}.{PartitionResult#dnsSuffix}",
+                        "url": {
+                          "ref": "Endpoint"
+                        },
                         "properties": {},
                         "headers": {}
                       },
@@ -1296,62 +638,1081 @@
             },
             {
               "conditions": [],
-              "error": "Invalid Configuration: Missing Region",
-              "type": "error"
+              "rules": [
+                {
+                  "conditions": [
+                    {
+                      "fn": "isSet",
+                      "argv": [
+                        {
+                          "ref": "Region"
+                        }
+                      ]
+                    }
+                  ],
+                  "rules": [
+                    {
+                      "conditions": [
+                        {
+                          "fn": "aws.partition",
+                          "argv": [
+                            {
+                              "ref": "Region"
+                            }
+                          ],
+                          "assign": "PartitionResult"
+                        }
+                      ],
+                      "rules": [
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.global.api.aws",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam-fips.global.api.aws",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-cn"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.global.api.amazonwebservices.com.cn",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "cn-north-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-cn"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.cn-north-1.amazonaws.com.cn",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "cn-north-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-us-gov"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-gov.api.aws",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-gov-west-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-us-gov"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-gov.api.aws",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-gov-west-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-us-gov"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-gov.amazonaws.com",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-gov-west-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-us-gov"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-gov.amazonaws.com",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-gov-west-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-iso"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-iso-east-1.c2s.ic.gov",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-iso-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-iso"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam-fips.us-iso-east-1.c2s.ic.gov",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-iso-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-iso-b"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-isob-east-1.sc2s.sgov.gov",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-isob-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-iso-b"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam-fips.us-isob-east-1.sc2s.sgov.gov",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-isob-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-iso-e"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.eu-isoe-west-1.cloud.adc-e.uk",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "eu-isoe-west-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-iso-f"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.us-isof-south-1.csp.hci.ic.gov",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "us-isof-south-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "stringEquals",
+                              "argv": [
+                                {
+                                  "fn": "getAttr",
+                                  "argv": [
+                                    {
+                                      "ref": "PartitionResult"
+                                    },
+                                    "name"
+                                  ]
+                                },
+                                "aws-eusc"
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "endpoint": {
+                            "url": "https://iam.eusc-de-east-1.amazonaws.eu",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "eusc-de-east-1"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://iam-fips.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {
+                                      "authSchemes": [
+                                        {
+                                          "name": "sigv4",
+                                          "signingRegion": "{PartitionResult#implicitGlobalRegion}"
+                                        }
+                                      ]
+                                    },
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS and DualStack are enabled, but this partition does not support one or both",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                true
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                false
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsFIPS"
+                                      ]
+                                    },
+                                    true
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://iam-fips.{PartitionResult#dnsSuffix}",
+                                    "properties": {
+                                      "authSchemes": [
+                                        {
+                                          "name": "sigv4",
+                                          "signingRegion": "{PartitionResult#implicitGlobalRegion}"
+                                        }
+                                      ]
+                                    },
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "FIPS is enabled but this partition does not support FIPS",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseFIPS"
+                                },
+                                false
+                              ]
+                            },
+                            {
+                              "fn": "booleanEquals",
+                              "argv": [
+                                {
+                                  "ref": "UseDualStack"
+                                },
+                                true
+                              ]
+                            }
+                          ],
+                          "rules": [
+                            {
+                              "conditions": [
+                                {
+                                  "fn": "booleanEquals",
+                                  "argv": [
+                                    true,
+                                    {
+                                      "fn": "getAttr",
+                                      "argv": [
+                                        {
+                                          "ref": "PartitionResult"
+                                        },
+                                        "supportsDualStack"
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ],
+                              "rules": [
+                                {
+                                  "conditions": [],
+                                  "endpoint": {
+                                    "url": "https://iam.{PartitionResult#dualStackDnsSuffix}",
+                                    "properties": {
+                                      "authSchemes": [
+                                        {
+                                          "name": "sigv4",
+                                          "signingRegion": "{PartitionResult#implicitGlobalRegion}"
+                                        }
+                                      ]
+                                    },
+                                    "headers": {}
+                                  },
+                                  "type": "endpoint"
+                                }
+                              ],
+                              "type": "tree"
+                            },
+                            {
+                              "conditions": [],
+                              "error": "DualStack is enabled but this partition does not support DualStack",
+                              "type": "error"
+                            }
+                          ],
+                          "type": "tree"
+                        },
+                        {
+                          "conditions": [],
+                          "endpoint": {
+                            "url": "https://iam.{PartitionResult#dnsSuffix}",
+                            "properties": {
+                              "authSchemes": [
+                                {
+                                  "name": "sigv4",
+                                  "signingRegion": "{PartitionResult#implicitGlobalRegion}"
+                                }
+                              ]
+                            },
+                            "headers": {}
+                          },
+                          "type": "endpoint"
+                        }
+                      ],
+                      "type": "tree"
+                    }
+                  ],
+                  "type": "tree"
+                },
+                {
+                  "conditions": [],
+                  "error": "Invalid Configuration: Missing Region",
+                  "type": "error"
+                }
+              ],
+              "type": "tree"
             }
           ]
         },
         "smithy.rules#endpointTests": {
           "testCases": [
             {
-              "documentation": "For region aws-global with FIPS disabled and DualStack disabled",
+              "documentation": "For custom endpoint with region not set and fips disabled",
               "expect": {
                 "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "name": "sigv4",
-                        "signingName": "iam",
-                        "signingRegion": "us-east-1"
-                      }
-                    ]
-                  },
-                  "url": "https://iam.amazonaws.com"
+                  "url": "https://example.com"
                 }
               },
               "params": {
-                "Region": "aws-global",
-                "UseFIPS": false,
-                "UseDualStack": false
+                "Endpoint": "https://example.com",
+                "UseFIPS": false
               }
             },
             {
-              "documentation": "For region aws-global with FIPS enabled and DualStack disabled",
+              "documentation": "For custom endpoint with fips enabled",
               "expect": {
-                "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "name": "sigv4",
-                        "signingName": "iam",
-                        "signingRegion": "us-east-1"
-                      }
-                    ]
-                  },
-                  "url": "https://iam-fips.amazonaws.com"
-                }
+                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
               },
               "params": {
-                "Region": "aws-global",
-                "UseFIPS": true,
-                "UseDualStack": false
+                "Endpoint": "https://example.com",
+                "UseFIPS": true
+              }
+            },
+            {
+              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
+              "expect": {
+                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
+              },
+              "params": {
+                "Endpoint": "https://example.com",
+                "UseFIPS": false,
+                "UseDualStack": true
               }
             },
             {
               "documentation": "For region us-east-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://iam-fips.us-east-1.api.aws"
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "us-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam-fips.global.api.aws"
                 }
               },
               "params": {
@@ -1368,7 +1729,6 @@
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-east-1"
                       }
                     ]
@@ -1386,7 +1746,15 @@
               "documentation": "For region us-east-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
-                  "url": "https://iam.us-east-1.api.aws"
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "us-east-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam.global.api.aws"
                 }
               },
               "params": {
@@ -1403,7 +1771,6 @@
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-east-1"
                       }
                     ]
@@ -1418,14 +1785,76 @@
               }
             },
             {
-              "documentation": "For region aws-cn-global with FIPS disabled and DualStack disabled",
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
                   "properties": {
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
+                        "signingRegion": "cn-northwest-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam-fips.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "cn-northwest-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam-fips.amazonaws.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "cn-north-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam.global.api.amazonwebservices.com.cn"
+                }
+              },
+              "params": {
+                "Region": "cn-northwest-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region cn-northwest-1 with FIPS disabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
                         "signingRegion": "cn-north-1"
                       }
                     ]
@@ -1434,81 +1863,40 @@
                 }
               },
               "params": {
-                "Region": "aws-cn-global",
+                "Region": "cn-northwest-1",
                 "UseFIPS": false,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://iam-fips.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://iam-fips.cn-north-1.amazonaws.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://iam.cn-north-1.api.amazonwebservices.com.cn"
-                }
-              },
-              "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region cn-north-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack enabled",
               "expect": {
                 "endpoint": {
                   "properties": {
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
-                        "signingRegion": "cn-north-1"
+                        "signingRegion": "us-gov-west-1"
                       }
                     ]
                   },
-                  "url": "https://iam.cn-north-1.amazonaws.com.cn"
+                  "url": "https://iam.us-gov.api.aws"
                 }
               },
               "params": {
-                "Region": "cn-north-1",
-                "UseFIPS": false,
-                "UseDualStack": false
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
+                "UseDualStack": true
               }
             },
             {
-              "documentation": "For region aws-us-gov-global with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-gov-west-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
                   "properties": {
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-gov-west-1"
                       }
                     ]
@@ -1517,90 +1905,40 @@
                 }
               },
               "params": {
-                "Region": "aws-us-gov-global",
-                "UseFIPS": false,
+                "Region": "us-gov-west-1",
+                "UseFIPS": true,
                 "UseDualStack": false
               }
             },
             {
-              "documentation": "For region aws-us-gov-global with FIPS enabled and DualStack disabled",
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack enabled",
               "expect": {
                 "endpoint": {
                   "properties": {
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-gov-west-1"
                       }
                     ]
                   },
-                  "url": "https://iam.us-gov.amazonaws.com"
+                  "url": "https://iam.us-gov.api.aws"
                 }
               },
               "params": {
-                "Region": "aws-us-gov-global",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://iam-fips.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": true
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS enabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "name": "sigv4",
-                        "signingName": "iam",
-                        "signingRegion": "us-gov-west-1"
-                      }
-                    ]
-                  },
-                  "url": "https://iam.us-gov.amazonaws.com"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack enabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://iam.us-gov-east-1.api.aws"
-                }
-              },
-              "params": {
-                "Region": "us-gov-east-1",
+                "Region": "us-gov-west-1",
                 "UseFIPS": false,
                 "UseDualStack": true
               }
             },
             {
-              "documentation": "For region us-gov-east-1 with FIPS disabled and DualStack disabled",
+              "documentation": "For region us-gov-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
                   "properties": {
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-gov-west-1"
                       }
                     ]
@@ -1609,29 +1947,7 @@
                 }
               },
               "params": {
-                "Region": "us-gov-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region aws-iso-global with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "name": "sigv4",
-                        "signingName": "iam",
-                        "signingRegion": "us-iso-east-1"
-                      }
-                    ]
-                  },
-                  "url": "https://iam.us-iso-east-1.c2s.ic.gov"
-                }
-              },
-              "params": {
-                "Region": "aws-iso-global",
+                "Region": "us-gov-west-1",
                 "UseFIPS": false,
                 "UseDualStack": false
               }
@@ -1651,6 +1967,14 @@
               "documentation": "For region us-iso-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "us-iso-east-1"
+                      }
+                    ]
+                  },
                   "url": "https://iam-fips.us-iso-east-1.c2s.ic.gov"
                 }
               },
@@ -1679,7 +2003,6 @@
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-iso-east-1"
                       }
                     ]
@@ -1689,28 +2012,6 @@
               },
               "params": {
                 "Region": "us-iso-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For region aws-iso-b-global with FIPS disabled and DualStack disabled",
-              "expect": {
-                "endpoint": {
-                  "properties": {
-                    "authSchemes": [
-                      {
-                        "name": "sigv4",
-                        "signingName": "iam",
-                        "signingRegion": "us-isob-east-1"
-                      }
-                    ]
-                  },
-                  "url": "https://iam.us-isob-east-1.sc2s.sgov.gov"
-                }
-              },
-              "params": {
-                "Region": "aws-iso-b-global",
                 "UseFIPS": false,
                 "UseDualStack": false
               }
@@ -1730,6 +2031,14 @@
               "documentation": "For region us-isob-east-1 with FIPS enabled and DualStack disabled",
               "expect": {
                 "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "us-isob-east-1"
+                      }
+                    ]
+                  },
                   "url": "https://iam-fips.us-isob-east-1.sc2s.sgov.gov"
                 }
               },
@@ -1758,7 +2067,6 @@
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-isob-east-1"
                       }
                     ]
@@ -1773,6 +2081,49 @@
               }
             },
             {
+              "documentation": "For region eu-isoe-west-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "eu-isoe-west-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region eu-isoe-west-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "eu-isoe-west-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam-fips.cloud.adc-e.uk"
+                }
+              },
+              "params": {
+                "Region": "eu-isoe-west-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region eu-isoe-west-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "eu-isoe-west-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
               "documentation": "For region eu-isoe-west-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -1780,7 +2131,6 @@
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "eu-isoe-west-1"
                       }
                     ]
@@ -1795,6 +2145,49 @@
               }
             },
             {
+              "documentation": "For region us-isof-south-1 with FIPS enabled and DualStack enabled",
+              "expect": {
+                "error": "FIPS and DualStack are enabled, but this partition does not support one or both"
+              },
+              "params": {
+                "Region": "us-isof-south-1",
+                "UseFIPS": true,
+                "UseDualStack": true
+              }
+            },
+            {
+              "documentation": "For region us-isof-south-1 with FIPS enabled and DualStack disabled",
+              "expect": {
+                "endpoint": {
+                  "properties": {
+                    "authSchemes": [
+                      {
+                        "name": "sigv4",
+                        "signingRegion": "us-isof-south-1"
+                      }
+                    ]
+                  },
+                  "url": "https://iam-fips.csp.hci.ic.gov"
+                }
+              },
+              "params": {
+                "Region": "us-isof-south-1",
+                "UseFIPS": true,
+                "UseDualStack": false
+              }
+            },
+            {
+              "documentation": "For region us-isof-south-1 with FIPS disabled and DualStack enabled",
+              "expect": {
+                "error": "DualStack is enabled but this partition does not support DualStack"
+              },
+              "params": {
+                "Region": "us-isof-south-1",
+                "UseFIPS": false,
+                "UseDualStack": true
+              }
+            },
+            {
               "documentation": "For region us-isof-south-1 with FIPS disabled and DualStack disabled",
               "expect": {
                 "endpoint": {
@@ -1802,7 +2195,6 @@
                     "authSchemes": [
                       {
                         "name": "sigv4",
-                        "signingName": "iam",
                         "signingRegion": "us-isof-south-1"
                       }
                     ]
@@ -1814,57 +2206,6 @@
                 "Region": "us-isof-south-1",
                 "UseFIPS": false,
                 "UseDualStack": false
-              }
-            },
-            {
-              "documentation": "For custom endpoint with region set and fips disabled and dualstack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://example.com"
-                }
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with region not set and fips disabled and dualstack disabled",
-              "expect": {
-                "endpoint": {
-                  "url": "https://example.com"
-                }
-              },
-              "params": {
-                "UseFIPS": false,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips enabled and dualstack disabled",
-              "expect": {
-                "error": "Invalid Configuration: FIPS and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": true,
-                "UseDualStack": false,
-                "Endpoint": "https://example.com"
-              }
-            },
-            {
-              "documentation": "For custom endpoint with fips disabled and dualstack enabled",
-              "expect": {
-                "error": "Invalid Configuration: Dualstack and custom endpoint are not supported"
-              },
-              "params": {
-                "Region": "us-east-1",
-                "UseFIPS": false,
-                "UseDualStack": true,
-                "Endpoint": "https://example.com"
               }
             },
             {
@@ -1995,8 +2336,7 @@
         "LastUsedDate": {
           "target": "com.amazonaws.iam#dateType",
           "traits": {
-            "smithy.api#documentation": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time\n            format</a>, when the access key was most recently used. This field is null in the\n         following situations:</p>\n         <ul>\n            <li>\n               <p>The user does not have an access key.</p>\n            </li>\n            <li>\n               <p>An access key exists but has not been used since IAM began tracking this\n               information.</p>\n            </li>\n            <li>\n               <p>There is no sign-in data associated with the user.</p>\n            </li>\n         </ul>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time\n            format</a>, when the access key was most recently used. This field is null in the\n         following situations:</p>\n         <ul>\n            <li>\n               <p>The user does not have an access key.</p>\n            </li>\n            <li>\n               <p>An access key exists but has not been used since IAM began tracking this\n               information.</p>\n            </li>\n            <li>\n               <p>There is no sign-in data associated with the user.</p>\n            </li>\n         </ul>"
           }
         },
         "ServiceName": {
@@ -2048,6 +2388,19 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains information about an Amazon Web Services access key, without its secret key.</p>\n         <p>This data type is used as a response element in the <a>ListAccessKeys</a>\n         operation.</p>"
+      }
+    },
+    "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.iam#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was rejected because the account making the request is not the management\n      account or delegated administrator account for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root\n        access</a>.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.iam#ActionNameListType": {
@@ -2149,7 +2502,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds the specified IAM role to the specified instance profile. An instance profile\n            can contain only one role, and this quota cannot be increased. You can remove the\n            existing role and then add a different role to an instance profile. You must then wait\n            for the change to appear across all of Amazon Web Services because of <a href=\"https://en.wikipedia.org/wiki/Eventual_consistency\">eventual\n                consistency</a>. To force the change, you must <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html\">disassociate the instance profile</a> and then <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html\">associate the\n                instance profile</a>, or you can stop your instance and then restart it.</p>\n         <note>\n            <p>The caller of this operation must be granted the <code>PassRole</code> permission\n                on the IAM role by a permissions policy.</p>\n         </note>\n         <p> For more information about roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the\n                <i>IAM User Guide</i>. For more information about instance profiles,\n            see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html\">Using\n                instance profiles</a> in the <i>IAM User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Adds the specified IAM role to the specified instance profile. An instance profile\n            can contain only one role, and this quota cannot be increased. You can remove the\n            existing role and then add a different role to an instance profile. You must then wait\n            for the change to appear across all of Amazon Web Services because of <a href=\"https://en.wikipedia.org/wiki/Eventual_consistency\">eventual\n                consistency</a>. To force the change, you must <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DisassociateIamInstanceProfile.html\">disassociate the instance profile</a> and then <a href=\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AssociateIamInstanceProfile.html\">associate the\n                instance profile</a>, or you can stop your instance and then restart it.</p>\n         <note>\n            <p>The caller of this operation must be granted the <code>PassRole</code> permission\n                on the IAM role by a permissions policy.</p>\n         </note>\n         <important>\n            <p>When using the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_iam-condition-keys.html#available-keys-for-iam\">iam:AssociatedResourceArn</a> condition in a policy to restrict the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html\">PassRole</a> IAM action, special considerations apply if the policy is\n                intended to define access for the <code>AddRoleToInstanceProfile</code> action. In\n                this case, you cannot specify a Region or instance ID in the EC2 instance ARN. The\n                ARN value must be <code>arn:aws:ec2:*:CallerAccountId:instance/*</code>. Using any\n                other ARN value may lead to unexpected evaluation results.</p>\n         </important>\n         <p> For more information about roles, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles.html\">IAM roles</a> in the\n                <i>IAM User Guide</i>. For more information about instance profiles,\n            see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_switch-role-ec2_instance-profiles.html\">Using\n                instance profiles</a> in the <i>IAM User Guide</i>.</p>",
         "smithy.api#examples": [
           {
             "title": "To add a role to an instance profile",
@@ -2472,6 +2825,19 @@
       "type": "blob",
       "traits": {
         "smithy.api#sensitive": {}
+      }
+    },
+    "com.amazonaws.iam#CallerIsNotManagementAccountException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.iam#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was rejected because the account making the request is not the management\n      account for the organization.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
       }
     },
     "com.amazonaws.iam#CertificationKeyType": {
@@ -3072,15 +3438,13 @@
         "UserName": {
           "target": "com.amazonaws.iam#userNameType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the IAM user to create a password for. The user must already\n            exist.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the IAM user to create a password for. The user must already\n            exist.</p>\n         <p>This parameter is optional. If no user name is included, it defaults to the principal\n            making the request. When you make this request with root user credentials, you must use\n            an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"
           }
         },
         "Password": {
           "target": "com.amazonaws.iam#passwordType",
           "traits": {
-            "smithy.api#documentation": "<p>The new password for the user.</p>\n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of characters. That string can include almost any printable \n    ASCII character from the space (<code>\\u0020</code>) through the end of the ASCII character range (<code>\\u00FF</code>). \n    You can also include the tab (<code>\\u0009</code>), line feed (<code>\\u000A</code>), and carriage return (<code>\\u000D</code>) \n    characters. Any of these characters are valid in a password. However, many tools, such \n    as the Amazon Web Services Management Console, might restrict the ability to type certain characters because they have \n    special meaning within that tool.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The new password for the user.</p>\n         <p>This parameter must be omitted when you make the request with an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session. It is required in all other cases.</p>\n         <p>The <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a> \n    that is used to validate this parameter is a string of characters. That string can include almost any printable \n    ASCII character from the space (<code>\\u0020</code>) through the end of the ASCII character range (<code>\\u00FF</code>). \n    You can also include the tab (<code>\\u0009</code>), line feed (<code>\\u000A</code>), and carriage return (<code>\\u000D</code>) \n    characters. Any of these characters are valid in a password. However, many tools, such \n    as the Amazon Web Services Management Console, might restrict the ability to type certain characters because they have \n    special meaning within that tool.</p>"
           }
         },
         "PasswordResetRequired": {
@@ -3140,7 +3504,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href=\"http://openid.net/connect/\">OpenID Connect (OIDC)</a>.</p>\n         <p>The OIDC provider that you create with this operation can be used as a principal in a\n            role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and\n            the OIDC provider.</p>\n         <p>If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito, you don't\n            need to create a separate IAM identity provider. These OIDC identity providers are\n            already built-in to Amazon Web Services and are available for your use. Instead, you can move directly\n            to creating new roles using your identity provider. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html\">Creating\n                a role for web identity or OpenID connect federation</a> in the <i>IAM\n                User Guide</i>.</p>\n         <p>When you create the IAM OIDC provider, you specify the following:</p>\n         <ul>\n            <li>\n               <p>The URL of the OIDC identity provider (IdP) to trust</p>\n            </li>\n            <li>\n               <p>A list of client IDs (also known as audiences) that identify the application\n                    or applications allowed to authenticate using the OIDC provider</p>\n            </li>\n            <li>\n               <p>A list of tags that are attached to the specified IAM OIDC provider</p>\n            </li>\n            <li>\n               <p>A list of thumbprints of one or more server certificates that the IdP\n                    uses</p>\n            </li>\n         </ul>\n         <p>You get all of this information from the OIDC IdP you want to use to access\n            Amazon Web Services.</p>\n         <note>\n            <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our library\n          of trusted root certificate authorities (CAs) instead of using a certificate thumbprint to\n          verify your IdP server certificate. In these cases, your legacy thumbprint remains in your\n          configuration, but is no longer used for validation. These OIDC IdPs include Auth0, GitHub,\n          GitLab, Google, and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS)\n          endpoint.</p>\n         </note>\n         <note>\n            <p>The trust for the OIDC provider is derived from the IAM provider that this\n                operation creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a> operation to highly privileged\n                users.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates an IAM entity to describe an identity provider (IdP) that supports <a href=\"http://openid.net/connect/\">OpenID Connect (OIDC)</a>.</p>\n         <p>The OIDC provider that you create with this operation can be used as a principal in a\n            role's trust policy. Such a policy establishes a trust relationship between Amazon Web Services and\n            the OIDC provider.</p>\n         <p>If you are using an OIDC identity provider from Google, Facebook, or Amazon Cognito, you don't\n            need to create a separate IAM identity provider. These OIDC identity providers are\n            already built-in to Amazon Web Services and are available for your use. Instead, you can move directly\n            to creating new roles using your identity provider. To learn more, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-idp_oidc.html\">Creating\n                a role for web identity or OpenID connect federation</a> in the <i>IAM\n                User Guide</i>.</p>\n         <p>When you create the IAM OIDC provider, you specify the following:</p>\n         <ul>\n            <li>\n               <p>The URL of the OIDC identity provider (IdP) to trust</p>\n            </li>\n            <li>\n               <p>A list of client IDs (also known as audiences) that identify the application\n                    or applications allowed to authenticate using the OIDC provider</p>\n            </li>\n            <li>\n               <p>A list of tags that are attached to the specified IAM OIDC provider</p>\n            </li>\n            <li>\n               <p>A list of thumbprints of one or more server certificates that the IdP\n                    uses</p>\n            </li>\n         </ul>\n         <p>You get all of this information from the OIDC IdP you want to use to access\n            Amazon Web Services.</p>\n         <note>\n            <p>Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of\n            trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)\n            endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed\n            by one of these trusted CAs, only then we secure communication using the thumbprints set\n            in the IdP's configuration.</p>\n         </note>\n         <note>\n            <p>The trust for the OIDC provider is derived from the IAM provider that this\n                operation creates. Therefore, it is best to limit access to the <a>CreateOpenIDConnectProvider</a> operation to highly privileged\n                users.</p>\n         </note>",
         "smithy.api#examples": [
           {
             "title": "To create an instance profile",
@@ -3543,6 +3907,18 @@
           "traits": {
             "smithy.api#documentation": "<p>A list of tags that you want to attach to the new IAM SAML provider.\n      Each tag consists of a key name and an associated value. For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the\n      <i>IAM User Guide</i>.</p>\n         <note>\n            <p>If any one of the tags is invalid or if you exceed the allowed maximum number of tags, then the entire request \n   fails and the resource is not created.</p>\n         </note>"
           }
+        },
+        "AssertionEncryptionMode": {
+          "target": "com.amazonaws.iam#assertionEncryptionModeType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the encryption setting for the SAML provider.</p>"
+          }
+        },
+        "AddPrivateKey": {
+          "target": "com.amazonaws.iam#privateKeyType",
+          "traits": {
+            "smithy.api#documentation": "<p>The private key generated from your external identity provider. The private key must\n            be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to decrypt SAML\n            assertions.</p>"
+          }
         }
       },
       "traits": {
@@ -3878,7 +4254,7 @@
           "code": "ReportExpired",
           "httpResponseCode": 410
         },
-        "smithy.api#documentation": "<p>The request was rejected because the most recent credential report has expired. To\n      generate a new credential report, use <a>GenerateCredentialReport</a>. For more\n      information about credential report expiration, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the\n        <i>IAM User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>The request was rejected because the most recent credential report has expired. To\n      generate a new credential report, use <a>GenerateCredentialReport</a>. For more\n      information about credential report expiration, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\">Getting credential reports</a> in the\n      <i>IAM User Guide</i>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 410
       }
@@ -3952,8 +4328,7 @@
         "UserName": {
           "target": "com.amazonaws.iam#existingUserNameType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user whose MFA device you want to deactivate.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the user whose MFA device you want to deactivate.</p>\n         <p>This parameter is optional. If no user name is included, it defaults to the principal\n            making the request. When you make this request with root user credentials, you must use\n            an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"
           }
         },
         "SerialNumber": {
@@ -4305,8 +4680,7 @@
         "UserName": {
           "target": "com.amazonaws.iam#userNameType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user whose password you want to delete.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the user whose password you want to delete.</p>\n         <p>This parameter is optional. If no user name is included, it defaults to the principal\n            making the request. When you make this request with root user credentials, you must use\n            an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"
           }
         }
       },
@@ -5269,6 +5643,132 @@
         "smithy.api#input": {}
       }
     },
+    "com.amazonaws.iam#DisableOrganizationsRootCredentialsManagement": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iam#DisableOrganizationsRootCredentialsManagementRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iam#DisableOrganizationsRootCredentialsManagementResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException"
+        },
+        {
+          "target": "com.amazonaws.iam#ServiceAccessNotEnabledException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disables the management of privileged root user credentials across member accounts in\n            your organization. When you disable this feature, the management account and the\n            delegated administrator for IAM can no longer manage root user credentials for member\n            accounts in your organization.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To disable the RootCredentialsManagement feature in your organization",
+            "documentation": "The following command disables the management of privileged root user credentials across member accounts in your organization.",
+            "output": {
+              "OrganizationId": "o-aa111bb222",
+              "EnabledFeatures": ["RootSessions"]
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iam#DisableOrganizationsRootCredentialsManagementRequest": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iam#DisableOrganizationsRootCredentialsManagementResponse": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.iam#OrganizationIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p>"
+          }
+        },
+        "EnabledFeatures": {
+          "target": "com.amazonaws.iam#FeaturesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The features enabled for centralized root access for member accounts in your\n            organization.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iam#DisableOrganizationsRootSessions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iam#DisableOrganizationsRootSessionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iam#DisableOrganizationsRootSessionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException"
+        },
+        {
+          "target": "com.amazonaws.iam#ServiceAccessNotEnabledException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Disables root user sessions for privileged tasks across member accounts in your\n            organization. When you disable this feature, the management account and the delegated\n            administrator for IAM can no longer perform privileged tasks on member accounts in\n            your organization.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To disable the RootSessions feature in your organization",
+            "documentation": "The following command disables root user sessions for privileged tasks across member accounts in your organization.",
+            "output": {
+              "OrganizationId": "o-aa111bb222",
+              "EnabledFeatures": ["RootCredentialsManagement"]
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iam#DisableOrganizationsRootSessionsRequest": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iam#DisableOrganizationsRootSessionsResponse": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.iam#OrganizationIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p>"
+          }
+        },
+        "EnabledFeatures": {
+          "target": "com.amazonaws.iam#FeaturesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The features you have enabled for centralized root access of member accounts in your\n            organization.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.iam#DuplicateCertificateException": {
       "type": "structure",
       "members": {
@@ -5372,6 +5872,138 @@
       },
       "traits": {
         "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iam#EnableOrganizationsRootCredentialsManagement": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iam#EnableOrganizationsRootCredentialsManagementRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iam#EnableOrganizationsRootCredentialsManagementResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException"
+        },
+        {
+          "target": "com.amazonaws.iam#CallerIsNotManagementAccountException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException"
+        },
+        {
+          "target": "com.amazonaws.iam#ServiceAccessNotEnabledException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Enables the management of privileged root user credentials across member accounts in your\n            organization. When you enable root credentials management for <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">centralized root access</a>, the management account and the delegated\n            administrator for IAM can manage root user credentials for member accounts in your\n            organization.</p>\n         <p>Before you enable centralized root access, you must have an account configured with\n            the following settings:</p>\n         <ul>\n            <li>\n               <p>You must manage your Amazon Web Services accounts in <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">Organizations</a>.</p>\n            </li>\n            <li>\n               <p>Enable trusted access for Identity and Access Management in Organizations. For details, see\n                        <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-iam.html\">IAM and Organizations</a> in the <i>Organizations User\n                        Guide</i>.</p>\n            </li>\n         </ul>",
+        "smithy.api#examples": [
+          {
+            "title": "To enable the RootCredentialsManagement feature in your organization",
+            "documentation": "The following command enables the management of privileged root user credentials across member accounts in your organization.",
+            "output": {
+              "OrganizationId": "o-aa111bb222",
+              "EnabledFeatures": ["RootCredentialsManagement"]
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iam#EnableOrganizationsRootCredentialsManagementRequest": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iam#EnableOrganizationsRootCredentialsManagementResponse": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.iam#OrganizationIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p>"
+          }
+        },
+        "EnabledFeatures": {
+          "target": "com.amazonaws.iam#FeaturesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The features you have enabled for centralized root access.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iam#EnableOrganizationsRootSessions": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iam#EnableOrganizationsRootSessionsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iam#EnableOrganizationsRootSessionsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException"
+        },
+        {
+          "target": "com.amazonaws.iam#CallerIsNotManagementAccountException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException"
+        },
+        {
+          "target": "com.amazonaws.iam#ServiceAccessNotEnabledException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Allows the management account or delegated administrator to perform privileged tasks\n            on member accounts in your organization. For more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">Centrally manage root access for member accounts</a> in the <i>Identity and Access Management\n                User Guide</i>.</p>\n         <p>Before you enable this feature, you must have an account configured with the following\n            settings:</p>\n         <ul>\n            <li>\n               <p>You must manage your Amazon Web Services accounts in <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_introduction.html\">Organizations</a>.</p>\n            </li>\n            <li>\n               <p>Enable trusted access for Identity and Access Management in Organizations. For details, see\n                        <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/services-that-can-integrate-ra.html\">IAM and Organizations</a> in the <i>Organizations User\n                        Guide</i>.</p>\n            </li>\n         </ul>",
+        "smithy.api#examples": [
+          {
+            "title": "To enable the RootSessions feature in your organization",
+            "documentation": "The following command allows the management account or delegated administrator to perform privileged tasks on member accounts in your organization.",
+            "output": {
+              "OrganizationId": "o-aa111bb222",
+              "EnabledFeatures": ["RootCredentialsManagement", "RootSessions"]
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iam#EnableOrganizationsRootSessionsRequest": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iam#EnableOrganizationsRootSessionsResponse": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.iam#OrganizationIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p>"
+          }
+        },
+        "EnabledFeatures": {
+          "target": "com.amazonaws.iam#FeaturesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>The features you have enabled for centralized root access.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.iam#EntityAlreadyExistsException": {
@@ -5613,6 +6245,32 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.iam#EvaluationResult"
+      }
+    },
+    "com.amazonaws.iam#ExceptionMessage": {
+      "type": "string"
+    },
+    "com.amazonaws.iam#FeatureType": {
+      "type": "enum",
+      "members": {
+        "ROOT_CREDENTIALS_MANAGEMENT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RootCredentialsManagement"
+          }
+        },
+        "ROOT_SESSIONS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "RootSessions"
+          }
+        }
+      }
+    },
+    "com.amazonaws.iam#FeaturesListType": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.iam#FeatureType"
       }
     },
     "com.amazonaws.iam#GenerateCredentialReport": {
@@ -6493,8 +7151,7 @@
         "UserName": {
           "target": "com.amazonaws.iam#userNameType",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the user whose login profile you want to retrieve.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>The name of the user whose login profile you want to retrieve.</p>\n         <p>This parameter is optional. If no user name is included, it defaults to the principal\n            making the request. When you make this request with root user credentials, you must use\n            an <a href=\"https://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoot.html\">AssumeRoot</a> session to omit the user name.</p>\n         <p>This parameter allows (through its <a href=\"http://wikipedia.org/wiki/regex\">regex pattern</a>) a string of characters consisting of upper and lowercase alphanumeric \n    characters with no spaces. You can also include any of the following characters: _+=,.@-</p>"
           }
         }
       },
@@ -7162,6 +7819,12 @@
     "com.amazonaws.iam#GetSAMLProviderResponse": {
       "type": "structure",
       "members": {
+        "SAMLProviderUUID": {
+          "target": "com.amazonaws.iam#privateKeyIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier assigned to the SAML provider.</p>"
+          }
+        },
         "SAMLMetadataDocument": {
           "target": "com.amazonaws.iam#SAMLMetadataDocumentType",
           "traits": {
@@ -7184,6 +7847,18 @@
           "target": "com.amazonaws.iam#tagListType",
           "traits": {
             "smithy.api#documentation": "<p>A list of tags that are attached to the specified IAM SAML provider. The returned list of tags is sorted by tag key.\n      For more information about tagging, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html\">Tagging IAM resources</a> in the\n      <i>IAM User Guide</i>.</p>"
+          }
+        },
+        "AssertionEncryptionMode": {
+          "target": "com.amazonaws.iam#assertionEncryptionModeType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the encryption setting for the SAML provider.</p>"
+          }
+        },
+        "PrivateKeyList": {
+          "target": "com.amazonaws.iam#privateKeyList",
+          "traits": {
+            "smithy.api#documentation": "<p>The private key metadata for the SAML provider.</p>"
           }
         }
       },
@@ -7686,6 +8361,21 @@
           }
         ],
         "smithy.api#suppress": ["WaitableTraitInvalidErrorType"],
+        "smithy.test#smokeTests": [
+          {
+            "id": "GetUserFailure",
+            "params": {
+              "UserName": "fake_user"
+            },
+            "vendorParams": {
+              "region": "us-east-1"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "failure": {}
+            }
+          }
+        ],
         "smithy.waiters#waitable": {
           "UserExists": {
             "acceptors": [
@@ -8200,7 +8890,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only\n            one). For information about using an Amazon Web Services account alias, see <a href=\"https://docs.aws.amazon.com/signin/latest/userguide/CreateAccountAlias.html\">Creating,\n                deleting, and listing an Amazon Web Services account alias</a> in the <i>Amazon Web Services Sign-In\n                User Guide</i>.</p>",
+        "smithy.api#documentation": "<p>Lists the account alias associated with the Amazon Web Services account (Note: you can have only\n            one). For information about using an Amazon Web Services account alias, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#CreateAccountAlias\">Creating,\n                deleting, and listing an Amazon Web Services account alias</a> in the\n                <i>IAM User Guide</i>.</p>",
         "smithy.api#examples": [
           {
             "title": "To list account aliases",
@@ -9488,6 +10178,69 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>Contains the response to a successful <a>ListOpenIDConnectProviders</a>\n      request. </p>",
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.iam#ListOrganizationsFeatures": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.iam#ListOrganizationsFeaturesRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.iam#ListOrganizationsFeaturesResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.iam#AccountNotManagementOrDelegatedAdministratorException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException"
+        },
+        {
+          "target": "com.amazonaws.iam#ServiceAccessNotEnabledException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Lists the centralized root access features enabled for your organization. For more\n            information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/id_root-user.html#id_root-user-access-management\">Centrally manage root access for member accounts</a>.</p>",
+        "smithy.api#examples": [
+          {
+            "title": "To list the centralized root access features enabled for your organization",
+            "documentation": "he following command lists the centralized root access features enabled for your organization.",
+            "output": {
+              "OrganizationId": "o-aa111bb222",
+              "EnabledFeatures": ["RootCredentialsManagement"]
+            }
+          }
+        ]
+      }
+    },
+    "com.amazonaws.iam#ListOrganizationsFeaturesRequest": {
+      "type": "structure",
+      "members": {},
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.iam#ListOrganizationsFeaturesResponse": {
+      "type": "structure",
+      "members": {
+        "OrganizationId": {
+          "target": "com.amazonaws.iam#OrganizationIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier (ID) of an organization.</p>"
+          }
+        },
+        "EnabledFeatures": {
+          "target": "com.amazonaws.iam#FeaturesListType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the features that are currently available in your organization.</p>"
+          }
+        }
+      },
+      "traits": {
         "smithy.api#output": {}
       }
     },
@@ -10900,7 +11653,20 @@
           "outputToken": "Marker",
           "items": "Users",
           "pageSize": "MaxItems"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListUsersSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-east-1"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.iam#ListUsersRequest": {
@@ -11282,7 +12048,43 @@
           "code": "OpenIdIdpCommunicationError",
           "httpResponseCode": 400
         },
-        "smithy.api#documentation": "<p>The request failed because IAM cannot connect to the OpenID Connect identity provider URL.</p>",
+        "smithy.api#documentation": "<p>The request failed because IAM cannot connect to the OpenID Connect identity provider\n      URL.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.iam#OrganizationIdType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 34
+        },
+        "smithy.api#pattern": "^o-[a-z0-9]{10,32}$"
+      }
+    },
+    "com.amazonaws.iam#OrganizationNotFoundException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.iam#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was rejected because no organization is associated with your account.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
+    "com.amazonaws.iam#OrganizationNotInAllFeaturesModeException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.iam#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was rejected because your organization does not have All features enabled. For\n      more information, see <a href=\"https://docs.aws.amazon.com/organizations/latest/userguide/orgs_getting-started_concepts.html#feature-set\">Available feature sets</a> in the <i>Organizations User\n          Guide</i>.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -12688,7 +13490,7 @@
         "RoleLastUsed": {
           "target": "com.amazonaws.iam#RoleLastUsed",
           "traits": {
-            "smithy.api#documentation": "<p>Contains information about the last time that an IAM role was used. This includes the\n         date and time and the Region in which the role was last used. Activity is only reported for\n         the trailing 400 days. This period can be shorter if your Region began supporting these\n         features within the last year. The role might have been used more than 400 days ago. For\n         more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period\">Regions where data is tracked</a> in the <i>IAM User Guide</i>.</p>"
+            "smithy.api#documentation": "<p>Contains information about the last time that an IAM role was used. This includes the\n         date and time and the Region in which the role was last used. Activity is only reported for\n         the trailing 400 days. This period can be shorter if your Region began supporting these\n         features within the last year. The role might have been used more than 400 days ago. For\n         more information, see <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#access-advisor_tracking-period\">Regions where data is tracked</a> in the\n         <i>IAM User Guide</i>.</p>"
           }
         }
       },
@@ -12749,6 +13551,26 @@
           "min": 1000,
           "max": 10000000
         }
+      }
+    },
+    "com.amazonaws.iam#SAMLPrivateKey": {
+      "type": "structure",
+      "members": {
+        "KeyId": {
+          "target": "com.amazonaws.iam#privateKeyIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The unique identifier for the SAML private key.</p>"
+          }
+        },
+        "Timestamp": {
+          "target": "com.amazonaws.iam#dateType",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time, in <a href=\"http://www.iso.org/iso/iso8601\">ISO 8601 date-time\n         </a> format, when the private key was uploaded.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Contains the private keys for the SAML provider.</p>\n         <p>This data type is used as a response element in the <a>GetSAMLProvider</a> operation.</p>"
       }
     },
     "com.amazonaws.iam#SAMLProviderListEntry": {
@@ -12966,6 +13788,19 @@
         "smithy.api#documentation": "<p>Contains information about a server certificate without its certificate body,\n         certificate chain, and private key.</p>\n         <p> This data type is used as a response element in the <a>UploadServerCertificate</a> and <a>ListServerCertificates</a>\n         operations. </p>"
       }
     },
+    "com.amazonaws.iam#ServiceAccessNotEnabledException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.iam#ExceptionMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was rejected because trusted access is not enabled for IAM in Organizations. For details, see IAM and Organizations in the <i>Organizations User Guide</i>.</p>",
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 400
+      }
+    },
     "com.amazonaws.iam#ServiceFailureException": {
       "type": "structure",
       "members": {
@@ -13021,7 +13856,7 @@
         "TotalAuthenticatedEntities": {
           "target": "com.amazonaws.iam#integerType",
           "traits": {
-            "smithy.api#documentation": "<p>The total number of authenticated principals (root user, IAM users, or IAM roles)\n         that have attempted to access the service.</p>\n         <p>This field is null if no principals attempted to access the service within the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period\">tracking period</a>.</p>"
+            "smithy.api#documentation": "<p>The total number of authenticated principals (root user, IAM users, or IAM roles) that\n         have attempted to access the service.</p>\n         <p>This field is null if no principals attempted to access the service within the <a href=\"https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_access-advisor.html#service-last-accessed-reporting-period\">tracking period</a>.</p>"
           }
         },
         "TrackedActionsLastAccessed": {
@@ -14896,7 +15731,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Replaces the existing list of server certificate thumbprints associated with an OpenID\n            Connect (OIDC) provider resource object with a new list of thumbprints.</p>\n         <p>The list that you pass with this operation completely replaces the existing list of\n            thumbprints. (The lists are not merged.)</p>\n         <p>Typically, you need to update a thumbprint only when the identity provider certificate\n            changes, which occurs rarely. However, if the provider's certificate\n                <i>does</i> change, any attempt to assume an IAM role that specifies\n            the OIDC provider as a principal fails until the certificate thumbprint is\n            updated.</p>\n         <note>\n            <p>Amazon Web Services secures communication with some OIDC identity providers (IdPs) through our library\n          of trusted root certificate authorities (CAs) instead of using a certificate thumbprint to\n          verify your IdP server certificate. In these cases, your legacy thumbprint remains in your\n          configuration, but is no longer used for validation. These OIDC IdPs include Auth0, GitHub,\n          GitLab, Google, and those that use an Amazon S3 bucket to host a JSON Web Key Set (JWKS)\n          endpoint.</p>\n         </note>\n         <note>\n            <p>Trust for the OIDC provider is derived from the provider certificate and is\n                validated by the thumbprint. Therefore, it is best to limit access to the\n                    <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly\n                privileged users.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Replaces the existing list of server certificate thumbprints associated with an OpenID\n            Connect (OIDC) provider resource object with a new list of thumbprints.</p>\n         <p>The list that you pass with this operation completely replaces the existing list of\n            thumbprints. (The lists are not merged.)</p>\n         <p>Typically, you need to update a thumbprint only when the identity provider certificate\n            changes, which occurs rarely. However, if the provider's certificate\n                <i>does</i> change, any attempt to assume an IAM role that specifies\n            the OIDC provider as a principal fails until the certificate thumbprint is\n            updated.</p>\n         <note>\n            <p>Amazon Web Services secures communication with OIDC identity providers (IdPs) using our library of\n            trusted root certificate authorities (CAs) to verify the JSON Web Key Set (JWKS)\n            endpoint's TLS certificate. If your OIDC IdP relies on a certificate that is not signed\n            by one of these trusted CAs, only then we secure communication using the thumbprints set\n            in the IdP's configuration.</p>\n         </note>\n         <note>\n            <p>Trust for the OIDC provider is derived from the provider certificate and is\n                validated by the thumbprint. Therefore, it is best to limit access to the\n                    <code>UpdateOpenIDConnectProviderThumbprint</code> operation to highly\n                privileged users.</p>\n         </note>"
       }
     },
     "com.amazonaws.iam#UpdateOpenIDConnectProviderThumbprintRequest": {
@@ -15060,7 +15895,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates the metadata document for an existing SAML provider resource object.</p>\n         <note>\n            <p>This operation requires <a href=\"https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\">Signature Version 4</a>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Updates the metadata document, SAML encryption settings, and private keys for an\n            existing SAML provider. To rotate private keys, add your new private key and then remove\n            the old key in a separate request.</p>"
       }
     },
     "com.amazonaws.iam#UpdateSAMLProviderRequest": {
@@ -15069,8 +15904,7 @@
         "SAMLMetadataDocument": {
           "target": "com.amazonaws.iam#SAMLMetadataDocumentType",
           "traits": {
-            "smithy.api#documentation": "<p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The\n            document includes the issuer's name, expiration information, and keys that can be used\n            to validate the SAML authentication response (assertions) that are received from the\n            IdP. You must generate the metadata document using the identity management software that\n            is used as your organization's IdP.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>An XML document generated by an identity provider (IdP) that supports SAML 2.0. The\n            document includes the issuer's name, expiration information, and keys that can be used\n            to validate the SAML authentication response (assertions) that are received from the\n            IdP. You must generate the metadata document using the identity management software that\n            is used as your IdP.</p>"
           }
         },
         "SAMLProviderArn": {
@@ -15078,6 +15912,24 @@
           "traits": {
             "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the SAML provider to update.</p>\n         <p>For more information about ARNs, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names (ARNs)</a> in the <i>Amazon Web Services General Reference</i>.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "AssertionEncryptionMode": {
+          "target": "com.amazonaws.iam#assertionEncryptionModeType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the encryption setting for the SAML provider.</p>"
+          }
+        },
+        "AddPrivateKey": {
+          "target": "com.amazonaws.iam#privateKeyType",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the new private key from your external identity provider. The\n            private key must be a .pem file that uses AES-GCM or AES-CBC encryption algorithm to\n            decrypt SAML assertions.</p>"
+          }
+        },
+        "RemovePrivateKey": {
+          "target": "com.amazonaws.iam#privateKeyIdType",
+          "traits": {
+            "smithy.api#documentation": "<p>The Key ID of the private key to remove.</p>"
           }
         }
       },
@@ -15882,6 +16734,23 @@
         }
       }
     },
+    "com.amazonaws.iam#assertionEncryptionModeType": {
+      "type": "enum",
+      "members": {
+        "Required": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Required"
+          }
+        },
+        "Allowed": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Allowed"
+          }
+        }
+      }
+    },
     "com.amazonaws.iam#assignmentStatusType": {
       "type": "enum",
       "members": {
@@ -16476,6 +17345,28 @@
         "smithy.api#pattern": "^v[1-9][0-9]*(\\.[A-Za-z0-9-]*)?$"
       }
     },
+    "com.amazonaws.iam#privateKeyIdType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 22,
+          "max": 64
+        },
+        "smithy.api#pattern": "^[A-Z0-9]+$"
+      }
+    },
+    "com.amazonaws.iam#privateKeyList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.iam#SAMLPrivateKey"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2
+        }
+      }
+    },
     "com.amazonaws.iam#privateKeyType": {
       "type": "string",
       "traits": {
@@ -16793,6 +17684,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "AccountAccessKeysPresent"
+          }
+        },
+        "AccountPasswordPresent": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "AccountPasswordPresent"
           }
         },
         "AccountSigningCertificatesPresent": {

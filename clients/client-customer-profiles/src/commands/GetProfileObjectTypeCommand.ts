@@ -16,7 +16,8 @@ import { de_GetProfileObjectTypeCommand, se_GetProfileObjectTypeCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,8 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * //   EncryptionKey: "STRING_VALUE",
  * //   AllowProfileCreation: true || false,
  * //   SourceLastUpdatedTimestampFormat: "STRING_VALUE",
+ * //   MaxAvailableProfileObjectCount: Number("int"),
+ * //   MaxProfileObjectCount: Number("int"),
  * //   Fields: { // FieldMap
  * //     "<keys>": { // ObjectTypeField
  * //       Source: "STRING_VALUE",
@@ -63,7 +66,7 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * //     "<keys>": [ // ObjectTypeKeyList
  * //       { // ObjectTypeKey
  * //         StandardIdentifiers: [ // StandardIdentifierList
- * //           "PROFILE" || "ASSET" || "CASE" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY" || "ORDER",
+ * //           "PROFILE" || "ASSET" || "CASE" || "ORDER" || "COMMUNICATION_RECORD" || "AIR_PREFERENCE" || "HOTEL_PREFERENCE" || "AIR_BOOKING" || "AIR_SEGMENT" || "HOTEL_RESERVATION" || "HOTEL_STAY_REVENUE" || "LOYALTY" || "LOYALTY_TRANSACTION" || "LOYALTY_PROMOTION" || "UNIQUE" || "SECONDARY" || "LOOKUP_ONLY" || "NEW_ONLY",
  * //         ],
  * //         FieldNames: [ // FieldNameList
  * //           "STRING_VALUE",
@@ -104,6 +107,7 @@ export interface GetProfileObjectTypeCommandOutput extends GetProfileObjectTypeR
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetProfileObjectTypeCommand extends $Command
@@ -114,9 +118,7 @@ export class GetProfileObjectTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +130,16 @@ export class GetProfileObjectTypeCommand extends $Command
   .f(void 0, GetProfileObjectTypeResponseFilterSensitiveLog)
   .ser(se_GetProfileObjectTypeCommand)
   .de(de_GetProfileObjectTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProfileObjectTypeRequest;
+      output: GetProfileObjectTypeResponse;
+    };
+    sdk: {
+      input: GetProfileObjectTypeCommandInput;
+      output: GetProfileObjectTypeCommandOutput;
+    };
+  };
+}

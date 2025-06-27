@@ -17,7 +17,8 @@ import { de_CreateMembersCommand, se_CreateMembersCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -156,6 +157,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class CreateMembersCommand extends $Command
@@ -166,9 +168,7 @@ export class CreateMembersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +180,16 @@ export class CreateMembersCommand extends $Command
   .f(CreateMembersRequestFilterSensitiveLog, CreateMembersResponseFilterSensitiveLog)
   .ser(se_CreateMembersCommand)
   .de(de_CreateMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMembersRequest;
+      output: CreateMembersResponse;
+    };
+    sdk: {
+      input: CreateMembersCommandInput;
+      output: CreateMembersCommandOutput;
+    };
+  };
+}

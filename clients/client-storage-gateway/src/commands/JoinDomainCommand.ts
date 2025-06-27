@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,7 +60,7 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * const response = await client.send(command);
  * // { // JoinDomainOutput
  * //   GatewayARN: "STRING_VALUE",
- * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR",
+ * //   ActiveDirectoryStatus: "ACCESS_DENIED" || "DETACHED" || "JOINED" || "JOINING" || "NETWORK_ERROR" || "TIMEOUT" || "UNKNOWN_ERROR" || "INSUFFICIENT_PERMISSIONS",
  * // };
  *
  * ```
@@ -81,6 +82,7 @@ export interface JoinDomainCommandOutput extends JoinDomainOutput, __MetadataBea
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class JoinDomainCommand extends $Command
@@ -91,9 +93,7 @@ export class JoinDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class JoinDomainCommand extends $Command
   .f(JoinDomainInputFilterSensitiveLog, void 0)
   .ser(se_JoinDomainCommand)
   .de(de_JoinDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JoinDomainInput;
+      output: JoinDomainOutput;
+    };
+    sdk: {
+      input: JoinDomainCommandInput;
+      output: JoinDomainCommandOutput;
+    };
+  };
+}

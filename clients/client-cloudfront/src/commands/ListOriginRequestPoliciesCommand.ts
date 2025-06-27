@@ -12,7 +12,8 @@ import { de_ListOriginRequestPoliciesCommand, se_ListOriginRequestPoliciesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,14 +28,7 @@ export interface ListOriginRequestPoliciesCommandInput extends ListOriginRequest
 export interface ListOriginRequestPoliciesCommandOutput extends ListOriginRequestPoliciesResult, __MetadataBearer {}
 
 /**
- * <p>Gets a list of origin request policies.</p>
- *          <p>You can optionally apply a filter to return only the managed policies created by
- * 			Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p>
- *          <p>You can optionally specify the maximum number of items to receive in the response. If
- * 			the total number of items in the list exceeds the maximum that you specify, or the
- * 			default maximum, the response is paginated. To get the next page of items, send a
- * 			subsequent request that specifies the <code>NextMarker</code> value from the current
- * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * <p>Gets a list of origin request policies.</p> <p>You can optionally apply a filter to return only the managed policies created by Amazon Web Services, or only the custom policies created in your Amazon Web Services account.</p> <p>You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the <code>NextMarker</code> value from the current response as the <code>Marker</code> value in the subsequent request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,6 +110,7 @@ export interface ListOriginRequestPoliciesCommandOutput extends ListOriginReques
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListOriginRequestPoliciesCommand extends $Command
@@ -126,9 +121,7 @@ export class ListOriginRequestPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +133,16 @@ export class ListOriginRequestPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOriginRequestPoliciesCommand)
   .de(de_ListOriginRequestPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOriginRequestPoliciesRequest;
+      output: ListOriginRequestPoliciesResult;
+    };
+    sdk: {
+      input: ListOriginRequestPoliciesCommandInput;
+      output: ListOriginRequestPoliciesCommandOutput;
+    };
+  };
+}

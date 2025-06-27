@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  *         of the document.
  *      </p>
  *          <p>
- *             <code>StartTextDetection</code> returns a job identifier
+ *             <code>StartDocumentTextDetection</code> returns a job identifier
  *             (<code>JobId</code>) that you use to get the results of the operation. When text
  *          detection is finished, Amazon Textract publishes a completion status to the Amazon Simple Notification Service (Amazon SNS)
  *          topic that you specify in <code>NotificationChannel</code>. To get the results of the text
@@ -143,6 +144,7 @@ export interface StartDocumentTextDetectionCommandOutput extends StartDocumentTe
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class StartDocumentTextDetectionCommand extends $Command
@@ -153,9 +155,7 @@ export class StartDocumentTextDetectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +167,16 @@ export class StartDocumentTextDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartDocumentTextDetectionCommand)
   .de(de_StartDocumentTextDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDocumentTextDetectionRequest;
+      output: StartDocumentTextDetectionResponse;
+    };
+    sdk: {
+      input: StartDocumentTextDetectionCommandInput;
+      output: StartDocumentTextDetectionCommandOutput;
+    };
+  };
+}

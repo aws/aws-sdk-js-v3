@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateSubscriptionGrantStatusInput, UpdateSubscriptionGrantStatusOutput } from "../models/models_1";
+import { UpdateSubscriptionGrantStatusInput, UpdateSubscriptionGrantStatusOutput } from "../models/models_2";
 import {
   de_UpdateSubscriptionGrantStatusCommand,
   se_UpdateSubscriptionGrantStatusCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,14 @@ export interface UpdateSubscriptionGrantStatusCommandOutput
  * //       },
  * //       grantedTimestamp: new Date("TIMESTAMP"),
  * //       failureTimestamp: new Date("TIMESTAMP"),
+ * //       assetScope: { // AssetScope
+ * //         assetId: "STRING_VALUE", // required
+ * //         filterIds: [ // FilterIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         status: "STRING_VALUE", // required
+ * //         errorMessage: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   subscriptionId: "STRING_VALUE",
@@ -114,6 +123,7 @@ export interface UpdateSubscriptionGrantStatusCommandOutput
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubscriptionGrantStatusCommand extends $Command
@@ -124,9 +134,7 @@ export class UpdateSubscriptionGrantStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +146,16 @@ export class UpdateSubscriptionGrantStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSubscriptionGrantStatusCommand)
   .de(de_UpdateSubscriptionGrantStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriptionGrantStatusInput;
+      output: UpdateSubscriptionGrantStatusOutput;
+    };
+    sdk: {
+      input: UpdateSubscriptionGrantStatusCommandInput;
+      output: UpdateSubscriptionGrantStatusCommandOutput;
+    };
+  };
+}

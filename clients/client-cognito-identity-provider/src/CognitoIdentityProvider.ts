@@ -149,6 +149,11 @@ import {
   ChangePasswordCommandOutput,
 } from "./commands/ChangePasswordCommand";
 import {
+  CompleteWebAuthnRegistrationCommand,
+  CompleteWebAuthnRegistrationCommandInput,
+  CompleteWebAuthnRegistrationCommandOutput,
+} from "./commands/CompleteWebAuthnRegistrationCommand";
+import {
   ConfirmDeviceCommand,
   ConfirmDeviceCommandInput,
   ConfirmDeviceCommandOutput,
@@ -169,6 +174,11 @@ import {
   CreateIdentityProviderCommandInput,
   CreateIdentityProviderCommandOutput,
 } from "./commands/CreateIdentityProviderCommand";
+import {
+  CreateManagedLoginBrandingCommand,
+  CreateManagedLoginBrandingCommandInput,
+  CreateManagedLoginBrandingCommandOutput,
+} from "./commands/CreateManagedLoginBrandingCommand";
 import {
   CreateResourceServerCommand,
   CreateResourceServerCommandInput,
@@ -201,6 +211,11 @@ import {
   DeleteIdentityProviderCommandOutput,
 } from "./commands/DeleteIdentityProviderCommand";
 import {
+  DeleteManagedLoginBrandingCommand,
+  DeleteManagedLoginBrandingCommandInput,
+  DeleteManagedLoginBrandingCommandOutput,
+} from "./commands/DeleteManagedLoginBrandingCommand";
+import {
   DeleteResourceServerCommand,
   DeleteResourceServerCommandInput,
   DeleteResourceServerCommandOutput,
@@ -227,10 +242,25 @@ import {
   DeleteUserPoolDomainCommandOutput,
 } from "./commands/DeleteUserPoolDomainCommand";
 import {
+  DeleteWebAuthnCredentialCommand,
+  DeleteWebAuthnCredentialCommandInput,
+  DeleteWebAuthnCredentialCommandOutput,
+} from "./commands/DeleteWebAuthnCredentialCommand";
+import {
   DescribeIdentityProviderCommand,
   DescribeIdentityProviderCommandInput,
   DescribeIdentityProviderCommandOutput,
 } from "./commands/DescribeIdentityProviderCommand";
+import {
+  DescribeManagedLoginBrandingByClientCommand,
+  DescribeManagedLoginBrandingByClientCommandInput,
+  DescribeManagedLoginBrandingByClientCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingByClientCommand";
+import {
+  DescribeManagedLoginBrandingCommand,
+  DescribeManagedLoginBrandingCommandInput,
+  DescribeManagedLoginBrandingCommandOutput,
+} from "./commands/DescribeManagedLoginBrandingCommand";
 import {
   DescribeResourceServerCommand,
   DescribeResourceServerCommandInput,
@@ -294,6 +324,11 @@ import {
   GetSigningCertificateCommandOutput,
 } from "./commands/GetSigningCertificateCommand";
 import {
+  GetTokensFromRefreshTokenCommand,
+  GetTokensFromRefreshTokenCommandInput,
+  GetTokensFromRefreshTokenCommandOutput,
+} from "./commands/GetTokensFromRefreshTokenCommand";
+import {
   GetUICustomizationCommand,
   GetUICustomizationCommandInput,
   GetUICustomizationCommandOutput,
@@ -303,6 +338,11 @@ import {
   GetUserAttributeVerificationCodeCommandInput,
   GetUserAttributeVerificationCodeCommandOutput,
 } from "./commands/GetUserAttributeVerificationCodeCommand";
+import {
+  GetUserAuthFactorsCommand,
+  GetUserAuthFactorsCommandInput,
+  GetUserAuthFactorsCommandOutput,
+} from "./commands/GetUserAuthFactorsCommand";
 import { GetUserCommand, GetUserCommandInput, GetUserCommandOutput } from "./commands/GetUserCommand";
 import {
   GetUserPoolMfaConfigCommand,
@@ -358,6 +398,11 @@ import {
   ListUsersInGroupCommandOutput,
 } from "./commands/ListUsersInGroupCommand";
 import {
+  ListWebAuthnCredentialsCommand,
+  ListWebAuthnCredentialsCommandInput,
+  ListWebAuthnCredentialsCommandOutput,
+} from "./commands/ListWebAuthnCredentialsCommand";
+import {
   ResendConfirmationCodeCommand,
   ResendConfirmationCodeCommandInput,
   ResendConfirmationCodeCommandOutput,
@@ -405,6 +450,11 @@ import {
   StartUserImportJobCommandOutput,
 } from "./commands/StartUserImportJobCommand";
 import {
+  StartWebAuthnRegistrationCommand,
+  StartWebAuthnRegistrationCommandInput,
+  StartWebAuthnRegistrationCommandOutput,
+} from "./commands/StartWebAuthnRegistrationCommand";
+import {
   StopUserImportJobCommand,
   StopUserImportJobCommandInput,
   StopUserImportJobCommandOutput,
@@ -431,6 +481,11 @@ import {
   UpdateIdentityProviderCommandInput,
   UpdateIdentityProviderCommandOutput,
 } from "./commands/UpdateIdentityProviderCommand";
+import {
+  UpdateManagedLoginBrandingCommand,
+  UpdateManagedLoginBrandingCommandInput,
+  UpdateManagedLoginBrandingCommandOutput,
+} from "./commands/UpdateManagedLoginBrandingCommand";
 import {
   UpdateResourceServerCommand,
   UpdateResourceServerCommandInput,
@@ -497,11 +552,13 @@ const commands = {
   AdminUserGlobalSignOutCommand,
   AssociateSoftwareTokenCommand,
   ChangePasswordCommand,
+  CompleteWebAuthnRegistrationCommand,
   ConfirmDeviceCommand,
   ConfirmForgotPasswordCommand,
   ConfirmSignUpCommand,
   CreateGroupCommand,
   CreateIdentityProviderCommand,
+  CreateManagedLoginBrandingCommand,
   CreateResourceServerCommand,
   CreateUserImportJobCommand,
   CreateUserPoolCommand,
@@ -509,13 +566,17 @@ const commands = {
   CreateUserPoolDomainCommand,
   DeleteGroupCommand,
   DeleteIdentityProviderCommand,
+  DeleteManagedLoginBrandingCommand,
   DeleteResourceServerCommand,
   DeleteUserCommand,
   DeleteUserAttributesCommand,
   DeleteUserPoolCommand,
   DeleteUserPoolClientCommand,
   DeleteUserPoolDomainCommand,
+  DeleteWebAuthnCredentialCommand,
   DescribeIdentityProviderCommand,
+  DescribeManagedLoginBrandingCommand,
+  DescribeManagedLoginBrandingByClientCommand,
   DescribeResourceServerCommand,
   DescribeRiskConfigurationCommand,
   DescribeUserImportJobCommand,
@@ -530,9 +591,11 @@ const commands = {
   GetIdentityProviderByIdentifierCommand,
   GetLogDeliveryConfigurationCommand,
   GetSigningCertificateCommand,
+  GetTokensFromRefreshTokenCommand,
   GetUICustomizationCommand,
   GetUserCommand,
   GetUserAttributeVerificationCodeCommand,
+  GetUserAuthFactorsCommand,
   GetUserPoolMfaConfigCommand,
   GlobalSignOutCommand,
   InitiateAuthCommand,
@@ -546,6 +609,7 @@ const commands = {
   ListUserPoolsCommand,
   ListUsersCommand,
   ListUsersInGroupCommand,
+  ListWebAuthnCredentialsCommand,
   ResendConfirmationCodeCommand,
   RespondToAuthChallengeCommand,
   RevokeTokenCommand,
@@ -557,6 +621,7 @@ const commands = {
   SetUserSettingsCommand,
   SignUpCommand,
   StartUserImportJobCommand,
+  StartWebAuthnRegistrationCommand,
   StopUserImportJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -564,6 +629,7 @@ const commands = {
   UpdateDeviceStatusCommand,
   UpdateGroupCommand,
   UpdateIdentityProviderCommand,
+  UpdateManagedLoginBrandingCommand,
   UpdateResourceServerCommand,
   UpdateUserAttributesCommand,
   UpdateUserPoolCommand,
@@ -1048,6 +1114,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link CompleteWebAuthnRegistrationCommand}
+   */
+  completeWebAuthnRegistration(
+    args: CompleteWebAuthnRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CompleteWebAuthnRegistrationCommandOutput>;
+  completeWebAuthnRegistration(
+    args: CompleteWebAuthnRegistrationCommandInput,
+    cb: (err: any, data?: CompleteWebAuthnRegistrationCommandOutput) => void
+  ): void;
+  completeWebAuthnRegistration(
+    args: CompleteWebAuthnRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CompleteWebAuthnRegistrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ConfirmDeviceCommand}
    */
   confirmDevice(args: ConfirmDeviceCommandInput, options?: __HttpHandlerOptions): Promise<ConfirmDeviceCommandOutput>;
@@ -1112,6 +1195,23 @@ export interface CognitoIdentityProvider {
     args: CreateIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateManagedLoginBrandingCommand}
+   */
+  createManagedLoginBranding(
+    args: CreateManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateManagedLoginBrandingCommandOutput>;
+  createManagedLoginBranding(
+    args: CreateManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: CreateManagedLoginBrandingCommandOutput) => void
+  ): void;
+  createManagedLoginBranding(
+    args: CreateManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateManagedLoginBrandingCommandOutput) => void
   ): void;
 
   /**
@@ -1225,6 +1325,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DeleteManagedLoginBrandingCommand}
+   */
+  deleteManagedLoginBranding(
+    args: DeleteManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteManagedLoginBrandingCommandOutput>;
+  deleteManagedLoginBranding(
+    args: DeleteManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: DeleteManagedLoginBrandingCommandOutput) => void
+  ): void;
+  deleteManagedLoginBranding(
+    args: DeleteManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteManagedLoginBrandingCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteResourceServerCommand}
    */
   deleteResourceServer(
@@ -1318,6 +1435,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link DeleteWebAuthnCredentialCommand}
+   */
+  deleteWebAuthnCredential(
+    args: DeleteWebAuthnCredentialCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWebAuthnCredentialCommandOutput>;
+  deleteWebAuthnCredential(
+    args: DeleteWebAuthnCredentialCommandInput,
+    cb: (err: any, data?: DeleteWebAuthnCredentialCommandOutput) => void
+  ): void;
+  deleteWebAuthnCredential(
+    args: DeleteWebAuthnCredentialCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWebAuthnCredentialCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeIdentityProviderCommand}
    */
   describeIdentityProvider(
@@ -1332,6 +1466,40 @@ export interface CognitoIdentityProvider {
     args: DescribeIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeManagedLoginBrandingCommand}
+   */
+  describeManagedLoginBranding(
+    args: DescribeManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeManagedLoginBrandingCommandOutput>;
+  describeManagedLoginBranding(
+    args: DescribeManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: DescribeManagedLoginBrandingCommandOutput) => void
+  ): void;
+  describeManagedLoginBranding(
+    args: DescribeManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeManagedLoginBrandingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeManagedLoginBrandingByClientCommand}
+   */
+  describeManagedLoginBrandingByClient(
+    args: DescribeManagedLoginBrandingByClientCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeManagedLoginBrandingByClientCommandOutput>;
+  describeManagedLoginBrandingByClient(
+    args: DescribeManagedLoginBrandingByClientCommandInput,
+    cb: (err: any, data?: DescribeManagedLoginBrandingByClientCommandOutput) => void
+  ): void;
+  describeManagedLoginBrandingByClient(
+    args: DescribeManagedLoginBrandingByClientCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeManagedLoginBrandingByClientCommandOutput) => void
   ): void;
 
   /**
@@ -1546,6 +1714,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link GetTokensFromRefreshTokenCommand}
+   */
+  getTokensFromRefreshToken(
+    args: GetTokensFromRefreshTokenCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTokensFromRefreshTokenCommandOutput>;
+  getTokensFromRefreshToken(
+    args: GetTokensFromRefreshTokenCommandInput,
+    cb: (err: any, data?: GetTokensFromRefreshTokenCommandOutput) => void
+  ): void;
+  getTokensFromRefreshToken(
+    args: GetTokensFromRefreshTokenCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTokensFromRefreshTokenCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetUICustomizationCommand}
    */
   getUICustomization(
@@ -1588,6 +1773,23 @@ export interface CognitoIdentityProvider {
     args: GetUserAttributeVerificationCodeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetUserAttributeVerificationCodeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetUserAuthFactorsCommand}
+   */
+  getUserAuthFactors(
+    args: GetUserAuthFactorsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetUserAuthFactorsCommandOutput>;
+  getUserAuthFactors(
+    args: GetUserAuthFactorsCommandInput,
+    cb: (err: any, data?: GetUserAuthFactorsCommandOutput) => void
+  ): void;
+  getUserAuthFactors(
+    args: GetUserAuthFactorsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetUserAuthFactorsCommandOutput) => void
   ): void;
 
   /**
@@ -1776,6 +1978,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link ListWebAuthnCredentialsCommand}
+   */
+  listWebAuthnCredentials(
+    args: ListWebAuthnCredentialsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListWebAuthnCredentialsCommandOutput>;
+  listWebAuthnCredentials(
+    args: ListWebAuthnCredentialsCommandInput,
+    cb: (err: any, data?: ListWebAuthnCredentialsCommandOutput) => void
+  ): void;
+  listWebAuthnCredentials(
+    args: ListWebAuthnCredentialsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListWebAuthnCredentialsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ResendConfirmationCodeCommand}
    */
   resendConfirmationCode(
@@ -1948,6 +2167,23 @@ export interface CognitoIdentityProvider {
   ): void;
 
   /**
+   * @see {@link StartWebAuthnRegistrationCommand}
+   */
+  startWebAuthnRegistration(
+    args: StartWebAuthnRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartWebAuthnRegistrationCommandOutput>;
+  startWebAuthnRegistration(
+    args: StartWebAuthnRegistrationCommandInput,
+    cb: (err: any, data?: StartWebAuthnRegistrationCommandOutput) => void
+  ): void;
+  startWebAuthnRegistration(
+    args: StartWebAuthnRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartWebAuthnRegistrationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopUserImportJobCommand}
    */
   stopUserImportJob(
@@ -2046,6 +2282,24 @@ export interface CognitoIdentityProvider {
     args: UpdateIdentityProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateIdentityProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateManagedLoginBrandingCommand}
+   */
+  updateManagedLoginBranding(): Promise<UpdateManagedLoginBrandingCommandOutput>;
+  updateManagedLoginBranding(
+    args: UpdateManagedLoginBrandingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateManagedLoginBrandingCommandOutput>;
+  updateManagedLoginBranding(
+    args: UpdateManagedLoginBrandingCommandInput,
+    cb: (err: any, data?: UpdateManagedLoginBrandingCommandOutput) => void
+  ): void;
+  updateManagedLoginBranding(
+    args: UpdateManagedLoginBrandingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateManagedLoginBrandingCommandOutput) => void
   ): void;
 
   /**
@@ -2169,7 +2423,7 @@ export interface CognitoIdentityProvider {
  * <p>With the Amazon Cognito user pools API, you can configure user pools and authenticate users. To
  *             authenticate users from third-party identity providers (IdPs) in this API, you can
  *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation-consolidate-users.html">link IdP users to native user profiles</a>. Learn more
- *             about the authentication and authorization of federated users at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Adding user pool sign-in through a third party</a> and in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">User pool federation endpoints and hosted UI reference</a>.</p>
+ *             about the authentication and authorization of federated users at <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html">Adding user pool sign-in through a third party</a> and in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-userpools-server-contract-reference.html">User pool federation endpoints and managed login reference</a>.</p>
  *          <p>This API reference provides detailed information about API operations and object types
  *             in Amazon Cognito.</p>
  *          <p>Along with resource management operations, the Amazon Cognito user pools API includes classes
@@ -2190,63 +2444,11 @@ export interface CognitoIdentityProvider {
  *                     requests to manage, authenticate, or authorize a user.</p>
  *             </li>
  *          </ol>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
- *             in the <i>Amazon Cognito Developer Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flows-public-server-side.html#user-pools-API-operations">Understanding API, OIDC, and managed login pages
+ *                 authentication</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
  *          <p>With your Amazon Web Services SDK, you can build the logic to support operational flows in every use
  *             case for this API. You can also make direct REST API requests to <a href="https://docs.aws.amazon.com/general/latest/gr/cognito_identity.html#cognito_identity_your_user_pools_region">Amazon Cognito user pools service endpoints</a>. The following links can get you started
- *             with the <code>CognitoIdentityProvider</code> client in other supported Amazon Web Services
- *             SDKs.</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/cli/latest/reference/cognito-idp/index.html#cli-aws-cognito-idp">Amazon Web Services
- *                         Command Line Interface</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdkfornet/v3/apidocs/items/CognitoIdentityProvider/TCognitoIdentityProviderClient.html">Amazon Web Services SDK for .NET</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://sdk.amazonaws.com/cpp/api/LATEST/aws-cpp-sdk-cognito-idp/html/class_aws_1_1_cognito_identity_provider_1_1_cognito_identity_provider_client.html">Amazon Web Services SDK for C++</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-go/api/service/cognitoidentityprovider/#CognitoIdentityProvider">Amazon Web Services SDK for Go</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://sdk.amazonaws.com/java/api/latest/software/amazon/awssdk/services/cognitoidentityprovider/CognitoIdentityProviderClient.html">Amazon Web Services SDK for Java V2</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentityServiceProvider.html">Amazon Web Services
- *                         SDK for JavaScript</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/aws-sdk-php/v3/api/api-cognito-idp-2016-04-18.html">Amazon Web Services SDK for PHP
- *                         V3</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/cognito-idp.html">Amazon Web Services SDK for Python</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sdk-for-ruby/v3/api/Aws/CognitoIdentityProvider/Client.html">Amazon Web Services SDK
- *                         for Ruby V3</a>
- *                </p>
- *             </li>
- *          </ul>
+ *             with the <code>CognitoIdentityProvider</code> client in supported Amazon Web Services SDKs.</p>
  *          <p>To get started with an Amazon Web Services SDK, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>. For example actions and scenarios, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/service_code_examples_cognito-identity-provider.html">Code examples for Amazon Cognito Identity Provider using Amazon Web Services
  *                 SDKs</a>.</p>
  * @public

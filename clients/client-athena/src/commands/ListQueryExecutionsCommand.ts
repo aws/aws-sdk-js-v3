@@ -12,7 +12,8 @@ import { de_ListQueryExecutionsCommand, se_ListQueryExecutionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface ListQueryExecutionsCommandOutput extends ListQueryExecutionsOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListQueryExecutionsCommand extends $Command
@@ -80,9 +82,7 @@ export class ListQueryExecutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class ListQueryExecutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueryExecutionsCommand)
   .de(de_ListQueryExecutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueryExecutionsInput;
+      output: ListQueryExecutionsOutput;
+    };
+    sdk: {
+      input: ListQueryExecutionsCommandInput;
+      output: ListQueryExecutionsCommandOutput;
+    };
+  };
+}

@@ -13,7 +13,8 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface GetReusableDelegationSetCommandOutput extends GetReusableDelega
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class GetReusableDelegationSetCommand extends $Command
@@ -81,9 +83,7 @@ export class GetReusableDelegationSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class GetReusableDelegationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReusableDelegationSetCommand)
   .de(de_GetReusableDelegationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReusableDelegationSetRequest;
+      output: GetReusableDelegationSetResponse;
+    };
+    sdk: {
+      input: GetReusableDelegationSetCommandInput;
+      output: GetReusableDelegationSetCommandOutput;
+    };
+  };
+}

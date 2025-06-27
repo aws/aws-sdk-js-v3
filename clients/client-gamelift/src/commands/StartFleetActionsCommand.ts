@@ -12,7 +12,8 @@ import { de_StartFleetActionsCommand, se_StartFleetActionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,14 +42,14 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  *                     provide a fleet ID, a location name, and the type of actions to resume. </p>
  *             </li>
  *          </ul>
- *          <p>If successful, Amazon GameLift once again initiates scaling events as triggered by the fleet's
+ *          <p>If successful, Amazon GameLift Servers once again initiates scaling events as triggered by the fleet's
  *             scaling policies. If actions on the fleet location were never stopped, this operation
  *             will have no effect.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example
@@ -88,7 +89,7 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -98,6 +99,7 @@ export interface StartFleetActionsCommandOutput extends StartFleetActionsOutput,
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -109,9 +111,7 @@ export class StartFleetActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class StartFleetActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartFleetActionsCommand)
   .de(de_StartFleetActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFleetActionsInput;
+      output: StartFleetActionsOutput;
+    };
+    sdk: {
+      input: StartFleetActionsCommandInput;
+      output: StartFleetActionsCommandOutput;
+    };
+  };
+}

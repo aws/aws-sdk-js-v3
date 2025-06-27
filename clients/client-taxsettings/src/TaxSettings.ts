@@ -8,15 +8,35 @@ import {
   BatchDeleteTaxRegistrationCommandOutput,
 } from "./commands/BatchDeleteTaxRegistrationCommand";
 import {
+  BatchGetTaxExemptionsCommand,
+  BatchGetTaxExemptionsCommandInput,
+  BatchGetTaxExemptionsCommandOutput,
+} from "./commands/BatchGetTaxExemptionsCommand";
+import {
   BatchPutTaxRegistrationCommand,
   BatchPutTaxRegistrationCommandInput,
   BatchPutTaxRegistrationCommandOutput,
 } from "./commands/BatchPutTaxRegistrationCommand";
 import {
+  DeleteSupplementalTaxRegistrationCommand,
+  DeleteSupplementalTaxRegistrationCommandInput,
+  DeleteSupplementalTaxRegistrationCommandOutput,
+} from "./commands/DeleteSupplementalTaxRegistrationCommand";
+import {
   DeleteTaxRegistrationCommand,
   DeleteTaxRegistrationCommandInput,
   DeleteTaxRegistrationCommandOutput,
 } from "./commands/DeleteTaxRegistrationCommand";
+import {
+  GetTaxExemptionTypesCommand,
+  GetTaxExemptionTypesCommandInput,
+  GetTaxExemptionTypesCommandOutput,
+} from "./commands/GetTaxExemptionTypesCommand";
+import {
+  GetTaxInheritanceCommand,
+  GetTaxInheritanceCommandInput,
+  GetTaxInheritanceCommandOutput,
+} from "./commands/GetTaxInheritanceCommand";
 import {
   GetTaxRegistrationCommand,
   GetTaxRegistrationCommandInput,
@@ -28,10 +48,35 @@ import {
   GetTaxRegistrationDocumentCommandOutput,
 } from "./commands/GetTaxRegistrationDocumentCommand";
 import {
+  ListSupplementalTaxRegistrationsCommand,
+  ListSupplementalTaxRegistrationsCommandInput,
+  ListSupplementalTaxRegistrationsCommandOutput,
+} from "./commands/ListSupplementalTaxRegistrationsCommand";
+import {
+  ListTaxExemptionsCommand,
+  ListTaxExemptionsCommandInput,
+  ListTaxExemptionsCommandOutput,
+} from "./commands/ListTaxExemptionsCommand";
+import {
   ListTaxRegistrationsCommand,
   ListTaxRegistrationsCommandInput,
   ListTaxRegistrationsCommandOutput,
 } from "./commands/ListTaxRegistrationsCommand";
+import {
+  PutSupplementalTaxRegistrationCommand,
+  PutSupplementalTaxRegistrationCommandInput,
+  PutSupplementalTaxRegistrationCommandOutput,
+} from "./commands/PutSupplementalTaxRegistrationCommand";
+import {
+  PutTaxExemptionCommand,
+  PutTaxExemptionCommandInput,
+  PutTaxExemptionCommandOutput,
+} from "./commands/PutTaxExemptionCommand";
+import {
+  PutTaxInheritanceCommand,
+  PutTaxInheritanceCommandInput,
+  PutTaxInheritanceCommandOutput,
+} from "./commands/PutTaxInheritanceCommand";
 import {
   PutTaxRegistrationCommand,
   PutTaxRegistrationCommandInput,
@@ -41,11 +86,20 @@ import { TaxSettingsClient, TaxSettingsClientConfig } from "./TaxSettingsClient"
 
 const commands = {
   BatchDeleteTaxRegistrationCommand,
+  BatchGetTaxExemptionsCommand,
   BatchPutTaxRegistrationCommand,
+  DeleteSupplementalTaxRegistrationCommand,
   DeleteTaxRegistrationCommand,
+  GetTaxExemptionTypesCommand,
+  GetTaxInheritanceCommand,
   GetTaxRegistrationCommand,
   GetTaxRegistrationDocumentCommand,
+  ListSupplementalTaxRegistrationsCommand,
+  ListTaxExemptionsCommand,
   ListTaxRegistrationsCommand,
+  PutSupplementalTaxRegistrationCommand,
+  PutTaxExemptionCommand,
+  PutTaxInheritanceCommand,
   PutTaxRegistrationCommand,
 };
 
@@ -68,6 +122,23 @@ export interface TaxSettings {
   ): void;
 
   /**
+   * @see {@link BatchGetTaxExemptionsCommand}
+   */
+  batchGetTaxExemptions(
+    args: BatchGetTaxExemptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchGetTaxExemptionsCommandOutput>;
+  batchGetTaxExemptions(
+    args: BatchGetTaxExemptionsCommandInput,
+    cb: (err: any, data?: BatchGetTaxExemptionsCommandOutput) => void
+  ): void;
+  batchGetTaxExemptions(
+    args: BatchGetTaxExemptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchGetTaxExemptionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchPutTaxRegistrationCommand}
    */
   batchPutTaxRegistration(
@@ -82,6 +153,23 @@ export interface TaxSettings {
     args: BatchPutTaxRegistrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchPutTaxRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteSupplementalTaxRegistrationCommand}
+   */
+  deleteSupplementalTaxRegistration(
+    args: DeleteSupplementalTaxRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteSupplementalTaxRegistrationCommandOutput>;
+  deleteSupplementalTaxRegistration(
+    args: DeleteSupplementalTaxRegistrationCommandInput,
+    cb: (err: any, data?: DeleteSupplementalTaxRegistrationCommandOutput) => void
+  ): void;
+  deleteSupplementalTaxRegistration(
+    args: DeleteSupplementalTaxRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteSupplementalTaxRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -100,6 +188,42 @@ export interface TaxSettings {
     args: DeleteTaxRegistrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteTaxRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTaxExemptionTypesCommand}
+   */
+  getTaxExemptionTypes(): Promise<GetTaxExemptionTypesCommandOutput>;
+  getTaxExemptionTypes(
+    args: GetTaxExemptionTypesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTaxExemptionTypesCommandOutput>;
+  getTaxExemptionTypes(
+    args: GetTaxExemptionTypesCommandInput,
+    cb: (err: any, data?: GetTaxExemptionTypesCommandOutput) => void
+  ): void;
+  getTaxExemptionTypes(
+    args: GetTaxExemptionTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTaxExemptionTypesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetTaxInheritanceCommand}
+   */
+  getTaxInheritance(): Promise<GetTaxInheritanceCommandOutput>;
+  getTaxInheritance(
+    args: GetTaxInheritanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetTaxInheritanceCommandOutput>;
+  getTaxInheritance(
+    args: GetTaxInheritanceCommandInput,
+    cb: (err: any, data?: GetTaxInheritanceCommandOutput) => void
+  ): void;
+  getTaxInheritance(
+    args: GetTaxInheritanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetTaxInheritanceCommandOutput) => void
   ): void;
 
   /**
@@ -138,6 +262,42 @@ export interface TaxSettings {
   ): void;
 
   /**
+   * @see {@link ListSupplementalTaxRegistrationsCommand}
+   */
+  listSupplementalTaxRegistrations(): Promise<ListSupplementalTaxRegistrationsCommandOutput>;
+  listSupplementalTaxRegistrations(
+    args: ListSupplementalTaxRegistrationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSupplementalTaxRegistrationsCommandOutput>;
+  listSupplementalTaxRegistrations(
+    args: ListSupplementalTaxRegistrationsCommandInput,
+    cb: (err: any, data?: ListSupplementalTaxRegistrationsCommandOutput) => void
+  ): void;
+  listSupplementalTaxRegistrations(
+    args: ListSupplementalTaxRegistrationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSupplementalTaxRegistrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListTaxExemptionsCommand}
+   */
+  listTaxExemptions(): Promise<ListTaxExemptionsCommandOutput>;
+  listTaxExemptions(
+    args: ListTaxExemptionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTaxExemptionsCommandOutput>;
+  listTaxExemptions(
+    args: ListTaxExemptionsCommandInput,
+    cb: (err: any, data?: ListTaxExemptionsCommandOutput) => void
+  ): void;
+  listTaxExemptions(
+    args: ListTaxExemptionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTaxExemptionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTaxRegistrationsCommand}
    */
   listTaxRegistrations(): Promise<ListTaxRegistrationsCommandOutput>;
@@ -153,6 +313,55 @@ export interface TaxSettings {
     args: ListTaxRegistrationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTaxRegistrationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutSupplementalTaxRegistrationCommand}
+   */
+  putSupplementalTaxRegistration(
+    args: PutSupplementalTaxRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutSupplementalTaxRegistrationCommandOutput>;
+  putSupplementalTaxRegistration(
+    args: PutSupplementalTaxRegistrationCommandInput,
+    cb: (err: any, data?: PutSupplementalTaxRegistrationCommandOutput) => void
+  ): void;
+  putSupplementalTaxRegistration(
+    args: PutSupplementalTaxRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutSupplementalTaxRegistrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTaxExemptionCommand}
+   */
+  putTaxExemption(
+    args: PutTaxExemptionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTaxExemptionCommandOutput>;
+  putTaxExemption(args: PutTaxExemptionCommandInput, cb: (err: any, data?: PutTaxExemptionCommandOutput) => void): void;
+  putTaxExemption(
+    args: PutTaxExemptionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTaxExemptionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutTaxInheritanceCommand}
+   */
+  putTaxInheritance(): Promise<PutTaxInheritanceCommandOutput>;
+  putTaxInheritance(
+    args: PutTaxInheritanceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutTaxInheritanceCommandOutput>;
+  putTaxInheritance(
+    args: PutTaxInheritanceCommandInput,
+    cb: (err: any, data?: PutTaxInheritanceCommandOutput) => void
+  ): void;
+  putTaxInheritance(
+    args: PutTaxInheritanceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutTaxInheritanceCommandOutput) => void
   ): void;
 
   /**

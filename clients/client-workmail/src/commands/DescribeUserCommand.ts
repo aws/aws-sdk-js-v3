@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,8 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * //   Department: "STRING_VALUE",
  * //   Country: "STRING_VALUE",
  * //   Office: "STRING_VALUE",
+ * //   IdentityProviderUserId: "STRING_VALUE",
+ * //   IdentityProviderIdentityStoreId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -73,6 +76,12 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @see {@link DescribeUserCommandInput} for command's `input` shape.
  * @see {@link DescribeUserCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
+ *
+ * @throws {@link DirectoryServiceAuthenticationFailedException} (client fault)
+ *  <p>The directory service doesn't recognize the credentials supplied by WorkMail.</p>
+ *
+ * @throws {@link DirectoryUnavailableException} (client fault)
+ *  <p>The directory is unavailable. It might be located in another Region or deleted.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>The identifier supplied for the user, group, or resource does not exist in your
@@ -92,6 +101,7 @@ export interface DescribeUserCommandOutput extends DescribeUserResponse, __Metad
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserCommand extends $Command
@@ -102,9 +112,7 @@ export class DescribeUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +124,16 @@ export class DescribeUserCommand extends $Command
   .f(void 0, DescribeUserResponseFilterSensitiveLog)
   .ser(se_DescribeUserCommand)
   .de(de_DescribeUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserRequest;
+      output: DescribeUserResponse;
+    };
+    sdk: {
+      input: DescribeUserCommandInput;
+      output: DescribeUserCommandOutput;
+    };
+  };
+}

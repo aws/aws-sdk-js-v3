@@ -39,6 +39,12 @@
             "smithy.api#required": {}
           }
         },
+        "BackupArn": {
+          "target": "com.amazonaws.cloudhsmv2#BackupArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the backup.</p>"
+          }
+        },
         "BackupState": {
           "target": "com.amazonaws.cloudhsmv2#BackupState",
           "traits": {
@@ -98,10 +104,28 @@
           "traits": {
             "smithy.api#documentation": "<p>The list of tags for the backup.</p>"
           }
+        },
+        "HsmType": {
+          "target": "com.amazonaws.cloudhsmv2#HsmType",
+          "traits": {
+            "smithy.api#documentation": "<p>The HSM type used to create the backup.</p>"
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.cloudhsmv2#ClusterMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The mode of the cluster that was backed up.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about a backup of an AWS CloudHSM cluster. All backup objects\n      contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and\n        <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region\n      additionally contain the <code>CopyTimestamp</code>, <code>SourceBackup</code>,\n        <code>SourceCluster</code>, and <code>SourceRegion</code> parameters. A backup that is\n      pending deletion will include the <code>DeleteTimestamp</code> parameter.</p>"
+        "smithy.api#documentation": "<p>Contains information about a backup of an CloudHSM cluster. All backup objects\n      contain the <code>BackupId</code>, <code>BackupState</code>, <code>ClusterId</code>, and\n        <code>CreateTimestamp</code> parameters. Backups that were copied into a destination region\n      additionally contain the <code>CopyTimestamp</code>, <code>SourceBackup</code>,\n        <code>SourceCluster</code>, and <code>SourceRegion</code> parameters. A backup that is\n      pending deletion will include the <code>DeleteTimestamp</code> parameter.</p>"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#BackupArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^(arn:aws(-(us-gov))?:cloudhsm:([a-z]{2}(-(gov|isob|iso))?-(east|west|north|south|central){1,2}-[0-9]{1}):[0-9]{12}:backup/)?backup-[2-7a-zA-Z]{11,16}$"
       }
     },
     "com.amazonaws.cloudhsmv2#BackupId": {
@@ -229,10 +253,16 @@
           "target": "com.amazonaws.cloudhsmv2#DeleteHsm"
         },
         {
+          "target": "com.amazonaws.cloudhsmv2#DeleteResourcePolicy"
+        },
+        {
           "target": "com.amazonaws.cloudhsmv2#DescribeBackups"
         },
         {
           "target": "com.amazonaws.cloudhsmv2#DescribeClusters"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#GetResourcePolicy"
         },
         {
           "target": "com.amazonaws.cloudhsmv2#InitializeCluster"
@@ -245,6 +275,9 @@
         },
         {
           "target": "com.amazonaws.cloudhsmv2#ModifyCluster"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#PutResourcePolicy"
         },
         {
           "target": "com.amazonaws.cloudhsmv2#RestoreBackup"
@@ -269,7 +302,7 @@
           "name": "cloudhsm"
         },
         "aws.protocols#awsJson1_1": {},
-        "smithy.api#documentation": "<p>For more information about AWS CloudHSM, see <a href=\"http://aws.amazon.com/cloudhsm/\">AWS CloudHSM</a> and the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/\">AWS\n      CloudHSM User Guide</a>.</p>",
+        "smithy.api#documentation": "<p>For more information about CloudHSM, see <a href=\"http://aws.amazon.com/cloudhsm/\">CloudHSM</a> and the <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/\">\n      CloudHSM User Guide</a>.</p>",
         "smithy.api#title": "AWS CloudHSM V2",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -1232,7 +1265,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 5000
+          "max": 20000
         },
         "smithy.api#pattern": "^[a-zA-Z0-9+-/=\\s]*$"
       }
@@ -1255,7 +1288,7 @@
         "AwsHardwareCertificate": {
           "target": "com.amazonaws.cloudhsmv2#Cert",
           "traits": {
-            "smithy.api#documentation": "<p>The HSM hardware certificate issued (signed) by AWS CloudHSM.</p>"
+            "smithy.api#documentation": "<p>The HSM hardware certificate issued (signed) by CloudHSM.</p>"
           }
         },
         "ManufacturerHardwareCertificate": {
@@ -1287,6 +1320,12 @@
         "smithy.api#error": "client"
       }
     },
+    "com.amazonaws.cloudhsmv2#CloudHsmArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:aws(-(us-gov))?:cloudhsm:([a-z]{2}(-(gov|isob|iso))?-(east|west|north|south|central){1,2}-[0-9]{1}):[0-9]{12}:(backup/backup|cluster/cluster|hsm/hsm)-[2-7a-zA-Z]{11,16}$"
+      }
+    },
     "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException": {
       "type": "structure",
       "members": {
@@ -1295,7 +1334,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request was rejected because of an AWS CloudHSM internal failure. The request can\n      be retried.</p>",
+        "smithy.api#documentation": "<p>The request was rejected because of an CloudHSM internal failure. The request can\n      be retried.</p>",
         "smithy.api#error": "server"
       }
     },
@@ -1308,6 +1347,18 @@
       },
       "traits": {
         "smithy.api#documentation": "<p>The request was rejected because it is not a valid request.</p>",
+        "smithy.api#error": "client"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#CloudHsmResourceLimitExceededException": {
+      "type": "structure",
+      "members": {
+        "Message": {
+          "target": "com.amazonaws.cloudhsmv2#errorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The request was rejected because it exceeds an CloudHSM limit.</p>",
         "smithy.api#error": "client"
       }
     },
@@ -1386,6 +1437,12 @@
             "smithy.api#documentation": "<p>The type of HSM that the cluster contains.</p>"
           }
         },
+        "HsmTypeRollbackExpiration": {
+          "target": "com.amazonaws.cloudhsmv2#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp until when the cluster can be rolled back to its original HSM type.</p>"
+          }
+        },
         "PreCoPassword": {
           "target": "com.amazonaws.cloudhsmv2#PreCoPassword",
           "traits": {
@@ -1428,6 +1485,12 @@
             "smithy.api#documentation": "<p>The identifier (ID) of the virtual private cloud (VPC) that contains the\n      cluster.</p>"
           }
         },
+        "NetworkType": {
+          "target": "com.amazonaws.cloudhsmv2#NetworkType",
+          "traits": {
+            "smithy.api#documentation": "<p>The cluster's NetworkType can be IPv4 (the default) or DUALSTACK.\n        The IPv4 NetworkType restricts communication between your application and the hardware security modules (HSMs) to the IPv4 protocol only. The DUALSTACK NetworkType enables communication over both IPv4 and IPv6 protocols.\n        To use DUALSTACK, configure your virtual private cloud (VPC) and subnets to support both IPv4 and IPv6.\n        This configuration involves adding IPv6 Classless Inter-Domain Routing (CIDR) blocks to the existing IPv4 CIDR blocks in your subnets.\n        The NetworkType you choose affects the network addressing options for your cluster. DUALSTACK provides more flexibility by supporting both IPv4 and IPv6 communication.</p>"
+          }
+        },
         "Certificates": {
           "target": "com.amazonaws.cloudhsmv2#Certificates",
           "traits": {
@@ -1439,16 +1502,39 @@
           "traits": {
             "smithy.api#documentation": "<p>The list of tags for the cluster.</p>"
           }
+        },
+        "Mode": {
+          "target": "com.amazonaws.cloudhsmv2#ClusterMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The mode of the cluster.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about an AWS CloudHSM cluster.</p>"
+        "smithy.api#documentation": "<p>Contains information about an CloudHSM cluster.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#ClusterId": {
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^cluster-[2-7a-zA-Z]{11,16}$"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#ClusterMode": {
+      "type": "enum",
+      "members": {
+        "FIPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FIPS"
+          }
+        },
+        "NON_FIPS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "NON_FIPS"
+          }
+        }
       }
     },
     "com.amazonaws.cloudhsmv2#ClusterState": {
@@ -1488,6 +1574,18 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "UPDATE_IN_PROGRESS"
+          }
+        },
+        "MODIFY_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "MODIFY_IN_PROGRESS"
+          }
+        },
+        "ROLLBACK_IN_PROGRESS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ROLLBACK_IN_PROGRESS"
           }
         },
         "DELETE_IN_PROGRESS": {
@@ -1554,7 +1652,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Copy an AWS CloudHSM cluster backup to a different region.</p>"
+        "smithy.api#documentation": "<p>Copy an CloudHSM cluster backup to a different region.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#CopyBackupToRegionRequest": {
@@ -1628,7 +1726,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new AWS CloudHSM cluster.</p>"
+        "smithy.api#documentation": "<p>Creates a new CloudHSM cluster.</p>\n         <p>\n            <b>Cross-account use:</b> Yes. To perform this operation with an CloudHSM backup in a different AWS account, specify the full backup \n    ARN in the value of the SourceBackupId parameter.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#CreateClusterRequest": {
@@ -1643,14 +1741,14 @@
         "HsmType": {
           "target": "com.amazonaws.cloudhsmv2#HsmType",
           "traits": {
-            "smithy.api#documentation": "<p>The type of HSM to use in the cluster. Currently the only allowed value is\n      <code>hsm1.medium</code>.</p>",
+            "smithy.api#documentation": "<p>The type of HSM to use in the cluster. The allowed values are\n      <code>hsm1.medium</code> and <code>hsm2m.medium</code>.</p>",
             "smithy.api#required": {}
           }
         },
         "SourceBackupId": {
-          "target": "com.amazonaws.cloudhsmv2#BackupId",
+          "target": "com.amazonaws.cloudhsmv2#BackupArn",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier (ID) of the cluster backup to restore. Use this value to restore the\n      cluster from a backup instead of creating a new cluster. To find the backup ID, use <a>DescribeBackups</a>.</p>"
+            "smithy.api#documentation": "<p>The identifier (ID) or the Amazon Resource Name (ARN) of the cluster backup to restore. Use this value to restore the\n      cluster from a backup instead of creating a new cluster. To find the backup ID or ARN, use <a>DescribeBackups</a>. <i>If using a backup in another account, the full ARN must be supplied.</i>\n         </p>"
           }
         },
         "SubnetIds": {
@@ -1660,10 +1758,22 @@
             "smithy.api#required": {}
           }
         },
+        "NetworkType": {
+          "target": "com.amazonaws.cloudhsmv2#NetworkType",
+          "traits": {
+            "smithy.api#documentation": "<p>The NetworkType to create a cluster with. The allowed values are\n          <code>IPV4</code> and <code>DUALSTACK</code>.\n      </p>"
+          }
+        },
         "TagList": {
           "target": "com.amazonaws.cloudhsmv2#TagList",
           "traits": {
             "smithy.api#documentation": "<p>Tags to apply to the CloudHSM cluster during creation.</p>"
+          }
+        },
+        "Mode": {
+          "target": "com.amazonaws.cloudhsmv2#ClusterMode",
+          "traits": {
+            "smithy.api#documentation": "<p>The mode to use in the cluster. The allowed values are\n      <code>FIPS</code> and <code>NON_FIPS</code>.</p>"
           }
         }
       },
@@ -1711,7 +1821,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM\n      cluster.</p>"
+        "smithy.api#documentation": "<p>Creates a new hardware security module (HSM) in the specified CloudHSM\n      cluster.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Service account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#CreateHsmRequest": {
@@ -1782,7 +1892,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes a specified AWS CloudHSM backup. A backup can be restored up to 7 days\n            after the DeleteBackup request is made. For more information on restoring a backup, see\n                <a>RestoreBackup</a>.</p>"
+        "smithy.api#documentation": "<p>Deletes a specified CloudHSM backup. A backup can be restored up to 7 days\n            after the DeleteBackup request is made. For more information on restoring a backup, see\n                <a>RestoreBackup</a>.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#DeleteBackupRequest": {
@@ -1843,7 +1953,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified AWS CloudHSM cluster. Before you can delete a cluster, you must\n      delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified CloudHSM cluster. Before you can delete a cluster, you must\n      delete all HSMs in the cluster. To see if the cluster contains any HSMs, use <a>DescribeClusters</a>. To delete an HSM, use <a>DeleteHsm</a>.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#DeleteClusterRequest": {
@@ -1901,7 +2011,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP\n      address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to\n      specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>"
+        "smithy.api#documentation": "<p>Deletes the specified HSM. To specify an HSM, you can use its identifier (ID), the IP\n      address of the HSM's elastic network interface (ENI), or the ID of the HSM's ENI. You need to\n      specify only one of these values. To find these values, use <a>DescribeClusters</a>.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM hsm in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#DeleteHsmRequest": {
@@ -1951,6 +2061,69 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.cloudhsmv2#DeleteResourcePolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudhsmv2#DeleteResourcePolicyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudhsmv2#DeleteResourcePolicyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p> Deletes an CloudHSM resource policy. Deleting a resource policy will result in the resource being unshared and removed from\n      any RAM resource shares. Deleting the resource policy attached to a backup will not impact any clusters created from that \n      backup.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#DeleteResourcePolicyRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource from which the policy will be removed. </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloudhsmv2#DeleteResourcePolicyResponse": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource from which the policy was deleted. </p>"
+          }
+        },
+        "Policy": {
+          "target": "com.amazonaws.cloudhsmv2#ResourcePolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy previously attached to the resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.cloudhsmv2#DescribeBackups": {
       "type": "operation",
       "input": {
@@ -1980,7 +2153,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets information about backups of AWS CloudHSM clusters.</p>\n         <p>This is a paginated operation, which means that each response might contain only a\n      subset of all the backups. When the response contains only a subset of backups, it includes a\n        <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code>\n      request to get more backups. When you receive a response with no <code>NextToken</code> (or an\n      empty or null value), that means there are no more backups to get.</p>",
+        "smithy.api#documentation": "<p>Gets information about backups of CloudHSM clusters. Lists either the backups you own or the backups shared with you when the Shared parameter is true.</p>\n         <p>This is a paginated operation, which means that each response might contain only a\n      subset of all the backups. When the response contains only a subset of backups, it includes a\n        <code>NextToken</code> value. Use this value in a subsequent <code>DescribeBackups</code>\n      request to get more backups. When you receive a response with no <code>NextToken</code> (or an\n      empty or null value), that means there are no more backups to get.</p>\n         <p>\n            <b>Cross-account use:</b> Yes. Customers can describe backups in other Amazon Web Services accounts that are shared with them.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -2007,6 +2180,12 @@
           "target": "com.amazonaws.cloudhsmv2#Filters",
           "traits": {
             "smithy.api#documentation": "<p>One or more filters to limit the items returned in the response.</p>\n         <p>Use the <code>backupIds</code> filter to return only the specified backups. Specify\n      backups by their backup identifier (ID).</p>\n         <p>Use the <code>sourceBackupIds</code> filter to return only the backups created from a\n      source backup. The <code>sourceBackupID</code> of a source backup is returned by the <a>CopyBackupToRegion</a> operation.</p>\n         <p>Use the <code>clusterIds</code> filter to return only the backups for the specified\n      clusters. Specify clusters by their cluster identifier (ID).</p>\n         <p>Use the <code>states</code> filter to return only backups that match the specified\n      state.</p>\n         <p>Use the <code>neverExpires</code> filter to return backups filtered by the value in the\n        <code>neverExpires</code> parameter. <code>True</code> returns all backups exempt from the\n      backup retention policy. <code>False</code> returns all backups with a backup retention policy\n      defined at the cluster.</p>"
+          }
+        },
+        "Shared": {
+          "target": "com.amazonaws.cloudhsmv2#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Describe backups that are shared with you.</p>\n         <note>\n            <p>By default when using this option, the command returns backups that have been shared using a standard Resource Access Manager \n    resource share. In order for a backup that was shared using the PutResourcePolicy command to be returned, the share must be promoted to a \n    standard resource share using the RAM <a href=\"https://docs.aws.amazon.com/cli/latest/reference/ram/promote-resource-share-created-from-policy.html\">PromoteResourceShareCreatedFromPolicy</a> API operation.\n\n    For more information about sharing backups, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide.</p>\n         </note>"
           }
         },
         "SortAscending": {
@@ -2066,12 +2245,25 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets information about AWS CloudHSM clusters.</p>\n         <p>This is a paginated operation, which means that each response might contain only a\n      subset of all the clusters. When the response contains only a subset of clusters, it includes\n      a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>\n      request to get more clusters. When you receive a response with no <code>NextToken</code> (or\n      an empty or null value), that means there are no more clusters to get.</p>",
+        "smithy.api#documentation": "<p>Gets information about CloudHSM clusters.</p>\n         <p>This is a paginated operation, which means that each response might contain only a\n      subset of all the clusters. When the response contains only a subset of clusters, it includes\n      a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>\n      request to get more clusters. When you receive a response with no <code>NextToken</code> (or\n      an empty or null value), that means there are no more clusters to get.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on CloudHSM clusters in a different Amazon Web Services account.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
           "pageSize": "MaxResults"
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "DescribeClustersSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.cloudhsmv2#DescribeClustersRequest": {
@@ -2186,6 +2378,69 @@
       },
       "value": {
         "target": "com.amazonaws.cloudhsmv2#Strings"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 30
+        }
+      }
+    },
+    "com.amazonaws.cloudhsmv2#GetResourcePolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudhsmv2#GetResourcePolicyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudhsmv2#GetResourcePolicyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p> Retrieves the resource policy document attached to a given resource. </p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#GetResourcePolicyRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource to which a policy is attached.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloudhsmv2#GetResourcePolicyResponse": {
+      "type": "structure",
+      "members": {
+        "Policy": {
+          "target": "com.amazonaws.cloudhsmv2#ResourcePolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy attached to a resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
       }
     },
     "com.amazonaws.cloudhsmv2#Hsm": {
@@ -2221,11 +2476,23 @@
             "smithy.api#documentation": "<p>The IP address of the HSM's elastic network interface (ENI).</p>"
           }
         },
+        "EniIpV6": {
+          "target": "com.amazonaws.cloudhsmv2#IpV6Address",
+          "traits": {
+            "smithy.api#documentation": "<p>The IPv6 address (if any) of the HSM's elastic network interface (ENI).</p>"
+          }
+        },
         "HsmId": {
           "target": "com.amazonaws.cloudhsmv2#HsmId",
           "traits": {
             "smithy.api#documentation": "<p>The HSM's identifier (ID).</p>",
             "smithy.api#required": {}
+          }
+        },
+        "HsmType": {
+          "target": "com.amazonaws.cloudhsmv2#HsmType",
+          "traits": {
+            "smithy.api#documentation": "<p>The type of HSM.</p>"
           }
         },
         "State": {
@@ -2242,7 +2509,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains information about a hardware security module (HSM) in an AWS CloudHSM\n      cluster.</p>"
+        "smithy.api#documentation": "<p>Contains information about a hardware security module (HSM) in an CloudHSM\n      cluster.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#HsmId": {
@@ -2289,7 +2556,11 @@
     "com.amazonaws.cloudhsmv2#HsmType": {
       "type": "string",
       "traits": {
-        "smithy.api#pattern": "^(hsm1\\.medium)$"
+        "smithy.api#length": {
+          "min": 0,
+          "max": 32
+        },
+        "smithy.api#pattern": "^((p|)hsm[0-9][a-z.]*\\.[a-zA-Z]+)$"
       }
     },
     "com.amazonaws.cloudhsmv2#Hsms": {
@@ -2324,7 +2595,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Claims an AWS CloudHSM cluster by submitting the cluster certificate issued by your\n      issuing certificate authority (CA) and the CA's root certificate. Before you can claim a\n      cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.\n      To get the cluster's CSR, use <a>DescribeClusters</a>.</p>"
+        "smithy.api#documentation": "<p>Claims an CloudHSM cluster by submitting the cluster certificate issued by your\n      issuing certificate authority (CA) and the CA's root certificate. Before you can claim a\n      cluster, you must sign the cluster's certificate signing request (CSR) with your issuing CA.\n      To get the cluster's CSR, use <a>DescribeClusters</a>.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#InitializeClusterRequest": {
@@ -2382,6 +2653,15 @@
         "smithy.api#pattern": "^\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}$"
       }
     },
+    "com.amazonaws.cloudhsmv2#IpV6Address": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
     "com.amazonaws.cloudhsmv2#ListTags": {
       "type": "operation",
       "input": {
@@ -2411,7 +2691,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Gets a list of tags for the specified AWS CloudHSM cluster.</p>\n         <p>This is a paginated operation, which means that each response might contain only a\n      subset of all the tags. When the response contains only a subset of tags, it includes a\n      <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to\n      get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null\n      value), that means there are no more tags to get.</p>",
+        "smithy.api#documentation": "<p>Gets a list of tags for the specified CloudHSM cluster.</p>\n         <p>This is a paginated operation, which means that each response might contain only a\n      subset of all the tags. When the response contains only a subset of tags, it includes a\n      <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to\n      get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null\n      value), that means there are no more tags to get.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>",
         "smithy.api#paginated": {
           "inputToken": "NextToken",
           "outputToken": "NextToken",
@@ -2502,7 +2782,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Modifies attributes for AWS CloudHSM backup.</p>"
+        "smithy.api#documentation": "<p>Modifies attributes for CloudHSM backup.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#ModifyBackupAttributesRequest": {
@@ -2564,17 +2844,22 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Modifies AWS CloudHSM cluster.</p>"
+        "smithy.api#documentation": "<p>Modifies CloudHSM cluster.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#ModifyClusterRequest": {
       "type": "structure",
       "members": {
+        "HsmType": {
+          "target": "com.amazonaws.cloudhsmv2#HsmType",
+          "traits": {
+            "smithy.api#documentation": "<p>The desired HSM type of the cluster.</p>"
+          }
+        },
         "BackupRetentionPolicy": {
           "target": "com.amazonaws.cloudhsmv2#BackupRetentionPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>A policy that defines how the service retains backups.</p>",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "<p>A policy that defines how the service retains backups.</p>"
           }
         },
         "ClusterId": {
@@ -2600,6 +2885,23 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.cloudhsmv2#NetworkType": {
+      "type": "enum",
+      "members": {
+        "IPV4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "IPV4"
+          }
+        },
+        "DUALSTACK": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "DUALSTACK"
+          }
+        }
+      }
+    },
     "com.amazonaws.cloudhsmv2#NextToken": {
       "type": "string",
       "traits": {
@@ -2619,6 +2921,75 @@
         }
       }
     },
+    "com.amazonaws.cloudhsmv2#PutResourcePolicy": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.cloudhsmv2#PutResourcePolicyRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.cloudhsmv2#PutResourcePolicyResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmAccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmInternalFailureException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmServiceException"
+        }
+      ],
+      "traits": {
+        "smithy.api#documentation": "<p>Creates or updates an CloudHSM resource policy. A resource policy helps you to define the IAM entity \n    (for example, an Amazon Web Services account) that can manage your CloudHSM resources. The following resources support \n    CloudHSM resource policies: </p>\n         <ul>\n            <li>\n               <p> Backup - The resource policy allows you to describe the backup and restore a cluster from the backup in another Amazon Web Services account.</p>\n            </li>\n         </ul>\n         <p>In order to share a backup, it must be in a 'READY' state and you must own it.</p>\n         <important>\n            <p>While you can share a backup using the CloudHSM PutResourcePolicy operation, we recommend using Resource Access Manager\n      (RAM) instead. Using RAM provides multiple benefits as it creates the policy for you, allows multiple resources to be shared at\n      one time, and increases the discoverability of shared resources. If you use PutResourcePolicy and want consumers to be able to\n      describe the backups you share with them, you must promote the backup to a standard RAM\n      Resource Share using the RAM PromoteResourceShareCreatedFromPolicy API operation.\n\n      For more information, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide</p>\n         </important>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#PutResourcePolicyRequest": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource to which you want to attach a policy. </p>"
+          }
+        },
+        "Policy": {
+          "target": "com.amazonaws.cloudhsmv2#ResourcePolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy you want to associate with a resource. </p>\n         <p>For an example policy, see <a href=\"https://docs.aws.amazon.com/cloudhsm/latest/userguide/sharing.html\"> Working with shared backups</a> in the CloudHSM User Guide</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.cloudhsmv2#PutResourcePolicyResponse": {
+      "type": "structure",
+      "members": {
+        "ResourceArn": {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmArn",
+          "traits": {
+            "smithy.api#documentation": "<p>Amazon Resource Name (ARN) of the resource to which a policy is attached.</p>"
+          }
+        },
+        "Policy": {
+          "target": "com.amazonaws.cloudhsmv2#ResourcePolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>The policy attached to a resource.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.cloudhsmv2#Region": {
       "type": "string",
       "traits": {
@@ -2629,6 +3000,15 @@
       "type": "string",
       "traits": {
         "smithy.api#pattern": "^(?:cluster|backup)-[2-7a-zA-Z]{11,16}$"
+      }
+    },
+    "com.amazonaws.cloudhsmv2#ResourcePolicy": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 20000
+        }
       }
     },
     "com.amazonaws.cloudhsmv2#RestoreBackup": {
@@ -2657,7 +3037,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Restores a specified AWS CloudHSM backup that is in the\n                <code>PENDING_DELETION</code> state. For mor information on deleting a backup, see\n                <a>DeleteBackup</a>.</p>"
+        "smithy.api#documentation": "<p>Restores a specified CloudHSM backup that is in the\n                <code>PENDING_DELETION</code> state. For more information on deleting a backup, see\n                <a>DeleteBackup</a>.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM backup in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#RestoreBackupRequest": {
@@ -2807,6 +3187,9 @@
           "target": "com.amazonaws.cloudhsmv2#CloudHsmInvalidRequestException"
         },
         {
+          "target": "com.amazonaws.cloudhsmv2#CloudHsmResourceLimitExceededException"
+        },
+        {
           "target": "com.amazonaws.cloudhsmv2#CloudHsmResourceNotFoundException"
         },
         {
@@ -2817,7 +3200,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Adds or overwrites one or more tags for the specified AWS CloudHSM cluster.</p>"
+        "smithy.api#documentation": "<p>Adds or overwrites one or more tags for the specified CloudHSM cluster.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#TagResourceRequest": {
@@ -2891,7 +3274,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes the specified tag or tags from the specified AWS CloudHSM cluster.</p>"
+        "smithy.api#documentation": "<p>Removes the specified tag or tags from the specified CloudHSM cluster.</p>\n         <p>\n            <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>"
       }
     },
     "com.amazonaws.cloudhsmv2#UntagResourceRequest": {

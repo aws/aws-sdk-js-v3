@@ -10,13 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListResourceServersRequest, ListResourceServersResponse } from "../models/models_0";
+import { ListResourceServersRequest, ListResourceServersResponse } from "../models/models_1";
 import { de_ListResourceServersCommand, se_ListResourceServersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface ListResourceServersCommandInput extends ListResourceServersRequ
 export interface ListResourceServersCommandOutput extends ListResourceServersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the resource servers for a user pool.</p>
+ * <p>Given a user pool ID, returns all resource servers and their details. For more
+ *             information about resource servers, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-define-resource-servers.html">Access control with resource servers</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -111,6 +113,7 @@ export interface ListResourceServersCommandOutput extends ListResourceServersRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListResourceServersCommand extends $Command
@@ -121,9 +124,7 @@ export class ListResourceServersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +136,16 @@ export class ListResourceServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceServersCommand)
   .de(de_ListResourceServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceServersRequest;
+      output: ListResourceServersResponse;
+    };
+    sdk: {
+      input: ListResourceServersCommandInput;
+      output: ListResourceServersCommandOutput;
+    };
+  };
+}

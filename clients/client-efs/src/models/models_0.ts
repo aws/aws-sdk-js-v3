@@ -26,7 +26,7 @@ export class AccessPointAlreadyExists extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   AccessPointId: string | undefined;
   /**
@@ -85,7 +85,7 @@ export interface PosixUser {
    * <p>Secondary POSIX group IDs used for all file system operations using this access point.</p>
    * @public
    */
-  SecondaryGids?: number[];
+  SecondaryGids?: number[] | undefined;
 }
 
 /**
@@ -124,10 +124,11 @@ export interface CreationInfo {
 }
 
 /**
- * <p>Specifies the directory on the Amazon EFS file system that the access point provides access to.
- *       The access point exposes the specified file system path as
- *       the root directory of your file system to applications using the access point.
- *       NFS clients using the access point can only access data in the access point's <code>RootDirectory</code> and it's subdirectories.</p>
+ * <p>Specifies the directory on the Amazon EFS file system that the access point
+ *       provides access to. The access point exposes the specified file system path as the root
+ *       directory of your file system to applications using the access point. NFS clients using the
+ *       access point can only access data in the access point's <code>RootDirectory</code> and its
+ *       subdirectories.</p>
  * @public
  */
 export interface RootDirectory {
@@ -138,7 +139,7 @@ export interface RootDirectory {
    *       the <code>CreationInfo</code>.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 
   /**
    * <p>(Optional) Specifies the POSIX IDs and permissions to apply to the access point's
@@ -152,7 +153,7 @@ export interface RootDirectory {
    *          </important>
    * @public
    */
-  CreationInfo?: CreationInfo;
+  CreationInfo?: CreationInfo | undefined;
 }
 
 /**
@@ -183,63 +184,64 @@ export interface AccessPointDescription {
    * <p>The opaque string specified in the request to ensure idempotent creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the access point. This is the value of the <code>Name</code> tag.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The tags associated with the access point, presented as an array of Tag objects.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the access point, assigned by Amazon EFS.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 
   /**
-   * <p>The  unique Amazon Resource Name (ARN) associated with the access point.</p>
+   * <p>The unique Amazon Resource Name (ARN) associated with the access
+   *       point.</p>
    * @public
    */
-  AccessPointArn?: string;
+  AccessPointArn?: string | undefined;
 
   /**
    * <p>The ID of the EFS file system that the access point applies to.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>The full POSIX identity, including the user ID, group ID, and secondary group IDs on the access point that is used for all file operations by
    *       NFS clients using the access point.</p>
    * @public
    */
-  PosixUser?: PosixUser;
+  PosixUser?: PosixUser | undefined;
 
   /**
    * <p>The directory on the EFS file system that the access point exposes as the root
    *       directory to NFS clients using the access point.</p>
    * @public
    */
-  RootDirectory?: RootDirectory;
+  RootDirectory?: RootDirectory | undefined;
 
   /**
    * <p>Identifies the Amazon Web Services account that owns the access point resource.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>Identifies the lifecycle phase of the access point.</p>
    * @public
    */
-  LifeCycleState?: LifeCycleState;
+  LifeCycleState?: LifeCycleState | undefined;
 }
 
 /**
@@ -265,7 +267,7 @@ export class AccessPointLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -304,7 +306,7 @@ export class AccessPointNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -334,7 +336,7 @@ export class AvailabilityZonesMismatch extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -344,7 +346,7 @@ export class AvailabilityZonesMismatch extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -428,7 +430,7 @@ export interface BackupPolicyDescription {
    *       turned on or off.</p>
    * @public
    */
-  BackupPolicy?: BackupPolicy;
+  BackupPolicy?: BackupPolicy | undefined;
 }
 
 /**
@@ -454,7 +456,7 @@ export class BadRequest extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -482,7 +484,7 @@ export class ConflictException extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -492,7 +494,7 @@ export class ConflictException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -517,7 +519,7 @@ export interface CreateAccessPointRequest {
    *       creation.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Creates tags associated with the access point. Each tag is a key-value pair, each key must be unique. For more
@@ -525,7 +527,7 @@ export interface CreateAccessPointRequest {
    *       in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the EFS file system that the access point provides access to.</p>
@@ -538,7 +540,7 @@ export interface CreateAccessPointRequest {
    *       group applied to all file system requests made using the access point.</p>
    * @public
    */
-  PosixUser?: PosixUser;
+  PosixUser?: PosixUser | undefined;
 
   /**
    * <p>Specifies the directory on the EFS file system that the access point exposes as
@@ -552,7 +554,7 @@ export interface CreateAccessPointRequest {
    *       using the access point will fail.</p>
    * @public
    */
-  RootDirectory?: RootDirectory;
+  RootDirectory?: RootDirectory | undefined;
 }
 
 /**
@@ -578,7 +580,7 @@ export class FileSystemNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -616,7 +618,7 @@ export class IncorrectFileSystemLifeCycleState extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -654,7 +656,7 @@ export class InternalServerError extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -684,7 +686,7 @@ export class ThrottlingException extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -694,7 +696,7 @@ export class ThrottlingException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -748,10 +750,10 @@ export interface CreateFileSystemRequest {
    *       creation.</p>
    * @public
    */
-  CreationToken?: string;
+  CreationToken?: string | undefined;
 
   /**
-   * <p>The Performance mode of the file system. We recommend <code>generalPurpose</code>
+   * <p>The performance mode of the file system. We recommend <code>generalPurpose</code>
    *       performance mode for all file systems. File systems using the <code>maxIO</code> performance
    *       mode can scale to higher levels of aggregate throughput and operations per second with a
    *       tradeoff of slightly higher latencies for most file operations. The performance mode
@@ -763,7 +765,7 @@ export interface CreateFileSystemRequest {
    *          <p>Default is <code>generalPurpose</code>.</p>
    * @public
    */
-  PerformanceMode?: PerformanceMode;
+  PerformanceMode?: PerformanceMode | undefined;
 
   /**
    * <p>A Boolean value that, if true, creates an encrypted file system. When creating an
@@ -773,7 +775,7 @@ export interface CreateFileSystemRequest {
    *     </p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of the KMS key that you want to use to protect the encrypted file
@@ -805,7 +807,7 @@ export interface CreateFileSystemRequest {
    *          </important>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Specifies the throughput mode for the file system. The mode can be <code>bursting</code>,
@@ -819,31 +821,30 @@ export interface CreateFileSystemRequest {
    *          <p>Default is <code>bursting</code>.</p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>The throughput, measured in mebibytes per second (MiBps), that you want to provision for a
    *       file system that you're creating. Required if <code>ThroughputMode</code> is set to
    *         <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper limit depending on
-   *       Region. To increase this limit, contact Amazon Web Services Support. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas
+   *       Region. To increase this limit, contact Amazon Web ServicesSupport. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS quotas
    *         that you can increase</a> in the <i>Amazon EFS User
    *       Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughputInMibps?: number;
+  ProvisionedThroughputInMibps?: number | undefined;
 
   /**
-   * <p>Used to create a One Zone file system. It specifies the Amazon Web Services
+   * <p>For One Zone file systems, specify the Amazon Web Services
    *       Availability Zone in which to create the file system. Use the format <code>us-east-1a</code> to
    *       specify the  Availability Zone. For more information about One Zone file systems, see
-   *         <a href="https://docs.aws.amazon.com/efs/latest/ug/storage-classes.html">Using EFS storage
-   *         classes</a> in the <i>Amazon EFS User Guide</i>.</p>
+   *       <a href="https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html#file-system-type">EFS file system types</a> in the <i>Amazon EFS User Guide</i>.</p>
    *          <note>
    *             <p>One Zone file systems are not available in all Availability Zones in Amazon Web Services Regions where Amazon EFS is available.</p>
    *          </note>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>Specifies whether automatic backups are enabled on the file system that you are creating.
@@ -858,7 +859,7 @@ export interface CreateFileSystemRequest {
    *          </note>
    * @public
    */
-  Backup?: boolean;
+  Backup?: boolean | undefined;
 
   /**
    * <p>Use to create one or more tags associated with the file system. Each
@@ -868,7 +869,7 @@ export interface CreateFileSystemRequest {
    *         in the <i>Amazon Web Services General Reference Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -894,7 +895,7 @@ export class FileSystemAlreadyExists extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   FileSystemId: string | undefined;
   /**
@@ -952,15 +953,15 @@ export interface FileSystemProtectionDescription {
    *             <li>
    *                <p>
    *                   <code>REPLICATING</code> – The file system is being used as the destination
-   *           file system in a replication configuration. The file system is read-only and is only
-   *           modified only by EFS replication.</p>
+   *           file system in a replication configuration. The file system is read-only and is modified
+   *           only by EFS replication.</p>
    *             </li>
    *          </ul>
    *          <p>If the replication configuration is deleted, the file system's replication overwrite
    *       protection is re-enabled, the file system becomes writeable.</p>
    * @public
    */
-  ReplicationOverwriteProtection?: ReplicationOverwriteProtection;
+  ReplicationOverwriteProtection?: ReplicationOverwriteProtection | undefined;
 }
 
 /**
@@ -985,28 +986,28 @@ export interface FileSystemSize {
    *       determined. The value is the integer number of seconds since 1970-01-01T00:00:00Z.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Infrequent Access storage
    *       class.</p>
    * @public
    */
-  ValueInIA?: number;
+  ValueInIA?: number | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Standard
    *       storage class.</p>
    * @public
    */
-  ValueInStandard?: number;
+  ValueInStandard?: number | undefined;
 
   /**
    * <p>The latest known metered size (in bytes) of data stored in the Archive
    *       storage class.</p>
    * @public
    */
-  ValueInArchive?: number;
+  ValueInArchive?: number | undefined;
 }
 
 /**
@@ -1033,7 +1034,8 @@ export interface FileSystemDescription {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) for the EFS file system, in the format
+   * <p>The Amazon Resource Name (ARN) for the EFS file system, in the
+   *       format
    *           <code>arn:aws:elasticfilesystem:<i>region</i>:<i>account-id</i>:file-system/<i>file-system-id</i>
    *             </code>.
    *       Example with sample data:
@@ -1041,7 +1043,7 @@ export interface FileSystemDescription {
    *          </p>
    * @public
    */
-  FileSystemArn?: string;
+  FileSystemArn?: string | undefined;
 
   /**
    * <p>The time that the file system was created, in seconds (since
@@ -1062,7 +1064,7 @@ export interface FileSystemDescription {
    *       the value in this field. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The current number of mount targets that the file system has. For more information, see <a>CreateMountTarget</a>.</p>
@@ -1085,7 +1087,7 @@ export interface FileSystemDescription {
   SizeInBytes: FileSystemSize | undefined;
 
   /**
-   * <p>The Performance mode of the file system.</p>
+   * <p>The performance mode of the file system.</p>
    * @public
    */
   PerformanceMode: PerformanceMode | undefined;
@@ -1094,13 +1096,13 @@ export interface FileSystemDescription {
    * <p>A Boolean value that, if true, indicates that the file system is encrypted.</p>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The ID of an KMS key used to protect the encrypted file system.</p>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
    * <p>Displays the file system's throughput mode. For more information, see
@@ -1109,14 +1111,14 @@ export interface FileSystemDescription {
    *     </p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>The amount of provisioned throughput, measured in MiBps, for the file system. Valid for
    *       file systems using <code>ThroughputMode</code> set to <code>provisioned</code>.</p>
    * @public
    */
-  ProvisionedThroughputInMibps?: number;
+  ProvisionedThroughputInMibps?: number | undefined;
 
   /**
    * <p>Describes the Amazon Web Services Availability Zone in which the file system is located, and is
@@ -1124,7 +1126,7 @@ export interface FileSystemDescription {
    *         classes</a> in the <i>Amazon EFS User Guide</i>.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>The unique and consistent identifier of the Availability Zone in which the file system is
@@ -1133,7 +1135,7 @@ export interface FileSystemDescription {
    *       it has the same location in every Amazon Web Services account.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The tags associated with the file system, presented as an array of <code>Tag</code>
@@ -1146,7 +1148,7 @@ export interface FileSystemDescription {
    * <p>Describes the protection on the file system. </p>
    * @public
    */
-  FileSystemProtection?: FileSystemProtectionDescription;
+  FileSystemProtection?: FileSystemProtectionDescription | undefined;
 }
 
 /**
@@ -1172,7 +1174,7 @@ export class FileSystemLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1214,7 +1216,7 @@ export class InsufficientThroughputCapacity extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1253,7 +1255,7 @@ export class ThroughputLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1291,7 +1293,7 @@ export class UnsupportedAvailabilityZone extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1308,6 +1310,21 @@ export class UnsupportedAvailabilityZone extends __BaseException {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const IpAddressType = {
+  DUAL_STACK: "DUAL_STACK",
+  IPV4_ONLY: "IPV4_ONLY",
+  IPV6_ONLY: "IPV6_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type IpAddressType = (typeof IpAddressType)[keyof typeof IpAddressType];
+
+/**
  * <p></p>
  * @public
  */
@@ -1319,24 +1336,57 @@ export interface CreateMountTargetRequest {
   FileSystemId: string | undefined;
 
   /**
-   * <p>The ID of the subnet to add the mount target in. For One Zone  file systems, use the
-   *       subnet that is associated with the file system's Availability Zone.</p>
+   * <p>The ID of the subnet to add the mount target in. For One Zone file systems, use the subnet
+   *       that is associated with the file system's Availability Zone.</p>
    * @public
    */
   SubnetId: string | undefined;
 
   /**
-   * <p>Valid IPv4 address within the address range of the specified subnet.</p>
+   * <p>If the IP address type for the mount target is IPv4, then specify the IPv4 address within
+   *       the address range of the specified subnet.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 
   /**
-   * <p>Up to five VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be
-   *       for the same VPC as subnet specified.</p>
+   * <p>If the IP address type for the mount target is IPv6, then specify the IPv6 address within
+   *       the address range of the specified subnet.</p>
    * @public
    */
-  SecurityGroups?: string[];
+  Ipv6Address?: string | undefined;
+
+  /**
+   * <p>Specify the type of IP address of the mount target you are creating. Options are IPv4,
+   *       dual stack, or IPv6. If you don’t specify an IpAddressType, then IPv4 is used.</p>
+   *          <ul>
+   *             <li>
+   *                <p>IPV4_ONLY – Create mount target with IPv4 only subnet or dual-stack subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>DUAL_STACK – Create mount target with dual-stack subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>IPV6_ONLY – Create mount target with IPv6 only subnet.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Creating IPv6 mount target only ENI in dual-stack subnet is not supported.</p>
+   *          </note>
+   * @public
+   */
+  IpAddressType?: IpAddressType | undefined;
+
+  /**
+   * <p>VPC security group IDs, of the form <code>sg-xxxxxxxx</code>. These must be for the same
+   *       VPC as the subnet specified. The maximum number of security groups depends on account quota.
+   *       For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
+   *       in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
+   *       table).
+   *     </p>
+   * @public
+   */
+  SecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -1362,7 +1412,7 @@ export class IpAddressInUse extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1401,7 +1451,7 @@ export class MountTargetConflict extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1426,7 +1476,7 @@ export interface MountTargetDescription {
    * <p>Amazon Web Services account ID that owns the resource.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>System-assigned mount target ID.</p>
@@ -1456,41 +1506,49 @@ export interface MountTargetDescription {
    * <p>Address at which the file system can be mounted by using the mount target.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
+
+  /**
+   * <p>The IPv6 address for the mount target.</p>
+   * @public
+   */
+  Ipv6Address?: string | undefined;
 
   /**
    * <p>The ID of the network interface that Amazon EFS created when it created the mount
    *       target.</p>
    * @public
    */
-  NetworkInterfaceId?: string;
+  NetworkInterfaceId?: string | undefined;
 
   /**
    * <p>The unique and consistent identifier of the Availability Zone that the mount target resides in.
-   *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it has the same location in every Amazon Web Services account.</p>
+   *       For example, <code>use1-az1</code> is an AZ ID for the us-east-1 Region and it
+   *       has the same location in every Amazon Web Services account.</p>
    * @public
    */
-  AvailabilityZoneId?: string;
+  AvailabilityZoneId?: string | undefined;
 
   /**
    * <p>The name of the Availability Zone in which the mount target is located. Availability Zones are
-   *       independently mapped to names for each Amazon Web Services account. For example, the Availability Zone
-   *       <code>us-east-1a</code> for your Amazon Web Services account might not be the same location as <code>us-east-1a</code> for another Amazon Web Services account.</p>
+   *       independently mapped to names for each Amazon Web Services account. For example, the
+   *       Availability Zone <code>us-east-1a</code> for your Amazon Web Services account might not be the
+   *       same location as <code>us-east-1a</code> for another Amazon Web Services account.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>The virtual private cloud (VPC) ID that the mount target is configured in.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 }
 
 /**
  * <p>The calling account has reached the limit for elastic network interfaces for the
  *             specific Amazon Web Services Region. Either delete some network interfaces or request
- *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon VPC Quotas</a>
+ *             that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
  *             in the <i>Amazon VPC User Guide</i> (see the <b>Network
  *                 interfaces per Region</b> entry in the <b>Network
  *                 interfaces</b> table). </p>
@@ -1514,7 +1572,7 @@ export class NetworkInterfaceLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1553,7 +1611,7 @@ export class NoFreeAddressesInSubnet extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1570,8 +1628,12 @@ export class NoFreeAddressesInSubnet extends __BaseException {
 }
 
 /**
- * <p>Returned if the size of <code>SecurityGroups</code> specified in the request is
- *             greater than five.</p>
+ * <p>Returned if the number of <code>SecurityGroups</code> specified in the request is
+ *             greater than the limit, which is based on account quota.  Either delete some security groups
+ *             or request that the account quota be raised. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/amazon-vpc-limits.html">Amazon VPC Quotas</a>
+ *             in the <i>Amazon VPC User Guide</i> (see the <b>Security Groups</b>
+ *             table).
+ *         </p>
  * @public
  */
 export class SecurityGroupLimitExceeded extends __BaseException {
@@ -1592,7 +1654,7 @@ export class SecurityGroupLimitExceeded extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1631,7 +1693,7 @@ export class SecurityGroupNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1670,7 +1732,7 @@ export class SubnetNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1689,21 +1751,52 @@ export class SubnetNotFound extends __BaseException {
 /**
  * <p>Describes the new or existing destination file system for the replication
  *       configuration.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If you want to replicate to a new file system, do not specify the File System ID
+ *           for the destination file system. Amazon EFS creates a new, empty file system.
+ *           For One Zone storage, specify the Availability Zone to create the file system in. To
+ *           use an Key Management Service key other than the default KMS key, then
+ *           specify it. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/create-replication.html">Configuring replication to new Amazon EFS file system</a> in the <i>Amazon EFS User
+ *                 Guide</i>.</p>
+ *                <note>
+ *                   <p>After the file system is created, you cannot change the KMS key or the performance mode.</p>
+ *                </note>
+ *             </li>
+ *             <li>
+ *                <p>If you want to replicate to an existing file system that's in the same account
+ *           as the source file system, then you need to
+ *           provide the ID or Amazon Resource Name (ARN) of the file system to which to replicate. The file system's replication
+ *           overwrite protection must be disabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/efs-replication#replicate-existing-destination">Replicating to
+ *             an existing file system</a> in the <i>Amazon EFS User
+ *               Guide</i>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you are replicating the file system to a file system that's in a different account than the
+ *         source file system (cross-account replication), you need to provide the ARN for the file system and the IAM role that allows Amazon EFS to perform
+ *           replication on the destination account. The file system's replication overwrite protection
+ *           must be disabled. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/cross-account-replication.html">Replicating across Amazon Web Services accounts</a> in the <i>Amazon EFS User
+ *           Guide</i>.</p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export interface DestinationToCreate {
   /**
-   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system.</p>
+   * <p>To create a file system that uses Regional storage, specify the Amazon Web Services Region in which to create the destination file system. The Region must be enabled
+   *       for the Amazon Web Services account that owns the source file system. For more information, see
+   *         <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General
+   *         Reference Reference Guide</i>.</p>
    * @public
    */
-  Region?: string;
+  Region?: string | undefined;
 
   /**
    * <p>To create a file system that uses One Zone storage, specify the name of the
    *       Availability Zone in which to create the destination file system.</p>
    * @public
    */
-  AvailabilityZoneName?: string;
+  AvailabilityZoneName?: string | undefined;
 
   /**
    * <p>Specify the Key Management Service (KMS) key that you want to use to
@@ -1715,7 +1808,7 @@ export interface DestinationToCreate {
    *             <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    *             </li>
    *             <li>
-   *                <p>ARN - The Amazon Resource Name (ARN) for the key, for example
+   *                <p>ARN - The ARN for the key, for example
    *             <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</p>
    *             </li>
    *             <li>
@@ -1729,15 +1822,30 @@ export interface DestinationToCreate {
    *          </ul>
    * @public
    */
-  KmsKeyId?: string;
+  KmsKeyId?: string | undefined;
 
   /**
-   * <p>The ID of the file system to use for the destination. The file system's replication
-   *       overwrite replication must be disabled. If you do not provide an ID, then EFS creates a new
-   *       file system for the replication destination.</p>
+   * <p>The ID or ARN of the file system to use for the destination.
+   *       For cross-account replication, this must be an  ARN. The file system's
+   *       replication overwrite replication must be disabled. If no ID or ARN is
+   *       specified, then a new file system is created. </p>
+   *          <note>
+   *             <p>When you initially configure replication to an existing file system, Amazon EFS
+   *         writes data to or removes existing data from the destination file system to match data in
+   *         the source file system. If you don't want to change data in the destination file system,
+   *         then you should replicate to a new file system instead. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/create-replication.html">https://docs.aws.amazon.com/efs/latest/ug/create-replication.html</a>.</p>
+   *          </note>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows
+   *         Amazon EFS to perform replication on its behalf. This is optional for same-account
+   *       replication and required for cross-account replication.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1782,24 +1890,10 @@ export type ReplicationStatus = (typeof ReplicationStatus)[keyof typeof Replicat
  */
 export interface Destination {
   /**
-   * <p>Describes the status of the destination EFS file system.</p>
-   *          <ul>
-   *             <li>
-   *                <p>The <code>Paused</code> state occurs as a result of opting out of the source or
-   *           destination Region after the replication configuration was created. To resume replication
-   *           for the file system, you need to again opt in to the Amazon Web Services Region. For more
-   *           information, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html#rande-manage-enable">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference
-   *             Guide</i>.</p>
-   *             </li>
-   *             <li>
-   *                <p>The <code>Error</code> state occurs when either the source or the destination file
-   *           system (or both) is in a failed state and is unrecoverable. For more information, see
-   *           <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html">Monitoring
-   *             replication status</a> in the <i>Amazon EFS User Guide</i>. You must delete the replication configuration, and then
-   *           restore the most recent backup of the failed file system (either the source or the
-   *           destination) to a new file system.</p>
-   *             </li>
-   *          </ul>
+   * <p>Describes the status of the replication configuration. For more information
+   *     about replication status, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html">Viewing
+   *       replication details</a> in the <i>Amazon EFS User Guide</i>.
+   *     </p>
    * @public
    */
   Status: ReplicationStatus | undefined;
@@ -1823,7 +1917,31 @@ export interface Destination {
    *       time might not be fully replicated.</p>
    * @public
    */
-  LastReplicatedTimestamp?: Date;
+  LastReplicatedTimestamp?: Date | undefined;
+
+  /**
+   * <p>ID of the Amazon Web Services account in which the destination file system resides.</p>
+   * @public
+   */
+  OwnerId?: string | undefined;
+
+  /**
+   * <p>Message that provides details about the <code>PAUSED</code> or <code>ERRROR</code> state
+   *       of the replication destination configuration. For more information
+   *       about replication status messages, see <a href="https://docs.aws.amazon.com/efs/latest/ug/awsbackup.html#restoring-backup-efsmonitoring-replication-status.html">Viewing
+   *         replication details</a> in the <i>Amazon EFS User Guide</i>.
+   *     </p>
+   * @public
+   */
+  StatusMessage?: string | undefined;
+
+  /**
+   * <p>Amazon Resource Name (ARN) of the IAM role in the source account that allows
+   *         Amazon EFS to perform replication on its behalf. This is optional for same-account
+   *       replication and required for cross-account replication.</p>
+   * @public
+   */
+  RoleArn?: string | undefined;
 }
 
 /**
@@ -1845,15 +1963,15 @@ export interface ReplicationConfigurationDescription {
   SourceFileSystemRegion: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the current source file system in the replication
-   *       configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the current source file system in the
+   *       replication configuration.</p>
    * @public
    */
   SourceFileSystemArn: string | undefined;
 
   /**
-   * <p>The Amazon Resource Name (ARN) of the original source EFS file system in the
-   *       replication configuration.</p>
+   * <p>The Amazon Resource Name (ARN) of the original source EFS file
+   *       system in the replication configuration.</p>
    * @public
    */
   OriginalSourceFileSystemArn: string | undefined;
@@ -1869,6 +1987,12 @@ export interface ReplicationConfigurationDescription {
    * @public
    */
   Destinations: Destination[] | undefined;
+
+  /**
+   * <p>ID of the Amazon Web Services account in which the source file system resides.</p>
+   * @public
+   */
+  SourceFileSystemOwnerId?: string | undefined;
 }
 
 /**
@@ -1883,7 +2007,7 @@ export class ReplicationNotFound extends __BaseException {
    * <p>ReplicationNotFound</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -1893,7 +2017,7 @@ export class ReplicationNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1931,7 +2055,7 @@ export class ValidationException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2012,7 +2136,7 @@ export class FileSystemInUse extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2075,7 +2199,7 @@ export class DependencyTimeout extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2114,7 +2238,7 @@ export class MountTargetNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2132,6 +2256,20 @@ export class MountTargetNotFound extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const DeletionMode = {
+  ALL_CONFIGURATIONS: "ALL_CONFIGURATIONS",
+  LOCAL_CONFIGURATION_ONLY: "LOCAL_CONFIGURATION_ONLY",
+} as const;
+
+/**
+ * @public
+ */
+export type DeletionMode = (typeof DeletionMode)[keyof typeof DeletionMode];
+
+/**
+ * @public
  */
 export interface DeleteReplicationConfigurationRequest {
   /**
@@ -2139,6 +2277,26 @@ export interface DeleteReplicationConfigurationRequest {
    * @public
    */
   SourceFileSystemId: string | undefined;
+
+  /**
+   * <p>When replicating across Amazon Web Services accounts or across Amazon Web Services Regions,
+   *       Amazon EFS deletes the replication configuration from both the source
+   *       and destination account or Region (<code>ALL_CONFIGURATIONS</code>) by default.
+   *       If there's a configuration or permissions issue that prevents Amazon EFS from deleting the
+   *       replication configuration from both sides, you can use the <code>LOCAL_CONFIGURATION_ONLY</code> mode
+   *       to delete the replication configuration from only the local side (the account
+   *        or Region from which the delete is performed). </p>
+   *          <note>
+   *             <p>Only use the <code>LOCAL_CONFIGURATION_ONLY</code> mode in the case that Amazon EFS is unable
+   *        to delete the replication configuration in both the source and destination account or Region.
+   *         Deleting the local configuration
+   *        leaves the configuration in the other account or Region unrecoverable.</p>
+   *             <p>Additionally, do not use this mode for same-account, same-region replication as doing so results in a
+   *         BadRequest exception error.</p>
+   *          </note>
+   * @public
+   */
+  DeletionMode?: DeletionMode | undefined;
 }
 
 /**
@@ -2169,7 +2327,7 @@ export interface DescribeAccessPointsRequest {
    *       The default value is 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>
@@ -2177,21 +2335,21 @@ export interface DescribeAccessPointsRequest {
    *       <code>NextMarker</code> in the subsequent request to fetch the next page of access point descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>(Optional) Specifies an EFS access point to describe in the response; mutually
    *       exclusive with <code>FileSystemId</code>.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 
   /**
    * <p>(Optional) If you provide a <code>FileSystemId</code>, EFS returns all access
    *       points for that file system; mutually exclusive with <code>AccessPointId</code>.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 }
 
 /**
@@ -2202,14 +2360,14 @@ export interface DescribeAccessPointsResponse {
    * <p>An array of access point descriptions.</p>
    * @public
    */
-  AccessPoints?: AccessPointDescription[];
+  AccessPoints?: AccessPointDescription[] | undefined;
 
   /**
    * <p>Present if there are more access points than returned in the response.
    *       You can use the NextMarker in the subsequent request to fetch the additional descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2221,7 +2379,7 @@ export interface DescribeAccountPreferencesRequest {
    *       Amazon Web Services account preferences if the response payload was paginated.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>(Optional) When retrieving account preferences,
@@ -2229,7 +2387,7 @@ export interface DescribeAccountPreferencesRequest {
    *       The default value is 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2270,13 +2428,13 @@ export interface ResourceIdPreference {
    *       characters) or <code>SHORT_ID</code> (8 characters).</p>
    * @public
    */
-  ResourceIdType?: ResourceIdType;
+  ResourceIdType?: ResourceIdType | undefined;
 
   /**
    * <p>Identifies the Amazon EFS resources to which the ID preference setting applies, <code>FILE_SYSTEM</code> and <code>MOUNT_TARGET</code>.</p>
    * @public
    */
-  Resources?: Resource[];
+  Resources?: Resource[] | undefined;
 }
 
 /**
@@ -2287,14 +2445,14 @@ export interface DescribeAccountPreferencesResponse {
    * <p>Describes the resource ID preference setting for the Amazon Web Services account associated with the user making the request, in the current Amazon Web Services Region.</p>
    * @public
    */
-  ResourceIdPreference?: ResourceIdPreference;
+  ResourceIdPreference?: ResourceIdPreference | undefined;
 
   /**
    * <p>Present if there are more records than returned in the response.
    *       You can use the <code>NextToken</code> in the subsequent request to fetch the additional descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2310,7 +2468,7 @@ export interface DescribeBackupPolicyRequest {
 }
 
 /**
- * <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ * <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
  * @public
  */
 export class PolicyNotFound extends __BaseException {
@@ -2321,7 +2479,7 @@ export class PolicyNotFound extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -2331,7 +2489,7 @@ export class PolicyNotFound extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2368,14 +2526,14 @@ export interface FileSystemPolicyDescription {
    *       applies.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>The JSON formatted <code>FileSystemPolicy</code> for the EFS file
    *       system.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -2389,7 +2547,7 @@ export interface DescribeFileSystemsRequest {
    *       </p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous
@@ -2397,21 +2555,21 @@ export interface DescribeFileSystemsRequest {
    *       list from where the returning call had left off. </p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>(Optional) Restricts the list to the file system with this creation token (String). You
    *       specify a creation token when you create an Amazon EFS file system.</p>
    * @public
    */
-  CreationToken?: string;
+  CreationToken?: string | undefined;
 
   /**
    * <p>(Optional) ID of the file system whose description you want to retrieve
    *       (String).</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 }
 
 /**
@@ -2422,20 +2580,20 @@ export interface DescribeFileSystemsResponse {
    * <p>Present if provided by caller in the request (String).</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>An array of file system descriptions.</p>
    * @public
    */
-  FileSystems?: FileSystemDescription[];
+  FileSystems?: FileSystemDescription[] | undefined;
 
   /**
    * <p>Present if there are more file systems than returned in the response (String). You can
    *       use the <code>NextMarker</code> in the subsequent request to fetch the descriptions.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -2507,7 +2665,7 @@ export type TransitionToPrimaryStorageClassRules =
   (typeof TransitionToPrimaryStorageClassRules)[keyof typeof TransitionToPrimaryStorageClassRules];
 
 /**
- * <p>Describes a policy used by Lifecycle management that specifies when to transition files
+ * <p>Describes a policy used by lifecycle management that specifies when to transition files
  *       into and out of storage classes. For more information, see <a href="https://docs.aws.amazon.com/efs/latest/ug/lifecycle-management-efs.html">Managing file system
  *       storage</a>.</p>
  *          <note>
@@ -2528,7 +2686,7 @@ export interface LifecyclePolicy {
    *       don't count as file access events.</p>
    * @public
    */
-  TransitionToIA?: TransitionToIARules;
+  TransitionToIA?: TransitionToIARules | undefined;
 
   /**
    * <p>Whether to move files back to primary (Standard) storage after they are
@@ -2536,16 +2694,16 @@ export interface LifecyclePolicy {
    *       listing the contents of a directory don't count as file access events.</p>
    * @public
    */
-  TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules;
+  TransitionToPrimaryStorageClass?: TransitionToPrimaryStorageClassRules | undefined;
 
   /**
    * <p>The number of days after files were last accessed in primary storage (the
-   *       Standard storage class) files at which to move them to Archive
+   *       Standard storage class) at which to move them to Archive
    *       storage. Metadata operations such as listing the contents of a directory don't count as
    *       file access events.</p>
    * @public
    */
-  TransitionToArchive?: TransitionToArchiveRules;
+  TransitionToArchive?: TransitionToArchiveRules | undefined;
 }
 
 /**
@@ -2557,7 +2715,7 @@ export interface LifecycleConfigurationDescription {
    *       policy per file system.</p>
    * @public
    */
-  LifecyclePolicies?: LifecyclePolicy[];
+  LifecyclePolicies?: LifecyclePolicy[] | undefined;
 }
 
 /**
@@ -2571,7 +2729,7 @@ export interface DescribeMountTargetsRequest {
    *       10, and other values are ignored. The response is paginated at 100 per page if you have more than 100 mount targets.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>(Optional) Opaque pagination token returned from a previous
@@ -2579,28 +2737,28 @@ export interface DescribeMountTargetsRequest {
    *       the list from where the previous returning call left off.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>(Optional) ID of the file system whose mount targets you want to list (String). It must
    *       be included in your request if an <code>AccessPointId</code> or <code>MountTargetId</code> is not included. Accepts either a file system ID or ARN as input.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>(Optional) ID of the mount target that you want to have described (String). It must be
    *       included in your request if <code>FileSystemId</code> is not included. Accepts either a mount target ID or ARN as input.</p>
    * @public
    */
-  MountTargetId?: string;
+  MountTargetId?: string | undefined;
 
   /**
    * <p>(Optional) The ID of the access point whose mount targets that you want to list. It must be included in your request if a
    *       <code>FileSystemId</code> or <code>MountTargetId</code> is not included in your request. Accepts either an access point ID or ARN as input.</p>
    * @public
    */
-  AccessPointId?: string;
+  AccessPointId?: string | undefined;
 }
 
 /**
@@ -2613,14 +2771,14 @@ export interface DescribeMountTargetsResponse {
    *       this field.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returns the file system's mount targets as an array of
    *         <code>MountTargetDescription</code> objects.</p>
    * @public
    */
-  MountTargets?: MountTargetDescription[];
+  MountTargets?: MountTargetDescription[] | undefined;
 
   /**
    * <p>If a value is present, there are more mount targets to return. In a subsequent request,
@@ -2628,7 +2786,7 @@ export interface DescribeMountTargetsResponse {
    *       of mount targets.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -2677,7 +2835,7 @@ export class IncorrectMountTargetState extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2699,10 +2857,11 @@ export class IncorrectMountTargetState extends __BaseException {
 export interface DescribeReplicationConfigurationsRequest {
   /**
    * <p>You can retrieve the replication configuration for a specific file system by providing its
-   *       file system ID.</p>
+   *       file system ID. For cross-account,cross-region replication, an account can only describe the replication
+   *       configuration for a file system in its own Region.</p>
    * @public
    */
-  FileSystemId?: string;
+  FileSystemId?: string | undefined;
 
   /**
    * <p>
@@ -2711,14 +2870,14 @@ export interface DescribeReplicationConfigurationsRequest {
    *       output.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>(Optional) To limit the number of objects returned in a response, you can specify the
    *         <code>MaxItems</code> parameter. The default value is 100. </p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2729,14 +2888,14 @@ export interface DescribeReplicationConfigurationsResponse {
    * <p>The collection of replication configurations that is returned.</p>
    * @public
    */
-  Replications?: ReplicationConfigurationDescription[];
+  Replications?: ReplicationConfigurationDescription[] | undefined;
 
   /**
    * <p>You can use the <code>NextToken</code> from the previous response in a subsequent
    *       request to fetch the additional descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2750,7 +2909,7 @@ export interface DescribeTagsRequest {
    *       100, and other values are ignored. The response is paginated at 100 per page if you have more than 100 tags.</p>
    * @public
    */
-  MaxItems?: number;
+  MaxItems?: number | undefined;
 
   /**
    * <p>(Optional) An opaque pagination token returned from a previous
@@ -2758,7 +2917,7 @@ export interface DescribeTagsRequest {
    *       from where the previous call left off.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>The ID of the file system whose tag set you want to retrieve.</p>
@@ -2777,7 +2936,7 @@ export interface DescribeTagsResponse {
    *       field.</p>
    * @public
    */
-  Marker?: string;
+  Marker?: string | undefined;
 
   /**
    * <p>Returns tags associated with the file system as an array of <code>Tag</code> objects.
@@ -2792,7 +2951,7 @@ export interface DescribeTagsResponse {
    *       in your next request to retrieve the next set of tags.</p>
    * @public
    */
-  NextMarker?: string;
+  NextMarker?: string | undefined;
 }
 
 /**
@@ -2809,7 +2968,7 @@ export class InvalidPolicyException extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -2819,7 +2978,7 @@ export class InvalidPolicyException extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2850,13 +3009,13 @@ export interface ListTagsForResourceRequest {
    * <p>(Optional) Specifies the maximum number of tag objects to return in the response. The default value is 100.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>(Optional) You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions if the response payload was paginated.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2867,14 +3026,14 @@ export interface ListTagsForResourceResponse {
    * <p>An array of the tags for the specified EFS resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>
    *             <code>NextToken</code> is present if the response payload is paginated. You can use <code>NextToken</code> in a subsequent request to fetch the next page of access point descriptions.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2889,10 +3048,10 @@ export interface ModifyMountTargetSecurityGroupsRequest {
   MountTargetId: string | undefined;
 
   /**
-   * <p>An array of up to five VPC security group IDs.</p>
+   * <p>An array of VPC security group IDs. </p>
    * @public
    */
-  SecurityGroups?: string[];
+  SecurityGroups?: string[] | undefined;
 }
 
 /**
@@ -2920,7 +3079,7 @@ export interface PutAccountPreferencesResponse {
    * <p>Describes the resource type and its ID preference for the user's Amazon Web Services account, in the current Amazon Web Services Region.</p>
    * @public
    */
-  ResourceIdPreference?: ResourceIdPreference;
+  ResourceIdPreference?: ResourceIdPreference | undefined;
 }
 
 /**
@@ -2954,7 +3113,7 @@ export interface PutFileSystemPolicyRequest {
   /**
    * <p>The <code>FileSystemPolicy</code> that you're creating. Accepts a JSON formatted
    *       policy definition. EFS file system policies have a 20,000 character limit. To find
-   *       out more about the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/access-control-overview.html#access-control-manage-access-intro-resource-policies">EFS Resource-based Policies</a>. </p>
+   *       out more about the elements that make up a file system policy, see <a href="https://docs.aws.amazon.com/efs/latest/ug/security_iam_service-with-iam.html#security_iam_service-with-iam-resource-based-policies">Resource-based policies within Amazon EFS</a>. </p>
    * @public
    */
   Policy: string | undefined;
@@ -2968,7 +3127,7 @@ export interface PutFileSystemPolicyRequest {
    *     </p>
    * @public
    */
-  BypassPolicyLockoutSafetyCheck?: boolean;
+  BypassPolicyLockoutSafetyCheck?: boolean | undefined;
 }
 
 /**
@@ -2985,7 +3144,7 @@ export interface PutLifecycleConfigurationRequest {
   /**
    * <p>An array of <code>LifecyclePolicy</code> objects that define the file system's
    *         <code>LifecycleConfiguration</code> object. A <code>LifecycleConfiguration</code> object
-   *       informs EFS Lifecycle management of the following:</p>
+   *       informs lifecycle management of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -3005,8 +3164,8 @@ export interface PutLifecycleConfigurationRequest {
    *                <p>File systems cannot transition into Archive storage before transitioning into IA  storage. Therefore,
    *         TransitionToArchive must either not be set or must be later than TransitionToIA.</p>
    *                <note>
-   *                   <p> The Archive storage class is available only for file systems that use the Elastic Throughput mode
-   * and the General Purpose Performance mode. </p>
+   *                   <p>The Archive storage class is available only for file systems that use the Elastic throughput mode
+   * and the General Purpose performance mode. </p>
    *                </note>
    *             </li>
    *             <li>
@@ -3089,7 +3248,7 @@ export class TooManyRequests extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3122,19 +3281,19 @@ export interface UpdateFileSystemRequest {
    *       you must also set a value for <code>ProvisionedThroughputInMibps</code>.</p>
    * @public
    */
-  ThroughputMode?: ThroughputMode;
+  ThroughputMode?: ThroughputMode | undefined;
 
   /**
    * <p>(Optional) The throughput, measured in mebibytes per second (MiBps), that you want to
    *       provision for a file system that you're creating. Required if <code>ThroughputMode</code>
    *       is set to <code>provisioned</code>. Valid values are 1-3414 MiBps, with the upper limit
-   *       depending on Region. To increase this limit, contact Amazon Web Services Support. For more information,
+   *       depending on Region. To increase this limit, contact Amazon Web ServicesSupport. For more information,
    *       see <a href="https://docs.aws.amazon.com/efs/latest/ug/limits.html#soft-limits">Amazon EFS
    *         quotas that you can increase</a> in the <i>Amazon EFS User
    *         Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughputInMibps?: number;
+  ProvisionedThroughputInMibps?: number | undefined;
 }
 
 /**
@@ -3149,7 +3308,7 @@ export class ReplicationAlreadyExists extends __BaseException {
    *         It is meant to be read and understood by programs that detect and handle errors by type. </p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message contains a generic description of the error
@@ -3159,7 +3318,7 @@ export class ReplicationAlreadyExists extends __BaseException {
    *         more likely to ignore the error message.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3208,8 +3367,8 @@ export interface UpdateFileSystemProtectionRequest {
    *             </li>
    *          </ul>
    *          <p>If the replication configuration is deleted, the file system's replication overwrite
-   *       protection is re-enabled, the file system becomes writeable.</p>
+   *       protection is re-enabled and the file system becomes writeable.</p>
    * @public
    */
-  ReplicationOverwriteProtection?: ReplicationOverwriteProtection;
+  ReplicationOverwriteProtection?: ReplicationOverwriteProtection | undefined;
 }

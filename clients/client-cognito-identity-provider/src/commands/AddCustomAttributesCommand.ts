@@ -16,7 +16,8 @@ import { de_AddCustomAttributesCommand, se_AddCustomAttributesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,9 @@ export interface AddCustomAttributesCommandInput extends AddCustomAttributesRequ
 export interface AddCustomAttributesCommandOutput extends AddCustomAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Adds additional user attributes to the user pool schema.</p>
+ * <p>Adds additional user attributes to the user pool schema. Custom attributes can be
+ *             mutable or immutable and have a <code>custom:</code> or <code>dev:</code> prefix. For
+ *             more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-attributes.html#user-pool-settings-custom-attributes">Custom attributes</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -115,6 +118,7 @@ export interface AddCustomAttributesCommandOutput extends AddCustomAttributesRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AddCustomAttributesCommand extends $Command
@@ -125,9 +129,7 @@ export class AddCustomAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +141,16 @@ export class AddCustomAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddCustomAttributesCommand)
   .de(de_AddCustomAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddCustomAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddCustomAttributesCommandInput;
+      output: AddCustomAttributesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteRepositoryCommand, se_DeleteRepositoryCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,7 +60,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * //     externalConnections: [ // RepositoryExternalConnectionInfoList
  * //       { // RepositoryExternalConnectionInfo
  * //         externalConnectionName: "STRING_VALUE",
- * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //         packageFormat: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //         status: "Available",
  * //       },
  * //     ],
@@ -106,6 +107,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResult, _
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DeleteRepositoryCommand extends $Command
@@ -116,9 +118,7 @@ export class DeleteRepositoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class DeleteRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRepositoryCommand)
   .de(de_DeleteRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRepositoryRequest;
+      output: DeleteRepositoryResult;
+    };
+    sdk: {
+      input: DeleteRepositoryCommandInput;
+      output: DeleteRepositoryCommandOutput;
+    };
+  };
+}

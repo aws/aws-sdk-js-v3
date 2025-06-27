@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,34 +83,34 @@ export interface GetRuleCommandOutput extends GetRuleResponse, __MetadataBearer 
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To get a rule
  * ```javascript
  * // The following example returns the details of a rule with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *   RuleId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new GetRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Rule": {
- *     "MetricName": "WAFByteHeaderRule",
- *     "Name": "WAFByteHeaderRule",
- *     "Predicates": [
+ *   Rule: {
+ *     MetricName: "WAFByteHeaderRule",
+ *     Name: "WAFByteHeaderRule",
+ *     Predicates: [
  *       {
- *         "DataId": "MyByteMatchSetID",
- *         "Negated": false,
- *         "Type": "ByteMatch"
+ *         DataId: "MyByteMatchSetID",
+ *         Negated: false,
+ *         Type: "ByteMatch"
  *       }
  *     ],
- *     "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
+ *     RuleId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5"
  *   }
  * }
  * *\/
- * // example id: getrule-1474659238790
  * ```
  *
+ * @public
  */
 export class GetRuleCommand extends $Command
   .classBuilder<
@@ -119,9 +120,7 @@ export class GetRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class GetRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRuleCommand)
   .de(de_GetRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRuleRequest;
+      output: GetRuleResponse;
+    };
+    sdk: {
+      input: GetRuleCommandInput;
+      output: GetRuleCommandOutput;
+    };
+  };
+}

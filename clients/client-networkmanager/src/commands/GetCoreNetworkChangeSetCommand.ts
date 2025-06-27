@@ -12,7 +12,8 @@ import { de_GetCoreNetworkChangeSetCommand, se_GetCoreNetworkChangeSetCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,11 +46,12 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * // { // GetCoreNetworkChangeSetResponse
  * //   CoreNetworkChanges: [ // CoreNetworkChangeList
  * //     { // CoreNetworkChange
- * //       Type: "CORE_NETWORK_SEGMENT" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
+ * //       Type: "CORE_NETWORK_SEGMENT" || "NETWORK_FUNCTION_GROUP" || "CORE_NETWORK_EDGE" || "ATTACHMENT_MAPPING" || "ATTACHMENT_ROUTE_PROPAGATION" || "ATTACHMENT_ROUTE_STATIC" || "CORE_NETWORK_CONFIGURATION" || "SEGMENTS_CONFIGURATION" || "SEGMENT_ACTIONS_CONFIGURATION" || "ATTACHMENT_POLICIES_CONFIGURATION",
  * //       Action: "ADD" || "MODIFY" || "REMOVE",
  * //       Identifier: "STRING_VALUE",
  * //       PreviousValues: { // CoreNetworkChangeValues
  * //         SegmentName: "STRING_VALUE",
+ * //         NetworkFunctionGroupName: "STRING_VALUE",
  * //         EdgeLocations: [ // ExternalRegionCodeList
  * //           "STRING_VALUE",
  * //         ],
@@ -62,9 +64,41 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //         SharedSegments: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         ServiceInsertionActions: [ // ServiceInsertionActionList
+ * //           { // ServiceInsertionAction
+ * //             Action: "send-via" || "send-to",
+ * //             Mode: "dual-hop" || "single-hop",
+ * //             WhenSentTo: { // WhenSentTo
+ * //               WhenSentToSegmentsList: [ // WhenSentToSegmentsList
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             Via: { // Via
+ * //               NetworkFunctionGroups: [ // NetworkFunctionGroupList
+ * //                 { // NetworkFunctionGroup
+ * //                   Name: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               WithEdgeOverrides: [ // WithEdgeOverridesList
+ * //                 { // EdgeOverride
+ * //                   EdgeSets: [ // EdgeSetList
+ * //                     [ // EdgeSet
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   ],
+ * //                   UseEdge: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         VpnEcmpSupport: true || false,
+ * //         DnsSupport: true || false,
+ * //         SecurityGroupReferencingSupport: true || false,
  * //       },
  * //       NewValues: {
  * //         SegmentName: "STRING_VALUE",
+ * //         NetworkFunctionGroupName: "STRING_VALUE",
  * //         EdgeLocations: [
  * //           "STRING_VALUE",
  * //         ],
@@ -77,6 +111,37 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * //         SharedSegments: [
  * //           "STRING_VALUE",
  * //         ],
+ * //         ServiceInsertionActions: [
+ * //           {
+ * //             Action: "send-via" || "send-to",
+ * //             Mode: "dual-hop" || "single-hop",
+ * //             WhenSentTo: {
+ * //               WhenSentToSegmentsList: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             Via: {
+ * //               NetworkFunctionGroups: [
+ * //                 {
+ * //                   Name: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               WithEdgeOverrides: [
+ * //                 {
+ * //                   EdgeSets: [
+ * //                     [
+ * //                       "STRING_VALUE",
+ * //                     ],
+ * //                   ],
+ * //                   UseEdge: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         VpnEcmpSupport: true || false,
+ * //         DnsSupport: true || false,
+ * //         SecurityGroupReferencingSupport: true || false,
  * //       },
  * //       IdentifierPath: "STRING_VALUE",
  * //     },
@@ -110,6 +175,7 @@ export interface GetCoreNetworkChangeSetCommandOutput extends GetCoreNetworkChan
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetCoreNetworkChangeSetCommand extends $Command
@@ -120,9 +186,7 @@ export class GetCoreNetworkChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +198,16 @@ export class GetCoreNetworkChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreNetworkChangeSetCommand)
   .de(de_GetCoreNetworkChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreNetworkChangeSetRequest;
+      output: GetCoreNetworkChangeSetResponse;
+    };
+    sdk: {
+      input: GetCoreNetworkChangeSetCommandInput;
+      output: GetCoreNetworkChangeSetCommandOutput;
+    };
+  };
+}

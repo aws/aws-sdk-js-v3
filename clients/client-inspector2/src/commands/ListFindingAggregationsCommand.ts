@@ -12,7 +12,8 @@ import { de_ListFindingAggregationsCommand, se_ListFindingAggregationsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,18 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       imageTags: "<StringFilterList>",
  *       sortOrder: "STRING_VALUE",
  *       sortBy: "STRING_VALUE",
+ *       lastInUseAt: [ // DateFilterList
+ *         { // DateFilter
+ *           startInclusive: new Date("TIMESTAMP"),
+ *           endInclusive: new Date("TIMESTAMP"),
+ *         },
+ *       ],
+ *       inUseCount: [ // NumberFilterList
+ *         { // NumberFilter
+ *           upperInclusive: Number("double"),
+ *           lowerInclusive: Number("double"),
+ *         },
+ *       ],
  *     },
  *     ec2InstanceAggregation: { // Ec2InstanceAggregation
  *       amis: "<StringFilterList>",
@@ -151,6 +164,13 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  *       sortOrder: "STRING_VALUE",
  *       sortBy: "STRING_VALUE",
  *     },
+ *     codeRepositoryAggregation: { // CodeRepositoryAggregation
+ *       projectNames: "<StringFilterList>",
+ *       providerTypes: "<StringFilterList>",
+ *       sortOrder: "STRING_VALUE",
+ *       sortBy: "STRING_VALUE",
+ *       resourceIds: "<StringFilterList>",
+ *     },
  *   },
  * };
  * const command = new ListFindingAggregationsCommand(input);
@@ -167,6 +187,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //           high: Number("long"),
  * //           critical: Number("long"),
  * //         },
+ * //         exploitAvailableCount: Number("long"),
+ * //         fixAvailableCount: Number("long"),
  * //       },
  * //       amiAggregation: { // AmiAggregationResponse
  * //         ami: "STRING_VALUE", // required
@@ -194,6 +216,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //           high: Number("long"),
  * //           critical: Number("long"),
  * //         },
+ * //         lastInUseAt: new Date("TIMESTAMP"),
+ * //         inUseCount: Number("long"),
  * //       },
  * //       ec2InstanceAggregation: { // Ec2InstanceAggregationResponse
  * //         instanceId: "STRING_VALUE", // required
@@ -219,6 +243,8 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //           high: Number("long"),
  * //           critical: Number("long"),
  * //         },
+ * //         exploitAvailableCount: Number("long"),
+ * //         fixAvailableCount: Number("long"),
  * //       },
  * //       imageLayerAggregation: { // ImageLayerAggregationResponse
  * //         repository: "STRING_VALUE", // required
@@ -262,6 +288,15 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * //         severityCounts: "<SeverityCounts>",
  * //         lastModifiedAt: new Date("TIMESTAMP"),
  * //       },
+ * //       codeRepositoryAggregation: { // CodeRepositoryAggregationResponse
+ * //         projectNames: "STRING_VALUE", // required
+ * //         providerType: "STRING_VALUE",
+ * //         severityCounts: "<SeverityCounts>",
+ * //         exploitAvailableActiveFindingsCount: Number("long"),
+ * //         fixAvailableActiveFindingsCount: Number("long"),
+ * //         accountId: "STRING_VALUE",
+ * //         resourceId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -288,6 +323,7 @@ export interface ListFindingAggregationsCommandOutput extends ListFindingAggrega
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListFindingAggregationsCommand extends $Command
@@ -298,9 +334,7 @@ export class ListFindingAggregationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -312,4 +346,16 @@ export class ListFindingAggregationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingAggregationsCommand)
   .de(de_ListFindingAggregationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingAggregationsRequest;
+      output: ListFindingAggregationsResponse;
+    };
+    sdk: {
+      input: ListFindingAggregationsCommandInput;
+      output: ListFindingAggregationsCommandOutput;
+    };
+  };
+}

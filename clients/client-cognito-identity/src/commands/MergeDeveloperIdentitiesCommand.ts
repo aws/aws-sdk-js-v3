@@ -12,7 +12,8 @@ import { de_MergeDeveloperIdentitiesCommand, se_MergeDeveloperIdentitiesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,9 +38,10 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  *          thrown.</p>
  *          <p>The number of linked logins is limited to 20. So, the number of linked logins for the
  *          source user, <code>SourceUserIdentifier</code>, and the destination user,
- *          <code>DestinationUserIdentifier</code>, together should not be larger than 20.
+ *             <code>DestinationUserIdentifier</code>, together should not be larger than 20.
  *          Otherwise, an exception will be thrown.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +91,7 @@ export interface MergeDeveloperIdentitiesCommandOutput extends MergeDeveloperIde
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class MergeDeveloperIdentitiesCommand extends $Command
@@ -99,9 +102,7 @@ export class MergeDeveloperIdentitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class MergeDeveloperIdentitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MergeDeveloperIdentitiesCommand)
   .de(de_MergeDeveloperIdentitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MergeDeveloperIdentitiesInput;
+      output: MergeDeveloperIdentitiesResponse;
+    };
+    sdk: {
+      input: MergeDeveloperIdentitiesCommandInput;
+      output: MergeDeveloperIdentitiesCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface ListAvailableResourceDimensionsCommandOutput
  * @throws {@link PIServiceException}
  * <p>Base exception class for all service exceptions from PI service.</p>
  *
+ *
  * @public
  */
 export class ListAvailableResourceDimensionsCommand extends $Command
@@ -102,9 +104,7 @@ export class ListAvailableResourceDimensionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PIClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class ListAvailableResourceDimensionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailableResourceDimensionsCommand)
   .de(de_ListAvailableResourceDimensionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailableResourceDimensionsRequest;
+      output: ListAvailableResourceDimensionsResponse;
+    };
+    sdk: {
+      input: ListAvailableResourceDimensionsCommandInput;
+      output: ListAvailableResourceDimensionsCommandOutput;
+    };
+  };
+}

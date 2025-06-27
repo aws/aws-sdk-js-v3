@@ -12,7 +12,8 @@ import { de_RegisterStreamConsumerCommand, se_RegisterStreamConsumerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,10 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  *             from the stream using enhanced fan-out, at a rate of up to 2 MiB per second for every
  *             shard you subscribe to. This rate is unaffected by the total number of consumers that
  *             read from the same stream.</p>
+ *          <p>You can add tags to the registered consumer when making a <code>RegisterStreamConsumer</code> request by setting the <code>Tags</code> parameter. If you pass the <code>Tags</code> parameter, in addition to having the <code>kinesis:RegisterStreamConsumer</code> permission, you must also have the <code>kinesis:TagResource</code> permission for the consumer that will be registered. Tags will take effect from the <code>CREATING</code> status of the consumer.</p>
  *          <p>You can register up to 20 consumers per stream. A given consumer can only be
  *             registered with one stream at a time.</p>
- *          <p>For an example of how to use this operations, see <a href="/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
+ *          <p>For an example of how to use this operation, see <a href="https://docs.aws.amazon.com/streams/latest/dev/building-enhanced-consumers-api.html">Enhanced Fan-Out
  *                 Using the Kinesis Data Streams API</a>.</p>
  *          <p>The use of this operation has a limit of five transactions per second per account.
  *             Also, only 5 consumers can be created simultaneously. In other words, you cannot have
@@ -50,6 +52,9 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * const input = { // RegisterStreamConsumerInput
  *   StreamARN: "STRING_VALUE", // required
  *   ConsumerName: "STRING_VALUE", // required
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new RegisterStreamConsumerCommand(input);
  * const response = await client.send(command);
@@ -89,6 +94,7 @@ export interface RegisterStreamConsumerCommandOutput extends RegisterStreamConsu
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class RegisterStreamConsumerCommand extends $Command
@@ -115,4 +121,16 @@ export class RegisterStreamConsumerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterStreamConsumerCommand)
   .de(de_RegisterStreamConsumerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterStreamConsumerInput;
+      output: RegisterStreamConsumerOutput;
+    };
+    sdk: {
+      input: RegisterStreamConsumerCommandInput;
+      output: RegisterStreamConsumerCommandOutput;
+    };
+  };
+}

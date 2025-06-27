@@ -12,7 +12,8 @@ import { de_CreateDomainNameCommand, se_CreateDomainNameCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,6 +39,9 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  *   domainName: "STRING_VALUE", // required
  *   certificateArn: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateDomainNameCommand(input);
  * const response = await client.send(command);
@@ -48,6 +52,10 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  * //     certificateArn: "STRING_VALUE",
  * //     appsyncDomainName: "STRING_VALUE",
  * //     hostedZoneId: "STRING_VALUE",
+ * //     tags: { // TagMap
+ * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     domainNameArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -63,14 +71,15 @@ export interface CreateDomainNameCommandOutput extends CreateDomainNameResponse,
  *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
+ *
  *
  * @public
  */
@@ -82,9 +91,7 @@ export class CreateDomainNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +103,16 @@ export class CreateDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDomainNameCommand)
   .de(de_CreateDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainNameRequest;
+      output: CreateDomainNameResponse;
+    };
+    sdk: {
+      input: CreateDomainNameCommandInput;
+      output: CreateDomainNameCommandOutput;
+    };
+  };
+}

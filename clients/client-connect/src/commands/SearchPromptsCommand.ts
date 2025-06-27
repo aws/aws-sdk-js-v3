@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchPromptsRequest, SearchPromptsResponse } from "../models/models_2";
+import { SearchPromptsResponse } from "../models/models_2";
+import { SearchPromptsRequest } from "../models/models_3";
 import { de_SearchPromptsCommand, se_SearchPromptsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +131,7 @@ export interface SearchPromptsCommandOutput extends SearchPromptsResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchPromptsCommand extends $Command
@@ -139,9 +142,7 @@ export class SearchPromptsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +154,16 @@ export class SearchPromptsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchPromptsCommand)
   .de(de_SearchPromptsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchPromptsRequest;
+      output: SearchPromptsResponse;
+    };
+    sdk: {
+      input: SearchPromptsCommandInput;
+      output: SearchPromptsCommandOutput;
+    };
+  };
+}

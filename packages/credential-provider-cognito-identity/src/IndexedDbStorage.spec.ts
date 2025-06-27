@@ -1,7 +1,9 @@
+import { describe, expect, test as it } from "vitest";
+
 import { IndexedDbStorage } from "./IndexedDbStorage";
 
 describe("IndexedDbStorage", () => {
-  const testFunc = typeof indexedDB !== "undefined" ? it : xit;
+  const testFunc = typeof indexedDB !== "undefined" ? it : it.skip;
 
   testFunc("should remember key-value pairs", async () => {
     const storage = new IndexedDbStorage();

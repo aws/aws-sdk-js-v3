@@ -12,7 +12,8 @@ import { de_UpdateAccessKeyCommand, se_UpdateAccessKeyCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,20 +77,23 @@ export interface UpdateAccessKeyCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To activate or deactivate an access key for an IAM user
  * ```javascript
  * // The following command deactivates the specified access key (access key ID and secret access key) for the IAM user named Bob.
  * const input = {
- *   "AccessKeyId": "AKIAIOSFODNN7EXAMPLE",
- *   "Status": "Inactive",
- *   "UserName": "Bob"
+ *   AccessKeyId: "AKIAIOSFODNN7EXAMPLE",
+ *   Status: "Inactive",
+ *   UserName: "Bob"
  * };
  * const command = new UpdateAccessKeyCommand(input);
- * await client.send(command);
- * // example id: 02b556fd-e673-49b7-ab6b-f2f9035967d0
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateAccessKeyCommand extends $Command
   .classBuilder<
@@ -99,9 +103,7 @@ export class UpdateAccessKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class UpdateAccessKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccessKeyCommand)
   .de(de_UpdateAccessKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccessKeyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAccessKeyCommandInput;
+      output: UpdateAccessKeyCommandOutput;
+    };
+  };
+}

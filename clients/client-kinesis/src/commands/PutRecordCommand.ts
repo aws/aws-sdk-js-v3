@@ -12,7 +12,8 @@ import { de_PutRecordCommand, se_PutRecordCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,10 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -147,6 +152,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class PutRecordCommand extends $Command
@@ -173,4 +179,16 @@ export class PutRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecordCommand)
   .de(de_PutRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecordInput;
+      output: PutRecordOutput;
+    };
+    sdk: {
+      input: PutRecordCommandInput;
+      output: PutRecordCommandOutput;
+    };
+  };
+}

@@ -235,6 +235,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -280,11 +299,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type IvschatClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -300,11 +319,11 @@ export interface IvschatClientConfig extends IvschatClientConfigType {}
 export type IvschatClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -324,6 +343,9 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <p>The API is an AWS regional service. For a list of supported regions and Amazon IVS Chat
  *       HTTPS service endpoints, see the Amazon IVS Chat information on the <a href="https://docs.aws.amazon.com/general/latest/gr/ivs.html">Amazon IVS page</a> in the
  *         <i>AWS General Reference</i>. </p>
+ *          <p>This document describes HTTP operations. There is a separate <i>messaging</i> API
+ *       for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
+ *         Reference</a>.</p>
  *          <p>
  *             <b>Notes on terminology:</b>
  *          </p>
@@ -338,16 +360,19 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *             </li>
  *          </ul>
  *          <p>
- *             <b>Key Concepts</b>
+ *             <b>Resources</b>
  *          </p>
+ *          <p>The following resources are part of Amazon IVS Chat:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room.</p>
+ *                   <b>LoggingConfiguration</b> — A configuration that allows customers to store and record sent messages in a chat room. See the Logging Configuration endpoints for more information.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <b>Room</b> — The central Amazon IVS Chat resource through which clients connect to and exchange chat messages.</p>
+ *                   <b>Room</b> — The central Amazon IVS Chat resource through
+ *           which clients connect to and exchange chat messages. See the Room endpoints for more
+ *           information.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -356,13 +381,12 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *          <p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
  *       comprises a <i>key</i> and a <i>value</i>, both set by you. For
  *       example, you might set a tag as <code>topic:nature</code> to label a particular video
- *       category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
- *       tags and "Tag naming limits and requirements"; Amazon IVS Chat has no service-specific
+ *       category. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a> in <i>Tagging Amazon Web Services Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming limits and requirements"; Amazon IVS Chat has no service-specific
  *       constraints beyond what is documented there.</p>
  *          <p>Tags can help you identify and organize your AWS resources. For example, you can use the
  *       same tag for different resources to indicate that they are related. You can also use tags to
  *       manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
- *          <p>The Amazon IVS Chat API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+ *          <p>The Amazon IVS Chat API has these tag-related operations: <a>TagResource</a>, <a>UntagResource</a>, and
  *       <a>ListTagsForResource</a>. The following resource supports tagging: Room.</p>
  *          <p>At most 50 tags can be applied to a resource.</p>
  *          <p>
@@ -384,7 +408,7 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *             </li>
  *          </ul>
  *          <p>Users (viewers) connect to a room using secure access tokens that you create using the
- *         <a>CreateChatToken</a> endpoint through the AWS SDK. You call CreateChatToken for
+ *         <a>CreateChatToken</a> operation through the AWS SDK. You call CreateChatToken for
  *       every user’s chat session, passing identity and authorization information about the
  *       user.</p>
  *          <p>
@@ -416,121 +440,6 @@ export interface IvschatClientResolvedConfig extends IvschatClientResolvedConfig
  *       resource unambiguously across all of AWS, such as in IAM policies and API calls. For more
  *       information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names</a> in the <i>AWS General
  *           Reference</i>.</p>
- *          <p>
- *             <b>Messaging Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>DeleteMessage</a> — Sends an event to a specific room which
- *           directs clients to delete a specific message; that is, unrender it from view and delete it
- *           from the client’s chat history. This event’s <code>EventName</code> is
- *             <code>aws:DELETE_MESSAGE</code>. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-deletemessage-publish.html">
- *             DeleteMessage</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DisconnectUser</a> — Disconnects all connections using a specified
- *           user ID from a room. This replicates the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/actions-disconnectuser-publish.html">
- *             DisconnectUser</a> WebSocket operation in the Amazon IVS Chat Messaging API.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>SendEvent</a> — Sends an event to a room. Use this within your
- *           application’s business logic to send events to clients of a room; e.g., to notify clients
- *           to change the way the chat UI is rendered.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Chat Token Endpoint</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateChatToken</a> — Creates an encrypted token that is used by a chat participant to establish an
- *           individual WebSocket chat connection to a room. When the token is used to connect to chat,
- *           the connection is valid for the session duration specified in the request. The token
- *           becomes invalid at the token-expiration timestamp included in the response.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Room Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateRoom</a> — Creates a room that allows clients to connect and
- *           pass messages.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteRoom</a> — Deletes the specified room.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetRoom</a> — Gets the specified room.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListRooms</a> — Gets summary information about all your rooms in
- *           the AWS region where the API request is processed. </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateRoom</a> — Updates a room’s configuration.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Logging Configuration Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>CreateLoggingConfiguration</a> — Creates a logging configuration that allows clients to store and record sent messages.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>DeleteLoggingConfiguration</a> — Deletes the specified logging
- *           configuration.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>GetLoggingConfiguration</a> — Gets the specified logging
- *           configuration.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>ListLoggingConfigurations</a> — Gets summary information about all
- *           your logging configurations in the AWS region where the API request is processed.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UpdateLoggingConfiguration</a> — Updates a specified logging configuration.</p>
- *             </li>
- *          </ul>
- *          <p>
- *             <b>Tags Endpoints</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>ListTagsForResource</a> — Gets information about AWS tags for the
- *           specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>TagResource</a> — Adds or updates tags for the AWS resource with
- *           the specified ARN.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a>UntagResource</a> — Removes tags from the resource with the
- *           specified ARN.</p>
- *             </li>
- *          </ul>
- *          <p>All the above are HTTP operations. There is a separate <i>messaging</i> API
- *       for managing Chat resources; see the <a href="https://docs.aws.amazon.com/ivs/latest/chatmsgapireference/chat-messaging-api.html"> Amazon IVS Chat Messaging API
- *         Reference</a>.</p>
  * @public
  */
 export class IvschatClient extends __Client<
@@ -546,26 +455,30 @@ export class IvschatClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<IvschatClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultIvschatHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: IvschatClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -578,14 +491,5 @@ export class IvschatClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultIvschatHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: IvschatClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

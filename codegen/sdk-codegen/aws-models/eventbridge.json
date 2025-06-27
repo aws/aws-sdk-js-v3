@@ -1586,6 +1586,18 @@
         }
       }
     },
+    "com.amazonaws.eventbridge#AccessDeniedException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>You do not have the necessary permissions for this action.</p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.eventbridge#AccountId": {
       "type": "string",
       "traits": {
@@ -1844,7 +1856,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#EventBusArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event bus associated with the archive. Only events from this event bus are\n      sent to the archive.</p>"
           }
@@ -2407,10 +2419,16 @@
           "traits": {
             "smithy.api#documentation": "<p>Additional parameters for the connection that are passed through with every invocation to\n      the HTTP endpoint.</p>"
           }
+        },
+        "ConnectivityParameters": {
+          "target": "com.amazonaws.eventbridge#DescribeConnectionConnectivityParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>For private OAuth authentication endpoints. The parameters EventBridge uses to authenticate against the endpoint.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html\">Authorization methods for connections</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the authorization parameters to use for the connection.</p>"
+        "smithy.api#documentation": "<p>Tthe authorization parameters to use for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#ConnectionAuthorizationType": {
@@ -2447,7 +2465,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the authorization parameters for the connection if Basic is specified as the\n      authorization type.</p>"
+        "smithy.api#documentation": "<p>The authorization parameters for the connection if Basic is specified as the\n      authorization type.</p>"
       }
     },
     "com.amazonaws.eventbridge#ConnectionBodyParameter": {
@@ -2469,7 +2487,7 @@
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specified whether the value is secret.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the value is secret.</p>"
           }
         }
       },
@@ -2518,7 +2536,7 @@
           "target": "com.amazonaws.eventbridge#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specified whether the value is a secret.</p>"
+            "smithy.api#documentation": "<p>Specifies whether the value is a secret.</p>"
           }
         }
       },
@@ -2544,24 +2562,24 @@
         "HeaderParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionHeaderParametersList",
           "traits": {
-            "smithy.api#documentation": "<p>Contains additional header parameters for the connection.</p>"
+            "smithy.api#documentation": "<p>Any additional header parameters for the connection.</p>"
           }
         },
         "QueryStringParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionQueryStringParametersList",
           "traits": {
-            "smithy.api#documentation": "<p>Contains additional query string parameters for the connection.</p>"
+            "smithy.api#documentation": "<p>Any additional query string parameters for the connection.</p>"
           }
         },
         "BodyParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionBodyParametersList",
           "traits": {
-            "smithy.api#documentation": "<p>Contains additional body string parameters for the connection.</p>"
+            "smithy.api#documentation": "<p>Any additional body string parameters for the connection.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains additional parameters for the connection.</p>"
+        "smithy.api#documentation": "<p>Any additional parameters for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#ConnectionName": {
@@ -2585,7 +2603,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the client response parameters for the connection when OAuth is specified as the\n      authorization type.</p>"
+        "smithy.api#documentation": "<p>The client response parameters for the connection when OAuth is specified as the\n      authorization type.</p>"
       }
     },
     "com.amazonaws.eventbridge#ConnectionOAuthHttpMethod": {
@@ -2617,7 +2635,7 @@
         "ClientParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionOAuthClientResponseParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>ConnectionOAuthClientResponseParameters</code> object that contains details about\n      the client parameters returned when OAuth is specified as the authorization type.</p>"
+            "smithy.api#documentation": "<p>Details about the client parameters returned when OAuth is specified as the authorization type.</p>"
           }
         },
         "AuthorizationEndpoint": {
@@ -2640,7 +2658,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the response parameters when OAuth is specified as the authorization type.</p>"
+        "smithy.api#documentation": "<p>The response parameters when OAuth is specified as the authorization type.</p>"
       }
     },
     "com.amazonaws.eventbridge#ConnectionQueryStringParameter": {
@@ -2667,7 +2685,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Additional query string parameter for the connection. You can include up to 100 additional\n      query string parameters per request. Each additional parameter counts towards the event\n      payload size, which cannot exceed 64 KB.</p>"
+        "smithy.api#documentation": "<p>Any additional query string parameter for the connection. You can include up to 100 additional\n      query string parameters per request. Each additional parameter counts towards the event\n      payload size, which cannot exceed 64 KB.</p>"
       }
     },
     "com.amazonaws.eventbridge#ConnectionQueryStringParametersList": {
@@ -2732,6 +2750,18 @@
           "traits": {
             "smithy.api#enumValue": "DEAUTHORIZING"
           }
+        },
+        "ACTIVE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ACTIVE"
+          }
+        },
+        "FAILED_CONNECTIVITY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "FAILED_CONNECTIVITY"
+          }
         }
       }
     },
@@ -2743,6 +2773,36 @@
           "max": 512
         },
         "smithy.api#pattern": ".*"
+      }
+    },
+    "com.amazonaws.eventbridge#ConnectivityResourceConfigurationArn": {
+      "type": "structure",
+      "members": {
+        "ResourceConfigurationArn": {
+          "target": "com.amazonaws.eventbridge#ResourceConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the Amazon VPC Lattice resource configuration for the resource endpoint.</p>"
+      }
+    },
+    "com.amazonaws.eventbridge#ConnectivityResourceParameters": {
+      "type": "structure",
+      "members": {
+        "ResourceParameters": {
+          "target": "com.amazonaws.eventbridge#ConnectivityResourceConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for EventBridge to use when invoking the resource endpoint.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The parameters for EventBridge to use when invoking the resource endpoint.</p>"
       }
     },
     "com.amazonaws.eventbridge#CreateApiDestination": {
@@ -2880,7 +2940,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates an archive of events with the specified settings. When you create an archive,\n      incoming events might not immediately start being sent to the archive. Allow a short period of\n      time for changes to take effect. If you do not specify a pattern to filter events sent to the\n      archive, all events are sent to the archive except replayed events. Replayed events are not\n      sent to an archive.</p>\n         <note>\n            <p>Archives and schema discovery are not supported for event buses encrypted using a\n        customer managed key. EventBridge returns an error if:</p>\n            <ul>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html\">CreateArchive</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer\">CreateDiscoverer</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html\">UpdatedEventBus</a>\n                     </code> to set a customer managed key on an event bus with an archives or schema discovery enabled.</p>\n               </li>\n            </ul>\n            <p>To enable archives or schema discovery on an event bus, choose to\n        use an Amazon Web Services owned key. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Creates an archive of events with the specified settings. When you create an archive,\n      incoming events might not immediately start being sent to the archive. Allow a short period of\n      time for changes to take effect. If you do not specify a pattern to filter events sent to the\n      archive, all events are sent to the archive except replayed events. Replayed events are not\n      sent to an archive.</p>\n         <important>\n            <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a \n        customer managed key for any archives for the event bus as well. </p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </important>"
       }
     },
     "com.amazonaws.eventbridge#CreateArchiveRequest": {
@@ -2894,7 +2954,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#EventBusArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event bus that sends events to the archive.</p>",
             "smithy.api#required": {}
@@ -2916,6 +2976,12 @@
           "target": "com.amazonaws.eventbridge#RetentionDays",
           "traits": {
             "smithy.api#documentation": "<p>The number of days to retain events for. Default value is 0. If set to 0, events are\n      retained indefinitely</p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt the archive.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html\">Identify and view keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>\n         <important>\n            <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a \n        customer managed key for any archives for the event bus as well. </p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </important>"
           }
         }
       },
@@ -2965,6 +3031,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.eventbridge#AccessDeniedException"
+        },
+        {
           "target": "com.amazonaws.eventbridge#InternalException"
         },
         {
@@ -2972,10 +3041,16 @@
         },
         {
           "target": "com.amazonaws.eventbridge#ResourceAlreadyExistsException"
+        },
+        {
+          "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.eventbridge#ThrottlingException"
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates a connection. A connection defines the authorization type and credentials to use\n      for authorization with an API destination HTTP endpoint.</p>"
+        "smithy.api#documentation": "<p>Creates a connection. A connection defines the authorization type and credentials to use\n      for authorization with an API destination HTTP endpoint.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html\">Connections for endpoint targets</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
       }
     },
     "com.amazonaws.eventbridge#CreateConnectionApiKeyAuthRequestParameters": {
@@ -2997,7 +3072,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the API key authorization parameters for the connection.</p>"
+        "smithy.api#documentation": "<p>The API key authorization parameters for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#CreateConnectionAuthRequestParameters": {
@@ -3006,30 +3081,36 @@
         "BasicAuthParameters": {
           "target": "com.amazonaws.eventbridge#CreateConnectionBasicAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>CreateConnectionBasicAuthRequestParameters</code> object that contains the Basic\n      authorization parameters to use for the connection.</p>"
+            "smithy.api#documentation": "<p>The Basic\n      authorization parameters to use for the connection.</p>"
           }
         },
         "OAuthParameters": {
           "target": "com.amazonaws.eventbridge#CreateConnectionOAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>CreateConnectionOAuthRequestParameters</code> object that contains the OAuth\n      authorization parameters to use for the connection.</p>"
+            "smithy.api#documentation": "<p>The OAuth\n      authorization parameters to use for the connection.</p>"
           }
         },
         "ApiKeyAuthParameters": {
           "target": "com.amazonaws.eventbridge#CreateConnectionApiKeyAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>CreateConnectionApiKeyAuthRequestParameters</code> object that contains the API\n      key authorization parameters to use for the connection.</p>"
+            "smithy.api#documentation": "<p>The API\n      key authorization parameters to use for the connection.</p>"
           }
         },
         "InvocationHttpParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionHttpParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>ConnectionHttpParameters</code> object that contains the API key authorization\n      parameters to use for the connection. Note that if you include additional parameters for the\n      target of a rule via <code>HttpParameters</code>, including query strings, the parameters\n      added for the connection take precedence.</p>"
+            "smithy.api#documentation": "<p>The API key authorization\n      parameters to use for the connection. Note that if you include additional parameters for the\n      target of a rule via <code>HttpParameters</code>, including query strings, the parameters\n      added for the connection take precedence.</p>"
+          }
+        },
+        "ConnectivityParameters": {
+          "target": "com.amazonaws.eventbridge#ConnectivityResourceParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>If you specify a private OAuth endpoint, the parameters for EventBridge to use when authenticating against the endpoint.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html\">Authorization methods for connections</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the authorization parameters for the connection.</p>"
+        "smithy.api#documentation": "<p>The authorization parameters for the connection.</p>\n         <p>You must include only authorization parameters for the <code>AuthorizationType</code> you specify.</p>"
       }
     },
     "com.amazonaws.eventbridge#CreateConnectionBasicAuthRequestParameters": {
@@ -3073,7 +3154,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the Basic authorization parameters to use for the connection.</p>"
+        "smithy.api#documentation": "<p>The Basic authorization parameters to use for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#CreateConnectionOAuthRequestParameters": {
@@ -3082,7 +3163,7 @@
         "ClientParameters": {
           "target": "com.amazonaws.eventbridge#CreateConnectionOAuthClientRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>CreateConnectionOAuthClientRequestParameters</code> object that contains the\n      client parameters for OAuth authorization.</p>",
+            "smithy.api#documentation": "<p>The client parameters for OAuth authorization.</p>",
             "smithy.api#required": {}
           }
         },
@@ -3103,7 +3184,7 @@
         "OAuthHttpParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionHttpParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>ConnectionHttpParameters</code> object that contains details about the additional\n      parameters to use for the connection.</p>"
+            "smithy.api#documentation": "<p>Details about the additional\n      parameters to use for the connection.</p>"
           }
         }
       },
@@ -3137,8 +3218,20 @@
         "AuthParameters": {
           "target": "com.amazonaws.eventbridge#CreateConnectionAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>CreateConnectionAuthRequestParameters</code> object that contains the\n      authorization parameters to use to authorize with the endpoint. </p>",
+            "smithy.api#documentation": "<p>The\n      authorization parameters to use to authorize with the endpoint. </p>\n         <p>You must include only authorization parameters for the <code>AuthorizationType</code> you specify.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "InvocationConnectivityParameters": {
+          "target": "com.amazonaws.eventbridge#ConnectivityResourceParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>For connections to private APIs, the parameters to use for invoking the API.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html\">Connecting to private APIs</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt the connection.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html\">Identify and view keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>"
           }
         }
       },
@@ -3358,7 +3451,7 @@
         "KmsKeyIdentifier": {
           "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt events on the event bus.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>\n         <note>\n            <p>Archives and schema discovery are not supported for event buses encrypted using a\n        customer managed key. EventBridge returns an error if:</p>\n            <ul>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html\">CreateArchive</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer\">CreateDiscoverer</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html\">UpdatedEventBus</a>\n                     </code> to set a customer managed key on an event bus with an archives or schema discovery enabled.</p>\n               </li>\n            </ul>\n            <p>To enable archives or schema discovery on an event bus, choose to\n        use an Amazon Web Services owned key. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt events on the event bus.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html\">Identify and view keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>\n         <note>\n            <p>Schema discovery is not supported for event buses encrypted using a\n        customer managed key. EventBridge returns an error if: </p>\n            <ul>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer\">CreateDiscoverer</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html\">UpdatedEventBus</a>\n                     </code> to set a customer managed key on an event bus with schema discovery enabled.</p>\n               </li>\n            </ul>\n            <p>To enable schema discovery on an event bus, choose to\n        use an Amazon Web Services owned key. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption-event-bus-cmkey.html\">Encrypting events</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </note>\n         <important>\n            <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a \n        customer managed key for any archives for the event bus as well. </p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </important>"
           }
         },
         "DeadLetterConfig": {
@@ -3553,7 +3646,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Configuration details of the Amazon SQS queue for EventBridge to use as a\n      dead-letter queue (DLQ).</p>\n         <p>For more information, see <a href=\"eventbridge/latest/userguide/eb-rule-dlq.html\">Event\n        retry policy and using dead-letter queues</a> in the <i>EventBridge User\n        Guide</i>.</p>"
+        "smithy.api#documentation": "<p>Configuration details of the Amazon SQS queue for EventBridge to use as a\n      dead-letter queue (DLQ).</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-rule-event-delivery.html#eb-rule-dlq\">Using dead-letter queues to process undelivered events</a> in the <i>EventBridge User\n        Guide</i>.</p>"
       }
     },
     "com.amazonaws.eventbridge#DeauthorizeConnection": {
@@ -4134,7 +4227,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#EventBusArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event source associated with the archive.</p>"
           }
@@ -4161,6 +4254,12 @@
           "target": "com.amazonaws.eventbridge#ArchiveStateReason",
           "traits": {
             "smithy.api#documentation": "<p>The reason that the archive is in the state.</p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use to encrypt this archive, if one has been specified.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
           }
         },
         "RetentionDays": {
@@ -4214,6 +4313,21 @@
         "smithy.api#documentation": "<p>Retrieves details about a connection.</p>"
       }
     },
+    "com.amazonaws.eventbridge#DescribeConnectionConnectivityParameters": {
+      "type": "structure",
+      "members": {
+        "ResourceParameters": {
+          "target": "com.amazonaws.eventbridge#DescribeConnectionResourceParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>The parameters for EventBridge to use when invoking the resource endpoint.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>If the connection uses a private OAuth endpoint, the parameters for EventBridge to use when authenticating against the endpoint.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html\">Authorization methods for connections</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
+      }
+    },
     "com.amazonaws.eventbridge#DescribeConnectionRequest": {
       "type": "structure",
       "members": {
@@ -4227,6 +4341,28 @@
       },
       "traits": {
         "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.eventbridge#DescribeConnectionResourceParameters": {
+      "type": "structure",
+      "members": {
+        "ResourceConfigurationArn": {
+          "target": "com.amazonaws.eventbridge#ResourceConfigurationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) of the resource configuration for the private API.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ResourceAssociationArn": {
+          "target": "com.amazonaws.eventbridge#ResourceAssociationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>For connections to private APIs, the Amazon Resource Name (ARN) of the resource association EventBridge created between the connection and the private API's resource configuration.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html#connection-private-snra\">\n      Managing service network resource associations for connections</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The parameters for EventBridge to use when invoking the resource endpoint.</p>"
       }
     },
     "com.amazonaws.eventbridge#DescribeConnectionResponse": {
@@ -4248,6 +4384,12 @@
           "target": "com.amazonaws.eventbridge#ConnectionDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description for the connection retrieved.</p>"
+          }
+        },
+        "InvocationConnectivityParameters": {
+          "target": "com.amazonaws.eventbridge#DescribeConnectionConnectivityParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>For connections to private APIs The parameters EventBridge uses to invoke the resource\n      endpoint.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html\">Connecting to private APIs</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
           }
         },
         "ConnectionState": {
@@ -4272,6 +4414,12 @@
           "target": "com.amazonaws.eventbridge#SecretsManagerSecretArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the secret created from the authorization parameters specified for the\n      connection.</p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use to encrypt the connection, if one has been specified.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-connections.html\">Encrypting connections</a> in the <i>Amazon EventBridge User Guide</i>.</p>"
           }
         },
         "AuthParameters": {
@@ -4726,7 +4874,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#ArchiveArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the archive events were replayed from.</p>"
           }
@@ -4789,7 +4937,22 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Describes the specified rule.</p>\n         <p>DescribeRule does not list the targets of a rule. To see the targets associated with a\n      rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>"
+        "smithy.api#documentation": "<p>Describes the specified rule.</p>\n         <p>DescribeRule does not list the targets of a rule. To see the targets associated with a\n      rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>",
+        "smithy.test#smokeTests": [
+          {
+            "id": "DescribeRuleFailure",
+            "params": {
+              "Name": "fake-rule"
+            },
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "failure": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.eventbridge#DescribeRuleRequest": {
@@ -5346,6 +5509,16 @@
         "smithy.api#documentation": "<p>An event bus receives events from a source, uses rules to evaluate them, applies any\n      configured input transformation, and routes them to the appropriate target(s). Your account's\n      default event bus receives events from Amazon Web Services services. A custom event bus can\n      receive events from your custom applications and services. A partner event bus receives events\n      from an event source created by an SaaS partner. These events come from the partners services\n      or applications.</p>"
       }
     },
+    "com.amazonaws.eventbridge#EventBusArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 1600
+        },
+        "smithy.api#pattern": "^arn:aws([a-z]|\\-)*:events:([a-z]|\\d|\\-)*:([0-9]{12})?:.+\\/.+$"
+      }
+    },
     "com.amazonaws.eventbridge#EventBusDescription": {
       "type": "string",
       "traits": {
@@ -5378,7 +5551,7 @@
           "min": 1,
           "max": 1600
         },
-        "smithy.api#pattern": "^(arn:aws[\\w-]*:events:[a-z]{2}-[a-z]+-[\\w-]+:[0-9]{12}:event-bus\\/)?[/\\.\\-_A-Za-z0-9]+$"
+        "smithy.api#pattern": "^(arn:aws[\\w-]*:events:[a-z]+-[a-z]+-[\\w-]+:[0-9]{12}:event-bus\\/)?[/\\.\\-_A-Za-z0-9]+$"
       }
     },
     "com.amazonaws.eventbridge#EventId": {
@@ -5754,7 +5927,8 @@
         "smithy.api#length": {
           "min": 0,
           "max": 2048
-        }
+        },
+        "smithy.api#pattern": "^[a-zA-Z0-9_\\-/:]*$"
       }
     },
     "com.amazonaws.eventbridge#LaunchType": {
@@ -5844,7 +6018,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -5864,13 +6038,13 @@
         "ApiDestinations": {
           "target": "com.amazonaws.eventbridge#ApiDestinationResponseList",
           "traits": {
-            "smithy.api#documentation": "<p>An array of <code>ApiDestination</code> objects that include information about an API\n      destination.</p>"
+            "smithy.api#documentation": "<p>An array that includes information about each API\n      destination.</p>"
           }
         },
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token you can use in a subsequent request to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -5908,7 +6082,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#EventBusArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the event source associated with the archive.</p>"
           }
@@ -5922,7 +6096,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -5948,7 +6122,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -5991,7 +6165,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6017,7 +6191,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token you can use in a subsequent request to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6060,7 +6234,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of\n        <code>nextToken</code> is a unique pagination token for each page. Make the call again using\n      the returned token to retrieve the next page. Keep all other arguments unchanged. Each\n      pagination token expires after 24 hours. Using an expired pagination token will return an HTTP\n      400 InvalidToken error.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "MaxResults": {
@@ -6086,7 +6260,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>If <code>nextToken</code> is returned, there are more results available. The value of\n        <code>nextToken</code> is a unique pagination token for each page. Make the call again using\n      the returned token to retrieve the next page. Keep all other arguments unchanged. Each\n      pagination token expires after 24 hours. Using an expired pagination token will return an HTTP\n      400 InvalidToken error.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6123,7 +6297,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6149,7 +6323,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6189,7 +6363,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6215,7 +6389,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6259,7 +6433,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to this operation. Specifying this retrieves the\n      next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6285,7 +6459,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6326,7 +6500,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to this operation. Specifying this retrieves the\n      next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6352,7 +6526,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>A token you can use in a subsequent operation to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6393,7 +6567,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#ArchiveArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the archive from which the events are replayed.</p>"
           }
@@ -6401,7 +6575,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6427,7 +6601,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6474,7 +6648,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6500,7 +6674,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more results,\n      the value is null.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6525,7 +6699,20 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Lists your Amazon EventBridge rules. You can either list all the rules or you can\n      provide a prefix to match to the rule names.</p>\n         <p>The maximum number of results per page for requests is 100.</p>\n         <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,\n      use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>"
+        "smithy.api#documentation": "<p>Lists your Amazon EventBridge rules. You can either list all the rules or you can\n      provide a prefix to match to the rule names.</p>\n         <p>The maximum number of results per page for requests is 100.</p>\n         <p>ListRules does not list the targets of a rule. To see the targets associated with a rule,\n      use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_ListTargetsByRule.html\">ListTargetsByRule</a>.</p>",
+        "smithy.test#smokeTests": [
+          {
+            "id": "ListRulesSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.eventbridge#ListRulesRequest": {
@@ -6546,7 +6733,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6572,7 +6759,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more results,\n      the value is null.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6668,7 +6855,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The token returned by a previous call to retrieve the next set of results.</p>"
+            "smithy.api#documentation": "<p>The token returned by a previous call, which you can use to retrieve the next set of results.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         },
         "Limit": {
@@ -6694,7 +6881,7 @@
         "NextToken": {
           "target": "com.amazonaws.eventbridge#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>Indicates whether there are additional results to retrieve. If there are no more results,\n      the value is null.</p>"
+            "smithy.api#documentation": "<p>A token indicating there are more results available. If there are no more results, no token is included in the response.</p>\n         <p>The value of <code>nextToken</code> is a unique pagination token for each page. To retrieve the next page of results, make the call again using\n      the returned token. Keep all other arguments unchanged.</p>\n         <p> Using an expired pagination token results in an <code>HTTP 400 InvalidToken</code> error.</p>"
           }
         }
       },
@@ -6786,7 +6973,7 @@
           "min": 1,
           "max": 512
         },
-        "smithy.api#pattern": "^arn:aws[a-z-]*:events:[a-z]{2}-[a-z-]+-\\d+:\\d{12}:event-bus/[\\w.-]+$"
+        "smithy.api#pattern": "^arn:aws[a-z-]*:events:[a-z]+-[a-z-]+-\\d+:\\d{12}:event-bus/[\\w.-]+$"
       }
     },
     "com.amazonaws.eventbridge#NonPartnerEventBusName": {
@@ -6806,7 +6993,7 @@
           "min": 1,
           "max": 1600
         },
-        "smithy.api#pattern": "^(arn:aws[\\w-]*:events:[a-z]{2}-[a-z]+-[\\w-]+:[0-9]{12}:event-bus\\/)?[\\.\\-_A-Za-z0-9]+$"
+        "smithy.api#pattern": "^(arn:aws[\\w-]*:events:[a-z]+-[a-z]+-[\\w-]+:[0-9]{12}:event-bus\\/)?[\\.\\-_A-Za-z0-9]+$"
       }
     },
     "com.amazonaws.eventbridge#OperationDisabledException": {
@@ -7091,7 +7278,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>\n         <p>The maximum size for a PutEvents event entry is 256 KB. Entry size is calculated including\n      the event and any necessary characters and keys of the JSON representation of the event. To\n      learn more, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevent-size.html\">Calculating PutEvents event entry\n        size</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>\n         </p>\n         <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the\n      constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of\n      9,223,372,036,854,775,807.</p>\n         <note>\n            <p>PutEvents will only process nested JSON up to 1100 levels deep.</p>\n         </note>"
+        "smithy.api#documentation": "<p>Sends custom events to Amazon EventBridge so that they can be matched to rules.</p>\n         <p>You can batch multiple event entries into one request for efficiency. \n      However, the total entry size must be less than 256KB. You can calculate the entry size before you send the events. \n      For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-putevents.html#eb-putevent-size\">Calculating PutEvents event entry\n        size</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>\n         <p>PutEvents accepts the data in JSON format. For the JSON number (integer) data type, the\n      constraints are: a minimum value of -9,223,372,036,854,775,808 and a maximum value of\n      9,223,372,036,854,775,807.</p>\n         <note>\n            <p>PutEvents will only process nested JSON up to 1000 levels deep.</p>\n         </note>"
       }
     },
     "com.amazonaws.eventbridge#PutEventsRequest": {
@@ -7397,7 +7584,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or\n        Amazon Web Services organization to put events to the specified <i>event\n        bus</i>. Amazon EventBridge (CloudWatch Events) rules in your account are\n      triggered by these events arriving to an event bus in your account. </p>\n         <p>For another account to send events to your account, that external account must have an\n      EventBridge rule with your account's event bus as a target.</p>\n         <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run\n        <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are\n      members of the same Amazon Web Services organization, you can run <code>PutPermission</code>\n      once specifying <code>Principal</code> as \"*\" and specifying the Amazon Web Services\n      organization ID in <code>Condition</code>, to grant permissions to all accounts in that\n      organization.</p>\n         <p>If you grant permissions using an organization, then accounts in that organization must\n      specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to\n      add your account's event bus as a target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n        Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>"
+        "smithy.api#documentation": "<p>Running <code>PutPermission</code> permits the specified Amazon Web Services account or Amazon Web Services organization\n      to put events to the specified <i>event bus</i>. Amazon EventBridge rules in your account are triggered by these events arriving to an event bus in your\n      account. </p>\n         <p>For another account to send events to your account, that external account must have an\n      EventBridge rule with your account's event bus as a target.</p>\n         <p>To enable multiple Amazon Web Services accounts to put events to your event bus, run\n        <code>PutPermission</code> once for each of these accounts. Or, if all the accounts are\n      members of the same Amazon Web Services organization, you can run <code>PutPermission</code>\n      once specifying <code>Principal</code> as \"*\" and specifying the Amazon Web Services\n      organization ID in <code>Condition</code>, to grant permissions to all accounts in that\n      organization.</p>\n         <p>If you grant permissions using an organization, then accounts in that organization must\n      specify a <code>RoleArn</code> with proper permissions when they use <code>PutTarget</code> to\n      add your account's event bus as a target. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eventbridge-cross-account-event-delivery.html\">Sending and\n        Receiving Events Between Amazon Web Services Accounts</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         <p>The permission policy on the event bus cannot exceed 10 KB in size.</p>"
       }
     },
     "com.amazonaws.eventbridge#PutPermissionRequest": {
@@ -7473,7 +7660,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of\n      the state. You can disable a rule using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html\">DisableRule</a>.</p>\n         <p>A single rule watches for events from a single event bus. Events generated by Amazon Web Services services go to your account's default event bus. Events generated by SaaS partner\n      services or applications go to the matching partner event bus. If you have custom applications\n      or services, you can specify whether their events go to your default event bus or a custom\n      event bus that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>\n         <p>If you are updating an existing rule, the rule is replaced with what you specify in this\n        <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values\n      for those arguments are not kept. Instead, they are replaced with null values.</p>\n         <p>When you create or update a rule, incoming events might not immediately start matching to\n      new or updated rules. Allow a short period of time for changes to take effect.</p>\n         <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with\n      EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions\n      self-trigger based on the given schedule. A rule can have both an EventPattern and a\n      ScheduleExpression, in which case the rule triggers on matching events as well as on a\n      schedule.</p>\n         <p>When you initially create a rule, you can optionally assign one or more tags to the rule.\n      Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions, by granting a user permission to access or change only rules with certain tag\n      values. To use the <code>PutRule</code> operation and assign tags, you must have both the\n        <code>events:PutRule</code> and <code>events:TagResource</code> permissions.</p>\n         <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code>\n      operation are ignored. To update the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>\n         <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource\n      Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to\n      use the correct ARN characters when creating event patterns so that they match the ARN syntax\n      in the event you want to match.</p>\n         <p>In EventBridge, it is possible to create rules that lead to infinite loops, where a rule\n      is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket,\n      and trigger software to change them to the desired state. If the rule is not written\n      carefully, the subsequent change to the ACLs fires the rule again, creating an infinite\n      loop.</p>\n         <p>To prevent this, write the rules so that the triggered actions do not re-fire the same\n      rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead\n      of after any change. </p>\n         <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use\n      budgeting, which alerts you when charges exceed your specified limit. For more information,\n      see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with\n        Budgets</a>.</p>"
+        "smithy.api#documentation": "<p>Creates or updates the specified rule. Rules are enabled by default, or based on value of\n      the state. You can disable a rule using <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_DisableRule.html\">DisableRule</a>.</p>\n         <p>A single rule watches for events from a single event bus. Events generated by Amazon Web Services services go to your account's default event bus. Events generated by SaaS partner\n      services or applications go to the matching partner event bus. If you have custom applications\n      or services, you can specify whether their events go to your default event bus or a custom\n      event bus that you have created. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateEventBus.html\">CreateEventBus</a>.</p>\n         <p>If you are updating an existing rule, the rule is replaced with what you specify in this\n        <code>PutRule</code> command. If you omit arguments in <code>PutRule</code>, the old values\n      for those arguments are not kept. Instead, they are replaced with null values.</p>\n         <p>When you create or update a rule, incoming events might not immediately start matching to\n      new or updated rules. Allow a short period of time for changes to take effect.</p>\n         <p>A rule must contain at least an EventPattern or ScheduleExpression. Rules with\n      EventPatterns are triggered when a matching event is observed. Rules with ScheduleExpressions\n      self-trigger based on the given schedule. A rule can have both an EventPattern and a\n      ScheduleExpression, in which case the rule triggers on matching events as well as on a\n      schedule.</p>\n         <p>When you initially create a rule, you can optionally assign one or more tags to the rule.\n      Tags can help you organize and categorize your resources. You can also use them to scope user\n      permissions, by granting a user permission to access or change only rules with certain tag\n      values. To use the <code>PutRule</code> operation and assign tags, you must have both the\n        <code>events:PutRule</code> and <code>events:TagResource</code> permissions.</p>\n         <p>If you are updating an existing rule, any tags you specify in the <code>PutRule</code>\n      operation are ignored. To update the tags of an existing rule, use <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_TagResource.html\">TagResource</a> and <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UntagResource.html\">UntagResource</a>.</p>\n         <p>Most services in Amazon Web Services treat : or / as the same character in Amazon Resource\n      Names (ARNs). However, EventBridge uses an exact match in event patterns and rules. Be sure to\n      use the correct ARN characters when creating event patterns so that they match the ARN syntax\n      in the event you want to match.</p>\n         <p>In EventBridge, it is possible to create rules that lead to infinite loops, where a rule\n      is fired repeatedly. For example, a rule might detect that ACLs have changed on an S3 bucket,\n      and trigger software to change them to the desired state. If the rule is not written\n      carefully, the subsequent change to the ACLs fires the rule again, creating an infinite\n      loop.</p>\n         <p>To prevent this, write the rules so that the triggered actions do not re-fire the same\n      rule. For example, your rule could fire only if ACLs are found to be in a bad state, instead\n      of after any change. </p>\n         <p>An infinite loop can quickly cause higher than expected charges. We recommend that you use\n      budgeting, which alerts you when charges exceed your specified limit. For more information,\n      see <a href=\"https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/budgets-managing-costs.html\">Managing Your Costs with\n        Budgets</a>.</p>\n         <p>To create a rule that filters for management events from Amazon Web Services services, see \n      <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-service-event-cloudtrail.html#eb-service-event-cloudtrail-management\">Receiving read-only management events from Amazon Web Services services</a> in the \n      <i>EventBridge User Guide</i>.</p>"
       }
     },
     "com.amazonaws.eventbridge#PutRuleRequest": {
@@ -7946,7 +8133,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#ArchiveArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the archive to replay event from.</p>"
           }
@@ -8162,6 +8349,26 @@
           "min": 1,
           "max": 1600
         }
+      }
+    },
+    "com.amazonaws.eventbridge#ResourceAssociationArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 17,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^arn:[a-z0-9\\\\-]+:vpc-lattice:[a-zA-Z0-9\\\\-]+:\\\\d{12}:servicenetworkresourceassociation/snra-[0-9a-z]{17}$"
+      }
+    },
+    "com.amazonaws.eventbridge#ResourceConfigurationArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^(?:^arn:[a-z0-9\\-]+:vpc-lattice:[a-zA-Z0-9\\-]+:\\d{12}:resourceconfiguration/rcfg-[0-9a-z]{17}$|^$)$"
       }
     },
     "com.amazonaws.eventbridge#ResourceNotFoundException": {
@@ -8449,20 +8656,20 @@
         "Name": {
           "target": "com.amazonaws.eventbridge#SageMakerPipelineParameterName",
           "traits": {
-            "smithy.api#documentation": "<p>Name of parameter to start execution of a SageMaker Model Building\n      Pipeline.</p>",
+            "smithy.api#documentation": "<p>Name of parameter to start execution of a SageMaker AI Model Building\n      Pipeline.</p>",
             "smithy.api#required": {}
           }
         },
         "Value": {
           "target": "com.amazonaws.eventbridge#SageMakerPipelineParameterValue",
           "traits": {
-            "smithy.api#documentation": "<p>Value of parameter to start execution of a SageMaker Model Building\n      Pipeline.</p>",
+            "smithy.api#documentation": "<p>Value of parameter to start execution of a SageMaker AI Model Building\n      Pipeline.</p>",
             "smithy.api#required": {}
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Name/Value pair of a parameter to start execution of a SageMaker Model Building\n      Pipeline.</p>"
+        "smithy.api#documentation": "<p>Name/Value pair of a parameter to start execution of a SageMaker AI Model Building\n      Pipeline.</p>"
       }
     },
     "com.amazonaws.eventbridge#SageMakerPipelineParameterList": {
@@ -8502,12 +8709,12 @@
         "PipelineParameterList": {
           "target": "com.amazonaws.eventbridge#SageMakerPipelineParameterList",
           "traits": {
-            "smithy.api#documentation": "<p>List of Parameter names and values for SageMaker Model Building Pipeline\n      execution.</p>"
+            "smithy.api#documentation": "<p>List of Parameter names and values for SageMaker AI Model Building Pipeline\n      execution.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>These are custom parameters to use when the target is a SageMaker Model Building\n      Pipeline that starts based on EventBridge events.</p>"
+        "smithy.api#documentation": "<p>These are custom parameters to use when the target is a SageMaker AI Model Building\n      Pipeline that starts based on EventBridge events.</p>"
       }
     },
     "com.amazonaws.eventbridge#ScheduleExpression": {
@@ -8635,7 +8842,7 @@
           }
         },
         "EventSourceArn": {
-          "target": "com.amazonaws.eventbridge#Arn",
+          "target": "com.amazonaws.eventbridge#ArchiveArn",
           "traits": {
             "smithy.api#documentation": "<p>The ARN of the archive to replay events from.</p>",
             "smithy.api#required": {}
@@ -8921,7 +9128,7 @@
         "SageMakerPipelineParameters": {
           "target": "com.amazonaws.eventbridge#SageMakerPipelineParameters",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the SageMaker Model Building Pipeline parameters to start execution of a\n        SageMaker Model Building Pipeline.</p>\n         <p>If you specify a SageMaker Model Building Pipeline as a target, you can use this\n      to specify parameters to start a pipeline execution based on EventBridge events.</p>"
+            "smithy.api#documentation": "<p>Contains the SageMaker AI Model Building Pipeline parameters to start execution of a\n        SageMaker AI Model Building Pipeline.</p>\n         <p>If you specify a SageMaker AI Model Building Pipeline as a target, you can use this\n      to specify parameters to start a pipeline execution based on EventBridge events.</p>"
           }
         },
         "DeadLetterConfig": {
@@ -8933,7 +9140,7 @@
         "RetryPolicy": {
           "target": "com.amazonaws.eventbridge#RetryPolicy",
           "traits": {
-            "smithy.api#documentation": "<p>The <code>RetryPolicy</code> object that contains the retry policy configuration to use\n      for the dead-letter queue.</p>"
+            "smithy.api#documentation": "<p>The retry policy configuration to use\n      for the dead-letter queue.</p>"
           }
         },
         "AppSyncParameters": {
@@ -9074,6 +9281,18 @@
         "smithy.api#output": {}
       }
     },
+    "com.amazonaws.eventbridge#ThrottlingException": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "com.amazonaws.eventbridge#ErrorMessage"
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>This request cannot be completed due to throttling issues.</p>",
+        "smithy.api#error": "client"
+      }
+    },
     "com.amazonaws.eventbridge#Timestamp": {
       "type": "timestamp"
     },
@@ -9133,7 +9352,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge\n      (CloudWatch Events), rules and event buses can be tagged.</p>"
+        "smithy.api#documentation": "<p>Removes one or more tags from the specified EventBridge resource. In Amazon EventBridge, rules and event buses can be tagged.</p>"
       }
     },
     "com.amazonaws.eventbridge#UntagResourceRequest": {
@@ -9324,6 +9543,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The number of days to retain events in the archive.</p>"
           }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt the archive.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html\">Identify and view keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>\n         <important>\n            <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a \n        customer managed key for any archives for the event bus as well. </p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </important>"
+          }
         }
       },
       "traits": {
@@ -9372,6 +9597,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.eventbridge#AccessDeniedException"
+        },
+        {
           "target": "com.amazonaws.eventbridge#ConcurrentModificationException"
         },
         {
@@ -9382,6 +9610,9 @@
         },
         {
           "target": "com.amazonaws.eventbridge#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.eventbridge#ThrottlingException"
         }
       ],
       "traits": {
@@ -9400,7 +9631,7 @@
         "ApiKeyValue": {
           "target": "com.amazonaws.eventbridge#AuthHeaderParametersSensitive",
           "traits": {
-            "smithy.api#documentation": "<p>The value associated with teh API key to use for authorization.</p>"
+            "smithy.api#documentation": "<p>The value associated with the API key to use for authorization.</p>"
           }
         }
       },
@@ -9414,25 +9645,31 @@
         "BasicAuthParameters": {
           "target": "com.amazonaws.eventbridge#UpdateConnectionBasicAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>UpdateConnectionBasicAuthRequestParameters</code> object that contains the\n      authorization parameters for Basic authorization.</p>"
+            "smithy.api#documentation": "<p>The\n      authorization parameters for Basic authorization.</p>"
           }
         },
         "OAuthParameters": {
           "target": "com.amazonaws.eventbridge#UpdateConnectionOAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>UpdateConnectionOAuthRequestParameters</code> object that contains the\n      authorization parameters for OAuth authorization.</p>"
+            "smithy.api#documentation": "<p>The\n      authorization parameters for OAuth authorization.</p>"
           }
         },
         "ApiKeyAuthParameters": {
           "target": "com.amazonaws.eventbridge#UpdateConnectionApiKeyAuthRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>UpdateConnectionApiKeyAuthRequestParameters</code> object that contains the\n      authorization parameters for API key authorization.</p>"
+            "smithy.api#documentation": "<p>The\n      authorization parameters for API key authorization.</p>"
           }
         },
         "InvocationHttpParameters": {
           "target": "com.amazonaws.eventbridge#ConnectionHttpParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>ConnectionHttpParameters</code> object that contains the additional parameters to\n      use for the connection.</p>"
+            "smithy.api#documentation": "<p>The additional parameters to\n      use for the connection.</p>"
+          }
+        },
+        "ConnectivityParameters": {
+          "target": "com.amazonaws.eventbridge#ConnectivityResourceParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>If you specify a private OAuth endpoint, the parameters for EventBridge to use when authenticating against the endpoint.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection-auth.html\">Authorization methods for connections</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
           }
         }
       },
@@ -9457,7 +9694,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the Basic authorization parameters for the connection.</p>"
+        "smithy.api#documentation": "<p>The Basic authorization parameters for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#UpdateConnectionOAuthClientRequestParameters": {
@@ -9477,7 +9714,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the OAuth authorization parameters to use for the connection.</p>"
+        "smithy.api#documentation": "<p>The OAuth authorization parameters to use for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#UpdateConnectionOAuthRequestParameters": {
@@ -9486,7 +9723,7 @@
         "ClientParameters": {
           "target": "com.amazonaws.eventbridge#UpdateConnectionOAuthClientRequestParameters",
           "traits": {
-            "smithy.api#documentation": "<p>A <code>UpdateConnectionOAuthClientRequestParameters</code> object that contains the\n      client parameters to use for the connection when OAuth is specified as the authorization\n      type.</p>"
+            "smithy.api#documentation": "<p>The\n      client parameters to use for the connection when OAuth is specified as the authorization\n      type.</p>"
           }
         },
         "AuthorizationEndpoint": {
@@ -9509,7 +9746,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the OAuth request parameters to use for the connection.</p>"
+        "smithy.api#documentation": "<p>The OAuth request parameters to use for the connection.</p>"
       }
     },
     "com.amazonaws.eventbridge#UpdateConnectionRequest": {
@@ -9538,6 +9775,18 @@
           "target": "com.amazonaws.eventbridge#UpdateConnectionAuthRequestParameters",
           "traits": {
             "smithy.api#documentation": "<p>The authorization parameters to use for the connection.</p>"
+          }
+        },
+        "InvocationConnectivityParameters": {
+          "target": "com.amazonaws.eventbridge#ConnectivityResourceParameters",
+          "traits": {
+            "smithy.api#documentation": "<p>For connections to private APIs, the parameters to use for invoking the API.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/connection-private.html\">Connecting to private APIs</a> in the <i>\n               <i>Amazon EventBridge User Guide</i>\n            </i>.</p>"
+          }
+        },
+        "KmsKeyIdentifier": {
+          "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
+          "traits": {
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt the connection.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html\">Identify and view keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>"
           }
         }
       },
@@ -9751,7 +10000,7 @@
         "KmsKeyIdentifier": {
           "target": "com.amazonaws.eventbridge#KmsKeyIdentifier",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt events on the event bus.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html\">Managing keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>\n         <note>\n            <p>Archives and schema discovery are not supported for event buses encrypted using a\n        customer managed key. EventBridge returns an error if:</p>\n            <ul>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_CreateArchive.html\">CreateArchive</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer\">CreateDiscoverer</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html\">UpdatedEventBus</a>\n                     </code> to set a customer managed key on an event bus with an archives or schema discovery enabled.</p>\n               </li>\n            </ul>\n            <p>To enable archives or schema discovery on an event bus, choose to\n        use an Amazon Web Services owned key. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption.html\">Data encryption in EventBridge</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>The identifier of the KMS\n      customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key \n      Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.</p>\n         <p>If you do not specify a customer managed key identifier, EventBridge uses an\n        Amazon Web Services owned key to encrypt events on the event bus.</p>\n         <p>For more information, see <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/viewing-keys.html\">Identify and view keys</a> in the <i>Key Management Service\n                                Developer Guide</i>. </p>\n         <note>\n            <p>Schema discovery is not supported for event buses encrypted using a\n        customer managed key. EventBridge returns an error if: </p>\n            <ul>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/schema-reference/v1-discoverers.html#CreateDiscoverer\">CreateDiscoverer</a>\n                     </code> on an event bus set to use a customer managed key for encryption.</p>\n               </li>\n               <li>\n                  <p>You call <code>\n                        <a href=\"https://docs.aws.amazon.com/eventbridge/latest/APIReference/API_UpdatedEventBus.html\">UpdatedEventBus</a>\n                     </code> to set a customer managed key on an event bus with schema discovery enabled.</p>\n               </li>\n            </ul>\n            <p>To enable schema discovery on an event bus, choose to\n        use an Amazon Web Services owned key. For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-encryption-event-bus-cmkey.html\">Encrypting events</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </note>\n         <important>\n            <p>If you have specified that EventBridge use a customer managed key for encrypting the source event bus, we strongly recommend you also specify a \n        customer managed key for any archives for the event bus as well. </p>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/eventbridge/latest/userguide/encryption-archives.html\">Encrypting archives</a> in the <i>Amazon EventBridge User Guide</i>.</p>\n         </important>"
           }
         },
         "Description": {

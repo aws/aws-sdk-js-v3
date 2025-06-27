@@ -16,7 +16,8 @@ import { de_ListTokenBalancesCommand, se_ListTokenBalancesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -120,6 +121,7 @@ export interface ListTokenBalancesCommandOutput extends ListTokenBalancesOutput,
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class ListTokenBalancesCommand extends $Command
@@ -130,9 +132,7 @@ export class ListTokenBalancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +144,16 @@ export class ListTokenBalancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTokenBalancesCommand)
   .de(de_ListTokenBalancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTokenBalancesInput;
+      output: ListTokenBalancesOutput;
+    };
+    sdk: {
+      input: ListTokenBalancesCommandInput;
+      output: ListTokenBalancesCommandOutput;
+    };
+  };
+}

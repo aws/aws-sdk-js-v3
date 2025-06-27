@@ -12,7 +12,8 @@ import { de_DeleteBackupCommand, se_DeleteBackupCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeleteBackupCommandOutput extends DeleteBackupResponse, __Metad
  * @throws {@link OpsWorksCMServiceException}
  * <p>Base exception class for all service exceptions from OpsWorksCM service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackupCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteBackupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksCMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupCommand)
   .de(de_DeleteBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBackupCommandInput;
+      output: DeleteBackupCommandOutput;
+    };
+  };
+}

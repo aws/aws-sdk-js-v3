@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +29,15 @@ export interface ListObjectsCommandInput extends ListObjectsRequest {}
 export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will stop returning <code>DisplayName</code>. Update your applications to use canonical IDs (unique identifier for
+ *  Amazon Web Services accounts), Amazon Web Services account ID (12 digit identifier) or IAM ARNs (full resource naming) as a direct replacement of <code>DisplayName</code>.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <note>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns some or all (up to 1,000) of the objects in a bucket. You can use the request
  *          parameters as selection criteria to return a subset of the objects in a bucket. A 200 OK
@@ -97,10 +106,11 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * //       LastModified: new Date("TIMESTAMP"),
  * //       ETag: "STRING_VALUE",
  * //       ChecksumAlgorithm: [ // ChecksumAlgorithmList
- * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ * //         "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  * //       ],
+ * //       ChecksumType: "COMPOSITE" || "FULL_OBJECT",
  * //       Size: Number("long"),
- * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE",
+ * //       StorageClass: "STANDARD" || "REDUCED_REDUNDANCY" || "GLACIER" || "STANDARD_IA" || "ONEZONE_IA" || "INTELLIGENT_TIERING" || "DEEP_ARCHIVE" || "OUTPOSTS" || "GLACIER_IR" || "SNOW" || "EXPRESS_ONEZONE" || "FSX_OPENZFS",
  * //       Owner: { // Owner
  * //         DisplayName: "STRING_VALUE",
  * //         ID: "STRING_VALUE",
@@ -138,48 +148,48 @@ export interface ListObjectsCommandOutput extends ListObjectsOutput, __MetadataB
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To list objects in a bucket
  * ```javascript
  * // The following example list two objects in a bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "MaxKeys": "2"
+ *   Bucket: "examplebucket",
+ *   MaxKeys: 2
  * };
  * const command = new ListObjectsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Contents": [
+ *   Contents: [
  *     {
- *       "ETag": "\"70ee1738b6b21e2c8a43f3a5ab0eee71\"",
- *       "Key": "example1.jpg",
- *       "LastModified": "2014-11-21T19:40:05.000Z",
- *       "Owner": {
- *         "DisplayName": "myname",
- *         "ID": "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"70ee1738b6b21e2c8a43f3a5ab0eee71"`,
+ *       Key: "example1.jpg",
+ *       LastModified: "2014-11-21T19:40:05.000Z",
+ *       Owner: {
+ *         DisplayName: "myname",
+ *         ID: "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 11,
- *       "StorageClass": "STANDARD"
+ *       Size: 11,
+ *       StorageClass: "STANDARD"
  *     },
  *     {
- *       "ETag": "\"9c8af9a76df052144598c115ef33e511\"",
- *       "Key": "example2.jpg",
- *       "LastModified": "2013-11-15T01:10:49.000Z",
- *       "Owner": {
- *         "DisplayName": "myname",
- *         "ID": "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
+ *       ETag: `"9c8af9a76df052144598c115ef33e511"`,
+ *       Key: "example2.jpg",
+ *       LastModified: "2013-11-15T01:10:49.000Z",
+ *       Owner: {
+ *         DisplayName: "myname",
+ *         ID: "12345example25102679df27bb0ae12b3f85be6f290b936c4393484be31bebcc"
  *       },
- *       "Size": 713193,
- *       "StorageClass": "STANDARD"
+ *       Size: 713193,
+ *       StorageClass: "STANDARD"
  *     }
  *   ],
- *   "NextMarker": "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
+ *   NextMarker: "eyJNYXJrZXIiOiBudWxsLCAiYm90b190cnVuY2F0ZV9hbW91bnQiOiAyfQ=="
  * }
  * *\/
- * // example id: to-list-objects-in-a-bucket-1473447646507
  * ```
  *
+ * @public
  */
 export class ListObjectsCommand extends $Command
   .classBuilder<
@@ -198,6 +208,7 @@ export class ListObjectsCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "ListObjects", {})
@@ -205,4 +216,16 @@ export class ListObjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectsCommand)
   .de(de_ListObjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectsRequest;
+      output: ListObjectsOutput;
+    };
+    sdk: {
+      input: ListObjectsCommandInput;
+      output: ListObjectsCommandOutput;
+    };
+  };
+}

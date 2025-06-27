@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,7 @@ export interface DescribeComplianceByResourceCommandOutput
 
 /**
  * <p>Indicates whether the specified Amazon Web Services resources are compliant. If
- * 			a resource is noncompliant, this action returns the number of Config rules that the resource does not comply with.</p>
+ * 			a resource is noncompliant, this operation returns the number of Config rules that the resource does not comply with.</p>
  *          <p>A resource is compliant if it complies with all the Config
  * 			rules that evaluate it. It is noncompliant if it does not comply
  * 			with one or more of these rules.</p>
@@ -119,6 +120,7 @@ export interface DescribeComplianceByResourceCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeComplianceByResourceCommand extends $Command
@@ -129,9 +131,7 @@ export class DescribeComplianceByResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +143,16 @@ export class DescribeComplianceByResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeComplianceByResourceCommand)
   .de(de_DescribeComplianceByResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeComplianceByResourceRequest;
+      output: DescribeComplianceByResourceResponse;
+    };
+    sdk: {
+      input: DescribeComplianceByResourceCommandInput;
+      output: DescribeComplianceByResourceCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_StartLaunchCommand, se_StartLaunchCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,7 @@ export interface StartLaunchCommandOutput extends StartLaunchResponse, __Metadat
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class StartLaunchCommand extends $Command
@@ -141,9 +143,7 @@ export class StartLaunchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class StartLaunchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartLaunchCommand)
   .de(de_StartLaunchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLaunchRequest;
+      output: StartLaunchResponse;
+    };
+    sdk: {
+      input: StartLaunchCommandInput;
+      output: StartLaunchCommandOutput;
+    };
+  };
+}

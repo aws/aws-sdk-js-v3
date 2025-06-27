@@ -63,6 +63,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { StartCanaryCommand, StartCanaryCommandInput, StartCanaryCommandOutput } from "./commands/StartCanaryCommand";
+import {
+  StartCanaryDryRunCommand,
+  StartCanaryDryRunCommandInput,
+  StartCanaryDryRunCommandOutput,
+} from "./commands/StartCanaryDryRunCommand";
 import { StopCanaryCommand, StopCanaryCommandInput, StopCanaryCommandOutput } from "./commands/StopCanaryCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
@@ -95,6 +100,7 @@ const commands = {
   ListGroupsCommand,
   ListTagsForResourceCommand,
   StartCanaryCommand,
+  StartCanaryDryRunCommand,
   StopCanaryCommand,
   TagResourceCommand,
   UntagResourceCommand,
@@ -339,6 +345,23 @@ export interface Synthetics {
     args: StartCanaryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartCanaryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartCanaryDryRunCommand}
+   */
+  startCanaryDryRun(
+    args: StartCanaryDryRunCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartCanaryDryRunCommandOutput>;
+  startCanaryDryRun(
+    args: StartCanaryDryRunCommandInput,
+    cb: (err: any, data?: StartCanaryDryRunCommandOutput) => void
+  ): void;
+  startCanaryDryRun(
+    args: StartCanaryDryRunCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartCanaryDryRunCommandOutput) => void
   ): void;
 
   /**

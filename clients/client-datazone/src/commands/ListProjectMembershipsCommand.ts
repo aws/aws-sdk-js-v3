@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListProjectMembershipsInput, ListProjectMembershipsOutput } from "../models/models_0";
+import { ListProjectMembershipsInput, ListProjectMembershipsOutput } from "../models/models_1";
 import { de_ListProjectMembershipsCommand, se_ListProjectMembershipsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,7 +56,7 @@ export interface ListProjectMembershipsCommandOutput extends ListProjectMembersh
  * //           groupId: "STRING_VALUE", // required
  * //         },
  * //       },
- * //       designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR", // required
+ * //       designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR" || "PROJECT_CATALOG_VIEWER" || "PROJECT_CATALOG_CONSUMER" || "PROJECT_CATALOG_STEWARD", // required
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -90,6 +91,7 @@ export interface ListProjectMembershipsCommandOutput extends ListProjectMembersh
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListProjectMembershipsCommand extends $Command
@@ -100,9 +102,7 @@ export class ListProjectMembershipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListProjectMembershipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProjectMembershipsCommand)
   .de(de_ListProjectMembershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProjectMembershipsInput;
+      output: ListProjectMembershipsOutput;
+    };
+    sdk: {
+      input: ListProjectMembershipsCommandInput;
+      output: ListProjectMembershipsCommandOutput;
+    };
+  };
+}

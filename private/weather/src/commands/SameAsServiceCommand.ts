@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import { ServiceInputTypes, ServiceOutputTypes, WeatherClientResolvedConfig } from "../WeatherClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { SameAsServiceOutput } from "../models/models_0";
-import { getSigV4AuthPlugin } from "@aws-sdk/middleware-signing";
+import { de_SameAsServiceCommand, se_SameAsServiceCommand } from "../protocols/Aws_restJson1";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -9,7 +11,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +53,7 @@ export interface SameAsServiceCommandOutput extends SameAsServiceOutput, __Metad
  * @throws {@link WeatherServiceException}
  * <p>Base exception class for all service exceptions from Weather service.</p>
  *
+ *
  */
 export class SameAsServiceCommand extends $Command
   .classBuilder<
@@ -59,16 +63,28 @@ export class SameAsServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WeatherClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize), getSigV4AuthPlugin(config)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("Weather", "SameAsService", {})
   .n("WeatherClient", "SameAsServiceCommand")
   .f(void 0, void 0)
-  .ser(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .de(() => {
-    throw new Error("No supported protocol was found");
-  })
-  .build() {}
+  .ser(se_SameAsServiceCommand)
+  .de(de_SameAsServiceCommand)
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: SameAsServiceOutput;
+    };
+    sdk: {
+      input: SameAsServiceCommandInput;
+      output: SameAsServiceCommandOutput;
+    };
+  };
+}

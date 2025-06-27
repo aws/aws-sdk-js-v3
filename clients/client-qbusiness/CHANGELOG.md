@@ -3,6 +3,961 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.838.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.837.0...v3.838.0) (2025-06-26)
+
+
+### Features
+
+* **client-qbusiness:** Added support for App level authentication for QBusiness DataAccessor using AWS IAM Identity center Trusted Token issuer ([8b9a8ba](https://github.com/aws/aws-sdk-js-v3/commit/8b9a8baacace059b13729288c7c5a795c29fac9c))
+
+
+
+
+
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+
+### Features
+
+* **client-qbusiness:** Add support for anonymous user access for Q Business applications ([6197c7b](https://github.com/aws/aws-sdk-js-v3/commit/6197c7b94988d400bf4ed873eefd900423a7a027))
+
+
+
+
+
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.793.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.792.0...v3.793.0) (2025-04-21)
+
+
+### Features
+
+* **client-qbusiness:** The CheckDocumentAccess API for Amazon Q Business is a self-service debugging API that allows administrators to verify document access permissions and review Access Control List (ACL) configurations. ([4f906b2](https://github.com/aws/aws-sdk-js-v3/commit/4f906b23adabfbd5affd546f5e0329243ec5e7a7))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+
+### Features
+
+* **client-qbusiness:** Adds functionality to enable/disable a new Q Business Hallucination Reduction feature. If enabled, Q Business will detect and attempt to remove Hallucinations from certain Chat requests. ([a7fb9d5](https://github.com/aws/aws-sdk-js-v3/commit/a7fb9d51db510186d00481f825219bf1d07a3a7d))
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.760.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.759.0...v3.760.0) (2025-03-03)
+
+
+### Features
+
+* **client-qbusiness:** Adds support for the ingestion of audio and video files by Q Business, which can be configured with the mediaExtractionConfiguration parameter. ([f279962](https://github.com/aws/aws-sdk-js-v3/commit/f279962e45e7554eac3aae267ff15fc698822e51))
+
+
+
+
+
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+
+### Features
+
+* **client-qbusiness:** This release supports deleting attachments from conversations. ([e5ad270](https://github.com/aws/aws-sdk-js-v3/commit/e5ad27044a373b9807607836fb570be977cad1cc))
+
+
+
+
+
+# [3.751.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.750.0...v3.751.0) (2025-02-18)
+
+
+### Bug Fixes
+
+* **clients:** unknown union member serialization in json ([#6892](https://github.com/aws/aws-sdk-js-v3/issues/6892)) ([23d5fe8](https://github.com/aws/aws-sdk-js-v3/commit/23d5fe858d6edd5e3b9126a787a936404d0a3148))
+
+
+
+
+
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.742.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.741.0...v3.742.0) (2025-02-04)
+
+
+### Features
+
+* **client-qbusiness:** Adds functionality to enable/disable a new Q Business Chat orchestration feature. If enabled, Q Business can orchestrate over datasources and plugins without the need for customers to select specific chat modes. ([2859d8b](https://github.com/aws/aws-sdk-js-v3/commit/2859d8bfe9d476d5ae692ccb7a4805114b30cd46))
+
+
+
+
+
+# [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.739.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.738.0...v3.739.0) (2025-01-30)
+
+
+### Features
+
+* **client-qbusiness:** Added APIs to manage QBusiness user subscriptions ([5da8835](https://github.com/aws/aws-sdk-js-v3/commit/5da88350ca483a26ec22a58df815419c54230a74))
+
+
+
+
+
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.733.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.732.0...v3.733.0) (2025-01-22)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.730.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.729.0...v3.730.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **nested-clients:** create nested clients for internal use ([#6791](https://github.com/aws/aws-sdk-js-v3/issues/6791)) ([5c53685](https://github.com/aws/aws-sdk-js-v3/commit/5c5368554d13a3b798a72c53e30cd3d897621135))
+
+
+
+
+
+## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+
+### Features
+
+* **clients:** profile setting for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/issues/6728)) ([afd9eea](https://github.com/aws/aws-sdk-js-v3/commit/afd9eea89fd0d63a377123f1ca999daeefd904a7))
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.707.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.706.0...v3.707.0) (2024-12-05)
+
+
+### Features
+
+* **client-qbusiness:** This release removes the deprecated UserId and UserGroups fields from SearchRelevantContent api's request parameters. ([bf694a1](https://github.com/aws/aws-sdk-js-v3/commit/bf694a1614ea46ef99d3e6cdb93969d26ce82459))
+
+
+
+
+
+# [3.705.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.704.0...v3.705.0) (2024-12-03)
+
+
+### Features
+
+* **client-qbusiness:** Amazon Q Business now supports customization options for your web experience, 11 new Plugins, and QuickSight support. Amazon Q index allows software providers to enrich their native generative AI experiences with their customer's enterprise knowledge and user context spanning multiple applications. ([60ec210](https://github.com/aws/aws-sdk-js-v3/commit/60ec2100e43c6d82d38d45ca0b7eedfabe573ed7))
+
+
+
+
+
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-qbusiness:** Amazon Q Business now supports capabilities to extract insights and answer questions from visual elements embedded within documents, a browser extension for Google Chrome, Mozilla Firefox, and Microsoft Edge, and attachments across conversations. ([45e207b](https://github.com/aws/aws-sdk-js-v3/commit/45e207bf43eda4f5733f9e8c973659d4b4521d1b))
+
+
+
+
+
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-qbusiness:** Adds S3 path option to pass group member list for PutGroup API. ([a0824b3](https://github.com/aws/aws-sdk-js-v3/commit/a0824b3db9ab0b24ba90c8f3c41a9ce60f43ce3b))
+
+
+
+
+
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+
+### Features
+
+* **client-qbusiness:** Add a new field in chat response. This field can be used to support nested schemas in array fields ([e7c6ed5](https://github.com/aws/aws-sdk-js-v3/commit/e7c6ed54abfb89203cc746890afdc5af006ca293))
+
+
+
+
+
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.672.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.671.0...v3.672.0) (2024-10-15)
+
+
+### Features
+
+* **client-qbusiness:** Amazon Q Business now supports embedding the Amazon Q Business web experience on third-party websites. ([8f3697f](https://github.com/aws/aws-sdk-js-v3/commit/8f3697f4029fd285d4bd93ae7a83ff78e26547f1))
+
+
+
+
+
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Features
+
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* **clients:** allow empty string field values for headers ([#6511](https://github.com/aws/aws-sdk-js-v3/issues/6511)) ([1273ff3](https://github.com/aws/aws-sdk-js-v3/commit/1273ff317071749cfeb88caad9df7492256c03e2))
+
+
+
+
+
+# [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+# [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.638.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.637.0...v3.638.0) (2024-08-23)
+
+
+### Features
+
+* **client-qbusiness:** Amazon QBusiness: Enable support for SAML and OIDC federation through AWS IAM Identity Provider integration. ([52bc2d8](https://github.com/aws/aws-sdk-js-v3/commit/52bc2d8ab48200e729d0cca7cc6dee7db4e5dac4))
+
+
+
+
+
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
+
+
+### Features
+
+* **codegen:** add Smithy RPCv2 CBOR to list of protocols ([#6096](https://github.com/aws/aws-sdk-js-v3/issues/6096)) ([5154d4f](https://github.com/aws/aws-sdk-js-v3/commit/5154d4f19bc77a7bad075b35ce135d3b5f60ad1d))
+
+
+
+
+
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.611.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.610.0...v3.611.0) (2024-07-05)
+
+
+### Features
+
+* **client-qbusiness:** Add personalization to Q Applications. Customers can enable or disable personalization when creating or updating a Q application with the personalization configuration. ([3022150](https://github.com/aws/aws-sdk-js-v3/commit/30221506431d0ed05a26a463276de2e6d09a2754))
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.603.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.602.0...v3.603.0) (2024-06-24)
+
+
+### Features
+
+* **client-qbusiness:** Allow enable/disable Q Apps when creating/updating a Q application; Return the Q Apps enablement information when getting a Q application. ([55c8f49](https://github.com/aws/aws-sdk-js-v3/commit/55c8f49bad3f4ef3c315996864220ffa50334d25))
+
+
+
+
+
+# [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-qbusiness
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,37 +82,8 @@ export interface GetNamespaceCommandOutput extends GetNamespaceResponse, __Metad
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
- * @example GetNamespace example
- * ```javascript
- * // This example gets information about a specified namespace.
- * const input = {
- *   "Id": "ns-e4anhexample0004"
- * };
- * const command = new GetNamespaceCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Namespace": {
- *     "Arn": "arn:aws:servicediscovery:us-west-2:123456789012:namespace/ns-e1tpmexample0001",
- *     "CreateDate": "20181118T211712Z",
- *     "CreatorRequestId": "example-creator-request-id-0001",
- *     "Description": "Example.com AWS Cloud Map HTTP Namespace",
- *     "Id": "ns-e1tpmexample0001",
- *     "Name": "example-http.com",
- *     "Properties": {
- *       "DnsProperties": {},
- *       "HttpProperties": {
- *         "HttpName": "example-http.com"
- *       }
- *     },
- *     "Type": "HTTP"
- *   }
- * }
- * *\/
- * // example id: getnamespace-example-1590115383708
- * ```
  *
+ * @public
  */
 export class GetNamespaceCommand extends $Command
   .classBuilder<
@@ -121,9 +93,7 @@ export class GetNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +105,16 @@ export class GetNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNamespaceCommand)
   .de(de_GetNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNamespaceRequest;
+      output: GetNamespaceResponse;
+    };
+    sdk: {
+      input: GetNamespaceCommandInput;
+      output: GetNamespaceCommandOutput;
+    };
+  };
+}

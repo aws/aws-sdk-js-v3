@@ -12,7 +12,8 @@ import { de_UpdateCertificateOptionsCommand, se_UpdateCertificateOptionsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface UpdateCertificateOptionsCommandInput extends UpdateCertificateO
 export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a certificate. Currently, you can use this function to specify whether to opt in
- *       to or out of recording your certificate in a certificate transparency log. For more
- *       information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of
- *         Certificate Transparency Logging</a>. </p>
+ * <p>Updates a certificate. You can use this function to specify whether to opt in to or out of recording your certificate in a certificate transparency log and exporting. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-bestpractices.html#best-practices-transparency"> Opting Out of Certificate Transparency Logging</a> and <a href="https://docs.aws.amazon.com/acm/latest/userguide/acm-exportable-certificates.html">Certificate Manager Exportable Managed Certificates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,6 +39,7 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *   CertificateArn: "STRING_VALUE", // required
  *   Options: { // CertificateOptions
  *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *     Export: "ENABLED" || "DISABLED",
  *   },
  * };
  * const command = new UpdateCertificateOptionsCommand(input);
@@ -65,11 +64,11 @@ export interface UpdateCertificateOptionsCommandOutput extends __MetadataBearer 
  *  <p>An ACM quota has been exceeded.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
+ *
  *
  * @public
  */
@@ -81,9 +80,7 @@ export class UpdateCertificateOptionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +92,16 @@ export class UpdateCertificateOptionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCertificateOptionsCommand)
   .de(de_UpdateCertificateOptionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCertificateOptionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCertificateOptionsCommandInput;
+      output: UpdateCertificateOptionsCommandOutput;
+    };
+  };
+}

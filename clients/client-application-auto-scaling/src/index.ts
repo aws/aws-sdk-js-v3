@@ -20,7 +20,7 @@
  *                <p>Amazon ECS services</p>
  *             </li>
  *             <li>
- *                <p>Amazon ElastiCache for Redis clusters (replication groups)</p>
+ *                <p>Amazon ElastiCache replication groups (Redis OSS and Valkey) and Memcached clusters</p>
  *             </li>
  *             <li>
  *                <p>Amazon EMR clusters</p>
@@ -41,13 +41,16 @@
  *                <p>Amazon SageMaker endpoint variants</p>
  *             </li>
  *             <li>
- *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
- *             </li>
- *             <li>
  *                <p>Amazon SageMaker inference components</p>
  *             </li>
  *             <li>
+ *                <p>Amazon SageMaker serverless endpoint provisioned concurrency</p>
+ *             </li>
+ *             <li>
  *                <p>Spot Fleets (Amazon EC2)</p>
+ *             </li>
+ *             <li>
+ *                <p>Pool of WorkSpaces</p>
  *             </li>
  *             <li>
  *                <p>Custom resources provided by your own applications or services</p>
@@ -84,8 +87,8 @@
 export * from "./ApplicationAutoScalingClient";
 export * from "./ApplicationAutoScaling";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ApplicationAutoScalingExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ApplicationAutoScalingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

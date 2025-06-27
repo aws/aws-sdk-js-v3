@@ -27,7 +27,7 @@ endpoints and quotas</a> in the <i>Amazon Web Services General Reference</i>.</p
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-apprunner
+To install this package, simply type add or install @aws-sdk/client-apprunner
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-apprunner`

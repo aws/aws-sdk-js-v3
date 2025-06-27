@@ -12,7 +12,8 @@ import { de_DeleteOriginRequestPolicyCommand, se_DeleteOriginRequestPolicyComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface DeleteOriginRequestPolicyCommandInput extends DeleteOriginReque
 export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an origin request policy.</p>
- *          <p>You cannot delete an origin request policy if it's attached to any cache behaviors.
- * 			First update your distributions to remove the origin request policy from all cache
- * 			behaviors, then delete the origin request policy.</p>
- *          <p>To delete an origin request policy, you must provide the policy's identifier and
- * 			version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or
- * 				<code>GetOriginRequestPolicy</code>.</p>
+ * <p>Deletes an origin request policy.</p> <p>You cannot delete an origin request policy if it's attached to any cache behaviors. First update your distributions to remove the origin request policy from all cache behaviors, then delete the origin request policy.</p> <p>To delete an origin request policy, you must provide the policy's identifier and version. To get the identifier, you can use <code>ListOriginRequestPolicies</code> or <code>GetOriginRequestPolicy</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +55,7 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *  <p>Access denied.</p>
  *
  * @throws {@link IllegalDelete} (client fault)
- *  <p>You cannot delete a managed policy.</p>
+ *  <p>Deletion is not allowed for this entity.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -69,15 +64,14 @@ export interface DeleteOriginRequestPolicyCommandOutput extends __MetadataBearer
  *  <p>The origin request policy does not exist.</p>
  *
  * @throws {@link OriginRequestPolicyInUse} (client fault)
- *  <p>Cannot delete the origin request policy because it is attached to one or more cache
- * 			behaviors.</p>
+ *  <p>Cannot delete the origin request policy because it is attached to one or more cache behaviors.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -89,9 +83,7 @@ export class DeleteOriginRequestPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +95,16 @@ export class DeleteOriginRequestPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOriginRequestPolicyCommand)
   .de(de_DeleteOriginRequestPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOriginRequestPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOriginRequestPolicyCommandInput;
+      output: DeleteOriginRequestPolicyCommandOutput;
+    };
+  };
+}

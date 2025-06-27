@@ -12,7 +12,8 @@ import { de_SearchResourcesCommand, se_SearchResourcesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface SearchResourcesCommandInput extends SearchResourcesRequest {}
 export interface SearchResourcesCommandOutput extends SearchResourcesResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes.</p>
+ * <p>Retrieves (queries) statistical data and other information about Amazon Web Services resources that Amazon Macie monitors and analyzes for an account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -41,7 +42,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *         { // SearchResourcesCriteria
  *           simpleCriterion: { // SearchResourcesSimpleCriterion
  *             comparator: "EQ" || "NE",
- *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS" || "AUTOMATED_DISCOVERY_MONITORING_STATUS",
  *             values: [ // __listOf__string
  *               "STRING_VALUE",
  *             ],
@@ -63,7 +64,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  *         {
  *           simpleCriterion: {
  *             comparator: "EQ" || "NE",
- *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS",
+ *             key: "ACCOUNT_ID" || "S3_BUCKET_NAME" || "S3_BUCKET_EFFECTIVE_PERMISSION" || "S3_BUCKET_SHARED_ACCESS" || "AUTOMATED_DISCOVERY_MONITORING_STATUS",
  *             values: [
  *               "STRING_VALUE",
  *             ],
@@ -95,10 +96,11 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * //     { // MatchingResource
  * //       matchingBucket: { // MatchingBucket
  * //         accountId: "STRING_VALUE",
+ * //         automatedDiscoveryMonitoringStatus: "MONITORED" || "NOT_MONITORED",
  * //         bucketName: "STRING_VALUE",
  * //         classifiableObjectCount: Number("long"),
  * //         classifiableSizeInBytes: Number("long"),
- * //         errorCode: "ACCESS_DENIED",
+ * //         errorCode: "ACCESS_DENIED" || "BUCKET_COUNT_EXCEEDS_QUOTA",
  * //         errorMessage: "STRING_VALUE",
  * //         jobDetails: { // JobDetails
  * //           isDefinedInJob: "TRUE" || "FALSE" || "UNKNOWN",
@@ -166,6 +168,7 @@ export interface SearchResourcesCommandOutput extends SearchResourcesResponse, _
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class SearchResourcesCommand extends $Command
@@ -176,9 +179,7 @@ export class SearchResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +191,16 @@ export class SearchResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchResourcesCommand)
   .de(de_SearchResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchResourcesRequest;
+      output: SearchResourcesResponse;
+    };
+    sdk: {
+      input: SearchResourcesCommandInput;
+      output: SearchResourcesCommandOutput;
+    };
+  };
+}

@@ -30,6 +30,7 @@ export * from "./DescribeEventsPaginator";
 export * from "./DescribeHsmClientCertificatesPaginator";
 export * from "./DescribeHsmConfigurationsPaginator";
 export * from "./DescribeInboundIntegrationsPaginator";
+export * from "./DescribeIntegrationsPaginator";
 export * from "./DescribeNodeConfigurationOptionsPaginator";
 export * from "./DescribeOrderableClusterOptionsPaginator";
 export * from "./DescribeRedshiftIdcApplicationsPaginator";

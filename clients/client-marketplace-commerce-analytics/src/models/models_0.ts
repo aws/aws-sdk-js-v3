@@ -185,7 +185,7 @@ export interface GenerateDataSetRequest {
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
    * @public
    */
-  destinationS3Prefix?: string;
+  destinationS3Prefix?: string | undefined;
 
   /**
    * Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
@@ -201,7 +201,7 @@ export interface GenerateDataSetRequest {
    *         information from other systems.
    * @public
    */
-  customerDefinedValues?: Record<string, string>;
+  customerDefinedValues?: Record<string, string> | undefined;
 }
 
 /**
@@ -214,7 +214,7 @@ export interface GenerateDataSetResult {
    *         used to correlate a request with notifications from the SNS topic.
    * @public
    */
-  dataSetRequestId?: string;
+  dataSetRequestId?: string | undefined;
 }
 
 /**
@@ -302,7 +302,7 @@ export interface StartSupportDataExportRequest {
    *         If no prefix is provided, the data set will be published to the S3 bucket root.
    * @public
    */
-  destinationS3Prefix?: string;
+  destinationS3Prefix?: string | undefined;
 
   /**
    * <i>This target has been deprecated.</i> Amazon Resource Name (ARN) for the SNS Topic that will be notified when the data set has been published or if an
@@ -316,7 +316,7 @@ export interface StartSupportDataExportRequest {
    *         Amazon SNS notification message and the data set metadata file.
    * @public
    */
-  customerDefinedValues?: Record<string, string>;
+  customerDefinedValues?: Record<string, string> | undefined;
 }
 
 /**
@@ -331,5 +331,5 @@ export interface StartSupportDataExportResult {
    *         used to correlate a request with notifications from the SNS topic.
    * @public
    */
-  dataSetRequestId?: string;
+  dataSetRequestId?: string | undefined;
 }

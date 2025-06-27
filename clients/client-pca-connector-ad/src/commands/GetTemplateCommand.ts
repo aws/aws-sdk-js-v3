@@ -12,7 +12,8 @@ import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -326,6 +327,7 @@ export interface GetTemplateCommandOutput extends GetTemplateResponse, __Metadat
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class GetTemplateCommand extends $Command
@@ -336,9 +338,7 @@ export class GetTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -350,4 +350,16 @@ export class GetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTemplateCommand)
   .de(de_GetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTemplateRequest;
+      output: GetTemplateResponse;
+    };
+    sdk: {
+      input: GetTemplateCommandInput;
+      output: GetTemplateCommandOutput;
+    };
+  };
+}

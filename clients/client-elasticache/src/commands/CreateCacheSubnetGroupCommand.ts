@@ -12,7 +12,8 @@ import { de_CreateCacheSubnetGroupCommand, se_CreateCacheSubnetGroupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,14 +115,14 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheSubnet
  * ```javascript
  * // Creates a new cache subnet group.
  * const input = {
- *   "CacheSubnetGroupDescription": "Sample subnet group",
- *   "CacheSubnetGroupName": "my-sn-grp2",
- *   "SubnetIds": [
+ *   CacheSubnetGroupDescription: "Sample subnet group",
+ *   CacheSubnetGroupName: "my-sn-grp2",
+ *   SubnetIds: [
  *     "subnet-6f28c982",
  *     "subnet-bcd382f3",
  *     "subnet-845b3e7c0"
@@ -129,38 +130,38 @@ export interface CreateCacheSubnetGroupCommandOutput extends CreateCacheSubnetGr
  * };
  * const command = new CreateCacheSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheSubnetGroup": {
- *     "CacheSubnetGroupDescription": "My subnet group.",
- *     "CacheSubnetGroupName": "my-sn-grp",
- *     "Subnets": [
+ *   CacheSubnetGroup: {
+ *     CacheSubnetGroupDescription: "My subnet group.",
+ *     CacheSubnetGroupName: "my-sn-grp",
+ *     Subnets: [
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1a"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1a"
  *         },
- *         "SubnetIdentifier": "subnet-6f28c982"
+ *         SubnetIdentifier: "subnet-6f28c982"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1c"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1c"
  *         },
- *         "SubnetIdentifier": "subnet-bcd382f3"
+ *         SubnetIdentifier: "subnet-bcd382f3"
  *       },
  *       {
- *         "SubnetAvailabilityZone": {
- *           "Name": "us-east-1b"
+ *         SubnetAvailabilityZone: {
+ *           Name: "us-east-1b"
  *         },
- *         "SubnetIdentifier": "subnet-845b3e7c0"
+ *         SubnetIdentifier: "subnet-845b3e7c0"
  *       }
  *     ],
- *     "VpcId": "vpc-91280df6"
+ *     VpcId: "vpc-91280df6"
  *   }
  * }
  * *\/
- * // example id: createcachesubnet-1483042274558
  * ```
  *
+ * @public
  */
 export class CreateCacheSubnetGroupCommand extends $Command
   .classBuilder<
@@ -170,9 +171,7 @@ export class CreateCacheSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +183,16 @@ export class CreateCacheSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCacheSubnetGroupCommand)
   .de(de_CreateCacheSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCacheSubnetGroupMessage;
+      output: CreateCacheSubnetGroupResult;
+    };
+    sdk: {
+      input: CreateCacheSubnetGroupCommandInput;
+      output: CreateCacheSubnetGroupCommandOutput;
+    };
+  };
+}

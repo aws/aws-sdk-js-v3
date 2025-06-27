@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,12 +33,11 @@ export interface DescribeConfigurationRecordersCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns the details for the specified configuration recorders.
- * 			If the configuration recorder is not specified, this action returns
- * 			the details for all configuration recorders associated with the
- * 			account.</p>
+ * <p>Returns details for the configuration recorder you specify.</p>
+ *          <p>If a configuration recorder is not specified, this operation returns details for the customer managed configuration recorder configured for the
+ * 			account, if applicable.</p>
  *          <note>
- *             <p>You can specify only one configuration recorder for each Amazon Web Services Region for each account.</p>
+ *             <p>When making a request to this operation, you can only specify one configuration recorder.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -49,12 +49,15 @@ export interface DescribeConfigurationRecordersCommandOutput
  *   ConfigurationRecorderNames: [ // ConfigurationRecorderNameList
  *     "STRING_VALUE",
  *   ],
+ *   ServicePrincipal: "STRING_VALUE",
+ *   Arn: "STRING_VALUE",
  * };
  * const command = new DescribeConfigurationRecordersCommand(input);
  * const response = await client.send(command);
  * // { // DescribeConfigurationRecordersResponse
  * //   ConfigurationRecorders: [ // ConfigurationRecorderList
  * //     { // ConfigurationRecorder
+ * //       arn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       roleARN: "STRING_VALUE",
  * //       recordingGroup: { // RecordingGroup
@@ -84,6 +87,8 @@ export interface DescribeConfigurationRecordersCommandOutput
  * //           },
  * //         ],
  * //       },
+ * //       recordingScope: "INTERNAL" || "PAID",
+ * //       servicePrincipal: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -100,8 +105,45 @@ export interface DescribeConfigurationRecordersCommandOutput
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The requested operation is not valid. You will see this exception if there are missing required fields or if the input value fails the validation.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutStoredQuery.html">PutStoredQuery</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>There are missing required fields.</p>
+ *             </li>
+ *             <li>
+ *                <p>The input value fails the validation.</p>
+ *             </li>
+ *             <li>
+ *                <p>You are trying to create more than 300 queries.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorders.html">DescribeConfigurationRecorders</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DescribeConfigurationRecorderStatus.html">DescribeConfigurationRecorderStatus</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You have specified more than one configuration recorder.</p>
+ *             </li>
+ *             <li>
+ *                <p>You have provided a service principal for service-linked configuration recorder that is not valid.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_AssociateResourceTypes.html">AssociateResourceTypes</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DisassociateResourceTypes.html">DisassociateResourceTypes</a>, one of the following errors:</p>
+ *          <ul>
+ *             <li>
+ *                <p>Your configuraiton recorder has a recording strategy that does not allow the association or disassociation of resource types.</p>
+ *             </li>
+ *             <li>
+ *                <p>One or more of the specified resource types are already associated or disassociated with the configuration recorder.</p>
+ *             </li>
+ *             <li>
+ *                <p>For service-linked configuration recorders, the configuration recorder does not record one or more of the specified resource types.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
+ *
  *
  * @public
  */
@@ -113,9 +155,7 @@ export class DescribeConfigurationRecordersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +167,16 @@ export class DescribeConfigurationRecordersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationRecordersCommand)
   .de(de_DescribeConfigurationRecordersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationRecordersRequest;
+      output: DescribeConfigurationRecordersResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationRecordersCommandInput;
+      output: DescribeConfigurationRecordersCommandOutput;
+    };
+  };
+}

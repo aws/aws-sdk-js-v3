@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import {
+  AutomaticJsonStringConversion as __AutomaticJsonStringConversion,
   ExceptionOptionType as __ExceptionOptionType,
-  LazyJsonString as __LazyJsonString,
   SENSITIVE_STRING,
 } from "@smithy/smithy-client";
 
@@ -24,6 +24,7 @@ export interface AcceptAttachmentRequest {
  */
 export const AttachmentType = {
   CONNECT: "CONNECT",
+  DIRECT_CONNECT_GATEWAY: "DIRECT_CONNECT_GATEWAY",
   SITE_TO_SITE_VPN: "SITE_TO_SITE_VPN",
   TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
   VPC: "VPC",
@@ -35,6 +36,59 @@ export const AttachmentType = {
 export type AttachmentType = (typeof AttachmentType)[keyof typeof AttachmentType];
 
 /**
+ * @public
+ * @enum
+ */
+export const AttachmentErrorCode = {
+  DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS: "DIRECT_CONNECT_GATEWAY_EXISTING_ATTACHMENTS",
+  DIRECT_CONNECT_GATEWAY_NOT_FOUND: "DIRECT_CONNECT_GATEWAY_NOT_FOUND",
+  DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF: "DIRECT_CONNECT_GATEWAY_NO_PRIVATE_VIF",
+  MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED: "MAXIMUM_NO_ENCAP_LIMIT_EXCEEDED",
+  SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE: "SUBNET_DUPLICATED_IN_AVAILABILITY_ZONE",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+  SUBNET_NO_FREE_ADDRESSES: "SUBNET_NO_FREE_ADDRESSES",
+  SUBNET_NO_IPV6_CIDRS: "SUBNET_NO_IPV6_CIDRS",
+  SUBNET_UNSUPPORTED_AVAILABILITY_ZONE: "SUBNET_UNSUPPORTED_AVAILABILITY_ZONE",
+  VPC_NOT_FOUND: "VPC_NOT_FOUND",
+  VPN_CONNECTION_NOT_FOUND: "VPN_CONNECTION_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type AttachmentErrorCode = (typeof AttachmentErrorCode)[keyof typeof AttachmentErrorCode];
+
+/**
+ * <p>Describes the error associated with an attachment request.</p>
+ * @public
+ */
+export interface AttachmentError {
+  /**
+   * <p>The error code for the attachment request. </p>
+   * @public
+   */
+  Code?: AttachmentErrorCode | undefined;
+
+  /**
+   * <p>The message associated with the error <code>code</code>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The ARN of the requested attachment resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The ID of the attachment request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+}
+
+/**
  * <p>Describes a tag.</p>
  * @public
  */
@@ -44,14 +98,38 @@ export interface Tag {
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The tag value.</p>
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
+}
+
+/**
+ * <p>Describes proposed changes to a network function group. </p>
+ * @public
+ */
+export interface ProposedNetworkFunctionGroupChange {
+  /**
+   * <p>The list of proposed changes to the key-value tags associated with the network function group.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>The proposed new attachment policy rule number for the network function group.</p>
+   * @public
+   */
+  AttachmentPolicyRuleNumber?: number | undefined;
+
+  /**
+   * <p>The proposed name change for the network function group name.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string | undefined;
 }
 
 /**
@@ -63,19 +141,19 @@ export interface ProposedSegmentChange {
    * <p>The list of key-value tags that changed for the segment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The rule number in the policy document that applies to this change.</p>
    * @public
    */
-  AttachmentPolicyRuleNumber?: number;
+  AttachmentPolicyRuleNumber?: number | undefined;
 
   /**
    * <p>The name of the segment to change.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
 }
 
 /**
@@ -108,85 +186,109 @@ export interface Attachment {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ARN of a core network.</p>
    * @public
    */
-  CoreNetworkArn?: string;
+  CoreNetworkArn?: string | undefined;
 
   /**
    * <p>The ID of the attachment.</p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the attachment account owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The type of attachment.</p>
    * @public
    */
-  AttachmentType?: AttachmentType;
+  AttachmentType?: AttachmentType | undefined;
 
   /**
    * <p>The state of the attachment.</p>
    * @public
    */
-  State?: AttachmentState;
+  State?: AttachmentState | undefined;
 
   /**
-   * <p>The Region where the edge is located.</p>
+   * <p>The Region where the edge is located. This is returned for all attachment types except a Direct Connect gateway attachment, which instead returns <code>EdgeLocations</code>.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
+
+  /**
+   * <p>The edge locations that the Direct Connect gateway is associated with. This is returned only for Direct Connect gateway attachments. All other attachment types retrun <code>EdgeLocation</code>.</p>
+   * @public
+   */
+  EdgeLocations?: string[] | undefined;
 
   /**
    * <p>The attachment resource ARN.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The policy rule number associated with the attachment.</p>
    * @public
    */
-  AttachmentPolicyRuleNumber?: number;
+  AttachmentPolicyRuleNumber?: number | undefined;
 
   /**
    * <p>The name of the segment attachment.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
+
+  /**
+   * <p>The name of the network function group.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string | undefined;
 
   /**
    * <p>The tags associated with the attachment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The attachment to move from one segment to another.</p>
    * @public
    */
-  ProposedSegmentChange?: ProposedSegmentChange;
+  ProposedSegmentChange?: ProposedSegmentChange | undefined;
+
+  /**
+   * <p>Describes a proposed change to a network function group associated with the attachment.</p>
+   * @public
+   */
+  ProposedNetworkFunctionGroupChange?: ProposedNetworkFunctionGroupChange | undefined;
 
   /**
    * <p>The timestamp when the attachment was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the attachment was last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
+
+  /**
+   * <p>Describes the error associated with the attachment request.</p>
+   * @public
+   */
+  LastModificationErrors?: AttachmentError[] | undefined;
 }
 
 /**
@@ -197,7 +299,7 @@ export interface AcceptAttachmentResponse {
    * <p>The response to the attachment request. </p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 }
 
 /**
@@ -270,7 +372,7 @@ export class InternalServerException extends __BaseException {
    * <p>Indicates when to retry the request.</p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -310,7 +412,7 @@ export class ResourceNotFoundException extends __BaseException {
    * <p>The specified resource could not be found.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
   /**
    * @internal
    */
@@ -340,7 +442,7 @@ export class ThrottlingException extends __BaseException {
    * <p>Indicates when to retry the request.</p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -402,13 +504,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the error.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The fields that caused the error, if applicable.</p>
    * @public
    */
-  Fields?: ValidationExceptionField[];
+  Fields?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
@@ -434,13 +536,13 @@ export interface AccountStatus {
    * <p>The ID of an account within the Amazon Web Services Organization.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The status of SLR deployment for the account.</p>
    * @public
    */
-  SLRDeploymentStatus?: string;
+  SLRDeploymentStatus?: string | undefined;
 }
 
 /**
@@ -469,7 +571,7 @@ export interface AssociateConnectPeerRequest {
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 }
 
 /**
@@ -498,31 +600,31 @@ export interface ConnectPeerAssociation {
    * <p>The ID of the Connect peer.</p>
    * @public
    */
-  ConnectPeerId?: string;
+  ConnectPeerId?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the device to connect to.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The state of the Connect peer association.</p>
    * @public
    */
-  State?: ConnectPeerAssociationState;
+  State?: ConnectPeerAssociationState | undefined;
 }
 
 /**
@@ -533,7 +635,7 @@ export interface AssociateConnectPeerResponse {
    * <p>The response to the Connect peer request.</p>
    * @public
    */
-  ConnectPeerAssociation?: ConnectPeerAssociation;
+  ConnectPeerAssociation?: ConnectPeerAssociation | undefined;
 }
 
 /**
@@ -553,13 +655,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The limit code.</p>
@@ -616,7 +718,7 @@ export interface AssociateCustomerGatewayRequest {
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 }
 
 /**
@@ -645,31 +747,31 @@ export interface CustomerGatewayAssociation {
    * <p>The Amazon Resource Name (ARN) of the customer gateway.</p>
    * @public
    */
-  CustomerGatewayArn?: string;
+  CustomerGatewayArn?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the device.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The association state.</p>
    * @public
    */
-  State?: CustomerGatewayAssociationState;
+  State?: CustomerGatewayAssociationState | undefined;
 }
 
 /**
@@ -680,7 +782,7 @@ export interface AssociateCustomerGatewayResponse {
    * <p>The customer gateway association.</p>
    * @public
    */
-  CustomerGatewayAssociation?: CustomerGatewayAssociation;
+  CustomerGatewayAssociation?: CustomerGatewayAssociation | undefined;
 }
 
 /**
@@ -731,25 +833,25 @@ export interface LinkAssociation {
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The device ID for the link association.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The state of the association.</p>
    * @public
    */
-  LinkAssociationState?: LinkAssociationState;
+  LinkAssociationState?: LinkAssociationState | undefined;
 }
 
 /**
@@ -760,7 +862,7 @@ export interface AssociateLinkResponse {
    * <p>The link association.</p>
    * @public
    */
-  LinkAssociation?: LinkAssociation;
+  LinkAssociation?: LinkAssociation | undefined;
 }
 
 /**
@@ -789,7 +891,7 @@ export interface AssociateTransitGatewayConnectPeerRequest {
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 }
 
 /**
@@ -818,31 +920,31 @@ export interface TransitGatewayConnectPeerAssociation {
    * <p>The Amazon Resource Name (ARN) of the transit gateway Connect peer.</p>
    * @public
    */
-  TransitGatewayConnectPeerArn?: string;
+  TransitGatewayConnectPeerArn?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the device.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The state of the association.</p>
    * @public
    */
-  State?: TransitGatewayConnectPeerAssociationState;
+  State?: TransitGatewayConnectPeerAssociationState | undefined;
 }
 
 /**
@@ -853,7 +955,7 @@ export interface AssociateTransitGatewayConnectPeerResponse {
    * <p>The transit gateway Connect peer association.</p>
    * @public
    */
-  TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation;
+  TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation | undefined;
 }
 
 /**
@@ -866,13 +968,13 @@ export interface AWSLocation {
    *             Zone, Wavelength Zone, or an Outpost.</p>
    * @public
    */
-  Zone?: string;
+  Zone?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the subnet that the device is located in.</p>
    * @public
    */
-  SubnetArn?: string;
+  SubnetArn?: string | undefined;
 }
 
 /**
@@ -884,13 +986,13 @@ export interface Bandwidth {
    * <p>Upload speed in Mbps.</p>
    * @public
    */
-  UploadSpeed?: number;
+  UploadSpeed?: number | undefined;
 
   /**
    * <p>Download speed in Mbps.</p>
    * @public
    */
-  DownloadSpeed?: number;
+  DownloadSpeed?: number | undefined;
 }
 
 /**
@@ -902,7 +1004,7 @@ export interface BgpOptions {
    * <p>The Peer ASN of the BGP.</p>
    * @public
    */
-  PeerAsn?: number;
+  PeerAsn?: number | undefined;
 }
 
 /**
@@ -966,6 +1068,7 @@ export const ChangeType = {
   CORE_NETWORK_CONFIGURATION: "CORE_NETWORK_CONFIGURATION",
   CORE_NETWORK_EDGE: "CORE_NETWORK_EDGE",
   CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  NETWORK_FUNCTION_GROUP: "NETWORK_FUNCTION_GROUP",
   SEGMENTS_CONFIGURATION: "SEGMENTS_CONFIGURATION",
   SEGMENT_ACTIONS_CONFIGURATION: "SEGMENT_ACTIONS_CONFIGURATION",
 } as const;
@@ -998,7 +1101,7 @@ export interface ConnectAttachmentOptions {
    * <p>The protocol used for the attachment connection.</p>
    * @public
    */
-  Protocol?: TunnelProtocol;
+  Protocol?: TunnelProtocol | undefined;
 }
 
 /**
@@ -1010,19 +1113,19 @@ export interface ConnectAttachment {
    * <p>The attachment details.</p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 
   /**
    * <p>The ID of the transport attachment.</p>
    * @public
    */
-  TransportAttachmentId?: string;
+  TransportAttachmentId?: string | undefined;
 
   /**
    * <p>Options for connecting an attachment.</p>
    * @public
    */
-  Options?: ConnectAttachmentOptions;
+  Options?: ConnectAttachmentOptions | undefined;
 }
 
 /**
@@ -1050,67 +1153,67 @@ export interface Connection {
    * <p>The ID of the connection.</p>
    * @public
    */
-  ConnectionId?: string;
+  ConnectionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connection.</p>
    * @public
    */
-  ConnectionArn?: string;
+  ConnectionArn?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the first device in the connection.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The ID of the second device in the connection.</p>
    * @public
    */
-  ConnectedDeviceId?: string;
+  ConnectedDeviceId?: string | undefined;
 
   /**
    * <p>The ID of the link for the first device in the connection.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The ID of the link for the second device in the connection.</p>
    * @public
    */
-  ConnectedLinkId?: string;
+  ConnectedLinkId?: string | undefined;
 
   /**
    * <p>The description of the connection.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that the connection was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The state of the connection.</p>
    * @public
    */
-  State?: ConnectionState;
+  State?: ConnectionState | undefined;
 
   /**
    * <p>The tags for the connection.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1150,19 +1253,19 @@ export interface ConnectionHealth {
    * <p>The connection type.</p>
    * @public
    */
-  Type?: ConnectionType;
+  Type?: ConnectionType | undefined;
 
   /**
    * <p>The connection status.</p>
    * @public
    */
-  Status?: ConnectionStatus;
+  Status?: ConnectionStatus | undefined;
 
   /**
    * <p>The time the status was last updated.</p>
    * @public
    */
-  Timestamp?: Date;
+  Timestamp?: Date | undefined;
 }
 
 /**
@@ -1174,25 +1277,25 @@ export interface ConnectPeerBgpConfiguration {
    * <p>The ASN of the Coret Network.</p>
    * @public
    */
-  CoreNetworkAsn?: number;
+  CoreNetworkAsn?: number | undefined;
 
   /**
    * <p>The ASN of the Connect peer.</p>
    * @public
    */
-  PeerAsn?: number;
+  PeerAsn?: number | undefined;
 
   /**
    * <p>The address of a core network.</p>
    * @public
    */
-  CoreNetworkAddress?: string;
+  CoreNetworkAddress?: string | undefined;
 
   /**
    * <p>The address of a core network Connect peer.</p>
    * @public
    */
-  PeerAddress?: string;
+  PeerAddress?: string | undefined;
 }
 
 /**
@@ -1204,31 +1307,79 @@ export interface ConnectPeerConfiguration {
    * <p>The IP address of a core network.</p>
    * @public
    */
-  CoreNetworkAddress?: string;
+  CoreNetworkAddress?: string | undefined;
 
   /**
    * <p>The IP address of the Connect peer.</p>
    * @public
    */
-  PeerAddress?: string;
+  PeerAddress?: string | undefined;
 
   /**
    * <p>The inside IP addresses used for a Connect peer configuration.</p>
    * @public
    */
-  InsideCidrBlocks?: string[];
+  InsideCidrBlocks?: string[] | undefined;
 
   /**
    * <p>The protocol used for a Connect peer configuration.</p>
    * @public
    */
-  Protocol?: TunnelProtocol;
+  Protocol?: TunnelProtocol | undefined;
 
   /**
    * <p>The Connect peer BGP configurations.</p>
    * @public
    */
-  BgpConfigurations?: ConnectPeerBgpConfiguration[];
+  BgpConfigurations?: ConnectPeerBgpConfiguration[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectPeerErrorCode = {
+  EDGE_LOCATION_NO_FREE_IPS: "EDGE_LOCATION_NO_FREE_IPS",
+  EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
+  INVALID_INSIDE_CIDR_BLOCK: "INVALID_INSIDE_CIDR_BLOCK",
+  IP_OUTSIDE_SUBNET_CIDR_RANGE: "IP_OUTSIDE_SUBNET_CIDR_RANGE",
+  NO_ASSOCIATED_CIDR_BLOCK: "NO_ASSOCIATED_CIDR_BLOCK",
+  SUBNET_NOT_FOUND: "SUBNET_NOT_FOUND",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectPeerErrorCode = (typeof ConnectPeerErrorCode)[keyof typeof ConnectPeerErrorCode];
+
+/**
+ * <p>Describes an error associated with a Connect peer request</p>
+ * @public
+ */
+export interface ConnectPeerError {
+  /**
+   * <p>The error code for the Connect peer request.</p>
+   * @public
+   */
+  Code?: ConnectPeerErrorCode | undefined;
+
+  /**
+   * <p>The message associated with the error <code>code</code>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The ARN of the requested Connect peer resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Connect peer request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
 }
 
 /**
@@ -1256,55 +1407,61 @@ export interface ConnectPeer {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the attachment to connect.</p>
    * @public
    */
-  ConnectAttachmentId?: string;
+  ConnectAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the Connect peer.</p>
    * @public
    */
-  ConnectPeerId?: string;
+  ConnectPeerId?: string | undefined;
 
   /**
    * <p>The Connect peer Regions where edges are located.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The state of the Connect peer.</p>
    * @public
    */
-  State?: ConnectPeerState;
+  State?: ConnectPeerState | undefined;
 
   /**
    * <p>The timestamp when the Connect peer was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The configuration of the Connect peer.</p>
    * @public
    */
-  Configuration?: ConnectPeerConfiguration;
+  Configuration?: ConnectPeerConfiguration | undefined;
 
   /**
    * <p>The list of key-value tags associated with the Connect peer.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>The subnet ARN for the Connect peer.</p>
+   * <p>The subnet ARN for the Connect peer. This only applies only when the protocol is NO_ENCAP.</p>
    * @public
    */
-  SubnetArn?: string;
+  SubnetArn?: string | undefined;
+
+  /**
+   * <p>Describes the error associated with the attachment request.</p>
+   * @public
+   */
+  LastModificationErrors?: ConnectPeerError[] | undefined;
 }
 
 /**
@@ -1316,49 +1473,49 @@ export interface ConnectPeerSummary {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ID of a Connect peer attachment.</p>
    * @public
    */
-  ConnectAttachmentId?: string;
+  ConnectAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of a Connect peer.</p>
    * @public
    */
-  ConnectPeerId?: string;
+  ConnectPeerId?: string | undefined;
 
   /**
    * <p>The Region where the edge is located.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The state of a Connect peer.</p>
    * @public
    */
-  ConnectPeerState?: ConnectPeerState;
+  ConnectPeerState?: ConnectPeerState | undefined;
 
   /**
    * <p>The timestamp when a Connect peer was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The list of key-value tags associated with the Connect peer summary.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The subnet ARN for the Connect peer summary.</p>
    * @public
    */
-  SubnetArn?: string;
+  SubnetArn?: string | undefined;
 }
 
 /**
@@ -1370,19 +1527,61 @@ export interface CoreNetworkEdge {
    * <p>The Region where a core network edge is located.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The ASN of a core network edge.</p>
    * @public
    */
-  Asn?: number;
+  Asn?: number | undefined;
 
   /**
    * <p>The inside IP addresses used for core network edges.</p>
    * @public
    */
-  InsideCidrBlocks?: string[];
+  InsideCidrBlocks?: string[] | undefined;
+}
+
+/**
+ * <p>Describes the segments associated with the service insertion action.</p>
+ * @public
+ */
+export interface ServiceInsertionSegments {
+  /**
+   * <p>The list of segments associated with the <code>send-via</code> action.</p>
+   * @public
+   */
+  SendVia?: string[] | undefined;
+
+  /**
+   * <p>The list of segments associated with the <code>send-to</code> action.</p>
+   * @public
+   */
+  SendTo?: string[] | undefined;
+}
+
+/**
+ * <p>Describes a network function group.</p>
+ * @public
+ */
+export interface CoreNetworkNetworkFunctionGroup {
+  /**
+   * <p>The name of the network function group.</p>
+   * @public
+   */
+  Name?: string | undefined;
+
+  /**
+   * <p>The core network edge locations.</p>
+   * @public
+   */
+  EdgeLocations?: string[] | undefined;
+
+  /**
+   * <p>The segments associated with the network function group.</p>
+   * @public
+   */
+  Segments?: ServiceInsertionSegments | undefined;
 }
 
 /**
@@ -1394,19 +1593,19 @@ export interface CoreNetworkSegment {
    * <p>The name of a core network segment.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Regions where the edges are located.</p>
    * @public
    */
-  EdgeLocations?: string[];
+  EdgeLocations?: string[] | undefined;
 
   /**
    * <p>The shared segments of a core network.</p>
    * @public
    */
-  SharedSegments?: string[];
+  SharedSegments?: string[] | undefined;
 }
 
 /**
@@ -1434,55 +1633,188 @@ export interface CoreNetwork {
    * <p>The ID of the global network that your core network is a part of. </p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ARN of a core network.</p>
    * @public
    */
-  CoreNetworkArn?: string;
+  CoreNetworkArn?: string | undefined;
 
   /**
    * <p>The description of a core network.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timestamp when a core network was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The current state of a core network.</p>
    * @public
    */
-  State?: CoreNetworkState;
+  State?: CoreNetworkState | undefined;
 
   /**
    * <p>The segments within a core network.</p>
    * @public
    */
-  Segments?: CoreNetworkSegment[];
+  Segments?: CoreNetworkSegment[] | undefined;
+
+  /**
+   * <p>The network function groups associated with a core network.</p>
+   * @public
+   */
+  NetworkFunctionGroups?: CoreNetworkNetworkFunctionGroup[] | undefined;
 
   /**
    * <p>The edges within a core network.</p>
    * @public
    */
-  Edges?: CoreNetworkEdge[];
+  Edges?: CoreNetworkEdge[] | undefined;
 
   /**
    * <p>The list of key-value tags associated with a core network.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SegmentActionServiceInsertion = {
+  SEND_TO: "send-to",
+  SEND_VIA: "send-via",
+} as const;
+
+/**
+ * @public
+ */
+export type SegmentActionServiceInsertion =
+  (typeof SegmentActionServiceInsertion)[keyof typeof SegmentActionServiceInsertion];
+
+/**
+ * @public
+ * @enum
+ */
+export const SendViaMode = {
+  DUAL_HOP: "dual-hop",
+  SINGLE_HOP: "single-hop",
+} as const;
+
+/**
+ * @public
+ */
+export type SendViaMode = (typeof SendViaMode)[keyof typeof SendViaMode];
+
+/**
+ * <p>Describes a network function group for service insertion.</p>
+ * @public
+ */
+export interface NetworkFunctionGroup {
+  /**
+   * <p>The name of the network function group.</p>
+   * @public
+   */
+  Name?: string | undefined;
+}
+
+/**
+ * <p>Describes the edge that's used for the override. </p>
+ * @public
+ */
+export interface EdgeOverride {
+  /**
+   * <p>The list of edge locations.</p>
+   * @public
+   */
+  EdgeSets?: string[][] | undefined;
+
+  /**
+   * <p>The edge that should be used when overriding the current edge order.</p>
+   * @public
+   */
+  UseEdge?: string | undefined;
+}
+
+/**
+ * <p>The list of network function groups and edge overrides for the service insertion
+ *             action. Used for both the <code>send-to</code> and <code>send-via</code> actions.</p>
+ * @public
+ */
+export interface Via {
+  /**
+   * <p>The list of network function groups associated with the service insertion action.</p>
+   * @public
+   */
+  NetworkFunctionGroups?: NetworkFunctionGroup[] | undefined;
+
+  /**
+   * <p>Describes any edge overrides. An edge override is a specific edge to be used for traffic.</p>
+   * @public
+   */
+  WithEdgeOverrides?: EdgeOverride[] | undefined;
+}
+
+/**
+ * <p>Displays a list of the destination segments. Used only when the service insertion
+ *             action is <code>send-to</code>.  </p>
+ * @public
+ */
+export interface WhenSentTo {
+  /**
+   * <p>The list of destination segments when the service insertion action is <code>send-to</code>.</p>
+   * @public
+   */
+  WhenSentToSegmentsList?: string[] | undefined;
+}
+
+/**
+ * <p>Describes the action that the service insertion will take for any segments associated with it.</p>
+ * @public
+ */
+export interface ServiceInsertionAction {
+  /**
+   * <p>The action the service insertion takes for traffic.
+   *             <code>send-via</code> sends east-west traffic between attachments.
+   *             <code>send-to</code> sends north-south traffic to the
+   *             security appliance, and then from that to either the Internet or to an on-premesis
+   *             location.  </p>
+   * @public
+   */
+  Action?: SegmentActionServiceInsertion | undefined;
+
+  /**
+   * <p>Describes the mode packets take for the <code>send-via</code> action. This is not used when the action is <code>send-to</code>. <code>dual-hop</code> packets traverse attachments in both the source to the destination core network edges. This mode requires that an inspection attachment must be present in all Regions of the service insertion-enabled segments.
+   *             For <code>single-hop</code>, packets traverse a single intermediate inserted attachment. You can use <code>EdgeOverride</code> to specify a specific edge to use. </p>
+   * @public
+   */
+  Mode?: SendViaMode | undefined;
+
+  /**
+   * <p>The list of destination segments if the service insertion action is <code>send-via</code>.</p>
+   * @public
+   */
+  WhenSentTo?: WhenSentTo | undefined;
+
+  /**
+   * <p>The list of network function groups and any edge overrides for the chosen service
+   *             insertion action. Used for both <code>send-to</code> or <code>send-via</code>.</p>
+   * @public
+   */
+  Via?: Via | undefined;
 }
 
 /**
@@ -1494,43 +1826,73 @@ export interface CoreNetworkChangeValues {
    * <p>The names of the segments in a core network.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
+
+  /**
+   * <p>The network function group name if the change event is associated with a network function group.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string | undefined;
 
   /**
    * <p>The Regions where edges are located in a core network. </p>
    * @public
    */
-  EdgeLocations?: string[];
+  EdgeLocations?: string[] | undefined;
 
   /**
    * <p>The ASN of a core network.</p>
    * @public
    */
-  Asn?: number;
+  Asn?: number | undefined;
 
   /**
    * <p>The IP addresses used for a core network.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 
   /**
    * <p>The ID of the destination.</p>
    * @public
    */
-  DestinationIdentifier?: string;
+  DestinationIdentifier?: string | undefined;
 
   /**
    * <p>The inside IP addresses used for core network change values.</p>
    * @public
    */
-  InsideCidrBlocks?: string[];
+  InsideCidrBlocks?: string[] | undefined;
 
   /**
    * <p>The shared segments for a core network change value. </p>
    * @public
    */
-  SharedSegments?: string[];
+  SharedSegments?: string[] | undefined;
+
+  /**
+   * <p>Describes the service insertion action. </p>
+   * @public
+   */
+  ServiceInsertionActions?: ServiceInsertionAction[] | undefined;
+
+  /**
+   * <p>Indicates whether Equal Cost Multipath (ECMP) is enabled for the core network.</p>
+   * @public
+   */
+  VpnEcmpSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether public DNS support is supported. The default is <code>true</code>. </p>
+   * @public
+   */
+  DnsSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether security group referencing is enabled for the core network.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: boolean | undefined;
 }
 
 /**
@@ -1542,37 +1904,37 @@ export interface CoreNetworkChange {
    * <p>The type of change.</p>
    * @public
    */
-  Type?: ChangeType;
+  Type?: ChangeType | undefined;
 
   /**
    * <p>The action to take for a core network.</p>
    * @public
    */
-  Action?: ChangeAction;
+  Action?: ChangeAction | undefined;
 
   /**
    * <p>The resource identifier.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 
   /**
    * <p>The previous values for a core network.</p>
    * @public
    */
-  PreviousValues?: CoreNetworkChangeValues;
+  PreviousValues?: CoreNetworkChangeValues | undefined;
 
   /**
    * <p>The new value for a core network</p>
    * @public
    */
-  NewValues?: CoreNetworkChangeValues;
+  NewValues?: CoreNetworkChangeValues | undefined;
 
   /**
    * <p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>"CORE_NETWORK_SEGMENT/us-east-1/devsegment"</code>.</p>
    * @public
    */
-  IdentifierPath?: string;
+  IdentifierPath?: string | undefined;
 }
 
 /**
@@ -1584,25 +1946,31 @@ export interface CoreNetworkChangeEventValues {
    * <p>The edge location for the core network change event.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The segment name if the change event is associated with a segment.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
+
+  /**
+   * <p>The changed network function group name.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string | undefined;
 
   /**
    * <p>The ID of the attachment if the change event is associated with an attachment.  </p>
    * @public
    */
-  AttachmentId?: string;
+  AttachmentId?: string | undefined;
 
   /**
    * <p>For a <code>STATIC_ROUTE</code> event, this is the IP address.</p>
    * @public
    */
-  Cidr?: string;
+  Cidr?: string | undefined;
 }
 
 /**
@@ -1614,37 +1982,61 @@ export interface CoreNetworkChangeEvent {
    * <p>Describes the type of change event. </p>
    * @public
    */
-  Type?: ChangeType;
+  Type?: ChangeType | undefined;
 
   /**
    * <p>The action taken for the change event.</p>
    * @public
    */
-  Action?: ChangeAction;
+  Action?: ChangeAction | undefined;
 
   /**
    * <p>Uniquely identifies the path for a change within the changeset. For example, the <code>IdentifierPath</code> for a core network segment change might be <code>"CORE_NETWORK_SEGMENT/us-east-1/devsegment"</code>.</p>
    * @public
    */
-  IdentifierPath?: string;
+  IdentifierPath?: string | undefined;
 
   /**
    * <p>The timestamp for an event change in status.</p>
    * @public
    */
-  EventTime?: Date;
+  EventTime?: Date | undefined;
 
   /**
    * <p>The status of the core network change event.</p>
    * @public
    */
-  Status?: ChangeStatus;
+  Status?: ChangeStatus | undefined;
 
   /**
    * <p>Details of the change event.</p>
    * @public
    */
-  Values?: CoreNetworkChangeEventValues;
+  Values?: CoreNetworkChangeEventValues | undefined;
+}
+
+/**
+ * <p>Describes a core network </p>
+ * @public
+ */
+export interface CoreNetworkNetworkFunctionGroupIdentifier {
+  /**
+   * <p>The ID of the core network.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The network function group name.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string | undefined;
+
+  /**
+   * <p>The location for the core network edge.</p>
+   * @public
+   */
+  EdgeLocation?: string | undefined;
 }
 
 /**
@@ -1682,7 +2074,7 @@ export interface CoreNetworkPolicyError {
    * <p>The JSON path where the error was discovered in the policy document.</p>
    * @public
    */
-  Path?: string;
+  Path?: string | undefined;
 }
 
 /**
@@ -1694,49 +2086,49 @@ export interface CoreNetworkPolicy {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the policy version.</p>
    * @public
    */
-  PolicyVersionId?: number;
+  PolicyVersionId?: number | undefined;
 
   /**
    * <p>Whether a core network policy is the current LIVE policy or the most recently submitted policy.</p>
    * @public
    */
-  Alias?: CoreNetworkPolicyAlias;
+  Alias?: CoreNetworkPolicyAlias | undefined;
 
   /**
    * <p>The description of a core network policy.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timestamp when a core network policy was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The state of a core network policy.</p>
    * @public
    */
-  ChangeSetState?: ChangeSetState;
+  ChangeSetState?: ChangeSetState | undefined;
 
   /**
    * <p>Describes any errors in a core network policy.</p>
    * @public
    */
-  PolicyErrors?: CoreNetworkPolicyError[];
+  PolicyErrors?: CoreNetworkPolicyError[] | undefined;
 
   /**
    * <p>Describes a core network policy.</p>
    * @public
    */
-  PolicyDocument?: __LazyJsonString | string;
+  PolicyDocument?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -1751,7 +2143,7 @@ export class CoreNetworkPolicyException extends __BaseException {
    * <p>Describes a core network policy exception.</p>
    * @public
    */
-  Errors?: CoreNetworkPolicyError[];
+  Errors?: CoreNetworkPolicyError[] | undefined;
   /**
    * @internal
    */
@@ -1776,37 +2168,37 @@ export interface CoreNetworkPolicyVersion {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the policy version.</p>
    * @public
    */
-  PolicyVersionId?: number;
+  PolicyVersionId?: number | undefined;
 
   /**
    * <p>Whether a core network policy is the current policy or the most recently submitted policy.</p>
    * @public
    */
-  Alias?: CoreNetworkPolicyAlias;
+  Alias?: CoreNetworkPolicyAlias | undefined;
 
   /**
    * <p>The description of a core network policy version.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The timestamp when a core network policy version was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The status of the policy version change set.</p>
    * @public
    */
-  ChangeSetState?: ChangeSetState;
+  ChangeSetState?: ChangeSetState | undefined;
 }
 
 /**
@@ -1818,19 +2210,19 @@ export interface CoreNetworkSegmentEdgeIdentifier {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The name of the segment edge.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
 
   /**
    * <p>The Region where the segment edge is located.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 }
 
 /**
@@ -1842,43 +2234,43 @@ export interface CoreNetworkSummary {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>a core network ARN.</p>
    * @public
    */
-  CoreNetworkArn?: string;
+  CoreNetworkArn?: string | undefined;
 
   /**
    * <p>The global network ID.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the account owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The state of a core network.</p>
    * @public
    */
-  State?: CoreNetworkState;
+  State?: CoreNetworkState | undefined;
 
   /**
    * <p>The description of a core network.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The key-value tags associated with a core network summary.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1913,13 +2305,13 @@ export interface CreateConnectAttachmentRequest {
    * <p>The list of key-value tags associated with the request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1930,7 +2322,7 @@ export interface CreateConnectAttachmentResponse {
    * <p>The response to a Connect attachment request.</p>
    * @public
    */
-  ConnectAttachment?: ConnectAttachment;
+  ConnectAttachment?: ConnectAttachment | undefined;
 }
 
 /**
@@ -1959,26 +2351,26 @@ export interface CreateConnectionRequest {
    * <p>The ID of the link for the first device.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The ID of the link for the second device.</p>
    * @public
    */
-  ConnectedLinkId?: string;
+  ConnectedLinkId?: string | undefined;
 
   /**
    * <p>A description of the connection.</p>
    *          <p>Length Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The tags to apply to the resource during creation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1989,7 +2381,7 @@ export interface CreateConnectionResponse {
    * <p>Information about the connection.</p>
    * @public
    */
-  Connection?: Connection;
+  Connection?: Connection | undefined;
 }
 
 /**
@@ -2003,10 +2395,10 @@ export interface CreateConnectPeerRequest {
   ConnectAttachmentId: string | undefined;
 
   /**
-   * <p>A Connect peer core network address.</p>
+   * <p>A Connect peer core network address. This only applies only when the protocol is <code>GRE</code>.</p>
    * @public
    */
-  CoreNetworkAddress?: string;
+  CoreNetworkAddress?: string | undefined;
 
   /**
    * <p>The Connect peer address.</p>
@@ -2015,34 +2407,34 @@ export interface CreateConnectPeerRequest {
   PeerAddress: string | undefined;
 
   /**
-   * <p>The Connect peer BGP options.</p>
+   * <p>The Connect peer BGP options. This only applies only when the protocol is <code>GRE</code>.</p>
    * @public
    */
-  BgpOptions?: BgpOptions;
+  BgpOptions?: BgpOptions | undefined;
 
   /**
    * <p>The inside IP addresses used for BGP peering.</p>
    * @public
    */
-  InsideCidrBlocks?: string[];
+  InsideCidrBlocks?: string[] | undefined;
 
   /**
    * <p>The tags associated with the peer request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
-   * <p>The subnet ARN for the Connect peer.</p>
+   * <p>The subnet ARN for the Connect peer. This only applies only when the protocol is NO_ENCAP.</p>
    * @public
    */
-  SubnetArn?: string;
+  SubnetArn?: string | undefined;
 }
 
 /**
@@ -2053,7 +2445,7 @@ export interface CreateConnectPeerResponse {
    * <p>The response to the request.</p>
    * @public
    */
-  ConnectPeer?: ConnectPeer;
+  ConnectPeer?: ConnectPeer | undefined;
 }
 
 /**
@@ -2070,25 +2462,25 @@ export interface CreateCoreNetworkRequest {
    * <p>The description of a core network.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>Key-value tags associated with a core network request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The policy document for creating a core network.</p>
    * @public
    */
-  PolicyDocument?: string;
+  PolicyDocument?: string | undefined;
 
   /**
    * <p>The client token associated with a core network request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -2099,7 +2491,7 @@ export interface CreateCoreNetworkResponse {
    * <p>Returns details about a core network.</p>
    * @public
    */
-  CoreNetwork?: CoreNetwork;
+  CoreNetwork?: CoreNetwork | undefined;
 }
 
 /**
@@ -2111,19 +2503,19 @@ export interface Location {
    * <p>The physical address.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The latitude.</p>
    * @public
    */
-  Latitude?: string;
+  Latitude?: string | undefined;
 
   /**
    * <p>The longitude.</p>
    * @public
    */
-  Longitude?: string;
+  Longitude?: string | undefined;
 }
 
 /**
@@ -2140,59 +2532,59 @@ export interface CreateDeviceRequest {
    * <p>The Amazon Web Services location of the device, if applicable. For an on-premises device, you can omit this parameter.</p>
    * @public
    */
-  AWSLocation?: AWSLocation;
+  AWSLocation?: AWSLocation | undefined;
 
   /**
    * <p>A description of the device.</p>
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of the device.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The vendor of the device.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Vendor?: string;
+  Vendor?: string | undefined;
 
   /**
    * <p>The model of the device.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Model?: string;
+  Model?: string | undefined;
 
   /**
    * <p>The serial number of the device.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  SerialNumber?: string;
+  SerialNumber?: string | undefined;
 
   /**
    * <p>The location of the device.</p>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 
   /**
    * <p>The ID of the site.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 
   /**
    * <p>The tags to apply to the resource during creation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2220,85 +2612,85 @@ export interface Device {
    * <p>The ID of the device.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the device.</p>
    * @public
    */
-  DeviceArn?: string;
+  DeviceArn?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services location of the device.</p>
    * @public
    */
-  AWSLocation?: AWSLocation;
+  AWSLocation?: AWSLocation | undefined;
 
   /**
    * <p>The description of the device.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The device type.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The device vendor.</p>
    * @public
    */
-  Vendor?: string;
+  Vendor?: string | undefined;
 
   /**
    * <p>The device model.</p>
    * @public
    */
-  Model?: string;
+  Model?: string | undefined;
 
   /**
    * <p>The device serial number.</p>
    * @public
    */
-  SerialNumber?: string;
+  SerialNumber?: string | undefined;
 
   /**
    * <p>The site location.</p>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 
   /**
    * <p>The site ID.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 
   /**
    * <p>The date and time that the site was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The device state.</p>
    * @public
    */
-  State?: DeviceState;
+  State?: DeviceState | undefined;
 
   /**
    * <p>The tags for the device.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2309,7 +2701,71 @@ export interface CreateDeviceResponse {
    * <p>Information about the device.</p>
    * @public
    */
-  Device?: Device;
+  Device?: Device | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDirectConnectGatewayAttachmentRequest {
+  /**
+   * <p>The ID of the Cloud WAN core network that the Direct Connect gateway attachment should be attached to.</p>
+   * @public
+   */
+  CoreNetworkId: string | undefined;
+
+  /**
+   * <p>The ARN of the Direct Connect gateway attachment.</p>
+   * @public
+   */
+  DirectConnectGatewayArn: string | undefined;
+
+  /**
+   * <p>One or more core network edge locations that the Direct Connect gateway attachment is associated with. </p>
+   * @public
+   */
+  EdgeLocations: string[] | undefined;
+
+  /**
+   * <p>The key value tags to apply to the Direct Connect gateway attachment during creation.</p>
+   * @public
+   */
+  Tags?: Tag[] | undefined;
+
+  /**
+   * <p>client token</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a Direct Connect gateway attachment.</p>
+ * @public
+ */
+export interface DirectConnectGatewayAttachment {
+  /**
+   * <p>Describes a core network attachment.</p>
+   * @public
+   */
+  Attachment?: Attachment | undefined;
+
+  /**
+   * <p>The Direct Connect gateway attachment ARN.</p>
+   * @public
+   */
+  DirectConnectGatewayArn?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateDirectConnectGatewayAttachmentResponse {
+  /**
+   * <p>Describes the details of a <code>CreateDirectConnectGatewayAttachment</code> request.</p>
+   * @public
+   */
+  DirectConnectGatewayAttachment?: DirectConnectGatewayAttachment | undefined;
 }
 
 /**
@@ -2321,13 +2777,13 @@ export interface CreateGlobalNetworkRequest {
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The tags to apply to the resource during creation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2355,37 +2811,37 @@ export interface GlobalNetwork {
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the global network.</p>
    * @public
    */
-  GlobalNetworkArn?: string;
+  GlobalNetworkArn?: string | undefined;
 
   /**
    * <p>The description of the global network.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The date and time that the global network was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The state of the global network.</p>
    * @public
    */
-  State?: GlobalNetworkState;
+  State?: GlobalNetworkState | undefined;
 
   /**
    * <p>The tags for the global network.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2396,7 +2852,7 @@ export interface CreateGlobalNetworkResponse {
    * <p>Information about the global network object.</p>
    * @public
    */
-  GlobalNetwork?: GlobalNetwork;
+  GlobalNetwork?: GlobalNetwork | undefined;
 }
 
 /**
@@ -2414,14 +2870,14 @@ export interface CreateLinkRequest {
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of the link.</p>
    *          <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p> The upload speed and download speed in Mbps. </p>
@@ -2434,7 +2890,7 @@ export interface CreateLinkRequest {
    *          <p>Constraints: Maximum length of 128 characters. Cannot include the following characters: | \ ^</p>
    * @public
    */
-  Provider?: string;
+  Provider?: string | undefined;
 
   /**
    * <p>The ID of the site.</p>
@@ -2446,7 +2902,7 @@ export interface CreateLinkRequest {
    * <p>The tags to apply to the resource during creation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2474,67 +2930,67 @@ export interface Link {
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the link.</p>
    * @public
    */
-  LinkArn?: string;
+  LinkArn?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the site.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 
   /**
    * <p>The description of the link.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of the link.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The bandwidth for the link.</p>
    * @public
    */
-  Bandwidth?: Bandwidth;
+  Bandwidth?: Bandwidth | undefined;
 
   /**
    * <p>The provider of the link.</p>
    * @public
    */
-  Provider?: string;
+  Provider?: string | undefined;
 
   /**
    * <p>The date and time that the link was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The state of the link.</p>
    * @public
    */
-  State?: LinkState;
+  State?: LinkState | undefined;
 
   /**
    * <p>The tags for the link.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2545,7 +3001,7 @@ export interface CreateLinkResponse {
    * <p>Information about the link.</p>
    * @public
    */
-  Link?: Link;
+  Link?: Link | undefined;
 }
 
 /**
@@ -2563,7 +3019,7 @@ export interface CreateSiteRequest {
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The site location. This information is used for visualization in the Network Manager console. If you specify the address, the latitude and longitude are automatically calculated.</p>
@@ -2583,13 +3039,13 @@ export interface CreateSiteRequest {
    *          </ul>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 
   /**
    * <p>The tags to apply to the resource during creation.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2617,49 +3073,49 @@ export interface Site {
    * <p>The ID of the site.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the site.</p>
    * @public
    */
-  SiteArn?: string;
+  SiteArn?: string | undefined;
 
   /**
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The description of the site.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The location of the site.</p>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 
   /**
    * <p>The date and time that the site was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The state of the site.</p>
    * @public
    */
-  State?: SiteState;
+  State?: SiteState | undefined;
 
   /**
    * <p>The tags for the site.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2670,7 +3126,7 @@ export interface CreateSiteResponse {
    * <p>Information about the site.</p>
    * @public
    */
-  Site?: Site;
+  Site?: Site | undefined;
 }
 
 /**
@@ -2693,13 +3149,13 @@ export interface CreateSiteToSiteVpnAttachmentRequest {
    * <p>The tags associated with the request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -2711,13 +3167,13 @@ export interface SiteToSiteVpnAttachment {
    * <p>Provides details about a site-to-site VPN attachment.</p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 
   /**
    * <p>The ARN of the site-to-site VPN attachment. </p>
    * @public
    */
-  VpnConnectionArn?: string;
+  VpnConnectionArn?: string | undefined;
 }
 
 /**
@@ -2728,7 +3184,7 @@ export interface CreateSiteToSiteVpnAttachmentResponse {
    * <p>Details about a site-to-site VPN attachment.</p>
    * @public
    */
-  SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
+  SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment | undefined;
 }
 
 /**
@@ -2751,13 +3207,80 @@ export interface CreateTransitGatewayPeeringRequest {
    * <p>The list of key-value tags associated with the request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PeeringErrorCode = {
+  EDGE_LOCATION_PEER_DUPLICATE: "EDGE_LOCATION_PEER_DUPLICATE",
+  INTERNAL_ERROR: "INTERNAL_ERROR",
+  INVALID_TRANSIT_GATEWAY_STATE: "INVALID_TRANSIT_GATEWAY_STATE",
+  MISSING_REQUIRED_PERMISSIONS: "MISSING_PERMISSIONS",
+  TRANSIT_GATEWAY_NOT_FOUND: "TRANSIT_GATEWAY_NOT_FOUND",
+  TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED: "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type PeeringErrorCode = (typeof PeeringErrorCode)[keyof typeof PeeringErrorCode];
+
+/**
+ * <p>Describes additional information about missing permissions. </p>
+ * @public
+ */
+export interface PermissionsErrorContext {
+  /**
+   * <p>The missing permissions.</p>
+   * @public
+   */
+  MissingPermission?: string | undefined;
+}
+
+/**
+ * <p>Describes an error associated with a peering request.</p>
+ * @public
+ */
+export interface PeeringError {
+  /**
+   * <p>The error code for the peering request.</p>
+   * @public
+   */
+  Code?: PeeringErrorCode | undefined;
+
+  /**
+   * <p>The message associated with the error <code>code</code>.</p>
+   * @public
+   */
+  Message?: string | undefined;
+
+  /**
+   * <p>The ARN of the requested peering resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The ID of the Peering request.</p>
+   * @public
+   */
+  RequestId?: string | undefined;
+
+  /**
+   * <p>Provides additional information about missing permissions for the peering
+   *             error.</p>
+   * @public
+   */
+  MissingPermissionsContext?: PermissionsErrorContext | undefined;
 }
 
 /**
@@ -2798,61 +3321,67 @@ export interface Peering {
    * <p>The ID of the core network for the peering request.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ARN of a core network.</p>
    * @public
    */
-  CoreNetworkArn?: string;
+  CoreNetworkArn?: string | undefined;
 
   /**
    * <p>The ID of the peering attachment. </p>
    * @public
    */
-  PeeringId?: string;
+  PeeringId?: string | undefined;
 
   /**
    * <p>The ID of the account owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The type of peering. This will be <code>TRANSIT_GATEWAY</code>.</p>
    * @public
    */
-  PeeringType?: PeeringType;
+  PeeringType?: PeeringType | undefined;
 
   /**
    * <p>The current state of the peering connection. </p>
    * @public
    */
-  State?: PeeringState;
+  State?: PeeringState | undefined;
 
   /**
    * <p>The edge location for the peer.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The resource ARN of the peer.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The list of key-value tags associated with the peering.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The timestamp when the attachment peer was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
+
+  /**
+   * <p>Describes the error associated with the Connect peer request.</p>
+   * @public
+   */
+  LastModificationErrors?: PeeringError[] | undefined;
 }
 
 /**
@@ -2864,19 +3393,19 @@ export interface TransitGatewayPeering {
    * <p>Describes a transit gateway peer connection.</p>
    * @public
    */
-  Peering?: Peering;
+  Peering?: Peering | undefined;
 
   /**
    * <p>The ARN of the transit gateway.</p>
    * @public
    */
-  TransitGatewayArn?: string;
+  TransitGatewayArn?: string | undefined;
 
   /**
    * <p>The ID of the transit gateway peering attachment.</p>
    * @public
    */
-  TransitGatewayPeeringAttachmentId?: string;
+  TransitGatewayPeeringAttachmentId?: string | undefined;
 }
 
 /**
@@ -2887,7 +3416,7 @@ export interface CreateTransitGatewayPeeringResponse {
    * <p>Returns information about the transit gateway peering connection request.</p>
    * @public
    */
-  TransitGatewayPeering?: TransitGatewayPeering;
+  TransitGatewayPeering?: TransitGatewayPeering | undefined;
 }
 
 /**
@@ -2910,13 +3439,13 @@ export interface CreateTransitGatewayRouteTableAttachmentRequest {
    * <p>The list of key-value tags associated with the request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -2928,19 +3457,19 @@ export interface TransitGatewayRouteTableAttachment {
    * <p>Describes a core network attachment.</p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 
   /**
    * <p>The ID of the peering attachment.</p>
    * @public
    */
-  PeeringId?: string;
+  PeeringId?: string | undefined;
 
   /**
    * <p>The ARN of the transit gateway attachment route table. For example, <code>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</code>.</p>
    * @public
    */
-  TransitGatewayRouteTableArn?: string;
+  TransitGatewayRouteTableArn?: string | undefined;
 }
 
 /**
@@ -2951,7 +3480,7 @@ export interface CreateTransitGatewayRouteTableAttachmentResponse {
    * <p>The route table associated with the create transit gateway route table attachment request.</p>
    * @public
    */
-  TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment;
+  TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment | undefined;
 }
 
 /**
@@ -2963,13 +3492,25 @@ export interface VpcOptions {
    * <p>Indicates whether IPv6 is supported.</p>
    * @public
    */
-  Ipv6Support?: boolean;
+  Ipv6Support?: boolean | undefined;
 
   /**
    * <p>Indicates whether appliance mode is supported.  If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. The default value is <code>false</code>.</p>
    * @public
    */
-  ApplianceModeSupport?: boolean;
+  ApplianceModeSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether DNS is supported.</p>
+   * @public
+   */
+  DnsSupport?: boolean | undefined;
+
+  /**
+   * <p>Indicates whether security group referencing is enabled for this VPC attachment. The default is <code>true</code>. However, at the core network policy-level the default is set to <code>false</code>.</p>
+   * @public
+   */
+  SecurityGroupReferencingSupport?: boolean | undefined;
 }
 
 /**
@@ -2998,19 +3539,19 @@ export interface CreateVpcAttachmentRequest {
    * <p>Options for the VPC attachment.</p>
    * @public
    */
-  Options?: VpcOptions;
+  Options?: VpcOptions | undefined;
 
   /**
    * <p>The key-value tags associated with the request.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -3022,19 +3563,19 @@ export interface VpcAttachment {
    * <p>Provides details about the VPC attachment.</p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 
   /**
    * <p>The subnet ARNs.</p>
    * @public
    */
-  SubnetArns?: string[];
+  SubnetArns?: string[] | undefined;
 
   /**
    * <p>Provides details about the VPC attachment.</p>
    * @public
    */
-  Options?: VpcOptions;
+  Options?: VpcOptions | undefined;
 }
 
 /**
@@ -3045,7 +3586,7 @@ export interface CreateVpcAttachmentResponse {
    * <p>Provides details about the VPC attachment.</p>
    * @public
    */
-  VpcAttachment?: VpcAttachment;
+  VpcAttachment?: VpcAttachment | undefined;
 }
 
 /**
@@ -3067,7 +3608,7 @@ export interface DeleteAttachmentResponse {
    * <p>Information about the deleted attachment.</p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 }
 
 /**
@@ -3095,7 +3636,7 @@ export interface DeleteConnectionResponse {
    * <p>Information about the connection.</p>
    * @public
    */
-  Connection?: Connection;
+  Connection?: Connection | undefined;
 }
 
 /**
@@ -3117,7 +3658,7 @@ export interface DeleteConnectPeerResponse {
    * <p>Information about the deleted Connect peer.</p>
    * @public
    */
-  ConnectPeer?: ConnectPeer;
+  ConnectPeer?: ConnectPeer | undefined;
 }
 
 /**
@@ -3139,7 +3680,7 @@ export interface DeleteCoreNetworkResponse {
    * <p>Information about the deleted core network.</p>
    * @public
    */
-  CoreNetwork?: CoreNetwork;
+  CoreNetwork?: CoreNetwork | undefined;
 }
 
 /**
@@ -3167,7 +3708,7 @@ export interface DeleteCoreNetworkPolicyVersionResponse {
    * <p>Returns information about the deleted policy version. </p>
    * @public
    */
-  CoreNetworkPolicy?: CoreNetworkPolicy;
+  CoreNetworkPolicy?: CoreNetworkPolicy | undefined;
 }
 
 /**
@@ -3195,7 +3736,7 @@ export interface DeleteDeviceResponse {
    * <p>Information about the device.</p>
    * @public
    */
-  Device?: Device;
+  Device?: Device | undefined;
 }
 
 /**
@@ -3217,7 +3758,7 @@ export interface DeleteGlobalNetworkResponse {
    * <p>Information about the global network.</p>
    * @public
    */
-  GlobalNetwork?: GlobalNetwork;
+  GlobalNetwork?: GlobalNetwork | undefined;
 }
 
 /**
@@ -3245,7 +3786,7 @@ export interface DeleteLinkResponse {
    * <p>Information about the link.</p>
    * @public
    */
-  Link?: Link;
+  Link?: Link | undefined;
 }
 
 /**
@@ -3267,7 +3808,7 @@ export interface DeletePeeringResponse {
    * <p>Information about a deleted peering connection.</p>
    * @public
    */
-  Peering?: Peering;
+  Peering?: Peering | undefined;
 }
 
 /**
@@ -3311,7 +3852,7 @@ export interface DeleteSiteResponse {
    * <p>Information about the site.</p>
    * @public
    */
-  Site?: Site;
+  Site?: Site | undefined;
 }
 
 /**
@@ -3358,13 +3899,13 @@ export interface TransitGatewayRegistrationStateReason {
    * <p>The code for the state reason.</p>
    * @public
    */
-  Code?: TransitGatewayRegistrationState;
+  Code?: TransitGatewayRegistrationState | undefined;
 
   /**
    * <p>The message for the state reason.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -3376,19 +3917,19 @@ export interface TransitGatewayRegistration {
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the transit gateway.</p>
    * @public
    */
-  TransitGatewayArn?: string;
+  TransitGatewayArn?: string | undefined;
 
   /**
    * <p>The state of the transit gateway registration.</p>
    * @public
    */
-  State?: TransitGatewayRegistrationStateReason;
+  State?: TransitGatewayRegistrationStateReason | undefined;
 }
 
 /**
@@ -3399,7 +3940,7 @@ export interface DeregisterTransitGatewayResponse {
    * <p>The transit gateway registration information.</p>
    * @public
    */
-  TransitGatewayRegistration?: TransitGatewayRegistration;
+  TransitGatewayRegistration?: TransitGatewayRegistration | undefined;
 }
 
 /**
@@ -3410,19 +3951,19 @@ export interface DescribeGlobalNetworksRequest {
    * <p>The IDs of one or more global networks. The maximum is 10.</p>
    * @public
    */
-  GlobalNetworkIds?: string[];
+  GlobalNetworkIds?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3433,13 +3974,13 @@ export interface DescribeGlobalNetworksResponse {
    * <p>Information about the global networks.</p>
    * @public
    */
-  GlobalNetworks?: GlobalNetwork[];
+  GlobalNetworks?: GlobalNetwork[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3467,7 +4008,7 @@ export interface DisassociateConnectPeerResponse {
    * <p>Describes the Connect peer association.</p>
    * @public
    */
-  ConnectPeerAssociation?: ConnectPeerAssociation;
+  ConnectPeerAssociation?: ConnectPeerAssociation | undefined;
 }
 
 /**
@@ -3495,7 +4036,7 @@ export interface DisassociateCustomerGatewayResponse {
    * <p>Information about the customer gateway association.</p>
    * @public
    */
-  CustomerGatewayAssociation?: CustomerGatewayAssociation;
+  CustomerGatewayAssociation?: CustomerGatewayAssociation | undefined;
 }
 
 /**
@@ -3529,7 +4070,7 @@ export interface DisassociateLinkResponse {
    * <p>Information about the link association.</p>
    * @public
    */
-  LinkAssociation?: LinkAssociation;
+  LinkAssociation?: LinkAssociation | undefined;
 }
 
 /**
@@ -3557,7 +4098,7 @@ export interface DisassociateTransitGatewayConnectPeerResponse {
    * <p>The transit gateway Connect peer association.</p>
    * @public
    */
-  TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation;
+  TransitGatewayConnectPeerAssociation?: TransitGatewayConnectPeerAssociation | undefined;
 }
 
 /**
@@ -3601,7 +4142,7 @@ export interface GetConnectAttachmentResponse {
    * <p>Details about the Connect attachment.</p>
    * @public
    */
-  ConnectAttachment?: ConnectAttachment;
+  ConnectAttachment?: ConnectAttachment | undefined;
 }
 
 /**
@@ -3618,25 +4159,25 @@ export interface GetConnectionsRequest {
    * <p>One or more connection IDs.</p>
    * @public
    */
-  ConnectionIds?: string[];
+  ConnectionIds?: string[] | undefined;
 
   /**
    * <p>The ID of the device.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3647,13 +4188,13 @@ export interface GetConnectionsResponse {
    * <p>Information about the connections.</p>
    * @public
    */
-  Connections?: Connection[];
+  Connections?: Connection[] | undefined;
 
   /**
    * <p>The token to use for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3675,7 +4216,7 @@ export interface GetConnectPeerResponse {
    * <p>Returns information about a core network Connect peer.</p>
    * @public
    */
-  ConnectPeer?: ConnectPeer;
+  ConnectPeer?: ConnectPeer | undefined;
 }
 
 /**
@@ -3692,19 +4233,19 @@ export interface GetConnectPeerAssociationsRequest {
    * <p>The IDs of the Connect peers.</p>
    * @public
    */
-  ConnectPeerIds?: string[];
+  ConnectPeerIds?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3715,13 +4256,13 @@ export interface GetConnectPeerAssociationsResponse {
    * <p>Displays a list of Connect peer associations.</p>
    * @public
    */
-  ConnectPeerAssociations?: ConnectPeerAssociation[];
+  ConnectPeerAssociations?: ConnectPeerAssociation[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3743,7 +4284,7 @@ export interface GetCoreNetworkResponse {
    * <p>Details about a core network.</p>
    * @public
    */
-  CoreNetwork?: CoreNetwork;
+  CoreNetwork?: CoreNetwork | undefined;
 }
 
 /**
@@ -3766,13 +4307,13 @@ export interface GetCoreNetworkChangeEventsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3783,13 +4324,13 @@ export interface GetCoreNetworkChangeEventsResponse {
    * <p>The response to <code>GetCoreNetworkChangeEventsRequest</code>.</p>
    * @public
    */
-  CoreNetworkChangeEvents?: CoreNetworkChangeEvent[];
+  CoreNetworkChangeEvents?: CoreNetworkChangeEvent[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3812,13 +4353,13 @@ export interface GetCoreNetworkChangeSetRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3829,13 +4370,13 @@ export interface GetCoreNetworkChangeSetResponse {
    * <p>Describes a core network changes.</p>
    * @public
    */
-  CoreNetworkChanges?: CoreNetworkChange[];
+  CoreNetworkChanges?: CoreNetworkChange[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3852,13 +4393,13 @@ export interface GetCoreNetworkPolicyRequest {
    * <p>The ID of a core network policy version.</p>
    * @public
    */
-  PolicyVersionId?: number;
+  PolicyVersionId?: number | undefined;
 
   /**
    * <p>The alias of a core network policy </p>
    * @public
    */
-  Alias?: CoreNetworkPolicyAlias;
+  Alias?: CoreNetworkPolicyAlias | undefined;
 }
 
 /**
@@ -3869,7 +4410,7 @@ export interface GetCoreNetworkPolicyResponse {
    * <p>The details about a core network policy.</p>
    * @public
    */
-  CoreNetworkPolicy?: CoreNetworkPolicy;
+  CoreNetworkPolicy?: CoreNetworkPolicy | undefined;
 }
 
 /**
@@ -3886,19 +4427,19 @@ export interface GetCustomerGatewayAssociationsRequest {
    * <p>One or more customer gateway Amazon Resource Names (ARNs). The maximum is 10.</p>
    * @public
    */
-  CustomerGatewayArns?: string[];
+  CustomerGatewayArns?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3909,13 +4450,13 @@ export interface GetCustomerGatewayAssociationsResponse {
    * <p>The customer gateway associations.</p>
    * @public
    */
-  CustomerGatewayAssociations?: CustomerGatewayAssociation[];
+  CustomerGatewayAssociations?: CustomerGatewayAssociation[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3932,25 +4473,25 @@ export interface GetDevicesRequest {
    * <p>One or more device IDs. The maximum is 10.</p>
    * @public
    */
-  DeviceIds?: string[];
+  DeviceIds?: string[] | undefined;
 
   /**
    * <p>The ID of the site.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3961,13 +4502,35 @@ export interface GetDevicesResponse {
    * <p>The devices.</p>
    * @public
    */
-  Devices?: Device[];
+  Devices?: Device[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDirectConnectGatewayAttachmentRequest {
+  /**
+   * <p>The ID of the Direct Connect gateway attachment that you want to see details about.</p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetDirectConnectGatewayAttachmentResponse {
+  /**
+   * <p>Shows details about the Direct Connect gateway attachment. </p>
+   * @public
+   */
+  DirectConnectGatewayAttachment?: DirectConnectGatewayAttachment | undefined;
 }
 
 /**
@@ -3984,25 +4547,25 @@ export interface GetLinkAssociationsRequest {
    * <p>The ID of the device.</p>
    * @public
    */
-  DeviceId?: string;
+  DeviceId?: string | undefined;
 
   /**
    * <p>The ID of the link.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4013,13 +4576,13 @@ export interface GetLinkAssociationsResponse {
    * <p>The link associations.</p>
    * @public
    */
-  LinkAssociations?: LinkAssociation[];
+  LinkAssociations?: LinkAssociation[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4036,37 +4599,37 @@ export interface GetLinksRequest {
    * <p>One or more link IDs. The maximum is 10.</p>
    * @public
    */
-  LinkIds?: string[];
+  LinkIds?: string[] | undefined;
 
   /**
    * <p>The ID of the site.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 
   /**
    * <p>The link type.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The link provider.</p>
    * @public
    */
-  Provider?: string;
+  Provider?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4077,13 +4640,13 @@ export interface GetLinksResponse {
    * <p>The links.</p>
    * @public
    */
-  Links?: Link[];
+  Links?: Link[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4120,7 +4683,22 @@ export interface GetNetworkResourceCountsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4131,6 +4709,11 @@ export interface GetNetworkResourceCountsRequest {
    *             <li>
    *                <p>
    *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4174,19 +4757,19 @@ export interface GetNetworkResourceCountsRequest {
    *          </ul>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4198,13 +4781,13 @@ export interface NetworkResourceCount {
    * <p>The resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The resource count.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 }
 
 /**
@@ -4215,13 +4798,13 @@ export interface GetNetworkResourceCountsResponse {
    * <p>The count of resources.</p>
    * @public
    */
-  NetworkResourceCounts?: NetworkResourceCount[];
+  NetworkResourceCounts?: NetworkResourceCount[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4238,25 +4821,25 @@ export interface GetNetworkResourceRelationshipsRequest {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ARN of the registered gateway.</p>
    * @public
    */
-  RegisteredGatewayArn?: string;
+  RegisteredGatewayArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The resource type.</p>
@@ -4282,7 +4865,22 @@ export interface GetNetworkResourceRelationshipsRequest {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4293,6 +4891,11 @@ export interface GetNetworkResourceRelationshipsRequest {
    *             <li>
    *                <p>
    *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4336,25 +4939,25 @@ export interface GetNetworkResourceRelationshipsRequest {
    *          </ul>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ARN of the gateway.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4366,13 +4969,13 @@ export interface Relationship {
    * <p>The ARN of the resource.</p>
    * @public
    */
-  From?: string;
+  From?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  To?: string;
+  To?: string | undefined;
 }
 
 /**
@@ -4383,13 +4986,13 @@ export interface GetNetworkResourceRelationshipsResponse {
    * <p>The resource relationships.</p>
    * @public
    */
-  Relationships?: Relationship[];
+  Relationships?: Relationship[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4406,153 +5009,25 @@ export interface GetNetworkResourcesRequest {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ARN of the gateway.</p>
    * @public
    */
-  RegisteredGatewayArn?: string;
+  RegisteredGatewayArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  AccountId?: string;
-
-  /**
-   * <p>The resource type.</p>
-   *          <p>The following are the supported resource types for Direct Connect:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>dxcon</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_Connection.html">Connection</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dx-gateway</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_DirectConnectGateway.html">DirectConnectGateway</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dx-vif</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/directconnect/latest/APIReference/API_VirtualInterface.html">VirtualInterface</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the supported resource types for Network Manager:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Connection.html">Connection</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>device</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Device.html">Device</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>link</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Link.html">Link</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>site</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/networkmanager/latest/APIReference/API_Site.html">Site</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the supported resource types for Amazon VPC:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CustomerGateway.html">CustomerGateway</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGateway.html">TransitGateway</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayAttachment.html">TransitGatewayAttachment</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-connect-peer</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayConnectPeer.html">TransitGatewayConnectPeer</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_TransitGatewayRouteTable.html">TransitGatewayRouteTable</a>.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpn-connection</code> - The definition model is
-   *                     <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnConnection.html">VpnConnection</a>.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  ResourceType?: string;
-
-  /**
-   * <p>The ARN of the resource.</p>
-   * @public
-   */
-  ResourceArn?: string;
-
-  /**
-   * <p>The maximum number of results to return.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * <p>Describes a network resource.</p>
- * @public
- */
-export interface NetworkResource {
-  /**
-   * <p>The ARN of the gateway.</p>
-   * @public
-   */
-  RegisteredGatewayArn?: string;
-
-  /**
-   * <p>The ID of a core network.</p>
-   * @public
-   */
-  CoreNetworkId?: string;
-
-  /**
-   * <p>The Amazon Web Services Region.</p>
-   * @public
-   */
-  AwsRegion?: string;
-
-  /**
-   * <p>The Amazon Web Services account ID.</p>
-   * @public
-   */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The resource type.</p>
@@ -4578,7 +5053,22 @@ export interface NetworkResource {
    *          <ul>
    *             <li>
    *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4589,6 +5079,11 @@ export interface NetworkResource {
    *             <li>
    *                <p>
    *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
    *                </p>
    *             </li>
    *             <li>
@@ -4632,43 +5127,191 @@ export interface NetworkResource {
    *          </ul>
    * @public
    */
-  ResourceType?: string;
-
-  /**
-   * <p>The ID of the resource.</p>
-   * @public
-   */
-  ResourceId?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
+ * <p>Describes a network resource.</p>
+ * @public
+ */
+export interface NetworkResource {
+  /**
+   * <p>The ARN of the gateway.</p>
+   * @public
+   */
+  RegisteredGatewayArn?: string | undefined;
+
+  /**
+   * <p>The ID of a core network.</p>
+   * @public
+   */
+  CoreNetworkId?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services Region.</p>
+   * @public
+   */
+  AwsRegion?: string | undefined;
+
+  /**
+   * <p>The Amazon Web Services account ID.</p>
+   * @public
+   */
+  AccountId?: string | undefined;
+
+  /**
+   * <p>The resource type.</p>
+   *          <p>The following are the supported resource types for Direct Connect:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>dxcon</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dx-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>dx-vif</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The following are the supported resource types for Network Manager:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>connection</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>core-network</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>device</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>link</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>peering</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>site</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   *          <p>The following are the supported resource types for Amazon VPC:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>customer-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-attachment</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-connect-peer</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>transit-gateway-route-table</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpn-connection</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  ResourceType?: string | undefined;
+
+  /**
+   * <p>The ID of the resource.</p>
+   * @public
+   */
+  ResourceId?: string | undefined;
+
+  /**
+   * <p>The ARN of the resource.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
 
   /**
    * <p>Information about the resource, in JSON format. Network Manager gets this information by describing the resource using its Describe API call.</p>
    * @public
    */
-  Definition?: string;
+  Definition?: string | undefined;
 
   /**
    * <p>The time that the resource definition was retrieved.</p>
    * @public
    */
-  DefinitionTimestamp?: Date;
+  DefinitionTimestamp?: Date | undefined;
 
   /**
    * <p>The tags.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The resource metadata.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -4679,13 +5322,13 @@ export interface GetNetworkResourcesResponse {
    * <p>The network resources.</p>
    * @public
    */
-  NetworkResources?: NetworkResource[];
+  NetworkResources?: NetworkResource[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4697,13 +5340,19 @@ export interface RouteTableIdentifier {
    * <p>The ARN of the transit gateway route table for the attachment request. For example, <code>"TransitGatewayRouteTableArn": "arn:aws:ec2:us-west-2:123456789012:transit-gateway-route-table/tgw-rtb-9876543210123456"</code>.</p>
    * @public
    */
-  TransitGatewayRouteTableArn?: string;
+  TransitGatewayRouteTableArn?: string | undefined;
 
   /**
    * <p>The segment edge in a core network.</p>
    * @public
    */
-  CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
+  CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier | undefined;
+
+  /**
+   * <p>The route table identifier associated with the network function group.</p>
+   * @public
+   */
+  CoreNetworkNetworkFunctionGroup?: CoreNetworkNetworkFunctionGroupIdentifier | undefined;
 }
 
 /**
@@ -4754,49 +5403,49 @@ export interface GetNetworkRoutesRequest {
    * <p>An exact CIDR block.</p>
    * @public
    */
-  ExactCidrMatches?: string[];
+  ExactCidrMatches?: string[] | undefined;
 
   /**
    * <p>The most specific route that matches the traffic (longest prefix match).</p>
    * @public
    */
-  LongestPrefixMatches?: string[];
+  LongestPrefixMatches?: string[] | undefined;
 
   /**
    * <p>The routes with a subnet that match the specified CIDR filter.</p>
    * @public
    */
-  SubnetOfMatches?: string[];
+  SubnetOfMatches?: string[] | undefined;
 
   /**
    * <p>The routes with a CIDR that encompasses the CIDR filter. Example: If you specify 10.0.1.0/30, then the result returns 10.0.1.0/29.</p>
    * @public
    */
-  SupernetOfMatches?: string[];
+  SupernetOfMatches?: string[] | undefined;
 
   /**
    * <p>The IDs of the prefix lists.</p>
    * @public
    */
-  PrefixListIds?: string[];
+  PrefixListIds?: string[] | undefined;
 
   /**
    * <p>The route states.</p>
    * @public
    */
-  States?: RouteState[];
+  States?: RouteState[] | undefined;
 
   /**
    * <p>The route types.</p>
    * @public
    */
-  Types?: RouteType[];
+  Types?: RouteType[] | undefined;
 
   /**
    * <p>Filter by route table destination. Possible Values: TRANSIT_GATEWAY_ATTACHMENT_ID, RESOURCE_ID, or RESOURCE_TYPE.</p>
    * @public
    */
-  DestinationFilters?: Record<string, string[]>;
+  DestinationFilters?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -4808,37 +5457,43 @@ export interface NetworkRouteDestination {
    * <p>The ID of a core network attachment.</p>
    * @public
    */
-  CoreNetworkAttachmentId?: string;
+  CoreNetworkAttachmentId?: string | undefined;
 
   /**
    * <p>The ID of the transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentId?: string;
+  TransitGatewayAttachmentId?: string | undefined;
 
   /**
    * <p>The name of the segment.</p>
    * @public
    */
-  SegmentName?: string;
+  SegmentName?: string | undefined;
+
+  /**
+   * <p>The network function group name associated with the destination.</p>
+   * @public
+   */
+  NetworkFunctionGroupName?: string | undefined;
 
   /**
    * <p>The edge location for the network destination.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 }
 
 /**
@@ -4850,31 +5505,31 @@ export interface NetworkRoute {
    * <p>A unique identifier for the route, such as a CIDR block.</p>
    * @public
    */
-  DestinationCidrBlock?: string;
+  DestinationCidrBlock?: string | undefined;
 
   /**
    * <p>The destinations.</p>
    * @public
    */
-  Destinations?: NetworkRouteDestination[];
+  Destinations?: NetworkRouteDestination[] | undefined;
 
   /**
    * <p>The ID of the prefix list.</p>
    * @public
    */
-  PrefixListId?: string;
+  PrefixListId?: string | undefined;
 
   /**
    * <p>The route state. The possible values are <code>active</code> and <code>blackhole</code>.</p>
    * @public
    */
-  State?: RouteState;
+  State?: RouteState | undefined;
 
   /**
    * <p>The route type. The possible values are <code>propagated</code> and <code>static</code>.</p>
    * @public
    */
-  Type?: RouteType;
+  Type?: RouteType | undefined;
 }
 
 /**
@@ -4883,6 +5538,7 @@ export interface NetworkRoute {
  */
 export const RouteTableType = {
   CORE_NETWORK_SEGMENT: "CORE_NETWORK_SEGMENT",
+  NETWORK_FUNCTION_GROUP: "NETWORK_FUNCTION_GROUP",
   TRANSIT_GATEWAY_ROUTE_TABLE: "TRANSIT_GATEWAY_ROUTE_TABLE",
 } as const;
 
@@ -4899,31 +5555,31 @@ export interface GetNetworkRoutesResponse {
    * <p>The ARN of the route table.</p>
    * @public
    */
-  RouteTableArn?: string;
+  RouteTableArn?: string | undefined;
 
   /**
    * <p>Describes a core network segment edge.</p>
    * @public
    */
-  CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier;
+  CoreNetworkSegmentEdge?: CoreNetworkSegmentEdgeIdentifier | undefined;
 
   /**
    * <p>The route table type.</p>
    * @public
    */
-  RouteTableType?: RouteTableType;
+  RouteTableType?: RouteTableType | undefined;
 
   /**
    * <p>The route table creation time.</p>
    * @public
    */
-  RouteTableTimestamp?: Date;
+  RouteTableTimestamp?: Date | undefined;
 
   /**
    * <p>The network routes.</p>
    * @public
    */
-  NetworkRoutes?: NetworkRoute[];
+  NetworkRoutes?: NetworkRoute[] | undefined;
 }
 
 /**
@@ -4940,94 +5596,37 @@ export interface GetNetworkTelemetryRequest {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ARN of the gateway.</p>
    * @public
    */
-  RegisteredGatewayArn?: string;
+  RegisteredGatewayArn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
-   * <p>The resource type.</p>
-   *          <p>The following are the supported resource types for Direct Connect:</p>
+   * <p>The resource type. The following are the supported resource types:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>dxcon</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dx-gateway</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>dx-vif</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the supported resource types for Network Manager:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>connection</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>device</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>link</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>site</code>
-   *                </p>
-   *             </li>
-   *          </ul>
-   *          <p>The following are the supported resource types for Amazon VPC:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>customer-gateway</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-attachment</code>
+   *                   <code>connect-peer</code>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>transit-gateway-connect-peer</code>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>transit-gateway-route-table</code>
    *                </p>
    *             </li>
    *             <li>
@@ -5038,25 +5637,25 @@ export interface GetNetworkTelemetryRequest {
    *          </ul>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5068,55 +5667,55 @@ export interface NetworkTelemetry {
    * <p>The ARN of the gateway.</p>
    * @public
    */
-  RegisteredGatewayArn?: string;
+  RegisteredGatewayArn?: string | undefined;
 
   /**
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services Region.</p>
    * @public
    */
-  AwsRegion?: string;
+  AwsRegion?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID.</p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>The ID of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The address.</p>
    * @public
    */
-  Address?: string;
+  Address?: string | undefined;
 
   /**
    * <p>The connection health.</p>
    * @public
    */
-  Health?: ConnectionHealth;
+  Health?: ConnectionHealth | undefined;
 }
 
 /**
@@ -5127,13 +5726,13 @@ export interface GetNetworkTelemetryResponse {
    * <p>The network telemetry.</p>
    * @public
    */
-  NetworkTelemetry?: NetworkTelemetry[];
+  NetworkTelemetry?: NetworkTelemetry[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5155,7 +5754,7 @@ export interface GetResourcePolicyResponse {
    * <p>The resource policy document.</p>
    * @public
    */
-  PolicyDocument?: __LazyJsonString | string;
+  PolicyDocument?: __AutomaticJsonStringConversion | string | undefined;
 }
 
 /**
@@ -5184,19 +5783,19 @@ export interface RouteAnalysisEndpointOptions {
    * <p>The ARN of the transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentArn?: string;
+  TransitGatewayAttachmentArn?: string | undefined;
 
   /**
    * <p>The ARN of the transit gateway.</p>
    * @public
    */
-  TransitGatewayArn?: string;
+  TransitGatewayArn?: string | undefined;
 
   /**
    * <p>The IP address.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 }
 
 /**
@@ -5248,7 +5847,7 @@ export interface RouteAnalysisCompletion {
    *             reason code.</p>
    * @public
    */
-  ResultCode?: RouteAnalysisCompletionResultCode;
+  ResultCode?: RouteAnalysisCompletionResultCode | undefined;
 
   /**
    * <p>The reason code. Available only if a connection is not found.</p>
@@ -5292,13 +5891,13 @@ export interface RouteAnalysisCompletion {
    *          </ul>
    * @public
    */
-  ReasonCode?: RouteAnalysisCompletionReasonCode;
+  ReasonCode?: RouteAnalysisCompletionReasonCode | undefined;
 
   /**
    * <p>Additional information about the path. Available only if a connection is not found.</p>
    * @public
    */
-  ReasonContext?: Record<string, string>;
+  ReasonContext?: Record<string, string> | undefined;
 }
 
 /**
@@ -5310,37 +5909,37 @@ export interface NetworkResourceSummary {
    * <p>The ARN of the gateway.</p>
    * @public
    */
-  RegisteredGatewayArn?: string;
+  RegisteredGatewayArn?: string | undefined;
 
   /**
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The resource type.</p>
    * @public
    */
-  ResourceType?: string;
+  ResourceType?: string | undefined;
 
   /**
    * <p>Information about the resource, in JSON format. Network Manager gets this information by describing the resource using its Describe API call.</p>
    * @public
    */
-  Definition?: string;
+  Definition?: string | undefined;
 
   /**
    * <p>The value for the Name tag.</p>
    * @public
    */
-  NameTag?: string;
+  NameTag?: string | undefined;
 
   /**
    * <p>Indicates whether this is a middlebox appliance.</p>
    * @public
    */
-  IsMiddlebox?: boolean;
+  IsMiddlebox?: boolean | undefined;
 }
 
 /**
@@ -5352,19 +5951,19 @@ export interface PathComponent {
    * <p>The sequence number in the path. The destination is 0.</p>
    * @public
    */
-  Sequence?: number;
+  Sequence?: number | undefined;
 
   /**
    * <p>The resource.</p>
    * @public
    */
-  Resource?: NetworkResourceSummary;
+  Resource?: NetworkResourceSummary | undefined;
 
   /**
    * <p>The destination CIDR block in the route table.</p>
    * @public
    */
-  DestinationCidrBlock?: string;
+  DestinationCidrBlock?: string | undefined;
 }
 
 /**
@@ -5376,13 +5975,13 @@ export interface RouteAnalysisPath {
    * <p>The status of the analysis at completion.</p>
    * @public
    */
-  CompletionStatus?: RouteAnalysisCompletion;
+  CompletionStatus?: RouteAnalysisCompletion | undefined;
 
   /**
    * <p>The route analysis path.</p>
    * @public
    */
-  Path?: PathComponent[];
+  Path?: PathComponent[] | undefined;
 }
 
 /**
@@ -5409,68 +6008,68 @@ export interface RouteAnalysis {
    * <p>The ID of the global network.</p>
    * @public
    */
-  GlobalNetworkId?: string;
+  GlobalNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the AWS account that created the route analysis.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The ID of the route analysis.</p>
    * @public
    */
-  RouteAnalysisId?: string;
+  RouteAnalysisId?: string | undefined;
 
   /**
    * <p>The time that the analysis started.</p>
    * @public
    */
-  StartTimestamp?: Date;
+  StartTimestamp?: Date | undefined;
 
   /**
    * <p>The status of the route analysis.</p>
    * @public
    */
-  Status?: RouteAnalysisStatus;
+  Status?: RouteAnalysisStatus | undefined;
 
   /**
    * <p>The source.</p>
    * @public
    */
-  Source?: RouteAnalysisEndpointOptions;
+  Source?: RouteAnalysisEndpointOptions | undefined;
 
   /**
    * <p>The destination.</p>
    * @public
    */
-  Destination?: RouteAnalysisEndpointOptions;
+  Destination?: RouteAnalysisEndpointOptions | undefined;
 
   /**
    * <p>Indicates whether to analyze the return path. The return path is not analyzed if the forward path
    *             analysis does not succeed.</p>
    * @public
    */
-  IncludeReturnPath?: boolean;
+  IncludeReturnPath?: boolean | undefined;
 
   /**
    * <p>Indicates whether to include the location of middlebox appliances in the route analysis.</p>
    * @public
    */
-  UseMiddleboxes?: boolean;
+  UseMiddleboxes?: boolean | undefined;
 
   /**
    * <p>The forward path.</p>
    * @public
    */
-  ForwardPath?: RouteAnalysisPath;
+  ForwardPath?: RouteAnalysisPath | undefined;
 
   /**
    * <p>The return path.</p>
    * @public
    */
-  ReturnPath?: RouteAnalysisPath;
+  ReturnPath?: RouteAnalysisPath | undefined;
 }
 
 /**
@@ -5481,7 +6080,7 @@ export interface GetRouteAnalysisResponse {
    * <p>The route analysis.</p>
    * @public
    */
-  RouteAnalysis?: RouteAnalysis;
+  RouteAnalysis?: RouteAnalysis | undefined;
 }
 
 /**
@@ -5498,19 +6097,19 @@ export interface GetSitesRequest {
    * <p>One or more site IDs. The maximum is 10.</p>
    * @public
    */
-  SiteIds?: string[];
+  SiteIds?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5521,13 +6120,13 @@ export interface GetSitesResponse {
    * <p>The sites.</p>
    * @public
    */
-  Sites?: Site[];
+  Sites?: Site[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5549,7 +6148,7 @@ export interface GetSiteToSiteVpnAttachmentResponse {
    * <p>Describes the site-to-site attachment.</p>
    * @public
    */
-  SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment;
+  SiteToSiteVpnAttachment?: SiteToSiteVpnAttachment | undefined;
 }
 
 /**
@@ -5566,19 +6165,19 @@ export interface GetTransitGatewayConnectPeerAssociationsRequest {
    * <p>One or more transit gateway Connect peer Amazon Resource Names (ARNs).</p>
    * @public
    */
-  TransitGatewayConnectPeerArns?: string[];
+  TransitGatewayConnectPeerArns?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5589,13 +6188,13 @@ export interface GetTransitGatewayConnectPeerAssociationsResponse {
    * <p>Information about the transit gateway Connect peer associations.</p>
    * @public
    */
-  TransitGatewayConnectPeerAssociations?: TransitGatewayConnectPeerAssociation[];
+  TransitGatewayConnectPeerAssociations?: TransitGatewayConnectPeerAssociation[] | undefined;
 
   /**
    * <p>The token to use for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5617,7 +6216,7 @@ export interface GetTransitGatewayPeeringResponse {
    * <p>Returns information about a transit gateway peering. </p>
    * @public
    */
-  TransitGatewayPeering?: TransitGatewayPeering;
+  TransitGatewayPeering?: TransitGatewayPeering | undefined;
 }
 
 /**
@@ -5635,19 +6234,19 @@ export interface GetTransitGatewayRegistrationsRequest {
    *             10.</p>
    * @public
    */
-  TransitGatewayArns?: string[];
+  TransitGatewayArns?: string[] | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5658,13 +6257,13 @@ export interface GetTransitGatewayRegistrationsResponse {
    * <p>The transit gateway registrations.</p>
    * @public
    */
-  TransitGatewayRegistrations?: TransitGatewayRegistration[];
+  TransitGatewayRegistrations?: TransitGatewayRegistration[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5686,7 +6285,7 @@ export interface GetTransitGatewayRouteTableAttachmentResponse {
    * <p>Returns information about the transit gateway route table attachment.</p>
    * @public
    */
-  TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment;
+  TransitGatewayRouteTableAttachment?: TransitGatewayRouteTableAttachment | undefined;
 }
 
 /**
@@ -5708,7 +6307,7 @@ export interface GetVpcAttachmentResponse {
    * <p>Returns details about a VPC attachment.</p>
    * @public
    */
-  VpcAttachment?: VpcAttachment;
+  VpcAttachment?: VpcAttachment | undefined;
 }
 
 /**
@@ -5719,37 +6318,37 @@ export interface ListAttachmentsRequest {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The type of attachment.</p>
    * @public
    */
-  AttachmentType?: AttachmentType;
+  AttachmentType?: AttachmentType | undefined;
 
   /**
    * <p>The Region where the edge is located.</p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>The state of the attachment.</p>
    * @public
    */
-  State?: AttachmentState;
+  State?: AttachmentState | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5760,13 +6359,13 @@ export interface ListAttachmentsResponse {
    * <p>Describes the list of attachments.</p>
    * @public
    */
-  Attachments?: Attachment[];
+  Attachments?: Attachment[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5777,25 +6376,25 @@ export interface ListConnectPeersRequest {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>The ID of the attachment.</p>
    * @public
    */
-  ConnectAttachmentId?: string;
+  ConnectAttachmentId?: string | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5806,13 +6405,13 @@ export interface ListConnectPeersResponse {
    * <p>Describes the Connect peers.</p>
    * @public
    */
-  ConnectPeers?: ConnectPeerSummary[];
+  ConnectPeers?: ConnectPeerSummary[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5829,13 +6428,13 @@ export interface ListCoreNetworkPolicyVersionsRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5846,13 +6445,13 @@ export interface ListCoreNetworkPolicyVersionsResponse {
    * <p>Describes core network policy versions.</p>
    * @public
    */
-  CoreNetworkPolicyVersions?: CoreNetworkPolicyVersion[];
+  CoreNetworkPolicyVersions?: CoreNetworkPolicyVersion[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5863,13 +6462,13 @@ export interface ListCoreNetworksRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5880,13 +6479,13 @@ export interface ListCoreNetworksResponse {
    * <p>Describes the list of core networks.</p>
    * @public
    */
-  CoreNetworks?: CoreNetworkSummary[];
+  CoreNetworks?: CoreNetworkSummary[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5897,13 +6496,13 @@ export interface ListOrganizationServiceAccessStatusRequest {
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5915,25 +6514,25 @@ export interface OrganizationStatus {
    * <p>The ID of an Amazon Web Services Organization.</p>
    * @public
    */
-  OrganizationId?: string;
+  OrganizationId?: string | undefined;
 
   /**
    * <p>The status  of the organization's AWS service access. This will be <code>ENABLED</code> or <code>DISABLED</code>.</p>
    * @public
    */
-  OrganizationAwsServiceAccessStatus?: string;
+  OrganizationAwsServiceAccessStatus?: string | undefined;
 
   /**
    * <p>The status of the SLR deployment for the account. This will be either <code>SUCCEEDED</code> or <code>IN_PROGRESS</code>.</p>
    * @public
    */
-  SLRDeploymentStatus?: string;
+  SLRDeploymentStatus?: string | undefined;
 
   /**
    * <p>The current service-linked role (SLR) deployment status for an Amazon Web Services Organization's accounts. This will be either <code>SUCCEEDED</code> or <code>IN_PROGRESS</code>.</p>
    * @public
    */
-  AccountStatusList?: AccountStatus[];
+  AccountStatusList?: AccountStatus[] | undefined;
 }
 
 /**
@@ -5944,13 +6543,13 @@ export interface ListOrganizationServiceAccessStatusResponse {
    * <p>Displays the status of an Amazon Web Services Organization.</p>
    * @public
    */
-  OrganizationStatus?: OrganizationStatus;
+  OrganizationStatus?: OrganizationStatus | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5961,37 +6560,37 @@ export interface ListPeeringsRequest {
    * <p>The ID of a core network.</p>
    * @public
    */
-  CoreNetworkId?: string;
+  CoreNetworkId?: string | undefined;
 
   /**
    * <p>Returns a list of a peering requests.</p>
    * @public
    */
-  PeeringType?: PeeringType;
+  PeeringType?: PeeringType | undefined;
 
   /**
    * <p>Returns a list edge locations for the </p>
    * @public
    */
-  EdgeLocation?: string;
+  EdgeLocation?: string | undefined;
 
   /**
    * <p>Returns a list of the peering request states.</p>
    * @public
    */
-  State?: PeeringState;
+  State?: PeeringState | undefined;
 
   /**
    * <p>The maximum number of results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6002,13 +6601,13 @@ export interface ListPeeringsResponse {
    * <p>Lists the transit gateway peerings for the <code>ListPeerings</code> request.</p>
    * @public
    */
-  Peerings?: Peering[];
+  Peerings?: Peering[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6030,7 +6629,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags.</p>
    * @public
    */
-  TagList?: Tag[];
+  TagList?: Tag[] | undefined;
 }
 
 /**
@@ -6047,25 +6646,25 @@ export interface PutCoreNetworkPolicyRequest {
    * <p>The policy document.</p>
    * @public
    */
-  PolicyDocument: __LazyJsonString | string | undefined;
+  PolicyDocument: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>a core network policy description.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of a core network policy. </p>
    * @public
    */
-  LatestVersionId?: number;
+  LatestVersionId?: number | undefined;
 
   /**
    * <p>The client token associated with the request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -6076,7 +6675,7 @@ export interface PutCoreNetworkPolicyResponse {
    * <p>Describes the changed core network policy.</p>
    * @public
    */
-  CoreNetworkPolicy?: CoreNetworkPolicy;
+  CoreNetworkPolicy?: CoreNetworkPolicy | undefined;
 }
 
 /**
@@ -6087,7 +6686,7 @@ export interface PutResourcePolicyRequest {
    * <p>The JSON resource policy document.</p>
    * @public
    */
-  PolicyDocument: __LazyJsonString | string | undefined;
+  PolicyDocument: __AutomaticJsonStringConversion | string | undefined;
 
   /**
    * <p>The ARN of the resource policy. </p>
@@ -6126,7 +6725,7 @@ export interface RegisterTransitGatewayResponse {
    * <p>Information about the transit gateway registration.</p>
    * @public
    */
-  TransitGatewayRegistration?: TransitGatewayRegistration;
+  TransitGatewayRegistration?: TransitGatewayRegistration | undefined;
 }
 
 /**
@@ -6148,7 +6747,7 @@ export interface RejectAttachmentResponse {
    * <p>Describes the rejected attachment request.</p>
    * @public
    */
-  Attachment?: Attachment;
+  Attachment?: Attachment | undefined;
 }
 
 /**
@@ -6176,7 +6775,7 @@ export interface RestoreCoreNetworkPolicyVersionResponse {
    * <p>Describes the restored core network policy.</p>
    * @public
    */
-  CoreNetworkPolicy?: CoreNetworkPolicy;
+  CoreNetworkPolicy?: CoreNetworkPolicy | undefined;
 }
 
 /**
@@ -6198,7 +6797,7 @@ export interface StartOrganizationServiceAccessUpdateResponse {
    * <p>The status of the service access update request for an Amazon Web Services Organization.</p>
    * @public
    */
-  OrganizationStatus?: OrganizationStatus;
+  OrganizationStatus?: OrganizationStatus | undefined;
 }
 
 /**
@@ -6210,13 +6809,13 @@ export interface RouteAnalysisEndpointOptionsSpecification {
    * <p>The ARN of the transit gateway attachment.</p>
    * @public
    */
-  TransitGatewayAttachmentArn?: string;
+  TransitGatewayAttachmentArn?: string | undefined;
 
   /**
    * <p>The IP address.</p>
    * @public
    */
-  IpAddress?: string;
+  IpAddress?: string | undefined;
 }
 
 /**
@@ -6245,14 +6844,14 @@ export interface StartRouteAnalysisRequest {
    * <p>Indicates whether to analyze the return path. The default is <code>false</code>.</p>
    * @public
    */
-  IncludeReturnPath?: boolean;
+  IncludeReturnPath?: boolean | undefined;
 
   /**
    * <p>Indicates whether to include the location of middlebox appliances in the route analysis.
    *             The default is <code>false</code>.</p>
    * @public
    */
-  UseMiddleboxes?: boolean;
+  UseMiddleboxes?: boolean | undefined;
 }
 
 /**
@@ -6263,7 +6862,7 @@ export interface StartRouteAnalysisResponse {
    * <p>The route analysis.</p>
    * @public
    */
-  RouteAnalysis?: RouteAnalysis;
+  RouteAnalysis?: RouteAnalysis | undefined;
 }
 
 /**
@@ -6330,20 +6929,20 @@ export interface UpdateConnectionRequest {
    * <p>The ID of the link for the first device in the connection.</p>
    * @public
    */
-  LinkId?: string;
+  LinkId?: string | undefined;
 
   /**
    * <p>The ID of the link for the second device in the connection.</p>
    * @public
    */
-  ConnectedLinkId?: string;
+  ConnectedLinkId?: string | undefined;
 
   /**
    * <p>A description of the connection.</p>
    *          <p>Length Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -6354,7 +6953,7 @@ export interface UpdateConnectionResponse {
    * <p>Information about the connection.</p>
    * @public
    */
-  Connection?: Connection;
+  Connection?: Connection | undefined;
 }
 
 /**
@@ -6371,7 +6970,7 @@ export interface UpdateCoreNetworkRequest {
    * <p>The description of the update.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -6382,7 +6981,7 @@ export interface UpdateCoreNetworkResponse {
    * <p>Returns information about a core network update.</p>
    * @public
    */
-  CoreNetwork?: CoreNetwork;
+  CoreNetwork?: CoreNetwork | undefined;
 }
 
 /**
@@ -6405,53 +7004,53 @@ export interface UpdateDeviceRequest {
    * <p>The Amazon Web Services location of the device, if applicable. For an on-premises device, you can omit this parameter.</p>
    * @public
    */
-  AWSLocation?: AWSLocation;
+  AWSLocation?: AWSLocation | undefined;
 
   /**
    * <p>A description of the device.</p>
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of the device.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The vendor of the device.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Vendor?: string;
+  Vendor?: string | undefined;
 
   /**
    * <p>The model of the device.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Model?: string;
+  Model?: string | undefined;
 
   /**
    * <p>The serial number of the device.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  SerialNumber?: string;
+  SerialNumber?: string | undefined;
 
   /**
    * <p>Describes a location.</p>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 
   /**
    * <p>The ID of the site.</p>
    * @public
    */
-  SiteId?: string;
+  SiteId?: string | undefined;
 }
 
 /**
@@ -6462,7 +7061,35 @@ export interface UpdateDeviceResponse {
    * <p>Information about the device.</p>
    * @public
    */
-  Device?: Device;
+  Device?: Device | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDirectConnectGatewayAttachmentRequest {
+  /**
+   * <p>The ID of the Direct Connect gateway attachment for the updated edge locations. </p>
+   * @public
+   */
+  AttachmentId: string | undefined;
+
+  /**
+   * <p>One or more edge locations to update for the Direct Connect gateway attachment. The updated array of edge locations overwrites the previous array of locations. <code>EdgeLocations</code> is only used for Direct Connect gateway attachments.</p>
+   * @public
+   */
+  EdgeLocations?: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateDirectConnectGatewayAttachmentResponse {
+  /**
+   * <p>Returns details of the Direct Connect gateway attachment with the updated edge locations.</p>
+   * @public
+   */
+  DirectConnectGatewayAttachment?: DirectConnectGatewayAttachment | undefined;
 }
 
 /**
@@ -6480,7 +7107,7 @@ export interface UpdateGlobalNetworkRequest {
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -6491,7 +7118,7 @@ export interface UpdateGlobalNetworkResponse {
    * <p>Information about the global network object.</p>
    * @public
    */
-  GlobalNetwork?: GlobalNetwork;
+  GlobalNetwork?: GlobalNetwork | undefined;
 }
 
 /**
@@ -6515,27 +7142,27 @@ export interface UpdateLinkRequest {
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The type of the link.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Type?: string;
+  Type?: string | undefined;
 
   /**
    * <p>The upload and download speed in Mbps. </p>
    * @public
    */
-  Bandwidth?: Bandwidth;
+  Bandwidth?: Bandwidth | undefined;
 
   /**
    * <p>The provider of the link.</p>
    *          <p>Constraints: Maximum length of 128 characters.</p>
    * @public
    */
-  Provider?: string;
+  Provider?: string | undefined;
 }
 
 /**
@@ -6546,7 +7173,7 @@ export interface UpdateLinkResponse {
    * <p>Information about the link.</p>
    * @public
    */
-  Link?: Link;
+  Link?: Link | undefined;
 }
 
 /**
@@ -6580,13 +7207,13 @@ export interface UpdateNetworkResourceMetadataResponse {
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The updated resource metadata.</p>
    * @public
    */
-  Metadata?: Record<string, string>;
+  Metadata?: Record<string, string> | undefined;
 }
 
 /**
@@ -6610,7 +7237,7 @@ export interface UpdateSiteRequest {
    *          <p>Constraints: Maximum length of 256 characters.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The site location:</p>
@@ -6630,7 +7257,7 @@ export interface UpdateSiteRequest {
    *          </ul>
    * @public
    */
-  Location?: Location;
+  Location?: Location | undefined;
 }
 
 /**
@@ -6641,7 +7268,7 @@ export interface UpdateSiteResponse {
    * <p>Information about the site.</p>
    * @public
    */
-  Site?: Site;
+  Site?: Site | undefined;
 }
 
 /**
@@ -6658,19 +7285,19 @@ export interface UpdateVpcAttachmentRequest {
    * <p>Adds a subnet ARN to the VPC attachment.</p>
    * @public
    */
-  AddSubnetArns?: string[];
+  AddSubnetArns?: string[] | undefined;
 
   /**
    * <p>Removes a subnet ARN from the attachment.</p>
    * @public
    */
-  RemoveSubnetArns?: string[];
+  RemoveSubnetArns?: string[] | undefined;
 
   /**
    * <p>Additional options for updating the VPC attachment. </p>
    * @public
    */
-  Options?: VpcOptions;
+  Options?: VpcOptions | undefined;
 }
 
 /**
@@ -6681,7 +7308,7 @@ export interface UpdateVpcAttachmentResponse {
    * <p>Describes the updated VPC attachment.</p>
    * @public
    */
-  VpcAttachment?: VpcAttachment;
+  VpcAttachment?: VpcAttachment | undefined;
 }
 
 /**

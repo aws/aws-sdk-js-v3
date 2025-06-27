@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPrefixHeadersInput, HttpPrefixHeadersOutput } from "../models/models_0";
 import { de_HttpPrefixHeadersCommand, se_HttpPrefixHeadersCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
@@ -10,7 +12,8 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +61,7 @@ export interface HttpPrefixHeadersCommandOutput extends HttpPrefixHeadersOutput,
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPrefixHeadersCommand extends $Command
@@ -68,12 +72,28 @@ export class HttpPrefixHeadersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "HttpPrefixHeaders", {})
   .n("RestJsonProtocolClient", "HttpPrefixHeadersCommand")
   .f(void 0, void 0)
   .ser(se_HttpPrefixHeadersCommand)
   .de(de_HttpPrefixHeadersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HttpPrefixHeadersInput;
+      output: HttpPrefixHeadersOutput;
+    };
+    sdk: {
+      input: HttpPrefixHeadersCommandInput;
+      output: HttpPrefixHeadersCommandOutput;
+    };
+  };
+}

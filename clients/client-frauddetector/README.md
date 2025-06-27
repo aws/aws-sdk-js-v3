@@ -19,7 +19,7 @@ scroll down to the <b>SDK</b> section, and choose plus (+) sign to expand the se
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-frauddetector
+To install this package, simply type add or install @aws-sdk/client-frauddetector
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-frauddetector`

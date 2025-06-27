@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ModifyTrafficMirrorFilterNetworkServicesRequest,
   ModifyTrafficMirrorFilterNetworkServicesResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_ModifyTrafficMirrorFilterNetworkServicesCommand,
   se_ModifyTrafficMirrorFilterNetworkServicesCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,12 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * //         DestinationCidrBlock: "STRING_VALUE",
  * //         SourceCidrBlock: "STRING_VALUE",
  * //         Description: "STRING_VALUE",
+ * //         Tags: [ // TagList
+ * //           { // Tag
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     EgressFilterRules: [
@@ -101,14 +108,20 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * //         DestinationCidrBlock: "STRING_VALUE",
  * //         SourceCidrBlock: "STRING_VALUE",
  * //         Description: "STRING_VALUE",
+ * //         Tags: [
+ * //           {
+ * //             Key: "STRING_VALUE",
+ * //             Value: "STRING_VALUE",
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     NetworkServices: [ // TrafficMirrorNetworkServiceList
  * //       "amazon-dns",
  * //     ],
  * //     Description: "STRING_VALUE",
- * //     Tags: [ // TagList
- * //       { // Tag
+ * //     Tags: [
+ * //       {
  * //         Key: "STRING_VALUE",
  * //         Value: "STRING_VALUE",
  * //       },
@@ -127,6 +140,7 @@ export interface ModifyTrafficMirrorFilterNetworkServicesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command
@@ -137,9 +151,7 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +163,16 @@ export class ModifyTrafficMirrorFilterNetworkServicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTrafficMirrorFilterNetworkServicesCommand)
   .de(de_ModifyTrafficMirrorFilterNetworkServicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTrafficMirrorFilterNetworkServicesRequest;
+      output: ModifyTrafficMirrorFilterNetworkServicesResult;
+    };
+    sdk: {
+      input: ModifyTrafficMirrorFilterNetworkServicesCommandInput;
+      output: ModifyTrafficMirrorFilterNetworkServicesCommandOutput;
+    };
+  };
+}

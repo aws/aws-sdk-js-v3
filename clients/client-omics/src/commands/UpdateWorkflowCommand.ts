@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateWorkflowRequest } from "../models/models_0";
+import { UpdateWorkflowRequest } from "../models/models_1";
 import { OmicsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OmicsClient";
 import { de_UpdateWorkflowCommand, se_UpdateWorkflowCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface UpdateWorkflowCommandInput extends UpdateWorkflowRequest {}
 export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Updates a workflow.</p>
+ * <p>Updates information about a workflow. For more information, see <a href="https://docs.aws.amazon.com/omics/latest/dev/update-private-workflow.html">Update a private workflow</a> in the Amazon Web Services HealthOmics User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -38,6 +39,8 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  *   id: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   storageType: "STRING_VALUE",
+ *   storageCapacity: Number("int"),
  * };
  * const command = new UpdateWorkflowCommand(input);
  * const response = await client.send(command);
@@ -78,6 +81,7 @@ export interface UpdateWorkflowCommandOutput extends __MetadataBearer {}
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkflowCommand extends $Command
@@ -88,9 +92,7 @@ export class UpdateWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +104,16 @@ export class UpdateWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkflowCommand)
   .de(de_UpdateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkflowRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkflowCommandInput;
+      output: UpdateWorkflowCommandOutput;
+    };
+  };
+}

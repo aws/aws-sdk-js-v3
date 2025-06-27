@@ -12,7 +12,8 @@ import { de_GetAdministratorAccountCommand, se_GetAdministratorAccountCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,10 +30,20 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
 /**
  * <p>Provides the details of the GuardDuty administrator account associated with the current
  *       GuardDuty member account.</p>
- *          <note>
- *             <p>If the organization's management account or a delegated administrator runs this API,
- *     it will return success (<code>HTTP 200</code>) but no content.</p>
- *          </note>
+ *          <p>Based on the type of account that runs this API, the following list shows how the API behavior varies:</p>
+ *          <ul>
+ *             <li>
+ *                <p>When the GuardDuty administrator account runs this API, it will return success (<code>HTTP 200</code>) but no content.</p>
+ *             </li>
+ *             <li>
+ *                <p>When a member account runs this API, it will return the details of the GuardDuty administrator account that is associated
+ *         with this calling member account.</p>
+ *             </li>
+ *             <li>
+ *                <p>When an individual account (not associated with an organization) runs this API, it will return success (<code>HTTP 200</code>)
+ *         but no content.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +81,7 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetAdministratorAccountCommand extends $Command
@@ -80,9 +92,7 @@ export class GetAdministratorAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +104,16 @@ export class GetAdministratorAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdministratorAccountCommand)
   .de(de_GetAdministratorAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAdministratorAccountRequest;
+      output: GetAdministratorAccountResponse;
+    };
+    sdk: {
+      input: GetAdministratorAccountCommandInput;
+      output: GetAdministratorAccountCommandOutput;
+    };
+  };
+}

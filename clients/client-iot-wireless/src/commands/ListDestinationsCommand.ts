@@ -12,7 +12,8 @@ import { de_ListDestinationsCommand, se_ListDestinationsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface ListDestinationsCommandOutput extends ListDestinationsResponse,
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class ListDestinationsCommand extends $Command
@@ -87,9 +89,7 @@ export class ListDestinationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListDestinationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDestinationsCommand)
   .de(de_ListDestinationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDestinationsRequest;
+      output: ListDestinationsResponse;
+    };
+    sdk: {
+      input: ListDestinationsCommandInput;
+      output: ListDestinationsCommandOutput;
+    };
+  };
+}

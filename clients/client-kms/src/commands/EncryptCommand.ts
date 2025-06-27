@@ -12,7 +12,8 @@ import { de_EncryptCommand, se_EncryptCommand } from "../protocols/Aws_json1_1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *         <code>EncryptionContext</code> when encrypting data, you must specify the same encryption
  *       context (a case-sensitive exact match) when decrypting the data. Otherwise, the request to
  *       decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see
- *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption
+ *         <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption
  *         Context</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>If you specify an asymmetric KMS key, you must also specify the encryption algorithm. The
  *       algorithm must be compatible with the KMS key spec.</p>
@@ -138,7 +139,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -202,8 +203,9 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -242,46 +244,45 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To encrypt data with a symmetric encryption KMS key
  * ```javascript
  * // The following example encrypts data with the specified symmetric encryption KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": "<binary data>"
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Plaintext: "<binary data>"
  * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "EncryptionAlgorithm": "SYMMETRIC_DEFAULT",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   CiphertextBlob: "<binary data>",
+ *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
  * }
  * *\/
- * // example id: to-encrypt-data-1
  * ```
  *
  * @example To encrypt data with an asymmetric encryption KMS key
  * ```javascript
  * // The following example encrypts data with the specified RSA asymmetric KMS key. When you encrypt with an asymmetric key, you must specify the encryption algorithm.
  * const input = {
- *   "EncryptionAlgorithm": "RSAES_OAEP_SHA_256",
- *   "KeyId": "0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "Plaintext": "<binary data>"
+ *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *   KeyId: "0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Plaintext: "<binary data>"
  * };
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "EncryptionAlgorithm": "RSAES_OAEP_SHA_256",
- *   "KeyId": "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
+ *   CiphertextBlob: "<binary data>",
+ *   EncryptionAlgorithm: "RSAES_OAEP_SHA_256",
+ *   KeyId: "arn:aws:kms:us-west-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321"
  * }
  * *\/
- * // example id: to-encrypt-data-2
  * ```
  *
+ * @public
  */
 export class EncryptCommand extends $Command
   .classBuilder<
@@ -291,9 +292,7 @@ export class EncryptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -305,4 +304,16 @@ export class EncryptCommand extends $Command
   .f(EncryptRequestFilterSensitiveLog, void 0)
   .ser(se_EncryptCommand)
   .de(de_EncryptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EncryptRequest;
+      output: EncryptResponse;
+    };
+    sdk: {
+      input: EncryptCommandInput;
+      output: EncryptCommandOutput;
+    };
+  };
+}

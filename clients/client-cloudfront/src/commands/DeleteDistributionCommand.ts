@@ -12,7 +12,8 @@ import { de_DeleteDistributionCommand, se_DeleteDistributionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,8 +55,7 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  *  <p>Access denied.</p>
  *
  * @throws {@link DistributionNotDisabled} (client fault)
- *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution
- * 			before you can delete it.</p>
+ *  <p>The specified CloudFront distribution is not disabled. You must disable the distribution before you can delete it.</p>
  *
  * @throws {@link InvalidIfMatchVersion} (client fault)
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
@@ -64,11 +64,14 @@ export interface DeleteDistributionCommandOutput extends __MetadataBearer {}
  *  <p>The specified distribution does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
+ *
+ * @throws {@link ResourceInUse} (client fault)
+ *  <p>Cannot delete this resource because it is in use.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -80,9 +83,7 @@ export class DeleteDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +95,16 @@ export class DeleteDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDistributionCommand)
   .de(de_DeleteDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDistributionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDistributionCommandInput;
+      output: DeleteDistributionCommandOutput;
+    };
+  };
+}

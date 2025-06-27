@@ -12,7 +12,8 @@ import { de_GetBackupPlanCommand, se_GetBackupPlanCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,13 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * //         ],
  * //         EnableContinuousBackup: true || false,
  * //         ScheduleExpressionTimezone: "STRING_VALUE",
+ * //         IndexActions: [ // IndexActions
+ * //           { // IndexAction
+ * //             ResourceTypes: [ // ResourceTypes
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -124,6 +132,7 @@ export interface GetBackupPlanCommandOutput extends GetBackupPlanOutput, __Metad
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetBackupPlanCommand extends $Command
@@ -134,9 +143,7 @@ export class GetBackupPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +155,16 @@ export class GetBackupPlanCommand extends $Command
   .f(void 0, GetBackupPlanOutputFilterSensitiveLog)
   .ser(se_GetBackupPlanCommand)
   .de(de_GetBackupPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupPlanInput;
+      output: GetBackupPlanOutput;
+    };
+    sdk: {
+      input: GetBackupPlanCommandInput;
+      output: GetBackupPlanCommandOutput;
+    };
+  };
+}

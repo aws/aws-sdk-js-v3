@@ -16,7 +16,8 @@ import { de_DescribeInstanceCommand, se_DescribeInstanceCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,17 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
+ * //   ReplicationConfiguration: { // ReplicationConfiguration
+ * //     ReplicationStatusSummaryList: [ // ReplicationStatusSummaryList
+ * //       { // ReplicationStatusSummary
+ * //         Region: "STRING_VALUE",
+ * //         ReplicationStatus: "INSTANCE_REPLICATION_COMPLETE" || "INSTANCE_REPLICATION_IN_PROGRESS" || "INSTANCE_REPLICATION_FAILED" || "INSTANCE_REPLICA_DELETING" || "INSTANCE_REPLICATION_DELETION_FAILED" || "RESOURCE_REPLICATION_NOT_STARTED",
+ * //         ReplicationStatusReason: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     SourceRegion: "STRING_VALUE",
+ * //     GlobalSignInEndpoint: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -89,6 +101,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceCommand extends $Command
@@ -99,9 +112,7 @@ export class DescribeInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +124,16 @@ export class DescribeInstanceCommand extends $Command
   .f(void 0, DescribeInstanceResponseFilterSensitiveLog)
   .ser(se_DescribeInstanceCommand)
   .de(de_DescribeInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceRequest;
+      output: DescribeInstanceResponse;
+    };
+    sdk: {
+      input: DescribeInstanceCommandInput;
+      output: DescribeInstanceCommandOutput;
+    };
+  };
+}

@@ -53,6 +53,11 @@ import {
   CreateDeviceCommandOutput,
 } from "./commands/CreateDeviceCommand";
 import {
+  CreateDirectConnectGatewayAttachmentCommand,
+  CreateDirectConnectGatewayAttachmentCommandInput,
+  CreateDirectConnectGatewayAttachmentCommandOutput,
+} from "./commands/CreateDirectConnectGatewayAttachmentCommand";
+import {
   CreateGlobalNetworkCommand,
   CreateGlobalNetworkCommandInput,
   CreateGlobalNetworkCommandOutput,
@@ -207,6 +212,11 @@ import {
   GetCustomerGatewayAssociationsCommandOutput,
 } from "./commands/GetCustomerGatewayAssociationsCommand";
 import { GetDevicesCommand, GetDevicesCommandInput, GetDevicesCommandOutput } from "./commands/GetDevicesCommand";
+import {
+  GetDirectConnectGatewayAttachmentCommand,
+  GetDirectConnectGatewayAttachmentCommandInput,
+  GetDirectConnectGatewayAttachmentCommandOutput,
+} from "./commands/GetDirectConnectGatewayAttachmentCommand";
 import {
   GetLinkAssociationsCommand,
   GetLinkAssociationsCommandInput,
@@ -371,6 +381,11 @@ import {
   UpdateDeviceCommandOutput,
 } from "./commands/UpdateDeviceCommand";
 import {
+  UpdateDirectConnectGatewayAttachmentCommand,
+  UpdateDirectConnectGatewayAttachmentCommandInput,
+  UpdateDirectConnectGatewayAttachmentCommandOutput,
+} from "./commands/UpdateDirectConnectGatewayAttachmentCommand";
+import {
   UpdateGlobalNetworkCommand,
   UpdateGlobalNetworkCommandInput,
   UpdateGlobalNetworkCommandOutput,
@@ -400,6 +415,7 @@ const commands = {
   CreateConnectPeerCommand,
   CreateCoreNetworkCommand,
   CreateDeviceCommand,
+  CreateDirectConnectGatewayAttachmentCommand,
   CreateGlobalNetworkCommand,
   CreateLinkCommand,
   CreateSiteCommand,
@@ -435,6 +451,7 @@ const commands = {
   GetCoreNetworkPolicyCommand,
   GetCustomerGatewayAssociationsCommand,
   GetDevicesCommand,
+  GetDirectConnectGatewayAttachmentCommand,
   GetLinkAssociationsCommand,
   GetLinksCommand,
   GetNetworkResourceCountsCommand,
@@ -470,6 +487,7 @@ const commands = {
   UpdateConnectionCommand,
   UpdateCoreNetworkCommand,
   UpdateDeviceCommand,
+  UpdateDirectConnectGatewayAttachmentCommand,
   UpdateGlobalNetworkCommand,
   UpdateLinkCommand,
   UpdateNetworkResourceMetadataCommand,
@@ -634,6 +652,23 @@ export interface NetworkManager {
     args: CreateDeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDeviceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDirectConnectGatewayAttachmentCommand}
+   */
+  createDirectConnectGatewayAttachment(
+    args: CreateDirectConnectGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDirectConnectGatewayAttachmentCommandOutput>;
+  createDirectConnectGatewayAttachment(
+    args: CreateDirectConnectGatewayAttachmentCommandInput,
+    cb: (err: any, data?: CreateDirectConnectGatewayAttachmentCommandOutput) => void
+  ): void;
+  createDirectConnectGatewayAttachment(
+    args: CreateDirectConnectGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDirectConnectGatewayAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -1180,6 +1215,23 @@ export interface NetworkManager {
     args: GetDevicesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetDevicesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDirectConnectGatewayAttachmentCommand}
+   */
+  getDirectConnectGatewayAttachment(
+    args: GetDirectConnectGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDirectConnectGatewayAttachmentCommandOutput>;
+  getDirectConnectGatewayAttachment(
+    args: GetDirectConnectGatewayAttachmentCommandInput,
+    cb: (err: any, data?: GetDirectConnectGatewayAttachmentCommandOutput) => void
+  ): void;
+  getDirectConnectGatewayAttachment(
+    args: GetDirectConnectGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDirectConnectGatewayAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -1741,6 +1793,23 @@ export interface NetworkManager {
     args: UpdateDeviceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateDeviceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateDirectConnectGatewayAttachmentCommand}
+   */
+  updateDirectConnectGatewayAttachment(
+    args: UpdateDirectConnectGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDirectConnectGatewayAttachmentCommandOutput>;
+  updateDirectConnectGatewayAttachment(
+    args: UpdateDirectConnectGatewayAttachmentCommandInput,
+    cb: (err: any, data?: UpdateDirectConnectGatewayAttachmentCommandOutput) => void
+  ): void;
+  updateDirectConnectGatewayAttachment(
+    args: UpdateDirectConnectGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDirectConnectGatewayAttachmentCommandOutput) => void
   ): void;
 
   /**

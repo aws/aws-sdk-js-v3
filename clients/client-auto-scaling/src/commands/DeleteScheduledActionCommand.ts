@@ -12,7 +12,8 @@ import { de_DeleteScheduledActionCommand, se_DeleteScheduledActionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,19 +58,22 @@ export interface DeleteScheduledActionCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a scheduled action from an Auto Scaling group
  * ```javascript
  * // This example deletes the specified scheduled action from the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ScheduledActionName": "my-scheduled-action"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   ScheduledActionName: "my-scheduled-action"
  * };
  * const command = new DeleteScheduledActionCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-scheduled-action-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteScheduledActionCommand extends $Command
   .classBuilder<
@@ -79,9 +83,7 @@ export class DeleteScheduledActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +95,16 @@ export class DeleteScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScheduledActionCommand)
   .de(de_DeleteScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScheduledActionType;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScheduledActionCommandInput;
+      output: DeleteScheduledActionCommandOutput;
+    };
+  };
+}

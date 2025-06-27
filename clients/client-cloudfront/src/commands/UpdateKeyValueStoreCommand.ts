@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateKeyValueStoreRequest, UpdateKeyValueStoreResult } from "../models/models_1";
+import { UpdateKeyValueStoreRequest, UpdateKeyValueStoreResult } from "../models/models_2";
 import { de_UpdateKeyValueStoreCommand, se_UpdateKeyValueStoreCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,7 +66,7 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  *  <p>Access denied.</p>
  *
  * @throws {@link EntityNotFound} (client fault)
- *  <p>The key value store entity was not found.</p>
+ *  <p>The entity was not found.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -74,42 +75,41 @@ export interface UpdateKeyValueStoreCommandOutput extends UpdateKeyValueStoreRes
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
- * @public
+ *
  * @example To update a KeyValueStore
  * ```javascript
  * // Use the following command to update a KeyValueStore.
  * const input = {
- *   "Comment": "my-changed-comment",
- *   "IfMatch": "ETVPDKIKX0DER",
- *   "Name": "my-keyvaluestore-name"
+ *   Comment: "my-changed-comment",
+ *   IfMatch: "ETVPDKIKX0DER",
+ *   Name: "my-keyvaluestore-name"
  * };
  * const command = new UpdateKeyValueStoreCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ETag": "E3UN6WX5RRO2AG",
- *   "KeyValueStore": {
- *     "ARN": "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "Comment": "my-changed-comment",
- *     "Id": "54947df8-0e9e-4471-a2f9-9af509fb5889",
- *     "LastModifiedTime": "2023-11-07T18:45:21.069Z",
- *     "Name": "my-keyvaluestore-name",
- *     "Status": "READY"
+ *   ETag: "E3UN6WX5RRO2AG",
+ *   KeyValueStore: {
+ *     ARN: "arn:aws:cloudfront::123456789012:key-value-store/54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *     Comment: "my-changed-comment",
+ *     Id: "54947df8-0e9e-4471-a2f9-9af509fb5889",
+ *     LastModifiedTime: "2023-11-07T18:45:21.069Z",
+ *     Name: "my-keyvaluestore-name",
+ *     Status: "READY"
  *   }
  * }
  * *\/
- * // example id: to-update-a-key-value-store-1699751822090
  * ```
  *
+ * @public
  */
 export class UpdateKeyValueStoreCommand extends $Command
   .classBuilder<
@@ -119,9 +119,7 @@ export class UpdateKeyValueStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +131,16 @@ export class UpdateKeyValueStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateKeyValueStoreCommand)
   .de(de_UpdateKeyValueStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateKeyValueStoreRequest;
+      output: UpdateKeyValueStoreResult;
+    };
+    sdk: {
+      input: UpdateKeyValueStoreCommandInput;
+      output: UpdateKeyValueStoreCommandOutput;
+    };
+  };
+}

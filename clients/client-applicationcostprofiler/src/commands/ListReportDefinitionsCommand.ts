@@ -16,7 +16,8 @@ import { de_ListReportDefinitionsCommand, se_ListReportDefinitionsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface ListReportDefinitionsCommandOutput extends ListReportDefinition
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class ListReportDefinitionsCommand extends $Command
@@ -96,9 +98,7 @@ export class ListReportDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class ListReportDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReportDefinitionsCommand)
   .de(de_ListReportDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListReportDefinitionsRequest;
+      output: ListReportDefinitionsResult;
+    };
+    sdk: {
+      input: ListReportDefinitionsCommandInput;
+      output: ListReportDefinitionsCommandOutput;
+    };
+  };
+}

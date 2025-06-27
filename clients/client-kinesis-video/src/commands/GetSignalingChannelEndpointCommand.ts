@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface GetSignalingChannelEndpointCommandOutput extends GetSignalingCh
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class GetSignalingChannelEndpointCommand extends $Command
@@ -124,9 +126,7 @@ export class GetSignalingChannelEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class GetSignalingChannelEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSignalingChannelEndpointCommand)
   .de(de_GetSignalingChannelEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSignalingChannelEndpointInput;
+      output: GetSignalingChannelEndpointOutput;
+    };
+    sdk: {
+      input: GetSignalingChannelEndpointCommandInput;
+      output: GetSignalingChannelEndpointCommandOutput;
+    };
+  };
+}

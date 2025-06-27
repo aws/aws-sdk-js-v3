@@ -12,7 +12,8 @@ import { de_DescribeGlobalNetworksCommand, se_DescribeGlobalNetworksCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface DescribeGlobalNetworksCommandOutput extends DescribeGlobalNetwo
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class DescribeGlobalNetworksCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeGlobalNetworksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeGlobalNetworksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeGlobalNetworksCommand)
   .de(de_DescribeGlobalNetworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGlobalNetworksRequest;
+      output: DescribeGlobalNetworksResponse;
+    };
+    sdk: {
+      input: DescribeGlobalNetworksCommandInput;
+      output: DescribeGlobalNetworksCommandOutput;
+    };
+  };
+}

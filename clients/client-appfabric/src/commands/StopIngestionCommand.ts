@@ -12,7 +12,8 @@ import { de_StopIngestionCommand, se_StopIngestionCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface StopIngestionCommandOutput extends StopIngestionResponse, __Met
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class StopIngestionCommand extends $Command
@@ -82,9 +84,7 @@ export class StopIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class StopIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopIngestionCommand)
   .de(de_StopIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopIngestionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopIngestionCommandInput;
+      output: StopIngestionCommandOutput;
+    };
+  };
+}

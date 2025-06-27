@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,65 +85,65 @@ export interface DescribeVTLDevicesCommandOutput extends DescribeVTLDevicesOutpu
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe virtual tape library (VTL) devices of a single gateway
  * ```javascript
  * // Returns a description of virtual tape library (VTL) devices for the specified gateway.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "Limit": 123,
- *   "Marker": "1",
- *   "VTLDeviceARNs": []
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   Limit: 123,
+ *   Marker: "1",
+ *   VTLDeviceARNs:   []
  * };
  * const command = new DescribeVTLDevicesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
- *   "Marker": "1",
- *   "VTLDevices": [
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B",
+ *   Marker: "1",
+ *   VTLDevices: [
  *     {
- *       "DeviceiSCSIAttributes": {
- *         "ChapEnabled": false,
- *         "NetworkInterfaceId": "10.243.43.207",
- *         "NetworkInterfacePort": 3260,
- *         "TargetARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-mediachanger"
+ *       DeviceiSCSIAttributes: {
+ *         ChapEnabled: false,
+ *         NetworkInterfaceId: "10.243.43.207",
+ *         NetworkInterfacePort: 3260,
+ *         TargetARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-mediachanger"
  *       },
- *       "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001",
- *       "VTLDeviceProductIdentifier": "L700",
- *       "VTLDeviceType": "Medium Changer",
- *       "VTLDeviceVendor": "STK"
+ *       VTLDeviceARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_MEDIACHANGER_00001",
+ *       VTLDeviceProductIdentifier: "L700",
+ *       VTLDeviceType: "Medium Changer",
+ *       VTLDeviceVendor: "STK"
  *     },
  *     {
- *       "DeviceiSCSIAttributes": {
- *         "ChapEnabled": false,
- *         "NetworkInterfaceId": "10.243.43.209",
- *         "NetworkInterfacePort": 3260,
- *         "TargetARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-tapedrive-01"
+ *       DeviceiSCSIAttributes: {
+ *         ChapEnabled: false,
+ *         NetworkInterfaceId: "10.243.43.209",
+ *         NetworkInterfacePort: 3260,
+ *         TargetARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-tapedrive-01"
  *       },
- *       "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_TAPEDRIVE_00001",
- *       "VTLDeviceProductIdentifier": "ULT3580-TD5",
- *       "VTLDeviceType": "Tape Drive",
- *       "VTLDeviceVendor": "IBM"
+ *       VTLDeviceARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_TAPEDRIVE_00001",
+ *       VTLDeviceProductIdentifier: "ULT3580-TD5",
+ *       VTLDeviceType: "Tape Drive",
+ *       VTLDeviceVendor: "IBM"
  *     },
  *     {
- *       "DeviceiSCSIAttributes": {
- *         "ChapEnabled": false,
- *         "NetworkInterfaceId": "10.243.43.209",
- *         "NetworkInterfacePort": 3260,
- *         "TargetARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-tapedrive-02"
+ *       DeviceiSCSIAttributes: {
+ *         ChapEnabled: false,
+ *         NetworkInterfaceId: "10.243.43.209",
+ *         NetworkInterfacePort: 3260,
+ *         TargetARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/target/iqn.1997-05.com.amazon:sgw-1fad4876-tapedrive-02"
  *       },
- *       "VTLDeviceARN": "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_TAPEDRIVE_00002",
- *       "VTLDeviceProductIdentifier": "ULT3580-TD5",
- *       "VTLDeviceType": "Tape Drive",
- *       "VTLDeviceVendor": "IBM"
+ *       VTLDeviceARN: "arn:aws:storagegateway:us-east-1:999999999999:gateway/sgw-12A3456B/device/AMZN_SGW-1FAD4876_TAPEDRIVE_00002",
+ *       VTLDeviceProductIdentifier: "ULT3580-TD5",
+ *       VTLDeviceType: "Tape Drive",
+ *       VTLDeviceVendor: "IBM"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-virtual-tape-library-vtl-devices-of-a-single-gateway-1471906071410
  * ```
  *
+ * @public
  */
 export class DescribeVTLDevicesCommand extends $Command
   .classBuilder<
@@ -152,9 +153,7 @@ export class DescribeVTLDevicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +165,16 @@ export class DescribeVTLDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVTLDevicesCommand)
   .de(de_DescribeVTLDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVTLDevicesInput;
+      output: DescribeVTLDevicesOutput;
+    };
+    sdk: {
+      input: DescribeVTLDevicesCommandInput;
+      output: DescribeVTLDevicesCommandOutput;
+    };
+  };
+}

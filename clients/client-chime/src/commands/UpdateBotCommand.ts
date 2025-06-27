@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateBotRequest, UpdateBotResponse, UpdateBotResponseFilterSensitiveLog } from "../models/models_1";
+import { UpdateBotRequest, UpdateBotResponse, UpdateBotResponseFilterSensitiveLog } from "../models/models_0";
 import { de_UpdateBotCommand, se_UpdateBotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface UpdateBotCommandOutput extends UpdateBotResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateBotCommand extends $Command
@@ -97,9 +99,7 @@ export class UpdateBotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class UpdateBotCommand extends $Command
   .f(void 0, UpdateBotResponseFilterSensitiveLog)
   .ser(se_UpdateBotCommand)
   .de(de_UpdateBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotRequest;
+      output: UpdateBotResponse;
+    };
+    sdk: {
+      input: UpdateBotCommandInput;
+      output: UpdateBotCommandOutput;
+    };
+  };
+}

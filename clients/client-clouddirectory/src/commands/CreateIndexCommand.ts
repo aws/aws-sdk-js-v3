@@ -12,7 +12,8 @@ import { de_CreateIndexCommand, se_CreateIndexCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,26 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To create an index
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
+ *   IsUnique: true,
+ *   LinkName: "Examplelink",
+ *   OrderedIndexedAttributeList:   [],
+ *   ParentReference:   { /* empty *\/ }
+ * };
+ * const command = new CreateIndexCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ObjectIdentifier: "AQF0Fw173YJDlpLUV1eB50WvYsWFtVoUSmOzZjz_BLULIA"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateIndexCommand extends $Command
@@ -112,9 +133,7 @@ export class CreateIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +145,16 @@ export class CreateIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIndexCommand)
   .de(de_CreateIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIndexRequest;
+      output: CreateIndexResponse;
+    };
+    sdk: {
+      input: CreateIndexCommandInput;
+      output: CreateIndexCommandOutput;
+    };
+  };
+}

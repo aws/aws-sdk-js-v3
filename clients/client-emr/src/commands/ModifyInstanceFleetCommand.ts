@@ -12,7 +12,8 @@ import { de_ModifyInstanceFleetCommand, se_ModifyInstanceFleetCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,12 +49,61 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  *     TargetSpotCapacity: Number("int"),
  *     ResizeSpecifications: { // InstanceFleetResizingSpecifications
  *       SpotResizeSpecification: { // SpotResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number("int"),
+ *         AllocationStrategy: "capacity-optimized" || "price-capacity-optimized" || "lowest-price" || "diversified" || "capacity-optimized-prioritized",
  *       },
  *       OnDemandResizeSpecification: { // OnDemandResizingSpecification
- *         TimeoutDurationMinutes: Number("int"), // required
+ *         TimeoutDurationMinutes: Number("int"),
+ *         AllocationStrategy: "lowest-price" || "prioritized",
+ *         CapacityReservationOptions: { // OnDemandCapacityReservationOptions
+ *           UsageStrategy: "use-capacity-reservations-first",
+ *           CapacityReservationPreference: "open" || "none",
+ *           CapacityReservationResourceGroupArn: "STRING_VALUE",
+ *         },
  *       },
  *     },
+ *     InstanceTypeConfigs: [ // InstanceTypeConfigList
+ *       { // InstanceTypeConfig
+ *         InstanceType: "STRING_VALUE", // required
+ *         WeightedCapacity: Number("int"),
+ *         BidPrice: "STRING_VALUE",
+ *         BidPriceAsPercentageOfOnDemandPrice: Number("double"),
+ *         EbsConfiguration: { // EbsConfiguration
+ *           EbsBlockDeviceConfigs: [ // EbsBlockDeviceConfigList
+ *             { // EbsBlockDeviceConfig
+ *               VolumeSpecification: { // VolumeSpecification
+ *                 VolumeType: "STRING_VALUE", // required
+ *                 Iops: Number("int"),
+ *                 SizeInGB: Number("int"), // required
+ *                 Throughput: Number("int"),
+ *               },
+ *               VolumesPerInstance: Number("int"),
+ *             },
+ *           ],
+ *           EbsOptimized: true || false,
+ *         },
+ *         Configurations: [ // ConfigurationList
+ *           { // Configuration
+ *             Classification: "STRING_VALUE",
+ *             Configurations: [
+ *               {
+ *                 Classification: "STRING_VALUE",
+ *                 Configurations: "<ConfigurationList>",
+ *                 Properties: { // StringMap
+ *                   "<keys>": "STRING_VALUE",
+ *                 },
+ *               },
+ *             ],
+ *             Properties: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         ],
+ *         CustomAmiId: "STRING_VALUE",
+ *         Priority: Number("double"),
+ *       },
+ *     ],
+ *     Context: "STRING_VALUE",
  *   },
  * };
  * const command = new ModifyInstanceFleetCommand(input);
@@ -78,6 +128,7 @@ export interface ModifyInstanceFleetCommandOutput extends __MetadataBearer {}
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceFleetCommand extends $Command
@@ -88,9 +139,7 @@ export class ModifyInstanceFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +151,16 @@ export class ModifyInstanceFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceFleetCommand)
   .de(de_ModifyInstanceFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceFleetInput;
+      output: {};
+    };
+    sdk: {
+      input: ModifyInstanceFleetCommandInput;
+      output: ModifyInstanceFleetCommandOutput;
+    };
+  };
+}

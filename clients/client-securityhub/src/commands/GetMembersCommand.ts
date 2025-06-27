@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetMembersRequest, GetMembersResponse } from "../models/models_2";
+import { GetMembersRequest, GetMembersResponse } from "../models/models_3";
 import { de_GetMembersCommand, se_GetMembersCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,44 +94,8 @@ export interface GetMembersCommandOutput extends GetMembersResponse, __MetadataB
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To get member account details
- * ```javascript
- * // The following example returns details for the Security Hub member accounts with the specified AWS account IDs. An administrator account may be the delegated Security Hub administrator account for an organization or an administrator account that enabled Security Hub manually. The Security Hub administrator must call this operation.
- * const input = {
- *   "AccountIds": [
- *     "444455556666",
- *     "777788889999"
- *   ]
- * };
- * const command = new GetMembersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Members": [
- *     {
- *       "AccountId": "444455556666",
- *       "AdministratorId": "123456789012",
- *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
- *       "MasterId": "123456789012",
- *       "MemberStatus": "ASSOCIATED",
- *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
- *     },
- *     {
- *       "AccountId": "777788889999",
- *       "AdministratorId": "123456789012",
- *       "InvitedAt": "2020-06-01T20:15:15.289000+00:00",
- *       "MasterId": "123456789012",
- *       "MemberStatus": "ASSOCIATED",
- *       "UpdatedAt": "2020-06-01T20:15:15.289000+00:00"
- *     }
- *   ],
- *   "UnprocessedAccounts": []
- * }
- * *\/
- * // example id: to-get-member-account-details-1677774956489
- * ```
  *
+ * @public
  */
 export class GetMembersCommand extends $Command
   .classBuilder<
@@ -140,9 +105,7 @@ export class GetMembersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +117,16 @@ export class GetMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMembersCommand)
   .de(de_GetMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMembersRequest;
+      output: GetMembersResponse;
+    };
+    sdk: {
+      input: GetMembersCommandInput;
+      output: GetMembersCommandOutput;
+    };
+  };
+}

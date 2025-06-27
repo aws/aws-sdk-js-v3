@@ -18,7 +18,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that describe the training jobs that a
- *             hyperparameter tuning job launched.</p>
+ * <p>Gets a list of <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_TrainingJobSummary.html">TrainingJobSummary</a> objects that describe the training jobs that a hyperparameter tuning job launched.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +94,7 @@ export interface ListTrainingJobsForHyperParameterTuningJobCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
@@ -104,9 +105,7 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class ListTrainingJobsForHyperParameterTuningJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrainingJobsForHyperParameterTuningJobCommand)
   .de(de_ListTrainingJobsForHyperParameterTuningJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrainingJobsForHyperParameterTuningJobRequest;
+      output: ListTrainingJobsForHyperParameterTuningJobResponse;
+    };
+    sdk: {
+      input: ListTrainingJobsForHyperParameterTuningJobCommandInput;
+      output: ListTrainingJobsForHyperParameterTuningJobCommandOutput;
+    };
+  };
+}

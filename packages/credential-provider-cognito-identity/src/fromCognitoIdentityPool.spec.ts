@@ -1,25 +1,26 @@
 import { GetIdCommand } from "@aws-sdk/client-cognito-identity";
 import { CredentialsProviderError } from "@smithy/property-provider";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromCognitoIdentityPool } from "./fromCognitoIdentityPool";
 
-jest.mock("./fromCognitoIdentity", () => {
-  const promiseFunc = jest.fn().mockResolvedValue({
+vi.mock("./fromCognitoIdentity", () => {
+  const promiseFunc = vi.fn().mockResolvedValue({
     accessKeyId: "foo",
     secretAccessKey: "bar",
     sessionToken: "baz",
   });
-  return { fromCognitoIdentity: jest.fn().mockReturnValue(promiseFunc) };
+  return { fromCognitoIdentity: vi.fn().mockReturnValue(promiseFunc) };
 });
 import { fromCognitoIdentity } from "./fromCognitoIdentity";
 
-jest.mock("./localStorage", () => {
+vi.mock("./localStorage", () => {
   return {
     localStorage() {
       return {
-        getItem: jest.fn(),
-        setItem: jest.fn(),
-        removeItem: jest.fn(),
+        getItem: vi.fn(),
+        setItem: vi.fn(),
+        removeItem: vi.fn(),
       };
     },
   };
@@ -30,7 +31,7 @@ import { localStorage } from "./localStorage";
 describe("fromCognitoIdentityPool", () => {
   const identityPoolId = "poolId";
   const identityId = "id";
-  const send = jest.fn().mockResolvedValue({ IdentityId: identityId });
+  const send = vi.fn().mockResolvedValue({ IdentityId: identityId });
   const mockClient: any = { send };
 
   beforeEach(() => {

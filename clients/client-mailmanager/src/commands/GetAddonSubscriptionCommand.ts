@@ -12,7 +12,8 @@ import { de_GetAddonSubscriptionCommand, se_GetAddonSubscriptionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,6 +63,7 @@ export interface GetAddonSubscriptionCommandOutput extends GetAddonSubscriptionR
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetAddonSubscriptionCommand extends $Command
@@ -72,9 +74,7 @@ export class GetAddonSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class GetAddonSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAddonSubscriptionCommand)
   .de(de_GetAddonSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAddonSubscriptionRequest;
+      output: GetAddonSubscriptionResponse;
+    };
+    sdk: {
+      input: GetAddonSubscriptionCommandInput;
+      output: GetAddonSubscriptionCommandOutput;
+    };
+  };
+}

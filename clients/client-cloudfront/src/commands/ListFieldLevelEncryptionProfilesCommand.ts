@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,7 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Request a list of field-level encryption profiles that have been created in CloudFront for
- * 			this account.</p>
+ * <p>Request a list of field-level encryption profiles that have been created in CloudFront for this account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +91,7 @@ export interface ListFieldLevelEncryptionProfilesCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListFieldLevelEncryptionProfilesCommand extends $Command
@@ -101,9 +102,7 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class ListFieldLevelEncryptionProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFieldLevelEncryptionProfilesCommand)
   .de(de_ListFieldLevelEncryptionProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFieldLevelEncryptionProfilesRequest;
+      output: ListFieldLevelEncryptionProfilesResult;
+    };
+    sdk: {
+      input: ListFieldLevelEncryptionProfilesCommandInput;
+      output: ListFieldLevelEncryptionProfilesCommandOutput;
+    };
+  };
+}

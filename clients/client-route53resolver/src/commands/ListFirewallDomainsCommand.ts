@@ -12,7 +12,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface ListFirewallDomainsCommandOutput extends ListFirewallDomainsRes
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListFirewallDomainsCommand extends $Command
@@ -88,9 +90,7 @@ export class ListFirewallDomainsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ListFirewallDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFirewallDomainsCommand)
   .de(de_ListFirewallDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFirewallDomainsRequest;
+      output: ListFirewallDomainsResponse;
+    };
+    sdk: {
+      input: ListFirewallDomainsCommandInput;
+      output: ListFirewallDomainsCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DissociateAccessGrantsIdentityCenterCommandOutput extends __Met
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DissociateAccessGrantsIdentityCenterCommand extends $Command
@@ -95,4 +97,16 @@ export class DissociateAccessGrantsIdentityCenterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DissociateAccessGrantsIdentityCenterCommand)
   .de(de_DissociateAccessGrantsIdentityCenterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DissociateAccessGrantsIdentityCenterRequest;
+      output: {};
+    };
+    sdk: {
+      input: DissociateAccessGrantsIdentityCenterCommandInput;
+      output: DissociateAccessGrantsIdentityCenterCommandOutput;
+    };
+  };
+}

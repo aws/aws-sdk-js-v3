@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult } from "../models/models_0";
+import { UpdateWorkspaceImagePermissionRequest, UpdateWorkspaceImagePermissionResult } from "../models/models_1";
 import {
   de_UpdateWorkspaceImagePermissionCommand,
   se_UpdateWorkspaceImagePermissionCommand,
@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  *          <p>After an image has been shared, the recipient account can copy the image to other
  *          Regions as needed.</p>
  *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
- *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
+ *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>
  *          <p>For more information about sharing images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/share-custom-image.html"> Share or Unshare a Custom
  *             WorkSpaces Image</a>.</p>
  *          <note>
@@ -51,7 +52,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  *                <li>
  *                   <p>Sharing Bring Your Own License (BYOL) images across Amazon Web Services accounts
  *                   isn't supported at this time in Amazon Web Services GovCloud (US). To share BYOL images
- *                   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web Services Support.</p>
+ *                   across accounts in Amazon Web Services GovCloud (US), contact Amazon Web ServicesSupport.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -96,6 +97,7 @@ export interface UpdateWorkspaceImagePermissionCommandOutput
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkspaceImagePermissionCommand extends $Command
@@ -106,9 +108,7 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class UpdateWorkspaceImagePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkspaceImagePermissionCommand)
   .de(de_UpdateWorkspaceImagePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceImagePermissionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkspaceImagePermissionCommandInput;
+      output: UpdateWorkspaceImagePermissionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListWorkflowsCommand, se_ListWorkflowsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface ListWorkflowsCommandOutput extends ListWorkflowsResponse, __Met
  * @throws {@link CodeCatalystServiceException}
  * <p>Base exception class for all service exceptions from CodeCatalyst service.</p>
  *
+ *
  * @public
  */
 export class ListWorkflowsCommand extends $Command
@@ -105,9 +107,7 @@ export class ListWorkflowsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCatalystClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class ListWorkflowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkflowsCommand)
   .de(de_ListWorkflowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkflowsRequest;
+      output: ListWorkflowsResponse;
+    };
+    sdk: {
+      input: ListWorkflowsCommandInput;
+      output: ListWorkflowsCommandOutput;
+    };
+  };
+}

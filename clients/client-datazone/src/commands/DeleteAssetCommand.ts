@@ -12,7 +12,8 @@ import { de_DeleteAssetCommand, se_DeleteAssetCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteAssetCommandInput extends DeleteAssetInput {}
 export interface DeleteAssetCommandOutput extends DeleteAssetOutput, __MetadataBearer {}
 
 /**
- * <p>Delets an asset in Amazon DataZone.</p>
+ * <p>Deletes an asset in Amazon DataZone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,6 +54,9 @@ export interface DeleteAssetCommandOutput extends DeleteAssetOutput, __MetadataB
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict while performing this action.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed because of an unknown error, exception or failure.</p>
  *
@@ -71,6 +75,7 @@ export interface DeleteAssetCommandOutput extends DeleteAssetOutput, __MetadataB
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetCommand extends $Command
@@ -81,9 +86,7 @@ export class DeleteAssetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +98,16 @@ export class DeleteAssetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssetCommand)
   .de(de_DeleteAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssetCommandInput;
+      output: DeleteAssetCommandOutput;
+    };
+  };
+}

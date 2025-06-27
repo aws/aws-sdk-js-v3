@@ -11,6 +11,11 @@ import {
 } from "./commands/GenerateCardValidationDataCommand";
 import { GenerateMacCommand, GenerateMacCommandInput, GenerateMacCommandOutput } from "./commands/GenerateMacCommand";
 import {
+  GenerateMacEmvPinChangeCommand,
+  GenerateMacEmvPinChangeCommandInput,
+  GenerateMacEmvPinChangeCommandOutput,
+} from "./commands/GenerateMacEmvPinChangeCommand";
+import {
   GeneratePinDataCommand,
   GeneratePinDataCommandInput,
   GeneratePinDataCommandOutput,
@@ -48,6 +53,7 @@ const commands = {
   EncryptDataCommand,
   GenerateCardValidationDataCommand,
   GenerateMacCommand,
+  GenerateMacEmvPinChangeCommand,
   GeneratePinDataCommand,
   ReEncryptDataCommand,
   TranslatePinDataCommand,
@@ -106,6 +112,23 @@ export interface PaymentCryptographyData {
     args: GenerateMacCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GenerateMacCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GenerateMacEmvPinChangeCommand}
+   */
+  generateMacEmvPinChange(
+    args: GenerateMacEmvPinChangeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GenerateMacEmvPinChangeCommandOutput>;
+  generateMacEmvPinChange(
+    args: GenerateMacEmvPinChangeCommandInput,
+    cb: (err: any, data?: GenerateMacEmvPinChangeCommandOutput) => void
+  ): void;
+  generateMacEmvPinChange(
+    args: GenerateMacEmvPinChangeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GenerateMacEmvPinChangeCommandOutput) => void
   ): void;
 
   /**
@@ -208,8 +231,7 @@ export interface PaymentCryptographyData {
 }
 
 /**
- * <p>You use the Amazon Web Services Payment Cryptography Data Plane to manage how encryption keys are used for payment-related transaction processing and associated cryptographic operations. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations in Amazon Web Services Payment Cryptography. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/data-operations.html">Data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p>
- *          <p>To manage your encryption keys, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html">Amazon Web Services Payment Cryptography Control Plane</a>. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. </p>
+ * <p>You use the Amazon Web Services Payment Cryptography Data Plane to manage how encryption keys are used for payment-related transaction processing and associated cryptographic operations. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations in Amazon Web Services Payment Cryptography. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/data-operations.html">Data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p> <p>To manage your encryption keys, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html">Amazon Web Services Payment Cryptography Control Plane</a>. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. </p>
  * @public
  */
 export class PaymentCryptographyData extends PaymentCryptographyDataClient implements PaymentCryptographyData {}

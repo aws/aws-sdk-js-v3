@@ -12,7 +12,8 @@ import { de_RegisterCertificateCommand, se_RegisterCertificateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,7 +70,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link InvalidCertificateException} (client fault)
  *  <p>The certificate PEM that was provided has incorrect encoding.</p>
@@ -86,6 +87,7 @@ export interface RegisterCertificateCommandOutput extends RegisterCertificateRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class RegisterCertificateCommand extends $Command
@@ -96,9 +98,7 @@ export class RegisterCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class RegisterCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterCertificateCommand)
   .de(de_RegisterCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterCertificateRequest;
+      output: RegisterCertificateResult;
+    };
+    sdk: {
+      input: RegisterCertificateCommandInput;
+      output: RegisterCertificateCommandOutput;
+    };
+  };
+}

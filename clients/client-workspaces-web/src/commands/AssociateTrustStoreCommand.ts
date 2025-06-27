@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,9 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>Access is denied.</p>
  *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There is a conflict.</p>
+ *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There is an internal server error.</p>
  *
@@ -71,6 +75,7 @@ export interface AssociateTrustStoreCommandOutput extends AssociateTrustStoreRes
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class AssociateTrustStoreCommand extends $Command
@@ -81,9 +86,7 @@ export class AssociateTrustStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +98,16 @@ export class AssociateTrustStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateTrustStoreCommand)
   .de(de_AssociateTrustStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateTrustStoreRequest;
+      output: AssociateTrustStoreResponse;
+    };
+    sdk: {
+      input: AssociateTrustStoreCommandInput;
+      output: AssociateTrustStoreCommandOutput;
+    };
+  };
+}

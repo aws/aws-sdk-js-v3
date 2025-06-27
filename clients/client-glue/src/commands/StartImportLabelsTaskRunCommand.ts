@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_2";
+import { StartImportLabelsTaskRunRequest, StartImportLabelsTaskRunResponse } from "../models/models_3";
 import { de_StartImportLabelsTaskRunCommand, se_StartImportLabelsTaskRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface StartImportLabelsTaskRunCommandOutput extends StartImportLabels
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StartImportLabelsTaskRunCommand extends $Command
@@ -102,9 +104,7 @@ export class StartImportLabelsTaskRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class StartImportLabelsTaskRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartImportLabelsTaskRunCommand)
   .de(de_StartImportLabelsTaskRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportLabelsTaskRunRequest;
+      output: StartImportLabelsTaskRunResponse;
+    };
+    sdk: {
+      input: StartImportLabelsTaskRunCommandInput;
+      output: StartImportLabelsTaskRunCommandOutput;
+    };
+  };
+}

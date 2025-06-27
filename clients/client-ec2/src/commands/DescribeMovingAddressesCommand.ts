@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_4";
+import { DescribeMovingAddressesRequest, DescribeMovingAddressesResult } from "../models/models_5";
 import { de_DescribeMovingAddressesCommand, se_DescribeMovingAddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,20 +40,20 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * // const { EC2Client, DescribeMovingAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeMovingAddressesRequest
+ *   DryRun: true || false,
+ *   PublicIps: [ // ValueStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   NextToken: "STRING_VALUE",
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
- *       Values: [ // ValueStringList
+ *       Values: [
  *         "STRING_VALUE",
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
  *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
- *   PublicIps: [
- *     "STRING_VALUE",
- *   ],
  * };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
@@ -77,26 +78,26 @@ export interface DescribeMovingAddressesCommandOutput extends DescribeMovingAddr
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your moving addresses
  * ```javascript
  * // This example describes all of your moving Elastic IP addresses.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeMovingAddressesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MovingAddressStatuses": [
+ *   MovingAddressStatuses: [
  *     {
- *       "MoveStatus": "movingToVpc",
- *       "PublicIp": "198.51.100.0"
+ *       MoveStatus: "movingToVpc",
+ *       PublicIp: "198.51.100.0"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-moving-addresses-1
  * ```
  *
+ * @public
  */
 export class DescribeMovingAddressesCommand extends $Command
   .classBuilder<
@@ -106,9 +107,7 @@ export class DescribeMovingAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class DescribeMovingAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMovingAddressesCommand)
   .de(de_DescribeMovingAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMovingAddressesRequest;
+      output: DescribeMovingAddressesResult;
+    };
+    sdk: {
+      input: DescribeMovingAddressesCommandInput;
+      output: DescribeMovingAddressesCommandOutput;
+    };
+  };
+}

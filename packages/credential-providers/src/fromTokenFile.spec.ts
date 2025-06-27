@@ -1,21 +1,22 @@
-import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/client-sts";
 import { fromTokenFile as coreProvider } from "@aws-sdk/credential-provider-web-identity";
+import { getDefaultRoleAssumerWithWebIdentity } from "@aws-sdk/nested-clients/sts";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTokenFile } from "./fromTokenFile";
 
-const mockRoleAssumerWithWebIdentity = jest.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
+const mockRoleAssumerWithWebIdentity = vi.fn().mockResolvedValue("ROLE_ASSUMER_WITH_WEB_IDENTITY");
 
-jest.mock("@aws-sdk/client-sts", () => ({
-  getDefaultRoleAssumerWithWebIdentity: jest.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
+vi.mock("@aws-sdk/nested-clients/sts", () => ({
+  getDefaultRoleAssumerWithWebIdentity: vi.fn().mockImplementation(() => mockRoleAssumerWithWebIdentity),
 }));
 
-jest.mock("@aws-sdk/credential-provider-web-identity", () => ({
-  fromTokenFile: jest.fn(),
+vi.mock("@aws-sdk/credential-provider-web-identity", () => ({
+  fromTokenFile: vi.fn(),
 }));
 
 describe("fromTokenFile", () => {
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should not inject default role assumer", () => {

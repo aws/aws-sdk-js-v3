@@ -8,9 +8,10 @@
 export * from "./ApiGatewayV2Client";
 export * from "./ApiGatewayV2";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ApiGatewayV2ExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ApiGatewayV2ExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
+export * from "./pagination";
 export * from "./models";
 
 export { ApiGatewayV2ServiceException } from "./models/ApiGatewayV2ServiceException";

@@ -19,6 +19,11 @@ import {
   GetTermForReportCommandInput,
   GetTermForReportCommandOutput,
 } from "./commands/GetTermForReportCommand";
+import {
+  ListCustomerAgreementsCommand,
+  ListCustomerAgreementsCommandInput,
+  ListCustomerAgreementsCommandOutput,
+} from "./commands/ListCustomerAgreementsCommand";
 import { ListReportsCommand, ListReportsCommandInput, ListReportsCommandOutput } from "./commands/ListReportsCommand";
 import {
   PutAccountSettingsCommand,
@@ -31,6 +36,7 @@ const commands = {
   GetReportCommand,
   GetReportMetadataCommand,
   GetTermForReportCommand,
+  ListCustomerAgreementsCommand,
   ListReportsCommand,
   PutAccountSettingsCommand,
 };
@@ -97,6 +103,24 @@ export interface Artifact {
     args: GetTermForReportCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetTermForReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCustomerAgreementsCommand}
+   */
+  listCustomerAgreements(): Promise<ListCustomerAgreementsCommandOutput>;
+  listCustomerAgreements(
+    args: ListCustomerAgreementsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCustomerAgreementsCommandOutput>;
+  listCustomerAgreements(
+    args: ListCustomerAgreementsCommandInput,
+    cb: (err: any, data?: ListCustomerAgreementsCommandOutput) => void
+  ): void;
+  listCustomerAgreements(
+    args: ListCustomerAgreementsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCustomerAgreementsCommandOutput) => void
   ): void;
 
   /**

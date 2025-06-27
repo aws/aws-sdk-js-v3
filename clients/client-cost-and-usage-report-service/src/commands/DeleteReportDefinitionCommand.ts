@@ -16,7 +16,8 @@ import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,18 +66,21 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link CostAndUsageReportServiceServiceException}
  * <p>Base exception class for all service exceptions from CostAndUsageReportService service.</p>
  *
- * @public
+ *
  * @example To delete the AWS Cost and Usage report named ExampleReport.
  * ```javascript
  * // The following example deletes the AWS Cost and Usage report named ExampleReport.
  * const input = {
- *   "ReportName": "ExampleReport"
+ *   ReportName: "ExampleReport"
  * };
  * const command = new DeleteReportDefinitionCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-report
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteReportDefinitionCommand extends $Command
   .classBuilder<
@@ -86,9 +90,7 @@ export class DeleteReportDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostAndUsageReportServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +102,16 @@ export class DeleteReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReportDefinitionCommand)
   .de(de_DeleteReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReportDefinitionRequest;
+      output: DeleteReportDefinitionResponse;
+    };
+    sdk: {
+      input: DeleteReportDefinitionCommandInput;
+      output: DeleteReportDefinitionCommandOutput;
+    };
+  };
+}

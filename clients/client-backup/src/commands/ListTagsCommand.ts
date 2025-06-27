@@ -12,7 +12,8 @@ import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,19 @@ export interface ListTagsCommandInput extends ListTagsInput {}
 export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of key-value pairs assigned to a target recovery point, backup plan, or
- *          backup vault.</p>
- *          <p>
- *             <code>ListTags</code> only works for resource types that support full Backup
- *          management of their backups. Those resource types are listed in the "Full Backup management" section of the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/whatisbackup.html#features-by-resource"> Feature
- *             availability by resource</a> table.</p>
+ * <p>Returns the tags assigned to the resource, such as a target recovery point, backup plan,
+ *          or backup vault.</p>
+ *          <p>This operation returns results depending on the resource type used in the value for
+ *             <code>resourceArn</code>. For example, recovery points of Amazon DynamoDB with
+ *          Advanced Settings have an ARN (Amazon Resource Name) that begins with
+ *             <code>arn:aws:backup</code>. Recovery points (backups) of DynamoDB without
+ *          Advanced Settings enabled have an ARN that begins with
+ *          <code>arn:aws:dynamodb</code>.</p>
+ *          <p>When this operation is called and when you include values of <code>resourceArn</code>
+ *          that have an ARN other than <code>arn:aws:backup</code>, it may return one of the
+ *          exceptions listed below. To prevent this exception, include only values representing
+ *          resource types that are fully managed by Backup. These have an ARN that begins
+ *             <code>arn:aws:backup</code> and they are noted in the <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/backup-feature-availability.html#features-by-resource">Feature availability by resource</a> table.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +85,7 @@ export interface ListTagsCommandOutput extends ListTagsOutput, __MetadataBearer 
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListTagsCommand extends $Command
@@ -87,9 +96,7 @@ export class ListTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +108,16 @@ export class ListTagsCommand extends $Command
   .f(void 0, ListTagsOutputFilterSensitiveLog)
   .ser(se_ListTagsCommand)
   .de(de_ListTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsInput;
+      output: ListTagsOutput;
+    };
+    sdk: {
+      input: ListTagsCommandInput;
+      output: ListTagsCommandOutput;
+    };
+  };
+}

@@ -47,19 +47,19 @@ export interface AssociateClientDeviceWithCoreDeviceErrorEntry {
    * <p>The name of the IoT thing whose associate request failed.</p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>The error code for the request.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>A message that provides additional information about the error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -72,13 +72,13 @@ export interface AssociatedClientDevice {
    * <p>The name of the IoT thing that represents the associated client device.</p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>The time that the client device was associated, expressed in ISO 8601 format.</p>
    * @public
    */
-  associationTimestamp?: Date;
+  associationTimestamp?: Date | undefined;
 }
 
 /**
@@ -102,7 +102,7 @@ export interface AssociateServiceRoleToAccountResponse {
    *       Amazon Web Services Region.</p>
    * @public
    */
-  associatedAt?: string;
+  associatedAt?: string | undefined;
 }
 
 /**
@@ -116,7 +116,7 @@ export class InternalServerException extends __BaseException {
    * <p>The amount of time to wait before you retry the request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -178,13 +178,13 @@ export class ValidationException extends __BaseException {
    * <p>The reason for the validation exception.</p>
    * @public
    */
-  reason?: ValidationExceptionReason;
+  reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The list of fields that failed to validate.</p>
    * @public
    */
-  fields?: ValidationExceptionField[];
+  fields?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -209,7 +209,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceRequest {
    * <p>The list of client devices to associate.</p>
    * @public
    */
-  entries?: AssociateClientDeviceWithCoreDeviceEntry[];
+  entries?: AssociateClientDeviceWithCoreDeviceEntry[] | undefined;
 
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -227,7 +227,7 @@ export interface BatchAssociateClientDeviceWithCoreDeviceResponse {
    *       of the IoT thing that failed to associate.</p>
    * @public
    */
-  errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[];
+  errorEntries?: AssociateClientDeviceWithCoreDeviceErrorEntry[] | undefined;
 }
 
 /**
@@ -276,19 +276,19 @@ export class ThrottlingException extends __BaseException {
    * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    * @public
    */
-  quotaCode?: string;
+  quotaCode?: string | undefined;
 
   /**
    * <p>The code for the service in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
    * @public
    */
-  serviceCode?: string;
+  serviceCode?: string | undefined;
 
   /**
    * <p>The amount of time to wait before you retry the request.</p>
    * @public
    */
-  retryAfterSeconds?: number;
+  retryAfterSeconds?: number | undefined;
 
   /**
    * @internal
@@ -327,7 +327,7 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceRequest {
    * <p>The list of client devices to disassociate.</p>
    * @public
    */
-  entries?: DisassociateClientDeviceFromCoreDeviceEntry[];
+  entries?: DisassociateClientDeviceFromCoreDeviceEntry[] | undefined;
 
   /**
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
@@ -347,19 +347,19 @@ export interface DisassociateClientDeviceFromCoreDeviceErrorEntry {
    * <p>The name of the IoT thing whose disassociate request failed.</p>
    * @public
    */
-  thingName?: string;
+  thingName?: string | undefined;
 
   /**
    * <p>The error code for the request.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>A message that provides additional information about the error.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -371,7 +371,7 @@ export interface BatchDisassociateClientDeviceFromCoreDeviceResponse {
    *       of the IoT thing that failed to disassociate.</p>
    * @public
    */
-  errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[];
+  errorEntries?: DisassociateClientDeviceFromCoreDeviceErrorEntry[] | undefined;
 }
 
 /**
@@ -393,7 +393,7 @@ export interface CancelDeploymentResponse {
    * <p>A message that communicates if the cancel was successful.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -472,14 +472,14 @@ export interface CloudComponentStatus {
    * <p>The state of the component version.</p>
    * @public
    */
-  componentState?: CloudComponentState;
+  componentState?: CloudComponentState | undefined;
 
   /**
    * <p>A message that communicates details, such as errors, about the status of the component
    *       version.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>A dictionary of errors that communicate why the component version is in an error state.
@@ -488,7 +488,7 @@ export interface CloudComponentStatus {
    *       for that key.</p>
    * @public
    */
-  errors?: Record<string, string>;
+  errors?: Record<string, string> | undefined;
 
   /**
    * <p>The vendor guidance state for the component version. This state indicates whether
@@ -511,14 +511,14 @@ export interface CloudComponentStatus {
    *          </ul>
    * @public
    */
-  vendorGuidance?: VendorGuidance;
+  vendorGuidance?: VendorGuidance | undefined;
 
   /**
    * <p>A message that communicates details about the vendor guidance state
    *     of the component version. This message communicates why a component version is discontinued or deleted.</p>
    * @public
    */
-  vendorGuidanceMessage?: string;
+  vendorGuidanceMessage?: string | undefined;
 }
 
 /**
@@ -532,7 +532,7 @@ export interface ComponentPlatform {
    *         <code>architecture</code> of the platform.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>A dictionary of attributes for the platform. The IoT Greengrass Core software defines the
@@ -542,7 +542,7 @@ export interface ComponentPlatform {
    *         component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  attributes?: Record<string, string>;
+  attributes?: Record<string, string> | undefined;
 }
 
 /**
@@ -554,37 +554,37 @@ export interface ComponentLatestVersion {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The time at which the component was created, expressed in ISO 8601 format.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The description of the component version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The publisher of the component version.</p>
    * @public
    */
-  publisher?: string;
+  publisher?: string | undefined;
 
   /**
    * <p>The platforms that the component version supports.</p>
    * @public
    */
-  platforms?: ComponentPlatform[];
+  platforms?: ComponentPlatform[] | undefined;
 }
 
 /**
@@ -596,19 +596,19 @@ export interface Component {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the component.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The latest version of the component and its details.</p>
    * @public
    */
-  latestVersion?: ComponentLatestVersion;
+  latestVersion?: ComponentLatestVersion | undefined;
 }
 
 /**
@@ -621,13 +621,13 @@ export interface ComponentCandidate {
    * <p>The name of the component.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The version requirements for the component's dependencies. Greengrass core devices get the
@@ -635,7 +635,7 @@ export interface ComponentCandidate {
    *          <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
    * @public
    */
-  versionRequirements?: Record<string, string>;
+  versionRequirements?: Record<string, string> | undefined;
 }
 
 /**
@@ -655,7 +655,7 @@ export interface ComponentConfigurationUpdate {
    *       Guide</i>.</p>
    * @public
    */
-  merge?: string;
+  merge?: string | undefined;
 
   /**
    * <p>The list of configuration nodes to reset to default values on target devices. Use JSON
@@ -666,7 +666,7 @@ export interface ComponentConfigurationUpdate {
    *       Guide</i>.</p>
    * @public
    */
-  reset?: string[];
+  reset?: string[] | undefined;
 }
 
 /**
@@ -693,7 +693,7 @@ export interface ComponentDependencyRequirement {
    *          <p>IoT Greengrass V2 uses semantic version constraints. For more information, see <a href="https://semver.org/">Semantic Versioning</a>.</p>
    * @public
    */
-  versionRequirement?: string;
+  versionRequirement?: string | undefined;
 
   /**
    * <p>The type of this dependency. Choose from the following options:</p>
@@ -713,7 +713,7 @@ export interface ComponentDependencyRequirement {
    *          </p>
    * @public
    */
-  dependencyType?: ComponentDependencyType;
+  dependencyType?: ComponentDependencyType | undefined;
 }
 
 /**
@@ -727,7 +727,7 @@ export interface SystemResourceLimits {
    *       the core device.</p>
    * @public
    */
-  memory?: number;
+  memory?: number | undefined;
 
   /**
    * <p>The maximum amount of CPU time that a component's processes can use on the core device. A
@@ -739,7 +739,7 @@ export interface SystemResourceLimits {
    *       software doesn't limit the component's CPU usage.</p>
    * @public
    */
-  cpus?: number;
+  cpus?: number | undefined;
 }
 
 /**
@@ -759,7 +759,7 @@ export interface ComponentRunWith {
    *       you configure on the Greengrass nucleus component. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user">Configure the user and group that run components</a>.</p>
    * @public
    */
-  posixUser?: string;
+  posixUser?: string | undefined;
 
   /**
    * <p>The system resource limits to apply to this component's process on the core device. IoT Greengrass
@@ -768,7 +768,7 @@ export interface ComponentRunWith {
    *       that you configure on the Greengrass nucleus component. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-system-resource-limits">Configure system resource limits for components</a>.</p>
    * @public
    */
-  systemResourceLimits?: SystemResourceLimits;
+  systemResourceLimits?: SystemResourceLimits | undefined;
 
   /**
    * <p>The Windows user to use to run this component on Windows core devices. The user must exist
@@ -778,7 +778,7 @@ export interface ComponentRunWith {
    *       configure on the Greengrass nucleus component. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/configure-greengrass-core-v2.html#configure-component-user">Configure the user and group that run components</a>.</p>
    * @public
    */
-  windowsUser?: string;
+  windowsUser?: string | undefined;
 }
 
 /**
@@ -802,7 +802,7 @@ export interface ComponentDeploymentSpecification {
    *         configurations</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  configurationUpdate?: ComponentConfigurationUpdate;
+  configurationUpdate?: ComponentConfigurationUpdate | undefined;
 
   /**
    * <p>The system user and group that the IoT Greengrass Core software uses to run component processes on the
@@ -811,7 +811,7 @@ export interface ComponentDeploymentSpecification {
    *         Guide</i>.</p>
    * @public
    */
-  runWith?: ComponentRunWith;
+  runWith?: ComponentRunWith | undefined;
 }
 
 /**
@@ -823,19 +823,19 @@ export interface ComponentVersionListItem {
    * <p>The name of the component.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 }
 
 /**
@@ -862,27 +862,27 @@ export interface ConnectivityInfo {
    * <p>An ID for the connectivity information.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The IP address or DNS address where client devices can connect to an MQTT broker on the
    *       Greengrass core device.</p>
    * @public
    */
-  hostAddress?: string;
+  hostAddress?: string | undefined;
 
   /**
    * <p>The port where the MQTT broker operates on the core device. This port is typically 8883,
    *       which is the default port for the MQTT broker component that runs on core devices.</p>
    * @public
    */
-  portNumber?: number;
+  portNumber?: number | undefined;
 
   /**
    * <p>Additional metadata to provide to client devices that connect to this core device.</p>
    * @public
    */
-  metadata?: string;
+  metadata?: string | undefined;
 }
 
 /**
@@ -909,7 +909,7 @@ export interface CoreDevice {
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
    * @public
    */
-  coreDeviceThingName?: string;
+  coreDeviceThingName?: string | undefined;
 
   /**
    * <p>The status of the core device. Core devices can have the following
@@ -927,14 +927,44 @@ export interface CoreDevice {
    *          </ul>
    * @public
    */
-  status?: CoreDeviceStatus;
+  status?: CoreDeviceStatus | undefined;
 
   /**
    * <p>The time at which the core device's status last updated, expressed in ISO 8601
    *       format.</p>
    * @public
    */
-  lastStatusUpdateTimestamp?: Date;
+  lastStatusUpdateTimestamp?: Date | undefined;
+
+  /**
+   * <p>The operating system platform that the core device runs.</p>
+   * @public
+   */
+  platform?: string | undefined;
+
+  /**
+   * <p>The computer architecture of the core device.</p>
+   * @public
+   */
+  architecture?: string | undefined;
+
+  /**
+   * <p>The runtime for the core device. The runtime can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_classic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_lite</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  runtime?: string | undefined;
 }
 
 /**
@@ -1032,7 +1062,7 @@ export interface LambdaDeviceMount {
    *          </p>
    * @public
    */
-  permission?: LambdaFilesystemPermission;
+  permission?: LambdaFilesystemPermission | undefined;
 
   /**
    * <p>Whether or not to add the component's system user as an owner of the device.</p>
@@ -1040,7 +1070,7 @@ export interface LambdaDeviceMount {
    *          </p>
    * @public
    */
-  addGroupOwner?: boolean;
+  addGroupOwner?: boolean | undefined;
 }
 
 /**
@@ -1069,7 +1099,7 @@ export interface LambdaVolumeMount {
    *          </p>
    * @public
    */
-  permission?: LambdaFilesystemPermission;
+  permission?: LambdaFilesystemPermission | undefined;
 
   /**
    * <p>Whether or not to add the IoT Greengrass user group as an owner of the volume.</p>
@@ -1077,7 +1107,7 @@ export interface LambdaVolumeMount {
    *          </p>
    * @public
    */
-  addGroupOwner?: boolean;
+  addGroupOwner?: boolean | undefined;
 }
 
 /**
@@ -1091,7 +1121,7 @@ export interface LambdaContainerParams {
    *          <p>Default: <code>16384</code> (16 MB)</p>
    * @public
    */
-  memorySizeInKB?: number;
+  memorySizeInKB?: number | undefined;
 
   /**
    * <p>Whether or not the container can read information from the device's <code>/sys</code>
@@ -1100,19 +1130,19 @@ export interface LambdaContainerParams {
    *          </p>
    * @public
    */
-  mountROSysfs?: boolean;
+  mountROSysfs?: boolean | undefined;
 
   /**
    * <p>The list of volumes that the container can access.</p>
    * @public
    */
-  volumes?: LambdaVolumeMount[];
+  volumes?: LambdaVolumeMount[] | undefined;
 
   /**
    * <p>The list of system devices that the container can access.</p>
    * @public
    */
-  devices?: LambdaDeviceMount[];
+  devices?: LambdaDeviceMount[] | undefined;
 }
 
 /**
@@ -1142,13 +1172,13 @@ export interface LambdaLinuxProcessParams {
    *          </p>
    * @public
    */
-  isolationMode?: LambdaIsolationMode;
+  isolationMode?: LambdaIsolationMode | undefined;
 
   /**
    * <p>The parameters for the container in which the Lambda function runs.</p>
    * @public
    */
-  containerParams?: LambdaContainerParams;
+  containerParams?: LambdaContainerParams | undefined;
 }
 
 /**
@@ -1162,7 +1192,7 @@ export interface LambdaExecutionParameters {
    *       to local publish/subscribe messages and Amazon Web Services IoT Core MQTT messages.</p>
    * @public
    */
-  eventSources?: LambdaEventSource[];
+  eventSources?: LambdaEventSource[] | undefined;
 
   /**
    * <p>The maximum size of the message queue for the Lambda function component. The IoT Greengrass core
@@ -1170,35 +1200,35 @@ export interface LambdaExecutionParameters {
    *       consume each message.</p>
    * @public
    */
-  maxQueueSize?: number;
+  maxQueueSize?: number | undefined;
 
   /**
    * <p>The maximum number of instances that a non-pinned Lambda function can run at the same
    *       time.</p>
    * @public
    */
-  maxInstancesCount?: number;
+  maxInstancesCount?: number | undefined;
 
   /**
    * <p>The maximum amount of time in seconds that a non-pinned Lambda function can idle before the
    *       IoT Greengrass Core software stops its process.</p>
    * @public
    */
-  maxIdleTimeInSeconds?: number;
+  maxIdleTimeInSeconds?: number | undefined;
 
   /**
    * <p>The maximum amount of time in seconds that the Lambda function can process a work
    *       item.</p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 
   /**
    * <p>The interval in seconds at which a pinned (also known as long-lived) Lambda function
    *       component sends status updates to the Lambda manager component.</p>
    * @public
    */
-  statusTimeoutInSeconds?: number;
+  statusTimeoutInSeconds?: number | undefined;
 
   /**
    * <p>Whether or not the Lambda function is pinned, or long-lived.</p>
@@ -1217,7 +1247,7 @@ export interface LambdaExecutionParameters {
    *          </p>
    * @public
    */
-  pinned?: boolean;
+  pinned?: boolean | undefined;
 
   /**
    * <p>The encoding type that the Lambda function supports.</p>
@@ -1225,26 +1255,26 @@ export interface LambdaExecutionParameters {
    *          </p>
    * @public
    */
-  inputPayloadEncodingType?: LambdaInputPayloadEncodingType;
+  inputPayloadEncodingType?: LambdaInputPayloadEncodingType | undefined;
 
   /**
    * <p>The list of arguments to pass to the Lambda function when it runs.</p>
    * @public
    */
-  execArgs?: string[];
+  execArgs?: string[] | undefined;
 
   /**
    * <p>The map of environment variables that are available to the Lambda function when it
    *       runs.</p>
    * @public
    */
-  environmentVariables?: Record<string, string>;
+  environmentVariables?: Record<string, string> | undefined;
 
   /**
    * <p>The parameters for the Linux process that contains the Lambda function.</p>
    * @public
    */
-  linuxProcessParams?: LambdaLinuxProcessParams;
+  linuxProcessParams?: LambdaLinuxProcessParams | undefined;
 }
 
 /**
@@ -1264,7 +1294,7 @@ export interface LambdaFunctionRecipeSource {
    *          <p>Defaults to the name of the Lambda function.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
@@ -1272,26 +1302,26 @@ export interface LambdaFunctionRecipeSource {
    *       function version is <code>3</code>, the component version becomes <code>3.0.0</code>.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The platforms that the component version supports.</p>
    * @public
    */
-  componentPlatforms?: ComponentPlatform[];
+  componentPlatforms?: ComponentPlatform[] | undefined;
 
   /**
    * <p>The component versions on which this Lambda function component depends.</p>
    * @public
    */
-  componentDependencies?: Record<string, ComponentDependencyRequirement>;
+  componentDependencies?: Record<string, ComponentDependencyRequirement> | undefined;
 
   /**
    * <p>The system and runtime parameters for the Lambda function as it runs on the Greengrass core
    *       device.</p>
    * @public
    */
-  componentLambdaParameters?: LambdaExecutionParameters;
+  componentLambdaParameters?: LambdaExecutionParameters | undefined;
 }
 
 /**
@@ -1304,14 +1334,14 @@ export interface CreateComponentVersionRequest {
    *          <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>
    * @public
    */
-  inlineRecipe?: Uint8Array;
+  inlineRecipe?: Uint8Array | undefined;
 
   /**
    * <p>The parameters to create a component from a Lambda function.</p>
    *          <p>You must specify either <code>inlineRecipe</code> or <code>lambdaFunction</code>.</p>
    * @public
    */
-  lambdaFunction?: LambdaFunctionRecipeSource;
+  lambdaFunction?: LambdaFunctionRecipeSource | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -1319,7 +1349,7 @@ export interface CreateComponentVersionRequest {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you can provide to ensure that the request is idempotent.
@@ -1329,7 +1359,7 @@ export interface CreateComponentVersionRequest {
    *     idempotent requests for up to 8 hours.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1340,7 +1370,7 @@ export interface CreateComponentVersionResponse {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the component.</p>
@@ -1402,13 +1432,13 @@ export class ServiceQuotaExceededException extends __BaseException {
    * <p>The ID of the resource that exceeds the service quota.</p>
    * @public
    */
-  resourceId?: string;
+  resourceId?: string | undefined;
 
   /**
    * <p>The type of the resource that exceeds the service quota.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The code for the quota in <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/intro.html">Service Quotas</a>.</p>
@@ -1473,7 +1503,7 @@ export interface DeploymentComponentUpdatePolicy {
    *          </p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 
   /**
    * <p>Whether or not to notify components and wait for components to become safe to update.
@@ -1496,7 +1526,7 @@ export interface DeploymentComponentUpdatePolicy {
    *          </p>
    * @public
    */
-  action?: DeploymentComponentUpdatePolicyAction;
+  action?: DeploymentComponentUpdatePolicyAction | undefined;
 }
 
 /**
@@ -1514,7 +1544,7 @@ export interface DeploymentConfigurationValidationPolicy {
    *          </p>
    * @public
    */
-  timeoutInSeconds?: number;
+  timeoutInSeconds?: number | undefined;
 }
 
 /**
@@ -1545,21 +1575,21 @@ export interface DeploymentPolicies {
    *          </p>
    * @public
    */
-  failureHandlingPolicy?: DeploymentFailureHandlingPolicy;
+  failureHandlingPolicy?: DeploymentFailureHandlingPolicy | undefined;
 
   /**
    * <p>The component update policy for the configuration deployment. This policy defines when
    *       it's safe to deploy the configuration to devices.</p>
    * @public
    */
-  componentUpdatePolicy?: DeploymentComponentUpdatePolicy;
+  componentUpdatePolicy?: DeploymentComponentUpdatePolicy | undefined;
 
   /**
    * <p>The configuration validation policy for the configuration deployment. This policy defines
    *       how long each component has to validate its configure updates.</p>
    * @public
    */
-  configurationValidationPolicy?: DeploymentConfigurationValidationPolicy;
+  configurationValidationPolicy?: DeploymentConfigurationValidationPolicy | undefined;
 }
 
 /**
@@ -1662,14 +1692,14 @@ export interface IoTJobRateIncreaseCriteria {
    *       increases.</p>
    * @public
    */
-  numberOfNotifiedThings?: number;
+  numberOfNotifiedThings?: number | undefined;
 
   /**
    * <p>The number of devices to successfully run the configuration job before the rollout rate
    *       increases.</p>
    * @public
    */
-  numberOfSucceededThings?: number;
+  numberOfSucceededThings?: number | undefined;
 }
 
 /**
@@ -1710,13 +1740,13 @@ export interface IoTJobExecutionsRolloutConfig {
    * <p>The exponential rate to increase the job rollout rate.</p>
    * @public
    */
-  exponentialRate?: IoTJobExponentialRolloutRate;
+  exponentialRate?: IoTJobExponentialRolloutRate | undefined;
 
   /**
    * <p>The maximum number of devices that receive a pending job notification, per minute.</p>
    * @public
    */
-  maximumPerMinute?: number;
+  maximumPerMinute?: number | undefined;
 }
 
 /**
@@ -1732,7 +1762,7 @@ export interface IoTJobTimeoutConfig {
    *          <p>The timeout interval must be between 1 minute and 7 days (10080 minutes).</p>
    * @public
    */
-  inProgressTimeoutInMinutes?: number;
+  inProgressTimeoutInMinutes?: number | undefined;
 }
 
 /**
@@ -1745,21 +1775,21 @@ export interface DeploymentIoTJobConfiguration {
    *       job rolls out to the fleet of target devices.</p>
    * @public
    */
-  jobExecutionsRolloutConfig?: IoTJobExecutionsRolloutConfig;
+  jobExecutionsRolloutConfig?: IoTJobExecutionsRolloutConfig | undefined;
 
   /**
    * <p>The stop configuration for the job. This configuration defines when and how to stop a job
    *       rollout.</p>
    * @public
    */
-  abortConfig?: IoTJobAbortConfig;
+  abortConfig?: IoTJobAbortConfig | undefined;
 
   /**
    * <p>The timeout configuration for the job. This configuration defines the amount of time each
    *       device has to complete the job.</p>
    * @public
    */
-  timeoutConfig?: IoTJobTimeoutConfig;
+  timeoutConfig?: IoTJobTimeoutConfig | undefined;
 }
 
 /**
@@ -1776,34 +1806,34 @@ export interface CreateDeploymentRequest {
    * <p>The name of the deployment.</p>
    * @public
    */
-  deploymentName?: string;
+  deploymentName?: string | undefined;
 
   /**
    * <p>The components to deploy. This is a dictionary, where each key is the name of a component,
    *         and each key's value is the version and configuration to deploy for that component.</p>
    * @public
    */
-  components?: Record<string, ComponentDeploymentSpecification>;
+  components?: Record<string, ComponentDeploymentSpecification> | undefined;
 
   /**
    * <p>The job configuration for the deployment configuration. The job configuration specifies
    *       the rollout, timeout, and stop configurations for the deployment configuration.</p>
    * @public
    */
-  iotJobConfiguration?: DeploymentIoTJobConfiguration;
+  iotJobConfiguration?: DeploymentIoTJobConfiguration | undefined;
 
   /**
    * <p>The deployment policies for the deployment. These policies define how the deployment
    *       updates components and handles failure.</p>
    * @public
    */
-  deploymentPolicies?: DeploymentPolicies;
+  deploymentPolicies?: DeploymentPolicies | undefined;
 
   /**
    * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
    * @public
    */
-  parentTargetArn?: string;
+  parentTargetArn?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -1811,7 +1841,7 @@ export interface CreateDeploymentRequest {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you can provide to ensure that the request is idempotent.
@@ -1821,7 +1851,7 @@ export interface CreateDeploymentRequest {
    *     idempotent requests for up to 8 hours.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1832,19 +1862,19 @@ export interface CreateDeploymentResponse {
    * <p>The ID of the deployment.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>The ID of the IoT job that applies the deployment to target devices.</p>
    * @public
    */
-  iotJobId?: string;
+  iotJobId?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT job that applies the deployment to target devices.</p>
    * @public
    */
-  iotJobArn?: string;
+  iotJobArn?: string | undefined;
 }
 
 /**
@@ -1906,49 +1936,49 @@ export interface Deployment {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group. When creating a subdeployment, the targetARN can only be a thing group.</p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p>The revision number of the deployment.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The ID of the deployment.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>The name of the deployment.</p>
    * @public
    */
-  deploymentName?: string;
+  deploymentName?: string | undefined;
 
   /**
    * <p>The time at which the deployment was created, expressed in ISO 8601 format.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The status of the deployment.</p>
    * @public
    */
-  deploymentStatus?: DeploymentStatus;
+  deploymentStatus?: DeploymentStatus | undefined;
 
   /**
    * <p>Whether or not the deployment is the latest revision for its target.</p>
    * @public
    */
-  isLatestForTarget?: boolean;
+  isLatestForTarget?: boolean | undefined;
 
   /**
    * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
    * @public
    */
-  parentTargetArn?: string;
+  parentTargetArn?: string | undefined;
 }
 
 /**
@@ -1984,50 +2014,50 @@ export interface DescribeComponentResponse {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the component.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The time at which the component was created, expressed in ISO 8601 format.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>The publisher of the component version.</p>
    * @public
    */
-  publisher?: string;
+  publisher?: string | undefined;
 
   /**
    * <p>The description of the component version.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The status of the component version in IoT Greengrass V2. This status
    *       is different from the status of the component on a core device.</p>
    * @public
    */
-  status?: CloudComponentStatus;
+  status?: CloudComponentStatus | undefined;
 
   /**
    * <p>The platforms that the component version supports.</p>
    * @public
    */
-  platforms?: ComponentPlatform[];
+  platforms?: ComponentPlatform[] | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -2035,7 +2065,7 @@ export interface DescribeComponentResponse {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2052,7 +2082,7 @@ export interface DisassociateServiceRoleFromAccountResponse {
    *       Amazon Web Services Region.</p>
    * @public
    */
-  disassociatedAt?: string;
+  disassociatedAt?: string | undefined;
 }
 
 /**
@@ -2094,7 +2124,7 @@ export interface EffectiveDeploymentStatusDetails {
    *       list if there is no error.</p>
    * @public
    */
-  errorStack?: string[];
+  errorStack?: string[] | undefined;
 
   /**
    * <p>Contains tags which describe the error. You can use the error types to classify errors to
@@ -2102,7 +2132,7 @@ export interface EffectiveDeploymentStatusDetails {
    *       error.</p>
    * @public
    */
-  errorTypes?: string[];
+  errorTypes?: string[] | undefined;
 }
 
 /**
@@ -2126,19 +2156,19 @@ export interface EffectiveDeployment {
    * <p>The ID of the IoT job that applies the deployment to target devices.</p>
    * @public
    */
-  iotJobId?: string;
+  iotJobId?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT job that applies the deployment to target devices.</p>
    * @public
    */
-  iotJobArn?: string;
+  iotJobArn?: string | undefined;
 
   /**
    * <p>The description of the deployment job.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
@@ -2196,7 +2226,7 @@ export interface EffectiveDeployment {
    * <p>The reason code for the update, if the job was updated.</p>
    * @public
    */
-  reason?: string;
+  reason?: string | undefined;
 
   /**
    * <p>The time at which the deployment was created, expressed in ISO 8601 format.</p>
@@ -2216,7 +2246,7 @@ export interface EffectiveDeployment {
    *       if the deployment is in a success state.</p>
    * @public
    */
-  statusDetails?: EffectiveDeploymentStatusDetails;
+  statusDetails?: EffectiveDeploymentStatusDetails | undefined;
 }
 
 /**
@@ -2241,7 +2271,7 @@ export interface GetComponentRequest {
    * <p>The format of the recipe.</p>
    * @public
    */
-  recipeOutputFormat?: RecipeOutputFormat;
+  recipeOutputFormat?: RecipeOutputFormat | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
@@ -2272,7 +2302,7 @@ export interface GetComponentResponse {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2331,7 +2361,7 @@ export interface GetComponentVersionArtifactRequest {
    *       to <code>REGIONAL</code> with this parameter.</p>
    * @public
    */
-  s3EndpointType?: S3EndpointType;
+  s3EndpointType?: S3EndpointType | undefined;
 
   /**
    * <p>Determines if the Amazon S3 URL returned is a FIPS pre-signed URL endpoint.
@@ -2339,7 +2369,7 @@ export interface GetComponentVersionArtifactRequest {
    *       an Amazon S3 FIPS endpoint. If you don't specify a value, the default is <code>standard</code>.</p>
    * @public
    */
-  iotEndpointType?: IotEndpointType;
+  iotEndpointType?: IotEndpointType | undefined;
 }
 
 /**
@@ -2372,13 +2402,13 @@ export interface GetConnectivityInfoResponse {
    * <p>The connectivity information for the core device.</p>
    * @public
    */
-  connectivityInfo?: ConnectivityInfo[];
+  connectivityInfo?: ConnectivityInfo[] | undefined;
 
   /**
    * <p>A message about the connectivity information request.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -2400,7 +2430,7 @@ export interface GetCoreDeviceResponse {
    * <p>The name of the core device. This is also the name of the IoT thing.</p>
    * @public
    */
-  coreDeviceThingName?: string;
+  coreDeviceThingName?: string | undefined;
 
   /**
    * <p>The version of the IoT Greengrass Core software that the core device runs. This version is equivalent to
@@ -2409,19 +2439,37 @@ export interface GetCoreDeviceResponse {
    *         component</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  coreVersion?: string;
+  coreVersion?: string | undefined;
 
   /**
    * <p>The operating system platform that the core device runs.</p>
    * @public
    */
-  platform?: string;
+  platform?: string | undefined;
 
   /**
    * <p>The computer architecture of the core device.</p>
    * @public
    */
-  architecture?: string;
+  architecture?: string | undefined;
+
+  /**
+   * <p>The runtime for the core device. The runtime can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_classic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_lite</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  runtime?: string | undefined;
 
   /**
    * <p>The status of the core device. The core device status can be:</p>
@@ -2438,14 +2486,14 @@ export interface GetCoreDeviceResponse {
    *          </ul>
    * @public
    */
-  status?: CoreDeviceStatus;
+  status?: CoreDeviceStatus | undefined;
 
   /**
    * <p>The time at which the core device's status last updated, expressed in ISO 8601
    *       format.</p>
    * @public
    */
-  lastStatusUpdateTimestamp?: Date;
+  lastStatusUpdateTimestamp?: Date | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -2453,7 +2501,7 @@ export interface GetCoreDeviceResponse {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2475,82 +2523,82 @@ export interface GetDeploymentResponse {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p>The revision number of the deployment.</p>
    * @public
    */
-  revisionId?: string;
+  revisionId?: string | undefined;
 
   /**
    * <p>The ID of the deployment.</p>
    * @public
    */
-  deploymentId?: string;
+  deploymentId?: string | undefined;
 
   /**
    * <p>The name of the deployment.</p>
    * @public
    */
-  deploymentName?: string;
+  deploymentName?: string | undefined;
 
   /**
    * <p>The status of the deployment.</p>
    * @public
    */
-  deploymentStatus?: DeploymentStatus;
+  deploymentStatus?: DeploymentStatus | undefined;
 
   /**
    * <p>The ID of the IoT job that applies the deployment to target devices.</p>
    * @public
    */
-  iotJobId?: string;
+  iotJobId?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the IoT job that applies the deployment to target devices.</p>
    * @public
    */
-  iotJobArn?: string;
+  iotJobArn?: string | undefined;
 
   /**
    * <p>The components to deploy. This is a dictionary, where each key is the name of a component,
    *         and each key's value is the version and configuration to deploy for that component.</p>
    * @public
    */
-  components?: Record<string, ComponentDeploymentSpecification>;
+  components?: Record<string, ComponentDeploymentSpecification> | undefined;
 
   /**
    * <p>The deployment policies for the deployment. These policies define how the deployment
    *       updates components and handles failure.</p>
    * @public
    */
-  deploymentPolicies?: DeploymentPolicies;
+  deploymentPolicies?: DeploymentPolicies | undefined;
 
   /**
    * <p>The job configuration for the deployment configuration. The job configuration specifies
    *       the rollout, timeout, and stop configurations for the deployment configuration.</p>
    * @public
    */
-  iotJobConfiguration?: DeploymentIoTJobConfiguration;
+  iotJobConfiguration?: DeploymentIoTJobConfiguration | undefined;
 
   /**
    * <p>The time at which the deployment was created, expressed in ISO 8601 format.</p>
    * @public
    */
-  creationTimestamp?: Date;
+  creationTimestamp?: Date | undefined;
 
   /**
    * <p>Whether or not the deployment is the latest revision for its target.</p>
    * @public
    */
-  isLatestForTarget?: boolean;
+  isLatestForTarget?: boolean | undefined;
 
   /**
    * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
    * @public
    */
-  parentTargetArn?: string;
+  parentTargetArn?: string | undefined;
 
   /**
    * <p>A list of key-value pairs that contain metadata for the resource. For more
@@ -2558,7 +2606,7 @@ export interface GetDeploymentResponse {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2575,14 +2623,14 @@ export interface GetServiceRoleForAccountResponse {
    *       Amazon Web Services Region.</p>
    * @public
    */
-  associatedAt?: string;
+  associatedAt?: string | undefined;
 
   /**
    * <p>The ARN of the service role that is associated with IoT Greengrass for your Amazon Web Services account in this
    *       Amazon Web Services Region.</p>
    * @public
    */
-  roleArn?: string;
+  roleArn?: string | undefined;
 }
 
 /**
@@ -2599,13 +2647,13 @@ export interface ListClientDevicesAssociatedWithCoreDeviceRequest {
    * <p>The maximum number of results to be returned per paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2616,13 +2664,13 @@ export interface ListClientDevicesAssociatedWithCoreDeviceResponse {
    * <p>A list that describes the client devices that are associated with the core device.</p>
    * @public
    */
-  associatedClientDevices?: AssociatedClientDevice[];
+  associatedClientDevices?: AssociatedClientDevice[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2635,19 +2683,19 @@ export interface ListComponentsRequest {
    *          </p>
    * @public
    */
-  scope?: ComponentVisibilityScope;
+  scope?: ComponentVisibilityScope | undefined;
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2658,13 +2706,13 @@ export interface ListComponentsResponse {
    * <p>A list that summarizes each component.</p>
    * @public
    */
-  components?: Component[];
+  components?: Component[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2681,13 +2729,13 @@ export interface ListComponentVersionsRequest {
    * <p>The maximum number of results to be returned per paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2698,13 +2746,13 @@ export interface ListComponentVersionsResponse {
    * <p>A list of versions that exist for the component.</p>
    * @public
    */
-  componentVersions?: ComponentVersionListItem[];
+  componentVersions?: ComponentVersionListItem[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2718,7 +2766,7 @@ export interface ListCoreDevicesRequest {
    *       include that core device.</p>
    * @public
    */
-  thingGroupArn?: string;
+  thingGroupArn?: string | undefined;
 
   /**
    * <p>The core device status by which to filter. If you specify this parameter, the list
@@ -2736,19 +2784,37 @@ export interface ListCoreDevicesRequest {
    *          </ul>
    * @public
    */
-  status?: CoreDeviceStatus;
+  status?: CoreDeviceStatus | undefined;
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The runtime to be used by the core device. The runtime can be:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_classic</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>aws_nucleus_lite</code>
+   *                </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  runtime?: string | undefined;
 }
 
 /**
@@ -2759,13 +2825,13 @@ export interface ListCoreDevicesResponse {
    * <p>A list that summarizes each core device.</p>
    * @public
    */
-  coreDevices?: CoreDevice[];
+  coreDevices?: CoreDevice[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2776,7 +2842,7 @@ export interface ListDeploymentsRequest {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the target IoT thing or thing group.</p>
    * @public
    */
-  targetArn?: string;
+  targetArn?: string | undefined;
 
   /**
    * <p>The filter for the list of deployments. Choose one of the following options:</p>
@@ -2795,13 +2861,13 @@ export interface ListDeploymentsRequest {
    *          </p>
    * @public
    */
-  historyFilter?: DeploymentHistoryFilter;
+  historyFilter?: DeploymentHistoryFilter | undefined;
 
   /**
    * <p>The parent deployment's target <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> within a subdeployment.</p>
    * @public
    */
-  parentTargetArn?: string;
+  parentTargetArn?: string | undefined;
 
   /**
    * <p>The maximum number of results to be returned per paginated request.</p>
@@ -2809,13 +2875,13 @@ export interface ListDeploymentsRequest {
    *          </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2826,13 +2892,13 @@ export interface ListDeploymentsResponse {
    * <p>A list that summarizes each deployment.</p>
    * @public
    */
-  deployments?: Deployment[];
+  deployments?: Deployment[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2849,13 +2915,13 @@ export interface ListEffectiveDeploymentsRequest {
    * <p>The maximum number of results to be returned per paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2866,13 +2932,13 @@ export interface ListEffectiveDeploymentsResponse {
    * <p>A list that summarizes each deployment on the core device.</p>
    * @public
    */
-  effectiveDeployments?: EffectiveDeployment[];
+  effectiveDeployments?: EffectiveDeployment[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2904,13 +2970,13 @@ export interface ListInstalledComponentsRequest {
    * <p>The maximum number of results to be returned per paginated request.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to be used for the next set of paginated results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The filter for the list of components. Choose from the following options:</p>
@@ -2932,7 +2998,7 @@ export interface ListInstalledComponentsRequest {
    *          </p>
    * @public
    */
-  topologyFilter?: InstalledComponentTopologyFilter;
+  topologyFilter?: InstalledComponentTopologyFilter | undefined;
 }
 
 /**
@@ -2965,32 +3031,32 @@ export interface InstalledComponent {
    * <p>The name of the component.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The lifecycle state of the component.</p>
    * @public
    */
-  lifecycleState?: InstalledComponentLifecycleState;
+  lifecycleState?: InstalledComponentLifecycleState | undefined;
 
   /**
    * <p>A detailed response about the lifecycle state of the component that explains the reason
    *       why a component has an error or is broken.</p>
    * @public
    */
-  lifecycleStateDetails?: string;
+  lifecycleStateDetails?: string | undefined;
 
   /**
    * <p>Whether or not the component is a root component.</p>
    * @public
    */
-  isRoot?: boolean;
+  isRoot?: boolean | undefined;
 
   /**
    * <p>The status of how current the data is.</p>
@@ -2999,7 +3065,7 @@ export interface InstalledComponent {
    *       deployment, it might not undergo a state change and this status would not be updated.</p>
    * @public
    */
-  lastStatusChangeTimestamp?: Date;
+  lastStatusChangeTimestamp?: Date | undefined;
 
   /**
    * <p>The last time the Greengrass core device sent a message containing a component's state to the
@@ -3007,7 +3073,7 @@ export interface InstalledComponent {
    *          <p>A component does not need to see a state change for this field to update.</p>
    * @public
    */
-  lastReportedTimestamp?: Date;
+  lastReportedTimestamp?: Date | undefined;
 
   /**
    * <p>The most recent deployment source that brought the component to the Greengrass core device. For
@@ -3019,7 +3085,7 @@ export interface InstalledComponent {
    *          </note>
    * @public
    */
-  lastInstallationSource?: string;
+  lastInstallationSource?: string | undefined;
 
   /**
    * <p>The status codes that indicate the reason for failure whenever the
@@ -3031,7 +3097,7 @@ export interface InstalledComponent {
    *          </note>
    * @public
    */
-  lifecycleStatusCodes?: string[];
+  lifecycleStatusCodes?: string[] | undefined;
 }
 
 /**
@@ -3052,13 +3118,13 @@ export interface ListInstalledComponentsResponse {
    *          </note>
    * @public
    */
-  installedComponents?: InstalledComponent[];
+  installedComponents?: InstalledComponent[] | undefined;
 
   /**
    * <p>The token for the next set of results, or null if there are no additional results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3082,7 +3148,7 @@ export interface ListTagsForResourceResponse {
    *         resources</a> in the <i>IoT Greengrass V2 Developer Guide</i>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -3093,13 +3159,13 @@ export interface ResolveComponentCandidatesRequest {
    * <p>The platform to use to resolve compatible components.</p>
    * @public
    */
-  platform?: ComponentPlatform;
+  platform?: ComponentPlatform | undefined;
 
   /**
    * <p>The list of components to resolve.</p>
    * @public
    */
-  componentCandidates?: ComponentCandidate[];
+  componentCandidates?: ComponentCandidate[] | undefined;
 }
 
 /**
@@ -3112,25 +3178,25 @@ export interface ResolvedComponentVersion {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">ARN</a> of the component version.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The name of the component.</p>
    * @public
    */
-  componentName?: string;
+  componentName?: string | undefined;
 
   /**
    * <p>The version of the component.</p>
    * @public
    */
-  componentVersion?: string;
+  componentVersion?: string | undefined;
 
   /**
    * <p>The recipe of the component version.</p>
    * @public
    */
-  recipe?: Uint8Array;
+  recipe?: Uint8Array | undefined;
 
   /**
    * <p>The vendor guidance state for the component version. This state indicates whether
@@ -3153,14 +3219,14 @@ export interface ResolvedComponentVersion {
    *          </ul>
    * @public
    */
-  vendorGuidance?: VendorGuidance;
+  vendorGuidance?: VendorGuidance | undefined;
 
   /**
    * <p>A message that communicates details about the vendor guidance state
    *     of the component version. This message communicates why a component version is discontinued or deleted.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -3172,7 +3238,7 @@ export interface ResolveComponentCandidatesResponse {
    *       includes each component's recipe that you can use to install the component.</p>
    * @public
    */
-  resolvedComponentVersions?: ResolvedComponentVersion[];
+  resolvedComponentVersions?: ResolvedComponentVersion[] | undefined;
 }
 
 /**
@@ -3246,11 +3312,11 @@ export interface UpdateConnectivityInfoResponse {
    * <p>The new version of the connectivity information for the core device.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>A message about the connectivity information update request.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }

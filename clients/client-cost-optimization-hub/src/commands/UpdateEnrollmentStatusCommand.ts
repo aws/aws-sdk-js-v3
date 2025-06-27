@@ -16,7 +16,8 @@ import { de_UpdateEnrollmentStatusCommand, se_UpdateEnrollmentStatusCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,13 +32,7 @@ export interface UpdateEnrollmentStatusCommandInput extends UpdateEnrollmentStat
 export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentStatusResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the enrollment (opt in and opt out) status of an account to the Cost Optimization
- *       Hub service.</p>
- *          <p>If the account is a management account of an organization, this action can also be used to
- *       enroll member accounts of the organization.</p>
- *          <p>You must have the appropriate permissions to opt in to Cost Optimization Hub and to view
- *       its recommendations. When you opt in, Cost Optimization Hub automatically creates a
- *       service-linked role in your account to access its data.</p>
+ * <p>Updates the enrollment (opt in and opt out) status of an account to the Cost Optimization Hub service.</p> <p>If the account is a management account or delegated administrator of an organization, this action can also be used to enroll member accounts of the organization.</p> <p>You must have the appropriate permissions to opt in to Cost Optimization Hub and to view its recommendations. When you opt in, Cost Optimization Hub automatically creates a service-linked role in your account to access its data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,18 +61,17 @@ export interface UpdateEnrollmentStatusCommandOutput extends UpdateEnrollmentSta
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
+ *
  *
  * @public
  */
@@ -89,9 +83,7 @@ export class UpdateEnrollmentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +95,16 @@ export class UpdateEnrollmentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEnrollmentStatusCommand)
   .de(de_UpdateEnrollmentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEnrollmentStatusRequest;
+      output: UpdateEnrollmentStatusResponse;
+    };
+    sdk: {
+      input: UpdateEnrollmentStatusCommandInput;
+      output: UpdateEnrollmentStatusCommandOutput;
+    };
+  };
+}

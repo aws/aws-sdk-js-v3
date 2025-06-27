@@ -12,7 +12,8 @@ import { de_DeleteRepositoryCommand, se_DeleteRepositoryCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,7 +56,7 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * //       scanOnPush: true || false,
  * //     },
  * //     encryptionConfiguration: { // EncryptionConfiguration
- * //       encryptionType: "AES256" || "KMS", // required
+ * //       encryptionType: "AES256" || "KMS" || "KMS_DSSE", // required
  * //       kmsKey: "STRING_VALUE",
  * //     },
  * //   },
@@ -90,28 +91,28 @@ export interface DeleteRepositoryCommandOutput extends DeleteRepositoryResponse,
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
+ *
  * @example To force delete a repository
  * ```javascript
  * // This example force deletes a repository named ubuntu in the default registry for an account. The force parameter is required if the repository contains images.
  * const input = {
- *   "force": true,
- *   "repositoryName": "ubuntu"
+ *   force: true,
+ *   repositoryName: "ubuntu"
  * };
  * const command = new DeleteRepositoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "repository": {
- *     "registryId": "012345678901",
- *     "repositoryArn": "arn:aws:ecr:us-west-2:012345678901:repository/ubuntu",
- *     "repositoryName": "ubuntu"
+ *   repository: {
+ *     registryId: "012345678901",
+ *     repositoryArn: "arn:aws:ecr:us-west-2:012345678901:repository/ubuntu",
+ *     repositoryName: "ubuntu"
  *   }
  * }
  * *\/
- * // example id: deleterepository-example-1470863805703
  * ```
  *
+ * @public
  */
 export class DeleteRepositoryCommand extends $Command
   .classBuilder<
@@ -121,9 +122,7 @@ export class DeleteRepositoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class DeleteRepositoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRepositoryCommand)
   .de(de_DeleteRepositoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRepositoryRequest;
+      output: DeleteRepositoryResponse;
+    };
+    sdk: {
+      input: DeleteRepositoryCommandInput;
+      output: DeleteRepositoryCommandOutput;
+    };
+  };
+}

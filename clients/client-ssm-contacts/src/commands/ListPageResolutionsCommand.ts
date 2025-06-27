@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListPageResolutionsCommandOutput extends ListPageResolutionsRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class ListPageResolutionsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListPageResolutionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListPageResolutionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPageResolutionsCommand)
   .de(de_ListPageResolutionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPageResolutionsRequest;
+      output: ListPageResolutionsResult;
+    };
+    sdk: {
+      input: ListPageResolutionsCommandInput;
+      output: ListPageResolutionsCommandOutput;
+    };
+  };
+}

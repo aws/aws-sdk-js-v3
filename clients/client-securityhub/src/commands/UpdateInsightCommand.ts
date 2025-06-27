@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateInsightRequest, UpdateInsightResponse } from "../models/models_2";
+import { UpdateInsightRequest, UpdateInsightResponse } from "../models/models_3";
 import { de_UpdateInsightCommand, se_UpdateInsightCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,31 +42,31 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  *     ProductArn: [ // StringFilterList
  *       { // StringFilter
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     AwsAccountId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Id: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     GeneratorId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Region: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Type: "<StringFilterList>",
@@ -339,33 +340,36 @@ export interface UpdateInsightCommandOutput extends UpdateInsightResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update an insight
  * ```javascript
  * // The following example updates the specified Security Hub insight.
  * const input = {
- *   "Filters": {
- *     "ResourceType": [
+ *   Filters: {
+ *     ResourceType: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "AwsIamRole"
+ *         Comparison: "EQUALS",
+ *         Value: "AwsIamRole"
  *       }
  *     ],
- *     "SeverityLabel": [
+ *     SeverityLabel: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "HIGH"
+ *         Comparison: "EQUALS",
+ *         Value: "HIGH"
  *       }
  *     ]
  *   },
- *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "Name": "High severity role findings"
+ *   InsightArn: "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   Name: "High severity role findings"
  * };
  * const command = new UpdateInsightCommand(input);
- * await client.send(command);
- * // example id: to-update-an-insight-1678816280498
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateInsightCommand extends $Command
   .classBuilder<
@@ -375,9 +379,7 @@ export class UpdateInsightCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -389,4 +391,16 @@ export class UpdateInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInsightCommand)
   .de(de_UpdateInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInsightRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateInsightCommandInput;
+      output: UpdateInsightCommandOutput;
+    };
+  };
+}

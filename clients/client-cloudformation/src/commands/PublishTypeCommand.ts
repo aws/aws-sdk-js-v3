@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PublishTypeInput, PublishTypeOutput } from "../models/models_0";
+import { PublishTypeInput, PublishTypeOutput } from "../models/models_1";
 import { de_PublishTypeCommand, se_PublishTypeCommand } from "../protocols/Aws_query";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,13 @@ export interface PublishTypeCommandInput extends PublishTypeInput {}
 export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataBearer {}
 
 /**
- * <p>Publishes the specified extension to the CloudFormation registry as a public extension in this Region. Public
- *    extensions are available for use by all CloudFormation users. For more information about publishing extensions, see
- *    <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to
- *    make them available for public use</a> in the <i>CloudFormation CLI User Guide</i>.</p>
- *          <p>To publish an extension, you must be registered as a publisher with CloudFormation. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>.</p>
+ * <p>Publishes the specified extension to the CloudFormation registry as a public extension in this
+ *       Region. Public extensions are available for use by all CloudFormation users. For more information
+ *       about publishing extensions, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html">Publishing extensions to
+ *         make them available for public use</a> in the
+ *       <i>CloudFormation Command Line Interface (CLI) User Guide</i>.</p>
+ *          <p>To publish an extension, you must be registered as a publisher with CloudFormation. For more
+ *       information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterPublisher.html">RegisterPublisher</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +70,7 @@ export interface PublishTypeCommandOutput extends PublishTypeOutput, __MetadataB
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class PublishTypeCommand extends $Command
@@ -77,9 +81,7 @@ export class PublishTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +93,16 @@ export class PublishTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PublishTypeCommand)
   .de(de_PublishTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishTypeInput;
+      output: PublishTypeOutput;
+    };
+    sdk: {
+      input: PublishTypeCommandInput;
+      output: PublishTypeCommandOutput;
+    };
+  };
+}

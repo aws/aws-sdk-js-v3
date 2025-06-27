@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_3";
+import { ListHubContentVersionsRequest, ListHubContentVersionsResponse } from "../models/models_4";
 import { de_ListHubContentVersionsCommand, se_ListHubContentVersionsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,6 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
 
 /**
  * <p>List hub content versions.</p>
- *          <note>
- *             <p>Hub APIs are only callable through SageMaker Studio.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,7 +37,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * const client = new SageMakerClient(config);
  * const input = { // ListHubContentVersionsRequest
  *   HubName: "STRING_VALUE", // required
- *   HubContentType: "Model" || "Notebook", // required
+ *   HubContentType: "Model" || "Notebook" || "ModelReference", // required
  *   HubContentName: "STRING_VALUE", // required
  *   MinVersion: "STRING_VALUE",
  *   MaxSchemaVersion: "STRING_VALUE",
@@ -57,16 +55,19 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * //     { // HubContentInfo
  * //       HubContentName: "STRING_VALUE", // required
  * //       HubContentArn: "STRING_VALUE", // required
+ * //       SageMakerPublicHubContentArn: "STRING_VALUE",
  * //       HubContentVersion: "STRING_VALUE", // required
- * //       HubContentType: "Model" || "Notebook", // required
+ * //       HubContentType: "Model" || "Notebook" || "ModelReference", // required
  * //       DocumentSchemaVersion: "STRING_VALUE", // required
  * //       HubContentDisplayName: "STRING_VALUE",
  * //       HubContentDescription: "STRING_VALUE",
+ * //       SupportStatus: "Supported" || "Deprecated" || "Restricted",
  * //       HubContentSearchKeywords: [ // HubContentSearchKeywordList
  * //         "STRING_VALUE",
  * //       ],
  * //       HubContentStatus: "Available" || "Importing" || "Deleting" || "ImportFailed" || "DeleteFailed", // required
  * //       CreationTime: new Date("TIMESTAMP"), // required
+ * //       OriginalCreationTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -86,6 +87,7 @@ export interface ListHubContentVersionsCommandOutput extends ListHubContentVersi
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListHubContentVersionsCommand extends $Command
@@ -96,9 +98,7 @@ export class ListHubContentVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class ListHubContentVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListHubContentVersionsCommand)
   .de(de_ListHubContentVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListHubContentVersionsRequest;
+      output: ListHubContentVersionsResponse;
+    };
+    sdk: {
+      input: ListHubContentVersionsCommandInput;
+      output: ListHubContentVersionsCommandOutput;
+    };
+  };
+}

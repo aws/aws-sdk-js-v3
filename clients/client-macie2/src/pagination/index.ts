@@ -4,6 +4,7 @@ export * from "./GetUsageStatisticsPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";
 export * from "./ListAllowListsPaginator";
+export * from "./ListAutomatedDiscoveryAccountsPaginator";
 export * from "./ListClassificationJobsPaginator";
 export * from "./ListClassificationScopesPaginator";
 export * from "./ListCustomDataIdentifiersPaginator";

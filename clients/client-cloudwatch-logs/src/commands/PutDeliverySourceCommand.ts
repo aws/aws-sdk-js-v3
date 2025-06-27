@@ -12,7 +12,8 @@ import { de_PutDeliverySourceCommand, se_PutDeliverySourceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,6 +124,7 @@ export interface PutDeliverySourceCommandOutput extends PutDeliverySourceRespons
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutDeliverySourceCommand extends $Command
@@ -133,9 +135,7 @@ export class PutDeliverySourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class PutDeliverySourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDeliverySourceCommand)
   .de(de_PutDeliverySourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeliverySourceRequest;
+      output: PutDeliverySourceResponse;
+    };
+    sdk: {
+      input: PutDeliverySourceCommandInput;
+      output: PutDeliverySourceCommandOutput;
+    };
+  };
+}

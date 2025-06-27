@@ -12,7 +12,8 @@ import { de_DescribeAnomalyCommand, se_DescribeAnomalyCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -323,6 +324,7 @@ export interface DescribeAnomalyCommandOutput extends DescribeAnomalyResponse, _
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeAnomalyCommand extends $Command
@@ -333,9 +335,7 @@ export class DescribeAnomalyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -347,4 +347,16 @@ export class DescribeAnomalyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAnomalyCommand)
   .de(de_DescribeAnomalyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAnomalyRequest;
+      output: DescribeAnomalyResponse;
+    };
+    sdk: {
+      input: DescribeAnomalyCommandInput;
+      output: DescribeAnomalyCommandOutput;
+    };
+  };
+}

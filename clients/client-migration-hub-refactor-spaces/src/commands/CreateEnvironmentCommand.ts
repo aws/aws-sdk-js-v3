@@ -21,7 +21,8 @@ import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -111,6 +112,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentCommand extends $Command
@@ -121,9 +123,7 @@ export class CreateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +135,16 @@ export class CreateEnvironmentCommand extends $Command
   .f(CreateEnvironmentRequestFilterSensitiveLog, CreateEnvironmentResponseFilterSensitiveLog)
   .ser(se_CreateEnvironmentCommand)
   .de(de_CreateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentRequest;
+      output: CreateEnvironmentResponse;
+    };
+    sdk: {
+      input: CreateEnvironmentCommandInput;
+      output: CreateEnvironmentCommandOutput;
+    };
+  };
+}

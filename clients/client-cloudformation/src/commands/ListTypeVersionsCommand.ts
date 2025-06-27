@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFormationClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFormationClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTypeVersionsInput, ListTypeVersionsOutput } from "../models/models_0";
+import { ListTypeVersionsInput, ListTypeVersionsOutput } from "../models/models_1";
 import { de_ListTypeVersionsCommand, se_ListTypeVersionsCommand } from "../protocols/Aws_query";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface ListTypeVersionsCommandOutput extends ListTypeVersionsOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ListTypeVersionsCommand extends $Command
@@ -85,9 +87,7 @@ export class ListTypeVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListTypeVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTypeVersionsCommand)
   .de(de_ListTypeVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTypeVersionsInput;
+      output: ListTypeVersionsOutput;
+    };
+    sdk: {
+      input: ListTypeVersionsCommandInput;
+      output: ListTypeVersionsCommandOutput;
+    };
+  };
+}

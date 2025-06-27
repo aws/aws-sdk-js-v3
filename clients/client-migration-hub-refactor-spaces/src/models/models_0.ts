@@ -48,44 +48,44 @@ export interface ApiGatewayProxyConfig {
    * <p>The endpoint URL of the API Gateway proxy. </p>
    * @public
    */
-  ProxyUrl?: string;
+  ProxyUrl?: string | undefined;
 
   /**
    * <p>The resource ID of the API Gateway for the proxy. </p>
    * @public
    */
-  ApiGatewayId?: string;
+  ApiGatewayId?: string | undefined;
 
   /**
    * <p>The <code>VpcLink</code> ID of the API Gateway proxy. </p>
    * @public
    */
-  VpcLinkId?: string;
+  VpcLinkId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Network Load Balancer configured by the API Gateway proxy. </p>
    * @public
    */
-  NlbArn?: string;
+  NlbArn?: string | undefined;
 
   /**
    * <p>The name of the Network Load Balancer that is configured by the API Gateway proxy.
    *     </p>
    * @public
    */
-  NlbName?: string;
+  NlbName?: string | undefined;
 
   /**
    * <p>The type of API Gateway endpoint created. </p>
    * @public
    */
-  EndpointType?: ApiGatewayEndpointType;
+  EndpointType?: ApiGatewayEndpointType | undefined;
 
   /**
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
    * @public
    */
-  StageName?: string;
+  StageName?: string | undefined;
 }
 
 /**
@@ -104,13 +104,13 @@ export interface ApiGatewayProxyInput {
    *       Refactor Spaces using an interface endpoint (Amazon Web Services PrivateLink)</a>.</p>
    * @public
    */
-  EndpointType?: ApiGatewayEndpointType;
+  EndpointType?: ApiGatewayEndpointType | undefined;
 
   /**
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
    * @public
    */
-  StageName?: string;
+  StageName?: string | undefined;
 }
 
 /**
@@ -122,44 +122,44 @@ export interface ApiGatewayProxySummary {
    * <p>The endpoint URL of the API Gateway proxy. </p>
    * @public
    */
-  ProxyUrl?: string;
+  ProxyUrl?: string | undefined;
 
   /**
    * <p>The resource ID of the API Gateway for the proxy. </p>
    * @public
    */
-  ApiGatewayId?: string;
+  ApiGatewayId?: string | undefined;
 
   /**
    * <p>The <code>VpcLink</code> ID of the API Gateway proxy. </p>
    * @public
    */
-  VpcLinkId?: string;
+  VpcLinkId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Network Load Balancer configured by the API Gateway proxy. </p>
    * @public
    */
-  NlbArn?: string;
+  NlbArn?: string | undefined;
 
   /**
    * <p>The name of the Network Load Balancer that is configured by the API Gateway proxy.
    *     </p>
    * @public
    */
-  NlbName?: string;
+  NlbName?: string | undefined;
 
   /**
    * <p>The type of API Gateway endpoint created. </p>
    * @public
    */
-  EndpointType?: ApiGatewayEndpointType;
+  EndpointType?: ApiGatewayEndpointType | undefined;
 
   /**
    * <p>The name of the API Gateway stage. The name defaults to <code>prod</code>. </p>
    * @public
    */
-  StageName?: string;
+  StageName?: string | undefined;
 }
 
 /**
@@ -243,37 +243,37 @@ export interface ErrorResponse {
    * <p>The error code associated with the error. </p>
    * @public
    */
-  Code?: ErrorCode;
+  Code?: ErrorCode | undefined;
 
   /**
    * <p>The message associated with the error. </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the resource owner. </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The ID of the resource. </p>
    * @public
    */
-  ResourceIdentifier?: string;
+  ResourceIdentifier?: string | undefined;
 
   /**
    * <p>The type of resource. </p>
    * @public
    */
-  ResourceType?: ErrorResourceType;
+  ResourceType?: ErrorResourceType | undefined;
 
   /**
    * <p>Additional details about the error. </p>
    * @public
    */
-  AdditionalDetails?: Record<string, string>;
+  AdditionalDetails?: Record<string, string> | undefined;
 }
 
 /**
@@ -298,86 +298,86 @@ export interface ApplicationSummary {
    * <p>The name of the application. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the application owner (which is always the same as
    *       the environment owner account ID).</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the application creator. </p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The unique identifier of the application. </p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment. </p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the virtual private cloud (VPC). </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    * @public
    */
-  ProxyType?: ProxyType;
+  ProxyType?: ProxyType | undefined;
 
   /**
    * <p>The endpoint URL of the Amazon API Gateway proxy. </p>
    * @public
    */
-  ApiGatewayProxy?: ApiGatewayProxySummary;
+  ApiGatewayProxy?: ApiGatewayProxySummary | undefined;
 
   /**
    * <p>The current state of the application. </p>
    * @public
    */
-  State?: ApplicationState;
+  State?: ApplicationState | undefined;
 
   /**
    * <p>The tags assigned to the application. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the application resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the application was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the application is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -448,20 +448,20 @@ export interface CreateApplicationRequest {
    *       proxy. </p>
    * @public
    */
-  ApiGatewayProxy?: ApiGatewayProxyInput;
+  ApiGatewayProxy?: ApiGatewayProxyInput | undefined;
 
   /**
    * <p>The tags to assign to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *       request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -472,7 +472,7 @@ export interface CreateApplicationResponse {
    * <p>The name of the application.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application. The format for this ARN is
@@ -483,75 +483,75 @@ export interface CreateApplicationResponse {
    *                     <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the application owner (which is always the same as
    *       the environment owner account ID).</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of application creator.</p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The unique identifier of the application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The ID of the environment in which the application is created.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon VPC. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    * @public
    */
-  ProxyType?: ProxyType;
+  ProxyType?: ProxyType | undefined;
 
   /**
    * <p>A wrapper object holding the API Gateway endpoint type and stage name for the
    *       proxy. </p>
    * @public
    */
-  ApiGatewayProxy?: ApiGatewayProxyInput;
+  ApiGatewayProxy?: ApiGatewayProxyInput | undefined;
 
   /**
    * <p>The current state of the application. </p>
    * @public
    */
-  State?: ApplicationState;
+  State?: ApplicationState | undefined;
 
   /**
    * <p>The tags assigned to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A timestamp that indicates when the application was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the application is created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -636,7 +636,7 @@ export class ServiceQuotaExceededException extends __BaseException {
    *       exception. </p>
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
 
   /**
    * <p>Service quota requirement to identify originating service. Reached throttling quota
@@ -675,20 +675,20 @@ export class ThrottlingException extends __BaseException {
    *       exception. </p>
    * @public
    */
-  QuotaCode?: string;
+  QuotaCode?: string | undefined;
 
   /**
    * <p>Service quota requirement to identify originating service. Reached throttling quota
    *       exception service code. </p>
    * @public
    */
-  ServiceCode?: string;
+  ServiceCode?: string | undefined;
 
   /**
    * <p>The number of seconds to wait before retrying. </p>
    * @public
    */
-  RetryAfterSeconds?: number;
+  RetryAfterSeconds?: number | undefined;
   /**
    * @internal
    */
@@ -757,7 +757,7 @@ export interface CreateEnvironmentRequest {
    * <p>The description of the environment.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The network fabric type of the environment.</p>
@@ -769,14 +769,14 @@ export interface CreateEnvironmentRequest {
    * <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *       request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -803,61 +803,61 @@ export interface CreateEnvironmentResponse {
    * <p>The name of the environment.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>A description of the environment.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The network fabric type of the environment.</p>
    * @public
    */
-  NetworkFabricType?: NetworkFabricType;
+  NetworkFabricType?: NetworkFabricType | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of environment owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The current state of the environment. </p>
    * @public
    */
-  State?: EnvironmentState;
+  State?: EnvironmentState | undefined;
 
   /**
    * <p>The tags assigned to the created environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair..</p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated.</p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment is created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -884,7 +884,7 @@ export interface DefaultRouteInput {
    *       route is created. </p>
    * @public
    */
-  ActivationState?: RouteActivationState;
+  ActivationState?: RouteActivationState | undefined;
 }
 
 /**
@@ -945,7 +945,7 @@ export interface UriPathRouteInput {
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    * @public
    */
-  Methods?: HttpMethod[];
+  Methods?: HttpMethod[] | undefined;
 
   /**
    * <p>Indicates whether to match all subpaths of the given source path. If this value is
@@ -953,13 +953,13 @@ export interface UriPathRouteInput {
    *       this route's service. </p>
    * @public
    */
-  IncludeChildPaths?: boolean;
+  IncludeChildPaths?: boolean | undefined;
 
   /**
    * <p>If set to <code>true</code>, this option appends the source path to the service URL endpoint.</p>
    * @public
    */
-  AppendSourcePath?: boolean;
+  AppendSourcePath?: boolean | undefined;
 }
 
 /**
@@ -998,26 +998,26 @@ export interface CreateRouteRequest {
    * <p> Configuration for the default route type. </p>
    * @public
    */
-  DefaultRoute?: DefaultRouteInput;
+  DefaultRoute?: DefaultRouteInput | undefined;
 
   /**
    * <p>The configuration for the URI path route type. </p>
    * @public
    */
-  UriPathRoute?: UriPathRouteInput;
+  UriPathRoute?: UriPathRouteInput | undefined;
 
   /**
    * <p>The tags to assign to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *       request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1046,7 +1046,7 @@ export interface CreateRouteResponse {
    * <p>The unique identifier of the route.</p>
    * @public
    */
-  RouteId?: string;
+  RouteId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the route. The format for this ARN is
@@ -1057,44 +1057,44 @@ export interface CreateRouteResponse {
    *                     <i>Amazon Web Services General Reference</i>.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the route owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the route creator.</p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The route type of the route.</p>
    * @public
    */
-  RouteType?: RouteType;
+  RouteType?: RouteType | undefined;
 
   /**
    * <p>The ID of service in which the route is created. Traffic that matches this route is
    *       forwarded to this service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The ID of the application in which the route is created.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>Configuration for the URI path route type. </p>
    * @public
    */
-  UriPathRoute?: UriPathRouteInput;
+  UriPathRoute?: UriPathRouteInput | undefined;
 
   /**
    * <p>The current state of the route. Activation state only allows <code>ACTIVE</code> or
@@ -1102,25 +1102,25 @@ export interface CreateRouteResponse {
    *       generated.</p>
    * @public
    */
-  State?: RouteState;
+  State?: RouteState | undefined;
 
   /**
    * <p>The tags assigned to the created route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A timestamp that indicates when the route was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the route is created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -1169,7 +1169,7 @@ export interface UrlEndpointInput {
    *       host must be the same as the URL. </p>
    * @public
    */
-  HealthUrl?: string;
+  HealthUrl?: string | undefined;
 }
 
 /**
@@ -1186,7 +1186,7 @@ export interface CreateServiceRequest {
    * <p>The description of the service.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the environment in which the service is created.</p>
@@ -1204,7 +1204,7 @@ export interface CreateServiceRequest {
    * <p>The ID of the VPC.</p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The type of endpoint to use for the service. The type can be a URL in a VPC or an Lambda function.</p>
@@ -1219,26 +1219,26 @@ export interface CreateServiceRequest {
    *       seconds.</p>
    * @public
    */
-  UrlEndpoint?: UrlEndpointInput;
+  UrlEndpoint?: UrlEndpointInput | undefined;
 
   /**
    * <p>The configuration for the Lambda endpoint type.</p>
    * @public
    */
-  LambdaEndpoint?: LambdaEndpointInput;
+  LambdaEndpoint?: LambdaEndpointInput | undefined;
 
   /**
    * <p>The tags to assign to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
    *       request.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1265,97 +1265,97 @@ export interface CreateServiceResponse {
    * <p>The unique identifier of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the service owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the service creator.</p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The description of the created service.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the application that the created service belongs to. </p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The ID of the VPC. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The endpoint type of the service.</p>
    * @public
    */
-  EndpointType?: ServiceEndpointType;
+  EndpointType?: ServiceEndpointType | undefined;
 
   /**
    * <p>The configuration for the URL endpoint type. </p>
    * @public
    */
-  UrlEndpoint?: UrlEndpointInput;
+  UrlEndpoint?: UrlEndpointInput | undefined;
 
   /**
    * <p>The configuration for the Lambda endpoint type.</p>
    * @public
    */
-  LambdaEndpoint?: LambdaEndpointInput;
+  LambdaEndpoint?: LambdaEndpointInput | undefined;
 
   /**
    * <p>The current state of the service. </p>
    * @public
    */
-  State?: ServiceState;
+  State?: ServiceState | undefined;
 
   /**
    * <p>The tags assigned to the created service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair.. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>A timestamp that indicates when the service was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the service is created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -1383,37 +1383,37 @@ export interface DeleteApplicationResponse {
    * <p>The name of the application.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The unique identifier of the application’s environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The current state of the application. </p>
    * @public
    */
-  State?: ApplicationState;
+  State?: ApplicationState | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -1435,31 +1435,31 @@ export interface DeleteEnvironmentResponse {
    * <p>The name of the environment.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The current state of the environment. </p>
    * @public
    */
-  State?: EnvironmentState;
+  State?: EnvironmentState | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -1509,37 +1509,37 @@ export interface DeleteRouteResponse {
    * <p>The ID of the route to delete.</p>
    * @public
    */
-  RouteId?: string;
+  RouteId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the route.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The ID of the service that the route belongs to.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The ID of the application that the route belongs to.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The current state of the route. </p>
    * @public
    */
-  State?: RouteState;
+  State?: RouteState | undefined;
 
   /**
    * <p>A timestamp that indicates when the route was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -1578,43 +1578,43 @@ export interface DeleteServiceResponse {
    * <p>The unique identifier of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the application that the service is in.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The current state of the service. </p>
    * @public
    */
-  State?: ServiceState;
+  State?: ServiceState | undefined;
 
   /**
    * <p>A timestamp that indicates when the service was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -1627,73 +1627,73 @@ export interface EnvironmentSummary {
    * <p>The name of the environment. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>A description of the environment. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment. </p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The network fabric type of the environment. </p>
    * @public
    */
-  NetworkFabricType?: NetworkFabricType;
+  NetworkFabricType?: NetworkFabricType | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the environment owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The ID of the Transit Gateway set up by the environment. </p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 
   /**
    * <p>The current state of the environment. </p>
    * @public
    */
-  State?: EnvironmentState;
+  State?: EnvironmentState | undefined;
 
   /**
    * <p>The tags assigned to the environment. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the environment resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -1706,43 +1706,43 @@ export interface EnvironmentVpc {
    * <p>The unique identifier of the environment. </p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the VPC. </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the virtual private cloud (VPC) owner. </p>
    * @public
    */
-  AccountId?: string;
+  AccountId?: string | undefined;
 
   /**
    * <p>The list of Amazon Virtual Private Cloud (Amazon VPC) CIDR blocks. </p>
    * @public
    */
-  CidrBlocks?: string[];
+  CidrBlocks?: string[] | undefined;
 
   /**
    * <p>The name of the VPC at the time it is added to the environment. </p>
    * @public
    */
-  VpcName?: string;
+  VpcName?: string | undefined;
 
   /**
    * <p>A timestamp that indicates when the VPC was last updated by the environment. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the VPC is first added to the environment. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -1770,86 +1770,86 @@ export interface GetApplicationResponse {
    * <p>The name of the application.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the application owner (which is always the same as
    *       the environment owner account ID).</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the application creator. </p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The unique identifier of the application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the virtual private cloud (VPC). </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The proxy type of the proxy created within the application. </p>
    * @public
    */
-  ProxyType?: ProxyType;
+  ProxyType?: ProxyType | undefined;
 
   /**
    * <p>The endpoint URL of the API Gateway proxy. </p>
    * @public
    */
-  ApiGatewayProxy?: ApiGatewayProxyConfig;
+  ApiGatewayProxy?: ApiGatewayProxyConfig | undefined;
 
   /**
    * <p>The current state of the application. </p>
    * @public
    */
-  State?: ApplicationState;
+  State?: ApplicationState | undefined;
 
   /**
    * <p>The tags assigned to the application. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the application resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the application was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the application is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -1871,73 +1871,73 @@ export interface GetEnvironmentResponse {
    * <p>The name of the environment.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the environment.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The description of the environment. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment. </p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The network fabric type of the environment. </p>
    * @public
    */
-  NetworkFabricType?: NetworkFabricType;
+  NetworkFabricType?: NetworkFabricType | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the environment owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The ID of the Transit Gateway set up by the environment, if applicable.</p>
    * @public
    */
-  TransitGatewayId?: string;
+  TransitGatewayId?: string | undefined;
 
   /**
    * <p>The current state of the environment. </p>
    * @public
    */
-  State?: EnvironmentState;
+  State?: EnvironmentState | undefined;
 
   /**
    * <p>The tags to assign to the environment. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the environment resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the environment is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -1959,7 +1959,7 @@ export interface GetResourcePolicyResponse {
    * <p>A JSON-formatted string for an Amazon Web Services resource-based policy. </p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -1999,49 +1999,49 @@ export interface GetRouteResponse {
    *             <b>URI_PATH</b>: A route that is based on a URI path.</p>
    * @public
    */
-  RouteId?: string;
+  RouteId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the route.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the route owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the route creator.</p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The type of route.</p>
    * @public
    */
-  RouteType?: RouteType;
+  RouteType?: RouteType | undefined;
 
   /**
    * <p>The unique identifier of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The ID of the application that the route belongs to. </p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>Unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>This is the path that Refactor Spaces uses to match traffic. Paths must start with <code>/</code> and are relative to
@@ -2049,14 +2049,14 @@ export interface GetRouteResponse {
    *       For example, the resource path \{user\} represents a path parameter called 'user'.</p>
    * @public
    */
-  SourcePath?: string;
+  SourcePath?: string | undefined;
 
   /**
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    * @public
    */
-  Methods?: HttpMethod[];
+  Methods?: HttpMethod[] | undefined;
 
   /**
    * <p>Indicates whether to match all subpaths of the given source path. If this value is
@@ -2064,49 +2064,49 @@ export interface GetRouteResponse {
    *       this route's service. </p>
    * @public
    */
-  IncludeChildPaths?: boolean;
+  IncludeChildPaths?: boolean | undefined;
 
   /**
    * <p>A mapping of Amazon API Gateway path resources to resource IDs. </p>
    * @public
    */
-  PathResourceToId?: Record<string, string>;
+  PathResourceToId?: Record<string, string> | undefined;
 
   /**
    * <p>The current state of the route. </p>
    * @public
    */
-  State?: RouteState;
+  State?: RouteState | undefined;
 
   /**
    * <p>The tags assigned to the route. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the route resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the route was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The timestamp of when the route is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>If set to <code>true</code>, this option appends the source path to the service URL endpoint.</p>
    * @public
    */
-  AppendSourcePath?: boolean;
+  AppendSourcePath?: boolean | undefined;
 }
 
 /**
@@ -2141,7 +2141,7 @@ export interface LambdaEndpointConfig {
    * <p>The Amazon Resource Name (ARN) of the Lambda endpoint. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2153,13 +2153,13 @@ export interface UrlEndpointConfig {
    * <p>The HTTP URL endpoint. </p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The health check URL of the URL endpoint type. </p>
    * @public
    */
-  HealthUrl?: string;
+  HealthUrl?: string | undefined;
 }
 
 /**
@@ -2170,61 +2170,61 @@ export interface GetServiceResponse {
    * <p>The unique identifier of the service.</p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The name of the service.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the service owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the service creator.</p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The description of the service. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment.</p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The ID of the application.</p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The ID of the virtual private cloud (VPC). </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The endpoint type of the service.</p>
    * @public
    */
-  EndpointType?: ServiceEndpointType;
+  EndpointType?: ServiceEndpointType | undefined;
 
   /**
    * <p>The configuration for the URL endpoint type.</p>
@@ -2233,44 +2233,44 @@ export interface GetServiceResponse {
    *       type. </p>
    * @public
    */
-  UrlEndpoint?: UrlEndpointConfig;
+  UrlEndpoint?: UrlEndpointConfig | undefined;
 
   /**
    * <p>The configuration for the Lambda endpoint type.</p>
    *          <p>The <b>Arn</b> is the Amazon Resource Name (ARN) of the Lambda function associated with this service. </p>
    * @public
    */
-  LambdaEndpoint?: LambdaEndpointConfig;
+  LambdaEndpoint?: LambdaEndpointConfig | undefined;
 
   /**
    * <p>The current state of the service. </p>
    * @public
    */
-  State?: ServiceState;
+  State?: ServiceState | undefined;
 
   /**
    * <p>The tags assigned to the service. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key-value pair. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the service resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the service was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The timestamp of when the service is created.</p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -2304,7 +2304,7 @@ export interface LambdaEndpointSummary {
    * <p>The Amazon Resource Name (ARN) of the Lambda endpoint. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 }
 
 /**
@@ -2321,14 +2321,14 @@ export interface ListApplicationsRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2339,13 +2339,13 @@ export interface ListApplicationsResponse {
    * <p>The list of <code>ApplicationSummary</code> objects. </p>
    * @public
    */
-  ApplicationSummaryList?: ApplicationSummary[];
+  ApplicationSummaryList?: ApplicationSummary[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2356,14 +2356,14 @@ export interface ListEnvironmentsRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2374,13 +2374,13 @@ export interface ListEnvironmentsResponse {
    * <p>The list of <code>EnvironmentSummary</code> objects. </p>
    * @public
    */
-  EnvironmentSummaryList?: EnvironmentSummary[];
+  EnvironmentSummaryList?: EnvironmentSummary[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2397,14 +2397,14 @@ export interface ListEnvironmentVpcsRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2415,13 +2415,13 @@ export interface ListEnvironmentVpcsResponse {
    * <p>The list of <code>EnvironmentVpc</code> objects. </p>
    * @public
    */
-  EnvironmentVpcList?: EnvironmentVpc[];
+  EnvironmentVpcList?: EnvironmentVpc[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2444,14 +2444,14 @@ export interface ListRoutesRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2463,63 +2463,63 @@ export interface RouteSummary {
    * <p>The unique identifier of the route. </p>
    * @public
    */
-  RouteId?: string;
+  RouteId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the route. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the route owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the route creator. </p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>The route type of the route. </p>
    * @public
    */
-  RouteType?: RouteType;
+  RouteType?: RouteType | undefined;
 
   /**
    * <p>The unique identifier of the service. </p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The unique identifier of the application. </p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment. </p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>This is the path that Refactor Spaces uses to match traffic. Paths must start with <code>/</code> and are relative to
    *       the base of the application. To use path parameters in the source path, add a variable in curly braces. For example, the resource path \{user\} represents a path parameter called 'user'.</p>
    * @public
    */
-  SourcePath?: string;
+  SourcePath?: string | undefined;
 
   /**
    * <p>A list of HTTP methods to match. An empty list matches all values. If a method is present,
    *       only HTTP requests using that method are forwarded to this route’s service. </p>
    * @public
    */
-  Methods?: HttpMethod[];
+  Methods?: HttpMethod[] | undefined;
 
   /**
    * <p>Indicates whether to match all subpaths of the given source path. If this value is
@@ -2527,49 +2527,49 @@ export interface RouteSummary {
    *       this route's service.</p>
    * @public
    */
-  IncludeChildPaths?: boolean;
+  IncludeChildPaths?: boolean | undefined;
 
   /**
    * <p>A mapping of Amazon API Gateway path resources to resource IDs. </p>
    * @public
    */
-  PathResourceToId?: Record<string, string>;
+  PathResourceToId?: Record<string, string> | undefined;
 
   /**
    * <p>The current state of the route. </p>
    * @public
    */
-  State?: RouteState;
+  State?: RouteState | undefined;
 
   /**
    * <p>The tags assigned to the route. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the route resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the route was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the route is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 
   /**
    * <p>If set to <code>true</code>, this option appends the source path to the service URL endpoint.</p>
    * @public
    */
-  AppendSourcePath?: boolean;
+  AppendSourcePath?: boolean | undefined;
 }
 
 /**
@@ -2580,13 +2580,13 @@ export interface ListRoutesResponse {
    * <p>The list of <code>RouteSummary</code> objects. </p>
    * @public
    */
-  RouteSummaryList?: RouteSummary[];
+  RouteSummaryList?: RouteSummary[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2609,14 +2609,14 @@ export interface ListServicesRequest {
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return with a single call. To retrieve the remaining
    *       results, make another call with the returned <code>nextToken</code> value.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2630,7 +2630,7 @@ export interface UrlEndpointSummary {
    *         <code>https</code>, the top level domain of the host must be listed in the <a href="https://www.iana.org/domains/root/db">IANA root zone database</a>. </p>
    * @public
    */
-  Url?: string;
+  Url?: string | undefined;
 
   /**
    * <p>The health check URL of the URL endpoint type. If the URL is a public endpoint, the
@@ -2639,7 +2639,7 @@ export interface UrlEndpointSummary {
    *       host must be the same as the URL.</p>
    * @public
    */
-  HealthUrl?: string;
+  HealthUrl?: string | undefined;
 }
 
 /**
@@ -2651,103 +2651,103 @@ export interface ServiceSummary {
    * <p>The unique identifier of the service. </p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p>The name of the service. </p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the service. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the service owner.</p>
    * @public
    */
-  OwnerAccountId?: string;
+  OwnerAccountId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the service creator. </p>
    * @public
    */
-  CreatedByAccountId?: string;
+  CreatedByAccountId?: string | undefined;
 
   /**
    * <p>A description of the service. </p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The unique identifier of the environment. </p>
    * @public
    */
-  EnvironmentId?: string;
+  EnvironmentId?: string | undefined;
 
   /**
    * <p>The unique identifier of the application. </p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p>The ID of the virtual private cloud (VPC). </p>
    * @public
    */
-  VpcId?: string;
+  VpcId?: string | undefined;
 
   /**
    * <p>The endpoint type of the service. </p>
    * @public
    */
-  EndpointType?: ServiceEndpointType;
+  EndpointType?: ServiceEndpointType | undefined;
 
   /**
    * <p>The summary of the configuration for the URL endpoint type. </p>
    * @public
    */
-  UrlEndpoint?: UrlEndpointSummary;
+  UrlEndpoint?: UrlEndpointSummary | undefined;
 
   /**
    * <p>A summary of the configuration for the Lambda endpoint type. </p>
    * @public
    */
-  LambdaEndpoint?: LambdaEndpointSummary;
+  LambdaEndpoint?: LambdaEndpointSummary | undefined;
 
   /**
    * <p>The current state of the service. </p>
    * @public
    */
-  State?: ServiceState;
+  State?: ServiceState | undefined;
 
   /**
    * <p>The tags assigned to the service. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 
   /**
    * <p>Any error associated with the service resource. </p>
    * @public
    */
-  Error?: ErrorResponse;
+  Error?: ErrorResponse | undefined;
 
   /**
    * <p>A timestamp that indicates when the service was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 
   /**
    * <p>A timestamp that indicates when the service is created. </p>
    * @public
    */
-  CreatedTime?: Date;
+  CreatedTime?: Date | undefined;
 }
 
 /**
@@ -2758,13 +2758,13 @@ export interface ListServicesResponse {
    * <p> The list of <code>ServiceSummary</code> objects. </p>
    * @public
    */
-  ServiceSummaryList?: ServiceSummary[];
+  ServiceSummaryList?: ServiceSummary[] | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2786,7 +2786,7 @@ export interface ListTagsForResourceResponse {
    * <p>The list of tags assigned to the resource. </p>
    * @public
    */
-  Tags?: Record<string, string>;
+  Tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2894,7 +2894,7 @@ export interface UpdateRouteResponse {
    * <p> The unique identifier of the route. </p>
    * @public
    */
-  RouteId?: string;
+  RouteId?: string | undefined;
 
   /**
    * <p> The Amazon Resource Name (ARN) of the route. The format for this ARN is
@@ -2905,32 +2905,32 @@ export interface UpdateRouteResponse {
    *                     <i>Amazon Web Services General Reference</i>. </p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p> The ID of service in which the route was created. Traffic that matches this route is
    *       forwarded to this service. </p>
    * @public
    */
-  ServiceId?: string;
+  ServiceId?: string | undefined;
 
   /**
    * <p> The ID of the application in which the route is being updated. </p>
    * @public
    */
-  ApplicationId?: string;
+  ApplicationId?: string | undefined;
 
   /**
    * <p> The current state of the route. </p>
    * @public
    */
-  State?: RouteState;
+  State?: RouteState | undefined;
 
   /**
    * <p> A timestamp that indicates when the route was last updated. </p>
    * @public
    */
-  LastUpdatedTime?: Date;
+  LastUpdatedTime?: Date | undefined;
 }
 
 /**

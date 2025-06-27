@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface DeletePlaybackRestrictionPolicyCommandOutput extends __Metadata
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class DeletePlaybackRestrictionPolicyCommand extends $Command
@@ -80,9 +82,7 @@ export class DeletePlaybackRestrictionPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeletePlaybackRestrictionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePlaybackRestrictionPolicyCommand)
   .de(de_DeletePlaybackRestrictionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePlaybackRestrictionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePlaybackRestrictionPolicyCommandInput;
+      output: DeletePlaybackRestrictionPolicyCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointRespons
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcEndpointCommand extends $Command
@@ -96,9 +98,7 @@ export class CreateVpcEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CreateVpcEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcEndpointCommand)
   .de(de_CreateVpcEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcEndpointRequest;
+      output: CreateVpcEndpointResponse;
+    };
+    sdk: {
+      input: CreateVpcEndpointCommandInput;
+      output: CreateVpcEndpointCommandOutput;
+    };
+  };
+}

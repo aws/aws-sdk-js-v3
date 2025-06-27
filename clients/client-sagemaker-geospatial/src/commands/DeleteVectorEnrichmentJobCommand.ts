@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeleteVectorEnrichmentJobCommandOutput extends DeleteVectorEnri
  * @throws {@link SageMakerGeospatialServiceException}
  * <p>Base exception class for all service exceptions from SageMakerGeospatial service.</p>
  *
+ *
  * @public
  */
 export class DeleteVectorEnrichmentJobCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteVectorEnrichmentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerGeospatialClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteVectorEnrichmentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVectorEnrichmentJobCommand)
   .de(de_DeleteVectorEnrichmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVectorEnrichmentJobInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVectorEnrichmentJobCommandInput;
+      output: DeleteVectorEnrichmentJobCommandOutput;
+    };
+  };
+}

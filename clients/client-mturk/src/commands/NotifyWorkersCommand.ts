@@ -12,7 +12,8 @@ import { de_NotifyWorkersCommand, se_NotifyWorkersCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface NotifyWorkersCommandOutput extends NotifyWorkersResponse, __Met
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class NotifyWorkersCommand extends $Command
@@ -89,9 +91,7 @@ export class NotifyWorkersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class NotifyWorkersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_NotifyWorkersCommand)
   .de(de_NotifyWorkersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: NotifyWorkersRequest;
+      output: NotifyWorkersResponse;
+    };
+    sdk: {
+      input: NotifyWorkersCommandInput;
+      output: NotifyWorkersCommandOutput;
+    };
+  };
+}

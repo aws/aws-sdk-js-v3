@@ -16,7 +16,8 @@ import { de_ConnectDirectoryCommand, se_ConnectDirectoryCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,8 +35,7 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * <p>Creates an AD Connector to connect to a self-managed directory.</p>
  *          <p>Before you call <code>ConnectDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
- *       to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions
- *       Reference</a>.</p>
+ *       to run the <code>ConnectDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +96,37 @@ export interface ConnectDirectoryCommandOutput extends ConnectDirectoryResult, _
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To connect to an on-premises directory
+ * ```javascript
+ * // The following example creates an AD Connector to connect to an on-premises directory.
+ * const input = {
+ *   ConnectSettings: {
+ *     CustomerDnsIps: [
+ *       "172.30.21.228"
+ *     ],
+ *     CustomerUserName: "Administrator",
+ *     SubnetIds: [
+ *       "subnet-ba0146de",
+ *       "subnet-bef46bc8"
+ *     ],
+ *     VpcId: "vpc-45025421"
+ *   },
+ *   Description: "Connector to corp",
+ *   Name: "corp.example.com",
+ *   Password: "Str0ngP@ssw0rd",
+ *   ShortName: "corp",
+ *   Size: "Small"
+ * };
+ * const command = new ConnectDirectoryCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-92654abfed"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ConnectDirectoryCommand extends $Command
@@ -106,9 +137,7 @@ export class ConnectDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +149,16 @@ export class ConnectDirectoryCommand extends $Command
   .f(ConnectDirectoryRequestFilterSensitiveLog, void 0)
   .ser(se_ConnectDirectoryCommand)
   .de(de_ConnectDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConnectDirectoryRequest;
+      output: ConnectDirectoryResult;
+    };
+    sdk: {
+      input: ConnectDirectoryCommandInput;
+      output: ConnectDirectoryCommandOutput;
+    };
+  };
+}

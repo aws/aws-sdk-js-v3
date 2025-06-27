@@ -10,18 +10,15 @@ import {
   ServiceOutputTypes,
 } from "../BedrockAgentRuntimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  InvokeAgentRequest,
-  InvokeAgentRequestFilterSensitiveLog,
-  InvokeAgentResponse,
-  InvokeAgentResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { InvokeAgentResponse, InvokeAgentResponseFilterSensitiveLog } from "../models/models_0";
+import { InvokeAgentRequest, InvokeAgentRequestFilterSensitiveLog } from "../models/models_1";
 import { de_InvokeAgentCommand, se_InvokeAgentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,39 +33,7 @@ export interface InvokeAgentCommandInput extends InvokeAgentRequest {}
 export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>The CLI doesn't support <code>InvokeAgent</code>.</p>
- *          </note>
- *          <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p>
- *          <ul>
- *             <li>
- *                <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p>
- *             </li>
- *             <li>
- *                <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
- *             </li>
- *             <li>
- *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
- *             </li>
- *             <li>
- *                <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p>
- *             </li>
- *          </ul>
- *          <p>The response is returned in the <code>bytes</code> field of the <code>chunk</code> object.</p>
- *          <ul>
- *             <li>
- *                <p>The <code>attribution</code> object contains citations for parts of the response.</p>
- *             </li>
- *             <li>
- *                <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p>
- *             </li>
- *             <li>
- *                <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p>
- *             </li>
- *             <li>
- *                <p>Errors are also surfaced in the response.</p>
- *             </li>
- *          </ul>
+ * <note> </note> <p>Sends a prompt for the agent to process and respond to. Note the following fields for the request:</p> <ul> <li> <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p> </li> <li> <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p> </li> <li> <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p> </li> <li> <p>In the <code>sessionState</code> object, you can include attributes for the session or prompt or, if you configured an action group to return control, results from invocation of the action group.</p> </li> </ul> <p>The response contains both <b>chunk</b> and <b>trace</b> attributes.</p> <p>The final response is returned in the <code>bytes</code> field of the <code>chunk</code> object. The <code>InvokeAgent</code> returns one chunk for the entire interaction.</p> <ul> <li> <p>The <code>attribution</code> object contains citations for parts of the response.</p> </li> <li> <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p> </li> <li> <p>If the action predicted was configured to return control, the response returns parameters for the action, elicited from the user, in the <code>returnControl</code> field.</p> </li> <li> <p>Errors are also surfaced in the response.</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,27 +54,175 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *           actionGroup: "STRING_VALUE", // required
  *           httpMethod: "STRING_VALUE",
  *           apiPath: "STRING_VALUE",
+ *           confirmationState: "CONFIRM" || "DENY",
+ *           responseState: "FAILURE" || "REPROMPT",
+ *           httpStatusCode: Number("int"),
  *           responseBody: { // ResponseBody
  *             "<keys>": { // ContentBody
  *               body: "STRING_VALUE",
+ *               images: [ // ImageInputs
+ *                 { // ImageInput
+ *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: { // ImageInputSource Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *               ],
  *             },
  *           },
- *           httpStatusCode: Number("int"),
- *           responseState: "FAILURE" || "REPROMPT",
+ *           agentId: "STRING_VALUE",
  *         },
  *         functionResult: { // FunctionResult
  *           actionGroup: "STRING_VALUE", // required
+ *           confirmationState: "CONFIRM" || "DENY",
  *           function: "STRING_VALUE",
  *           responseBody: {
  *             "<keys>": {
  *               body: "STRING_VALUE",
+ *               images: [
+ *                 {
+ *                   format: "png" || "jpeg" || "gif" || "webp", // required
+ *                   source: {//  Union: only one key present
+ *                     bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *                   },
+ *                 },
+ *               ],
  *             },
  *           },
  *           responseState: "FAILURE" || "REPROMPT",
+ *           agentId: "STRING_VALUE",
  *         },
  *       },
  *     ],
  *     invocationId: "STRING_VALUE",
+ *     files: [ // InputFiles
+ *       { // InputFile
+ *         name: "STRING_VALUE", // required
+ *         source: { // FileSource
+ *           sourceType: "S3" || "BYTE_CONTENT", // required
+ *           s3Location: { // S3ObjectFile
+ *             uri: "STRING_VALUE", // required
+ *           },
+ *           byteContent: { // ByteContentFile
+ *             mediaType: "STRING_VALUE", // required
+ *             data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
+ *           },
+ *         },
+ *         useCase: "CODE_INTERPRETER" || "CHAT", // required
+ *       },
+ *     ],
+ *     knowledgeBaseConfigurations: [ // KnowledgeBaseConfigurations
+ *       { // KnowledgeBaseConfiguration
+ *         knowledgeBaseId: "STRING_VALUE", // required
+ *         retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
+ *           vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
+ *             numberOfResults: Number("int"),
+ *             overrideSearchType: "HYBRID" || "SEMANTIC",
+ *             filter: { // RetrievalFilter Union: only one key present
+ *               equals: { // FilterAttribute
+ *                 key: "STRING_VALUE", // required
+ *                 value: "DOCUMENT_VALUE", // required
+ *               },
+ *               notEquals: {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "DOCUMENT_VALUE", // required
+ *               },
+ *               greaterThan: {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "DOCUMENT_VALUE", // required
+ *               },
+ *               greaterThanOrEquals: {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "DOCUMENT_VALUE", // required
+ *               },
+ *               lessThan: {
+ *                 key: "STRING_VALUE", // required
+ *                 value: "DOCUMENT_VALUE", // required
+ *               },
+ *               lessThanOrEquals: "<FilterAttribute>",
+ *               in: "<FilterAttribute>",
+ *               notIn: "<FilterAttribute>",
+ *               startsWith: "<FilterAttribute>",
+ *               listContains: "<FilterAttribute>",
+ *               stringContains: "<FilterAttribute>",
+ *               andAll: [ // RetrievalFilterList
+ *                 {//  Union: only one key present
+ *                   equals: "<FilterAttribute>",
+ *                   notEquals: "<FilterAttribute>",
+ *                   greaterThan: "<FilterAttribute>",
+ *                   greaterThanOrEquals: "<FilterAttribute>",
+ *                   lessThan: "<FilterAttribute>",
+ *                   lessThanOrEquals: "<FilterAttribute>",
+ *                   in: "<FilterAttribute>",
+ *                   notIn: "<FilterAttribute>",
+ *                   startsWith: "<FilterAttribute>",
+ *                   listContains: "<FilterAttribute>",
+ *                   stringContains: "<FilterAttribute>",
+ *                   andAll: [
+ *                     "<RetrievalFilter>",
+ *                   ],
+ *                   orAll: [
+ *                     "<RetrievalFilter>",
+ *                   ],
+ *                 },
+ *               ],
+ *               orAll: [
+ *                 "<RetrievalFilter>",
+ *               ],
+ *             },
+ *             rerankingConfiguration: { // VectorSearchRerankingConfiguration
+ *               type: "BEDROCK_RERANKING_MODEL", // required
+ *               bedrockRerankingConfiguration: { // VectorSearchBedrockRerankingConfiguration
+ *                 modelConfiguration: { // VectorSearchBedrockRerankingModelConfiguration
+ *                   modelArn: "STRING_VALUE", // required
+ *                   additionalModelRequestFields: { // AdditionalModelRequestFields
+ *                     "<keys>": "DOCUMENT_VALUE",
+ *                   },
+ *                 },
+ *                 numberOfRerankedResults: Number("int"),
+ *                 metadataConfiguration: { // MetadataConfigurationForReranking
+ *                   selectionMode: "SELECTIVE" || "ALL", // required
+ *                   selectiveModeConfiguration: { // RerankingMetadataSelectiveModeConfiguration Union: only one key present
+ *                     fieldsToInclude: [ // FieldsForReranking
+ *                       { // FieldForReranking
+ *                         fieldName: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                     fieldsToExclude: [
+ *                       {
+ *                         fieldName: "STRING_VALUE", // required
+ *                       },
+ *                     ],
+ *                   },
+ *                 },
+ *               },
+ *             },
+ *             implicitFilterConfiguration: { // ImplicitFilterConfiguration
+ *               metadataAttributes: [ // MetadataAttributeSchemaList // required
+ *                 { // MetadataAttributeSchema
+ *                   key: "STRING_VALUE", // required
+ *                   type: "STRING" || "NUMBER" || "BOOLEAN" || "STRING_LIST", // required
+ *                   description: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               modelArn: "STRING_VALUE", // required
+ *             },
+ *           },
+ *         },
+ *       },
+ *     ],
+ *     conversationHistory: { // ConversationHistory
+ *       messages: [ // Messages
+ *         { // Message
+ *           role: "user" || "assistant", // required
+ *           content: [ // ContentBlocks // required
+ *             { // ContentBlock Union: only one key present
+ *               text: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *       ],
+ *     },
  *   },
  *   agentId: "STRING_VALUE", // required
  *   agentAliasId: "STRING_VALUE", // required
@@ -117,6 +230,21 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  *   endSession: true || false,
  *   enableTrace: true || false,
  *   inputText: "STRING_VALUE",
+ *   memoryId: "STRING_VALUE",
+ *   bedrockModelConfigurations: { // BedrockModelConfigurations
+ *     performanceConfig: { // PerformanceConfiguration
+ *       latency: "standard" || "optimized",
+ *     },
+ *   },
+ *   streamingConfigurations: { // StreamingConfigurations
+ *     streamFinalResponse: true || false,
+ *     applyGuardrailInterval: Number("int"),
+ *   },
+ *   promptCreationConfigurations: { // PromptCreationConfigurations
+ *     previousConversationTurnsToInclude: Number("int"),
+ *     excludePreviousThinkingSteps: true || false,
+ *   },
+ *   sourceArn: "STRING_VALUE",
  * };
  * const command = new InvokeAgentCommand(input);
  * const response = await client.send(command);
@@ -139,12 +267,42 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //             retrievedReferences: [ // RetrievedReferences
  * //               { // RetrievedReference
  * //                 content: { // RetrievalResultContent
- * //                   text: "STRING_VALUE", // required
+ * //                   type: "TEXT" || "IMAGE" || "ROW",
+ * //                   text: "STRING_VALUE",
+ * //                   byteContent: "STRING_VALUE",
+ * //                   row: [ // RetrievalResultContentRow
+ * //                     { // RetrievalResultContentColumn
+ * //                       columnName: "STRING_VALUE",
+ * //                       columnValue: "STRING_VALUE",
+ * //                       type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //                     },
+ * //                   ],
  * //                 },
  * //                 location: { // RetrievalResultLocation
- * //                   type: "S3", // required
+ * //                   type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //                   s3Location: { // RetrievalResultS3Location
  * //                     uri: "STRING_VALUE",
+ * //                   },
+ * //                   webLocation: { // RetrievalResultWebLocation
+ * //                     url: "STRING_VALUE",
+ * //                   },
+ * //                   confluenceLocation: { // RetrievalResultConfluenceLocation
+ * //                     url: "STRING_VALUE",
+ * //                   },
+ * //                   salesforceLocation: { // RetrievalResultSalesforceLocation
+ * //                     url: "STRING_VALUE",
+ * //                   },
+ * //                   sharePointLocation: { // RetrievalResultSharePointLocation
+ * //                     url: "STRING_VALUE",
+ * //                   },
+ * //                   customDocumentLocation: { // RetrievalResultCustomDocumentLocation
+ * //                     id: "STRING_VALUE",
+ * //                   },
+ * //                   kendraDocumentLocation: { // RetrievalResultKendraDocumentLocation
+ * //                     uri: "STRING_VALUE",
+ * //                   },
+ * //                   sqlLocation: { // RetrievalResultSqlLocation
+ * //                     query: "STRING_VALUE",
  * //                   },
  * //                 },
  * //                 metadata: { // RetrievalResultMetadata
@@ -157,10 +315,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       },
  * //     },
  * //     trace: { // TracePart
- * //       agentId: "STRING_VALUE",
- * //       agentAliasId: "STRING_VALUE",
  * //       sessionId: "STRING_VALUE",
- * //       agentVersion: "STRING_VALUE",
  * //       trace: { // Trace Union: only one key present
  * //         guardrailTrace: { // GuardrailTrace
  * //           action: "INTERVENED" || "NONE",
@@ -273,12 +428,25 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //               },
  * //             },
  * //           ],
+ * //           metadata: { // Metadata
+ * //             startTime: new Date("TIMESTAMP"),
+ * //             endTime: new Date("TIMESTAMP"),
+ * //             totalTimeMs: Number("long"),
+ * //             operationTotalTimeMs: Number("long"),
+ * //             clientRequestId: "STRING_VALUE",
+ * //             usage: { // Usage
+ * //               inputTokens: Number("int"),
+ * //               outputTokens: Number("int"),
+ * //             },
+ * //           },
  * //         },
  * //         preProcessingTrace: { // PreProcessingTrace Union: only one key present
  * //           modelInvocationInput: { // ModelInvocationInput
  * //             traceId: "STRING_VALUE",
  * //             text: "STRING_VALUE",
- * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING",
+ * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             inferenceConfiguration: { // InferenceConfiguration
  * //               temperature: Number("float"),
  * //               topP: Number("float"),
@@ -288,15 +456,35 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
- * //             overrideLambda: "STRING_VALUE",
- * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
  * //           },
  * //           modelInvocationOutput: { // PreProcessingModelInvocationOutput
  * //             traceId: "STRING_VALUE",
  * //             parsedResponse: { // PreProcessingParsedResponse
  * //               rationale: "STRING_VALUE",
  * //               isValid: true || false,
+ * //             },
+ * //             rawResponse: { // RawResponse
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: {
+ * //               startTime: new Date("TIMESTAMP"),
+ * //               endTime: new Date("TIMESTAMP"),
+ * //               totalTimeMs: Number("long"),
+ * //               operationTotalTimeMs: Number("long"),
+ * //               clientRequestId: "STRING_VALUE",
+ * //               usage: {
+ * //                 inputTokens: Number("int"),
+ * //                 outputTokens: Number("int"),
+ * //               },
+ * //             },
+ * //             reasoningContent: { // ReasoningContentBlock Union: only one key present
+ * //               reasoningText: { // ReasoningTextBlock
+ * //                 text: "STRING_VALUE", // required
+ * //                 signature: "STRING_VALUE",
+ * //               },
+ * //               redactedContent: new Uint8Array(),
  * //             },
  * //           },
  * //         },
@@ -307,7 +495,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //           },
  * //           invocationInput: { // InvocationInput
  * //             traceId: "STRING_VALUE",
- * //             invocationType: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH",
+ * //             invocationType: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ACTION_GROUP_CODE_INTERPRETER" || "AGENT_COLLABORATOR",
  * //             actionGroupInvocationInput: { // ActionGroupInvocationInput
  * //               actionGroupName: "STRING_VALUE",
  * //               verb: "STRING_VALUE",
@@ -331,28 +519,178 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 },
  * //               },
  * //               function: "STRING_VALUE",
+ * //               executionType: "LAMBDA" || "RETURN_CONTROL",
+ * //               invocationId: "STRING_VALUE",
  * //             },
  * //             knowledgeBaseLookupInput: { // KnowledgeBaseLookupInput
  * //               text: "STRING_VALUE",
  * //               knowledgeBaseId: "STRING_VALUE",
  * //             },
+ * //             codeInterpreterInvocationInput: { // CodeInterpreterInvocationInput
+ * //               code: "STRING_VALUE",
+ * //               files: [ // Files
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             agentCollaboratorInvocationInput: { // AgentCollaboratorInvocationInput
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               input: { // AgentCollaboratorInputPayload
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlResults: { // ReturnControlResults
+ * //                   invocationId: "STRING_VALUE",
+ * //                   returnControlInvocationResults: [ // ReturnControlInvocationResults
+ * //                     { // InvocationResultMember Union: only one key present
+ * //                       apiResult: { // ApiResult
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         httpStatusCode: Number("int"),
+ * //                         responseBody: { // ResponseBody
+ * //                           "<keys>": { // ContentBody
+ * //                             body: "STRING_VALUE",
+ * //                             images: [ // ImageInputs
+ * //                               { // ImageInput
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: { // ImageInputSource Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
+ * //                           },
+ * //                         },
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                       functionResult: { // FunctionResult
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         function: "STRING_VALUE",
+ * //                         responseBody: {
+ * //                           "<keys>": {
+ * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
+ * //                           },
+ * //                         },
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
  * //           },
  * //           observation: { // Observation
  * //             traceId: "STRING_VALUE",
- * //             type: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
+ * //             type: "ACTION_GROUP" || "AGENT_COLLABORATOR" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
  * //             actionGroupInvocationOutput: { // ActionGroupInvocationOutput
  * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
+ * //             },
+ * //             agentCollaboratorInvocationOutput: { // AgentCollaboratorInvocationOutput
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               output: { // AgentCollaboratorOutputPayload
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlPayload: { // ReturnControlPayload
+ * //                   invocationInputs: [ // InvocationInputs
+ * //                     { // InvocationInputMember Union: only one key present
+ * //                       apiInvocationInput: { // ApiInvocationInput
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         parameters: [ // ApiParameters
+ * //                           { // ApiParameter
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         requestBody: { // ApiRequestBody
+ * //                           content: { // ApiContentMap
+ * //                             "<keys>": { // PropertyParameters
+ * //                               properties: [ // ParameterList
+ * //                                 "<Parameter>",
+ * //                               ],
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                       functionInvocationInput: { // FunctionInvocationInput
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         parameters: [ // FunctionParameters
+ * //                           { // FunctionParameter
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         function: "STRING_VALUE",
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                   invocationId: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               metadata: "<Metadata>",
  * //             },
  * //             knowledgeBaseLookupOutput: { // KnowledgeBaseLookupOutput
  * //               retrievedReferences: [
  * //                 {
  * //                   content: {
- * //                     text: "STRING_VALUE", // required
+ * //                     type: "TEXT" || "IMAGE" || "ROW",
+ * //                     text: "STRING_VALUE",
+ * //                     byteContent: "STRING_VALUE",
+ * //                     row: [
+ * //                       {
+ * //                         columnName: "STRING_VALUE",
+ * //                         columnValue: "STRING_VALUE",
+ * //                         type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //                       },
+ * //                     ],
  * //                   },
  * //                   location: {
- * //                     type: "S3", // required
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //                     s3Location: {
  * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     webLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     confluenceLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     salesforceLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     sharePointLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     customDocumentLocation: {
+ * //                       id: "STRING_VALUE",
+ * //                     },
+ * //                     kendraDocumentLocation: {
+ * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     sqlLocation: {
+ * //                       query: "STRING_VALUE",
  * //                     },
  * //                   },
  * //                   metadata: {
@@ -360,19 +698,32 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                   },
  * //                 },
  * //               ],
+ * //               metadata: "<Metadata>",
  * //             },
  * //             finalResponse: { // FinalResponse
  * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
  * //             },
  * //             repromptResponse: { // RepromptResponse
  * //               text: "STRING_VALUE",
  * //               source: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "PARSER",
  * //             },
+ * //             codeInterpreterInvocationOutput: { // CodeInterpreterInvocationOutput
+ * //               executionOutput: "STRING_VALUE",
+ * //               executionError: "STRING_VALUE",
+ * //               files: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               executionTimeout: true || false,
+ * //               metadata: "<Metadata>",
+ * //             },
  * //           },
  * //           modelInvocationInput: {
  * //             traceId: "STRING_VALUE",
  * //             text: "STRING_VALUE",
- * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING",
+ * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             inferenceConfiguration: {
  * //               temperature: Number("float"),
  * //               topP: Number("float"),
@@ -382,16 +733,31 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
- * //             overrideLambda: "STRING_VALUE",
- * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
+ * //           },
+ * //           modelInvocationOutput: { // OrchestrationModelInvocationOutput
+ * //             traceId: "STRING_VALUE",
+ * //             rawResponse: {
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: "<Metadata>",
+ * //             reasoningContent: {//  Union: only one key present
+ * //               reasoningText: {
+ * //                 text: "STRING_VALUE", // required
+ * //                 signature: "STRING_VALUE",
+ * //               },
+ * //               redactedContent: new Uint8Array(),
+ * //             },
  * //           },
  * //         },
  * //         postProcessingTrace: { // PostProcessingTrace Union: only one key present
  * //           modelInvocationInput: {
  * //             traceId: "STRING_VALUE",
  * //             text: "STRING_VALUE",
- * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING",
+ * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             inferenceConfiguration: {
  * //               temperature: Number("float"),
  * //               topP: Number("float"),
@@ -401,61 +767,335 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
- * //             overrideLambda: "STRING_VALUE",
- * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
  * //           },
  * //           modelInvocationOutput: { // PostProcessingModelInvocationOutput
  * //             traceId: "STRING_VALUE",
  * //             parsedResponse: { // PostProcessingParsedResponse
  * //               text: "STRING_VALUE",
  * //             },
+ * //             rawResponse: {
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: "<Metadata>",
+ * //             reasoningContent: {//  Union: only one key present
+ * //               reasoningText: {
+ * //                 text: "STRING_VALUE", // required
+ * //                 signature: "STRING_VALUE",
+ * //               },
+ * //               redactedContent: new Uint8Array(),
+ * //             },
  * //           },
  * //         },
- * //         failureTrace: { // FailureTrace
- * //           traceId: "STRING_VALUE",
- * //           failureReason: "STRING_VALUE",
- * //         },
- * //       },
- * //     },
- * //     returnControl: { // ReturnControlPayload
- * //       invocationInputs: [ // InvocationInputs
- * //         { // InvocationInputMember Union: only one key present
- * //           apiInvocationInput: { // ApiInvocationInput
- * //             actionGroup: "STRING_VALUE", // required
- * //             httpMethod: "STRING_VALUE",
- * //             apiPath: "STRING_VALUE",
- * //             parameters: [ // ApiParameters
- * //               { // ApiParameter
- * //                 name: "STRING_VALUE",
- * //                 type: "STRING_VALUE",
- * //                 value: "STRING_VALUE",
+ * //         routingClassifierTrace: { // RoutingClassifierTrace Union: only one key present
+ * //           invocationInput: {
+ * //             traceId: "STRING_VALUE",
+ * //             invocationType: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "FINISH" || "ACTION_GROUP_CODE_INTERPRETER" || "AGENT_COLLABORATOR",
+ * //             actionGroupInvocationInput: {
+ * //               actionGroupName: "STRING_VALUE",
+ * //               verb: "STRING_VALUE",
+ * //               apiPath: "STRING_VALUE",
+ * //               parameters: [
+ * //                 "<Parameter>",
+ * //               ],
+ * //               requestBody: {
+ * //                 content: {
+ * //                   "<keys>": [
+ * //                     "<Parameter>",
+ * //                   ],
+ * //                 },
  * //               },
- * //             ],
- * //             requestBody: { // ApiRequestBody
- * //               content: { // ApiContentMap
- * //                 "<keys>": { // PropertyParameters
- * //                   properties: [ // ParameterList
- * //                     {
- * //                       name: "STRING_VALUE",
- * //                       type: "STRING_VALUE",
- * //                       value: "STRING_VALUE",
+ * //               function: "STRING_VALUE",
+ * //               executionType: "LAMBDA" || "RETURN_CONTROL",
+ * //               invocationId: "STRING_VALUE",
+ * //             },
+ * //             knowledgeBaseLookupInput: {
+ * //               text: "STRING_VALUE",
+ * //               knowledgeBaseId: "STRING_VALUE",
+ * //             },
+ * //             codeInterpreterInvocationInput: {
+ * //               code: "STRING_VALUE",
+ * //               files: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             agentCollaboratorInvocationInput: {
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               input: {
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlResults: {
+ * //                   invocationId: "STRING_VALUE",
+ * //                   returnControlInvocationResults: [
+ * //                     {//  Union: only one key present
+ * //                       apiResult: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         httpStatusCode: Number("int"),
+ * //                         responseBody: {
+ * //                           "<keys>": {
+ * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
+ * //                           },
+ * //                         },
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
+ * //                       functionResult: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         confirmationState: "CONFIRM" || "DENY",
+ * //                         function: "STRING_VALUE",
+ * //                         responseBody: {
+ * //                           "<keys>": {
+ * //                             body: "STRING_VALUE",
+ * //                             images: [
+ * //                               {
+ * //                                 format: "png" || "jpeg" || "gif" || "webp", // required
+ * //                                 source: {//  Union: only one key present
+ * //                                   bytes: new Uint8Array(),
+ * //                                 },
+ * //                               },
+ * //                             ],
+ * //                           },
+ * //                         },
+ * //                         responseState: "FAILURE" || "REPROMPT",
+ * //                         agentId: "STRING_VALUE",
+ * //                       },
  * //                     },
  * //                   ],
  * //                 },
  * //               },
  * //             },
  * //           },
- * //           functionInvocationInput: { // FunctionInvocationInput
+ * //           observation: {
+ * //             traceId: "STRING_VALUE",
+ * //             type: "ACTION_GROUP" || "AGENT_COLLABORATOR" || "KNOWLEDGE_BASE" || "FINISH" || "ASK_USER" || "REPROMPT",
+ * //             actionGroupInvocationOutput: {
+ * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
+ * //             },
+ * //             agentCollaboratorInvocationOutput: {
+ * //               agentCollaboratorName: "STRING_VALUE",
+ * //               agentCollaboratorAliasArn: "STRING_VALUE",
+ * //               output: {
+ * //                 type: "TEXT" || "RETURN_CONTROL",
+ * //                 text: "STRING_VALUE",
+ * //                 returnControlPayload: {
+ * //                   invocationInputs: [
+ * //                     {//  Union: only one key present
+ * //                       apiInvocationInput: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         httpMethod: "STRING_VALUE",
+ * //                         apiPath: "STRING_VALUE",
+ * //                         parameters: [
+ * //                           {
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         requestBody: {
+ * //                           content: {
+ * //                             "<keys>": {
+ * //                               properties: [
+ * //                                 "<Parameter>",
+ * //                               ],
+ * //                             },
+ * //                           },
+ * //                         },
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                       functionInvocationInput: {
+ * //                         actionGroup: "STRING_VALUE", // required
+ * //                         parameters: [
+ * //                           {
+ * //                             name: "STRING_VALUE",
+ * //                             type: "STRING_VALUE",
+ * //                             value: "STRING_VALUE",
+ * //                           },
+ * //                         ],
+ * //                         function: "STRING_VALUE",
+ * //                         actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //                         agentId: "STRING_VALUE",
+ * //                         collaboratorName: "STRING_VALUE",
+ * //                       },
+ * //                     },
+ * //                   ],
+ * //                   invocationId: "STRING_VALUE",
+ * //                 },
+ * //               },
+ * //               metadata: "<Metadata>",
+ * //             },
+ * //             knowledgeBaseLookupOutput: {
+ * //               retrievedReferences: [
+ * //                 {
+ * //                   content: {
+ * //                     type: "TEXT" || "IMAGE" || "ROW",
+ * //                     text: "STRING_VALUE",
+ * //                     byteContent: "STRING_VALUE",
+ * //                     row: [
+ * //                       {
+ * //                         columnName: "STRING_VALUE",
+ * //                         columnValue: "STRING_VALUE",
+ * //                         type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //                       },
+ * //                     ],
+ * //                   },
+ * //                   location: {
+ * //                     type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
+ * //                     s3Location: {
+ * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     webLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     confluenceLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     salesforceLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     sharePointLocation: {
+ * //                       url: "STRING_VALUE",
+ * //                     },
+ * //                     customDocumentLocation: {
+ * //                       id: "STRING_VALUE",
+ * //                     },
+ * //                     kendraDocumentLocation: {
+ * //                       uri: "STRING_VALUE",
+ * //                     },
+ * //                     sqlLocation: {
+ * //                       query: "STRING_VALUE",
+ * //                     },
+ * //                   },
+ * //                   metadata: {
+ * //                     "<keys>": "DOCUMENT_VALUE",
+ * //                   },
+ * //                 },
+ * //               ],
+ * //               metadata: "<Metadata>",
+ * //             },
+ * //             finalResponse: {
+ * //               text: "STRING_VALUE",
+ * //               metadata: "<Metadata>",
+ * //             },
+ * //             repromptResponse: {
+ * //               text: "STRING_VALUE",
+ * //               source: "ACTION_GROUP" || "KNOWLEDGE_BASE" || "PARSER",
+ * //             },
+ * //             codeInterpreterInvocationOutput: {
+ * //               executionOutput: "STRING_VALUE",
+ * //               executionError: "STRING_VALUE",
+ * //               files: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               executionTimeout: true || false,
+ * //               metadata: "<Metadata>",
+ * //             },
+ * //           },
+ * //           modelInvocationInput: {
+ * //             traceId: "STRING_VALUE",
+ * //             text: "STRING_VALUE",
+ * //             type: "PRE_PROCESSING" || "ORCHESTRATION" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "POST_PROCESSING" || "ROUTING_CLASSIFIER",
+ * //             overrideLambda: "STRING_VALUE",
+ * //             promptCreationMode: "DEFAULT" || "OVERRIDDEN",
+ * //             inferenceConfiguration: {
+ * //               temperature: Number("float"),
+ * //               topP: Number("float"),
+ * //               topK: Number("int"),
+ * //               maximumLength: Number("int"),
+ * //               stopSequences: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //             parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //             foundationModel: "STRING_VALUE",
+ * //           },
+ * //           modelInvocationOutput: { // RoutingClassifierModelInvocationOutput
+ * //             traceId: "STRING_VALUE",
+ * //             rawResponse: {
+ * //               content: "STRING_VALUE",
+ * //             },
+ * //             metadata: "<Metadata>",
+ * //           },
+ * //         },
+ * //         failureTrace: { // FailureTrace
+ * //           traceId: "STRING_VALUE",
+ * //           failureReason: "STRING_VALUE",
+ * //           failureCode: Number("int"),
+ * //           metadata: "<Metadata>",
+ * //         },
+ * //         customOrchestrationTrace: { // CustomOrchestrationTrace
+ * //           traceId: "STRING_VALUE",
+ * //           event: { // CustomOrchestrationTraceEvent
+ * //             text: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       callerChain: [ // CallerChain
+ * //         { // Caller Union: only one key present
+ * //           agentAliasArn: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       eventTime: new Date("TIMESTAMP"),
+ * //       collaboratorName: "STRING_VALUE",
+ * //       agentId: "STRING_VALUE",
+ * //       agentAliasId: "STRING_VALUE",
+ * //       agentVersion: "STRING_VALUE",
+ * //     },
+ * //     returnControl: {
+ * //       invocationInputs: [
+ * //         {//  Union: only one key present
+ * //           apiInvocationInput: {
  * //             actionGroup: "STRING_VALUE", // required
- * //             parameters: [ // FunctionParameters
- * //               { // FunctionParameter
+ * //             httpMethod: "STRING_VALUE",
+ * //             apiPath: "STRING_VALUE",
+ * //             parameters: [
+ * //               {
+ * //                 name: "STRING_VALUE",
+ * //                 type: "STRING_VALUE",
+ * //                 value: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             requestBody: {
+ * //               content: {
+ * //                 "<keys>": {
+ * //                   properties: [
+ * //                     "<Parameter>",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //             },
+ * //             actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //             agentId: "STRING_VALUE",
+ * //             collaboratorName: "STRING_VALUE",
+ * //           },
+ * //           functionInvocationInput: {
+ * //             actionGroup: "STRING_VALUE", // required
+ * //             parameters: [
+ * //               {
  * //                 name: "STRING_VALUE",
  * //                 type: "STRING_VALUE",
  * //                 value: "STRING_VALUE",
  * //               },
  * //             ],
  * //             function: "STRING_VALUE",
+ * //             actionInvocationType: "RESULT" || "USER_CONFIRMATION" || "USER_CONFIRMATION_AND_RESULT",
+ * //             agentId: "STRING_VALUE",
+ * //             collaboratorName: "STRING_VALUE",
  * //           },
  * //         },
  * //       ],
@@ -463,6 +1103,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",
+ * //       reason: "STRING_VALUE",
  * //     },
  * //     validationException: { // ValidationException
  * //       message: "STRING_VALUE",
@@ -490,9 +1131,22 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * //       message: "STRING_VALUE",
  * //       resourceName: "STRING_VALUE",
  * //     },
+ * //     modelNotReadyException: { // ModelNotReadyException
+ * //       message: "STRING_VALUE",
+ * //     },
+ * //     files: { // FilePart
+ * //       files: [ // OutputFiles
+ * //         { // OutputFile
+ * //           name: "STRING_VALUE",
+ * //           type: "STRING_VALUE",
+ * //           bytes: new Uint8Array(),
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   contentType: "STRING_VALUE", // required
  * //   sessionId: "STRING_VALUE", // required
+ * //   memoryId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -518,6 +1172,9 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * @throws {@link InternalServerException} (server fault)
  *  <p>An internal server error occurred. Retry your request.</p>
  *
+ * @throws {@link ModelNotReadyException} (client fault)
+ *  <p> The model specified in the request is not ready to serve inference requests. The AWS SDK will automatically retry the operation up to 5 times. For information about configuring automatic retries, see <a href="https://docs.aws.amazon.com/sdkref/latest/guide/feature-retry-behavior.html">Retry behavior</a> in the <i>AWS SDKs and Tools</i> reference guide. </p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource Amazon Resource Name (ARN) was not found. Check the Amazon Resource Name (ARN) and try your request again.</p>
  *
@@ -533,6 +1190,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class InvokeAgentCommand extends $Command
@@ -543,9 +1201,7 @@ export class InvokeAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -564,4 +1220,16 @@ export class InvokeAgentCommand extends $Command
   .f(InvokeAgentRequestFilterSensitiveLog, InvokeAgentResponseFilterSensitiveLog)
   .ser(se_InvokeAgentCommand)
   .de(de_InvokeAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeAgentRequest;
+      output: InvokeAgentResponse;
+    };
+    sdk: {
+      input: InvokeAgentCommandInput;
+      output: InvokeAgentCommandOutput;
+    };
+  };
+}

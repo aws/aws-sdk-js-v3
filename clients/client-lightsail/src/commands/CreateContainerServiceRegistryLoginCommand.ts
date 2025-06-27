@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  *          <note>
  *             <p>This action is not required if you install and use the Lightsail Control
  *         (lightsailctl) plugin to push container images to your Lightsail container service. For
- *         more information, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
+ *         more information, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-pushing-container-images">Pushing and managing container images on your Amazon Lightsail container services</a>
  *         in the <i>Amazon Lightsail Developer Guide</i>.</p>
  *          </note>
  * @example
@@ -107,6 +108,7 @@ export interface CreateContainerServiceRegistryLoginCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateContainerServiceRegistryLoginCommand extends $Command
@@ -117,9 +119,7 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class CreateContainerServiceRegistryLoginCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContainerServiceRegistryLoginCommand)
   .de(de_CreateContainerServiceRegistryLoginCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: CreateContainerServiceRegistryLoginResult;
+    };
+    sdk: {
+      input: CreateContainerServiceRegistryLoginCommandInput;
+      output: CreateContainerServiceRegistryLoginCommandOutput;
+    };
+  };
+}

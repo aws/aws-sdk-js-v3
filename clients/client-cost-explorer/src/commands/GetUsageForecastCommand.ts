@@ -12,7 +12,8 @@ import { de_GetUsageForecastCommand, se_GetUsageForecastCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *       MatchOptions: "<MatchOptions>",
  *     },
  *   },
+ *   BillingViewArn: "STRING_VALUE",
  *   PredictionIntervalLevel: Number("int"),
  * };
  * const command = new GetUsageForecastCommand(input);
@@ -145,6 +147,9 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  * @throws {@link LimitExceededException} (client fault)
  *  <p>You made too many calls in a short period of time. Try again later.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
+ *
  * @throws {@link UnresolvableUsageUnitException} (client fault)
  *  <p>Cost Explorer was unable to identify the usage unit. Provide
  *                 <code>UsageType/UsageTypeGroup</code> filter selections that contain matching units,
@@ -152,6 +157,7 @@ export interface GetUsageForecastCommandOutput extends GetUsageForecastResponse,
  *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
+ *
  *
  * @public
  */
@@ -163,9 +169,7 @@ export class GetUsageForecastCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +181,16 @@ export class GetUsageForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUsageForecastCommand)
   .de(de_GetUsageForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUsageForecastRequest;
+      output: GetUsageForecastResponse;
+    };
+    sdk: {
+      input: GetUsageForecastCommandInput;
+      output: GetUsageForecastCommandOutput;
+    };
+  };
+}

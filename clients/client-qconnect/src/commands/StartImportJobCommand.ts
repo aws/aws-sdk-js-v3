@@ -9,14 +9,15 @@ import {
   StartImportJobRequest,
   StartImportJobResponse,
   StartImportJobResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_StartImportJobCommand, se_StartImportJobCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,6 +124,7 @@ export interface StartImportJobCommandOutput extends StartImportJobResponse, __M
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class StartImportJobCommand extends $Command
@@ -133,9 +135,7 @@ export class StartImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class StartImportJobCommand extends $Command
   .f(void 0, StartImportJobResponseFilterSensitiveLog)
   .ser(se_StartImportJobCommand)
   .de(de_StartImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportJobRequest;
+      output: StartImportJobResponse;
+    };
+    sdk: {
+      input: StartImportJobCommandInput;
+      output: StartImportJobCommandOutput;
+    };
+  };
+}

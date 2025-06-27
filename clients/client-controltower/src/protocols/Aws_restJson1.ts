@@ -59,6 +59,10 @@ import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
 } from "../commands/ListEnabledControlsCommand";
+import {
+  ListLandingZoneOperationsCommandInput,
+  ListLandingZoneOperationsCommandOutput,
+} from "../commands/ListLandingZoneOperationsCommand";
 import { ListLandingZonesCommandInput, ListLandingZonesCommandOutput } from "../commands/ListLandingZonesCommand";
 import {
   ListTagsForResourceCommandInput,
@@ -68,6 +72,10 @@ import {
   ResetEnabledBaselineCommandInput,
   ResetEnabledBaselineCommandOutput,
 } from "../commands/ResetEnabledBaselineCommand";
+import {
+  ResetEnabledControlCommandInput,
+  ResetEnabledControlCommandOutput,
+} from "../commands/ResetEnabledControlCommand";
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "../commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -92,6 +100,7 @@ import {
   ControlOperationType,
   DriftStatus,
   EnabledBaselineDetails,
+  EnabledBaselineDriftStatus,
   EnabledBaselineFilter,
   EnabledBaselineParameter,
   EnabledBaselineParameterSummary,
@@ -103,6 +112,9 @@ import {
   InternalServerException,
   LandingZoneDetail,
   LandingZoneOperationDetail,
+  LandingZoneOperationFilter,
+  LandingZoneOperationStatus,
+  LandingZoneOperationType,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
   ThrottlingException,
@@ -468,6 +480,7 @@ export const se_ListEnabledBaselinesCommand = async (
   body = JSON.stringify(
     take(input, {
       filter: (_) => _json(_),
+      includeChildren: [],
       maxResults: [],
       nextToken: [],
     })
@@ -495,6 +508,30 @@ export const se_ListEnabledControlsCommand = async (
       maxResults: [],
       nextToken: [],
       targetIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListLandingZoneOperationsCommand
+ */
+export const se_ListLandingZoneOperationsCommand = async (
+  input: ListLandingZoneOperationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-landingzone-operations");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -563,6 +600,28 @@ export const se_ResetEnabledBaselineCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ResetEnabledControlCommand
+ */
+export const se_ResetEnabledControlCommand = async (
+  input: ResetEnabledControlCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reset-enabled-control");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledControlIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ResetLandingZoneCommand
  */
 export const se_ResetLandingZoneCommand = async (
@@ -619,10 +678,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1067,6 +1123,28 @@ export const de_ListEnabledControlsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListLandingZoneOperationsCommand
+ */
+export const de_ListLandingZoneOperationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListLandingZoneOperationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    landingZoneOperations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListLandingZonesCommand
  */
 export const de_ListLandingZonesCommand = async (
@@ -1116,6 +1194,27 @@ export const de_ResetEnabledBaselineCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<ResetEnabledBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ResetEnabledControlCommand
+ */
+export const de_ResetEnabledControlCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetEnabledControlCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -1437,6 +1536,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_EnabledBaselineBaselineIdentifiers omitted.
 
+// se_EnabledBaselineDriftStatuses omitted.
+
+// se_EnabledBaselineEnablementStatuses omitted.
+
 // se_EnabledBaselineFilter omitted.
 
 /**
@@ -1467,6 +1570,8 @@ const se_EnabledBaselineParameters = (input: EnabledBaselineParameter[], context
     });
 };
 
+// se_EnabledBaselineParentIdentifiers omitted.
+
 // se_EnabledBaselineTargetIdentifiers omitted.
 
 // se_EnabledControlFilter omitted.
@@ -1495,6 +1600,12 @@ const se_EnabledControlParameters = (input: EnabledControlParameter[], context: 
 };
 
 // se_EnablementStatuses omitted.
+
+// se_LandingZoneOperationFilter omitted.
+
+// se_LandingZoneOperationStatuses omitted.
+
+// se_LandingZoneOperationTypes omitted.
 
 /**
  * serializeAws_restJson1Manifest
@@ -1588,11 +1699,19 @@ const de_EnabledBaselineDetails = (output: any, context: __SerdeContext): Enable
     arn: __expectString,
     baselineIdentifier: __expectString,
     baselineVersion: __expectString,
+    driftStatusSummary: _json,
     parameters: (_: any) => de_EnabledBaselineParameterSummaries(_, context),
+    parentIdentifier: __expectString,
     statusSummary: _json,
     targetIdentifier: __expectString,
   }) as any;
 };
+
+// de_EnabledBaselineDriftStatusSummary omitted.
+
+// de_EnabledBaselineDriftTypes omitted.
+
+// de_EnabledBaselineInheritanceDrift omitted.
 
 /**
  * deserializeAws_restJson1EnabledBaselineParameterDocument
@@ -1698,12 +1817,17 @@ const de_LandingZoneDetail = (output: any, context: __SerdeContext): LandingZone
 const de_LandingZoneOperationDetail = (output: any, context: __SerdeContext): LandingZoneOperationDetail => {
   return take(output, {
     endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationIdentifier: __expectString,
     operationType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     status: __expectString,
     statusMessage: __expectString,
   }) as any;
 };
+
+// de_LandingZoneOperations omitted.
+
+// de_LandingZoneOperationSummary omitted.
 
 // de_LandingZoneSummaries omitted.
 
@@ -1740,13 +1864,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";

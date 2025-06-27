@@ -16,3 +16,4 @@ export * from "./waitForVariantImportJobCreated";
 export * from "./waitForVariantStoreCreated";
 export * from "./waitForVariantStoreDeleted";
 export * from "./waitForWorkflowActive";
+export * from "./waitForWorkflowVersionActive";

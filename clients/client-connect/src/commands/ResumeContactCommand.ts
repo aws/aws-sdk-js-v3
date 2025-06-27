@@ -12,7 +12,8 @@ import { de_ResumeContactCommand, se_ResumeContactCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ResumeContactCommandOutput extends ResumeContactResponse, __Met
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ResumeContactCommand extends $Command
@@ -86,9 +88,7 @@ export class ResumeContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ResumeContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResumeContactCommand)
   .de(de_ResumeContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeContactRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResumeContactCommandInput;
+      output: ResumeContactCommandOutput;
+    };
+  };
+}

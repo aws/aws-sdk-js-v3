@@ -12,7 +12,8 @@ import { de_ListDetectorModelVersionsCommand, se_ListDetectorModelVersionsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface ListDetectorModelVersionsCommandOutput extends ListDetectorMode
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class ListDetectorModelVersionsCommand extends $Command
@@ -94,9 +96,7 @@ export class ListDetectorModelVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListDetectorModelVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDetectorModelVersionsCommand)
   .de(de_ListDetectorModelVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDetectorModelVersionsRequest;
+      output: ListDetectorModelVersionsResponse;
+    };
+    sdk: {
+      input: ListDetectorModelVersionsCommandInput;
+      output: ListDetectorModelVersionsCommandOutput;
+    };
+  };
+}

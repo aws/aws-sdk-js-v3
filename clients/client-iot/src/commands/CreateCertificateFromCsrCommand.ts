@@ -12,7 +12,8 @@ import { de_CreateCertificateFromCsrCommand, se_CreateCertificateFromCsrCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,6 +120,7 @@ export interface CreateCertificateFromCsrCommandOutput extends CreateCertificate
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateCertificateFromCsrCommand extends $Command
@@ -129,9 +131,7 @@ export class CreateCertificateFromCsrCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +143,16 @@ export class CreateCertificateFromCsrCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCertificateFromCsrCommand)
   .de(de_CreateCertificateFromCsrCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCertificateFromCsrRequest;
+      output: CreateCertificateFromCsrResponse;
+    };
+    sdk: {
+      input: CreateCertificateFromCsrCommandInput;
+      output: CreateCertificateFromCsrCommandOutput;
+    };
+  };
+}

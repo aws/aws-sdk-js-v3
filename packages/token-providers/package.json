@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/token-providers",
-  "version": "3.587.0",
+  "version": "3.835.0",
   "description": "A collection of token providers",
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -14,7 +14,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "keywords": [
     "aws",
@@ -26,26 +27,25 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
+    "@aws-sdk/core": "*",
+    "@aws-sdk/nested-clients": "*",
     "@aws-sdk/types": "*",
-    "@smithy/property-provider": "^3.1.0",
-    "@smithy/shared-ini-file-loader": "^3.1.0",
-    "@smithy/types": "^3.0.0",
+    "@smithy/property-provider": "^4.0.4",
+    "@smithy/shared-ini-file-loader": "^4.0.4",
+    "@smithy/types": "^4.3.1",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
-    "@types/node": "^16.18.96",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
-  },
-  "peerDependencies": {
-    "@aws-sdk/client-sso-oidc": "*"
+    "typescript": "~5.8.3"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

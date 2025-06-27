@@ -21,7 +21,8 @@ import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -132,6 +133,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceCommand extends $Command
@@ -142,9 +144,7 @@ export class CreateServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +156,16 @@ export class CreateServiceCommand extends $Command
   .f(CreateServiceRequestFilterSensitiveLog, CreateServiceResponseFilterSensitiveLog)
   .ser(se_CreateServiceCommand)
   .de(de_CreateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceRequest;
+      output: CreateServiceResponse;
+    };
+    sdk: {
+      input: CreateServiceCommandInput;
+      output: CreateServiceCommandOutput;
+    };
+  };
+}

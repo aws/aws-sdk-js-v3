@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -211,6 +212,7 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * //       DBInstanceArn: "STRING_VALUE",
  * //       Timezone: "STRING_VALUE",
  * //       IAMDatabaseAuthenticationEnabled: true || false,
+ * //       DatabaseInsightsMode: "standard" || "advanced",
  * //       PerformanceInsightsEnabled: true || false,
  * //       PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //       PerformanceInsightsRetentionPeriod: Number("int"),
@@ -297,36 +299,36 @@ export interface DescribeDBInstancesCommandOutput extends DBInstanceMessage, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe a DB instance
  * ```javascript
  * // The following example retrieves details about the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "mydbinstancecf"
+ *   DBInstanceIdentifier: "mydbinstancecf"
  * };
  * const command = new DescribeDBInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstances": [
+ *   DBInstances: [
  *     {
- *       "DBInstanceClass": "db.t3.small",
- *       "DBInstanceIdentifier": "mydbinstancecf",
- *       "DBInstanceStatus": "available",
- *       "Endpoint": {
- *         "Address": "mydbinstancecf.abcexample.us-east-1.rds.amazonaws.com",
- *         "HostedZoneId": "Z2R2ITUGPM61AM",
- *         "Port": 3306
+ *       DBInstanceClass: "db.t3.small",
+ *       DBInstanceIdentifier: "mydbinstancecf",
+ *       DBInstanceStatus: "available",
+ *       Endpoint: {
+ *         Address: "mydbinstancecf.abcexample.us-east-1.rds.amazonaws.com",
+ *         HostedZoneId: "Z2R2ITUGPM61AM",
+ *         Port: 3306
  *       },
- *       "Engine": "mysql",
- *       "MasterUsername": "admin"
+ *       Engine: "mysql",
+ *       MasterUsername: "admin"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-a-db-instance-1680217544524
  * ```
  *
+ * @public
  */
 export class DescribeDBInstancesCommand extends $Command
   .classBuilder<
@@ -336,9 +338,7 @@ export class DescribeDBInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -350,4 +350,16 @@ export class DescribeDBInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBInstancesCommand)
   .de(de_DescribeDBInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBInstancesMessage;
+      output: DBInstanceMessage;
+    };
+    sdk: {
+      input: DescribeDBInstancesCommandInput;
+      output: DescribeDBInstancesCommandOutput;
+    };
+  };
+}

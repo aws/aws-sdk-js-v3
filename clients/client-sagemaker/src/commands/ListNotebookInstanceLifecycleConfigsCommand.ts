@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ListNotebookInstanceLifecycleConfigsInput,
   ListNotebookInstanceLifecycleConfigsOutput,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_ListNotebookInstanceLifecycleConfigsCommand,
   se_ListNotebookInstanceLifecycleConfigsCommand,
@@ -18,7 +18,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface ListNotebookInstanceLifecycleConfigsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListNotebookInstanceLifecycleConfigsCommand extends $Command
@@ -88,9 +90,7 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ListNotebookInstanceLifecycleConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListNotebookInstanceLifecycleConfigsCommand)
   .de(de_ListNotebookInstanceLifecycleConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListNotebookInstanceLifecycleConfigsInput;
+      output: ListNotebookInstanceLifecycleConfigsOutput;
+    };
+    sdk: {
+      input: ListNotebookInstanceLifecycleConfigsCommandInput;
+      output: ListNotebookInstanceLifecycleConfigsCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartMonitoringScheduleRequest } from "../models/models_4";
+import { StartMonitoringScheduleRequest } from "../models/models_5";
 import { de_StartMonitoringScheduleCommand, se_StartMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface StartMonitoringScheduleCommandInput extends StartMonitoringSche
 export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Starts a previously stopped monitoring schedule.</p>
- *          <note>
- *             <p>By default, when you successfully create a new schedule, the status of a monitoring
- *             schedule is <code>scheduled</code>.</p>
- *          </note>
+ * <p>Starts a previously stopped monitoring schedule.</p> <note> <p>By default, when you successfully create a new schedule, the status of a monitoring schedule is <code>scheduled</code>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +56,7 @@ export interface StartMonitoringScheduleCommandOutput extends __MetadataBearer {
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StartMonitoringScheduleCommand extends $Command
@@ -69,9 +67,7 @@ export class StartMonitoringScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +79,16 @@ export class StartMonitoringScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMonitoringScheduleCommand)
   .de(de_StartMonitoringScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMonitoringScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartMonitoringScheduleCommandInput;
+      output: StartMonitoringScheduleCommandOutput;
+    };
+  };
+}

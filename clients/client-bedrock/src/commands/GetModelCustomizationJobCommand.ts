@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetModelCustomizationJobRequest, GetModelCustomizationJobResponse } from "../models/models_0";
+import {
+  GetModelCustomizationJobRequest,
+  GetModelCustomizationJobResponse,
+  GetModelCustomizationJobResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_GetModelCustomizationJobCommand, se_GetModelCustomizationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +32,7 @@ export interface GetModelCustomizationJobCommandInput extends GetModelCustomizat
 export interface GetModelCustomizationJobCommandOutput extends GetModelCustomizationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the properties associated with a model-customization job, including the status of the job.
- *          For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Retrieves the properties associated with a model-customization job, including the status of the job. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,16 +52,65 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   clientRequestToken: "STRING_VALUE",
  * //   roleArn: "STRING_VALUE", // required
  * //   status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ * //   statusDetails: { // StatusDetails
+ * //     validationDetails: { // ValidationDetails
+ * //       status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     dataProcessingDetails: { // DataProcessingDetails
+ * //       status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //     trainingDetails: { // TrainingDetails
+ * //       status: "InProgress" || "Completed" || "Stopping" || "Stopped" || "Failed" || "NotStarted",
+ * //       creationTime: new Date("TIMESTAMP"),
+ * //       lastModifiedTime: new Date("TIMESTAMP"),
+ * //     },
+ * //   },
  * //   failureMessage: "STRING_VALUE",
  * //   creationTime: new Date("TIMESTAMP"), // required
  * //   lastModifiedTime: new Date("TIMESTAMP"),
  * //   endTime: new Date("TIMESTAMP"),
  * //   baseModelArn: "STRING_VALUE", // required
- * //   hyperParameters: { // ModelCustomizationHyperParameters // required
+ * //   hyperParameters: { // ModelCustomizationHyperParameters
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   trainingDataConfig: { // TrainingDataConfig
- * //     s3Uri: "STRING_VALUE", // required
+ * //     s3Uri: "STRING_VALUE",
+ * //     invocationLogsConfig: { // InvocationLogsConfig
+ * //       usePromptResponse: true || false,
+ * //       invocationLogSource: { // InvocationLogSource Union: only one key present
+ * //         s3Uri: "STRING_VALUE",
+ * //       },
+ * //       requestMetadataFilters: { // RequestMetadataFilters Union: only one key present
+ * //         equals: { // RequestMetadataMap
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         notEquals: {
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
+ * //         andAll: [ // RequestMetadataFiltersList
+ * //           { // RequestMetadataBaseFilters
+ * //             equals: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             notEquals: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //           },
+ * //         ],
+ * //         orAll: [
+ * //           {
+ * //             equals: {
+ * //               "<keys>": "STRING_VALUE",
+ * //             },
+ * //             notEquals: "<RequestMetadataMap>",
+ * //           },
+ * //         ],
+ * //       },
+ * //     },
  * //   },
  * //   validationDataConfig: { // ValidationDataConfig
  * //     validators: [ // Validators // required
@@ -69,7 +122,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //   outputDataConfig: { // OutputDataConfig
  * //     s3Uri: "STRING_VALUE", // required
  * //   },
- * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //   customizationType: "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION" || "IMPORTED",
  * //   outputModelKmsKeyArn: "STRING_VALUE",
  * //   trainingMetrics: { // TrainingMetrics
  * //     trainingLoss: Number("float"),
@@ -86,6 +139,14 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * //     securityGroupIds: [ // SecurityGroupIds // required
  * //       "STRING_VALUE",
  * //     ],
+ * //   },
+ * //   customizationConfig: { // CustomizationConfig Union: only one key present
+ * //     distillationConfig: { // DistillationConfig
+ * //       teacherModelConfig: { // TeacherModelConfig
+ * //         teacherModelIdentifier: "STRING_VALUE", // required
+ * //         maxResponseLengthForInference: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * // };
  *
@@ -115,6 +176,7 @@ export interface GetModelCustomizationJobCommandOutput extends GetModelCustomiza
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetModelCustomizationJobCommand extends $Command
@@ -125,9 +187,7 @@ export class GetModelCustomizationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,7 +196,19 @@ export class GetModelCustomizationJobCommand extends $Command
   })
   .s("AmazonBedrockControlPlaneService", "GetModelCustomizationJob", {})
   .n("BedrockClient", "GetModelCustomizationJobCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetModelCustomizationJobResponseFilterSensitiveLog)
   .ser(se_GetModelCustomizationJobCommand)
   .de(de_GetModelCustomizationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetModelCustomizationJobRequest;
+      output: GetModelCustomizationJobResponse;
+    };
+    sdk: {
+      input: GetModelCustomizationJobCommandInput;
+      output: GetModelCustomizationJobCommandOutput;
+    };
+  };
+}

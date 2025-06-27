@@ -13,7 +13,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,12 +31,16 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
 /**
  * <p>Creates a new DB instance that acts as a read replica for an existing source DB
  *             instance or Multi-AZ DB cluster. You can create a read replica for a DB instance running
- *             Db2, MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
+ *             MariaDB, MySQL, Oracle, PostgreSQL, or SQL Server. You can create a read replica for a
  *             Multi-AZ DB cluster running MySQL or PostgreSQL. For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ReadRepl.html">Working
- *                 with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a> in the <i>Amazon RDS User Guide</i>.</p>
+ *                 with read replicas</a> and <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html#multi-az-db-clusters-migrating-to-instance-with-read-replica">Migrating from a Multi-AZ DB cluster to a DB instance using a read replica</a>
+ *             in the <i>Amazon RDS User Guide</i>.</p>
+ *          <p>Amazon RDS for Db2 supports this operation for standby replicas. To create a standby
+ *             replica for a DB instance running Db2, you must set <code>ReplicaMode</code> to
+ *                 <code>mounted</code>.</p>
  *          <p>Amazon Aurora doesn't support this operation. To create a DB instance for an Aurora DB cluster, use the <code>CreateDBInstance</code>
  *             operation.</p>
- *          <p>All read replica DB instances are created with backups disabled. All other attributes
+ *          <p>RDS creates read replicas with backups disabled. All other attributes
  *             (including DB security groups and DB parameter groups) are inherited from the source DB
  *             instance or cluster, except as specified.</p>
  *          <important>
@@ -76,6 +81,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   KmsKeyId: "STRING_VALUE",
  *   PreSignedUrl: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
+ *   DatabaseInsightsMode: "standard" || "advanced",
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
@@ -104,6 +110,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  *   NetworkType: "STRING_VALUE",
  *   StorageThroughput: Number("int"),
  *   EnableCustomerOwnedIp: true || false,
+ *   BackupTarget: "STRING_VALUE",
  *   AllocatedStorage: Number("int"),
  *   SourceDBClusterIdentifier: "STRING_VALUE",
  *   DedicatedLogVolume: true || false,
@@ -269,6 +276,7 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -438,30 +446,30 @@ export interface CreateDBInstanceReadReplicaCommandOutput extends CreateDBInstan
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB instance read replica
  * ```javascript
  * // This example creates a read replica of an existing DB instance named test-instance. The read replica is named test-instance-repl.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance-repl",
- *   "SourceDBInstanceIdentifier": "test-instance"
+ *   DBInstanceIdentifier: "test-instance-repl",
+ *   SourceDBInstanceIdentifier: "test-instance"
  * };
  * const command = new CreateDBInstanceReadReplicaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
- *     "DBInstanceIdentifier": "test-instance-repl",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "MonitoringInterval": 0,
- *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance"
+ *   DBInstance: {
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     DBInstanceIdentifier: "test-instance-repl",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     MonitoringInterval: 0,
+ *     ReadReplicaSourceDBInstanceIdentifier: "test-instance"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-instance-read-replica-1680129486105
  * ```
  *
+ * @public
  */
 export class CreateDBInstanceReadReplicaCommand extends $Command
   .classBuilder<
@@ -471,9 +479,7 @@ export class CreateDBInstanceReadReplicaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -486,4 +492,16 @@ export class CreateDBInstanceReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBInstanceReadReplicaCommand)
   .de(de_CreateDBInstanceReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBInstanceReadReplicaMessage;
+      output: CreateDBInstanceReadReplicaResult;
+    };
+    sdk: {
+      input: CreateDBInstanceReadReplicaCommandInput;
+      output: CreateDBInstanceReadReplicaCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,12 @@ export interface GetCommandInvocationCommandInput extends GetCommandInvocationRe
 export interface GetCommandInvocationCommandOutput extends GetCommandInvocationResult, __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about command execution for an invocation or plugin.</p>
+ * <p>Returns detailed information about command execution for an invocation or plugin. The Run
+ *    Command API follows an eventual consistency model, due to the distributed nature of the system
+ *    supporting the API. This means that the result of an API command you run that affects your
+ *    resources might not be immediately visible to all subsequent commands you run. You should keep
+ *    this in mind when you carry out an API command that immediately follows a previous API
+ *    command.</p>
  *          <p>
  *             <code>GetCommandInvocation</code> only gives the execution status of a plugin in a document.
  *    To get the command execution status on a specific managed node, use <a>ListCommandInvocations</a>. To get the command execution status across managed nodes,
@@ -112,6 +118,7 @@ export interface GetCommandInvocationCommandOutput extends GetCommandInvocationR
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetCommandInvocationCommand extends $Command
@@ -122,9 +129,7 @@ export class GetCommandInvocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +141,16 @@ export class GetCommandInvocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCommandInvocationCommand)
   .de(de_GetCommandInvocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCommandInvocationRequest;
+      output: GetCommandInvocationResult;
+    };
+    sdk: {
+      input: GetCommandInvocationCommandInput;
+      output: GetCommandInvocationCommandOutput;
+    };
+  };
+}

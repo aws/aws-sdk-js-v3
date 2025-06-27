@@ -16,7 +16,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface DeleteAccessPointPolicyForObjectLambdaCommandOutput extends __M
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command
@@ -102,4 +104,16 @@ export class DeleteAccessPointPolicyForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccessPointPolicyForObjectLambdaCommand)
   .de(de_DeleteAccessPointPolicyForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccessPointPolicyForObjectLambdaRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccessPointPolicyForObjectLambdaCommandInput;
+      output: DeleteAccessPointPolicyForObjectLambdaCommandOutput;
+    };
+  };
+}

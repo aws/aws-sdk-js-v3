@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Enables or disables automated sensitive data discovery for an account.</p>
+ * <p>Changes the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,6 +45,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * // const { Macie2Client, UpdateAutomatedDiscoveryConfigurationCommand } = require("@aws-sdk/client-macie2"); // CommonJS import
  * const client = new Macie2Client(config);
  * const input = { // UpdateAutomatedDiscoveryConfigurationRequest
+ *   autoEnableOrganizationMembers: "ALL" || "NEW" || "NONE",
  *   status: "ENABLED" || "DISABLED", // required
  * };
  * const command = new UpdateAutomatedDiscoveryConfigurationCommand(input);
@@ -73,6 +75,7 @@ export interface UpdateAutomatedDiscoveryConfigurationCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command
@@ -83,9 +86,7 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +98,16 @@ export class UpdateAutomatedDiscoveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAutomatedDiscoveryConfigurationCommand)
   .de(de_UpdateAutomatedDiscoveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAutomatedDiscoveryConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAutomatedDiscoveryConfigurationCommandInput;
+      output: UpdateAutomatedDiscoveryConfigurationCommandOutput;
+    };
+  };
+}

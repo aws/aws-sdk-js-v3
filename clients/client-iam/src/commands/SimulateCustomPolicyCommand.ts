@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IAMClient";
-import { SimulateCustomPolicyRequest, SimulatePolicyResponse } from "../models/models_0";
+import { SimulateCustomPolicyRequest } from "../models/models_0";
+import { SimulatePolicyResponse } from "../models/models_1";
 import { de_SimulateCustomPolicyCommand, se_SimulateCustomPolicyCommand } from "../protocols/Aws_query";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -174,6 +176,7 @@ export interface SimulateCustomPolicyCommandOutput extends SimulatePolicyRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class SimulateCustomPolicyCommand extends $Command
@@ -184,9 +187,7 @@ export class SimulateCustomPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -198,4 +199,16 @@ export class SimulateCustomPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SimulateCustomPolicyCommand)
   .de(de_SimulateCustomPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SimulateCustomPolicyRequest;
+      output: SimulatePolicyResponse;
+    };
+    sdk: {
+      input: SimulateCustomPolicyCommandInput;
+      output: SimulateCustomPolicyCommandOutput;
+    };
+  };
+}

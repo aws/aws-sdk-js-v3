@@ -1,20 +1,21 @@
-describe("emitWarningIfUnsupportedVersion", () => {
-  let emitWarningIfUnsupportedVersion: any;
-  const emitWarning = process.emitWarning;
-  const supportedVersion = "16.0.0";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
-  beforeEach(() => {
-    const module = require("./emitWarningIfUnsupportedVersion");
-    emitWarningIfUnsupportedVersion = module.emitWarningIfUnsupportedVersion;
-  });
+import { emitWarningIfUnsupportedVersion, state } from "./emitWarningIfUnsupportedVersion";
+
+describe("emitWarningIfUnsupportedVersion", () => {
+  const emitWarning = process.emitWarning;
+  const supportedVersion = "18.0.0";
+
+  beforeEach(() => {});
 
   afterEach(() => {
-    jest.clearAllMocks();
-    jest.resetModules();
+    vi.clearAllMocks();
+    vi.resetModules();
     process.emitWarning = emitWarning;
+    state.warningEmitted = false;
   });
 
-  describe.skip(`emits warning for Node.js <${supportedVersion}`, () => {
+  describe(`emits warning for Node.js <${supportedVersion}`, () => {
     const getPreviousMajorVersion = (major: number) => (major === 0 ? 0 : major - 1);
 
     const getPreviousMinorVersion = ([major, minor]: [number, number]) =>
@@ -31,19 +32,19 @@ describe("emitWarningIfUnsupportedVersion", () => {
         [getPreviousMajorVersion(major), 0, 0],
       ].map((arr) => `v${arr.join(".")}`)
     )(`%s`, async (unsupportedVersion) => {
-      process.emitWarning = jest.fn();
+      process.emitWarning = vi.fn() as any;
       emitWarningIfUnsupportedVersion(unsupportedVersion);
 
       // Verify that the warning was emitted.
       expect(process.emitWarning).toHaveBeenCalledTimes(1);
       expect(process.emitWarning).toHaveBeenCalledWith(
         `NodeDeprecationWarning: The AWS SDK for JavaScript (v3) will
-no longer support Node.js 14.x on May 1, 2024.
+no longer support Node.js 16.x on January 6, 2025.
 
 To continue receiving updates to AWS services, bug fixes, and security
-updates please upgrade to an active Node.js LTS version.
+updates please upgrade to a supported Node.js LTS version.
 
-More information can be found at: https://a.co/dzr2AJd`
+More information can be found at: https://a.co/74kJMmI`
       );
 
       // Verify that the warning emits only once.
@@ -62,7 +63,7 @@ More information can be found at: https://a.co/dzr2AJd`
         [major + 1, 0, 0],
       ].map((arr) => `v${arr.join(".")}`)
     )(`%s`, async (unsupportedVersion) => {
-      process.emitWarning = jest.fn();
+      process.emitWarning = vi.fn() as any;
       emitWarningIfUnsupportedVersion(unsupportedVersion);
       expect(process.emitWarning).not.toHaveBeenCalled();
     });

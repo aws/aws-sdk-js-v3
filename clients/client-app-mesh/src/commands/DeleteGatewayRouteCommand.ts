@@ -12,7 +12,8 @@ import { de_DeleteGatewayRouteCommand, se_DeleteGatewayRouteCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -258,6 +259,7 @@ export interface DeleteGatewayRouteCommandOutput extends DeleteGatewayRouteOutpu
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DeleteGatewayRouteCommand extends $Command
@@ -268,9 +270,7 @@ export class DeleteGatewayRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -282,4 +282,16 @@ export class DeleteGatewayRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGatewayRouteCommand)
   .de(de_DeleteGatewayRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGatewayRouteInput;
+      output: DeleteGatewayRouteOutput;
+    };
+    sdk: {
+      input: DeleteGatewayRouteCommandInput;
+      output: DeleteGatewayRouteCommandOutput;
+    };
+  };
+}

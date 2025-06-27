@@ -11,7 +11,7 @@
  *          logging verbosity, and perform other operational tuning to quickly respond to issues in
  *          production environments.</p>
  *          <note>
- *             <p>AppConfig is a capability of Amazon Web Services Systems Manager.</p>
+ *             <p>AppConfig is a tool in Amazon Web Services Systems Manager.</p>
  *          </note>
  *          <p>Despite the fact that application configuration content can vary greatly from
  *          application to application, AppConfig supports the following use cases, which
@@ -157,10 +157,11 @@
 export * from "./AppConfigClient";
 export * from "./AppConfig";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { AppConfigExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { AppConfigExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
+export * from "./waiters";
 export * from "./models";
 
 export { AppConfigServiceException } from "./models/AppConfigServiceException";

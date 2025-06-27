@@ -16,7 +16,8 @@ import { de_CreateProposalCommand, se_CreateProposalCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface CreateProposalCommandOutput extends CreateProposalOutput, __Met
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateProposalCommand extends $Command
@@ -111,9 +113,7 @@ export class CreateProposalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class CreateProposalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProposalCommand)
   .de(de_CreateProposalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProposalInput;
+      output: CreateProposalOutput;
+    };
+    sdk: {
+      input: CreateProposalCommandInput;
+      output: CreateProposalCommandOutput;
+    };
+  };
+}

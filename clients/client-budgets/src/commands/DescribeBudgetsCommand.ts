@@ -12,7 +12,8 @@ import { de_DescribeBudgetsCommand, se_DescribeBudgetsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,8 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
 /**
  * <p>Lists the budgets that are associated with an account.</p>
  *          <important>
- *             <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a> section. </p>
+ *             <p>The Request Syntax section shows the <code>BudgetLimit</code> syntax. For
+ *                <code>PlannedBudgetLimits</code>, see the <a href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_DescribeBudgets.html#API_DescribeBudgets_Examples">Examples</a> section.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -41,6 +43,7 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  *   AccountId: "STRING_VALUE", // required
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   ShowFilterExpression: true || false,
  * };
  * const command = new DescribeBudgetsCommand(input);
  * const response = await client.send(command);
@@ -101,6 +104,76 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * //         },
  * //         LastAutoAdjustTime: new Date("TIMESTAMP"),
  * //       },
+ * //       FilterExpression: { // Expression
+ * //         Or: [ // Expressions
+ * //           {
+ * //             Or: [
+ * //               "<Expression>",
+ * //             ],
+ * //             And: [
+ * //               "<Expression>",
+ * //             ],
+ * //             Not: "<Expression>",
+ * //             Dimensions: { // ExpressionDimensionValues
+ * //               Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ * //               Values: [ // Values // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               MatchOptions: [ // MatchOptions
+ * //                 "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //               ],
+ * //             },
+ * //             Tags: { // TagValues
+ * //               Key: "STRING_VALUE",
+ * //               Values: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               MatchOptions: [
+ * //                 "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //               ],
+ * //             },
+ * //             CostCategories: { // CostCategoryValues
+ * //               Key: "STRING_VALUE",
+ * //               Values: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               MatchOptions: [
+ * //                 "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //               ],
+ * //             },
+ * //           },
+ * //         ],
+ * //         And: [
+ * //           "<Expression>",
+ * //         ],
+ * //         Not: "<Expression>",
+ * //         Dimensions: {
+ * //           Key: "AZ" || "INSTANCE_TYPE" || "LINKED_ACCOUNT" || "LINKED_ACCOUNT_NAME" || "OPERATION" || "PURCHASE_TYPE" || "REGION" || "SERVICE" || "SERVICE_CODE" || "USAGE_TYPE" || "USAGE_TYPE_GROUP" || "RECORD_TYPE" || "OPERATING_SYSTEM" || "TENANCY" || "SCOPE" || "PLATFORM" || "SUBSCRIPTION_ID" || "LEGAL_ENTITY_NAME" || "INVOICING_ENTITY" || "DEPLOYMENT_OPTION" || "DATABASE_ENGINE" || "CACHE_ENGINE" || "INSTANCE_TYPE_FAMILY" || "BILLING_ENTITY" || "RESERVATION_ID" || "RESOURCE_ID" || "RIGHTSIZING_TYPE" || "SAVINGS_PLANS_TYPE" || "SAVINGS_PLAN_ARN" || "PAYMENT_OPTION" || "RESERVATION_MODIFIED" || "TAG_KEY" || "COST_CATEGORY_NAME", // required
+ * //           Values: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           MatchOptions: [
+ * //             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //           ],
+ * //         },
+ * //         Tags: {
+ * //           Key: "STRING_VALUE",
+ * //           Values: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           MatchOptions: [
+ * //             "EQUALS" || "ABSENT" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "GREATER_THAN_OR_EQUAL" || "CASE_SENSITIVE" || "CASE_INSENSITIVE",
+ * //           ],
+ * //         },
+ * //         CostCategories: {
+ * //           Key: "STRING_VALUE",
+ * //           Values: "<Values>",
+ * //           MatchOptions: "<MatchOptions>",
+ * //         },
+ * //       },
+ * //       Metrics: [ // Metrics
+ * //         "BlendedCost" || "UnblendedCost" || "AmortizedCost" || "NetUnblendedCost" || "NetAmortizedCost" || "UsageQuantity" || "NormalizedUsageAmount" || "Hours",
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -139,6 +212,7 @@ export interface DescribeBudgetsCommandOutput extends DescribeBudgetsResponse, _
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class DescribeBudgetsCommand extends $Command
@@ -149,9 +223,7 @@ export class DescribeBudgetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +235,16 @@ export class DescribeBudgetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBudgetsCommand)
   .de(de_DescribeBudgetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBudgetsRequest;
+      output: DescribeBudgetsResponse;
+    };
+    sdk: {
+      input: DescribeBudgetsCommandInput;
+      output: DescribeBudgetsCommandOutput;
+    };
+  };
+}

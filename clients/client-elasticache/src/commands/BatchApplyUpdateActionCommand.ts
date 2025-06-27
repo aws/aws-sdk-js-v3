@@ -12,7 +12,8 @@ import { de_BatchApplyUpdateActionCommand, se_BatchApplyUpdateActionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
 
 /**
  * <p>Apply the service update. For more information on service updates and applying them,
- *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/applying-updates.html">Applying Service
+ *             see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/applying-updates.html">Applying Service
  *                 Updates</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -84,6 +85,7 @@ export interface BatchApplyUpdateActionCommandOutput extends UpdateActionResults
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class BatchApplyUpdateActionCommand extends $Command
@@ -94,9 +96,7 @@ export class BatchApplyUpdateActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class BatchApplyUpdateActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchApplyUpdateActionCommand)
   .de(de_BatchApplyUpdateActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchApplyUpdateActionMessage;
+      output: UpdateActionResultsMessage;
+    };
+    sdk: {
+      input: BatchApplyUpdateActionCommandInput;
+      output: BatchApplyUpdateActionCommandOutput;
+    };
+  };
+}

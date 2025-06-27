@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { convertToAttr } from "./convertToAttr";
 import { marshall } from "./marshall";
 

@@ -12,7 +12,8 @@ import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_ec2
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,26 +66,29 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a tag from a resource
  * ```javascript
  * // This example deletes the tag Stack=test from the specified image.
  * const input = {
- *   "Resources": [
+ *   Resources: [
  *     "ami-78a54011"
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "Stack",
- *       "Value": "test"
+ *       Key: "Stack",
+ *       Value: "test"
  *     }
  *   ]
  * };
  * const command = new DeleteTagsCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<
@@ -94,9 +98,7 @@ export class DeleteTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class DeleteTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagsCommand)
   .de(de_DeleteTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagsCommandInput;
+      output: DeleteTagsCommandOutput;
+    };
+  };
+}

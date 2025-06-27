@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -170,83 +171,83 @@ export interface CreateConfigurationPolicyCommandOutput extends CreateConfigurat
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To create a configuration policy
  * ```javascript
  * // This operation creates a configuration policy in Security Hub.
  * const input = {
- *   "ConfigurationPolicy": {
- *     "SecurityHub": {
- *       "EnabledStandardIdentifiers": [
+ *   ConfigurationPolicy: {
+ *     SecurityHub: {
+ *       EnabledStandardIdentifiers: [
  *         "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *         "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
  *       ],
- *       "SecurityControlsConfiguration": {
- *         "DisabledSecurityControlIdentifiers": [
+ *       SecurityControlsConfiguration: {
+ *         DisabledSecurityControlIdentifiers: [
  *           "CloudWatch.1"
  *         ],
- *         "SecurityControlCustomParameters": [
+ *         SecurityControlCustomParameters: [
  *           {
- *             "Parameters": {
- *               "daysToExpiration": {
- *                 "Value": {
- *                   "Integer": 14
+ *             Parameters: {
+ *               daysToExpiration: {
+ *                 Value: {
+ *                   Integer: 14
  *                 },
- *                 "ValueType": "CUSTOM"
+ *                 ValueType: "CUSTOM"
  *               }
  *             },
- *             "SecurityControlId": "ACM.1"
+ *             SecurityControlId: "ACM.1"
  *           }
  *         ]
  *       },
- *       "ServiceEnabled": true
+ *       ServiceEnabled: true
  *     }
  *   },
- *   "Description": "Configuration policy for testing FSBP and CIS",
- *   "Name": "TestConfigurationPolicy"
+ *   Description: "Configuration policy for testing FSBP and CIS",
+ *   Name: "TestConfigurationPolicy"
  * };
  * const command = new CreateConfigurationPolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Arn": "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "ConfigurationPolicy": {
- *     "SecurityHub": {
- *       "EnabledStandardIdentifiers": [
+ *   Arn: "arn:aws:securityhub:us-east-1:123456789012:configuration-policy/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   ConfigurationPolicy: {
+ *     SecurityHub: {
+ *       EnabledStandardIdentifiers: [
  *         "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *         "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"
  *       ],
- *       "SecurityControlsConfiguration": {
- *         "DisabledSecurityControlIdentifiers": [
+ *       SecurityControlsConfiguration: {
+ *         DisabledSecurityControlIdentifiers: [
  *           "CloudWatch.1"
  *         ],
- *         "SecurityControlCustomParameters": [
+ *         SecurityControlCustomParameters: [
  *           {
- *             "Parameters": {
- *               "daysToExpiration": {
- *                 "Value": {
- *                   "Integer": 14
+ *             Parameters: {
+ *               daysToExpiration: {
+ *                 Value: {
+ *                   Integer: 14
  *                 },
- *                 "ValueType": "CUSTOM"
+ *                 ValueType: "CUSTOM"
  *               }
  *             },
- *             "SecurityControlId": "ACM.1"
+ *             SecurityControlId: "ACM.1"
  *           }
  *         ]
  *       },
- *       "ServiceEnabled": true
+ *       ServiceEnabled: true
  *     }
  *   },
- *   "CreatedAt": "2023-01-11T06:17:17.154Z",
- *   "Description": "Configuration policy for testing FSBP and CIS",
- *   "Id": "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "Name": "TestConfigurationPolicy",
- *   "UpdatedAt": "2023-01-11T06:17:17.154Z"
+ *   CreatedAt: "2023-01-11T06:17:17.154Z",
+ *   Description: "Configuration policy for testing FSBP and CIS",
+ *   Id: "a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   Name: "TestConfigurationPolicy",
+ *   UpdatedAt: "2023-01-11T06:17:17.154Z"
  * }
  * *\/
- * // example id: to-create-a-configuration-policy-1695172470099
  * ```
  *
+ * @public
  */
 export class CreateConfigurationPolicyCommand extends $Command
   .classBuilder<
@@ -256,9 +257,7 @@ export class CreateConfigurationPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -270,4 +269,16 @@ export class CreateConfigurationPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationPolicyCommand)
   .de(de_CreateConfigurationPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationPolicyRequest;
+      output: CreateConfigurationPolicyResponse;
+    };
+    sdk: {
+      input: CreateConfigurationPolicyCommandInput;
+      output: CreateConfigurationPolicyCommandOutput;
+    };
+  };
+}

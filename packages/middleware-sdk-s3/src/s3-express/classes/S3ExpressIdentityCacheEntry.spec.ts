@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { S3ExpressIdentityCacheEntry } from "./S3ExpressIdentityCacheEntry";
 
 describe(S3ExpressIdentityCacheEntry.name, () => {

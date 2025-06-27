@@ -12,7 +12,8 @@ import { de_DescribeInterconnectLoaCommand, se_DescribeInterconnectLoaCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface DescribeInterconnectLoaCommandInput extends DescribeInterconnec
 export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconnectLoaResponse, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
+ * <note>
+ *             <p>Deprecated. Use <a>DescribeLoa</a> instead.</p>
+ *          </note>
  *          <p>Gets the LOA-CFA for the specified interconnect.</p>
  *          <p>The Letter of Authorization - Connecting Facility Assignment (LOA-CFA) is a document that is used when establishing your cross connect to Amazon Web Services at the colocation facility.
  *       For more information, see <a href="https://docs.aws.amazon.com/directconnect/latest/UserGuide/Colocation.html">Requesting Cross Connects at Direct Connect Locations</a>
@@ -71,6 +74,7 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeInterconnectLoaCommand extends $Command
@@ -81,9 +85,7 @@ export class DescribeInterconnectLoaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +97,16 @@ export class DescribeInterconnectLoaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInterconnectLoaCommand)
   .de(de_DescribeInterconnectLoaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInterconnectLoaRequest;
+      output: DescribeInterconnectLoaResponse;
+    };
+    sdk: {
+      input: DescribeInterconnectLoaCommandInput;
+      output: DescribeInterconnectLoaCommandOutput;
+    };
+  };
+}

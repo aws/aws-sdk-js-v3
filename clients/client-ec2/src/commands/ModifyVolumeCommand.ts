@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_6";
+import { ModifyVolumeRequest, ModifyVolumeResult } from "../models/models_7";
 import { de_ModifyVolumeCommand, se_ModifyVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,10 +35,7 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  *       in the <i>Amazon EBS User Guide</i>.</p>
  *          <p>When you complete a resize operation on your volume, you need to extend the volume's
  *       file-system size to take advantage of the new storage capacity. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/recognize-expanded-volume-linux.html">Extend the file system</a>.</p>
- *          <p> You can use CloudWatch Events to check the status of a modification to an EBS volume. For
- *       information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. You can also track the status of a
- *       modification using <a>DescribeVolumesModifications</a>. For information
- *       about tracking status changes using either method, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
  *          <p>With previous-generation instance types, resizing an EBS volume might require detaching and
  *       reattaching the volume or stopping and restarting the instance.</p>
  *          <p>After modifying a volume, you must wait at least six hours and ensure that the volume
@@ -92,6 +90,7 @@ export interface ModifyVolumeCommandOutput extends ModifyVolumeResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVolumeCommand extends $Command
@@ -102,9 +101,7 @@ export class ModifyVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +113,16 @@ export class ModifyVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyVolumeCommand)
   .de(de_ModifyVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVolumeRequest;
+      output: ModifyVolumeResult;
+    };
+    sdk: {
+      input: ModifyVolumeCommandInput;
+      output: ModifyVolumeCommandOutput;
+    };
+  };
+}

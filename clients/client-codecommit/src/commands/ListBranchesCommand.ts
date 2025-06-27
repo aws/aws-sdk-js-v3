@@ -12,7 +12,8 @@ import { de_ListBranchesCommand, se_ListBranchesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface ListBranchesCommandOutput extends ListBranchesOutput, __Metadat
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class ListBranchesCommand extends $Command
@@ -100,9 +102,7 @@ export class ListBranchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListBranchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBranchesCommand)
   .de(de_ListBranchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBranchesInput;
+      output: ListBranchesOutput;
+    };
+    sdk: {
+      input: ListBranchesCommandInput;
+      output: ListBranchesCommandOutput;
+    };
+  };
+}

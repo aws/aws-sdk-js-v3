@@ -19,7 +19,7 @@ repositories and images.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ecr
+To install this package, simply type add or install @aws-sdk/client-ecr
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ecr`
@@ -270,6 +270,14 @@ CreateRepository
 </details>
 <details>
 <summary>
+CreateRepositoryCreationTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/CreateRepositoryCreationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/CreateRepositoryCreationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/CreateRepositoryCreationTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteLifecyclePolicy
 </summary>
 
@@ -298,6 +306,14 @@ DeleteRepository
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/DeleteRepositoryCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DeleteRepositoryCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DeleteRepositoryCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteRepositoryCreationTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/DeleteRepositoryCreationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DeleteRepositoryCreationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DeleteRepositoryCreationTemplateCommandOutput/)
 
 </details>
 <details>
@@ -354,6 +370,22 @@ DescribeRepositories
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/DescribeRepositoriesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DescribeRepositoriesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DescribeRepositoriesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeRepositoryCreationTemplates
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/DescribeRepositoryCreationTemplatesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DescribeRepositoryCreationTemplatesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/DescribeRepositoryCreationTemplatesCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetAccountSetting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/GetAccountSettingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/GetAccountSettingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/GetAccountSettingCommandOutput/)
 
 </details>
 <details>
@@ -434,6 +466,14 @@ ListTagsForResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/ListTagsForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListTagsForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/ListTagsForResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutAccountSetting
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/PutAccountSettingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/PutAccountSettingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/PutAccountSettingCommandOutput/)
 
 </details>
 <details>
@@ -538,6 +578,14 @@ UpdatePullThroughCacheRule
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/UpdatePullThroughCacheRuleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UpdatePullThroughCacheRuleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UpdatePullThroughCacheRuleCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateRepositoryCreationTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ecr/command/UpdateRepositoryCreationTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UpdateRepositoryCreationTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ecr/Interface/UpdateRepositoryCreationTemplateCommandOutput/)
 
 </details>
 <details>

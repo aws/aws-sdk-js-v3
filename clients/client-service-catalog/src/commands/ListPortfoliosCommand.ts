@@ -12,7 +12,8 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface ListPortfoliosCommandOutput extends ListPortfoliosOutput, __Met
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListPortfoliosCommand extends $Command
@@ -79,9 +81,7 @@ export class ListPortfoliosCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class ListPortfoliosCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPortfoliosCommand)
   .de(de_ListPortfoliosCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPortfoliosInput;
+      output: ListPortfoliosOutput;
+    };
+    sdk: {
+      input: ListPortfoliosCommandInput;
+      output: ListPortfoliosCommandOutput;
+    };
+  };
+}

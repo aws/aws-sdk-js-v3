@@ -210,6 +210,7 @@ import {
   Celebrity,
   CelebrityDetail,
   CelebrityRecognition,
+  ChallengePreference,
   ComparedFace,
   ComparedSourceImageFace,
   CompareFacesMatch,
@@ -358,9 +359,7 @@ import {
   ListProjectPoliciesResponse,
   ListStreamProcessorsRequest,
   ListTagsForResourceRequest,
-  ListUsersRequest,
   LivenessOutputConfig,
-  MalformedPolicyDocumentException,
   MediaAnalysisDetectModerationLabelsConfig,
   MediaAnalysisInput,
   MediaAnalysisJobDescription,
@@ -410,10 +409,13 @@ import {
   TrainingData,
   UnindexedFace,
   UnsuccessfulFaceAssociation,
+  Versions,
   Video,
   VideoMetadata,
 } from "../models/models_0";
 import {
+  ListUsersRequest,
+  MalformedPolicyDocumentException,
   NotificationChannel,
   PutProjectPolicyRequest,
   RecognizeCelebritiesRequest,
@@ -3422,6 +3424,10 @@ const se_BoundingBox = (input: BoundingBox, context: __SerdeContext): any => {
   });
 };
 
+// se_ChallengePreference omitted.
+
+// se_ChallengePreferences omitted.
+
 /**
  * serializeAws_json1_1CompareFacesRequest
  */
@@ -4162,6 +4168,8 @@ const se_UpdateStreamProcessorRequest = (input: UpdateStreamProcessorRequest, co
 
 // se_VersionNames omitted.
 
+// se_Versions omitted.
+
 // se_Video omitted.
 
 // de_AccessDeniedException omitted.
@@ -4310,6 +4318,8 @@ const de_CelebrityRecognitions = (output: any, context: __SerdeContext): Celebri
     });
   return retVal;
 };
+
+// de_Challenge omitted.
 
 // de_CollectionIdList omitted.
 
@@ -5129,6 +5139,7 @@ const de_GetFaceLivenessSessionResultsResponse = (
 ): GetFaceLivenessSessionResultsResponse => {
   return take(output, {
     AuditImages: (_: any) => de_AuditImages(_, context),
+    Challenge: _json,
     Confidence: __limitedParseFloat32,
     ReferenceImage: (_: any) => de_AuditImage(_, context),
     SessionId: __expectString,
@@ -5250,7 +5261,7 @@ const de_GetTextDetectionResponse = (output: any, context: __SerdeContext): GetT
  */
 const de_HumanLoopActivationOutput = (output: any, context: __SerdeContext): HumanLoopActivationOutput => {
   return take(output, {
-    HumanLoopActivationConditionsEvaluationResults: (_: any) => new __LazyJsonString(_),
+    HumanLoopActivationConditionsEvaluationResults: __LazyJsonString.from,
     HumanLoopActivationReasons: _json,
     HumanLoopArn: __expectString,
   }) as any;

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ReplaceNetworkAclEntryRequest } from "../models/models_7";
+import { ReplaceNetworkAclEntryRequest } from "../models/models_8";
 import { de_ReplaceNetworkAclEntryCommand, se_ReplaceNetworkAclEntryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,22 +37,22 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * // const { EC2Client, ReplaceNetworkAclEntryCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ReplaceNetworkAclEntryRequest
- *   CidrBlock: "STRING_VALUE",
  *   DryRun: true || false,
+ *   NetworkAclId: "STRING_VALUE", // required
+ *   RuleNumber: Number("int"), // required
+ *   Protocol: "STRING_VALUE", // required
+ *   RuleAction: "allow" || "deny", // required
  *   Egress: true || false, // required
+ *   CidrBlock: "STRING_VALUE",
+ *   Ipv6CidrBlock: "STRING_VALUE",
  *   IcmpTypeCode: { // IcmpTypeCode
  *     Code: Number("int"),
  *     Type: Number("int"),
  *   },
- *   Ipv6CidrBlock: "STRING_VALUE",
- *   NetworkAclId: "STRING_VALUE", // required
  *   PortRange: { // PortRange
  *     From: Number("int"),
  *     To: Number("int"),
  *   },
- *   Protocol: "STRING_VALUE", // required
- *   RuleAction: "allow" || "deny", // required
- *   RuleNumber: Number("int"), // required
  * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
  * const response = await client.send(command);
@@ -68,27 +69,30 @@ export interface ReplaceNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To replace a network ACL entry
  * ```javascript
  * // This example replaces an entry for the specified network ACL. The new rule 100 allows ingress traffic from 203.0.113.12/24 on UDP port 53 (DNS) into any associated subnet.
  * const input = {
- *   "CidrBlock": "203.0.113.12/24",
- *   "Egress": false,
- *   "NetworkAclId": "acl-5fb85d36",
- *   "PortRange": {
- *     "From": 53,
- *     "To": 53
+ *   CidrBlock: "203.0.113.12/24",
+ *   Egress: false,
+ *   NetworkAclId: "acl-5fb85d36",
+ *   PortRange: {
+ *     From: 53,
+ *     To: 53
  *   },
- *   "Protocol": "17",
- *   "RuleAction": "allow",
- *   "RuleNumber": 100
+ *   Protocol: "17",
+ *   RuleAction: "allow",
+ *   RuleNumber: 100
  * };
  * const command = new ReplaceNetworkAclEntryCommand(input);
- * await client.send(command);
- * // example id: ec2-replace-network-acl-entry-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ReplaceNetworkAclEntryCommand extends $Command
   .classBuilder<
@@ -98,9 +102,7 @@ export class ReplaceNetworkAclEntryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +114,16 @@ export class ReplaceNetworkAclEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceNetworkAclEntryCommand)
   .de(de_ReplaceNetworkAclEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceNetworkAclEntryRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReplaceNetworkAclEntryCommandInput;
+      output: ReplaceNetworkAclEntryCommandOutput;
+    };
+  };
+}

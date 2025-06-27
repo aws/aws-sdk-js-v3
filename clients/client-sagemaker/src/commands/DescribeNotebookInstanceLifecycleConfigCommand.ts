@@ -8,7 +8,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeNotebookInstanceLifecycleConfigInput,
   DescribeNotebookInstanceLifecycleConfigOutput,
-} from "../models/models_2";
+} from "../models/models_3";
 import {
   de_DescribeNotebookInstanceLifecycleConfigCommand,
   se_DescribeNotebookInstanceLifecycleConfigCommand,
@@ -18,7 +18,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,9 +37,7 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a description of a notebook instance lifecycle configuration.</p>
- *          <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step
- *          2.1: (Optional) Customize a Notebook Instance</a>.</p>
+ * <p>Returns a description of a notebook instance lifecycle configuration.</p> <p>For information about notebook instance lifestyle configurations, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/notebook-lifecycle-config.html">Step 2.1: (Optional) Customize a Notebook Instance</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +77,7 @@ export interface DescribeNotebookInstanceLifecycleConfigCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command
@@ -88,9 +88,7 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +100,16 @@ export class DescribeNotebookInstanceLifecycleConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNotebookInstanceLifecycleConfigCommand)
   .de(de_DescribeNotebookInstanceLifecycleConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNotebookInstanceLifecycleConfigInput;
+      output: DescribeNotebookInstanceLifecycleConfigOutput;
+    };
+    sdk: {
+      input: DescribeNotebookInstanceLifecycleConfigCommandInput;
+      output: DescribeNotebookInstanceLifecycleConfigCommandOutput;
+    };
+  };
+}

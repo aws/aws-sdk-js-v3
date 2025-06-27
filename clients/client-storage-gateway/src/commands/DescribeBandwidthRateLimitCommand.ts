@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,25 +72,25 @@ export interface DescribeBandwidthRateLimitCommandOutput extends DescribeBandwid
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe the bandwidth rate limits of a gateway
  * ```javascript
  * // Returns a value for a bandwidth rate limit if set. If not set, then only the gateway ARN is returned.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AverageDownloadRateLimitInBitsPerSec": 204800,
- *   "AverageUploadRateLimitInBitsPerSec": 102400,
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   AverageDownloadRateLimitInBitsPerSec: 204800,
+ *   AverageUploadRateLimitInBitsPerSec: 102400,
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-describe-the-bandwidth-rate-limits-of-a-gateway-1471384826404
  * ```
  *
+ * @public
  */
 export class DescribeBandwidthRateLimitCommand extends $Command
   .classBuilder<
@@ -99,9 +100,7 @@ export class DescribeBandwidthRateLimitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribeBandwidthRateLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBandwidthRateLimitCommand)
   .de(de_DescribeBandwidthRateLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBandwidthRateLimitInput;
+      output: DescribeBandwidthRateLimitOutput;
+    };
+    sdk: {
+      input: DescribeBandwidthRateLimitCommandInput;
+      output: DescribeBandwidthRateLimitCommandOutput;
+    };
+  };
+}

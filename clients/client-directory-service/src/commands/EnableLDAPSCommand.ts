@@ -12,7 +12,8 @@ import { de_EnableLDAPSCommand, se_EnableLDAPSCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,7 +58,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  *  <p>The specified directory does not exist in the system.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link InvalidLDAPSStatusException} (client fault)
  *  <p>The LDAP activities could not be performed because they are limited by the LDAPS
@@ -67,8 +68,8 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  *  <p>One or more parameters are not valid.</p>
  *
  * @throws {@link NoAvailableCertificateException} (client fault)
- *  <p>Client authentication setup could not be completed because at least one valid certificate must be
- *       registered in the system.</p>
+ *  <p>Client authentication setup could not be completed because at least one valid certificate
+ *       must be registered in the system.</p>
  *
  * @throws {@link ServiceException} (server fault)
  *  <p>An exception has occurred in Directory Service.</p>
@@ -78,6 +79,7 @@ export interface EnableLDAPSCommandOutput extends EnableLDAPSResult, __MetadataB
  *
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
+ *
  *
  * @public
  */
@@ -89,9 +91,7 @@ export class EnableLDAPSCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class EnableLDAPSCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableLDAPSCommand)
   .de(de_EnableLDAPSCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableLDAPSRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableLDAPSCommandInput;
+      output: EnableLDAPSCommandOutput;
+    };
+  };
+}

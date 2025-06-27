@@ -1,7 +1,9 @@
 // smithy-typescript generated code
 import { EchoServiceClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EchoServiceClient";
+import { commonParams } from "../endpoint/EndpointParameters";
 import { LengthInput, LengthOutput } from "../models/models_0";
 import { de_LengthCommand, se_LengthCommand } from "../protocols/Aws_restJson1";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
@@ -9,7 +11,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +58,7 @@ export interface LengthCommandOutput extends LengthOutput, __MetadataBearer {}
  * @throws {@link EchoServiceServiceException}
  * <p>Base exception class for all service exceptions from EchoService service.</p>
  *
+ *
  */
 export class LengthCommand extends $Command
   .classBuilder<
@@ -64,12 +68,28 @@ export class LengthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EchoServiceClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("EchoService", "Length", {})
   .n("EchoServiceClient", "LengthCommand")
   .f(void 0, void 0)
   .ser(se_LengthCommand)
   .de(de_LengthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: LengthInput;
+      output: LengthOutput;
+    };
+    sdk: {
+      input: LengthCommandInput;
+      output: LengthCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { AppConfigClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../AppConfigClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { Deployment, StartDeploymentRequest } from "../models/models_0";
+import { Deployment, StartDeploymentRequest, StartDeploymentRequestFilterSensitiveLog } from "../models/models_0";
 import { de_StartDeploymentCommand, se_StartDeploymentCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,10 +66,10 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * //   GrowthType: "LINEAR" || "EXPONENTIAL",
  * //   GrowthFactor: Number("float"),
  * //   FinalBakeTimeInMinutes: Number("int"),
- * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   EventLog: [ // DeploymentEvents
  * //     { // DeploymentEvent
- * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED",
+ * //       EventType: "PERCENTAGE_UPDATED" || "ROLLBACK_STARTED" || "ROLLBACK_COMPLETED" || "BAKE_TIME_STARTED" || "DEPLOYMENT_STARTED" || "DEPLOYMENT_COMPLETED" || "REVERT_COMPLETED",
  * //       TriggeredBy: "USER" || "APPCONFIG" || "CLOUDWATCH_ALARM" || "INTERNAL_ERROR",
  * //       Description: "STRING_VALUE",
  * //       ActionInvocations: [ // ActionInvocations
@@ -127,51 +128,8 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
- * @example To start a configuration deployment
- * ```javascript
- * // The following start-deployment example starts a deployment to the application using the specified environment, deployment strategy, and configuration profile.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ConfigurationVersion": "1",
- *   "DeploymentStrategyId": "1225qzk",
- *   "Description": "",
- *   "EnvironmentId": "54j1r29",
- *   "Tags": {}
- * };
- * const command = new StartDeploymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationLocationUri": "ssm-parameter://Example-Parameter",
- *   "ConfigurationName": "Example-Configuration-Profile",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ConfigurationVersion": "1",
- *   "DeploymentDurationInMinutes": 15,
- *   "DeploymentNumber": 1,
- *   "DeploymentStrategyId": "1225qzk",
- *   "EnvironmentId": "54j1r29",
- *   "EventLog": [
- *     {
- *       "Description": "Deployment started",
- *       "EventType": "DEPLOYMENT_STARTED",
- *       "OccurredAt": "2021-09-17T21:43:54.205000+00:00",
- *       "TriggeredBy": "USER"
- *     }
- *   ],
- *   "FinalBakeTimeInMinutes": 0,
- *   "GrowthFactor": 25,
- *   "GrowthType": "LINEAR",
- *   "PercentageComplete": 1,
- *   "StartedAt": "2021-09-17T21:43:54.205000+00:00",
- *   "State": "DEPLOYING"
- * }
- * *\/
- * // example id: to-start-a-configuration-deployment-1632328956790
- * ```
  *
+ * @public
  */
 export class StartDeploymentCommand extends $Command
   .classBuilder<
@@ -181,9 +139,7 @@ export class StartDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -192,7 +148,19 @@ export class StartDeploymentCommand extends $Command
   })
   .s("AmazonAppConfig", "StartDeployment", {})
   .n("AppConfigClient", "StartDeploymentCommand")
-  .f(void 0, void 0)
+  .f(StartDeploymentRequestFilterSensitiveLog, void 0)
   .ser(se_StartDeploymentCommand)
   .de(de_StartDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDeploymentRequest;
+      output: Deployment;
+    };
+    sdk: {
+      input: StartDeploymentCommandInput;
+      output: StartDeploymentCommandOutput;
+    };
+  };
+}

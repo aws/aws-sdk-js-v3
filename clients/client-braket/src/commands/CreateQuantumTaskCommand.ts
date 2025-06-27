@@ -12,7 +12,8 @@ import { de_CreateQuantumTaskCommand, se_CreateQuantumTaskCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface CreateQuantumTaskCommandOutput extends CreateQuantumTaskRespons
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class CreateQuantumTaskCommand extends $Command
@@ -102,9 +104,7 @@ export class CreateQuantumTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CreateQuantumTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateQuantumTaskCommand)
   .de(de_CreateQuantumTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQuantumTaskRequest;
+      output: CreateQuantumTaskResponse;
+    };
+    sdk: {
+      input: CreateQuantumTaskCommandInput;
+      output: CreateQuantumTaskCommandOutput;
+    };
+  };
+}

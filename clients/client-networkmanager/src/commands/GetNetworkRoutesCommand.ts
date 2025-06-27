@@ -12,7 +12,8 @@ import { de_GetNetworkRoutesCommand, se_GetNetworkRoutesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,6 +42,11 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  *     CoreNetworkSegmentEdge: { // CoreNetworkSegmentEdgeIdentifier
  *       CoreNetworkId: "STRING_VALUE",
  *       SegmentName: "STRING_VALUE",
+ *       EdgeLocation: "STRING_VALUE",
+ *     },
+ *     CoreNetworkNetworkFunctionGroup: { // CoreNetworkNetworkFunctionGroupIdentifier
+ *       CoreNetworkId: "STRING_VALUE",
+ *       NetworkFunctionGroupName: "STRING_VALUE",
  *       EdgeLocation: "STRING_VALUE",
  *     },
  *   },
@@ -80,7 +86,7 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * //     SegmentName: "STRING_VALUE",
  * //     EdgeLocation: "STRING_VALUE",
  * //   },
- * //   RouteTableType: "TRANSIT_GATEWAY_ROUTE_TABLE" || "CORE_NETWORK_SEGMENT",
+ * //   RouteTableType: "TRANSIT_GATEWAY_ROUTE_TABLE" || "CORE_NETWORK_SEGMENT" || "NETWORK_FUNCTION_GROUP",
  * //   RouteTableTimestamp: new Date("TIMESTAMP"),
  * //   NetworkRoutes: [ // NetworkRouteList
  * //     { // NetworkRoute
@@ -90,6 +96,7 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * //           CoreNetworkAttachmentId: "STRING_VALUE",
  * //           TransitGatewayAttachmentId: "STRING_VALUE",
  * //           SegmentName: "STRING_VALUE",
+ * //           NetworkFunctionGroupName: "STRING_VALUE",
  * //           EdgeLocation: "STRING_VALUE",
  * //           ResourceType: "STRING_VALUE",
  * //           ResourceId: "STRING_VALUE",
@@ -128,6 +135,7 @@ export interface GetNetworkRoutesCommandOutput extends GetNetworkRoutesResponse,
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkRoutesCommand extends $Command
@@ -138,9 +146,7 @@ export class GetNetworkRoutesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +158,16 @@ export class GetNetworkRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkRoutesCommand)
   .de(de_GetNetworkRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkRoutesRequest;
+      output: GetNetworkRoutesResponse;
+    };
+    sdk: {
+      input: GetNetworkRoutesCommandInput;
+      output: GetNetworkRoutesCommandOutput;
+    };
+  };
+}

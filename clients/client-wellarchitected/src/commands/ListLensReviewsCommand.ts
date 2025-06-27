@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface ListLensReviewsCommandOutput extends ListLensReviewsOutput, __M
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class ListLensReviewsCommand extends $Command
@@ -106,9 +108,7 @@ export class ListLensReviewsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class ListLensReviewsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLensReviewsCommand)
   .de(de_ListLensReviewsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLensReviewsInput;
+      output: ListLensReviewsOutput;
+    };
+    sdk: {
+      input: ListLensReviewsCommandInput;
+      output: ListLensReviewsCommandOutput;
+    };
+  };
+}

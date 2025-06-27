@@ -12,7 +12,8 @@ import { de_DescribeAddressesCommand, se_DescribeAddressesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,6 +36,10 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * // const { EC2Client, DescribeAddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeAddressesRequest
+ *   PublicIps: [ // PublicIpStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -43,21 +48,15 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  *       ],
  *     },
  *   ],
- *   PublicIps: [ // PublicIpStringList
- *     "STRING_VALUE",
- *   ],
  *   AllocationIds: [ // AllocationIdList
  *     "STRING_VALUE",
  *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
  * // { // DescribeAddressesResult
  * //   Addresses: [ // AddressList
  * //     { // Address
- * //       InstanceId: "STRING_VALUE",
- * //       PublicIp: "STRING_VALUE",
  * //       AllocationId: "STRING_VALUE",
  * //       AssociationId: "STRING_VALUE",
  * //       Domain: "vpc" || "standard",
@@ -75,6 +74,10 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * //       CustomerOwnedIp: "STRING_VALUE",
  * //       CustomerOwnedIpv4Pool: "STRING_VALUE",
  * //       CarrierIp: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       ServiceManaged: "alb" || "nlb" || "rnat",
+ * //       InstanceId: "STRING_VALUE",
+ * //       PublicIp: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -90,37 +93,37 @@ export interface DescribeAddressesCommandOutput extends DescribeAddressesResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your Elastic IP addresses
  * ```javascript
  * // This example describes your Elastic IP addresses.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeAddressesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Addresses": [
+ *   Addresses: [
  *     {
- *       "Domain": "standard",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PublicIp": "198.51.100.0"
+ *       Domain: "standard",
+ *       InstanceId: "i-1234567890abcdef0",
+ *       PublicIp: "198.51.100.0"
  *     },
  *     {
- *       "AllocationId": "eipalloc-12345678",
- *       "AssociationId": "eipassoc-12345678",
- *       "Domain": "vpc",
- *       "InstanceId": "i-1234567890abcdef0",
- *       "NetworkInterfaceId": "eni-12345678",
- *       "NetworkInterfaceOwnerId": "123456789012",
- *       "PrivateIpAddress": "10.0.1.241",
- *       "PublicIp": "203.0.113.0"
+ *       AllocationId: "eipalloc-12345678",
+ *       AssociationId: "eipassoc-12345678",
+ *       Domain: "vpc",
+ *       InstanceId: "i-1234567890abcdef0",
+ *       NetworkInterfaceId: "eni-12345678",
+ *       NetworkInterfaceOwnerId: "123456789012",
+ *       PrivateIpAddress: "10.0.1.241",
+ *       PublicIp: "203.0.113.0"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-addresses-1
  * ```
  *
+ * @public
  */
 export class DescribeAddressesCommand extends $Command
   .classBuilder<
@@ -130,9 +133,7 @@ export class DescribeAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +145,16 @@ export class DescribeAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAddressesCommand)
   .de(de_DescribeAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAddressesRequest;
+      output: DescribeAddressesResult;
+    };
+    sdk: {
+      input: DescribeAddressesCommandInput;
+      output: DescribeAddressesCommandOutput;
+    };
+  };
+}

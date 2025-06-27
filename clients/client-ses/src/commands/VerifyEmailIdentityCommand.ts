@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,18 +56,21 @@ export interface VerifyEmailIdentityCommandOutput extends VerifyEmailIdentityRes
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example VerifyEmailIdentity
  * ```javascript
  * // The following example starts the email address verification process with Amazon SES:
  * const input = {
- *   "EmailAddress": "user@example.com"
+ *   EmailAddress: "user@example.com"
  * };
  * const command = new VerifyEmailIdentityCommand(input);
- * await client.send(command);
- * // example id: verifyemailidentity-1469049068623
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class VerifyEmailIdentityCommand extends $Command
   .classBuilder<
@@ -76,9 +80,7 @@ export class VerifyEmailIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +92,16 @@ export class VerifyEmailIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_VerifyEmailIdentityCommand)
   .de(de_VerifyEmailIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyEmailIdentityRequest;
+      output: {};
+    };
+    sdk: {
+      input: VerifyEmailIdentityCommandInput;
+      output: VerifyEmailIdentityCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_GetPortfolioSummaryCommand, se_GetPortfolioSummaryCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -117,6 +118,7 @@ export interface GetPortfolioSummaryCommandOutput extends GetPortfolioSummaryRes
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetPortfolioSummaryCommand extends $Command
@@ -127,9 +129,7 @@ export class GetPortfolioSummaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class GetPortfolioSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPortfolioSummaryCommand)
   .de(de_GetPortfolioSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetPortfolioSummaryResponse;
+    };
+    sdk: {
+      input: GetPortfolioSummaryCommandInput;
+      output: GetPortfolioSummaryCommandOutput;
+    };
+  };
+}

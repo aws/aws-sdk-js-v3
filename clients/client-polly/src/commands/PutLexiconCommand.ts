@@ -12,7 +12,8 @@ import { de_PutLexiconCommand, se_PutLexiconCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,19 +86,22 @@ export interface PutLexiconCommandOutput extends PutLexiconOutput, __MetadataBea
  * @throws {@link PollyServiceException}
  * <p>Base exception class for all service exceptions from Polly service.</p>
  *
- * @public
+ *
  * @example To save a lexicon
  * ```javascript
  * // Stores a pronunciation lexicon in an AWS Region.
  * const input = {
- *   "Content": "file://example.pls",
- *   "Name": "W3C"
+ *   Content: "<Lexicon Content>",
+ *   Name: "W3C"
  * };
  * const command = new PutLexiconCommand(input);
- * await client.send(command);
- * // example id: to-save-a-lexicon-1482272584088
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutLexiconCommand extends $Command
   .classBuilder<
@@ -107,9 +111,7 @@ export class PutLexiconCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PollyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +123,16 @@ export class PutLexiconCommand extends $Command
   .f(PutLexiconInputFilterSensitiveLog, void 0)
   .ser(se_PutLexiconCommand)
   .de(de_PutLexiconCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLexiconInput;
+      output: {};
+    };
+    sdk: {
+      input: PutLexiconCommandInput;
+      output: PutLexiconCommandOutput;
+    };
+  };
+}

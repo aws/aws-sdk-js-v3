@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeInferenceComponentInput, DescribeInferenceComponentOutput } from "../models/models_2";
+import { DescribeInferenceComponentInput, DescribeInferenceComponentOutput } from "../models/models_3";
 import { de_DescribeInferenceComponentCommand, se_DescribeInferenceComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //       MinMemoryRequiredInMb: Number("int"), // required
  * //       MaxMemoryRequiredInMb: Number("int"),
  * //     },
+ * //     BaseInferenceComponentName: "STRING_VALUE",
  * //   },
  * //   RuntimeConfig: { // InferenceComponentRuntimeConfigSummary
  * //     DesiredCopyCount: Number("int"),
@@ -77,6 +79,27 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * //   CreationTime: new Date("TIMESTAMP"), // required
  * //   LastModifiedTime: new Date("TIMESTAMP"), // required
  * //   InferenceComponentStatus: "InService" || "Creating" || "Updating" || "Failed" || "Deleting",
+ * //   LastDeploymentConfig: { // InferenceComponentDeploymentConfig
+ * //     RollingUpdatePolicy: { // InferenceComponentRollingUpdatePolicy
+ * //       MaximumBatchSize: { // InferenceComponentCapacitySize
+ * //         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ * //         Value: Number("int"), // required
+ * //       },
+ * //       WaitIntervalInSeconds: Number("int"), // required
+ * //       MaximumExecutionTimeoutInSeconds: Number("int"),
+ * //       RollbackMaximumBatchSize: {
+ * //         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ * //         Value: Number("int"), // required
+ * //       },
+ * //     },
+ * //     AutoRollbackConfiguration: { // AutoRollbackConfig
+ * //       Alarms: [ // AlarmList
+ * //         { // Alarm
+ * //           AlarmName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -90,6 +113,7 @@ export interface DescribeInferenceComponentCommandOutput extends DescribeInferen
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeInferenceComponentCommand extends $Command
@@ -100,9 +124,7 @@ export class DescribeInferenceComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +136,16 @@ export class DescribeInferenceComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInferenceComponentCommand)
   .de(de_DescribeInferenceComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInferenceComponentInput;
+      output: DescribeInferenceComponentOutput;
+    };
+    sdk: {
+      input: DescribeInferenceComponentCommandInput;
+      output: DescribeInferenceComponentCommandOutput;
+    };
+  };
+}

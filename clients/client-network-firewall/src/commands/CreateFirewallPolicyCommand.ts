@@ -12,7 +12,8 @@ import { de_CreateFirewallPolicyCommand, se_CreateFirewallPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *         Override: { // StatefulRuleGroupOverride
  *           Action: "DROP_TO_ALERT",
  *         },
+ *         DeepThreatInspection: true || false,
  *       },
  *     ],
  *     StatefulDefaultActions: [ // StatefulActions
@@ -81,6 +83,9 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  *     StatefulEngineOptions: { // StatefulEngineOptions
  *       RuleOrder: "DEFAULT_ACTION_ORDER" || "STRICT_ORDER",
  *       StreamExceptionPolicy: "DROP" || "CONTINUE" || "REJECT",
+ *       FlowTimeouts: { // FlowTimeouts
+ *         TcpIdleTimeoutSeconds: Number("int"),
+ *       },
  *     },
  *     TLSInspectionConfigurationArn: "STRING_VALUE",
  *     PolicyVariables: { // PolicyVariables
@@ -174,6 +179,7 @@ export interface CreateFirewallPolicyCommandOutput extends CreateFirewallPolicyR
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class CreateFirewallPolicyCommand extends $Command
@@ -184,9 +190,7 @@ export class CreateFirewallPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -198,4 +202,16 @@ export class CreateFirewallPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFirewallPolicyCommand)
   .de(de_CreateFirewallPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFirewallPolicyRequest;
+      output: CreateFirewallPolicyResponse;
+    };
+    sdk: {
+      input: CreateFirewallPolicyCommandInput;
+      output: CreateFirewallPolicyCommandOutput;
+    };
+  };
+}

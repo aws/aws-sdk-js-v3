@@ -12,7 +12,8 @@ import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateFleetCommandInput extends CreateFleetRequest {}
 export interface CreateFleetCommandOutput extends CreateFleetResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a fleet. Fleets gather information relating to compute, or capacity, for renders
- *          within your farms. You can choose to manage your own capacity or opt to have fleets fully
- *          managed by Deadline Cloud.</p>
+ * <p>Creates a fleet. Fleets gather information relating to compute, or capacity, for renders within your farms. You can choose to manage your own capacity or opt to have fleets fully managed by Deadline Cloud.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,6 +85,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *         ],
  *       },
  *       storageProfileId: "STRING_VALUE",
+ *       tagPropagationMode: "NO_PROPAGATION" || "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
  *     },
  *     serviceManagedEc2: { // ServiceManagedEc2FleetConfiguration
  *       instanceCapabilities: { // ServiceManagedEc2InstanceCapabilities
@@ -103,6 +103,18 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *           sizeGiB: Number("int"),
  *           iops: Number("int"),
  *           throughputMiB: Number("int"),
+ *         },
+ *         acceleratorCapabilities: { // AcceleratorCapabilities
+ *           selections: [ // AcceleratorSelections // required
+ *             { // AcceleratorSelection
+ *               name: "t4" || "a10g" || "l4" || "l40s", // required
+ *               runtime: "STRING_VALUE",
+ *             },
+ *           ],
+ *           count: {
+ *             min: Number("int"), // required
+ *             max: Number("int"),
+ *           },
  *         },
  *         allowedInstanceTypes: [ // InstanceTypes
  *           "STRING_VALUE",
@@ -129,10 +141,15 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *       instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  *         type: "on-demand" || "spot", // required
  *       },
+ *       storageProfileId: "STRING_VALUE",
  *     },
  *   },
  *   tags: { // Tags
  *     "<keys>": "STRING_VALUE",
+ *   },
+ *   hostConfiguration: { // HostConfiguration
+ *     scriptBody: "STRING_VALUE", // required
+ *     scriptTimeoutSeconds: Number("int"),
  *   },
  * };
  * const command = new CreateFleetCommand(input);
@@ -159,18 +176,17 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -182,9 +198,7 @@ export class CreateFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +210,16 @@ export class CreateFleetCommand extends $Command
   .f(CreateFleetRequestFilterSensitiveLog, void 0)
   .ser(se_CreateFleetCommand)
   .de(de_CreateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetRequest;
+      output: CreateFleetResponse;
+    };
+    sdk: {
+      input: CreateFleetCommandInput;
+      output: CreateFleetCommandOutput;
+    };
+  };
+}

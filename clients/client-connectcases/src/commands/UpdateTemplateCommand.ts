@@ -12,7 +12,8 @@ import { de_UpdateTemplateCommand, se_UpdateTemplateCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,6 +33,29 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *       <code>layoutConfiguration</code>, <code>requiredFields</code>, and <code>status</code>. At
  *       least one of these attributes must not be null. If a null value is provided for a given
  *       attribute, that attribute is ignored and its current value is preserved.</p>
+ *          <p>Other template APIs are:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateTemplate.html">CreateTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_DeleteTemplate.html">DeleteTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_GetTemplate.html">GetTemplate</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_ListTemplates.html">ListTemplates</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +76,12 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *     },
  *   ],
  *   status: "STRING_VALUE",
+ *   rules: [ // TemplateCaseRuleList
+ *     { // TemplateRule
+ *       caseRuleId: "STRING_VALUE", // required
+ *       fieldId: "STRING_VALUE", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
@@ -90,6 +120,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class UpdateTemplateCommand extends $Command
@@ -100,9 +131,7 @@ export class UpdateTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +143,16 @@ export class UpdateTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTemplateCommand)
   .de(de_UpdateTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTemplateCommandInput;
+      output: UpdateTemplateCommandOutput;
+    };
+  };
+}

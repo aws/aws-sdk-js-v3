@@ -12,7 +12,8 @@ import { de_ListDataIntegrationsCommand, se_ListDataIntegrationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListDataIntegrationsCommandOutput extends ListDataIntegrationsR
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class ListDataIntegrationsCommand extends $Command
@@ -89,9 +91,7 @@ export class ListDataIntegrationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListDataIntegrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataIntegrationsCommand)
   .de(de_ListDataIntegrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataIntegrationsRequest;
+      output: ListDataIntegrationsResponse;
+    };
+    sdk: {
+      input: ListDataIntegrationsCommandInput;
+      output: ListDataIntegrationsCommandOutput;
+    };
+  };
+}

@@ -21,7 +21,8 @@ import { de_ModifyEndpointCommand, se_ModifyEndpointCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,10 +40,11 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * <p>Modifies the specified endpoint.</p>
  *          <note>
  *             <p>For a MySQL source or target endpoint, don't explicitly specify the database using
- *          the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API call.
- *          Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates all the
- *          task tables to this single database. For MySQL endpoints, you specify the database only when
- *          you specify the schema in the table-mapping rules of the DMS task.</p>
+ *             the <code>DatabaseName</code> request parameter on the <code>ModifyEndpoint</code> API
+ *             call. Specifying <code>DatabaseName</code> when you modify a MySQL endpoint replicates
+ *             all the task tables to this single database. For MySQL endpoints, you specify the
+ *             database only when you specify the schema in the table-mapping rules of the DMS
+ *             task.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +146,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *     IncludeControlDetails: true || false,
  *     IncludeNullAndEmpty: true || false,
  *     NoHexPrefix: true || false,
+ *     UseLargeIntegerValue: true || false,
  *   },
  *   KafkaSettings: { // KafkaSettings
  *     Broker: "STRING_VALUE",
@@ -166,6 +169,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *     NoHexPrefix: true || false,
  *     SaslMechanism: "scram-sha-512" || "plain",
  *     SslEndpointIdentificationAlgorithm: "none" || "https",
+ *     UseLargeIntegerValue: true || false,
  *   },
  *   ElasticsearchSettings: { // ElasticsearchSettings
  *     ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -241,6 +245,9 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *     MapLongVarcharAs: "wstring" || "clob" || "nclob",
  *     DatabaseMode: "default" || "babelfish",
  *     BabelfishDatabaseName: "STRING_VALUE",
+ *     DisableUnicodeSourceFilter: true || false,
+ *     ServiceAccessRoleArn: "STRING_VALUE",
+ *     AuthenticationMethod: "password" || "iam",
  *   },
  *   MySQLSettings: { // MySQLSettings
  *     AfterConnectScript: "STRING_VALUE",
@@ -258,6 +265,8 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *     SecretsManagerAccessRoleArn: "STRING_VALUE",
  *     SecretsManagerSecretId: "STRING_VALUE",
  *     ExecuteTimeout: Number("int"),
+ *     ServiceAccessRoleArn: "STRING_VALUE",
+ *     AuthenticationMethod: "password" || "iam",
  *   },
  *   OracleSettings: { // OracleSettings
  *     AddSupplementalLogging: true || false,
@@ -305,6 +314,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *     TrimSpaceInChar: true || false,
  *     ConvertTimestampWithZoneToUTC: true || false,
  *     OpenTransactionWindow: Number("int"),
+ *     AuthenticationMethod: "password" || "kerberos",
  *   },
  *   SybaseSettings: { // SybaseSettings
  *     DatabaseName: "STRING_VALUE",
@@ -333,6 +343,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  *     TrimSpaceInChar: true || false,
  *     TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  *     ForceLobLookup: true || false,
+ *     AuthenticationMethod: "password" || "kerberos",
  *   },
  *   IBMDb2Settings: { // IBMDb2Settings
  *     DatabaseName: "STRING_VALUE",
@@ -499,6 +510,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * //       IncludeControlDetails: true || false,
  * //       IncludeNullAndEmpty: true || false,
  * //       NoHexPrefix: true || false,
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     KafkaSettings: { // KafkaSettings
  * //       Broker: "STRING_VALUE",
@@ -521,6 +533,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * //       NoHexPrefix: true || false,
  * //       SaslMechanism: "scram-sha-512" || "plain",
  * //       SslEndpointIdentificationAlgorithm: "none" || "https",
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     ElasticsearchSettings: { // ElasticsearchSettings
  * //       ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -596,6 +609,9 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * //       MapLongVarcharAs: "wstring" || "clob" || "nclob",
  * //       DatabaseMode: "default" || "babelfish",
  * //       BabelfishDatabaseName: "STRING_VALUE",
+ * //       DisableUnicodeSourceFilter: true || false,
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       AuthenticationMethod: "password" || "iam",
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
@@ -613,6 +629,8 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
  * //       ExecuteTimeout: Number("int"),
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       AuthenticationMethod: "password" || "iam",
  * //     },
  * //     OracleSettings: { // OracleSettings
  * //       AddSupplementalLogging: true || false,
@@ -660,6 +678,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       ConvertTimestampWithZoneToUTC: true || false,
  * //       OpenTransactionWindow: Number("int"),
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     SybaseSettings: { // SybaseSettings
  * //       DatabaseName: "STRING_VALUE",
@@ -688,6 +707,7 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  * //       ForceLobLookup: true || false,
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     IBMDb2Settings: { // IBMDb2Settings
  * //       DatabaseName: "STRING_VALUE",
@@ -782,34 +802,34 @@ export interface ModifyEndpointCommandOutput extends ModifyEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify endpoint
  * ```javascript
  * // Modifies the specified endpoint.
  * const input = {
- *   "CertificateArn": "",
- *   "DatabaseName": "",
- *   "EndpointArn": "",
- *   "EndpointIdentifier": "",
- *   "EndpointType": "source",
- *   "EngineName": "",
- *   "ExtraConnectionAttributes": "",
- *   "Password": "",
- *   "Port": 123,
- *   "ServerName": "",
- *   "SslMode": "require",
- *   "Username": ""
+ *   CertificateArn: "",
+ *   DatabaseName: "",
+ *   EndpointArn: "",
+ *   EndpointIdentifier: "",
+ *   EndpointType: "source",
+ *   EngineName: "",
+ *   ExtraConnectionAttributes: "",
+ *   Password: "",
+ *   Port: 123,
+ *   ServerName: "",
+ *   SslMode: "require",
+ *   Username: ""
  * };
  * const command = new ModifyEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoint": {}
+ *   Endpoint:   { /* empty *\/ }
  * }
  * *\/
- * // example id: modify-endpoint-1481761649937
  * ```
  *
+ * @public
  */
 export class ModifyEndpointCommand extends $Command
   .classBuilder<
@@ -819,9 +839,7 @@ export class ModifyEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -833,4 +851,16 @@ export class ModifyEndpointCommand extends $Command
   .f(ModifyEndpointMessageFilterSensitiveLog, ModifyEndpointResponseFilterSensitiveLog)
   .ser(se_ModifyEndpointCommand)
   .de(de_ModifyEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyEndpointMessage;
+      output: ModifyEndpointResponse;
+    };
+    sdk: {
+      input: ModifyEndpointCommandInput;
+      output: ModifyEndpointCommandOutput;
+    };
+  };
+}

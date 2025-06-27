@@ -12,7 +12,8 @@ import { de_UpdateNotificationCommand, se_UpdateNotificationCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface UpdateNotificationCommandOutput extends UpdateNotificationRespo
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class UpdateNotificationCommand extends $Command
@@ -96,9 +98,7 @@ export class UpdateNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class UpdateNotificationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNotificationCommand)
   .de(de_UpdateNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNotificationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNotificationCommandInput;
+      output: UpdateNotificationCommandOutput;
+    };
+  };
+}

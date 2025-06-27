@@ -11,6 +11,7 @@ import {
 } from "@smithy/types";
 
 import { getDateHeader, getSkewCorrectedDate, getUpdatedSystemClockOffset } from "../utils";
+import { AwsSdkSigV4AAuthResolvedConfig } from "./resolveAwsSdkSigV4AConfig";
 
 /**
  * @internal
@@ -25,7 +26,7 @@ const throwSigningPropertyError = <T>(name: string, property: T | undefined): T 
 /**
  * @internal
  */
-interface AwsSdkSigV4Config {
+interface AwsSdkSigV4Config extends AwsSdkSigV4AAuthResolvedConfig {
   systemClockOffset: number;
   signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
 }
@@ -37,6 +38,7 @@ interface AwsSdkSigV4AuthSigningProperties {
   config: AwsSdkSigV4Config;
   signer: RequestSigner;
   signingRegion?: string;
+  signingRegionSet?: string[];
   signingName?: string;
 }
 
@@ -53,7 +55,7 @@ interface AwsSdkSigV4Exception extends ServiceException {
 /**
  * @internal
  */
-const validateSigningProperties = async (
+export const validateSigningProperties = async (
   signingProperties: Record<string, unknown>
 ): Promise<AwsSdkSigV4AuthSigningProperties> => {
   const context = throwSigningPropertyError(
@@ -68,16 +70,20 @@ const validateSigningProperties = async (
   );
   const signer = await signerFunction(authScheme);
   const signingRegion: string | undefined = signingProperties?.signingRegion as string | undefined;
+  const signingRegionSet: string[] | undefined = signingProperties?.signingRegionSet as string[] | undefined;
   const signingName = signingProperties?.signingName as string | undefined;
   return {
     config,
     signer,
     signingRegion,
+    signingRegionSet,
     signingName,
   };
 };
 
 /**
+ * Note: this is not a signing algorithm implementation. The sign method
+ * accepts the real signer as an input parameter.
  * @internal
  */
 export class AwsSdkSigV4Signer implements HttpSigner {
@@ -92,7 +98,23 @@ export class AwsSdkSigV4Signer implements HttpSigner {
     if (!HttpRequest.isInstance(httpRequest)) {
       throw new Error("The request is not an instance of `HttpRequest` and cannot be signed");
     }
-    const { config, signer, signingRegion, signingName } = await validateSigningProperties(signingProperties);
+
+    const validatedProps = await validateSigningProperties(signingProperties);
+
+    const { config, signer } = validatedProps;
+    let { signingRegion, signingName } = validatedProps;
+
+    const handlerExecutionContext = signingProperties.context as HandlerExecutionContext;
+
+    if (handlerExecutionContext?.authSchemes?.length ?? 0 > 1) {
+      const [first, second] = handlerExecutionContext.authSchemes!;
+      // since this is not the sigv4a signer, we accept the secondary authscheme's signing data
+      // if the first authscheme is sigv4a and second is sigv4.
+      if (first?.name === "sigv4a" && second?.name === "sigv4") {
+        signingRegion = second?.signingRegion ?? signingRegion;
+        signingName = second?.signingName ?? signingName;
+      }
+    }
 
     const signedRequest = await signer.sign(httpRequest, {
       signingDate: getSkewCorrectedDate(config.systemClockOffset),
@@ -129,6 +151,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
 }
 
 /**
+ * @internal
  * @deprecated renamed to {@link AwsSdkSigV4Signer}
  */
 export const AWSSDKSigV4Signer = AwsSdkSigV4Signer;

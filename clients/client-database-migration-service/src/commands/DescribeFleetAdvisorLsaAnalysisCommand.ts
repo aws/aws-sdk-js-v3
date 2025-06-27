@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,12 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
+ * <important>
+ *             <p>
+ * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon Web Services DMS Fleet Advisor end of support</a>.
+ * </p>
+ *          </important>
+ *          <p>Provides descriptions of large-scale assessment (LSA) analyses produced by your Fleet
  *             Advisor collectors. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -74,6 +80,7 @@ export interface DescribeFleetAdvisorLsaAnalysisCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
@@ -84,9 +91,7 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +103,16 @@ export class DescribeFleetAdvisorLsaAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetAdvisorLsaAnalysisCommand)
   .de(de_DescribeFleetAdvisorLsaAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetAdvisorLsaAnalysisRequest;
+      output: DescribeFleetAdvisorLsaAnalysisResponse;
+    };
+    sdk: {
+      input: DescribeFleetAdvisorLsaAnalysisCommandInput;
+      output: DescribeFleetAdvisorLsaAnalysisCommandOutput;
+    };
+  };
+}

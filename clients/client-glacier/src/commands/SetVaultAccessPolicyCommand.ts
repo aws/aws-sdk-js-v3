@@ -12,7 +12,8 @@ import { de_SetVaultAccessPolicyCommand, se_SetVaultAccessPolicyCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,22 +75,25 @@ export interface SetVaultAccessPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To set the access-policy on a vault
  * ```javascript
  * // The example configures an access policy for the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "policy": {
- *     "Policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Sid\":\"Define-owner-access-rights\",\"Effect\":\"Allow\",\"Principal\":{\"AWS\":\"arn:aws:iam::999999999999:root\"},\"Action\":\"glacier:DeleteArchive\",\"Resource\":\"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault\"}]}"
+ *   accountId: "-",
+ *   policy: {
+ *     Policy: `{"Version":"2012-10-17","Statement":[{"Sid":"Define-owner-access-rights","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::999999999999:root"},"Action":"glacier:DeleteArchive","Resource":"arn:aws:glacier:us-west-2:999999999999:vaults/examplevault"}]}`
  *   },
- *   "vaultName": "examplevault"
+ *   vaultName: "examplevault"
  * };
  * const command = new SetVaultAccessPolicyCommand(input);
- * await client.send(command);
- * // example id: to--set-the-access-policy-on-a-vault-1482185872517
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetVaultAccessPolicyCommand extends $Command
   .classBuilder<
@@ -99,9 +103,7 @@ export class SetVaultAccessPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class SetVaultAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetVaultAccessPolicyCommand)
   .de(de_SetVaultAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetVaultAccessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: SetVaultAccessPolicyCommandInput;
+      output: SetVaultAccessPolicyCommandOutput;
+    };
+  };
+}

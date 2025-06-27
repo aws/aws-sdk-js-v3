@@ -10,7 +10,7 @@ AWS SDK for JavaScript Artifact Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-artifact
+To install this package, simply type add or install @aws-sdk/client-artifact
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-artifact`
@@ -233,6 +233,14 @@ GetTermForReport
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/artifact/command/GetTermForReportCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/GetTermForReportCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/GetTermForReportCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCustomerAgreements
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/artifact/command/ListCustomerAgreementsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/ListCustomerAgreementsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-artifact/Interface/ListCustomerAgreementsCommandOutput/)
 
 </details>
 <details>

@@ -12,7 +12,8 @@ import { de_ListPublicKeysCommand, se_ListPublicKeysCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResult, __Met
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListPublicKeysCommand extends $Command
@@ -81,9 +83,7 @@ export class ListPublicKeysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class ListPublicKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPublicKeysCommand)
   .de(de_ListPublicKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPublicKeysRequest;
+      output: ListPublicKeysResult;
+    };
+    sdk: {
+      input: ListPublicKeysCommandInput;
+      output: ListPublicKeysCommandOutput;
+    };
+  };
+}

@@ -13,6 +13,7 @@ import {
   AssumeRoleWithWebIdentityCommandInput,
   AssumeRoleWithWebIdentityCommandOutput,
 } from "./commands/AssumeRoleWithWebIdentityCommand";
+import { AssumeRootCommand, AssumeRootCommandInput, AssumeRootCommandOutput } from "./commands/AssumeRootCommand";
 import {
   DecodeAuthorizationMessageCommand,
   DecodeAuthorizationMessageCommandInput,
@@ -44,6 +45,7 @@ const commands = {
   AssumeRoleCommand,
   AssumeRoleWithSAMLCommand,
   AssumeRoleWithWebIdentityCommand,
+  AssumeRootCommand,
   DecodeAuthorizationMessageCommand,
   GetAccessKeyInfoCommand,
   GetCallerIdentityCommand,
@@ -95,6 +97,17 @@ export interface STS {
     args: AssumeRoleWithWebIdentityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssumeRoleWithWebIdentityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssumeRootCommand}
+   */
+  assumeRoot(args: AssumeRootCommandInput, options?: __HttpHandlerOptions): Promise<AssumeRootCommandOutput>;
+  assumeRoot(args: AssumeRootCommandInput, cb: (err: any, data?: AssumeRootCommandOutput) => void): void;
+  assumeRoot(
+    args: AssumeRootCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssumeRootCommandOutput) => void
   ): void;
 
   /**

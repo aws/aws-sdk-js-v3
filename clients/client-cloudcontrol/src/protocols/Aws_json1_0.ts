@@ -55,6 +55,7 @@ import {
   GetResourceRequestStatusOutput,
   HandlerFailureException,
   HandlerInternalFailureException,
+  HookProgressEvent,
   InvalidCredentialsException,
   InvalidRequestException,
   ListResourceRequestsInput,
@@ -860,6 +861,7 @@ const de_DeleteResourceOutput = (output: any, context: __SerdeContext): DeleteRe
  */
 const de_GetResourceRequestStatusOutput = (output: any, context: __SerdeContext): GetResourceRequestStatusOutput => {
   return take(output, {
+    HooksProgressEvent: (_: any) => de_HooksProgressEvent(_, context),
     ProgressEvent: (_: any) => de_ProgressEvent(_, context),
   }) as any;
 };
@@ -867,6 +869,34 @@ const de_GetResourceRequestStatusOutput = (output: any, context: __SerdeContext)
 // de_HandlerFailureException omitted.
 
 // de_HandlerInternalFailureException omitted.
+
+/**
+ * deserializeAws_json1_0HookProgressEvent
+ */
+const de_HookProgressEvent = (output: any, context: __SerdeContext): HookProgressEvent => {
+  return take(output, {
+    FailureMode: __expectString,
+    HookEventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HookStatus: __expectString,
+    HookStatusMessage: __expectString,
+    HookTypeArn: __expectString,
+    HookTypeName: __expectString,
+    HookTypeVersionId: __expectString,
+    InvocationPoint: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0HooksProgressEvent
+ */
+const de_HooksProgressEvent = (output: any, context: __SerdeContext): HookProgressEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_HookProgressEvent(entry, context);
+    });
+  return retVal;
+};
 
 // de_InvalidCredentialsException omitted.
 
@@ -899,6 +929,7 @@ const de_ProgressEvent = (output: any, context: __SerdeContext): ProgressEvent =
   return take(output, {
     ErrorCode: __expectString,
     EventTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    HooksRequestToken: __expectString,
     Identifier: __expectString,
     Operation: __expectString,
     OperationStatus: __expectString,

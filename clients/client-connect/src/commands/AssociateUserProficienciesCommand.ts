@@ -12,7 +12,8 @@ import { de_AssociateUserProficienciesCommand, se_AssociateUserProficienciesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface AssociateUserProficienciesCommandInput extends AssociateUserPro
 export interface AssociateUserProficienciesCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>>Associates a set of proficiencies with a user.</p>
+ * <p>Associates a set of proficiencies with a user.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +76,7 @@ export interface AssociateUserProficienciesCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class AssociateUserProficienciesCommand extends $Command
@@ -85,9 +87,7 @@ export class AssociateUserProficienciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class AssociateUserProficienciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateUserProficienciesCommand)
   .de(de_AssociateUserProficienciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateUserProficienciesRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateUserProficienciesCommandInput;
+      output: AssociateUserProficienciesCommandOutput;
+    };
+  };
+}

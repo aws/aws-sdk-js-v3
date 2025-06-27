@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   UpdateCloudFrontOriginAccessIdentityRequest,
   UpdateCloudFrontOriginAccessIdentityResult,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_UpdateCloudFrontOriginAccessIdentityCommand,
   se_UpdateCloudFrontOriginAccessIdentityCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,8 +80,7 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>The update contains modifications that are not allowed.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -89,18 +89,17 @@ export interface UpdateCloudFrontOriginAccessIdentityCommandOutput
  *  <p>The <code>If-Match</code> version is missing or not valid.</p>
  *
  * @throws {@link MissingBody} (client fault)
- *  <p>This operation requires a body. Ensure that the body is present and the
- * 				<code>Content-Type</code> header is set.</p>
+ *  <p>This operation requires a body. Ensure that the body is present and the <code>Content-Type</code> header is set.</p>
  *
  * @throws {@link NoSuchCloudFrontOriginAccessIdentity} (client fault)
  *  <p>The specified origin access identity does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -112,9 +111,7 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +123,16 @@ export class UpdateCloudFrontOriginAccessIdentityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCloudFrontOriginAccessIdentityCommand)
   .de(de_UpdateCloudFrontOriginAccessIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCloudFrontOriginAccessIdentityRequest;
+      output: UpdateCloudFrontOriginAccessIdentityResult;
+    };
+    sdk: {
+      input: UpdateCloudFrontOriginAccessIdentityCommandInput;
+      output: UpdateCloudFrontOriginAccessIdentityCommandOutput;
+    };
+  };
+}

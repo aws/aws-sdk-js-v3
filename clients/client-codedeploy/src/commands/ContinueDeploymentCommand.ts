@@ -12,7 +12,8 @@ import { de_ContinueDeploymentCommand, se_ContinueDeploymentCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ContinueDeploymentCommandOutput extends __MetadataBearer {}
  * @throws {@link CodeDeployServiceException}
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
+ *
  * @public
  */
 export class ContinueDeploymentCommand extends $Command
@@ -91,9 +93,7 @@ export class ContinueDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeDeployClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ContinueDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ContinueDeploymentCommand)
   .de(de_ContinueDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ContinueDeploymentInput;
+      output: {};
+    };
+    sdk: {
+      input: ContinueDeploymentCommandInput;
+      output: ContinueDeploymentCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ExecuteChangeSetCommand, se_ExecuteChangeSetCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,15 @@ export interface ExecuteChangeSetCommandInput extends ExecuteChangeSetInput {}
 export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, __MetadataBearer {}
 
 /**
- * <p>Updates a stack using the input information that was provided when the specified change set was created. After
- *    the call successfully completes, CloudFormation starts updating the stack. Use the <a>DescribeStacks</a> action to
- *    view the status of the update.</p>
- *          <p>When you execute a change set, CloudFormation deletes all other change sets associated with the stack because they aren't
- *    valid for the updated stack.</p>
- *          <p>If a stack policy is associated with the stack, CloudFormation enforces the policy during the update. You can't specify a
- *    temporary stack policy that overrides the current policy.</p>
- *          <p>To create a change set for the entire stack hierarchy, <code>IncludeNestedStacks</code> must have been set to
- *    <code>True</code>.</p>
+ * <p>Updates a stack using the input information that was provided when the specified change
+ *       set was created. After the call successfully completes, CloudFormation starts updating the stack.
+ *       Use the <a>DescribeStacks</a> action to view the status of the update.</p>
+ *          <p>When you execute a change set, CloudFormation deletes all other change sets associated with
+ *       the stack because they aren't valid for the updated stack.</p>
+ *          <p>If a stack policy is associated with the stack, CloudFormation enforces the policy during the
+ *       update. You can't specify a temporary stack policy that overrides the current policy.</p>
+ *          <p>To create a change set for the entire stack hierarchy, <code>IncludeNestedStacks</code>
+ *       must have been set to <code>True</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +79,7 @@ export interface ExecuteChangeSetCommandOutput extends ExecuteChangeSetOutput, _
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class ExecuteChangeSetCommand extends $Command
@@ -88,9 +90,7 @@ export class ExecuteChangeSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ExecuteChangeSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteChangeSetCommand)
   .de(de_ExecuteChangeSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteChangeSetInput;
+      output: {};
+    };
+    sdk: {
+      input: ExecuteChangeSetCommandInput;
+      output: ExecuteChangeSetCommandOutput;
+    };
+  };
+}

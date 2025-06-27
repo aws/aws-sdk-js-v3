@@ -12,7 +12,8 @@ import { de_DescribeEndpointsCommand, se_DescribeEndpointsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DescribeEndpointsCommandInput extends DescribeEndpointsRequest 
 export interface DescribeEndpointsCommandOutput extends DescribeEndpointsResponse, __MetadataBearer {}
 
 /**
- * Send an request with an empty body to the regional API endpoint to get your account API endpoint.
+ * Send a request with an empty body to the regional API endpoint to get your account API endpoint. Note that DescribeEndpoints is no longer required. We recommend that you send your requests directly to the regional endpoint instead.
  *
  * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
  * @example
@@ -81,6 +82,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
  * @throws {@link MediaConvertServiceException}
  * <p>Base exception class for all service exceptions from MediaConvert service.</p>
  *
+ *
  * @public
  */
 export class DescribeEndpointsCommand extends $Command
@@ -91,9 +93,7 @@ export class DescribeEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaConvertClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DescribeEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEndpointsCommand)
   .de(de_DescribeEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEndpointsRequest;
+      output: DescribeEndpointsResponse;
+    };
+    sdk: {
+      input: DescribeEndpointsCommandInput;
+      output: DescribeEndpointsCommandOutput;
+    };
+  };
+}

@@ -20,7 +20,8 @@ import { de_CreateNotificationRuleCommand, se_CreateNotificationRuleCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,6 +104,7 @@ export interface CreateNotificationRuleCommandOutput extends CreateNotificationR
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class CreateNotificationRuleCommand extends $Command
@@ -113,9 +115,7 @@ export class CreateNotificationRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class CreateNotificationRuleCommand extends $Command
   .f(CreateNotificationRuleRequestFilterSensitiveLog, void 0)
   .ser(se_CreateNotificationRuleCommand)
   .de(de_CreateNotificationRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNotificationRuleRequest;
+      output: CreateNotificationRuleResult;
+    };
+    sdk: {
+      input: CreateNotificationRuleCommandInput;
+      output: CreateNotificationRuleCommandOutput;
+    };
+  };
+}

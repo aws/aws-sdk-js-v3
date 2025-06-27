@@ -12,7 +12,8 @@ import { de_ListSecurityConfigurationsCommand, se_ListSecurityConfigurationsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface ListSecurityConfigurationsCommandOutput extends ListSecurityCon
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class ListSecurityConfigurationsCommand extends $Command
@@ -110,9 +112,7 @@ export class ListSecurityConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class ListSecurityConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSecurityConfigurationsCommand)
   .de(de_ListSecurityConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSecurityConfigurationsRequest;
+      output: ListSecurityConfigurationsResponse;
+    };
+    sdk: {
+      input: ListSecurityConfigurationsCommandInput;
+      output: ListSecurityConfigurationsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListOriginEndpointsCommand, se_ListOriginEndpointsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,11 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * //           Url: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ * //         EndpointErrorConditions: [ // EndpointErrorConditions
+ * //           "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -104,6 +110,117 @@ export interface ListOriginEndpointsCommandOutput extends ListOriginEndpointsRes
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Listing all OriginEndpoints
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel"
+ * };
+ * const command = new ListOriginEndpointsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Items: [
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointTS",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       ChannelName: "exampleChannel",
+ *       ContainerType: "TS",
+ *       CreatedAt: "2022-10-18T09:36:00.00Z",
+ *       Description: "Description for exampleOriginEndpointTS",
+ *       ForceEndpointErrorConfiguration: {
+ *         EndpointErrorConditions: [
+ *           "STALE_MANIFEST",
+ *           "INCOMPLETE_MANIFEST",
+ *           "MISSING_DRM_KEY",
+ *           "SLATE_INPUT"
+ *         ]
+ *       },
+ *       HlsManifests: [
+ *         {
+ *           ChildManifestName: "exampleChildManifest1",
+ *           ManifestName: "exampleManifest1",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
+ *         },
+ *         {
+ *           ChildManifestName: "exampleManifest2",
+ *           ManifestName: "exampleManifest2",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
+ *         }
+ *       ],
+ *       LowLatencyHlsManifests: [
+ *         {
+ *           ChildManifestName: "exampleLLChildManifest1",
+ *           ManifestName: "exampleLLManifest1",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
+ *         },
+ *         {
+ *           ChildManifestName: "exampleLLManifest2",
+ *           ManifestName: "exampleLLManifest2",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
+ *         }
+ *       ],
+ *       ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *       OriginEndpointName: "exampleOriginEndpointTS"
+ *     },
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointCMAF",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       ChannelName: "exampleChannel",
+ *       ContainerType: "CMAF",
+ *       CreatedAt: "2022-10-18T09:36:00.00Z",
+ *       DashManifests: [
+ *         {
+ *           ManifestName: "exampleDashManifest1",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleDashManifest1.mpd"
+ *         },
+ *         {
+ *           ManifestName: "exampleDashManifest2",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleDashManifest2.mpd"
+ *         }
+ *       ],
+ *       ForceEndpointErrorConfiguration: {
+ *         EndpointErrorConditions: [
+ *           "STALE_MANIFEST",
+ *           "INCOMPLETE_MANIFEST",
+ *           "MISSING_DRM_KEY",
+ *           "SLATE_INPUT"
+ *         ]
+ *       },
+ *       HlsManifests: [
+ *         {
+ *           ChildManifestName: "exampleChildManifest1",
+ *           ManifestName: "exampleManifest1",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleManifest1.m3u8"
+ *         },
+ *         {
+ *           ChildManifestName: "exampleManifest2",
+ *           ManifestName: "exampleManifest2",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleManifest2.m3u8"
+ *         }
+ *       ],
+ *       LowLatencyHlsManifests: [
+ *         {
+ *           ChildManifestName: "exampleLLChildManifest1",
+ *           ManifestName: "exampleLLManifest1",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest1.m3u8"
+ *         },
+ *         {
+ *           ChildManifestName: "exampleLLManifest2",
+ *           ManifestName: "exampleLLManifest2",
+ *           Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest2.m3u8"
+ *         }
+ *       ],
+ *       ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *       OriginEndpointName: "exampleOriginEndpointCMAF"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListOriginEndpointsCommand extends $Command
@@ -114,9 +231,7 @@ export class ListOriginEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +243,16 @@ export class ListOriginEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOriginEndpointsCommand)
   .de(de_ListOriginEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOriginEndpointsRequest;
+      output: ListOriginEndpointsResponse;
+    };
+    sdk: {
+      input: ListOriginEndpointsCommandInput;
+      output: ListOriginEndpointsCommandOutput;
+    };
+  };
+}

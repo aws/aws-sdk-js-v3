@@ -17,7 +17,8 @@ import { de_CreatePackageVersionCommand, se_CreatePackageVersionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,14 @@ export interface CreatePackageVersionCommandOutput extends CreatePackageVersionR
  *   attributes: { // ResourceAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   artifact: { // PackageVersionArtifact
+ *     s3Location: { // S3Location
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *   },
+ *   recipe: "STRING_VALUE",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -75,14 +84,14 @@ export interface CreatePackageVersionCommandOutput extends CreatePackageVersionR
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
  *             is unavailable.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>A limit has been exceeded.</p>
+ *  <p>Service quota has been exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The rate exceeds the limit.</p>
@@ -92,6 +101,7 @@ export interface CreatePackageVersionCommandOutput extends CreatePackageVersionR
  *
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
+ *
  *
  * @public
  */
@@ -103,9 +113,7 @@ export class CreatePackageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +125,16 @@ export class CreatePackageVersionCommand extends $Command
   .f(CreatePackageVersionRequestFilterSensitiveLog, CreatePackageVersionResponseFilterSensitiveLog)
   .ser(se_CreatePackageVersionCommand)
   .de(de_CreatePackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageVersionRequest;
+      output: CreatePackageVersionResponse;
+    };
+    sdk: {
+      input: CreatePackageVersionCommandInput;
+      output: CreatePackageVersionCommandOutput;
+    };
+  };
+}

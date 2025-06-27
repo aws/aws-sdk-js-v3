@@ -12,7 +12,8 @@ import { de_GetTargetResourceTypeCommand, se_GetTargetResourceTypeCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface GetTargetResourceTypeCommandOutput extends GetTargetResourceTyp
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class GetTargetResourceTypeCommand extends $Command
@@ -79,9 +81,7 @@ export class GetTargetResourceTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class GetTargetResourceTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTargetResourceTypeCommand)
   .de(de_GetTargetResourceTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTargetResourceTypeRequest;
+      output: GetTargetResourceTypeResponse;
+    };
+    sdk: {
+      input: GetTargetResourceTypeCommandInput;
+      output: GetTargetResourceTypeCommandOutput;
+    };
+  };
+}

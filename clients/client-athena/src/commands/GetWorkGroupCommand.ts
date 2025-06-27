@@ -12,7 +12,8 @@ import { de_GetWorkGroupCommand, se_GetWorkGroupCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,6 +54,12 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  * //         ExpectedBucketOwner: "STRING_VALUE",
  * //         AclConfiguration: { // AclConfiguration
  * //           S3AclOption: "BUCKET_OWNER_FULL_CONTROL", // required
+ * //         },
+ * //       },
+ * //       ManagedQueryResultsConfiguration: { // ManagedQueryResultsConfiguration
+ * //         Enabled: true || false, // required
+ * //         EncryptionConfiguration: { // ManagedQueryResultsEncryptionConfiguration
+ * //           KmsKey: "STRING_VALUE", // required
  * //         },
  * //       },
  * //       EnforceWorkGroupConfiguration: true || false,
@@ -104,6 +111,7 @@ export interface GetWorkGroupCommandOutput extends GetWorkGroupOutput, __Metadat
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetWorkGroupCommand extends $Command
@@ -114,9 +122,7 @@ export class GetWorkGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +134,16 @@ export class GetWorkGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWorkGroupCommand)
   .de(de_GetWorkGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWorkGroupInput;
+      output: GetWorkGroupOutput;
+    };
+    sdk: {
+      input: GetWorkGroupCommandInput;
+      output: GetWorkGroupCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateKeysAndCertificateCommand, se_CreateKeysAndCertificateCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface CreateKeysAndCertificateCommandOutput extends CreateKeysAndCert
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class CreateKeysAndCertificateCommand extends $Command
@@ -95,9 +97,7 @@ export class CreateKeysAndCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class CreateKeysAndCertificateCommand extends $Command
   .f(void 0, CreateKeysAndCertificateResponseFilterSensitiveLog)
   .ser(se_CreateKeysAndCertificateCommand)
   .de(de_CreateKeysAndCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeysAndCertificateRequest;
+      output: CreateKeysAndCertificateResponse;
+    };
+    sdk: {
+      input: CreateKeysAndCertificateCommandInput;
+      output: CreateKeysAndCertificateCommandOutput;
+    };
+  };
+}

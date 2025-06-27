@@ -12,7 +12,8 @@ import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,14 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of tags for the specified AWS CloudHSM cluster.</p>
+ * <p>Gets a list of tags for the specified CloudHSM cluster.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the tags. When the response contains only a subset of tags, it includes a
  *       <code>NextToken</code> value. Use this value in a subsequent <code>ListTags</code> request to
  *       get more tags. When you receive a response with no <code>NextToken</code> (or an empty or null
  *       value), that means there are no more tags to get.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM resource in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +72,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -88,6 +91,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class ListTagsCommand extends $Command
@@ -98,9 +102,7 @@ export class ListTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +114,16 @@ export class ListTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsCommand)
   .de(de_ListTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsRequest;
+      output: ListTagsResponse;
+    };
+    sdk: {
+      input: ListTagsCommandInput;
+      output: ListTagsCommandOutput;
+    };
+  };
+}

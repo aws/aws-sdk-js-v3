@@ -12,7 +12,8 @@ import { de_UpdateTrustCommand, se_UpdateTrustCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface UpdateTrustCommandOutput extends UpdateTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class UpdateTrustCommand extends $Command
@@ -79,9 +81,7 @@ export class UpdateTrustCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class UpdateTrustCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrustCommand)
   .de(de_UpdateTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrustRequest;
+      output: UpdateTrustResult;
+    };
+    sdk: {
+      input: UpdateTrustCommandInput;
+      output: UpdateTrustCommandOutput;
+    };
+  };
+}

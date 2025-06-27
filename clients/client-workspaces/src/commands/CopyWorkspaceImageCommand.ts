@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  *          information about copying images, see <a href="https://docs.aws.amazon.com/workspaces/latest/adminguide/copy-custom-image.html"> Copy a Custom WorkSpaces
  *             Image</a>.</p>
  *          <p>In the China (Ningxia) Region, you can copy images only within the same Region.</p>
- *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web Services Support.</p>
+ *          <p>In Amazon Web Services GovCloud (US), to copy images to and from other Regions, contact Amazon Web ServicesSupport.</p>
  *          <important>
  *             <p>Before copying a shared image, be sure to verify that it has been shared from the
  *             correct Amazon Web Services account. To determine if an image has been shared and to see
@@ -93,6 +94,7 @@ export interface CopyWorkspaceImageCommandOutput extends CopyWorkspaceImageResul
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class CopyWorkspaceImageCommand extends $Command
@@ -103,9 +105,7 @@ export class CopyWorkspaceImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class CopyWorkspaceImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CopyWorkspaceImageCommand)
   .de(de_CopyWorkspaceImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CopyWorkspaceImageRequest;
+      output: CopyWorkspaceImageResult;
+    };
+    sdk: {
+      input: CopyWorkspaceImageCommandInput;
+      output: CopyWorkspaceImageCommandOutput;
+    };
+  };
+}

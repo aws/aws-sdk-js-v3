@@ -12,7 +12,8 @@ import { de_DeleteScriptCommand, se_DeleteScriptCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Servers Amazon GameLift Servers Realtime</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
@@ -76,7 +77,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TaggingFailedException} (client fault)
  *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
@@ -89,6 +90,7 @@ export interface DeleteScriptCommandOutput extends __MetadataBearer {}
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DeleteScriptCommand extends $Command
@@ -99,9 +101,7 @@ export class DeleteScriptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DeleteScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScriptCommand)
   .de(de_DeleteScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScriptInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScriptCommandInput;
+      output: DeleteScriptCommandOutput;
+    };
+  };
+}

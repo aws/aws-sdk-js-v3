@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface CreateUsageLimitCommandOutput extends CreateUsageLimitResponse,
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateUsageLimitCommand extends $Command
@@ -96,9 +98,7 @@ export class CreateUsageLimitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CreateUsageLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateUsageLimitCommand)
   .de(de_CreateUsageLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUsageLimitRequest;
+      output: CreateUsageLimitResponse;
+    };
+    sdk: {
+      input: CreateUsageLimitCommandInput;
+      output: CreateUsageLimitCommandOutput;
+    };
+  };
+}

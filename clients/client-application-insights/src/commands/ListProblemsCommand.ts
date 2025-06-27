@@ -16,7 +16,8 @@ import { de_ListProblemsCommand, se_ListProblemsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,7 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * //     { // Problem
  * //       Id: "STRING_VALUE",
  * //       Title: "STRING_VALUE",
+ * //       ShortName: "STRING_VALUE",
  * //       Insights: "STRING_VALUE",
  * //       Status: "IGNORE" || "RESOLVED" || "PENDING" || "RECURRING" || "RECOVERING",
  * //       AffectedResource: "STRING_VALUE",
@@ -97,6 +99,7 @@ export interface ListProblemsCommandOutput extends ListProblemsResponse, __Metad
  * @throws {@link ApplicationInsightsServiceException}
  * <p>Base exception class for all service exceptions from ApplicationInsights service.</p>
  *
+ *
  * @public
  */
 export class ListProblemsCommand extends $Command
@@ -107,9 +110,7 @@ export class ListProblemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationInsightsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +122,16 @@ export class ListProblemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProblemsCommand)
   .de(de_ListProblemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProblemsRequest;
+      output: ListProblemsResponse;
+    };
+    sdk: {
+      input: ListProblemsCommandInput;
+      output: ListProblemsCommandOutput;
+    };
+  };
+}

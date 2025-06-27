@@ -12,7 +12,8 @@ import { de_DeleteConfigurationRecorderCommand, se_DeleteConfigurationRecorderCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,16 +28,13 @@ export interface DeleteConfigurationRecorderCommandInput extends DeleteConfigura
 export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the configuration recorder.</p>
- *          <p>After the configuration recorder is deleted, Config will
- * 			not record resource configuration changes until you create a new
- * 			configuration recorder.</p>
- *          <p>This action does not delete the configuration information that
+ * <p>Deletes the customer managed configuration recorder.</p>
+ *          <p>This operation does not delete the configuration information that
  * 			was previously recorded. You will be able to access the previously
  * 			recorded information by using the
- * 				<code>GetResourceConfigHistory</code> action, but you will not
+ * 			<a href="https://docs.aws.amazon.com/config/latest/APIReference/API_GetResourceConfigHistory.html">GetResourceConfigHistory</a> operation, but you will not
  * 			be able to access this information in the Config console until
- * 			you create a new configuration recorder.</p>
+ * 			you have created a new customer managed configuration recorder.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +60,20 @@ export interface DeleteConfigurationRecorderCommandOutput extends __MetadataBear
  *  <p>You have specified a configuration recorder that does not
  * 			exist.</p>
  *
+ * @throws {@link UnmodifiableEntityException} (client fault)
+ *  <p>The requested operation is not valid.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutConfigurationRecorder.html">PutConfigurationRecorder</a>,
+ * 			you will see this exception because you cannot use this operation to create a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_PutServiceLinkedConfigurationRecorder.html">PutServiceLinkedConfigurationRecorder</a> operation to create a service-linked configuration
+ * 			recorder.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteConfigurationRecorder.html">DeleteConfigurationRecorder</a>, you will see this exception because you cannot use this operation to delete a service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration
+ * 			recorder.</p>
+ *          <p>For <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StartConfigurationRecorder.html">StartConfigurationRecorder</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html">StopConfigurationRecorder</a>, you will see this exception because these operations do not affect service-linked configuration recorders.
+ * 			Service-linked configuration recorders are always recording. To stop recording, you must delete the service-linked configuration recorder. Use the <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_DeleteServiceLinkedConfigurationRecorder.html">DeleteServiceLinkedConfigurationRecorder</a> operation to delete a service-linked configuration
+ * 			recorder.</p>
+ *
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
+ *
  *
  * @public
  */
@@ -75,9 +85,7 @@ export class DeleteConfigurationRecorderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +97,16 @@ export class DeleteConfigurationRecorderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationRecorderCommand)
   .de(de_DeleteConfigurationRecorderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationRecorderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteConfigurationRecorderCommandInput;
+      output: DeleteConfigurationRecorderCommandOutput;
+    };
+  };
+}

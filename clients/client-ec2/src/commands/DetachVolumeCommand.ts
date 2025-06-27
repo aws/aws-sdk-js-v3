@@ -7,13 +7,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
 import { VolumeAttachment } from "../models/models_0";
-import { DetachVolumeRequest } from "../models/models_5";
+import { DetachVolumeRequest } from "../models/models_6";
 import { de_DetachVolumeCommand, se_DetachVolumeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,14 +59,14 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
  * // { // VolumeAttachment
- * //   AttachTime: new Date("TIMESTAMP"),
- * //   Device: "STRING_VALUE",
- * //   InstanceId: "STRING_VALUE",
- * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
- * //   VolumeId: "STRING_VALUE",
  * //   DeleteOnTermination: true || false,
  * //   AssociatedResource: "STRING_VALUE",
  * //   InstanceOwningService: "STRING_VALUE",
+ * //   VolumeId: "STRING_VALUE",
+ * //   InstanceId: "STRING_VALUE",
+ * //   Device: "STRING_VALUE",
+ * //   State: "attaching" || "attached" || "detaching" || "detached" || "busy",
+ * //   AttachTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
@@ -79,27 +80,27 @@ export interface DetachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To detach a volume from an instance
  * ```javascript
  * // This example detaches the volume (``vol-049df61146c4d7901``) from the instance it is attached to.
  * const input = {
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   VolumeId: "vol-1234567890abcdef0"
  * };
  * const command = new DetachVolumeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AttachTime": "2014-02-27T19:23:06.000Z",
- *   "Device": "/dev/sdb",
- *   "InstanceId": "i-1234567890abcdef0",
- *   "State": "detaching",
- *   "VolumeId": "vol-049df61146c4d7901"
+ *   AttachTime: "2014-02-27T19:23:06.000Z",
+ *   Device: "/dev/sdb",
+ *   InstanceId: "i-1234567890abcdef0",
+ *   State: "detaching",
+ *   VolumeId: "vol-049df61146c4d7901"
  * }
  * *\/
- * // example id: to-detach-a-volume-from-an-instance-1472507977694
  * ```
  *
+ * @public
  */
 export class DetachVolumeCommand extends $Command
   .classBuilder<
@@ -109,9 +110,7 @@ export class DetachVolumeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class DetachVolumeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetachVolumeCommand)
   .de(de_DetachVolumeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetachVolumeRequest;
+      output: VolumeAttachment;
+    };
+    sdk: {
+      input: DetachVolumeCommandInput;
+      output: DetachVolumeCommandOutput;
+    };
+  };
+}

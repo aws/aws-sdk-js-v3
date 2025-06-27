@@ -12,7 +12,8 @@ import { de_GetTrafficPolicyCommand, se_GetTrafficPolicyCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,10 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * //           StringExpression: { // IngressStringExpression
  * //             Evaluate: { // IngressStringToEvaluate Union: only one key present
  * //               Attribute: "RECIPIENT",
+ * //               Analysis: { // IngressAnalysis
+ * //                 Analyzer: "STRING_VALUE", // required
+ * //                 ResultField: "STRING_VALUE", // required
+ * //               },
  * //             },
  * //             Operator: "EQUALS" || "NOT_EQUALS" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS", // required
  * //             Values: [ // StringList // required
@@ -65,6 +70,15 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * //               "STRING_VALUE",
  * //             ],
  * //           },
+ * //           Ipv6Expression: { // IngressIpv6Expression
+ * //             Evaluate: { // IngressIpv6ToEvaluate Union: only one key present
+ * //               Attribute: "SENDER_IPV6",
+ * //             },
+ * //             Operator: "CIDR_MATCHES" || "NOT_CIDR_MATCHES", // required
+ * //             Values: [ // Ipv6Cidrs // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
  * //           TlsExpression: { // IngressTlsProtocolExpression
  * //             Evaluate: { // IngressTlsProtocolToEvaluate Union: only one key present
  * //               Attribute: "TLS_PROTOCOL",
@@ -74,9 +88,15 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * //           },
  * //           BooleanExpression: { // IngressBooleanExpression
  * //             Evaluate: { // IngressBooleanToEvaluate Union: only one key present
- * //               Analysis: { // IngressAnalysis
+ * //               Analysis: {
  * //                 Analyzer: "STRING_VALUE", // required
  * //                 ResultField: "STRING_VALUE", // required
+ * //               },
+ * //               IsInAddressList: { // IngressIsInAddressList
+ * //                 Attribute: "RECIPIENT", // required
+ * //                 AddressLists: [ // IngressAddressListArnList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
  * //               },
  * //             },
  * //             Operator: "IS_TRUE" || "IS_FALSE", // required
@@ -109,6 +129,45 @@ export interface GetTrafficPolicyCommandOutput extends GetTrafficPolicyResponse,
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
+ * @example Get TrafficPolicy
+ * ```javascript
+ * //
+ * const input = {
+ *   TrafficPolicyId: "tp-12345"
+ * };
+ * const command = new GetTrafficPolicyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DefaultAction: "DENY",
+ *   MaxMessageSizeBytes: 1000,
+ *   PolicyStatements: [
+ *     {
+ *       Action: "ALLOW",
+ *       Conditions: [
+ *         {
+ *           StringExpression: {
+ *             Evaluate: {
+ *               Attribute: "RECIPIENT"
+ *             },
+ *             Operator: "EQUALS",
+ *             Values: [
+ *               "example@amazon.com",
+ *               "example@gmail.com"
+ *             ]
+ *           }
+ *         }
+ *       ]
+ *     }
+ *   ],
+ *   TrafficPolicyArn: "arn:aws:ses:us-east-1:123456789012:mailmanager-traffic-policy/tp-12345",
+ *   TrafficPolicyId: "tp-12345",
+ *   TrafficPolicyName: "trafficPolicyName"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetTrafficPolicyCommand extends $Command
@@ -119,9 +178,7 @@ export class GetTrafficPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +190,16 @@ export class GetTrafficPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTrafficPolicyCommand)
   .de(de_GetTrafficPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTrafficPolicyRequest;
+      output: GetTrafficPolicyResponse;
+    };
+    sdk: {
+      input: GetTrafficPolicyCommandInput;
+      output: GetTrafficPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,12 +101,19 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
+ * //     Endpoint: "STRING_VALUE",
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -133,6 +141,7 @@ export interface FailoverGlobalClusterCommandOutput extends FailoverGlobalCluste
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class FailoverGlobalClusterCommand extends $Command
@@ -143,9 +152,7 @@ export class FailoverGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +164,16 @@ export class FailoverGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_FailoverGlobalClusterCommand)
   .de(de_FailoverGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FailoverGlobalClusterMessage;
+      output: FailoverGlobalClusterResult;
+    };
+    sdk: {
+      input: FailoverGlobalClusterCommandInput;
+      output: FailoverGlobalClusterCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface CancelSigningProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class CancelSigningProfileCommand extends $Command
@@ -78,9 +80,7 @@ export class CancelSigningProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class CancelSigningProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelSigningProfileCommand)
   .de(de_CancelSigningProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelSigningProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelSigningProfileCommandInput;
+      output: CancelSigningProfileCommandOutput;
+    };
+  };
+}

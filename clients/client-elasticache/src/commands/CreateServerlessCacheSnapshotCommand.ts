@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface CreateServerlessCacheSnapshotCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Redis only.</p>
+ * <p>This API creates a copy of an entire ServerlessCache at a specific moment in time. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,10 +92,10 @@ export interface CreateServerlessCacheSnapshotCommandOutput
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotAlreadyExistsFault} (client fault)
- *  <p>A serverless cache snapshot with this name already exists. Available for Redis only.</p>
+ *  <p>A serverless cache snapshot with this name already exists. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServerlessCacheSnapshotQuotaExceededFault} (client fault)
- *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Redis only.</p>
+ *  <p>The number of serverless cache snapshots exceeds the customer snapshot quota. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link ServiceLinkedRoleNotFoundFault} (client fault)
  *  <p>The specified service linked role (SLR) was not found.</p>
@@ -107,6 +108,7 @@ export interface CreateServerlessCacheSnapshotCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class CreateServerlessCacheSnapshotCommand extends $Command
@@ -117,9 +119,7 @@ export class CreateServerlessCacheSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class CreateServerlessCacheSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServerlessCacheSnapshotCommand)
   .de(de_CreateServerlessCacheSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServerlessCacheSnapshotRequest;
+      output: CreateServerlessCacheSnapshotResponse;
+    };
+    sdk: {
+      input: CreateServerlessCacheSnapshotCommandInput;
+      output: CreateServerlessCacheSnapshotCommandOutput;
+    };
+  };
+}

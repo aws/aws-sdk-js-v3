@@ -12,7 +12,8 @@ import { de_InitiateMultipartUploadCommand, se_InitiateMultipartUploadCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,26 +105,26 @@ export interface InitiateMultipartUploadCommandOutput extends InitiateMultipartU
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To initiate a multipart upload
  * ```javascript
  * // The example initiates a multipart upload to a vault named my-vault with a part size of 1 MiB (1024 x 1024 bytes) per file.
  * const input = {
- *   "accountId": "-",
- *   "partSize": "1048576",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   partSize: "1048576",
+ *   vaultName: "my-vault"
  * };
  * const command = new InitiateMultipartUploadCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "location": "/111122223333/vaults/my-vault/multipart-uploads/19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
- *   "uploadId": "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ"
+ *   location: "/111122223333/vaults/my-vault/multipart-uploads/19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ",
+ *   uploadId: "19gaRezEXAMPLES6Ry5YYdqthHOC_kGRCT03L9yetr220UmPtBYKk-OssZtLqyFu7sY1_lR7vgFuJV6NtcV5zpsJ"
  * }
  * *\/
- * // example id: 72f2db19-3d93-4c74-b2ed-38703baacf49
  * ```
  *
+ * @public
  */
 export class InitiateMultipartUploadCommand extends $Command
   .classBuilder<
@@ -133,9 +134,7 @@ export class InitiateMultipartUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +146,16 @@ export class InitiateMultipartUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_InitiateMultipartUploadCommand)
   .de(de_InitiateMultipartUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateMultipartUploadInput;
+      output: InitiateMultipartUploadOutput;
+    };
+    sdk: {
+      input: InitiateMultipartUploadCommandInput;
+      output: InitiateMultipartUploadCommandOutput;
+    };
+  };
+}

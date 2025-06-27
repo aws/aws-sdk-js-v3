@@ -12,7 +12,8 @@ import { de_AssignIpv6AddressesCommand, se_AssignIpv6AddressesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,17 +28,16 @@ export interface AssignIpv6AddressesCommandInput extends AssignIpv6AddressesRequ
 export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesResult, __MetadataBearer {}
 
 /**
- * <p>Assigns one or more IPv6 addresses to the specified network interface. You can
- *             specify one or more specific IPv6 addresses, or you can specify the number of IPv6
- *             addresses to be automatically assigned from within the subnet's IPv6 CIDR block range.
- *             You can assign as many IPv6 addresses to a network interface as you can assign private
- *             IPv4 addresses, and the limit varies per instance type. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI">IP Addresses Per Network Interface Per Instance Type</a>
- *             in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ * <p>Assigns the specified IPv6 addresses to the specified network interface. You can
+ *             specify specific IPv6 addresses, or you can specify the number of IPv6 addresses to be
+ *             automatically assigned from the subnet's IPv6 CIDR block range. You can assign as many
+ *             IPv6 addresses to a network interface as you can assign private IPv4 addresses, and the
+ *             limit varies by instance type.</p>
  *          <p>You must specify either the IPv6 addresses or the IPv6 address count in the request. </p>
  *          <p>You can optionally use Prefix Delegation on the network interface. You must specify
  *             either the IPV6 Prefix Delegation prefixes, or the IPv6 Prefix Delegation count. For
- *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html">
- *                 Assigning prefixes to Amazon EC2 network interfaces</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *             information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-prefix-eni.html"> Assigning prefixes to network
+ *                 interfaces</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,15 +45,15 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * // const { EC2Client, AssignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // AssignIpv6AddressesRequest
- *   Ipv6AddressCount: Number("int"),
- *   Ipv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
- *   ],
  *   Ipv6PrefixCount: Number("int"),
  *   Ipv6Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
  *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   Ipv6Addresses: [ // Ipv6AddressList
+ *     "STRING_VALUE",
+ *   ],
+ *   Ipv6AddressCount: Number("int"),
  * };
  * const command = new AssignIpv6AddressesCommand(input);
  * const response = await client.send(command);
@@ -78,6 +78,7 @@ export interface AssignIpv6AddressesCommandOutput extends AssignIpv6AddressesRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssignIpv6AddressesCommand extends $Command
@@ -88,9 +89,7 @@ export class AssignIpv6AddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class AssignIpv6AddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignIpv6AddressesCommand)
   .de(de_AssignIpv6AddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignIpv6AddressesRequest;
+      output: AssignIpv6AddressesResult;
+    };
+    sdk: {
+      input: AssignIpv6AddressesCommandInput;
+      output: AssignIpv6AddressesCommandOutput;
+    };
+  };
+}

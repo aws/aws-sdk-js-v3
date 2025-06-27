@@ -10,13 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUsersRequest, ListUsersResponse, ListUsersResponseFilterSensitiveLog } from "../models/models_0";
+import { ListUsersRequest, ListUsersResponse, ListUsersResponseFilterSensitiveLog } from "../models/models_1";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists users and their basic details in a user pool.</p>
+ * <p>Given a user pool ID, returns a list of users and their basic details in a user
+ *             pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -123,83 +125,83 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
- * @public
+ *
  * @example A ListUsers request for the next 3 users whose email address starts with "testuser."
  * ```javascript
  * // This request submits a value for all possible parameters for ListUsers. By iterating the PaginationToken, you can page through and collect all users in a user pool.
  * const input = {
- *   "AttributesToGet": [
+ *   AttributesToGet: [
  *     "email",
  *     "sub"
  *   ],
- *   "Filter": "\"email\"^=\"testuser\"",
- *   "Limit": 3,
- *   "PaginationToken": "abcd1234EXAMPLE",
- *   "UserPoolId": "us-east-1_EXAMPLE"
+ *   Filter: `"email"^="testuser"`,
+ *   Limit: 3,
+ *   PaginationToken: "abcd1234EXAMPLE",
+ *   UserPoolId: "us-east-1_EXAMPLE"
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PaginationToken": "efgh5678EXAMPLE",
- *   "Users": [
+ *   PaginationToken: "efgh5678EXAMPLE",
+ *   Users: [
  *     {
- *       "Attributes": [
+ *       Attributes: [
  *         {
- *           "Name": "sub",
- *           "Value": "eaad0219-2117-439f-8d46-4db20e59268f"
+ *           Name: "sub",
+ *           Value: "eaad0219-2117-439f-8d46-4db20e59268f"
  *         },
  *         {
- *           "Name": "email",
- *           "Value": "testuser@example.com"
+ *           Name: "email",
+ *           Value: "testuser@example.com"
  *         }
  *       ],
- *       "Enabled": true,
- *       "UserCreateDate": 1682955829.578,
- *       "UserLastModifiedDate": 1689030181.63,
- *       "UserStatus": "CONFIRMED",
- *       "Username": "testuser"
+ *       Enabled: true,
+ *       UserCreateDate: 1.682955829578E9,
+ *       UserLastModifiedDate: 1.68903018163E9,
+ *       UserStatus: "CONFIRMED",
+ *       Username: "testuser"
  *     },
  *     {
- *       "Attributes": [
+ *       Attributes: [
  *         {
- *           "Name": "sub",
- *           "Value": "3b994cfd-0b07-4581-be46-3c82f9a70c90"
+ *           Name: "sub",
+ *           Value: "3b994cfd-0b07-4581-be46-3c82f9a70c90"
  *         },
  *         {
- *           "Name": "email",
- *           "Value": "testuser2@example.com"
+ *           Name: "email",
+ *           Value: "testuser2@example.com"
  *         }
  *       ],
- *       "Enabled": true,
- *       "UserCreateDate": 1684427979.201,
- *       "UserLastModifiedDate": 1684427979.201,
- *       "UserStatus": "UNCONFIRMED",
- *       "Username": "testuser2"
+ *       Enabled: true,
+ *       UserCreateDate: 1.684427979201E9,
+ *       UserLastModifiedDate: 1.684427979201E9,
+ *       UserStatus: "UNCONFIRMED",
+ *       Username: "testuser2"
  *     },
  *     {
- *       "Attributes": [
+ *       Attributes: [
  *         {
- *           "Name": "sub",
- *           "Value": "5929e0d1-4c34-42d1-9b79-a5ecacfe66f7"
+ *           Name: "sub",
+ *           Value: "5929e0d1-4c34-42d1-9b79-a5ecacfe66f7"
  *         },
  *         {
- *           "Name": "email",
- *           "Value": "testuser3@example.com"
+ *           Name: "email",
+ *           Value: "testuser3@example.com"
  *         }
  *       ],
- *       "Enabled": true,
- *       "UserCreateDate": 1684427823.641,
- *       "UserLastModifiedDate": 1684427823.641,
- *       "UserStatus": "UNCONFIRMED",
- *       "Username": "testuser3@example.com"
+ *       Enabled: true,
+ *       UserCreateDate: 1.684427823641E9,
+ *       UserLastModifiedDate: 1.684427823641E9,
+ *       UserStatus: "UNCONFIRMED",
+ *       Username: "testuser3@example.com"
  *     }
  *   ]
  * }
  * *\/
- * // example id: a-listusers-request-for-the-next-3-users-whose-email-address-starts-with-testuser-1689977648246
  * ```
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<
@@ -209,9 +211,7 @@ export class ListUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -223,4 +223,16 @@ export class ListUsersCommand extends $Command
   .f(void 0, ListUsersResponseFilterSensitiveLog)
   .ser(se_ListUsersCommand)
   .de(de_ListUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersRequest;
+      output: ListUsersResponse;
+    };
+    sdk: {
+      input: ListUsersCommandInput;
+      output: ListUsersCommandOutput;
+    };
+  };
+}

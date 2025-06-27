@@ -16,7 +16,6 @@
  package software.amazon.smithy.aws.typescript.codegen;
 
 import software.amazon.smithy.model.shapes.ServiceShape;
-import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.typescript.codegen.TypeScriptWriter;
 import software.amazon.smithy.utils.SmithyInternalApi;
 
@@ -28,18 +27,8 @@ public final class AwsCredentialProviderUtils {
 
     private AwsCredentialProviderUtils() {}
 
-    /**
-     * Adds dependencies required by the default credential provider.
-     * The dependencies are skipped in first party credential providers to avoid circular dependency issue.
-     */
+    @Deprecated
     public static void addAwsCredentialProviderDependencies(ServiceShape service, TypeScriptWriter writer) {
-        if (!service.getId().equals(ShapeId.from("com.amazonaws.ssooidc#AWSSSOOIDCService"))) {
-            // SSO OIDC client is required in Sso credential provider
-            writer.addDependency(AwsDependency.SSO_OIDC_CLIENT);
-        }
-        if (!service.getId().equals(ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"))) {
-            // STS client is required in Ini and WebIdentity credential providers
-            writer.addDependency(AwsDependency.STS_CLIENT);
-        }
+        // deprecated by @aws-sdk/nested-clients package.
     }
 }

@@ -5,18 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  GetRecommendationsRequest,
-  GetRecommendationsResponse,
-  GetRecommendationsResponseFilterSensitiveLog,
-} from "../models/models_0";
+import { GetRecommendationsRequest } from "../models/models_0";
+import { GetRecommendationsResponse, GetRecommendationsResponseFilterSensitiveLog } from "../models/models_1";
 import { de_GetRecommendationsCommand, se_GetRecommendationsCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +52,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *   sessionId: "STRING_VALUE", // required
  *   maxResults: Number("int"),
  *   waitTimeSeconds: Number("int"),
+ *   nextChunkToken: "STRING_VALUE",
  * };
  * const command = new GetRecommendationsCommand(input);
  * const response = await client.send(command);
@@ -67,6 +66,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //           knowledgeBaseId: "STRING_VALUE",
  * //           contentArn: "STRING_VALUE",
  * //           contentId: "STRING_VALUE",
+ * //           sourceURL: "STRING_VALUE",
+ * //           referenceType: "STRING_VALUE",
  * //         },
  * //         title: { // DocumentText
  * //           text: "STRING_VALUE",
@@ -97,6 +98,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //             knowledgeBaseId: "STRING_VALUE",
  * //             contentArn: "STRING_VALUE",
  * //             contentId: "STRING_VALUE",
+ * //             sourceURL: "STRING_VALUE",
+ * //             referenceType: "STRING_VALUE",
  * //           },
  * //           generativeReference: { // GenerativeReference
  * //             modelId: "STRING_VALUE",
@@ -162,6 +165,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
  * //                   },
+ * //                   intentDetectedData: { // IntentDetectedDataDetails
+ * //                     intent: "STRING_VALUE", // required
+ * //                     intentId: "STRING_VALUE", // required
+ * //                   },
  * //                   sourceContentData: { // SourceContentDataDetails
  * //                     id: "STRING_VALUE", // required
  * //                     type: "STRING_VALUE", // required
@@ -173,6 +180,17 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //                       relevanceScore: Number("double"),
  * //                       relevanceLevel: "STRING_VALUE",
  * //                     },
+ * //                     citationSpan: { // CitationSpan
+ * //                       beginOffsetInclusive: Number("int"),
+ * //                       endOffsetExclusive: Number("int"),
+ * //                     },
+ * //                   },
+ * //                   generativeChunkData: { // GenerativeChunkDataDetails
+ * //                     completion: "STRING_VALUE",
+ * //                     references: [
+ * //                       "<DataSummary>",
+ * //                     ],
+ * //                     nextChunkToken: "STRING_VALUE",
  * //                   },
  * //                 },
  * //               },
@@ -182,6 +200,10 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //               relevanceLevel: "STRING_VALUE",
  * //             },
  * //           },
+ * //           intentDetectedData: {
+ * //             intent: "STRING_VALUE", // required
+ * //             intentId: "STRING_VALUE", // required
+ * //           },
  * //           sourceContentData: {
  * //             id: "STRING_VALUE", // required
  * //             type: "STRING_VALUE", // required
@@ -190,6 +212,17 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * //               excerpt: "<DocumentText>",
  * //             },
  * //             rankingData: "<RankingData>", // required
+ * //             citationSpan: {
+ * //               beginOffsetInclusive: Number("int"),
+ * //               endOffsetExclusive: Number("int"),
+ * //             },
+ * //           },
+ * //           generativeChunkData: {
+ * //             completion: "STRING_VALUE",
+ * //             references: [
+ * //               "<DataSummary>",
+ * //             ],
+ * //             nextChunkToken: "STRING_VALUE",
  * //           },
  * //         },
  * //       },
@@ -232,6 +265,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationsCommand extends $Command
@@ -242,9 +276,7 @@ export class GetRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -256,4 +288,16 @@ export class GetRecommendationsCommand extends $Command
   .f(void 0, GetRecommendationsResponseFilterSensitiveLog)
   .ser(se_GetRecommendationsCommand)
   .de(de_GetRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationsRequest;
+      output: GetRecommendationsResponse;
+    };
+    sdk: {
+      input: GetRecommendationsCommandInput;
+      output: GetRecommendationsCommandOutput;
+    };
+  };
+}

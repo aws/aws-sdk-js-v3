@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
@@ -7,6 +8,7 @@ import {
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import {
   StreamingTraitsWithMediaTypeInputOutput,
   StreamingTraitsWithMediaTypeInputOutputFilterSensitiveLog,
@@ -20,7 +22,8 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +62,11 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * };
  * const command = new StreamingTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.blob.transformToByteArray();
+ * // const str = await response.blob.transformToString();
+ * // response.blob.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // StreamingTraitsWithMediaTypeInputOutput
  * //   foo: "STRING_VALUE",
  * //   blob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -75,6 +83,7 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class StreamingTraitsWithMediaTypeCommand extends $Command
@@ -85,8 +94,12 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "StreamingTraitsWithMediaType", {})
   .n("RestJsonProtocolClient", "StreamingTraitsWithMediaTypeCommand")
@@ -96,4 +109,16 @@ export class StreamingTraitsWithMediaTypeCommand extends $Command
   )
   .ser(se_StreamingTraitsWithMediaTypeCommand)
   .de(de_StreamingTraitsWithMediaTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsWithMediaTypeInputOutput;
+      output: StreamingTraitsWithMediaTypeInputOutput;
+    };
+    sdk: {
+      input: StreamingTraitsWithMediaTypeCommandInput;
+      output: StreamingTraitsWithMediaTypeCommandOutput;
+    };
+  };
+}

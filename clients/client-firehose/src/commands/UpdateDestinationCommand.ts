@@ -16,7 +16,8 @@ import { de_UpdateDestinationCommand, se_UpdateDestinationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,12 +32,12 @@ export interface UpdateDestinationCommandInput extends UpdateDestinationInput {}
 export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput, __MetadataBearer {}
 
 /**
- * <p>Updates the specified destination of the specified delivery stream.</p>
+ * <p>Updates the specified destination of the specified Firehose stream.</p>
  *          <p>Use this operation to change the destination type (for example, to replace the Amazon
  *          S3 destination with Amazon Redshift) or change the parameters associated with a destination
  *          (for example, to change the bucket name of the Amazon S3 destination). The update might not
- *          occur immediately. The target delivery stream remains active while the configurations are
- *          updated, so data writes to the delivery stream can continue during this process. The
+ *          occur immediately. The target Firehose stream remains active while the configurations are
+ *          updated, so data writes to the Firehose stream can continue during this process. The
  *          updated configurations are usually effective within a few minutes.</p>
  *          <p>Switching between Amazon OpenSearch Service and other services is not supported. For
  *          an Amazon OpenSearch Service destination, you can only update to another Amazon OpenSearch
@@ -279,6 +280,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       },
  *     },
  *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     SecretsManagerConfiguration: { // SecretsManagerConfiguration
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   ElasticsearchDestinationUpdate: { // ElasticsearchDestinationUpdate
  *     RoleARN: "STRING_VALUE",
@@ -386,6 +392,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *       IntervalInSeconds: Number("int"),
  *       SizeInMBs: Number("int"),
  *     },
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   HttpEndpointDestinationUpdate: { // HttpEndpointDestinationUpdate
  *     EndpointConfiguration: { // HttpEndpointConfiguration
@@ -414,6 +425,11 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *     },
  *     S3BackupMode: "FailedDataOnly" || "AllData",
  *     S3Update: "<S3DestinationUpdate>",
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
  *   },
  *   AmazonOpenSearchServerlessDestinationUpdate: { // AmazonOpenSearchServerlessDestinationUpdate
  *     RoleARN: "STRING_VALUE",
@@ -453,6 +469,63 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  *     },
  *     S3BackupMode: "FailedDataOnly" || "AllData",
  *     S3Update: "<S3DestinationUpdate>",
+ *     SecretsManagerConfiguration: {
+ *       SecretARN: "STRING_VALUE",
+ *       RoleARN: "STRING_VALUE",
+ *       Enabled: true || false, // required
+ *     },
+ *     BufferingHints: { // SnowflakeBufferingHints
+ *       SizeInMBs: Number("int"),
+ *       IntervalInSeconds: Number("int"),
+ *     },
+ *   },
+ *   IcebergDestinationUpdate: { // IcebergDestinationUpdate
+ *     DestinationTableConfigurationList: [ // DestinationTableConfigurationList
+ *       { // DestinationTableConfiguration
+ *         DestinationTableName: "STRING_VALUE", // required
+ *         DestinationDatabaseName: "STRING_VALUE", // required
+ *         UniqueKeys: [
+ *           "STRING_VALUE",
+ *         ],
+ *         PartitionSpec: { // PartitionSpec
+ *           Identity: [ // PartitionFields
+ *             { // PartitionField
+ *               SourceName: "STRING_VALUE", // required
+ *             },
+ *           ],
+ *         },
+ *         S3ErrorOutputPrefix: "STRING_VALUE",
+ *       },
+ *     ],
+ *     SchemaEvolutionConfiguration: { // SchemaEvolutionConfiguration
+ *       Enabled: true || false, // required
+ *     },
+ *     TableCreationConfiguration: { // TableCreationConfiguration
+ *       Enabled: true || false, // required
+ *     },
+ *     BufferingHints: "<BufferingHints>",
+ *     CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     ProcessingConfiguration: "<ProcessingConfiguration>",
+ *     S3BackupMode: "FailedDataOnly" || "AllData",
+ *     RetryOptions: {
+ *       DurationInSeconds: Number("int"),
+ *     },
+ *     RoleARN: "STRING_VALUE",
+ *     AppendOnly: true || false,
+ *     CatalogConfiguration: { // CatalogConfiguration
+ *       CatalogARN: "STRING_VALUE",
+ *       WarehouseLocation: "STRING_VALUE",
+ *     },
+ *     S3Configuration: { // S3DestinationConfiguration
+ *       RoleARN: "STRING_VALUE", // required
+ *       BucketARN: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *       ErrorOutputPrefix: "STRING_VALUE",
+ *       BufferingHints: "<BufferingHints>",
+ *       CompressionFormat: "UNCOMPRESSED" || "GZIP" || "ZIP" || "Snappy" || "HADOOP_SNAPPY",
+ *       EncryptionConfiguration: "<EncryptionConfiguration>",
+ *       CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ *     },
  *   },
  * };
  * const command = new UpdateDestinationCommand(input);
@@ -483,6 +556,7 @@ export interface UpdateDestinationCommandOutput extends UpdateDestinationOutput,
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class UpdateDestinationCommand extends $Command
@@ -493,9 +567,7 @@ export class UpdateDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -507,4 +579,16 @@ export class UpdateDestinationCommand extends $Command
   .f(UpdateDestinationInputFilterSensitiveLog, void 0)
   .ser(se_UpdateDestinationCommand)
   .de(de_UpdateDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDestinationInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateDestinationCommandInput;
+      output: UpdateDestinationCommandOutput;
+    };
+  };
+}

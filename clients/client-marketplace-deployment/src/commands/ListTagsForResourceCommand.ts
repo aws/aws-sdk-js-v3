@@ -16,7 +16,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link MarketplaceDeploymentServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ *
+ * @example Listing tags for a deployment parameter
+ * ```javascript
+ * // The following example demonstrates listing the tags for a deployment parameter. If no tags are present, the API will return an empty map.
+ * const input = {
+ *   resourceArn: "arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   tags: {
+ *     FooKey: "BarValue",
+ *     HelloKey: "WorldValue"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command
@@ -85,9 +105,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceDeploymentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +117,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

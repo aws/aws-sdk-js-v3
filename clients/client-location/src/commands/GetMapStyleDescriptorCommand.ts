@@ -17,7 +17,8 @@ import { de_GetMapStyleDescriptorCommand, se_GetMapStyleDescriptorCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface GetMapStyleDescriptorCommandOutput extends GetMapStyleDescripto
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetMapStyleDescriptorCommand extends $Command
@@ -98,9 +100,7 @@ export class GetMapStyleDescriptorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class GetMapStyleDescriptorCommand extends $Command
   .f(GetMapStyleDescriptorRequestFilterSensitiveLog, void 0)
   .ser(se_GetMapStyleDescriptorCommand)
   .de(de_GetMapStyleDescriptorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMapStyleDescriptorRequest;
+      output: GetMapStyleDescriptorResponse;
+    };
+    sdk: {
+      input: GetMapStyleDescriptorCommandInput;
+      output: GetMapStyleDescriptorCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateExperimentTemplateCommand, se_CreateExperimentTemplateCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -121,6 +122,23 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *     accountTargeting: "single-account" || "multi-account",
  *     emptyTargetResolutionMode: "fail" || "skip",
  *   },
+ *   experimentReportConfiguration: { // CreateExperimentTemplateReportConfigurationInput
+ *     outputs: { // ExperimentTemplateReportConfigurationOutputsInput
+ *       s3Configuration: { // ReportConfigurationS3OutputInput
+ *         bucketName: "STRING_VALUE",
+ *         prefix: "STRING_VALUE",
+ *       },
+ *     },
+ *     dataSources: { // ExperimentTemplateReportConfigurationDataSourcesInput
+ *       cloudWatchDashboards: [ // ReportConfigurationCloudWatchDashboardInputList
+ *         { // ReportConfigurationCloudWatchDashboardInput
+ *           dashboardIdentifier: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
+ *     preExperimentDuration: "STRING_VALUE",
+ *     postExperimentDuration: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateExperimentTemplateCommand(input);
  * const response = await client.send(command);
@@ -194,6 +212,23 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * //       emptyTargetResolutionMode: "fail" || "skip",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
+ * //     experimentReportConfiguration: { // ExperimentTemplateReportConfiguration
+ * //       outputs: { // ExperimentTemplateReportConfigurationOutputs
+ * //         s3Configuration: { // ReportConfigurationS3Output
+ * //           bucketName: "STRING_VALUE",
+ * //           prefix: "STRING_VALUE",
+ * //         },
+ * //       },
+ * //       dataSources: { // ExperimentTemplateReportConfigurationDataSources
+ * //         cloudWatchDashboards: [ // ExperimentTemplateReportConfigurationCloudWatchDashboardList
+ * //           { // ExperimentTemplateReportConfigurationCloudWatchDashboard
+ * //             dashboardIdentifier: "STRING_VALUE",
+ * //           },
+ * //         ],
+ * //       },
+ * //       preExperimentDuration: "STRING_VALUE",
+ * //       postExperimentDuration: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -220,6 +255,7 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class CreateExperimentTemplateCommand extends $Command
@@ -230,9 +266,7 @@ export class CreateExperimentTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -244,4 +278,16 @@ export class CreateExperimentTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateExperimentTemplateCommand)
   .de(de_CreateExperimentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExperimentTemplateRequest;
+      output: CreateExperimentTemplateResponse;
+    };
+    sdk: {
+      input: CreateExperimentTemplateCommandInput;
+      output: CreateExperimentTemplateCommandOutput;
+    };
+  };
+}

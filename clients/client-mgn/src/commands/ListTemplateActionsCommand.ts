@@ -12,7 +12,8 @@ import { de_ListTemplateActionsCommand, se_ListTemplateActionsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface ListTemplateActionsCommandOutput extends ListTemplateActionsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListTemplateActionsCommand extends $Command
@@ -105,9 +107,7 @@ export class ListTemplateActionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class ListTemplateActionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTemplateActionsCommand)
   .de(de_ListTemplateActionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTemplateActionsRequest;
+      output: ListTemplateActionsResponse;
+    };
+    sdk: {
+      input: ListTemplateActionsCommandInput;
+      output: ListTemplateActionsCommandOutput;
+    };
+  };
+}

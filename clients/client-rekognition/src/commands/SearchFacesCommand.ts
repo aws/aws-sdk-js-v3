@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,70 +113,70 @@ export interface SearchFacesCommandOutput extends SearchFacesResponse, __Metadat
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To delete a face
  * ```javascript
  * // This operation searches for matching faces in the collection the supplied face belongs to.
  * const input = {
- *   "CollectionId": "myphotos",
- *   "FaceId": "70008e50-75e4-55d0-8e80-363fb73b3a14",
- *   "FaceMatchThreshold": 90,
- *   "MaxFaces": 10
+ *   CollectionId: "myphotos",
+ *   FaceId: "70008e50-75e4-55d0-8e80-363fb73b3a14",
+ *   FaceMatchThreshold: 90,
+ *   MaxFaces: 10
  * };
  * const command = new SearchFacesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FaceMatches": [
+ *   FaceMatches: [
  *     {
- *       "Face": {
- *         "BoundingBox": {
- *           "Height": 0.3259260058403015,
- *           "Left": 0.5144439935684204,
- *           "Top": 0.15111100673675537,
- *           "Width": 0.24444399774074554
+ *       Face: {
+ *         BoundingBox: {
+ *           Height: 0.3259260058403015,
+ *           Left: 0.5144439935684204,
+ *           Top: 0.15111100673675537,
+ *           Width: 0.24444399774074554
  *         },
- *         "Confidence": 99.99949645996094,
- *         "FaceId": "8be04dba-4e58-520d-850e-9eae4af70eb2",
- *         "ImageId": "465f4e93-763e-51d0-b030-b9667a2d94b1"
+ *         Confidence: 99.99949645996094,
+ *         FaceId: "8be04dba-4e58-520d-850e-9eae4af70eb2",
+ *         ImageId: "465f4e93-763e-51d0-b030-b9667a2d94b1"
  *       },
- *       "Similarity": 99.97222137451172
+ *       Similarity: 99.97222137451172
  *     },
  *     {
- *       "Face": {
- *         "BoundingBox": {
- *           "Height": 0.16555599868297577,
- *           "Left": 0.30963000655174255,
- *           "Top": 0.7066670060157776,
- *           "Width": 0.22074100375175476
+ *       Face: {
+ *         BoundingBox: {
+ *           Height: 0.16555599868297577,
+ *           Left: 0.30963000655174255,
+ *           Top: 0.7066670060157776,
+ *           Width: 0.22074100375175476
  *         },
- *         "Confidence": 100,
- *         "FaceId": "29a75abe-397b-5101-ba4f-706783b2246c",
- *         "ImageId": "147fdf82-7a71-52cf-819b-e786c7b9746e"
+ *         Confidence: 100,
+ *         FaceId: "29a75abe-397b-5101-ba4f-706783b2246c",
+ *         ImageId: "147fdf82-7a71-52cf-819b-e786c7b9746e"
  *       },
- *       "Similarity": 97.04154968261719
+ *       Similarity: 97.04154968261719
  *     },
  *     {
- *       "Face": {
- *         "BoundingBox": {
- *           "Height": 0.18888899683952332,
- *           "Left": 0.3783380091190338,
- *           "Top": 0.2355560064315796,
- *           "Width": 0.25222599506378174
+ *       Face: {
+ *         BoundingBox: {
+ *           Height: 0.18888899683952332,
+ *           Left: 0.3783380091190338,
+ *           Top: 0.2355560064315796,
+ *           Width: 0.25222599506378174
  *         },
- *         "Confidence": 99.9999008178711,
- *         "FaceId": "908544ad-edc3-59df-8faf-6a87cc256cf5",
- *         "ImageId": "3c731605-d772-541a-a5e7-0375dbc68a07"
+ *         Confidence: 99.9999008178711,
+ *         FaceId: "908544ad-edc3-59df-8faf-6a87cc256cf5",
+ *         ImageId: "3c731605-d772-541a-a5e7-0375dbc68a07"
  *       },
- *       "Similarity": 95.94520568847656
+ *       Similarity: 95.94520568847656
  *     }
  *   ],
- *   "SearchedFaceId": "70008e50-75e4-55d0-8e80-363fb73b3a14"
+ *   SearchedFaceId: "70008e50-75e4-55d0-8e80-363fb73b3a14"
  * }
  * *\/
- * // example id: to-delete-a-face-1482182799377
  * ```
  *
+ * @public
  */
 export class SearchFacesCommand extends $Command
   .classBuilder<
@@ -185,9 +186,7 @@ export class SearchFacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -199,4 +198,16 @@ export class SearchFacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchFacesCommand)
   .de(de_SearchFacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchFacesRequest;
+      output: SearchFacesResponse;
+    };
+    sdk: {
+      input: SearchFacesCommandInput;
+      output: SearchFacesCommandOutput;
+    };
+  };
+}

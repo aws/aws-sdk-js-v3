@@ -12,7 +12,8 @@ import { de_GetApnsVoipChannelCommand, se_GetApnsVoipChannelCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface GetApnsVoipChannelCommandOutput extends GetApnsVoipChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetApnsVoipChannelCommand extends $Command
@@ -98,9 +100,7 @@ export class GetApnsVoipChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class GetApnsVoipChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetApnsVoipChannelCommand)
   .de(de_GetApnsVoipChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetApnsVoipChannelRequest;
+      output: GetApnsVoipChannelResponse;
+    };
+    sdk: {
+      input: GetApnsVoipChannelCommandInput;
+      output: GetApnsVoipChannelCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface DeleteSubscriberCommandOutput extends DeleteSubscriberResponse,
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteSubscriberCommand extends $Command
@@ -90,9 +92,7 @@ export class DeleteSubscriberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DeleteSubscriberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSubscriberCommand)
   .de(de_DeleteSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSubscriberRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSubscriberCommandInput;
+      output: DeleteSubscriberCommandOutput;
+    };
+  };
+}

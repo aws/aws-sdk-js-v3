@@ -12,7 +12,8 @@ import { de_DescribeNodegroupCommand, se_DescribeNodegroupCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * //     createdAt: new Date("TIMESTAMP"),
  * //     modifiedAt: new Date("TIMESTAMP"),
  * //     status: "CREATING" || "ACTIVE" || "UPDATING" || "DELETING" || "CREATE_FAILED" || "DELETE_FAILED" || "DEGRADED",
- * //     capacityType: "ON_DEMAND" || "SPOT",
+ * //     capacityType: "ON_DEMAND" || "SPOT" || "CAPACITY_BLOCK",
  * //     scalingConfig: { // NodegroupScalingConfig
  * //       minSize: Number("int"),
  * //       maxSize: Number("int"),
@@ -68,7 +69,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * //         "STRING_VALUE",
  * //       ],
  * //     },
- * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD",
+ * //     amiType: "AL2_x86_64" || "AL2_x86_64_GPU" || "AL2_ARM_64" || "CUSTOM" || "BOTTLEROCKET_ARM_64" || "BOTTLEROCKET_x86_64" || "BOTTLEROCKET_ARM_64_FIPS" || "BOTTLEROCKET_x86_64_FIPS" || "BOTTLEROCKET_ARM_64_NVIDIA" || "BOTTLEROCKET_x86_64_NVIDIA" || "WINDOWS_CORE_2019_x86_64" || "WINDOWS_FULL_2019_x86_64" || "WINDOWS_CORE_2022_x86_64" || "WINDOWS_FULL_2022_x86_64" || "AL2023_x86_64_STANDARD" || "AL2023_ARM_64_STANDARD" || "AL2023_x86_64_NEURON" || "AL2023_x86_64_NVIDIA" || "AL2023_ARM_64_NVIDIA",
  * //     nodeRole: "STRING_VALUE",
  * //     labels: { // labelsMap
  * //       "<keys>": "STRING_VALUE",
@@ -92,7 +93,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * //     health: { // NodegroupHealth
  * //       issues: [ // IssueList
  * //         { // Issue
- * //           code: "AutoScalingGroupNotFound" || "AutoScalingGroupInvalidConfiguration" || "Ec2SecurityGroupNotFound" || "Ec2SecurityGroupDeletionFailure" || "Ec2LaunchTemplateNotFound" || "Ec2LaunchTemplateVersionMismatch" || "Ec2SubnetNotFound" || "Ec2SubnetInvalidConfiguration" || "IamInstanceProfileNotFound" || "Ec2SubnetMissingIpv6Assignment" || "IamLimitExceeded" || "IamNodeRoleNotFound" || "NodeCreationFailure" || "AsgInstanceLaunchFailures" || "InstanceLimitExceeded" || "InsufficientFreeAddresses" || "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "AmiIdNotFound" || "AutoScalingGroupOptInRequired" || "AutoScalingGroupRateLimitExceeded" || "Ec2LaunchTemplateDeletionFailure" || "Ec2LaunchTemplateInvalidConfiguration" || "Ec2LaunchTemplateMaxLimitExceeded" || "Ec2SubnetListTooLong" || "IamThrottling" || "NodeTerminationFailure" || "PodEvictionFailure" || "SourceEc2LaunchTemplateNotFound" || "LimitExceeded" || "Unknown" || "AutoScalingGroupInstanceRefreshActive" || "KubernetesLabelInvalid" || "Ec2LaunchTemplateVersionMaxLimitExceeded",
+ * //           code: "AutoScalingGroupNotFound" || "AutoScalingGroupInvalidConfiguration" || "Ec2SecurityGroupNotFound" || "Ec2SecurityGroupDeletionFailure" || "Ec2LaunchTemplateNotFound" || "Ec2LaunchTemplateVersionMismatch" || "Ec2SubnetNotFound" || "Ec2SubnetInvalidConfiguration" || "IamInstanceProfileNotFound" || "Ec2SubnetMissingIpv6Assignment" || "IamLimitExceeded" || "IamNodeRoleNotFound" || "NodeCreationFailure" || "AsgInstanceLaunchFailures" || "InstanceLimitExceeded" || "InsufficientFreeAddresses" || "AccessDenied" || "InternalFailure" || "ClusterUnreachable" || "AmiIdNotFound" || "AutoScalingGroupOptInRequired" || "AutoScalingGroupRateLimitExceeded" || "Ec2LaunchTemplateDeletionFailure" || "Ec2LaunchTemplateInvalidConfiguration" || "Ec2LaunchTemplateMaxLimitExceeded" || "Ec2SubnetListTooLong" || "IamThrottling" || "NodeTerminationFailure" || "PodEvictionFailure" || "SourceEc2LaunchTemplateNotFound" || "LimitExceeded" || "Unknown" || "AutoScalingGroupInstanceRefreshActive" || "KubernetesLabelInvalid" || "Ec2LaunchTemplateVersionMaxLimitExceeded" || "Ec2InstanceTypeDoesNotExist",
  * //           message: "STRING_VALUE",
  * //           resourceIds: "<StringList>",
  * //         },
@@ -101,6 +102,10 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * //     updateConfig: { // NodegroupUpdateConfig
  * //       maxUnavailable: Number("int"),
  * //       maxUnavailablePercentage: Number("int"),
+ * //       updateStrategy: "DEFAULT" || "MINIMAL",
+ * //     },
+ * //     nodeRepairConfig: { // NodeRepairConfig
+ * //       enabled: true || false,
  * //     },
  * //     launchTemplate: { // LaunchTemplateSpecification
  * //       name: "STRING_VALUE",
@@ -133,7 +138,8 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
@@ -143,6 +149,7 @@ export interface DescribeNodegroupCommandOutput extends DescribeNodegroupRespons
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
+ *
  *
  * @public
  */
@@ -154,9 +161,7 @@ export class DescribeNodegroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +173,16 @@ export class DescribeNodegroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNodegroupCommand)
   .de(de_DescribeNodegroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNodegroupRequest;
+      output: DescribeNodegroupResponse;
+    };
+    sdk: {
+      input: DescribeNodegroupCommandInput;
+      output: DescribeNodegroupCommandOutput;
+    };
+  };
+}

@@ -22,7 +22,7 @@ plugins {
     checkstyle
     jacoco
     id("com.github.spotbugs") version "4.7.1"
-    id("org.jreleaser") version "1.9.0"
+    id("org.jreleaser") version "1.18.0"
 }
 
 allprojects {
@@ -31,7 +31,7 @@ allprojects {
         mavenCentral()
     }
     group = "software.amazon.smithy.typescript"
-    version = "0.21.0"
+    version = "0.32.0"
 }
 
 // The root project doesn't produce a JAR.
@@ -284,13 +284,10 @@ jreleaser {
     // https://jreleaser.org/guide/latest/examples/maven/maven-central.html#_gradle
     deploy {
         maven {
-            nexus2 {
+            mavenCentral {
                 create("maven-central") {
                     active = Active.ALWAYS
-                    url = "https://aws.oss.sonatype.org/service/local"
-                    snapshotUrl = "https://aws.oss.sonatype.org/content/repositories/snapshots"
-                    closeRepository.set(true)
-                    releaseRepository.set(true)
+                    url = "https://central.sonatype.com/api/v1/publisher"
                     stagingRepositories.add("${rootProject.buildDir}/staging")
                 }
             }

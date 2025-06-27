@@ -12,7 +12,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,11 +48,12 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //     { // TestRecommendation
  * //       recommendationId: "STRING_VALUE",
  * //       referenceId: "STRING_VALUE", // required
+ * //       appComponentId: "STRING_VALUE",
  * //       appComponentName: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       intent: "STRING_VALUE",
- * //       risk: "STRING_VALUE",
- * //       type: "STRING_VALUE",
+ * //       risk: "Small" || "Medium" || "High",
+ * //       type: "Software" || "Hardware" || "AZ" || "Region",
  * //       description: "STRING_VALUE",
  * //       items: [ // RecommendationItemList
  * //         { // RecommendationItem
@@ -60,14 +62,22 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
+ * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
+ * //           latestDiscoveredExperiment: { // Experiment
+ * //             experimentArn: "STRING_VALUE",
+ * //             experimentTemplateId: "STRING_VALUE",
+ * //           },
+ * //           discoveredAlarm: { // Alarm
+ * //             alarmArn: "STRING_VALUE",
+ * //             source: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       prerequisite: "STRING_VALUE",
  * //       dependsOnAlarms: [ // AlarmReferenceIdList
  * //         "STRING_VALUE",
  * //       ],
- * //       recommendationStatus: "STRING_VALUE",
+ * //       recommendationStatus: "Implemented" || "Inactive" || "NotImplemented" || "Excluded",
  * //     },
  * //   ],
  * // };
@@ -107,6 +117,7 @@ export interface ListTestRecommendationsCommandOutput extends ListTestRecommenda
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListTestRecommendationsCommand extends $Command
@@ -117,9 +128,7 @@ export class ListTestRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +140,16 @@ export class ListTestRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTestRecommendationsCommand)
   .de(de_ListTestRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTestRecommendationsRequest;
+      output: ListTestRecommendationsResponse;
+    };
+    sdk: {
+      input: ListTestRecommendationsCommandInput;
+      output: ListTestRecommendationsCommandOutput;
+    };
+  };
+}

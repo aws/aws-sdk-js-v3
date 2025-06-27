@@ -12,7 +12,8 @@ import { de_DisableCommand, se_DisableCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface DisableCommandInput extends DisableRequest {}
 export interface DisableCommandOutput extends DisableResponse, __MetadataBearer {}
 
 /**
- * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an account
- *          disables the Amazon Inspector service.</p>
+ * <p>Disables Amazon Inspector scans for one or more Amazon Web Services accounts. Disabling all scan types in an
+ *          account disables the Amazon Inspector service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,7 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
  * //         lambdaCode: "STRING_VALUE",
+ * //         codeRepository: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -67,6 +69,7 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
  * //         lambdaCode: "STRING_VALUE",
+ * //         codeRepository: "STRING_VALUE",
  * //       },
  * //       errorCode: "STRING_VALUE", // required
  * //       errorMessage: "STRING_VALUE", // required
@@ -84,12 +87,15 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -101,6 +107,7 @@ export interface DisableCommandOutput extends DisableResponse, __MetadataBearer 
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class DisableCommand extends $Command
@@ -111,9 +118,7 @@ export class DisableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +130,16 @@ export class DisableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableCommand)
   .de(de_DisableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRequest;
+      output: DisableResponse;
+    };
+    sdk: {
+      input: DisableCommandInput;
+      output: DisableCommandOutput;
+    };
+  };
+}

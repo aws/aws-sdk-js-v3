@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ServiceQuotasClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface GetServiceQuotaCommandInput extends GetServiceQuotaRequest {}
 export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves the applied quota value for the specified quota. For some quotas, only the
+ * <p>Retrieves the applied quota value for the specified account-level or resource-level quota. For some quotas, only the
  *             default values are available. If the applied quota value is not available for a quota,
  *             the quota is not retrieved.</p>
  * @example
@@ -76,6 +77,7 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * //       ContextScopeType: "STRING_VALUE",
  * //       ContextId: "STRING_VALUE",
  * //     },
+ * //     Description: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -106,6 +108,7 @@ export interface GetServiceQuotaCommandOutput extends GetServiceQuotaResponse, _
  * @throws {@link ServiceQuotasServiceException}
  * <p>Base exception class for all service exceptions from ServiceQuotas service.</p>
  *
+ *
  * @public
  */
 export class GetServiceQuotaCommand extends $Command
@@ -116,9 +119,7 @@ export class GetServiceQuotaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceQuotasClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class GetServiceQuotaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceQuotaCommand)
   .de(de_GetServiceQuotaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceQuotaRequest;
+      output: GetServiceQuotaResponse;
+    };
+    sdk: {
+      input: GetServiceQuotaCommandInput;
+      output: GetServiceQuotaCommandOutput;
+    };
+  };
+}

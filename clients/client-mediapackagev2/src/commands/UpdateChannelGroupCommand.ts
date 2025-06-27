@@ -12,7 +12,8 @@ import { de_UpdateChannelGroupCommand, se_UpdateChannelGroupCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,33 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Updating a Channel Group
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   Description: "Updated description for exampleChannelGroup"
+ * };
+ * const command = new UpdateChannelGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Updated description for exampleChannelGroup",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   EgressDomain: "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
+ *   ModifiedAt: "2022-10-18T10:36:00.00Z",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UpdateChannelGroupCommand extends $Command
@@ -94,9 +122,7 @@ export class UpdateChannelGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +134,16 @@ export class UpdateChannelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateChannelGroupCommand)
   .de(de_UpdateChannelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChannelGroupRequest;
+      output: UpdateChannelGroupResponse;
+    };
+    sdk: {
+      input: UpdateChannelGroupCommandInput;
+      output: UpdateChannelGroupCommandOutput;
+    };
+  };
+}

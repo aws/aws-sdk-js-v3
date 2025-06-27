@@ -1,5 +1,6 @@
 import { HttpResponse } from "@smithy/protocol-http";
 import { Readable } from "stream";
+import { afterAll, describe, expect, test as it, vi } from "vitest";
 
 import { fromHttp } from "./fromHttp";
 import * as helpers from "./requestHelpers";
@@ -21,35 +22,37 @@ const mockResponse = {
   Expiration: new Date(credentials.expiration).toISOString(), // rfc3339
 };
 
-const mockHandle = jest.fn().mockResolvedValue({
+const mockHandle = vi.fn().mockResolvedValue({
   response: new HttpResponse({
     statusCode: 200,
     headers: {
-      "Content-Type": "application/json",
+      "content-type": "application/json",
     },
     body: Readable.from([""]),
   }),
 });
 
-jest.mock("@smithy/node-http-handler", () => ({
-  NodeHttpHandler: jest.fn().mockImplementation(() => ({
+vi.mock("@smithy/node-http-handler", () => ({
+  NodeHttpHandler: vi.fn().mockImplementation(() => ({
     destroy: () => {},
     handle: mockHandle,
   })),
-  streamCollector: jest.fn(),
+  streamCollector: vi.fn(),
 }));
 
-jest.spyOn(helpers, "getCredentials").mockReturnValue(Promise.resolve(credentials));
+vi.spyOn(helpers, "getCredentials").mockReturnValue(Promise.resolve(credentials));
 
-jest.mock("fs/promises", () => ({
-  async readFile() {
-    return mockToken;
+vi.mock("fs/promises", () => ({
+  default: {
+    async readFile() {
+      return mockToken;
+    },
   },
 }));
 
 describe(fromHttp.name, () => {
   afterAll(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   it("uses the full uri", async () => {

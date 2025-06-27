@@ -21,20 +21,34 @@ export const regionRedirectEndpointMiddleware = (config: PreviouslyResolved): Se
     async (args: SerializeHandlerArguments<any>): Promise<SerializeHandlerOutput<Output>> => {
       const originalRegion = await config.region();
       const regionProviderRef = config.region;
+      let unlock = () => {};
       if (context.__s3RegionRedirect) {
-        config.region = async () => {
-          config.region = regionProviderRef;
-          return context.__s3RegionRedirect;
-        };
+        Object.defineProperty(config, "region", {
+          writable: false,
+          value: async () => {
+            return context.__s3RegionRedirect;
+          },
+        });
+        unlock = () =>
+          Object.defineProperty(config, "region", {
+            writable: true,
+            value: regionProviderRef,
+          });
       }
-      const result = await next(args);
-      if (context.__s3RegionRedirect) {
-        const region = await config.region();
-        if (originalRegion !== region) {
-          throw new Error("Region was not restored following S3 region redirect.");
+      try {
+        const result = await next(args);
+        if (context.__s3RegionRedirect) {
+          unlock();
+          const region = await config.region();
+          if (originalRegion !== region) {
+            throw new Error("Region was not restored following S3 region redirect.");
+          }
         }
+        return result;
+      } catch (e: unknown) {
+        unlock();
+        throw e;
       }
-      return result;
     };
 };
 

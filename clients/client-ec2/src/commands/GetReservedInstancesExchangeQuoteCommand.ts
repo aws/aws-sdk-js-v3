@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,9 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns a quote and exchange information for exchanging one or more specified
- *             Convertible Reserved Instances for a new Convertible Reserved Instance. If the exchange
- *             cannot be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
+ * <p>Returns a quote and exchange information for exchanging one or more specified Convertible
+ *       Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot be
+ *       performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a> to perform the exchange.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,6 +108,7 @@ export interface GetReservedInstancesExchangeQuoteCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetReservedInstancesExchangeQuoteCommand extends $Command
@@ -117,9 +119,7 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class GetReservedInstancesExchangeQuoteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservedInstancesExchangeQuoteCommand)
   .de(de_GetReservedInstancesExchangeQuoteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservedInstancesExchangeQuoteRequest;
+      output: GetReservedInstancesExchangeQuoteResult;
+    };
+    sdk: {
+      input: GetReservedInstancesExchangeQuoteCommandInput;
+      output: GetReservedInstancesExchangeQuoteCommandOutput;
+    };
+  };
+}

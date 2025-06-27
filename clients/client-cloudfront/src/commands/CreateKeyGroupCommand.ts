@@ -12,7 +12,8 @@ import { de_CreateKeyGroupCommand, se_CreateKeyGroupCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,15 +28,7 @@ export interface CreateKeyGroupCommandInput extends CreateKeyGroupRequest {}
 export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p>
- *          <p>To create a key group, you must specify at least one public key for the key group.
- * 			After you create a key group, you can reference it from one or more cache behaviors.
- * 			When you reference a key group in a cache behavior, CloudFront requires signed URLs or signed
- * 			cookies for all requests that match the cache behavior. The URLs or cookies must be
- * 			signed with a private key whose corresponding public key is in the key group. The signed
- * 			URL or cookie contains information about which public key CloudFront should use to verify the
- * 			signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * <p>Creates a key group that you can use with <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">CloudFront signed URLs and signed cookies</a>.</p> <p>To create a key group, you must specify at least one public key for the key group. After you create a key group, you can reference it from one or more cache behaviors. When you reference a key group in a cache behavior, CloudFront requires signed URLs or signed cookies for all requests that match the cache behavior. The URLs or cookies must be signed with a private key whose corresponding public key is in the key group. The signed URL or cookie contains information about which public key CloudFront should use to verify the signature. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/PrivateContent.html">Serving private content</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,21 +74,17 @@ export interface CreateKeyGroupCommandOutput extends CreateKeyGroupResult, __Met
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link KeyGroupAlreadyExists} (client fault)
- *  <p>A key group with this name already exists. You must provide a unique name. To modify
- * 			an existing key group, use <code>UpdateKeyGroup</code>.</p>
+ *  <p>A key group with this name already exists. You must provide a unique name. To modify an existing key group, use <code>UpdateKeyGroup</code>.</p>
  *
  * @throws {@link TooManyKeyGroups} (client fault)
- *  <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of key groups for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyPublicKeysInKeyGroup} (client fault)
- *  <p>The number of public keys in this key group is more than the maximum allowed. For more
- * 			information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of public keys in this key group is more than the maximum allowed. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -107,9 +96,7 @@ export class CreateKeyGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +108,16 @@ export class CreateKeyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyGroupCommand)
   .de(de_CreateKeyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyGroupRequest;
+      output: CreateKeyGroupResult;
+    };
+    sdk: {
+      input: CreateKeyGroupCommandInput;
+      output: CreateKeyGroupCommandOutput;
+    };
+  };
+}

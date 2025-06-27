@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface DeleteLaunchConfigurationTemplateCommandOutput
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class DeleteLaunchConfigurationTemplateCommand extends $Command
@@ -79,9 +81,7 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class DeleteLaunchConfigurationTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLaunchConfigurationTemplateCommand)
   .de(de_DeleteLaunchConfigurationTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLaunchConfigurationTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLaunchConfigurationTemplateCommandInput;
+      output: DeleteLaunchConfigurationTemplateCommandOutput;
+    };
+  };
+}

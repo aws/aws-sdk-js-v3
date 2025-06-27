@@ -12,7 +12,8 @@ import { de_GetSequenceStoreCommand, se_GetSequenceStoreCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,8 +54,15 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * //   s3Access: { // SequenceStoreS3Access
  * //     s3Uri: "STRING_VALUE",
  * //     s3AccessPointArn: "STRING_VALUE",
+ * //     accessLogLocation: "STRING_VALUE",
  * //   },
  * //   eTagAlgorithmFamily: "STRING_VALUE",
+ * //   status: "STRING_VALUE",
+ * //   statusMessage: "STRING_VALUE",
+ * //   propagatedSetLevelTags: [ // PropagatedSetLevelTags
+ * //     "STRING_VALUE",
+ * //   ],
+ * //   updateTime: new Date("TIMESTAMP"),
  * // };
  *
  * ```
@@ -86,6 +94,7 @@ export interface GetSequenceStoreCommandOutput extends GetSequenceStoreResponse,
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetSequenceStoreCommand extends $Command
@@ -96,9 +105,7 @@ export class GetSequenceStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +117,16 @@ export class GetSequenceStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSequenceStoreCommand)
   .de(de_GetSequenceStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSequenceStoreRequest;
+      output: GetSequenceStoreResponse;
+    };
+    sdk: {
+      input: GetSequenceStoreCommandInput;
+      output: GetSequenceStoreCommandOutput;
+    };
+  };
+}

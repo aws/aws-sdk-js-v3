@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
 
 /**
  * <p>Associates a related item to a Systems Manager OpsCenter OpsItem. For example, you can associate an
- *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are capabilities of
+ *    Incident Manager incident or analysis with an OpsItem. Incident Manager and OpsCenter are tools in
  *    Amazon Web Services Systems Manager.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +81,7 @@ export interface AssociateOpsItemRelatedItemCommandOutput
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class AssociateOpsItemRelatedItemCommand extends $Command
@@ -90,9 +92,7 @@ export class AssociateOpsItemRelatedItemCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class AssociateOpsItemRelatedItemCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateOpsItemRelatedItemCommand)
   .de(de_AssociateOpsItemRelatedItemCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateOpsItemRelatedItemRequest;
+      output: AssociateOpsItemRelatedItemResponse;
+    };
+    sdk: {
+      input: AssociateOpsItemRelatedItemCommandInput;
+      output: AssociateOpsItemRelatedItemCommandOutput;
+    };
+  };
+}

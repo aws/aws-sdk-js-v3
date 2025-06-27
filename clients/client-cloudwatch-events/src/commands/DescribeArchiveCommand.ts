@@ -12,7 +12,8 @@ import { de_DescribeArchiveCommand, se_DescribeArchiveCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface DescribeArchiveCommandOutput extends DescribeArchiveResponse, _
  * @throws {@link CloudWatchEventsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchEvents service.</p>
  *
+ *
  * @public
  */
 export class DescribeArchiveCommand extends $Command
@@ -83,9 +85,7 @@ export class DescribeArchiveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class DescribeArchiveCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeArchiveCommand)
   .de(de_DescribeArchiveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeArchiveRequest;
+      output: DescribeArchiveResponse;
+    };
+    sdk: {
+      input: DescribeArchiveCommandInput;
+      output: DescribeArchiveCommandOutput;
+    };
+  };
+}

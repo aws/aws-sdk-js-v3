@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface DeleteDomainCommandInput extends DeleteDomainRequest {}
 export interface DeleteDomainCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Used to delete a domain. If you onboarded with IAM mode, you will need to delete your
- *       domain to onboard again using IAM Identity Center. Use with caution. All of the members of the
- *       domain will lose access to their EFS volume, including data, notebooks, and other artifacts.
- *     </p>
+ * <p>Used to delete a domain. If you onboarded with IAM mode, you will need to delete your domain to onboard again using IAM Identity Center. Use with caution. All of the members of the domain will lose access to their EFS volume, including data, notebooks, and other artifacts. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +62,7 @@ export interface DeleteDomainCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteDomainCommand extends $Command
@@ -74,9 +73,7 @@ export class DeleteDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +85,16 @@ export class DeleteDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDomainCommand)
   .de(de_DeleteDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDomainRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDomainCommandInput;
+      output: DeleteDomainCommandOutput;
+    };
+  };
+}

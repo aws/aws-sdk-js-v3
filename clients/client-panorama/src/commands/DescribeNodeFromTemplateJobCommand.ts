@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface DescribeNodeFromTemplateJobCommandOutput
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribeNodeFromTemplateJobCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeNodeFromTemplateJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeNodeFromTemplateJobCommand extends $Command
   .f(void 0, DescribeNodeFromTemplateJobResponseFilterSensitiveLog)
   .ser(se_DescribeNodeFromTemplateJobCommand)
   .de(de_DescribeNodeFromTemplateJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNodeFromTemplateJobRequest;
+      output: DescribeNodeFromTemplateJobResponse;
+    };
+    sdk: {
+      input: DescribeNodeFromTemplateJobCommandInput;
+      output: DescribeNodeFromTemplateJobCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListTagsForStreamCommand, se_ListTagsForStreamCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface ListTagsForStreamCommandOutput extends ListTagsForStreamOutput,
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForStreamCommand extends $Command
@@ -87,9 +89,7 @@ export class ListTagsForStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListTagsForStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForStreamCommand)
   .de(de_ListTagsForStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForStreamInput;
+      output: ListTagsForStreamOutput;
+    };
+    sdk: {
+      input: ListTagsForStreamCommandInput;
+      output: ListTagsForStreamCommandOutput;
+    };
+  };
+}

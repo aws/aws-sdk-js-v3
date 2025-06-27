@@ -12,7 +12,8 @@ import { de_AddLFTagsToResourceCommand, se_AddLFTagsToResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,9 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * const input = { // AddLFTagsToResourceRequest
  *   CatalogId: "STRING_VALUE",
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -81,7 +84,7 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -89,6 +92,11 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   LFTags: [ // LFTagsList // required
@@ -150,6 +158,7 @@ export interface AddLFTagsToResourceCommandOutput extends AddLFTagsToResourceRes
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class AddLFTagsToResourceCommand extends $Command
@@ -160,9 +169,7 @@ export class AddLFTagsToResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +181,16 @@ export class AddLFTagsToResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddLFTagsToResourceCommand)
   .de(de_AddLFTagsToResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddLFTagsToResourceRequest;
+      output: AddLFTagsToResourceResponse;
+    };
+    sdk: {
+      input: AddLFTagsToResourceCommandInput;
+      output: AddLFTagsToResourceCommandOutput;
+    };
+  };
+}

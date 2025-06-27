@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListUsersCommandInput extends ListUsersRequest {}
 export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing
- *       the <code>ServerId</code> parameter.</p>
+ * <p>Lists the users for a file transfer protocol-enabled server that you specify by passing the <code>ServerId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,14 +75,14 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -94,9 +94,7 @@ export class ListUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +106,16 @@ export class ListUsersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUsersCommand)
   .de(de_ListUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersRequest;
+      output: ListUsersResponse;
+    };
+    sdk: {
+      input: ListUsersCommandInput;
+      output: ListUsersCommandOutput;
+    };
+  };
+}

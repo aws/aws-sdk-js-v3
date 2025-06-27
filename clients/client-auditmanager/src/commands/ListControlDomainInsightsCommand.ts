@@ -12,7 +12,8 @@ import { de_ListControlDomainInsightsCommand, se_ListControlDomainInsightsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,6 +30,12 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
 /**
  * <p>Lists the latest analytics data for control domains across all of your active
  *          assessments. </p>
+ *          <p>Audit Manager supports the control domains that are provided by Amazon Web Services
+ *          Control Catalog. For information about how to find a list of available control domains, see
+ *             <a href="https://docs.aws.amazon.com/controlcatalog/latest/APIReference/API_ListDomains.html">
+ *                <code>ListDomains</code>
+ *             </a> in the Amazon Web Services Control
+ *          Catalog API Reference.</p>
  *          <note>
  *             <p>A control domain is listed only if at least one of the controls within that domain
  *             collected evidence on the <code>lastUpdated</code> date of
@@ -90,6 +97,7 @@ export interface ListControlDomainInsightsCommandOutput extends ListControlDomai
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListControlDomainInsightsCommand extends $Command
@@ -100,9 +108,7 @@ export class ListControlDomainInsightsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +120,16 @@ export class ListControlDomainInsightsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListControlDomainInsightsCommand)
   .de(de_ListControlDomainInsightsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListControlDomainInsightsRequest;
+      output: ListControlDomainInsightsResponse;
+    };
+    sdk: {
+      input: ListControlDomainInsightsCommandInput;
+      output: ListControlDomainInsightsCommandOutput;
+    };
+  };
+}

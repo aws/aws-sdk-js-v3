@@ -16,7 +16,8 @@ import { de_CreateManagedEndpointCommand, se_CreateManagedEndpointCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,10 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  *       },
  *     ],
  *     monitoringConfiguration: { // MonitoringConfiguration
+ *       managedLogs: { // ManagedLogs
+ *         allowAWSToRetainLogs: "ENABLED" || "DISABLED",
+ *         encryptionKeyArn: "STRING_VALUE",
+ *       },
  *       persistentAppUI: "ENABLED" || "DISABLED",
  *       cloudWatchMonitoringConfiguration: { // CloudWatchMonitoringConfiguration
  *         logGroupName: "STRING_VALUE", // required
@@ -113,6 +118,7 @@ export interface CreateManagedEndpointCommandOutput extends CreateManagedEndpoin
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class CreateManagedEndpointCommand extends $Command
@@ -123,9 +129,7 @@ export class CreateManagedEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +141,16 @@ export class CreateManagedEndpointCommand extends $Command
   .f(CreateManagedEndpointRequestFilterSensitiveLog, void 0)
   .ser(se_CreateManagedEndpointCommand)
   .de(de_CreateManagedEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateManagedEndpointRequest;
+      output: CreateManagedEndpointResponse;
+    };
+    sdk: {
+      input: CreateManagedEndpointCommandInput;
+      output: CreateManagedEndpointCommandOutput;
+    };
+  };
+}

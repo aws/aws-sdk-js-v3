@@ -1,10 +1,11 @@
 import { TranscribeStreaming } from "@aws-sdk/client-transcribe-streaming";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 
 describe("middleware-sdk-transcribe-streaming", () => {
   // TODO: http2 in CI
-  xdescribe(TranscribeStreaming.name, () => {
+  describe.skip(TranscribeStreaming.name, () => {
     it("should set port on hostname and copy params to query", async () => {
       const client = new TranscribeStreaming({
         region: "us-west-2",
@@ -12,7 +13,7 @@ describe("middleware-sdk-transcribe-streaming", () => {
 
       requireRequestsFrom(client).toMatch({
         headers: {
-          "Content-Type": /undefined/,
+          "content-type": /undefined/,
           host: "transcribestreaming.us-west-2.amazonaws.com:8443",
         },
         query: {

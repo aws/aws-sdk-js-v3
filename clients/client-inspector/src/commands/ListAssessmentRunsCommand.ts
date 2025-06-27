@@ -12,7 +12,8 @@ import { de_ListAssessmentRunsCommand, se_ListAssessmentRunsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,30 +102,30 @@ export interface ListAssessmentRunsCommandOutput extends ListAssessmentRunsRespo
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example List assessment runs
  * ```javascript
  * // Lists the assessment runs that correspond to the assessment templates that are specified by the ARNs of the assessment templates.
  * const input = {
- *   "assessmentTemplateArns": [
+ *   assessmentTemplateArns: [
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw"
  *   ],
- *   "maxResults": 123
+ *   maxResults: 123
  * };
  * const command = new ListAssessmentRunsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "assessmentRunArns": [
+ *   assessmentRunArns: [
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-MKkpXXPE",
  *     "arn:aws:inspector:us-west-2:123456789012:target/0-0kFIPusq/template/0-4r1V2mAw/run/0-v5D6fI3v"
  *   ],
- *   "nextToken": "1"
+ *   nextToken: "1"
  * }
  * *\/
- * // example id: list-assessment-runs-1481066340844
  * ```
  *
+ * @public
  */
 export class ListAssessmentRunsCommand extends $Command
   .classBuilder<
@@ -134,9 +135,7 @@ export class ListAssessmentRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +147,16 @@ export class ListAssessmentRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAssessmentRunsCommand)
   .de(de_ListAssessmentRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentRunsRequest;
+      output: ListAssessmentRunsResponse;
+    };
+    sdk: {
+      input: ListAssessmentRunsCommandInput;
+      output: ListAssessmentRunsCommandOutput;
+    };
+  };
+}

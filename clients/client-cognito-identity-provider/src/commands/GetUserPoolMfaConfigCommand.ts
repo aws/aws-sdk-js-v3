@@ -10,13 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_0";
+import { GetUserPoolMfaConfigRequest, GetUserPoolMfaConfigResponse } from "../models/models_1";
 import { de_GetUserPoolMfaConfigCommand, se_GetUserPoolMfaConfigCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,45 @@ export interface GetUserPoolMfaConfigCommandInput extends GetUserPoolMfaConfigRe
 export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the user pool multi-factor authentication (MFA) configuration.</p>
+ * <p>Given a user pool ID, returns configuration for sign-in with WebAuthn authenticators
+ *             and for multi-factor authentication (MFA). This operation describes the
+ *             following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The WebAuthn relying party (RP) ID and user-verification settings.</p>
+ *             </li>
+ *             <li>
+ *                <p>The required, optional, or disabled state of MFA for all user pool
+ *                     users.</p>
+ *             </li>
+ *             <li>
+ *                <p>The message templates for email and SMS MFA.</p>
+ *             </li>
+ *             <li>
+ *                <p>The enabled or disabled state of time-based one-time password (TOTP)
+ *                     MFA.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,7 +94,15 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * //   SoftwareTokenMfaConfiguration: { // SoftwareTokenMfaConfigType
  * //     Enabled: true || false,
  * //   },
+ * //   EmailMfaConfiguration: { // EmailMfaConfigType
+ * //     Message: "STRING_VALUE",
+ * //     Subject: "STRING_VALUE",
+ * //   },
  * //   MfaConfiguration: "OFF" || "ON" || "OPTIONAL",
+ * //   WebAuthnConfiguration: { // WebAuthnConfigurationType
+ * //     RelyingPartyId: "STRING_VALUE",
+ * //     UserVerification: "required" || "preferred",
+ * //   },
  * // };
  *
  * ```
@@ -87,6 +134,7 @@ export interface GetUserPoolMfaConfigCommandOutput extends GetUserPoolMfaConfigR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetUserPoolMfaConfigCommand extends $Command
@@ -97,9 +145,7 @@ export class GetUserPoolMfaConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +157,16 @@ export class GetUserPoolMfaConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetUserPoolMfaConfigCommand)
   .de(de_GetUserPoolMfaConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserPoolMfaConfigRequest;
+      output: GetUserPoolMfaConfigResponse;
+    };
+    sdk: {
+      input: GetUserPoolMfaConfigCommandInput;
+      output: GetUserPoolMfaConfigCommandOutput;
+    };
+  };
+}

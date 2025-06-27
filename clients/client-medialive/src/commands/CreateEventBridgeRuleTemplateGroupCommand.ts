@@ -9,7 +9,7 @@ import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 import {
   CreateEventBridgeRuleTemplateGroupRequest,
   CreateEventBridgeRuleTemplateGroupResponse,
-} from "../models/models_1";
+} from "../models/models_2";
 import {
   de_CreateEventBridgeRuleTemplateGroupCommand,
   se_CreateEventBridgeRuleTemplateGroupCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,6 +49,7 @@ export interface CreateEventBridgeRuleTemplateGroupCommandOutput
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   RequestId: "STRING_VALUE",
  * };
  * const command = new CreateEventBridgeRuleTemplateGroupCommand(input);
  * const response = await client.send(command);
@@ -92,6 +94,7 @@ export interface CreateEventBridgeRuleTemplateGroupCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class CreateEventBridgeRuleTemplateGroupCommand extends $Command
@@ -102,9 +105,7 @@ export class CreateEventBridgeRuleTemplateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +117,16 @@ export class CreateEventBridgeRuleTemplateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventBridgeRuleTemplateGroupCommand)
   .de(de_CreateEventBridgeRuleTemplateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventBridgeRuleTemplateGroupRequest;
+      output: CreateEventBridgeRuleTemplateGroupResponse;
+    };
+    sdk: {
+      input: CreateEventBridgeRuleTemplateGroupCommandInput;
+      output: CreateEventBridgeRuleTemplateGroupCommandOutput;
+    };
+  };
+}

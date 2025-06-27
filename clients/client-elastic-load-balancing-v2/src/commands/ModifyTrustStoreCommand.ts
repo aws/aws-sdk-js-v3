@@ -16,7 +16,8 @@ import { de_ModifyTrustStoreCommand, se_ModifyTrustStoreCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface ModifyTrustStoreCommandInput extends ModifyTrustStoreInput {}
 export interface ModifyTrustStoreCommandOutput extends ModifyTrustStoreOutput, __MetadataBearer {}
 
 /**
- * <p>Update the ca certificate bundle for a given trust store.</p>
+ * <p>Update the ca certificate bundle for the specified trust store.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +79,7 @@ export interface ModifyTrustStoreCommandOutput extends ModifyTrustStoreOutput, _
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyTrustStoreCommand extends $Command
@@ -88,9 +90,7 @@ export class ModifyTrustStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ModifyTrustStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyTrustStoreCommand)
   .de(de_ModifyTrustStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyTrustStoreInput;
+      output: ModifyTrustStoreOutput;
+    };
+    sdk: {
+      input: ModifyTrustStoreCommandInput;
+      output: ModifyTrustStoreCommandOutput;
+    };
+  };
+}

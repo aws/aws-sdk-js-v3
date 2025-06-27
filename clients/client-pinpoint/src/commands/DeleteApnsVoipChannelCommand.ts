@@ -12,7 +12,8 @@ import { de_DeleteApnsVoipChannelCommand, se_DeleteApnsVoipChannelCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface DeleteApnsVoipChannelCommandOutput extends DeleteApnsVoipChanne
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteApnsVoipChannelCommand extends $Command
@@ -98,9 +100,7 @@ export class DeleteApnsVoipChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class DeleteApnsVoipChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApnsVoipChannelCommand)
   .de(de_DeleteApnsVoipChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApnsVoipChannelRequest;
+      output: DeleteApnsVoipChannelResponse;
+    };
+    sdk: {
+      input: DeleteApnsVoipChannelCommandInput;
+      output: DeleteApnsVoipChannelCommandOutput;
+    };
+  };
+}

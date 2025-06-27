@@ -12,7 +12,8 @@ import { de_CreateCertificateAuthorityCommand, se_CreateCertificateAuthorityComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * 						policies for CRLs in Amazon S3</a>.</p>
  *          </note>
  *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
- *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaCreateCa.html#crl-encryption">Encrypting Your
+ *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#crl-encryption">Encrypting Your
  * 			CRLs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -56,8 +57,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * const client = new ACMPCAClient(config);
  * const input = { // CreateCertificateAuthorityRequest
  *   CertificateAuthorityConfiguration: { // CertificateAuthorityConfiguration
- *     KeyAlgorithm: "RSA_2048" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1", // required
- *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
+ *     KeyAlgorithm: "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1" || "SM2", // required
+ *     SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA" || "SM3WITHSM2", // required
  *     Subject: { // ASN1Subject
  *       Country: "STRING_VALUE",
  *       Organization: "STRING_VALUE",
@@ -149,6 +150,8 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *       CrlDistributionPointExtensionConfiguration: { // CrlDistributionPointExtensionConfiguration
  *         OmitExtension: true || false, // required
  *       },
+ *       CrlType: "COMPLETE" || "PARTITIONED",
+ *       CustomPath: "STRING_VALUE",
  *     },
  *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
@@ -157,7 +160,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  *   },
  *   CertificateAuthorityType: "ROOT" || "SUBORDINATE", // required
  *   IdempotencyToken: "STRING_VALUE",
- *   KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER",
+ *   KeyStorageSecurityStandard: "FIPS_140_2_LEVEL_2_OR_HIGHER" || "FIPS_140_2_LEVEL_3_OR_HIGHER" || "CCPC_LEVEL_1_OR_HIGHER",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -198,6 +201,7 @@ export interface CreateCertificateAuthorityCommandOutput extends CreateCertifica
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class CreateCertificateAuthorityCommand extends $Command
@@ -208,9 +212,7 @@ export class CreateCertificateAuthorityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -222,4 +224,16 @@ export class CreateCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCertificateAuthorityCommand)
   .de(de_CreateCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCertificateAuthorityRequest;
+      output: CreateCertificateAuthorityResponse;
+    };
+    sdk: {
+      input: CreateCertificateAuthorityCommandInput;
+      output: CreateCertificateAuthorityCommandOutput;
+    };
+  };
+}

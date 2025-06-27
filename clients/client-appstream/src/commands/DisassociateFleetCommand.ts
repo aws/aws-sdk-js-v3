@@ -12,7 +12,8 @@ import { de_DisassociateFleetCommand, se_DisassociateFleetCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DisassociateFleetCommandOutput extends DisassociateFleetResult,
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DisassociateFleetCommand extends $Command
@@ -75,9 +77,7 @@ export class DisassociateFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DisassociateFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateFleetCommand)
   .de(de_DisassociateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateFleetCommandInput;
+      output: DisassociateFleetCommandOutput;
+    };
+  };
+}

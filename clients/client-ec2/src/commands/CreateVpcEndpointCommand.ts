@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateVpcEndpointRequest, CreateVpcEndpointResult } from "../models/models_2";
+import { CreateVpcEndpointRequest } from "../models/models_2";
+import { CreateVpcEndpointResult } from "../models/models_3";
 import { de_CreateVpcEndpointCommand, se_CreateVpcEndpointCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,9 +41,9 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * const client = new EC2Client(config);
  * const input = { // CreateVpcEndpointRequest
  *   DryRun: true || false,
- *   VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ *   VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
  *   VpcId: "STRING_VALUE", // required
- *   ServiceName: "STRING_VALUE", // required
+ *   ServiceName: "STRING_VALUE",
  *   PolicyDocument: "STRING_VALUE",
  *   RouteTableIds: [ // VpcEndpointRouteTableIdList
  *     "STRING_VALUE",
@@ -61,7 +63,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  *   PrivateDnsEnabled: true || false,
  *   TagSpecifications: [ // TagSpecificationList
  *     { // TagSpecification
- *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint",
+ *       ResourceType: "capacity-reservation" || "client-vpn-endpoint" || "customer-gateway" || "carrier-gateway" || "coip-pool" || "declarative-policies-report" || "dedicated-host" || "dhcp-options" || "egress-only-internet-gateway" || "elastic-ip" || "elastic-gpu" || "export-image-task" || "export-instance-task" || "fleet" || "fpga-image" || "host-reservation" || "image" || "import-image-task" || "import-snapshot-task" || "instance" || "instance-event-window" || "internet-gateway" || "ipam" || "ipam-pool" || "ipam-scope" || "ipv4pool-ec2" || "ipv6pool-ec2" || "key-pair" || "launch-template" || "local-gateway" || "local-gateway-route-table" || "local-gateway-virtual-interface" || "local-gateway-virtual-interface-group" || "local-gateway-route-table-vpc-association" || "local-gateway-route-table-virtual-interface-group-association" || "natgateway" || "network-acl" || "network-interface" || "network-insights-analysis" || "network-insights-path" || "network-insights-access-scope" || "network-insights-access-scope-analysis" || "outpost-lag" || "placement-group" || "prefix-list" || "replace-root-volume-task" || "reserved-instances" || "route-table" || "security-group" || "security-group-rule" || "service-link-virtual-interface" || "snapshot" || "spot-fleet-request" || "spot-instances-request" || "subnet" || "subnet-cidr-reservation" || "traffic-mirror-filter" || "traffic-mirror-session" || "traffic-mirror-target" || "transit-gateway" || "transit-gateway-attachment" || "transit-gateway-connect-peer" || "transit-gateway-multicast-domain" || "transit-gateway-policy-table" || "transit-gateway-route-table" || "transit-gateway-route-table-announcement" || "volume" || "vpc" || "vpc-endpoint" || "vpc-endpoint-connection" || "vpc-endpoint-service" || "vpc-endpoint-service-permission" || "vpc-peering-connection" || "vpn-connection" || "vpn-gateway" || "vpc-flow-log" || "capacity-reservation-fleet" || "traffic-mirror-filter-rule" || "vpc-endpoint-connection-device-type" || "verified-access-instance" || "verified-access-group" || "verified-access-endpoint" || "verified-access-policy" || "verified-access-trust-provider" || "vpn-connection-device-type" || "vpc-block-public-access-exclusion" || "route-server" || "route-server-endpoint" || "route-server-peer" || "ipam-resource-discovery" || "ipam-resource-discovery-association" || "instance-connect-endpoint" || "verified-access-endpoint-target" || "ipam-external-resource-verification-token" || "mac-modification-task",
  *       Tags: [ // TagList
  *         { // Tag
  *           Key: "STRING_VALUE",
@@ -77,16 +79,19 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  *       Ipv6: "STRING_VALUE",
  *     },
  *   ],
+ *   ServiceNetworkArn: "STRING_VALUE",
+ *   ResourceConfigurationArn: "STRING_VALUE",
+ *   ServiceRegion: "STRING_VALUE",
  * };
  * const command = new CreateVpcEndpointCommand(input);
  * const response = await client.send(command);
  * // { // CreateVpcEndpointResult
  * //   VpcEndpoint: { // VpcEndpoint
  * //     VpcEndpointId: "STRING_VALUE",
- * //     VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer",
+ * //     VpcEndpointType: "Interface" || "Gateway" || "GatewayLoadBalancer" || "Resource" || "ServiceNetwork",
  * //     VpcId: "STRING_VALUE",
  * //     ServiceName: "STRING_VALUE",
- * //     State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired",
+ * //     State: "PendingAcceptance" || "Pending" || "Available" || "Deleting" || "Deleted" || "Rejected" || "Failed" || "Expired" || "Partial",
  * //     PolicyDocument: "STRING_VALUE",
  * //     RouteTableIds: [ // ValueStringList
  * //       "STRING_VALUE",
@@ -128,6 +133,26 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * //       Message: "STRING_VALUE",
  * //       Code: "STRING_VALUE",
  * //     },
+ * //     Ipv4Prefixes: [ // SubnetIpPrefixesList
+ * //       { // SubnetIpPrefixes
+ * //         SubnetId: "STRING_VALUE",
+ * //         IpPrefixes: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     Ipv6Prefixes: [
+ * //       {
+ * //         SubnetId: "STRING_VALUE",
+ * //         IpPrefixes: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //     ],
+ * //     FailureReason: "STRING_VALUE",
+ * //     ServiceNetworkArn: "STRING_VALUE",
+ * //     ResourceConfigurationArn: "STRING_VALUE",
+ * //     ServiceRegion: "STRING_VALUE",
  * //   },
  * //   ClientToken: "STRING_VALUE",
  * // };
@@ -143,6 +168,7 @@ export interface CreateVpcEndpointCommandOutput extends CreateVpcEndpointResult,
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcEndpointCommand extends $Command
@@ -153,9 +179,7 @@ export class CreateVpcEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +191,16 @@ export class CreateVpcEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcEndpointCommand)
   .de(de_CreateVpcEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcEndpointRequest;
+      output: CreateVpcEndpointResult;
+    };
+    sdk: {
+      input: CreateVpcEndpointCommandInput;
+      output: CreateVpcEndpointCommandOutput;
+    };
+  };
+}

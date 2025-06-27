@@ -12,7 +12,8 @@ import { de_DescribeBotCommand, se_DescribeBotCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,9 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * //   failureReasons: [ // FailureReasons
  * //     "STRING_VALUE",
  * //   ],
+ * //   errorLogSettings: { // ErrorLogSettings
+ * //     enabled: true || false, // required
+ * //   },
  * // };
  *
  * ```
@@ -96,6 +100,7 @@ export interface DescribeBotCommandOutput extends DescribeBotResponse, __Metadat
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBotCommand extends $Command
@@ -106,9 +111,7 @@ export class DescribeBotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +123,16 @@ export class DescribeBotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBotCommand)
   .de(de_DescribeBotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBotRequest;
+      output: DescribeBotResponse;
+    };
+    sdk: {
+      input: DescribeBotCommandInput;
+      output: DescribeBotCommandOutput;
+    };
+  };
+}

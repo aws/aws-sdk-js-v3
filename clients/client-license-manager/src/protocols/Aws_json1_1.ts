@@ -240,6 +240,7 @@ import {
   NoEntitlementsAllowedException,
   Options,
   OrganizationConfiguration,
+  ProductCodeListItem,
   ProductInformation,
   ProductInformationFilter,
   ProvisionalConfiguration,
@@ -2383,6 +2384,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PrincipalArnList omitted.
 
+// se_ProductCodeList omitted.
+
+// se_ProductCodeListItem omitted.
+
 // se_ProductInformation omitted.
 
 // se_ProductInformationFilter omitted.
@@ -2840,6 +2845,10 @@ const de_ListUsageForLicenseConfigurationResponse = (
 // de_Options omitted.
 
 // de_OrganizationConfiguration omitted.
+
+// de_ProductCodeList omitted.
+
+// de_ProductCodeListItem omitted.
 
 // de_ProductInformation omitted.
 

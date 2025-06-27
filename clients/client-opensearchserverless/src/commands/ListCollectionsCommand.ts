@@ -16,7 +16,8 @@ import { de_ListCollectionsCommand, se_ListCollectionsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface ListCollectionsCommandOutput extends ListCollectionsResponse, _
  * @throws {@link OpenSearchServerlessServiceException}
  * <p>Base exception class for all service exceptions from OpenSearchServerless service.</p>
  *
+ *
  * @public
  */
 export class ListCollectionsCommand extends $Command
@@ -93,9 +95,7 @@ export class ListCollectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListCollectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCollectionsCommand)
   .de(de_ListCollectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCollectionsRequest;
+      output: ListCollectionsResponse;
+    };
+    sdk: {
+      input: ListCollectionsCommandInput;
+      output: ListCollectionsCommandOutput;
+    };
+  };
+}

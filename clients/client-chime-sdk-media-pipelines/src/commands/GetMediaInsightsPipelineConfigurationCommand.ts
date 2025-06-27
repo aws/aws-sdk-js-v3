@@ -23,7 +23,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -120,6 +121,7 @@ export interface GetMediaInsightsPipelineConfigurationCommandOutput
  * //           LanguageModelName: "STRING_VALUE",
  * //           FilterPartialResults: true || false,
  * //           IdentifyLanguage: true || false,
+ * //           IdentifyMultipleLanguages: true || false,
  * //           LanguageOptions: "STRING_VALUE",
  * //           PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  * //           VocabularyNames: "STRING_VALUE",
@@ -188,6 +190,7 @@ export interface GetMediaInsightsPipelineConfigurationCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class GetMediaInsightsPipelineConfigurationCommand extends $Command
@@ -198,9 +201,7 @@ export class GetMediaInsightsPipelineConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -212,4 +213,16 @@ export class GetMediaInsightsPipelineConfigurationCommand extends $Command
   .f(void 0, GetMediaInsightsPipelineConfigurationResponseFilterSensitiveLog)
   .ser(se_GetMediaInsightsPipelineConfigurationCommand)
   .de(de_GetMediaInsightsPipelineConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMediaInsightsPipelineConfigurationRequest;
+      output: GetMediaInsightsPipelineConfigurationResponse;
+    };
+    sdk: {
+      input: GetMediaInsightsPipelineConfigurationCommandInput;
+      output: GetMediaInsightsPipelineConfigurationCommandOutput;
+    };
+  };
+}

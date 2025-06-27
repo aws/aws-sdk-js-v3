@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface DescribeSubscribersForNotificationCommandOutput
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class DescribeSubscribersForNotificationCommand extends $Command
@@ -111,9 +113,7 @@ export class DescribeSubscribersForNotificationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class DescribeSubscribersForNotificationCommand extends $Command
   .f(void 0, DescribeSubscribersForNotificationResponseFilterSensitiveLog)
   .ser(se_DescribeSubscribersForNotificationCommand)
   .de(de_DescribeSubscribersForNotificationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSubscribersForNotificationRequest;
+      output: DescribeSubscribersForNotificationResponse;
+    };
+    sdk: {
+      input: DescribeSubscribersForNotificationCommandInput;
+      output: DescribeSubscribersForNotificationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListGroupsCommand, se_ListGroupsCommand } from "../protocols/Aws_que
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,43 +73,43 @@ export interface ListGroupsCommandOutput extends ListGroupsResponse, __MetadataB
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the IAM groups for the current account
  * ```javascript
  * // The following command lists the IAM groups in the current account:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Groups": [
+ *   Groups: [
  *     {
- *       "Arn": "arn:aws:iam::123456789012:group/Admins",
- *       "CreateDate": "2016-12-15T21:40:08.121Z",
- *       "GroupId": "AGPA1111111111EXAMPLE",
- *       "GroupName": "Admins",
- *       "Path": "/division_abc/subdivision_xyz/"
+ *       Arn: "arn:aws:iam::123456789012:group/Admins",
+ *       CreateDate: "2016-12-15T21:40:08.121Z",
+ *       GroupId: "AGPA1111111111EXAMPLE",
+ *       GroupName: "Admins",
+ *       Path: "/division_abc/subdivision_xyz/"
  *     },
  *     {
- *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
- *       "CreateDate": "2016-11-30T14:10:01.156Z",
- *       "GroupId": "AGP22222222222EXAMPLE",
- *       "GroupName": "Test",
- *       "Path": "/division_abc/subdivision_xyz/product_1234/engineering/"
+ *       Arn: "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/engineering/Test",
+ *       CreateDate: "2016-11-30T14:10:01.156Z",
+ *       GroupId: "AGP22222222222EXAMPLE",
+ *       GroupName: "Test",
+ *       Path: "/division_abc/subdivision_xyz/product_1234/engineering/"
  *     },
  *     {
- *       "Arn": "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
- *       "CreateDate": "2016-06-12T20:14:52.032Z",
- *       "GroupId": "AGPI3333333333EXAMPLE",
- *       "GroupName": "Managers",
- *       "Path": "/division_abc/subdivision_xyz/product_1234/"
+ *       Arn: "arn:aws:iam::123456789012:group/division_abc/subdivision_xyz/product_1234/Managers",
+ *       CreateDate: "2016-06-12T20:14:52.032Z",
+ *       GroupId: "AGPI3333333333EXAMPLE",
+ *       GroupName: "Managers",
+ *       Path: "/division_abc/subdivision_xyz/product_1234/"
  *     }
  *   ]
  * }
  * *\/
- * // example id: b3ab1380-2a21-42fb-8e85-503f65512c66
  * ```
  *
+ * @public
  */
 export class ListGroupsCommand extends $Command
   .classBuilder<
@@ -118,9 +119,7 @@ export class ListGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class ListGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupsCommand)
   .de(de_ListGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupsRequest;
+      output: ListGroupsResponse;
+    };
+    sdk: {
+      input: ListGroupsCommandInput;
+      output: ListGroupsCommandOutput;
+    };
+  };
+}

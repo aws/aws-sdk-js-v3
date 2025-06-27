@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface StartServerCommandInput extends StartServerRequest {}
 export interface StartServerCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to
- *         <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An
- *         <code>ONLINE</code> server can accept and process file transfer jobs.</p>
- *          <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state,
- *       either not fully able to respond, or not fully online. The values of <code>START_FAILED</code>
- *       can indicate an error condition.</p>
- *          <p>No response is returned from this call.</p>
+ * <p>Changes the state of a file transfer protocol-enabled server from <code>OFFLINE</code> to <code>ONLINE</code>. It has no impact on a server that is already <code>ONLINE</code>. An <code>ONLINE</code> server can accept and process file transfer jobs.</p> <p>The state of <code>STARTING</code> indicates that the server is in an intermediate state, either not fully able to respond, or not fully online. The values of <code>START_FAILED</code> can indicate an error condition.</p> <p>No response is returned from this call.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,8 +57,7 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
@@ -73,6 +67,7 @@ export interface StartServerCommandOutput extends __MetadataBearer {}
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +79,7 @@ export class StartServerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +91,16 @@ export class StartServerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartServerCommand)
   .de(de_StartServerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartServerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartServerCommandInput;
+      output: StartServerCommandOutput;
+    };
+  };
+}

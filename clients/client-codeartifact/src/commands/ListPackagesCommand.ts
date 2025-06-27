@@ -12,7 +12,8 @@ import { de_ListPackagesCommand, se_ListPackagesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  *   namespace: "STRING_VALUE",
  *   packagePrefix: "STRING_VALUE",
  *   maxResults: Number("int"),
@@ -55,7 +56,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * // { // ListPackagesResult
  * //   packages: [ // PackageSummaryList
  * //     { // PackageSummary
- * //       format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //       format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //       namespace: "STRING_VALUE",
  * //       package: "STRING_VALUE",
  * //       originConfiguration: { // PackageOriginConfiguration
@@ -103,6 +104,7 @@ export interface ListPackagesCommandOutput extends ListPackagesResult, __Metadat
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackagesCommand extends $Command
@@ -113,9 +115,7 @@ export class ListPackagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class ListPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackagesCommand)
   .de(de_ListPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackagesRequest;
+      output: ListPackagesResult;
+    };
+    sdk: {
+      input: ListPackagesCommandInput;
+      output: ListPackagesCommandOutput;
+    };
+  };
+}

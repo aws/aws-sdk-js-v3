@@ -12,7 +12,8 @@ import { de_ListInputsCommand, se_ListInputsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface ListInputsCommandOutput extends ListInputsResponse, __MetadataB
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class ListInputsCommand extends $Command
@@ -87,9 +89,7 @@ export class ListInputsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListInputsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInputsCommand)
   .de(de_ListInputsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInputsRequest;
+      output: ListInputsResponse;
+    };
+    sdk: {
+      input: ListInputsCommandInput;
+      output: ListInputsCommandOutput;
+    };
+  };
+}

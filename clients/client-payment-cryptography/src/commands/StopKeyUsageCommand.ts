@@ -16,7 +16,8 @@ import { de_StopKeyUsageCommand, se_StopKeyUsageCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,25 +32,7 @@ export interface StopKeyUsageCommandInput extends StopKeyUsageInput {}
 export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __MetadataBearer {}
 
 /**
- * <p>Disables an Amazon Web Services Payment Cryptography key, which makes it inactive within Amazon Web Services Payment Cryptography.</p>
- *          <p>You can use this operation instead of <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a> to deactivate a key. You can enable the key in the future by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a>.</p>
- *          <p>
- *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Disables an Amazon Web Services Payment Cryptography key, which makes it inactive within Amazon Web Services Payment Cryptography.</p> <p>You can use this operation instead of <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a> to deactivate a key. You can enable the key in the future by calling <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a>.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_DeleteKey.html">DeleteKey</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StartKeyUsage.html">StartKeyUsage</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +74,7 @@ export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __Metadat
  * //     UsageStopTimestamp: new Date("TIMESTAMP"),
  * //     DeletePendingTimestamp: new Date("TIMESTAMP"),
  * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     DeriveKeyUsage: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -129,6 +113,7 @@ export interface StopKeyUsageCommandOutput extends StopKeyUsageOutput, __Metadat
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class StopKeyUsageCommand extends $Command
@@ -139,9 +124,7 @@ export class StopKeyUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +136,16 @@ export class StopKeyUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopKeyUsageCommand)
   .de(de_StopKeyUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopKeyUsageInput;
+      output: StopKeyUsageOutput;
+    };
+    sdk: {
+      input: StopKeyUsageCommandInput;
+      output: StopKeyUsageCommandOutput;
+    };
+  };
+}

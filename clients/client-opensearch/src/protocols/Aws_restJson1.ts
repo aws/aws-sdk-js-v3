@@ -31,14 +31,20 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
   AcceptInboundConnectionCommandInput,
   AcceptInboundConnectionCommandOutput,
 } from "../commands/AcceptInboundConnectionCommand";
 import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "../commands/AddDataSourceCommand";
+import {
+  AddDirectQueryDataSourceCommandInput,
+  AddDirectQueryDataSourceCommandOutput,
+} from "../commands/AddDirectQueryDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "../commands/AssociatePackageCommand";
+import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "../commands/AssociatePackagesCommand";
 import {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
@@ -51,6 +57,7 @@ import {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "../commands/CancelServiceSoftwareUpdateCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "../commands/CreateDomainCommand";
 import {
   CreateOutboundConnectionCommandInput,
@@ -58,7 +65,12 @@ import {
 } from "../commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "../commands/CreatePackageCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "../commands/CreateVpcEndpointCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "../commands/DeleteApplicationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "../commands/DeleteDataSourceCommand";
+import {
+  DeleteDirectQueryDataSourceCommandInput,
+  DeleteDirectQueryDataSourceCommandOutput,
+} from "../commands/DeleteDirectQueryDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "../commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -122,11 +134,17 @@ import {
   DescribeVpcEndpointsCommandOutput,
 } from "../commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "../commands/DissociatePackageCommand";
+import { DissociatePackagesCommandInput, DissociatePackagesCommandOutput } from "../commands/DissociatePackagesCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "../commands/GetApplicationCommand";
 import {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
 } from "../commands/GetCompatibleVersionsCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "../commands/GetDataSourceCommand";
+import {
+  GetDirectQueryDataSourceCommandInput,
+  GetDirectQueryDataSourceCommandOutput,
+} from "../commands/GetDirectQueryDataSourceCommand";
 import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
@@ -137,7 +155,12 @@ import {
 } from "../commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "../commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "../commands/GetUpgradeStatusCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "../commands/ListApplicationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "../commands/ListDataSourcesCommand";
+import {
+  ListDirectQueryDataSourcesCommandInput,
+  ListDirectQueryDataSourcesCommandOutput,
+} from "../commands/ListDirectQueryDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
@@ -191,9 +214,15 @@ import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "../commands/StartServiceSoftwareUpdateCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "../commands/UpdateDataSourceCommand";
+import {
+  UpdateDirectQueryDataSourceCommandInput,
+  UpdateDirectQueryDataSourceCommandOutput,
+} from "../commands/UpdateDirectQueryDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "../commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "../commands/UpdatePackageCommand";
+import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "../commands/UpdatePackageScopeCommand";
 import {
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
@@ -207,6 +236,10 @@ import {
   AdvancedSecurityOptions,
   AdvancedSecurityOptionsInput,
   AdvancedSecurityOptionsStatus,
+  AIMLOptionsInput,
+  AIMLOptionsStatus,
+  AppConfig,
+  ApplicationSummary,
   AutoTune,
   AutoTuneDetails,
   AutoTuneMaintenanceSchedule,
@@ -219,6 +252,7 @@ import {
   ChangeProgressDetails,
   ChangeProgressStage,
   ChangeProgressStatusDetails,
+  CloudWatchDirectQueryDataSource,
   ClusterConfig,
   ClusterConfigStatus,
   CognitoOptions,
@@ -227,9 +261,11 @@ import {
   ConflictException,
   ConnectionProperties,
   CrossClusterSearchConnectionProperties,
+  DataSource,
   DataSourceType,
   DependencyFailureException,
   DescribePackagesFilter,
+  DirectQueryDataSourceType,
   DisabledOperationException,
   DomainConfig,
   DomainEndpointOptions,
@@ -244,23 +280,36 @@ import {
   EncryptionAtRestOptions,
   EncryptionAtRestOptionsStatus,
   Filter,
+  IamIdentityCenterOptionsInput,
+  IdentityCenterOptionsInput,
+  IdentityCenterOptionsStatus,
   InternalException,
   InvalidPaginationTokenException,
   InvalidTypeException,
   IPAddressTypeStatus,
+  JWTOptionsInput,
+  KeyStoreAccessOption,
   LimitExceededException,
   LogPublishingOption,
   LogPublishingOptionsStatus,
   LogType,
   MasterUserOptions,
+  NaturalLanguageQueryGenerationOptionsInput,
+  NodeConfig,
+  NodeOption,
   NodeToNodeEncryptionOptions,
   NodeToNodeEncryptionOptionsStatus,
   OffPeakWindow,
   OffPeakWindowOptions,
   OffPeakWindowOptionsStatus,
   OptionStatus,
+  PackageAssociationConfiguration,
+  PackageConfiguration,
   PackageDetails,
+  PackageDetailsForAssociation,
+  PackageEncryptionOptions,
   PackageSource,
+  PackageVendingOptions,
   PackageVersionHistory,
   RecurringCharge,
   ReservedInstance,
@@ -271,8 +320,8 @@ import {
   SAMLIdp,
   SAMLOptionsInput,
   ScheduledAutoTuneDetails,
+  SecurityLakeDirectQueryDataSource,
   ServiceSoftwareOptions,
-  SlotNotAvailableException,
   SnapshotOptions,
   SnapshotOptionsStatus,
   SoftwareUpdateOptions,
@@ -287,6 +336,7 @@ import {
   WindowStartTime,
   ZoneAwarenessConfig,
 } from "../models/models_0";
+import { SlotNotAvailableException } from "../models/models_1";
 import { OpenSearchServiceException as __BaseException } from "../models/OpenSearchServiceException";
 
 /**
@@ -331,6 +381,32 @@ export const se_AddDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1AddDirectQueryDataSourceCommand
+ */
+export const se_AddDirectQueryDataSourceCommand = async (
+  input: AddDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/directQueryDataSource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSourceName: [],
+      DataSourceType: (_) => _json(_),
+      Description: [],
+      OpenSearchArns: (_) => _json(_),
+      TagList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1AddTagsCommand
  */
 export const se_AddTagsCommand = async (
@@ -361,11 +437,42 @@ export const se_AssociatePackageCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = {
+    "content-type": "application/json",
+  };
   b.bp("/2021-01-01/packages/associate/{PackageID}/{DomainName}");
   b.p("PackageID", () => input.PackageID!, "{PackageID}", false);
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   let body: any;
+  body = JSON.stringify(
+    take(input, {
+      AssociationConfiguration: (_) => _json(_),
+      PrerequisitePackageIDList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1AssociatePackagesCommand
+ */
+export const se_AssociatePackagesCommand = async (
+  input: AssociatePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/packages/associateMultiple");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      PackageList: (_) => _json(_),
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -387,6 +494,7 @@ export const se_AuthorizeVpcEndpointAccessCommand = async (
   body = JSON.stringify(
     take(input, {
       Account: [],
+      Service: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -439,6 +547,33 @@ export const se_CancelServiceSoftwareUpdateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateApplicationCommand
+ */
+export const se_CreateApplicationCommand = async (
+  input: CreateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/application");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appConfigs: (_) => _json(_),
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      dataSources: (_) => _json(_),
+      iamIdentityCenterOptions: (_) => _json(_),
+      name: [],
+      tagList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateDomainCommand
  */
 export const se_CreateDomainCommand = async (
@@ -453,6 +588,7 @@ export const se_CreateDomainCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AIMLOptions: (_) => _json(_),
       AccessPolicies: [],
       AdvancedOptions: (_) => _json(_),
       AdvancedSecurityOptions: (_) => _json(_),
@@ -465,6 +601,7 @@ export const se_CreateDomainCommand = async (
       EncryptionAtRestOptions: (_) => _json(_),
       EngineVersion: [],
       IPAddressType: [],
+      IdentityCenterOptions: (_) => _json(_),
       LogPublishingOptions: (_) => _json(_),
       NodeToNodeEncryptionOptions: (_) => _json(_),
       OffPeakWindowOptions: (_) => _json(_),
@@ -519,10 +656,14 @@ export const se_CreatePackageCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      EngineVersion: [],
+      PackageConfiguration: (_) => _json(_),
       PackageDescription: [],
+      PackageEncryptionOptions: (_) => _json(_),
       PackageName: [],
       PackageSource: (_) => _json(_),
       PackageType: [],
+      PackageVendingOptions: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -554,6 +695,22 @@ export const se_CreateVpcEndpointCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteApplicationCommand
+ */
+export const se_DeleteApplicationCommand = async (
+  input: DeleteApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/application/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteDataSourceCommand
  */
 export const se_DeleteDataSourceCommand = async (
@@ -565,6 +722,22 @@ export const se_DeleteDataSourceCommand = async (
   b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteDirectQueryDataSourceCommand
+ */
+export const se_DeleteDirectQueryDataSourceCommand = async (
+  input: DeleteDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/directQueryDataSource/{DataSourceName}");
+  b.p("DataSourceName", () => input.DataSourceName!, "{DataSourceName}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -971,6 +1144,45 @@ export const se_DissociatePackageCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DissociatePackagesCommand
+ */
+export const se_DissociatePackagesCommand = async (
+  input: DissociatePackagesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/packages/dissociateMultiple");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DomainName: [],
+      PackageList: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetApplicationCommand
+ */
+export const se_GetApplicationCommand = async (
+  input: GetApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/application/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetCompatibleVersionsCommand
  */
 export const se_GetCompatibleVersionsCommand = async (
@@ -1000,6 +1212,22 @@ export const se_GetDataSourceCommand = async (
   b.bp("/2021-01-01/opensearch/domain/{DomainName}/dataSource/{Name}");
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   b.p("Name", () => input.Name!, "{Name}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetDirectQueryDataSourceCommand
+ */
+export const se_GetDirectQueryDataSourceCommand = async (
+  input: GetDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/directQueryDataSource/{DataSourceName}");
+  b.p("DataSourceName", () => input.DataSourceName!, "{DataSourceName}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1081,6 +1309,26 @@ export const se_GetUpgradeStatusCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListApplicationsCommand
+ */
+export const se_ListApplicationsCommand = async (
+  input: ListApplicationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/list-applications");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_s]: [() => input.statuses !== void 0, () => input[_s]! || []],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDataSourcesCommand
  */
 export const se_ListDataSourcesCommand = async (
@@ -1097,6 +1345,24 @@ export const se_ListDataSourcesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListDirectQueryDataSourcesCommand
+ */
+export const se_ListDirectQueryDataSourcesCommand = async (
+  input: ListDirectQueryDataSourcesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/2021-01-01/opensearch/directQueryDataSource");
+  const query: any = map({
+    [_n]: [, input[_NT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListDomainMaintenancesCommand
  */
 export const se_ListDomainMaintenancesCommand = async (
@@ -1109,7 +1375,7 @@ export const se_ListDomainMaintenancesCommand = async (
   b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
   const query: any = map({
     [_a]: [, input[_A]!],
-    [_s]: [, input[_S]!],
+    [_st]: [, input[_S]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_nT]: [, input[_NT]!],
   });
@@ -1392,6 +1658,7 @@ export const se_RevokeVpcEndpointAccessCommand = async (
   body = JSON.stringify(
     take(input, {
       Account: [],
+      Service: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1447,6 +1714,30 @@ export const se_StartServiceSoftwareUpdateCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateApplicationCommand
+ */
+export const se_UpdateApplicationCommand = async (
+  input: UpdateApplicationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/application/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      appConfigs: (_) => _json(_),
+      dataSources: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateDataSourceCommand
  */
 export const se_UpdateDataSourceCommand = async (
@@ -1473,6 +1764,31 @@ export const se_UpdateDataSourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateDirectQueryDataSourceCommand
+ */
+export const se_UpdateDirectQueryDataSourceCommand = async (
+  input: UpdateDirectQueryDataSourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/opensearch/directQueryDataSource/{DataSourceName}");
+  b.p("DataSourceName", () => input.DataSourceName!, "{DataSourceName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DataSourceType: (_) => _json(_),
+      Description: [],
+      OpenSearchArns: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateDomainConfigCommand
  */
 export const se_UpdateDomainConfigCommand = async (
@@ -1488,6 +1804,7 @@ export const se_UpdateDomainConfigCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AIMLOptions: (_) => _json(_),
       AccessPolicies: [],
       AdvancedOptions: (_) => _json(_),
       AdvancedSecurityOptions: (_) => _json(_),
@@ -1500,6 +1817,7 @@ export const se_UpdateDomainConfigCommand = async (
       EBSOptions: (_) => _json(_),
       EncryptionAtRestOptions: (_) => _json(_),
       IPAddressType: [],
+      IdentityCenterOptions: (_) => _json(_),
       LogPublishingOptions: (_) => _json(_),
       NodeToNodeEncryptionOptions: (_) => _json(_),
       OffPeakWindowOptions: (_) => _json(_),
@@ -1528,9 +1846,35 @@ export const se_UpdatePackageCommand = async (
   body = JSON.stringify(
     take(input, {
       CommitMessage: [],
+      PackageConfiguration: (_) => _json(_),
       PackageDescription: [],
+      PackageEncryptionOptions: (_) => _json(_),
       PackageID: [],
       PackageSource: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdatePackageScopeCommand
+ */
+export const se_UpdatePackageScopeCommand = async (
+  input: UpdatePackageScopeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2021-01-01/packages/updateScope");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Operation: [],
+      PackageID: [],
+      PackageUserList: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1654,6 +1998,27 @@ export const de_AddDataSourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1AddDirectQueryDataSourceCommand
+ */
+export const de_AddDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AddDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1AddTagsCommand
  */
 export const de_AddTagsCommand = async (
@@ -1686,6 +2051,27 @@ export const de_AssociatePackageCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DomainPackageDetails: (_) => de_DomainPackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1AssociatePackagesCommand
+ */
+export const de_AssociatePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<AssociatePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1751,6 +2137,34 @@ export const de_CancelServiceSoftwareUpdateCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     ServiceSoftwareOptions: (_) => de_ServiceSoftwareOptions(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateApplicationCommand
+ */
+export const de_CreateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appConfigs: _json,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    iamIdentityCenterOptions: _json,
+    id: __expectString,
+    name: __expectString,
+    tagList: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1847,6 +2261,23 @@ export const de_CreateVpcEndpointCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteApplicationCommand
+ */
+export const de_DeleteApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteDataSourceCommand
  */
 export const de_DeleteDataSourceCommand = async (
@@ -1864,6 +2295,23 @@ export const de_DeleteDataSourceCommand = async (
     Message: __expectString,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteDirectQueryDataSourceCommand
+ */
+export const de_DeleteDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -2330,6 +2778,57 @@ export const de_DissociatePackageCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DissociatePackagesCommand
+ */
+export const de_DissociatePackagesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DissociatePackagesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DomainPackageDetailsList: (_) => de_DomainPackageDetailsList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetApplicationCommand
+ */
+export const de_GetApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appConfigs: _json,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    endpoint: __expectString,
+    iamIdentityCenterOptions: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetCompatibleVersionsCommand
  */
 export const de_GetCompatibleVersionsCommand = async (
@@ -2369,6 +2868,31 @@ export const de_GetDataSourceCommand = async (
     Description: __expectString,
     Name: __expectString,
     Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetDirectQueryDataSourceCommand
+ */
+export const de_GetDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceArn: __expectString,
+    DataSourceName: __expectString,
+    DataSourceType: (_) => _json(__expectUnion(_)),
+    Description: __expectString,
+    OpenSearchArns: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2469,6 +2993,28 @@ export const de_GetUpgradeStatusCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListApplicationsCommand
+ */
+export const de_ListApplicationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListApplicationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    ApplicationSummaries: (_) => de_ApplicationSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListDataSourcesCommand
  */
 export const de_ListDataSourcesCommand = async (
@@ -2484,6 +3030,28 @@ export const de_ListDataSourcesCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     DataSources: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListDirectQueryDataSourcesCommand
+ */
+export const de_ListDirectQueryDataSourcesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDirectQueryDataSourcesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DirectQueryDataSources: _json,
+    NextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2849,6 +3417,34 @@ export const de_StartServiceSoftwareUpdateCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateApplicationCommand
+ */
+export const de_UpdateApplicationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateApplicationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    appConfigs: _json,
+    arn: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    dataSources: _json,
+    iamIdentityCenterOptions: _json,
+    id: __expectString,
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateDataSourceCommand
  */
 export const de_UpdateDataSourceCommand = async (
@@ -2864,6 +3460,27 @@ export const de_UpdateDataSourceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     Message: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateDirectQueryDataSourceCommand
+ */
+export const de_UpdateDirectQueryDataSourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDirectQueryDataSourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataSourceArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2908,6 +3525,29 @@ export const de_UpdatePackageCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     PackageDetails: (_) => de_PackageDetails(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdatePackageScopeCommand
+ */
+export const de_UpdatePackageScopeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdatePackageScopeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Operation: __expectString,
+    PackageID: __expectString,
+    PackageUserList: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3294,6 +3934,12 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AdvancedSecurityOptionsInput omitted.
 
+// se_AIMLOptionsInput omitted.
+
+// se_AppConfig omitted.
+
+// se_AppConfigs omitted.
+
 /**
  * serializeAws_restJson1AutoTuneMaintenanceSchedule
  */
@@ -3341,6 +3987,8 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_AWSDomainInformation omitted.
 
+// se_CloudWatchDirectQueryDataSource omitted.
+
 // se_ClusterConfig omitted.
 
 // se_CognitoOptions omitted.
@@ -3351,6 +3999,10 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_CrossClusterSearchConnectionProperties omitted.
 
+// se_DataSource omitted.
+
+// se_DataSources omitted.
+
 // se_DataSourceType omitted.
 
 // se_DescribePackagesFilter omitted.
@@ -3358,6 +4010,10 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 // se_DescribePackagesFilterList omitted.
 
 // se_DescribePackagesFilterValues omitted.
+
+// se_DirectQueryDataSourceType omitted.
+
+// se_DirectQueryOpenSearchARNList omitted.
 
 // se_DomainEndpointOptions omitted.
 
@@ -3375,11 +4031,27 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_FilterList omitted.
 
+// se_IamIdentityCenterOptionsInput omitted.
+
+// se_IdentityCenterOptionsInput omitted.
+
+// se_JWTOptionsInput omitted.
+
+// se_KeyStoreAccessOption omitted.
+
 // se_LogPublishingOption omitted.
 
 // se_LogPublishingOptions omitted.
 
 // se_MasterUserOptions omitted.
+
+// se_NaturalLanguageQueryGenerationOptionsInput omitted.
+
+// se_NodeConfig omitted.
+
+// se_NodeOption omitted.
+
+// se_NodeOptionsList omitted.
 
 // se_NodeToNodeEncryptionOptions omitted.
 
@@ -3387,13 +4059,31 @@ const se_AutoTuneOptionsInput = (input: AutoTuneOptionsInput, context: __SerdeCo
 
 // se_OffPeakWindowOptions omitted.
 
+// se_PackageAssociationConfiguration omitted.
+
+// se_PackageConfiguration omitted.
+
+// se_PackageDetailsForAssociation omitted.
+
+// se_PackageDetailsForAssociationList omitted.
+
+// se_PackageEncryptionOptions omitted.
+
+// se_PackageIDList omitted.
+
 // se_PackageSource omitted.
+
+// se_PackageUserList omitted.
+
+// se_PackageVendingOptions omitted.
 
 // se_S3GlueDataCatalog omitted.
 
 // se_SAMLIdp omitted.
 
 // se_SAMLOptionsInput omitted.
+
+// se_SecurityLakeDirectQueryDataSource omitted.
 
 // se_SnapshotOptions omitted.
 
@@ -3450,6 +4140,7 @@ const de_AdvancedSecurityOptions = (output: any, context: __SerdeContext): Advan
     AnonymousAuthEnabled: __expectBoolean,
     Enabled: __expectBoolean,
     InternalUserDatabaseEnabled: __expectBoolean,
+    JWTOptions: _json,
     SAMLOptions: _json,
   }) as any;
 };
@@ -3461,6 +4152,49 @@ const de_AdvancedSecurityOptionsStatus = (output: any, context: __SerdeContext):
   return take(output, {
     Options: (_: any) => de_AdvancedSecurityOptions(_, context),
     Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_AIMLOptionsOutput omitted.
+
+/**
+ * deserializeAws_restJson1AIMLOptionsStatus
+ */
+const de_AIMLOptionsStatus = (output: any, context: __SerdeContext): AIMLOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
+// de_AppConfig omitted.
+
+// de_AppConfigs omitted.
+
+/**
+ * deserializeAws_restJson1ApplicationSummaries
+ */
+const de_ApplicationSummaries = (output: any, context: __SerdeContext): ApplicationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ApplicationSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ApplicationSummary
+ */
+const de_ApplicationSummary = (output: any, context: __SerdeContext): ApplicationSummary => {
+  return take(output, {
+    arn: __expectString,
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    endpoint: __expectString,
+    id: __expectString,
+    lastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
   }) as any;
 };
 
@@ -3628,6 +4362,8 @@ const de_ChangeProgressStatusDetails = (output: any, context: __SerdeContext): C
   }) as any;
 };
 
+// de_CloudWatchDirectQueryDataSource omitted.
+
 // de_ClusterConfig omitted.
 
 /**
@@ -3662,17 +4398,30 @@ const de_CognitoOptionsStatus = (output: any, context: __SerdeContext): CognitoO
 
 // de_CrossClusterSearchConnectionProperties omitted.
 
+// de_DataSource omitted.
+
 // de_DataSourceDetails omitted.
 
 // de_DataSourceList omitted.
 
+// de_DataSources omitted.
+
 // de_DataSourceType omitted.
+
+// de_DirectQueryDataSource omitted.
+
+// de_DirectQueryDataSourceList omitted.
+
+// de_DirectQueryDataSourceType omitted.
+
+// de_DirectQueryOpenSearchARNList omitted.
 
 /**
  * deserializeAws_restJson1DomainConfig
  */
 const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => {
   return take(output, {
+    AIMLOptions: (_: any) => de_AIMLOptionsStatus(_, context),
     AccessPolicies: (_: any) => de_AccessPoliciesStatus(_, context),
     AdvancedOptions: (_: any) => de_AdvancedOptionsStatus(_, context),
     AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptionsStatus(_, context),
@@ -3685,6 +4434,7 @@ const de_DomainConfig = (output: any, context: __SerdeContext): DomainConfig => 
     EncryptionAtRestOptions: (_: any) => de_EncryptionAtRestOptionsStatus(_, context),
     EngineVersion: (_: any) => de_VersionStatus(_, context),
     IPAddressType: (_: any) => de_IPAddressTypeStatus(_, context),
+    IdentityCenterOptions: (_: any) => de_IdentityCenterOptionsStatus(_, context),
     LogPublishingOptions: (_: any) => de_LogPublishingOptionsStatus(_, context),
     ModifyingProperties: _json,
     NodeToNodeEncryptionOptions: (_: any) => de_NodeToNodeEncryptionOptionsStatus(_, context),
@@ -3750,6 +4500,7 @@ const de_DomainMaintenanceList = (output: any, context: __SerdeContext): DomainM
  */
 const de_DomainPackageDetails = (output: any, context: __SerdeContext): DomainPackageDetails => {
   return take(output, {
+    AssociationConfiguration: _json,
     DomainName: __expectString,
     DomainPackageStatus: __expectString,
     ErrorDetails: _json,
@@ -3758,6 +4509,7 @@ const de_DomainPackageDetails = (output: any, context: __SerdeContext): DomainPa
     PackageName: __expectString,
     PackageType: __expectString,
     PackageVersion: __expectString,
+    PrerequisitePackageIDList: _json,
     ReferencePath: __expectString,
   }) as any;
 };
@@ -3779,6 +4531,7 @@ const de_DomainPackageDetailsList = (output: any, context: __SerdeContext): Doma
  */
 const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => {
   return take(output, {
+    AIMLOptions: _json,
     ARN: __expectString,
     AccessPolicies: __expectString,
     AdvancedOptions: _json,
@@ -3801,6 +4554,7 @@ const de_DomainStatus = (output: any, context: __SerdeContext): DomainStatus => 
     Endpoints: _json,
     EngineVersion: __expectString,
     IPAddressType: __expectString,
+    IdentityCenterOptions: _json,
     LogPublishingOptions: _json,
     ModifyingProperties: _json,
     NodeToNodeEncryptionOptions: _json,
@@ -3866,6 +4620,20 @@ const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext):
 
 // de_GUIDList omitted.
 
+// de_IamIdentityCenterOptions omitted.
+
+// de_IdentityCenterOptions omitted.
+
+/**
+ * deserializeAws_restJson1IdentityCenterOptionsStatus
+ */
+const de_IdentityCenterOptionsStatus = (output: any, context: __SerdeContext): IdentityCenterOptionsStatus => {
+  return take(output, {
+    Options: _json,
+    Status: (_: any) => de_OptionStatus(_, context),
+  }) as any;
+};
+
 // de_InboundConnection omitted.
 
 // de_InboundConnections omitted.
@@ -3894,6 +4662,10 @@ const de_IPAddressTypeStatus = (output: any, context: __SerdeContext): IPAddress
 
 // de_Issues omitted.
 
+// de_JWTOptionsOutput omitted.
+
+// de_KeyStoreAccessOption omitted.
+
 // de_Limits omitted.
 
 // de_LimitsByRole omitted.
@@ -3917,6 +4689,14 @@ const de_LogPublishingOptionsStatus = (output: any, context: __SerdeContext): Lo
 // de_ModifyingProperties omitted.
 
 // de_ModifyingPropertiesList omitted.
+
+// de_NaturalLanguageQueryGenerationOptionsOutput omitted.
+
+// de_NodeConfig omitted.
+
+// de_NodeOption omitted.
+
+// de_NodeOptionsList omitted.
 
 // de_NodeToNodeEncryptionOptions omitted.
 
@@ -3966,11 +4746,17 @@ const de_OptionStatus = (output: any, context: __SerdeContext): OptionStatus => 
 
 // de_OutboundConnectionStatus omitted.
 
+// de_PackageAssociationConfiguration omitted.
+
+// de_PackageConfiguration omitted.
+
 /**
  * deserializeAws_restJson1PackageDetails
  */
 const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails => {
   return take(output, {
+    AllowListedUserList: _json,
+    AvailablePackageConfiguration: _json,
     AvailablePackageVersion: __expectString,
     AvailablePluginProperties: _json,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3978,10 +4764,13 @@ const de_PackageDetails = (output: any, context: __SerdeContext): PackageDetails
     ErrorDetails: _json,
     LastUpdatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PackageDescription: __expectString,
+    PackageEncryptionOptions: _json,
     PackageID: __expectString,
     PackageName: __expectString,
+    PackageOwner: __expectString,
     PackageStatus: __expectString,
     PackageType: __expectString,
+    PackageVendingOptions: _json,
   }) as any;
 };
 
@@ -3997,6 +4786,14 @@ const de_PackageDetailsList = (output: any, context: __SerdeContext): PackageDet
   return retVal;
 };
 
+// de_PackageEncryptionOptions omitted.
+
+// de_PackageIDList omitted.
+
+// de_PackageUserList omitted.
+
+// de_PackageVendingOptions omitted.
+
 /**
  * deserializeAws_restJson1PackageVersionHistory
  */
@@ -4004,6 +4801,7 @@ const de_PackageVersionHistory = (output: any, context: __SerdeContext): Package
   return take(output, {
     CommitMessage: __expectString,
     CreatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    PackageConfiguration: _json,
     PackageVersion: __expectString,
     PluginProperties: _json,
   }) as any;
@@ -4128,6 +4926,8 @@ const de_ScheduledAutoTuneDetails = (output: any, context: __SerdeContext): Sche
     Severity: __expectString,
   }) as any;
 };
+
+// de_SecurityLakeDirectQueryDataSource omitted.
 
 /**
  * deserializeAws_restJson1ServiceSoftwareOptions
@@ -4289,13 +5089,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _A = "Action";
 const _ARN = "ARN";
 const _CI = "ChangeId";
@@ -4321,8 +5114,10 @@ const _iT = "instanceType";
 const _lDRC = "loadDryRunConfig";
 const _mI = "maintenanceId";
 const _mR = "maxResults";
+const _n = "nexttoken";
 const _nT = "nextToken";
 const _oI = "offeringId";
 const _rAZ = "retrieveAZs";
 const _rI = "reservationId";
-const _s = "status";
+const _s = "statuses";
+const _st = "status";

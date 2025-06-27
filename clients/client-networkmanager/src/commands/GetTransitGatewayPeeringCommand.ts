@@ -12,7 +12,8 @@ import { de_GetTransitGatewayPeeringCommand, se_GetTransitGatewayPeeringCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,17 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * //         },
  * //       ],
  * //       CreatedAt: new Date("TIMESTAMP"),
+ * //       LastModificationErrors: [ // PeeringErrorList
+ * //         { // PeeringError
+ * //           Code: "TRANSIT_GATEWAY_NOT_FOUND" || "TRANSIT_GATEWAY_PEERS_LIMIT_EXCEEDED" || "MISSING_PERMISSIONS" || "INTERNAL_ERROR" || "EDGE_LOCATION_PEER_DUPLICATE" || "INVALID_TRANSIT_GATEWAY_STATE",
+ * //           Message: "STRING_VALUE",
+ * //           ResourceArn: "STRING_VALUE",
+ * //           RequestId: "STRING_VALUE",
+ * //           MissingPermissionsContext: { // PermissionsErrorContext
+ * //             MissingPermission: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       ],
  * //     },
  * //     TransitGatewayArn: "STRING_VALUE",
  * //     TransitGatewayPeeringAttachmentId: "STRING_VALUE",
@@ -89,6 +101,7 @@ export interface GetTransitGatewayPeeringCommandOutput extends GetTransitGateway
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetTransitGatewayPeeringCommand extends $Command
@@ -99,9 +112,7 @@ export class GetTransitGatewayPeeringCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +124,16 @@ export class GetTransitGatewayPeeringCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayPeeringCommand)
   .de(de_GetTransitGatewayPeeringCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayPeeringRequest;
+      output: GetTransitGatewayPeeringResponse;
+    };
+    sdk: {
+      input: GetTransitGatewayPeeringCommandInput;
+      output: GetTransitGatewayPeeringCommandOutput;
+    };
+  };
+}

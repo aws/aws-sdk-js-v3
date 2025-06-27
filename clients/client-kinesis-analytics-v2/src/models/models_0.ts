@@ -34,7 +34,7 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  CurrentApplicationVersionId?: number;
+  CurrentApplicationVersionId?: number | undefined;
 
   /**
    * <p>Provides the Amazon CloudWatch log stream Amazon Resource Name (ARN). </p>
@@ -50,7 +50,7 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
    *       <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  ConditionalToken?: string;
+  ConditionalToken?: string | undefined;
 }
 
 /**
@@ -62,7 +62,7 @@ export interface CloudWatchLoggingOptionDescription {
    * <p>The ID of the CloudWatch logging option description.</p>
    * @public
    */
-  CloudWatchLoggingOptionId?: string;
+  CloudWatchLoggingOptionId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the CloudWatch log to receive application
@@ -79,7 +79,7 @@ export interface CloudWatchLoggingOptionDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -90,7 +90,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
    * <p>The application's ARN.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The new version ID of the SQL-based Kinesis Data Analytics application. Kinesis Data Analytics
@@ -98,13 +98,19 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
    *       options. </p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>The descriptions of the current CloudWatch logging options for the SQL-based Kinesis Data Analytics application.</p>
    * @public
    */
-  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[] | undefined;
+
+  /**
+   * Operation ID for tracking AddApplicationCloudWatchLoggingOption request
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -116,7 +122,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
 export class ConcurrentModificationException extends __BaseException {
   readonly name: "ConcurrentModificationException" = "ConcurrentModificationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -138,7 +144,7 @@ export class ConcurrentModificationException extends __BaseException {
 export class InvalidApplicationConfigurationException extends __BaseException {
   readonly name: "InvalidApplicationConfigurationException" = "InvalidApplicationConfigurationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -160,7 +166,7 @@ export class InvalidApplicationConfigurationException extends __BaseException {
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -182,7 +188,7 @@ export class InvalidArgumentException extends __BaseException {
 export class InvalidRequestException extends __BaseException {
   readonly name: "InvalidRequestException" = "InvalidRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -204,7 +210,7 @@ export class InvalidRequestException extends __BaseException {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -226,7 +232,7 @@ export class ResourceInUseException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -251,7 +257,7 @@ export interface InputParallelism {
    * <p>The number of in-application streams to create.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 }
 
 /**
@@ -306,7 +312,7 @@ export interface RecordColumn {
    *       source.</p>
    * @public
    */
-  Mapping?: string;
+  Mapping?: string | undefined;
 
   /**
    * <p>The type of column created in the in-application input stream or reference table.</p>
@@ -320,7 +326,6 @@ export interface RecordColumn {
  *       format uses delimiters, such as CSV. For example, the following sample records use CSV format,
  *       where the records use the <i>'\n'</i> as the row delimiter and a comma (",") as
  *       the column delimiter: </p>
- *
  *          <p>
  *             <code>"name1", "address1"</code>
  *          </p>
@@ -370,14 +375,14 @@ export interface MappingParameters {
    * <p>Provides additional mapping information when JSON is the record format on the streaming source.</p>
    * @public
    */
-  JSONMappingParameters?: JSONMappingParameters;
+  JSONMappingParameters?: JSONMappingParameters | undefined;
 
   /**
    * <p>Provides additional mapping information when the record format uses delimiters
    *       (for example, CSV).</p>
    * @public
    */
-  CSVMappingParameters?: CSVMappingParameters;
+  CSVMappingParameters?: CSVMappingParameters | undefined;
 }
 
 /**
@@ -413,7 +418,7 @@ export interface RecordFormat {
    *       record fields delimited by some delimiter) on the streaming source.</p>
    * @public
    */
-  MappingParameters?: MappingParameters;
+  MappingParameters?: MappingParameters | undefined;
 }
 
 /**
@@ -433,7 +438,7 @@ export interface SourceSchema {
    * <p>Specifies the encoding of the records in the streaming source. For example, UTF-8.</p>
    * @public
    */
-  RecordEncoding?: string;
+  RecordEncoding?: string | undefined;
 
   /**
    * <p>A list of <code>RecordColumn</code> objects. </p>
@@ -492,25 +497,25 @@ export interface Input {
    *       <a>InputLambdaProcessor</a>. </p>
    * @public
    */
-  InputProcessingConfiguration?: InputProcessingConfiguration;
+  InputProcessingConfiguration?: InputProcessingConfiguration | undefined;
 
   /**
    * <p>If the streaming source is an Amazon Kinesis data stream, identifies the stream's Amazon Resource Name (ARN). </p>
    * @public
    */
-  KinesisStreamsInput?: KinesisStreamsInput;
+  KinesisStreamsInput?: KinesisStreamsInput | undefined;
 
   /**
    * <p>If the streaming source is an Amazon Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.</p>
    * @public
    */
-  KinesisFirehoseInput?: KinesisFirehoseInput;
+  KinesisFirehoseInput?: KinesisFirehoseInput | undefined;
 
   /**
    * <p>Describes the number of in-application streams to create. </p>
    * @public
    */
-  InputParallelism?: InputParallelism;
+  InputParallelism?: InputParallelism | undefined;
 
   /**
    * <p>Describes the format of the data in the streaming source, and how each data element maps
@@ -573,7 +578,7 @@ export interface InputLambdaProcessorDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -587,7 +592,7 @@ export interface InputProcessingConfigurationDescription {
    *          </p>
    * @public
    */
-  InputLambdaProcessorDescription?: InputLambdaProcessorDescription;
+  InputLambdaProcessorDescription?: InputLambdaProcessorDescription | undefined;
 }
 
 /**
@@ -618,8 +623,6 @@ export interface InputStartingPositionConfiguration {
    *                <p>
    *                   <code>NOW</code> - Start reading just after the most recent record in the stream, and
    *           start at the request timestamp that the customer issued.</p>
-   *
-   *
    *             </li>
    *             <li>
    *                <p>
@@ -634,7 +637,7 @@ export interface InputStartingPositionConfiguration {
    *          </ul>
    * @public
    */
-  InputStartingPosition?: InputStartingPosition;
+  InputStartingPosition?: InputStartingPosition | undefined;
 }
 
 /**
@@ -658,7 +661,7 @@ export interface KinesisFirehoseInputDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -683,7 +686,7 @@ export interface KinesisStreamsInputDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -696,57 +699,57 @@ export interface InputDescription {
    *       configuration that you add to your application. </p>
    * @public
    */
-  InputId?: string;
+  InputId?: string | undefined;
 
   /**
    * <p>The in-application name prefix.</p>
    * @public
    */
-  NamePrefix?: string;
+  NamePrefix?: string | undefined;
 
   /**
    * <p>Returns the in-application stream names that are mapped to the stream source. </p>
    * @public
    */
-  InAppStreamNames?: string[];
+  InAppStreamNames?: string[] | undefined;
 
   /**
    * <p>The description of the preprocessor that executes on records in this input before the application's code is run. </p>
    * @public
    */
-  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
+  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription | undefined;
 
   /**
    * <p>If a Kinesis data stream is configured as a streaming source, provides the Kinesis data
    *       stream's Amazon Resource Name (ARN). </p>
    * @public
    */
-  KinesisStreamsInputDescription?: KinesisStreamsInputDescription;
+  KinesisStreamsInputDescription?: KinesisStreamsInputDescription | undefined;
 
   /**
    * <p>If a Kinesis Data Firehose delivery stream is configured as a streaming source, provides the delivery stream's ARN. </p>
    * @public
    */
-  KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription;
+  KinesisFirehoseInputDescription?: KinesisFirehoseInputDescription | undefined;
 
   /**
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns
    *       in the in-application stream that is being created. </p>
    * @public
    */
-  InputSchema?: SourceSchema;
+  InputSchema?: SourceSchema | undefined;
 
   /**
    * <p>Describes the configured parallelism (number of in-application streams mapped to the streaming source). </p>
    * @public
    */
-  InputParallelism?: InputParallelism;
+  InputParallelism?: InputParallelism | undefined;
 
   /**
    * <p>The point at which the application is configured to read from the input stream.</p>
    * @public
    */
-  InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
+  InputStartingPositionConfiguration?: InputStartingPositionConfiguration | undefined;
 }
 
 /**
@@ -757,13 +760,13 @@ export interface AddApplicationInputResponse {
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>Provides the current application version.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>Describes the application input configuration.
@@ -772,7 +775,7 @@ export interface AddApplicationInputResponse {
    *     </p>
    * @public
    */
-  InputDescriptions?: InputDescription[];
+  InputDescriptions?: InputDescription[] | undefined;
 }
 
 /**
@@ -783,7 +786,7 @@ export interface AddApplicationInputResponse {
 export class CodeValidationException extends __BaseException {
   readonly name: "CodeValidationException" = "CodeValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -840,13 +843,13 @@ export interface AddApplicationInputProcessingConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>Provides the current application version. </p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>The input ID that is associated with the application input. This is the ID that Kinesis Data Analytics assigns
@@ -854,13 +857,13 @@ export interface AddApplicationInputProcessingConfigurationResponse {
    *       application.</p>
    * @public
    */
-  InputId?: string;
+  InputId?: string | undefined;
 
   /**
    * <p>The description of the preprocessor that executes on records in this input before the application's code is run.</p>
    * @public
    */
-  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription;
+  InputProcessingConfigurationDescription?: InputProcessingConfigurationDescription | undefined;
 }
 
 /**
@@ -926,7 +929,6 @@ export interface LambdaOutput {
  *       in which you identify an in-application stream and a destination where you want the
  *       in-application stream data to be written. The destination can be a Kinesis data stream or a
  *       Kinesis Data Firehose delivery stream. </p>
- *
  *          <p></p>
  * @public
  */
@@ -942,19 +944,19 @@ export interface Output {
    *       as the destination.</p>
    * @public
    */
-  KinesisStreamsOutput?: KinesisStreamsOutput;
+  KinesisStreamsOutput?: KinesisStreamsOutput | undefined;
 
   /**
    * <p>Identifies a Kinesis Data Firehose delivery stream as the destination.</p>
    * @public
    */
-  KinesisFirehoseOutput?: KinesisFirehoseOutput;
+  KinesisFirehoseOutput?: KinesisFirehoseOutput | undefined;
 
   /**
    * <p>Identifies an Amazon Lambda function as the destination.</p>
    * @public
    */
-  LambdaOutput?: LambdaOutput;
+  LambdaOutput?: LambdaOutput | undefined;
 
   /**
    * <p>Describes the data format when records are written to the destination.
@@ -1015,7 +1017,7 @@ export interface KinesisFirehoseOutputDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -1040,7 +1042,7 @@ export interface KinesisStreamsOutputDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -1065,7 +1067,7 @@ export interface LambdaOutputDescription {
    *          </note>
    * @public
    */
-  RoleARN?: string;
+  RoleARN?: string | undefined;
 }
 
 /**
@@ -1080,40 +1082,40 @@ export interface OutputDescription {
    * <p>A unique identifier for the output configuration.</p>
    * @public
    */
-  OutputId?: string;
+  OutputId?: string | undefined;
 
   /**
    * <p>The name of the in-application stream that is configured as output.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>Describes the Kinesis data stream that is configured as the destination where output is
    *       written.</p>
    * @public
    */
-  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription;
+  KinesisStreamsOutputDescription?: KinesisStreamsOutputDescription | undefined;
 
   /**
    * <p>Describes the Kinesis Data Firehose delivery stream that is configured as the destination
    *       where output is written.</p>
    * @public
    */
-  KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription;
+  KinesisFirehoseOutputDescription?: KinesisFirehoseOutputDescription | undefined;
 
   /**
    * <p>Describes the Lambda function that is configured as the destination where output is
    *       written.</p>
    * @public
    */
-  LambdaOutputDescription?: LambdaOutputDescription;
+  LambdaOutputDescription?: LambdaOutputDescription | undefined;
 
   /**
    * <p>The data format used for writing data to the destination.</p>
    * @public
    */
-  DestinationSchema?: DestinationSchema;
+  DestinationSchema?: DestinationSchema | undefined;
 }
 
 /**
@@ -1124,14 +1126,14 @@ export interface AddApplicationOutputResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The updated application version ID. Kinesis Data Analytics increments this ID when the application is
    *       updated.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>Describes the application output configuration.
@@ -1141,13 +1143,12 @@ export interface AddApplicationOutputResponse {
    *     </p>
    * @public
    */
-  OutputDescriptions?: OutputDescription[];
+  OutputDescriptions?: OutputDescription[] | undefined;
 }
 
 /**
  * <p>For a SQL-based Kinesis Data Analytics application, identifies the Amazon S3
  *       bucket and object that contains the reference data.</p>
- *
  *          <p>A SQL-based Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a>
  *         operation to trigger reloading of data into your application. </p>
  * @public
@@ -1157,13 +1158,13 @@ export interface S3ReferenceDataSource {
    * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
    * @public
    */
-  BucketARN?: string;
+  BucketARN?: string | undefined;
 
   /**
    * <p>The object key name containing the reference data.</p>
    * @public
    */
-  FileKey?: string;
+  FileKey?: string | undefined;
 }
 
 /**
@@ -1186,7 +1187,7 @@ export interface ReferenceDataSource {
    *       A SQL-based Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
    * @public
    */
-  S3ReferenceDataSource?: S3ReferenceDataSource;
+  S3ReferenceDataSource?: S3ReferenceDataSource | undefined;
 
   /**
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
@@ -1253,7 +1254,7 @@ export interface S3ReferenceDataSourceDescription {
    *          </note>
    * @public
    */
-  ReferenceRoleARN?: string;
+  ReferenceRoleARN?: string | undefined;
 }
 
 /**
@@ -1285,7 +1286,7 @@ export interface ReferenceDataSourceDescription {
    * <p>Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.</p>
    * @public
    */
-  ReferenceSchema?: SourceSchema;
+  ReferenceSchema?: SourceSchema | undefined;
 }
 
 /**
@@ -1296,14 +1297,14 @@ export interface AddApplicationReferenceDataSourceResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The updated application version ID. Kinesis Data Analytics increments this ID when
    *       the application is updated.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>Describes reference data sources configured for the application.
@@ -1313,7 +1314,7 @@ export interface AddApplicationReferenceDataSourceResponse {
    *     </p>
    * @public
    */
-  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[] | undefined;
 }
 
 /**
@@ -1356,7 +1357,7 @@ export interface AddApplicationVpcConfigurationRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  CurrentApplicationVersionId?: number;
+  CurrentApplicationVersionId?: number | undefined;
 
   /**
    * <p>Description of the VPC to add to the application.</p>
@@ -1372,7 +1373,7 @@ export interface AddApplicationVpcConfigurationRequest {
    *       <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  ConditionalToken?: string;
+  ConditionalToken?: string | undefined;
 }
 
 /**
@@ -1415,20 +1416,26 @@ export interface AddApplicationVpcConfigurationResponse {
    * <p>The ARN of the application.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>Provides the current application version. Managed Service for Apache Flink updates the ApplicationVersionId each
    *       time you update the application.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>The parameters of the new VPC configuration.</p>
    * @public
    */
-  VpcConfigurationDescription?: VpcConfigurationDescription;
+  VpcConfigurationDescription?: VpcConfigurationDescription | undefined;
+
+  /**
+   * Operation ID for tracking AddApplicationVpcConfiguration request
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -1455,7 +1462,7 @@ export interface S3ContentLocation {
    * <p>The version of the object containing the application code.</p>
    * @public
    */
-  ObjectVersion?: string;
+  ObjectVersion?: string | undefined;
 }
 
 /**
@@ -1468,19 +1475,19 @@ export interface CodeContent {
    * <p>The text-format code for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  TextContent?: string;
+  TextContent?: string | undefined;
 
   /**
    * <p>The zip-format code for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ZipFileContent?: Uint8Array;
+  ZipFileContent?: Uint8Array | undefined;
 
   /**
    * <p>Information about the Amazon S3 bucket that contains the application code.</p>
    * @public
    */
-  S3ContentLocation?: S3ContentLocation;
+  S3ContentLocation?: S3ContentLocation | undefined;
 }
 
 /**
@@ -1506,7 +1513,7 @@ export interface ApplicationCodeConfiguration {
    * <p>The location and type of the application code.</p>
    * @public
    */
-  CodeContent?: CodeContent;
+  CodeContent?: CodeContent | undefined;
 
   /**
    * <p>Specifies whether the code content is in text or zip format.</p>
@@ -1536,7 +1543,7 @@ export interface S3ApplicationCodeLocationDescription {
    * <p>The version of the object containing the application code.</p>
    * @public
    */
-  ObjectVersion?: string;
+  ObjectVersion?: string | undefined;
 }
 
 /**
@@ -1548,26 +1555,26 @@ export interface CodeContentDescription {
    * <p>The text-format code</p>
    * @public
    */
-  TextContent?: string;
+  TextContent?: string | undefined;
 
   /**
    * <p>The checksum that can be used to validate zip-format code.</p>
    * @public
    */
-  CodeMD5?: string;
+  CodeMD5?: string | undefined;
 
   /**
    * <p>The size in bytes of the application code. Can be used to validate zip-format code.</p>
    * @public
    */
-  CodeSize?: number;
+  CodeSize?: number | undefined;
 
   /**
    * <p>The S3 bucket Amazon Resource Name (ARN), file key, and object version of the application
    *       code stored in Amazon S3.</p>
    * @public
    */
-  S3ApplicationCodeLocationDescription?: S3ApplicationCodeLocationDescription;
+  S3ApplicationCodeLocationDescription?: S3ApplicationCodeLocationDescription | undefined;
 }
 
 /**
@@ -1585,7 +1592,7 @@ export interface ApplicationCodeConfigurationDescription {
    * <p>Describes details about the location and format of the application code.</p>
    * @public
    */
-  CodeContentDescription?: CodeContentDescription;
+  CodeContentDescription?: CodeContentDescription | undefined;
 }
 
 /**
@@ -1597,19 +1604,19 @@ export interface S3ContentLocationUpdate {
    * <p>The new Amazon Resource Name (ARN) for the S3 bucket containing the application code.</p>
    * @public
    */
-  BucketARNUpdate?: string;
+  BucketARNUpdate?: string | undefined;
 
   /**
    * <p>The new file key for the object containing the application code.</p>
    * @public
    */
-  FileKeyUpdate?: string;
+  FileKeyUpdate?: string | undefined;
 
   /**
    * <p>The new version of the object containing the application code.</p>
    * @public
    */
-  ObjectVersionUpdate?: string;
+  ObjectVersionUpdate?: string | undefined;
 }
 
 /**
@@ -1621,19 +1628,19 @@ export interface CodeContentUpdate {
    * <p>Describes an update to the text code for an application.</p>
    * @public
    */
-  TextContentUpdate?: string;
+  TextContentUpdate?: string | undefined;
 
   /**
    * <p>Describes an update to the zipped code for an application.</p>
    * @public
    */
-  ZipFileContentUpdate?: Uint8Array;
+  ZipFileContentUpdate?: Uint8Array | undefined;
 
   /**
    * <p>Describes an update to the location of code for an application.</p>
    * @public
    */
-  S3ContentLocationUpdate?: S3ContentLocationUpdate;
+  S3ContentLocationUpdate?: S3ContentLocationUpdate | undefined;
 }
 
 /**
@@ -1645,13 +1652,13 @@ export interface ApplicationCodeConfigurationUpdate {
    * <p>Describes updates to the code content type.</p>
    * @public
    */
-  CodeContentTypeUpdate?: CodeContentType;
+  CodeContentTypeUpdate?: CodeContentType | undefined;
 
   /**
    * <p>Describes updates to the code content of an application.</p>
    * @public
    */
-  CodeContentUpdate?: CodeContentUpdate;
+  CodeContentUpdate?: CodeContentUpdate | undefined;
 }
 
 /**
@@ -1664,6 +1671,18 @@ export interface ApplicationSnapshotConfiguration {
    * @public
    */
   SnapshotsEnabled: boolean | undefined;
+}
+
+/**
+ * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * @public
+ */
+export interface ApplicationSystemRollbackConfiguration {
+  /**
+   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * @public
+   */
+  RollbackEnabled: boolean | undefined;
 }
 
 /**
@@ -1714,9 +1733,9 @@ export type ConfigurationType = (typeof ConfigurationType)[keyof typeof Configur
  * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault
  *       tolerance.
  *       For more information, see
- *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
+ *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
  *         Checkpoints for Fault Tolerance</a> in the
- *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink Documentation</a>.</p>
+ *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink Documentation</a>.</p>
  * @public
  */
 export interface CheckpointConfiguration {
@@ -1755,7 +1774,7 @@ export interface CheckpointConfiguration {
    *          </note>
    * @public
    */
-  CheckpointingEnabled?: boolean;
+  CheckpointingEnabled?: boolean | undefined;
 
   /**
    * <p>Describes the interval in milliseconds between checkpoint operations. </p>
@@ -1766,13 +1785,13 @@ export interface CheckpointConfiguration {
    *          </note>
    * @public
    */
-  CheckpointInterval?: number;
+  CheckpointInterval?: number | undefined;
 
   /**
    * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a
    *       new checkpoint operation can start. If a checkpoint operation takes longer than the
    *         <code>CheckpointInterval</code>, the application otherwise performs continual checkpoint
-   *       operations. For more information, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/large_state_tuning/#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
+   *       operations. For more information, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/large_state_tuning/#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
    *         Documentation</a>.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
@@ -1781,7 +1800,7 @@ export interface CheckpointConfiguration {
    *          </note>
    * @public
    */
-  MinPauseBetweenCheckpoints?: number;
+  MinPauseBetweenCheckpoints?: number | undefined;
 }
 
 /**
@@ -1834,19 +1853,19 @@ export interface MonitoringConfiguration {
    *     level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    * @public
    */
-  MetricsLevel?: MetricsLevel;
+  MetricsLevel?: MetricsLevel | undefined;
 
   /**
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    * @public
    */
-  LogLevel?: LogLevel;
+  LogLevel?: LogLevel | undefined;
 }
 
 /**
  * <p>Describes parameters for how a Managed Service for Apache Flink application
  *       executes multiple tasks simultaneously. For more information about parallelism,
- *       see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/dev/parallel.html">Parallel Execution</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
+ *       see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/dev/parallel.html">Parallel Execution</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
  *         Documentation</a>.</p>
  * @public
  */
@@ -1868,7 +1887,7 @@ export interface ParallelismConfiguration {
    *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
    * @public
    */
-  Parallelism?: number;
+  Parallelism?: number | undefined;
 
   /**
    * <p>Describes the number of parallel tasks that a Managed Service for Apache Flink application can perform per Kinesis Processing Unit
@@ -1876,13 +1895,13 @@ export interface ParallelismConfiguration {
    *       information about KPUs, see <a href="http://aws.amazon.com/kinesis/data-analytics/pricing/">Amazon Managed Service for Apache Flink Pricing</a>.</p>
    * @public
    */
-  ParallelismPerKPU?: number;
+  ParallelismPerKPU?: number | undefined;
 
   /**
    * <p>Describes whether the Managed Service for Apache Flink service can increase the parallelism of the application in response to increased throughput.</p>
    * @public
    */
-  AutoScalingEnabled?: boolean;
+  AutoScalingEnabled?: boolean | undefined;
 }
 
 /**
@@ -1894,25 +1913,25 @@ export interface FlinkApplicationConfiguration {
    * <p>Describes an application's checkpointing configuration. Checkpointing is the
    *       process of persisting application state for fault tolerance.
    *       For more information, see
-   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
+   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
    *         Checkpoints for Fault Tolerance</a> in the
-   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink Documentation</a>. </p>
+   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink Documentation</a>. </p>
    * @public
    */
-  CheckpointConfiguration?: CheckpointConfiguration;
+  CheckpointConfiguration?: CheckpointConfiguration | undefined;
 
   /**
    * <p>Describes configuration parameters for Amazon CloudWatch logging for an
    *       application.</p>
    * @public
    */
-  MonitoringConfiguration?: MonitoringConfiguration;
+  MonitoringConfiguration?: MonitoringConfiguration | undefined;
 
   /**
    * <p>Describes parameters for how an application executes multiple tasks simultaneously.</p>
    * @public
    */
-  ParallelismConfiguration?: ParallelismConfiguration;
+  ParallelismConfiguration?: ParallelismConfiguration | undefined;
 }
 
 /**
@@ -1925,21 +1944,21 @@ export interface SqlApplicationConfiguration {
    *       application.</p>
    * @public
    */
-  Inputs?: Input[];
+  Inputs?: Input[] | undefined;
 
   /**
    * <p>The array of <a>Output</a> objects describing the destination streams used by
    *       the application.</p>
    * @public
    */
-  Outputs?: Output[];
+  Outputs?: Output[] | undefined;
 
   /**
    * <p>The array of <a>ReferenceDataSource</a> objects describing the reference data
    *       sources used by the application.</p>
    * @public
    */
-  ReferenceDataSources?: ReferenceDataSource[];
+  ReferenceDataSources?: ReferenceDataSource[] | undefined;
 }
 
 /**
@@ -2023,13 +2042,13 @@ export interface CustomArtifactConfiguration {
    *       S3 object that contains the data. </p>
    * @public
    */
-  S3ContentLocation?: S3ContentLocation;
+  S3ContentLocation?: S3ContentLocation | undefined;
 
   /**
    * <p>The parameters required to fully specify a Maven reference.</p>
    * @public
    */
-  MavenReference?: MavenReference;
+  MavenReference?: MavenReference | undefined;
 }
 
 /**
@@ -2047,7 +2066,7 @@ export interface S3ContentBaseLocation {
    * <p>The base path for the S3 bucket.</p>
    * @public
    */
-  BasePath?: string;
+  BasePath?: string | undefined;
 }
 
 /**
@@ -2084,25 +2103,25 @@ export interface ZeppelinApplicationConfiguration {
    * <p>The monitoring configuration of a Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  MonitoringConfiguration?: ZeppelinMonitoringConfiguration;
+  MonitoringConfiguration?: ZeppelinMonitoringConfiguration | undefined;
 
   /**
    * <p>The Amazon Glue Data Catalog that you use in queries in a Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  CatalogConfiguration?: CatalogConfiguration;
+  CatalogConfiguration?: CatalogConfiguration | undefined;
 
   /**
    * <p>The information required to deploy a Managed Service for Apache Flink Studio notebook as an application with durable state.</p>
    * @public
    */
-  DeployAsApplicationConfiguration?: DeployAsApplicationConfiguration;
+  DeployAsApplicationConfiguration?: DeployAsApplicationConfiguration | undefined;
 
   /**
    * <p>Custom artifacts are dependency JARs and user-defined functions (UDF).</p>
    * @public
    */
-  CustomArtifactsConfiguration?: CustomArtifactConfiguration[];
+  CustomArtifactsConfiguration?: CustomArtifactConfiguration[] | undefined;
 }
 
 /**
@@ -2114,43 +2133,49 @@ export interface ApplicationConfiguration {
    * <p>The creation and update parameters for a SQL-based Kinesis Data Analytics application.</p>
    * @public
    */
-  SqlApplicationConfiguration?: SqlApplicationConfiguration;
+  SqlApplicationConfiguration?: SqlApplicationConfiguration | undefined;
 
   /**
    * <p>The creation and update parameters for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  FlinkApplicationConfiguration?: FlinkApplicationConfiguration;
+  FlinkApplicationConfiguration?: FlinkApplicationConfiguration | undefined;
 
   /**
    * <p>Describes execution properties for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  EnvironmentProperties?: EnvironmentProperties;
+  EnvironmentProperties?: EnvironmentProperties | undefined;
 
   /**
    * <p>The code location and type parameters for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationCodeConfiguration?: ApplicationCodeConfiguration;
+  ApplicationCodeConfiguration?: ApplicationCodeConfiguration | undefined;
 
   /**
    * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
+  ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration | undefined;
+
+  /**
+   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * @public
+   */
+  ApplicationSystemRollbackConfiguration?: ApplicationSystemRollbackConfiguration | undefined;
 
   /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    * @public
    */
-  VpcConfigurations?: VpcConfiguration[];
+  VpcConfigurations?: VpcConfiguration[] | undefined;
 
   /**
    * <p>The configuration parameters for a Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration;
+  ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration | undefined;
 }
 
 /**
@@ -2166,6 +2191,18 @@ export interface ApplicationSnapshotConfigurationDescription {
 }
 
 /**
+ * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * @public
+ */
+export interface ApplicationSystemRollbackConfigurationDescription {
+  /**
+   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * @public
+   */
+  RollbackEnabled: boolean | undefined;
+}
+
+/**
  * <p>Describes the execution properties for an Apache Flink runtime.</p>
  * @public
  */
@@ -2174,7 +2211,7 @@ export interface EnvironmentPropertyDescriptions {
    * <p>Describes the execution property groups.</p>
    * @public
    */
-  PropertyGroupDescriptions?: PropertyGroup[];
+  PropertyGroupDescriptions?: PropertyGroup[] | undefined;
 }
 
 /**
@@ -2205,7 +2242,7 @@ export interface CheckpointConfigurationDescription {
    *          </note>
    * @public
    */
-  ConfigurationType?: ConfigurationType;
+  ConfigurationType?: ConfigurationType | undefined;
 
   /**
    * <p>Describes whether checkpointing is enabled for a Managed Service for Apache Flink application.</p>
@@ -2216,7 +2253,7 @@ export interface CheckpointConfigurationDescription {
    *          </note>
    * @public
    */
-  CheckpointingEnabled?: boolean;
+  CheckpointingEnabled?: boolean | undefined;
 
   /**
    * <p>Describes the interval in milliseconds between checkpoint operations. </p>
@@ -2227,7 +2264,7 @@ export interface CheckpointConfigurationDescription {
    *          </note>
    * @public
    */
-  CheckpointInterval?: number;
+  CheckpointInterval?: number | undefined;
 
   /**
    * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation
@@ -2239,7 +2276,7 @@ export interface CheckpointConfigurationDescription {
    *          </note>
    * @public
    */
-  MinPauseBetweenCheckpoints?: number;
+  MinPauseBetweenCheckpoints?: number | undefined;
 }
 
 /**
@@ -2251,19 +2288,19 @@ export interface MonitoringConfigurationDescription {
    * <p>Describes whether to use the default CloudWatch logging configuration for an application.</p>
    * @public
    */
-  ConfigurationType?: ConfigurationType;
+  ConfigurationType?: ConfigurationType | undefined;
 
   /**
    * <p>Describes the granularity of the CloudWatch Logs for an application.</p>
    * @public
    */
-  MetricsLevel?: MetricsLevel;
+  MetricsLevel?: MetricsLevel | undefined;
 
   /**
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    * @public
    */
-  LogLevel?: LogLevel;
+  LogLevel?: LogLevel | undefined;
 }
 
 /**
@@ -2276,7 +2313,7 @@ export interface ParallelismConfigurationDescription {
    * <p>Describes whether the application uses the default parallelism for the Managed Service for Apache Flink service. </p>
    * @public
    */
-  ConfigurationType?: ConfigurationType;
+  ConfigurationType?: ConfigurationType | undefined;
 
   /**
    * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform.
@@ -2286,14 +2323,14 @@ export interface ParallelismConfigurationDescription {
    *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
    * @public
    */
-  Parallelism?: number;
+  Parallelism?: number | undefined;
 
   /**
    * <p>Describes the number of parallel tasks that a Managed Service for Apache Flink application can perform per
    *       Kinesis Processing Unit (KPU) used by the application.</p>
    * @public
    */
-  ParallelismPerKPU?: number;
+  ParallelismPerKPU?: number | undefined;
 
   /**
    * <p>Describes the current number of parallel tasks that a Managed Service for Apache Flink application can perform.
@@ -2303,13 +2340,13 @@ export interface ParallelismConfigurationDescription {
    *     the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
    * @public
    */
-  CurrentParallelism?: number;
+  CurrentParallelism?: number | undefined;
 
   /**
    * <p>Describes whether the Managed Service for Apache Flink service can increase the parallelism of the application in response to increased throughput.</p>
    * @public
    */
-  AutoScalingEnabled?: boolean;
+  AutoScalingEnabled?: boolean | undefined;
 }
 
 /**
@@ -2322,27 +2359,27 @@ export interface FlinkApplicationConfigurationDescription {
    *       for fault tolerance.</p>
    * @public
    */
-  CheckpointConfigurationDescription?: CheckpointConfigurationDescription;
+  CheckpointConfigurationDescription?: CheckpointConfigurationDescription | undefined;
 
   /**
    * <p>Describes configuration parameters for Amazon CloudWatch logging for an
    *       application.</p>
    * @public
    */
-  MonitoringConfigurationDescription?: MonitoringConfigurationDescription;
+  MonitoringConfigurationDescription?: MonitoringConfigurationDescription | undefined;
 
   /**
    * <p>Describes parameters for how an application executes multiple tasks simultaneously.</p>
    * @public
    */
-  ParallelismConfigurationDescription?: ParallelismConfigurationDescription;
+  ParallelismConfigurationDescription?: ParallelismConfigurationDescription | undefined;
 
   /**
-   * <p>The job plan for an application. For more information about the job plan, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
+   * <p>The job plan for an application. For more information about the job plan, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
    *         Documentation</a>. To retrieve the job plan for the application, use the <a>DescribeApplicationRequest$IncludeAdditionalDetails</a> parameter of the <a>DescribeApplication</a> operation.</p>
    * @public
    */
-  JobPlanDescription?: string;
+  JobPlanDescription?: string | undefined;
 }
 
 /**
@@ -2377,7 +2414,7 @@ export interface ApplicationRestoreConfiguration {
    *       <code>ApplicationRestoreType</code>.</p>
    * @public
    */
-  SnapshotName?: string;
+  SnapshotName?: string | undefined;
 }
 
 /**
@@ -2391,8 +2428,8 @@ export interface FlinkRunConfiguration {
    *      This will happen if the program is updated between snapshots to remove stateful parameters, and
    *      state data in the snapshot no longer
    *      corresponds to valid application data. For more information, see
-   *      <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/savepoints/#allowing-non-restored-state">
-   *        Allowing Non-Restored State</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
+   *      <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/docs/ops/state/savepoints/#allowing-non-restored-state">
+   *        Allowing Non-Restored State</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.19/">Apache Flink
    *          documentation</a>.</p>
    *          <note>
    *             <p>This value defaults to <code>false</code>. If you update your application without
@@ -2401,7 +2438,7 @@ export interface FlinkRunConfiguration {
    *          </note>
    * @public
    */
-  AllowNonRestoredState?: boolean;
+  AllowNonRestoredState?: boolean | undefined;
 }
 
 /**
@@ -2413,13 +2450,13 @@ export interface RunConfigurationDescription {
    * <p>Describes the restore behavior of a restarting application.</p>
    * @public
    */
-  ApplicationRestoreConfigurationDescription?: ApplicationRestoreConfiguration;
+  ApplicationRestoreConfigurationDescription?: ApplicationRestoreConfiguration | undefined;
 
   /**
    * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  FlinkRunConfigurationDescription?: FlinkRunConfiguration;
+  FlinkRunConfigurationDescription?: FlinkRunConfiguration | undefined;
 }
 
 /**
@@ -2432,21 +2469,21 @@ export interface SqlApplicationConfigurationDescription {
    *       by the application.</p>
    * @public
    */
-  InputDescriptions?: InputDescription[];
+  InputDescriptions?: InputDescription[] | undefined;
 
   /**
    * <p>The array of <a>OutputDescription</a> objects describing the destination
    *       streams used by the application.</p>
    * @public
    */
-  OutputDescriptions?: OutputDescription[];
+  OutputDescriptions?: OutputDescription[] | undefined;
 
   /**
    * <p>The array of <a>ReferenceDataSourceDescription</a> objects describing the
    *       reference data sources used by the application.</p>
    * @public
    */
-  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[];
+  ReferenceDataSourceDescriptions?: ReferenceDataSourceDescription[] | undefined;
 }
 
 /**
@@ -2483,7 +2520,7 @@ export interface CustomArtifactConfigurationDescription {
    *             <code>UDF</code> stands for user-defined functions. This type of artifact must be in an S3 bucket. A <code>DEPENDENCY_JAR</code> can be in either Maven or an S3 bucket.</p>
    * @public
    */
-  ArtifactType?: ArtifactType;
+  ArtifactType?: ArtifactType | undefined;
 
   /**
    * <p>For a Managed Service for Apache Flink application provides a
@@ -2492,13 +2529,13 @@ export interface CustomArtifactConfigurationDescription {
    *       S3 object that contains the data. </p>
    * @public
    */
-  S3ContentLocationDescription?: S3ContentLocation;
+  S3ContentLocationDescription?: S3ContentLocation | undefined;
 
   /**
    * <p>The parameters that are required to specify a Maven dependency.</p>
    * @public
    */
-  MavenReferenceDescription?: MavenReference;
+  MavenReferenceDescription?: MavenReference | undefined;
 }
 
 /**
@@ -2516,7 +2553,7 @@ export interface S3ContentBaseLocationDescription {
    * <p>The base path for the S3 bucket.</p>
    * @public
    */
-  BasePath?: string;
+  BasePath?: string | undefined;
 }
 
 /**
@@ -2540,7 +2577,7 @@ export interface ZeppelinMonitoringConfigurationDescription {
    * <p>Describes the verbosity of the CloudWatch Logs for an application.</p>
    * @public
    */
-  LogLevel?: LogLevel;
+  LogLevel?: LogLevel | undefined;
 }
 
 /**
@@ -2558,19 +2595,19 @@ export interface ZeppelinApplicationConfigurationDescription {
    * <p>The Amazon Glue Data Catalog that is associated with the Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  CatalogConfigurationDescription?: CatalogConfigurationDescription;
+  CatalogConfigurationDescription?: CatalogConfigurationDescription | undefined;
 
   /**
    * <p>The parameters required to deploy a Managed Service for Apache Flink Studio notebook as an application with durable state.</p>
    * @public
    */
-  DeployAsApplicationConfigurationDescription?: DeployAsApplicationConfigurationDescription;
+  DeployAsApplicationConfigurationDescription?: DeployAsApplicationConfigurationDescription | undefined;
 
   /**
    * <p>Custom artifacts are dependency JARs and user-defined functions (UDF).</p>
    * @public
    */
-  CustomArtifactsConfigurationDescription?: CustomArtifactConfigurationDescription[];
+  CustomArtifactsConfigurationDescription?: CustomArtifactConfigurationDescription[] | undefined;
 }
 
 /**
@@ -2582,49 +2619,55 @@ export interface ApplicationConfigurationDescription {
    * <p>The details about inputs, outputs, and reference data sources for a SQL-based Kinesis Data Analytics application.</p>
    * @public
    */
-  SqlApplicationConfigurationDescription?: SqlApplicationConfigurationDescription;
+  SqlApplicationConfigurationDescription?: SqlApplicationConfigurationDescription | undefined;
 
   /**
    * <p>The details about the application code for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationCodeConfigurationDescription?: ApplicationCodeConfigurationDescription;
+  ApplicationCodeConfigurationDescription?: ApplicationCodeConfigurationDescription | undefined;
 
   /**
    * <p>The details about the starting properties for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  RunConfigurationDescription?: RunConfigurationDescription;
+  RunConfigurationDescription?: RunConfigurationDescription | undefined;
 
   /**
    * <p>The details about a Managed Service for Apache Flink application.</p>
    * @public
    */
-  FlinkApplicationConfigurationDescription?: FlinkApplicationConfigurationDescription;
+  FlinkApplicationConfigurationDescription?: FlinkApplicationConfigurationDescription | undefined;
 
   /**
    * <p>Describes execution properties for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  EnvironmentPropertyDescriptions?: EnvironmentPropertyDescriptions;
+  EnvironmentPropertyDescriptions?: EnvironmentPropertyDescriptions | undefined;
 
   /**
    * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationSnapshotConfigurationDescription?: ApplicationSnapshotConfigurationDescription;
+  ApplicationSnapshotConfigurationDescription?: ApplicationSnapshotConfigurationDescription | undefined;
+
+  /**
+   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * @public
+   */
+  ApplicationSystemRollbackConfigurationDescription?: ApplicationSystemRollbackConfigurationDescription | undefined;
 
   /**
    * <p>The array of descriptions of VPC configurations available to the application.</p>
    * @public
    */
-  VpcConfigurationDescriptions?: VpcConfigurationDescription[];
+  VpcConfigurationDescriptions?: VpcConfigurationDescription[] | undefined;
 
   /**
    * <p>The configuration parameters for a Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  ZeppelinApplicationConfigurationDescription?: ZeppelinApplicationConfigurationDescription;
+  ZeppelinApplicationConfigurationDescription?: ZeppelinApplicationConfigurationDescription | undefined;
 }
 
 /**
@@ -2637,6 +2680,18 @@ export interface ApplicationSnapshotConfigurationUpdate {
    * @public
    */
   SnapshotsEnabledUpdate: boolean | undefined;
+}
+
+/**
+ * Describes system rollback configuration for a Managed Service for Apache Flink application
+ * @public
+ */
+export interface ApplicationSystemRollbackConfigurationUpdate {
+  /**
+   * Describes whether system rollbacks are enabled for a Managed Service for Apache Flink application
+   * @public
+   */
+  RollbackEnabledUpdate: boolean | undefined;
 }
 
 /**
@@ -2682,7 +2737,7 @@ export interface CheckpointConfigurationUpdate {
    *          </note>
    * @public
    */
-  ConfigurationTypeUpdate?: ConfigurationType;
+  ConfigurationTypeUpdate?: ConfigurationType | undefined;
 
   /**
    * <p>Describes updates to whether checkpointing is enabled for an application.</p>
@@ -2693,7 +2748,7 @@ export interface CheckpointConfigurationUpdate {
    *          </note>
    * @public
    */
-  CheckpointingEnabledUpdate?: boolean;
+  CheckpointingEnabledUpdate?: boolean | undefined;
 
   /**
    * <p>Describes updates to the interval in milliseconds between checkpoint operations.</p>
@@ -2704,7 +2759,7 @@ export interface CheckpointConfigurationUpdate {
    *          </note>
    * @public
    */
-  CheckpointIntervalUpdate?: number;
+  CheckpointIntervalUpdate?: number | undefined;
 
   /**
    * <p>Describes updates to the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation
@@ -2716,7 +2771,7 @@ export interface CheckpointConfigurationUpdate {
    *          </note>
    * @public
    */
-  MinPauseBetweenCheckpointsUpdate?: number;
+  MinPauseBetweenCheckpointsUpdate?: number | undefined;
 }
 
 /**
@@ -2730,20 +2785,20 @@ export interface MonitoringConfigurationUpdate {
    *     <code>MetricsLevel</code> parameters.</p>
    * @public
    */
-  ConfigurationTypeUpdate?: ConfigurationType;
+  ConfigurationTypeUpdate?: ConfigurationType | undefined;
 
   /**
    * <p>Describes updates to the granularity of the CloudWatch Logs for an application. The <code>Parallelism</code>
    *       level is not recommended for applications with a Parallelism over 64 due to excessive costs.</p>
    * @public
    */
-  MetricsLevelUpdate?: MetricsLevel;
+  MetricsLevelUpdate?: MetricsLevel | undefined;
 
   /**
    * <p>Describes updates to the verbosity of the CloudWatch Logs for an application.</p>
    * @public
    */
-  LogLevelUpdate?: LogLevel;
+  LogLevelUpdate?: LogLevel | undefined;
 }
 
 /**
@@ -2757,7 +2812,7 @@ export interface ParallelismConfigurationUpdate {
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    * @public
    */
-  ConfigurationTypeUpdate?: ConfigurationType;
+  ConfigurationTypeUpdate?: ConfigurationType | undefined;
 
   /**
    * <p>Describes updates to the initial number of parallel tasks an application can perform. If <code>AutoScalingEnabled</code> is set to True, then
@@ -2767,19 +2822,19 @@ export interface ParallelismConfigurationUpdate {
    *     reduce <code>CurrentParallelism</code> down to the <code>Parallelism</code> setting.</p>
    * @public
    */
-  ParallelismUpdate?: number;
+  ParallelismUpdate?: number | undefined;
 
   /**
    * <p>Describes updates to the number of parallel tasks an application can perform per Kinesis Processing Unit (KPU) used by the application.</p>
    * @public
    */
-  ParallelismPerKPUUpdate?: number;
+  ParallelismPerKPUUpdate?: number | undefined;
 
   /**
    * <p>Describes updates to whether the Managed Service for Apache Flink service can increase the parallelism of a Managed Service for Apache Flink application in response to increased throughput.</p>
    * @public
    */
-  AutoScalingEnabledUpdate?: boolean;
+  AutoScalingEnabledUpdate?: boolean | undefined;
 }
 
 /**
@@ -2792,20 +2847,20 @@ export interface FlinkApplicationConfigurationUpdate {
    *       application state for fault tolerance.</p>
    * @public
    */
-  CheckpointConfigurationUpdate?: CheckpointConfigurationUpdate;
+  CheckpointConfigurationUpdate?: CheckpointConfigurationUpdate | undefined;
 
   /**
    * <p>Describes updates to the configuration parameters for Amazon CloudWatch logging for an
    *       application.</p>
    * @public
    */
-  MonitoringConfigurationUpdate?: MonitoringConfigurationUpdate;
+  MonitoringConfigurationUpdate?: MonitoringConfigurationUpdate | undefined;
 
   /**
    * <p>Describes updates to the parameters for how an application executes multiple tasks simultaneously.</p>
    * @public
    */
-  ParallelismConfigurationUpdate?: ParallelismConfigurationUpdate;
+  ParallelismConfigurationUpdate?: ParallelismConfigurationUpdate | undefined;
 }
 
 /**
@@ -2862,20 +2917,20 @@ export interface InputSchemaUpdate {
    * <p>Specifies the format of the records on the streaming source.</p>
    * @public
    */
-  RecordFormatUpdate?: RecordFormat;
+  RecordFormatUpdate?: RecordFormat | undefined;
 
   /**
    * <p>Specifies the encoding of the records in the streaming source; for example, UTF-8.</p>
    * @public
    */
-  RecordEncodingUpdate?: string;
+  RecordEncodingUpdate?: string | undefined;
 
   /**
    * <p>A list of <code>RecordColumn</code> objects. Each object describes the mapping
    *       of the streaming source element to the corresponding column in the in-application stream.</p>
    * @public
    */
-  RecordColumnUpdates?: RecordColumn[];
+  RecordColumnUpdates?: RecordColumn[] | undefined;
 }
 
 /**
@@ -2923,40 +2978,40 @@ export interface InputUpdate {
    *       specific streaming source.</p>
    * @public
    */
-  NamePrefixUpdate?: string;
+  NamePrefixUpdate?: string | undefined;
 
   /**
    * <p>Describes updates to an <a>InputProcessingConfiguration</a>.</p>
    * @public
    */
-  InputProcessingConfigurationUpdate?: InputProcessingConfigurationUpdate;
+  InputProcessingConfigurationUpdate?: InputProcessingConfigurationUpdate | undefined;
 
   /**
    * <p>If a Kinesis data stream is the streaming source to be updated, provides an
    *       updated stream Amazon Resource Name (ARN).</p>
    * @public
    */
-  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate;
+  KinesisStreamsInputUpdate?: KinesisStreamsInputUpdate | undefined;
 
   /**
    * <p>If a Kinesis Data Firehose delivery stream is the streaming source to be
    *       updated, provides an updated stream ARN.</p>
    * @public
    */
-  KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate;
+  KinesisFirehoseInputUpdate?: KinesisFirehoseInputUpdate | undefined;
 
   /**
    * <p>Describes the data format on the streaming source, and
    *       how record elements on the streaming source map to columns of the in-application stream that is created.</p>
    * @public
    */
-  InputSchemaUpdate?: InputSchemaUpdate;
+  InputSchemaUpdate?: InputSchemaUpdate | undefined;
 
   /**
    * <p>Describes the parallelism updates (the number of in-application streams Kinesis Data Analytics creates for the specific streaming source).</p>
    * @public
    */
-  InputParallelismUpdate?: InputParallelismUpdate;
+  InputParallelismUpdate?: InputParallelismUpdate | undefined;
 }
 
 /**
@@ -3024,33 +3079,33 @@ export interface OutputUpdate {
    *       specify the new in-application stream name.</p>
    * @public
    */
-  NameUpdate?: string;
+  NameUpdate?: string | undefined;
 
   /**
    * <p>Describes a Kinesis data stream as the destination for the output.</p>
    * @public
    */
-  KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate;
+  KinesisStreamsOutputUpdate?: KinesisStreamsOutputUpdate | undefined;
 
   /**
    * <p>Describes a Kinesis Data Firehose delivery stream as the destination for the
    *       output.</p>
    * @public
    */
-  KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate;
+  KinesisFirehoseOutputUpdate?: KinesisFirehoseOutputUpdate | undefined;
 
   /**
    * <p>Describes an Amazon Lambda function as the destination for the output.</p>
    * @public
    */
-  LambdaOutputUpdate?: LambdaOutputUpdate;
+  LambdaOutputUpdate?: LambdaOutputUpdate | undefined;
 
   /**
    * <p>Describes the data format when records are written to the destination.
    *       </p>
    * @public
    */
-  DestinationSchemaUpdate?: DestinationSchema;
+  DestinationSchemaUpdate?: DestinationSchema | undefined;
 }
 
 /**
@@ -3063,13 +3118,13 @@ export interface S3ReferenceDataSourceUpdate {
    * <p>The Amazon Resource Name (ARN) of the S3 bucket.</p>
    * @public
    */
-  BucketARNUpdate?: string;
+  BucketARNUpdate?: string | undefined;
 
   /**
    * <p>The object key name.</p>
    * @public
    */
-  FileKeyUpdate?: string;
+  FileKeyUpdate?: string | undefined;
 }
 
 /**
@@ -3091,21 +3146,21 @@ export interface ReferenceDataSourceUpdate {
    * <p>The in-application table name that is created by this update.</p>
    * @public
    */
-  TableNameUpdate?: string;
+  TableNameUpdate?: string | undefined;
 
   /**
    * <p>Describes the S3 bucket name, object key name, and IAM role that Kinesis Data Analytics can assume to read the
    *       Amazon S3 object on your behalf and populate the in-application reference table.</p>
    * @public
    */
-  S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate;
+  S3ReferenceDataSourceUpdate?: S3ReferenceDataSourceUpdate | undefined;
 
   /**
    * <p>Describes the format of the data in the streaming source, and how each data element maps to
    *       corresponding columns created in the in-application stream. </p>
    * @public
    */
-  ReferenceSchemaUpdate?: SourceSchema;
+  ReferenceSchemaUpdate?: SourceSchema | undefined;
 }
 
 /**
@@ -3119,21 +3174,21 @@ export interface SqlApplicationConfigurationUpdate {
    *       by the application.</p>
    * @public
    */
-  InputUpdates?: InputUpdate[];
+  InputUpdates?: InputUpdate[] | undefined;
 
   /**
    * <p>The array of <a>OutputUpdate</a> objects describing the new destination streams
    *       used by the application.</p>
    * @public
    */
-  OutputUpdates?: OutputUpdate[];
+  OutputUpdates?: OutputUpdate[] | undefined;
 
   /**
    * <p>The array of <a>ReferenceDataSourceUpdate</a> objects describing the new
    *       reference data sources used by the application.</p>
    * @public
    */
-  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[];
+  ReferenceDataSourceUpdates?: ReferenceDataSourceUpdate[] | undefined;
 }
 
 /**
@@ -3153,14 +3208,14 @@ export interface VpcConfigurationUpdate {
    *         used by the VPC configuration.</p>
    * @public
    */
-  SubnetIdUpdates?: string[];
+  SubnetIdUpdates?: string[] | undefined;
 
   /**
    * <p>Describes updates to the array of
    *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SecurityGroup.html">SecurityGroup</a> IDs used by the VPC configuration.</p>
    * @public
    */
-  SecurityGroupIdUpdates?: string[];
+  SecurityGroupIdUpdates?: string[] | undefined;
 }
 
 /**
@@ -3196,13 +3251,13 @@ export interface S3ContentBaseLocationUpdate {
    * <p>The updated Amazon Resource Name (ARN) of the S3 bucket.</p>
    * @public
    */
-  BucketARNUpdate?: string;
+  BucketARNUpdate?: string | undefined;
 
   /**
    * <p>The updated S3 bucket path.</p>
    * @public
    */
-  BasePathUpdate?: string;
+  BasePathUpdate?: string | undefined;
 }
 
 /**
@@ -3214,7 +3269,7 @@ export interface DeployAsApplicationConfigurationUpdate {
    * <p>Updates to the location that holds the data required to specify an Amazon Data Analytics application.</p>
    * @public
    */
-  S3ContentLocationUpdate?: S3ContentBaseLocationUpdate;
+  S3ContentLocationUpdate?: S3ContentBaseLocationUpdate | undefined;
 }
 
 /**
@@ -3238,25 +3293,25 @@ export interface ZeppelinApplicationConfigurationUpdate {
    * <p>Updates to the monitoring configuration of a Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  MonitoringConfigurationUpdate?: ZeppelinMonitoringConfigurationUpdate;
+  MonitoringConfigurationUpdate?: ZeppelinMonitoringConfigurationUpdate | undefined;
 
   /**
    * <p>Updates to the configuration of the Amazon Glue Data Catalog that is associated with the Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  CatalogConfigurationUpdate?: CatalogConfigurationUpdate;
+  CatalogConfigurationUpdate?: CatalogConfigurationUpdate | undefined;
 
   /**
    * <p>Updates to the configuration information required to deploy an Amazon Data Analytics Studio notebook as an application with durable state.</p>
    * @public
    */
-  DeployAsApplicationConfigurationUpdate?: DeployAsApplicationConfigurationUpdate;
+  DeployAsApplicationConfigurationUpdate?: DeployAsApplicationConfigurationUpdate | undefined;
 
   /**
    * <p>Updates to the customer artifacts. Custom artifacts are dependency JAR files and user-defined functions (UDF).</p>
    * @public
    */
-  CustomArtifactsConfigurationUpdate?: CustomArtifactConfiguration[];
+  CustomArtifactsConfigurationUpdate?: CustomArtifactConfiguration[] | undefined;
 }
 
 /**
@@ -3269,44 +3324,50 @@ export interface ApplicationConfigurationUpdate {
    *       configuration.</p>
    * @public
    */
-  SqlApplicationConfigurationUpdate?: SqlApplicationConfigurationUpdate;
+  SqlApplicationConfigurationUpdate?: SqlApplicationConfigurationUpdate | undefined;
 
   /**
    * <p>Describes updates to an application's code
    *       configuration.</p>
    * @public
    */
-  ApplicationCodeConfigurationUpdate?: ApplicationCodeConfigurationUpdate;
+  ApplicationCodeConfigurationUpdate?: ApplicationCodeConfigurationUpdate | undefined;
 
   /**
    * <p>Describes updates to a Managed Service for Apache Flink application's configuration.</p>
    * @public
    */
-  FlinkApplicationConfigurationUpdate?: FlinkApplicationConfigurationUpdate;
+  FlinkApplicationConfigurationUpdate?: FlinkApplicationConfigurationUpdate | undefined;
 
   /**
    * <p>Describes updates to the environment properties for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  EnvironmentPropertyUpdates?: EnvironmentPropertyUpdates;
+  EnvironmentPropertyUpdates?: EnvironmentPropertyUpdates | undefined;
 
   /**
    * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate;
+  ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate | undefined;
+
+  /**
+   * Describes system rollback configuration for a Managed Service for Apache Flink application
+   * @public
+   */
+  ApplicationSystemRollbackConfigurationUpdate?: ApplicationSystemRollbackConfigurationUpdate | undefined;
 
   /**
    * <p>Updates to the array of descriptions of VPC configurations available to the application.</p>
    * @public
    */
-  VpcConfigurationUpdates?: VpcConfigurationUpdate[];
+  VpcConfigurationUpdates?: VpcConfigurationUpdate[] | undefined;
 
   /**
    * <p>Updates to the configuration of a Managed Service for Apache Flink Studio notebook.</p>
    * @public
    */
-  ZeppelinApplicationConfigurationUpdate?: ZeppelinApplicationConfigurationUpdate;
+  ZeppelinApplicationConfigurationUpdate?: ZeppelinApplicationConfigurationUpdate | undefined;
 }
 
 /**
@@ -3373,6 +3434,8 @@ export const RuntimeEnvironment = {
   FLINK_1_13: "FLINK-1_13",
   FLINK_1_15: "FLINK-1_15",
   FLINK_1_18: "FLINK-1_18",
+  FLINK_1_19: "FLINK-1_19",
+  FLINK_1_20: "FLINK-1_20",
   FLINK_1_6: "FLINK-1_6",
   FLINK_1_8: "FLINK-1_8",
   SQL_1_0: "SQL-1_0",
@@ -3402,7 +3465,7 @@ export interface ApplicationDetail {
    * <p>The description of the application.</p>
    * @public
    */
-  ApplicationDescription?: string;
+  ApplicationDescription?: string | undefined;
 
   /**
    * <p>The name of the application.</p>
@@ -3420,7 +3483,7 @@ export interface ApplicationDetail {
    * <p>Specifies the IAM role that the application uses to access external resources.</p>
    * @public
    */
-  ServiceExecutionRole?: string;
+  ServiceExecutionRole?: string | undefined;
 
   /**
    * <p>The status of the application.</p>
@@ -3439,63 +3502,69 @@ export interface ApplicationDetail {
    * <p>The current timestamp when the application was created.</p>
    * @public
    */
-  CreateTimestamp?: Date;
+  CreateTimestamp?: Date | undefined;
 
   /**
    * <p>The current timestamp when the application was last updated.</p>
    * @public
    */
-  LastUpdateTimestamp?: Date;
+  LastUpdateTimestamp?: Date | undefined;
 
   /**
    * <p>Describes details about the application code and starting parameters for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationConfigurationDescription?: ApplicationConfigurationDescription;
+  ApplicationConfigurationDescription?: ApplicationConfigurationDescription | undefined;
 
   /**
    * <p>Describes the application Amazon CloudWatch logging options.</p>
    * @public
    */
-  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[] | undefined;
 
   /**
    * <p>The details of the maintenance configuration for the application.</p>
    * @public
    */
-  ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription;
+  ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription | undefined;
 
   /**
    * <p>The previous application version before the latest application update. <a>RollbackApplication</a>
    *         reverts the application to this version.</p>
    * @public
    */
-  ApplicationVersionUpdatedFrom?: number;
+  ApplicationVersionUpdatedFrom?: number | undefined;
 
   /**
    * <p>If you reverted the application using <a>RollbackApplication</a>,
    *         the application version when <code>RollbackApplication</code> was called.</p>
    * @public
    */
-  ApplicationVersionRolledBackFrom?: number;
+  ApplicationVersionRolledBackFrom?: number | undefined;
+
+  /**
+   * The current timestamp when the application version was created.
+   * @public
+   */
+  ApplicationVersionCreateTimestamp?: Date | undefined;
 
   /**
    * <p>A value you use to implement strong concurrency for application updates.</p>
    * @public
    */
-  ConditionalToken?: string;
+  ConditionalToken?: string | undefined;
 
   /**
    * <p>The version to which you want to roll back the application.</p>
    * @public
    */
-  ApplicationVersionRolledBackTo?: number;
+  ApplicationVersionRolledBackTo?: number | undefined;
 
   /**
    * <p>To create a Managed Service for Apache Flink Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Managed Service for Apache Flink application, the mode is optional.</p>
    * @public
    */
-  ApplicationMode?: ApplicationMode;
+  ApplicationMode?: ApplicationMode | undefined;
 }
 
 /**
@@ -3508,6 +3577,148 @@ export interface ApplicationMaintenanceConfigurationUpdate {
    * @public
    */
   ApplicationMaintenanceWindowStartTimeUpdate: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationStatus = {
+  CANCELLED: "CANCELLED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCESSFUL: "SUCCESSFUL",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationStatus = (typeof OperationStatus)[keyof typeof OperationStatus];
+
+/**
+ * Provides a description of the operation, such as the type and status of operation
+ * @public
+ */
+export interface ApplicationOperationInfo {
+  /**
+   * Type of operation performed on an application
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * Identifier of the Operation
+   * @public
+   */
+  OperationId?: string | undefined;
+
+  /**
+   * The timestamp at which the operation was created
+   * @public
+   */
+  StartTime?: Date | undefined;
+
+  /**
+   * The timestamp at which the operation finished for the application
+   * @public
+   */
+  EndTime?: Date | undefined;
+
+  /**
+   * Status of the operation performed on an application
+   * @public
+   */
+  OperationStatus?: OperationStatus | undefined;
+}
+
+/**
+ * Contains information about the application version changes due to an operation
+ * @public
+ */
+export interface ApplicationVersionChangeDetails {
+  /**
+   * The operation was performed on this version of the application
+   * @public
+   */
+  ApplicationVersionUpdatedFrom: number | undefined;
+
+  /**
+   * The operation execution resulted in the transition to the following version of the application
+   * @public
+   */
+  ApplicationVersionUpdatedTo: number | undefined;
+}
+
+/**
+ * Provides a description of the operation failure error
+ * @public
+ */
+export interface ErrorInfo {
+  /**
+   * Error message resulting in failure of the operation
+   * @public
+   */
+  ErrorString?: string | undefined;
+}
+
+/**
+ * Provides a description of the operation failure
+ * @public
+ */
+export interface OperationFailureDetails {
+  /**
+   * Provides the operation ID of a system-rollback operation executed due to failure in the current operation
+   * @public
+   */
+  RollbackOperationId?: string | undefined;
+
+  /**
+   * Provides a description of the operation failure error
+   * @public
+   */
+  ErrorInfo?: ErrorInfo | undefined;
+}
+
+/**
+ * Provides a description of the operation, such as the operation-type and status
+ * @public
+ */
+export interface ApplicationOperationInfoDetails {
+  /**
+   * Type of operation performed on an application
+   * @public
+   */
+  Operation: string | undefined;
+
+  /**
+   * The timestamp at which the operation was created
+   * @public
+   */
+  StartTime: Date | undefined;
+
+  /**
+   * The timestamp at which the operation finished for the application
+   * @public
+   */
+  EndTime: Date | undefined;
+
+  /**
+   * Status of the operation performed on an application
+   * @public
+   */
+  OperationStatus: OperationStatus | undefined;
+
+  /**
+   * Contains information about the application version changes due to an operation
+   * @public
+   */
+  ApplicationVersionChangeDetails?: ApplicationVersionChangeDetails | undefined;
+
+  /**
+   * Provides a description of the operation failure
+   * @public
+   */
+  OperationFailureDetails?: OperationFailureDetails | undefined;
 }
 
 /**
@@ -3549,7 +3760,7 @@ export interface ApplicationSummary {
    * <p>For a Managed Service for Apache Flink application, the mode is <code>STREAMING</code>. For a Managed Service for Apache Flink Studio notebook, it is <code>INTERACTIVE</code>.</p>
    * @public
    */
-  ApplicationMode?: ApplicationMode;
+  ApplicationMode?: ApplicationMode | undefined;
 }
 
 /**
@@ -3586,7 +3797,7 @@ export interface CloudWatchLoggingOptionUpdate {
    *       messages.</p>
    * @public
    */
-  LogStreamARNUpdate?: string;
+  LogStreamARNUpdate?: string | undefined;
 }
 
 /**
@@ -3610,7 +3821,7 @@ export interface Tag {
    * <p>The value of the key-value tag. The value is optional.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -3627,7 +3838,7 @@ export interface CreateApplicationRequest {
    * <p>A summary description of the application.</p>
    * @public
    */
-  ApplicationDescription?: string;
+  ApplicationDescription?: string | undefined;
 
   /**
    * <p>The runtime environment for the application.</p>
@@ -3646,7 +3857,7 @@ export interface CreateApplicationRequest {
    * <p>Use this parameter to configure the application.</p>
    * @public
    */
-  ApplicationConfiguration?: ApplicationConfiguration;
+  ApplicationConfiguration?: ApplicationConfiguration | undefined;
 
   /**
    * <p>Use this parameter to configure an Amazon CloudWatch log stream to monitor application
@@ -3654,7 +3865,7 @@ export interface CreateApplicationRequest {
    *       </p>
    * @public
    */
-  CloudWatchLoggingOptions?: CloudWatchLoggingOption[];
+  CloudWatchLoggingOptions?: CloudWatchLoggingOption[] | undefined;
 
   /**
    * <p>A list of one or more tags to assign to the application. A tag is a key-value pair that identifies an
@@ -3664,14 +3875,14 @@ export interface CreateApplicationRequest {
    *         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Use the <code>STREAMING</code> mode to create a Managed Service for Apache Flink application. To create a Managed Service for Apache Flink Studio notebook, use the
    *     <code>INTERACTIVE</code> mode.</p>
    * @public
    */
-  ApplicationMode?: ApplicationMode;
+  ApplicationMode?: ApplicationMode | undefined;
 }
 
 /**
@@ -3693,7 +3904,7 @@ export interface CreateApplicationResponse {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3737,7 +3948,7 @@ export class TooManyTagsException extends __BaseException {
 export class UnsupportedOperationException extends __BaseException {
   readonly name: "UnsupportedOperationException" = "UnsupportedOperationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -3787,7 +3998,7 @@ export interface CreateApplicationPresignedUrlRequest {
    * <p>The duration in seconds for which the returned URL will be valid.</p>
    * @public
    */
-  SessionExpirationDurationInSeconds?: number;
+  SessionExpirationDurationInSeconds?: number | undefined;
 }
 
 /**
@@ -3798,7 +4009,7 @@ export interface CreateApplicationPresignedUrlResponse {
    * <p>The URL of the extension.</p>
    * @public
    */
-  AuthorizedUrl?: string;
+  AuthorizedUrl?: string | undefined;
 }
 
 /**
@@ -3863,7 +4074,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  CurrentApplicationVersionId?: number;
+  CurrentApplicationVersionId?: number | undefined;
 
   /**
    * <p>The <code>CloudWatchLoggingOptionId</code> of the Amazon CloudWatch logging option to
@@ -3879,7 +4090,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  ConditionalToken?: string;
+  ConditionalToken?: string | undefined;
 }
 
 /**
@@ -3890,7 +4101,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
    * <p>The application's Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The version ID of the application. Kinesis Data Analytics updates the
@@ -3898,13 +4109,19 @@ export interface DeleteApplicationCloudWatchLoggingOptionResponse {
    *       options.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 
   /**
    * <p>The descriptions of the remaining CloudWatch logging options for the application.</p>
    * @public
    */
-  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
+  CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[] | undefined;
+
+  /**
+   * Operation ID for tracking DeleteApplicationCloudWatchLoggingOption request
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -3943,13 +4160,13 @@ export interface DeleteApplicationInputProcessingConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The current application version ID.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 }
 
 /**
@@ -3991,13 +4208,13 @@ export interface DeleteApplicationOutputResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The current application version ID.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 }
 
 /**
@@ -4037,13 +4254,13 @@ export interface DeleteApplicationReferenceDataSourceResponse {
    * <p>The application Amazon Resource Name (ARN).</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The updated version ID of the application.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
 }
 
 /**
@@ -4094,7 +4311,7 @@ export interface DeleteApplicationVpcConfigurationRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  CurrentApplicationVersionId?: number;
+  CurrentApplicationVersionId?: number | undefined;
 
   /**
    * <p>The ID of the VPC configuration to delete.</p>
@@ -4109,7 +4326,7 @@ export interface DeleteApplicationVpcConfigurationRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  ConditionalToken?: string;
+  ConditionalToken?: string | undefined;
 }
 
 /**
@@ -4120,13 +4337,19 @@ export interface DeleteApplicationVpcConfigurationResponse {
    * <p>The ARN of the Managed Service for Apache Flink application.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The updated version ID of the application.</p>
    * @public
    */
-  ApplicationVersionId?: number;
+  ApplicationVersionId?: number | undefined;
+
+  /**
+   * Operation ID for tracking DeleteApplicationVpcConfiguration request
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -4143,7 +4366,7 @@ export interface DescribeApplicationRequest {
    * <p>Displays verbose information about a Managed Service for Apache Flink application, including the application's job plan.</p>
    * @public
    */
-  IncludeAdditionalDetails?: boolean;
+  IncludeAdditionalDetails?: boolean | undefined;
 }
 
 /**
@@ -4156,6 +4379,36 @@ export interface DescribeApplicationResponse {
    * @public
    */
   ApplicationDetail: ApplicationDetail | undefined;
+}
+
+/**
+ * Request for information about a specific operation performed on a Managed Service for Apache Flink application
+ * @public
+ */
+export interface DescribeApplicationOperationRequest {
+  /**
+   * The name of the application
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * Identifier of the Operation
+   * @public
+   */
+  OperationId: string | undefined;
+}
+
+/**
+ * Provides details of the operation corresponding to the operation-ID on a Managed Service for Apache Flink application
+ * @public
+ */
+export interface DescribeApplicationOperationResponse {
+  /**
+   * Provides a description of the operation, such as the operation-type and status
+   * @public
+   */
+  ApplicationOperationInfoDetails?: ApplicationOperationInfoDetails | undefined;
 }
 
 /**
@@ -4219,13 +4472,13 @@ export interface SnapshotDetails {
    * <p>The timestamp of the application snapshot.</p>
    * @public
    */
-  SnapshotCreationTimestamp?: Date;
+  SnapshotCreationTimestamp?: Date | undefined;
 
   /**
    * <p>The Flink Runtime for the application snapshot.</p>
    * @public
    */
-  RuntimeEnvironment?: RuntimeEnvironment;
+  RuntimeEnvironment?: RuntimeEnvironment | undefined;
 }
 
 /**
@@ -4265,7 +4518,7 @@ export interface DescribeApplicationVersionResponse {
    *       latest version, and input and output configurations.</p>
    * @public
    */
-  ApplicationVersionDetail?: ApplicationDetail;
+  ApplicationVersionDetail?: ApplicationDetail | undefined;
 }
 
 /**
@@ -4296,7 +4549,7 @@ export interface DiscoverInputSchemaRequest {
    * <p>The Amazon Resource Name (ARN) of the streaming source.</p>
    * @public
    */
-  ResourceARN?: string;
+  ResourceARN?: string | undefined;
 
   /**
    * <p>The ARN of the role that is used to access the streaming source.</p>
@@ -4309,21 +4562,21 @@ export interface DiscoverInputSchemaRequest {
    *       specified streaming source for discovery purposes.</p>
    * @public
    */
-  InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
+  InputStartingPositionConfiguration?: InputStartingPositionConfiguration | undefined;
 
   /**
    * <p>Specify this parameter to discover a schema from data in an Amazon S3
    *       object.</p>
    * @public
    */
-  S3Configuration?: S3Configuration;
+  S3Configuration?: S3Configuration | undefined;
 
   /**
    * <p>The <a>InputProcessingConfiguration</a> to use to preprocess the records
    *       before discovering the schema of the records.</p>
    * @public
    */
-  InputProcessingConfiguration?: InputProcessingConfiguration;
+  InputProcessingConfiguration?: InputProcessingConfiguration | undefined;
 }
 
 /**
@@ -4336,27 +4589,27 @@ export interface DiscoverInputSchemaResponse {
    *       stream that you can create.</p>
    * @public
    */
-  InputSchema?: SourceSchema;
+  InputSchema?: SourceSchema | undefined;
 
   /**
    * <p>An array of elements, where each element corresponds to a row in a stream record
    *       (a stream record can have more than one row).</p>
    * @public
    */
-  ParsedInputRecords?: string[][];
+  ParsedInputRecords?: string[][] | undefined;
 
   /**
    * <p>The stream data that was modified by the processor specified in the
    *         <code>InputProcessingConfiguration</code> parameter.</p>
    * @public
    */
-  ProcessedInputRecords?: string[];
+  ProcessedInputRecords?: string[] | undefined;
 
   /**
    * <p>The raw stream data that was sampled to infer the schema.</p>
    * @public
    */
-  RawInputRecords?: string[];
+  RawInputRecords?: string[] | undefined;
 }
 
 /**
@@ -4367,7 +4620,7 @@ export interface DiscoverInputSchemaResponse {
 export class ResourceProvisionedThroughputExceededException extends __BaseException {
   readonly name: "ResourceProvisionedThroughputExceededException" = "ResourceProvisionedThroughputExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4389,7 +4642,7 @@ export class ResourceProvisionedThroughputExceededException extends __BaseExcept
 export class ServiceUnavailableException extends __BaseException {
   readonly name: "ServiceUnavailableException" = "ServiceUnavailableException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -4412,18 +4665,18 @@ export class ServiceUnavailableException extends __BaseException {
 export class UnableToDetectSchemaException extends __BaseException {
   readonly name: "UnableToDetectSchemaException" = "UnableToDetectSchemaException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>Raw stream data that was sampled to infer the schema.</p>
    * @public
    */
-  RawInputRecords?: string[];
+  RawInputRecords?: string[] | undefined;
 
   /**
    * <p>Stream data that was modified by the processor specified in the <code>InputProcessingConfiguration</code> parameter. </p>
    * @public
    */
-  ProcessedInputRecords?: string[];
+  ProcessedInputRecords?: string[] | undefined;
   /**
    * @internal
    */
@@ -4441,6 +4694,60 @@ export class UnableToDetectSchemaException extends __BaseException {
 }
 
 /**
+ * Request to list operations performed on an application
+ * @public
+ */
+export interface ListApplicationOperationsRequest {
+  /**
+   * The name of the application
+   * @public
+   */
+  ApplicationName: string | undefined;
+
+  /**
+   * Limit on the number of records returned in the response
+   * @public
+   */
+  Limit?: number | undefined;
+
+  /**
+   * If a previous command returned a pagination token, pass it into this value to retrieve the next set of results
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * Type of operation performed on an application
+   * @public
+   */
+  Operation?: string | undefined;
+
+  /**
+   * Status of the operation performed on an application
+   * @public
+   */
+  OperationStatus?: OperationStatus | undefined;
+}
+
+/**
+ * Response with the list of operations for an application
+ * @public
+ */
+export interface ListApplicationOperationsResponse {
+  /**
+   * List of ApplicationOperationInfo for an application
+   * @public
+   */
+  ApplicationOperationInfoList?: ApplicationOperationInfo[] | undefined;
+
+  /**
+   * If a previous command returned a pagination token, pass it into this value to retrieve the next set of results
+   * @public
+   */
+  NextToken?: string | undefined;
+}
+
+/**
  * @public
  */
 export interface ListApplicationsRequest {
@@ -4448,7 +4755,7 @@ export interface ListApplicationsRequest {
    * <p>The maximum number of applications to list.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If a previous command returned a pagination token,
@@ -4457,7 +4764,7 @@ export interface ListApplicationsRequest {
    *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4477,7 +4784,7 @@ export interface ListApplicationsResponse {
    *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4494,7 +4801,7 @@ export interface ListApplicationSnapshotsRequest {
    * <p>The maximum number of application snapshots to list.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Use this parameter if you receive a <code>NextToken</code> response in a previous request that indicates that there is more
@@ -4502,7 +4809,7 @@ export interface ListApplicationSnapshotsRequest {
    *       continue from. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4513,13 +4820,13 @@ export interface ListApplicationSnapshotsResponse {
    * <p>A collection of objects containing information about the application snapshots.</p>
    * @public
    */
-  SnapshotSummaries?: SnapshotDetails[];
+  SnapshotSummaries?: SnapshotDetails[] | undefined;
 
   /**
    * <p>The token for the next set of results, or <code>null</code> if there are no additional results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4536,14 +4843,14 @@ export interface ListApplicationVersionsRequest {
    * <p>The maximum number of versions to list in this invocation of the operation.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>If a previous invocation of this operation returned a pagination token, pass it into this value to retrieve the next set of results. For more information about pagination, see
    *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4555,7 +4862,7 @@ export interface ListApplicationVersionsResponse {
    *          <p>To get the complete description of a specific application version, invoke the <a>DescribeApplicationVersion</a> operation.</p>
    * @public
    */
-  ApplicationVersionSummaries?: ApplicationVersionSummary[];
+  ApplicationVersionSummaries?: ApplicationVersionSummary[] | undefined;
 
   /**
    * <p>The pagination token for the next set of results, or <code>null</code> if there are no additional results.
@@ -4563,7 +4870,7 @@ export interface ListApplicationVersionsResponse {
    *       <a href="https://docs.aws.amazon.com/cli/latest/userguide/pagination.html">Using the Amazon Command Line Interface's Pagination Options</a>.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4585,7 +4892,7 @@ export interface ListTagsForResourceResponse {
    * <p>The key-value tags assigned to the application.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -4616,6 +4923,12 @@ export interface RollbackApplicationResponse {
    * @public
    */
   ApplicationDetail: ApplicationDetail | undefined;
+
+  /**
+   * Operation ID for tracking RollbackApplication request
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -4646,20 +4959,20 @@ export interface RunConfiguration {
    * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  FlinkRunConfiguration?: FlinkRunConfiguration;
+  FlinkRunConfiguration?: FlinkRunConfiguration | undefined;
 
   /**
    * <p>Describes the starting parameters for a SQL-based Kinesis Data Analytics application
    *       application.</p>
    * @public
    */
-  SqlRunConfigurations?: SqlRunConfiguration[];
+  SqlRunConfigurations?: SqlRunConfiguration[] | undefined;
 
   /**
    * <p>Describes the restore behavior of a restarting application.</p>
    * @public
    */
-  ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
+  ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration | undefined;
 }
 
 /**
@@ -4676,13 +4989,19 @@ export interface StartApplicationRequest {
    * <p>Identifies the run configuration (start parameters) of a Managed Service for Apache Flink application.</p>
    * @public
    */
-  RunConfiguration?: RunConfiguration;
+  RunConfiguration?: RunConfiguration | undefined;
 }
 
 /**
  * @public
  */
-export interface StartApplicationResponse {}
+export interface StartApplicationResponse {
+  /**
+   * Operation ID for tracking StartApplication request
+   * @public
+   */
+  OperationId?: string | undefined;
+}
 
 /**
  * @public
@@ -4698,7 +5017,7 @@ export interface StopApplicationRequest {
    * <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>
    *           to <code>true</code>, Managed Service for Apache Flink stops the application without taking a snapshot.
    *       </p>
-   *           <note>
+   *          <note>
    *             <p>Force-stopping your application may lead to data loss or duplication.
    *               To prevent data loss or duplicate processing of data during application restarts,
    *               we recommend you to take frequent snapshots of your application.</p>
@@ -4709,13 +5028,19 @@ export interface StopApplicationRequest {
    *           <code>RUNNING</code> status. </p>
    * @public
    */
-  Force?: boolean;
+  Force?: boolean | undefined;
 }
 
 /**
  * @public
  */
-export interface StopApplicationResponse {}
+export interface StopApplicationResponse {
+  /**
+   * Operation ID for tracking StopApplication request
+   * @public
+   */
+  OperationId?: string | undefined;
+}
 
 /**
  * @public
@@ -4770,13 +5095,13 @@ export interface RunConfigurationUpdate {
    * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
    * @public
    */
-  FlinkRunConfiguration?: FlinkRunConfiguration;
+  FlinkRunConfiguration?: FlinkRunConfiguration | undefined;
 
   /**
    * <p>Describes updates to the restore behavior of a restarting application.</p>
    * @public
    */
-  ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration;
+  ApplicationRestoreConfiguration?: ApplicationRestoreConfiguration | undefined;
 }
 
 /**
@@ -4797,25 +5122,25 @@ export interface UpdateApplicationRequest {
    *         <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  CurrentApplicationVersionId?: number;
+  CurrentApplicationVersionId?: number | undefined;
 
   /**
    * <p>Describes application configuration updates.</p>
    * @public
    */
-  ApplicationConfigurationUpdate?: ApplicationConfigurationUpdate;
+  ApplicationConfigurationUpdate?: ApplicationConfigurationUpdate | undefined;
 
   /**
    * <p>Describes updates to the service execution role.</p>
    * @public
    */
-  ServiceExecutionRoleUpdate?: string;
+  ServiceExecutionRoleUpdate?: string | undefined;
 
   /**
    * <p>Describes updates to the application's starting parameters.</p>
    * @public
    */
-  RunConfigurationUpdate?: RunConfigurationUpdate;
+  RunConfigurationUpdate?: RunConfigurationUpdate | undefined;
 
   /**
    * <p>Describes application Amazon CloudWatch logging option updates. You can only update
@@ -4823,7 +5148,7 @@ export interface UpdateApplicationRequest {
    *       use <a>AddApplicationCloudWatchLoggingOption</a>.</p>
    * @public
    */
-  CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[];
+  CloudWatchLoggingOptionUpdates?: CloudWatchLoggingOptionUpdate[] | undefined;
 
   /**
    * <p>A value you use to implement strong concurrency for application updates. You must
@@ -4833,11 +5158,11 @@ export interface UpdateApplicationRequest {
    *       <code>CurrentApplicationVersionId</code>.</p>
    * @public
    */
-  ConditionalToken?: string;
+  ConditionalToken?: string | undefined;
 
   /**
    * <p>Updates the Managed Service for Apache Flink runtime environment used to run your code. To avoid issues you must:</p>
-   *         <ul>
+   *          <ul>
    *             <li>
    *                <p>Ensure your new jar and dependencies are compatible with the new runtime selected.</p>
    *             </li>
@@ -4847,7 +5172,7 @@ export interface UpdateApplicationRequest {
    *          </ul>
    * @public
    */
-  RuntimeEnvironmentUpdate?: RuntimeEnvironment;
+  RuntimeEnvironmentUpdate?: RuntimeEnvironment | undefined;
 }
 
 /**
@@ -4859,6 +5184,12 @@ export interface UpdateApplicationResponse {
    * @public
    */
   ApplicationDetail: ApplicationDetail | undefined;
+
+  /**
+   * Operation ID for tracking UpdateApplication request
+   * @public
+   */
+  OperationId?: string | undefined;
 }
 
 /**
@@ -4886,11 +5217,11 @@ export interface UpdateApplicationMaintenanceConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the application.</p>
    * @public
    */
-  ApplicationARN?: string;
+  ApplicationARN?: string | undefined;
 
   /**
    * <p>The application maintenance configuration description after the update.</p>
    * @public
    */
-  ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription;
+  ApplicationMaintenanceConfigurationDescription?: ApplicationMaintenanceConfigurationDescription | undefined;
 }

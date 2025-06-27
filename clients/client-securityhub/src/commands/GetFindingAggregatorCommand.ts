@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,11 @@ export interface GetFindingAggregatorCommandInput extends GetFindingAggregatorRe
 export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the current finding aggregation configuration.</p>
+ * <note>
+ *             <p>The <i>aggregation Region</i> is now called the <i>home Region</i>.</p>
+ *          </note>
+ *          <p>Returns the current configuration in the calling account for cross-Region aggregation. A finding aggregator is a resource that establishes
+ * the home Region and any linked Regions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,29 +84,29 @@ export interface GetFindingAggregatorCommandOutput extends GetFindingAggregatorR
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get cross-Region aggregation details
  * ```javascript
  * // The following example returns cross-Region aggregation details for the requesting account.
  * const input = {
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * };
  * const command = new GetFindingAggregatorCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "FindingAggregationRegion": "us-east-1",
- *   "FindingAggregatorArn": "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *   "RegionLinkingMode": "SPECIFIED_REGIONS",
- *   "Regions": [
+ *   FindingAggregationRegion: "us-east-1",
+ *   FindingAggregatorArn: "arn:aws:securityhub:us-east-1:123456789012:finding-aggregator/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *   RegionLinkingMode: "SPECIFIED_REGIONS",
+ *   Regions: [
  *     "us-west-1",
  *     "us-west-2"
  *   ]
  * }
  * *\/
- * // example id: to-get-cross-region-aggregation-details-1677091474868
  * ```
  *
+ * @public
  */
 export class GetFindingAggregatorCommand extends $Command
   .classBuilder<
@@ -111,9 +116,7 @@ export class GetFindingAggregatorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +128,16 @@ export class GetFindingAggregatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFindingAggregatorCommand)
   .de(de_GetFindingAggregatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFindingAggregatorRequest;
+      output: GetFindingAggregatorResponse;
+    };
+    sdk: {
+      input: GetFindingAggregatorCommandInput;
+      output: GetFindingAggregatorCommandOutput;
+    };
+  };
+}

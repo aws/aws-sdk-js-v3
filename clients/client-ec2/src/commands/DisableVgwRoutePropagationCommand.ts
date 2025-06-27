@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableVgwRoutePropagationRequest } from "../models/models_5";
+import { DisableVgwRoutePropagationRequest } from "../models/models_6";
 import { de_DisableVgwRoutePropagationCommand, se_DisableVgwRoutePropagationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,19 +56,22 @@ export interface DisableVgwRoutePropagationCommandOutput extends __MetadataBeare
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To disable route propagation
  * ```javascript
  * // This example disables the specified virtual private gateway from propagating static routes to the specified route table.
  * const input = {
- *   "GatewayId": "vgw-9a4cacf3",
- *   "RouteTableId": "rtb-22574640"
+ *   GatewayId: "vgw-9a4cacf3",
+ *   RouteTableId: "rtb-22574640"
  * };
  * const command = new DisableVgwRoutePropagationCommand(input);
- * await client.send(command);
- * // example id: ec2-disable-vgw-route-propagation-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DisableVgwRoutePropagationCommand extends $Command
   .classBuilder<
@@ -77,9 +81,7 @@ export class DisableVgwRoutePropagationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +93,16 @@ export class DisableVgwRoutePropagationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableVgwRoutePropagationCommand)
   .de(de_DisableVgwRoutePropagationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableVgwRoutePropagationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableVgwRoutePropagationCommandInput;
+      output: DisableVgwRoutePropagationCommandOutput;
+    };
+  };
+}

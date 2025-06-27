@@ -4,5 +4,6 @@ export * from "./waitForJobCreateComplete";
 export * from "./waitForLicenseEndpointDeleted";
 export * from "./waitForLicenseEndpointValid";
 export * from "./waitForQueueFleetAssociationStopped";
+export * from "./waitForQueueLimitAssociationStopped";
 export * from "./waitForQueueScheduling";
 export * from "./waitForQueueSchedulingBlocked";

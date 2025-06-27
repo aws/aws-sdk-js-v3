@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListUsersRequest, ListUsersResponse } from "../models/models_0";
+import { ListUsersRequest, ListUsersResponse } from "../models/models_1";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_json1_1";
 import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RekognitionClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,33 +90,33 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example ListUsers
  * ```javascript
  * // Returns metadata of the User such as UserID in the specified collection.
  * const input = {
- *   "CollectionId": "MyCollection"
+ *   CollectionId: "MyCollection"
  * };
  * const command = new ListUsersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "NextToken": "MGYZLAHX1T5a....",
- *   "Users": [
+ *   NextToken: "MGYZLAHX1T5a....",
+ *   Users: [
  *     {
- *       "UserId": "demoUser4",
- *       "UserStatus": "CREATED"
+ *       UserId: "demoUser4",
+ *       UserStatus: "CREATED"
  *     },
  *     {
- *       "UserId": "demoUser2",
- *       "UserStatus": "CREATED"
+ *       UserId: "demoUser2",
+ *       UserStatus: "CREATED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listusers-1686182360075
  * ```
  *
+ * @public
  */
 export class ListUsersCommand extends $Command
   .classBuilder<
@@ -125,9 +126,7 @@ export class ListUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class ListUsersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUsersCommand)
   .de(de_ListUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersRequest;
+      output: ListUsersResponse;
+    };
+    sdk: {
+      input: ListUsersCommandInput;
+      output: ListUsersCommandOutput;
+    };
+  };
+}

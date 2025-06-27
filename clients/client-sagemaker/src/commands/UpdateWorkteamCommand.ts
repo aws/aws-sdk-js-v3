@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_4";
+import { UpdateWorkteamRequest, UpdateWorkteamResponse } from "../models/models_5";
 import { de_UpdateWorkteamCommand, se_UpdateWorkteamCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,11 +115,11 @@ export interface UpdateWorkteamCommandOutput extends UpdateWorkteamResponse, __M
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -130,9 +131,7 @@ export class UpdateWorkteamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class UpdateWorkteamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkteamCommand)
   .de(de_UpdateWorkteamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkteamRequest;
+      output: UpdateWorkteamResponse;
+    };
+    sdk: {
+      input: UpdateWorkteamCommandInput;
+      output: UpdateWorkteamCommandOutput;
+    };
+  };
+}

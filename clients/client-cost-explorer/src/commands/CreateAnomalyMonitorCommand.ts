@@ -12,7 +12,8 @@ import { de_CreateAnomalyMonitorCommand, se_CreateAnomalyMonitorCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -140,6 +141,7 @@ export interface CreateAnomalyMonitorCommandOutput extends CreateAnomalyMonitorR
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class CreateAnomalyMonitorCommand extends $Command
@@ -150,9 +152,7 @@ export class CreateAnomalyMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +164,16 @@ export class CreateAnomalyMonitorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAnomalyMonitorCommand)
   .de(de_CreateAnomalyMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAnomalyMonitorRequest;
+      output: CreateAnomalyMonitorResponse;
+    };
+    sdk: {
+      input: CreateAnomalyMonitorCommandInput;
+      output: CreateAnomalyMonitorCommandOutput;
+    };
+  };
+}

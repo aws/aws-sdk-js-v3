@@ -15,7 +15,8 @@ import { RUMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -162,6 +163,7 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  * @throws {@link RUMServiceException}
  * <p>Base exception class for all service exceptions from RUM service.</p>
  *
+ *
  * @public
  */
 export class BatchCreateRumMetricDefinitionsCommand extends $Command
@@ -172,9 +174,7 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RUMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +186,16 @@ export class BatchCreateRumMetricDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCreateRumMetricDefinitionsCommand)
   .de(de_BatchCreateRumMetricDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateRumMetricDefinitionsRequest;
+      output: BatchCreateRumMetricDefinitionsResponse;
+    };
+    sdk: {
+      input: BatchCreateRumMetricDefinitionsCommandInput;
+      output: BatchCreateRumMetricDefinitionsCommandOutput;
+    };
+  };
+}

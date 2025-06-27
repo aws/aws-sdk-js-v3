@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,19 +65,22 @@ export interface UpdateConfigurationSetReputationMetricsEnabledCommandOutput ext
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example UpdateConfigurationSetReputationMetricsEnabled
  * ```javascript
  * // Set the reputationMetricsEnabled flag for a specific configuration set.
  * const input = {
- *   "ConfigurationSetName": "foo",
- *   "Enabled": true
+ *   ConfigurationSetName: "foo",
+ *   Enabled: true
  * };
  * const command = new UpdateConfigurationSetReputationMetricsEnabledCommand(input);
- * await client.send(command);
- * // example id: updateconfigurationsetreputationmetricsenabled-2362747741333
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Command
   .classBuilder<
@@ -86,9 +90,7 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +102,16 @@ export class UpdateConfigurationSetReputationMetricsEnabledCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_UpdateConfigurationSetReputationMetricsEnabledCommand)
   .de(de_UpdateConfigurationSetReputationMetricsEnabledCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigurationSetReputationMetricsEnabledRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateConfigurationSetReputationMetricsEnabledCommandInput;
+      output: UpdateConfigurationSetReputationMetricsEnabledCommandOutput;
+    };
+  };
+}

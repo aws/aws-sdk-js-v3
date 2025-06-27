@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,8 +53,9 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       StandardsStatus: "PENDING" || "READY" || "FAILED" || "DELETING" || "INCOMPLETE", // required
+ * //       StandardsControlsUpdatable: "READY_FOR_UPDATES" || "NOT_READY_FOR_UPDATES",
  * //       StandardsStatusReason: { // StandardsStatusReason
- * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "INTERNAL_ERROR", // required
+ * //         StatusReasonCode: "NO_AVAILABLE_CONFIGURATION_RECORDER" || "MAXIMUM_NUMBER_OF_CONFIG_RULES_EXCEEDED" || "INTERNAL_ERROR", // required
  * //       },
  * //     },
  * //   ],
@@ -85,32 +87,32 @@ export interface GetEnabledStandardsCommandOutput extends GetEnabledStandardsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To return a list of enabled standards
  * ```javascript
  * // The following example returns a list of Security Hub standards that are currently enabled in your account.
  * const input = {
- *   "StandardsSubscriptionArns": [
+ *   StandardsSubscriptionArns: [
  *     "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
  *   ]
  * };
  * const command = new GetEnabledStandardsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "StandardsSubscriptions": [
+ *   StandardsSubscriptions: [
  *     {
- *       "StandardsArn": "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
- *       "StandardsInput": {},
- *       "StandardsStatus": "READY",
- *       "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
+ *       StandardsArn: "arn:aws:securityhub:us-west-1::standards/pci-dss/v/3.2.1",
+ *       StandardsInput:       { /* empty *\/ },
+ *       StandardsStatus: "READY",
+ *       StandardsSubscriptionArn: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-return-a-list-of-enabled-standards-1677090731129
  * ```
  *
+ * @public
  */
 export class GetEnabledStandardsCommand extends $Command
   .classBuilder<
@@ -120,9 +122,7 @@ export class GetEnabledStandardsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class GetEnabledStandardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetEnabledStandardsCommand)
   .de(de_GetEnabledStandardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnabledStandardsRequest;
+      output: GetEnabledStandardsResponse;
+    };
+    sdk: {
+      input: GetEnabledStandardsCommandInput;
+      output: GetEnabledStandardsCommandOutput;
+    };
+  };
+}

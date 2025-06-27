@@ -12,7 +12,8 @@ import { de_MergeBranchesByFastForwardCommand, se_MergeBranchesByFastForwardComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -122,6 +123,7 @@ export interface MergeBranchesByFastForwardCommandOutput extends MergeBranchesBy
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class MergeBranchesByFastForwardCommand extends $Command
@@ -132,9 +134,7 @@ export class MergeBranchesByFastForwardCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +146,16 @@ export class MergeBranchesByFastForwardCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MergeBranchesByFastForwardCommand)
   .de(de_MergeBranchesByFastForwardCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MergeBranchesByFastForwardInput;
+      output: MergeBranchesByFastForwardOutput;
+    };
+    sdk: {
+      input: MergeBranchesByFastForwardCommandInput;
+      output: MergeBranchesByFastForwardCommandOutput;
+    };
+  };
+}

@@ -13,7 +13,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeReplicationTaskAssessmentRunsMessage,
   DescribeReplicationTaskAssessmentRunsResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_DescribeReplicationTaskAssessmentRunsCommand,
   se_DescribeReplicationTaskAssessmentRunsCommand,
@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,15 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * //       ResultEncryptionMode: "STRING_VALUE",
  * //       ResultKmsKeyArn: "STRING_VALUE",
  * //       AssessmentRunName: "STRING_VALUE",
+ * //       IsLatestTaskAssessmentRun: true || false,
+ * //       ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //         Passed: Number("int"),
+ * //         Failed: Number("int"),
+ * //         Error: Number("int"),
+ * //         Warning: Number("int"),
+ * //         Cancelled: Number("int"),
+ * //         Skipped: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -106,6 +116,7 @@ export interface DescribeReplicationTaskAssessmentRunsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationTaskAssessmentRunsCommand extends $Command
@@ -116,9 +127,7 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +139,16 @@ export class DescribeReplicationTaskAssessmentRunsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationTaskAssessmentRunsCommand)
   .de(de_DescribeReplicationTaskAssessmentRunsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTaskAssessmentRunsMessage;
+      output: DescribeReplicationTaskAssessmentRunsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTaskAssessmentRunsCommandInput;
+      output: DescribeReplicationTaskAssessmentRunsCommandOutput;
+    };
+  };
+}

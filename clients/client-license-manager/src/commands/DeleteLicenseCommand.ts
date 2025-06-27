@@ -12,7 +12,8 @@ import { de_DeleteLicenseCommand, se_DeleteLicenseCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface DeleteLicenseCommandOutput extends DeleteLicenseResponse, __Met
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteLicenseCommand extends $Command
@@ -91,9 +93,7 @@ export class DeleteLicenseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DeleteLicenseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLicenseCommand)
   .de(de_DeleteLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLicenseRequest;
+      output: DeleteLicenseResponse;
+    };
+    sdk: {
+      input: DeleteLicenseCommandInput;
+      output: DeleteLicenseCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListEvaluationJobsCommand, se_ListEvaluationJobsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListEvaluationJobsCommandInput extends ListEvaluationJobsReques
 export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists model evaluation jobs.</p>
+ * <p>Lists all existing evaluation jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,7 +38,8 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  * const input = { // ListEvaluationJobsRequest
  *   creationTimeAfter: new Date("TIMESTAMP"),
  *   creationTimeBefore: new Date("TIMESTAMP"),
- *   statusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped",
+ *   statusEquals: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting",
+ *   applicationTypeEquals: "ModelEvaluation" || "RagEvaluation",
  *   nameContains: "STRING_VALUE",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -52,15 +54,43 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  * //     { // EvaluationSummary
  * //       jobArn: "STRING_VALUE", // required
  * //       jobName: "STRING_VALUE", // required
- * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped", // required
+ * //       status: "InProgress" || "Completed" || "Failed" || "Stopping" || "Stopped" || "Deleting", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
  * //       jobType: "Human" || "Automated", // required
  * //       evaluationTaskTypes: [ // EvaluationTaskTypes // required
  * //         "Summarization" || "Classification" || "QuestionAndAnswer" || "Generation" || "Custom",
  * //       ],
- * //       modelIdentifiers: [ // EvaluationModelIdentifiers // required
+ * //       modelIdentifiers: [ // EvaluationBedrockModelIdentifiers
  * //         "STRING_VALUE",
  * //       ],
+ * //       ragIdentifiers: [ // EvaluationBedrockKnowledgeBaseIdentifiers
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       evaluatorModelIdentifiers: [ // EvaluatorModelIdentifiers
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       customMetricsEvaluatorModelIdentifiers: [
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       inferenceConfigSummary: { // EvaluationInferenceConfigSummary
+ * //         modelConfigSummary: { // EvaluationModelConfigSummary
+ * //           bedrockModelIdentifiers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           precomputedInferenceSourceIdentifiers: [ // EvaluationPrecomputedInferenceSourceIdentifiers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         ragConfigSummary: { // EvaluationRagConfigSummary
+ * //           bedrockKnowledgeBaseIdentifiers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           precomputedRagSourceIdentifiers: [ // EvaluationPrecomputedRagSourceIdentifiers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //       applicationType: "ModelEvaluation" || "RagEvaluation",
  * //     },
  * //   ],
  * // };
@@ -88,6 +118,7 @@ export interface ListEvaluationJobsCommandOutput extends ListEvaluationJobsRespo
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class ListEvaluationJobsCommand extends $Command
@@ -98,9 +129,7 @@ export class ListEvaluationJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +141,16 @@ export class ListEvaluationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEvaluationJobsCommand)
   .de(de_ListEvaluationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEvaluationJobsRequest;
+      output: ListEvaluationJobsResponse;
+    };
+    sdk: {
+      input: ListEvaluationJobsCommandInput;
+      output: ListEvaluationJobsCommandOutput;
+    };
+  };
+}

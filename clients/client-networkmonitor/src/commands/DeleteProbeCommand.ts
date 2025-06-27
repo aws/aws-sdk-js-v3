@@ -12,7 +12,8 @@ import { de_DeleteProbeCommand, se_DeleteProbeCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface DeleteProbeCommandOutput extends DeleteProbeOutput, __MetadataB
  * @throws {@link NetworkMonitorServiceException}
  * <p>Base exception class for all service exceptions from NetworkMonitor service.</p>
  *
+ *
  * @public
  */
 export class DeleteProbeCommand extends $Command
@@ -86,9 +88,7 @@ export class DeleteProbeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class DeleteProbeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProbeCommand)
   .de(de_DeleteProbeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProbeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProbeCommandInput;
+      output: DeleteProbeCommandOutput;
+    };
+  };
+}

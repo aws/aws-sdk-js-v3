@@ -12,7 +12,8 @@ import { de_CreateAliasCommand, se_CreateAliasCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  *             a fleet ID. An alias provides a level of abstraction for a fleet that is useful when
  *             redirecting player traffic from one fleet to another, such as when updating your game
  *             build. </p>
- *          <p>Amazon GameLift supports two types of routing strategies for aliases: simple and terminal. A
+ *          <p>Amazon GameLift Servers supports two types of routing strategies for aliases: simple and terminal. A
  *             simple alias points to an active fleet. A terminal alias is used to display messaging or
  *             link to a URL instead of routing players to an active fleet. For example, you might use
  *             a terminal alias when a game version is no longer supported and you want to direct
@@ -123,6 +124,7 @@ export interface CreateAliasCommandOutput extends CreateAliasOutput, __MetadataB
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class CreateAliasCommand extends $Command
@@ -133,9 +135,7 @@ export class CreateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class CreateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAliasCommand)
   .de(de_CreateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAliasInput;
+      output: CreateAliasOutput;
+    };
+    sdk: {
+      input: CreateAliasCommandInput;
+      output: CreateAliasCommandOutput;
+    };
+  };
+}

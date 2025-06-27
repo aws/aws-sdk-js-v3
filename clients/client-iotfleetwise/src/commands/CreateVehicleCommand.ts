@@ -12,7 +12,8 @@ import { de_CreateVehicleCommand, se_CreateVehicleCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,20 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  *     { // Tag
  *       Key: "STRING_VALUE", // required
  *       Value: "STRING_VALUE", // required
+ *     },
+ *   ],
+ *   stateTemplates: [ // StateTemplateAssociations
+ *     { // StateTemplateAssociation
+ *       identifier: "STRING_VALUE", // required
+ *       stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *         periodic: { // PeriodicStateTemplateUpdateStrategy
+ *           stateTemplateUpdateRate: { // TimePeriod
+ *             unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *             value: Number("int"), // required
+ *           },
+ *         },
+ *         onChange: {},
+ *       },
  *     },
  *   ],
  * };
@@ -98,6 +113,7 @@ export interface CreateVehicleCommandOutput extends CreateVehicleResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class CreateVehicleCommand extends $Command
@@ -108,9 +124,7 @@ export class CreateVehicleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +136,16 @@ export class CreateVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVehicleCommand)
   .de(de_CreateVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVehicleRequest;
+      output: CreateVehicleResponse;
+    };
+    sdk: {
+      input: CreateVehicleCommandInput;
+      output: CreateVehicleCommandOutput;
+    };
+  };
+}

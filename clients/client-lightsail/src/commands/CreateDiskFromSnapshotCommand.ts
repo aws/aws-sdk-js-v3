@@ -12,7 +12,8 @@ import { de_CreateDiskFromSnapshotCommand, se_CreateDiskFromSnapshotCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  *         (<code>us-east-2a</code>).</p>
  *          <p>The <code>create disk from snapshot</code> operation supports tag-based access control via
  *       request tags and resource tags applied to the resource identified by <code>disk snapshot
- *         name</code>. For more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *         name</code>. For more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,6 +132,7 @@ export interface CreateDiskFromSnapshotCommandOutput extends CreateDiskFromSnaps
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CreateDiskFromSnapshotCommand extends $Command
@@ -141,9 +143,7 @@ export class CreateDiskFromSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class CreateDiskFromSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDiskFromSnapshotCommand)
   .de(de_CreateDiskFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDiskFromSnapshotRequest;
+      output: CreateDiskFromSnapshotResult;
+    };
+    sdk: {
+      input: CreateDiskFromSnapshotCommandInput;
+      output: CreateDiskFromSnapshotCommandOutput;
+    };
+  };
+}

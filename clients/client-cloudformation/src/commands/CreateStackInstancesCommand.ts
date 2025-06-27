@@ -12,7 +12,8 @@ import { de_CreateStackInstancesCommand, se_CreateStackInstancesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,10 @@ export interface CreateStackInstancesCommandInput extends CreateStackInstancesIn
 export interface CreateStackInstancesCommandOutput extends CreateStackInstancesOutput, __MetadataBearer {}
 
 /**
- * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A stack
- *    instance refers to a stack in a specific account and Region. You must specify at least one value for either
- *     <code>Accounts</code> or <code>DeploymentTargets</code>, and you must specify at least one value for
- *     <code>Regions</code>.</p>
+ * <p>Creates stack instances for the specified accounts, within the specified Amazon Web Services Regions. A
+ *       stack instance refers to a stack in a specific account and Region. You must specify at least
+ *       one value for either <code>Accounts</code> or <code>DeploymentTargets</code>, and you must
+ *       specify at least one value for <code>Regions</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -115,6 +116,7 @@ export interface CreateStackInstancesCommandOutput extends CreateStackInstancesO
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class CreateStackInstancesCommand extends $Command
@@ -125,9 +127,7 @@ export class CreateStackInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +139,16 @@ export class CreateStackInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStackInstancesCommand)
   .de(de_CreateStackInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStackInstancesInput;
+      output: CreateStackInstancesOutput;
+    };
+    sdk: {
+      input: CreateStackInstancesCommandInput;
+      output: CreateStackInstancesCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_UpdatePackageCommand, se_UpdatePackageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,7 +60,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
@@ -77,6 +78,7 @@ export interface UpdatePackageCommandOutput extends UpdatePackageResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageCommand extends $Command
@@ -87,9 +89,7 @@ export class UpdatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class UpdatePackageCommand extends $Command
   .f(UpdatePackageRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePackageCommand)
   .de(de_UpdatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePackageCommandInput;
+      output: UpdatePackageCommandOutput;
+    };
+  };
+}

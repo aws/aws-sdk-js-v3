@@ -12,7 +12,8 @@ import { de_ListRunTasksCommand, se_ListRunTasksCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,8 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * //       status: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //       cpus: Number("int"),
+ * //       cacheHit: true || false,
+ * //       cacheS3Uri: "STRING_VALUE",
  * //       memory: Number("int"),
  * //       creationTime: new Date("TIMESTAMP"),
  * //       startTime: new Date("TIMESTAMP"),
@@ -95,6 +98,7 @@ export interface ListRunTasksCommandOutput extends ListRunTasksResponse, __Metad
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListRunTasksCommand extends $Command
@@ -105,9 +109,7 @@ export class ListRunTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +121,16 @@ export class ListRunTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRunTasksCommand)
   .de(de_ListRunTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRunTasksRequest;
+      output: ListRunTasksResponse;
+    };
+    sdk: {
+      input: ListRunTasksCommandInput;
+      output: ListRunTasksCommandOutput;
+    };
+  };
+}

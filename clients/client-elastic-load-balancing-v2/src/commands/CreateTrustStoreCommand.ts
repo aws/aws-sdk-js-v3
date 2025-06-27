@@ -16,7 +16,8 @@ import { de_CreateTrustStoreCommand, se_CreateTrustStoreCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,6 +33,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreOutput, _
 
 /**
  * <p>Creates a trust store.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/mutual-authentication.html">Mutual TLS for Application Load Balancers</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +95,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreOutput, _
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateTrustStoreCommand extends $Command
@@ -103,9 +106,7 @@ export class CreateTrustStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +118,16 @@ export class CreateTrustStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrustStoreCommand)
   .de(de_CreateTrustStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrustStoreInput;
+      output: CreateTrustStoreOutput;
+    };
+    sdk: {
+      input: CreateTrustStoreCommandInput;
+      output: CreateTrustStoreCommandOutput;
+    };
+  };
+}

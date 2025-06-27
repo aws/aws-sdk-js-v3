@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,29 +116,29 @@ export interface RegisterInstanceCommandOutput extends RegisterInstanceResponse,
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Register Instance
  * ```javascript
  * // Example: Register Instance
  * const input = {
- *   "Attributes": {
- *     "AWS_INSTANCE_IPV4": "172.2.1.3",
- *     "AWS_INSTANCE_PORT": "808"
+ *   Attributes: {
+ *     AWS_INSTANCE_IPV4: "172.2.1.3",
+ *     AWS_INSTANCE_PORT: "808"
  *   },
- *   "CreatorRequestId": "7a48a98a-72e6-4849-bfa7-1a458e030d7b",
- *   "InstanceId": "myservice-53",
- *   "ServiceId": "srv-p5zdwlg5uvvzjita"
+ *   CreatorRequestId: "7a48a98a-72e6-4849-bfa7-1a458e030d7b",
+ *   InstanceId: "myservice-53",
+ *   ServiceId: "srv-p5zdwlg5uvvzjita"
  * };
  * const command = new RegisterInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k95yg2u7"
+ *   OperationId: "4yejorelbukcjzpnr6tlmrghsjwpngf4-k95yg2u7"
  * }
  * *\/
- * // example id: example-register-instance-1587236116314
  * ```
  *
+ * @public
  */
 export class RegisterInstanceCommand extends $Command
   .classBuilder<
@@ -147,9 +148,7 @@ export class RegisterInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +160,16 @@ export class RegisterInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterInstanceCommand)
   .de(de_RegisterInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterInstanceRequest;
+      output: RegisterInstanceResponse;
+    };
+    sdk: {
+      input: RegisterInstanceCommandInput;
+      output: RegisterInstanceCommandOutput;
+    };
+  };
+}

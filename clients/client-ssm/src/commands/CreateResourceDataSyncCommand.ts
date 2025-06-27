@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,8 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  *    Amazon Web Services Systems Manager offers two types of resource data sync: <code>SyncToDestination</code> and
  *     <code>SyncFromSource</code>.</p>
  *          <p>You can configure Systems Manager Inventory to use the <code>SyncToDestination</code> type to
- *    synchronize Inventory data from multiple Amazon Web Services Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-datasync.html">Configuring resource data
- *     sync for Inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *    synchronize Inventory data from multiple Amazon Web Services Regions to a single Amazon Simple Storage Service (Amazon S3) bucket. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/inventory-create-resource-data-sync.html">Creating a
+ *     resource data sync for Inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>You can configure Systems Manager Explorer to use the <code>SyncFromSource</code> type to synchronize
  *    operational work items (OpsItems) and operational data (OpsData) from multiple Amazon Web Services Regions to a
  *    single Amazon S3 bucket. This type can synchronize OpsItems and OpsData from multiple
@@ -111,6 +112,7 @@ export interface CreateResourceDataSyncCommandOutput extends CreateResourceDataS
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateResourceDataSyncCommand extends $Command
@@ -121,9 +123,7 @@ export class CreateResourceDataSyncCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +135,16 @@ export class CreateResourceDataSyncCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateResourceDataSyncCommand)
   .de(de_CreateResourceDataSyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResourceDataSyncRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateResourceDataSyncCommandInput;
+      output: CreateResourceDataSyncCommandOutput;
+    };
+  };
+}

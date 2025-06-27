@@ -204,6 +204,7 @@ export const de_CreateTokenWithIAMCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     accessToken: __expectString,
+    awsAdditionalDetails: _json,
     expiresIn: __expectInt32,
     idToken: __expectString,
     issuedTokenType: __expectString,
@@ -629,6 +630,8 @@ const de_UnsupportedGrantTypeExceptionRes = async (
 
 // se_Scopes omitted.
 
+// de_AwsAdditionalDetails omitted.
+
 // de_Scopes omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
@@ -642,12 +645,5 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _ai = "aws_iam";

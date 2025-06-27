@@ -6,14 +6,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ChatInput, ChatInputFilterSensitiveLog, ChatOutput, ChatOutputFilterSensitiveLog } from "../models/models_0";
+import { ChatOutput, ChatOutputFilterSensitiveLog } from "../models/models_0";
+import { ChatInput, ChatInputFilterSensitiveLog } from "../models/models_1";
 import { de_ChatCommand, se_ChatCommand } from "../protocols/Aws_restJson1";
 import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QBusinessClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -139,8 +141,14 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  *     },
  *     attachmentEvent: { // AttachmentInputEvent
  *       attachment: { // AttachmentInput
- *         name: "STRING_VALUE", // required
- *         data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")         // required
+ *         data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *         name: "STRING_VALUE",
+ *         copyFrom: { // CopyFromSource Union: only one key present
+ *           conversation: { // ConversationSource
+ *             conversationId: "STRING_VALUE", // required
+ *             attachmentId: "STRING_VALUE", // required
+ *           },
+ *         },
  *       },
  *     },
  *     actionExecutionEvent: { // ActionExecutionEvent
@@ -165,6 +173,7 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * // { // ChatOutput
  * //   outputStream: { // ChatOutputStream Union: only one key present
  * //     textEvent: { // TextOutputEvent
+ * //       systemMessageType: "RESPONSE" || "GROUNDED_RESPONSE",
  * //       conversationId: "STRING_VALUE",
  * //       userMessageId: "STRING_VALUE",
  * //       systemMessageId: "STRING_VALUE",
@@ -188,6 +197,28 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //               snippetExcerpt: { // SnippetExcerpt
  * //                 text: "STRING_VALUE",
  * //               },
+ * //               mediaId: "STRING_VALUE",
+ * //               mediaMimeType: "STRING_VALUE",
+ * //               sourceDetails: { // SourceDetails Union: only one key present
+ * //                 imageSourceDetails: { // ImageSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                 },
+ * //                 audioSourceDetails: { // AudioSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                   startTimeMilliseconds: Number("long"),
+ * //                   endTimeMilliseconds: Number("long"),
+ * //                   audioExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //                 },
+ * //                 videoSourceDetails: { // VideoSourceDetails
+ * //                   mediaId: "STRING_VALUE",
+ * //                   mediaMimeType: "STRING_VALUE",
+ * //                   startTimeMilliseconds: Number("long"),
+ * //                   endTimeMilliseconds: Number("long"),
+ * //                   videoExtractionType: "TRANSCRIPT" || "SUMMARY",
+ * //                 },
+ * //               },
  * //             },
  * //           ],
  * //         },
@@ -199,7 +230,7 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //       userMessageId: "STRING_VALUE",
  * //       systemMessageId: "STRING_VALUE",
  * //       pluginId: "STRING_VALUE",
- * //       pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM",
+ * //       pluginType: "SERVICE_NOW" || "SALESFORCE" || "JIRA" || "ZENDESK" || "CUSTOM" || "QUICKSIGHT" || "SERVICENOW_NOW_PLATFORM" || "JIRA_CLOUD" || "SALESFORCE_CRM" || "ZENDESK_SUITE" || "ATLASSIAN_CONFLUENCE" || "GOOGLE_CALENDAR" || "MICROSOFT_TEAMS" || "MICROSOFT_EXCHANGE" || "PAGERDUTY_ADVANCE" || "SMARTSHEET" || "ASANA",
  * //       payload: { // ActionReviewPayload
  * //         "<keys>": { // ActionReviewPayloadField
  * //           displayName: "STRING_VALUE",
@@ -214,6 +245,7 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //             },
  * //           ],
  * //           allowedFormat: "STRING_VALUE",
+ * //           arrayItemJsonSchema: "DOCUMENT_VALUE",
  * //           required: true || false,
  * //         },
  * //       },
@@ -225,11 +257,13 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * //       systemMessageId: "STRING_VALUE",
  * //       attachment: { // AttachmentOutput
  * //         name: "STRING_VALUE",
- * //         status: "FAILED" || "SUCCEEDED",
+ * //         status: "FAILED" || "SUCCESS",
  * //         error: { // ErrorDetail
  * //           errorMessage: "STRING_VALUE",
  * //           errorCode: "InternalError" || "InvalidRequest" || "ResourceInactive" || "ResourceNotFound",
  * //         },
+ * //         attachmentId: "STRING_VALUE",
+ * //         conversationId: "STRING_VALUE",
  * //       },
  * //     },
  * //     authChallengeRequestEvent: { // AuthChallengeRequestEvent
@@ -247,35 +281,32 @@ export interface ChatCommandOutput extends ChatOutput, __MetadataBearer {}
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required
- *             permission policies and user accounts and try again.</p>
+ *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *  <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
+ *
+ * @throws {@link ExternalResourceException} (client fault)
+ *  <p>An external resource that you configured with your application is returning errors and preventing this operation from succeeding. Fix those errors and try again. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
- *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link LicenseNotFoundException} (client fault)
- *  <p>You don't have permissions to perform the action because your license is inactive. Ask
- *             your admin to activate your license and try again after your licence is active.</p>
+ *  <p>You don't have permissions to perform the action because your license is inactive. Ask your admin to activate your license and try again after your licence is active.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try
- *             again.</p>
+ *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
- *             correct input and try again.</p>
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
+ *
  *
  * @public
  */
@@ -287,9 +318,7 @@ export class ChatCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -310,4 +339,16 @@ export class ChatCommand extends $Command
   .f(ChatInputFilterSensitiveLog, ChatOutputFilterSensitiveLog)
   .ser(se_ChatCommand)
   .de(de_ChatCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ChatInput;
+      output: ChatOutput;
+    };
+    sdk: {
+      input: ChatCommandInput;
+      output: ChatCommandOutput;
+    };
+  };
+}

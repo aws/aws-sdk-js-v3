@@ -100,6 +100,25 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                     : "The AWS region to use as signing region for AWS Auth")
                 .write("region?: string | __Provider<string>;\n");
         }
+
+        writer.writeDocs(
+                """
+                Setting a client profile is similar to setting a value for the
+                AWS_PROFILE environment variable. Setting a profile on a client
+                in code only affects the single client instance, unlike AWS_PROFILE.
+
+                When set, and only for environments where an AWS configuration
+                file exists, fields configurable by this file will be retrieved
+                from the specified profile within that file.
+                Conflicting code configuration and environment variables will
+                still have higher priority.
+
+                For client credential resolution that involves checking the AWS
+                configuration file, the client's profile (this value) will be
+                used unless a different profile is set in the credential
+                provider options.
+                """)
+                .write("profile?: string;\n");
     }
 
     @Override
@@ -146,6 +165,12 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
             writer.addImport("emitWarningIfUnsupportedVersion", "awsCheckVersion", AwsDependency.AWS_SDK_CORE);
             writer.write("awsCheckVersion(process.version);");
         }
+        if (target.equals(LanguageTarget.NODE)) {
+            writer.openBlock("const loaderConfig = {", "};", () -> {
+                writer.write("profile: config?.profile,");
+                writer.write("logger: clientSharedValues.logger,");
+            });
+        }
     }
 
     private Map<String, Consumer<TypeScriptWriter>> getDefaultConfig(
@@ -163,7 +188,8 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         writer.write("invalidProvider(\"Region is missing\")");
                     });
                 case NODE:
-                    return MapUtils.of("region", writer -> {
+                    Map<String, Consumer<TypeScriptWriter>> nodeConfig = new HashMap<>();
+                    nodeConfig.put("region", writer -> {
                         writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
                         writer.addImport("loadConfig", "loadNodeConfig",
                             TypeScriptDependency.NODE_CONFIG_PROVIDER);
@@ -173,8 +199,24 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                         writer.addImport("NODE_REGION_CONFIG_FILE_OPTIONS", "NODE_REGION_CONFIG_FILE_OPTIONS",
                             TypeScriptDependency.CONFIG_RESOLVER);
                         writer.write(
-                            "loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS)");
+                            """
+                            loadNodeConfig(
+                                NODE_REGION_CONFIG_OPTIONS,
+                                {...NODE_REGION_CONFIG_FILE_OPTIONS, ...loaderConfig}
+                            )
+                            """
+                        );
                     });
+                    if (!settings.useLegacyAuth()) {
+                        nodeConfig.put("authSchemePreference", writer -> {
+                            writer.addImport("loadConfig", "loadNodeConfig",
+                                   TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                            writer.addImport("NODE_AUTH_SCHEME_PREFERENCE_OPTIONS", null,
+                                    AwsDependency.AWS_SDK_CORE);
+                            writer.write("loadNodeConfig(NODE_AUTH_SCHEME_PREFERENCE_OPTIONS, loaderConfig)");
+                          });
+                    }
+                    return nodeConfig;
                 default:
                     return Collections.emptyMap();
             }
@@ -216,7 +258,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
                                     "NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS)");
+                            writer.write("loadNodeConfig(NODE_USE_DUALSTACK_ENDPOINT_CONFIG_OPTIONS, loaderConfig)");
                         },
                         "useFipsEndpoint", writer -> {
                             writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
@@ -226,7 +268,7 @@ public final class AddAwsRuntimeConfig implements TypeScriptIntegration {
                             writer.addImport("NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
                                     "NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS",
                                     TypeScriptDependency.CONFIG_RESOLVER);
-                            writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS)");
+                            writer.write("loadNodeConfig(NODE_USE_FIPS_ENDPOINT_CONFIG_OPTIONS, loaderConfig)");
                         }
                 );
             default:

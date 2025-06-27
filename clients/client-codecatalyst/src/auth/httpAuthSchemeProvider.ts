@@ -8,10 +8,11 @@ import {
   HttpAuthSchemeParameters,
   HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
+  Provider,
   TokenIdentity,
   TokenIdentityProvider,
 } from "@smithy/types";
-import { getSmithyContext } from "@smithy/util-middleware";
+import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
 import { CodeCatalystClientResolvedConfig } from "../CodeCatalystClient";
 
@@ -90,13 +91,21 @@ export const defaultCodeCatalystHttpAuthSchemeProvider: CodeCatalystHttpAuthSche
  */
 export interface HttpAuthSchemeInputConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
+   */
+  authSchemePreference?: string[] | Provider<string[]>;
+
+  /**
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   httpAuthSchemes?: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   httpAuthSchemeProvider?: CodeCatalystHttpAuthSchemeProvider;
@@ -112,13 +121,21 @@ export interface HttpAuthSchemeInputConfig {
  */
 export interface HttpAuthSchemeResolvedConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
+   */
+  readonly authSchemePreference: Provider<string[]>;
+
+  /**
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   readonly httpAuthSchemes: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   readonly httpAuthSchemeProvider: CodeCatalystHttpAuthSchemeProvider;
@@ -136,8 +153,8 @@ export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig
 ): T & HttpAuthSchemeResolvedConfig => {
   const token = memoizeIdentityProvider(config.token, isIdentityExpired, doesIdentityRequireRefresh);
-  return {
-    ...config,
+  return Object.assign(config, {
+    authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
     token,
-  } as T & HttpAuthSchemeResolvedConfig;
+  }) as T & HttpAuthSchemeResolvedConfig;
 };

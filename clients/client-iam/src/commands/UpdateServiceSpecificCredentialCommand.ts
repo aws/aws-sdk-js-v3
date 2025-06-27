@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface UpdateServiceSpecificCredentialCommandOutput extends __Metadata
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class UpdateServiceSpecificCredentialCommand extends $Command
@@ -74,9 +76,7 @@ export class UpdateServiceSpecificCredentialCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class UpdateServiceSpecificCredentialCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateServiceSpecificCredentialCommand)
   .de(de_UpdateServiceSpecificCredentialCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateServiceSpecificCredentialRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateServiceSpecificCredentialCommandInput;
+      output: UpdateServiceSpecificCredentialCommandOutput;
+    };
+  };
+}

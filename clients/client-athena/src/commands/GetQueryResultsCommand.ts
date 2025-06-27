@@ -12,7 +12,8 @@ import { de_GetQueryResultsCommand, se_GetQueryResultsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,6 +54,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  *   QueryExecutionId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   QueryResultType: "DATA_MANIFEST" || "DATA_ROWS",
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
@@ -110,6 +112,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsOutput, __M
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetQueryResultsCommand extends $Command
@@ -120,9 +123,7 @@ export class GetQueryResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +135,16 @@ export class GetQueryResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryResultsCommand)
   .de(de_GetQueryResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryResultsInput;
+      output: GetQueryResultsOutput;
+    };
+    sdk: {
+      input: GetQueryResultsCommandInput;
+      output: GetQueryResultsCommandOutput;
+    };
+  };
+}

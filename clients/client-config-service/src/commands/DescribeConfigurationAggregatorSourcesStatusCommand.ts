@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface DescribeConfigurationAggregatorSourcesStatusCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeConfigurationAggregatorSourcesStatusCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationAggregatorSourcesStatusCommand)
   .de(de_DescribeConfigurationAggregatorSourcesStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationAggregatorSourcesStatusRequest;
+      output: DescribeConfigurationAggregatorSourcesStatusResponse;
+    };
+    sdk: {
+      input: DescribeConfigurationAggregatorSourcesStatusCommandInput;
+      output: DescribeConfigurationAggregatorSourcesStatusCommandOutput;
+    };
+  };
+}

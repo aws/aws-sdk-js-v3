@@ -12,7 +12,8 @@ import { de_ListAnomalousLogGroupsCommand, se_ListAnomalousLogGroupsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface ListAnomalousLogGroupsCommandOutput extends ListAnomalousLogGro
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class ListAnomalousLogGroupsCommand extends $Command
@@ -111,9 +113,7 @@ export class ListAnomalousLogGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class ListAnomalousLogGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomalousLogGroupsCommand)
   .de(de_ListAnomalousLogGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomalousLogGroupsRequest;
+      output: ListAnomalousLogGroupsResponse;
+    };
+    sdk: {
+      input: ListAnomalousLogGroupsCommandInput;
+      output: ListAnomalousLogGroupsCommandOutput;
+    };
+  };
+}

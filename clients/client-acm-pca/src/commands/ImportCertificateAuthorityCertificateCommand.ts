@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,64 +102,62 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * 			certificate or chain.</p>
  *          <ul>
  *             <li>
- *                <p>Basic constraints (<i>must</i> be marked critical)</p>
- *             </li>
- *             <li>
- *                <p>Subject alternative names</p>
- *             </li>
- *             <li>
- *                <p>Key usage</p>
- *             </li>
- *             <li>
- *                <p>Extended key usage</p>
- *             </li>
- *             <li>
  *                <p>Authority key identifier</p>
  *             </li>
  *             <li>
- *                <p>Subject key identifier</p>
- *             </li>
- *             <li>
- *                <p>Issuer alternative name</p>
- *             </li>
- *             <li>
- *                <p>Subject directory attributes</p>
- *             </li>
- *             <li>
- *                <p>Subject information access</p>
+ *                <p>Basic constraints (<i>must</i> be marked critical)</p>
  *             </li>
  *             <li>
  *                <p>Certificate policies</p>
  *             </li>
  *             <li>
- *                <p>Policy mappings</p>
+ *                <p>Extended key usage</p>
  *             </li>
  *             <li>
  *                <p>Inhibit anyPolicy</p>
+ *             </li>
+ *             <li>
+ *                <p>Issuer alternative name</p>
+ *             </li>
+ *             <li>
+ *                <p>Key usage</p>
+ *             </li>
+ *             <li>
+ *                <p>Name constraints</p>
+ *             </li>
+ *             <li>
+ *                <p>Policy mappings</p>
+ *             </li>
+ *             <li>
+ *                <p>Subject alternative name</p>
+ *             </li>
+ *             <li>
+ *                <p>Subject directory attributes</p>
+ *             </li>
+ *             <li>
+ *                <p>Subject key identifier</p>
+ *             </li>
+ *             <li>
+ *                <p>Subject information access</p>
  *             </li>
  *          </ul>
  *          <p>Amazon Web Services Private CA rejects the following extensions when they are marked critical in an
  * 			imported CA certificate or chain.</p>
  *          <ul>
  *             <li>
- *                <p>Name constraints</p>
- *             </li>
- *             <li>
- *                <p>Policy constraints</p>
+ *                <p>Authority information access</p>
  *             </li>
  *             <li>
  *                <p>CRL distribution points</p>
  *             </li>
  *             <li>
- *                <p>Authority information access</p>
- *             </li>
- *             <li>
  *                <p>Freshest CRL</p>
  *             </li>
  *             <li>
- *                <p>Any other extension</p>
+ *                <p>Policy constraints</p>
  *             </li>
  *          </ul>
+ *          <p>Amazon Web Services Private Certificate Authority will also reject any other extension marked as critical not contained on the preceding list of allowed extensions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -215,6 +214,7 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class ImportCertificateAuthorityCertificateCommand extends $Command
@@ -225,9 +225,7 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -239,4 +237,16 @@ export class ImportCertificateAuthorityCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportCertificateAuthorityCertificateCommand)
   .de(de_ImportCertificateAuthorityCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportCertificateAuthorityCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: ImportCertificateAuthorityCertificateCommandInput;
+      output: ImportCertificateAuthorityCertificateCommandOutput;
+    };
+  };
+}

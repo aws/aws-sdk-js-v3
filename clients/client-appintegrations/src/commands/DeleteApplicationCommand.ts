@@ -12,7 +12,8 @@ import { de_DeleteApplicationCommand, se_DeleteApplicationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface DeleteApplicationCommandInput extends DeleteApplicationRequest 
 export interface DeleteApplicationCommandOutput extends DeleteApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes the Application. Only Applications that don't have any Application Associations can be deleted.</p>
+ * <p>Deletes the Application. Only Applications that don't have any Application Associations
+ *       can be deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,18 +69,21 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
- * @public
+ *
  * @example To delete an application
  * ```javascript
  * // The following deletes an application.
  * const input = {
- *   "Arn": "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e"
+ *   Arn: "arn:aws:app-integrations:us-west-2:0123456789012:application/98542c53-e8ac-4570-9c85-c6552c8d9c5e"
  * };
  * const command = new DeleteApplicationCommand(input);
- * await client.send(command);
- * // example id: delete-an-application
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteApplicationCommand extends $Command
   .classBuilder<
@@ -88,9 +93,7 @@ export class DeleteApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +105,16 @@ export class DeleteApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteApplicationCommand)
   .de(de_DeleteApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteApplicationCommandInput;
+      output: DeleteApplicationCommandOutput;
+    };
+  };
+}

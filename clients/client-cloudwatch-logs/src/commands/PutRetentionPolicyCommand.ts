@@ -12,7 +12,8 @@ import { de_PutRetentionPolicyCommand, se_PutRetentionPolicyCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,11 +32,11 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  *       configure the number of days for which to retain log events in the specified log
  *       group.</p>
  *          <note>
- *             <p>CloudWatch Logs doesn’t immediately delete log events when they reach their retention
+ *             <p>CloudWatch Logs doesn't immediately delete log events when they reach their retention
  *         setting. It typically takes up to 72 hours after that before log events are deleted, but in
  *         rare situations might take longer.</p>
  *             <p>To illustrate, imagine that you change a log group to have a longer retention setting
- *         when it contains log events that are past the expiration date, but haven’t been deleted.
+ *         when it contains log events that are past the expiration date, but haven't been deleted.
  *         Those log events will take up to 72 hours to be deleted after the new retention date is
  *         reached. To make sure that log data is deleted permanently, keep a log group at its lower
  *         retention setting until 72 hours after the previous retention period ends. Alternatively,
@@ -83,6 +84,7 @@ export interface PutRetentionPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutRetentionPolicyCommand extends $Command
@@ -93,9 +95,7 @@ export class PutRetentionPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class PutRetentionPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRetentionPolicyCommand)
   .de(de_PutRetentionPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRetentionPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRetentionPolicyCommandInput;
+      output: PutRetentionPolicyCommandOutput;
+    };
+  };
+}

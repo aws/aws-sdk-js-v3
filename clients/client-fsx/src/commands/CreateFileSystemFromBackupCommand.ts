@@ -17,7 +17,8 @@ import { de_CreateFileSystemFromBackupCommand, se_CreateFileSystemFromBackupComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *     CopyTagsToBackups: true || false,
  *     DriveCacheType: "NONE" || "READ",
  *     DataCompressionType: "NONE" || "LZ4",
+ *     EfaEnabled: true || false,
  *     LogConfiguration: { // LustreLogCreateConfiguration
  *       Level: "DISABLED" || "WARN_ONLY" || "ERROR_ONLY" || "WARN_ERROR", // required
  *       Destination: "STRING_VALUE",
@@ -141,8 +143,17 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     MetadataConfiguration: { // CreateFileSystemLustreMetadataConfiguration
+ *       Iops: Number("int"),
+ *       Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ *     },
+ *     ThroughputCapacity: Number("int"),
+ *     DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ *       SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ *       SizeGiB: Number("int"),
+ *     },
  *   },
- *   StorageType: "SSD" || "HDD",
+ *   StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  *   KmsKeyId: "STRING_VALUE",
  *   FileSystemTypeVersion: "STRING_VALUE",
  *   OpenZFSConfiguration: { // CreateFileSystemOpenZFSConfiguration
@@ -150,7 +161,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *     CopyTagsToBackups: true || false,
  *     CopyTagsToVolumes: true || false,
  *     DailyAutomaticBackupStartTime: "STRING_VALUE",
- *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1", // required
+ *     DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1", // required
  *     ThroughputCapacity: Number("int"), // required
  *     WeeklyMaintenanceStartTime: "STRING_VALUE",
  *     DiskIopsConfiguration: {
@@ -187,6 +198,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *     RouteTableIds: [ // RouteTableIds
  *       "STRING_VALUE",
  *     ],
+ *     ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ *       SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ *       SizeGiB: Number("int"),
+ *     },
  *   },
  *   StorageCapacity: Number("int"),
  * };
@@ -203,7 +218,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //       Message: "STRING_VALUE",
  * //     },
  * //     StorageCapacity: Number("int"),
- * //     StorageType: "SSD" || "HDD",
+ * //     StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //     VpcId: "STRING_VALUE",
  * //     SubnetIds: [ // SubnetIds
  * //       "STRING_VALUE",
@@ -289,13 +304,23 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       MetadataConfiguration: { // FileSystemLustreMetadataConfiguration
+ * //         Iops: Number("int"),
+ * //         Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //       },
+ * //       EfaEnabled: true || false,
+ * //       ThroughputCapacity: Number("int"),
+ * //       DataReadCacheConfiguration: { // LustreReadCacheConfiguration
+ * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //         SizeGiB: Number("int"),
+ * //       },
  * //     },
  * //     AdministrativeActions: [ // AdministrativeActions
  * //       { // AdministrativeAction
- * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
+ * //         AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //         ProgressPercent: Number("int"),
  * //         RequestTime: new Date("TIMESTAMP"),
- * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
+ * //         Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
  * //         TargetFileSystemValues: {
  * //           OwnerId: "STRING_VALUE",
  * //           CreationTime: new Date("TIMESTAMP"),
@@ -306,7 +331,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //             Message: "STRING_VALUE",
  * //           },
  * //           StorageCapacity: Number("int"),
- * //           StorageType: "SSD" || "HDD",
+ * //           StorageType: "SSD" || "HDD" || "INTELLIGENT_TIERING",
  * //           VpcId: "STRING_VALUE",
  * //           SubnetIds: [
  * //             "STRING_VALUE",
@@ -392,13 +417,23 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //                 "STRING_VALUE",
  * //               ],
  * //             },
+ * //             MetadataConfiguration: {
+ * //               Iops: Number("int"),
+ * //               Mode: "AUTOMATIC" || "USER_PROVISIONED", // required
+ * //             },
+ * //             EfaEnabled: true || false,
+ * //             ThroughputCapacity: Number("int"),
+ * //             DataReadCacheConfiguration: {
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //           AdministrativeActions: [
  * //             {
- * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT",
+ * //               AdministrativeActionType: "FILE_SYSTEM_UPDATE" || "STORAGE_OPTIMIZATION" || "FILE_SYSTEM_ALIAS_ASSOCIATION" || "FILE_SYSTEM_ALIAS_DISASSOCIATION" || "VOLUME_UPDATE" || "SNAPSHOT_UPDATE" || "RELEASE_NFS_V3_LOCKS" || "VOLUME_RESTORE" || "THROUGHPUT_OPTIMIZATION" || "IOPS_OPTIMIZATION" || "STORAGE_TYPE_OPTIMIZATION" || "MISCONFIGURED_STATE_RECOVERY" || "VOLUME_UPDATE_WITH_SNAPSHOT" || "VOLUME_INITIALIZE_WITH_SNAPSHOT" || "DOWNLOAD_DATA_FROM_BACKUP",
  * //               ProgressPercent: Number("int"),
  * //               RequestTime: new Date("TIMESTAMP"),
- * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING",
+ * //               Status: "FAILED" || "IN_PROGRESS" || "PENDING" || "COMPLETED" || "UPDATED_OPTIMIZING" || "OPTIMIZING",
  * //               TargetFileSystemValues: "<FileSystem>",
  * //               FailureDetails: { // AdministrativeActionFailureDetails
  * //                 Message: "STRING_VALUE",
@@ -526,7 +561,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //           OntapConfiguration: { // OntapFileSystemConfiguration
  * //             AutomaticBackupRetentionDays: Number("int"),
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //             DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
  * //             EndpointIpAddressRange: "STRING_VALUE",
  * //             Endpoints: { // FileSystemEndpoints
  * //               Intercluster: { // FileSystemEndpoint
@@ -562,7 +597,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //             CopyTagsToBackups: true || false,
  * //             CopyTagsToVolumes: true || false,
  * //             DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
+ * //             DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1",
  * //             ThroughputCapacity: Number("int"),
  * //             WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //             DiskIopsConfiguration: {
@@ -576,6 +611,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //               "STRING_VALUE",
  * //             ],
  * //             EndpointIpAddress: "STRING_VALUE",
+ * //             ReadCacheConfiguration: { // OpenZFSReadCacheConfiguration
+ * //               SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //               SizeGiB: Number("int"),
+ * //             },
  * //           },
  * //         },
  * //         FailureDetails: {
@@ -701,7 +740,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //     OntapConfiguration: {
  * //       AutomaticBackupRetentionDays: Number("int"),
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2",
+ * //       DeploymentType: "MULTI_AZ_1" || "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_2",
  * //       EndpointIpAddressRange: "STRING_VALUE",
  * //       Endpoints: {
  * //         Intercluster: {
@@ -737,7 +776,7 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //       CopyTagsToBackups: true || false,
  * //       CopyTagsToVolumes: true || false,
  * //       DailyAutomaticBackupStartTime: "STRING_VALUE",
- * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "MULTI_AZ_1",
+ * //       DeploymentType: "SINGLE_AZ_1" || "SINGLE_AZ_2" || "SINGLE_AZ_HA_1" || "SINGLE_AZ_HA_2" || "MULTI_AZ_1",
  * //       ThroughputCapacity: Number("int"),
  * //       WeeklyMaintenanceStartTime: "STRING_VALUE",
  * //       DiskIopsConfiguration: "<DiskIopsConfiguration>",
@@ -748,6 +787,10 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  * //         "STRING_VALUE",
  * //       ],
  * //       EndpointIpAddress: "STRING_VALUE",
+ * //       ReadCacheConfiguration: {
+ * //         SizingMode: "NO_CACHE" || "USER_PROVISIONED" || "PROPORTIONAL_TO_THROUGHPUT_CAPACITY",
+ * //         SizeGiB: Number("int"),
+ * //       },
  * //     },
  * //   },
  * // };
@@ -788,70 +831,13 @@ export interface CreateFileSystemFromBackupCommandOutput extends CreateFileSyste
  *
  * @throws {@link ServiceLimitExceeded} (client fault)
  *  <p>An error indicating that a particular service limit was exceeded. You can increase
- *             some service limits by contacting Amazon Web Services Support.</p>
+ *             some service limits by contacting Amazon Web ServicesSupport.</p>
  *
  * @throws {@link FSxServiceException}
  * <p>Base exception class for all service exceptions from FSx service.</p>
  *
- * @public
- * @example To create a new file system from backup
- * ```javascript
- * // This operation creates a new file system from backup.
- * const input = {
- *   "BackupId": "backup-03e3c82e0183b7b6b",
- *   "ClientRequestToken": "f4c94ed7-238d-4c46-93db-48cd62ec33b7",
- *   "SecurityGroupIds": [
- *     "sg-edcd9784"
- *   ],
- *   "SubnetIds": [
- *     "subnet-1234abcd"
- *   ],
- *   "Tags": [
- *     {
- *       "Key": "Name",
- *       "Value": "MyFileSystem"
- *     }
- *   ],
- *   "WindowsConfiguration": {
- *     "ThroughputCapacity": 8
- *   }
- * };
- * const command = new CreateFileSystemFromBackupCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "FileSystem": {
- *     "CreationTime": "1481841524.0",
- *     "DNSName": "fs-0498eed5fe91001ec.fsx.com",
- *     "FileSystemId": "fs-0498eed5fe91001ec",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:012345678912:key/0ff3ea8d-130e-4133-877f-93908b6fdbd6",
- *     "Lifecycle": "CREATING",
- *     "OwnerId": "012345678912",
- *     "ResourceARN": "arn:aws:fsx:us-east-1:012345678912:file-system/fs-0498eed5fe91001ec",
- *     "StorageCapacity": 300,
- *     "SubnetIds": [
- *       "subnet-1234abcd"
- *     ],
- *     "Tags": [
- *       {
- *         "Key": "Name",
- *         "Value": "MyFileSystem"
- *       }
- *     ],
- *     "VpcId": "vpc-ab1234cd",
- *     "WindowsConfiguration": {
- *       "ActiveDirectoryId": "d-1234abcd12",
- *       "AutomaticBackupRetentionDays": 30,
- *       "DailyAutomaticBackupStartTime": "05:00",
- *       "ThroughputCapacity": 8,
- *       "WeeklyMaintenanceStartTime": "1:05:00"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-create-a-new-file-system-from-backup-1481840798598
- * ```
  *
+ * @public
  */
 export class CreateFileSystemFromBackupCommand extends $Command
   .classBuilder<
@@ -861,9 +847,7 @@ export class CreateFileSystemFromBackupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FSxClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -875,4 +859,16 @@ export class CreateFileSystemFromBackupCommand extends $Command
   .f(CreateFileSystemFromBackupRequestFilterSensitiveLog, CreateFileSystemFromBackupResponseFilterSensitiveLog)
   .ser(se_CreateFileSystemFromBackupCommand)
   .de(de_CreateFileSystemFromBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFileSystemFromBackupRequest;
+      output: CreateFileSystemFromBackupResponse;
+    };
+    sdk: {
+      input: CreateFileSystemFromBackupCommandInput;
+      output: CreateFileSystemFromBackupCommandOutput;
+    };
+  };
+}

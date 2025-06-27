@@ -16,7 +16,8 @@ import { de_GetLatestAssessmentIdCommand, se_GetLatestAssessmentIdCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface GetLatestAssessmentIdCommandOutput extends GetLatestAssessmentI
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class GetLatestAssessmentIdCommand extends $Command
@@ -79,9 +81,7 @@ export class GetLatestAssessmentIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class GetLatestAssessmentIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLatestAssessmentIdCommand)
   .de(de_GetLatestAssessmentIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetLatestAssessmentIdResponse;
+    };
+    sdk: {
+      input: GetLatestAssessmentIdCommandInput;
+      output: GetLatestAssessmentIdCommandOutput;
+    };
+  };
+}

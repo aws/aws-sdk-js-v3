@@ -12,7 +12,8 @@ import { de_GetGatewayResponsesCommand, se_GetGatewayResponsesCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface GetGatewayResponsesCommandOutput extends GatewayResponses, __Me
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetGatewayResponsesCommand extends $Command
@@ -91,9 +93,7 @@ export class GetGatewayResponsesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetGatewayResponsesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGatewayResponsesCommand)
   .de(de_GetGatewayResponsesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGatewayResponsesRequest;
+      output: GatewayResponses;
+    };
+    sdk: {
+      input: GetGatewayResponsesCommandInput;
+      output: GetGatewayResponsesCommandOutput;
+    };
+  };
+}

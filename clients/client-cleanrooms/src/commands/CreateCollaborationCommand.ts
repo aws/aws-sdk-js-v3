@@ -12,7 +12,8 @@ import { de_CreateCollaborationCommand, se_CreateCollaborationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,11 +40,27 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     { // MemberSpecification
  *       accountId: "STRING_VALUE", // required
  *       memberAbilities: [ // MemberAbilities // required
- *         "STRING_VALUE",
+ *         "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *       ],
+ *       mlMemberAbilities: { // MLMemberAbilities
+ *         customMLMemberAbilities: [ // CustomMLMemberAbilities // required
+ *           "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ *         ],
+ *       },
  *       displayName: "STRING_VALUE", // required
  *       paymentConfiguration: { // PaymentConfiguration
  *         queryCompute: { // QueryComputePaymentConfig
+ *           isResponsible: true || false, // required
+ *         },
+ *         machineLearning: { // MLPaymentConfig
+ *           modelTraining: { // ModelTrainingPaymentConfig
+ *             isResponsible: true || false, // required
+ *           },
+ *           modelInference: { // ModelInferencePaymentConfig
+ *             isResponsible: true || false, // required
+ *           },
+ *         },
+ *         jobCompute: { // JobComputePaymentConfig
  *           isResponsible: true || false, // required
  *         },
  *       },
@@ -52,8 +69,13 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE", // required
  *   creatorMemberAbilities: [ // required
- *     "STRING_VALUE",
+ *     "CAN_QUERY" || "CAN_RECEIVE_RESULTS" || "CAN_RUN_JOB",
  *   ],
+ *   creatorMLMemberAbilities: {
+ *     customMLMemberAbilities: [ // required
+ *       "CAN_RECEIVE_MODEL_OUTPUT" || "CAN_RECEIVE_INFERENCE_OUTPUT",
+ *     ],
+ *   },
  *   creatorDisplayName: "STRING_VALUE", // required
  *   dataEncryptionMetadata: { // DataEncryptionMetadata
  *     allowCleartext: true || false, // required
@@ -61,7 +83,8 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     allowJoinsOnColumnsWithDifferentNames: true || false, // required
  *     preserveNulls: true || false, // required
  *   },
- *   queryLogStatus: "STRING_VALUE", // required
+ *   queryLogStatus: "ENABLED" || "DISABLED", // required
+ *   jobLogStatus: "ENABLED" || "DISABLED",
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -69,7 +92,19 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  *     queryCompute: {
  *       isResponsible: true || false, // required
  *     },
+ *     machineLearning: {
+ *       modelTraining: {
+ *         isResponsible: true || false, // required
+ *       },
+ *       modelInference: {
+ *         isResponsible: true || false, // required
+ *       },
+ *     },
+ *     jobCompute: {
+ *       isResponsible: true || false, // required
+ *     },
  *   },
+ *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * };
  * const command = new CreateCollaborationCommand(input);
  * const response = await client.send(command);
@@ -92,7 +127,9 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * //       allowJoinsOnColumnsWithDifferentNames: true || false, // required
  * //       preserveNulls: true || false, // required
  * //     },
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
+ * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };
  *
@@ -122,6 +159,7 @@ export interface CreateCollaborationCommandOutput extends CreateCollaborationOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class CreateCollaborationCommand extends $Command
@@ -132,9 +170,7 @@ export class CreateCollaborationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +182,16 @@ export class CreateCollaborationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCollaborationCommand)
   .de(de_CreateCollaborationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCollaborationInput;
+      output: CreateCollaborationOutput;
+    };
+    sdk: {
+      input: CreateCollaborationCommandInput;
+      output: CreateCollaborationCommandOutput;
+    };
+  };
+}

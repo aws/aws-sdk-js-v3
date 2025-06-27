@@ -12,7 +12,8 @@ import { de_DeleteReplicatorCommand, se_DeleteReplicatorCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DeleteReplicatorCommandOutput extends DeleteReplicatorResponse,
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class DeleteReplicatorCommand extends $Command
@@ -87,9 +89,7 @@ export class DeleteReplicatorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DeleteReplicatorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicatorCommand)
   .de(de_DeleteReplicatorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicatorRequest;
+      output: DeleteReplicatorResponse;
+    };
+    sdk: {
+      input: DeleteReplicatorCommandInput;
+      output: DeleteReplicatorCommandOutput;
+    };
+  };
+}

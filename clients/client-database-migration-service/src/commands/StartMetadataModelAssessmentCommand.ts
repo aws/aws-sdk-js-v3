@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,8 +39,8 @@ export interface StartMetadataModelAssessmentCommandOutput
 /**
  * <p>Creates a database migration assessment report by assessing the migration complexity for
  *          your source database. A database migration assessment report summarizes all of the schema
- *          conversion tasks. It also details the action items for database objects that can't be converted
- *          to the database engine of your target database instance. </p>
+ *          conversion tasks. It also details the action items for database objects that can't be
+ *          converted to the database engine of your target database instance. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,25 +94,25 @@ export interface StartMetadataModelAssessmentCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Start Metadata Model Assessment
  * ```javascript
  * // Creates a database migration assessment report by assessing the migration complexity for
- * //          your source database.
+ *          your source database.
  * const input = {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *   "SelectionRules": "{\"rules\": [{\"rule-type\": \"selection\",\"rule-id\": \"1\",\"rule-name\": \"1\",\"object-locator\": {\"server-name\": \"aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com\", \"schema-name\": \"schema1\", \"table-name\": \"Cities\"},\"rule-action\": \"explicit\"} ]}"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *   SelectionRules: `{"rules": [{"rule-type": "selection","rule-id": "1","rule-name": "1","object-locator": {"server-name": "aurora-pg.cluster-0a1b2c3d4e5f.us-east-1.rds.amazonaws.com", "schema-name": "schema1", "table-name": "Cities"},"rule-action": "explicit"} ]}`
  * };
  * const command = new StartMetadataModelAssessmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef"
+ *   RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef"
  * }
  * *\/
- * // example id: start-metadata-model-assessment-1689722322596
  * ```
  *
+ * @public
  */
 export class StartMetadataModelAssessmentCommand extends $Command
   .classBuilder<
@@ -121,9 +122,7 @@ export class StartMetadataModelAssessmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class StartMetadataModelAssessmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartMetadataModelAssessmentCommand)
   .de(de_StartMetadataModelAssessmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartMetadataModelAssessmentMessage;
+      output: StartMetadataModelAssessmentResponse;
+    };
+    sdk: {
+      input: StartMetadataModelAssessmentCommandInput;
+      output: StartMetadataModelAssessmentCommandOutput;
+    };
+  };
+}

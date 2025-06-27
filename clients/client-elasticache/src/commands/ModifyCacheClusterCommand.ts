@@ -12,7 +12,8 @@ import { de_ModifyCacheClusterCommand, se_ModifyCacheClusterCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,7 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *   CacheParameterGroupName: "STRING_VALUE",
  *   NotificationTopicStatus: "STRING_VALUE",
  *   ApplyImmediately: true || false,
+ *   Engine: "STRING_VALUE",
  *   EngineVersion: "STRING_VALUE",
  *   AutoMinorVersionUpgrade: true || false,
  *   SnapshotRetentionLimit: Number("int"),
@@ -80,6 +82,10 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *     },
  *   ],
  *   IpDiscovery: "ipv4" || "ipv6",
+ *   ScaleConfig: { // ScaleConfig
+ *     ScalePercentage: Number("int"),
+ *     ScaleIntervalMinutes: Number("int"),
+ *   },
  * };
  * const command = new ModifyCacheClusterCommand(input);
  * const response = await client.send(command);
@@ -125,6 +131,10 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ScaleConfig: { // ScaleConfig
+ * //         ScalePercentage: Number("int"),
+ * //         ScaleIntervalMinutes: Number("int"),
+ * //       },
  * //     },
  * //     NotificationConfiguration: { // NotificationConfiguration
  * //       TopicArn: "STRING_VALUE",
@@ -219,7 +229,7 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -247,47 +257,47 @@ export interface ModifyCacheClusterCommandOutput extends ModifyCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ModifyCacheCluster
  * ```javascript
  * // Copies a snapshot to a specified name.
  * const input = {
- *   "ApplyImmediately": true,
- *   "CacheClusterId": "redis-cluster",
- *   "SnapshotRetentionLimit": 14
+ *   ApplyImmediately: true,
+ *   CacheClusterId: "redis-cluster",
+ *   SnapshotRetentionLimit: 14
  * };
  * const command = new ModifyCacheClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheCluster": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2016-12-22T16:27:56.078Z",
- *     "CacheClusterId": "redis-cluster",
- *     "CacheClusterStatus": "available",
- *     "CacheNodeType": "cache.r3.large",
- *     "CacheParameterGroup": {
- *       "CacheNodeIdsToReboot": [],
- *       "CacheParameterGroupName": "default.redis3.2",
- *       "ParameterApplyStatus": "in-sync"
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2016-12-22T16:27:56.078Z",
+ *     CacheClusterId: "redis-cluster",
+ *     CacheClusterStatus: "available",
+ *     CacheNodeType: "cache.r3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.redis3.2",
+ *       ParameterApplyStatus: "in-sync"
  *     },
- *     "CacheSecurityGroups": [],
- *     "CacheSubnetGroupName": "default",
- *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *     "Engine": "redis",
- *     "EngineVersion": "3.2.4",
- *     "NumCacheNodes": 1,
- *     "PendingModifiedValues": {},
- *     "PreferredAvailabilityZone": "us-east-1e",
- *     "PreferredMaintenanceWindow": "fri:09:00-fri:10:00",
- *     "SnapshotRetentionLimit": 14,
- *     "SnapshotWindow": "07:00-08:00"
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     Engine: "redis",
+ *     EngineVersion: "3.2.4",
+ *     NumCacheNodes: 1,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "us-east-1e",
+ *     PreferredMaintenanceWindow: "fri:09:00-fri:10:00",
+ *     SnapshotRetentionLimit: 14,
+ *     SnapshotWindow: "07:00-08:00"
  *   }
  * }
  * *\/
- * // example id: modifycachecluster-1482962725919
  * ```
  *
+ * @public
  */
 export class ModifyCacheClusterCommand extends $Command
   .classBuilder<
@@ -297,9 +307,7 @@ export class ModifyCacheClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -311,4 +319,16 @@ export class ModifyCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCacheClusterCommand)
   .de(de_ModifyCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCacheClusterMessage;
+      output: ModifyCacheClusterResult;
+    };
+    sdk: {
+      input: ModifyCacheClusterCommandInput;
+      output: ModifyCacheClusterCommandOutput;
+    };
+  };
+}

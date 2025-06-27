@@ -12,7 +12,8 @@ import { de_ListAccessKeysCommand, se_ListAccessKeysCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,36 +88,36 @@ export interface ListAccessKeysCommandOutput extends ListAccessKeysResponse, __M
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the access key IDs for an IAM user
  * ```javascript
  * // The following command lists the access keys IDs for the IAM user named Alice.
  * const input = {
- *   "UserName": "Alice"
+ *   UserName: "Alice"
  * };
  * const command = new ListAccessKeysCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AccessKeyMetadata": [
+ *   AccessKeyMetadata: [
  *     {
- *       "AccessKeyId": "AKIA111111111EXAMPLE",
- *       "CreateDate": "2016-12-01T22:19:58Z",
- *       "Status": "Active",
- *       "UserName": "Alice"
+ *       AccessKeyId: "AKIA111111111EXAMPLE",
+ *       CreateDate: "2016-12-01T22:19:58Z",
+ *       Status: "Active",
+ *       UserName: "Alice"
  *     },
  *     {
- *       "AccessKeyId": "AKIA222222222EXAMPLE",
- *       "CreateDate": "2016-12-01T22:20:01Z",
- *       "Status": "Active",
- *       "UserName": "Alice"
+ *       AccessKeyId: "AKIA222222222EXAMPLE",
+ *       CreateDate: "2016-12-01T22:20:01Z",
+ *       Status: "Active",
+ *       UserName: "Alice"
  *     }
  *   ]
  * }
  * *\/
- * // example id: 15571463-ebea-411a-a021-1c76bd2a3625
  * ```
  *
+ * @public
  */
 export class ListAccessKeysCommand extends $Command
   .classBuilder<
@@ -126,9 +127,7 @@ export class ListAccessKeysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class ListAccessKeysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAccessKeysCommand)
   .de(de_ListAccessKeysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAccessKeysRequest;
+      output: ListAccessKeysResponse;
+    };
+    sdk: {
+      input: ListAccessKeysCommandInput;
+      output: ListAccessKeysCommandOutput;
+    };
+  };
+}

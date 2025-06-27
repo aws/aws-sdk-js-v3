@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListJobExecutionsForThingRequest, ListJobExecutionsForThingResponse } from "../models/models_1";
+import { ListJobExecutionsForThingRequest, ListJobExecutionsForThingResponse } from "../models/models_2";
 import { de_ListJobExecutionsForThingCommand, se_ListJobExecutionsForThingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface ListJobExecutionsForThingCommandOutput extends ListJobExecution
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListJobExecutionsForThingCommand extends $Command
@@ -95,9 +97,7 @@ export class ListJobExecutionsForThingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class ListJobExecutionsForThingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobExecutionsForThingCommand)
   .de(de_ListJobExecutionsForThingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobExecutionsForThingRequest;
+      output: ListJobExecutionsForThingResponse;
+    };
+    sdk: {
+      input: ListJobExecutionsForThingCommandInput;
+      output: ListJobExecutionsForThingCommandOutput;
+    };
+  };
+}

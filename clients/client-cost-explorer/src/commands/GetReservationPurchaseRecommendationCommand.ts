@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -230,6 +231,16 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * //           EstimatedReservationCostForLookbackPeriod: "STRING_VALUE",
  * //           UpfrontCost: "STRING_VALUE",
  * //           RecurringStandardMonthlyCost: "STRING_VALUE",
+ * //           ReservedCapacityDetails: { // ReservedCapacityDetails
+ * //             DynamoDBCapacityDetails: { // DynamoDBCapacityDetails
+ * //               CapacityUnits: "STRING_VALUE",
+ * //               Region: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           RecommendedNumberOfCapacityUnitsToPurchase: "STRING_VALUE",
+ * //           MinimumNumberOfCapacityUnitsUsedPerHour: "STRING_VALUE",
+ * //           MaximumNumberOfCapacityUnitsUsedPerHour: "STRING_VALUE",
+ * //           AverageNumberOfCapacityUnitsUsedPerHour: "STRING_VALUE",
  * //         },
  * //       ],
  * //       RecommendationSummary: { // ReservationPurchaseRecommendationSummary
@@ -262,6 +273,7 @@ export interface GetReservationPurchaseRecommendationCommandOutput
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetReservationPurchaseRecommendationCommand extends $Command
@@ -272,9 +284,7 @@ export class GetReservationPurchaseRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -286,4 +296,16 @@ export class GetReservationPurchaseRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReservationPurchaseRecommendationCommand)
   .de(de_GetReservationPurchaseRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReservationPurchaseRecommendationRequest;
+      output: GetReservationPurchaseRecommendationResponse;
+    };
+    sdk: {
+      input: GetReservationPurchaseRecommendationCommandInput;
+      output: GetReservationPurchaseRecommendationCommandOutput;
+    };
+  };
+}

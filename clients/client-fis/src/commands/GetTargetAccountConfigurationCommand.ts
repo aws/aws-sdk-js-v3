@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface GetTargetAccountConfigurationCommandOutput
  * @throws {@link FisServiceException}
  * <p>Base exception class for all service exceptions from Fis service.</p>
  *
+ *
  * @public
  */
 export class GetTargetAccountConfigurationCommand extends $Command
@@ -80,9 +82,7 @@ export class GetTargetAccountConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class GetTargetAccountConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTargetAccountConfigurationCommand)
   .de(de_GetTargetAccountConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTargetAccountConfigurationRequest;
+      output: GetTargetAccountConfigurationResponse;
+    };
+    sdk: {
+      input: GetTargetAccountConfigurationCommandInput;
+      output: GetTargetAccountConfigurationCommandOutput;
+    };
+  };
+}

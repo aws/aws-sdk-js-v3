@@ -16,7 +16,8 @@ import { de_CreateConnectionCommand, se_CreateConnectionCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,6 +34,7 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
 /**
  * <p>Creates a connection. A connection defines the authorization type and credentials to use
  *       for authorization with an API destination HTTP endpoint.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-target-connection.html">Connections for endpoint targets</a> in the <i>Amazon EventBridge User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,13 +108,24 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  *         },
  *       ],
  *     },
+ *     ConnectivityParameters: { // ConnectivityResourceParameters
+ *       ResourceParameters: { // ConnectivityResourceConfigurationArn
+ *         ResourceConfigurationArn: "STRING_VALUE", // required
+ *       },
+ *     },
  *   },
+ *   InvocationConnectivityParameters: {
+ *     ResourceParameters: {
+ *       ResourceConfigurationArn: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   KmsKeyIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateConnectionCommand(input);
  * const response = await client.send(command);
  * // { // CreateConnectionResponse
  * //   ConnectionArn: "STRING_VALUE",
- * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * // };
@@ -125,6 +138,9 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @see {@link CreateConnectionCommandOutput} for command's `response` shape.
  * @see {@link EventBridgeClientResolvedConfig | config} for EventBridgeClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You do not have the necessary permissions for this action.</p>
+ *
  * @throws {@link InternalException} (server fault)
  *  <p>This exception occurs due to unexpected causes.</p>
  *
@@ -135,8 +151,15 @@ export interface CreateConnectionCommandOutput extends CreateConnectionResponse,
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource you are trying to create already exists.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>An entity that you specified does not exist.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>This request cannot be completed due to throttling issues.</p>
+ *
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
+ *
  *
  * @public
  */
@@ -148,9 +171,7 @@ export class CreateConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +183,16 @@ export class CreateConnectionCommand extends $Command
   .f(CreateConnectionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateConnectionCommand)
   .de(de_CreateConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConnectionRequest;
+      output: CreateConnectionResponse;
+    };
+    sdk: {
+      input: CreateConnectionCommandInput;
+      output: CreateConnectionCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,7 @@ export interface PutModelInvocationLoggingConfigurationCommandOutput
  *     textDataDeliveryEnabled: true || false,
  *     imageDataDeliveryEnabled: true || false,
  *     embeddingDataDeliveryEnabled: true || false,
+ *     videoDataDeliveryEnabled: true || false,
  *   },
  * };
  * const command = new PutModelInvocationLoggingConfigurationCommand(input);
@@ -89,6 +91,7 @@ export interface PutModelInvocationLoggingConfigurationCommandOutput
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class PutModelInvocationLoggingConfigurationCommand extends $Command
@@ -99,9 +102,7 @@ export class PutModelInvocationLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class PutModelInvocationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutModelInvocationLoggingConfigurationCommand)
   .de(de_PutModelInvocationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutModelInvocationLoggingConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutModelInvocationLoggingConfigurationCommandInput;
+      output: PutModelInvocationLoggingConfigurationCommandOutput;
+    };
+  };
+}

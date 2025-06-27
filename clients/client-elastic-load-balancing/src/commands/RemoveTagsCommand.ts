@@ -16,7 +16,8 @@ import { de_RemoveTagsCommand, se_RemoveTagsCommand } from "../protocols/Aws_que
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,25 +67,28 @@ export interface RemoveTagsCommandOutput extends RemoveTagsOutput, __MetadataBea
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To remove tags from a load balancer
  * ```javascript
  * // This example removes the specified tag from the specified load balancer.
  * const input = {
- *   "LoadBalancerNames": [
+ *   LoadBalancerNames: [
  *     "my-load-balancer"
  *   ],
- *   "Tags": [
+ *   Tags: [
  *     {
- *       "Key": "project"
+ *       Key: "project"
  *     }
  *   ]
  * };
  * const command = new RemoveTagsCommand(input);
- * await client.send(command);
- * // example id: elb-remove-tags-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveTagsCommand extends $Command
   .classBuilder<
@@ -94,9 +98,7 @@ export class RemoveTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class RemoveTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsCommand)
   .de(de_RemoveTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsCommandInput;
+      output: RemoveTagsCommandOutput;
+    };
+  };
+}

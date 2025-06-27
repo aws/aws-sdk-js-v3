@@ -36,7 +36,7 @@ To learn more about CloudTrail, including enabling it and find your log files, s
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-secrets-manager
+To install this package, simply type add or install @aws-sdk/client-secrets-manager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-secrets-manager`

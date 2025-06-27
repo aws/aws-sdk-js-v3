@@ -1,7 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
 import { GetCallerIdentityCommandOutput, STS } from "@aws-sdk/client-sts";
-
-jest.setTimeout(25000);
+import { afterAll, beforeAll, describe, expect, test as it, vi } from "vitest";
 
 describe("S3 Expires e2e test", () => {
   const s3 = new S3({
@@ -10,7 +9,7 @@ describe("S3 Expires e2e test", () => {
       trace() {},
       debug() {},
       info() {},
-      warn: jest.fn(),
+      warn: vi.fn(),
       error() {},
     },
   });
@@ -77,7 +76,7 @@ describe("S3 Expires e2e test", () => {
     );
     expect(get.ExpiresString).toEqual("undefined, NaN undefined NaN NaN:NaN:NaN GMT");
   });
-});
+}, 25_000);
 
 async function deleteBucket(s3: S3, bucketName: string) {
   const Bucket = bucketName;

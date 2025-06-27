@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import {
@@ -7,6 +8,7 @@ import {
   StreamingBlobPayloadOutputTypes,
 } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { StreamingTraitsInputOutput, StreamingTraitsInputOutputFilterSensitiveLog } from "../models/models_0";
 import { de_StreamingTraitsCommand, se_StreamingTraitsCommand } from "../protocols/Aws_restJson1";
 import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestJsonProtocolClient";
@@ -14,7 +16,8 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +53,11 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.blob.transformToByteArray();
+ * // const str = await response.blob.transformToString();
+ * // response.blob.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // StreamingTraitsInputOutput
  * //   foo: "STRING_VALUE",
  * //   blob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -66,6 +74,7 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class StreamingTraitsCommand extends $Command
@@ -76,12 +85,28 @@ export class StreamingTraitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "StreamingTraits", {})
   .n("RestJsonProtocolClient", "StreamingTraitsCommand")
   .f(StreamingTraitsInputOutputFilterSensitiveLog, StreamingTraitsInputOutputFilterSensitiveLog)
   .ser(se_StreamingTraitsCommand)
   .de(de_StreamingTraitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StreamingTraitsInputOutput;
+      output: StreamingTraitsInputOutput;
+    };
+    sdk: {
+      input: StreamingTraitsCommandInput;
+      output: StreamingTraitsCommandOutput;
+    };
+  };
+}

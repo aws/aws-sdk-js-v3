@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -108,6 +109,7 @@ export interface CreateConfigurationSetEventDestinationCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigurationSetEventDestinationCommand extends $Command
@@ -118,9 +120,7 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +132,16 @@ export class CreateConfigurationSetEventDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationSetEventDestinationCommand)
   .de(de_CreateConfigurationSetEventDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationSetEventDestinationRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConfigurationSetEventDestinationCommandInput;
+      output: CreateConfigurationSetEventDestinationCommandOutput;
+    };
+  };
+}

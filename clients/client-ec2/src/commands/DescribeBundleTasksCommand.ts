@@ -16,7 +16,8 @@ import { de_DescribeBundleTasksCommand, se_DescribeBundleTasksCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,12 +34,14 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
 /**
  * <p>Describes the specified bundle tasks or all of your bundle tasks.</p>
  *          <note>
- *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no longer in the list, you can still register an AMI from it. Just use <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided to the bundle task.</p>
+ *             <p>Completed bundle tasks are listed for only a limited time. If your bundle task is no
+ *         longer in the list, you can still register an AMI from it. Just use
+ *           <code>RegisterImage</code> with the Amazon S3 bucket name and image manifest name you provided
+ *         to the bundle task.</p>
  *          </note>
  *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *          structures, might vary. Applications should not assume the elements appear in a
- *          particular order.</p>
+ *             <p>The order of the elements in the response, including those within nested structures,
+ *         might vary. Applications should not assume the elements appear in a particular order.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +53,7 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  *   BundleIds: [ // BundleIdStringList
  *     "STRING_VALUE",
  *   ],
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -58,22 +62,17 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  *       ],
  *     },
  *   ],
- *   DryRun: true || false,
  * };
  * const command = new DescribeBundleTasksCommand(input);
  * const response = await client.send(command);
  * // { // DescribeBundleTasksResult
  * //   BundleTasks: [ // BundleTaskList
  * //     { // BundleTask
- * //       BundleId: "STRING_VALUE",
- * //       BundleTaskError: { // BundleTaskError
- * //         Code: "STRING_VALUE",
- * //         Message: "STRING_VALUE",
- * //       },
  * //       InstanceId: "STRING_VALUE",
- * //       Progress: "STRING_VALUE",
- * //       StartTime: new Date("TIMESTAMP"),
+ * //       BundleId: "STRING_VALUE",
  * //       State: "pending" || "waiting-for-shutdown" || "bundling" || "storing" || "cancelling" || "complete" || "failed",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       UpdateTime: new Date("TIMESTAMP"),
  * //       Storage: { // Storage
  * //         S3: { // S3Storage
  * //           AWSAccessKeyId: "STRING_VALUE",
@@ -83,7 +82,11 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * //           UploadPolicySignature: "STRING_VALUE",
  * //         },
  * //       },
- * //       UpdateTime: new Date("TIMESTAMP"),
+ * //       Progress: "STRING_VALUE",
+ * //       BundleTaskError: { // BundleTaskError
+ * //         Code: "STRING_VALUE",
+ * //         Message: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -99,6 +102,7 @@ export interface DescribeBundleTasksCommandOutput extends DescribeBundleTasksRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBundleTasksCommand extends $Command
@@ -109,9 +113,7 @@ export class DescribeBundleTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +125,16 @@ export class DescribeBundleTasksCommand extends $Command
   .f(void 0, DescribeBundleTasksResultFilterSensitiveLog)
   .ser(se_DescribeBundleTasksCommand)
   .de(de_DescribeBundleTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBundleTasksRequest;
+      output: DescribeBundleTasksResult;
+    };
+    sdk: {
+      input: DescribeBundleTasksCommandInput;
+      output: DescribeBundleTasksCommandOutput;
+    };
+  };
+}

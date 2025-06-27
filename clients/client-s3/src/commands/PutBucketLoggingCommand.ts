@@ -6,14 +6,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutBucketLoggingRequest } from "../models/models_0";
+import { PutBucketLoggingRequest } from "../models/models_1";
 import { de_PutBucketLoggingCommand, se_PutBucketLoggingCommand } from "../protocols/Aws_restXml";
 import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3Client";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,16 @@ export interface PutBucketLoggingCommandInput extends PutBucketLoggingRequest {}
 export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ * <important>
+ *             <p>End of support notice: Beginning October 1, 2025, Amazon S3 will discontinue support for creating new Email Grantee Access Control Lists (ACL).
+ *  Email Grantee ACLs created prior to this date will continue to work and remain accessible through the Amazon Web Services Management Console, Command Line Interface (CLI), SDKs,
+ *  and REST API. However, you will no longer be able to create new Email Grantee ACLs.
+ * </p>
+ *             <p>This change affects the following Amazon Web Services Regions: US East (N. Virginia) Region, US West (N. California) Region, US West (Oregon) Region, Asia Pacific (Singapore) Region, Asia Pacific (Sydney) Region,
+ *  Asia Pacific (Tokyo) Region, Europe (Ireland) Region, and South America (São Paulo) Region.</p>
+ *          </important>
+ *          <note>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Set the logging parameters for a bucket and to specify permissions for who can view and
  *          modify the logging parameters. All logs are saved to buckets in the same Amazon Web Services Region as
@@ -50,7 +59,10 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *             <dt>Grantee Values</dt>
  *             <dd>
  *                <p>You can specify the person (grantee) to whom you're assigning access rights (by
- *                   using request elements) in the following ways:</p>
+ *                  using request elements) in the following ways. For examples of how to specify these
+ *                  grantee values in JSON format, see the Amazon Web Services CLI example in  <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/enable-server-access-logging.html">
+ *                    Enabling Amazon S3 server access logging</a> in the
+ *                  <i>Amazon S3 User Guide</i>.</p>
  *                <ul>
  *                   <li>
  *                      <p>By the person's ID:</p>
@@ -149,7 +161,7 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  *     },
  *   },
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new PutBucketLoggingCommand(input);
@@ -167,33 +179,36 @@ export interface PutBucketLoggingCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set logging configuration for a bucket
  * ```javascript
  * // The following example sets logging policy on a bucket. For the Log Delivery group to deliver logs to the destination bucket, it needs permission for the READ_ACP action which the policy grants.
  * const input = {
- *   "Bucket": "sourcebucket",
- *   "BucketLoggingStatus": {
- *     "LoggingEnabled": {
- *       "TargetBucket": "targetbucket",
- *       "TargetGrants": [
+ *   Bucket: "sourcebucket",
+ *   BucketLoggingStatus: {
+ *     LoggingEnabled: {
+ *       TargetBucket: "targetbucket",
+ *       TargetGrants: [
  *         {
- *           "Grantee": {
- *             "Type": "Group",
- *             "URI": "http://acs.amazonaws.com/groups/global/AllUsers"
+ *           Grantee: {
+ *             Type: "Group",
+ *             URI: "http://acs.amazonaws.com/groups/global/AllUsers"
  *           },
- *           "Permission": "READ"
+ *           Permission: "READ"
  *         }
  *       ],
- *       "TargetPrefix": "MyBucketLogs/"
+ *       TargetPrefix: "MyBucketLogs/"
  *     }
  *   }
  * };
  * const command = new PutBucketLoggingCommand(input);
- * await client.send(command);
- * // example id: set-logging-configuration-for-a-bucket-1482269119909
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketLoggingCommand extends $Command
   .classBuilder<
@@ -213,8 +228,7 @@ export class PutBucketLoggingCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -224,4 +238,16 @@ export class PutBucketLoggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketLoggingCommand)
   .de(de_PutBucketLoggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketLoggingRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketLoggingCommandInput;
+      output: PutBucketLoggingCommandOutput;
+    };
+  };
+}

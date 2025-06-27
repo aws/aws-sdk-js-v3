@@ -61,7 +61,9 @@ import {
   DeleteAliasInput,
   DeleteKeyInput,
   DeleteKeyOutput,
+  DiffieHellmanDerivationData,
   ExportAttributes,
+  ExportDiffieHellmanTr31KeyBlock,
   ExportDukptInitialKey,
   ExportKeyCryptogram,
   ExportKeyInput,
@@ -76,6 +78,7 @@ import {
   GetParametersForImportInput,
   GetParametersForImportOutput,
   GetPublicKeyCertificateInput,
+  ImportDiffieHellmanTr31KeyBlock,
   ImportKeyCryptogram,
   ImportKeyInput,
   ImportKeyMaterial,
@@ -938,7 +941,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DeleteKeyInput omitted.
 
+// se_DiffieHellmanDerivationData omitted.
+
 // se_ExportAttributes omitted.
+
+// se_ExportDiffieHellmanTr31KeyBlock omitted.
 
 // se_ExportDukptInitialKey omitted.
 
@@ -961,6 +968,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_GetParametersForImportInput omitted.
 
 // se_GetPublicKeyCertificateInput omitted.
+
+// se_ImportDiffieHellmanTr31KeyBlock omitted.
 
 // se_ImportKeyCryptogram omitted.
 
@@ -1098,6 +1107,7 @@ const de_Key = (output: any, context: __SerdeContext): Key => {
     CreateTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeletePendingTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DeleteTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DeriveKeyUsage: __expectString,
     Enabled: __expectBoolean,
     Exportable: __expectBoolean,
     KeyArn: __expectString,

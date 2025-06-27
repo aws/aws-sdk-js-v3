@@ -12,7 +12,8 @@ import { de_ListPermissionsCommand, se_ListPermissionsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface ListPermissionsCommandOutput extends ListPermissionsResponse, _
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class ListPermissionsCommand extends $Command
@@ -98,9 +100,7 @@ export class ListPermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListPermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPermissionsCommand)
   .de(de_ListPermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPermissionsRequest;
+      output: ListPermissionsResponse;
+    };
+    sdk: {
+      input: ListPermissionsCommandInput;
+      output: ListPermissionsCommandOutput;
+    };
+  };
+}

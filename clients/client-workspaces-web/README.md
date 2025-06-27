@@ -6,16 +6,17 @@
 
 AWS SDK for JavaScript WorkSpacesWeb Client for Node.js, Browser and React Native.
 
-<p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate
-secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide
-their employees with access to internal websites and SaaS web applications without the
-administrative burden of appliances or specialized client software. WorkSpaces Web provides
-simple policy tools tailored for user interactions, while offloading common tasks like
-capacity management, scaling, and maintaining browser images.</p>
+<p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+specifically to facilitate secure, web-based workloads. WorkSpaces Secure Browser makes it
+easy for customers to safely provide their employees with access to internal websites and
+SaaS web applications without the administrative burden of appliances or specialized client
+software. WorkSpaces Secure Browser provides simple policy tools tailored for user
+interactions, while offloading common tasks like capacity management, scaling, and
+maintaining browser images.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-workspaces-web
+To install this package, simply type add or install @aws-sdk/client-workspaces-web
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-workspaces-web`
@@ -218,6 +219,14 @@ AssociateBrowserSettings
 </details>
 <details>
 <summary>
+AssociateDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/AssociateDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/AssociateDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/AssociateDataProtectionSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 AssociateIpAccessSettings
 </summary>
 
@@ -262,6 +271,14 @@ CreateBrowserSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/CreateBrowserSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreateBrowserSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreateBrowserSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/CreateDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreateDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/CreateDataProtectionSettingsCommandOutput/)
 
 </details>
 <details>
@@ -330,6 +347,14 @@ DeleteBrowserSettings
 </details>
 <details>
 <summary>
+DeleteDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/DeleteDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DeleteDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DeleteDataProtectionSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteIdentityProvider
 </summary>
 
@@ -394,6 +419,14 @@ DisassociateBrowserSettings
 </details>
 <details>
 <summary>
+DisassociateDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/DisassociateDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DisassociateDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/DisassociateDataProtectionSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateIpAccessSettings
 </summary>
 
@@ -434,10 +467,26 @@ DisassociateUserSettings
 </details>
 <details>
 <summary>
+ExpireSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ExpireSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ExpireSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ExpireSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetBrowserSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/GetBrowserSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetBrowserSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetBrowserSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/GetDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetDataProtectionSettingsCommandOutput/)
 
 </details>
 <details>
@@ -482,6 +531,14 @@ GetPortalServiceProviderMetadata
 </details>
 <details>
 <summary>
+GetSession
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/GetSessionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetSessionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/GetSessionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetTrustStore
 </summary>
 
@@ -522,6 +579,14 @@ ListBrowserSettings
 </details>
 <details>
 <summary>
+ListDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListDataProtectionSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListIdentityProviders
 </summary>
 
@@ -550,6 +615,14 @@ ListPortals
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListPortalsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListPortalsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListPortalsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListSessions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/ListSessionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListSessionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/ListSessionsCommandOutput/)
 
 </details>
 <details>
@@ -614,6 +687,14 @@ UpdateBrowserSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/UpdateBrowserSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdateBrowserSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdateBrowserSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDataProtectionSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/workspaces-web/command/UpdateDataProtectionSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdateDataProtectionSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-workspaces-web/Interface/UpdateDataProtectionSettingsCommandOutput/)
 
 </details>
 <details>

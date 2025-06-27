@@ -12,7 +12,8 @@ import { de_ListVirtualClustersCommand, se_ListVirtualClustersCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface ListVirtualClustersCommandOutput extends ListVirtualClustersRes
  * @throws {@link EMRContainersServiceException}
  * <p>Base exception class for all service exceptions from EMRContainers service.</p>
  *
+ *
  * @public
  */
 export class ListVirtualClustersCommand extends $Command
@@ -106,9 +108,7 @@ export class ListVirtualClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRContainersClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class ListVirtualClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVirtualClustersCommand)
   .de(de_ListVirtualClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualClustersRequest;
+      output: ListVirtualClustersResponse;
+    };
+    sdk: {
+      input: ListVirtualClustersCommandInput;
+      output: ListVirtualClustersCommandOutput;
+    };
+  };
+}

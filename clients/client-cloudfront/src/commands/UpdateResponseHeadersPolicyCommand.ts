@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateResponseHeadersPolicyRequest, UpdateResponseHeadersPolicyResult } from "../models/models_1";
+import { UpdateResponseHeadersPolicyRequest, UpdateResponseHeadersPolicyResult } from "../models/models_2";
 import { de_UpdateResponseHeadersPolicyCommand, se_UpdateResponseHeadersPolicyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,25 +28,7 @@ export interface UpdateResponseHeadersPolicyCommandInput extends UpdateResponseH
 export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Updates a response headers policy.</p>
- *          <p>When you update a response headers policy, the entire policy is replaced. You cannot
- * 			update some policy fields independent of others. To update a response headers policy
- * 			configuration:</p>
- *          <ol>
- *             <li>
- *                <p>Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy's
- * 					configuration.</p>
- *             </li>
- *             <li>
- *                <p>Modify the fields in the response headers policy configuration that you want
- * 					to update.</p>
- *             </li>
- *             <li>
- *                <p>Call <code>UpdateResponseHeadersPolicy</code>, providing the entire response
- * 					headers policy configuration, including the fields that you modified and those
- * 					that you didn't.</p>
- *             </li>
- *          </ol>
+ * <p>Updates a response headers policy.</p> <p>When you update a response headers policy, the entire policy is replaced. You cannot update some policy fields independent of others. To update a response headers policy configuration:</p> <ol> <li> <p>Use <code>GetResponseHeadersPolicyConfig</code> to get the current policy's configuration.</p> </li> <li> <p>Modify the fields in the response headers policy configuration that you want to update.</p> </li> <li> <p>Call <code>UpdateResponseHeadersPolicy</code>, providing the entire response headers policy configuration, including the fields that you modified and those that you didn't.</p> </li> </ol>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -249,8 +232,7 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  *  <p>The update contains modifications that are not allowed.</p>
  *
  * @throws {@link InconsistentQuantities} (client fault)
- *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't
- * 			match.</p>
+ *  <p>The value of <code>Quantity</code> and the size of <code>Items</code> don't match.</p>
  *
  * @throws {@link InvalidArgument} (client fault)
  *  <p>An argument is invalid.</p>
@@ -262,34 +244,23 @@ export interface UpdateResponseHeadersPolicyCommandOutput extends UpdateResponse
  *  <p>The response headers policy does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link ResponseHeadersPolicyAlreadyExists} (client fault)
- *  <p>A response headers policy with this name already exists. You must provide a unique
- * 			name. To modify an existing response headers policy, use
- * 				<code>UpdateResponseHeadersPolicy</code>.</p>
+ *  <p>A response headers policy with this name already exists. You must provide a unique name. To modify an existing response headers policy, use <code>UpdateResponseHeadersPolicy</code>.</p>
  *
  * @throws {@link TooLongCSPInResponseHeadersPolicy} (client fault)
- *  <p>The length of the <code>Content-Security-Policy</code> header value in the response
- * 			headers policy exceeds the maximum.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The length of the <code>Content-Security-Policy</code> header value in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyCustomHeadersInResponseHeadersPolicy} (client fault)
- *  <p>The number of custom headers in the response headers policy exceeds the
- * 			maximum.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of custom headers in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link TooManyRemoveHeadersInResponseHeadersPolicy} (client fault)
- *  <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers
- * 			policy exceeds the maximum.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 			<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>The number of headers in <code>RemoveHeadersConfig</code> in the response headers policy exceeds the maximum.</p> <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -301,9 +272,7 @@ export class UpdateResponseHeadersPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -315,4 +284,16 @@ export class UpdateResponseHeadersPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResponseHeadersPolicyCommand)
   .de(de_UpdateResponseHeadersPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResponseHeadersPolicyRequest;
+      output: UpdateResponseHeadersPolicyResult;
+    };
+    sdk: {
+      input: UpdateResponseHeadersPolicyCommandInput;
+      output: UpdateResponseHeadersPolicyCommandOutput;
+    };
+  };
+}

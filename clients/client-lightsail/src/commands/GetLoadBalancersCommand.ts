@@ -12,7 +12,8 @@ import { de_GetLoadBalancersCommand, se_GetLoadBalancersCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -130,6 +131,7 @@ export interface GetLoadBalancersCommandOutput extends GetLoadBalancersResult, _
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetLoadBalancersCommand extends $Command
@@ -140,9 +142,7 @@ export class GetLoadBalancersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +154,16 @@ export class GetLoadBalancersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoadBalancersCommand)
   .de(de_GetLoadBalancersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoadBalancersRequest;
+      output: GetLoadBalancersResult;
+    };
+    sdk: {
+      input: GetLoadBalancersCommandInput;
+      output: GetLoadBalancersCommandOutput;
+    };
+  };
+}

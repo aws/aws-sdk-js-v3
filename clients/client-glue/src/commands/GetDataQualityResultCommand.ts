@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetDataQualityResultRequest, GetDataQualityResultResponse } from "../models/models_1";
+import {
+  GetDataQualityResultRequest,
+  GetDataQualityResultResponse,
+  GetDataQualityResultResponseFilterSensitiveLog,
+} from "../models/models_2";
 import { de_GetDataQualityResultCommand, se_GetDataQualityResultCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,6 +46,7 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * const response = await client.send(command);
  * // { // GetDataQualityResultResponse
  * //   ResultId: "STRING_VALUE",
+ * //   ProfileId: "STRING_VALUE",
  * //   Score: Number("double"),
  * //   DataSource: { // DataSource
  * //     GlueTable: { // GlueTable
@@ -69,6 +75,10 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       EvaluatedMetrics: { // EvaluatedMetricsMap
  * //         "<keys>": Number("double"),
  * //       },
+ * //       EvaluatedRule: "STRING_VALUE",
+ * //       RuleMetrics: { // RuleMetricsMap
+ * //         "<keys>": Number("double"),
+ * //       },
  * //     },
  * //   ],
  * //   AnalyzerResults: [ // DataQualityAnalyzerResults
@@ -86,6 +96,7 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       Description: "STRING_VALUE",
  * //       MetricBasedObservation: { // MetricBasedObservation
  * //         MetricName: "STRING_VALUE",
+ * //         StatisticId: "STRING_VALUE",
  * //         MetricValues: { // DataQualityMetricValues
  * //           ActualValue: Number("double"),
  * //           ExpectedValue: Number("double"),
@@ -98,6 +109,14 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * //       },
  * //     },
  * //   ],
+ * //   AggregatedMetrics: { // DataQualityAggregatedMetrics
+ * //     TotalRowsProcessed: Number("double"),
+ * //     TotalRowsPassed: Number("double"),
+ * //     TotalRowsFailed: Number("double"),
+ * //     TotalRulesProcessed: Number("double"),
+ * //     TotalRulesPassed: Number("double"),
+ * //     TotalRulesFailed: Number("double"),
+ * //   },
  * // };
  *
  * ```
@@ -123,6 +142,7 @@ export interface GetDataQualityResultCommandOutput extends GetDataQualityResultR
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetDataQualityResultCommand extends $Command
@@ -133,9 +153,7 @@ export class GetDataQualityResultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,7 +162,19 @@ export class GetDataQualityResultCommand extends $Command
   })
   .s("AWSGlue", "GetDataQualityResult", {})
   .n("GlueClient", "GetDataQualityResultCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetDataQualityResultResponseFilterSensitiveLog)
   .ser(se_GetDataQualityResultCommand)
   .de(de_GetDataQualityResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataQualityResultRequest;
+      output: GetDataQualityResultResponse;
+    };
+    sdk: {
+      input: GetDataQualityResultCommandInput;
+      output: GetDataQualityResultCommandOutput;
+    };
+  };
+}

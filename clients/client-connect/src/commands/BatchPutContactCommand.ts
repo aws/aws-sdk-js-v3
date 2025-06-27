@@ -12,7 +12,8 @@ import { de_BatchPutContactCommand, se_BatchPutContactCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,11 +49,11 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  *   ContactDataRequestList: [ // ContactDataRequestList // required
  *     { // ContactDataRequest
  *       SystemEndpoint: { // Endpoint
- *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW",
+ *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *         Address: "STRING_VALUE",
  *       },
  *       CustomerEndpoint: {
- *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW",
+ *         Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
  *         Address: "STRING_VALUE",
  *       },
  *       RequestIdentifier: "STRING_VALUE",
@@ -113,6 +114,7 @@ export interface BatchPutContactCommandOutput extends BatchPutContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class BatchPutContactCommand extends $Command
@@ -123,9 +125,7 @@ export class BatchPutContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class BatchPutContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutContactCommand)
   .de(de_BatchPutContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutContactRequest;
+      output: BatchPutContactResponse;
+    };
+    sdk: {
+      input: BatchPutContactCommandInput;
+      output: BatchPutContactCommandOutput;
+    };
+  };
+}

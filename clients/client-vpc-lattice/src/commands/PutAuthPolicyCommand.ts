@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,8 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
 /**
  * <p>Creates or updates the auth policy. The policy string in JSON must not contain newlines or
  *    blank lines.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a>
- *    in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/auth-policies.html">Auth policies</a> in the <i>Amazon VPC
+ *     Lattice User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +76,7 @@ export interface PutAuthPolicyCommandOutput extends PutAuthPolicyResponse, __Met
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class PutAuthPolicyCommand extends $Command
@@ -85,9 +87,7 @@ export class PutAuthPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class PutAuthPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAuthPolicyCommand)
   .de(de_PutAuthPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAuthPolicyRequest;
+      output: PutAuthPolicyResponse;
+    };
+    sdk: {
+      input: PutAuthPolicyCommandInput;
+      output: PutAuthPolicyCommandOutput;
+    };
+  };
+}

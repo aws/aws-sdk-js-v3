@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyInstanceMetadataDefaultsRequest, ModifyInstanceMetadataDefaultsResult } from "../models/models_6";
+import { ModifyInstanceMetadataDefaultsRequest, ModifyInstanceMetadataDefaultsResult } from "../models/models_7";
 import {
   de_ModifyInstanceMetadataDefaultsCommand,
   se_ModifyInstanceMetadataDefaultsCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface ModifyInstanceMetadataDefaultsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceMetadataDefaultsCommand extends $Command
@@ -81,9 +83,7 @@ export class ModifyInstanceMetadataDefaultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class ModifyInstanceMetadataDefaultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceMetadataDefaultsCommand)
   .de(de_ModifyInstanceMetadataDefaultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceMetadataDefaultsRequest;
+      output: ModifyInstanceMetadataDefaultsResult;
+    };
+    sdk: {
+      input: ModifyInstanceMetadataDefaultsCommandInput;
+      output: ModifyInstanceMetadataDefaultsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListJobsCommand, se_ListJobsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,50 +116,49 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To list running jobs
  * ```javascript
  * // This example lists the running jobs in the HighPriority job queue.
  * const input = {
- *   "jobQueue": "HighPriority"
+ *   jobQueue: "HighPriority"
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobSummaryList": [
+ *   jobSummaryList: [
  *     {
- *       "jobId": "e66ff5fd-a1ff-4640-b1a2-0b0a142f49bb",
- *       "jobName": "example"
+ *       jobId: "e66ff5fd-a1ff-4640-b1a2-0b0a142f49bb",
+ *       jobName: "example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-running-jobs-1481154202164
  * ```
  *
  * @example To list submitted jobs
  * ```javascript
  * // This example lists jobs in the HighPriority job queue that are in the SUBMITTED job status.
  * const input = {
- *   "jobQueue": "HighPriority",
- *   "jobStatus": "SUBMITTED"
+ *   jobQueue: "HighPriority",
+ *   jobStatus: "SUBMITTED"
  * };
  * const command = new ListJobsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "jobSummaryList": [
+ *   jobSummaryList: [
  *     {
- *       "jobId": "68f0c163-fbd4-44e6-9fd1-25b14a434786",
- *       "jobName": "example"
+ *       jobId: "68f0c163-fbd4-44e6-9fd1-25b14a434786",
+ *       jobName: "example"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-submitted-jobs-1481154251623
  * ```
  *
+ * @public
  */
 export class ListJobsCommand extends $Command
   .classBuilder<
@@ -168,9 +168,7 @@ export class ListJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +180,16 @@ export class ListJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJobsCommand)
   .de(de_ListJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJobsRequest;
+      output: ListJobsResponse;
+    };
+    sdk: {
+      input: ListJobsCommandInput;
+      output: ListJobsCommandOutput;
+    };
+  };
+}

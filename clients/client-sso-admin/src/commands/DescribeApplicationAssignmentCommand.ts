@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,10 @@ export interface DescribeApplicationAssignmentCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves a direct assignment of a user or group to an application. If the user doesn’t have a direct assignment to the application,
- *             the user may still have access to the application through a group. Therefore, don’t use this API to test access to an application for a user.
- *             Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
+ * <p>Retrieves a direct assignment of a user or group to an application. If the user
+ *             doesn’t have a direct assignment to the application, the user may still have access to
+ *             the application through a group. Therefore, don’t use this API to test access to an
+ *             application for a user. Instead use <a>ListApplicationAssignmentsForPrincipal</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +84,7 @@ export interface DescribeApplicationAssignmentCommandOutput
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationAssignmentCommand extends $Command
@@ -92,9 +95,7 @@ export class DescribeApplicationAssignmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +107,16 @@ export class DescribeApplicationAssignmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationAssignmentCommand)
   .de(de_DescribeApplicationAssignmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationAssignmentRequest;
+      output: DescribeApplicationAssignmentResponse;
+    };
+    sdk: {
+      input: DescribeApplicationAssignmentCommandInput;
+      output: DescribeApplicationAssignmentCommandOutput;
+    };
+  };
+}

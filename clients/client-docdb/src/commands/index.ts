@@ -35,6 +35,7 @@ export * from "./DescribeGlobalClustersCommand";
 export * from "./DescribeOrderableDBInstanceOptionsCommand";
 export * from "./DescribePendingMaintenanceActionsCommand";
 export * from "./FailoverDBClusterCommand";
+export * from "./FailoverGlobalClusterCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./ModifyDBClusterCommand";
 export * from "./ModifyDBClusterParameterGroupCommand";

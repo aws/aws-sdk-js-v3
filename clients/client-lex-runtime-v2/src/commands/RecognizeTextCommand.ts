@@ -17,7 +17,8 @@ import { de_RecognizeTextCommand, se_RecognizeTextCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -345,6 +346,7 @@ export interface RecognizeTextCommandOutput extends RecognizeTextResponse, __Met
  * @throws {@link LexRuntimeV2ServiceException}
  * <p>Base exception class for all service exceptions from LexRuntimeV2 service.</p>
  *
+ *
  * @public
  */
 export class RecognizeTextCommand extends $Command
@@ -355,9 +357,7 @@ export class RecognizeTextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexRuntimeV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -369,4 +369,16 @@ export class RecognizeTextCommand extends $Command
   .f(RecognizeTextRequestFilterSensitiveLog, RecognizeTextResponseFilterSensitiveLog)
   .ser(se_RecognizeTextCommand)
   .de(de_RecognizeTextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RecognizeTextRequest;
+      output: RecognizeTextResponse;
+    };
+    sdk: {
+      input: RecognizeTextCommandInput;
+      output: RecognizeTextCommandOutput;
+    };
+  };
+}

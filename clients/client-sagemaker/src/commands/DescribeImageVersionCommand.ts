@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_2";
+import { DescribeImageVersionRequest, DescribeImageVersionResponse } from "../models/models_3";
 import { de_DescribeImageVersionCommand, se_DescribeImageVersionCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DescribeImageVersionCommandInput extends DescribeImageVersionRe
 export interface DescribeImageVersionCommandOutput extends DescribeImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Describes a version of a SageMaker image.</p>
+ * <p>Describes a version of a SageMaker AI image.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +75,7 @@ export interface DescribeImageVersionCommandOutput extends DescribeImageVersionR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeImageVersionCommand extends $Command
@@ -84,9 +86,7 @@ export class DescribeImageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DescribeImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImageVersionCommand)
   .de(de_DescribeImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImageVersionRequest;
+      output: DescribeImageVersionResponse;
+    };
+    sdk: {
+      input: DescribeImageVersionCommandInput;
+      output: DescribeImageVersionCommandOutput;
+    };
+  };
+}

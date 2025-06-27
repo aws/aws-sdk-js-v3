@@ -16,7 +16,8 @@ import { ProtonClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface DeleteEnvironmentTemplateCommandOutput extends DeleteEnvironmen
  * @throws {@link ProtonServiceException}
  * <p>Base exception class for all service exceptions from Proton service.</p>
  *
+ *
  * @public
  */
 export class DeleteEnvironmentTemplateCommand extends $Command
@@ -96,9 +98,7 @@ export class DeleteEnvironmentTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ProtonClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class DeleteEnvironmentTemplateCommand extends $Command
   .f(void 0, DeleteEnvironmentTemplateOutputFilterSensitiveLog)
   .ser(se_DeleteEnvironmentTemplateCommand)
   .de(de_DeleteEnvironmentTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEnvironmentTemplateInput;
+      output: DeleteEnvironmentTemplateOutput;
+    };
+    sdk: {
+      input: DeleteEnvironmentTemplateCommandInput;
+      output: DeleteEnvironmentTemplateCommandOutput;
+    };
+  };
+}

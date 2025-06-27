@@ -12,7 +12,8 @@ import { de_DeleteAssetModelCommand, se_DeleteAssetModelCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,6 +42,9 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * const input = { // DeleteAssetModelRequest
  *   assetModelId: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new DeleteAssetModelCommand(input);
  * const response = await client.send(command);
@@ -79,6 +83,10 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
  *       unsupported characters. Check your request and try again.</p>
  *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
@@ -91,6 +99,7 @@ export interface DeleteAssetModelCommandOutput extends DeleteAssetModelResponse,
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetModelCommand extends $Command
@@ -101,9 +110,7 @@ export class DeleteAssetModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +122,16 @@ export class DeleteAssetModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssetModelCommand)
   .de(de_DeleteAssetModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssetModelRequest;
+      output: DeleteAssetModelResponse;
+    };
+    sdk: {
+      input: DeleteAssetModelCommandInput;
+      output: DeleteAssetModelCommandOutput;
+    };
+  };
+}

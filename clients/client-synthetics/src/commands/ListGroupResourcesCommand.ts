@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface ListGroupResourcesCommandOutput extends ListGroupResourcesRespo
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class ListGroupResourcesCommand extends $Command
@@ -81,9 +83,7 @@ export class ListGroupResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class ListGroupResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupResourcesCommand)
   .de(de_ListGroupResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupResourcesRequest;
+      output: ListGroupResourcesResponse;
+    };
+    sdk: {
+      input: ListGroupResourcesCommandInput;
+      output: ListGroupResourcesCommandOutput;
+    };
+  };
+}

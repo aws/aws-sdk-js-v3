@@ -12,7 +12,8 @@ import { de_UpdateAlarmModelCommand, se_UpdateAlarmModelCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -222,6 +223,7 @@ export interface UpdateAlarmModelCommandOutput extends UpdateAlarmModelResponse,
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class UpdateAlarmModelCommand extends $Command
@@ -232,9 +234,7 @@ export class UpdateAlarmModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -246,4 +246,16 @@ export class UpdateAlarmModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAlarmModelCommand)
   .de(de_UpdateAlarmModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAlarmModelRequest;
+      output: UpdateAlarmModelResponse;
+    };
+    sdk: {
+      input: UpdateAlarmModelCommandInput;
+      output: UpdateAlarmModelCommandOutput;
+    };
+  };
+}

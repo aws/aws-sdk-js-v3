@@ -21,7 +21,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class CreateNamespaceCommand extends $Command
@@ -123,9 +125,7 @@ export class CreateNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class CreateNamespaceCommand extends $Command
   .f(CreateNamespaceRequestFilterSensitiveLog, CreateNamespaceResponseFilterSensitiveLog)
   .ser(se_CreateNamespaceCommand)
   .de(de_CreateNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNamespaceRequest;
+      output: CreateNamespaceResponse;
+    };
+    sdk: {
+      input: CreateNamespaceCommandInput;
+      output: CreateNamespaceCommandOutput;
+    };
+  };
+}

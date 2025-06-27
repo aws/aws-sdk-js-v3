@@ -17,7 +17,8 @@ import { de_ListPipesCommand, se_ListPipesCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface ListPipesCommandOutput extends ListPipesResponse, __MetadataBea
  * @throws {@link PipesServiceException}
  * <p>Base exception class for all service exceptions from Pipes service.</p>
  *
+ *
  * @public
  */
 export class ListPipesCommand extends $Command
@@ -98,9 +100,7 @@ export class ListPipesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PipesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListPipesCommand extends $Command
   .f(ListPipesRequestFilterSensitiveLog, ListPipesResponseFilterSensitiveLog)
   .ser(se_ListPipesCommand)
   .de(de_ListPipesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipesRequest;
+      output: ListPipesResponse;
+    };
+    sdk: {
+      input: ListPipesCommandInput;
+      output: ListPipesCommandOutput;
+    };
+  };
+}

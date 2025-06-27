@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface UpdateEmergencyContactSettingsCommandOutput
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class UpdateEmergencyContactSettingsCommand extends $Command
@@ -86,9 +88,7 @@ export class UpdateEmergencyContactSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class UpdateEmergencyContactSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEmergencyContactSettingsCommand)
   .de(de_UpdateEmergencyContactSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEmergencyContactSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateEmergencyContactSettingsCommandInput;
+      output: UpdateEmergencyContactSettingsCommandOutput;
+    };
+  };
+}

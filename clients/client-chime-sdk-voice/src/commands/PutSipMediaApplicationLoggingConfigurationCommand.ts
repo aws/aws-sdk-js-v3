@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface PutSipMediaApplicationLoggingConfigurationCommandOutput
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command
@@ -99,9 +101,7 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class PutSipMediaApplicationLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutSipMediaApplicationLoggingConfigurationCommand)
   .de(de_PutSipMediaApplicationLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSipMediaApplicationLoggingConfigurationRequest;
+      output: PutSipMediaApplicationLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: PutSipMediaApplicationLoggingConfigurationCommandInput;
+      output: PutSipMediaApplicationLoggingConfigurationCommandOutput;
+    };
+  };
+}

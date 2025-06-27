@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,13 +128,14 @@ export interface DescribeOrganizationConformancePacksCommandOutput
  *             </li>
  *             <li>
  *                <p>You are not a registered delegated administrator for Config with permissions to call <code>ListDelegatedAdministrators</code> API.
- * 			Ensure that the management account registers delagated administrator for Config service principle name before the delegated administrator creates an aggregator.</p>
+ * 			Ensure that the management account registers delagated administrator for Config service principal name before the delegated administrator creates an aggregator.</p>
  *             </li>
  *          </ul>
  *          <p>For all <code>OrganizationConfigRule</code> and <code>OrganizationConformancePack</code> APIs, Config throws an exception if APIs are called from member accounts. All APIs must be called from organization management account.</p>
  *
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
+ *
  *
  * @public
  */
@@ -145,9 +147,7 @@ export class DescribeOrganizationConformancePacksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class DescribeOrganizationConformancePacksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationConformancePacksCommand)
   .de(de_DescribeOrganizationConformancePacksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationConformancePacksRequest;
+      output: DescribeOrganizationConformancePacksResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationConformancePacksCommandInput;
+      output: DescribeOrganizationConformancePacksCommandOutput;
+    };
+  };
+}

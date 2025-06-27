@@ -12,7 +12,8 @@ import { de_SendOTPMessageCommand, se_SendOTPMessageCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -110,6 +111,7 @@ export interface SendOTPMessageCommandOutput extends SendOTPMessageResponse, __M
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class SendOTPMessageCommand extends $Command
@@ -120,9 +122,7 @@ export class SendOTPMessageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class SendOTPMessageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendOTPMessageCommand)
   .de(de_SendOTPMessageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendOTPMessageRequest;
+      output: SendOTPMessageResponse;
+    };
+    sdk: {
+      input: SendOTPMessageCommandInput;
+      output: SendOTPMessageCommandOutput;
+    };
+  };
+}

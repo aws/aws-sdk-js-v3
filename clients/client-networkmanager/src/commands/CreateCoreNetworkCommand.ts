@@ -12,7 +12,8 @@ import { de_CreateCoreNetworkCommand, se_CreateCoreNetworkCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,22 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * //         ],
  * //       },
  * //     ],
+ * //     NetworkFunctionGroups: [ // CoreNetworkNetworkFunctionGroupList
+ * //       { // CoreNetworkNetworkFunctionGroup
+ * //         Name: "STRING_VALUE",
+ * //         EdgeLocations: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Segments: { // ServiceInsertionSegments
+ * //           SendVia: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SendTo: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     ],
  * //     Edges: [ // CoreNetworkEdgeList
  * //       { // CoreNetworkEdge
  * //         EdgeLocation: "STRING_VALUE",
@@ -118,6 +135,7 @@ export interface CreateCoreNetworkCommandOutput extends CreateCoreNetworkRespons
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class CreateCoreNetworkCommand extends $Command
@@ -128,9 +146,7 @@ export class CreateCoreNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +158,16 @@ export class CreateCoreNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCoreNetworkCommand)
   .de(de_CreateCoreNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCoreNetworkRequest;
+      output: CreateCoreNetworkResponse;
+    };
+    sdk: {
+      input: CreateCoreNetworkCommandInput;
+      output: CreateCoreNetworkCommandOutput;
+    };
+  };
+}

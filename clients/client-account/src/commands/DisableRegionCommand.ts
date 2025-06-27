@@ -12,7 +12,8 @@ import { de_DisableRegionCommand, se_DisableRegionCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DisableRegionCommandInput extends DisableRegionRequest {}
 export interface DisableRegionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Disables (opts-out) a particular Region for an account.</p>
+ * <p>Disables (opts-out) a particular Region for an account.</p> <note> <p>The act of disabling a Region will remove all IAM access to any resources that reside in that Region.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,27 +52,23 @@ export interface DisableRegionCommandOutput extends __MetadataBearer {}
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required
- *             permissions.</p>
+ *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of a conflict in the current status of the
- *             resource. For example, this happens if you try to enable a Region that is currently being disabled
- *             (in a status of DISABLING).</p>
+ *  <p>The request could not be processed because of a conflict in the current status of the resource. For example, this happens if you try to enable a Region that is currently being disabled (in a status of DISABLING) or if you try to change an account’s root user email to an email address which is already in use.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
- *             later.</p>
+ *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle
- *             limit.</p>
+ *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
+ *
  *
  * @public
  */
@@ -83,9 +80,7 @@ export class DisableRegionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +92,16 @@ export class DisableRegionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableRegionCommand)
   .de(de_DisableRegionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableRegionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisableRegionCommandInput;
+      output: DisableRegionCommandOutput;
+    };
+  };
+}

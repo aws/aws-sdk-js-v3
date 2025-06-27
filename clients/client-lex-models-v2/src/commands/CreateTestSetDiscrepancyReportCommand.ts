@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface CreateTestSetDiscrepancyReportCommandOutput
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateTestSetDiscrepancyReportCommand extends $Command
@@ -109,9 +111,7 @@ export class CreateTestSetDiscrepancyReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class CreateTestSetDiscrepancyReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTestSetDiscrepancyReportCommand)
   .de(de_CreateTestSetDiscrepancyReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTestSetDiscrepancyReportRequest;
+      output: CreateTestSetDiscrepancyReportResponse;
+    };
+    sdk: {
+      input: CreateTestSetDiscrepancyReportCommandInput;
+      output: CreateTestSetDiscrepancyReportCommandOutput;
+    };
+  };
+}

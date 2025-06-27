@@ -20,7 +20,8 @@ import { de_GetEnvironmentCommand, se_GetEnvironmentCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentCommand extends $Command
@@ -110,9 +112,7 @@ export class GetEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class GetEnvironmentCommand extends $Command
   .f(void 0, GetEnvironmentResponseFilterSensitiveLog)
   .ser(se_GetEnvironmentCommand)
   .de(de_GetEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentRequest;
+      output: GetEnvironmentResponse;
+    };
+    sdk: {
+      input: GetEnvironmentCommandInput;
+      output: GetEnvironmentCommandOutput;
+    };
+  };
+}

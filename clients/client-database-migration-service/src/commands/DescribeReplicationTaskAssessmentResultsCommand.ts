@@ -13,6 +13,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeReplicationTaskAssessmentResultsMessage,
   DescribeReplicationTaskAssessmentResultsResponse,
+  DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_DescribeReplicationTaskAssessmentResultsCommand,
@@ -22,7 +23,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,11 +43,9 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
 
 /**
  * <p>Returns the task assessment results from the Amazon S3 bucket that DMS creates in your
- *           Amazon Web Services account.  This action always returns the
- *          latest results.</p>
- *          <p>For more information about DMS task assessments, see
- *            <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment report</a>
- *            in the <i>Database Migration Service User Guide</i>.</p>
+ *          Amazon Web Services account. This action always returns the latest results.</p>
+ *          <p>For more information about DMS task assessments, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Tasks.AssessmentReport.html">Creating a task assessment
+ *             report</a> in the <i>Database Migration Service User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,6 +89,7 @@ export interface DescribeReplicationTaskAssessmentResultsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
@@ -99,9 +100,7 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,7 +109,19 @@ export class DescribeReplicationTaskAssessmentResultsCommand extends $Command
   })
   .s("AmazonDMSv20160101", "DescribeReplicationTaskAssessmentResults", {})
   .n("DatabaseMigrationServiceClient", "DescribeReplicationTaskAssessmentResultsCommand")
-  .f(void 0, void 0)
+  .f(void 0, DescribeReplicationTaskAssessmentResultsResponseFilterSensitiveLog)
   .ser(se_DescribeReplicationTaskAssessmentResultsCommand)
   .de(de_DescribeReplicationTaskAssessmentResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationTaskAssessmentResultsMessage;
+      output: DescribeReplicationTaskAssessmentResultsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationTaskAssessmentResultsCommandInput;
+      output: DescribeReplicationTaskAssessmentResultsCommandOutput;
+    };
+  };
+}

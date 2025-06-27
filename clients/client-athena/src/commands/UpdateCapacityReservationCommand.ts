@@ -12,7 +12,8 @@ import { de_UpdateCapacityReservationCommand, se_UpdateCapacityReservationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,6 +63,7 @@ export interface UpdateCapacityReservationCommandOutput extends UpdateCapacityRe
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class UpdateCapacityReservationCommand extends $Command
@@ -72,9 +74,7 @@ export class UpdateCapacityReservationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class UpdateCapacityReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCapacityReservationCommand)
   .de(de_UpdateCapacityReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCapacityReservationInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCapacityReservationCommandInput;
+      output: UpdateCapacityReservationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreatePackageCommand, se_CreatePackageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,11 +38,25 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * const client = new OpenSearchClient(config);
  * const input = { // CreatePackageRequest
  *   PackageName: "STRING_VALUE", // required
- *   PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN", // required
+ *   PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN" || "PACKAGE-LICENSE" || "PACKAGE-CONFIG", // required
  *   PackageDescription: "STRING_VALUE",
  *   PackageSource: { // PackageSource
  *     S3BucketName: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
+ *   },
+ *   PackageConfiguration: { // PackageConfiguration
+ *     LicenseRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ *     LicenseFilepath: "STRING_VALUE",
+ *     ConfigurationRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ *     RequiresRestartForConfigurationUpdate: true || false,
+ *   },
+ *   EngineVersion: "STRING_VALUE",
+ *   PackageVendingOptions: { // PackageVendingOptions
+ *     VendingEnabled: true || false, // required
+ *   },
+ *   PackageEncryptionOptions: { // PackageEncryptionOptions
+ *     KmsKeyIdentifier: "STRING_VALUE",
+ *     EncryptionEnabled: true || false, // required
  *   },
  * };
  * const command = new CreatePackageCommand(input);
@@ -50,7 +65,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * //   PackageDetails: { // PackageDetails
  * //     PackageID: "STRING_VALUE",
  * //     PackageName: "STRING_VALUE",
- * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
+ * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN" || "PACKAGE-LICENSE" || "PACKAGE-CONFIG",
  * //     PackageDescription: "STRING_VALUE",
  * //     PackageStatus: "COPYING" || "COPY_FAILED" || "VALIDATING" || "VALIDATION_FAILED" || "AVAILABLE" || "DELETING" || "DELETED" || "DELETE_FAILED",
  * //     CreatedAt: new Date("TIMESTAMP"),
@@ -67,6 +82,23 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * //       Version: "STRING_VALUE",
  * //       ClassName: "STRING_VALUE",
  * //       UncompressedSizeInBytes: Number("long"),
+ * //     },
+ * //     AvailablePackageConfiguration: { // PackageConfiguration
+ * //       LicenseRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //       LicenseFilepath: "STRING_VALUE",
+ * //       ConfigurationRequirement: "REQUIRED" || "OPTIONAL" || "NONE", // required
+ * //       RequiresRestartForConfigurationUpdate: true || false,
+ * //     },
+ * //     AllowListedUserList: [ // PackageUserList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     PackageOwner: "STRING_VALUE",
+ * //     PackageVendingOptions: { // PackageVendingOptions
+ * //       VendingEnabled: true || false, // required
+ * //     },
+ * //     PackageEncryptionOptions: { // PackageEncryptionOptions
+ * //       KmsKeyIdentifier: "STRING_VALUE",
+ * //       EncryptionEnabled: true || false, // required
  * //     },
  * //   },
  * // };
@@ -103,6 +135,7 @@ export interface CreatePackageCommandOutput extends CreatePackageResponse, __Met
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class CreatePackageCommand extends $Command
@@ -113,9 +146,7 @@ export class CreatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +158,16 @@ export class CreatePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePackageCommand)
   .de(de_CreatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePackageRequest;
+      output: CreatePackageResponse;
+    };
+    sdk: {
+      input: CreatePackageCommandInput;
+      output: CreatePackageCommandOutput;
+    };
+  };
+}

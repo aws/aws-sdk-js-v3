@@ -1,13 +1,15 @@
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
+
 import { updateDiscoveredEndpointInCache } from "./updateDiscoveredEndpointInCache";
 
 describe(updateDiscoveredEndpointInCache.name, () => {
   const cacheKey = "cacheKey";
-  const mockGet = jest.fn();
-  const mockSet = jest.fn();
-  const mockDelete = jest.fn();
+  const mockGet = vi.fn();
+  const mockSet = vi.fn();
+  const mockDelete = vi.fn();
 
-  const mockHandler = jest.fn();
-  const mockResolveMiddleware = jest.fn().mockReturnValue(mockHandler);
+  const mockHandler = vi.fn();
+  const mockResolveMiddleware = vi.fn().mockReturnValue(mockHandler);
 
   const mockEndpoints = [{ Address: "mockAddress", CachePeriodInMinutes: 2 }];
   const placeholderEndpoints = [{ Address: "", CachePeriodInMinutes: 1 }];
@@ -19,7 +21,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
   const options = {
     cacheKey,
     commandName: "ExampleCommand",
-    endpointDiscoveryCommandCtor: jest.fn().mockReturnValue({ resolveMiddleware: mockResolveMiddleware }),
+    endpointDiscoveryCommandCtor: vi.fn().mockReturnValue({ resolveMiddleware: mockResolveMiddleware }),
     isDiscoveredEndpointRequired: false,
     identifiers: { key: "value" },
   };
@@ -29,7 +31,7 @@ describe(updateDiscoveredEndpointInCache.name, () => {
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it(`returns if endpoints are present in cacheKey`, async () => {

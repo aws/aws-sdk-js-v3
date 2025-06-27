@@ -16,7 +16,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,24 +32,7 @@ export interface CreateWorkforceCommandInput extends CreateWorkforceRequest {}
 export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to create a workforce. This operation will return an error
- *           if a workforce already exists in the Amazon Web Services Region that you specify. You can only
- *           create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p>
- *          <p>If you want to create a new workforce in an Amazon Web Services Region where
- *             a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API
- *       operation to delete the existing workforce and then use <code>CreateWorkforce</code>
- *       to create a new workforce.</p>
- *          <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool
- *     in <code>CognitoConfig</code>.
- *     You can also create an Amazon Cognito workforce using the Amazon SageMaker console.
- *     For more information, see
- *       <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html">
- *       Create a Private Workforce (Amazon Cognito)</a>.</p>
- *          <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP
- *       configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i>
- *       because groups are used by Ground Truth and Amazon A2I to create work teams.
- *       For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html">
- *       Create a Private Workforce (OIDC IdP)</a>.</p>
+ * <p>Use this operation to create a workforce. This operation will return an error if a workforce already exists in the Amazon Web Services Region that you specify. You can only create one workforce in each Amazon Web Services Region per Amazon Web Services account.</p> <p>If you want to create a new workforce in an Amazon Web Services Region where a workforce already exists, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DeleteWorkforce.html">DeleteWorkforce</a> API operation to delete the existing workforce and then use <code>CreateWorkforce</code> to create a new workforce.</p> <p>To create a private workforce using Amazon Cognito, you must specify a Cognito user pool in <code>CognitoConfig</code>. You can also create an Amazon Cognito workforce using the Amazon SageMaker console. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private.html"> Create a Private Workforce (Amazon Cognito)</a>.</p> <p>To create a private workforce using your own OIDC Identity Provider (IdP), specify your IdP configuration in <code>OidcConfig</code>. Your OIDC IdP must support <i>groups</i> because groups are used by Ground Truth and Amazon A2I to create work teams. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-create-private-oidc.html"> Create a Private Workforce (OIDC IdP)</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +53,10 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  *     UserInfoEndpoint: "STRING_VALUE", // required
  *     LogoutEndpoint: "STRING_VALUE", // required
  *     JwksUri: "STRING_VALUE", // required
+ *     Scope: "STRING_VALUE",
+ *     AuthenticationRequestExtraParams: { // AuthenticationRequestExtraParams
+ *       "<keys>": "STRING_VALUE",
+ *     },
  *   },
  *   SourceIpConfig: { // SourceIpConfig
  *     Cidrs: [ // Cidrs // required
@@ -109,6 +97,7 @@ export interface CreateWorkforceCommandOutput extends CreateWorkforceResponse, _
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class CreateWorkforceCommand extends $Command
@@ -119,9 +108,7 @@ export class CreateWorkforceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +120,16 @@ export class CreateWorkforceCommand extends $Command
   .f(CreateWorkforceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWorkforceCommand)
   .de(de_CreateWorkforceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkforceRequest;
+      output: CreateWorkforceResponse;
+    };
+    sdk: {
+      input: CreateWorkforceCommandInput;
+      output: CreateWorkforceCommandOutput;
+    };
+  };
+}

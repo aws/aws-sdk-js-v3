@@ -16,7 +16,8 @@ import { de_UploadServerCertificateCommand, se_UploadServerCertificateCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -132,33 +133,33 @@ export interface UploadServerCertificateCommandOutput extends UploadServerCertif
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To upload a server certificate to your AWS account
  * ```javascript
  * // The following upload-server-certificate command uploads a server certificate to your AWS account:
  * const input = {
- *   "CertificateBody": "-----BEGIN CERTIFICATE-----<a very long certificate text string>-----END CERTIFICATE-----",
- *   "Path": "/company/servercerts/",
- *   "PrivateKey": "-----BEGIN DSA PRIVATE KEY-----<a very long private key string>-----END DSA PRIVATE KEY-----",
- *   "ServerCertificateName": "ProdServerCert"
+ *   CertificateBody: "-----BEGIN CERTIFICATE-----<a very long certificate text string>-----END CERTIFICATE-----",
+ *   Path: "/company/servercerts/",
+ *   PrivateKey: "-----BEGIN DSA PRIVATE KEY-----<a very long private key string>-----END DSA PRIVATE KEY-----",
+ *   ServerCertificateName: "ProdServerCert"
  * };
  * const command = new UploadServerCertificateCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ServerCertificateMetadata": {
- *     "Arn": "arn:aws:iam::123456789012:server-certificate/company/servercerts/ProdServerCert",
- *     "Expiration": "2012-05-08T01:02:03.004Z",
- *     "Path": "/company/servercerts/",
- *     "ServerCertificateId": "ASCA1111111111EXAMPLE",
- *     "ServerCertificateName": "ProdServerCert",
- *     "UploadDate": "2010-05-08T01:02:03.004Z"
+ *   ServerCertificateMetadata: {
+ *     Arn: "arn:aws:iam::123456789012:server-certificate/company/servercerts/ProdServerCert",
+ *     Expiration: "2012-05-08T01:02:03.004Z",
+ *     Path: "/company/servercerts/",
+ *     ServerCertificateId: "ASCA1111111111EXAMPLE",
+ *     ServerCertificateName: "ProdServerCert",
+ *     UploadDate: "2010-05-08T01:02:03.004Z"
  *   }
  * }
  * *\/
- * // example id: 06eab6d1-ebf2-4bd9-839d-f7508b9a38b6
  * ```
  *
+ * @public
  */
 export class UploadServerCertificateCommand extends $Command
   .classBuilder<
@@ -168,9 +169,7 @@ export class UploadServerCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +181,16 @@ export class UploadServerCertificateCommand extends $Command
   .f(UploadServerCertificateRequestFilterSensitiveLog, void 0)
   .ser(se_UploadServerCertificateCommand)
   .de(de_UploadServerCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadServerCertificateRequest;
+      output: UploadServerCertificateResponse;
+    };
+    sdk: {
+      input: UploadServerCertificateCommandInput;
+      output: UploadServerCertificateCommandOutput;
+    };
+  };
+}

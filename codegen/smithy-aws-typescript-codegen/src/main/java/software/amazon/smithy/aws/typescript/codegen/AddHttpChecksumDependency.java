@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.Collections;
@@ -24,12 +25,14 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Consumer;
 import software.amazon.smithy.aws.traits.HttpChecksumTrait;
-import software.amazon.smithy.codegen.core.Symbol;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.TopDownIndex;
+import software.amazon.smithy.model.shapes.MemberShape;
 import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
+import software.amazon.smithy.model.shapes.StructureShape;
+import software.amazon.smithy.model.traits.HttpHeaderTrait;
 import software.amazon.smithy.typescript.codegen.LanguageTarget;
 import software.amazon.smithy.typescript.codegen.TypeScriptDependency;
 import software.amazon.smithy.typescript.codegen.TypeScriptSettings;
@@ -131,6 +134,22 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
                         writer.addImport("ChecksumConstructor", "__ChecksumConstructor",
                                 TypeScriptDependency.AWS_SDK_TYPES);
                         writer.write("Hash.bind(null, \"sha1\")");
+                    },
+                    "requestChecksumCalculation", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS", null,
+                                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
+                        writer.write("loadNodeConfig(NODE_REQUEST_CHECKSUM_CALCULATION_CONFIG_OPTIONS, loaderConfig)");
+                    },
+                    "responseChecksumValidation", writer -> {
+                        writer.addDependency(TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("loadConfig", "loadNodeConfig",
+                                    TypeScriptDependency.NODE_CONFIG_PROVIDER);
+                        writer.addImport("NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS", null,
+                                    AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE);
+                        writer.write("loadNodeConfig(NODE_RESPONSE_CHECKSUM_VALIDATION_CONFIG_OPTIONS, loaderConfig)");
                     }
                 );
             case BROWSER:
@@ -162,6 +181,11 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         return ListUtils.of(
             RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
+                                         HAS_CONFIG)
+                        .servicePredicate((m, s) -> hasHttpChecksumTrait(m, s))
+                        .build(),
+            RuntimeClientPlugin.builder()
+                        .withConventions(AwsDependency.FLEXIBLE_CHECKSUMS_MIDDLEWARE.dependency, "FlexibleChecksums",
                                          HAS_MIDDLEWARE)
                         .additionalPluginFunctionParamsSupplier((m, s, o) -> getPluginFunctionParams(m, s, o))
                         .operationPredicate((m, s, o) -> hasHttpChecksumTrait(o))
@@ -175,12 +199,23 @@ public class AddHttpChecksumDependency implements TypeScriptIntegration {
         OperationShape operation
     ) {
         Map<String, Object> params = new TreeMap<String, Object>();
-        params.put("input", Symbol.builder().name("this.input").build());
 
         HttpChecksumTrait httpChecksumTrait = operation.expectTrait(HttpChecksumTrait.class);
         params.put("requestChecksumRequired", httpChecksumTrait.isRequestChecksumRequired());
         httpChecksumTrait.getRequestAlgorithmMember().ifPresent(requestAlgorithmMember -> {
-            params.put("requestAlgorithmMember", requestAlgorithmMember);
+            Map<String, String> requestAlgorithmMemberMap = new TreeMap<String, String>();
+            requestAlgorithmMemberMap.put("name", requestAlgorithmMember);
+
+            // We know that input shape is structure, and contains requestAlgorithmMember.
+            StructureShape inputShape =  model.expectShape(operation.getInput().get(), StructureShape.class);
+            MemberShape requestAlgorithmMemberShape = inputShape.getAllMembers().get(requestAlgorithmMember);
+
+            // Set requestAlgorithmMemberHttpHeader if HttpHeaderTrait is present.
+            requestAlgorithmMemberShape.getTrait(HttpHeaderTrait.class).ifPresent(httpHeaderTrait -> {
+                requestAlgorithmMemberMap.put("httpHeader", httpHeaderTrait.getValue());
+            });
+
+            params.put("requestAlgorithmMember", requestAlgorithmMemberMap);
         });
         httpChecksumTrait.getRequestValidationModeMember().ifPresent(requestValidationModeMember -> {
             params.put("requestValidationModeMember", requestValidationModeMember);

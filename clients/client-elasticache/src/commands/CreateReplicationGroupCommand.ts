@@ -12,7 +12,8 @@ import { de_CreateReplicationGroupCommand, se_CreateReplicationGroupCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,36 +28,35 @@ export interface CreateReplicationGroupCommandInput extends CreateReplicationGro
 export interface CreateReplicationGroupCommandOutput extends CreateReplicationGroupResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Redis (cluster mode disabled) or a Redis (cluster mode enabled) replication
+ * <p>Creates a Valkey or Redis OSS (cluster mode disabled) or a Valkey or Redis OSS (cluster mode enabled) replication
  *             group.</p>
  *          <p>This API can be used to create a standalone regional replication group or a secondary
  *             replication group associated with a Global datastore.</p>
- *          <p>A Redis (cluster mode disabled) replication group is a collection of nodes, where
+ *          <p>A Valkey or Redis OSS (cluster mode disabled) replication group is a collection of nodes, where
  *             one of the nodes is a read/write primary and the others are read-only replicas.
  *             Writes to the primary are asynchronously propagated to the replicas.</p>
- *          <p>A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
+ *          <p>A Valkey or Redis OSS cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
  *             node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
  *             configuration can range from 90 shards and 0 replicas to 15 shards and 5 replicas, which
  *             is the maximum number or replicas allowed. </p>
- *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Redis
+ *          <p>The node or shard limit can be increased to a maximum of 500 per cluster if the Valkey or Redis OSS
  *             engine version is 5.0.6 or higher. For example, you can choose to configure a 500 node
  *             cluster that ranges between 83 shards (one primary and 5 replicas per shard) and 500
  *             shards (single primary and no replicas). Make sure there are enough available IP
  *             addresses to accommodate the increase. Common pitfalls include the subnets in the subnet
  *             group have too small a CIDR range or the subnets are shared and heavily used by other
- *             clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/SubnetGroups.Creating.html">Creating a Subnet
+ *             clusters. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/SubnetGroups.Creating.html">Creating a Subnet
  *                 Group</a>. For versions below 5.0.6, the limit is 250 per cluster.</p>
  *          <p>To request a limit increase, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">Amazon Service Limits</a> and
  *             choose the limit type <b>Nodes per cluster per instance
  *                 type</b>. </p>
- *          <p>When a Redis (cluster mode disabled) replication group has been successfully created,
+ *          <p>When a Valkey or Redis OSS (cluster mode disabled) replication group has been successfully created,
  *             you can add one or more read replicas to it, up to a total of 5 read replicas. If you
- *             need to increase or decrease the number of node groups (console: shards), you can avail
- *             yourself of ElastiCache for Redis' scaling. For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Scaling.html">Scaling
- *                 ElastiCache for Redis Clusters</a> in the <i>ElastiCache User
+ *             need to increase or decrease the number of node groups (console: shards), you can use scaling.
+ *             For more information, see <a href="https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Scaling.html">Scaling self-designed clusters</a> in the <i>ElastiCache User
  *                 Guide</i>.</p>
  *          <note>
- *             <p>This operation is valid for Redis only.</p>
+ *             <p>This operation is valid for Valkey and Redis OSS only.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -271,6 +271,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * //     IpDiscovery: "ipv4" || "ipv6",
  * //     TransitEncryptionMode: "preferred" || "required",
  * //     ClusterMode: "enabled" || "disabled" || "compatible",
+ * //     Engine: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -306,7 +307,7 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *
  * @throws {@link InsufficientCacheClusterCapacityFault} (client fault)
  *  <p>The requested cache node type is not available in the specified Availability Zone. For
- *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
+ *             more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/ErrorMessages.html#ErrorMessages.INSUFFICIENT_CACHE_CLUSTER_CAPACITY">InsufficientCacheClusterCapacity</a> in the ElastiCache User Guide.</p>
  *
  * @throws {@link InvalidCacheClusterStateFault} (client fault)
  *  <p>The requested cluster is not in the <code>available</code> state.</p>
@@ -352,100 +353,99 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example CreateCacheReplicationGroup
  * ```javascript
  * // Creates a Redis replication group with 3 nodes.
  * const input = {
- *   "AutomaticFailoverEnabled": true,
- *   "CacheNodeType": "cache.m3.medium",
- *   "Engine": "redis",
- *   "EngineVersion": "2.8.24",
- *   "NumCacheClusters": 3,
- *   "ReplicationGroupDescription": "A Redis replication group.",
- *   "ReplicationGroupId": "my-redis-rg",
- *   "SnapshotRetentionLimit": 30
+ *   AutomaticFailoverEnabled: true,
+ *   CacheNodeType: "cache.m3.medium",
+ *   Engine: "redis",
+ *   EngineVersion: "2.8.24",
+ *   NumCacheClusters: 3,
+ *   ReplicationGroupDescription: "A Redis replication group.",
+ *   ReplicationGroupId: "my-redis-rg",
+ *   SnapshotRetentionLimit: 30
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "enabling",
- *     "Description": "A Redis replication group.",
- *     "MemberClusters": [
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "enabling",
+ *     Description: "A Redis replication group.",
+ *     MemberClusters: [
  *       "my-redis-rg-001",
  *       "my-redis-rg-002",
  *       "my-redis-rg-003"
  *     ],
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "my-redis-rg",
- *     "SnapshottingClusterId": "my-redis-rg-002",
- *     "Status": "creating"
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "my-redis-rg",
+ *     SnapshottingClusterId: "my-redis-rg-002",
+ *     Status: "creating"
  *   }
  * }
  * *\/
- * // example id: createcachereplicationgroup-1474998730655
  * ```
  *
  * @example CreateReplicationGroup
  * ```javascript
  * // Creates a Redis (cluster mode enabled) replication group with two shards. One shard has one read replica node and the other shard has two read replicas.
  * const input = {
- *   "AutoMinorVersionUpgrade": true,
- *   "CacheNodeType": "cache.m3.medium",
- *   "CacheParameterGroupName": "default.redis3.2.cluster.on",
- *   "Engine": "redis",
- *   "EngineVersion": "3.2.4",
- *   "NodeGroupConfiguration": [
+ *   AutoMinorVersionUpgrade: true,
+ *   CacheNodeType: "cache.m3.medium",
+ *   CacheParameterGroupName: "default.redis3.2.cluster.on",
+ *   Engine: "redis",
+ *   EngineVersion: "3.2.4",
+ *   NodeGroupConfiguration: [
  *     {
- *       "PrimaryAvailabilityZone": "us-east-1c",
- *       "ReplicaAvailabilityZones": [
+ *       PrimaryAvailabilityZone: "us-east-1c",
+ *       ReplicaAvailabilityZones: [
  *         "us-east-1b"
  *       ],
- *       "ReplicaCount": 1,
- *       "Slots": "0-8999"
+ *       ReplicaCount: 1,
+ *       Slots: "0-8999"
  *     },
  *     {
- *       "PrimaryAvailabilityZone": "us-east-1a",
- *       "ReplicaAvailabilityZones": [
+ *       PrimaryAvailabilityZone: "us-east-1a",
+ *       ReplicaAvailabilityZones: [
  *         "us-east-1a",
  *         "us-east-1c"
  *       ],
- *       "ReplicaCount": 2,
- *       "Slots": "9000-16383"
+ *       ReplicaCount: 2,
+ *       Slots: "9000-16383"
  *     }
  *   ],
- *   "NumNodeGroups": 2,
- *   "ReplicationGroupDescription": "A multi-sharded replication group",
- *   "ReplicationGroupId": "clustered-redis-rg",
- *   "SnapshotRetentionLimit": 8
+ *   NumNodeGroups: 2,
+ *   ReplicationGroupDescription: "A multi-sharded replication group",
+ *   ReplicationGroupId: "clustered-redis-rg",
+ *   SnapshotRetentionLimit: 8
  * };
  * const command = new CreateReplicationGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationGroup": {
- *     "AutomaticFailover": "enabled",
- *     "Description": "Sharded replication group",
- *     "MemberClusters": [
+ *   ReplicationGroup: {
+ *     AutomaticFailover: "enabled",
+ *     Description: "Sharded replication group",
+ *     MemberClusters: [
  *       "rc-rg3-0001-001",
  *       "rc-rg3-0001-002",
  *       "rc-rg3-0002-001",
  *       "rc-rg3-0002-002",
  *       "rc-rg3-0002-003"
  *     ],
- *     "PendingModifiedValues": {},
- *     "ReplicationGroupId": "clustered-redis-rg",
- *     "SnapshotRetentionLimit": 8,
- *     "SnapshotWindow": "05:30-06:30",
- *     "Status": "creating"
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     ReplicationGroupId: "clustered-redis-rg",
+ *     SnapshotRetentionLimit: 8,
+ *     SnapshotWindow: "05:30-06:30",
+ *     Status: "creating"
  *   }
  * }
  * *\/
- * // example id: createreplicationgroup-1483657035585
  * ```
  *
+ * @public
  */
 export class CreateReplicationGroupCommand extends $Command
   .classBuilder<
@@ -455,9 +455,7 @@ export class CreateReplicationGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -469,4 +467,16 @@ export class CreateReplicationGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReplicationGroupCommand)
   .de(de_CreateReplicationGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReplicationGroupMessage;
+      output: CreateReplicationGroupResult;
+    };
+    sdk: {
+      input: CreateReplicationGroupCommandInput;
+      output: CreateReplicationGroupCommandOutput;
+    };
+  };
+}

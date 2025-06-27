@@ -12,7 +12,8 @@ import { de_ListBackupJobSummariesCommand, se_ListBackupJobSummariesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface ListBackupJobSummariesCommandOutput extends ListBackupJobSummar
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListBackupJobSummariesCommand extends $Command
@@ -97,9 +99,7 @@ export class ListBackupJobSummariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class ListBackupJobSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackupJobSummariesCommand)
   .de(de_ListBackupJobSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackupJobSummariesInput;
+      output: ListBackupJobSummariesOutput;
+    };
+    sdk: {
+      input: ListBackupJobSummariesCommandInput;
+      output: ListBackupJobSummariesCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEvaluationFormRequest, UpdateEvaluationFormResponse } from "../models/models_2";
+import { UpdateEvaluationFormResponse } from "../models/models_2";
+import { UpdateEvaluationFormRequest } from "../models/models_3";
 import { de_UpdateEvaluationFormCommand, se_UpdateEvaluationFormCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -209,6 +211,7 @@ export interface UpdateEvaluationFormCommandOutput extends UpdateEvaluationFormR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateEvaluationFormCommand extends $Command
@@ -219,9 +222,7 @@ export class UpdateEvaluationFormCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -233,4 +234,16 @@ export class UpdateEvaluationFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEvaluationFormCommand)
   .de(de_UpdateEvaluationFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEvaluationFormRequest;
+      output: UpdateEvaluationFormResponse;
+    };
+    sdk: {
+      input: UpdateEvaluationFormCommandInput;
+      output: UpdateEvaluationFormCommandOutput;
+    };
+  };
+}

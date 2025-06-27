@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetCapacityReservationUsageRequest, GetCapacityReservationUsageResult } from "../models/models_5";
+import { GetCapacityReservationUsageRequest, GetCapacityReservationUsageResult } from "../models/models_6";
 import { de_GetCapacityReservationUsageCommand, se_GetCapacityReservationUsageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface GetCapacityReservationUsageCommandInput extends GetCapacityRese
 export interface GetCapacityReservationUsageCommandOutput extends GetCapacityReservationUsageResult, __MetadataBearer {}
 
 /**
- * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is shared, it shows usage information for the Capacity Reservation owner
- * 			and each Amazon Web Services account that is currently using the shared capacity. If the Capacity Reservation is not shared, it shows only
- * 			the Capacity Reservation owner's usage.</p>
+ * <p>Gets usage information about a Capacity Reservation. If the Capacity Reservation is
+ * 			shared, it shows usage information for the Capacity Reservation owner and each Amazon Web Services account that is currently using the shared capacity. If the Capacity
+ * 			Reservation is not shared, it shows only the Capacity Reservation owner's usage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +51,7 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * //   InstanceType: "STRING_VALUE",
  * //   TotalInstanceCount: Number("int"),
  * //   AvailableInstanceCount: Number("int"),
- * //   State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //   State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //   InstanceUsages: [ // InstanceUsageSet
  * //     { // InstanceUsage
  * //       AccountId: "STRING_VALUE",
@@ -70,6 +71,7 @@ export interface GetCapacityReservationUsageCommandOutput extends GetCapacityRes
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetCapacityReservationUsageCommand extends $Command
@@ -80,9 +82,7 @@ export class GetCapacityReservationUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class GetCapacityReservationUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCapacityReservationUsageCommand)
   .de(de_GetCapacityReservationUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCapacityReservationUsageRequest;
+      output: GetCapacityReservationUsageResult;
+    };
+    sdk: {
+      input: GetCapacityReservationUsageCommandInput;
+      output: GetCapacityReservationUsageCommandOutput;
+    };
+  };
+}

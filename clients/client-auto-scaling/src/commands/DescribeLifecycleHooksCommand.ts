@@ -12,7 +12,8 @@ import { de_DescribeLifecycleHooksCommand, se_DescribeLifecycleHooksCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,34 +74,34 @@ export interface DescribeLifecycleHooksCommandOutput extends DescribeLifecycleHo
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe your lifecycle hooks
  * ```javascript
  * // This example describes the lifecycle hooks for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribeLifecycleHooksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LifecycleHooks": [
+ *   LifecycleHooks: [
  *     {
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "DefaultResult": "ABANDON",
- *       "GlobalTimeout": 172800,
- *       "HeartbeatTimeout": 3600,
- *       "LifecycleHookName": "my-lifecycle-hook",
- *       "LifecycleTransition": "autoscaling:EC2_INSTANCE_LAUNCHING",
- *       "NotificationTargetARN": "arn:aws:sns:us-west-2:123456789012:my-sns-topic",
- *       "RoleARN": "arn:aws:iam::123456789012:role/my-auto-scaling-role"
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       DefaultResult: "ABANDON",
+ *       GlobalTimeout: 172800,
+ *       HeartbeatTimeout: 3600,
+ *       LifecycleHookName: "my-lifecycle-hook",
+ *       LifecycleTransition: "autoscaling:EC2_INSTANCE_LAUNCHING",
+ *       NotificationTargetARN: "arn:aws:sns:us-west-2:123456789012:my-sns-topic",
+ *       RoleARN: "arn:aws:iam::123456789012:role/my-auto-scaling-role"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-lifecycle-hooks-1
  * ```
  *
+ * @public
  */
 export class DescribeLifecycleHooksCommand extends $Command
   .classBuilder<
@@ -110,9 +111,7 @@ export class DescribeLifecycleHooksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +123,16 @@ export class DescribeLifecycleHooksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLifecycleHooksCommand)
   .de(de_DescribeLifecycleHooksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLifecycleHooksType;
+      output: DescribeLifecycleHooksAnswer;
+    };
+    sdk: {
+      input: DescribeLifecycleHooksCommandInput;
+      output: DescribeLifecycleHooksCommandOutput;
+    };
+  };
+}

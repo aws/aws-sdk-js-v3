@@ -12,7 +12,8 @@ import { de_DeleteBackendAuthCommand, se_DeleteBackendAuthCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface DeleteBackendAuthCommandOutput extends DeleteBackendAuthRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackendAuthCommand extends $Command
@@ -83,9 +85,7 @@ export class DeleteBackendAuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class DeleteBackendAuthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackendAuthCommand)
   .de(de_DeleteBackendAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackendAuthRequest;
+      output: DeleteBackendAuthResponse;
+    };
+    sdk: {
+      input: DeleteBackendAuthCommandInput;
+      output: DeleteBackendAuthCommandOutput;
+    };
+  };
+}

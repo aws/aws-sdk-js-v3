@@ -6,17 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MailManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MailManagerClient";
-import {
-  CreateAddonInstanceRequest,
-  CreateAddonInstanceRequestFilterSensitiveLog,
-  CreateAddonInstanceResponse,
-} from "../models/models_0";
+import { CreateAddonInstanceRequest, CreateAddonInstanceResponse } from "../models/models_0";
 import { de_CreateAddonInstanceCommand, se_CreateAddonInstanceCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +28,7 @@ export interface CreateAddonInstanceCommandInput extends CreateAddonInstanceRequ
 export interface CreateAddonInstanceCommandOutput extends CreateAddonInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an Add On instance for the subscription indicated in the request. The
- *             resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy.
- *         </p>
+ * <p>Creates an Add On instance for the subscription indicated in the request. The resulting Amazon Resource Name (ARN) can be used in a conditional statement for a rule set or traffic policy. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +74,7 @@ export interface CreateAddonInstanceCommandOutput extends CreateAddonInstanceRes
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class CreateAddonInstanceCommand extends $Command
@@ -89,9 +85,7 @@ export class CreateAddonInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,7 +94,19 @@ export class CreateAddonInstanceCommand extends $Command
   })
   .s("MailManagerSvc", "CreateAddonInstance", {})
   .n("MailManagerClient", "CreateAddonInstanceCommand")
-  .f(CreateAddonInstanceRequestFilterSensitiveLog, void 0)
+  .f(void 0, void 0)
   .ser(se_CreateAddonInstanceCommand)
   .de(de_CreateAddonInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAddonInstanceRequest;
+      output: CreateAddonInstanceResponse;
+    };
+    sdk: {
+      input: CreateAddonInstanceCommandInput;
+      output: CreateAddonInstanceCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_AddTagsCommand, se_AddTagsCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface AddTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class AddTagsCommand extends $Command
@@ -85,9 +87,7 @@ export class AddTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class AddTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsCommand)
   .de(de_AddTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsCommandInput;
+      output: AddTagsCommandOutput;
+    };
+  };
+}

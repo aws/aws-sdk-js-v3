@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -118,6 +119,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class CreateDomainCommand extends $Command
@@ -128,9 +130,7 @@ export class CreateDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class CreateDomainCommand extends $Command
   .f(CreateDomainRequestFilterSensitiveLog, CreateDomainResponseFilterSensitiveLog)
   .ser(se_CreateDomainCommand)
   .de(de_CreateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainRequest;
+      output: CreateDomainResponse;
+    };
+    sdk: {
+      input: CreateDomainCommandInput;
+      output: CreateDomainCommandOutput;
+    };
+  };
+}

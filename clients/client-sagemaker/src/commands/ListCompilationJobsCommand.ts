@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListCompilationJobsRequest, ListCompilationJobsResponse } from "../models/models_3";
+import { ListCompilationJobsRequest, ListCompilationJobsResponse } from "../models/models_4";
 import { de_ListCompilationJobsCommand, se_ListCompilationJobsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListCompilationJobsCommandInput extends ListCompilationJobsRequ
 export interface ListCompilationJobsCommandOutput extends ListCompilationJobsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists model compilation jobs that satisfy various filters.</p>
- *          <p>To create a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html">CreateCompilationJob</a>. To get information about a particular model
- *             compilation job you have created, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>.</p>
+ * <p>Lists model compilation jobs that satisfy various filters.</p> <p>To create a model compilation job, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateCompilationJob.html">CreateCompilationJob</a>. To get information about a particular model compilation job you have created, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeCompilationJob.html">DescribeCompilationJob</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +79,7 @@ export interface ListCompilationJobsCommandOutput extends ListCompilationJobsRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListCompilationJobsCommand extends $Command
@@ -90,9 +90,7 @@ export class ListCompilationJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +102,16 @@ export class ListCompilationJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCompilationJobsCommand)
   .de(de_ListCompilationJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCompilationJobsRequest;
+      output: ListCompilationJobsResponse;
+    };
+    sdk: {
+      input: ListCompilationJobsCommandInput;
+      output: ListCompilationJobsCommandOutput;
+    };
+  };
+}

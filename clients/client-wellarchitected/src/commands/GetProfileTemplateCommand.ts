@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WellArchitectedClientResolvedCon
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetProfileTemplateCommandOutput extends GetProfileTemplateOutpu
  * @throws {@link WellArchitectedServiceException}
  * <p>Base exception class for all service exceptions from WellArchitected service.</p>
  *
+ *
  * @public
  */
 export class GetProfileTemplateCommand extends $Command
@@ -97,9 +99,7 @@ export class GetProfileTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WellArchitectedClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetProfileTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProfileTemplateCommand)
   .de(de_GetProfileTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetProfileTemplateOutput;
+    };
+    sdk: {
+      input: GetProfileTemplateCommandInput;
+      output: GetProfileTemplateCommandOutput;
+    };
+  };
+}

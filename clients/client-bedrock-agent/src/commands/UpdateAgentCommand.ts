@@ -17,7 +17,8 @@ import { de_UpdateAgentCommand, se_UpdateAgentCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,13 +46,19 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *   instruction: "STRING_VALUE",
  *   foundationModel: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
+ *   orchestrationType: "DEFAULT" || "CUSTOM_ORCHESTRATION",
+ *   customOrchestration: { // CustomOrchestration
+ *     executor: { // OrchestrationExecutor Union: only one key present
+ *       lambda: "STRING_VALUE",
+ *     },
+ *   },
  *   idleSessionTTLInSeconds: Number("int"),
  *   agentResourceRoleArn: "STRING_VALUE", // required
  *   customerEncryptionKeyArn: "STRING_VALUE",
  *   promptOverrideConfiguration: { // PromptOverrideConfiguration
  *     promptConfigurations: [ // PromptConfigurations // required
  *       { // PromptConfiguration
- *         promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+ *         promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "MEMORY_SUMMARIZATION",
  *         promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  *         promptState: "ENABLED" || "DISABLED",
  *         basePromptTemplate: "STRING_VALUE",
@@ -65,6 +72,8 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *           ],
  *         },
  *         parserMode: "DEFAULT" || "OVERRIDDEN",
+ *         foundationModel: "STRING_VALUE",
+ *         additionalModelRequestFields: "DOCUMENT_VALUE",
  *       },
  *     ],
  *     overrideLambda: "STRING_VALUE",
@@ -73,6 +82,16 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  *     guardrailIdentifier: "STRING_VALUE",
  *     guardrailVersion: "STRING_VALUE",
  *   },
+ *   memoryConfiguration: { // MemoryConfiguration
+ *     enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ *       "SESSION_SUMMARY",
+ *     ],
+ *     storageDays: Number("int"),
+ *     sessionSummaryConfiguration: { // SessionSummaryConfiguration
+ *       maxRecentSessions: Number("int"),
+ *     },
+ *   },
+ *   agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * };
  * const command = new UpdateAgentCommand(input);
  * const response = await client.send(command);
@@ -87,6 +106,12 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //     agentStatus: "CREATING" || "PREPARING" || "PREPARED" || "NOT_PREPARED" || "DELETING" || "FAILED" || "VERSIONING" || "UPDATING", // required
  * //     foundationModel: "STRING_VALUE",
  * //     description: "STRING_VALUE",
+ * //     orchestrationType: "DEFAULT" || "CUSTOM_ORCHESTRATION",
+ * //     customOrchestration: { // CustomOrchestration
+ * //       executor: { // OrchestrationExecutor Union: only one key present
+ * //         lambda: "STRING_VALUE",
+ * //       },
+ * //     },
  * //     idleSessionTTLInSeconds: Number("int"), // required
  * //     agentResourceRoleArn: "STRING_VALUE", // required
  * //     customerEncryptionKeyArn: "STRING_VALUE",
@@ -102,7 +127,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //     promptOverrideConfiguration: { // PromptOverrideConfiguration
  * //       promptConfigurations: [ // PromptConfigurations // required
  * //         { // PromptConfiguration
- * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION",
+ * //           promptType: "PRE_PROCESSING" || "ORCHESTRATION" || "POST_PROCESSING" || "KNOWLEDGE_BASE_RESPONSE_GENERATION" || "MEMORY_SUMMARIZATION",
  * //           promptCreationMode: "DEFAULT" || "OVERRIDDEN",
  * //           promptState: "ENABLED" || "DISABLED",
  * //           basePromptTemplate: "STRING_VALUE",
@@ -116,6 +141,8 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //             ],
  * //           },
  * //           parserMode: "DEFAULT" || "OVERRIDDEN",
+ * //           foundationModel: "STRING_VALUE",
+ * //           additionalModelRequestFields: "DOCUMENT_VALUE",
  * //         },
  * //       ],
  * //       overrideLambda: "STRING_VALUE",
@@ -124,6 +151,16 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * //       guardrailIdentifier: "STRING_VALUE",
  * //       guardrailVersion: "STRING_VALUE",
  * //     },
+ * //     memoryConfiguration: { // MemoryConfiguration
+ * //       enabledMemoryTypes: [ // EnabledMemoryTypes // required
+ * //         "SESSION_SUMMARY",
+ * //       ],
+ * //       storageDays: Number("int"),
+ * //       sessionSummaryConfiguration: { // SessionSummaryConfiguration
+ * //         maxRecentSessions: Number("int"),
+ * //       },
+ * //     },
+ * //     agentCollaboration: "SUPERVISOR" || "SUPERVISOR_ROUTER" || "DISABLED",
  * //   },
  * // };
  *
@@ -159,6 +196,7 @@ export interface UpdateAgentCommandOutput extends UpdateAgentResponse, __Metadat
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class UpdateAgentCommand extends $Command
@@ -169,9 +207,7 @@ export class UpdateAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -183,4 +219,16 @@ export class UpdateAgentCommand extends $Command
   .f(UpdateAgentRequestFilterSensitiveLog, UpdateAgentResponseFilterSensitiveLog)
   .ser(se_UpdateAgentCommand)
   .de(de_UpdateAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAgentRequest;
+      output: UpdateAgentResponse;
+    };
+    sdk: {
+      input: UpdateAgentCommandInput;
+      output: UpdateAgentCommandOutput;
+    };
+  };
+}

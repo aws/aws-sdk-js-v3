@@ -21,7 +21,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  */
@@ -56,8 +57,10 @@ export interface CreateHostedConfigurationVersionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a new configuration in the AppConfig hosted configuration
- *          store.</p>
+ * <p>Creates a new configuration in the AppConfig hosted configuration store. If
+ *          you're creating a feature flag, we recommend you familiarize yourself with the JSON schema
+ *          for feature flag data. For more information, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/appconfig-creating-configuration-and-profile-feature-flags.html#appconfig-type-reference-feature-flags">Type reference for AWS.AppConfig.FeatureFlags</a> in the
+ *             <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -124,30 +127,30 @@ export interface CreateHostedConfigurationVersionCommandOutput
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To create a hosted configuration version
  * ```javascript
  * // The following create-hosted-configuration-version example creates a new configuration in the AWS AppConfig configuration store.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "Content": "eyAiTmFtZSI6ICJFeGFtcGxlQXBwbGljYXRpb24iLCAiSWQiOiBFeGFtcGxlSUQsICJSYW5rIjogNyB9",
- *   "ContentType": "text",
- *   "LatestVersionNumber": 1
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f",
+ *   Content: "eyAiTmFtZSI6ICJFeGFtcGxlQXBwbGljYXRpb24iLCAiSWQiOiBFeGFtcGxlSUQsICJSYW5rIjogNyB9",
+ *   ContentType: "text",
+ *   LatestVersionNumber: 1
  * };
  * const command = new CreateHostedConfigurationVersionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "ConfigurationProfileId": "ur8hx2f",
- *   "ContentType": "text",
- *   "VersionNumber": 1
+ *   ApplicationId: "339ohji",
+ *   ConfigurationProfileId: "ur8hx2f",
+ *   ContentType: "text",
+ *   VersionNumber: 1
  * }
  * *\/
- * // example id: to-create-a-hosted-configuration-version-1632265196980
  * ```
  *
+ * @public
  */
 export class CreateHostedConfigurationVersionCommand extends $Command
   .classBuilder<
@@ -157,9 +160,7 @@ export class CreateHostedConfigurationVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +172,16 @@ export class CreateHostedConfigurationVersionCommand extends $Command
   .f(CreateHostedConfigurationVersionRequestFilterSensitiveLog, HostedConfigurationVersionFilterSensitiveLog)
   .ser(se_CreateHostedConfigurationVersionCommand)
   .de(de_CreateHostedConfigurationVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHostedConfigurationVersionRequest;
+      output: HostedConfigurationVersion;
+    };
+    sdk: {
+      input: CreateHostedConfigurationVersionCommandInput;
+      output: CreateHostedConfigurationVersionCommandOutput;
+    };
+  };
+}

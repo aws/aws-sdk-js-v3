@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESv2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,10 +43,12 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *   ConfigurationSetName: "STRING_VALUE", // required
  *   TrackingOptions: { // TrackingOptions
  *     CustomRedirectDomain: "STRING_VALUE", // required
+ *     HttpsPolicy: "REQUIRE" || "REQUIRE_OPEN_ONLY" || "OPTIONAL",
  *   },
  *   DeliveryOptions: { // DeliveryOptions
  *     TlsPolicy: "REQUIRE" || "OPTIONAL",
  *     SendingPoolName: "STRING_VALUE",
+ *     MaxDeliverySeconds: Number("long"),
  *   },
  *   ReputationOptions: { // ReputationOptions
  *     ReputationMetricsEnabled: true || false,
@@ -72,6 +75,9 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  *     GuardianOptions: { // GuardianOptions
  *       OptimizedSharedDelivery: "ENABLED" || "DISABLED",
  *     },
+ *   },
+ *   ArchivingOptions: { // ArchivingOptions
+ *     ArchiveArn: "STRING_VALUE",
  *   },
  * };
  * const command = new CreateConfigurationSetCommand(input);
@@ -107,6 +113,7 @@ export interface CreateConfigurationSetCommandOutput extends CreateConfiguration
  * @throws {@link SESv2ServiceException}
  * <p>Base exception class for all service exceptions from SESv2 service.</p>
  *
+ *
  * @public
  */
 export class CreateConfigurationSetCommand extends $Command
@@ -117,9 +124,7 @@ export class CreateConfigurationSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESv2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +136,16 @@ export class CreateConfigurationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfigurationSetCommand)
   .de(de_CreateConfigurationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfigurationSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateConfigurationSetCommandInput;
+      output: CreateConfigurationSetCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutResourceSetCommand, se_PutResourceSetCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface PutResourceSetCommandOutput extends PutResourceSetResponse, __M
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class PutResourceSetCommand extends $Command
@@ -112,9 +114,7 @@ export class PutResourceSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class PutResourceSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourceSetCommand)
   .de(de_PutResourceSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourceSetRequest;
+      output: PutResourceSetResponse;
+    };
+    sdk: {
+      input: PutResourceSetCommandInput;
+      output: PutResourceSetCommandOutput;
+    };
+  };
+}

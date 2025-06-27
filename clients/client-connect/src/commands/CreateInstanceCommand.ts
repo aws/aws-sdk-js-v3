@@ -16,7 +16,8 @@ import { de_CreateInstanceCommand, se_CreateInstanceCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,6 +36,8 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  *          <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does
  *    not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It
  *    also does not allow for any configurations on features, such as Contact Lens for Amazon Connect. </p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-instances.html">Create an Amazon Connect
+ *     instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  *          <p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days.
  * If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances.
  * You must wait 30 days before you can restart creating and deleting instances in your account.</p>
@@ -88,6 +91,7 @@ export interface CreateInstanceCommandOutput extends CreateInstanceResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateInstanceCommand extends $Command
@@ -98,9 +102,7 @@ export class CreateInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +114,16 @@ export class CreateInstanceCommand extends $Command
   .f(CreateInstanceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateInstanceCommand)
   .de(de_CreateInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInstanceRequest;
+      output: CreateInstanceResponse;
+    };
+    sdk: {
+      input: CreateInstanceCommandInput;
+      output: CreateInstanceCommandOutput;
+    };
+  };
+}

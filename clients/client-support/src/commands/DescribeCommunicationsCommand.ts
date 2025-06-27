@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SupportClientResolvedConfig } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface DescribeCommunicationsCommandOutput extends DescribeCommunicati
  * @throws {@link SupportServiceException}
  * <p>Base exception class for all service exceptions from Support service.</p>
  *
+ *
  * @public
  */
 export class DescribeCommunicationsCommand extends $Command
@@ -111,9 +113,7 @@ export class DescribeCommunicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class DescribeCommunicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCommunicationsCommand)
   .de(de_DescribeCommunicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCommunicationsRequest;
+      output: DescribeCommunicationsResponse;
+    };
+    sdk: {
+      input: DescribeCommunicationsCommandInput;
+      output: DescribeCommunicationsCommandOutput;
+    };
+  };
+}

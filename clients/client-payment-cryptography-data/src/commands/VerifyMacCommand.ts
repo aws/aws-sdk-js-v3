@@ -16,7 +16,8 @@ import { de_VerifyMacCommand, se_VerifyMacCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,21 +32,7 @@ export interface VerifyMacCommandInput extends VerifyMacInput {}
 export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBearer {}
 
 /**
- * <p>Verifies a Message Authentication Code (MAC). </p>
- *          <p>You can use this operation to verify MAC for message data authentication such as . In this operation, you must use the same message data, secret encryption key and MAC algorithm that was used to generate MAC. You can use this operation to verify a DUPKT, CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated values. </p>
- *          <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p>
- *          <p>
- *             <b>Cross-account use</b>: This operation can't be used across different Amazon Web Services accounts.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a>GenerateMac</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Verifies a Message Authentication Code (MAC). </p> <p>You can use this operation to verify MAC for message data authentication such as . In this operation, you must use the same message data, secret encryption key and MAC algorithm that was used to generate MAC. You can use this operation to verify a DUPKT, CMAC, HMAC or EMV MAC by setting generation attributes and algorithm to the associated values. </p> <p>For information about valid keys for this operation, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-validattributes.html">Understanding key attributes</a> and <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/crypto-ops-validkeys-ops.html">Key types for specific data operations</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>. </p> <p> <b>Cross-account use</b>: This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>GenerateMac</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,12 +44,12 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  *   MessageData: "STRING_VALUE", // required
  *   Mac: "STRING_VALUE", // required
  *   VerificationAttributes: { // MacAttributes Union: only one key present
- *     Algorithm: "STRING_VALUE",
+ *     Algorithm: "ISO9797_ALGORITHM1" || "ISO9797_ALGORITHM3" || "CMAC" || "HMAC_SHA224" || "HMAC_SHA256" || "HMAC_SHA384" || "HMAC_SHA512",
  *     EmvMac: { // MacAlgorithmEmv
- *       MajorKeyDerivationMode: "STRING_VALUE", // required
+ *       MajorKeyDerivationMode: "EMV_OPTION_A" || "EMV_OPTION_B", // required
  *       PrimaryAccountNumber: "STRING_VALUE", // required
  *       PanSequenceNumber: "STRING_VALUE", // required
- *       SessionKeyDerivationMode: "STRING_VALUE", // required
+ *       SessionKeyDerivationMode: "EMV_COMMON_SESSION_KEY" || "EMV2000" || "AMEX" || "MASTERCARD_SESSION_KEY" || "VISA", // required
  *       SessionKeyDerivationValue: { // SessionKeyDerivationValue Union: only one key present
  *         ApplicationCryptogram: "STRING_VALUE",
  *         ApplicationTransactionCounter: "STRING_VALUE",
@@ -70,18 +57,18 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  *     },
  *     DukptIso9797Algorithm1: { // MacAlgorithmDukpt
  *       KeySerialNumber: "STRING_VALUE", // required
- *       DukptKeyVariant: "STRING_VALUE", // required
- *       DukptDerivationType: "STRING_VALUE",
+ *       DukptKeyVariant: "BIDIRECTIONAL" || "REQUEST" || "RESPONSE", // required
+ *       DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256",
  *     },
  *     DukptIso9797Algorithm3: {
  *       KeySerialNumber: "STRING_VALUE", // required
- *       DukptKeyVariant: "STRING_VALUE", // required
- *       DukptDerivationType: "STRING_VALUE",
+ *       DukptKeyVariant: "BIDIRECTIONAL" || "REQUEST" || "RESPONSE", // required
+ *       DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256",
  *     },
  *     DukptCmac: {
  *       KeySerialNumber: "STRING_VALUE", // required
- *       DukptKeyVariant: "STRING_VALUE", // required
- *       DukptDerivationType: "STRING_VALUE",
+ *       DukptKeyVariant: "BIDIRECTIONAL" || "REQUEST" || "RESPONSE", // required
+ *       DukptDerivationType: "TDES_2KEY" || "TDES_3KEY" || "AES_128" || "AES_192" || "AES_256",
  *     },
  *   },
  *   MacLength: Number("int"),
@@ -122,6 +109,7 @@ export interface VerifyMacCommandOutput extends VerifyMacOutput, __MetadataBeare
  * @throws {@link PaymentCryptographyDataServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptographyData service.</p>
  *
+ *
  * @public
  */
 export class VerifyMacCommand extends $Command
@@ -132,9 +120,7 @@ export class VerifyMacCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +132,16 @@ export class VerifyMacCommand extends $Command
   .f(VerifyMacInputFilterSensitiveLog, void 0)
   .ser(se_VerifyMacCommand)
   .de(de_VerifyMacCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyMacInput;
+      output: VerifyMacOutput;
+    };
+    sdk: {
+      input: VerifyMacCommandInput;
+      output: VerifyMacCommandOutput;
+    };
+  };
+}

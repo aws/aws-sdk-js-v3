@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetRoomRequest, GetRoomResponse, GetRoomResponseFilterSensitiveLog } from "../models/models_1";
+import { GetRoomRequest, GetRoomResponse, GetRoomResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetRoomCommand, se_GetRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface GetRoomCommandOutput extends GetRoomResponse, __MetadataBearer 
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class GetRoomCommand extends $Command
@@ -93,9 +95,7 @@ export class GetRoomCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class GetRoomCommand extends $Command
   .f(void 0, GetRoomResponseFilterSensitiveLog)
   .ser(se_GetRoomCommand)
   .de(de_GetRoomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRoomRequest;
+      output: GetRoomResponse;
+    };
+    sdk: {
+      input: GetRoomCommandInput;
+      output: GetRoomCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,14 @@ export interface DescribeClustersCommandInput extends DescribeClustersRequest {}
 export interface DescribeClustersCommandOutput extends DescribeClustersResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about AWS CloudHSM clusters.</p>
+ * <p>Gets information about CloudHSM clusters.</p>
  *          <p>This is a paginated operation, which means that each response might contain only a
  *       subset of all the clusters. When the response contains only a subset of clusters, it includes
  *       a <code>NextToken</code> value. Use this value in a subsequent <code>DescribeClusters</code>
  *       request to get more clusters. When you receive a response with no <code>NextToken</code> (or
  *       an empty or null value), that means there are no more clusters to get.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on CloudHSM clusters in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,21 +70,25 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //           SubnetId: "STRING_VALUE",
  * //           EniId: "STRING_VALUE",
  * //           EniIp: "STRING_VALUE",
+ * //           EniIpV6: "STRING_VALUE",
  * //           HsmId: "STRING_VALUE", // required
+ * //           HsmType: "STRING_VALUE",
  * //           State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //           StateMessage: "STRING_VALUE",
  * //         },
  * //       ],
  * //       HsmType: "STRING_VALUE",
+ * //       HsmTypeRollbackExpiration: new Date("TIMESTAMP"),
  * //       PreCoPassword: "STRING_VALUE",
  * //       SecurityGroup: "STRING_VALUE",
  * //       SourceBackupId: "STRING_VALUE",
- * //       State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
+ * //       State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "MODIFY_IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //       StateMessage: "STRING_VALUE",
  * //       SubnetMapping: { // ExternalSubnetMapping
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       VpcId: "STRING_VALUE",
+ * //       NetworkType: "IPV4" || "DUALSTACK",
  * //       Certificates: { // Certificates
  * //         ClusterCsr: "STRING_VALUE",
  * //         HsmCertificate: "STRING_VALUE",
@@ -95,6 +102,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * //           Value: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       Mode: "FIPS" || "NON_FIPS",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -113,7 +121,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -128,6 +136,7 @@ export interface DescribeClustersCommandOutput extends DescribeClustersResponse,
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeClustersCommand extends $Command
@@ -138,9 +147,7 @@ export class DescribeClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +159,16 @@ export class DescribeClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClustersCommand)
   .de(de_DescribeClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClustersRequest;
+      output: DescribeClustersResponse;
+    };
+    sdk: {
+      input: DescribeClustersCommandInput;
+      output: DescribeClustersCommandOutput;
+    };
+  };
+}

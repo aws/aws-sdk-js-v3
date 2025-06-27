@@ -12,7 +12,8 @@ import { de_StopBuildCommand, se_StopBuildCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,7 +76,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * //       },
  * //       buildspec: "STRING_VALUE",
  * //       auth: { // SourceAuth
- * //         type: "OAUTH" || "CODECONNECTIONS", // required
+ * //         type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //         resource: "STRING_VALUE",
  * //       },
  * //       reportBuildStatus: true || false,
@@ -96,7 +97,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * //         },
  * //         buildspec: "STRING_VALUE",
  * //         auth: {
- * //           type: "OAUTH" || "CODECONNECTIONS", // required
+ * //           type: "OAUTH" || "CODECONNECTIONS" || "SECRETS_MANAGER", // required
  * //           resource: "STRING_VALUE",
  * //         },
  * //         reportBuildStatus: true || false,
@@ -140,11 +141,19 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * //       modes: [ // ProjectCacheModes
  * //         "LOCAL_DOCKER_LAYER_CACHE" || "LOCAL_SOURCE_CACHE" || "LOCAL_CUSTOM_CACHE",
  * //       ],
+ * //       cacheNamespace: "STRING_VALUE",
  * //     },
  * //     environment: { // ProjectEnvironment
- * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER", // required
+ * //       type: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "WINDOWS_SERVER_2022_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM", // required
  * //       image: "STRING_VALUE", // required
- * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB", // required
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE" || "CUSTOM_INSTANCE_TYPE", // required
+ * //       computeConfiguration: { // ComputeConfiguration
+ * //         vCpu: Number("long"),
+ * //         memory: Number("long"),
+ * //         disk: Number("long"),
+ * //         machineType: "GENERAL" || "NVME",
+ * //         instanceType: "STRING_VALUE",
+ * //       },
  * //       fleet: { // ProjectFleet
  * //         fleetArn: "STRING_VALUE",
  * //       },
@@ -162,6 +171,16 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * //         credentialProvider: "SECRETS_MANAGER", // required
  * //       },
  * //       imagePullCredentialsType: "CODEBUILD" || "SERVICE_ROLE",
+ * //       dockerServer: { // DockerServer
+ * //         computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE" || "CUSTOM_INSTANCE_TYPE", // required
+ * //         securityGroupIds: [ // SecurityGroupIds
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         status: { // DockerServerStatus
+ * //           status: "STRING_VALUE",
+ * //           message: "STRING_VALUE",
+ * //         },
+ * //       },
  * //     },
  * //     serviceRole: "STRING_VALUE",
  * //     logs: { // LogsLocation
@@ -192,7 +211,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * //       subnets: [ // Subnets
  * //         "STRING_VALUE",
  * //       ],
- * //       securityGroupIds: [ // SecurityGroupIds
+ * //       securityGroupIds: [
  * //         "STRING_VALUE",
  * //       ],
  * //     },
@@ -224,6 +243,12 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * //       sessionTarget: "STRING_VALUE",
  * //     },
  * //     buildBatchArn: "STRING_VALUE",
+ * //     autoRetryConfig: { // AutoRetryConfig
+ * //       autoRetryLimit: Number("int"),
+ * //       autoRetryNumber: Number("int"),
+ * //       nextAutoRetry: "STRING_VALUE",
+ * //       previousAutoRetry: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -244,6 +269,7 @@ export interface StopBuildCommandOutput extends StopBuildOutput, __MetadataBeare
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class StopBuildCommand extends $Command
@@ -254,9 +280,7 @@ export class StopBuildCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -268,4 +292,16 @@ export class StopBuildCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopBuildCommand)
   .de(de_StopBuildCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopBuildInput;
+      output: StopBuildOutput;
+    };
+    sdk: {
+      input: StopBuildCommandInput;
+      output: StopBuildCommandOutput;
+    };
+  };
+}

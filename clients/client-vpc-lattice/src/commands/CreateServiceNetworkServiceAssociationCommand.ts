@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,8 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Associates a service with a service network. For more information, see <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations">Manage service associations</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
+ * <p>Associates the specified service with the specified service network. For more information, see
+ *    <a href="https://docs.aws.amazon.com/vpc-lattice/latest/ug/service-network-associations.html#service-network-service-associations">Manage service associations</a> in the <i>Amazon VPC Lattice User Guide</i>.</p>
  *          <p>You can't use this operation if the service and service network are already associated or if
  *    there is a disassociation or deletion in progress. If the association fails, you can retry the
  *    operation by deleting the association and recreating it.</p>
@@ -106,6 +108,7 @@ export interface CreateServiceNetworkServiceAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceNetworkServiceAssociationCommand extends $Command
@@ -116,9 +119,7 @@ export class CreateServiceNetworkServiceAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +131,16 @@ export class CreateServiceNetworkServiceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateServiceNetworkServiceAssociationCommand)
   .de(de_CreateServiceNetworkServiceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceNetworkServiceAssociationRequest;
+      output: CreateServiceNetworkServiceAssociationResponse;
+    };
+    sdk: {
+      input: CreateServiceNetworkServiceAssociationCommandInput;
+      output: CreateServiceNetworkServiceAssociationCommandOutput;
+    };
+  };
+}

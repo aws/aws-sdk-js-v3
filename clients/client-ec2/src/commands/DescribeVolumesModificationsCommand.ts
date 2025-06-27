@@ -12,7 +12,8 @@ import { de_DescribeVolumesModificationsCommand, se_DescribeVolumesModifications
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,12 +31,8 @@ export interface DescribeVolumesModificationsCommandOutput
 
 /**
  * <p>Describes the most recent volume modification request for the specified EBS volumes.</p>
- *          <p>If a volume has never been modified, some information in the output will be null.
- *       If a volume has been modified more than once, the output includes only the most
- *       recent modification request.</p>
- *          <p>You can also use CloudWatch Events to check the status of a modification to an EBS
- *       volume. For information about CloudWatch Events, see the <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/">Amazon CloudWatch Events User Guide</a>. For more information, see
- *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-modifications.html">
+ *       Monitor the progress of volume modifications</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +58,7 @@ export interface DescribeVolumesModificationsCommandOutput
  * const command = new DescribeVolumesModificationsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVolumesModificationsResult
+ * //   NextToken: "STRING_VALUE",
  * //   VolumesModifications: [ // VolumeModificationList
  * //     { // VolumeModification
  * //       VolumeId: "STRING_VALUE",
@@ -81,7 +79,6 @@ export interface DescribeVolumesModificationsCommandOutput
  * //       EndTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
- * //   NextToken: "STRING_VALUE",
  * // };
  *
  * ```
@@ -95,6 +92,7 @@ export interface DescribeVolumesModificationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVolumesModificationsCommand extends $Command
@@ -105,9 +103,7 @@ export class DescribeVolumesModificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +115,16 @@ export class DescribeVolumesModificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVolumesModificationsCommand)
   .de(de_DescribeVolumesModificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVolumesModificationsRequest;
+      output: DescribeVolumesModificationsResult;
+    };
+    sdk: {
+      input: DescribeVolumesModificationsCommandInput;
+      output: DescribeVolumesModificationsCommandOutput;
+    };
+  };
+}

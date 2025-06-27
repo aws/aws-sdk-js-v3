@@ -12,7 +12,8 @@ import { de_DescribeCapacityReservationsCommand, se_DescribeCapacityReservations
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,9 @@ export interface DescribeCapacityReservationsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the
- * 		    	Amazon Web Services Region that you're currently using.</p>
+ * <p>Describes one or more of your Capacity Reservations. The results describe only the
+ * 			Capacity Reservations in the Amazon Web Services Region that you're currently
+ * 			using.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +73,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * //       AvailableInstanceCount: Number("int"),
  * //       EbsOptimized: true || false,
  * //       EphemeralStorage: true || false,
- * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed",
+ * //       State: "active" || "expired" || "cancelled" || "pending" || "failed" || "scheduled" || "payment-pending" || "payment-failed" || "assessing" || "delayed" || "unsupported",
  * //       StartDate: new Date("TIMESTAMP"),
  * //       EndDate: new Date("TIMESTAMP"),
  * //       EndDateType: "unlimited" || "limited",
@@ -88,11 +90,17 @@ export interface DescribeCapacityReservationsCommandOutput
  * //       PlacementGroupArn: "STRING_VALUE",
  * //       CapacityAllocations: [ // CapacityAllocations
  * //         { // CapacityAllocation
- * //           AllocationType: "used",
+ * //           AllocationType: "used" || "future",
  * //           Count: Number("int"),
  * //         },
  * //       ],
  * //       ReservationType: "default" || "capacity-block",
+ * //       UnusedReservationBillingOwnerId: "STRING_VALUE",
+ * //       CommitmentInfo: { // CapacityReservationCommitmentInfo
+ * //         CommittedInstanceCount: Number("int"),
+ * //         CommitmentEndDate: new Date("TIMESTAMP"),
+ * //       },
+ * //       DeliveryPreference: "fixed" || "incremental",
  * //     },
  * //   ],
  * // };
@@ -108,6 +116,7 @@ export interface DescribeCapacityReservationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeCapacityReservationsCommand extends $Command
@@ -118,9 +127,7 @@ export class DescribeCapacityReservationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +139,16 @@ export class DescribeCapacityReservationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCapacityReservationsCommand)
   .de(de_DescribeCapacityReservationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCapacityReservationsRequest;
+      output: DescribeCapacityReservationsResult;
+    };
+    sdk: {
+      input: DescribeCapacityReservationsCommandInput;
+      output: DescribeCapacityReservationsCommandOutput;
+    };
+  };
+}

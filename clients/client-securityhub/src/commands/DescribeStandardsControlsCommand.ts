@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,6 +31,7 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * <p>Returns a list of security standards controls.</p>
  *          <p>For each control, the results include information about whether it is currently enabled,
  *          the severity, and a link to remediation information.</p>
+ *          <p>This operation returns an empty list for standard subscriptions where <code>StandardsControlsUpdatable</code> has value <code>NOT_READY_FOR_UPDATES</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,53 +89,8 @@ export interface DescribeStandardsControlsCommandOutput extends DescribeStandard
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To get a list of controls for a security standard
- * ```javascript
- * // The following example returns a list of security controls and control details that apply to a specified security standard. The list includes controls that are enabled and disabled in the standard.
- * const input = {
- *   "MaxResults": 2,
- *   "NextToken": "NULL",
- *   "StandardsSubscriptionArn": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1"
- * };
- * const command = new DescribeStandardsControlsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Controls": [
- *     {
- *       "ControlId": "PCI.AutoScaling.1",
- *       "ControlStatus": "ENABLED",
- *       "ControlStatusUpdatedAt": "2020-05-15T18:49:04.473000+00:00",
- *       "Description": "This AWS control checks whether your Auto Scaling groups that are associated with a load balancer are using Elastic Load Balancing health checks.",
- *       "RelatedRequirements": [
- *         "PCI DSS 2.2"
- *       ],
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/PCI.AutoScaling.1/remediation",
- *       "SeverityRating": "LOW",
- *       "StandardsControlArn": "arn:aws:securityhub:us-west-1:123456789012:control/pci-dss/v/3.2.1/PCI.AutoScaling.1",
- *       "Title": "Auto scaling groups associated with a load balancer should use health checks"
- *     },
- *     {
- *       "ControlId": "PCI.CW.1",
- *       "ControlStatus": "ENABLED",
- *       "ControlStatusUpdatedAt": "2020-05-15T18:49:04.498000+00:00",
- *       "Description": "This control checks for the CloudWatch metric filters using the following pattern { $.userIdentity.type = \"Root\" && $.userIdentity.invokedBy NOT EXISTS && $.eventType != \"AwsServiceEvent\" } It checks that the log group name is configured for use with active multi-region CloudTrail, that there is at least one Event Selector for a Trail with IncludeManagementEvents set to true and ReadWriteType set to All, and that there is at least one active subscriber to an SNS topic associated with the alarm.",
- *       "RelatedRequirements": [
- *         "PCI DSS 7.2.1"
- *       ],
- *       "RemediationUrl": "https://docs.aws.amazon.com/console/securityhub/PCI.CW.1/remediation",
- *       "SeverityRating": "MEDIUM",
- *       "StandardsControlArn": "arn:aws:securityhub:us-west-1:123456789012:control/pci-dss/v/3.2.1/PCI.CW.1",
- *       "Title": "A log metric filter and alarm should exist for usage of the \"root\" user"
- *     }
- *   ],
- *   "NextToken": "U2FsdGVkX1+eNkPoZHVl11ip5HUYQPWSWZGmftcmJiHL8JoKEsCDuaKayiPDyLK+LiTkShveoOdvfxXCkOBaGhohIXhsIedN+LSjQV/l7kfCfJcq4PziNC1N9xe9aq2pjlLVZnznTfSImrodT5bRNHe4fELCQq/z+5ka+5Lzmc11axcwTd5lKgQyQqmUVoeriHZhyIiBgWKf7oNYdBVG8OEortVWvSkoUTt+B2ThcnC7l43kI0UNxlkZ6sc64AsW"
- * }
- * *\/
- * // example id: to-get-a-list-of-controls-for-a-security-standard-1676308027759
- * ```
  *
+ * @public
  */
 export class DescribeStandardsControlsCommand extends $Command
   .classBuilder<
@@ -143,9 +100,7 @@ export class DescribeStandardsControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +112,16 @@ export class DescribeStandardsControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStandardsControlsCommand)
   .de(de_DescribeStandardsControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStandardsControlsRequest;
+      output: DescribeStandardsControlsResponse;
+    };
+    sdk: {
+      input: DescribeStandardsControlsCommandInput;
+      output: DescribeStandardsControlsCommandOutput;
+    };
+  };
+}

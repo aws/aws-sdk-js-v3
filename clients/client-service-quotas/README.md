@@ -9,10 +9,12 @@ AWS SDK for JavaScript ServiceQuotas Client for Node.js, Browser and React Nativ
 <p>With Service Quotas, you can view and manage your quotas easily as your Amazon Web Services workloads grow.
 Quotas, also referred to as limits, are the maximum number of resources that you can
 create in your Amazon Web Services account. For more information, see the <a href="https://docs.aws.amazon.com/servicequotas/latest/userguide/">Service Quotas User Guide</a>.</p>
+<p>You need Amazon Web Services CLI version 2.13.20 or higher to view and manage resource-level quotas such as <code>Instances
+per domain</code> for Amazon OpenSearch Service.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-service-quotas
+To install this package, simply type add or install @aws-sdk/client-service-quotas
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-service-quotas`
@@ -211,6 +213,14 @@ AssociateServiceQuotaTemplate
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/AssociateServiceQuotaTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/AssociateServiceQuotaTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/AssociateServiceQuotaTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateSupportCase
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/service-quotas/command/CreateSupportCaseCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/CreateSupportCaseCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-service-quotas/Interface/CreateSupportCaseCommandOutput/)
 
 </details>
 <details>

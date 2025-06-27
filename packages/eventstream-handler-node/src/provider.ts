@@ -14,4 +14,5 @@ export const eventStreamPayloadHandlerProvider: EventStreamPayloadHandlerProvide
   utf8Encoder: Encoder;
   utf8Decoder: Decoder;
   messageSigner: Provider<MessageSigner>;
+  systemClockOffset?: number;
 }) => new EventStreamPayloadHandler(options);

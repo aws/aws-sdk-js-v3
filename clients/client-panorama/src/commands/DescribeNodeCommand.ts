@@ -12,7 +12,8 @@ import { de_DescribeNodeCommand, se_DescribeNodeCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface DescribeNodeCommandOutput extends DescribeNodeResponse, __Metad
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class DescribeNodeCommand extends $Command
@@ -110,9 +112,7 @@ export class DescribeNodeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class DescribeNodeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNodeCommand)
   .de(de_DescribeNodeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNodeRequest;
+      output: DescribeNodeResponse;
+    };
+    sdk: {
+      input: DescribeNodeCommandInput;
+      output: DescribeNodeCommandOutput;
+    };
+  };
+}

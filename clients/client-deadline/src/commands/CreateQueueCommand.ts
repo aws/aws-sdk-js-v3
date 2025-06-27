@@ -12,7 +12,8 @@ import { de_CreateQueueCommand, se_CreateQueueCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateQueueCommandInput extends CreateQueueRequest {}
 export interface CreateQueueCommandOutput extends CreateQueueResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a queue to coordinate the order in which jobs run on a farm. A queue can also
- *          specify where to pull resources and indicate where to output completed jobs.</p>
+ * <p>Creates a queue to coordinate the order in which jobs run on a farm. A queue can also specify where to pull resources and indicate where to output completed jobs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,18 +91,17 @@ export interface CreateQueueCommandOutput extends CreateQueueResponse, __Metadat
  *  <p>The requested resource can't be found.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the
- *          maximum number of service resources or operations for your Amazon Web Services account.</p>
+ *  <p>You exceeded your service quota. Service quotas, also referred to as limits, are the maximum number of service resources or operations for your Amazon Web Services account.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -114,9 +113,7 @@ export class CreateQueueCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +125,16 @@ export class CreateQueueCommand extends $Command
   .f(CreateQueueRequestFilterSensitiveLog, void 0)
   .ser(se_CreateQueueCommand)
   .de(de_CreateQueueCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateQueueRequest;
+      output: CreateQueueResponse;
+    };
+    sdk: {
+      input: CreateQueueCommandInput;
+      output: CreateQueueCommandOutput;
+    };
+  };
+}

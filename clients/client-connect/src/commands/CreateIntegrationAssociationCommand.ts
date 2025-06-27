@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface CreateIntegrationAssociationCommandOutput
  * const client = new ConnectClient(config);
  * const input = { // CreateIntegrationAssociationRequest
  *   InstanceId: "STRING_VALUE", // required
- *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER", // required
+ *   IntegrationType: "EVENT" || "VOICE_ID" || "PINPOINT_APP" || "WISDOM_ASSISTANT" || "WISDOM_KNOWLEDGE_BASE" || "WISDOM_QUICK_RESPONSES" || "Q_MESSAGE_TEMPLATES" || "CASES_DOMAIN" || "APPLICATION" || "FILE_SCANNER" || "SES_IDENTITY" || "ANALYTICS_CONNECTOR" || "CALL_TRANSFER_CONNECTOR" || "COGNITO_USER_POOL", // required
  *   IntegrationArn: "STRING_VALUE", // required
  *   SourceApplicationUrl: "STRING_VALUE",
  *   SourceApplicationName: "STRING_VALUE",
@@ -84,6 +85,7 @@ export interface CreateIntegrationAssociationCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateIntegrationAssociationCommand extends $Command
@@ -94,9 +96,7 @@ export class CreateIntegrationAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class CreateIntegrationAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIntegrationAssociationCommand)
   .de(de_CreateIntegrationAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIntegrationAssociationRequest;
+      output: CreateIntegrationAssociationResponse;
+    };
+    sdk: {
+      input: CreateIntegrationAssociationCommandInput;
+      output: CreateIntegrationAssociationCommandOutput;
+    };
+  };
+}

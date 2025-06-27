@@ -12,7 +12,8 @@ import { de_DeleteCacheClusterCommand, se_DeleteCacheClusterCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,10 +35,10 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *          <p>This operation is not valid for:</p>
  *          <ul>
  *             <li>
- *                <p>Redis (cluster mode enabled) clusters</p>
+ *                <p>Valkey or Redis OSS (cluster mode enabled) clusters</p>
  *             </li>
  *             <li>
- *                <p>Redis (cluster mode disabled) clusters</p>
+ *                <p>Valkey or Redis OSS (cluster mode disabled) clusters</p>
  *             </li>
  *             <li>
  *                <p>A cluster that is the last read replica of a replication group</p>
@@ -49,7 +50,7 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *                <p>A node group (shard) that has Multi-AZ mode enabled</p>
  *             </li>
  *             <li>
- *                <p>A cluster from a Redis (cluster mode enabled) replication group</p>
+ *                <p>A cluster from a Valkey or Redis OSS (cluster mode enabled) replication group</p>
  *             </li>
  *             <li>
  *                <p>A cluster that is not in the <code>available</code> state</p>
@@ -109,6 +110,10 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * //       ],
  * //       TransitEncryptionEnabled: true || false,
  * //       TransitEncryptionMode: "preferred" || "required",
+ * //       ScaleConfig: { // ScaleConfig
+ * //         ScalePercentage: Number("int"),
+ * //         ScaleIntervalMinutes: Number("int"),
+ * //       },
  * //     },
  * //     NotificationConfiguration: { // NotificationConfiguration
  * //       TopicArn: "STRING_VALUE",
@@ -209,12 +214,12 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  *  <p>You attempted one of the following operations:</p>
  *          <ul>
  *             <li>
- *                <p>Creating a snapshot of a Redis cluster running on a
+ *                <p>Creating a snapshot of a Valkey or Redis OSS cluster running on a
  *                         <code>cache.t1.micro</code> cache node.</p>
  *             </li>
  *             <li>
  *                <p>Creating a snapshot of a cluster that is running Memcached rather than
- *                     Redis.</p>
+ *                     Valkey or Redis OSS.</p>
  *             </li>
  *          </ul>
  *          <p>Neither of these are supported by ElastiCache.</p>
@@ -226,47 +231,47 @@ export interface DeleteCacheClusterCommandOutput extends DeleteCacheClusterResul
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DeleteCacheCluster
  * ```javascript
  * // Deletes an Amazon ElastiCache cluster.
  * const input = {
- *   "CacheClusterId": "my-memcached"
+ *   CacheClusterId: "my-memcached"
  * };
  * const command = new DeleteCacheClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheCluster": {
- *     "AutoMinorVersionUpgrade": true,
- *     "CacheClusterCreateTime": "2016-12-22T16:05:17.314Z",
- *     "CacheClusterId": "my-memcached",
- *     "CacheClusterStatus": "deleting",
- *     "CacheNodeType": "cache.r3.large",
- *     "CacheParameterGroup": {
- *       "CacheNodeIdsToReboot": [],
- *       "CacheParameterGroupName": "default.memcached1.4",
- *       "ParameterApplyStatus": "in-sync"
+ *   CacheCluster: {
+ *     AutoMinorVersionUpgrade: true,
+ *     CacheClusterCreateTime: "2016-12-22T16:05:17.314Z",
+ *     CacheClusterId: "my-memcached",
+ *     CacheClusterStatus: "deleting",
+ *     CacheNodeType: "cache.r3.large",
+ *     CacheParameterGroup: {
+ *       CacheNodeIdsToReboot:       [],
+ *       CacheParameterGroupName: "default.memcached1.4",
+ *       ParameterApplyStatus: "in-sync"
  *     },
- *     "CacheSecurityGroups": [],
- *     "CacheSubnetGroupName": "default",
- *     "ClientDownloadLandingPage": "https://console.aws.amazon.com/elasticache/home#client-download:",
- *     "ConfigurationEndpoint": {
- *       "Address": "my-memcached2.ameaqx.cfg.use1.cache.amazonaws.com",
- *       "Port": 11211
+ *     CacheSecurityGroups:     [],
+ *     CacheSubnetGroupName: "default",
+ *     ClientDownloadLandingPage: "https://console.aws.amazon.com/elasticache/home#client-download:",
+ *     ConfigurationEndpoint: {
+ *       Address: "my-memcached2.ameaqx.cfg.use1.cache.amazonaws.com",
+ *       Port: 11211
  *     },
- *     "Engine": "memcached",
- *     "EngineVersion": "1.4.24",
- *     "NumCacheNodes": 2,
- *     "PendingModifiedValues": {},
- *     "PreferredAvailabilityZone": "Multiple",
- *     "PreferredMaintenanceWindow": "tue:07:30-tue:08:30"
+ *     Engine: "memcached",
+ *     EngineVersion: "1.4.24",
+ *     NumCacheNodes: 2,
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredAvailabilityZone: "Multiple",
+ *     PreferredMaintenanceWindow: "tue:07:30-tue:08:30"
  *   }
  * }
  * *\/
- * // example id: deletecachecluster-1475010605291
  * ```
  *
+ * @public
  */
 export class DeleteCacheClusterCommand extends $Command
   .classBuilder<
@@ -276,9 +281,7 @@ export class DeleteCacheClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -290,4 +293,16 @@ export class DeleteCacheClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCacheClusterCommand)
   .de(de_DeleteCacheClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCacheClusterMessage;
+      output: DeleteCacheClusterResult;
+    };
+    sdk: {
+      input: DeleteCacheClusterCommandInput;
+      output: DeleteCacheClusterCommandOutput;
+    };
+  };
+}

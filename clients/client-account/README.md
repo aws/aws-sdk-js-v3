@@ -10,7 +10,7 @@ AWS SDK for JavaScript Account Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-account
+To install this package, simply type add or install @aws-sdk/client-account
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-account`
@@ -205,6 +205,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptPrimaryEmailUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/AcceptPrimaryEmailUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/AcceptPrimaryEmailUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/AcceptPrimaryEmailUpdateCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteAlternateContact
 </summary>
 
@@ -229,6 +237,14 @@ EnableRegion
 </details>
 <details>
 <summary>
+GetAccountInformation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/GetAccountInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetAccountInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetAccountInformationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAlternateContact
 </summary>
 
@@ -241,6 +257,14 @@ GetContactInformation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/GetContactInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetContactInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetContactInformationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPrimaryEmail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/GetPrimaryEmailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetPrimaryEmailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/GetPrimaryEmailCommandOutput/)
 
 </details>
 <details>
@@ -261,6 +285,14 @@ ListRegions
 </details>
 <details>
 <summary>
+PutAccountName
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/PutAccountNameCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/PutAccountNameCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/PutAccountNameCommandOutput/)
+
+</details>
+<details>
+<summary>
 PutAlternateContact
 </summary>
 
@@ -273,5 +305,13 @@ PutContactInformation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/PutContactInformationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/PutContactInformationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/PutContactInformationCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartPrimaryEmailUpdate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/account/command/StartPrimaryEmailUpdateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/StartPrimaryEmailUpdateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-account/Interface/StartPrimaryEmailUpdateCommandOutput/)
 
 </details>

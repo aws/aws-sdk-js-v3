@@ -12,7 +12,8 @@ import { de_ListLaunchesCommand, se_ListLaunchesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -126,6 +127,7 @@ export interface ListLaunchesCommandOutput extends ListLaunchesResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class ListLaunchesCommand extends $Command
@@ -136,9 +138,7 @@ export class ListLaunchesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +150,16 @@ export class ListLaunchesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLaunchesCommand)
   .de(de_ListLaunchesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLaunchesRequest;
+      output: ListLaunchesResponse;
+    };
+    sdk: {
+      input: ListLaunchesCommandInput;
+      output: ListLaunchesCommandOutput;
+    };
+  };
+}

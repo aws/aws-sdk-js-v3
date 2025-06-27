@@ -12,7 +12,8 @@ import { de_GetMethodCommand, se_GetMethodCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,6 +120,7 @@ export interface GetMethodCommandOutput extends Method, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetMethodCommand extends $Command
@@ -129,9 +131,7 @@ export class GetMethodCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +143,16 @@ export class GetMethodCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMethodCommand)
   .de(de_GetMethodCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMethodRequest;
+      output: Method;
+    };
+    sdk: {
+      input: GetMethodCommandInput;
+      output: GetMethodCommandOutput;
+    };
+  };
+}

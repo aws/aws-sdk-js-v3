@@ -12,7 +12,8 @@ import { de_GetAuthorizationTokenCommand, se_GetAuthorizationTokenCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,27 +77,8 @@ export interface GetAuthorizationTokenCommandOutput extends GetAuthorizationToke
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
- * @public
- * @example To obtain an authorization token
- * ```javascript
- * // This example gets an authorization token for your default registry.
- * const input = {};
- * const command = new GetAuthorizationTokenCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "authorizationData": [
- *     {
- *       "authorizationToken": "QVdTOkNEXAMPLE",
- *       "expiresAt": "2022-05-17T06:56:13.652000+00:00",
- *       "proxyEndpoint": "https://012345678901.dkr.ecr.us-west-2.amazonaws.com"
- *     }
- *   ]
- * }
- * *\/
- * // example id: getauthorizationtoken-example-1470867047084
- * ```
  *
+ * @public
  */
 export class GetAuthorizationTokenCommand extends $Command
   .classBuilder<
@@ -106,9 +88,7 @@ export class GetAuthorizationTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +100,16 @@ export class GetAuthorizationTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAuthorizationTokenCommand)
   .de(de_GetAuthorizationTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAuthorizationTokenRequest;
+      output: GetAuthorizationTokenResponse;
+    };
+    sdk: {
+      input: GetAuthorizationTokenCommandInput;
+      output: GetAuthorizationTokenCommandOutput;
+    };
+  };
+}

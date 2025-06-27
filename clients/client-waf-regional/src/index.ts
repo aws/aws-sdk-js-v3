@@ -18,8 +18,8 @@
 export * from "./WAFRegionalClient";
 export * from "./WAFRegional";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { WAFRegionalExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { WAFRegionalExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./models";
 

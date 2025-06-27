@@ -12,7 +12,8 @@ import { de_CreateRuleCommand, se_CreateRuleCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,21 +41,24 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
  *   TriggerEventSource: { // RuleTriggerEventSource
- *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate", // required
+ *     EventSourceName: "OnPostCallAnalysisAvailable" || "OnRealTimeCallAnalysisAvailable" || "OnRealTimeChatAnalysisAvailable" || "OnPostChatAnalysisAvailable" || "OnZendeskTicketCreate" || "OnZendeskTicketStatusUpdate" || "OnSalesforceCaseCreate" || "OnContactEvaluationSubmit" || "OnMetricDataUpdate" || "OnCaseCreate" || "OnCaseUpdate" || "OnSlaBreach", // required
  *     IntegrationAssociationId: "STRING_VALUE",
  *   },
  *   Function: "STRING_VALUE", // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
  *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
  *         ContactFlowId: "STRING_VALUE", // required
  *         References: { // ContactReferences
  *           "<keys>": { // Reference
- *             Value: "STRING_VALUE", // required
- *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *             Value: "STRING_VALUE",
+ *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *             Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *             Arn: "STRING_VALUE",
+ *             StatusReason: "STRING_VALUE",
  *           },
  *         },
  *       },
@@ -102,6 +106,23 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  *             },
  *           },
  *         ],
+ *       },
+ *       AssignSlaAction: { // AssignSlaActionDefinition
+ *         SlaAssignmentType: "CASES", // required
+ *         CaseSlaConfiguration: { // CaseSlaConfiguration
+ *           Name: "STRING_VALUE", // required
+ *           Type: "CaseField", // required
+ *           FieldId: "STRING_VALUE",
+ *           TargetFieldValues: [ // SlaFieldValueUnionList
+ *             {
+ *               BooleanValue: true || false,
+ *               DoubleValue: Number("double"),
+ *               EmptyValue: {},
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *           ],
+ *           TargetSlaMinutes: Number("long"), // required
+ *         },
  *       },
  *       EndAssociatedTasksAction: {},
  *       SubmitAutoEvaluationAction: { // SubmitAutoEvaluationActionDefinition
@@ -151,6 +172,7 @@ export interface CreateRuleCommandOutput extends CreateRuleResponse, __MetadataB
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateRuleCommand extends $Command
@@ -161,9 +183,7 @@ export class CreateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -175,4 +195,16 @@ export class CreateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRuleCommand)
   .de(de_CreateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRuleRequest;
+      output: CreateRuleResponse;
+    };
+    sdk: {
+      input: CreateRuleCommandInput;
+      output: CreateRuleCommandOutput;
+    };
+  };
+}

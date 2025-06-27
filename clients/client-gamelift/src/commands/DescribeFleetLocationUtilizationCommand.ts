@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,9 +45,11 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html"> Amazon GameLift Servers service locations</a> for managed hosting</p>
  *          <p>
  *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/monitoring-cloudwatch.html#gamelift-metrics-fleet">GameLift metrics for fleets</a>
  *          </p>
@@ -91,7 +94,7 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -101,6 +104,7 @@ export interface DescribeFleetLocationUtilizationCommandOutput
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -112,9 +116,7 @@ export class DescribeFleetLocationUtilizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +128,16 @@ export class DescribeFleetLocationUtilizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetLocationUtilizationCommand)
   .de(de_DescribeFleetLocationUtilizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetLocationUtilizationInput;
+      output: DescribeFleetLocationUtilizationOutput;
+    };
+    sdk: {
+      input: DescribeFleetLocationUtilizationCommandInput;
+      output: DescribeFleetLocationUtilizationCommandOutput;
+    };
+  };
+}

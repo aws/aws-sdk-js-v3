@@ -12,7 +12,8 @@ import { de_DeleteTaskSetCommand, se_DeleteTaskSetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -107,6 +108,9 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * //         value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     fargateEphemeralStorage: { // DeploymentEphemeralStorage
+ * //       kmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -127,25 +131,27 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ServiceNotActiveException} (client fault)
  *  <p>The specified service isn't active. You can't update a service that's inactive. If you
- * 			have previously deleted a service, you can re-create it with <a>CreateService</a>.</p>
+ * 			have previously deleted a service, you can re-create it with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_CreateService.html">CreateService</a>.</p>
  *
  * @throws {@link ServiceNotFoundException} (client fault)
- *  <p>The specified service wasn't found. You can view your available services with <a>ListServices</a>. Amazon ECS services are cluster specific and Region
+ *  <p>The specified service wasn't found. You can view your available services with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html">ListServices</a>. Amazon ECS services are cluster specific and Region
  * 			specific.</p>
  *
  * @throws {@link TaskSetNotFoundException} (client fault)
- *  <p>The specified task set wasn't found. You can view your available task sets with <a>DescribeTaskSets</a>. Task sets are specific to each cluster, service and
+ *  <p>The specified task set wasn't found. You can view your available task sets with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTaskSets.html">DescribeTaskSets</a>. Task sets are specific to each cluster, service and
  * 			Region.</p>
  *
  * @throws {@link UnsupportedFeatureException} (client fault)
@@ -153,6 +159,55 @@ export interface DeleteTaskSetCommandOutput extends DeleteTaskSetResponse, __Met
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To delete a task set within a service that uses the EXTERNAL deployment controller type
+ * ```javascript
+ * // This example deletes a task set and uses the force flag to force deletion if it hasn't scaled to zero.
+ * const input = {
+ *   cluster: "MyCluster",
+ *   force: true,
+ *   service: "MyService",
+ *   taskSet: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789"
+ * };
+ * const command = new DeleteTaskSetCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   taskSet: {
+ *     computedDesiredCount: 0,
+ *     createdAt: 1.557130260276E9,
+ *     id: "ecs-svc/1234567890123456789",
+ *     launchType: "EC2",
+ *     loadBalancers:     [],
+ *     networkConfiguration: {
+ *       awsvpcConfiguration: {
+ *         assignPublicIp: "DISABLED",
+ *         securityGroups: [
+ *           "sg-12345678"
+ *         ],
+ *         subnets: [
+ *           "subnet-12345678"
+ *         ]
+ *       }
+ *     },
+ *     pendingCount: 0,
+ *     runningCount: 0,
+ *     scale: {
+ *       unit: "PERCENT",
+ *       value: 0
+ *     },
+ *     serviceRegistries:     [],
+ *     stabilityStatus: "STABILIZING",
+ *     stabilityStatusAt: 1.557130290707E9,
+ *     status: "DRAINING",
+ *     taskDefinition: "arn:aws:ecs:us-west-2:123456789012:task-definition/sample-fargate:2",
+ *     taskSetArn: "arn:aws:ecs:us-west-2:123456789012:task-set/MyCluster/MyService/ecs-svc/1234567890123456789",
+ *     updatedAt: 1.557130290707E9
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -164,9 +219,7 @@ export class DeleteTaskSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +231,16 @@ export class DeleteTaskSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTaskSetCommand)
   .de(de_DeleteTaskSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTaskSetRequest;
+      output: DeleteTaskSetResponse;
+    };
+    sdk: {
+      input: DeleteTaskSetCommandInput;
+      output: DeleteTaskSetCommandOutput;
+    };
+  };
+}

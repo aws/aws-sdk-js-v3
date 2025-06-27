@@ -9,14 +9,15 @@ import {
   CreateDataSourceRequest,
   CreateDataSourceRequestFilterSensitiveLog,
   CreateDataSourceResponse,
-} from "../models/models_2";
+} from "../models/models_3";
 import { de_CreateDataSourceCommand, se_CreateDataSourceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Port: Number("int"), // required
  *       Database: "STRING_VALUE", // required
+ *       UseServiceName: true || false,
  *     },
  *     PostgreSqlParameters: { // PostgreSqlParameters
  *       Host: "STRING_VALUE", // required
@@ -127,6 +129,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Host: "STRING_VALUE", // required
  *       Database: "STRING_VALUE", // required
  *       Warehouse: "STRING_VALUE", // required
+ *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       DatabaseAccessControlRole: "STRING_VALUE",
+ *       OAuthParameters: { // OAuthParameters
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: { // VpcConnectionProperties
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *       },
  *     },
  *     SparkParameters: { // SparkParameters
  *       Host: "STRING_VALUE", // required
@@ -163,6 +175,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       Port: Number("int"), // required
  *       Catalog: "STRING_VALUE", // required
  *       ProductType: "GALAXY" || "ENTERPRISE",
+ *       DatabaseAccessControlRole: "STRING_VALUE",
+ *       AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *       OAuthParameters: {
+ *         TokenProviderUrl: "STRING_VALUE", // required
+ *         OAuthScope: "STRING_VALUE",
+ *         IdentityProviderVpcConnectionProperties: {
+ *           VpcConnectionArn: "STRING_VALUE", // required
+ *         },
+ *         IdentityProviderResourceUri: "STRING_VALUE",
+ *       },
  *     },
  *     TrinoParameters: { // TrinoParameters
  *       Host: "STRING_VALUE", // required
@@ -217,6 +239,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Port: Number("int"), // required
  *             Database: "STRING_VALUE", // required
+ *             UseServiceName: true || false,
  *           },
  *           PostgreSqlParameters: {
  *             Host: "STRING_VALUE", // required
@@ -263,6 +286,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Host: "STRING_VALUE", // required
  *             Database: "STRING_VALUE", // required
  *             Warehouse: "STRING_VALUE", // required
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           SparkParameters: {
  *             Host: "STRING_VALUE", // required
@@ -299,6 +332,16 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *             Port: Number("int"), // required
  *             Catalog: "STRING_VALUE", // required
  *             ProductType: "GALAXY" || "ENTERPRISE",
+ *             DatabaseAccessControlRole: "STRING_VALUE",
+ *             AuthenticationType: "PASSWORD" || "TOKEN" || "X509",
+ *             OAuthParameters: {
+ *               TokenProviderUrl: "STRING_VALUE", // required
+ *               OAuthScope: "STRING_VALUE",
+ *               IdentityProviderVpcConnectionProperties: {
+ *                 VpcConnectionArn: "STRING_VALUE", // required
+ *               },
+ *               IdentityProviderResourceUri: "STRING_VALUE",
+ *             },
  *           },
  *           TrinoParameters: {
  *             Host: "STRING_VALUE", // required
@@ -323,9 +366,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *       ],
  *     },
  *   ],
- *   VpcConnectionProperties: { // VpcConnectionProperties
- *     VpcConnectionArn: "STRING_VALUE", // required
- *   },
+ *   VpcConnectionProperties: "<VpcConnectionProperties>",
  *   SslProperties: { // SslProperties
  *     DisableSsl: true || false,
  *   },
@@ -366,6 +407,9 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link ConflictException} (client fault)
  *  <p>Updating or deleting a resource can cause an inconsistent state.</p>
  *
+ * @throws {@link CustomerManagedKeyUnavailableException} (client fault)
+ *  <p>The customer managed key that is registered to your Amazon QuickSight account is unavailable.</p>
+ *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal failure occurred.</p>
  *
@@ -387,6 +431,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSourceCommand extends $Command
@@ -397,9 +442,7 @@ export class CreateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -411,4 +454,16 @@ export class CreateDataSourceCommand extends $Command
   .f(CreateDataSourceRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDataSourceCommand)
   .de(de_CreateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceRequest;
+      output: CreateDataSourceResponse;
+    };
+    sdk: {
+      input: CreateDataSourceCommandInput;
+      output: CreateDataSourceCommandOutput;
+    };
+  };
+}

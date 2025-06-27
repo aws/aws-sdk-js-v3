@@ -99,15 +99,25 @@ import {
 } from "./commands/ListActionExecutionsCommand";
 import { ListActionTypesCommandInput, ListActionTypesCommandOutput } from "./commands/ListActionTypesCommand";
 import {
+  ListDeployActionExecutionTargetsCommandInput,
+  ListDeployActionExecutionTargetsCommandOutput,
+} from "./commands/ListDeployActionExecutionTargetsCommand";
+import {
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
 } from "./commands/ListPipelineExecutionsCommand";
 import { ListPipelinesCommandInput, ListPipelinesCommandOutput } from "./commands/ListPipelinesCommand";
+import { ListRuleExecutionsCommandInput, ListRuleExecutionsCommandOutput } from "./commands/ListRuleExecutionsCommand";
+import { ListRuleTypesCommandInput, ListRuleTypesCommandOutput } from "./commands/ListRuleTypesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import { ListWebhooksCommandInput, ListWebhooksCommandOutput } from "./commands/ListWebhooksCommand";
+import {
+  OverrideStageConditionCommandInput,
+  OverrideStageConditionCommandOutput,
+} from "./commands/OverrideStageConditionCommand";
 import { PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommandInput,
@@ -186,10 +196,14 @@ export type ServiceInputTypes =
   | GetThirdPartyJobDetailsCommandInput
   | ListActionExecutionsCommandInput
   | ListActionTypesCommandInput
+  | ListDeployActionExecutionTargetsCommandInput
   | ListPipelineExecutionsCommandInput
   | ListPipelinesCommandInput
+  | ListRuleExecutionsCommandInput
+  | ListRuleTypesCommandInput
   | ListTagsForResourceCommandInput
   | ListWebhooksCommandInput
+  | OverrideStageConditionCommandInput
   | PollForJobsCommandInput
   | PollForThirdPartyJobsCommandInput
   | PutActionRevisionCommandInput
@@ -231,10 +245,14 @@ export type ServiceOutputTypes =
   | GetThirdPartyJobDetailsCommandOutput
   | ListActionExecutionsCommandOutput
   | ListActionTypesCommandOutput
+  | ListDeployActionExecutionTargetsCommandOutput
   | ListPipelineExecutionsCommandOutput
   | ListPipelinesCommandOutput
+  | ListRuleExecutionsCommandOutput
+  | ListRuleTypesCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWebhooksCommandOutput
+  | OverrideStageConditionCommandOutput
   | PollForJobsCommandOutput
   | PollForThirdPartyJobsCommandOutput
   | PutActionRevisionCommandOutput
@@ -346,6 +364,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -391,11 +428,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type CodePipelineClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -411,11 +448,11 @@ export interface CodePipelineClientConfig extends CodePipelineClientConfigType {
 export type CodePipelineClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -534,6 +571,9 @@ export interface CodePipelineClientResolvedConfig extends CodePipelineClientReso
  *             <li>
  *                <p>Invoke</p>
  *             </li>
+ *             <li>
+ *                <p>Compute</p>
+ *             </li>
  *          </ul>
  *          <p>Pipelines also include <i>transitions</i>, which allow the transition
  *             of artifacts from one stage to the next in a pipeline after the actions in one stage
@@ -635,26 +675,30 @@ export class CodePipelineClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<CodePipelineClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultCodePipelineHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CodePipelineClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -667,14 +711,5 @@ export class CodePipelineClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCodePipelineHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: CodePipelineClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

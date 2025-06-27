@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableImageRequest, DisableImageResult } from "../models/models_5";
+import { DisableImageRequest, DisableImageResult } from "../models/models_6";
 import { de_DisableImageCommand, se_DisableImageCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,9 @@ export interface DisableImageCommandOutput extends DisableImageResult, __Metadat
  *          <p>A disabled AMI does not appear in <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> API calls by
  *       default.</p>
  *          <p>Only the AMI owner can disable an AMI.</p>
- *          <p>You can re-enable a disabled AMI using <a href="http://amazonaws.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p>
+ *          <p>You can re-enable a disabled AMI using <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_EnableImage.html">EnableImage</a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/disable-an-ami.html">Disable an AMI</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,6 +66,7 @@ export interface DisableImageCommandOutput extends DisableImageResult, __Metadat
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisableImageCommand extends $Command
@@ -75,9 +77,7 @@ export class DisableImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DisableImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableImageCommand)
   .de(de_DisableImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableImageRequest;
+      output: DisableImageResult;
+    };
+    sdk: {
+      input: DisableImageCommandInput;
+      output: DisableImageCommandOutput;
+    };
+  };
+}

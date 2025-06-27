@@ -12,7 +12,8 @@ import { de_DeletePlaceIndexCommand, se_DeletePlaceIndexCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeletePlaceIndexCommandOutput extends DeletePlaceIndexResponse,
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class DeletePlaceIndexCommand extends $Command
@@ -81,9 +83,7 @@ export class DeletePlaceIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeletePlaceIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePlaceIndexCommand)
   .de(de_DeletePlaceIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePlaceIndexRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePlaceIndexCommandInput;
+      output: DeletePlaceIndexCommandOutput;
+    };
+  };
+}

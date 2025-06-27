@@ -55,22 +55,43 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { AddProfileKeyCommandInput, AddProfileKeyCommandOutput } from "./commands/AddProfileKeyCommand";
 import {
+  BatchGetCalculatedAttributeForProfileCommandInput,
+  BatchGetCalculatedAttributeForProfileCommandOutput,
+} from "./commands/BatchGetCalculatedAttributeForProfileCommand";
+import { BatchGetProfileCommandInput, BatchGetProfileCommandOutput } from "./commands/BatchGetProfileCommand";
+import {
   CreateCalculatedAttributeDefinitionCommandInput,
   CreateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/CreateCalculatedAttributeDefinitionCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
+import { CreateDomainLayoutCommandInput, CreateDomainLayoutCommandOutput } from "./commands/CreateDomainLayoutCommand";
 import { CreateEventStreamCommandInput, CreateEventStreamCommandOutput } from "./commands/CreateEventStreamCommand";
+import { CreateEventTriggerCommandInput, CreateEventTriggerCommandOutput } from "./commands/CreateEventTriggerCommand";
 import {
   CreateIntegrationWorkflowCommandInput,
   CreateIntegrationWorkflowCommandOutput,
 } from "./commands/CreateIntegrationWorkflowCommand";
 import { CreateProfileCommandInput, CreateProfileCommandOutput } from "./commands/CreateProfileCommand";
 import {
+  CreateSegmentDefinitionCommandInput,
+  CreateSegmentDefinitionCommandOutput,
+} from "./commands/CreateSegmentDefinitionCommand";
+import {
+  CreateSegmentEstimateCommandInput,
+  CreateSegmentEstimateCommandOutput,
+} from "./commands/CreateSegmentEstimateCommand";
+import {
+  CreateSegmentSnapshotCommandInput,
+  CreateSegmentSnapshotCommandOutput,
+} from "./commands/CreateSegmentSnapshotCommand";
+import {
   DeleteCalculatedAttributeDefinitionCommandInput,
   DeleteCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/DeleteCalculatedAttributeDefinitionCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
+import { DeleteDomainLayoutCommandInput, DeleteDomainLayoutCommandOutput } from "./commands/DeleteDomainLayoutCommand";
 import { DeleteEventStreamCommandInput, DeleteEventStreamCommandOutput } from "./commands/DeleteEventStreamCommand";
+import { DeleteEventTriggerCommandInput, DeleteEventTriggerCommandOutput } from "./commands/DeleteEventTriggerCommand";
 import { DeleteIntegrationCommandInput, DeleteIntegrationCommandOutput } from "./commands/DeleteIntegrationCommand";
 import { DeleteProfileCommandInput, DeleteProfileCommandOutput } from "./commands/DeleteProfileCommand";
 import { DeleteProfileKeyCommandInput, DeleteProfileKeyCommandOutput } from "./commands/DeleteProfileKeyCommand";
@@ -82,6 +103,10 @@ import {
   DeleteProfileObjectTypeCommandInput,
   DeleteProfileObjectTypeCommandOutput,
 } from "./commands/DeleteProfileObjectTypeCommand";
+import {
+  DeleteSegmentDefinitionCommandInput,
+  DeleteSegmentDefinitionCommandOutput,
+} from "./commands/DeleteSegmentDefinitionCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import {
   DetectProfileObjectTypeCommandInput,
@@ -100,7 +125,9 @@ import {
   GetCalculatedAttributeForProfileCommandOutput,
 } from "./commands/GetCalculatedAttributeForProfileCommand";
 import { GetDomainCommandInput, GetDomainCommandOutput } from "./commands/GetDomainCommand";
+import { GetDomainLayoutCommandInput, GetDomainLayoutCommandOutput } from "./commands/GetDomainLayoutCommand";
 import { GetEventStreamCommandInput, GetEventStreamCommandOutput } from "./commands/GetEventStreamCommand";
+import { GetEventTriggerCommandInput, GetEventTriggerCommandOutput } from "./commands/GetEventTriggerCommand";
 import {
   GetIdentityResolutionJobCommandInput,
   GetIdentityResolutionJobCommandOutput,
@@ -115,6 +142,16 @@ import {
   GetProfileObjectTypeTemplateCommandInput,
   GetProfileObjectTypeTemplateCommandOutput,
 } from "./commands/GetProfileObjectTypeTemplateCommand";
+import {
+  GetSegmentDefinitionCommandInput,
+  GetSegmentDefinitionCommandOutput,
+} from "./commands/GetSegmentDefinitionCommand";
+import { GetSegmentEstimateCommandInput, GetSegmentEstimateCommandOutput } from "./commands/GetSegmentEstimateCommand";
+import {
+  GetSegmentMembershipCommandInput,
+  GetSegmentMembershipCommandOutput,
+} from "./commands/GetSegmentMembershipCommand";
+import { GetSegmentSnapshotCommandInput, GetSegmentSnapshotCommandOutput } from "./commands/GetSegmentSnapshotCommand";
 import { GetSimilarProfilesCommandInput, GetSimilarProfilesCommandOutput } from "./commands/GetSimilarProfilesCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "./commands/GetWorkflowCommand";
 import { GetWorkflowStepsCommandInput, GetWorkflowStepsCommandOutput } from "./commands/GetWorkflowStepsCommand";
@@ -130,13 +167,23 @@ import {
   ListCalculatedAttributesForProfileCommandInput,
   ListCalculatedAttributesForProfileCommandOutput,
 } from "./commands/ListCalculatedAttributesForProfileCommand";
+import { ListDomainLayoutsCommandInput, ListDomainLayoutsCommandOutput } from "./commands/ListDomainLayoutsCommand";
 import { ListDomainsCommandInput, ListDomainsCommandOutput } from "./commands/ListDomainsCommand";
 import { ListEventStreamsCommandInput, ListEventStreamsCommandOutput } from "./commands/ListEventStreamsCommand";
+import { ListEventTriggersCommandInput, ListEventTriggersCommandOutput } from "./commands/ListEventTriggersCommand";
 import {
   ListIdentityResolutionJobsCommandInput,
   ListIdentityResolutionJobsCommandOutput,
 } from "./commands/ListIdentityResolutionJobsCommand";
 import { ListIntegrationsCommandInput, ListIntegrationsCommandOutput } from "./commands/ListIntegrationsCommand";
+import {
+  ListObjectTypeAttributesCommandInput,
+  ListObjectTypeAttributesCommandOutput,
+} from "./commands/ListObjectTypeAttributesCommand";
+import {
+  ListProfileAttributeValuesCommandInput,
+  ListProfileAttributeValuesCommandOutput,
+} from "./commands/ListProfileAttributeValuesCommand";
 import { ListProfileObjectsCommandInput, ListProfileObjectsCommandOutput } from "./commands/ListProfileObjectsCommand";
 import {
   ListProfileObjectTypesCommandInput,
@@ -150,6 +197,10 @@ import {
   ListRuleBasedMatchesCommandInput,
   ListRuleBasedMatchesCommandOutput,
 } from "./commands/ListRuleBasedMatchesCommand";
+import {
+  ListSegmentDefinitionsCommandInput,
+  ListSegmentDefinitionsCommandOutput,
+} from "./commands/ListSegmentDefinitionsCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -170,6 +221,8 @@ import {
   UpdateCalculatedAttributeDefinitionCommandOutput,
 } from "./commands/UpdateCalculatedAttributeDefinitionCommand";
 import { UpdateDomainCommandInput, UpdateDomainCommandOutput } from "./commands/UpdateDomainCommand";
+import { UpdateDomainLayoutCommandInput, UpdateDomainLayoutCommandOutput } from "./commands/UpdateDomainLayoutCommand";
+import { UpdateEventTriggerCommandInput, UpdateEventTriggerCommandOutput } from "./commands/UpdateEventTriggerCommand";
 import { UpdateProfileCommandInput, UpdateProfileCommandOutput } from "./commands/UpdateProfileCommand";
 import {
   ClientInputEndpointParameters,
@@ -187,45 +240,66 @@ export { __Client };
  */
 export type ServiceInputTypes =
   | AddProfileKeyCommandInput
+  | BatchGetCalculatedAttributeForProfileCommandInput
+  | BatchGetProfileCommandInput
   | CreateCalculatedAttributeDefinitionCommandInput
   | CreateDomainCommandInput
+  | CreateDomainLayoutCommandInput
   | CreateEventStreamCommandInput
+  | CreateEventTriggerCommandInput
   | CreateIntegrationWorkflowCommandInput
   | CreateProfileCommandInput
+  | CreateSegmentDefinitionCommandInput
+  | CreateSegmentEstimateCommandInput
+  | CreateSegmentSnapshotCommandInput
   | DeleteCalculatedAttributeDefinitionCommandInput
   | DeleteDomainCommandInput
+  | DeleteDomainLayoutCommandInput
   | DeleteEventStreamCommandInput
+  | DeleteEventTriggerCommandInput
   | DeleteIntegrationCommandInput
   | DeleteProfileCommandInput
   | DeleteProfileKeyCommandInput
   | DeleteProfileObjectCommandInput
   | DeleteProfileObjectTypeCommandInput
+  | DeleteSegmentDefinitionCommandInput
   | DeleteWorkflowCommandInput
   | DetectProfileObjectTypeCommandInput
   | GetAutoMergingPreviewCommandInput
   | GetCalculatedAttributeDefinitionCommandInput
   | GetCalculatedAttributeForProfileCommandInput
   | GetDomainCommandInput
+  | GetDomainLayoutCommandInput
   | GetEventStreamCommandInput
+  | GetEventTriggerCommandInput
   | GetIdentityResolutionJobCommandInput
   | GetIntegrationCommandInput
   | GetMatchesCommandInput
   | GetProfileObjectTypeCommandInput
   | GetProfileObjectTypeTemplateCommandInput
+  | GetSegmentDefinitionCommandInput
+  | GetSegmentEstimateCommandInput
+  | GetSegmentMembershipCommandInput
+  | GetSegmentSnapshotCommandInput
   | GetSimilarProfilesCommandInput
   | GetWorkflowCommandInput
   | GetWorkflowStepsCommandInput
   | ListAccountIntegrationsCommandInput
   | ListCalculatedAttributeDefinitionsCommandInput
   | ListCalculatedAttributesForProfileCommandInput
+  | ListDomainLayoutsCommandInput
   | ListDomainsCommandInput
   | ListEventStreamsCommandInput
+  | ListEventTriggersCommandInput
   | ListIdentityResolutionJobsCommandInput
   | ListIntegrationsCommandInput
+  | ListObjectTypeAttributesCommandInput
+  | ListProfileAttributeValuesCommandInput
   | ListProfileObjectTypeTemplatesCommandInput
   | ListProfileObjectTypesCommandInput
   | ListProfileObjectsCommandInput
   | ListRuleBasedMatchesCommandInput
+  | ListSegmentDefinitionsCommandInput
   | ListTagsForResourceCommandInput
   | ListWorkflowsCommandInput
   | MergeProfilesCommandInput
@@ -237,6 +311,8 @@ export type ServiceInputTypes =
   | UntagResourceCommandInput
   | UpdateCalculatedAttributeDefinitionCommandInput
   | UpdateDomainCommandInput
+  | UpdateDomainLayoutCommandInput
+  | UpdateEventTriggerCommandInput
   | UpdateProfileCommandInput;
 
 /**
@@ -244,45 +320,66 @@ export type ServiceInputTypes =
  */
 export type ServiceOutputTypes =
   | AddProfileKeyCommandOutput
+  | BatchGetCalculatedAttributeForProfileCommandOutput
+  | BatchGetProfileCommandOutput
   | CreateCalculatedAttributeDefinitionCommandOutput
   | CreateDomainCommandOutput
+  | CreateDomainLayoutCommandOutput
   | CreateEventStreamCommandOutput
+  | CreateEventTriggerCommandOutput
   | CreateIntegrationWorkflowCommandOutput
   | CreateProfileCommandOutput
+  | CreateSegmentDefinitionCommandOutput
+  | CreateSegmentEstimateCommandOutput
+  | CreateSegmentSnapshotCommandOutput
   | DeleteCalculatedAttributeDefinitionCommandOutput
   | DeleteDomainCommandOutput
+  | DeleteDomainLayoutCommandOutput
   | DeleteEventStreamCommandOutput
+  | DeleteEventTriggerCommandOutput
   | DeleteIntegrationCommandOutput
   | DeleteProfileCommandOutput
   | DeleteProfileKeyCommandOutput
   | DeleteProfileObjectCommandOutput
   | DeleteProfileObjectTypeCommandOutput
+  | DeleteSegmentDefinitionCommandOutput
   | DeleteWorkflowCommandOutput
   | DetectProfileObjectTypeCommandOutput
   | GetAutoMergingPreviewCommandOutput
   | GetCalculatedAttributeDefinitionCommandOutput
   | GetCalculatedAttributeForProfileCommandOutput
   | GetDomainCommandOutput
+  | GetDomainLayoutCommandOutput
   | GetEventStreamCommandOutput
+  | GetEventTriggerCommandOutput
   | GetIdentityResolutionJobCommandOutput
   | GetIntegrationCommandOutput
   | GetMatchesCommandOutput
   | GetProfileObjectTypeCommandOutput
   | GetProfileObjectTypeTemplateCommandOutput
+  | GetSegmentDefinitionCommandOutput
+  | GetSegmentEstimateCommandOutput
+  | GetSegmentMembershipCommandOutput
+  | GetSegmentSnapshotCommandOutput
   | GetSimilarProfilesCommandOutput
   | GetWorkflowCommandOutput
   | GetWorkflowStepsCommandOutput
   | ListAccountIntegrationsCommandOutput
   | ListCalculatedAttributeDefinitionsCommandOutput
   | ListCalculatedAttributesForProfileCommandOutput
+  | ListDomainLayoutsCommandOutput
   | ListDomainsCommandOutput
   | ListEventStreamsCommandOutput
+  | ListEventTriggersCommandOutput
   | ListIdentityResolutionJobsCommandOutput
   | ListIntegrationsCommandOutput
+  | ListObjectTypeAttributesCommandOutput
+  | ListProfileAttributeValuesCommandOutput
   | ListProfileObjectTypeTemplatesCommandOutput
   | ListProfileObjectTypesCommandOutput
   | ListProfileObjectsCommandOutput
   | ListRuleBasedMatchesCommandOutput
+  | ListSegmentDefinitionsCommandOutput
   | ListTagsForResourceCommandOutput
   | ListWorkflowsCommandOutput
   | MergeProfilesCommandOutput
@@ -294,6 +391,8 @@ export type ServiceOutputTypes =
   | UntagResourceCommandOutput
   | UpdateCalculatedAttributeDefinitionCommandOutput
   | UpdateDomainCommandOutput
+  | UpdateDomainLayoutCommandOutput
+  | UpdateEventTriggerCommandOutput
   | UpdateProfileCommandOutput;
 
 /**
@@ -388,6 +487,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -433,11 +551,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type CustomerProfilesClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -453,11 +571,11 @@ export interface CustomerProfilesClientConfig extends CustomerProfilesClientConf
 export type CustomerProfilesClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -469,11 +587,24 @@ export interface CustomerProfilesClientResolvedConfig extends CustomerProfilesCl
 
 /**
  * <fullname>Amazon Connect Customer Profiles</fullname>
- *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact center that has
- *          pre-built connectors powered by AppFlow that make it easy to combine customer information
- *          from third party applications, such as Salesforce (CRM), ServiceNow (ITSM), and your
- *          enterprise resource planning (ERP), with contact history from your Amazon Connect contact center.
- *          If you're new to Amazon Connect, you might find it helpful to review the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/">Amazon Connect Administrator Guide</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Customer_Profiles.html">Customer Profiles actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Customer_Profiles.html">Customer Profiles data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect Customer Profiles is a unified customer profile for your contact
+ *          center that has pre-built connectors powered by AppFlow that make it easy to combine
+ *          customer information from third party applications, such as Salesforce (CRM), ServiceNow
+ *          (ITSM), and your enterprise resource planning (ERP), with contact history from your Amazon Connect contact center. </p>
+ *          <p>For more information about the Amazon Connect Customer Profiles feature, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/customer-profiles.html">Use Customer
+ *             Profiles</a> in the <i>Amazon Connect Administrator's Guide</i>. </p>
  * @public
  */
 export class CustomerProfilesClient extends __Client<
@@ -489,26 +620,30 @@ export class CustomerProfilesClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<CustomerProfilesClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultCustomerProfilesHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: CustomerProfilesClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -521,14 +656,5 @@ export class CustomerProfilesClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultCustomerProfilesHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: CustomerProfilesClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

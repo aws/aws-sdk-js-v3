@@ -16,7 +16,8 @@ import { de_DeleteReportDefinitionCommand, se_DeleteReportDefinitionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeleteReportDefinitionCommandOutput extends DeleteReportDefinit
  * @throws {@link ApplicationCostProfilerServiceException}
  * <p>Base exception class for all service exceptions from ApplicationCostProfiler service.</p>
  *
+ *
  * @public
  */
 export class DeleteReportDefinitionCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteReportDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationCostProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteReportDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReportDefinitionCommand)
   .de(de_DeleteReportDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReportDefinitionRequest;
+      output: DeleteReportDefinitionResult;
+    };
+    sdk: {
+      input: DeleteReportDefinitionCommandInput;
+      output: DeleteReportDefinitionCommandOutput;
+    };
+  };
+}

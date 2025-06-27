@@ -9,14 +9,15 @@ import {
   GetSessionEmbedUrlRequest,
   GetSessionEmbedUrlResponse,
   GetSessionEmbedUrlResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import { de_GetSessionEmbedUrlCommand, se_GetSessionEmbedUrlCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -124,6 +125,7 @@ export interface GetSessionEmbedUrlCommandOutput extends GetSessionEmbedUrlRespo
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class GetSessionEmbedUrlCommand extends $Command
@@ -134,9 +136,7 @@ export class GetSessionEmbedUrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class GetSessionEmbedUrlCommand extends $Command
   .f(void 0, GetSessionEmbedUrlResponseFilterSensitiveLog)
   .ser(se_GetSessionEmbedUrlCommand)
   .de(de_GetSessionEmbedUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionEmbedUrlRequest;
+      output: GetSessionEmbedUrlResponse;
+    };
+    sdk: {
+      input: GetSessionEmbedUrlCommandInput;
+      output: GetSessionEmbedUrlCommandOutput;
+    };
+  };
+}

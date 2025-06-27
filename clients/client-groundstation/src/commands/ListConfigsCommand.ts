@@ -12,7 +12,8 @@ import { de_ListConfigsCommand, se_ListConfigsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * //   configList: [ // ConfigList
  * //     { // ConfigListItem
  * //       configId: "STRING_VALUE",
- * //       configType: "STRING_VALUE",
+ * //       configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //       configArn: "STRING_VALUE",
  * //       name: "STRING_VALUE",
  * //     },
@@ -72,6 +73,7 @@ export interface ListConfigsCommandOutput extends ListConfigsResponse, __Metadat
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class ListConfigsCommand extends $Command
@@ -82,9 +84,7 @@ export class ListConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class ListConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConfigsCommand)
   .de(de_ListConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConfigsRequest;
+      output: ListConfigsResponse;
+    };
+    sdk: {
+      input: ListConfigsCommandInput;
+      output: ListConfigsCommandOutput;
+    };
+  };
+}

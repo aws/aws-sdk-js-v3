@@ -12,7 +12,8 @@ import { de_DisassociateMemberFromJobCommand, se_DisassociateMemberFromJobComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,11 +66,11 @@ export interface DisassociateMemberFromJobCommandOutput extends DisassociateMemb
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -81,9 +82,7 @@ export class DisassociateMemberFromJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class DisassociateMemberFromJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMemberFromJobCommand)
   .de(de_DisassociateMemberFromJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMemberFromJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMemberFromJobCommandInput;
+      output: DisassociateMemberFromJobCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_SignCommand, se_SignCommand } from "../protocols/Aws_json1_1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,11 +32,11 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *         signature</a> for a message or message digest by using the private key in an asymmetric
  *       signing KMS key. To verify the signature, use the <a>Verify</a> operation, or use
  *       the public key in the same asymmetric KMS key outside of KMS. For information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
- *          <p>Digital signatures are generated and verified by using asymmetric key pair, such as an RSA
- *       or ECC pair that is represented by an asymmetric KMS key. The key owner (or an authorized
- *       user) uses their private key to sign a message. Anyone with the public key can verify that the
- *       message was signed with that particular private key and that the message hasn't changed since
- *       it was signed. </p>
+ *          <p>Digital signatures are generated and verified by using asymmetric key pair, such as an
+ *       RSA, ECC, or ML-DSA pair that is represented by an asymmetric KMS key. The key owner (or an
+ *       authorized user) uses their private key to sign a message. Anyone with the public key can
+ *       verify that the message was signed with that particular private key and that the message
+ *       hasn't changed since it was signed. </p>
  *          <p>To use the <code>Sign</code> operation, provide the following information:</p>
  *          <ul>
  *             <li>
@@ -48,8 +49,8 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *                <p>Use the <code>Message</code> parameter to specify the message or message digest to
  *           sign. You can submit messages of up to 4096 bytes. To sign a larger message, generate a
  *           hash digest of the message, and then provide the hash digest in the <code>Message</code>
- *           parameter. To indicate whether the message is a full message or a digest, use the
- *             <code>MessageType</code> parameter.</p>
+ *           parameter. To indicate whether the message is a full message, a digest, or an ML-DSA
+ *           EXTERNAL_MU, use the <code>MessageType</code> parameter.</p>
  *             </li>
  *             <li>
  *                <p>Choose a signing algorithm that is compatible with the KMS key. </p>
@@ -81,7 +82,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *          </p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,11 +92,11 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * const input = { // SignRequest
  *   KeyId: "STRING_VALUE", // required
  *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   MessageType: "RAW" || "DIGEST",
+ *   MessageType: "RAW" || "DIGEST" || "EXTERNAL_MU",
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
- *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256", // required
  *   DryRun: true || false,
  * };
  * const command = new SignCommand(input);
@@ -103,7 +104,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * // { // SignResponse
  * //   KeyId: "STRING_VALUE",
  * //   Signature: new Uint8Array(),
- * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256",
  * // };
  *
  * ```
@@ -143,8 +144,9 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -183,55 +185,52 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
- * @example To digitally sign a message with an asymmetric KMS key.
- * ```javascript
- * // This operation uses the private key in an asymmetric elliptic curve (ECC) KMS key to generate a digital signature for a given message.
- * const input = {
- *   "KeyId": "alias/ECC_signing_key",
- *   "Message": "<message to be signed>",
- *   "MessageType": "RAW",
- *   "SigningAlgorithm": "ECDSA_SHA_384"
- * };
- * const command = new SignCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Signature": "<binary data>",
- *   "SigningAlgorithm": "ECDSA_SHA_384"
- * }
- * *\/
- * // example id: to-digitally-sign-a-message-with-an-asymmetric-kms-key-1
- * ```
  *
  * @example To digitally sign a message digest with an asymmetric KMS key.
  * ```javascript
  * // This operation uses the private key in an asymmetric RSA signing KMS key to generate a digital signature for a message digest. In this example, a large message was hashed and the resulting digest is provided in the Message parameter. To tell KMS not to hash the message again, the MessageType field is set to DIGEST
  * const input = {
- *   "KeyId": "alias/RSA_signing_key",
- *   "Message": "<message digest to be signed>",
- *   "MessageType": "DIGEST",
- *   "SigningAlgorithm": "RSASSA_PKCS1_V1_5_SHA_256"
+ *   KeyId: "alias/RSA_signing_key",
+ *   Message: "<message digest to be signed>",
+ *   MessageType: "DIGEST",
+ *   SigningAlgorithm: "RSASSA_PKCS1_V1_5_SHA_256"
  * };
  * const command = new SignCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "Signature": "<binary data>",
- *   "SigningAlgorithm": "RSASSA_PKCS1_V1_5_SHA_256"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Signature: "<binary data>",
+ *   SigningAlgorithm: "RSASSA_PKCS1_V1_5_SHA_256"
  * }
  * *\/
- * // example id: to-digitally-sign-a-message-digest-with-an-asymmetric-kms-key-2
  * ```
  *
+ * @example To digitally sign a message with an asymmetric KMS key.
+ * ```javascript
+ * // This operation uses the private key in an asymmetric elliptic curve (ECC) KMS key to generate a digital signature for a given message.
+ * const input = {
+ *   KeyId: "alias/ECC_signing_key",
+ *   Message: "<message to be signed>",
+ *   MessageType: "RAW",
+ *   SigningAlgorithm: "ECDSA_SHA_384"
+ * };
+ * const command = new SignCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   Signature: "<binary data>",
+ *   SigningAlgorithm: "ECDSA_SHA_384"
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class SignCommand extends $Command
   .classBuilder<SignCommandInput, SignCommandOutput, KMSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes>()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -243,4 +242,16 @@ export class SignCommand extends $Command
   .f(SignRequestFilterSensitiveLog, void 0)
   .ser(se_SignCommand)
   .de(de_SignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SignRequest;
+      output: SignResponse;
+    };
+    sdk: {
+      input: SignCommandInput;
+      output: SignCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DeclineHandshakeCommand, se_DeclineHandshakeCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -164,6 +165,10 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -204,6 +209,9 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -226,64 +234,64 @@ export interface DeclineHandshakeCommandOutput extends DeclineHandshakeResponse,
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To decline a handshake sent from the master account
  * ```javascript
  * // The following example shows Susan declining an invitation to join Bill's organization. The DeclineHandshake operation returns a handshake object, showing that the state is now DECLINED:
  * const input = {
- *   "HandshakeId": "h-examplehandshakeid111"
+ *   HandshakeId: "h-examplehandshakeid111"
  * };
  * const command = new DeclineHandshakeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "2016-12-15T19:27:58Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
+ *   Handshake: {
+ *     Action: "INVITE",
+ *     Arn: "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
+ *     ExpirationTimestamp: "2016-12-15T19:27:58Z",
+ *     Id: "h-examplehandshakeid111",
+ *     Parties: [
  *       {
- *         "Id": "222222222222",
- *         "Type": "ACCOUNT"
+ *         Id: "222222222222",
+ *         Type: "ACCOUNT"
  *       },
  *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
+ *         Id: "o-exampleorgid",
+ *         Type: "ORGANIZATION"
  *       }
  *     ],
- *     "RequestedTimestamp": "2016-11-30T19:27:58Z",
- *     "Resources": [
+ *     RequestedTimestamp: "2016-11-30T19:27:58Z",
+ *     Resources: [
  *       {
- *         "Resources": [
+ *         Resources: [
  *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@example.com"
+ *             Type: "MASTER_EMAIL",
+ *             Value: "bill@example.com"
  *           },
  *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Master Account"
+ *             Type: "MASTER_NAME",
+ *             Value: "Master Account"
  *           }
  *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
+ *         Type: "ORGANIZATION",
+ *         Value: "o-exampleorgid"
  *       },
  *       {
- *         "Type": "ACCOUNT",
- *         "Value": "222222222222"
+ *         Type: "ACCOUNT",
+ *         Value: "222222222222"
  *       },
  *       {
- *         "Type": "NOTES",
- *         "Value": "This is an invitation to Susan's account to join the Bill's organization."
+ *         Type: "NOTES",
+ *         Value: "This is an invitation to Susan's account to join the Bill's organization."
  *       }
  *     ],
- *     "State": "DECLINED"
+ *     State: "DECLINED"
  *   }
  * }
  * *\/
- * // example id: to-decline-a-handshake-sent-from-the-master-account-1472502666967
  * ```
  *
+ * @public
  */
 export class DeclineHandshakeCommand extends $Command
   .classBuilder<
@@ -293,9 +301,7 @@ export class DeclineHandshakeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -307,4 +313,16 @@ export class DeclineHandshakeCommand extends $Command
   .f(void 0, DeclineHandshakeResponseFilterSensitiveLog)
   .ser(se_DeclineHandshakeCommand)
   .de(de_DeclineHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeclineHandshakeRequest;
+      output: DeclineHandshakeResponse;
+    };
+    sdk: {
+      input: DeclineHandshakeCommandInput;
+      output: DeclineHandshakeCommandOutput;
+    };
+  };
+}

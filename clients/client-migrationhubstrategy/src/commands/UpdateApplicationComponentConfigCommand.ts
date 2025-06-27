@@ -23,7 +23,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface UpdateApplicationComponentConfigCommandOutput
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class UpdateApplicationComponentConfigCommand extends $Command
@@ -105,9 +107,7 @@ export class UpdateApplicationComponentConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class UpdateApplicationComponentConfigCommand extends $Command
   .f(UpdateApplicationComponentConfigRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateApplicationComponentConfigCommand)
   .de(de_UpdateApplicationComponentConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationComponentConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateApplicationComponentConfigCommandInput;
+      output: UpdateApplicationComponentConfigCommandOutput;
+    };
+  };
+}

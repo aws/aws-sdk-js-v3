@@ -12,7 +12,8 @@ import { de_ListEntitledApplicationsCommand, se_ListEntitledApplicationsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface ListEntitledApplicationsCommandOutput extends ListEntitledAppli
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class ListEntitledApplicationsCommand extends $Command
@@ -81,9 +83,7 @@ export class ListEntitledApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class ListEntitledApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEntitledApplicationsCommand)
   .de(de_ListEntitledApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEntitledApplicationsRequest;
+      output: ListEntitledApplicationsResult;
+    };
+    sdk: {
+      input: ListEntitledApplicationsCommandInput;
+      output: ListEntitledApplicationsCommandOutput;
+    };
+  };
+}

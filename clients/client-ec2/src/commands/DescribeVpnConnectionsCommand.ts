@@ -10,13 +10,14 @@ import {
   DescribeVpnConnectionsRequest,
   DescribeVpnConnectionsResult,
   DescribeVpnConnectionsResultFilterSensitiveLog,
-} from "../models/models_5";
+} from "../models/models_6";
 import { de_DescribeVpnConnectionsCommand, se_DescribeVpnConnectionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,13 +60,7 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * // { // DescribeVpnConnectionsResult
  * //   VpnConnections: [ // VpnConnectionList
  * //     { // VpnConnection
- * //       CustomerGatewayConfiguration: "STRING_VALUE",
- * //       CustomerGatewayId: "STRING_VALUE",
  * //       Category: "STRING_VALUE",
- * //       State: "pending" || "available" || "deleting" || "deleted",
- * //       Type: "ipsec.1",
- * //       VpnConnectionId: "STRING_VALUE",
- * //       VpnGatewayId: "STRING_VALUE",
  * //       TransitGatewayId: "STRING_VALUE",
  * //       CoreNetworkArn: "STRING_VALUE",
  * //       CoreNetworkAttachmentArn: "STRING_VALUE",
@@ -163,6 +158,13 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * //           CertificateArn: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       PreSharedKeyArn: "STRING_VALUE",
+ * //       VpnConnectionId: "STRING_VALUE",
+ * //       State: "pending" || "available" || "deleting" || "deleted",
+ * //       CustomerGatewayConfiguration: "STRING_VALUE",
+ * //       Type: "ipsec.1",
+ * //       CustomerGatewayId: "STRING_VALUE",
+ * //       VpnGatewayId: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -178,6 +180,7 @@ export interface DescribeVpnConnectionsCommandOutput extends DescribeVpnConnecti
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVpnConnectionsCommand extends $Command
@@ -188,9 +191,7 @@ export class DescribeVpnConnectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -202,4 +203,16 @@ export class DescribeVpnConnectionsCommand extends $Command
   .f(void 0, DescribeVpnConnectionsResultFilterSensitiveLog)
   .ser(se_DescribeVpnConnectionsCommand)
   .de(de_DescribeVpnConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpnConnectionsRequest;
+      output: DescribeVpnConnectionsResult;
+    };
+    sdk: {
+      input: DescribeVpnConnectionsCommandInput;
+      output: DescribeVpnConnectionsCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,13 +33,7 @@ export interface GetOriginRequestPolicyConfigCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Gets an origin request policy configuration.</p>
- *          <p>To get an origin request policy configuration, you must provide the policy's
- * 			identifier. If the origin request policy is attached to a distribution's cache behavior,
- * 			you can get the policy's identifier using <code>ListDistributions</code> or
- * 				<code>GetDistribution</code>. If the origin request policy is not attached to a
- * 			cache behavior, you can get the identifier using
- * 			<code>ListOriginRequestPolicies</code>.</p>
+ * <p>Gets an origin request policy configuration.</p> <p>To get an origin request policy configuration, you must provide the policy's identifier. If the origin request policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the origin request policy is not attached to a cache behavior, you can get the identifier using <code>ListOriginRequestPolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,6 +97,7 @@ export interface GetOriginRequestPolicyConfigCommandOutput
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetOriginRequestPolicyConfigCommand extends $Command
@@ -112,9 +108,7 @@ export class GetOriginRequestPolicyConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +120,16 @@ export class GetOriginRequestPolicyConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginRequestPolicyConfigCommand)
   .de(de_GetOriginRequestPolicyConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginRequestPolicyConfigRequest;
+      output: GetOriginRequestPolicyConfigResult;
+    };
+    sdk: {
+      input: GetOriginRequestPolicyConfigCommandInput;
+      output: GetOriginRequestPolicyConfigCommandOutput;
+    };
+  };
+}

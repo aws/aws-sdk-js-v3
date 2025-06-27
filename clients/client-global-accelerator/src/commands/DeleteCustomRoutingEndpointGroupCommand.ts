@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteCustomRoutingEndpointGroupCommandOutput extends __Metadat
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomRoutingEndpointGroupCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteCustomRoutingEndpointGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomRoutingEndpointGroupCommand)
   .de(de_DeleteCustomRoutingEndpointGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomRoutingEndpointGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomRoutingEndpointGroupCommandInput;
+      output: DeleteCustomRoutingEndpointGroupCommandOutput;
+    };
+  };
+}

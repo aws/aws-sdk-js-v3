@@ -12,7 +12,8 @@ import { de_FinalizeCutoverCommand, se_FinalizeCutoverCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -182,6 +183,7 @@ export interface FinalizeCutoverCommandOutput extends SourceServer, __MetadataBe
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class FinalizeCutoverCommand extends $Command
@@ -192,9 +194,7 @@ export class FinalizeCutoverCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -206,4 +206,16 @@ export class FinalizeCutoverCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_FinalizeCutoverCommand)
   .de(de_FinalizeCutoverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: FinalizeCutoverRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: FinalizeCutoverCommandInput;
+      output: FinalizeCutoverCommandOutput;
+    };
+  };
+}

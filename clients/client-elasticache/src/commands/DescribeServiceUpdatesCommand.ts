@@ -12,7 +12,8 @@ import { de_DescribeServiceUpdatesCommand, se_DescribeServiceUpdatesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface DescribeServiceUpdatesCommandOutput extends ServiceUpdatesMessa
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DescribeServiceUpdatesCommand extends $Command
@@ -94,9 +96,7 @@ export class DescribeServiceUpdatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DescribeServiceUpdatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeServiceUpdatesCommand)
   .de(de_DescribeServiceUpdatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeServiceUpdatesMessage;
+      output: ServiceUpdatesMessage;
+    };
+    sdk: {
+      input: DescribeServiceUpdatesCommandInput;
+      output: DescribeServiceUpdatesCommandOutput;
+    };
+  };
+}

@@ -3,6 +3,16 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  AcceptNetworkFirewallTransitGatewayAttachmentCommand,
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+  AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/AcceptNetworkFirewallTransitGatewayAttachmentCommand";
+import {
+  AssociateAvailabilityZonesCommand,
+  AssociateAvailabilityZonesCommandInput,
+  AssociateAvailabilityZonesCommandOutput,
+} from "./commands/AssociateAvailabilityZonesCommand";
+import {
   AssociateFirewallPolicyCommand,
   AssociateFirewallPolicyCommandInput,
   AssociateFirewallPolicyCommandOutput,
@@ -33,6 +43,11 @@ import {
   CreateTLSInspectionConfigurationCommandOutput,
 } from "./commands/CreateTLSInspectionConfigurationCommand";
 import {
+  CreateVpcEndpointAssociationCommand,
+  CreateVpcEndpointAssociationCommandInput,
+  CreateVpcEndpointAssociationCommandOutput,
+} from "./commands/CreateVpcEndpointAssociationCommand";
+import {
   DeleteFirewallCommand,
   DeleteFirewallCommandInput,
   DeleteFirewallCommandOutput,
@@ -42,6 +57,11 @@ import {
   DeleteFirewallPolicyCommandInput,
   DeleteFirewallPolicyCommandOutput,
 } from "./commands/DeleteFirewallPolicyCommand";
+import {
+  DeleteNetworkFirewallTransitGatewayAttachmentCommand,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/DeleteNetworkFirewallTransitGatewayAttachmentCommand";
 import {
   DeleteResourcePolicyCommand,
   DeleteResourcePolicyCommandInput,
@@ -58,15 +78,30 @@ import {
   DeleteTLSInspectionConfigurationCommandOutput,
 } from "./commands/DeleteTLSInspectionConfigurationCommand";
 import {
+  DeleteVpcEndpointAssociationCommand,
+  DeleteVpcEndpointAssociationCommandInput,
+  DeleteVpcEndpointAssociationCommandOutput,
+} from "./commands/DeleteVpcEndpointAssociationCommand";
+import {
   DescribeFirewallCommand,
   DescribeFirewallCommandInput,
   DescribeFirewallCommandOutput,
 } from "./commands/DescribeFirewallCommand";
 import {
+  DescribeFirewallMetadataCommand,
+  DescribeFirewallMetadataCommandInput,
+  DescribeFirewallMetadataCommandOutput,
+} from "./commands/DescribeFirewallMetadataCommand";
+import {
   DescribeFirewallPolicyCommand,
   DescribeFirewallPolicyCommandInput,
   DescribeFirewallPolicyCommandOutput,
 } from "./commands/DescribeFirewallPolicyCommand";
+import {
+  DescribeFlowOperationCommand,
+  DescribeFlowOperationCommandInput,
+  DescribeFlowOperationCommandOutput,
+} from "./commands/DescribeFlowOperationCommand";
 import {
   DescribeLoggingConfigurationCommand,
   DescribeLoggingConfigurationCommandInput,
@@ -88,15 +123,40 @@ import {
   DescribeRuleGroupMetadataCommandOutput,
 } from "./commands/DescribeRuleGroupMetadataCommand";
 import {
+  DescribeRuleGroupSummaryCommand,
+  DescribeRuleGroupSummaryCommandInput,
+  DescribeRuleGroupSummaryCommandOutput,
+} from "./commands/DescribeRuleGroupSummaryCommand";
+import {
   DescribeTLSInspectionConfigurationCommand,
   DescribeTLSInspectionConfigurationCommandInput,
   DescribeTLSInspectionConfigurationCommandOutput,
 } from "./commands/DescribeTLSInspectionConfigurationCommand";
 import {
+  DescribeVpcEndpointAssociationCommand,
+  DescribeVpcEndpointAssociationCommandInput,
+  DescribeVpcEndpointAssociationCommandOutput,
+} from "./commands/DescribeVpcEndpointAssociationCommand";
+import {
+  DisassociateAvailabilityZonesCommand,
+  DisassociateAvailabilityZonesCommandInput,
+  DisassociateAvailabilityZonesCommandOutput,
+} from "./commands/DisassociateAvailabilityZonesCommand";
+import {
   DisassociateSubnetsCommand,
   DisassociateSubnetsCommandInput,
   DisassociateSubnetsCommandOutput,
 } from "./commands/DisassociateSubnetsCommand";
+import {
+  GetAnalysisReportResultsCommand,
+  GetAnalysisReportResultsCommandInput,
+  GetAnalysisReportResultsCommandOutput,
+} from "./commands/GetAnalysisReportResultsCommand";
+import {
+  ListAnalysisReportsCommand,
+  ListAnalysisReportsCommandInput,
+  ListAnalysisReportsCommandOutput,
+} from "./commands/ListAnalysisReportsCommand";
 import {
   ListFirewallPoliciesCommand,
   ListFirewallPoliciesCommandInput,
@@ -107,6 +167,16 @@ import {
   ListFirewallsCommandInput,
   ListFirewallsCommandOutput,
 } from "./commands/ListFirewallsCommand";
+import {
+  ListFlowOperationResultsCommand,
+  ListFlowOperationResultsCommandInput,
+  ListFlowOperationResultsCommandOutput,
+} from "./commands/ListFlowOperationResultsCommand";
+import {
+  ListFlowOperationsCommand,
+  ListFlowOperationsCommandInput,
+  ListFlowOperationsCommandOutput,
+} from "./commands/ListFlowOperationsCommand";
 import {
   ListRuleGroupsCommand,
   ListRuleGroupsCommandInput,
@@ -123,16 +193,51 @@ import {
   ListTLSInspectionConfigurationsCommandOutput,
 } from "./commands/ListTLSInspectionConfigurationsCommand";
 import {
+  ListVpcEndpointAssociationsCommand,
+  ListVpcEndpointAssociationsCommandInput,
+  ListVpcEndpointAssociationsCommandOutput,
+} from "./commands/ListVpcEndpointAssociationsCommand";
+import {
   PutResourcePolicyCommand,
   PutResourcePolicyCommandInput,
   PutResourcePolicyCommandOutput,
 } from "./commands/PutResourcePolicyCommand";
+import {
+  RejectNetworkFirewallTransitGatewayAttachmentCommand,
+  RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+  RejectNetworkFirewallTransitGatewayAttachmentCommandOutput,
+} from "./commands/RejectNetworkFirewallTransitGatewayAttachmentCommand";
+import {
+  StartAnalysisReportCommand,
+  StartAnalysisReportCommandInput,
+  StartAnalysisReportCommandOutput,
+} from "./commands/StartAnalysisReportCommand";
+import {
+  StartFlowCaptureCommand,
+  StartFlowCaptureCommandInput,
+  StartFlowCaptureCommandOutput,
+} from "./commands/StartFlowCaptureCommand";
+import {
+  StartFlowFlushCommand,
+  StartFlowFlushCommandInput,
+  StartFlowFlushCommandOutput,
+} from "./commands/StartFlowFlushCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateAvailabilityZoneChangeProtectionCommand,
+  UpdateAvailabilityZoneChangeProtectionCommandInput,
+  UpdateAvailabilityZoneChangeProtectionCommandOutput,
+} from "./commands/UpdateAvailabilityZoneChangeProtectionCommand";
+import {
+  UpdateFirewallAnalysisSettingsCommand,
+  UpdateFirewallAnalysisSettingsCommandInput,
+  UpdateFirewallAnalysisSettingsCommandOutput,
+} from "./commands/UpdateFirewallAnalysisSettingsCommand";
 import {
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDeleteProtectionCommandInput,
@@ -181,33 +286,54 @@ import {
 import { NetworkFirewallClient, NetworkFirewallClientConfig } from "./NetworkFirewallClient";
 
 const commands = {
+  AcceptNetworkFirewallTransitGatewayAttachmentCommand,
+  AssociateAvailabilityZonesCommand,
   AssociateFirewallPolicyCommand,
   AssociateSubnetsCommand,
   CreateFirewallCommand,
   CreateFirewallPolicyCommand,
   CreateRuleGroupCommand,
   CreateTLSInspectionConfigurationCommand,
+  CreateVpcEndpointAssociationCommand,
   DeleteFirewallCommand,
   DeleteFirewallPolicyCommand,
+  DeleteNetworkFirewallTransitGatewayAttachmentCommand,
   DeleteResourcePolicyCommand,
   DeleteRuleGroupCommand,
   DeleteTLSInspectionConfigurationCommand,
+  DeleteVpcEndpointAssociationCommand,
   DescribeFirewallCommand,
+  DescribeFirewallMetadataCommand,
   DescribeFirewallPolicyCommand,
+  DescribeFlowOperationCommand,
   DescribeLoggingConfigurationCommand,
   DescribeResourcePolicyCommand,
   DescribeRuleGroupCommand,
   DescribeRuleGroupMetadataCommand,
+  DescribeRuleGroupSummaryCommand,
   DescribeTLSInspectionConfigurationCommand,
+  DescribeVpcEndpointAssociationCommand,
+  DisassociateAvailabilityZonesCommand,
   DisassociateSubnetsCommand,
+  GetAnalysisReportResultsCommand,
+  ListAnalysisReportsCommand,
   ListFirewallPoliciesCommand,
   ListFirewallsCommand,
+  ListFlowOperationResultsCommand,
+  ListFlowOperationsCommand,
   ListRuleGroupsCommand,
   ListTagsForResourceCommand,
   ListTLSInspectionConfigurationsCommand,
+  ListVpcEndpointAssociationsCommand,
   PutResourcePolicyCommand,
+  RejectNetworkFirewallTransitGatewayAttachmentCommand,
+  StartAnalysisReportCommand,
+  StartFlowCaptureCommand,
+  StartFlowFlushCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateAvailabilityZoneChangeProtectionCommand,
+  UpdateFirewallAnalysisSettingsCommand,
   UpdateFirewallDeleteProtectionCommand,
   UpdateFirewallDescriptionCommand,
   UpdateFirewallEncryptionConfigurationCommand,
@@ -220,6 +346,40 @@ const commands = {
 };
 
 export interface NetworkFirewall {
+  /**
+   * @see {@link AcceptNetworkFirewallTransitGatewayAttachmentCommand}
+   */
+  acceptNetworkFirewallTransitGatewayAttachment(
+    args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput>;
+  acceptNetworkFirewallTransitGatewayAttachment(
+    args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+    cb: (err: any, data?: AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+  acceptNetworkFirewallTransitGatewayAttachment(
+    args: AcceptNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AcceptNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateAvailabilityZonesCommand}
+   */
+  associateAvailabilityZones(
+    args: AssociateAvailabilityZonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateAvailabilityZonesCommandOutput>;
+  associateAvailabilityZones(
+    args: AssociateAvailabilityZonesCommandInput,
+    cb: (err: any, data?: AssociateAvailabilityZonesCommandOutput) => void
+  ): void;
+  associateAvailabilityZones(
+    args: AssociateAvailabilityZonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateAvailabilityZonesCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link AssociateFirewallPolicyCommand}
    */
@@ -317,6 +477,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link CreateVpcEndpointAssociationCommand}
+   */
+  createVpcEndpointAssociation(
+    args: CreateVpcEndpointAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateVpcEndpointAssociationCommandOutput>;
+  createVpcEndpointAssociation(
+    args: CreateVpcEndpointAssociationCommandInput,
+    cb: (err: any, data?: CreateVpcEndpointAssociationCommandOutput) => void
+  ): void;
+  createVpcEndpointAssociation(
+    args: CreateVpcEndpointAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateVpcEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteFirewallCommand}
    */
   deleteFirewall(): Promise<DeleteFirewallCommandOutput>;
@@ -347,6 +524,23 @@ export interface NetworkFirewall {
     args: DeleteFirewallPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteNetworkFirewallTransitGatewayAttachmentCommand}
+   */
+  deleteNetworkFirewallTransitGatewayAttachment(
+    args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput>;
+  deleteNetworkFirewallTransitGatewayAttachment(
+    args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+    cb: (err: any, data?: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+  deleteNetworkFirewallTransitGatewayAttachment(
+    args: DeleteNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
   ): void;
 
   /**
@@ -400,6 +594,23 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DeleteVpcEndpointAssociationCommand}
+   */
+  deleteVpcEndpointAssociation(
+    args: DeleteVpcEndpointAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteVpcEndpointAssociationCommandOutput>;
+  deleteVpcEndpointAssociation(
+    args: DeleteVpcEndpointAssociationCommandInput,
+    cb: (err: any, data?: DeleteVpcEndpointAssociationCommandOutput) => void
+  ): void;
+  deleteVpcEndpointAssociation(
+    args: DeleteVpcEndpointAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteVpcEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFirewallCommand}
    */
   describeFirewall(): Promise<DescribeFirewallCommandOutput>;
@@ -418,6 +629,24 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DescribeFirewallMetadataCommand}
+   */
+  describeFirewallMetadata(): Promise<DescribeFirewallMetadataCommandOutput>;
+  describeFirewallMetadata(
+    args: DescribeFirewallMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFirewallMetadataCommandOutput>;
+  describeFirewallMetadata(
+    args: DescribeFirewallMetadataCommandInput,
+    cb: (err: any, data?: DescribeFirewallMetadataCommandOutput) => void
+  ): void;
+  describeFirewallMetadata(
+    args: DescribeFirewallMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFirewallMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeFirewallPolicyCommand}
    */
   describeFirewallPolicy(): Promise<DescribeFirewallPolicyCommandOutput>;
@@ -433,6 +662,23 @@ export interface NetworkFirewall {
     args: DescribeFirewallPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeFirewallPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeFlowOperationCommand}
+   */
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeFlowOperationCommandOutput>;
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
+  ): void;
+  describeFlowOperation(
+    args: DescribeFlowOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeFlowOperationCommandOutput) => void
   ): void;
 
   /**
@@ -507,6 +753,24 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DescribeRuleGroupSummaryCommand}
+   */
+  describeRuleGroupSummary(): Promise<DescribeRuleGroupSummaryCommandOutput>;
+  describeRuleGroupSummary(
+    args: DescribeRuleGroupSummaryCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeRuleGroupSummaryCommandOutput>;
+  describeRuleGroupSummary(
+    args: DescribeRuleGroupSummaryCommandInput,
+    cb: (err: any, data?: DescribeRuleGroupSummaryCommandOutput) => void
+  ): void;
+  describeRuleGroupSummary(
+    args: DescribeRuleGroupSummaryCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeRuleGroupSummaryCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeTLSInspectionConfigurationCommand}
    */
   describeTLSInspectionConfiguration(): Promise<DescribeTLSInspectionConfigurationCommandOutput>;
@@ -525,6 +789,40 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link DescribeVpcEndpointAssociationCommand}
+   */
+  describeVpcEndpointAssociation(
+    args: DescribeVpcEndpointAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeVpcEndpointAssociationCommandOutput>;
+  describeVpcEndpointAssociation(
+    args: DescribeVpcEndpointAssociationCommandInput,
+    cb: (err: any, data?: DescribeVpcEndpointAssociationCommandOutput) => void
+  ): void;
+  describeVpcEndpointAssociation(
+    args: DescribeVpcEndpointAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeVpcEndpointAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisassociateAvailabilityZonesCommand}
+   */
+  disassociateAvailabilityZones(
+    args: DisassociateAvailabilityZonesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateAvailabilityZonesCommandOutput>;
+  disassociateAvailabilityZones(
+    args: DisassociateAvailabilityZonesCommandInput,
+    cb: (err: any, data?: DisassociateAvailabilityZonesCommandOutput) => void
+  ): void;
+  disassociateAvailabilityZones(
+    args: DisassociateAvailabilityZonesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateAvailabilityZonesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateSubnetsCommand}
    */
   disassociateSubnets(
@@ -539,6 +837,41 @@ export interface NetworkFirewall {
     args: DisassociateSubnetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisassociateSubnetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAnalysisReportResultsCommand}
+   */
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAnalysisReportResultsCommandOutput>;
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
+  ): void;
+  getAnalysisReportResults(
+    args: GetAnalysisReportResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAnalysisReportResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAnalysisReportsCommand}
+   */
+  listAnalysisReports(): Promise<ListAnalysisReportsCommandOutput>;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalysisReportsCommandOutput>;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
+  ): void;
+  listAnalysisReports(
+    args: ListAnalysisReportsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalysisReportsCommandOutput) => void
   ): void;
 
   /**
@@ -569,6 +902,40 @@ export interface NetworkFirewall {
     args: ListFirewallsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFirewallsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowOperationResultsCommand}
+   */
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowOperationResultsCommandOutput>;
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
+  ): void;
+  listFlowOperationResults(
+    args: ListFlowOperationResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowOperationResultsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListFlowOperationsCommand}
+   */
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListFlowOperationsCommandOutput>;
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
+  ): void;
+  listFlowOperations(
+    args: ListFlowOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListFlowOperationsCommandOutput) => void
   ): void;
 
   /**
@@ -622,6 +989,24 @@ export interface NetworkFirewall {
   ): void;
 
   /**
+   * @see {@link ListVpcEndpointAssociationsCommand}
+   */
+  listVpcEndpointAssociations(): Promise<ListVpcEndpointAssociationsCommandOutput>;
+  listVpcEndpointAssociations(
+    args: ListVpcEndpointAssociationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListVpcEndpointAssociationsCommandOutput>;
+  listVpcEndpointAssociations(
+    args: ListVpcEndpointAssociationsCommandInput,
+    cb: (err: any, data?: ListVpcEndpointAssociationsCommandOutput) => void
+  ): void;
+  listVpcEndpointAssociations(
+    args: ListVpcEndpointAssociationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVpcEndpointAssociationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutResourcePolicyCommand}
    */
   putResourcePolicy(
@@ -636,6 +1021,71 @@ export interface NetworkFirewall {
     args: PutResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RejectNetworkFirewallTransitGatewayAttachmentCommand}
+   */
+  rejectNetworkFirewallTransitGatewayAttachment(
+    args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RejectNetworkFirewallTransitGatewayAttachmentCommandOutput>;
+  rejectNetworkFirewallTransitGatewayAttachment(
+    args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+    cb: (err: any, data?: RejectNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+  rejectNetworkFirewallTransitGatewayAttachment(
+    args: RejectNetworkFirewallTransitGatewayAttachmentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RejectNetworkFirewallTransitGatewayAttachmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartAnalysisReportCommand}
+   */
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartAnalysisReportCommandOutput>;
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+  startAnalysisReport(
+    args: StartAnalysisReportCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartAnalysisReportCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowCaptureCommand}
+   */
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowCaptureCommandOutput>;
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
+  ): void;
+  startFlowCapture(
+    args: StartFlowCaptureCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowCaptureCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartFlowFlushCommand}
+   */
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartFlowFlushCommandOutput>;
+  startFlowFlush(args: StartFlowFlushCommandInput, cb: (err: any, data?: StartFlowFlushCommandOutput) => void): void;
+  startFlowFlush(
+    args: StartFlowFlushCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartFlowFlushCommandOutput) => void
   ): void;
 
   /**
@@ -658,6 +1108,41 @@ export interface NetworkFirewall {
     args: UntagResourceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAvailabilityZoneChangeProtectionCommand}
+   */
+  updateAvailabilityZoneChangeProtection(
+    args: UpdateAvailabilityZoneChangeProtectionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAvailabilityZoneChangeProtectionCommandOutput>;
+  updateAvailabilityZoneChangeProtection(
+    args: UpdateAvailabilityZoneChangeProtectionCommandInput,
+    cb: (err: any, data?: UpdateAvailabilityZoneChangeProtectionCommandOutput) => void
+  ): void;
+  updateAvailabilityZoneChangeProtection(
+    args: UpdateAvailabilityZoneChangeProtectionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAvailabilityZoneChangeProtectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateFirewallAnalysisSettingsCommand}
+   */
+  updateFirewallAnalysisSettings(): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateFirewallAnalysisSettingsCommandOutput>;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
+  ): void;
+  updateFirewallAnalysisSettings(
+    args: UpdateFirewallAnalysisSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateFirewallAnalysisSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -817,33 +1302,34 @@ export interface NetworkFirewall {
 /**
  * <p>This is the API Reference for Network Firewall. This guide is for developers who need
  *          detailed information about the Network Firewall API actions, data types, and errors. </p>
- *          <ul>
- *             <li>
- *                <p>The REST API requires you to handle connection details, such as calculating
+ *          <p>The REST API requires you to handle connection details, such as calculating
  *                signatures, handling request retries, and error handling. For general information
  *                about using the Amazon Web Services REST APIs, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws-apis.html">Amazon Web Services APIs</a>. </p>
- *                <p>To access Network Firewall using the REST API endpoint:
+ *          <p>To view the complete list of Amazon Web Services Regions where Network Firewall is available, see
+ *          <a href="https://docs.aws.amazon.com/general/latest/gr/network-firewall.html">Service
+ *             endpoints and quotas</a> in the <i>Amazon Web Services General
+ *                Reference</i>.
+ *       </p>
+ *          <p>To access Network Firewall using the IPv4 REST API endpoint:
  *                   <code>https://network-firewall.<region>.amazonaws.com </code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
+ *          </p>
+ *          <p>To access Network Firewall using the Dualstack (IPv4 and IPv6) REST API endpoint:
+ *                <code>https://network-firewall.<region>.aws.api </code>
+ *          </p>
+ *          <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to
  *                the programming language or platform that you're using. For more information, see
  *                <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
- *             </li>
- *             <li>
- *                <p>For descriptions of Network Firewall features, including and step-by-step
+ *          <p>For descriptions of Network Firewall features, including and step-by-step
  *                instructions on how to use them through the Network Firewall console, see the <a href="https://docs.aws.amazon.com/network-firewall/latest/developerguide/">Network Firewall Developer
  *                   Guide</a>.</p>
- *             </li>
- *          </ul>
  *          <p>Network Firewall is a stateful, managed, network firewall and intrusion detection and
  *          prevention service for Amazon Virtual Private Cloud (Amazon VPC). With Network Firewall, you can filter traffic at the
  *          perimeter of your VPC. This includes filtering traffic going to and coming from an internet
  *          gateway, NAT gateway, or over VPN or Direct Connect. Network Firewall uses rules that are compatible
  *       with Suricata, a free, open source network analysis and threat detection engine.
- *       Network Firewall supports Suricata version 6.0.9. For information about Suricata,
- *           see the <a href="https://suricata.io/">Suricata website</a>.</p>
+ *       Network Firewall supports Suricata version 7.0.3. For information about Suricata,
+ *           see the <a href="https://suricata.io/">Suricata website</a> and the
+ *           <a href="https://suricata.readthedocs.io/en/suricata-7.0.3/">Suricata User Guide</a>. </p>
  *          <p>You can use Network Firewall to monitor and protect your VPC traffic in a number of ways.
  *          The following are just a few examples: </p>
  *          <ul>
@@ -876,12 +1362,17 @@ export interface NetworkFirewall {
  *                subnet for the sole use of Network Firewall. </p>
  *             </li>
  *             <li>
- *                <p>In Network Firewall, create stateless and stateful rule groups,
+ *                <p>In Network Firewall, define the firewall behavior as follows: </p>
+ *                <ol>
+ *                   <li>
+ *                      <p>Create stateless and stateful rule groups,
  *                  to define the components of the network traffic filtering behavior that you want your firewall to have. </p>
- *             </li>
- *             <li>
- *                <p>In Network Firewall, create a firewall policy that uses your rule groups and
- *                  specifies additional default traffic filtering behavior. </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Create a firewall policy that uses your rule groups and
+ *                      specifies additional default traffic filtering behavior. </p>
+ *                   </li>
+ *                </ol>
  *             </li>
  *             <li>
  *                <p>In Network Firewall, create a firewall and specify your new firewall policy and
@@ -893,6 +1384,9 @@ export interface NetworkFirewall {
  *                endpoints.</p>
  *             </li>
  *          </ol>
+ *          <p>After your firewall is established, you can add firewall endpoints for new Availability Zones by following the prior steps for the Amazon VPC setup and
+ *       firewall subnet definitions. You can also add endpoints to Availability Zones that you're using in the firewall, either for the same VPC
+ *           or for another VPC, by following the prior steps for the Amazon VPC setup, and defining the new VPC subnets as VPC endpoint associations. </p>
  * @public
  */
 export class NetworkFirewall extends NetworkFirewallClient implements NetworkFirewall {}

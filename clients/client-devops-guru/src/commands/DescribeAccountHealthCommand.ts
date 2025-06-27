@@ -12,7 +12,8 @@ import { de_DescribeAccountHealthCommand, se_DescribeAccountHealthCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DescribeAccountHealthCommandOutput extends DescribeAccountHealt
  * @throws {@link DevOpsGuruServiceException}
  * <p>Base exception class for all service exceptions from DevOpsGuru service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountHealthCommand extends $Command
@@ -84,9 +86,7 @@ export class DescribeAccountHealthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DevOpsGuruClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DescribeAccountHealthCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountHealthCommand)
   .de(de_DescribeAccountHealthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeAccountHealthResponse;
+    };
+    sdk: {
+      input: DescribeAccountHealthCommandInput;
+      output: DescribeAccountHealthCommandOutput;
+    };
+  };
+}

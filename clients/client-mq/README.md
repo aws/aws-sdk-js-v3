@@ -10,7 +10,7 @@ AWS SDK for JavaScript Mq Client for Node.js, Browser and React Native.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-mq
+To install this package, simply type add or install @aws-sdk/client-mq
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-mq`
@@ -241,6 +241,14 @@ DeleteBroker
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mq/command/DeleteBrokerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mq/Interface/DeleteBrokerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mq/Interface/DeleteBrokerCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/mq/command/DeleteConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mq/Interface/DeleteConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-mq/Interface/DeleteConfigurationCommandOutput/)
 
 </details>
 <details>

@@ -12,7 +12,8 @@ import { de_DeleteScalingPlanCommand, se_DeleteScalingPlanCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface DeleteScalingPlanCommandOutput extends DeleteScalingPlanRespons
  * @throws {@link AutoScalingPlansServiceException}
  * <p>Base exception class for all service exceptions from AutoScalingPlans service.</p>
  *
+ *
  * @public
  */
 export class DeleteScalingPlanCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteScalingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingPlansClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteScalingPlanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScalingPlanCommand)
   .de(de_DeleteScalingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScalingPlanRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScalingPlanCommandInput;
+      output: DeleteScalingPlanCommandOutput;
+    };
+  };
+}

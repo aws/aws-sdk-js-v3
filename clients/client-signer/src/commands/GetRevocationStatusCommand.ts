@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SignerClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface GetRevocationStatusCommandOutput extends GetRevocationStatusRes
  * @throws {@link SignerServiceException}
  * <p>Base exception class for all service exceptions from Signer service.</p>
  *
+ *
  * @public
  */
 export class GetRevocationStatusCommand extends $Command
@@ -86,9 +88,7 @@ export class GetRevocationStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SignerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class GetRevocationStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRevocationStatusCommand)
   .de(de_GetRevocationStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRevocationStatusRequest;
+      output: GetRevocationStatusResponse;
+    };
+    sdk: {
+      input: GetRevocationStatusCommandInput;
+      output: GetRevocationStatusCommandOutput;
+    };
+  };
+}

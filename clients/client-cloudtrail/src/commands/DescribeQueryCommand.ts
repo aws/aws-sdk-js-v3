@@ -12,7 +12,8 @@ import { de_DescribeQueryCommand, se_DescribeQueryCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,9 +31,10 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * <p>Returns metadata about a query, including query run time in milliseconds, number of
  *          events scanned and matched, and query status. If the query results were delivered to an S3 bucket,
  *          the response also provides the S3 URI and the delivery status.</p>
- *          <p>You must specify either a <code>QueryID</code> or a <code>QueryAlias</code>. Specifying
- *          the <code>QueryAlias</code> parameter returns information about the last query run for the
- *          alias.</p>
+ *          <p>You must specify either <code>QueryId</code> or <code>QueryAlias</code>. Specifying the <code>QueryAlias</code> parameter
+ *          returns information about the last query run for the alias. You can provide
+ *          <code>RefreshId</code> along with <code>QueryAlias</code> to view the query results
+ *          of a dashboard query for the specified <code>RefreshId</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,6 +45,8 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  *   EventDataStore: "STRING_VALUE",
  *   QueryId: "STRING_VALUE",
  *   QueryAlias: "STRING_VALUE",
+ *   RefreshId: "STRING_VALUE",
+ *   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * };
  * const command = new DescribeQueryCommand(input);
  * const response = await client.send(command);
@@ -60,6 +64,8 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * //   ErrorMessage: "STRING_VALUE",
  * //   DeliveryS3Uri: "STRING_VALUE",
  * //   DeliveryStatus: "SUCCESS" || "FAILED" || "FAILED_SIGNING_FILE" || "PENDING" || "RESOURCE_NOT_FOUND" || "ACCESS_DENIED" || "ACCESS_DENIED_SIGNING_FILE" || "CANCELLED" || "UNKNOWN",
+ * //   Prompt: "STRING_VALUE",
+ * //   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -99,6 +105,7 @@ export interface DescribeQueryCommandOutput extends DescribeQueryResponse, __Met
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class DescribeQueryCommand extends $Command
@@ -109,9 +116,7 @@ export class DescribeQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +128,16 @@ export class DescribeQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeQueryCommand)
   .de(de_DescribeQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeQueryRequest;
+      output: DescribeQueryResponse;
+    };
+    sdk: {
+      input: DescribeQueryCommandInput;
+      output: DescribeQueryCommandOutput;
+    };
+  };
+}

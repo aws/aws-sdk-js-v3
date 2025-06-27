@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,7 @@ export interface StartSegmentDetectionCommandOutput extends StartSegmentDetectio
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class StartSegmentDetectionCommand extends $Command
@@ -139,9 +141,7 @@ export class StartSegmentDetectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class StartSegmentDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartSegmentDetectionCommand)
   .de(de_StartSegmentDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartSegmentDetectionRequest;
+      output: StartSegmentDetectionResponse;
+    };
+    sdk: {
+      input: StartSegmentDetectionCommandInput;
+      output: StartSegmentDetectionCommandOutput;
+    };
+  };
+}

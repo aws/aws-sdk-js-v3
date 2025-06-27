@@ -12,7 +12,8 @@ import { de_GetUserIdCommand, se_GetUserIdCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface GetUserIdCommandOutput extends GetUserIdResponse, __MetadataBea
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class GetUserIdCommand extends $Command
@@ -95,9 +97,7 @@ export class GetUserIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class GetUserIdCommand extends $Command
   .f(GetUserIdRequestFilterSensitiveLog, void 0)
   .ser(se_GetUserIdCommand)
   .de(de_GetUserIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserIdRequest;
+      output: GetUserIdResponse;
+    };
+    sdk: {
+      input: GetUserIdCommandInput;
+      output: GetUserIdCommandOutput;
+    };
+  };
+}

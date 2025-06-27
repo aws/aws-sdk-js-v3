@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,10 +81,85 @@ export interface ListSolFunctionInstancesCommandOutput extends ListSolFunctionIn
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example List Sol Function instances
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListSolFunctionInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-instance/fi-b9439c34c1ef86c54",
+ *       id: "fi-b9439c34c1ef86c54",
+ *       instantiatedVnfInfo: {
+ *         vnfState: "STARTED"
+ *       },
+ *       instantiationState: "INSTANTIATED",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceId: "ni-07aa863e53460a2a6",
+ *       vnfPkgId: "fp-07aa863e53460a2a6"
+ *     },
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-instance/fi-b9439c34c1efabcd1",
+ *       id: "fi-b9439c34c1efabcd1",
+ *       instantiatedVnfInfo: {
+ *         vnfState: "STOPPED"
+ *       },
+ *       instantiationState: "INSTANTIATED",
+ *       metadata: {
+ *         createdAt: "2022-06-10T11:48:34Z",
+ *         lastModified: "2023-06-28T21:48:33Z"
+ *       },
+ *       nsInstanceId: "ni-07aa863e53460a123",
+ *       vnfPkgId: "fp-146a863e53460a2a6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
+ * @example List Sol Function Instances with nextToken and maxResults
+ * ```javascript
+ * //
+ * const input = {
+ *   maxResults: 25,
+ *   nextToken: ""
+ * };
+ * const command = new ListSolFunctionInstancesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   functionInstances: [
+ *     {
+ *       arn: "arn:aws:tnb:us-west-2:123456789000:function-instance/fi-b9439c34c1ef86c54",
+ *       id: "fi-b9439c34c1ef86c54",
+ *       instantiatedVnfInfo: {
+ *         vnfState: "STARTED"
+ *       },
+ *       instantiationState: "INSTANTIATED",
+ *       metadata: {
+ *         createdAt: "2022-06-10T19:48:34Z",
+ *         lastModified: "2022-06-10T21:48:33Z"
+ *       },
+ *       nsInstanceId: "ni-07aa863e53460a2a6",
+ *       vnfPkgId: "fp-07aa863e53460a2a6"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -95,9 +171,7 @@ export class ListSolFunctionInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +183,16 @@ export class ListSolFunctionInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSolFunctionInstancesCommand)
   .de(de_ListSolFunctionInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSolFunctionInstancesInput;
+      output: ListSolFunctionInstancesOutput;
+    };
+    sdk: {
+      input: ListSolFunctionInstancesCommandInput;
+      output: ListSolFunctionInstancesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetImportTaskCommand, se_GetImportTaskCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,9 +44,10 @@ export interface GetImportTaskCommandOutput extends GetImportTaskOutput, __Metad
  * //   graphId: "STRING_VALUE",
  * //   taskId: "STRING_VALUE", // required
  * //   source: "STRING_VALUE", // required
- * //   format: "CSV" || "OPEN_CYPHER",
+ * //   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ * //   parquetType: "COLUMNAR",
  * //   roleArn: "STRING_VALUE", // required
- * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
+ * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
  * //   importOptions: { // ImportOptions Union: only one key present
  * //     neptune: { // NeptuneImportOptions
  * //       s3ExportPath: "STRING_VALUE", // required
@@ -91,6 +93,7 @@ export interface GetImportTaskCommandOutput extends GetImportTaskOutput, __Metad
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetImportTaskCommand extends $Command
@@ -116,4 +119,16 @@ export class GetImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImportTaskCommand)
   .de(de_GetImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImportTaskInput;
+      output: GetImportTaskOutput;
+    };
+    sdk: {
+      input: GetImportTaskCommandInput;
+      output: GetImportTaskCommandOutput;
+    };
+  };
+}

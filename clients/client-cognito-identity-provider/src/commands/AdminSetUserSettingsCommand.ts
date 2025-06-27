@@ -20,7 +20,8 @@ import { de_AdminSetUserSettingsCommand, se_AdminSetUserSettingsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,7 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * <p>
  *             <i>This action is no longer supported.</i> You can use it to configure
  *             only SMS MFA. You can't use it to configure time-based one-time password (TOTP) software
- *             token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
+ *             token MFA.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -107,6 +108,7 @@ export interface AdminSetUserSettingsCommandOutput extends AdminSetUserSettingsR
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminSetUserSettingsCommand extends $Command
@@ -117,9 +119,7 @@ export class AdminSetUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class AdminSetUserSettingsCommand extends $Command
   .f(AdminSetUserSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_AdminSetUserSettingsCommand)
   .de(de_AdminSetUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminSetUserSettingsRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminSetUserSettingsCommandInput;
+      output: AdminSetUserSettingsCommandOutput;
+    };
+  };
+}

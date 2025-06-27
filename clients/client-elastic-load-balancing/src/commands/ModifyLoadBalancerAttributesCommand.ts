@@ -16,7 +16,8 @@ import { de_ModifyLoadBalancerAttributesCommand, se_ModifyLoadBalancerAttributes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -143,61 +144,60 @@ export interface ModifyLoadBalancerAttributesCommandOutput
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To enable cross-zone load balancing
  * ```javascript
  * // This example enables cross-zone load balancing for the specified load balancer.
  * const input = {
- *   "LoadBalancerAttributes": {
- *     "CrossZoneLoadBalancing": {
- *       "Enabled": true
+ *   LoadBalancerAttributes: {
+ *     CrossZoneLoadBalancing: {
+ *       Enabled: true
  *     }
  *   },
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancerAttributes": {
- *     "CrossZoneLoadBalancing": {
- *       "Enabled": true
+ *   LoadBalancerAttributes: {
+ *     CrossZoneLoadBalancing: {
+ *       Enabled: true
  *     }
  *   },
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * }
  * *\/
- * // example id: elb-modify-load-balancer-attributes-1
  * ```
  *
  * @example To enable connection draining
  * ```javascript
  * // This example enables connection draining for the specified load balancer.
  * const input = {
- *   "LoadBalancerAttributes": {
- *     "ConnectionDraining": {
- *       "Enabled": true,
- *       "Timeout": 300
+ *   LoadBalancerAttributes: {
+ *     ConnectionDraining: {
+ *       Enabled: true,
+ *       Timeout: 300
  *     }
  *   },
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * };
  * const command = new ModifyLoadBalancerAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "LoadBalancerAttributes": {
- *     "ConnectionDraining": {
- *       "Enabled": true,
- *       "Timeout": 300
+ *   LoadBalancerAttributes: {
+ *     ConnectionDraining: {
+ *       Enabled: true,
+ *       Timeout: 300
  *     }
  *   },
- *   "LoadBalancerName": "my-load-balancer"
+ *   LoadBalancerName: "my-load-balancer"
  * }
  * *\/
- * // example id: elb-modify-load-balancer-attributes-2
  * ```
  *
+ * @public
  */
 export class ModifyLoadBalancerAttributesCommand extends $Command
   .classBuilder<
@@ -207,9 +207,7 @@ export class ModifyLoadBalancerAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -221,4 +219,16 @@ export class ModifyLoadBalancerAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyLoadBalancerAttributesCommand)
   .de(de_ModifyLoadBalancerAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyLoadBalancerAttributesInput;
+      output: ModifyLoadBalancerAttributesOutput;
+    };
+    sdk: {
+      input: ModifyLoadBalancerAttributesCommandInput;
+      output: ModifyLoadBalancerAttributesCommandOutput;
+    };
+  };
+}

@@ -101,6 +101,10 @@ import {
   DisassociateTrackerConsumerCommandInput,
   DisassociateTrackerConsumerCommandOutput,
 } from "../commands/DisassociateTrackerConsumerCommand";
+import {
+  ForecastGeofenceEventsCommandInput,
+  ForecastGeofenceEventsCommandOutput,
+} from "../commands/ForecastGeofenceEventsCommand";
 import { GetDevicePositionCommandInput, GetDevicePositionCommandOutput } from "../commands/GetDevicePositionCommand";
 import {
   GetDevicePositionHistoryCommandInput,
@@ -167,6 +171,10 @@ import {
   UpdateRouteCalculatorCommandOutput,
 } from "../commands/UpdateRouteCalculatorCommand";
 import { UpdateTrackerCommandInput, UpdateTrackerCommandOutput } from "../commands/UpdateTrackerCommand";
+import {
+  VerifyDevicePositionCommandInput,
+  VerifyDevicePositionCommandOutput,
+} from "../commands/VerifyDevicePositionCommand";
 import { LocationServiceException as __BaseException } from "../models/LocationServiceException";
 import {
   AccessDeniedException,
@@ -179,12 +187,17 @@ import {
   CalculateRouteCarModeOptions,
   CalculateRouteSummary,
   CalculateRouteTruckModeOptions,
+  CellSignals,
   Circle,
   ConflictException,
   DataSourceConfiguration,
   DevicePosition,
   DevicePositionUpdate,
+  DeviceState,
+  ForecastedEvent,
+  ForecastGeofenceEventsDeviceState,
   GeofenceGeometry,
+  InferredState,
   InternalServerException,
   Leg,
   LegGeometry,
@@ -196,6 +209,9 @@ import {
   ListPlaceIndexesResponseEntry,
   ListRouteCalculatorsResponseEntry,
   ListTrackersResponseEntry,
+  LteCellDetails,
+  LteLocalId,
+  LteNetworkMeasurements,
   MapConfiguration,
   MapConfigurationUpdate,
   Place,
@@ -216,6 +232,7 @@ import {
   TruckWeight,
   ValidationException,
   ValidationExceptionField,
+  WiFiAccessPoint,
 } from "../models/models_0";
 
 /**
@@ -1049,6 +1066,42 @@ export const se_DisassociateTrackerConsumerCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ForecastGeofenceEventsCommand
+ */
+export const se_ForecastGeofenceEventsCommand = async (
+  input: ForecastGeofenceEventsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/geofencing/v0/collections/{CollectionName}/forecast-geofence-events");
+  b.p("CollectionName", () => input.CollectionName!, "{CollectionName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DeviceState: (_) => se_ForecastGeofenceEventsDeviceState(_, context),
+      DistanceUnit: [],
+      MaxResults: [],
+      NextToken: [],
+      SpeedUnit: [],
+      TimeHorizonMinutes: (_) => __serializeFloat(_),
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "geofencing." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDevicePositionCommand
  */
 export const se_GetDevicePositionCommand = async (
@@ -1776,10 +1829,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{ResourceArn}");
   b.p("ResourceArn", () => input.ResourceArn!, "{ResourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   let { hostname: resolvedHostname } = await context.endpoint();
@@ -1993,6 +2043,38 @@ export const se_UpdateTrackerCommand = async (
   }
   b.hn(resolvedHostname);
   b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1VerifyDevicePositionCommand
+ */
+export const se_VerifyDevicePositionCommand = async (
+  input: VerifyDevicePositionCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/tracking/v0/trackers/{TrackerName}/positions/verify");
+  b.p("TrackerName", () => input.TrackerName!, "{TrackerName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DeviceState: (_) => se_DeviceState(_, context),
+      DistanceUnit: [],
+    })
+  );
+  let { hostname: resolvedHostname } = await context.endpoint();
+  if (context.disableHostPrefix !== true) {
+    resolvedHostname = "tracking." + resolvedHostname;
+    if (!__isValidHostname(resolvedHostname)) {
+      throw new Error("ValidationError: prefixed hostname must be hostname compatible.");
+    }
+  }
+  b.hn(resolvedHostname);
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -2619,6 +2701,30 @@ export const de_DisassociateTrackerConsumerCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ForecastGeofenceEventsCommand
+ */
+export const de_ForecastGeofenceEventsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ForecastGeofenceEventsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DistanceUnit: __expectString,
+    ForecastedEvents: (_) => de_ForecastedEventsList(_, context),
+    NextToken: __expectString,
+    SpeedUnit: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3278,6 +3384,31 @@ export const de_UpdateTrackerCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1VerifyDevicePositionCommand
+ */
+export const de_VerifyDevicePositionCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<VerifyDevicePositionCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DeviceId: __expectString,
+    DistanceUnit: __expectString,
+    InferredState: (_) => de_InferredState(_, context),
+    ReceivedTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    SampleTime: (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -3506,6 +3637,15 @@ const se_CalculateRouteTruckModeOptions = (input: CalculateRouteTruckModeOptions
 };
 
 /**
+ * serializeAws_restJson1CellSignals
+ */
+const se_CellSignals = (input: CellSignals, context: __SerdeContext): any => {
+  return take(input, {
+    LteCellDetails: (_) => se_LteCellDetailsList(_, context),
+  });
+};
+
+/**
  * serializeAws_restJson1Circle
  */
 const se_Circle = (input: Circle, context: __SerdeContext): any => {
@@ -3547,7 +3687,35 @@ const se_DevicePositionUpdateList = (input: DevicePositionUpdate[], context: __S
     });
 };
 
+/**
+ * serializeAws_restJson1DeviceState
+ */
+const se_DeviceState = (input: DeviceState, context: __SerdeContext): any => {
+  return take(input, {
+    Accuracy: (_) => se_PositionalAccuracy(_, context),
+    CellSignals: (_) => se_CellSignals(_, context),
+    DeviceId: [],
+    Ipv4Address: [],
+    Position: (_) => se_Position(_, context),
+    SampleTime: __serializeDateTime,
+    WiFiAccessPoints: _json,
+  });
+};
+
 // se_FilterPlaceCategoryList omitted.
+
+/**
+ * serializeAws_restJson1ForecastGeofenceEventsDeviceState
+ */
+const se_ForecastGeofenceEventsDeviceState = (
+  input: ForecastGeofenceEventsDeviceState,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    Position: (_) => se_Position(_, context),
+    Speed: __serializeFloat,
+  });
+};
 
 // se_GeoArnList omitted.
 
@@ -3557,6 +3725,7 @@ const se_DevicePositionUpdateList = (input: DevicePositionUpdate[], context: __S
 const se_GeofenceGeometry = (input: GeofenceGeometry, context: __SerdeContext): any => {
   return take(input, {
     Circle: (_) => se_Circle(_, context),
+    Geobuf: context.base64Encoder,
     Polygon: (_) => se_LinearRings(_, context),
   });
 };
@@ -3582,6 +3751,61 @@ const se_LinearRings = (input: number[][][], context: __SerdeContext): any => {
     .filter((e: any) => e != null)
     .map((entry) => {
       return se_LinearRing(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1LteCellDetails
+ */
+const se_LteCellDetails = (input: LteCellDetails, context: __SerdeContext): any => {
+  return take(input, {
+    CellId: [],
+    LocalId: _json,
+    Mcc: [],
+    Mnc: [],
+    NetworkMeasurements: (_) => se_LteNetworkMeasurementsList(_, context),
+    NrCapable: [],
+    Rsrp: [],
+    Rsrq: __serializeFloat,
+    Tac: [],
+    TimingAdvance: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1LteCellDetailsList
+ */
+const se_LteCellDetailsList = (input: LteCellDetails[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_LteCellDetails(entry, context);
+    });
+};
+
+// se_LteLocalId omitted.
+
+/**
+ * serializeAws_restJson1LteNetworkMeasurements
+ */
+const se_LteNetworkMeasurements = (input: LteNetworkMeasurements, context: __SerdeContext): any => {
+  return take(input, {
+    CellId: [],
+    Earfcn: [],
+    Pci: [],
+    Rsrp: [],
+    Rsrq: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_restJson1LteNetworkMeasurementsList
+ */
+const se_LteNetworkMeasurementsList = (input: LteNetworkMeasurements[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_LteNetworkMeasurements(entry, context);
     });
 };
 
@@ -3619,6 +3843,8 @@ const se_PositionList = (input: number[][], context: __SerdeContext): any => {
       return se_Position(entry, context);
     });
 };
+
+// se_PositionPropertyMap omitted.
 
 // se_PropertyMap omitted.
 
@@ -3667,6 +3893,10 @@ const se_WaypointPositionList = (input: number[][], context: __SerdeContext): an
       return se_Position(entry, context);
     });
 };
+
+// se_WiFiAccessPoint omitted.
+
+// se_WiFiAccessPointList omitted.
 
 // de_ApiKeyActionList omitted.
 
@@ -3835,6 +4065,33 @@ const de_DevicePositionList = (output: any, context: __SerdeContext): DevicePosi
 
 // de_FilterPlaceCategoryList omitted.
 
+/**
+ * deserializeAws_restJson1ForecastedEvent
+ */
+const de_ForecastedEvent = (output: any, context: __SerdeContext): ForecastedEvent => {
+  return take(output, {
+    EventId: __expectString,
+    EventType: __expectString,
+    ForecastedBreachTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    GeofenceId: __expectString,
+    GeofenceProperties: _json,
+    IsDeviceInGeofence: __expectBoolean,
+    NearestDistance: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ForecastedEventsList
+ */
+const de_ForecastedEventsList = (output: any, context: __SerdeContext): ForecastedEvent[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ForecastedEvent(entry, context);
+    });
+  return retVal;
+};
+
 // de_GeoArnList omitted.
 
 /**
@@ -3843,7 +4100,20 @@ const de_DevicePositionList = (output: any, context: __SerdeContext): DevicePosi
 const de_GeofenceGeometry = (output: any, context: __SerdeContext): GeofenceGeometry => {
   return take(output, {
     Circle: (_: any) => de_Circle(_, context),
+    Geobuf: context.base64Decoder,
     Polygon: (_: any) => de_LinearRings(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1InferredState
+ */
+const de_InferredState = (output: any, context: __SerdeContext): InferredState => {
+  return take(output, {
+    Accuracy: (_: any) => de_PositionalAccuracy(_, context),
+    DeviationDistance: __limitedParseDouble,
+    Position: (_: any) => de_Position(_, context),
+    ProxyDetected: __expectBoolean,
   }) as any;
 };
 
@@ -4219,6 +4489,8 @@ const de_PositionList = (output: any, context: __SerdeContext): number[][] => {
   return retVal;
 };
 
+// de_PositionPropertyMap omitted.
+
 // de_PropertyMap omitted.
 
 // de_RefererPatternList omitted.
@@ -4424,13 +4696,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _CC = "CacheControl";
 const _CT = "ContentType";

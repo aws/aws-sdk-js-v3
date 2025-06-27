@@ -12,7 +12,8 @@ import { de_GetAttributeValuesCommand, se_GetAttributeValuesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,32 @@ export interface GetAttributeValuesCommandOutput extends GetAttributeValuesRespo
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
+ * @example To retrieve a list of attribute values
+ * ```javascript
+ * // This operation returns a list of values available for the given attribute.
+ * const input = {
+ *   AttributeName: "volumeType",
+ *   MaxResults: 2,
+ *   ServiceCode: "AmazonEC2"
+ * };
+ * const command = new GetAttributeValuesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AttributeValues: [
+ *     {
+ *       Value: "Throughput Optimized HDD"
+ *     },
+ *     {
+ *       Value: "Provisioned IOPS"
+ *     }
+ *   ],
+ *   NextToken: "GpgauEXAMPLEezucl5LV0w==:7GzYJ0nw0DBTJ2J66EoTIIynE6O1uXwQtTRqioJzQadBnDVgHPzI1en4BUQnPCLpzeBk9RQQAWaFieA4+DapFAGLgk+Z/9/cTw9GldnPOHN98+FdmJP7wKU3QQpQ8MQr5KOeBkIsAqvAQYdL0DkL7tHwPtE5iCEByAmg9gcC/yBU1vAOsf7R3VaNN4M5jMDv3woSWqASSIlBVB6tgW78YL22KhssoItM/jWW+aP6Jqtq4mldxp/ct6DWAl+xLFwHU/CbketimPPXyqHF3/UXDw=="
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetAttributeValuesCommand extends $Command
@@ -94,9 +121,7 @@ export class GetAttributeValuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +133,16 @@ export class GetAttributeValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAttributeValuesCommand)
   .de(de_GetAttributeValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAttributeValuesRequest;
+      output: GetAttributeValuesResponse;
+    };
+    sdk: {
+      input: GetAttributeValuesCommandInput;
+      output: GetAttributeValuesCommandOutput;
+    };
+  };
+}

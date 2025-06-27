@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableAddressTransferRequest, DisableAddressTransferResult } from "../models/models_5";
+import { DisableAddressTransferRequest, DisableAddressTransferResult } from "../models/models_6";
 import { de_DisableAddressTransferCommand, se_DisableAddressTransferCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DisableAddressTransferCommandInput extends DisableAddressTransf
 export interface DisableAddressTransferCommandOutput extends DisableAddressTransferResult, __MetadataBearer {}
 
 /**
- * <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
+ * <p>Disables Elastic IP address transfer. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eips.html#transfer-EIPs-intro">Transfer Elastic IP addresses</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +63,7 @@ export interface DisableAddressTransferCommandOutput extends DisableAddressTrans
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisableAddressTransferCommand extends $Command
@@ -72,9 +74,7 @@ export class DisableAddressTransferCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class DisableAddressTransferCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableAddressTransferCommand)
   .de(de_DisableAddressTransferCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableAddressTransferRequest;
+      output: DisableAddressTransferResult;
+    };
+    sdk: {
+      input: DisableAddressTransferCommandInput;
+      output: DisableAddressTransferCommandOutput;
+    };
+  };
+}

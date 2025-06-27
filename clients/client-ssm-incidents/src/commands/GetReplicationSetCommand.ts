@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetReplicationSetCommandOutput extends GetReplicationSetOutput,
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class GetReplicationSetCommand extends $Command
@@ -97,9 +99,7 @@ export class GetReplicationSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetReplicationSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReplicationSetCommand)
   .de(de_GetReplicationSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReplicationSetInput;
+      output: GetReplicationSetOutput;
+    };
+    sdk: {
+      input: GetReplicationSetCommandInput;
+      output: GetReplicationSetCommandOutput;
+    };
+  };
+}

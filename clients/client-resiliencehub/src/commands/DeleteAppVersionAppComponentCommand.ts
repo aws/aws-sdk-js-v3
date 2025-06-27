@@ -15,7 +15,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,10 +37,13 @@ export interface DeleteAppVersionAppComponentCommandOutput
  *          <note>
  *             <ul>
  *                <li>
- *                   <p>This API updates the Resilience Hub application draft version. To use this Application Component for running assessments, you must publish the Resilience Hub application using the <code>PublishAppVersion</code> API.</p>
+ *                   <p>This API updates the Resilience Hub application draft version. To use this
+ *             Application Component for running assessments, you must publish the Resilience Hub
+ *             application using the <code>PublishAppVersion</code> API.</p>
  *                </li>
  *                <li>
- *                   <p>You will not be able to delete an Application Component if it has resources associated with it.</p>
+ *                   <p>You will not be able to delete an Application Component if it has resources associated
+ *             with it.</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -106,6 +110,7 @@ export interface DeleteAppVersionAppComponentCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppVersionAppComponentCommand extends $Command
@@ -116,9 +121,7 @@ export class DeleteAppVersionAppComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +133,16 @@ export class DeleteAppVersionAppComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppVersionAppComponentCommand)
   .de(de_DeleteAppVersionAppComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppVersionAppComponentRequest;
+      output: DeleteAppVersionAppComponentResponse;
+    };
+    sdk: {
+      input: DeleteAppVersionAppComponentCommandInput;
+      output: DeleteAppVersionAppComponentCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ConfirmProductInstanceCommand, se_ConfirmProductInstanceCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,8 +45,8 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * const command = new ConfirmProductInstanceCommand(input);
  * const response = await client.send(command);
  * // { // ConfirmProductInstanceResult
- * //   OwnerId: "STRING_VALUE",
  * //   Return: true || false,
+ * //   OwnerId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -59,24 +60,24 @@ export interface ConfirmProductInstanceCommandOutput extends ConfirmProductInsta
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To confirm the product instance
  * ```javascript
  * // This example determines whether the specified product code is associated with the specified instance.
  * const input = {
- *   "InstanceId": "i-1234567890abcdef0",
- *   "ProductCode": "774F4FF8"
+ *   InstanceId: "i-1234567890abcdef0",
+ *   ProductCode: "774F4FF8"
  * };
  * const command = new ConfirmProductInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OwnerId": "123456789012"
+ *   OwnerId: "123456789012"
  * }
  * *\/
- * // example id: to-confirm-the-product-instance-1472712108494
  * ```
  *
+ * @public
  */
 export class ConfirmProductInstanceCommand extends $Command
   .classBuilder<
@@ -86,9 +87,7 @@ export class ConfirmProductInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +99,16 @@ export class ConfirmProductInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConfirmProductInstanceCommand)
   .de(de_ConfirmProductInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConfirmProductInstanceRequest;
+      output: ConfirmProductInstanceResult;
+    };
+    sdk: {
+      input: ConfirmProductInstanceCommandInput;
+      output: ConfirmProductInstanceCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface CreateImpersonationRoleCommandOutput extends CreateImpersonatio
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class CreateImpersonationRoleCommand extends $Command
@@ -109,9 +111,7 @@ export class CreateImpersonationRoleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class CreateImpersonationRoleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImpersonationRoleCommand)
   .de(de_CreateImpersonationRoleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImpersonationRoleRequest;
+      output: CreateImpersonationRoleResponse;
+    };
+    sdk: {
+      input: CreateImpersonationRoleCommandInput;
+      output: CreateImpersonationRoleCommandOutput;
+    };
+  };
+}

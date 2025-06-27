@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeleteResourcePolicyCommandOutput extends DeleteResourcePolicyO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class DeleteResourcePolicyCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteResourcePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteResourcePolicyCommand)
   .de(de_DeleteResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteResourcePolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteResourcePolicyCommandInput;
+      output: DeleteResourcePolicyCommandOutput;
+    };
+  };
+}

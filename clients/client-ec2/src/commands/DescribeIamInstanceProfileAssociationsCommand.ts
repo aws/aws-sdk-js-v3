@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeIamInstanceProfileAssociationsRequest,
   DescribeIamInstanceProfileAssociationsResult,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeIamInstanceProfileAssociationsCommand,
   se_DescribeIamInstanceProfileAssociationsCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,35 +88,35 @@ export interface DescribeIamInstanceProfileAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe an IAM instance profile association
  * ```javascript
  * // This example describes the specified IAM instance profile association.
  * const input = {
- *   "AssociationIds": [
+ *   AssociationIds: [
  *     "iip-assoc-0db249b1f25fa24b8"
  *   ]
  * };
  * const command = new DescribeIamInstanceProfileAssociationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IamInstanceProfileAssociations": [
+ *   IamInstanceProfileAssociations: [
  *     {
- *       "AssociationId": "iip-assoc-0db249b1f25fa24b8",
- *       "IamInstanceProfile": {
- *         "Arn": "arn:aws:iam::123456789012:instance-profile/admin-role",
- *         "Id": "AIPAJVQN4F5WVLGCJDRGM"
+ *       AssociationId: "iip-assoc-0db249b1f25fa24b8",
+ *       IamInstanceProfile: {
+ *         Arn: "arn:aws:iam::123456789012:instance-profile/admin-role",
+ *         Id: "AIPAJVQN4F5WVLGCJDRGM"
  *       },
- *       "InstanceId": "i-09eb09efa73ec1dee",
- *       "State": "associated"
+ *       InstanceId: "i-09eb09efa73ec1dee",
+ *       State: "associated"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-an-iam-instance-profile-association-1529025123918
  * ```
  *
+ * @public
  */
 export class DescribeIamInstanceProfileAssociationsCommand extends $Command
   .classBuilder<
@@ -125,9 +126,7 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class DescribeIamInstanceProfileAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIamInstanceProfileAssociationsCommand)
   .de(de_DescribeIamInstanceProfileAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIamInstanceProfileAssociationsRequest;
+      output: DescribeIamInstanceProfileAssociationsResult;
+    };
+    sdk: {
+      input: DescribeIamInstanceProfileAssociationsCommandInput;
+      output: DescribeIamInstanceProfileAssociationsCommandOutput;
+    };
+  };
+}

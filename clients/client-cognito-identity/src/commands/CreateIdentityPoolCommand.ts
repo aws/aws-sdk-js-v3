@@ -12,7 +12,8 @@ import { de_CreateIdentityPoolCommand, se_CreateIdentityPoolCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,8 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
 
 /**
  * <p>Creates a new identity pool. The identity pool is a store of user identity
- *          information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p>
- *
+ *          information that is specific to your Amazon Web Services account. The keys for
+ *             <code>SupportedLoginProviders</code> are as follows:</p>
  *          <ul>
  *             <li>
  *                <p>Facebook: <code>graph.facebook.com</code>
@@ -37,6 +38,10 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  *             </li>
  *             <li>
  *                <p>Google: <code>accounts.google.com</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>Sign in With Apple: <code>appleid.apple.com</code>
  *                </p>
  *             </li>
  *             <li>
@@ -52,8 +57,12 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  *                </p>
  *             </li>
  *          </ul>
- *
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <important>
+ *             <p>If you don't provide a value for a parameter, Amazon Cognito sets it to its default value.
+ *       </p>
+ *          </important>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,6 +153,7 @@ export interface CreateIdentityPoolCommandOutput extends IdentityPool, __Metadat
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class CreateIdentityPoolCommand extends $Command
@@ -154,9 +164,7 @@ export class CreateIdentityPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +176,16 @@ export class CreateIdentityPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateIdentityPoolCommand)
   .de(de_CreateIdentityPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIdentityPoolInput;
+      output: IdentityPool;
+    };
+    sdk: {
+      input: CreateIdentityPoolCommandInput;
+      output: CreateIdentityPoolCommandOutput;
+    };
+  };
+}

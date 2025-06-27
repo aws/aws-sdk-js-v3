@@ -40,6 +40,10 @@ import {
   CreateLoggingConfigurationCommandOutput,
 } from "../commands/CreateLoggingConfigurationCommand";
 import {
+  CreateQueryLoggingConfigurationCommandInput,
+  CreateQueryLoggingConfigurationCommandOutput,
+} from "../commands/CreateQueryLoggingConfigurationCommand";
+import {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "../commands/CreateRuleGroupsNamespaceCommand";
@@ -53,6 +57,10 @@ import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
 } from "../commands/DeleteLoggingConfigurationCommand";
+import {
+  DeleteQueryLoggingConfigurationCommandInput,
+  DeleteQueryLoggingConfigurationCommandOutput,
+} from "../commands/DeleteQueryLoggingConfigurationCommand";
 import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
@@ -68,11 +76,19 @@ import {
   DescribeLoggingConfigurationCommandOutput,
 } from "../commands/DescribeLoggingConfigurationCommand";
 import {
+  DescribeQueryLoggingConfigurationCommandInput,
+  DescribeQueryLoggingConfigurationCommandOutput,
+} from "../commands/DescribeQueryLoggingConfigurationCommand";
+import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "../commands/DescribeRuleGroupsNamespaceCommand";
 import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "../commands/DescribeScraperCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "../commands/DescribeWorkspaceCommand";
+import {
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "../commands/DescribeWorkspaceConfigurationCommand";
 import {
   GetDefaultScraperConfigurationCommandInput,
   GetDefaultScraperConfigurationCommandOutput,
@@ -102,20 +118,36 @@ import {
   UpdateLoggingConfigurationCommandOutput,
 } from "../commands/UpdateLoggingConfigurationCommand";
 import {
+  UpdateQueryLoggingConfigurationCommandInput,
+  UpdateQueryLoggingConfigurationCommandOutput,
+} from "../commands/UpdateQueryLoggingConfigurationCommand";
+import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "../commands/UpdateScraperCommand";
+import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "../commands/UpdateWorkspaceAliasCommand";
+import {
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "../commands/UpdateWorkspaceConfigurationCommand";
 import { AmpServiceException as __BaseException } from "../models/AmpServiceException";
 import {
   AccessDeniedException,
   AlertManagerDefinitionDescription,
   AmpConfiguration,
+  CloudWatchLogDestination,
   ConflictException,
   Destination,
   EksConfiguration,
   InternalServerException,
+  LimitsPerLabelSet,
+  LimitsPerLabelSetEntry,
   LoggingConfigurationMetadata,
+  LoggingDestination,
+  LoggingFilter,
+  QueryLoggingConfigurationMetadata,
   ResourceNotFoundException,
+  RoleConfiguration,
   RuleGroupsNamespaceDescription,
   RuleGroupsNamespaceSummary,
   ScrapeConfiguration,
@@ -178,6 +210,30 @@ export const se_CreateLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateQueryLoggingConfigurationCommand
+ */
+export const se_CreateQueryLoggingConfigurationCommand = async (
+  input: CreateQueryLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/logging/query");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destinations: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateRuleGroupsNamespaceCommand
  */
 export const se_CreateRuleGroupsNamespaceCommand = async (
@@ -221,6 +277,7 @@ export const se_CreateScraperCommand = async (
       alias: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       destination: (_) => _json(_),
+      roleConfiguration: (_) => _json(_),
       scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
       source: (_) => _json(_),
       tags: (_) => _json(_),
@@ -284,6 +341,25 @@ export const se_DeleteLoggingConfigurationCommand = async (
   const b = rb(input, context);
   const headers: any = {};
   b.bp("/workspaces/{workspaceId}/logging");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  const query: any = map({
+    [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteQueryLoggingConfigurationCommand
+ */
+export const se_DeleteQueryLoggingConfigurationCommand = async (
+  input: DeleteQueryLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/logging/query");
   b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   const query: any = map({
     [_cT]: [, input[_cT] ?? generateIdempotencyToken()],
@@ -384,6 +460,22 @@ export const se_DescribeLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeQueryLoggingConfigurationCommand
+ */
+export const se_DescribeQueryLoggingConfigurationCommand = async (
+  input: DescribeQueryLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/logging/query");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DescribeRuleGroupsNamespaceCommand
  */
 export const se_DescribeRuleGroupsNamespaceCommand = async (
@@ -433,6 +525,22 @@ export const se_DescribeWorkspaceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DescribeWorkspaceConfigurationCommand
+ */
+export const se_DescribeWorkspaceConfigurationCommand = async (
+  input: DescribeWorkspaceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/workspaces/{workspaceId}/configuration");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetDefaultScraperConfigurationCommand
  */
 export const se_GetDefaultScraperConfigurationCommand = async (
@@ -440,12 +548,9 @@ export const se_GetDefaultScraperConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/scraperconfiguration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -611,10 +716,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -646,6 +748,57 @@ export const se_UpdateLoggingConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateQueryLoggingConfigurationCommand
+ */
+export const se_UpdateQueryLoggingConfigurationCommand = async (
+  input: UpdateQueryLoggingConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/logging/query");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destinations: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateScraperCommand
+ */
+export const se_UpdateScraperCommand = async (
+  input: UpdateScraperCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/scrapers/{scraperId}");
+  b.p("scraperId", () => input.scraperId!, "{scraperId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      alias: [],
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      destination: (_) => _json(_),
+      roleConfiguration: (_) => _json(_),
+      scrapeConfiguration: (_) => se_ScrapeConfiguration(_, context),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateWorkspaceAliasCommand
  */
 export const se_UpdateWorkspaceAliasCommand = async (
@@ -666,6 +819,31 @@ export const se_UpdateWorkspaceAliasCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateWorkspaceConfigurationCommand
+ */
+export const se_UpdateWorkspaceConfigurationCommand = async (
+  input: UpdateWorkspaceConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/workspaces/{workspaceId}/configuration");
+  b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      limitsPerLabelSet: (_) => _json(_),
+      retentionPeriodInDays: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -697,6 +875,27 @@ export const de_CreateLoggingConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<CreateLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateQueryLoggingConfigurationCommand
+ */
+export const de_CreateQueryLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateQueryLoggingConfigurationCommandOutput> => {
   if (output.statusCode !== 202 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -819,6 +1018,23 @@ export const de_DeleteLoggingConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteQueryLoggingConfigurationCommand
+ */
+export const de_DeleteQueryLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteQueryLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteRuleGroupsNamespaceCommand
  */
 export const de_DeleteRuleGroupsNamespaceCommand = async (
@@ -917,6 +1133,27 @@ export const de_DescribeLoggingConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DescribeQueryLoggingConfigurationCommand
+ */
+export const de_DescribeQueryLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeQueryLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    queryLoggingConfiguration: (_) => de_QueryLoggingConfigurationMetadata(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DescribeRuleGroupsNamespaceCommand
  */
 export const de_DescribeRuleGroupsNamespaceCommand = async (
@@ -974,6 +1211,27 @@ export const de_DescribeWorkspaceCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     workspace: (_) => de_WorkspaceDescription(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeWorkspaceConfigurationCommand
+ */
+export const de_DescribeWorkspaceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeWorkspaceConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workspaceConfiguration: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1188,6 +1446,51 @@ export const de_UpdateLoggingConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateQueryLoggingConfigurationCommand
+ */
+export const de_UpdateQueryLoggingConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateQueryLoggingConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateScraperCommand
+ */
+export const de_UpdateScraperCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateScraperCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    scraperId: __expectString,
+    status: _json,
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateWorkspaceAliasCommand
  */
 export const de_UpdateWorkspaceAliasCommand = async (
@@ -1201,6 +1504,27 @@ export const de_UpdateWorkspaceAliasCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateWorkspaceConfigurationCommand
+ */
+export const de_UpdateWorkspaceConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateWorkspaceConfigurationCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    status: _json,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -1395,9 +1719,27 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AmpConfiguration omitted.
 
+// se_CloudWatchLogDestination omitted.
+
 // se_Destination omitted.
 
 // se_EksConfiguration omitted.
+
+// se_LabelSet omitted.
+
+// se_LimitsPerLabelSet omitted.
+
+// se_LimitsPerLabelSetEntry omitted.
+
+// se_LimitsPerLabelSetList omitted.
+
+// se_LoggingDestination omitted.
+
+// se_LoggingDestinations omitted.
+
+// se_LoggingFilter omitted.
+
+// se_RoleConfiguration omitted.
 
 /**
  * serializeAws_restJson1ScrapeConfiguration
@@ -1405,7 +1747,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_ScrapeConfiguration = (input: ScrapeConfiguration, context: __SerdeContext): any => {
   return ScrapeConfiguration.visit(input, {
     configurationBlob: (value) => ({ configurationBlob: context.base64Encoder(value) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1436,9 +1778,19 @@ const de_AlertManagerDefinitionDescription = (
 
 // de_AmpConfiguration omitted.
 
+// de_CloudWatchLogDestination omitted.
+
 // de_Destination omitted.
 
 // de_EksConfiguration omitted.
+
+// de_LabelSet omitted.
+
+// de_LimitsPerLabelSet omitted.
+
+// de_LimitsPerLabelSetEntry omitted.
+
+// de_LimitsPerLabelSetList omitted.
 
 /**
  * deserializeAws_restJson1LoggingConfigurationMetadata
@@ -1454,6 +1806,32 @@ const de_LoggingConfigurationMetadata = (output: any, context: __SerdeContext): 
 };
 
 // de_LoggingConfigurationStatus omitted.
+
+// de_LoggingDestination omitted.
+
+// de_LoggingDestinations omitted.
+
+// de_LoggingFilter omitted.
+
+/**
+ * deserializeAws_restJson1QueryLoggingConfigurationMetadata
+ */
+const de_QueryLoggingConfigurationMetadata = (
+  output: any,
+  context: __SerdeContext
+): QueryLoggingConfigurationMetadata => {
+  return take(output, {
+    createdAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    destinations: _json,
+    modifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    status: _json,
+    workspace: __expectString,
+  }) as any;
+};
+
+// de_QueryLoggingConfigurationStatus omitted.
+
+// de_RoleConfiguration omitted.
 
 /**
  * deserializeAws_restJson1RuleGroupsNamespaceDescription
@@ -1521,6 +1899,7 @@ const de_ScraperDescription = (output: any, context: __SerdeContext): ScraperDes
     destination: (_: any) => _json(__expectUnion(_)),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
+    roleConfiguration: _json,
     scrapeConfiguration: (_: any) => de_ScrapeConfiguration(__expectUnion(_), context),
     scraperId: __expectString,
     source: (_: any) => _json(__expectUnion(_)),
@@ -1543,6 +1922,7 @@ const de_ScraperSummary = (output: any, context: __SerdeContext): ScraperSummary
     destination: (_: any) => _json(__expectUnion(_)),
     lastModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
+    roleConfiguration: _json,
     scraperId: __expectString,
     source: (_: any) => _json(__expectUnion(_)),
     status: _json,
@@ -1574,6 +1954,10 @@ const de_ScraperSummaryList = (output: any, context: __SerdeContext): ScraperSum
 // de_ValidationExceptionField omitted.
 
 // de_ValidationExceptionFieldList omitted.
+
+// de_WorkspaceConfigurationDescription omitted.
+
+// de_WorkspaceConfigurationStatus omitted.
 
 /**
  * deserializeAws_restJson1WorkspaceDescription
@@ -1631,13 +2015,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _a = "alias";
 const _cT = "clientToken";

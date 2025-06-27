@@ -1,4 +1,10 @@
 // smithy-typescript generated code
+import {
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  defaultWeatherHttpAuthSchemeParametersProvider,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { OnlyCustomAuthCommandInput, OnlyCustomAuthCommandOutput } from "./commands/OnlyCustomAuthCommand";
 import {
   OnlyCustomAuthOptionalCommandInput,
@@ -29,10 +35,11 @@ import {
 } from "./commands/OnlySigv4AuthOptionalCommand";
 import { SameAsServiceCommandInput, SameAsServiceCommandOutput } from "./commands/SameAsServiceCommand";
 import {
-  HttpApiKeyAuthInputConfig,
-  HttpApiKeyAuthResolvedConfig,
-  resolveHttpApiKeyAuthConfig,
-} from "./middleware/HttpApiKeyAuth";
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { RuntimeExtension, RuntimeExtensionsConfig, resolveRuntimeExtensions } from "./runtimeExtensions";
 import {
@@ -43,24 +50,27 @@ import {
 } from "@aws-sdk/middleware-host-header";
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
-import { SigV4AuthInputConfig, SigV4AuthResolvedConfig, resolveSigV4AuthConfig } from "@aws-sdk/middleware-signing";
-import { TokenInputConfig, TokenResolvedConfig, getTokenPlugin, resolveTokenConfig } from "@aws-sdk/middleware-token";
 import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
   getUserAgentPlugin,
   resolveUserAgentConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { Credentials as __Credentials } from "@aws-sdk/types";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
-  CustomEndpointsInputConfig,
-  CustomEndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveCustomEndpointsConfig,
-  resolveRegionConfig,
-} from "@smithy/config-resolver";
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import {
+  EndpointInputConfig,
+  EndpointRequiredInputConfig,
+  EndpointRequiredResolvedConfig,
+  EndpointResolvedConfig,
+  resolveEndpointConfig,
+  resolveEndpointRequiredConfig,
+} from "@smithy/middleware-endpoint";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -195,22 +205,35 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
-   * The service name to use as the signing service for AWS Auth
-   * @internal
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
    */
-  signingName?: string;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+  profile?: string;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The service name to use as the signing service for AWS Auth
+   * @internal
+   */
+  signingName?: string;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -245,14 +268,14 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type WeatherClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  CustomEndpointsInputConfig &
-  RetryInputConfig &
-  HostHeaderInputConfig &
-  SigV4AuthInputConfig &
-  TokenInputConfig &
   UserAgentInputConfig &
-  HttpApiKeyAuthInputConfig;
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
+  EndpointRequiredInputConfig &
+  HttpAuthSchemeInputConfig &
+  ClientInputEndpointParameters;
 /**
  * @public
  *
@@ -266,14 +289,14 @@ export interface WeatherClientConfig extends WeatherClientConfigType {}
 export type WeatherClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  CustomEndpointsResolvedConfig &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
-  SigV4AuthResolvedConfig &
-  TokenResolvedConfig &
   UserAgentResolvedConfig &
-  HttpApiKeyAuthResolvedConfig;
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
+  EndpointRequiredResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
@@ -297,24 +320,36 @@ export class WeatherClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WeatherClientConfig>) {
     let _config_0 = __getRuntimeConfig(configuration || {});
-    let _config_1 = resolveRegionConfig(_config_0);
-    let _config_2 = resolveCustomEndpointsConfig(_config_1);
+    super(_config_0 as any);
+    this.initConfig = _config_0;
+    let _config_1 = resolveClientEndpointParameters(_config_0);
+    let _config_2 = resolveUserAgentConfig(_config_1);
     let _config_3 = resolveRetryConfig(_config_2);
-    let _config_4 = resolveHostHeaderConfig(_config_3);
-    let _config_5 = resolveSigV4AuthConfig(_config_4);
-    let _config_6 = resolveTokenConfig(_config_5);
-    let _config_7 = resolveUserAgentConfig(_config_6);
-    let _config_8 = resolveHttpApiKeyAuthConfig(_config_7);
+    let _config_4 = resolveRegionConfig(_config_3);
+    let _config_5 = resolveHostHeaderConfig(_config_4);
+    let _config_6 = resolveEndpointConfig(_config_5);
+    let _config_7 = resolveEndpointRequiredConfig(_config_6);
+    let _config_8 = resolveHttpAuthSchemeConfig(_config_7);
     let _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
-    super(_config_9);
     this.config = _config_9;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getTokenPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: defaultWeatherHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: WeatherClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+            "smithy.api#httpApiKeyAuth": config.apiKey,
+            "smithy.api#httpBearerAuth": config.token,
+          }),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**

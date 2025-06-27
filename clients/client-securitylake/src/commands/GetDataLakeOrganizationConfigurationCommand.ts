@@ -18,7 +18,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface GetDataLakeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class GetDataLakeOrganizationConfigurationCommand extends $Command
@@ -107,9 +109,7 @@ export class GetDataLakeOrganizationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class GetDataLakeOrganizationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDataLakeOrganizationConfigurationCommand)
   .de(de_GetDataLakeOrganizationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetDataLakeOrganizationConfigurationResponse;
+    };
+    sdk: {
+      input: GetDataLakeOrganizationConfigurationCommandInput;
+      output: GetDataLakeOrganizationConfigurationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeScriptCommand, se_DescribeScriptCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Servers Amazon GameLift Servers Realtime</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
@@ -87,13 +88,14 @@ export interface DescribeScriptCommandOutput extends DescribeScriptOutput, __Met
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -105,9 +107,7 @@ export class DescribeScriptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScriptCommand)
   .de(de_DescribeScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScriptInput;
+      output: DescribeScriptOutput;
+    };
+    sdk: {
+      input: DescribeScriptCommandInput;
+      output: DescribeScriptCommandOutput;
+    };
+  };
+}

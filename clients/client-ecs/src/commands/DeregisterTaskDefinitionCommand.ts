@@ -12,7 +12,8 @@ import { de_DeregisterTaskDefinitionCommand, se_DeregisterTaskDefinitionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,13 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //           },
  * //         ],
  * //         essential: true || false,
+ * //         restartPolicy: { // ContainerRestartPolicy
+ * //           enabled: true || false, // required
+ * //           ignoredExitCodes: [ // IntegerList
+ * //             Number("int"),
+ * //           ],
+ * //           restartAttemptPeriod: Number("int"),
+ * //         },
  * //         entryPoint: [
  * //           "STRING_VALUE",
  * //         ],
@@ -158,6 +166,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //         ],
  * //         startTimeout: Number("int"),
  * //         stopTimeout: Number("int"),
+ * //         versionConsistency: "enabled" || "disabled",
  * //         hostname: "STRING_VALUE",
  * //         user: "STRING_VALUE",
  * //         workingDirectory: "STRING_VALUE",
@@ -288,7 +297,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //     ],
  * //     runtimePlatform: { // RuntimePlatform
  * //       cpuArchitecture: "X86_64" || "ARM64",
- * //       operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
+ * //       operatingSystemFamily: "WINDOWS_SERVER_2019_FULL" || "WINDOWS_SERVER_2019_CORE" || "WINDOWS_SERVER_2016_FULL" || "WINDOWS_SERVER_2004_CORE" || "WINDOWS_SERVER_2022_CORE" || "WINDOWS_SERVER_2022_FULL" || "WINDOWS_SERVER_2025_CORE" || "WINDOWS_SERVER_2025_FULL" || "WINDOWS_SERVER_20H2_CORE" || "LINUX",
  * //     },
  * //     requiresCompatibilities: [
  * //       "EC2" || "FARGATE" || "EXTERNAL",
@@ -319,6 +328,7 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * //     ephemeralStorage: { // EphemeralStorage
  * //       sizeInGiB: Number("int"), // required
  * //     },
+ * //     enableFaultInjection: true || false,
  * //   },
  * // };
  *
@@ -338,12 +348,51 @@ export interface DeregisterTaskDefinitionCommandOutput extends DeregisterTaskDef
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
  *
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
+ *
+ *
+ * @example To deregister a revision of a task definition
+ * ```javascript
+ * // This example deregisters the first revision of the fargate-task task definition
+ * const input = {
+ *   taskDefinition: "fargate-task:1"
+ * };
+ * const command = new DeregisterTaskDefinitionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   taskDefinition: {
+ *     containerDefinitions: [
+ *       {
+ *         cpu: 256,
+ *         essential: true,
+ *         image: "public.ecr.aws/docker/library/nginx:latest",
+ *         memory: 128,
+ *         name: "nginx",
+ *         portMappings: [
+ *           {
+ *             containerPort: 80,
+ *             hostPort: 80,
+ *             protocol: "tcp"
+ *           }
+ *         ]
+ *       }
+ *     ],
+ *     family: "fargate-task",
+ *     status: "INACTIVE",
+ *     taskDefinitionArn: "arn:aws:ecs:us-west-2:123456789012:task-definition/fargate-task:1",
+ *     volumes:     []
+ *   }
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -355,9 +404,7 @@ export class DeregisterTaskDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -369,4 +416,16 @@ export class DeregisterTaskDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterTaskDefinitionCommand)
   .de(de_DeregisterTaskDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterTaskDefinitionRequest;
+      output: DeregisterTaskDefinitionResponse;
+    };
+    sdk: {
+      input: DeregisterTaskDefinitionCommandInput;
+      output: DeregisterTaskDefinitionCommandOutput;
+    };
+  };
+}

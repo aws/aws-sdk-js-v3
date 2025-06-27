@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,8 +31,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * <p>Creates a blue/green deployment.</p>
  *          <p>A blue/green deployment creates a staging environment that copies the production environment.
  *             In a blue/green deployment, the blue environment is the current production environment.
- *             The green environment is the staging environment. The staging environment stays in sync
- *             with the current production environment using logical replication.</p>
+ *             The green environment is the staging environment, and it stays in sync
+ *             with the current production environment.</p>
  *          <p>You can make changes to the databases in the green environment without affecting
  *             production workloads. For example, you can upgrade the major or minor DB engine version, change
  *             database parameters, or make schema changes in the staging environment. You can thoroughly test
@@ -62,6 +63,10 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  *   ],
  *   TargetDBInstanceClass: "STRING_VALUE",
  *   UpgradeTargetStorageConfig: true || false,
+ *   TargetIops: Number("int"),
+ *   TargetStorageType: "STRING_VALUE",
+ *   TargetAllocatedStorage: Number("int"),
+ *   TargetStorageThroughput: Number("int"),
  * };
  * const command = new CreateBlueGreenDeploymentCommand(input);
  * const response = await client.send(command);
@@ -149,134 +154,8 @@ export interface CreateBlueGreenDeploymentCommandOutput extends CreateBlueGreenD
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
- * @example To create a blue/green deployment for an RDS for MySQL DB instance
- * ```javascript
- * // The following example creates a blue/green deployment for a MySQL DB instance.
- * const input = {
- *   "BlueGreenDeploymentName": "bgd-test-instance",
- *   "Source": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
- *   "TargetDBParameterGroupName": "mysql-80-group",
- *   "TargetEngineVersion": "8.0"
- * };
- * const command = new CreateBlueGreenDeploymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "BlueGreenDeployment": {
- *     "BlueGreenDeploymentIdentifier": "bgd-v53303651eexfake",
- *     "BlueGreenDeploymentName": "bgd-cli-test-instance",
- *     "CreateTime": "2022-02-25T21:18:51.183000+00:00",
- *     "Source": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance",
- *     "Status": "PROVISIONING",
- *     "SwitchoverDetails": [
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-1"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-2"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-db-instance-replica-3"
- *       }
- *     ],
- *     "Tasks": [
- *       {
- *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
- *         "Status": "PENDING"
- *       },
- *       {
- *         "Name": "DB_ENGINE_VERSION_UPGRADE",
- *         "Status": "PENDING"
- *       },
- *       {
- *         "Name": "CONFIGURE_BACKUPS",
- *         "Status": "PENDING"
- *       },
- *       {
- *         "Name": "CREATING_TOPOLOGY_OF_SOURCE",
- *         "Status": "PENDING"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-create-a-bluegreen-deployment-for-an-rds-for-mysql-db-instance-1679688377231
- * ```
- *
- * @example To create a blue/green deployment for an Aurora MySQL DB cluster
- * ```javascript
- * // The following example creates a blue/green deployment for an Aurora MySQL DB cluster.
- * const input = {
- *   "BlueGreenDeploymentName": "my-blue-green-deployment",
- *   "Source": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
- *   "TargetDBClusterParameterGroupName": "mysql-80-cluster-group",
- *   "TargetDBParameterGroupName": "ams-80-binlog-enabled",
- *   "TargetEngineVersion": "8.0"
- * };
- * const command = new CreateBlueGreenDeploymentCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "BlueGreenDeployment": {
- *     "BlueGreenDeploymentIdentifier": "bgd-wi89nwzglccsfake",
- *     "BlueGreenDeploymentName": "my-blue-green-deployment",
- *     "CreateTime": "2022-02-25T21:12:00.288000+00:00",
- *     "Source": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
- *     "Status": "PROVISIONING",
- *     "SwitchoverDetails": [
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster:my-aurora-mysql-cluster",
- *         "Status": "PROVISIONING"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-1",
- *         "Status": "PROVISIONING"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-2",
- *         "Status": "PROVISIONING"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:db:my-aurora-mysql-cluster-3",
- *         "Status": "PROVISIONING"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-excluded-member-endpoint",
- *         "Status": "PROVISIONING"
- *       },
- *       {
- *         "SourceMember": "arn:aws:rds:us-east-1:123456789012:cluster-endpoint:my-reader-endpoint",
- *         "Status": "PROVISIONING"
- *       }
- *     ],
- *     "Tasks": [
- *       {
- *         "Name": "CREATING_READ_REPLICA_OF_SOURCE",
- *         "Status": "PENDING"
- *       },
- *       {
- *         "Name": "DB_ENGINE_VERSION_UPGRADE",
- *         "Status": "PENDING"
- *       },
- *       {
- *         "Name": "CREATE_DB_INSTANCES_FOR_CLUSTER",
- *         "Status": "PENDING"
- *       },
- *       {
- *         "Name": "CREATE_CUSTOM_ENDPOINTS",
- *         "Status": "PENDING"
- *       }
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-create-a-bluegreen-deployment-for-an-aurora-mysql-db-cluster-1679703605487
- * ```
- *
  */
 export class CreateBlueGreenDeploymentCommand extends $Command
   .classBuilder<
@@ -286,9 +165,7 @@ export class CreateBlueGreenDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -300,4 +177,16 @@ export class CreateBlueGreenDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBlueGreenDeploymentCommand)
   .de(de_CreateBlueGreenDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBlueGreenDeploymentRequest;
+      output: CreateBlueGreenDeploymentResponse;
+    };
+    sdk: {
+      input: CreateBlueGreenDeploymentCommandInput;
+      output: CreateBlueGreenDeploymentCommandOutput;
+    };
+  };
+}

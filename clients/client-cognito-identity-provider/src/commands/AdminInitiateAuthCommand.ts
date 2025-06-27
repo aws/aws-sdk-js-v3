@@ -21,7 +21,8 @@ import { de_AdminInitiateAuthCommand, se_AdminInitiateAuthCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,11 @@ export interface AdminInitiateAuthCommandInput extends AdminInitiateAuthRequest 
 export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates the authentication flow, as an administrator.</p>
+ * <p>Starts sign-in for applications with a server-side component, for example a
+ *             traditional web application. This operation specifies the authentication flow that
+ *             you'd like to begin. The authentication flow that you specify must be supported in
+ *             your app client configuration. For more information about authentication flows, see
+ *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow-methods.html">Authentication flows</a>.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
@@ -45,7 +50,7 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -83,7 +88,7 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * const input = { // AdminInitiateAuthRequest
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE", // required
- *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH", // required
+ *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH" || "USER_AUTH", // required
  *   AuthParameters: { // AuthParametersType
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -105,11 +110,12 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *     ],
  *     EncodedData: "STRING_VALUE",
  *   },
+ *   Session: "STRING_VALUE",
  * };
  * const command = new AdminInitiateAuthCommand(input);
  * const response = await client.send(command);
  * // { // AdminInitiateAuthResponse
- * //   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED",
+ * //   ChallengeName: "SMS_MFA" || "EMAIL_OTP" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "SELECT_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED" || "SMS_OTP" || "PASSWORD" || "WEB_AUTHN" || "PASSWORD_SRP",
  * //   Session: "STRING_VALUE",
  * //   ChallengeParameters: { // ChallengeParametersType
  * //     "<keys>": "STRING_VALUE",
@@ -125,6 +131,9 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * //       DeviceGroupKey: "STRING_VALUE",
  * //     },
  * //   },
+ * //   AvailableChallenges: [ // AvailableChallengeListType
+ * //     "SMS_MFA" || "EMAIL_OTP" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "SELECT_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED" || "SMS_OTP" || "PASSWORD" || "WEB_AUTHN" || "PASSWORD_SRP",
+ * //   ],
  * // };
  *
  * ```
@@ -137,6 +146,10 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
  *
  * @throws {@link InvalidLambdaResponseException} (client fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
@@ -180,6 +193,10 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
  *             Lambda.</p>
  *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
+ *             for the user pool client.</p>
+ *
  * @throws {@link UserLambdaValidationException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
  *             with the Lambda service.</p>
@@ -193,6 +210,7 @@ export interface AdminInitiateAuthCommandOutput extends AdminInitiateAuthRespons
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminInitiateAuthCommand extends $Command
@@ -203,9 +221,7 @@ export class AdminInitiateAuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -217,4 +233,16 @@ export class AdminInitiateAuthCommand extends $Command
   .f(AdminInitiateAuthRequestFilterSensitiveLog, AdminInitiateAuthResponseFilterSensitiveLog)
   .ser(se_AdminInitiateAuthCommand)
   .de(de_AdminInitiateAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminInitiateAuthRequest;
+      output: AdminInitiateAuthResponse;
+    };
+    sdk: {
+      input: AdminInitiateAuthCommandInput;
+      output: AdminInitiateAuthCommandOutput;
+    };
+  };
+}

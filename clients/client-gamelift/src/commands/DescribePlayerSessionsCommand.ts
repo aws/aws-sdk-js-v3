@@ -17,7 +17,8 @@ import { de_DescribePlayerSessionsCommand, se_DescribePlayerSessionsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,7 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  *          </ul>
  *          <p>To request player sessions, specify either a player session ID, game session ID, or
  *             player ID. You can filter this request by player session status. If you provide
- *             a specific <code>PlayerSessionId</code> or <code>PlayerId</code>, Amazon GameLift ignores the filter criteria.
+ *             a specific <code>PlayerSessionId</code> or <code>PlayerId</code>, Amazon GameLift Servers ignores the filter criteria.
  *             Use the pagination parameters to retrieve results as a set of sequential pages. </p>
  *          <p>If successful, a <code>PlayerSession</code> object is returned for each session that
  *             matches the request.</p>
@@ -113,13 +114,14 @@ export interface DescribePlayerSessionsCommandOutput extends DescribePlayerSessi
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -131,9 +133,7 @@ export class DescribePlayerSessionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +145,16 @@ export class DescribePlayerSessionsCommand extends $Command
   .f(DescribePlayerSessionsInputFilterSensitiveLog, DescribePlayerSessionsOutputFilterSensitiveLog)
   .ser(se_DescribePlayerSessionsCommand)
   .de(de_DescribePlayerSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePlayerSessionsInput;
+      output: DescribePlayerSessionsOutput;
+    };
+    sdk: {
+      input: DescribePlayerSessionsCommandInput;
+      output: DescribePlayerSessionsCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_4";
+import { DescribeReservedInstancesListingsRequest, DescribeReservedInstancesListingsResult } from "../models/models_5";
 import {
   de_DescribeReservedInstancesListingsCommand,
   se_DescribeReservedInstancesListingsCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,16 +33,25 @@ export interface DescribeReservedInstancesListingsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Describes your account's Reserved Instance listings in the Reserved Instance Marketplace.</p>
- *          <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p>
- *          <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved Instance Marketplace and are available for purchase.</p>
- *          <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
- *         in the <i>Amazon EC2 User Guide</i>.</p>
+ * <p>Describes your account's Reserved Instance listings in the Reserved Instance
+ *       Marketplace.</p>
+ *          <p>The Reserved Instance Marketplace matches sellers who want to resell Reserved Instance
+ *       capacity that they no longer need with buyers who want to purchase additional capacity.
+ *       Reserved Instances bought and sold through the Reserved Instance Marketplace work like any
+ *       other Reserved Instances.</p>
+ *          <p>As a seller, you choose to list some or all of your Reserved Instances, and you specify
+ *       the upfront price to receive for them. Your Reserved Instances are then listed in the Reserved
+ *       Instance Marketplace and are available for purchase.</p>
+ *          <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the
+ *       Marketplace matches what you're searching for with what's available. The Marketplace first
+ *       sells the lowest priced Reserved Instances to you, and continues to sell available Reserved
+ *       Instance listings to you until your demand is met. You are charged based on the total price of
+ *       all of the listings that you purchase.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Sell in the Reserved Instance
+ *         Marketplace</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *          <note>
- *             <p>The order of the elements in the response, including those within nested
- *          structures, might vary. Applications should not assume the elements appear in a
- *          particular order.</p>
+ *             <p>The order of the elements in the response, including those within nested structures,
+ *         might vary. Applications should not assume the elements appear in a particular order.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -50,6 +60,8 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * // const { EC2Client, DescribeReservedInstancesListingsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeReservedInstancesListingsRequest
+ *   ReservedInstancesId: "STRING_VALUE",
+ *   ReservedInstancesListingId: "STRING_VALUE",
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -58,8 +70,6 @@ export interface DescribeReservedInstancesListingsCommandOutput
  *       ],
  *     },
  *   ],
- *   ReservedInstancesId: "STRING_VALUE",
- *   ReservedInstancesListingId: "STRING_VALUE",
  * };
  * const command = new DescribeReservedInstancesListingsCommand(input);
  * const response = await client.send(command);
@@ -108,6 +118,7 @@ export interface DescribeReservedInstancesListingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeReservedInstancesListingsCommand extends $Command
@@ -118,9 +129,7 @@ export class DescribeReservedInstancesListingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +141,16 @@ export class DescribeReservedInstancesListingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedInstancesListingsCommand)
   .de(de_DescribeReservedInstancesListingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedInstancesListingsRequest;
+      output: DescribeReservedInstancesListingsResult;
+    };
+    sdk: {
+      input: DescribeReservedInstancesListingsCommandInput;
+      output: DescribeReservedInstancesListingsCommandOutput;
+    };
+  };
+}

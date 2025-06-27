@@ -12,7 +12,8 @@ import { de_DeleteWhatIfForecastCommand, se_DeleteWhatIfForecastCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DeleteWhatIfForecastCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DeleteWhatIfForecastCommand extends $Command
@@ -75,9 +77,7 @@ export class DeleteWhatIfForecastCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DeleteWhatIfForecastCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWhatIfForecastCommand)
   .de(de_DeleteWhatIfForecastCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWhatIfForecastRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWhatIfForecastCommandInput;
+      output: DeleteWhatIfForecastCommandOutput;
+    };
+  };
+}

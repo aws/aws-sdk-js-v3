@@ -16,7 +16,8 @@ import { de_RotateChannelCredentialsCommand, se_RotateChannelCredentialsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface RotateChannelCredentialsCommandOutput extends RotateChannelCred
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class RotateChannelCredentialsCommand extends $Command
@@ -110,9 +112,7 @@ export class RotateChannelCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class RotateChannelCredentialsCommand extends $Command
   .f(void 0, RotateChannelCredentialsResponseFilterSensitiveLog)
   .ser(se_RotateChannelCredentialsCommand)
   .de(de_RotateChannelCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RotateChannelCredentialsRequest;
+      output: RotateChannelCredentialsResponse;
+    };
+    sdk: {
+      input: RotateChannelCredentialsCommandInput;
+      output: RotateChannelCredentialsCommandOutput;
+    };
+  };
+}

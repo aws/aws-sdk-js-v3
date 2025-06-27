@@ -12,7 +12,8 @@ import { de_DeletePackageCommand, se_DeletePackageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  * };
@@ -47,7 +48,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * const response = await client.send(command);
  * // { // DeletePackageResult
  * //   deletedPackage: { // PackageSummary
- * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //     format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //     namespace: "STRING_VALUE",
  * //     package: "STRING_VALUE",
  * //     originConfiguration: { // PackageOriginConfiguration
@@ -98,6 +99,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResult, __Metad
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class DeletePackageCommand extends $Command
@@ -108,9 +110,7 @@ export class DeletePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class DeletePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePackageCommand)
   .de(de_DeletePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePackageRequest;
+      output: DeletePackageResult;
+    };
+    sdk: {
+      input: DeletePackageCommandInput;
+      output: DeletePackageCommandOutput;
+    };
+  };
+}

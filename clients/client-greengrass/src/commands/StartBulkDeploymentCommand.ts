@@ -12,7 +12,8 @@ import { de_StartBulkDeploymentCommand, se_StartBulkDeploymentCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface StartBulkDeploymentCommandOutput extends StartBulkDeploymentRes
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class StartBulkDeploymentCommand extends $Command
@@ -73,9 +75,7 @@ export class StartBulkDeploymentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class StartBulkDeploymentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartBulkDeploymentCommand)
   .de(de_StartBulkDeploymentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartBulkDeploymentRequest;
+      output: StartBulkDeploymentResponse;
+    };
+    sdk: {
+      input: StartBulkDeploymentCommandInput;
+      output: StartBulkDeploymentCommandOutput;
+    };
+  };
+}

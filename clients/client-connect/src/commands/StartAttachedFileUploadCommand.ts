@@ -12,7 +12,8 @@ import { de_StartAttachedFileUploadCommand, se_StartAttachedFileUploadCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,9 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading your content.</p>
  *          <important>
- *             <p>You may only use this API to upload attachments to a <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Connect
- *     Case</a>.</p>
+ *             <p>You may only use this API to upload attachments to an <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_connect-cases_CreateCase.html">Amazon Connect Case</a> or
+ *      <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-email-channel.html">Amazon Connect
+ *      Email</a>. </p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -44,7 +46,7 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  *   FileName: "STRING_VALUE", // required
  *   FileSizeInBytes: Number("long"), // required
  *   UrlExpiryInSeconds: Number("int"),
- *   FileUseCaseType: "ATTACHMENT", // required
+ *   FileUseCaseType: "EMAIL_MESSAGE" || "ATTACHMENT", // required
  *   AssociatedResourceArn: "STRING_VALUE", // required
  *   CreatedBy: { // CreatedByInfo Union: only one key present
  *     ConnectUserArn: "STRING_VALUE",
@@ -103,6 +105,7 @@ export interface StartAttachedFileUploadCommandOutput extends StartAttachedFileU
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartAttachedFileUploadCommand extends $Command
@@ -113,9 +116,7 @@ export class StartAttachedFileUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +128,16 @@ export class StartAttachedFileUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAttachedFileUploadCommand)
   .de(de_StartAttachedFileUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAttachedFileUploadRequest;
+      output: StartAttachedFileUploadResponse;
+    };
+    sdk: {
+      input: StartAttachedFileUploadCommandInput;
+      output: StartAttachedFileUploadCommandOutput;
+    };
+  };
+}

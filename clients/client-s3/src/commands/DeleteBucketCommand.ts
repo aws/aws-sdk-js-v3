@@ -12,7 +12,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,13 +34,16 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  *             <ul>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets</b> - If multipart uploads in a directory bucket are in progress, you can't delete the bucket until all the in-progress multipart uploads are aborted or completed.</p>
+ *                      <b>Directory buckets</b> - If multipart
+ *                   uploads in a directory bucket are in progress, you can't delete the bucket until
+ *                   all the in-progress multipart uploads are aborted or completed.</p>
  *                </li>
  *                <li>
  *                   <p>
- *                      <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
+ *                      <b>Directory buckets </b> - For directory buckets, you must make requests for this API operation to the Regional endpoint. These endpoints support path-style requests in the format <code>https://s3express-control.<i>region-code</i>.amazonaws.com/<i>bucket-name</i>
  *                      </code>. Virtual-hosted-style requests aren't supported.
- * For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the
+ * For more information about endpoints in Availability Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/endpoint-directory-buckets-AZ.html">Regional and Zonal endpoints for directory buckets in Availability Zones</a> in the
+ *     <i>Amazon S3 User Guide</i>. For more information about endpoints in Local Zones, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-lzs-for-directory-buckets.html">Concepts for directory buckets in Local Zones</a> in the
  *     <i>Amazon S3 User Guide</i>.</p>
  *                </li>
  *             </ul>
@@ -50,18 +54,23 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  *                <ul>
  *                   <li>
  *                      <p>
- *                         <b>General purpose bucket permissions</b> - You must have the <code>s3:DeleteBucket</code> permission on the specified bucket in a policy.</p>
+ *                         <b>General purpose bucket permissions</b> - You
+ *                         must have the <code>s3:DeleteBucket</code> permission on the specified
+ *                         bucket in a policy.</p>
  *                   </li>
  *                   <li>
  *                      <p>
- *                         <b>Directory bucket permissions</b> - You must have the <code>s3express:DeleteBucket</code> permission in an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource. For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                         <b>Directory bucket permissions</b> -
+ *                         You must have the <code>s3express:DeleteBucket</code> permission in
+ *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
  *                   </li>
  *                </ul>
  *             </dd>
  *             <dt>HTTP Host header syntax</dt>
  *             <dd>
  *                <p>
- *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region</i>.amazonaws.com</code>.</p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region-code</i>.amazonaws.com</code>.</p>
  *             </dd>
  *          </dl>
  *          <p>The following operations are related to <code>DeleteBucket</code>:</p>
@@ -102,18 +111,21 @@ export interface DeleteBucketCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To delete a bucket
  * ```javascript
  * // The following example deletes the specified bucket.
  * const input = {
- *   "Bucket": "forrandall2"
+ *   Bucket: "forrandall2"
  * };
  * const command = new DeleteBucketCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-bucket-1473108514262
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteBucketCommand extends $Command
   .classBuilder<
@@ -139,4 +151,16 @@ export class DeleteBucketCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBucketCommand)
   .de(de_DeleteBucketCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBucketRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBucketCommandInput;
+      output: DeleteBucketCommandOutput;
+    };
+  };
+}

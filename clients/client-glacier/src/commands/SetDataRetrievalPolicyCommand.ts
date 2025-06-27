@@ -12,7 +12,8 @@ import { de_SetDataRetrievalPolicyCommand, se_SetDataRetrievalPolicyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,26 +75,29 @@ export interface SetDataRetrievalPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To set and then enact a data retrieval policy
  * ```javascript
  * // The example sets and then enacts a data retrieval policy.
  * const input = {
- *   "Policy": {
- *     "Rules": [
+ *   Policy: {
+ *     Rules: [
  *       {
- *         "BytesPerHour": 10737418240,
- *         "Strategy": "BytesPerHour"
+ *         BytesPerHour: 10737418240,
+ *         Strategy: "BytesPerHour"
  *       }
  *     ]
  *   },
- *   "accountId": "-"
+ *   accountId: "-"
  * };
  * const command = new SetDataRetrievalPolicyCommand(input);
- * await client.send(command);
- * // example id: to-set-and-then-enact-a-data-retrieval-policy--1481928352408
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetDataRetrievalPolicyCommand extends $Command
   .classBuilder<
@@ -103,9 +107,7 @@ export class SetDataRetrievalPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +119,16 @@ export class SetDataRetrievalPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetDataRetrievalPolicyCommand)
   .de(de_SetDataRetrievalPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetDataRetrievalPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: SetDataRetrievalPolicyCommandInput;
+      output: SetDataRetrievalPolicyCommandOutput;
+    };
+  };
+}

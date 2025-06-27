@@ -12,7 +12,8 @@ import { de_DeleteMountTargetCommand, se_DeleteMountTargetCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,8 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  *       avoid applications getting cut off abruptly, you might consider unmounting any mounts of the
  *       mount target, if feasible. The operation also deletes the associated network interface.
  *       Uncommitted writes might be lost, but breaking a mount target using this operation does not
- *       corrupt the file system itself. The file system you created remains. You can mount an EC2
- *       instance in your VPC by using another mount target.</p>
+ *       corrupt the file system itself. The file system you created remains. You can mount an
+ *       EC2 instance in your VPC by using another mount target.</p>
  *          <p>This operation requires permissions for the following action on the file
  *       system:</p>
  *          <ul>
@@ -97,18 +98,21 @@ export interface DeleteMountTargetCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To delete a mount target
  * ```javascript
  * // This operation deletes a mount target.
  * const input = {
- *   "MountTargetId": "fsmt-12340abc"
+ *   MountTargetId: "fsmt-12340abc"
  * };
  * const command = new DeleteMountTargetCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-mount-target-1481847635607
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteMountTargetCommand extends $Command
   .classBuilder<
@@ -118,9 +122,7 @@ export class DeleteMountTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +134,16 @@ export class DeleteMountTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMountTargetCommand)
   .de(de_DeleteMountTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMountTargetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMountTargetCommandInput;
+      output: DeleteMountTargetCommandOutput;
+    };
+  };
+}

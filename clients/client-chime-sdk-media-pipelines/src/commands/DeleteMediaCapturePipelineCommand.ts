@@ -16,7 +16,8 @@ import { de_DeleteMediaCapturePipelineCommand, se_DeleteMediaCapturePipelineComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DeleteMediaCapturePipelineCommandOutput extends __MetadataBeare
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class DeleteMediaCapturePipelineCommand extends $Command
@@ -87,9 +89,7 @@ export class DeleteMediaCapturePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DeleteMediaCapturePipelineCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaCapturePipelineCommand)
   .de(de_DeleteMediaCapturePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMediaCapturePipelineRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMediaCapturePipelineCommandInput;
+      output: DeleteMediaCapturePipelineCommandOutput;
+    };
+  };
+}

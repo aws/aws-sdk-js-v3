@@ -9,7 +9,7 @@ import {
   DescribeAssetBundleExportJobRequest,
   DescribeAssetBundleExportJobResponse,
   DescribeAssetBundleExportJobResponseFilterSensitiveLog,
-} from "../models/models_3";
+} from "../models/models_4";
 import {
   de_DescribeAssetBundleExportJobCommand,
   se_DescribeAssetBundleExportJobCommand,
@@ -19,7 +19,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,7 +103,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //       { // AssetBundleExportJobDataSetOverrideProperties
  * //         Arn: "STRING_VALUE", // required
  * //         Properties: [ // AssetBundleExportJobDataSetPropertyToOverrideList // required
- * //           "Name",
+ * //           "Name" || "RefreshFailureEmailAlertStatus",
  * //         ],
  * //       },
  * //     ],
@@ -130,6 +131,14 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //         ],
  * //       },
  * //     ],
+ * //     Folders: [ // AssetBundleExportJobFolderOverridePropertiesList
+ * //       { // AssetBundleExportJobFolderOverrideProperties
+ * //         Arn: "STRING_VALUE", // required
+ * //         Properties: [ // AssetBundleExportJobFolderPropertyToOverrideList // required
+ * //           "Name" || "ParentFolderArn",
+ * //         ],
+ * //       },
+ * //     ],
  * //   },
  * //   RequestId: "STRING_VALUE",
  * //   Status: Number("int"),
@@ -144,6 +153,8 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * //       Message: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   IncludeFolderMemberships: true || false,
+ * //   IncludeFolderMembers: "RECURSE" || "ONE_LEVEL" || "NONE",
  * // };
  *
  * ```
@@ -169,6 +180,7 @@ export interface DescribeAssetBundleExportJobCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeAssetBundleExportJobCommand extends $Command
@@ -179,9 +191,7 @@ export class DescribeAssetBundleExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +203,16 @@ export class DescribeAssetBundleExportJobCommand extends $Command
   .f(void 0, DescribeAssetBundleExportJobResponseFilterSensitiveLog)
   .ser(se_DescribeAssetBundleExportJobCommand)
   .de(de_DescribeAssetBundleExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAssetBundleExportJobRequest;
+      output: DescribeAssetBundleExportJobResponse;
+    };
+    sdk: {
+      input: DescribeAssetBundleExportJobCommandInput;
+      output: DescribeAssetBundleExportJobCommandOutput;
+    };
+  };
+}

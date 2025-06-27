@@ -12,7 +12,8 @@ import { de_CancelQueryCommand, se_CancelQueryCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,12 +43,14 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * const input = { // CancelQueryRequest
  *   EventDataStore: "STRING_VALUE",
  *   QueryId: "STRING_VALUE", // required
+ *   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * };
  * const command = new CancelQueryCommand(input);
  * const response = await client.send(command);
  * // { // CancelQueryResponse
  * //   QueryId: "STRING_VALUE", // required
  * //   QueryStatus: "QUEUED" || "RUNNING" || "FINISHED" || "FAILED" || "CANCELLED" || "TIMED_OUT", // required
+ * //   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -97,6 +100,7 @@ export interface CancelQueryCommandOutput extends CancelQueryResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class CancelQueryCommand extends $Command
@@ -107,9 +111,7 @@ export class CancelQueryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +123,16 @@ export class CancelQueryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelQueryCommand)
   .de(de_CancelQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelQueryRequest;
+      output: CancelQueryResponse;
+    };
+    sdk: {
+      input: CancelQueryCommandInput;
+      output: CancelQueryCommandOutput;
+    };
+  };
+}

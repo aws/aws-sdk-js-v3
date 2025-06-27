@@ -12,7 +12,8 @@ import { ServiceCatalogClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface CreateProvisioningArtifactCommandOutput extends CreateProvision
  * @throws {@link ServiceCatalogServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalog service.</p>
  *
+ *
  * @public
  */
 export class CreateProvisioningArtifactCommand extends $Command
@@ -102,9 +104,7 @@ export class CreateProvisioningArtifactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CreateProvisioningArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProvisioningArtifactCommand)
   .de(de_CreateProvisioningArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProvisioningArtifactInput;
+      output: CreateProvisioningArtifactOutput;
+    };
+    sdk: {
+      input: CreateProvisioningArtifactCommandInput;
+      output: CreateProvisioningArtifactCommandOutput;
+    };
+  };
+}

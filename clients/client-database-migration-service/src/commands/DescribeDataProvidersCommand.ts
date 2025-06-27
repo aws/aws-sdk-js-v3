@@ -16,7 +16,8 @@ import { de_DescribeDataProvidersCommand, se_DescribeDataProvidersCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface DescribeDataProvidersCommandInput extends DescribeDataProviders
 export interface DescribeDataProvidersCommandOutput extends DescribeDataProvidersResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of data providers for your account in the current region.</p>
+ * <p>Returns a paginated list of data providers for your account in the current
+ *          region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,11 +63,14 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //       DataProviderCreationTime: new Date("TIMESTAMP"),
  * //       Description: "STRING_VALUE",
  * //       Engine: "STRING_VALUE",
+ * //       Virtual: true || false,
  * //       Settings: { // DataProviderSettings Union: only one key present
  * //         RedshiftSettings: { // RedshiftDataProviderSettings
  * //           ServerName: "STRING_VALUE",
  * //           Port: Number("int"),
  * //           DatabaseName: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
  * //         },
  * //         PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //           ServerName: "STRING_VALUE",
@@ -73,12 +78,16 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //           DatabaseName: "STRING_VALUE",
  * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //           CertificateArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
  * //         },
  * //         MySqlSettings: { // MySqlDataProviderSettings
  * //           ServerName: "STRING_VALUE",
  * //           Port: Number("int"),
  * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //           CertificateArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
  * //         },
  * //         OracleSettings: { // OracleDataProviderSettings
  * //           ServerName: "STRING_VALUE",
@@ -91,6 +100,8 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //           SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  * //           SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  * //           SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
  * //         },
  * //         MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  * //           ServerName: "STRING_VALUE",
@@ -98,6 +109,8 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //           DatabaseName: "STRING_VALUE",
  * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //           CertificateArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
  * //         },
  * //         DocDbSettings: { // DocDbDataProviderSettings
  * //           ServerName: "STRING_VALUE",
@@ -111,6 +124,26 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  * //           Port: Number("int"),
  * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //           CertificateArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
+ * //         },
+ * //         IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
+ * //         },
+ * //         IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ * //           ServerName: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //           DatabaseName: "STRING_VALUE",
+ * //           SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //           CertificateArn: "STRING_VALUE",
+ * //           S3Path: "STRING_VALUE",
+ * //           S3AccessRoleArn: "STRING_VALUE",
  * //         },
  * //         MongoDbSettings: { // MongoDbDataProviderSettings
  * //           ServerName: "STRING_VALUE",
@@ -139,54 +172,57 @@ export interface DescribeDataProvidersCommandOutput extends DescribeDataProvider
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link ResourceNotFoundFault} (client fault)
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe Data Providers
  * ```javascript
  * //
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "data-provider-identifier",
- *       "Values": [
+ *       Name: "data-provider-identifier",
+ *       Values: [
  *         "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
  *       ]
  *     }
  *   ],
- *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *   "MaxRecords": 20
+ *   Marker: "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   MaxRecords: 20
  * };
  * const command = new DescribeDataProvidersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DataProviders": [
+ *   DataProviders: [
  *     {
- *       "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *       "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
- *       "DataProviderName": "my-target-data-provider",
- *       "Engine": "postgres",
- *       "Settings": {
- *         "PostgreSqlSettings": {
- *           "DatabaseName": "target",
- *           "Port": 5432,
- *           "ServerName": "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *           "SslMode": "none"
+ *       DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
+ *       DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
+ *       DataProviderName: "my-target-data-provider",
+ *       Engine: "postgres",
+ *       Settings: {
+ *         PostgreSqlSettings: {
+ *           DatabaseName: "target",
+ *           Port: 5432,
+ *           ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
+ *           SslMode: "none"
  *         }
  *       }
  *     }
  *   ],
- *   "Marker": "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   Marker: "EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
  * }
  * *\/
- * // example id: describe-data-providers-1689725897156
  * ```
  *
+ * @public
  */
 export class DescribeDataProvidersCommand extends $Command
   .classBuilder<
@@ -196,9 +232,7 @@ export class DescribeDataProvidersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -210,4 +244,16 @@ export class DescribeDataProvidersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDataProvidersCommand)
   .de(de_DescribeDataProvidersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDataProvidersMessage;
+      output: DescribeDataProvidersResponse;
+    };
+    sdk: {
+      input: DescribeDataProvidersCommandInput;
+      output: DescribeDataProvidersCommandOutput;
+    };
+  };
+}

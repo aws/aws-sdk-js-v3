@@ -12,7 +12,8 @@ import { de_AssociatePricingRulesCommand, se_AssociatePricingRulesCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface AssociatePricingRulesCommandOutput extends AssociatePricingRule
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class AssociatePricingRulesCommand extends $Command
@@ -95,9 +97,7 @@ export class AssociatePricingRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class AssociatePricingRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociatePricingRulesCommand)
   .de(de_AssociatePricingRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePricingRulesInput;
+      output: AssociatePricingRulesOutput;
+    };
+    sdk: {
+      input: AssociatePricingRulesCommandInput;
+      output: AssociatePricingRulesCommandOutput;
+    };
+  };
+}

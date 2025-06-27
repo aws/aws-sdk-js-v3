@@ -1,20 +1,21 @@
 import { HttpRequest } from "@smithy/protocol-http";
-import { FinalizeHandler, RequestSigner } from "@smithy/types";
+import { RequestSigner } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
 import { awsAuthMiddleware } from "./awsAuthMiddleware";
 import { getSkewCorrectedDate } from "./utils/getSkewCorrectedDate";
 import { getUpdatedSystemClockOffset } from "./utils/getUpdatedSystemClockOffset";
 
-jest.mock("./utils/getUpdatedSystemClockOffset");
-jest.mock("./utils/getSkewCorrectedDate");
+vi.mock("./utils/getUpdatedSystemClockOffset");
+vi.mock("./utils/getSkewCorrectedDate");
 
 describe(awsAuthMiddleware.name, () => {
-  let mockSignFn: jest.Mock<any, any>;
+  let mockSignFn: any;
   let mockSigner: () => Promise<RequestSigner>;
   let mockOptions: AwsAuthResolvedConfig;
 
-  const mockNext: jest.MockedFunction<FinalizeHandler<any, any>> = jest.fn();
+  const mockNext: any = vi.fn();
   const mockSystemClockOffset = 100;
   const mockUpdatedSystemClockOffset = 500;
   const mockSigningHandlerArgs = {
@@ -28,17 +29,17 @@ describe(awsAuthMiddleware.name, () => {
   const mockResponse = { output: "", response: "" };
 
   beforeEach(() => {
-    mockSignFn = jest.fn().mockResolvedValue(mockSignedRequest);
+    mockSignFn = vi.fn().mockResolvedValue(mockSignedRequest);
     mockSigner = () => Promise.resolve({ sign: mockSignFn } as RequestSigner);
     mockNext.mockResolvedValue(mockResponse);
     mockOptions = {
-      credentials: jest.fn(),
+      credentials: vi.fn(),
       signer: mockSigner,
       signingEscapePath: true,
       systemClockOffset: mockSystemClockOffset,
     };
-    (getUpdatedSystemClockOffset as jest.Mock).mockReturnValue(mockUpdatedSystemClockOffset);
-    (getSkewCorrectedDate as jest.Mock).mockReturnValue(mockSkewCorrectedDate);
+    vi.mocked(getUpdatedSystemClockOffset).mockReturnValue(mockUpdatedSystemClockOffset);
+    vi.mocked(getSkewCorrectedDate).mockReturnValue(mockSkewCorrectedDate);
   });
 
   afterEach(() => {
@@ -47,7 +48,7 @@ describe(awsAuthMiddleware.name, () => {
     expect(mockSignFn).toHaveBeenCalledTimes(1);
     expect(mockNext).toHaveBeenCalledTimes(1);
     expect(mockNext).toHaveBeenCalledWith({ ...mockSigningHandlerArgs, request: mockSignedRequest });
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   it("should sign the request with systemClockOffset", async () => {

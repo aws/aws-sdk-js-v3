@@ -12,7 +12,8 @@ import { de_PutImageTagMutabilityCommand, se_PutImageTagMutabilityCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface PutImageTagMutabilityCommandOutput extends PutImageTagMutabilit
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class PutImageTagMutabilityCommand extends $Command
@@ -81,9 +83,7 @@ export class PutImageTagMutabilityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class PutImageTagMutabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutImageTagMutabilityCommand)
   .de(de_PutImageTagMutabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutImageTagMutabilityRequest;
+      output: PutImageTagMutabilityResponse;
+    };
+    sdk: {
+      input: PutImageTagMutabilityCommandInput;
+      output: PutImageTagMutabilityCommandOutput;
+    };
+  };
+}

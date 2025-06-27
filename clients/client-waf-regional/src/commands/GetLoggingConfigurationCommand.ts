@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface GetLoggingConfigurationCommandOutput extends GetLoggingConfigur
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class GetLoggingConfigurationCommand extends $Command
@@ -89,9 +91,7 @@ export class GetLoggingConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetLoggingConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoggingConfigurationCommand)
   .de(de_GetLoggingConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoggingConfigurationRequest;
+      output: GetLoggingConfigurationResponse;
+    };
+    sdk: {
+      input: GetLoggingConfigurationCommandInput;
+      output: GetLoggingConfigurationCommandOutput;
+    };
+  };
+}

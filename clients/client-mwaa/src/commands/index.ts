@@ -4,6 +4,7 @@ export * from "./CreateEnvironmentCommand";
 export * from "./CreateWebLoginTokenCommand";
 export * from "./DeleteEnvironmentCommand";
 export * from "./GetEnvironmentCommand";
+export * from "./InvokeRestApiCommand";
 export * from "./ListEnvironmentsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./PublishMetricsCommand";

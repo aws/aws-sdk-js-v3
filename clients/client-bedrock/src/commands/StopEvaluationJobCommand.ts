@@ -16,7 +16,8 @@ import { de_StopEvaluationJobCommand, se_StopEvaluationJobCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface StopEvaluationJobCommandInput extends StopEvaluationJobRequest 
 export interface StopEvaluationJobCommandOutput extends StopEvaluationJobResponse, __MetadataBearer {}
 
 /**
- * <p>Stops an in progress model evaluation job.</p>
+ * <p>Stops an evaluation job that is current being created or running.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +75,7 @@ export interface StopEvaluationJobCommandOutput extends StopEvaluationJobRespons
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class StopEvaluationJobCommand extends $Command
@@ -84,9 +86,7 @@ export class StopEvaluationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class StopEvaluationJobCommand extends $Command
   .f(StopEvaluationJobRequestFilterSensitiveLog, void 0)
   .ser(se_StopEvaluationJobCommand)
   .de(de_StopEvaluationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopEvaluationJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopEvaluationJobCommandInput;
+      output: StopEvaluationJobCommandOutput;
+    };
+  };
+}

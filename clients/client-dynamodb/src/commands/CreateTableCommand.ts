@@ -12,7 +12,8 @@ import { de_CreateTableCommand, se_CreateTableCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *         MaxReadRequestUnits: Number("long"),
  *         MaxWriteRequestUnits: Number("long"),
  *       },
+ *       WarmThroughput: { // WarmThroughput
+ *         ReadUnitsPerSecond: Number("long"),
+ *         WriteUnitsPerSecond: Number("long"),
+ *       },
  *     },
  *   ],
  *   BillingMode: "PROVISIONED" || "PAY_PER_REQUEST",
@@ -124,6 +129,10 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *   ],
  *   TableClass: "STANDARD" || "STANDARD_INFREQUENT_ACCESS",
  *   DeletionProtectionEnabled: true || false,
+ *   WarmThroughput: {
+ *     ReadUnitsPerSecond: Number("long"),
+ *     WriteUnitsPerSecond: Number("long"),
+ *   },
  *   ResourcePolicy: "STRING_VALUE",
  *   OnDemandThroughput: {
  *     MaxReadRequestUnits: Number("long"),
@@ -215,6 +224,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -237,6 +251,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -245,6 +264,11 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -281,6 +305,12 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
  * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *
@@ -314,84 +344,25 @@ export interface CreateTableCommandOutput extends CreateTableOutput, __MetadataB
  *             this limit may result in request throttling.</p>
  *
  * @throws {@link ResourceInUseException} (client fault)
- *  <p>The operation conflicts with the resource's availability. For example, you
- *             attempted to recreate an existing table, or tried to delete a table currently in the
- *                 <code>CREATING</code> state.</p>
+ *  <p>The operation conflicts with the resource's availability. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You attempted to recreate an existing table.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a resource that was already being updated.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
- * @public
- * @example To create a table
- * ```javascript
- * // This example creates a table named Music.
- * const input = {
- *   "AttributeDefinitions": [
- *     {
- *       "AttributeName": "Artist",
- *       "AttributeType": "S"
- *     },
- *     {
- *       "AttributeName": "SongTitle",
- *       "AttributeType": "S"
- *     }
- *   ],
- *   "KeySchema": [
- *     {
- *       "AttributeName": "Artist",
- *       "KeyType": "HASH"
- *     },
- *     {
- *       "AttributeName": "SongTitle",
- *       "KeyType": "RANGE"
- *     }
- *   ],
- *   "ProvisionedThroughput": {
- *     "ReadCapacityUnits": 5,
- *     "WriteCapacityUnits": 5
- *   },
- *   "TableName": "Music"
- * };
- * const command = new CreateTableCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TableDescription": {
- *     "AttributeDefinitions": [
- *       {
- *         "AttributeName": "Artist",
- *         "AttributeType": "S"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "AttributeType": "S"
- *       }
- *     ],
- *     "CreationDateTime": "1421866952.062",
- *     "ItemCount": 0,
- *     "KeySchema": [
- *       {
- *         "AttributeName": "Artist",
- *         "KeyType": "HASH"
- *       },
- *       {
- *         "AttributeName": "SongTitle",
- *         "KeyType": "RANGE"
- *       }
- *     ],
- *     "ProvisionedThroughput": {
- *       "ReadCapacityUnits": 5,
- *       "WriteCapacityUnits": 5
- *     },
- *     "TableName": "Music",
- *     "TableSizeBytes": 0,
- *     "TableStatus": "CREATING"
- *   }
- * }
- * *\/
- * // example id: to-create-a-table-1476116291743
- * ```
  *
+ * @public
  */
 export class CreateTableCommand extends $Command
   .classBuilder<
@@ -403,6 +374,7 @@ export class CreateTableCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -415,4 +387,16 @@ export class CreateTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTableCommand)
   .de(de_CreateTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTableInput;
+      output: CreateTableOutput;
+    };
+    sdk: {
+      input: CreateTableCommandInput;
+      output: CreateTableCommandOutput;
+    };
+  };
+}

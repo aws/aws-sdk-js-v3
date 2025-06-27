@@ -13,7 +13,8 @@ import { de_GetMapTileCommand, se_GetMapTileCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface GetMapTileCommandOutput extends GetMapTileCommandOutputType, __
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetMapTileCommand extends $Command
@@ -99,9 +101,7 @@ export class GetMapTileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class GetMapTileCommand extends $Command
   .f(GetMapTileRequestFilterSensitiveLog, void 0)
   .ser(se_GetMapTileCommand)
   .de(de_GetMapTileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMapTileRequest;
+      output: GetMapTileResponse;
+    };
+    sdk: {
+      input: GetMapTileCommandInput;
+      output: GetMapTileCommandOutput;
+    };
+  };
+}

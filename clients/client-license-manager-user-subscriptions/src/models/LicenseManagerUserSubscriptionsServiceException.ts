@@ -4,7 +4,9 @@ import {
   ServiceExceptionOptions as __ServiceExceptionOptions,
 } from "@smithy/smithy-client";
 
-export { __ServiceException, __ServiceExceptionOptions };
+export type { __ServiceExceptionOptions };
+
+export { __ServiceException };
 
 /**
  * @public

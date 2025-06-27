@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetListingInput, GetListingOutput, GetListingOutputFilterSensitiveLog } from "../models/models_0";
+import { GetListingInput, GetListingOutput, GetListingOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetListingCommand, se_GetListingCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface GetListingCommandInput extends GetListingInput {}
 export interface GetListingCommandOutput extends GetListingOutput, __MetadataBearer {}
 
 /**
- * <p>Gets a listing (a record of an asset at a given time).</p>
+ * <p>Gets a listing (a record of an asset at a given time). If you specify a listing version,
+ *          only details that are specific to that version are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +76,31 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * //       ],
  * //       owningProjectId: "STRING_VALUE",
  * //     },
+ * //     dataProductListing: { // DataProductListing
+ * //       dataProductId: "STRING_VALUE",
+ * //       dataProductRevision: "STRING_VALUE",
+ * //       createdAt: new Date("TIMESTAMP"),
+ * //       forms: "STRING_VALUE",
+ * //       glossaryTerms: [
+ * //         {
+ * //           name: "STRING_VALUE",
+ * //           shortDescription: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       owningProjectId: "STRING_VALUE",
+ * //       items: [ // ListingSummaries
+ * //         { // ListingSummary
+ * //           listingId: "STRING_VALUE",
+ * //           listingRevision: "STRING_VALUE",
+ * //           glossaryTerms: [
+ * //             {
+ * //               name: "STRING_VALUE",
+ * //               shortDescription: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   name: "STRING_VALUE",
  * //   description: "STRING_VALUE",
@@ -109,6 +136,7 @@ export interface GetListingCommandOutput extends GetListingOutput, __MetadataBea
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetListingCommand extends $Command
@@ -119,9 +147,7 @@ export class GetListingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +159,16 @@ export class GetListingCommand extends $Command
   .f(void 0, GetListingOutputFilterSensitiveLog)
   .ser(se_GetListingCommand)
   .de(de_GetListingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetListingInput;
+      output: GetListingOutput;
+    };
+    sdk: {
+      input: GetListingCommandInput;
+      output: GetListingCommandOutput;
+    };
+  };
+}

@@ -68,7 +68,14 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ListVersionsCommand,
+  ListVersionsCommandInput,
+  ListVersionsCommandOutput,
+} from "./commands/ListVersionsCommand";
+import { ProbeCommand, ProbeCommandInput, ProbeCommandOutput } from "./commands/ProbeCommand";
 import { PutPolicyCommand, PutPolicyCommandInput, PutPolicyCommandOutput } from "./commands/PutPolicyCommand";
+import { SearchJobsCommand, SearchJobsCommandInput, SearchJobsCommandOutput } from "./commands/SearchJobsCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -111,7 +118,10 @@ const commands = {
   ListPresetsCommand,
   ListQueuesCommand,
   ListTagsForResourceCommand,
+  ListVersionsCommand,
+  ProbeCommand,
   PutPolicyCommand,
+  SearchJobsCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateJobTemplateCommand,
@@ -415,6 +425,30 @@ export interface MediaConvert {
   ): void;
 
   /**
+   * @see {@link ListVersionsCommand}
+   */
+  listVersions(): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
+  listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
+  listVersions(
+    args: ListVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListVersionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ProbeCommand}
+   */
+  probe(): Promise<ProbeCommandOutput>;
+  probe(args: ProbeCommandInput, options?: __HttpHandlerOptions): Promise<ProbeCommandOutput>;
+  probe(args: ProbeCommandInput, cb: (err: any, data?: ProbeCommandOutput) => void): void;
+  probe(
+    args: ProbeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ProbeCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link PutPolicyCommand}
    */
   putPolicy(args: PutPolicyCommandInput, options?: __HttpHandlerOptions): Promise<PutPolicyCommandOutput>;
@@ -423,6 +457,18 @@ export interface MediaConvert {
     args: PutPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: PutPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchJobsCommand}
+   */
+  searchJobs(): Promise<SearchJobsCommandOutput>;
+  searchJobs(args: SearchJobsCommandInput, options?: __HttpHandlerOptions): Promise<SearchJobsCommandOutput>;
+  searchJobs(args: SearchJobsCommandInput, cb: (err: any, data?: SearchJobsCommandOutput) => void): void;
+  searchJobs(
+    args: SearchJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchJobsCommandOutput) => void
   ): void;
 
   /**

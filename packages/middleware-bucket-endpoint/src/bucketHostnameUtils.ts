@@ -1,17 +1,49 @@
 import { ARN } from "@aws-sdk/util-arn-parser";
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 const DOMAIN_PATTERN = /^[a-z0-9][a-z0-9\.\-]{1,61}[a-z0-9]$/;
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 const IP_ADDRESS_PATTERN = /(\d+\.){3}\d+/;
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 const DOTS_PATTERN = /\.\./;
+
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 export const DOT_PATTERN = /\./;
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 export const S3_HOSTNAME_PATTERN = /^(.+\.)?s3(-fips)?(\.dualstack)?[.-]([a-z0-9-]+)\./;
+
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 const S3_US_EAST_1_ALTNAME_PATTERN = /^s3(-external-1)?\.amazonaws\.com$/;
+
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 const AWS_PARTITION_SUFFIX = "amazonaws.com";
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export interface AccessPointArn extends ARN {
   accessPointName: string;
 }
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export interface BucketHostnameParams {
   isCustomEndpoint?: boolean;
   baseHostname: string;
@@ -24,6 +56,10 @@ export interface BucketHostnameParams {
   tlsCompatible?: boolean;
 }
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export interface ArnHostnameParams extends Omit<BucketHostnameParams, "bucketName"> {
   bucketName: ARN;
   clientSigningRegion?: string;
@@ -32,6 +68,10 @@ export interface ArnHostnameParams extends Omit<BucketHostnameParams, "bucketNam
   disableMultiregionAccessPoints?: boolean;
 }
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const isBucketNameOptions = (
   options: BucketHostnameParams | ArnHostnameParams
 ): options is BucketHostnameParams => typeof options.bucketName === "string";
@@ -43,15 +83,25 @@ export const isBucketNameOptions = (
  * @internal
  *
  * @see https://docs.aws.amazon.com/AmazonS3/latest/dev/BucketRestrictions.html
+ *
+ * @deprecated unused as of EndpointsV2.
  */
 export const isDnsCompatibleBucketName = (bucketName: string): boolean =>
   DOMAIN_PATTERN.test(bucketName) && !IP_ADDRESS_PATTERN.test(bucketName) && !DOTS_PATTERN.test(bucketName);
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 const getRegionalSuffix = (hostname: string): [string, string] => {
   const parts = hostname.match(S3_HOSTNAME_PATTERN)!;
   return [parts[4], hostname.replace(new RegExp(`^${parts[0]}`), "")];
 };
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const getSuffix = (hostname: string): [string, string] =>
   S3_US_EAST_1_ALTNAME_PATTERN.test(hostname) ? ["us-east-1", AWS_PARTITION_SUFFIX] : getRegionalSuffix(hostname);
 
@@ -60,12 +110,18 @@ export const getSuffix = (hostname: string): [string, string] =>
  * @internal
  * @param hostname - Hostname
  * @returns [Region, Hostname suffix]
+ *
+ * @deprecated unused as of EndpointsV2.
  */
 export const getSuffixForArnEndpoint = (hostname: string): [string, string] =>
   S3_US_EAST_1_ALTNAME_PATTERN.test(hostname)
     ? [hostname.replace(`.${AWS_PARTITION_SUFFIX}`, ""), AWS_PARTITION_SUFFIX]
     : getRegionalSuffix(hostname);
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const validateArnEndpointOptions = (options: {
   accelerateEndpoint?: boolean;
   tlsCompatible?: boolean;
@@ -82,18 +138,29 @@ export const validateArnEndpointOptions = (options: {
   }
 };
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const validateService = (service: string) => {
   if (service !== "s3" && service !== "s3-outposts" && service !== "s3-object-lambda") {
     throw new Error("Expect 's3' or 's3-outposts' or 's3-object-lambda' in ARN service component");
   }
 };
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ * @internal
+ */
 export const validateS3Service = (service: string) => {
   if (service !== "s3") {
     throw new Error("Expect 's3' in Accesspoint ARN service component");
   }
 };
 
+/**
+ * @internal
+ */
 export const validateOutpostService = (service: string) => {
   if (service !== "s3-outposts") {
     throw new Error("Expect 's3-posts' in Outpost ARN service component");
@@ -111,10 +178,14 @@ export const validatePartition = (partition: string, options: { clientPartition:
 };
 
 /**
+ * (Previous to deprecation)
  * validate region value inferred from ARN. If `options.useArnRegion` is set, it validates the region is not a FIPS
  * region. If `options.useArnRegion` is unset, it validates the region is equal to `options.clientRegion` or
  * `options.clientSigningRegion`.
+ *
  * @internal
+ *
+ * @deprecated validation is deferred to the endpoint ruleset.
  */
 export const validateRegion = (
   region: string,
@@ -125,37 +196,16 @@ export const validateRegion = (
     clientSigningRegion: string;
     useFipsEndpoint: boolean;
   }
-) => {
-  if (region === "") {
-    throw new Error("ARN region is empty");
-  }
-  if (options.useFipsEndpoint) {
-    if (!options.allowFipsRegion) {
-      throw new Error("FIPS region is not supported");
-    } else if (!isEqualRegions(region, options.clientRegion)) {
-      throw new Error(`Client FIPS region ${options.clientRegion} doesn't match region ${region} in ARN`);
-    }
-  }
-  if (
-    !options.useArnRegion &&
-    !isEqualRegions(region, options.clientRegion || "") &&
-    !isEqualRegions(region, options.clientSigningRegion || "")
-  ) {
-    throw new Error(`Region in ARN is incompatible, got ${region} but expected ${options.clientRegion}`);
-  }
-};
+) => {};
 
 /**
- *
- * @param region
+ * @deprecated unused as of EndpointsV2.
  */
 export const validateRegionalClient = (region: string) => {
   if (["s3-external-1", "aws-global"].includes(region)) {
     throw new Error(`Client region ${region} is not regional`);
   }
 };
-
-const isEqualRegions = (regionA: string, regionB: string) => regionA === regionB;
 
 /**
  * Validate an account ID
@@ -170,6 +220,7 @@ export const validateAccountId = (accountId: string) => {
 /**
  * Validate a host label according to https://tools.ietf.org/html/rfc3986#section-3.2.2
  * @internal
+ * @deprecated unused as of EndpointsV2.
  */
 export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: boolean } = { tlsCompatible: true }) => {
   // reference: https://tools.ietf.org/html/rfc3986#section-3.2.2
@@ -184,6 +235,9 @@ export const validateDNSHostLabel = (label: string, options: { tlsCompatible?: b
   }
 };
 
+/**
+ * @deprecated unused as of EndpointsV2.
+ */
 export const validateCustomEndpoint = (options: {
   isCustomEndpoint?: boolean;
   dualstackEndpoint?: boolean;
@@ -231,17 +285,17 @@ export const getArnResources = (
 };
 
 /**
- * Throw if dual stack configuration is set to true.
+ * (Prior to deprecation) Throw if dual stack configuration is set to true.
  * @internal
+ *
+ * @deprecated validation deferred to endpoints ruleset.
  */
-export const validateNoDualstack = (dualstackEndpoint?: boolean) => {
-  if (dualstackEndpoint)
-    throw new Error("Dualstack endpoint is not supported with Outpost or Multi-region Access Point ARN.");
-};
+export const validateNoDualstack = (dualstackEndpoint?: boolean) => {};
 
 /**
  * Validate fips endpoint is not set up.
  * @internal
+ * @deprecated unused as of EndpointsV2.
  */
 export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
   if (useFipsEndpoint) throw new Error(`FIPS region is not supported with Outpost.`);
@@ -249,7 +303,8 @@ export const validateNoFIPS = (useFipsEndpoint?: boolean) => {
 
 /**
  * Validate the multi-region access point alias.
- * @private
+ * @internal
+ * @deprecated unused as of EndpointsV2.
  */
 export const validateMrapAlias = (name: string) => {
   try {

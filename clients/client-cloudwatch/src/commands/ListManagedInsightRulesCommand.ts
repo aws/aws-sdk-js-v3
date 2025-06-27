@@ -12,7 +12,8 @@ import { de_ListManagedInsightRulesCommand, se_ListManagedInsightRulesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,10 @@ export interface ListManagedInsightRulesCommandInput extends ListManagedInsightR
 export interface ListManagedInsightRulesCommandOutput extends ListManagedInsightRulesOutput, __MetadataBearer {}
 
 /**
- * <p>
- * 			Returns a list
- * 			that contains the number
- * 			of managed Contributor Insights rules
- * 			in your account.
+ * <p> Returns a list that contains the number of managed Contributor Insights rules in your
+ *             account.
  *
- * 		</p>
+ *         </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +79,7 @@ export interface ListManagedInsightRulesCommandOutput extends ListManagedInsight
  * @throws {@link CloudWatchServiceException}
  * <p>Base exception class for all service exceptions from CloudWatch service.</p>
  *
+ *
  * @public
  */
 export class ListManagedInsightRulesCommand extends $Command
@@ -91,9 +90,7 @@ export class ListManagedInsightRulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +102,16 @@ export class ListManagedInsightRulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedInsightRulesCommand)
   .de(de_ListManagedInsightRulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedInsightRulesInput;
+      output: ListManagedInsightRulesOutput;
+    };
+    sdk: {
+      input: ListManagedInsightRulesCommandInput;
+      output: ListManagedInsightRulesCommandOutput;
+    };
+  };
+}

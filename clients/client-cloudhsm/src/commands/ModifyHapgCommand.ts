@@ -12,7 +12,8 @@ import { de_ModifyHapgCommand, se_ModifyHapgCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ModifyHapgCommandOutput extends ModifyHapgResponse, __MetadataB
  * @throws {@link CloudHSMServiceException}
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
+ *
  * @public
  */
 export class ModifyHapgCommand extends $Command
@@ -89,9 +91,7 @@ export class ModifyHapgCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ModifyHapgCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyHapgCommand)
   .de(de_ModifyHapgCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyHapgRequest;
+      output: ModifyHapgResponse;
+    };
+    sdk: {
+      input: ModifyHapgCommandInput;
+      output: ModifyHapgCommandOutput;
+    };
+  };
+}

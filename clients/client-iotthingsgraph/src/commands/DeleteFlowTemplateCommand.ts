@@ -12,7 +12,8 @@ import { de_DeleteFlowTemplateCommand, se_DeleteFlowTemplateCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * @throws {@link IoTThingsGraphServiceException}
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
+ *
  * @public
  */
 export class DeleteFlowTemplateCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteFlowTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTThingsGraphClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteFlowTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFlowTemplateCommand)
   .de(de_DeleteFlowTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFlowTemplateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFlowTemplateCommandInput;
+      output: DeleteFlowTemplateCommandOutput;
+    };
+  };
+}

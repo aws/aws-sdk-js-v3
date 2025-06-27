@@ -21,7 +21,8 @@ import { de_DescribeRiskConfigurationCommand, se_DescribeRiskConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,10 @@ export interface DescribeRiskConfigurationCommandInput extends DescribeRiskConfi
 export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the risk configuration.</p>
+ * <p>Given an app client or user pool ID where threat protection is configured, describes
+ *             the risk configuration. This operation returns details about adaptive authentication,
+ *             compromised credentials, and IP-address allow- and denylists. For more information about
+ *             threat protection, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-threat-protection.html">Threat protection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -141,6 +145,7 @@ export interface DescribeRiskConfigurationCommandOutput extends DescribeRiskConf
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeRiskConfigurationCommand extends $Command
@@ -151,9 +156,7 @@ export class DescribeRiskConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +168,16 @@ export class DescribeRiskConfigurationCommand extends $Command
   .f(DescribeRiskConfigurationRequestFilterSensitiveLog, DescribeRiskConfigurationResponseFilterSensitiveLog)
   .ser(se_DescribeRiskConfigurationCommand)
   .de(de_DescribeRiskConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRiskConfigurationRequest;
+      output: DescribeRiskConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeRiskConfigurationCommandInput;
+      output: DescribeRiskConfigurationCommandOutput;
+    };
+  };
+}

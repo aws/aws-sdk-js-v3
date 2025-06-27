@@ -16,7 +16,8 @@ import { de_DeleteServiceCommand, se_DeleteServiceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,7 +70,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * //         CodeConfiguration: { // CodeConfiguration
  * //           ConfigurationSource: "REPOSITORY" || "API", // required
  * //           CodeConfigurationValues: { // CodeConfigurationValues
- * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18", // required
+ * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18" || "NODEJS_22", // required
  * //             BuildCommand: "STRING_VALUE",
  * //             StartCommand: "STRING_VALUE",
  * //             Port: "STRING_VALUE",
@@ -169,6 +170,7 @@ export interface DeleteServiceCommandOutput extends DeleteServiceResponse, __Met
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class DeleteServiceCommand extends $Command
@@ -179,9 +181,7 @@ export class DeleteServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +193,16 @@ export class DeleteServiceCommand extends $Command
   .f(void 0, DeleteServiceResponseFilterSensitiveLog)
   .ser(se_DeleteServiceCommand)
   .de(de_DeleteServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteServiceRequest;
+      output: DeleteServiceResponse;
+    };
+    sdk: {
+      input: DeleteServiceCommandInput;
+      output: DeleteServiceCommandOutput;
+    };
+  };
+}

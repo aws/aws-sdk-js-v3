@@ -12,7 +12,8 @@ import { de_DeauthorizeConnectionCommand, se_DeauthorizeConnectionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * const response = await client.send(command);
  * // { // DeauthorizeConnectionResponse
  * //   ConnectionArn: "STRING_VALUE",
- * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING",
+ * //   ConnectionState: "CREATING" || "UPDATING" || "DELETING" || "AUTHORIZED" || "DEAUTHORIZED" || "AUTHORIZING" || "DEAUTHORIZING" || "ACTIVE" || "FAILED_CONNECTIVITY",
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   LastModifiedTime: new Date("TIMESTAMP"),
  * //   LastAuthorizedTime: new Date("TIMESTAMP"),
@@ -68,6 +69,7 @@ export interface DeauthorizeConnectionCommandOutput extends DeauthorizeConnectio
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class DeauthorizeConnectionCommand extends $Command
@@ -78,9 +80,7 @@ export class DeauthorizeConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeauthorizeConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeauthorizeConnectionCommand)
   .de(de_DeauthorizeConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeauthorizeConnectionRequest;
+      output: DeauthorizeConnectionResponse;
+    };
+    sdk: {
+      input: DeauthorizeConnectionCommandInput;
+      output: DeauthorizeConnectionCommandOutput;
+    };
+  };
+}

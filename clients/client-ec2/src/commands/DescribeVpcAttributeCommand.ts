@@ -12,7 +12,8 @@ import { de_DescribeVpcAttributeCommand, se_DescribeVpcAttributeCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,6 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
  * // { // DescribeVpcAttributeResult
- * //   VpcId: "STRING_VALUE",
  * //   EnableDnsHostnames: { // AttributeBooleanValue
  * //     Value: true || false,
  * //   },
@@ -52,6 +52,7 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * //   EnableNetworkAddressUsageMetrics: {
  * //     Value: true || false,
  * //   },
+ * //   VpcId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -65,47 +66,46 @@ export interface DescribeVpcAttributeCommandOutput extends DescribeVpcAttributeR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the enableDnsSupport attribute
  * ```javascript
  * // This example describes the enableDnsSupport attribute. This attribute indicates whether DNS resolution is enabled for the VPC. If this attribute is true, the Amazon DNS server resolves DNS hostnames for your instances to their corresponding IP addresses; otherwise, it does not.
  * const input = {
- *   "Attribute": "enableDnsSupport",
- *   "VpcId": "vpc-a01106c2"
+ *   Attribute: "enableDnsSupport",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnableDnsSupport": {
- *     "Value": true
+ *   EnableDnsSupport: {
+ *     Value: true
  *   },
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * }
  * *\/
- * // example id: ec2-describe-vpc-attribute-1
  * ```
  *
  * @example To describe the enableDnsHostnames attribute
  * ```javascript
  * // This example describes the enableDnsHostnames attribute. This attribute indicates whether the instances launched in the VPC get DNS hostnames. If this attribute is true, instances in the VPC get DNS hostnames; otherwise, they do not.
  * const input = {
- *   "Attribute": "enableDnsHostnames",
- *   "VpcId": "vpc-a01106c2"
+ *   Attribute: "enableDnsHostnames",
+ *   VpcId: "vpc-a01106c2"
  * };
  * const command = new DescribeVpcAttributeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnableDnsHostnames": {
- *     "Value": true
+ *   EnableDnsHostnames: {
+ *     Value: true
  *   },
- *   "VpcId": "vpc-a01106c2"
+ *   VpcId: "vpc-a01106c2"
  * }
  * *\/
- * // example id: ec2-describe-vpc-attribute-2
  * ```
  *
+ * @public
  */
 export class DescribeVpcAttributeCommand extends $Command
   .classBuilder<
@@ -115,9 +115,7 @@ export class DescribeVpcAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +127,16 @@ export class DescribeVpcAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcAttributeCommand)
   .de(de_DescribeVpcAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcAttributeRequest;
+      output: DescribeVpcAttributeResult;
+    };
+    sdk: {
+      input: DescribeVpcAttributeCommandInput;
+      output: DescribeVpcAttributeCommandOutput;
+    };
+  };
+}

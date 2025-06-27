@@ -12,7 +12,8 @@ import { de_DetectStackResourceDriftCommand, se_DetectStackResourceDriftCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,15 +29,18 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
 
 /**
  * <p>Returns information about whether a resource's actual configuration differs, or has
- *    <i>drifted</i>, from its expected configuration, as defined in the stack template and any values
- *    specified as template parameters. This information includes actual and expected property values for resources in
- *    which CloudFormation detects drift. Only resource properties explicitly defined in the stack template are checked for drift.
- *    For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to
- *    Stacks and Resources</a>.</p>
- *          <p>Use <code>DetectStackResourceDrift</code> to detect drift on individual resources, or <a>DetectStackDrift</a> to detect drift on all resources in a given stack that support drift detection.</p>
- *          <p>Resources that don't currently support drift detection can't be checked. For a list of resources that support
- *    drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift
- *    Detection</a>.</p>
+ *         <i>drifted</i>, from its expected configuration, as defined in the stack
+ *       template and any values specified as template parameters. This information includes actual and
+ *       expected property values for resources in which CloudFormation detects drift. Only resource
+ *       properties explicitly defined in the stack template are checked for drift. For more
+ *       information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detect unmanaged
+ *         configuration changes to stacks and resources with drift detection</a>.</p>
+ *          <p>Use <code>DetectStackResourceDrift</code> to detect drift on individual resources, or
+ *         <a>DetectStackDrift</a> to detect drift on all resources in a given stack that
+ *       support drift detection.</p>
+ *          <p>Resources that don't currently support drift detection can't be checked. For a list of
+ *       resources that support drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resource
+ *         type support for imports and drift detection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +95,7 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DetectStackResourceDriftCommand extends $Command
@@ -101,9 +106,7 @@ export class DetectStackResourceDriftCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +118,16 @@ export class DetectStackResourceDriftCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DetectStackResourceDriftCommand)
   .de(de_DetectStackResourceDriftCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DetectStackResourceDriftInput;
+      output: DetectStackResourceDriftOutput;
+    };
+    sdk: {
+      input: DetectStackResourceDriftCommandInput;
+      output: DetectStackResourceDriftCommandOutput;
+    };
+  };
+}

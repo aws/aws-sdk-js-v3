@@ -8,10 +8,11 @@
  */
 //
 
-import readline from "readline";
+import { fileURLToPath } from "node:url";
 import fs from "fs";
 import path, { dirname } from "path";
-import { fileURLToPath } from "node:url";
+import readline from "readline";
+import { listFolders } from "../utils/list-folders.js";
 import { spawnProcessReturnValue } from "../utils/spawn-process.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -34,7 +35,7 @@ const root = path.join(__dirname, "..", "..");
 const packages = [];
 
 function recordPackages(dir) {
-  const packageFolders = fs.readdirSync(dir);
+  const packageFolders = listFolders(dir);
   for (const packageFolder of packageFolders) {
     const pkgJson = JSON.parse(fs.readFileSync(path.join(dir, packageFolder, "package.json"), "utf-8"));
     packages.push(pkgJson.name);

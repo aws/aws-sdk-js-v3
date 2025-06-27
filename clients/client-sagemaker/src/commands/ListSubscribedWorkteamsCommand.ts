@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListSubscribedWorkteamsCommandInput extends ListSubscribedWorkt
 export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWorkteamsResponse, __MetadataBearer {}
 
 /**
- * <p>Gets a list of the work teams that you are subscribed to in the Amazon Web Services Marketplace. The
- *             list may be empty if no work team satisfies the filter specified in the
- *                 <code>NameContains</code> parameter.</p>
+ * <p>Gets a list of the work teams that you are subscribed to in the Amazon Web Services Marketplace. The list may be empty if no work team satisfies the filter specified in the <code>NameContains</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +66,7 @@ export interface ListSubscribedWorkteamsCommandOutput extends ListSubscribedWork
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListSubscribedWorkteamsCommand extends $Command
@@ -77,9 +77,7 @@ export class ListSubscribedWorkteamsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +89,16 @@ export class ListSubscribedWorkteamsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSubscribedWorkteamsCommand)
   .de(de_ListSubscribedWorkteamsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscribedWorkteamsRequest;
+      output: ListSubscribedWorkteamsResponse;
+    };
+    sdk: {
+      input: ListSubscribedWorkteamsCommandInput;
+      output: ListSubscribedWorkteamsCommandOutput;
+    };
+  };
+}

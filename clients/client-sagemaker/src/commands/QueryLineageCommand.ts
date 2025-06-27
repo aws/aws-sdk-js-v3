@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface QueryLineageCommandInput extends QueryLineageRequest {}
 export interface QueryLineageCommandOutput extends QueryLineageResponse, __MetadataBearer {}
 
 /**
- * <p>Use this action to inspect your lineage and discover relationships between entities.
- *          For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html">
- *             Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
+ * <p>Use this action to inspect your lineage and discover relationships between entities. For more information, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/querying-lineage-entities.html"> Querying Lineage Entities</a> in the <i>Amazon SageMaker Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +94,7 @@ export interface QueryLineageCommandOutput extends QueryLineageResponse, __Metad
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class QueryLineageCommand extends $Command
@@ -105,9 +105,7 @@ export class QueryLineageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +117,16 @@ export class QueryLineageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_QueryLineageCommand)
   .de(de_QueryLineageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: QueryLineageRequest;
+      output: QueryLineageResponse;
+    };
+    sdk: {
+      input: QueryLineageCommandInput;
+      output: QueryLineageCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DisassociateCreatedArtifactCommand, se_DisassociateCreatedArtifactCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface DisassociateCreatedArtifactCommandOutput extends DisassociateCr
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class DisassociateCreatedArtifactCommand extends $Command
@@ -115,9 +117,7 @@ export class DisassociateCreatedArtifactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class DisassociateCreatedArtifactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateCreatedArtifactCommand)
   .de(de_DisassociateCreatedArtifactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateCreatedArtifactRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateCreatedArtifactCommandInput;
+      output: DisassociateCreatedArtifactCommandOutput;
+    };
+  };
+}

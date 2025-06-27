@@ -12,7 +12,8 @@ import { de_DescribeFHIRImportJobCommand, se_DescribeFHIRImportJobCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,7 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * //   ImportJobProperties: { // ImportJobProperties
  * //     JobId: "STRING_VALUE", // required
  * //     JobName: "STRING_VALUE",
- * //     JobStatus: "SUBMITTED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
+ * //     JobStatus: "SUBMITTED" || "QUEUED" || "IN_PROGRESS" || "COMPLETED_WITH_ERRORS" || "COMPLETED" || "FAILED" || "CANCEL_SUBMITTED" || "CANCEL_IN_PROGRESS" || "CANCEL_COMPLETED" || "CANCEL_FAILED", // required
  * //     SubmitTime: new Date("TIMESTAMP"), // required
  * //     EndTime: new Date("TIMESTAMP"),
  * //     DatastoreId: "STRING_VALUE", // required
@@ -95,6 +96,7 @@ export interface DescribeFHIRImportJobCommandOutput extends DescribeFHIRImportJo
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class DescribeFHIRImportJobCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeFHIRImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeFHIRImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFHIRImportJobCommand)
   .de(de_DescribeFHIRImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFHIRImportJobRequest;
+      output: DescribeFHIRImportJobResponse;
+    };
+    sdk: {
+      input: DescribeFHIRImportJobCommandInput;
+      output: DescribeFHIRImportJobCommandOutput;
+    };
+  };
+}

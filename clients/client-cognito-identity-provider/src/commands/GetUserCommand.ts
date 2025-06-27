@@ -21,7 +21,8 @@ import { de_GetUserCommand, se_GetUserCommand } from "../protocols/Aws_json1_1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface GetUserCommandInput extends GetUserRequest {}
 export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the user attributes and metadata for a user.</p>
+ * <p>Gets user attributes and and MFA settings for the currently signed-in user.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -117,6 +118,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetUserCommand extends $Command
@@ -127,9 +129,7 @@ export class GetUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class GetUserCommand extends $Command
   .f(GetUserRequestFilterSensitiveLog, GetUserResponseFilterSensitiveLog)
   .ser(se_GetUserCommand)
   .de(de_GetUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserRequest;
+      output: GetUserResponse;
+    };
+    sdk: {
+      input: GetUserCommandInput;
+      output: GetUserCommandOutput;
+    };
+  };
+}

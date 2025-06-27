@@ -90,6 +90,11 @@ import {
   ListActionTypesCommandOutput,
 } from "./commands/ListActionTypesCommand";
 import {
+  ListDeployActionExecutionTargetsCommand,
+  ListDeployActionExecutionTargetsCommandInput,
+  ListDeployActionExecutionTargetsCommandOutput,
+} from "./commands/ListDeployActionExecutionTargetsCommand";
+import {
   ListPipelineExecutionsCommand,
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
@@ -100,6 +105,16 @@ import {
   ListPipelinesCommandOutput,
 } from "./commands/ListPipelinesCommand";
 import {
+  ListRuleExecutionsCommand,
+  ListRuleExecutionsCommandInput,
+  ListRuleExecutionsCommandOutput,
+} from "./commands/ListRuleExecutionsCommand";
+import {
+  ListRuleTypesCommand,
+  ListRuleTypesCommandInput,
+  ListRuleTypesCommandOutput,
+} from "./commands/ListRuleTypesCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -109,6 +124,11 @@ import {
   ListWebhooksCommandInput,
   ListWebhooksCommandOutput,
 } from "./commands/ListWebhooksCommand";
+import {
+  OverrideStageConditionCommand,
+  OverrideStageConditionCommandInput,
+  OverrideStageConditionCommandOutput,
+} from "./commands/OverrideStageConditionCommand";
 import { PollForJobsCommand, PollForJobsCommandInput, PollForJobsCommandOutput } from "./commands/PollForJobsCommand";
 import {
   PollForThirdPartyJobsCommand,
@@ -207,10 +227,14 @@ const commands = {
   GetThirdPartyJobDetailsCommand,
   ListActionExecutionsCommand,
   ListActionTypesCommand,
+  ListDeployActionExecutionTargetsCommand,
   ListPipelineExecutionsCommand,
   ListPipelinesCommand,
+  ListRuleExecutionsCommand,
+  ListRuleTypesCommand,
   ListTagsForResourceCommand,
   ListWebhooksCommand,
+  OverrideStageConditionCommand,
   PollForJobsCommand,
   PollForThirdPartyJobsCommand,
   PutActionRevisionCommand,
@@ -505,6 +529,23 @@ export interface CodePipeline {
   ): void;
 
   /**
+   * @see {@link ListDeployActionExecutionTargetsCommand}
+   */
+  listDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDeployActionExecutionTargetsCommandOutput>;
+  listDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    cb: (err: any, data?: ListDeployActionExecutionTargetsCommandOutput) => void
+  ): void;
+  listDeployActionExecutionTargets(
+    args: ListDeployActionExecutionTargetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDeployActionExecutionTargetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPipelineExecutionsCommand}
    */
   listPipelineExecutions(
@@ -534,6 +575,35 @@ export interface CodePipeline {
   ): void;
 
   /**
+   * @see {@link ListRuleExecutionsCommand}
+   */
+  listRuleExecutions(
+    args: ListRuleExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRuleExecutionsCommandOutput>;
+  listRuleExecutions(
+    args: ListRuleExecutionsCommandInput,
+    cb: (err: any, data?: ListRuleExecutionsCommandOutput) => void
+  ): void;
+  listRuleExecutions(
+    args: ListRuleExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRuleExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRuleTypesCommand}
+   */
+  listRuleTypes(): Promise<ListRuleTypesCommandOutput>;
+  listRuleTypes(args: ListRuleTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListRuleTypesCommandOutput>;
+  listRuleTypes(args: ListRuleTypesCommandInput, cb: (err: any, data?: ListRuleTypesCommandOutput) => void): void;
+  listRuleTypes(
+    args: ListRuleTypesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRuleTypesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -560,6 +630,23 @@ export interface CodePipeline {
     args: ListWebhooksCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWebhooksCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link OverrideStageConditionCommand}
+   */
+  overrideStageCondition(
+    args: OverrideStageConditionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<OverrideStageConditionCommandOutput>;
+  overrideStageCondition(
+    args: OverrideStageConditionCommandInput,
+    cb: (err: any, data?: OverrideStageConditionCommandOutput) => void
+  ): void;
+  overrideStageCondition(
+    args: OverrideStageConditionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: OverrideStageConditionCommandOutput) => void
   ): void;
 
   /**
@@ -945,6 +1032,9 @@ export interface CodePipeline {
  *             </li>
  *             <li>
  *                <p>Invoke</p>
+ *             </li>
+ *             <li>
+ *                <p>Compute</p>
  *             </li>
  *          </ul>
  *          <p>Pipelines also include <i>transitions</i>, which allow the transition

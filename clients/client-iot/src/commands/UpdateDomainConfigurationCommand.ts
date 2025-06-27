@@ -12,7 +12,8 @@ import { de_UpdateDomainConfigurationCommand, se_UpdateDomainConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,13 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  *   },
  *   serverCertificateConfig: { // ServerCertificateConfig
  *     enableOCSPCheck: true || false,
+ *     ocspLambdaArn: "STRING_VALUE",
+ *     ocspAuthorizedResponderArn: "STRING_VALUE",
+ *   },
+ *   authenticationType: "CUSTOM_AUTH_X509" || "CUSTOM_AUTH" || "AWS_X509" || "AWS_SIGV4" || "DEFAULT",
+ *   applicationProtocol: "SECURE_MQTT" || "MQTT_WSS" || "HTTPS" || "DEFAULT",
+ *   clientCertificateConfig: { // ClientCertificateConfig
+ *     clientCertificateCallbackArn: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateDomainConfigurationCommand(input);
@@ -90,6 +98,7 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateDomainConfigurationCommand extends $Command
@@ -100,9 +109,7 @@ export class UpdateDomainConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +121,16 @@ export class UpdateDomainConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainConfigurationCommand)
   .de(de_UpdateDomainConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainConfigurationRequest;
+      output: UpdateDomainConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateDomainConfigurationCommandInput;
+      output: UpdateDomainConfigurationCommandOutput;
+    };
+  };
+}

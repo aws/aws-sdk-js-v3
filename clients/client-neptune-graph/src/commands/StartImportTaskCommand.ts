@@ -12,7 +12,8 @@ import { de_StartImportTaskCommand, se_StartImportTaskCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,9 @@ export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __M
  *   },
  *   failOnError: true || false,
  *   source: "STRING_VALUE", // required
- *   format: "CSV" || "OPEN_CYPHER",
+ *   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ *   parquetType: "COLUMNAR",
+ *   blankNodeHandling: "convertToIri",
  *   graphIdentifier: "STRING_VALUE", // required
  *   roleArn: "STRING_VALUE", // required
  * };
@@ -55,9 +58,10 @@ export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __M
  * //   graphId: "STRING_VALUE",
  * //   taskId: "STRING_VALUE", // required
  * //   source: "STRING_VALUE", // required
- * //   format: "CSV" || "OPEN_CYPHER",
+ * //   format: "CSV" || "OPEN_CYPHER" || "PARQUET" || "NTRIPLES",
+ * //   parquetType: "COLUMNAR",
  * //   roleArn: "STRING_VALUE", // required
- * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED", // required
+ * //   status: "INITIALIZING" || "EXPORTING" || "ANALYZING_DATA" || "IMPORTING" || "REPROVISIONING" || "ROLLING_BACK" || "SUCCEEDED" || "FAILED" || "CANCELLING" || "CANCELLED" || "DELETED", // required
  * //   importOptions: { // ImportOptions Union: only one key present
  * //     neptune: { // NeptuneImportOptions
  * //       s3ExportPath: "STRING_VALUE", // required
@@ -94,6 +98,7 @@ export interface StartImportTaskCommandOutput extends StartImportTaskOutput, __M
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class StartImportTaskCommand extends $Command
@@ -119,4 +124,16 @@ export class StartImportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartImportTaskCommand)
   .de(de_StartImportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartImportTaskInput;
+      output: StartImportTaskOutput;
+    };
+    sdk: {
+      input: StartImportTaskCommandInput;
+      output: StartImportTaskCommandOutput;
+    };
+  };
+}

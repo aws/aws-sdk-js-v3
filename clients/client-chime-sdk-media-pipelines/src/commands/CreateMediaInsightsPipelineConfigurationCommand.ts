@@ -24,7 +24,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -115,6 +116,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  *         LanguageModelName: "STRING_VALUE",
  *         FilterPartialResults: true || false,
  *         IdentifyLanguage: true || false,
+ *         IdentifyMultipleLanguages: true || false,
  *         LanguageOptions: "STRING_VALUE",
  *         PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  *         VocabularyNames: "STRING_VALUE",
@@ -222,6 +224,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * //           LanguageModelName: "STRING_VALUE",
  * //           FilterPartialResults: true || false,
  * //           IdentifyLanguage: true || false,
+ * //           IdentifyMultipleLanguages: true || false,
  * //           LanguageOptions: "STRING_VALUE",
  * //           PreferredLanguage: "en-US" || "en-GB" || "es-US" || "fr-CA" || "fr-FR" || "en-AU" || "it-IT" || "de-DE" || "pt-BR",
  * //           VocabularyNames: "STRING_VALUE",
@@ -293,6 +296,7 @@ export interface CreateMediaInsightsPipelineConfigurationCommandOutput
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaInsightsPipelineConfigurationCommand extends $Command
@@ -303,9 +307,7 @@ export class CreateMediaInsightsPipelineConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -320,4 +322,16 @@ export class CreateMediaInsightsPipelineConfigurationCommand extends $Command
   )
   .ser(se_CreateMediaInsightsPipelineConfigurationCommand)
   .de(de_CreateMediaInsightsPipelineConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaInsightsPipelineConfigurationRequest;
+      output: CreateMediaInsightsPipelineConfigurationResponse;
+    };
+    sdk: {
+      input: CreateMediaInsightsPipelineConfigurationCommandInput;
+      output: CreateMediaInsightsPipelineConfigurationCommandOutput;
+    };
+  };
+}

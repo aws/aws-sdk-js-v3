@@ -12,7 +12,8 @@ import { de_GetCoreNetworkCommand, se_GetCoreNetworkCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,22 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * //         SharedSegments: [ // ConstrainedStringList
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //     ],
+ * //     NetworkFunctionGroups: [ // CoreNetworkNetworkFunctionGroupList
+ * //       { // CoreNetworkNetworkFunctionGroup
+ * //         Name: "STRING_VALUE",
+ * //         EdgeLocations: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         Segments: { // ServiceInsertionSegments
+ * //           SendVia: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           SendTo: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
  * //       },
  * //     ],
  * //     Edges: [ // CoreNetworkEdgeList
@@ -102,6 +119,7 @@ export interface GetCoreNetworkCommandOutput extends GetCoreNetworkResponse, __M
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetCoreNetworkCommand extends $Command
@@ -112,9 +130,7 @@ export class GetCoreNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +142,16 @@ export class GetCoreNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCoreNetworkCommand)
   .de(de_GetCoreNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCoreNetworkRequest;
+      output: GetCoreNetworkResponse;
+    };
+    sdk: {
+      input: GetCoreNetworkCommandInput;
+      output: GetCoreNetworkCommandOutput;
+    };
+  };
+}

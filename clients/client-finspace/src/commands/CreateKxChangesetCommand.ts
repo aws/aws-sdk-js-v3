@@ -12,7 +12,8 @@ import { de_CreateKxChangesetCommand, se_CreateKxChangesetCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,6 +104,7 @@ export interface CreateKxChangesetCommandOutput extends CreateKxChangesetRespons
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class CreateKxChangesetCommand extends $Command
@@ -113,9 +115,7 @@ export class CreateKxChangesetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class CreateKxChangesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKxChangesetCommand)
   .de(de_CreateKxChangesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKxChangesetRequest;
+      output: CreateKxChangesetResponse;
+    };
+    sdk: {
+      input: CreateKxChangesetCommandInput;
+      output: CreateKxChangesetCommandOutput;
+    };
+  };
+}

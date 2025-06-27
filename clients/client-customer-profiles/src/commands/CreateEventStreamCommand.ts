@@ -12,7 +12,8 @@ import { de_CreateEventStreamCommand, se_CreateEventStreamCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,10 @@ export interface CreateEventStreamCommandInput extends CreateEventStreamRequest 
 export interface CreateEventStreamCommandOutput extends CreateEventStreamResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an event stream, which is a subscription to real-time events, such as when profiles are created and
- *          updated through Amazon Connect Customer Profiles.</p>
- *          <p>Each event stream can be associated with only one Kinesis Data Stream destination in the same region and
- *          Amazon Web Services account as the customer profiles domain</p>
+ * <p>Creates an event stream, which is a subscription to real-time events, such as when
+ *          profiles are created and updated through Amazon Connect Customer Profiles.</p>
+ *          <p>Each event stream can be associated with only one Kinesis Data Stream destination in the
+ *          same region and Amazon Web Services account as the customer profiles domain</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +81,7 @@ export interface CreateEventStreamCommandOutput extends CreateEventStreamRespons
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class CreateEventStreamCommand extends $Command
@@ -90,9 +92,7 @@ export class CreateEventStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class CreateEventStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventStreamCommand)
   .de(de_CreateEventStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventStreamRequest;
+      output: CreateEventStreamResponse;
+    };
+    sdk: {
+      input: CreateEventStreamCommandInput;
+      output: CreateEventStreamCommandOutput;
+    };
+  };
+}

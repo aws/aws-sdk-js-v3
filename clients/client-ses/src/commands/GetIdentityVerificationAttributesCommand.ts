@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,30 +85,30 @@ export interface GetIdentityVerificationAttributesCommandOutput
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetIdentityVerificationAttributes
  * ```javascript
  * // The following example returns the verification status and the verification token for a domain identity:
  * const input = {
- *   "Identities": [
+ *   Identities: [
  *     "example.com"
  *   ]
  * };
  * const command = new GetIdentityVerificationAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VerificationAttributes": {
- *     "example.com": {
- *       "VerificationStatus": "Success",
- *       "VerificationToken": "EXAMPLE3VYb9EDI2nTOQRi/Tf6MI/6bD6THIGiP1MVY="
+ *   VerificationAttributes: {
+ *     example.com: {
+ *       VerificationStatus: "Success",
+ *       VerificationToken: "EXAMPLE3VYb9EDI2nTOQRi/Tf6MI/6bD6THIGiP1MVY="
  *     }
  *   }
  * }
  * *\/
- * // example id: getidentityverificationattributes-1469124205897
  * ```
  *
+ * @public
  */
 export class GetIdentityVerificationAttributesCommand extends $Command
   .classBuilder<
@@ -117,9 +118,7 @@ export class GetIdentityVerificationAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class GetIdentityVerificationAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityVerificationAttributesCommand)
   .de(de_GetIdentityVerificationAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityVerificationAttributesRequest;
+      output: GetIdentityVerificationAttributesResponse;
+    };
+    sdk: {
+      input: GetIdentityVerificationAttributesCommandInput;
+      output: GetIdentityVerificationAttributesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetNotificationChannelCommand, se_GetNotificationChannelCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,7 @@ export interface GetNotificationChannelCommandOutput extends GetNotificationChan
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetNotificationChannelCommand extends $Command
@@ -79,9 +81,7 @@ export class GetNotificationChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class GetNotificationChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNotificationChannelCommand)
   .de(de_GetNotificationChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetNotificationChannelResponse;
+    };
+    sdk: {
+      input: GetNotificationChannelCommandInput;
+      output: GetNotificationChannelCommandOutput;
+    };
+  };
+}

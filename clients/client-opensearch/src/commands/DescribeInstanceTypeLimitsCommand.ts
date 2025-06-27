@@ -12,7 +12,8 @@ import { de_DescribeInstanceTypeLimitsCommand, se_DescribeInstanceTypeLimitsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface DescribeInstanceTypeLimitsCommandOutput extends DescribeInstanc
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceTypeLimitsCommand extends $Command
@@ -116,9 +118,7 @@ export class DescribeInstanceTypeLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class DescribeInstanceTypeLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceTypeLimitsCommand)
   .de(de_DescribeInstanceTypeLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceTypeLimitsRequest;
+      output: DescribeInstanceTypeLimitsResponse;
+    };
+    sdk: {
+      input: DescribeInstanceTypeLimitsCommandInput;
+      output: DescribeInstanceTypeLimitsCommandOutput;
+    };
+  };
+}

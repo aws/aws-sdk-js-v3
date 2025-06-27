@@ -26,6 +26,10 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "../commands/CreateApplicationCommand";
 import {
+  CreateDataIntegrationAssociationCommandInput,
+  CreateDataIntegrationAssociationCommandOutput,
+} from "../commands/CreateDataIntegrationAssociationCommand";
+import {
   CreateDataIntegrationCommandInput,
   CreateDataIntegrationCommandOutput,
 } from "../commands/CreateDataIntegrationCommand";
@@ -77,6 +81,10 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "../commands/UpdateApplicationCommand";
 import {
+  UpdateDataIntegrationAssociationCommandInput,
+  UpdateDataIntegrationAssociationCommandOutput,
+} from "../commands/UpdateDataIntegrationAssociationCommand";
+import {
   UpdateDataIntegrationCommandInput,
   UpdateDataIntegrationCommandOutput,
 } from "../commands/UpdateDataIntegrationCommand";
@@ -91,10 +99,12 @@ import {
   ApplicationSummary,
   DuplicateResourceException,
   EventFilter,
+  ExecutionConfiguration,
   ExternalUrlConfig,
   FileConfiguration,
   InternalServiceError,
   InvalidRequestException,
+  OnDemandConfiguration,
   Publication,
   ResourceNotFoundException,
   ResourceQuotaExceededException,
@@ -158,6 +168,34 @@ export const se_CreateDataIntegrationCommand = async (
       ScheduleConfig: (_) => _json(_),
       SourceURI: [],
       Tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateDataIntegrationAssociationCommand
+ */
+export const se_CreateDataIntegrationAssociationCommand = async (
+  input: CreateDataIntegrationAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/dataIntegrations/{DataIntegrationIdentifier}/associations");
+  b.p("DataIntegrationIdentifier", () => input.DataIntegrationIdentifier!, "{DataIntegrationIdentifier}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ClientAssociationMetadata: (_) => _json(_),
+      ClientId: [],
+      ClientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      DestinationURI: [],
+      ExecutionConfiguration: (_) => _json(_),
+      ObjectConfiguration: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -455,10 +493,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -511,6 +546,35 @@ export const se_UpdateDataIntegrationCommand = async (
     take(input, {
       Description: [],
       Name: [],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateDataIntegrationAssociationCommand
+ */
+export const se_UpdateDataIntegrationAssociationCommand = async (
+  input: UpdateDataIntegrationAssociationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/dataIntegrations/{DataIntegrationIdentifier}/associations/{DataIntegrationAssociationIdentifier}");
+  b.p("DataIntegrationIdentifier", () => input.DataIntegrationIdentifier!, "{DataIntegrationIdentifier}", false);
+  b.p(
+    "DataIntegrationAssociationIdentifier",
+    () => input.DataIntegrationAssociationIdentifier!,
+    "{DataIntegrationAssociationIdentifier}",
+    false
+  );
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      ExecutionConfiguration: (_) => _json(_),
     })
   );
   b.m("PATCH").h(headers).b(body);
@@ -588,6 +652,28 @@ export const de_CreateDataIntegrationCommand = async (
     ScheduleConfiguration: _json,
     SourceURI: __expectString,
     Tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateDataIntegrationAssociationCommand
+ */
+export const de_CreateDataIntegrationAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDataIntegrationAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    DataIntegrationArn: __expectString,
+    DataIntegrationAssociationId: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -975,6 +1061,23 @@ export const de_UpdateDataIntegrationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateDataIntegrationAssociationCommand
+ */
+export const de_UpdateDataIntegrationAssociationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDataIntegrationAssociationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateEventIntegrationCommand
  */
 export const de_UpdateEventIntegrationCommand = async (
@@ -1197,7 +1300,11 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_ApplicationSourceConfig omitted.
 
+// se_ClientAssociationMetadata omitted.
+
 // se_EventFilter omitted.
+
+// se_ExecutionConfiguration omitted.
 
 // se_ExternalUrlConfig omitted.
 
@@ -1210,6 +1317,8 @@ const de_UnsupportedOperationExceptionRes = async (
 // se_FolderList omitted.
 
 // se_ObjectConfiguration omitted.
+
+// se_OnDemandConfiguration omitted.
 
 // se_PermissionList omitted.
 
@@ -1279,6 +1388,8 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
 
 // de_EventIntegrationsList omitted.
 
+// de_ExecutionConfiguration omitted.
+
 // de_ExternalUrlConfig omitted.
 
 // de_FieldsList omitted.
@@ -1289,7 +1400,11 @@ const de_ApplicationSummary = (output: any, context: __SerdeContext): Applicatio
 
 // de_FolderList omitted.
 
+// de_LastExecutionStatus omitted.
+
 // de_ObjectConfiguration omitted.
+
+// de_OnDemandConfiguration omitted.
 
 // de_PermissionList omitted.
 
@@ -1316,13 +1431,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _NT = "NextToken";

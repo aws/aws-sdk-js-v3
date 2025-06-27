@@ -12,7 +12,8 @@ import { de_StartStackCommand, se_StartStackCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface StartStackCommandOutput extends __MetadataBearer {}
  * @throws {@link OpsWorksServiceException}
  * <p>Base exception class for all service exceptions from OpsWorks service.</p>
  *
+ *
  * @public
  */
 export class StartStackCommand extends $Command
@@ -73,9 +75,7 @@ export class StartStackCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpsWorksClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class StartStackCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartStackCommand)
   .de(de_StartStackCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartStackRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartStackCommandInput;
+      output: StartStackCommandOutput;
+    };
+  };
+}

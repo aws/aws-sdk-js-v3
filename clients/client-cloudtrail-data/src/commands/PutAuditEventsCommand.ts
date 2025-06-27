@@ -12,7 +12,8 @@ import { de_PutAuditEventsCommand, se_PutAuditEventsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface PutAuditEventsCommandOutput extends PutAuditEventsResponse, __M
  * @throws {@link CloudTrailDataServiceException}
  * <p>Base exception class for all service exceptions from CloudTrailData service.</p>
  *
+ *
  * @public
  */
 export class PutAuditEventsCommand extends $Command
@@ -107,9 +109,7 @@ export class PutAuditEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class PutAuditEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAuditEventsCommand)
   .de(de_PutAuditEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAuditEventsRequest;
+      output: PutAuditEventsResponse;
+    };
+    sdk: {
+      input: PutAuditEventsCommandInput;
+      output: PutAuditEventsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_UpdatePreferencesCommand, se_UpdatePreferencesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +32,7 @@ export interface UpdatePreferencesCommandInput extends UpdatePreferencesRequest 
 export interface UpdatePreferencesCommandOutput extends UpdatePreferencesResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a set of preferences for an account in order to add account-specific preferences
- *       into the service. These preferences impact how the savings associated with recommendations are
- *       presented.</p>
+ * <p>Updates a set of preferences for an account in order to add account-specific preferences into the service. These preferences impact how the savings associated with recommendations are presented.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,12 +42,20 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  * const input = { // UpdatePreferencesRequest
  *   savingsEstimationMode: "BeforeDiscounts" || "AfterDiscounts",
  *   memberAccountDiscountVisibility: "All" || "None",
+ *   preferredCommitment: { // PreferredCommitment
+ *     term: "OneYear" || "ThreeYears",
+ *     paymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
+ *   },
  * };
  * const command = new UpdatePreferencesCommand(input);
  * const response = await client.send(command);
  * // { // UpdatePreferencesResponse
  * //   savingsEstimationMode: "BeforeDiscounts" || "AfterDiscounts",
  * //   memberAccountDiscountVisibility: "All" || "None",
+ * //   preferredCommitment: { // PreferredCommitment
+ * //     term: "OneYear" || "ThreeYears",
+ * //     paymentOption: "AllUpfront" || "PartialUpfront" || "NoUpfront",
+ * //   },
  * // };
  *
  * ```
@@ -63,18 +70,17 @@ export interface UpdatePreferencesCommandOutput extends UpdatePreferencesRespons
  *  <p>You are not authorized to use this operation with the given parameters.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An error on the server occurred during the processing of your request. Try again
- *       later.</p>
+ *  <p>An error on the server occurred during the processing of your request. Try again later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *       service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link CostOptimizationHubServiceException}
  * <p>Base exception class for all service exceptions from CostOptimizationHub service.</p>
+ *
  *
  * @public
  */
@@ -86,9 +92,7 @@ export class UpdatePreferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostOptimizationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +104,16 @@ export class UpdatePreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePreferencesCommand)
   .de(de_UpdatePreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePreferencesRequest;
+      output: UpdatePreferencesResponse;
+    };
+    sdk: {
+      input: UpdatePreferencesCommandInput;
+      output: UpdatePreferencesCommandOutput;
+    };
+  };
+}

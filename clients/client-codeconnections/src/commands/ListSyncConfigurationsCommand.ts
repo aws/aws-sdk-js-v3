@@ -12,7 +12,8 @@ import { de_ListSyncConfigurationsCommand, se_ListSyncConfigurationsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,7 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * //       SyncType: "CFN_STACK_SYNC", // required
  * //       PublishDeploymentStatus: "ENABLED" || "DISABLED",
  * //       TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
+ * //       PullRequestComment: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -87,6 +89,7 @@ export interface ListSyncConfigurationsCommandOutput extends ListSyncConfigurati
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class ListSyncConfigurationsCommand extends $Command
@@ -97,9 +100,7 @@ export class ListSyncConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class ListSyncConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSyncConfigurationsCommand)
   .de(de_ListSyncConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSyncConfigurationsInput;
+      output: ListSyncConfigurationsOutput;
+    };
+    sdk: {
+      input: ListSyncConfigurationsCommandInput;
+      output: ListSyncConfigurationsCommandOutput;
+    };
+  };
+}

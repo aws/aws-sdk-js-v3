@@ -12,7 +12,8 @@ import { de_DeletePackageCommand, se_DeletePackageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface DeletePackageCommandOutput extends DeletePackageResponse, __Met
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeletePackageCommand extends $Command
@@ -76,9 +78,7 @@ export class DeletePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class DeletePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePackageCommand)
   .de(de_DeletePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePackageRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeletePackageCommandInput;
+      output: DeletePackageCommandOutput;
+    };
+  };
+}

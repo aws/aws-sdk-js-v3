@@ -12,7 +12,8 @@ import { de_CreateBackupCommand, se_CreateBackupCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -128,6 +129,7 @@ export interface CreateBackupCommandOutput extends CreateBackupOutput, __Metadat
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class CreateBackupCommand extends $Command
@@ -140,6 +142,7 @@ export class CreateBackupCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -152,4 +155,16 @@ export class CreateBackupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBackupCommand)
   .de(de_CreateBackupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackupInput;
+      output: CreateBackupOutput;
+    };
+    sdk: {
+      input: CreateBackupCommandInput;
+      output: CreateBackupCommandOutput;
+    };
+  };
+}

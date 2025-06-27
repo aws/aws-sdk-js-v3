@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface DisassociatePersonasFromEntitiesCommandOutput
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DisassociatePersonasFromEntitiesCommand extends $Command
@@ -102,9 +104,7 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class DisassociatePersonasFromEntitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociatePersonasFromEntitiesCommand)
   .de(de_DisassociatePersonasFromEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociatePersonasFromEntitiesRequest;
+      output: DisassociatePersonasFromEntitiesResponse;
+    };
+    sdk: {
+      input: DisassociatePersonasFromEntitiesCommandInput;
+      output: DisassociatePersonasFromEntitiesCommandOutput;
+    };
+  };
+}

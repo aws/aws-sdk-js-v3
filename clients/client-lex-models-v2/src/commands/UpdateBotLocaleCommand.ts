@@ -12,7 +12,8 @@ import { de_UpdateBotLocaleCommand, se_UpdateBotLocaleCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *   nluIntentConfidenceThreshold: Number("double"), // required
  *   voiceSettings: { // VoiceSettings
  *     voiceId: "STRING_VALUE", // required
- *     engine: "standard" || "neural",
+ *     engine: "standard" || "neural" || "long-form" || "generative",
  *   },
  *   generativeAISettings: { // GenerativeAISettings
  *     runtimeSettings: { // RuntimeSettings
@@ -50,7 +51,16 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *         enabled: true || false, // required
  *         bedrockModelSpecification: { // BedrockModelSpecification
  *           modelArn: "STRING_VALUE", // required
+ *           guardrail: { // BedrockGuardrailConfiguration
+ *             identifier: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *           },
+ *           traceStatus: "ENABLED" || "DISABLED",
+ *           customPrompt: "STRING_VALUE",
  *         },
+ *       },
+ *       nluImprovement: { // NluImprovementSpecification
+ *         enabled: true || false, // required
  *       },
  *     },
  *     buildtimeSettings: { // BuildtimeSettings
@@ -58,12 +68,24 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  *         enabled: true || false, // required
  *         bedrockModelSpecification: {
  *           modelArn: "STRING_VALUE", // required
+ *           guardrail: {
+ *             identifier: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *           },
+ *           traceStatus: "ENABLED" || "DISABLED",
+ *           customPrompt: "STRING_VALUE",
  *         },
  *       },
  *       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
  *         enabled: true || false, // required
  *         bedrockModelSpecification: {
  *           modelArn: "STRING_VALUE", // required
+ *           guardrail: {
+ *             identifier: "STRING_VALUE", // required
+ *             version: "STRING_VALUE", // required
+ *           },
+ *           traceStatus: "ENABLED" || "DISABLED",
+ *           customPrompt: "STRING_VALUE",
  *         },
  *       },
  *     },
@@ -80,7 +102,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //   nluIntentConfidenceThreshold: Number("double"),
  * //   voiceSettings: { // VoiceSettings
  * //     voiceId: "STRING_VALUE", // required
- * //     engine: "standard" || "neural",
+ * //     engine: "standard" || "neural" || "long-form" || "generative",
  * //   },
  * //   botLocaleStatus: "Creating" || "Building" || "Built" || "ReadyExpressTesting" || "Failed" || "Deleting" || "NotBuilt" || "Importing" || "Processing",
  * //   failureReasons: [ // FailureReasons
@@ -97,7 +119,16 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: { // BedrockModelSpecification
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: { // BedrockGuardrailConfiguration
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       nluImprovement: { // NluImprovementSpecification
+ * //         enabled: true || false, // required
  * //       },
  * //     },
  * //     buildtimeSettings: { // BuildtimeSettings
@@ -105,12 +136,24 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: {
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: {
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //       sampleUtteranceGeneration: { // SampleUtteranceGenerationSpecification
  * //         enabled: true || false, // required
  * //         bedrockModelSpecification: {
  * //           modelArn: "STRING_VALUE", // required
+ * //           guardrail: {
+ * //             identifier: "STRING_VALUE", // required
+ * //             version: "STRING_VALUE", // required
+ * //           },
+ * //           traceStatus: "ENABLED" || "DISABLED",
+ * //           customPrompt: "STRING_VALUE",
  * //         },
  * //       },
  * //     },
@@ -153,6 +196,7 @@ export interface UpdateBotLocaleCommandOutput extends UpdateBotLocaleResponse, _
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateBotLocaleCommand extends $Command
@@ -163,9 +207,7 @@ export class UpdateBotLocaleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +219,16 @@ export class UpdateBotLocaleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBotLocaleCommand)
   .de(de_UpdateBotLocaleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotLocaleRequest;
+      output: UpdateBotLocaleResponse;
+    };
+    sdk: {
+      input: UpdateBotLocaleCommandInput;
+      output: UpdateBotLocaleCommandOutput;
+    };
+  };
+}

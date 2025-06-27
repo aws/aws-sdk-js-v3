@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserProficienciesRequest } from "../models/models_2";
+import { UpdateUserProficienciesRequest } from "../models/models_3";
 import { de_UpdateUserProficienciesCommand, se_UpdateUserProficienciesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateUserProficienciesCommandOutput extends __MetadataBearer {
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserProficienciesCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateUserProficienciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateUserProficienciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserProficienciesCommand)
   .de(de_UpdateUserProficienciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserProficienciesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserProficienciesCommandInput;
+      output: UpdateUserProficienciesCommandOutput;
+    };
+  };
+}

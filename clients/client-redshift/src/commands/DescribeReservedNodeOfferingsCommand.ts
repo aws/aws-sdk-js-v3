@@ -15,7 +15,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface DescribeReservedNodeOfferingsCommandOutput extends ReservedNode
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeReservedNodeOfferingsCommand extends $Command
@@ -106,9 +108,7 @@ export class DescribeReservedNodeOfferingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class DescribeReservedNodeOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedNodeOfferingsCommand)
   .de(de_DescribeReservedNodeOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedNodeOfferingsMessage;
+      output: ReservedNodeOfferingsMessage;
+    };
+    sdk: {
+      input: DescribeReservedNodeOfferingsCommandInput;
+      output: DescribeReservedNodeOfferingsCommandOutput;
+    };
+  };
+}

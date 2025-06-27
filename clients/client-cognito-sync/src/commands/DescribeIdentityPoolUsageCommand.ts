@@ -12,7 +12,8 @@ import { de_DescribeIdentityPoolUsageCommand, se_DescribeIdentityPoolUsageComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,6 +128,7 @@ export interface DescribeIdentityPoolUsageCommandOutput extends DescribeIdentity
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityPoolUsageCommand extends $Command
@@ -137,9 +139,7 @@ export class DescribeIdentityPoolUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +151,16 @@ export class DescribeIdentityPoolUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityPoolUsageCommand)
   .de(de_DescribeIdentityPoolUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityPoolUsageRequest;
+      output: DescribeIdentityPoolUsageResponse;
+    };
+    sdk: {
+      input: DescribeIdentityPoolUsageCommandInput;
+      output: DescribeIdentityPoolUsageCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DeadlineClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DeadlineClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTasksRequest, ListTasksResponse, ListTasksResponseFilterSensitiveLog } from "../models/models_0";
+import { ListTasksRequest } from "../models/models_0";
+import { ListTasksResponse, ListTasksResponseFilterSensitiveLog } from "../models/models_1";
 import { de_ListTasksCommand, se_ListTasksCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,11 +94,11 @@ export interface ListTasksCommandOutput extends ListTasksResponse, __MetadataBea
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -108,9 +110,7 @@ export class ListTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class ListTasksCommand extends $Command
   .f(void 0, ListTasksResponseFilterSensitiveLog)
   .ser(se_ListTasksCommand)
   .de(de_ListTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTasksRequest;
+      output: ListTasksResponse;
+    };
+    sdk: {
+      input: ListTasksCommandInput;
+      output: ListTasksCommandOutput;
+    };
+  };
+}

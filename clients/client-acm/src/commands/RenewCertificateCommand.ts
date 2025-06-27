@@ -12,7 +12,8 @@ import { de_RenewCertificateCommand, se_RenewCertificateCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface RenewCertificateCommandInput extends RenewCertificateRequest {}
 export interface RenewCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Renews an eligible ACM certificate. At this time, only exported private certificates can
- *       be renewed with this operation. In order to renew your Amazon Web Services Private CA certificates with ACM, you
- *       must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM
- *         service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a>
- *       in the ACM User Guide.</p>
+ * <p>Renews an <a href="https://docs.aws.amazon.com/acm/latest/userguide/managed-renewal.html">eligible ACM certificate</a>. In order to renew your Amazon Web Services Private CA certificates with ACM, you must first <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaPermissions.html">grant the ACM service principal permission to do so</a>. For more information, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/manual-renewal.html">Testing Managed Renewal</a> in the ACM User Guide.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,12 +53,15 @@ export interface RenewCertificateCommandOutput extends __MetadataBearer {}
  * @throws {@link InvalidArnException} (client fault)
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
+ * @throws {@link RequestInProgressException} (client fault)
+ *  <p>The certificate request is in process and the certificate in your account has not yet been issued.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
+ *
  *
  * @public
  */
@@ -73,9 +73,7 @@ export class RenewCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +85,16 @@ export class RenewCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RenewCertificateCommand)
   .de(de_RenewCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RenewCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: RenewCertificateCommandInput;
+      output: RenewCertificateCommandOutput;
+    };
+  };
+}

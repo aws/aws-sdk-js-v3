@@ -12,7 +12,8 @@ import { de_CreateBasePathMappingCommand, se_CreateBasePathMappingCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,6 +37,7 @@ export interface CreateBasePathMappingCommandOutput extends BasePathMapping, __M
  * const client = new APIGatewayClient(config);
  * const input = { // CreateBasePathMappingRequest
  *   domainName: "STRING_VALUE", // required
+ *   domainNameId: "STRING_VALUE",
  *   basePath: "STRING_VALUE",
  *   restApiId: "STRING_VALUE", // required
  *   stage: "STRING_VALUE",
@@ -77,6 +79,7 @@ export interface CreateBasePathMappingCommandOutput extends BasePathMapping, __M
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateBasePathMappingCommand extends $Command
@@ -87,9 +90,7 @@ export class CreateBasePathMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class CreateBasePathMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBasePathMappingCommand)
   .de(de_CreateBasePathMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBasePathMappingRequest;
+      output: BasePathMapping;
+    };
+    sdk: {
+      input: CreateBasePathMappingCommandInput;
+      output: CreateBasePathMappingCommandOutput;
+    };
+  };
+}

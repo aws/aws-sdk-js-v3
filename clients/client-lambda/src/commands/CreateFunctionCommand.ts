@@ -17,7 +17,8 @@ import { de_CreateFunctionCommand, se_CreateFunctionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
 /**
  * <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The
  *       deployment package is a .zip file archive or container image that contains your function code. The execution role
- *       grants the function permission to use Amazon Web Services, such as Amazon CloudWatch Logs for log
+ *       grants the function permission to use Amazon Web Services services, such as Amazon CloudWatch Logs for log
  *       streaming and X-Ray for request tracing.</p>
  *          <p>If the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container
  *         image</a>, then you set the package type to <code>Image</code>. For a container image, the code property
@@ -65,9 +66,9 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *         <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from
  *       a trusted publisher. The code-signing configuration includes set of signing profiles, which define the trusted
  *       publishers for this function.</p>
- *          <p>If another Amazon Web Services account or an Amazon Web Service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p>
+ *          <p>If another Amazon Web Services account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based Identity and Access Management (IAM) policy. You can grant permissions at the function level, on a version, or on an alias.</p>
  *          <p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events
- *       in other Amazon Web Services, create an event source mapping (<a>CreateEventSourceMapping</a>),
+ *       in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>),
  *       or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Lambda
  *       functions</a>.</p>
  * @example
@@ -78,7 +79,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * const client = new LambdaClient(config);
  * const input = { // CreateFunctionRequest
  *   FunctionName: "STRING_VALUE", // required
- *   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ *   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  *   Role: "STRING_VALUE", // required
  *   Handler: "STRING_VALUE",
  *   Code: { // FunctionCode
@@ -87,6 +88,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *     S3Key: "STRING_VALUE",
  *     S3ObjectVersion: "STRING_VALUE",
  *     ImageUri: "STRING_VALUE",
+ *     SourceKMSKeyArn: "STRING_VALUE",
  *   },
  *   Description: "STRING_VALUE",
  *   Timeout: Number("int"),
@@ -157,7 +159,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * // { // FunctionConfiguration
  * //   FunctionName: "STRING_VALUE",
  * //   FunctionArn: "STRING_VALUE",
- * //   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ * //   Runtime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  * //   Role: "STRING_VALUE",
  * //   Handler: "STRING_VALUE",
  * //   CodeSize: Number("long"),
@@ -298,6 +300,70 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To create a function
+ * ```javascript
+ * // The following example creates a function with a deployment package in Amazon S3 and enables X-Ray tracing and environment variable encryption.
+ * const input = {
+ *   Code: {
+ *     S3Bucket: "my-bucket-1xpuxmplzrlbh",
+ *     S3Key: "function.zip"
+ *   },
+ *   Description: "Process image objects from Amazon S3.",
+ *   Environment: {
+ *     Variables: {
+ *       BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *       PREFIX: "inbound"
+ *     }
+ *   },
+ *   FunctionName: "my-function",
+ *   Handler: "index.handler",
+ *   KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *   MemorySize: 256,
+ *   Publish: true,
+ *   Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *   Runtime: "nodejs12.x",
+ *   Tags: {
+ *     DEPARTMENT: "Assets"
+ *   },
+ *   Timeout: 15,
+ *   TracingConfig: {
+ *     Mode: "Active"
+ *   }
+ * };
+ * const command = new CreateFunctionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   CodeSha256: "YFgDgEKG3ugvF1+pX64gV6tu9qNuIYNUdgJm8nCxsm4=",
+ *   CodeSize: 5797206,
+ *   Description: "Process image objects from Amazon S3.",
+ *   Environment: {
+ *     Variables: {
+ *       BUCKET: "my-bucket-1xpuxmplzrlbh",
+ *       PREFIX: "inbound"
+ *     }
+ *   },
+ *   FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *   FunctionName: "my-function",
+ *   Handler: "index.handler",
+ *   KMSKeyArn: "arn:aws:kms:us-west-2:123456789012:key/b0844d6c-xmpl-4463-97a4-d49f50839966",
+ *   LastModified: "2020-04-10T19:06:32.563+0000",
+ *   LastUpdateStatus: "Successful",
+ *   MemorySize: 256,
+ *   RevisionId: "b75dcd81-xmpl-48a8-a75a-93ba8b5b9727",
+ *   Role: "arn:aws:iam::123456789012:role/lambda-role",
+ *   Runtime: "nodejs12.x",
+ *   State: "Active",
+ *   Timeout: 15,
+ *   TracingConfig: {
+ *     Mode: "Active"
+ *   },
+ *   Version: "1"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateFunctionCommand extends $Command
@@ -308,9 +374,7 @@ export class CreateFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -322,4 +386,16 @@ export class CreateFunctionCommand extends $Command
   .f(CreateFunctionRequestFilterSensitiveLog, FunctionConfigurationFilterSensitiveLog)
   .ser(se_CreateFunctionCommand)
   .de(de_CreateFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFunctionRequest;
+      output: FunctionConfiguration;
+    };
+    sdk: {
+      input: CreateFunctionCommandInput;
+      output: CreateFunctionCommandOutput;
+    };
+  };
+}

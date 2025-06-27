@@ -115,6 +115,9 @@ action categories are:</p>
 <li>
 <p>Invoke</p>
 </li>
+<li>
+<p>Compute</p>
+</li>
 </ul>
 <p>Pipelines also include <i>transitions</i>, which allow the transition
 of artifacts from one stage to the next in a pipeline after the actions in one stage
@@ -204,7 +207,7 @@ success.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-codepipeline
+To install this package, simply type add or install @aws-sdk/client-codepipeline
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-codepipeline`
@@ -543,6 +546,14 @@ ListActionTypes
 </details>
 <details>
 <summary>
+ListDeployActionExecutionTargets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListDeployActionExecutionTargetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListDeployActionExecutionTargetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListDeployActionExecutionTargetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListPipelineExecutions
 </summary>
 
@@ -559,6 +570,22 @@ ListPipelines
 </details>
 <details>
 <summary>
+ListRuleExecutions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListRuleExecutionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleExecutionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleExecutionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRuleTypes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListRuleTypesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleTypesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListRuleTypesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTagsForResource
 </summary>
 
@@ -571,6 +598,14 @@ ListWebhooks
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/ListWebhooksCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListWebhooksCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/ListWebhooksCommandOutput/)
+
+</details>
+<details>
+<summary>
+OverrideStageCondition
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/codepipeline/command/OverrideStageConditionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/OverrideStageConditionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-codepipeline/Interface/OverrideStageConditionCommandOutput/)
 
 </details>
 <details>

@@ -12,7 +12,8 @@ import { de_CreateChannelCommand, se_CreateChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,14 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  *   ChannelGroupName: "STRING_VALUE", // required
  *   ChannelName: "STRING_VALUE", // required
  *   ClientToken: "STRING_VALUE",
+ *   InputType: "HLS" || "CMAF",
  *   Description: "STRING_VALUE",
+ *   InputSwitchConfiguration: { // InputSwitchConfiguration
+ *     MQCSInputSwitching: true || false,
+ *   },
+ *   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ *     PublishMQCS: true || false,
+ *   },
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -58,9 +66,16 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   InputType: "HLS" || "CMAF",
  * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
+ * //   },
+ * //   InputSwitchConfiguration: { // InputSwitchConfiguration
+ * //     MQCSInputSwitching: true || false,
+ * //   },
+ * //   OutputHeaderConfiguration: { // OutputHeaderConfiguration
+ * //     PublishMQCS: true || false,
  * //   },
  * // };
  *
@@ -96,6 +111,50 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Creating a Channel
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   Description: "Description for exampleChannel",
+ *   InputType: "HLS",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * };
+ * const command = new CreateChannelCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Description for exampleChannel",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   IngestEndpoints: [
+ *     {
+ *       Id: "1",
+ *       Url: "https://abcde-1.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
+ *     },
+ *     {
+ *       Id: "2",
+ *       Url: "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
+ *     }
+ *   ],
+ *   InputType: "HLS",
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateChannelCommand extends $Command
@@ -106,9 +165,7 @@ export class CreateChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +177,16 @@ export class CreateChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateChannelCommand)
   .de(de_CreateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateChannelRequest;
+      output: CreateChannelResponse;
+    };
+    sdk: {
+      input: CreateChannelCommandInput;
+      output: CreateChannelCommandOutput;
+    };
+  };
+}

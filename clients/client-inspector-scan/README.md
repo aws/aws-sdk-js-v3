@@ -10,7 +10,7 @@ AWS SDK for JavaScript InspectorScan Client for Node.js, Browser and React Nativ
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-inspector-scan
+To install this package, simply type add or install @aws-sdk/client-inspector-scan
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-inspector-scan`

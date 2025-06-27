@@ -33,6 +33,11 @@ import {
   ExportECSServiceRecommendationsCommandOutput,
 } from "./commands/ExportECSServiceRecommendationsCommand";
 import {
+  ExportIdleRecommendationsCommand,
+  ExportIdleRecommendationsCommandInput,
+  ExportIdleRecommendationsCommandOutput,
+} from "./commands/ExportIdleRecommendationsCommand";
+import {
   ExportLambdaFunctionRecommendationsCommand,
   ExportLambdaFunctionRecommendationsCommandInput,
   ExportLambdaFunctionRecommendationsCommandOutput,
@@ -42,6 +47,11 @@ import {
   ExportLicenseRecommendationsCommandInput,
   ExportLicenseRecommendationsCommandOutput,
 } from "./commands/ExportLicenseRecommendationsCommand";
+import {
+  ExportRDSDatabaseRecommendationsCommand,
+  ExportRDSDatabaseRecommendationsCommandInput,
+  ExportRDSDatabaseRecommendationsCommandOutput,
+} from "./commands/ExportRDSDatabaseRecommendationsCommand";
 import {
   GetAutoScalingGroupRecommendationsCommand,
   GetAutoScalingGroupRecommendationsCommandInput,
@@ -88,6 +98,11 @@ import {
   GetEnrollmentStatusesForOrganizationCommandOutput,
 } from "./commands/GetEnrollmentStatusesForOrganizationCommand";
 import {
+  GetIdleRecommendationsCommand,
+  GetIdleRecommendationsCommandInput,
+  GetIdleRecommendationsCommandOutput,
+} from "./commands/GetIdleRecommendationsCommand";
+import {
   GetLambdaFunctionRecommendationsCommand,
   GetLambdaFunctionRecommendationsCommandInput,
   GetLambdaFunctionRecommendationsCommandOutput,
@@ -97,6 +112,16 @@ import {
   GetLicenseRecommendationsCommandInput,
   GetLicenseRecommendationsCommandOutput,
 } from "./commands/GetLicenseRecommendationsCommand";
+import {
+  GetRDSDatabaseRecommendationProjectedMetricsCommand,
+  GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+  GetRDSDatabaseRecommendationProjectedMetricsCommandOutput,
+} from "./commands/GetRDSDatabaseRecommendationProjectedMetricsCommand";
+import {
+  GetRDSDatabaseRecommendationsCommand,
+  GetRDSDatabaseRecommendationsCommandInput,
+  GetRDSDatabaseRecommendationsCommandOutput,
+} from "./commands/GetRDSDatabaseRecommendationsCommand";
 import {
   GetRecommendationPreferencesCommand,
   GetRecommendationPreferencesCommandInput,
@@ -126,8 +151,10 @@ const commands = {
   ExportEBSVolumeRecommendationsCommand,
   ExportEC2InstanceRecommendationsCommand,
   ExportECSServiceRecommendationsCommand,
+  ExportIdleRecommendationsCommand,
   ExportLambdaFunctionRecommendationsCommand,
   ExportLicenseRecommendationsCommand,
+  ExportRDSDatabaseRecommendationsCommand,
   GetAutoScalingGroupRecommendationsCommand,
   GetEBSVolumeRecommendationsCommand,
   GetEC2InstanceRecommendationsCommand,
@@ -137,8 +164,11 @@ const commands = {
   GetEffectiveRecommendationPreferencesCommand,
   GetEnrollmentStatusCommand,
   GetEnrollmentStatusesForOrganizationCommand,
+  GetIdleRecommendationsCommand,
   GetLambdaFunctionRecommendationsCommand,
   GetLicenseRecommendationsCommand,
+  GetRDSDatabaseRecommendationProjectedMetricsCommand,
+  GetRDSDatabaseRecommendationsCommand,
   GetRecommendationPreferencesCommand,
   GetRecommendationSummariesCommand,
   PutRecommendationPreferencesCommand,
@@ -250,6 +280,23 @@ export interface ComputeOptimizer {
   ): void;
 
   /**
+   * @see {@link ExportIdleRecommendationsCommand}
+   */
+  exportIdleRecommendations(
+    args: ExportIdleRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportIdleRecommendationsCommandOutput>;
+  exportIdleRecommendations(
+    args: ExportIdleRecommendationsCommandInput,
+    cb: (err: any, data?: ExportIdleRecommendationsCommandOutput) => void
+  ): void;
+  exportIdleRecommendations(
+    args: ExportIdleRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportIdleRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ExportLambdaFunctionRecommendationsCommand}
    */
   exportLambdaFunctionRecommendations(
@@ -281,6 +328,23 @@ export interface ComputeOptimizer {
     args: ExportLicenseRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ExportLicenseRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ExportRDSDatabaseRecommendationsCommand}
+   */
+  exportRDSDatabaseRecommendations(
+    args: ExportRDSDatabaseRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ExportRDSDatabaseRecommendationsCommandOutput>;
+  exportRDSDatabaseRecommendations(
+    args: ExportRDSDatabaseRecommendationsCommandInput,
+    cb: (err: any, data?: ExportRDSDatabaseRecommendationsCommandOutput) => void
+  ): void;
+  exportRDSDatabaseRecommendations(
+    args: ExportRDSDatabaseRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExportRDSDatabaseRecommendationsCommandOutput) => void
   ): void;
 
   /**
@@ -443,6 +507,24 @@ export interface ComputeOptimizer {
   ): void;
 
   /**
+   * @see {@link GetIdleRecommendationsCommand}
+   */
+  getIdleRecommendations(): Promise<GetIdleRecommendationsCommandOutput>;
+  getIdleRecommendations(
+    args: GetIdleRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetIdleRecommendationsCommandOutput>;
+  getIdleRecommendations(
+    args: GetIdleRecommendationsCommandInput,
+    cb: (err: any, data?: GetIdleRecommendationsCommandOutput) => void
+  ): void;
+  getIdleRecommendations(
+    args: GetIdleRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetIdleRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetLambdaFunctionRecommendationsCommand}
    */
   getLambdaFunctionRecommendations(): Promise<GetLambdaFunctionRecommendationsCommandOutput>;
@@ -476,6 +558,41 @@ export interface ComputeOptimizer {
     args: GetLicenseRecommendationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLicenseRecommendationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRDSDatabaseRecommendationProjectedMetricsCommand}
+   */
+  getRDSDatabaseRecommendationProjectedMetrics(
+    args: GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRDSDatabaseRecommendationProjectedMetricsCommandOutput>;
+  getRDSDatabaseRecommendationProjectedMetrics(
+    args: GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+    cb: (err: any, data?: GetRDSDatabaseRecommendationProjectedMetricsCommandOutput) => void
+  ): void;
+  getRDSDatabaseRecommendationProjectedMetrics(
+    args: GetRDSDatabaseRecommendationProjectedMetricsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRDSDatabaseRecommendationProjectedMetricsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRDSDatabaseRecommendationsCommand}
+   */
+  getRDSDatabaseRecommendations(): Promise<GetRDSDatabaseRecommendationsCommandOutput>;
+  getRDSDatabaseRecommendations(
+    args: GetRDSDatabaseRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRDSDatabaseRecommendationsCommandOutput>;
+  getRDSDatabaseRecommendations(
+    args: GetRDSDatabaseRecommendationsCommandInput,
+    cb: (err: any, data?: GetRDSDatabaseRecommendationsCommandOutput) => void
+  ): void;
+  getRDSDatabaseRecommendations(
+    args: GetRDSDatabaseRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRDSDatabaseRecommendationsCommandOutput) => void
   ): void;
 
   /**

@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,8 @@ export interface DisassociateTrafficDistributionGroupUserCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disassociates an agent from a traffic distribution group.</p>
+ * <p>Disassociates an agent from a traffic distribution group. This API can be called only in the
+ *    Region where the traffic distribution group is created.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +83,7 @@ export interface DisassociateTrafficDistributionGroupUserCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DisassociateTrafficDistributionGroupUserCommand extends $Command
@@ -91,9 +94,7 @@ export class DisassociateTrafficDistributionGroupUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class DisassociateTrafficDistributionGroupUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateTrafficDistributionGroupUserCommand)
   .de(de_DisassociateTrafficDistributionGroupUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateTrafficDistributionGroupUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateTrafficDistributionGroupUserCommandInput;
+      output: DisassociateTrafficDistributionGroupUserCommandOutput;
+    };
+  };
+}

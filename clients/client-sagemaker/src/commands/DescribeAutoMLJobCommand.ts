@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface DescribeAutoMLJobCommandInput extends DescribeAutoMLJobRequest 
 export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an AutoML job created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.</p>
- *          <note>
- *             <p>AutoML jobs created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a> cannot be described by
- *             <code>DescribeAutoMLJob</code>.</p>
- *          </note>
+ * <p>Returns information about an AutoML job created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJob.html">CreateAutoMLJob</a>.</p> <note> <p>AutoML jobs created by calling <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateAutoMLJobV2.html">CreateAutoMLJobV2</a> cannot be described by <code>DescribeAutoMLJob</code>.</p> </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -210,6 +207,7 @@ export interface DescribeAutoMLJobCommandOutput extends DescribeAutoMLJobRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeAutoMLJobCommand extends $Command
@@ -220,9 +218,7 @@ export class DescribeAutoMLJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -234,4 +230,16 @@ export class DescribeAutoMLJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoMLJobCommand)
   .de(de_DescribeAutoMLJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutoMLJobRequest;
+      output: DescribeAutoMLJobResponse;
+    };
+    sdk: {
+      input: DescribeAutoMLJobCommandInput;
+      output: DescribeAutoMLJobCommandOutput;
+    };
+  };
+}

@@ -392,11 +392,11 @@ final class DocumentClientCommandGenerator implements Runnable {
         String optionalSuffix = isRequiredMember(member) ? "" : "?";
         writer.openBlock("${L}${L}: ", ";", symbolProvider.toMemberName(member),
             optionalSuffix, () -> {
-                writeMemberOmitType(member);
+                writeMemberOmitType(member, true);
             });
     }
 
-    private void writeMemberOmitType(MemberShape member) {
+    private void writeMemberOmitType(MemberShape member, boolean allowUndefined) {
         Shape memberTarget = model.expectShape(member.getTarget());
         if (memberTarget.isStructureShape()) {
             writeStructureOmitType((StructureShape) memberTarget);
@@ -413,16 +413,17 @@ final class DocumentClientCommandGenerator implements Runnable {
         } else if (memberTarget.isMapShape()) {
             MemberShape mapMember = ((MapShape) memberTarget).getValue();
             writer.openBlock("Record<string, ", ">", () -> {
-                writeMemberOmitType(mapMember);
+                writeMemberOmitType(mapMember, false);
             });
         } else if (memberTarget instanceof CollectionShape) {
             MemberShape collectionMember = ((CollectionShape) memberTarget).getMember();
             writer.openBlock("(", ")[]", () -> {
-                writeMemberOmitType(collectionMember);
+                writeMemberOmitType(collectionMember, false);
             });
         }
-        String typeSuffix = isRequiredMember(member) ? " | undefined" : "";
-        writer.write("${L}", typeSuffix);
+        if (allowUndefined) {
+            writer.write(" | undefined");
+        }
     }
 
     private void writeNativeAttributeValue() {

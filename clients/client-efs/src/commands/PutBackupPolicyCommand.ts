@@ -12,7 +12,8 @@ import { de_PutBackupPolicyCommand, se_PutBackupPolicyCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface PutBackupPolicyCommandOutput extends BackupPolicyDescription, _
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class PutBackupPolicyCommand extends $Command
@@ -86,9 +88,7 @@ export class PutBackupPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class PutBackupPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBackupPolicyCommand)
   .de(de_PutBackupPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBackupPolicyRequest;
+      output: BackupPolicyDescription;
+    };
+    sdk: {
+      input: PutBackupPolicyCommandInput;
+      output: PutBackupPolicyCommandOutput;
+    };
+  };
+}

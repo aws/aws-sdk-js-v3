@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SMSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface DeleteAppLaunchConfigurationCommandOutput
  * @throws {@link SMSServiceException}
  * <p>Base exception class for all service exceptions from SMS service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppLaunchConfigurationCommand extends $Command
@@ -83,9 +85,7 @@ export class DeleteAppLaunchConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class DeleteAppLaunchConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppLaunchConfigurationCommand)
   .de(de_DeleteAppLaunchConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppLaunchConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAppLaunchConfigurationCommandInput;
+      output: DeleteAppLaunchConfigurationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutRecordBatchCommand, se_PutRecordBatchCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,19 +28,24 @@ export interface PutRecordBatchCommandInput extends PutRecordBatchInput {}
 export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __MetadataBearer {}
 
 /**
- * <p>Writes multiple data records into a delivery stream in a single call, which can
+ * <p>Writes multiple data records into a Firehose stream in a single call, which can
  *          achieve higher throughput per producer than when writing single records. To write single
- *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
+ *          data records into a Firehose stream, use <a>PutRecord</a>. Applications using
  *          these operations are referred to as producers.</p>
- *          <p>Firehose accumulates and publishes a particular metric for a customer account in one minute intervals. It is possible that the bursts of incoming bytes/records ingested to a delivery stream last only for a few seconds. Due to this, the actual spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.</p>
+ *          <p>Firehose accumulates and publishes a particular metric for a customer account in one minute intervals. It is possible that the bursts of incoming bytes/records ingested to a Firehose stream last only for a few seconds. Due to this, the actual spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.</p>
  *          <p>For information about service quota, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Firehose
  *          Quota</a>.</p>
  *          <p>Each <a>PutRecordBatch</a> request supports up to 500 records. Each record
  *          in the request can be as large as 1,000 KB (before base64 encoding), up to a limit of 4 MB
  *          for the entire request. These limits cannot be changed.</p>
- *          <p>You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>. The data record consists of a data blob that can be up to 1,000
+ *          <p>You must specify the name of the Firehose stream and the data record when using <a>PutRecord</a>. The data record consists of a data blob that can be up to 1,000
  *          KB in size, and any kind of data. For example, it could be a segment from a log file,
  *          geographic location data, website clickstream data, and so on.</p>
+ *          <p>For multi record de-aggregation, you can not put more than 500 records even if the
+ *          data blob length is less than 1000 KiB. If you include more than 500 records, the request
+ *          succeeds but the record de-aggregation doesn't work as expected and transformation lambda
+ *          is invoked with the complete base64 encoded data blob instead of de-aggregated base64
+ *          decoded records.</p>
  *          <p>Firehose buffers records before delivering them to the destination. To
  *          disambiguate the data blobs at the destination, a common solution is to use delimiters in
  *          the data, such as a newline (<code>\n</code>) or some other character unique within the
@@ -69,12 +75,12 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          recommend that you handle any duplicates at the destination.</p>
  *          <p>If <a>PutRecordBatch</a> throws <code>ServiceUnavailableException</code>,
  *          the API is automatically reinvoked (retried) 3 times. If the exception persists, it is
- *          possible that the throughput limits have been exceeded for the delivery stream.</p>
+ *          possible that the throughput limits have been exceeded for the Firehose stream.</p>
  *          <p>Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch) can
  *          result in data duplicates. For larger data assets, allow for a longer time out before
  *          retrying Put API operations.</p>
  *          <p>Data records sent to Firehose are stored for 24 hours from the time they
- *          are added to a delivery stream as it attempts to send the records to the destination. If
+ *          are added to a Firehose stream as it attempts to send the records to the destination. If
  *          the destination is unreachable for more than 24 hours, the data is no longer
  *          available.</p>
  *          <important>
@@ -122,7 +128,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *
  * @throws {@link InvalidKMSResourceException} (client fault)
  *  <p>Firehose throws this exception when an attempt to put records or to start
- *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
+ *          or stop Firehose stream encryption fails. This happens when the KMS service throws one of
  *          the following exception types: <code>AccessDeniedException</code>,
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
  *             <code>NotFoundException</code>.</p>
@@ -135,12 +141,13 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation. If you continue to see
- *          the exception, throughput limits for the delivery stream may have been exceeded. For more
+ *          the exception, throughput limits for the Firehose stream may have been exceeded. For more
  *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Firehose
  *          Limits</a>.</p>
  *
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
+ *
  *
  * @public
  */
@@ -152,9 +159,7 @@ export class PutRecordBatchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -166,4 +171,16 @@ export class PutRecordBatchCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecordBatchCommand)
   .de(de_PutRecordBatchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecordBatchInput;
+      output: PutRecordBatchOutput;
+    };
+    sdk: {
+      input: PutRecordBatchCommandInput;
+      output: PutRecordBatchCommandOutput;
+    };
+  };
+}

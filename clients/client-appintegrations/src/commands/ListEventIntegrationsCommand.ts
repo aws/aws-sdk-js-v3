@@ -12,7 +12,8 @@ import { de_ListEventIntegrationsCommand, se_ListEventIntegrationsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ListEventIntegrationsCommandOutput extends ListEventIntegration
  * @throws {@link AppIntegrationsServiceException}
  * <p>Base exception class for all service exceptions from AppIntegrations service.</p>
  *
+ *
  * @public
  */
 export class ListEventIntegrationsCommand extends $Command
@@ -91,9 +93,7 @@ export class ListEventIntegrationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppIntegrationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListEventIntegrationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventIntegrationsCommand)
   .de(de_ListEventIntegrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventIntegrationsRequest;
+      output: ListEventIntegrationsResponse;
+    };
+    sdk: {
+      input: ListEventIntegrationsCommandInput;
+      output: ListEventIntegrationsCommandOutput;
+    };
+  };
+}

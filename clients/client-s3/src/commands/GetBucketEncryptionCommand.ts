@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -16,7 +17,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,18 +33,55 @@ export interface GetBucketEncryptionCommandInput extends GetBucketEncryptionRequ
 export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOutput, __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Returns the default encryption configuration for an Amazon S3 bucket. By default, all buckets
+ * <p>Returns the default encryption configuration for an Amazon S3 bucket. By default, all buckets
  *          have a default encryption configuration that uses server-side encryption with Amazon S3 managed
- *          keys (SSE-S3). For information about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket
- *             Default Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
- *          <p>To use this operation, you must have permission to perform the
- *             <code>s3:GetEncryptionConfiguration</code> action. The bucket owner has this permission
- *          by default. The bucket owner can grant this permission to others. For more information
- *          about permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Subresource Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing
- *             Access Permissions to Your Amazon S3 Resources</a>.</p>
+ *          keys (SSE-S3). </p>
+ *          <note>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <b>General purpose buckets</b> - For information
+ *                   about the bucket default encryption feature, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-encryption.html">Amazon S3 Bucket Default
+ *                      Encryption</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <b>Directory buckets</b> -
+ *                   For directory buckets, there are only two supported options for server-side encryption: SSE-S3 and SSE-KMS. For information about the default encryption
+ *                   configuration in directory buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-bucket-encryption.html">Setting
+ *                      default server-side encryption behavior for directory buckets</a>.</p>
+ *                </li>
+ *             </ul>
+ *          </note>
+ *          <dl>
+ *             <dt>Permissions</dt>
+ *             <dd>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <b>General purpose bucket permissions</b> - The
+ *                            <code>s3:GetEncryptionConfiguration</code> permission is required in a
+ *                         policy. The bucket owner has this permission by default. The bucket owner
+ *                         can grant this permission to others. For more information about permissions,
+ *                         see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-with-s3-actions.html#using-with-s3-actions-related-to-bucket-subresources">Permissions Related to Bucket Operations</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-access-control.html">Managing Access
+ *                            Permissions to Your Amazon S3 Resources</a>.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <b>Directory bucket permissions</b> -
+ *                         To grant access to this API operation, you must have the
+ *                            <code>s3express:GetEncryptionConfiguration</code> permission in
+ *                         an IAM identity-based policy instead of a bucket policy. Cross-account access to this API operation isn't supported. This operation can only be performed by the Amazon Web Services account that owns the resource.
+ *                         For more information about directory bucket policies and permissions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam.html">Amazon Web Services Identity and Access Management (IAM) for S3 Express One Zone</a> in the <i>Amazon S3 User Guide</i>.</p>
+ *                   </li>
+ *                </ul>
+ *             </dd>
+ *             <dt>HTTP Host header syntax</dt>
+ *             <dd>
+ *                <p>
+ *                   <b>Directory buckets </b> - The HTTP Host header syntax is <code>s3express-control.<i>region-code</i>.amazonaws.com</code>.</p>
+ *             </dd>
+ *          </dl>
  *          <p>The following operations are related to <code>GetBucketEncryption</code>:</p>
  *          <ul>
  *             <li>
@@ -73,7 +112,7 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  * //     Rules: [ // ServerSideEncryptionRules // required
  * //       { // ServerSideEncryptionRule
  * //         ApplyServerSideEncryptionByDefault: { // ServerSideEncryptionByDefault
- * //           SSEAlgorithm: "AES256" || "aws:kms" || "aws:kms:dsse", // required
+ * //           SSEAlgorithm: "AES256" || "aws:fsx" || "aws:kms" || "aws:kms:dsse", // required
  * //           KMSMasterKeyID: "STRING_VALUE",
  * //         },
  * //         BucketKeyEnabled: true || false,
@@ -92,6 +131,7 @@ export interface GetBucketEncryptionCommandOutput extends GetBucketEncryptionOut
  *
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
+ *
  *
  * @public
  */
@@ -112,6 +152,7 @@ export class GetBucketEncryptionCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetBucketEncryption", {})
@@ -119,4 +160,16 @@ export class GetBucketEncryptionCommand extends $Command
   .f(void 0, GetBucketEncryptionOutputFilterSensitiveLog)
   .ser(se_GetBucketEncryptionCommand)
   .de(de_GetBucketEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketEncryptionRequest;
+      output: GetBucketEncryptionOutput;
+    };
+    sdk: {
+      input: GetBucketEncryptionCommandInput;
+      output: GetBucketEncryptionCommandOutput;
+    };
+  };
+}

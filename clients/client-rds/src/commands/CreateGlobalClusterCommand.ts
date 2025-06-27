@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,12 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *   DeletionProtection: true || false,
  *   DatabaseName: "STRING_VALUE",
  *   StorageEncrypted: true || false,
+ *   Tags: [ // TagList
+ *     { // Tag
+ *       Key: "STRING_VALUE",
+ *       Value: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
@@ -81,12 +88,19 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
+ * //     Endpoint: "STRING_VALUE",
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -103,7 +117,8 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  *             <code>DBClusterIdentifier</code> doesn't refer to an existing DB cluster.</p>
  *
  * @throws {@link GlobalClusterAlreadyExistsFault} (client fault)
- *  <p>The <code>GlobalClusterIdentifier</code> already exists. Choose a new global database identifier (unique name) to create a new global database cluster.</p>
+ *  <p>The <code>GlobalClusterIdentifier</code> already exists. Specify a new global database identifier
+ *         (unique name) to create a new global database cluster or to rename an existing one.</p>
  *
  * @throws {@link GlobalClusterQuotaExceededFault} (client fault)
  *  <p>The number of global database clusters for this account is already at the maximum allowed.</p>
@@ -114,34 +129,34 @@ export interface CreateGlobalClusterCommandOutput extends CreateGlobalClusterRes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a global DB cluster
  * ```javascript
  * // The following example creates a new Aurora MySQL-compatible global DB cluster.
  * const input = {
- *   "Engine": "aurora-mysql",
- *   "GlobalClusterIdentifier": "myglobalcluster"
+ *   Engine: "aurora-mysql",
+ *   GlobalClusterIdentifier: "myglobalcluster"
  * };
  * const command = new CreateGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GlobalCluster": {
- *     "DeletionProtection": false,
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.07.2",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [],
- *     "GlobalClusterResourceId": "cluster-f0e523bfe07aabb",
- *     "Status": "available",
- *     "StorageEncrypted": false
+ *   GlobalCluster: {
+ *     DeletionProtection: false,
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.07.2",
+ *     GlobalClusterArn: "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     GlobalClusterIdentifier: "myglobalcluster",
+ *     GlobalClusterMembers:     [],
+ *     GlobalClusterResourceId: "cluster-f0e523bfe07aabb",
+ *     Status: "available",
+ *     StorageEncrypted: false
  *   }
  * }
  * *\/
- * // example id: to-create-a-global-db-cluster-1679957040413
  * ```
  *
+ * @public
  */
 export class CreateGlobalClusterCommand extends $Command
   .classBuilder<
@@ -151,9 +166,7 @@ export class CreateGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +178,16 @@ export class CreateGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGlobalClusterCommand)
   .de(de_CreateGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGlobalClusterMessage;
+      output: CreateGlobalClusterResult;
+    };
+    sdk: {
+      input: CreateGlobalClusterCommandInput;
+      output: CreateGlobalClusterCommandOutput;
+    };
+  };
+}

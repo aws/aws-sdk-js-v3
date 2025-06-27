@@ -13,7 +13,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,22 +39,13 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  *                <p>You can only resize clusters of the following types:</p>
  *                <ul>
  *                   <li>
- *                      <p>dc1.large (if your cluster is in a VPC)</p>
- *                   </li>
- *                   <li>
- *                      <p>dc1.8xlarge (if your cluster is in a VPC)</p>
- *                   </li>
- *                   <li>
  *                      <p>dc2.large</p>
  *                   </li>
  *                   <li>
  *                      <p>dc2.8xlarge</p>
  *                   </li>
  *                   <li>
- *                      <p>ds2.xlarge</p>
- *                   </li>
- *                   <li>
- *                      <p>ds2.8xlarge</p>
+ *                      <p>ra3.large</p>
  *                   </li>
  *                   <li>
  *                      <p>ra3.xlplus</p>
@@ -343,6 +335,7 @@ export interface ResizeClusterCommandOutput extends ResizeClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ResizeClusterCommand extends $Command
@@ -353,9 +346,7 @@ export class ResizeClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -367,4 +358,16 @@ export class ResizeClusterCommand extends $Command
   .f(void 0, ResizeClusterResultFilterSensitiveLog)
   .ser(se_ResizeClusterCommand)
   .de(de_ResizeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResizeClusterMessage;
+      output: ResizeClusterResult;
+    };
+    sdk: {
+      input: ResizeClusterCommandInput;
+      output: ResizeClusterCommandOutput;
+    };
+  };
+}

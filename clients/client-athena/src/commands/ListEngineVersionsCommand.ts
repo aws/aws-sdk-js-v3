@@ -12,7 +12,8 @@ import { de_ListEngineVersionsCommand, se_ListEngineVersionsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface ListEngineVersionsCommandOutput extends ListEngineVersionsOutpu
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class ListEngineVersionsCommand extends $Command
@@ -80,9 +82,7 @@ export class ListEngineVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class ListEngineVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEngineVersionsCommand)
   .de(de_ListEngineVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEngineVersionsInput;
+      output: ListEngineVersionsOutput;
+    };
+    sdk: {
+      input: ListEngineVersionsCommandInput;
+      output: ListEngineVersionsCommandOutput;
+    };
+  };
+}

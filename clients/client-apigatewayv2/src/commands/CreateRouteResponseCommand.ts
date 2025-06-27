@@ -12,7 +12,8 @@ import { de_CreateRouteResponseCommand, se_CreateRouteResponseCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface CreateRouteResponseCommandOutput extends CreateRouteResponseRes
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateRouteResponseCommand extends $Command
@@ -97,9 +99,7 @@ export class CreateRouteResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class CreateRouteResponseCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRouteResponseCommand)
   .de(de_CreateRouteResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRouteResponseRequest;
+      output: CreateRouteResponseResponse;
+    };
+    sdk: {
+      input: CreateRouteResponseCommandInput;
+      output: CreateRouteResponseCommandOutput;
+    };
+  };
+}

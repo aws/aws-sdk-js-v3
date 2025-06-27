@@ -12,7 +12,8 @@ import { de_DeleteEventsConfigurationCommand, se_DeleteEventsConfigurationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeleteEventsConfigurationCommandOutput extends __MetadataBearer
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventsConfigurationCommand extends $Command
@@ -81,9 +83,7 @@ export class DeleteEventsConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeleteEventsConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventsConfigurationCommand)
   .de(de_DeleteEventsConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventsConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventsConfigurationCommandInput;
+      output: DeleteEventsConfigurationCommandOutput;
+    };
+  };
+}

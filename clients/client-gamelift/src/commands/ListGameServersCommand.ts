@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListGameServersInput, ListGameServersOutput } from "../models/models_0";
+import { ListGameServersInput, ListGameServersOutput } from "../models/models_1";
 import { de_ListGameServersCommand, se_ListGameServersCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Retrieves information on all game
  *             servers that are currently active in a specified game server group. You can opt to sort
@@ -38,7 +39,7 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -96,6 +97,7 @@ export interface ListGameServersCommandOutput extends ListGameServersOutput, __M
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListGameServersCommand extends $Command
@@ -106,9 +108,7 @@ export class ListGameServersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class ListGameServersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGameServersCommand)
   .de(de_ListGameServersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGameServersInput;
+      output: ListGameServersOutput;
+    };
+    sdk: {
+      input: ListGameServersCommandInput;
+      output: ListGameServersCommandOutput;
+    };
+  };
+}

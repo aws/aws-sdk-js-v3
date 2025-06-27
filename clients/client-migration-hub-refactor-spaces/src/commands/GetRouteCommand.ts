@@ -16,7 +16,8 @@ import { de_GetRouteCommand, se_GetRouteCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -108,6 +109,7 @@ export interface GetRouteCommandOutput extends GetRouteResponse, __MetadataBeare
  * @throws {@link MigrationHubRefactorSpacesServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubRefactorSpaces service.</p>
  *
+ *
  * @public
  */
 export class GetRouteCommand extends $Command
@@ -118,9 +120,7 @@ export class GetRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubRefactorSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +132,16 @@ export class GetRouteCommand extends $Command
   .f(void 0, GetRouteResponseFilterSensitiveLog)
   .ser(se_GetRouteCommand)
   .de(de_GetRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRouteRequest;
+      output: GetRouteResponse;
+    };
+    sdk: {
+      input: GetRouteCommandInput;
+      output: GetRouteCommandOutput;
+    };
+  };
+}

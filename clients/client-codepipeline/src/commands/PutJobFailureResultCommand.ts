@@ -12,7 +12,8 @@ import { de_PutJobFailureResultCommand, se_PutJobFailureResultCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface PutJobFailureResultCommandOutput extends __MetadataBearer {}
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class PutJobFailureResultCommand extends $Command
@@ -77,9 +79,7 @@ export class PutJobFailureResultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class PutJobFailureResultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutJobFailureResultCommand)
   .de(de_PutJobFailureResultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutJobFailureResultInput;
+      output: {};
+    };
+    sdk: {
+      input: PutJobFailureResultCommandInput;
+      output: PutJobFailureResultCommandOutput;
+    };
+  };
+}

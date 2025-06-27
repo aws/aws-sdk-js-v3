@@ -12,7 +12,8 @@ import { SecurityLakeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteAwsLogSourceCommandInput extends DeleteAwsLogSourceReques
 export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceResponse, __MetadataBearer {}
 
 /**
- * <p>Removes a natively supported Amazon Web Service as an Amazon Security Lake source. You
+ * <p>Removes a natively supported Amazon Web Services service as an Amazon Security Lake source. You
  *          can remove a source for one or more Regions. When you remove the source, Security Lake stops
  *          collecting data from that source in the specified Regions and accounts, and subscribers can
  *          no longer consume new data from the source. However, subscribers can still consume data
@@ -98,6 +99,7 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  * @throws {@link SecurityLakeServiceException}
  * <p>Base exception class for all service exceptions from SecurityLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteAwsLogSourceCommand extends $Command
@@ -108,9 +110,7 @@ export class DeleteAwsLogSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class DeleteAwsLogSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAwsLogSourceCommand)
   .de(de_DeleteAwsLogSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAwsLogSourceRequest;
+      output: DeleteAwsLogSourceResponse;
+    };
+    sdk: {
+      input: DeleteAwsLogSourceCommandInput;
+      output: DeleteAwsLogSourceCommandOutput;
+    };
+  };
+}

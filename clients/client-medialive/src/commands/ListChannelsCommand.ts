@@ -12,7 +12,8 @@ import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,8 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //           MediaPackageSettings: [ // __listOfMediaPackageOutputDestinationSettings
  * //             { // MediaPackageOutputDestinationSettings
  * //               ChannelId: "STRING_VALUE",
+ * //               ChannelGroup: "STRING_VALUE",
+ * //               ChannelName: "STRING_VALUE",
  * //             },
  * //           ],
  * //           MultiplexSettings: { // MultiplexProgramChannelDestinationSettings
@@ -67,6 +70,16 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               Url: "STRING_VALUE",
  * //               Username: "STRING_VALUE",
  * //             },
+ * //           ],
+ * //           SrtSettings: [ // __listOfSrtOutputDestinationSettings
+ * //             { // SrtOutputDestinationSettings
+ * //               EncryptionPassphraseSecretArn: "STRING_VALUE",
+ * //               StreamId: "STRING_VALUE",
+ * //               Url: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           LogicalInterfaceNames: [ // __listOf__string
+ * //             "STRING_VALUE",
  * //           ],
  * //         },
  * //       ],
@@ -183,6 +196,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //                 Scte35Source: "MANIFEST" || "SEGMENTS",
  * //               },
  * //               ServerValidation: "CHECK_CRYPTOGRAPHY_AND_VALIDATE_NAME" || "CHECK_CRYPTOGRAPHY_ONLY",
+ * //               MulticastInputSettings: { // MulticastInputSettings
+ * //                 SourceIpAddress: "STRING_VALUE",
+ * //               },
  * //             },
  * //             Scte35Pid: Number("int"),
  * //             Smpte2038DataPreference: "IGNORE" || "PREFER",
@@ -206,6 +222,9 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //               },
  * //             },
  * //           },
+ * //           LogicalInterfaceNames: [
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       InputSpecification: { // InputSpecification
@@ -228,7 +247,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       Vpc: { // VpcOutputSettingsDescription
- * //         AvailabilityZones: [ // __listOf__string
+ * //         AvailabilityZones: [
  * //           "STRING_VALUE",
  * //         ],
  * //         NetworkInterfaceIds: [
@@ -237,10 +256,22 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //         SecurityGroupIds: [
  * //           "STRING_VALUE",
  * //         ],
- * //         SubnetIds: [
- * //           "STRING_VALUE",
- * //         ],
+ * //         SubnetIds: "<__listOf__string>",
  * //       },
+ * //       AnywhereSettings: { // DescribeAnywhereSettings
+ * //         ChannelPlacementGroupId: "STRING_VALUE",
+ * //         ClusterId: "STRING_VALUE",
+ * //       },
+ * //       ChannelEngineVersion: { // ChannelEngineVersionResponse
+ * //         ExpirationDate: new Date("TIMESTAMP"),
+ * //         Version: "STRING_VALUE",
+ * //       },
+ * //       UsedChannelEngineVersions: [ // __listOfChannelEngineVersionResponse
+ * //         {
+ * //           ExpirationDate: new Date("TIMESTAMP"),
+ * //           Version: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -275,6 +306,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListChannelsCommand extends $Command
@@ -285,9 +317,7 @@ export class ListChannelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -299,4 +329,16 @@ export class ListChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChannelsCommand)
   .de(de_ListChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelsRequest;
+      output: ListChannelsResponse;
+    };
+    sdk: {
+      input: ListChannelsCommandInput;
+      output: ListChannelsCommandOutput;
+    };
+  };
+}

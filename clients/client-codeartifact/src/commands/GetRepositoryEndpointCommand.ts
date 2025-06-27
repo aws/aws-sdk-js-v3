@@ -12,7 +12,8 @@ import { de_GetRepositoryEndpointCommand, se_GetRepositoryEndpointCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,6 +33,11 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *       package format:
  *     </p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>cargo</code>
+ *                </p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>generic</code>
@@ -78,7 +84,8 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
+ *   endpointType: "dualstack" || "ipv4",
  * };
  * const command = new GetRepositoryEndpointCommand(input);
  * const response = await client.send(command);
@@ -120,6 +127,7 @@ export interface GetRepositoryEndpointCommandOutput extends GetRepositoryEndpoin
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class GetRepositoryEndpointCommand extends $Command
@@ -130,9 +138,7 @@ export class GetRepositoryEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +150,16 @@ export class GetRepositoryEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRepositoryEndpointCommand)
   .de(de_GetRepositoryEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRepositoryEndpointRequest;
+      output: GetRepositoryEndpointResult;
+    };
+    sdk: {
+      input: GetRepositoryEndpointCommandInput;
+      output: GetRepositoryEndpointCommandOutput;
+    };
+  };
+}

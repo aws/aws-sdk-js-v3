@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SWFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -121,6 +122,7 @@ export interface DescribeActivityTypeCommandOutput extends ActivityTypeDetail, _
  * @throws {@link SWFServiceException}
  * <p>Base exception class for all service exceptions from SWF service.</p>
  *
+ *
  * @public
  */
 export class DescribeActivityTypeCommand extends $Command
@@ -131,9 +133,7 @@ export class DescribeActivityTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SWFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +145,16 @@ export class DescribeActivityTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeActivityTypeCommand)
   .de(de_DescribeActivityTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeActivityTypeInput;
+      output: ActivityTypeDetail;
+    };
+    sdk: {
+      input: DescribeActivityTypeCommandInput;
+      output: DescribeActivityTypeCommandOutput;
+    };
+  };
+}

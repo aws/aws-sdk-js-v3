@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,7 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the specified association between a service network and a
- *    service.</p>
+ * <p>Retrieves information about the specified association between a service network and a service.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -96,6 +96,7 @@ export interface GetServiceNetworkServiceAssociationCommandOutput
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
  *
+ *
  * @public
  */
 export class GetServiceNetworkServiceAssociationCommand extends $Command
@@ -106,9 +107,7 @@ export class GetServiceNetworkServiceAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class GetServiceNetworkServiceAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetServiceNetworkServiceAssociationCommand)
   .de(de_GetServiceNetworkServiceAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetServiceNetworkServiceAssociationRequest;
+      output: GetServiceNetworkServiceAssociationResponse;
+    };
+    sdk: {
+      input: GetServiceNetworkServiceAssociationCommandInput;
+      output: GetServiceNetworkServiceAssociationCommandOutput;
+    };
+  };
+}

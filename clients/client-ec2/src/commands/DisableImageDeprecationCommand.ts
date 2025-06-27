@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DisableImageDeprecationRequest, DisableImageDeprecationResult } from "../models/models_5";
+import { DisableImageDeprecationRequest, DisableImageDeprecationResult } from "../models/models_6";
 import { de_DisableImageDeprecationCommand, se_DisableImageDeprecationCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,8 @@ export interface DisableImageDeprecationCommandOutput extends DisableImageDeprec
 
 /**
  * <p>Cancels the deprecation of the specified AMI.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an AMI</a> in the
- *         <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deprecate.html">Deprecate an Amazon EC2 AMI</a> in the
+ *       <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,6 +58,7 @@ export interface DisableImageDeprecationCommandOutput extends DisableImageDeprec
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisableImageDeprecationCommand extends $Command
@@ -67,9 +69,7 @@ export class DisableImageDeprecationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -81,4 +81,16 @@ export class DisableImageDeprecationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableImageDeprecationCommand)
   .de(de_DisableImageDeprecationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableImageDeprecationRequest;
+      output: DisableImageDeprecationResult;
+    };
+    sdk: {
+      input: DisableImageDeprecationCommandInput;
+      output: DisableImageDeprecationCommandOutput;
+    };
+  };
+}

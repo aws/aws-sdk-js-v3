@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,55 +110,8 @@ export interface DescribeSecretCommandOutput extends DescribeSecretResponse, __M
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
- * @example To retrieve the details of a secret
- * ```javascript
- * // The following example shows how to get the details about a secret.
- * const input = {
- *   "SecretId": "MyTestDatabaseSecret"
- * };
- * const command = new DescribeSecretCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Description": "My test database secret",
- *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/EXAMPLE1-90ab-cdef-fedc-ba987KMSKEY1",
- *   "LastAccessedDate": "1523923200",
- *   "LastChangedDate": 1523477145.729,
- *   "LastRotatedDate": 1525747253.72,
- *   "Name": "MyTestDatabaseSecret",
- *   "NextRotationDate": "1665165599",
- *   "RotationEnabled": true,
- *   "RotationLambdaARN": "arn:aws:lambda:us-west-2:123456789012:function:MyTestRotationLambda",
- *   "RotationRules": {
- *     "AutomaticallyAfterDays": 14,
- *     "Duration": "2h",
- *     "ScheduleExpression": "cron(0 16 1,15 * ? *)"
- *   },
- *   "Tags": [
- *     {
- *       "Key": "SecondTag",
- *       "Value": "AnotherValue"
- *     },
- *     {
- *       "Key": "FirstTag",
- *       "Value": "SomeValue"
- *     }
- *   ],
- *   "VersionIdsToStages": {
- *     "EXAMPLE1-90ab-cdef-fedc-ba987EXAMPLE": [
- *       "AWSPREVIOUS"
- *     ],
- *     "EXAMPLE2-90ab-cdef-fedc-ba987EXAMPLE": [
- *       "AWSCURRENT"
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-retrieve-the-details-of-a-secret-1524000138629
- * ```
  *
+ * @public
  */
 export class DescribeSecretCommand extends $Command
   .classBuilder<
@@ -167,9 +121,7 @@ export class DescribeSecretCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -181,4 +133,16 @@ export class DescribeSecretCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecretCommand)
   .de(de_DescribeSecretCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecretRequest;
+      output: DescribeSecretResponse;
+    };
+    sdk: {
+      input: DescribeSecretCommandInput;
+      output: DescribeSecretCommandOutput;
+    };
+  };
+}

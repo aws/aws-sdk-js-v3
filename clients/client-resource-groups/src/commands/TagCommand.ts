@@ -12,7 +12,8 @@ import { ResourceGroupsClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface TagCommandInput extends TagInput {}
 export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
 
 /**
- * <p>Adds tags to a resource group with the specified ARN. Existing tags on a resource
+ * <p>Adds tags to a resource group with the specified Amazon resource name (ARN). Existing tags on a resource
  *             group are not changed if they are not specified in the request parameters.</p>
  *          <important>
  *             <p>Do not store personally identifiable information (PII) or other confidential or
@@ -97,6 +98,7 @@ export interface TagCommandOutput extends TagOutput, __MetadataBearer {}
  * @throws {@link ResourceGroupsServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroups service.</p>
  *
+ *
  * @public
  */
 export class TagCommand extends $Command
@@ -107,9 +109,7 @@ export class TagCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class TagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagCommand)
   .de(de_TagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagInput;
+      output: TagOutput;
+    };
+    sdk: {
+      input: TagCommandInput;
+      output: TagCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -121,6 +122,7 @@ export interface UpdateScheduledActionCommandOutput extends UpdateScheduledActio
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class UpdateScheduledActionCommand extends $Command
@@ -131,9 +133,7 @@ export class UpdateScheduledActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +145,16 @@ export class UpdateScheduledActionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateScheduledActionCommand)
   .de(de_UpdateScheduledActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateScheduledActionRequest;
+      output: UpdateScheduledActionResponse;
+    };
+    sdk: {
+      input: UpdateScheduledActionCommandInput;
+      output: UpdateScheduledActionCommandOutput;
+    };
+  };
+}

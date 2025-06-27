@@ -17,7 +17,8 @@ import { de_UpdateControlCommand, se_UpdateControlCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  *       sourceName: "STRING_VALUE",
  *       sourceDescription: "STRING_VALUE",
  *       sourceSetUpOption: "System_Controls_Mapping" || "Procedural_Controls_Mapping",
- *       sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL",
+ *       sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL" || "Common_Control" || "Core_Control",
  *       sourceKeyword: { // SourceKeyword
  *         keywordInputType: "SELECT_FROM_LIST" || "UPLOAD_FILE" || "INPUT_TEXT",
  *         keywordValue: "STRING_VALUE",
@@ -68,7 +69,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  * //   control: { // Control
  * //     arn: "STRING_VALUE",
  * //     id: "STRING_VALUE",
- * //     type: "Standard" || "Custom",
+ * //     type: "Standard" || "Custom" || "Core",
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     testingInformation: "STRING_VALUE",
@@ -81,7 +82,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  * //         sourceName: "STRING_VALUE",
  * //         sourceDescription: "STRING_VALUE",
  * //         sourceSetUpOption: "System_Controls_Mapping" || "Procedural_Controls_Mapping",
- * //         sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL",
+ * //         sourceType: "AWS_Cloudtrail" || "AWS_Config" || "AWS_Security_Hub" || "AWS_API_Call" || "MANUAL" || "Common_Control" || "Core_Control",
  * //         sourceKeyword: { // SourceKeyword
  * //           keywordInputType: "SELECT_FROM_LIST" || "UPLOAD_FILE" || "INPUT_TEXT",
  * //           keywordValue: "STRING_VALUE",
@@ -97,6 +98,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  * //     tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     state: "ACTIVE" || "END_OF_SUPPORT",
  * //   },
  * // };
  *
@@ -125,6 +127,7 @@ export interface UpdateControlCommandOutput extends UpdateControlResponse, __Met
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateControlCommand extends $Command
@@ -135,9 +138,7 @@ export class UpdateControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +150,16 @@ export class UpdateControlCommand extends $Command
   .f(UpdateControlRequestFilterSensitiveLog, UpdateControlResponseFilterSensitiveLog)
   .ser(se_UpdateControlCommand)
   .de(de_UpdateControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateControlRequest;
+      output: UpdateControlResponse;
+    };
+    sdk: {
+      input: UpdateControlCommandInput;
+      output: UpdateControlCommandOutput;
+    };
+  };
+}

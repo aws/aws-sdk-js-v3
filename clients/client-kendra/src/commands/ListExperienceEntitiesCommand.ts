@@ -16,7 +16,8 @@ import { de_ListExperienceEntitiesCommand, se_ListExperienceEntitiesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface ListExperienceEntitiesCommandOutput extends ListExperienceEntit
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class ListExperienceEntitiesCommand extends $Command
@@ -107,9 +109,7 @@ export class ListExperienceEntitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class ListExperienceEntitiesCommand extends $Command
   .f(void 0, ListExperienceEntitiesResponseFilterSensitiveLog)
   .ser(se_ListExperienceEntitiesCommand)
   .de(de_ListExperienceEntitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListExperienceEntitiesRequest;
+      output: ListExperienceEntitiesResponse;
+    };
+    sdk: {
+      input: ListExperienceEntitiesCommandInput;
+      output: ListExperienceEntitiesCommandOutput;
+    };
+  };
+}

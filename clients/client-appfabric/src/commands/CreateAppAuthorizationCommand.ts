@@ -16,7 +16,8 @@ import { de_CreateAppAuthorizationCommand, se_CreateAppAuthorizationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -117,6 +118,7 @@ export interface CreateAppAuthorizationCommandOutput extends CreateAppAuthorizat
  * @throws {@link AppFabricServiceException}
  * <p>Base exception class for all service exceptions from AppFabric service.</p>
  *
+ *
  * @public
  */
 export class CreateAppAuthorizationCommand extends $Command
@@ -127,9 +129,7 @@ export class CreateAppAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppFabricClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class CreateAppAuthorizationCommand extends $Command
   .f(CreateAppAuthorizationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateAppAuthorizationCommand)
   .de(de_CreateAppAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAppAuthorizationRequest;
+      output: CreateAppAuthorizationResponse;
+    };
+    sdk: {
+      input: CreateAppAuthorizationCommandInput;
+      output: CreateAppAuthorizationCommandOutput;
+    };
+  };
+}

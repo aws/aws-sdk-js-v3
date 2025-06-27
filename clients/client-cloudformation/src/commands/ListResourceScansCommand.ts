@@ -12,7 +12,8 @@ import { de_ListResourceScansCommand, se_ListResourceScansCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface ListResourceScansCommandInput extends ListResourceScansInput {}
 export interface ListResourceScansCommandOutput extends ListResourceScansOutput, __MetadataBearer {}
 
 /**
- * <p>List the resource scans from newest to oldest. By default it will return up to 10 resource scans.</p>
+ * <p>List the resource scans from newest to oldest. By default it will return up to 10 resource
+ *       scans.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -37,6 +39,7 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * const input = { // ListResourceScansInput
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ScanTypeFilter: "FULL" || "PARTIAL",
  * };
  * const command = new ListResourceScansCommand(input);
  * const response = await client.send(command);
@@ -49,6 +52,7 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * //       StartTime: new Date("TIMESTAMP"),
  * //       EndTime: new Date("TIMESTAMP"),
  * //       PercentageCompleted: Number("double"),
+ * //       ScanType: "FULL" || "PARTIAL",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -65,35 +69,8 @@ export interface ListResourceScansCommandOutput extends ListResourceScansOutput,
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
- * @example Listing Resource Scans
- * ```javascript
- * // This example shows how to list resource scans
- * const input = {};
- * const command = new ListResourceScansCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ResourceScanSummaries": [
- *     {
- *       "PercentageCompleted": 37.4,
- *       "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/51448627-817f-40f0-b37c-f6e0f974340c",
- *       "StartTime": "2024-01-24T00:33:29.673000+00:00",
- *       "Status": "IN_PROGRESS"
- *     },
- *     {
- *       "EndTime": "2024-01-02T23:25:48.075000+00:00",
- *       "PercentageCompleted": 100,
- *       "ResourceScanId": "arn:aws:cloudformation:us-east-1:123456789012:resourceScan/c19304f6-c4f1-4ff8-8e1f-35162e41d7e1",
- *       "StartTime": "2024-01-02T22:15:18.382000+00:00",
- *       "Status": "COMPLETE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-resource-scans
- * ```
  *
+ * @public
  */
 export class ListResourceScansCommand extends $Command
   .classBuilder<
@@ -103,9 +80,7 @@ export class ListResourceScansCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +92,16 @@ export class ListResourceScansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourceScansCommand)
   .de(de_ListResourceScansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourceScansInput;
+      output: ListResourceScansOutput;
+    };
+    sdk: {
+      input: ListResourceScansCommandInput;
+      output: ListResourceScansCommandOutput;
+    };
+  };
+}

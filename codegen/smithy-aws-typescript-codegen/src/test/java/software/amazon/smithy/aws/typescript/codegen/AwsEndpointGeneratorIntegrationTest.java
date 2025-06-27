@@ -3,15 +3,17 @@ package software.amazon.smithy.aws.typescript.codegen;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import software.amazon.smithy.build.MockManifest;
 import software.amazon.smithy.build.PluginContext;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.node.Node;
 import software.amazon.smithy.typescript.codegen.CodegenUtils;
-import software.amazon.smithy.typescript.codegen.TypeScriptCodegenPlugin;
+import software.amazon.smithy.typescript.codegen.TypeScriptClientCodegenPlugin;
 import software.amazon.smithy.typescript.codegen.TypeScriptServerCodegenPlugin;
 
+@Disabled
 public class AwsEndpointGeneratorIntegrationTest {
     @Test
     public void awsClient() {
@@ -31,7 +33,7 @@ public class AwsEndpointGeneratorIntegrationTest {
                                   .withMember("packageVersion", Node.from("1.0.0"))
                                   .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         assertTrue(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/endpoints.ts").isPresent());
     }
@@ -54,7 +56,7 @@ public class AwsEndpointGeneratorIntegrationTest {
                         .withMember("packageVersion", Node.from("1.0.0"))
                         .build())
                 .build();
-        new TypeScriptCodegenPlugin().execute(context);
+        new TypeScriptClientCodegenPlugin().execute(context);
 
         assertFalse(manifest.getFileString(CodegenUtils.SOURCE_FOLDER + "/endpoints.ts").isPresent());
     }

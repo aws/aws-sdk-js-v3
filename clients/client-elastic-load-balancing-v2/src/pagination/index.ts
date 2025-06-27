@@ -1,6 +1,12 @@
+export * from "./DescribeAccountLimitsPaginator";
+
+export * from "./DescribeListenerCertificatesPaginator";
+
 export * from "./DescribeListenersPaginator";
 
 export * from "./DescribeLoadBalancersPaginator";
+
+export * from "./DescribeRulesPaginator";
 
 export * from "./DescribeTargetGroupsPaginator";
 

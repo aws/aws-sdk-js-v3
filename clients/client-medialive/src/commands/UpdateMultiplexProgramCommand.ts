@@ -12,7 +12,8 @@ import { de_UpdateMultiplexProgramCommand, se_UpdateMultiplexProgramCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,12 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  * //       Scte35Pid: Number("int"),
  * //       TimedMetadataPid: Number("int"),
  * //       VideoPid: Number("int"),
+ * //       AribCaptionsPid: Number("int"),
+ * //       DvbTeletextPids: [
+ * //         Number("int"),
+ * //       ],
+ * //       EcmPid: Number("int"),
+ * //       Smpte2038Pid: Number("int"),
  * //     },
  * //     PipelineDetails: [ // __listOfMultiplexProgramPipelineDetail
  * //       { // MultiplexProgramPipelineDetail
@@ -143,6 +150,7 @@ export interface UpdateMultiplexProgramCommandOutput extends UpdateMultiplexProg
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class UpdateMultiplexProgramCommand extends $Command
@@ -153,9 +161,7 @@ export class UpdateMultiplexProgramCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +173,16 @@ export class UpdateMultiplexProgramCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateMultiplexProgramCommand)
   .de(de_UpdateMultiplexProgramCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateMultiplexProgramRequest;
+      output: UpdateMultiplexProgramResponse;
+    };
+    sdk: {
+      input: UpdateMultiplexProgramCommandInput;
+      output: UpdateMultiplexProgramCommandOutput;
+    };
+  };
+}

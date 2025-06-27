@@ -1,18 +1,19 @@
 import {
   getArnResources as getS3AccesspointArnResources,
   validateAccountId,
-  validateNoDualstack,
   validateOutpostService,
   validatePartition,
-  validateRegion,
 } from "@aws-sdk/middleware-bucket-endpoint";
 import { ARN, parse as parseArn, validate as validateArn } from "@aws-sdk/util-arn-parser";
 import { partition } from "@aws-sdk/util-endpoints";
-import { InitializeHandlerOptions, InitializeMiddleware } from "@smithy/types";
+import { RelativeMiddlewareOptions, SerializeMiddleware } from "@smithy/types";
 
 import { S3ControlResolvedConfig } from "../configurations";
 import { CONTEXT_ARN_REGION, CONTEXT_OUTPOST_ID, CONTEXT_SIGNING_REGION, CONTEXT_SIGNING_SERVICE } from "../constants";
 
+/**
+ * @internal
+ */
 type ArnableInput = {
   Name?: string;
   Bucket?: string;
@@ -23,9 +24,10 @@ type ArnableInput = {
  * Validate input `Name` or `Bucket` parameter is acceptable ARN format. If so, modify the input ARN to inferred
  * resource identifier, notify later middleware to redirect request to Outpost endpoint, signing service and signing
  * region.
+ * @internal
  */
 export const parseOutpostArnablesMiddleaware =
-  (options: S3ControlResolvedConfig): InitializeMiddleware<ArnableInput, any> =>
+  (options: S3ControlResolvedConfig): SerializeMiddleware<ArnableInput, any> =>
   (next, context) =>
   async (args) => {
     const { input } = args;
@@ -74,13 +76,12 @@ export const parseOutpostArnablesMiddleaware =
       input.Bucket = bucketName;
       context[CONTEXT_OUTPOST_ID] = outpostId;
     }
+
     context[CONTEXT_SIGNING_SERVICE] = arn.service; // s3-outposts
     context[CONTEXT_SIGNING_REGION] = useArnRegion ? arn.region : signingRegion;
 
     if (!input.AccountId) {
       input.AccountId = arn.accountId;
-    } else if (input.AccountId !== arn.accountId) {
-      throw new Error(`AccountId is incompatible with account id inferred from ${parameter}`);
     }
 
     if (useArnRegion) context[CONTEXT_ARN_REGION] = arn.region;
@@ -88,17 +89,29 @@ export const parseOutpostArnablesMiddleaware =
     return next(args);
   };
 
-export const parseOutpostArnablesMiddleawareOptions: InitializeHandlerOptions = {
-  step: "initialize",
+/**
+ * This middleware must go after endpoint resolution and before serialization.
+ * The transform applied to the input.Bucket or input.Name ARN must not have occurred
+ * by the time endpoint resolution happens, but must have completed by the time serialization
+ * happens.
+ *
+ * @internal
+ */
+export const parseOutpostArnablesMiddleawareOptions: RelativeMiddlewareOptions = {
+  toMiddleware: "serializerMiddleware",
+  relation: "before",
   tags: ["CONVERT_ARN", "OUTPOST_BUCKET_ARN", "OUTPOST_ACCESS_POINT_ARN", "OUTPOST"],
   name: "parseOutpostArnablesMiddleaware",
 };
 
+/**
+ * @internal
+ */
 type ValidateOutpostsArnOptions = {
   clientRegion: string;
   signingRegion: string;
   clientPartition: string;
-  useArnRegion: boolean;
+  useArnRegion?: boolean;
   useDualstackEndpoint: boolean;
   useFipsEndpoint: boolean;
 };
@@ -109,30 +122,14 @@ type ValidateOutpostsArnOptions = {
  *    arn:{partition}:s3-outposts:{region}:{accountId}:outpost/{outpostId}/accesspoint/{accesspointName}
  * ARN supplied to 'Bucket' parameter should comply template:
  *    arn:{partition}:s3-outposts:{region}:{accountId}:outpost/{outpostId}/bucket/{bucketName}
+ *
+ * @internal
  */
-const validateOutpostsArn = (
-  arn: ARN,
-  {
-    clientRegion,
-    signingRegion,
-    clientPartition,
-    useArnRegion,
-    useFipsEndpoint,
-    useDualstackEndpoint,
-  }: ValidateOutpostsArnOptions
-) => {
+const validateOutpostsArn = (arn: ARN, { clientPartition }: ValidateOutpostsArnOptions) => {
   const { service, partition, accountId, region } = arn;
   validateOutpostService(service);
   validatePartition(partition, { clientPartition });
   validateAccountId(accountId);
-  validateRegion(region, {
-    useArnRegion,
-    clientRegion,
-    clientSigningRegion: signingRegion,
-    useFipsEndpoint,
-    allowFipsRegion: true,
-  });
-  validateNoDualstack(useDualstackEndpoint);
 };
 
 const parseOutpostsAccessPointArnResource = (

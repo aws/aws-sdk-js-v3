@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,8 +30,8 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
 /**
  * <p>Lists all tags on an Amazon RDS resource.</p>
  *          <p>For an overview on tagging an Amazon RDS resource,
- *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
- *           in the <i>Amazon RDS User Guide</i>.</p>
+ *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i>
+ *             or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -101,32 +102,32 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To list tags on an Amazon RDS resource
  * ```javascript
  * // The following example lists all tags on a DB instance.
  * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:123456789012:db:orcl1"
+ *   ResourceName: "arn:aws:rds:us-east-1:123456789012:db:orcl1"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagList": [
+ *   TagList: [
  *     {
- *       "Key": "Environment",
- *       "Value": "test"
+ *       Key: "Environment",
+ *       Value: "test"
  *     },
  *     {
- *       "Key": "Name",
- *       "Value": "MyDatabase"
+ *       Key: "Name",
+ *       Value: "MyDatabase"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-tags-on-an-amazon-rds-resource-1680285113240
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
@@ -136,9 +137,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +149,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceMessage;
+      output: TagListMessage;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

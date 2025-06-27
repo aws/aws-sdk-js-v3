@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClusterTracksMessage, TrackListMessage } from "../models/models_0";
+import { DescribeClusterTracksMessage, TrackListMessage } from "../models/models_1";
 import { de_DescribeClusterTracksCommand, se_DescribeClusterTracksCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface DescribeClusterTracksCommandOutput extends TrackListMessage, __
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeClusterTracksCommand extends $Command
@@ -89,9 +91,7 @@ export class DescribeClusterTracksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class DescribeClusterTracksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterTracksCommand)
   .de(de_DescribeClusterTracksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterTracksMessage;
+      output: TrackListMessage;
+    };
+    sdk: {
+      input: DescribeClusterTracksCommandInput;
+      output: DescribeClusterTracksCommandOutput;
+    };
+  };
+}

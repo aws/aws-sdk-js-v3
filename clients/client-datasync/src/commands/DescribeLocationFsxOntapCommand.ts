@@ -16,7 +16,8 @@ import { de_DescribeLocationFsxOntapCommand, se_DescribeLocationFsxOntapCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationFsxOntapCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeLocationFsxOntapCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeLocationFsxOntapCommand extends $Command
   .f(void 0, DescribeLocationFsxOntapResponseFilterSensitiveLog)
   .ser(se_DescribeLocationFsxOntapCommand)
   .de(de_DescribeLocationFsxOntapCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationFsxOntapRequest;
+      output: DescribeLocationFsxOntapResponse;
+    };
+    sdk: {
+      input: DescribeLocationFsxOntapCommandInput;
+      output: DescribeLocationFsxOntapCommandOutput;
+    };
+  };
+}

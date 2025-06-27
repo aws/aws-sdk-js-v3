@@ -12,7 +12,8 @@ import { de_ListGeneratedTemplatesCommand, se_ListGeneratedTemplatesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,49 +67,8 @@ export interface ListGeneratedTemplatesCommandOutput extends ListGeneratedTempla
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
- * @public
- * @example To list generated templates
- * ```javascript
- * // This example lists the generated templates.
- * const input = {};
- * const command = new ListGeneratedTemplatesCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Summaries": [
- *     {
- *       "CreationTime": "2023-12-28T17:55:20.086000+00:00",
- *       "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/abcdefghi-1234-abcd-abcd-abcdefgh1234567",
- *       "GeneratedTemplateName": "Template3",
- *       "LastUpdatedTime": "2023-12-28T17:57:16.610000+00:00",
- *       "NumberOfResources": 85,
- *       "Status": "COMPLETE",
- *       "StatusReason": "All resources complete"
- *     },
- *     {
- *       "CreationTime": "2023-12-21T01:51:07.764000+00:00",
- *       "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/bbcdefghi-1234-abcd-abcd-abcdefgh1234567",
- *       "GeneratedTemplateName": "Template2",
- *       "LastUpdatedTime": "2023-12-21T01:51:22.664000+00:00",
- *       "NumberOfResources": 12,
- *       "Status": "COMPLETE",
- *       "StatusReason": "All resources complete"
- *     },
- *     {
- *       "CreationTime": "2023-11-20T23:53:28.722000+00:00",
- *       "GeneratedTemplateId": "arn:aws:cloudformation:us-east-1:123456789012:generatedtemplate/cbcdefghi-1234-abcd-abcd-abcdefgh1234567",
- *       "GeneratedTemplateName": "Template1",
- *       "LastUpdatedTime": "2023-11-21T04:25:30.527000+00:00",
- *       "NumberOfResources": 19,
- *       "Status": "COMPLETE",
- *       "StatusReason": "All resources complete"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-generated-templates
- * ```
  *
+ * @public
  */
 export class ListGeneratedTemplatesCommand extends $Command
   .classBuilder<
@@ -118,9 +78,7 @@ export class ListGeneratedTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +90,16 @@ export class ListGeneratedTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGeneratedTemplatesCommand)
   .de(de_ListGeneratedTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGeneratedTemplatesInput;
+      output: ListGeneratedTemplatesOutput;
+    };
+    sdk: {
+      input: ListGeneratedTemplatesCommandInput;
+      output: ListGeneratedTemplatesCommandOutput;
+    };
+  };
+}

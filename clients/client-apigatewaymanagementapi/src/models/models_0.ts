@@ -102,14 +102,14 @@ export interface GetConnectionResponse {
    * <p>The time in ISO 8601 format for when the connection was established.</p>
    * @public
    */
-  ConnectedAt?: Date;
+  ConnectedAt?: Date | undefined;
 
-  Identity?: Identity;
+  Identity?: Identity | undefined;
   /**
    * <p>The time in ISO 8601 format for when the connection was last active.</p>
    * @public
    */
-  LastActiveAt?: Date;
+  LastActiveAt?: Date | undefined;
 }
 
 /**
@@ -119,7 +119,7 @@ export interface GetConnectionResponse {
 export class PayloadTooLargeException extends __BaseException {
   readonly name: "PayloadTooLargeException" = "PayloadTooLargeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */

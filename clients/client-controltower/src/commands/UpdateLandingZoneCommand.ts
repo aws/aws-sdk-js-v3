@@ -12,7 +12,8 @@ import { de_UpdateLandingZoneCommand, se_UpdateLandingZoneCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface UpdateLandingZoneCommandInput extends UpdateLandingZoneInput {}
 export interface UpdateLandingZoneCommandOutput extends UpdateLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>This API call updates the landing zone. It starts an asynchronous operation that updates the
- *          landing zone based on the new landing zone version, or on the changed parameters specified in the
- *          updated manifest file. </p>
+ * <p>This API call updates the landing zone. It starts an asynchronous operation that updates the landing zone based on the new landing zone version, or on the changed parameters specified in the updated manifest file. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +75,7 @@ export interface UpdateLandingZoneCommandOutput extends UpdateLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class UpdateLandingZoneCommand extends $Command
@@ -86,9 +86,7 @@ export class UpdateLandingZoneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +98,16 @@ export class UpdateLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLandingZoneCommand)
   .de(de_UpdateLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLandingZoneInput;
+      output: UpdateLandingZoneOutput;
+    };
+    sdk: {
+      input: UpdateLandingZoneCommandInput;
+      output: UpdateLandingZoneCommandOutput;
+    };
+  };
+}

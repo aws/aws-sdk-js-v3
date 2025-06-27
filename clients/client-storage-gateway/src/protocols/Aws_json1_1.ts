@@ -6,6 +6,7 @@ import {
   collectBody,
   decorateServiceException as __decorateServiceException,
   expectBoolean as __expectBoolean,
+  expectInt32 as __expectInt32,
   expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
@@ -34,6 +35,7 @@ import {
 } from "../commands/AssociateFileSystemCommand";
 import { AttachVolumeCommandInput, AttachVolumeCommandOutput } from "../commands/AttachVolumeCommand";
 import { CancelArchivalCommandInput, CancelArchivalCommandOutput } from "../commands/CancelArchivalCommand";
+import { CancelCacheReportCommandInput, CancelCacheReportCommandOutput } from "../commands/CancelCacheReportCommand";
 import { CancelRetrievalCommandInput, CancelRetrievalCommandOutput } from "../commands/CancelRetrievalCommand";
 import {
   CreateCachediSCSIVolumeCommandInput,
@@ -64,6 +66,7 @@ import {
   DeleteBandwidthRateLimitCommandInput,
   DeleteBandwidthRateLimitCommandOutput,
 } from "../commands/DeleteBandwidthRateLimitCommand";
+import { DeleteCacheReportCommandInput, DeleteCacheReportCommandOutput } from "../commands/DeleteCacheReportCommand";
 import {
   DeleteChapCredentialsCommandInput,
   DeleteChapCredentialsCommandOutput,
@@ -95,6 +98,10 @@ import {
   DescribeCachediSCSIVolumesCommandInput,
   DescribeCachediSCSIVolumesCommandOutput,
 } from "../commands/DescribeCachediSCSIVolumesCommand";
+import {
+  DescribeCacheReportCommandInput,
+  DescribeCacheReportCommandOutput,
+} from "../commands/DescribeCacheReportCommand";
 import {
   DescribeChapCredentialsCommandInput,
   DescribeChapCredentialsCommandOutput,
@@ -155,11 +162,16 @@ import {
   DisassociateFileSystemCommandInput,
   DisassociateFileSystemCommandOutput,
 } from "../commands/DisassociateFileSystemCommand";
+import {
+  EvictFilesFailingUploadCommandInput,
+  EvictFilesFailingUploadCommandOutput,
+} from "../commands/EvictFilesFailingUploadCommand";
 import { JoinDomainCommandInput, JoinDomainCommandOutput } from "../commands/JoinDomainCommand";
 import {
   ListAutomaticTapeCreationPoliciesCommandInput,
   ListAutomaticTapeCreationPoliciesCommandOutput,
 } from "../commands/ListAutomaticTapeCreationPoliciesCommand";
+import { ListCacheReportsCommandInput, ListCacheReportsCommandOutput } from "../commands/ListCacheReportsCommand";
 import { ListFileSharesCommandInput, ListFileSharesCommandOutput } from "../commands/ListFileSharesCommand";
 import {
   ListFileSystemAssociationsCommandInput,
@@ -210,6 +222,7 @@ import {
   StartAvailabilityMonitorTestCommandInput,
   StartAvailabilityMonitorTestCommandOutput,
 } from "../commands/StartAvailabilityMonitorTestCommand";
+import { StartCacheReportCommandInput, StartCacheReportCommandOutput } from "../commands/StartCacheReportCommand";
 import { StartGatewayCommandInput, StartGatewayCommandOutput } from "../commands/StartGatewayCommand";
 import {
   UpdateAutomaticTapeCreationPolicyCommandInput,
@@ -278,7 +291,10 @@ import {
   BandwidthRateLimitInterval,
   CacheAttributes,
   CachediSCSIVolume,
+  CacheReportFilter,
+  CacheReportInfo,
   CancelArchivalInput,
+  CancelCacheReportInput,
   CancelRetrievalInput,
   CreateCachediSCSIVolumeInput,
   CreateNFSFileShareInput,
@@ -291,6 +307,7 @@ import {
   CreateTapeWithBarcodeInput,
   DeleteAutomaticTapeCreationPolicyInput,
   DeleteBandwidthRateLimitInput,
+  DeleteCacheReportInput,
   DeleteChapCredentialsInput,
   DeleteFileShareInput,
   DeleteGatewayInput,
@@ -307,6 +324,8 @@ import {
   DescribeCachediSCSIVolumesOutput,
   DescribeCacheInput,
   DescribeCacheOutput,
+  DescribeCacheReportInput,
+  DescribeCacheReportOutput,
   DescribeChapCredentialsInput,
   DescribeFileSystemAssociationsInput,
   DescribeGatewayInformationInput,
@@ -330,10 +349,13 @@ import {
   DisableGatewayInput,
   DisassociateFileSystemInput,
   EndpointNetworkConfiguration,
+  EvictFilesFailingUploadInput,
   InternalServerError,
   InvalidGatewayRequestException,
   JoinDomainInput,
   ListAutomaticTapeCreationPoliciesInput,
+  ListCacheReportsInput,
+  ListCacheReportsOutput,
   ListFileSharesInput,
   ListFileSystemAssociationsInput,
   ListGatewaysInput,
@@ -357,7 +379,9 @@ import {
   SetSMBGuestPasswordInput,
   ShutdownGatewayInput,
   SMBLocalGroups,
+  SoftwareUpdatePreferences,
   StartAvailabilityMonitorTestInput,
+  StartCacheReportInput,
   StartGatewayInput,
   StorediSCSIVolume,
   Tag,
@@ -495,6 +519,19 @@ export const se_CancelArchivalCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelArchival");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CancelCacheReportCommand
+ */
+export const se_CancelCacheReportCommand = async (
+  input: CancelCacheReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CancelCacheReport");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -651,6 +688,19 @@ export const se_DeleteBandwidthRateLimitCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteBandwidthRateLimit");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteCacheReportCommand
+ */
+export const se_DeleteCacheReportCommand = async (
+  input: DeleteCacheReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteCacheReport");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -820,6 +870,19 @@ export const se_DescribeCachediSCSIVolumesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DescribeCachediSCSIVolumes");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DescribeCacheReportCommand
+ */
+export const se_DescribeCacheReportCommand = async (
+  input: DescribeCacheReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribeCacheReport");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1060,6 +1123,19 @@ export const se_DisassociateFileSystemCommand = async (
 };
 
 /**
+ * serializeAws_json1_1EvictFilesFailingUploadCommand
+ */
+export const se_EvictFilesFailingUploadCommand = async (
+  input: EvictFilesFailingUploadCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("EvictFilesFailingUpload");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1JoinDomainCommand
  */
 export const se_JoinDomainCommand = async (
@@ -1080,6 +1156,19 @@ export const se_ListAutomaticTapeCreationPoliciesCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ListAutomaticTapeCreationPolicies");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1ListCacheReportsCommand
+ */
+export const se_ListCacheReportsCommand = async (
+  input: ListCacheReportsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListCacheReports");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1340,6 +1429,19 @@ export const se_StartAvailabilityMonitorTestCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("StartAvailabilityMonitorTest");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartCacheReportCommand
+ */
+export const se_StartCacheReportCommand = async (
+  input: StartCacheReportCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartCacheReport");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -1734,6 +1836,26 @@ export const de_CancelArchivalCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CancelCacheReportCommand
+ */
+export const de_CancelCacheReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelCacheReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CancelCacheReportCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CancelRetrievalCommand
  */
 export const de_CancelRetrievalCommand = async (
@@ -1967,6 +2089,26 @@ export const de_DeleteBandwidthRateLimitCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteBandwidthRateLimitCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteCacheReportCommand
+ */
+export const de_DeleteCacheReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCacheReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteCacheReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2227,6 +2369,26 @@ export const de_DescribeCachediSCSIVolumesCommand = async (
   let contents: any = {};
   contents = de_DescribeCachediSCSIVolumesOutput(data, context);
   const response: DescribeCachediSCSIVolumesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCacheReportCommand
+ */
+export const de_DescribeCacheReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeCacheReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribeCacheReportOutput(data, context);
+  const response: DescribeCacheReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2594,6 +2756,26 @@ export const de_DisassociateFileSystemCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1EvictFilesFailingUploadCommand
+ */
+export const de_EvictFilesFailingUploadCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EvictFilesFailingUploadCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: EvictFilesFailingUploadCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1JoinDomainCommand
  */
 export const de_JoinDomainCommand = async (
@@ -2627,6 +2809,26 @@ export const de_ListAutomaticTapeCreationPoliciesCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: ListAutomaticTapeCreationPoliciesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1ListCacheReportsCommand
+ */
+export const de_ListCacheReportsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCacheReportsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListCacheReportsOutput(data, context);
+  const response: ListCacheReportsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3027,6 +3229,26 @@ export const de_StartAvailabilityMonitorTestCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: StartAvailabilityMonitorTestCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartCacheReportCommand
+ */
+export const de_StartCacheReportCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCacheReportCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartCacheReportCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -3453,7 +3675,15 @@ const de_ServiceUnavailableErrorRes = async (
 
 // se_CacheAttributes omitted.
 
+// se_CacheReportFilter omitted.
+
+// se_CacheReportFilterList omitted.
+
+// se_CacheReportFilterValues omitted.
+
 // se_CancelArchivalInput omitted.
+
+// se_CancelCacheReportInput omitted.
 
 // se_CancelRetrievalInput omitted.
 
@@ -3481,6 +3711,8 @@ const de_ServiceUnavailableErrorRes = async (
 
 // se_DeleteBandwidthRateLimitInput omitted.
 
+// se_DeleteCacheReportInput omitted.
+
 // se_DeleteChapCredentialsInput omitted.
 
 // se_DeleteFileShareInput omitted.
@@ -3506,6 +3738,8 @@ const de_ServiceUnavailableErrorRes = async (
 // se_DescribeCachediSCSIVolumesInput omitted.
 
 // se_DescribeCacheInput omitted.
+
+// se_DescribeCacheReportInput omitted.
 
 // se_DescribeChapCredentialsInput omitted.
 
@@ -3547,6 +3781,8 @@ const de_ServiceUnavailableErrorRes = async (
 
 // se_EndpointNetworkConfiguration omitted.
 
+// se_EvictFilesFailingUploadInput omitted.
+
 // se_FileShareARNList omitted.
 
 // se_FileShareClientList omitted.
@@ -3562,6 +3798,8 @@ const de_ServiceUnavailableErrorRes = async (
 // se_JoinDomainInput omitted.
 
 // se_ListAutomaticTapeCreationPoliciesInput omitted.
+
+// se_ListCacheReportsInput omitted.
 
 // se_ListFileSharesInput omitted.
 
@@ -3607,7 +3845,11 @@ const de_ServiceUnavailableErrorRes = async (
 
 // se_SMBLocalGroups omitted.
 
+// se_SoftwareUpdatePreferences omitted.
+
 // se_StartAvailabilityMonitorTestInput omitted.
+
+// se_StartCacheReportInput omitted.
 
 // se_StartGatewayInput omitted.
 
@@ -3718,7 +3960,47 @@ const de_CachediSCSIVolumes = (output: any, context: __SerdeContext): CachediSCS
   return retVal;
 };
 
+// de_CacheReportFilter omitted.
+
+// de_CacheReportFilterList omitted.
+
+// de_CacheReportFilterValues omitted.
+
+/**
+ * deserializeAws_json1_1CacheReportInfo
+ */
+const de_CacheReportInfo = (output: any, context: __SerdeContext): CacheReportInfo => {
+  return take(output, {
+    CacheReportARN: __expectString,
+    CacheReportStatus: __expectString,
+    EndTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    ExclusionFilters: _json,
+    FileShareARN: __expectString,
+    InclusionFilters: _json,
+    LocationARN: __expectString,
+    ReportCompletionPercent: __expectInt32,
+    ReportName: __expectString,
+    Role: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Tags: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1CacheReportList
+ */
+const de_CacheReportList = (output: any, context: __SerdeContext): CacheReportInfo[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CacheReportInfo(entry, context);
+    });
+  return retVal;
+};
+
 // de_CancelArchivalOutput omitted.
+
+// de_CancelCacheReportOutput omitted.
 
 // de_CancelRetrievalOutput omitted.
 
@@ -3749,6 +4031,8 @@ const de_CachediSCSIVolumes = (output: any, context: __SerdeContext): CachediSCS
 // de_DeleteAutomaticTapeCreationPolicyOutput omitted.
 
 // de_DeleteBandwidthRateLimitOutput omitted.
+
+// de_DeleteCacheReportOutput omitted.
 
 // de_DeleteChapCredentialsOutput omitted.
 
@@ -3808,6 +4092,15 @@ const de_DescribeCacheOutput = (output: any, context: __SerdeContext): DescribeC
     CacheUsedPercentage: __limitedParseDouble,
     DiskIds: _json,
     GatewayARN: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribeCacheReportOutput
+ */
+const de_DescribeCacheReportOutput = (output: any, context: __SerdeContext): DescribeCacheReportOutput => {
+  return take(output, {
+    CacheReportInfo: (_: any) => de_CacheReportInfo(_, context),
   }) as any;
 };
 
@@ -3899,6 +4192,8 @@ const de_DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeT
 
 // de_errorDetails omitted.
 
+// de_EvictFilesFailingUploadOutput omitted.
+
 // de_FileShareClientList omitted.
 
 // de_FileShareInfo omitted.
@@ -3934,6 +4229,16 @@ const de_DescribeTapesOutput = (output: any, context: __SerdeContext): DescribeT
 // de_JoinDomainOutput omitted.
 
 // de_ListAutomaticTapeCreationPoliciesOutput omitted.
+
+/**
+ * deserializeAws_json1_1ListCacheReportsOutput
+ */
+const de_ListCacheReportsOutput = (output: any, context: __SerdeContext): ListCacheReportsOutput => {
+  return take(output, {
+    CacheReportList: (_: any) => de_CacheReportList(_, context),
+    Marker: __expectString,
+  }) as any;
+};
 
 // de_ListFileSharesOutput omitted.
 
@@ -4001,7 +4306,11 @@ const de_ListTapesOutput = (output: any, context: __SerdeContext): ListTapesOutp
 
 // de_SMBLocalGroups omitted.
 
+// de_SoftwareUpdatePreferences omitted.
+
 // de_StartAvailabilityMonitorTestOutput omitted.
+
+// de_StartCacheReportOutput omitted.
 
 // de_StartGatewayOutput omitted.
 

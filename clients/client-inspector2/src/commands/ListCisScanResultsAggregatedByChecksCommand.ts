@@ -9,7 +9,7 @@ import { Inspector2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 import {
   ListCisScanResultsAggregatedByChecksRequest,
   ListCisScanResultsAggregatedByChecksResponse,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_ListCisScanResultsAggregatedByChecksCommand,
   se_ListCisScanResultsAggregatedByChecksCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,6 +120,8 @@ export interface ListCisScanResultsAggregatedByChecksCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -133,6 +136,37 @@ export interface ListCisScanResultsAggregatedByChecksCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample ListCisScanResultsAggregatedByChecks Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new ListCisScanResultsAggregatedByChecksCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   checkAggregations: [
+ *     {
+ *       accountId: "123412341234",
+ *       checkDescription: "description",
+ *       checkId: "1.1.1.1",
+ *       level: "LEVEL_1",
+ *       platform: "AMAZON_LINUX_2",
+ *       scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       statusCounts: {
+ *         failed: 0,
+ *         passed: 2,
+ *         skipped: 1
+ *       },
+ *       title: "title1"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListCisScanResultsAggregatedByChecksCommand extends $Command
@@ -143,9 +177,7 @@ export class ListCisScanResultsAggregatedByChecksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +189,16 @@ export class ListCisScanResultsAggregatedByChecksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCisScanResultsAggregatedByChecksCommand)
   .de(de_ListCisScanResultsAggregatedByChecksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCisScanResultsAggregatedByChecksRequest;
+      output: ListCisScanResultsAggregatedByChecksResponse;
+    };
+    sdk: {
+      input: ListCisScanResultsAggregatedByChecksCommandInput;
+      output: ListCisScanResultsAggregatedByChecksCommandOutput;
+    };
+  };
+}

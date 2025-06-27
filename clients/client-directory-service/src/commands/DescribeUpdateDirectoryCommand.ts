@@ -12,7 +12,8 @@ import { de_DescribeUpdateDirectoryCommand, se_DescribeUpdateDirectoryCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface DescribeUpdateDirectoryCommandInput extends DescribeUpdateDirec
 export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>
- *       Describes the updates of a directory for a particular update type.
- *     </p>
+ * <p> Describes the updates of a directory for a particular update type. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,7 +76,7 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -97,6 +96,7 @@ export interface DescribeUpdateDirectoryCommandOutput extends DescribeUpdateDire
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class DescribeUpdateDirectoryCommand extends $Command
@@ -107,9 +107,7 @@ export class DescribeUpdateDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +119,16 @@ export class DescribeUpdateDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUpdateDirectoryCommand)
   .de(de_DescribeUpdateDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUpdateDirectoryRequest;
+      output: DescribeUpdateDirectoryResult;
+    };
+    sdk: {
+      input: DescribeUpdateDirectoryCommandInput;
+      output: DescribeUpdateDirectoryCommandOutput;
+    };
+  };
+}

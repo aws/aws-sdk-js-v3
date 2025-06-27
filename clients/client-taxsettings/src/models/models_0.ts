@@ -4,6 +4,27 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { TaxSettingsServiceException as __BaseException } from "./TaxSettingsServiceException";
 
 /**
+ * <p>The access is denied for the Amazon Web ServicesSupport API.
+ *     </p>
+ * @public
+ */
+export class AccessDeniedException extends __BaseException {
+  readonly name: "AccessDeniedException" = "AccessDeniedException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AccessDeniedException, __BaseException>) {
+    super({
+      name: "AccessDeniedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AccessDeniedException.prototype);
+  }
+}
+
+/**
  * <p> The details of the address associated with the TRN information. </p>
  * @public
  */
@@ -18,7 +39,7 @@ export interface Address {
    * <p>The second line of the address, if applicable. </p>
    * @public
    */
-  addressLine2?: string;
+  addressLine2?: string | undefined;
 
   /**
    * <p> The third line of the address, if applicable. Currently, the Tax Settings API accepts the
@@ -27,7 +48,7 @@ export interface Address {
    *       address. For example, you might enter <code>1234</code>.</p>
    * @public
    */
-  addressLine3?: string;
+  addressLine3?: string | undefined;
 
   /**
    * <p>The district or county the address is located. </p>
@@ -37,7 +58,7 @@ export interface Address {
    *          </note>
    * @public
    */
-  districtOrCounty?: string;
+  districtOrCounty?: string | undefined;
 
   /**
    * <p>The city that the address is in. </p>
@@ -46,11 +67,11 @@ export interface Address {
   city: string | undefined;
 
   /**
-   * <p>The state, region, or province that the address is located.</p>
+   * <p>The state, region, or province that the address is located. This field is only required for Canada, India, United Arab Emirates, Romania, and Brazil (CPF). It is optional for all other countries.</p>
    *          <p>If this is required for tax settings, use the same name as shown on the <b>Tax Settings</b> page.</p>
    * @public
    */
-  stateOrRegion?: string;
+  stateOrRegion?: string | undefined;
 
   /**
    * <p> The postal code associated with the address. </p>
@@ -91,7 +112,7 @@ export interface Jurisdiction {
    *       applicable. </p>
    * @public
    */
-  stateOrRegion?: string;
+  stateOrRegion?: string | undefined;
 
   /**
    * <p> The country code of the jurisdiction. </p>
@@ -113,7 +134,7 @@ export interface AccountMetaData {
    *     </p>
    * @public
    */
-  accountName?: string;
+  accountName?: string | undefined;
 
   /**
    * <p>
@@ -121,13 +142,13 @@ export interface AccountMetaData {
    *     </p>
    * @public
    */
-  seller?: string;
+  seller?: string | undefined;
 
   /**
    * <p> The details of the address associated with the TRN information. </p>
    * @public
    */
-  address?: Address;
+  address?: Address | undefined;
 
   /**
    * <p>
@@ -135,7 +156,7 @@ export interface AccountMetaData {
    *     </p>
    * @public
    */
-  addressType?: AddressRoleType;
+  addressType?: AddressRoleType | undefined;
 
   /**
    * <p>
@@ -143,7 +164,7 @@ export interface AccountMetaData {
    *     </p>
    * @public
    */
-  addressRoleMap?: Partial<Record<AddressRoleType, Jurisdiction>>;
+  addressRoleMap?: Partial<Record<AddressRoleType, Jurisdiction>> | undefined;
 }
 
 /**
@@ -159,7 +180,7 @@ export interface TaxInheritanceDetails {
    *     </p>
    * @public
    */
-  parentEntityId?: string;
+  parentEntityId?: string | undefined;
 
   /**
    * <p>
@@ -167,7 +188,7 @@ export interface TaxInheritanceDetails {
    *     </p>
    * @public
    */
-  inheritanceObtainedReason?: string;
+  inheritanceObtainedReason?: string | undefined;
 }
 
 /**
@@ -179,14 +200,14 @@ export interface BrazilAdditionalInfo {
    * <p>The Cadastro de Contribuintes Mobiliários (CCM) code for your TRN in Brazil. This only applies for a CNPJ tax type for the São Paulo municipality.</p>
    * @public
    */
-  ccmCode?: string;
+  ccmCode?: string | undefined;
 
   /**
    * <p>Legal nature of business, based on your TRN in Brazil. This only applies for a CNPJ tax
    *       type.</p>
    * @public
    */
-  legalNatureCode?: string;
+  legalNatureCode?: string | undefined;
 }
 
 /**
@@ -212,7 +233,7 @@ export interface CanadaAdditionalInfo {
    *       provinces. For other provinces, the Tax Settings API doesn't accept this parameter. </p>
    * @public
    */
-  provincialSalesTaxId?: string;
+  provincialSalesTaxId?: string | undefined;
 
   /**
    * <p>
@@ -220,15 +241,15 @@ export interface CanadaAdditionalInfo {
    *     </p>
    * @public
    */
-  canadaQuebecSalesTaxNumber?: string;
+  canadaQuebecSalesTaxNumber?: string | undefined;
 
   /**
    * <p>
-   *       Manitoba Retail Sales Tax ID number. Customers purchasing Amazon Web Services for resale in Manitoba must provide a valid Retail Sales Tax ID number for Manitoba. Leave this blank if you do not have a Retail Sales Tax ID number in Manitoba or are not purchasing Amazon Web Services for resale.
+   *       Manitoba Retail Sales Tax ID number. Customers purchasing Amazon Web Services services for resale in Manitoba must provide a valid Retail Sales Tax ID number for Manitoba. Leave this blank if you do not have a Retail Sales Tax ID number in Manitoba or are not purchasing Amazon Web Services services for resale.
    *     </p>
    * @public
    */
-  canadaRetailSalesTaxNumber?: string;
+  canadaRetailSalesTaxNumber?: string | undefined;
 
   /**
    * <p> The value for this parameter must be <code>true</code> if the
@@ -239,7 +260,25 @@ export interface CanadaAdditionalInfo {
    *       or RST number from the <code>provincialSalesTaxId</code> parameter from your request.</p>
    * @public
    */
-  isResellerAccount?: boolean;
+  isResellerAccount?: boolean | undefined;
+}
+
+/**
+ * <p>Additional tax information to specify for a TRN in Egypt.</p>
+ * @public
+ */
+export interface EgyptAdditionalInfo {
+  /**
+   * <p>The unique identification number provided by the Egypt Tax Authority.</p>
+   * @public
+   */
+  uniqueIdentificationNumber?: string | undefined;
+
+  /**
+   * <p>The expiration date of the unique identification number provided by the Egypt Tax Authority.</p>
+   * @public
+   */
+  uniqueIdentificationNumberExpirationDate?: string | undefined;
 }
 
 /**
@@ -287,6 +326,19 @@ export interface GeorgiaAdditionalInfo {
 }
 
 /**
+ * <p>Additional tax information to specify for a TRN in Greece.
+ *     </p>
+ * @public
+ */
+export interface GreeceAdditionalInfo {
+  /**
+   * <p>The code of contracting authority for e-invoicing.</p>
+   * @public
+   */
+  contractingAuthorityCode?: string | undefined;
+}
+
+/**
  * <p>
  *       Additional tax information in India.
  *     </p>
@@ -299,7 +351,48 @@ export interface IndiaAdditionalInfo {
    *     </p>
    * @public
    */
-  pan?: string;
+  pan?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IndonesiaTaxRegistrationNumberType = {
+  NIK: "NIK",
+  NITKU: "NITKU",
+  NPWP: "NPWP",
+  PASSPORT_NUMBER: "PassportNumber",
+} as const;
+
+/**
+ * @public
+ */
+export type IndonesiaTaxRegistrationNumberType =
+  (typeof IndonesiaTaxRegistrationNumberType)[keyof typeof IndonesiaTaxRegistrationNumberType];
+
+/**
+ * <p>Additional tax information associated with your TRN in Indonesia.</p>
+ * @public
+ */
+export interface IndonesiaAdditionalInfo {
+  /**
+   * <p>The tax registration number type.</p>
+   * @public
+   */
+  taxRegistrationNumberType?: IndonesiaTaxRegistrationNumberType | undefined;
+
+  /**
+   * <p>Exception code if you are designated by Directorate General of Taxation (DGT) as a VAT collector, non-collected VAT, or VAT-exempt customer.</p>
+   * @public
+   */
+  ppnExceptionDesignationCode?: string | undefined;
+
+  /**
+   * <p>VAT-exempt customers have a Directorate General of Taxation (DGT) exemption letter or certificate (Surat Keterangan Bebas) decision number. Non-collected VAT have a DGT letter or certificate (Surat Keterangan Tidak Dipungut).</p>
+   * @public
+   */
+  decisionNumber?: string | undefined;
 }
 
 /**
@@ -365,7 +458,7 @@ export interface ItalyAdditionalInfo {
    *     </p>
    * @public
    */
-  sdiAccountId?: string;
+  sdiAccountId?: string | undefined;
 
   /**
    * <p>
@@ -373,7 +466,7 @@ export interface ItalyAdditionalInfo {
    *     </p>
    * @public
    */
-  cigNumber?: string;
+  cigNumber?: string | undefined;
 
   /**
    * <p>
@@ -381,14 +474,14 @@ export interface ItalyAdditionalInfo {
    *     </p>
    * @public
    */
-  cupNumber?: string;
+  cupNumber?: string | undefined;
 
   /**
    * <p>List of service tax codes for your TRN in Italy. You can use your customer tax code as part of a VAT Group.
    *     </p>
    * @public
    */
-  taxCode?: string;
+  taxCode?: string | undefined;
 }
 
 /**
@@ -428,7 +521,26 @@ export interface MalaysiaAdditionalInfo {
    * <p>List of service tax codes for your TRN in Malaysia.</p>
    * @public
    */
-  serviceTaxCodes: MalaysiaServiceTaxCode[] | undefined;
+  serviceTaxCodes?: MalaysiaServiceTaxCode[] | undefined;
+
+  /**
+   * <p>The tax information number in Malaysia.
+   *     </p>
+   *          <p>For individual, you can specify the <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with NRIC type, and a valid MyKad or NRIC number. For business resellers, you must specify a <code>businessRegistrationNumber</code> and <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a sales and service tax (SST) type and a valid SST number.
+   *     </p>
+   *          <p>For business resellers with service codes, you must specify <code>businessRegistrationNumber</code>, <code>taxInformationNumber</code>, and distinct <code>serviceTaxCodes</code> in <code>MalaysiaAdditionalInfo</code> with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.</p>
+   * @public
+   */
+  taxInformationNumber?: string | undefined;
+
+  /**
+   * <p>The tax registration number (TRN) in Malaysia. </p>
+   *          <p>For individual, you can specify the <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with NRIC type, and a valid MyKad or NRIC number. For business, you must specify a <code>businessRegistrationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a TIN type and tax identification number. For business resellers, you must specify a <code>businessRegistrationNumber</code> and <code>taxInformationNumber</code> in <code>MalaysiaAdditionalInfo</code> with a sales and service tax (SST) type and a valid SST number.
+   *     </p>
+   *          <p>For business resellers with service codes, you must specify <code>businessRegistrationNumber</code>, <code>taxInformationNumber</code>, and distinct <code>serviceTaxCodes</code> in <code>MalaysiaAdditionalInfo</code> with a SST type and valid sales and service tax (SST) number. By using this API operation, Amazon Web Services registers your self-declaration that you’re an authorized business reseller registered with the Royal Malaysia Customs Department (RMCD), and have a valid SST number.</p>
+   * @public
+   */
+  businessRegistrationNumber?: string | undefined;
 }
 
 /**
@@ -444,7 +556,7 @@ export interface PolandAdditionalInfo {
    *     </p>
    * @public
    */
-  individualRegistrationNumber?: string;
+  individualRegistrationNumber?: string | undefined;
 
   /**
    * <p>
@@ -452,7 +564,7 @@ export interface PolandAdditionalInfo {
    *     </p>
    * @public
    */
-  isGroupVatEnabled?: boolean;
+  isGroupVatEnabled?: boolean | undefined;
 }
 
 /**
@@ -513,7 +625,7 @@ export interface SaudiArabiaAdditionalInfo {
    *     </p>
    * @public
    */
-  taxRegistrationNumberType?: SaudiArabiaTaxRegistrationNumberType;
+  taxRegistrationNumberType?: SaudiArabiaTaxRegistrationNumberType | undefined;
 }
 
 /**
@@ -593,13 +705,13 @@ export interface TurkeyAdditionalInfo {
    * <p>The tax office where you're registered. You can enter this information as a string. The Tax Settings API will add this information to your invoice. This parameter is required for business-to-business (B2B) and business-to-government customers. It's not required for business-to-consumer (B2C) customers.</p>
    * @public
    */
-  taxOffice?: string;
+  taxOffice?: string | undefined;
 
   /**
    * <p>The Registered Electronic Mail (REM) that is used to send notarized communication. This parameter is optional for business-to-business (B2B) and business-to-government (B2G) customers. It's not required for business-to-consumer (B2C) customers.</p>
    * @public
    */
-  kepEmailId?: string;
+  kepEmailId?: string | undefined;
 
   /**
    * <p>
@@ -607,7 +719,7 @@ export interface TurkeyAdditionalInfo {
    *     </p>
    * @public
    */
-  secondaryTaxId?: string;
+  secondaryTaxId?: string | undefined;
 
   /**
    * <p>The industry information that tells the Tax Settings API if you're subject to additional
@@ -615,7 +727,7 @@ export interface TurkeyAdditionalInfo {
    *       information is conditionally mandatory for B2B customers who are subject to KDV tax.</p>
    * @public
    */
-  industries?: Industries;
+  industries?: Industries | undefined;
 }
 
 /**
@@ -649,6 +761,75 @@ export interface UkraineAdditionalInfo {
 }
 
 /**
+ * @public
+ * @enum
+ */
+export const UzbekistanTaxRegistrationNumberType = {
+  BUSINESS: "Business",
+  INDIVIDUAL: "Individual",
+} as const;
+
+/**
+ * @public
+ */
+export type UzbekistanTaxRegistrationNumberType =
+  (typeof UzbekistanTaxRegistrationNumberType)[keyof typeof UzbekistanTaxRegistrationNumberType];
+
+/**
+ * <p>
+ *       Additional tax information to specify for a TRN in Uzbekistan.
+ *     </p>
+ * @public
+ */
+export interface UzbekistanAdditionalInfo {
+  /**
+   * <p>
+   *       The tax registration number type. The tax registration number type valid values are <code>Business</code> and <code>Individual</code>.
+   *     </p>
+   * @public
+   */
+  taxRegistrationNumberType?: UzbekistanTaxRegistrationNumberType | undefined;
+
+  /**
+   * <p>
+   *       The unique 12-digit number issued to identify VAT-registered identities in Uzbekistan.
+   *     </p>
+   * @public
+   */
+  vatRegistrationNumber?: string | undefined;
+}
+
+/**
+ * <p>Additional tax information to specify for a TRN in Vietnam.</p>
+ * @public
+ */
+export interface VietnamAdditionalInfo {
+  /**
+   * <p>The enterprise identification number for tax registration. This field must be provided for successful API operation.</p>
+   * @public
+   */
+  enterpriseIdentificationNumber?: string | undefined;
+
+  /**
+   * <p>The electronic transaction code number on the tax return document. This field must be provided for successful API operation.</p>
+   * @public
+   */
+  electronicTransactionCodeNumber?: string | undefined;
+
+  /**
+   * <p>The payment voucher number on the tax return payment document. This field must be provided for successful API operation.</p>
+   * @public
+   */
+  paymentVoucherNumber?: string | undefined;
+
+  /**
+   * <p>The date on the tax return payment document. This field must be provided for successful API operation.</p>
+   * @public
+   */
+  paymentVoucherNumberDate?: string | undefined;
+}
+
+/**
  * <p> Additional tax information associated with your TRN. The Tax Settings API returns
  *       country-specific information in the response when any additional information is present with
  *       your TRN for the following countries.</p>
@@ -659,25 +840,25 @@ export interface AdditionalInfoResponse {
    * <p> Additional tax information associated with your  TRN in Malaysia. </p>
    * @public
    */
-  malaysiaAdditionalInfo?: MalaysiaAdditionalInfo;
+  malaysiaAdditionalInfo?: MalaysiaAdditionalInfo | undefined;
 
   /**
    * <p> Additional tax information associated with your TRN in Israel.</p>
    * @public
    */
-  israelAdditionalInfo?: IsraelAdditionalInfo;
+  israelAdditionalInfo?: IsraelAdditionalInfo | undefined;
 
   /**
    * <p> Additional tax information associated with your  TRN in Estonia. </p>
    * @public
    */
-  estoniaAdditionalInfo?: EstoniaAdditionalInfo;
+  estoniaAdditionalInfo?: EstoniaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN in Canada. </p>
    * @public
    */
-  canadaAdditionalInfo?: CanadaAdditionalInfo;
+  canadaAdditionalInfo?: CanadaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN in Brazil. The Tax Settings API
@@ -685,31 +866,31 @@ export interface AdditionalInfoResponse {
    *       TRN in Brazil.</p>
    * @public
    */
-  brazilAdditionalInfo?: BrazilAdditionalInfo;
+  brazilAdditionalInfo?: BrazilAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN in Spain.</p>
    * @public
    */
-  spainAdditionalInfo?: SpainAdditionalInfo;
+  spainAdditionalInfo?: SpainAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN in Kenya.</p>
    * @public
    */
-  kenyaAdditionalInfo?: KenyaAdditionalInfo;
+  kenyaAdditionalInfo?: KenyaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN in South Korea.</p>
    * @public
    */
-  southKoreaAdditionalInfo?: SouthKoreaAdditionalInfo;
+  southKoreaAdditionalInfo?: SouthKoreaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN in Turkey.</p>
    * @public
    */
-  turkeyAdditionalInfo?: TurkeyAdditionalInfo;
+  turkeyAdditionalInfo?: TurkeyAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -717,7 +898,7 @@ export interface AdditionalInfoResponse {
    *     </p>
    * @public
    */
-  georgiaAdditionalInfo?: GeorgiaAdditionalInfo;
+  georgiaAdditionalInfo?: GeorgiaAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -725,13 +906,13 @@ export interface AdditionalInfoResponse {
    *     </p>
    * @public
    */
-  italyAdditionalInfo?: ItalyAdditionalInfo;
+  italyAdditionalInfo?: ItalyAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in Romania.</p>
    * @public
    */
-  romaniaAdditionalInfo?: RomaniaAdditionalInfo;
+  romaniaAdditionalInfo?: RomaniaAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -739,7 +920,7 @@ export interface AdditionalInfoResponse {
    *     </p>
    * @public
    */
-  ukraineAdditionalInfo?: UkraineAdditionalInfo;
+  ukraineAdditionalInfo?: UkraineAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -747,7 +928,7 @@ export interface AdditionalInfoResponse {
    *     </p>
    * @public
    */
-  polandAdditionalInfo?: PolandAdditionalInfo;
+  polandAdditionalInfo?: PolandAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -755,7 +936,7 @@ export interface AdditionalInfoResponse {
    *     </p>
    * @public
    */
-  saudiArabiaAdditionalInfo?: SaudiArabiaAdditionalInfo;
+  saudiArabiaAdditionalInfo?: SaudiArabiaAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -763,7 +944,42 @@ export interface AdditionalInfoResponse {
    *     </p>
    * @public
    */
-  indiaAdditionalInfo?: IndiaAdditionalInfo;
+  indiaAdditionalInfo?: IndiaAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information associated with your TRN in Indonesia.</p>
+   * @public
+   */
+  indonesiaAdditionalInfo?: IndonesiaAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Vietnam.
+   *     </p>
+   * @public
+   */
+  vietnamAdditionalInfo?: VietnamAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Egypt.
+   *     </p>
+   * @public
+   */
+  egyptAdditionalInfo?: EgyptAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Greece.
+   *     </p>
+   * @public
+   */
+  greeceAdditionalInfo?: GreeceAdditionalInfo | undefined;
+
+  /**
+   * <p>
+   *       Additional tax information associated with your TRN in Uzbekistan.
+   *     </p>
+   * @public
+   */
+  uzbekistanAdditionalInfo?: UzbekistanAdditionalInfo | undefined;
 }
 
 /**
@@ -774,7 +990,9 @@ export const TaxRegistrationType = {
   CNPJ: "CNPJ",
   CPF: "CPF",
   GST: "GST",
+  NRIC: "NRIC",
   SST: "SST",
+  TIN: "TIN",
   VAT: "VAT",
 } as const;
 
@@ -872,25 +1090,25 @@ export interface TaxRegistrationWithJurisdiction {
    *     </p>
    * @public
    */
-  sector?: Sector;
+  sector?: Sector | undefined;
 
   /**
    * <p>The metadata for your tax document.</p>
    * @public
    */
-  taxDocumentMetadatas?: TaxDocumentMetadata[];
+  taxDocumentMetadatas?: TaxDocumentMetadata[] | undefined;
 
   /**
    * <p>The email address to receive VAT invoices.</p>
    * @public
    */
-  certifiedEmailId?: string;
+  certifiedEmailId?: string | undefined;
 
   /**
    * <p>Additional tax information associated with your TRN. </p>
    * @public
    */
-  additionalTaxInformation?: AdditionalInfoResponse;
+  additionalTaxInformation?: AdditionalInfoResponse | undefined;
 
   /**
    * <p> The jurisdiction associated with your TRN information. </p>
@@ -908,14 +1126,14 @@ export interface AccountDetails {
    * <p>List of unique account identifiers. </p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p>Your TRN information. Instead of having full legal address, here TRN information will have
    *       jurisdiction details (for example, country code and state/region/province if applicable). </p>
    * @public
    */
-  taxRegistration?: TaxRegistrationWithJurisdiction;
+  taxRegistration?: TaxRegistrationWithJurisdiction | undefined;
 
   /**
    * <p>
@@ -923,7 +1141,7 @@ export interface AccountDetails {
    *     </p>
    * @public
    */
-  taxInheritanceDetails?: TaxInheritanceDetails;
+  taxInheritanceDetails?: TaxInheritanceDetails | undefined;
 
   /**
    * <p>
@@ -931,7 +1149,7 @@ export interface AccountDetails {
    *     </p>
    * @public
    */
-  accountMetaData?: AccountMetaData;
+  accountMetaData?: AccountMetaData | undefined;
 }
 
 /**
@@ -951,49 +1169,49 @@ export interface AdditionalInfoRequest {
    * <p> Additional tax information to specify for a TRN in Malaysia.</p>
    * @public
    */
-  malaysiaAdditionalInfo?: MalaysiaAdditionalInfo;
+  malaysiaAdditionalInfo?: MalaysiaAdditionalInfo | undefined;
 
   /**
    * <p> Additional tax information to specify for a TRN in Israel.</p>
    * @public
    */
-  israelAdditionalInfo?: IsraelAdditionalInfo;
+  israelAdditionalInfo?: IsraelAdditionalInfo | undefined;
 
   /**
    * <p> Additional tax information to specify for a TRN in Estonia.</p>
    * @public
    */
-  estoniaAdditionalInfo?: EstoniaAdditionalInfo;
+  estoniaAdditionalInfo?: EstoniaAdditionalInfo | undefined;
 
   /**
    * <p> Additional tax information associated with your TRN in Canada.</p>
    * @public
    */
-  canadaAdditionalInfo?: CanadaAdditionalInfo;
+  canadaAdditionalInfo?: CanadaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in Spain.</p>
    * @public
    */
-  spainAdditionalInfo?: SpainAdditionalInfo;
+  spainAdditionalInfo?: SpainAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in Kenya.</p>
    * @public
    */
-  kenyaAdditionalInfo?: KenyaAdditionalInfo;
+  kenyaAdditionalInfo?: KenyaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in South Korea.</p>
    * @public
    */
-  southKoreaAdditionalInfo?: SouthKoreaAdditionalInfo;
+  southKoreaAdditionalInfo?: SouthKoreaAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in Turkey.</p>
    * @public
    */
-  turkeyAdditionalInfo?: TurkeyAdditionalInfo;
+  turkeyAdditionalInfo?: TurkeyAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -1001,7 +1219,7 @@ export interface AdditionalInfoRequest {
    *     </p>
    * @public
    */
-  georgiaAdditionalInfo?: GeorgiaAdditionalInfo;
+  georgiaAdditionalInfo?: GeorgiaAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -1009,13 +1227,13 @@ export interface AdditionalInfoRequest {
    *     </p>
    * @public
    */
-  italyAdditionalInfo?: ItalyAdditionalInfo;
+  italyAdditionalInfo?: ItalyAdditionalInfo | undefined;
 
   /**
    * <p>Additional tax information to specify for a TRN in Romania.</p>
    * @public
    */
-  romaniaAdditionalInfo?: RomaniaAdditionalInfo;
+  romaniaAdditionalInfo?: RomaniaAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -1023,7 +1241,7 @@ export interface AdditionalInfoRequest {
    *     </p>
    * @public
    */
-  ukraineAdditionalInfo?: UkraineAdditionalInfo;
+  ukraineAdditionalInfo?: UkraineAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -1031,7 +1249,7 @@ export interface AdditionalInfoRequest {
    *     </p>
    * @public
    */
-  polandAdditionalInfo?: PolandAdditionalInfo;
+  polandAdditionalInfo?: PolandAdditionalInfo | undefined;
 
   /**
    * <p>
@@ -1039,7 +1257,86 @@ export interface AdditionalInfoRequest {
    *     </p>
    * @public
    */
-  saudiArabiaAdditionalInfo?: SaudiArabiaAdditionalInfo;
+  saudiArabiaAdditionalInfo?: SaudiArabiaAdditionalInfo | undefined;
+
+  /**
+   * <p>
+   *     </p>
+   * @public
+   */
+  indonesiaAdditionalInfo?: IndonesiaAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Vietnam.
+   *     </p>
+   * @public
+   */
+  vietnamAdditionalInfo?: VietnamAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Egypt.
+   *     </p>
+   * @public
+   */
+  egyptAdditionalInfo?: EgyptAdditionalInfo | undefined;
+
+  /**
+   * <p>Additional tax information to specify for a TRN in Greece.</p>
+   * @public
+   */
+  greeceAdditionalInfo?: GreeceAdditionalInfo | undefined;
+
+  /**
+   * <p>
+   *       Additional tax information to specify for a TRN in Uzbekistan.
+   *     </p>
+   * @public
+   */
+  uzbekistanAdditionalInfo?: UzbekistanAdditionalInfo | undefined;
+}
+
+/**
+ * <p>Failed to upload the tax exemption document to Amazon Web ServicesSupport case.
+ *     </p>
+ * @public
+ */
+export class AttachmentUploadException extends __BaseException {
+  readonly name: "AttachmentUploadException" = "AttachmentUploadException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<AttachmentUploadException, __BaseException>) {
+    super({
+      name: "AttachmentUploadException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, AttachmentUploadException.prototype);
+  }
+}
+
+/**
+ * <p>The address domain associate with the tax information.
+ *     </p>
+ * @public
+ */
+export interface Authority {
+  /**
+   * <p>
+   *       The country code for the country that the address is in.
+   *     </p>
+   * @public
+   */
+  country: string | undefined;
+
+  /**
+   * <p>
+   *       The state that the address is located.
+   *     </p>
+   * @public
+   */
+  state?: string | undefined;
 }
 
 /**
@@ -1077,7 +1374,7 @@ export interface BatchDeleteTaxRegistrationError {
    * <p> The error code for an individual failure in BatchDeleteTaxRegistration operation. </p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 }
 
 /**
@@ -1193,7 +1490,7 @@ export class ValidationException extends __BaseException {
    * <p>400</p>
    * @public
    */
-  fieldList?: ValidationExceptionField[];
+  fieldList?: ValidationExceptionField[] | undefined;
 
   /**
    * @internal
@@ -1208,6 +1505,215 @@ export class ValidationException extends __BaseException {
     this.errorCode = opts.errorCode;
     this.fieldList = opts.fieldList;
   }
+}
+
+/**
+ * @public
+ */
+export interface BatchGetTaxExemptionsRequest {
+  /**
+   * <p>
+   *       List of unique account identifiers.
+   *     </p>
+   * @public
+   */
+  accountIds: string[] | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EntityExemptionAccountStatus = {
+  Expired: "Expired",
+  None: "None",
+  Pending: "Pending",
+  Valid: "Valid",
+} as const;
+
+/**
+ * @public
+ */
+export type EntityExemptionAccountStatus =
+  (typeof EntityExemptionAccountStatus)[keyof typeof EntityExemptionAccountStatus];
+
+/**
+ * <p>The tax exemption type.
+ *     </p>
+ * @public
+ */
+export interface TaxExemptionType {
+  /**
+   * <p>The tax exemption's type display name.
+   *     </p>
+   * @public
+   */
+  displayName?: string | undefined;
+
+  /**
+   * <p>The tax exemption's type description.
+   *     </p>
+   * @public
+   */
+  description?: string | undefined;
+
+  /**
+   * <p>The tax exemption's applicable jurisdictions.
+   *     </p>
+   * @public
+   */
+  applicableJurisdictions?: Authority[] | undefined;
+}
+
+/**
+ * <p>The tax exemption.
+ *     </p>
+ * @public
+ */
+export interface TaxExemption {
+  /**
+   * <p>The address domain associate with tax exemption.
+   *     </p>
+   * @public
+   */
+  authority: Authority | undefined;
+
+  /**
+   * <p>The tax exemption type.
+   *     </p>
+   * @public
+   */
+  taxExemptionType: TaxExemptionType | undefined;
+
+  /**
+   * <p>The tax exemption effective date.
+   *     </p>
+   * @public
+   */
+  effectiveDate?: Date | undefined;
+
+  /**
+   * <p>The tax exemption expiration date.
+   *     </p>
+   * @public
+   */
+  expirationDate?: Date | undefined;
+
+  /**
+   * <p>The tax exemption recording time in the <code>TaxSettings</code> system.
+   *     </p>
+   * @public
+   */
+  systemEffectiveDate?: Date | undefined;
+
+  /**
+   * <p>The tax exemption status.
+   *     </p>
+   * @public
+   */
+  status?: EntityExemptionAccountStatus | undefined;
+}
+
+/**
+ * <p>The tax exemption details.
+ *     </p>
+ * @public
+ */
+export interface TaxExemptionDetails {
+  /**
+   * <p>Tax exemptions.
+   *     </p>
+   * @public
+   */
+  taxExemptions?: TaxExemption[] | undefined;
+
+  /**
+   * <p>The indicator if the tax exemption is inherited from the consolidated billing family management account.
+   *     </p>
+   * @public
+   */
+  heritageObtainedDetails?: boolean | undefined;
+
+  /**
+   * <p>The consolidated billing family management account the tax exemption inherited from.
+   *     </p>
+   * @public
+   */
+  heritageObtainedParentEntity?: string | undefined;
+
+  /**
+   * <p>The reason of the heritage inheritance.
+   *     </p>
+   * @public
+   */
+  heritageObtainedReason?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface BatchGetTaxExemptionsResponse {
+  /**
+   * <p>The tax exemption details map of accountId and tax exemption details.
+   *     </p>
+   * @public
+   */
+  taxExemptionDetailsMap?: Record<string, TaxExemptionDetails> | undefined;
+
+  /**
+   * <p>The list of accounts that failed to get tax exemptions.
+   *     </p>
+   * @public
+   */
+  failedAccounts?: string[] | undefined;
+}
+
+/**
+ * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
+ * @public
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  /**
+   * <p>404</p>
+   * @public
+   */
+  errorCode: string | undefined;
+
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.errorCode = opts.errorCode;
+  }
+}
+
+/**
+ * <p>The tax registration document.
+ *     </p>
+ * @public
+ */
+export interface TaxRegistrationDocFile {
+  /**
+   * <p>The tax registration document name.
+   *     </p>
+   * @public
+   */
+  fileName: string | undefined;
+
+  /**
+   * <p>The tax registration document content.
+   *     </p>
+   * @public
+   */
+  fileContent: Uint8Array | undefined;
 }
 
 /**
@@ -1237,7 +1743,14 @@ export interface TaxRegistrationDocument {
    * <p>The Amazon S3 location where your tax registration document is stored.</p>
    * @public
    */
-  s3Location: SourceS3Location | undefined;
+  s3Location?: SourceS3Location | undefined;
+
+  /**
+   * <p>The tax registration document.
+   *     </p>
+   * @public
+   */
+  file?: TaxRegistrationDocFile | undefined;
 }
 
 /**
@@ -1249,13 +1762,13 @@ export interface VerificationDetails {
    * <p>Date of birth to verify your submitted TRN. Use the <code>YYYY-MM-DD</code> format.</p>
    * @public
    */
-  dateOfBirth?: string;
+  dateOfBirth?: string | undefined;
 
   /**
    * <p>The tax registration document, which is required for specific countries such as Bangladesh, Kenya, South Korea and Spain.</p>
    * @public
    */
-  taxRegistrationDocuments?: TaxRegistrationDocument[];
+  taxRegistrationDocuments?: TaxRegistrationDocument[] | undefined;
 }
 
 /**
@@ -1284,7 +1797,7 @@ export interface TaxRegistrationEntry {
    *          </note>
    * @public
    */
-  legalName?: string;
+  legalName?: string | undefined;
 
   /**
    * <p>The legal address associated with your TRN.</p>
@@ -1296,14 +1809,14 @@ export interface TaxRegistrationEntry {
    *          </note>
    * @public
    */
-  legalAddress?: Address;
+  legalAddress?: Address | undefined;
 
   /**
    * <p>The industry that describes your business. For business-to-business (B2B) customers, specify Business. For business-to-consumer (B2C) customers, specify Individual. For business-to-government (B2G), specify Government.Note that certain values may not applicable for the request country. Please refer to country specific information in API document.
    *     </p>
    * @public
    */
-  sector?: Sector;
+  sector?: Sector | undefined;
 
   /**
    * <p> Additional tax information associated with your TRN. You only need to specify this
@@ -1311,7 +1824,7 @@ export interface TaxRegistrationEntry {
    *         <a>AdditionalInfoRequest</a>.</p>
    * @public
    */
-  additionalTaxInformation?: AdditionalInfoRequest;
+  additionalTaxInformation?: AdditionalInfoRequest | undefined;
 
   /**
    * <p>Additional details needed to verify your TRN information in Brazil. You only need to specify this
@@ -1322,13 +1835,13 @@ export interface TaxRegistrationEntry {
    *          </note>
    * @public
    */
-  verificationDetails?: VerificationDetails;
+  verificationDetails?: VerificationDetails | undefined;
 
   /**
    * <p>The email address to receive VAT invoices.</p>
    * @public
    */
-  certifiedEmailId?: string;
+  certifiedEmailId?: string | undefined;
 }
 
 /**
@@ -1374,7 +1887,7 @@ export interface BatchPutTaxRegistrationError {
    *       operation. </p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 }
 
 /**
@@ -1387,7 +1900,7 @@ export interface BatchPutTaxRegistrationResponse {
    *         <code>Rejected</code>. </p>
    * @public
    */
-  status?: TaxRegistrationStatus;
+  status?: TaxRegistrationStatus | undefined;
 
   /**
    * <p>List of errors for the accounts the TRN information could not be added or updated to.
@@ -1396,6 +1909,45 @@ export interface BatchPutTaxRegistrationResponse {
    */
   errors: BatchPutTaxRegistrationError[] | undefined;
 }
+
+/**
+ * <p>You've exceeded the Amazon Web ServicesSupport case creation limit for your account.
+ *     </p>
+ * @public
+ */
+export class CaseCreationLimitExceededException extends __BaseException {
+  readonly name: "CaseCreationLimitExceededException" = "CaseCreationLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<CaseCreationLimitExceededException, __BaseException>) {
+    super({
+      name: "CaseCreationLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, CaseCreationLimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DeleteSupplementalTaxRegistrationRequest {
+  /**
+   * <p>
+   *       The unique authority Id for the supplemental TRN information that needs to be deleted.
+   *     </p>
+   * @public
+   */
+  authorityId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteSupplementalTaxRegistrationResponse {}
 
 /**
  * @public
@@ -1407,40 +1959,13 @@ export interface DeleteTaxRegistrationRequest {
    *       this parameter.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 }
 
 /**
  * @public
  */
 export interface DeleteTaxRegistrationResponse {}
-
-/**
- * <p>The exception thrown when the input doesn't have a resource associated to it.</p>
- * @public
- */
-export class ResourceNotFoundException extends __BaseException {
-  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
-  readonly $fault: "client" = "client";
-  /**
-   * <p>404</p>
-   * @public
-   */
-  errorCode: string | undefined;
-
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
-    super({
-      name: "ResourceNotFoundException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
-    this.errorCode = opts.errorCode;
-  }
-}
 
 /**
  * <p>The location of the Amazon S3 bucket that you specify to download your tax documents to.</p>
@@ -1457,7 +1982,76 @@ export interface DestinationS3Location {
    * <p>The Amazon S3 object prefix that you specify for your tax document file.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
+}
+
+/**
+ * <p>The exemption certificate.
+ *     </p>
+ * @public
+ */
+export interface ExemptionCertificate {
+  /**
+   * <p>The exemption certificate file name.
+   *     </p>
+   * @public
+   */
+  documentName: string | undefined;
+
+  /**
+   * <p>The exemption certificate file content.
+   *     </p>
+   * @public
+   */
+  documentFile: Uint8Array | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTaxExemptionTypesRequest {}
+
+/**
+ * @public
+ */
+export interface GetTaxExemptionTypesResponse {
+  /**
+   * <p>The supported types of tax exemptions.
+   *     </p>
+   * @public
+   */
+  taxExemptionTypes?: TaxExemptionType[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetTaxInheritanceRequest {}
+
+/**
+ * @public
+ * @enum
+ */
+export const HeritageStatus = {
+  OptIn: "OptIn",
+  OptOut: "OptOut",
+} as const;
+
+/**
+ * @public
+ */
+export type HeritageStatus = (typeof HeritageStatus)[keyof typeof HeritageStatus];
+
+/**
+ * @public
+ */
+export interface GetTaxInheritanceResponse {
+  /**
+   * <p>The tax inheritance status.
+   *     </p>
+   * @public
+   */
+  heritageStatus?: HeritageStatus | undefined;
 }
 
 /**
@@ -1468,7 +2062,7 @@ export interface GetTaxRegistrationRequest {
    * <p>Your unique account identifier.</p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 }
 
 /**
@@ -1483,7 +2077,7 @@ export interface TaxRegistration {
   registrationId: string | undefined;
 
   /**
-   * <p>Type of your tax registration. This can be either <code>VAT</code> or <code>GST</code>.
+   * <p>Type of your tax registration.
    *     </p>
    * @public
    */
@@ -1507,25 +2101,25 @@ export interface TaxRegistration {
    *     </p>
    * @public
    */
-  sector?: Sector;
+  sector?: Sector | undefined;
 
   /**
    * <p>The metadata for your tax document.</p>
    * @public
    */
-  taxDocumentMetadatas?: TaxDocumentMetadata[];
+  taxDocumentMetadatas?: TaxDocumentMetadata[] | undefined;
 
   /**
    * <p>The email address to receive VAT invoices.</p>
    * @public
    */
-  certifiedEmailId?: string;
+  certifiedEmailId?: string | undefined;
 
   /**
    * <p> Additional tax information associated with your TRN. </p>
    * @public
    */
-  additionalTaxInformation?: AdditionalInfoResponse;
+  additionalTaxInformation?: AdditionalInfoResponse | undefined;
 
   /**
    * <p> The legal address associated with your TRN registration. </p>
@@ -1542,7 +2136,7 @@ export interface GetTaxRegistrationResponse {
    * <p>TRN information of the account mentioned in the request. </p>
    * @public
    */
-  taxRegistration?: TaxRegistration;
+  taxRegistration?: TaxRegistration | undefined;
 }
 
 /**
@@ -1553,7 +2147,7 @@ export interface GetTaxRegistrationDocumentRequest {
    * <p>The Amazon S3 bucket that you specify to download your tax documents to.</p>
    * @public
    */
-  destinationS3Location: DestinationS3Location | undefined;
+  destinationS3Location?: DestinationS3Location | undefined;
 
   /**
    * <p>The metadata for your tax document.</p>
@@ -1570,7 +2164,160 @@ export interface GetTaxRegistrationDocumentResponse {
    * <p>The file path of the Amazon S3 bucket where you want to download your tax document to.</p>
    * @public
    */
-  destinationFilePath?: string;
+  destinationFilePath?: string | undefined;
+
+  /**
+   * <p>The Amazon S3 presigned URL of the tax registration document.
+   *     </p>
+   * @public
+   */
+  presignedS3Url?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSupplementalTaxRegistrationsRequest {
+  /**
+   * <p>
+   *       The number of <code>taxRegistrations</code> results you want in one response.
+   *     </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const SupplementalTaxRegistrationType = {
+  VAT: "VAT",
+} as const;
+
+/**
+ * @public
+ */
+export type SupplementalTaxRegistrationType =
+  (typeof SupplementalTaxRegistrationType)[keyof typeof SupplementalTaxRegistrationType];
+
+/**
+ * <p>
+ *       Supplemental TRN details.
+ *     </p>
+ * @public
+ */
+export interface SupplementalTaxRegistration {
+  /**
+   * <p>
+   *       The supplemental TRN unique identifier.
+   *     </p>
+   * @public
+   */
+  registrationId: string | undefined;
+
+  /**
+   * <p>
+   *       Type of supplemental TRN. Currently, this can only be VAT.
+   *     </p>
+   * @public
+   */
+  registrationType: SupplementalTaxRegistrationType | undefined;
+
+  /**
+   * <p>
+   *       The legal name associated with your TRN registration.
+   *     </p>
+   * @public
+   */
+  legalName: string | undefined;
+
+  /**
+   * <p> The details of the address associated with the TRN information. </p>
+   * @public
+   */
+  address: Address | undefined;
+
+  /**
+   * <p>
+   *       Unique authority ID for the supplemental TRN.
+   *     </p>
+   * @public
+   */
+  authorityId: string | undefined;
+
+  /**
+   * <p>
+   *       The status of your TRN.
+   *     </p>
+   * @public
+   */
+  status: TaxRegistrationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListSupplementalTaxRegistrationsResponse {
+  /**
+   * <p>
+   *       The list of supplemental tax registrations.
+   *     </p>
+   * @public
+   */
+  taxRegistrations: SupplementalTaxRegistration[] | undefined;
+
+  /**
+   * <p>
+   *       The token to retrieve the next set of results.
+   *     </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTaxExemptionsRequest {
+  /**
+   * <p>The number of results you want in one response.
+   *     </p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>The token to retrieve the next set of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTaxExemptionsResponse {
+  /**
+   * <p>The token to retrieve the next set of results. </p>
+   * @public
+   */
+  nextToken?: string | undefined;
+
+  /**
+   * <p>The tax exemption details map of <code>accountId</code> and tax exemption details.
+   *     </p>
+   * @public
+   */
+  taxExemptionDetailsMap?: Record<string, TaxExemptionDetails> | undefined;
 }
 
 /**
@@ -1581,13 +2328,13 @@ export interface ListTaxRegistrationsRequest {
    * <p>Number of <code>accountDetails</code> results you want in one response. </p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token to retrieve the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1605,8 +2352,143 @@ export interface ListTaxRegistrationsResponse {
    * <p> The token to retrieve the next set of results. </p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
+
+/**
+ * <p>
+ *       The supplemental TRN information to provide when adding or updating a supplemental TRN.
+ *     </p>
+ * @public
+ */
+export interface SupplementalTaxRegistrationEntry {
+  /**
+   * <p>
+   *       The supplemental TRN unique identifier.
+   *     </p>
+   * @public
+   */
+  registrationId: string | undefined;
+
+  /**
+   * <p>
+   *       Type of supplemental TRN. Currently, this can only be VAT.
+   *     </p>
+   * @public
+   */
+  registrationType: SupplementalTaxRegistrationType | undefined;
+
+  /**
+   * <p>
+   *       The legal name associated with your TRN registration.
+   *     </p>
+   * @public
+   */
+  legalName: string | undefined;
+
+  /**
+   * <p> The details of the address associated with the TRN information. </p>
+   * @public
+   */
+  address: Address | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSupplementalTaxRegistrationRequest {
+  /**
+   * <p>
+   *       The supplemental TRN information that will be stored for the caller account ID.
+   *     </p>
+   * @public
+   */
+  taxRegistrationEntry: SupplementalTaxRegistrationEntry | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutSupplementalTaxRegistrationResponse {
+  /**
+   * <p>
+   *       Unique authority ID for the supplemental TRN information that was stored.
+   *     </p>
+   * @public
+   */
+  authorityId: string | undefined;
+
+  /**
+   * <p>
+   *       The status of the supplemental TRN stored in the system after processing. Based on the validation occurring on the TRN, the status can be <code>Verified</code>, <code>Pending</code>, <code>Rejected</code>, or <code>Deleted</code>.
+   *     </p>
+   * @public
+   */
+  status: TaxRegistrationStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxExemptionRequest {
+  /**
+   * <p>
+   *       The list of unique account identifiers.
+   *     </p>
+   * @public
+   */
+  accountIds: string[] | undefined;
+
+  /**
+   * <p>The address domain associate with the tax information.
+   *     </p>
+   * @public
+   */
+  authority: Authority | undefined;
+
+  /**
+   * <p>The exemption type. Use the supported tax exemption type description.
+   *     </p>
+   * @public
+   */
+  exemptionType: string | undefined;
+
+  /**
+   * <p>The exemption certificate.
+   *     </p>
+   * @public
+   */
+  exemptionCertificate: ExemptionCertificate | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxExemptionResponse {
+  /**
+   * <p>The customer support case ID.
+   *     </p>
+   * @public
+   */
+  caseId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxInheritanceRequest {
+  /**
+   * <p>The tax inheritance status.
+   *     </p>
+   * @public
+   */
+  heritageStatus?: HeritageStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutTaxInheritanceResponse {}
 
 /**
  * @public
@@ -1616,7 +2498,7 @@ export interface PutTaxRegistrationRequest {
    * <p>Your unique account identifier. </p>
    * @public
    */
-  accountId?: string;
+  accountId?: string | undefined;
 
   /**
    * <p> Your TRN information that will be stored to the account mentioned in
@@ -1636,7 +2518,7 @@ export interface PutTaxRegistrationResponse {
    *         <code>Rejected</code>. </p>
    * @public
    */
-  status?: TaxRegistrationStatus;
+  status?: TaxRegistrationStatus | undefined;
 }
 
 /**
@@ -1727,9 +2609,43 @@ export const GetTaxRegistrationResponseFilterSensitiveLog = (obj: GetTaxRegistra
 /**
  * @internal
  */
+export const SupplementalTaxRegistrationFilterSensitiveLog = (obj: SupplementalTaxRegistration): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const ListSupplementalTaxRegistrationsResponseFilterSensitiveLog = (
+  obj: ListSupplementalTaxRegistrationsResponse
+): any => ({
+  ...obj,
+  ...(obj.taxRegistrations && { taxRegistrations: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ListTaxRegistrationsResponseFilterSensitiveLog = (obj: ListTaxRegistrationsResponse): any => ({
   ...obj,
   ...(obj.accountDetails && { accountDetails: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SupplementalTaxRegistrationEntryFilterSensitiveLog = (obj: SupplementalTaxRegistrationEntry): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const PutSupplementalTaxRegistrationRequestFilterSensitiveLog = (
+  obj: PutSupplementalTaxRegistrationRequest
+): any => ({
+  ...obj,
+  ...(obj.taxRegistrationEntry && { taxRegistrationEntry: SENSITIVE_STRING }),
 });
 
 /**

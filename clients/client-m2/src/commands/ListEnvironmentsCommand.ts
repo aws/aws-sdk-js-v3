@@ -12,7 +12,8 @@ import { de_ListEnvironmentsCommand, se_ListEnvironmentsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * //       engineType: "STRING_VALUE", // required
  * //       engineVersion: "STRING_VALUE", // required
  * //       creationTime: new Date("TIMESTAMP"), // required
+ * //       networkType: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -83,6 +85,7 @@ export interface ListEnvironmentsCommandOutput extends ListEnvironmentsResponse,
  * @throws {@link M2ServiceException}
  * <p>Base exception class for all service exceptions from M2 service.</p>
  *
+ *
  * @public
  */
 export class ListEnvironmentsCommand extends $Command
@@ -93,9 +96,7 @@ export class ListEnvironmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: M2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class ListEnvironmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnvironmentsCommand)
   .de(de_ListEnvironmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnvironmentsRequest;
+      output: ListEnvironmentsResponse;
+    };
+    sdk: {
+      input: ListEnvironmentsCommandInput;
+      output: ListEnvironmentsCommandOutput;
+    };
+  };
+}

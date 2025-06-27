@@ -12,7 +12,8 @@ import { de_CreateWorkspaceCommand, se_CreateWorkspaceCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface CreateWorkspaceCommandInput extends CreateWorkspaceRequest {}
 export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the
- *             storage and querying of Prometheus metrics. You can have one or more workspaces in each
- *             Region in your account.</p>
+ * <p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the storage and querying of Prometheus metrics. You can have one or more workspaces in each Region in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,11 +81,11 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -98,9 +97,7 @@ export class CreateWorkspaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +109,16 @@ export class CreateWorkspaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateWorkspaceCommand)
   .de(de_CreateWorkspaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWorkspaceRequest;
+      output: CreateWorkspaceResponse;
+    };
+    sdk: {
+      input: CreateWorkspaceCommandInput;
+      output: CreateWorkspaceCommandOutput;
+    };
+  };
+}

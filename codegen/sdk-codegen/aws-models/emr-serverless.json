@@ -61,7 +61,7 @@
         "maximumCapacity": {
           "target": "com.amazonaws.emrserverless#MaximumAllowedResources",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum capacity of the application. This is cumulative across all workers at any\n         given point in time during the lifespan of the application is created. No new resources\n         will be created once any one of the defined limits is hit.</p>"
+            "smithy.api#documentation": "<p>The maximum capacity of the application. This is cumulative across all workers at any given point in time during the lifespan of the application is created. No new resources will be created once any one of the defined limits is hit.</p>"
           }
         },
         "createdAt": {
@@ -93,7 +93,7 @@
         "autoStopConfiguration": {
           "target": "com.amazonaws.emrserverless#AutoStopConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of\n         time being idle.</p>"
+            "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>"
           }
         },
         "networkConfiguration": {
@@ -123,7 +123,7 @@
         "runtimeConfiguration": {
           "target": "com.amazonaws.emrserverless#ConfigurationList",
           "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> \n         specifications of an application. Each configuration consists of a classification and properties. You use this \n      parameter when creating or updating an application. To see the runtimeConfiguration object of an application,\n      run the <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html\">GetApplication</a> API operation.</p>"
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> specifications of an application. Each configuration consists of a classification and properties. You use this parameter when creating or updating an application. To see the runtimeConfiguration object of an application, run the <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_GetApplication.html\">GetApplication</a> API operation.</p>"
           }
         },
         "monitoringConfiguration": {
@@ -134,10 +134,22 @@
           "traits": {
             "smithy.api#documentation": "<p>The interactive configuration object that enables the interactive use cases for an application.</p>"
           }
+        },
+        "schedulerConfiguration": {
+          "target": "com.amazonaws.emrserverless#SchedulerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
+          }
+        },
+        "identityCenterConfiguration": {
+          "target": "com.amazonaws.emrserverless#IdentityCenterConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM Identity Center configuration applied to enable trusted identity propagation. </p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about an application. Amazon EMR Serverless uses applications to run\n         jobs.</p>"
+        "smithy.api#documentation": "<p>Information about an application. Amazon EMR Serverless uses applications to run jobs.</p>"
       }
     },
     "com.amazonaws.emrserverless#ApplicationArn": {
@@ -351,6 +363,16 @@
         ]
       }
     },
+    "com.amazonaws.emrserverless#Arn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 20,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^([\t\n\r -~ -퟿-�က0-ჿFF]+)$"
+      }
+    },
     "com.amazonaws.emrserverless#AttemptNumber": {
       "type": "integer",
       "traits": {
@@ -365,7 +387,7 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Enables the application to automatically start on job submission. Defaults to\n         true.</p>"
+            "smithy.api#documentation": "<p>Enables the application to automatically start on job submission. Defaults to true.</p>"
           }
         }
       },
@@ -379,14 +401,14 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Enables the application to automatically stop after a certain amount of time being idle.\n         Defaults to true.</p>"
+            "smithy.api#documentation": "<p>Enables the application to automatically stop after a certain amount of time being idle. Defaults to true.</p>"
           }
         },
         "idleTimeoutMinutes": {
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>The amount of idle time in minutes after which your application will automatically stop.\n         Defaults to 15 minutes.</p>",
+            "smithy.api#documentation": "<p>The amount of idle time in minutes after which your application will automatically stop. Defaults to 15 minutes.</p>",
             "smithy.api#range": {
               "min": 1,
               "max": 10080
@@ -395,7 +417,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of\n         time being idle.</p>"
+        "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>"
       }
     },
     "com.amazonaws.emrserverless#AwsToledoWebService": {
@@ -446,7 +468,7 @@
           ],
           "additionalExposedHeaders": ["x-amzn-errortype", "x-amzn-requestid", "x-amzn-trace-id", "x-amz-apigw-id"]
         },
-        "smithy.api#documentation": "<p>Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running\n         analytics applications using the latest open source frameworks such as Apache Spark and\n         Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize,\n         secure, or operate clusters to run applications with these frameworks.</p>\n         <p>The API reference to Amazon EMR Serverless is <code>emr-serverless</code>. The\n            <code>emr-serverless</code> prefix is used in the following scenarios: </p>\n         <ul>\n            <li>\n               <p>It is the prefix in the CLI commands for Amazon EMR Serverless. For\n               example, <code>aws emr-serverless start-job-run</code>.</p>\n            </li>\n            <li>\n               <p>It is the prefix before IAM policy actions for Amazon EMR Serverless. For\n               example, <code>\"Action\": [\"emr-serverless:StartJobRun\"]</code>. For more information,\n               see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions\">Policy actions for Amazon EMR Serverless</a>.</p>\n            </li>\n            <li>\n               <p>It is the prefix used in Amazon EMR Serverless service endpoints. For\n               example, <code>emr-serverless.us-east-2.amazonaws.com</code>.</p>\n            </li>\n         </ul>",
+        "smithy.api#documentation": "<p>Amazon EMR Serverless is a new deployment option for Amazon EMR. Amazon EMR Serverless provides a serverless runtime environment that simplifies running analytics applications using the latest open source frameworks such as Apache Spark and Apache Hive. With Amazon EMR Serverless, you don’t have to configure, optimize, secure, or operate clusters to run applications with these frameworks.</p> <p>The API reference to Amazon EMR Serverless is <code>emr-serverless</code>. The <code>emr-serverless</code> prefix is used in the following scenarios: </p> <ul> <li> <p>It is the prefix in the CLI commands for Amazon EMR Serverless. For example, <code>aws emr-serverless start-job-run</code>.</p> </li> <li> <p>It is the prefix before IAM policy actions for Amazon EMR Serverless. For example, <code>\"Action\": [\"emr-serverless:StartJobRun\"]</code>. For more information, see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/security_iam_service-with-iam.html#security_iam_service-with-iam-id-based-policies-actions\">Policy actions for Amazon EMR Serverless</a>.</p> </li> <li> <p>It is the prefix used in Amazon EMR Serverless service endpoints. For example, <code>emr-serverless.us-east-2.amazonaws.com</code>.</p> </li> </ul>",
         "smithy.api#title": "EMR Serverless",
         "smithy.rules#endpointRuleSet": {
           "version": "1.0",
@@ -1178,6 +1200,14 @@
             "smithy.api#required": {},
             "smithy.api#resourceIdentifier": "jobRunId"
           }
+        },
+        "shutdownGracePeriodInSeconds": {
+          "target": "com.amazonaws.emrserverless#ShutdownGracePeriodInSeconds",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>The duration in seconds to wait before forcefully terminating the job after cancellation is requested.</p>",
+            "smithy.api#httpQuery": "shutdownGracePeriodInSeconds"
+          }
         }
       }
     },
@@ -1225,7 +1255,7 @@
         "logGroupName": {
           "target": "com.amazonaws.emrserverless#LogGroupName",
           "traits": {
-            "smithy.api#documentation": "<p>The name of the log group in Amazon CloudWatch Logs where you want to publish your\n         logs.</p>"
+            "smithy.api#documentation": "<p>The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.</p>"
           }
         },
         "logStreamNamePrefix": {
@@ -1243,12 +1273,12 @@
         "logTypes": {
           "target": "com.amazonaws.emrserverless#LogTypeMap",
           "traits": {
-            "smithy.api#documentation": "<p>The types of logs that you want to publish to CloudWatch. If you don't specify\n         any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by\n         default. For more information including the supported worker types for Hive and Spark, see\n            <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw\">Logging for\n            EMR Serverless with CloudWatch</a>.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Key Valid Values</b>: <code>SPARK_DRIVER</code>,\n                  <code>SPARK_EXECUTOR</code>, <code>HIVE_DRIVER</code>,\n               <code>TEZ_TASK</code>\n               </p>\n            </li>\n            <li>\n               <p>\n                  <b>Array Members Valid Values</b>: <code>STDOUT</code>,\n                  <code>STDERR</code>, <code>HIVE_LOG</code>, <code>TEZ_AM</code>,\n                  <code>SYSTEM_LOGS</code>\n               </p>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. For more information including the supported worker types for Hive and Spark, see <a href=\"https://docs.aws.amazon.com/emr/latest/EMR-Serverless-UserGuide/logging.html#jobs-log-storage-cw\">Logging for EMR Serverless with CloudWatch</a>.</p> <ul> <li> <p> <b>Key Valid Values</b>: <code>SPARK_DRIVER</code>, <code>SPARK_EXECUTOR</code>, <code>HIVE_DRIVER</code>, <code>TEZ_TASK</code> </p> </li> <li> <p> <b>Array Members Valid Values</b>: <code>STDOUT</code>, <code>STDERR</code>, <code>HIVE_LOG</code>, <code>TEZ_AM</code>, <code>SYSTEM_LOGS</code> </p> </li> </ul>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs\n         to send log information to CloudWatch.</p>"
+        "smithy.api#documentation": "<p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs to send log information to CloudWatch.</p>"
       }
     },
     "com.amazonaws.emrserverless#Configuration": {
@@ -1275,7 +1305,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>A configuration specification to be used when provisioning an application. A\n         configuration consists of a classification, properties, and optional nested configurations.\n         A classification refers to an application-specific configuration file. Properties are the\n         settings you want to change in that file.</p>"
+        "smithy.api#documentation": "<p>A configuration specification to be used when provisioning an application. A configuration consists of a classification, properties, and optional nested configurations. A classification refers to an application-specific configuration file. Properties are the settings you want to change in that file.</p>"
       }
     },
     "com.amazonaws.emrserverless#ConfigurationList": {
@@ -1341,7 +1371,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The request could not be processed because of conflict in the current state of the\n         resource.</p>",
+        "smithy.api#documentation": "<p>The request could not be processed because of conflict in the current state of the resource.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 409
       }
@@ -1413,7 +1443,7 @@
         "clientToken": {
           "target": "com.amazonaws.emrserverless#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>The client idempotency token of the application to create. Its value must be unique for\n         each request.</p>",
+            "smithy.api#documentation": "<p>The client idempotency token of the application to create. Its value must be unique for each request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -1427,7 +1457,7 @@
         "maximumCapacity": {
           "target": "com.amazonaws.emrserverless#MaximumAllowedResources",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum capacity to allocate when the application is created. This is cumulative\n         across all workers at any given point in time, not just when an application is created. No\n         new resources will be created once any one of the defined limits is hit.</p>"
+            "smithy.api#documentation": "<p>The maximum capacity to allocate when the application is created. This is cumulative across all workers at any given point in time, not just when an application is created. No new resources will be created once any one of the defined limits is hit.</p>"
           }
         },
         "tags": {
@@ -1445,7 +1475,7 @@
         "autoStopConfiguration": {
           "target": "com.amazonaws.emrserverless#AutoStopConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of\n         time being idle.</p>"
+            "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>"
           }
         },
         "networkConfiguration": {
@@ -1463,19 +1493,19 @@
         "imageConfiguration": {
           "target": "com.amazonaws.emrserverless#ImageConfigurationInput",
           "traits": {
-            "smithy.api#documentation": "<p>The image configuration for all worker types. You can either set this parameter or\n            <code>imageConfiguration</code> for each worker type in\n            <code>workerTypeSpecifications</code>.</p>"
+            "smithy.api#documentation": "<p>The image configuration for all worker types. You can either set this parameter or <code>imageConfiguration</code> for each worker type in <code>workerTypeSpecifications</code>.</p>"
           }
         },
         "workerTypeSpecifications": {
           "target": "com.amazonaws.emrserverless#WorkerTypeSpecificationInputMap",
           "traits": {
-            "smithy.api#documentation": "<p>The key-value pairs that specify worker type to\n            <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker\n         types for a Spark or Hive application. Valid worker types include <code>Driver</code> and\n            <code>Executor</code> for Spark applications and <code>HiveDriver</code> and\n            <code>TezTask</code> for Hive applications. You can either set image details in this\n         parameter for each worker type, or in <code>imageConfiguration</code> for all worker\n         types.</p>"
+            "smithy.api#documentation": "<p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>"
           }
         },
         "runtimeConfiguration": {
           "target": "com.amazonaws.emrserverless#ConfigurationList",
           "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> \n         specifications to use when creating an application. Each configuration consists of a classification and properties.\n      This configuration is applied to all the job runs submitted under the application.</p>"
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> specifications to use when creating an application. Each configuration consists of a classification and properties. This configuration is applied to all the job runs submitted under the application.</p>"
           }
         },
         "monitoringConfiguration": {
@@ -1487,7 +1517,19 @@
         "interactiveConfiguration": {
           "target": "com.amazonaws.emrserverless#InteractiveConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The interactive configuration object that enables the interactive use cases \n      to use when running an application.</p>"
+            "smithy.api#documentation": "<p>The interactive configuration object that enables the interactive use cases to use when running an application.</p>"
+          }
+        },
+        "schedulerConfiguration": {
+          "target": "com.amazonaws.emrserverless#SchedulerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
+          }
+        },
+        "identityCenterConfiguration": {
+          "target": "com.amazonaws.emrserverless#IdentityCenterConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>The IAM Identity Center Configuration accepts the Identity Center instance parameter required to enable trusted identity propagation. This configuration allows identity propagation between integrated services and the Identity Center instance.</p>"
           }
         }
       }
@@ -1541,7 +1583,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Deletes an application. An application has to be in a stopped or created state in order\n         to be deleted.</p>",
+        "smithy.api#documentation": "<p>Deletes an application. An application has to be in a stopped or created state in order to be deleted.</p>",
         "smithy.api#http": {
           "method": "DELETE",
           "uri": "/applications/{applicationId}"
@@ -1600,7 +1642,7 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\\-]*:(\\d{12})?:key\\/[a-zA-Z0-9-]+$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):kms:[a-zA-Z0-9\\-]*:([0-9]{12}):key\\/[a-zA-Z0-9-]+$"
       }
     },
     "com.amazonaws.emrserverless#EngineType": {
@@ -1616,8 +1658,7 @@
       "type": "string",
       "traits": {
         "smithy.api#length": {
-          "min": 1,
-          "max": 10280
+          "min": 1
         },
         "smithy.api#pattern": ".*\\S.*",
         "smithy.api#sensitive": {}
@@ -1627,6 +1668,12 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.emrserverless#EntryPointArgument"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 1024
+        }
       }
     },
     "com.amazonaws.emrserverless#EntryPointPath": {
@@ -1634,7 +1681,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 1,
-          "max": 256
+          "max": 4096
         },
         "smithy.api#pattern": ".*\\S.*",
         "smithy.api#sensitive": {}
@@ -1715,7 +1762,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Creates and returns a URL that you can use to access the application UIs for a job\n         run.</p>\n         <p>For jobs in a running state, the application UI is a live user interface such as the\n         Spark or Tez web UI. For completed jobs, the application UI is a persistent application\n         user interface such as the Spark History Server or persistent Tez UI.</p>\n         <note>\n            <p>The URL is valid for one hour after you generate it. To access the application UI\n            after that hour elapses, you must invoke the API again to generate a new URL.</p>\n         </note>",
+        "smithy.api#documentation": "<p>Creates and returns a URL that you can use to access the application UIs for a job run.</p> <p>For jobs in a running state, the application UI is a live user interface such as the Spark or Tez web UI. For completed jobs, the application UI is a persistent application user interface such as the Spark History Server or persistent Tez UI.</p> <note> <p>The URL is valid for one hour after you generate it. To access the application UI after that hour elapses, you must invoke the API again to generate a new URL.</p> </note>",
         "smithy.api#http": {
           "method": "GET",
           "uri": "/applications/{applicationId}/jobruns/{jobRunId}/dashboard"
@@ -1746,8 +1793,15 @@
         "attempt": {
           "target": "com.amazonaws.emrserverless#AttemptNumber",
           "traits": {
-            "smithy.api#documentation": "<p>An optimal parameter that indicates the amount of attempts for the job. If not specified,\n         this value defaults to the attempt of the latest job.</p>",
+            "smithy.api#documentation": "<p>An optimal parameter that indicates the amount of attempts for the job. If not specified, this value defaults to the attempt of the latest job.</p>",
             "smithy.api#httpQuery": "attempt"
+          }
+        },
+        "accessSystemProfileLogs": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Allows access to system profile logs for Lake Formation-enabled jobs. Default is false.</p>",
+            "smithy.api#httpQuery": "accessSystemProfileLogs"
           }
         }
       }
@@ -1815,7 +1869,7 @@
         "attempt": {
           "target": "com.amazonaws.emrserverless#AttemptNumber",
           "traits": {
-            "smithy.api#documentation": "<p>An optimal parameter that indicates the amount of attempts for the job. If not specified,\n      this value defaults to the attempt of the latest job.</p>",
+            "smithy.api#documentation": "<p>An optimal parameter that indicates the amount of attempts for the job. If not specified, this value defaults to the attempt of the latest job.</p>",
             "smithy.api#httpQuery": "attempt"
           }
         }
@@ -1881,7 +1935,57 @@
           "min": 20,
           "max": 2048
         },
-        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::(\\d{12})?:(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$"
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):iam::([0-9]{12}):(role((\\u002F)|(\\u002F[\\u0021-\\u007F]+\\u002F))[\\w+=,.@-]+)$"
+      }
+    },
+    "com.amazonaws.emrserverless#IdentityCenterApplicationArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):sso::\\d{12}:application/(sso)?ins-[a-zA-Z0-9-.]{16}/apl-[a-zA-Z0-9]{16}$"
+      }
+    },
+    "com.amazonaws.emrserverless#IdentityCenterConfiguration": {
+      "type": "structure",
+      "members": {
+        "identityCenterInstanceArn": {
+          "target": "com.amazonaws.emrserverless#IdentityCenterInstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM Identity Center instance.</p>"
+          }
+        },
+        "identityCenterApplicationArn": {
+          "target": "com.amazonaws.emrserverless#IdentityCenterApplicationArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the EMR Serverless created IAM Identity Center Application that provides trusted-identity propagation.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The IAM Identity Center Configuration that includes the Identify Center instance and application ARNs that provide trusted-identity propagation.</p>"
+      }
+    },
+    "com.amazonaws.emrserverless#IdentityCenterConfigurationInput": {
+      "type": "structure",
+      "members": {
+        "identityCenterInstanceArn": {
+          "target": "com.amazonaws.emrserverless#IdentityCenterInstanceArn",
+          "traits": {
+            "smithy.api#documentation": "<p>The ARN of the IAM Identity Center instance.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>"
+      }
+    },
+    "com.amazonaws.emrserverless#IdentityCenterInstanceArn": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 10,
+          "max": 1024
+        },
+        "smithy.api#pattern": "^arn:(aws[a-zA-Z0-9-]*):sso:::instance/(sso)?ins-[a-zA-Z0-9-.]{16}$"
       }
     },
     "com.amazonaws.emrserverless#ImageConfiguration": {
@@ -1897,7 +2001,7 @@
         "resolvedImageDigest": {
           "target": "com.amazonaws.emrserverless#ImageDigest",
           "traits": {
-            "smithy.api#documentation": "<p>The SHA256 digest of the image URI. This indicates which specific image the application\n         is configured for. The image digest doesn't exist until an application has started.</p>"
+            "smithy.api#documentation": "<p>The SHA256 digest of the image URI. This indicates which specific image the application is configured for. The image digest doesn't exist until an application has started.</p>"
           }
         }
       },
@@ -1911,7 +2015,7 @@
         "imageUri": {
           "target": "com.amazonaws.emrserverless#ImageUri",
           "traits": {
-            "smithy.api#documentation": "<p>The URI of an image in the Amazon ECR registry. This field is required when you create a\n         new application. If you leave this field blank in an update, Amazon EMR will remove\n         the image configuration.</p>"
+            "smithy.api#documentation": "<p>The URI of an image in the Amazon ECR registry. This field is required when you create a new application. If you leave this field blank in an update, Amazon EMR will remove the image configuration.</p>"
           }
         }
       },
@@ -1932,7 +2036,7 @@
           "min": 1,
           "max": 1024
         },
-        "smithy.api#pattern": "^([a-z0-9]+[a-z0-9-.]*)\\/((?:[a-z0-9]+(?:[._-][a-z0-9]+)*\\/)*[a-z0-9]+(?:[._-][a-z0-9]+)*)(?:\\:([a-zA-Z0-9_][a-zA-Z0-9-._]{0,299})|@(sha256:[0-9a-f]{64}))$"
+        "smithy.api#pattern": "^([0-9]{12})\\.dkr\\.ecr\\.([a-z0-9-]+).([a-z0-9._-]+)\\/((?:[a-z0-9]+(?:[-._][a-z0-9]+)*/)*[a-z0-9]+(?:[-._][a-z0-9]+)*)(?::([a-zA-Z0-9_]+[a-zA-Z0-9-._]*)|@(sha256:[0-9a-f]{64}))$"
       }
     },
     "com.amazonaws.emrserverless#InitScriptPath": {
@@ -2110,6 +2214,9 @@
             "smithy.api#required": {}
           }
         },
+        "executionIamPolicy": {
+          "target": "com.amazonaws.emrserverless#JobRunExecutionIamPolicy"
+        },
         "state": {
           "target": "com.amazonaws.emrserverless#JobRunState",
           "traits": {
@@ -2127,7 +2234,7 @@
         "releaseLabel": {
           "target": "com.amazonaws.emrserverless#ReleaseLabel",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon EMR release associated with the application your job is running\n         on.</p>",
+            "smithy.api#documentation": "<p>The Amazon EMR release associated with the application your job is running on.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2153,7 +2260,7 @@
         "totalResourceUtilization": {
           "target": "com.amazonaws.emrserverless#TotalResourceUtilization",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregate vCPU, memory, and storage resources used from the time the job starts to\n         execute, until the time the job terminates, rounded up to the nearest second.</p>"
+            "smithy.api#documentation": "<p>The aggregate vCPU, memory, and storage resources used from the time the job starts to execute, until the time the job terminates, rounded up to the nearest second.</p>"
           }
         },
         "networkConfiguration": {
@@ -2162,20 +2269,20 @@
         "totalExecutionDurationSeconds": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "<p>The job run total execution duration in seconds. This field is only available for job\n         runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code>\n         state.</p>"
+            "smithy.api#documentation": "<p>The job run total execution duration in seconds. This field is only available for job runs in a <code>COMPLETED</code>, <code>FAILED</code>, or <code>CANCELLED</code> state.</p>"
           }
         },
         "executionTimeoutMinutes": {
           "target": "com.amazonaws.emrserverless#Duration",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>Returns the job run timeout value from the <code>StartJobRun</code> call. If no timeout\n         was specified, then it returns the default timeout of 720 minutes.</p>"
+            "smithy.api#documentation": "<p>Returns the job run timeout value from the <code>StartJobRun</code> call. If no timeout was specified, then it returns the default timeout of 720 minutes.</p>"
           }
         },
         "billedResourceUtilization": {
           "target": "com.amazonaws.emrserverless#ResourceUtilization",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the job\n         run. The billed resources include a 1-minute minimum usage for workers, plus additional\n         storage over 20 GB per worker. Note that billed resources do not include usage for idle\n         pre-initialized workers.</p>"
+            "smithy.api#documentation": "<p>The aggregate vCPU, memory, and storage that Amazon Web Services has billed for the job run. The billed resources include a 1-minute minimum usage for workers, plus additional storage over 20 GB per worker. Note that billed resources do not include usage for idle pre-initialized workers.</p>"
           }
         },
         "mode": {
@@ -2207,10 +2314,28 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time of when the job run attempt was last updated.</p>"
           }
+        },
+        "startedAt": {
+          "target": "com.amazonaws.emrserverless#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the job moved to the RUNNING state.</p>"
+          }
+        },
+        "endedAt": {
+          "target": "com.amazonaws.emrserverless#Date",
+          "traits": {
+            "smithy.api#documentation": "<p>The date and time when the job was terminated.</p>"
+          }
+        },
+        "queuedDurationMilliseconds": {
+          "target": "smithy.api#Long",
+          "traits": {
+            "smithy.api#documentation": "<p>The total time for a job in the QUEUED state in milliseconds.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Information about a job run. A job run is a unit of work, such as a Spark JAR, Hive\n         query, or SparkSQL query, that you submit to an Amazon EMR Serverless\n         application.</p>"
+        "smithy.api#documentation": "<p>Information about a job run. A job run is a unit of work, such as a Spark JAR, Hive query, or SparkSQL query, that you submit to an Amazon EMR Serverless application.</p>"
       }
     },
     "com.amazonaws.emrserverless#JobRunAttemptSummary": {
@@ -2330,6 +2455,26 @@
         "target": "com.amazonaws.emrserverless#JobRunAttemptSummary"
       }
     },
+    "com.amazonaws.emrserverless#JobRunExecutionIamPolicy": {
+      "type": "structure",
+      "members": {
+        "policy": {
+          "target": "com.amazonaws.emrserverless#PolicyDocument",
+          "traits": {
+            "smithy.api#documentation": "<p>An IAM inline policy to use as an execution IAM policy.</p>"
+          }
+        },
+        "policyArns": {
+          "target": "com.amazonaws.emrserverless#PolicyArnList",
+          "traits": {
+            "smithy.api#documentation": "<p>A list of Amazon Resource Names (ARNs) to use as an execution IAM policy.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Optional IAM policy. The resulting job IAM role permissions will be an intersection of the policies passed and the policy associated with your job execution role.</p>"
+      }
+    },
     "com.amazonaws.emrserverless#JobRunId": {
       "type": "string",
       "traits": {
@@ -2421,6 +2566,10 @@
           {
             "value": "CANCELLED",
             "name": "CANCELLED"
+          },
+          {
+            "value": "QUEUED",
+            "name": "QUEUED"
           }
         ]
       }
@@ -2521,7 +2670,7 @@
         "releaseLabel": {
           "target": "com.amazonaws.emrserverless#ReleaseLabel",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon EMR release associated with the application your job is running\n         on.</p>",
+            "smithy.api#documentation": "<p>The Amazon EMR release associated with the application your job is running on.</p>",
             "smithy.api#required": {}
           }
         },
@@ -2619,7 +2768,7 @@
         "states": {
           "target": "com.amazonaws.emrserverless#ApplicationStateSet",
           "traits": {
-            "smithy.api#documentation": "<p>An optional filter for application states. Note that if this filter contains multiple\n         states, the resulting list will be grouped by the state.</p>",
+            "smithy.api#documentation": "<p>An optional filter for application states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>",
             "smithy.api#httpQuery": "states"
           }
         }
@@ -2638,7 +2787,7 @@
         "nextToken": {
           "target": "com.amazonaws.emrserverless#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The output displays the token for the next set of application results. This is required\n         for pagination and is available as a response of the previous request.</p>"
+            "smithy.api#documentation": "<p>The output displays the token for the next set of application results. This is required for pagination and is available as a response of the previous request.</p>"
           }
         }
       }
@@ -2735,7 +2884,7 @@
         "nextToken": {
           "target": "com.amazonaws.emrserverless#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The output displays the token for the next set of application results. \n         This is required for pagination and is available as a response of the previous request.</p>"
+            "smithy.api#documentation": "<p>The output displays the token for the next set of application results. This is required for pagination and is available as a response of the previous request.</p>"
           }
         }
       },
@@ -2822,7 +2971,7 @@
         "states": {
           "target": "com.amazonaws.emrserverless#JobRunStateSet",
           "traits": {
-            "smithy.api#documentation": "<p>An optional filter for job run states. Note that if this filter contains multiple\n         states, the resulting list will be grouped by the state.</p>",
+            "smithy.api#documentation": "<p>An optional filter for job run states. Note that if this filter contains multiple states, the resulting list will be grouped by the state.</p>",
             "smithy.api#httpQuery": "states"
           }
         },
@@ -2848,7 +2997,7 @@
         "nextToken": {
           "target": "com.amazonaws.emrserverless#NextToken",
           "traits": {
-            "smithy.api#documentation": "<p>The output displays the token for the next set of job run results. This is required for\n         pagination and is available as a response of the previous request.</p>"
+            "smithy.api#documentation": "<p>The output displays the token for the next set of job run results. This is required for pagination and is available as a response of the previous request.</p>"
           }
         }
       }
@@ -2887,7 +3036,7 @@
         "resourceArn": {
           "target": "com.amazonaws.emrserverless#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.\n         Currently, the supported resources are Amazon EMR Serverless applications and job\n         runs.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -2969,7 +3118,7 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "<p>Enables managed logging and defaults to true. If set to false, managed logging will be\n         turned off.</p>"
+            "smithy.api#documentation": "<p>Enables managed logging and defaults to true. If set to false, managed logging will be turned off.</p>"
           }
         },
         "encryptionKeyArn": {
@@ -3008,7 +3157,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The maximum allowed cumulative resources for an application. No new resources will be\n         created once the limit is hit.</p>"
+        "smithy.api#documentation": "<p>The maximum allowed cumulative resources for an application. No new resources will be created once the limit is hit.</p>"
       }
     },
     "com.amazonaws.emrserverless#MemorySize": {
@@ -3039,7 +3188,7 @@
         "cloudWatchLoggingConfiguration": {
           "target": "com.amazonaws.emrserverless#CloudWatchLoggingConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs\n         to send log information to CloudWatch.</p>"
+            "smithy.api#documentation": "<p>The Amazon CloudWatch configuration for monitoring logs. You can configure your jobs to send log information to CloudWatch.</p>"
           }
         },
         "prometheusMonitoringConfiguration": {
@@ -3081,6 +3230,28 @@
           "max": 1024
         },
         "smithy.api#pattern": "^[A-Za-z0-9_=-]+$"
+      }
+    },
+    "com.amazonaws.emrserverless#PolicyArnList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.emrserverless#Arn"
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 10
+        }
+      }
+    },
+    "com.amazonaws.emrserverless#PolicyDocument": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 2048
+        },
+        "smithy.api#pattern": "^([\t\n\r -ÿ]+)$"
       }
     },
     "com.amazonaws.emrserverless#PrometheusMonitoringConfiguration": {
@@ -3170,19 +3341,19 @@
         "vCPUHour": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregated vCPU used per hour from the time the job starts executing until the job\n         is terminated.</p>"
+            "smithy.api#documentation": "<p>The aggregated vCPU used per hour from the time the job starts executing until the job is terminated.</p>"
           }
         },
         "memoryGBHour": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregated memory used per hour from the time the job starts executing until the job\n         is terminated.</p>"
+            "smithy.api#documentation": "<p>The aggregated memory used per hour from the time the job starts executing until the job is terminated.</p>"
           }
         },
         "storageGBHour": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregated storage used per hour from the time the job starts executing until the\n         job is terminated.</p>"
+            "smithy.api#documentation": "<p>The aggregated storage used per hour from the time the job starts executing until the job is terminated.</p>"
           }
         }
       },
@@ -3231,7 +3402,27 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs\n         to send log information to Amazon S3.</p>"
+        "smithy.api#documentation": "<p>The Amazon S3 configuration for monitoring log publishing. You can configure your jobs to send log information to Amazon S3.</p>"
+      }
+    },
+    "com.amazonaws.emrserverless#SchedulerConfiguration": {
+      "type": "structure",
+      "members": {
+        "queueTimeoutMinutes": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum duration in minutes for the job in QUEUED state. If scheduler configuration is enabled on your application, the default value is 360 minutes (6 hours). The valid range is from 15 to 720.</p>"
+          }
+        },
+        "maxConcurrentRuns": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The maximum concurrent job runs on this application. If scheduler configuration is enabled on your application, the default value is 15. The valid range is 1 to 1000.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
       }
     },
     "com.amazonaws.emrserverless#SecurityGroupIds": {
@@ -3287,6 +3478,9 @@
         "smithy.api#error": "client",
         "smithy.api#httpError": 402
       }
+    },
+    "com.amazonaws.emrserverless#ShutdownGracePeriodInSeconds": {
+      "type": "integer"
     },
     "com.amazonaws.emrserverless#SparkSubmit": {
       "type": "structure",
@@ -3421,7 +3615,7 @@
         "clientToken": {
           "target": "com.amazonaws.emrserverless#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>The client idempotency token of the job run to start. Its value must be unique for each\n         request.</p>",
+            "smithy.api#documentation": "<p>The client idempotency token of the job run to start. Its value must be unique for each request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -3431,6 +3625,12 @@
           "traits": {
             "smithy.api#documentation": "<p>The execution role ARN for the job run.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "executionIamPolicy": {
+          "target": "com.amazonaws.emrserverless#JobRunExecutionIamPolicy",
+          "traits": {
+            "smithy.api#documentation": "<p>You can pass an optional IAM policy. The resulting job IAM role permissions will be an intersection of this policy and the policy associated with your job execution role.</p>"
           }
         },
         "jobDriver": {
@@ -3455,7 +3655,7 @@
           "target": "com.amazonaws.emrserverless#Duration",
           "traits": {
             "smithy.api#default": null,
-            "smithy.api#documentation": "<p>The maximum duration for the job run to run. If the job run runs beyond this duration,\n         it will be automatically cancelled.</p>"
+            "smithy.api#documentation": "<p>The maximum duration for the job run to run. If the job run runs beyond this duration, it will be automatically cancelled.</p>"
           }
         },
         "name": {
@@ -3526,7 +3726,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Stops a specified application and releases initial capacity if configured. All scheduled\n         and running jobs must be completed or cancelled before stopping an application.</p>",
+        "smithy.api#documentation": "<p>Stops a specified application and releases initial capacity if configured. All scheduled and running jobs must be completed or cancelled before stopping an application.</p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/applications/{applicationId}/stop"
@@ -3651,7 +3851,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services\n         resource. Each tag consists of a key and an optional value, both of which you define. Tags\n         enable you to categorize your Amazon Web Services resources by attributes such as purpose,\n         owner, or environment. When you have many resources of the same type, you can quickly\n         identify a specific resource based on the tags you've assigned to it. </p>",
+        "smithy.api#documentation": "<p>Assigns tags to resources. A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize your Amazon Web Services resources by attributes such as purpose, owner, or environment. When you have many resources of the same type, you can quickly identify a specific resource based on the tags you've assigned to it. </p>",
         "smithy.api#http": {
           "method": "POST",
           "uri": "/tags/{resourceArn}"
@@ -3664,7 +3864,7 @@
         "resourceArn": {
           "target": "com.amazonaws.emrserverless#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.\n         Currently, the supported resources are Amazon EMR Serverless applications and job\n         runs.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3698,24 +3898,24 @@
         "vCPUHour": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregated vCPU used per hour from the time job start executing till the time job is\n         terminated.</p>"
+            "smithy.api#documentation": "<p>The aggregated vCPU used per hour from the time job start executing till the time job is terminated.</p>"
           }
         },
         "memoryGBHour": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregated memory used per hour from the time job start executing till the time job\n         is terminated.</p>"
+            "smithy.api#documentation": "<p>The aggregated memory used per hour from the time job start executing till the time job is terminated.</p>"
           }
         },
         "storageGBHour": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "<p>The aggregated storage used per hour from the time job start executing till the time job\n         is terminated.</p>"
+            "smithy.api#documentation": "<p>The aggregated storage used per hour from the time job start executing till the time job is terminated.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The aggregate vCPU, memory, and storage resources used from the time job start executing\n         till the time job is terminated, rounded up to the nearest second.</p>"
+        "smithy.api#documentation": "<p>The aggregate vCPU, memory, and storage resources used from the time job start executing till the time job is terminated, rounded up to the nearest second.</p>"
       }
     },
     "com.amazonaws.emrserverless#UntagResource": {
@@ -3752,7 +3952,7 @@
         "resourceArn": {
           "target": "com.amazonaws.emrserverless#ResourceArn",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for.\n         Currently, the supported resources are Amazon EMR Serverless applications and job\n         runs.</p>",
+            "smithy.api#documentation": "<p>The Amazon Resource Name (ARN) that identifies the resource to list the tags for. Currently, the supported resources are Amazon EMR Serverless applications and job runs.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -3791,7 +3991,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Updates a specified application. An application has to be in a stopped or created state\n         in order to be updated.</p>",
+        "smithy.api#documentation": "<p>Updates a specified application. An application has to be in a stopped or created state in order to be updated.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/applications/{applicationId}"
@@ -3813,7 +4013,7 @@
         "clientToken": {
           "target": "com.amazonaws.emrserverless#ClientToken",
           "traits": {
-            "smithy.api#documentation": "<p>The client idempotency token of the application to update. Its value must be unique for\n         each request.</p>",
+            "smithy.api#documentation": "<p>The client idempotency token of the application to update. Its value must be unique for each request.</p>",
             "smithy.api#idempotencyToken": {},
             "smithy.api#required": {}
           }
@@ -3827,7 +4027,7 @@
         "maximumCapacity": {
           "target": "com.amazonaws.emrserverless#MaximumAllowedResources",
           "traits": {
-            "smithy.api#documentation": "<p>The maximum capacity to allocate when the application is updated. This is cumulative\n         across all workers at any given point in time during the lifespan of the application. No\n         new resources will be created once any one of the defined limits is hit.</p>"
+            "smithy.api#documentation": "<p>The maximum capacity to allocate when the application is updated. This is cumulative across all workers at any given point in time during the lifespan of the application. No new resources will be created once any one of the defined limits is hit.</p>"
           }
         },
         "autoStartConfiguration": {
@@ -3839,7 +4039,7 @@
         "autoStopConfiguration": {
           "target": "com.amazonaws.emrserverless#AutoStopConfig",
           "traits": {
-            "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of\n         time being idle.</p>"
+            "smithy.api#documentation": "<p>The configuration for an application to automatically stop after a certain amount of time being idle.</p>"
           }
         },
         "networkConfiguration": {
@@ -3854,37 +4054,49 @@
         "imageConfiguration": {
           "target": "com.amazonaws.emrserverless#ImageConfigurationInput",
           "traits": {
-            "smithy.api#documentation": "<p>The image configuration to be used for all worker types. You can either set this\n         parameter or <code>imageConfiguration</code> for each worker type in\n            <code>WorkerTypeSpecificationInput</code>.</p>"
+            "smithy.api#documentation": "<p>The image configuration to be used for all worker types. You can either set this parameter or <code>imageConfiguration</code> for each worker type in <code>WorkerTypeSpecificationInput</code>.</p>"
           }
         },
         "workerTypeSpecifications": {
           "target": "com.amazonaws.emrserverless#WorkerTypeSpecificationInputMap",
           "traits": {
-            "smithy.api#documentation": "<p>The key-value pairs that specify worker type to\n            <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker\n         types for a Spark or Hive application. Valid worker types include <code>Driver</code> and\n            <code>Executor</code> for Spark applications and <code>HiveDriver</code> and\n            <code>TezTask</code> for Hive applications. You can either set image details in this\n         parameter for each worker type, or in <code>imageConfiguration</code> for all worker\n         types.</p>"
+            "smithy.api#documentation": "<p>The key-value pairs that specify worker type to <code>WorkerTypeSpecificationInput</code>. This parameter must contain all valid worker types for a Spark or Hive application. Valid worker types include <code>Driver</code> and <code>Executor</code> for Spark applications and <code>HiveDriver</code> and <code>TezTask</code> for Hive applications. You can either set image details in this parameter for each worker type, or in <code>imageConfiguration</code> for all worker types.</p>"
           }
         },
         "interactiveConfiguration": {
           "target": "com.amazonaws.emrserverless#InteractiveConfiguration",
           "traits": {
-            "smithy.api#documentation": "<p>The interactive configuration object that contains new interactive use cases \n         when the application is updated.</p>"
+            "smithy.api#documentation": "<p>The interactive configuration object that contains new interactive use cases when the application is updated.</p>"
           }
         },
         "releaseLabel": {
           "target": "com.amazonaws.emrserverless#ReleaseLabel",
           "traits": {
-            "smithy.api#documentation": "<p>The Amazon EMR release label for the application. You can change the release\n         label to use a different release of Amazon EMR.</p>"
+            "smithy.api#documentation": "<p>The Amazon EMR release label for the application. You can change the release label to use a different release of Amazon EMR.</p>"
           }
         },
         "runtimeConfiguration": {
           "target": "com.amazonaws.emrserverless#ConfigurationList",
           "traits": {
-            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> \n         specifications to use when updating an application. Each configuration consists of a classification and properties.\n      This configuration is applied across all the job runs submitted under the application.</p>"
+            "smithy.api#documentation": "<p>The <a href=\"https://docs.aws.amazon.com/emr-serverless/latest/APIReference/API_Configuration.html\">Configuration</a> specifications to use when updating an application. Each configuration consists of a classification and properties. This configuration is applied across all the job runs submitted under the application.</p>"
           }
         },
         "monitoringConfiguration": {
           "target": "com.amazonaws.emrserverless#MonitoringConfiguration",
           "traits": {
             "smithy.api#documentation": "<p>The configuration setting for monitoring.</p>"
+          }
+        },
+        "schedulerConfiguration": {
+          "target": "com.amazonaws.emrserverless#SchedulerConfiguration",
+          "traits": {
+            "smithy.api#documentation": "<p>The scheduler configuration for batch and streaming jobs running on this application. Supported with release labels emr-7.0.0 and above.</p>"
+          }
+        },
+        "identityCenterConfiguration": {
+          "target": "com.amazonaws.emrserverless#IdentityCenterConfigurationInput",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the IAM Identity Center configuration used to enable or disable trusted identity propagation. When provided, this configuration determines how the application interacts with IAM Identity Center for user authentication and access control.</p>"
           }
         }
       }
@@ -3931,7 +4143,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by an Amazon Web Services\n         service.</p>",
+        "smithy.api#documentation": "<p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>",
         "smithy.api#error": "client",
         "smithy.api#httpError": 400
       }
@@ -3972,12 +4184,12 @@
         "diskType": {
           "target": "com.amazonaws.emrserverless#DiskType",
           "traits": {
-            "smithy.api#documentation": "<p>The disk type for every worker instance of the work type. Shuffle optimized disks have higher performance \n         characteristics and are better for shuffle heavy workloads. Default is <code>STANDARD</code>.</p>"
+            "smithy.api#documentation": "<p>The disk type for every worker instance of the work type. Shuffle optimized disks have higher performance characteristics and are better for shuffle heavy workloads. Default is <code>STANDARD</code>.</p>"
           }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>The cumulative configuration requirements for every worker instance of the worker\n         type.</p>"
+        "smithy.api#documentation": "<p>The cumulative configuration requirements for every worker instance of the worker type.</p>"
       }
     },
     "com.amazonaws.emrserverless#WorkerTypeSpecification": {

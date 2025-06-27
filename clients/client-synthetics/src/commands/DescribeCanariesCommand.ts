@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,11 +66,15 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //       Schedule: { // CanaryScheduleOutput
  * //         Expression: "STRING_VALUE",
  * //         DurationInSeconds: Number("long"),
+ * //         RetryConfig: { // RetryConfigOutput
+ * //           MaxRetries: Number("int"),
+ * //         },
  * //       },
  * //       RunConfig: { // CanaryRunConfigOutput
  * //         TimeoutInSeconds: Number("int"),
  * //         MemoryInMB: Number("int"),
  * //         ActiveTracing: true || false,
+ * //         EphemeralStorage: Number("int"),
  * //       },
  * //       SuccessRetentionPeriodInDays: Number("int"),
  * //       FailureRetentionPeriodInDays: Number("int"),
@@ -95,6 +100,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //         SecurityGroupIds: [ // SecurityGroupIds
  * //           "STRING_VALUE",
  * //         ],
+ * //         Ipv6AllowedForDualStack: true || false,
  * //       },
  * //       VisualReference: { // VisualReferenceOutput
  * //         BaseScreenshots: [ // BaseScreenshots
@@ -107,6 +113,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //         ],
  * //         BaseCanaryRunId: "STRING_VALUE",
  * //       },
+ * //       ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
@@ -115,6 +122,10 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * //           EncryptionMode: "SSE_S3" || "SSE_KMS",
  * //           KmsKeyArn: "STRING_VALUE",
  * //         },
+ * //       },
+ * //       DryRunConfig: { // DryRunConfigOutput
+ * //         DryRunId: "STRING_VALUE",
+ * //         LastDryRunExecutionStatus: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -138,6 +149,7 @@ export interface DescribeCanariesCommandOutput extends DescribeCanariesResponse,
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class DescribeCanariesCommand extends $Command
@@ -148,9 +160,7 @@ export class DescribeCanariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +172,16 @@ export class DescribeCanariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCanariesCommand)
   .de(de_DescribeCanariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCanariesRequest;
+      output: DescribeCanariesResponse;
+    };
+    sdk: {
+      input: DescribeCanariesCommandInput;
+      output: DescribeCanariesCommandOutput;
+    };
+  };
+}

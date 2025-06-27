@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -223,34 +224,34 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To update a rule
  * ```javascript
  * // The following example deletes a Predicate object in a rule with the ID example1ds3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "RuleId": "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
- *   "Updates": [
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   RuleId: "example1ds3t-46da-4fdb-b8d5-abc321j569j5",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "Predicate": {
- *         "DataId": "MyByteMatchSetID",
- *         "Negated": false,
- *         "Type": "ByteMatch"
+ *       Action: "DELETE",
+ *       Predicate: {
+ *         DataId: "MyByteMatchSetID",
+ *         Negated: false,
+ *         Type: "ByteMatch"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateRuleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updaterule-1475260064720
  * ```
  *
+ * @public
  */
 export class UpdateRuleCommand extends $Command
   .classBuilder<
@@ -260,9 +261,7 @@ export class UpdateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -274,4 +273,16 @@ export class UpdateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleCommand)
   .de(de_UpdateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleRequest;
+      output: UpdateRuleResponse;
+    };
+    sdk: {
+      input: UpdateRuleCommandInput;
+      output: UpdateRuleCommandOutput;
+    };
+  };
+}

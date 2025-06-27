@@ -12,7 +12,8 @@ import { de_InvokeAsyncCommand, se_InvokeAsyncCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,7 +66,8 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @see {@link LambdaClientResolvedConfig | config} for LambdaClient's `config` shape.
  *
  * @throws {@link InvalidRequestContentException} (client fault)
- *  <p>The request body could not be parsed as JSON.</p>
+ *  <p>The request body could not be parsed as JSON, or a request header is invalid. For example, the 'x-amzn-RequestId'
+ *       header is not a valid UUID string.</p>
  *
  * @throws {@link InvalidRuntimeException} (server fault)
  *  <p>The runtime or runtime version specified is not supported.</p>
@@ -82,6 +84,23 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To invoke a Lambda function asynchronously
+ * ```javascript
+ * // The following example invokes a Lambda function asynchronously
+ * const input = {
+ *   FunctionName: "my-function",
+ *   InvokeArgs: "{}"
+ * };
+ * const command = new InvokeAsyncCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Status: 202
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class InvokeAsyncCommand extends $Command
@@ -92,9 +111,7 @@ export class InvokeAsyncCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +123,16 @@ export class InvokeAsyncCommand extends $Command
   .f(InvokeAsyncRequestFilterSensitiveLog, void 0)
   .ser(se_InvokeAsyncCommand)
   .de(de_InvokeAsyncCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InvokeAsyncRequest;
+      output: InvokeAsyncResponse;
+    };
+    sdk: {
+      input: InvokeAsyncCommandInput;
+      output: InvokeAsyncCommandOutput;
+    };
+  };
+}

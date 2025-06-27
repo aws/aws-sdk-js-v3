@@ -15,7 +15,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface AssociateResolverQueryLogConfigCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class AssociateResolverQueryLogConfigCommand extends $Command
@@ -112,9 +114,7 @@ export class AssociateResolverQueryLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class AssociateResolverQueryLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateResolverQueryLogConfigCommand)
   .de(de_AssociateResolverQueryLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateResolverQueryLogConfigRequest;
+      output: AssociateResolverQueryLogConfigResponse;
+    };
+    sdk: {
+      input: AssociateResolverQueryLogConfigCommandInput;
+      output: AssociateResolverQueryLogConfigCommandOutput;
+    };
+  };
+}

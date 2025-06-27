@@ -12,7 +12,8 @@ import { de_DescribeCacheParameterGroupsCommand, se_DescribeCacheParameterGroups
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,29 +77,29 @@ export interface DescribeCacheParameterGroupsCommandOutput extends CacheParamete
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeCacheParameterGroups
  * ```javascript
  * // Returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list contains only the descriptions for that group.
  * const input = {
- *   "CacheParameterGroupName": "custom-mem1-4"
+ *   CacheParameterGroupName: "custom-mem1-4"
  * };
  * const command = new DescribeCacheParameterGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CacheParameterGroups": [
+ *   CacheParameterGroups: [
  *     {
- *       "CacheParameterGroupFamily": "memcached1.4",
- *       "CacheParameterGroupName": "custom-mem1-4",
- *       "Description": "Custom memcache param group"
+ *       CacheParameterGroupFamily: "memcached1.4",
+ *       CacheParameterGroupName: "custom-mem1-4",
+ *       Description: "Custom memcache param group"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describecacheparametergroups-1483045457557
  * ```
  *
+ * @public
  */
 export class DescribeCacheParameterGroupsCommand extends $Command
   .classBuilder<
@@ -108,9 +109,7 @@ export class DescribeCacheParameterGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +121,16 @@ export class DescribeCacheParameterGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCacheParameterGroupsCommand)
   .de(de_DescribeCacheParameterGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCacheParameterGroupsMessage;
+      output: CacheParameterGroupsMessage;
+    };
+    sdk: {
+      input: DescribeCacheParameterGroupsCommandInput;
+      output: DescribeCacheParameterGroupsCommandOutput;
+    };
+  };
+}

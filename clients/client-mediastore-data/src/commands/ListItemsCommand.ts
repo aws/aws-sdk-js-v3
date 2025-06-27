@@ -12,7 +12,8 @@ import { de_ListItemsCommand, se_ListItemsCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface ListItemsCommandOutput extends ListItemsResponse, __MetadataBea
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ *
  * @public
  */
 export class ListItemsCommand extends $Command
@@ -83,9 +85,7 @@ export class ListItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class ListItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListItemsCommand)
   .de(de_ListItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListItemsRequest;
+      output: ListItemsResponse;
+    };
+    sdk: {
+      input: ListItemsCommandInput;
+      output: ListItemsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,18 +67,21 @@ export interface CancelClusterCommandOutput extends CancelClusterResult, __Metad
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
+ *
  * @example To cancel a cluster job
  * ```javascript
  * // This operation cancels a cluster job. You can only cancel a cluster job while it's in the AwaitingQuorum status.
  * const input = {
- *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
+ *   ClusterId: "CID123e4567-e89b-12d3-a456-426655440000"
  * };
  * const command = new CancelClusterCommand(input);
- * await client.send(command);
- * // example id: to-cancel-a-cluster-job-1482533760554
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CancelClusterCommand extends $Command
   .classBuilder<
@@ -87,9 +91,7 @@ export class CancelClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class CancelClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelClusterCommand)
   .de(de_CancelClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelClusterRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelClusterCommandInput;
+      output: CancelClusterCommandOutput;
+    };
+  };
+}

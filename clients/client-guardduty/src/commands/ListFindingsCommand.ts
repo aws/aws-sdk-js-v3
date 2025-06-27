@@ -12,7 +12,8 @@ import { de_ListFindingsCommand, se_ListFindingsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class ListFindingsCommand extends $Command
@@ -107,9 +109,7 @@ export class ListFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class ListFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingsCommand)
   .de(de_ListFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingsRequest;
+      output: ListFindingsResponse;
+    };
+    sdk: {
+      input: ListFindingsCommandInput;
+      output: ListFindingsCommandOutput;
+    };
+  };
+}

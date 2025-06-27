@@ -1,3 +1,4 @@
+import { setCredentialFeature } from "@aws-sdk/core/client";
 import { fromSso as getSsoTokenProvider } from "@aws-sdk/token-providers";
 import { CredentialsProviderError } from "@smithy/property-provider";
 import { getSSOTokenFromFile, SSOToken } from "@smithy/shared-ini-file-loader";
@@ -19,6 +20,7 @@ export const resolveSSOCredentials = async ({
   ssoRoleName,
   ssoClient,
   clientConfig,
+  parentClientConfig,
   profile,
   logger,
 }: FromSSOInit & SsoCredentialsParameters): Promise<AwsCredentialIdentity> => {
@@ -64,6 +66,7 @@ export const resolveSSOCredentials = async ({
     ssoClient ||
     new SSOClient(
       Object.assign({}, clientConfig ?? {}, {
+        logger: clientConfig?.logger ?? parentClientConfig?.logger,
         region: clientConfig?.region ?? ssoRegion,
       })
     );
@@ -83,16 +86,18 @@ export const resolveSSOCredentials = async ({
     });
   }
 
-  const { roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope } = {} } =
-    ssoResp as unknown as {
-      roleCredentials: {
-        accessKeyId?: string;
-        secretAccessKey?: string;
-        sessionToken?: string;
-        expiration?: Date | string;
-        credentialScope?: string;
-      };
+  const {
+    roleCredentials: { accessKeyId, secretAccessKey, sessionToken, expiration, credentialScope, accountId } = {},
+  } = ssoResp as unknown as {
+    roleCredentials: {
+      accessKeyId?: string;
+      secretAccessKey?: string;
+      sessionToken?: string;
+      expiration?: Date | string;
+      credentialScope?: string;
+      accountId?: string;
     };
+  };
 
   if (!accessKeyId || !secretAccessKey || !sessionToken || !expiration) {
     throw new CredentialsProviderError("SSO returns an invalid temporary credential.", {
@@ -101,5 +106,20 @@ export const resolveSSOCredentials = async ({
     });
   }
 
-  return { accessKeyId, secretAccessKey, sessionToken, expiration: new Date(expiration), credentialScope };
+  const credentials = {
+    accessKeyId,
+    secretAccessKey,
+    sessionToken,
+    expiration: new Date(expiration),
+    ...(credentialScope && { credentialScope }),
+    ...(accountId && { accountId }),
+  };
+
+  if (ssoSession) {
+    setCredentialFeature(credentials, "CREDENTIALS_SSO", "s");
+  } else {
+    setCredentialFeature(credentials, "CREDENTIALS_SSO_LEGACY", "u");
+  }
+
+  return credentials;
 };

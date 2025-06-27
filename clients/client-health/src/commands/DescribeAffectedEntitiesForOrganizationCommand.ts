@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * <p>Returns a list of entities that have been affected by one or more events for one or more
  *          accounts in your organization in Organizations, based on the filter criteria. Entities can refer
  *          to individual customer resources, groups of customer resources, or any other construct,
- *          depending on the Amazon Web Service.</p>
+ *          depending on the Amazon Web Services service.</p>
  *          <p>At least one event Amazon Resource Name (ARN) and account ID are required.</p>
  *          <p>Before you can call this operation, you must first enable Health to work with
  *          Organizations. To do this, call the <a href="https://docs.aws.amazon.com/health/latest/APIReference/API_EnableHealthServiceAccessForOrganization.html">EnableHealthServiceAccessForOrganization</a> operation from your organization's
@@ -96,6 +97,9 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * //       tags: { // tagSet
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       entityMetadata: { // entityMetadata
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   failedSet: [ // DescribeAffectedEntitiesForOrganizationFailedSet
@@ -126,6 +130,7 @@ export interface DescribeAffectedEntitiesForOrganizationCommandOutput
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
@@ -136,9 +141,7 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +153,16 @@ export class DescribeAffectedEntitiesForOrganizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAffectedEntitiesForOrganizationCommand)
   .de(de_DescribeAffectedEntitiesForOrganizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAffectedEntitiesForOrganizationRequest;
+      output: DescribeAffectedEntitiesForOrganizationResponse;
+    };
+    sdk: {
+      input: DescribeAffectedEntitiesForOrganizationCommandInput;
+      output: DescribeAffectedEntitiesForOrganizationCommandOutput;
+    };
+  };
+}

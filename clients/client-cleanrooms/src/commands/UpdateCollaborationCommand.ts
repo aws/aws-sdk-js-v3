@@ -12,7 +12,8 @@ import { de_UpdateCollaborationCommand, se_UpdateCollaborationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,6 +39,7 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
+ *   analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * };
  * const command = new UpdateCollaborationCommand(input);
  * const response = await client.send(command);
@@ -60,7 +62,9 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * //       allowJoinsOnColumnsWithDifferentNames: true || false, // required
  * //       preserveNulls: true || false, // required
  * //     },
- * //     queryLogStatus: "STRING_VALUE", // required
+ * //     queryLogStatus: "ENABLED" || "DISABLED", // required
+ * //     jobLogStatus: "ENABLED" || "DISABLED",
+ * //     analyticsEngine: "SPARK" || "CLEAN_ROOMS_SQL",
  * //   },
  * // };
  *
@@ -87,6 +91,7 @@ export interface UpdateCollaborationCommandOutput extends UpdateCollaborationOut
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class UpdateCollaborationCommand extends $Command
@@ -97,9 +102,7 @@ export class UpdateCollaborationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +114,16 @@ export class UpdateCollaborationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCollaborationCommand)
   .de(de_UpdateCollaborationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCollaborationInput;
+      output: UpdateCollaborationOutput;
+    };
+    sdk: {
+      input: UpdateCollaborationCommandInput;
+      output: UpdateCollaborationCommandOutput;
+    };
+  };
+}

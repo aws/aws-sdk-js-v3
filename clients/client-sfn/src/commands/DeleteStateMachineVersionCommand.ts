@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SFNClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,9 +30,7 @@ export interface DeleteStateMachineVersionCommandOutput extends DeleteStateMachi
 /**
  * <p>Deletes a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-version.html">version</a>. After
  *       you delete a version, you can't call <a>StartExecution</a> using that version's ARN
- *       or use
- *       the
- *       version with a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
+ *       or use the version with a state machine <a href="https://docs.aws.amazon.com/step-functions/latest/dg/concepts-state-machine-alias.html">alias</a>.</p>
  *          <note>
  *             <p>Deleting a state machine version won't terminate its in-progress executions.</p>
  *          </note>
@@ -87,6 +86,7 @@ export interface DeleteStateMachineVersionCommandOutput extends DeleteStateMachi
  * @throws {@link SFNServiceException}
  * <p>Base exception class for all service exceptions from SFN service.</p>
  *
+ *
  * @public
  */
 export class DeleteStateMachineVersionCommand extends $Command
@@ -97,9 +97,7 @@ export class DeleteStateMachineVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SFNClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +109,16 @@ export class DeleteStateMachineVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteStateMachineVersionCommand)
   .de(de_DeleteStateMachineVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteStateMachineVersionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteStateMachineVersionCommandInput;
+      output: DeleteStateMachineVersionCommandOutput;
+    };
+  };
+}

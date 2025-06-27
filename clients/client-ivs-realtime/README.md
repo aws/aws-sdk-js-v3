@@ -6,218 +6,88 @@
 
 AWS SDK for JavaScript IVSRealTime Client for Node.js, Browser and React Native.
 
-<p>
-<b>Introduction</b>
-</p>
 <p>The Amazon Interactive Video Service (IVS) real-time API is REST compatible, using a standard HTTP
 API and an AWS EventBridge event stream for responses. JSON is used for both requests and responses,
 including errors.
 </p>
-<p>Terminology:</p>
+<p>
+<b>Key Concepts</b>
+</p>
 <ul>
 <li>
-<p>A <i>stage</i>  is a virtual space where participants can exchange video in real time.</p>
+<p>
+<b>Stage</b> — A virtual space where participants can exchange video in real time.</p>
 </li>
 <li>
-<p>A <i>participant token</i> is a token that authenticates a participant when they join a stage.</p>
+<p>
+<b>Participant token</b> — A token that authenticates a participant when they join a stage.</p>
 </li>
 <li>
-<p>A <i>participant object</i> represents participants (people) in the stage and
+<p>
+<b>Participant object</b> — Represents participants (people) in the stage and
 contains information about them. When a token is created, it includes a participant ID;
 when a participant uses that token to join a stage, the participant is associated with
 that participant ID. There is a 1:1 mapping between participant tokens and
 participants.</p>
 </li>
-<li>
-<p>Server-side composition: The <i>composition</i> process composites participants
-of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
-Composition endpoints support this process.</p>
-</li>
-<li>
-<p>Server-side composition: A <i>composition</i> controls the look of the outputs,
-including how participants are positioned in the video.</p>
-</li>
 </ul>
-<p>
-<b>Resources</b>
-</p>
-<p>The following resources contain information about your IVS live stream (see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>):</p>
+<p>For server-side composition:</p>
 <ul>
 <li>
 <p>
-<b>Stage</b> — A stage is a virtual space where participants can exchange video in real time.</p>
+<b>Composition process</b> — Composites participants
+of a stage into a single video and forwards it to a set of outputs (e.g., IVS channels).
+Composition operations support this process.</p>
+</li>
+<li>
+<p>
+<b>Composition</b> — Controls the look of the outputs,
+including how participants are positioned in the video.</p>
 </li>
 </ul>
+<p>For participant replication:</p>
+<ul>
+<li>
+<p>
+<b>Source stage</b> — The stage where the participant originally joined, which is used as the source for
+replication.</p>
+</li>
+<li>
+<p>
+<b>Destination stage</b> — The stage to which the participant is replicated.
+</p>
+</li>
+<li>
+<p>
+<b>Replicated participant</b> — A participant in a stage that is replicated to one or more destination stages.
+</p>
+</li>
+<li>
+<p>
+<b>Replica participant</b> — A participant in a destination stage that is replicated from another stage
+(the source stage).</p>
+</li>
+</ul>
+<p>For more information about your IVS live stream, also see <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/getting-started.html">Getting Started with Amazon IVS Real-Time Streaming</a>.</p>
 <p>
 <b>Tagging</b>
 </p>
 <p>A <i>tag</i> is a metadata label that you assign to an AWS resource. A tag
 comprises a <i>key</i> and a <i>value</i>, both set by you. For
 example, you might set a tag as <code>topic:nature</code> to label a particular video
-category. See <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging AWS Resources</a> for more information, including restrictions that apply to
-tags and "Tag naming limits and requirements"; Amazon IVS stages has no service-specific
-constraints beyond what is documented there.</p>
+category. See <a href="https://docs.aws.amazon.com/tag-editor/latest/userguide/best-practices-and-strats.html">Best practices and strategies</a>
+in <i>Tagging AWS Resources and Tag Editor</i> for details, including restrictions that apply to tags and "Tag naming
+limits and requirements"; Amazon IVS stages has no service-specific constraints beyond what is documented there.</p>
 <p>Tags can help you identify and organize your AWS resources. For example, you can use the
 same tag for different resources to indicate that they are related. You can also use tags to
 manage access (see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/access_tags.html">Access Tags</a>).</p>
-<p>The Amazon IVS real-time API has these tag-related endpoints: <a>TagResource</a>, <a>UntagResource</a>, and
+<p>The Amazon IVS real-time API has these tag-related operations: <a>TagResource</a>, <a>UntagResource</a>, and
 <a>ListTagsForResource</a>. The following resource supports tagging: Stage.</p>
 <p>At most 50 tags can be applied to a resource.</p>
-<p>
-<b>Stages Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>CreateParticipantToken</a> — Creates an additional token for a specified stage. This can be done after stage creation or when tokens expire.</p>
-</li>
-<li>
-<p>
-<a>CreateStage</a> — Creates a new stage (and optionally participant tokens).</p>
-</li>
-<li>
-<p>
-<a>DeleteStage</a> — Shuts down and deletes the specified stage (disconnecting all participants).</p>
-</li>
-<li>
-<p>
-<a>DisconnectParticipant</a> — Disconnects a specified participant and revokes the participant permanently from a specified stage.</p>
-</li>
-<li>
-<p>
-<a>GetParticipant</a> — Gets information about the specified
-participant token.</p>
-</li>
-<li>
-<p>
-<a>GetStage</a> — Gets information for the specified stage.</p>
-</li>
-<li>
-<p>
-<a>GetStageSession</a> — Gets information for the specified stage
-session.</p>
-</li>
-<li>
-<p>
-<a>ListParticipantEvents</a> — Lists events for a specified
-participant that occurred during a specified stage session.</p>
-</li>
-<li>
-<p>
-<a>ListParticipants</a> — Lists all participants in a specified stage
-session.</p>
-</li>
-<li>
-<p>
-<a>ListStages</a> — Gets summary information about all stages in your account, in the AWS region where the API request is processed.</p>
-</li>
-<li>
-<p>
-<a>ListStageSessions</a> — Gets all sessions for a specified stage.</p>
-</li>
-<li>
-<p>
-<a>UpdateStage</a> — Updates a stage’s configuration.</p>
-</li>
-</ul>
-<p>
-<b>Composition Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>GetComposition</a> — Gets information about the specified
-Composition resource.</p>
-</li>
-<li>
-<p>
-<a>ListCompositions</a> — Gets summary information about all
-Compositions in your account, in the AWS region where the API request is processed.</p>
-</li>
-<li>
-<p>
-<a>StartComposition</a> — Starts a Composition from a stage based on
-the configuration provided in the request.</p>
-</li>
-<li>
-<p>
-<a>StopComposition</a> — Stops and deletes a Composition resource.
-Any broadcast from the Composition resource is stopped.</p>
-</li>
-</ul>
-<p>
-<b>EncoderConfiguration Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>CreateEncoderConfiguration</a> — Creates an EncoderConfiguration object.</p>
-</li>
-<li>
-<p>
-<a>DeleteEncoderConfiguration</a> — Deletes an EncoderConfiguration
-resource. Ensures that no Compositions are using this template; otherwise, returns an
-error.</p>
-</li>
-<li>
-<p>
-<a>GetEncoderConfiguration</a> — Gets information about the specified
-EncoderConfiguration resource.</p>
-</li>
-<li>
-<p>
-<a>ListEncoderConfigurations</a> — Gets summary information about all
-EncoderConfigurations in your account, in the AWS region where the API request is
-processed.</p>
-</li>
-</ul>
-<p>
-<b>StorageConfiguration Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>CreateStorageConfiguration</a> — Creates a new storage configuration, used to enable
-recording to Amazon S3.</p>
-</li>
-<li>
-<p>
-<a>DeleteStorageConfiguration</a> — Deletes the storage configuration for the specified ARN.</p>
-</li>
-<li>
-<p>
-<a>GetStorageConfiguration</a> — Gets the storage configuration for the specified ARN.</p>
-</li>
-<li>
-<p>
-<a>ListStorageConfigurations</a> — Gets summary information about all storage configurations in your
-account, in the AWS region where the API request is processed.</p>
-</li>
-</ul>
-<p>
-<b>Tags Endpoints</b>
-</p>
-<ul>
-<li>
-<p>
-<a>ListTagsForResource</a> — Gets information about AWS tags for the
-specified ARN.</p>
-</li>
-<li>
-<p>
-<a>TagResource</a> — Adds or updates tags for the AWS resource with
-the specified ARN.</p>
-</li>
-<li>
-<p>
-<a>UntagResource</a> — Removes tags from the resource with the
-specified ARN.</p>
-</li>
-</ul>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-ivs-realtime
+To install this package, simply type add or install @aws-sdk/client-ivs-realtime
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-ivs-realtime`
@@ -420,6 +290,14 @@ CreateEncoderConfiguration
 </details>
 <details>
 <summary>
+CreateIngestConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/CreateIngestConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateIngestConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/CreateIngestConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateParticipantToken
 </summary>
 
@@ -448,6 +326,22 @@ DeleteEncoderConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DeleteEncoderConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteEncoderConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteEncoderConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteIngestConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DeleteIngestConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteIngestConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeleteIngestConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/DeletePublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeletePublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/DeletePublicKeyCommandOutput/)
 
 </details>
 <details>
@@ -492,10 +386,26 @@ GetEncoderConfiguration
 </details>
 <details>
 <summary>
+GetIngestConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetIngestConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetIngestConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetIngestConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetParticipant
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetParticipantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetParticipantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetParticipantCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetPublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/GetPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/GetPublicKeyCommandOutput/)
 
 </details>
 <details>
@@ -524,6 +434,14 @@ GetStorageConfiguration
 </details>
 <details>
 <summary>
+ImportPublicKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ImportPublicKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ImportPublicKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ImportPublicKeyCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListCompositions
 </summary>
 
@@ -540,6 +458,14 @@ ListEncoderConfigurations
 </details>
 <details>
 <summary>
+ListIngestConfigurations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListIngestConfigurationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListIngestConfigurationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListIngestConfigurationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListParticipantEvents
 </summary>
 
@@ -548,10 +474,26 @@ ListParticipantEvents
 </details>
 <details>
 <summary>
+ListParticipantReplicas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListParticipantReplicasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantReplicasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantReplicasCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListParticipants
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListParticipantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListParticipantsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListPublicKeys
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/ListPublicKeysCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListPublicKeysCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/ListPublicKeysCommandOutput/)
 
 </details>
 <details>
@@ -596,10 +538,26 @@ StartComposition
 </details>
 <details>
 <summary>
+StartParticipantReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/StartParticipantReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StartParticipantReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StartParticipantReplicationCommandOutput/)
+
+</details>
+<details>
+<summary>
 StopComposition
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/StopCompositionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StopCompositionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StopCompositionCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopParticipantReplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/StopParticipantReplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StopParticipantReplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/StopParticipantReplicationCommandOutput/)
 
 </details>
 <details>
@@ -616,6 +574,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateIngestConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ivs-realtime/command/UpdateIngestConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UpdateIngestConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ivs-realtime/Interface/UpdateIngestConfigurationCommandOutput/)
 
 </details>
 <details>

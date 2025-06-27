@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,7 +64,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link DomainControllerLimitExceededException} (client fault)
  *  <p>The maximum allowed number of domain controllers per directory was exceeded. The
@@ -84,6 +85,7 @@ export interface UpdateNumberOfDomainControllersCommandOutput
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class UpdateNumberOfDomainControllersCommand extends $Command
@@ -94,9 +96,7 @@ export class UpdateNumberOfDomainControllersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class UpdateNumberOfDomainControllersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateNumberOfDomainControllersCommand)
   .de(de_UpdateNumberOfDomainControllersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateNumberOfDomainControllersRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateNumberOfDomainControllersCommandInput;
+      output: UpdateNumberOfDomainControllersCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteUserCommand, se_DeleteUserCommand } from "../protocols/Aws_que
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface DeleteUserCommandInput extends DeleteUserMessage {}
 export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
 
 /**
- * <p>For Redis engine version 6.0 onwards: Deletes a user. The user will be removed from
+ * <p>For Valkey engine version 7.2 onwards and Redis OSS 6.0 onwards: Deletes a user. The user will be removed from
  *             all user groups and in turn removed from all replication groups. For more information,
- *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
+ *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/Clusters.RBAC.html">Using Role Based Access Control (RBAC)</a>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,6 +85,7 @@ export interface DeleteUserCommandOutput extends User, __MetadataBearer {}
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
+ *
  * @public
  */
 export class DeleteUserCommand extends $Command
@@ -94,9 +96,7 @@ export class DeleteUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DeleteUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUserCommand)
   .de(de_DeleteUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUserMessage;
+      output: User;
+    };
+    sdk: {
+      input: DeleteUserCommandInput;
+      output: DeleteUserCommandOutput;
+    };
+  };
+}

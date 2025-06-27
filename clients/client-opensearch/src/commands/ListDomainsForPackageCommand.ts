@@ -12,7 +12,8 @@ import { de_ListDomainsForPackageCommand, se_ListDomainsForPackageCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,15 +49,24 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * //     { // DomainPackageDetails
  * //       PackageID: "STRING_VALUE",
  * //       PackageName: "STRING_VALUE",
- * //       PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
+ * //       PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN" || "PACKAGE-LICENSE" || "PACKAGE-CONFIG",
  * //       LastUpdated: new Date("TIMESTAMP"),
  * //       DomainName: "STRING_VALUE",
  * //       DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
  * //       PackageVersion: "STRING_VALUE",
+ * //       PrerequisitePackageIDList: [ // PackageIDList
+ * //         "STRING_VALUE",
+ * //       ],
  * //       ReferencePath: "STRING_VALUE",
  * //       ErrorDetails: { // ErrorDetails
  * //         ErrorType: "STRING_VALUE",
  * //         ErrorMessage: "STRING_VALUE",
+ * //       },
+ * //       AssociationConfiguration: { // PackageAssociationConfiguration
+ * //         KeyStoreAccessOption: { // KeyStoreAccessOption
+ * //           KeyAccessRoleArn: "STRING_VALUE",
+ * //           KeyStoreAccessEnabled: true || false, // required
+ * //         },
  * //       },
  * //     },
  * //   ],
@@ -89,6 +99,7 @@ export interface ListDomainsForPackageCommandOutput extends ListDomainsForPackag
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListDomainsForPackageCommand extends $Command
@@ -99,9 +110,7 @@ export class ListDomainsForPackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +122,16 @@ export class ListDomainsForPackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDomainsForPackageCommand)
   .de(de_ListDomainsForPackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDomainsForPackageRequest;
+      output: ListDomainsForPackageResponse;
+    };
+    sdk: {
+      input: ListDomainsForPackageCommandInput;
+      output: ListDomainsForPackageCommandOutput;
+    };
+  };
+}

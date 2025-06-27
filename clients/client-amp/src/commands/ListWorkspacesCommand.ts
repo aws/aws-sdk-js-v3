@@ -12,7 +12,8 @@ import { de_ListWorkspacesCommand, se_ListWorkspacesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListWorkspacesCommandInput extends ListWorkspacesRequest {}
 export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all of the Amazon Managed Service for Prometheus workspaces in your account. This includes
- *             workspaces being created or deleted. </p>
+ * <p>Lists all of the Amazon Managed Service for Prometheus workspaces in your account. This includes workspaces being created or deleted. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,11 +79,11 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -95,9 +95,7 @@ export class ListWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +107,16 @@ export class ListWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkspacesCommand)
   .de(de_ListWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkspacesRequest;
+      output: ListWorkspacesResponse;
+    };
+    sdk: {
+      input: ListWorkspacesCommandInput;
+      output: ListWorkspacesCommandOutput;
+    };
+  };
+}

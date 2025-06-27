@@ -15,13 +15,14 @@ import {
   RetrieveRequestFilterSensitiveLog,
   RetrieveResponse,
   RetrieveResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_RetrieveCommand, se_RetrieveCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,7 +105,48 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *           "<RetrievalFilter>",
  *         ],
  *       },
+ *       rerankingConfiguration: { // VectorSearchRerankingConfiguration
+ *         type: "BEDROCK_RERANKING_MODEL", // required
+ *         bedrockRerankingConfiguration: { // VectorSearchBedrockRerankingConfiguration
+ *           modelConfiguration: { // VectorSearchBedrockRerankingModelConfiguration
+ *             modelArn: "STRING_VALUE", // required
+ *             additionalModelRequestFields: { // AdditionalModelRequestFields
+ *               "<keys>": "DOCUMENT_VALUE",
+ *             },
+ *           },
+ *           numberOfRerankedResults: Number("int"),
+ *           metadataConfiguration: { // MetadataConfigurationForReranking
+ *             selectionMode: "SELECTIVE" || "ALL", // required
+ *             selectiveModeConfiguration: { // RerankingMetadataSelectiveModeConfiguration Union: only one key present
+ *               fieldsToInclude: [ // FieldsForReranking
+ *                 { // FieldForReranking
+ *                   fieldName: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *               fieldsToExclude: [
+ *                 {
+ *                   fieldName: "STRING_VALUE", // required
+ *                 },
+ *               ],
+ *             },
+ *           },
+ *         },
+ *       },
+ *       implicitFilterConfiguration: { // ImplicitFilterConfiguration
+ *         metadataAttributes: [ // MetadataAttributeSchemaList // required
+ *           { // MetadataAttributeSchema
+ *             key: "STRING_VALUE", // required
+ *             type: "STRING" || "NUMBER" || "BOOLEAN" || "STRING_LIST", // required
+ *             description: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *         modelArn: "STRING_VALUE", // required
+ *       },
  *     },
+ *   },
+ *   guardrailConfiguration: { // GuardrailConfiguration
+ *     guardrailId: "STRING_VALUE", // required
+ *     guardrailVersion: "STRING_VALUE", // required
  *   },
  *   nextToken: "STRING_VALUE",
  * };
@@ -114,12 +156,42 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //   retrievalResults: [ // KnowledgeBaseRetrievalResults // required
  * //     { // KnowledgeBaseRetrievalResult
  * //       content: { // RetrievalResultContent
- * //         text: "STRING_VALUE", // required
+ * //         type: "TEXT" || "IMAGE" || "ROW",
+ * //         text: "STRING_VALUE",
+ * //         byteContent: "STRING_VALUE",
+ * //         row: [ // RetrievalResultContentRow
+ * //           { // RetrievalResultContentColumn
+ * //             columnName: "STRING_VALUE",
+ * //             columnValue: "STRING_VALUE",
+ * //             type: "BLOB" || "BOOLEAN" || "DOUBLE" || "NULL" || "LONG" || "STRING",
+ * //           },
+ * //         ],
  * //       },
  * //       location: { // RetrievalResultLocation
- * //         type: "S3", // required
+ * //         type: "S3" || "WEB" || "CONFLUENCE" || "SALESFORCE" || "SHAREPOINT" || "CUSTOM" || "KENDRA" || "SQL", // required
  * //         s3Location: { // RetrievalResultS3Location
  * //           uri: "STRING_VALUE",
+ * //         },
+ * //         webLocation: { // RetrievalResultWebLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         confluenceLocation: { // RetrievalResultConfluenceLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         salesforceLocation: { // RetrievalResultSalesforceLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         sharePointLocation: { // RetrievalResultSharePointLocation
+ * //           url: "STRING_VALUE",
+ * //         },
+ * //         customDocumentLocation: { // RetrievalResultCustomDocumentLocation
+ * //           id: "STRING_VALUE",
+ * //         },
+ * //         kendraDocumentLocation: { // RetrievalResultKendraDocumentLocation
+ * //           uri: "STRING_VALUE",
+ * //         },
+ * //         sqlLocation: { // RetrievalResultSqlLocation
+ * //           query: "STRING_VALUE",
  * //         },
  * //       },
  * //       score: Number("double"),
@@ -128,6 +200,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * //       },
  * //     },
  * //   ],
+ * //   guardrailAction: "INTERVENED" || "NONE",
  * //   nextToken: "STRING_VALUE",
  * // };
  *
@@ -169,6 +242,7 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>
  *
+ *
  * @public
  */
 export class RetrieveCommand extends $Command
@@ -179,9 +253,7 @@ export class RetrieveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentRuntimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +265,16 @@ export class RetrieveCommand extends $Command
   .f(RetrieveRequestFilterSensitiveLog, RetrieveResponseFilterSensitiveLog)
   .ser(se_RetrieveCommand)
   .de(de_RetrieveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetrieveRequest;
+      output: RetrieveResponse;
+    };
+    sdk: {
+      input: RetrieveCommandInput;
+      output: RetrieveCommandOutput;
+    };
+  };
+}

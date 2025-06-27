@@ -12,7 +12,8 @@ import { de_DisassociateMembershipCommand, se_DisassociateMembershipCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DisassociateMembershipCommandOutput extends __MetadataBearer {}
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class DisassociateMembershipCommand extends $Command
@@ -84,9 +86,7 @@ export class DisassociateMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DisassociateMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateMembershipCommand)
   .de(de_DisassociateMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateMembershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateMembershipCommandInput;
+      output: DisassociateMembershipCommandOutput;
+    };
+  };
+}

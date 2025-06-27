@@ -12,7 +12,8 @@ import { de_DeleteLakeFormationOptInCommand, se_DeleteLakeFormationOptInCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,9 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -83,7 +86,7 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -91,7 +94,15 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
  *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
+ *     },
+ *   },
+ *   Condition: { // Condition
+ *     Expression: "STRING_VALUE",
  *   },
  * };
  * const command = new DeleteLakeFormationOptInCommand(input);
@@ -127,6 +138,7 @@ export interface DeleteLakeFormationOptInCommandOutput extends DeleteLakeFormati
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class DeleteLakeFormationOptInCommand extends $Command
@@ -137,9 +149,7 @@ export class DeleteLakeFormationOptInCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +161,16 @@ export class DeleteLakeFormationOptInCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLakeFormationOptInCommand)
   .de(de_DeleteLakeFormationOptInCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLakeFormationOptInRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLakeFormationOptInCommandInput;
+      output: DeleteLakeFormationOptInCommandOutput;
+    };
+  };
+}

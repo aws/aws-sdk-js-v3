@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,8 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  *          <p>By default, Amazon EC2 Auto Scaling balances instances across all Availability Zones. If you
  *             decrement the desired capacity, your Auto Scaling group can become unbalanced between
  *             Availability Zones. Amazon EC2 Auto Scaling tries to rebalance the group, and rebalancing might
- *             terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/auto-scaling-benefits.html#AutoScalingBehavior.InstanceUsage">Rebalancing activities</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *             terminate instances in other zones. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/ec2-auto-scaling-scaling-manually.html">Manual
+ *                 scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,19 +92,22 @@ export interface TerminateInstanceInAutoScalingGroupCommandOutput extends Activi
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To terminate an instance in an Auto Scaling group
  * ```javascript
  * // This example terminates the specified instance from the specified Auto Scaling group without updating the size of the group. Auto Scaling launches a replacement instance after the specified instance terminates.
  * const input = {
- *   "InstanceId": "i-93633f9b",
- *   "ShouldDecrementDesiredCapacity": false
+ *   InstanceId: "i-93633f9b",
+ *   ShouldDecrementDesiredCapacity: false
  * };
  * const command = new TerminateInstanceInAutoScalingGroupCommand(input);
- * await client.send(command);
- * // example id: autoscaling-terminate-instance-in-auto-scaling-group-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TerminateInstanceInAutoScalingGroupCommand extends $Command
   .classBuilder<
@@ -112,9 +117,7 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +129,16 @@ export class TerminateInstanceInAutoScalingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateInstanceInAutoScalingGroupCommand)
   .de(de_TerminateInstanceInAutoScalingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateInstanceInAutoScalingGroupType;
+      output: ActivityType;
+    };
+    sdk: {
+      input: TerminateInstanceInAutoScalingGroupCommandInput;
+      output: TerminateInstanceInAutoScalingGroupCommandOutput;
+    };
+  };
+}

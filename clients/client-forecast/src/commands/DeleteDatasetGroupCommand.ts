@@ -12,7 +12,8 @@ import { de_DeleteDatasetGroupCommand, se_DeleteDatasetGroupCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface DeleteDatasetGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class DeleteDatasetGroupCommand extends $Command
@@ -76,9 +78,7 @@ export class DeleteDatasetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class DeleteDatasetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDatasetGroupCommand)
   .de(de_DeleteDatasetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDatasetGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDatasetGroupCommandInput;
+      output: DeleteDatasetGroupCommandOutput;
+    };
+  };
+}

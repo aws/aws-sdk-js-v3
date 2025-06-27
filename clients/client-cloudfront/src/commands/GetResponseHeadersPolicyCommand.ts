@@ -12,7 +12,8 @@ import { de_GetResponseHeadersPolicyCommand, se_GetResponseHeadersPolicyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,14 +28,7 @@ export interface GetResponseHeadersPolicyCommandInput extends GetResponseHeaders
 export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeadersPolicyResult, __MetadataBearer {}
 
 /**
- * <p>Gets a response headers policy, including metadata (the policy's identifier and the
- * 			date and time when the policy was last modified).</p>
- *          <p>To get a response headers policy, you must provide the policy's identifier. If the
- * 			response headers policy is attached to a distribution's cache behavior, you can get the
- * 			policy's identifier using <code>ListDistributions</code> or
- * 			<code>GetDistribution</code>. If the response headers policy is not attached to a cache
- * 			behavior, you can get the identifier using
- * 			<code>ListResponseHeadersPolicies</code>.</p>
+ * <p>Gets a response headers policy, including metadata (the policy's identifier and the date and time when the policy was last modified).</p> <p>To get a response headers policy, you must provide the policy's identifier. If the response headers policy is attached to a distribution's cache behavior, you can get the policy's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the response headers policy is not attached to a cache behavior, you can get the identifier using <code>ListResponseHeadersPolicies</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -155,6 +149,7 @@ export interface GetResponseHeadersPolicyCommandOutput extends GetResponseHeader
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetResponseHeadersPolicyCommand extends $Command
@@ -165,9 +160,7 @@ export class GetResponseHeadersPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +172,16 @@ export class GetResponseHeadersPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResponseHeadersPolicyCommand)
   .de(de_GetResponseHeadersPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResponseHeadersPolicyRequest;
+      output: GetResponseHeadersPolicyResult;
+    };
+    sdk: {
+      input: GetResponseHeadersPolicyCommandInput;
+      output: GetResponseHeadersPolicyCommandOutput;
+    };
+  };
+}

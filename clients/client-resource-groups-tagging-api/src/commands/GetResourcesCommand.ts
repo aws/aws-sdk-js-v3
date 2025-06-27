@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -153,6 +154,7 @@ export interface GetResourcesCommandOutput extends GetResourcesOutput, __Metadat
  * @throws {@link ResourceGroupsTaggingAPIServiceException}
  * <p>Base exception class for all service exceptions from ResourceGroupsTaggingAPI service.</p>
  *
+ *
  * @public
  */
 export class GetResourcesCommand extends $Command
@@ -163,9 +165,7 @@ export class GetResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceGroupsTaggingAPIClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +177,16 @@ export class GetResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetResourcesCommand)
   .de(de_GetResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcesInput;
+      output: GetResourcesOutput;
+    };
+    sdk: {
+      input: GetResourcesCommandInput;
+      output: GetResourcesCommandOutput;
+    };
+  };
+}

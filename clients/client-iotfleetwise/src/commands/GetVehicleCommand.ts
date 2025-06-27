@@ -12,7 +12,8 @@ import { de_GetVehicleCommand, se_GetVehicleCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,20 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * //   attributes: { // attributesMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   stateTemplates: [ // StateTemplateAssociations
+ * //     { // StateTemplateAssociation
+ * //       identifier: "STRING_VALUE", // required
+ * //       stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ * //         periodic: { // PeriodicStateTemplateUpdateStrategy
+ * //           stateTemplateUpdateRate: { // TimePeriod
+ * //             unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ * //             value: Number("int"), // required
+ * //           },
+ * //         },
+ * //         onChange: {},
+ * //       },
+ * //     },
+ * //   ],
  * //   creationTime: new Date("TIMESTAMP"),
  * //   lastModificationTime: new Date("TIMESTAMP"),
  * // };
@@ -77,6 +92,7 @@ export interface GetVehicleCommandOutput extends GetVehicleResponse, __MetadataB
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class GetVehicleCommand extends $Command
@@ -87,9 +103,7 @@ export class GetVehicleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +115,16 @@ export class GetVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetVehicleCommand)
   .de(de_GetVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVehicleRequest;
+      output: GetVehicleResponse;
+    };
+    sdk: {
+      input: GetVehicleCommandInput;
+      output: GetVehicleCommandOutput;
+    };
+  };
+}

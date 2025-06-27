@@ -24,7 +24,7 @@ response. </p>
 line tools to access the API. For installation instructions, see <a href="http://aws.amazon.com/tools/">Tools for
 Amazon Web Services</a>. </p>
 <p>For a list of Region-specific endpoints that Lambda supports,
-see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html/">Lambda
+see <a href="https://docs.aws.amazon.com/general/latest/gr/lambda-service.html">Lambda
 endpoints and quotas </a> in the <i>Amazon Web Services General Reference.</i>. </p>
 <p>When making the API calls, you will need to
 authenticate your request by providing a signature. Lambda supports signature version 4. For more information,
@@ -75,7 +75,7 @@ up-to-date is the more straightforward solution. To learn more about ACM-provide
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-lambda
+To install this package, simply type add or install @aws-sdk/client-lambda
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-lambda`
@@ -478,6 +478,14 @@ GetFunctionEventInvokeConfig
 </details>
 <details>
 <summary>
+GetFunctionRecursionConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/GetFunctionRecursionConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/GetFunctionRecursionConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/GetFunctionRecursionConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFunctionUrlConfig
 </summary>
 
@@ -690,6 +698,14 @@ PutFunctionEventInvokeConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/PutFunctionEventInvokeConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionEventInvokeConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionEventInvokeConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutFunctionRecursionConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lambda/command/PutFunctionRecursionConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionRecursionConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lambda/Interface/PutFunctionRecursionConfigCommandOutput/)
 
 </details>
 <details>

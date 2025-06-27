@@ -12,7 +12,8 @@ import { de_DeleteBranchCommand, se_DeleteBranchCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     enableAutoBuild: true || false, // required
+ * //     enableSkewProtection: true || false,
  * //     customDomains: [ // CustomDomains // required
  * //       "STRING_VALUE",
  * //     ],
@@ -80,6 +82,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -109,6 +112,7 @@ export interface DeleteBranchCommandOutput extends DeleteBranchResult, __Metadat
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class DeleteBranchCommand extends $Command
@@ -119,9 +123,7 @@ export class DeleteBranchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +135,16 @@ export class DeleteBranchCommand extends $Command
   .f(void 0, DeleteBranchResultFilterSensitiveLog)
   .ser(se_DeleteBranchCommand)
   .de(de_DeleteBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBranchRequest;
+      output: DeleteBranchResult;
+    };
+    sdk: {
+      input: DeleteBranchCommandInput;
+      output: DeleteBranchCommandOutput;
+    };
+  };
+}

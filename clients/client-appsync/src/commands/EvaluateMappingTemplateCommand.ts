@@ -12,7 +12,8 @@ import { de_EvaluateMappingTemplateCommand, se_EvaluateMappingTemplateCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,12 @@ export interface EvaluateMappingTemplateCommandInput extends EvaluateMappingTemp
 export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTemplateResponse, __MetadataBearer {}
 
 /**
- * <p>Evaluates a given template and returns the response. The mapping template can be a request or response
- *          template.</p>
- *          <p>Request templates take the incoming request after a GraphQL operation is parsed and convert it into a
- *          request configuration for the selected data source operation. Response templates interpret responses from the
- *          data source and map it to the shape of the GraphQL field output type.</p>
+ * <p>Evaluates a given template and returns the response. The mapping template can be a
+ *          request or response template.</p>
+ *          <p>Request templates take the incoming request after a GraphQL operation is parsed and
+ *          convert it into a request configuration for the selected data source operation. Response
+ *          templates interpret responses from the data source and map it to the shape of the GraphQL
+ *          field output type.</p>
  *          <p>Mapping templates are written in the Apache Velocity Template Language (VTL).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -53,6 +55,8 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  * //   logs: [ // Logs
  * //     "STRING_VALUE",
  * //   ],
+ * //   stash: "STRING_VALUE",
+ * //   outErrors: "STRING_VALUE",
  * // };
  *
  * ```
@@ -67,14 +71,15 @@ export interface EvaluateMappingTemplateCommandOutput extends EvaluateMappingTem
  *  <p>You don't have access to perform this operation on this resource.</p>
  *
  * @throws {@link BadRequestException} (client fault)
- *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
- *          field values, and then try again.</p>
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is
+ *          missing. Check the field values, and then try again.</p>
  *
  * @throws {@link InternalFailureException} (server fault)
  *  <p>An internal AppSync error occurred. Try your request again.</p>
  *
  * @throws {@link AppSyncServiceException}
  * <p>Base exception class for all service exceptions from AppSync service.</p>
+ *
  *
  * @public
  */
@@ -86,9 +91,7 @@ export class EvaluateMappingTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +103,16 @@ export class EvaluateMappingTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EvaluateMappingTemplateCommand)
   .de(de_EvaluateMappingTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EvaluateMappingTemplateRequest;
+      output: EvaluateMappingTemplateResponse;
+    };
+    sdk: {
+      input: EvaluateMappingTemplateCommandInput;
+      output: EvaluateMappingTemplateCommandOutput;
+    };
+  };
+}

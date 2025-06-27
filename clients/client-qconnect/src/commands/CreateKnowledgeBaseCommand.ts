@@ -5,14 +5,20 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateKnowledgeBaseRequest, CreateKnowledgeBaseResponse } from "../models/models_0";
+import {
+  CreateKnowledgeBaseRequest,
+  CreateKnowledgeBaseRequestFilterSensitiveLog,
+  CreateKnowledgeBaseResponse,
+  CreateKnowledgeBaseResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_CreateKnowledgeBaseCommand, se_CreateKnowledgeBaseCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,9 +74,61 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  *         "STRING_VALUE",
  *       ],
  *     },
+ *     managedSourceConfiguration: { // ManagedSourceConfiguration Union: only one key present
+ *       webCrawlerConfiguration: { // WebCrawlerConfiguration
+ *         urlConfiguration: { // UrlConfiguration
+ *           seedUrls: [ // SeedUrls
+ *             { // SeedUrl
+ *               url: "STRING_VALUE",
+ *             },
+ *           ],
+ *         },
+ *         crawlerLimits: { // WebCrawlerLimits
+ *           rateLimit: Number("int"),
+ *         },
+ *         inclusionFilters: [ // UrlFilterList
+ *           "STRING_VALUE",
+ *         ],
+ *         exclusionFilters: [
+ *           "STRING_VALUE",
+ *         ],
+ *         scope: "STRING_VALUE",
+ *       },
+ *     },
  *   },
  *   renderingConfiguration: { // RenderingConfiguration
  *     templateUri: "STRING_VALUE",
+ *   },
+ *   vectorIngestionConfiguration: { // VectorIngestionConfiguration
+ *     chunkingConfiguration: { // ChunkingConfiguration
+ *       chunkingStrategy: "STRING_VALUE", // required
+ *       fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
+ *         maxTokens: Number("int"), // required
+ *         overlapPercentage: Number("int"), // required
+ *       },
+ *       hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ *         levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ *           { // HierarchicalChunkingLevelConfiguration
+ *             maxTokens: Number("int"), // required
+ *           },
+ *         ],
+ *         overlapTokens: Number("int"), // required
+ *       },
+ *       semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ *         maxTokens: Number("int"), // required
+ *         bufferSize: Number("int"), // required
+ *         breakpointPercentileThreshold: Number("int"), // required
+ *       },
+ *     },
+ *     parsingConfiguration: { // ParsingConfiguration
+ *       parsingStrategy: "STRING_VALUE", // required
+ *       bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfigurationForParsing
+ *         modelArn: "STRING_VALUE", // required
+ *         parsingPrompt: { // ParsingPrompt
+ *           parsingPromptText: "STRING_VALUE", // required
+ *         },
+ *       },
+ *     },
  *   },
  *   serverSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  *     kmsKeyId: "STRING_VALUE",
@@ -90,12 +148,64 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //     knowledgeBaseType: "STRING_VALUE", // required
  * //     status: "STRING_VALUE", // required
  * //     lastContentModificationTime: new Date("TIMESTAMP"),
+ * //     vectorIngestionConfiguration: { // VectorIngestionConfiguration
+ * //       chunkingConfiguration: { // ChunkingConfiguration
+ * //         chunkingStrategy: "STRING_VALUE", // required
+ * //         fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           overlapPercentage: Number("int"), // required
+ * //         },
+ * //         hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ * //           levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ * //             { // HierarchicalChunkingLevelConfiguration
+ * //               maxTokens: Number("int"), // required
+ * //             },
+ * //           ],
+ * //           overlapTokens: Number("int"), // required
+ * //         },
+ * //         semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ * //           maxTokens: Number("int"), // required
+ * //           bufferSize: Number("int"), // required
+ * //           breakpointPercentileThreshold: Number("int"), // required
+ * //         },
+ * //       },
+ * //       parsingConfiguration: { // ParsingConfiguration
+ * //         parsingStrategy: "STRING_VALUE", // required
+ * //         bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfigurationForParsing
+ * //           modelArn: "STRING_VALUE", // required
+ * //           parsingPrompt: { // ParsingPrompt
+ * //             parsingPromptText: "STRING_VALUE", // required
+ * //           },
+ * //         },
+ * //       },
+ * //     },
  * //     sourceConfiguration: { // SourceConfiguration Union: only one key present
  * //       appIntegrations: { // AppIntegrationsConfiguration
  * //         appIntegrationArn: "STRING_VALUE", // required
  * //         objectFields: [ // ObjectFieldsList
  * //           "STRING_VALUE",
  * //         ],
+ * //       },
+ * //       managedSourceConfiguration: { // ManagedSourceConfiguration Union: only one key present
+ * //         webCrawlerConfiguration: { // WebCrawlerConfiguration
+ * //           urlConfiguration: { // UrlConfiguration
+ * //             seedUrls: [ // SeedUrls
+ * //               { // SeedUrl
+ * //                 url: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
+ * //           crawlerLimits: { // WebCrawlerLimits
+ * //             rateLimit: Number("int"),
+ * //           },
+ * //           inclusionFilters: [ // UrlFilterList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           exclusionFilters: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           scope: "STRING_VALUE",
+ * //         },
  * //       },
  * //     },
  * //     renderingConfiguration: { // RenderingConfiguration
@@ -108,6 +218,10 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     ingestionStatus: "STRING_VALUE",
+ * //     ingestionFailureReasons: [ // FailureReason
+ * //       "STRING_VALUE",
+ * //     ],
  * //   },
  * // };
  *
@@ -138,6 +252,7 @@ export interface CreateKnowledgeBaseCommandOutput extends CreateKnowledgeBaseRes
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateKnowledgeBaseCommand extends $Command
@@ -148,9 +263,7 @@ export class CreateKnowledgeBaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,7 +272,19 @@ export class CreateKnowledgeBaseCommand extends $Command
   })
   .s("WisdomService", "CreateKnowledgeBase", {})
   .n("QConnectClient", "CreateKnowledgeBaseCommand")
-  .f(void 0, void 0)
+  .f(CreateKnowledgeBaseRequestFilterSensitiveLog, CreateKnowledgeBaseResponseFilterSensitiveLog)
   .ser(se_CreateKnowledgeBaseCommand)
   .de(de_CreateKnowledgeBaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKnowledgeBaseRequest;
+      output: CreateKnowledgeBaseResponse;
+    };
+    sdk: {
+      input: CreateKnowledgeBaseCommandInput;
+      output: CreateKnowledgeBaseCommandOutput;
+    };
+  };
+}

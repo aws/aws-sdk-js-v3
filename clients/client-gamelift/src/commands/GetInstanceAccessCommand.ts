@@ -16,7 +16,8 @@ import { de_GetInstanceAccessCommand, se_GetInstanceAccessCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,10 +32,10 @@ export interface GetInstanceAccessCommandInput extends GetInstanceAccessInput {}
 export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Requests authorization to remotely connect to an instance in an Amazon GameLift managed fleet.
- *             Use this operation to connect to instances with game servers that use Amazon GameLift server SDK
+ * <p>Requests authorization to remotely connect to an instance in an Amazon GameLift Servers managed fleet.
+ *             Use this operation to connect to instances with game servers that use Amazon GameLift Servers server SDK
  *             4.x or earlier. To connect to instances with game servers that use server SDK 5.x or
- *             later, call <a>GetComputeAccess</a>.</p>
+ *             later, call <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess">https://docs.aws.amazon.com/gamelift/latest/apireference/API_GetComputeAccess</a>.</p>
  *          <p>To request access to an instance, specify IDs for the instance and the fleet it
  *             belongs to. You can retrieve instance IDs for a fleet by calling <a href="https://docs.aws.amazon.com/gamelift/latest/apireference/API_DescribeInstances.html">DescribeInstances</a> with the fleet ID. </p>
  *          <p>If successful, this operation returns an IP address and credentials. The returned
@@ -110,13 +111,14 @@ export interface GetInstanceAccessCommandOutput extends GetInstanceAccessOutput,
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -128,9 +130,7 @@ export class GetInstanceAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class GetInstanceAccessCommand extends $Command
   .f(void 0, GetInstanceAccessOutputFilterSensitiveLog)
   .ser(se_GetInstanceAccessCommand)
   .de(de_GetInstanceAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInstanceAccessInput;
+      output: GetInstanceAccessOutput;
+    };
+    sdk: {
+      input: GetInstanceAccessCommandInput;
+      output: GetInstanceAccessCommandOutput;
+    };
+  };
+}

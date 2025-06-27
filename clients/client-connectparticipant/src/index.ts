@@ -1,7 +1,19 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Participant_Service.html">Participant Service actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Participant_Service.html">Participant Service data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect is an easy-to-use omnichannel cloud contact center service that
  *             enables companies of any size to deliver superior customer service at a lower cost.
  *                 Amazon Connect communications capabilities make it easy for companies to deliver
  *             personalized interactions across communication channels, including chat. </p>
@@ -16,8 +28,8 @@
 export * from "./ConnectParticipantClient";
 export * from "./ConnectParticipant";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ConnectParticipantExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ConnectParticipantExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

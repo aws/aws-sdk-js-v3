@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface UpdateRoutingControlStateCommandOutput extends UpdateRoutingCon
  * @throws {@link Route53RecoveryClusterServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryCluster service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoutingControlStateCommand extends $Command
@@ -124,9 +126,7 @@ export class UpdateRoutingControlStateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryClusterClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class UpdateRoutingControlStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoutingControlStateCommand)
   .de(de_UpdateRoutingControlStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoutingControlStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoutingControlStateCommandInput;
+      output: UpdateRoutingControlStateCommandOutput;
+    };
+  };
+}

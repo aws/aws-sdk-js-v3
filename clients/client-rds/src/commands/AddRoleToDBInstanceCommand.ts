@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,20 +72,23 @@ export interface AddRoleToDBInstanceCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To associate an AWS Identity and Access Management (IAM) role with a DB instance
  * ```javascript
  * // The following example adds the role to a DB instance named test-instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance",
- *   "FeatureName": "S3_INTEGRATION",
- *   "RoleArn": "arn:aws:iam::111122223333:role/rds-s3-integration-role"
+ *   DBInstanceIdentifier: "test-instance",
+ *   FeatureName: "S3_INTEGRATION",
+ *   RoleArn: "arn:aws:iam::111122223333:role/rds-s3-integration-role"
  * };
  * const command = new AddRoleToDBInstanceCommand(input);
- * await client.send(command);
- * // example id: to-associate-an-aws-identity-and-access-management-iam-role-with-a-db-instance-1679691512295
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class AddRoleToDBInstanceCommand extends $Command
   .classBuilder<
@@ -94,9 +98,7 @@ export class AddRoleToDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class AddRoleToDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddRoleToDBInstanceCommand)
   .de(de_AddRoleToDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddRoleToDBInstanceMessage;
+      output: {};
+    };
+    sdk: {
+      input: AddRoleToDBInstanceCommandInput;
+      output: AddRoleToDBInstanceCommandOutput;
+    };
+  };
+}

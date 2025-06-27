@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,24 +75,24 @@ export interface DeregisterInstanceCommandOutput extends DeregisterInstanceRespo
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Deregister a service instance
  * ```javascript
  * // Example: Deregister a service instance
  * const input = {
- *   "InstanceId": "myservice-53",
- *   "ServiceId": "srv-p5zdwlg5uvvzjita"
+ *   InstanceId: "myservice-53",
+ *   ServiceId: "srv-p5zdwlg5uvvzjita"
  * };
  * const command = new DeregisterInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OperationId": "4yejorelbukcjzpnr6tlmrghsjwpngf4-k98rnaiq"
+ *   OperationId: "4yejorelbukcjzpnr6tlmrghsjwpngf4-k98rnaiq"
  * }
  * *\/
- * // example id: example-deregister-a-service-instance-1587416305738
  * ```
  *
+ * @public
  */
 export class DeregisterInstanceCommand extends $Command
   .classBuilder<
@@ -101,9 +102,7 @@ export class DeregisterInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class DeregisterInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterInstanceCommand)
   .de(de_DeregisterInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterInstanceRequest;
+      output: DeregisterInstanceResponse;
+    };
+    sdk: {
+      input: DeregisterInstanceCommandInput;
+      output: DeregisterInstanceCommandOutput;
+    };
+  };
+}

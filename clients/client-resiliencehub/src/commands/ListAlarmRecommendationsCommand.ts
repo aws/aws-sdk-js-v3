@@ -12,7 +12,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,7 +49,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * //       referenceId: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //       description: "STRING_VALUE",
- * //       type: "STRING_VALUE", // required
+ * //       type: "Metric" || "Composite" || "Canary" || "Logs" || "Event", // required
  * //       appComponentName: "STRING_VALUE",
  * //       items: [ // RecommendationItemList
  * //         { // RecommendationItem
@@ -57,14 +58,22 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * //           targetRegion: "STRING_VALUE",
  * //           alreadyImplemented: true || false,
  * //           excluded: true || false,
- * //           excludeReason: "STRING_VALUE",
+ * //           excludeReason: "AlreadyImplemented" || "NotRelevant" || "ComplexityOfImplementation",
+ * //           latestDiscoveredExperiment: { // Experiment
+ * //             experimentArn: "STRING_VALUE",
+ * //             experimentTemplateId: "STRING_VALUE",
+ * //           },
+ * //           discoveredAlarm: { // Alarm
+ * //             alarmArn: "STRING_VALUE",
+ * //             source: "STRING_VALUE",
+ * //           },
  * //         },
  * //       ],
  * //       prerequisite: "STRING_VALUE",
  * //       appComponentNames: [ // AppComponentNameList
  * //         "STRING_VALUE",
  * //       ],
- * //       recommendationStatus: "STRING_VALUE",
+ * //       recommendationStatus: "Implemented" || "Inactive" || "NotImplemented" || "Excluded",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -99,6 +108,7 @@ export interface ListAlarmRecommendationsCommandOutput extends ListAlarmRecommen
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAlarmRecommendationsCommand extends $Command
@@ -109,9 +119,7 @@ export class ListAlarmRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +131,16 @@ export class ListAlarmRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAlarmRecommendationsCommand)
   .de(de_ListAlarmRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAlarmRecommendationsRequest;
+      output: ListAlarmRecommendationsResponse;
+    };
+    sdk: {
+      input: ListAlarmRecommendationsCommandInput;
+      output: ListAlarmRecommendationsCommandOutput;
+    };
+  };
+}

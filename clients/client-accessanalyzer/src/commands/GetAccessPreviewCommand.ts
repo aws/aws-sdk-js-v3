@@ -12,7 +12,8 @@ import { de_GetAccessPreviewCommand, se_GetAccessPreviewCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -150,6 +151,17 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * //         },
  * //         s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
  * //           bucketPolicy: "STRING_VALUE",
+ * //           accessPoints: { // S3ExpressDirectoryAccessPointConfigurationsMap
+ * //             "<keys>": { // S3ExpressDirectoryAccessPointConfiguration
+ * //               accessPointPolicy: "STRING_VALUE",
+ * //               networkOrigin: {//  Union: only one key present
+ * //                 vpcConfiguration: {
+ * //                   vpcId: "STRING_VALUE", // required
+ * //                 },
+ * //                 internetConfiguration: {},
+ * //               },
+ * //             },
+ * //           },
  * //         },
  * //         dynamodbStream: { // DynamodbStreamConfiguration
  * //           streamPolicy: "STRING_VALUE",
@@ -193,6 +205,7 @@ export interface GetAccessPreviewCommandOutput extends GetAccessPreviewResponse,
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class GetAccessPreviewCommand extends $Command
@@ -203,9 +216,7 @@ export class GetAccessPreviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -217,4 +228,16 @@ export class GetAccessPreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccessPreviewCommand)
   .de(de_GetAccessPreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAccessPreviewRequest;
+      output: GetAccessPreviewResponse;
+    };
+    sdk: {
+      input: GetAccessPreviewCommandInput;
+      output: GetAccessPreviewCommandOutput;
+    };
+  };
+}

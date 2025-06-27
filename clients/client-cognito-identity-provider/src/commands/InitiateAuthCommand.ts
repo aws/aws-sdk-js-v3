@@ -15,13 +15,14 @@ import {
   InitiateAuthRequestFilterSensitiveLog,
   InitiateAuthResponse,
   InitiateAuthResponseFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_InitiateAuthCommand, se_InitiateAuthCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,11 @@ export interface InitiateAuthCommandInput extends InitiateAuthRequest {}
 export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __MetadataBearer {}
 
 /**
- * <p>Initiates sign-in for a user in the Amazon Cognito user directory. You can't sign in a user
- *             with a federated IdP with <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-identity-federation.html"> Adding user pool sign-in through a third party</a>.</p>
+ * <p>Declares an authentication flow and initiates sign-in for a user in the Amazon Cognito user
+ *             directory. Amazon Cognito might respond with an additional challenge or an
+ *                 <code>AuthenticationResult</code> that contains the outcome of a successful
+ *             authentication. You can't sign in a user with a federated IdP with
+ *                 <code>InitiateAuth</code>. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html">Authentication</a>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't
@@ -52,7 +56,7 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  *             Amazon Cognito uses the registered number automatically. Otherwise, Amazon Cognito users who must
  *             receive SMS messages might not be able to sign up, activate their accounts, or sign
  *             in.</p>
- *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Service,
+ *             <p>If you have never used SMS text messages with Amazon Cognito or any other Amazon Web Services service,
  *             Amazon Simple Notification Service might place your account in the SMS sandbox. In <i>
  *                   <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">sandbox
  *                     mode</a>
@@ -68,7 +72,7 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * // const { CognitoIdentityProviderClient, InitiateAuthCommand } = require("@aws-sdk/client-cognito-identity-provider"); // CommonJS import
  * const client = new CognitoIdentityProviderClient(config);
  * const input = { // InitiateAuthRequest
- *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH", // required
+ *   AuthFlow: "USER_SRP_AUTH" || "REFRESH_TOKEN_AUTH" || "REFRESH_TOKEN" || "CUSTOM_AUTH" || "ADMIN_NO_SRP_AUTH" || "USER_PASSWORD_AUTH" || "ADMIN_USER_PASSWORD_AUTH" || "USER_AUTH", // required
  *   AuthParameters: { // AuthParametersType
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -83,11 +87,12 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  *     IpAddress: "STRING_VALUE",
  *     EncodedData: "STRING_VALUE",
  *   },
+ *   Session: "STRING_VALUE",
  * };
  * const command = new InitiateAuthCommand(input);
  * const response = await client.send(command);
  * // { // InitiateAuthResponse
- * //   ChallengeName: "SMS_MFA" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED",
+ * //   ChallengeName: "SMS_MFA" || "EMAIL_OTP" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "SELECT_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED" || "SMS_OTP" || "PASSWORD" || "WEB_AUTHN" || "PASSWORD_SRP",
  * //   Session: "STRING_VALUE",
  * //   ChallengeParameters: { // ChallengeParametersType
  * //     "<keys>": "STRING_VALUE",
@@ -103,6 +108,9 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * //       DeviceGroupKey: "STRING_VALUE",
  * //     },
  * //   },
+ * //   AvailableChallenges: [ // AvailableChallengeListType
+ * //     "SMS_MFA" || "EMAIL_OTP" || "SOFTWARE_TOKEN_MFA" || "SELECT_MFA_TYPE" || "MFA_SETUP" || "PASSWORD_VERIFIER" || "CUSTOM_CHALLENGE" || "SELECT_CHALLENGE" || "DEVICE_SRP_AUTH" || "DEVICE_PASSWORD_VERIFIER" || "ADMIN_NO_SRP_AUTH" || "NEW_PASSWORD_REQUIRED" || "SMS_OTP" || "PASSWORD" || "WEB_AUTHN" || "PASSWORD_SRP",
+ * //   ],
  * // };
  *
  * ```
@@ -119,6 +127,10 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
+ *
+ * @throws {@link InvalidEmailRoleAccessPolicyException} (client fault)
+ *  <p>This exception is thrown when Amazon Cognito isn't allowed to use your email identity. HTTP
+ *             status code: 400.</p>
  *
  * @throws {@link InvalidLambdaResponseException} (client fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an invalid Lambda response.</p>
@@ -158,6 +170,10 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  *  <p>This exception is thrown when Amazon Cognito encounters an unexpected exception with
  *             Lambda.</p>
  *
+ * @throws {@link UnsupportedOperationException} (client fault)
+ *  <p>Exception that is thrown when you attempt to perform an operation that isn't enabled
+ *             for the user pool client.</p>
+ *
  * @throws {@link UserLambdaValidationException} (client fault)
  *  <p>This exception is thrown when the Amazon Cognito service encounters a user validation exception
  *             with the Lambda service.</p>
@@ -171,44 +187,44 @@ export interface InitiateAuthCommandOutput extends InitiateAuthResponse, __Metad
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
- * @public
+ *
  * @example Example username and password sign-in for a user who has TOTP MFA
  * ```javascript
  * // The following example signs in the user mytestuser with analytics data, client metadata, and user context data for advanced security.
  * const input = {
- *   "AnalyticsMetadata": {
- *     "AnalyticsEndpointId": "d70b2ba36a8c4dc5a04a0451a31a1e12"
+ *   AnalyticsMetadata: {
+ *     AnalyticsEndpointId: "d70b2ba36a8c4dc5a04a0451a31a1e12"
  *   },
- *   "AuthFlow": "USER_PASSWORD_AUTH",
- *   "AuthParameters": {
- *     "PASSWORD": "This-is-my-test-99!",
- *     "SECRET_HASH": "oT5ZkS8ctnrhYeeGsGTvOzPhoc/Jd1cO5fueBWFVmp8=",
- *     "USERNAME": "mytestuser"
+ *   AuthFlow: "USER_PASSWORD_AUTH",
+ *   AuthParameters: {
+ *     PASSWORD: "This-is-my-test-99!",
+ *     SECRET_HASH: "oT5ZkS8ctnrhYeeGsGTvOzPhoc/Jd1cO5fueBWFVmp8=",
+ *     USERNAME: "mytestuser"
  *   },
- *   "ClientId": "1example23456789",
- *   "ClientMetadata": {
- *     "MyTestKey": "MyTestValue"
+ *   ClientId: "1example23456789",
+ *   ClientMetadata: {
+ *     MyTestKey: "MyTestValue"
  *   },
- *   "UserContextData": {
- *     "EncodedData": "AmazonCognitoAdvancedSecurityData_object",
- *     "IpAddress": "192.0.2.1"
+ *   UserContextData: {
+ *     EncodedData: "AmazonCognitoAdvancedSecurityData_object",
+ *     IpAddress: "192.0.2.1"
  *   }
  * };
  * const command = new InitiateAuthCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChallengeName": "SOFTWARE_TOKEN_MFA",
- *   "ChallengeParameters": {
- *     "FRIENDLY_DEVICE_NAME": "mytestauthenticator",
- *     "USER_ID_FOR_SRP": "mytestuser"
+ *   ChallengeName: "SOFTWARE_TOKEN_MFA",
+ *   ChallengeParameters: {
+ *     FRIENDLY_DEVICE_NAME: "mytestauthenticator",
+ *     USER_ID_FOR_SRP: "mytestuser"
  *   },
- *   "Session": "AYABeC1-y8qooiuysEv0uM4wAqQAHQABAAdTZXJ2aWNlABBDb2duaXRvVXNlclBvb2xzAAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLXdlc3QtMjowMTU3MzY3MjcxOTg6a2V5LzI5OTFhNGE5LTM5YTAtNDQ0Mi04MWU4LWRkYjY4NTllMTg2MQC4AQIBAHhjxv5lVLhE2_WNrC1zuomqn08qDUUp3z9v4EGAjazZ-wGP3HuBF5Izvxf-9WkCT5uyAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMeQoT5e6Dpfh52caqAgEQgDvuL8uLMhPt0WmQpZnkNED1gob6xbqt5LaQo_H4L5CuT4Kj499dGCoZ1q1trmlZSRgRm0wwGGG8lFU37QIAAAAADAAAEAAAAAAAAAAAAAAAAADuLe9_UJ4oZAMsQYr0ntiT_____wAAAAEAAAAAAAAAAAAAAAEAAADnLDGmKBQtsCafNokRmPLgl2itBKuKR2dfZBQb5ucCYkzThM5HOfQUSEL-A3dZzfYDC0IODsrcMkrbeeVyMJk-FCzsxS9Og8BEBVnvi9WjZkPJ4mF0YS6FUXnoPSBV5oUqGzRaT-tJ169SUFZAUfFM1fGeJ8T57-QdCxjyISRCWV1VG5_7TiCioyRGfWwzNVWh7exJortF3ccfOyiEyxeqJ2VJvJq3m_w8NP24_PMDpktpRMKftObIMlD5ewRTNCdrUXQ1BW5KIxhJLGjYfRzJDZuKzmEgS-VHsKz0z76w-AlAgdfvdAjflLnsgduU5kUX4YP6jqnetg"
+ *   Session: "AYABeC1-y8qooiuysEv0uM4wAqQAHQABAAdTZXJ2aWNlABBDb2duaXRvVXNlclBvb2xzAAEAB2F3cy1rbXMAS2Fybjphd3M6a21zOnVzLXdlc3QtMjowMTU3MzY3MjcxOTg6a2V5LzI5OTFhNGE5LTM5YTAtNDQ0Mi04MWU4LWRkYjY4NTllMTg2MQC4AQIBAHhjxv5lVLhE2_WNrC1zuomqn08qDUUp3z9v4EGAjazZ-wGP3HuBF5Izvxf-9WkCT5uyAAAAfjB8BgkqhkiG9w0BBwagbzBtAgEAMGgGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMeQoT5e6Dpfh52caqAgEQgDvuL8uLMhPt0WmQpZnkNED1gob6xbqt5LaQo_H4L5CuT4Kj499dGCoZ1q1trmlZSRgRm0wwGGG8lFU37QIAAAAADAAAEAAAAAAAAAAAAAAAAADuLe9_UJ4oZAMsQYr0ntiT_____wAAAAEAAAAAAAAAAAAAAAEAAADnLDGmKBQtsCafNokRmPLgl2itBKuKR2dfZBQb5ucCYkzThM5HOfQUSEL-A3dZzfYDC0IODsrcMkrbeeVyMJk-FCzsxS9Og8BEBVnvi9WjZkPJ4mF0YS6FUXnoPSBV5oUqGzRaT-tJ169SUFZAUfFM1fGeJ8T57-QdCxjyISRCWV1VG5_7TiCioyRGfWwzNVWh7exJortF3ccfOyiEyxeqJ2VJvJq3m_w8NP24_PMDpktpRMKftObIMlD5ewRTNCdrUXQ1BW5KIxhJLGjYfRzJDZuKzmEgS-VHsKz0z76w-AlAgdfvdAjflLnsgduU5kUX4YP6jqnetg"
  * }
  * *\/
- * // example id: example-username-and-password-sign-in-for-a-user-who-has-totp-mfa-1689887395219
  * ```
  *
+ * @public
  */
 export class InitiateAuthCommand extends $Command
   .classBuilder<
@@ -218,9 +234,7 @@ export class InitiateAuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -232,4 +246,16 @@ export class InitiateAuthCommand extends $Command
   .f(InitiateAuthRequestFilterSensitiveLog, InitiateAuthResponseFilterSensitiveLog)
   .ser(se_InitiateAuthCommand)
   .de(de_InitiateAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InitiateAuthRequest;
+      output: InitiateAuthResponse;
+    };
+    sdk: {
+      input: InitiateAuthCommandInput;
+      output: InitiateAuthCommandOutput;
+    };
+  };
+}

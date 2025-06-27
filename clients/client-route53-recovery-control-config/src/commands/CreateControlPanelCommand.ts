@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface CreateControlPanelCommandOutput extends CreateControlPanelRespo
  * @throws {@link Route53RecoveryControlConfigServiceException}
  * <p>Base exception class for all service exceptions from Route53RecoveryControlConfig service.</p>
  *
+ *
  * @public
  */
 export class CreateControlPanelCommand extends $Command
@@ -102,9 +104,7 @@ export class CreateControlPanelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53RecoveryControlConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CreateControlPanelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateControlPanelCommand)
   .de(de_CreateControlPanelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateControlPanelRequest;
+      output: CreateControlPanelResponse;
+    };
+    sdk: {
+      input: CreateControlPanelCommandInput;
+      output: CreateControlPanelCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { de_SearchImageSetsCommand, se_SearchImageSetsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -143,6 +144,7 @@ export interface SearchImageSetsCommandOutput extends SearchImageSetsResponse, _
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class SearchImageSetsCommand extends $Command
@@ -153,9 +155,7 @@ export class SearchImageSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +167,16 @@ export class SearchImageSetsCommand extends $Command
   .f(SearchImageSetsRequestFilterSensitiveLog, SearchImageSetsResponseFilterSensitiveLog)
   .ser(se_SearchImageSetsCommand)
   .de(de_SearchImageSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchImageSetsRequest;
+      output: SearchImageSetsResponse;
+    };
+    sdk: {
+      input: SearchImageSetsCommandInput;
+      output: SearchImageSetsCommandOutput;
+    };
+  };
+}

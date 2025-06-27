@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/models_4";
+import { UpdateTemplatePermissionsRequest, UpdateTemplatePermissionsResponse } from "../models/models_5";
 import { de_UpdateTemplatePermissionsCommand, se_UpdateTemplatePermissionsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,7 +60,7 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * // { // UpdateTemplatePermissionsResponse
  * //   TemplateId: "STRING_VALUE",
  * //   TemplateArn: "STRING_VALUE",
- * //   Permissions: [ // ResourcePermissionList
+ * //   Permissions: [ // UpdateResourcePermissionList
  * //     { // ResourcePermission
  * //       Principal: "STRING_VALUE", // required
  * //       Actions: [ // ActionList // required
@@ -106,6 +107,7 @@ export interface UpdateTemplatePermissionsCommandOutput extends UpdateTemplatePe
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class UpdateTemplatePermissionsCommand extends $Command
@@ -116,9 +118,7 @@ export class UpdateTemplatePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class UpdateTemplatePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTemplatePermissionsCommand)
   .de(de_UpdateTemplatePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTemplatePermissionsRequest;
+      output: UpdateTemplatePermissionsResponse;
+    };
+    sdk: {
+      input: UpdateTemplatePermissionsCommandInput;
+      output: UpdateTemplatePermissionsCommandOutput;
+    };
+  };
+}

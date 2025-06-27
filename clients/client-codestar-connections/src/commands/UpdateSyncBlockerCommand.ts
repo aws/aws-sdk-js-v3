@@ -16,7 +16,8 @@ import { de_UpdateSyncBlockerCommand, se_UpdateSyncBlockerCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface UpdateSyncBlockerCommandOutput extends UpdateSyncBlockerOutput,
  * @throws {@link CodeStarConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeStarConnections service.</p>
  *
+ *
  * @public
  */
 export class UpdateSyncBlockerCommand extends $Command
@@ -108,9 +110,7 @@ export class UpdateSyncBlockerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeStarConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class UpdateSyncBlockerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSyncBlockerCommand)
   .de(de_UpdateSyncBlockerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSyncBlockerInput;
+      output: UpdateSyncBlockerOutput;
+    };
+    sdk: {
+      input: UpdateSyncBlockerCommandInput;
+      output: UpdateSyncBlockerCommandOutput;
+    };
+  };
+}

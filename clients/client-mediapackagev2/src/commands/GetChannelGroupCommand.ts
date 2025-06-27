@@ -12,7 +12,8 @@ import { de_GetChannelGroupCommand, se_GetChannelGroupCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,32 @@ export interface GetChannelGroupCommandOutput extends GetChannelGroupResponse, _
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Getting a Channel Group
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup"
+ * };
+ * const command = new GetChannelGroupCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Description for exampleChannelGroup",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   EgressDomain: "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetChannelGroupCommand extends $Command
@@ -88,9 +115,7 @@ export class GetChannelGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +127,16 @@ export class GetChannelGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetChannelGroupCommand)
   .de(de_GetChannelGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelGroupRequest;
+      output: GetChannelGroupResponse;
+    };
+    sdk: {
+      input: GetChannelGroupCommandInput;
+      output: GetChannelGroupCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,9 +34,9 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
 
 /**
  * <p>Deletes a permission for a network interface. By default, you cannot delete the
- * 			permission if the account for which you're removing the permission has attached the
- * 			network interface to an instance. However, you can force delete the permission,
- * 			regardless of any attachment.</p>
+ *             permission if the account for which you're removing the permission has attached the
+ *             network interface to an instance. However, you can force delete the permission,
+ *             regardless of any attachment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +65,7 @@ export interface DeleteNetworkInterfacePermissionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteNetworkInterfacePermissionCommand extends $Command
@@ -74,9 +76,7 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DeleteNetworkInterfacePermissionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkInterfacePermissionCommand)
   .de(de_DeleteNetworkInterfacePermissionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkInterfacePermissionRequest;
+      output: DeleteNetworkInterfacePermissionResult;
+    };
+    sdk: {
+      input: DeleteNetworkInterfacePermissionCommandInput;
+      output: DeleteNetworkInterfacePermissionCommandOutput;
+    };
+  };
+}

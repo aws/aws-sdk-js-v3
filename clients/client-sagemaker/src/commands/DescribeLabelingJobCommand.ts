@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_2";
+import { DescribeLabelingJobRequest, DescribeLabelingJobResponse } from "../models/models_3";
 import { de_DescribeLabelingJobCommand, se_DescribeLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,7 +103,7 @@ export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobRes
  * //       UiTemplateS3Uri: "STRING_VALUE",
  * //       HumanTaskUiArn: "STRING_VALUE",
  * //     },
- * //     PreHumanTaskLambdaArn: "STRING_VALUE", // required
+ * //     PreHumanTaskLambdaArn: "STRING_VALUE",
  * //     TaskKeywords: [ // TaskKeywords
  * //       "STRING_VALUE",
  * //     ],
@@ -149,6 +150,7 @@ export interface DescribeLabelingJobCommandOutput extends DescribeLabelingJobRes
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DescribeLabelingJobCommand extends $Command
@@ -159,9 +161,7 @@ export class DescribeLabelingJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -173,4 +173,16 @@ export class DescribeLabelingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLabelingJobCommand)
   .de(de_DescribeLabelingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLabelingJobRequest;
+      output: DescribeLabelingJobResponse;
+    };
+    sdk: {
+      input: DescribeLabelingJobCommandInput;
+      output: DescribeLabelingJobCommandOutput;
+    };
+  };
+}

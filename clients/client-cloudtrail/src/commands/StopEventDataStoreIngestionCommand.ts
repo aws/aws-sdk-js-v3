@@ -12,7 +12,8 @@ import { de_StopEventDataStoreIngestionCommand, se_StopEventDataStoreIngestionCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface StopEventDataStoreIngestionCommandOutput
 
 /**
  * <p>Stops the ingestion of live events on an event data store specified as either an ARN or the ID portion of the ARN. To stop ingestion, the event data store <code>Status</code> must be <code>ENABLED</code>
- *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, or <code>ConfigurationItem</code>.</p>
+ *          and the <code>eventCategory</code> must be <code>Management</code>, <code>Data</code>, <code>NetworkActivity</code>, or <code>ConfigurationItem</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,6 +52,12 @@ export interface StopEventDataStoreIngestionCommandOutput
  * @see {@link StopEventDataStoreIngestionCommandInput} for command's `input` shape.
  * @see {@link StopEventDataStoreIngestionCommandOutput} for command's `response` shape.
  * @see {@link CloudTrailClientResolvedConfig | config} for CloudTrailClient's `config` shape.
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>This exception is thrown when the specified resource is not ready for an operation. This
+ *          can occur when you try to run an operation on a resource before CloudTrail has time
+ *          to fully load the resource, or because another operation is modifying the resource. If this exception occurs, wait a few minutes, and then try the
+ *          operation again.</p>
  *
  * @throws {@link EventDataStoreARNInvalidException} (client fault)
  *  <p>The specified event data store ARN is not valid or does not map to an event data store
@@ -92,6 +99,7 @@ export interface StopEventDataStoreIngestionCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class StopEventDataStoreIngestionCommand extends $Command
@@ -102,9 +110,7 @@ export class StopEventDataStoreIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +122,16 @@ export class StopEventDataStoreIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopEventDataStoreIngestionCommand)
   .de(de_StopEventDataStoreIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopEventDataStoreIngestionRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopEventDataStoreIngestionCommandInput;
+      output: StopEventDataStoreIngestionCommandOutput;
+    };
+  };
+}

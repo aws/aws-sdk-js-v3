@@ -16,7 +16,8 @@ import { de_CreateGuardrailVersionCommand, se_CreateGuardrailVersionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,7 @@ export interface CreateGuardrailVersionCommandInput extends CreateGuardrailVersi
 export interface CreateGuardrailVersionCommandOutput extends CreateGuardrailVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a version of the guardrail. Use this API to create a snapshot of the
- *       guardrail when you are satisfied with a configuration, or to compare the configuration with another version.</p>
+ * <p>Creates a version of the guardrail. Use this API to create a snapshot of the guardrail when you are satisfied with a configuration, or to compare the configuration with another version.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +83,7 @@ export interface CreateGuardrailVersionCommandOutput extends CreateGuardrailVers
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class CreateGuardrailVersionCommand extends $Command
@@ -93,9 +94,7 @@ export class CreateGuardrailVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +106,16 @@ export class CreateGuardrailVersionCommand extends $Command
   .f(CreateGuardrailVersionRequestFilterSensitiveLog, void 0)
   .ser(se_CreateGuardrailVersionCommand)
   .de(de_CreateGuardrailVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGuardrailVersionRequest;
+      output: CreateGuardrailVersionResponse;
+    };
+    sdk: {
+      input: CreateGuardrailVersionCommandInput;
+      output: CreateGuardrailVersionCommandOutput;
+    };
+  };
+}

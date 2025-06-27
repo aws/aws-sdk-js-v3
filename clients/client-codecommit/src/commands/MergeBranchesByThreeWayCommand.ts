@@ -12,7 +12,8 @@ import { de_MergeBranchesByThreeWayCommand, se_MergeBranchesByThreeWayCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -215,6 +216,7 @@ export interface MergeBranchesByThreeWayCommandOutput extends MergeBranchesByThr
  * @throws {@link CodeCommitServiceException}
  * <p>Base exception class for all service exceptions from CodeCommit service.</p>
  *
+ *
  * @public
  */
 export class MergeBranchesByThreeWayCommand extends $Command
@@ -225,9 +227,7 @@ export class MergeBranchesByThreeWayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeCommitClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -239,4 +239,16 @@ export class MergeBranchesByThreeWayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MergeBranchesByThreeWayCommand)
   .de(de_MergeBranchesByThreeWayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MergeBranchesByThreeWayInput;
+      output: MergeBranchesByThreeWayOutput;
+    };
+    sdk: {
+      input: MergeBranchesByThreeWayCommandInput;
+      output: MergeBranchesByThreeWayCommandOutput;
+    };
+  };
+}

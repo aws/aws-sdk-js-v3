@@ -6,17 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import {
-  StartTaskContactRequest,
-  StartTaskContactRequestFilterSensitiveLog,
-  StartTaskContactResponse,
-} from "../models/models_2";
+import { StartTaskContactResponse } from "../models/models_2";
+import { StartTaskContactRequest, StartTaskContactRequestFilterSensitiveLog } from "../models/models_3";
 import { de_StartTaskContactCommand, se_StartTaskContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,8 +96,11 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *   Name: "STRING_VALUE", // required
  *   References: { // ContactReferences
  *     "<keys>": { // Reference
- *       Value: "STRING_VALUE", // required
- *       Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *       Value: "STRING_VALUE",
+ *       Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *       Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *       Arn: "STRING_VALUE",
+ *       StatusReason: "STRING_VALUE",
  *     },
  *   },
  *   Description: "STRING_VALUE",
@@ -108,6 +109,21 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  *   TaskTemplateId: "STRING_VALUE",
  *   QuickConnectId: "STRING_VALUE",
  *   RelatedContactId: "STRING_VALUE",
+ *   SegmentAttributes: { // SegmentAttributes
+ *     "<keys>": { // SegmentAttributeValue
+ *       ValueString: "STRING_VALUE",
+ *       ValueMap: { // SegmentAttributeValueMap
+ *         "<keys>": {
+ *           ValueString: "STRING_VALUE",
+ *           ValueMap: {
+ *             "<keys>": "<SegmentAttributeValue>",
+ *           },
+ *           ValueInteger: Number("int"),
+ *         },
+ *       },
+ *       ValueInteger: Number("int"),
+ *     },
+ *   },
  * };
  * const command = new StartTaskContactCommand(input);
  * const response = await client.send(command);
@@ -144,6 +160,7 @@ export interface StartTaskContactCommandOutput extends StartTaskContactResponse,
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartTaskContactCommand extends $Command
@@ -154,9 +171,7 @@ export class StartTaskContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +183,16 @@ export class StartTaskContactCommand extends $Command
   .f(StartTaskContactRequestFilterSensitiveLog, void 0)
   .ser(se_StartTaskContactCommand)
   .de(de_StartTaskContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartTaskContactRequest;
+      output: StartTaskContactResponse;
+    };
+    sdk: {
+      input: StartTaskContactCommandInput;
+      output: StartTaskContactCommandOutput;
+    };
+  };
+}

@@ -3,6 +3,927 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
+
+
+### Features
+
+* **client-eks:** Release for EKS Pod Identity Cross Account feature and disableSessionTags flag. ([52a85ab](https://github.com/aws/aws-sdk-js-v3/commit/52a85abb40d6b9207c3caa6806a9b23bcdd54713))
+
+
+
+
+
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.822.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.821.0...v3.822.0) (2025-06-02)
+
+
+### Features
+
+* **client-eks:** Add support for filtering ListInsights API calls on MISCONFIGURATION insight category ([88f2623](https://github.com/aws/aws-sdk-js-v3/commit/88f2623229bdb917e3b12d7b40440b134f4da1ba))
+
+
+
+
+
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.790.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.789.0...v3.790.0) (2025-04-16)
+
+
+### Features
+
+* **client-eks:** Added support for new AL2023 ARM64 NVIDIA AMIs to the supported AMITypes. ([99e54ec](https://github.com/aws/aws-sdk-js-v3/commit/99e54ecea756f6bdef797d20d5b4876026f4a57e))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.779.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.778.0...v3.779.0) (2025-03-31)
+
+
+### Features
+
+* **client-eks:** Add support for updating RemoteNetworkConfig for hybrid nodes on EKS UpdateClusterConfig API ([fc7f772](https://github.com/aws/aws-sdk-js-v3/commit/fc7f772eb8ffe3fc7bf0c99e2ce19ac5f17c8286))
+
+
+
+
+
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+
+### Features
+
+* **client-eks:** Added support for BOTTLEROCKET FIPS AMIs to AMI types in US regions. ([09d8cf0](https://github.com/aws/aws-sdk-js-v3/commit/09d8cf0d84b109d9a98c5631b1cb773dae1886b0))
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+
+### Features
+
+* **client-eks:** Added support to override upgrade-blocking readiness checks via force flag when updating a cluster. ([55f5a70](https://github.com/aws/aws-sdk-js-v3/commit/55f5a70c6fb2656f36c15ea02a8f6c483a20650d))
+
+
+
+
+
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.759.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.758.0...v3.759.0) (2025-02-28)
+
+
+### Features
+
+* **client-eks:** Adding licenses to EKS Anywhere Subscription operations response. ([a76ce64](https://github.com/aws/aws-sdk-js-v3/commit/a76ce64c878a5bdb6e9b7d8c1c95c47906016b45))
+
+
+
+
+
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+
+### Features
+
+* **client-eks:** Introduce versionStatus field to take place of status field in EKS DescribeClusterVersions API ([5b42130](https://github.com/aws/aws-sdk-js-v3/commit/5b4213062077016d650cf5be0ae63e2bb1880f6d))
+
+
+
+
+
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.735.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.734.0...v3.735.0) (2025-01-24)
+
+
+### Features
+
+* **client-eks:** Adds support for UpdateStrategies in EKS Managed Node Groups. ([a6183ad](https://github.com/aws/aws-sdk-js-v3/commit/a6183ad3d710f3cb77d1a6a188be3c794e668d2a))
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.730.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.729.0...v3.730.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **nested-clients:** create nested clients for internal use ([#6791](https://github.com/aws/aws-sdk-js-v3/issues/6791)) ([5c53685](https://github.com/aws/aws-sdk-js-v3/commit/5c5368554d13a3b798a72c53e30cd3d897621135))
+
+
+
+
+
+## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.718.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.717.0...v3.718.0) (2024-12-23)
+
+
+### Features
+
+* **client-eks:** This release adds support for DescribeClusterVersions API that provides important information about Kubernetes versions along with end of support dates ([81d94a2](https://github.com/aws/aws-sdk-js-v3/commit/81d94a2b5ced1bdac4ab101b40f5f380f8de384f))
+
+
+
+
+
+# [3.717.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.716.0...v3.717.0) (2024-12-20)
+
+
+### Features
+
+* **client-eks:** This release expands the catalog of upgrade insight checks ([a4d9117](https://github.com/aws/aws-sdk-js-v3/commit/a4d9117e59a6868ae01f4caa1247076103f526a7))
+
+
+
+
+
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+
+### Features
+
+* **clients:** profile setting for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/issues/6728)) ([afd9eea](https://github.com/aws/aws-sdk-js-v3/commit/afd9eea89fd0d63a377123f1ca999daeefd904a7))
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+
+### Features
+
+* **client-eks:** Add NodeRepairConfig in CreateNodegroupRequest and UpdateNodegroupConfigRequest ([ce39697](https://github.com/aws/aws-sdk-js-v3/commit/ce39697db7d1c6fe63b9e987cdb048c989c8d2ab))
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.703.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.702.0...v3.703.0) (2024-12-02)
+
+
+### Features
+
+* **client-eks:** Added support for Auto Mode Clusters, Hybrid Nodes, and specifying computeTypes in the DescribeAddonVersions API. ([41cd745](https://github.com/aws/aws-sdk-js-v3/commit/41cd7451e7fd0a0b669828d6b57a5fa9ab7f11e5))
+
+
+
+
+
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.688.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.687.0...v3.688.0) (2024-11-08)
+
+
+### Features
+
+* **client-eks:** Adds new error code `Ec2InstanceTypeDoesNotExist` for Amazon EKS managed node groups ([84db913](https://github.com/aws/aws-sdk-js-v3/commit/84db913d62a462614e4f895351746c166bd31962))
+
+
+
+
+
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.676.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.675.0...v3.676.0) (2024-10-21)
+
+
+### Features
+
+* **client-eks:** This release adds support for Amazon Application Recovery Controller (ARC) zonal shift and zonal autoshift with EKS that enhances the resiliency of multi-AZ cluster environments ([c046f87](https://github.com/aws/aws-sdk-js-v3/commit/c046f870fb76cf7e1d7752fb4ed2ce08d0c14318))
+
+
+
+
+
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.674.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.673.0...v3.674.0) (2024-10-17)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Features
+
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* **clients:** allow empty string field values for headers ([#6511](https://github.com/aws/aws-sdk-js-v3/issues/6511)) ([1273ff3](https://github.com/aws/aws-sdk-js-v3/commit/1273ff317071749cfeb88caad9df7492256c03e2))
+
+
+
+
+
+# [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+# [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
+
+
+### Features
+
+* **codegen:** add Smithy RPCv2 CBOR to list of protocols ([#6096](https://github.com/aws/aws-sdk-js-v3/issues/6096)) ([5154d4f](https://github.com/aws/aws-sdk-js-v3/commit/5154d4f19bc77a7bad075b35ce135d3b5f60ad1d))
+
+
+
+
+
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+
+### Features
+
+* **client-eks:** Added support for new AL2023 GPU AMIs to the supported AMITypes. ([54703e4](https://github.com/aws/aws-sdk-js-v3/commit/54703e4732426233b7af0340d1778d45b11e1083))
+
+
+
+
+
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+
+### Features
+
+* **client-eks:** This release adds support for EKS cluster to manage extended support. ([45cb022](https://github.com/aws/aws-sdk-js-v3/commit/45cb022d03089680b92e963944ec28e24766ff5d))
+
+
+
+
+
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.608.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.607.0...v3.608.0) (2024-07-01)
+
+
+### Features
+
+* **client-eks:** Updates EKS managed node groups to support EC2 Capacity Blocks for ML ([3293ed2](https://github.com/aws/aws-sdk-js-v3/commit/3293ed22437af3fdb96fef7e9c333c58ea256071))
+
+
+
+
+
+# [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.605.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.604.0...v3.605.0) (2024-06-26)
+
+
+### Features
+
+* **client-eks:** Added support for disabling unmanaged addons during cluster creation. ([cdf4fe6](https://github.com/aws/aws-sdk-js-v3/commit/cdf4fe62048ff8cf926def590432f61bcea565c5))
+
+
+
+
+
+# [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
+
+
+### Features
+
+* **client-eks:** This release adds support to surface async fargate customer errors from async path to customer through describe-fargate-profile API response. ([34e2d61](https://github.com/aws/aws-sdk-js-v3/commit/34e2d616261849ca046a0680873066671bce033c))
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-eks
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

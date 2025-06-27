@@ -12,7 +12,8 @@ import { de_UnarchiveWaveCommand, se_UnarchiveWaveCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface UnarchiveWaveCommandOutput extends Wave, __MetadataBearer {}
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class UnarchiveWaveCommand extends $Command
@@ -90,9 +92,7 @@ export class UnarchiveWaveCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class UnarchiveWaveCommand extends $Command
   .f(void 0, WaveFilterSensitiveLog)
   .ser(se_UnarchiveWaveCommand)
   .de(de_UnarchiveWaveCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnarchiveWaveRequest;
+      output: Wave;
+    };
+    sdk: {
+      input: UnarchiveWaveCommandInput;
+      output: UnarchiveWaveCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeClientVpnEndpointsRequest, DescribeClientVpnEndpointsResult } from "../models/models_3";
+import { DescribeClientVpnEndpointsRequest, DescribeClientVpnEndpointsResult } from "../models/models_4";
 import { de_DescribeClientVpnEndpointsCommand, se_DescribeClientVpnEndpointsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,6 +124,10 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * //         Enabled: true || false,
  * //         BannerText: "STRING_VALUE",
  * //       },
+ * //       ClientRouteEnforcementOptions: { // ClientRouteEnforcementResponseOptions
+ * //         Enforced: true || false,
+ * //       },
+ * //       DisconnectOnSessionTimeout: true || false,
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -139,6 +144,7 @@ export interface DescribeClientVpnEndpointsCommandOutput extends DescribeClientV
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeClientVpnEndpointsCommand extends $Command
@@ -149,9 +155,7 @@ export class DescribeClientVpnEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +167,16 @@ export class DescribeClientVpnEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClientVpnEndpointsCommand)
   .de(de_DescribeClientVpnEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClientVpnEndpointsRequest;
+      output: DescribeClientVpnEndpointsResult;
+    };
+    sdk: {
+      input: DescribeClientVpnEndpointsCommandInput;
+      output: DescribeClientVpnEndpointsCommandOutput;
+    };
+  };
+}

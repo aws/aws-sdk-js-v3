@@ -12,7 +12,8 @@ import { de_BatchGetFleetsCommand, se_BatchGetFleetsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,12 +52,19 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * //       lastModified: new Date("TIMESTAMP"),
  * //       status: { // FleetStatus
  * //         statusCode: "CREATING" || "UPDATING" || "ROTATING" || "PENDING_DELETION" || "DELETING" || "CREATE_FAILED" || "UPDATE_ROLLBACK_FAILED" || "ACTIVE",
- * //         context: "CREATE_FAILED" || "UPDATE_FAILED" || "ACTION_REQUIRED",
+ * //         context: "CREATE_FAILED" || "UPDATE_FAILED" || "ACTION_REQUIRED" || "PENDING_DELETION" || "INSUFFICIENT_CAPACITY",
  * //         message: "STRING_VALUE",
  * //       },
  * //       baseCapacity: Number("int"),
- * //       environmentType: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER",
- * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB",
+ * //       environmentType: "WINDOWS_CONTAINER" || "LINUX_CONTAINER" || "LINUX_GPU_CONTAINER" || "ARM_CONTAINER" || "WINDOWS_SERVER_2019_CONTAINER" || "WINDOWS_SERVER_2022_CONTAINER" || "LINUX_LAMBDA_CONTAINER" || "ARM_LAMBDA_CONTAINER" || "LINUX_EC2" || "ARM_EC2" || "WINDOWS_EC2" || "MAC_ARM",
+ * //       computeType: "BUILD_GENERAL1_SMALL" || "BUILD_GENERAL1_MEDIUM" || "BUILD_GENERAL1_LARGE" || "BUILD_GENERAL1_XLARGE" || "BUILD_GENERAL1_2XLARGE" || "BUILD_LAMBDA_1GB" || "BUILD_LAMBDA_2GB" || "BUILD_LAMBDA_4GB" || "BUILD_LAMBDA_8GB" || "BUILD_LAMBDA_10GB" || "ATTRIBUTE_BASED_COMPUTE" || "CUSTOM_INSTANCE_TYPE",
+ * //       computeConfiguration: { // ComputeConfiguration
+ * //         vCpu: Number("long"),
+ * //         memory: Number("long"),
+ * //         disk: Number("long"),
+ * //         machineType: "GENERAL" || "NVME",
+ * //         instanceType: "STRING_VALUE",
+ * //       },
  * //       scalingConfiguration: { // ScalingConfigurationOutput
  * //         scalingType: "TARGET_TRACKING_SCALING",
  * //         targetTrackingScalingConfigs: [ // TargetTrackingScalingConfigurations
@@ -78,6 +86,19 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       proxyConfiguration: { // ProxyConfiguration
+ * //         defaultBehavior: "ALLOW_ALL" || "DENY_ALL",
+ * //         orderedProxyRules: [ // FleetProxyRules
+ * //           { // FleetProxyRule
+ * //             type: "DOMAIN" || "IP", // required
+ * //             effect: "ALLOW" || "DENY", // required
+ * //             entities: [ // FleetProxyRuleEntities // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
+ * //       },
+ * //       imageId: "STRING_VALUE",
  * //       fleetServiceRole: "STRING_VALUE",
  * //       tags: [ // TagList
  * //         { // Tag
@@ -106,6 +127,7 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class BatchGetFleetsCommand extends $Command
@@ -116,9 +138,7 @@ export class BatchGetFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +150,16 @@ export class BatchGetFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetFleetsCommand)
   .de(de_BatchGetFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetFleetsInput;
+      output: BatchGetFleetsOutput;
+    };
+    sdk: {
+      input: BatchGetFleetsCommandInput;
+      output: BatchGetFleetsCommandOutput;
+    };
+  };
+}

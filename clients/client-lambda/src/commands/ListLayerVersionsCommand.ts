@@ -12,7 +12,8 @@ import { de_ListLayerVersionsCommand, se_ListLayerVersionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,7 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  * // const { LambdaClient, ListLayerVersionsCommand } = require("@aws-sdk/client-lambda"); // CommonJS import
  * const client = new LambdaClient(config);
  * const input = { // ListLayerVersionsRequest
- *   CompatibleRuntime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ *   CompatibleRuntime: "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  *   LayerName: "STRING_VALUE", // required
  *   Marker: "STRING_VALUE",
  *   MaxItems: Number("int"),
@@ -55,7 +56,7 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  * //       Description: "STRING_VALUE",
  * //       CreatedDate: "STRING_VALUE",
  * //       CompatibleRuntimes: [ // CompatibleRuntimes
- * //         "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21",
+ * //         "nodejs" || "nodejs4.3" || "nodejs6.10" || "nodejs8.10" || "nodejs10.x" || "nodejs12.x" || "nodejs14.x" || "nodejs16.x" || "java8" || "java8.al2" || "java11" || "python2.7" || "python3.6" || "python3.7" || "python3.8" || "python3.9" || "dotnetcore1.0" || "dotnetcore2.0" || "dotnetcore2.1" || "dotnetcore3.1" || "dotnet6" || "dotnet8" || "nodejs4.3-edge" || "go1.x" || "ruby2.5" || "ruby2.7" || "provided" || "provided.al2" || "nodejs18.x" || "python3.10" || "java17" || "ruby3.2" || "ruby3.3" || "ruby3.4" || "python3.11" || "nodejs20.x" || "provided.al2023" || "python3.12" || "java21" || "python3.13" || "nodejs22.x",
  * //       ],
  * //       LicenseInfo: "STRING_VALUE",
  * //       CompatibleArchitectures: [ // CompatibleArchitectures
@@ -88,6 +89,41 @@ export interface ListLayerVersionsCommandOutput extends ListLayerVersionsRespons
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To list versions of a layer
+ * ```javascript
+ * // The following example displays information about the versions for the layer named blank-java-lib
+ * const input = {
+ *   LayerName: "blank-java-lib"
+ * };
+ * const command = new ListLayerVersionsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   LayerVersions: [
+ *     {
+ *       CompatibleRuntimes: [
+ *         "java8"
+ *       ],
+ *       CreatedDate: "2020-03-18T23:38:42.284+0000",
+ *       Description: "Dependencies for the blank-java sample app.",
+ *       LayerVersionArn: "arn:aws:lambda:us-east-2:123456789012:layer:blank-java-lib:7",
+ *       Version: 7
+ *     },
+ *     {
+ *       CompatibleRuntimes: [
+ *         "java8"
+ *       ],
+ *       CreatedDate: "2020-03-17T07:24:21.960+0000",
+ *       Description: "Dependencies for the blank-java sample app.",
+ *       LayerVersionArn: "arn:aws:lambda:us-east-2:123456789012:layer:blank-java-lib:6",
+ *       Version: 6
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListLayerVersionsCommand extends $Command
@@ -98,9 +134,7 @@ export class ListLayerVersionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +146,16 @@ export class ListLayerVersionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLayerVersionsCommand)
   .de(de_ListLayerVersionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLayerVersionsRequest;
+      output: ListLayerVersionsResponse;
+    };
+    sdk: {
+      input: ListLayerVersionsCommandInput;
+      output: ListLayerVersionsCommandOutput;
+    };
+  };
+}

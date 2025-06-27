@@ -16,7 +16,8 @@ import { de_ListDistributionsByWebACLIdCommand, se_ListDistributionsByWebACLIdCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //       { // DistributionSummary
  * //         Id: "STRING_VALUE", // required
  * //         ARN: "STRING_VALUE", // required
+ * //         ETag: "STRING_VALUE",
  * //         Status: "STRING_VALUE", // required
  * //         LastModifiedTime: new Date("TIMESTAMP"), // required
  * //         DomainName: "STRING_VALUE", // required
@@ -97,6 +99,11 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //                 OriginReadTimeout: Number("int"),
  * //                 OriginKeepaliveTimeout: Number("int"),
  * //               },
+ * //               VpcOriginConfig: { // VpcOriginConfig
+ * //                 VpcOriginId: "STRING_VALUE", // required
+ * //                 OriginReadTimeout: Number("int"),
+ * //                 OriginKeepaliveTimeout: Number("int"),
+ * //               },
  * //               ConnectionAttempts: Number("int"),
  * //               ConnectionTimeout: Number("int"),
  * //               OriginShield: { // OriginShield
@@ -128,6 +135,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //                   },
  * //                 ],
  * //               },
+ * //               SelectionCriteria: "default" || "media-quality-based",
  * //             },
  * //           ],
  * //         },
@@ -186,6 +194,9 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //           CachePolicyId: "STRING_VALUE",
  * //           OriginRequestPolicyId: "STRING_VALUE",
  * //           ResponseHeadersPolicyId: "STRING_VALUE",
+ * //           GrpcConfig: { // GrpcConfig
+ * //             Enabled: true || false, // required
+ * //           },
  * //           ForwardedValues: { // ForwardedValues
  * //             QueryString: true || false, // required
  * //             Cookies: { // CookiePreference
@@ -269,6 +280,9 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //               CachePolicyId: "STRING_VALUE",
  * //               OriginRequestPolicyId: "STRING_VALUE",
  * //               ResponseHeadersPolicyId: "STRING_VALUE",
+ * //               GrpcConfig: {
+ * //                 Enabled: true || false, // required
+ * //               },
  * //               ForwardedValues: {
  * //                 QueryString: true || false, // required
  * //                 Cookies: {
@@ -311,7 +325,7 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //           ],
  * //         },
  * //         Comment: "STRING_VALUE", // required
- * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All", // required
+ * //         PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None", // required
  * //         Enabled: true || false, // required
  * //         ViewerCertificate: { // ViewerCertificate
  * //           CloudFrontDefaultCertificate: true || false,
@@ -341,6 +355,8 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  * //           },
  * //         ],
  * //         Staging: true || false, // required
+ * //         ConnectionMode: "direct" || "tenant-only",
+ * //         AnycastIpListId: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -358,14 +374,11 @@ export interface ListDistributionsByWebACLIdCommandOutput extends ListDistributi
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link InvalidWebACLId} (client fault)
- *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest
- * 			version of WAF, use the ACL ARN, for example
- * 				<code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>.
- * 			To specify a web ACL created using WAF Classic, use the ACL ID, for example
- * 				<code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
+ *  <p>A web ACL ID specified is not valid. To specify a web ACL created using the latest version of WAF, use the ACL ARN, for example <code>arn:aws:wafv2:us-east-1:123456789012:global/webacl/ExampleWebACL/473e64fd-f30b-4765-81a0-62ad96dd167a</code>. To specify a web ACL created using WAF Classic, use the ACL ID, for example <code>473e64fd-f30b-4765-81a0-62ad96dd167a</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -377,9 +390,7 @@ export class ListDistributionsByWebACLIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -391,4 +402,16 @@ export class ListDistributionsByWebACLIdCommand extends $Command
   .f(void 0, ListDistributionsByWebACLIdResultFilterSensitiveLog)
   .ser(se_ListDistributionsByWebACLIdCommand)
   .de(de_ListDistributionsByWebACLIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDistributionsByWebACLIdRequest;
+      output: ListDistributionsByWebACLIdResult;
+    };
+    sdk: {
+      input: ListDistributionsByWebACLIdCommandInput;
+      output: ListDistributionsByWebACLIdCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetInsightResultsRequest, GetInsightResultsResponse } from "../models/models_2";
+import { GetInsightResultsRequest, GetInsightResultsResponse } from "../models/models_3";
 import { de_GetInsightResultsCommand, se_GetInsightResultsCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,36 +81,36 @@ export interface GetInsightResultsCommandOutput extends GetInsightResultsRespons
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get the results of a Security Hub insight
  * ```javascript
  * // The following example returns the results of the Security Hub insight specified by the insight ARN.
  * const input = {
- *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   InsightArn: "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * };
  * const command = new GetInsightResultsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InsightResults": {
- *     "GroupByAttribute": "ResourceId",
- *     "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *     "ResultValues": [
+ *   InsightResults: {
+ *     GroupByAttribute: "ResourceId",
+ *     InsightArn: "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *     ResultValues: [
  *       {
- *         "Count": 10,
- *         "GroupByAttributeValue": "AWS::::Account:111122223333"
+ *         Count: 10,
+ *         GroupByAttributeValue: "AWS::::Account:111122223333"
  *       },
  *       {
- *         "Count": 3,
- *         "GroupByAttributeValue": "AWS::::Account:444455556666"
+ *         Count: 3,
+ *         GroupByAttributeValue: "AWS::::Account:444455556666"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-get-the-results-of-a-security-hub-insight-1677182822019
  * ```
  *
+ * @public
  */
 export class GetInsightResultsCommand extends $Command
   .classBuilder<
@@ -119,9 +120,7 @@ export class GetInsightResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +132,16 @@ export class GetInsightResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInsightResultsCommand)
   .de(de_GetInsightResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInsightResultsRequest;
+      output: GetInsightResultsResponse;
+    };
+    sdk: {
+      input: GetInsightResultsCommandInput;
+      output: GetInsightResultsCommandOutput;
+    };
+  };
+}

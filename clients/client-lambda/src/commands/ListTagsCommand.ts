@@ -12,7 +12,8 @@ import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
- *       also view tags with <a>GetFunction</a>.</p>
+ * <p>Returns a function, event source mapping, or code signing configuration's <a href="https://docs.aws.amazon.com/lambda/latest/dg/tagging.html">tags</a>. You can
+ *       also view function tags with <a>GetFunction</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +70,25 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To retrieve the list of tags for a Lambda function
+ * ```javascript
+ * // The following example displays the tags attached to the my-function Lambda function.
+ * const input = {
+ *   Resource: "arn:aws:lambda:us-west-2:123456789012:function:my-function"
+ * };
+ * const command = new ListTagsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Tags: {
+ *     Category: "Web Tools",
+ *     Department: "Sales"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTagsCommand extends $Command
@@ -79,9 +99,7 @@ export class ListTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +111,16 @@ export class ListTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsCommand)
   .de(de_ListTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsRequest;
+      output: ListTagsResponse;
+    };
+    sdk: {
+      input: ListTagsCommandInput;
+      output: ListTagsCommandOutput;
+    };
+  };
+}

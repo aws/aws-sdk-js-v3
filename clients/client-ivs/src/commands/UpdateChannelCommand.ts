@@ -16,7 +16,8 @@ import { de_UpdateChannelCommand, se_UpdateChannelCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,12 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  *   insecureIngest: true || false,
  *   preset: "HIGHER_BANDWIDTH_DELIVERY" || "CONSTRAINED_BANDWIDTH_DELIVERY",
  *   playbackRestrictionPolicyArn: "STRING_VALUE",
+ *   multitrackInputConfiguration: { // MultitrackInputConfiguration
+ *     enabled: true || false,
+ *     policy: "ALLOW" || "REQUIRE",
+ *     maximumResolution: "SD" || "HD" || "FULL_HD",
+ *   },
+ *   containerFormat: "STRING_VALUE",
  * };
  * const command = new UpdateChannelCommand(input);
  * const response = await client.send(command);
@@ -73,6 +80,12 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       passphrase: "STRING_VALUE",
  * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //     multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //       enabled: true || false,
+ * //       policy: "ALLOW" || "REQUIRE",
+ * //       maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //     },
+ * //     containerFormat: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -102,6 +115,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class UpdateChannelCommand extends $Command
@@ -112,9 +126,7 @@ export class UpdateChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +138,16 @@ export class UpdateChannelCommand extends $Command
   .f(void 0, UpdateChannelResponseFilterSensitiveLog)
   .ser(se_UpdateChannelCommand)
   .de(de_UpdateChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChannelRequest;
+      output: UpdateChannelResponse;
+    };
+    sdk: {
+      input: UpdateChannelCommandInput;
+      output: UpdateChannelCommandOutput;
+    };
+  };
+}

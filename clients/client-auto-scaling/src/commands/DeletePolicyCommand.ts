@@ -12,7 +12,8 @@ import { de_DeletePolicyCommand, se_DeletePolicyCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  *          <p>Deleting either a step scaling policy or a simple scaling policy deletes the
  *             underlying alarm action, but does not delete the alarm, even if it no longer has an
  *             associated action.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Deleting a scaling
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/deleting-scaling-policy.html">Delete a scaling
  *                 policy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -65,19 +66,22 @@ export interface DeletePolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete an Auto Scaling policy
  * ```javascript
  * // This example deletes the specified Auto Scaling policy.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "PolicyName": "my-step-scale-out-policy"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   PolicyName: "my-step-scale-out-policy"
  * };
  * const command = new DeletePolicyCommand(input);
- * await client.send(command);
- * // example id: autoscaling-delete-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeletePolicyCommand extends $Command
   .classBuilder<
@@ -87,9 +91,7 @@ export class DeletePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +103,16 @@ export class DeletePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePolicyCommand)
   .de(de_DeletePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePolicyType;
+      output: {};
+    };
+    sdk: {
+      input: DeletePolicyCommandInput;
+      output: DeletePolicyCommandOutput;
+    };
+  };
+}

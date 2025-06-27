@@ -12,7 +12,8 @@ import { de_BatchGetFindingDetailsCommand, se_BatchGetFindingDetailsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,8 @@ export interface BatchGetFindingDetailsCommandOutput extends BatchGetFindingDeta
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -110,6 +113,67 @@ export interface BatchGetFindingDetailsCommandOutput extends BatchGetFindingDeta
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample BatchGetFindingDetails Call
+ * ```javascript
+ * //
+ * const input = {
+ *   findingArns: [
+ *     "arn:aws:inspector2:eu-west-1:123456789012:finding/78b88cc9aa1d78b6e14fde90d774dde7",
+ *     "arn:aws:inspector2:eu-west-1:111111111111:finding/78b88cc9aa1d78b6e14fde90d874dde7"
+ *   ]
+ * };
+ * const command = new BatchGetFindingDetailsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   errors: [
+ *     {
+ *       errorCode: "ACCESS_DENIED",
+ *       errorMessage: "You don't have permission to access this finding",
+ *       findingArn: "arn:aws:inspector2:eu-west-1:111111111111:finding/78b88cc9aa1d78b6e14fde90d874dde7"
+ *     }
+ *   ],
+ *   findingDetails: [
+ *     {
+ *       cisaData: {
+ *         action: "For all affected software assets for which updates exist, the only acceptable remediation actions are: 1) Apply updates; OR 2) remove affected assets from agency networks.",
+ *         dateAdded: 1688580990,
+ *         dateDue: 1688580999
+ *       },
+ *       cwes: [
+ *         "cwe-1234"
+ *       ],
+ *       epssScore: 0.85,
+ *       evidences: [
+ *         {
+ *           evidenceDetail: "2 sightings on 1 source",
+ *           evidenceRule: "Historically Linked to Penetration Testing Tools",
+ *           severity: "Low"
+ *         }
+ *       ],
+ *       exploitObserved: {
+ *         firstSeen: 1688580800,
+ *         lastSeen: 1688580990
+ *       },
+ *       findingArn: "arn:aws:inspector2:eu-west-1:123456789012:finding/78b88cc9aa1d78b6e14fde90d774dde7",
+ *       referenceUrls: [
+ *         "https://nvd.nist.gov/vuln/detail/CVE-2019-20367"
+ *       ],
+ *       riskScore: 66,
+ *       tools: [
+ *         "Metasploit"
+ *       ],
+ *       ttps: [
+ *         "TA0001",
+ *         "TA0002"
+ *       ]
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class BatchGetFindingDetailsCommand extends $Command
@@ -120,9 +184,7 @@ export class BatchGetFindingDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +196,16 @@ export class BatchGetFindingDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetFindingDetailsCommand)
   .de(de_BatchGetFindingDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetFindingDetailsRequest;
+      output: BatchGetFindingDetailsResponse;
+    };
+    sdk: {
+      input: BatchGetFindingDetailsCommandInput;
+      output: BatchGetFindingDetailsCommandOutput;
+    };
+  };
+}

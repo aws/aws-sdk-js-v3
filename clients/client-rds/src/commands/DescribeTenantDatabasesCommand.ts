@@ -16,7 +16,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,11 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * //         MasterUserPassword: "STRING_VALUE",
  * //         TenantDBName: "STRING_VALUE",
  * //       },
+ * //       MasterUserSecret: { // MasterUserSecret
+ * //         SecretArn: "STRING_VALUE",
+ * //         SecretStatus: "STRING_VALUE",
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
  * //       TagList: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",
@@ -99,6 +105,7 @@ export interface DescribeTenantDatabasesCommandOutput extends TenantDatabasesMes
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DescribeTenantDatabasesCommand extends $Command
@@ -109,9 +116,7 @@ export class DescribeTenantDatabasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +128,16 @@ export class DescribeTenantDatabasesCommand extends $Command
   .f(void 0, TenantDatabasesMessageFilterSensitiveLog)
   .ser(se_DescribeTenantDatabasesCommand)
   .de(de_DescribeTenantDatabasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTenantDatabasesMessage;
+      output: TenantDatabasesMessage;
+    };
+    sdk: {
+      input: DescribeTenantDatabasesCommandInput;
+      output: DescribeTenantDatabasesCommandOutput;
+    };
+  };
+}

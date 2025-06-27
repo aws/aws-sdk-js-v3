@@ -12,7 +12,8 @@ import { de_GetDimensionValuesCommand, se_GetDimensionValuesCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,6 +117,7 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   ],
+ *   BillingViewArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextPageToken: "STRING_VALUE",
  * };
@@ -159,8 +161,12 @@ export interface GetDimensionValuesCommandOutput extends GetDimensionValuesRespo
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
+ *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
+ *
  *
  * @public
  */
@@ -172,9 +178,7 @@ export class GetDimensionValuesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +190,16 @@ export class GetDimensionValuesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDimensionValuesCommand)
   .de(de_GetDimensionValuesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDimensionValuesRequest;
+      output: GetDimensionValuesResponse;
+    };
+    sdk: {
+      input: GetDimensionValuesCommandInput;
+      output: GetDimensionValuesCommandOutput;
+    };
+  };
+}

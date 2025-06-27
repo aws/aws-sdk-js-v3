@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
 /**
  * <p>Creates a Amazon Web Services Systems Manager (SSM document). An SSM document defines the actions that Systems Manager performs
  *    on your managed nodes. For more information about SSM documents, including information about
- *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-ssm-docs.html">Amazon Web Services Systems Manager Documents</a> in the
+ *    supported schemas, features, and syntax, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents.html">Amazon Web Services Systems Manager Documents</a> in the
  *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -59,7 +60,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  *   Name: "STRING_VALUE", // required
  *   DisplayName: "STRING_VALUE",
  *   VersionName: "STRING_VALUE",
- *   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ *   DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  *   DocumentFormat: "YAML" || "JSON" || "TEXT",
  *   TargetType: "STRING_VALUE",
  *   Tags: [ // TagList
@@ -96,7 +97,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * //     PlatformTypes: [ // PlatformTypeList
  * //       "Windows" || "Linux" || "MacOS",
  * //     ],
- * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup",
+ * //     DocumentType: "Command" || "Policy" || "Automation" || "Session" || "Package" || "ApplicationConfiguration" || "ApplicationConfigurationSchema" || "DeploymentStrategy" || "ChangeCalendar" || "Automation.ChangeTemplate" || "ProblemAnalysis" || "ProblemAnalysisTemplate" || "CloudFormation" || "ConformancePackTemplate" || "QuickSetup" || "ManualApprovalPolicy" || "AutoApprovalPolicy",
  * //     SchemaVersion: "STRING_VALUE",
  * //     LatestVersion: "STRING_VALUE",
  * //     DefaultVersion: "STRING_VALUE",
@@ -170,6 +171,7 @@ export interface CreateDocumentCommandOutput extends CreateDocumentResult, __Met
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateDocumentCommand extends $Command
@@ -180,9 +182,7 @@ export class CreateDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +194,16 @@ export class CreateDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDocumentCommand)
   .de(de_CreateDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDocumentRequest;
+      output: CreateDocumentResult;
+    };
+    sdk: {
+      input: CreateDocumentCommandInput;
+      output: CreateDocumentCommandOutput;
+    };
+  };
+}

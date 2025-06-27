@@ -12,7 +12,8 @@ import { de_ResetLandingZoneCommand, se_ResetLandingZoneCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ResetLandingZoneCommandInput extends ResetLandingZoneInput {}
 export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the
- *          landing zone to the parameters specified in its original configuration.</p>
+ * <p>This API call resets a landing zone. It starts an asynchronous operation that resets the landing zone to the parameters specified in the original configuration, which you specified in the manifest file. Nothing in the manifest file's original landing zone configuration is changed during the reset process, by default. This API is not the same as a rollback of a landing zone version, which is not a supported operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +73,7 @@ export interface ResetLandingZoneCommandOutput extends ResetLandingZoneOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ResetLandingZoneCommand extends $Command
@@ -83,9 +84,7 @@ export class ResetLandingZoneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class ResetLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetLandingZoneCommand)
   .de(de_ResetLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetLandingZoneInput;
+      output: ResetLandingZoneOutput;
+    };
+    sdk: {
+      input: ResetLandingZoneCommandInput;
+      output: ResetLandingZoneCommandOutput;
+    };
+  };
+}

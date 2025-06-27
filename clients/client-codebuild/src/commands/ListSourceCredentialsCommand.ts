@@ -12,7 +12,8 @@ import { de_ListSourceCredentialsCommand, se_ListSourceCredentialsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * //     { // SourceCredentialsInfo
  * //       arn: "STRING_VALUE",
  * //       serverType: "GITHUB" || "BITBUCKET" || "GITHUB_ENTERPRISE" || "GITLAB" || "GITLAB_SELF_MANAGED",
- * //       authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS",
+ * //       authType: "OAUTH" || "BASIC_AUTH" || "PERSONAL_ACCESS_TOKEN" || "CODECONNECTIONS" || "SECRETS_MANAGER",
  * //       resource: "STRING_VALUE",
  * //     },
  * //   ],
@@ -62,6 +63,7 @@ export interface ListSourceCredentialsCommandOutput extends ListSourceCredential
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListSourceCredentialsCommand extends $Command
@@ -72,9 +74,7 @@ export class ListSourceCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +86,16 @@ export class ListSourceCredentialsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSourceCredentialsCommand)
   .de(de_ListSourceCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListSourceCredentialsOutput;
+    };
+    sdk: {
+      input: ListSourceCredentialsCommandInput;
+      output: ListSourceCredentialsCommandOutput;
+    };
+  };
+}

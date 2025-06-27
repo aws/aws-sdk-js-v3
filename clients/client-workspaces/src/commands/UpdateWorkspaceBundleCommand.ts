@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult } from "../models/models_0";
+import { UpdateWorkspaceBundleRequest, UpdateWorkspaceBundleResult } from "../models/models_1";
 import { de_UpdateWorkspaceBundleCommand, se_UpdateWorkspaceBundleCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateWorkspaceBundleCommandOutput extends UpdateWorkspaceBundl
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkspaceBundleCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateWorkspaceBundleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateWorkspaceBundleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkspaceBundleCommand)
   .de(de_UpdateWorkspaceBundleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkspaceBundleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateWorkspaceBundleCommandInput;
+      output: UpdateWorkspaceBundleCommandOutput;
+    };
+  };
+}

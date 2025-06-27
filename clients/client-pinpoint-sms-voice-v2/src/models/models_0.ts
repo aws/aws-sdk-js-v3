@@ -19,19 +19,18 @@ export type AccessDeniedExceptionReason =
   (typeof AccessDeniedExceptionReason)[keyof typeof AccessDeniedExceptionReason];
 
 /**
- * <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ * <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  * @public
  */
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: AccessDeniedExceptionReason;
+  Reason?: AccessDeniedExceptionReason | undefined;
   /**
    * @internal
    */
@@ -128,35 +127,28 @@ export interface AccountLimit {
  */
 export interface AssociateOriginationIdentityRequest {
   /**
-   * <p>The pool to update with the new Identity. This value can be either the PoolId or
-   *             PoolArn, and you can find these values using <a>DescribePools</a>.</p>
+   * <p>The pool to update with the new Identity. This value can be either the PoolId or PoolArn, and you can find these values using <a>DescribePools</a>.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or
-   *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for
-   *             PhoneNumberId and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used
-   *             to get the values for SenderId and SenderIdArn.</p>
+   * <p>The origination identity to use, such as PhoneNumberId, PhoneNumberArn, SenderId, or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn, while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of
-   *             the origination identity.</p>
+   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the origination identity.</p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -164,36 +156,34 @@ export interface AssociateOriginationIdentityRequest {
  */
 export interface AssociateOriginationIdentityResult {
   /**
-   * <p>The Amazon Resource Name (ARN) of the pool that is now associated with the origination
-   *             identity.</p>
+   * <p>The Amazon Resource Name (ARN) of the pool that is now associated with the origination identity.</p>
    * @public
    */
-  PoolArn?: string;
+  PoolArn?: string | undefined;
 
   /**
    * <p>The PoolId of the pool that is now associated with the origination identity.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
    * <p>The PhoneNumberArn or SenderIdArn of the origination identity.</p>
    * @public
    */
-  OriginationIdentityArn?: string;
+  OriginationIdentityArn?: string | undefined;
 
   /**
    * <p>The PhoneNumberId or SenderId of the origination identity.</p>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 }
 
 /**
@@ -204,6 +194,8 @@ export const ConflictExceptionReason = {
   CREATE_REGISTRATION_VERSION_NOT_ALLOWED: "CREATE_REGISTRATION_VERSION_NOT_ALLOWED",
   DELETION_PROTECTION_ENABLED: "DELETION_PROTECTION_ENABLED",
   DESTINATION_COUNTRY_BLOCKED_BY_PROTECT_CONFIGURATION: "DESTINATION_COUNTRY_BLOCKED_BY_PROTECT_CONFIGURATION",
+  DESTINATION_PHONE_NUMBER_BLOCKED_BY_PROTECT_NUMBER_OVERRIDE:
+    "DESTINATION_PHONE_NUMBER_BLOCKED_BY_PROTECT_NUMBER_OVERRIDE",
   DESTINATION_PHONE_NUMBER_NOT_VERIFIED: "DESTINATION_PHONE_NUMBER_NOT_VERIFIED",
   DESTINATION_PHONE_NUMBER_OPTED_OUT: "DESTINATION_PHONE_NUMBER_OPTED_OUT",
   DISASSOCIATE_REGISTRATION_NOT_ALLOWED: "DISASSOCIATE_REGISTRATION_NOT_ALLOWED",
@@ -253,9 +245,11 @@ export const ResourceType = {
   CONFIGURATION_SET: "configuration-set",
   EVENT_DESTINATION: "event-destination",
   KEYWORD: "keyword",
+  MESSAGE: "message",
   OPTED_OUT_NUMBER: "opted-out-number",
   OPT_OUT_LIST: "opt-out-list",
   PHONE_NUMBER: "phone-number",
+  POLICY: "policy",
   POOL: "pool",
   PROTECT_CONFIGURATION: "protect-configuration",
   REGISTRATION: "registration",
@@ -270,33 +264,30 @@ export const ResourceType = {
 export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 
 /**
- * <p>Your request has conflicting operations. This can occur if you're trying to perform
- *             more than one operation on the same resource at the same time or it could be that the
- *             requested action isn't valid for the current state or configuration of the
- *             resource.</p>
+ * <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time or it could be that the requested action isn't valid for the current state or configuration of the resource.</p>
  * @public
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: ConflictExceptionReason;
+  Reason?: ConflictExceptionReason | undefined;
 
   /**
    * <p>The type of resource that caused the exception.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
 
   /**
    * <p>The unique identifier of the request.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
   /**
    * @internal
    */
@@ -315,20 +306,19 @@ export class ConflictException extends __BaseException {
 }
 
 /**
- * <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ * <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  * @public
  */
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
   $retryable = {};
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The unique identifier of the request.</p>
    * @public
    */
-  RequestId?: string;
+  RequestId?: string | undefined;
   /**
    * @internal
    */
@@ -351,18 +341,18 @@ export class InternalServerException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource that caused the exception.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
 
   /**
    * <p>The unique identifier of the resource.</p>
    * @public
    */
-  ResourceId?: string;
+  ResourceId?: string | undefined;
   /**
    * @internal
    */
@@ -422,12 +412,12 @@ export type ServiceQuotaExceededExceptionReason =
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: ServiceQuotaExceededExceptionReason;
+  Reason?: ServiceQuotaExceededExceptionReason | undefined;
   /**
    * @internal
    */
@@ -444,8 +434,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 }
 
 /**
- * <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ * <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  * @public
  */
 export class ThrottlingException extends __BaseException {
@@ -454,7 +443,7 @@ export class ThrottlingException extends __BaseException {
   $retryable = {
     throttling: true,
   };
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -481,8 +470,7 @@ export interface ValidationExceptionField {
   Name: string | undefined;
 
   /**
-   * <p>The message associated with the validation exception with information to help
-   *             determine its cause.</p>
+   * <p>The message associated with the validation exception with information to help determine its cause.</p>
    * @public
    */
   Message: string | undefined;
@@ -530,6 +518,7 @@ export const ValidationExceptionReason = {
   UNKNOWN_REGISTRATION_SECTION: "UNKNOWN_REGISTRATION_SECTION",
   UNKNOWN_REGISTRATION_TYPE: "UNKNOWN_REGISTRATION_TYPE",
   UNKNOWN_REGISTRATION_VERSION: "UNKNOWN_REGISTRATION_VERSION",
+  UNSPECIFIED_PARAMETER_NOT_SUPPORTED: "UNSPECIFIED_PARAMETER_NOT_SUPPORTED",
   VERIFICATION_CODE_MISMATCH: "VERIFICATION_CODE_MISMATCH",
   VOICE_CAPABILITY_NOT_AVAILABLE: "VOICE_CAPABILITY_NOT_AVAILABLE",
 } as const;
@@ -546,18 +535,18 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
 
   /**
    * <p>The field that failed validation.</p>
    * @public
    */
-  Fields?: ValidationExceptionField[];
+  Fields?: ValidationExceptionField[] | undefined;
   /**
    * @internal
    */
@@ -651,14 +640,12 @@ export type AttachmentUploadErrorReason =
   (typeof AttachmentUploadErrorReason)[keyof typeof AttachmentUploadErrorReason];
 
 /**
- * <p>Contains the destination configuration to use when publishing message sending events.
- *         </p>
+ * <p>Contains the destination configuration to use when publishing message sending events. </p>
  * @public
  */
 export interface CloudWatchLogsDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management role
-   *             that is able to write event data to an Amazon CloudWatch destination.</p>
+   * <p>The Amazon Resource Name (ARN) of an Identity and Access Management role that is able to write event data to an Amazon CloudWatch destination.</p>
    * @public
    */
   IamRoleArn: string | undefined;
@@ -675,6 +662,7 @@ export interface CloudWatchLogsDestination {
  * @enum
  */
 export const ConfigurationSetFilterName = {
+  DEFAULT_MESSAGE_FEEDBACK_ENABLED: "default-message-feedback-enabled",
   DEFAULT_MESSAGE_TYPE: "default-message-type",
   DEFAULT_SENDER_ID: "default-sender-id",
   EVENT_DESTINATION_NAME: "event-destination-name",
@@ -720,16 +708,12 @@ export const MessageType = {
 export type MessageType = (typeof MessageType)[keyof typeof MessageType];
 
 /**
- * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with a Kinesis Data Firehose event
- *             destination.</p>
- *          <p>Event destinations, such as Kinesis Data Firehose, are associated with configuration
- *             sets, which enable you to publish message sending events.</p>
+ * <p>Contains the delivery stream Amazon Resource Name (ARN), and the ARN of the Identity and Access Management (IAM) role associated with a Firehose event destination.</p> <p>Event destinations, such as Firehose, are associated with configuration sets, which enable you to publish message sending events.</p>
  * @public
  */
 export interface KinesisFirehoseDestination {
   /**
-   * <p>The ARN of an Identity and Access Management role that is able to write
-   *             event data to an Amazon Kinesis Data Firehose destination.</p>
+   * <p>The ARN of an Identity and Access Management role that is able to write event data to an Amazon Data Firehose destination.</p>
    * @public
    */
   IamRoleArn: string | undefined;
@@ -772,6 +756,7 @@ export const EventType = {
   TEXT_INVALID: "TEXT_INVALID",
   TEXT_INVALID_MESSAGE: "TEXT_INVALID_MESSAGE",
   TEXT_PENDING: "TEXT_PENDING",
+  TEXT_PROTECT_BLOCKED: "TEXT_PROTECT_BLOCKED",
   TEXT_QUEUED: "TEXT_QUEUED",
   TEXT_SENT: "TEXT_SENT",
   TEXT_SPAM: "TEXT_SPAM",
@@ -796,23 +781,19 @@ export const EventType = {
 export type EventType = (typeof EventType)[keyof typeof EventType];
 
 /**
- * <p>An object that defines an Amazon SNS destination for events. You can use
- *                 Amazon SNS to send notification when certain events occur.</p>
+ * <p>An object that defines an Amazon SNS destination for events. You can use Amazon SNS to send notification when certain events occur.</p>
  * @public
  */
 export interface SnsDestination {
   /**
-   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to
-   *             publish events to.</p>
+   * <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish events to.</p>
    * @public
    */
   TopicArn: string | undefined;
 }
 
 /**
- * <p>Contains information about an event destination.</p>
- *          <p>Event destinations are associated with configuration sets, which enable you to publish
- *             message sending events to CloudWatch, Kinesis Data Firehose, or Amazon SNS.</p>
+ * <p>Contains information about an event destination.</p> <p>Event destinations are associated with configuration sets, which enable you to publish message sending events to CloudWatch, Firehose, or Amazon SNS.</p>
  * @public
  */
 export interface EventDestination {
@@ -829,38 +810,32 @@ export interface EventDestination {
   Enabled: boolean | undefined;
 
   /**
-   * <p>An array of event types that determine which events to log.</p>
-   *          <note>
-   *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
-   *          </note>
+   * <p>An array of event types that determine which events to log.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>
    * @public
    */
   MatchingEventTypes: EventType[] | undefined;
 
   /**
-   * <p>An object that contains information about an event destination that sends logging
-   *             events to Amazon CloudWatch logs.</p>
+   * <p>An object that contains information about an event destination that sends logging events to Amazon CloudWatch logs.</p>
    * @public
    */
-  CloudWatchLogsDestination?: CloudWatchLogsDestination;
+  CloudWatchLogsDestination?: CloudWatchLogsDestination | undefined;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon Data Firehose.</p>
    * @public
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination | undefined;
 
   /**
-   * <p>An object that contains information about an event destination that sends logging
-   *             events to Amazon SNS.</p>
+   * <p>An object that contains information about an event destination that sends logging events to Amazon SNS.</p>
    * @public
    */
-  SnsDestination?: SnsDestination;
+  SnsDestination?: SnsDestination | undefined;
 }
 
 /**
- * <p>Information related to a given configuration set in your Amazon Web Services
- *             account.</p>
+ * <p>Information related to a given configuration set in your Amazon Web Services account.</p>
  * @public
  */
 export interface ConfigurationSetInformation {
@@ -877,25 +852,28 @@ export interface ConfigurationSetInformation {
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>An array of EventDestination objects that describe any events to log and where to log
-   *             them.</p>
+   * <p>An array of EventDestination objects that describe any events to log and where to log them.</p>
    * @public
    */
   EventDestinations: EventDestination[] | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
-  DefaultMessageType?: MessageType;
+  DefaultMessageType?: MessageType | undefined;
 
   /**
    * <p>The default sender ID used by the ConfigurationSet.</p>
    * @public
    */
-  DefaultSenderId?: string;
+  DefaultSenderId?: string | undefined;
+
+  /**
+   * <p>True if message feedback is enabled.</p>
+   * @public
+   */
+  DefaultMessageFeedbackEnabled?: boolean | undefined;
 
   /**
    * <p>The time when the ConfigurationSet was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -907,7 +885,7 @@ export interface ConfigurationSetInformation {
    * <p>The unique identifier for the protect configuration.</p>
    * @public
    */
-  ProtectConfigurationId?: string;
+  ProtectConfigurationId?: string | undefined;
 }
 
 /**
@@ -942,15 +920,13 @@ export interface CreateConfigurationSetRequest {
    * <p>An array of key and value pair tags that's associated with the new configuration set. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -961,26 +937,25 @@ export interface CreateConfigurationSetResult {
    * <p>The Amazon Resource Name (ARN) of the newly created configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the new configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>An array of key and value pair tags that's associated with the configuration
-   *             set.</p>
+   * <p>An array of key and value pair tags that's associated with the configuration set.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the configuration set was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -988,8 +963,7 @@ export interface CreateConfigurationSetResult {
  */
 export interface CreateEventDestinationRequest {
   /**
-   * <p>Either the name of the configuration set or the configuration set ARN to apply event
-   *             logging to. The ConfigurateSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
+   * <p>Either the name of the configuration set or the configuration set ARN to apply event logging to. The ConfigurateSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
@@ -1001,11 +975,7 @@ export interface CreateEventDestinationRequest {
   EventDestinationName: string | undefined;
 
   /**
-   * <p>An array of event types that determine which events to log. If "ALL" is used, then
-   *                 Amazon Pinpoint logs every event type.</p>
-   *          <note>
-   *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
-   *          </note>
+   * <p>An array of event types that determine which events to log. If "ALL" is used, then AWS End User Messaging SMS and Voice logs every event type.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>
    * @public
    */
   MatchingEventTypes: EventType[] | undefined;
@@ -1014,27 +984,25 @@ export interface CreateEventDestinationRequest {
    * <p>An object that contains information about an event destination for logging to Amazon CloudWatch Logs.</p>
    * @public
    */
-  CloudWatchLogsDestination?: CloudWatchLogsDestination;
+  CloudWatchLogsDestination?: CloudWatchLogsDestination | undefined;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Amazon Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Amazon Data Firehose.</p>
    * @public
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination | undefined;
 
   /**
    * <p>An object that contains information about an event destination for logging to Amazon SNS.</p>
    * @public
    */
-  SnsDestination?: SnsDestination;
+  SnsDestination?: SnsDestination | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1045,19 +1013,19 @@ export interface CreateEventDestinationResult {
    * <p>The ARN of the configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The details of the destination where events are logged.</p>
    * @public
    */
-  EventDestination?: EventDestination;
+  EventDestination?: EventDestination | undefined;
 }
 
 /**
@@ -1074,15 +1042,13 @@ export interface CreateOptOutListRequest {
    * <p>An array of tags (key and value pairs) to associate with the new OptOutList.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1093,25 +1059,25 @@ export interface CreateOptOutListResult {
    * <p>The Amazon Resource Name (ARN) for the OptOutList.</p>
    * @public
    */
-  OptOutListArn?: string;
+  OptOutListArn?: string | undefined;
 
   /**
    * <p>The name of the new OptOutList.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) associated with the new OptOutList.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1119,49 +1085,40 @@ export interface CreateOptOutListResult {
  */
 export interface CreatePoolRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
-   *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for
-   *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
-   *             to get the values for SenderId and SenderIdArn.</p>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <p>After the pool is created you can add more origination identities to the pool by using <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference_smsvoicev2/API_AssociateOriginationIdentity.html">AssociateOriginationIdentity</a>.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of
-   *             the new pool.</p>
+   * <p>The new two-character code, in ISO 3166-1 alpha-2 format, for the country or region of the new pool.</p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive. After the pool is created the MessageType can't be changed.</p>
    * @public
    */
   MessageType: MessageType | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the pool can't be deleted. You can
-   *             change this value using the <a>UpdatePool</a> action.</p>
+   * <p>By default this is set to false. When set to true the pool can't be deleted. You can change this value using the <a>UpdatePool</a> action.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) associated with the pool.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1187,97 +1144,79 @@ export interface CreatePoolResult {
    * <p>The Amazon Resource Name (ARN) for the pool.</p>
    * @public
    */
-  PoolArn?: string;
+  PoolArn?: string | undefined;
 
   /**
    * <p>The unique identifier for the pool.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
-   * <p>The current status of the pool.</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATING: The pool is currently being created and isn't yet available for
-   *                     use.</p>
-   *             </li>
-   *             <li>
-   *                <p>ACTIVE: The pool is active and available for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING: The pool is being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The current status of the pool.</p> <ul> <li> <p>CREATING: The pool is currently being created and isn't yet available for use.</p> </li> <li> <p>ACTIVE: The pool is active and available for use.</p> </li> <li> <p>DELETING: The pool is being deleted.</p> </li> </ul>
    * @public
    */
-  Status?: PoolStatus;
+  Status?: PoolStatus | undefined;
 
   /**
    * <p>The type of message for the pool to use.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
-   *             replies with a customizable message and adds the end recipient to the OptOutList. When
-   *             set to true you're responsible for responding to HELP and STOP requests. You're also
-   *             responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the OptOutList associated with the pool.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
-   * <p>Indicates whether shared routes are enabled for the pool.</p>
+   * <p>Indicates whether shared routes are enabled for the pool. Set to false and only origination identities in this pool are used to send messages. </p>
    * @public
    */
-  SharedRoutesEnabled?: boolean;
+  SharedRoutesEnabled?: boolean | undefined;
 
   /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false.
-   *         </p>
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) associated with the pool.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1285,25 +1224,22 @@ export interface CreatePoolResult {
  */
 export interface CreateProtectConfigurationRequest {
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *            request. If you don't specify a client token, a randomly generated token is used for the
-   *            request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false.
-   *        </p>
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>An array of key and value pair tags that are associated with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1335,8 +1271,7 @@ export interface CreateProtectConfigurationResult {
   AccountDefault: boolean | undefined;
 
   /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false.
-   *        </p>
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
@@ -1345,7 +1280,7 @@ export interface CreateProtectConfigurationResult {
    * <p>An array of key and value pair tags that are associated with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1353,8 +1288,7 @@ export interface CreateProtectConfigurationResult {
  */
 export interface CreateRegistrationRequest {
   /**
-   * <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -1363,15 +1297,13 @@ export interface CreateRegistrationRequest {
    * <p>An array of tags (key and value pairs) to associate with the registration.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1384,6 +1316,7 @@ export const RegistrationStatus = {
   CREATED: "CREATED",
   DELETED: "DELETED",
   PROVISIONING: "PROVISIONING",
+  REQUIRES_AUTHENTICATION: "REQUIRES_AUTHENTICATION",
   REQUIRES_UPDATES: "REQUIRES_UPDATES",
   REVIEWING: "REVIEWING",
   SUBMITTED: "SUBMITTED",
@@ -1411,48 +1344,13 @@ export interface CreateRegistrationResult {
   RegistrationId: string | undefined;
 
   /**
-   * <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form to create. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
 
   /**
-   * <p>The status of the registration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>: The registration has been deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration.</p> <ul> <li> <p> <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p> </li> <li> <p> <code>CREATED</code>: Your registration is created but not submitted.</p> </li> <li> <p> <code>COMPLETE</code>: Your registration has been approved and your origination identity has been created.</p> </li> <li> <p> <code>DELETED</code>: The registration has been deleted.</p> </li> <li> <p> <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p> </li> </ul>
    * @public
    */
   RegistrationStatus: RegistrationStatus | undefined;
@@ -1467,13 +1365,13 @@ export interface CreateRegistrationResult {
    * <p>Metadata about a given registration which is specific to that registration type.</p>
    * @public
    */
-  AdditionalAttributes?: Record<string, string>;
+  AdditionalAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) to associate with the registration.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the registration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -1516,8 +1414,7 @@ export interface CreateRegistrationAssociationResult {
   RegistrationId: string | undefined;
 
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -1544,13 +1441,13 @@ export interface CreateRegistrationAssociationResult {
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>The phone number associated with the registration in E.164 format.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 }
 
 /**
@@ -1558,30 +1455,28 @@ export interface CreateRegistrationAssociationResult {
  */
 export interface CreateRegistrationAttachmentRequest {
   /**
-   * <p>The registration file to upload. The maximum file size is 1MiB and valid file extensions are PDF, JPEG and PNG.</p>
+   * <p>The registration file to upload. The maximum file size is 500KB and valid file extensions are PDF, JPEG and PNG.</p>
    * @public
    */
-  AttachmentBody?: Uint8Array;
+  AttachmentBody?: Uint8Array | undefined;
 
   /**
-   * <p>A URL to the required registration file.  For example, you can provide the S3 object URL.</p>
+   * <p>Registration files have to be stored in an Amazon S3 bucket. The URI to use when sending is in the format <code>s3://BucketName/FileName</code>.</p>
    * @public
    */
-  AttachmentUrl?: string;
+  AttachmentUrl?: string | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) to associate with the registration attachment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1601,25 +1496,7 @@ export interface CreateRegistrationAttachmentResult {
   RegistrationAttachmentId: string | undefined;
 
   /**
-   * <p>The status of the registration attachment. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> The attachment has been deleted..</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration attachment. </p> <ul> <li> <p> <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p> </li> <li> <p> <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p> </li> <li> <p> <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p> </li> <li> <p> <code>DELETED</code> The attachment has been deleted..</p> </li> </ul>
    * @public
    */
   AttachmentStatus: AttachmentStatus | undefined;
@@ -1628,7 +1505,7 @@ export interface CreateRegistrationAttachmentResult {
    * <p>An array of tags (key and value pairs) to associate with the registration attachment.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the registration attachment was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -1658,6 +1535,7 @@ export const RegistrationVersionStatus = {
   DENIED: "DENIED",
   DISCARDED: "DISCARDED",
   DRAFT: "DRAFT",
+  REQUIRES_AUTHENTICATION: "REQUIRES_AUTHENTICATION",
   REVIEWING: "REVIEWING",
   REVOKED: "REVOKED",
   SUBMITTED: "SUBMITTED",
@@ -1683,43 +1561,49 @@ export interface RegistrationVersionStatusHistory {
    * <p>The time when the registration was in the submitted state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  SubmittedTimestamp?: Date;
+  SubmittedTimestamp?: Date | undefined;
 
   /**
    * <p>The time when the registration was in the reviewing state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  ReviewingTimestamp?: Date;
+  ReviewingTimestamp?: Date | undefined;
+
+  /**
+   * <p>The time when the registration was in the requires authentication state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  RequiresAuthenticationTimestamp?: Date | undefined;
 
   /**
    * <p>The time when the registration was in the approved state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  ApprovedTimestamp?: Date;
+  ApprovedTimestamp?: Date | undefined;
 
   /**
    * <p>The time when the registration was in the discarded state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  DiscardedTimestamp?: Date;
+  DiscardedTimestamp?: Date | undefined;
 
   /**
    * <p>The time when the registration was in the denied state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  DeniedTimestamp?: Date;
+  DeniedTimestamp?: Date | undefined;
 
   /**
    * <p>The time when the registration was in the revoked state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  RevokedTimestamp?: Date;
+  RevokedTimestamp?: Date | undefined;
 
   /**
    * <p>The time when the registration was in the archived state, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  ArchivedTimestamp?: Date;
+  ArchivedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1745,41 +1629,7 @@ export interface CreateRegistrationVersionResult {
   VersionNumber: number | undefined;
 
   /**
-   * <p>The status of the registration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code>: Your registration has been approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration.</p> <ul> <li> <p> <code>APPROVED</code>: Your registration has been approved.</p> </li> <li> <p> <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p> </li> <li> <p> <code>DENIED</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p> </li> <li> <p> <code>DRAFT</code>: The initial status of a registration version after it’s created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>REVOKED</code>: Your previously approved registration has been revoked.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted.</p> </li> </ul>
    * @public
    */
   RegistrationVersionStatus: RegistrationVersionStatus | undefined;
@@ -1805,15 +1655,13 @@ export interface CreateVerifiedDestinationNumberRequest {
    * <p>An array of tags (key and value pairs) to associate with the destination number.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -1853,17 +1701,7 @@ export interface CreateVerifiedDestinationNumberResult {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The status of the verified destination phone number.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The phone number hasn't been verified yet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VERIFIED</code>: The phone number is verified and can receive messages.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the verified destination phone number.</p> <ul> <li> <p> <code>PENDING</code>: The phone number hasn't been verified yet.</p> </li> <li> <p> <code>VERIFIED</code>: The phone number is verified and can receive messages.</p> </li> </ul>
    * @public
    */
   Status: VerificationStatus | undefined;
@@ -1872,7 +1710,7 @@ export interface CreateVerifiedDestinationNumberResult {
    * <p>An array of tags (key and value pairs) to associate with the destination number.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the verified phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -1908,8 +1746,7 @@ export interface DeleteAccountDefaultProtectConfigurationResult {
  */
 export interface DeleteConfigurationSetRequest {
   /**
-   * <p>The name of the configuration set or the configuration set ARN that you want to
-   *             delete. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
+   * <p>The name of the configuration set or the configuration set ARN that you want to delete. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
@@ -1923,38 +1760,43 @@ export interface DeleteConfigurationSetResult {
    * <p>The Amazon Resource Name (ARN) of the deleted configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the deleted configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>An array of any EventDestination objects that were associated with the deleted
-   *             configuration set.</p>
+   * <p>An array of any EventDestination objects that were associated with the deleted configuration set.</p>
    * @public
    */
-  EventDestinations?: EventDestination[];
+  EventDestinations?: EventDestination[] | undefined;
 
   /**
    * <p>The default message type of the configuration set that was deleted.</p>
    * @public
    */
-  DefaultMessageType?: MessageType;
+  DefaultMessageType?: MessageType | undefined;
 
   /**
    * <p>The default Sender ID of the configuration set that was deleted.</p>
    * @public
    */
-  DefaultSenderId?: string;
+  DefaultSenderId?: string | undefined;
+
+  /**
+   * <p>True if the configuration set has message feedback enabled. By default this is set to false. </p>
+   * @public
+   */
+  DefaultMessageFeedbackEnabled?: boolean | undefined;
 
   /**
    * <p>The time that the deleted configuration set was created in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -1962,10 +1804,7 @@ export interface DeleteConfigurationSetResult {
  */
 export interface DeleteDefaultMessageTypeRequest {
   /**
-   * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN)
-   *             to delete the default message type from. The ConfigurationSetName and
-   *             ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a>
-   *             action.</p>
+   * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN) to delete the default message type from. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
@@ -1979,19 +1818,19 @@ export interface DeleteDefaultMessageTypeResult {
    * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The current message type for the configuration set.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 }
 
 /**
@@ -1999,9 +1838,7 @@ export interface DeleteDefaultMessageTypeResult {
  */
 export interface DeleteDefaultSenderIdRequest {
   /**
-   * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN)
-   *             to delete the default sender ID from. The ConfigurationSetName and ConfigurationSetArn
-   *             can be found using the <a>DescribeConfigurationSets</a> action.</p>
+   * <p>The name of the configuration set or the configuration set Amazon Resource Name (ARN) to delete the default sender ID from. The ConfigurationSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
@@ -2015,19 +1852,19 @@ export interface DeleteDefaultSenderIdResult {
    * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The current sender ID for the configuration set.</p>
    * @public
    */
-  SenderId?: string;
+  SenderId?: string | undefined;
 }
 
 /**
@@ -2035,10 +1872,7 @@ export interface DeleteDefaultSenderIdResult {
  */
 export interface DeleteEventDestinationRequest {
   /**
-   * <p>The name of the configuration set or the configuration set's Amazon Resource Name
-   *             (ARN) to remove the event destination from. The ConfigurateSetName and
-   *             ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a>
-   *             action.</p>
+   * <p>The name of the configuration set or the configuration set's Amazon Resource Name (ARN) to remove the event destination from. The ConfigurateSetName and ConfigurationSetArn can be found using the <a>DescribeConfigurationSets</a> action.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
@@ -2058,19 +1892,19 @@ export interface DeleteEventDestinationResult {
    * <p>The Amazon Resource Name (ARN) of the configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set the event destination was deleted from.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The event destination object that was deleted.</p>
    * @public
    */
-  EventDestination?: EventDestination;
+  EventDestination?: EventDestination | undefined;
 }
 
 /**
@@ -2078,10 +1912,7 @@ export interface DeleteEventDestinationResult {
  */
 export interface DeleteKeywordRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or
-   *             PoolArn. You can use <a>DescribePhoneNumbers</a> to find the values for
-   *             PhoneNumberId and PhoneNumberArn and <a>DescribePools</a> to find the values
-   *             of PoolId and PoolArn.</p>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, PoolId or PoolArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn and <a>DescribePools</a> to find the values of PoolId and PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -2116,31 +1947,31 @@ export interface DeleteKeywordResult {
    * <p>The PhoneNumberArn or PoolArn that the keyword was associated with.</p>
    * @public
    */
-  OriginationIdentityArn?: string;
+  OriginationIdentityArn?: string | undefined;
 
   /**
    * <p>The PhoneNumberId or PoolId that the keyword was associated with.</p>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
    * <p>The keyword that was deleted.</p>
    * @public
    */
-  Keyword?: string;
+  Keyword?: string | undefined;
 
   /**
    * <p>The message that was associated with the deleted keyword.</p>
    * @public
    */
-  KeywordMessage?: string;
+  KeywordMessage?: string | undefined;
 
   /**
    * <p>The action that was associated with the deleted keyword.</p>
    * @public
    */
-  KeywordAction?: KeywordAction;
+  KeywordAction?: KeywordAction | undefined;
 }
 
 /**
@@ -2156,7 +1987,7 @@ export interface DeleteMediaMessageSpendLimitOverrideResult {
    * <p>The current monthly limit, in US dollars.</p>
    * @public
    */
-  MonthlyLimit?: number;
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -2164,7 +1995,7 @@ export interface DeleteMediaMessageSpendLimitOverrideResult {
  */
 export interface DeleteOptedOutNumberRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p>
+   * <p>The OptOutListName or OptOutListArn to remove the phone number from.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -2184,32 +2015,31 @@ export interface DeleteOptedOutNumberResult {
    * <p>The OptOutListArn that the phone number was removed from.</p>
    * @public
    */
-  OptOutListArn?: string;
+  OptOutListArn?: string | undefined;
 
   /**
    * <p>The OptOutListName that the phone number was removed from.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>The phone number that was removed from the OptOutList.</p>
    * @public
    */
-  OptedOutNumber?: string;
+  OptedOutNumber?: string | undefined;
 
   /**
    * <p>The time that the number was removed at, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  OptedOutTimestamp?: Date;
+  OptedOutTimestamp?: Date | undefined;
 
   /**
-   * <p>This is true if it was the end user who requested their phone number be removed.
-   *         </p>
+   * <p>This is true if it was the end user who requested their phone number be removed. </p>
    * @public
    */
-  EndUserOptedOut?: boolean;
+  EndUserOptedOut?: boolean | undefined;
 }
 
 /**
@@ -2217,8 +2047,7 @@ export interface DeleteOptedOutNumberResult {
  */
 export interface DeleteOptOutListRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
-   *             OptOutListArn.</p>
+   * <p>The OptOutListName or OptOutListArn of the OptOutList to delete. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -2232,19 +2061,19 @@ export interface DeleteOptOutListResult {
    * <p>The Amazon Resource Name (ARN) of the OptOutList that was removed.</p>
    * @public
    */
-  OptOutListArn?: string;
+  OptOutListArn?: string | undefined;
 
   /**
    * <p>The name of the OptOutList that was removed.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>The time when the OptOutList was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -2252,7 +2081,7 @@ export interface DeleteOptOutListResult {
  */
 export interface DeletePoolRequest {
   /**
-   * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p>
+   * <p>The PoolId or PoolArn of the pool to delete. You can use <a>DescribePools</a> to find the values for PoolId and PoolArn .</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
@@ -2266,84 +2095,67 @@ export interface DeletePoolResult {
    * <p>The Amazon Resource Name (ARN) of the pool that was deleted.</p>
    * @public
    */
-  PoolArn?: string;
+  PoolArn?: string | undefined;
 
   /**
    * <p>The PoolId of the pool that was deleted.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
-   * <p>The current status of the pool.</p>
-   *          <ul>
-   *             <li>
-   *                <p>CREATING: The pool is currently being created and isn't yet available for
-   *                     use.</p>
-   *             </li>
-   *             <li>
-   *                <p>ACTIVE: The pool is active and available for use.</p>
-   *             </li>
-   *             <li>
-   *                <p>DELETING: The pool is being deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The current status of the pool.</p> <ul> <li> <p>CREATING: The pool is currently being created and isn't yet available for use.</p> </li> <li> <p>ACTIVE: The pool is active and available for use.</p> </li> <li> <p>DELETING: The pool is being deleted.</p> </li> </ul>
    * @public
    */
-  Status?: PoolStatus;
+  Status?: PoolStatus | undefined;
 
   /**
    * <p>The message type that was associated with the deleted pool.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the TwoWayChannel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
-   *             replies with a customizable message and adds the end recipient to the OptOutList. When
-   *             set to true you're responsible for responding to HELP and STOP requests. You're also
-   *             responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the OptOutList that was associated with the deleted pool.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>Indicates whether shared routes are enabled for the pool.</p>
    * @public
    */
-  SharedRoutesEnabled?: boolean;
+  SharedRoutesEnabled?: boolean | undefined;
 
   /**
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -2386,11 +2198,89 @@ export interface DeleteProtectConfigurationResult {
   AccountDefault: boolean | undefined;
 
   /**
-   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
-   *        </p>
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteProtectConfigurationRuleSetNumberOverrideRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectConfigurationRuleOverrideAction = {
+  ALLOW: "ALLOW",
+  BLOCK: "BLOCK",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectConfigurationRuleOverrideAction =
+  (typeof ProtectConfigurationRuleOverrideAction)[keyof typeof ProtectConfigurationRuleOverrideAction];
+
+/**
+ * @public
+ */
+export interface DeleteProtectConfigurationRuleSetNumberOverrideResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The time when the rule was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The action associated with the rule.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode?: string | undefined;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
 }
 
 /**
@@ -2421,48 +2311,13 @@ export interface DeleteRegistrationResult {
   RegistrationId: string | undefined;
 
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
 
   /**
-   * <p>The status of the registration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>: The registration has been deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration.</p> <ul> <li> <p> <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p> </li> <li> <p> <code>CREATED</code>: Your registration is created but not submitted.</p> </li> <li> <p> <code>COMPLETE</code>: Your registration has been approved and your origination identity has been created.</p> </li> <li> <p> <code>DELETED</code>: The registration has been deleted.</p> </li> <li> <p> <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p> </li> </ul>
    * @public
    */
   RegistrationStatus: RegistrationStatus | undefined;
@@ -2477,19 +2332,19 @@ export interface DeleteRegistrationResult {
    * <p>The version number of the registration that was approved.</p>
    * @public
    */
-  ApprovedVersionNumber?: number;
+  ApprovedVersionNumber?: number | undefined;
 
   /**
    * <p>The latest version number of the registration that was denied.</p>
    * @public
    */
-  LatestDeniedVersionNumber?: number;
+  LatestDeniedVersionNumber?: number | undefined;
 
   /**
    * <p>Metadata about a given registration which is specific to that registration type.</p>
    * @public
    */
-  AdditionalAttributes?: Record<string, string>;
+  AdditionalAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The time when the registration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -2526,25 +2381,7 @@ export interface DeleteRegistrationAttachmentResult {
   RegistrationAttachmentId: string | undefined;
 
   /**
-   * <p>The status of the registration attachment. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> The attachment has been deleted..</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration attachment. </p> <ul> <li> <p> <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p> </li> <li> <p> <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p> </li> <li> <p> <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p> </li> <li> <p> <code>DELETED</code> The attachment has been deleted..</p> </li> </ul>
    * @public
    */
   AttachmentStatus: AttachmentStatus | undefined;
@@ -2553,7 +2390,7 @@ export interface DeleteRegistrationAttachmentResult {
    * <p>The error message if the upload failed.</p>
    * @public
    */
-  AttachmentUploadErrorReason?: AttachmentUploadErrorReason;
+  AttachmentUploadErrorReason?: AttachmentUploadErrorReason | undefined;
 
   /**
    * <p>The time when the registration attachment was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -2611,19 +2448,53 @@ export interface DeleteRegistrationFieldValueResult {
    * <p>An array of values for the form field.</p>
    * @public
    */
-  SelectChoices?: string[];
+  SelectChoices?: string[] | undefined;
 
   /**
    * <p>The text data for a free form field.</p>
    * @public
    */
-  TextValue?: string;
+  TextValue?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration attachment.</p>
    * @public
    */
-  RegistrationAttachmentId?: string;
+  RegistrationAttachmentId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource you're deleting the resource-based policy from.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource that the resource-based policy was deleted from.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The JSON formatted resource-based policy that was deleted.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -2639,7 +2510,7 @@ export interface DeleteTextMessageSpendLimitOverrideResult {
    * <p>The current monthly limit, in US dollars.</p>
    * @public
    */
-  MonthlyLimit?: number;
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -2695,7 +2566,7 @@ export interface DeleteVoiceMessageSpendLimitOverrideResult {
    * <p>The current monthly limit, in US dollars.</p>
    * @public
    */
-  MonthlyLimit?: number;
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -2703,17 +2574,16 @@ export interface DeleteVoiceMessageSpendLimitOverrideResult {
  */
 export interface DescribeAccountAttributesRequest {
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2724,14 +2594,13 @@ export interface DescribeAccountAttributesResult {
    * <p>An array of AccountAttributes objects.</p>
    * @public
    */
-  AccountAttributes?: AccountAttribute[];
+  AccountAttributes?: AccountAttribute[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2739,17 +2608,16 @@ export interface DescribeAccountAttributesResult {
  */
 export interface DescribeAccountLimitsRequest {
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2760,14 +2628,13 @@ export interface DescribeAccountLimitsResult {
    * <p>An array of AccountLimit objects that show the current spend limits.</p>
    * @public
    */
-  AccountLimits?: AccountLimit[];
+  AccountLimits?: AccountLimit[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2775,30 +2642,28 @@ export interface DescribeAccountLimitsResult {
  */
 export interface DescribeConfigurationSetsRequest {
   /**
-   * <p>An array of strings. Each element can be either a ConfigurationSetName or
-   *             ConfigurationSetArn.</p>
+   * <p>An array of strings. Each element can be either a ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
-  ConfigurationSetNames?: string[];
+  ConfigurationSetNames?: string[] | undefined;
 
   /**
    * <p>An array of filters to apply to the results that are returned.</p>
    * @public
    */
-  Filters?: ConfigurationSetFilter[];
+  Filters?: ConfigurationSetFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2809,14 +2674,13 @@ export interface DescribeConfigurationSetsResult {
    * <p>An array of ConfigurationSets objects.</p>
    * @public
    */
-  ConfigurationSets?: ConfigurationSetInformation[];
+  ConfigurationSets?: ConfigurationSetInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2855,10 +2719,7 @@ export interface KeywordFilter {
  */
 export interface DescribeKeywordsRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
-   *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for
-   *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
-   *             to get the values for SenderId and SenderIdArn.</p>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> to find the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -2867,26 +2728,25 @@ export interface DescribeKeywordsRequest {
    * <p>An array of keywords to search for.</p>
    * @public
    */
-  Keywords?: string[];
+  Keywords?: string[] | undefined;
 
   /**
    * <p>An array of keyword filters to filter the results.</p>
    * @public
    */
-  Filters?: KeywordFilter[];
+  Filters?: KeywordFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -2921,26 +2781,25 @@ export interface DescribeKeywordsResult {
    * <p>The PhoneNumberArn or PoolArn that is associated with the OriginationIdentity. </p>
    * @public
    */
-  OriginationIdentityArn?: string;
+  OriginationIdentityArn?: string | undefined;
 
   /**
    * <p>The PhoneNumberId or PoolId that is associated with the OriginationIdentity.</p>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
    * <p>An array of KeywordInformation objects that contain the results.</p>
    * @public
    */
-  Keywords?: KeywordInformation[];
+  Keywords?: KeywordInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2979,36 +2838,34 @@ export interface OptedOutFilter {
  */
 export interface DescribeOptedOutNumbersRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn of the OptOutList. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and
-   *             OptOutListArn.</p>
+   * <p>The OptOutListName or OptOutListArn of the OptOutList. You can use <a>DescribeOptOutLists</a> to find the values for OptOutListName and OptOutListArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
 
   /**
-   * <p>An array of phone numbers to search for in the OptOutList.</p>
+   * <p>An array of phone numbers to search for in the OptOutList.</p> <p>If you specify an opted out number that isn't valid, an exception is returned.</p>
    * @public
    */
-  OptedOutNumbers?: string[];
+  OptedOutNumbers?: string[] | undefined;
 
   /**
    * <p>An array of OptedOutFilter objects to filter the results on.</p>
    * @public
    */
-  Filters?: OptedOutFilter[];
+  Filters?: OptedOutFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3043,52 +2900,68 @@ export interface DescribeOptedOutNumbersResult {
    * <p>The Amazon Resource Name (ARN) of the OptOutList.</p>
    * @public
    */
-  OptOutListArn?: string;
+  OptOutListArn?: string | undefined;
 
   /**
    * <p>The name of the OptOutList.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
-   * <p>An array of OptedOutNumbersInformation objects that provide information about the
-   *             requested OptedOutNumbers.</p>
+   * <p>An array of OptedOutNumbersInformation objects that provide information about the requested OptedOutNumbers.</p>
    * @public
    */
-  OptedOutNumbers?: OptedOutNumberInformation[];
+  OptedOutNumbers?: OptedOutNumberInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const Owner = {
+  SELF: "SELF",
+  SHARED: "SHARED",
+} as const;
+
+/**
+ * @public
+ */
+export type Owner = (typeof Owner)[keyof typeof Owner];
 
 /**
  * @public
  */
 export interface DescribeOptOutListsRequest {
   /**
-   * <p>The OptOutLists to show the details of. This is an array of strings that can be either
-   *             the OptOutListName or OptOutListArn.</p>
+   * <p>The OptOutLists to show the details of. This is an array of strings that can be either the OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  OptOutListNames?: string[];
+  OptOutListNames?: string[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of Opt-Out List to ones your account owns or use <code>SHARED</code> to filter on Opt-Out List shared with your account. The <code>Owner</code> and <code>OptOutListNames</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner | undefined;
 }
 
 /**
@@ -3120,18 +2993,16 @@ export interface OptOutListInformation {
  */
 export interface DescribeOptOutListsResult {
   /**
-   * <p>An array of OptOutListInformation objects that contain the details for the requested
-   *             OptOutLists.</p>
+   * <p>An array of OptOutListInformation objects that contain the details for the requested OptOutLists.</p>
    * @public
    */
-  OptOutLists?: OptOutListInformation[];
+  OptOutLists?: OptOutListInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3179,30 +3050,34 @@ export interface PhoneNumberFilter {
  */
 export interface DescribePhoneNumbersRequest {
   /**
-   * <p>The unique identifier of phone numbers to find information about. This is an array of
-   *             strings that can be either the PhoneNumberId or PhoneNumberArn.</p>
+   * <p>The unique identifier of phone numbers to find information about. This is an array of strings that can be either the PhoneNumberId or PhoneNumberArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  PhoneNumberIds?: string[];
+  PhoneNumberIds?: string[] | undefined;
 
   /**
    * <p>An array of PhoneNumberFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: PhoneNumberFilter[];
+  Filters?: PhoneNumberFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of phone numbers to ones your account owns or use <code>SHARED</code> to filter on phone numbers shared with your account. The <code>Owner</code> and <code>PhoneNumberIds</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner | undefined;
 }
 
 /**
@@ -3269,7 +3144,7 @@ export interface PhoneNumberInformation {
    * <p>The unique identifier for the phone number.</p>
    * @public
    */
-  PhoneNumberId?: string;
+  PhoneNumberId?: string | undefined;
 
   /**
    * <p>The phone number in E.164 format.</p>
@@ -3284,23 +3159,19 @@ export interface PhoneNumberInformation {
   Status: NumberStatus | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageType: MessageType | undefined;
 
   /**
-   * <p>Describes if the origination identity can be used for text messages, voice calls or
-   *             both.</p>
+   * <p>Describes if the origination identity can be used for text messages, voice calls or both.</p>
    * @public
    */
   NumberCapabilities: NumberCapability[] | undefined;
@@ -3318,8 +3189,7 @@ export interface PhoneNumberInformation {
   MonthlyLeasingPrice: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients using the TwoWayChannelArn.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients using the TwoWayChannelArn.</p>
    * @public
    */
   TwoWayEnabled: boolean | undefined;
@@ -3328,21 +3198,16 @@ export interface PhoneNumberInformation {
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>When set to false an end recipient sends a message that begins with HELP or STOP to
-   *             one of your dedicated numbers, Amazon Pinpoint automatically replies with a
-   *             customizable message and adds the end recipient to the OptOutList. When set to true
-   *             you're responsible for responding to HELP and STOP requests. You're also responsible for
-   *             tracking and honoring opt-out request. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a>
-   *          </p>
+   * <p>When set to false an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out request. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
    * @public
    */
   SelfManagedOptOutsEnabled: boolean | undefined;
@@ -3363,13 +3228,13 @@ export interface PhoneNumberInformation {
    * <p>The unique identifier of the pool associated with the phone number.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 
   /**
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -3383,18 +3248,16 @@ export interface PhoneNumberInformation {
  */
 export interface DescribePhoneNumbersResult {
   /**
-   * <p>An array of PhoneNumberInformation objects that contain the details for the requested
-   *             phone numbers.</p>
+   * <p>An array of PhoneNumberInformation objects that contain the details for the requested phone numbers.</p>
    * @public
    */
-  PhoneNumbers?: PhoneNumberInformation[];
+  PhoneNumbers?: PhoneNumberInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3440,30 +3303,34 @@ export interface PoolFilter {
  */
 export interface DescribePoolsRequest {
   /**
-   * <p>The unique identifier of pools to find. This is an array of strings that can be either
-   *             the PoolId or PoolArn.</p>
+   * <p>The unique identifier of pools to find. This is an array of strings that can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  PoolIds?: string[];
+  PoolIds?: string[] | undefined;
 
   /**
    * <p>An array of PoolFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: PoolFilter[];
+  Filters?: PoolFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of Pools to ones your account owns or use <code>SHARED</code> to filter on Pools shared with your account. The <code>Owner</code> and <code>PoolIds</code> parameters can't be used at the same time.</p>
+   * @public
+   */
+  Owner?: Owner | undefined;
 }
 
 /**
@@ -3490,16 +3357,13 @@ export interface PoolInformation {
   Status: PoolStatus | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageType: MessageType | undefined;
 
   /**
-   * <p>When set to true you can receive incoming text messages from your end recipients using
-   *             the TwoWayChannelArn.</p>
+   * <p>When set to true you can receive incoming text messages from your end recipients using the TwoWayChannelArn.</p>
    * @public
    */
   TwoWayEnabled: boolean | undefined;
@@ -3508,21 +3372,16 @@ export interface PoolInformation {
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>When set to false, an end recipient sends a message that begins with HELP or STOP to
-   *             one of your dedicated numbers, Amazon Pinpoint automatically replies with a
-   *             customizable message and adds the end recipient to the OptOutList. When set to true
-   *             you're responsible for responding to HELP and STOP requests. You're also responsible for
-   *             tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a>
-   *          </p>
+   * <p>When set to false, an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/settings-sms-managing.html#settings-account-sms-self-managed-opt-out">Self-managed opt-outs</a> </p>
    * @public
    */
   SelfManagedOptOutsEnabled: boolean | undefined;
@@ -3534,12 +3393,7 @@ export interface PoolInformation {
   OptOutListName: string | undefined;
 
   /**
-   * <p>Allows you to enable shared routes on your pool.</p>
-   *          <p>By default, this is set to <code>False</code>. If you set this value to
-   *                 <code>True</code>, your messages are sent using phone numbers or sender IDs
-   *             (depending on the country) that are shared with other Amazon Pinpoint users. In some
-   *             countries, such as the United States, senders aren't allowed to use shared routes and
-   *             must use a dedicated phone number or short code.</p>
+   * <p>Allows you to enable shared routes on your pool.</p> <p>By default, this is set to <code>False</code>. If you set this value to <code>True</code>, your messages are sent using phone numbers or sender IDs (depending on the country) that are shared with other users. In some countries, such as the United States, senders aren't allowed to use shared routes and must use a dedicated phone number or short code.</p>
    * @public
    */
   SharedRoutesEnabled: boolean | undefined;
@@ -3565,14 +3419,13 @@ export interface DescribePoolsResult {
    * <p>An array of PoolInformation objects that contain the details for the requested pools. </p>
    * @public
    */
-  Pools?: PoolInformation[];
+  Pools?: PoolInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3616,26 +3469,25 @@ export interface DescribeProtectConfigurationsRequest {
    * <p>An array of protect configuration identifiers to search for.</p>
    * @public
    */
-  ProtectConfigurationIds?: string[];
+  ProtectConfigurationIds?: string[] | undefined;
 
   /**
    * <p>An array of ProtectConfigurationFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: ProtectConfigurationFilter[];
+  Filters?: ProtectConfigurationFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *            value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3668,8 +3520,7 @@ export interface ProtectConfigurationInformation {
   AccountDefault: boolean | undefined;
 
   /**
-   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
-   *        </p>
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
@@ -3683,14 +3534,13 @@ export interface DescribeProtectConfigurationsResult {
    * <p>An array of ProtectConfigurationInformation objects that contain the details for the request. </p>
    * @public
    */
-  ProtectConfigurations?: ProtectConfigurationInformation[];
+  ProtectConfigurations?: ProtectConfigurationInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *            value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3733,26 +3583,25 @@ export interface DescribeRegistrationAttachmentsRequest {
    * <p>The unique identifier of registration attachments to find. This is an array of <b>RegistrationAttachmentId</b>.</p>
    * @public
    */
-  RegistrationAttachmentIds?: string[];
+  RegistrationAttachmentIds?: string[] | undefined;
 
   /**
    * <p>An array of RegistrationAttachmentFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: RegistrationAttachmentFilter[];
+  Filters?: RegistrationAttachmentFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3773,25 +3622,7 @@ export interface RegistrationAttachmentsInformation {
   RegistrationAttachmentId: string | undefined;
 
   /**
-   * <p>The status of the registration attachment. </p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code> The attachment has been deleted..</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration attachment. </p> <ul> <li> <p> <code>UPLOAD_IN_PROGRESS</code> The attachment is being uploaded.</p> </li> <li> <p> <code>UPLOAD_COMPLETE</code> The attachment has been uploaded.</p> </li> <li> <p> <code>UPLOAD_FAILED</code> The attachment failed to uploaded.</p> </li> <li> <p> <code>DELETED</code> The attachment has been deleted..</p> </li> </ul>
    * @public
    */
   AttachmentStatus: AttachmentStatus | undefined;
@@ -3800,7 +3631,7 @@ export interface RegistrationAttachmentsInformation {
    * <p>A description of why the upload didn't successfully complete.</p>
    * @public
    */
-  AttachmentUploadErrorReason?: AttachmentUploadErrorReason;
+  AttachmentUploadErrorReason?: AttachmentUploadErrorReason | undefined;
 
   /**
    * <p>The time when the registration attachment was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -3820,11 +3651,10 @@ export interface DescribeRegistrationAttachmentsResult {
   RegistrationAttachments: RegistrationAttachmentsInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -3832,8 +3662,7 @@ export interface DescribeRegistrationAttachmentsResult {
  */
 export interface DescribeRegistrationFieldDefinitionsRequest {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -3842,26 +3671,25 @@ export interface DescribeRegistrationFieldDefinitionsRequest {
    * <p>The path to the section of the registration.</p>
    * @public
    */
-  SectionPath?: string;
+  SectionPath?: string | undefined;
 
   /**
    * <p>An array of paths to the registration form field.</p>
    * @public
    */
-  FieldPaths?: string[];
+  FieldPaths?: string[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -3879,13 +3707,13 @@ export interface SelectOptionDescription {
    * <p>The title of the select option.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>A description of the option meaning.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 }
 
 /**
@@ -3909,37 +3737,37 @@ export interface RegistrationFieldDisplayHints {
    * <p>A full description of the display hint.</p>
    * @public
    */
-  LongDescription?: string;
+  LongDescription?: string | undefined;
 
   /**
    * <p>The title of the document the display hint is associated with.</p>
    * @public
    */
-  DocumentationTitle?: string;
+  DocumentationTitle?: string | undefined;
 
   /**
    * <p>The link to the document the display hint is associated with.</p>
    * @public
    */
-  DocumentationLink?: string;
+  DocumentationLink?: string | undefined;
 
   /**
    * <p>An array of SelectOptionDescription objects.</p>
    * @public
    */
-  SelectOptionDescriptions?: SelectOptionDescription[];
+  SelectOptionDescriptions?: SelectOptionDescription[] | undefined;
 
   /**
    * <p>The validation rules for the text field.</p>
    * @public
    */
-  TextValidationDescription?: string;
+  TextValidationDescription?: string | undefined;
 
   /**
    * <p>Example text of what the value of a field should contain.</p>
    * @public
    */
-  ExampleTextValue?: string;
+  ExampleTextValue?: string | undefined;
 }
 
 /**
@@ -4053,13 +3881,13 @@ export interface RegistrationFieldDefinition {
    * <p>The validation rules for a select field.</p>
    * @public
    */
-  SelectValidation?: SelectValidation;
+  SelectValidation?: SelectValidation | undefined;
 
   /**
    * <p>The validation rules for a text field.</p>
    * @public
    */
-  TextValidation?: TextValidation;
+  TextValidation?: TextValidation | undefined;
 
   /**
    * <p>An array of RegistrationFieldDisplayHints objects for the field.</p>
@@ -4073,8 +3901,7 @@ export interface RegistrationFieldDefinition {
  */
 export interface DescribeRegistrationFieldDefinitionsResult {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -4086,11 +3913,10 @@ export interface DescribeRegistrationFieldDefinitionsResult {
   RegistrationFieldDefinitions: RegistrationFieldDefinition[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4107,32 +3933,31 @@ export interface DescribeRegistrationFieldValuesRequest {
    * <p>The version number of the registration.</p>
    * @public
    */
-  VersionNumber?: number;
+  VersionNumber?: number | undefined;
 
   /**
    * <p>The path to the section of the registration.</p>
    * @public
    */
-  SectionPath?: string;
+  SectionPath?: string | undefined;
 
   /**
    * <p>An array of paths to the registration form field.</p>
    * @public
    */
-  FieldPaths?: string[];
+  FieldPaths?: string[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4150,25 +3975,25 @@ export interface RegistrationFieldValueInformation {
    * <p>An array of values for the form field.</p>
    * @public
    */
-  SelectChoices?: string[];
+  SelectChoices?: string[] | undefined;
 
   /**
    * <p>The text data for a free form field.</p>
    * @public
    */
-  TextValue?: string;
+  TextValue?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration attachment.</p>
    * @public
    */
-  RegistrationAttachmentId?: string;
+  RegistrationAttachmentId?: string | undefined;
 
   /**
    * <p>A description of why the registration was denied.</p>
    * @public
    */
-  DeniedReason?: string;
+  DeniedReason?: string | undefined;
 }
 
 /**
@@ -4200,11 +4025,10 @@ export interface DescribeRegistrationFieldValuesResult {
   RegistrationFieldValues: RegistrationFieldValueInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4247,26 +4071,25 @@ export interface DescribeRegistrationsRequest {
    * <p>An array of unique identifiers for each registration.</p>
    * @public
    */
-  RegistrationIds?: string[];
+  RegistrationIds?: string[] | undefined;
 
   /**
    * <p>An array of RegistrationFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: RegistrationFilter[];
+  Filters?: RegistrationFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4287,48 +4110,13 @@ export interface RegistrationInformation {
   RegistrationId: string | undefined;
 
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
 
   /**
-   * <p>The status of the registration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>CREATED</code>: Your registration is created but not submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>COMPLETE</code>: Your registration has been approved and and your origination identity has been created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETED</code>: The registration has been deleted.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration.</p> <ul> <li> <p> <code>CLOSED</code>: The phone number or sender ID has been deleted and you must also delete the registration for the number.</p> </li> <li> <p> <code>CREATED</code>: Your registration is created but not submitted.</p> </li> <li> <p> <code>COMPLETE</code>: Your registration has been approved and your origination identity has been created.</p> </li> <li> <p> <code>DELETED</code>: The registration has been deleted.</p> </li> <li> <p> <code>PROVISIONING</code>: Your registration has been approved and your origination identity is being created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REQUIRES_UPDATES</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted and is awaiting review.</p> </li> </ul>
    * @public
    */
   RegistrationStatus: RegistrationStatus | undefined;
@@ -4343,19 +4131,19 @@ export interface RegistrationInformation {
    * <p>The version number of the registration that was approved.</p>
    * @public
    */
-  ApprovedVersionNumber?: number;
+  ApprovedVersionNumber?: number | undefined;
 
   /**
    * <p>The latest version number of the registration that was denied.</p>
    * @public
    */
-  LatestDeniedVersionNumber?: number;
+  LatestDeniedVersionNumber?: number | undefined;
 
   /**
    * <p>Metadata about a given registration which is specific to that registration type.</p>
    * @public
    */
-  AdditionalAttributes?: Record<string, string>;
+  AdditionalAttributes?: Record<string, string> | undefined;
 
   /**
    * <p>The time when the registration was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
@@ -4375,11 +4163,10 @@ export interface DescribeRegistrationsResult {
   Registrations: RegistrationInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4387,8 +4174,7 @@ export interface DescribeRegistrationsResult {
  */
 export interface DescribeRegistrationSectionDefinitionsRequest {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -4397,20 +4183,19 @@ export interface DescribeRegistrationSectionDefinitionsRequest {
    * <p>An array of paths for the registration form section.</p>
    * @public
    */
-  SectionPaths?: string[];
+  SectionPaths?: string[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4434,19 +4219,19 @@ export interface RegistrationSectionDisplayHints {
    * <p>A full description of the display hint.</p>
    * @public
    */
-  LongDescription?: string;
+  LongDescription?: string | undefined;
 
   /**
    * <p>The title of the document the display hint is associated with.</p>
    * @public
    */
-  DocumentationTitle?: string;
+  DocumentationTitle?: string | undefined;
 
   /**
    * <p>The link to the document the display hint is associated with.</p>
    * @public
    */
-  DocumentationLink?: string;
+  DocumentationLink?: string | undefined;
 }
 
 /**
@@ -4472,24 +4257,22 @@ export interface RegistrationSectionDefinition {
  */
 export interface DescribeRegistrationSectionDefinitionsResult {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
 
   /**
-   * <p>An array of  RegistrationSectionDefinition objects.</p>
+   * <p>An array of RegistrationSectionDefinition objects.</p>
    * @public
    */
   RegistrationSectionDefinitions: RegistrationSectionDefinition[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4529,30 +4312,28 @@ export interface RegistrationTypeFilter {
  */
 export interface DescribeRegistrationTypeDefinitionsRequest {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
-  RegistrationTypes?: string[];
+  RegistrationTypes?: string[] | undefined;
 
   /**
    * <p>An array of RegistrationFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: RegistrationTypeFilter[];
+  Filters?: RegistrationTypeFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4570,25 +4351,25 @@ export interface RegistrationTypeDisplayHints {
    * <p>A short description of the display hint.</p>
    * @public
    */
-  ShortDescription?: string;
+  ShortDescription?: string | undefined;
 
   /**
    * <p>A full description of the display hint.</p>
    * @public
    */
-  LongDescription?: string;
+  LongDescription?: string | undefined;
 
   /**
    * <p>The title of the document the display hint is associated with.</p>
    * @public
    */
-  DocumentationTitle?: string;
+  DocumentationTitle?: string | undefined;
 
   /**
    * <p>The link to the document the display hint is associated with.</p>
    * @public
    */
-  DocumentationLink?: string;
+  DocumentationLink?: string | undefined;
 }
 
 /**
@@ -4638,44 +4419,16 @@ export interface SupportedAssociation {
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
-   * <p>The association behavior.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>ASSOCIATE_BEFORE_SUBMIT</code> The origination identity has to be supplied when creating a registration.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSOCIATE_ON_APPROVAL</code> This applies to all short code registrations. The short code will be automatically provisioned once the registration is approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ASSOCIATE_AFTER_COMPLETE</code> This applies to phone number registrations when you must complete a registration first, then associate one or more phone numbers later. For example 10DLC campaigns and long codes. </p>
-   *             </li>
-   *          </ul>
+   * <p>The association behavior.</p> <ul> <li> <p> <code>ASSOCIATE_BEFORE_SUBMIT</code> The origination identity has to be supplied when creating a registration.</p> </li> <li> <p> <code>ASSOCIATE_ON_APPROVAL</code> This applies to all sender ID registrations. The sender ID will be automatically provisioned once the registration is approved.</p> </li> <li> <p> <code>ASSOCIATE_AFTER_COMPLETE</code> This applies to phone number registrations when you must complete a registration first, then associate one or more phone numbers later. For example 10DLC campaigns and long codes. </p> </li> </ul>
    * @public
    */
   AssociationBehavior: RegistrationAssociationBehavior | undefined;
 
   /**
-   * <p>The disassociation behavior.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DISASSOCIATE_ALL_CLOSES_REGISTRATION</code> All origination identities must be disassociated from the registration before the registration can be closed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISASSOCIATE_ALL_ALLOWS_DELETE_REGISTRATION</code> All origination identities must be disassociated from the registration before the registration can be deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DELETE_REGISTRATION_DISASSOCIATES</code> The registration can be deleted and all origination identities will be disasscoiated.</p>
-   *             </li>
-   *          </ul>
+   * <p>The disassociation behavior.</p> <ul> <li> <p> <code>DISASSOCIATE_ALL_CLOSES_REGISTRATION</code> All origination identities must be disassociated from the registration before the registration can be closed.</p> </li> <li> <p> <code>DISASSOCIATE_ALL_ALLOWS_DELETE_REGISTRATION</code> All origination identities must be disassociated from the registration before the registration can be deleted.</p> </li> <li> <p> <code>DELETE_REGISTRATION_DISASSOCIATES</code> The registration can be deleted and all origination identities will be disasscoiated.</p> </li> </ul>
    * @public
    */
   DisassociationBehavior: RegistrationDisassociationBehavior | undefined;
@@ -4687,8 +4440,7 @@ export interface SupportedAssociation {
  */
 export interface RegistrationTypeDefinition {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -4697,7 +4449,7 @@ export interface RegistrationTypeDefinition {
    * <p>The supported association behavior for the registration type.</p>
    * @public
    */
-  SupportedAssociations?: SupportedAssociation[];
+  SupportedAssociations?: SupportedAssociation[] | undefined;
 
   /**
    * <p>Provides help information on the registration.</p>
@@ -4711,18 +4463,16 @@ export interface RegistrationTypeDefinition {
  */
 export interface DescribeRegistrationTypeDefinitionsResult {
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationTypeDefinitions: RegistrationTypeDefinition[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4771,26 +4521,25 @@ export interface DescribeRegistrationVersionsRequest {
    * <p>An array of registration version numbers.</p>
    * @public
    */
-  VersionNumbers?: number[];
+  VersionNumbers?: number[] | undefined;
 
   /**
    * <p>An array of RegistrationVersionFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: RegistrationVersionFilter[];
+  Filters?: RegistrationVersionFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -4814,19 +4563,19 @@ export interface RegistrationDeniedReasonInformation {
    * <p>A long description of the rejection reason.</p>
    * @public
    */
-  LongDescription?: string;
+  LongDescription?: string | undefined;
 
   /**
    * <p>The title of the document.</p>
    * @public
    */
-  DocumentationTitle?: string;
+  DocumentationTitle?: string | undefined;
 
   /**
    * <p>The link to the document.</p>
    * @public
    */
-  DocumentationLink?: string;
+  DocumentationLink?: string | undefined;
 }
 
 /**
@@ -4841,41 +4590,7 @@ export interface RegistrationVersionInformation {
   VersionNumber: number | undefined;
 
   /**
-   * <p>The status of the registration.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code>: Your registration has been approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration.</p> <ul> <li> <p> <code>APPROVED</code>: Your registration has been approved.</p> </li> <li> <p> <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p> </li> <li> <p> <code>DENIED</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p> </li> <li> <p> <code>DRAFT</code>: The initial status of a registration version after it’s created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>REVOKED</code>: Your previously approved registration has been revoked.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted.</p> </li> </ul>
    * @public
    */
   RegistrationVersionStatus: RegistrationVersionStatus | undefined;
@@ -4890,7 +4605,7 @@ export interface RegistrationVersionInformation {
    * <p>An array of RegistrationDeniedReasonInformation objects. </p>
    * @public
    */
-  DeniedReasons?: RegistrationDeniedReasonInformation[];
+  DeniedReasons?: RegistrationDeniedReasonInformation[] | undefined;
 }
 
 /**
@@ -4916,11 +4631,10 @@ export interface DescribeRegistrationVersionsResult {
   RegistrationVersions: RegistrationVersionInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -4959,10 +4673,7 @@ export interface SenderIdFilter {
 }
 
 /**
- * <p> The alphanumeric sender ID in a specific country that you want to describe. For more
- *             information on sender IDs see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-sender-id.html">Requesting
- *                 sender IDs for SMS messaging with Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ * <p> The alphanumeric sender ID in a specific country that you want to describe. For more information on sender IDs see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sender-id-request.html">Requesting sender IDs </a> in the <i>AWS End User Messaging SMS User Guide</i>.</p>
  * @public
  */
 export interface SenderIdAndCountry {
@@ -4973,8 +4684,7 @@ export interface SenderIdAndCountry {
   SenderId: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
   IsoCountryCode: string | undefined;
@@ -4985,29 +4695,34 @@ export interface SenderIdAndCountry {
  */
 export interface DescribeSenderIdsRequest {
   /**
-   * <p>An array of SenderIdAndCountry objects to search for.</p>
+   * <p>An array of SenderIdAndCountry objects to search for.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  SenderIds?: SenderIdAndCountry[];
+  SenderIds?: SenderIdAndCountry[] | undefined;
 
   /**
    * <p>An array of SenderIdFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: SenderIdFilter[];
+  Filters?: SenderIdFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
+
+  /**
+   * <p>Use <code>SELF</code> to filter the list of Sender Ids to ones your account owns or use <code>SHARED</code> to filter on Sender Ids shared with your account. The <code>Owner</code> and <code>SenderIds</code> parameters can't be used at the same time. </p>
+   * @public
+   */
+  Owner?: Owner | undefined;
 }
 
 /**
@@ -5028,16 +4743,13 @@ export interface SenderIdInformation {
   SenderId: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageTypes: MessageType[] | undefined;
@@ -5064,7 +4776,7 @@ export interface SenderIdInformation {
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 }
 
 /**
@@ -5072,18 +4784,16 @@ export interface SenderIdInformation {
  */
 export interface DescribeSenderIdsResult {
   /**
-   * <p>An array of SernderIdInformation objects that contain the details for the requested
-   *             SenderIds.</p>
+   * <p>An array of SernderIdInformation objects that contain the details for the requested SenderIds.</p>
    * @public
    */
-  SenderIds?: SenderIdInformation[];
+  SenderIds?: SenderIdInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5091,17 +4801,16 @@ export interface DescribeSenderIdsResult {
  */
 export interface DescribeSpendLimitsRequest {
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5120,10 +4829,7 @@ export const SpendLimitName = {
 export type SpendLimitName = (typeof SpendLimitName)[keyof typeof SpendLimitName];
 
 /**
- * <p>Describes the current Amazon Pinpoint monthly spend limits for sending voice and
- *             text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-awssupport-spend-threshold.html">
- *                 Requesting increases to your monthly SMS spending quota for Amazon Pinpoint
- *             </a> in the <i>Amazon Pinpoint User Guide</i>. </p>
+ * <p>Describes the current monthly spend limits for sending voice and text messages. For more information on increasing your monthly spend limit, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/awssupport-spend-threshold.html"> Requesting a spending quota increase </a> in the <i>AWS End User Messaging SMS User Guide</i>. </p>
  * @public
  */
 export interface SpendLimit {
@@ -5134,25 +4840,19 @@ export interface SpendLimit {
   Name: SpendLimitName | undefined;
 
   /**
-   * <p>The maximum amount of money, in US dollars, that you want to be able to spend sending
-   *             messages each month. This value has to be less than or equal to the amount in
-   *                 <code>MaxLimit</code>. To use this custom limit, <code>Overridden</code> must be set
-   *             to true.</p>
+   * <p>The maximum amount of money, in US dollars, that you want to be able to spend sending messages each month. This value has to be less than or equal to the amount in <code>MaxLimit</code>. To use this custom limit, <code>Overridden</code> must be set to true.</p>
    * @public
    */
   EnforcedLimit: number | undefined;
 
   /**
-   * <p> The maximum amount of money that you are able to spend to send messages each month,
-   *             in US dollars.</p>
+   * <p> The maximum amount of money that you are able to spend to send messages each month, in US dollars.</p>
    * @public
    */
   MaxLimit: number | undefined;
 
   /**
-   * <p>When set to <code>True</code>, the value that has been specified in the
-   *                 <code>EnforcedLimit</code> is used to determine the maximum amount in US dollars
-   *             that can be spent to send messages each month, in US dollars.</p>
+   * <p>When set to <code>True</code>, the value that has been specified in the <code>EnforcedLimit</code> is used to determine the maximum amount in US dollars that can be spent to send messages each month, in US dollars.</p>
    * @public
    */
   Overridden: boolean | undefined;
@@ -5163,18 +4863,16 @@ export interface SpendLimit {
  */
 export interface DescribeSpendLimitsResult {
   /**
-   * <p>An array of SpendLimit objects that contain the details for the requested spend
-   *             limits.</p>
+   * <p>An array of SpendLimit objects that contain the details for the requested spend limits.</p>
    * @public
    */
-  SpendLimits?: SpendLimit[];
+  SpendLimits?: SpendLimit[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5214,35 +4912,34 @@ export interface VerifiedDestinationNumberFilter {
  */
 export interface DescribeVerifiedDestinationNumbersRequest {
   /**
-   * <p>An array of VerifiedDestinationNumberid to retreive.</p>
+   * <p>An array of VerifiedDestinationNumberid to retrieve.</p>
    * @public
    */
-  VerifiedDestinationNumberIds?: string[];
+  VerifiedDestinationNumberIds?: string[] | undefined;
 
   /**
    * <p>An array of verified destination phone number, in E.164 format.</p>
    * @public
    */
-  DestinationPhoneNumbers?: string[];
+  DestinationPhoneNumbers?: string[] | undefined;
 
   /**
    * <p>An array of VerifiedDestinationNumberFilter objects to filter the results.</p>
    * @public
    */
-  Filters?: VerifiedDestinationNumberFilter[];
+  Filters?: VerifiedDestinationNumberFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5269,17 +4966,7 @@ export interface VerifiedDestinationNumberInformation {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The status of the verified destination phone number.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code>: The phone number hasn't been verified yet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>VERIFIED</code>: The phone number is verified and can receive messages.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the verified destination phone number.</p> <ul> <li> <p> <code>PENDING</code>: The phone number hasn't been verified yet.</p> </li> <li> <p> <code>VERIFIED</code>: The phone number is verified and can receive messages.</p> </li> </ul>
    * @public
    */
   Status: VerificationStatus | undefined;
@@ -5302,11 +4989,10 @@ export interface DescribeVerifiedDestinationNumbersResult {
   VerifiedDestinationNumbers: VerifiedDestinationNumberInformation[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5329,35 +5015,28 @@ export type DestinationCountryParameterKey =
  */
 export interface DisassociateOriginationIdentityRequest {
   /**
-   * <p>The unique identifier for the pool to disassociate with the origination identity. This
-   *             value can be either the PoolId or PoolArn.</p>
+   * <p>The unique identifier for the pool to disassociate with the origination identity. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
-   *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> find the values for
-   *             PhoneNumberId and PhoneNumberArn, or use <a>DescribeSenderIds</a> to get the
-   *             values for SenderId and SenderIdArn.</p>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> find the values for PhoneNumberId and PhoneNumberArn, or use <a>DescribeSenderIds</a> to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -5368,32 +5047,31 @@ export interface DisassociateOriginationIdentityResult {
    * <p>The Amazon Resource Name (ARN) of the pool.</p>
    * @public
    */
-  PoolArn?: string;
+  PoolArn?: string | undefined;
 
   /**
    * <p>The PoolId of the pool no longer associated with the origination identity.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
    * <p>The PhoneNumberArn or SenderIdArn of the origination identity.</p>
    * @public
    */
-  OriginationIdentityArn?: string;
+  OriginationIdentityArn?: string | undefined;
 
   /**
    * <p>The PhoneNumberId or SenderId of the origination identity.</p>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or
-   *             region.</p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 }
 
 /**
@@ -5476,41 +5154,7 @@ export interface DiscardRegistrationVersionResult {
   VersionNumber: number | undefined;
 
   /**
-   * <p>The status of the registration version.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code>: Your registration has been approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration version.</p> <ul> <li> <p> <code>APPROVED</code>: Your registration has been approved.</p> </li> <li> <p> <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p> </li> <li> <p> <code>DENIED</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p> </li> <li> <p> <code>DRAFT</code>: The initial status of a registration version after it’s created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>REVOKED</code>: Your previously approved registration has been revoked.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted.</p> </li> </ul>
    * @public
    */
   RegistrationVersionStatus: RegistrationVersionStatus | undefined;
@@ -5546,6 +5190,8 @@ export interface GetProtectConfigurationCountryRuleSetRequest {
 export const ProtectStatus = {
   ALLOW: "ALLOW",
   BLOCK: "BLOCK",
+  FILTER: "FILTER",
+  MONITOR: "MONITOR",
 } as const;
 
 /**
@@ -5588,11 +5234,44 @@ export interface GetProtectConfigurationCountryRuleSetResult {
   NumberCapability: NumberCapability | undefined;
 
   /**
-   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the
-   *             details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</p>
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</p>
    * @public
    */
   CountryRuleSet: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The JSON formatted string that contains the resource-based policy attached to the AWS End User Messaging SMS and Voice resource. </p>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -5636,8 +5315,7 @@ export type PoolOriginationIdentitiesFilterName =
   (typeof PoolOriginationIdentitiesFilterName)[keyof typeof PoolOriginationIdentitiesFilterName];
 
 /**
- * <p>Information about origination identities associated with a pool that meets a specified
- *             criteria.</p>
+ * <p>Information about origination identities associated with a pool that meets a specified criteria.</p>
  * @public
  */
 export interface PoolOriginationIdentitiesFilter {
@@ -5659,8 +5337,7 @@ export interface PoolOriginationIdentitiesFilter {
  */
 export interface ListPoolOriginationIdentitiesRequest {
   /**
-   * <p>The unique identifier for the pool. This value can be either the PoolId or
-   *             PoolArn.</p>
+   * <p>The unique identifier for the pool. This value can be either the PoolId or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
@@ -5669,20 +5346,19 @@ export interface ListPoolOriginationIdentitiesRequest {
    * <p>An array of PoolOriginationIdentitiesFilter objects to filter the results..</p>
    * @public
    */
-  Filters?: PoolOriginationIdentitiesFilter[];
+  Filters?: PoolOriginationIdentitiesFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5703,15 +5379,13 @@ export interface OriginationIdentityMetadata {
   OriginationIdentity: string | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>Describes if the origination identity can be used for text messages, voice calls or
-   *             both.</p>
+   * <p>Describes if the origination identity can be used for text messages, voice calls or both.</p>
    * @public
    */
   NumberCapabilities: NumberCapability[] | undefined;
@@ -5720,7 +5394,7 @@ export interface OriginationIdentityMetadata {
    * <p>The phone number in E.164 format.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 }
 
 /**
@@ -5731,26 +5405,157 @@ export interface ListPoolOriginationIdentitiesResult {
    * <p>The Amazon Resource Name (ARN) for the pool.</p>
    * @public
    */
-  PoolArn?: string;
+  PoolArn?: string | undefined;
 
   /**
    * <p>The unique PoolId of the pool.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
    * <p>An array of any OriginationIdentityMetadata objects.</p>
    * @public
    */
-  OriginationIdentities?: OriginationIdentityMetadata[];
+  OriginationIdentities?: OriginationIdentityMetadata[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. If this field is empty
-   *             then there are no more results.</p>
+   * <p>The token to be used for the next set of paginated results. If this field is empty then there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ProtectConfigurationRuleSetNumberOverrideFilterName = {
+  ACTION: "action",
+  CREATED_AFTER: "created-after",
+  CREATED_BEFORE: "created-before",
+  DESTINATION_PHONE_NUMBER_BEGINS_WITH: "destination-phone-number-begins-with",
+  EXPIRES_AFTER: "expires-after",
+  EXPIRES_BEFORE: "expires-before",
+  ISO_COUNTRY_CODE: "iso-country-code",
+} as const;
+
+/**
+ * @public
+ */
+export type ProtectConfigurationRuleSetNumberOverrideFilterName =
+  (typeof ProtectConfigurationRuleSetNumberOverrideFilterName)[keyof typeof ProtectConfigurationRuleSetNumberOverrideFilterName];
+
+/**
+ * <p>The information for a protect configuration rule set number override that meets a specified criteria.</p>
+ * @public
+ */
+export interface ProtectConfigurationRuleSetNumberOverrideFilterItem {
+  /**
+   * <p>The name of the attribute to filter on.</p>
+   * @public
+   */
+  Name: ProtectConfigurationRuleSetNumberOverrideFilterName | undefined;
+
+  /**
+   * <p>An array values to filter for.</p>
+   * @public
+   */
+  Values: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectConfigurationRuleSetNumberOverridesRequest {
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>An array of ProtectConfigurationRuleSetNumberOverrideFilterItem objects to filter the results.</p>
+   * @public
+   */
+  Filters?: ProtectConfigurationRuleSetNumberOverrideFilterItem[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
+
+  /**
+   * <p>The maximum number of results to return per each request.</p>
+   * @public
+   */
+  MaxResults?: number | undefined;
+}
+
+/**
+ * <p>Provides details on phone number rule overrides for a protect configuration.</p>
+ * @public
+ */
+export interface ProtectConfigurationRuleSetNumberOverride {
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The time when the rule was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The action for the rule to perform of either blocking or allowing messages to the destination phone number.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode?: string | undefined;
+
+  /**
+   * <p>The time the rule will expire at. If <code>ExpirationTimestamp</code> is not set then the rule will not expire.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListProtectConfigurationRuleSetNumberOverridesResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>An array of RuleSetNumberOverrides objects.</p>
+   * @public
+   */
+  RuleSetNumberOverrides?: ProtectConfigurationRuleSetNumberOverride[] | undefined;
+
+  /**
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
+   * @public
+   */
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5800,20 +5605,19 @@ export interface ListRegistrationAssociationsRequest {
    * <p>An array of RegistrationAssociationFilter to apply to the results that are returned.</p>
    * @public
    */
-  Filters?: RegistrationAssociationFilter[];
+  Filters?: RegistrationAssociationFilter[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of results to return per each request.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5843,13 +5647,13 @@ export interface RegistrationAssociationMetadata {
    * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>The phone number associated with the registration in E.164 format.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 }
 
 /**
@@ -5869,8 +5673,7 @@ export interface ListRegistrationAssociationsResult {
   RegistrationId: string | undefined;
 
   /**
-   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a>
-   *             action.</p>
+   * <p>The type of registration form. The list of <b>RegistrationTypes</b> can be found using the <a>DescribeRegistrationTypeDefinitions</a> action.</p>
    * @public
    */
   RegistrationType: string | undefined;
@@ -5882,11 +5685,10 @@ export interface ListRegistrationAssociationsResult {
   RegistrationAssociations: RegistrationAssociationMetadata[] | undefined;
 
   /**
-   * <p>The token to be used for the next set of paginated results. You don't need to supply a
-   *             value for this field in the initial request.</p>
+   * <p>The token to be used for the next set of paginated results. You don't need to supply a value for this field in the initial request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5908,24 +5710,35 @@ export interface ListTagsForResourceResult {
    * <p>The ARN of the resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>An array of key and value pair tags that are associated with the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const MessageFeedbackStatus = {
+  FAILED: "FAILED",
+  RECEIVED: "RECEIVED",
+} as const;
+
+/**
+ * @public
+ */
+export type MessageFeedbackStatus = (typeof MessageFeedbackStatus)[keyof typeof MessageFeedbackStatus];
 
 /**
  * @public
  */
 export interface PutKeywordRequest {
   /**
-   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or
-   *             SenderIdArn. You can use <a>DescribePhoneNumbers</a> get the values for
-   *             PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used
-   *             to get the values for SenderId and SenderIdArn.</p>
+   * <p>The origination identity to use such as a PhoneNumberId, PhoneNumberArn, SenderId or SenderIdArn. You can use <a>DescribePhoneNumbers</a> get the values for PhoneNumberId and PhoneNumberArn while <a>DescribeSenderIds</a> can be used to get the values for SenderId and SenderIdArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -5943,21 +5756,10 @@ export interface PutKeywordRequest {
   KeywordMessage: string | undefined;
 
   /**
-   * <p>The action to perform for the new keyword when it is received.</p>
-   *          <ul>
-   *             <li>
-   *                <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p>
-   *             </li>
-   *             <li>
-   *                <p>OPT_OUT: Keeps the recipient from receiving future messages.</p>
-   *             </li>
-   *             <li>
-   *                <p>OPT_IN: The recipient wants to receive future messages.</p>
-   *             </li>
-   *          </ul>
+   * <p>The action to perform for the new keyword when it is received.</p> <ul> <li> <p>AUTOMATIC_RESPONSE: A message is sent to the recipient.</p> </li> <li> <p>OPT_OUT: Keeps the recipient from receiving future messages.</p> </li> <li> <p>OPT_IN: The recipient wants to receive future messages.</p> </li> </ul>
    * @public
    */
-  KeywordAction?: KeywordAction;
+  KeywordAction?: KeywordAction | undefined;
 }
 
 /**
@@ -5968,31 +5770,65 @@ export interface PutKeywordResult {
    * <p>The PhoneNumberArn or PoolArn that the keyword was associated with.</p>
    * @public
    */
-  OriginationIdentityArn?: string;
+  OriginationIdentityArn?: string | undefined;
 
   /**
    * <p>The PhoneNumberId or PoolId that the keyword was associated with.</p>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
    * <p>The keyword that was added.</p>
    * @public
    */
-  Keyword?: string;
+  Keyword?: string | undefined;
 
   /**
    * <p>The message associated with the keyword.</p>
    * @public
    */
-  KeywordMessage?: string;
+  KeywordMessage?: string | undefined;
 
   /**
    * <p>The action to perform when the keyword is used.</p>
    * @public
    */
-  KeywordAction?: KeywordAction;
+  KeywordAction?: KeywordAction | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutMessageFeedbackRequest {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>Set the message feedback to be either <code>RECEIVED</code> or <code>FAILED</code>.</p>
+   * @public
+   */
+  MessageFeedbackStatus: MessageFeedbackStatus | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutMessageFeedbackResult {
+  /**
+   * <p>The unique identifier for the message.</p>
+   * @public
+   */
+  MessageId: string | undefined;
+
+  /**
+   * <p>The current status of the message.</p>
+   * @public
+   */
+  MessageFeedbackStatus: MessageFeedbackStatus | undefined;
 }
 
 /**
@@ -6000,7 +5836,7 @@ export interface PutKeywordResult {
  */
 export interface PutOptedOutNumberRequest {
   /**
-   * <p>The OptOutListName or OptOutListArn to add the phone number to.</p>
+   * <p>The OptOutListName or OptOutListArn to add the phone number to.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OptOutListName: string | undefined;
@@ -6020,32 +5856,113 @@ export interface PutOptedOutNumberResult {
    * <p>The OptOutListArn that the phone number was removed from.</p>
    * @public
    */
-  OptOutListArn?: string;
+  OptOutListArn?: string | undefined;
 
   /**
    * <p>The OptOutListName that the phone number was removed from.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>The phone number that was added to the OptOutList.</p>
    * @public
    */
-  OptedOutNumber?: string;
+  OptedOutNumber?: string | undefined;
 
   /**
    * <p>The time that the phone number was added to the OptOutList, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  OptedOutTimestamp?: Date;
+  OptedOutTimestamp?: Date | undefined;
 
   /**
-   * <p>This is true if it was the end user who requested their phone number be removed.
-   *         </p>
+   * <p>This is true if it was the end user who requested their phone number be removed. </p>
    * @public
    */
-  EndUserOptedOut?: boolean;
+  EndUserOptedOut?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProtectConfigurationRuleSetNumberOverrideRequest {
+  /**
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
+   * @public
+   */
+  ClientToken?: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The action for the rule to either block or allow messages to the destination phone number.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The time the rule will expire at. If <code>ExpirationTimestamp</code> is not set then the rule does not expire.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutProtectConfigurationRuleSetNumberOverrideResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationArn: string | undefined;
+
+  /**
+   * <p>The unique identifier for the protect configuration.</p>
+   * @public
+   */
+  ProtectConfigurationId: string | undefined;
+
+  /**
+   * <p>The destination phone number in E.164 format.</p>
+   * @public
+   */
+  DestinationPhoneNumber: string | undefined;
+
+  /**
+   * <p>The time when the rule was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp: Date | undefined;
+
+  /**
+   * <p>The action for the rule to take.</p>
+   * @public
+   */
+  Action: ProtectConfigurationRuleOverrideAction | undefined;
+
+  /**
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
+   * @public
+   */
+  IsoCountryCode?: string | undefined;
+
+  /**
+   * <p>The time the rule will expire at.</p>
+   * @public
+   */
+  ExpirationTimestamp?: Date | undefined;
 }
 
 /**
@@ -6068,19 +5985,19 @@ export interface PutRegistrationFieldValueRequest {
    * <p>An array of values for the form field.</p>
    * @public
    */
-  SelectChoices?: string[];
+  SelectChoices?: string[] | undefined;
 
   /**
    * <p>The text data for a free form field.</p>
    * @public
    */
-  TextValue?: string;
+  TextValue?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration attachment.</p>
    * @public
    */
-  RegistrationAttachmentId?: string;
+  RegistrationAttachmentId?: string | undefined;
 }
 
 /**
@@ -6115,19 +6032,59 @@ export interface PutRegistrationFieldValueResult {
    * <p>An array of values for the form field.</p>
    * @public
    */
-  SelectChoices?: string[];
+  SelectChoices?: string[] | undefined;
 
   /**
    * <p>The text data for a free form field.</p>
    * @public
    */
-  TextValue?: string;
+  TextValue?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration attachment.</p>
    * @public
    */
-  RegistrationAttachmentId?: string;
+  RegistrationAttachmentId?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource to attach the resource-based policy to.</p>
+   * @public
+   */
+  ResourceArn: string | undefined;
+
+  /**
+   * <p>The JSON formatted resource-based policy to attach.</p>
+   * @public
+   */
+  Policy: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutResourcePolicyResult {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the AWS End User Messaging SMS and Voice resource attached to the resource-based policy.</p>
+   * @public
+   */
+  ResourceArn?: string | undefined;
+
+  /**
+   * <p>The JSON formatted Resource Policy.</p>
+   * @public
+   */
+  Policy?: string | undefined;
+
+  /**
+   * <p>The time when the resource-based policy was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
+   * @public
+   */
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -6135,8 +6092,7 @@ export interface PutRegistrationFieldValueResult {
  */
 export interface ReleasePhoneNumberRequest {
   /**
-   * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and
-   *             PhoneNumberArn.</p>
+   * <p>The PhoneNumberId or PhoneNumberArn of the phone number to release. You can use <a>DescribePhoneNumbers</a> to get the values for PhoneNumberId and PhoneNumberArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PhoneNumberId: string | undefined;
@@ -6150,103 +6106,97 @@ export interface ReleasePhoneNumberResult {
    * <p>The PhoneNumberArn of the phone number that was released.</p>
    * @public
    */
-  PhoneNumberArn?: string;
+  PhoneNumberArn?: string | undefined;
 
   /**
    * <p>The PhoneNumberId of the phone number that was released.</p>
    * @public
    */
-  PhoneNumberId?: string;
+  PhoneNumberId?: string | undefined;
 
   /**
    * <p>The phone number that was released.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The current status of the request.</p>
    * @public
    */
-  Status?: NumberStatus;
+  Status?: NumberStatus | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or
-   *             region.</p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.</p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
    * <p>The message type that was associated with the phone number.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
    * <p>Specifies if the number could be used for text messages, voice, or both.</p>
    * @public
    */
-  NumberCapabilities?: NumberCapability[];
+  NumberCapabilities?: NumberCapability[] | undefined;
 
   /**
    * <p>The type of number that was released.</p>
    * @public
    */
-  NumberType?: NumberType;
+  NumberType?: NumberType | undefined;
 
   /**
    * <p>The monthly price of the phone number, in US dollars.</p>
    * @public
    */
-  MonthlyLeasingPrice?: string;
+  MonthlyLeasingPrice?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the TwoWayChannel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
-   *             replies with a customizable message and adds the end recipient to the OptOutList. When
-   *             set to true you're responsible for responding to HELP and STOP requests. You're also
-   *             responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the OptOutList that was associated with the phone number.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 
   /**
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -6289,9 +6239,7 @@ export interface ReleaseSenderIdResult {
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageTypes: MessageType[] | undefined;
@@ -6312,7 +6260,7 @@ export interface ReleaseSenderIdResult {
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 }
 
 /**
@@ -6336,16 +6284,13 @@ export type RequestableNumberType = (typeof RequestableNumberType)[keyof typeof 
  */
 export interface RequestPhoneNumberRequest {
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are <code>TRANSACTIONAL</code> for messages that are critical or time-sensitive and <code>PROMOTIONAL</code> for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageType: MessageType | undefined;
@@ -6357,52 +6302,46 @@ export interface RequestPhoneNumberRequest {
   NumberCapabilities: NumberCapability[] | undefined;
 
   /**
-   * <p>The type of phone number to request.</p>
+   * <p>The type of phone number to request.</p> <p>When you request a <code>SIMULATOR</code> phone number, you must set <b>MessageType</b> as <code>TRANSACTIONAL</code>. </p>
    * @public
    */
   NumberType: RequestableNumberType | undefined;
 
   /**
-   * <p>The name of the OptOutList to associate with the phone number. You can use the
-   *             OptOutListName or OptOutListArn.</p>
+   * <p>The name of the OptOutList to associate with the phone number. You can use the OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
-   * <p>The pool to associated with the phone number. You can use the PoolId or PoolArn. </p>
+   * <p>The pool to associated with the phone number. You can use the PoolId or PoolArn. </p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
-   * <p>Use this field to attach your phone number for an external registration
-   *             process.</p>
+   * <p>Use this field to attach your phone number for an external registration process.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the phone number can't be
-   *             deleted.</p>
+   * <p>By default this is set to false. When set to true the phone number can't be deleted.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>An array of tags (key and value pairs) associate with the requested phone number.
-   *         </p>
+   * <p>An array of tags (key and value pairs) associate with the requested phone number. </p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -6413,125 +6352,115 @@ export interface RequestPhoneNumberResult {
    * <p>The Amazon Resource Name (ARN) of the requested phone number.</p>
    * @public
    */
-  PhoneNumberArn?: string;
+  PhoneNumberArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the new phone number.</p>
    * @public
    */
-  PhoneNumberId?: string;
+  PhoneNumberId?: string | undefined;
 
   /**
    * <p>The new phone number that was requested.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The current status of the request.</p>
    * @public
    */
-  Status?: NumberStatus;
+  Status?: NumberStatus | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
-   * <p>Indicates if the phone number will be used for text messages, voice messages or both.
-   *         </p>
+   * <p>Indicates if the phone number will be used for text messages, voice messages or both. </p>
    * @public
    */
-  NumberCapabilities?: NumberCapability[];
+  NumberCapabilities?: NumberCapability[] | undefined;
 
   /**
    * <p>The type of number that was released.</p>
    * @public
    */
-  NumberType?: RequestableNumberType;
+  NumberType?: RequestableNumberType | undefined;
 
   /**
    * <p>The monthly price, in US dollars, to lease the phone number.</p>
    * @public
    */
-  MonthlyLeasingPrice?: string;
+  MonthlyLeasingPrice?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The ARN used to identify the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
-   *             replies with a customizable message and adds the end recipient to the OptOutList. When
-   *             set to true you're responsible for responding to HELP and STOP requests. You're also
-   *             responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the OptOutList that is associated with the requested phone number.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the phone number can't be deleted.
-   *         </p>
+   * <p>By default this is set to false. When set to true the phone number can't be deleted. </p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The unique identifier of the pool associated with the phone number </p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 
   /**
    * <p>An array of key and value pair tags that are associated with the phone number.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -6551,32 +6480,28 @@ export interface RequestSenderIdRequest {
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
-  MessageTypes?: MessageType[];
+  MessageTypes?: MessageType[] | undefined;
 
   /**
    * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>An array of tags (key and value pairs) to associate with the sender ID.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
-   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the
-   *             request. If you don't specify a client token, a randomly generated token is used for the
-   *             request to ensure idempotency.</p>
+   * <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. If you don't specify a client token, a randomly generated token is used for the request to ensure idempotency.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -6602,9 +6527,7 @@ export interface RequestSenderIdResult {
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageTypes: MessageType[] | undefined;
@@ -6631,7 +6554,7 @@ export interface RequestSenderIdResult {
    * <p>An array of tags (key and value pairs) to associate with the sender ID.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -6668,37 +6591,31 @@ export interface SendDestinationNumberVerificationCodeRequest {
    * <p>Choose the language to use for the message.</p>
    * @public
    */
-  LanguageCode?: LanguageCode;
+  LanguageCode?: LanguageCode | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber,
-   *             PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
-   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
-   *             or ConfigurationSetArn.</p>
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>You can specify custom data in this field. If you do, that data is logged to the event
-   *             destination.</p>
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
 
   /**
-   * <p>This field is used for any country-specific registration requirements. Currently, this
-   *             setting is only used when you send messages to recipients in India using a sender ID.
-   *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
-   *         </p>
+   * <p>This field is used for any country-specific registration requirements. Currently, this setting is only used when you send messages to recipients in India using a sender ID. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>. </p>
    * @public
    */
-  DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>>;
+  DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>> | undefined;
 }
 
 /**
@@ -6723,8 +6640,7 @@ export interface SendMediaMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber,
-   *            PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -6733,55 +6649,55 @@ export interface SendMediaMessageRequest {
    * <p>The text body of the message.</p>
    * @public
    */
-  MessageBody?: string;
+  MessageBody?: string | undefined;
 
   /**
-   * <p>An array of URLs to each media file to send. </p>
-   *          <p>The media files have to be stored in a publicly available S3 bucket. Supported media file formats
-   *            are listed in <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/mms-limitations-character.html">MMS file types, size and character limits</a>. For more information on creating an S3 bucket and managing
-   *            objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html">Creating a bucket</a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html">Uploading objects</a> in the S3 user guide.</p>
+   * <p>An array of URLs to each media file to send. </p> <p>The media files have to be stored in an S3 bucket. Supported media file formats are listed in <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/mms-limitations-character.html">MMS file types, size and character limits</a>. For more information on creating an S3 bucket and managing objects, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/create-bucket-overview.html">Creating a bucket</a>, <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/upload-objects.html">Uploading objects</a> in the <i>Amazon S3 User Guide</i>, and <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/send-mms-message.html#send-mms-message-bucket">Setting up an Amazon S3 bucket for MMS files</a> in the <i>Amazon Web Services End User Messaging SMS User Guide</i>.</p>
    * @public
    */
-  MediaUrls?: string[];
+  MediaUrls?: string[] | undefined;
 
   /**
-   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
-   *            or ConfigurationSetArn.</p>
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The maximum amount that you want to spend, in US dollars, per each MMS message.</p>
    * @public
    */
-  MaxPrice?: string;
+  MaxPrice?: string | undefined;
 
   /**
-   * <p>How long the text message is valid for. By default this is 72 hours.</p>
+   * <p>How long the media message is valid for. By default this is 72 hours.</p>
    * @public
    */
-  TimeToLive?: number;
+  TimeToLive?: number | undefined;
 
   /**
-   * <p>You can specify custom data in this field. If you do, that data is logged to the event
-   *            destination.</p>
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
 
   /**
-   * <p>When set to true, the message is checked and validated, but isn't sent to the end
-   *            recipient.</p>
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The unique identifier of the protect configuration to use.</p>
    * @public
    */
-  ProtectConfigurationId?: string;
+  ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -6792,7 +6708,7 @@ export interface SendMediaMessageResult {
    * <p>The unique identifier for the message.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -6806,81 +6722,76 @@ export interface SendTextMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity of the message. This can be either the PhoneNumber,
-   *             PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p>
+   * <p>The origination identity of the message. This can be either the PhoneNumber, PhoneNumberId, PhoneNumberArn, SenderId, SenderIdArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  OriginationIdentity?: string;
+  OriginationIdentity?: string | undefined;
 
   /**
    * <p>The body of the text message.</p>
    * @public
    */
-  MessageBody?: string;
+  MessageBody?: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are
-   *             for messages that are critical or time-sensitive and PROMOTIONAL for messages that
-   *             aren't critical or time-sensitive.</p>
+   * <p>The type of message. Valid values are for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
-   * <p>When you register a short code in the US, you must specify a program name. If you
-   *             don’t have a US short code, omit this attribute.</p>
+   * <p>When you register a short code in the US, you must specify a program name. If you don’t have a US short code, omit this attribute.</p>
    * @public
    */
-  Keyword?: string;
+  Keyword?: string | undefined;
 
   /**
-   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
-   *             or ConfigurationSetArn.</p>
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>The maximum amount that you want to spend, in US dollars, per each text message part.
-   *             A text message can contain multiple parts.</p>
+   * <p>The maximum amount that you want to spend, in US dollars, per each text message. If the calculated amount to send the text message is greater than <code>MaxPrice</code>, the message is not sent and an error is returned.</p>
    * @public
    */
-  MaxPrice?: string;
+  MaxPrice?: string | undefined;
 
   /**
-   * <p>How long the text message is valid for. By default this is 72 hours.</p>
+   * <p>How long the text message is valid for, in seconds. By default this is 72 hours. If the messages isn't handed off before the TTL expires we stop attempting to hand off the message and return <code>TTL_EXPIRED</code> event.</p>
    * @public
    */
-  TimeToLive?: number;
+  TimeToLive?: number | undefined;
 
   /**
-   * <p>You can specify custom data in this field. If you do, that data is logged to the event
-   *             destination.</p>
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
 
   /**
-   * <p>This field is used for any country-specific registration requirements. Currently, this
-   *             setting is only used when you send messages to recipients in India using a sender ID.
-   *             For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>.
-   *         </p>
+   * <p>This field is used for any country-specific registration requirements. Currently, this setting is only used when you send messages to recipients in India using a sender ID. For more information see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-senderid-india.html">Special requirements for sending SMS messages to recipients in India</a>. </p> <ul> <li> <p> <code>IN_ENTITY_ID</code> The entity ID or Principal Entity (PE) ID that you received after completing the sender ID registration process.</p> </li> <li> <p> <code>IN_TEMPLATE_ID</code> The template ID that you received after completing the sender ID registration process.</p> <important> <p>Make sure that the Template ID that you specify matches your message template exactly. If your message doesn't match the template that you provided during the registration process, the mobile carriers might reject your message.</p> </important> </li> </ul>
    * @public
    */
-  DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>>;
+  DestinationCountryParameters?: Partial<Record<DestinationCountryParameterKey, string>> | undefined;
 
   /**
-   * <p>When set to true, the message is checked and validated, but isn't sent to the end
-   *             recipient.</p>
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient. You are not charged for using <code>DryRun</code>.</p> <p>The Message Parts per Second (MPS) limit when using <code>DryRun</code> is five. If your origination identity has a lower MPS limit then the lower MPS limit is used. For more information about MPS limits, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/sms-limitations-mps.html">Message Parts per Second (MPS) limits</a> in the <i>AWS End User Messaging SMS User Guide</i>..</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the protect configuration.</p>
    * @public
    */
-  ProtectConfigurationId?: string;
+  ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -6891,7 +6802,7 @@ export interface SendTextMessageResult {
    * <p>The unique identifier for the message.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -6990,8 +6901,7 @@ export interface SendVoiceMessageRequest {
   DestinationPhoneNumber: string | undefined;
 
   /**
-   * <p>The origination identity to use for the voice call. This can be the PhoneNumber,
-   *             PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn.</p>
+   * <p>The origination identity to use for the voice call. This can be the PhoneNumber, PhoneNumberId, PhoneNumberArn, PoolId, or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   OriginationIdentity: string | undefined;
@@ -7000,70 +6910,61 @@ export interface SendVoiceMessageRequest {
    * <p>The text to convert to a voice message.</p>
    * @public
    */
-  MessageBody?: string;
+  MessageBody?: string | undefined;
 
   /**
-   * <p>Specifies if the MessageBody field contains text or <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">speech synthesis
-   *                 markup language (SSML)</a>.</p>
-   *          <ul>
-   *             <li>
-   *                <p>TEXT: This is the default value. When used the maximum character limit is
-   *                     3000.</p>
-   *             </li>
-   *             <li>
-   *                <p>SSML: When used the maximum character limit is 6000 including SSML
-   *                     tagging.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies if the MessageBody field contains text or <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">speech synthesis markup language (SSML)</a>.</p> <ul> <li> <p>TEXT: This is the default value. When used the maximum character limit is 3000.</p> </li> <li> <p>SSML: When used the maximum character limit is 6000 including SSML tagging.</p> </li> </ul>
    * @public
    */
-  MessageBodyTextType?: VoiceMessageBodyTextType;
+  MessageBodyTextType?: VoiceMessageBodyTextType | undefined;
 
   /**
-   * <p>The voice for the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly</a>
-   *             service to use. By default this is set to "MATTHEW".</p>
+   * <p>The voice for the <a href="https://docs.aws.amazon.com/polly/latest/dg/what-is.html">Amazon Polly</a> service to use. By default this is set to "MATTHEW".</p>
    * @public
    */
-  VoiceId?: VoiceId;
+  VoiceId?: VoiceId | undefined;
 
   /**
-   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName
-   *             or ConfigurationSetArn.</p>
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The maximum amount to spend per voice message, in US dollars.</p>
    * @public
    */
-  MaxPricePerMinute?: string;
+  MaxPricePerMinute?: string | undefined;
 
   /**
    * <p>How long the voice message is valid for. By default this is 72 hours.</p>
    * @public
    */
-  TimeToLive?: number;
+  TimeToLive?: number | undefined;
 
   /**
-   * <p>You can specify custom data in this field. If you do, that data is logged to the event
-   *             destination.</p>
+   * <p>You can specify custom data in this field. If you do, that data is logged to the event destination.</p>
    * @public
    */
-  Context?: Record<string, string>;
+  Context?: Record<string, string> | undefined;
 
   /**
-   * <p>When set to true, the message is checked and validated, but isn't sent to the end
-   *             recipient.</p>
+   * <p>When set to true, the message is checked and validated, but isn't sent to the end recipient.</p>
    * @public
    */
-  DryRun?: boolean;
+  DryRun?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the protect configuration.</p>
    * @public
    */
-  ProtectConfigurationId?: string;
+  ProtectConfigurationId?: string | undefined;
+
+  /**
+   * <p>Set to true to enable message feedback for the message. When a user receives the message you need to update the message status using <a>PutMessageFeedback</a>.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
 }
 
 /**
@@ -7074,7 +6975,7 @@ export interface SendVoiceMessageResult {
    * <p>The unique identifier for the message.</p>
    * @public
    */
-  MessageId?: string;
+  MessageId?: string | undefined;
 }
 
 /**
@@ -7108,18 +7009,55 @@ export interface SetAccountDefaultProtectConfigurationResult {
 /**
  * @public
  */
-export interface SetDefaultMessageTypeRequest {
+export interface SetDefaultMessageFeedbackEnabledRequest {
   /**
-   * <p>The configuration set to update with a new default message type. This field can be the
-   *             ConsigurationSetName or ConfigurationSetArn.</p>
+   * <p>The name of the configuration set to use. This can be either the ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>Set to true to enable message feedback.</p>
+   * @public
+   */
+  MessageFeedbackEnabled: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetDefaultMessageFeedbackEnabledResult {
+  /**
+   * <p>The arn of the configuration set.</p>
+   * @public
+   */
+  ConfigurationSetArn?: string | undefined;
+
+  /**
+   * <p>The name of the configuration.</p>
+   * @public
+   */
+  ConfigurationSetName?: string | undefined;
+
+  /**
+   * <p>True if message feedback is enabled.</p>
+   * @public
+   */
+  MessageFeedbackEnabled?: boolean | undefined;
+}
+
+/**
+ * @public
+ */
+export interface SetDefaultMessageTypeRequest {
+  /**
+   * <p>The configuration set to update with a new default message type. This field can be the ConsigurationSetName or ConfigurationSetArn.</p>
+   * @public
+   */
+  ConfigurationSetName: string | undefined;
+
+  /**
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageType: MessageType | undefined;
@@ -7133,19 +7071,19 @@ export interface SetDefaultMessageTypeResult {
    * <p>The Amazon Resource Name (ARN) of the updated configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set that was updated.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The new default message type of the configuration set.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 }
 
 /**
@@ -7153,18 +7091,13 @@ export interface SetDefaultMessageTypeResult {
  */
 export interface SetDefaultSenderIdRequest {
   /**
-   * <p>The configuration set to updated with a new default SenderId. This field can be the
-   *             ConsigurationSetName or ConfigurationSetArn.</p>
+   * <p>The configuration set to updated with a new default SenderId. This field can be the ConsigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
 
   /**
-   * <p>The current sender ID for the configuration set. When sending a text message to a
-   *             destination country which supports SenderIds, the default sender ID on the configuration
-   *             set specified on <a>SendTextMessage</a> will be used if no dedicated
-   *             origination phone numbers or registered SenderIds are available in your account, instead
-   *             of a generic sender ID, such as 'NOTICE'.</p>
+   * <p>The current sender ID for the configuration set. When sending a text message to a destination country which supports SenderIds, the default sender ID on the configuration set specified on <a>SendTextMessage</a> will be used if no dedicated origination phone numbers or registered SenderIds are available in your account, instead of a generic sender ID, such as 'NOTICE'.</p>
    * @public
    */
   SenderId: string | undefined;
@@ -7178,19 +7111,19 @@ export interface SetDefaultSenderIdResult {
    * <p>The Amazon Resource Name (ARN) of the updated configuration set.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set that was updated.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
    * <p>The default sender ID to set for the ConfigurationSet.</p>
    * @public
    */
-  SenderId?: string;
+  SenderId?: string | undefined;
 }
 
 /**
@@ -7212,7 +7145,7 @@ export interface SetMediaMessageSpendLimitOverrideResult {
    * <p>The current monthly limit to enforce on sending text messages.</p>
    * @public
    */
-  MonthlyLimit?: number;
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -7234,7 +7167,7 @@ export interface SetTextMessageSpendLimitOverrideResult {
    * <p>The current monthly limit to enforce on sending text messages.</p>
    * @public
    */
-  MonthlyLimit?: number;
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -7256,7 +7189,7 @@ export interface SetVoiceMessageSpendLimitOverrideResult {
    * <p>The current monthly limit to enforce on sending voice messages.</p>
    * @public
    */
-  MonthlyLimit?: number;
+  MonthlyLimit?: number | undefined;
 }
 
 /**
@@ -7293,41 +7226,7 @@ export interface SubmitRegistrationVersionResult {
   VersionNumber: number | undefined;
 
   /**
-   * <p>The status of the registration version.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>DRAFT</code>: The initial status of a registration version after it’s created.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUBMITTED</code>: Your registration has been submitted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>APPROVED</code>: Your registration has been approved.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>DENIED</code>: You must fix your registration and resubmit it.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REVOKED</code>: Your previously approved registration has been revoked.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p>
-   *             </li>
-   *          </ul>
+   * <p>The status of the registration version.</p> <ul> <li> <p> <code>APPROVED</code>: Your registration has been approved.</p> </li> <li> <p> <code>ARCHIVED</code>: Your previously approved registration version moves into this status when a more recently submitted version is approved.</p> </li> <li> <p> <code>DENIED</code>: You must fix your registration and resubmit it.</p> </li> <li> <p> <code>DISCARDED</code>: You've abandon this version of their registration to start over with a new version. </p> </li> <li> <p> <code>DRAFT</code>: The initial status of a registration version after it’s created.</p> </li> <li> <p> <code>REQUIRES_AUTHENTICATION</code>: You need to complete email authentication.</p> </li> <li> <p> <code>REVIEWING</code>: Your registration has been accepted and is being reviewed.</p> </li> <li> <p> <code>REVOKED</code>: Your previously approved registration has been revoked.</p> </li> <li> <p> <code>SUBMITTED</code>: Your registration has been submitted.</p> </li> </ul>
    * @public
    */
   RegistrationVersionStatus: RegistrationVersionStatus | undefined;
@@ -7388,8 +7287,7 @@ export interface UntagResourceResult {}
  */
 export interface UpdateEventDestinationRequest {
   /**
-   * <p>The configuration set to update with the new event destination. Valid values for this
-   *             can be the ConfigurationSetName or ConfigurationSetArn.</p>
+   * <p>The configuration set to update with the new event destination. Valid values for this can be the ConfigurationSetName or ConfigurationSetArn.</p>
    * @public
    */
   ConfigurationSetName: string | undefined;
@@ -7404,36 +7302,31 @@ export interface UpdateEventDestinationRequest {
    * <p>When set to true logging is enabled.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
-   * <p>An array of event types that determine which events to log.</p>
-   *          <note>
-   *             <p>The <code>TEXT_SENT</code> event type is not supported.</p>
-   *          </note>
+   * <p>An array of event types that determine which events to log.</p> <note> <p>The <code>TEXT_SENT</code> event type is not supported.</p> </note>
    * @public
    */
-  MatchingEventTypes?: EventType[];
+  MatchingEventTypes?: EventType[] | undefined;
 
   /**
-   * <p>An object that contains information about an event destination that sends data to
-   *                 CloudWatch Logs.</p>
+   * <p>An object that contains information about an event destination that sends data to CloudWatch Logs.</p>
    * @public
    */
-  CloudWatchLogsDestination?: CloudWatchLogsDestination;
+  CloudWatchLogsDestination?: CloudWatchLogsDestination | undefined;
 
   /**
-   * <p>An object that contains information about an event destination for logging to Kinesis Data Firehose.</p>
+   * <p>An object that contains information about an event destination for logging to Firehose.</p>
    * @public
    */
-  KinesisFirehoseDestination?: KinesisFirehoseDestination;
+  KinesisFirehoseDestination?: KinesisFirehoseDestination | undefined;
 
   /**
-   * <p>An object that contains information about an event destination that sends data to
-   *                 Amazon SNS.</p>
+   * <p>An object that contains information about an event destination that sends data to Amazon SNS.</p>
    * @public
    */
-  SnsDestination?: SnsDestination;
+  SnsDestination?: SnsDestination | undefined;
 }
 
 /**
@@ -7444,20 +7337,19 @@ export interface UpdateEventDestinationResult {
    * <p>The Amazon Resource Name (ARN) for the ConfigurationSet that was updated.</p>
    * @public
    */
-  ConfigurationSetArn?: string;
+  ConfigurationSetArn?: string | undefined;
 
   /**
    * <p>The name of the configuration set.</p>
    * @public
    */
-  ConfigurationSetName?: string;
+  ConfigurationSetName?: string | undefined;
 
   /**
-   * <p>An EventDestination object containing the details of where events will be logged.
-   *         </p>
+   * <p>An EventDestination object containing the details of where events will be logged. </p>
    * @public
    */
-  EventDestination?: EventDestination;
+  EventDestination?: EventDestination | undefined;
 }
 
 /**
@@ -7465,54 +7357,46 @@ export interface UpdateEventDestinationResult {
  */
 export interface UpdatePhoneNumberRequest {
   /**
-   * <p>The unique identifier of the phone number. Valid values for this field can be either
-   *             the PhoneNumberId or PhoneNumberArn.</p>
+   * <p>The unique identifier of the phone number. Valid values for this field can be either the PhoneNumberId or PhoneNumberArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PhoneNumberId: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
-   *             replies with a customizable message and adds the end recipient to the OptOutList. When
-   *             set to true you're responsible for responding to HELP and STOP requests. You're also
-   *             responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
-   * <p>The OptOutList to add the phone number to. Valid values for this field can be either
-   *             the OutOutListName or OutOutListArn.</p>
+   * <p>The OptOutList to add the phone number to. Valid values for this field can be either the OutOutListName or OutOutListArn.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true the phone number can't be deleted.
-   *         </p>
+   * <p>By default this is set to false. When set to true the phone number can't be deleted. </p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -7523,107 +7407,103 @@ export interface UpdatePhoneNumberResult {
    * <p>The Amazon Resource Name (ARN) of the updated phone number.</p>
    * @public
    */
-  PhoneNumberArn?: string;
+  PhoneNumberArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the phone number.</p>
    * @public
    */
-  PhoneNumberId?: string;
+  PhoneNumberId?: string | undefined;
 
   /**
    * <p>The phone number that was updated.</p>
    * @public
    */
-  PhoneNumber?: string;
+  PhoneNumber?: string | undefined;
 
   /**
    * <p>The current status of the request.</p>
    * @public
    */
-  Status?: NumberStatus;
+  Status?: NumberStatus | undefined;
 
   /**
-   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region.
-   *         </p>
+   * <p>The two-character code, in ISO 3166-1 alpha-2 format, for the country or region. </p>
    * @public
    */
-  IsoCountryCode?: string;
+  IsoCountryCode?: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
    * <p>Specifies if the number could be used for text messages, voice or both.</p>
    * @public
    */
-  NumberCapabilities?: NumberCapability[];
+  NumberCapabilities?: NumberCapability[] | undefined;
 
   /**
    * <p>The type of number that was requested.</p>
    * @public
    */
-  NumberType?: NumberType;
+  NumberType?: NumberType | undefined;
 
   /**
    * <p>The monthly leasing price of the phone number, in US dollars.</p>
    * @public
    */
-  MonthlyLeasingPrice?: string;
+  MonthlyLeasingPrice?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
    * <p>This is true if self managed opt-out are enabled.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the OptOutList associated with the phone number.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>When set to true the phone number can't be deleted.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 
   /**
    * <p>The time when the phone number was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -7631,59 +7511,52 @@ export interface UpdatePhoneNumberResult {
  */
 export interface UpdatePoolRequest {
   /**
-   * <p>The unique identifier of the pool to update. Valid values are either the PoolId or
-   *             PoolArn.</p>
+   * <p>The unique identifier of the pool to update. Valid values are either the PoolId or PoolArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
   PoolId: string | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>By default this is set to false. When an end recipient sends a message that begins
-   *             with HELP or STOP to one of your dedicated numbers, Amazon Pinpoint automatically
-   *             replies with a customizable message and adds the end recipient to the OptOutList. When
-   *             set to true you're responsible for responding to HELP and STOP requests. You're also
-   *             responsible for tracking and honoring opt-out requests.</p>
+   * <p>By default this is set to false. When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
-   * <p>The OptOutList to associate with the pool. Valid values are either OptOutListName or
-   *             OptOutListArn.</p>
+   * <p>The OptOutList to associate with the pool. Valid values are either OptOutListName or OptOutListArn.</p> <important> <p>If you are using a shared AWS End User Messaging SMS and Voice resource then you must use the full Amazon Resource Name(ARN).</p> </important>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>Indicates whether shared routes are enabled for the pool.</p>
    * @public
    */
-  SharedRoutesEnabled?: boolean;
+  SharedRoutesEnabled?: boolean | undefined;
 
   /**
    * <p>When set to true the pool can't be deleted.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -7694,78 +7567,73 @@ export interface UpdatePoolResult {
    * <p>The ARN of the pool.</p>
    * @public
    */
-  PoolArn?: string;
+  PoolArn?: string | undefined;
 
   /**
    * <p>The unique identifier of the pool.</p>
    * @public
    */
-  PoolId?: string;
+  PoolId?: string | undefined;
 
   /**
    * <p>The current status of the pool update request.</p>
    * @public
    */
-  Status?: PoolStatus;
+  Status?: PoolStatus | undefined;
 
   /**
    * <p>The type of message for the pool to use.</p>
    * @public
    */
-  MessageType?: MessageType;
+  MessageType?: MessageType | undefined;
 
   /**
-   * <p>By default this is set to false. When set to true you can receive incoming text
-   *             messages from your end recipients.</p>
+   * <p>By default this is set to false. When set to true you can receive incoming text messages from your end recipients.</p>
    * @public
    */
-  TwoWayEnabled?: boolean;
+  TwoWayEnabled?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the two way channel.</p>
    * @public
    */
-  TwoWayChannelArn?: string;
+  TwoWayChannelArn?: string | undefined;
 
   /**
    * <p>An optional IAM Role Arn for a service to assume, to be able to post inbound SMS messages.</p>
    * @public
    */
-  TwoWayChannelRole?: string;
+  TwoWayChannelRole?: string | undefined;
 
   /**
-   * <p>When an end recipient sends a message that begins with HELP or STOP to one of your
-   *             dedicated numbers, Amazon Pinpoint automatically replies with a customizable message
-   *             and adds the end recipient to the OptOutList. When set to true you're responsible for
-   *             responding to HELP and STOP requests. You're also responsible for tracking and honoring
-   *             opt-out requests.</p>
+   * <p>When an end recipient sends a message that begins with HELP or STOP to one of your dedicated numbers, AWS End User Messaging SMS and Voice automatically replies with a customizable message and adds the end recipient to the OptOutList. When set to true you're responsible for responding to HELP and STOP requests. You're also responsible for tracking and honoring opt-out requests.</p>
    * @public
    */
-  SelfManagedOptOutsEnabled?: boolean;
+  SelfManagedOptOutsEnabled?: boolean | undefined;
 
   /**
    * <p>The name of the OptOutList associated with the pool.</p>
    * @public
    */
-  OptOutListName?: string;
+  OptOutListName?: string | undefined;
 
   /**
    * <p>Indicates whether shared routes are enabled for the pool.</p>
    * @public
    */
-  SharedRoutesEnabled?: boolean;
+  SharedRoutesEnabled?: boolean | undefined;
 
   /**
    * <p>When set to true the pool can't be deleted.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
    * <p>The time when the pool was created, in <a href="https://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreatedTimestamp?: Date;
+  CreatedTimestamp?: Date | undefined;
 }
 
 /**
@@ -7779,11 +7647,10 @@ export interface UpdateProtectConfigurationRequest {
   ProtectConfigurationId: string | undefined;
 
   /**
-   * <p>When set to true deletion protection is enabled. By default this is set to false.
-   *        </p>
+   * <p>When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -7815,8 +7682,7 @@ export interface UpdateProtectConfigurationResult {
   AccountDefault: boolean | undefined;
 
   /**
-   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false.
-   *        </p>
+   * <p>The status of deletion protection for the protect configuration. When set to true deletion protection is enabled. By default this is set to false. </p>
    * @public
    */
   DeletionProtectionEnabled: boolean | undefined;
@@ -7839,8 +7705,7 @@ export interface UpdateProtectConfigurationCountryRuleSetRequest {
   NumberCapability: NumberCapability | undefined;
 
   /**
-   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the
-   *            details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the Amazon Pinpoint SMS user guide.</p>
+   * <p>A map of ProtectConfigurationCountryRuleSetInformation objects that contain the details for the requested NumberCapability. The Key is the two-letter ISO country code. For a list of supported ISO country codes, see <a href="https://docs.aws.amazon.com/sms-voice/latest/userguide/phone-numbers-sms-by-country.html">Supported countries and regions (SMS channel)</a> in the AWS End User Messaging SMS User Guide.</p> <p>For example, to set the United States as allowed and Canada as blocked, the <code>CountryRuleSetUpdates</code> would be formatted as: <code>"CountryRuleSetUpdates": \{ "US" : \{ "ProtectStatus": "ALLOW" \} "CA" : \{ "ProtectStatus": "BLOCK" \} \}</code> </p>
    * @public
    */
   CountryRuleSetUpdates: Record<string, ProtectConfigurationCountryRuleSetInformation> | undefined;
@@ -7895,7 +7760,7 @@ export interface UpdateSenderIdRequest {
    * <p>By default this is set to false. When set to true the sender ID can't be deleted.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 }
 
 /**
@@ -7921,9 +7786,7 @@ export interface UpdateSenderIdResult {
   IsoCountryCode: string | undefined;
 
   /**
-   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or
-   *             time-sensitive and PROMOTIONAL for messages that aren't critical or
-   *             time-sensitive.</p>
+   * <p>The type of message. Valid values are TRANSACTIONAL for messages that are critical or time-sensitive and PROMOTIONAL for messages that aren't critical or time-sensitive.</p>
    * @public
    */
   MessageTypes: MessageType[] | undefined;
@@ -7950,7 +7813,7 @@ export interface UpdateSenderIdResult {
    * <p>The unique identifier for the registration.</p>
    * @public
    */
-  RegistrationId?: string;
+  RegistrationId?: string | undefined;
 }
 
 /**

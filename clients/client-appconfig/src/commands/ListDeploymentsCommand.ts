@@ -12,7 +12,8 @@ import { de_ListDeploymentsCommand, se_ListDeploymentsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * //       GrowthType: "LINEAR" || "EXPONENTIAL",
  * //       GrowthFactor: Number("float"),
  * //       FinalBakeTimeInMinutes: Number("int"),
- * //       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //       State: "BAKING" || "VALIDATING" || "DEPLOYING" || "COMPLETE" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //       PercentageComplete: Number("float"),
  * //       StartedAt: new Date("TIMESTAMP"),
  * //       CompletedAt: new Date("TIMESTAMP"),
@@ -82,38 +83,8 @@ export interface ListDeploymentsCommandOutput extends Deployments, __MetadataBea
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
- * @example To list the available deployments
- * ```javascript
- * // The following list-deployments example lists the available deployments in your AWS account for the specified application and environment.
- * const input = {
- *   "ApplicationId": "339ohji",
- *   "EnvironmentId": "54j1r29"
- * };
- * const command = new ListDeploymentsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Items": [
- *     {
- *       "CompletedAt": "2021-09-17T21:59:03.888000+00:00",
- *       "ConfigurationName": "Example-Configuration-Profile",
- *       "ConfigurationVersion": "1",
- *       "DeploymentDurationInMinutes": 15,
- *       "DeploymentNumber": 1,
- *       "FinalBakeTimeInMinutes": 0,
- *       "GrowthFactor": 25,
- *       "GrowthType": "LINEAR",
- *       "PercentageComplete": 100,
- *       "StartedAt": "2021-09-17T21:43:54.205000+00:00",
- *       "State": "COMPLETE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-list-the-available-deployments-1632267282025
- * ```
  *
+ * @public
  */
 export class ListDeploymentsCommand extends $Command
   .classBuilder<
@@ -123,9 +94,7 @@ export class ListDeploymentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +106,16 @@ export class ListDeploymentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDeploymentsCommand)
   .de(de_ListDeploymentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDeploymentsRequest;
+      output: Deployments;
+    };
+    sdk: {
+      input: ListDeploymentsCommandInput;
+      output: ListDeploymentsCommandOutput;
+    };
+  };
+}

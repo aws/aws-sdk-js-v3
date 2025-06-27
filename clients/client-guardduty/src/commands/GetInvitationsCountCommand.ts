@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_0";
+import { GetInvitationsCountRequest, GetInvitationsCountResponse } from "../models/models_1";
 import { de_GetInvitationsCountCommand, se_GetInvitationsCountCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,7 @@ export interface GetInvitationsCountCommandOutput extends GetInvitationsCountRes
  * @throws {@link GuardDutyServiceException}
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
+ *
  * @public
  */
 export class GetInvitationsCountCommand extends $Command
@@ -69,9 +71,7 @@ export class GetInvitationsCountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GuardDutyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +83,16 @@ export class GetInvitationsCountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInvitationsCountCommand)
   .de(de_GetInvitationsCountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetInvitationsCountResponse;
+    };
+    sdk: {
+      input: GetInvitationsCountCommandInput;
+      output: GetInvitationsCountCommandOutput;
+    };
+  };
+}

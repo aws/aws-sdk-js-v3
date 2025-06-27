@@ -12,7 +12,8 @@ import { de_GetSAMLProviderCommand, se_GetSAMLProviderCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,6 +45,7 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * const command = new GetSAMLProviderCommand(input);
  * const response = await client.send(command);
  * // { // GetSAMLProviderResponse
+ * //   SAMLProviderUUID: "STRING_VALUE",
  * //   SAMLMetadataDocument: "STRING_VALUE",
  * //   CreateDate: new Date("TIMESTAMP"),
  * //   ValidUntil: new Date("TIMESTAMP"),
@@ -51,6 +53,13 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * //     { // Tag
  * //       Key: "STRING_VALUE", // required
  * //       Value: "STRING_VALUE", // required
+ * //     },
+ * //   ],
+ * //   AssertionEncryptionMode: "Required" || "Allowed",
+ * //   PrivateKeyList: [ // privateKeyList
+ * //     { // SAMLPrivateKey
+ * //       KeyId: "STRING_VALUE",
+ * //       Timestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * // };
@@ -78,6 +87,7 @@ export interface GetSAMLProviderCommandOutput extends GetSAMLProviderResponse, _
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class GetSAMLProviderCommand extends $Command
@@ -88,9 +98,7 @@ export class GetSAMLProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +110,16 @@ export class GetSAMLProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSAMLProviderCommand)
   .de(de_GetSAMLProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSAMLProviderRequest;
+      output: GetSAMLProviderResponse;
+    };
+    sdk: {
+      input: GetSAMLProviderCommandInput;
+      output: GetSAMLProviderCommandOutput;
+    };
+  };
+}

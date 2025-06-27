@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //       accountId: "STRING_VALUE",
  * //       taxRegistration: { // TaxRegistrationWithJurisdiction
  * //         registrationId: "STRING_VALUE", // required
- * //         registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST", // required
+ * //         registrationType: "VAT" || "GST" || "CPF" || "CNPJ" || "SST" || "TIN" || "NRIC", // required
  * //         legalName: "STRING_VALUE", // required
  * //         status: "Verified" || "Pending" || "Deleted" || "Rejected", // required
  * //         sector: "Business" || "Individual" || "Government",
@@ -65,9 +66,11 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //         certifiedEmailId: "STRING_VALUE",
  * //         additionalTaxInformation: { // AdditionalInfoResponse
  * //           malaysiaAdditionalInfo: { // MalaysiaAdditionalInfo
- * //             serviceTaxCodes: [ // MalaysiaServiceTaxCodesList // required
+ * //             serviceTaxCodes: [ // MalaysiaServiceTaxCodesList
  * //               "Consultancy" || "Digital Service And Electronic Medium" || "IT Services" || "Training Or Coaching",
  * //             ],
+ * //             taxInformationNumber: "STRING_VALUE",
+ * //             businessRegistrationNumber: "STRING_VALUE",
  * //           },
  * //           israelAdditionalInfo: { // IsraelAdditionalInfo
  * //             dealerType: "Authorized" || "Non-authorized", // required
@@ -128,6 +131,28 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * //           indiaAdditionalInfo: { // IndiaAdditionalInfo
  * //             pan: "STRING_VALUE",
  * //           },
+ * //           indonesiaAdditionalInfo: { // IndonesiaAdditionalInfo
+ * //             taxRegistrationNumberType: "NIK" || "PassportNumber" || "NPWP" || "NITKU",
+ * //             ppnExceptionDesignationCode: "STRING_VALUE",
+ * //             decisionNumber: "STRING_VALUE",
+ * //           },
+ * //           vietnamAdditionalInfo: { // VietnamAdditionalInfo
+ * //             enterpriseIdentificationNumber: "STRING_VALUE",
+ * //             electronicTransactionCodeNumber: "STRING_VALUE",
+ * //             paymentVoucherNumber: "STRING_VALUE",
+ * //             paymentVoucherNumberDate: "STRING_VALUE",
+ * //           },
+ * //           egyptAdditionalInfo: { // EgyptAdditionalInfo
+ * //             uniqueIdentificationNumber: "STRING_VALUE",
+ * //             uniqueIdentificationNumberExpirationDate: "STRING_VALUE",
+ * //           },
+ * //           greeceAdditionalInfo: { // GreeceAdditionalInfo
+ * //             contractingAuthorityCode: "STRING_VALUE",
+ * //           },
+ * //           uzbekistanAdditionalInfo: { // UzbekistanAdditionalInfo
+ * //             taxRegistrationNumberType: "Business" || "Individual",
+ * //             vatRegistrationNumber: "STRING_VALUE",
+ * //           },
  * //         },
  * //         jurisdiction: { // Jurisdiction
  * //           stateOrRegion: "STRING_VALUE",
@@ -185,6 +210,7 @@ export interface ListTaxRegistrationsCommandOutput extends ListTaxRegistrationsR
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class ListTaxRegistrationsCommand extends $Command
@@ -195,9 +221,7 @@ export class ListTaxRegistrationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -209,4 +233,16 @@ export class ListTaxRegistrationsCommand extends $Command
   .f(void 0, ListTaxRegistrationsResponseFilterSensitiveLog)
   .ser(se_ListTaxRegistrationsCommand)
   .de(de_ListTaxRegistrationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTaxRegistrationsRequest;
+      output: ListTaxRegistrationsResponse;
+    };
+    sdk: {
+      input: ListTaxRegistrationsCommandInput;
+      output: ListTaxRegistrationsCommandOutput;
+    };
+  };
+}

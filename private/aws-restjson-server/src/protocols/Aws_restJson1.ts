@@ -28,6 +28,7 @@ import {
   expectObject as __expectObject,
   expectShort as __expectShort,
   expectString as __expectString,
+  isSerializableHeaderValue,
   LazyJsonString as __LazyJsonString,
   limitedParseDouble as __limitedParseDouble,
   limitedParseFloat32 as __limitedParseFloat32,
@@ -36,9 +37,11 @@ import {
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc3339DateTime as __parseRfc3339DateTime,
   parseRfc7231DateTime as __parseRfc7231DateTime,
+  quoteHeader as __quoteHeader,
   serializeDateTime as __serializeDateTime,
   serializeFloat as __serializeFloat,
   splitEvery as __splitEvery,
+  splitHeader as __splitHeader,
   strictParseByte as __strictParseByte,
   strictParseDouble as __strictParseDouble,
   strictParseFloat as __strictParseFloat,
@@ -56,8 +59,12 @@ import {
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 
 import {
+  ClientOptionalDefaults,
   ComplexError,
   ComplexNestedErrorData,
+  Defaults,
+  Dialog,
+  Farewell,
   FooEnum,
   FooError,
   GreetingStruct,
@@ -73,6 +80,7 @@ import {
   SimpleUnion,
   StructureListMember,
   TestConfig,
+  TopLevel,
   UnionPayload,
   UnionWithJsonName,
   Unit,
@@ -89,6 +97,10 @@ import {
   ConstantQueryStringServerInput,
   ConstantQueryStringServerOutput,
 } from "../server/operations/ConstantQueryString";
+import {
+  ContentTypeParametersServerInput,
+  ContentTypeParametersServerOutput,
+} from "../server/operations/ContentTypeParameters";
 import { DatetimeOffsetsServerInput, DatetimeOffsetsServerOutput } from "../server/operations/DatetimeOffsets";
 import { DocumentTypeServerInput, DocumentTypeServerOutput } from "../server/operations/DocumentType";
 import {
@@ -118,6 +130,10 @@ import {
   HttpChecksumRequiredServerInput,
   HttpChecksumRequiredServerOutput,
 } from "../server/operations/HttpChecksumRequired";
+import {
+  HttpEmptyPrefixHeadersServerInput,
+  HttpEmptyPrefixHeadersServerOutput,
+} from "../server/operations/HttpEmptyPrefixHeaders";
 import { HttpEnumPayloadServerInput, HttpEnumPayloadServerOutput } from "../server/operations/HttpEnumPayload";
 import { HttpPayloadTraitsServerInput, HttpPayloadTraitsServerOutput } from "../server/operations/HttpPayloadTraits";
 import {
@@ -202,6 +218,10 @@ import {
   MalformedContentTypeWithoutBodyServerOutput,
 } from "../server/operations/MalformedContentTypeWithoutBody";
 import {
+  MalformedContentTypeWithoutBodyEmptyInputServerInput,
+  MalformedContentTypeWithoutBodyEmptyInputServerOutput,
+} from "../server/operations/MalformedContentTypeWithoutBodyEmptyInput";
+import {
   MalformedContentTypeWithPayloadServerInput,
   MalformedContentTypeWithPayloadServerOutput,
 } from "../server/operations/MalformedContentTypeWithPayload";
@@ -285,6 +305,14 @@ import {
   OmitsSerializingEmptyListsServerInput,
   OmitsSerializingEmptyListsServerOutput,
 } from "../server/operations/OmitsSerializingEmptyLists";
+import {
+  OperationWithDefaultsServerInput,
+  OperationWithDefaultsServerOutput,
+} from "../server/operations/OperationWithDefaults";
+import {
+  OperationWithNestedStructureServerInput,
+  OperationWithNestedStructureServerOutput,
+} from "../server/operations/OperationWithNestedStructure";
 import { PostPlayerActionServerInput, PostPlayerActionServerOutput } from "../server/operations/PostPlayerAction";
 import {
   PostUnionWithJsonNameServerInput,
@@ -305,6 +333,14 @@ import {
 import { QueryPrecedenceServerInput, QueryPrecedenceServerOutput } from "../server/operations/QueryPrecedence";
 import { RecursiveShapesServerInput, RecursiveShapesServerOutput } from "../server/operations/RecursiveShapes";
 import {
+  ResponseCodeHttpFallbackServerInput,
+  ResponseCodeHttpFallbackServerOutput,
+} from "../server/operations/ResponseCodeHttpFallback";
+import {
+  ResponseCodeRequiredServerInput,
+  ResponseCodeRequiredServerOutput,
+} from "../server/operations/ResponseCodeRequired";
+import {
   SimpleScalarPropertiesServerInput,
   SimpleScalarPropertiesServerOutput,
 } from "../server/operations/SimpleScalarProperties";
@@ -320,12 +356,21 @@ import {
   StreamingTraitsWithMediaTypeServerOutput,
 } from "../server/operations/StreamingTraitsWithMediaType";
 import { TestBodyStructureServerInput, TestBodyStructureServerOutput } from "../server/operations/TestBodyStructure";
-import { TestNoPayloadServerInput, TestNoPayloadServerOutput } from "../server/operations/TestNoPayload";
+import {
+  TestGetNoInputNoPayloadServerInput,
+  TestGetNoInputNoPayloadServerOutput,
+} from "../server/operations/TestGetNoInputNoPayload";
+import { TestGetNoPayloadServerInput, TestGetNoPayloadServerOutput } from "../server/operations/TestGetNoPayload";
 import { TestPayloadBlobServerInput, TestPayloadBlobServerOutput } from "../server/operations/TestPayloadBlob";
 import {
   TestPayloadStructureServerInput,
   TestPayloadStructureServerOutput,
 } from "../server/operations/TestPayloadStructure";
+import {
+  TestPostNoInputNoPayloadServerInput,
+  TestPostNoInputNoPayloadServerOutput,
+} from "../server/operations/TestPostNoInputNoPayload";
+import { TestPostNoPayloadServerInput, TestPostNoPayloadServerOutput } from "../server/operations/TestPostNoPayload";
 import {
   TimestampFormatHeadersServerInput,
   TimestampFormatHeadersServerOutput,
@@ -372,13 +417,13 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry as any);
+      contents.queryStringList = queryValue;
     }
     if (query["StringSet"] !== undefined) {
       const queryValue = Array.isArray(query["StringSet"])
         ? (query["StringSet"] as string[])
         : [query["StringSet"] as string];
-      contents.queryStringSet = queryValue.map((_entry) => _entry as any);
+      contents.queryStringSet = queryValue;
     }
     if (query["Byte"] !== undefined) {
       let queryValue: string;
@@ -531,7 +576,7 @@ export const deserializeAllQueryStringTypesRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
+      contents.queryEnumList = queryValue;
     }
     if (query["IntegerEnum"] !== undefined) {
       let queryValue: string;
@@ -556,7 +601,7 @@ export const deserializeAllQueryStringTypesRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
+      parsedQuery[key] = valueArray;
     }
     contents.queryParamsMapOfStringList = parsedQuery;
   }
@@ -645,6 +690,35 @@ export const deserializeConstantQueryStringRequest = async (
     contents.hello = decodeURIComponent(parsedPath.groups.hello);
   }
   await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeContentTypeParametersRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ContentTypeParametersServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    value: __expectInt32,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -947,6 +1021,42 @@ export const deserializeHttpChecksumRequiredRequest = async (
   return contents;
 };
 
+export const deserializeHttpEmptyPrefixHeadersRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<HttpEmptyPrefixHeadersServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_sH]: [, output.headers[_h]],
+    prefixHeaders: [
+      ,
+      Object.keys(output.headers)
+        .filter((header) => header.startsWith(""))
+        .reduce((acc, header) => {
+          acc[header.substring(0)] = output.headers[header];
+          return acc;
+        }, {} as any),
+    ],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeHttpEnumPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -1060,8 +1170,10 @@ export const deserializeHttpPayloadWithUnionRequest = async (
     }
   }
   const contents: any = map({});
-  const data: Record<string, any> | undefined = __expectUnion(await parseBody(output.body, context));
-  contents.nested = de_UnionPayload(data, context);
+  const data: Record<string, any> | undefined = await parseBody(output.body, context);
+  if (Object.keys(data ?? {}).length) {
+    contents.nested = __expectUnion(de_UnionPayload(data, context));
+  }
   return contents;
 };
 
@@ -1417,19 +1529,19 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     [_hFB]: [() => void 0 !== output.headers[_xb__], () => __parseBoolean(output.headers[_xb__])],
     [_hSL]: [
       () => void 0 !== output.headers[_xs__],
-      () => (output.headers[_xs__] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs__] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hSS]: [
       () => void 0 !== output.headers[_xs___],
-      () => (output.headers[_xs___] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xs___] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIL]: [
       () => void 0 !== output.headers[_xi_],
-      () => (output.headers[_xi_] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi_] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
     [_hBL]: [
       () => void 0 !== output.headers[_xb___],
-      () => (output.headers[_xb___] || "").split(",").map((_entry) => __parseBoolean(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xb___] || "").map((_entry) => __parseBoolean(_entry.trim()) as any),
     ],
     [_hTL]: [
       () => void 0 !== output.headers[_xt],
@@ -1441,12 +1553,12 @@ export const deserializeInputAndOutputWithHeadersRequest = async (
     [_hE]: [, output.headers[_xe]],
     [_hEL]: [
       () => void 0 !== output.headers[_xe_],
-      () => (output.headers[_xe_] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xe_] || "").map((_entry) => _entry.trim() as any),
     ],
     [_hIE]: [() => void 0 !== output.headers[_xi__], () => __strictParseInt32(output.headers[_xi__])],
     [_hIEL]: [
       () => void 0 !== output.headers[_xi___],
-      () => (output.headers[_xi___] || "").split(",").map((_entry) => __strictParseInt32(_entry.trim()) as any),
+      () => __splitHeader(output.headers[_xi___] || "").map((_entry) => __strictParseInt32(_entry.trim()) as any),
     ],
   });
   await collectBody(output.body, context);
@@ -1972,6 +2084,33 @@ export const deserializeMalformedContentTypeWithoutBodyRequest = async (
   return contents;
 };
 
+export const deserializeMalformedContentTypeWithoutBodyEmptyInputRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<MalformedContentTypeWithoutBodyEmptyInputServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_he]: [, output.headers[_he]],
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeMalformedContentTypeWithPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -2369,7 +2508,7 @@ export const deserializeMalformedStringRequest = async (
   const contents: any = map({
     [_bl]: [
       () => void 0 !== output.headers[_amth],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_amth])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2809,7 +2948,7 @@ export const deserializeMediaTypeHeaderRequest = async (
   const contents: any = map({
     [_j]: [
       () => void 0 !== output.headers[_xj],
-      () => new __LazyJsonString(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
+      () => __LazyJsonString.from(Buffer.from(context.base64Decoder(output.headers[_xj])).toString("utf8")),
     ],
   });
   await collectBody(output.body, context);
@@ -2891,7 +3030,7 @@ export const deserializeNullAndEmptyHeadersClientRequest = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -2923,7 +3062,7 @@ export const deserializeNullAndEmptyHeadersServerRequest = async (
     [_b_]: [, output.headers[_xb____]],
     [_c]: [
       () => void 0 !== output.headers[_xc],
-      () => (output.headers[_xc] || "").split(",").map((_entry) => _entry.trim() as any),
+      () => __splitHeader(output.headers[_xc] || "").map((_entry) => _entry.trim() as any),
     ],
   });
   await collectBody(output.body, context);
@@ -3011,7 +3150,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["StringList"])
         ? (query["StringList"] as string[])
         : [query["StringList"] as string];
-      contents.queryStringList = queryValue.map((_entry) => _entry as any);
+      contents.queryStringList = queryValue;
     }
     if (query["IntegerList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerList"])
@@ -3041,7 +3180,7 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
       const queryValue = Array.isArray(query["EnumList"])
         ? (query["EnumList"] as string[])
         : [query["EnumList"] as string];
-      contents.queryEnumList = queryValue.map((_entry) => _entry as any);
+      contents.queryEnumList = queryValue;
     }
     if (query["IntegerEnumList"] !== undefined) {
       const queryValue = Array.isArray(query["IntegerEnumList"])
@@ -3051,6 +3190,67 @@ export const deserializeOmitsSerializingEmptyListsRequest = async (
     }
   }
   await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeOperationWithDefaultsRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<OperationWithDefaultsServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientOptionalDefaults: (_) => de_ClientOptionalDefaults(_, context),
+    defaults: (_) => de_Defaults(_, context),
+    otherTopLevelDefault: __expectInt32,
+    topLevelDefault: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializeOperationWithNestedStructureRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<OperationWithNestedStructureServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    topLevel: (_) => de_TopLevel(_, context),
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -3224,7 +3424,7 @@ export const deserializeQueryParamsAsStringListMapRequest = async (
     for (const [key, value] of Object.entries(query)) {
       let queryValue: string;
       const valueArray = Array.isArray(value) ? (value as string[]) : [value as string];
-      parsedQuery[key] = valueArray.map((_entry) => _entry as any);
+      parsedQuery[key] = valueArray;
     }
     contents.foo = parsedQuery;
   }
@@ -3317,6 +3517,56 @@ export const deserializeRecursiveShapesRequest = async (
   return contents;
 };
 
+export const deserializeResponseCodeHttpFallbackRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ResponseCodeHttpFallbackServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeResponseCodeRequiredRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<ResponseCodeRequiredServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
 export const deserializeSimpleScalarPropertiesRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
@@ -3379,6 +3629,7 @@ export const deserializeSparseJsonListsRequest = async (
   const contents: any = map({});
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    sparseShortList: (_) => de_SparseShortList(_, context),
     sparseStringList: (_) => de_SparseStringList(_, context),
   });
   Object.assign(contents, doc);
@@ -3508,10 +3759,35 @@ export const deserializeTestBodyStructureRequest = async (
   return contents;
 };
 
-export const deserializeTestNoPayloadRequest = async (
+export const deserializeTestGetNoInputNoPayloadRequest = async (
   output: __HttpRequest,
   context: __SerdeContext
-): Promise<TestNoPayloadServerInput> => {
+): Promise<TestGetNoInputNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeTestGetNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestGetNoPayloadServerInput> => {
   const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
     (key) => key.toLowerCase() === "content-type"
   );
@@ -3572,6 +3848,58 @@ export const deserializeTestPayloadStructureRequest = async (
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
   contents.payloadConfig = de_PayloadConfig(data, context);
+  return contents;
+};
+
+export const deserializeTestPostNoInputNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestPostNoInputNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined) {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  await collectBody(output.body, context);
+  return contents;
+};
+
+export const deserializeTestPostNoPayloadRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<TestPostNoPayloadServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({
+    [_tI]: [, output.headers[_xati]],
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -3729,6 +4057,43 @@ export const serializeConstantQueryStringResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {});
   let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeContentTypeParametersResponse = async (
+  input: ContentTypeParametersServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
   if (
     body &&
     Object.keys(headers)
@@ -4174,6 +4539,49 @@ export const serializeHttpChecksumRequiredResponse = async (
   });
 };
 
+export const serializeHttpEmptyPrefixHeadersResponse = async (
+  input: HttpEmptyPrefixHeadersServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    ...(input.prefixHeaders !== undefined &&
+      Object.keys(input.prefixHeaders).reduce((acc: any, suffix: string) => {
+        acc[`${suffix.toLowerCase()}`] = input.prefixHeaders![suffix];
+        return acc;
+      }, {})),
+    "content-type": "application/json",
+    [_h]: input[_sH]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeHttpEnumPayloadResponse = async (
   input: HttpEnumPayloadServerOutput,
   ctx: ServerSerdeContext
@@ -4394,13 +4802,13 @@ export const serializeHttpPrefixHeadersResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/json",
-    [_xf]: input[_f]!,
     ...(input.fooMap !== undefined &&
       Object.keys(input.fooMap).reduce((acc: any, suffix: string) => {
         acc[`x-foo-${suffix.toLowerCase()}`] = input.fooMap![suffix];
         return acc;
       }, {})),
+    "content-type": "application/json",
+    [_xf]: input[_f]!,
   });
   let body: any;
   body = "{}";
@@ -4437,12 +4845,12 @@ export const serializeHttpPrefixHeadersInResponseResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    "content-type": "application/json",
     ...(input.prefixHeaders !== undefined &&
       Object.keys(input.prefixHeaders).reduce((acc: any, suffix: string) => {
         acc[`${suffix.toLowerCase()}`] = input.prefixHeaders![suffix];
         return acc;
       }, {})),
+    "content-type": "application/json",
   });
   let body: any;
   body = "{}";
@@ -4785,14 +5193,8 @@ export const serializeInputAndOutputWithHeadersResponse = async (
     ],
     [_xb_]: [() => isSerializableHeaderValue(input[_hTB]), () => input[_hTB]!.toString()],
     [_xb__]: [() => isSerializableHeaderValue(input[_hFB]), () => input[_hFB]!.toString()],
-    [_xs__]: [
-      () => isSerializableHeaderValue(input[_hSL]),
-      () => (input[_hSL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
-    [_xs___]: [
-      () => isSerializableHeaderValue(input[_hSS]),
-      () => (input[_hSS]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xs__]: [() => isSerializableHeaderValue(input[_hSL]), () => (input[_hSL]! || []).map(__quoteHeader).join(", ")],
+    [_xs___]: [() => isSerializableHeaderValue(input[_hSS]), () => (input[_hSS]! || []).map(__quoteHeader).join(", ")],
     [_xi_]: [
       () => isSerializableHeaderValue(input[_hIL]),
       () => (input[_hIL]! || []).map((_entry) => _entry.toString() as any).join(", "),
@@ -4806,10 +5208,7 @@ export const serializeInputAndOutputWithHeadersResponse = async (
       () => (input[_hTL]! || []).map((_entry) => __dateToUtcString(_entry).toString() as any).join(", "),
     ],
     [_xe]: input[_hE]!,
-    [_xe_]: [
-      () => isSerializableHeaderValue(input[_hEL]),
-      () => (input[_hEL]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xe_]: [() => isSerializableHeaderValue(input[_hEL]), () => (input[_hEL]! || []).map(__quoteHeader).join(", ")],
     [_xi__]: [() => isSerializableHeaderValue(input[_hIE]), () => input[_hIE]!.toString()],
     [_xi___]: [
       () => isSerializableHeaderValue(input[_hIEL]),
@@ -5442,6 +5841,40 @@ export const serializeMalformedContentTypeWithGenericStringResponse = async (
 
 export const serializeMalformedContentTypeWithoutBodyResponse = async (
   input: MalformedContentTypeWithoutBodyServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {});
+  let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeMalformedContentTypeWithoutBodyEmptyInputResponse = async (
+  input: MalformedContentTypeWithoutBodyEmptyInputServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -6274,7 +6707,7 @@ export const serializeMediaTypeHeaderResponse = async (
     "content-type": "application/json",
     [_xj]: [
       () => isSerializableHeaderValue(input[_j]),
-      () => context.base64Encoder(Buffer.from(__LazyJsonString.fromObject(input[_j]!))),
+      () => context.base64Encoder(Buffer.from(__LazyJsonString.from(input[_j]!))),
     ],
   });
   let body: any;
@@ -6386,10 +6819,7 @@ export const serializeNullAndEmptyHeadersClientResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -6429,10 +6859,7 @@ export const serializeNullAndEmptyHeadersServerResponse = async (
     "content-type": "application/json",
     [_xa]: input[_a]!,
     [_xb____]: input[_b_]!,
-    [_xc]: [
-      () => isSerializableHeaderValue(input[_c]),
-      () => (input[_c]! || []).map((_entry) => _entry as any).join(", "),
-    ],
+    [_xc]: [() => isSerializableHeaderValue(input[_c]), () => (input[_c]! || []).map(__quoteHeader).join(", ")],
   });
   let body: any;
   body = "{}";
@@ -6504,6 +6931,117 @@ export const serializeOmitsSerializingEmptyListsResponse = async (
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {});
   let body: any;
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeOperationWithDefaultsResponse = async (
+  input: OperationWithDefaultsServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      defaultBlob: (_) => context.base64Encoder(_),
+      defaultBoolean: [],
+      defaultByte: [],
+      defaultDocumentBoolean: (_) => se_Document(_, context),
+      defaultDocumentList: (_) => se_Document(_, context),
+      defaultDocumentMap: (_) => se_Document(_, context),
+      defaultDocumentString: (_) => se_Document(_, context),
+      defaultDouble: (_) => __serializeFloat(_),
+      defaultEnum: [],
+      defaultFloat: (_) => __serializeFloat(_),
+      defaultIntEnum: [],
+      defaultInteger: [],
+      defaultList: (_) => se_TestStringList(_, context),
+      defaultLong: [],
+      defaultMap: (_) => se_TestStringMap(_, context),
+      defaultNullDocument: (_) => se_Document(_, context),
+      defaultShort: [],
+      defaultString: [],
+      defaultTimestamp: (_) => _.getTime() / 1_000,
+      emptyBlob: (_) => context.base64Encoder(_),
+      emptyString: [],
+      falseBoolean: [],
+      zeroByte: [],
+      zeroDouble: (_) => __serializeFloat(_),
+      zeroFloat: (_) => __serializeFloat(_),
+      zeroInteger: [],
+      zeroLong: [],
+      zeroShort: [],
+    })
+  );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeOperationWithNestedStructureResponse = async (
+  input: OperationWithNestedStructureServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      dialog: (_) => se_Dialog(_, context),
+      dialogList: (_) => se_DialogList(_, context),
+      dialogMap: (_) => se_DialogMap(_, context),
+    })
+  );
   if (
     body &&
     Object.keys(headers)
@@ -6781,6 +7319,83 @@ export const serializeRecursiveShapesResponse = async (
   });
 };
 
+export const serializeResponseCodeHttpFallbackResponse = async (
+  input: ResponseCodeHttpFallbackServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 201;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeResponseCodeRequiredResponse = async (
+  input: ResponseCodeRequiredServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  let statusCode = 200;
+  if (input.responseCode !== undefined) {
+    statusCode = input.responseCode;
+  }
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
 export const serializeSimpleScalarPropertiesResponse = async (
   input: SimpleScalarPropertiesServerOutput,
   ctx: ServerSerdeContext
@@ -6851,6 +7466,7 @@ export const serializeSparseJsonListsResponse = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      sparseShortList: (_) => se_SparseShortList(_, context),
       sparseStringList: (_) => se_SparseStringList(_, context),
     })
   );
@@ -7073,8 +7689,46 @@ export const serializeTestBodyStructureResponse = async (
   });
 };
 
-export const serializeTestNoPayloadResponse = async (
-  input: TestNoPayloadServerOutput,
+export const serializeTestGetNoInputNoPayloadResponse = async (
+  input: TestGetNoInputNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestGetNoPayloadResponse = async (
+  input: TestGetNoPayloadServerOutput,
   ctx: ServerSerdeContext
 ): Promise<__HttpResponse> => {
   const context: __SerdeContext = {
@@ -7126,7 +7780,7 @@ export const serializeTestPayloadBlobResponse = async (
   };
   const statusCode = 200;
   let headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   let body: any;
   if (input.data !== undefined) {
@@ -7176,6 +7830,82 @@ export const serializeTestPayloadStructureResponse = async (
     body = {};
   }
   body = JSON.stringify(body);
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestPostNoInputNoPayloadResponse = async (
+  input: TestPostNoInputNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeTestPostNoPayloadResponse = async (
+  input: TestPostNoPayloadServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+    [_xati]: input[_tI]!,
+  });
+  let body: any;
+  body = "{}";
   if (
     body &&
     Object.keys(headers)
@@ -7522,6 +8252,41 @@ const se_DenseStructMap = (input: Record<string, GreetingStruct>, context: __Ser
 };
 
 /**
+ * serializeAws_restJson1Dialog
+ */
+const se_Dialog = (input: Dialog, context: __SerdeContext): any => {
+  return take(input, {
+    farewell: (_) => se_Farewell(_, context),
+    greeting: [],
+    language: [],
+  });
+};
+
+/**
+ * serializeAws_restJson1DialogList
+ */
+const se_DialogList = (input: Dialog[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_Dialog(entry, context);
+    });
+};
+
+/**
+ * serializeAws_restJson1DialogMap
+ */
+const se_DialogMap = (input: Record<string, Dialog>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_Dialog(value, context);
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1Document
  */
 const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
@@ -7542,6 +8307,15 @@ const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __
 };
 
 /**
+ * serializeAws_restJson1Farewell
+ */
+const se_Farewell = (input: Farewell, context: __SerdeContext): any => {
+  return take(input, {
+    phrase: [],
+  });
+};
+
+/**
  * serializeAws_restJson1MyUnion
  */
 const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
@@ -7556,7 +8330,7 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
     stringValue: (value) => ({ stringValue: value }),
     structureValue: (value) => ({ structureValue: se_GreetingStruct(value, context) }),
     timestampValue: (value) => ({ timestampValue: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -7585,7 +8359,7 @@ const se_PayloadConfig = (input: PayloadConfig, context: __SerdeContext): any =>
 const se_PlayerAction = (input: PlayerAction, context: __SerdeContext): any => {
   return PlayerAction.visit(input, {
     quit: (value) => ({ quit: se_Unit(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -7702,12 +8476,32 @@ const se_TestConfig = (input: TestConfig, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1TestStringList
+ */
+const se_TestStringList = (input: string[], context: __SerdeContext): any => {
+  return input.filter((e: any) => e != null);
+};
+
+/**
+ * serializeAws_restJson1TestStringMap
+ */
+const se_TestStringMap = (input: Record<string, string>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = value;
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1UnionPayload
  */
 const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
   return UnionPayload.visit(input, {
     greeting: (value) => ({ greeting: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -7719,7 +8513,7 @@ const se_UnionWithJsonName = (input: UnionWithJsonName, context: __SerdeContext)
     bar: (value) => ({ bar: value }),
     baz: (value) => ({ _baz: value }),
     foo: (value) => ({ FOO: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -7821,6 +8615,13 @@ const se_NestedStringList = (input: string[][], context: __SerdeContext): any =>
 };
 
 /**
+ * serializeAws_restJson1SparseShortList
+ */
+const se_SparseShortList = (input: number[], context: __SerdeContext): any => {
+  return input;
+};
+
+/**
  * serializeAws_restJson1SparseStringList
  */
 const se_SparseStringList = (input: string[], context: __SerdeContext): any => {
@@ -7884,6 +8685,51 @@ const se_TimestampList = (input: Date[], context: __SerdeContext): any => {
  */
 const se_Unit = (input: Unit, context: __SerdeContext): any => {
   return take(input, {});
+};
+
+/**
+ * deserializeAws_restJson1ClientOptionalDefaults
+ */
+const de_ClientOptionalDefaults = (output: any, context: __SerdeContext): ClientOptionalDefaults => {
+  return take(output, {
+    member: __expectInt32,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1Defaults
+ */
+const de_Defaults = (output: any, context: __SerdeContext): Defaults => {
+  return take(output, {
+    defaultBlob: context.base64Decoder,
+    defaultBoolean: __expectBoolean,
+    defaultByte: __expectByte,
+    defaultDocumentBoolean: (_: any) => de_Document(_, context),
+    defaultDocumentList: (_: any) => de_Document(_, context),
+    defaultDocumentMap: (_: any) => de_Document(_, context),
+    defaultDocumentString: (_: any) => de_Document(_, context),
+    defaultDouble: __limitedParseDouble,
+    defaultEnum: __expectString,
+    defaultFloat: __limitedParseFloat32,
+    defaultIntEnum: __expectInt32,
+    defaultInteger: __expectInt32,
+    defaultList: (_: any) => de_TestStringList(_, context),
+    defaultLong: __expectLong,
+    defaultMap: (_: any) => de_TestStringMap(_, context),
+    defaultNullDocument: (_: any) => de_Document(_, context),
+    defaultShort: __expectShort,
+    defaultString: __expectString,
+    defaultTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    emptyBlob: context.base64Decoder,
+    emptyString: __expectString,
+    falseBoolean: __expectBoolean,
+    zeroByte: __expectByte,
+    zeroDouble: __limitedParseDouble,
+    zeroFloat: __limitedParseFloat32,
+    zeroInteger: __expectInt32,
+    zeroLong: __expectLong,
+    zeroShort: __expectShort,
+  }) as any;
 };
 
 /**
@@ -7952,6 +8798,45 @@ const de_DenseStructMap = (output: any, context: __SerdeContext): Record<string,
 };
 
 /**
+ * deserializeAws_restJson1Dialog
+ */
+const de_Dialog = (output: any, context: __SerdeContext): Dialog => {
+  return take(output, {
+    farewell: (_: any) => de_Farewell(_, context),
+    greeting: __expectString,
+    language: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1DialogList
+ */
+const de_DialogList = (output: any, context: __SerdeContext): Dialog[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.restjson#DialogList" must be non-null.'
+      );
+    }
+    return de_Dialog(entry, context);
+  });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1DialogMap
+ */
+const de_DialogMap = (output: any, context: __SerdeContext): Record<string, Dialog> => {
+  return Object.entries(output).reduce((acc: Record<string, Dialog>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_Dialog(value, context);
+    return acc;
+  }, {} as Record<string, Dialog>);
+};
+
+/**
  * deserializeAws_restJson1Document
  */
 const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
@@ -7969,6 +8854,15 @@ const de_DocumentValuedMap = (output: any, context: __SerdeContext): Record<stri
     acc[key as string] = de_Document(value, context);
     return acc;
   }, {} as Record<string, __DocumentType>);
+};
+
+/**
+ * deserializeAws_restJson1Farewell
+ */
+const de_Farewell = (output: any, context: __SerdeContext): Farewell => {
+  return take(output, {
+    phrase: __expectString,
+  }) as any;
 };
 
 /**
@@ -8209,6 +9103,45 @@ const de_TestConfig = (output: any, context: __SerdeContext): TestConfig => {
 };
 
 /**
+ * deserializeAws_restJson1TestStringList
+ */
+const de_TestStringList = (output: any, context: __SerdeContext): string[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      throw new TypeError(
+        'All elements of the non-sparse list "aws.protocoltests.restjson#TestStringList" must be non-null.'
+      );
+    }
+    return __expectString(entry) as any;
+  });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1TestStringMap
+ */
+const de_TestStringMap = (output: any, context: __SerdeContext): Record<string, string> => {
+  return Object.entries(output).reduce((acc: Record<string, string>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = __expectString(value) as any;
+    return acc;
+  }, {} as Record<string, string>);
+};
+
+/**
+ * deserializeAws_restJson1TopLevel
+ */
+const de_TopLevel = (output: any, context: __SerdeContext): TopLevel => {
+  return take(output, {
+    dialog: (_: any) => de_Dialog(_, context),
+    dialogList: (_: any) => de_DialogList(_, context),
+    dialogMap: (_: any) => de_DialogMap(_, context),
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1UnionPayload
  */
 const de_UnionPayload = (output: any, context: __SerdeContext): UnionPayload => {
@@ -8384,6 +9317,19 @@ const de_NestedStringList = (output: any, context: __SerdeContext): string[][] =
 };
 
 /**
+ * deserializeAws_restJson1SparseShortList
+ */
+const de_SparseShortList = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || []).map((entry: any) => {
+    if (entry === null) {
+      return null as any;
+    }
+    return __expectShort(entry) as any;
+  });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1SparseStringList
  */
 const de_SparseStringList = (output: any, context: __SerdeContext): string[] => {
@@ -8485,13 +9431,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _H = "Header";
 const _a = "a";
 const _amth = "amz-media-typed-header";
@@ -8513,6 +9452,7 @@ const _f = "foo";
 const _fIH = "floatInHeader";
 const _fl = "floatinheader";
 const _g = "greeting";
+const _h = "hello";
 const _hB = "headerByte";
 const _hBL = "headerBooleanList";
 const _hD = "headerDouble";
@@ -8531,6 +9471,7 @@ const _hSS = "headerStringSet";
 const _hSe = "headerShort";
 const _hTB = "headerTrueBool";
 const _hTL = "headerTimestampList";
+const _he = "header";
 const _i = "integerinheader";
 const _iIH = "integerInHeader";
 const _j = "json";
@@ -8540,6 +9481,7 @@ const _mDT = "memberDateTime";
 const _mES = "memberEpochSeconds";
 const _mHD = "memberHttpDate";
 const _s = "shortinheader";
+const _sH = "specificHeader";
 const _sIH = "shortInHeader";
 const _t = "timestamp";
 const _tDT = "targetDateTime";

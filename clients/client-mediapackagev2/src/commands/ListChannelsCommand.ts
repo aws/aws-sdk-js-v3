@@ -12,7 +12,8 @@ import { de_ListChannelsCommand, se_ListChannelsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * //       CreatedAt: new Date("TIMESTAMP"), // required
  * //       ModifiedAt: new Date("TIMESTAMP"), // required
  * //       Description: "STRING_VALUE",
+ * //       InputType: "HLS" || "CMAF",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -81,6 +83,38 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Listing all Channels
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup"
+ * };
+ * const command = new ListChannelsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Items: [
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       ChannelName: "exampleChannel",
+ *       CreatedAt: "2022-10-18T09:36:00.00Z",
+ *       Description: "Description for exampleChannel",
+ *       ModifiedAt: "2022-10-18T09:36:00.00Z"
+ *     },
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/anotherExampleChannel",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       ChannelName: "anotherExampleChannel",
+ *       CreatedAt: "2022-10-18T10:36:00.00Z",
+ *       ModifiedAt: "2022-10-18T10:36:00.00Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListChannelsCommand extends $Command
@@ -91,9 +125,7 @@ export class ListChannelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +137,16 @@ export class ListChannelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChannelsCommand)
   .de(de_ListChannelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelsRequest;
+      output: ListChannelsResponse;
+    };
+    sdk: {
+      input: ListChannelsCommandInput;
+      output: ListChannelsCommandOutput;
+    };
+  };
+}

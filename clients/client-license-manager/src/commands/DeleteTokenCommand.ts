@@ -12,7 +12,8 @@ import { de_DeleteTokenCommand, se_DeleteTokenCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeleteTokenCommandOutput extends DeleteTokenResponse, __Metadat
  * @throws {@link LicenseManagerServiceException}
  * <p>Base exception class for all service exceptions from LicenseManager service.</p>
  *
+ *
  * @public
  */
 export class DeleteTokenCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTokenCommand)
   .de(de_DeleteTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTokenRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTokenCommandInput;
+      output: DeleteTokenCommandOutput;
+    };
+  };
+}

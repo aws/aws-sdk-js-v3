@@ -12,7 +12,8 @@ import { de_ConnectCustomKeyStoreCommand, se_ConnectCustomKeyStoreCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ConnectCustomKeyStoreCommandInput extends ConnectCustomKeyStore
 export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStoreResponse, __MetadataBearer {}
 
 /**
- * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
+ * <p>Connects or reconnects a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> to its backing key store. For an CloudHSM key
  *       store, <code>ConnectCustomKeyStore</code> connects the key store to its associated CloudHSM
  *       cluster. For an external key store, <code>ConnectCustomKeyStore</code> connects the key store
  *       to the external key store proxy that communicates with your external key manager.</p>
@@ -39,7 +40,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *       complete. When it succeeds, this operation quickly returns an HTTP 200 response and a JSON
  *       object with no properties. However, this response does not indicate that the custom key store
  *       is connected. To get the connection state of the custom key store, use the <a>DescribeCustomKeyStores</a> operation.</p>
- *          <p> This operation is part of the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key stores</a> feature in KMS, which
+ *          <p> This operation is part of the custom key stores feature in KMS, which
  * combines the convenience and extensive integration of KMS with the isolation and control of a
  * key store that you own and manage.</p>
  *          <p>The <code>ConnectCustomKeyStore</code> operation might fail for various reasons. To find
@@ -58,7 +59,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *       password.</p>
  *          <p>To connect an CloudHSM key store, its associated CloudHSM cluster must have at least one active
  *       HSM. To get the number of active HSMs in a cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_DescribeClusters.html">DescribeClusters</a> operation. To add HSMs
- *       to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-concepts.html#concept-kmsuser">
+ *       to the cluster, use the <a href="https://docs.aws.amazon.com/cloudhsm/latest/APIReference/API_CreateHsm.html">CreateHsm</a> operation. Also, the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html#concept-kmsuser">
  *                <code>kmsuser</code> crypto
  *         user</a> (CU) must not be logged into the cluster. This prevents KMS from using this
  *       account to log in.</p>
@@ -116,7 +117,7 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -225,18 +226,21 @@ export interface ConnectCustomKeyStoreCommandOutput extends ConnectCustomKeyStor
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To connect a custom key store
  * ```javascript
  * // This example connects an AWS KMS custom key store to its backing key store. For an AWS CloudHSM key store, it connects the key store to its AWS CloudHSM cluster. For an external key store, it connects the key store to the external key store proxy that communicates with your external key manager. This operation does not return any data. To verify that the custom key store is connected, use the <code>DescribeCustomKeyStores</code> operation.
  * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0"
+ *   CustomKeyStoreId: "cks-1234567890abcdef0"
  * };
  * const command = new ConnectCustomKeyStoreCommand(input);
- * await client.send(command);
- * // example id: to-connect-a-custom-key-store-1628626947750
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ConnectCustomKeyStoreCommand extends $Command
   .classBuilder<
@@ -246,9 +250,7 @@ export class ConnectCustomKeyStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -260,4 +262,16 @@ export class ConnectCustomKeyStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConnectCustomKeyStoreCommand)
   .de(de_ConnectCustomKeyStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConnectCustomKeyStoreRequest;
+      output: {};
+    };
+    sdk: {
+      input: ConnectCustomKeyStoreCommandInput;
+      output: ConnectCustomKeyStoreCommandOutput;
+    };
+  };
+}

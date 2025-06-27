@@ -12,7 +12,8 @@ import { de_GetScanCommand, se_GetScanCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface GetScanCommandOutput extends GetScanResponse, __MetadataBearer 
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class GetScanCommand extends $Command
@@ -88,9 +90,7 @@ export class GetScanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class GetScanCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetScanCommand)
   .de(de_GetScanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetScanRequest;
+      output: GetScanResponse;
+    };
+    sdk: {
+      input: GetScanCommandInput;
+      output: GetScanCommandOutput;
+    };
+  };
+}

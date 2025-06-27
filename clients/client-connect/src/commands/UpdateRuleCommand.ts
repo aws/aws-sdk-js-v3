@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRuleRequest } from "../models/models_2";
+import { UpdateRuleRequest } from "../models/models_3";
 import { de_UpdateRuleCommand, se_UpdateRuleCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,15 +44,18 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *   Function: "STRING_VALUE", // required
  *   Actions: [ // RuleActions // required
  *     { // RuleAction
- *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
+ *       ActionType: "CREATE_TASK" || "ASSIGN_CONTACT_CATEGORY" || "GENERATE_EVENTBRIDGE_EVENT" || "SEND_NOTIFICATION" || "CREATE_CASE" || "UPDATE_CASE" || "ASSIGN_SLA" || "END_ASSOCIATED_TASKS" || "SUBMIT_AUTO_EVALUATION", // required
  *       TaskAction: { // TaskActionDefinition
  *         Name: "STRING_VALUE", // required
  *         Description: "STRING_VALUE",
  *         ContactFlowId: "STRING_VALUE", // required
  *         References: { // ContactReferences
  *           "<keys>": { // Reference
- *             Value: "STRING_VALUE", // required
- *             Type: "URL" || "ATTACHMENT" || "NUMBER" || "STRING" || "DATE" || "EMAIL", // required
+ *             Value: "STRING_VALUE",
+ *             Type: "URL" || "ATTACHMENT" || "CONTACT_ANALYSIS" || "NUMBER" || "STRING" || "DATE" || "EMAIL" || "EMAIL_MESSAGE", // required
+ *             Status: "AVAILABLE" || "DELETED" || "APPROVED" || "REJECTED" || "PROCESSING" || "FAILED",
+ *             Arn: "STRING_VALUE",
+ *             StatusReason: "STRING_VALUE",
  *           },
  *         },
  *       },
@@ -100,6 +104,23 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  *           },
  *         ],
  *       },
+ *       AssignSlaAction: { // AssignSlaActionDefinition
+ *         SlaAssignmentType: "CASES", // required
+ *         CaseSlaConfiguration: { // CaseSlaConfiguration
+ *           Name: "STRING_VALUE", // required
+ *           Type: "CaseField", // required
+ *           FieldId: "STRING_VALUE",
+ *           TargetFieldValues: [ // SlaFieldValueUnionList
+ *             {
+ *               BooleanValue: true || false,
+ *               DoubleValue: Number("double"),
+ *               EmptyValue: {},
+ *               StringValue: "STRING_VALUE",
+ *             },
+ *           ],
+ *           TargetSlaMinutes: Number("long"), // required
+ *         },
+ *       },
  *       EndAssociatedTasksAction: {},
  *       SubmitAutoEvaluationAction: { // SubmitAutoEvaluationActionDefinition
  *         EvaluationFormId: "STRING_VALUE", // required
@@ -141,6 +162,7 @@ export interface UpdateRuleCommandOutput extends __MetadataBearer {}
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateRuleCommand extends $Command
@@ -151,9 +173,7 @@ export class UpdateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +185,16 @@ export class UpdateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleCommand)
   .de(de_UpdateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRuleCommandInput;
+      output: UpdateRuleCommandOutput;
+    };
+  };
+}

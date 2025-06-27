@@ -12,7 +12,8 @@ import { de_RevokePermissionsCommand, se_RevokePermissionsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,7 +41,9 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  *     DataLakePrincipalIdentifier: "STRING_VALUE",
  *   },
  *   Resource: { // Resource
- *     Catalog: {},
+ *     Catalog: { // CatalogResource
+ *       Id: "STRING_VALUE",
+ *     },
  *     Database: { // DatabaseResource
  *       CatalogId: "STRING_VALUE",
  *       Name: "STRING_VALUE", // required
@@ -84,7 +87,7 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  *     LFTagPolicy: { // LFTagPolicyResource
  *       CatalogId: "STRING_VALUE",
  *       ResourceType: "DATABASE" || "TABLE", // required
- *       Expression: [ // Expression // required
+ *       Expression: [ // Expression
  *         { // LFTag
  *           TagKey: "STRING_VALUE", // required
  *           TagValues: [ // required
@@ -92,13 +95,21 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  *           ],
  *         },
  *       ],
+ *       ExpressionName: "STRING_VALUE",
+ *     },
+ *     LFTagExpression: { // LFTagExpressionResource
+ *       CatalogId: "STRING_VALUE",
+ *       Name: "STRING_VALUE", // required
  *     },
  *   },
  *   Permissions: [ // PermissionList // required
- *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *   ],
+ *   Condition: { // Condition
+ *     Expression: "STRING_VALUE",
+ *   },
  *   PermissionsWithGrantOption: [
- *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION",
+ *     "ALL" || "SELECT" || "ALTER" || "DROP" || "DELETE" || "INSERT" || "DESCRIBE" || "CREATE_DATABASE" || "CREATE_TABLE" || "DATA_LOCATION_ACCESS" || "CREATE_LF_TAG" || "ASSOCIATE" || "GRANT_WITH_LF_TAG_EXPRESSION" || "CREATE_LF_TAG_EXPRESSION" || "CREATE_CATALOG" || "SUPER_USER",
  *   ],
  * };
  * const command = new RevokePermissionsCommand(input);
@@ -125,6 +136,7 @@ export interface RevokePermissionsCommandOutput extends RevokePermissionsRespons
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class RevokePermissionsCommand extends $Command
@@ -135,9 +147,7 @@ export class RevokePermissionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +159,16 @@ export class RevokePermissionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokePermissionsCommand)
   .de(de_RevokePermissionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokePermissionsRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokePermissionsCommandInput;
+      output: RevokePermissionsCommandOutput;
+    };
+  };
+}

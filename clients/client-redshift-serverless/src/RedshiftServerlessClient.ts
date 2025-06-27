@@ -66,6 +66,7 @@ import {
   CreateEndpointAccessCommandOutput,
 } from "./commands/CreateEndpointAccessCommand";
 import { CreateNamespaceCommandInput, CreateNamespaceCommandOutput } from "./commands/CreateNamespaceCommand";
+import { CreateReservationCommandInput, CreateReservationCommandOutput } from "./commands/CreateReservationCommand";
 import {
   CreateScheduledActionCommandInput,
   CreateScheduledActionCommandOutput,
@@ -109,6 +110,11 @@ import {
 import { GetEndpointAccessCommandInput, GetEndpointAccessCommandOutput } from "./commands/GetEndpointAccessCommand";
 import { GetNamespaceCommandInput, GetNamespaceCommandOutput } from "./commands/GetNamespaceCommand";
 import { GetRecoveryPointCommandInput, GetRecoveryPointCommandOutput } from "./commands/GetRecoveryPointCommand";
+import { GetReservationCommandInput, GetReservationCommandOutput } from "./commands/GetReservationCommand";
+import {
+  GetReservationOfferingCommandInput,
+  GetReservationOfferingCommandOutput,
+} from "./commands/GetReservationOfferingCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import { GetScheduledActionCommandInput, GetScheduledActionCommandOutput } from "./commands/GetScheduledActionCommand";
 import { GetSnapshotCommandInput, GetSnapshotCommandOutput } from "./commands/GetSnapshotCommand";
@@ -116,6 +122,7 @@ import {
   GetTableRestoreStatusCommandInput,
   GetTableRestoreStatusCommandOutput,
 } from "./commands/GetTableRestoreStatusCommand";
+import { GetTrackCommandInput, GetTrackCommandOutput } from "./commands/GetTrackCommand";
 import { GetUsageLimitCommandInput, GetUsageLimitCommandOutput } from "./commands/GetUsageLimitCommand";
 import { GetWorkgroupCommandInput, GetWorkgroupCommandOutput } from "./commands/GetWorkgroupCommand";
 import {
@@ -123,8 +130,17 @@ import {
   ListCustomDomainAssociationsCommandOutput,
 } from "./commands/ListCustomDomainAssociationsCommand";
 import { ListEndpointAccessCommandInput, ListEndpointAccessCommandOutput } from "./commands/ListEndpointAccessCommand";
+import {
+  ListManagedWorkgroupsCommandInput,
+  ListManagedWorkgroupsCommandOutput,
+} from "./commands/ListManagedWorkgroupsCommand";
 import { ListNamespacesCommandInput, ListNamespacesCommandOutput } from "./commands/ListNamespacesCommand";
 import { ListRecoveryPointsCommandInput, ListRecoveryPointsCommandOutput } from "./commands/ListRecoveryPointsCommand";
+import {
+  ListReservationOfferingsCommandInput,
+  ListReservationOfferingsCommandOutput,
+} from "./commands/ListReservationOfferingsCommand";
+import { ListReservationsCommandInput, ListReservationsCommandOutput } from "./commands/ListReservationsCommand";
 import {
   ListScheduledActionsCommandInput,
   ListScheduledActionsCommandOutput,
@@ -142,6 +158,7 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import { ListTracksCommandInput, ListTracksCommandOutput } from "./commands/ListTracksCommand";
 import { ListUsageLimitsCommandInput, ListUsageLimitsCommandOutput } from "./commands/ListUsageLimitsCommand";
 import { ListWorkgroupsCommandInput, ListWorkgroupsCommandOutput } from "./commands/ListWorkgroupsCommand";
 import { PutResourcePolicyCommandInput, PutResourcePolicyCommandOutput } from "./commands/PutResourcePolicyCommand";
@@ -202,6 +219,7 @@ export type ServiceInputTypes =
   | CreateCustomDomainAssociationCommandInput
   | CreateEndpointAccessCommandInput
   | CreateNamespaceCommandInput
+  | CreateReservationCommandInput
   | CreateScheduledActionCommandInput
   | CreateSnapshotCommandInput
   | CreateSnapshotCopyConfigurationCommandInput
@@ -221,21 +239,28 @@ export type ServiceInputTypes =
   | GetEndpointAccessCommandInput
   | GetNamespaceCommandInput
   | GetRecoveryPointCommandInput
+  | GetReservationCommandInput
+  | GetReservationOfferingCommandInput
   | GetResourcePolicyCommandInput
   | GetScheduledActionCommandInput
   | GetSnapshotCommandInput
   | GetTableRestoreStatusCommandInput
+  | GetTrackCommandInput
   | GetUsageLimitCommandInput
   | GetWorkgroupCommandInput
   | ListCustomDomainAssociationsCommandInput
   | ListEndpointAccessCommandInput
+  | ListManagedWorkgroupsCommandInput
   | ListNamespacesCommandInput
   | ListRecoveryPointsCommandInput
+  | ListReservationOfferingsCommandInput
+  | ListReservationsCommandInput
   | ListScheduledActionsCommandInput
   | ListSnapshotCopyConfigurationsCommandInput
   | ListSnapshotsCommandInput
   | ListTableRestoreStatusCommandInput
   | ListTagsForResourceCommandInput
+  | ListTracksCommandInput
   | ListUsageLimitsCommandInput
   | ListWorkgroupsCommandInput
   | PutResourcePolicyCommandInput
@@ -262,6 +287,7 @@ export type ServiceOutputTypes =
   | CreateCustomDomainAssociationCommandOutput
   | CreateEndpointAccessCommandOutput
   | CreateNamespaceCommandOutput
+  | CreateReservationCommandOutput
   | CreateScheduledActionCommandOutput
   | CreateSnapshotCommandOutput
   | CreateSnapshotCopyConfigurationCommandOutput
@@ -281,21 +307,28 @@ export type ServiceOutputTypes =
   | GetEndpointAccessCommandOutput
   | GetNamespaceCommandOutput
   | GetRecoveryPointCommandOutput
+  | GetReservationCommandOutput
+  | GetReservationOfferingCommandOutput
   | GetResourcePolicyCommandOutput
   | GetScheduledActionCommandOutput
   | GetSnapshotCommandOutput
   | GetTableRestoreStatusCommandOutput
+  | GetTrackCommandOutput
   | GetUsageLimitCommandOutput
   | GetWorkgroupCommandOutput
   | ListCustomDomainAssociationsCommandOutput
   | ListEndpointAccessCommandOutput
+  | ListManagedWorkgroupsCommandOutput
   | ListNamespacesCommandOutput
   | ListRecoveryPointsCommandOutput
+  | ListReservationOfferingsCommandOutput
+  | ListReservationsCommandOutput
   | ListScheduledActionsCommandOutput
   | ListSnapshotCopyConfigurationsCommandOutput
   | ListSnapshotsCommandOutput
   | ListTableRestoreStatusCommandOutput
   | ListTagsForResourceCommandOutput
+  | ListTracksCommandOutput
   | ListUsageLimitsCommandOutput
   | ListWorkgroupsCommandOutput
   | PutResourcePolicyCommandOutput
@@ -406,6 +439,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -451,11 +503,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type RedshiftServerlessClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -471,11 +523,11 @@ export interface RedshiftServerlessClientConfig extends RedshiftServerlessClient
 export type RedshiftServerlessClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -489,15 +541,12 @@ export interface RedshiftServerlessClientResolvedConfig extends RedshiftServerle
  * <p>This is an interface reference for Amazon Redshift Serverless.
  *            It contains documentation for one of the programming or command line interfaces you can use to manage Amazon Redshift Serverless.
  *         </p>
- *         <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the
+ *          <p>Amazon Redshift Serverless automatically provisions data warehouse capacity and intelligently scales the
  *            underlying resources based on workload demands. Amazon Redshift Serverless adjusts capacity in seconds to deliver consistently high
  *            performance and simplified operations for even the most demanding and volatile workloads. Amazon Redshift Serverless lets you
  *            focus on using your data to acquire new insights for your business and customers.
  *         </p>
- *         <p>
- *            To learn more about Amazon Redshift Serverless,
- *            see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless</a>.
- *         </p>
+ *          <p> To learn more about Amazon Redshift Serverless, see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-whatis.html">What is Amazon Redshift Serverless?</a>.</p>
  * @public
  */
 export class RedshiftServerlessClient extends __Client<
@@ -513,26 +562,30 @@ export class RedshiftServerlessClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<RedshiftServerlessClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultRedshiftServerlessHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: RedshiftServerlessClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -545,14 +598,5 @@ export class RedshiftServerlessClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultRedshiftServerlessHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: RedshiftServerlessClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

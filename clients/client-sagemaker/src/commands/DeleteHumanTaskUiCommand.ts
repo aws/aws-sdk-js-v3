@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface DeleteHumanTaskUiCommandInput extends DeleteHumanTaskUiRequest 
 export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to delete a human task user interface (worker task template).</p>
- *          <p>
- *       To see a list of human task user interfaces
- *       (work task templates) in your account, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html">ListHumanTaskUis</a>.
- *       When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
+ * <p>Use this operation to delete a human task user interface (worker task template).</p> <p> To see a list of human task user interfaces (work task templates) in your account, use <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListHumanTaskUis.html">ListHumanTaskUis</a>. When you delete a worker task template, it no longer appears when you call <code>ListHumanTaskUis</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +56,7 @@ export interface DeleteHumanTaskUiCommandOutput extends DeleteHumanTaskUiRespons
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteHumanTaskUiCommand extends $Command
@@ -69,9 +67,7 @@ export class DeleteHumanTaskUiCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +79,16 @@ export class DeleteHumanTaskUiCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHumanTaskUiCommand)
   .de(de_DeleteHumanTaskUiCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHumanTaskUiRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHumanTaskUiCommandInput;
+      output: DeleteHumanTaskUiCommandOutput;
+    };
+  };
+}

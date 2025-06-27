@@ -12,7 +12,8 @@ import { de_RollbackStageCommand, se_RollbackStageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,7 +63,8 @@ export interface RollbackStageCommandOutput extends RollbackStageOutput, __Metad
  *             execution ID does not belong to the specified pipeline. </p>
  *
  * @throws {@link PipelineExecutionOutdatedException} (client fault)
- *  <p>The specified pipeline execution is outdated and cannot be used as a target pipeline execution for rollback.</p>
+ *  <p>The specified pipeline execution is outdated and cannot be used as a target pipeline
+ *             execution for rollback.</p>
  *
  * @throws {@link PipelineNotFoundException} (client fault)
  *  <p>The pipeline was specified in an invalid format or cannot be found.</p>
@@ -81,6 +83,7 @@ export interface RollbackStageCommandOutput extends RollbackStageOutput, __Metad
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class RollbackStageCommand extends $Command
@@ -91,9 +94,7 @@ export class RollbackStageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +106,16 @@ export class RollbackStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RollbackStageCommand)
   .de(de_RollbackStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RollbackStageInput;
+      output: RollbackStageOutput;
+    };
+    sdk: {
+      input: RollbackStageCommandInput;
+      output: RollbackStageCommandOutput;
+    };
+  };
+}

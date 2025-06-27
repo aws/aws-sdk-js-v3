@@ -17,7 +17,8 @@ import { de_CreateServiceCommand, se_CreateServiceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  *       CodeConfiguration: { // CodeConfiguration
  *         ConfigurationSource: "REPOSITORY" || "API", // required
  *         CodeConfigurationValues: { // CodeConfigurationValues
- *           Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18", // required
+ *           Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18" || "NODEJS_22", // required
  *           BuildCommand: "STRING_VALUE",
  *           StartCommand: "STRING_VALUE",
  *           Port: "STRING_VALUE",
@@ -146,7 +147,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * //         CodeConfiguration: { // CodeConfiguration
  * //           ConfigurationSource: "REPOSITORY" || "API", // required
  * //           CodeConfigurationValues: { // CodeConfigurationValues
- * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18", // required
+ * //             Runtime: "PYTHON_3" || "NODEJS_12" || "NODEJS_14" || "CORRETTO_8" || "CORRETTO_11" || "NODEJS_16" || "GO_1" || "DOTNET_6" || "PHP_81" || "RUBY_31" || "PYTHON_311" || "NODEJS_18" || "NODEJS_22", // required
  * //             BuildCommand: "STRING_VALUE",
  * //             StartCommand: "STRING_VALUE",
  * //             Port: "STRING_VALUE",
@@ -245,6 +246,7 @@ export interface CreateServiceCommandOutput extends CreateServiceResponse, __Met
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class CreateServiceCommand extends $Command
@@ -255,9 +257,7 @@ export class CreateServiceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -269,4 +269,16 @@ export class CreateServiceCommand extends $Command
   .f(CreateServiceRequestFilterSensitiveLog, CreateServiceResponseFilterSensitiveLog)
   .ser(se_CreateServiceCommand)
   .de(de_CreateServiceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateServiceRequest;
+      output: CreateServiceResponse;
+    };
+    sdk: {
+      input: CreateServiceCommandInput;
+      output: CreateServiceCommandOutput;
+    };
+  };
+}

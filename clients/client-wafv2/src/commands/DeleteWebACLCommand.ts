@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
 
 /**
  * <p>Deletes the specified <a>WebACL</a>. </p>
- *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the specified
- *             <a>WebACL</a>. </p>
+ *          <p>You can only use this if <code>ManagedByFirewallManager</code> is false in the web ACL. </p>
  *          <note>
  *             <p>Before deleting any web ACL, first disassociate it from all resources.</p>
  *             <ul>
@@ -38,12 +38,12 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                   following calls:</p>
  *                   <ul>
  *                      <li>
- *                         <p>For regional resources, call <a>ListResourcesForWebACL</a>.</p>
- *                      </li>
- *                      <li>
  *                         <p>For Amazon CloudFront distributions, use the CloudFront call
  *                            <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
  *                                in the <i>Amazon CloudFront API Reference</i>. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>For all other resources, call <a>ListResourcesForWebACL</a>.</p>
  *                      </li>
  *                   </ul>
  *                </li>
@@ -51,12 +51,12 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  *                   <p>To disassociate a resource from a web ACL, use the following calls:</p>
  *                   <ul>
  *                      <li>
- *                         <p>For regional resources, call <a>DisassociateWebACL</a>.</p>
- *                      </li>
- *                      <li>
  *                         <p>For Amazon CloudFront distributions, provide an empty web ACL ID in the CloudFront call
  *                            <code>UpdateDistribution</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_UpdateDistribution.html">UpdateDistribution</a>
  *                                in the <i>Amazon CloudFront API Reference</i>. </p>
+ *                      </li>
+ *                      <li>
+ *                         <p>For all other resources, call <a>DisassociateWebACL</a>.</p>
  *                      </li>
  *                   </ul>
  *                </li>
@@ -139,6 +139,7 @@ export interface DeleteWebACLCommandOutput extends DeleteWebACLResponse, __Metad
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteWebACLCommand extends $Command
@@ -149,9 +150,7 @@ export class DeleteWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class DeleteWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWebACLCommand)
   .de(de_DeleteWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWebACLRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteWebACLCommandInput;
+      output: DeleteWebACLCommandOutput;
+    };
+  };
+}

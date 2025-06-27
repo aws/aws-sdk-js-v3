@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,12 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * //       ownerAccount: "STRING_VALUE",
  * //       directConnectGatewayState: "pending" || "available" || "deleting" || "deleted",
  * //       stateChangeError: "STRING_VALUE",
+ * //       tags: [ // TagList
+ * //         { // Tag
+ * //           key: "STRING_VALUE", // required
+ * //           value: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -77,6 +84,7 @@ export interface DescribeDirectConnectGatewaysCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeDirectConnectGatewaysCommand extends $Command
@@ -87,9 +95,7 @@ export class DescribeDirectConnectGatewaysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +107,16 @@ export class DescribeDirectConnectGatewaysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDirectConnectGatewaysCommand)
   .de(de_DescribeDirectConnectGatewaysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDirectConnectGatewaysRequest;
+      output: DescribeDirectConnectGatewaysResult;
+    };
+    sdk: {
+      input: DescribeDirectConnectGatewaysCommandInput;
+      output: DescribeDirectConnectGatewaysCommandOutput;
+    };
+  };
+}

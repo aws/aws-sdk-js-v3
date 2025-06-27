@@ -13,7 +13,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -121,12 +122,11 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidAggregatorException} (client fault)
- *  <p>The specified aggregator isn't valid for inventory groups. Verify that the aggregator uses a
- *    valid inventory type such as <code>AWS:Application</code> or
- *    <code>AWS:InstanceInformation</code>.</p>
+ *  <p>The specified aggregator isn't valid for the group type. Verify that the aggregator you
+ *    provided is supported.</p>
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
  *
  * @throws {@link InvalidInventoryGroupException} (client fault)
  *  <p>The specified inventory group isn't valid.</p>
@@ -143,6 +143,7 @@ export interface GetInventoryCommandOutput extends GetInventoryResult, __Metadat
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetInventoryCommand extends $Command
@@ -153,9 +154,7 @@ export class GetInventoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class GetInventoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetInventoryCommand)
   .de(de_GetInventoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetInventoryRequest;
+      output: GetInventoryResult;
+    };
+    sdk: {
+      input: GetInventoryCommandInput;
+      output: GetInventoryCommandOutput;
+    };
+  };
+}

@@ -6,7 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ElastiCacheClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ElastiCacheClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RevokeCacheSecurityGroupIngressMessage, RevokeCacheSecurityGroupIngressResult } from "../models/models_0";
+import { RevokeCacheSecurityGroupIngressMessage } from "../models/models_0";
+import { RevokeCacheSecurityGroupIngressResult } from "../models/models_1";
 import {
   de_RevokeCacheSecurityGroupIngressCommand,
   se_RevokeCacheSecurityGroupIngressCommand,
@@ -15,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,20 +93,23 @@ export interface RevokeCacheSecurityGroupIngressCommandOutput
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example DescribeCacheSecurityGroups
  * ```javascript
  * // Returns a list of cache security group descriptions. If a cache security group name is specified, the list contains only the description of that group.
  * const input = {
- *   "CacheSecurityGroupName": "my-sec-grp",
- *   "EC2SecurityGroupName": "my-ec2-sec-grp",
- *   "EC2SecurityGroupOwnerId": "1234567890"
+ *   CacheSecurityGroupName: "my-sec-grp",
+ *   EC2SecurityGroupName: "my-ec2-sec-grp",
+ *   EC2SecurityGroupOwnerId: "1234567890"
  * };
  * const command = new RevokeCacheSecurityGroupIngressCommand(input);
- * await client.send(command);
- * // example id: describecachesecuritygroups-1483047200801
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RevokeCacheSecurityGroupIngressCommand extends $Command
   .classBuilder<
@@ -114,9 +119,7 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +131,16 @@ export class RevokeCacheSecurityGroupIngressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeCacheSecurityGroupIngressCommand)
   .de(de_RevokeCacheSecurityGroupIngressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeCacheSecurityGroupIngressMessage;
+      output: RevokeCacheSecurityGroupIngressResult;
+    };
+    sdk: {
+      input: RevokeCacheSecurityGroupIngressCommandInput;
+      output: RevokeCacheSecurityGroupIngressCommandOutput;
+    };
+  };
+}

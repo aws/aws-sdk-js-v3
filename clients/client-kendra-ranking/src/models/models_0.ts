@@ -12,7 +12,7 @@ import { KendraRankingServiceException as __BaseException } from "./KendraRankin
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -35,7 +35,7 @@ export class AccessDeniedException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -110,7 +110,7 @@ export interface CreateRescoreExecutionPlanRequest {
    * <p>A description for the rescore execution plan.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>You can set additional capacity units to meet the
@@ -122,7 +122,7 @@ export interface CreateRescoreExecutionPlanRequest {
    *                 capacity</a>.</p>
    * @public
    */
-  CapacityUnits?: CapacityUnitsConfiguration;
+  CapacityUnits?: CapacityUnitsConfiguration | undefined;
 
   /**
    * <p>A list of key-value pairs that identify or categorize your
@@ -132,7 +132,7 @@ export interface CreateRescoreExecutionPlanRequest {
    *             the following symbols: _ . : / = + - @.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A token that you provide to identify the request to create
@@ -141,7 +141,7 @@ export interface CreateRescoreExecutionPlanRequest {
    *             same client token will create only one rescore execution plan.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 }
 
 /**
@@ -173,7 +173,7 @@ export interface CreateRescoreExecutionPlanResponse {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -199,7 +199,7 @@ export class InternalServerException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -222,7 +222,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -246,7 +246,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -282,7 +282,7 @@ export interface DeleteRescoreExecutionPlanRequest {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -334,26 +334,26 @@ export interface DescribeRescoreExecutionPlanResponse {
    * <p>The identifier of the rescore execution plan.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the rescore execution
    *             plan.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>The name for the rescore execution plan.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The description for the rescore execution plan.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The capacity units set for the rescore execution plan.
@@ -363,21 +363,21 @@ export interface DescribeRescoreExecutionPlanResponse {
    *                 capacity</a>.</p>
    * @public
    */
-  CapacityUnits?: CapacityUnitsConfiguration;
+  CapacityUnits?: CapacityUnitsConfiguration | undefined;
 
   /**
    * <p>The Unix timestamp of when the rescore execution plan was
    *             created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The Unix timestamp of when the rescore execution plan was
    *             last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The current status of the rescore execution plan. When the
@@ -387,7 +387,7 @@ export interface DescribeRescoreExecutionPlanResponse {
    *             contains a message that explains why.</p>
    * @public
    */
-  Status?: RescoreExecutionPlanStatus;
+  Status?: RescoreExecutionPlanStatus | undefined;
 
   /**
    * <p>When the <code>Status</code> field value is
@@ -395,7 +395,7 @@ export interface DescribeRescoreExecutionPlanResponse {
    *             contains a message that explains why.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -409,13 +409,13 @@ export interface ListRescoreExecutionPlansRequest {
    *             execution plans.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of rescore execution plans to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -429,27 +429,27 @@ export interface RescoreExecutionPlanSummary {
    * <p>The name of the rescore execution plan.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The identifier of the rescore execution plan.</p>
    * @public
    */
-  Id?: string;
+  Id?: string | undefined;
 
   /**
    * <p>The Unix timestamp when the rescore execution plan
    *             was created.</p>
    * @public
    */
-  CreatedAt?: Date;
+  CreatedAt?: Date | undefined;
 
   /**
    * <p>The Unix timestamp when the rescore execution plan
    *             was last updated.</p>
    * @public
    */
-  UpdatedAt?: Date;
+  UpdatedAt?: Date | undefined;
 
   /**
    * <p>The current status of the rescore execution plan. When
@@ -457,7 +457,7 @@ export interface RescoreExecutionPlanSummary {
    *             plan is ready for use.</p>
    * @public
    */
-  Status?: RescoreExecutionPlanStatus;
+  Status?: RescoreExecutionPlanStatus | undefined;
 }
 
 /**
@@ -469,14 +469,14 @@ export interface ListRescoreExecutionPlansResponse {
    *             execution plans.</p>
    * @public
    */
-  SummaryItems?: RescoreExecutionPlanSummary[];
+  SummaryItems?: RescoreExecutionPlanSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Kendra Intelligent
    *             Ranking returns a pagination token in the response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -506,7 +506,7 @@ export interface ListTagsForResourceResponse {
    *             plan.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -518,7 +518,7 @@ export interface ListTagsForResourceResponse {
 export class ResourceUnavailableException extends __BaseException {
   readonly name: "ResourceUnavailableException" = "ResourceUnavailableException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -552,19 +552,19 @@ export interface Document {
    *             together and processed as one document within the service.</p>
    * @public
    */
-  GroupId?: string;
+  GroupId?: string | undefined;
 
   /**
    * <p>The title of the search service's document.</p>
    * @public
    */
-  Title?: string;
+  Title?: string | undefined;
 
   /**
    * <p>The body text of the search service's document.</p>
    * @public
    */
-  Body?: string;
+  Body?: string | undefined;
 
   /**
    * <p>The title of the search service's document represented as
@@ -573,7 +573,7 @@ export interface Document {
    *             provide both.</p>
    * @public
    */
-  TokenizedTitle?: string[];
+  TokenizedTitle?: string[] | undefined;
 
   /**
    * <p>The body text of the search service's document represented
@@ -582,7 +582,7 @@ export interface Document {
    *             provide both.</p>
    * @public
    */
-  TokenizedBody?: string[];
+  TokenizedBody?: string[] | undefined;
 
   /**
    * <p>The original document score or rank from the search service.
@@ -628,14 +628,14 @@ export interface RescoreResultItem {
    * <p>The identifier of the document from the search service.</p>
    * @public
    */
-  DocumentId?: string;
+  DocumentId?: string | undefined;
 
   /**
    * <p>The relevancy score or rank that Amazon Kendra
    *             Intelligent Ranking gives to the result.</p>
    * @public
    */
-  Score?: number;
+  Score?: number | undefined;
 }
 
 /**
@@ -649,14 +649,14 @@ export interface RescoreResult {
    *             rescores or re-ranks the results for the search service.</p>
    * @public
    */
-  RescoreId?: string;
+  RescoreId?: string | undefined;
 
   /**
    * <p>A list of result items for documents with new relevancy
    *             scores. The results are in descending order.</p>
    * @public
    */
-  ResultItems?: RescoreResultItem[];
+  ResultItems?: RescoreResultItem[] | undefined;
 }
 
 /**
@@ -736,13 +736,13 @@ export interface UpdateRescoreExecutionPlanRequest {
    * <p>A new name for the rescore execution plan.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>A new description for the rescore execution plan.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>You can set additional capacity units to meet the needs
@@ -753,5 +753,5 @@ export interface UpdateRescoreExecutionPlanRequest {
    *             <a href="https://docs.aws.amazon.com/kendra/latest/dg/adjusting-capacity.html">Adjusting capacity</a>.</p>
    * @public
    */
-  CapacityUnits?: CapacityUnitsConfiguration;
+  CapacityUnits?: CapacityUnitsConfiguration | undefined;
 }

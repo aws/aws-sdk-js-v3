@@ -17,7 +17,8 @@ import { de_CreateAssetTypeCommand, se_CreateAssetTypeCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -107,6 +108,7 @@ export interface CreateAssetTypeCommandOutput extends CreateAssetTypeOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateAssetTypeCommand extends $Command
@@ -117,9 +119,7 @@ export class CreateAssetTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class CreateAssetTypeCommand extends $Command
   .f(CreateAssetTypeInputFilterSensitiveLog, CreateAssetTypeOutputFilterSensitiveLog)
   .ser(se_CreateAssetTypeCommand)
   .de(de_CreateAssetTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAssetTypeInput;
+      output: CreateAssetTypeOutput;
+    };
+    sdk: {
+      input: CreateAssetTypeCommandInput;
+      output: CreateAssetTypeCommandOutput;
+    };
+  };
+}

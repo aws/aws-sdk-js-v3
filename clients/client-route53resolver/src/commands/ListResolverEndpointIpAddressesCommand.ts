@@ -15,7 +15,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,7 +56,7 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * //       SubnetId: "STRING_VALUE",
  * //       Ip: "STRING_VALUE",
  * //       Ipv6: "STRING_VALUE",
- * //       Status: "CREATING" || "FAILED_CREATION" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING" || "UPDATE_FAILED",
+ * //       Status: "CREATING" || "FAILED_CREATION" || "ATTACHING" || "ATTACHED" || "REMAP_DETACHING" || "REMAP_ATTACHING" || "DETACHING" || "FAILED_RESOURCE_GONE" || "DELETING" || "DELETE_FAILED_FAS_EXPIRED" || "UPDATING" || "UPDATE_FAILED" || "ISOLATED",
  * //       StatusMessage: "STRING_VALUE",
  * //       CreationTime: "STRING_VALUE",
  * //       ModificationTime: "STRING_VALUE",
@@ -89,6 +90,7 @@ export interface ListResolverEndpointIpAddressesCommandOutput
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class ListResolverEndpointIpAddressesCommand extends $Command
@@ -99,9 +101,7 @@ export class ListResolverEndpointIpAddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class ListResolverEndpointIpAddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResolverEndpointIpAddressesCommand)
   .de(de_ListResolverEndpointIpAddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResolverEndpointIpAddressesRequest;
+      output: ListResolverEndpointIpAddressesResponse;
+    };
+    sdk: {
+      input: ListResolverEndpointIpAddressesCommandInput;
+      output: ListResolverEndpointIpAddressesCommandOutput;
+    };
+  };
+}

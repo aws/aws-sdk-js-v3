@@ -37,7 +37,7 @@
           "min": 5,
           "max": 200
         },
-        "smithy.api#pattern": "^geo:\\w*\\*?$"
+        "smithy.api#pattern": "^(geo|geo-routes|geo-places|geo-maps):\\w*\\*?$"
       }
     },
     "com.amazonaws.location#ApiKeyActionList": {
@@ -101,7 +101,7 @@
             "smithy.api#documentation": "<p>A list of allowed actions that an API key resource grants permissions to\n            perform. You must have at least one action for each type of resource. For example,\n            if you have a place resource, you must include at least one place action.</p>\n         <p>The following are valid values for the actions.</p>\n         <ul>\n            <li>\n               <p>\n                  <b>Map actions</b>\n               </p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>geo:GetMap*</code> - Allows all actions needed for map rendering.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <b>Place actions</b>\n               </p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>geo:SearchPlaceIndexForText</code> - Allows geocoding.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>geo:SearchPlaceIndexForPosition</code> - Allows reverse \n                            geocoding.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>geo:SearchPlaceIndexForSuggestions</code> - Allows generating\n                            suggestions from text.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>GetPlace</code> - Allows finding a place by place ID.</p>\n                  </li>\n               </ul>\n            </li>\n            <li>\n               <p>\n                  <b>Route actions</b>\n               </p>\n               <ul>\n                  <li>\n                     <p>\n                        <code>geo:CalculateRoute</code> - Allows point to point routing.</p>\n                  </li>\n                  <li>\n                     <p>\n                        <code>geo:CalculateRouteMatrix</code> - Allows calculating a matrix of\n                            routes.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>\n         <note>\n            <p>You must use these strings exactly. For example, to provide access to map \n                rendering, the only valid action is <code>geo:GetMap*</code> as an input to \n                the list. <code>[\"geo:GetMap*\"]</code> is valid but\n                    <code>[\"geo:GetMapTile\"]</code> is not. Similarly, you cannot use\n                <code>[\"geo:SearchPlaceIndexFor*\"]</code> - you must list each of the Place\n                actions separately.</p>\n         </note>",
             "smithy.api#length": {
               "min": 1,
-              "max": 7
+              "max": 24
             },
             "smithy.api#required": {}
           }
@@ -112,7 +112,7 @@
             "smithy.api#documentation": "<p>A list of allowed resource ARNs that a API key bearer can perform actions on.</p>\n         <ul>\n            <li>\n               <p>The ARN must be the correct ARN for a map, place, or route ARN. You may \n                    include wildcards in the resource-id to match multiple resources of the \n                    same type.</p>\n            </li>\n            <li>\n               <p>The resources must be in the same <code>partition</code>, \n                    <code>region</code>, and <code>account-id</code> as the key that is being \n                    created.</p>\n            </li>\n            <li>\n               <p>Other than wildcards, you must include the full ARN, including the \n                    <code>arn</code>, <code>partition</code>, <code>service</code>,\n                    <code>region</code>, <code>account-id</code> and <code>resource-id</code>\n                    delimited by colons (:).</p>\n            </li>\n            <li>\n               <p>No spaces allowed, even with wildcards. For example,\n                    <code>arn:aws:geo:region:<i>account-id</i>:map/ExampleMap*</code>.</p>\n            </li>\n         </ul>\n         <p>For more information about ARN format, see <a href=\"https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html\">Amazon Resource Names\n            (ARNs)</a>.</p>",
             "smithy.api#length": {
               "min": 1,
-              "max": 5
+              "max": 8
             },
             "smithy.api#required": {}
           }
@@ -180,6 +180,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Creates an association between a geofence collection and a tracker resource. This\n            allows the tracker resource to communicate location data to the linked geofence\n            collection. </p>\n         <p>You can associate up to five geofence collections to each tracker resource.</p>\n         <note>\n            <p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -214,6 +215,15 @@
       "type": "structure",
       "members": {}
     },
+    "com.amazonaws.location#Base64EncodedGeobuf": {
+      "type": "blob",
+      "traits": {
+        "smithy.api#length": {
+          "max": 600000
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.location#BatchDeleteDevicePositionHistory": {
       "type": "operation",
       "input": {
@@ -240,6 +250,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Deletes the position history of one or more devices from a tracker resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "tracking."
@@ -339,6 +350,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Deletes a batch of geofences from a geofence collection.</p>\n         <note>\n            <p>This operation deletes the resource permanently.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "geofencing."
@@ -439,6 +451,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Evaluates device positions against the geofence geometries from a given geofence\n            collection.</p>\n         <p>This operation always returns an empty response because geofences are asynchronously\n            evaluated. The evaluation determines if the device has entered or exited a geofenced\n            area, and then publishes one of the following events to Amazon EventBridge:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>ENTER</code> if Amazon Location determines that the tracked device has entered\n                    a geofenced area.</p>\n            </li>\n            <li>\n               <p>\n                  <code>EXIT</code> if Amazon Location determines that the tracked device has exited a\n                    geofenced area.</p>\n            </li>\n         </ul>\n         <note>\n            <p>The last geofence that a device was observed within is tracked for 30 days after\n                the most recent device position update.</p>\n         </note>\n         <note>\n            <p>Geofence evaluation uses the given device position. It does not account for the\n                optional <code>Accuracy</code> of a <code>DevicePositionUpdate</code>.</p>\n         </note>\n         <note>\n            <p>The <code>DeviceID</code> is used as a string to represent the device. You do not\n                need to have a <code>Tracker</code> associated with the <code>DeviceID</code>.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "geofencing."
@@ -546,6 +559,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Lists the latest device positions for requested devices.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "tracking."
@@ -708,6 +722,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>A batch request for storing geofence geometries into a given geofence collection, or\n            updates the geometry of an existing geofence if a geofence ID is included in the request.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "geofencing."
@@ -783,7 +798,7 @@
         "Geometry": {
           "target": "com.amazonaws.location#GeofenceGeometry",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the details of the position of the geofence. Can be either a \n            polygon or a circle. Including both will return a validation error.</p>\n         <note>\n            <p>Each <a href=\"https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html\">\n                geofence polygon</a> can have a maximum of 1,000 vertices.</p>\n         </note>",
+            "smithy.api#documentation": "<p>Contains the details to specify the position of the geofence. Can be a\n            polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>\n         <note>\n            <p>The <a href=\"https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html\">\n                geofence polygon</a> format supports a maximum of 1,000 vertices. The <a href=\"https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html\">Geofence geobuf</a> format supports a maximum of 100,000 vertices.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -884,6 +899,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Uploads position update data for one or more devices to a tracker resource (up to \n           10 devices per batch). Amazon Location uses the data when it reports the last known device \n           position and position history. Amazon Location retains location data for 30 days.</p>\n         <note>\n            <p>Position updates are handled based on the <code>PositionFiltering</code> \n               property of the tracker. When <code>PositionFiltering</code> is set to \n               <code>TimeBased</code>, updates are evaluated against linked geofence collections, \n               and location data is stored at a maximum of one position per 30 second interval. \n               If your update frequency is more often than every 30 seconds, only one update per \n               30 seconds is stored for each unique device ID.</p>\n            <p>When <code>PositionFiltering</code> is set to <code>DistanceBased</code> \n                filtering, location data is stored and evaluated against linked geofence \n                collections only if the device has moved more than 30 m (98.4 ft).</p>\n            <p>When <code>PositionFiltering</code> is set to <code>AccuracyBased</code> \n                filtering, location data is stored and evaluated against linked geofence \n                collections only if the device has moved more than the measured accuracy. For \n                example, if two consecutive updates from a device have a horizontal accuracy of \n                5 m and 10 m, the second update is neither stored or evaluated if the device has \n                moved less than 15 m. If <code>PositionFiltering</code> is set to \n                <code>AccuracyBased</code> filtering, Amazon Location uses the default value \n                <code>{ \"Horizontal\": 0}</code> when accuracy is not provided on a\n                <code>DevicePositionUpdate</code>.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "tracking."
@@ -1439,6 +1455,25 @@
         "smithy.api#documentation": "<p>Contains details about additional route preferences for requests that specify\n                <code>TravelMode</code> as <code>Truck</code>.</p>"
       }
     },
+    "com.amazonaws.location#CellSignals": {
+      "type": "structure",
+      "members": {
+        "LteCellDetails": {
+          "target": "com.amazonaws.location#LteCellDetailsList",
+          "traits": {
+            "smithy.api#documentation": "<p>Information about the Long-Term Evolution (LTE) network the device is connected to.</p>",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 16
+            },
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The cellular network communication infrastructure that the device uses.</p>"
+      }
+    },
     "com.amazonaws.location#Circle": {
       "type": "structure",
       "members": {
@@ -1479,12 +1514,6 @@
         "smithy.api#httpError": 409
       }
     },
-    "com.amazonaws.location#CountryCode": {
-      "type": "string",
-      "traits": {
-        "smithy.api#pattern": "^[A-Z]{3}$"
-      }
-    },
     "com.amazonaws.location#CountryCode3": {
       "type": "string",
       "traits": {
@@ -1508,7 +1537,7 @@
     "com.amazonaws.location#CountryCodeList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.location#CountryCode"
+        "target": "com.amazonaws.location#CountryCode3"
       },
       "traits": {
         "smithy.api#length": {
@@ -1546,6 +1575,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Creates a geofence collection, which manages and stores geofences.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.geofencing."
@@ -1603,7 +1633,7 @@
           "target": "com.amazonaws.location#KmsKeyId",
           "traits": {
             "aws.cloudformation#cfnMutability": "create-and-read",
-            "smithy.api#documentation": "<p>A key identifier for an \n            <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\">Amazon Web Services \n                KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.\n\t</p>"
+            "smithy.api#documentation": "<p>A key identifier for an\n            <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\">Amazon Web Services\n                KMS customer managed key</a>. Enter a key ID, key ARN, alias name, or alias ARN.\n\t</p>"
           }
         }
       }
@@ -1663,6 +1693,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Creates an API key resource in your Amazon Web Services account, which lets you grant\n            actions for Amazon Location resources to the API key bearer.</p>\n         <note>\n            <p>For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/using-apikeys.html\">Using API keys</a>.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -2110,6 +2141,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Creates a tracker resource in your Amazon Web Services account, which lets you retrieve current and\n            historical location of devices.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -2277,6 +2309,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Deletes a geofence collection from your Amazon Web Services account.</p>\n         <note>\n            <p>This operation deletes the resource permanently. If the geofence collection is the\n                target of a tracker resource, the devices will no longer be monitored.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.geofencing."
@@ -2331,6 +2364,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Deletes the specified API key. The API key must have been deactivated more than\n            90 days previously.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -2557,6 +2591,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Deletes a tracker resource from your Amazon Web Services account.</p>\n         <note>\n            <p>This operation deletes the resource permanently. If the tracker resource is in use, you may\n                encounter an error. Make sure that the target resource isn't a dependency for your\n                applications.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -2611,6 +2646,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Retrieves the geofence collection details.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.geofencing."
@@ -2682,7 +2718,7 @@
         "KmsKeyId": {
           "target": "com.amazonaws.location#KmsKeyId",
           "traits": {
-            "smithy.api#documentation": "<p>A key identifier for an \n            <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\">Amazon Web Services \n                KMS customer managed key</a> assigned to the Amazon Location resource</p>"
+            "smithy.api#documentation": "<p>A key identifier for an\n            <a href=\"https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html\">Amazon Web Services\n                KMS customer managed key</a> assigned to the Amazon Location resource</p>"
           }
         },
         "Tags": {
@@ -2743,6 +2779,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Retrieves the API key resource details.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -3213,6 +3250,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Retrieves the tracker resource details.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -3371,7 +3409,7 @@
           }
         },
         "PositionProperties": {
-          "target": "com.amazonaws.location#PropertyMap",
+          "target": "com.amazonaws.location#PositionPropertyMap",
           "traits": {
             "smithy.api#documentation": "<p>The properties associated with the position.</p>"
           }
@@ -3418,7 +3456,7 @@
           }
         },
         "PositionProperties": {
-          "target": "com.amazonaws.location#PropertyMap",
+          "target": "com.amazonaws.location#PositionPropertyMap",
           "traits": {
             "smithy.api#documentation": "<p>Associates one of more properties with the position update. A property is a key-value\n            pair stored with the position update and added to any geofence event the update may\n            trigger.</p>\n         <p>Format: <code>\"key\" : \"value\"</code>\n         </p>"
           }
@@ -3432,6 +3470,57 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.location#DevicePositionUpdate"
+      }
+    },
+    "com.amazonaws.location#DeviceState": {
+      "type": "structure",
+      "members": {
+        "DeviceId": {
+          "target": "com.amazonaws.location#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The device identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SampleTime": {
+          "target": "com.amazonaws.location#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp at which the device's position was determined. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a>\n           format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Position": {
+          "target": "com.amazonaws.location#Position",
+          "traits": {
+            "smithy.api#documentation": "<p>The last known device position.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Accuracy": {
+          "target": "com.amazonaws.location#PositionalAccuracy"
+        },
+        "Ipv4Address": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>The device's Ipv4 address.</p>",
+            "smithy.api#pattern": "^(?:(?:25[0-5]|(?:2[0-4]|1\\d|[0-9]|)\\d)\\.?\\b){4}$"
+          }
+        },
+        "WiFiAccessPoints": {
+          "target": "com.amazonaws.location#WiFiAccessPointList",
+          "traits": {
+            "smithy.api#documentation": "<p>The Wi-Fi access points the device is using.</p>"
+          }
+        },
+        "CellSignals": {
+          "target": "com.amazonaws.location#CellSignals",
+          "traits": {
+            "smithy.api#documentation": "<p>The cellular network infrastructure that the device is connected to.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The device's position, IP address, and Wi-Fi access points.</p>"
       }
     },
     "com.amazonaws.location#DimensionUnit": {
@@ -3473,6 +3562,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Removes the association between a tracker resource and a geofence collection.</p>\n         <note>\n            <p>Once you unlink a tracker resource from a geofence collection, the tracker\n                positions will no longer be automatically evaluated against geofences.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -3521,6 +3611,26 @@
         ]
       }
     },
+    "com.amazonaws.location#Earfcn": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 262143
+        }
+      }
+    },
+    "com.amazonaws.location#EutranCellId": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 268435455
+        }
+      }
+    },
     "com.amazonaws.location#FilterPlaceCategoryList": {
       "type": "list",
       "member": {
@@ -3531,6 +3641,251 @@
           "min": 1,
           "max": 5
         }
+      }
+    },
+    "com.amazonaws.location#ForecastGeofenceEvents": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.location#ForecastGeofenceEventsRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.location#ForecastGeofenceEventsResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.location#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.location#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.location#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.location#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.location#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.api#dataPlane": {},
+        "smithy.api#documentation": "<p>Evaluates device positions against\n      geofence geometries from a given geofence collection. The event forecasts three states for which\n      a device can be in relative to a geofence:</p>\n         <p>\n            <code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>\n         <p>\n            <code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>\n         <p>\n            <code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "geofencing."
+        },
+        "smithy.api#http": {
+          "uri": "/geofencing/v0/collections/{CollectionName}/forecast-geofence-events",
+          "method": "POST"
+        },
+        "smithy.api#paginated": {
+          "pageSize": "MaxResults",
+          "inputToken": "NextToken",
+          "outputToken": "NextToken",
+          "items": "ForecastedEvents"
+        },
+        "smithy.api#readonly": {}
+      }
+    },
+    "com.amazonaws.location#ForecastGeofenceEventsDeviceState": {
+      "type": "structure",
+      "members": {
+        "Position": {
+          "target": "com.amazonaws.location#Position",
+          "traits": {
+            "smithy.api#documentation": "<p>The device's position.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Speed": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The device's speed.</p>",
+            "smithy.api#range": {
+              "min": 0
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The device's position, IP address, and WiFi access points.</p>"
+      }
+    },
+    "com.amazonaws.location#ForecastGeofenceEventsRequest": {
+      "type": "structure",
+      "members": {
+        "CollectionName": {
+          "target": "com.amazonaws.location#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the geofence collection.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceState": {
+          "target": "com.amazonaws.location#ForecastGeofenceEventsDeviceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The device's state, including current position and speed.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "TimeHorizonMinutes": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>Specifies the time horizon in minutes for the forecasted events.</p>",
+            "smithy.api#range": {
+              "min": 0
+            }
+          }
+        },
+        "DistanceUnit": {
+          "target": "com.amazonaws.location#DistanceUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The distance unit used for the <code>NearestDistance</code> property returned in a forecasted event.\n          The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>\n          is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.\n      </p>\n         <p>Default Value: <code>Kilometers</code>\n         </p>"
+          }
+        },
+        "SpeedUnit": {
+          "target": "com.amazonaws.location#SpeedUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The speed unit for the device captured by the device state. The measurement system must match for <code>DistanceUnit</code> and <code>SpeedUnit</code>; if <code>Kilometers</code>\n          is specified for <code>DistanceUnit</code>, then <code>SpeedUnit</code> must be <code>KilometersPerHour</code>.</p>\n         <p>Default Value: <code>KilometersPerHour</code>.</p>"
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.location#LargeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token specifying which page of results to return in the response. If no\n            token is provided, the default page is the first page.</p>\n         <p>Default value: <code>null</code>\n         </p>"
+          }
+        },
+        "MaxResults": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#default": null,
+            "smithy.api#documentation": "<p>An optional limit for the number of resources returned in a single call.</p>\n         <p>Default value: <code>20</code>\n         </p>",
+            "smithy.api#range": {
+              "min": 1,
+              "max": 20
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.location#ForecastGeofenceEventsResponse": {
+      "type": "structure",
+      "members": {
+        "ForecastedEvents": {
+          "target": "com.amazonaws.location#ForecastedEventsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The list of forecasted events.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NextToken": {
+          "target": "com.amazonaws.location#LargeToken",
+          "traits": {
+            "smithy.api#documentation": "<p>The pagination token specifying which page of results to return in the response. If no\n            token is provided, the default page is the first page. </p>"
+          }
+        },
+        "DistanceUnit": {
+          "target": "com.amazonaws.location#DistanceUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The distance unit for the forecasted events.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SpeedUnit": {
+          "target": "com.amazonaws.location#SpeedUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The speed unit for the forecasted events.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
+    "com.amazonaws.location#ForecastedEvent": {
+      "type": "structure",
+      "members": {
+        "EventId": {
+          "target": "com.amazonaws.location#Uuid",
+          "traits": {
+            "smithy.api#documentation": "<p>The forecasted event identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "GeofenceId": {
+          "target": "com.amazonaws.location#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The geofence identifier pertaining to the forecasted event.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "IsDeviceInGeofence": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if the device is located within the geofence.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "NearestDistance": {
+          "target": "com.amazonaws.location#NearestDistance",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The closest distance from the device's position to the geofence.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "EventType": {
+          "target": "com.amazonaws.location#ForecastedGeofenceEventType",
+          "traits": {
+            "smithy.api#documentation": "<p>The event type, forecasting three states for which\n          a device can be in relative to a geofence:</p>\n         <p>\n            <code>ENTER</code>: If a device is outside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>\n         <p>\n            <code>EXIT</code>: If a device is inside of a geofence, but would breach the fence if the device is moving at its current speed within time horizon window.</p>\n         <p>\n            <code>IDLE</code>: If a device is inside of a geofence, and the device is not moving.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ForecastedBreachTime": {
+          "target": "com.amazonaws.location#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The forecasted time the device will breach the geofence in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\">ISO 8601</a>\n          format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>\n         </p>"
+          }
+        },
+        "GeofenceProperties": {
+          "target": "com.amazonaws.location#PropertyMap",
+          "traits": {
+            "smithy.api#documentation": "<p>The geofence properties.</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>A forecasted event represents a geofence event in relation to the requested device state, that may occur\n      given the provided device state and time horizon.</p>"
+      }
+    },
+    "com.amazonaws.location#ForecastedEventsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.location#ForecastedEvent"
+      }
+    },
+    "com.amazonaws.location#ForecastedGeofenceEventType": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "ENTER",
+            "documentation": "This event type signifies that a device is forecasted to enter the geofence"
+          },
+          {
+            "value": "EXIT",
+            "documentation": "This event type signifies that a device is forecasted to exit the geofence"
+          },
+          {
+            "value": "IDLE",
+            "documentation": "This event type signifies that a device is stationary in the geofence and an exit/enter cannot be forecasted"
+          }
+        ]
       }
     },
     "com.amazonaws.location#GenericResource": {
@@ -3569,7 +3924,17 @@
     "com.amazonaws.location#GeoArnList": {
       "type": "list",
       "member": {
-        "target": "com.amazonaws.location#GeoArn"
+        "target": "com.amazonaws.location#GeoArnV2"
+      }
+    },
+    "com.amazonaws.location#GeoArnV2": {
+      "type": "string",
+      "traits": {
+        "aws.api#arnReference": {},
+        "smithy.api#length": {
+          "max": 1600
+        },
+        "smithy.api#pattern": "(^arn(:[a-z0-9]+([.-][a-z0-9]+)*):geo(:([a-z0-9]+([.-][a-z0-9]+)*))(:[0-9]+):((\\*)|([-a-z]+[/][*-._\\w]+))$)|(^arn(:[a-z0-9]+([.-][a-z0-9]+)*):(geo-routes|geo-places|geo-maps)(:((\\*)|([a-z0-9]+([.-][a-z0-9]+)*)))::((provider[\\/][*-._\\w]+))$)"
       }
     },
     "com.amazonaws.location#GeofenceCollectionResource": {
@@ -3605,6 +3970,9 @@
           "target": "com.amazonaws.location#BatchPutGeofence"
         },
         {
+          "target": "com.amazonaws.location#ForecastGeofenceEvents"
+        },
+        {
           "target": "com.amazonaws.location#GetGeofence"
         },
         {
@@ -3638,10 +4006,16 @@
           "traits": {
             "smithy.api#documentation": "<p>A circle on the earth, as defined by a center point and a radius.</p>"
           }
+        },
+        "Geobuf": {
+          "target": "com.amazonaws.location#Base64EncodedGeobuf",
+          "traits": {
+            "smithy.api#documentation": "<p>Geobuf is a compact binary encoding for geographic data that provides lossless compression of GeoJSON polygons. The Geobuf must be Base64-encoded.</p>\n         <p>A polygon in Geobuf format can have up to 100,000 vertices.</p>"
+          }
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the geofence geometry details.</p>\n         <p>A geofence geometry is made up of either a polygon or a circle. Can be either a \n            polygon or a circle. Including both will return a validation error.</p>\n         <note>\n            <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons\n                that are wound clockwise, or that cross the antimeridian. </p>\n         </note>"
+        "smithy.api#documentation": "<p>Contains the geofence geometry details.</p>\n         <p>A geofence geometry is made up of either a polygon or a circle. Can be a\n            polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>\n         <note>\n            <p>Amazon Location doesn't currently support polygons with holes, multipolygons, polygons\n                that are wound clockwise, or that cross the antimeridian. </p>\n         </note>"
       }
     },
     "com.amazonaws.location#GetDevicePosition": {
@@ -3670,6 +4044,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Retrieves a device's most recent position according to its sample time.</p>\n         <note>\n            <p>Device positions are deleted after 30 days.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "tracking."
@@ -3707,6 +4082,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Retrieves the device position history from a tracker resource within a specified range\n            of time.</p>\n         <note>\n            <p>Device positions are deleted after 30 days.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "tracking."
@@ -3832,7 +4208,7 @@
         "ReceivedTime": {
           "target": "com.amazonaws.location#Timestamp",
           "traits": {
-            "smithy.api#documentation": "<p>The timestamp for when the tracker resource received the device position in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a>\n            format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>",
+            "smithy.api#documentation": "<p>The timestamp for when the tracker resource received the device position. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a>\n            format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>",
             "smithy.api#required": {}
           }
         },
@@ -3850,7 +4226,7 @@
           }
         },
         "PositionProperties": {
-          "target": "com.amazonaws.location#PropertyMap",
+          "target": "com.amazonaws.location#PositionPropertyMap",
           "traits": {
             "smithy.api#documentation": "<p>The properties associated with the position.</p>"
           }
@@ -3883,7 +4259,8 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Retrieves the geofence details from a geofence collection.</p>",
+        "aws.api#dataPlane": {},
+        "smithy.api#documentation": "<p>Retrieves the geofence details from a geofence collection.</p>\n         <note>\n            <p>The returned geometry will always match the geometry format used when the geofence was created.</p>\n         </note>",
         "smithy.api#endpoint": {
           "hostPrefix": "geofencing."
         },
@@ -4012,7 +4389,7 @@
         "FontStack": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>A comma-separated list of fonts to load glyphs from in order of preference. For\n            example, <code>Noto Sans Regular, Arial Unicode</code>.</p>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\">Esri</a> styles: </p>\n         <ul>\n            <li>\n               <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu\n                        Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> |\n                        <code>Ubuntu Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu\n                        Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans\n                        Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif\n                        Regular</code> | <code>Roboto Condensed Light Italic</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> |\n                        <code>Arial Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>\n                    | <code>Arial Bold</code> | <code>Arial Unicode MS Bold</code> | <code>Arial Unicode MS Regular</code>\n               </p>\n            </li>\n         </ul>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\">HERE Technologies</a> styles:</p>\n         <ul>\n            <li>\n               <p>VectorHereContrast – <code>Fira \n                    GO Regular</code> | <code>Fira GO Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – \n                    <code>Fira GO Italic</code> | <code>Fira GO Map</code> | \n                    <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | \n                    <code>Noto Sans CJK JP Light</code> | \n                    <code>Noto Sans CJK JP Regular</code>\n               </p>\n            </li>\n         </ul>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html\">GrabMaps</a> styles:</p>\n         <ul>\n            <li>\n               <p>VectorGrabStandardLight, VectorGrabStandardDark – \n                    <code>Noto Sans Regular</code> |\n                    <code>Noto Sans Medium</code> |\n                    <code>Noto Sans Bold</code>\n               </p>\n            </li>\n         </ul>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/open-data.html\">Open Data</a> styles:</p>\n         <ul>\n            <li>\n               <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark,\n                    VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark – \n                    <code>Amazon Ember Regular,Noto Sans Regular</code> |\n                    <code>Amazon Ember Bold,Noto Sans Bold</code> | \n                    <code>Amazon Ember Medium,Noto Sans Medium</code> |\n                    <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | \n                    <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> | \n                    <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code> |\n                    <code>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</code> |\n                    <code>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic \n                        Condensed Bold</code> |\n                    <code>Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</code> |\n                    <code>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic \n                        Regular</code> |\n                    <code>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic \n                        Condensed Regular</code> |\n                    <code>Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium</code>\n               </p>\n            </li>\n         </ul>\n         <note>\n            <p>The fonts used by the Open Data map styles are combined fonts\n                that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> \n                for glyphs unsupported by <code>Amazon Ember</code>.</p>\n         </note>",
+            "smithy.api#documentation": "<p>A comma-separated list of fonts to load glyphs from in order of preference. For\n            example, <code>Noto Sans Regular, Arial Unicode</code>.</p>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\">Esri</a> styles: </p>\n         <ul>\n            <li>\n               <p>VectorEsriDarkGrayCanvas – <code>Ubuntu Medium Italic</code> | <code>Ubuntu\n                        Medium</code> | <code>Ubuntu Italic</code> | <code>Ubuntu Regular</code> |\n                        <code>Ubuntu Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriLightGrayCanvas – <code>Ubuntu Italic</code> | <code>Ubuntu\n                        Regular</code> | <code>Ubuntu Light</code> | <code>Ubuntu Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriTopographic – <code>Noto Sans Italic</code> | <code>Noto Sans\n                        Regular</code> | <code>Noto Sans Bold</code> | <code>Noto Serif\n                        Regular</code> | <code>Roboto Condensed Light Italic</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriStreets – <code>Arial Regular</code> | <code>Arial Italic</code> |\n                        <code>Arial Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorEsriNavigation – <code>Arial Regular</code> | <code>Arial Italic</code>\n                    | <code>Arial Bold</code>\n               </p>\n            </li>\n         </ul>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\">HERE Technologies</a> styles:</p>\n         <ul>\n            <li>\n               <p>VectorHereContrast – <code>Fira \n                    GO Regular</code> | <code>Fira GO Bold</code>\n               </p>\n            </li>\n            <li>\n               <p>VectorHereExplore, VectorHereExploreTruck, HybridHereExploreSatellite – \n                    <code>Fira GO Italic</code> | <code>Fira GO Map</code> | \n                    <code>Fira GO Map Bold</code> | <code>Noto Sans CJK JP Bold</code> | \n                    <code>Noto Sans CJK JP Light</code> | \n                    <code>Noto Sans CJK JP Regular</code>\n               </p>\n            </li>\n         </ul>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html\">GrabMaps</a> styles:</p>\n         <ul>\n            <li>\n               <p>VectorGrabStandardLight, VectorGrabStandardDark – \n                    <code>Noto Sans Regular</code> |\n                    <code>Noto Sans Medium</code> |\n                    <code>Noto Sans Bold</code>\n               </p>\n            </li>\n         </ul>\n         <p>Valid font stacks for <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/open-data.html\">Open Data</a> styles:</p>\n         <ul>\n            <li>\n               <p>VectorOpenDataStandardLight, VectorOpenDataStandardDark,\n                    VectorOpenDataVisualizationLight, VectorOpenDataVisualizationDark – \n                    <code>Amazon Ember Regular,Noto Sans Regular</code> |\n                    <code>Amazon Ember Bold,Noto Sans Bold</code> | \n                    <code>Amazon Ember Medium,Noto Sans Medium</code> |\n                    <code>Amazon Ember Regular Italic,Noto Sans Italic</code> | \n                    <code>Amazon Ember Condensed RC Regular,Noto Sans Regular</code> | \n                    <code>Amazon Ember Condensed RC Bold,Noto Sans Bold</code> |\n                    <code>Amazon Ember Regular,Noto Sans Regular,Noto Sans Arabic Regular</code> |\n                    <code>Amazon Ember Condensed RC Bold,Noto Sans Bold,Noto Sans Arabic \n                        Condensed Bold</code> |\n                    <code>Amazon Ember Bold,Noto Sans Bold,Noto Sans Arabic Bold</code> |\n                    <code>Amazon Ember Regular Italic,Noto Sans Italic,Noto Sans Arabic \n                        Regular</code> |\n                    <code>Amazon Ember Condensed RC Regular,Noto Sans Regular,Noto Sans Arabic \n                        Condensed Regular</code> |\n                    <code>Amazon Ember Medium,Noto Sans Medium,Noto Sans Arabic Medium</code>\n               </p>\n            </li>\n         </ul>\n         <note>\n            <p>The fonts used by the Open Data map styles are combined fonts\n                that use <code>Amazon Ember</code> for most glyphs but <code>Noto Sans</code> \n                for glyphs unsupported by <code>Amazon Ember</code>.</p>\n         </note>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4405,7 +4782,7 @@
         "PlaceId": {
           "target": "com.amazonaws.location#PlaceId",
           "traits": {
-            "smithy.api#documentation": "<p>The identifier of the place to find.</p>\n         <p>While you can use PlaceID in subsequent requests, \n      PlaceID is not intended to be a permanent \n            identifier and the ID can change between consecutive API calls. \n            Please see the following PlaceID behaviour for each data provider:</p>\n         <ul>\n            <li>\n               <p>Esri: Place IDs will change every quarter at a minimum. The typical time period for these changes would be March, June, September, and December. Place IDs might also change between the typical quarterly change but that will be much less frequent.</p>\n            </li>\n            <li>\n               <p>HERE: We recommend \n        that you cache data for no longer than a week \n        to keep your data data fresh. You can \n        assume that less than 1% ID shifts will\n         release over release which is approximately 1 - 2 times per week.</p>\n            </li>\n            <li>\n               <p>Grab:  Place IDs can expire or become invalid in the following situations.</p>\n               <ul>\n                  <li>\n                     <p>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based on the ground-truth,\n             such as being closed in the real world, being detected as a duplicate POI, or having incorrect information. Grab will synchronize data to the Waypoint environment on weekly basis.</p>\n                  </li>\n                  <li>\n                     <p>Interpolated POI: Interpolated POI is a temporary POI generated in real time when serving a request, \n            and it will be marked as derived in the <code>place.result_type</code> field in the response. \n            The information of interpolated POIs will be retained for at least 30 days, which means that within 30 days, you are able to obtain POI details by \n            Place ID from Place Details API. After 30 days, the interpolated POIs(both Place ID and details) may expire and inaccessible from the Places Details API.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>The identifier of the place to find.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
           }
@@ -4452,6 +4829,39 @@
       "type": "list",
       "member": {
         "target": "com.amazonaws.location#Id"
+      }
+    },
+    "com.amazonaws.location#InferredState": {
+      "type": "structure",
+      "members": {
+        "Position": {
+          "target": "com.amazonaws.location#Position",
+          "traits": {
+            "smithy.api#documentation": "<p>The device position inferred by the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>"
+          }
+        },
+        "Accuracy": {
+          "target": "com.amazonaws.location#PositionalAccuracy",
+          "traits": {
+            "smithy.api#documentation": "<p>The level of certainty of the inferred position.</p>"
+          }
+        },
+        "DeviationDistance": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "<p>The distance between the inferred position and the device's self-reported position.</p>"
+          }
+        },
+        "ProxyDetected": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates if a proxy was used.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>The inferred state of the device, given the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>"
       }
     },
     "com.amazonaws.location#IntendedUse": {
@@ -4502,6 +4912,15 @@
         "smithy.api#length": {
           "min": 2,
           "max": 35
+        }
+      }
+    },
+    "com.amazonaws.location#LargeToken": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 60000
         }
       }
     },
@@ -4642,6 +5061,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>A batch request to retrieve all device positions.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "tracking."
@@ -4744,7 +5164,7 @@
           }
         },
         "PositionProperties": {
-          "target": "com.amazonaws.location#PropertyMap",
+          "target": "com.amazonaws.location#PositionPropertyMap",
           "traits": {
             "smithy.api#documentation": "<p>The properties associated with the position.</p>"
           }
@@ -4783,6 +5203,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Lists geofence collections in your Amazon Web Services account.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.geofencing."
@@ -4893,7 +5314,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains the geofence collection details.</p>"
+        "smithy.api#documentation": "<p>Contains the geofence collection details.</p>\n         <note>\n            <p>The returned geometry will always match the geometry format used when the geofence was created.</p>\n         </note>"
       }
     },
     "com.amazonaws.location#ListGeofenceCollectionsResponseEntryList": {
@@ -4948,7 +5369,7 @@
         }
       },
       "traits": {
-        "smithy.api#documentation": "<p>Contains a list of geofences stored in a given geofence collection.</p>"
+        "smithy.api#documentation": "<p>Contains a list of geofences stored in a given geofence collection.</p>\n         <note>\n            <p>The returned geometry will always match the geometry format used when the geofence was created.</p>\n         </note>"
       }
     },
     "com.amazonaws.location#ListGeofenceResponseEntryList": {
@@ -4983,6 +5404,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Lists geofences stored in a given geofence collection.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "geofencing."
@@ -5012,7 +5434,7 @@
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.location#Token",
+          "target": "com.amazonaws.location#LargeToken",
           "traits": {
             "smithy.api#documentation": "<p>The pagination token specifying which page of results to return in the response. If no\n            token is provided, the default page is the first page. </p>\n         <p>Default value: <code>null</code>\n         </p>"
           }
@@ -5041,7 +5463,7 @@
           }
         },
         "NextToken": {
-          "target": "com.amazonaws.location#Token",
+          "target": "com.amazonaws.location#LargeToken",
           "traits": {
             "smithy.api#documentation": "<p>A pagination token indicating there are additional pages available. You can use the\n            token in a following request to fetch the next set of results. </p>"
           }
@@ -5071,6 +5493,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Lists API key resources in your Amazon Web Services account.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -5631,6 +6054,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -5692,6 +6116,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Lists geofence collections currently associated to the given tracker resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -5780,6 +6205,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Lists tracker resources in your Amazon Web Services account.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -6566,13 +6992,185 @@
         }
       }
     },
+    "com.amazonaws.location#LteCellDetails": {
+      "type": "structure",
+      "members": {
+        "CellId": {
+          "target": "com.amazonaws.location#EutranCellId",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>The E-UTRAN Cell Identifier (ECI).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Mcc": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The Mobile Country Code (MCC).</p>",
+            "smithy.api#range": {
+              "min": 200,
+              "max": 999
+            },
+            "smithy.api#required": {}
+          }
+        },
+        "Mnc": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>The Mobile Network Code (MNC)</p>",
+            "smithy.api#range": {
+              "min": 0,
+              "max": 999
+            },
+            "smithy.api#required": {}
+          }
+        },
+        "LocalId": {
+          "target": "com.amazonaws.location#LteLocalId",
+          "traits": {
+            "smithy.api#documentation": "<p>The LTE local identification information (local ID).</p>"
+          }
+        },
+        "NetworkMeasurements": {
+          "target": "com.amazonaws.location#LteNetworkMeasurementsList",
+          "traits": {
+            "smithy.api#documentation": "<p>The network measurements.</p>",
+            "smithy.api#length": {
+              "min": 1,
+              "max": 32
+            }
+          }
+        },
+        "TimingAdvance": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Timing Advance (TA).</p>",
+            "smithy.api#range": {
+              "min": 0,
+              "max": 1282
+            }
+          }
+        },
+        "NrCapable": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "<p>Indicates whether the LTE object is capable of supporting NR (new radio).</p>"
+          }
+        },
+        "Rsrp": {
+          "target": "com.amazonaws.location#Rsrp",
+          "traits": {
+            "smithy.api#documentation": "<p>Signal power of the reference signal received, measured in decibel-milliwatts (dBm).</p>"
+          }
+        },
+        "Rsrq": {
+          "target": "com.amazonaws.location#Rsrq",
+          "traits": {
+            "smithy.api#documentation": "<p>Signal quality of the reference Signal received, measured in decibels (dB).</p>"
+          }
+        },
+        "Tac": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>LTE Tracking Area Code (TAC).</p>",
+            "smithy.api#range": {
+              "min": 0,
+              "max": 65535
+            }
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Details about the Long-Term Evolution (LTE) network.</p>"
+      }
+    },
+    "com.amazonaws.location#LteCellDetailsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.location#LteCellDetails"
+      }
+    },
+    "com.amazonaws.location#LteLocalId": {
+      "type": "structure",
+      "members": {
+        "Earfcn": {
+          "target": "com.amazonaws.location#Earfcn",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>E-UTRA (Evolved Universal Terrestrial Radio Access) absolute radio frequency channel number (EARFCN).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Pci": {
+          "target": "com.amazonaws.location#Pci",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Physical Cell ID (PCI).</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>LTE local identification information (local ID).</p>"
+      }
+    },
+    "com.amazonaws.location#LteNetworkMeasurements": {
+      "type": "structure",
+      "members": {
+        "Earfcn": {
+          "target": "com.amazonaws.location#Earfcn",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>E-UTRA (Evolved Universal Terrestrial Radio Access) absolute radio frequency channel number (EARFCN).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "CellId": {
+          "target": "com.amazonaws.location#EutranCellId",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>E-UTRAN Cell Identifier (ECI).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Pci": {
+          "target": "com.amazonaws.location#Pci",
+          "traits": {
+            "smithy.api#default": 0,
+            "smithy.api#documentation": "<p>Physical Cell ID (PCI).</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "Rsrp": {
+          "target": "com.amazonaws.location#Rsrp",
+          "traits": {
+            "smithy.api#documentation": "<p>Signal power of the reference signal received, measured in dBm (decibel-milliwatts).</p>"
+          }
+        },
+        "Rsrq": {
+          "target": "com.amazonaws.location#Rsrq",
+          "traits": {
+            "smithy.api#documentation": "<p>Signal quality of the reference Signal received, measured in decibels (dB).</p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>LTE network measurements.</p>"
+      }
+    },
+    "com.amazonaws.location#LteNetworkMeasurementsList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.location#LteNetworkMeasurements"
+      }
+    },
     "com.amazonaws.location#MapConfiguration": {
       "type": "structure",
       "members": {
         "Style": {
           "target": "com.amazonaws.location#MapStyle",
           "traits": {
-            "smithy.api#documentation": "<p>Specifies the map style selected from an available data provider.</p>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\">Esri map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorEsriNavigation</code> – The Esri Navigation map style, which provides a detailed basemap for the world symbolized with a \n                custom navigation map style that's designed for use during the day in mobile devices. It also includes a richer set of places, \n                such as shops, services, restaurants, attractions, and other points of interest. \n                Enable the <code>POI</code> layer by setting it in CustomLayers to leverage the additional places data.</p>\n               <p/>\n            </li>\n            <li>\n               <p>\n                  <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap\n                    that provides one meter or better satellite and aerial imagery in many parts of\n                    the world and lower resolution satellite imagery worldwide. </p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style,\n                    which provides a detailed vector basemap with a light gray, neutral background\n                    style with minimal colors, labels, and features that's designed to draw\n                    attention to your thematic content. </p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriTopographic</code> – The Esri Light map style, which provides\n                    a detailed vector basemap with a classic Esri map style.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriStreets</code> – The Esri Street Map style, which\n                    provides a detailed vector basemap for the world symbolized with a classic Esri\n                    street map style. The vector tile layer is similar in content and style to the\n                    World Street Map raster map.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A\n                    vector basemap with a dark gray, neutral background with minimal colors, labels,\n                    and features that's designed to draw attention to your thematic content. </p>\n            </li>\n         </ul>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\">HERE\n                Technologies map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorHereExplore</code> – A default HERE map style containing a \n                    neutral, global map and its features including roads, buildings, landmarks, \n                    and water features. It also now includes a fully designed map of Japan.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RasterHereExploreSatellite</code> – A global map containing high\n                    resolution satellite imagery.</p>\n            </li>\n            <li>\n               <p>\n                  <code>HybridHereExploreSatellite</code> – A global map displaying the road \n                    network, street names, and city labels over satellite imagery. This style \n                    will automatically retrieve both raster and vector tiles, and your charges \n                    will be based on total tiles retrieved.</p>\n               <note>\n                  <p>Hybrid styles use both vector and raster tiles when rendering the \n                    map that you see. This means that more tiles are retrieved than when using \n                    either vector or raster tiles alone. Your charges will include all tiles \n                    retrieved.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a \n                    high contrast\n                    detailed base map of the world that blends 3D and 2D rendering.</p>\n               <note>\n                  <p>The <code>VectorHereContrast</code> style has been renamed from \n                    <code>VectorHereBerlin</code>. \n                    <code>VectorHereBerlin</code> has been deprecated, but will continue to work in \n                    applications that use it.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>VectorHereExploreTruck</code> – A global map containing truck \n                    restrictions and attributes (e.g. width / height / HAZMAT) symbolized with \n                    highlighted segments and icons on top of HERE Explore to support use cases \n                    within transport and logistics.</p>\n            </li>\n         </ul>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html\">GrabMaps map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorGrabStandardLight</code> – The Grab Standard Light \n                    map style provides a basemap with detailed land use coloring, \n                    area names, roads, landmarks, and points of interest covering \n                    Southeast Asia.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorGrabStandardDark</code> – The Grab Standard Dark \n                    map style provides a dark variation of the standard basemap \n                    covering Southeast Asia.</p>\n            </li>\n         </ul>\n         <note>\n            <p>Grab provides maps only for countries in Southeast Asia, and is only available \n                in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).\n                For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area\">GrabMaps countries and area covered</a>.</p>\n         </note>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/open-data.html\">Open Data map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light \n                    map style provides a detailed basemap for the world suitable for\n                    website and mobile application use. The map includes highways major roads, \n                    minor roads, railways, water features, cities, parks, landmarks, building\n                    footprints, and administrative boundaries.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorOpenDataStandardDark</code> – Open Data Standard Dark is a\n                    dark-themed map style that provides a detailed basemap for the world \n                    suitable for website and mobile application use. The map includes highways \n                    major roads, minor roads, railways, water features, cities, parks, \n                    landmarks, building footprints, and administrative boundaries.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorOpenDataVisualizationLight</code> – The Open Data \n                    Visualization Light map style is a light-themed style with muted colors and\n                    fewer features that aids in understanding overlaid data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorOpenDataVisualizationDark</code> – The Open Data \n                    Visualization Dark map style is a dark-themed style with muted colors and\n                    fewer features that aids in understanding overlaid data.</p>\n            </li>\n         </ul>",
+            "smithy.api#documentation": "<p>Specifies the map style selected from an available data provider.</p>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/esri.html\">Esri map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A\n                    vector basemap with a dark gray, neutral background with minimal colors, labels,\n                    and features that's designed to draw attention to your thematic content. </p>\n            </li>\n            <li>\n               <p>\n                  <code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap\n                    that provides one meter or better satellite and aerial imagery in many parts of\n                    the world and lower resolution satellite imagery worldwide. </p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style,\n                    which provides a detailed vector basemap with a light gray, neutral background\n                    style with minimal colors, labels, and features that's designed to draw\n                    attention to your thematic content. </p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriTopographic</code> – The Esri Light map style, which provides\n                    a detailed vector basemap with a classic Esri map style.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriStreets</code> – The Esri Street Map style, which\n                    provides a detailed vector basemap for the world symbolized with a classic Esri\n                    street map style. The vector tile layer is similar in content and style to the\n                    World Street Map raster map.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorEsriNavigation</code> – The Esri Navigation map style, which\n                    provides a detailed basemap for the world symbolized with a custom navigation\n                    map style that's designed for use during the day in mobile devices.</p>\n            </li>\n         </ul>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/HERE.html\">HERE\n                Technologies map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorHereContrast</code> – The HERE Contrast (Berlin) map style is a \n                    high contrast\n                    detailed base map of the world that blends 3D and 2D rendering.</p>\n               <note>\n                  <p>The <code>VectorHereContrast</code> style has been renamed from \n                    <code>VectorHereBerlin</code>. \n                    <code>VectorHereBerlin</code> has been deprecated, but will continue to work in \n                    applications that use it.</p>\n               </note>\n            </li>\n            <li>\n               <p>\n                  <code>VectorHereExplore</code> – A default HERE map style containing a \n                    neutral, global map and its features including roads, buildings, landmarks, \n                    and water features. It also now includes a fully designed map of Japan.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorHereExploreTruck</code> – A global map containing truck \n                    restrictions and attributes (e.g. width / height / HAZMAT) symbolized with \n                    highlighted segments and icons on top of HERE Explore to support use cases \n                    within transport and logistics.</p>\n            </li>\n            <li>\n               <p>\n                  <code>RasterHereExploreSatellite</code> – A global map containing high\n                    resolution satellite imagery.</p>\n            </li>\n            <li>\n               <p>\n                  <code>HybridHereExploreSatellite</code> – A global map displaying the road \n                    network, street names, and city labels over satellite imagery. This style \n                    will automatically retrieve both raster and vector tiles, and your charges \n                    will be based on total tiles retrieved.</p>\n               <note>\n                  <p>Hybrid styles use both vector and raster tiles when rendering the \n                    map that you see. This means that more tiles are retrieved than when using \n                    either vector or raster tiles alone. Your charges will include all tiles \n                    retrieved.</p>\n               </note>\n            </li>\n         </ul>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html\">GrabMaps map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorGrabStandardLight</code> – The Grab Standard Light \n                    map style provides a basemap with detailed land use coloring, \n                    area names, roads, landmarks, and points of interest covering \n                    Southeast Asia.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorGrabStandardDark</code> – The Grab Standard Dark \n                    map style provides a dark variation of the standard basemap \n                    covering Southeast Asia.</p>\n            </li>\n         </ul>\n         <note>\n            <p>Grab provides maps only for countries in Southeast Asia, and is only available \n                in the Asia Pacific (Singapore) Region (<code>ap-southeast-1</code>).\n                For more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/grab.html#grab-coverage-area\">GrabMaps countries and area covered</a>.</p>\n         </note>\n         <p>Valid <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/open-data.html\">Open Data map styles</a>:</p>\n         <ul>\n            <li>\n               <p>\n                  <code>VectorOpenDataStandardLight</code> – The Open Data Standard Light \n                    map style provides a detailed basemap for the world suitable for\n                    website and mobile application use. The map includes highways major roads, \n                    minor roads, railways, water features, cities, parks, landmarks, building\n                    footprints, and administrative boundaries.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorOpenDataStandardDark</code> – Open Data Standard Dark is a\n                    dark-themed map style that provides a detailed basemap for the world \n                    suitable for website and mobile application use. The map includes highways \n                    major roads, minor roads, railways, water features, cities, parks, \n                    landmarks, building footprints, and administrative boundaries.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorOpenDataVisualizationLight</code> – The Open Data \n                    Visualization Light map style is a light-themed style with muted colors and\n                    fewer features that aids in understanding overlaid data.</p>\n            </li>\n            <li>\n               <p>\n                  <code>VectorOpenDataVisualizationDark</code> – The Open Data \n                    Visualization Dark map style is a dark-themed style with muted colors and\n                    fewer features that aids in understanding overlaid data.</p>\n            </li>\n         </ul>",
             "smithy.api#required": {}
           }
         },
@@ -6585,8 +7183,7 @@
         "CustomLayers": {
           "target": "com.amazonaws.location#CustomLayerList",
           "traits": {
-            "aws.cloudformation#cfnExcludeProperty": {},
-            "smithy.api#documentation": "<p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as <code>POI</code> layer for the VectorEsriNavigation style.\nDefault is <code>unset</code>.</p>\n         <note>\n            <p>Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers. \nFor more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers\">Custom Layers</a>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.\nDefault is <code>unset</code>.</p>\n         <note>\n            <p>Not all map resources or styles support custom layers. See Custom Layers for more information.</p>\n         </note>"
           }
         }
       },
@@ -6606,8 +7203,7 @@
         "CustomLayers": {
           "target": "com.amazonaws.location#CustomLayerList",
           "traits": {
-            "aws.cloudformation#cfnExcludeProperty": {},
-            "smithy.api#documentation": "<p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as <code>POI</code> layer for the VectorEsriNavigation style.\nDefault is <code>unset</code>.</p>\n         <note>\n            <p>Currenlty only <code>VectorEsriNavigation</code> supports CustomLayers. \nFor more information, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/map-concepts.html#map-custom-layers\">Custom Layers</a>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>Specifies the custom layers for the style. Leave unset to not enable any custom layer, or, for styles that support custom layers, you can enable layer(s), such as POI layer for the VectorEsriNavigation style.\nDefault is <code>unset</code>.</p>\n         <note>\n            <p>Not all map resources or styles support custom layers. See Custom Layers for more information.</p>\n         </note>"
           }
         }
       },
@@ -6671,6 +7267,15 @@
         "smithy.api#pattern": "^[-._\\w]+$"
       }
     },
+    "com.amazonaws.location#NearestDistance": {
+      "type": "double",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0
+        }
+      }
+    },
     "com.amazonaws.location#OptimizationMode": {
       "type": "string",
       "traits": {
@@ -6682,6 +7287,16 @@
             "value": "ShortestRoute"
           }
         ]
+      }
+    },
+    "com.amazonaws.location#Pci": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#default": 0,
+        "smithy.api#range": {
+          "min": 0,
+          "max": 503
+        }
       }
     },
     "com.amazonaws.location#Place": {
@@ -6762,13 +7377,13 @@
         "UnitType": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,\n                <code>Apartment</code>.</p>\n         <note>\n            <p>This property is returned only for a place index that uses Esri as a data provider.</p>\n         </note>"
+            "smithy.api#documentation": "<p>For addresses with a <code>UnitNumber</code>, the type of unit. For example,\n                <code>Apartment</code>.</p>\n         <note>\n            <p>Returned only for a place index that uses Esri as a data provider.</p>\n         </note>"
           }
         },
         "UnitNumber": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>For addresses with multiple units, the unit identifier. Can include numbers and\n            letters, for example <code>3B</code> or <code>Unit 123</code>.</p>\n         <note>\n            <p>This property is returned only for a place index that uses Esri or Grab as a data provider. It is \n                not returned for <code>SearchPlaceIndexForPosition</code>.</p>\n         </note>"
+            "smithy.api#documentation": "<p>For addresses with multiple units, the unit identifier. Can include numbers and\n            letters, for example <code>3B</code> or <code>Unit 123</code>.</p>\n         <note>\n            <p>Returned only for a place index that uses Esri or Grab as a data provider. Is \n                not returned for <code>SearchPlaceIndexForPosition</code>.</p>\n         </note>"
           }
         },
         "Categories": {
@@ -6786,7 +7401,7 @@
         "SubMunicipality": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "<p>An area that's part of a larger municipality. For example, <code>Blissville</code> \n            is a submunicipality in the Queen County in New York.</p>\n         <note>\n            <p>This property is only returned for a place index that uses Esri as a data provider. The property is represented as a <code>district</code>.</p>\n         </note>\n         <p>For more information about data providers, see <a href=\"https://docs.aws.amazon.com/location/latest/developerguide/what-is-data-provider.html\">Amazon Location Service data providers</a>.</p>"
+            "smithy.api#documentation": "<p>An area that's part of a larger municipality. For example, <code>Blissville </code> \n            is a submunicipality in the Queen County in New York.</p>\n         <note>\n            <p>This property supported by Esri and OpenData. The Esri property is <code>district</code>, and the OpenData property is <code>borough</code>.</p>\n         </note>"
           }
         }
       },
@@ -6947,6 +7562,34 @@
         "target": "com.amazonaws.location#Position"
       }
     },
+    "com.amazonaws.location#PositionPropertyMap": {
+      "type": "map",
+      "key": {
+        "target": "smithy.api#String",
+        "traits": {
+          "smithy.api#length": {
+            "min": 1,
+            "max": 20
+          }
+        }
+      },
+      "value": {
+        "target": "smithy.api#String",
+        "traits": {
+          "smithy.api#length": {
+            "min": 1,
+            "max": 150
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#length": {
+          "min": 0,
+          "max": 4
+        },
+        "smithy.api#sensitive": {}
+      }
+    },
     "com.amazonaws.location#PositionalAccuracy": {
       "type": "structure",
       "members": {
@@ -6956,7 +7599,7 @@
             "smithy.api#documentation": "<p>Estimated maximum distance, in meters, between the measured position and the true\n            position of a device, along the Earth's surface.</p>",
             "smithy.api#range": {
               "min": 0,
-              "max": 10000
+              "max": 10000000
             },
             "smithy.api#required": {}
           }
@@ -7042,6 +7685,7 @@
         }
       ],
       "traits": {
+        "aws.api#dataPlane": {},
         "smithy.api#documentation": "<p>Stores a geofence geometry in a given geofence collection, or updates the geometry of\n            an existing geofence if a geofence ID is included in the request. </p>",
         "smithy.api#endpoint": {
           "hostPrefix": "geofencing."
@@ -7074,7 +7718,7 @@
         "Geometry": {
           "target": "com.amazonaws.location#GeofenceGeometry",
           "traits": {
-            "smithy.api#documentation": "<p>Contains the details to specify the position of the geofence. Can be either a \n            polygon or a circle. Including both will return a validation error.</p>\n         <note>\n            <p>Each <a href=\"https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html\">\n                geofence polygon</a> can have a maximum of 1,000 vertices.</p>\n         </note>",
+            "smithy.api#documentation": "<p>Contains the details to specify the position of the geofence. Can be a\n            polygon, a circle or a polygon encoded in Geobuf format. Including multiple selections will return a validation error.</p>\n         <note>\n            <p>The <a href=\"https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html\">\n                geofence polygon</a> format supports a maximum of 1,000 vertices. The <a href=\"https://docs.aws.amazon.com/location-geofences/latest/APIReference/API_GeofenceGeometry.html\">Geofence Geobuf</a> format supports a maximum of 100,000 vertices.</p>\n         </note>",
             "smithy.api#required": {}
           }
         },
@@ -7293,6 +7937,24 @@
         "target": "com.amazonaws.location#RouteMatrixEntry"
       }
     },
+    "com.amazonaws.location#Rsrp": {
+      "type": "integer",
+      "traits": {
+        "smithy.api#range": {
+          "min": -140,
+          "max": -44
+        }
+      }
+    },
+    "com.amazonaws.location#Rsrq": {
+      "type": "float",
+      "traits": {
+        "smithy.api#range": {
+          "min": -19.5,
+          "max": -3
+        }
+      }
+    },
     "com.amazonaws.location#SearchForPositionResult": {
       "type": "structure",
       "members": {
@@ -7343,7 +8005,7 @@
         "PlaceId": {
           "target": "com.amazonaws.location#PlaceId",
           "traits": {
-            "smithy.api#documentation": "<p>The unique identifier of the Place. You can use this with the <code>GetPlace</code>\n            operation to find the place again later, or to get full information for the Place.</p>\n         <p>The <code>GetPlace</code> request must use the same <code>PlaceIndex</code> \n            resource as the <code>SearchPlaceIndexForSuggestions</code> that generated the Place \n            ID.</p>\n         <note>\n            <p>For <code>SearchPlaceIndexForSuggestions</code> operations, the\n                    <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE\n                as data providers.</p>\n         </note>\n         <p>While you can use PlaceID in subsequent requests, \n      PlaceID is not intended to be a permanent \n            identifier and the ID can change between consecutive API calls. \n            Please see the following PlaceID behaviour for each data provider:</p>\n         <ul>\n            <li>\n               <p>Esri: Place IDs will change every quarter at a minimum. The typical time period for these changes would be March, June, September, and December. Place IDs might also change between the typical quarterly change but that will be much less frequent.</p>\n            </li>\n            <li>\n               <p>HERE: We recommend \n        that you cache data for no longer than a week \n        to keep your data data fresh. You can \n        assume that less than 1% ID shifts will\n         release over release which is approximately 1 - 2 times per week.</p>\n            </li>\n            <li>\n               <p>Grab:  Place IDs can expire or become invalid in the following situations.</p>\n               <ul>\n                  <li>\n                     <p>Data operations: The POI may be removed from Grab POI database by Grab Map Ops based on the ground-truth,\n             such as being closed in the real world, being detected as a duplicate POI, or having incorrect information. Grab will synchronize data to the Waypoint environment on weekly basis.</p>\n                  </li>\n                  <li>\n                     <p>Interpolated POI: Interpolated POI is a temporary POI generated in real time when serving a request, \n            and it will be marked as derived in the <code>place.result_type</code> field in the response. \n            The information of interpolated POIs will be retained for at least 30 days, which means that within 30 days, you are able to obtain POI details by \n            Place ID from Place Details API. After 30 days, the interpolated POIs(both Place ID and details) may expire and inaccessible from the Places Details API.</p>\n                  </li>\n               </ul>\n            </li>\n         </ul>"
+            "smithy.api#documentation": "<p>The unique identifier of the Place. You can use this with the <code>GetPlace</code>\n            operation to find the place again later, or to get full information for the Place.</p>\n         <p>The <code>GetPlace</code> request must use the same <code>PlaceIndex</code> \n            resource as the <code>SearchPlaceIndexForSuggestions</code> that generated the Place \n            ID.</p>\n         <note>\n            <p>For <code>SearchPlaceIndexForSuggestions</code> operations, the\n                    <code>PlaceId</code> is returned by place indexes that use Esri, Grab, or HERE\n                as data providers.</p>\n         </note>"
           }
         },
         "Categories": {
@@ -7941,6 +8603,19 @@
         "smithy.api#httpError": 402
       }
     },
+    "com.amazonaws.location#SpeedUnit": {
+      "type": "string",
+      "traits": {
+        "smithy.api#enum": [
+          {
+            "value": "KilometersPerHour"
+          },
+          {
+            "value": "MilesPerHour"
+          }
+        ]
+      }
+    },
     "com.amazonaws.location#Status": {
       "type": "string",
       "traits": {
@@ -8020,7 +8695,7 @@
           "min": 1,
           "max": 128
         },
-        "smithy.api#pattern": "^[a-zA-Z+-=._:/]+$"
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$"
       }
     },
     "com.amazonaws.location#TagKeys": {
@@ -8075,6 +8750,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service\n            resource.</p>\n         <p>Tags can help you organize and categorize your resources. You can also use them to\n            scope user permissions, by granting a user permission to access or change only resources\n            with certain tag values.</p>\n         <p>You can use the <code>TagResource</code> operation with an Amazon Location Service\n            resource that already has tags. If you specify a new tag key for the resource, this tag\n            is appended to the tags already associated with the resource. If you specify a tag key\n            that's already associated with the resource, the new tag value that you specify replaces\n            the previous value for that tag. </p>\n         <p>You can associate up to 50 tags with a resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -8116,7 +8792,7 @@
           "min": 0,
           "max": 256
         },
-        "smithy.api#pattern": "^[A-Za-z0-9 _=@:.+-/]*$"
+        "smithy.api#pattern": "^([\\p{L}\\p{Z}\\p{N}_.,:/=+\\-@]*)$"
       }
     },
     "com.amazonaws.location#ThrottlingException": {
@@ -8222,6 +8898,9 @@
         },
         {
           "target": "com.amazonaws.location#ListTrackerConsumers"
+        },
+        {
+          "target": "com.amazonaws.location#VerifyDevicePosition"
         }
       ],
       "traits": {
@@ -8360,6 +9039,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Removes one or more tags from the specified Amazon Location resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -8422,6 +9102,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Updates the specified properties of a given geofence collection.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.geofencing."
@@ -8524,6 +9205,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Updates the specified properties of a given API key resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.metadata."
@@ -8920,6 +9602,7 @@
         }
       ],
       "traits": {
+        "aws.api#controlPlane": {},
         "smithy.api#documentation": "<p>Updates the specified properties of a given tracker resource.</p>",
         "smithy.api#endpoint": {
           "hostPrefix": "cp.tracking."
@@ -9014,6 +9697,12 @@
         }
       }
     },
+    "com.amazonaws.location#Uuid": {
+      "type": "string",
+      "traits": {
+        "smithy.api#pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+      }
+    },
     "com.amazonaws.location#ValidationException": {
       "type": "structure",
       "members": {
@@ -9100,6 +9789,10 @@
           {
             "value": "Other",
             "documentation": "The input is invalid but no more specific reason is applicable."
+          },
+          {
+            "value": "UnknownField",
+            "documentation": "No such field is supported."
           }
         ]
       }
@@ -9117,10 +9810,156 @@
         ]
       }
     },
+    "com.amazonaws.location#VerifyDevicePosition": {
+      "type": "operation",
+      "input": {
+        "target": "com.amazonaws.location#VerifyDevicePositionRequest"
+      },
+      "output": {
+        "target": "com.amazonaws.location#VerifyDevicePositionResponse"
+      },
+      "errors": [
+        {
+          "target": "com.amazonaws.location#AccessDeniedException"
+        },
+        {
+          "target": "com.amazonaws.location#InternalServerException"
+        },
+        {
+          "target": "com.amazonaws.location#ResourceNotFoundException"
+        },
+        {
+          "target": "com.amazonaws.location#ThrottlingException"
+        },
+        {
+          "target": "com.amazonaws.location#ValidationException"
+        }
+      ],
+      "traits": {
+        "aws.api#dataPlane": {},
+        "smithy.api#documentation": "<p>Verifies the integrity of the device's position by determining if it was reported behind a proxy, and by comparing it to an inferred position estimated based on the device's state.</p>",
+        "smithy.api#endpoint": {
+          "hostPrefix": "tracking."
+        },
+        "smithy.api#http": {
+          "uri": "/tracking/v0/trackers/{TrackerName}/positions/verify",
+          "method": "POST"
+        }
+      }
+    },
+    "com.amazonaws.location#VerifyDevicePositionRequest": {
+      "type": "structure",
+      "members": {
+        "TrackerName": {
+          "target": "com.amazonaws.location#ResourceName",
+          "traits": {
+            "smithy.api#documentation": "<p>The name of the tracker resource to be associated with verification request.</p>",
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceState": {
+          "target": "com.amazonaws.location#DeviceState",
+          "traits": {
+            "smithy.api#documentation": "<p>The device's state, including position, IP address, cell signals and Wi-Fi access points.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DistanceUnit": {
+          "target": "com.amazonaws.location#DistanceUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The distance unit for the verification request.</p>\n         <p>Default Value: <code>Kilometers</code>\n         </p>"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.amazonaws.location#VerifyDevicePositionResponse": {
+      "type": "structure",
+      "members": {
+        "InferredState": {
+          "target": "com.amazonaws.location#InferredState",
+          "traits": {
+            "smithy.api#documentation": "<p>The inferred state of the device, given the provided position, IP address, cellular signals, and Wi-Fi- access points.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DeviceId": {
+          "target": "com.amazonaws.location#Id",
+          "traits": {
+            "smithy.api#documentation": "<p>The device identifier.</p>",
+            "smithy.api#required": {}
+          }
+        },
+        "SampleTime": {
+          "target": "com.amazonaws.location#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp at which the device's position was determined. Uses <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a>\n           format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "ReceivedTime": {
+          "target": "com.amazonaws.location#Timestamp",
+          "traits": {
+            "smithy.api#documentation": "<p>The timestamp for when the tracker resource received the device position in <a href=\"https://www.iso.org/iso-8601-date-and-time-format.html\"> ISO 8601 </a>\n            format: <code>YYYY-MM-DDThh:mm:ss.sssZ</code>. </p>",
+            "smithy.api#required": {}
+          }
+        },
+        "DistanceUnit": {
+          "target": "com.amazonaws.location#DistanceUnit",
+          "traits": {
+            "smithy.api#documentation": "<p>The distance unit for the verification response.</p>",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#output": {}
+      }
+    },
     "com.amazonaws.location#WaypointPositionList": {
       "type": "list",
       "member": {
         "target": "com.amazonaws.location#Position"
+      }
+    },
+    "com.amazonaws.location#WiFiAccessPoint": {
+      "type": "structure",
+      "members": {
+        "MacAddress": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "<p>Medium access control address (Mac).</p>",
+            "smithy.api#length": {
+              "min": 12,
+              "max": 17
+            },
+            "smithy.api#pattern": "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$",
+            "smithy.api#required": {}
+          }
+        },
+        "Rss": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "<p>Received signal strength (dBm) of the WLAN measurement data.</p>",
+            "smithy.api#range": {
+              "min": -128,
+              "max": 0
+            },
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#documentation": "<p>Wi-Fi access point.</p>"
+      }
+    },
+    "com.amazonaws.location#WiFiAccessPointList": {
+      "type": "list",
+      "member": {
+        "target": "com.amazonaws.location#WiFiAccessPoint"
       }
     }
   }

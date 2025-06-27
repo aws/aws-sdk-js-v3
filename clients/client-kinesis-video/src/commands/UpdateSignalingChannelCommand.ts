@@ -12,7 +12,8 @@ import { de_UpdateSignalingChannelCommand, se_UpdateSignalingChannelCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,6 +100,7 @@ export interface UpdateSignalingChannelCommandOutput extends UpdateSignalingChan
  * @throws {@link KinesisVideoServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideo service.</p>
  *
+ *
  * @public
  */
 export class UpdateSignalingChannelCommand extends $Command
@@ -109,9 +111,7 @@ export class UpdateSignalingChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class UpdateSignalingChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSignalingChannelCommand)
   .de(de_UpdateSignalingChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSignalingChannelInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSignalingChannelCommandInput;
+      output: UpdateSignalingChannelCommandOutput;
+    };
+  };
+}

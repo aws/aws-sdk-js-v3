@@ -12,7 +12,8 @@ import { de_CreateVaultCommand, se_CreateVaultCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,24 +91,24 @@ export interface CreateVaultCommandOutput extends CreateVaultOutput, __MetadataB
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To create a new vault
  * ```javascript
  * // The following example creates a new vault named my-vault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "my-vault"
+ *   accountId: "-",
+ *   vaultName: "my-vault"
  * };
  * const command = new CreateVaultCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "location": "/111122223333/vaults/my-vault"
+ *   location: "/111122223333/vaults/my-vault"
  * }
  * *\/
- * // example id: 1dc0313d-ace1-4e6c-9d13-1ec7813b14b7
  * ```
  *
+ * @public
  */
 export class CreateVaultCommand extends $Command
   .classBuilder<
@@ -117,9 +118,7 @@ export class CreateVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +130,16 @@ export class CreateVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVaultCommand)
   .de(de_CreateVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVaultInput;
+      output: CreateVaultOutput;
+    };
+    sdk: {
+      input: CreateVaultCommandInput;
+      output: CreateVaultCommandOutput;
+    };
+  };
+}

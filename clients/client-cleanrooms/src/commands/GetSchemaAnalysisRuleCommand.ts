@@ -12,7 +12,8 @@ import { de_GetSchemaAnalysisRuleCommand, se_GetSchemaAnalysisRuleCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,14 +38,14 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * const input = { // GetSchemaAnalysisRuleInput
  *   collaborationIdentifier: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   type: "AGGREGATION" || "LIST" || "CUSTOM", // required
+ *   type: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE", // required
  * };
  * const command = new GetSchemaAnalysisRuleCommand(input);
  * const response = await client.send(command);
  * // { // GetSchemaAnalysisRuleOutput
  * //   analysisRule: { // AnalysisRule
  * //     collaborationId: "STRING_VALUE", // required
- * //     type: "AGGREGATION" || "LIST" || "CUSTOM", // required
+ * //     type: "AGGREGATION" || "LIST" || "CUSTOM" || "ID_MAPPING_TABLE", // required
  * //     name: "STRING_VALUE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
@@ -60,6 +61,7 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //           listColumns: [ // required
  * //             "STRING_VALUE",
  * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  * //         },
  * //         aggregation: { // AnalysisRuleAggregation
  * //           aggregateColumns: [ // AggregateColumnList // required
@@ -90,12 +92,17 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //               type: "STRING_VALUE", // required
  * //             },
  * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
  * //         },
  * //         custom: { // AnalysisRuleCustom
  * //           allowedAnalyses: [ // AllowedAnalysesList // required
  * //             "STRING_VALUE",
  * //           ],
  * //           allowedAnalysisProviders: [ // AllowedAnalysisProviderList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           disallowedOutputColumns: [
  * //             "STRING_VALUE",
  * //           ],
  * //           differentialPrivacy: { // DifferentialPrivacyConfiguration
@@ -105,6 +112,115 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * //               },
  * //             ],
  * //           },
+ * //         },
+ * //         idMappingTable: { // AnalysisRuleIdMappingTable
+ * //           joinColumns: "<AnalysisRuleColumnList>", // required
+ * //           queryConstraints: [ // QueryConstraintList // required
+ * //             { // QueryConstraint Union: only one key present
+ * //               requireOverlap: { // QueryConstraintRequireOverlap
+ * //                 columns: "<AnalysisRuleColumnList>",
+ * //               },
+ * //             },
+ * //           ],
+ * //           dimensionColumns: "<AnalysisRuleColumnList>",
+ * //         },
+ * //       },
+ * //     },
+ * //     collaborationPolicy: { // ConfiguredTableAssociationAnalysisRulePolicy Union: only one key present
+ * //       v1: { // ConfiguredTableAssociationAnalysisRulePolicyV1 Union: only one key present
+ * //         list: { // ConfiguredTableAssociationAnalysisRuleList
+ * //           allowedResultReceivers: [ // AllowedResultReceivers
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [ // AllowedAdditionalAnalyses
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         aggregation: { // ConfiguredTableAssociationAnalysisRuleAggregation
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         custom: { // ConfiguredTableAssociationAnalysisRuleCustom
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       },
+ * //     },
+ * //     consolidatedPolicy: { // ConsolidatedPolicy Union: only one key present
+ * //       v1: { // ConsolidatedPolicyV1 Union: only one key present
+ * //         list: { // ConsolidatedPolicyList
+ * //           joinColumns: "<AnalysisRuleColumnList>", // required
+ * //           allowedJoinOperators: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           listColumns: "<AnalysisRuleColumnList>", // required
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         aggregation: { // ConsolidatedPolicyAggregation
+ * //           aggregateColumns: [ // required
+ * //             {
+ * //               columnNames: [ // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               function: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           joinColumns: "<AnalysisRuleColumnList>", // required
+ * //           joinRequired: "STRING_VALUE",
+ * //           allowedJoinOperators: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           dimensionColumns: "<AnalysisRuleColumnList>", // required
+ * //           scalarFunctions: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           outputConstraints: [ // required
+ * //             {
+ * //               columnName: "STRING_VALUE", // required
+ * //               minimum: Number("int"), // required
+ * //               type: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           allowedResultReceivers: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAdditionalAnalyses: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         custom: { // ConsolidatedPolicyCustom
+ * //           allowedAnalyses: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           allowedAnalysisProviders: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           additionalAnalyses: "ALLOWED" || "REQUIRED" || "NOT_ALLOWED",
+ * //           disallowedOutputColumns: "<AnalysisRuleColumnList>",
+ * //           differentialPrivacy: {
+ * //             columns: [ // required
+ * //               {
+ * //                 name: "STRING_VALUE", // required
+ * //               },
+ * //             ],
+ * //           },
+ * //           allowedResultReceivers: "<AllowedResultReceivers>",
+ * //           allowedAdditionalAnalyses: "<AllowedAdditionalAnalyses>",
  * //         },
  * //       },
  * //     },
@@ -137,6 +253,7 @@ export interface GetSchemaAnalysisRuleCommandOutput extends GetSchemaAnalysisRul
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class GetSchemaAnalysisRuleCommand extends $Command
@@ -147,9 +264,7 @@ export class GetSchemaAnalysisRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +276,16 @@ export class GetSchemaAnalysisRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaAnalysisRuleCommand)
   .de(de_GetSchemaAnalysisRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaAnalysisRuleInput;
+      output: GetSchemaAnalysisRuleOutput;
+    };
+    sdk: {
+      input: GetSchemaAnalysisRuleCommandInput;
+      output: GetSchemaAnalysisRuleCommandOutput;
+    };
+  };
+}

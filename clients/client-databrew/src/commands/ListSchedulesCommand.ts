@@ -12,7 +12,8 @@ import { de_ListSchedulesCommand, se_ListSchedulesCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface ListSchedulesCommandOutput extends ListSchedulesResponse, __Met
  * @throws {@link DataBrewServiceException}
  * <p>Base exception class for all service exceptions from DataBrew service.</p>
  *
+ *
  * @public
  */
 export class ListSchedulesCommand extends $Command
@@ -87,9 +89,7 @@ export class ListSchedulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataBrewClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListSchedulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSchedulesCommand)
   .de(de_ListSchedulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSchedulesRequest;
+      output: ListSchedulesResponse;
+    };
+    sdk: {
+      input: ListSchedulesCommandInput;
+      output: ListSchedulesCommandOutput;
+    };
+  };
+}

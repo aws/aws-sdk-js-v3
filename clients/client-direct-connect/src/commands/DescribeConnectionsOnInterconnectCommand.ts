@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,9 @@ export interface DescribeConnectionsOnInterconnectCommandInput extends DescribeC
 export interface DescribeConnectionsOnInterconnectCommandOutput extends Connections, __MetadataBearer {}
 
 /**
- * <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
+ * <note>
+ *             <p>Deprecated. Use <a>DescribeHostedConnections</a> instead.</p>
+ *          </note>
  *          <p>Lists the connections that have been provisioned on the specified interconnect.</p>
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
@@ -106,6 +109,7 @@ export interface DescribeConnectionsOnInterconnectCommandOutput extends Connecti
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectionsOnInterconnectCommand extends $Command
@@ -116,9 +120,7 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +132,16 @@ export class DescribeConnectionsOnInterconnectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConnectionsOnInterconnectCommand)
   .de(de_DescribeConnectionsOnInterconnectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectionsOnInterconnectRequest;
+      output: Connections;
+    };
+    sdk: {
+      input: DescribeConnectionsOnInterconnectCommandInput;
+      output: DescribeConnectionsOnInterconnectCommandOutput;
+    };
+  };
+}

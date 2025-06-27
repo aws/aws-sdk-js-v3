@@ -23,5 +23,7 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  *   }),
  * });
  * ```
+ *
+ * @public
  */
 export const fromProcess = (init?: FromProcessInit): AwsCredentialIdentityProvider => _fromProcess(init);

@@ -12,7 +12,8 @@ import { de_GetSchemaAsJsonCommand, se_GetSchemaAsJsonCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,23 @@ export interface GetSchemaAsJsonCommandOutput extends GetSchemaAsJsonResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To get schema information and display it in JSON format
+ * ```javascript
+ * //
+ * const input = {
+ *   SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1"
+ * };
+ * const command = new GetSchemaAsJsonCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Document: `{"sourceSchemaArn":"arn:aws:clouddirectory:us-west-2:45132example:schema/published/org/1","facets":{"node2":{"facetAttributes":{},"objectType":"NODE"},"Organization":{"facetAttributes":{"account_id":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"account_name":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"telephone_number":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"description":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_country":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_state":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_street2":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_street1":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"web_site":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"email":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_city":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"organization_status":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_postal_code":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"}},"objectType":"LEAF_NODE"},"nodex":{"facetAttributes":{},"objectType":"NODE"},"Legal_Entity":{"facetAttributes":{"industry_vertical":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"registered_company_name":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"billing_currency":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_country":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_state":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_street2":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_street1":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"tax_id":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_city":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"},"mailing_address_postal_code":{"attributeDefinition":{"attributeType":"STRING","isImmutable":false,"attributeRules":{"nameLength":{"parameters":{"min":"1","max":"1024"},"ruleType":"STRING_LENGTH"}}},"requiredBehavior":"NOT_REQUIRED"}},"objectType":"LEAF_NODE"},"policyfacet":{"facetAttributes":{},"objectType":"POLICY"},"node1":{"facetAttributes":{},"objectType":"NODE"}},"typedLinkFacets":{"exampletypedlink":{"facetAttributes":{"1":{"attributeDefinition":{"attributeType":"BINARY","isImmutable":false,"attributeRules":{}},"requiredBehavior":"REQUIRED_ALWAYS"}},"identityAttributeOrder":["1"]},"exampletypedlink8":{"facetAttributes":{"22":{"attributeDefinition":{"attributeType":"BINARY","isImmutable":false,"attributeRules":{}},"requiredBehavior":"REQUIRED_ALWAYS"}},"identityAttributeOrder":["22"]}}}`,
+ *   Name: "org"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSchemaAsJsonCommand extends $Command
@@ -87,9 +105,7 @@ export class GetSchemaAsJsonCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +117,16 @@ export class GetSchemaAsJsonCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSchemaAsJsonCommand)
   .de(de_GetSchemaAsJsonCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSchemaAsJsonRequest;
+      output: GetSchemaAsJsonResponse;
+    };
+    sdk: {
+      input: GetSchemaAsJsonCommandInput;
+      output: GetSchemaAsJsonCommandOutput;
+    };
+  };
+}

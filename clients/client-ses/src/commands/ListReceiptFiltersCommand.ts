@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,29 +65,29 @@ export interface ListReceiptFiltersCommandOutput extends ListReceiptFiltersRespo
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example ListReceiptFilters
  * ```javascript
  * // The following example lists the IP address filters that are associated with an AWS account:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListReceiptFiltersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "IpFilter": {
- *         "Cidr": "1.2.3.4/24",
- *         "Policy": "Block"
+ *       IpFilter: {
+ *         Cidr: "1.2.3.4/24",
+ *         Policy: "Block"
  *       },
- *       "Name": "MyFilter"
+ *       Name: "MyFilter"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listreceiptfilters-1469120786789
  * ```
  *
+ * @public
  */
 export class ListReceiptFiltersCommand extends $Command
   .classBuilder<
@@ -96,9 +97,7 @@ export class ListReceiptFiltersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +109,16 @@ export class ListReceiptFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListReceiptFiltersCommand)
   .de(de_ListReceiptFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: ListReceiptFiltersResponse;
+    };
+    sdk: {
+      input: ListReceiptFiltersCommandInput;
+      output: ListReceiptFiltersCommandOutput;
+    };
+  };
+}

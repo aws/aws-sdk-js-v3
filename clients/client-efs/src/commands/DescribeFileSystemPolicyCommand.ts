@@ -12,7 +12,8 @@ import { de_DescribeFileSystemPolicyCommand, se_DescribeFileSystemPolicyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,10 +67,11 @@ export interface DescribeFileSystemPolicyCommandOutput extends FileSystemPolicyD
  *  <p>Returned if an error occurred on the server side.</p>
  *
  * @throws {@link PolicyNotFound} (client fault)
- *  <p>Returned if the default file system policy is in effect for the EFS file system specified.</p>
+ *  <p>Returned if <code>no backup</code> is specified for a One Zone EFS file system.</p>
  *
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
+ *
  *
  * @public
  */
@@ -81,9 +83,7 @@ export class DescribeFileSystemPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DescribeFileSystemPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFileSystemPolicyCommand)
   .de(de_DescribeFileSystemPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFileSystemPolicyRequest;
+      output: FileSystemPolicyDescription;
+    };
+    sdk: {
+      input: DescribeFileSystemPolicyCommandInput;
+      output: DescribeFileSystemPolicyCommandOutput;
+    };
+  };
+}

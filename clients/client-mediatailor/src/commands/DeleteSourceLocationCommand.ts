@@ -12,7 +12,8 @@ import { de_DeleteSourceLocationCommand, se_DeleteSourceLocationCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface DeleteSourceLocationCommandOutput extends DeleteSourceLocationR
  * @throws {@link MediaTailorServiceException}
  * <p>Base exception class for all service exceptions from MediaTailor service.</p>
  *
+ *
  * @public
  */
 export class DeleteSourceLocationCommand extends $Command
@@ -62,9 +64,7 @@ export class DeleteSourceLocationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaTailorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -76,4 +76,16 @@ export class DeleteSourceLocationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSourceLocationCommand)
   .de(de_DeleteSourceLocationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSourceLocationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSourceLocationCommandInput;
+      output: DeleteSourceLocationCommandOutput;
+    };
+  };
+}

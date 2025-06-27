@@ -16,7 +16,8 @@ import { de_SubscribeCommand, se_SubscribeCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface SubscribeCommandOutput extends SubscribeResult, __MetadataBeare
  * @throws {@link CodestarNotificationsServiceException}
  * <p>Base exception class for all service exceptions from CodestarNotifications service.</p>
  *
+ *
  * @public
  */
 export class SubscribeCommand extends $Command
@@ -84,9 +86,7 @@ export class SubscribeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodestarNotificationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class SubscribeCommand extends $Command
   .f(SubscribeRequestFilterSensitiveLog, void 0)
   .ser(se_SubscribeCommand)
   .de(de_SubscribeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeRequest;
+      output: SubscribeResult;
+    };
+    sdk: {
+      input: SubscribeCommandInput;
+      output: SubscribeCommandOutput;
+    };
+  };
+}

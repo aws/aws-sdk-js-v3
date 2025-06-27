@@ -11,7 +11,7 @@ transform, query, and analyze their FHIR-formatted data in a consistent fashion 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-healthlake
+To install this package, simply type add or install @aws-sdk/client-healthlake
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-healthlake`

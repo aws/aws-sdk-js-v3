@@ -23,7 +23,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,8 +48,6 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *          <p>The maximum video size for Face Liveness is 10 MB. Face Liveness throws a
  *         <code>ValidationException</code> if the video does not match the necessary formatting and
  *       size parameters. </p>
- *          <p>StartFaceLivenessSession supports the websockets and <a href="https://aws.amazon.com/sdk-for-javascript/">the AWS SDK
- *        for JavaScript</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,6 +104,30 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *             CurrentColorStartTimestamp: Number("long"), // required
  *           },
  *         },
+ *         FaceMovementChallenge: { // FaceMovementClientChallenge
+ *           ChallengeId: "STRING_VALUE", // required
+ *           VideoStartTimestamp: Number("long"),
+ *           VideoEndTimestamp: Number("long"),
+ *           InitialFace: {
+ *             BoundingBox: {
+ *               Width: Number("float"), // required
+ *               Height: Number("float"), // required
+ *               Left: Number("float"), // required
+ *               Top: Number("float"), // required
+ *             },
+ *             InitialFaceDetectedTimestamp: Number("long"), // required
+ *           },
+ *           TargetFace: {
+ *             BoundingBox: {
+ *               Width: Number("float"), // required
+ *               Height: Number("float"), // required
+ *               Left: Number("float"), // required
+ *               Top: Number("float"), // required
+ *             },
+ *             FaceDetectedInTargetPositionStartTimestamp: Number("long"), // required
+ *             FaceDetectedInTargetPositionEndTimestamp: Number("long"), // required
+ *           },
+ *         },
  *       },
  *     },
  *   },
@@ -150,11 +173,36 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * //               },
  * //             ],
  * //           },
+ * //           FaceMovementChallenge: { // FaceMovementServerChallenge
+ * //             OvalParameters: {
+ * //               Width: Number("float"), // required
+ * //               Height: Number("float"), // required
+ * //               CenterX: Number("float"), // required
+ * //               CenterY: Number("float"), // required
+ * //             },
+ * //             ChallengeConfig: {
+ * //               BlazeFaceDetectionThreshold: Number("float"),
+ * //               FaceDistanceThresholdMin: Number("float"),
+ * //               FaceDistanceThreshold: Number("float"),
+ * //               FaceDistanceThresholdMax: Number("float"),
+ * //               OvalIouThreshold: Number("float"),
+ * //               OvalHeightWidthRatio: Number("float"),
+ * //               OvalIouWidthThreshold: Number("float"),
+ * //               OvalIouHeightThreshold: Number("float"),
+ * //               FaceIouWidthThreshold: Number("float"),
+ * //               FaceIouHeightThreshold: Number("float"),
+ * //               OvalFitTimeout: Number("int"),
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     },
  * //     DisconnectionEvent: { // DisconnectionEvent
  * //       TimestampMillis: Number("long"), // required
+ * //     },
+ * //     ChallengeEvent: { // ChallengeEvent
+ * //       Version: "STRING_VALUE", // required
+ * //       Type: "FaceMovementAndLightChallenge" || "FaceMovementChallenge", // required
  * //     },
  * //     ValidationException: { // ValidationException
  * //       Message: "STRING_VALUE",
@@ -216,6 +264,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  * @throws {@link RekognitionStreamingServiceException}
  * <p>Base exception class for all service exceptions from RekognitionStreaming service.</p>
  *
+ *
  * @public
  */
 export class StartFaceLivenessSessionCommand extends $Command
@@ -226,15 +275,15 @@ export class StartFaceLivenessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionStreamingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getEventStreamPlugin(config),
-      getWebSocketPlugin(config, { headerPrefix: "x-amz-rekognition-streaming-liveness-" }),
+      getWebSocketPlugin(config, {
+        headerPrefix: "x-amz-rekognition-streaming-liveness-",
+      }),
     ];
   })
   .s("RekognitionStreamingService", "StartFaceLivenessSession", {
@@ -250,4 +299,16 @@ export class StartFaceLivenessSessionCommand extends $Command
   .f(StartFaceLivenessSessionRequestFilterSensitiveLog, StartFaceLivenessSessionResponseFilterSensitiveLog)
   .ser(se_StartFaceLivenessSessionCommand)
   .de(de_StartFaceLivenessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartFaceLivenessSessionRequest;
+      output: StartFaceLivenessSessionResponse;
+    };
+    sdk: {
+      input: StartFaceLivenessSessionCommandInput;
+      output: StartFaceLivenessSessionCommandOutput;
+    };
+  };
+}

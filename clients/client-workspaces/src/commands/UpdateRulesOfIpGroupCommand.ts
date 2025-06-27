@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/models_0";
+import { UpdateRulesOfIpGroupRequest, UpdateRulesOfIpGroupResult } from "../models/models_1";
 import { de_UpdateRulesOfIpGroupCommand, se_UpdateRulesOfIpGroupCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface UpdateRulesOfIpGroupCommandOutput extends UpdateRulesOfIpGroupR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class UpdateRulesOfIpGroupCommand extends $Command
@@ -84,9 +86,7 @@ export class UpdateRulesOfIpGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class UpdateRulesOfIpGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRulesOfIpGroupCommand)
   .de(de_UpdateRulesOfIpGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRulesOfIpGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRulesOfIpGroupCommandInput;
+      output: UpdateRulesOfIpGroupCommandOutput;
+    };
+  };
+}

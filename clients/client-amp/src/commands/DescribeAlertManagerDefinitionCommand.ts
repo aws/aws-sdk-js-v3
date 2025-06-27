@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,7 @@ export interface DescribeAlertManagerDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the full information about the alert manager definition for a
- *             workspace.</p>
+ * <p>Retrieves the full information about the alert manager definition for a workspace.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,11 +78,11 @@ export interface DescribeAlertManagerDefinitionCommandOutput
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *             service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
+ *
  *
  * @public
  */
@@ -94,9 +94,7 @@ export class DescribeAlertManagerDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmpClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +106,16 @@ export class DescribeAlertManagerDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlertManagerDefinitionCommand)
   .de(de_DescribeAlertManagerDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlertManagerDefinitionRequest;
+      output: DescribeAlertManagerDefinitionResponse;
+    };
+    sdk: {
+      input: DescribeAlertManagerDefinitionCommandInput;
+      output: DescribeAlertManagerDefinitionCommandOutput;
+    };
+  };
+}

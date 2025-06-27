@@ -20,7 +20,7 @@ The Amazon Kinesis Analytics Developer Guide provides additional information.
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-kinesis-analytics
+To install this package, simply type add or install @aws-sdk/client-kinesis-analytics
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-kinesis-analytics`

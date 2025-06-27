@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,18 +54,21 @@ export interface DeleteVerifiedEmailAddressCommandOutput extends __MetadataBeare
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteVerifiedEmailAddress
  * ```javascript
  * // The following example deletes an email address from the list of identities that have been submitted for verification with Amazon SES:
  * const input = {
- *   "EmailAddress": "user@example.com"
+ *   EmailAddress: "user@example.com"
  * };
  * const command = new DeleteVerifiedEmailAddressCommand(input);
- * await client.send(command);
- * // example id: deleteverifiedemailaddress-1469051086444
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVerifiedEmailAddressCommand extends $Command
   .classBuilder<
@@ -74,9 +78,7 @@ export class DeleteVerifiedEmailAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +90,16 @@ export class DeleteVerifiedEmailAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVerifiedEmailAddressCommand)
   .de(de_DeleteVerifiedEmailAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVerifiedEmailAddressRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVerifiedEmailAddressCommandInput;
+      output: DeleteVerifiedEmailAddressCommandOutput;
+    };
+  };
+}

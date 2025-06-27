@@ -12,7 +12,8 @@ import { de_ListShardsCommand, se_ListShardsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -117,6 +118,7 @@ export interface ListShardsCommandOutput extends ListShardsOutput, __MetadataBea
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class ListShardsCommand extends $Command
@@ -143,4 +145,16 @@ export class ListShardsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListShardsCommand)
   .de(de_ListShardsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListShardsInput;
+      output: ListShardsOutput;
+    };
+    sdk: {
+      input: ListShardsCommandInput;
+      output: ListShardsCommandOutput;
+    };
+  };
+}

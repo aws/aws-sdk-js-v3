@@ -12,7 +12,8 @@ import { de_RemoveIpRoutesCommand, se_RemoveIpRoutesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,7 +57,7 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>
@@ -70,6 +71,23 @@ export interface RemoveIpRoutesCommandOutput extends RemoveIpRoutesResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To remove IP routes
+ * ```javascript
+ * // The following example removes IP address blocks from a specified directory.
+ * const input = {
+ *   CidrIps: [
+ *     "12.12.12.12/32"
+ *   ],
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new RemoveIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RemoveIpRoutesCommand extends $Command
@@ -80,9 +98,7 @@ export class RemoveIpRoutesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +110,16 @@ export class RemoveIpRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveIpRoutesCommand)
   .de(de_RemoveIpRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveIpRoutesRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveIpRoutesCommandInput;
+      output: RemoveIpRoutesCommandOutput;
+    };
+  };
+}

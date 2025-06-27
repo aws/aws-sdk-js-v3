@@ -16,7 +16,8 @@ import { de_CreateGroupCommand, se_CreateGroupCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface CreateGroupCommandInput extends CreateGroupRequest {}
 export interface CreateGroupCommandOutput extends CreateGroupResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new group in the specified user pool.</p>
+ * <p>Creates a new group in the specified user pool. For more information about user pool
+ *             groups, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-user-groups.html">Adding groups to a user pool</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -116,6 +118,7 @@ export interface CreateGroupCommandOutput extends CreateGroupResponse, __Metadat
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class CreateGroupCommand extends $Command
@@ -126,9 +129,7 @@ export class CreateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +141,16 @@ export class CreateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateGroupCommand)
   .de(de_CreateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateGroupRequest;
+      output: CreateGroupResponse;
+    };
+    sdk: {
+      input: CreateGroupCommandInput;
+      output: CreateGroupCommandOutput;
+    };
+  };
+}

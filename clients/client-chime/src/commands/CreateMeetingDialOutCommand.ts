@@ -16,7 +16,8 @@ import { de_CreateMeetingDialOutCommand, se_CreateMeetingDialOutCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * <code>CreateSipMediaApplicationCall</code> action with the corresponding SIP media application ID.</p>
  *          <important>
  *             <p>
- *                <b>This API is is not available in a dedicated namespace.</b>
+ *                <b>This API is not available in a dedicated namespace.</b>
  *             </p>
  *          </important>
  * @example
@@ -93,6 +94,7 @@ export interface CreateMeetingDialOutCommandOutput extends CreateMeetingDialOutR
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class CreateMeetingDialOutCommand extends $Command
@@ -103,9 +105,7 @@ export class CreateMeetingDialOutCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class CreateMeetingDialOutCommand extends $Command
   .f(CreateMeetingDialOutRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMeetingDialOutCommand)
   .de(de_CreateMeetingDialOutCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMeetingDialOutRequest;
+      output: CreateMeetingDialOutResponse;
+    };
+    sdk: {
+      input: CreateMeetingDialOutCommandInput;
+      output: CreateMeetingDialOutCommandOutput;
+    };
+  };
+}

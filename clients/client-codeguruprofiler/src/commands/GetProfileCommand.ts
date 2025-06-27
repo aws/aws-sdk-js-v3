@@ -13,7 +13,8 @@ import { de_GetProfileCommand, se_GetProfileCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -152,6 +153,7 @@ export interface GetProfileCommandOutput extends GetProfileCommandOutputType, __
  * @throws {@link CodeGuruProfilerServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruProfiler service.</p>
  *
+ *
  * @public
  */
 export class GetProfileCommand extends $Command
@@ -162,9 +164,7 @@ export class GetProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruProfilerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -176,4 +176,16 @@ export class GetProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetProfileCommand)
   .de(de_GetProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProfileRequest;
+      output: GetProfileResponse;
+    };
+    sdk: {
+      input: GetProfileCommandInput;
+      output: GetProfileCommandOutput;
+    };
+  };
+}

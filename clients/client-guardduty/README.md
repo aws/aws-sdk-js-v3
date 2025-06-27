@@ -29,7 +29,7 @@ GuardDuty User Guide</a>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-guardduty
+To install this package, simply type add or install @aws-sdk/client-guardduty
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-guardduty`
@@ -272,6 +272,14 @@ CreateIPSet
 </details>
 <details>
 <summary>
+CreateMalwareProtectionPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/CreateMalwareProtectionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/CreateMalwareProtectionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/CreateMalwareProtectionPlanCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateMembers
 </summary>
 
@@ -340,6 +348,14 @@ DeleteIPSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/DeleteIPSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/DeleteIPSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/DeleteIPSetCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteMalwareProtectionPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/DeleteMalwareProtectionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/DeleteMalwareProtectionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/DeleteMalwareProtectionPlanCommandOutput/)
 
 </details>
 <details>
@@ -496,6 +512,14 @@ GetIPSet
 </details>
 <details>
 <summary>
+GetMalwareProtectionPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/GetMalwareProtectionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/GetMalwareProtectionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/GetMalwareProtectionPlanCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMalwareScanSettings
 </summary>
 
@@ -616,6 +640,14 @@ ListIPSets
 </details>
 <details>
 <summary>
+ListMalwareProtectionPlans
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/ListMalwareProtectionPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListMalwareProtectionPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/ListMalwareProtectionPlansCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListMembers
 </summary>
 
@@ -732,6 +764,14 @@ UpdateIPSet
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/UpdateIPSetCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/UpdateIPSetCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/UpdateIPSetCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateMalwareProtectionPlan
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/guardduty/command/UpdateMalwareProtectionPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/UpdateMalwareProtectionPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-guardduty/Interface/UpdateMalwareProtectionPlanCommandOutput/)
 
 </details>
 <details>

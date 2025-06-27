@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateBatchInferenceJobRequest, CreateBatchInferenceJobResponse } from "../models/models_0";
+import {
+  CreateBatchInferenceJobRequest,
+  CreateBatchInferenceJobRequestFilterSensitiveLog,
+  CreateBatchInferenceJobResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateBatchInferenceJobCommand, se_CreateBatchInferenceJobCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -122,6 +127,7 @@ export interface CreateBatchInferenceJobCommandOutput extends CreateBatchInferen
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateBatchInferenceJobCommand extends $Command
@@ -132,9 +138,7 @@ export class CreateBatchInferenceJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,7 +147,19 @@ export class CreateBatchInferenceJobCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateBatchInferenceJob", {})
   .n("PersonalizeClient", "CreateBatchInferenceJobCommand")
-  .f(void 0, void 0)
+  .f(CreateBatchInferenceJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBatchInferenceJobCommand)
   .de(de_CreateBatchInferenceJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBatchInferenceJobRequest;
+      output: CreateBatchInferenceJobResponse;
+    };
+    sdk: {
+      input: CreateBatchInferenceJobCommandInput;
+      output: CreateBatchInferenceJobCommandOutput;
+    };
+  };
+}

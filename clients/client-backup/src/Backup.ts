@@ -4,6 +4,11 @@ import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import { BackupClient, BackupClientConfig } from "./BackupClient";
 import {
+  AssociateBackupVaultMpaApprovalTeamCommand,
+  AssociateBackupVaultMpaApprovalTeamCommandInput,
+  AssociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/AssociateBackupVaultMpaApprovalTeamCommand";
+import {
   CancelLegalHoldCommand,
   CancelLegalHoldCommandInput,
   CancelLegalHoldCommandOutput,
@@ -43,6 +48,11 @@ import {
   CreateReportPlanCommandInput,
   CreateReportPlanCommandOutput,
 } from "./commands/CreateReportPlanCommand";
+import {
+  CreateRestoreAccessBackupVaultCommand,
+  CreateRestoreAccessBackupVaultCommandInput,
+  CreateRestoreAccessBackupVaultCommandOutput,
+} from "./commands/CreateRestoreAccessBackupVaultCommand";
 import {
   CreateRestoreTestingPlanCommand,
   CreateRestoreTestingPlanCommandInput,
@@ -164,6 +174,11 @@ import {
   DescribeRestoreJobCommandOutput,
 } from "./commands/DescribeRestoreJobCommand";
 import {
+  DisassociateBackupVaultMpaApprovalTeamCommand,
+  DisassociateBackupVaultMpaApprovalTeamCommandInput,
+  DisassociateBackupVaultMpaApprovalTeamCommandOutput,
+} from "./commands/DisassociateBackupVaultMpaApprovalTeamCommand";
+import {
   DisassociateRecoveryPointCommand,
   DisassociateRecoveryPointCommandInput,
   DisassociateRecoveryPointCommandOutput,
@@ -213,6 +228,11 @@ import {
   GetLegalHoldCommandInput,
   GetLegalHoldCommandOutput,
 } from "./commands/GetLegalHoldCommand";
+import {
+  GetRecoveryPointIndexDetailsCommand,
+  GetRecoveryPointIndexDetailsCommandInput,
+  GetRecoveryPointIndexDetailsCommandOutput,
+} from "./commands/GetRecoveryPointIndexDetailsCommand";
 import {
   GetRecoveryPointRestoreMetadataCommand,
   GetRecoveryPointRestoreMetadataCommandInput,
@@ -294,6 +314,11 @@ import {
   ListFrameworksCommandOutput,
 } from "./commands/ListFrameworksCommand";
 import {
+  ListIndexedRecoveryPointsCommand,
+  ListIndexedRecoveryPointsCommandInput,
+  ListIndexedRecoveryPointsCommandOutput,
+} from "./commands/ListIndexedRecoveryPointsCommand";
+import {
   ListLegalHoldsCommand,
   ListLegalHoldsCommandInput,
   ListLegalHoldsCommandOutput,
@@ -333,6 +358,11 @@ import {
   ListReportPlansCommandInput,
   ListReportPlansCommandOutput,
 } from "./commands/ListReportPlansCommand";
+import {
+  ListRestoreAccessBackupVaultsCommand,
+  ListRestoreAccessBackupVaultsCommandInput,
+  ListRestoreAccessBackupVaultsCommandOutput,
+} from "./commands/ListRestoreAccessBackupVaultsCommand";
 import {
   ListRestoreJobsByProtectedResourceCommand,
   ListRestoreJobsByProtectedResourceCommandInput,
@@ -380,6 +410,11 @@ import {
   PutRestoreValidationResultCommandOutput,
 } from "./commands/PutRestoreValidationResultCommand";
 import {
+  RevokeRestoreAccessBackupVaultCommand,
+  RevokeRestoreAccessBackupVaultCommandInput,
+  RevokeRestoreAccessBackupVaultCommandOutput,
+} from "./commands/RevokeRestoreAccessBackupVaultCommand";
+import {
   StartBackupJobCommand,
   StartBackupJobCommandInput,
   StartBackupJobCommandOutput,
@@ -426,6 +461,11 @@ import {
   UpdateGlobalSettingsCommandOutput,
 } from "./commands/UpdateGlobalSettingsCommand";
 import {
+  UpdateRecoveryPointIndexSettingsCommand,
+  UpdateRecoveryPointIndexSettingsCommandInput,
+  UpdateRecoveryPointIndexSettingsCommandOutput,
+} from "./commands/UpdateRecoveryPointIndexSettingsCommand";
+import {
   UpdateRecoveryPointLifecycleCommand,
   UpdateRecoveryPointLifecycleCommandInput,
   UpdateRecoveryPointLifecycleCommandOutput,
@@ -452,6 +492,7 @@ import {
 } from "./commands/UpdateRestoreTestingSelectionCommand";
 
 const commands = {
+  AssociateBackupVaultMpaApprovalTeamCommand,
   CancelLegalHoldCommand,
   CreateBackupPlanCommand,
   CreateBackupSelectionCommand,
@@ -460,6 +501,7 @@ const commands = {
   CreateLegalHoldCommand,
   CreateLogicallyAirGappedBackupVaultCommand,
   CreateReportPlanCommand,
+  CreateRestoreAccessBackupVaultCommand,
   CreateRestoreTestingPlanCommand,
   CreateRestoreTestingSelectionCommand,
   DeleteBackupPlanCommand,
@@ -484,6 +526,7 @@ const commands = {
   DescribeReportJobCommand,
   DescribeReportPlanCommand,
   DescribeRestoreJobCommand,
+  DisassociateBackupVaultMpaApprovalTeamCommand,
   DisassociateRecoveryPointCommand,
   DisassociateRecoveryPointFromParentCommand,
   ExportBackupPlanTemplateCommand,
@@ -494,6 +537,7 @@ const commands = {
   GetBackupVaultAccessPolicyCommand,
   GetBackupVaultNotificationsCommand,
   GetLegalHoldCommand,
+  GetRecoveryPointIndexDetailsCommand,
   GetRecoveryPointRestoreMetadataCommand,
   GetRestoreJobMetadataCommand,
   GetRestoreTestingInferredMetadataCommand,
@@ -510,6 +554,7 @@ const commands = {
   ListCopyJobsCommand,
   ListCopyJobSummariesCommand,
   ListFrameworksCommand,
+  ListIndexedRecoveryPointsCommand,
   ListLegalHoldsCommand,
   ListProtectedResourcesCommand,
   ListProtectedResourcesByBackupVaultCommand,
@@ -518,6 +563,7 @@ const commands = {
   ListRecoveryPointsByResourceCommand,
   ListReportJobsCommand,
   ListReportPlansCommand,
+  ListRestoreAccessBackupVaultsCommand,
   ListRestoreJobsCommand,
   ListRestoreJobsByProtectedResourceCommand,
   ListRestoreJobSummariesCommand,
@@ -528,6 +574,7 @@ const commands = {
   PutBackupVaultLockConfigurationCommand,
   PutBackupVaultNotificationsCommand,
   PutRestoreValidationResultCommand,
+  RevokeRestoreAccessBackupVaultCommand,
   StartBackupJobCommand,
   StartCopyJobCommand,
   StartReportJobCommand,
@@ -538,6 +585,7 @@ const commands = {
   UpdateBackupPlanCommand,
   UpdateFrameworkCommand,
   UpdateGlobalSettingsCommand,
+  UpdateRecoveryPointIndexSettingsCommand,
   UpdateRecoveryPointLifecycleCommand,
   UpdateRegionSettingsCommand,
   UpdateReportPlanCommand,
@@ -546,6 +594,23 @@ const commands = {
 };
 
 export interface Backup {
+  /**
+   * @see {@link AssociateBackupVaultMpaApprovalTeamCommand}
+   */
+  associateBackupVaultMpaApprovalTeam(
+    args: AssociateBackupVaultMpaApprovalTeamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateBackupVaultMpaApprovalTeamCommandOutput>;
+  associateBackupVaultMpaApprovalTeam(
+    args: AssociateBackupVaultMpaApprovalTeamCommandInput,
+    cb: (err: any, data?: AssociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+  associateBackupVaultMpaApprovalTeam(
+    args: AssociateBackupVaultMpaApprovalTeamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CancelLegalHoldCommand}
    */
@@ -671,6 +736,23 @@ export interface Backup {
     args: CreateReportPlanCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateReportPlanCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateRestoreAccessBackupVaultCommand}
+   */
+  createRestoreAccessBackupVault(
+    args: CreateRestoreAccessBackupVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateRestoreAccessBackupVaultCommandOutput>;
+  createRestoreAccessBackupVault(
+    args: CreateRestoreAccessBackupVaultCommandInput,
+    cb: (err: any, data?: CreateRestoreAccessBackupVaultCommandOutput) => void
+  ): void;
+  createRestoreAccessBackupVault(
+    args: CreateRestoreAccessBackupVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateRestoreAccessBackupVaultCommandOutput) => void
   ): void;
 
   /**
@@ -1078,6 +1160,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link DisassociateBackupVaultMpaApprovalTeamCommand}
+   */
+  disassociateBackupVaultMpaApprovalTeam(
+    args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateBackupVaultMpaApprovalTeamCommandOutput>;
+  disassociateBackupVaultMpaApprovalTeam(
+    args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+    cb: (err: any, data?: DisassociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+  disassociateBackupVaultMpaApprovalTeam(
+    args: DisassociateBackupVaultMpaApprovalTeamCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateBackupVaultMpaApprovalTeamCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateRecoveryPointCommand}
    */
   disassociateRecoveryPoint(
@@ -1233,6 +1332,23 @@ export interface Backup {
     args: GetLegalHoldCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLegalHoldCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetRecoveryPointIndexDetailsCommand}
+   */
+  getRecoveryPointIndexDetails(
+    args: GetRecoveryPointIndexDetailsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetRecoveryPointIndexDetailsCommandOutput>;
+  getRecoveryPointIndexDetails(
+    args: GetRecoveryPointIndexDetailsCommandInput,
+    cb: (err: any, data?: GetRecoveryPointIndexDetailsCommandOutput) => void
+  ): void;
+  getRecoveryPointIndexDetails(
+    args: GetRecoveryPointIndexDetailsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetRecoveryPointIndexDetailsCommandOutput) => void
   ): void;
 
   /**
@@ -1502,6 +1618,24 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link ListIndexedRecoveryPointsCommand}
+   */
+  listIndexedRecoveryPoints(): Promise<ListIndexedRecoveryPointsCommandOutput>;
+  listIndexedRecoveryPoints(
+    args: ListIndexedRecoveryPointsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListIndexedRecoveryPointsCommandOutput>;
+  listIndexedRecoveryPoints(
+    args: ListIndexedRecoveryPointsCommandInput,
+    cb: (err: any, data?: ListIndexedRecoveryPointsCommandOutput) => void
+  ): void;
+  listIndexedRecoveryPoints(
+    args: ListIndexedRecoveryPointsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListIndexedRecoveryPointsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListLegalHoldsCommand}
    */
   listLegalHolds(): Promise<ListLegalHoldsCommandOutput>;
@@ -1630,6 +1764,23 @@ export interface Backup {
     args: ListReportPlansCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListReportPlansCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRestoreAccessBackupVaultsCommand}
+   */
+  listRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRestoreAccessBackupVaultsCommandOutput>;
+  listRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    cb: (err: any, data?: ListRestoreAccessBackupVaultsCommandOutput) => void
+  ): void;
+  listRestoreAccessBackupVaults(
+    args: ListRestoreAccessBackupVaultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRestoreAccessBackupVaultsCommandOutput) => void
   ): void;
 
   /**
@@ -1797,6 +1948,23 @@ export interface Backup {
   ): void;
 
   /**
+   * @see {@link RevokeRestoreAccessBackupVaultCommand}
+   */
+  revokeRestoreAccessBackupVault(
+    args: RevokeRestoreAccessBackupVaultCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RevokeRestoreAccessBackupVaultCommandOutput>;
+  revokeRestoreAccessBackupVault(
+    args: RevokeRestoreAccessBackupVaultCommandInput,
+    cb: (err: any, data?: RevokeRestoreAccessBackupVaultCommandOutput) => void
+  ): void;
+  revokeRestoreAccessBackupVault(
+    args: RevokeRestoreAccessBackupVaultCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RevokeRestoreAccessBackupVaultCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartBackupJobCommand}
    */
   startBackupJob(
@@ -1929,6 +2097,23 @@ export interface Backup {
     args: UpdateGlobalSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateGlobalSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateRecoveryPointIndexSettingsCommand}
+   */
+  updateRecoveryPointIndexSettings(
+    args: UpdateRecoveryPointIndexSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateRecoveryPointIndexSettingsCommandOutput>;
+  updateRecoveryPointIndexSettings(
+    args: UpdateRecoveryPointIndexSettingsCommandInput,
+    cb: (err: any, data?: UpdateRecoveryPointIndexSettingsCommandOutput) => void
+  ): void;
+  updateRecoveryPointIndexSettings(
+    args: UpdateRecoveryPointIndexSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateRecoveryPointIndexSettingsCommandOutput) => void
   ): void;
 
   /**

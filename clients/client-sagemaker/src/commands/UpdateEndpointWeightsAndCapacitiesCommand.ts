@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_4";
+import { UpdateEndpointWeightsAndCapacitiesInput, UpdateEndpointWeightsAndCapacitiesOutput } from "../models/models_5";
 import {
   de_UpdateEndpointWeightsAndCapacitiesCommand,
   se_UpdateEndpointWeightsAndCapacitiesCommand,
@@ -15,7 +15,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,11 +33,7 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates variant weight of one or more variants associated with an existing
- *             endpoint, or capacity of one variant associated with an existing endpoint. When it
- *             receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After
- *             updating the endpoint, it sets the status to <code>InService</code>. To check the status
- *             of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API. </p>
+ * <p>Updates variant weight of one or more variants associated with an existing endpoint, or capacity of one variant associated with an existing endpoint. When it receives the request, SageMaker sets the endpoint status to <code>Updating</code>. After updating the endpoint, it sets the status to <code>InService</code>. To check the status of an endpoint, use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_DescribeEndpoint.html">DescribeEndpoint</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,11 +69,11 @@ export interface UpdateEndpointWeightsAndCapacitiesCommandOutput
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -88,9 +85,7 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +97,16 @@ export class UpdateEndpointWeightsAndCapacitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateEndpointWeightsAndCapacitiesCommand)
   .de(de_UpdateEndpointWeightsAndCapacitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateEndpointWeightsAndCapacitiesInput;
+      output: UpdateEndpointWeightsAndCapacitiesOutput;
+    };
+    sdk: {
+      input: UpdateEndpointWeightsAndCapacitiesCommandInput;
+      output: UpdateEndpointWeightsAndCapacitiesCommandOutput;
+    };
+  };
+}

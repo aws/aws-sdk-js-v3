@@ -12,7 +12,8 @@ import { de_GetKxDataviewCommand, se_GetKxDataviewCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface GetKxDataviewCommandOutput extends GetKxDataviewResponse, __Met
  * @throws {@link FinspaceServiceException}
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
+ *
  * @public
  */
 export class GetKxDataviewCommand extends $Command
@@ -124,9 +126,7 @@ export class GetKxDataviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class GetKxDataviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKxDataviewCommand)
   .de(de_GetKxDataviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKxDataviewRequest;
+      output: GetKxDataviewResponse;
+    };
+    sdk: {
+      input: GetKxDataviewCommandInput;
+      output: GetKxDataviewCommandOutput;
+    };
+  };
+}

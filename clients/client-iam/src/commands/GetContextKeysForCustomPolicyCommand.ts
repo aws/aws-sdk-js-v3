@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface GetContextKeysForCustomPolicyCommandOutput extends GetContextKe
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class GetContextKeysForCustomPolicyCommand extends $Command
@@ -84,9 +86,7 @@ export class GetContextKeysForCustomPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class GetContextKeysForCustomPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContextKeysForCustomPolicyCommand)
   .de(de_GetContextKeysForCustomPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContextKeysForCustomPolicyRequest;
+      output: GetContextKeysForPolicyResponse;
+    };
+    sdk: {
+      input: GetContextKeysForCustomPolicyCommandInput;
+      output: GetContextKeysForCustomPolicyCommandOutput;
+    };
+  };
+}

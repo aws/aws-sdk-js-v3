@@ -12,7 +12,8 @@ import { de_ListImagesCommand, se_ListImagesCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * // const { ImagebuilderClient, ListImagesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListImagesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",
@@ -60,11 +61,11 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * //       name: "STRING_VALUE",
  * //       type: "AMI" || "DOCKER",
  * //       version: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       osVersion: "STRING_VALUE",
  * //       owner: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",
- * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //       buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT" || "IMPORT_ISO",
  * //       imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //     },
  * //   ],
@@ -106,6 +107,7 @@ export interface ListImagesCommandOutput extends ListImagesResponse, __MetadataB
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListImagesCommand extends $Command
@@ -116,9 +118,7 @@ export class ListImagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class ListImagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImagesCommand)
   .de(de_ListImagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImagesRequest;
+      output: ListImagesResponse;
+    };
+    sdk: {
+      input: ListImagesCommandInput;
+      output: ListImagesCommandOutput;
+    };
+  };
+}

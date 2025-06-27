@@ -8,7 +8,9 @@ import { CognitoIdentityClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetOpenIdTokenForDeveloperIdentityInput,
+  GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
   GetOpenIdTokenForDeveloperIdentityResponse,
+  GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog,
 } from "../models/models_0";
 import {
   de_GetOpenIdTokenForDeveloperIdentityCommand,
@@ -18,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +50,8 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  *          existing authenticated/unauthenticated identity, you can do so by providing the existing
  *             <code>IdentityId</code>. This API will create the identity in the specified
  *             <code>IdentityPoolId</code>.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,6 +111,7 @@ export interface GetOpenIdTokenForDeveloperIdentityCommandOutput
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
@@ -117,9 +122,7 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,7 +131,22 @@ export class GetOpenIdTokenForDeveloperIdentityCommand extends $Command
   })
   .s("AWSCognitoIdentityService", "GetOpenIdTokenForDeveloperIdentity", {})
   .n("CognitoIdentityClient", "GetOpenIdTokenForDeveloperIdentityCommand")
-  .f(void 0, void 0)
+  .f(
+    GetOpenIdTokenForDeveloperIdentityInputFilterSensitiveLog,
+    GetOpenIdTokenForDeveloperIdentityResponseFilterSensitiveLog
+  )
   .ser(se_GetOpenIdTokenForDeveloperIdentityCommand)
   .de(de_GetOpenIdTokenForDeveloperIdentityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOpenIdTokenForDeveloperIdentityInput;
+      output: GetOpenIdTokenForDeveloperIdentityResponse;
+    };
+    sdk: {
+      input: GetOpenIdTokenForDeveloperIdentityCommandInput;
+      output: GetOpenIdTokenForDeveloperIdentityCommandOutput;
+    };
+  };
+}

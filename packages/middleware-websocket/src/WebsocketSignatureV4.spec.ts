@@ -1,17 +1,18 @@
 // TODO: remove this file as duplicated to @aws-sdk/middleware-websocket
 import { HttpRequest } from "@smithy/protocol-http";
 import { RequestPresigningArguments, RequestSigningArguments } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { WebsocketSignatureV4 } from "./WebsocketSignatureV4";
 
-jest.mock("@smithy/protocol-http");
+vi.mock("@smithy/protocol-http");
 
 describe("WebsocketSignatureV4", () => {
   const mockPresignedRequest = { req: "mockPresignedRequest" };
   const mockSignedRequest = { req: "mockSignedRequest" };
 
-  const presign = jest.fn().mockResolvedValue(mockPresignedRequest);
-  const sign = jest.fn().mockResolvedValue(mockSignedRequest);
+  const presign = vi.fn().mockResolvedValue(mockPresignedRequest);
+  const sign = vi.fn().mockResolvedValue(mockSignedRequest);
 
   const headers = {
     "x-amz-foo": "foo",
@@ -25,7 +26,7 @@ describe("WebsocketSignatureV4", () => {
   const sigV4 = new WebsocketSignatureV4({ signer: { sign, presign } as any });
 
   afterEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("presign", () => {
@@ -55,7 +56,7 @@ describe("WebsocketSignatureV4", () => {
       const { isInstance } = HttpRequest;
 
       beforeEach(() => {
-        (isInstance as unknown as jest.Mock).mockReturnValueOnce(true);
+        (isInstance as unknown as any).mockReturnValueOnce(true);
       });
 
       const expectSignArgs = (result: any, options: RequestPresigningArguments = {}) => {
@@ -94,7 +95,7 @@ describe("WebsocketSignatureV4", () => {
       const { isInstance } = HttpRequest;
 
       beforeEach(() => {
-        (isInstance as unknown as jest.Mock).mockReturnValueOnce(false);
+        (isInstance as unknown as any).mockReturnValueOnce(false);
       });
 
       const expectSignArgs = (result: any, options?: RequestSigningArguments) => {

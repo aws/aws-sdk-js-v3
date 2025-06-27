@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,37 +86,37 @@ export interface GetByteMatchSetCommandOutput extends GetByteMatchSetResponse, _
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To get a byte match set
  * ```javascript
  * // The following example returns the details of a byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5"
+ *   ByteMatchSetId: "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5"
  * };
  * const command = new GetByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ByteMatchSet": {
- *     "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
- *     "ByteMatchTuples": [
+ *   ByteMatchSet: {
+ *     ByteMatchSetId: "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *     ByteMatchTuples: [
  *       {
- *         "FieldToMatch": {
- *           "Data": "referer",
- *           "Type": "HEADER"
+ *         FieldToMatch: {
+ *           Data: "referer",
+ *           Type: "HEADER"
  *         },
- *         "PositionalConstraint": "CONTAINS",
- *         "TargetString": "badrefer1",
- *         "TextTransformation": "NONE"
+ *         PositionalConstraint: "CONTAINS",
+ *         TargetString: "badrefer1",
+ *         TextTransformation: "NONE"
  *       }
  *     ],
- *     "Name": "ByteMatchNameExample"
+ *     Name: "ByteMatchNameExample"
  *   }
  * }
  * *\/
- * // example id: getbytematchset-1473273311532
  * ```
  *
+ * @public
  */
 export class GetByteMatchSetCommand extends $Command
   .classBuilder<
@@ -125,9 +126,7 @@ export class GetByteMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class GetByteMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetByteMatchSetCommand)
   .de(de_GetByteMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetByteMatchSetRequest;
+      output: GetByteMatchSetResponse;
+    };
+    sdk: {
+      input: GetByteMatchSetCommandInput;
+      output: GetByteMatchSetCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_1";
+import { StartAssociationsOnceRequest, StartAssociationsOnceResult } from "../models/models_2";
 import { de_StartAssociationsOnceCommand, se_StartAssociationsOnceCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface StartAssociationsOnceCommandOutput extends StartAssociationsOnc
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class StartAssociationsOnceCommand extends $Command
@@ -71,9 +73,7 @@ export class StartAssociationsOnceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class StartAssociationsOnceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAssociationsOnceCommand)
   .de(de_StartAssociationsOnceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAssociationsOnceRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartAssociationsOnceCommandInput;
+      output: StartAssociationsOnceCommandOutput;
+    };
+  };
+}

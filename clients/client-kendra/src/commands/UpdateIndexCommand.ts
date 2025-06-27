@@ -12,7 +12,8 @@ import { de_UpdateIndexCommand, se_UpdateIndexCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,7 @@ export interface UpdateIndexCommandOutput extends __MetadataBearer {}
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class UpdateIndexCommand extends $Command
@@ -141,9 +143,7 @@ export class UpdateIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class UpdateIndexCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIndexCommand)
   .de(de_UpdateIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIndexRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateIndexCommandInput;
+      output: UpdateIndexCommandOutput;
+    };
+  };
+}

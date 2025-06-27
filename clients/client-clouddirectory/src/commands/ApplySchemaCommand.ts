@@ -12,7 +12,8 @@ import { de_ApplySchemaCommand, se_ApplySchemaCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,24 @@ export interface ApplySchemaCommandOutput extends ApplySchemaResponse, __Metadat
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To apply a schema
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI",
+ *   PublishedSchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:schema/published/org/1"
+ * };
+ * const command = new ApplySchemaCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AppliedSchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI/schema/org/1",
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AfMr4qym1kZTvwqOafAYfqI"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ApplySchemaCommand extends $Command
@@ -97,9 +116,7 @@ export class ApplySchemaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +128,16 @@ export class ApplySchemaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ApplySchemaCommand)
   .de(de_ApplySchemaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ApplySchemaRequest;
+      output: ApplySchemaResponse;
+    };
+    sdk: {
+      input: ApplySchemaCommandInput;
+      output: ApplySchemaCommandOutput;
+    };
+  };
+}

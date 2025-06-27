@@ -12,7 +12,8 @@ import { de_DisableControlCommand, se_DisableControlCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface DisableControlCommandInput extends DisableControlInput {}
 export interface DisableControlCommandOutput extends DisableControlOutput, __MetadataBearer {}
 
 /**
- * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS
- *          resources on the specified organizational unit and the accounts it contains. The resources
- *          will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>This API call turns off a control. It starts an asynchronous operation that deletes Amazon Web Services resources on the specified organizational unit and the accounts it contains. The resources will vary according to the control that you specify. For usage examples, see the <a href="https://docs.aws.amazon.com/controltower/latest/controlreference/control-api-examples-short.html"> <i>Controls Reference Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,7 +66,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  *  <p>The request references a resource that does not exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *  <p>The request would cause a service quota to be exceeded. The limit is 100 concurrent operations.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
@@ -79,6 +76,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
+ *
  *
  * @public
  */
@@ -90,9 +88,7 @@ export class DisableControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +100,16 @@ export class DisableControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableControlCommand)
   .de(de_DisableControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableControlInput;
+      output: DisableControlOutput;
+    };
+    sdk: {
+      input: DisableControlCommandInput;
+      output: DisableControlCommandOutput;
+    };
+  };
+}

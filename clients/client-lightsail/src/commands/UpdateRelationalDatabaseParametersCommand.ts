@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  *       the <code>reboot relational database</code> operation.</p>
  *          <p>The <code>update relational database parameters</code> operation supports tag-based access
  *       control via resource tags applied to the resource identified by relationalDatabaseName. For
- *       more information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       more information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,6 +132,7 @@ export interface UpdateRelationalDatabaseParametersCommandOutput
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class UpdateRelationalDatabaseParametersCommand extends $Command
@@ -141,9 +143,7 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class UpdateRelationalDatabaseParametersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRelationalDatabaseParametersCommand)
   .de(de_UpdateRelationalDatabaseParametersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRelationalDatabaseParametersRequest;
+      output: UpdateRelationalDatabaseParametersResult;
+    };
+    sdk: {
+      input: UpdateRelationalDatabaseParametersCommandInput;
+      output: UpdateRelationalDatabaseParametersCommandOutput;
+    };
+  };
+}

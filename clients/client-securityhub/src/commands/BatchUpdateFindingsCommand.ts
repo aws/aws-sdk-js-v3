@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,14 +28,13 @@ export interface BatchUpdateFindingsCommandInput extends BatchUpdateFindingsRequ
 export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsResponse, __MetadataBearer {}
 
 /**
- * <p>Used by Security Hub customers to update information about their investigation into a finding.
- *          Requested by administrator accounts or member accounts. Administrator accounts can update findings for
- *          their account and their member accounts. Member accounts can update findings for their
- *          account.</p>
- *          <p>Updates from <code>BatchUpdateFindings</code> do not affect the value of
- *             <code>UpdatedAt</code> for a finding.</p>
- *          <p>Administrator and member accounts can use <code>BatchUpdateFindings</code> to update the
- *          following finding fields and objects.</p>
+ * <p>
+ *          Used by Security Hub customers to update information about their investigation into one or more findings.
+ *          Requested by administrator accounts or member accounts.
+ *          Administrator accounts can update findings for their account and their member accounts.
+ *          A member account can update findings only for their own account.
+ *          Administrator and member accounts can use this operation to update the following fields and objects for one or more findings:
+ *       </p>
  *          <ul>
  *             <li>
  *                <p>
@@ -82,10 +82,15 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  *                </p>
  *             </li>
  *          </ul>
- *          <p>You can configure IAM policies to restrict access to fields and field values. For
- *          example, you might not want member accounts to be able to suppress findings or change the
- *          finding severity. See <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the
- *          <i>Security Hub User Guide</i>.</p>
+ *          <p>
+ *          If you use this operation to update a finding, your updates don’t affect the value for the <code>UpdatedAt</code> field of the finding.
+ *          Also note that it can take several minutes for Security Hub to process your request and update each finding specified in the request.
+ *       </p>
+ *          <p>
+ *          You can configure IAM policies to restrict access to fields and field values.
+ *          For example, you might not want member accounts to be able to suppress findings or change the finding severity.
+ *          For more information see <a href="https://docs.aws.amazon.com/securityhub/latest/userguide/finding-update-batchupdatefindings.html#batchupdatefindings-configure-access">Configuring access to BatchUpdateFindings</a> in the <i>Security Hub User Guide</i>.
+ *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -173,67 +178,67 @@ export interface BatchUpdateFindingsCommandOutput extends BatchUpdateFindingsRes
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To update Security Hub findings
  * ```javascript
  * // The following example updates Security Hub findings. The finding identifier parameter specifies which findings to update. Only specific finding fields can be updated with this operation.
  * const input = {
- *   "Confidence": 80,
- *   "Criticality": 80,
- *   "FindingIdentifiers": [
+ *   Confidence: 80,
+ *   Criticality: 80,
+ *   FindingIdentifiers: [
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     },
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     }
  *   ],
- *   "Note": {
- *     "Text": "Known issue that is not a risk.",
- *     "UpdatedBy": "user1"
+ *   Note: {
+ *     Text: "Known issue that is not a risk.",
+ *     UpdatedBy: "user1"
  *   },
- *   "RelatedFindings": [
+ *   RelatedFindings: [
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE33333",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     }
  *   ],
- *   "Severity": {
- *     "Label": "LOW"
+ *   Severity: {
+ *     Label: "LOW"
  *   },
- *   "Types": [
+ *   Types: [
  *     "Software and Configuration Checks/Vulnerabilities/CVE"
  *   ],
- *   "UserDefinedFields": {
- *     "reviewedByCio": "true"
+ *   UserDefinedFields: {
+ *     reviewedByCio: "true"
  *   },
- *   "VerificationState": "TRUE_POSITIVE",
- *   "Workflow": {
- *     "Status": "RESOLVED"
+ *   VerificationState: "TRUE_POSITIVE",
+ *   Workflow: {
+ *     Status: "RESOLVED"
  *   }
  * };
  * const command = new BatchUpdateFindingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ProcessedFindings": [
+ *   ProcessedFindings: [
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     },
  *     {
- *       "Id": "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
- *       "ProductArn": "arn:aws:securityhub:us-west-1::product/aws/securityhub"
+ *       Id: "arn:aws:securityhub:us-west-1:123456789012:subscription/pci-dss/v/3.2.1/PCI.Lambda.2/finding/a1b2c3d4-5678-90ab-cdef-EXAMPLE22222",
+ *       ProductArn: "arn:aws:securityhub:us-west-1::product/aws/securityhub"
  *     }
  *   ],
- *   "UnprocessedFindings": []
+ *   UnprocessedFindings:   []
  * }
  * *\/
- * // example id: to-update-security-hub-findings-1675183938248
  * ```
  *
+ * @public
  */
 export class BatchUpdateFindingsCommand extends $Command
   .classBuilder<
@@ -243,9 +248,7 @@ export class BatchUpdateFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -257,4 +260,16 @@ export class BatchUpdateFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchUpdateFindingsCommand)
   .de(de_BatchUpdateFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchUpdateFindingsRequest;
+      output: BatchUpdateFindingsResponse;
+    };
+    sdk: {
+      input: BatchUpdateFindingsCommandInput;
+      output: BatchUpdateFindingsCommandOutput;
+    };
+  };
+}

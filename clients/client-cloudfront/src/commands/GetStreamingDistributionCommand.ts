@@ -12,7 +12,8 @@ import { de_GetStreamingDistributionCommand, se_GetStreamingDistributionCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface GetStreamingDistributionCommandInput extends GetStreamingDistri
 export interface GetStreamingDistributionCommandOutput extends GetStreamingDistributionResult, __MetadataBearer {}
 
 /**
- * <p>Gets information about a specified RTMP distribution, including the distribution
- * 			configuration.</p>
+ * <p>Gets information about a specified RTMP distribution, including the distribution configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,7 +87,7 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //     },
  * //   },
@@ -111,6 +111,7 @@ export interface GetStreamingDistributionCommandOutput extends GetStreamingDistr
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetStreamingDistributionCommand extends $Command
@@ -121,9 +122,7 @@ export class GetStreamingDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class GetStreamingDistributionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStreamingDistributionCommand)
   .de(de_GetStreamingDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStreamingDistributionRequest;
+      output: GetStreamingDistributionResult;
+    };
+    sdk: {
+      input: GetStreamingDistributionCommandInput;
+      output: GetStreamingDistributionCommandOutput;
+    };
+  };
+}

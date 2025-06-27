@@ -12,7 +12,8 @@ import { de_ListTagsForCertificateCommand, se_ListTagsForCertificateCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListTagsForCertificateCommandInput extends ListTagsForCertifica
 export interface ListTagsForCertificateCommandOutput extends ListTagsForCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's
- *       Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate,
- *       use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
+ * <p>Lists the tags that have been applied to the ACM certificate. Use the certificate's Amazon Resource Name (ARN) to specify the certificate. To add a tag to an ACM certificate, use the <a>AddTagsToCertificate</a> action. To delete a tag, use the <a>RemoveTagsFromCertificate</a> action. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,11 +61,11 @@ export interface ListTagsForCertificateCommandOutput extends ListTagsForCertific
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The specified certificate cannot be found in the caller's account or the caller's account
- *       cannot be found.</p>
+ *  <p>The specified certificate cannot be found in the caller's account or the caller's account cannot be found.</p>
  *
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
+ *
  *
  * @public
  */
@@ -78,9 +77,7 @@ export class ListTagsForCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +89,16 @@ export class ListTagsForCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForCertificateCommand)
   .de(de_ListTagsForCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForCertificateRequest;
+      output: ListTagsForCertificateResponse;
+    };
+    sdk: {
+      input: ListTagsForCertificateCommandInput;
+      output: ListTagsForCertificateCommandOutput;
+    };
+  };
+}

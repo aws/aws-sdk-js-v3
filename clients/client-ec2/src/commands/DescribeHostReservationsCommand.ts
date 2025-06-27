@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeHostReservationsRequest, DescribeHostReservationsResult } from "../models/models_3";
+import { DescribeHostReservationsRequest, DescribeHostReservationsResult } from "../models/models_4";
 import { de_DescribeHostReservationsCommand, se_DescribeHostReservationsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface DescribeHostReservationsCommandOutput extends DescribeHostReser
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeHostReservationsCommand extends $Command
@@ -102,9 +104,7 @@ export class DescribeHostReservationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class DescribeHostReservationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeHostReservationsCommand)
   .de(de_DescribeHostReservationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeHostReservationsRequest;
+      output: DescribeHostReservationsResult;
+    };
+    sdk: {
+      input: DescribeHostReservationsCommandInput;
+      output: DescribeHostReservationsCommandOutput;
+    };
+  };
+}

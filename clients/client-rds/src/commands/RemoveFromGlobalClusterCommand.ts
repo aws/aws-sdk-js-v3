@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,12 +69,19 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * //         SynchronizationStatus: "connected" || "pending-resync",
  * //       },
  * //     ],
+ * //     Endpoint: "STRING_VALUE",
  * //     FailoverState: { // FailoverState
  * //       Status: "pending" || "failing-over" || "cancelling",
  * //       FromDbClusterArn: "STRING_VALUE",
  * //       ToDbClusterArn: "STRING_VALUE",
  * //       IsDataLossAllowed: true || false,
  * //     },
+ * //     TagList: [ // TagList
+ * //       { // Tag
+ * //         Key: "STRING_VALUE",
+ * //         Value: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -98,48 +106,48 @@ export interface RemoveFromGlobalClusterCommandOutput extends RemoveFromGlobalCl
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To detach an Aurora secondary cluster from an Aurora global database cluster
  * ```javascript
  * // The following example detaches an Aurora secondary cluster from an Aurora global database cluster. The cluster changes from being read-only to a standalone cluster with read-write capability.
  * const input = {
- *   "DbClusterIdentifier": "arn:aws:rds:us-west-2:123456789012:cluster:DB-1",
- *   "GlobalClusterIdentifier": "myglobalcluster"
+ *   DbClusterIdentifier: "arn:aws:rds:us-west-2:123456789012:cluster:DB-1",
+ *   GlobalClusterIdentifier: "myglobalcluster"
  * };
  * const command = new RemoveFromGlobalClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GlobalCluster": {
- *     "DeletionProtection": false,
- *     "Engine": "aurora-postgresql",
- *     "EngineVersion": "10.11",
- *     "GlobalClusterArn": "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
- *     "GlobalClusterIdentifier": "myglobalcluster",
- *     "GlobalClusterMembers": [
+ *   GlobalCluster: {
+ *     DeletionProtection: false,
+ *     Engine: "aurora-postgresql",
+ *     EngineVersion: "10.11",
+ *     GlobalClusterArn: "arn:aws:rds::123456789012:global-cluster:myglobalcluster",
+ *     GlobalClusterIdentifier: "myglobalcluster",
+ *     GlobalClusterMembers: [
  *       {
- *         "DBClusterArn": "arn:aws:rds:us-east-1:123456789012:cluster:js-global-cluster",
- *         "IsWriter": true,
- *         "Readers": [
+ *         DBClusterArn: "arn:aws:rds:us-east-1:123456789012:cluster:js-global-cluster",
+ *         IsWriter: true,
+ *         Readers: [
  *           "arn:aws:rds:us-west-2:123456789012:cluster:DB-1"
  *         ]
  *       },
  *       {
- *         "DBClusterArn": "arn:aws:rds:us-west-2:123456789012:cluster:DB-1",
- *         "GlobalWriteForwardingStatus": "disabled",
- *         "IsWriter": false,
- *         "Readers": []
+ *         DBClusterArn: "arn:aws:rds:us-west-2:123456789012:cluster:DB-1",
+ *         GlobalWriteForwardingStatus: "disabled",
+ *         IsWriter: false,
+ *         Readers:         []
  *       }
  *     ],
- *     "GlobalClusterResourceId": "cluster-abc123def456gh",
- *     "Status": "available",
- *     "StorageEncrypted": true
+ *     GlobalClusterResourceId: "cluster-abc123def456gh",
+ *     Status: "available",
+ *     StorageEncrypted: true
  *   }
  * }
  * *\/
- * // example id: to-detach-an-aurora-secondary-cluster-from-an-aurora-global-database-cluster-1680072605847
  * ```
  *
+ * @public
  */
 export class RemoveFromGlobalClusterCommand extends $Command
   .classBuilder<
@@ -149,9 +157,7 @@ export class RemoveFromGlobalClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +169,16 @@ export class RemoveFromGlobalClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveFromGlobalClusterCommand)
   .de(de_RemoveFromGlobalClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveFromGlobalClusterMessage;
+      output: RemoveFromGlobalClusterResult;
+    };
+    sdk: {
+      input: RemoveFromGlobalClusterCommandInput;
+      output: RemoveFromGlobalClusterCommandOutput;
+    };
+  };
+}

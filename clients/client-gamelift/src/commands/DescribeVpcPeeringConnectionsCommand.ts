@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  * <p>Retrieves information on VPC peering connections. Use this operation to get peering
  *             information for all fleets or for one specific fleet ID. </p>
  *          <p>To retrieve connection information, call this operation from the Amazon Web Services account that is
- *             used to manage the Amazon GameLift fleets. Specify a fleet ID or leave the parameter empty to
+ *             used to manage the Amazon GameLift Servers fleets. Specify a fleet ID or leave the parameter empty to
  *             retrieve all connection records. If successful, the retrieved information includes both
  *             active and pending connections. Active connections identify the IpV4 CIDR block that the
  *             VPC uses to connect. </p>
@@ -90,13 +91,14 @@ export interface DescribeVpcPeeringConnectionsCommandOutput
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -108,9 +110,7 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class DescribeVpcPeeringConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVpcPeeringConnectionsCommand)
   .de(de_DescribeVpcPeeringConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVpcPeeringConnectionsInput;
+      output: DescribeVpcPeeringConnectionsOutput;
+    };
+    sdk: {
+      input: DescribeVpcPeeringConnectionsCommandInput;
+      output: DescribeVpcPeeringConnectionsCommandOutput;
+    };
+  };
+}

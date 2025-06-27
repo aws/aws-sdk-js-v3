@@ -16,7 +16,8 @@ import { de_GetSnapshotBlockCommand, se_GetSnapshotBlockCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,6 +54,11 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  * };
  * const command = new GetSnapshotBlockCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.BlockData.transformToByteArray();
+ * // const str = await response.BlockData.transformToString();
+ * // response.BlockData.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // GetSnapshotBlockResponse
  * //   DataLength: Number("int"),
  * //   BlockData: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
@@ -90,6 +96,7 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  * @throws {@link EBSServiceException}
  * <p>Base exception class for all service exceptions from EBS service.</p>
  *
+ *
  * @public
  */
 export class GetSnapshotBlockCommand extends $Command
@@ -100,9 +107,7 @@ export class GetSnapshotBlockCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EBSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +119,16 @@ export class GetSnapshotBlockCommand extends $Command
   .f(void 0, GetSnapshotBlockResponseFilterSensitiveLog)
   .ser(se_GetSnapshotBlockCommand)
   .de(de_GetSnapshotBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSnapshotBlockRequest;
+      output: GetSnapshotBlockResponse;
+    };
+    sdk: {
+      input: GetSnapshotBlockCommandInput;
+      output: GetSnapshotBlockCommandOutput;
+    };
+  };
+}

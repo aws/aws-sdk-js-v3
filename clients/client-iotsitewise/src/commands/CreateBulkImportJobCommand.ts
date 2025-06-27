@@ -12,7 +12,8 @@ import { de_CreateBulkImportJobCommand, se_CreateBulkImportJobCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,8 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  *          <important>
  *             <p>Before you create a bulk import job, you must enable IoT SiteWise warm tier or IoT SiteWise cold tier.
  *         For more information about how to configure storage settings, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_PutStorageConfiguration.html">PutStorageConfiguration</a>.</p>
- *             <p>Bulk import is designed to store historical data to IoT SiteWise. It does not trigger computations or notifications on
- *         IoT SiteWise warm or cold tier storage.</p>
+ *             <p>Bulk import is designed to store historical data to IoT SiteWise. It does not trigger
+ *         computations or notifications on IoT SiteWise warm or cold tier storage.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -116,6 +117,7 @@ export interface CreateBulkImportJobCommandOutput extends CreateBulkImportJobRes
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class CreateBulkImportJobCommand extends $Command
@@ -126,9 +128,7 @@ export class CreateBulkImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class CreateBulkImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateBulkImportJobCommand)
   .de(de_CreateBulkImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBulkImportJobRequest;
+      output: CreateBulkImportJobResponse;
+    };
+    sdk: {
+      input: CreateBulkImportJobCommandInput;
+      output: CreateBulkImportJobCommandOutput;
+    };
+  };
+}

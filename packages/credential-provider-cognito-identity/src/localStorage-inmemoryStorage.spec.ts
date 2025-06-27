@@ -1,21 +1,20 @@
+import { afterEach, beforeEach, describe, expect, test as it } from "vitest";
+
 import { InMemoryStorage } from "./InMemoryStorage";
 import { localStorage as storage } from "./localStorage";
 
 describe("localStorage", () => {
-  let self: any = {}; // eslint-disable-line prefer-const
-  let window: any = {}; // eslint-disable-line prefer-const
-
   // set store and restore indexedDB and localStorage before and after the test
-  let indexDB: any = undefined;
+  let indexedDB: any = undefined;
   let localStorage: any = undefined;
 
   beforeEach(() => {
-    if (typeof self === "object") indexDB = self.indexedDB;
+    if (typeof self === "object") indexedDB = self.indexedDB;
     if (typeof window === "object") localStorage = window.localStorage;
   });
 
   afterEach(() => {
-    if (typeof self === "object") defineProperty(self, "indexedDB", indexDB);
+    if (typeof self === "object") defineProperty(self, "indexedDB", indexedDB);
     if (typeof window === "object") defineProperty(window, "localStorage", localStorage);
   });
 

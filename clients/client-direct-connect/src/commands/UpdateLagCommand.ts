@@ -12,7 +12,8 @@ import { de_UpdateLagCommand, se_UpdateLagCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -154,6 +155,7 @@ export interface UpdateLagCommandOutput extends Lag, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class UpdateLagCommand extends $Command
@@ -164,9 +166,7 @@ export class UpdateLagCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +178,16 @@ export class UpdateLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLagCommand)
   .de(de_UpdateLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLagRequest;
+      output: Lag;
+    };
+    sdk: {
+      input: UpdateLagCommandInput;
+      output: UpdateLagCommandOutput;
+    };
+  };
+}

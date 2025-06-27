@@ -12,7 +12,8 @@ import { de_DescribeTrafficMirrorFiltersCommand, se_DescribeTrafficMirrorFilters
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,12 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * //           DestinationCidrBlock: "STRING_VALUE",
  * //           SourceCidrBlock: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           Tags: [ // TagList
+ * //             { // Tag
+ * //               Key: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       EgressFilterRules: [
@@ -98,14 +105,20 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * //           DestinationCidrBlock: "STRING_VALUE",
  * //           SourceCidrBlock: "STRING_VALUE",
  * //           Description: "STRING_VALUE",
+ * //           Tags: [
+ * //             {
+ * //               Key: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       NetworkServices: [ // TrafficMirrorNetworkServiceList
  * //         "amazon-dns",
  * //       ],
  * //       Description: "STRING_VALUE",
- * //       Tags: [ // TagList
- * //         { // Tag
+ * //       Tags: [
+ * //         {
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
  * //         },
@@ -126,6 +139,7 @@ export interface DescribeTrafficMirrorFiltersCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrafficMirrorFiltersCommand extends $Command
@@ -136,9 +150,7 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +162,16 @@ export class DescribeTrafficMirrorFiltersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrafficMirrorFiltersCommand)
   .de(de_DescribeTrafficMirrorFiltersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrafficMirrorFiltersRequest;
+      output: DescribeTrafficMirrorFiltersResult;
+    };
+    sdk: {
+      input: DescribeTrafficMirrorFiltersCommandInput;
+      output: DescribeTrafficMirrorFiltersCommandOutput;
+    };
+  };
+}

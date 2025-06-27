@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,7 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource
- *          Names (ARNs).</p>
+ * <p>Retrieves multiple analysis templates within a collaboration by their Amazon Resource Names (ARNs).</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,14 +69,43 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
  * //           "STRING_VALUE",
  * //         ],
  * //       },
- * //       format: "STRING_VALUE", // required
+ * //       format: "SQL" || "PYSPARK_1_0", // required
  * //       source: { // AnalysisSource Union: only one key present
  * //         text: "STRING_VALUE",
+ * //         artifacts: { // AnalysisTemplateArtifacts
+ * //           entryPoint: { // AnalysisTemplateArtifact
+ * //             location: { // S3Location
+ * //               bucket: "STRING_VALUE", // required
+ * //               key: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //           additionalArtifacts: [ // AnalysisTemplateArtifactList
+ * //             {
+ * //               location: {
+ * //                 bucket: "STRING_VALUE", // required
+ * //                 key: "STRING_VALUE", // required
+ * //               },
+ * //             },
+ * //           ],
+ * //           roleArn: "STRING_VALUE", // required
+ * //         },
+ * //       },
+ * //       sourceMetadata: { // AnalysisSourceMetadata Union: only one key present
+ * //         artifacts: { // AnalysisTemplateArtifactMetadata
+ * //           entryPointHash: { // Hash
+ * //             sha256: "STRING_VALUE",
+ * //           },
+ * //           additionalArtifactHashes: [ // HashList
+ * //             {
+ * //               sha256: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //         },
  * //       },
  * //       analysisParameters: [ // AnalysisParameterList
  * //         { // AnalysisParameter
  * //           name: "STRING_VALUE", // required
- * //           type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE", // required
+ * //           type: "SMALLINT" || "INTEGER" || "BIGINT" || "DECIMAL" || "REAL" || "DOUBLE_PRECISION" || "BOOLEAN" || "CHAR" || "VARCHAR" || "DATE" || "TIMESTAMP" || "TIMESTAMPTZ" || "TIME" || "TIMETZ" || "VARBYTE" || "BINARY" || "BYTE" || "CHARACTER" || "DOUBLE" || "FLOAT" || "INT" || "LONG" || "NUMERIC" || "SHORT" || "STRING" || "TIMESTAMP_LTZ" || "TIMESTAMP_NTZ" || "TINYINT", // required
  * //           defaultValue: "STRING_VALUE",
  * //         },
  * //       ],
@@ -128,6 +157,7 @@ export interface BatchGetCollaborationAnalysisTemplateCommandOutput
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class BatchGetCollaborationAnalysisTemplateCommand extends $Command
@@ -138,9 +168,7 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +180,16 @@ export class BatchGetCollaborationAnalysisTemplateCommand extends $Command
   .f(void 0, BatchGetCollaborationAnalysisTemplateOutputFilterSensitiveLog)
   .ser(se_BatchGetCollaborationAnalysisTemplateCommand)
   .de(de_BatchGetCollaborationAnalysisTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetCollaborationAnalysisTemplateInput;
+      output: BatchGetCollaborationAnalysisTemplateOutput;
+    };
+    sdk: {
+      input: BatchGetCollaborationAnalysisTemplateCommandInput;
+      output: BatchGetCollaborationAnalysisTemplateCommandOutput;
+    };
+  };
+}

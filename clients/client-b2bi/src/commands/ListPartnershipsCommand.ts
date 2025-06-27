@@ -12,7 +12,8 @@ import { de_ListPartnershipsCommand, se_ListPartnershipsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,34 @@ export interface ListPartnershipsCommandOutput extends ListPartnershipsResponse,
  * //       capabilities: [ // PartnershipCapabilities
  * //         "STRING_VALUE",
  * //       ],
+ * //       capabilityOptions: { // CapabilityOptions
+ * //         outboundEdi: { // OutboundEdiOptions Union: only one key present
+ * //           x12: { // X12Envelope
+ * //             common: { // X12OutboundEdiHeaders
+ * //               interchangeControlHeaders: { // X12InterchangeControlHeaders
+ * //                 senderIdQualifier: "STRING_VALUE",
+ * //                 senderId: "STRING_VALUE",
+ * //                 receiverIdQualifier: "STRING_VALUE",
+ * //                 receiverId: "STRING_VALUE",
+ * //                 repetitionSeparator: "STRING_VALUE",
+ * //                 acknowledgmentRequestedCode: "STRING_VALUE",
+ * //                 usageIndicatorCode: "STRING_VALUE",
+ * //               },
+ * //               functionalGroupHeaders: { // X12FunctionalGroupHeaders
+ * //                 applicationSenderCode: "STRING_VALUE",
+ * //                 applicationReceiverCode: "STRING_VALUE",
+ * //                 responsibleAgencyCode: "STRING_VALUE",
+ * //               },
+ * //               delimiters: { // X12Delimiters
+ * //                 componentSeparator: "STRING_VALUE",
+ * //                 dataElementSeparator: "STRING_VALUE",
+ * //                 segmentTerminator: "STRING_VALUE",
+ * //               },
+ * //               validateEdi: true || false,
+ * //             },
+ * //           },
+ * //         },
+ * //       },
  * //       tradingPartnerId: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       modifiedAt: new Date("TIMESTAMP"),
@@ -85,38 +114,38 @@ export interface ListPartnershipsCommandOutput extends ListPartnershipsResponse,
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample ListPartnerships call
  * ```javascript
  * //
  * const input = {
- *   "maxResults": 50,
- *   "nextToken": "foo",
- *   "profileId": "p-60fbc37c87f04fce9"
+ *   maxResults: 50,
+ *   nextToken: "foo",
+ *   profileId: "p-60fbc37c87f04fce9"
  * };
  * const command = new ListPartnershipsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "nextToken": "string",
- *   "partnerships": [
+ *   nextToken: "string",
+ *   partnerships: [
  *     {
- *       "name": "b2bipartner",
- *       "capabilities": [
+ *       capabilities: [
  *         "ca-963a8121e4fc4e348"
  *       ],
- *       "createdAt": "2023-11-01T21:51:05.504Z",
- *       "modifiedAt": "2023-11-01T21:51:05.504Z",
- *       "partnershipId": "ps-219fa02f5b4242af8",
- *       "profileId": "p-60fbc37c87f04fce9",
- *       "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
+ *       createdAt: "2023-11-01T21:51:05.504Z",
+ *       modifiedAt: "2023-11-01T21:51:05.504Z",
+ *       name: "b2bipartner",
+ *       partnershipId: "ps-219fa02f5b4242af8",
+ *       profileId: "p-60fbc37c87f04fce9",
+ *       tradingPartnerId: "tp-2a17ca447f6f4a8a8"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class ListPartnershipsCommand extends $Command
   .classBuilder<
@@ -126,9 +155,7 @@ export class ListPartnershipsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +167,16 @@ export class ListPartnershipsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPartnershipsCommand)
   .de(de_ListPartnershipsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPartnershipsRequest;
+      output: ListPartnershipsResponse;
+    };
+    sdk: {
+      input: ListPartnershipsCommandInput;
+      output: ListPartnershipsCommandOutput;
+    };
+  };
+}

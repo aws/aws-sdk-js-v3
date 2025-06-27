@@ -17,7 +17,8 @@ import { de_UpdateSettingsCommand, se_UpdateSettingsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,6 +117,7 @@ export interface UpdateSettingsCommandOutput extends UpdateSettingsResponse, __M
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class UpdateSettingsCommand extends $Command
@@ -126,9 +128,7 @@ export class UpdateSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class UpdateSettingsCommand extends $Command
   .f(UpdateSettingsRequestFilterSensitiveLog, UpdateSettingsResponseFilterSensitiveLog)
   .ser(se_UpdateSettingsCommand)
   .de(de_UpdateSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSettingsRequest;
+      output: UpdateSettingsResponse;
+    };
+    sdk: {
+      input: UpdateSettingsCommandInput;
+      output: UpdateSettingsCommandOutput;
+    };
+  };
+}

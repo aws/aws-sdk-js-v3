@@ -20,7 +20,7 @@
  *             </li>
  *          </ul>
  *          <p>Use <code>GetServices</code> without a service code to retrieve the service codes for
- *          all Amazon Web Services, then <code>GetServices</code> with a service code to
+ *          all Amazon Web Services services, then <code>GetServices</code> with a service code to
  *          retrieve the attribute names for that service. After you have the service code and
  *          attribute names, you can use <code>GetAttributeValues</code> to see what values are
  *          available for an attribute. With the service code and an attribute name and value, you can
@@ -36,8 +36,8 @@
 export * from "./PricingClient";
 export * from "./Pricing";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { PricingExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { PricingExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

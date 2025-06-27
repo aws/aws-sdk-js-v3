@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_7";
+import { TerminateInstancesRequest, TerminateInstancesResult } from "../models/models_8";
 import { de_TerminateInstancesCommand, se_TerminateInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface TerminateInstancesCommandInput extends TerminateInstancesReques
 export interface TerminateInstancesCommandOutput extends TerminateInstancesResult, __MetadataBearer {}
 
 /**
- * <p>Shuts down the specified instances. This operation is idempotent; if you terminate an
- *             instance more than once, each call succeeds. </p>
+ * <p>Shuts down the specified instances. This operation is <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-api-idempotency.html">idempotent</a>; if you
+ *             terminate an instance more than once, each call succeeds.</p>
  *          <p>If you specify multiple instances and the request fails (for example, because of a
  *             single incorrect instance ID), none of the instances are terminated.</p>
  *          <p>If you terminate multiple instances across multiple Availability Zones, and one or
@@ -78,7 +79,7 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *          <p>By default, Amazon EC2 deletes all EBS volumes that were attached when the instance
  *             launched. Volumes attached after instance launch continue running.</p>
  *          <p>You can stop, start, and terminate EBS-backed instances. You can only terminate
- *             instance store-backed instances. What happens to an instance differs if you stop it or
+ *             instance store-backed instances. What happens to an instance differs if you stop or
  *             terminate it. For example, when you stop an instance, the root device and any other
  *             devices attached to the instance persist. When you terminate an instance, any attached
  *             EBS volumes with the <code>DeleteOnTermination</code> block device mapping parameter set
@@ -86,7 +87,7 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  *             differences between stopping and terminating instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a>
  *             in the <i>Amazon EC2 User Guide</i>.</p>
  *          <p>For more information about troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesShuttingDown.html">Troubleshooting terminating your instance</a> in the
- *                 <i>Amazon EC2 User Guide</i>.</p>
+ *    <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,11 +105,11 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * // { // TerminateInstancesResult
  * //   TerminatingInstances: [ // InstanceStateChangeList
  * //     { // InstanceStateChange
+ * //       InstanceId: "STRING_VALUE",
  * //       CurrentState: { // InstanceState
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
  * //       },
- * //       InstanceId: "STRING_VALUE",
  * //       PreviousState: {
  * //         Code: Number("int"),
  * //         Name: "pending" || "running" || "shutting-down" || "terminated" || "stopping" || "stopped",
@@ -128,37 +129,37 @@ export interface TerminateInstancesCommandOutput extends TerminateInstancesResul
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To terminate an EC2 instance
  * ```javascript
  * // This example terminates the specified EC2 instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-1234567890abcdef0"
  *   ]
  * };
  * const command = new TerminateInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TerminatingInstances": [
+ *   TerminatingInstances: [
  *     {
- *       "CurrentState": {
- *         "Code": 32,
- *         "Name": "shutting-down"
+ *       CurrentState: {
+ *         Code: 32,
+ *         Name: "shutting-down"
  *       },
- *       "InstanceId": "i-1234567890abcdef0",
- *       "PreviousState": {
- *         "Code": 16,
- *         "Name": "running"
+ *       InstanceId: "i-1234567890abcdef0",
+ *       PreviousState: {
+ *         Code: 16,
+ *         Name: "running"
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-terminate-an-ec2-instance-1529359350660
  * ```
  *
+ * @public
  */
 export class TerminateInstancesCommand extends $Command
   .classBuilder<
@@ -168,9 +169,7 @@ export class TerminateInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +181,16 @@ export class TerminateInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TerminateInstancesCommand)
   .de(de_TerminateInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TerminateInstancesRequest;
+      output: TerminateInstancesResult;
+    };
+    sdk: {
+      input: TerminateInstancesCommandInput;
+      output: TerminateInstancesCommandOutput;
+    };
+  };
+}

@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListModelQualityJobDefinitionsRequest, ListModelQualityJobDefinitionsResponse } from "../models/models_3";
+import { ListModelQualityJobDefinitionsRequest, ListModelQualityJobDefinitionsResponse } from "../models/models_4";
 import {
   de_ListModelQualityJobDefinitionsCommand,
   se_ListModelQualityJobDefinitionsCommand,
@@ -15,7 +15,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface ListModelQualityJobDefinitionsCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListModelQualityJobDefinitionsCommand extends $Command
@@ -84,9 +86,7 @@ export class ListModelQualityJobDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class ListModelQualityJobDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelQualityJobDefinitionsCommand)
   .de(de_ListModelQualityJobDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelQualityJobDefinitionsRequest;
+      output: ListModelQualityJobDefinitionsResponse;
+    };
+    sdk: {
+      input: ListModelQualityJobDefinitionsCommandInput;
+      output: ListModelQualityJobDefinitionsCommandOutput;
+    };
+  };
+}

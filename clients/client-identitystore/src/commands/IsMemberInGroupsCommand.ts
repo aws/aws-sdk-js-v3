@@ -16,7 +16,8 @@ import { de_IsMemberInGroupsCommand, se_IsMemberInGroupsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface IsMemberInGroupsCommandOutput extends IsMemberInGroupsResponse,
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class IsMemberInGroupsCommand extends $Command
@@ -102,9 +104,7 @@ export class IsMemberInGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class IsMemberInGroupsCommand extends $Command
   .f(void 0, IsMemberInGroupsResponseFilterSensitiveLog)
   .ser(se_IsMemberInGroupsCommand)
   .de(de_IsMemberInGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: IsMemberInGroupsRequest;
+      output: IsMemberInGroupsResponse;
+    };
+    sdk: {
+      input: IsMemberInGroupsCommandInput;
+      output: IsMemberInGroupsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateProjectMembershipCommand, se_CreateProjectMembershipCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -41,7 +42,7 @@ export interface CreateProjectMembershipCommandOutput extends CreateProjectMembe
  *     userIdentifier: "STRING_VALUE",
  *     groupIdentifier: "STRING_VALUE",
  *   },
- *   designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR", // required
+ *   designation: "PROJECT_OWNER" || "PROJECT_CONTRIBUTOR" || "PROJECT_CATALOG_VIEWER" || "PROJECT_CATALOG_CONSUMER" || "PROJECT_CATALOG_STEWARD", // required
  * };
  * const command = new CreateProjectMembershipCommand(input);
  * const response = await client.send(command);
@@ -76,6 +77,7 @@ export interface CreateProjectMembershipCommandOutput extends CreateProjectMembe
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateProjectMembershipCommand extends $Command
@@ -86,9 +88,7 @@ export class CreateProjectMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class CreateProjectMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProjectMembershipCommand)
   .de(de_CreateProjectMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProjectMembershipInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateProjectMembershipCommandInput;
+      output: CreateProjectMembershipCommandOutput;
+    };
+  };
+}

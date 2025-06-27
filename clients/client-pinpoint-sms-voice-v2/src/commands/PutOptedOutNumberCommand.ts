@@ -16,7 +16,8 @@ import { de_PutOptedOutNumberCommand, se_PutOptedOutNumberCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +32,7 @@ export interface PutOptedOutNumberCommandInput extends PutOptedOutNumberRequest 
 export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult, __MetadataBearer {}
 
 /**
- * <p>Creates an opted out destination phone number in the opt-out list.</p>
- *          <p>If the destination phone number isn't valid or if the specified opt-out list doesn't
- *             exist, an error is returned.</p>
+ * <p>Creates an opted out destination phone number in the opt-out list.</p> <p>If the destination phone number isn't valid or if the specified opt-out list doesn't exist, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,25 +62,23 @@ export interface PutOptedOutNumberCommandOutput extends PutOptedOutNumberResult,
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -93,9 +90,7 @@ export class PutOptedOutNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +102,16 @@ export class PutOptedOutNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutOptedOutNumberCommand)
   .de(de_PutOptedOutNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutOptedOutNumberRequest;
+      output: PutOptedOutNumberResult;
+    };
+    sdk: {
+      input: PutOptedOutNumberCommandInput;
+      output: PutOptedOutNumberCommandOutput;
+    };
+  };
+}

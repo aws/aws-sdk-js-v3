@@ -12,7 +12,8 @@ import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface GetContentCommandOutput extends GetContentResponse, __MetadataB
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class GetContentCommand extends $Command
@@ -93,9 +95,7 @@ export class GetContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class GetContentCommand extends $Command
   .f(void 0, GetContentResponseFilterSensitiveLog)
   .ser(se_GetContentCommand)
   .de(de_GetContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContentRequest;
+      output: GetContentResponse;
+    };
+    sdk: {
+      input: GetContentCommandInput;
+      output: GetContentCommandOutput;
+    };
+  };
+}

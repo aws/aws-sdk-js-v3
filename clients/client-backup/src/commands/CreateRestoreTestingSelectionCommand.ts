@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -136,6 +137,7 @@ export interface CreateRestoreTestingSelectionCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateRestoreTestingSelectionCommand extends $Command
@@ -146,9 +148,7 @@ export class CreateRestoreTestingSelectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +160,16 @@ export class CreateRestoreTestingSelectionCommand extends $Command
   .f(CreateRestoreTestingSelectionInputFilterSensitiveLog, void 0)
   .ser(se_CreateRestoreTestingSelectionCommand)
   .de(de_CreateRestoreTestingSelectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRestoreTestingSelectionInput;
+      output: CreateRestoreTestingSelectionOutput;
+    };
+    sdk: {
+      input: CreateRestoreTestingSelectionCommandInput;
+      output: CreateRestoreTestingSelectionCommandOutput;
+    };
+  };
+}

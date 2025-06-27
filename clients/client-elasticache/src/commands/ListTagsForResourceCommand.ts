@@ -12,7 +12,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *             tags to categorize and track all your ElastiCache resources, with the exception of
  *             global replication group. When you add or remove tags on replication groups, those
  *             actions will be replicated to all nodes in the replication group. For more information,
- *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
+ *             see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/dg/IAM.ResourceLevelPermissions.html">Resource-level permissions</a>.</p>
  *          <p>If the cluster is not in the <i>available</i> state,
  *                 <code>ListTagsForResource</code> returns an error.</p>
  * @example
@@ -86,7 +87,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *  <p>The requested replication group is not in the <code>available</code> state.</p>
  *
  * @throws {@link InvalidServerlessCacheSnapshotStateFault} (client fault)
- *  <p>The state of the serverless cache snapshot was not received. Available for Redis only.</p>
+ *  <p>The state of the serverless cache snapshot was not received. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link InvalidServerlessCacheStateFault} (client fault)
  *  <p>The account for these credentials is not currently active.</p>
@@ -101,7 +102,7 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  *  <p>The serverless cache was not found or does not exist.</p>
  *
  * @throws {@link ServerlessCacheSnapshotNotFoundFault} (client fault)
- *  <p>This serverless cache snapshot could not be found or does not exist. Available for Redis only.</p>
+ *  <p>This serverless cache snapshot could not be found or does not exist. Available for Valkey, Redis OSS and Serverless Memcached only.</p>
  *
  * @throws {@link SnapshotNotFoundFault} (client fault)
  *  <p>The requested snapshot name does not refer to an existing snapshot.</p>
@@ -115,32 +116,32 @@ export interface ListTagsForResourceCommandOutput extends TagListMessage, __Meta
  * @throws {@link ElastiCacheServiceException}
  * <p>Base exception class for all service exceptions from ElastiCache service.</p>
  *
- * @public
+ *
  * @example ListTagsForResource
  * ```javascript
  * // Lists all cost allocation tags currently on the named resource. A cost allocation tag is a key-value pair where the key is case-sensitive and the value is optional. You can use cost allocation tags to categorize and track your AWS costs.
  * const input = {
- *   "ResourceName": "arn:aws:elasticache:us-west-2:<my-account-id>:cluster:mycluster"
+ *   ResourceName: "arn:aws:elasticache:us-west-2:<my-account-id>:cluster:mycluster"
  * };
  * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagList": [
+ *   TagList: [
  *     {
- *       "Key": "APIVersion",
- *       "Value": "20150202"
+ *       Key: "APIVersion",
+ *       Value: "20150202"
  *     },
  *     {
- *       "Key": "Service",
- *       "Value": "ElastiCache"
+ *       Key: "Service",
+ *       Value: "ElastiCache"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listtagsforresource-1481748784584
  * ```
  *
+ * @public
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<
@@ -150,9 +151,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElastiCacheClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +163,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceMessage;
+      output: TagListMessage;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

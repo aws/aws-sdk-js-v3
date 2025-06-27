@@ -10,7 +10,7 @@ AWS SDK for JavaScript NetworkManager Client for Node.js, Browser and React Nati
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-networkmanager
+To install this package, simply type add or install @aws-sdk/client-networkmanager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-networkmanager`
@@ -281,6 +281,14 @@ CreateDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/CreateDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/CreateDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/CreateDeviceCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDirectConnectGatewayAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/CreateDirectConnectGatewayAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/CreateDirectConnectGatewayAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/CreateDirectConnectGatewayAttachmentCommandOutput/)
 
 </details>
 <details>
@@ -565,6 +573,14 @@ GetDevices
 </details>
 <details>
 <summary>
+GetDirectConnectGatewayAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/GetDirectConnectGatewayAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/GetDirectConnectGatewayAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/GetDirectConnectGatewayAttachmentCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetLinkAssociations
 </summary>
 
@@ -841,6 +857,14 @@ UpdateDevice
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/UpdateDeviceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UpdateDeviceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UpdateDeviceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDirectConnectGatewayAttachment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/networkmanager/command/UpdateDirectConnectGatewayAttachmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UpdateDirectConnectGatewayAttachmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-networkmanager/Interface/UpdateDirectConnectGatewayAttachmentCommandOutput/)
 
 </details>
 <details>

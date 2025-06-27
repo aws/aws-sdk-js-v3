@@ -12,7 +12,8 @@ import { de_CreateLocationFsxLustreCommand, se_CreateLocationFsxLustreCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,9 @@ export interface CreateLocationFsxLustreCommandInput extends CreateLocationFsxLu
 export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxLustreResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an Amazon FSx for Lustre file system.
- *       DataSync can use this location as a source or destination for transferring
- *       data.</p>
+ * <p>Creates a transfer <i>location</i> for an Amazon FSx for Lustre file
+ *       system. DataSync can use this location as a source or destination for
+ *       transferring data.</p>
  *          <p>Before you begin, make sure that you understand how DataSync
  *       <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-lustre-location.html#create-lustre-location-access">accesses FSx for Lustre file systems</a>.</p>
  * @example
@@ -75,6 +76,7 @@ export interface CreateLocationFsxLustreCommandOutput extends CreateLocationFsxL
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationFsxLustreCommand extends $Command
@@ -85,9 +87,7 @@ export class CreateLocationFsxLustreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class CreateLocationFsxLustreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLocationFsxLustreCommand)
   .de(de_CreateLocationFsxLustreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationFsxLustreRequest;
+      output: CreateLocationFsxLustreResponse;
+    };
+    sdk: {
+      input: CreateLocationFsxLustreCommandInput;
+      output: CreateLocationFsxLustreCommandOutput;
+    };
+  };
+}

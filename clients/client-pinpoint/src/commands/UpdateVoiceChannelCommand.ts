@@ -12,7 +12,8 @@ import { de_UpdateVoiceChannelCommand, se_UpdateVoiceChannelCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface UpdateVoiceChannelCommandOutput extends UpdateVoiceChannelRespo
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class UpdateVoiceChannelCommand extends $Command
@@ -99,9 +101,7 @@ export class UpdateVoiceChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class UpdateVoiceChannelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVoiceChannelCommand)
   .de(de_UpdateVoiceChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVoiceChannelRequest;
+      output: UpdateVoiceChannelResponse;
+    };
+    sdk: {
+      input: UpdateVoiceChannelCommandInput;
+      output: UpdateVoiceChannelCommandOutput;
+    };
+  };
+}

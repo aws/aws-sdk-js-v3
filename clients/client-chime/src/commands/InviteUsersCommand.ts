@@ -11,13 +11,14 @@ import {
   InviteUsersRequestFilterSensitiveLog,
   InviteUsersResponse,
   InviteUsersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_InviteUsersCommand, se_InviteUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface InviteUsersCommandOutput extends InviteUsersResponse, __Metadat
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class InviteUsersCommand extends $Command
@@ -103,9 +105,7 @@ export class InviteUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class InviteUsersCommand extends $Command
   .f(InviteUsersRequestFilterSensitiveLog, InviteUsersResponseFilterSensitiveLog)
   .ser(se_InviteUsersCommand)
   .de(de_InviteUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: InviteUsersRequest;
+      output: InviteUsersResponse;
+    };
+    sdk: {
+      input: InviteUsersCommandInput;
+      output: InviteUsersCommandOutput;
+    };
+  };
+}

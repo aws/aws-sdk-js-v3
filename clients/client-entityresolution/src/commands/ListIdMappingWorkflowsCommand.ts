@@ -12,7 +12,8 @@ import { de_ListIdMappingWorkflowsCommand, se_ListIdMappingWorkflowsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListIdMappingWorkflowsCommandInput extends ListIdMappingWorkflo
 export interface ListIdMappingWorkflowsCommandOutput extends ListIdMappingWorkflowsOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of all the <code>IdMappingWorkflows</code> that have been created for an
- *             Amazon Web Services account.</p>
+ * <p>Returns a list of all the <code>IdMappingWorkflows</code> that have been created for an Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,27 +62,20 @@ export interface ListIdMappingWorkflowsCommandOutput extends ListIdMappingWorkfl
  * @see {@link EntityResolutionClientResolvedConfig | config} for EntityResolutionClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>You do not have sufficient access to perform this action. <code>HTTP Status Code:
- *             403</code>
- *          </p>
+ *  <p>You do not have sufficient access to perform this action. </p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>This exception occurs when there is an internal failure in the Entity Resolution
- *          service. <code>HTTP Status Code: 500</code>
- *          </p>
+ *  <p>This exception occurs when there is an internal failure in the Entity Resolution service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to request throttling. <code>HTTP Status Code:
- *          429</code>
- *          </p>
+ *  <p>The request was denied due to request throttling. </p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by Entity Resolution. <code>HTTP
- *             Status Code: 400</code>
- *          </p>
+ *  <p>The input fails to satisfy the constraints specified by Entity Resolution. </p>
  *
  * @throws {@link EntityResolutionServiceException}
  * <p>Base exception class for all service exceptions from EntityResolution service.</p>
+ *
  *
  * @public
  */
@@ -94,9 +87,7 @@ export class ListIdMappingWorkflowsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EntityResolutionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +99,16 @@ export class ListIdMappingWorkflowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIdMappingWorkflowsCommand)
   .de(de_ListIdMappingWorkflowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIdMappingWorkflowsInput;
+      output: ListIdMappingWorkflowsOutput;
+    };
+    sdk: {
+      input: ListIdMappingWorkflowsCommandInput;
+      output: ListIdMappingWorkflowsCommandOutput;
+    };
+  };
+}

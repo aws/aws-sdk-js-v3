@@ -16,7 +16,8 @@ import { de_DeleteScalingPolicyCommand, se_DeleteScalingPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,9 +46,9 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // DeleteScalingPolicyRequest
  *   PolicyName: "STRING_VALUE", // required
- *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune" || "workspaces", // required
  *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:cache-cluster:Nodes" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount" || "workspaces:workspacespool:DesiredUserSessions", // required
  * };
  * const command = new DeleteScalingPolicyCommand(input);
  * const response = await client.send(command);
@@ -82,21 +83,24 @@ export interface DeleteScalingPolicyCommandOutput extends DeleteScalingPolicyRes
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To delete a scaling policy
  * ```javascript
  * // This example deletes a scaling policy for the Amazon ECS service called web-app, which is running in the default cluster.
  * const input = {
- *   "PolicyName": "web-app-cpu-lt-25",
- *   "ResourceId": "service/default/web-app",
- *   "ScalableDimension": "ecs:service:DesiredCount",
- *   "ServiceNamespace": "ecs"
+ *   PolicyName: "web-app-cpu-lt-25",
+ *   ResourceId: "service/default/web-app",
+ *   ScalableDimension: "ecs:service:DesiredCount",
+ *   ServiceNamespace: "ecs"
  * };
  * const command = new DeleteScalingPolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-a-scaling-policy-1470863892689
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteScalingPolicyCommand extends $Command
   .classBuilder<
@@ -106,9 +110,7 @@ export class DeleteScalingPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +122,16 @@ export class DeleteScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteScalingPolicyCommand)
   .de(de_DeleteScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteScalingPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteScalingPolicyCommandInput;
+      output: DeleteScalingPolicyCommandOutput;
+    };
+  };
+}

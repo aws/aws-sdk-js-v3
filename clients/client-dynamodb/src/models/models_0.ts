@@ -28,7 +28,7 @@ export interface ArchivalSummary {
    *             format.</p>
    * @public
    */
-  ArchivalDateTime?: Date;
+  ArchivalDateTime?: Date | undefined;
 
   /**
    * <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p>
@@ -42,7 +42,7 @@ export interface ArchivalSummary {
    *          </ul>
    * @public
    */
-  ArchivalReason?: string;
+  ArchivalReason?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when
@@ -50,7 +50,7 @@ export interface ArchivalSummary {
    *             name, you will need to delete the original table.</p>
    * @public
    */
-  ArchivalBackupArn?: string;
+  ArchivalBackupArn?: string | undefined;
 }
 
 /**
@@ -84,8 +84,7 @@ export const ScalarAttributeType = {
 export type ScalarAttributeType = (typeof ScalarAttributeType)[keyof typeof ScalarAttributeType];
 
 /**
- * <p>Represents an attribute for describing the schema for the table and
- *             indexes.</p>
+ * <p>Represents an attribute for describing the schema for the table and indexes.</p>
  * @public
  */
 export interface AttributeDefinition {
@@ -128,7 +127,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
    *             remove capacity from the scalable resource. The default value is false.</p>
    * @public
    */
-  DisableScaleIn?: boolean;
+  DisableScaleIn?: boolean | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale in activity completes before another
@@ -139,7 +138,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
    *             target immediately. </p>
    * @public
    */
-  ScaleInCooldown?: number;
+  ScaleInCooldown?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale out activity completes before another
@@ -149,7 +148,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationDescription 
    *             excessively) scale out.</p>
    * @public
    */
-  ScaleOutCooldown?: number;
+  ScaleOutCooldown?: number | undefined;
 
   /**
    * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
@@ -168,13 +167,13 @@ export interface AutoScalingPolicyDescription {
    * <p>The name of the scaling policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>Represents a target tracking scaling policy configuration.</p>
    * @public
    */
-  TargetTrackingScalingPolicyConfiguration?: AutoScalingTargetTrackingScalingPolicyConfigurationDescription;
+  TargetTrackingScalingPolicyConfiguration?: AutoScalingTargetTrackingScalingPolicyConfigurationDescription | undefined;
 }
 
 /**
@@ -190,7 +189,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
    *             remove capacity from the scalable resource. The default value is false.</p>
    * @public
    */
-  DisableScaleIn?: boolean;
+  DisableScaleIn?: boolean | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale in activity completes before another
@@ -201,7 +200,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
    *             target immediately. </p>
    * @public
    */
-  ScaleInCooldown?: number;
+  ScaleInCooldown?: number | undefined;
 
   /**
    * <p>The amount of time, in seconds, after a scale out activity completes before another
@@ -211,7 +210,7 @@ export interface AutoScalingTargetTrackingScalingPolicyConfigurationUpdate {
    *             excessively) scale out.</p>
    * @public
    */
-  ScaleOutCooldown?: number;
+  ScaleOutCooldown?: number | undefined;
 
   /**
    * <p>The target value for the metric. The range is 8.515920e-109 to 1.174271e+108 (Base 10)
@@ -230,7 +229,7 @@ export interface AutoScalingPolicyUpdate {
    * <p>The name of the scaling policy.</p>
    * @public
    */
-  PolicyName?: string;
+  PolicyName?: string | undefined;
 
   /**
    * <p>Represents a target tracking scaling policy configuration.</p>
@@ -250,32 +249,32 @@ export interface AutoScalingSettingsDescription {
    *             scaled down to.</p>
    * @public
    */
-  MinimumUnits?: number;
+  MinimumUnits?: number | undefined;
 
   /**
    * <p>The maximum capacity units that a global table or global secondary index should be
    *             scaled up to.</p>
    * @public
    */
-  MaximumUnits?: number;
+  MaximumUnits?: number | undefined;
 
   /**
    * <p>Disabled auto scaling for this global table or global secondary index.</p>
    * @public
    */
-  AutoScalingDisabled?: boolean;
+  AutoScalingDisabled?: boolean | undefined;
 
   /**
    * <p>Role ARN used for configuring the auto scaling policy.</p>
    * @public
    */
-  AutoScalingRoleArn?: string;
+  AutoScalingRoleArn?: string | undefined;
 
   /**
    * <p>Information about the scaling policies.</p>
    * @public
    */
-  ScalingPolicies?: AutoScalingPolicyDescription[];
+  ScalingPolicies?: AutoScalingPolicyDescription[] | undefined;
 }
 
 /**
@@ -289,33 +288,33 @@ export interface AutoScalingSettingsUpdate {
    *             scaled down to.</p>
    * @public
    */
-  MinimumUnits?: number;
+  MinimumUnits?: number | undefined;
 
   /**
    * <p>The maximum capacity units that a global table or global secondary index should be
    *             scaled up to.</p>
    * @public
    */
-  MaximumUnits?: number;
+  MaximumUnits?: number | undefined;
 
   /**
    * <p>Disabled auto scaling for this global table or global secondary index.</p>
    * @public
    */
-  AutoScalingDisabled?: boolean;
+  AutoScalingDisabled?: boolean | undefined;
 
   /**
    * <p>Role ARN used for configuring auto scaling policy.</p>
    * @public
    */
-  AutoScalingRoleArn?: string;
+  AutoScalingRoleArn?: string | undefined;
 
   /**
    * <p>The scaling policy to apply for scaling target global table or global secondary index
    *             capacity units.</p>
    * @public
    */
-  ScalingPolicyUpdate?: AutoScalingPolicyUpdate;
+  ScalingPolicyUpdate?: AutoScalingPolicyUpdate | undefined;
 }
 
 /**
@@ -370,7 +369,7 @@ export interface BackupDetails {
    *             hours. Recent changes might not be reflected in this value.</p>
    * @public
    */
-  BackupSizeBytes?: number;
+  BackupSizeBytes?: number | undefined;
 
   /**
    * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED. </p>
@@ -414,7 +413,7 @@ export interface BackupDetails {
    *             its creation.</p>
    * @public
    */
-  BackupExpiryDateTime?: Date;
+  BackupExpiryDateTime?: Date | undefined;
 }
 
 /**
@@ -493,28 +492,37 @@ export interface KeySchemaElement {
 }
 
 /**
- * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+ * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+ *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+ *                 <code>MaxWriteRequestUnits</code>, or both.</p>
  * @public
  */
 export interface OnDemandThroughput {
   /**
    * <p>Maximum number of read request units for the specified table.</p>
-   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxReadRequestUnits</code> to -1.</p>
+   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of
+   *                 <code>MaxReadRequestUnits</code> as greater than or equal to 1. To remove the
+   *             maximum <code>OnDemandThroughput</code> that is currently set on your table, set the
+   *             value of <code>MaxReadRequestUnits</code> to -1.</p>
    * @public
    */
-  MaxReadRequestUnits?: number;
+  MaxReadRequestUnits?: number | undefined;
 
   /**
    * <p>Maximum number of write request units for the specified table.</p>
-   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the maximum <code>OnDemandThroughput</code> that is currently set on your table, set the value of <code>MaxWriteRequestUnits</code> to -1.</p>
+   *          <p>To specify a maximum <code>OnDemandThroughput</code> on your table, set the value of
+   *                 <code>MaxWriteRequestUnits</code> as greater than or equal to 1. To remove the
+   *             maximum <code>OnDemandThroughput</code> that is currently set on your table, set the
+   *             value of <code>MaxWriteRequestUnits</code> to -1.</p>
    * @public
    */
-  MaxWriteRequestUnits?: number;
+  MaxWriteRequestUnits?: number | undefined;
 }
 
 /**
- * <p>Represents the provisioned throughput settings for a specified table or index. The
- *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+ * <p>Represents the provisioned throughput settings for the specified global secondary
+ *             index. You must use <code>ProvisionedThroughput</code> or
+ *                 <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
  *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
  *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
  *                 Guide</i>.</p>
@@ -523,8 +531,9 @@ export interface OnDemandThroughput {
 export interface ProvisionedThroughput {
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
-   *             returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
-   *                 Developer Guide</i>.</p>
+   *             returns a <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+   *                 Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    *          <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
    *             0.</p>
    * @public
@@ -533,8 +542,9 @@ export interface ProvisionedThroughput {
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
-   *                 <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying Read and Write Requirements</a> in the <i>Amazon DynamoDB
-   *                 Developer Guide</i>.</p>
+   *                 <code>ThrottlingException</code>. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughput.html">Specifying
+   *                 Read and Write Requirements</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    *          <p>If read/write capacity mode is <code>PAY_PER_REQUEST</code> the value is set to
    *             0.</p>
    * @public
@@ -563,13 +573,13 @@ export interface SourceTableDetails {
    * <p>ARN of the table for which backup was created. </p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p>Size of the table in bytes. Note that this is an approximate value.</p>
    * @public
    */
-  TableSizeBytes?: number;
+  TableSizeBytes?: number | undefined;
 
   /**
    * <p>Schema of the table. </p>
@@ -590,16 +600,18 @@ export interface SourceTableDetails {
   ProvisionedThroughput: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
    * <p>Number of items in the table. Note that this is an approximate value. </p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>Controls how you are charged for read and write throughput and how you manage
@@ -620,7 +632,7 @@ export interface SourceTableDetails {
    *          </ul>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 }
 
 /**
@@ -668,17 +680,20 @@ export interface Projection {
    *          <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
    * @public
    */
-  ProjectionType?: ProjectionType;
+  ProjectionType?: ProjectionType | undefined;
 
   /**
    * <p>Represents the non-key attribute names which will be projected into the index.</p>
-   *          <p>For local secondary indexes, the total count of <code>NonKeyAttributes</code> summed
-   *             across all of the local secondary indexes, must not exceed 100. If you project the same
+   *          <p>For global and local secondary indexes, the total count of <code>NonKeyAttributes</code> summed
+   *             across all of the secondary indexes, must not exceed 100. If you project the same
    *             attribute into two different indexes, this counts as two distinct attributes when
-   *             determining the total.</p>
+   *             determining the total. This limit only applies when you specify the ProjectionType of
+   *             <code>INCLUDE</code>. You still can specify the ProjectionType of <code>ALL</code> to
+   *             project all attributes from the source table, even if the table has more than 100
+   *             attributes.</p>
    * @public
    */
-  NonKeyAttributes?: string[];
+  NonKeyAttributes?: string[] | undefined;
 }
 
 /**
@@ -691,7 +706,7 @@ export interface GlobalSecondaryIndexInfo {
    * <p>The name of the global secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The complete key schema for a global secondary index, which consists of one or more
@@ -717,7 +732,7 @@ export interface GlobalSecondaryIndexInfo {
    *          </note>
    * @public
    */
-  KeySchema?: KeySchemaElement[];
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -725,20 +740,22 @@ export interface GlobalSecondaryIndexInfo {
    *             attributes, which are automatically projected. </p>
    * @public
    */
-  Projection?: Projection;
+  Projection?: Projection | undefined;
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary
    *             index. </p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
 }
 
 /**
@@ -751,7 +768,7 @@ export interface LocalSecondaryIndexInfo {
    * <p>Represents the name of the local secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The complete key schema for a local secondary index, which consists of one or more
@@ -778,7 +795,7 @@ export interface LocalSecondaryIndexInfo {
    *          </note>
    * @public
    */
-  KeySchema?: KeySchemaElement[];
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -786,7 +803,7 @@ export interface LocalSecondaryIndexInfo {
    *             attributes, which are automatically projected. </p>
    * @public
    */
-  Projection?: Projection;
+  Projection?: Projection | undefined;
 }
 
 /**
@@ -840,7 +857,7 @@ export interface SSEDescription {
    *          </ul>
    * @public
    */
-  Status?: SSEStatus;
+  Status?: SSEStatus | undefined;
 
   /**
    * <p>Server-side encryption type. The only supported value is:</p>
@@ -853,13 +870,13 @@ export interface SSEDescription {
    *          </ul>
    * @public
    */
-  SSEType?: SSEType;
+  SSEType?: SSEType | undefined;
 
   /**
    * <p>The KMS key ARN used for the KMS encryption.</p>
    * @public
    */
-  KMSMasterKeyArn?: string;
+  KMSMasterKeyArn?: string | undefined;
 
   /**
    * <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that
@@ -868,7 +885,7 @@ export interface SSEDescription {
    *             again. DynamoDB will initiate the table archival process when table's KMS key remains inaccessible for more than seven days from this date.</p>
    * @public
    */
-  InaccessibleEncryptionDateTime?: Date;
+  InaccessibleEncryptionDateTime?: Date | undefined;
 }
 
 /**
@@ -927,7 +944,7 @@ export interface StreamSpecification {
    *          </ul>
    * @public
    */
-  StreamViewType?: StreamViewType;
+  StreamViewType?: StreamViewType | undefined;
 }
 
 /**
@@ -955,13 +972,13 @@ export interface TimeToLiveDescription {
    * <p> The TTL status for the table.</p>
    * @public
    */
-  TimeToLiveStatus?: TimeToLiveStatus;
+  TimeToLiveStatus?: TimeToLiveStatus | undefined;
 
   /**
    * <p> The name of the TTL attribute for items in the table.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 }
 
 /**
@@ -976,7 +993,7 @@ export interface SourceTableFeatureDetails {
    *         </p>
    * @public
    */
-  LocalSecondaryIndexes?: LocalSecondaryIndexInfo[];
+  LocalSecondaryIndexes?: LocalSecondaryIndexInfo[] | undefined;
 
   /**
    * <p>Represents the GSI properties for the table when the backup was created. It includes
@@ -984,26 +1001,26 @@ export interface SourceTableFeatureDetails {
    *             table at the time of backup. </p>
    * @public
    */
-  GlobalSecondaryIndexes?: GlobalSecondaryIndexInfo[];
+  GlobalSecondaryIndexes?: GlobalSecondaryIndexInfo[] | undefined;
 
   /**
    * <p>Stream settings on the table when the backup was created.</p>
    * @public
    */
-  StreamDescription?: StreamSpecification;
+  StreamDescription?: StreamSpecification | undefined;
 
   /**
    * <p>Time to Live settings on the table when the backup was created.</p>
    * @public
    */
-  TimeToLiveDescription?: TimeToLiveDescription;
+  TimeToLiveDescription?: TimeToLiveDescription | undefined;
 
   /**
    * <p>The description of the server-side encryption status on the table when the backup was
    *             created.</p>
    * @public
    */
-  SSEDescription?: SSEDescription;
+  SSEDescription?: SSEDescription | undefined;
 }
 
 /**
@@ -1015,20 +1032,20 @@ export interface BackupDescription {
    * <p>Contains the details of the backup created for the table. </p>
    * @public
    */
-  BackupDetails?: BackupDetails;
+  BackupDetails?: BackupDetails | undefined;
 
   /**
    * <p>Contains the details of the table when the backup was created. </p>
    * @public
    */
-  SourceTableDetails?: SourceTableDetails;
+  SourceTableDetails?: SourceTableDetails | undefined;
 
   /**
    * <p>Contains the details of the features enabled on the table when the backup was created.
    *             For example, LSIs, GSIs, streams, TTL.</p>
    * @public
    */
-  SourceTableFeatureDetails?: SourceTableFeatureDetails;
+  SourceTableFeatureDetails?: SourceTableFeatureDetails | undefined;
 }
 
 /**
@@ -1081,37 +1098,37 @@ export interface BackupSummary {
    * <p>Name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>Unique identifier for the table.</p>
    * @public
    */
-  TableId?: string;
+  TableId?: string | undefined;
 
   /**
    * <p>ARN associated with the table.</p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p>ARN associated with the backup.</p>
    * @public
    */
-  BackupArn?: string;
+  BackupArn?: string | undefined;
 
   /**
    * <p>Name of the specified backup.</p>
    * @public
    */
-  BackupName?: string;
+  BackupName?: string | undefined;
 
   /**
    * <p>Time at which the backup was created.</p>
    * @public
    */
-  BackupCreationDateTime?: Date;
+  BackupCreationDateTime?: Date | undefined;
 
   /**
    * <p>Time at which the automatic on-demand backup created by DynamoDB will
@@ -1119,13 +1136,13 @@ export interface BackupSummary {
    *             its creation.</p>
    * @public
    */
-  BackupExpiryDateTime?: Date;
+  BackupExpiryDateTime?: Date | undefined;
 
   /**
    * <p>Backup can be in one of the following states: CREATING, ACTIVE, DELETED.</p>
    * @public
    */
-  BackupStatus?: BackupStatus;
+  BackupStatus?: BackupStatus | undefined;
 
   /**
    * <p>BackupType:</p>
@@ -1149,13 +1166,13 @@ export interface BackupSummary {
    *          </ul>
    * @public
    */
-  BackupType?: BackupType;
+  BackupType?: BackupType | undefined;
 
   /**
    * <p>Size of the backup in bytes.</p>
    * @public
    */
-  BackupSizeBytes?: number;
+  BackupSizeBytes?: number | undefined;
 }
 
 /**
@@ -1214,19 +1231,19 @@ export interface Capacity {
    * <p>The total number of read capacity units consumed on a table or an index.</p>
    * @public
    */
-  ReadCapacityUnits?: number;
+  ReadCapacityUnits?: number | undefined;
 
   /**
    * <p>The total number of write capacity units consumed on a table or an index.</p>
    * @public
    */
-  WriteCapacityUnits?: number;
+  WriteCapacityUnits?: number | undefined;
 
   /**
    * <p>The total number of capacity units consumed on a table or an index.</p>
    * @public
    */
-  CapacityUnits?: number;
+  CapacityUnits?: number | undefined;
 }
 
 /**
@@ -1239,48 +1256,49 @@ export interface Capacity {
  */
 export interface ConsumedCapacity {
   /**
-   * <p>The name of the table that was affected by the operation. If you had specified the Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
+   * <p>The name of the table that was affected by the operation. If you had specified the
+   *             Amazon Resource Name (ARN) of a table in the input, you'll see the table ARN in the response.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The total number of capacity units consumed by the operation.</p>
    * @public
    */
-  CapacityUnits?: number;
+  CapacityUnits?: number | undefined;
 
   /**
    * <p>The total number of read capacity units consumed by the operation.</p>
    * @public
    */
-  ReadCapacityUnits?: number;
+  ReadCapacityUnits?: number | undefined;
 
   /**
    * <p>The total number of write capacity units consumed by the operation.</p>
    * @public
    */
-  WriteCapacityUnits?: number;
+  WriteCapacityUnits?: number | undefined;
 
   /**
    * <p>The amount of throughput consumed on the table affected by the operation.</p>
    * @public
    */
-  Table?: Capacity;
+  Table?: Capacity | undefined;
 
   /**
    * <p>The amount of throughput consumed on each local index affected by the
    *             operation.</p>
    * @public
    */
-  LocalSecondaryIndexes?: Record<string, Capacity>;
+  LocalSecondaryIndexes?: Record<string, Capacity> | undefined;
 
   /**
    * <p>The amount of throughput consumed on each global index affected by the
    *             operation.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: Record<string, Capacity>;
+  GlobalSecondaryIndexes?: Record<string, Capacity> | undefined;
 }
 
 /**
@@ -1329,7 +1347,7 @@ export class InternalServerError extends __BaseException {
 
 /**
  * <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  * @public
  */
@@ -1355,7 +1373,7 @@ export class RequestLimitExceeded extends __BaseException {
 export class InvalidEndpointException extends __BaseException {
   readonly name: "InvalidEndpointException" = "InvalidEndpointException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -1480,14 +1498,14 @@ export interface BillingModeSummary {
    *          </ul>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>Represents the time when <code>PAY_PER_REQUEST</code> was last set as the read/write
    *             capacity mode.</p>
    * @public
    */
-  LastUpdateToPayPerRequestDateTime?: Date;
+  LastUpdateToPayPerRequestDateTime?: Date | undefined;
 }
 
 /**
@@ -1576,14 +1594,22 @@ export interface PointInTimeRecoveryDescription {
    *          </ul>
    * @public
    */
-  PointInTimeRecoveryStatus?: PointInTimeRecoveryStatus;
+  PointInTimeRecoveryStatus?: PointInTimeRecoveryStatus | undefined;
+
+  /**
+   * <p>The number of preceding days for which continuous backups are taken and maintained.
+   *             Your table data is only recoverable to any point-in-time from within the configured
+   *             recovery period. This parameter is optional.</p>
+   * @public
+   */
+  RecoveryPeriodInDays?: number | undefined;
 
   /**
    * <p>Specifies the earliest point in time you can restore your table to. You can restore
    *             your table to any point in time during the last 35 days. </p>
    * @public
    */
-  EarliestRestorableDateTime?: Date;
+  EarliestRestorableDateTime?: Date | undefined;
 
   /**
    * <p>
@@ -1591,7 +1617,7 @@ export interface PointInTimeRecoveryDescription {
    *         </p>
    * @public
    */
-  LatestRestorableDateTime?: Date;
+  LatestRestorableDateTime?: Date | undefined;
 }
 
 /**
@@ -1612,7 +1638,7 @@ export interface ContinuousBackupsDescription {
    * <p>The description of the point in time recovery settings applied to the table.</p>
    * @public
    */
-  PointInTimeRecoveryDescription?: PointInTimeRecoveryDescription;
+  PointInTimeRecoveryDescription?: PointInTimeRecoveryDescription | undefined;
 }
 
 /**
@@ -1675,20 +1701,20 @@ export interface ContributorInsightsSummary {
    * <p>Name of the table associated with the summary.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>Name of the index associated with the summary, if any.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>Describes the current status for contributor insights for the given table and index,
    *             if applicable.</p>
    * @public
    */
-  ContributorInsightsStatus?: ContributorInsightsStatus;
+  ContributorInsightsStatus?: ContributorInsightsStatus | undefined;
 }
 
 /**
@@ -1696,7 +1722,8 @@ export interface ContributorInsightsSummary {
  */
 export interface CreateBackupInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -1716,7 +1743,7 @@ export interface CreateBackupOutput {
    * <p>Contains the details of the backup created for the table.</p>
    * @public
    */
-  BackupDetails?: BackupDetails;
+  BackupDetails?: BackupDetails | undefined;
 }
 
 /**
@@ -1795,6 +1822,29 @@ export class TableNotFoundException extends __BaseException {
 }
 
 /**
+ * <p>Provides visibility into the number of read and write operations your table or
+ *             secondary index can instantaneously support. The settings can be modified using the
+ *                 <code>UpdateTable</code> operation to meet the throughput requirements of an
+ *             upcoming peak event.</p>
+ * @public
+ */
+export interface WarmThroughput {
+  /**
+   * <p>Represents the number of read operations your base table can instantaneously
+   *             support.</p>
+   * @public
+   */
+  ReadUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents the number of write operations your base table can instantaneously
+   *             support.</p>
+   * @public
+   */
+  WriteUnitsPerSecond?: number | undefined;
+}
+
+/**
  * <p>Represents a new global secondary index to be added to an existing table.</p>
  * @public
  */
@@ -1827,13 +1877,24 @@ export interface CreateGlobalSecondaryIndexAction {
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the global secondary index being created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the global secondary index being
+   *             created. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
+   *             <code>OnDemand Throughput</code> or <code>ProvisionedThroughput</code> based on your table's
+   *         capacity mode.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value (in read units per second and write units per
+   *             second) when creating a secondary index.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -1845,7 +1906,7 @@ export interface Replica {
    * <p>The Region where the replica needs to be created.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 }
 
 /**
@@ -1882,7 +1943,9 @@ export const GlobalTableStatus = {
 export type GlobalTableStatus = (typeof GlobalTableStatus)[keyof typeof GlobalTableStatus];
 
 /**
- * <p>Overrides the on-demand throughput settings for this replica table. If you don't specify a value for this parameter, it uses the source table's on-demand throughput settings.</p>
+ * <p>Overrides the on-demand throughput settings for this replica table. If you don't
+ *             specify a value for this parameter, it uses the source table's on-demand throughput
+ *             settings.</p>
  * @public
  */
 export interface OnDemandThroughputOverride {
@@ -1890,7 +1953,7 @@ export interface OnDemandThroughputOverride {
    * <p>Maximum number of read request units for the specified replica table.</p>
    * @public
    */
-  MaxReadRequestUnits?: number;
+  MaxReadRequestUnits?: number | undefined;
 }
 
 /**
@@ -1904,7 +1967,50 @@ export interface ProvisionedThroughputOverride {
    *             capacity settings.</p>
    * @public
    */
-  ReadCapacityUnits?: number;
+  ReadCapacityUnits?: number | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IndexStatus = {
+  ACTIVE: "ACTIVE",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
+
+/**
+ * <p>The description of the warm throughput value on a global secondary index.</p>
+ * @public
+ */
+export interface GlobalSecondaryIndexWarmThroughputDescription {
+  /**
+   * <p>Represents warm throughput read units per second value for a global secondary
+   *             index.</p>
+   * @public
+   */
+  ReadUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents warm throughput write units per second value for a global secondary
+   *             index.</p>
+   * @public
+   */
+  WriteUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents the warm throughput status being created or updated on a global secondary
+   *             index. The status can only be <code>UPDATING</code> or <code>ACTIVE</code>.</p>
+   * @public
+   */
+  Status?: IndexStatus | undefined;
 }
 
 /**
@@ -1916,19 +2022,26 @@ export interface ReplicaGlobalSecondaryIndexDescription {
    * <p>The name of the global secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>If not described, uses the source table GSI's read capacity settings.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>Overrides the maximum on-demand throughput for the specified global secondary index in the specified replica table.</p>
+   * <p>Overrides the maximum on-demand throughput for the specified global secondary index in
+   *             the specified replica table.</p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+  OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
+
+  /**
+   * <p>Represents the warm throughput of the global secondary index for this replica.</p>
+   * @public
+   */
+  WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription | undefined;
 }
 
 /**
@@ -1974,13 +2087,58 @@ export interface TableClassSummary {
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    * @public
    */
-  TableClass?: TableClass;
+  TableClass?: TableClass | undefined;
 
   /**
    * <p>The date and time at which the table class was last updated.</p>
    * @public
    */
-  LastUpdateDateTime?: Date;
+  LastUpdateDateTime?: Date | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TableStatus = {
+  ACTIVE: "ACTIVE",
+  ARCHIVED: "ARCHIVED",
+  ARCHIVING: "ARCHIVING",
+  CREATING: "CREATING",
+  DELETING: "DELETING",
+  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+  UPDATING: "UPDATING",
+} as const;
+
+/**
+ * @public
+ */
+export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
+
+/**
+ * <p>Represents the warm throughput value (in read units per second and write units per second)
+ *             of the table. Warm throughput is applicable for DynamoDB Standard-IA tables and specifies
+ *             the minimum provisioned capacity maintained for immediate data access.</p>
+ * @public
+ */
+export interface TableWarmThroughputDescription {
+  /**
+   * <p>Represents the base table's warm throughput value in read units per second.</p>
+   * @public
+   */
+  ReadUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents the base table's warm throughput value in write units per second.</p>
+   * @public
+   */
+  WriteUnitsPerSecond?: number | undefined;
+
+  /**
+   * <p>Represents warm throughput value of the base table.</p>
+   * @public
+   */
+  Status?: TableStatus | undefined;
 }
 
 /**
@@ -1992,7 +2150,7 @@ export interface ReplicaDescription {
    * <p>The name of the Region.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>The current state of the replica:</p>
@@ -2037,59 +2195,66 @@ export interface ReplicaDescription {
    *          </ul>
    * @public
    */
-  ReplicaStatus?: ReplicaStatus;
+  ReplicaStatus?: ReplicaStatus | undefined;
 
   /**
    * <p>Detailed information about the replica status.</p>
    * @public
    */
-  ReplicaStatusDescription?: string;
+  ReplicaStatusDescription?: string | undefined;
 
   /**
    * <p>Specifies the progress of a Create, Update, or Delete action on the replica as a
    *             percentage.</p>
    * @public
    */
-  ReplicaStatusPercentProgress?: string;
+  ReplicaStatusPercentProgress?: string | undefined;
 
   /**
    * <p>The KMS key of the replica that will be used for KMS
    *             encryption.</p>
    * @public
    */
-  KMSMasterKeyId?: string;
+  KMSMasterKeyId?: string | undefined;
 
   /**
    * <p>Replica-specific provisioned throughput. If not described, uses the source table's
    *             provisioned throughput settings.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>Overrides the maximum on-demand throughput settings for the specified replica table.</p>
+   * <p>Overrides the maximum on-demand throughput settings for the specified replica
+   *             table.</p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+  OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
+
+  /**
+   * <p>Represents the warm throughput value for this replica.</p>
+   * @public
+   */
+  WarmThroughput?: TableWarmThroughputDescription | undefined;
 
   /**
    * <p>Replica-specific global secondary index settings.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexDescription[];
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexDescription[] | undefined;
 
   /**
    * <p>The time at which the replica was first detected as inaccessible. To determine cause
    *             of inaccessibility check the <code>ReplicaStatus</code> property.</p>
    * @public
    */
-  ReplicaInaccessibleDateTime?: Date;
+  ReplicaInaccessibleDateTime?: Date | undefined;
 
   /**
    * <p>Contains details of the table class.</p>
    * @public
    */
-  ReplicaTableClassSummary?: TableClassSummary;
+  ReplicaTableClassSummary?: TableClassSummary | undefined;
 }
 
 /**
@@ -2101,19 +2266,19 @@ export interface GlobalTableDescription {
    * <p>The Regions where the global table has replicas.</p>
    * @public
    */
-  ReplicationGroup?: ReplicaDescription[];
+  ReplicationGroup?: ReplicaDescription[] | undefined;
 
   /**
    * <p>The unique identifier of the global table.</p>
    * @public
    */
-  GlobalTableArn?: string;
+  GlobalTableArn?: string | undefined;
 
   /**
    * <p>The creation time of the global table.</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 
   /**
    * <p>The current state of the global table:</p>
@@ -2137,13 +2302,13 @@ export interface GlobalTableDescription {
    *          </ul>
    * @public
    */
-  GlobalTableStatus?: GlobalTableStatus;
+  GlobalTableStatus?: GlobalTableStatus | undefined;
 
   /**
    * <p>The global table name.</p>
    * @public
    */
-  GlobalTableName?: string;
+  GlobalTableName?: string | undefined;
 }
 
 /**
@@ -2154,7 +2319,7 @@ export interface CreateGlobalTableOutput {
    * <p>Contains the details of the global table.</p>
    * @public
    */
-  GlobalTableDescription?: GlobalTableDescription;
+  GlobalTableDescription?: GlobalTableDescription | undefined;
 }
 
 /**
@@ -2205,13 +2370,14 @@ export interface ReplicaGlobalSecondaryIndex {
    *             table GSI's read capacity settings.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>Overrides the maximum on-demand throughput settings for the specified global secondary index in the specified replica table.</p>
+   * <p>Overrides the maximum on-demand throughput settings for the specified global secondary
+   *             index in the specified replica table.</p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+  OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
 }
 
 /**
@@ -2233,34 +2399,35 @@ export interface CreateReplicationGroupMemberAction {
    *             <code>alias/aws/dynamodb</code>.</p>
    * @public
    */
-  KMSMasterKeyId?: string;
+  KMSMasterKeyId?: string | undefined;
 
   /**
    * <p>Replica-specific provisioned throughput. If not specified, uses the source table's
    *             provisioned throughput settings.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
-   * <p>The maximum on-demand throughput settings for the specified replica table being created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify <code>MaxWriteRequestUnits</code> for individual replica tables.
-   *         </p>
+   * <p>The maximum on-demand throughput settings for the specified replica table being
+   *             created. You can only modify <code>MaxReadRequestUnits</code>, because you can't modify
+   *                 <code>MaxWriteRequestUnits</code> for individual replica tables. </p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+  OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
 
   /**
    * <p>Replica-specific global secondary index settings.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>Replica-specific table class. If not specified, uses the source table's table
    *             class.</p>
    * @public
    */
-  TableClassOverride?: TableClass;
+  TableClassOverride?: TableClass | undefined;
 }
 
 /**
@@ -2312,19 +2479,33 @@ export interface GlobalSecondaryIndex {
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary
-   *             index.</p>
+   *             index. You must use either
+   *             <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based
+   *             on your table's capacity mode.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
    *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the specified global secondary index.
+   *             If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both. You must use either
+   *         <code>OnDemandThroughput</code> or <code>ProvisionedThroughput</code> based
+   *         on your table's capacity mode.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value (in read units per second and write units per
+   *             second) for the specified secondary index. If you use this parameter, you must specify
+   *                 <code>ReadUnitsPerSecond</code>, <code>WriteUnitsPerSecond</code>, or both.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -2387,7 +2568,7 @@ export interface SSESpecification {
    *             encryption is set to Amazon Web Services owned key.</p>
    * @public
    */
-  Enabled?: boolean;
+  Enabled?: boolean | undefined;
 
   /**
    * <p>Server-side encryption type. The only supported value is:</p>
@@ -2400,7 +2581,7 @@ export interface SSESpecification {
    *          </ul>
    * @public
    */
-  SSEType?: SSEType;
+  SSEType?: SSEType | undefined;
 
   /**
    * <p>The KMS key that should be used for the KMS encryption.
@@ -2409,7 +2590,7 @@ export interface SSESpecification {
    *             default DynamoDB key <code>alias/aws/dynamodb</code>.</p>
    * @public
    */
-  KMSMasterKeyId?: string;
+  KMSMasterKeyId?: string | undefined;
 }
 
 /**
@@ -2453,7 +2634,8 @@ export interface CreateTableInput {
   AttributeDefinitions: AttributeDefinition[] | undefined;
 
   /**
-   * <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to create. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -2560,14 +2742,17 @@ export interface CreateTableInput {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can specify the
+   *                             ProjectionType of <code>ALL</code> to project all attributes from the
+   *                             source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
    *          </ul>
    * @public
    */
-  LocalSecondaryIndexes?: LocalSecondaryIndex[];
+  LocalSecondaryIndexes?: LocalSecondaryIndex[] | undefined;
 
   /**
    * <p>One or more global secondary indexes (the maximum is 20) to be created on the table.
@@ -2620,7 +2805,10 @@ export interface CreateTableInput {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -2632,7 +2820,7 @@ export interface CreateTableInput {
    *          </ul>
    * @public
    */
-  GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
+  GlobalSecondaryIndexes?: GlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>Controls how you are charged for read and write throughput and how you manage
@@ -2640,19 +2828,20 @@ export interface CreateTableInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
+   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
+   *                     for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-   *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
+   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
+   *                     steady workloads with predictable growth where capacity requirements can be
+   *                     reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>Represents the provisioned throughput settings for a specified table or index. The
@@ -2665,7 +2854,7 @@ export interface CreateTableInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
    * <p>The settings for DynamoDB Streams on the table. These settings consist of:</p>
@@ -2706,67 +2895,69 @@ export interface CreateTableInput {
    *          </ul>
    * @public
    */
-  StreamSpecification?: StreamSpecification;
+  StreamSpecification?: StreamSpecification | undefined;
 
   /**
    * <p>Represents the settings used to enable server-side encryption.</p>
    * @public
    */
-  SSESpecification?: SSESpecification;
+  SSESpecification?: SSESpecification | undefined;
 
   /**
    * <p>A list of key-value pairs to label the table. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging
    *                 for DynamoDB</a>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The table class of the new table. Valid values are <code>STANDARD</code> and
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    * @public
    */
-  TableClass?: TableClass;
+  TableClass?: TableClass | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
+   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on
+   *             the table.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>An Amazon Web Services resource-based policy document in JSON format that will be attached to the table.</p>
-   *          <p>When you attach a resource-based policy while creating a table, the policy application is <i>strongly consistent</i>.</p>
-   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit. For a full list of all considerations that apply for resource-based policies, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   * <p>Represents the warm throughput (in read units per second and write units per second)
+   *             for creating a table.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
+
+  /**
+   * <p>An Amazon Web Services resource-based policy document in JSON format that will be
+   *             attached to the table.</p>
+   *          <p>When you attach a resource-based policy while creating a table, the policy application
+   *             is <i>strongly consistent</i>.</p>
+   *          <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this
+   *             limit. For a full list of all considerations that apply for resource-based policies, see
+   *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based
+   *                 policy considerations</a>.</p>
    *          <note>
-   *             <p>You need to specify the <code>CreateTable</code> and <code>PutResourcePolicy</code> IAM actions for authorizing a user to create a table with a resource-based policy.</p>
+   *             <p>You need to specify the <code>CreateTable</code> and
+   *                     <code>PutResourcePolicy</code>
+   *                 IAM actions for authorizing a user to create a table with a
+   *                 resource-based policy.</p>
    *          </note>
    * @public
    */
-  ResourcePolicy?: string;
+  ResourcePolicy?: string | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified table in on-demand
+   *             capacity mode. If you use this parameter, you must specify
+   *                 <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const IndexStatus = {
-  ACTIVE: "ACTIVE",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type IndexStatus = (typeof IndexStatus)[keyof typeof IndexStatus];
 
 /**
  * <p>Represents the provisioned throughput settings for the table, consisting of read and
@@ -2778,13 +2969,13 @@ export interface ProvisionedThroughputDescription {
    * <p>The date and time of the last provisioned throughput increase for this table.</p>
    * @public
    */
-  LastIncreaseDateTime?: Date;
+  LastIncreaseDateTime?: Date | undefined;
 
   /**
    * <p>The date and time of the last provisioned throughput decrease for this table.</p>
    * @public
    */
-  LastDecreaseDateTime?: Date;
+  LastDecreaseDateTime?: Date | undefined;
 
   /**
    * <p>The number of provisioned throughput decreases for this table during this UTC calendar
@@ -2793,7 +2984,7 @@ export interface ProvisionedThroughputDescription {
    *                 Guide</i>.</p>
    * @public
    */
-  NumberOfDecreasesToday?: number;
+  NumberOfDecreasesToday?: number | undefined;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
@@ -2803,14 +2994,14 @@ export interface ProvisionedThroughputDescription {
    *             second.</p>
    * @public
    */
-  ReadCapacityUnits?: number;
+  ReadCapacityUnits?: number | undefined;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
    *                 <code>ThrottlingException</code>.</p>
    * @public
    */
-  WriteCapacityUnits?: number;
+  WriteCapacityUnits?: number | undefined;
 }
 
 /**
@@ -2822,7 +3013,7 @@ export interface GlobalSecondaryIndexDescription {
    * <p>The name of the global secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The complete key schema for a global secondary index, which consists of one or more
@@ -2848,7 +3039,7 @@ export interface GlobalSecondaryIndexDescription {
    *          </note>
    * @public
    */
-  KeySchema?: KeySchemaElement[];
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -2856,7 +3047,7 @@ export interface GlobalSecondaryIndexDescription {
    *             attributes, which are automatically projected. </p>
    * @public
    */
-  Projection?: Projection;
+  Projection?: Projection | undefined;
 
   /**
    * <p>The current state of the global secondary index:</p>
@@ -2880,7 +3071,7 @@ export interface GlobalSecondaryIndexDescription {
    *          </ul>
    * @public
    */
-  IndexStatus?: IndexStatus;
+  IndexStatus?: IndexStatus | undefined;
 
   /**
    * <p>Indicates whether the index is currently backfilling. <i>Backfilling</i>
@@ -2900,7 +3091,7 @@ export interface GlobalSecondaryIndexDescription {
    *          </note>
    * @public
    */
-  Backfilling?: boolean;
+  Backfilling?: boolean | undefined;
 
   /**
    * <p>Represents the provisioned throughput settings for the specified global secondary
@@ -2910,7 +3101,7 @@ export interface GlobalSecondaryIndexDescription {
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughputDescription;
+  ProvisionedThroughput?: ProvisionedThroughputDescription | undefined;
 
   /**
    * <p>The total size of the specified index, in bytes. DynamoDB updates this value
@@ -2918,26 +3109,35 @@ export interface GlobalSecondaryIndexDescription {
    *             value.</p>
    * @public
    */
-  IndexSizeBytes?: number;
+  IndexSizeBytes?: number | undefined;
 
   /**
    * <p>The number of items in the specified index. DynamoDB updates this value approximately
    *             every six hours. Recent changes might not be reflected in this value.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
    * @public
    */
-  IndexArn?: string;
+  IndexArn?: string | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the specified global secondary index.
+   *             If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value (in read units per second and write units per
+   *             second) for the specified secondary index.</p>
+   * @public
+   */
+  WarmThroughput?: GlobalSecondaryIndexWarmThroughputDescription | undefined;
 }
 
 /**
@@ -2949,7 +3149,7 @@ export interface LocalSecondaryIndexDescription {
    * <p>Represents the name of the local secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The complete key schema for the local secondary index, consisting of one or more pairs
@@ -2976,7 +3176,7 @@ export interface LocalSecondaryIndexDescription {
    *          </note>
    * @public
    */
-  KeySchema?: KeySchemaElement[];
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>Represents attributes that are copied (projected) from the table into the global
@@ -2984,7 +3184,7 @@ export interface LocalSecondaryIndexDescription {
    *             attributes, which are automatically projected. </p>
    * @public
    */
-  Projection?: Projection;
+  Projection?: Projection | undefined;
 
   /**
    * <p>The total size of the specified index, in bytes. DynamoDB updates this value
@@ -2992,7 +3192,7 @@ export interface LocalSecondaryIndexDescription {
    *             value.</p>
    * @public
    */
-  IndexSizeBytes?: number;
+  IndexSizeBytes?: number | undefined;
 
   /**
    * <p>The number of items in the specified index. DynamoDB updates this value
@@ -3000,14 +3200,28 @@ export interface LocalSecondaryIndexDescription {
    *             value.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the index.</p>
    * @public
    */
-  IndexArn?: string;
+  IndexArn?: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const MultiRegionConsistency = {
+  EVENTUAL: "EVENTUAL",
+  STRONG: "STRONG",
+} as const;
+
+/**
+ * @public
+ */
+export type MultiRegionConsistency = (typeof MultiRegionConsistency)[keyof typeof MultiRegionConsistency];
 
 /**
  * <p>Contains details for the restore.</p>
@@ -3018,13 +3232,13 @@ export interface RestoreSummary {
    * <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
    * @public
    */
-  SourceBackupArn?: string;
+  SourceBackupArn?: string | undefined;
 
   /**
    * <p>The ARN of the source table of the backup that is being restored.</p>
    * @public
    */
-  SourceTableArn?: string;
+  SourceTableArn?: string | undefined;
 
   /**
    * <p>Point in time or source backup time.</p>
@@ -3038,25 +3252,6 @@ export interface RestoreSummary {
    */
   RestoreInProgress: boolean | undefined;
 }
-
-/**
- * @public
- * @enum
- */
-export const TableStatus = {
-  ACTIVE: "ACTIVE",
-  ARCHIVED: "ARCHIVED",
-  ARCHIVING: "ARCHIVING",
-  CREATING: "CREATING",
-  DELETING: "DELETING",
-  INACCESSIBLE_ENCRYPTION_CREDENTIALS: "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
-  UPDATING: "UPDATING",
-} as const;
-
-/**
- * @public
- */
-export type TableStatus = (typeof TableStatus)[keyof typeof TableStatus];
 
 /**
  * <p>Represents the properties of a table.</p>
@@ -3079,13 +3274,13 @@ export interface TableDescription {
    *          </ul>
    * @public
    */
-  AttributeDefinitions?: AttributeDefinition[];
+  AttributeDefinitions?: AttributeDefinition[] | undefined;
 
   /**
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists
@@ -3124,7 +3319,7 @@ export interface TableDescription {
    *             Guide</i>.</p>
    * @public
    */
-  KeySchema?: KeySchemaElement[];
+  KeySchema?: KeySchemaElement[] | undefined;
 
   /**
    * <p>The current state of the table:</p>
@@ -3168,20 +3363,20 @@ export interface TableDescription {
    *          </ul>
    * @public
    */
-  TableStatus?: TableStatus;
+  TableStatus?: TableStatus | undefined;
 
   /**
    * <p>The date and time when the table was created, in <a href="http://www.epochconverter.com/">UNIX epoch time</a> format.</p>
    * @public
    */
-  CreationDateTime?: Date;
+  CreationDateTime?: Date | undefined;
 
   /**
    * <p>The provisioned throughput settings for the table, consisting of read and write
    *             capacity units, along with data about increases and decreases.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughputDescription;
+  ProvisionedThroughput?: ProvisionedThroughputDescription | undefined;
 
   /**
    * <p>The total size of the specified table, in bytes. DynamoDB updates this value
@@ -3189,32 +3384,32 @@ export interface TableDescription {
    *             value.</p>
    * @public
    */
-  TableSizeBytes?: number;
+  TableSizeBytes?: number | undefined;
 
   /**
    * <p>The number of items in the specified table. DynamoDB updates this value approximately
    *             every six hours. Recent changes might not be reflected in this value.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the table.</p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p>Unique identifier for the table for which the backup was created. </p>
    * @public
    */
-  TableId?: string;
+  TableId?: string | undefined;
 
   /**
    * <p>Contains the details for the read/write capacity mode.</p>
    * @public
    */
-  BillingModeSummary?: BillingModeSummary;
+  BillingModeSummary?: BillingModeSummary | undefined;
 
   /**
    * <p>Represents one or more local secondary indexes on the table. Each index is scoped to a
@@ -3268,7 +3463,10 @@ export interface TableDescription {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3289,7 +3487,7 @@ export interface TableDescription {
    *             be returned.</p>
    * @public
    */
-  LocalSecondaryIndexes?: LocalSecondaryIndexDescription[];
+  LocalSecondaryIndexes?: LocalSecondaryIndexDescription[] | undefined;
 
   /**
    * <p>The global secondary indexes, if any, on the table. Each index is scoped to a given
@@ -3390,7 +3588,10 @@ export interface TableDescription {
    *                             attributes provided in <code>NonKeyAttributes</code>, summed across all
    *                             of the secondary indexes, must not exceed 100. If you project the same
    *                             attribute into two different indexes, this counts as two distinct
-   *                             attributes when determining the total.</p>
+   *                             attributes when determining the total. This limit only applies when you
+   *                             specify the ProjectionType of <code>INCLUDE</code>. You still can
+   *                             specify the ProjectionType of <code>ALL</code> to project all attributes
+   *                             from the source table, even if the table has more than 100 attributes.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3405,13 +3606,13 @@ export interface TableDescription {
    *             be returned.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: GlobalSecondaryIndexDescription[];
+  GlobalSecondaryIndexes?: GlobalSecondaryIndexDescription[] | undefined;
 
   /**
    * <p>The current DynamoDB Streams configuration for the table.</p>
    * @public
    */
-  StreamSpecification?: StreamSpecification;
+  StreamSpecification?: StreamSpecification | undefined;
 
   /**
    * <p>A timestamp, in ISO 8601 format, for this stream.</p>
@@ -3434,63 +3635,92 @@ export interface TableDescription {
    *          </ul>
    * @public
    */
-  LatestStreamLabel?: string;
+  LatestStreamLabel?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that uniquely identifies the latest stream for this
    *             table.</p>
    * @public
    */
-  LatestStreamArn?: string;
+  LatestStreamArn?: string | undefined;
 
   /**
    * <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a>
    *             in use, if the table is replicated across Amazon Web Services Regions.</p>
    * @public
    */
-  GlobalTableVersion?: string;
+  GlobalTableVersion?: string | undefined;
 
   /**
    * <p>Represents replicas of the table.</p>
    * @public
    */
-  Replicas?: ReplicaDescription[];
+  Replicas?: ReplicaDescription[] | undefined;
 
   /**
    * <p>Contains details for the restore.</p>
    * @public
    */
-  RestoreSummary?: RestoreSummary;
+  RestoreSummary?: RestoreSummary | undefined;
 
   /**
    * <p>The description of the server-side encryption status on the specified table.</p>
    * @public
    */
-  SSEDescription?: SSEDescription;
+  SSEDescription?: SSEDescription | undefined;
 
   /**
    * <p>Contains information about the table archive.</p>
    * @public
    */
-  ArchivalSummary?: ArchivalSummary;
+  ArchivalSummary?: ArchivalSummary | undefined;
 
   /**
    * <p>Contains details of the table class.</p>
    * @public
    */
-  TableClassSummary?: TableClassSummary;
+  TableClassSummary?: TableClassSummary | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the table.</p>
+   * <p>Indicates whether deletion protection is enabled (true) or disabled (false) on the
+   *             table.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>The maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>The maximum number of read and write units for the specified on-demand table. If you
+   *             use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Describes the warm throughput value of the base table.</p>
+   * @public
+   */
+  WarmThroughput?: TableWarmThroughputDescription | undefined;
+
+  /**
+   * <p>Indicates one of the following consistency modes for a global table:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVENTUAL</code>: Indicates that the global table is configured for multi-Region eventual consistency.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRONG</code>: Indicates that the global table is configured for multi-Region strong consistency (preview).</p>
+   *                <note>
+   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global tables capability currently available in preview mode. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this field, the global table consistency mode defaults to <code>EVENTUAL</code>.</p>
+   * @public
+   */
+  MultiRegionConsistency?: MultiRegionConsistency | undefined;
 }
 
 /**
@@ -3502,13 +3732,23 @@ export interface CreateTableOutput {
    * <p>Represents the properties of the table.</p>
    * @public
    */
-  TableDescription?: TableDescription;
+  TableDescription?: TableDescription | undefined;
 }
 
 /**
- * <p>The operation conflicts with the resource's availability. For example, you
- *             attempted to recreate an existing table, or tried to delete a table currently in the
- *                 <code>CREATING</code> state.</p>
+ * <p>The operation conflicts with the resource's availability. For example:</p>
+ *          <ul>
+ *             <li>
+ *                <p>You attempted to recreate an existing table.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to delete a table currently in the <code>CREATING</code> state.</p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a resource that was already being updated.</p>
+ *             </li>
+ *          </ul>
+ *          <p>When appropriate, wait for the ongoing update to complete and attempt the request again.</p>
  * @public
  */
 export class ResourceInUseException extends __BaseException {
@@ -3536,7 +3776,7 @@ export interface CsvOptions {
    * <p> The delimiter used for separating items in the CSV file being imported. </p>
    * @public
    */
-  Delimiter?: string;
+  Delimiter?: string | undefined;
 
   /**
    * <p> List of the headers used to specify a common header for all source CSV files being
@@ -3545,7 +3785,7 @@ export interface CsvOptions {
    *             CSV file is treated as the header. </p>
    * @public
    */
-  HeaderList?: string[];
+  HeaderList?: string[] | undefined;
 }
 
 /**
@@ -3567,7 +3807,7 @@ export interface DeleteBackupOutput {
    * <p>Contains the description of the backup created for the table.</p>
    * @public
    */
-  BackupDescription?: BackupDescription;
+  BackupDescription?: BackupDescription | undefined;
 }
 
 /**
@@ -3598,6 +3838,26 @@ export const ReturnValue = {
  * @public
  */
 export type ReturnValue = (typeof ReturnValue)[keyof typeof ReturnValue];
+
+/**
+ * <p>The request was rejected because one or more items in the request are being modified by a request in another Region. </p>
+ * @public
+ */
+export class ReplicatedWriteConflictException extends __BaseException {
+  readonly name: "ReplicatedWriteConflictException" = "ReplicatedWriteConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ReplicatedWriteConflictException, __BaseException>) {
+    super({
+      name: "ReplicatedWriteConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ReplicatedWriteConflictException.prototype);
+  }
+}
 
 /**
  * <p>Operation was rejected because there is an ongoing transaction for the
@@ -3649,16 +3909,23 @@ export interface DeleteReplicationGroupMemberAction {
  */
 export interface DeleteResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be removed. The resources you can specify include tables and streams. If you remove the policy of a table, it will also remove the permissions for the table's indexes defined in that policy document. This is because index permissions are defined in the table's policy.</p>
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource from which the policy will be
+   *             removed. The resources you can specify include tables and streams. If you remove the
+   *             policy of a table, it will also remove the permissions for the table's indexes defined
+   *             in that policy document. This is because index permissions are defined in the table's
+   *             policy.</p>
    * @public
    */
   ResourceArn: string | undefined;
 
   /**
-   * <p>A string value that you can use to conditionally delete your policy. When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, the request will fail and return a <code>PolicyNotFoundException</code>.</p>
+   * <p>A string value that you can use to conditionally delete your policy. When you provide
+   *             an expected revision ID, if the revision ID of the existing policy on the resource
+   *             doesn't match or if there's no policy attached to the resource, the request will fail
+   *             and return a <code>PolicyNotFoundException</code>.</p>
    * @public
    */
-  ExpectedRevisionId?: string;
+  ExpectedRevisionId?: string | undefined;
 }
 
 /**
@@ -3667,10 +3934,11 @@ export interface DeleteResourcePolicyInput {
 export interface DeleteResourcePolicyOutput {
   /**
    * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
-   *          <p>This value will be empty if you make a request against a resource without a policy.</p>
+   *          <p>This value will be empty if you make a request against a resource without a
+   *             policy.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -3700,7 +3968,8 @@ export class PolicyNotFoundException extends __BaseException {
  */
 export interface DeleteTableInput {
   /**
-   * <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to delete. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -3715,7 +3984,7 @@ export interface DeleteTableOutput {
    * <p>Represents the properties of a table.</p>
    * @public
    */
-  TableDescription?: TableDescription;
+  TableDescription?: TableDescription | undefined;
 }
 
 /**
@@ -3737,7 +4006,7 @@ export interface DescribeBackupOutput {
    * <p>Contains the description of the backup created for the table.</p>
    * @public
    */
-  BackupDescription?: BackupDescription;
+  BackupDescription?: BackupDescription | undefined;
 }
 
 /**
@@ -3762,7 +4031,7 @@ export interface DescribeContinuousBackupsOutput {
    *             table.</p>
    * @public
    */
-  ContinuousBackupsDescription?: ContinuousBackupsDescription;
+  ContinuousBackupsDescription?: ContinuousBackupsDescription | undefined;
 }
 
 /**
@@ -3770,7 +4039,8 @@ export interface DescribeContinuousBackupsOutput {
  */
 export interface DescribeContributorInsightsInput {
   /**
-   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -3779,7 +4049,7 @@ export interface DescribeContributorInsightsInput {
    * <p>The name of the global secondary index to describe, if applicable.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 }
 
 /**
@@ -3791,13 +4061,13 @@ export interface FailureException {
    * <p>Exception name.</p>
    * @public
    */
-  ExceptionName?: string;
+  ExceptionName?: string | undefined;
 
   /**
    * <p>Description of the failure.</p>
    * @public
    */
-  ExceptionDescription?: string;
+  ExceptionDescription?: string | undefined;
 }
 
 /**
@@ -3808,31 +4078,31 @@ export interface DescribeContributorInsightsOutput {
    * <p>The name of the table being described.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The name of the global secondary index being described.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>List of names of the associated contributor insights rules.</p>
    * @public
    */
-  ContributorInsightsRuleList?: string[];
+  ContributorInsightsRuleList?: string[] | undefined;
 
   /**
    * <p>Current status of contributor insights.</p>
    * @public
    */
-  ContributorInsightsStatus?: ContributorInsightsStatus;
+  ContributorInsightsStatus?: ContributorInsightsStatus | undefined;
 
   /**
    * <p>Timestamp of the last time the status was changed.</p>
    * @public
    */
-  LastUpdateDateTime?: Date;
+  LastUpdateDateTime?: Date | undefined;
 
   /**
    * <p>Returns information about the last failure that was encountered.</p>
@@ -3858,7 +4128,7 @@ export interface DescribeContributorInsightsOutput {
    *          </ul>
    * @public
    */
-  FailureException?: FailureException;
+  FailureException?: FailureException | undefined;
 }
 
 /**
@@ -3969,22 +4239,29 @@ export type ExportViewType = (typeof ExportViewType)[keyof typeof ExportViewType
  */
 export interface IncrementalExportSpecification {
   /**
-   * <p>Time in the past which provides the inclusive start range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state including and after this point in time.</p>
+   * <p>Time in the past which provides the inclusive start range for the export table's data,
+   *             counted in seconds from the start of the Unix epoch. The incremental export will reflect
+   *             the table's state including and after this point in time.</p>
    * @public
    */
-  ExportFromTime?: Date;
+  ExportFromTime?: Date | undefined;
 
   /**
-   * <p>Time in the past which provides the exclusive end range for the export table's data, counted in seconds from the start of the Unix epoch. The incremental export will reflect the table's state just prior to this point in time. If this is not provided, the latest time with data available will be used.</p>
+   * <p>Time in the past which provides the exclusive end range for the export table's data,
+   *             counted in seconds from the start of the Unix epoch. The incremental export will reflect
+   *             the table's state just prior to this point in time. If this is not provided, the latest
+   *             time with data available will be used.</p>
    * @public
    */
-  ExportToTime?: Date;
+  ExportToTime?: Date | undefined;
 
   /**
-   * <p>The view type that was chosen for the export. Valid values are <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is <code>NEW_AND_OLD_IMAGES</code>.</p>
+   * <p>The view type that was chosen for the export. Valid values are
+   *                 <code>NEW_AND_OLD_IMAGES</code> and <code>NEW_IMAGES</code>. The default value is
+   *                 <code>NEW_AND_OLD_IMAGES</code>.</p>
    * @public
    */
-  ExportViewType?: ExportViewType;
+  ExportViewType?: ExportViewType | undefined;
 }
 
 /**
@@ -4010,50 +4287,50 @@ export interface ExportDescription {
    * <p>The Amazon Resource Name (ARN) of the table export.</p>
    * @public
    */
-  ExportArn?: string;
+  ExportArn?: string | undefined;
 
   /**
    * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
    *             FAILED.</p>
    * @public
    */
-  ExportStatus?: ExportStatus;
+  ExportStatus?: ExportStatus | undefined;
 
   /**
    * <p>The time at which the export task began.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The time at which the export task completed.</p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p>The name of the manifest file for the export task.</p>
    * @public
    */
-  ExportManifest?: string;
+  ExportManifest?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p>Unique ID of the table that was exported.</p>
    * @public
    */
-  TableId?: string;
+  TableId?: string | undefined;
 
   /**
    * <p>Point in time from which table data was exported.</p>
    * @public
    */
-  ExportTime?: Date;
+  ExportTime?: Date | undefined;
 
   /**
    * <p>The client token that was provided for the export task. A client token makes calls to
@@ -4061,27 +4338,27 @@ export interface ExportDescription {
    *             identical calls have the same effect as one single call.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket containing the export.</p>
    * @public
    */
-  S3Bucket?: string;
+  S3Bucket?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the bucket containing the
    *             export.</p>
    * @public
    */
-  S3BucketOwner?: string;
+  S3BucketOwner?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket prefix used as the file name and path of the exported
    *             snapshot.</p>
    * @public
    */
-  S3Prefix?: string;
+  S3Prefix?: string | undefined;
 
   /**
    * <p>Type of encryption used on the bucket where export data is stored. Valid values for
@@ -4100,57 +4377,58 @@ export interface ExportDescription {
    *          </ul>
    * @public
    */
-  S3SseAlgorithm?: S3SseAlgorithm;
+  S3SseAlgorithm?: S3SseAlgorithm | undefined;
 
   /**
    * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
    *             export data is stored (if applicable).</p>
    * @public
    */
-  S3SseKmsKeyId?: string;
+  S3SseKmsKeyId?: string | undefined;
 
   /**
    * <p>Status code for the result of the failed export.</p>
    * @public
    */
-  FailureCode?: string;
+  FailureCode?: string | undefined;
 
   /**
    * <p>Export failure reason description.</p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 
   /**
    * <p>The format of the exported data. Valid values for <code>ExportFormat</code> are
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    * @public
    */
-  ExportFormat?: ExportFormat;
+  ExportFormat?: ExportFormat | undefined;
 
   /**
    * <p>The billable size of the table export.</p>
    * @public
    */
-  BilledSizeBytes?: number;
+  BilledSizeBytes?: number | undefined;
 
   /**
    * <p>The number of items exported.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
-   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or
+   *                 <code>INCREMENTAL_EXPORT</code>.</p>
    * @public
    */
-  ExportType?: ExportType;
+  ExportType?: ExportType | undefined;
 
   /**
    * <p>Optional object containing the parameters specific to an incremental export.</p>
    * @public
    */
-  IncrementalExportSpecification?: IncrementalExportSpecification;
+  IncrementalExportSpecification?: IncrementalExportSpecification | undefined;
 }
 
 /**
@@ -4161,7 +4439,7 @@ export interface DescribeExportOutput {
    * <p>Represents the properties of the export.</p>
    * @public
    */
-  ExportDescription?: ExportDescription;
+  ExportDescription?: ExportDescription | undefined;
 }
 
 /**
@@ -4203,7 +4481,7 @@ export interface DescribeGlobalTableOutput {
    * <p>Contains the details of the global table.</p>
    * @public
    */
-  GlobalTableDescription?: GlobalTableDescription;
+  GlobalTableDescription?: GlobalTableDescription | undefined;
 }
 
 /**
@@ -4271,35 +4549,35 @@ export interface ReplicaGlobalSecondaryIndexSettingsDescription {
    *          </ul>
    * @public
    */
-  IndexStatus?: IndexStatus;
+  IndexStatus?: IndexStatus | undefined;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
    *             returns a <code>ThrottlingException</code>.</p>
    * @public
    */
-  ProvisionedReadCapacityUnits?: number;
+  ProvisionedReadCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for a global secondary index replica's read capacity
    *             units.</p>
    * @public
    */
-  ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
    *                 <code>ThrottlingException</code>.</p>
    * @public
    */
-  ProvisionedWriteCapacityUnits?: number;
+  ProvisionedWriteCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for a global secondary index replica's write capacity
    *             units.</p>
    * @public
    */
-  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 }
 
 /**
@@ -4335,13 +4613,13 @@ export interface ReplicaSettingsDescription {
    *          </ul>
    * @public
    */
-  ReplicaStatus?: ReplicaStatus;
+  ReplicaStatus?: ReplicaStatus | undefined;
 
   /**
    * <p>The read/write capacity mode of the replica.</p>
    * @public
    */
-  ReplicaBillingModeSummary?: BillingModeSummary;
+  ReplicaBillingModeSummary?: BillingModeSummary | undefined;
 
   /**
    * <p>The maximum number of strongly consistent reads consumed per second before DynamoDB
@@ -4349,13 +4627,13 @@ export interface ReplicaSettingsDescription {
    *                 Developer Guide</i>. </p>
    * @public
    */
-  ReplicaProvisionedReadCapacityUnits?: number;
+  ReplicaProvisionedReadCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for a global table replica's read capacity units.</p>
    * @public
    */
-  ReplicaProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ReplicaProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
@@ -4363,25 +4641,25 @@ export interface ReplicaSettingsDescription {
    *                 Developer Guide</i>.</p>
    * @public
    */
-  ReplicaProvisionedWriteCapacityUnits?: number;
+  ReplicaProvisionedWriteCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for a global table replica's write capacity units.</p>
    * @public
    */
-  ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 
   /**
    * <p>Replica global secondary index settings for the global table.</p>
    * @public
    */
-  ReplicaGlobalSecondaryIndexSettings?: ReplicaGlobalSecondaryIndexSettingsDescription[];
+  ReplicaGlobalSecondaryIndexSettings?: ReplicaGlobalSecondaryIndexSettingsDescription[] | undefined;
 
   /**
    * <p>Contains details of the table class.</p>
    * @public
    */
-  ReplicaTableClassSummary?: TableClassSummary;
+  ReplicaTableClassSummary?: TableClassSummary | undefined;
 }
 
 /**
@@ -4392,13 +4670,13 @@ export interface DescribeGlobalTableSettingsOutput {
    * <p>The name of the global table.</p>
    * @public
    */
-  GlobalTableName?: string;
+  GlobalTableName?: string | undefined;
 
   /**
    * <p>The Region-specific settings for the global table.</p>
    * @public
    */
-  ReplicaSettings?: ReplicaSettingsDescription[];
+  ReplicaSettings?: ReplicaSettingsDescription[] | undefined;
 }
 
 /**
@@ -4470,7 +4748,7 @@ export interface InputFormatOptions {
    *             HeaderList. </p>
    * @public
    */
-  Csv?: CsvOptions;
+  Csv?: CsvOptions | undefined;
 }
 
 /**
@@ -4483,7 +4761,7 @@ export interface S3BucketSource {
    *             owned by the requester this is optional. </p>
    * @public
    */
-  S3BucketOwner?: string;
+  S3BucketOwner?: string | undefined;
 
   /**
    * <p> The S3 bucket that is being imported from. </p>
@@ -4495,7 +4773,7 @@ export interface S3BucketSource {
    * <p> The key prefix shared by all S3 Objects that are being imported. </p>
    * @public
    */
-  S3KeyPrefix?: string;
+  S3KeyPrefix?: string | undefined;
 }
 
 /**
@@ -4527,36 +4805,39 @@ export interface TableCreationParameters {
    *         </p>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
-   * <p>Represents the provisioned throughput settings for a specified table or index. The
-   *             settings can be modified using the <code>UpdateTable</code> operation.</p>
+   * <p>Represents the provisioned throughput settings for the specified global secondary
+   *             index. You must use <code>ProvisionedThroughput</code> or
+   *                 <code>OnDemandThroughput</code> based on your table’s capacity mode.</p>
    *          <p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service,
    *                 Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
 
   /**
    * <p>Represents the settings used to enable server-side encryption.</p>
    * @public
    */
-  SSESpecification?: SSESpecification;
+  SSESpecification?: SSESpecification | undefined;
 
   /**
    * <p> The Global Secondary Indexes (GSI) of the table to be created as part of the import
    *             operation. </p>
    * @public
    */
-  GlobalSecondaryIndexes?: GlobalSecondaryIndex[];
+  GlobalSecondaryIndexes?: GlobalSecondaryIndex[] | undefined;
 }
 
 /**
@@ -4570,127 +4851,127 @@ export interface ImportTableDescription {
    *             </p>
    * @public
    */
-  ImportArn?: string;
+  ImportArn?: string | undefined;
 
   /**
    * <p> The status of the import. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The Amazon Resource Number (ARN) of the table being imported into.
    *             </p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p> The table id corresponding to the table created by import table process.
    *             </p>
    * @public
    */
-  TableId?: string;
+  TableId?: string | undefined;
 
   /**
    * <p> The client token that was provided for the import task. Reusing the client token on
    *             retry makes a call to <code>ImportTable</code> idempotent. </p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p> Values for the S3 bucket the source file is imported from. Includes bucket name
    *             (required), key prefix (optional) and bucket account owner ID (optional). </p>
    * @public
    */
-  S3BucketSource?: S3BucketSource;
+  S3BucketSource?: S3BucketSource | undefined;
 
   /**
    * <p> The number of errors occurred on importing the source file into the target table.
    *         </p>
    * @public
    */
-  ErrorCount?: number;
+  ErrorCount?: number | undefined;
 
   /**
    * <p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with the
    *             target table. </p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p> The format of the source data going into the target table.
    *             </p>
    * @public
    */
-  InputFormat?: InputFormat;
+  InputFormat?: InputFormat | undefined;
 
   /**
    * <p> The format options for the data that was imported into the target table. There is one
    *             value, CsvOption. </p>
    * @public
    */
-  InputFormatOptions?: InputFormatOptions;
+  InputFormatOptions?: InputFormatOptions | undefined;
 
   /**
    * <p> The compression options for the data that has been imported into the target table.
    *             The values are NONE, GZIP, or ZSTD. </p>
    * @public
    */
-  InputCompressionType?: InputCompressionType;
+  InputCompressionType?: InputCompressionType | undefined;
 
   /**
    * <p> The parameters for the new table that is being imported into. </p>
    * @public
    */
-  TableCreationParameters?: TableCreationParameters;
+  TableCreationParameters?: TableCreationParameters | undefined;
 
   /**
    * <p> The time when this import task started. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p> The time at which the creation of the table associated with this import task
    *             completed. </p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 
   /**
    * <p> The total size of data processed from the source file, in Bytes. </p>
    * @public
    */
-  ProcessedSizeBytes?: number;
+  ProcessedSizeBytes?: number | undefined;
 
   /**
    * <p> The total number of items processed from the source file. </p>
    * @public
    */
-  ProcessedItemCount?: number;
+  ProcessedItemCount?: number | undefined;
 
   /**
    * <p> The number of items successfully imported into the new table. </p>
    * @public
    */
-  ImportedItemCount?: number;
+  ImportedItemCount?: number | undefined;
 
   /**
    * <p> The error code corresponding to the failure that the import job ran into during
    *             execution. </p>
    * @public
    */
-  FailureCode?: string;
+  FailureCode?: string | undefined;
 
   /**
    * <p> The error message corresponding to the failure that the import job ran into during
    *             execution. </p>
    * @public
    */
-  FailureMessage?: string;
+  FailureMessage?: string | undefined;
 }
 
 /**
@@ -4733,7 +5014,8 @@ export class ImportNotFoundException extends __BaseException {
  */
 export interface DescribeKinesisStreamingDestinationInput {
   /**
-   * <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table being described. You can also provide the Amazon Resource Name (ARN) of the table
+   *             in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4766,25 +5048,26 @@ export interface KinesisDataStreamDestination {
    * <p>The ARN for a specific Kinesis data stream.</p>
    * @public
    */
-  StreamArn?: string;
+  StreamArn?: string | undefined;
 
   /**
    * <p>The current status of replication.</p>
    * @public
    */
-  DestinationStatus?: DestinationStatus;
+  DestinationStatus?: DestinationStatus | undefined;
 
   /**
    * <p>The human-readable string that corresponds to the replica status.</p>
    * @public
    */
-  DestinationStatusDescription?: string;
+  DestinationStatusDescription?: string | undefined;
 
   /**
-   * <p>The precision of the Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+   * <p>The precision of the Kinesis data stream timestamp. The values are either
+   *                 <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
    * @public
    */
-  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision;
+  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision | undefined;
 }
 
 /**
@@ -4795,13 +5078,13 @@ export interface DescribeKinesisStreamingDestinationOutput {
    * <p>The name of the table being described.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The list of replica structures for the table being described.</p>
    * @public
    */
-  KinesisDataStreamDestinations?: KinesisDataStreamDestination[];
+  KinesisDataStreamDestinations?: KinesisDataStreamDestination[] | undefined;
 }
 
 /**
@@ -4821,14 +5104,14 @@ export interface DescribeLimitsOutput {
    *             all of your tables in this Region.</p>
    * @public
    */
-  AccountMaxReadCapacityUnits?: number;
+  AccountMaxReadCapacityUnits?: number | undefined;
 
   /**
    * <p>The maximum total write capacity units that your account allows you to provision
    *             across all of your tables in this Region.</p>
    * @public
    */
-  AccountMaxWriteCapacityUnits?: number;
+  AccountMaxWriteCapacityUnits?: number | undefined;
 
   /**
    * <p>The maximum read capacity units that your account allows you to provision for a new
@@ -4836,7 +5119,7 @@ export interface DescribeLimitsOutput {
    *             provisioned for its global secondary indexes (GSIs).</p>
    * @public
    */
-  TableMaxReadCapacityUnits?: number;
+  TableMaxReadCapacityUnits?: number | undefined;
 
   /**
    * <p>The maximum write capacity units that your account allows you to provision for a new
@@ -4844,7 +5127,7 @@ export interface DescribeLimitsOutput {
    *             provisioned for its global secondary indexes (GSIs).</p>
    * @public
    */
-  TableMaxWriteCapacityUnits?: number;
+  TableMaxWriteCapacityUnits?: number | undefined;
 }
 
 /**
@@ -4853,7 +5136,8 @@ export interface DescribeLimitsOutput {
  */
 export interface DescribeTableInput {
   /**
-   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to describe. You can also provide the Amazon Resource Name (ARN) of the table in
+   *             this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4868,7 +5152,7 @@ export interface DescribeTableOutput {
    * <p>The properties of the table.</p>
    * @public
    */
-  Table?: TableDescription;
+  Table?: TableDescription | undefined;
 }
 
 /**
@@ -4876,7 +5160,8 @@ export interface DescribeTableOutput {
  */
 export interface DescribeTableReplicaAutoScalingInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -4891,7 +5176,7 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
    * <p>The name of the global secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The current state of the replica global secondary index:</p>
@@ -4918,21 +5203,21 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingDescription {
    *          </ul>
    * @public
    */
-  IndexStatus?: IndexStatus;
+  IndexStatus?: IndexStatus | undefined;
 
   /**
    * <p>Represents the auto scaling settings for a global table or global secondary
    *             index.</p>
    * @public
    */
-  ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 
   /**
    * <p>Represents the auto scaling settings for a global table or global secondary
    *             index.</p>
    * @public
    */
-  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 }
 
 /**
@@ -4944,27 +5229,27 @@ export interface ReplicaAutoScalingDescription {
    * <p>The Region where the replica exists.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 
   /**
    * <p>Replica-specific global secondary index auto scaling settings.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexAutoScalingDescription[];
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndexAutoScalingDescription[] | undefined;
 
   /**
    * <p>Represents the auto scaling settings for a global table or global secondary
    *             index.</p>
    * @public
    */
-  ReplicaProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ReplicaProvisionedReadCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 
   /**
    * <p>Represents the auto scaling settings for a global table or global secondary
    *             index.</p>
    * @public
    */
-  ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription;
+  ReplicaProvisionedWriteCapacityAutoScalingSettings?: AutoScalingSettingsDescription | undefined;
 
   /**
    * <p>The current state of the replica:</p>
@@ -4988,7 +5273,7 @@ export interface ReplicaAutoScalingDescription {
    *          </ul>
    * @public
    */
-  ReplicaStatus?: ReplicaStatus;
+  ReplicaStatus?: ReplicaStatus | undefined;
 }
 
 /**
@@ -5000,7 +5285,7 @@ export interface TableAutoScalingDescription {
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The current state of the table:</p>
@@ -5024,13 +5309,13 @@ export interface TableAutoScalingDescription {
    *          </ul>
    * @public
    */
-  TableStatus?: TableStatus;
+  TableStatus?: TableStatus | undefined;
 
   /**
    * <p>Represents replicas of the global table.</p>
    * @public
    */
-  Replicas?: ReplicaAutoScalingDescription[];
+  Replicas?: ReplicaAutoScalingDescription[] | undefined;
 }
 
 /**
@@ -5041,7 +5326,7 @@ export interface DescribeTableReplicaAutoScalingOutput {
    * <p>Represents the auto scaling properties of the table.</p>
    * @public
    */
-  TableAutoScalingDescription?: TableAutoScalingDescription;
+  TableAutoScalingDescription?: TableAutoScalingDescription | undefined;
 }
 
 /**
@@ -5049,7 +5334,8 @@ export interface DescribeTableReplicaAutoScalingOutput {
  */
 export interface DescribeTimeToLiveInput {
   /**
-   * <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to be described. You can also provide the Amazon Resource Name (ARN) of the table
+   *             in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -5063,7 +5349,7 @@ export interface DescribeTimeToLiveOutput {
    * <p></p>
    * @public
    */
-  TimeToLiveDescription?: TimeToLiveDescription;
+  TimeToLiveDescription?: TimeToLiveDescription | undefined;
 }
 
 /**
@@ -5072,10 +5358,11 @@ export interface DescribeTimeToLiveOutput {
  */
 export interface EnableKinesisStreamingConfiguration {
   /**
-   * <p>Toggle for the precision of Kinesis data stream timestamp. The values are either <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
+   * <p>Toggle for the precision of Kinesis data stream timestamp. The values are either
+   *                 <code>MILLISECOND</code> or <code>MICROSECOND</code>.</p>
    * @public
    */
-  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision;
+  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision | undefined;
 }
 
 /**
@@ -5083,7 +5370,8 @@ export interface EnableKinesisStreamingConfiguration {
  */
 export interface KinesisStreamingDestinationInput {
   /**
-   * <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the DynamoDB table. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -5098,7 +5386,7 @@ export interface KinesisStreamingDestinationInput {
    * <p>The source for the Kinesis streaming information that is being enabled.</p>
    * @public
    */
-  EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration;
+  EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration | undefined;
 }
 
 /**
@@ -5109,25 +5397,25 @@ export interface KinesisStreamingDestinationOutput {
    * <p>The name of the table being modified.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The ARN for the specific Kinesis data stream.</p>
    * @public
    */
-  StreamArn?: string;
+  StreamArn?: string | undefined;
 
   /**
    * <p>The current status of the replication.</p>
    * @public
    */
-  DestinationStatus?: DestinationStatus;
+  DestinationStatus?: DestinationStatus | undefined;
 
   /**
    * <p>The destination for the Kinesis streaming information that is being enabled.</p>
    * @public
    */
-  EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration;
+  EnableKinesisStreamingConfiguration?: EnableKinesisStreamingConfiguration | undefined;
 }
 
 /**
@@ -5159,7 +5447,7 @@ export class DuplicateItemException extends __BaseException {
 export class IdempotentParameterMismatchException extends __BaseException {
   readonly name: "IdempotentParameterMismatchException" = "IdempotentParameterMismatchException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5243,7 +5531,7 @@ export class IdempotentParameterMismatchException extends __BaseException {
 export class TransactionInProgressException extends __BaseException {
   readonly name: "TransactionInProgressException" = "TransactionInProgressException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5294,7 +5582,7 @@ export interface ExportTableToPointInTimeInput {
    *             in time.</p>
    * @public
    */
-  ExportTime?: Date;
+  ExportTime?: Date | undefined;
 
   /**
    * <p>Providing a <code>ClientToken</code> makes the call to
@@ -5309,7 +5597,7 @@ export interface ExportTableToPointInTimeInput {
    *                 <code>ImportConflictException</code>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
@@ -5321,18 +5609,19 @@ export interface ExportTableToPointInTimeInput {
    * <p>The ID of the Amazon Web Services account that owns the bucket the export will be
    *             stored in.</p>
    *          <note>
-   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p>
+   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another
+   *                 account.</p>
    *          </note>
    * @public
    */
-  S3BucketOwner?: string;
+  S3BucketOwner?: string | undefined;
 
   /**
    * <p>The Amazon S3 bucket prefix to use as the file name and path of the exported
    *             snapshot.</p>
    * @public
    */
-  S3Prefix?: string;
+  S3Prefix?: string | undefined;
 
   /**
    * <p>Type of encryption used on the bucket where export data will be stored. Valid values
@@ -5351,33 +5640,36 @@ export interface ExportTableToPointInTimeInput {
    *          </ul>
    * @public
    */
-  S3SseAlgorithm?: S3SseAlgorithm;
+  S3SseAlgorithm?: S3SseAlgorithm | undefined;
 
   /**
    * <p>The ID of the KMS managed key used to encrypt the S3 bucket where
    *             export data will be stored (if applicable).</p>
    * @public
    */
-  S3SseKmsKeyId?: string;
+  S3SseKmsKeyId?: string | undefined;
 
   /**
    * <p>The format for the exported data. Valid values for <code>ExportFormat</code> are
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    * @public
    */
-  ExportFormat?: ExportFormat;
+  ExportFormat?: ExportFormat | undefined;
 
   /**
-   * <p>Choice of whether to execute as a full export or incremental export. Valid values are FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be used.</p>
+   * <p>Choice of whether to execute as a full export or incremental export. Valid values are
+   *             FULL_EXPORT or INCREMENTAL_EXPORT. The default value is FULL_EXPORT. If
+   *             INCREMENTAL_EXPORT is provided, the IncrementalExportSpecification must also be
+   *             used.</p>
    * @public
    */
-  ExportType?: ExportType;
+  ExportType?: ExportType | undefined;
 
   /**
    * <p>Optional object containing the parameters specific to an incremental export.</p>
    * @public
    */
-  IncrementalExportSpecification?: IncrementalExportSpecification;
+  IncrementalExportSpecification?: IncrementalExportSpecification | undefined;
 }
 
 /**
@@ -5388,7 +5680,7 @@ export interface ExportTableToPointInTimeOutput {
    * <p>Contains a description of the table export.</p>
    * @public
    */
-  ExportDescription?: ExportDescription;
+  ExportDescription?: ExportDescription | undefined;
 }
 
 /**
@@ -5437,7 +5729,8 @@ export class PointInTimeRecoveryUnavailableException extends __BaseException {
  */
 export interface GetResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The resources you can specify include tables and streams.</p>
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy is attached. The
+   *             resources you can specify include tables and streams.</p>
    * @public
    */
   ResourceArn: string | undefined;
@@ -5448,16 +5741,17 @@ export interface GetResourcePolicyInput {
  */
 export interface GetResourcePolicyOutput {
   /**
-   * <p>The resource-based policy document attached to the resource, which can be a table or stream, in JSON format.</p>
+   * <p>The resource-based policy document attached to the resource, which can be a table or
+   *             stream, in JSON format.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 
   /**
    * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -5501,7 +5795,7 @@ export interface ImportTableInput {
    *                 <code>IdempotentParameterMismatch</code> exception.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p> The S3 bucket that provides the source for the import. </p>
@@ -5520,13 +5814,13 @@ export interface ImportTableInput {
    * <p> Additional properties that specify how the input is formatted, </p>
    * @public
    */
-  InputFormatOptions?: InputFormatOptions;
+  InputFormatOptions?: InputFormatOptions | undefined;
 
   /**
    * <p> Type of compression to be used on the input coming from the imported table. </p>
    * @public
    */
-  InputCompressionType?: InputCompressionType;
+  InputCompressionType?: InputCompressionType | undefined;
 
   /**
    * <p>Parameters for the table to import the data into. </p>
@@ -5553,30 +5847,31 @@ export interface ImportTableOutput {
  */
 export interface ListBackupsInput {
   /**
-   * <p>Lists the backups from the table specified in <code>TableName</code>. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Lists the backups from the table specified in <code>TableName</code>. You can also
+   *             provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>Maximum number of backups to return at once.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Only backups created after this time are listed. <code>TimeRangeLowerBound</code> is
    *             inclusive.</p>
    * @public
    */
-  TimeRangeLowerBound?: Date;
+  TimeRangeLowerBound?: Date | undefined;
 
   /**
    * <p>Only backups created before this time are listed. <code>TimeRangeUpperBound</code> is
    *             exclusive. </p>
    * @public
    */
-  TimeRangeUpperBound?: Date;
+  TimeRangeUpperBound?: Date | undefined;
 
   /**
    * <p>
@@ -5587,7 +5882,7 @@ export interface ListBackupsInput {
    *         </p>
    * @public
    */
-  ExclusiveStartBackupArn?: string;
+  ExclusiveStartBackupArn?: string | undefined;
 
   /**
    * <p>The backups from the table specified by <code>BackupType</code> are listed.</p>
@@ -5609,7 +5904,7 @@ export interface ListBackupsInput {
    *          </ul>
    * @public
    */
-  BackupType?: BackupTypeFilter;
+  BackupType?: BackupTypeFilter | undefined;
 }
 
 /**
@@ -5620,7 +5915,7 @@ export interface ListBackupsOutput {
    * <p>List of <code>BackupSummary</code> objects.</p>
    * @public
    */
-  BackupSummaries?: BackupSummary[];
+  BackupSummaries?: BackupSummary[] | undefined;
 
   /**
    * <p> The ARN of the backup last evaluated when the current page of results was returned,
@@ -5634,7 +5929,7 @@ export interface ListBackupsOutput {
    *             if and only if no value for <code>LastEvaluatedBackupArn</code> is returned. </p>
    * @public
    */
-  LastEvaluatedBackupArn?: string;
+  LastEvaluatedBackupArn?: string | undefined;
 }
 
 /**
@@ -5642,22 +5937,23 @@ export interface ListBackupsOutput {
  */
 export interface ListContributorInsightsInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>A token to for the desired page, if there is one.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5668,13 +5964,13 @@ export interface ListContributorInsightsOutput {
    * <p>A list of ContributorInsightsSummary.</p>
    * @public
    */
-  ContributorInsightsSummaries?: ContributorInsightsSummary[];
+  ContributorInsightsSummaries?: ContributorInsightsSummary[] | undefined;
 
   /**
    * <p>A token to go to the next page if there is one.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5685,13 +5981,13 @@ export interface ListExportsInput {
    * <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p>Maximum number of results to return per page.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An optional string that, if supplied, must be copied from the output of a previous
@@ -5699,7 +5995,7 @@ export interface ListExportsInput {
    *             page of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5711,20 +6007,21 @@ export interface ExportSummary {
    * <p>The Amazon Resource Name (ARN) of the export.</p>
    * @public
    */
-  ExportArn?: string;
+  ExportArn?: string | undefined;
 
   /**
    * <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or
    *             FAILED.</p>
    * @public
    */
-  ExportStatus?: ExportStatus;
+  ExportStatus?: ExportStatus | undefined;
 
   /**
-   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or <code>INCREMENTAL_EXPORT</code>.</p>
+   * <p>The type of export that was performed. Valid values are <code>FULL_EXPORT</code> or
+   *                 <code>INCREMENTAL_EXPORT</code>.</p>
    * @public
    */
-  ExportType?: ExportType;
+  ExportType?: ExportType | undefined;
 }
 
 /**
@@ -5735,7 +6032,7 @@ export interface ListExportsOutput {
    * <p>A list of <code>ExportSummary</code> objects.</p>
    * @public
    */
-  ExportSummaries?: ExportSummary[];
+  ExportSummaries?: ExportSummary[] | undefined;
 
   /**
    * <p>If this value is returned, there are additional results to be displayed. To retrieve
@@ -5743,7 +6040,7 @@ export interface ListExportsOutput {
    *             value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5754,7 +6051,7 @@ export interface ListGlobalTablesInput {
    * <p>The first global table name that this operation will evaluate.</p>
    * @public
    */
-  ExclusiveStartGlobalTableName?: string;
+  ExclusiveStartGlobalTableName?: string | undefined;
 
   /**
    * <p>The maximum number of table names to return, if the parameter is not specified
@@ -5765,13 +6062,13 @@ export interface ListGlobalTablesInput {
    *                 <code>ExclusiveStartGlobalTableName</code> parameter.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Lists the global tables in a specific Region.</p>
    * @public
    */
-  RegionName?: string;
+  RegionName?: string | undefined;
 }
 
 /**
@@ -5783,13 +6080,13 @@ export interface GlobalTable {
    * <p>The global table name.</p>
    * @public
    */
-  GlobalTableName?: string;
+  GlobalTableName?: string | undefined;
 
   /**
    * <p>The Regions where the global table has replicas.</p>
    * @public
    */
-  ReplicationGroup?: Replica[];
+  ReplicationGroup?: Replica[] | undefined;
 }
 
 /**
@@ -5800,13 +6097,13 @@ export interface ListGlobalTablesOutput {
    * <p>List of global table names.</p>
    * @public
    */
-  GlobalTables?: GlobalTable[];
+  GlobalTables?: GlobalTable[] | undefined;
 
   /**
    * <p>Last evaluated global table name.</p>
    * @public
    */
-  LastEvaluatedGlobalTableName?: string;
+  LastEvaluatedGlobalTableName?: string | undefined;
 }
 
 /**
@@ -5818,13 +6115,13 @@ export interface ListImportsInput {
    *         </p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p> The number of <code>ImportSummary </code>objects returned in a single page. </p>
    * @public
    */
-  PageSize?: number;
+  PageSize?: number | undefined;
 
   /**
    * <p> An optional string that, if supplied, must be copied from the output of a previous
@@ -5832,7 +6129,7 @@ export interface ListImportsInput {
    *             page of results. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5845,19 +6142,19 @@ export interface ImportSummary {
    * <p> The Amazon Resource Number (ARN) corresponding to the import request. </p>
    * @public
    */
-  ImportArn?: string;
+  ImportArn?: string | undefined;
 
   /**
    * <p> The status of the import operation. </p>
    * @public
    */
-  ImportStatus?: ImportStatus;
+  ImportStatus?: ImportStatus | undefined;
 
   /**
    * <p> The Amazon Resource Number (ARN) of the table being imported into. </p>
    * @public
    */
-  TableArn?: string;
+  TableArn?: string | undefined;
 
   /**
    * <p> The path and S3 bucket of the source file that is being imported. This includes the
@@ -5865,34 +6162,34 @@ export interface ImportSummary {
    *             owned by the requester). </p>
    * @public
    */
-  S3BucketSource?: S3BucketSource;
+  S3BucketSource?: S3BucketSource | undefined;
 
   /**
    * <p> The Amazon Resource Number (ARN) of the Cloudwatch Log Group associated with this
    *             import task. </p>
    * @public
    */
-  CloudWatchLogGroupArn?: string;
+  CloudWatchLogGroupArn?: string | undefined;
 
   /**
    * <p> The format of the source data. Valid values are <code>CSV</code>,
    *                 <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
    * @public
    */
-  InputFormat?: InputFormat;
+  InputFormat?: InputFormat | undefined;
 
   /**
    * <p> The time at which this import task began. </p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p> The time at which this import task ended. (Does this include the successful complete
    *             creation of the table it was imported to?) </p>
    * @public
    */
-  EndTime?: Date;
+  EndTime?: Date | undefined;
 }
 
 /**
@@ -5903,7 +6200,7 @@ export interface ListImportsOutput {
    * <p> A list of <code>ImportSummary</code> objects. </p>
    * @public
    */
-  ImportSummaryList?: ImportSummary[];
+  ImportSummaryList?: ImportSummary[] | undefined;
 
   /**
    * <p> If this value is returned, there are additional results to be displayed. To retrieve
@@ -5911,7 +6208,7 @@ export interface ListImportsOutput {
    *             value. </p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5925,14 +6222,14 @@ export interface ListTablesInput {
    *             can obtain the next page of results.</p>
    * @public
    */
-  ExclusiveStartTableName?: string;
+  ExclusiveStartTableName?: string | undefined;
 
   /**
    * <p>A maximum number of table names to return. If this parameter is not specified, the
    *             limit is 100.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 }
 
 /**
@@ -5948,7 +6245,7 @@ export interface ListTablesOutput {
    *                 <code>ListTables</code> request and obtain the next page of results.</p>
    * @public
    */
-  TableNames?: string[];
+  TableNames?: string[] | undefined;
 
   /**
    * <p>The name of the last table in the current page of results. Use this value as the
@@ -5958,7 +6255,7 @@ export interface ListTablesOutput {
    *             this means that there are no more table names to be retrieved.</p>
    * @public
    */
-  LastEvaluatedTableName?: string;
+  LastEvaluatedTableName?: string | undefined;
 }
 
 /**
@@ -5978,7 +6275,7 @@ export interface ListTagsOfResourceInput {
    *             of results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -5989,14 +6286,14 @@ export interface ListTagsOfResourceOutput {
    * <p>The tags currently associated with the Amazon DynamoDB resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>If this value is returned, there are additional results to be displayed. To retrieve
    *             them, call ListTagsOfResource again, with NextToken set to this value.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6004,7 +6301,8 @@ export interface ListTagsOfResourceOutput {
  */
 export interface PutResourcePolicyInput {
   /**
-   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams.</p>
+   * <p>The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached.
+   *             The resources you can specify include tables and streams.</p>
    *          <p>You can control index permissions using the base table's policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the <code>Resource</code> field of a given <code>Statement</code> in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple <code>Statement</code> fields in your policy document.</p>
    * @public
    */
@@ -6014,32 +6312,45 @@ export interface PutResourcePolicyInput {
    * <p>An Amazon Web Services resource-based policy document in JSON format.</p>
    *          <ul>
    *             <li>
-   *                <p>The maximum size supported for a resource-based policy document is 20 KB. DynamoDB counts whitespaces when calculating the size of a policy against this limit.</p>
+   *                <p>The maximum size supported for a resource-based policy document is 20 KB.
+   *                         DynamoDB counts whitespaces when calculating the size of a policy
+   *                     against this limit.</p>
    *             </li>
    *             <li>
-   *                <p>Within a resource-based policy, if the action for a DynamoDB service-linked role (SLR) to replicate data for a global table is denied, adding or deleting a replica will fail with an error.</p>
+   *                <p>Within a resource-based policy, if the action for a DynamoDB
+   *                     service-linked role (SLR) to replicate data for a global table is denied, adding
+   *                     or deleting a replica will fail with an error.</p>
    *             </li>
    *          </ul>
-   *          <p>For a full list of all considerations that apply while attaching a resource-based policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based policy considerations</a>.</p>
+   *          <p>For a full list of all considerations that apply while attaching a resource-based
+   *             policy, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/rbac-considerations.html">Resource-based
+   *                 policy considerations</a>.</p>
    * @public
    */
   Policy: string | undefined;
 
   /**
-   * <p>A string value that you can use to conditionally update your policy. You can provide the revision ID of your existing policy to make mutating requests against that policy.</p>
+   * <p>A string value that you can use to conditionally update your policy. You can provide
+   *             the revision ID of your existing policy to make mutating requests against that
+   *             policy.</p>
    *          <note>
-   *             <p>When you provide an expected revision ID, if the revision ID of the existing policy on the resource doesn't match or if there's no policy attached to the resource, your request will be rejected with a <code>PolicyNotFoundException</code>.</p>
+   *             <p>When you provide an expected revision ID, if the revision ID of the existing
+   *                 policy on the resource doesn't match or if there's no policy attached to the
+   *                 resource, your request will be rejected with a
+   *                 <code>PolicyNotFoundException</code>.</p>
    *          </note>
-   *          <p>To conditionally attach a policy when no policy exists for the resource, specify <code>NO_POLICY</code> for the revision ID.</p>
+   *          <p>To conditionally attach a policy when no policy exists for the resource, specify
+   *                 <code>NO_POLICY</code> for the revision ID.</p>
    * @public
    */
-  ExpectedRevisionId?: string;
+  ExpectedRevisionId?: string | undefined;
 
   /**
-   * <p>Set this parameter to <code>true</code> to confirm that you want to remove your permissions to change the policy of this resource in the future.</p>
+   * <p>Set this parameter to <code>true</code> to confirm that you want to remove your
+   *             permissions to change the policy of this resource in the future.</p>
    * @public
    */
-  ConfirmRemoveSelfResourceAccess?: boolean;
+  ConfirmRemoveSelfResourceAccess?: boolean | undefined;
 }
 
 /**
@@ -6050,7 +6361,7 @@ export interface PutResourcePolicyOutput {
    * <p>A unique string that represents the revision ID of the policy. If you're comparing revision IDs, make sure to always use string comparison logic.</p>
    * @public
    */
-  RevisionId?: string;
+  RevisionId?: string | undefined;
 }
 
 /**
@@ -6089,7 +6400,7 @@ export interface RestoreTableFromBackupInput {
    * <p>The billing mode of the restored table.</p>
    * @public
    */
-  BillingModeOverride?: BillingMode;
+  BillingModeOverride?: BillingMode | undefined;
 
   /**
    * <p>List of global secondary indexes for the restored table. The indexes provided should
@@ -6097,7 +6408,7 @@ export interface RestoreTableFromBackupInput {
    *             at the time of restore.</p>
    * @public
    */
-  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
+  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>List of local secondary indexes for the restored table. The indexes provided should
@@ -6105,25 +6416,27 @@ export interface RestoreTableFromBackupInput {
    *             at the time of restore.</p>
    * @public
    */
-  LocalSecondaryIndexOverride?: LocalSecondaryIndex[];
+  LocalSecondaryIndexOverride?: LocalSecondaryIndex[] | undefined;
 
   /**
    * <p>Provisioned throughput settings for the restored table.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughput;
+  ProvisionedThroughputOverride?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughput;
+  OnDemandThroughputOverride?: OnDemandThroughput | undefined;
 
   /**
    * <p>The new server-side encryption settings for the restored table.</p>
    * @public
    */
-  SSESpecificationOverride?: SSESpecification;
+  SSESpecificationOverride?: SSESpecification | undefined;
 }
 
 /**
@@ -6134,7 +6447,7 @@ export interface RestoreTableFromBackupOutput {
    * <p>The description of the table created from an existing backup.</p>
    * @public
    */
-  TableDescription?: TableDescription;
+  TableDescription?: TableDescription | undefined;
 }
 
 /**
@@ -6187,13 +6500,13 @@ export interface RestoreTableToPointInTimeInput {
    *             (ARN).</p>
    * @public
    */
-  SourceTableArn?: string;
+  SourceTableArn?: string | undefined;
 
   /**
    * <p>Name of the source table that is being restored.</p>
    * @public
    */
-  SourceTableName?: string;
+  SourceTableName?: string | undefined;
 
   /**
    * <p>The name of the new table to which it must be restored to.</p>
@@ -6206,19 +6519,19 @@ export interface RestoreTableToPointInTimeInput {
    *             is typically 5 minutes before the current time. </p>
    * @public
    */
-  UseLatestRestorableTime?: boolean;
+  UseLatestRestorableTime?: boolean | undefined;
 
   /**
    * <p>Time in the past to restore the table to.</p>
    * @public
    */
-  RestoreDateTime?: Date;
+  RestoreDateTime?: Date | undefined;
 
   /**
    * <p>The billing mode of the restored table.</p>
    * @public
    */
-  BillingModeOverride?: BillingMode;
+  BillingModeOverride?: BillingMode | undefined;
 
   /**
    * <p>List of global secondary indexes for the restored table. The indexes provided should
@@ -6226,7 +6539,7 @@ export interface RestoreTableToPointInTimeInput {
    *             at the time of restore.</p>
    * @public
    */
-  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[];
+  GlobalSecondaryIndexOverride?: GlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>List of local secondary indexes for the restored table. The indexes provided should
@@ -6234,25 +6547,27 @@ export interface RestoreTableToPointInTimeInput {
    *             at the time of restore.</p>
    * @public
    */
-  LocalSecondaryIndexOverride?: LocalSecondaryIndex[];
+  LocalSecondaryIndexOverride?: LocalSecondaryIndex[] | undefined;
 
   /**
    * <p>Provisioned throughput settings for the restored table.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughput;
+  ProvisionedThroughputOverride?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Sets the maximum number of read and write units for the specified on-demand table. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Sets the maximum number of read and write units for the specified on-demand table. If
+   *             you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughput;
+  OnDemandThroughputOverride?: OnDemandThroughput | undefined;
 
   /**
    * <p>The new server-side encryption settings for the restored table.</p>
    * @public
    */
-  SSESpecificationOverride?: SSESpecification;
+  SSESpecificationOverride?: SSESpecification | undefined;
 }
 
 /**
@@ -6263,7 +6578,7 @@ export interface RestoreTableToPointInTimeOutput {
    * <p>Represents the properties of a table.</p>
    * @public
    */
-  TableDescription?: TableDescription;
+  TableDescription?: TableDescription | undefined;
 }
 
 /**
@@ -6314,6 +6629,15 @@ export interface PointInTimeRecoverySpecification {
    * @public
    */
   PointInTimeRecoveryEnabled: boolean | undefined;
+
+  /**
+   * <p>The number of preceding days for which continuous backups are taken and maintained.
+   *             Your table data is only recoverable to any point-in-time from within the configured
+   *             recovery period. This parameter is optional. If no value is provided, the value will
+   *             default to 35.</p>
+   * @public
+   */
+  RecoveryPeriodInDays?: number | undefined;
 }
 
 /**
@@ -6321,7 +6645,8 @@ export interface PointInTimeRecoverySpecification {
  */
 export interface UpdateContinuousBackupsInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6342,7 +6667,7 @@ export interface UpdateContinuousBackupsOutput {
    *             table.</p>
    * @public
    */
-  ContinuousBackupsDescription?: ContinuousBackupsDescription;
+  ContinuousBackupsDescription?: ContinuousBackupsDescription | undefined;
 }
 
 /**
@@ -6350,7 +6675,8 @@ export interface UpdateContinuousBackupsOutput {
  */
 export interface UpdateContributorInsightsInput {
   /**
-   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table. You can also provide the Amazon Resource Name (ARN) of the table in this
+   *             parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6359,7 +6685,7 @@ export interface UpdateContributorInsightsInput {
    * <p>The global secondary index name, if applicable.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>Represents the contributor insights action.</p>
@@ -6376,19 +6702,19 @@ export interface UpdateContributorInsightsOutput {
    * <p>The name of the table.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The name of the global secondary index, if applicable.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The status of contributor insights</p>
    * @public
    */
-  ContributorInsightsStatus?: ContributorInsightsStatus;
+  ContributorInsightsStatus?: ContributorInsightsStatus | undefined;
 }
 
 /**
@@ -6451,13 +6777,13 @@ export interface ReplicaUpdate {
    * <p>The parameters required for creating a replica on an existing global table.</p>
    * @public
    */
-  Create?: CreateReplicaAction;
+  Create?: CreateReplicaAction | undefined;
 
   /**
    * <p>The name of the existing replica to be removed.</p>
    * @public
    */
-  Delete?: DeleteReplicaAction;
+  Delete?: DeleteReplicaAction | undefined;
 }
 
 /**
@@ -6485,7 +6811,7 @@ export interface UpdateGlobalTableOutput {
    * <p>Contains the details of the global table.</p>
    * @public
    */
-  GlobalTableDescription?: GlobalTableDescription;
+  GlobalTableDescription?: GlobalTableDescription | undefined;
 }
 
 /**
@@ -6527,14 +6853,14 @@ export interface GlobalTableGlobalSecondaryIndexSettingsUpdate {
    *          </p>
    * @public
    */
-  ProvisionedWriteCapacityUnits?: number;
+  ProvisionedWriteCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for managing a global secondary index's write capacity
    *             units.</p>
    * @public
    */
-  ProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
+  ProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate | undefined;
 }
 
 /**
@@ -6555,14 +6881,14 @@ export interface ReplicaGlobalSecondaryIndexSettingsUpdate {
    *             returns a <code>ThrottlingException</code>.</p>
    * @public
    */
-  ProvisionedReadCapacityUnits?: number;
+  ProvisionedReadCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for managing a global secondary index replica's read capacity
    *             units.</p>
    * @public
    */
-  ProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
+  ProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate | undefined;
 }
 
 /**
@@ -6582,28 +6908,28 @@ export interface ReplicaSettingsUpdate {
    *                 Developer Guide</i>. </p>
    * @public
    */
-  ReplicaProvisionedReadCapacityUnits?: number;
+  ReplicaProvisionedReadCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for managing a global table replica's read capacity
    *             units.</p>
    * @public
    */
-  ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
+  ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate | undefined;
 
   /**
    * <p>Represents the settings of a global secondary index for a global table that will be
    *             modified.</p>
    * @public
    */
-  ReplicaGlobalSecondaryIndexSettingsUpdate?: ReplicaGlobalSecondaryIndexSettingsUpdate[];
+  ReplicaGlobalSecondaryIndexSettingsUpdate?: ReplicaGlobalSecondaryIndexSettingsUpdate[] | undefined;
 
   /**
    * <p>Replica-specific table class. If not specified, uses the source table's table
    *             class.</p>
    * @public
    */
-  ReplicaTableClass?: TableClass;
+  ReplicaTableClass?: TableClass | undefined;
 }
 
 /**
@@ -6635,7 +6961,7 @@ export interface UpdateGlobalTableSettingsInput {
    *          </ul>
    * @public
    */
-  GlobalTableBillingMode?: BillingMode;
+  GlobalTableBillingMode?: BillingMode | undefined;
 
   /**
    * <p>The maximum number of writes consumed per second before DynamoDB returns a
@@ -6643,27 +6969,27 @@ export interface UpdateGlobalTableSettingsInput {
    *          </p>
    * @public
    */
-  GlobalTableProvisionedWriteCapacityUnits?: number;
+  GlobalTableProvisionedWriteCapacityUnits?: number | undefined;
 
   /**
    * <p>Auto scaling settings for managing provisioned write capacity for the global
    *             table.</p>
    * @public
    */
-  GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate;
+  GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate?: AutoScalingSettingsUpdate | undefined;
 
   /**
    * <p>Represents the settings of a global secondary index for a global table that will be
    *             modified.</p>
    * @public
    */
-  GlobalTableGlobalSecondaryIndexSettingsUpdate?: GlobalTableGlobalSecondaryIndexSettingsUpdate[];
+  GlobalTableGlobalSecondaryIndexSettingsUpdate?: GlobalTableGlobalSecondaryIndexSettingsUpdate[] | undefined;
 
   /**
    * <p>Represents the settings for a global table in a Region that will be modified.</p>
    * @public
    */
-  ReplicaSettingsUpdate?: ReplicaSettingsUpdate[];
+  ReplicaSettingsUpdate?: ReplicaSettingsUpdate[] | undefined;
 }
 
 /**
@@ -6674,13 +7000,13 @@ export interface UpdateGlobalTableSettingsOutput {
    * <p>The name of the global table.</p>
    * @public
    */
-  GlobalTableName?: string;
+  GlobalTableName?: string | undefined;
 
   /**
    * <p>The Region-specific settings for the global table.</p>
    * @public
    */
-  ReplicaSettings?: ReplicaSettingsDescription[];
+  ReplicaSettings?: ReplicaSettingsDescription[] | undefined;
 }
 
 /**
@@ -6692,7 +7018,7 @@ export interface UpdateKinesisStreamingConfiguration {
    * <p>Enables updating the precision of Kinesis data stream timestamp. </p>
    * @public
    */
-  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision;
+  ApproximateCreationDateTimePrecision?: ApproximateCreationDateTimePrecision | undefined;
 }
 
 /**
@@ -6700,7 +7026,8 @@ export interface UpdateKinesisStreamingConfiguration {
  */
 export interface UpdateKinesisStreamingDestinationInput {
   /**
-   * <p>The table name for the Kinesis streaming destination input. You can also provide the ARN of the table in this parameter.</p>
+   * <p>The table name for the Kinesis streaming destination input. You can also provide the
+   *             ARN of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6715,7 +7042,7 @@ export interface UpdateKinesisStreamingDestinationInput {
    * <p>The command to update the Kinesis stream configuration.</p>
    * @public
    */
-  UpdateKinesisStreamingConfiguration?: UpdateKinesisStreamingConfiguration;
+  UpdateKinesisStreamingConfiguration?: UpdateKinesisStreamingConfiguration | undefined;
 }
 
 /**
@@ -6726,25 +7053,25 @@ export interface UpdateKinesisStreamingDestinationOutput {
    * <p>The table name for the Kinesis streaming destination output.</p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p>The ARN for the Kinesis stream input.</p>
    * @public
    */
-  StreamArn?: string;
+  StreamArn?: string | undefined;
 
   /**
    * <p>The status of the attempt to update the Kinesis streaming destination output.</p>
    * @public
    */
-  DestinationStatus?: DestinationStatus;
+  DestinationStatus?: DestinationStatus | undefined;
 
   /**
    * <p>The command to update the Kinesis streaming destination configuration.</p>
    * @public
    */
-  UpdateKinesisStreamingConfiguration?: UpdateKinesisStreamingConfiguration;
+  UpdateKinesisStreamingConfiguration?: UpdateKinesisStreamingConfiguration | undefined;
 }
 
 /**
@@ -6767,13 +7094,22 @@ export interface UpdateGlobalSecondaryIndexAction {
    *                 Guide</i>.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
-   * <p>Updates the maximum number of read and write units for the specified global secondary index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Updates the maximum number of read and write units for the specified global secondary
+   *             index. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>,
+   *                 <code>MaxWriteRequestUnits</code>, or both.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput value of the new provisioned throughput settings to be
+   *             applied to a global secondary index.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -6799,7 +7135,7 @@ export interface GlobalSecondaryIndexUpdate {
    *             settings to be applied to that index.</p>
    * @public
    */
-  Update?: UpdateGlobalSecondaryIndexAction;
+  Update?: UpdateGlobalSecondaryIndexAction | undefined;
 
   /**
    * <p>The parameters required for creating a global secondary index on an existing
@@ -6833,13 +7169,13 @@ export interface GlobalSecondaryIndexUpdate {
    *          </ul>
    * @public
    */
-  Create?: CreateGlobalSecondaryIndexAction;
+  Create?: CreateGlobalSecondaryIndexAction | undefined;
 
   /**
    * <p>The name of an existing global secondary index to be removed.</p>
    * @public
    */
-  Delete?: DeleteGlobalSecondaryIndexAction;
+  Delete?: DeleteGlobalSecondaryIndexAction | undefined;
 }
 
 /**
@@ -6860,33 +7196,33 @@ export interface UpdateReplicationGroupMemberAction {
    *             the default DynamoDB KMS key <code>alias/aws/dynamodb</code>.</p>
    * @public
    */
-  KMSMasterKeyId?: string;
+  KMSMasterKeyId?: string | undefined;
 
   /**
    * <p>Replica-specific provisioned throughput. If not specified, uses the source table's
    *             provisioned throughput settings.</p>
    * @public
    */
-  ProvisionedThroughputOverride?: ProvisionedThroughputOverride;
+  ProvisionedThroughputOverride?: ProvisionedThroughputOverride | undefined;
 
   /**
    * <p>Overrides the maximum on-demand throughput for the replica table.</p>
    * @public
    */
-  OnDemandThroughputOverride?: OnDemandThroughputOverride;
+  OnDemandThroughputOverride?: OnDemandThroughputOverride | undefined;
 
   /**
    * <p>Replica-specific global secondary index settings.</p>
    * @public
    */
-  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[];
+  GlobalSecondaryIndexes?: ReplicaGlobalSecondaryIndex[] | undefined;
 
   /**
    * <p>Replica-specific table class. If not specified, uses the source table's table
    *             class.</p>
    * @public
    */
-  TableClassOverride?: TableClass;
+  TableClassOverride?: TableClass | undefined;
 }
 
 /**
@@ -6919,19 +7255,19 @@ export interface ReplicationGroupUpdate {
    * <p>The parameters required for creating a replica for the table.</p>
    * @public
    */
-  Create?: CreateReplicationGroupMemberAction;
+  Create?: CreateReplicationGroupMemberAction | undefined;
 
   /**
    * <p>The parameters required for updating a replica for the table.</p>
    * @public
    */
-  Update?: UpdateReplicationGroupMemberAction;
+  Update?: UpdateReplicationGroupMemberAction | undefined;
 
   /**
    * <p>The parameters required for deleting a replica for the table.</p>
    * @public
    */
-  Delete?: DeleteReplicationGroupMemberAction;
+  Delete?: DeleteReplicationGroupMemberAction | undefined;
 }
 
 /**
@@ -6945,10 +7281,11 @@ export interface UpdateTableInput {
    *             must include the key element(s) of the new index.</p>
    * @public
    */
-  AttributeDefinitions?: AttributeDefinition[];
+  AttributeDefinitions?: AttributeDefinition[] | undefined;
 
   /**
-   * <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to be updated. You can also provide the Amazon Resource Name (ARN) of the table
+   *             in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -6962,25 +7299,26 @@ export interface UpdateTableInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
-   *                     predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
+   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
+   *                     for most DynamoDB workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
+   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code>
-   *                     for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode
-   *                     to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/on-demand-capacity-mode.html">On-demand capacity mode</a>. </p>
+   *                   <code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for
+   *                     steady workloads with predictable growth where capacity requirements can be
+   *                     reliably forecasted. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/provisioned-capacity-mode.html">Provisioned capacity mode</a>.</p>
    *             </li>
    *          </ul>
    * @public
    */
-  BillingMode?: BillingMode;
+  BillingMode?: BillingMode | undefined;
 
   /**
    * <p>The new provisioned throughput settings for the specified table or index.</p>
    * @public
    */
-  ProvisionedThroughput?: ProvisionedThroughput;
+  ProvisionedThroughput?: ProvisionedThroughput | undefined;
 
   /**
    * <p>An array of one or more global secondary indexes for the table. For each index in the
@@ -7007,7 +7345,7 @@ export interface UpdateTableInput {
    *                 Guide</i>. </p>
    * @public
    */
-  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdate[];
+  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexUpdate[] | undefined;
 
   /**
    * <p>Represents the DynamoDB Streams configuration for the table.</p>
@@ -7018,42 +7356,79 @@ export interface UpdateTableInput {
    *          </note>
    * @public
    */
-  StreamSpecification?: StreamSpecification;
+  StreamSpecification?: StreamSpecification | undefined;
 
   /**
    * <p>The new server-side encryption settings for the specified table.</p>
    * @public
    */
-  SSESpecification?: SSESpecification;
+  SSESpecification?: SSESpecification | undefined;
 
   /**
    * <p>A list of replica update actions (create, delete, or update) for the table.</p>
    *          <note>
-   *             <p>For global tables, this property only applies to global tables using Version 2019.11.21 (Current version).
-   *             </p>
+   *             <p>For global tables, this property only applies to global tables using Version
+   *                 2019.11.21 (Current version). </p>
    *          </note>
    * @public
    */
-  ReplicaUpdates?: ReplicationGroupUpdate[];
+  ReplicaUpdates?: ReplicationGroupUpdate[] | undefined;
 
   /**
    * <p>The table class of the table to be updated. Valid values are <code>STANDARD</code> and
    *                 <code>STANDARD_INFREQUENT_ACCESS</code>.</p>
    * @public
    */
-  TableClass?: TableClass;
+  TableClass?: TableClass | undefined;
 
   /**
-   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on the table.</p>
+   * <p>Indicates whether deletion protection is to be enabled (true) or disabled (false) on
+   *             the table.</p>
    * @public
    */
-  DeletionProtectionEnabled?: boolean;
+  DeletionProtectionEnabled?: boolean | undefined;
 
   /**
-   * <p>Updates the maximum number of read and write units for the specified table in on-demand capacity mode. If you use this parameter, you must specify <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * <p>Specifies the consistency mode for a new global table. This parameter is only valid
+   *             when you create a global table by specifying one or more <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_ReplicationGroupUpdate.html#DDB-Type-ReplicationGroupUpdate-Create">Create</a> actions in the <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html#DDB-UpdateTable-request-ReplicaUpdates">ReplicaUpdates</a> action list.</p>
+   *          <p>You can specify one of the following consistency modes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>EVENTUAL</code>: Configures a new global table for multi-Region eventual
+   *                     consistency. This is the default consistency mode for global tables.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRONG</code>: Configures a new global table for multi-Region strong
+   *                     consistency (preview).</p>
+   *                <note>
+   *                   <p>Multi-Region strong consistency (MRSC) is a new DynamoDB global
+   *                         tables capability currently available in preview mode. For more information,
+   *                         see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/PreviewFeatures.html#multi-region-strong-consistency-gt">Global tables multi-Region strong consistency</a>.</p>
+   *                </note>
+   *             </li>
+   *          </ul>
+   *          <p>If you don't specify this parameter, the global table consistency mode defaults to
+   *                 <code>EVENTUAL</code>.</p>
    * @public
    */
-  OnDemandThroughput?: OnDemandThroughput;
+  MultiRegionConsistency?: MultiRegionConsistency | undefined;
+
+  /**
+   * <p>Updates the maximum number of read and write units for the specified table in
+   *             on-demand capacity mode. If you use this parameter, you must specify
+   *                 <code>MaxReadRequestUnits</code>, <code>MaxWriteRequestUnits</code>, or both.</p>
+   * @public
+   */
+  OnDemandThroughput?: OnDemandThroughput | undefined;
+
+  /**
+   * <p>Represents the warm throughput (in read units per second and write units per second)
+   *             for updating a table.</p>
+   * @public
+   */
+  WarmThroughput?: WarmThroughput | undefined;
 }
 
 /**
@@ -7065,7 +7440,7 @@ export interface UpdateTableOutput {
    * <p>Represents the properties of the table.</p>
    * @public
    */
-  TableDescription?: TableDescription;
+  TableDescription?: TableDescription | undefined;
 }
 
 /**
@@ -7078,14 +7453,14 @@ export interface GlobalSecondaryIndexAutoScalingUpdate {
    * <p>The name of the global secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
    *             secondary index.</p>
    * @public
    */
-  ProvisionedWriteCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
+  ProvisionedWriteCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate | undefined;
 }
 
 /**
@@ -7098,14 +7473,14 @@ export interface ReplicaGlobalSecondaryIndexAutoScalingUpdate {
    * <p>The name of the global secondary index.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
    *             secondary index.</p>
    * @public
    */
-  ProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
+  ProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate | undefined;
 }
 
 /**
@@ -7124,14 +7499,14 @@ export interface ReplicaAutoScalingUpdate {
    *             modified.</p>
    * @public
    */
-  ReplicaGlobalSecondaryIndexUpdates?: ReplicaGlobalSecondaryIndexAutoScalingUpdate[];
+  ReplicaGlobalSecondaryIndexUpdates?: ReplicaGlobalSecondaryIndexAutoScalingUpdate[] | undefined;
 
   /**
    * <p>Represents the auto scaling settings to be modified for a global table or global
    *             secondary index.</p>
    * @public
    */
-  ReplicaProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
+  ReplicaProvisionedReadCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate | undefined;
 }
 
 /**
@@ -7143,10 +7518,11 @@ export interface UpdateTableReplicaAutoScalingInput {
    *             be updated.</p>
    * @public
    */
-  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[];
+  GlobalSecondaryIndexUpdates?: GlobalSecondaryIndexAutoScalingUpdate[] | undefined;
 
   /**
-   * <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the global table to be updated. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -7156,14 +7532,14 @@ export interface UpdateTableReplicaAutoScalingInput {
    *             secondary index.</p>
    * @public
    */
-  ProvisionedWriteCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate;
+  ProvisionedWriteCapacityAutoScalingUpdate?: AutoScalingSettingsUpdate | undefined;
 
   /**
    * <p>Represents the auto scaling settings of replicas of the table that will be
    *             modified.</p>
    * @public
    */
-  ReplicaUpdates?: ReplicaAutoScalingUpdate[];
+  ReplicaUpdates?: ReplicaAutoScalingUpdate[] | undefined;
 }
 
 /**
@@ -7174,7 +7550,7 @@ export interface UpdateTableReplicaAutoScalingOutput {
    * <p>Returns information about the auto scaling settings of a table with replicas.</p>
    * @public
    */
-  TableAutoScalingDescription?: TableAutoScalingDescription;
+  TableAutoScalingDescription?: TableAutoScalingDescription | undefined;
 }
 
 /**
@@ -7203,7 +7579,8 @@ export interface TimeToLiveSpecification {
  */
 export interface UpdateTimeToLiveInput {
   /**
-   * <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to be configured. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -7224,7 +7601,7 @@ export interface UpdateTimeToLiveOutput {
    * <p>Represents the output of an <code>UpdateTimeToLive</code> operation.</p>
    * @public
    */
-  TimeToLiveSpecification?: TimeToLiveSpecification;
+  TimeToLiveSpecification?: TimeToLiveSpecification | undefined;
 }
 
 /**
@@ -7536,7 +7913,7 @@ export interface AttributeValueUpdate {
    *         </p>
    * @public
    */
-  Value?: AttributeValue;
+  Value?: AttributeValue | undefined;
 
   /**
    * <p>Specifies how to perform the update. Valid values are <code>PUT</code> (default),
@@ -7634,7 +8011,7 @@ export interface AttributeValueUpdate {
    *          </ul>
    * @public
    */
-  Action?: AttributeAction;
+  Action?: AttributeAction | undefined;
 }
 
 /**
@@ -7646,19 +8023,20 @@ export interface BatchStatementError {
    * <p> The error code associated with the failed PartiQL batch statement. </p>
    * @public
    */
-  Code?: BatchStatementErrorCodeEnum;
+  Code?: BatchStatementErrorCodeEnum | undefined;
 
   /**
    * <p> The error message associated with the PartiQL batch response. </p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
-   * <p>The item which caused the condition check to fail. This will be set if ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
+   * <p>The item which caused the condition check to fail. This will be set if
+   *             ReturnValuesOnConditionCheckFailure is specified as <code>ALL_OLD</code>.</p>
    * @public
    */
-  Item?: Record<string, AttributeValue>;
+  Item?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -7676,13 +8054,13 @@ export interface BatchStatementRequest {
    * <p> The parameters associated with a PartiQL statement in the batch request. </p>
    * @public
    */
-  Parameters?: AttributeValue[];
+  Parameters?: AttributeValue[] | undefined;
 
   /**
    * <p> The read consistency of the PartiQL batch request. </p>
    * @public
    */
-  ConsistentRead?: boolean;
+  ConsistentRead?: boolean | undefined;
 
   /**
    * <p>An optional parameter that returns the item attributes for a PartiQL batch request
@@ -7692,7 +8070,7 @@ export interface BatchStatementRequest {
    *             units are consumed.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -7707,19 +8085,19 @@ export interface CancellationReason {
    * <p>Item in the request which caused the transaction to get cancelled.</p>
    * @public
    */
-  Item?: Record<string, AttributeValue>;
+  Item?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Status code for the result of the cancelled transaction.</p>
    * @public
    */
-  Code?: string;
+  Code?: string | undefined;
 
   /**
    * <p>Cancellation reason message description.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -7758,7 +8136,7 @@ export interface Condition {
    *             compares binary values.</p>
    * @public
    */
-  AttributeValueList?: AttributeValue[];
+  AttributeValueList?: AttributeValue[] | undefined;
 
   /**
    * <p>A comparator for evaluating attributes. For example, equals, greater than, less than,
@@ -7953,7 +8331,7 @@ export interface Condition {
 }
 
 /**
- * <p>A condition specified in the operation could not be evaluated.</p>
+ * <p>A condition specified in the operation failed to be evaluated.</p>
  * @public
  */
 export class ConditionalCheckFailedException extends __BaseException {
@@ -7963,7 +8341,7 @@ export class ConditionalCheckFailedException extends __BaseException {
    * <p>Item which caused the <code>ConditionalCheckFailedException</code>.</p>
    * @public
    */
-  Item?: Record<string, AttributeValue>;
+  Item?: Record<string, AttributeValue> | undefined;
 
   /**
    * @internal
@@ -8007,21 +8385,21 @@ export interface ExecuteStatementInput {
    * <p>The parameters for the PartiQL statement, if any.</p>
    * @public
    */
-  Parameters?: AttributeValue[];
+  Parameters?: AttributeValue[] | undefined;
 
   /**
    * <p>The consistency of a read operation. If set to <code>true</code>, then a strongly
    *             consistent read is used; otherwise, an eventually consistent read is used.</p>
    * @public
    */
-  ConsistentRead?: boolean;
+  ConsistentRead?: boolean | undefined;
 
   /**
    * <p>Set this value to get remaining results, if <code>NextToken</code> was returned in the
    *             statement response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -8051,7 +8429,7 @@ export interface ExecuteStatementInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>The maximum number of items to evaluate (not necessarily the number of matching
@@ -8064,17 +8442,17 @@ export interface ExecuteStatementInput {
    *             operation to continue the operation. </p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>An optional parameter that returns the item attributes for an
-   *             <code>ExecuteStatement</code> operation that failed a condition check.</p>
+   *                 <code>ExecuteStatement</code> operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -8091,7 +8469,8 @@ export interface Get {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>The name of the table from which to retrieve the specified item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table from which to retrieve the specified item. You can also provide
+   *             the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -8103,14 +8482,14 @@ export interface Get {
    *             the requested attributes are not found, they do not appear in the result.</p>
    * @public
    */
-  ProjectionExpression?: string;
+  ProjectionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in the ProjectionExpression
    *             parameter.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 }
 
 /**
@@ -8119,7 +8498,8 @@ export interface Get {
  */
 export interface GetItemInput {
   /**
-   * <p>The name of the table containing the requested item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table containing the requested item. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -8141,7 +8521,7 @@ export interface GetItemInput {
    *             Guide</i>.</p>
    * @public
    */
-  AttributesToGet?: string[];
+  AttributesToGet?: string[] | undefined;
 
   /**
    * <p>Determines the read consistency model: If set to <code>true</code>, then the operation
@@ -8149,7 +8529,7 @@ export interface GetItemInput {
    *             reads.</p>
    * @public
    */
-  ConsistentRead?: boolean;
+  ConsistentRead?: boolean | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -8179,7 +8559,7 @@ export interface GetItemInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These
@@ -8191,7 +8571,7 @@ export interface GetItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ProjectionExpression?: string;
+  ProjectionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -8247,7 +8627,7 @@ export interface GetItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 }
 
 /**
@@ -8260,18 +8640,18 @@ export interface GetItemOutput {
    *                 <code>ProjectionExpression</code>.</p>
    * @public
    */
-  Item?: Record<string, AttributeValue>;
+  Item?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 }
 
 /**
@@ -8287,7 +8667,7 @@ export interface ItemCollectionMetrics {
    *             partition key value of the item.</p>
    * @public
    */
-  ItemCollectionKey?: Record<string, AttributeValue>;
+  ItemCollectionKey?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>An estimate of item collection size, in gigabytes. This value is a two-element array
@@ -8299,7 +8679,7 @@ export interface ItemCollectionMetrics {
    *             or accuracy of the estimate.</p>
    * @public
    */
-  SizeEstimateRangeGB?: number[];
+  SizeEstimateRangeGB?: number[] | undefined;
 }
 
 /**
@@ -8311,7 +8691,7 @@ export interface ItemResponse {
    * <p>Map of attribute data consisting of the data type and attribute value.</p>
    * @public
    */
-  Item?: Record<string, AttributeValue>;
+  Item?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -8329,17 +8709,17 @@ export interface ParameterizedStatement {
    * <p> The parameter values. </p>
    * @public
    */
-  Parameters?: AttributeValue[];
+  Parameters?: AttributeValue[] | undefined;
 
   /**
    * <p>An optional parameter that returns the item attributes for a PartiQL
-   *             <code>ParameterizedStatement</code> operation that failed a condition check.</p>
+   *                 <code>ParameterizedStatement</code> operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -8382,14 +8762,14 @@ export interface KeysAndAttributes {
    *                 Guide</i>.</p>
    * @public
    */
-  AttributesToGet?: string[];
+  AttributesToGet?: string[] | undefined;
 
   /**
    * <p>The consistency of a read operation. If set to <code>true</code>, then a strongly
    *             consistent read is used; otherwise, an eventually consistent read is used.</p>
    * @public
    */
-  ConsistentRead?: boolean;
+  ConsistentRead?: boolean | undefined;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These
@@ -8401,7 +8781,7 @@ export interface KeysAndAttributes {
    *                 Guide</i>.</p>
    * @public
    */
-  ProjectionExpression?: string;
+  ProjectionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -8457,7 +8837,7 @@ export interface KeysAndAttributes {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 }
 
 /**
@@ -8512,7 +8892,7 @@ export interface BatchExecuteStatementInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 }
 
 /**
@@ -8530,14 +8910,14 @@ export interface ExecuteTransactionInput {
    *             statement response.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
    *             consumption that is returned in the response. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactGetItems.html">TransactGetItems</a> and <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_TransactWriteItems.html">TransactWriteItems</a>.</p>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 }
 
 /**
@@ -8548,14 +8928,14 @@ export interface ExecuteTransactionOutput {
    * <p>The response to a PartiQL transaction.</p>
    * @public
    */
-  Responses?: ItemResponse[];
+  Responses?: ItemResponse[] | undefined;
 
   /**
    * <p>The capacity units consumed by the entire operation. The values of the list are
    *             ordered according to the ordering of the statements.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity[];
+  ConsumedCapacity?: ConsumedCapacity[] | undefined;
 }
 
 /**
@@ -8570,7 +8950,7 @@ export interface TransactGetItemsOutput {
    *             consumed by the <code>TransactGetItems</code> call in that table.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity[];
+  ConsumedCapacity?: ConsumedCapacity[] | undefined;
 
   /**
    * <p>An ordered array of up to 100 <code>ItemResponse</code> objects, each of which
@@ -8583,7 +8963,7 @@ export interface TransactGetItemsOutput {
    *             attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>
    * @public
    */
-  Responses?: ItemResponse[];
+  Responses?: ItemResponse[] | undefined;
 }
 
 /**
@@ -8830,12 +9210,12 @@ export interface TransactGetItemsOutput {
 export class TransactionCanceledException extends __BaseException {
   readonly name: "TransactionCanceledException" = "TransactionCanceledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>A list of cancellation reasons.</p>
    * @public
    */
-  CancellationReasons?: CancellationReason[];
+  CancellationReasons?: CancellationReason[] | undefined;
   /**
    * @internal
    */
@@ -8857,9 +9237,9 @@ export class TransactionCanceledException extends __BaseException {
  */
 export interface BatchGetItemInput {
   /**
-   * <p>A map of one or more table names or table ARNs and, for each table, a map that describes one or more
-   *             items to retrieve from that table. Each table name or ARN can be used only once per
-   *                 <code>BatchGetItem</code> request.</p>
+   * <p>A map of one or more table names or table ARNs and, for each table, a map that
+   *             describes one or more items to retrieve from that table. Each table name or ARN can be
+   *             used only once per <code>BatchGetItem</code> request.</p>
    *          <p>Each element in the map of items to retrieve consists of the following:</p>
    *          <ul>
    *             <li>
@@ -8988,7 +9368,7 @@ export interface BatchGetItemInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 }
 
 /**
@@ -9030,7 +9410,7 @@ export interface ExpectedAttributeValue {
    *                 Guide</i>.</p>
    * @public
    */
-  Value?: AttributeValue;
+  Value?: AttributeValue | undefined;
 
   /**
    * <p>Causes DynamoDB to evaluate the value before attempting a conditional
@@ -9071,7 +9451,7 @@ export interface ExpectedAttributeValue {
    *          </ul>
    * @public
    */
-  Exists?: boolean;
+  Exists?: boolean | undefined;
 
   /**
    * <p>A comparator for evaluating attributes in the <code>AttributeValueList</code>. For
@@ -9258,7 +9638,7 @@ export interface ExpectedAttributeValue {
    *          </ul>
    * @public
    */
-  ComparisonOperator?: ComparisonOperator;
+  ComparisonOperator?: ComparisonOperator | undefined;
 
   /**
    * <p>One or more values to evaluate against the supplied attribute. The number of values in
@@ -9273,7 +9653,7 @@ export interface ExpectedAttributeValue {
    *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
    * @public
    */
-  AttributeValueList?: AttributeValue[];
+  AttributeValueList?: AttributeValue[] | undefined;
 }
 
 /**
@@ -9293,7 +9673,7 @@ export interface TransactGetItemsInput {
    *             value is valid.</p>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 }
 
 /**
@@ -9306,7 +9686,7 @@ export interface TransactWriteItemsOutput {
    *                 <code>TransactItems</code> request parameter. </p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity[];
+  ConsumedCapacity?: ConsumedCapacity[] | undefined;
 
   /**
    * <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each
@@ -9315,7 +9695,7 @@ export interface TransactWriteItemsOutput {
    *             operations. </p>
    * @public
    */
-  ItemCollectionMetrics?: Record<string, ItemCollectionMetrics[]>;
+  ItemCollectionMetrics?: Record<string, ItemCollectionMetrics[]> | undefined;
 }
 
 /**
@@ -9332,32 +9712,35 @@ export interface ConditionCheck {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table for the check item request. You can also provide the Amazon Resource Name (ARN) of
+   *             the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
 
   /**
-   * <p>A condition that must be satisfied in order for a conditional update to
-   *             succeed. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer
-   *                     Guide</i>.</p>
+   * <p>A condition that must be satisfied in order for a conditional update to succeed. For
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
   ConditionExpression: string | undefined;
 
   /**
-   * <p>One or more substitution tokens for attribute names in an expression. For more information, see
-   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a>
-   *             in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>One or more substitution tokens for attribute names in an expression. For more
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionAttributeNames.html">Expression attribute names</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
-   * <p>One or more values that can be substituted in an expression. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   * <p>One or more values that can be substituted in an expression. For more information, see
+   *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ConditionExpressions.html">Condition expressions</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -9366,7 +9749,7 @@ export interface ConditionCheck {
    *             ALL_OLD.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -9382,7 +9765,8 @@ export interface Delete {
   Key: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table in which the item to be deleted resides. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table in which the item to be deleted resides. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9392,19 +9776,19 @@ export interface Delete {
    *             succeed.</p>
    * @public
    */
-  ConditionExpression?: string;
+  ConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -9413,7 +9797,7 @@ export interface Delete {
    *             ALL_OLD.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -9432,7 +9816,8 @@ export interface Put {
   Item: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table in which to write the item. You can also provide the Amazon Resource Name (ARN) of
+   *             the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9442,19 +9827,19 @@ export interface Put {
    *             succeed.</p>
    * @public
    */
-  ConditionExpression?: string;
+  ConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -9463,7 +9848,7 @@ export interface Put {
    *             ALL_OLD.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -9486,7 +9871,8 @@ export interface Update {
   UpdateExpression: string | undefined;
 
   /**
-   * <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>Name of the table for the <code>UpdateItem</code> request. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -9496,19 +9882,19 @@ export interface Update {
    *             succeed.</p>
    * @public
    */
-  ConditionExpression?: string;
+  ConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Use <code>ReturnValuesOnConditionCheckFailure</code> to get the item attributes if the
@@ -9517,7 +9903,7 @@ export interface Update {
    *             ALL_OLD.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -9529,19 +9915,19 @@ export interface BatchStatementResponse {
    * <p> The error associated with a failed PartiQL batch statement. </p>
    * @public
    */
-  Error?: BatchStatementError;
+  Error?: BatchStatementError | undefined;
 
   /**
    * <p> The table name associated with a failed PartiQL batch statement. </p>
    * @public
    */
-  TableName?: string;
+  TableName?: string | undefined;
 
   /**
    * <p> A DynamoDB item associated with a BatchStatementResponse </p>
    * @public
    */
-  Item?: Record<string, AttributeValue>;
+  Item?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -9556,7 +9942,7 @@ export interface DeleteItemOutput {
    *             request.</p>
    * @public
    */
-  Attributes?: Record<string, AttributeValue>;
+  Attributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data
@@ -9567,7 +9953,7 @@ export interface DeleteItemOutput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 
   /**
    * <p>Information about item collections, if any, that were affected by the
@@ -9596,7 +9982,7 @@ export interface DeleteItemOutput {
    *          </ul>
    * @public
    */
-  ItemCollectionMetrics?: ItemCollectionMetrics;
+  ItemCollectionMetrics?: ItemCollectionMetrics | undefined;
 }
 
 /**
@@ -9609,7 +9995,7 @@ export interface ExecuteStatementOutput {
    *             value will be empty.</p>
    * @public
    */
-  Items?: Record<string, AttributeValue>[];
+  Items?: Record<string, AttributeValue>[] | undefined;
 
   /**
    * <p>If the response of a read request exceeds the response payload limit DynamoDB will set
@@ -9617,7 +10003,7 @@ export interface ExecuteStatementOutput {
    *             request to get the remaining results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The capacity units consumed by an operation. The data returned includes the total
@@ -9627,7 +10013,7 @@ export interface ExecuteStatementOutput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 
   /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous
@@ -9639,7 +10025,7 @@ export interface ExecuteStatementOutput {
    *             the result set is when <code>LastEvaluatedKey</code> is empty. </p>
    * @public
    */
-  LastEvaluatedKey?: Record<string, AttributeValue>;
+  LastEvaluatedKey?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -9653,18 +10039,18 @@ export interface PutItemOutput {
    *             Each element consists of an attribute name and an attribute value.</p>
    * @public
    */
-  Attributes?: Record<string, AttributeValue>;
+  Attributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 
   /**
    * <p>Information about item collections, if any, that were affected by the
@@ -9693,7 +10079,7 @@ export interface PutItemOutput {
    *          </ul>
    * @public
    */
-  ItemCollectionMetrics?: ItemCollectionMetrics;
+  ItemCollectionMetrics?: ItemCollectionMetrics | undefined;
 }
 
 /**
@@ -9706,7 +10092,7 @@ export interface QueryOutput {
    *             consists of an attribute name and the value for that attribute.</p>
    * @public
    */
-  Items?: Record<string, AttributeValue>[];
+  Items?: Record<string, AttributeValue>[] | undefined;
 
   /**
    * <p>The number of items in the response.</p>
@@ -9717,19 +10103,18 @@ export interface QueryOutput {
    *                 <code>ScannedCount</code> are the same.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The number of items evaluated, before any <code>QueryFilter</code> is applied. A high
    *                 <code>ScannedCount</code> value with few, or no, <code>Count</code> results
-   *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Count">Count and
-   *                 ScannedCount</a> in the <i>Amazon DynamoDB Developer
-   *             Guide</i>.</p>
+   *             indicates an inefficient <code>Query</code> operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.Count">Count and ScannedCount</a> in the <i>Amazon DynamoDB Developer
+   *                 Guide</i>.</p>
    *          <p>If you did not use a filter in the request, then <code>ScannedCount</code> is the same
    *             as <code>Count</code>.</p>
    * @public
    */
-  ScannedCount?: number;
+  ScannedCount?: number | undefined;
 
   /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous
@@ -9742,18 +10127,18 @@ export interface QueryOutput {
    *             the result set is when <code>LastEvaluatedKey</code> is empty.</p>
    * @public
    */
-  LastEvaluatedKey?: Record<string, AttributeValue>;
+  LastEvaluatedKey?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The capacity units consumed by the <code>Query</code> operation. The data returned
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 }
 
 /**
@@ -9766,7 +10151,7 @@ export interface ScanOutput {
    *             consists of an attribute name and the value for that attribute.</p>
    * @public
    */
-  Items?: Record<string, AttributeValue>[];
+  Items?: Record<string, AttributeValue>[] | undefined;
 
   /**
    * <p>The number of items in the response.</p>
@@ -9777,7 +10162,7 @@ export interface ScanOutput {
    *                 <code>ScannedCount</code>.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The number of items evaluated, before any <code>ScanFilter</code> is applied. A high
@@ -9789,7 +10174,7 @@ export interface ScanOutput {
    *             as <code>Count</code>.</p>
    * @public
    */
-  ScannedCount?: number;
+  ScannedCount?: number | undefined;
 
   /**
    * <p>The primary key of the item where the operation stopped, inclusive of the previous
@@ -9802,18 +10187,18 @@ export interface ScanOutput {
    *             the result set is when <code>LastEvaluatedKey</code> is empty.</p>
    * @public
    */
-  LastEvaluatedKey?: Record<string, AttributeValue>;
+  LastEvaluatedKey?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The capacity units consumed by the <code>Scan</code> operation. The data returned
    *             includes the total provisioned throughput consumed, along with statistics for the table
    *             and any indexes involved in the operation. <code>ConsumedCapacity</code> is only
    *             returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more
-   *             information, see
-   *             <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+   *             information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#read-operation-consumption">Capacity unit consumption for read operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 }
 
 /**
@@ -9824,23 +10209,23 @@ export interface UpdateItemOutput {
   /**
    * <p>A map of attribute values as they appear before or after the <code>UpdateItem</code>
    *             operation, as determined by the <code>ReturnValues</code> parameter.</p>
-   *          <p>The <code>Attributes</code> map is only present if the update was successful and <code>ReturnValues</code> was
-   *             specified as something other than <code>NONE</code> in the request. Each element
-   *             represents one attribute.</p>
+   *          <p>The <code>Attributes</code> map is only present if the update was successful and
+   *                 <code>ReturnValues</code> was specified as something other than <code>NONE</code> in
+   *             the request. Each element represents one attribute.</p>
    * @public
    */
-  Attributes?: Record<string, AttributeValue>;
+  Attributes?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>The capacity units consumed by the <code>UpdateItem</code> operation. The data
    *             returned includes the total provisioned throughput consumed, along with statistics for
    *             the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is
    *             only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For
-   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/read-write-operations.html#write-operation-consumption">Capacity unity consumption for write operations</a> in the <i>Amazon
+   *                 DynamoDB Developer Guide</i>.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity;
+  ConsumedCapacity?: ConsumedCapacity | undefined;
 
   /**
    * <p>Information about item collections, if any, that were affected by the
@@ -9869,7 +10254,7 @@ export interface UpdateItemOutput {
    *          </ul>
    * @public
    */
-  ItemCollectionMetrics?: ItemCollectionMetrics;
+  ItemCollectionMetrics?: ItemCollectionMetrics | undefined;
 }
 
 /**
@@ -9884,13 +10269,13 @@ export interface WriteRequest {
    * <p>A request to perform a <code>PutItem</code> operation.</p>
    * @public
    */
-  PutRequest?: PutRequest;
+  PutRequest?: PutRequest | undefined;
 
   /**
    * <p>A request to perform a <code>DeleteItem</code> operation.</p>
    * @public
    */
-  DeleteRequest?: DeleteRequest;
+  DeleteRequest?: DeleteRequest | undefined;
 }
 
 /**
@@ -9902,14 +10287,14 @@ export interface BatchExecuteStatementOutput {
    *             ordered according to the ordering of the request statements.</p>
    * @public
    */
-  Responses?: BatchStatementResponse[];
+  Responses?: BatchStatementResponse[] | undefined;
 
   /**
    * <p>The capacity units consumed by the entire operation. The values of the list are
    *             ordered according to the ordering of the statements.</p>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity[];
+  ConsumedCapacity?: ConsumedCapacity[] | undefined;
 }
 
 /**
@@ -9918,12 +10303,12 @@ export interface BatchExecuteStatementOutput {
  */
 export interface BatchGetItemOutput {
   /**
-   * <p>A map of table name or table ARN to a list of items. Each object in <code>Responses</code> consists
-   *             of a table name or ARN, along with a map of attribute data consisting of the data type and
-   *             attribute value.</p>
+   * <p>A map of table name or table ARN to a list of items. Each object in
+   *                 <code>Responses</code> consists of a table name or ARN, along with a map of
+   *             attribute data consisting of the data type and attribute value.</p>
    * @public
    */
-  Responses?: Record<string, Record<string, AttributeValue>[]>;
+  Responses?: Record<string, Record<string, AttributeValue>[]> | undefined;
 
   /**
    * <p>A map of tables and their respective keys that were not processed with the current
@@ -9955,7 +10340,7 @@ export interface BatchGetItemOutput {
    *                 <code>UnprocessedKeys</code> map.</p>
    * @public
    */
-  UnprocessedKeys?: Record<string, KeysAndAttributes>;
+  UnprocessedKeys?: Record<string, KeysAndAttributes> | undefined;
 
   /**
    * <p>The read capacity units consumed by the entire <code>BatchGetItem</code>
@@ -9974,7 +10359,7 @@ export interface BatchGetItemOutput {
    *          </ul>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity[];
+  ConsumedCapacity?: ConsumedCapacity[] | undefined;
 }
 
 /**
@@ -9984,7 +10369,7 @@ export interface BatchGetItemOutput {
 export interface ScanInput {
   /**
    * <p>The name of the table containing the requested items or if you provide
-   *             <code>IndexName</code>, the name of the table to which that index belongs.</p>
+   *                 <code>IndexName</code>, the name of the table to which that index belongs.</p>
    *          <p>You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
@@ -9996,7 +10381,7 @@ export interface ScanInput {
    *             must also provide <code>TableName</code>.</p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
@@ -10004,7 +10389,7 @@ export interface ScanInput {
    *             Guide</i>.</p>
    * @public
    */
-  AttributesToGet?: string[];
+  AttributesToGet?: string[] | undefined;
 
   /**
    * <p>The maximum number of items to evaluate (not necessarily the number of matching
@@ -10018,7 +10403,7 @@ export interface ScanInput {
    *                 Guide</i>.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>The attributes to be returned in the result. You can retrieve all item attributes,
@@ -10044,8 +10429,9 @@ export interface ScanInput {
    *             <li>
    *                <p>
    *                   <code>COUNT</code> - Returns the number of matching items, rather than the
-   *                     matching items themselves. Note that this uses the same quantity of read capacity units
-   *                     as getting the items, and is subject to the same item size calculations.</p>
+   *                     matching items themselves. Note that this uses the same quantity of read
+   *                     capacity units as getting the items, and is subject to the same item size
+   *                     calculations.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10077,7 +10463,7 @@ export interface ScanInput {
    *          </note>
    * @public
    */
-  Select?: Select;
+  Select?: Select | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -10085,7 +10471,7 @@ export interface ScanInput {
    *             Guide</i>.</p>
    * @public
    */
-  ScanFilter?: Record<string, Condition>;
+  ScanFilter?: Record<string, Condition> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -10093,7 +10479,7 @@ export interface ScanInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionalOperator?: ConditionalOperator;
+  ConditionalOperator?: ConditionalOperator | undefined;
 
   /**
    * <p>The primary key of the first item that this operation will evaluate. Use the value
@@ -10106,7 +10492,7 @@ export interface ScanInput {
    *             <code>LastEvaluatedKey</code>.</p>
    * @public
    */
-  ExclusiveStartKey?: Record<string, AttributeValue>;
+  ExclusiveStartKey?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -10136,7 +10522,7 @@ export interface ScanInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>For a parallel <code>Scan</code> request, <code>TotalSegments</code> represents the
@@ -10152,7 +10538,7 @@ export interface ScanInput {
    *             <code>Segment</code>.</p>
    * @public
    */
-  TotalSegments?: number;
+  TotalSegments?: number | undefined;
 
   /**
    * <p>For a parallel <code>Scan</code> request, <code>Segment</code> identifies an
@@ -10170,7 +10556,7 @@ export interface ScanInput {
    *             <code>TotalSegments</code>.</p>
    * @public
    */
-  Segment?: number;
+  Segment?: number | undefined;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the specified table
@@ -10182,7 +10568,7 @@ export interface ScanInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ProjectionExpression?: string;
+  ProjectionExpression?: string | undefined;
 
   /**
    * <p>A string that contains conditions that DynamoDB applies after the <code>Scan</code>
@@ -10192,11 +10578,12 @@ export interface ScanInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Scan.html#Scan.FilterExpression">Filter
+   *                 Expressions</a> in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
    * @public
    */
-  FilterExpression?: string;
+  FilterExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -10252,7 +10639,7 @@ export interface ScanInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -10276,7 +10663,7 @@ export interface ScanInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>A Boolean value that determines the read consistency model during the scan:</p>
@@ -10299,7 +10686,7 @@ export interface ScanInput {
    *             true, you will receive a <code>ValidationException</code>.</p>
    * @public
    */
-  ConsistentRead?: boolean;
+  ConsistentRead?: boolean | undefined;
 }
 
 /**
@@ -10308,9 +10695,9 @@ export interface ScanInput {
  */
 export interface BatchWriteItemInput {
   /**
-   * <p>A map of one or more table names or table ARNs and, for each table, a list of operations to be
-   *             performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the
-   *             map consists of the following:</p>
+   * <p>A map of one or more table names or table ARNs and, for each table, a list of
+   *             operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each
+   *             element in the map consists of the following:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -10383,7 +10770,7 @@ export interface BatchWriteItemInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -10392,7 +10779,7 @@ export interface BatchWriteItemInput {
    *             default), no statistics are returned.</p>
    * @public
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
 }
 
 /**
@@ -10401,7 +10788,8 @@ export interface BatchWriteItemInput {
  */
 export interface DeleteItemInput {
   /**
-   * <p>The name of the table from which to delete the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table from which to delete the item. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10423,7 +10811,7 @@ export interface DeleteItemInput {
    *             Guide</i>.</p>
    * @public
    */
-  Expected?: Record<string, ExpectedAttributeValue>;
+  Expected?: Record<string, ExpectedAttributeValue> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
@@ -10431,7 +10819,7 @@ export interface DeleteItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionalOperator?: ConditionalOperator;
+  ConditionalOperator?: ConditionalOperator | undefined;
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared
@@ -10458,7 +10846,7 @@ export interface DeleteItemInput {
    *          </note>
    * @public
    */
-  ReturnValues?: ReturnValue;
+  ReturnValues?: ReturnValue | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -10488,7 +10876,7 @@ export interface DeleteItemInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -10497,7 +10885,7 @@ export interface DeleteItemInput {
    *             default), no statistics are returned.</p>
    * @public
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
 
   /**
    * <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code>
@@ -10525,7 +10913,7 @@ export interface DeleteItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionExpression?: string;
+  ConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -10581,7 +10969,7 @@ export interface DeleteItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -10605,7 +10993,7 @@ export interface DeleteItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>An optional parameter that returns the item attributes for a <code>DeleteItem</code>
@@ -10615,7 +11003,7 @@ export interface DeleteItemInput {
    *             units are consumed.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -10624,7 +11012,8 @@ export interface DeleteItemInput {
  */
 export interface PutItemInput {
   /**
-   * <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table to contain the item. You can also provide the Amazon Resource Name (ARN) of the
+   *             table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10657,7 +11046,7 @@ export interface PutItemInput {
    *             Guide</i>.</p>
    * @public
    */
-  Expected?: Record<string, ExpectedAttributeValue>;
+  Expected?: Record<string, ExpectedAttributeValue> | undefined;
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appeared
@@ -10687,7 +11076,7 @@ export interface PutItemInput {
    *          </note>
    * @public
    */
-  ReturnValues?: ReturnValue;
+  ReturnValues?: ReturnValue | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -10717,7 +11106,7 @@ export interface PutItemInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -10726,7 +11115,7 @@ export interface PutItemInput {
    *             default), no statistics are returned.</p>
    * @public
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
@@ -10734,7 +11123,7 @@ export interface PutItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionalOperator?: ConditionalOperator;
+  ConditionalOperator?: ConditionalOperator | undefined;
 
   /**
    * <p>A condition that must be satisfied in order for a conditional <code>PutItem</code>
@@ -10762,7 +11151,7 @@ export interface PutItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionExpression?: string;
+  ConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -10818,7 +11207,7 @@ export interface PutItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -10842,7 +11231,7 @@ export interface PutItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>An optional parameter that returns the item attributes for a <code>PutItem</code>
@@ -10852,7 +11241,7 @@ export interface PutItemInput {
    *             units are consumed.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -10861,7 +11250,8 @@ export interface PutItemInput {
  */
 export interface QueryInput {
   /**
-   * <p>The name of the table containing the requested items. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table containing the requested items. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -10873,7 +11263,7 @@ export interface QueryInput {
    *          </p>
    * @public
    */
-  IndexName?: string;
+  IndexName?: string | undefined;
 
   /**
    * <p>The attributes to be returned in the result. You can retrieve all item attributes,
@@ -10899,8 +11289,9 @@ export interface QueryInput {
    *             <li>
    *                <p>
    *                   <code>COUNT</code> - Returns the number of matching items, rather than the
-   *                     matching items themselves. Note that this uses the same quantity of read capacity units
-   *                     as getting the items, and is subject to the same item size calculations.</p>
+   *                     matching items themselves. Note that this uses the same quantity of read
+   *                     capacity units as getting the items, and is subject to the same item size
+   *                     calculations.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -10932,7 +11323,7 @@ export interface QueryInput {
    *          </note>
    * @public
    */
-  Select?: Select;
+  Select?: Select | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more
@@ -10940,7 +11331,7 @@ export interface QueryInput {
    *             Guide</i>.</p>
    * @public
    */
-  AttributesToGet?: string[];
+  AttributesToGet?: string[] | undefined;
 
   /**
    * <p>The maximum number of items to evaluate (not necessarily the number of matching
@@ -10954,7 +11345,7 @@ export interface QueryInput {
    *             Guide</i>.</p>
    * @public
    */
-  Limit?: number;
+  Limit?: number | undefined;
 
   /**
    * <p>Determines the read consistency model: If set to <code>true</code>, then the operation
@@ -10965,7 +11356,7 @@ export interface QueryInput {
    *             will receive a <code>ValidationException</code>.</p>
    * @public
    */
-  ConsistentRead?: boolean;
+  ConsistentRead?: boolean | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>KeyConditionExpression</code> instead. For more
@@ -10973,7 +11364,7 @@ export interface QueryInput {
    *             Guide</i>.</p>
    * @public
    */
-  KeyConditions?: Record<string, Condition>;
+  KeyConditions?: Record<string, Condition> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -10981,7 +11372,7 @@ export interface QueryInput {
    *             Guide</i>.</p>
    * @public
    */
-  QueryFilter?: Record<string, Condition>;
+  QueryFilter?: Record<string, Condition> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>FilterExpression</code> instead. For more
@@ -10989,7 +11380,7 @@ export interface QueryInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionalOperator?: ConditionalOperator;
+  ConditionalOperator?: ConditionalOperator | undefined;
 
   /**
    * <p>Specifies the order for index traversal: If <code>true</code> (default), the traversal
@@ -11005,7 +11396,7 @@ export interface QueryInput {
    *             reverse order by sort key value, and then returns the results to the client.</p>
    * @public
    */
-  ScanIndexForward?: boolean;
+  ScanIndexForward?: boolean | undefined;
 
   /**
    * <p>The primary key of the first item that this operation will evaluate. Use the value
@@ -11014,7 +11405,7 @@ export interface QueryInput {
    *             set data types are allowed.</p>
    * @public
    */
-  ExclusiveStartKey?: Record<string, AttributeValue>;
+  ExclusiveStartKey?: Record<string, AttributeValue> | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -11044,7 +11435,7 @@ export interface QueryInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>A string that identifies one or more attributes to retrieve from the table. These
@@ -11056,7 +11447,7 @@ export interface QueryInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ProjectionExpression?: string;
+  ProjectionExpression?: string | undefined;
 
   /**
    * <p>A string that contains conditions that DynamoDB applies after the <code>Query</code>
@@ -11068,11 +11459,12 @@ export interface QueryInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
-   *                 Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter
+   *                 Expressions</a> in the <i>Amazon DynamoDB Developer
+   *             Guide</i>.</p>
    * @public
    */
-  FilterExpression?: string;
+  FilterExpression?: string | undefined;
 
   /**
    * <p>The condition that specifies the key values for items to be retrieved by the
@@ -11190,7 +11582,7 @@ export interface QueryInput {
    *                 Developer Guide</i>.</p>
    * @public
    */
-  KeyConditionExpression?: string;
+  KeyConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -11246,7 +11638,7 @@ export interface QueryInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -11270,7 +11662,7 @@ export interface QueryInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 }
 
 /**
@@ -11284,9 +11676,9 @@ export interface BatchWriteItemOutput {
    *             <code>RequestItems</code>, so you can provide this value directly to a subsequent
    *                 <code>BatchWriteItem</code> operation. For more information, see
    *                 <code>RequestItems</code> in the Request Parameters section.</p>
-   *          <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN and, for that table,
-   *             a list of operations to perform (<code>DeleteRequest</code> or
-   *             <code>PutRequest</code>).</p>
+   *          <p>Each <code>UnprocessedItems</code> entry consists of a table name or table ARN
+   *             and, for that table, a list of operations to perform (<code>DeleteRequest</code> or
+   *                 <code>PutRequest</code>).</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11327,7 +11719,7 @@ export interface BatchWriteItemOutput {
    *                 <code>UnprocessedItems</code> map.</p>
    * @public
    */
-  UnprocessedItems?: Record<string, WriteRequest[]>;
+  UnprocessedItems?: Record<string, WriteRequest[]> | undefined;
 
   /**
    * <p>A list of tables that were processed by <code>BatchWriteItem</code> and, for each
@@ -11354,7 +11746,7 @@ export interface BatchWriteItemOutput {
    *          </ul>
    * @public
    */
-  ItemCollectionMetrics?: Record<string, ItemCollectionMetrics[]>;
+  ItemCollectionMetrics?: Record<string, ItemCollectionMetrics[]> | undefined;
 
   /**
    * <p>The capacity units consumed by the entire <code>BatchWriteItem</code>
@@ -11373,7 +11765,7 @@ export interface BatchWriteItemOutput {
    *          </ul>
    * @public
    */
-  ConsumedCapacity?: ConsumedCapacity[];
+  ConsumedCapacity?: ConsumedCapacity[] | undefined;
 }
 
 /**
@@ -11382,7 +11774,8 @@ export interface BatchWriteItemOutput {
  */
 export interface UpdateItemInput {
   /**
-   * <p>The name of the table containing the item to update. You can also provide the Amazon Resource Name (ARN) of the table in this parameter.</p>
+   * <p>The name of the table containing the item to update. You can also provide the
+   *             Amazon Resource Name (ARN) of the table in this parameter.</p>
    * @public
    */
   TableName: string | undefined;
@@ -11404,7 +11797,7 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  AttributeUpdates?: Record<string, AttributeValueUpdate>;
+  AttributeUpdates?: Record<string, AttributeValueUpdate> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
@@ -11412,7 +11805,7 @@ export interface UpdateItemInput {
    *             Guide</i>.</p>
    * @public
    */
-  Expected?: Record<string, ExpectedAttributeValue>;
+  Expected?: Record<string, ExpectedAttributeValue> | undefined;
 
   /**
    * <p>This is a legacy parameter. Use <code>ConditionExpression</code> instead. For more
@@ -11420,12 +11813,12 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionalOperator?: ConditionalOperator;
+  ConditionalOperator?: ConditionalOperator | undefined;
 
   /**
    * <p>Use <code>ReturnValues</code> if you want to get the item attributes as they appear
-   *             before or after they are successfully updated. For <code>UpdateItem</code>, the valid values
-   *             are:</p>
+   *             before or after they are successfully updated. For <code>UpdateItem</code>, the valid
+   *             values are:</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -11460,7 +11853,7 @@ export interface UpdateItemInput {
    *          <p>The values returned are strongly consistent.</p>
    * @public
    */
-  ReturnValues?: ReturnValue;
+  ReturnValues?: ReturnValue | undefined;
 
   /**
    * <p>Determines the level of detail about either provisioned or on-demand throughput
@@ -11490,7 +11883,7 @@ export interface UpdateItemInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -11499,7 +11892,7 @@ export interface UpdateItemInput {
    *             default), no statistics are returned.</p>
    * @public
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
 
   /**
    * <p>An expression that defines one or more attributes to be updated, the action to be
@@ -11606,7 +11999,7 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  UpdateExpression?: string;
+  UpdateExpression?: string | undefined;
 
   /**
    * <p>A condition that must be satisfied in order for a conditional update to
@@ -11634,7 +12027,7 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ConditionExpression?: string;
+  ConditionExpression?: string | undefined;
 
   /**
    * <p>One or more substitution tokens for attribute names in an expression. The following
@@ -11690,7 +12083,7 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeNames?: Record<string, string>;
+  ExpressionAttributeNames?: Record<string, string> | undefined;
 
   /**
    * <p>One or more values that can be substituted in an expression.</p>
@@ -11714,17 +12107,17 @@ export interface UpdateItemInput {
    *                 Guide</i>.</p>
    * @public
    */
-  ExpressionAttributeValues?: Record<string, AttributeValue>;
+  ExpressionAttributeValues?: Record<string, AttributeValue> | undefined;
 
   /**
-   * <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code> operation that failed a
-   *             condition check.</p>
+   * <p>An optional parameter that returns the item attributes for an <code>UpdateItem</code>
+   *             operation that failed a condition check.</p>
    *          <p>There is no additional cost associated with requesting a return value aside from the
    *             small network and processing overhead of receiving a larger response. No read capacity
    *             units are consumed.</p>
    * @public
    */
-  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure;
+  ReturnValuesOnConditionCheckFailure?: ReturnValuesOnConditionCheckFailure | undefined;
 }
 
 /**
@@ -11737,25 +12130,25 @@ export interface TransactWriteItem {
    * <p>A request to perform a check item operation.</p>
    * @public
    */
-  ConditionCheck?: ConditionCheck;
+  ConditionCheck?: ConditionCheck | undefined;
 
   /**
    * <p>A request to perform a <code>PutItem</code> operation.</p>
    * @public
    */
-  Put?: Put;
+  Put?: Put | undefined;
 
   /**
    * <p>A request to perform a <code>DeleteItem</code> operation.</p>
    * @public
    */
-  Delete?: Delete;
+  Delete?: Delete | undefined;
 
   /**
    * <p>A request to perform an <code>UpdateItem</code> operation.</p>
    * @public
    */
-  Update?: Update;
+  Update?: Update | undefined;
 }
 
 /**
@@ -11800,7 +12193,7 @@ export interface TransactWriteItemsInput {
    *          </ul>
    * @public
    */
-  ReturnConsumedCapacity?: ReturnConsumedCapacity;
+  ReturnConsumedCapacity?: ReturnConsumedCapacity | undefined;
 
   /**
    * <p>Determines whether item collection metrics are returned. If set to <code>SIZE</code>,
@@ -11809,7 +12202,7 @@ export interface TransactWriteItemsInput {
    *             default), no statistics are returned. </p>
    * @public
    */
-  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics;
+  ReturnItemCollectionMetrics?: ReturnItemCollectionMetrics | undefined;
 
   /**
    * <p>Providing a <code>ClientRequestToken</code> makes the call to
@@ -11831,5 +12224,5 @@ export interface TransactWriteItemsInput {
    *                 <code>IdempotentParameterMismatch</code> exception.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 }

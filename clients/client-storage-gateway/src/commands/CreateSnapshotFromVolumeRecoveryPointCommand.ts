@@ -18,7 +18,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,26 +101,26 @@ export interface CreateSnapshotFromVolumeRecoveryPointCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To create a snapshot of a gateway volume
  * ```javascript
  * // Initiates a snapshot of a gateway from a volume recovery point.
  * const input = {
- *   "SnapshotDescription": "My root volume snapshot as of 2017-06-30T10:10:10.000Z",
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   SnapshotDescription: "My root volume snapshot as of 2017-06-30T10:10:10.000Z",
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * };
  * const command = new CreateSnapshotFromVolumeRecoveryPointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SnapshotId": "snap-78e22663",
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
- *   "VolumeRecoveryPointTime": "2017-06-30T10:10:10.000Z"
+ *   SnapshotId: "snap-78e22663",
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB",
+ *   VolumeRecoveryPointTime: "2017-06-30T10:10:10.000Z"
  * }
  * *\/
- * // example id: to-create-a-snapshot-of-a-gateway-volume-1471301469561
  * ```
  *
+ * @public
  */
 export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command
   .classBuilder<
@@ -129,9 +130,7 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +142,16 @@ export class CreateSnapshotFromVolumeRecoveryPointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSnapshotFromVolumeRecoveryPointCommand)
   .de(de_CreateSnapshotFromVolumeRecoveryPointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSnapshotFromVolumeRecoveryPointInput;
+      output: CreateSnapshotFromVolumeRecoveryPointOutput;
+    };
+    sdk: {
+      input: CreateSnapshotFromVolumeRecoveryPointCommandInput;
+      output: CreateSnapshotFromVolumeRecoveryPointCommandOutput;
+    };
+  };
+}

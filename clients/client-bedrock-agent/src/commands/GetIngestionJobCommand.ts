@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetIngestionJobRequest, GetIngestionJobResponse } from "../models/models_0";
+import { GetIngestionJobRequest } from "../models/models_0";
+import { GetIngestionJobResponse } from "../models/models_1";
 import { de_GetIngestionJobCommand, se_GetIngestionJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +29,7 @@ export interface GetIngestionJobCommandInput extends GetIngestionJobRequest {}
 export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, __MetadataBearer {}
 
 /**
- * <p>Gets information about a ingestion job, in which a data source is added to a knowledge base.</p>
+ * <p>Gets information about a data ingestion job. Data sources are ingested into your knowledge base so that Large Language Models (LLMs) can use your data.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -47,7 +49,7 @@ export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, _
  * //     dataSourceId: "STRING_VALUE", // required
  * //     ingestionJobId: "STRING_VALUE", // required
  * //     description: "STRING_VALUE",
- * //     status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED", // required
+ * //     status: "STARTING" || "IN_PROGRESS" || "COMPLETE" || "FAILED" || "STOPPING" || "STOPPED", // required
  * //     statistics: { // IngestionJobStatistics
  * //       numberOfDocumentsScanned: Number("long"),
  * //       numberOfMetadataDocumentsScanned: Number("long"),
@@ -91,6 +93,7 @@ export interface GetIngestionJobCommandOutput extends GetIngestionJobResponse, _
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class GetIngestionJobCommand extends $Command
@@ -101,9 +104,7 @@ export class GetIngestionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +116,16 @@ export class GetIngestionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIngestionJobCommand)
   .de(de_GetIngestionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIngestionJobRequest;
+      output: GetIngestionJobResponse;
+    };
+    sdk: {
+      input: GetIngestionJobCommandInput;
+      output: GetIngestionJobCommandOutput;
+    };
+  };
+}

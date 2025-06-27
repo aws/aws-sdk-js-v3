@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,7 +50,7 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  *          then send an invitation to the member account. To send the invitation, you use the
  *                <code>InviteMembers</code> operation. If the account owner accepts
  *          the invitation, the account becomes a member account in Security Hub.</p>
- *          <p>Accounts that are managed using Organizations do not receive an invitation. They
+ *          <p>Accounts that are managed using Organizations don't receive an invitation. They
  *          automatically become a member account in Security Hub.</p>
  *          <ul>
  *             <li>
@@ -118,30 +119,30 @@ export interface CreateMembersCommandOutput extends CreateMembersResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To add a member account
  * ```javascript
  * // The following example creates a member association between the specified accounts and the administrator account (the account that makes the request). This operation is used to add accounts that aren't part of an organization.
  * const input = {
- *   "AccountDetails": [
+ *   AccountDetails: [
  *     {
- *       "AccountId": "123456789012"
+ *       AccountId: "123456789012"
  *     },
  *     {
- *       "AccountId": "111122223333"
+ *       AccountId: "111122223333"
  *     }
  *   ]
  * };
  * const command = new CreateMembersCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "UnprocessedAccounts": []
+ *   UnprocessedAccounts:   []
  * }
  * *\/
- * // example id: to-add-a-member-account-1675354709996
  * ```
  *
+ * @public
  */
 export class CreateMembersCommand extends $Command
   .classBuilder<
@@ -151,9 +152,7 @@ export class CreateMembersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +164,16 @@ export class CreateMembersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateMembersCommand)
   .de(de_CreateMembersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMembersRequest;
+      output: CreateMembersResponse;
+    };
+    sdk: {
+      input: CreateMembersCommandInput;
+      output: CreateMembersCommandOutput;
+    };
+  };
+}

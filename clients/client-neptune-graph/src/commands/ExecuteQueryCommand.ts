@@ -12,7 +12,8 @@ import { de_ExecuteQueryCommand, se_ExecuteQueryCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,11 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * };
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
+ * // consume or destroy the stream to free the socket.
+ * const bytes = await response.payload.transformToByteArray();
+ * // const str = await response.payload.transformToString();
+ * // response.payload.destroy(); // only applicable to Node.js Readable streams.
+ *
  * // { // ExecuteQueryOutput
  * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * // };
@@ -97,6 +103,7 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class ExecuteQueryCommand extends $Command
@@ -122,4 +129,16 @@ export class ExecuteQueryCommand extends $Command
   .f(void 0, ExecuteQueryOutputFilterSensitiveLog)
   .ser(se_ExecuteQueryCommand)
   .de(de_ExecuteQueryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteQueryInput;
+      output: ExecuteQueryOutput;
+    };
+    sdk: {
+      input: ExecuteQueryCommandInput;
+      output: ExecuteQueryCommandOutput;
+    };
+  };
+}

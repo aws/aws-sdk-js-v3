@@ -20,7 +20,7 @@ data types, and errors. For detailed information about AWS WAF Classic features 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-waf
+To install this package, simply type add or install @aws-sdk/client-waf
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-waf`

@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdatePhoneNumberRequest, UpdatePhoneNumberResponse } from "../models/models_2";
+import { UpdatePhoneNumberRequest } from "../models/models_2";
+import { UpdatePhoneNumberResponse } from "../models/models_3";
 import { de_UpdatePhoneNumberCommand, se_UpdatePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +91,7 @@ export interface UpdatePhoneNumberCommandOutput extends UpdatePhoneNumberRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdatePhoneNumberCommand extends $Command
@@ -99,9 +102,7 @@ export class UpdatePhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class UpdatePhoneNumberCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdatePhoneNumberCommand)
   .de(de_UpdatePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePhoneNumberRequest;
+      output: UpdatePhoneNumberResponse;
+    };
+    sdk: {
+      input: UpdatePhoneNumberCommandInput;
+      output: UpdatePhoneNumberCommandOutput;
+    };
+  };
+}

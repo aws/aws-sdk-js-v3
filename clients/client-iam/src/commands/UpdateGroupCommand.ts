@@ -12,7 +12,8 @@ import { de_UpdateGroupCommand, se_UpdateGroupCommand } from "../protocols/Aws_q
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,19 +85,22 @@ export interface UpdateGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To rename an IAM group
  * ```javascript
  * // The following command changes the name of the IAM group Test to Test-1.
  * const input = {
- *   "GroupName": "Test",
- *   "NewGroupName": "Test-1"
+ *   GroupName: "Test",
+ *   NewGroupName: "Test-1"
  * };
  * const command = new UpdateGroupCommand(input);
- * await client.send(command);
- * // example id: f0cf1662-91ae-4278-a80e-7db54256ccba
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateGroupCommand extends $Command
   .classBuilder<
@@ -106,9 +110,7 @@ export class UpdateGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +122,16 @@ export class UpdateGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGroupCommand)
   .de(de_UpdateGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateGroupCommandInput;
+      output: UpdateGroupCommandOutput;
+    };
+  };
+}

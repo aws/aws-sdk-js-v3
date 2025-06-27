@@ -12,7 +12,8 @@ import { de_ListAttachedLinksCommand, se_ListAttachedLinksCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListAttachedLinksCommandInput extends ListAttachedLinksInput {}
 export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of source account links that are linked to this monitoring account sink.</p>
- *          <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p>
- *          <p>To find a list of links for one source account, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
+ * <p>Returns a list of source account links that are linked to this monitoring account sink.</p> <p>To use this operation, provide the sink ARN. To retrieve a list of sink ARNs, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListSinks.html">ListSinks</a>.</p> <p>To find a list of links for one source account, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_ListLinks.html">ListLinks</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,6 +78,7 @@ export interface ListAttachedLinksCommandOutput extends ListAttachedLinksOutput,
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class ListAttachedLinksCommand extends $Command
@@ -89,9 +89,7 @@ export class ListAttachedLinksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +101,16 @@ export class ListAttachedLinksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAttachedLinksCommand)
   .de(de_ListAttachedLinksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAttachedLinksInput;
+      output: ListAttachedLinksOutput;
+    };
+    sdk: {
+      input: ListAttachedLinksCommandInput;
+      output: ListAttachedLinksCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateSinkCommand, se_CreateSinkCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface CreateSinkCommandInput extends CreateSinkInput {}
 export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBearer {}
 
 /**
- * <p>Use this to create a <i>sink</i> in the current account, so that it can be
- *         used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that
- *       represents an attachment point in a monitoring account. Source accounts can link to the sink
- *       to send observability data.</p>
- *          <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it.
- *        For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p>
- *          <p>Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.</p>
+ * <p>Use this to create a <i>sink</i> in the current account, so that it can be used as a monitoring account in CloudWatch cross-account observability. A sink is a resource that represents an attachment point in a monitoring account. Source accounts can link to the sink to send observability data.</p> <p>After you create a sink, you must create a sink policy that allows source accounts to attach to it. For more information, see <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_PutSinkPolicy.html">PutSinkPolicy</a>.</p> <p>Each account can contain one sink per Region. If you delete a sink, you can then create a new one in that Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +78,7 @@ export interface CreateSinkCommandOutput extends CreateSinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class CreateSinkCommand extends $Command
@@ -93,9 +89,7 @@ export class CreateSinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +101,16 @@ export class CreateSinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSinkCommand)
   .de(de_CreateSinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSinkInput;
+      output: CreateSinkOutput;
+    };
+    sdk: {
+      input: CreateSinkCommandInput;
+      output: CreateSinkCommandOutput;
+    };
+  };
+}

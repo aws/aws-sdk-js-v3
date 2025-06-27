@@ -16,7 +16,8 @@ import { de_ReloadTablesCommand, se_ReloadTablesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,8 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
 
 /**
  * <p>Reloads the target database table with the source data. </p>
- *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise the service
- *            will throw an <code>InvalidResourceStateFault</code> exception.</p>
+ *          <p>You can only use this operation with a task in the <code>RUNNING</code> state, otherwise
+ *          the service will throw an <code>InvalidResourceStateFault</code> exception.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +74,7 @@ export interface ReloadTablesCommandOutput extends ReloadTablesResponse, __Metad
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class ReloadTablesCommand extends $Command
@@ -83,9 +85,7 @@ export class ReloadTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class ReloadTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReloadTablesCommand)
   .de(de_ReloadTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReloadTablesMessage;
+      output: ReloadTablesResponse;
+    };
+    sdk: {
+      input: ReloadTablesCommandInput;
+      output: ReloadTablesCommandOutput;
+    };
+  };
+}

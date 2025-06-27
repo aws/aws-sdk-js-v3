@@ -16,7 +16,8 @@ import { de_GetResourceRequestStatusCommand, se_GetResourceRequestStatusCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,6 +51,7 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * //     TypeName: "STRING_VALUE",
  * //     Identifier: "STRING_VALUE",
  * //     RequestToken: "STRING_VALUE",
+ * //     HooksRequestToken: "STRING_VALUE",
  * //     Operation: "STRING_VALUE",
  * //     OperationStatus: "STRING_VALUE",
  * //     EventTime: new Date("TIMESTAMP"),
@@ -58,6 +60,18 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * //     ErrorCode: "STRING_VALUE",
  * //     RetryAfter: new Date("TIMESTAMP"),
  * //   },
+ * //   HooksProgressEvent: [ // HooksProgressEvent
+ * //     { // HookProgressEvent
+ * //       HookTypeName: "STRING_VALUE",
+ * //       HookTypeVersionId: "STRING_VALUE",
+ * //       HookTypeArn: "STRING_VALUE",
+ * //       InvocationPoint: "STRING_VALUE",
+ * //       HookStatus: "STRING_VALUE",
+ * //       HookEventTime: new Date("TIMESTAMP"),
+ * //       HookStatusMessage: "STRING_VALUE",
+ * //       FailureMode: "STRING_VALUE",
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -74,6 +88,7 @@ export interface GetResourceRequestStatusCommandOutput extends GetResourceReques
  * @throws {@link CloudControlServiceException}
  * <p>Base exception class for all service exceptions from CloudControl service.</p>
  *
+ *
  * @public
  */
 export class GetResourceRequestStatusCommand extends $Command
@@ -84,9 +99,7 @@ export class GetResourceRequestStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudControlClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +111,16 @@ export class GetResourceRequestStatusCommand extends $Command
   .f(void 0, GetResourceRequestStatusOutputFilterSensitiveLog)
   .ser(se_GetResourceRequestStatusCommand)
   .de(de_GetResourceRequestStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourceRequestStatusInput;
+      output: GetResourceRequestStatusOutput;
+    };
+    sdk: {
+      input: GetResourceRequestStatusCommandInput;
+      output: GetResourceRequestStatusCommandOutput;
+    };
+  };
+}

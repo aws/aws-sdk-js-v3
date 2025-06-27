@@ -12,7 +12,8 @@ import { de_ListLFTagsCommand, se_ListLFTagsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface ListLFTagsCommandOutput extends ListLFTagsResponse, __MetadataB
  * @throws {@link LakeFormationServiceException}
  * <p>Base exception class for all service exceptions from LakeFormation service.</p>
  *
+ *
  * @public
  */
 export class ListLFTagsCommand extends $Command
@@ -91,9 +93,7 @@ export class ListLFTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LakeFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListLFTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLFTagsCommand)
   .de(de_ListLFTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLFTagsRequest;
+      output: ListLFTagsResponse;
+    };
+    sdk: {
+      input: ListLFTagsCommandInput;
+      output: ListLFTagsCommandOutput;
+    };
+  };
+}

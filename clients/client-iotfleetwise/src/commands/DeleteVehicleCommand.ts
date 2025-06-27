@@ -12,7 +12,8 @@ import { de_DeleteVehicleCommand, se_DeleteVehicleCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,10 +29,6 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
 
 /**
  * <p> Deletes a vehicle and removes it from any campaigns.</p>
- *          <note>
- *             <p>If the vehicle is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200 response
- *                 with an empty body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +68,7 @@ export interface DeleteVehicleCommandOutput extends DeleteVehicleResponse, __Met
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteVehicleCommand extends $Command
@@ -81,9 +79,7 @@ export class DeleteVehicleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +91,16 @@ export class DeleteVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVehicleCommand)
   .de(de_DeleteVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVehicleRequest;
+      output: DeleteVehicleResponse;
+    };
+    sdk: {
+      input: DeleteVehicleCommandInput;
+      output: DeleteVehicleCommandOutput;
+    };
+  };
+}

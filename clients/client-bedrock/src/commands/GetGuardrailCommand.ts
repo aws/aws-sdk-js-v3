@@ -12,7 +12,8 @@ import { de_GetGuardrailCommand, se_GetGuardrailCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,8 +57,15 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //           "STRING_VALUE",
  * //         ],
  * //         type: "DENY",
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
+ * //     tier: { // GuardrailTopicsTier
+ * //       tierName: "CLASSIC" || "STANDARD", // required
+ * //     },
  * //   },
  * //   contentPolicy: { // GuardrailContentPolicy
  * //     filters: [ // GuardrailContentFilters
@@ -65,18 +73,39 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         type: "SEXUAL" || "VIOLENCE" || "HATE" || "INSULTS" || "MISCONDUCT" || "PROMPT_ATTACK", // required
  * //         inputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
  * //         outputStrength: "NONE" || "LOW" || "MEDIUM" || "HIGH", // required
+ * //         inputModalities: [ // GuardrailModalities
+ * //           "TEXT" || "IMAGE",
+ * //         ],
+ * //         outputModalities: [
+ * //           "TEXT" || "IMAGE",
+ * //         ],
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
+ * //     tier: { // GuardrailContentFiltersTier
+ * //       tierName: "CLASSIC" || "STANDARD", // required
+ * //     },
  * //   },
  * //   wordPolicy: { // GuardrailWordPolicy
  * //     words: [ // GuardrailWords
  * //       { // GuardrailWord
  * //         text: "STRING_VALUE", // required
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //     managedWordLists: [ // GuardrailManagedWordLists
  * //       { // GuardrailManagedWords
  * //         type: "PROFANITY", // required
+ * //         inputAction: "BLOCK" || "NONE",
+ * //         outputAction: "BLOCK" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //   },
@@ -84,7 +113,11 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //     piiEntities: [ // GuardrailPiiEntities
  * //       { // GuardrailPiiEntity
  * //         type: "ADDRESS" || "AGE" || "AWS_ACCESS_KEY" || "AWS_SECRET_KEY" || "CA_HEALTH_NUMBER" || "CA_SOCIAL_INSURANCE_NUMBER" || "CREDIT_DEBIT_CARD_CVV" || "CREDIT_DEBIT_CARD_EXPIRY" || "CREDIT_DEBIT_CARD_NUMBER" || "DRIVER_ID" || "EMAIL" || "INTERNATIONAL_BANK_ACCOUNT_NUMBER" || "IP_ADDRESS" || "LICENSE_PLATE" || "MAC_ADDRESS" || "NAME" || "PASSWORD" || "PHONE" || "PIN" || "SWIFT_CODE" || "UK_NATIONAL_HEALTH_SERVICE_NUMBER" || "UK_NATIONAL_INSURANCE_NUMBER" || "UK_UNIQUE_TAXPAYER_REFERENCE_NUMBER" || "URL" || "USERNAME" || "US_BANK_ACCOUNT_NUMBER" || "US_BANK_ROUTING_NUMBER" || "US_INDIVIDUAL_TAX_IDENTIFICATION_NUMBER" || "US_PASSPORT_NUMBER" || "US_SOCIAL_SECURITY_NUMBER" || "VEHICLE_IDENTIFICATION_NUMBER", // required
- * //         action: "BLOCK" || "ANONYMIZE", // required
+ * //         action: "BLOCK" || "ANONYMIZE" || "NONE", // required
+ * //         inputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         outputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
  * //     regexes: [ // GuardrailRegexes
@@ -92,9 +125,27 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * //         name: "STRING_VALUE", // required
  * //         description: "STRING_VALUE",
  * //         pattern: "STRING_VALUE", // required
- * //         action: "BLOCK" || "ANONYMIZE", // required
+ * //         action: "BLOCK" || "ANONYMIZE" || "NONE", // required
+ * //         inputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         outputAction: "BLOCK" || "ANONYMIZE" || "NONE",
+ * //         inputEnabled: true || false,
+ * //         outputEnabled: true || false,
  * //       },
  * //     ],
+ * //   },
+ * //   contextualGroundingPolicy: { // GuardrailContextualGroundingPolicy
+ * //     filters: [ // GuardrailContextualGroundingFilters // required
+ * //       { // GuardrailContextualGroundingFilter
+ * //         type: "GROUNDING" || "RELEVANCE", // required
+ * //         threshold: Number("double"), // required
+ * //         action: "BLOCK" || "NONE",
+ * //         enabled: true || false,
+ * //       },
+ * //     ],
+ * //   },
+ * //   crossRegionDetails: { // GuardrailCrossRegionDetails
+ * //     guardrailProfileId: "STRING_VALUE",
+ * //     guardrailProfileArn: "STRING_VALUE",
  * //   },
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   updatedAt: new Date("TIMESTAMP"), // required
@@ -135,6 +186,7 @@ export interface GetGuardrailCommandOutput extends GetGuardrailResponse, __Metad
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetGuardrailCommand extends $Command
@@ -145,9 +197,7 @@ export class GetGuardrailCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +209,16 @@ export class GetGuardrailCommand extends $Command
   .f(void 0, GetGuardrailResponseFilterSensitiveLog)
   .ser(se_GetGuardrailCommand)
   .de(de_GetGuardrailCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGuardrailRequest;
+      output: GetGuardrailResponse;
+    };
+    sdk: {
+      input: GetGuardrailCommandInput;
+      output: GetGuardrailCommandOutput;
+    };
+  };
+}

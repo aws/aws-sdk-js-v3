@@ -12,7 +12,8 @@ import { de_StartPipelineExecutionCommand, se_StartPipelineExecutionCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  *   sourceRevisions: [ // SourceRevisionOverrideList
  *     { // SourceRevisionOverride
  *       actionName: "STRING_VALUE", // required
- *       revisionType: "COMMIT_ID" || "IMAGE_DIGEST" || "S3_OBJECT_VERSION_ID", // required
+ *       revisionType: "COMMIT_ID" || "IMAGE_DIGEST" || "S3_OBJECT_VERSION_ID" || "S3_OBJECT_KEY", // required
  *       revisionValue: "STRING_VALUE", // required
  *     },
  *   ],
@@ -82,6 +83,7 @@ export interface StartPipelineExecutionCommandOutput extends StartPipelineExecut
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class StartPipelineExecutionCommand extends $Command
@@ -92,9 +94,7 @@ export class StartPipelineExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class StartPipelineExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartPipelineExecutionCommand)
   .de(de_StartPipelineExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartPipelineExecutionInput;
+      output: StartPipelineExecutionOutput;
+    };
+    sdk: {
+      input: StartPipelineExecutionCommandInput;
+      output: StartPipelineExecutionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutEncryptionConfigurationCommand, se_PutEncryptionConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,10 @@ export interface PutEncryptionConfigurationCommandInput extends PutEncryptionCon
 export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionConfigurationResponse, __MetadataBearer {}
 
 /**
- * <p>Creates or updates the encryption configuration. Amazon Web Services IoT FleetWise can encrypt your data and resources using an Amazon Web Services managed key. Or, you can use a KMS key that you own and manage. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html">Data encryption</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
+ * <p>Creates or updates the encryption configuration. Amazon Web Services IoT FleetWise can encrypt your data and
+ *             resources using an Amazon Web Services managed key. Or, you can use a KMS key that you own and
+ *             manage. For more information, see <a href="https://docs.aws.amazon.com/iot-fleetwise/latest/developerguide/data-encryption.html">Data
+ *                 encryption</a> in the <i>Amazon Web Services IoT FleetWise Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +80,7 @@ export interface PutEncryptionConfigurationCommandOutput extends PutEncryptionCo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class PutEncryptionConfigurationCommand extends $Command
@@ -86,9 +91,7 @@ export class PutEncryptionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +103,16 @@ export class PutEncryptionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEncryptionConfigurationCommand)
   .de(de_PutEncryptionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEncryptionConfigurationRequest;
+      output: PutEncryptionConfigurationResponse;
+    };
+    sdk: {
+      input: PutEncryptionConfigurationCommandInput;
+      output: PutEncryptionConfigurationCommandOutput;
+    };
+  };
+}

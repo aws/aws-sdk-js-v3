@@ -16,7 +16,8 @@ import { de_ListProposalVotesCommand, se_ListProposalVotesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface ListProposalVotesCommandOutput extends ListProposalVotesOutput,
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class ListProposalVotesCommand extends $Command
@@ -94,9 +96,7 @@ export class ListProposalVotesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListProposalVotesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProposalVotesCommand)
   .de(de_ListProposalVotesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProposalVotesInput;
+      output: ListProposalVotesOutput;
+    };
+    sdk: {
+      input: ListProposalVotesCommandInput;
+      output: ListProposalVotesCommandOutput;
+    };
+  };
+}

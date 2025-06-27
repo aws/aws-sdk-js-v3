@@ -1,6 +1,9 @@
 import { EndpointCache } from "@aws-sdk/endpoint-cache";
 import { AwsCredentialIdentity, MemoizedProvider, Provider } from "@smithy/types";
 
+/**
+ * @internal
+ */
 export interface PreviouslyResolved {
   isCustomEndpoint?: boolean;
   credentials: MemoizedProvider<AwsCredentialIdentity>;
@@ -59,16 +62,22 @@ export interface EndpointDiscoveryConfigOptions {
   endpointDiscoveryCommandCtor: new (comandConfig: any) => any;
 }
 
+/**
+ * @internal
+ */
 export const resolveEndpointDiscoveryConfig = <T>(
   input: T & PreviouslyResolved & EndpointDiscoveryInputConfig,
   { endpointDiscoveryCommandCtor }: EndpointDiscoveryConfigOptions
-): T & EndpointDiscoveryResolvedConfig => ({
-  ...input,
-  endpointDiscoveryCommandCtor,
-  endpointCache: new EndpointCache(input.endpointCacheSize ?? 1000),
-  endpointDiscoveryEnabled:
-    input.endpointDiscoveryEnabled !== undefined
-      ? () => Promise.resolve(input.endpointDiscoveryEnabled)
-      : input.endpointDiscoveryEnabledProvider,
-  isClientEndpointDiscoveryEnabled: input.endpointDiscoveryEnabled !== undefined,
-});
+): T & EndpointDiscoveryResolvedConfig => {
+  const { endpointCacheSize, endpointDiscoveryEnabled, endpointDiscoveryEnabledProvider } = input;
+
+  return Object.assign(input, {
+    endpointDiscoveryCommandCtor,
+    endpointCache: new EndpointCache(endpointCacheSize ?? 1000),
+    endpointDiscoveryEnabled:
+      endpointDiscoveryEnabled !== undefined
+        ? () => Promise.resolve(endpointDiscoveryEnabled)
+        : endpointDiscoveryEnabledProvider,
+    isClientEndpointDiscoveryEnabled: endpointDiscoveryEnabled !== undefined,
+  });
+};

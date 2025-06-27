@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,34 +117,34 @@ export interface CreateOptionGroupCommandOutput extends CreateOptionGroupResult,
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To Create an Amazon RDS option group
  * ```javascript
  * // The following example creates a new Amazon RDS option group for Oracle MySQL version 8,0 named MyOptionGroup.
  * const input = {
- *   "EngineName": "mysql",
- *   "MajorEngineVersion": "8.0",
- *   "OptionGroupDescription": "MySQL 8.0 option group",
- *   "OptionGroupName": "MyOptionGroup"
+ *   EngineName: "mysql",
+ *   MajorEngineVersion: "8.0",
+ *   OptionGroupDescription: "MySQL 8.0 option group",
+ *   OptionGroupName: "MyOptionGroup"
  * };
  * const command = new CreateOptionGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "OptionGroup": {
- *     "AllowsVpcAndNonVpcInstanceMemberships": true,
- *     "EngineName": "mysql",
- *     "MajorEngineVersion": "8.0",
- *     "OptionGroupArn": "arn:aws:rds:us-east-1:123456789012:og:myoptiongroup",
- *     "OptionGroupDescription": "MySQL 8.0 option group",
- *     "OptionGroupName": "myoptiongroup",
- *     "Options": []
+ *   OptionGroup: {
+ *     AllowsVpcAndNonVpcInstanceMemberships: true,
+ *     EngineName: "mysql",
+ *     MajorEngineVersion: "8.0",
+ *     OptionGroupArn: "arn:aws:rds:us-east-1:123456789012:og:myoptiongroup",
+ *     OptionGroupDescription: "MySQL 8.0 option group",
+ *     OptionGroupName: "myoptiongroup",
+ *     Options:     []
  *   }
  * }
  * *\/
- * // example id: to-create-an-amazon-rds-option-group-1679958217590
  * ```
  *
+ * @public
  */
 export class CreateOptionGroupCommand extends $Command
   .classBuilder<
@@ -153,9 +154,7 @@ export class CreateOptionGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +166,16 @@ export class CreateOptionGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOptionGroupCommand)
   .de(de_CreateOptionGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOptionGroupMessage;
+      output: CreateOptionGroupResult;
+    };
+    sdk: {
+      input: CreateOptionGroupCommandInput;
+      output: CreateOptionGroupCommandOutput;
+    };
+  };
+}

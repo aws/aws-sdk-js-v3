@@ -158,7 +158,20 @@
           "method": "GET",
           "uri": "/v1/voices",
           "code": 200
-        }
+        },
+        "smithy.test#smokeTests": [
+          {
+            "id": "DescribeVoicesSuccess",
+            "params": {},
+            "vendorParams": {
+              "region": "us-west-2"
+            },
+            "vendorParamsShape": "aws.test#AwsVendorParams",
+            "expect": {
+              "success": {}
+            }
+          }
+        ]
       }
     },
     "com.amazonaws.polly#DescribeVoicesInput": {
@@ -750,6 +763,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "fr-BE"
+          }
+        },
+        "cs_CZ": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cs-CZ"
+          }
+        },
+        "de_CH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "de-CH"
+          }
+        },
+        "en_SG": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "en-SG"
           }
         }
       }
@@ -2221,7 +2252,7 @@
             "documentation": "Stores a pronunciation lexicon in an AWS Region.",
             "input": {
               "Name": "W3C",
-              "Content": "file://example.pls"
+              "Content": "<Lexicon Content>"
             },
             "output": {}
           }
@@ -3507,6 +3538,30 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "Burcu"
+          }
+        },
+        "Jitka": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Jitka"
+          }
+        },
+        "Sabrina": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Sabrina"
+          }
+        },
+        "Jasmine": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Jasmine"
+          }
+        },
+        "Jihye": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "Jihye"
           }
         }
       }

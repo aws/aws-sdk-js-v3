@@ -12,7 +12,8 @@ import { de_UpdateDynamicThingGroupCommand, se_UpdateDynamicThingGroupCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface UpdateDynamicThingGroupCommandOutput extends UpdateDynamicThing
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdateDynamicThingGroupCommand extends $Command
@@ -98,9 +100,7 @@ export class UpdateDynamicThingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class UpdateDynamicThingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDynamicThingGroupCommand)
   .de(de_UpdateDynamicThingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDynamicThingGroupRequest;
+      output: UpdateDynamicThingGroupResponse;
+    };
+    sdk: {
+      input: UpdateDynamicThingGroupCommandInput;
+      output: UpdateDynamicThingGroupCommandOutput;
+    };
+  };
+}

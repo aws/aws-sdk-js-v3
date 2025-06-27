@@ -12,7 +12,8 @@ import { de_DeleteAssetTypeCommand, se_DeleteAssetTypeCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface DeleteAssetTypeCommandOutput extends DeleteAssetTypeOutput, __M
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class DeleteAssetTypeCommand extends $Command
@@ -84,9 +86,7 @@ export class DeleteAssetTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class DeleteAssetTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAssetTypeCommand)
   .de(de_DeleteAssetTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAssetTypeInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAssetTypeCommandInput;
+      output: DeleteAssetTypeCommandOutput;
+    };
+  };
+}

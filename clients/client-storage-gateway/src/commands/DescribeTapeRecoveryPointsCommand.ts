@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,34 +79,8 @@ export interface DescribeTapeRecoveryPointsCommandOutput extends DescribeTapeRec
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
- * @example To describe virtual tape recovery points
- * ```javascript
- * // Returns a list of virtual tape recovery points that are available for the specified gateway-VTL.
- * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "Limit": 1,
- *   "Marker": "1"
- * };
- * const command = new DescribeTapeRecoveryPointsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "Marker": "1",
- *   "TapeRecoveryPointInfos": [
- *     {
- *       "TapeARN": "arn:aws:storagegateway:us-east-1:999999999:tape/AMZN01A2A4",
- *       "TapeRecoveryPointTime": "2016-12-16T13:50Z",
- *       "TapeSizeInBytes": 1471550497,
- *       "TapeStatus": "AVAILABLE"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-describe-virtual-tape-recovery-points-1471542042026
- * ```
  *
+ * @public
  */
 export class DescribeTapeRecoveryPointsCommand extends $Command
   .classBuilder<
@@ -115,9 +90,7 @@ export class DescribeTapeRecoveryPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +102,16 @@ export class DescribeTapeRecoveryPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTapeRecoveryPointsCommand)
   .de(de_DescribeTapeRecoveryPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTapeRecoveryPointsInput;
+      output: DescribeTapeRecoveryPointsOutput;
+    };
+    sdk: {
+      input: DescribeTapeRecoveryPointsCommandInput;
+      output: DescribeTapeRecoveryPointsCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,7 @@ Guide.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dynamodb-streams
+To install this package, simply type add or install @aws-sdk/client-dynamodb-streams
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dynamodb-streams`

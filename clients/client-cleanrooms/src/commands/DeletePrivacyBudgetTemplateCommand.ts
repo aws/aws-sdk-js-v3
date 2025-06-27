@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeletePrivacyBudgetTemplateInput, DeletePrivacyBudgetTemplateOutput } from "../models/models_0";
+import { DeletePrivacyBudgetTemplateInput, DeletePrivacyBudgetTemplateOutput } from "../models/models_1";
 import {
   de_DeletePrivacyBudgetTemplateCommand,
   se_DeletePrivacyBudgetTemplateCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface DeletePrivacyBudgetTemplateCommandOutput extends DeletePrivacyB
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class DeletePrivacyBudgetTemplateCommand extends $Command
@@ -81,9 +83,7 @@ export class DeletePrivacyBudgetTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class DeletePrivacyBudgetTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeletePrivacyBudgetTemplateCommand)
   .de(de_DeletePrivacyBudgetTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeletePrivacyBudgetTemplateInput;
+      output: {};
+    };
+    sdk: {
+      input: DeletePrivacyBudgetTemplateCommandInput;
+      output: DeletePrivacyBudgetTemplateCommandOutput;
+    };
+  };
+}

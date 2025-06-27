@@ -16,7 +16,8 @@ import { de_RegisterScalableTargetCommand, se_RegisterScalableTargetCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,9 +71,9 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * // const { ApplicationAutoScalingClient, RegisterScalableTargetCommand } = require("@aws-sdk/client-application-auto-scaling"); // CommonJS import
  * const client = new ApplicationAutoScalingClient(config);
  * const input = { // RegisterScalableTargetRequest
- *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune", // required
+ *   ServiceNamespace: "ecs" || "elasticmapreduce" || "ec2" || "appstream" || "dynamodb" || "rds" || "sagemaker" || "custom-resource" || "comprehend" || "lambda" || "cassandra" || "kafka" || "elasticache" || "neptune" || "workspaces", // required
  *   ResourceId: "STRING_VALUE", // required
- *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount", // required
+ *   ScalableDimension: "ecs:service:DesiredCount" || "ec2:spot-fleet-request:TargetCapacity" || "elasticmapreduce:instancegroup:InstanceCount" || "appstream:fleet:DesiredCapacity" || "dynamodb:table:ReadCapacityUnits" || "dynamodb:table:WriteCapacityUnits" || "dynamodb:index:ReadCapacityUnits" || "dynamodb:index:WriteCapacityUnits" || "rds:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredInstanceCount" || "custom-resource:ResourceType:Property" || "comprehend:document-classifier-endpoint:DesiredInferenceUnits" || "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits" || "lambda:function:ProvisionedConcurrency" || "cassandra:table:ReadCapacityUnits" || "cassandra:table:WriteCapacityUnits" || "kafka:broker-storage:VolumeSize" || "elasticache:cache-cluster:Nodes" || "elasticache:replication-group:NodeGroups" || "elasticache:replication-group:Replicas" || "neptune:cluster:ReadReplicaCount" || "sagemaker:variant:DesiredProvisionedConcurrency" || "sagemaker:inference-component:DesiredCopyCount" || "workspaces:workspacespool:DesiredUserSessions", // required
  *   MinCapacity: Number("int"),
  *   MaxCapacity: Number("int"),
  *   RoleARN: "STRING_VALUE",
@@ -116,27 +117,27 @@ export interface RegisterScalableTargetCommandOutput extends RegisterScalableTar
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To register an ECS service as a scalable target
  * ```javascript
  * // This example registers a scalable target from an Amazon ECS service called web-app that is running on the default cluster, with a minimum desired count of 1 task and a maximum desired count of 10 tasks.
  * const input = {
- *   "MaxCapacity": 10,
- *   "MinCapacity": 1,
- *   "ResourceId": "service/default/web-app",
- *   "ScalableDimension": "ecs:service:DesiredCount",
- *   "ServiceNamespace": "ecs"
+ *   MaxCapacity: 10,
+ *   MinCapacity: 1,
+ *   ResourceId: "service/default/web-app",
+ *   ScalableDimension: "ecs:service:DesiredCount",
+ *   ServiceNamespace: "ecs"
  * };
  * const command = new RegisterScalableTargetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ScalableTargetARN": "arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123"
+ *   ScalableTargetARN: "arn:aws:application-autoscaling:us-east-1:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123"
  * }
  * *\/
- * // example id: to-register-a-new-scalable-target-1470864910380
  * ```
  *
+ * @public
  */
 export class RegisterScalableTargetCommand extends $Command
   .classBuilder<
@@ -146,9 +147,7 @@ export class RegisterScalableTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +159,16 @@ export class RegisterScalableTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterScalableTargetCommand)
   .de(de_RegisterScalableTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterScalableTargetRequest;
+      output: RegisterScalableTargetResponse;
+    };
+    sdk: {
+      input: RegisterScalableTargetCommandInput;
+      output: RegisterScalableTargetCommandOutput;
+    };
+  };
+}

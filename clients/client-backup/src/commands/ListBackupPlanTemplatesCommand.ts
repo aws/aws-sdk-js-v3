@@ -12,7 +12,8 @@ import { de_ListBackupPlanTemplatesCommand, se_ListBackupPlanTemplatesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListBackupPlanTemplatesCommandInput extends ListBackupPlanTempl
 export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemplatesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns metadata of your saved backup plan templates, including the template ID, name,
- *          and the creation and deletion dates.</p>
+ * <p>Lists the backup plan templates.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +75,7 @@ export interface ListBackupPlanTemplatesCommandOutput extends ListBackupPlanTemp
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListBackupPlanTemplatesCommand extends $Command
@@ -85,9 +86,7 @@ export class ListBackupPlanTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class ListBackupPlanTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackupPlanTemplatesCommand)
   .de(de_ListBackupPlanTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackupPlanTemplatesInput;
+      output: ListBackupPlanTemplatesOutput;
+    };
+    sdk: {
+      input: ListBackupPlanTemplatesCommandInput;
+      output: ListBackupPlanTemplatesCommandOutput;
+    };
+  };
+}

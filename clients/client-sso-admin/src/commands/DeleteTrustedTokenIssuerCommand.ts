@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,8 @@ export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedToke
 /**
  * <p>Deletes a trusted token issuer configuration from an instance of IAM Identity Center.</p>
  *          <note>
- *             <p>Deleting this trusted token issuer configuration will cause users to lose access to any applications that are configured to use the trusted token issuer.</p>
+ *             <p>Deleting this trusted token issuer configuration will cause users to lose access to any
+ *                 applications that are configured to use the trusted token issuer.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +80,7 @@ export interface DeleteTrustedTokenIssuerCommandOutput extends DeleteTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DeleteTrustedTokenIssuerCommand extends $Command
@@ -88,9 +91,7 @@ export class DeleteTrustedTokenIssuerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +103,16 @@ export class DeleteTrustedTokenIssuerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrustedTokenIssuerCommand)
   .de(de_DeleteTrustedTokenIssuerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrustedTokenIssuerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTrustedTokenIssuerCommandInput;
+      output: DeleteTrustedTokenIssuerCommandOutput;
+    };
+  };
+}

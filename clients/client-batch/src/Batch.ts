@@ -10,6 +10,11 @@ import {
   CreateComputeEnvironmentCommandOutput,
 } from "./commands/CreateComputeEnvironmentCommand";
 import {
+  CreateConsumableResourceCommand,
+  CreateConsumableResourceCommandInput,
+  CreateConsumableResourceCommandOutput,
+} from "./commands/CreateConsumableResourceCommand";
+import {
   CreateJobQueueCommand,
   CreateJobQueueCommandInput,
   CreateJobQueueCommandOutput,
@@ -24,6 +29,11 @@ import {
   DeleteComputeEnvironmentCommandInput,
   DeleteComputeEnvironmentCommandOutput,
 } from "./commands/DeleteComputeEnvironmentCommand";
+import {
+  DeleteConsumableResourceCommand,
+  DeleteConsumableResourceCommandInput,
+  DeleteConsumableResourceCommandOutput,
+} from "./commands/DeleteConsumableResourceCommand";
 import {
   DeleteJobQueueCommand,
   DeleteJobQueueCommandInput,
@@ -44,6 +54,11 @@ import {
   DescribeComputeEnvironmentsCommandInput,
   DescribeComputeEnvironmentsCommandOutput,
 } from "./commands/DescribeComputeEnvironmentsCommand";
+import {
+  DescribeConsumableResourceCommand,
+  DescribeConsumableResourceCommandInput,
+  DescribeConsumableResourceCommandOutput,
+} from "./commands/DescribeConsumableResourceCommand";
 import {
   DescribeJobDefinitionsCommand,
   DescribeJobDefinitionsCommandInput,
@@ -69,6 +84,16 @@ import {
   GetJobQueueSnapshotCommandInput,
   GetJobQueueSnapshotCommandOutput,
 } from "./commands/GetJobQueueSnapshotCommand";
+import {
+  ListConsumableResourcesCommand,
+  ListConsumableResourcesCommandInput,
+  ListConsumableResourcesCommandOutput,
+} from "./commands/ListConsumableResourcesCommand";
+import {
+  ListJobsByConsumableResourceCommand,
+  ListJobsByConsumableResourceCommandInput,
+  ListJobsByConsumableResourceCommandOutput,
+} from "./commands/ListJobsByConsumableResourceCommand";
 import { ListJobsCommand, ListJobsCommandInput, ListJobsCommandOutput } from "./commands/ListJobsCommand";
 import {
   ListSchedulingPoliciesCommand,
@@ -103,6 +128,11 @@ import {
   UpdateComputeEnvironmentCommandOutput,
 } from "./commands/UpdateComputeEnvironmentCommand";
 import {
+  UpdateConsumableResourceCommand,
+  UpdateConsumableResourceCommandInput,
+  UpdateConsumableResourceCommandOutput,
+} from "./commands/UpdateConsumableResourceCommand";
+import {
   UpdateJobQueueCommand,
   UpdateJobQueueCommandInput,
   UpdateJobQueueCommandOutput,
@@ -116,19 +146,24 @@ import {
 const commands = {
   CancelJobCommand,
   CreateComputeEnvironmentCommand,
+  CreateConsumableResourceCommand,
   CreateJobQueueCommand,
   CreateSchedulingPolicyCommand,
   DeleteComputeEnvironmentCommand,
+  DeleteConsumableResourceCommand,
   DeleteJobQueueCommand,
   DeleteSchedulingPolicyCommand,
   DeregisterJobDefinitionCommand,
   DescribeComputeEnvironmentsCommand,
+  DescribeConsumableResourceCommand,
   DescribeJobDefinitionsCommand,
   DescribeJobQueuesCommand,
   DescribeJobsCommand,
   DescribeSchedulingPoliciesCommand,
   GetJobQueueSnapshotCommand,
+  ListConsumableResourcesCommand,
   ListJobsCommand,
+  ListJobsByConsumableResourceCommand,
   ListSchedulingPoliciesCommand,
   ListTagsForResourceCommand,
   RegisterJobDefinitionCommand,
@@ -137,6 +172,7 @@ const commands = {
   TerminateJobCommand,
   UntagResourceCommand,
   UpdateComputeEnvironmentCommand,
+  UpdateConsumableResourceCommand,
   UpdateJobQueueCommand,
   UpdateSchedulingPolicyCommand,
 };
@@ -168,6 +204,23 @@ export interface Batch {
     args: CreateComputeEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateComputeEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConsumableResourceCommand}
+   */
+  createConsumableResource(
+    args: CreateConsumableResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConsumableResourceCommandOutput>;
+  createConsumableResource(
+    args: CreateConsumableResourceCommandInput,
+    cb: (err: any, data?: CreateConsumableResourceCommandOutput) => void
+  ): void;
+  createConsumableResource(
+    args: CreateConsumableResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConsumableResourceCommandOutput) => void
   ): void;
 
   /**
@@ -216,6 +269,23 @@ export interface Batch {
     args: DeleteComputeEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteComputeEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConsumableResourceCommand}
+   */
+  deleteConsumableResource(
+    args: DeleteConsumableResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConsumableResourceCommandOutput>;
+  deleteConsumableResource(
+    args: DeleteConsumableResourceCommandInput,
+    cb: (err: any, data?: DeleteConsumableResourceCommandOutput) => void
+  ): void;
+  deleteConsumableResource(
+    args: DeleteConsumableResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConsumableResourceCommandOutput) => void
   ): void;
 
   /**
@@ -282,6 +352,23 @@ export interface Batch {
     args: DescribeComputeEnvironmentsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeComputeEnvironmentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeConsumableResourceCommand}
+   */
+  describeConsumableResource(
+    args: DescribeConsumableResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeConsumableResourceCommandOutput>;
+  describeConsumableResource(
+    args: DescribeConsumableResourceCommandInput,
+    cb: (err: any, data?: DescribeConsumableResourceCommandOutput) => void
+  ): void;
+  describeConsumableResource(
+    args: DescribeConsumableResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeConsumableResourceCommandOutput) => void
   ): void;
 
   /**
@@ -366,6 +453,24 @@ export interface Batch {
   ): void;
 
   /**
+   * @see {@link ListConsumableResourcesCommand}
+   */
+  listConsumableResources(): Promise<ListConsumableResourcesCommandOutput>;
+  listConsumableResources(
+    args: ListConsumableResourcesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConsumableResourcesCommandOutput>;
+  listConsumableResources(
+    args: ListConsumableResourcesCommandInput,
+    cb: (err: any, data?: ListConsumableResourcesCommandOutput) => void
+  ): void;
+  listConsumableResources(
+    args: ListConsumableResourcesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConsumableResourcesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListJobsCommand}
    */
   listJobs(): Promise<ListJobsCommandOutput>;
@@ -375,6 +480,23 @@ export interface Batch {
     args: ListJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListJobsByConsumableResourceCommand}
+   */
+  listJobsByConsumableResource(
+    args: ListJobsByConsumableResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListJobsByConsumableResourceCommandOutput>;
+  listJobsByConsumableResource(
+    args: ListJobsByConsumableResourceCommandInput,
+    cb: (err: any, data?: ListJobsByConsumableResourceCommandOutput) => void
+  ): void;
+  listJobsByConsumableResource(
+    args: ListJobsByConsumableResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListJobsByConsumableResourceCommandOutput) => void
   ): void;
 
   /**
@@ -488,6 +610,23 @@ export interface Batch {
     args: UpdateComputeEnvironmentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateComputeEnvironmentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConsumableResourceCommand}
+   */
+  updateConsumableResource(
+    args: UpdateConsumableResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConsumableResourceCommandOutput>;
+  updateConsumableResource(
+    args: UpdateConsumableResourceCommandInput,
+    cb: (err: any, data?: UpdateConsumableResourceCommandOutput) => void
+  ): void;
+  updateConsumableResource(
+    args: UpdateConsumableResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConsumableResourceCommandOutput) => void
   ): void;
 
   /**

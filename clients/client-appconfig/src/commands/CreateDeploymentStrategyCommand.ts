@@ -12,7 +12,8 @@ import { de_CreateDeploymentStrategyCommand, se_CreateDeploymentStrategyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,32 +91,32 @@ export interface CreateDeploymentStrategyCommandOutput extends DeploymentStrateg
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To create a deployment strategy
  * ```javascript
  * // The following create-deployment-strategy example creates a deployment strategy called Example-Deployment that takes 15 minutes and deploys the configuration to 25% of the application at a time. The strategy is also copied to an SSM Document.
  * const input = {
- *   "DeploymentDurationInMinutes": 15,
- *   "GrowthFactor": 25,
- *   "Name": "Example-Deployment",
- *   "ReplicateTo": "SSM_DOCUMENT"
+ *   DeploymentDurationInMinutes: 15,
+ *   GrowthFactor: 25,
+ *   Name: "Example-Deployment",
+ *   ReplicateTo: "SSM_DOCUMENT"
  * };
  * const command = new CreateDeploymentStrategyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DeploymentDurationInMinutes": 15,
- *   "FinalBakeTimeInMinutes": 0,
- *   "GrowthFactor": 25,
- *   "GrowthType": "LINEAR",
- *   "Id": "1225qzk",
- *   "Name": "Example-Deployment",
- *   "ReplicateTo": "SSM_DOCUMENT"
+ *   DeploymentDurationInMinutes: 15,
+ *   FinalBakeTimeInMinutes: 0,
+ *   GrowthFactor: 25,
+ *   GrowthType: "LINEAR",
+ *   Id: "1225qzk",
+ *   Name: "Example-Deployment",
+ *   ReplicateTo: "SSM_DOCUMENT"
  * }
  * *\/
- * // example id: to-create-a-deployment-strategy-1632264783812
  * ```
  *
+ * @public
  */
 export class CreateDeploymentStrategyCommand extends $Command
   .classBuilder<
@@ -125,9 +126,7 @@ export class CreateDeploymentStrategyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class CreateDeploymentStrategyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDeploymentStrategyCommand)
   .de(de_CreateDeploymentStrategyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDeploymentStrategyRequest;
+      output: DeploymentStrategy;
+    };
+    sdk: {
+      input: CreateDeploymentStrategyCommandInput;
+      output: CreateDeploymentStrategyCommandOutput;
+    };
+  };
+}

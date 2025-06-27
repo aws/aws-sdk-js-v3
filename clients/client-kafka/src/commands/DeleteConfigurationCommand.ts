@@ -12,7 +12,8 @@ import { de_DeleteConfigurationCommand, se_DeleteConfigurationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteConfigurationCommandOutput extends DeleteConfigurationRes
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class DeleteConfigurationCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteConfigurationCommand)
   .de(de_DeleteConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteConfigurationRequest;
+      output: DeleteConfigurationResponse;
+    };
+    sdk: {
+      input: DeleteConfigurationCommandInput;
+      output: DeleteConfigurationCommandOutput;
+    };
+  };
+}

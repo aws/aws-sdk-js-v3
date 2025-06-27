@@ -24,5 +24,7 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  *   credentials: fromEnv(),
  * });
  * ```
+ *
+ * @public
  */
 export const fromEnv = (init?: FromEnvInit): AwsCredentialIdentityProvider => _fromEnv(init);

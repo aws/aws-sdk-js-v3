@@ -17,7 +17,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,9 +35,11 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
 /**
  * <p>Creates a resiliency policy for an application.</p>
  *          <note>
- *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code> and
- *           <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application, the lowest possible assessment result is near zero. Hence, if you provide value
- *         zero for <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and estimated workload RPO result will be near zero and the <b>Compliance
+ *             <p>Resilience Hub allows you to provide a value of zero for <code>rtoInSecs</code>
+ *         and <code>rpoInSecs</code> of your resiliency policy. But, while assessing your application,
+ *         the lowest possible assessment result is near zero. Hence, if you provide value zero for
+ *           <code>rtoInSecs</code> and <code>rpoInSecs</code>, the estimated workload RTO and
+ *         estimated workload RPO result will be near zero and the <b>Compliance
  *           status</b> for your application will be set to <b>Policy
  *           breached</b>.</p>
  *          </note>
@@ -49,8 +52,8 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * const input = { // CreateResiliencyPolicyRequest
  *   policyName: "STRING_VALUE", // required
  *   policyDescription: "STRING_VALUE",
- *   dataLocationConstraint: "STRING_VALUE",
- *   tier: "STRING_VALUE", // required
+ *   dataLocationConstraint: "AnyLocation" || "SameContinent" || "SameCountry",
+ *   tier: "MissionCritical" || "Critical" || "Important" || "CoreServices" || "NonCritical" || "NotApplicable", // required
  *   policy: { // DisruptionPolicy // required
  *     "<keys>": { // FailurePolicy
  *       rtoInSecs: Number("int"), // required
@@ -69,9 +72,9 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * //     policyArn: "STRING_VALUE",
  * //     policyName: "STRING_VALUE",
  * //     policyDescription: "STRING_VALUE",
- * //     dataLocationConstraint: "STRING_VALUE",
- * //     tier: "STRING_VALUE",
- * //     estimatedCostTier: "STRING_VALUE",
+ * //     dataLocationConstraint: "AnyLocation" || "SameContinent" || "SameCountry",
+ * //     tier: "MissionCritical" || "Critical" || "Important" || "CoreServices" || "NonCritical" || "NotApplicable",
+ * //     estimatedCostTier: "L1" || "L2" || "L3" || "L4",
  * //     policy: { // DisruptionPolicy
  * //       "<keys>": { // FailurePolicy
  * //         rtoInSecs: Number("int"), // required
@@ -121,6 +124,7 @@ export interface CreateResiliencyPolicyCommandOutput extends CreateResiliencyPol
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class CreateResiliencyPolicyCommand extends $Command
@@ -131,9 +135,7 @@ export class CreateResiliencyPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +147,16 @@ export class CreateResiliencyPolicyCommand extends $Command
   .f(CreateResiliencyPolicyRequestFilterSensitiveLog, CreateResiliencyPolicyResponseFilterSensitiveLog)
   .ser(se_CreateResiliencyPolicyCommand)
   .de(de_CreateResiliencyPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateResiliencyPolicyRequest;
+      output: CreateResiliencyPolicyResponse;
+    };
+    sdk: {
+      input: CreateResiliencyPolicyCommandInput;
+      output: CreateResiliencyPolicyCommandOutput;
+    };
+  };
+}

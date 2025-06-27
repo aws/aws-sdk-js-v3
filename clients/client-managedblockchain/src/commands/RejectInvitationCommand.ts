@@ -16,7 +16,8 @@ import { de_RejectInvitationCommand, se_RejectInvitationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface RejectInvitationCommandOutput extends RejectInvitationOutput, _
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class RejectInvitationCommand extends $Command
@@ -88,9 +90,7 @@ export class RejectInvitationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class RejectInvitationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RejectInvitationCommand)
   .de(de_RejectInvitationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RejectInvitationInput;
+      output: {};
+    };
+    sdk: {
+      input: RejectInvitationCommandInput;
+      output: RejectInvitationCommandOutput;
+    };
+  };
+}

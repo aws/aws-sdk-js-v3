@@ -85,6 +85,7 @@ import {
   ImageSetProperties,
   ImageSetsMetadataSummary,
   InternalServerException,
+  MetadataCopies,
   MetadataUpdates,
   ResourceNotFoundException,
   SearchByAttributeValue,
@@ -110,6 +111,9 @@ export const se_CopyImageSetCommand = async (
   b.bp("/datastore/{datastoreId}/imageSet/{sourceImageSetId}/copyImageSet");
   b.p("datastoreId", () => input.datastoreId!, "{datastoreId}", false);
   b.p("sourceImageSetId", () => input.sourceImageSetId!, "{sourceImageSetId}", false);
+  const query: any = map({
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
+  });
   let body: any;
   if (input.copyImageSetInformation !== undefined) {
     body = _json(input.copyImageSetInformation);
@@ -126,7 +130,7 @@ export const se_CopyImageSetCommand = async (
     }
   }
   b.hn(resolvedHostname);
-  b.m("POST").h(headers).b(body);
+  b.m("POST").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -505,10 +509,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -531,6 +532,7 @@ export const se_UpdateImageSetMetadataCommand = async (
   b.p("imageSetId", () => input.imageSetId!, "{imageSetId}", false);
   const query: any = map({
     [_lV]: [, __expectNonNull(input[_lVI]!, `latestVersionId`)],
+    [_f]: [() => input.force !== void 0, () => input[_f]!.toString()],
   });
   let body: any;
   if (input.updateImageSetMetadataUpdates !== undefined) {
@@ -728,6 +730,7 @@ export const de_GetImageSetCommand = async (
     imageSetState: __expectString,
     imageSetWorkflowStatus: __expectString,
     message: __expectString,
+    overrides: _json,
     updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     versionId: __expectString,
   });
@@ -1145,13 +1148,16 @@ const se_DICOMUpdates = (input: DICOMUpdates, context: __SerdeContext): any => {
 
 // se_ImageFrameInformation omitted.
 
+// se_MetadataCopies omitted.
+
 /**
  * serializeAws_restJson1MetadataUpdates
  */
 const se_MetadataUpdates = (input: MetadataUpdates, context: __SerdeContext): any => {
   return MetadataUpdates.visit(input, {
     DICOMUpdates: (value) => ({ DICOMUpdates: se_DICOMUpdates(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    revertToVersionId: (value) => ({ revertToVersionId: value }),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1168,7 +1174,7 @@ const se_SearchByAttributeValue = (input: SearchByAttributeValue, context: __Ser
     DICOMStudyInstanceUID: (value) => ({ DICOMStudyInstanceUID: value }),
     createdAt: (value) => ({ createdAt: value.getTime() / 1_000 }),
     updatedAt: (value) => ({ updatedAt: value.getTime() / 1_000 }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1351,6 +1357,7 @@ const de_ImageSetProperties = (output: any, context: __SerdeContext): ImageSetPr
     imageSetId: __expectString,
     imageSetState: __expectString,
     message: __expectString,
+    overrides: _json,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     versionId: __expectString,
   }) as any;
@@ -1393,6 +1400,8 @@ const de_ImageSetsMetadataSummary = (output: any, context: __SerdeContext): Imag
   }) as any;
 };
 
+// de_Overrides omitted.
+
 // de_Sort omitted.
 
 // de_TagMap omitted.
@@ -1409,18 +1418,12 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _cE = "contentEncoding";
 const _cT = "contentType";
 const _ce = "content-encoding";
 const _ct = "content-type";
 const _dS = "datastoreStatus";
+const _f = "force";
 const _jS = "jobStatus";
 const _lV = "latestVersion";
 const _lVI = "latestVersionId";

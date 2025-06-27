@@ -11,7 +11,7 @@ import {
   ModifyVerifiedAccessTrustProviderRequestFilterSensitiveLog,
   ModifyVerifiedAccessTrustProviderResult,
   ModifyVerifiedAccessTrustProviderResultFilterSensitiveLog,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_ModifyVerifiedAccessTrustProviderCommand,
   se_ModifyVerifiedAccessTrustProviderCommand,
@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,16 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  *     CustomerManagedKeyEnabled: true || false,
  *     KmsKeyArn: "STRING_VALUE",
  *   },
+ *   NativeApplicationOidcOptions: { // ModifyVerifiedAccessNativeApplicationOidcOptions
+ *     PublicSigningKeyEndpoint: "STRING_VALUE",
+ *     Issuer: "STRING_VALUE",
+ *     AuthorizationEndpoint: "STRING_VALUE",
+ *     TokenEndpoint: "STRING_VALUE",
+ *     UserInfoEndpoint: "STRING_VALUE",
+ *     ClientId: "STRING_VALUE",
+ *     ClientSecret: "STRING_VALUE",
+ *     Scope: "STRING_VALUE",
+ *   },
  * };
  * const command = new ModifyVerifiedAccessTrustProviderCommand(input);
  * const response = await client.send(command);
@@ -101,6 +112,15 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * //       CustomerManagedKeyEnabled: true || false,
  * //       KmsKeyArn: "STRING_VALUE",
  * //     },
+ * //     NativeApplicationOidcOptions: { // NativeApplicationOidcOptions
+ * //       PublicSigningKeyEndpoint: "STRING_VALUE",
+ * //       Issuer: "STRING_VALUE",
+ * //       AuthorizationEndpoint: "STRING_VALUE",
+ * //       TokenEndpoint: "STRING_VALUE",
+ * //       UserInfoEndpoint: "STRING_VALUE",
+ * //       ClientId: "STRING_VALUE",
+ * //       Scope: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -115,6 +135,7 @@ export interface ModifyVerifiedAccessTrustProviderCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyVerifiedAccessTrustProviderCommand extends $Command
@@ -125,9 +146,7 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +161,16 @@ export class ModifyVerifiedAccessTrustProviderCommand extends $Command
   )
   .ser(se_ModifyVerifiedAccessTrustProviderCommand)
   .de(de_ModifyVerifiedAccessTrustProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyVerifiedAccessTrustProviderRequest;
+      output: ModifyVerifiedAccessTrustProviderResult;
+    };
+    sdk: {
+      input: ModifyVerifiedAccessTrustProviderCommandInput;
+      output: ModifyVerifiedAccessTrustProviderCommandOutput;
+    };
+  };
+}

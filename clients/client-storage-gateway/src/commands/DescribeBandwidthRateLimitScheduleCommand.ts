@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface DescribeBandwidthRateLimitScheduleCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class DescribeBandwidthRateLimitScheduleCommand extends $Command
@@ -103,9 +105,7 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class DescribeBandwidthRateLimitScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBandwidthRateLimitScheduleCommand)
   .de(de_DescribeBandwidthRateLimitScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBandwidthRateLimitScheduleInput;
+      output: DescribeBandwidthRateLimitScheduleOutput;
+    };
+    sdk: {
+      input: DescribeBandwidthRateLimitScheduleCommandInput;
+      output: DescribeBandwidthRateLimitScheduleCommandOutput;
+    };
+  };
+}

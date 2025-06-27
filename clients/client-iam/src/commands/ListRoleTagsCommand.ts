@@ -12,7 +12,8 @@ import { de_ListRoleTagsCommand, se_ListRoleTagsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,33 +74,33 @@ export interface ListRoleTagsCommandOutput extends ListRoleTagsResponse, __Metad
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the tags attached to an IAM role
  * ```javascript
  * // The following example shows how to list the tags attached to a role.
  * const input = {
- *   "RoleName": "taggedrole1"
+ *   RoleName: "taggedrole1"
  * };
  * const command = new ListRoleTagsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IsTruncated": false,
- *   "Tags": [
+ *   IsTruncated: false,
+ *   Tags: [
  *     {
- *       "Key": "Dept",
- *       "Value": "12345"
+ *       Key: "Dept",
+ *       Value: "12345"
  *     },
  *     {
- *       "Key": "Team",
- *       "Value": "Accounting"
+ *       Key: "Team",
+ *       Value: "Accounting"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-tags-attached-to-an-iam-role-1506719238376
  * ```
  *
+ * @public
  */
 export class ListRoleTagsCommand extends $Command
   .classBuilder<
@@ -109,9 +110,7 @@ export class ListRoleTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +122,16 @@ export class ListRoleTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoleTagsCommand)
   .de(de_ListRoleTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoleTagsRequest;
+      output: ListRoleTagsResponse;
+    };
+    sdk: {
+      input: ListRoleTagsCommandInput;
+      output: ListRoleTagsCommandOutput;
+    };
+  };
+}

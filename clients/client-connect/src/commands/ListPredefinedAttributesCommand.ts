@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPredefinedAttributesRequest, ListPredefinedAttributesResponse } from "../models/models_1";
+import { ListPredefinedAttributesRequest, ListPredefinedAttributesResponse } from "../models/models_2";
 import { de_ListPredefinedAttributesCommand, se_ListPredefinedAttributesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,10 @@ export interface ListPredefinedAttributesCommandInput extends ListPredefinedAttr
 export interface ListPredefinedAttributesCommandOutput extends ListPredefinedAttributesResponse, __MetadataBearer {}
 
 /**
- * <p>Lists predefined attributes for the specified Amazon Connect instance.</p>
+ * <p>Lists predefined attributes for the specified Amazon Connect instance. <i>Predefined
+ *     attributes</i> are attributes in an Amazon Connect instance that can be used to route
+ *    contacts to an agent or pools of agents within a queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/predefined-attributes.html">Create
+ *     predefined attributes for routing contacts to agents</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +82,7 @@ export interface ListPredefinedAttributesCommandOutput extends ListPredefinedAtt
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListPredefinedAttributesCommand extends $Command
@@ -88,9 +93,7 @@ export class ListPredefinedAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +105,16 @@ export class ListPredefinedAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPredefinedAttributesCommand)
   .de(de_ListPredefinedAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPredefinedAttributesRequest;
+      output: ListPredefinedAttributesResponse;
+    };
+    sdk: {
+      input: ListPredefinedAttributesCommandInput;
+      output: ListPredefinedAttributesCommandOutput;
+    };
+  };
+}

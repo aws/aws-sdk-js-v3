@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/aws-client-retry-test",
   "description": "Integration test suite for middleware-retry",
-  "version": "3.590.0",
+  "version": "3.837.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "tsc -p tsconfig.cjs.json",
@@ -10,7 +10,8 @@
     "build:types": "tsc -p tsconfig.types.json",
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
-    "test": "jest --coverage --passWithNoTests"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "types": "./dist-types/index.d.ts",
@@ -18,20 +19,20 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/client-s3": "*",
-    "@smithy/protocol-http": "^4.0.0",
-    "@smithy/types": "^3.0.0",
-    "@smithy/util-retry": "^3.0.0",
+    "@smithy/protocol-http": "^5.1.2",
+    "@smithy/types": "^4.3.1",
+    "@smithy/util-retry": "^4.0.6",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
-    "@tsconfig/node16": "16.1.3",
-    "@types/node": "^16.18.96",
+    "@tsconfig/node18": "18.2.4",
+    "@types/node": "^18.19.69",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
-    "typescript": "~4.9.5"
+    "typescript": "~5.8.3"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

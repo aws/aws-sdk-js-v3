@@ -12,7 +12,8 @@ import { de_DeleteAppCommand, se_DeleteAppCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface DeleteAppCommandOutput extends DeleteAppResponse, __MetadataBea
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteAppCommand extends $Command
@@ -93,9 +95,7 @@ export class DeleteAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class DeleteAppCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAppCommand)
   .de(de_DeleteAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAppRequest;
+      output: DeleteAppResponse;
+    };
+    sdk: {
+      input: DeleteAppCommandInput;
+      output: DeleteAppCommandOutput;
+    };
+  };
+}

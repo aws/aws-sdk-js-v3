@@ -17,7 +17,8 @@ import { de_StartCutoverCommand, se_StartCutoverCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -122,6 +123,7 @@ export interface StartCutoverCommandOutput extends StartCutoverResponse, __Metad
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class StartCutoverCommand extends $Command
@@ -132,9 +134,7 @@ export class StartCutoverCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +146,16 @@ export class StartCutoverCommand extends $Command
   .f(StartCutoverRequestFilterSensitiveLog, StartCutoverResponseFilterSensitiveLog)
   .ser(se_StartCutoverCommand)
   .de(de_StartCutoverCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartCutoverRequest;
+      output: StartCutoverResponse;
+    };
+    sdk: {
+      input: StartCutoverCommandInput;
+      output: StartCutoverCommandOutput;
+    };
+  };
+}

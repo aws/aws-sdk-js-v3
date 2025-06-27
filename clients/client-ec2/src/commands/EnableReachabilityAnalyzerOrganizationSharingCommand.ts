@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableReachabilityAnalyzerOrganizationSharingRequest,
   EnableReachabilityAnalyzerOrganizationSharingResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_EnableReachabilityAnalyzerOrganizationSharingCommand,
   se_EnableReachabilityAnalyzerOrganizationSharingCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface EnableReachabilityAnalyzerOrganizationSharingCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Command
@@ -77,9 +79,7 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class EnableReachabilityAnalyzerOrganizationSharingCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_EnableReachabilityAnalyzerOrganizationSharingCommand)
   .de(de_EnableReachabilityAnalyzerOrganizationSharingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableReachabilityAnalyzerOrganizationSharingRequest;
+      output: EnableReachabilityAnalyzerOrganizationSharingResult;
+    };
+    sdk: {
+      input: EnableReachabilityAnalyzerOrganizationSharingCommandInput;
+      output: EnableReachabilityAnalyzerOrganizationSharingCommandOutput;
+    };
+  };
+}

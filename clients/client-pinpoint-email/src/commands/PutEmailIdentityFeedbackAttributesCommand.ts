@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface PutEmailIdentityFeedbackAttributesCommandOutput
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class PutEmailIdentityFeedbackAttributesCommand extends $Command
@@ -90,9 +92,7 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class PutEmailIdentityFeedbackAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutEmailIdentityFeedbackAttributesCommand)
   .de(de_PutEmailIdentityFeedbackAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutEmailIdentityFeedbackAttributesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutEmailIdentityFeedbackAttributesCommandInput;
+      output: PutEmailIdentityFeedbackAttributesCommandOutput;
+    };
+  };
+}

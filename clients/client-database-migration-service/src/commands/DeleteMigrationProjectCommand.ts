@@ -16,7 +16,8 @@ import { de_DeleteMigrationProjectCommand, se_DeleteMigrationProjectCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,9 @@ export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProj
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
@@ -99,49 +103,49 @@ export interface DeleteMigrationProjectCommandOutput extends DeleteMigrationProj
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Migration Project
  * ```javascript
  * // Deletes the specified migration project.
  * const input = {
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345"
  * };
  * const command = new DeleteMigrationProjectCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MigrationProject": {
- *     "InstanceProfileArn": "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *     "InstanceProfileName": "my-instance-profile",
- *     "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *     "MigrationProjectCreationTime": "2023-04-19T11:45:15.805253Z",
- *     "MigrationProjectName": "my-migration-project",
- *     "SchemaConversionApplicationAttributes": {
- *       "S3BucketPath": "my-s3-bucket/my_folder",
- *       "S3BucketRoleArn": "arn:aws:iam::012345678901:role/my-s3role"
+ *   MigrationProject: {
+ *     InstanceProfileArn: "arn:aws:dms:us-east-1:012345678901:instance-profile:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     InstanceProfileName: "my-instance-profile",
+ *     MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *     MigrationProjectCreationTime: "2023-04-19T11:45:15.805253Z",
+ *     MigrationProjectName: "my-migration-project",
+ *     SchemaConversionApplicationAttributes: {
+ *       S3BucketPath: "my-s3-bucket/my_folder",
+ *       S3BucketRoleArn: "arn:aws:iam::012345678901:role/my-s3role"
  *     },
- *     "SourceDataProviderDescriptors": [
+ *     SourceDataProviderDescriptors: [
  *       {
- *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *         "DataProviderName": "all-source-oracle-12",
- *         "SecretsManagerAccessRoleArn": "arn:aws:iam::012345678901:role/my-access-role",
- *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/ALL.SOURCE.ORACLE_12-0123456"
+ *         DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         DataProviderName: "all-source-oracle-12",
+ *         SecretsManagerAccessRoleArn: "arn:aws:iam::012345678901:role/my-access-role",
+ *         SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/ALL.SOURCE.ORACLE_12-0123456"
  *       }
  *     ],
- *     "TargetDataProviderDescriptors": [
+ *     TargetDataProviderDescriptors: [
  *       {
- *         "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *         "DataProviderName": "sde-obilyns-dataprovider-3",
- *         "SecretsManagerAccessRoleArn": "arn:aws:iam::437223687239:role/dmytbon-admin-access",
- *         "SecretsManagerSecretId": "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/TARGET.postgresql-0123456"
+ *         DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *         DataProviderName: "sde-obilyns-dataprovider-3",
+ *         SecretsManagerAccessRoleArn: "arn:aws:iam::437223687239:role/dmytbon-admin-access",
+ *         SecretsManagerSecretId: "arn:aws:secretsmanager:us-east-1:012345678901:secret:myuser/TARGET.postgresql-0123456"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: delete-migration-project-1689717217454
  * ```
  *
+ * @public
  */
 export class DeleteMigrationProjectCommand extends $Command
   .classBuilder<
@@ -151,9 +155,7 @@ export class DeleteMigrationProjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +167,16 @@ export class DeleteMigrationProjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMigrationProjectCommand)
   .de(de_DeleteMigrationProjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMigrationProjectMessage;
+      output: DeleteMigrationProjectResponse;
+    };
+    sdk: {
+      input: DeleteMigrationProjectCommandInput;
+      output: DeleteMigrationProjectCommandOutput;
+    };
+  };
+}

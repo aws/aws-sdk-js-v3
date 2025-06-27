@@ -16,7 +16,7 @@ receive an answer that contains up to eight healthy records. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-servicediscovery
+To install this package, simply type add or install @aws-sdk/client-servicediscovery
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-servicediscovery`
@@ -259,6 +259,14 @@ DeleteService
 </details>
 <details>
 <summary>
+DeleteServiceAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/servicediscovery/command/DeleteServiceAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/DeleteServiceAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/DeleteServiceAttributesCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeregisterInstance
 </summary>
 
@@ -319,6 +327,14 @@ GetService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/servicediscovery/command/GetServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/GetServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/GetServiceCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetServiceAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/servicediscovery/command/GetServiceAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/GetServiceAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/GetServiceAttributesCommandOutput/)
 
 </details>
 <details>
@@ -423,5 +439,13 @@ UpdateService
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/servicediscovery/command/UpdateServiceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/UpdateServiceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/UpdateServiceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateServiceAttributes
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/servicediscovery/command/UpdateServiceAttributesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/UpdateServiceAttributesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-servicediscovery/Interface/UpdateServiceAttributesCommandOutput/)
 
 </details>

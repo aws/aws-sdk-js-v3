@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,7 +67,7 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //       VerifiedAccessGroupId: "STRING_VALUE",
  * //       VerifiedAccessEndpointId: "STRING_VALUE",
  * //       ApplicationDomain: "STRING_VALUE",
- * //       EndpointType: "load-balancer" || "network-interface",
+ * //       EndpointType: "load-balancer" || "network-interface" || "rds" || "cidr",
  * //       AttachmentType: "vpc",
  * //       DomainCertificateArn: "STRING_VALUE",
  * //       EndpointDomain: "STRING_VALUE",
@@ -75,17 +76,29 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       LoadBalancerOptions: { // VerifiedAccessEndpointLoadBalancerOptions
- * //         Protocol: "http" || "https",
+ * //         Protocol: "http" || "https" || "tcp",
  * //         Port: Number("int"),
  * //         LoadBalancerArn: "STRING_VALUE",
  * //         SubnetIds: [ // VerifiedAccessEndpointSubnetIdList
  * //           "STRING_VALUE",
  * //         ],
+ * //         PortRanges: [ // VerifiedAccessEndpointPortRangeList
+ * //           { // VerifiedAccessEndpointPortRange
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       NetworkInterfaceOptions: { // VerifiedAccessEndpointEniOptions
  * //         NetworkInterfaceId: "STRING_VALUE",
- * //         Protocol: "http" || "https",
+ * //         Protocol: "http" || "https" || "tcp",
  * //         Port: Number("int"),
+ * //         PortRanges: [
+ * //           {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //         ],
  * //       },
  * //       Status: { // VerifiedAccessEndpointStatus
  * //         Code: "pending" || "active" || "updating" || "deleting" || "deleted",
@@ -105,6 +118,30 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * //         CustomerManagedKeyEnabled: true || false,
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
+ * //       RdsOptions: { // VerifiedAccessEndpointRdsOptions
+ * //         Protocol: "http" || "https" || "tcp",
+ * //         Port: Number("int"),
+ * //         RdsDbInstanceArn: "STRING_VALUE",
+ * //         RdsDbClusterArn: "STRING_VALUE",
+ * //         RdsDbProxyArn: "STRING_VALUE",
+ * //         RdsEndpoint: "STRING_VALUE",
+ * //         SubnetIds: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       CidrOptions: { // VerifiedAccessEndpointCidrOptions
+ * //         Cidr: "STRING_VALUE",
+ * //         PortRanges: [
+ * //           {
+ * //             FromPort: Number("int"),
+ * //             ToPort: Number("int"),
+ * //           },
+ * //         ],
+ * //         Protocol: "http" || "https" || "tcp",
+ * //         SubnetIds: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -121,6 +158,7 @@ export interface DescribeVerifiedAccessEndpointsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeVerifiedAccessEndpointsCommand extends $Command
@@ -131,9 +169,7 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +181,16 @@ export class DescribeVerifiedAccessEndpointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeVerifiedAccessEndpointsCommand)
   .de(de_DescribeVerifiedAccessEndpointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeVerifiedAccessEndpointsRequest;
+      output: DescribeVerifiedAccessEndpointsResult;
+    };
+    sdk: {
+      input: DescribeVerifiedAccessEndpointsCommandInput;
+      output: DescribeVerifiedAccessEndpointsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_RunFleetAdvisorLsaAnalysisCommand, se_RunFleetAdvisorLsaAnalysisComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,12 @@ export interface RunFleetAdvisorLsaAnalysisCommandInput {}
 export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisorLsaAnalysisResponse, __MetadataBearer {}
 
 /**
- * <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
+ * <important>
+ *             <p>
+ * End of support notice: On May 20, 2026, Amazon Web Services will end support for Amazon Web Services DMS Fleet Advisor;. After May 20, 2026, you will no longer be able to access the Amazon Web Services DMS Fleet Advisor; console or Amazon Web Services DMS Fleet Advisor; resources. For more information, see <a href="https://docs.aws.amazon.com/dms/latest/userguide/dms_fleet.advisor-end-of-support.html">Amazon Web Services DMS Fleet Advisor end of support</a>.
+ * </p>
+ *          </important>
+ *          <p>Runs large-scale assessment (LSA) analysis on every Fleet Advisor collector in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,6 +69,7 @@ export interface RunFleetAdvisorLsaAnalysisCommandOutput extends RunFleetAdvisor
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class RunFleetAdvisorLsaAnalysisCommand extends $Command
@@ -73,9 +80,7 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +92,16 @@ export class RunFleetAdvisorLsaAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RunFleetAdvisorLsaAnalysisCommand)
   .de(de_RunFleetAdvisorLsaAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: RunFleetAdvisorLsaAnalysisResponse;
+    };
+    sdk: {
+      input: RunFleetAdvisorLsaAnalysisCommandInput;
+      output: RunFleetAdvisorLsaAnalysisCommandOutput;
+    };
+  };
+}

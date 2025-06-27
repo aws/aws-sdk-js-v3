@@ -16,7 +16,8 @@ import { de_ListImportFileTaskCommand, se_ListImportFileTaskCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface ListImportFileTaskCommandOutput extends ListImportFileTaskRespo
  * @throws {@link MigrationHubStrategyServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubStrategy service.</p>
  *
+ *
  * @public
  */
 export class ListImportFileTaskCommand extends $Command
@@ -97,9 +99,7 @@ export class ListImportFileTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubStrategyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class ListImportFileTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListImportFileTaskCommand)
   .de(de_ListImportFileTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListImportFileTaskRequest;
+      output: ListImportFileTaskResponse;
+    };
+    sdk: {
+      input: ListImportFileTaskCommandInput;
+      output: ListImportFileTaskCommandOutput;
+    };
+  };
+}

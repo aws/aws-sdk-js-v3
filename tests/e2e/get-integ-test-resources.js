@@ -1,16 +1,18 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
-const { STSClient, GetCallerIdentityCommand } = require("../../clients/client-sts");
-const { CloudFormationClient, DescribeStackResourcesCommand } = require("../../clients/client-cloudformation");
-const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("../../clients/client-s3-control");
+const { STSClient, GetCallerIdentityCommand } = require("@aws-sdk/client-sts");
+const { CloudFormationClient, DescribeStackResourcesCommand } = require("@aws-sdk/client-cloudformation");
+const { S3ControlClient, ListMultiRegionAccessPointsCommand } = require("@aws-sdk/client-s3-control");
+const { S3 } = require("@aws-sdk/client-s3");
 const { ensureTestStack } = require("./ensure-test-stack");
 const { deleteStaleChangesets } = require("./delete-stale-changesets");
 
-const logger = { ...console, debug() {} };
-
 exports.getIntegTestResources = async () => {
-  const cloudformation = new CloudFormationClient({ logger });
-  const region = await cloudformation.config.region();
+  const region = "us-west-2";
+
+  const cloudformation = new CloudFormationClient({
+    region,
+  });
   const stackName = "SdkReleaseV3IntegTestResourcesStack";
 
   await deleteStaleChangesets(cloudformation, stackName);
@@ -23,8 +25,6 @@ exports.getIntegTestResources = async () => {
     new DescribeStackResourcesCommand({ StackName: stackName })
   );
 
-  console.log(`${stackName} Stack Resources: `, stackResources);
-
   const identityPoolId = stackResources.filter((resource) => resource.ResourceType === "AWS::Cognito::IdentityPool")[0]
     .PhysicalResourceId;
 
@@ -36,12 +36,27 @@ exports.getIntegTestResources = async () => {
     (resource) => resource.ResourceType === "AWS::S3::MultiRegionAccessPoint"
   )[0].PhysicalResourceId;
 
-  const sts = new STSClient({ logger });
+  const sts = new STSClient({ region });
   const { Account: AccountId } = await sts.send(new GetCallerIdentityCommand({}));
-  const s3Control = new S3ControlClient({ logger, region: "us-west-2" });
+  const s3Control = new S3ControlClient({ region });
   const { AccessPoints } = await s3Control.send(new ListMultiRegionAccessPointsCommand({ AccountId }));
   const { Alias } = AccessPoints.find((accesspoint) => accesspoint.Name === multiRegionAccessPointName);
   const mrapArn = `arn:aws:s3::${AccountId}:accesspoint/${Alias}`;
+
+  const s3 = new S3({ region });
+  await s3.putBucketCors({
+    Bucket: bucketName,
+    CORSConfiguration: {
+      CORSRules: [
+        {
+          AllowedOrigins: ["*"],
+          AllowedMethods: ["GET", "PUT", "POST", "DELETE", "HEAD"],
+          AllowedHeaders: ["*"],
+          ExposeHeaders: ["ETag"],
+        },
+      ],
+    },
+  });
 
   return {
     AWS_SMOKE_TEST_REGION: region,

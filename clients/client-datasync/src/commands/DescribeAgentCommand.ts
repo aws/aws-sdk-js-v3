@@ -12,7 +12,8 @@ import { de_DescribeAgentCommand, se_DescribeAgentCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface DescribeAgentCommandInput extends DescribeAgentRequest {}
 export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __MetadataBearer {}
 
 /**
- * <p>Returns information about an DataSync agent, such as its name, service endpoint
- *       type, and status.</p>
+ * <p>Returns information about an DataSync agent, such as its name, service
+ *       endpoint type, and status.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,6 +81,7 @@ export interface DescribeAgentCommandOutput extends DescribeAgentResponse, __Met
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeAgentCommand extends $Command
@@ -90,9 +92,7 @@ export class DescribeAgentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DescribeAgentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAgentCommand)
   .de(de_DescribeAgentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAgentRequest;
+      output: DescribeAgentResponse;
+    };
+    sdk: {
+      input: DescribeAgentCommandInput;
+      output: DescribeAgentCommandOutput;
+    };
+  };
+}

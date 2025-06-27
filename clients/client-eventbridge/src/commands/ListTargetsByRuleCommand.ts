@@ -16,7 +16,8 @@ import { de_ListTargetsByRuleCommand, se_ListTargetsByRuleCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -196,6 +197,7 @@ export interface ListTargetsByRuleCommandOutput extends ListTargetsByRuleRespons
  * @throws {@link EventBridgeServiceException}
  * <p>Base exception class for all service exceptions from EventBridge service.</p>
  *
+ *
  * @public
  */
 export class ListTargetsByRuleCommand extends $Command
@@ -206,9 +208,7 @@ export class ListTargetsByRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EventBridgeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -220,4 +220,16 @@ export class ListTargetsByRuleCommand extends $Command
   .f(void 0, ListTargetsByRuleResponseFilterSensitiveLog)
   .ser(se_ListTargetsByRuleCommand)
   .de(de_ListTargetsByRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTargetsByRuleRequest;
+      output: ListTargetsByRuleResponse;
+    };
+    sdk: {
+      input: ListTargetsByRuleCommandInput;
+      output: ListTargetsByRuleCommandOutput;
+    };
+  };
+}

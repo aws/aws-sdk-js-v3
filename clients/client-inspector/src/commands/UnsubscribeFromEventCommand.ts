@@ -12,7 +12,8 @@ import { de_UnsubscribeFromEventCommand, se_UnsubscribeFromEventCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,20 +73,23 @@ export interface UnsubscribeFromEventCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Unsubscribe from event
  * ```javascript
  * // Disables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
  * const input = {
- *   "event": "ASSESSMENT_RUN_COMPLETED",
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
- *   "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+ *   event: "ASSESSMENT_RUN_COMPLETED",
+ *   resourceArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *   topicArn: "arn:aws:sns:us-west-2:123456789012:exampletopic"
  * };
  * const command = new UnsubscribeFromEventCommand(input);
- * await client.send(command);
- * // example id: unsubscribe-from-event-1481067781705
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UnsubscribeFromEventCommand extends $Command
   .classBuilder<
@@ -95,9 +99,7 @@ export class UnsubscribeFromEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +111,16 @@ export class UnsubscribeFromEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnsubscribeFromEventCommand)
   .de(de_UnsubscribeFromEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnsubscribeFromEventRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnsubscribeFromEventCommandInput;
+      output: UnsubscribeFromEventCommandOutput;
+    };
+  };
+}

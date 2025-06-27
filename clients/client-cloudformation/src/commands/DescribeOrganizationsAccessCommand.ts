@@ -12,7 +12,8 @@ import { de_DescribeOrganizationsAccessCommand, se_DescribeOrganizationsAccessCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,10 @@ export interface DescribeOrganizationsAccessCommandInput extends DescribeOrganiz
 export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrganizationsAccessOutput, __MetadataBearer {}
 
 /**
- * <p>Retrieves information about the account's <code>OrganizationAccess</code> status. This API can be called either
- *    by the management account or the delegated administrator by using the <code>CallAs</code> parameter. This API can
- *    also be called without the <code>CallAs</code> parameter by the management account.</p>
+ * <p>Retrieves information about the account's <code>OrganizationAccess</code> status. This API
+ *       can be called either by the management account or the delegated administrator by using the
+ *         <code>CallAs</code> parameter. This API can also be called without the <code>CallAs</code>
+ *       parameter by the management account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +64,7 @@ export interface DescribeOrganizationsAccessCommandOutput extends DescribeOrgani
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeOrganizationsAccessCommand extends $Command
@@ -72,9 +75,7 @@ export class DescribeOrganizationsAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -86,4 +87,16 @@ export class DescribeOrganizationsAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationsAccessCommand)
   .de(de_DescribeOrganizationsAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeOrganizationsAccessInput;
+      output: DescribeOrganizationsAccessOutput;
+    };
+    sdk: {
+      input: DescribeOrganizationsAccessCommandInput;
+      output: DescribeOrganizationsAccessCommandOutput;
+    };
+  };
+}

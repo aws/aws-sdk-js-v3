@@ -12,7 +12,8 @@ import { de_ListVoiceConnectorsCommand, se_ListVoiceConnectorsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * //       CreatedTimestamp: new Date("TIMESTAMP"),
  * //       UpdatedTimestamp: new Date("TIMESTAMP"),
  * //       VoiceConnectorArn: "STRING_VALUE",
+ * //       IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -86,6 +88,7 @@ export interface ListVoiceConnectorsCommandOutput extends ListVoiceConnectorsRes
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ListVoiceConnectorsCommand extends $Command
@@ -96,9 +99,7 @@ export class ListVoiceConnectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class ListVoiceConnectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVoiceConnectorsCommand)
   .de(de_ListVoiceConnectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVoiceConnectorsRequest;
+      output: ListVoiceConnectorsResponse;
+    };
+    sdk: {
+      input: ListVoiceConnectorsCommandInput;
+      output: ListVoiceConnectorsCommandOutput;
+    };
+  };
+}

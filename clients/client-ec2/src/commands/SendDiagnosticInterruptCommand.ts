@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SendDiagnosticInterruptRequest } from "../models/models_7";
+import { SendDiagnosticInterruptRequest } from "../models/models_8";
 import { de_SendDiagnosticInterruptCommand, se_SendDiagnosticInterruptCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,8 +41,7 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  *             system is configured to perform the required diagnostic tasks.</p>
  *          <p>For more information about configuring your operating system to generate a crash dump
  *             when a kernel panic or stop error occurs, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/diagnostic-interrupt.html">Send a diagnostic interrupt
- *                 (for advanced users)</a> (Linux instances) or <a href="https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/diagnostic-interrupt.html">Send a diagnostic
- *                 interrupt (for advanced users)</a> (Windows instances).</p>
+ *                 (for advanced users)</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +67,7 @@ export interface SendDiagnosticInterruptCommandOutput extends __MetadataBearer {
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class SendDiagnosticInterruptCommand extends $Command
@@ -77,9 +78,7 @@ export class SendDiagnosticInterruptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +90,16 @@ export class SendDiagnosticInterruptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendDiagnosticInterruptCommand)
   .de(de_SendDiagnosticInterruptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendDiagnosticInterruptRequest;
+      output: {};
+    };
+    sdk: {
+      input: SendDiagnosticInterruptCommandInput;
+      output: SendDiagnosticInterruptCommandOutput;
+    };
+  };
+}

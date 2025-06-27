@@ -12,7 +12,8 @@ import { de_RestoreCertificateAuthorityCommand, se_RestoreCertificateAuthorityCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface RestoreCertificateAuthorityCommandOutput extends __MetadataBear
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class RestoreCertificateAuthorityCommand extends $Command
@@ -83,9 +85,7 @@ export class RestoreCertificateAuthorityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class RestoreCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreCertificateAuthorityCommand)
   .de(de_RestoreCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: RestoreCertificateAuthorityCommandInput;
+      output: RestoreCertificateAuthorityCommandOutput;
+    };
+  };
+}

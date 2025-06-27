@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMContactsClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface GetRotationOverrideCommandOutput extends GetRotationOverrideRes
  * @throws {@link SSMContactsServiceException}
  * <p>Base exception class for all service exceptions from SSMContacts service.</p>
  *
+ *
  * @public
  */
 export class GetRotationOverrideCommand extends $Command
@@ -88,9 +90,7 @@ export class GetRotationOverrideCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMContactsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class GetRotationOverrideCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRotationOverrideCommand)
   .de(de_GetRotationOverrideCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRotationOverrideRequest;
+      output: GetRotationOverrideResult;
+    };
+    sdk: {
+      input: GetRotationOverrideCommandInput;
+      output: GetRotationOverrideCommandOutput;
+    };
+  };
+}

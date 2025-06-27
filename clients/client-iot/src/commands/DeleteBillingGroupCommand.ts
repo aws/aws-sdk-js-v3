@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteBillingGroupRequest, DeleteBillingGroupResponse } from "../models/models_0";
+import { DeleteBillingGroupRequest, DeleteBillingGroupResponse } from "../models/models_1";
 import { de_DeleteBillingGroupCommand, se_DeleteBillingGroupCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteBillingGroupCommandOutput extends DeleteBillingGroupRespo
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteBillingGroupCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteBillingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteBillingGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBillingGroupCommand)
   .de(de_DeleteBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBillingGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBillingGroupCommandInput;
+      output: DeleteBillingGroupCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateLandingZoneCommand, se_CreateLandingZoneCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateLandingZoneCommandInput extends CreateLandingZoneInput {}
 export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone,
- *          based on the parameters specified in the manifest JSON file.</p>
+ * <p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone, based on the parameters specified in the manifest JSON file.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +75,7 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class CreateLandingZoneCommand extends $Command
@@ -85,9 +86,7 @@ export class CreateLandingZoneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +98,16 @@ export class CreateLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLandingZoneCommand)
   .de(de_CreateLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLandingZoneInput;
+      output: CreateLandingZoneOutput;
+    };
+    sdk: {
+      input: CreateLandingZoneCommandInput;
+      output: CreateLandingZoneCommandOutput;
+    };
+  };
+}

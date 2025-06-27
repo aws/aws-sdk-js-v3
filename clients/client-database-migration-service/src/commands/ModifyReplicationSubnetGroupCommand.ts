@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -103,25 +104,25 @@ export interface ModifyReplicationSubnetGroupCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify replication subnet group
  * ```javascript
  * // Modifies the settings for the specified replication subnet group.
  * const input = {
- *   "ReplicationSubnetGroupDescription": "",
- *   "ReplicationSubnetGroupIdentifier": "",
- *   "SubnetIds": []
+ *   ReplicationSubnetGroupDescription: "",
+ *   ReplicationSubnetGroupIdentifier: "",
+ *   SubnetIds:   []
  * };
  * const command = new ModifyReplicationSubnetGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicationSubnetGroup": {}
+ *   ReplicationSubnetGroup:   { /* empty *\/ }
  * }
  * *\/
- * // example id: modify-replication-subnet-group-1481762275392
  * ```
  *
+ * @public
  */
 export class ModifyReplicationSubnetGroupCommand extends $Command
   .classBuilder<
@@ -131,9 +132,7 @@ export class ModifyReplicationSubnetGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -145,4 +144,16 @@ export class ModifyReplicationSubnetGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationSubnetGroupCommand)
   .de(de_ModifyReplicationSubnetGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationSubnetGroupMessage;
+      output: ModifyReplicationSubnetGroupResponse;
+    };
+    sdk: {
+      input: ModifyReplicationSubnetGroupCommandInput;
+      output: ModifyReplicationSubnetGroupCommandOutput;
+    };
+  };
+}

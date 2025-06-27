@@ -15,7 +15,7 @@ you can use to manage Amazon QuickSight. </p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-quicksight
+To install this package, simply type add or install @aws-sdk/client-quicksight
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-quicksight`
@@ -28,16 +28,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `QuickSightClient` and
-the commands you need, for example `ListFoldersCommand`:
+the commands you need, for example `ListBrandsCommand`:
 
 ```js
 // ES5 example
-const { QuickSightClient, ListFoldersCommand } = require("@aws-sdk/client-quicksight");
+const { QuickSightClient, ListBrandsCommand } = require("@aws-sdk/client-quicksight");
 ```
 
 ```ts
 // ES6+ example
-import { QuickSightClient, ListFoldersCommand } from "@aws-sdk/client-quicksight";
+import { QuickSightClient, ListBrandsCommand } from "@aws-sdk/client-quicksight";
 ```
 
 ### Usage
@@ -56,7 +56,7 @@ const client = new QuickSightClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListFoldersCommand(params);
+const command = new ListBrandsCommand(params);
 ```
 
 #### Async/await
@@ -135,7 +135,7 @@ const client = new AWS.QuickSight({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listFolders(params);
+  const data = await client.listBrands(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -143,7 +143,7 @@ try {
 
 // Promises.
 client
-  .listFolders(params)
+  .listBrands(params)
   .then((data) => {
     // process data.
   })
@@ -152,7 +152,7 @@ client
   });
 
 // callbacks.
-client.listFolders(params, (err, data) => {
+client.listBrands(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -210,6 +210,22 @@ see LICENSE for more information.
 
 <details>
 <summary>
+BatchCreateTopicReviewedAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/BatchCreateTopicReviewedAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchCreateTopicReviewedAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchCreateTopicReviewedAnswerCommandOutput/)
+
+</details>
+<details>
+<summary>
+BatchDeleteTopicReviewedAnswer
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/BatchDeleteTopicReviewedAnswerCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchDeleteTopicReviewedAnswerCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/BatchDeleteTopicReviewedAnswerCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelIngestion
 </summary>
 
@@ -238,6 +254,22 @@ CreateAnalysis
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/CreateAnalysisCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateAnalysisCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateAnalysisCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateBrand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/CreateBrandCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateBrandCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateBrandCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateCustomPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/CreateCustomPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateCustomPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/CreateCustomPermissionsCommandOutput/)
 
 </details>
 <details>
@@ -418,6 +450,30 @@ DeleteAnalysis
 </details>
 <details>
 <summary>
+DeleteBrand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteBrandCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteBrandCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteBrandCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteBrandAssignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteBrandAssignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteBrandAssignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteBrandAssignmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCustomPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteCustomPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteCustomPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteCustomPermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDashboard
 </summary>
 
@@ -446,6 +502,14 @@ DeleteDataSource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteDataSourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteDataSourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteDataSourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteDefaultQBusinessApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteDefaultQBusinessApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteDefaultQBusinessApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteDefaultQBusinessApplicationCommandOutput/)
 
 </details>
 <details>
@@ -594,6 +658,14 @@ DeleteUserByPrincipalId
 </details>
 <details>
 <summary>
+DeleteUserCustomPermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DeleteUserCustomPermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteUserCustomPermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DeleteUserCustomPermissionCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteVPCConnection
 </summary>
 
@@ -666,6 +738,38 @@ DescribeAssetBundleImportJob
 </details>
 <details>
 <summary>
+DescribeBrand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeBrandCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeBrandCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeBrandCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeBrandAssignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeBrandAssignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeBrandAssignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeBrandAssignmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeBrandPublishedVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeBrandPublishedVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeBrandPublishedVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeBrandPublishedVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeCustomPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeCustomPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeCustomPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeCustomPermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDashboard
 </summary>
 
@@ -706,6 +810,14 @@ DescribeDashboardSnapshotJobResult
 </details>
 <details>
 <summary>
+DescribeDashboardsQAConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeDashboardsQAConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDashboardsQAConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDashboardsQAConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeDataSet
 </summary>
 
@@ -742,6 +854,14 @@ DescribeDataSourcePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeDataSourcePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDataSourcePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDataSourcePermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeDefaultQBusinessApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeDefaultQBusinessApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDefaultQBusinessApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeDefaultQBusinessApplicationCommandOutput/)
 
 </details>
 <details>
@@ -822,6 +942,22 @@ DescribeNamespace
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeNamespaceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeNamespaceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeNamespaceCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeQPersonalizationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeQPersonalizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQPersonalizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQPersonalizationConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeQuickSightQSearchConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/DescribeQuickSightQSearchConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQuickSightQSearchConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/DescribeQuickSightQSearchConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -962,6 +1098,14 @@ GenerateEmbedUrlForRegisteredUser
 </details>
 <details>
 <summary>
+GenerateEmbedUrlForRegisteredUserWithIdentity
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/GenerateEmbedUrlForRegisteredUserWithIdentityCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GenerateEmbedUrlForRegisteredUserWithIdentityCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/GenerateEmbedUrlForRegisteredUserWithIdentityCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDashboardEmbedUrl
 </summary>
 
@@ -998,6 +1142,22 @@ ListAssetBundleImportJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListAssetBundleImportJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListAssetBundleImportJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListAssetBundleImportJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListBrands
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListBrandsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListBrandsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListBrandsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCustomPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListCustomPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListCustomPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListCustomPermissionsCommandOutput/)
 
 </details>
 <details>
@@ -1046,6 +1206,14 @@ ListFolders
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListFoldersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListFoldersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListFoldersCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListFoldersForResource
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListFoldersForResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListFoldersForResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListFoldersForResourceCommandOutput/)
 
 </details>
 <details>
@@ -1186,6 +1354,14 @@ ListTopicRefreshSchedules
 </details>
 <details>
 <summary>
+ListTopicReviewedAnswers
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListTopicReviewedAnswersCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListTopicReviewedAnswersCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListTopicReviewedAnswersCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListTopics
 </summary>
 
@@ -1214,6 +1390,14 @@ ListVPCConnections
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/ListVPCConnectionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListVPCConnectionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/ListVPCConnectionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+PredictQAResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/PredictQAResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/PredictQAResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/PredictQAResultsCommandOutput/)
 
 </details>
 <details>
@@ -1290,6 +1474,14 @@ SearchGroups
 </details>
 <details>
 <summary>
+SearchTopics
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/SearchTopicsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/SearchTopicsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/SearchTopicsCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartAssetBundleExportJob
 </summary>
 
@@ -1310,6 +1502,14 @@ StartDashboardSnapshotJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/StartDashboardSnapshotJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/StartDashboardSnapshotJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/StartDashboardSnapshotJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartDashboardSnapshotJobSchedule
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/StartDashboardSnapshotJobScheduleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/StartDashboardSnapshotJobScheduleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/StartDashboardSnapshotJobScheduleCommandOutput/)
 
 </details>
 <details>
@@ -1362,6 +1562,46 @@ UpdateAnalysisPermissions
 </details>
 <details>
 <summary>
+UpdateApplicationWithTokenExchangeGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateApplicationWithTokenExchangeGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateApplicationWithTokenExchangeGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateApplicationWithTokenExchangeGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateBrand
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateBrandCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateBrandCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateBrandCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateBrandAssignment
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateBrandAssignmentCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateBrandAssignmentCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateBrandAssignmentCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateBrandPublishedVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateBrandPublishedVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateBrandPublishedVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateBrandPublishedVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCustomPermissions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateCustomPermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateCustomPermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateCustomPermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateDashboard
 </summary>
 
@@ -1394,6 +1634,14 @@ UpdateDashboardPublishedVersion
 </details>
 <details>
 <summary>
+UpdateDashboardsQAConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDashboardsQAConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardsQAConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDashboardsQAConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateDataSet
 </summary>
 
@@ -1422,6 +1670,14 @@ UpdateDataSourcePermissions
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDataSourcePermissionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDataSourcePermissionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDataSourcePermissionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateDefaultQBusinessApplication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateDefaultQBusinessApplicationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDefaultQBusinessApplicationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateDefaultQBusinessApplicationCommandOutput/)
 
 </details>
 <details>
@@ -1486,6 +1742,22 @@ UpdatePublicSharingSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdatePublicSharingSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdatePublicSharingSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdatePublicSharingSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQPersonalizationConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateQPersonalizationConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQPersonalizationConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQPersonalizationConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQuickSightQSearchConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateQuickSightQSearchConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQuickSightQSearchConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateQuickSightQSearchConfigurationCommandOutput/)
 
 </details>
 <details>
@@ -1590,6 +1862,14 @@ UpdateUser
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateUserCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateUserCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateUserCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateUserCustomPermission
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/quicksight/command/UpdateUserCustomPermissionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateUserCustomPermissionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-quicksight/Interface/UpdateUserCustomPermissionCommandOutput/)
 
 </details>
 <details>

@@ -12,7 +12,8 @@ import { de_ListCoreDevicesCommand, se_ListCoreDevicesCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,9 +43,14 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *                   <p>When the core device receives a deployment from the Amazon Web Services Cloud</p>
  *                </li>
  *                <li>
- *                   <p>When the status of any component on the core device becomes
- *             <code>BROKEN</code>
- *                   </p>
+ *                   <p>For Greengrass nucleus 2.12.2 and earlier, the core device sends status updates when the
+ *             status of any component on the core device becomes <code>ERRORED</code> or
+ *               <code>BROKEN</code>.</p>
+ *                </li>
+ *                <li>
+ *                   <p>For Greengrass nucleus 2.12.3 and later, the core device sends status updates when the
+ *             status of any component on the core device becomes <code>ERRORED</code>,
+ *               <code>BROKEN</code>, <code>RUNNING</code>, or <code>FINISHED</code>.</p>
  *                </li>
  *                <li>
  *                   <p>At a <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/greengrass-nucleus-component.html#greengrass-nucleus-component-configuration-fss">regular interval that you can configure</a>, which defaults to 24 hours</p>
@@ -66,6 +72,7 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  *   status: "HEALTHY" || "UNHEALTHY",
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   runtime: "STRING_VALUE",
  * };
  * const command = new ListCoreDevicesCommand(input);
  * const response = await client.send(command);
@@ -75,6 +82,9 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * //       coreDeviceThingName: "STRING_VALUE",
  * //       status: "HEALTHY" || "UNHEALTHY",
  * //       lastStatusUpdateTimestamp: new Date("TIMESTAMP"),
+ * //       platform: "STRING_VALUE",
+ * //       architecture: "STRING_VALUE",
+ * //       runtime: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -105,6 +115,7 @@ export interface ListCoreDevicesCommandOutput extends ListCoreDevicesResponse, _
  * @throws {@link GreengrassV2ServiceException}
  * <p>Base exception class for all service exceptions from GreengrassV2 service.</p>
  *
+ *
  * @public
  */
 export class ListCoreDevicesCommand extends $Command
@@ -115,9 +126,7 @@ export class ListCoreDevicesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +138,16 @@ export class ListCoreDevicesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoreDevicesCommand)
   .de(de_ListCoreDevicesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoreDevicesRequest;
+      output: ListCoreDevicesResponse;
+    };
+    sdk: {
+      input: ListCoreDevicesCommandInput;
+      output: ListCoreDevicesCommandOutput;
+    };
+  };
+}

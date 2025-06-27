@@ -5,14 +5,16 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ClustersMessage, ClustersMessageFilterSensitiveLog, DescribeClustersMessage } from "../models/models_0";
+import { ClustersMessage, ClustersMessageFilterSensitiveLog } from "../models/models_0";
+import { DescribeClustersMessage } from "../models/models_1";
 import { de_DescribeClustersCommand, se_DescribeClustersCommand } from "../protocols/Aws_query";
 import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RedshiftClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -272,6 +274,7 @@ export interface DescribeClustersCommandOutput extends ClustersMessage, __Metada
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class DescribeClustersCommand extends $Command
@@ -282,9 +285,7 @@ export class DescribeClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -296,4 +297,16 @@ export class DescribeClustersCommand extends $Command
   .f(void 0, ClustersMessageFilterSensitiveLog)
   .ser(se_DescribeClustersCommand)
   .de(de_DescribeClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClustersMessage;
+      output: ClustersMessage;
+    };
+    sdk: {
+      input: DescribeClustersCommandInput;
+      output: DescribeClustersCommandOutput;
+    };
+  };
+}

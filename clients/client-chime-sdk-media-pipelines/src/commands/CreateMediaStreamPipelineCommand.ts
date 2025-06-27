@@ -21,7 +21,8 @@ import { de_CreateMediaStreamPipelineCommand, se_CreateMediaStreamPipelineComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,6 +128,7 @@ export interface CreateMediaStreamPipelineCommandOutput extends CreateMediaStrea
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaStreamPipelineCommand extends $Command
@@ -137,9 +139,7 @@ export class CreateMediaStreamPipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +151,16 @@ export class CreateMediaStreamPipelineCommand extends $Command
   .f(CreateMediaStreamPipelineRequestFilterSensitiveLog, CreateMediaStreamPipelineResponseFilterSensitiveLog)
   .ser(se_CreateMediaStreamPipelineCommand)
   .de(de_CreateMediaStreamPipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaStreamPipelineRequest;
+      output: CreateMediaStreamPipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaStreamPipelineCommandInput;
+      output: CreateMediaStreamPipelineCommandOutput;
+    };
+  };
+}

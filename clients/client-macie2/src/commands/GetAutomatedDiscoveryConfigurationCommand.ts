@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an account.</p>
+ * <p>Retrieves the configuration settings and status of automated sensitive data discovery for an organization or standalone account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -46,6 +47,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * const command = new GetAutomatedDiscoveryConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // GetAutomatedDiscoveryConfigurationResponse
+ * //   autoEnableOrganizationMembers: "ALL" || "NEW" || "NONE",
  * //   classificationScopeId: "STRING_VALUE",
  * //   disabledAt: new Date("TIMESTAMP"),
  * //   firstEnabledAt: new Date("TIMESTAMP"),
@@ -77,6 +79,7 @@ export interface GetAutomatedDiscoveryConfigurationCommandOutput
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class GetAutomatedDiscoveryConfigurationCommand extends $Command
@@ -87,9 +90,7 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +102,16 @@ export class GetAutomatedDiscoveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAutomatedDiscoveryConfigurationCommand)
   .de(de_GetAutomatedDiscoveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAutomatedDiscoveryConfigurationResponse;
+    };
+    sdk: {
+      input: GetAutomatedDiscoveryConfigurationCommandInput;
+      output: GetAutomatedDiscoveryConfigurationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, ShieldClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface CreateProtectionCommandOutput extends CreateProtectionResponse,
  * @throws {@link ShieldServiceException}
  * <p>Base exception class for all service exceptions from Shield service.</p>
  *
+ *
  * @public
  */
 export class CreateProtectionCommand extends $Command
@@ -101,9 +103,7 @@ export class CreateProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ShieldClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class CreateProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateProtectionCommand)
   .de(de_CreateProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateProtectionRequest;
+      output: CreateProtectionResponse;
+    };
+    sdk: {
+      input: CreateProtectionCommandInput;
+      output: CreateProtectionCommandOutput;
+    };
+  };
+}

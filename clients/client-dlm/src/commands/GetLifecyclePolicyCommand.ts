@@ -12,7 +12,8 @@ import { de_GetLifecyclePolicyCommand, se_GetLifecyclePolicyCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,7 +55,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * //         "VOLUME" || "INSTANCE",
  * //       ],
  * //       ResourceLocations: [ // ResourceLocationList
- * //         "CLOUD" || "OUTPOST",
+ * //         "CLOUD" || "OUTPOST" || "LOCAL_ZONE",
  * //       ],
  * //       TargetTags: [ // TargetTagList
  * //         { // Tag
@@ -79,7 +80,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * //             },
  * //           ],
  * //           CreateRule: { // CreateRule
- * //             Location: "CLOUD" || "OUTPOST_LOCAL",
+ * //             Location: "CLOUD" || "OUTPOST_LOCAL" || "LOCAL_ZONE",
  * //             Interval: Number("int"),
  * //             IntervalUnit: "HOURS",
  * //             Times: [ // TimesList
@@ -238,6 +239,7 @@ export interface GetLifecyclePolicyCommandOutput extends GetLifecyclePolicyRespo
  * @throws {@link DLMServiceException}
  * <p>Base exception class for all service exceptions from DLM service.</p>
  *
+ *
  * @public
  */
 export class GetLifecyclePolicyCommand extends $Command
@@ -248,9 +250,7 @@ export class GetLifecyclePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DLMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -262,4 +262,16 @@ export class GetLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLifecyclePolicyCommand)
   .de(de_GetLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLifecyclePolicyRequest;
+      output: GetLifecyclePolicyResponse;
+    };
+    sdk: {
+      input: GetLifecyclePolicyCommandInput;
+      output: GetLifecyclePolicyCommandOutput;
+    };
+  };
+}

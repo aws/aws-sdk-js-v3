@@ -12,7 +12,8 @@ import { de_CreateLagCommand, se_CreateLagCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,11 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  *       A LAG is a logical interface that uses the Link Aggregation Control Protocol
  *       (LACP) to aggregate multiple interfaces, enabling you to treat them as a single
  *       interface.</p>
- *          <p>All connections in a LAG must use the same bandwidth (either 1Gbps or 10Gbps) and must terminate at the same Direct Connect endpoint.</p>
- *          <p>You can have up to 10 dedicated connections per LAG. Regardless of this limit, if you
+ *          <p>All connections in a LAG must use the same bandwidth (either 1Gbps, 10Gbps, 100Gbps,
+ *       or 400Gbps) and must terminate at the same Direct Connect endpoint.</p>
+ *          <p>You can have up to 10 dedicated connections per location. Regardless of this limit, if you
  *       request more connections for the LAG than Direct Connect can allocate on a single endpoint, no LAG is
- *       created.</p>
+ *       created..</p>
  *          <p>You can specify an existing physical dedicated connection or interconnect to include in
  *       the LAG (which counts towards the total number of connections). Doing so interrupts the
  *       current physical dedicated connection, and re-establishes them as a member of the LAG. The LAG
@@ -170,6 +172,7 @@ export interface CreateLagCommandOutput extends Lag, __MetadataBearer {}
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateLagCommand extends $Command
@@ -180,9 +183,7 @@ export class CreateLagCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -194,4 +195,16 @@ export class CreateLagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLagCommand)
   .de(de_CreateLagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLagRequest;
+      output: Lag;
+    };
+    sdk: {
+      input: CreateLagCommandInput;
+      output: CreateLagCommandOutput;
+    };
+  };
+}

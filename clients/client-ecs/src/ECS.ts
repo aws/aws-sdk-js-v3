@@ -83,6 +83,16 @@ import {
   DescribeContainerInstancesCommandOutput,
 } from "./commands/DescribeContainerInstancesCommand";
 import {
+  DescribeServiceDeploymentsCommand,
+  DescribeServiceDeploymentsCommandInput,
+  DescribeServiceDeploymentsCommandOutput,
+} from "./commands/DescribeServiceDeploymentsCommand";
+import {
+  DescribeServiceRevisionsCommand,
+  DescribeServiceRevisionsCommandInput,
+  DescribeServiceRevisionsCommandOutput,
+} from "./commands/DescribeServiceRevisionsCommand";
+import {
   DescribeServicesCommand,
   DescribeServicesCommandInput,
   DescribeServicesCommandOutput,
@@ -137,6 +147,11 @@ import {
   ListContainerInstancesCommandInput,
   ListContainerInstancesCommandOutput,
 } from "./commands/ListContainerInstancesCommand";
+import {
+  ListServiceDeploymentsCommand,
+  ListServiceDeploymentsCommandInput,
+  ListServiceDeploymentsCommandOutput,
+} from "./commands/ListServiceDeploymentsCommand";
 import {
   ListServicesByNamespaceCommand,
   ListServicesByNamespaceCommandInput,
@@ -195,6 +210,11 @@ import {
 } from "./commands/RegisterTaskDefinitionCommand";
 import { RunTaskCommand, RunTaskCommandInput, RunTaskCommandOutput } from "./commands/RunTaskCommand";
 import { StartTaskCommand, StartTaskCommandInput, StartTaskCommandOutput } from "./commands/StartTaskCommand";
+import {
+  StopServiceDeploymentCommand,
+  StopServiceDeploymentCommandInput,
+  StopServiceDeploymentCommandOutput,
+} from "./commands/StopServiceDeploymentCommand";
 import { StopTaskCommand, StopTaskCommandInput, StopTaskCommandOutput } from "./commands/StopTaskCommand";
 import {
   SubmitAttachmentStateChangesCommand,
@@ -281,6 +301,8 @@ const commands = {
   DescribeCapacityProvidersCommand,
   DescribeClustersCommand,
   DescribeContainerInstancesCommand,
+  DescribeServiceDeploymentsCommand,
+  DescribeServiceRevisionsCommand,
   DescribeServicesCommand,
   DescribeTaskDefinitionCommand,
   DescribeTasksCommand,
@@ -292,6 +314,7 @@ const commands = {
   ListAttributesCommand,
   ListClustersCommand,
   ListContainerInstancesCommand,
+  ListServiceDeploymentsCommand,
   ListServicesCommand,
   ListServicesByNamespaceCommand,
   ListTagsForResourceCommand,
@@ -306,6 +329,7 @@ const commands = {
   RegisterTaskDefinitionCommand,
   RunTaskCommand,
   StartTaskCommand,
+  StopServiceDeploymentCommand,
   StopTaskCommand,
   SubmitAttachmentStateChangesCommand,
   SubmitContainerStateChangeCommand,
@@ -564,6 +588,40 @@ export interface ECS {
   ): void;
 
   /**
+   * @see {@link DescribeServiceDeploymentsCommand}
+   */
+  describeServiceDeployments(
+    args: DescribeServiceDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceDeploymentsCommandOutput>;
+  describeServiceDeployments(
+    args: DescribeServiceDeploymentsCommandInput,
+    cb: (err: any, data?: DescribeServiceDeploymentsCommandOutput) => void
+  ): void;
+  describeServiceDeployments(
+    args: DescribeServiceDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceDeploymentsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeServiceRevisionsCommand}
+   */
+  describeServiceRevisions(
+    args: DescribeServiceRevisionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeServiceRevisionsCommandOutput>;
+  describeServiceRevisions(
+    args: DescribeServiceRevisionsCommandInput,
+    cb: (err: any, data?: DescribeServiceRevisionsCommandOutput) => void
+  ): void;
+  describeServiceRevisions(
+    args: DescribeServiceRevisionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeServiceRevisionsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeServicesCommand}
    */
   describeServices(
@@ -734,6 +792,23 @@ export interface ECS {
     args: ListContainerInstancesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListContainerInstancesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListServiceDeploymentsCommand}
+   */
+  listServiceDeployments(
+    args: ListServiceDeploymentsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListServiceDeploymentsCommandOutput>;
+  listServiceDeployments(
+    args: ListServiceDeploymentsCommandInput,
+    cb: (err: any, data?: ListServiceDeploymentsCommandOutput) => void
+  ): void;
+  listServiceDeployments(
+    args: ListServiceDeploymentsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListServiceDeploymentsCommandOutput) => void
   ): void;
 
   /**
@@ -947,6 +1022,23 @@ export interface ECS {
     args: StartTaskCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTaskCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopServiceDeploymentCommand}
+   */
+  stopServiceDeployment(
+    args: StopServiceDeploymentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopServiceDeploymentCommandOutput>;
+  stopServiceDeployment(
+    args: StopServiceDeploymentCommandInput,
+    cb: (err: any, data?: StopServiceDeploymentCommandOutput) => void
+  ): void;
+  stopServiceDeployment(
+    args: StopServiceDeploymentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopServiceDeploymentCommandOutput) => void
   ): void;
 
   /**

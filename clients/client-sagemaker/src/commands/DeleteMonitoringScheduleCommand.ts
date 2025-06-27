@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteMonitoringScheduleCommandInput extends DeleteMonitoringSc
 export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped.
- *          This does not delete the job execution history of the monitoring schedule. </p>
+ * <p>Deletes a monitoring schedule. Also stops the schedule had not already been stopped. This does not delete the job execution history of the monitoring schedule. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,7 @@ export interface DeleteMonitoringScheduleCommandOutput extends __MetadataBearer 
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteMonitoringScheduleCommand extends $Command
@@ -66,9 +67,7 @@ export class DeleteMonitoringScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +79,16 @@ export class DeleteMonitoringScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMonitoringScheduleCommand)
   .de(de_DeleteMonitoringScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMonitoringScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMonitoringScheduleCommandInput;
+      output: DeleteMonitoringScheduleCommandOutput;
+    };
+  };
+}

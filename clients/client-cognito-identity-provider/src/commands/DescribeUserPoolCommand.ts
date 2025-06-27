@@ -16,7 +16,8 @@ import { de_DescribeUserPoolCommand, se_DescribeUserPoolCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,9 @@ export interface DescribeUserPoolCommandInput extends DescribeUserPoolRequest {}
 export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the configuration information and metadata of the specified user pool.</p>
+ * <p>Given a user pool ID, returns configuration information. This operation is useful when
+ *             you want to inspect an existing user pool and programmatically replicate the
+ *             configuration to another user pool.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -74,7 +77,13 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //         RequireLowercase: true || false,
  * //         RequireNumbers: true || false,
  * //         RequireSymbols: true || false,
+ * //         PasswordHistorySize: Number("int"),
  * //         TemporaryPasswordValidityDays: Number("int"),
+ * //       },
+ * //       SignInPolicy: { // SignInPolicyType
+ * //         AllowedFirstAuthFactors: [ // AllowedFirstAuthFactorsListType
+ * //           "PASSWORD" || "EMAIL_OTP" || "SMS_OTP" || "WEB_AUTHN",
+ * //         ],
  * //       },
  * //     },
  * //     DeletionProtection: "ACTIVE" || "INACTIVE",
@@ -90,7 +99,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //       PreTokenGeneration: "STRING_VALUE",
  * //       UserMigration: "STRING_VALUE",
  * //       PreTokenGenerationConfig: { // PreTokenGenerationVersionConfigType
- * //         LambdaVersion: "V1_0" || "V2_0", // required
+ * //         LambdaVersion: "V1_0" || "V2_0" || "V3_0", // required
  * //         LambdaArn: "STRING_VALUE", // required
  * //       },
  * //       CustomSMSSender: { // CustomSMSLambdaVersionConfigType
@@ -185,6 +194,9 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //     },
  * //     UserPoolAddOns: { // UserPoolAddOnsType
  * //       AdvancedSecurityMode: "OFF" || "AUDIT" || "ENFORCED", // required
+ * //       AdvancedSecurityAdditionalFlows: { // AdvancedSecurityAdditionalFlowsType
+ * //         CustomAuthMode: "AUDIT" || "ENFORCED",
+ * //       },
  * //     },
  * //     UsernameConfiguration: { // UsernameConfigurationType
  * //       CaseSensitive: true || false, // required
@@ -198,6 +210,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * //         },
  * //       ],
  * //     },
+ * //     UserPoolTier: "LITE" || "ESSENTIALS" || "PLUS",
  * //   },
  * // };
  *
@@ -233,6 +246,7 @@ export interface DescribeUserPoolCommandOutput extends DescribeUserPoolResponse,
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserPoolCommand extends $Command
@@ -243,9 +257,7 @@ export class DescribeUserPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -257,4 +269,16 @@ export class DescribeUserPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUserPoolCommand)
   .de(de_DescribeUserPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserPoolRequest;
+      output: DescribeUserPoolResponse;
+    };
+    sdk: {
+      input: DescribeUserPoolCommandInput;
+      output: DescribeUserPoolCommandOutput;
+    };
+  };
+}

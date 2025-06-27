@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,26 +77,8 @@ export interface GetAdministratorAccountCommandOutput extends GetAdministratorAc
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
- * @example To get details about the Security Hub administrator account
- * ```javascript
- * // The following example provides details about the Security Hub administrator account for the requesting member account.
- * const input = {};
- * const command = new GetAdministratorAccountCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Administrator": {
- *     "AccountId": "123456789012",
- *     "InvitationId": "7ab938c5d52d7904ad09f9e7c20cc4eb",
- *     "InvitedAt": "2020-06-01T20:21:18.042000+00:00",
- *     "MemberStatus": "ASSOCIATED"
- *   }
- * }
- * *\/
- * // example id: to-get-details-about-the-security-hub-administrator-account-1676998997182
- * ```
  *
+ * @public
  */
 export class GetAdministratorAccountCommand extends $Command
   .classBuilder<
@@ -105,9 +88,7 @@ export class GetAdministratorAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +100,16 @@ export class GetAdministratorAccountCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdministratorAccountCommand)
   .de(de_GetAdministratorAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAdministratorAccountResponse;
+    };
+    sdk: {
+      input: GetAdministratorAccountCommandInput;
+      output: GetAdministratorAccountCommandOutput;
+    };
+  };
+}

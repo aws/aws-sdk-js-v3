@@ -12,7 +12,8 @@ import { de_ExitStandbyCommand, se_ExitStandbyCommand } from "../protocols/Aws_q
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,37 +82,37 @@ export interface ExitStandbyCommandOutput extends ExitStandbyAnswer, __MetadataB
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To move instances out of standby mode
  * ```javascript
  * // This example moves the specified instance out of standby mode.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "InstanceIds": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   InstanceIds: [
  *     "i-93633f9b"
  *   ]
  * };
  * const command = new ExitStandbyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Activities": [
+ *   Activities: [
  *     {
- *       "ActivityId": "142928e1-a2dc-453a-9b24-b85ad6735928",
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "Cause": "At 2015-04-12T15:14:29Z instance i-93633f9b was moved out of standby in response to a user request, increasing the capacity from 1 to 2.",
- *       "Description": "Moving EC2 instance out of Standby: i-93633f9b",
- *       "Details": "details",
- *       "Progress": 30,
- *       "StartTime": "2015-04-12T15:14:29.886Z",
- *       "StatusCode": "PreInService"
+ *       ActivityId: "142928e1-a2dc-453a-9b24-b85ad6735928",
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       Cause: "At 2015-04-12T15:14:29Z instance i-93633f9b was moved out of standby in response to a user request, increasing the capacity from 1 to 2.",
+ *       Description: "Moving EC2 instance out of Standby: i-93633f9b",
+ *       Details: "details",
+ *       Progress: 30,
+ *       StartTime: "2015-04-12T15:14:29.886Z",
+ *       StatusCode: "PreInService"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-exit-standby-1
  * ```
  *
+ * @public
  */
 export class ExitStandbyCommand extends $Command
   .classBuilder<
@@ -121,9 +122,7 @@ export class ExitStandbyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +134,16 @@ export class ExitStandbyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExitStandbyCommand)
   .de(de_ExitStandbyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExitStandbyQuery;
+      output: ExitStandbyAnswer;
+    };
+    sdk: {
+      input: ExitStandbyCommandInput;
+      output: ExitStandbyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListMetadataTransferJobsCommand, se_ListMetadataTransferJobsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface ListMetadataTransferJobsCommandOutput extends ListMetadataTrans
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class ListMetadataTransferJobsCommand extends $Command
@@ -107,9 +109,7 @@ export class ListMetadataTransferJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class ListMetadataTransferJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMetadataTransferJobsCommand)
   .de(de_ListMetadataTransferJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMetadataTransferJobsRequest;
+      output: ListMetadataTransferJobsResponse;
+    };
+    sdk: {
+      input: ListMetadataTransferJobsCommandInput;
+      output: ListMetadataTransferJobsCommandOutput;
+    };
+  };
+}

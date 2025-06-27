@@ -18,6 +18,11 @@ import {
   AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand";
 import {
+  AssociateSbomWithPackageVersionCommand,
+  AssociateSbomWithPackageVersionCommandInput,
+  AssociateSbomWithPackageVersionCommandOutput,
+} from "./commands/AssociateSbomWithPackageVersionCommand";
+import {
   AssociateTargetsWithJobCommand,
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
@@ -103,6 +108,11 @@ import {
   CreateCertificateProviderCommandInput,
   CreateCertificateProviderCommandOutput,
 } from "./commands/CreateCertificateProviderCommand";
+import {
+  CreateCommandCommand,
+  CreateCommandCommandInput,
+  CreateCommandCommandOutput,
+} from "./commands/CreateCommandCommand";
 import {
   CreateCustomMetricCommand,
   CreateCustomMetricCommandInput,
@@ -260,6 +270,16 @@ import {
   DeleteCertificateProviderCommandInput,
   DeleteCertificateProviderCommandOutput,
 } from "./commands/DeleteCertificateProviderCommand";
+import {
+  DeleteCommandCommand,
+  DeleteCommandCommandInput,
+  DeleteCommandCommandOutput,
+} from "./commands/DeleteCommandCommand";
+import {
+  DeleteCommandExecutionCommand,
+  DeleteCommandExecutionCommandInput,
+  DeleteCommandExecutionCommandOutput,
+} from "./commands/DeleteCommandExecutionCommand";
 import {
   DeleteCustomMetricCommand,
   DeleteCustomMetricCommandInput,
@@ -584,6 +604,11 @@ import {
   DisableTopicRuleCommandOutput,
 } from "./commands/DisableTopicRuleCommand";
 import {
+  DisassociateSbomFromPackageVersionCommand,
+  DisassociateSbomFromPackageVersionCommandInput,
+  DisassociateSbomFromPackageVersionCommandOutput,
+} from "./commands/DisassociateSbomFromPackageVersionCommand";
+import {
   EnableTopicRuleCommand,
   EnableTopicRuleCommandInput,
   EnableTopicRuleCommandOutput,
@@ -603,6 +628,12 @@ import {
   GetCardinalityCommandInput,
   GetCardinalityCommandOutput,
 } from "./commands/GetCardinalityCommand";
+import { GetCommandCommand, GetCommandCommandInput, GetCommandCommandOutput } from "./commands/GetCommandCommand";
+import {
+  GetCommandExecutionCommand,
+  GetCommandExecutionCommandInput,
+  GetCommandExecutionCommandOutput,
+} from "./commands/GetCommandExecutionCommand";
 import {
   GetEffectivePoliciesCommand,
   GetEffectivePoliciesCommandInput,
@@ -660,6 +691,11 @@ import {
   GetStatisticsCommandInput,
   GetStatisticsCommandOutput,
 } from "./commands/GetStatisticsCommand";
+import {
+  GetThingConnectivityDataCommand,
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "./commands/GetThingConnectivityDataCommand";
 import {
   GetTopicRuleCommand,
   GetTopicRuleCommandInput,
@@ -740,6 +776,16 @@ import {
   ListCertificatesCommandInput,
   ListCertificatesCommandOutput,
 } from "./commands/ListCertificatesCommand";
+import {
+  ListCommandExecutionsCommand,
+  ListCommandExecutionsCommandInput,
+  ListCommandExecutionsCommandOutput,
+} from "./commands/ListCommandExecutionsCommand";
+import {
+  ListCommandsCommand,
+  ListCommandsCommandInput,
+  ListCommandsCommandOutput,
+} from "./commands/ListCommandsCommand";
 import {
   ListCustomMetricsCommand,
   ListCustomMetricsCommandInput,
@@ -848,6 +894,11 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
+  ListPrincipalThingsV2Command,
+  ListPrincipalThingsV2CommandInput,
+  ListPrincipalThingsV2CommandOutput,
+} from "./commands/ListPrincipalThingsV2Command";
+import {
   ListProvisioningTemplatesCommand,
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
@@ -867,6 +918,11 @@ import {
   ListRoleAliasesCommandInput,
   ListRoleAliasesCommandOutput,
 } from "./commands/ListRoleAliasesCommand";
+import {
+  ListSbomValidationResultsCommand,
+  ListSbomValidationResultsCommandInput,
+  ListSbomValidationResultsCommandOutput,
+} from "./commands/ListSbomValidationResultsCommand";
 import {
   ListScheduledAuditsCommand,
   ListScheduledAuditsCommandInput,
@@ -913,6 +969,11 @@ import {
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand";
+import {
+  ListThingPrincipalsV2Command,
+  ListThingPrincipalsV2CommandInput,
+  ListThingPrincipalsV2CommandOutput,
+} from "./commands/ListThingPrincipalsV2Command";
 import {
   ListThingRegistrationTaskReportsCommand,
   ListThingRegistrationTaskReportsCommandInput,
@@ -1112,6 +1173,11 @@ import {
   UpdateCertificateProviderCommandOutput,
 } from "./commands/UpdateCertificateProviderCommand";
 import {
+  UpdateCommandCommand,
+  UpdateCommandCommandInput,
+  UpdateCommandCommandOutput,
+} from "./commands/UpdateCommandCommand";
+import {
   UpdateCustomMetricCommand,
   UpdateCustomMetricCommandInput,
   UpdateCustomMetricCommandOutput,
@@ -1204,6 +1270,11 @@ import {
   UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand";
 import {
+  UpdateThingTypeCommand,
+  UpdateThingTypeCommandInput,
+  UpdateThingTypeCommandOutput,
+} from "./commands/UpdateThingTypeCommand";
+import {
   UpdateTopicRuleDestinationCommand,
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -1219,6 +1290,7 @@ const commands = {
   AcceptCertificateTransferCommand,
   AddThingToBillingGroupCommand,
   AddThingToThingGroupCommand,
+  AssociateSbomWithPackageVersionCommand,
   AssociateTargetsWithJobCommand,
   AttachPolicyCommand,
   AttachPrincipalPolicyCommand,
@@ -1237,6 +1309,7 @@ const commands = {
   CreateBillingGroupCommand,
   CreateCertificateFromCsrCommand,
   CreateCertificateProviderCommand,
+  CreateCommandCommand,
   CreateCustomMetricCommand,
   CreateDimensionCommand,
   CreateDomainConfigurationCommand,
@@ -1270,6 +1343,8 @@ const commands = {
   DeleteCACertificateCommand,
   DeleteCertificateCommand,
   DeleteCertificateProviderCommand,
+  DeleteCommandCommand,
+  DeleteCommandExecutionCommand,
   DeleteCustomMetricCommand,
   DeleteDimensionCommand,
   DeleteDomainConfigurationCommand,
@@ -1337,10 +1412,13 @@ const commands = {
   DetachSecurityProfileCommand,
   DetachThingPrincipalCommand,
   DisableTopicRuleCommand,
+  DisassociateSbomFromPackageVersionCommand,
   EnableTopicRuleCommand,
   GetBehaviorModelTrainingSummariesCommand,
   GetBucketsAggregationCommand,
   GetCardinalityCommand,
+  GetCommandCommand,
+  GetCommandExecutionCommand,
   GetEffectivePoliciesCommand,
   GetIndexingConfigurationCommand,
   GetJobDocumentCommand,
@@ -1354,6 +1432,7 @@ const commands = {
   GetPolicyVersionCommand,
   GetRegistrationCodeCommand,
   GetStatisticsCommand,
+  GetThingConnectivityDataCommand,
   GetTopicRuleCommand,
   GetTopicRuleDestinationCommand,
   GetV2LoggingOptionsCommand,
@@ -1370,6 +1449,8 @@ const commands = {
   ListCertificateProvidersCommand,
   ListCertificatesCommand,
   ListCertificatesByCACommand,
+  ListCommandExecutionsCommand,
+  ListCommandsCommand,
   ListCustomMetricsCommand,
   ListDetectMitigationActionsExecutionsCommand,
   ListDetectMitigationActionsTasksCommand,
@@ -1393,10 +1474,12 @@ const commands = {
   ListPolicyVersionsCommand,
   ListPrincipalPoliciesCommand,
   ListPrincipalThingsCommand,
+  ListPrincipalThingsV2Command,
   ListProvisioningTemplatesCommand,
   ListProvisioningTemplateVersionsCommand,
   ListRelatedResourcesForAuditFindingCommand,
   ListRoleAliasesCommand,
+  ListSbomValidationResultsCommand,
   ListScheduledAuditsCommand,
   ListSecurityProfilesCommand,
   ListSecurityProfilesForTargetCommand,
@@ -1407,6 +1490,7 @@ const commands = {
   ListThingGroupsCommand,
   ListThingGroupsForThingCommand,
   ListThingPrincipalsCommand,
+  ListThingPrincipalsV2Command,
   ListThingRegistrationTaskReportsCommand,
   ListThingRegistrationTasksCommand,
   ListThingsCommand,
@@ -1449,6 +1533,7 @@ const commands = {
   UpdateCACertificateCommand,
   UpdateCertificateCommand,
   UpdateCertificateProviderCommand,
+  UpdateCommandCommand,
   UpdateCustomMetricCommand,
   UpdateDimensionCommand,
   UpdateDomainConfigurationCommand,
@@ -1469,6 +1554,7 @@ const commands = {
   UpdateThingCommand,
   UpdateThingGroupCommand,
   UpdateThingGroupsForThingCommand,
+  UpdateThingTypeCommand,
   UpdateTopicRuleDestinationCommand,
   ValidateSecurityProfileBehaviorsCommand,
 };
@@ -1525,6 +1611,23 @@ export interface IoT {
     args: AddThingToThingGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AddThingToThingGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateSbomWithPackageVersionCommand}
+   */
+  associateSbomWithPackageVersion(
+    args: AssociateSbomWithPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateSbomWithPackageVersionCommandOutput>;
+  associateSbomWithPackageVersion(
+    args: AssociateSbomWithPackageVersionCommandInput,
+    cb: (err: any, data?: AssociateSbomWithPackageVersionCommandOutput) => void
+  ): void;
+  associateSbomWithPackageVersion(
+    args: AssociateSbomWithPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateSbomWithPackageVersionCommandOutput) => void
   ): void;
 
   /**
@@ -1817,6 +1920,17 @@ export interface IoT {
     args: CreateCertificateProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCertificateProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateCommandCommand}
+   */
+  createCommand(args: CreateCommandCommandInput, options?: __HttpHandlerOptions): Promise<CreateCommandCommandOutput>;
+  createCommand(args: CreateCommandCommandInput, cb: (err: any, data?: CreateCommandCommandOutput) => void): void;
+  createCommand(
+    args: CreateCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateCommandCommandOutput) => void
   ): void;
 
   /**
@@ -2335,6 +2449,34 @@ export interface IoT {
     args: DeleteCertificateProviderCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCertificateProviderCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCommandCommand}
+   */
+  deleteCommand(args: DeleteCommandCommandInput, options?: __HttpHandlerOptions): Promise<DeleteCommandCommandOutput>;
+  deleteCommand(args: DeleteCommandCommandInput, cb: (err: any, data?: DeleteCommandCommandOutput) => void): void;
+  deleteCommand(
+    args: DeleteCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteCommandExecutionCommand}
+   */
+  deleteCommandExecution(
+    args: DeleteCommandExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteCommandExecutionCommandOutput>;
+  deleteCommandExecution(
+    args: DeleteCommandExecutionCommandInput,
+    cb: (err: any, data?: DeleteCommandExecutionCommandOutput) => void
+  ): void;
+  deleteCommandExecution(
+    args: DeleteCommandExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteCommandExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -3410,6 +3552,23 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link DisassociateSbomFromPackageVersionCommand}
+   */
+  disassociateSbomFromPackageVersion(
+    args: DisassociateSbomFromPackageVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateSbomFromPackageVersionCommandOutput>;
+  disassociateSbomFromPackageVersion(
+    args: DisassociateSbomFromPackageVersionCommandInput,
+    cb: (err: any, data?: DisassociateSbomFromPackageVersionCommandOutput) => void
+  ): void;
+  disassociateSbomFromPackageVersion(
+    args: DisassociateSbomFromPackageVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateSbomFromPackageVersionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableTopicRuleCommand}
    */
   enableTopicRule(
@@ -3470,6 +3629,34 @@ export interface IoT {
     args: GetCardinalityCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetCardinalityCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCommandCommand}
+   */
+  getCommand(args: GetCommandCommandInput, options?: __HttpHandlerOptions): Promise<GetCommandCommandOutput>;
+  getCommand(args: GetCommandCommandInput, cb: (err: any, data?: GetCommandCommandOutput) => void): void;
+  getCommand(
+    args: GetCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommandCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetCommandExecutionCommand}
+   */
+  getCommandExecution(
+    args: GetCommandExecutionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetCommandExecutionCommandOutput>;
+  getCommandExecution(
+    args: GetCommandExecutionCommandInput,
+    cb: (err: any, data?: GetCommandExecutionCommandOutput) => void
+  ): void;
+  getCommandExecution(
+    args: GetCommandExecutionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetCommandExecutionCommandOutput) => void
   ): void;
 
   /**
@@ -3666,6 +3853,23 @@ export interface IoT {
     args: GetStatisticsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetStatisticsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetThingConnectivityDataCommand}
+   */
+  getThingConnectivityData(
+    args: GetThingConnectivityDataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetThingConnectivityDataCommandOutput>;
+  getThingConnectivityData(
+    args: GetThingConnectivityDataCommandInput,
+    cb: (err: any, data?: GetThingConnectivityDataCommandOutput) => void
+  ): void;
+  getThingConnectivityData(
+    args: GetThingConnectivityDataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetThingConnectivityDataCommandOutput) => void
   ): void;
 
   /**
@@ -3935,6 +4139,36 @@ export interface IoT {
     args: ListCertificatesByCACommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCertificatesByCACommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCommandExecutionsCommand}
+   */
+  listCommandExecutions(): Promise<ListCommandExecutionsCommandOutput>;
+  listCommandExecutions(
+    args: ListCommandExecutionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListCommandExecutionsCommandOutput>;
+  listCommandExecutions(
+    args: ListCommandExecutionsCommandInput,
+    cb: (err: any, data?: ListCommandExecutionsCommandOutput) => void
+  ): void;
+  listCommandExecutions(
+    args: ListCommandExecutionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandExecutionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListCommandsCommand}
+   */
+  listCommands(): Promise<ListCommandsCommandOutput>;
+  listCommands(args: ListCommandsCommandInput, options?: __HttpHandlerOptions): Promise<ListCommandsCommandOutput>;
+  listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
+  listCommands(
+    args: ListCommandsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListCommandsCommandOutput) => void
   ): void;
 
   /**
@@ -4313,6 +4547,23 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link ListPrincipalThingsV2Command}
+   */
+  listPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPrincipalThingsV2CommandOutput>;
+  listPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    cb: (err: any, data?: ListPrincipalThingsV2CommandOutput) => void
+  ): void;
+  listPrincipalThingsV2(
+    args: ListPrincipalThingsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPrincipalThingsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListProvisioningTemplatesCommand}
    */
   listProvisioningTemplates(): Promise<ListProvisioningTemplatesCommandOutput>;
@@ -4377,6 +4628,23 @@ export interface IoT {
     args: ListRoleAliasesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListRoleAliasesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSbomValidationResultsCommand}
+   */
+  listSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListSbomValidationResultsCommandOutput>;
+  listSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    cb: (err: any, data?: ListSbomValidationResultsCommandOutput) => void
+  ): void;
+  listSbomValidationResults(
+    args: ListSbomValidationResultsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSbomValidationResultsCommandOutput) => void
   ): void;
 
   /**
@@ -4542,6 +4810,23 @@ export interface IoT {
     args: ListThingPrincipalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListThingPrincipalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListThingPrincipalsV2Command}
+   */
+  listThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListThingPrincipalsV2CommandOutput>;
+  listThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    cb: (err: any, data?: ListThingPrincipalsV2CommandOutput) => void
+  ): void;
+  listThingPrincipalsV2(
+    args: ListThingPrincipalsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListThingPrincipalsV2CommandOutput) => void
   ): void;
 
   /**
@@ -5233,6 +5518,17 @@ export interface IoT {
   ): void;
 
   /**
+   * @see {@link UpdateCommandCommand}
+   */
+  updateCommand(args: UpdateCommandCommandInput, options?: __HttpHandlerOptions): Promise<UpdateCommandCommandOutput>;
+  updateCommand(args: UpdateCommandCommandInput, cb: (err: any, data?: UpdateCommandCommandOutput) => void): void;
+  updateCommand(
+    args: UpdateCommandCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateCommandCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateCustomMetricCommand}
    */
   updateCustomMetric(
@@ -5544,6 +5840,20 @@ export interface IoT {
     args: UpdateThingGroupsForThingCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateThingGroupsForThingCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateThingTypeCommand}
+   */
+  updateThingType(
+    args: UpdateThingTypeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateThingTypeCommandOutput>;
+  updateThingType(args: UpdateThingTypeCommandInput, cb: (err: any, data?: UpdateThingTypeCommandOutput) => void): void;
+  updateThingType(
+    args: UpdateThingTypeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateThingTypeCommandOutput) => void
   ): void;
 
   /**

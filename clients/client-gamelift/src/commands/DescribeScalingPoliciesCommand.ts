@@ -12,7 +12,8 @@ import { de_DescribeScalingPoliciesCommand, se_DescribeScalingPoliciesCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,7 +91,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -100,6 +101,7 @@ export interface DescribeScalingPoliciesCommandOutput extends DescribeScalingPol
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -111,9 +113,7 @@ export class DescribeScalingPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class DescribeScalingPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingPoliciesCommand)
   .de(de_DescribeScalingPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingPoliciesInput;
+      output: DescribeScalingPoliciesOutput;
+    };
+    sdk: {
+      input: DescribeScalingPoliciesCommandInput;
+      output: DescribeScalingPoliciesCommandOutput;
+    };
+  };
+}

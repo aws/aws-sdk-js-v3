@@ -30,11 +30,12 @@ buildscript {
 }
 
 plugins {
-    val smithyGradleVersion: String by project
-    id("software.amazon.smithy").version(smithyGradleVersion)
+    val smithyPluginVersion: String by project
+    id("software.amazon.smithy").version(smithyPluginVersion)
 }
 
 dependencies {
+    implementation("software.amazon.smithy:smithy-protocol-tests:$smithyVersion")
     implementation("software.amazon.smithy:smithy-aws-protocol-tests:$smithyVersion")
     implementation(project(":smithy-aws-typescript-codegen"))
 }

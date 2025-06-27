@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -270,39 +271,39 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To update a Web ACL
  * ```javascript
  * // The following example deletes an ActivatedRule object in a WebACL with the ID webacl-1472061481310.
  * const input = {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "DefaultAction": {
- *     "Type": "ALLOW"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   DefaultAction: {
+ *     Type: "ALLOW"
  *   },
- *   "Updates": [
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "ActivatedRule": {
- *         "Action": {
- *           "Type": "ALLOW"
+ *       Action: "DELETE",
+ *       ActivatedRule: {
+ *         Action: {
+ *           Type: "ALLOW"
  *         },
- *         "Priority": 1,
- *         "RuleId": "WAFRule-1-Example"
+ *         Priority: 1,
+ *         RuleId: "WAFRule-1-Example"
  *       }
  *     }
  *   ],
- *   "WebACLId": "webacl-1472061481310"
+ *   WebACLId: "webacl-1472061481310"
  * };
  * const command = new UpdateWebACLCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatewebacl-1475533627385
  * ```
  *
+ * @public
  */
 export class UpdateWebACLCommand extends $Command
   .classBuilder<
@@ -312,9 +313,7 @@ export class UpdateWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -326,4 +325,16 @@ export class UpdateWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWebACLCommand)
   .de(de_UpdateWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWebACLRequest;
+      output: UpdateWebACLResponse;
+    };
+    sdk: {
+      input: UpdateWebACLCommandInput;
+      output: UpdateWebACLCommandOutput;
+    };
+  };
+}

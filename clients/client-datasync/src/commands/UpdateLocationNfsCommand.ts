@@ -12,7 +12,8 @@ import { de_UpdateLocationNfsCommand, se_UpdateLocationNfsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,10 @@ export interface UpdateLocationNfsCommandInput extends UpdateLocationNfsRequest 
 export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies some configurations of the Network File System (NFS) transfer location that
- *       you're using with DataSync.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring transfers to or from an
- *         NFS file server</a>.</p>
+ * <p>Modifies the following configuration parameters of the Network File System (NFS) transfer
+ *       location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-nfs-location.html">Configuring transfers with an NFS
+ *         file server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -40,6 +41,7 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * const input = { // UpdateLocationNfsRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
+ *   ServerHostname: "STRING_VALUE",
  *   OnPremConfig: { // OnPremConfig
  *     AgentArns: [ // AgentArnList // required
  *       "STRING_VALUE",
@@ -71,6 +73,7 @@ export interface UpdateLocationNfsCommandOutput extends UpdateLocationNfsRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationNfsCommand extends $Command
@@ -81,9 +84,7 @@ export class UpdateLocationNfsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +96,16 @@ export class UpdateLocationNfsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLocationNfsCommand)
   .de(de_UpdateLocationNfsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationNfsRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationNfsCommandInput;
+      output: UpdateLocationNfsCommandOutput;
+    };
+  };
+}

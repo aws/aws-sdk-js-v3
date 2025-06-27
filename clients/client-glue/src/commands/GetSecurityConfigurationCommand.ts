@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { GetSecurityConfigurationRequest, GetSecurityConfigurationResponse } from "../models/models_1";
+import { GetSecurityConfigurationRequest, GetSecurityConfigurationResponse } from "../models/models_2";
 import { de_GetSecurityConfigurationCommand, se_GetSecurityConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,10 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  * //         JobBookmarksEncryptionMode: "DISABLED" || "CSE-KMS",
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
+ * //       DataQualityEncryption: { // DataQualityEncryption
+ * //         DataQualityEncryptionMode: "DISABLED" || "SSE-KMS",
+ * //         KmsKeyArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   },
  * // };
@@ -85,6 +90,7 @@ export interface GetSecurityConfigurationCommandOutput extends GetSecurityConfig
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class GetSecurityConfigurationCommand extends $Command
@@ -95,9 +101,7 @@ export class GetSecurityConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +113,16 @@ export class GetSecurityConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSecurityConfigurationCommand)
   .de(de_GetSecurityConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSecurityConfigurationRequest;
+      output: GetSecurityConfigurationResponse;
+    };
+    sdk: {
+      input: GetSecurityConfigurationCommandInput;
+      output: GetSecurityConfigurationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,16 +28,7 @@ export interface CreateTrialComponentCommandInput extends CreateTrialComponentRe
 export interface CreateTrialComponentCommandOutput extends CreateTrialComponentResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a <i>trial component</i>, which is a stage of a machine learning
- *         <i>trial</i>. A trial is composed of one or more trial components. A trial
- *       component can be used in multiple trials.</p>
- *          <p>Trial components include pre-processing jobs, training jobs, and batch transform
- *       jobs.</p>
- *          <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial
- *       components are automatically tracked, logged, and indexed. When you use the Amazon Web Services SDK for Python (Boto), you
- *       must use the logging APIs provided by the SDK.</p>
- *          <p>You can add tags to a trial component and then use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to
- *       search for the tags.</p>
+ * <p>Creates a <i>trial component</i>, which is a stage of a machine learning <i>trial</i>. A trial is composed of one or more trial components. A trial component can be used in multiple trials.</p> <p>Trial components include pre-processing jobs, training jobs, and batch transform jobs.</p> <p>When you use SageMaker Studio or the SageMaker Python SDK, all experiments, trials, and trial components are automatically tracked, logged, and indexed. When you use the Amazon Web Services SDK for Python (Boto), you must use the logging APIs provided by the SDK.</p> <p>You can add tags to a trial component and then use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_Search.html">Search</a> API to search for the tags.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,11 +90,11 @@ export interface CreateTrialComponentCommandOutput extends CreateTrialComponentR
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -114,9 +106,7 @@ export class CreateTrialComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +118,16 @@ export class CreateTrialComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrialComponentCommand)
   .de(de_CreateTrialComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrialComponentRequest;
+      output: CreateTrialComponentResponse;
+    };
+    sdk: {
+      input: CreateTrialComponentCommandInput;
+      output: CreateTrialComponentCommandOutput;
+    };
+  };
+}

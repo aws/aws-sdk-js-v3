@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,9 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  *          the organization resource lacks one or more required permissions for creating an
  *          organization resource in a required service.</p>
  *
+ * @throws {@link InsufficientIAMAccessPermissionException} (client fault)
+ *  <p>The task can't be completed because you are signed in with an account that lacks permissions to view or create a service-linked role. Sign in with an account that has the required permissions and then try again.</p>
+ *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The request includes a parameter that is not valid.</p>
  *
@@ -113,6 +117,7 @@ export interface RegisterOrganizationDelegatedAdminCommandOutput
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class RegisterOrganizationDelegatedAdminCommand extends $Command
@@ -123,9 +128,7 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +140,16 @@ export class RegisterOrganizationDelegatedAdminCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterOrganizationDelegatedAdminCommand)
   .de(de_RegisterOrganizationDelegatedAdminCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterOrganizationDelegatedAdminRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterOrganizationDelegatedAdminCommandInput;
+      output: RegisterOrganizationDelegatedAdminCommandOutput;
+    };
+  };
+}

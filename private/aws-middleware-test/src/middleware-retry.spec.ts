@@ -1,4 +1,5 @@
 import { Lambda } from "@aws-sdk/client-lambda";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../aws-util-test/src";
 
@@ -7,6 +8,10 @@ describe("middleware-retry", () => {
     it("should set retry headers", async () => {
       const client = new Lambda({
         region: "us-west-2",
+        credentials: {
+          accessKeyId: "INTEG",
+          secretAccessKey: "INTEG",
+        },
       });
 
       requireRequestsFrom(client).toMatch({

@@ -16,7 +16,8 @@ import { de_CreateMonitorCommand, se_CreateMonitorCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface CreateMonitorCommandOutput extends CreateMonitorResponse, __Met
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreateMonitorCommand extends $Command
@@ -94,9 +96,7 @@ export class CreateMonitorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class CreateMonitorCommand extends $Command
   .f(CreateMonitorRequestFilterSensitiveLog, void 0)
   .ser(se_CreateMonitorCommand)
   .de(de_CreateMonitorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMonitorRequest;
+      output: CreateMonitorResponse;
+    };
+    sdk: {
+      input: CreateMonitorCommandInput;
+      output: CreateMonitorCommandOutput;
+    };
+  };
+}

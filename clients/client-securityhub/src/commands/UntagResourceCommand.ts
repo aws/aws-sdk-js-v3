@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UntagResourceRequest, UntagResourceResponse } from "../models/models_2";
+import { UntagResourceRequest, UntagResourceResponse } from "../models/models_3";
 import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/Aws_restJson1";
 import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SecurityHubClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,21 +66,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To remove tags from a resource
  * ```javascript
  * // The following example removes the 'Department' tag from the specified resource.
  * const input = {
- *   "ResourceArn": "arn:aws:securityhub:us-west-1:123456789012:hub/default",
- *   "TagKeys": [
+ *   ResourceArn: "arn:aws:securityhub:us-west-1:123456789012:hub/default",
+ *   TagKeys: [
  *     "Department"
  *   ]
  * };
  * const command = new UntagResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-tags-from-a-resource-1678478903748
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<
@@ -89,9 +93,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +105,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

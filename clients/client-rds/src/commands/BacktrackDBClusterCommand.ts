@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface BacktrackDBClusterCommandOutput extends DBClusterBacktrack, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class BacktrackDBClusterCommand extends $Command
@@ -86,9 +88,7 @@ export class BacktrackDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class BacktrackDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BacktrackDBClusterCommand)
   .de(de_BacktrackDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BacktrackDBClusterMessage;
+      output: DBClusterBacktrack;
+    };
+    sdk: {
+      input: BacktrackDBClusterCommandInput;
+      output: BacktrackDBClusterCommandOutput;
+    };
+  };
+}

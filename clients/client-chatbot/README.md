@@ -6,11 +6,34 @@
 
 AWS SDK for JavaScript Chatbot Client for Node.js, Browser and React Native.
 
-AWS Chatbot API
+<p>The <i>AWS Chatbot API Reference</i> provides descriptions, API request parameters, and the XML response for each of the AWS Chatbot API actions.</p>
+<p>AWS Chatbot APIs are currently available in the following Regions:</p>
+<ul>
+<li>
+<p>US East (Ohio) - <code>us-east-2</code>
+</p>
+</li>
+<li>
+<p>US West (Oregon) - <code>us-west-2</code>
+</p>
+</li>
+<li>
+<p>Asia Pacific (Singapore) - <code>ap-southeast-1</code>
+</p>
+</li>
+<li>
+<p>Europe (Ireland) - <code>eu-west-1</code>
+</p>
+</li>
+</ul>
+<p>The AWS Chatbot console can only be used in US East (Ohio). Your configuration data however, is stored in each of the relevant available Regions.</p>
+<note>
+<p>Your AWS CloudTrail events are logged in whatever Region you call from, not US East (N. Virginia) by default.</p>
+</note>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-chatbot
+To install this package, simply type add or install @aws-sdk/client-chatbot
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-chatbot`
@@ -23,16 +46,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ChatbotClient` and
-the commands you need, for example `ListTagsForResourceCommand`:
+the commands you need, for example `ListCustomActionsCommand`:
 
 ```js
 // ES5 example
-const { ChatbotClient, ListTagsForResourceCommand } = require("@aws-sdk/client-chatbot");
+const { ChatbotClient, ListCustomActionsCommand } = require("@aws-sdk/client-chatbot");
 ```
 
 ```ts
 // ES6+ example
-import { ChatbotClient, ListTagsForResourceCommand } from "@aws-sdk/client-chatbot";
+import { ChatbotClient, ListCustomActionsCommand } from "@aws-sdk/client-chatbot";
 ```
 
 ### Usage
@@ -51,7 +74,7 @@ const client = new ChatbotClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListTagsForResourceCommand(params);
+const command = new ListCustomActionsCommand(params);
 ```
 
 #### Async/await
@@ -130,7 +153,7 @@ const client = new AWS.Chatbot({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listTagsForResource(params);
+  const data = await client.listCustomActions(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -138,7 +161,7 @@ try {
 
 // Promises.
 client
-  .listTagsForResource(params)
+  .listCustomActions(params)
   .then((data) => {
     // process data.
   })
@@ -147,7 +170,7 @@ client
   });
 
 // callbacks.
-client.listTagsForResource(params, (err, data) => {
+client.listCustomActions(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -205,10 +228,26 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateToConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/AssociateToConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/AssociateToConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/AssociateToConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateChimeWebhookConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/CreateChimeWebhookConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateChimeWebhookConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateChimeWebhookConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateCustomAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/CreateCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/CreateCustomActionCommandOutput/)
 
 </details>
 <details>
@@ -233,6 +272,14 @@ DeleteChimeWebhookConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteChimeWebhookConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteChimeWebhookConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteChimeWebhookConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteCustomAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DeleteCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DeleteCustomActionCommandOutput/)
 
 </details>
 <details>
@@ -317,6 +364,14 @@ DescribeSlackWorkspaces
 </details>
 <details>
 <summary>
+DisassociateFromConfiguration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/DisassociateFromConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DisassociateFromConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/DisassociateFromConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetAccountPreferences
 </summary>
 
@@ -325,10 +380,34 @@ GetAccountPreferences
 </details>
 <details>
 <summary>
+GetCustomAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/GetCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetCustomActionCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetMicrosoftTeamsChannelConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/GetMicrosoftTeamsChannelConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetMicrosoftTeamsChannelConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/GetMicrosoftTeamsChannelConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAssociations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListCustomActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/ListCustomActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListCustomActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/ListCustomActionsCommandOutput/)
 
 </details>
 <details>
@@ -393,6 +472,14 @@ UpdateChimeWebhookConfiguration
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateChimeWebhookConfigurationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateChimeWebhookConfigurationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateChimeWebhookConfigurationCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCustomAction
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/chatbot/command/UpdateCustomActionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateCustomActionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-chatbot/Interface/UpdateCustomActionCommandOutput/)
 
 </details>
 <details>

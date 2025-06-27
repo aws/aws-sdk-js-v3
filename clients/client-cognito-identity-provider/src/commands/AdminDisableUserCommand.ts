@@ -20,7 +20,8 @@ import { de_AdminDisableUserCommand, se_AdminDisableUserCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,9 @@ export interface AdminDisableUserCommandInput extends AdminDisableUserRequest {}
 export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse, __MetadataBearer {}
 
 /**
- * <p>Deactivates a user and revokes all access tokens for the user. A deactivated user
- *             can't sign in, but still appears in the responses to <code>GetUser</code> and
- *                 <code>ListUsers</code> API requests.</p>
+ * <p>Deactivates a user profile and revokes all access tokens for the user. A deactivated
+ *             user can't sign in, but still appears in the responses to <code>ListUsers</code>
+ *             API requests.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -104,6 +105,7 @@ export interface AdminDisableUserCommandOutput extends AdminDisableUserResponse,
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminDisableUserCommand extends $Command
@@ -114,9 +116,7 @@ export class AdminDisableUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class AdminDisableUserCommand extends $Command
   .f(AdminDisableUserRequestFilterSensitiveLog, void 0)
   .ser(se_AdminDisableUserCommand)
   .de(de_AdminDisableUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminDisableUserRequest;
+      output: {};
+    };
+    sdk: {
+      input: AdminDisableUserCommandInput;
+      output: AdminDisableUserCommandOutput;
+    };
+  };
+}

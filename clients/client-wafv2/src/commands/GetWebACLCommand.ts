@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,9 +36,10 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * // const { WAFV2Client, GetWebACLCommand } = require("@aws-sdk/client-wafv2"); // CommonJS import
  * const client = new WAFV2Client(config);
  * const input = { // GetWebACLRequest
- *   Name: "STRING_VALUE", // required
- *   Scope: "CLOUDFRONT" || "REGIONAL", // required
- *   Id: "STRING_VALUE", // required
+ *   Name: "STRING_VALUE",
+ *   Scope: "CLOUDFRONT" || "REGIONAL",
+ *   Id: "STRING_VALUE",
+ *   ARN: "STRING_VALUE",
  * };
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);
@@ -135,6 +137,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: { // JA3Fingerprint
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: { // JA4Fingerprint
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: { // UriFragment
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // TextTransformations // required
  * //               { // TextTransformation
@@ -202,6 +210,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -265,6 +279,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -322,6 +342,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               },
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
  * //               },
  * //             },
  * //             ComparisonOperator: "EQ" || "NE" || "LE" || "LT" || "GE" || "GT", // required
@@ -458,6 +484,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               JA3Fingerprint: {
  * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
  * //               },
+ * //               JA4Fingerprint: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //               },
+ * //               UriFragment: {
+ * //                 FallbackBehavior: "MATCH" || "NO_MATCH",
+ * //               },
  * //             },
  * //             TextTransformations: [ // required
  * //               {
@@ -575,6 +607,13 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                     UriPath: { // RateLimitUriPath
  * //                       TextTransformations: "<TextTransformations>", // required
  * //                     },
+ * //                     JA3Fingerprint: { // RateLimitJA3Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     JA4Fingerprint: { // RateLimitJA4Fingerprint
+ * //                       FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                     },
+ * //                     ASN: {},
  * //                   },
  * //                 ],
  * //               },
@@ -727,6 +766,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                       },
  * //                       EnableRegexInPath: true || false,
  * //                     },
+ * //                     AWSManagedRulesAntiDDoSRuleSet: { // AWSManagedRulesAntiDDoSRuleSet
+ * //                       ClientSideActionConfig: { // ClientSideActionConfig
+ * //                         Challenge: { // ClientSideAction
+ * //                           UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                           Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                           ExemptUriRegularExpressions: [ // RegularExpressionList
+ * //                             { // Regex
+ * //                               RegexString: "STRING_VALUE",
+ * //                             },
+ * //                           ],
+ * //                         },
+ * //                       },
+ * //                       SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                     },
  * //                   },
  * //                 ],
  * //                 RuleActionOverrides: [
@@ -756,6 +809,15 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 RegexString: "STRING_VALUE", // required
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
+ * //               },
+ * //               AsnMatchStatement: { // AsnMatchStatement
+ * //                 AsnList: [ // AsnList // required
+ * //                   Number("long"),
+ * //                 ],
+ * //                 ForwardedIPConfig: {
+ * //                   HeaderName: "STRING_VALUE", // required
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
  * //               },
  * //             },
  * //             ForwardedIPConfig: {
@@ -788,6 +850,13 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                 UriPath: {
  * //                   TextTransformations: "<TextTransformations>", // required
  * //                 },
+ * //                 JA3Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 JA4Fingerprint: {
+ * //                   FallbackBehavior: "MATCH" || "NO_MATCH", // required
+ * //                 },
+ * //                 ASN: {},
  * //               },
  * //             ],
  * //           },
@@ -928,6 +997,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                   },
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -957,6 +1040,12 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //             RegexString: "STRING_VALUE", // required
  * //             FieldToMatch: "<FieldToMatch>", // required
  * //             TextTransformations: "<TextTransformations>", // required
+ * //           },
+ * //           AsnMatchStatement: {
+ * //             AsnList: [ // required
+ * //               Number("long"),
+ * //             ],
+ * //             ForwardedIPConfig: "<ForwardedIPConfig>",
  * //           },
  * //         },
  * //         Action: "<RuleAction>",
@@ -990,6 +1079,21 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //       SampledRequestsEnabled: true || false, // required
  * //       CloudWatchMetricsEnabled: true || false, // required
  * //       MetricName: "STRING_VALUE", // required
+ * //     },
+ * //     DataProtectionConfig: { // DataProtectionConfig
+ * //       DataProtections: [ // DataProtections // required
+ * //         { // DataProtection
+ * //           Field: { // FieldToProtect
+ * //             FieldType: "SINGLE_HEADER" || "SINGLE_COOKIE" || "SINGLE_QUERY_ARGUMENT" || "QUERY_STRING" || "BODY", // required
+ * //             FieldKeys: [ // FieldToProtectKeys
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //           Action: "SUBSTITUTION" || "HASH", // required
+ * //           ExcludeRuleMatchDetails: true || false,
+ * //           ExcludeRateBasedDetails: true || false,
+ * //         },
+ * //       ],
  * //     },
  * //     Capacity: Number("long"),
  * //     PreProcessFirewallManagerRuleGroups: [ // FirewallManagerRuleGroups
@@ -1086,6 +1190,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                   ResponseInspection: "<ResponseInspection>",
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: [
@@ -1167,6 +1285,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //                   ResponseInspection: "<ResponseInspection>",
  * //                   EnableRegexInPath: true || false,
  * //                 },
+ * //                 AWSManagedRulesAntiDDoSRuleSet: {
+ * //                   ClientSideActionConfig: {
+ * //                     Challenge: {
+ * //                       UsageOfAction: "ENABLED" || "DISABLED", // required
+ * //                       Sensitivity: "LOW" || "MEDIUM" || "HIGH",
+ * //                       ExemptUriRegularExpressions: [
+ * //                         {
+ * //                           RegexString: "STRING_VALUE",
+ * //                         },
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   SensitivityToBlock: "LOW" || "MEDIUM" || "HIGH",
+ * //                 },
  * //               },
  * //             ],
  * //             RuleActionOverrides: "<RuleActionOverrides>",
@@ -1215,6 +1347,20 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //           DefaultSizeInspectionLimit: "KB_16" || "KB_32" || "KB_48" || "KB_64", // required
  * //         },
  * //       },
+ * //     },
+ * //     RetrofittedByFirewallManager: true || false,
+ * //     OnSourceDDoSProtectionConfig: { // OnSourceDDoSProtectionConfig
+ * //       ALBLowReputationMode: "ACTIVE_UNDER_DDOS" || "ALWAYS_ON", // required
+ * //     },
+ * //     ApplicationConfig: { // ApplicationConfig
+ * //       Attributes: [ // ApplicationAttributes
+ * //         { // ApplicationAttribute
+ * //           Name: "STRING_VALUE",
+ * //           Values: [ // AttributeValues
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //       ],
  * //     },
  * //   },
  * //   LockToken: "STRING_VALUE",
@@ -1266,6 +1412,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class GetWebACLCommand extends $Command
@@ -1276,9 +1423,7 @@ export class GetWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -1290,4 +1435,16 @@ export class GetWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebACLCommand)
   .de(de_GetWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebACLRequest;
+      output: GetWebACLResponse;
+    };
+    sdk: {
+      input: GetWebACLCommandInput;
+      output: GetWebACLCommandOutput;
+    };
+  };
+}

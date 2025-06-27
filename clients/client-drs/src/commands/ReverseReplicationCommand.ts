@@ -12,7 +12,8 @@ import { de_ReverseReplicationCommand, se_ReverseReplicationCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface ReverseReplicationCommandOutput extends ReverseReplicationRespo
  * @throws {@link DrsServiceException}
  * <p>Base exception class for all service exceptions from Drs service.</p>
  *
+ *
  * @public
  */
 export class ReverseReplicationCommand extends $Command
@@ -88,9 +90,7 @@ export class ReverseReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DrsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ReverseReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReverseReplicationCommand)
   .de(de_ReverseReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReverseReplicationRequest;
+      output: ReverseReplicationResponse;
+    };
+    sdk: {
+      input: ReverseReplicationCommandInput;
+      output: ReverseReplicationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteSignalCatalogCommand, se_DeleteSignalCatalogCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,10 +29,6 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
 
 /**
  * <p> Deletes a signal catalog. </p>
- *          <note>
- *             <p>If the signal catalog is successfully deleted, Amazon Web Services IoT FleetWise sends back an HTTP 200
- *                 response with an empty body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +72,7 @@ export interface DeleteSignalCatalogCommandOutput extends DeleteSignalCatalogRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class DeleteSignalCatalogCommand extends $Command
@@ -85,9 +83,7 @@ export class DeleteSignalCatalogCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +95,16 @@ export class DeleteSignalCatalogCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSignalCatalogCommand)
   .de(de_DeleteSignalCatalogCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSignalCatalogRequest;
+      output: DeleteSignalCatalogResponse;
+    };
+    sdk: {
+      input: DeleteSignalCatalogCommandInput;
+      output: DeleteSignalCatalogCommandOutput;
+    };
+  };
+}

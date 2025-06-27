@@ -1,3 +1,5 @@
+export * from "./ForecastGeofenceEventsPaginator";
+
 export * from "./GetDevicePositionHistoryPaginator";
 // smithy-typescript generated code
 export * from "./Interfaces";

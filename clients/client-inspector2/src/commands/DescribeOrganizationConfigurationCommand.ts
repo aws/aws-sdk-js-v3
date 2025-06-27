@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * //     ecr: true || false, // required
  * //     lambda: true || false,
  * //     lambdaCode: true || false,
+ * //     codeRepository: true || false,
  * //   },
  * //   maxAccountLimitReached: true || false,
  * // };
@@ -65,6 +67,8 @@ export interface DescribeOrganizationConfigurationCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -79,6 +83,7 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
@@ -89,9 +94,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +106,16 @@ export class DescribeOrganizationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationConfigurationCommand)
   .de(de_DescribeOrganizationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeOrganizationConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationConfigurationCommandInput;
+      output: DescribeOrganizationConfigurationCommandOutput;
+    };
+  };
+}

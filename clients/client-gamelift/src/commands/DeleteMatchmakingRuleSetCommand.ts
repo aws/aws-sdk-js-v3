@@ -12,7 +12,8 @@ import { de_DeleteMatchmakingRuleSetCommand, se_DeleteMatchmakingRuleSetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,7 +72,7 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TaggingFailedException} (client fault)
  *  <p>The requested tagging operation did not succeed. This may be due to invalid tag format
@@ -84,6 +85,7 @@ export interface DeleteMatchmakingRuleSetCommandOutput extends DeleteMatchmaking
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DeleteMatchmakingRuleSetCommand extends $Command
@@ -94,9 +96,7 @@ export class DeleteMatchmakingRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class DeleteMatchmakingRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMatchmakingRuleSetCommand)
   .de(de_DeleteMatchmakingRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMatchmakingRuleSetInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMatchmakingRuleSetCommandInput;
+      output: DeleteMatchmakingRuleSetCommandOutput;
+    };
+  };
+}

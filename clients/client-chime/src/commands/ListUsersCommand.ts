@@ -11,13 +11,14 @@ import {
   ListUsersRequestFilterSensitiveLog,
   ListUsersResponse,
   ListUsersResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_ListUsersCommand, se_ListUsersCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListUsersCommand extends $Command
@@ -115,9 +117,7 @@ export class ListUsersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class ListUsersCommand extends $Command
   .f(ListUsersRequestFilterSensitiveLog, ListUsersResponseFilterSensitiveLog)
   .ser(se_ListUsersCommand)
   .de(de_ListUsersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUsersRequest;
+      output: ListUsersResponse;
+    };
+    sdk: {
+      input: ListUsersCommandInput;
+      output: ListUsersCommandOutput;
+    };
+  };
+}

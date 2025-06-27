@@ -16,7 +16,8 @@ import { de_ShareDirectoryCommand, se_ShareDirectoryCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,14 +35,14 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * <p>Shares a specified directory (<code>DirectoryId</code>) in your Amazon Web Services account (directory
  *       owner) with another Amazon Web Services account (directory consumer). With this operation you can use your
  *       directory from any Amazon Web Services account and from any Amazon VPC within an Amazon Web Services Region.</p>
- *          <p>When you share your Managed Microsoft AD directory, Directory Service creates a
- *       shared directory in the directory consumer account. This shared directory contains the
- *       metadata to provide access to the directory within the directory owner account. The shared
- *       directory is visible in all VPCs in the directory consumer account.</p>
+ *          <p>When you share your Managed Microsoft AD directory, Directory Service creates a shared directory in the
+ *       directory consumer account. This shared directory contains the metadata to provide access to
+ *       the directory within the directory owner account. The shared directory is visible in all VPCs
+ *       in the directory consumer account.</p>
  *          <p>The <code>ShareMethod</code> parameter determines whether the specified directory can be
- *       shared between Amazon Web Services accounts inside the same Amazon Web Services organization (<code>ORGANIZATIONS</code>). It
- *       also determines whether you can share the directory with any other Amazon Web Services account either inside
- *       or outside of the organization (<code>HANDSHAKE</code>).</p>
+ *       shared between Amazon Web Services accounts inside the same Amazon Web Services organization (<code>ORGANIZATIONS</code>).
+ *       It also determines whether you can share the directory with any other Amazon Web Services account either
+ *       inside or outside of the organization (<code>HANDSHAKE</code>).</p>
  *          <p>The <code>ShareNotes</code> parameter is only used when <code>HANDSHAKE</code> is called,
  *       which sends a directory sharing request to the directory consumer. </p>
  * @example
@@ -74,7 +75,7 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @see {@link DirectoryServiceClientResolvedConfig | config} for DirectoryServiceClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>Client authentication is not available in this region at this time.</p>
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ClientException} (client fault)
  *  <p>A client exception has occurred.</p>
@@ -107,6 +108,7 @@ export interface ShareDirectoryCommandOutput extends ShareDirectoryResult, __Met
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ShareDirectoryCommand extends $Command
@@ -117,9 +119,7 @@ export class ShareDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class ShareDirectoryCommand extends $Command
   .f(ShareDirectoryRequestFilterSensitiveLog, void 0)
   .ser(se_ShareDirectoryCommand)
   .de(de_ShareDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ShareDirectoryRequest;
+      output: ShareDirectoryResult;
+    };
+    sdk: {
+      input: ShareDirectoryCommandInput;
+      output: ShareDirectoryCommandOutput;
+    };
+  };
+}

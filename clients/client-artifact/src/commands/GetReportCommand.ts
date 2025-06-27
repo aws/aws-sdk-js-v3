@@ -12,7 +12,8 @@ import { de_GetReportCommand, se_GetReportCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,26 @@ export interface GetReportCommandOutput extends GetReportResponse, __MetadataBea
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ *
+ * @example Invoke GetReport operation on the latest version of a specific report
+ * ```javascript
+ * // The GetReport operation is invoked on a reportId and on a optional version.
+ *                         Callers must provide a termToken, which is provided by the GetTermForReport
+ *                         operation. If callers do not provide a version, it will default to the
+ *                         report's latest version
+ * const input = {
+ *   reportId: "report-abcdef0123456789",
+ *   termToken: "term-token-abcdefghijklm01234567890"
+ * };
+ * const command = new GetReportCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   documentPresignedUrl: "<Presigned S3 URL>"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetReportCommand extends $Command
@@ -87,9 +108,7 @@ export class GetReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +120,16 @@ export class GetReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReportCommand)
   .de(de_GetReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReportRequest;
+      output: GetReportResponse;
+    };
+    sdk: {
+      input: GetReportCommandInput;
+      output: GetReportCommandOutput;
+    };
+  };
+}

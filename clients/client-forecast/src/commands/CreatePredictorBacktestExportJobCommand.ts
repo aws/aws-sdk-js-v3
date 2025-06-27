@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface CreatePredictorBacktestExportJobCommandOutput
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreatePredictorBacktestExportJobCommand extends $Command
@@ -119,9 +121,7 @@ export class CreatePredictorBacktestExportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class CreatePredictorBacktestExportJobCommand extends $Command
   .f(CreatePredictorBacktestExportJobRequestFilterSensitiveLog, void 0)
   .ser(se_CreatePredictorBacktestExportJobCommand)
   .de(de_CreatePredictorBacktestExportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePredictorBacktestExportJobRequest;
+      output: CreatePredictorBacktestExportJobResponse;
+    };
+    sdk: {
+      input: CreatePredictorBacktestExportJobCommandInput;
+      output: CreatePredictorBacktestExportJobCommandOutput;
+    };
+  };
+}

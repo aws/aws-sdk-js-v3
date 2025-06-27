@@ -12,7 +12,8 @@ import { de_ListCoverageCommand, se_ListCoverageCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListCoverageCommandInput extends ListCoverageRequest {}
 export interface ListCoverageCommandOutput extends ListCoverageResponse, __MetadataBearer {}
 
 /**
- * <p>Lists coverage details for you environment.</p>
+ * <p>Lists coverage details for your environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -100,6 +101,22 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     ecrImageLastInUseAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageInUseCount: [ // CoverageNumberFilterList
+ *       { // CoverageNumberFilter
+ *         upperInclusive: Number("long"),
+ *         lowerInclusive: Number("long"),
+ *       },
+ *     ],
+ *     codeRepositoryProjectName: "<CoverageStringFilterList>",
+ *     codeRepositoryProviderType: "<CoverageStringFilterList>",
+ *     codeRepositoryProviderTypeVisibility: "<CoverageStringFilterList>",
+ *     lastScannedCommitId: "<CoverageStringFilterList>",
  *   },
  * };
  * const command = new ListCoverageCommand(input);
@@ -126,6 +143,8 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //             "STRING_VALUE",
  * //           ],
  * //           imagePulledAt: new Date("TIMESTAMP"),
+ * //           lastInUseAt: new Date("TIMESTAMP"),
+ * //           inUseCount: Number("long"),
  * //         },
  * //         ec2: { // Ec2Metadata
  * //           tags: { // TagMap
@@ -143,6 +162,39 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * //           ],
  * //           functionName: "STRING_VALUE",
  * //           runtime: "STRING_VALUE",
+ * //         },
+ * //         codeRepository: { // CodeRepositoryMetadata
+ * //           projectName: "STRING_VALUE", // required
+ * //           integrationArn: "STRING_VALUE",
+ * //           providerType: "STRING_VALUE", // required
+ * //           providerTypeVisibility: "STRING_VALUE", // required
+ * //           lastScannedCommitId: "STRING_VALUE",
+ * //           scanConfiguration: { // ProjectCodeSecurityScanConfiguration
+ * //             periodicScanConfigurations: [ // ProjectPeriodicScanConfigurationList
+ * //               { // ProjectPeriodicScanConfiguration
+ * //                 frequencyExpression: "STRING_VALUE",
+ * //                 ruleSetCategories: [ // RuleSetCategories
+ * //                   "SAST" || "IAC" || "SCA",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //             continuousIntegrationScanConfigurations: [ // ProjectContinuousIntegrationScanConfigurationList
+ * //               { // ProjectContinuousIntegrationScanConfiguration
+ * //                 supportedEvent: "PULL_REQUEST" || "PUSH",
+ * //                 ruleSetCategories: [
+ * //                   "SAST" || "IAC" || "SCA",
+ * //                 ],
+ * //               },
+ * //             ],
+ * //           },
+ * //           onDemandScan: { // CodeRepositoryOnDemandScan
+ * //             lastScannedCommitId: "STRING_VALUE",
+ * //             lastScanAt: new Date("TIMESTAMP"),
+ * //             scanStatus: {
+ * //               statusCode: "STRING_VALUE", // required
+ * //               reason: "STRING_VALUE", // required
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //       lastScannedAt: new Date("TIMESTAMP"),
@@ -172,6 +224,7 @@ export interface ListCoverageCommandOutput extends ListCoverageResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListCoverageCommand extends $Command
@@ -182,9 +235,7 @@ export class ListCoverageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +247,16 @@ export class ListCoverageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoverageCommand)
   .de(de_ListCoverageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoverageRequest;
+      output: ListCoverageResponse;
+    };
+    sdk: {
+      input: ListCoverageCommandInput;
+      output: ListCoverageCommandOutput;
+    };
+  };
+}

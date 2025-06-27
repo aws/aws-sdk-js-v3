@@ -13,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,15 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
+ *          </note>
+ *          <note>
+ *             <p>When you enable versioning on a bucket for the first time, it might take a short
+ *             amount of time for the change to be fully propagated. While this change is propagating,
+ *             you might encounter intermittent <code>HTTP 404 NoSuchKey</code> errors for requests to
+ *             objects created or updated after enabling versioning. We recommend that you wait for 15
+ *             minutes after enabling versioning before issuing write operations (<code>PUT</code> or
+ *             <code>DELETE</code>) on objects in the bucket. </p>
  *          </note>
  *          <p>Sets the versioning state of an existing bucket.</p>
  *          <p>You can set the versioning state with one of the following values:</p>
@@ -81,7 +90,7 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * const input = { // PutBucketVersioningRequest
  *   Bucket: "STRING_VALUE", // required
  *   ContentMD5: "STRING_VALUE",
- *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256",
+ *   ChecksumAlgorithm: "CRC32" || "CRC32C" || "SHA1" || "SHA256" || "CRC64NVME",
  *   MFA: "STRING_VALUE",
  *   VersioningConfiguration: { // VersioningConfiguration
  *     MFADelete: "Enabled" || "Disabled",
@@ -104,22 +113,25 @@ export interface PutBucketVersioningCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example Set versioning configuration on a bucket
  * ```javascript
  * // The following example sets versioning configuration on bucket. The configuration enables versioning on the bucket.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "VersioningConfiguration": {
- *     "MFADelete": "Disabled",
- *     "Status": "Enabled"
+ *   Bucket: "examplebucket",
+ *   VersioningConfiguration: {
+ *     MFADelete: "Disabled",
+ *     Status: "Enabled"
  *   }
  * };
  * const command = new PutBucketVersioningCommand(input);
- * await client.send(command);
- * // example id: set-versioning-configuration-on-a-bucket-1482344186279
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class PutBucketVersioningCommand extends $Command
   .classBuilder<
@@ -139,8 +151,7 @@ export class PutBucketVersioningCommand extends $Command
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
       getFlexibleChecksumsPlugin(config, {
-        input: this.input,
-        requestAlgorithmMember: "ChecksumAlgorithm",
+        requestAlgorithmMember: { httpHeader: "x-amz-sdk-checksum-algorithm", name: "ChecksumAlgorithm" },
         requestChecksumRequired: true,
       }),
     ];
@@ -150,4 +161,16 @@ export class PutBucketVersioningCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutBucketVersioningCommand)
   .de(de_PutBucketVersioningCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutBucketVersioningRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutBucketVersioningCommandInput;
+      output: PutBucketVersioningCommandOutput;
+    };
+  };
+}

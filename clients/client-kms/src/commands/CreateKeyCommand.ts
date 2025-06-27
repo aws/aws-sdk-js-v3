@@ -12,7 +12,8 @@ import { de_CreateKeyCommand, se_CreateKeyCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,9 +34,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *       resources.</p>
  *          <p>A KMS key is a logical representation of a cryptographic key. In addition to the key
  *       material used in cryptographic operations, a KMS key includes metadata, such as the key ID,
- *       key policy, creation date, description, and key state. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/getting-started.html">Managing keys</a> in the
- *       <i>Key Management Service Developer Guide</i>
- *          </p>
+ *       key policy, creation date, description, and key state. </p>
  *          <p>Use the parameters of <code>CreateKey</code> to specify the type of KMS key, the source of
  *       its key material, its key policy, description, tags, and other properties.</p>
  *          <note>
@@ -67,14 +66,19 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             the type of key material in the KMS key. Then, use the <code>KeyUsage</code> parameter
  *             to determine whether the KMS key will be used to encrypt and decrypt or sign and verify.
  *             You can't change these properties after the KMS key is created.</p>
- *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, or an
- *             SM2 key pair (China Regions only). The private key in an asymmetric KMS key never leaves
- *             KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to
- *             download the public key so it can be used outside of KMS. KMS keys with RSA or SM2 key
- *             pairs can be used to encrypt or decrypt data or sign and verify messages (but not both).
- *             KMS keys with ECC key pairs can be used only to sign and verify messages. For
- *             information about asymmetric KMS keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric KMS keys</a> in the
- *             <i>Key Management Service Developer Guide</i>.</p>
+ *                <p>Asymmetric KMS keys contain an RSA key pair, Elliptic Curve (ECC) key pair, ML-DSA
+ *             key pair or an SM2 key pair (China Regions only). The private key in an asymmetric KMS
+ *             key never leaves KMS unencrypted. However, you can use the <a>GetPublicKey</a> operation to download the public key so it can be used
+ *             outside of KMS. Each KMS key can have only one key usage. KMS keys with RSA key pairs
+ *             can be used to encrypt and decrypt data or sign and verify messages (but not both). KMS
+ *             keys with NIST-recommended ECC key pairs can be used to sign and verify messages or
+ *             derive shared secrets (but not both). KMS keys with <code>ECC_SECG_P256K1</code> can be
+ *             used only to sign and verify messages. KMS keys with ML-DSA key pairs can be used to
+ *             sign and verify messages. KMS keys with SM2 key pairs (China Regions only) can be used
+ *             to either encrypt and decrypt data, sign and verify messages, or derive shared secrets
+ *             (you must choose one key usage type). For information about asymmetric KMS keys, see
+ *               <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">Asymmetric
+ *               KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
  *             <dt>HMAC KMS key</dt>
@@ -122,13 +126,13 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *                <p>To create a multi-Region primary key with imported key material, use the
  *               <code>Origin</code> parameter of <code>CreateKey</code> with a value of
  *               <code>EXTERNAL</code> and the <code>MultiRegion</code> parameter with a value of
- *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html ">Importing key material into
- *               multi-Region keys</a>. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *               <code>True</code>. To create replicas of the multi-Region primary key, use the <a>ReplicateKey</a> operation. For instructions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys-create-cmk.html ">Importing key material step
+ *               1</a>. For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Multi-Region keys in KMS</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *                <p> </p>
  *             </dd>
  *             <dt>Custom key store</dt>
  *             <dd>
- *                <p>A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a> lets you protect your Amazon Web Services resources using keys in a backing key
+ *                <p>A <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a> lets you protect your Amazon Web Services resources using keys in a backing key
  *             store that you own and manage. When you request a cryptographic operation with a KMS key
  *             in a custom key store, the operation is performed in the backing key store using its
  *             cryptographic keys.</p>
@@ -150,11 +154,11 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *             Use the default <code>KeySpec</code> value, <code>SYMMETRIC_DEFAULT</code>, and the
  *             default <code>KeyUsage</code> value, <code>ENCRYPT_DECRYPT</code> to create a symmetric
  *             encryption key. No other key type is supported in a custom key store.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-cloudhsm.html">CloudHSM key store</a>, use the
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html">CloudHSM key store</a>, use the
  *               <code>Origin</code> parameter with a value of <code>AWS_CLOUDHSM</code>. The CloudHSM
  *             cluster that is associated with the custom key store must have at least two active HSMs
  *             in different Availability Zones in the Amazon Web Services Region.</p>
- *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/keystore-external.html">external key store</a>, use the
+ *                <p>To create a KMS key in an <a href="https://docs.aws.amazon.com/kms/latest/developerguide/create-xks-keys.html">external key store</a>, use the
  *               <code>Origin</code> parameter with a value of <code>EXTERNAL_KEY_STORE</code> and an
  *               <code>XksKeyId</code> parameter that identifies an existing external key.</p>
  *                <note>
@@ -169,8 +173,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *          <p>
  *             <b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:CreateKey</a> (IAM policy). To use the
  *         <code>Tags</code> parameter, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:TagResource</a> (IAM policy). For examples and information about related
- *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/iam-policies.html#iam-policy-example-create-key">Allow a user to create
- *         KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       permissions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/customer-managed-policies.html#iam-policy-example-create-key">Allow a user
+ *         to create KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <b>Related operations:</b>
  *          </p>
@@ -193,7 +197,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -203,9 +207,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * const input = { // CreateKeyRequest
  *   Policy: "STRING_VALUE",
  *   Description: "STRING_VALUE",
- *   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ *   KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  *   CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
- *   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ *   KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87",
  *   Origin: "AWS_KMS" || "EXTERNAL" || "AWS_CLOUDHSM" || "EXTERNAL_KEY_STORE",
  *   CustomKeyStoreId: "STRING_VALUE",
  *   BypassPolicyLockoutSafetyCheck: true || false,
@@ -228,7 +232,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Enabled: true || false,
  * //     Description: "STRING_VALUE",
- * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  * //     KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
  * //     DeletionDate: new Date("TIMESTAMP"),
  * //     ValidTo: new Date("TIMESTAMP"),
@@ -238,12 +242,15 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * //     ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
  * //     KeyManager: "AWS" || "CUSTOMER",
  * //     CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
- * //     KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ * //     KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87",
  * //     EncryptionAlgorithms: [ // EncryptionAlgorithmSpecList
  * //       "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * //     ],
  * //     SigningAlgorithms: [ // SigningAlgorithmSpecList
- * //       "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //       "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256",
+ * //     ],
+ * //     KeyAgreementAlgorithms: [ // KeyAgreementAlgorithmSpecList
+ * //       "ECDH",
  * //     ],
  * //     MultiRegion: true || false,
  * //     MultiRegionConfiguration: { // MultiRegionConfiguration
@@ -266,6 +273,7 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * //     XksKeyConfiguration: { // XksKeyConfigurationType
  * //       Id: "STRING_VALUE",
  * //     },
+ * //     CurrentKeyMaterialId: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -364,8 +372,9 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  *       retried.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The request was rejected because the specified policy is not syntactically or semantically
@@ -401,290 +410,8 @@ export interface CreateKeyCommandOutput extends CreateKeyResponse, __MetadataBea
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
+ *
  * @public
- * @example To create a KMS key
- * ```javascript
- * // The following example creates a symmetric KMS key for encryption and decryption. No parameters are required for this operation.
- * const input = {};
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "CreationDate": "2017-07-05T14:04:55-07:00",
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
- *       "SYMMETRIC_DEFAULT"
- *     ],
- *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "SYMMETRIC_DEFAULT",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": false,
- *     "Origin": "AWS_KMS"
- *   }
- * }
- * *\/
- * // example id: to-create-a-cmk-1
- * ```
- *
- * @example To create an asymmetric RSA KMS key for encryption and decryption
- * ```javascript
- * // This example creates a KMS key that contains an asymmetric RSA key pair for encryption and decryption. The key spec and key usage can't be changed after the key is created.
- * const input = {
- *   "KeySpec": "RSA_4096",
- *   "KeyUsage": "ENCRYPT_DECRYPT"
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "CreationDate": "2021-04-05T14:04:55-07:00",
- *     "CustomerMasterKeySpec": "RSA_4096",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
- *       "RSAES_OAEP_SHA_1",
- *       "RSAES_OAEP_SHA_256"
- *     ],
- *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "RSA_4096",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": false,
- *     "Origin": "AWS_KMS"
- *   }
- * }
- * *\/
- * // example id: to-create-an-asymmetric-rsa-kms-key-for-encryption-and-decryption-2
- * ```
- *
- * @example To create an asymmetric elliptic curve KMS key for signing and verification
- * ```javascript
- * // This example creates a KMS key that contains an asymmetric elliptic curve (ECC) key pair for signing and verification. The key usage is required even though "SIGN_VERIFY" is the only valid value for ECC KMS keys. The key spec and key usage can't be changed after the key is created.
- * const input = {
- *   "KeySpec": "ECC_NIST_P521",
- *   "KeyUsage": "SIGN_VERIFY"
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "CreationDate": "2019-12-02T07:48:55-07:00",
- *     "CustomerMasterKeySpec": "ECC_NIST_P521",
- *     "Description": "",
- *     "Enabled": true,
- *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "ECC_NIST_P521",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "SIGN_VERIFY",
- *     "MultiRegion": false,
- *     "Origin": "AWS_KMS",
- *     "SigningAlgorithms": [
- *       "ECDSA_SHA_512"
- *     ]
- *   }
- * }
- * *\/
- * // example id: to-create-an-asymmetric-elliptic-curve-kms-key-for-signing-and-verification-3
- * ```
- *
- * @example To create an HMAC KMS key
- * ```javascript
- * // This example creates a 384-bit symmetric HMAC KMS key. The GENERATE_VERIFY_MAC key usage value is required even though it's the only valid value for HMAC KMS keys. The key spec and key usage can't be changed after the key is created.
- * const input = {
- *   "KeySpec": "HMAC_384",
- *   "KeyUsage": "GENERATE_VERIFY_MAC"
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "CreationDate": "2022-04-05T14:04:55-07:00",
- *     "CustomerMasterKeySpec": "HMAC_384",
- *     "Description": "",
- *     "Enabled": true,
- *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "HMAC_384",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "GENERATE_VERIFY_MAC",
- *     "MacAlgorithms": [
- *       "HMAC_SHA_384"
- *     ],
- *     "MultiRegion": false,
- *     "Origin": "AWS_KMS"
- *   }
- * }
- * *\/
- * // example id: to-create-an-hmac-kms-key-1630628752841
- * ```
- *
- * @example To create a multi-Region primary KMS key
- * ```javascript
- * // This example creates a multi-Region primary symmetric encryption key. Because the default values for all parameters create a symmetric encryption key, only the MultiRegion parameter is required for this KMS key.
- * const input = {
- *   "MultiRegion": true
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef12345678990ab",
- *     "CreationDate": "2021-09-02T016:15:21-09:00",
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
- *       "SYMMETRIC_DEFAULT"
- *     ],
- *     "KeyId": "mrk-1234abcd12ab34cd56ef12345678990ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "SYMMETRIC_DEFAULT",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": true,
- *     "MultiRegionConfiguration": {
- *       "MultiRegionKeyType": "PRIMARY",
- *       "PrimaryKey": {
- *         "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef12345678990ab",
- *         "Region": "us-west-2"
- *       },
- *       "ReplicaKeys": []
- *     },
- *     "Origin": "AWS_KMS"
- *   }
- * }
- * *\/
- * // example id: to-create-a-multi-region-primary-kms-key-4
- * ```
- *
- * @example To create a KMS key for imported key material
- * ```javascript
- * // This example creates a symmetric KMS key with no key material. When the operation is complete, you can import your own key material into the KMS key. To create this KMS key, set the Origin parameter to EXTERNAL.
- * const input = {
- *   "Origin": "EXTERNAL"
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "CreationDate": "2019-12-02T07:48:55-07:00",
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": false,
- *     "EncryptionAlgorithms": [
- *       "SYMMETRIC_DEFAULT"
- *     ],
- *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "SYMMETRIC_DEFAULT",
- *     "KeyState": "PendingImport",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": false,
- *     "Origin": "EXTERNAL"
- *   }
- * }
- * *\/
- * // example id: to-create-a-kms-key-for-imported-key-material-5
- * ```
- *
- * @example To create a KMS key in an AWS CloudHSM key store
- * ```javascript
- * // This example creates a KMS key in the specified AWS CloudHSM key store. The operation creates the KMS key and its metadata in AWS KMS and creates the key material in the AWS CloudHSM cluster associated with the custom key store. This example requires the CustomKeyStoreId  and Origin parameters.
- * const input = {
- *   "CustomKeyStoreId": "cks-1234567890abcdef0",
- *   "Origin": "AWS_CLOUDHSM"
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "CloudHsmClusterId": "cluster-234abcdefABC",
- *     "CreationDate": "2019-12-02T07:48:55-07:00",
- *     "CustomKeyStoreId": "cks-1234567890abcdef0",
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
- *       "SYMMETRIC_DEFAULT"
- *     ],
- *     "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "SYMMETRIC_DEFAULT",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": false,
- *     "Origin": "AWS_CLOUDHSM"
- *   }
- * }
- * *\/
- * // example id: to-create-a-kms-key-in-an-aws-cloudhsm-custom-key-store-6
- * ```
- *
- * @example To create a KMS key in an external key store
- * ```javascript
- * // This example creates a KMS key in the specified external key store. It uses the XksKeyId parameter to associate the KMS key with an existing symmetric encryption key in your external key manager. This CustomKeyStoreId, Origin, and XksKeyId parameters are required in this operation.
- * const input = {
- *   "CustomKeyStoreId": "cks-9876543210fedcba9",
- *   "Origin": "EXTERNAL_KEY_STORE",
- *   "XksKeyId": "bb8562717f809024"
- * };
- * const command = new CreateKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "KeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *     "CreationDate": "2022-02-02T07:48:55-07:00",
- *     "CustomKeyStoreId": "cks-9876543210fedcba9",
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
- *       "SYMMETRIC_DEFAULT"
- *     ],
- *     "KeyId": "0987dcba-09fe-87dc-65ba-ab0987654321",
- *     "KeyManager": "CUSTOMER",
- *     "KeySpec": "SYMMETRIC_DEFAULT",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": false,
- *     "Origin": "EXTERNAL_KEY_STORE",
- *     "XksKeyConfiguration": {
- *       "Id": "bb8562717f809024"
- *     }
- *   }
- * }
- * *\/
- * // example id: to-create-a-kms-key-in-an-external-custom-key-store-7
- * ```
- *
  */
 export class CreateKeyCommand extends $Command
   .classBuilder<
@@ -694,9 +421,7 @@ export class CreateKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -708,4 +433,16 @@ export class CreateKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateKeyCommand)
   .de(de_CreateKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateKeyRequest;
+      output: CreateKeyResponse;
+    };
+    sdk: {
+      input: CreateKeyCommandInput;
+      output: CreateKeyCommandOutput;
+    };
+  };
+}

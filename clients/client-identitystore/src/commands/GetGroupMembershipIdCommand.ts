@@ -12,7 +12,8 @@ import { de_GetGroupMembershipIdCommand, se_GetGroupMembershipIdCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface GetGroupMembershipIdCommandOutput extends GetGroupMembershipIdR
  * @throws {@link IdentitystoreServiceException}
  * <p>Base exception class for all service exceptions from Identitystore service.</p>
  *
+ *
  * @public
  */
 export class GetGroupMembershipIdCommand extends $Command
@@ -89,9 +91,7 @@ export class GetGroupMembershipIdCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IdentitystoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetGroupMembershipIdCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGroupMembershipIdCommand)
   .de(de_GetGroupMembershipIdCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGroupMembershipIdRequest;
+      output: GetGroupMembershipIdResponse;
+    };
+    sdk: {
+      input: GetGroupMembershipIdCommandInput;
+      output: GetGroupMembershipIdCommandOutput;
+    };
+  };
+}

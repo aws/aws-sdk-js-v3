@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,31 +44,31 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  *     ProductArn: [ // StringFilterList
  *       { // StringFilter
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     AwsAccountId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Id: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     GeneratorId: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Region: [
  *       {
  *         Value: "STRING_VALUE",
- *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS",
+ *         Comparison: "EQUALS" || "PREFIX" || "NOT_EQUALS" || "PREFIX_NOT_EQUALS" || "CONTAINS" || "NOT_CONTAINS" || "CONTAINS_WORD",
  *       },
  *     ],
  *     Type: "<StringFilterList>",
@@ -343,38 +344,38 @@ export interface CreateInsightCommandOutput extends CreateInsightResponse, __Met
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To create a custom insight
  * ```javascript
  * // The following example creates a custom insight in Security Hub. An insight is a collection of findings that relate to a security issue.
  * const input = {
- *   "Filters": {
- *     "ResourceType": [
+ *   Filters: {
+ *     ResourceType: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "AwsIamRole"
+ *         Comparison: "EQUALS",
+ *         Value: "AwsIamRole"
  *       }
  *     ],
- *     "SeverityLabel": [
+ *     SeverityLabel: [
  *       {
- *         "Comparison": "EQUALS",
- *         "Value": "CRITICAL"
+ *         Comparison: "EQUALS",
+ *         Value: "CRITICAL"
  *       }
  *     ]
  *   },
- *   "GroupByAttribute": "ResourceId",
- *   "Name": "Critical role findings"
+ *   GroupByAttribute: "ResourceId",
+ *   Name: "Critical role findings"
  * };
  * const command = new CreateInsightCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InsightArn": "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
+ *   InsightArn: "arn:aws:securityhub:us-west-1:123456789012:insight/123456789012/custom/a1b2c3d4-5678-90ab-cdef-EXAMPLE11111"
  * }
  * *\/
- * // example id: to-create-a-custom-insight-1675354046628
  * ```
  *
+ * @public
  */
 export class CreateInsightCommand extends $Command
   .classBuilder<
@@ -384,9 +385,7 @@ export class CreateInsightCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -398,4 +397,16 @@ export class CreateInsightCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateInsightCommand)
   .de(de_CreateInsightCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateInsightRequest;
+      output: CreateInsightResponse;
+    };
+    sdk: {
+      input: CreateInsightCommandInput;
+      output: CreateInsightCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -176,6 +177,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     GlobalClusterIdentifier: "STRING_VALUE",
  * //     GlobalWriteForwardingStatus: "enabled" || "disabled" || "enabling" || "disabling" || "unknown",
  * //     GlobalWriteForwardingRequested: true || false,
  * //     PendingModifiedValues: { // ClusterPendingModifiedValues
@@ -212,12 +214,14 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //     AutoMinorVersionUpgrade: true || false,
  * //     MonitoringInterval: Number("int"),
  * //     MonitoringRoleArn: "STRING_VALUE",
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
  * //     ServerlessV2ScalingConfiguration: { // ServerlessV2ScalingConfigurationInfo
  * //       MinCapacity: Number("double"),
  * //       MaxCapacity: Number("double"),
+ * //       SecondsUntilAutoPause: Number("int"),
  * //     },
  * //     NetworkType: "STRING_VALUE",
  * //     DBSystemId: "STRING_VALUE",
@@ -234,6 +238,7 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     ClusterScalabilityType: "standard" || "limitless",
  * //     CertificateDetails: {
  * //       CAIdentifier: "STRING_VALUE",
  * //       ValidTill: new Date("TIMESTAMP"),
@@ -274,37 +279,37 @@ export interface DeleteDBClusterCommandOutput extends DeleteDBClusterResult, __M
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a DB cluster
  * ```javascript
  * // The following example deletes the DB cluster named mycluster and takes a final snapshot named mycluster-final-snapshot. The status of the DB cluster is available while the snapshot is being taken.
  * const input = {
- *   "DBClusterIdentifier": "mycluster",
- *   "FinalDBSnapshotIdentifier": "mycluster-final-snapshot",
- *   "SkipFinalSnapshot": false
+ *   DBClusterIdentifier: "mycluster",
+ *   FinalDBSnapshotIdentifier: "mycluster-final-snapshot",
+ *   SkipFinalSnapshot: false
  * };
  * const command = new DeleteDBClusterCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBCluster": {
- *     "AllocatedStorage": 20,
- *     "AvailabilityZones": [
+ *   DBCluster: {
+ *     AllocatedStorage: 20,
+ *     AvailabilityZones: [
  *       "eu-central-1b",
  *       "eu-central-1c",
  *       "eu-central-1a"
  *     ],
- *     "BackupRetentionPeriod": 7,
- *     "DBClusterIdentifier": "mycluster",
- *     "DBClusterParameterGroup": "default.aurora-postgresql10",
- *     "DBSubnetGroup": "default-vpc-aa11bb22",
- *     "Status": "available"
+ *     BackupRetentionPeriod: 7,
+ *     DBClusterIdentifier: "mycluster",
+ *     DBClusterParameterGroup: "default.aurora-postgresql10",
+ *     DBSubnetGroup: "default-vpc-aa11bb22",
+ *     Status: "available"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-db-cluster-1680197141906
  * ```
  *
+ * @public
  */
 export class DeleteDBClusterCommand extends $Command
   .classBuilder<
@@ -314,9 +319,7 @@ export class DeleteDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -328,4 +331,16 @@ export class DeleteDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterCommand)
   .de(de_DeleteDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterMessage;
+      output: DeleteDBClusterResult;
+    };
+    sdk: {
+      input: DeleteDBClusterCommandInput;
+      output: DeleteDBClusterCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface ListApplicationsCommandOutput extends ListApplicationsResponse,
  * @throws {@link ServiceCatalogAppRegistryServiceException}
  * <p>Base exception class for all service exceptions from ServiceCatalogAppRegistry service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationsCommand extends $Command
@@ -85,9 +87,7 @@ export class ListApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceCatalogAppRegistryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationsCommand)
   .de(de_ListApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationsRequest;
+      output: ListApplicationsResponse;
+    };
+    sdk: {
+      input: ListApplicationsCommandInput;
+      output: ListApplicationsCommandOutput;
+    };
+  };
+}

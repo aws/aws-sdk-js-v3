@@ -12,7 +12,8 @@ import { de_GetArchiveExportCommand, se_GetArchiveExportCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface GetArchiveExportCommandOutput extends GetArchiveExportResponse,
  * //       { // ArchiveFilterCondition Union: only one key present
  * //         StringExpression: { // ArchiveStringExpression
  * //           Evaluate: { // ArchiveStringToEvaluate Union: only one key present
- * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  * //           },
  * //           Operator: "CONTAINS", // required
  * //           Values: [ // StringValueList // required
@@ -65,7 +66,7 @@ export interface GetArchiveExportCommandOutput extends GetArchiveExportResponse,
  * //       {//  Union: only one key present
  * //         StringExpression: {
  * //           Evaluate: {//  Union: only one key present
- * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT",
+ * //             Attribute: "TO" || "FROM" || "CC" || "SUBJECT" || "ENVELOPE_TO" || "ENVELOPE_FROM",
  * //           },
  * //           Operator: "CONTAINS", // required
  * //           Values: [ // required
@@ -117,6 +118,7 @@ export interface GetArchiveExportCommandOutput extends GetArchiveExportResponse,
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class GetArchiveExportCommand extends $Command
@@ -127,9 +129,7 @@ export class GetArchiveExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class GetArchiveExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetArchiveExportCommand)
   .de(de_GetArchiveExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetArchiveExportRequest;
+      output: GetArchiveExportResponse;
+    };
+    sdk: {
+      input: GetArchiveExportCommandInput;
+      output: GetArchiveExportCommandOutput;
+    };
+  };
+}

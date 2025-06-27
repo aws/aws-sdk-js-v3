@@ -12,7 +12,8 @@ import { de_DeleteVpcPeeringConnectionCommand, se_DeleteVpcPeeringConnectionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  * <p>Removes a VPC peering connection. To delete the connection, you must have a valid
  *             authorization for the VPC peering connection that you want to delete.. </p>
  *          <p>Once a valid authorization exists, call this operation from the Amazon Web Services account that is
- *             used to manage the Amazon GameLift fleets. Identify the connection to delete by the connection ID
+ *             used to manage the Amazon GameLift Servers fleets. Identify the connection to delete by the connection ID
  *             and fleet ID. If successful, the connection is removed. </p>
  *          <p>
  *             <b>Related actions</b>
@@ -69,13 +70,14 @@ export interface DeleteVpcPeeringConnectionCommandOutput extends DeleteVpcPeerin
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +89,7 @@ export class DeleteVpcPeeringConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DeleteVpcPeeringConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVpcPeeringConnectionCommand)
   .de(de_DeleteVpcPeeringConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVpcPeeringConnectionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVpcPeeringConnectionCommandInput;
+      output: DeleteVpcPeeringConnectionCommandOutput;
+    };
+  };
+}

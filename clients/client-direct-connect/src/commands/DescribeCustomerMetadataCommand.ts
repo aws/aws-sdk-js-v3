@@ -12,7 +12,8 @@ import { de_DescribeCustomerMetadataCommand, se_DescribeCustomerMetadataCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DescribeCustomerMetadataCommandOutput extends DescribeCustomerM
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeCustomerMetadataCommand extends $Command
@@ -74,9 +76,7 @@ export class DescribeCustomerMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DescribeCustomerMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomerMetadataCommand)
   .de(de_DescribeCustomerMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeCustomerMetadataResponse;
+    };
+    sdk: {
+      input: DescribeCustomerMetadataCommandInput;
+      output: DescribeCustomerMetadataCommandOutput;
+    };
+  };
+}

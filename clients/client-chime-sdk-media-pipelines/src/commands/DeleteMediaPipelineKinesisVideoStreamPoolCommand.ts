@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandInput
 export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Kinesis video stream pool.</p>
+ * <p>Deletes an Amazon Kinesis Video Stream pool.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +86,7 @@ export interface DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput extends 
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends $Command
@@ -95,9 +97,7 @@ export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class DeleteMediaPipelineKinesisVideoStreamPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteMediaPipelineKinesisVideoStreamPoolCommand)
   .de(de_DeleteMediaPipelineKinesisVideoStreamPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteMediaPipelineKinesisVideoStreamPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteMediaPipelineKinesisVideoStreamPoolCommandInput;
+      output: DeleteMediaPipelineKinesisVideoStreamPoolCommandOutput;
+    };
+  };
+}

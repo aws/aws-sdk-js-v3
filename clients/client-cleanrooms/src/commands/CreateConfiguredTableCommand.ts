@@ -12,7 +12,8 @@ import { de_CreateConfiguredTableCommand, se_CreateConfiguredTableCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,11 +43,35 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  *       tableName: "STRING_VALUE", // required
  *       databaseName: "STRING_VALUE", // required
  *     },
+ *     snowflake: { // SnowflakeTableReference
+ *       secretArn: "STRING_VALUE", // required
+ *       accountIdentifier: "STRING_VALUE", // required
+ *       databaseName: "STRING_VALUE", // required
+ *       tableName: "STRING_VALUE", // required
+ *       schemaName: "STRING_VALUE", // required
+ *       tableSchema: { // SnowflakeTableSchema Union: only one key present
+ *         v1: [ // SnowflakeTableSchemaList
+ *           { // SnowflakeTableSchemaV1
+ *             columnName: "STRING_VALUE", // required
+ *             columnType: "STRING_VALUE", // required
+ *           },
+ *         ],
+ *       },
+ *     },
+ *     athena: { // AthenaTableReference
+ *       workGroup: "STRING_VALUE", // required
+ *       outputLocation: "STRING_VALUE",
+ *       databaseName: "STRING_VALUE", // required
+ *       tableName: "STRING_VALUE", // required
+ *     },
  *   },
  *   allowedColumns: [ // AllowedColumnList // required
  *     "STRING_VALUE",
  *   ],
- *   analysisMethod: "STRING_VALUE", // required
+ *   analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
+ *   selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ *     "DIRECT_QUERY" || "DIRECT_JOB",
+ *   ],
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -64,15 +89,39 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * //         tableName: "STRING_VALUE", // required
  * //         databaseName: "STRING_VALUE", // required
  * //       },
+ * //       snowflake: { // SnowflakeTableReference
+ * //         secretArn: "STRING_VALUE", // required
+ * //         accountIdentifier: "STRING_VALUE", // required
+ * //         databaseName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //         schemaName: "STRING_VALUE", // required
+ * //         tableSchema: { // SnowflakeTableSchema Union: only one key present
+ * //           v1: [ // SnowflakeTableSchemaList
+ * //             { // SnowflakeTableSchemaV1
+ * //               columnName: "STRING_VALUE", // required
+ * //               columnType: "STRING_VALUE", // required
+ * //             },
+ * //           ],
+ * //         },
+ * //       },
+ * //       athena: { // AthenaTableReference
+ * //         workGroup: "STRING_VALUE", // required
+ * //         outputLocation: "STRING_VALUE",
+ * //         databaseName: "STRING_VALUE", // required
+ * //         tableName: "STRING_VALUE", // required
+ * //       },
  * //     },
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
  * //     analysisRuleTypes: [ // ConfiguredTableAnalysisRuleTypeList // required
  * //       "AGGREGATION" || "LIST" || "CUSTOM",
  * //     ],
- * //     analysisMethod: "STRING_VALUE", // required
+ * //     analysisMethod: "DIRECT_QUERY" || "DIRECT_JOB" || "MULTIPLE", // required
  * //     allowedColumns: [ // AllowedColumnList // required
  * //       "STRING_VALUE",
+ * //     ],
+ * //     selectedAnalysisMethods: [ // SelectedAnalysisMethods
+ * //       "DIRECT_QUERY" || "DIRECT_JOB",
  * //     ],
  * //   },
  * // };
@@ -109,6 +158,7 @@ export interface CreateConfiguredTableCommandOutput extends CreateConfiguredTabl
  * @throws {@link CleanRoomsServiceException}
  * <p>Base exception class for all service exceptions from CleanRooms service.</p>
  *
+ *
  * @public
  */
 export class CreateConfiguredTableCommand extends $Command
@@ -119,9 +169,7 @@ export class CreateConfiguredTableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +181,16 @@ export class CreateConfiguredTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateConfiguredTableCommand)
   .de(de_CreateConfiguredTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateConfiguredTableInput;
+      output: CreateConfiguredTableOutput;
+    };
+    sdk: {
+      input: CreateConfiguredTableCommandInput;
+      output: CreateConfiguredTableCommandOutput;
+    };
+  };
+}

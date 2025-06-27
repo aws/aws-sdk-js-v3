@@ -3,11 +3,6 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
-  AddStorageSystemCommand,
-  AddStorageSystemCommandInput,
-  AddStorageSystemCommandOutput,
-} from "./commands/AddStorageSystemCommand";
-import {
   CancelTaskExecutionCommand,
   CancelTaskExecutionCommandInput,
   CancelTaskExecutionCommandOutput,
@@ -82,11 +77,6 @@ import {
   DescribeAgentCommandOutput,
 } from "./commands/DescribeAgentCommand";
 import {
-  DescribeDiscoveryJobCommand,
-  DescribeDiscoveryJobCommandInput,
-  DescribeDiscoveryJobCommandOutput,
-} from "./commands/DescribeDiscoveryJobCommand";
-import {
   DescribeLocationAzureBlobCommand,
   DescribeLocationAzureBlobCommandInput,
   DescribeLocationAzureBlobCommandOutput,
@@ -142,21 +132,6 @@ import {
   DescribeLocationSmbCommandOutput,
 } from "./commands/DescribeLocationSmbCommand";
 import {
-  DescribeStorageSystemCommand,
-  DescribeStorageSystemCommandInput,
-  DescribeStorageSystemCommandOutput,
-} from "./commands/DescribeStorageSystemCommand";
-import {
-  DescribeStorageSystemResourceMetricsCommand,
-  DescribeStorageSystemResourceMetricsCommandInput,
-  DescribeStorageSystemResourceMetricsCommandOutput,
-} from "./commands/DescribeStorageSystemResourceMetricsCommand";
-import {
-  DescribeStorageSystemResourcesCommand,
-  DescribeStorageSystemResourcesCommandInput,
-  DescribeStorageSystemResourcesCommandOutput,
-} from "./commands/DescribeStorageSystemResourcesCommand";
-import {
   DescribeTaskCommand,
   DescribeTaskCommandInput,
   DescribeTaskCommandOutput,
@@ -166,27 +141,12 @@ import {
   DescribeTaskExecutionCommandInput,
   DescribeTaskExecutionCommandOutput,
 } from "./commands/DescribeTaskExecutionCommand";
-import {
-  GenerateRecommendationsCommand,
-  GenerateRecommendationsCommandInput,
-  GenerateRecommendationsCommandOutput,
-} from "./commands/GenerateRecommendationsCommand";
 import { ListAgentsCommand, ListAgentsCommandInput, ListAgentsCommandOutput } from "./commands/ListAgentsCommand";
-import {
-  ListDiscoveryJobsCommand,
-  ListDiscoveryJobsCommandInput,
-  ListDiscoveryJobsCommandOutput,
-} from "./commands/ListDiscoveryJobsCommand";
 import {
   ListLocationsCommand,
   ListLocationsCommandInput,
   ListLocationsCommandOutput,
 } from "./commands/ListLocationsCommand";
-import {
-  ListStorageSystemsCommand,
-  ListStorageSystemsCommandInput,
-  ListStorageSystemsCommandOutput,
-} from "./commands/ListStorageSystemsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -199,25 +159,10 @@ import {
 } from "./commands/ListTaskExecutionsCommand";
 import { ListTasksCommand, ListTasksCommandInput, ListTasksCommandOutput } from "./commands/ListTasksCommand";
 import {
-  RemoveStorageSystemCommand,
-  RemoveStorageSystemCommandInput,
-  RemoveStorageSystemCommandOutput,
-} from "./commands/RemoveStorageSystemCommand";
-import {
-  StartDiscoveryJobCommand,
-  StartDiscoveryJobCommandInput,
-  StartDiscoveryJobCommandOutput,
-} from "./commands/StartDiscoveryJobCommand";
-import {
   StartTaskExecutionCommand,
   StartTaskExecutionCommandInput,
   StartTaskExecutionCommandOutput,
 } from "./commands/StartTaskExecutionCommand";
-import {
-  StopDiscoveryJobCommand,
-  StopDiscoveryJobCommandInput,
-  StopDiscoveryJobCommandOutput,
-} from "./commands/StopDiscoveryJobCommand";
 import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import {
   UntagResourceCommand,
@@ -226,15 +171,35 @@ import {
 } from "./commands/UntagResourceCommand";
 import { UpdateAgentCommand, UpdateAgentCommandInput, UpdateAgentCommandOutput } from "./commands/UpdateAgentCommand";
 import {
-  UpdateDiscoveryJobCommand,
-  UpdateDiscoveryJobCommandInput,
-  UpdateDiscoveryJobCommandOutput,
-} from "./commands/UpdateDiscoveryJobCommand";
-import {
   UpdateLocationAzureBlobCommand,
   UpdateLocationAzureBlobCommandInput,
   UpdateLocationAzureBlobCommandOutput,
 } from "./commands/UpdateLocationAzureBlobCommand";
+import {
+  UpdateLocationEfsCommand,
+  UpdateLocationEfsCommandInput,
+  UpdateLocationEfsCommandOutput,
+} from "./commands/UpdateLocationEfsCommand";
+import {
+  UpdateLocationFsxLustreCommand,
+  UpdateLocationFsxLustreCommandInput,
+  UpdateLocationFsxLustreCommandOutput,
+} from "./commands/UpdateLocationFsxLustreCommand";
+import {
+  UpdateLocationFsxOntapCommand,
+  UpdateLocationFsxOntapCommandInput,
+  UpdateLocationFsxOntapCommandOutput,
+} from "./commands/UpdateLocationFsxOntapCommand";
+import {
+  UpdateLocationFsxOpenZfsCommand,
+  UpdateLocationFsxOpenZfsCommandInput,
+  UpdateLocationFsxOpenZfsCommandOutput,
+} from "./commands/UpdateLocationFsxOpenZfsCommand";
+import {
+  UpdateLocationFsxWindowsCommand,
+  UpdateLocationFsxWindowsCommandInput,
+  UpdateLocationFsxWindowsCommandOutput,
+} from "./commands/UpdateLocationFsxWindowsCommand";
 import {
   UpdateLocationHdfsCommand,
   UpdateLocationHdfsCommandInput,
@@ -251,15 +216,15 @@ import {
   UpdateLocationObjectStorageCommandOutput,
 } from "./commands/UpdateLocationObjectStorageCommand";
 import {
+  UpdateLocationS3Command,
+  UpdateLocationS3CommandInput,
+  UpdateLocationS3CommandOutput,
+} from "./commands/UpdateLocationS3Command";
+import {
   UpdateLocationSmbCommand,
   UpdateLocationSmbCommandInput,
   UpdateLocationSmbCommandOutput,
 } from "./commands/UpdateLocationSmbCommand";
-import {
-  UpdateStorageSystemCommand,
-  UpdateStorageSystemCommandInput,
-  UpdateStorageSystemCommandOutput,
-} from "./commands/UpdateStorageSystemCommand";
 import { UpdateTaskCommand, UpdateTaskCommandInput, UpdateTaskCommandOutput } from "./commands/UpdateTaskCommand";
 import {
   UpdateTaskExecutionCommand,
@@ -269,7 +234,6 @@ import {
 import { DataSyncClient, DataSyncClientConfig } from "./DataSyncClient";
 
 const commands = {
-  AddStorageSystemCommand,
   CancelTaskExecutionCommand,
   CreateAgentCommand,
   CreateLocationAzureBlobCommand,
@@ -288,7 +252,6 @@ const commands = {
   DeleteLocationCommand,
   DeleteTaskCommand,
   DescribeAgentCommand,
-  DescribeDiscoveryJobCommand,
   DescribeLocationAzureBlobCommand,
   DescribeLocationEfsCommand,
   DescribeLocationFsxLustreCommand,
@@ -300,55 +263,33 @@ const commands = {
   DescribeLocationObjectStorageCommand,
   DescribeLocationS3Command,
   DescribeLocationSmbCommand,
-  DescribeStorageSystemCommand,
-  DescribeStorageSystemResourceMetricsCommand,
-  DescribeStorageSystemResourcesCommand,
   DescribeTaskCommand,
   DescribeTaskExecutionCommand,
-  GenerateRecommendationsCommand,
   ListAgentsCommand,
-  ListDiscoveryJobsCommand,
   ListLocationsCommand,
-  ListStorageSystemsCommand,
   ListTagsForResourceCommand,
   ListTaskExecutionsCommand,
   ListTasksCommand,
-  RemoveStorageSystemCommand,
-  StartDiscoveryJobCommand,
   StartTaskExecutionCommand,
-  StopDiscoveryJobCommand,
   TagResourceCommand,
   UntagResourceCommand,
   UpdateAgentCommand,
-  UpdateDiscoveryJobCommand,
   UpdateLocationAzureBlobCommand,
+  UpdateLocationEfsCommand,
+  UpdateLocationFsxLustreCommand,
+  UpdateLocationFsxOntapCommand,
+  UpdateLocationFsxOpenZfsCommand,
+  UpdateLocationFsxWindowsCommand,
   UpdateLocationHdfsCommand,
   UpdateLocationNfsCommand,
   UpdateLocationObjectStorageCommand,
+  UpdateLocationS3Command,
   UpdateLocationSmbCommand,
-  UpdateStorageSystemCommand,
   UpdateTaskCommand,
   UpdateTaskExecutionCommand,
 };
 
 export interface DataSync {
-  /**
-   * @see {@link AddStorageSystemCommand}
-   */
-  addStorageSystem(
-    args: AddStorageSystemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<AddStorageSystemCommandOutput>;
-  addStorageSystem(
-    args: AddStorageSystemCommandInput,
-    cb: (err: any, data?: AddStorageSystemCommandOutput) => void
-  ): void;
-  addStorageSystem(
-    args: AddStorageSystemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: AddStorageSystemCommandOutput) => void
-  ): void;
-
   /**
    * @see {@link CancelTaskExecutionCommand}
    */
@@ -623,23 +564,6 @@ export interface DataSync {
   ): void;
 
   /**
-   * @see {@link DescribeDiscoveryJobCommand}
-   */
-  describeDiscoveryJob(
-    args: DescribeDiscoveryJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeDiscoveryJobCommandOutput>;
-  describeDiscoveryJob(
-    args: DescribeDiscoveryJobCommandInput,
-    cb: (err: any, data?: DescribeDiscoveryJobCommandOutput) => void
-  ): void;
-  describeDiscoveryJob(
-    args: DescribeDiscoveryJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeDiscoveryJobCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link DescribeLocationAzureBlobCommand}
    */
   describeLocationAzureBlob(
@@ -827,57 +751,6 @@ export interface DataSync {
   ): void;
 
   /**
-   * @see {@link DescribeStorageSystemCommand}
-   */
-  describeStorageSystem(
-    args: DescribeStorageSystemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStorageSystemCommandOutput>;
-  describeStorageSystem(
-    args: DescribeStorageSystemCommandInput,
-    cb: (err: any, data?: DescribeStorageSystemCommandOutput) => void
-  ): void;
-  describeStorageSystem(
-    args: DescribeStorageSystemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStorageSystemCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DescribeStorageSystemResourceMetricsCommand}
-   */
-  describeStorageSystemResourceMetrics(
-    args: DescribeStorageSystemResourceMetricsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStorageSystemResourceMetricsCommandOutput>;
-  describeStorageSystemResourceMetrics(
-    args: DescribeStorageSystemResourceMetricsCommandInput,
-    cb: (err: any, data?: DescribeStorageSystemResourceMetricsCommandOutput) => void
-  ): void;
-  describeStorageSystemResourceMetrics(
-    args: DescribeStorageSystemResourceMetricsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStorageSystemResourceMetricsCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link DescribeStorageSystemResourcesCommand}
-   */
-  describeStorageSystemResources(
-    args: DescribeStorageSystemResourcesCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<DescribeStorageSystemResourcesCommandOutput>;
-  describeStorageSystemResources(
-    args: DescribeStorageSystemResourcesCommandInput,
-    cb: (err: any, data?: DescribeStorageSystemResourcesCommandOutput) => void
-  ): void;
-  describeStorageSystemResources(
-    args: DescribeStorageSystemResourcesCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: DescribeStorageSystemResourcesCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link DescribeTaskCommand}
    */
   describeTask(args: DescribeTaskCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTaskCommandOutput>;
@@ -906,23 +779,6 @@ export interface DataSync {
   ): void;
 
   /**
-   * @see {@link GenerateRecommendationsCommand}
-   */
-  generateRecommendations(
-    args: GenerateRecommendationsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<GenerateRecommendationsCommandOutput>;
-  generateRecommendations(
-    args: GenerateRecommendationsCommandInput,
-    cb: (err: any, data?: GenerateRecommendationsCommandOutput) => void
-  ): void;
-  generateRecommendations(
-    args: GenerateRecommendationsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: GenerateRecommendationsCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link ListAgentsCommand}
    */
   listAgents(): Promise<ListAgentsCommandOutput>;
@@ -935,24 +791,6 @@ export interface DataSync {
   ): void;
 
   /**
-   * @see {@link ListDiscoveryJobsCommand}
-   */
-  listDiscoveryJobs(): Promise<ListDiscoveryJobsCommandOutput>;
-  listDiscoveryJobs(
-    args: ListDiscoveryJobsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListDiscoveryJobsCommandOutput>;
-  listDiscoveryJobs(
-    args: ListDiscoveryJobsCommandInput,
-    cb: (err: any, data?: ListDiscoveryJobsCommandOutput) => void
-  ): void;
-  listDiscoveryJobs(
-    args: ListDiscoveryJobsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListDiscoveryJobsCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link ListLocationsCommand}
    */
   listLocations(): Promise<ListLocationsCommandOutput>;
@@ -962,24 +800,6 @@ export interface DataSync {
     args: ListLocationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListLocationsCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link ListStorageSystemsCommand}
-   */
-  listStorageSystems(): Promise<ListStorageSystemsCommandOutput>;
-  listStorageSystems(
-    args: ListStorageSystemsCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<ListStorageSystemsCommandOutput>;
-  listStorageSystems(
-    args: ListStorageSystemsCommandInput,
-    cb: (err: any, data?: ListStorageSystemsCommandOutput) => void
-  ): void;
-  listStorageSystems(
-    args: ListStorageSystemsCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: ListStorageSystemsCommandOutput) => void
   ): void;
 
   /**
@@ -1030,40 +850,6 @@ export interface DataSync {
   ): void;
 
   /**
-   * @see {@link RemoveStorageSystemCommand}
-   */
-  removeStorageSystem(
-    args: RemoveStorageSystemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<RemoveStorageSystemCommandOutput>;
-  removeStorageSystem(
-    args: RemoveStorageSystemCommandInput,
-    cb: (err: any, data?: RemoveStorageSystemCommandOutput) => void
-  ): void;
-  removeStorageSystem(
-    args: RemoveStorageSystemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: RemoveStorageSystemCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link StartDiscoveryJobCommand}
-   */
-  startDiscoveryJob(
-    args: StartDiscoveryJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StartDiscoveryJobCommandOutput>;
-  startDiscoveryJob(
-    args: StartDiscoveryJobCommandInput,
-    cb: (err: any, data?: StartDiscoveryJobCommandOutput) => void
-  ): void;
-  startDiscoveryJob(
-    args: StartDiscoveryJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StartDiscoveryJobCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link StartTaskExecutionCommand}
    */
   startTaskExecution(
@@ -1078,23 +864,6 @@ export interface DataSync {
     args: StartTaskExecutionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartTaskExecutionCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link StopDiscoveryJobCommand}
-   */
-  stopDiscoveryJob(
-    args: StopDiscoveryJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<StopDiscoveryJobCommandOutput>;
-  stopDiscoveryJob(
-    args: StopDiscoveryJobCommandInput,
-    cb: (err: any, data?: StopDiscoveryJobCommandOutput) => void
-  ): void;
-  stopDiscoveryJob(
-    args: StopDiscoveryJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: StopDiscoveryJobCommandOutput) => void
   ): void;
 
   /**
@@ -1131,23 +900,6 @@ export interface DataSync {
   ): void;
 
   /**
-   * @see {@link UpdateDiscoveryJobCommand}
-   */
-  updateDiscoveryJob(
-    args: UpdateDiscoveryJobCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateDiscoveryJobCommandOutput>;
-  updateDiscoveryJob(
-    args: UpdateDiscoveryJobCommandInput,
-    cb: (err: any, data?: UpdateDiscoveryJobCommandOutput) => void
-  ): void;
-  updateDiscoveryJob(
-    args: UpdateDiscoveryJobCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateDiscoveryJobCommandOutput) => void
-  ): void;
-
-  /**
    * @see {@link UpdateLocationAzureBlobCommand}
    */
   updateLocationAzureBlob(
@@ -1162,6 +914,91 @@ export interface DataSync {
     args: UpdateLocationAzureBlobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLocationAzureBlobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationEfsCommand}
+   */
+  updateLocationEfs(
+    args: UpdateLocationEfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationEfsCommandOutput>;
+  updateLocationEfs(
+    args: UpdateLocationEfsCommandInput,
+    cb: (err: any, data?: UpdateLocationEfsCommandOutput) => void
+  ): void;
+  updateLocationEfs(
+    args: UpdateLocationEfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationEfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxLustreCommand}
+   */
+  updateLocationFsxLustre(
+    args: UpdateLocationFsxLustreCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxLustreCommandOutput>;
+  updateLocationFsxLustre(
+    args: UpdateLocationFsxLustreCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxLustreCommandOutput) => void
+  ): void;
+  updateLocationFsxLustre(
+    args: UpdateLocationFsxLustreCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxLustreCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxOntapCommand}
+   */
+  updateLocationFsxOntap(
+    args: UpdateLocationFsxOntapCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxOntapCommandOutput>;
+  updateLocationFsxOntap(
+    args: UpdateLocationFsxOntapCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxOntapCommandOutput) => void
+  ): void;
+  updateLocationFsxOntap(
+    args: UpdateLocationFsxOntapCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxOntapCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxOpenZfsCommand}
+   */
+  updateLocationFsxOpenZfs(
+    args: UpdateLocationFsxOpenZfsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxOpenZfsCommandOutput>;
+  updateLocationFsxOpenZfs(
+    args: UpdateLocationFsxOpenZfsCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+  updateLocationFsxOpenZfs(
+    args: UpdateLocationFsxOpenZfsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxOpenZfsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateLocationFsxWindowsCommand}
+   */
+  updateLocationFsxWindows(
+    args: UpdateLocationFsxWindowsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationFsxWindowsCommandOutput>;
+  updateLocationFsxWindows(
+    args: UpdateLocationFsxWindowsCommandInput,
+    cb: (err: any, data?: UpdateLocationFsxWindowsCommandOutput) => void
+  ): void;
+  updateLocationFsxWindows(
+    args: UpdateLocationFsxWindowsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationFsxWindowsCommandOutput) => void
   ): void;
 
   /**
@@ -1216,6 +1053,23 @@ export interface DataSync {
   ): void;
 
   /**
+   * @see {@link UpdateLocationS3Command}
+   */
+  updateLocationS3(
+    args: UpdateLocationS3CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateLocationS3CommandOutput>;
+  updateLocationS3(
+    args: UpdateLocationS3CommandInput,
+    cb: (err: any, data?: UpdateLocationS3CommandOutput) => void
+  ): void;
+  updateLocationS3(
+    args: UpdateLocationS3CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateLocationS3CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateLocationSmbCommand}
    */
   updateLocationSmb(
@@ -1230,23 +1084,6 @@ export interface DataSync {
     args: UpdateLocationSmbCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateLocationSmbCommandOutput) => void
-  ): void;
-
-  /**
-   * @see {@link UpdateStorageSystemCommand}
-   */
-  updateStorageSystem(
-    args: UpdateStorageSystemCommandInput,
-    options?: __HttpHandlerOptions
-  ): Promise<UpdateStorageSystemCommandOutput>;
-  updateStorageSystem(
-    args: UpdateStorageSystemCommandInput,
-    cb: (err: any, data?: UpdateStorageSystemCommandOutput) => void
-  ): void;
-  updateStorageSystem(
-    args: UpdateStorageSystemCommandInput,
-    options: __HttpHandlerOptions,
-    cb: (err: any, data?: UpdateStorageSystemCommandOutput) => void
   ): void;
 
   /**
@@ -1280,9 +1117,9 @@ export interface DataSync {
 
 /**
  * <fullname>DataSync</fullname>
- *          <p>DataSync is an online data movement and discovery service that simplifies data migration
- *       and helps you quickly, easily, and securely transfer your file or object data to, from, and
- *       between Amazon Web Services storage services.</p>
+ *          <p>DataSync is an online data movement service that simplifies data
+ *       migration and helps you quickly, easily, and securely transfer your file or object data to,
+ *       from, and between Amazon Web Services storage services.</p>
  *          <p>This API interface reference includes documentation for using DataSync
  *       programmatically. For complete information, see the <i>
  *                <a href="https://docs.aws.amazon.com/datasync/latest/userguide/what-is-datasync.html">DataSync User

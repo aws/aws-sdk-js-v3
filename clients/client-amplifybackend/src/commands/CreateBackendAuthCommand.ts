@@ -16,7 +16,8 @@ import { de_CreateBackendAuthCommand, se_CreateBackendAuthCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -160,6 +161,7 @@ export interface CreateBackendAuthCommandOutput extends CreateBackendAuthRespons
  * @throws {@link AmplifyBackendServiceException}
  * <p>Base exception class for all service exceptions from AmplifyBackend service.</p>
  *
+ *
  * @public
  */
 export class CreateBackendAuthCommand extends $Command
@@ -170,9 +172,7 @@ export class CreateBackendAuthCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyBackendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -184,4 +184,16 @@ export class CreateBackendAuthCommand extends $Command
   .f(CreateBackendAuthRequestFilterSensitiveLog, void 0)
   .ser(se_CreateBackendAuthCommand)
   .de(de_CreateBackendAuthCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBackendAuthRequest;
+      output: CreateBackendAuthResponse;
+    };
+    sdk: {
+      input: CreateBackendAuthCommandInput;
+      output: CreateBackendAuthCommandOutput;
+    };
+  };
+}

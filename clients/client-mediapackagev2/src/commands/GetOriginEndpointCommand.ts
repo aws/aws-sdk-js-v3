@@ -12,7 +12,8 @@ import { de_GetOriginEndpointCommand, se_GetOriginEndpointCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,7 +73,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         },
  * //         ResourceId: "STRING_VALUE", // required
  * //         DrmSystems: [ // DrmSystems // required
- * //           "CLEAR_KEY_AES_128" || "FAIRPLAY" || "PLAYREADY" || "WIDEVINE",
+ * //           "CLEAR_KEY_AES_128" || "FAIRPLAY" || "PLAYREADY" || "WIDEVINE" || "IRDETO",
  * //         ],
  * //         RoleArn: "STRING_VALUE", // required
  * //         Url: "STRING_VALUE", // required
@@ -81,6 +82,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //   },
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
+ * //   ResetAt: new Date("TIMESTAMP"),
  * //   Description: "STRING_VALUE",
  * //   StartoverWindowSeconds: Number("int"),
  * //   HlsManifests: [ // GetHlsManifests
@@ -98,7 +100,13 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
+ * //       StartTag: { // StartTag
+ * //         TimeOffset: Number("float"), // required
+ * //         Precise: true || false,
+ * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
  * //   LowLatencyHlsManifests: [ // GetLowLatencyHlsManifests
@@ -116,13 +124,15 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
+ * //       StartTag: {
+ * //         TimeOffset: Number("float"), // required
+ * //         Precise: true || false,
+ * //       },
+ * //       UrlEncodeChildManifest: true || false,
  * //     },
  * //   ],
- * //   ETag: "STRING_VALUE",
- * //   Tags: { // TagMap
- * //     "<keys>": "STRING_VALUE",
- * //   },
  * //   DashManifests: [ // GetDashManifests
  * //     { // GetDashManifestConfiguration
  * //       ManifestName: "STRING_VALUE", // required
@@ -133,6 +143,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         Start: new Date("TIMESTAMP"),
  * //         End: new Date("TIMESTAMP"),
  * //         TimeDelaySeconds: Number("int"),
+ * //         ClipStartTime: new Date("TIMESTAMP"),
  * //       },
  * //       MinUpdatePeriodSeconds: Number("int"),
  * //       MinBufferTimeSeconds: Number("int"),
@@ -149,8 +160,54 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //         TimingMode: "HTTP_HEAD" || "HTTP_ISO" || "HTTP_XSDATE" || "UTC_DIRECT",
  * //         TimingSource: "STRING_VALUE",
  * //       },
+ * //       Profiles: [ // DashProfiles
+ * //         "DVB_DASH",
+ * //       ],
+ * //       BaseUrls: [ // DashBaseUrls
+ * //         { // DashBaseUrl
+ * //           Url: "STRING_VALUE", // required
+ * //           ServiceLocation: "STRING_VALUE",
+ * //           DvbPriority: Number("int"),
+ * //           DvbWeight: Number("int"),
+ * //         },
+ * //       ],
+ * //       ProgramInformation: { // DashProgramInformation
+ * //         Title: "STRING_VALUE",
+ * //         Source: "STRING_VALUE",
+ * //         Copyright: "STRING_VALUE",
+ * //         LanguageCode: "STRING_VALUE",
+ * //         MoreInformationUrl: "STRING_VALUE",
+ * //       },
+ * //       DvbSettings: { // DashDvbSettings
+ * //         FontDownload: { // DashDvbFontDownload
+ * //           Url: "STRING_VALUE",
+ * //           MimeType: "STRING_VALUE",
+ * //           FontFamily: "STRING_VALUE",
+ * //         },
+ * //         ErrorMetrics: [ // DashDvbErrorMetrics
+ * //           { // DashDvbMetricsReporting
+ * //             ReportingUrl: "STRING_VALUE", // required
+ * //             Probability: Number("int"),
+ * //           },
+ * //         ],
+ * //       },
+ * //       Compactness: "STANDARD" || "NONE",
+ * //       SubtitleConfiguration: { // DashSubtitleConfiguration
+ * //         TtmlConfiguration: { // DashTtmlConfiguration
+ * //           TtmlProfile: "IMSC_1" || "EBU_TT_D_101", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
+ * //   ForceEndpointErrorConfiguration: { // ForceEndpointErrorConfiguration
+ * //     EndpointErrorConditions: [ // EndpointErrorConditions
+ * //       "STALE_MANIFEST" || "INCOMPLETE_MANIFEST" || "MISSING_DRM_KEY" || "SLATE_INPUT",
+ * //     ],
+ * //   },
+ * //   ETag: "STRING_VALUE",
+ * //   Tags: { // TagMap
+ * //     "<keys>": "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -179,6 +236,121 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Getting an OriginEndpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpointTS"
+ * };
+ * const command = new GetOriginEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup/channel/exampleChannel/originEndpoint/exampleOriginEndpointTS",
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   ContainerType: "TS",
+ *   CreatedAt: "2022-10-18T09:36:00.00Z",
+ *   Description: "Description for exampleOriginEndpointTS",
+ *   ETag: "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
+ *   ForceEndpointErrorConfiguration: {
+ *     EndpointErrorConditions: [
+ *       "STALE_MANIFEST",
+ *       "INCOMPLETE_MANIFEST",
+ *       "MISSING_DRM_KEY",
+ *       "SLATE_INPUT"
+ *     ]
+ *   },
+ *   HlsManifests: [
+ *     {
+ *       ChildManifestName: "exampleChildManifest1",
+ *       ManifestName: "exampleManifest1",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
+ *       },
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest1.m3u8"
+ *     },
+ *     {
+ *       ChildManifestName: "exampleManifest2",
+ *       ManifestName: "exampleManifest2",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
+ *       },
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleManifest2.m3u8"
+ *     }
+ *   ],
+ *   LowLatencyHlsManifests: [
+ *     {
+ *       ChildManifestName: "exampleLLChildManifest1",
+ *       ManifestName: "exampleLLManifest1",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
+ *       },
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest1.m3u8"
+ *     },
+ *     {
+ *       ChildManifestName: "exampleLLManifest2",
+ *       ManifestName: "exampleLLManifest2",
+ *       ManifestWindowSeconds: 30,
+ *       ProgramDateTimeIntervalSeconds: 60,
+ *       ScteHls: {
+ *         AdMarkerHls: "DATERANGE"
+ *       },
+ *       Url: "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
+ *     }
+ *   ],
+ *   ModifiedAt: "2022-10-18T09:36:00.00Z",
+ *   OriginEndpointName: "exampleOriginEndpointTS",
+ *   Segment: {
+ *     Encryption: {
+ *       ConstantInitializationVector: "A382A901F3C1F7718512266CFFBB0B7E",
+ *       EncryptionMethod: {
+ *         TsEncryptionMethod: "AES_128"
+ *       },
+ *       KeyRotationIntervalSeconds: 300,
+ *       SpekeKeyProvider: {
+ *         DrmSystems: [
+ *           "CLEAR_KEY_AES_128"
+ *         ],
+ *         EncryptionContractConfiguration: {
+ *           PresetSpeke20Audio: "SHARED",
+ *           PresetSpeke20Video: "SHARED"
+ *         },
+ *         ResourceId: "ResourceId",
+ *         RoleArn: "arn:aws:iam::123456789012:role/empRole",
+ *         Url: "https://foo.com"
+ *       }
+ *     },
+ *     IncludeIframeOnlyStreams: true,
+ *     Scte: {
+ *       ScteFilter: [
+ *         "SPLICE_INSERT",
+ *         "BREAK"
+ *       ]
+ *     },
+ *     SegmentDurationSeconds: 6,
+ *     SegmentName: "segmentName",
+ *     TsIncludeDvbSubtitles: true,
+ *     TsUseAudioRenditionGroup: true
+ *   },
+ *   StartoverWindowSeconds: 300,
+ *   Tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetOriginEndpointCommand extends $Command
@@ -189,9 +361,7 @@ export class GetOriginEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +373,16 @@ export class GetOriginEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOriginEndpointCommand)
   .de(de_GetOriginEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOriginEndpointRequest;
+      output: GetOriginEndpointResponse;
+    };
+    sdk: {
+      input: GetOriginEndpointCommandInput;
+      output: GetOriginEndpointCommandOutput;
+    };
+  };
+}

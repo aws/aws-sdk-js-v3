@@ -12,7 +12,8 @@ import { de_ListPoliciesForTargetCommand, se_ListPoliciesForTargetCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * when there are no more results to display.</p>
  *          </note>
  *          <p>This operation can be called only from the organization's
- * management account or by a member account that is a delegated administrator for an Amazon Web Services service.</p>
+ * management account or by a member account that is a delegated administrator.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,7 +49,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * const client = new OrganizationsClient(config);
  * const input = { // ListPoliciesForTargetRequest
  *   TargetId: "STRING_VALUE", // required
- *   Filter: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY", // required
+ *   Filter: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
  * };
@@ -61,7 +62,7 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * //       Arn: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
- * //       Type: "SERVICE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY",
+ * //       Type: "SERVICE_CONTROL_POLICY" || "RESOURCE_CONTROL_POLICY" || "TAG_POLICY" || "BACKUP_POLICY" || "AISERVICES_OPT_OUT_POLICY" || "CHATBOT_POLICY" || "DECLARATIVE_POLICY_EC2" || "SECURITYHUB_POLICY",
  * //       AwsManaged: true || false,
  * //     },
  * //   ],
@@ -141,6 +142,10 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -181,6 +186,9 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -210,33 +218,33 @@ export interface ListPoliciesForTargetCommandOutput extends ListPoliciesForTarge
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
+ *
  * @example To retrieve a list policies attached to a root, OU, or account
  * ```javascript
  * // The following example shows how to get a list of all service control policies (SCPs) of the type specified by the Filter parameter, that are directly attached to an account. The returned list does not include policies that apply to the account because of inheritance from its location in an OU hierarchy:/n/n
  * const input = {
- *   "Filter": "SERVICE_CONTROL_POLICY",
- *   "TargetId": "444444444444"
+ *   Filter: "SERVICE_CONTROL_POLICY",
+ *   TargetId: "444444444444"
  * };
  * const command = new ListPoliciesForTargetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Policies": [
+ *   Policies: [
  *     {
- *       "Arn": "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
- *       "AwsManaged": false,
- *       "Description": "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
- *       "Id": "p-examplepolicyid222",
- *       "Name": "AllowAllEC2Actions",
- *       "Type": "SERVICE_CONTROL_POLICY"
+ *       Arn: "arn:aws:organizations::111111111111:policy/o-exampleorgid/service_control_policy/p-examplepolicyid222",
+ *       AwsManaged: false,
+ *       Description: "Enables account admins to delegate permissions for any EC2 actions to users and roles in their accounts.",
+ *       Id: "p-examplepolicyid222",
+ *       Name: "AllowAllEC2Actions",
+ *       Type: "SERVICE_CONTROL_POLICY"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-retrieve-a-list-of-policies-attached-to-a-root-ou-or-account
  * ```
  *
+ * @public
  */
 export class ListPoliciesForTargetCommand extends $Command
   .classBuilder<
@@ -246,9 +254,7 @@ export class ListPoliciesForTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -260,4 +266,16 @@ export class ListPoliciesForTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPoliciesForTargetCommand)
   .de(de_ListPoliciesForTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoliciesForTargetRequest;
+      output: ListPoliciesForTargetResponse;
+    };
+    sdk: {
+      input: ListPoliciesForTargetCommandInput;
+      output: ListPoliciesForTargetCommandOutput;
+    };
+  };
+}

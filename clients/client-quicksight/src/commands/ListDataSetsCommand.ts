@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_3";
+import { ListDataSetsRequest, ListDataSetsResponse } from "../models/models_4";
 import { de_ListDataSetsCommand, se_ListDataSetsCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * //       },
  * //       RowLevelPermissionTagConfigurationApplied: true || false,
  * //       ColumnLevelPermissionRulesApplied: true || false,
+ * //       UseAs: "RLS_RULES",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -96,6 +98,7 @@ export interface ListDataSetsCommandOutput extends ListDataSetsResponse, __Metad
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class ListDataSetsCommand extends $Command
@@ -106,9 +109,7 @@ export class ListDataSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +121,16 @@ export class ListDataSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDataSetsCommand)
   .de(de_ListDataSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSetsRequest;
+      output: ListDataSetsResponse;
+    };
+    sdk: {
+      input: ListDataSetsCommandInput;
+      output: ListDataSetsCommandOutput;
+    };
+  };
+}

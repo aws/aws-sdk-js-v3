@@ -12,7 +12,8 @@ import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,25 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceOut
  * @throws {@link LaunchWizardServiceException}
  * <p>Base exception class for all service exceptions from LaunchWizard service.</p>
  *
+ *
+ * @example Listing tags on a Launch Wizard deployment resource.
+ * ```javascript
+ * //
+ * const input = {
+ *   resourceArn: "arn:aws:launchwizard:us-east-1:123456789012:deployment/11111111-1111-1111-1111-111111111111"
+ * };
+ * const command = new ListTagsForResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   tags: {
+ *     key1: "value1",
+ *     key2: "value2"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command
@@ -76,9 +96,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LaunchWizardClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +108,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceInput;
+      output: ListTagsForResourceOutput;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

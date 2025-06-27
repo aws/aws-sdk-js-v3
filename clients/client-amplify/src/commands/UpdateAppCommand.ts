@@ -17,7 +17,8 @@ import { de_UpdateAppCommand, se_UpdateAppCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,6 +45,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE",
+ *   computeRoleArn: "STRING_VALUE",
  *   iamServiceRoleArn: "STRING_VALUE",
  *   environmentVariables: { // EnvironmentVariables
  *     "<keys>": "STRING_VALUE",
@@ -83,6 +85,12 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  *   repository: "STRING_VALUE",
  *   oauthToken: "STRING_VALUE",
  *   accessToken: "STRING_VALUE",
+ *   jobConfig: { // JobConfig
+ *     buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ *   },
+ *   cacheConfig: { // CacheConfig
+ *     type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ *   },
  * };
  * const command = new UpdateAppCommand(input);
  * const response = await client.send(command);
@@ -99,6 +107,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * //     platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //     createTime: new Date("TIMESTAMP"), // required
  * //     updateTime: new Date("TIMESTAMP"), // required
+ * //     computeRoleArn: "STRING_VALUE",
  * //     iamServiceRoleArn: "STRING_VALUE",
  * //     environmentVariables: { // EnvironmentVariables // required
  * //       "<keys>": "STRING_VALUE",
@@ -143,6 +152,18 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * //       pullRequestEnvironmentName: "STRING_VALUE",
  * //     },
  * //     repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //     cacheConfig: { // CacheConfig
+ * //       type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //     },
+ * //     webhookCreateTime: new Date("TIMESTAMP"),
+ * //     wafConfiguration: { // WafConfiguration
+ * //       webAclArn: "STRING_VALUE",
+ * //       wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
+ * //       statusReason: "STRING_VALUE",
+ * //     },
+ * //     jobConfig: { // JobConfig
+ * //       buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ * //     },
  * //   },
  * // };
  *
@@ -169,6 +190,7 @@ export interface UpdateAppCommandOutput extends UpdateAppResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppCommand extends $Command
@@ -179,9 +201,7 @@ export class UpdateAppCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -193,4 +213,16 @@ export class UpdateAppCommand extends $Command
   .f(UpdateAppRequestFilterSensitiveLog, UpdateAppResultFilterSensitiveLog)
   .ser(se_UpdateAppCommand)
   .de(de_UpdateAppCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppRequest;
+      output: UpdateAppResult;
+    };
+    sdk: {
+      input: UpdateAppCommandInput;
+      output: UpdateAppCommandOutput;
+    };
+  };
+}

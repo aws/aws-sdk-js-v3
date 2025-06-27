@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,8 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  *   tags: { // RequestTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   port: Number("int"),
+ *   networkType: "IPV4" || "DUAL",
  * };
  * const command = new CreateDbInstanceCommand(input);
  * const response = await client.send(command);
@@ -76,8 +79,10 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED",
+ * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
  * //   endpoint: "STRING_VALUE",
+ * //   port: Number("int"),
+ * //   networkType: "IPV4" || "DUAL",
  * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  * //   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //   allocatedStorage: Number("int"),
@@ -99,6 +104,8 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * //     },
  * //   },
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
+ * //   dbClusterId: "STRING_VALUE",
+ * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
  * // };
  *
  * ```
@@ -133,6 +140,7 @@ export interface CreateDbInstanceCommandOutput extends CreateDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDbInstanceCommand extends $Command
@@ -143,9 +151,7 @@ export class CreateDbInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +163,16 @@ export class CreateDbInstanceCommand extends $Command
   .f(CreateDbInstanceInputFilterSensitiveLog, void 0)
   .ser(se_CreateDbInstanceCommand)
   .de(de_CreateDbInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDbInstanceInput;
+      output: CreateDbInstanceOutput;
+    };
+    sdk: {
+      input: CreateDbInstanceCommandInput;
+      output: CreateDbInstanceCommandOutput;
+    };
+  };
+}

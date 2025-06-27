@@ -14,6 +14,11 @@ import {
   AssociateTrialComponentCommandOutput,
 } from "./commands/AssociateTrialComponentCommand";
 import {
+  BatchDeleteClusterNodesCommand,
+  BatchDeleteClusterNodesCommandInput,
+  BatchDeleteClusterNodesCommandOutput,
+} from "./commands/BatchDeleteClusterNodesCommand";
+import {
   BatchDescribeModelPackageCommand,
   BatchDescribeModelPackageCommandInput,
   BatchDescribeModelPackageCommandOutput,
@@ -55,6 +60,11 @@ import {
   CreateClusterCommandOutput,
 } from "./commands/CreateClusterCommand";
 import {
+  CreateClusterSchedulerConfigCommand,
+  CreateClusterSchedulerConfigCommandInput,
+  CreateClusterSchedulerConfigCommandOutput,
+} from "./commands/CreateClusterSchedulerConfigCommand";
+import {
   CreateCodeRepositoryCommand,
   CreateCodeRepositoryCommandInput,
   CreateCodeRepositoryCommandOutput,
@@ -64,6 +74,11 @@ import {
   CreateCompilationJobCommandInput,
   CreateCompilationJobCommandOutput,
 } from "./commands/CreateCompilationJobCommand";
+import {
+  CreateComputeQuotaCommand,
+  CreateComputeQuotaCommandInput,
+  CreateComputeQuotaCommandOutput,
+} from "./commands/CreateComputeQuotaCommand";
 import {
   CreateContextCommand,
   CreateContextCommandInput,
@@ -126,6 +141,11 @@ import {
 } from "./commands/CreateFlowDefinitionCommand";
 import { CreateHubCommand, CreateHubCommandInput, CreateHubCommandOutput } from "./commands/CreateHubCommand";
 import {
+  CreateHubContentReferenceCommand,
+  CreateHubContentReferenceCommandInput,
+  CreateHubContentReferenceCommandOutput,
+} from "./commands/CreateHubContentReferenceCommand";
+import {
   CreateHumanTaskUiCommand,
   CreateHumanTaskUiCommandInput,
   CreateHumanTaskUiCommandOutput,
@@ -161,6 +181,11 @@ import {
   CreateLabelingJobCommandInput,
   CreateLabelingJobCommandOutput,
 } from "./commands/CreateLabelingJobCommand";
+import {
+  CreateMlflowTrackingServerCommand,
+  CreateMlflowTrackingServerCommandInput,
+  CreateMlflowTrackingServerCommandOutput,
+} from "./commands/CreateMlflowTrackingServerCommand";
 import {
   CreateModelBiasJobDefinitionCommand,
   CreateModelBiasJobDefinitionCommandInput,
@@ -213,6 +238,21 @@ import {
   CreateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/CreateNotebookInstanceLifecycleConfigCommand";
 import {
+  CreateOptimizationJobCommand,
+  CreateOptimizationJobCommandInput,
+  CreateOptimizationJobCommandOutput,
+} from "./commands/CreateOptimizationJobCommand";
+import {
+  CreatePartnerAppCommand,
+  CreatePartnerAppCommandInput,
+  CreatePartnerAppCommandOutput,
+} from "./commands/CreatePartnerAppCommand";
+import {
+  CreatePartnerAppPresignedUrlCommand,
+  CreatePartnerAppPresignedUrlCommandInput,
+  CreatePartnerAppPresignedUrlCommandOutput,
+} from "./commands/CreatePartnerAppPresignedUrlCommand";
+import {
   CreatePipelineCommand,
   CreatePipelineCommandInput,
   CreatePipelineCommandOutput,
@@ -222,6 +262,11 @@ import {
   CreatePresignedDomainUrlCommandInput,
   CreatePresignedDomainUrlCommandOutput,
 } from "./commands/CreatePresignedDomainUrlCommand";
+import {
+  CreatePresignedMlflowTrackingServerUrlCommand,
+  CreatePresignedMlflowTrackingServerUrlCommandInput,
+  CreatePresignedMlflowTrackingServerUrlCommandOutput,
+} from "./commands/CreatePresignedMlflowTrackingServerUrlCommand";
 import {
   CreatePresignedNotebookInstanceUrlCommand,
   CreatePresignedNotebookInstanceUrlCommandInput,
@@ -248,6 +293,11 @@ import {
   CreateTrainingJobCommandInput,
   CreateTrainingJobCommandOutput,
 } from "./commands/CreateTrainingJobCommand";
+import {
+  CreateTrainingPlanCommand,
+  CreateTrainingPlanCommandInput,
+  CreateTrainingPlanCommandOutput,
+} from "./commands/CreateTrainingPlanCommand";
 import {
   CreateTransformJobCommand,
   CreateTransformJobCommandInput,
@@ -306,6 +356,11 @@ import {
   DeleteClusterCommandOutput,
 } from "./commands/DeleteClusterCommand";
 import {
+  DeleteClusterSchedulerConfigCommand,
+  DeleteClusterSchedulerConfigCommandInput,
+  DeleteClusterSchedulerConfigCommandOutput,
+} from "./commands/DeleteClusterSchedulerConfigCommand";
+import {
   DeleteCodeRepositoryCommand,
   DeleteCodeRepositoryCommandInput,
   DeleteCodeRepositoryCommandOutput,
@@ -315,6 +370,11 @@ import {
   DeleteCompilationJobCommandInput,
   DeleteCompilationJobCommandOutput,
 } from "./commands/DeleteCompilationJobCommand";
+import {
+  DeleteComputeQuotaCommand,
+  DeleteComputeQuotaCommandInput,
+  DeleteComputeQuotaCommandOutput,
+} from "./commands/DeleteComputeQuotaCommand";
 import {
   DeleteContextCommand,
   DeleteContextCommandInput,
@@ -377,6 +437,11 @@ import {
   DeleteHubContentCommandOutput,
 } from "./commands/DeleteHubContentCommand";
 import {
+  DeleteHubContentReferenceCommand,
+  DeleteHubContentReferenceCommandInput,
+  DeleteHubContentReferenceCommandOutput,
+} from "./commands/DeleteHubContentReferenceCommand";
+import {
   DeleteHumanTaskUiCommand,
   DeleteHumanTaskUiCommandInput,
   DeleteHumanTaskUiCommandOutput,
@@ -402,6 +467,11 @@ import {
   DeleteInferenceExperimentCommandInput,
   DeleteInferenceExperimentCommandOutput,
 } from "./commands/DeleteInferenceExperimentCommand";
+import {
+  DeleteMlflowTrackingServerCommand,
+  DeleteMlflowTrackingServerCommandInput,
+  DeleteMlflowTrackingServerCommandOutput,
+} from "./commands/DeleteMlflowTrackingServerCommand";
 import {
   DeleteModelBiasJobDefinitionCommand,
   DeleteModelBiasJobDefinitionCommandInput,
@@ -453,6 +523,16 @@ import {
   DeleteNotebookInstanceLifecycleConfigCommandInput,
   DeleteNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DeleteNotebookInstanceLifecycleConfigCommand";
+import {
+  DeleteOptimizationJobCommand,
+  DeleteOptimizationJobCommandInput,
+  DeleteOptimizationJobCommandOutput,
+} from "./commands/DeleteOptimizationJobCommand";
+import {
+  DeletePartnerAppCommand,
+  DeletePartnerAppCommandInput,
+  DeletePartnerAppCommandOutput,
+} from "./commands/DeletePartnerAppCommand";
 import {
   DeletePipelineCommand,
   DeletePipelineCommandInput,
@@ -538,6 +618,11 @@ import {
   DescribeClusterNodeCommandOutput,
 } from "./commands/DescribeClusterNodeCommand";
 import {
+  DescribeClusterSchedulerConfigCommand,
+  DescribeClusterSchedulerConfigCommandInput,
+  DescribeClusterSchedulerConfigCommandOutput,
+} from "./commands/DescribeClusterSchedulerConfigCommand";
+import {
   DescribeCodeRepositoryCommand,
   DescribeCodeRepositoryCommandInput,
   DescribeCodeRepositoryCommandOutput,
@@ -547,6 +632,11 @@ import {
   DescribeCompilationJobCommandInput,
   DescribeCompilationJobCommandOutput,
 } from "./commands/DescribeCompilationJobCommand";
+import {
+  DescribeComputeQuotaCommand,
+  DescribeComputeQuotaCommandInput,
+  DescribeComputeQuotaCommandOutput,
+} from "./commands/DescribeComputeQuotaCommand";
 import {
   DescribeContextCommand,
   DescribeContextCommandInput,
@@ -664,6 +754,11 @@ import {
   DescribeLineageGroupCommandOutput,
 } from "./commands/DescribeLineageGroupCommand";
 import {
+  DescribeMlflowTrackingServerCommand,
+  DescribeMlflowTrackingServerCommandInput,
+  DescribeMlflowTrackingServerCommandOutput,
+} from "./commands/DescribeMlflowTrackingServerCommand";
+import {
   DescribeModelBiasJobDefinitionCommand,
   DescribeModelBiasJobDefinitionCommandInput,
   DescribeModelBiasJobDefinitionCommandOutput,
@@ -719,6 +814,16 @@ import {
   DescribeNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/DescribeNotebookInstanceLifecycleConfigCommand";
 import {
+  DescribeOptimizationJobCommand,
+  DescribeOptimizationJobCommandInput,
+  DescribeOptimizationJobCommandOutput,
+} from "./commands/DescribeOptimizationJobCommand";
+import {
+  DescribePartnerAppCommand,
+  DescribePartnerAppCommandInput,
+  DescribePartnerAppCommandOutput,
+} from "./commands/DescribePartnerAppCommand";
+import {
   DescribePipelineCommand,
   DescribePipelineCommandInput,
   DescribePipelineCommandOutput,
@@ -763,6 +868,11 @@ import {
   DescribeTrainingJobCommandInput,
   DescribeTrainingJobCommandOutput,
 } from "./commands/DescribeTrainingJobCommand";
+import {
+  DescribeTrainingPlanCommand,
+  DescribeTrainingPlanCommandInput,
+  DescribeTrainingPlanCommandOutput,
+} from "./commands/DescribeTrainingPlanCommand";
 import {
   DescribeTransformJobCommand,
   DescribeTransformJobCommandInput,
@@ -882,6 +992,11 @@ import {
   ListClusterNodesCommandOutput,
 } from "./commands/ListClusterNodesCommand";
 import {
+  ListClusterSchedulerConfigsCommand,
+  ListClusterSchedulerConfigsCommandInput,
+  ListClusterSchedulerConfigsCommandOutput,
+} from "./commands/ListClusterSchedulerConfigsCommand";
+import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -896,6 +1011,11 @@ import {
   ListCompilationJobsCommandInput,
   ListCompilationJobsCommandOutput,
 } from "./commands/ListCompilationJobsCommand";
+import {
+  ListComputeQuotasCommand,
+  ListComputeQuotasCommandInput,
+  ListComputeQuotasCommandOutput,
+} from "./commands/ListComputeQuotasCommand";
 import {
   ListContextsCommand,
   ListContextsCommandInput,
@@ -1011,6 +1131,11 @@ import {
   ListLineageGroupsCommandOutput,
 } from "./commands/ListLineageGroupsCommand";
 import {
+  ListMlflowTrackingServersCommand,
+  ListMlflowTrackingServersCommandInput,
+  ListMlflowTrackingServersCommandOutput,
+} from "./commands/ListMlflowTrackingServersCommand";
+import {
   ListModelBiasJobDefinitionsCommand,
   ListModelBiasJobDefinitionsCommandInput,
   ListModelBiasJobDefinitionsCommandOutput,
@@ -1087,6 +1212,16 @@ import {
   ListNotebookInstancesCommandOutput,
 } from "./commands/ListNotebookInstancesCommand";
 import {
+  ListOptimizationJobsCommand,
+  ListOptimizationJobsCommandInput,
+  ListOptimizationJobsCommandOutput,
+} from "./commands/ListOptimizationJobsCommand";
+import {
+  ListPartnerAppsCommand,
+  ListPartnerAppsCommandInput,
+  ListPartnerAppsCommandOutput,
+} from "./commands/ListPartnerAppsCommand";
+import {
   ListPipelineExecutionsCommand,
   ListPipelineExecutionsCommandInput,
   ListPipelineExecutionsCommandOutput,
@@ -1149,6 +1284,11 @@ import {
   ListTrainingJobsForHyperParameterTuningJobCommandOutput,
 } from "./commands/ListTrainingJobsForHyperParameterTuningJobCommand";
 import {
+  ListTrainingPlansCommand,
+  ListTrainingPlansCommandInput,
+  ListTrainingPlansCommandOutput,
+} from "./commands/ListTrainingPlansCommand";
+import {
   ListTransformJobsCommand,
   ListTransformJobsCommandInput,
   ListTransformJobsCommandOutput,
@@ -1201,6 +1341,11 @@ import {
 } from "./commands/RetryPipelineExecutionCommand";
 import { SearchCommand, SearchCommandInput, SearchCommandOutput } from "./commands/SearchCommand";
 import {
+  SearchTrainingPlanOfferingsCommand,
+  SearchTrainingPlanOfferingsCommandInput,
+  SearchTrainingPlanOfferingsCommandOutput,
+} from "./commands/SearchTrainingPlanOfferingsCommand";
+import {
   SendPipelineExecutionStepFailureCommand,
   SendPipelineExecutionStepFailureCommandInput,
   SendPipelineExecutionStepFailureCommandOutput,
@@ -1220,6 +1365,11 @@ import {
   StartInferenceExperimentCommandInput,
   StartInferenceExperimentCommandOutput,
 } from "./commands/StartInferenceExperimentCommand";
+import {
+  StartMlflowTrackingServerCommand,
+  StartMlflowTrackingServerCommandInput,
+  StartMlflowTrackingServerCommandOutput,
+} from "./commands/StartMlflowTrackingServerCommand";
 import {
   StartMonitoringScheduleCommand,
   StartMonitoringScheduleCommandInput,
@@ -1276,6 +1426,11 @@ import {
   StopLabelingJobCommandOutput,
 } from "./commands/StopLabelingJobCommand";
 import {
+  StopMlflowTrackingServerCommand,
+  StopMlflowTrackingServerCommandInput,
+  StopMlflowTrackingServerCommandOutput,
+} from "./commands/StopMlflowTrackingServerCommand";
+import {
   StopMonitoringScheduleCommand,
   StopMonitoringScheduleCommandInput,
   StopMonitoringScheduleCommandOutput,
@@ -1285,6 +1440,11 @@ import {
   StopNotebookInstanceCommandInput,
   StopNotebookInstanceCommandOutput,
 } from "./commands/StopNotebookInstanceCommand";
+import {
+  StopOptimizationJobCommand,
+  StopOptimizationJobCommandInput,
+  StopOptimizationJobCommandOutput,
+} from "./commands/StopOptimizationJobCommand";
 import {
   StopPipelineExecutionCommand,
   StopPipelineExecutionCommandInput,
@@ -1326,6 +1486,11 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  UpdateClusterSchedulerConfigCommand,
+  UpdateClusterSchedulerConfigCommandInput,
+  UpdateClusterSchedulerConfigCommandOutput,
+} from "./commands/UpdateClusterSchedulerConfigCommand";
+import {
   UpdateClusterSoftwareCommand,
   UpdateClusterSoftwareCommandInput,
   UpdateClusterSoftwareCommandOutput,
@@ -1335,6 +1500,11 @@ import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
+import {
+  UpdateComputeQuotaCommand,
+  UpdateComputeQuotaCommandInput,
+  UpdateComputeQuotaCommandOutput,
+} from "./commands/UpdateComputeQuotaCommand";
 import {
   UpdateContextCommand,
   UpdateContextCommandInput,
@@ -1381,6 +1551,16 @@ import {
   UpdateFeatureMetadataCommandOutput,
 } from "./commands/UpdateFeatureMetadataCommand";
 import { UpdateHubCommand, UpdateHubCommandInput, UpdateHubCommandOutput } from "./commands/UpdateHubCommand";
+import {
+  UpdateHubContentCommand,
+  UpdateHubContentCommandInput,
+  UpdateHubContentCommandOutput,
+} from "./commands/UpdateHubContentCommand";
+import {
+  UpdateHubContentReferenceCommand,
+  UpdateHubContentReferenceCommandInput,
+  UpdateHubContentReferenceCommandOutput,
+} from "./commands/UpdateHubContentReferenceCommand";
 import { UpdateImageCommand, UpdateImageCommandInput, UpdateImageCommandOutput } from "./commands/UpdateImageCommand";
 import {
   UpdateImageVersionCommand,
@@ -1402,6 +1582,11 @@ import {
   UpdateInferenceExperimentCommandInput,
   UpdateInferenceExperimentCommandOutput,
 } from "./commands/UpdateInferenceExperimentCommand";
+import {
+  UpdateMlflowTrackingServerCommand,
+  UpdateMlflowTrackingServerCommandInput,
+  UpdateMlflowTrackingServerCommandOutput,
+} from "./commands/UpdateMlflowTrackingServerCommand";
 import {
   UpdateModelCardCommand,
   UpdateModelCardCommandInput,
@@ -1432,6 +1617,11 @@ import {
   UpdateNotebookInstanceLifecycleConfigCommandInput,
   UpdateNotebookInstanceLifecycleConfigCommandOutput,
 } from "./commands/UpdateNotebookInstanceLifecycleConfigCommand";
+import {
+  UpdatePartnerAppCommand,
+  UpdatePartnerAppCommandInput,
+  UpdatePartnerAppCommandOutput,
+} from "./commands/UpdatePartnerAppCommand";
 import {
   UpdatePipelineCommand,
   UpdatePipelineCommandInput,
@@ -1480,6 +1670,7 @@ const commands = {
   AddAssociationCommand,
   AddTagsCommand,
   AssociateTrialComponentCommand,
+  BatchDeleteClusterNodesCommand,
   BatchDescribeModelPackageCommand,
   CreateActionCommand,
   CreateAlgorithmCommand,
@@ -1489,8 +1680,10 @@ const commands = {
   CreateAutoMLJobCommand,
   CreateAutoMLJobV2Command,
   CreateClusterCommand,
+  CreateClusterSchedulerConfigCommand,
   CreateCodeRepositoryCommand,
   CreateCompilationJobCommand,
+  CreateComputeQuotaCommand,
   CreateContextCommand,
   CreateDataQualityJobDefinitionCommand,
   CreateDeviceFleetCommand,
@@ -1504,6 +1697,7 @@ const commands = {
   CreateFeatureGroupCommand,
   CreateFlowDefinitionCommand,
   CreateHubCommand,
+  CreateHubContentReferenceCommand,
   CreateHumanTaskUiCommand,
   CreateHyperParameterTuningJobCommand,
   CreateImageCommand,
@@ -1512,6 +1706,7 @@ const commands = {
   CreateInferenceExperimentCommand,
   CreateInferenceRecommendationsJobCommand,
   CreateLabelingJobCommand,
+  CreateMlflowTrackingServerCommand,
   CreateModelCommand,
   CreateModelBiasJobDefinitionCommand,
   CreateModelCardCommand,
@@ -1523,14 +1718,19 @@ const commands = {
   CreateMonitoringScheduleCommand,
   CreateNotebookInstanceCommand,
   CreateNotebookInstanceLifecycleConfigCommand,
+  CreateOptimizationJobCommand,
+  CreatePartnerAppCommand,
+  CreatePartnerAppPresignedUrlCommand,
   CreatePipelineCommand,
   CreatePresignedDomainUrlCommand,
+  CreatePresignedMlflowTrackingServerUrlCommand,
   CreatePresignedNotebookInstanceUrlCommand,
   CreateProcessingJobCommand,
   CreateProjectCommand,
   CreateSpaceCommand,
   CreateStudioLifecycleConfigCommand,
   CreateTrainingJobCommand,
+  CreateTrainingPlanCommand,
   CreateTransformJobCommand,
   CreateTrialCommand,
   CreateTrialComponentCommand,
@@ -1544,8 +1744,10 @@ const commands = {
   DeleteArtifactCommand,
   DeleteAssociationCommand,
   DeleteClusterCommand,
+  DeleteClusterSchedulerConfigCommand,
   DeleteCodeRepositoryCommand,
   DeleteCompilationJobCommand,
+  DeleteComputeQuotaCommand,
   DeleteContextCommand,
   DeleteDataQualityJobDefinitionCommand,
   DeleteDeviceFleetCommand,
@@ -1559,12 +1761,14 @@ const commands = {
   DeleteFlowDefinitionCommand,
   DeleteHubCommand,
   DeleteHubContentCommand,
+  DeleteHubContentReferenceCommand,
   DeleteHumanTaskUiCommand,
   DeleteHyperParameterTuningJobCommand,
   DeleteImageCommand,
   DeleteImageVersionCommand,
   DeleteInferenceComponentCommand,
   DeleteInferenceExperimentCommand,
+  DeleteMlflowTrackingServerCommand,
   DeleteModelCommand,
   DeleteModelBiasJobDefinitionCommand,
   DeleteModelCardCommand,
@@ -1576,6 +1780,8 @@ const commands = {
   DeleteMonitoringScheduleCommand,
   DeleteNotebookInstanceCommand,
   DeleteNotebookInstanceLifecycleConfigCommand,
+  DeleteOptimizationJobCommand,
+  DeletePartnerAppCommand,
   DeletePipelineCommand,
   DeleteProjectCommand,
   DeleteSpaceCommand,
@@ -1596,8 +1802,10 @@ const commands = {
   DescribeAutoMLJobV2Command,
   DescribeClusterCommand,
   DescribeClusterNodeCommand,
+  DescribeClusterSchedulerConfigCommand,
   DescribeCodeRepositoryCommand,
   DescribeCompilationJobCommand,
+  DescribeComputeQuotaCommand,
   DescribeContextCommand,
   DescribeDataQualityJobDefinitionCommand,
   DescribeDeviceCommand,
@@ -1622,6 +1830,7 @@ const commands = {
   DescribeInferenceRecommendationsJobCommand,
   DescribeLabelingJobCommand,
   DescribeLineageGroupCommand,
+  DescribeMlflowTrackingServerCommand,
   DescribeModelCommand,
   DescribeModelBiasJobDefinitionCommand,
   DescribeModelCardCommand,
@@ -1633,6 +1842,8 @@ const commands = {
   DescribeMonitoringScheduleCommand,
   DescribeNotebookInstanceCommand,
   DescribeNotebookInstanceLifecycleConfigCommand,
+  DescribeOptimizationJobCommand,
+  DescribePartnerAppCommand,
   DescribePipelineCommand,
   DescribePipelineDefinitionForExecutionCommand,
   DescribePipelineExecutionCommand,
@@ -1642,6 +1853,7 @@ const commands = {
   DescribeStudioLifecycleConfigCommand,
   DescribeSubscribedWorkteamCommand,
   DescribeTrainingJobCommand,
+  DescribeTrainingPlanCommand,
   DescribeTransformJobCommand,
   DescribeTrialCommand,
   DescribeTrialComponentCommand,
@@ -1669,8 +1881,10 @@ const commands = {
   ListCandidatesForAutoMLJobCommand,
   ListClusterNodesCommand,
   ListClustersCommand,
+  ListClusterSchedulerConfigsCommand,
   ListCodeRepositoriesCommand,
   ListCompilationJobsCommand,
+  ListComputeQuotasCommand,
   ListContextsCommand,
   ListDataQualityJobDefinitionsCommand,
   ListDeviceFleetsCommand,
@@ -1697,6 +1911,7 @@ const commands = {
   ListLabelingJobsCommand,
   ListLabelingJobsForWorkteamCommand,
   ListLineageGroupsCommand,
+  ListMlflowTrackingServersCommand,
   ListModelBiasJobDefinitionsCommand,
   ListModelCardExportJobsCommand,
   ListModelCardsCommand,
@@ -1713,6 +1928,8 @@ const commands = {
   ListMonitoringSchedulesCommand,
   ListNotebookInstanceLifecycleConfigsCommand,
   ListNotebookInstancesCommand,
+  ListOptimizationJobsCommand,
+  ListPartnerAppsCommand,
   ListPipelineExecutionsCommand,
   ListPipelineExecutionStepsCommand,
   ListPipelineParametersForExecutionCommand,
@@ -1727,6 +1944,7 @@ const commands = {
   ListTagsCommand,
   ListTrainingJobsCommand,
   ListTrainingJobsForHyperParameterTuningJobCommand,
+  ListTrainingPlansCommand,
   ListTransformJobsCommand,
   ListTrialComponentsCommand,
   ListTrialsCommand,
@@ -1739,10 +1957,12 @@ const commands = {
   RenderUiTemplateCommand,
   RetryPipelineExecutionCommand,
   SearchCommand,
+  SearchTrainingPlanOfferingsCommand,
   SendPipelineExecutionStepFailureCommand,
   SendPipelineExecutionStepSuccessCommand,
   StartEdgeDeploymentStageCommand,
   StartInferenceExperimentCommand,
+  StartMlflowTrackingServerCommand,
   StartMonitoringScheduleCommand,
   StartNotebookInstanceCommand,
   StartPipelineExecutionCommand,
@@ -1754,8 +1974,10 @@ const commands = {
   StopInferenceExperimentCommand,
   StopInferenceRecommendationsJobCommand,
   StopLabelingJobCommand,
+  StopMlflowTrackingServerCommand,
   StopMonitoringScheduleCommand,
   StopNotebookInstanceCommand,
+  StopOptimizationJobCommand,
   StopPipelineExecutionCommand,
   StopProcessingJobCommand,
   StopTrainingJobCommand,
@@ -1764,8 +1986,10 @@ const commands = {
   UpdateAppImageConfigCommand,
   UpdateArtifactCommand,
   UpdateClusterCommand,
+  UpdateClusterSchedulerConfigCommand,
   UpdateClusterSoftwareCommand,
   UpdateCodeRepositoryCommand,
+  UpdateComputeQuotaCommand,
   UpdateContextCommand,
   UpdateDeviceFleetCommand,
   UpdateDevicesCommand,
@@ -1776,17 +2000,21 @@ const commands = {
   UpdateFeatureGroupCommand,
   UpdateFeatureMetadataCommand,
   UpdateHubCommand,
+  UpdateHubContentCommand,
+  UpdateHubContentReferenceCommand,
   UpdateImageCommand,
   UpdateImageVersionCommand,
   UpdateInferenceComponentCommand,
   UpdateInferenceComponentRuntimeConfigCommand,
   UpdateInferenceExperimentCommand,
+  UpdateMlflowTrackingServerCommand,
   UpdateModelCardCommand,
   UpdateModelPackageCommand,
   UpdateMonitoringAlertCommand,
   UpdateMonitoringScheduleCommand,
   UpdateNotebookInstanceCommand,
   UpdateNotebookInstanceLifecycleConfigCommand,
+  UpdatePartnerAppCommand,
   UpdatePipelineCommand,
   UpdatePipelineExecutionCommand,
   UpdateProjectCommand,
@@ -1840,6 +2068,23 @@ export interface SageMaker {
     args: AssociateTrialComponentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateTrialComponentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link BatchDeleteClusterNodesCommand}
+   */
+  batchDeleteClusterNodes(
+    args: BatchDeleteClusterNodesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchDeleteClusterNodesCommandOutput>;
+  batchDeleteClusterNodes(
+    args: BatchDeleteClusterNodesCommandInput,
+    cb: (err: any, data?: BatchDeleteClusterNodesCommandOutput) => void
+  ): void;
+  batchDeleteClusterNodes(
+    args: BatchDeleteClusterNodesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchDeleteClusterNodesCommandOutput) => void
   ): void;
 
   /**
@@ -1969,6 +2214,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateClusterSchedulerConfigCommand}
+   */
+  createClusterSchedulerConfig(
+    args: CreateClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateClusterSchedulerConfigCommandOutput>;
+  createClusterSchedulerConfig(
+    args: CreateClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: CreateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  createClusterSchedulerConfig(
+    args: CreateClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateCodeRepositoryCommand}
    */
   createCodeRepository(
@@ -2000,6 +2262,23 @@ export interface SageMaker {
     args: CreateCompilationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateCompilationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateComputeQuotaCommand}
+   */
+  createComputeQuota(
+    args: CreateComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateComputeQuotaCommandOutput>;
+  createComputeQuota(
+    args: CreateComputeQuotaCommandInput,
+    cb: (err: any, data?: CreateComputeQuotaCommandOutput) => void
+  ): void;
+  createComputeQuota(
+    args: CreateComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -2203,6 +2482,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateHubContentReferenceCommand}
+   */
+  createHubContentReference(
+    args: CreateHubContentReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHubContentReferenceCommandOutput>;
+  createHubContentReference(
+    args: CreateHubContentReferenceCommandInput,
+    cb: (err: any, data?: CreateHubContentReferenceCommandOutput) => void
+  ): void;
+  createHubContentReference(
+    args: CreateHubContentReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHubContentReferenceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateHumanTaskUiCommand}
    */
   createHumanTaskUi(
@@ -2330,6 +2626,23 @@ export interface SageMaker {
     args: CreateLabelingJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateLabelingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateMlflowTrackingServerCommand}
+   */
+  createMlflowTrackingServer(
+    args: CreateMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateMlflowTrackingServerCommandOutput>;
+  createMlflowTrackingServer(
+    args: CreateMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: CreateMlflowTrackingServerCommandOutput) => void
+  ): void;
+  createMlflowTrackingServer(
+    args: CreateMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -2512,6 +2825,57 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link CreateOptimizationJobCommand}
+   */
+  createOptimizationJob(
+    args: CreateOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateOptimizationJobCommandOutput>;
+  createOptimizationJob(
+    args: CreateOptimizationJobCommandInput,
+    cb: (err: any, data?: CreateOptimizationJobCommandOutput) => void
+  ): void;
+  createOptimizationJob(
+    args: CreateOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateOptimizationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePartnerAppCommand}
+   */
+  createPartnerApp(
+    args: CreatePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartnerAppCommandOutput>;
+  createPartnerApp(
+    args: CreatePartnerAppCommandInput,
+    cb: (err: any, data?: CreatePartnerAppCommandOutput) => void
+  ): void;
+  createPartnerApp(
+    args: CreatePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePartnerAppCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePartnerAppPresignedUrlCommand}
+   */
+  createPartnerAppPresignedUrl(
+    args: CreatePartnerAppPresignedUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePartnerAppPresignedUrlCommandOutput>;
+  createPartnerAppPresignedUrl(
+    args: CreatePartnerAppPresignedUrlCommandInput,
+    cb: (err: any, data?: CreatePartnerAppPresignedUrlCommandOutput) => void
+  ): void;
+  createPartnerAppPresignedUrl(
+    args: CreatePartnerAppPresignedUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePartnerAppPresignedUrlCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreatePipelineCommand}
    */
   createPipeline(
@@ -2540,6 +2904,23 @@ export interface SageMaker {
     args: CreatePresignedDomainUrlCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePresignedDomainUrlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePresignedMlflowTrackingServerUrlCommand}
+   */
+  createPresignedMlflowTrackingServerUrl(
+    args: CreatePresignedMlflowTrackingServerUrlCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePresignedMlflowTrackingServerUrlCommandOutput>;
+  createPresignedMlflowTrackingServerUrl(
+    args: CreatePresignedMlflowTrackingServerUrlCommandInput,
+    cb: (err: any, data?: CreatePresignedMlflowTrackingServerUrlCommandOutput) => void
+  ): void;
+  createPresignedMlflowTrackingServerUrl(
+    args: CreatePresignedMlflowTrackingServerUrlCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePresignedMlflowTrackingServerUrlCommandOutput) => void
   ): void;
 
   /**
@@ -2630,6 +3011,23 @@ export interface SageMaker {
     args: CreateTrainingJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateTrainingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateTrainingPlanCommand}
+   */
+  createTrainingPlan(
+    args: CreateTrainingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTrainingPlanCommandOutput>;
+  createTrainingPlan(
+    args: CreateTrainingPlanCommandInput,
+    cb: (err: any, data?: CreateTrainingPlanCommandOutput) => void
+  ): void;
+  createTrainingPlan(
+    args: CreateTrainingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTrainingPlanCommandOutput) => void
   ): void;
 
   /**
@@ -2819,6 +3217,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteClusterSchedulerConfigCommand}
+   */
+  deleteClusterSchedulerConfig(
+    args: DeleteClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteClusterSchedulerConfigCommandOutput>;
+  deleteClusterSchedulerConfig(
+    args: DeleteClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: DeleteClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  deleteClusterSchedulerConfig(
+    args: DeleteClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteCodeRepositoryCommand}
    */
   deleteCodeRepository(
@@ -2850,6 +3265,23 @@ export interface SageMaker {
     args: DeleteCompilationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCompilationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteComputeQuotaCommand}
+   */
+  deleteComputeQuota(
+    args: DeleteComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteComputeQuotaCommandOutput>;
+  deleteComputeQuota(
+    args: DeleteComputeQuotaCommandInput,
+    cb: (err: any, data?: DeleteComputeQuotaCommandOutput) => void
+  ): void;
+  deleteComputeQuota(
+    args: DeleteComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -3053,6 +3485,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DeleteHubContentReferenceCommand}
+   */
+  deleteHubContentReference(
+    args: DeleteHubContentReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHubContentReferenceCommandOutput>;
+  deleteHubContentReference(
+    args: DeleteHubContentReferenceCommandInput,
+    cb: (err: any, data?: DeleteHubContentReferenceCommandOutput) => void
+  ): void;
+  deleteHubContentReference(
+    args: DeleteHubContentReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHubContentReferenceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteHumanTaskUiCommand}
    */
   deleteHumanTaskUi(
@@ -3146,6 +3595,23 @@ export interface SageMaker {
     args: DeleteInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteMlflowTrackingServerCommand}
+   */
+  deleteMlflowTrackingServer(
+    args: DeleteMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteMlflowTrackingServerCommandOutput>;
+  deleteMlflowTrackingServer(
+    args: DeleteMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: DeleteMlflowTrackingServerCommandOutput) => void
+  ): void;
+  deleteMlflowTrackingServer(
+    args: DeleteMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -3324,6 +3790,40 @@ export interface SageMaker {
     args: DeleteNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteNotebookInstanceLifecycleConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteOptimizationJobCommand}
+   */
+  deleteOptimizationJob(
+    args: DeleteOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteOptimizationJobCommandOutput>;
+  deleteOptimizationJob(
+    args: DeleteOptimizationJobCommandInput,
+    cb: (err: any, data?: DeleteOptimizationJobCommandOutput) => void
+  ): void;
+  deleteOptimizationJob(
+    args: DeleteOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteOptimizationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePartnerAppCommand}
+   */
+  deletePartnerApp(
+    args: DeletePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePartnerAppCommandOutput>;
+  deletePartnerApp(
+    args: DeletePartnerAppCommandInput,
+    cb: (err: any, data?: DeletePartnerAppCommandOutput) => void
+  ): void;
+  deletePartnerApp(
+    args: DeletePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePartnerAppCommandOutput) => void
   ): void;
 
   /**
@@ -3622,6 +4122,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeClusterSchedulerConfigCommand}
+   */
+  describeClusterSchedulerConfig(
+    args: DescribeClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeClusterSchedulerConfigCommandOutput>;
+  describeClusterSchedulerConfig(
+    args: DescribeClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: DescribeClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  describeClusterSchedulerConfig(
+    args: DescribeClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeCodeRepositoryCommand}
    */
   describeCodeRepository(
@@ -3653,6 +4170,23 @@ export interface SageMaker {
     args: DescribeCompilationJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeCompilationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeComputeQuotaCommand}
+   */
+  describeComputeQuota(
+    args: DescribeComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeComputeQuotaCommandOutput>;
+  describeComputeQuota(
+    args: DescribeComputeQuotaCommandInput,
+    cb: (err: any, data?: DescribeComputeQuotaCommandOutput) => void
+  ): void;
+  describeComputeQuota(
+    args: DescribeComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -4043,6 +4577,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeMlflowTrackingServerCommand}
+   */
+  describeMlflowTrackingServer(
+    args: DescribeMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeMlflowTrackingServerCommandOutput>;
+  describeMlflowTrackingServer(
+    args: DescribeMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: DescribeMlflowTrackingServerCommandOutput) => void
+  ): void;
+  describeMlflowTrackingServer(
+    args: DescribeMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeMlflowTrackingServerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeModelCommand}
    */
   describeModel(args: DescribeModelCommandInput, options?: __HttpHandlerOptions): Promise<DescribeModelCommandOutput>;
@@ -4224,6 +4775,40 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link DescribeOptimizationJobCommand}
+   */
+  describeOptimizationJob(
+    args: DescribeOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeOptimizationJobCommandOutput>;
+  describeOptimizationJob(
+    args: DescribeOptimizationJobCommandInput,
+    cb: (err: any, data?: DescribeOptimizationJobCommandOutput) => void
+  ): void;
+  describeOptimizationJob(
+    args: DescribeOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeOptimizationJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribePartnerAppCommand}
+   */
+  describePartnerApp(
+    args: DescribePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribePartnerAppCommandOutput>;
+  describePartnerApp(
+    args: DescribePartnerAppCommandInput,
+    cb: (err: any, data?: DescribePartnerAppCommandOutput) => void
+  ): void;
+  describePartnerApp(
+    args: DescribePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribePartnerAppCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribePipelineCommand}
    */
   describePipeline(
@@ -4365,6 +4950,23 @@ export interface SageMaker {
     args: DescribeTrainingJobCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeTrainingJobCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeTrainingPlanCommand}
+   */
+  describeTrainingPlan(
+    args: DescribeTrainingPlanCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeTrainingPlanCommandOutput>;
+  describeTrainingPlan(
+    args: DescribeTrainingPlanCommandInput,
+    cb: (err: any, data?: DescribeTrainingPlanCommandOutput) => void
+  ): void;
+  describeTrainingPlan(
+    args: DescribeTrainingPlanCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeTrainingPlanCommandOutput) => void
   ): void;
 
   /**
@@ -4796,6 +5398,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListClusterSchedulerConfigsCommand}
+   */
+  listClusterSchedulerConfigs(): Promise<ListClusterSchedulerConfigsCommandOutput>;
+  listClusterSchedulerConfigs(
+    args: ListClusterSchedulerConfigsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListClusterSchedulerConfigsCommandOutput>;
+  listClusterSchedulerConfigs(
+    args: ListClusterSchedulerConfigsCommandInput,
+    cb: (err: any, data?: ListClusterSchedulerConfigsCommandOutput) => void
+  ): void;
+  listClusterSchedulerConfigs(
+    args: ListClusterSchedulerConfigsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListClusterSchedulerConfigsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListCodeRepositoriesCommand}
    */
   listCodeRepositories(): Promise<ListCodeRepositoriesCommandOutput>;
@@ -4829,6 +5449,24 @@ export interface SageMaker {
     args: ListCompilationJobsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListCompilationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListComputeQuotasCommand}
+   */
+  listComputeQuotas(): Promise<ListComputeQuotasCommandOutput>;
+  listComputeQuotas(
+    args: ListComputeQuotasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListComputeQuotasCommandOutput>;
+  listComputeQuotas(
+    args: ListComputeQuotasCommandInput,
+    cb: (err: any, data?: ListComputeQuotasCommandOutput) => void
+  ): void;
+  listComputeQuotas(
+    args: ListComputeQuotasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListComputeQuotasCommandOutput) => void
   ): void;
 
   /**
@@ -5253,6 +5891,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListMlflowTrackingServersCommand}
+   */
+  listMlflowTrackingServers(): Promise<ListMlflowTrackingServersCommandOutput>;
+  listMlflowTrackingServers(
+    args: ListMlflowTrackingServersCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListMlflowTrackingServersCommandOutput>;
+  listMlflowTrackingServers(
+    args: ListMlflowTrackingServersCommandInput,
+    cb: (err: any, data?: ListMlflowTrackingServersCommandOutput) => void
+  ): void;
+  listMlflowTrackingServers(
+    args: ListMlflowTrackingServersCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListMlflowTrackingServersCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListModelBiasJobDefinitionsCommand}
    */
   listModelBiasJobDefinitions(): Promise<ListModelBiasJobDefinitionsCommandOutput>;
@@ -5529,6 +6185,39 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListOptimizationJobsCommand}
+   */
+  listOptimizationJobs(): Promise<ListOptimizationJobsCommandOutput>;
+  listOptimizationJobs(
+    args: ListOptimizationJobsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListOptimizationJobsCommandOutput>;
+  listOptimizationJobs(
+    args: ListOptimizationJobsCommandInput,
+    cb: (err: any, data?: ListOptimizationJobsCommandOutput) => void
+  ): void;
+  listOptimizationJobs(
+    args: ListOptimizationJobsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListOptimizationJobsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPartnerAppsCommand}
+   */
+  listPartnerApps(): Promise<ListPartnerAppsCommandOutput>;
+  listPartnerApps(
+    args: ListPartnerAppsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPartnerAppsCommandOutput>;
+  listPartnerApps(args: ListPartnerAppsCommandInput, cb: (err: any, data?: ListPartnerAppsCommandOutput) => void): void;
+  listPartnerApps(
+    args: ListPartnerAppsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPartnerAppsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListPipelineExecutionsCommand}
    */
   listPipelineExecutions(
@@ -5752,6 +6441,24 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link ListTrainingPlansCommand}
+   */
+  listTrainingPlans(): Promise<ListTrainingPlansCommandOutput>;
+  listTrainingPlans(
+    args: ListTrainingPlansCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTrainingPlansCommandOutput>;
+  listTrainingPlans(
+    args: ListTrainingPlansCommandInput,
+    cb: (err: any, data?: ListTrainingPlansCommandOutput) => void
+  ): void;
+  listTrainingPlans(
+    args: ListTrainingPlansCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTrainingPlansCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTransformJobsCommand}
    */
   listTransformJobs(): Promise<ListTransformJobsCommandOutput>;
@@ -5933,6 +6640,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link SearchTrainingPlanOfferingsCommand}
+   */
+  searchTrainingPlanOfferings(
+    args: SearchTrainingPlanOfferingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchTrainingPlanOfferingsCommandOutput>;
+  searchTrainingPlanOfferings(
+    args: SearchTrainingPlanOfferingsCommandInput,
+    cb: (err: any, data?: SearchTrainingPlanOfferingsCommandOutput) => void
+  ): void;
+  searchTrainingPlanOfferings(
+    args: SearchTrainingPlanOfferingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchTrainingPlanOfferingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SendPipelineExecutionStepFailureCommand}
    */
   sendPipelineExecutionStepFailure(
@@ -5998,6 +6722,23 @@ export interface SageMaker {
     args: StartInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartMlflowTrackingServerCommand}
+   */
+  startMlflowTrackingServer(
+    args: StartMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartMlflowTrackingServerCommandOutput>;
+  startMlflowTrackingServer(
+    args: StartMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: StartMlflowTrackingServerCommandOutput) => void
+  ): void;
+  startMlflowTrackingServer(
+    args: StartMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -6179,6 +6920,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link StopMlflowTrackingServerCommand}
+   */
+  stopMlflowTrackingServer(
+    args: StopMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopMlflowTrackingServerCommandOutput>;
+  stopMlflowTrackingServer(
+    args: StopMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: StopMlflowTrackingServerCommandOutput) => void
+  ): void;
+  stopMlflowTrackingServer(
+    args: StopMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopMlflowTrackingServerCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StopMonitoringScheduleCommand}
    */
   stopMonitoringSchedule(
@@ -6210,6 +6968,23 @@ export interface SageMaker {
     args: StopNotebookInstanceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StopNotebookInstanceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StopOptimizationJobCommand}
+   */
+  stopOptimizationJob(
+    args: StopOptimizationJobCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StopOptimizationJobCommandOutput>;
+  stopOptimizationJob(
+    args: StopOptimizationJobCommandInput,
+    cb: (err: any, data?: StopOptimizationJobCommandOutput) => void
+  ): void;
+  stopOptimizationJob(
+    args: StopOptimizationJobCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StopOptimizationJobCommandOutput) => void
   ): void;
 
   /**
@@ -6331,6 +7106,23 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link UpdateClusterSchedulerConfigCommand}
+   */
+  updateClusterSchedulerConfig(
+    args: UpdateClusterSchedulerConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterSchedulerConfigCommandOutput>;
+  updateClusterSchedulerConfig(
+    args: UpdateClusterSchedulerConfigCommandInput,
+    cb: (err: any, data?: UpdateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+  updateClusterSchedulerConfig(
+    args: UpdateClusterSchedulerConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterSchedulerConfigCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateClusterSoftwareCommand}
    */
   updateClusterSoftware(
@@ -6362,6 +7154,23 @@ export interface SageMaker {
     args: UpdateCodeRepositoryCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateCodeRepositoryCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateComputeQuotaCommand}
+   */
+  updateComputeQuota(
+    args: UpdateComputeQuotaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateComputeQuotaCommandOutput>;
+  updateComputeQuota(
+    args: UpdateComputeQuotaCommandInput,
+    cb: (err: any, data?: UpdateComputeQuotaCommandOutput) => void
+  ): void;
+  updateComputeQuota(
+    args: UpdateComputeQuotaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateComputeQuotaCommandOutput) => void
   ): void;
 
   /**
@@ -6508,6 +7317,40 @@ export interface SageMaker {
   ): void;
 
   /**
+   * @see {@link UpdateHubContentCommand}
+   */
+  updateHubContent(
+    args: UpdateHubContentCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHubContentCommandOutput>;
+  updateHubContent(
+    args: UpdateHubContentCommandInput,
+    cb: (err: any, data?: UpdateHubContentCommandOutput) => void
+  ): void;
+  updateHubContent(
+    args: UpdateHubContentCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHubContentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateHubContentReferenceCommand}
+   */
+  updateHubContentReference(
+    args: UpdateHubContentReferenceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHubContentReferenceCommandOutput>;
+  updateHubContentReference(
+    args: UpdateHubContentReferenceCommandInput,
+    cb: (err: any, data?: UpdateHubContentReferenceCommandOutput) => void
+  ): void;
+  updateHubContentReference(
+    args: UpdateHubContentReferenceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHubContentReferenceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateImageCommand}
    */
   updateImage(args: UpdateImageCommandInput, options?: __HttpHandlerOptions): Promise<UpdateImageCommandOutput>;
@@ -6584,6 +7427,23 @@ export interface SageMaker {
     args: UpdateInferenceExperimentCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInferenceExperimentCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateMlflowTrackingServerCommand}
+   */
+  updateMlflowTrackingServer(
+    args: UpdateMlflowTrackingServerCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateMlflowTrackingServerCommandOutput>;
+  updateMlflowTrackingServer(
+    args: UpdateMlflowTrackingServerCommandInput,
+    cb: (err: any, data?: UpdateMlflowTrackingServerCommandOutput) => void
+  ): void;
+  updateMlflowTrackingServer(
+    args: UpdateMlflowTrackingServerCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateMlflowTrackingServerCommandOutput) => void
   ): void;
 
   /**
@@ -6683,6 +7543,23 @@ export interface SageMaker {
     args: UpdateNotebookInstanceLifecycleConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateNotebookInstanceLifecycleConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdatePartnerAppCommand}
+   */
+  updatePartnerApp(
+    args: UpdatePartnerAppCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdatePartnerAppCommandOutput>;
+  updatePartnerApp(
+    args: UpdatePartnerAppCommandInput,
+    cb: (err: any, data?: UpdatePartnerAppCommandOutput) => void
+  ): void;
+  updatePartnerApp(
+    args: UpdatePartnerAppCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdatePartnerAppCommandOutput) => void
   ): void;
 
   /**
@@ -6830,22 +7707,7 @@ export interface SageMaker {
 }
 
 /**
- * <p>Provides APIs for creating and managing SageMaker resources. </p>
- *          <p>Other Resources:</p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">SageMaker Developer
- *                         Guide</a>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html">Amazon Augmented AI
- *                         Runtime API Reference</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Provides APIs for creating and managing SageMaker resources. </p> <p>Other Resources:</p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html#first-time-user">SageMaker Developer Guide</a> </p> </li> <li> <p> <a href="https://docs.aws.amazon.com/augmented-ai/2019-11-07/APIReference/Welcome.html">Amazon Augmented AI Runtime API Reference</a> </p> </li> </ul>
  * @public
  */
 export class SageMaker extends SageMakerClient implements SageMaker {}

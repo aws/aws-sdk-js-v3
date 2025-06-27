@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeTopicRefreshScheduleRequest, DescribeTopicRefreshScheduleResponse } from "../models/models_3";
+import { DescribeTopicRefreshScheduleRequest, DescribeTopicRefreshScheduleResponse } from "../models/models_4";
 import {
   de_DescribeTopicRefreshScheduleCommand,
   se_DescribeTopicRefreshScheduleCommand,
@@ -15,7 +15,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface DescribeTopicRefreshScheduleCommandOutput
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeTopicRefreshScheduleCommand extends $Command
@@ -110,9 +112,7 @@ export class DescribeTopicRefreshScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class DescribeTopicRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTopicRefreshScheduleCommand)
   .de(de_DescribeTopicRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTopicRefreshScheduleRequest;
+      output: DescribeTopicRefreshScheduleResponse;
+    };
+    sdk: {
+      input: DescribeTopicRefreshScheduleCommandInput;
+      output: DescribeTopicRefreshScheduleCommandOutput;
+    };
+  };
+}

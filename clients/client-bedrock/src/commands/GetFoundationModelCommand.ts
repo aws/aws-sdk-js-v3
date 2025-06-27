@@ -12,7 +12,8 @@ import { de_GetFoundationModelCommand, se_GetFoundationModelCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,7 +54,7 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * //     ],
  * //     responseStreamingSupported: true || false,
  * //     customizationsSupported: [ // ModelCustomizationList
- * //       "FINE_TUNING" || "CONTINUED_PRE_TRAINING",
+ * //       "FINE_TUNING" || "CONTINUED_PRE_TRAINING" || "DISTILLATION",
  * //     ],
  * //     inferenceTypesSupported: [ // InferenceTypeList
  * //       "ON_DEMAND" || "PROVISIONED",
@@ -90,6 +91,7 @@ export interface GetFoundationModelCommandOutput extends GetFoundationModelRespo
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class GetFoundationModelCommand extends $Command
@@ -100,9 +102,7 @@ export class GetFoundationModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class GetFoundationModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFoundationModelCommand)
   .de(de_GetFoundationModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFoundationModelRequest;
+      output: GetFoundationModelResponse;
+    };
+    sdk: {
+      input: GetFoundationModelCommandInput;
+      output: GetFoundationModelCommandOutput;
+    };
+  };
+}

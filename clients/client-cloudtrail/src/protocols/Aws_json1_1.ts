@@ -12,6 +12,7 @@ import {
   expectNumber as __expectNumber,
   expectString as __expectString,
   limitedParseDouble as __limitedParseDouble,
+  limitedParseFloat32 as __limitedParseFloat32,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -26,12 +27,14 @@ import {
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { CancelQueryCommandInput, CancelQueryCommandOutput } from "../commands/CancelQueryCommand";
 import { CreateChannelCommandInput, CreateChannelCommandOutput } from "../commands/CreateChannelCommand";
+import { CreateDashboardCommandInput, CreateDashboardCommandOutput } from "../commands/CreateDashboardCommand";
 import {
   CreateEventDataStoreCommandInput,
   CreateEventDataStoreCommandOutput,
 } from "../commands/CreateEventDataStoreCommand";
 import { CreateTrailCommandInput, CreateTrailCommandOutput } from "../commands/CreateTrailCommand";
 import { DeleteChannelCommandInput, DeleteChannelCommandOutput } from "../commands/DeleteChannelCommand";
+import { DeleteDashboardCommandInput, DeleteDashboardCommandOutput } from "../commands/DeleteDashboardCommand";
 import {
   DeleteEventDataStoreCommandInput,
   DeleteEventDataStoreCommandOutput,
@@ -49,7 +52,13 @@ import { DescribeQueryCommandInput, DescribeQueryCommandOutput } from "../comman
 import { DescribeTrailsCommandInput, DescribeTrailsCommandOutput } from "../commands/DescribeTrailsCommand";
 import { DisableFederationCommandInput, DisableFederationCommandOutput } from "../commands/DisableFederationCommand";
 import { EnableFederationCommandInput, EnableFederationCommandOutput } from "../commands/EnableFederationCommand";
+import { GenerateQueryCommandInput, GenerateQueryCommandOutput } from "../commands/GenerateQueryCommand";
 import { GetChannelCommandInput, GetChannelCommandOutput } from "../commands/GetChannelCommand";
+import { GetDashboardCommandInput, GetDashboardCommandOutput } from "../commands/GetDashboardCommand";
+import {
+  GetEventConfigurationCommandInput,
+  GetEventConfigurationCommandOutput,
+} from "../commands/GetEventConfigurationCommand";
 import { GetEventDataStoreCommandInput, GetEventDataStoreCommandOutput } from "../commands/GetEventDataStoreCommand";
 import { GetEventSelectorsCommandInput, GetEventSelectorsCommandOutput } from "../commands/GetEventSelectorsCommand";
 import { GetImportCommandInput, GetImportCommandOutput } from "../commands/GetImportCommand";
@@ -62,6 +71,7 @@ import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from ".
 import { GetTrailCommandInput, GetTrailCommandOutput } from "../commands/GetTrailCommand";
 import { GetTrailStatusCommandInput, GetTrailStatusCommandOutput } from "../commands/GetTrailStatusCommand";
 import { ListChannelsCommandInput, ListChannelsCommandOutput } from "../commands/ListChannelsCommand";
+import { ListDashboardsCommandInput, ListDashboardsCommandOutput } from "../commands/ListDashboardsCommand";
 import {
   ListEventDataStoresCommandInput,
   ListEventDataStoresCommandOutput,
@@ -77,6 +87,10 @@ import { ListQueriesCommandInput, ListQueriesCommandOutput } from "../commands/L
 import { ListTagsCommandInput, ListTagsCommandOutput } from "../commands/ListTagsCommand";
 import { ListTrailsCommandInput, ListTrailsCommandOutput } from "../commands/ListTrailsCommand";
 import { LookupEventsCommandInput, LookupEventsCommandOutput } from "../commands/LookupEventsCommand";
+import {
+  PutEventConfigurationCommandInput,
+  PutEventConfigurationCommandOutput,
+} from "../commands/PutEventConfigurationCommand";
 import { PutEventSelectorsCommandInput, PutEventSelectorsCommandOutput } from "../commands/PutEventSelectorsCommand";
 import {
   PutInsightSelectorsCommandInput,
@@ -93,6 +107,14 @@ import {
   RestoreEventDataStoreCommandOutput,
 } from "../commands/RestoreEventDataStoreCommand";
 import {
+  SearchSampleQueriesCommandInput,
+  SearchSampleQueriesCommandOutput,
+} from "../commands/SearchSampleQueriesCommand";
+import {
+  StartDashboardRefreshCommandInput,
+  StartDashboardRefreshCommandOutput,
+} from "../commands/StartDashboardRefreshCommand";
+import {
   StartEventDataStoreIngestionCommandInput,
   StartEventDataStoreIngestionCommandOutput,
 } from "../commands/StartEventDataStoreIngestionCommand";
@@ -106,6 +128,7 @@ import {
 import { StopImportCommandInput, StopImportCommandOutput } from "../commands/StopImportCommand";
 import { StopLoggingCommandInput, StopLoggingCommandOutput } from "../commands/StopLoggingCommand";
 import { UpdateChannelCommandInput, UpdateChannelCommandOutput } from "../commands/UpdateChannelCommand";
+import { UpdateDashboardCommandInput, UpdateDashboardCommandOutput } from "../commands/UpdateDashboardCommand";
 import {
   UpdateEventDataStoreCommandInput,
   UpdateEventDataStoreCommandOutput,
@@ -134,13 +157,16 @@ import {
   CloudWatchLogsDeliveryUnavailableException,
   ConcurrentModificationException,
   ConflictException,
+  ContextKeySelector,
   CreateChannelRequest,
+  CreateDashboardRequest,
   CreateEventDataStoreRequest,
   CreateEventDataStoreResponse,
   CreateTrailRequest,
   DataResource,
   DelegatedAdminAccountLimitExceededException,
   DeleteChannelRequest,
+  DeleteDashboardRequest,
   DeleteEventDataStoreRequest,
   DeleteResourcePolicyRequest,
   DeleteTrailRequest,
@@ -161,8 +187,13 @@ import {
   EventDataStoreNotFoundException,
   EventDataStoreTerminationProtectedException,
   EventSelector,
+  GenerateQueryRequest,
+  GenerateResponseException,
   GetChannelRequest,
   GetChannelResponse,
+  GetDashboardRequest,
+  GetDashboardResponse,
+  GetEventConfigurationRequest,
   GetEventDataStoreRequest,
   GetEventDataStoreResponse,
   GetEventSelectorsRequest,
@@ -185,6 +216,7 @@ import {
   InsightSelector,
   InsufficientDependencyServiceAccessPermissionException,
   InsufficientEncryptionPolicyException,
+  InsufficientIAMAccessPermissionException,
   InsufficientS3BucketPolicyException,
   InsufficientSnsTopicPolicyException,
   InvalidCloudWatchLogsLogGroupArnException,
@@ -217,6 +249,7 @@ import {
   KmsKeyDisabledException,
   KmsKeyNotFoundException,
   ListChannelsRequest,
+  ListDashboardsRequest,
   ListEventDataStoresRequest,
   ListEventDataStoresResponse,
   ListImportFailuresRequest,
@@ -243,14 +276,18 @@ import {
   OrganizationNotInAllFeaturesModeException,
   OrganizationsNotInUseException,
   PublicKey,
+  PutEventConfigurationRequest,
   PutEventSelectorsRequest,
   PutInsightSelectorsRequest,
   PutResourcePolicyRequest,
   Query,
   QueryIdNotFoundException,
   QueryStatisticsForDescribeQuery,
+  RefreshSchedule,
+  RefreshScheduleFrequency,
   RegisterOrganizationDelegatedAdminRequest,
   RemoveTagsRequest,
+  RequestWidget,
   ResourceARNNotValidException,
   ResourceNotFoundException,
   ResourcePolicyNotFoundException,
@@ -260,6 +297,11 @@ import {
   RestoreEventDataStoreResponse,
   S3BucketDoesNotExistException,
   S3ImportSource,
+  SearchSampleQueriesRequest,
+  SearchSampleQueriesResponse,
+  SearchSampleQueriesSearchResult,
+  ServiceQuotaExceededException,
+  StartDashboardRefreshRequest,
   StartEventDataStoreIngestionRequest,
   StartImportRequest,
   StartImportResponse,
@@ -277,6 +319,8 @@ import {
   TrailNotProvidedException,
   UnsupportedOperationException,
   UpdateChannelRequest,
+  UpdateDashboardRequest,
+  UpdateDashboardResponse,
   UpdateEventDataStoreRequest,
   UpdateEventDataStoreResponse,
   UpdateTrailRequest,
@@ -322,6 +366,19 @@ export const se_CreateChannelCommand = async (
 };
 
 /**
+ * serializeAws_json1_1CreateDashboardCommand
+ */
+export const se_CreateDashboardCommand = async (
+  input: CreateDashboardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreateDashboard");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1CreateEventDataStoreCommand
  */
 export const se_CreateEventDataStoreCommand = async (
@@ -355,6 +412,19 @@ export const se_DeleteChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("DeleteChannel");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteDashboardCommand
+ */
+export const se_DeleteDashboardCommand = async (
+  input: DeleteDashboardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteDashboard");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -465,6 +535,19 @@ export const se_EnableFederationCommand = async (
 };
 
 /**
+ * serializeAws_json1_1GenerateQueryCommand
+ */
+export const se_GenerateQueryCommand = async (
+  input: GenerateQueryCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GenerateQuery");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1GetChannelCommand
  */
 export const se_GetChannelCommand = async (
@@ -472,6 +555,32 @@ export const se_GetChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetChannel");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetDashboardCommand
+ */
+export const se_GetDashboardCommand = async (
+  input: GetDashboardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetDashboard");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetEventConfigurationCommand
+ */
+export const se_GetEventConfigurationCommand = async (
+  input: GetEventConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetEventConfiguration");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -595,6 +704,19 @@ export const se_ListChannelsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListDashboardsCommand
+ */
+export const se_ListDashboardsCommand = async (
+  input: ListDashboardsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListDashboards");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListEventDataStoresCommand
  */
 export const se_ListEventDataStoresCommand = async (
@@ -712,6 +834,19 @@ export const se_LookupEventsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1PutEventConfigurationCommand
+ */
+export const se_PutEventConfigurationCommand = async (
+  input: PutEventConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("PutEventConfiguration");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1PutEventSelectorsCommand
  */
 export const se_PutEventSelectorsCommand = async (
@@ -784,6 +919,32 @@ export const se_RestoreEventDataStoreCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("RestoreEventDataStore");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SearchSampleQueriesCommand
+ */
+export const se_SearchSampleQueriesCommand = async (
+  input: SearchSampleQueriesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SearchSampleQueries");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1StartDashboardRefreshCommand
+ */
+export const se_StartDashboardRefreshCommand = async (
+  input: StartDashboardRefreshCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("StartDashboardRefresh");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -894,6 +1055,19 @@ export const se_UpdateChannelCommand = async (
 };
 
 /**
+ * serializeAws_json1_1UpdateDashboardCommand
+ */
+export const se_UpdateDashboardCommand = async (
+  input: UpdateDashboardCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateDashboard");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1UpdateEventDataStoreCommand
  */
 export const se_UpdateEventDataStoreCommand = async (
@@ -980,6 +1154,26 @@ export const de_CreateChannelCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreateDashboardCommand
+ */
+export const de_CreateDashboardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateDashboardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreateDashboardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateEventDataStoreCommand
  */
 export const de_CreateEventDataStoreCommand = async (
@@ -1033,6 +1227,26 @@ export const de_DeleteChannelCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: DeleteChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteDashboardCommand
+ */
+export const de_DeleteDashboardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteDashboardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteDashboardCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1200,6 +1414,26 @@ export const de_EnableFederationCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1GenerateQueryCommand
+ */
+export const de_GenerateQueryCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GenerateQueryCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GenerateQueryCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1GetChannelCommand
  */
 export const de_GetChannelCommand = async (
@@ -1213,6 +1447,46 @@ export const de_GetChannelCommand = async (
   let contents: any = {};
   contents = de_GetChannelResponse(data, context);
   const response: GetChannelCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetDashboardCommand
+ */
+export const de_GetDashboardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetDashboardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetDashboardResponse(data, context);
+  const response: GetDashboardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetEventConfigurationCommand
+ */
+export const de_GetEventConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEventConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetEventConfigurationCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1400,6 +1674,26 @@ export const de_ListChannelsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListDashboardsCommand
+ */
+export const de_ListDashboardsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListDashboardsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListDashboardsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListEventDataStoresCommand
  */
 export const de_ListEventDataStoresCommand = async (
@@ -1580,6 +1874,26 @@ export const de_LookupEventsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1PutEventConfigurationCommand
+ */
+export const de_PutEventConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutEventConfigurationCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: PutEventConfigurationCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1PutEventSelectorsCommand
  */
 export const de_PutEventSelectorsCommand = async (
@@ -1693,6 +2007,46 @@ export const de_RestoreEventDataStoreCommand = async (
   let contents: any = {};
   contents = de_RestoreEventDataStoreResponse(data, context);
   const response: RestoreEventDataStoreCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesCommand
+ */
+export const de_SearchSampleQueriesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SearchSampleQueriesCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SearchSampleQueriesResponse(data, context);
+  const response: SearchSampleQueriesCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1StartDashboardRefreshCommand
+ */
+export const de_StartDashboardRefreshCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartDashboardRefreshCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: StartDashboardRefreshCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1860,6 +2214,26 @@ export const de_UpdateChannelCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateDashboardCommand
+ */
+export const de_UpdateDashboardCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateDashboardCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateDashboardResponse(data, context);
+  const response: UpdateDashboardCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateEventDataStoreCommand
  */
 export const de_UpdateEventDataStoreCommand = async (
@@ -1978,6 +2352,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidSourceException":
     case "com.amazonaws.cloudtrail#InvalidSourceException":
       throw await de_InvalidSourceExceptionRes(parsedOutput, context);
+    case "InsufficientEncryptionPolicyException":
+    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
+      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
+    case "InvalidQueryStatementException":
+    case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
+      throw await de_InvalidQueryStatementExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.cloudtrail#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "CloudTrailAccessNotEnabledException":
     case "com.amazonaws.cloudtrail#CloudTrailAccessNotEnabledException":
       throw await de_CloudTrailAccessNotEnabledExceptionRes(parsedOutput, context);
@@ -1990,9 +2373,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InsufficientDependencyServiceAccessPermissionException":
     case "com.amazonaws.cloudtrail#InsufficientDependencyServiceAccessPermissionException":
       throw await de_InsufficientDependencyServiceAccessPermissionExceptionRes(parsedOutput, context);
-    case "InsufficientEncryptionPolicyException":
-    case "com.amazonaws.cloudtrail#InsufficientEncryptionPolicyException":
-      throw await de_InsufficientEncryptionPolicyExceptionRes(parsedOutput, context);
     case "InvalidEventSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidEventSelectorsException":
       throw await de_InvalidEventSelectorsExceptionRes(parsedOutput, context);
@@ -2098,6 +2478,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ConcurrentModificationException":
     case "com.amazonaws.cloudtrail#ConcurrentModificationException":
       throw await de_ConcurrentModificationExceptionRes(parsedOutput, context);
+    case "GenerateResponseException":
+    case "com.amazonaws.cloudtrail#GenerateResponseException":
+      throw await de_GenerateResponseExceptionRes(parsedOutput, context);
+    case "InvalidEventDataStoreStatusException":
+    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
+      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
     case "ImportNotFoundException":
     case "com.amazonaws.cloudtrail#ImportNotFoundException":
       throw await de_ImportNotFoundExceptionRes(parsedOutput, context);
@@ -2128,6 +2514,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidLookupAttributesException":
     case "com.amazonaws.cloudtrail#InvalidLookupAttributesException":
       throw await de_InvalidLookupAttributesExceptionRes(parsedOutput, context);
+    case "InsufficientIAMAccessPermissionException":
+    case "com.amazonaws.cloudtrail#InsufficientIAMAccessPermissionException":
+      throw await de_InsufficientIAMAccessPermissionExceptionRes(parsedOutput, context);
     case "InvalidInsightSelectorsException":
     case "com.amazonaws.cloudtrail#InvalidInsightSelectorsException":
       throw await de_InvalidInsightSelectorsExceptionRes(parsedOutput, context);
@@ -2143,18 +2532,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "DelegatedAdminAccountLimitExceededException":
     case "com.amazonaws.cloudtrail#DelegatedAdminAccountLimitExceededException":
       throw await de_DelegatedAdminAccountLimitExceededExceptionRes(parsedOutput, context);
-    case "InvalidEventDataStoreStatusException":
-    case "com.amazonaws.cloudtrail#InvalidEventDataStoreStatusException":
-      throw await de_InvalidEventDataStoreStatusExceptionRes(parsedOutput, context);
     case "AccountHasOngoingImportException":
     case "com.amazonaws.cloudtrail#AccountHasOngoingImportException":
       throw await de_AccountHasOngoingImportExceptionRes(parsedOutput, context);
     case "InvalidImportSourceException":
     case "com.amazonaws.cloudtrail#InvalidImportSourceException":
       throw await de_InvalidImportSourceExceptionRes(parsedOutput, context);
-    case "InvalidQueryStatementException":
-    case "com.amazonaws.cloudtrail#InvalidQueryStatementException":
-      throw await de_InvalidQueryStatementExceptionRes(parsedOutput, context);
     case "MaxConcurrentQueriesException":
     case "com.amazonaws.cloudtrail#MaxConcurrentQueriesException":
       throw await de_MaxConcurrentQueriesExceptionRes(parsedOutput, context);
@@ -2566,6 +2949,22 @@ const de_EventDataStoreTerminationProtectedExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1GenerateResponseExceptionRes
+ */
+const de_GenerateResponseExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<GenerateResponseException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new GenerateResponseException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ImportNotFoundExceptionRes
  */
 const de_ImportNotFoundExceptionRes = async (
@@ -2655,6 +3054,22 @@ const de_InsufficientEncryptionPolicyExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new InsufficientEncryptionPolicyException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InsufficientIAMAccessPermissionExceptionRes
+ */
+const de_InsufficientIAMAccessPermissionExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InsufficientIAMAccessPermissionException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InsufficientIAMAccessPermissionException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -3395,6 +3810,22 @@ const de_S3BucketDoesNotExistExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ServiceQuotaExceededExceptionRes
+ */
+const de_ServiceQuotaExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ServiceQuotaExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ServiceQuotaExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1TagsLimitExceededExceptionRes
  */
 const de_TagsLimitExceededExceptionRes = async (
@@ -3499,7 +3930,13 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_CancelQueryRequest omitted.
 
+// se_ContextKeySelector omitted.
+
+// se_ContextKeySelectors omitted.
+
 // se_CreateChannelRequest omitted.
+
+// se_CreateDashboardRequest omitted.
 
 // se_CreateEventDataStoreRequest omitted.
 
@@ -3512,6 +3949,8 @@ const de_UnsupportedOperationExceptionRes = async (
 // se_DataResourceValues omitted.
 
 // se_DeleteChannelRequest omitted.
+
+// se_DeleteDashboardRequest omitted.
 
 // se_DeleteEventDataStoreRequest omitted.
 
@@ -3533,13 +3972,21 @@ const de_UnsupportedOperationExceptionRes = async (
 
 // se_EnableFederationRequest omitted.
 
+// se_EventDataStoreList omitted.
+
 // se_EventSelector omitted.
 
 // se_EventSelectors omitted.
 
 // se_ExcludeManagementEventSources omitted.
 
+// se_GenerateQueryRequest omitted.
+
 // se_GetChannelRequest omitted.
+
+// se_GetDashboardRequest omitted.
+
+// se_GetEventConfigurationRequest omitted.
 
 // se_GetEventDataStoreRequest omitted.
 
@@ -3566,6 +4013,8 @@ const de_UnsupportedOperationExceptionRes = async (
 // se_InsightSelectors omitted.
 
 // se_ListChannelsRequest omitted.
+
+// se_ListDashboardsRequest omitted.
 
 // se_ListEventDataStoresRequest omitted.
 
@@ -3640,6 +4089,10 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
 
 // se_Operator omitted.
 
+// se_OperatorTargetList omitted.
+
+// se_PutEventConfigurationRequest omitted.
+
 // se_PutEventSelectorsRequest omitted.
 
 // se_PutInsightSelectorsRequest omitted.
@@ -3648,15 +4101,29 @@ const se_LookupEventsRequest = (input: LookupEventsRequest, context: __SerdeCont
 
 // se_QueryParameters omitted.
 
+// se_QueryParameterValues omitted.
+
+// se_RefreshSchedule omitted.
+
+// se_RefreshScheduleFrequency omitted.
+
 // se_RegisterOrganizationDelegatedAdminRequest omitted.
 
 // se_RemoveTagsRequest omitted.
+
+// se_RequestWidget omitted.
+
+// se_RequestWidgetList omitted.
 
 // se_ResourceIdList omitted.
 
 // se_RestoreEventDataStoreRequest omitted.
 
 // se_S3ImportSource omitted.
+
+// se_SearchSampleQueriesRequest omitted.
+
+// se_StartDashboardRefreshRequest omitted.
 
 // se_StartEventDataStoreIngestionRequest omitted.
 
@@ -3691,9 +4158,13 @@ const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContex
 
 // se_UpdateChannelRequest omitted.
 
+// se_UpdateDashboardRequest omitted.
+
 // se_UpdateEventDataStoreRequest omitted.
 
 // se_UpdateTrailRequest omitted.
+
+// se_ViewPropertiesMap omitted.
 
 // de_AccessDeniedException omitted.
 
@@ -3745,7 +4216,13 @@ const se_StartImportRequest = (input: StartImportRequest, context: __SerdeContex
 
 // de_ConflictException omitted.
 
+// de_ContextKeySelector omitted.
+
+// de_ContextKeySelectors omitted.
+
 // de_CreateChannelResponse omitted.
+
+// de_CreateDashboardResponse omitted.
 
 /**
  * deserializeAws_json1_1CreateEventDataStoreResponse
@@ -3770,6 +4247,10 @@ const de_CreateEventDataStoreResponse = (output: any, context: __SerdeContext): 
 
 // de_CreateTrailResponse omitted.
 
+// de_DashboardDetail omitted.
+
+// de_Dashboards omitted.
+
 // de_DataResource omitted.
 
 // de_DataResources omitted.
@@ -3779,6 +4260,8 @@ const de_CreateEventDataStoreResponse = (output: any, context: __SerdeContext): 
 // de_DelegatedAdminAccountLimitExceededException omitted.
 
 // de_DeleteChannelResponse omitted.
+
+// de_DeleteDashboardResponse omitted.
 
 // de_DeleteEventDataStoreResponse omitted.
 
@@ -3796,6 +4279,8 @@ const de_DescribeQueryResponse = (output: any, context: __SerdeContext): Describ
     DeliveryS3Uri: __expectString,
     DeliveryStatus: __expectString,
     ErrorMessage: __expectString,
+    EventDataStoreOwnerAccountId: __expectString,
+    Prompt: __expectString,
     QueryId: __expectString,
     QueryStatistics: (_: any) => de_QueryStatisticsForDescribeQuery(_, context),
     QueryStatus: __expectString,
@@ -3892,6 +4377,10 @@ const de_EventsList = (output: any, context: __SerdeContext): Event[] => {
 
 // de_ExcludeManagementEventSources omitted.
 
+// de_GenerateQueryResponse omitted.
+
+// de_GenerateResponseException omitted.
+
 /**
  * deserializeAws_json1_1GetChannelResponse
  */
@@ -3905,6 +4394,26 @@ const de_GetChannelResponse = (output: any, context: __SerdeContext): GetChannel
     SourceConfig: _json,
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_1GetDashboardResponse
+ */
+const de_GetDashboardResponse = (output: any, context: __SerdeContext): GetDashboardResponse => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DashboardArn: __expectString,
+    LastRefreshFailureReason: __expectString,
+    LastRefreshId: __expectString,
+    RefreshSchedule: _json,
+    Status: __expectString,
+    TerminationProtectionEnabled: __expectBoolean,
+    Type: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Widgets: _json,
+  }) as any;
+};
+
+// de_GetEventConfigurationResponse omitted.
 
 /**
  * deserializeAws_json1_1GetEventDataStoreResponse
@@ -4078,6 +4587,8 @@ const de_InsightsMetricValues = (output: any, context: __SerdeContext): number[]
 
 // de_InsufficientEncryptionPolicyException omitted.
 
+// de_InsufficientIAMAccessPermissionException omitted.
+
 // de_InsufficientS3BucketPolicyException omitted.
 
 // de_InsufficientSnsTopicPolicyException omitted.
@@ -4141,6 +4652,8 @@ const de_InsightsMetricValues = (output: any, context: __SerdeContext): number[]
 // de_KmsKeyNotFoundException omitted.
 
 // de_ListChannelsResponse omitted.
+
+// de_ListDashboardsResponse omitted.
 
 /**
  * deserializeAws_json1_1ListEventDataStoresResponse
@@ -4235,6 +4748,8 @@ const de_LookupEventsResponse = (output: any, context: __SerdeContext): LookupEv
 
 // de_Operator omitted.
 
+// de_OperatorTargetList omitted.
+
 // de_OrganizationNotInAllFeaturesModeException omitted.
 
 // de_OrganizationsNotInUseException omitted.
@@ -4267,6 +4782,8 @@ const de_PublicKeyList = (output: any, context: __SerdeContext): PublicKey[] => 
   return retVal;
 };
 
+// de_PutEventConfigurationResponse omitted.
+
 // de_PutEventSelectorsResponse omitted.
 
 // de_PutInsightSelectorsResponse omitted.
@@ -4298,6 +4815,8 @@ const de_Query = (output: any, context: __SerdeContext): Query => {
 
 // de_QueryIdNotFoundException omitted.
 
+// de_QueryParameters omitted.
+
 // de_QueryResultColumn omitted.
 
 // de_QueryResultRow omitted.
@@ -4318,6 +4837,10 @@ const de_QueryStatisticsForDescribeQuery = (output: any, context: __SerdeContext
     ExecutionTimeInMillis: __expectInt32,
   }) as any;
 };
+
+// de_RefreshSchedule omitted.
+
+// de_RefreshScheduleFrequency omitted.
 
 // de_RegisterOrganizationDelegatedAdminResponse omitted.
 
@@ -4365,7 +4888,48 @@ const de_RestoreEventDataStoreResponse = (output: any, context: __SerdeContext):
 
 // de_S3ImportSource omitted.
 
+/**
+ * deserializeAws_json1_1SearchSampleQueriesResponse
+ */
+const de_SearchSampleQueriesResponse = (output: any, context: __SerdeContext): SearchSampleQueriesResponse => {
+  return take(output, {
+    NextToken: __expectString,
+    SearchResults: (_: any) => de_SearchSampleQueriesSearchResults(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesSearchResult
+ */
+const de_SearchSampleQueriesSearchResult = (output: any, context: __SerdeContext): SearchSampleQueriesSearchResult => {
+  return take(output, {
+    Description: __expectString,
+    Name: __expectString,
+    Relevance: __limitedParseFloat32,
+    SQL: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1SearchSampleQueriesSearchResults
+ */
+const de_SearchSampleQueriesSearchResults = (
+  output: any,
+  context: __SerdeContext
+): SearchSampleQueriesSearchResult[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_SearchSampleQueriesSearchResult(entry, context);
+    });
+  return retVal;
+};
+
+// de_ServiceQuotaExceededException omitted.
+
 // de_SourceConfig omitted.
+
+// de_StartDashboardRefreshResponse omitted.
 
 // de_StartEventDataStoreIngestionResponse omitted.
 
@@ -4449,6 +5013,22 @@ const de_Timestamps = (output: any, context: __SerdeContext): Date[] => {
 // de_UpdateChannelResponse omitted.
 
 /**
+ * deserializeAws_json1_1UpdateDashboardResponse
+ */
+const de_UpdateDashboardResponse = (output: any, context: __SerdeContext): UpdateDashboardResponse => {
+  return take(output, {
+    CreatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    DashboardArn: __expectString,
+    Name: __expectString,
+    RefreshSchedule: _json,
+    TerminationProtectionEnabled: __expectBoolean,
+    Type: __expectString,
+    UpdatedTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Widgets: _json,
+  }) as any;
+};
+
+/**
  * deserializeAws_json1_1UpdateEventDataStoreResponse
  */
 const de_UpdateEventDataStoreResponse = (output: any, context: __SerdeContext): UpdateEventDataStoreResponse => {
@@ -4471,6 +5051,12 @@ const de_UpdateEventDataStoreResponse = (output: any, context: __SerdeContext): 
 };
 
 // de_UpdateTrailResponse omitted.
+
+// de_ViewPropertiesMap omitted.
+
+// de_Widget omitted.
+
+// de_WidgetList omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

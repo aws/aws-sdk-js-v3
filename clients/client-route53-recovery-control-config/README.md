@@ -10,7 +10,7 @@ AWS SDK for JavaScript Route53RecoveryControlConfig Client for Node.js, Browser 
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-route53-recovery-control-config
+To install this package, simply type add or install @aws-sdk/client-route53-recovery-control-config
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-route53-recovery-control-config`
@@ -375,6 +375,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/route53-recovery-control-config/command/UpdateClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-route53-recovery-control-config/Interface/UpdateClusterCommandOutput/)
 
 </details>
 <details>

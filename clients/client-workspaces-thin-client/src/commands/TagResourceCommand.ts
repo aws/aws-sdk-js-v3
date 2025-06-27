@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,9 +61,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The server encountered an internal error and is unable to complete the request.</p>
@@ -79,6 +78,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class TagResourceCommand extends $Command
@@ -89,9 +89,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +101,16 @@ export class TagResourceCommand extends $Command
   .f(TagResourceRequestFilterSensitiveLog, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

@@ -75,7 +75,7 @@ const checkState = async (client: RDSClient, input: DescribeDBSnapshotsCommandIn
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "DBSnapshotNotFound") {
+    if (exception.name && exception.name == "DBSnapshotNotFoundFault") {
       return { state: WaiterState.SUCCESS, reason };
     }
   }

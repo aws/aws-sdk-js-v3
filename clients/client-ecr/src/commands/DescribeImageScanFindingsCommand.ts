@@ -12,7 +12,8 @@ import { de_DescribeImageScanFindingsCommand, se_DescribeImageScanFindingsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,7 +55,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * //     imageTag: "STRING_VALUE",
  * //   },
  * //   imageScanStatus: { // ImageScanStatus
- * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE",
+ * //     status: "IN_PROGRESS" || "COMPLETE" || "FAILED" || "UNSUPPORTED_IMAGE" || "ACTIVE" || "PENDING" || "SCAN_ELIGIBILITY_EXPIRED" || "FINDINGS_UNAVAILABLE" || "LIMIT_EXCEEDED",
  * //     description: "STRING_VALUE",
  * //   },
  * //   imageScanFindings: { // ImageScanFindings
@@ -115,6 +116,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * //               release: "STRING_VALUE",
  * //               sourceLayerHash: "STRING_VALUE",
  * //               version: "STRING_VALUE",
+ * //               fixedInVersion: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -136,6 +138,8 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * //                 ],
  * //                 platform: "STRING_VALUE",
  * //                 pushedAt: new Date("TIMESTAMP"),
+ * //                 lastInUseAt: new Date("TIMESTAMP"),
+ * //                 inUseCount: Number("long"),
  * //                 registry: "STRING_VALUE",
  * //                 repositoryName: "STRING_VALUE",
  * //               },
@@ -167,6 +171,8 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * //         title: "STRING_VALUE",
  * //         type: "STRING_VALUE",
  * //         updatedAt: new Date("TIMESTAMP"),
+ * //         fixAvailable: "STRING_VALUE",
+ * //         exploitAvailable: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -205,6 +211,7 @@ export interface DescribeImageScanFindingsCommandOutput extends DescribeImageSca
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class DescribeImageScanFindingsCommand extends $Command
@@ -215,9 +222,7 @@ export class DescribeImageScanFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -229,4 +234,16 @@ export class DescribeImageScanFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeImageScanFindingsCommand)
   .de(de_DescribeImageScanFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeImageScanFindingsRequest;
+      output: DescribeImageScanFindingsResponse;
+    };
+    sdk: {
+      input: DescribeImageScanFindingsCommandInput;
+      output: DescribeImageScanFindingsCommandOutput;
+    };
+  };
+}

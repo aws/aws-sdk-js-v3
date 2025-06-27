@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSpotDatafeedSubscriptionRequest, DescribeSpotDatafeedSubscriptionResult } from "../models/models_4";
+import { DescribeSpotDatafeedSubscriptionRequest, DescribeSpotDatafeedSubscriptionResult } from "../models/models_5";
 import {
   de_DescribeSpotDatafeedSubscriptionCommand,
   se_DescribeSpotDatafeedSubscriptionCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,7 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
 
 /**
  * <p>Describes the data feed for Spot Instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html">Spot
- *             Instance data feed</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ *             Instance data feed</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,26 +70,26 @@ export interface DescribeSpotDatafeedSubscriptionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the datafeed for your AWS account
  * ```javascript
  * // This example describes the Spot Instance datafeed subscription for your AWS account.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeSpotDatafeedSubscriptionCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "SpotDatafeedSubscription": {
- *     "Bucket": "my-s3-bucket",
- *     "OwnerId": "123456789012",
- *     "Prefix": "spotdata",
- *     "State": "Active"
+ *   SpotDatafeedSubscription: {
+ *     Bucket: "my-s3-bucket",
+ *     OwnerId: "123456789012",
+ *     Prefix: "spotdata",
+ *     State: "Active"
  *   }
  * }
  * *\/
- * // example id: ec2-describe-spot-datafeed-subscription-1
  * ```
  *
+ * @public
  */
 export class DescribeSpotDatafeedSubscriptionCommand extends $Command
   .classBuilder<
@@ -98,9 +99,7 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class DescribeSpotDatafeedSubscriptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpotDatafeedSubscriptionCommand)
   .de(de_DescribeSpotDatafeedSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpotDatafeedSubscriptionRequest;
+      output: DescribeSpotDatafeedSubscriptionResult;
+    };
+    sdk: {
+      input: DescribeSpotDatafeedSubscriptionCommandInput;
+      output: DescribeSpotDatafeedSubscriptionCommandOutput;
+    };
+  };
+}

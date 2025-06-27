@@ -16,7 +16,8 @@ import { de_GetBackupPlanFromJSONCommand, se_GetBackupPlanFromJSONCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,13 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * //         ],
  * //         EnableContinuousBackup: true || false,
  * //         ScheduleExpressionTimezone: "STRING_VALUE",
+ * //         IndexActions: [ // IndexActions
+ * //           { // IndexAction
+ * //             ResourceTypes: [ // ResourceTypes
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         ],
  * //       },
  * //     ],
  * //     AdvancedBackupSettings: [ // AdvancedBackupSettings
@@ -116,6 +124,7 @@ export interface GetBackupPlanFromJSONCommandOutput extends GetBackupPlanFromJSO
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class GetBackupPlanFromJSONCommand extends $Command
@@ -126,9 +135,7 @@ export class GetBackupPlanFromJSONCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +147,16 @@ export class GetBackupPlanFromJSONCommand extends $Command
   .f(void 0, GetBackupPlanFromJSONOutputFilterSensitiveLog)
   .ser(se_GetBackupPlanFromJSONCommand)
   .de(de_GetBackupPlanFromJSONCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBackupPlanFromJSONInput;
+      output: GetBackupPlanFromJSONOutput;
+    };
+    sdk: {
+      input: GetBackupPlanFromJSONCommandInput;
+      output: GetBackupPlanFromJSONCommandOutput;
+    };
+  };
+}

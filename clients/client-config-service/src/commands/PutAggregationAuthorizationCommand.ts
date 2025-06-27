@@ -12,7 +12,8 @@ import { de_PutAggregationAuthorizationCommand, se_PutAggregationAuthorizationCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,8 +34,12 @@ export interface PutAggregationAuthorizationCommandOutput
  * 			from the source account and region. </p>
  *          <note>
  *             <p>
+ *                <b>Tags are added at creation and cannot be updated with this operation</b>
+ *             </p>
+ *             <p>
  *                <code>PutAggregationAuthorization</code> is an idempotent API. Subsequent requests won’t create a duplicate resource if one was already created. If a following request has different <code>tags</code> values,
  * 			Config will ignore these differences and treat it as an idempotent request of the previous. In this case, <code>tags</code> will not be updated, even if they are different.</p>
+ *             <p>Use <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_TagResource.html">TagResource</a> and <a href="https://docs.aws.amazon.com/config/latest/APIReference/API_UntagResource.html">UntagResource</a> to update tags after creation.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -78,6 +83,7 @@ export interface PutAggregationAuthorizationCommandOutput
  * @throws {@link ConfigServiceServiceException}
  * <p>Base exception class for all service exceptions from ConfigService service.</p>
  *
+ *
  * @public
  */
 export class PutAggregationAuthorizationCommand extends $Command
@@ -88,9 +94,7 @@ export class PutAggregationAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConfigServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +106,16 @@ export class PutAggregationAuthorizationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAggregationAuthorizationCommand)
   .de(de_PutAggregationAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAggregationAuthorizationRequest;
+      output: PutAggregationAuthorizationResponse;
+    };
+    sdk: {
+      input: PutAggregationAuthorizationCommandInput;
+      output: PutAggregationAuthorizationCommandOutput;
+    };
+  };
+}

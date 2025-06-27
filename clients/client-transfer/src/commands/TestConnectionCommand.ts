@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface TestConnectionCommandInput extends TestConnectionRequest {}
 export interface TestConnectionCommandOutput extends TestConnectionResponse, __MetadataBearer {}
 
 /**
- * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this
- *     operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's
- *     SFTP server.</p>
+ * <p>Tests whether your SFTP connector is set up successfully. We highly recommend that you call this operation to test your ability to transfer files between local Amazon Web Services storage and a trading partner's SFTP server.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +44,9 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  * //   ConnectorId: "STRING_VALUE",
  * //   Status: "STRING_VALUE",
  * //   StatusMessage: "STRING_VALUE",
+ * //   SftpConnectionDetails: { // SftpConnectorConnectionDetails
+ * //     HostKey: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -62,14 +64,14 @@ export interface TestConnectionCommandOutput extends TestConnectionResponse, __M
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -81,9 +83,7 @@ export class TestConnectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class TestConnectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TestConnectionCommand)
   .de(de_TestConnectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TestConnectionRequest;
+      output: TestConnectionResponse;
+    };
+    sdk: {
+      input: TestConnectionCommandInput;
+      output: TestConnectionCommandOutput;
+    };
+  };
+}

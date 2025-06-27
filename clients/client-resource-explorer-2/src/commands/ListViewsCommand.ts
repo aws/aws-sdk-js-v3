@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface ListViewsCommandOutput extends ListViewsOutput, __MetadataBeare
  * @throws {@link ResourceExplorer2ServiceException}
  * <p>Base exception class for all service exceptions from ResourceExplorer2 service.</p>
  *
+ *
  * @public
  */
 export class ListViewsCommand extends $Command
@@ -98,9 +100,7 @@ export class ListViewsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResourceExplorer2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListViewsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListViewsCommand)
   .de(de_ListViewsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListViewsInput;
+      output: ListViewsOutput;
+    };
+    sdk: {
+      input: ListViewsCommandInput;
+      output: ListViewsCommandOutput;
+    };
+  };
+}

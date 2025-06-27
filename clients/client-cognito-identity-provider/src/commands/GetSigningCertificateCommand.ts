@@ -16,7 +16,8 @@ import { de_GetSigningCertificateCommand, se_GetSigningCertificateCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,11 +32,32 @@ export interface GetSigningCertificateCommandInput extends GetSigningCertificate
 export interface GetSigningCertificateCommandOutput extends GetSigningCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>This method takes a user pool ID, and returns the signing certificate. The issued
- *             certificate is valid for 10 years from the date of issue.</p>
- *          <p>Amazon Cognito issues and assigns a new signing certificate annually. This process returns a
- *             new value in the response to <code>GetSigningCertificate</code>, but doesn't invalidate
- *             the original certificate.</p>
+ * <p>Given a user pool ID, returns the signing certificate for SAML 2.0 federation.</p>
+ *          <p>Issued certificates are valid for 10 years from the date of issue. Amazon Cognito issues and
+ *             assigns a new signing certificate annually. This renewal process returns a new value in
+ *             the response to <code>GetSigningCertificate</code>, but doesn't invalidate the original
+ *             certificate.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-SAML-signing-encryption.html#cognito-user-pools-SAML-signing">Signing SAML requests</a>.</p>
+ *          <note>
+ *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
+ *     this operation, you must use IAM credentials to authorize requests, and you must
+ *     grant yourself the corresponding IAM permission in a policy.</p>
+ *             <p class="title">
+ *                <b>Learn more</b>
+ *             </p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-signing.html">Signing Amazon Web Services API Requests</a>
+ *                   </p>
+ *                </li>
+ *                <li>
+ *                   <p>
+ *                      <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pools-API-operations.html">Using the Amazon Cognito user pools API and user pool endpoints</a>
+ *                   </p>
+ *                </li>
+ *             </ul>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +95,7 @@ export interface GetSigningCertificateCommandOutput extends GetSigningCertificat
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class GetSigningCertificateCommand extends $Command
@@ -83,9 +106,7 @@ export class GetSigningCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +118,16 @@ export class GetSigningCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSigningCertificateCommand)
   .de(de_GetSigningCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSigningCertificateRequest;
+      output: GetSigningCertificateResponse;
+    };
+    sdk: {
+      input: GetSigningCertificateCommandInput;
+      output: GetSigningCertificateCommandOutput;
+    };
+  };
+}

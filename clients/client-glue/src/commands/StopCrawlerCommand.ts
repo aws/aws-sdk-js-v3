@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StopCrawlerRequest, StopCrawlerResponse } from "../models/models_2";
+import { StopCrawlerRequest, StopCrawlerResponse } from "../models/models_3";
 import { de_StopCrawlerCommand, se_StopCrawlerCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface StopCrawlerCommandOutput extends StopCrawlerResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StopCrawlerCommand extends $Command
@@ -74,9 +76,7 @@ export class StopCrawlerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class StopCrawlerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopCrawlerCommand)
   .de(de_StopCrawlerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopCrawlerRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopCrawlerCommandInput;
+      output: StopCrawlerCommandOutput;
+    };
+  };
+}

@@ -228,9 +228,9 @@ export const se_ListCodeReviewsCommand = async (
   const headers: any = {};
   b.bp("/codereviews");
   const query: any = map({
-    [_PT]: [() => input.ProviderTypes !== void 0, () => (input[_PT]! || []).map((_entry) => _entry as any)],
-    [_S]: [() => input.States !== void 0, () => (input[_S]! || []).map((_entry) => _entry as any)],
-    [_RN]: [() => input.RepositoryNames !== void 0, () => (input[_RN]! || []).map((_entry) => _entry as any)],
+    [_PT]: [() => input.ProviderTypes !== void 0, () => input[_PT]! || []],
+    [_S]: [() => input.States !== void 0, () => input[_S]! || []],
+    [_RN]: [() => input.RepositoryNames !== void 0, () => input[_RN]! || []],
     [_T]: [, __expectNonNull(input[_T]!, `Type`)],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
@@ -254,8 +254,8 @@ export const se_ListRecommendationFeedbackCommand = async (
   const query: any = map({
     [_NT]: [, input[_NT]!],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
-    [_UIs]: [() => input.UserIds !== void 0, () => (input[_UIs]! || []).map((_entry) => _entry as any)],
-    [_RIe]: [() => input.RecommendationIds !== void 0, () => (input[_RIe]! || []).map((_entry) => _entry as any)],
+    [_UIs]: [() => input.UserIds !== void 0, () => input[_UIs]! || []],
+    [_RIe]: [() => input.RecommendationIds !== void 0, () => input[_RIe]! || []],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -293,10 +293,10 @@ export const se_ListRepositoryAssociationsCommand = async (
   const headers: any = {};
   b.bp("/associations");
   const query: any = map({
-    [_PTr]: [() => input.ProviderTypes !== void 0, () => (input[_PT]! || []).map((_entry) => _entry as any)],
-    [_St]: [() => input.States !== void 0, () => (input[_S]! || []).map((_entry) => _entry as any)],
-    [_Na]: [() => input.Names !== void 0, () => (input[_N]! || []).map((_entry) => _entry as any)],
-    [_Ow]: [() => input.Owners !== void 0, () => (input[_O]! || []).map((_entry) => _entry as any)],
+    [_PTr]: [() => input.ProviderTypes !== void 0, () => input[_PT]! || []],
+    [_St]: [() => input.States !== void 0, () => input[_S]! || []],
+    [_Na]: [() => input.Names !== void 0, () => input[_N]! || []],
+    [_Ow]: [() => input.Owners !== void 0, () => input[_O]! || []],
     [_MR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
     [_NT]: [, input[_NT]!],
   });
@@ -380,10 +380,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.TagKeys, `TagKeys`) != null,
-      () => (input[_TK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.TagKeys, `TagKeys`) != null, () => input[_TK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1058,13 +1055,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _MR = "MaxResults";
 const _N = "Names";

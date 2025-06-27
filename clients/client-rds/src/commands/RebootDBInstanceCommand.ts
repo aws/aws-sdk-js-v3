@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -206,6 +207,7 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -294,34 +296,34 @@ export interface RebootDBInstanceCommandOutput extends RebootDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To reboot a DB instance
  * ```javascript
  * // The following example starts a reboot of the specified DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-mysql-instance"
+ *   DBInstanceIdentifier: "test-mysql-instance"
  * };
  * const command = new RebootDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceClass": "db.t3.micro",
- *     "DBInstanceIdentifier": "test-mysql-instance",
- *     "DBInstanceStatus": "rebooting",
- *     "Endpoint": {
- *       "Address": "test-mysql-instance.############.us-west-2.rds.amazonaws.com",
- *       "HostedZoneId": "Z1PVIF0EXAMPLE",
- *       "Port": 3306
+ *   DBInstance: {
+ *     DBInstanceClass: "db.t3.micro",
+ *     DBInstanceIdentifier: "test-mysql-instance",
+ *     DBInstanceStatus: "rebooting",
+ *     Endpoint: {
+ *       Address: "test-mysql-instance.############.us-west-2.rds.amazonaws.com",
+ *       HostedZoneId: "Z1PVIF0EXAMPLE",
+ *       Port: 3306
  *     },
- *     "Engine": "mysql",
- *     "MasterUsername": "admin"
+ *     Engine: "mysql",
+ *     MasterUsername: "admin"
  *   }
  * }
  * *\/
- * // example id: to-reboot-a-db-instance-1680072870190
  * ```
  *
+ * @public
  */
 export class RebootDBInstanceCommand extends $Command
   .classBuilder<
@@ -331,9 +333,7 @@ export class RebootDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -345,4 +345,16 @@ export class RebootDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootDBInstanceCommand)
   .de(de_RebootDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootDBInstanceMessage;
+      output: RebootDBInstanceResult;
+    };
+    sdk: {
+      input: RebootDBInstanceCommandInput;
+      output: RebootDBInstanceCommandOutput;
+    };
+  };
+}

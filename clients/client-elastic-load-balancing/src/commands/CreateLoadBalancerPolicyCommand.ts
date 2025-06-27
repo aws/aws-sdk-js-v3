@@ -16,7 +16,8 @@ import { de_CreateLoadBalancerPolicyCommand, se_CreateLoadBalancerPolicyCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,64 +81,71 @@ export interface CreateLoadBalancerPolicyCommandOutput extends CreateLoadBalance
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
- * @public
+ *
  * @example To create a policy that enables Proxy Protocol on a load balancer
  * ```javascript
  * // This example creates a policy that enables Proxy Protocol on the specified load balancer.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyAttributes": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyAttributes: [
  *     {
- *       "AttributeName": "ProxyProtocol",
- *       "AttributeValue": "true"
+ *       AttributeName: "ProxyProtocol",
+ *       AttributeValue: "true"
  *     }
  *   ],
- *   "PolicyName": "my-ProxyProtocol-policy",
- *   "PolicyTypeName": "ProxyProtocolPolicyType"
+ *   PolicyName: "my-ProxyProtocol-policy",
+ *   PolicyTypeName: "ProxyProtocolPolicyType"
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-create-load-balancer-policy-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create a public key policy
  * ```javascript
  * // This example creates a public key policy.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyAttributes": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyAttributes: [
  *     {
- *       "AttributeName": "PublicKey",
- *       "AttributeValue": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwAYUjnfyEyXr1pxjhFWBpMlggUcqoi3kl+dS74kj//c6x7ROtusUaeQCTgIUkayttRDWchuqo1pHC1u+n5xxXnBBe2ejbb2WRsKIQ5rXEeixsjFpFsojpSQKkzhVGI6mJVZBJDVKSHmswnwLBdofLhzvllpovBPTHe+o4haAWvDBALJU0pkSI1FecPHcs2hwxf14zHoXy1e2k36A64nXW43wtfx5qcVSIxtCEOjnYRg7RPvybaGfQ+v6Iaxb/+7J5kEvZhTFQId+bSiJImF1FSUT1W1xwzBZPUbcUkkXDj45vC2s3Z8E+Lk7a3uZhvsQHLZnrfuWjBWGWvZ/MhZYgEXAMPLE"
+ *       AttributeName: "PublicKey",
+ *       AttributeValue: "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwAYUjnfyEyXr1pxjhFWBpMlggUcqoi3kl+dS74kj//c6x7ROtusUaeQCTgIUkayttRDWchuqo1pHC1u+n5xxXnBBe2ejbb2WRsKIQ5rXEeixsjFpFsojpSQKkzhVGI6mJVZBJDVKSHmswnwLBdofLhzvllpovBPTHe+o4haAWvDBALJU0pkSI1FecPHcs2hwxf14zHoXy1e2k36A64nXW43wtfx5qcVSIxtCEOjnYRg7RPvybaGfQ+v6Iaxb/+7J5kEvZhTFQId+bSiJImF1FSUT1W1xwzBZPUbcUkkXDj45vC2s3Z8E+Lk7a3uZhvsQHLZnrfuWjBWGWvZ/MhZYgEXAMPLE"
  *     }
  *   ],
- *   "PolicyName": "my-PublicKey-policy",
- *   "PolicyTypeName": "PublicKeyPolicyType"
+ *   PolicyName: "my-PublicKey-policy",
+ *   PolicyTypeName: "PublicKeyPolicyType"
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-create-load-balancer-policy-2
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
  * @example To create a backend server authentication policy
  * ```javascript
  * // This example creates a backend server authentication policy that enables authentication on your backend instance using a public key policy.
  * const input = {
- *   "LoadBalancerName": "my-load-balancer",
- *   "PolicyAttributes": [
+ *   LoadBalancerName: "my-load-balancer",
+ *   PolicyAttributes: [
  *     {
- *       "AttributeName": "PublicKeyPolicyName",
- *       "AttributeValue": "my-PublicKey-policy"
+ *       AttributeName: "PublicKeyPolicyName",
+ *       AttributeValue: "my-PublicKey-policy"
  *     }
  *   ],
- *   "PolicyName": "my-authentication-policy",
- *   "PolicyTypeName": "BackendServerAuthenticationPolicyType"
+ *   PolicyName: "my-authentication-policy",
+ *   PolicyTypeName: "BackendServerAuthenticationPolicyType"
  * };
  * const command = new CreateLoadBalancerPolicyCommand(input);
- * await client.send(command);
- * // example id: elb-create-load-balancer-policy-3
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateLoadBalancerPolicyCommand extends $Command
   .classBuilder<
@@ -147,9 +155,7 @@ export class CreateLoadBalancerPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -161,4 +167,16 @@ export class CreateLoadBalancerPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateLoadBalancerPolicyCommand)
   .de(de_CreateLoadBalancerPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLoadBalancerPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateLoadBalancerPolicyCommandInput;
+      output: CreateLoadBalancerPolicyCommandOutput;
+    };
+  };
+}

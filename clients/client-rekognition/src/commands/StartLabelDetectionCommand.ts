@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -145,6 +146,7 @@ export interface StartLabelDetectionCommandOutput extends StartLabelDetectionRes
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class StartLabelDetectionCommand extends $Command
@@ -155,9 +157,7 @@ export class StartLabelDetectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +169,16 @@ export class StartLabelDetectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartLabelDetectionCommand)
   .de(de_StartLabelDetectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartLabelDetectionRequest;
+      output: StartLabelDetectionResponse;
+    };
+    sdk: {
+      input: StartLabelDetectionCommandInput;
+      output: StartLabelDetectionCommandOutput;
+    };
+  };
+}

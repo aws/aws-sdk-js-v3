@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,9 @@ export interface DescribeMaintenanceStartTimeCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns your gateway's weekly maintenance start time including the day and time of
- *          the week. Note that values are in terms of the gateway's time zone.</p>
+ * <p>Returns your gateway's maintenance window schedule information, with values for
+ *          monthly or weekly cadence, specific day and time to begin maintenance, and which types of
+ *          updates to apply. Time values returned are for the gateway's time zone.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +54,9 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * //   DayOfWeek: Number("int"),
  * //   DayOfMonth: Number("int"),
  * //   Timezone: "STRING_VALUE",
+ * //   SoftwareUpdatePreferences: { // SoftwareUpdatePreferences
+ * //     AutomaticUpdatePolicy: "ALL_VERSIONS" || "EMERGENCY_VERSIONS_ONLY",
+ * //   },
  * // };
  *
  * ```
@@ -73,27 +78,27 @@ export interface DescribeMaintenanceStartTimeCommandOutput
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To describe gateway's maintenance start time
  * ```javascript
  * // Returns your gateway's weekly maintenance start time including the day and time of the week.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new DescribeMaintenanceStartTimeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DayOfWeek": 2,
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "HourOfDay": 15,
- *   "MinuteOfHour": 35,
- *   "Timezone": "GMT+7:00"
+ *   DayOfWeek: 2,
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   HourOfDay: 15,
+ *   MinuteOfHour: 35,
+ *   Timezone: "GMT+7:00"
  * }
  * *\/
- * // example id: to-describe-gateways-maintenance-start-time-1471470727387
  * ```
  *
+ * @public
  */
 export class DescribeMaintenanceStartTimeCommand extends $Command
   .classBuilder<
@@ -103,9 +108,7 @@ export class DescribeMaintenanceStartTimeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +120,16 @@ export class DescribeMaintenanceStartTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMaintenanceStartTimeCommand)
   .de(de_DescribeMaintenanceStartTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMaintenanceStartTimeInput;
+      output: DescribeMaintenanceStartTimeOutput;
+    };
+    sdk: {
+      input: DescribeMaintenanceStartTimeCommandInput;
+      output: DescribeMaintenanceStartTimeCommandOutput;
+    };
+  };
+}

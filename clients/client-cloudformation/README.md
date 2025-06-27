@@ -9,20 +9,20 @@ AWS SDK for JavaScript CloudFormation Client for Node.js, Browser and React Nati
 <fullname>CloudFormation</fullname>
 
 <p>CloudFormation allows you to create and manage Amazon Web Services infrastructure deployments predictably and
-repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store, Amazon Simple Notification Service, Elastic Load Balancing, and Auto Scaling to build highly reliable, highly
-scalable, cost-effective applications without creating or configuring the underlying Amazon Web Services
-infrastructure.</p>
-<p>With CloudFormation, you declare all your resources and dependencies in a template file. The template defines a
-collection of resources as a single unit called a stack. CloudFormation creates and deletes all member resources of the stack
-together and manages all dependencies between the resources for you.</p>
-<p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation
-product page</a>.</p>
-<p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information about a
-specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
+repeatedly. You can use CloudFormation to leverage Amazon Web Services products, such as Amazon Elastic Compute Cloud, Amazon Elastic Block Store,
+Amazon Simple Notification Service, Elastic Load Balancing, and Amazon EC2 Auto Scaling to build highly reliable, highly scalable, cost-effective
+applications without creating or configuring the underlying Amazon Web Services infrastructure.</p>
+<p>With CloudFormation, you declare all your resources and dependencies in a template file. The
+template defines a collection of resources as a single unit called a stack. CloudFormation creates
+and deletes all member resources of the stack together and manages all dependencies between the
+resources for you.</p>
+<p>For more information about CloudFormation, see the <a href="http://aws.amazon.com/cloudformation/">CloudFormation product page</a>.</p>
+<p>CloudFormation makes use of other Amazon Web Services products. If you need additional technical information
+about a specific Amazon Web Services product, you can find the product's technical documentation at <a href="https://docs.aws.amazon.com/">docs.aws.amazon.com</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-cloudformation
+To install this package, simply type add or install @aws-sdk/client-cloudformation
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-cloudformation`
@@ -289,6 +289,14 @@ CreateStackInstances
 </details>
 <details>
 <summary>
+CreateStackRefactor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/CreateStackRefactorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/CreateStackRefactorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/CreateStackRefactorCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateStackSet
 </summary>
 
@@ -441,6 +449,14 @@ DescribeStackInstance
 </details>
 <details>
 <summary>
+DescribeStackRefactor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/DescribeStackRefactorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribeStackRefactorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/DescribeStackRefactorCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeStackResource
 </summary>
 
@@ -545,6 +561,14 @@ ExecuteChangeSet
 </details>
 <details>
 <summary>
+ExecuteStackRefactor
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ExecuteStackRefactorCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ExecuteStackRefactorCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ExecuteStackRefactorCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetGeneratedTemplate
 </summary>
 
@@ -609,6 +633,14 @@ ListGeneratedTemplates
 </details>
 <details>
 <summary>
+ListHookResults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListHookResultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListHookResultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListHookResultsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListImports
 </summary>
 
@@ -653,6 +685,22 @@ ListStackInstances
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListStackInstancesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackInstancesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackInstancesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListStackRefactorActions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListStackRefactorActionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackRefactorActionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackRefactorActionsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListStackRefactors
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cloudformation/command/ListStackRefactorsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackRefactorsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cloudformation/Interface/ListStackRefactorsCommandOutput/)
 
 </details>
 <details>

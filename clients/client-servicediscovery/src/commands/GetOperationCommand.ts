@@ -12,7 +12,8 @@ import { ServiceDiscoveryClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,32 +77,32 @@ export interface GetOperationCommandOutput extends GetOperationResponse, __Metad
  * @throws {@link ServiceDiscoveryServiceException}
  * <p>Base exception class for all service exceptions from ServiceDiscovery service.</p>
  *
- * @public
+ *
  * @example Example: Get operation result
  * ```javascript
  * // Example: Get operation result
  * const input = {
- *   "OperationId": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
+ *   OperationId: "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd"
  * };
  * const command = new GetOperationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Operation": {
- *     "CreateDate": 1587055860.121,
- *     "Id": "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd",
- *     "Status": "SUCCESS",
- *     "Targets": {
- *       "NAMESPACE": "ns-ylexjili4cdxy3xm"
+ *   Operation: {
+ *     CreateDate: 1.587055860121E9,
+ *     Id: "gv4g5meo7ndmeh4fqskygvk23d2fijwa-k9302yzd",
+ *     Status: "SUCCESS",
+ *     Targets: {
+ *       NAMESPACE: "ns-ylexjili4cdxy3xm"
  *     },
- *     "Type": "CREATE_NAMESPACE",
- *     "UpdateDate": 1587055900.469
+ *     Type: "CREATE_NAMESPACE",
+ *     UpdateDate: 1.587055900469E9
  *   }
  * }
  * *\/
- * // example id: example-get-operation-result-1587073807124
  * ```
  *
+ * @public
  */
 export class GetOperationCommand extends $Command
   .classBuilder<
@@ -111,9 +112,7 @@ export class GetOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServiceDiscoveryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +124,16 @@ export class GetOperationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetOperationCommand)
   .de(de_GetOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetOperationRequest;
+      output: GetOperationResponse;
+    };
+    sdk: {
+      input: GetOperationCommandInput;
+      output: GetOperationCommandOutput;
+    };
+  };
+}

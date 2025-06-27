@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface GetNetworkSettingsCommandOutput extends GetNetworkSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkSettingsCommand extends $Command
@@ -91,9 +93,7 @@ export class GetNetworkSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class GetNetworkSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkSettingsCommand)
   .de(de_GetNetworkSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkSettingsRequest;
+      output: GetNetworkSettingsResponse;
+    };
+    sdk: {
+      input: GetNetworkSettingsCommandInput;
+      output: GetNetworkSettingsCommandOutput;
+    };
+  };
+}

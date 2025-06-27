@@ -12,7 +12,8 @@ import { de_CreateAccessPreviewCommand, se_CreateAccessPreviewCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateAccessPreviewCommandInput extends CreateAccessPreviewRequ
 export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewResponse, __MetadataBearer {}
 
 /**
- * <p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your
- *          resource before deploying resource permissions.</p>
+ * <p>Creates an access preview that allows you to preview IAM Access Analyzer findings for your resource before deploying resource permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,6 +143,17 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  *       },
  *       s3ExpressDirectoryBucket: { // S3ExpressDirectoryBucketConfiguration
  *         bucketPolicy: "STRING_VALUE",
+ *         accessPoints: { // S3ExpressDirectoryAccessPointConfigurationsMap
+ *           "<keys>": { // S3ExpressDirectoryAccessPointConfiguration
+ *             accessPointPolicy: "STRING_VALUE",
+ *             networkOrigin: {//  Union: only one key present
+ *               vpcConfiguration: {
+ *                 vpcId: "STRING_VALUE", // required
+ *               },
+ *               internetConfiguration: {},
+ *             },
+ *           },
+ *         },
  *       },
  *       dynamodbStream: { // DynamodbStreamConfiguration
  *         streamPolicy: "STRING_VALUE",
@@ -192,6 +203,7 @@ export interface CreateAccessPreviewCommandOutput extends CreateAccessPreviewRes
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessPreviewCommand extends $Command
@@ -202,9 +214,7 @@ export class CreateAccessPreviewCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -216,4 +226,16 @@ export class CreateAccessPreviewCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessPreviewCommand)
   .de(de_CreateAccessPreviewCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessPreviewRequest;
+      output: CreateAccessPreviewResponse;
+    };
+    sdk: {
+      input: CreateAccessPreviewCommandInput;
+      output: CreateAccessPreviewCommandOutput;
+    };
+  };
+}

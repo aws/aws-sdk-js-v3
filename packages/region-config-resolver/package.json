@@ -1,6 +1,6 @@
 {
   "name": "@aws-sdk/region-config-resolver",
-  "version": "3.587.0",
+  "version": "3.821.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline region-config-resolver",
@@ -10,7 +10,8 @@
     "build:types:downlevel": "downlevel-dts dist-types dist-types/ts3.4",
     "clean": "rimraf ./dist-* && rimraf *.tsbuildinfo",
     "extract:docs": "api-extractor run --local",
-    "test": "jest"
+    "test": "yarn g:vitest run",
+    "test:watch": "yarn g:vitest watch"
   },
   "main": "./dist-cjs/index.js",
   "module": "./dist-es/index.js",
@@ -22,10 +23,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/node-config-provider": "^3.1.0",
-    "@smithy/types": "^3.0.0",
-    "@smithy/util-config-provider": "^3.0.0",
-    "@smithy/util-middleware": "^3.0.0",
+    "@smithy/node-config-provider": "^4.1.3",
+    "@smithy/types": "^4.3.1",
+    "@smithy/util-config-provider": "^4.0.0",
+    "@smithy/util-middleware": "^4.0.4",
     "tslib": "^2.6.2"
   },
   "devDependencies": {
@@ -34,10 +35,10 @@
     "downlevel-dts": "0.10.1",
     "jest": "28.1.1",
     "rimraf": "3.0.2",
-    "typescript": "~4.9.5"
+    "typescript": "~5.8.3"
   },
   "engines": {
-    "node": ">=16.0.0"
+    "node": ">=18.0.0"
   },
   "typesVersions": {
     "<4.0": {

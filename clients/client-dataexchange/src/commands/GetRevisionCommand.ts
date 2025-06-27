@@ -12,7 +12,8 @@ import { de_GetRevisionCommand, se_GetRevisionCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetRevisionCommandOutput extends GetRevisionResponse, __Metadat
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class GetRevisionCommand extends $Command
@@ -90,9 +92,7 @@ export class GetRevisionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetRevisionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRevisionCommand)
   .de(de_GetRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRevisionRequest;
+      output: GetRevisionResponse;
+    };
+    sdk: {
+      input: GetRevisionCommandInput;
+      output: GetRevisionCommandOutput;
+    };
+  };
+}

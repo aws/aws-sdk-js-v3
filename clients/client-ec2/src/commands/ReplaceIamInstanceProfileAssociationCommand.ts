@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   ReplaceIamInstanceProfileAssociationRequest,
   ReplaceIamInstanceProfileAssociationResult,
-} from "../models/models_7";
+} from "../models/models_8";
 import {
   de_ReplaceIamInstanceProfileAssociationCommand,
   se_ReplaceIamInstanceProfileAssociationCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ReplaceIamInstanceProfileAssociationCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ReplaceIamInstanceProfileAssociationCommand extends $Command
@@ -89,9 +91,7 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ReplaceIamInstanceProfileAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplaceIamInstanceProfileAssociationCommand)
   .de(de_ReplaceIamInstanceProfileAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplaceIamInstanceProfileAssociationRequest;
+      output: ReplaceIamInstanceProfileAssociationResult;
+    };
+    sdk: {
+      input: ReplaceIamInstanceProfileAssociationCommandInput;
+      output: ReplaceIamInstanceProfileAssociationCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,18 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  *     DeviceTypeChromeOs: "ALLOW" || "DENY",
  *     DeviceTypeZeroClient: "ALLOW" || "DENY",
  *     DeviceTypeLinux: "ALLOW" || "DENY",
+ *     DeviceTypeWorkSpacesThinClient: "ALLOW" || "DENY",
+ *     AccessEndpointConfig: { // AccessEndpointConfig
+ *       AccessEndpoints: [ // AccessEndpointList // required
+ *         { // AccessEndpoint
+ *           AccessEndpointType: "STREAMING_WSP",
+ *           VpcEndpointId: "STRING_VALUE",
+ *         },
+ *       ],
+ *       InternetFallbackProtocols: [ // InternetFallbackProtocolList
+ *         "PCOIP",
+ *       ],
+ *     },
  *   },
  * };
  * const command = new ModifyWorkspaceAccessPropertiesCommand(input);
@@ -69,11 +82,21 @@ export interface ModifyWorkspaceAccessPropertiesCommandOutput
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>The user is not authorized to access a resource.</p>
  *
+ * @throws {@link InvalidParameterCombinationException} (client fault)
+ *  <p>Two or more of the selected parameter values cannot be used together.</p>
+ *
+ * @throws {@link InvalidParameterValuesException} (client fault)
+ *  <p>One or more parameter values are not valid.</p>
+ *
+ * @throws {@link OperationNotSupportedException} (client fault)
+ *  <p>This operation is not supported.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource could not be found.</p>
  *
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
+ *
  *
  * @public
  */
@@ -85,9 +108,7 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +120,16 @@ export class ModifyWorkspaceAccessPropertiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyWorkspaceAccessPropertiesCommand)
   .de(de_ModifyWorkspaceAccessPropertiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyWorkspaceAccessPropertiesRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyWorkspaceAccessPropertiesCommandInput;
+      output: ModifyWorkspaceAccessPropertiesCommandOutput;
+    };
+  };
+}

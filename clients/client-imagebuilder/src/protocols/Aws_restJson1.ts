@@ -111,6 +111,10 @@ import {
   GetLifecycleExecutionCommandOutput,
 } from "../commands/GetLifecycleExecutionCommand";
 import { GetLifecyclePolicyCommandInput, GetLifecyclePolicyCommandOutput } from "../commands/GetLifecyclePolicyCommand";
+import {
+  GetMarketplaceResourceCommandInput,
+  GetMarketplaceResourceCommandOutput,
+} from "../commands/GetMarketplaceResourceCommand";
 import { GetWorkflowCommandInput, GetWorkflowCommandOutput } from "../commands/GetWorkflowCommand";
 import {
   GetWorkflowExecutionCommandInput,
@@ -121,6 +125,7 @@ import {
   GetWorkflowStepExecutionCommandOutput,
 } from "../commands/GetWorkflowStepExecutionCommand";
 import { ImportComponentCommandInput, ImportComponentCommandOutput } from "../commands/ImportComponentCommand";
+import { ImportDiskImageCommandInput, ImportDiskImageCommandOutput } from "../commands/ImportDiskImageCommand";
 import { ImportVmImageCommandInput, ImportVmImageCommandOutput } from "../commands/ImportVmImageCommand";
 import {
   ListComponentBuildVersionsCommandInput,
@@ -285,6 +290,7 @@ import {
   LifecyclePolicySummary,
   Logging,
   PackageVulnerabilityDetails,
+  Placement,
   ResourceAlreadyExistsException,
   ResourceDependencyException,
   ResourceInUseException,
@@ -298,6 +304,7 @@ import {
   ServiceException,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
+  SsmParameterConfiguration,
   SystemsManagerAgent,
   TargetContainerRepository,
   WorkflowConfiguration,
@@ -567,6 +574,7 @@ export const se_CreateInfrastructureConfigurationCommand = async (
       keyPair: [],
       logging: (_) => _json(_),
       name: [],
+      placement: (_) => _json(_),
       resourceTags: (_) => _json(_),
       securityGroupIds: (_) => _json(_),
       snsTopicArn: [],
@@ -1037,6 +1045,30 @@ export const se_GetLifecyclePolicyCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetMarketplaceResourceCommand
+ */
+export const se_GetMarketplaceResourceCommand = async (
+  input: GetMarketplaceResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetMarketplaceResource");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resourceArn: [],
+      resourceLocation: [],
+      resourceType: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetWorkflowCommand
  */
 export const se_GetWorkflowCommand = async (
@@ -1116,6 +1148,37 @@ export const se_ImportComponentCommand = async (
       semanticVersion: [],
       tags: (_) => _json(_),
       type: [],
+      uri: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ImportDiskImageCommand
+ */
+export const se_ImportDiskImageCommand = async (
+  input: ImportDiskImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ImportDiskImage");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      description: [],
+      executionRole: [],
+      infrastructureConfigurationArn: [],
+      name: [],
+      osVersion: [],
+      platform: [],
+      semanticVersion: [],
+      tags: (_) => _json(_),
       uri: [],
     })
   );
@@ -1886,10 +1949,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1979,6 +2039,7 @@ export const se_UpdateInfrastructureConfigurationCommand = async (
       instanceTypes: (_) => _json(_),
       keyPair: [],
       logging: (_) => _json(_),
+      placement: (_) => _json(_),
       resourceTags: (_) => _json(_),
       securityGroupIds: (_) => _json(_),
       snsTopicArn: [],
@@ -2749,6 +2810,29 @@ export const de_GetLifecyclePolicyCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetMarketplaceResourceCommand
+ */
+export const de_GetMarketplaceResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetMarketplaceResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    data: __expectString,
+    resourceArn: __expectString,
+    url: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetWorkflowCommand
  */
 export const de_GetWorkflowCommand = async (
@@ -2858,6 +2942,28 @@ export const de_ImportComponentCommand = async (
     clientToken: __expectString,
     componentBuildVersionArn: __expectString,
     requestId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ImportDiskImageCommand
+ */
+export const de_ImportDiskImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ImportDiskImageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    clientToken: __expectString,
+    imageBuildVersionArn: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4174,6 +4280,8 @@ const de_ServiceUnavailableExceptionRes = async (
 
 // se_OsVersionList omitted.
 
+// se_Placement omitted.
+
 // se_ResourceState omitted.
 
 // se_ResourceStateUpdateExclusionRules omitted.
@@ -4189,6 +4297,10 @@ const de_ServiceUnavailableExceptionRes = async (
 // se_Schedule omitted.
 
 // se_SecurityGroupIds omitted.
+
+// se_SsmParameterConfiguration omitted.
+
+// se_SsmParameterConfigurationList omitted.
 
 // se_StringList omitted.
 
@@ -4661,6 +4773,12 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
   }) as any;
 };
 
+// de_Placement omitted.
+
+// de_ProductCodeList omitted.
+
+// de_ProductCodeListItem omitted.
+
 // de_RegionList omitted.
 
 // de_Remediation omitted.
@@ -4678,6 +4796,10 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 // de_SecurityGroupIds omitted.
 
 // de_SeverityCounts omitted.
+
+// de_SsmParameterConfiguration omitted.
+
+// de_SsmParameterConfigurationList omitted.
 
 // de_StringList omitted.
 
@@ -4744,13 +4866,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _cA = "componentArn";
 const _cBVA = "componentBuildVersionArn";

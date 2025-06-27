@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface DescribeSecurityPolicyCommandInput extends DescribeSecurityPoli
 export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPolicyResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the security policy that is attached to your server or SFTP connector. The response contains a description of the security policy's properties. For more
- *       information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security
- *         policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security
- *           policies for SFTP connectors</a>.</p>
+ * <p>Describes the security policy that is attached to your server or SFTP connector. The response contains a description of the security policy's properties. For more information about security policies, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies.html">Working with security policies for servers</a> or <a href="https://docs.aws.amazon.com/transfer/latest/userguide/security-policies-connectors.html">Working with security policies for SFTP connectors</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,14 +81,14 @@ export interface DescribeSecurityPolicyCommandOutput extends DescribeSecurityPol
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -102,9 +100,7 @@ export class DescribeSecurityPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +112,16 @@ export class DescribeSecurityPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSecurityPolicyCommand)
   .de(de_DescribeSecurityPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSecurityPolicyRequest;
+      output: DescribeSecurityPolicyResponse;
+    };
+    sdk: {
+      input: DescribeSecurityPolicyCommandInput;
+      output: DescribeSecurityPolicyCommandOutput;
+    };
+  };
+}

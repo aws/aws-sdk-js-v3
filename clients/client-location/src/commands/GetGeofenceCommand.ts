@@ -12,7 +12,8 @@ import { de_GetGeofenceCommand, se_GetGeofenceCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,9 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
 
 /**
  * <p>Retrieves the geofence details from a geofence collection.</p>
+ *          <note>
+ *             <p>The returned geometry will always match the geometry format used when the geofence was created.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +60,7 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * //       ],
  * //       Radius: Number("double"), // required
  * //     },
+ * //     Geobuf: new Uint8Array(),
  * //   },
  * //   Status: "STRING_VALUE", // required
  * //   CreateTime: new Date("TIMESTAMP"), // required
@@ -92,6 +97,7 @@ export interface GetGeofenceCommandOutput extends GetGeofenceResponse, __Metadat
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetGeofenceCommand extends $Command
@@ -102,9 +108,7 @@ export class GetGeofenceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +120,16 @@ export class GetGeofenceCommand extends $Command
   .f(void 0, GetGeofenceResponseFilterSensitiveLog)
   .ser(se_GetGeofenceCommand)
   .de(de_GetGeofenceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGeofenceRequest;
+      output: GetGeofenceResponse;
+    };
+    sdk: {
+      input: GetGeofenceCommandInput;
+      output: GetGeofenceCommandOutput;
+    };
+  };
+}

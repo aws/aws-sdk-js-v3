@@ -16,7 +16,8 @@ import { de_CreateLocationObjectStorageCommand, se_CreateLocationObjectStorageCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,10 +34,10 @@ export interface CreateLocationObjectStorageCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring
- *       data.</p>
- *          <p>Before you begin, make sure that you understand the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites">prerequisites</a>
- *       for DataSync to work with object storage systems.</p>
+ * <p>Creates a transfer <i>location</i> for an object storage system. DataSync can use this location as a source or destination for transferring data. You
+ *       can make transfers with or without a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/do-i-need-datasync-agent.html#when-agent-required">DataSync
+ *         agent</a>.</p>
+ *          <p>Before you begin, make sure that you understand the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-object-location.html#create-object-location-prerequisites">prerequisites</a> for DataSync to work with object storage systems.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +52,7 @@ export interface CreateLocationObjectStorageCommandOutput
  *   BucketName: "STRING_VALUE", // required
  *   AccessKey: "STRING_VALUE",
  *   SecretKey: "STRING_VALUE",
- *   AgentArns: [ // AgentArnList // required
+ *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
  *   Tags: [ // InputTagList
@@ -61,6 +62,14 @@ export interface CreateLocationObjectStorageCommandOutput
  *     },
  *   ],
  *   ServerCertificate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateLocationObjectStorageCommand(input);
  * const response = await client.send(command);
@@ -86,6 +95,7 @@ export interface CreateLocationObjectStorageCommandOutput
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationObjectStorageCommand extends $Command
@@ -96,9 +106,7 @@ export class CreateLocationObjectStorageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +118,16 @@ export class CreateLocationObjectStorageCommand extends $Command
   .f(CreateLocationObjectStorageRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLocationObjectStorageCommand)
   .de(de_CreateLocationObjectStorageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationObjectStorageRequest;
+      output: CreateLocationObjectStorageResponse;
+    };
+    sdk: {
+      input: CreateLocationObjectStorageCommandInput;
+      output: CreateLocationObjectStorageCommandOutput;
+    };
+  };
+}

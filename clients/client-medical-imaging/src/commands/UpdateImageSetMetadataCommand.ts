@@ -16,7 +16,8 @@ import { de_UpdateImageSetMetadataCommand, se_UpdateImageSetMetadataCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,11 +43,13 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  *   datastoreId: "STRING_VALUE", // required
  *   imageSetId: "STRING_VALUE", // required
  *   latestVersionId: "STRING_VALUE", // required
+ *   force: true || false,
  *   updateImageSetMetadataUpdates: { // MetadataUpdates Union: only one key present
  *     DICOMUpdates: { // DICOMUpdates
  *       removableAttributes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       updatableAttributes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
+ *     revertToVersionId: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateImageSetMetadataCommand(input);
@@ -94,6 +97,7 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class UpdateImageSetMetadataCommand extends $Command
@@ -104,9 +108,7 @@ export class UpdateImageSetMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class UpdateImageSetMetadataCommand extends $Command
   .f(UpdateImageSetMetadataRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateImageSetMetadataCommand)
   .de(de_UpdateImageSetMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateImageSetMetadataRequest;
+      output: UpdateImageSetMetadataResponse;
+    };
+    sdk: {
+      input: UpdateImageSetMetadataCommandInput;
+      output: UpdateImageSetMetadataCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,44 +105,44 @@ export interface ListDatasetLabelsCommandOutput extends ListDatasetLabelsRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To list the entries in an Amazon Rekognition Custom Labels dataset
  * ```javascript
  * // Lists the JSON line entries in an Amazon Rekognition Custom Labels dataset.
  * const input = {
- *   "DatasetArn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106",
- *   "MaxResults": 100,
- *   "NextToken": ""
+ *   DatasetArn: "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106",
+ *   MaxResults: 100,
+ *   NextToken: ""
  * };
  * const command = new ListDatasetLabelsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DatasetLabelDescriptions": [
+ *   DatasetLabelDescriptions: [
  *     {
- *       "LabelName": "camellia",
- *       "LabelStats": {
- *         "EntryCount": 1
+ *       LabelName: "camellia",
+ *       LabelStats: {
+ *         EntryCount: 1
  *       }
  *     },
  *     {
- *       "LabelName": "with_leaves",
- *       "LabelStats": {
- *         "EntryCount": 2
+ *       LabelName: "with_leaves",
+ *       LabelStats: {
+ *         EntryCount: 2
  *       }
  *     },
  *     {
- *       "LabelName": "mediterranean_spurge",
- *       "LabelStats": {
- *         "EntryCount": 1
+ *       LabelName: "mediterranean_spurge",
+ *       LabelStats: {
+ *         EntryCount: 1
  *       }
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-the-entries-in-an-amazon-rekognition-custom-labels-dataset-1690823292345
  * ```
  *
+ * @public
  */
 export class ListDatasetLabelsCommand extends $Command
   .classBuilder<
@@ -151,9 +152,7 @@ export class ListDatasetLabelsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +164,16 @@ export class ListDatasetLabelsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatasetLabelsCommand)
   .de(de_ListDatasetLabelsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatasetLabelsRequest;
+      output: ListDatasetLabelsResponse;
+    };
+    sdk: {
+      input: ListDatasetLabelsCommandInput;
+      output: ListDatasetLabelsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteEventTrackerCommand, se_DeleteEventTrackerCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DeleteEventTrackerCommandOutput extends __MetadataBearer {}
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DeleteEventTrackerCommand extends $Command
@@ -73,9 +75,7 @@ export class DeleteEventTrackerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteEventTrackerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEventTrackerCommand)
   .de(de_DeleteEventTrackerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEventTrackerRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteEventTrackerCommandInput;
+      output: DeleteEventTrackerCommandOutput;
+    };
+  };
+}

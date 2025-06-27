@@ -16,7 +16,8 @@ import { de_CreateCustomRoutingListenerCommand, se_CreateCustomRoutingListenerCo
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface CreateCustomRoutingListenerCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class CreateCustomRoutingListenerCommand extends $Command
@@ -101,9 +103,7 @@ export class CreateCustomRoutingListenerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class CreateCustomRoutingListenerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCustomRoutingListenerCommand)
   .de(de_CreateCustomRoutingListenerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCustomRoutingListenerRequest;
+      output: CreateCustomRoutingListenerResponse;
+    };
+    sdk: {
+      input: CreateCustomRoutingListenerCommandInput;
+      output: CreateCustomRoutingListenerCommandOutput;
+    };
+  };
+}

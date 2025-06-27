@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TaxSettingsClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,6 +50,7 @@ export interface GetTaxRegistrationDocumentCommandOutput extends GetTaxRegistrat
  * const response = await client.send(command);
  * // { // GetTaxRegistrationDocumentResponse
  * //   destinationFilePath: "STRING_VALUE",
+ * //   presignedS3Url: "STRING_VALUE",
  * // };
  *
  * ```
@@ -69,6 +71,7 @@ export interface GetTaxRegistrationDocumentCommandOutput extends GetTaxRegistrat
  * @throws {@link TaxSettingsServiceException}
  * <p>Base exception class for all service exceptions from TaxSettings service.</p>
  *
+ *
  * @public
  */
 export class GetTaxRegistrationDocumentCommand extends $Command
@@ -79,9 +82,7 @@ export class GetTaxRegistrationDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TaxSettingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +94,16 @@ export class GetTaxRegistrationDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTaxRegistrationDocumentCommand)
   .de(de_GetTaxRegistrationDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTaxRegistrationDocumentRequest;
+      output: GetTaxRegistrationDocumentResponse;
+    };
+    sdk: {
+      input: GetTaxRegistrationDocumentCommandInput;
+      output: GetTaxRegistrationDocumentCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_1";
+import { PublishFunctionRequest, PublishFunctionResult } from "../models/models_2";
 import { de_PublishFunctionCommand, se_PublishFunctionCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,16 +28,7 @@ export interface PublishFunctionCommandInput extends PublishFunctionRequest {}
 export interface PublishFunctionCommandOutput extends PublishFunctionResult, __MetadataBearer {}
 
 /**
- * <p>Publishes a CloudFront function by copying the function code from the
- * 				<code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all
- * 			cache behaviors that are using this function to use the newly published copy in the
- * 				<code>LIVE</code> stage.</p>
- *          <p>When a function is published to the <code>LIVE</code> stage, you can attach the
- * 			function to a distribution's cache behavior, using the function's Amazon Resource Name
- * 			(ARN).</p>
- *          <p>To publish a function, you must provide the function's name and version
- * 				(<code>ETag</code> value). To get these values, you can use
- * 				<code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
+ * <p>Publishes a CloudFront function by copying the function code from the <code>DEVELOPMENT</code> stage to <code>LIVE</code>. This automatically updates all cache behaviors that are using this function to use the newly published copy in the <code>LIVE</code> stage.</p> <p>When a function is published to the <code>LIVE</code> stage, you can attach the function to a distribution's cache behavior, using the function's Amazon Resource Name (ARN).</p> <p>To publish a function, you must provide the function's name and version (<code>ETag</code> value). To get these values, you can use <code>ListFunctions</code> and <code>DescribeFunction</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,14 +84,14 @@ export interface PublishFunctionCommandOutput extends PublishFunctionResult, __M
  *  <p>The function does not exist.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link UnsupportedOperation} (client fault)
- *  <p>This operation is not supported in this region.</p>
+ *  <p>This operation is not supported in this Amazon Web Services Region.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -111,9 +103,7 @@ export class PublishFunctionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +115,16 @@ export class PublishFunctionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PublishFunctionCommand)
   .de(de_PublishFunctionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PublishFunctionRequest;
+      output: PublishFunctionResult;
+    };
+    sdk: {
+      input: PublishFunctionCommandInput;
+      output: PublishFunctionCommandOutput;
+    };
+  };
+}

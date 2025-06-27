@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,19 +43,20 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
 /**
  * <p>Provides a list of individual assessments that you can specify for a new premigration
  *          assessment run, given one or more parameters.</p>
- *          <p>If you specify an existing migration task, this operation provides the default individual
- *          assessments you can specify for that task. Otherwise, the specified parameters model elements
- *          of a possible migration task on which to base a premigration assessment run.</p>
- *          <p>To use these migration task modeling parameters, you must specify an existing replication instance,
- *          a source database engine, a target database engine, and a migration type. This combination of
- *          parameters potentially limits the default individual assessments available for an assessment run
- *          created for a corresponding migration task.</p>
- *          <p>If you specify no parameters, this operation provides a list of all possible individual assessments
- *          that you can specify for an assessment run. If you specify any one of the task modeling parameters, you must
- *          specify all of them or the operation cannot provide a list of individual assessments.
- *          The only parameter that you can specify alone is for an existing migration task. The specified task
- *          definition then determines the default list of individual assessments that you can specify in an
- *          assessment run for the task.</p>
+ *          <p>If you specify an existing migration task, this operation provides the default
+ *          individual assessments you can specify for that task. Otherwise, the specified parameters
+ *          model elements of a possible migration task on which to base a premigration assessment
+ *          run.</p>
+ *          <p>To use these migration task modeling parameters, you must specify an existing
+ *          replication instance, a source database engine, a target database engine, and a migration
+ *          type. This combination of parameters potentially limits the default individual assessments
+ *          available for an assessment run created for a corresponding migration task.</p>
+ *          <p>If you specify no parameters, this operation provides a list of all possible individual
+ *          assessments that you can specify for an assessment run. If you specify any one of the task
+ *          modeling parameters, you must specify all of them or the operation cannot provide a list of
+ *          individual assessments. The only parameter that you can specify alone is for an existing
+ *          migration task. The specified task definition then determines the default list of
+ *          individual assessments that you can specify in an assessment run for the task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,6 +66,7 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * const input = { // DescribeApplicableIndividualAssessmentsMessage
  *   ReplicationTaskArn: "STRING_VALUE",
  *   ReplicationInstanceArn: "STRING_VALUE",
+ *   ReplicationConfigArn: "STRING_VALUE",
  *   SourceEngineName: "STRING_VALUE",
  *   TargetEngineName: "STRING_VALUE",
  *   MigrationType: "full-load" || "cdc" || "full-load-and-cdc",
@@ -100,6 +103,7 @@ export interface DescribeApplicableIndividualAssessmentsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicableIndividualAssessmentsCommand extends $Command
@@ -110,9 +114,7 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +126,16 @@ export class DescribeApplicableIndividualAssessmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicableIndividualAssessmentsCommand)
   .de(de_DescribeApplicableIndividualAssessmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicableIndividualAssessmentsMessage;
+      output: DescribeApplicableIndividualAssessmentsResponse;
+    };
+    sdk: {
+      input: DescribeApplicableIndividualAssessmentsCommandInput;
+      output: DescribeApplicableIndividualAssessmentsCommandOutput;
+    };
+  };
+}

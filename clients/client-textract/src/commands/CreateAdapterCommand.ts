@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -109,6 +110,7 @@ export interface CreateAdapterCommandOutput extends CreateAdapterResponse, __Met
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class CreateAdapterCommand extends $Command
@@ -119,9 +121,7 @@ export class CreateAdapterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class CreateAdapterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAdapterCommand)
   .de(de_CreateAdapterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAdapterRequest;
+      output: CreateAdapterResponse;
+    };
+    sdk: {
+      input: CreateAdapterCommandInput;
+      output: CreateAdapterCommandOutput;
+    };
+  };
+}

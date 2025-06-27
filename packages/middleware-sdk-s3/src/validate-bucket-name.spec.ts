@@ -1,13 +1,17 @@
-const mockValidateArn = jest.fn();
-jest.mock("@aws-sdk/util-arn-parser", () => ({ validate: mockValidateArn }));
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
+
+vi.mock("@aws-sdk/util-arn-parser", () => ({ validate: vi.fn() }));
+
+import { validate } from "@aws-sdk/util-arn-parser";
+
 import { validateBucketNameMiddleware } from "./validate-bucket-name";
 
 describe("validateBucketNameMiddleware", () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
-    mockValidateArn.mockReturnValue(false);
+    vi.clearAllMocks();
+    vi.mocked(validate).mockReturnValue(false);
   });
 
   it("throws error if Bucket parameter contains '/'", async () => {
@@ -41,7 +45,7 @@ describe("validateBucketNameMiddleware", () => {
   });
 
   it("should not validate bucket name if the bucket name is an ARN", async () => {
-    mockValidateArn.mockReturnValue(true);
+    vi.mocked(validate).mockReturnValue(true);
     const handler = validateBucketNameMiddleware({} as any)(mockNextHandler, {} as any);
     const args = {
       input: {

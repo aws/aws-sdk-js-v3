@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,17 +114,17 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * //         },
  * //       ],
  * //       currentPerformanceRisk: "VeryLow" || "Low" || "Medium" || "High",
+ * //       effectiveRecommendationPreferences: { // LambdaEffectiveRecommendationPreferences
+ * //         savingsEstimationMode: { // LambdaSavingsEstimationMode
+ * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
+ * //         },
+ * //       },
  * //       tags: [ // Tags
  * //         { // Tag
  * //           key: "STRING_VALUE",
  * //           value: "STRING_VALUE",
  * //         },
  * //       ],
- * //       effectiveRecommendationPreferences: { // LambdaEffectiveRecommendationPreferences
- * //         savingsEstimationMode: { // LambdaSavingsEstimationMode
- * //           source: "PublicPricing" || "CostExplorerRightsizing" || "CostOptimizationHub",
- * //         },
- * //       },
  * //     },
  * //   ],
  * // };
@@ -164,6 +165,7 @@ export interface GetLambdaFunctionRecommendationsCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetLambdaFunctionRecommendationsCommand extends $Command
@@ -174,9 +176,7 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -188,4 +188,16 @@ export class GetLambdaFunctionRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLambdaFunctionRecommendationsCommand)
   .de(de_GetLambdaFunctionRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLambdaFunctionRecommendationsRequest;
+      output: GetLambdaFunctionRecommendationsResponse;
+    };
+    sdk: {
+      input: GetLambdaFunctionRecommendationsCommandInput;
+      output: GetLambdaFunctionRecommendationsCommandOutput;
+    };
+  };
+}

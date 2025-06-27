@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,35 @@ export interface ListFunctionEventInvokeConfigsCommandOutput
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To view a list of asynchronous invocation configurations
+ * ```javascript
+ * // The following example returns a list of asynchronous invocation configurations for a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function"
+ * };
+ * const command = new ListFunctionEventInvokeConfigsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   FunctionEventInvokeConfigs: [
+ *     {
+ *       FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:GREEN",
+ *       LastModified: 1.577824406719E9,
+ *       MaximumEventAgeInSeconds: 1800,
+ *       MaximumRetryAttempts: 2
+ *     },
+ *     {
+ *       FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:BLUE",
+ *       LastModified: 1.577824396653E9,
+ *       MaximumEventAgeInSeconds: 3600,
+ *       MaximumRetryAttempts: 0
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListFunctionEventInvokeConfigsCommand extends $Command
@@ -100,9 +130,7 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +142,16 @@ export class ListFunctionEventInvokeConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFunctionEventInvokeConfigsCommand)
   .de(de_ListFunctionEventInvokeConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFunctionEventInvokeConfigsRequest;
+      output: ListFunctionEventInvokeConfigsResponse;
+    };
+    sdk: {
+      input: ListFunctionEventInvokeConfigsCommandInput;
+      output: ListFunctionEventInvokeConfigsCommandOutput;
+    };
+  };
+}

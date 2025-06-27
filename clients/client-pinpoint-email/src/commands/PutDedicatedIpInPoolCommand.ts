@@ -12,7 +12,8 @@ import { de_PutDedicatedIpInPoolCommand, se_PutDedicatedIpInPoolCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface PutDedicatedIpInPoolCommandOutput extends PutDedicatedIpInPoolR
  * @throws {@link PinpointEmailServiceException}
  * <p>Base exception class for all service exceptions from PinpointEmail service.</p>
  *
+ *
  * @public
  */
 export class PutDedicatedIpInPoolCommand extends $Command
@@ -81,9 +83,7 @@ export class PutDedicatedIpInPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointEmailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class PutDedicatedIpInPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDedicatedIpInPoolCommand)
   .de(de_PutDedicatedIpInPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDedicatedIpInPoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutDedicatedIpInPoolCommandInput;
+      output: PutDedicatedIpInPoolCommandOutput;
+    };
+  };
+}

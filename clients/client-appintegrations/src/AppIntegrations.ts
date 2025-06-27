@@ -9,6 +9,11 @@ import {
   CreateApplicationCommandOutput,
 } from "./commands/CreateApplicationCommand";
 import {
+  CreateDataIntegrationAssociationCommand,
+  CreateDataIntegrationAssociationCommandInput,
+  CreateDataIntegrationAssociationCommandOutput,
+} from "./commands/CreateDataIntegrationAssociationCommand";
+import {
   CreateDataIntegrationCommand,
   CreateDataIntegrationCommandInput,
   CreateDataIntegrationCommandOutput,
@@ -95,6 +100,11 @@ import {
   UpdateApplicationCommandOutput,
 } from "./commands/UpdateApplicationCommand";
 import {
+  UpdateDataIntegrationAssociationCommand,
+  UpdateDataIntegrationAssociationCommandInput,
+  UpdateDataIntegrationAssociationCommandOutput,
+} from "./commands/UpdateDataIntegrationAssociationCommand";
+import {
   UpdateDataIntegrationCommand,
   UpdateDataIntegrationCommandInput,
   UpdateDataIntegrationCommandOutput,
@@ -108,6 +118,7 @@ import {
 const commands = {
   CreateApplicationCommand,
   CreateDataIntegrationCommand,
+  CreateDataIntegrationAssociationCommand,
   CreateEventIntegrationCommand,
   DeleteApplicationCommand,
   DeleteDataIntegrationCommand,
@@ -126,6 +137,7 @@ const commands = {
   UntagResourceCommand,
   UpdateApplicationCommand,
   UpdateDataIntegrationCommand,
+  UpdateDataIntegrationAssociationCommand,
   UpdateEventIntegrationCommand,
 };
 
@@ -162,6 +174,23 @@ export interface AppIntegrations {
     args: CreateDataIntegrationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateDataIntegrationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataIntegrationAssociationCommand}
+   */
+  createDataIntegrationAssociation(
+    args: CreateDataIntegrationAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataIntegrationAssociationCommandOutput>;
+  createDataIntegrationAssociation(
+    args: CreateDataIntegrationAssociationCommandInput,
+    cb: (err: any, data?: CreateDataIntegrationAssociationCommandOutput) => void
+  ): void;
+  createDataIntegrationAssociation(
+    args: CreateDataIntegrationAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataIntegrationAssociationCommandOutput) => void
   ): void;
 
   /**
@@ -459,6 +488,23 @@ export interface AppIntegrations {
   ): void;
 
   /**
+   * @see {@link UpdateDataIntegrationAssociationCommand}
+   */
+  updateDataIntegrationAssociation(
+    args: UpdateDataIntegrationAssociationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataIntegrationAssociationCommandOutput>;
+  updateDataIntegrationAssociation(
+    args: UpdateDataIntegrationAssociationCommandInput,
+    cb: (err: any, data?: UpdateDataIntegrationAssociationCommandOutput) => void
+  ): void;
+  updateDataIntegrationAssociation(
+    args: UpdateDataIntegrationAssociationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataIntegrationAssociationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEventIntegrationCommand}
    */
   updateEventIntegration(
@@ -477,13 +523,40 @@ export interface AppIntegrations {
 }
 
 /**
- * <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_AppIntegrations_Service.html">Amazon AppIntegrations
+ *             actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_AppIntegrations_Service.html">Amazon AppIntegrations
+ *             data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>The Amazon AppIntegrations service enables you to configure and reuse connections to external
  *       applications.</p>
  *          <p>For information about how you can use external applications with Amazon Connect, see
- *         <a href="https://docs.aws.amazon.com/connect/latest/adminguide/crm.html">Set up pre-built
- *         integrations</a> and <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-wisdom.html">Deliver information to agents
- *         using Amazon Connect Wisdom</a> in the <i>Amazon Connect Administrator
- *         Guide</i>.</p>
+ *       the following topics in the <i>Amazon Connect Administrator
+ *       Guide</i>:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/3p-apps.html">Third-party
+ *             applications (3p apps) in the agent workspace</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-q-connect.html">Use
+ *             Amazon Q in Connect for generative AI–powered agent assistance in
+ *           real-time</a>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @public
  */
 export class AppIntegrations extends AppIntegrationsClient implements AppIntegrations {}

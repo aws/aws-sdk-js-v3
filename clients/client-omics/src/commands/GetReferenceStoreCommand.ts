@@ -12,7 +12,8 @@ import { de_GetReferenceStoreCommand, se_GetReferenceStoreCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetReferenceStoreCommandOutput extends GetReferenceStoreRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class GetReferenceStoreCommand extends $Command
@@ -90,9 +92,7 @@ export class GetReferenceStoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetReferenceStoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetReferenceStoreCommand)
   .de(de_GetReferenceStoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetReferenceStoreRequest;
+      output: GetReferenceStoreResponse;
+    };
+    sdk: {
+      input: GetReferenceStoreCommandInput;
+      output: GetReferenceStoreCommandOutput;
+    };
+  };
+}

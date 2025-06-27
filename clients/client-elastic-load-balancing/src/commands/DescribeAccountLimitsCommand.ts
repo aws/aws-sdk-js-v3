@@ -16,7 +16,8 @@ import { de_DescribeAccountLimitsCommand, se_DescribeAccountLimitsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DescribeAccountLimitsCommandOutput extends DescribeAccountLimit
  * @throws {@link ElasticLoadBalancingServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancing service.</p>
  *
+ *
  * @public
  */
 export class DescribeAccountLimitsCommand extends $Command
@@ -77,9 +79,7 @@ export class DescribeAccountLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DescribeAccountLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAccountLimitsCommand)
   .de(de_DescribeAccountLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAccountLimitsInput;
+      output: DescribeAccountLimitsOutput;
+    };
+    sdk: {
+      input: DescribeAccountLimitsCommandInput;
+      output: DescribeAccountLimitsCommandOutput;
+    };
+  };
+}

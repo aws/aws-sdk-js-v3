@@ -1,14 +1,15 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { afterAll, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { recursionDetectionMiddleware } from "./index";
 
 describe(recursionDetectionMiddleware.name, () => {
-  const mockNextHandler = jest.fn();
+  const mockNextHandler = vi.fn();
   const originEnv = process.env;
   const TRACE_ID_HEADER_NAME = "X-Amzn-Trace-Id";
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     process.env = {};
   });
 
@@ -67,6 +68,81 @@ describe(recursionDetectionMiddleware.name, () => {
     expect(calls.length).toBe(1);
     const { request } = mockNextHandler.mock.calls[0][0];
     expect(request.headers[TRACE_ID_HEADER_NAME]).toBe("some-real-trace-id");
+  });
+
+  it(`should NOT set ${TRACE_ID_HEADER_NAME} header when the header is already set with some other casing`, async () => {
+    process.env = {
+      AWS_LAMBDA_FUNCTION_NAME: "some-function",
+      _X_AMZN_TRACE_ID: "some-trace-id",
+    };
+    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    await handler({
+      input: {},
+      request: new HttpRequest({
+        headers: {
+          ["x-AmZn-TrAcE-iD"]: "some-real-trace-id",
+        },
+      }),
+    });
+
+    const { calls } = (mockNextHandler as any).mock;
+    expect(calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    const existingTraceHeader = Object.keys(request.headers).find(
+      (h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()
+    );
+    expect(existingTraceHeader).toBeDefined();
+    expect(request.headers[existingTraceHeader!]).toBe("some-real-trace-id");
+  });
+
+  it(`should NOT set ${TRACE_ID_HEADER_NAME} header when the header is already set with alternating case`, async () => {
+    process.env = {
+      AWS_LAMBDA_FUNCTION_NAME: "some-function",
+      _X_AMZN_TRACE_ID: "some-trace-id",
+    };
+    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    await handler({
+      input: {},
+      request: new HttpRequest({
+        headers: {
+          "X-aMzN-tRaCe-Id": "some-real-trace-id",
+        },
+      }),
+    });
+
+    const { calls } = (mockNextHandler as any).mock;
+    expect(calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    const existingTraceHeader = Object.keys(request.headers).find(
+      (h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()
+    );
+    expect(existingTraceHeader).toBeDefined();
+    expect(request.headers[existingTraceHeader!]).toBe("some-real-trace-id");
+  });
+
+  it(`should NOT set ${TRACE_ID_HEADER_NAME} header when the header is already set with all uppercase`, async () => {
+    process.env = {
+      AWS_LAMBDA_FUNCTION_NAME: "some-function",
+      _X_AMZN_TRACE_ID: "some-trace-id",
+    };
+    const handler = recursionDetectionMiddleware({ runtime: "node" })(mockNextHandler, {} as any);
+    await handler({
+      input: {},
+      request: new HttpRequest({
+        headers: {
+          "X-AMZN-TRACE-ID": "some-real-trace-id",
+        },
+      }),
+    });
+
+    const { calls } = (mockNextHandler as any).mock;
+    expect(calls.length).toBe(1);
+    const { request } = mockNextHandler.mock.calls[0][0];
+    const existingTraceHeader = Object.keys(request.headers).find(
+      (h) => h.toLowerCase() === TRACE_ID_HEADER_NAME.toLowerCase()
+    );
+    expect(existingTraceHeader).toBeDefined();
+    expect(request.headers[existingTraceHeader!]).toBe("some-real-trace-id");
   });
 
   it("has no effect for browser runtime", async () => {

@@ -12,7 +12,8 @@ import { de_DescribeInstanceEventWindowsCommand, se_DescribeInstanceEventWindows
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -113,6 +114,7 @@ export interface DescribeInstanceEventWindowsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceEventWindowsCommand extends $Command
@@ -123,9 +125,7 @@ export class DescribeInstanceEventWindowsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +137,16 @@ export class DescribeInstanceEventWindowsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceEventWindowsCommand)
   .de(de_DescribeInstanceEventWindowsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceEventWindowsRequest;
+      output: DescribeInstanceEventWindowsResult;
+    };
+    sdk: {
+      input: DescribeInstanceEventWindowsCommandInput;
+      output: DescribeInstanceEventWindowsCommandOutput;
+    };
+  };
+}

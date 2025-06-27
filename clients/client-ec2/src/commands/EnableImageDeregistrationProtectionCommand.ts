@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   EnableImageDeregistrationProtectionRequest,
   EnableImageDeregistrationProtectionResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_EnableImageDeregistrationProtectionCommand,
   se_EnableImageDeregistrationProtectionCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,8 +40,8 @@ export interface EnableImageDeregistrationProtectionCommandOutput
  *       the AMI can't be deregistered.</p>
  *          <p>To allow the AMI to be deregistered, you must first disable deregistration protection
  *       using <a>DisableImageDeregistrationProtection</a>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/deregister-ami.html#ami-deregistration-protection">Protect an
- *         AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-deregistration-protection.html">Protect an
+ *       Amazon EC2 AMI from deregistration</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -69,6 +70,7 @@ export interface EnableImageDeregistrationProtectionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class EnableImageDeregistrationProtectionCommand extends $Command
@@ -79,9 +81,7 @@ export class EnableImageDeregistrationProtectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +93,16 @@ export class EnableImageDeregistrationProtectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableImageDeregistrationProtectionCommand)
   .de(de_EnableImageDeregistrationProtectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableImageDeregistrationProtectionRequest;
+      output: EnableImageDeregistrationProtectionResult;
+    };
+    sdk: {
+      input: EnableImageDeregistrationProtectionCommandInput;
+      output: EnableImageDeregistrationProtectionCommandOutput;
+    };
+  };
+}

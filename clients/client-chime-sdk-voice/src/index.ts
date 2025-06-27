@@ -9,8 +9,8 @@
 export * from "./ChimeSDKVoiceClient";
 export * from "./ChimeSDKVoice";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { ChimeSDKVoiceExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { ChimeSDKVoiceExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -18,7 +19,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +39,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Gets the S3 Intelligent-Tiering configuration from the specified bucket.</p>
  *          <p>The S3 Intelligent-Tiering storage class is designed to optimize storage costs by automatically moving data to the most cost-effective storage access tier, without performance impact or operational overhead. S3 Intelligent-Tiering delivers automatic cost savings in three low latency and high throughput access tiers. To get the lowest storage cost on data that can be accessed in minutes to hours, you can choose to activate additional archiving capabilities.</p>
@@ -70,6 +72,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  * const input = { // GetBucketIntelligentTieringConfigurationRequest
  *   Bucket: "STRING_VALUE", // required
  *   Id: "STRING_VALUE", // required
+ *   ExpectedBucketOwner: "STRING_VALUE",
  * };
  * const command = new GetBucketIntelligentTieringConfigurationCommand(input);
  * const response = await client.send(command);
@@ -113,6 +116,7 @@ export interface GetBucketIntelligentTieringConfigurationCommandOutput
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class GetBucketIntelligentTieringConfigurationCommand extends $Command
@@ -132,6 +136,7 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetBucketIntelligentTieringConfiguration", {})
@@ -139,4 +144,16 @@ export class GetBucketIntelligentTieringConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketIntelligentTieringConfigurationCommand)
   .de(de_GetBucketIntelligentTieringConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketIntelligentTieringConfigurationRequest;
+      output: GetBucketIntelligentTieringConfigurationOutput;
+    };
+    sdk: {
+      input: GetBucketIntelligentTieringConfigurationCommandInput;
+      output: GetBucketIntelligentTieringConfigurationCommandOutput;
+    };
+  };
+}

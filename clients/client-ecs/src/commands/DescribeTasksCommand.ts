@@ -12,7 +12,8 @@ import { de_DescribeTasksCommand, se_DescribeTasksCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -206,6 +207,10 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * //       ephemeralStorage: {
  * //         sizeInGiB: Number("int"), // required
  * //       },
+ * //       fargateEphemeralStorage: { // TaskEphemeralStorage
+ * //         sizeInGiB: Number("int"),
+ * //         kmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   failures: [ // Failures
@@ -231,11 +236,13 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * 			action or resource. Or, it might be specifying an identifier that isn't valid.</p>
  *
  * @throws {@link ClusterNotFoundException} (client fault)
- *  <p>The specified cluster wasn't found. You can view your available clusters with <a>ListClusters</a>. Amazon ECS clusters are Region specific.</p>
+ *  <p>The specified cluster wasn't found. You can view your available clusters with <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html">ListClusters</a>. Amazon ECS clusters are Region specific.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>The specified parameter isn't valid. Review the available parameters for the API
  * 			request.</p>
+ *          <p>For more information about service event errors, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-event-messages-list.html">Amazon ECS service
+ * 				event messages</a>. </p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server issue.</p>
@@ -243,58 +250,58 @@ export interface DescribeTasksCommandOutput extends DescribeTasksResponse, __Met
  * @throws {@link ECSServiceException}
  * <p>Base exception class for all service exceptions from ECS service.</p>
  *
- * @public
+ *
  * @example To describe a task
  * ```javascript
  * // This example provides a description of the specified task, using the task UUID as an identifier.
  * const input = {
- *   "tasks": [
+ *   tasks: [
  *     "c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
  *   ]
  * };
  * const command = new DescribeTasksCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "failures": [],
- *   "tasks": [
+ *   failures:   [],
+ *   tasks: [
  *     {
- *       "clusterArn": "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
- *       "containerInstanceArn": "arn:aws:ecs:<region>:<aws_account_id>:container-instance/default/18f9eda5-27d7-4c19-b133-45adc516e8fb",
- *       "containers": [
+ *       clusterArn: "arn:aws:ecs:<region>:<aws_account_id>:cluster/default",
+ *       containerInstanceArn: "arn:aws:ecs:<region>:<aws_account_id>:container-instance/default/18f9eda5-27d7-4c19-b133-45adc516e8fb",
+ *       containers: [
  *         {
- *           "name": "ecs-demo",
- *           "containerArn": "arn:aws:ecs:<region>:<aws_account_id>:container/7c01765b-c588-45b3-8290-4ba38bd6c5a6",
- *           "lastStatus": "RUNNING",
- *           "networkBindings": [
+ *           containerArn: "arn:aws:ecs:<region>:<aws_account_id>:container/7c01765b-c588-45b3-8290-4ba38bd6c5a6",
+ *           lastStatus: "RUNNING",
+ *           name: "ecs-demo",
+ *           networkBindings: [
  *             {
- *               "bindIP": "0.0.0.0",
- *               "containerPort": 80,
- *               "hostPort": 80
+ *               bindIP: "0.0.0.0",
+ *               containerPort: 80,
+ *               hostPort: 80
  *             }
  *           ],
- *           "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
+ *           taskArn: "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8"
  *         }
  *       ],
- *       "desiredStatus": "RUNNING",
- *       "lastStatus": "RUNNING",
- *       "overrides": {
- *         "containerOverrides": [
+ *       desiredStatus: "RUNNING",
+ *       lastStatus: "RUNNING",
+ *       overrides: {
+ *         containerOverrides: [
  *           {
- *             "name": "ecs-demo"
+ *             name: "ecs-demo"
  *           }
  *         ]
  *       },
- *       "startedBy": "ecs-svc/9223370608528463088",
- *       "taskArn": "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
- *       "taskDefinitionArn": "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
+ *       startedBy: "ecs-svc/9223370608528463088",
+ *       taskArn: "arn:aws:ecs:<region>:<aws_account_id>:task/default/c5cba4eb-5dad-405e-96db-71ef8eefe6a8",
+ *       taskDefinitionArn: "arn:aws:ecs:<region>:<aws_account_id>:task-definition/amazon-ecs-sample:1"
  *     }
  *   ]
  * }
  * *\/
- * // example id: a90b0cde-f965-4946-b55e-cfd8cc54e827
  * ```
  *
+ * @public
  */
 export class DescribeTasksCommand extends $Command
   .classBuilder<
@@ -304,9 +311,7 @@ export class DescribeTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -318,4 +323,16 @@ export class DescribeTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTasksCommand)
   .de(de_DescribeTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTasksRequest;
+      output: DescribeTasksResponse;
+    };
+    sdk: {
+      input: DescribeTasksCommandInput;
+      output: DescribeTasksCommandOutput;
+    };
+  };
+}

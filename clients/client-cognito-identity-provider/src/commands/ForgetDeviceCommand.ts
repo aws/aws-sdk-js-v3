@@ -16,7 +16,8 @@ import { de_ForgetDeviceCommand, se_ForgetDeviceCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,8 @@ export interface ForgetDeviceCommandInput extends ForgetDeviceRequest {}
 export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Forgets the specified device. For more information about device authentication, see
- *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
+ * <p>Given a device key, deletes a remembered device as the currently signed-in user. For
+ *             more information about device authentication, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html">Working with user devices in your user pool</a>.</p>
  *          <p>Authorize this action with a signed-in user's access token. It must include the scope <code>aws.cognito.signin.user.admin</code>.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
@@ -99,6 +100,7 @@ export interface ForgetDeviceCommandOutput extends __MetadataBearer {}
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ForgetDeviceCommand extends $Command
@@ -109,9 +111,7 @@ export class ForgetDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class ForgetDeviceCommand extends $Command
   .f(ForgetDeviceRequestFilterSensitiveLog, void 0)
   .ser(se_ForgetDeviceCommand)
   .de(de_ForgetDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ForgetDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: ForgetDeviceCommandInput;
+      output: ForgetDeviceCommandOutput;
+    };
+  };
+}

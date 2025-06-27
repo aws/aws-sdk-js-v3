@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -158,6 +159,7 @@ export interface CreateByteMatchSetCommandOutput extends CreateByteMatchSetRespo
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
+ *
  * @public
  */
 export class CreateByteMatchSetCommand extends $Command
@@ -168,9 +170,7 @@ export class CreateByteMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,4 +182,16 @@ export class CreateByteMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateByteMatchSetCommand)
   .de(de_CreateByteMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateByteMatchSetRequest;
+      output: CreateByteMatchSetResponse;
+    };
+    sdk: {
+      input: CreateByteMatchSetCommandInput;
+      output: CreateByteMatchSetCommandOutput;
+    };
+  };
+}

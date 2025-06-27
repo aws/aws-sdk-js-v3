@@ -8,7 +8,7 @@ const {
   waitUntilStackCreateComplete,
   DescribeChangeSetCommand,
   DeleteChangeSetCommand,
-} = require("../../clients/client-cloudformation");
+} = require("@aws-sdk/client-cloudformation");
 
 /**
  * Deploy the integration test stack if it does not exist. Update the
@@ -43,9 +43,9 @@ exports.ensureTestStack = async (client, stackName, templateBody) => {
 
   try {
     // TODO: Feature Request: return the last describe response from the waiter result, so we can inspect failure reasons.
-    await waitUntilChangeSetCreateComplete({ client }, { ChangeSetName: Id });
+    await waitUntilChangeSetCreateComplete({ client, maxWaitTime: 300 }, { ChangeSetName: Id });
   } catch (e) {
-    const { Status, StatusReason } = await client.send(
+    const { Status, StatusReason = "" } = await client.send(
       new DescribeChangeSetCommand({
         StackName: stackName,
         ChangeSetName: Id,

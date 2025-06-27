@@ -39,7 +39,7 @@
  *             </li>
  *          </ul>
  *          <p>You can also use the Amazon Web Services Support API to call the  Trusted Advisor operations. For more
- *             information, see <a href="https://docs.aws.amazon.com/">Trusted Advisor</a> in the
+ *             information, see <a href="https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html">Trusted Advisor</a> in the
  *                 <i>Amazon Web Services Support User Guide</i>.</p>
  *          <p>For authentication of requests, Amazon Web Services Support uses <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 Signing
  *                 Process</a>.</p>
@@ -51,8 +51,8 @@
 export * from "./SupportClient";
 export * from "./Support";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { SupportExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { SupportExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

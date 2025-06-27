@@ -16,7 +16,8 @@ import { de_CreateDirectoryCommand, se_CreateDirectoryCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,12 +32,10 @@ export interface CreateDirectoryCommandInput extends CreateDirectoryRequest {}
 export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __MetadataBearer {}
 
 /**
- * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>Directory Service Admin
- *         Guide</i>.</p>
+ * <p>Creates a Simple AD directory. For more information, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/directory_simple_ad.html">Simple Active Directory</a> in the <i>Directory Service Admin Guide</i>.</p>
  *          <p>Before you call <code>CreateDirectory</code>, ensure that all of the required permissions
  *       have been explicitly granted through a policy. For details about what permissions are required
- *       to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions
- *       Reference</a>.</p>
+ *       to run the <code>CreateDirectory</code> operation, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/UsingWithDS_IAM_ResourcePermissions.html">Directory Service API Permissions: Actions, Resources, and Conditions Reference</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +92,33 @@ export interface CreateDirectoryCommandOutput extends CreateDirectoryResult, __M
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To create a Simple AD directory
+ * ```javascript
+ * // The following example creates a Simple AD directory.
+ * const input = {
+ *   Description: "Regional directory for example.com",
+ *   Name: "seattle.example.com",
+ *   Password: "Str0ngP@ssw0rd",
+ *   ShortName: "seattle",
+ *   Size: "Small",
+ *   VpcSettings: {
+ *     SubnetIds: [
+ *       "subnet-ba0146de",
+ *       "subnet-bef46bc8"
+ *     ],
+ *     VpcId: "vpc-45025421"
+ *   }
+ * };
+ * const command = new CreateDirectoryCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryId: "d-92654abfed"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateDirectoryCommand extends $Command
@@ -103,9 +129,7 @@ export class CreateDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +141,16 @@ export class CreateDirectoryCommand extends $Command
   .f(CreateDirectoryRequestFilterSensitiveLog, void 0)
   .ser(se_CreateDirectoryCommand)
   .de(de_CreateDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectoryRequest;
+      output: CreateDirectoryResult;
+    };
+    sdk: {
+      input: CreateDirectoryCommandInput;
+      output: CreateDirectoryCommandOutput;
+    };
+  };
+}

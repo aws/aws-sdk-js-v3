@@ -216,19 +216,28 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
       }),
       requestTimeout(requestTimeoutInMs),
     ];
+    let removeSignalEventListener = () => {};
     if (abortSignal) {
       raceOfPromises.push(
         new Promise<never>((resolve, reject) => {
-          abortSignal.onabort = () => {
+          const onAbort = () => {
             xhr.abort();
             const abortError = new Error("Request aborted");
             abortError.name = "AbortError";
             reject(abortError);
           };
+          if (typeof (abortSignal as any).addEventListener === "function") {
+            const signal = abortSignal as any;
+            signal.addEventListener("abort", onAbort, { once: true });
+            removeSignalEventListener = () => signal.removeEventListener("abort", onAbort);
+          } else {
+            // backwards compatibility
+            abortSignal.onabort = onAbort;
+          }
         })
       );
     }
-    return Promise.race(raceOfPromises);
+    return Promise.race(raceOfPromises).finally(removeSignalEventListener);
   }
 
   /**
@@ -273,7 +282,7 @@ export class XhrHttpHandler extends EventEmitter implements HttpHandler<XhrHttpH
 
 /**
  * Used to omit headers that will be ignored by XHR to prevent excessive logging.
- * @private
+ * @internal
  */
 const isForbiddenRequestHeader = (header: string): boolean => {
   header = header.toLowerCase();
@@ -287,7 +296,7 @@ const isForbiddenRequestHeader = (header: string): boolean => {
 };
 
 /**
- * @private
+ * @internal
  */
 const forbiddenHeaders = [
   "Accept-Charset",

@@ -12,7 +12,8 @@ import { de_DeleteComponentCommand, se_DeleteComponentCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface DeleteComponentCommandOutput extends DeleteComponentResponse, _
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteComponentCommand extends $Command
@@ -90,9 +92,7 @@ export class DeleteComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class DeleteComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteComponentCommand)
   .de(de_DeleteComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteComponentRequest;
+      output: DeleteComponentResponse;
+    };
+    sdk: {
+      input: DeleteComponentCommandInput;
+      output: DeleteComponentCommandOutput;
+    };
+  };
+}

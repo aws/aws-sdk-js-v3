@@ -16,7 +16,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,25 +100,25 @@ export interface GetRandomPasswordCommandOutput extends GetRandomPasswordRespons
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To generate a random password
  * ```javascript
  * // The following example shows how to request a randomly generated password. This example includes the optional flags to require spaces and at least one character of each included type. It specifies a length of 20 characters.
  * const input = {
- *   "IncludeSpace": true,
- *   "PasswordLength": 20,
- *   "RequireEachIncludedType": true
+ *   IncludeSpace: true,
+ *   PasswordLength: 20,
+ *   RequireEachIncludedType: true
  * };
  * const command = new GetRandomPasswordCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RandomPassword": "EXAMPLE-PASSWORD"
+ *   RandomPassword: "EXAMPLE-PASSWORD"
  * }
  * *\/
- * // example id: to-generate-a-random-password-1524000546092
  * ```
  *
+ * @public
  */
 export class GetRandomPasswordCommand extends $Command
   .classBuilder<
@@ -127,9 +128,7 @@ export class GetRandomPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +140,16 @@ export class GetRandomPasswordCommand extends $Command
   .f(void 0, GetRandomPasswordResponseFilterSensitiveLog)
   .ser(se_GetRandomPasswordCommand)
   .de(de_GetRandomPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRandomPasswordRequest;
+      output: GetRandomPasswordResponse;
+    };
+    sdk: {
+      input: GetRandomPasswordCommandInput;
+      output: GetRandomPasswordCommandOutput;
+    };
+  };
+}

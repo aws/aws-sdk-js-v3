@@ -12,7 +12,8 @@ import { de_ListAuthorizersCommand, se_ListAuthorizersCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListAuthorizersCommandOutput extends ListAuthorizersResponse, _
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListAuthorizersCommand extends $Command
@@ -89,9 +91,7 @@ export class ListAuthorizersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListAuthorizersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuthorizersCommand)
   .de(de_ListAuthorizersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuthorizersRequest;
+      output: ListAuthorizersResponse;
+    };
+    sdk: {
+      input: ListAuthorizersCommandInput;
+      output: ListAuthorizersCommandOutput;
+    };
+  };
+}

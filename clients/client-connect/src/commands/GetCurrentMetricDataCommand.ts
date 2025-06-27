@@ -12,7 +12,8 @@ import { de_GetCurrentMetricDataCommand, se_GetCurrentMetricDataCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,8 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
 
 /**
  * <p>Gets the real-time metric data from the specified Amazon Connect instance.</p>
- *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics
- *     Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ *          <p>For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/metrics-definitions.html">Metrics definitions</a> in the
+ *      <i>Amazon Connect Administrator Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -43,7 +44,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  *       "STRING_VALUE",
  *     ],
  *     Channels: [ // Channels
- *       "VOICE" || "CHAT" || "TASK",
+ *       "VOICE" || "CHAT" || "TASK" || "EMAIL",
  *     ],
  *     RoutingProfiles: [ // RoutingProfiles
  *       "STRING_VALUE",
@@ -81,7 +82,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
  * //         },
- * //         Channel: "VOICE" || "CHAT" || "TASK",
+ * //         Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //         RoutingProfile: { // RoutingProfileReference
  * //           Id: "STRING_VALUE",
  * //           Arn: "STRING_VALUE",
@@ -129,6 +130,7 @@ export interface GetCurrentMetricDataCommandOutput extends GetCurrentMetricDataR
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class GetCurrentMetricDataCommand extends $Command
@@ -139,9 +141,7 @@ export class GetCurrentMetricDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class GetCurrentMetricDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCurrentMetricDataCommand)
   .de(de_GetCurrentMetricDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCurrentMetricDataRequest;
+      output: GetCurrentMetricDataResponse;
+    };
+    sdk: {
+      input: GetCurrentMetricDataCommandInput;
+      output: GetCurrentMetricDataCommandOutput;
+    };
+  };
+}

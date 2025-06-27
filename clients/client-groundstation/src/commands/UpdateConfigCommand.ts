@@ -12,7 +12,8 @@ import { de_UpdateConfigCommand, se_UpdateConfigCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,23 +40,23 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const input = { // UpdateConfigRequest
  *   configId: "STRING_VALUE", // required
  *   name: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
  *   configData: { // ConfigTypeData Union: only one key present
  *     antennaDownlinkConfig: { // AntennaDownlinkConfig
  *       spectrumConfig: { // SpectrumConfig
  *         centerFrequency: { // Frequency
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
  *         bandwidth: { // FrequencyBandwidth
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  *       },
  *     },
  *     trackingConfig: { // TrackingConfig
- *       autotrack: "STRING_VALUE", // required
+ *       autotrack: "REQUIRED" || "PREFERRED" || "REMOVED", // required
  *     },
  *     dataflowEndpointConfig: { // DataflowEndpointConfig
  *       dataflowEndpointName: "STRING_VALUE", // required
@@ -65,13 +66,13 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *       spectrumConfig: {
  *         centerFrequency: {
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
  *         bandwidth: {
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  *       },
  *       demodulationConfig: { // DemodulationConfig
  *         unvalidatedJSON: "STRING_VALUE", // required
@@ -85,13 +86,13 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  *       spectrumConfig: { // UplinkSpectrumConfig
  *         centerFrequency: {
  *           value: Number("double"), // required
- *           units: "STRING_VALUE", // required
+ *           units: "GHz" || "MHz" || "kHz", // required
  *         },
- *         polarization: "STRING_VALUE",
+ *         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  *       },
  *       targetEirp: { // Eirp
  *         value: Number("double"), // required
- *         units: "STRING_VALUE", // required
+ *         units: "dBW", // required
  *       },
  *     },
  *     uplinkEchoConfig: { // UplinkEchoConfig
@@ -109,7 +110,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * const response = await client.send(command);
  * // { // ConfigIdResponse
  * //   configId: "STRING_VALUE",
- * //   configType: "STRING_VALUE",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //   configArn: "STRING_VALUE",
  * // };
  *
@@ -133,6 +134,7 @@ export interface UpdateConfigCommandOutput extends ConfigIdResponse, __MetadataB
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class UpdateConfigCommand extends $Command
@@ -143,9 +145,7 @@ export class UpdateConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +157,16 @@ export class UpdateConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateConfigCommand)
   .de(de_UpdateConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateConfigRequest;
+      output: ConfigIdResponse;
+    };
+    sdk: {
+      input: UpdateConfigCommandInput;
+      output: UpdateConfigCommandOutput;
+    };
+  };
+}

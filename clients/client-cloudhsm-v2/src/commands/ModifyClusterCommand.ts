@@ -12,7 +12,8 @@ import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface ModifyClusterCommandInput extends ModifyClusterRequest {}
 export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies AWS CloudHSM cluster.</p>
+ * <p>Modifies CloudHSM cluster.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Services account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,6 +38,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * // const { CloudHSMV2Client, ModifyClusterCommand } = require("@aws-sdk/client-cloudhsm-v2"); // CommonJS import
  * const client = new CloudHSMV2Client(config);
  * const input = { // ModifyClusterRequest
+ *   HsmType: "STRING_VALUE",
  *   BackupRetentionPolicy: { // BackupRetentionPolicy
  *     Type: "DAYS",
  *     Value: "STRING_VALUE",
@@ -59,21 +63,25 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * //         SubnetId: "STRING_VALUE",
  * //         EniId: "STRING_VALUE",
  * //         EniIp: "STRING_VALUE",
+ * //         EniIpV6: "STRING_VALUE",
  * //         HsmId: "STRING_VALUE", // required
+ * //         HsmType: "STRING_VALUE",
  * //         State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //         StateMessage: "STRING_VALUE",
  * //       },
  * //     ],
  * //     HsmType: "STRING_VALUE",
+ * //     HsmTypeRollbackExpiration: new Date("TIMESTAMP"),
  * //     PreCoPassword: "STRING_VALUE",
  * //     SecurityGroup: "STRING_VALUE",
  * //     SourceBackupId: "STRING_VALUE",
- * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
+ * //     State: "CREATE_IN_PROGRESS" || "UNINITIALIZED" || "INITIALIZE_IN_PROGRESS" || "INITIALIZED" || "ACTIVE" || "UPDATE_IN_PROGRESS" || "MODIFY_IN_PROGRESS" || "ROLLBACK_IN_PROGRESS" || "DELETE_IN_PROGRESS" || "DELETED" || "DEGRADED",
  * //     StateMessage: "STRING_VALUE",
  * //     SubnetMapping: { // ExternalSubnetMapping
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     VpcId: "STRING_VALUE",
+ * //     NetworkType: "IPV4" || "DUALSTACK",
  * //     Certificates: { // Certificates
  * //       ClusterCsr: "STRING_VALUE",
  * //       HsmCertificate: "STRING_VALUE",
@@ -87,6 +95,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * //         Value: "STRING_VALUE", // required
  * //       },
  * //     ],
+ * //     Mode: "FIPS" || "NON_FIPS",
  * //   },
  * // };
  *
@@ -103,7 +112,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -119,6 +128,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterResponse, __Met
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyClusterCommand extends $Command
@@ -129,9 +139,7 @@ export class ModifyClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +151,16 @@ export class ModifyClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterCommand)
   .de(de_ModifyClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterRequest;
+      output: ModifyClusterResponse;
+    };
+    sdk: {
+      input: ModifyClusterCommandInput;
+      output: ModifyClusterCommandOutput;
+    };
+  };
+}

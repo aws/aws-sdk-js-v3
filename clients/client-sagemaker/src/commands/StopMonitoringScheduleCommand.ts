@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopMonitoringScheduleRequest } from "../models/models_4";
+import { StopMonitoringScheduleRequest } from "../models/models_5";
 import { de_StopMonitoringScheduleCommand, se_StopMonitoringScheduleCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +56,7 @@ export interface StopMonitoringScheduleCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopMonitoringScheduleCommand extends $Command
@@ -65,9 +67,7 @@ export class StopMonitoringScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -79,4 +79,16 @@ export class StopMonitoringScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopMonitoringScheduleCommand)
   .de(de_StopMonitoringScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopMonitoringScheduleRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopMonitoringScheduleCommandInput;
+      output: StopMonitoringScheduleCommandOutput;
+    };
+  };
+}

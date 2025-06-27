@@ -12,7 +12,8 @@ import { de_ListRuleSetsCommand, se_ListRuleSetsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface ListRuleSetsCommandOutput extends ListRuleSetsResponse, __Metad
  * @throws {@link MailManagerServiceException}
  * <p>Base exception class for all service exceptions from MailManager service.</p>
  *
+ *
  * @public
  */
 export class ListRuleSetsCommand extends $Command
@@ -75,9 +77,7 @@ export class ListRuleSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MailManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class ListRuleSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRuleSetsCommand)
   .de(de_ListRuleSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRuleSetsRequest;
+      output: ListRuleSetsResponse;
+    };
+    sdk: {
+      input: ListRuleSetsCommandInput;
+      output: ListRuleSetsCommandOutput;
+    };
+  };
+}

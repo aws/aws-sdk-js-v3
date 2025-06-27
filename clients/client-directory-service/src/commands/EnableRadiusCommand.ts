@@ -12,7 +12,8 @@ import { de_EnableRadiusCommand, se_EnableRadiusCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,32 @@ export interface EnableRadiusCommandOutput extends EnableRadiusResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To enable radius
+ * ```javascript
+ * // The following example enables multi-factor authentication (MFA) with the Remote Authentication Dial In User Service (RADIUS) server for an AD Connector directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   RadiusSettings: {
+ *     AuthenticationProtocol: "PAP",
+ *     DisplayLabel: "MyRadius",
+ *     RadiusPort: 1200,
+ *     RadiusRetries: 2,
+ *     RadiusServers: [
+ *       "172.168.111.12"
+ *     ],
+ *     RadiusTimeout: 1,
+ *     SharedSecret: "123456789",
+ *     UseSameUsername: true
+ *   }
+ * };
+ * const command = new EnableRadiusCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class EnableRadiusCommand extends $Command
@@ -90,9 +117,7 @@ export class EnableRadiusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +129,16 @@ export class EnableRadiusCommand extends $Command
   .f(EnableRadiusRequestFilterSensitiveLog, void 0)
   .ser(se_EnableRadiusCommand)
   .de(de_EnableRadiusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableRadiusRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableRadiusCommandInput;
+      output: EnableRadiusCommandOutput;
+    };
+  };
+}

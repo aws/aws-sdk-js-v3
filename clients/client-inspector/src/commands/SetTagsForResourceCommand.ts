@@ -12,7 +12,8 @@ import { de_SetTagsForResourceCommand, se_SetTagsForResourceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,24 +77,27 @@ export interface SetTagsForResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Set tags for resource
  * ```javascript
  * // Sets tags (key and value pairs) to the assessment template that is specified by the ARN of the assessment template.
  * const input = {
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
- *   "tags": [
+ *   resourceArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *   tags: [
  *     {
- *       "key": "Example",
- *       "value": "example"
+ *       key: "Example",
+ *       value: "example"
  *     }
  *   ]
  * };
  * const command = new SetTagsForResourceCommand(input);
- * await client.send(command);
- * // example id: set-tags-for-resource-1481067329646
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SetTagsForResourceCommand extends $Command
   .classBuilder<
@@ -103,9 +107,7 @@ export class SetTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +119,16 @@ export class SetTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetTagsForResourceCommand)
   .de(de_SetTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetTagsForResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: SetTagsForResourceCommandInput;
+      output: SetTagsForResourceCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+export * from "./BatchGetPolicyCommand";
 export * from "./BatchIsAuthorizedCommand";
 export * from "./BatchIsAuthorizedWithTokenCommand";
 export * from "./CreateIdentitySourceCommand";
@@ -20,7 +21,10 @@ export * from "./ListIdentitySourcesCommand";
 export * from "./ListPoliciesCommand";
 export * from "./ListPolicyStoresCommand";
 export * from "./ListPolicyTemplatesCommand";
+export * from "./ListTagsForResourceCommand";
 export * from "./PutSchemaCommand";
+export * from "./TagResourceCommand";
+export * from "./UntagResourceCommand";
 export * from "./UpdateIdentitySourceCommand";
 export * from "./UpdatePolicyCommand";
 export * from "./UpdatePolicyStoreCommand";

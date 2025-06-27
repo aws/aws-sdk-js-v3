@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -213,38 +214,38 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  * @throws {@link WAFServiceException}
  * <p>Base exception class for all service exceptions from WAF service.</p>
  *
- * @public
+ *
  * @example To update a byte match set
  * ```javascript
  * // The following example deletes a ByteMatchTuple object (filters) in an byte match set with the ID exampleIDs3t-46da-4fdb-b8d5-abc321j569j5.
  * const input = {
- *   "ByteMatchSetId": "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
- *   "Updates": [
+ *   ByteMatchSetId: "exampleIDs3t-46da-4fdb-b8d5-abc321j569j5",
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f",
+ *   Updates: [
  *     {
- *       "Action": "DELETE",
- *       "ByteMatchTuple": {
- *         "FieldToMatch": {
- *           "Data": "referer",
- *           "Type": "HEADER"
+ *       Action: "DELETE",
+ *       ByteMatchTuple: {
+ *         FieldToMatch: {
+ *           Data: "referer",
+ *           Type: "HEADER"
  *         },
- *         "PositionalConstraint": "CONTAINS",
- *         "TargetString": "badrefer1",
- *         "TextTransformation": "NONE"
+ *         PositionalConstraint: "CONTAINS",
+ *         TargetString: "badrefer1",
+ *         TextTransformation: "NONE"
  *       }
  *     }
  *   ]
  * };
  * const command = new UpdateByteMatchSetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ChangeToken": "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
+ *   ChangeToken: "abcd12f2-46da-4fdb-b8d5-fbd4c466928f"
  * }
  * *\/
- * // example id: updatebytematchset-1475259074558
  * ```
  *
+ * @public
  */
 export class UpdateByteMatchSetCommand extends $Command
   .classBuilder<
@@ -254,9 +255,7 @@ export class UpdateByteMatchSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -268,4 +267,16 @@ export class UpdateByteMatchSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateByteMatchSetCommand)
   .de(de_UpdateByteMatchSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateByteMatchSetRequest;
+      output: UpdateByteMatchSetResponse;
+    };
+    sdk: {
+      input: UpdateByteMatchSetCommandInput;
+      output: UpdateByteMatchSetCommandOutput;
+    };
+  };
+}

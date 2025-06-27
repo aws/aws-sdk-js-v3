@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteCertificateCommandInput extends DeleteCertificateRequest 
 export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes the certificate that's specified in the <code>CertificateId</code>
- *       parameter.</p>
+ * <p>Deletes the certificate that's specified in the <code>CertificateId</code> parameter.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -57,14 +57,14 @@ export interface DeleteCertificateCommandOutput extends __MetadataBearer {}
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -76,9 +76,7 @@ export class DeleteCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +88,16 @@ export class DeleteCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCertificateCommand)
   .de(de_DeleteCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCertificateRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCertificateCommandInput;
+      output: DeleteCertificateCommandOutput;
+    };
+  };
+}

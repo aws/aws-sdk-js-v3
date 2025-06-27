@@ -12,7 +12,8 @@ import { de_DeleteRealtimeLogConfigCommand, se_DeleteRealtimeLogConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface DeleteRealtimeLogConfigCommandInput extends DeleteRealtimeLogCo
 export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a real-time log configuration.</p>
- *          <p>You cannot delete a real-time log configuration if it's attached to a cache behavior.
- * 			First update your distributions to remove the real-time log configuration from all cache
- * 			behaviors, then delete the real-time log configuration.</p>
- *          <p>To delete a real-time log configuration, you can provide the configuration's name or
- * 			its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront
- * 			uses the name to identify the real-time log configuration to delete.</p>
+ * <p>Deletes a real-time log configuration.</p> <p>You cannot delete a real-time log configuration if it's attached to a cache behavior. First update your distributions to remove the real-time log configuration from all cache behaviors, then delete the real-time log configuration.</p> <p>To delete a real-time log configuration, you can provide the configuration's name or its Amazon Resource Name (ARN). You must provide at least one. If you provide both, CloudFront uses the name to identify the real-time log configuration to delete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,11 +61,11 @@ export interface DeleteRealtimeLogConfigCommandOutput extends __MetadataBearer {
  *  <p>The real-time log configuration does not exist.</p>
  *
  * @throws {@link RealtimeLogConfigInUse} (client fault)
- *  <p>Cannot delete the real-time log configuration because it is attached to one or more
- * 			cache behaviors.</p>
+ *  <p>Cannot delete the real-time log configuration because it is attached to one or more cache behaviors.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -82,9 +77,7 @@ export class DeleteRealtimeLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +89,16 @@ export class DeleteRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRealtimeLogConfigCommand)
   .de(de_DeleteRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRealtimeLogConfigRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRealtimeLogConfigCommandInput;
+      output: DeleteRealtimeLogConfigCommandOutput;
+    };
+  };
+}

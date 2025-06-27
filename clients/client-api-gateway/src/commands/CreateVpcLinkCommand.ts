@@ -12,7 +12,8 @@ import { de_CreateVpcLinkCommand, se_CreateVpcLinkCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface CreateVpcLinkCommandOutput extends VpcLink, __MetadataBearer {}
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class CreateVpcLinkCommand extends $Command
@@ -96,9 +98,7 @@ export class CreateVpcLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CreateVpcLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateVpcLinkCommand)
   .de(de_CreateVpcLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateVpcLinkRequest;
+      output: VpcLink;
+    };
+    sdk: {
+      input: CreateVpcLinkCommandInput;
+      output: CreateVpcLinkCommandOutput;
+    };
+  };
+}

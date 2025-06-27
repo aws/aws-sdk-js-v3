@@ -18,7 +18,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface ListPipelineParametersForExecutionCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListPipelineParametersForExecutionCommand extends $Command
@@ -83,9 +85,7 @@ export class ListPipelineParametersForExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class ListPipelineParametersForExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPipelineParametersForExecutionCommand)
   .de(de_ListPipelineParametersForExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPipelineParametersForExecutionRequest;
+      output: ListPipelineParametersForExecutionResponse;
+    };
+    sdk: {
+      input: ListPipelineParametersForExecutionCommandInput;
+      output: ListPipelineParametersForExecutionCommandOutput;
+    };
+  };
+}

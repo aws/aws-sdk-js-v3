@@ -12,7 +12,8 @@ import { RDSDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -176,6 +177,11 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link DatabaseNotFoundException} (client fault)
  *  <p>The DB cluster doesn't have a DB instance.</p>
  *
+ * @throws {@link DatabaseResumingException} (client fault)
+ *  <p>A request was cancelled because the Aurora Serverless v2 DB instance was paused.
+ *          The Data API request automatically resumes the DB instance. Wait a few seconds and
+ *          try again.</p>
+ *
  * @throws {@link DatabaseUnavailableException} (server fault)
  *  <p>The writer instance in the DB cluster isn't available.</p>
  *
@@ -187,6 +193,9 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>An internal error occurred.</p>
+ *
+ * @throws {@link InvalidResourceStateException} (client fault)
+ *  <p>The resource is in an invalid state.</p>
  *
  * @throws {@link InvalidSecretException} (client fault)
  *  <p>The Secrets Manager secret used with the request isn't valid.</p>
@@ -218,6 +227,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * @throws {@link RDSDataServiceException}
  * <p>Base exception class for all service exceptions from RDSData service.</p>
  *
+ *
  * @public
  */
 export class BatchExecuteStatementCommand extends $Command
@@ -228,9 +238,7 @@ export class BatchExecuteStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +250,16 @@ export class BatchExecuteStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchExecuteStatementCommand)
   .de(de_BatchExecuteStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchExecuteStatementRequest;
+      output: BatchExecuteStatementResponse;
+    };
+    sdk: {
+      input: BatchExecuteStatementCommandInput;
+      output: BatchExecuteStatementCommandOutput;
+    };
+  };
+}

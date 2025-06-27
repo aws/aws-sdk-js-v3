@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,23 +76,23 @@ export interface UpdateGatewaySoftwareNowCommandOutput extends UpdateGatewaySoft
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update a gateway's VM software
  * ```javascript
  * // Updates the gateway virtual machine (VM) software. The request immediately triggers the software update.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new UpdateGatewaySoftwareNowCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-update-a-gateways-vm-software-1472152020929
  * ```
  *
+ * @public
  */
 export class UpdateGatewaySoftwareNowCommand extends $Command
   .classBuilder<
@@ -101,9 +102,7 @@ export class UpdateGatewaySoftwareNowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class UpdateGatewaySoftwareNowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateGatewaySoftwareNowCommand)
   .de(de_UpdateGatewaySoftwareNowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateGatewaySoftwareNowInput;
+      output: UpdateGatewaySoftwareNowOutput;
+    };
+    sdk: {
+      input: UpdateGatewaySoftwareNowCommandInput;
+      output: UpdateGatewaySoftwareNowCommandOutput;
+    };
+  };
+}

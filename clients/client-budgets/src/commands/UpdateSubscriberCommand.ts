@@ -16,7 +16,8 @@ import { de_UpdateSubscriberCommand, se_UpdateSubscriberCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * @throws {@link BudgetsServiceException}
  * <p>Base exception class for all service exceptions from Budgets service.</p>
  *
+ *
  * @public
  */
 export class UpdateSubscriberCommand extends $Command
@@ -101,9 +103,7 @@ export class UpdateSubscriberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BudgetsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class UpdateSubscriberCommand extends $Command
   .f(UpdateSubscriberRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateSubscriberCommand)
   .de(de_UpdateSubscriberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSubscriberRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateSubscriberCommandInput;
+      output: UpdateSubscriberCommandOutput;
+    };
+  };
+}

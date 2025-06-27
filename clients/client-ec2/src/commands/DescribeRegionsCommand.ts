@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_4";
+import { DescribeRegionsRequest, DescribeRegionsResult } from "../models/models_5";
 import { de_DescribeRegionsCommand, se_DescribeRegionsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,9 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
 
 /**
  * <p>Describes the Regions that are enabled for your account, or all Regions.</p>
- *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/general/latest/gr/ec2-service.html">
- *        Amazon Elastic Compute Cloud endpoints and quotas</a>.</p>
- *          <p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing Amazon Web Services Regions</a> in the <i>Amazon Web Services General Reference</i>.</p>
+ *          <p>For a list of the Regions supported by Amazon EC2, see <a href="https://docs.aws.amazon.com/ec2/latest/devguide/ec2-endpoints.html">Amazon EC2 service endpoints</a>.</p>
+ *          <p>For information about enabling and disabling Regions for your account, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html">Specify which Amazon Web Services Regions
+ *       your account can use</a> in the <i>Amazon Web Services Account Management Reference Guide</i>.</p>
  *          <note>
  *             <p>The order of the elements in the response, including those within nested structures,
  *         might vary. Applications should not assume the elements appear in a particular order.</p>
@@ -42,6 +43,11 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * // const { EC2Client, DescribeRegionsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // DescribeRegionsRequest
+ *   RegionNames: [ // RegionNameStringList
+ *     "STRING_VALUE",
+ *   ],
+ *   AllRegions: true || false,
+ *   DryRun: true || false,
  *   Filters: [ // FilterList
  *     { // Filter
  *       Name: "STRING_VALUE",
@@ -50,20 +56,15 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  *       ],
  *     },
  *   ],
- *   RegionNames: [ // RegionNameStringList
- *     "STRING_VALUE",
- *   ],
- *   DryRun: true || false,
- *   AllRegions: true || false,
  * };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
  * // { // DescribeRegionsResult
  * //   Regions: [ // RegionList
  * //     { // Region
- * //       Endpoint: "STRING_VALUE",
- * //       RegionName: "STRING_VALUE",
  * //       OptInStatus: "STRING_VALUE",
+ * //       RegionName: "STRING_VALUE",
+ * //       Endpoint: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -79,66 +80,66 @@ export interface DescribeRegionsCommandOutput extends DescribeRegionsResult, __M
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe your regions
  * ```javascript
  * // This example describes all the regions that are available to you.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeRegionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Regions": [
+ *   Regions: [
  *     {
- *       "Endpoint": "ec2.ap-south-1.amazonaws.com",
- *       "RegionName": "ap-south-1"
+ *       Endpoint: "ec2.ap-south-1.amazonaws.com",
+ *       RegionName: "ap-south-1"
  *     },
  *     {
- *       "Endpoint": "ec2.eu-west-1.amazonaws.com",
- *       "RegionName": "eu-west-1"
+ *       Endpoint: "ec2.eu-west-1.amazonaws.com",
+ *       RegionName: "eu-west-1"
  *     },
  *     {
- *       "Endpoint": "ec2.ap-southeast-1.amazonaws.com",
- *       "RegionName": "ap-southeast-1"
+ *       Endpoint: "ec2.ap-southeast-1.amazonaws.com",
+ *       RegionName: "ap-southeast-1"
  *     },
  *     {
- *       "Endpoint": "ec2.ap-southeast-2.amazonaws.com",
- *       "RegionName": "ap-southeast-2"
+ *       Endpoint: "ec2.ap-southeast-2.amazonaws.com",
+ *       RegionName: "ap-southeast-2"
  *     },
  *     {
- *       "Endpoint": "ec2.eu-central-1.amazonaws.com",
- *       "RegionName": "eu-central-1"
+ *       Endpoint: "ec2.eu-central-1.amazonaws.com",
+ *       RegionName: "eu-central-1"
  *     },
  *     {
- *       "Endpoint": "ec2.ap-northeast-2.amazonaws.com",
- *       "RegionName": "ap-northeast-2"
+ *       Endpoint: "ec2.ap-northeast-2.amazonaws.com",
+ *       RegionName: "ap-northeast-2"
  *     },
  *     {
- *       "Endpoint": "ec2.ap-northeast-1.amazonaws.com",
- *       "RegionName": "ap-northeast-1"
+ *       Endpoint: "ec2.ap-northeast-1.amazonaws.com",
+ *       RegionName: "ap-northeast-1"
  *     },
  *     {
- *       "Endpoint": "ec2.us-east-1.amazonaws.com",
- *       "RegionName": "us-east-1"
+ *       Endpoint: "ec2.us-east-1.amazonaws.com",
+ *       RegionName: "us-east-1"
  *     },
  *     {
- *       "Endpoint": "ec2.sa-east-1.amazonaws.com",
- *       "RegionName": "sa-east-1"
+ *       Endpoint: "ec2.sa-east-1.amazonaws.com",
+ *       RegionName: "sa-east-1"
  *     },
  *     {
- *       "Endpoint": "ec2.us-west-1.amazonaws.com",
- *       "RegionName": "us-west-1"
+ *       Endpoint: "ec2.us-west-1.amazonaws.com",
+ *       RegionName: "us-west-1"
  *     },
  *     {
- *       "Endpoint": "ec2.us-west-2.amazonaws.com",
- *       "RegionName": "us-west-2"
+ *       Endpoint: "ec2.us-west-2.amazonaws.com",
+ *       RegionName: "us-west-2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: ec2-describe-regions-1
  * ```
  *
+ * @public
  */
 export class DescribeRegionsCommand extends $Command
   .classBuilder<
@@ -148,9 +149,7 @@ export class DescribeRegionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -162,4 +161,16 @@ export class DescribeRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRegionsCommand)
   .de(de_DescribeRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRegionsRequest;
+      output: DescribeRegionsResult;
+    };
+    sdk: {
+      input: DescribeRegionsCommandInput;
+      output: DescribeRegionsCommandOutput;
+    };
+  };
+}

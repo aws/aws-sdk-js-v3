@@ -16,7 +16,8 @@ import { de_StartKeyUsageCommand, se_StartKeyUsageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,19 +32,7 @@ export interface StartKeyUsageCommandInput extends StartKeyUsageInput {}
 export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __MetadataBearer {}
 
 /**
- * <p>Enables an Amazon Web Services Payment Cryptography key, which makes it active for cryptographic operations within Amazon Web Services Payment Cryptography</p>
- *          <p>
- *             <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p>
- *          <p>
- *             <b>Related operations:</b>
- *          </p>
- *          <ul>
- *             <li>
- *                <p>
- *                   <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a>
- *                </p>
- *             </li>
- *          </ul>
+ * <p>Enables an Amazon Web Services Payment Cryptography key, which makes it active for cryptographic operations within Amazon Web Services Payment Cryptography</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a href="https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/API_StopKeyUsage.html">StopKeyUsage</a> </p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,6 +74,7 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  * //     UsageStopTimestamp: new Date("TIMESTAMP"),
  * //     DeletePendingTimestamp: new Date("TIMESTAMP"),
  * //     DeleteTimestamp: new Date("TIMESTAMP"),
+ * //     DeriveKeyUsage: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -123,6 +113,7 @@ export interface StartKeyUsageCommandOutput extends StartKeyUsageOutput, __Metad
  * @throws {@link PaymentCryptographyServiceException}
  * <p>Base exception class for all service exceptions from PaymentCryptography service.</p>
  *
+ *
  * @public
  */
 export class StartKeyUsageCommand extends $Command
@@ -133,9 +124,7 @@ export class StartKeyUsageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PaymentCryptographyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +136,16 @@ export class StartKeyUsageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartKeyUsageCommand)
   .de(de_StartKeyUsageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartKeyUsageInput;
+      output: StartKeyUsageOutput;
+    };
+    sdk: {
+      input: StartKeyUsageCommandInput;
+      output: StartKeyUsageCommandOutput;
+    };
+  };
+}

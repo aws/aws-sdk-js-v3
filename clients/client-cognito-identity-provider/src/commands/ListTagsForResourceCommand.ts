@@ -10,13 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_1";
 import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,10 +32,9 @@ export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequ
 export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags that are assigned to an Amazon Cognito user pool.</p>
- *          <p>A tag is a label that you can apply to user pools to categorize and manage them in
- *             different ways, such as by purpose, owner, environment, or other criteria.</p>
- *          <p>You can use this action up to 10 times per second, per account.</p>
+ * <p>Lists the tags that are assigned to an Amazon Cognito user pool. For more information, see
+ *                 <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/tagging.html">Tagging
+ *                 resources</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +81,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class ListTagsForResourceCommand extends $Command
@@ -91,9 +92,7 @@ export class ListTagsForResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class ListTagsForResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsForResourceCommand)
   .de(de_ListTagsForResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsForResourceRequest;
+      output: ListTagsForResourceResponse;
+    };
+    sdk: {
+      input: ListTagsForResourceCommandInput;
+      output: ListTagsForResourceCommandOutput;
+    };
+  };
+}

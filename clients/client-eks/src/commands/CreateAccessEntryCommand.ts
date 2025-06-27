@@ -12,7 +12,8 @@ import { de_CreateAccessEntryCommand, se_CreateAccessEntryCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,11 +33,11 @@ export interface CreateAccessEntryCommandOutput extends CreateAccessEntryRespons
  *             entries can replace the need to maintain entries in the <code>aws-auth</code>
  *             <code>ConfigMap</code> for authentication. You have the following options for
  *             authorizing an IAM principal to access Kubernetes objects on your cluster: Kubernetes
- *             role-based access control (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization
- *             requires you to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
+ *             role-based access control (RBAC), Amazon EKS, or both. Kubernetes RBAC authorization requires you
+ *             to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
  *                 <code>RoleBinding</code>, and <code>ClusterRoleBinding</code> objects, in addition
- *             to managing access entries. If you use Amazon EKS authorization exclusively, you
- *             don't need to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
+ *             to managing access entries. If you use Amazon EKS authorization exclusively, you don't need
+ *             to create and manage Kubernetes <code>Role</code>, <code>ClusterRole</code>,
  *                 <code>RoleBinding</code>, and <code>ClusterRoleBinding</code> objects.</p>
  *          <p>For more information about access entries, see <a href="https://docs.aws.amazon.com/eks/latest/userguide/access-entries.html">Access entries</a> in the
  *             <i>Amazon EKS User Guide</i>.</p>
@@ -104,13 +105,15 @@ export interface CreateAccessEntryCommandOutput extends CreateAccessEntryRespons
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be found. You can view your available clusters with
  *                 <code>ListClusters</code>. You can view your available managed node groups with
- *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region specific.</p>
+ *                 <code>ListNodegroups</code>. Amazon EKS clusters and node groups are Amazon Web Services Region
+ *             specific.</p>
  *
  * @throws {@link ServerException} (server fault)
  *  <p>These errors are usually caused by a server-side issue.</p>
  *
  * @throws {@link EKSServiceException}
  * <p>Base exception class for all service exceptions from EKS service.</p>
+ *
  *
  * @public
  */
@@ -122,9 +125,7 @@ export class CreateAccessEntryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EKSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +137,16 @@ export class CreateAccessEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessEntryCommand)
   .de(de_CreateAccessEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessEntryRequest;
+      output: CreateAccessEntryResponse;
+    };
+    sdk: {
+      input: CreateAccessEntryCommandInput;
+      output: CreateAccessEntryCommandOutput;
+    };
+  };
+}

@@ -6,14 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeContactRequest } from "../models/models_0";
-import { DescribeContactResponse, DescribeContactResponseFilterSensitiveLog } from "../models/models_2";
+import { DescribeContactRequest } from "../models/models_1";
+import { DescribeContactResponse, DescribeContactResponseFilterSensitiveLog } from "../models/models_3";
 import { de_DescribeContactCommand, se_DescribeContactCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,10 +32,18 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>Describes the specified contact. </p>
  *          <important>
- *             <p>Contact information remains available in Amazon Connect for 24 months, and then it is
- *     deleted.</p>
- *             <p>Only data from November 12, 2021, and later is returned by this
- *     API.</p>
+ *             <ul>
+ *                <li>
+ *                   <p>
+ *                      <code>SystemEndpoint</code> is not populated for contacts with initiation method of
+ *       MONITOR, QUEUE_TRANSFER, or CALLBACK</p>
+ *                </li>
+ *                <li>
+ *                   <p>Contact information remains available in Amazon Connect for 24 months from the
+ *        <code>InitiationTimestamp</code>, and then it is deleted. Only contact information that is
+ *       available in Amazon Connect is returned by this API.</p>
+ *                </li>
+ *             </ul>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -54,10 +63,11 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     Id: "STRING_VALUE",
  * //     InitialContactId: "STRING_VALUE",
  * //     PreviousContactId: "STRING_VALUE",
- * //     InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND",
+ * //     ContactAssociationId: "STRING_VALUE",
+ * //     InitiationMethod: "INBOUND" || "OUTBOUND" || "TRANSFER" || "QUEUE_TRANSFER" || "CALLBACK" || "API" || "DISCONNECT" || "MONITOR" || "EXTERNAL_OUTBOUND" || "WEBRTC_API" || "AGENT_REPLY" || "FLOW",
  * //     Name: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
- * //     Channel: "VOICE" || "CHAT" || "TASK",
+ * //     Channel: "VOICE" || "CHAT" || "TASK" || "EMAIL",
  * //     QueueInfo: { // QueueInfo
  * //       Id: "STRING_VALUE",
  * //       EnqueueTimestamp: new Date("TIMESTAMP"),
@@ -90,7 +100,19 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       },
  * //       Capabilities: { // ParticipantCapabilities
  * //         Video: "SEND",
+ * //         ScreenShare: "SEND",
  * //       },
+ * //       AfterContactWorkDuration: Number("int"),
+ * //       AfterContactWorkStartTimestamp: new Date("TIMESTAMP"),
+ * //       AfterContactWorkEndTimestamp: new Date("TIMESTAMP"),
+ * //       AgentInitiatedHoldDuration: Number("int"),
+ * //       StateTransitions: [ // StateTransitions
+ * //         { // StateTransition
+ * //           State: "INITIAL" || "CONNECTED" || "DISCONNECTED" || "MISSED",
+ * //           StateStartTimestamp: new Date("TIMESTAMP"),
+ * //           StateEndTimestamp: new Date("TIMESTAMP"),
+ * //         },
+ * //       ],
  * //     },
  * //     InitiationTimestamp: new Date("TIMESTAMP"),
  * //     DisconnectTimestamp: new Date("TIMESTAMP"),
@@ -103,6 +125,17 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     RelatedContactId: "STRING_VALUE",
  * //     WisdomInfo: { // WisdomInfo
  * //       SessionArn: "STRING_VALUE",
+ * //     },
+ * //     CustomerId: "STRING_VALUE",
+ * //     CustomerEndpoint: { // EndpointInfo
+ * //       Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ * //       Address: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
+ * //     },
+ * //     SystemEndpoint: {
+ * //       Type: "TELEPHONE_NUMBER" || "VOIP" || "CONTACT_FLOW" || "CONNECT_PHONENUMBER_ARN" || "EMAIL_ADDRESS",
+ * //       Address: "STRING_VALUE",
+ * //       DisplayName: "STRING_VALUE",
  * //     },
  * //     QueueTimeAdjustmentSeconds: Number("int"),
  * //     QueuePriority: Number("long"),
@@ -122,6 +155,17 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //               Name: "STRING_VALUE",
  * //               Value: "STRING_VALUE",
  * //               ProficiencyLevel: Number("float"),
+ * //               Range: { // Range
+ * //                 MinProficiencyLevel: Number("float"),
+ * //                 MaxProficiencyLevel: Number("float"),
+ * //               },
+ * //               MatchCriteria: { // MatchCriteria
+ * //                 AgentsCriteria: { // AgentsCriteria
+ * //                   AgentIds: [ // AgentIds
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
  * //               ComparisonOperator: "STRING_VALUE",
  * //             },
  * //             AndExpression: [ // Expressions
@@ -130,6 +174,17 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                   Name: "STRING_VALUE",
  * //                   Value: "STRING_VALUE",
  * //                   ProficiencyLevel: Number("float"),
+ * //                   Range: {
+ * //                     MinProficiencyLevel: Number("float"),
+ * //                     MaxProficiencyLevel: Number("float"),
+ * //                   },
+ * //                   MatchCriteria: {
+ * //                     AgentsCriteria: {
+ * //                       AgentIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
  * //                   ComparisonOperator: "STRING_VALUE",
  * //                 },
  * //                 AndExpression: [
@@ -138,11 +193,45 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //                 OrExpression: [
  * //                   "<Expression>",
  * //                 ],
+ * //                 NotAttributeCondition: {
+ * //                   Name: "STRING_VALUE",
+ * //                   Value: "STRING_VALUE",
+ * //                   ProficiencyLevel: Number("float"),
+ * //                   Range: {
+ * //                     MinProficiencyLevel: Number("float"),
+ * //                     MaxProficiencyLevel: Number("float"),
+ * //                   },
+ * //                   MatchCriteria: {
+ * //                     AgentsCriteria: {
+ * //                       AgentIds: [
+ * //                         "STRING_VALUE",
+ * //                       ],
+ * //                     },
+ * //                   },
+ * //                   ComparisonOperator: "STRING_VALUE",
+ * //                 },
  * //               },
  * //             ],
  * //             OrExpression: [
  * //               "<Expression>",
  * //             ],
+ * //             NotAttributeCondition: {
+ * //               Name: "STRING_VALUE",
+ * //               Value: "STRING_VALUE",
+ * //               ProficiencyLevel: Number("float"),
+ * //               Range: {
+ * //                 MinProficiencyLevel: Number("float"),
+ * //                 MaxProficiencyLevel: Number("float"),
+ * //               },
+ * //               MatchCriteria: {
+ * //                 AgentsCriteria: {
+ * //                   AgentIds: [
+ * //                     "STRING_VALUE",
+ * //                   ],
+ * //                 },
+ * //               },
+ * //               ComparisonOperator: "STRING_VALUE",
+ * //             },
  * //           },
  * //           Status: "ACTIVE" || "INACTIVE" || "JOINED" || "EXPIRED",
  * //         },
@@ -158,6 +247,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //       },
  * //       Capabilities: {
  * //         Video: "SEND",
+ * //         ScreenShare: "SEND",
  * //       },
  * //     },
  * //     Campaign: { // Campaign
@@ -189,10 +279,67 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * //     DisconnectDetails: { // DisconnectDetails
  * //       PotentialDisconnectIssue: "STRING_VALUE",
  * //     },
+ * //     AdditionalEmailRecipients: { // AdditionalEmailRecipients
+ * //       ToList: [ // EmailRecipientsList
+ * //         { // EmailRecipient
+ * //           Address: "STRING_VALUE",
+ * //           DisplayName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       CcList: [
+ * //         {
+ * //           Address: "STRING_VALUE",
+ * //           DisplayName: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //     SegmentAttributes: { // SegmentAttributes
  * //       "<keys>": { // SegmentAttributeValue
  * //         ValueString: "STRING_VALUE",
+ * //         ValueMap: { // SegmentAttributeValueMap
+ * //           "<keys>": {
+ * //             ValueString: "STRING_VALUE",
+ * //             ValueMap: {
+ * //               "<keys>": "<SegmentAttributeValue>",
+ * //             },
+ * //             ValueInteger: Number("int"),
+ * //           },
+ * //         },
+ * //         ValueInteger: Number("int"),
  * //       },
+ * //     },
+ * //     Recordings: [ // Recordings
+ * //       { // RecordingInfo
+ * //         StorageType: "S3" || "KINESIS_VIDEO_STREAM" || "KINESIS_STREAM" || "KINESIS_FIREHOSE",
+ * //         Location: "STRING_VALUE",
+ * //         MediaStreamType: "AUDIO" || "VIDEO",
+ * //         ParticipantType: "ALL" || "MANAGER" || "AGENT" || "CUSTOMER" || "THIRDPARTY",
+ * //         FragmentStartNumber: "STRING_VALUE",
+ * //         FragmentStopNumber: "STRING_VALUE",
+ * //         StartTimestamp: new Date("TIMESTAMP"),
+ * //         StopTimestamp: new Date("TIMESTAMP"),
+ * //         Status: "AVAILABLE" || "DELETED",
+ * //         DeletionReason: "STRING_VALUE",
+ * //       },
+ * //     ],
+ * //     DisconnectReason: "STRING_VALUE",
+ * //     ContactEvaluations: { // ContactEvaluations
+ * //       "<keys>": { // ContactEvaluation
+ * //         FormId: "STRING_VALUE",
+ * //         EvaluationArn: "STRING_VALUE",
+ * //         Status: "COMPLETE" || "IN_PROGRESS" || "DELETED",
+ * //         StartTimestamp: new Date("TIMESTAMP"),
+ * //         EndTimestamp: new Date("TIMESTAMP"),
+ * //         DeleteTimestamp: new Date("TIMESTAMP"),
+ * //         ExportLocation: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     ContactDetails: { // ContactDetails
+ * //       Name: "STRING_VALUE",
+ * //       Description: "STRING_VALUE",
+ * //     },
+ * //     Attributes: { // Attributes
+ * //       "<keys>": "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -223,6 +370,7 @@ export interface DescribeContactCommandOutput extends DescribeContactResponse, _
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class DescribeContactCommand extends $Command
@@ -233,9 +381,7 @@ export class DescribeContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -247,4 +393,16 @@ export class DescribeContactCommand extends $Command
   .f(void 0, DescribeContactResponseFilterSensitiveLog)
   .ser(se_DescribeContactCommand)
   .de(de_DescribeContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeContactRequest;
+      output: DescribeContactResponse;
+    };
+    sdk: {
+      input: DescribeContactCommandInput;
+      output: DescribeContactCommandOutput;
+    };
+  };
+}

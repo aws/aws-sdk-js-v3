@@ -13,7 +13,7 @@ import { MarketplaceCatalogServiceException as __BaseException } from "./Marketp
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -37,7 +37,7 @@ export interface AmiProductEntityIdFilter {
    * <p>A string array of unique entity id values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -49,13 +49,13 @@ export interface AmiProductLastModifiedDateFilterDateRange {
    * <p>Date after which the AMI product was last modified.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Date before which the AMI product was last modified.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -67,7 +67,7 @@ export interface AmiProductLastModifiedDateFilter {
    * <p>Dates between which the AMI product was last modified.</p>
    * @public
    */
-  DateRange?: AmiProductLastModifiedDateFilterDateRange;
+  DateRange?: AmiProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
@@ -79,13 +79,13 @@ export interface AmiProductTitleFilter {
    * <p>A string array of unique product title values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -113,7 +113,7 @@ export interface AmiProductVisibilityFilter {
    * <p>A string array of unique visibility values to be filtered on.</p>
    * @public
    */
-  ValueList?: AmiProductVisibilityString[];
+  ValueList?: AmiProductVisibilityString[] | undefined;
 }
 
 /**
@@ -126,25 +126,25 @@ export interface AmiProductFilters {
    * <p>Unique identifier for the AMI product.</p>
    * @public
    */
-  EntityId?: AmiProductEntityIdFilter;
+  EntityId?: AmiProductEntityIdFilter | undefined;
 
   /**
    * <p>The last date on which the AMI product was modified.</p>
    * @public
    */
-  LastModifiedDate?: AmiProductLastModifiedDateFilter;
+  LastModifiedDate?: AmiProductLastModifiedDateFilter | undefined;
 
   /**
    * <p>The title of the AMI product.</p>
    * @public
    */
-  ProductTitle?: AmiProductTitleFilter;
+  ProductTitle?: AmiProductTitleFilter | undefined;
 
   /**
    * <p>The visibility of the AMI product.</p>
    * @public
    */
-  Visibility?: AmiProductVisibilityFilter;
+  Visibility?: AmiProductVisibilityFilter | undefined;
 }
 
 /**
@@ -186,13 +186,13 @@ export interface AmiProductSort {
    * <p>Field to sort the AMI products by.</p>
    * @public
    */
-  SortBy?: AmiProductSortBy;
+  SortBy?: AmiProductSortBy | undefined;
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -204,13 +204,13 @@ export interface AmiProductSummary {
    * <p>The title of the AMI product.</p>
    * @public
    */
-  ProductTitle?: string;
+  ProductTitle?: string | undefined;
 
   /**
    * <p>The lifecycle of the AMI product.</p>
    * @public
    */
-  Visibility?: AmiProductVisibilityString;
+  Visibility?: AmiProductVisibilityString | undefined;
 }
 
 /**
@@ -253,31 +253,31 @@ export interface EntityDetail {
    *             <code>EntityType@Version</code>.</p>
    * @public
    */
-  EntityType?: string;
+  EntityType?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the entity.</p>
    * @public
    */
-  EntityArn?: string;
+  EntityArn?: string | undefined;
 
   /**
    * <p>The ID of the entity, in the format of <code>EntityId@RevisionId</code>.</p>
    * @public
    */
-  EntityIdentifier?: string;
+  EntityIdentifier?: string | undefined;
 
   /**
    * <p>The last time the entity was modified.</p>
    * @public
    */
-  LastModifiedDate?: string;
+  LastModifiedDate?: string | undefined;
 
   /**
    * <p>An object that contains all the details of the entity.</p>
    * @public
    */
-  DetailsDocument?: __DocumentType;
+  DetailsDocument?: __DocumentType | undefined;
 }
 
 /**
@@ -289,13 +289,13 @@ export interface BatchDescribeErrorDetail {
    * <p>The error code returned.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The error message returned.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -306,14 +306,14 @@ export interface BatchDescribeEntitiesResponse {
    * <p>Details about each entity.</p>
    * @public
    */
-  EntityDetails?: Record<string, EntityDetail>;
+  EntityDetails?: Record<string, EntityDetail> | undefined;
 
   /**
    * <p>A map of errors returned, with <code>EntityId</code> as the key and
    *                 <code>errorDetail</code> as the value.</p>
    * @public
    */
-  Errors?: Record<string, BatchDescribeErrorDetail>;
+  Errors?: Record<string, BatchDescribeErrorDetail> | undefined;
 }
 
 /**
@@ -324,7 +324,7 @@ export interface BatchDescribeEntitiesResponse {
 export class InternalServiceException extends __BaseException {
   readonly name: "InternalServiceException" = "InternalServiceException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -347,7 +347,7 @@ export class InternalServiceException extends __BaseException {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -370,7 +370,7 @@ export class ThrottlingException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -412,13 +412,13 @@ export interface CancelChangeSetResponse {
    * <p>The unique identifier for the change set referenced in this request.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The ARN associated with the change set referenced in this request.</p>
    * @public
    */
-  ChangeSetArn?: string;
+  ChangeSetArn?: string | undefined;
 }
 
 /**
@@ -428,7 +428,7 @@ export interface CancelChangeSetResponse {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -451,7 +451,7 @@ export class ResourceInUseException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -519,7 +519,7 @@ export interface Entity {
    * <p>The identifier for the entity.</p>
    * @public
    */
-  Identifier?: string;
+  Identifier?: string | undefined;
 }
 
 /**
@@ -531,13 +531,13 @@ export interface ErrorDetail {
    * <p>The error code that identifies the type of error.</p>
    * @public
    */
-  ErrorCode?: string;
+  ErrorCode?: string | undefined;
 
   /**
    * <p>The message for the error.</p>
    * @public
    */
-  ErrorMessage?: string;
+  ErrorMessage?: string | undefined;
 }
 
 /**
@@ -550,38 +550,40 @@ export interface ChangeSummary {
    * <p>The type of the change.</p>
    * @public
    */
-  ChangeType?: string;
+  ChangeType?: string | undefined;
 
   /**
    * <p>The entity to be changed.</p>
    * @public
    */
-  Entity?: Entity;
+  Entity?: Entity | undefined;
 
   /**
    * <p>This object contains details specific to the change type of the requested
    *             change.</p>
    * @public
    */
-  Details?: string;
+  Details?: string | undefined;
 
   /**
    * <p>The JSON value of the details specific to the change type of the requested change.</p>
+   *          <p>To download the "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
    * @public
    */
-  DetailsDocument?: __DocumentType;
+  DetailsDocument?: __DocumentType | undefined;
 
   /**
    * <p>An array of <code>ErrorDetail</code> objects associated with the change.</p>
    * @public
    */
-  ErrorDetailList?: ErrorDetail[];
+  ErrorDetailList?: ErrorDetail[] | undefined;
 
   /**
    * <p>Optional name for the change.</p>
    * @public
    */
-  ChangeName?: string;
+  ChangeName?: string | undefined;
 }
 
 /**
@@ -637,35 +639,35 @@ export interface DescribeChangeSetResponse {
    * <p>Required. The unique identifier for the change set referenced in this request.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The ARN associated with the unique identifier for the change set referenced in this
    *             request.</p>
    * @public
    */
-  ChangeSetArn?: string;
+  ChangeSetArn?: string | undefined;
 
   /**
    * <p>The optional name provided in the <code>StartChangeSet</code> request. If you do not
    *             provide a name, one is set by default.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>The optional intent provided in the <code>StartChangeSet</code> request. If you do not
    *             provide an intent, <code>APPLY</code> is set by default.</p>
    * @public
    */
-  Intent?: Intent;
+  Intent?: Intent | undefined;
 
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request started.
    *         </p>
    * @public
    */
-  StartTime?: string;
+  StartTime?: string | undefined;
 
   /**
    * <p>The date and time, in ISO 8601 format (2018-02-27T13:45:22Z), the request transitioned
@@ -673,13 +675,13 @@ export interface DescribeChangeSetResponse {
    *             request is not in a terminal state. </p>
    * @public
    */
-  EndTime?: string;
+  EndTime?: string | undefined;
 
   /**
    * <p>The status of the change request.</p>
    * @public
    */
-  Status?: ChangeStatus;
+  Status?: ChangeStatus | undefined;
 
   /**
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
@@ -688,20 +690,20 @@ export interface DescribeChangeSetResponse {
    *             is a problem in the system, and you should retry your request.</p>
    * @public
    */
-  FailureCode?: FailureCode;
+  FailureCode?: FailureCode | undefined;
 
   /**
    * <p>Returned if there is a failure on the change set, but that failure is not related to
    *             any of the changes in the request.</p>
    * @public
    */
-  FailureDescription?: string;
+  FailureDescription?: string | undefined;
 
   /**
    * <p>An array of <code>ChangeSummary</code> objects.</p>
    * @public
    */
-  ChangeSet?: ChangeSummary[];
+  ChangeSet?: ChangeSummary[] | undefined;
 }
 
 /**
@@ -731,40 +733,42 @@ export interface DescribeEntityResponse {
    * <p>The named type of the entity, in the format of <code>EntityType@Version</code>.</p>
    * @public
    */
-  EntityType?: string;
+  EntityType?: string | undefined;
 
   /**
    * <p>The identifier of the entity, in the format of
    *             <code>EntityId@RevisionId</code>.</p>
    * @public
    */
-  EntityIdentifier?: string;
+  EntityIdentifier?: string | undefined;
 
   /**
    * <p>The ARN associated to the unique identifier for the entity referenced in this
    *             request.</p>
    * @public
    */
-  EntityArn?: string;
+  EntityArn?: string | undefined;
 
   /**
    * <p>The last modified date of the entity, in ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
    * @public
    */
-  LastModifiedDate?: string;
+  LastModifiedDate?: string | undefined;
 
   /**
    * <p>This stringified JSON object includes the details of the entity.</p>
    * @public
    */
-  Details?: string;
+  Details?: string | undefined;
 
   /**
    * <p>The JSON value of the details specific to the entity.</p>
+   *          <p>To download "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
    * @public
    */
-  DetailsDocument?: __DocumentType;
+  DetailsDocument?: __DocumentType | undefined;
 }
 
 /**
@@ -774,7 +778,7 @@ export interface DescribeEntityResponse {
 export class ResourceNotSupportedException extends __BaseException {
   readonly name: "ResourceNotSupportedException" = "ResourceNotSupportedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -809,7 +813,7 @@ export interface GetResourcePolicyResponse {
    * <p>The policy document to set; formatted in JSON.</p>
    * @public
    */
-  Policy?: string;
+  Policy?: string | undefined;
 }
 
 /**
@@ -824,7 +828,7 @@ export interface Filter {
    *          <p>For <code>ListChangeSets</code>, the supported values are as follows:</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>
@@ -872,7 +876,7 @@ export interface Filter {
    *          </ul>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -890,14 +894,14 @@ export interface Sort {
    *             and <code>EndTime</code>.</p>
    * @public
    */
-  SortBy?: string;
+  SortBy?: string | undefined;
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The
    *             default value is <code>DESCENDING</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -915,14 +919,14 @@ export interface ListChangeSetsRequest {
    * <p>An array of filter objects.</p>
    * @public
    */
-  FilterList?: Filter[];
+  FilterList?: Filter[] | undefined;
 
   /**
    * <p>An object that contains two attributes, <code>SortBy</code> and
    *             <code>SortOrder</code>.</p>
    * @public
    */
-  Sort?: Sort;
+  Sort?: Sort | undefined;
 
   /**
    * <p>The maximum number of results returned by a single call. This value must be provided
@@ -930,14 +934,14 @@ export interface ListChangeSetsRequest {
    *             20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The token value retrieved from a previous call to access the next page of
    *             results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -950,47 +954,47 @@ export interface ChangeSetSummaryListItem {
    * <p>The unique identifier for a change set.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The ARN associated with the unique identifier for the change set referenced in this
    *             request.</p>
    * @public
    */
-  ChangeSetArn?: string;
+  ChangeSetArn?: string | undefined;
 
   /**
    * <p>The non-unique name for the change set.</p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
    *             started.</p>
    * @public
    */
-  StartTime?: string;
+  StartTime?: string | undefined;
 
   /**
    * <p>The time, in ISO 8601 format (2018-02-27T13:45:22Z), when the change set was
    *             finished.</p>
    * @public
    */
-  EndTime?: string;
+  EndTime?: string | undefined;
 
   /**
    * <p>The current status of the change set.</p>
    * @public
    */
-  Status?: ChangeStatus;
+  Status?: ChangeStatus | undefined;
 
   /**
    * <p>This object is a list of entity IDs (string) that are a part of a change set. The
    *             entity ID list is a maximum of 20 entities. It must contain at least one entity.</p>
    * @public
    */
-  EntityIdList?: string[];
+  EntityIdList?: string[] | undefined;
 
   /**
    * <p>Returned if the change set is in <code>FAILED</code> status. Can be either
@@ -1000,7 +1004,7 @@ export interface ChangeSetSummaryListItem {
    *             you should retry your request.</p>
    * @public
    */
-  FailureCode?: FailureCode;
+  FailureCode?: FailureCode | undefined;
 }
 
 /**
@@ -1011,13 +1015,13 @@ export interface ListChangeSetsResponse {
    * <p> Array of <code>ChangeSetSummaryListItem</code> objects.</p>
    * @public
    */
-  ChangeSetSummaryList?: ChangeSetSummaryListItem[];
+  ChangeSetSummaryList?: ChangeSetSummaryListItem[] | undefined;
 
   /**
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1029,7 +1033,7 @@ export interface ContainerProductEntityIdFilter {
    * <p>A string array of unique entity id values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1041,13 +1045,13 @@ export interface ContainerProductLastModifiedDateFilterDateRange {
    * <p>Date after which the container product was last modified.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Date before which the container product was last modified.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1059,7 +1063,7 @@ export interface ContainerProductLastModifiedDateFilter {
    * <p>Dates between which the container product was last modified.</p>
    * @public
    */
-  DateRange?: ContainerProductLastModifiedDateFilterDateRange;
+  DateRange?: ContainerProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
@@ -1071,13 +1075,13 @@ export interface ContainerProductTitleFilter {
    * <p>A string array of unique product title values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1106,7 +1110,7 @@ export interface ContainerProductVisibilityFilter {
    * <p>A string array of unique visibility values to be filtered on.</p>
    * @public
    */
-  ValueList?: ContainerProductVisibilityString[];
+  ValueList?: ContainerProductVisibilityString[] | undefined;
 }
 
 /**
@@ -1118,25 +1122,25 @@ export interface ContainerProductFilters {
    * <p>Unique identifier for the container product.</p>
    * @public
    */
-  EntityId?: ContainerProductEntityIdFilter;
+  EntityId?: ContainerProductEntityIdFilter | undefined;
 
   /**
    * <p>The last date on which the container product was modified.</p>
    * @public
    */
-  LastModifiedDate?: ContainerProductLastModifiedDateFilter;
+  LastModifiedDate?: ContainerProductLastModifiedDateFilter | undefined;
 
   /**
    * <p>The title of the container product.</p>
    * @public
    */
-  ProductTitle?: ContainerProductTitleFilter;
+  ProductTitle?: ContainerProductTitleFilter | undefined;
 
   /**
    * <p>The visibility of the container product.</p>
    * @public
    */
-  Visibility?: ContainerProductVisibilityFilter;
+  Visibility?: ContainerProductVisibilityFilter | undefined;
 }
 
 /**
@@ -1148,7 +1152,7 @@ export interface DataProductEntityIdFilter {
    * <p>A string array of unique entity id values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1160,13 +1164,13 @@ export interface DataProductLastModifiedDateFilterDateRange {
    * <p>Date after which the data product was last modified.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Date before which the data product was last modified.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1178,7 +1182,7 @@ export interface DataProductLastModifiedDateFilter {
    * <p>Dates between which the data product was last modified.</p>
    * @public
    */
-  DateRange?: DataProductLastModifiedDateFilterDateRange;
+  DateRange?: DataProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
@@ -1190,13 +1194,13 @@ export interface DataProductTitleFilter {
    * <p>A string array of unique product title values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1226,7 +1230,7 @@ export interface DataProductVisibilityFilter {
    * <p>A string array of unique visibility values to be filtered on.</p>
    * @public
    */
-  ValueList?: DataProductVisibilityString[];
+  ValueList?: DataProductVisibilityString[] | undefined;
 }
 
 /**
@@ -1238,25 +1242,144 @@ export interface DataProductFilters {
    * <p>Unique identifier for the data product.</p>
    * @public
    */
-  EntityId?: DataProductEntityIdFilter;
+  EntityId?: DataProductEntityIdFilter | undefined;
 
   /**
    * <p>The title of the data product.</p>
    * @public
    */
-  ProductTitle?: DataProductTitleFilter;
+  ProductTitle?: DataProductTitleFilter | undefined;
 
   /**
    * <p>The visibility of the data product.</p>
    * @public
    */
-  Visibility?: DataProductVisibilityFilter;
+  Visibility?: DataProductVisibilityFilter | undefined;
 
   /**
    * <p>The last date on which the data product was modified.</p>
    * @public
    */
-  LastModifiedDate?: DataProductLastModifiedDateFilter;
+  LastModifiedDate?: DataProductLastModifiedDateFilter | undefined;
+}
+
+/**
+ * <p>The filter for machine learning product entity IDs.</p>
+ * @public
+ */
+export interface MachineLearningProductEntityIdFilter {
+  /**
+   * <p>A list of entity IDs to filter by. The operation returns machine learning products with entity IDs that match the values in this list.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+}
+
+/**
+ * <p>A date range for filtering machine learning products by their last modified date.</p>
+ * @public
+ */
+export interface MachineLearningProductLastModifiedDateFilterDateRange {
+  /**
+   * <p>The start date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or after this date.</p>
+   * @public
+   */
+  AfterValue?: string | undefined;
+
+  /**
+   * <p>The end date (inclusive) of the date range. The operation returns machine learning products with last modified dates on or before this date.</p>
+   * @public
+   */
+  BeforeValue?: string | undefined;
+}
+
+/**
+ * <p>The filter for machine learning product last modified date.</p>
+ * @public
+ */
+export interface MachineLearningProductLastModifiedDateFilter {
+  /**
+   * <p>A date range to filter by. The operation returns machine learning products with last modified dates that fall within this range.</p>
+   * @public
+   */
+  DateRange?: MachineLearningProductLastModifiedDateFilterDateRange | undefined;
+}
+
+/**
+ * <p>The filter for machine learning product titles.</p>
+ * @public
+ */
+export interface MachineLearningProductTitleFilter {
+  /**
+   * <p>A list of product titles to filter by. The operation returns machine learning products with titles that exactly match the values in this list.</p>
+   * @public
+   */
+  ValueList?: string[] | undefined;
+
+  /**
+   * <p>A wildcard value to filter product titles. The operation returns machine learning products with titles that match this wildcard pattern.</p>
+   * @public
+   */
+  WildCardValue?: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MachineLearningProductVisibilityString = {
+  Draft: "Draft",
+  Limited: "Limited",
+  Public: "Public",
+  Restricted: "Restricted",
+} as const;
+
+/**
+ * @public
+ */
+export type MachineLearningProductVisibilityString =
+  (typeof MachineLearningProductVisibilityString)[keyof typeof MachineLearningProductVisibilityString];
+
+/**
+ * <p>The filter for machine learning product visibility status.</p>
+ * @public
+ */
+export interface MachineLearningProductVisibilityFilter {
+  /**
+   * <p>A list of visibility values to filter by. The operation returns machine learning products with visibility status that match the values in this list.</p>
+   * @public
+   */
+  ValueList?: MachineLearningProductVisibilityString[] | undefined;
+}
+
+/**
+ * <p>The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by EntityId, LastModifiedDate, ProductTitle, and Visibility.</p>
+ * @public
+ */
+export interface MachineLearningProductFilters {
+  /**
+   * <p>Filter machine learning products by their entity IDs.</p>
+   * @public
+   */
+  EntityId?: MachineLearningProductEntityIdFilter | undefined;
+
+  /**
+   * <p>Filter machine learning products by their last modified date.</p>
+   * @public
+   */
+  LastModifiedDate?: MachineLearningProductLastModifiedDateFilter | undefined;
+
+  /**
+   * <p>Filter machine learning products by their product titles.</p>
+   * @public
+   */
+  ProductTitle?: MachineLearningProductTitleFilter | undefined;
+
+  /**
+   * <p>Filter machine learning products by their visibility status.</p>
+   * @public
+   */
+  Visibility?: MachineLearningProductVisibilityFilter | undefined;
 }
 
 /**
@@ -1268,13 +1391,13 @@ export interface OfferAvailabilityEndDateFilterDateRange {
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer after a date.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer before a date.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1286,7 +1409,7 @@ export interface OfferAvailabilityEndDateFilter {
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer with date range as input.</p>
    * @public
    */
-  DateRange?: OfferAvailabilityEndDateFilterDateRange;
+  DateRange?: OfferAvailabilityEndDateFilterDateRange | undefined;
 }
 
 /**
@@ -1298,7 +1421,7 @@ export interface OfferBuyerAccountsFilter {
    * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1310,7 +1433,7 @@ export interface OfferEntityIdFilter {
    * <p>Allows filtering on entity id of an offer with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1322,13 +1445,13 @@ export interface OfferLastModifiedDateFilterDateRange {
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer after a date.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer before a date.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1340,7 +1463,7 @@ export interface OfferLastModifiedDateFilter {
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer with date range as input.</p>
    * @public
    */
-  DateRange?: OfferLastModifiedDateFilterDateRange;
+  DateRange?: OfferLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
@@ -1352,13 +1475,13 @@ export interface OfferNameFilter {
    * <p>Allows filtering on the <code>Name</code> of an offer with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>Name</code> of an offer with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1370,7 +1493,7 @@ export interface OfferProductIdFilter {
    * <p>Allows filtering on the <code>ProductId</code> of an offer with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1382,13 +1505,13 @@ export interface OfferReleaseDateFilterDateRange {
    * <p>Allows filtering on the <code>ReleaseDate</code> of offers after a date.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Allows filtering on the <code>ReleaseDate</code> of offers before a date.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1400,7 +1523,7 @@ export interface OfferReleaseDateFilter {
    * <p>Allows filtering on the <code>ReleaseDate</code> of an offer with date range as input.</p>
    * @public
    */
-  DateRange?: OfferReleaseDateFilterDateRange;
+  DateRange?: OfferReleaseDateFilterDateRange | undefined;
 }
 
 /**
@@ -1416,7 +1539,7 @@ export interface OfferResaleAuthorizationIdFilter {
    * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1442,7 +1565,7 @@ export interface OfferStateFilter {
    * <p>Allows filtering on the <code>State</code> of an offer with list input.</p>
    * @public
    */
-  ValueList?: OfferStateString[];
+  ValueList?: OfferStateString[] | undefined;
 }
 
 /**
@@ -1470,7 +1593,7 @@ export interface OfferTargetingFilter {
    * <p>Allows filtering on the <code>Targeting</code> of an offer with list input.</p>
    * @public
    */
-  ValueList?: OfferTargetingString[];
+  ValueList?: OfferTargetingString[] | undefined;
 }
 
 /**
@@ -1482,19 +1605,19 @@ export interface OfferFilters {
    * <p>Allows filtering on <code>EntityId</code> of an offer.</p>
    * @public
    */
-  EntityId?: OfferEntityIdFilter;
+  EntityId?: OfferEntityIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>Name</code> of an offer.</p>
    * @public
    */
-  Name?: OfferNameFilter;
+  Name?: OfferNameFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ProductId</code> of an offer.</p>
    * @public
    */
-  ProductId?: OfferProductIdFilter;
+  ProductId?: OfferProductIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ResaleAuthorizationId</code> of an offer.</p>
@@ -1504,43 +1627,43 @@ export interface OfferFilters {
    *          </note>
    * @public
    */
-  ResaleAuthorizationId?: OfferResaleAuthorizationIdFilter;
+  ResaleAuthorizationId?: OfferResaleAuthorizationIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ReleaseDate</code> of an offer.</p>
    * @public
    */
-  ReleaseDate?: OfferReleaseDateFilter;
+  ReleaseDate?: OfferReleaseDateFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of an offer.</p>
    * @public
    */
-  AvailabilityEndDate?: OfferAvailabilityEndDateFilter;
+  AvailabilityEndDate?: OfferAvailabilityEndDateFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>BuyerAccounts</code> of an offer.</p>
    * @public
    */
-  BuyerAccounts?: OfferBuyerAccountsFilter;
+  BuyerAccounts?: OfferBuyerAccountsFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>State</code> of an offer.</p>
    * @public
    */
-  State?: OfferStateFilter;
+  State?: OfferStateFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>Targeting</code> of an offer.</p>
    * @public
    */
-  Targeting?: OfferTargetingFilter;
+  Targeting?: OfferTargetingFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>LastModifiedDate</code> of an offer.</p>
    * @public
    */
-  LastModifiedDate?: OfferLastModifiedDateFilter;
+  LastModifiedDate?: OfferLastModifiedDateFilter | undefined;
 }
 
 /**
@@ -1552,13 +1675,13 @@ export interface ResaleAuthorizationAvailabilityEndDateFilterDateRange {
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization after a date.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization before a date.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1570,13 +1693,13 @@ export interface ResaleAuthorizationAvailabilityEndDateFilter {
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date range as input</p>
    * @public
    */
-  DateRange?: ResaleAuthorizationAvailabilityEndDateFilterDateRange;
+  DateRange?: ResaleAuthorizationAvailabilityEndDateFilterDateRange | undefined;
 
   /**
    * <p>Allows filtering on <code>AvailabilityEndDate</code> of a ResaleAuthorization with date value as input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1588,13 +1711,13 @@ export interface ResaleAuthorizationCreatedDateFilterDateRange {
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization after a date.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization before a date.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1606,13 +1729,13 @@ export interface ResaleAuthorizationCreatedDateFilter {
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date range as input.</p>
    * @public
    */
-  DateRange?: ResaleAuthorizationCreatedDateFilterDateRange;
+  DateRange?: ResaleAuthorizationCreatedDateFilterDateRange | undefined;
 
   /**
    * <p>Allows filtering on <code>CreatedDate</code> of a ResaleAuthorization with date value as input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1624,7 +1747,7 @@ export interface ResaleAuthorizationEntityIdFilter {
    * <p>Allows filtering on <code>EntityId</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1636,13 +1759,13 @@ export interface ResaleAuthorizationLastModifiedDateFilterDateRange {
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization after a date.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization before a date.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1654,7 +1777,7 @@ export interface ResaleAuthorizationLastModifiedDateFilter {
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization with date range as input.</p>
    * @public
    */
-  DateRange?: ResaleAuthorizationLastModifiedDateFilterDateRange;
+  DateRange?: ResaleAuthorizationLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
@@ -1666,13 +1789,13 @@ export interface ResaleAuthorizationManufacturerAccountIdFilter {
    * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1684,13 +1807,13 @@ export interface ResaleAuthorizationManufacturerLegalNameFilter {
    * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1702,13 +1825,13 @@ export interface ResaleAuthorizationNameFilter {
    * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1720,7 +1843,7 @@ export interface ResaleAuthorizationOfferExtendedStatusFilter {
    * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1732,13 +1855,13 @@ export interface ResaleAuthorizationProductIdFilter {
    * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1750,13 +1873,13 @@ export interface ResaleAuthorizationProductNameFilter {
    * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1768,13 +1891,13 @@ export interface ResaleAuthorizationResellerAccountIDFilter {
    * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1786,13 +1909,13 @@ export interface ResaleAuthorizationResellerLegalNameFilter {
    * <p>Allows filtering on the ResellerLegalNameProductName of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>Allows filtering on the ResellerLegalName of a ResaleAuthorization with wild card input.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1820,7 +1943,7 @@ export interface ResaleAuthorizationStatusFilter {
    * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization with list input.</p>
    * @public
    */
-  ValueList?: ResaleAuthorizationStatusString[];
+  ValueList?: ResaleAuthorizationStatusString[] | undefined;
 }
 
 /**
@@ -1832,79 +1955,79 @@ export interface ResaleAuthorizationFilters {
    * <p>Allows filtering on the <code>EntityId</code> of a ResaleAuthorization.</p>
    * @public
    */
-  EntityId?: ResaleAuthorizationEntityIdFilter;
+  EntityId?: ResaleAuthorizationEntityIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>Name</code> of a ResaleAuthorization.</p>
    * @public
    */
-  Name?: ResaleAuthorizationNameFilter;
+  Name?: ResaleAuthorizationNameFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ProductId</code> of a ResaleAuthorization.</p>
    * @public
    */
-  ProductId?: ResaleAuthorizationProductIdFilter;
+  ProductId?: ResaleAuthorizationProductIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>CreatedDate</code> of a ResaleAuthorization.</p>
    * @public
    */
-  CreatedDate?: ResaleAuthorizationCreatedDateFilter;
+  CreatedDate?: ResaleAuthorizationCreatedDateFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>AvailabilityEndDate</code> of a ResaleAuthorization.</p>
    * @public
    */
-  AvailabilityEndDate?: ResaleAuthorizationAvailabilityEndDateFilter;
+  AvailabilityEndDate?: ResaleAuthorizationAvailabilityEndDateFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ManufacturerAccountId</code> of a ResaleAuthorization.</p>
    * @public
    */
-  ManufacturerAccountId?: ResaleAuthorizationManufacturerAccountIdFilter;
+  ManufacturerAccountId?: ResaleAuthorizationManufacturerAccountIdFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ProductName</code> of a ResaleAuthorization.</p>
    * @public
    */
-  ProductName?: ResaleAuthorizationProductNameFilter;
+  ProductName?: ResaleAuthorizationProductNameFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ManufacturerLegalName</code> of a ResaleAuthorization.</p>
    * @public
    */
-  ManufacturerLegalName?: ResaleAuthorizationManufacturerLegalNameFilter;
+  ManufacturerLegalName?: ResaleAuthorizationManufacturerLegalNameFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ResellerAccountID</code> of a ResaleAuthorization.</p>
    * @public
    */
-  ResellerAccountID?: ResaleAuthorizationResellerAccountIDFilter;
+  ResellerAccountID?: ResaleAuthorizationResellerAccountIDFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>ResellerLegalName</code> of a ResaleAuthorization.</p>
    * @public
    */
-  ResellerLegalName?: ResaleAuthorizationResellerLegalNameFilter;
+  ResellerLegalName?: ResaleAuthorizationResellerLegalNameFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>Status</code> of a ResaleAuthorization.</p>
    * @public
    */
-  Status?: ResaleAuthorizationStatusFilter;
+  Status?: ResaleAuthorizationStatusFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>OfferExtendedStatus</code> of a ResaleAuthorization.</p>
    * @public
    */
-  OfferExtendedStatus?: ResaleAuthorizationOfferExtendedStatusFilter;
+  OfferExtendedStatus?: ResaleAuthorizationOfferExtendedStatusFilter | undefined;
 
   /**
    * <p>Allows filtering on the <code>LastModifiedDate</code> of a ResaleAuthorization.</p>
    * @public
    */
-  LastModifiedDate?: ResaleAuthorizationLastModifiedDateFilter;
+  LastModifiedDate?: ResaleAuthorizationLastModifiedDateFilter | undefined;
 }
 
 /**
@@ -1916,7 +2039,7 @@ export interface SaaSProductEntityIdFilter {
    * <p>A string array of unique entity id values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 }
 
 /**
@@ -1928,13 +2051,13 @@ export interface SaaSProductLastModifiedDateFilterDateRange {
    * <p>Date after which the SaaS product was last modified.</p>
    * @public
    */
-  AfterValue?: string;
+  AfterValue?: string | undefined;
 
   /**
    * <p>Date before which the SaaS product was last modified.</p>
    * @public
    */
-  BeforeValue?: string;
+  BeforeValue?: string | undefined;
 }
 
 /**
@@ -1946,7 +2069,7 @@ export interface SaaSProductLastModifiedDateFilter {
    * <p>Dates between which the SaaS product was last modified.</p>
    * @public
    */
-  DateRange?: SaaSProductLastModifiedDateFilterDateRange;
+  DateRange?: SaaSProductLastModifiedDateFilterDateRange | undefined;
 }
 
 /**
@@ -1958,13 +2081,13 @@ export interface SaaSProductTitleFilter {
    * <p>A string array of unique product title values to be filtered on.</p>
    * @public
    */
-  ValueList?: string[];
+  ValueList?: string[] | undefined;
 
   /**
    * <p>A string that will be the <code>wildCard</code> input for product tile filter. It matches the provided value as a substring in the actual value.</p>
    * @public
    */
-  WildCardValue?: string;
+  WildCardValue?: string | undefined;
 }
 
 /**
@@ -1993,7 +2116,7 @@ export interface SaaSProductVisibilityFilter {
    * <p>A string array of unique visibility values to be filtered on.</p>
    * @public
    */
-  ValueList?: SaaSProductVisibilityString[];
+  ValueList?: SaaSProductVisibilityString[] | undefined;
 }
 
 /**
@@ -2005,25 +2128,25 @@ export interface SaaSProductFilters {
    * <p>Unique identifier for the SaaS product.</p>
    * @public
    */
-  EntityId?: SaaSProductEntityIdFilter;
+  EntityId?: SaaSProductEntityIdFilter | undefined;
 
   /**
    * <p>The title of the SaaS product.</p>
    * @public
    */
-  ProductTitle?: SaaSProductTitleFilter;
+  ProductTitle?: SaaSProductTitleFilter | undefined;
 
   /**
    * <p>The visibility of the SaaS product.</p>
    * @public
    */
-  Visibility?: SaaSProductVisibilityFilter;
+  Visibility?: SaaSProductVisibilityFilter | undefined;
 
   /**
    * <p>The last date on which the SaaS product was modified.</p>
    * @public
    */
-  LastModifiedDate?: SaaSProductLastModifiedDateFilter;
+  LastModifiedDate?: SaaSProductLastModifiedDateFilter | undefined;
 }
 
 /**
@@ -2034,6 +2157,7 @@ export type EntityTypeFilters =
   | EntityTypeFilters.AmiProductFiltersMember
   | EntityTypeFilters.ContainerProductFiltersMember
   | EntityTypeFilters.DataProductFiltersMember
+  | EntityTypeFilters.MachineLearningProductFiltersMember
   | EntityTypeFilters.OfferFiltersMember
   | EntityTypeFilters.ResaleAuthorizationFiltersMember
   | EntityTypeFilters.SaaSProductFiltersMember
@@ -2054,6 +2178,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2068,6 +2193,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2082,6 +2208,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2096,6 +2223,7 @@ export namespace EntityTypeFilters {
     OfferFilters: OfferFilters;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2110,6 +2238,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters: ContainerProductFilters;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown?: never;
   }
 
@@ -2124,6 +2253,22 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters: ResaleAuthorizationFilters;
+    MachineLearningProductFilters?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The filters that you can use with the ListEntities operation to filter machine learning products. You can filter by EntityId, LastModifiedDate, ProductTitle, and Visibility.</p>
+   * @public
+   */
+  export interface MachineLearningProductFiltersMember {
+    DataProductFilters?: never;
+    SaaSProductFilters?: never;
+    AmiProductFilters?: never;
+    OfferFilters?: never;
+    ContainerProductFilters?: never;
+    ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters: MachineLearningProductFilters;
     $unknown?: never;
   }
 
@@ -2137,6 +2282,7 @@ export namespace EntityTypeFilters {
     OfferFilters?: never;
     ContainerProductFilters?: never;
     ResaleAuthorizationFilters?: never;
+    MachineLearningProductFilters?: never;
     $unknown: [string, any];
   }
 
@@ -2147,6 +2293,7 @@ export namespace EntityTypeFilters {
     OfferFilters: (value: OfferFilters) => T;
     ContainerProductFilters: (value: ContainerProductFilters) => T;
     ResaleAuthorizationFilters: (value: ResaleAuthorizationFilters) => T;
+    MachineLearningProductFilters: (value: MachineLearningProductFilters) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2159,6 +2306,8 @@ export namespace EntityTypeFilters {
       return visitor.ContainerProductFilters(value.ContainerProductFilters);
     if (value.ResaleAuthorizationFilters !== undefined)
       return visitor.ResaleAuthorizationFilters(value.ResaleAuthorizationFilters);
+    if (value.MachineLearningProductFilters !== undefined)
+      return visitor.MachineLearningProductFilters(value.MachineLearningProductFilters);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2188,13 +2337,13 @@ export interface ContainerProductSort {
    * <p>Field to sort the container products by.</p>
    * @public
    */
-  SortBy?: ContainerProductSortBy;
+  SortBy?: ContainerProductSortBy | undefined;
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2222,13 +2371,48 @@ export interface DataProductSort {
    * <p>Field to sort the data products by.</p>
    * @public
    */
-  SortBy?: DataProductSortBy;
+  SortBy?: DataProductSortBy | undefined;
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const MachineLearningProductSortBy = {
+  EntityId: "EntityId",
+  LastModifiedDate: "LastModifiedDate",
+  ProductTitle: "ProductTitle",
+  Visibility: "Visibility",
+} as const;
+
+/**
+ * @public
+ */
+export type MachineLearningProductSortBy =
+  (typeof MachineLearningProductSortBy)[keyof typeof MachineLearningProductSortBy];
+
+/**
+ * <p>The sort options for machine learning products.</p>
+ * @public
+ */
+export interface MachineLearningProductSort {
+  /**
+   * <p>The field to sort by. Valid values: <code>EntityId</code>, <code>LastModifiedDate</code>, <code>ProductTitle</code>, and <code>Visibility</code>.</p>
+   * @public
+   */
+  SortBy?: MachineLearningProductSortBy | undefined;
+
+  /**
+   * <p>The sort order. Valid values are <code>ASC</code> (ascending) and <code>DESC</code> (descending).</p>
+   * @public
+   */
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2262,13 +2446,13 @@ export interface OfferSort {
    * <p>Allows to sort offers.</p>
    * @public
    */
-  SortBy?: OfferSortBy;
+  SortBy?: OfferSortBy | undefined;
 
   /**
    * <p>Allows to sort offers.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2305,13 +2489,13 @@ export interface ResaleAuthorizationSort {
    * <p>Allows to sort ResaleAuthorization.</p>
    * @public
    */
-  SortBy?: ResaleAuthorizationSortBy;
+  SortBy?: ResaleAuthorizationSortBy | undefined;
 
   /**
    * <p>Allows to sort ResaleAuthorization.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2339,13 +2523,13 @@ export interface SaaSProductSort {
    * <p>Field to sort the SaaS products by.</p>
    * @public
    */
-  SortBy?: SaaSProductSortBy;
+  SortBy?: SaaSProductSortBy | undefined;
 
   /**
    * <p>The sorting order. Can be <code>ASCENDING</code> or <code>DESCENDING</code>. The default value is <code>DESCENDING</code>.</p>
    * @public
    */
-  SortOrder?: SortOrder;
+  SortOrder?: SortOrder | undefined;
 }
 
 /**
@@ -2356,6 +2540,7 @@ export type EntityTypeSort =
   | EntityTypeSort.AmiProductSortMember
   | EntityTypeSort.ContainerProductSortMember
   | EntityTypeSort.DataProductSortMember
+  | EntityTypeSort.MachineLearningProductSortMember
   | EntityTypeSort.OfferSortMember
   | EntityTypeSort.ResaleAuthorizationSortMember
   | EntityTypeSort.SaaSProductSortMember
@@ -2376,6 +2561,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2390,6 +2576,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2404,6 +2591,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2418,6 +2606,7 @@ export namespace EntityTypeSort {
     OfferSort: OfferSort;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2432,6 +2621,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort: ContainerProductSort;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown?: never;
   }
 
@@ -2446,6 +2636,22 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort: ResaleAuthorizationSort;
+    MachineLearningProductSort?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>The sort options for machine learning products.</p>
+   * @public
+   */
+  export interface MachineLearningProductSortMember {
+    DataProductSort?: never;
+    SaaSProductSort?: never;
+    AmiProductSort?: never;
+    OfferSort?: never;
+    ContainerProductSort?: never;
+    ResaleAuthorizationSort?: never;
+    MachineLearningProductSort: MachineLearningProductSort;
     $unknown?: never;
   }
 
@@ -2459,6 +2665,7 @@ export namespace EntityTypeSort {
     OfferSort?: never;
     ContainerProductSort?: never;
     ResaleAuthorizationSort?: never;
+    MachineLearningProductSort?: never;
     $unknown: [string, any];
   }
 
@@ -2469,6 +2676,7 @@ export namespace EntityTypeSort {
     OfferSort: (value: OfferSort) => T;
     ContainerProductSort: (value: ContainerProductSort) => T;
     ResaleAuthorizationSort: (value: ResaleAuthorizationSort) => T;
+    MachineLearningProductSort: (value: MachineLearningProductSort) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -2480,6 +2688,8 @@ export namespace EntityTypeSort {
     if (value.ContainerProductSort !== undefined) return visitor.ContainerProductSort(value.ContainerProductSort);
     if (value.ResaleAuthorizationSort !== undefined)
       return visitor.ResaleAuthorizationSort(value.ResaleAuthorizationSort);
+    if (value.MachineLearningProductSort !== undefined)
+      return visitor.MachineLearningProductSort(value.MachineLearningProductSort);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -2526,27 +2736,27 @@ export interface ListEntitiesRequest {
    *                 <code>filterName</code> and <code>filterValues</code>.</p>
    * @public
    */
-  FilterList?: Filter[];
+  FilterList?: Filter[] | undefined;
 
   /**
    * <p>An object that contains two attributes, <code>SortBy</code> and
    *             <code>SortOrder</code>.</p>
    * @public
    */
-  Sort?: Sort;
+  Sort?: Sort | undefined;
 
   /**
    * <p>The value of the next token, if it exists. Null if there are no more results.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Specifies the upper limit of the elements on a single page. If a value isn't provided,
    *             the default value is 20.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>Filters the returned set of entities based on their owner. The default is
@@ -2556,7 +2766,7 @@ export interface ListEntitiesRequest {
    *                 <code>SHARED</code> parameter.</p>
    * @public
    */
-  OwnershipType?: OwnershipType;
+  OwnershipType?: OwnershipType | undefined;
 
   /**
    * <p>A Union object containing filter shapes for all <code>EntityType</code>s. Each
@@ -2564,7 +2774,7 @@ export interface ListEntitiesRequest {
    *                 <code>EntityType</code> that can be used to search or filter entities.</p>
    * @public
    */
-  EntityTypeFilters?: EntityTypeFilters;
+  EntityTypeFilters?: EntityTypeFilters | undefined;
 
   /**
    * <p>A Union object containing <code>Sort</code> shapes for all <code>EntityType</code>s.
@@ -2573,7 +2783,7 @@ export interface ListEntitiesRequest {
    *             can be used to sort the results of the filter query.</p>
    * @public
    */
-  EntityTypeSort?: EntityTypeSort;
+  EntityTypeSort?: EntityTypeSort | undefined;
 }
 
 /**
@@ -2585,13 +2795,13 @@ export interface ContainerProductSummary {
    * <p>The title of the container product.</p>
    * @public
    */
-  ProductTitle?: string;
+  ProductTitle?: string | undefined;
 
   /**
    * <p>The lifecycle of the product.</p>
    * @public
    */
-  Visibility?: ContainerProductVisibilityString;
+  Visibility?: ContainerProductVisibilityString | undefined;
 }
 
 /**
@@ -2603,13 +2813,31 @@ export interface DataProductSummary {
    * <p>The title of the data product.</p>
    * @public
    */
-  ProductTitle?: string;
+  ProductTitle?: string | undefined;
 
   /**
    * <p>The lifecycle of the data product.</p>
    * @public
    */
-  Visibility?: DataProductVisibilityString;
+  Visibility?: DataProductVisibilityString | undefined;
+}
+
+/**
+ * <p>A summary of a machine learning product.</p>
+ * @public
+ */
+export interface MachineLearningProductSummary {
+  /**
+   * <p>The title of the machine learning product.</p>
+   * @public
+   */
+  ProductTitle?: string | undefined;
+
+  /**
+   * <p>The visibility status of the machine learning product. Valid values are <code>Limited</code>, <code>Public</code>, <code>Restricted</code>, and <code>Draft</code>.</p>
+   * @public
+   */
+  Visibility?: MachineLearningProductVisibilityString | undefined;
 }
 
 /**
@@ -2621,49 +2849,49 @@ export interface OfferSummary {
    * <p>The name of the offer.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The product ID of the offer.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The ResaleAuthorizationId of the offer.</p>
    * @public
    */
-  ResaleAuthorizationId?: string;
+  ResaleAuthorizationId?: string | undefined;
 
   /**
    * <p>The release date of the offer.</p>
    * @public
    */
-  ReleaseDate?: string;
+  ReleaseDate?: string | undefined;
 
   /**
    * <p>The availability end date of the offer.</p>
    * @public
    */
-  AvailabilityEndDate?: string;
+  AvailabilityEndDate?: string | undefined;
 
   /**
    * <p>The buyer accounts in the offer.</p>
    * @public
    */
-  BuyerAccounts?: string[];
+  BuyerAccounts?: string[] | undefined;
 
   /**
    * <p>The status of the offer.</p>
    * @public
    */
-  State?: OfferStateString;
+  State?: OfferStateString | undefined;
 
   /**
    * <p>The targeting in the offer.</p>
    * @public
    */
-  Targeting?: OfferTargetingString[];
+  Targeting?: OfferTargetingString[] | undefined;
 }
 
 /**
@@ -2675,67 +2903,67 @@ export interface ResaleAuthorizationSummary {
    * <p>The name of the ResaleAuthorization.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The product ID of the ResaleAuthorization.</p>
    * @public
    */
-  ProductId?: string;
+  ProductId?: string | undefined;
 
   /**
    * <p>The product name of the ResaleAuthorization.</p>
    * @public
    */
-  ProductName?: string;
+  ProductName?: string | undefined;
 
   /**
    * <p>The manufacturer account ID of the ResaleAuthorization.</p>
    * @public
    */
-  ManufacturerAccountId?: string;
+  ManufacturerAccountId?: string | undefined;
 
   /**
    * <p>The manufacturer legal name of the ResaleAuthorization.</p>
    * @public
    */
-  ManufacturerLegalName?: string;
+  ManufacturerLegalName?: string | undefined;
 
   /**
    * <p>The reseller account ID of the ResaleAuthorization.</p>
    * @public
    */
-  ResellerAccountID?: string;
+  ResellerAccountID?: string | undefined;
 
   /**
    * <p>The reseller legal name of the ResaleAuthorization</p>
    * @public
    */
-  ResellerLegalName?: string;
+  ResellerLegalName?: string | undefined;
 
   /**
    * <p>The status of the ResaleAuthorization.</p>
    * @public
    */
-  Status?: ResaleAuthorizationStatusString;
+  Status?: ResaleAuthorizationStatusString | undefined;
 
   /**
    * <p>The offer extended status of the ResaleAuthorization</p>
    * @public
    */
-  OfferExtendedStatus?: string;
+  OfferExtendedStatus?: string | undefined;
 
   /**
    * <p>The created date of the ResaleAuthorization.</p>
    * @public
    */
-  CreatedDate?: string;
+  CreatedDate?: string | undefined;
 
   /**
    * <p>The availability end date of the ResaleAuthorization.</p>
    * @public
    */
-  AvailabilityEndDate?: string;
+  AvailabilityEndDate?: string | undefined;
 }
 
 /**
@@ -2747,13 +2975,13 @@ export interface SaaSProductSummary {
    * <p>The title of the SaaS product.</p>
    * @public
    */
-  ProductTitle?: string;
+  ProductTitle?: string | undefined;
 
   /**
    * <p>The lifecycle of the SaaS product.</p>
    * @public
    */
-  Visibility?: SaaSProductVisibilityString;
+  Visibility?: SaaSProductVisibilityString | undefined;
 }
 
 /**
@@ -2767,32 +2995,32 @@ export interface EntitySummary {
    * <p>The name for the entity. This value is not unique. It is defined by the seller.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The type of the entity.</p>
    * @public
    */
-  EntityType?: string;
+  EntityType?: string | undefined;
 
   /**
    * <p>The unique identifier for the entity.</p>
    * @public
    */
-  EntityId?: string;
+  EntityId?: string | undefined;
 
   /**
    * <p>The ARN associated with the unique identifier for the entity.</p>
    * @public
    */
-  EntityArn?: string;
+  EntityArn?: string | undefined;
 
   /**
    * <p>The last time the entity was published, using ISO 8601 format
    *             (2018-02-27T13:45:22Z).</p>
    * @public
    */
-  LastModifiedDate?: string;
+  LastModifiedDate?: string | undefined;
 
   /**
    * <p>The visibility status of the entity to buyers. This value can be <code>Public</code>
@@ -2801,43 +3029,49 @@ export interface EntitySummary {
    *             unpublished and only existing buyers can view it). </p>
    * @public
    */
-  Visibility?: string;
+  Visibility?: string | undefined;
 
   /**
    * <p>An object that contains summary information about the AMI product.</p>
    * @public
    */
-  AmiProductSummary?: AmiProductSummary;
+  AmiProductSummary?: AmiProductSummary | undefined;
 
   /**
    * <p>An object that contains summary information about the container product.</p>
    * @public
    */
-  ContainerProductSummary?: ContainerProductSummary;
+  ContainerProductSummary?: ContainerProductSummary | undefined;
 
   /**
    * <p>An object that contains summary information about the data product.</p>
    * @public
    */
-  DataProductSummary?: DataProductSummary;
+  DataProductSummary?: DataProductSummary | undefined;
 
   /**
    * <p>An object that contains summary information about the SaaS product.</p>
    * @public
    */
-  SaaSProductSummary?: SaaSProductSummary;
+  SaaSProductSummary?: SaaSProductSummary | undefined;
 
   /**
    * <p>An object that contains summary information about the offer.</p>
    * @public
    */
-  OfferSummary?: OfferSummary;
+  OfferSummary?: OfferSummary | undefined;
 
   /**
    * <p>An object that contains summary information about the Resale Authorization.</p>
    * @public
    */
-  ResaleAuthorizationSummary?: ResaleAuthorizationSummary;
+  ResaleAuthorizationSummary?: ResaleAuthorizationSummary | undefined;
+
+  /**
+   * <p>A summary of a machine learning product.</p>
+   * @public
+   */
+  MachineLearningProductSummary?: MachineLearningProductSummary | undefined;
 }
 
 /**
@@ -2848,13 +3082,13 @@ export interface ListEntitiesResponse {
    * <p>Array of <code>EntitySummary</code> objects.</p>
    * @public
    */
-  EntitySummaryList?: EntitySummary[];
+  EntitySummaryList?: EntitySummary[] | undefined;
 
   /**
    * <p>The value of the next token if it exists. Null if there is no more result.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -2895,14 +3129,14 @@ export interface ListTagsForResourceResponse {
    * <p>Required. The ARN associated with the resource you want to list tags on.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>Required. A list of objects specifying each key name and value. Number of objects
    *             allowed: 1-50.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -2935,7 +3169,7 @@ export interface PutResourcePolicyResponse {}
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -2976,7 +3210,7 @@ export interface Change {
    * <p>The tags associated with the change.</p>
    * @public
    */
-  EntityTags?: Tag[];
+  EntityTags?: Tag[] | undefined;
 
   /**
    * <p>This object contains details specific to the change type of the requested change. For
@@ -2984,21 +3218,23 @@ export interface Change {
    *             types available for container-based products, see <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/container-products.html#working-with-container-products">Working with container products</a>.</p>
    * @public
    */
-  Details?: string;
+  Details?: string | undefined;
 
   /**
    * <p>Alternative field that accepts a JSON value instead of a string for
    *                 <code>ChangeType</code> details. You can use either <code>Details</code> or
    *                 <code>DetailsDocument</code>, but not both.</p>
+   *          <p>To download the "DetailsDocument" shapes, see the <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-python">Python</a>
+   *             and <a href="https://github.com/awslabs/aws-marketplace-catalog-api-shapes-for-java/tree/main">Java</a> shapes on GitHub.</p>
    * @public
    */
-  DetailsDocument?: __DocumentType;
+  DetailsDocument?: __DocumentType | undefined;
 
   /**
    * <p>Optional name for the change.</p>
    * @public
    */
-  ChangeName?: string;
+  ChangeName?: string | undefined;
 }
 
 /**
@@ -3023,20 +3259,20 @@ export interface StartChangeSetRequest {
    *             be used to filter the list of change sets. </p>
    * @public
    */
-  ChangeSetName?: string;
+  ChangeSetName?: string | undefined;
 
   /**
    * <p>A unique token to identify the request to ensure idempotency.</p>
    * @public
    */
-  ClientRequestToken?: string;
+  ClientRequestToken?: string | undefined;
 
   /**
    * <p>A list of objects specifying each key name and value for the
    *                 <code>ChangeSetTags</code> property.</p>
    * @public
    */
-  ChangeSetTags?: Tag[];
+  ChangeSetTags?: Tag[] | undefined;
 
   /**
    * <p>The intent related to the request. The default is <code>APPLY</code>.
@@ -3045,7 +3281,7 @@ export interface StartChangeSetRequest {
    *             <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version">Add a new version</a>.</p>
    * @public
    */
-  Intent?: Intent;
+  Intent?: Intent | undefined;
 }
 
 /**
@@ -3056,13 +3292,13 @@ export interface StartChangeSetResponse {
    * <p>Unique identifier generated for the request.</p>
    * @public
    */
-  ChangeSetId?: string;
+  ChangeSetId?: string | undefined;
 
   /**
    * <p>The ARN associated to the unique identifier generated for the request.</p>
    * @public
    */
-  ChangeSetArn?: string;
+  ChangeSetArn?: string | undefined;
 }
 
 /**

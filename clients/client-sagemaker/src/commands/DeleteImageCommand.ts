@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteImageCommandInput extends DeleteImageRequest {}
 export interface DeleteImageCommandOutput extends DeleteImageResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a SageMaker image and all versions of the image. The container images aren't
- *         deleted.</p>
+ * <p>Deletes a SageMaker AI image and all versions of the image. The container images aren't deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +59,7 @@ export interface DeleteImageCommandOutput extends DeleteImageResponse, __Metadat
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteImageCommand extends $Command
@@ -69,9 +70,7 @@ export class DeleteImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +82,16 @@ export class DeleteImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteImageCommand)
   .de(de_DeleteImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteImageRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteImageCommandInput;
+      output: DeleteImageCommandOutput;
+    };
+  };
+}

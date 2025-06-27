@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyIpamResourceDiscoveryRequest, ModifyIpamResourceDiscoveryResult } from "../models/models_6";
+import { ModifyIpamResourceDiscoveryRequest, ModifyIpamResourceDiscoveryResult } from "../models/models_7";
 import { de_ModifyIpamResourceDiscoveryCommand, se_ModifyIpamResourceDiscoveryCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,6 +49,16 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  *       RegionName: "STRING_VALUE",
  *     },
  *   ],
+ *   AddOrganizationalUnitExclusions: [ // AddIpamOrganizationalUnitExclusionSet
+ *     { // AddIpamOrganizationalUnitExclusion
+ *       OrganizationsEntityPath: "STRING_VALUE",
+ *     },
+ *   ],
+ *   RemoveOrganizationalUnitExclusions: [ // RemoveIpamOrganizationalUnitExclusionSet
+ *     { // RemoveIpamOrganizationalUnitExclusion
+ *       OrganizationsEntityPath: "STRING_VALUE",
+ *     },
+ *   ],
  * };
  * const command = new ModifyIpamResourceDiscoveryCommand(input);
  * const response = await client.send(command);
@@ -71,6 +82,11 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  * //         Value: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     OrganizationalUnitExclusions: [ // IpamOrganizationalUnitExclusionSet
+ * //       { // IpamOrganizationalUnitExclusion
+ * //         OrganizationsEntityPath: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *
@@ -85,6 +101,7 @@ export interface ModifyIpamResourceDiscoveryCommandOutput extends ModifyIpamReso
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyIpamResourceDiscoveryCommand extends $Command
@@ -95,9 +112,7 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +124,16 @@ export class ModifyIpamResourceDiscoveryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyIpamResourceDiscoveryCommand)
   .de(de_ModifyIpamResourceDiscoveryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyIpamResourceDiscoveryRequest;
+      output: ModifyIpamResourceDiscoveryResult;
+    };
+    sdk: {
+      input: ModifyIpamResourceDiscoveryCommandInput;
+      output: ModifyIpamResourceDiscoveryCommandOutput;
+    };
+  };
+}

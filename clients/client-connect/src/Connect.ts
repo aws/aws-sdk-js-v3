@@ -118,6 +118,11 @@ import {
   CreateAgentStatusCommandOutput,
 } from "./commands/CreateAgentStatusCommand";
 import {
+  CreateContactCommand,
+  CreateContactCommandInput,
+  CreateContactCommandOutput,
+} from "./commands/CreateContactCommand";
+import {
   CreateContactFlowCommand,
   CreateContactFlowCommandInput,
   CreateContactFlowCommandOutput,
@@ -128,6 +133,16 @@ import {
   CreateContactFlowModuleCommandOutput,
 } from "./commands/CreateContactFlowModuleCommand";
 import {
+  CreateContactFlowVersionCommand,
+  CreateContactFlowVersionCommandInput,
+  CreateContactFlowVersionCommandOutput,
+} from "./commands/CreateContactFlowVersionCommand";
+import {
+  CreateEmailAddressCommand,
+  CreateEmailAddressCommandInput,
+  CreateEmailAddressCommandOutput,
+} from "./commands/CreateEmailAddressCommand";
+import {
   CreateEvaluationFormCommand,
   CreateEvaluationFormCommandInput,
   CreateEvaluationFormCommandOutput,
@@ -137,6 +152,11 @@ import {
   CreateHoursOfOperationCommandInput,
   CreateHoursOfOperationCommandOutput,
 } from "./commands/CreateHoursOfOperationCommand";
+import {
+  CreateHoursOfOperationOverrideCommand,
+  CreateHoursOfOperationOverrideCommandInput,
+  CreateHoursOfOperationOverrideCommandOutput,
+} from "./commands/CreateHoursOfOperationOverrideCommand";
 import {
   CreateInstanceCommand,
   CreateInstanceCommandInput,
@@ -167,6 +187,11 @@ import {
   CreatePromptCommandInput,
   CreatePromptCommandOutput,
 } from "./commands/CreatePromptCommand";
+import {
+  CreatePushNotificationRegistrationCommand,
+  CreatePushNotificationRegistrationCommandInput,
+  CreatePushNotificationRegistrationCommandOutput,
+} from "./commands/CreatePushNotificationRegistrationCommand";
 import { CreateQueueCommand, CreateQueueCommandInput, CreateQueueCommandOutput } from "./commands/CreateQueueCommand";
 import {
   CreateQuickConnectCommand,
@@ -242,6 +267,16 @@ import {
   DeleteContactFlowModuleCommandOutput,
 } from "./commands/DeleteContactFlowModuleCommand";
 import {
+  DeleteContactFlowVersionCommand,
+  DeleteContactFlowVersionCommandInput,
+  DeleteContactFlowVersionCommandOutput,
+} from "./commands/DeleteContactFlowVersionCommand";
+import {
+  DeleteEmailAddressCommand,
+  DeleteEmailAddressCommandInput,
+  DeleteEmailAddressCommandOutput,
+} from "./commands/DeleteEmailAddressCommand";
+import {
   DeleteEvaluationFormCommand,
   DeleteEvaluationFormCommandInput,
   DeleteEvaluationFormCommandOutput,
@@ -251,6 +286,11 @@ import {
   DeleteHoursOfOperationCommandInput,
   DeleteHoursOfOperationCommandOutput,
 } from "./commands/DeleteHoursOfOperationCommand";
+import {
+  DeleteHoursOfOperationOverrideCommand,
+  DeleteHoursOfOperationOverrideCommandInput,
+  DeleteHoursOfOperationOverrideCommandOutput,
+} from "./commands/DeleteHoursOfOperationOverrideCommand";
 import {
   DeleteInstanceCommand,
   DeleteInstanceCommandInput,
@@ -271,6 +311,11 @@ import {
   DeletePromptCommandInput,
   DeletePromptCommandOutput,
 } from "./commands/DeletePromptCommand";
+import {
+  DeletePushNotificationRegistrationCommand,
+  DeletePushNotificationRegistrationCommandInput,
+  DeletePushNotificationRegistrationCommandOutput,
+} from "./commands/DeletePushNotificationRegistrationCommand";
 import { DeleteQueueCommand, DeleteQueueCommandInput, DeleteQueueCommandOutput } from "./commands/DeleteQueueCommand";
 import {
   DeleteQuickConnectCommand,
@@ -326,6 +371,11 @@ import {
   DescribeAgentStatusCommandOutput,
 } from "./commands/DescribeAgentStatusCommand";
 import {
+  DescribeAuthenticationProfileCommand,
+  DescribeAuthenticationProfileCommandInput,
+  DescribeAuthenticationProfileCommandOutput,
+} from "./commands/DescribeAuthenticationProfileCommand";
+import {
   DescribeContactCommand,
   DescribeContactCommandInput,
   DescribeContactCommandOutput,
@@ -346,6 +396,11 @@ import {
   DescribeContactFlowModuleCommandOutput,
 } from "./commands/DescribeContactFlowModuleCommand";
 import {
+  DescribeEmailAddressCommand,
+  DescribeEmailAddressCommandInput,
+  DescribeEmailAddressCommandOutput,
+} from "./commands/DescribeEmailAddressCommand";
+import {
   DescribeEvaluationFormCommand,
   DescribeEvaluationFormCommandInput,
   DescribeEvaluationFormCommandOutput,
@@ -355,6 +410,11 @@ import {
   DescribeHoursOfOperationCommandInput,
   DescribeHoursOfOperationCommandOutput,
 } from "./commands/DescribeHoursOfOperationCommand";
+import {
+  DescribeHoursOfOperationOverrideCommand,
+  DescribeHoursOfOperationOverrideCommandInput,
+  DescribeHoursOfOperationOverrideCommandOutput,
+} from "./commands/DescribeHoursOfOperationOverrideCommand";
 import {
   DescribeInstanceAttributeCommand,
   DescribeInstanceAttributeCommandInput,
@@ -531,6 +591,11 @@ import {
   GetCurrentUserDataCommandOutput,
 } from "./commands/GetCurrentUserDataCommand";
 import {
+  GetEffectiveHoursOfOperationsCommand,
+  GetEffectiveHoursOfOperationsCommandInput,
+  GetEffectiveHoursOfOperationsCommandOutput,
+} from "./commands/GetEffectiveHoursOfOperationsCommand";
+import {
   GetFederationTokenCommand,
   GetFederationTokenCommandInput,
   GetFederationTokenCommandOutput,
@@ -581,10 +646,25 @@ import {
   ListAnalyticsDataAssociationsCommandOutput,
 } from "./commands/ListAnalyticsDataAssociationsCommand";
 import {
+  ListAnalyticsDataLakeDataSetsCommand,
+  ListAnalyticsDataLakeDataSetsCommandInput,
+  ListAnalyticsDataLakeDataSetsCommandOutput,
+} from "./commands/ListAnalyticsDataLakeDataSetsCommand";
+import {
   ListApprovedOriginsCommand,
   ListApprovedOriginsCommandInput,
   ListApprovedOriginsCommandOutput,
 } from "./commands/ListApprovedOriginsCommand";
+import {
+  ListAssociatedContactsCommand,
+  ListAssociatedContactsCommandInput,
+  ListAssociatedContactsCommandOutput,
+} from "./commands/ListAssociatedContactsCommand";
+import {
+  ListAuthenticationProfilesCommand,
+  ListAuthenticationProfilesCommandInput,
+  ListAuthenticationProfilesCommandOutput,
+} from "./commands/ListAuthenticationProfilesCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
 import {
   ListContactEvaluationsCommand,
@@ -601,6 +681,11 @@ import {
   ListContactFlowsCommandInput,
   ListContactFlowsCommandOutput,
 } from "./commands/ListContactFlowsCommand";
+import {
+  ListContactFlowVersionsCommand,
+  ListContactFlowVersionsCommandInput,
+  ListContactFlowVersionsCommandOutput,
+} from "./commands/ListContactFlowVersionsCommand";
 import {
   ListContactReferencesCommand,
   ListContactReferencesCommandInput,
@@ -626,6 +711,11 @@ import {
   ListFlowAssociationsCommandInput,
   ListFlowAssociationsCommandOutput,
 } from "./commands/ListFlowAssociationsCommand";
+import {
+  ListHoursOfOperationOverridesCommand,
+  ListHoursOfOperationOverridesCommandInput,
+  ListHoursOfOperationOverridesCommandOutput,
+} from "./commands/ListHoursOfOperationOverridesCommand";
 import {
   ListHoursOfOperationsCommand,
   ListHoursOfOperationsCommandInput,
@@ -798,6 +888,11 @@ import {
   ResumeContactRecordingCommandOutput,
 } from "./commands/ResumeContactRecordingCommand";
 import {
+  SearchAgentStatusesCommand,
+  SearchAgentStatusesCommandInput,
+  SearchAgentStatusesCommandOutput,
+} from "./commands/SearchAgentStatusesCommand";
+import {
   SearchAvailablePhoneNumbersCommand,
   SearchAvailablePhoneNumbersCommandInput,
   SearchAvailablePhoneNumbersCommandOutput,
@@ -817,6 +912,16 @@ import {
   SearchContactsCommandInput,
   SearchContactsCommandOutput,
 } from "./commands/SearchContactsCommand";
+import {
+  SearchEmailAddressesCommand,
+  SearchEmailAddressesCommandInput,
+  SearchEmailAddressesCommandOutput,
+} from "./commands/SearchEmailAddressesCommand";
+import {
+  SearchHoursOfOperationOverridesCommand,
+  SearchHoursOfOperationOverridesCommandInput,
+  SearchHoursOfOperationOverridesCommandOutput,
+} from "./commands/SearchHoursOfOperationOverridesCommand";
 import {
   SearchHoursOfOperationsCommand,
   SearchHoursOfOperationsCommandInput,
@@ -857,6 +962,11 @@ import {
   SearchSecurityProfilesCommandInput,
   SearchSecurityProfilesCommandOutput,
 } from "./commands/SearchSecurityProfilesCommand";
+import {
+  SearchUserHierarchyGroupsCommand,
+  SearchUserHierarchyGroupsCommandInput,
+  SearchUserHierarchyGroupsCommandOutput,
+} from "./commands/SearchUserHierarchyGroupsCommand";
 import { SearchUsersCommand, SearchUsersCommandInput, SearchUsersCommandOutput } from "./commands/SearchUsersCommand";
 import {
   SearchVocabulariesCommand,
@@ -868,6 +978,11 @@ import {
   SendChatIntegrationEventCommandInput,
   SendChatIntegrationEventCommandOutput,
 } from "./commands/SendChatIntegrationEventCommand";
+import {
+  SendOutboundEmailCommand,
+  SendOutboundEmailCommandInput,
+  SendOutboundEmailCommandOutput,
+} from "./commands/SendOutboundEmailCommand";
 import {
   StartAttachedFileUploadCommand,
   StartAttachedFileUploadCommandInput,
@@ -894,10 +1009,30 @@ import {
   StartContactStreamingCommandOutput,
 } from "./commands/StartContactStreamingCommand";
 import {
+  StartEmailContactCommand,
+  StartEmailContactCommandInput,
+  StartEmailContactCommandOutput,
+} from "./commands/StartEmailContactCommand";
+import {
+  StartOutboundChatContactCommand,
+  StartOutboundChatContactCommandInput,
+  StartOutboundChatContactCommandOutput,
+} from "./commands/StartOutboundChatContactCommand";
+import {
+  StartOutboundEmailContactCommand,
+  StartOutboundEmailContactCommandInput,
+  StartOutboundEmailContactCommandOutput,
+} from "./commands/StartOutboundEmailContactCommand";
+import {
   StartOutboundVoiceContactCommand,
   StartOutboundVoiceContactCommandInput,
   StartOutboundVoiceContactCommandOutput,
 } from "./commands/StartOutboundVoiceContactCommand";
+import {
+  StartScreenSharingCommand,
+  StartScreenSharingCommandInput,
+  StartScreenSharingCommandOutput,
+} from "./commands/StartScreenSharingCommand";
 import {
   StartTaskContactCommand,
   StartTaskContactCommandInput,
@@ -952,6 +1087,11 @@ import {
   UpdateAgentStatusCommandOutput,
 } from "./commands/UpdateAgentStatusCommand";
 import {
+  UpdateAuthenticationProfileCommand,
+  UpdateAuthenticationProfileCommandInput,
+  UpdateAuthenticationProfileCommandOutput,
+} from "./commands/UpdateAuthenticationProfileCommand";
+import {
   UpdateContactAttributesCommand,
   UpdateContactAttributesCommandInput,
   UpdateContactAttributesCommandOutput,
@@ -1002,6 +1142,11 @@ import {
   UpdateContactScheduleCommandOutput,
 } from "./commands/UpdateContactScheduleCommand";
 import {
+  UpdateEmailAddressMetadataCommand,
+  UpdateEmailAddressMetadataCommandInput,
+  UpdateEmailAddressMetadataCommandOutput,
+} from "./commands/UpdateEmailAddressMetadataCommand";
+import {
   UpdateEvaluationFormCommand,
   UpdateEvaluationFormCommandInput,
   UpdateEvaluationFormCommandOutput,
@@ -1012,6 +1157,11 @@ import {
   UpdateHoursOfOperationCommandOutput,
 } from "./commands/UpdateHoursOfOperationCommand";
 import {
+  UpdateHoursOfOperationOverrideCommand,
+  UpdateHoursOfOperationOverrideCommandInput,
+  UpdateHoursOfOperationOverrideCommandOutput,
+} from "./commands/UpdateHoursOfOperationOverrideCommand";
+import {
   UpdateInstanceAttributeCommand,
   UpdateInstanceAttributeCommandInput,
   UpdateInstanceAttributeCommandOutput,
@@ -1021,6 +1171,11 @@ import {
   UpdateInstanceStorageConfigCommandInput,
   UpdateInstanceStorageConfigCommandOutput,
 } from "./commands/UpdateInstanceStorageConfigCommand";
+import {
+  UpdateParticipantAuthenticationCommand,
+  UpdateParticipantAuthenticationCommandInput,
+  UpdateParticipantAuthenticationCommandOutput,
+} from "./commands/UpdateParticipantAuthenticationCommand";
 import {
   UpdateParticipantRoleConfigCommand,
   UpdateParticipantRoleConfigCommandInput,
@@ -1066,6 +1221,11 @@ import {
   UpdateQueueOutboundCallerConfigCommandInput,
   UpdateQueueOutboundCallerConfigCommandOutput,
 } from "./commands/UpdateQueueOutboundCallerConfigCommand";
+import {
+  UpdateQueueOutboundEmailConfigCommand,
+  UpdateQueueOutboundEmailConfigCommandInput,
+  UpdateQueueOutboundEmailConfigCommandOutput,
+} from "./commands/UpdateQueueOutboundEmailConfigCommand";
 import {
   UpdateQueueStatusCommand,
   UpdateQueueStatusCommandInput,
@@ -1198,16 +1358,21 @@ const commands = {
   ClaimPhoneNumberCommand,
   CompleteAttachedFileUploadCommand,
   CreateAgentStatusCommand,
+  CreateContactCommand,
   CreateContactFlowCommand,
   CreateContactFlowModuleCommand,
+  CreateContactFlowVersionCommand,
+  CreateEmailAddressCommand,
   CreateEvaluationFormCommand,
   CreateHoursOfOperationCommand,
+  CreateHoursOfOperationOverrideCommand,
   CreateInstanceCommand,
   CreateIntegrationAssociationCommand,
   CreateParticipantCommand,
   CreatePersistentContactAssociationCommand,
   CreatePredefinedAttributeCommand,
   CreatePromptCommand,
+  CreatePushNotificationRegistrationCommand,
   CreateQueueCommand,
   CreateQuickConnectCommand,
   CreateRoutingProfileCommand,
@@ -1226,12 +1391,16 @@ const commands = {
   DeleteContactEvaluationCommand,
   DeleteContactFlowCommand,
   DeleteContactFlowModuleCommand,
+  DeleteContactFlowVersionCommand,
+  DeleteEmailAddressCommand,
   DeleteEvaluationFormCommand,
   DeleteHoursOfOperationCommand,
+  DeleteHoursOfOperationOverrideCommand,
   DeleteInstanceCommand,
   DeleteIntegrationAssociationCommand,
   DeletePredefinedAttributeCommand,
   DeletePromptCommand,
+  DeletePushNotificationRegistrationCommand,
   DeleteQueueCommand,
   DeleteQuickConnectCommand,
   DeleteRoutingProfileCommand,
@@ -1246,12 +1415,15 @@ const commands = {
   DeleteViewVersionCommand,
   DeleteVocabularyCommand,
   DescribeAgentStatusCommand,
+  DescribeAuthenticationProfileCommand,
   DescribeContactCommand,
   DescribeContactEvaluationCommand,
   DescribeContactFlowCommand,
   DescribeContactFlowModuleCommand,
+  DescribeEmailAddressCommand,
   DescribeEvaluationFormCommand,
   DescribeHoursOfOperationCommand,
+  DescribeHoursOfOperationOverrideCommand,
   DescribeInstanceCommand,
   DescribeInstanceAttributeCommand,
   DescribeInstanceStorageConfigCommand,
@@ -1287,6 +1459,7 @@ const commands = {
   GetContactAttributesCommand,
   GetCurrentMetricDataCommand,
   GetCurrentUserDataCommand,
+  GetEffectiveHoursOfOperationsCommand,
   GetFederationTokenCommand,
   GetFlowAssociationCommand,
   GetMetricDataCommand,
@@ -1297,16 +1470,21 @@ const commands = {
   ImportPhoneNumberCommand,
   ListAgentStatusesCommand,
   ListAnalyticsDataAssociationsCommand,
+  ListAnalyticsDataLakeDataSetsCommand,
   ListApprovedOriginsCommand,
+  ListAssociatedContactsCommand,
+  ListAuthenticationProfilesCommand,
   ListBotsCommand,
   ListContactEvaluationsCommand,
   ListContactFlowModulesCommand,
   ListContactFlowsCommand,
+  ListContactFlowVersionsCommand,
   ListContactReferencesCommand,
   ListDefaultVocabulariesCommand,
   ListEvaluationFormsCommand,
   ListEvaluationFormVersionsCommand,
   ListFlowAssociationsCommand,
+  ListHoursOfOperationOverridesCommand,
   ListHoursOfOperationsCommand,
   ListInstanceAttributesCommand,
   ListInstancesCommand,
@@ -1346,10 +1524,13 @@ const commands = {
   ReplicateInstanceCommand,
   ResumeContactCommand,
   ResumeContactRecordingCommand,
+  SearchAgentStatusesCommand,
   SearchAvailablePhoneNumbersCommand,
   SearchContactFlowModulesCommand,
   SearchContactFlowsCommand,
   SearchContactsCommand,
+  SearchEmailAddressesCommand,
+  SearchHoursOfOperationOverridesCommand,
   SearchHoursOfOperationsCommand,
   SearchPredefinedAttributesCommand,
   SearchPromptsCommand,
@@ -1358,15 +1539,21 @@ const commands = {
   SearchResourceTagsCommand,
   SearchRoutingProfilesCommand,
   SearchSecurityProfilesCommand,
+  SearchUserHierarchyGroupsCommand,
   SearchUsersCommand,
   SearchVocabulariesCommand,
   SendChatIntegrationEventCommand,
+  SendOutboundEmailCommand,
   StartAttachedFileUploadCommand,
   StartChatContactCommand,
   StartContactEvaluationCommand,
   StartContactRecordingCommand,
   StartContactStreamingCommand,
+  StartEmailContactCommand,
+  StartOutboundChatContactCommand,
+  StartOutboundEmailContactCommand,
   StartOutboundVoiceContactCommand,
+  StartScreenSharingCommand,
   StartTaskContactCommand,
   StartWebRTCContactCommand,
   StopContactCommand,
@@ -1380,6 +1567,7 @@ const commands = {
   UntagContactCommand,
   UntagResourceCommand,
   UpdateAgentStatusCommand,
+  UpdateAuthenticationProfileCommand,
   UpdateContactCommand,
   UpdateContactAttributesCommand,
   UpdateContactEvaluationCommand,
@@ -1390,10 +1578,13 @@ const commands = {
   UpdateContactFlowNameCommand,
   UpdateContactRoutingDataCommand,
   UpdateContactScheduleCommand,
+  UpdateEmailAddressMetadataCommand,
   UpdateEvaluationFormCommand,
   UpdateHoursOfOperationCommand,
+  UpdateHoursOfOperationOverrideCommand,
   UpdateInstanceAttributeCommand,
   UpdateInstanceStorageConfigCommand,
+  UpdateParticipantAuthenticationCommand,
   UpdateParticipantRoleConfigCommand,
   UpdatePhoneNumberCommand,
   UpdatePhoneNumberMetadataCommand,
@@ -1403,6 +1594,7 @@ const commands = {
   UpdateQueueMaxContactsCommand,
   UpdateQueueNameCommand,
   UpdateQueueOutboundCallerConfigCommand,
+  UpdateQueueOutboundEmailConfigCommand,
   UpdateQueueStatusCommand,
   UpdateQuickConnectConfigCommand,
   UpdateQuickConnectNameCommand,
@@ -1802,6 +1994,17 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateContactCommand}
+   */
+  createContact(args: CreateContactCommandInput, options?: __HttpHandlerOptions): Promise<CreateContactCommandOutput>;
+  createContact(args: CreateContactCommandInput, cb: (err: any, data?: CreateContactCommandOutput) => void): void;
+  createContact(
+    args: CreateContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateContactFlowCommand}
    */
   createContactFlow(
@@ -1836,6 +2039,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link CreateContactFlowVersionCommand}
+   */
+  createContactFlowVersion(
+    args: CreateContactFlowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateContactFlowVersionCommandOutput>;
+  createContactFlowVersion(
+    args: CreateContactFlowVersionCommandInput,
+    cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
+  ): void;
+  createContactFlowVersion(
+    args: CreateContactFlowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateContactFlowVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateEmailAddressCommand}
+   */
+  createEmailAddress(
+    args: CreateEmailAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateEmailAddressCommandOutput>;
+  createEmailAddress(
+    args: CreateEmailAddressCommandInput,
+    cb: (err: any, data?: CreateEmailAddressCommandOutput) => void
+  ): void;
+  createEmailAddress(
+    args: CreateEmailAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateEmailAddressCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateEvaluationFormCommand}
    */
   createEvaluationForm(
@@ -1867,6 +2104,23 @@ export interface Connect {
     args: CreateHoursOfOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateHoursOfOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateHoursOfOperationOverrideCommand}
+   */
+  createHoursOfOperationOverride(
+    args: CreateHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateHoursOfOperationOverrideCommandOutput>;
+  createHoursOfOperationOverride(
+    args: CreateHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: CreateHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  createHoursOfOperationOverride(
+    args: CreateHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -1960,6 +2214,23 @@ export interface Connect {
     args: CreatePromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreatePromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreatePushNotificationRegistrationCommand}
+   */
+  createPushNotificationRegistration(
+    args: CreatePushNotificationRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreatePushNotificationRegistrationCommandOutput>;
+  createPushNotificationRegistration(
+    args: CreatePushNotificationRegistrationCommandInput,
+    cb: (err: any, data?: CreatePushNotificationRegistrationCommandOutput) => void
+  ): void;
+  createPushNotificationRegistration(
+    args: CreatePushNotificationRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreatePushNotificationRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -2239,6 +2510,40 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DeleteContactFlowVersionCommand}
+   */
+  deleteContactFlowVersion(
+    args: DeleteContactFlowVersionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteContactFlowVersionCommandOutput>;
+  deleteContactFlowVersion(
+    args: DeleteContactFlowVersionCommandInput,
+    cb: (err: any, data?: DeleteContactFlowVersionCommandOutput) => void
+  ): void;
+  deleteContactFlowVersion(
+    args: DeleteContactFlowVersionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteContactFlowVersionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteEmailAddressCommand}
+   */
+  deleteEmailAddress(
+    args: DeleteEmailAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteEmailAddressCommandOutput>;
+  deleteEmailAddress(
+    args: DeleteEmailAddressCommandInput,
+    cb: (err: any, data?: DeleteEmailAddressCommandOutput) => void
+  ): void;
+  deleteEmailAddress(
+    args: DeleteEmailAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteEmailAddressCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteEvaluationFormCommand}
    */
   deleteEvaluationForm(
@@ -2270,6 +2575,23 @@ export interface Connect {
     args: DeleteHoursOfOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteHoursOfOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteHoursOfOperationOverrideCommand}
+   */
+  deleteHoursOfOperationOverride(
+    args: DeleteHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteHoursOfOperationOverrideCommandOutput>;
+  deleteHoursOfOperationOverride(
+    args: DeleteHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: DeleteHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  deleteHoursOfOperationOverride(
+    args: DeleteHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -2329,6 +2651,23 @@ export interface Connect {
     args: DeletePromptCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeletePromptCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeletePushNotificationRegistrationCommand}
+   */
+  deletePushNotificationRegistration(
+    args: DeletePushNotificationRegistrationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeletePushNotificationRegistrationCommandOutput>;
+  deletePushNotificationRegistration(
+    args: DeletePushNotificationRegistrationCommandInput,
+    cb: (err: any, data?: DeletePushNotificationRegistrationCommandOutput) => void
+  ): void;
+  deletePushNotificationRegistration(
+    args: DeletePushNotificationRegistrationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeletePushNotificationRegistrationCommandOutput) => void
   ): void;
 
   /**
@@ -2540,6 +2879,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DescribeAuthenticationProfileCommand}
+   */
+  describeAuthenticationProfile(
+    args: DescribeAuthenticationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeAuthenticationProfileCommandOutput>;
+  describeAuthenticationProfile(
+    args: DescribeAuthenticationProfileCommandInput,
+    cb: (err: any, data?: DescribeAuthenticationProfileCommandOutput) => void
+  ): void;
+  describeAuthenticationProfile(
+    args: DescribeAuthenticationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeAuthenticationProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeContactCommand}
    */
   describeContact(
@@ -2605,6 +2961,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link DescribeEmailAddressCommand}
+   */
+  describeEmailAddress(
+    args: DescribeEmailAddressCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeEmailAddressCommandOutput>;
+  describeEmailAddress(
+    args: DescribeEmailAddressCommandInput,
+    cb: (err: any, data?: DescribeEmailAddressCommandOutput) => void
+  ): void;
+  describeEmailAddress(
+    args: DescribeEmailAddressCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeEmailAddressCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeEvaluationFormCommand}
    */
   describeEvaluationForm(
@@ -2636,6 +3009,23 @@ export interface Connect {
     args: DescribeHoursOfOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeHoursOfOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeHoursOfOperationOverrideCommand}
+   */
+  describeHoursOfOperationOverride(
+    args: DescribeHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeHoursOfOperationOverrideCommandOutput>;
+  describeHoursOfOperationOverride(
+    args: DescribeHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: DescribeHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  describeHoursOfOperationOverride(
+    args: DescribeHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeHoursOfOperationOverrideCommandOutput) => void
   ): void;
 
   /**
@@ -3201,6 +3591,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link GetEffectiveHoursOfOperationsCommand}
+   */
+  getEffectiveHoursOfOperations(
+    args: GetEffectiveHoursOfOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEffectiveHoursOfOperationsCommandOutput>;
+  getEffectiveHoursOfOperations(
+    args: GetEffectiveHoursOfOperationsCommandInput,
+    cb: (err: any, data?: GetEffectiveHoursOfOperationsCommandOutput) => void
+  ): void;
+  getEffectiveHoursOfOperations(
+    args: GetEffectiveHoursOfOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEffectiveHoursOfOperationsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetFederationTokenCommand}
    */
   getFederationToken(
@@ -3353,6 +3760,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link ListAnalyticsDataLakeDataSetsCommand}
+   */
+  listAnalyticsDataLakeDataSets(
+    args: ListAnalyticsDataLakeDataSetsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAnalyticsDataLakeDataSetsCommandOutput>;
+  listAnalyticsDataLakeDataSets(
+    args: ListAnalyticsDataLakeDataSetsCommandInput,
+    cb: (err: any, data?: ListAnalyticsDataLakeDataSetsCommandOutput) => void
+  ): void;
+  listAnalyticsDataLakeDataSets(
+    args: ListAnalyticsDataLakeDataSetsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAnalyticsDataLakeDataSetsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListApprovedOriginsCommand}
    */
   listApprovedOrigins(
@@ -3367,6 +3791,40 @@ export interface Connect {
     args: ListApprovedOriginsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListApprovedOriginsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAssociatedContactsCommand}
+   */
+  listAssociatedContacts(
+    args: ListAssociatedContactsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssociatedContactsCommandOutput>;
+  listAssociatedContacts(
+    args: ListAssociatedContactsCommandInput,
+    cb: (err: any, data?: ListAssociatedContactsCommandOutput) => void
+  ): void;
+  listAssociatedContacts(
+    args: ListAssociatedContactsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssociatedContactsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAuthenticationProfilesCommand}
+   */
+  listAuthenticationProfiles(
+    args: ListAuthenticationProfilesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAuthenticationProfilesCommandOutput>;
+  listAuthenticationProfiles(
+    args: ListAuthenticationProfilesCommandInput,
+    cb: (err: any, data?: ListAuthenticationProfilesCommandOutput) => void
+  ): void;
+  listAuthenticationProfiles(
+    args: ListAuthenticationProfilesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAuthenticationProfilesCommandOutput) => void
   ): void;
 
   /**
@@ -3429,6 +3887,23 @@ export interface Connect {
     args: ListContactFlowsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListContactFlowsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListContactFlowVersionsCommand}
+   */
+  listContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListContactFlowVersionsCommandOutput>;
+  listContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    cb: (err: any, data?: ListContactFlowVersionsCommandOutput) => void
+  ): void;
+  listContactFlowVersions(
+    args: ListContactFlowVersionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListContactFlowVersionsCommandOutput) => void
   ): void;
 
   /**
@@ -3514,6 +3989,23 @@ export interface Connect {
     args: ListFlowAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListFlowAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListHoursOfOperationOverridesCommand}
+   */
+  listHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListHoursOfOperationOverridesCommandOutput>;
+  listHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    cb: (err: any, data?: ListHoursOfOperationOverridesCommandOutput) => void
+  ): void;
+  listHoursOfOperationOverrides(
+    args: ListHoursOfOperationOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListHoursOfOperationOverridesCommandOutput) => void
   ): void;
 
   /**
@@ -4114,6 +4606,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchAgentStatusesCommand}
+   */
+  searchAgentStatuses(
+    args: SearchAgentStatusesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchAgentStatusesCommandOutput>;
+  searchAgentStatuses(
+    args: SearchAgentStatusesCommandInput,
+    cb: (err: any, data?: SearchAgentStatusesCommandOutput) => void
+  ): void;
+  searchAgentStatuses(
+    args: SearchAgentStatusesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchAgentStatusesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchAvailablePhoneNumbersCommand}
    */
   searchAvailablePhoneNumbers(
@@ -4176,6 +4685,40 @@ export interface Connect {
     args: SearchContactsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SearchContactsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchEmailAddressesCommand}
+   */
+  searchEmailAddresses(
+    args: SearchEmailAddressesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchEmailAddressesCommandOutput>;
+  searchEmailAddresses(
+    args: SearchEmailAddressesCommandInput,
+    cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
+  ): void;
+  searchEmailAddresses(
+    args: SearchEmailAddressesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchEmailAddressesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SearchHoursOfOperationOverridesCommand}
+   */
+  searchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchHoursOfOperationOverridesCommandOutput>;
+  searchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    cb: (err: any, data?: SearchHoursOfOperationOverridesCommandOutput) => void
+  ): void;
+  searchHoursOfOperationOverrides(
+    args: SearchHoursOfOperationOverridesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchHoursOfOperationOverridesCommandOutput) => void
   ): void;
 
   /**
@@ -4303,6 +4846,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link SearchUserHierarchyGroupsCommand}
+   */
+  searchUserHierarchyGroups(
+    args: SearchUserHierarchyGroupsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SearchUserHierarchyGroupsCommandOutput>;
+  searchUserHierarchyGroups(
+    args: SearchUserHierarchyGroupsCommandInput,
+    cb: (err: any, data?: SearchUserHierarchyGroupsCommandOutput) => void
+  ): void;
+  searchUserHierarchyGroups(
+    args: SearchUserHierarchyGroupsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SearchUserHierarchyGroupsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link SearchUsersCommand}
    */
   searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
@@ -4345,6 +4905,23 @@ export interface Connect {
     args: SendChatIntegrationEventCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SendChatIntegrationEventCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SendOutboundEmailCommand}
+   */
+  sendOutboundEmail(
+    args: SendOutboundEmailCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SendOutboundEmailCommandOutput>;
+  sendOutboundEmail(
+    args: SendOutboundEmailCommandInput,
+    cb: (err: any, data?: SendOutboundEmailCommandOutput) => void
+  ): void;
+  sendOutboundEmail(
+    args: SendOutboundEmailCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SendOutboundEmailCommandOutput) => void
   ): void;
 
   /**
@@ -4433,6 +5010,57 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link StartEmailContactCommand}
+   */
+  startEmailContact(
+    args: StartEmailContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartEmailContactCommandOutput>;
+  startEmailContact(
+    args: StartEmailContactCommandInput,
+    cb: (err: any, data?: StartEmailContactCommandOutput) => void
+  ): void;
+  startEmailContact(
+    args: StartEmailContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartEmailContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOutboundChatContactCommand}
+   */
+  startOutboundChatContact(
+    args: StartOutboundChatContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOutboundChatContactCommandOutput>;
+  startOutboundChatContact(
+    args: StartOutboundChatContactCommandInput,
+    cb: (err: any, data?: StartOutboundChatContactCommandOutput) => void
+  ): void;
+  startOutboundChatContact(
+    args: StartOutboundChatContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOutboundChatContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartOutboundEmailContactCommand}
+   */
+  startOutboundEmailContact(
+    args: StartOutboundEmailContactCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartOutboundEmailContactCommandOutput>;
+  startOutboundEmailContact(
+    args: StartOutboundEmailContactCommandInput,
+    cb: (err: any, data?: StartOutboundEmailContactCommandOutput) => void
+  ): void;
+  startOutboundEmailContact(
+    args: StartOutboundEmailContactCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartOutboundEmailContactCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link StartOutboundVoiceContactCommand}
    */
   startOutboundVoiceContact(
@@ -4447,6 +5075,23 @@ export interface Connect {
     args: StartOutboundVoiceContactCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: StartOutboundVoiceContactCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link StartScreenSharingCommand}
+   */
+  startScreenSharing(
+    args: StartScreenSharingCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<StartScreenSharingCommandOutput>;
+  startScreenSharing(
+    args: StartScreenSharingCommandInput,
+    cb: (err: any, data?: StartScreenSharingCommandOutput) => void
+  ): void;
+  startScreenSharing(
+    args: StartScreenSharingCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: StartScreenSharingCommandOutput) => void
   ): void;
 
   /**
@@ -4638,6 +5283,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateAuthenticationProfileCommand}
+   */
+  updateAuthenticationProfile(
+    args: UpdateAuthenticationProfileCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAuthenticationProfileCommandOutput>;
+  updateAuthenticationProfile(
+    args: UpdateAuthenticationProfileCommandInput,
+    cb: (err: any, data?: UpdateAuthenticationProfileCommandOutput) => void
+  ): void;
+  updateAuthenticationProfile(
+    args: UpdateAuthenticationProfileCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAuthenticationProfileCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateContactCommand}
    */
   updateContact(args: UpdateContactCommandInput, options?: __HttpHandlerOptions): Promise<UpdateContactCommandOutput>;
@@ -4802,6 +5464,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateEmailAddressMetadataCommand}
+   */
+  updateEmailAddressMetadata(
+    args: UpdateEmailAddressMetadataCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEmailAddressMetadataCommandOutput>;
+  updateEmailAddressMetadata(
+    args: UpdateEmailAddressMetadataCommandInput,
+    cb: (err: any, data?: UpdateEmailAddressMetadataCommandOutput) => void
+  ): void;
+  updateEmailAddressMetadata(
+    args: UpdateEmailAddressMetadataCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEmailAddressMetadataCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEvaluationFormCommand}
    */
   updateEvaluationForm(
@@ -4836,6 +5515,23 @@ export interface Connect {
   ): void;
 
   /**
+   * @see {@link UpdateHoursOfOperationOverrideCommand}
+   */
+  updateHoursOfOperationOverride(
+    args: UpdateHoursOfOperationOverrideCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateHoursOfOperationOverrideCommandOutput>;
+  updateHoursOfOperationOverride(
+    args: UpdateHoursOfOperationOverrideCommandInput,
+    cb: (err: any, data?: UpdateHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+  updateHoursOfOperationOverride(
+    args: UpdateHoursOfOperationOverrideCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateHoursOfOperationOverrideCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateInstanceAttributeCommand}
    */
   updateInstanceAttribute(
@@ -4867,6 +5563,23 @@ export interface Connect {
     args: UpdateInstanceStorageConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateInstanceStorageConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateParticipantAuthenticationCommand}
+   */
+  updateParticipantAuthentication(
+    args: UpdateParticipantAuthenticationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateParticipantAuthenticationCommandOutput>;
+  updateParticipantAuthentication(
+    args: UpdateParticipantAuthenticationCommandInput,
+    cb: (err: any, data?: UpdateParticipantAuthenticationCommandOutput) => void
+  ): void;
+  updateParticipantAuthentication(
+    args: UpdateParticipantAuthenticationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateParticipantAuthenticationCommandOutput) => void
   ): void;
 
   /**
@@ -5011,6 +5724,23 @@ export interface Connect {
     args: UpdateQueueOutboundCallerConfigCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateQueueOutboundCallerConfigCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateQueueOutboundEmailConfigCommand}
+   */
+  updateQueueOutboundEmailConfig(
+    args: UpdateQueueOutboundEmailConfigCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateQueueOutboundEmailConfigCommandOutput>;
+  updateQueueOutboundEmailConfig(
+    args: UpdateQueueOutboundEmailConfigCommandInput,
+    cb: (err: any, data?: UpdateQueueOutboundEmailConfigCommandOutput) => void
+  ): void;
+  updateQueueOutboundEmailConfig(
+    args: UpdateQueueOutboundEmailConfigCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateQueueOutboundEmailConfigCommandOutput) => void
   ): void;
 
   /**
@@ -5383,7 +6113,20 @@ export interface Connect {
 }
 
 /**
- * <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
+ * <ul>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Amazon Connect actions</a>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect
+ *       data types</a>
+ *                </p>
+ *             </li>
+ *          </ul>
+ *          <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
  *    manage a customer contact center and provide reliable customer engagement at any scale.</p>
  *          <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
  *    contact routing. You can also resolve customer issues more efficiently by getting customers in
@@ -5392,8 +6135,8 @@ export interface Connect {
  *    are also limits to the number of requests that you can make per second. For more information, see
  *     <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
  *     Guide</i>.</p>
- *          <p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
- *    a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+ *          <p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
+ *    list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
  * @public
  */
 export class Connect extends ConnectClient implements Connect {}

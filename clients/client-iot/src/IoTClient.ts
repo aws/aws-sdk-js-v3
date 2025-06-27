@@ -72,6 +72,10 @@ import {
   AddThingToThingGroupCommandOutput,
 } from "./commands/AddThingToThingGroupCommand";
 import {
+  AssociateSbomWithPackageVersionCommandInput,
+  AssociateSbomWithPackageVersionCommandOutput,
+} from "./commands/AssociateSbomWithPackageVersionCommand";
+import {
   AssociateTargetsWithJobCommandInput,
   AssociateTargetsWithJobCommandOutput,
 } from "./commands/AssociateTargetsWithJobCommand";
@@ -125,6 +129,7 @@ import {
   CreateCertificateProviderCommandInput,
   CreateCertificateProviderCommandOutput,
 } from "./commands/CreateCertificateProviderCommand";
+import { CreateCommandCommandInput, CreateCommandCommandOutput } from "./commands/CreateCommandCommand";
 import { CreateCustomMetricCommandInput, CreateCustomMetricCommandOutput } from "./commands/CreateCustomMetricCommand";
 import { CreateDimensionCommandInput, CreateDimensionCommandOutput } from "./commands/CreateDimensionCommand";
 import {
@@ -206,6 +211,11 @@ import {
   DeleteCertificateProviderCommandInput,
   DeleteCertificateProviderCommandOutput,
 } from "./commands/DeleteCertificateProviderCommand";
+import { DeleteCommandCommandInput, DeleteCommandCommandOutput } from "./commands/DeleteCommandCommand";
+import {
+  DeleteCommandExecutionCommandInput,
+  DeleteCommandExecutionCommandOutput,
+} from "./commands/DeleteCommandExecutionCommand";
 import { DeleteCustomMetricCommandInput, DeleteCustomMetricCommandOutput } from "./commands/DeleteCustomMetricCommand";
 import { DeleteDimensionCommandInput, DeleteDimensionCommandOutput } from "./commands/DeleteDimensionCommand";
 import {
@@ -387,6 +397,10 @@ import {
   DetachThingPrincipalCommandOutput,
 } from "./commands/DetachThingPrincipalCommand";
 import { DisableTopicRuleCommandInput, DisableTopicRuleCommandOutput } from "./commands/DisableTopicRuleCommand";
+import {
+  DisassociateSbomFromPackageVersionCommandInput,
+  DisassociateSbomFromPackageVersionCommandOutput,
+} from "./commands/DisassociateSbomFromPackageVersionCommand";
 import { EnableTopicRuleCommandInput, EnableTopicRuleCommandOutput } from "./commands/EnableTopicRuleCommand";
 import {
   GetBehaviorModelTrainingSummariesCommandInput,
@@ -397,6 +411,11 @@ import {
   GetBucketsAggregationCommandOutput,
 } from "./commands/GetBucketsAggregationCommand";
 import { GetCardinalityCommandInput, GetCardinalityCommandOutput } from "./commands/GetCardinalityCommand";
+import { GetCommandCommandInput, GetCommandCommandOutput } from "./commands/GetCommandCommand";
+import {
+  GetCommandExecutionCommandInput,
+  GetCommandExecutionCommandOutput,
+} from "./commands/GetCommandExecutionCommand";
 import {
   GetEffectivePoliciesCommandInput,
   GetEffectivePoliciesCommandOutput,
@@ -422,6 +441,10 @@ import {
   GetRegistrationCodeCommandOutput,
 } from "./commands/GetRegistrationCodeCommand";
 import { GetStatisticsCommandInput, GetStatisticsCommandOutput } from "./commands/GetStatisticsCommand";
+import {
+  GetThingConnectivityDataCommandInput,
+  GetThingConnectivityDataCommandOutput,
+} from "./commands/GetThingConnectivityDataCommand";
 import { GetTopicRuleCommandInput, GetTopicRuleCommandOutput } from "./commands/GetTopicRuleCommand";
 import {
   GetTopicRuleDestinationCommandInput,
@@ -465,6 +488,11 @@ import {
   ListCertificatesByCACommandOutput,
 } from "./commands/ListCertificatesByCACommand";
 import { ListCertificatesCommandInput, ListCertificatesCommandOutput } from "./commands/ListCertificatesCommand";
+import {
+  ListCommandExecutionsCommandInput,
+  ListCommandExecutionsCommandOutput,
+} from "./commands/ListCommandExecutionsCommand";
+import { ListCommandsCommandInput, ListCommandsCommandOutput } from "./commands/ListCommandsCommand";
 import { ListCustomMetricsCommandInput, ListCustomMetricsCommandOutput } from "./commands/ListCustomMetricsCommand";
 import {
   ListDetectMitigationActionsExecutionsCommandInput,
@@ -525,6 +553,10 @@ import {
   ListPrincipalThingsCommandOutput,
 } from "./commands/ListPrincipalThingsCommand";
 import {
+  ListPrincipalThingsV2CommandInput,
+  ListPrincipalThingsV2CommandOutput,
+} from "./commands/ListPrincipalThingsV2Command";
+import {
   ListProvisioningTemplatesCommandInput,
   ListProvisioningTemplatesCommandOutput,
 } from "./commands/ListProvisioningTemplatesCommand";
@@ -537,6 +569,10 @@ import {
   ListRelatedResourcesForAuditFindingCommandOutput,
 } from "./commands/ListRelatedResourcesForAuditFindingCommand";
 import { ListRoleAliasesCommandInput, ListRoleAliasesCommandOutput } from "./commands/ListRoleAliasesCommand";
+import {
+  ListSbomValidationResultsCommandInput,
+  ListSbomValidationResultsCommandOutput,
+} from "./commands/ListSbomValidationResultsCommand";
 import {
   ListScheduledAuditsCommandInput,
   ListScheduledAuditsCommandOutput,
@@ -571,6 +607,10 @@ import {
   ListThingPrincipalsCommandInput,
   ListThingPrincipalsCommandOutput,
 } from "./commands/ListThingPrincipalsCommand";
+import {
+  ListThingPrincipalsV2CommandInput,
+  ListThingPrincipalsV2CommandOutput,
+} from "./commands/ListThingPrincipalsV2Command";
 import {
   ListThingRegistrationTaskReportsCommandInput,
   ListThingRegistrationTaskReportsCommandOutput,
@@ -697,6 +737,7 @@ import {
   UpdateCertificateProviderCommandInput,
   UpdateCertificateProviderCommandOutput,
 } from "./commands/UpdateCertificateProviderCommand";
+import { UpdateCommandCommandInput, UpdateCommandCommandOutput } from "./commands/UpdateCommandCommand";
 import { UpdateCustomMetricCommandInput, UpdateCustomMetricCommandOutput } from "./commands/UpdateCustomMetricCommand";
 import { UpdateDimensionCommandInput, UpdateDimensionCommandOutput } from "./commands/UpdateDimensionCommand";
 import {
@@ -750,6 +791,7 @@ import {
   UpdateThingGroupsForThingCommandInput,
   UpdateThingGroupsForThingCommandOutput,
 } from "./commands/UpdateThingGroupsForThingCommand";
+import { UpdateThingTypeCommandInput, UpdateThingTypeCommandOutput } from "./commands/UpdateThingTypeCommand";
 import {
   UpdateTopicRuleDestinationCommandInput,
   UpdateTopicRuleDestinationCommandOutput,
@@ -776,6 +818,7 @@ export type ServiceInputTypes =
   | AcceptCertificateTransferCommandInput
   | AddThingToBillingGroupCommandInput
   | AddThingToThingGroupCommandInput
+  | AssociateSbomWithPackageVersionCommandInput
   | AssociateTargetsWithJobCommandInput
   | AttachPolicyCommandInput
   | AttachPrincipalPolicyCommandInput
@@ -794,6 +837,7 @@ export type ServiceInputTypes =
   | CreateBillingGroupCommandInput
   | CreateCertificateFromCsrCommandInput
   | CreateCertificateProviderCommandInput
+  | CreateCommandCommandInput
   | CreateCustomMetricCommandInput
   | CreateDimensionCommandInput
   | CreateDomainConfigurationCommandInput
@@ -827,6 +871,8 @@ export type ServiceInputTypes =
   | DeleteCACertificateCommandInput
   | DeleteCertificateCommandInput
   | DeleteCertificateProviderCommandInput
+  | DeleteCommandCommandInput
+  | DeleteCommandExecutionCommandInput
   | DeleteCustomMetricCommandInput
   | DeleteDimensionCommandInput
   | DeleteDomainConfigurationCommandInput
@@ -894,10 +940,13 @@ export type ServiceInputTypes =
   | DetachSecurityProfileCommandInput
   | DetachThingPrincipalCommandInput
   | DisableTopicRuleCommandInput
+  | DisassociateSbomFromPackageVersionCommandInput
   | EnableTopicRuleCommandInput
   | GetBehaviorModelTrainingSummariesCommandInput
   | GetBucketsAggregationCommandInput
   | GetCardinalityCommandInput
+  | GetCommandCommandInput
+  | GetCommandExecutionCommandInput
   | GetEffectivePoliciesCommandInput
   | GetIndexingConfigurationCommandInput
   | GetJobDocumentCommandInput
@@ -911,6 +960,7 @@ export type ServiceInputTypes =
   | GetPolicyVersionCommandInput
   | GetRegistrationCodeCommandInput
   | GetStatisticsCommandInput
+  | GetThingConnectivityDataCommandInput
   | GetTopicRuleCommandInput
   | GetTopicRuleDestinationCommandInput
   | GetV2LoggingOptionsCommandInput
@@ -927,6 +977,8 @@ export type ServiceInputTypes =
   | ListCertificateProvidersCommandInput
   | ListCertificatesByCACommandInput
   | ListCertificatesCommandInput
+  | ListCommandExecutionsCommandInput
+  | ListCommandsCommandInput
   | ListCustomMetricsCommandInput
   | ListDetectMitigationActionsExecutionsCommandInput
   | ListDetectMitigationActionsTasksCommandInput
@@ -950,10 +1002,12 @@ export type ServiceInputTypes =
   | ListPolicyVersionsCommandInput
   | ListPrincipalPoliciesCommandInput
   | ListPrincipalThingsCommandInput
+  | ListPrincipalThingsV2CommandInput
   | ListProvisioningTemplateVersionsCommandInput
   | ListProvisioningTemplatesCommandInput
   | ListRelatedResourcesForAuditFindingCommandInput
   | ListRoleAliasesCommandInput
+  | ListSbomValidationResultsCommandInput
   | ListScheduledAuditsCommandInput
   | ListSecurityProfilesCommandInput
   | ListSecurityProfilesForTargetCommandInput
@@ -964,6 +1018,7 @@ export type ServiceInputTypes =
   | ListThingGroupsCommandInput
   | ListThingGroupsForThingCommandInput
   | ListThingPrincipalsCommandInput
+  | ListThingPrincipalsV2CommandInput
   | ListThingRegistrationTaskReportsCommandInput
   | ListThingRegistrationTasksCommandInput
   | ListThingTypesCommandInput
@@ -1006,6 +1061,7 @@ export type ServiceInputTypes =
   | UpdateCACertificateCommandInput
   | UpdateCertificateCommandInput
   | UpdateCertificateProviderCommandInput
+  | UpdateCommandCommandInput
   | UpdateCustomMetricCommandInput
   | UpdateDimensionCommandInput
   | UpdateDomainConfigurationCommandInput
@@ -1026,6 +1082,7 @@ export type ServiceInputTypes =
   | UpdateThingCommandInput
   | UpdateThingGroupCommandInput
   | UpdateThingGroupsForThingCommandInput
+  | UpdateThingTypeCommandInput
   | UpdateTopicRuleDestinationCommandInput
   | ValidateSecurityProfileBehaviorsCommandInput;
 
@@ -1036,6 +1093,7 @@ export type ServiceOutputTypes =
   | AcceptCertificateTransferCommandOutput
   | AddThingToBillingGroupCommandOutput
   | AddThingToThingGroupCommandOutput
+  | AssociateSbomWithPackageVersionCommandOutput
   | AssociateTargetsWithJobCommandOutput
   | AttachPolicyCommandOutput
   | AttachPrincipalPolicyCommandOutput
@@ -1054,6 +1112,7 @@ export type ServiceOutputTypes =
   | CreateBillingGroupCommandOutput
   | CreateCertificateFromCsrCommandOutput
   | CreateCertificateProviderCommandOutput
+  | CreateCommandCommandOutput
   | CreateCustomMetricCommandOutput
   | CreateDimensionCommandOutput
   | CreateDomainConfigurationCommandOutput
@@ -1087,6 +1146,8 @@ export type ServiceOutputTypes =
   | DeleteCACertificateCommandOutput
   | DeleteCertificateCommandOutput
   | DeleteCertificateProviderCommandOutput
+  | DeleteCommandCommandOutput
+  | DeleteCommandExecutionCommandOutput
   | DeleteCustomMetricCommandOutput
   | DeleteDimensionCommandOutput
   | DeleteDomainConfigurationCommandOutput
@@ -1154,10 +1215,13 @@ export type ServiceOutputTypes =
   | DetachSecurityProfileCommandOutput
   | DetachThingPrincipalCommandOutput
   | DisableTopicRuleCommandOutput
+  | DisassociateSbomFromPackageVersionCommandOutput
   | EnableTopicRuleCommandOutput
   | GetBehaviorModelTrainingSummariesCommandOutput
   | GetBucketsAggregationCommandOutput
   | GetCardinalityCommandOutput
+  | GetCommandCommandOutput
+  | GetCommandExecutionCommandOutput
   | GetEffectivePoliciesCommandOutput
   | GetIndexingConfigurationCommandOutput
   | GetJobDocumentCommandOutput
@@ -1171,6 +1235,7 @@ export type ServiceOutputTypes =
   | GetPolicyVersionCommandOutput
   | GetRegistrationCodeCommandOutput
   | GetStatisticsCommandOutput
+  | GetThingConnectivityDataCommandOutput
   | GetTopicRuleCommandOutput
   | GetTopicRuleDestinationCommandOutput
   | GetV2LoggingOptionsCommandOutput
@@ -1187,6 +1252,8 @@ export type ServiceOutputTypes =
   | ListCertificateProvidersCommandOutput
   | ListCertificatesByCACommandOutput
   | ListCertificatesCommandOutput
+  | ListCommandExecutionsCommandOutput
+  | ListCommandsCommandOutput
   | ListCustomMetricsCommandOutput
   | ListDetectMitigationActionsExecutionsCommandOutput
   | ListDetectMitigationActionsTasksCommandOutput
@@ -1210,10 +1277,12 @@ export type ServiceOutputTypes =
   | ListPolicyVersionsCommandOutput
   | ListPrincipalPoliciesCommandOutput
   | ListPrincipalThingsCommandOutput
+  | ListPrincipalThingsV2CommandOutput
   | ListProvisioningTemplateVersionsCommandOutput
   | ListProvisioningTemplatesCommandOutput
   | ListRelatedResourcesForAuditFindingCommandOutput
   | ListRoleAliasesCommandOutput
+  | ListSbomValidationResultsCommandOutput
   | ListScheduledAuditsCommandOutput
   | ListSecurityProfilesCommandOutput
   | ListSecurityProfilesForTargetCommandOutput
@@ -1224,6 +1293,7 @@ export type ServiceOutputTypes =
   | ListThingGroupsCommandOutput
   | ListThingGroupsForThingCommandOutput
   | ListThingPrincipalsCommandOutput
+  | ListThingPrincipalsV2CommandOutput
   | ListThingRegistrationTaskReportsCommandOutput
   | ListThingRegistrationTasksCommandOutput
   | ListThingTypesCommandOutput
@@ -1266,6 +1336,7 @@ export type ServiceOutputTypes =
   | UpdateCACertificateCommandOutput
   | UpdateCertificateCommandOutput
   | UpdateCertificateProviderCommandOutput
+  | UpdateCommandCommandOutput
   | UpdateCustomMetricCommandOutput
   | UpdateDimensionCommandOutput
   | UpdateDomainConfigurationCommandOutput
@@ -1286,6 +1357,7 @@ export type ServiceOutputTypes =
   | UpdateThingCommandOutput
   | UpdateThingGroupCommandOutput
   | UpdateThingGroupsForThingCommandOutput
+  | UpdateThingTypeCommandOutput
   | UpdateTopicRuleDestinationCommandOutput
   | ValidateSecurityProfileBehaviorsCommandOutput;
 
@@ -1381,6 +1453,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -1426,11 +1517,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type IoTClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -1446,11 +1537,11 @@ export interface IoTClientConfig extends IoTClientConfigType {}
 export type IoTClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -1492,27 +1583,31 @@ export class IoTClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<IoTClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
-    this.middlewareStack.use(getOmitRetryHeadersPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultIoTHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: IoTClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -1525,14 +1620,5 @@ export class IoTClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultIoTHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: IoTClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

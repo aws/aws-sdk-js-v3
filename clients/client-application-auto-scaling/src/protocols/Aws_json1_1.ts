@@ -52,6 +52,10 @@ import {
   DescribeScheduledActionsCommandOutput,
 } from "../commands/DescribeScheduledActionsCommand";
 import {
+  GetPredictiveScalingForecastCommandInput,
+  GetPredictiveScalingForecastCommandOutput,
+} from "../commands/GetPredictiveScalingForecastCommand";
+import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
@@ -65,6 +69,7 @@ import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/T
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { ApplicationAutoScalingServiceException as __BaseException } from "../models/ApplicationAutoScalingServiceException";
 import {
+  CapacityForecast,
   ConcurrentUpdateException,
   CustomizedMetricSpecification,
   DeleteScalingPolicyRequest,
@@ -79,13 +84,26 @@ import {
   DescribeScheduledActionsRequest,
   DescribeScheduledActionsResponse,
   FailedResourceAccessException,
+  GetPredictiveScalingForecastRequest,
+  GetPredictiveScalingForecastResponse,
   InternalServiceException,
   InvalidNextTokenException,
   LimitExceededException,
   ListTagsForResourceRequest,
+  LoadForecast,
   MetricDimension,
   ObjectNotFoundException,
   PredefinedMetricSpecification,
+  PredictiveScalingCustomizedMetricSpecification,
+  PredictiveScalingMetric,
+  PredictiveScalingMetricDataQuery,
+  PredictiveScalingMetricDimension,
+  PredictiveScalingMetricSpecification,
+  PredictiveScalingMetricStat,
+  PredictiveScalingPolicyConfiguration,
+  PredictiveScalingPredefinedLoadMetricSpecification,
+  PredictiveScalingPredefinedMetricPairSpecification,
+  PredictiveScalingPredefinedScalingMetricSpecification,
   PutScalingPolicyRequest,
   PutScheduledActionRequest,
   RegisterScalableTargetRequest,
@@ -197,6 +215,19 @@ export const se_DescribeScheduledActionsCommand = async (
   const headers: __HeaderBag = sharedHeaders("DescribeScheduledActions");
   let body: any;
   body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetPredictiveScalingForecastCommand
+ */
+export const se_GetPredictiveScalingForecastCommand = async (
+  input: GetPredictiveScalingForecastCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetPredictiveScalingForecast");
+  let body: any;
+  body = JSON.stringify(se_GetPredictiveScalingForecastRequest(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -412,6 +443,26 @@ export const de_DescribeScheduledActionsCommand = async (
   let contents: any = {};
   contents = de_DescribeScheduledActionsResponse(data, context);
   const response: DescribeScheduledActionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetPredictiveScalingForecastCommand
+ */
+export const de_GetPredictiveScalingForecastCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPredictiveScalingForecastCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_GetPredictiveScalingForecastResponse(data, context);
+  const response: GetPredictiveScalingForecastCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -742,6 +793,23 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_DescribeScheduledActionsRequest omitted.
 
+/**
+ * serializeAws_json1_1GetPredictiveScalingForecastRequest
+ */
+const se_GetPredictiveScalingForecastRequest = (
+  input: GetPredictiveScalingForecastRequest,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    EndTime: (_) => _.getTime() / 1_000,
+    PolicyName: [],
+    ResourceId: [],
+    ScalableDimension: [],
+    ServiceNamespace: [],
+    StartTime: (_) => _.getTime() / 1_000,
+  });
+};
+
 // se_ListTagsForResourceRequest omitted.
 
 // se_MetricDimension omitted.
@@ -750,6 +818,74 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_PredefinedMetricSpecification omitted.
 
+// se_PredictiveScalingCustomizedMetricSpecification omitted.
+
+// se_PredictiveScalingMetric omitted.
+
+// se_PredictiveScalingMetricDataQueries omitted.
+
+// se_PredictiveScalingMetricDataQuery omitted.
+
+// se_PredictiveScalingMetricDimension omitted.
+
+// se_PredictiveScalingMetricDimensions omitted.
+
+/**
+ * serializeAws_json1_1PredictiveScalingMetricSpecification
+ */
+const se_PredictiveScalingMetricSpecification = (
+  input: PredictiveScalingMetricSpecification,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    CustomizedCapacityMetricSpecification: _json,
+    CustomizedLoadMetricSpecification: _json,
+    CustomizedScalingMetricSpecification: _json,
+    PredefinedLoadMetricSpecification: _json,
+    PredefinedMetricPairSpecification: _json,
+    PredefinedScalingMetricSpecification: _json,
+    TargetValue: __serializeFloat,
+  });
+};
+
+/**
+ * serializeAws_json1_1PredictiveScalingMetricSpecifications
+ */
+const se_PredictiveScalingMetricSpecifications = (
+  input: PredictiveScalingMetricSpecification[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_PredictiveScalingMetricSpecification(entry, context);
+    });
+};
+
+// se_PredictiveScalingMetricStat omitted.
+
+/**
+ * serializeAws_json1_1PredictiveScalingPolicyConfiguration
+ */
+const se_PredictiveScalingPolicyConfiguration = (
+  input: PredictiveScalingPolicyConfiguration,
+  context: __SerdeContext
+): any => {
+  return take(input, {
+    MaxCapacityBreachBehavior: [],
+    MaxCapacityBuffer: [],
+    MetricSpecifications: (_) => se_PredictiveScalingMetricSpecifications(_, context),
+    Mode: [],
+    SchedulingBufferTime: [],
+  });
+};
+
+// se_PredictiveScalingPredefinedLoadMetricSpecification omitted.
+
+// se_PredictiveScalingPredefinedMetricPairSpecification omitted.
+
+// se_PredictiveScalingPredefinedScalingMetricSpecification omitted.
+
 /**
  * serializeAws_json1_1PutScalingPolicyRequest
  */
@@ -757,6 +893,7 @@ const se_PutScalingPolicyRequest = (input: PutScalingPolicyRequest, context: __S
   return take(input, {
     PolicyName: [],
     PolicyType: [],
+    PredictiveScalingPolicyConfiguration: (_) => se_PredictiveScalingPolicyConfiguration(_, context),
     ResourceId: [],
     ScalableDimension: [],
     ServiceNamespace: [],
@@ -866,6 +1003,16 @@ const se_TargetTrackingScalingPolicyConfiguration = (
 
 // de_Alarms omitted.
 
+/**
+ * deserializeAws_json1_1CapacityForecast
+ */
+const de_CapacityForecast = (output: any, context: __SerdeContext): CapacityForecast => {
+  return take(output, {
+    Timestamps: (_: any) => de_PredictiveScalingForecastTimestamps(_, context),
+    Values: (_: any) => de_PredictiveScalingForecastValues(_, context),
+  }) as any;
+};
+
 // de_ConcurrentUpdateException omitted.
 
 // de_CustomizedMetricSpecification omitted.
@@ -924,6 +1071,20 @@ const de_DescribeScheduledActionsResponse = (
 
 // de_FailedResourceAccessException omitted.
 
+/**
+ * deserializeAws_json1_1GetPredictiveScalingForecastResponse
+ */
+const de_GetPredictiveScalingForecastResponse = (
+  output: any,
+  context: __SerdeContext
+): GetPredictiveScalingForecastResponse => {
+  return take(output, {
+    CapacityForecast: (_: any) => de_CapacityForecast(_, context),
+    LoadForecast: (_: any) => de_LoadForecasts(_, context),
+    UpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
 // de_InternalServiceException omitted.
 
 // de_InvalidNextTokenException omitted.
@@ -931,6 +1092,29 @@ const de_DescribeScheduledActionsResponse = (
 // de_LimitExceededException omitted.
 
 // de_ListTagsForResourceResponse omitted.
+
+/**
+ * deserializeAws_json1_1LoadForecast
+ */
+const de_LoadForecast = (output: any, context: __SerdeContext): LoadForecast => {
+  return take(output, {
+    MetricSpecification: (_: any) => de_PredictiveScalingMetricSpecification(_, context),
+    Timestamps: (_: any) => de_PredictiveScalingForecastTimestamps(_, context),
+    Values: (_: any) => de_PredictiveScalingForecastValues(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1LoadForecasts
+ */
+const de_LoadForecasts = (output: any, context: __SerdeContext): LoadForecast[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LoadForecast(entry, context);
+    });
+  return retVal;
+};
 
 // de_MetricDimension omitted.
 
@@ -943,6 +1127,99 @@ const de_DescribeScheduledActionsResponse = (
 // de_ObjectNotFoundException omitted.
 
 // de_PredefinedMetricSpecification omitted.
+
+// de_PredictiveScalingCustomizedMetricSpecification omitted.
+
+/**
+ * deserializeAws_json1_1PredictiveScalingForecastTimestamps
+ */
+const de_PredictiveScalingForecastTimestamps = (output: any, context: __SerdeContext): Date[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __expectNonNull(__parseEpochTimestamp(__expectNumber(entry)));
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_json1_1PredictiveScalingForecastValues
+ */
+const de_PredictiveScalingForecastValues = (output: any, context: __SerdeContext): number[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return __limitedParseDouble(entry) as any;
+    });
+  return retVal;
+};
+
+// de_PredictiveScalingMetric omitted.
+
+// de_PredictiveScalingMetricDataQueries omitted.
+
+// de_PredictiveScalingMetricDataQuery omitted.
+
+// de_PredictiveScalingMetricDimension omitted.
+
+// de_PredictiveScalingMetricDimensions omitted.
+
+/**
+ * deserializeAws_json1_1PredictiveScalingMetricSpecification
+ */
+const de_PredictiveScalingMetricSpecification = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingMetricSpecification => {
+  return take(output, {
+    CustomizedCapacityMetricSpecification: _json,
+    CustomizedLoadMetricSpecification: _json,
+    CustomizedScalingMetricSpecification: _json,
+    PredefinedLoadMetricSpecification: _json,
+    PredefinedMetricPairSpecification: _json,
+    PredefinedScalingMetricSpecification: _json,
+    TargetValue: __limitedParseDouble,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1PredictiveScalingMetricSpecifications
+ */
+const de_PredictiveScalingMetricSpecifications = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingMetricSpecification[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_PredictiveScalingMetricSpecification(entry, context);
+    });
+  return retVal;
+};
+
+// de_PredictiveScalingMetricStat omitted.
+
+/**
+ * deserializeAws_json1_1PredictiveScalingPolicyConfiguration
+ */
+const de_PredictiveScalingPolicyConfiguration = (
+  output: any,
+  context: __SerdeContext
+): PredictiveScalingPolicyConfiguration => {
+  return take(output, {
+    MaxCapacityBreachBehavior: __expectString,
+    MaxCapacityBuffer: __expectInt32,
+    MetricSpecifications: (_: any) => de_PredictiveScalingMetricSpecifications(_, context),
+    Mode: __expectString,
+    SchedulingBufferTime: __expectInt32,
+  }) as any;
+};
+
+// de_PredictiveScalingPredefinedLoadMetricSpecification omitted.
+
+// de_PredictiveScalingPredefinedMetricPairSpecification omitted.
+
+// de_PredictiveScalingPredefinedScalingMetricSpecification omitted.
 
 // de_PutScalingPolicyResponse omitted.
 
@@ -960,6 +1237,7 @@ const de_ScalableTarget = (output: any, context: __SerdeContext): ScalableTarget
     CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     MaxCapacity: __expectInt32,
     MinCapacity: __expectInt32,
+    PredictedCapacity: __expectInt32,
     ResourceId: __expectString,
     RoleARN: __expectString,
     ScalableDimension: __expectString,
@@ -1037,6 +1315,7 @@ const de_ScalingPolicy = (output: any, context: __SerdeContext): ScalingPolicy =
     PolicyARN: __expectString,
     PolicyName: __expectString,
     PolicyType: __expectString,
+    PredictiveScalingPolicyConfiguration: (_: any) => de_PredictiveScalingPolicyConfiguration(_, context),
     ResourceId: __expectString,
     ScalableDimension: __expectString,
     ServiceNamespace: __expectString,

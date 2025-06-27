@@ -15,7 +15,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -111,6 +112,8 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  *   DedicatedLogVolume: true || false,
  *   CACertificateIdentifier: "STRING_VALUE",
  *   EngineLifecycleSupport: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
@@ -271,6 +274,7 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -445,101 +449,101 @@ export interface RestoreDBInstanceToPointInTimeCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To restore a DB instance to a point in time
  * ```javascript
  * // The following example restores test-instance to a new DB instance named restored-test-instance, as of the specified time.
  * const input = {
- *   "RestoreTime": "2018-07-30T23:45:00.000Z",
- *   "SourceDBInstanceIdentifier": "test-instance",
- *   "TargetDBInstanceIdentifier": "restored-test-instance"
+ *   RestoreTime: "2018-07-30T23:45:00.000Z",
+ *   SourceDBInstanceIdentifier: "test-instance",
+ *   TargetDBInstanceIdentifier: "restored-test-instance"
  * };
  * const command = new RestoreDBInstanceToPointInTimeCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "AllocatedStorage": 200,
- *     "AutoMinorVersionUpgrade": true,
- *     "AvailabilityZone": "us-west-2b",
- *     "BackupRetentionPeriod": 7,
- *     "CACertificateIdentifier": "rds-ca-2015",
- *     "CopyTagsToSnapshot": false,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:restored-test-instance",
- *     "DBInstanceClass": "db.t2.small",
- *     "DBInstanceIdentifier": "restored-test-instance",
- *     "DBInstanceStatus": "available",
- *     "DBName": "sample",
- *     "DBParameterGroups": [
+ *   DBInstance: {
+ *     AllocatedStorage: 200,
+ *     AutoMinorVersionUpgrade: true,
+ *     AvailabilityZone: "us-west-2b",
+ *     BackupRetentionPeriod: 7,
+ *     CACertificateIdentifier: "rds-ca-2015",
+ *     CopyTagsToSnapshot: false,
+ *     DBInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:restored-test-instance",
+ *     DBInstanceClass: "db.t2.small",
+ *     DBInstanceIdentifier: "restored-test-instance",
+ *     DBInstanceStatus: "available",
+ *     DBName: "sample",
+ *     DBParameterGroups: [
  *       {
- *         "DBParameterGroupName": "default.mysql5.6",
- *         "ParameterApplyStatus": "in-sync"
+ *         DBParameterGroupName: "default.mysql5.6",
+ *         ParameterApplyStatus: "in-sync"
  *       }
  *     ],
- *     "DBSecurityGroups": [],
- *     "DBSubnetGroup": {
- *       "DBSubnetGroupDescription": "default",
- *       "DBSubnetGroupName": "default",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
+ *     DBSecurityGroups:     [],
+ *     DBSubnetGroup: {
+ *       DBSubnetGroupDescription: "default",
+ *       DBSubnetGroupName: "default",
+ *       SubnetGroupStatus: "Complete",
+ *       Subnets: [
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2a"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2a"
  *           },
- *           "SubnetIdentifier": "subnet-77e8db03",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-77e8db03",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2b"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2b"
  *           },
- *           "SubnetIdentifier": "subnet-c39989a1",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-c39989a1",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2c"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2c"
  *           },
- *           "SubnetIdentifier": "subnet-4b267b0d",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-4b267b0d",
+ *           SubnetStatus: "Active"
  *         }
  *       ],
- *       "VpcId": "vpc-c1c5b3a3"
+ *       VpcId: "vpc-c1c5b3a3"
  *     },
- *     "DbInstancePort": 0,
- *     "DbiResourceId": "db-VNZUCCBTEDC4WR7THXNJO72HVQ",
- *     "DomainMemberships": [],
- *     "Engine": "mysql",
- *     "EngineVersion": "5.6.27",
- *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "mymasteruser",
- *     "MonitoringInterval": 0,
- *     "MultiAZ": false,
- *     "OptionGroupMemberships": [
+ *     DbInstancePort: 0,
+ *     DbiResourceId: "db-VNZUCCBTEDC4WR7THXNJO72HVQ",
+ *     DomainMemberships:     [],
+ *     Engine: "mysql",
+ *     EngineVersion: "5.6.27",
+ *     LicenseModel: "general-public-license",
+ *     MasterUsername: "mymasteruser",
+ *     MonitoringInterval: 0,
+ *     MultiAZ: false,
+ *     OptionGroupMemberships: [
  *       {
- *         "OptionGroupName": "default:mysql-5-6",
- *         "Status": "in-sync"
+ *         OptionGroupName: "default:mysql-5-6",
+ *         Status: "in-sync"
  *       }
  *     ],
- *     "PendingModifiedValues": {},
- *     "PreferredBackupWindow": "12:58-13:28",
- *     "PreferredMaintenanceWindow": "tue:10:16-tue:10:46",
- *     "PubliclyAccessible": true,
- *     "ReadReplicaDBInstanceIdentifiers": [],
- *     "StorageEncrypted": false,
- *     "StorageType": "gp2",
- *     "VpcSecurityGroups": [
+ *     PendingModifiedValues:     { /* empty *\/ },
+ *     PreferredBackupWindow: "12:58-13:28",
+ *     PreferredMaintenanceWindow: "tue:10:16-tue:10:46",
+ *     PubliclyAccessible: true,
+ *     ReadReplicaDBInstanceIdentifiers:     [],
+ *     StorageEncrypted: false,
+ *     StorageType: "gp2",
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-e5e5b0d2"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-e5e5b0d2"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-restore-a-db-instance-to-a-point-in-time-1680036021951
  * ```
  *
+ * @public
  */
 export class RestoreDBInstanceToPointInTimeCommand extends $Command
   .classBuilder<
@@ -549,9 +553,7 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -563,4 +565,16 @@ export class RestoreDBInstanceToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreDBInstanceToPointInTimeCommand)
   .de(de_RestoreDBInstanceToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreDBInstanceToPointInTimeMessage;
+      output: RestoreDBInstanceToPointInTimeResult;
+    };
+    sdk: {
+      input: RestoreDBInstanceToPointInTimeCommandInput;
+      output: RestoreDBInstanceToPointInTimeCommandOutput;
+    };
+  };
+}

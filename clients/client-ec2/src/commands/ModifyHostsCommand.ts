@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyHostsRequest, ModifyHostsResult } from "../models/models_6";
+import { ModifyHostsRequest, ModifyHostsResult } from "../models/models_7";
 import { de_ModifyHostsCommand, se_ModifyHostsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,14 +44,14 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * // const { EC2Client, ModifyHostsCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // ModifyHostsRequest
- *   AutoPlacement: "on" || "off",
- *   HostIds: [ // RequestHostIdList // required
- *     "STRING_VALUE",
- *   ],
  *   HostRecovery: "on" || "off",
  *   InstanceType: "STRING_VALUE",
  *   InstanceFamily: "STRING_VALUE",
  *   HostMaintenance: "on" || "off",
+ *   HostIds: [ // RequestHostIdList // required
+ *     "STRING_VALUE",
+ *   ],
+ *   AutoPlacement: "on" || "off",
  * };
  * const command = new ModifyHostsCommand(input);
  * const response = await client.send(command);
@@ -80,6 +81,7 @@ export interface ModifyHostsCommandOutput extends ModifyHostsResult, __MetadataB
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyHostsCommand extends $Command
@@ -90,9 +92,7 @@ export class ModifyHostsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class ModifyHostsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyHostsCommand)
   .de(de_ModifyHostsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyHostsRequest;
+      output: ModifyHostsResult;
+    };
+    sdk: {
+      input: ModifyHostsCommandInput;
+      output: ModifyHostsCommandOutput;
+    };
+  };
+}

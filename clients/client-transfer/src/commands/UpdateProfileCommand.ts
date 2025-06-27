@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface UpdateProfileCommandInput extends UpdateProfileRequest {}
 export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code>
- *       for the profile that you want to update, along with the new values for the parameters to
- *       update.</p>
+ * <p>Updates some of the parameters for an existing profile. Provide the <code>ProfileId</code> for the profile that you want to update, along with the new values for the parameters to update.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,8 +62,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
@@ -74,6 +72,7 @@ export interface UpdateProfileCommandOutput extends UpdateProfileResponse, __Met
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -85,9 +84,7 @@ export class UpdateProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +96,16 @@ export class UpdateProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProfileCommand)
   .de(de_UpdateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfileRequest;
+      output: UpdateProfileResponse;
+    };
+    sdk: {
+      input: UpdateProfileCommandInput;
+      output: UpdateProfileCommandOutput;
+    };
+  };
+}

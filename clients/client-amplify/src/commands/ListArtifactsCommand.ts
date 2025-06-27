@@ -12,7 +12,8 @@ import { de_ListArtifactsCommand, se_ListArtifactsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,12 @@ export interface ListArtifactsCommandInput extends ListArtifactsRequest {}
 export interface ListArtifactsCommandOutput extends ListArtifactsResult, __MetadataBearer {}
 
 /**
- * <p>Returns a list of artifacts for a specified app, branch, and job. </p>
+ * <p>Returns a list of end-to-end testing artifacts for a specified app, branch, and
+ *             job.</p>
+ *          <p>To return the build artifacts, use the <a href="https://docs.aws.amazon.com/amplify/latest/APIReference/API_GetJob.html">GetJob</a> API.</p>
+ *          <p>For more information about Amplify testing support, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/running-tests.html">Setting up
+ *                 end-to-end Cypress tests for your Amplify application</a> in the
+ *                     <i>Amplify Hosting User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +82,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResult, __Metad
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class ListArtifactsCommand extends $Command
@@ -86,9 +93,7 @@ export class ListArtifactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +105,16 @@ export class ListArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArtifactsCommand)
   .de(de_ListArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArtifactsRequest;
+      output: ListArtifactsResult;
+    };
+    sdk: {
+      input: ListArtifactsCommandInput;
+      output: ListArtifactsCommandOutput;
+    };
+  };
+}

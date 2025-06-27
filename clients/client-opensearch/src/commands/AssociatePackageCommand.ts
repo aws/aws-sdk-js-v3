@@ -12,7 +12,8 @@ import { de_AssociatePackageCommand, se_AssociatePackageCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,6 +40,15 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * const input = { // AssociatePackageRequest
  *   PackageID: "STRING_VALUE", // required
  *   DomainName: "STRING_VALUE", // required
+ *   PrerequisitePackageIDList: [ // PackageIDList
+ *     "STRING_VALUE",
+ *   ],
+ *   AssociationConfiguration: { // PackageAssociationConfiguration
+ *     KeyStoreAccessOption: { // KeyStoreAccessOption
+ *       KeyAccessRoleArn: "STRING_VALUE",
+ *       KeyStoreAccessEnabled: true || false, // required
+ *     },
+ *   },
  * };
  * const command = new AssociatePackageCommand(input);
  * const response = await client.send(command);
@@ -46,15 +56,24 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * //   DomainPackageDetails: { // DomainPackageDetails
  * //     PackageID: "STRING_VALUE",
  * //     PackageName: "STRING_VALUE",
- * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN",
+ * //     PackageType: "TXT-DICTIONARY" || "ZIP-PLUGIN" || "PACKAGE-LICENSE" || "PACKAGE-CONFIG",
  * //     LastUpdated: new Date("TIMESTAMP"),
  * //     DomainName: "STRING_VALUE",
  * //     DomainPackageStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ACTIVE" || "DISSOCIATING" || "DISSOCIATION_FAILED",
  * //     PackageVersion: "STRING_VALUE",
+ * //     PrerequisitePackageIDList: [ // PackageIDList
+ * //       "STRING_VALUE",
+ * //     ],
  * //     ReferencePath: "STRING_VALUE",
  * //     ErrorDetails: { // ErrorDetails
  * //       ErrorType: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",
+ * //     },
+ * //     AssociationConfiguration: { // PackageAssociationConfiguration
+ * //       KeyStoreAccessOption: { // KeyStoreAccessOption
+ * //         KeyAccessRoleArn: "STRING_VALUE",
+ * //         KeyStoreAccessEnabled: true || false, // required
+ * //       },
  * //     },
  * //   },
  * // };
@@ -88,6 +107,7 @@ export interface AssociatePackageCommandOutput extends AssociatePackageResponse,
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class AssociatePackageCommand extends $Command
@@ -98,9 +118,7 @@ export class AssociatePackageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +130,16 @@ export class AssociatePackageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociatePackageCommand)
   .de(de_AssociatePackageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociatePackageRequest;
+      output: AssociatePackageResponse;
+    };
+    sdk: {
+      input: AssociatePackageCommandInput;
+      output: AssociatePackageCommandOutput;
+    };
+  };
+}

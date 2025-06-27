@@ -12,7 +12,8 @@ import { de_ListTagsCommand, se_ListTagsCommand } from "../protocols/Aws_json1_1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListTagsCommandInput extends ListTagsRequest {}
 export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists the tags for the specified trails, event data stores, or channels in the current Region.</p>
+ * <p>Lists the tags for the specified trails, event data stores, dashboards, or channels in the current Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,6 +76,8 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  *          </p>
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
+ *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
  *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
@@ -135,6 +138,7 @@ export interface ListTagsCommandOutput extends ListTagsResponse, __MetadataBeare
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class ListTagsCommand extends $Command
@@ -145,9 +149,7 @@ export class ListTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +161,16 @@ export class ListTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsCommand)
   .de(de_ListTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsRequest;
+      output: ListTagsResponse;
+    };
+    sdk: {
+      input: ListTagsCommandInput;
+      output: ListTagsCommandOutput;
+    };
+  };
+}

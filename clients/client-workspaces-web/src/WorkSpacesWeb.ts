@@ -8,6 +8,11 @@ import {
   AssociateBrowserSettingsCommandOutput,
 } from "./commands/AssociateBrowserSettingsCommand";
 import {
+  AssociateDataProtectionSettingsCommand,
+  AssociateDataProtectionSettingsCommandInput,
+  AssociateDataProtectionSettingsCommandOutput,
+} from "./commands/AssociateDataProtectionSettingsCommand";
+import {
   AssociateIpAccessSettingsCommand,
   AssociateIpAccessSettingsCommandInput,
   AssociateIpAccessSettingsCommandOutput,
@@ -37,6 +42,11 @@ import {
   CreateBrowserSettingsCommandInput,
   CreateBrowserSettingsCommandOutput,
 } from "./commands/CreateBrowserSettingsCommand";
+import {
+  CreateDataProtectionSettingsCommand,
+  CreateDataProtectionSettingsCommandInput,
+  CreateDataProtectionSettingsCommandOutput,
+} from "./commands/CreateDataProtectionSettingsCommand";
 import {
   CreateIdentityProviderCommand,
   CreateIdentityProviderCommandInput,
@@ -78,6 +88,11 @@ import {
   DeleteBrowserSettingsCommandOutput,
 } from "./commands/DeleteBrowserSettingsCommand";
 import {
+  DeleteDataProtectionSettingsCommand,
+  DeleteDataProtectionSettingsCommandInput,
+  DeleteDataProtectionSettingsCommandOutput,
+} from "./commands/DeleteDataProtectionSettingsCommand";
+import {
   DeleteIdentityProviderCommand,
   DeleteIdentityProviderCommandInput,
   DeleteIdentityProviderCommandOutput,
@@ -118,6 +133,11 @@ import {
   DisassociateBrowserSettingsCommandOutput,
 } from "./commands/DisassociateBrowserSettingsCommand";
 import {
+  DisassociateDataProtectionSettingsCommand,
+  DisassociateDataProtectionSettingsCommandInput,
+  DisassociateDataProtectionSettingsCommandOutput,
+} from "./commands/DisassociateDataProtectionSettingsCommand";
+import {
   DisassociateIpAccessSettingsCommand,
   DisassociateIpAccessSettingsCommandInput,
   DisassociateIpAccessSettingsCommandOutput,
@@ -143,10 +163,20 @@ import {
   DisassociateUserSettingsCommandOutput,
 } from "./commands/DisassociateUserSettingsCommand";
 import {
+  ExpireSessionCommand,
+  ExpireSessionCommandInput,
+  ExpireSessionCommandOutput,
+} from "./commands/ExpireSessionCommand";
+import {
   GetBrowserSettingsCommand,
   GetBrowserSettingsCommandInput,
   GetBrowserSettingsCommandOutput,
 } from "./commands/GetBrowserSettingsCommand";
+import {
+  GetDataProtectionSettingsCommand,
+  GetDataProtectionSettingsCommandInput,
+  GetDataProtectionSettingsCommandOutput,
+} from "./commands/GetDataProtectionSettingsCommand";
 import {
   GetIdentityProviderCommand,
   GetIdentityProviderCommandInput,
@@ -168,6 +198,7 @@ import {
   GetPortalServiceProviderMetadataCommandInput,
   GetPortalServiceProviderMetadataCommandOutput,
 } from "./commands/GetPortalServiceProviderMetadataCommand";
+import { GetSessionCommand, GetSessionCommandInput, GetSessionCommandOutput } from "./commands/GetSessionCommand";
 import {
   GetTrustStoreCertificateCommand,
   GetTrustStoreCertificateCommandInput,
@@ -194,6 +225,11 @@ import {
   ListBrowserSettingsCommandOutput,
 } from "./commands/ListBrowserSettingsCommand";
 import {
+  ListDataProtectionSettingsCommand,
+  ListDataProtectionSettingsCommandInput,
+  ListDataProtectionSettingsCommandOutput,
+} from "./commands/ListDataProtectionSettingsCommand";
+import {
   ListIdentityProvidersCommand,
   ListIdentityProvidersCommandInput,
   ListIdentityProvidersCommandOutput,
@@ -209,6 +245,11 @@ import {
   ListNetworkSettingsCommandOutput,
 } from "./commands/ListNetworkSettingsCommand";
 import { ListPortalsCommand, ListPortalsCommandInput, ListPortalsCommandOutput } from "./commands/ListPortalsCommand";
+import {
+  ListSessionsCommand,
+  ListSessionsCommandInput,
+  ListSessionsCommandOutput,
+} from "./commands/ListSessionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -245,6 +286,11 @@ import {
   UpdateBrowserSettingsCommandInput,
   UpdateBrowserSettingsCommandOutput,
 } from "./commands/UpdateBrowserSettingsCommand";
+import {
+  UpdateDataProtectionSettingsCommand,
+  UpdateDataProtectionSettingsCommandInput,
+  UpdateDataProtectionSettingsCommandOutput,
+} from "./commands/UpdateDataProtectionSettingsCommand";
 import {
   UpdateIdentityProviderCommand,
   UpdateIdentityProviderCommandInput,
@@ -284,12 +330,14 @@ import { WorkSpacesWebClient, WorkSpacesWebClientConfig } from "./WorkSpacesWebC
 
 const commands = {
   AssociateBrowserSettingsCommand,
+  AssociateDataProtectionSettingsCommand,
   AssociateIpAccessSettingsCommand,
   AssociateNetworkSettingsCommand,
   AssociateTrustStoreCommand,
   AssociateUserAccessLoggingSettingsCommand,
   AssociateUserSettingsCommand,
   CreateBrowserSettingsCommand,
+  CreateDataProtectionSettingsCommand,
   CreateIdentityProviderCommand,
   CreateIpAccessSettingsCommand,
   CreateNetworkSettingsCommand,
@@ -298,6 +346,7 @@ const commands = {
   CreateUserAccessLoggingSettingsCommand,
   CreateUserSettingsCommand,
   DeleteBrowserSettingsCommand,
+  DeleteDataProtectionSettingsCommand,
   DeleteIdentityProviderCommand,
   DeleteIpAccessSettingsCommand,
   DeleteNetworkSettingsCommand,
@@ -306,26 +355,32 @@ const commands = {
   DeleteUserAccessLoggingSettingsCommand,
   DeleteUserSettingsCommand,
   DisassociateBrowserSettingsCommand,
+  DisassociateDataProtectionSettingsCommand,
   DisassociateIpAccessSettingsCommand,
   DisassociateNetworkSettingsCommand,
   DisassociateTrustStoreCommand,
   DisassociateUserAccessLoggingSettingsCommand,
   DisassociateUserSettingsCommand,
+  ExpireSessionCommand,
   GetBrowserSettingsCommand,
+  GetDataProtectionSettingsCommand,
   GetIdentityProviderCommand,
   GetIpAccessSettingsCommand,
   GetNetworkSettingsCommand,
   GetPortalCommand,
   GetPortalServiceProviderMetadataCommand,
+  GetSessionCommand,
   GetTrustStoreCommand,
   GetTrustStoreCertificateCommand,
   GetUserAccessLoggingSettingsCommand,
   GetUserSettingsCommand,
   ListBrowserSettingsCommand,
+  ListDataProtectionSettingsCommand,
   ListIdentityProvidersCommand,
   ListIpAccessSettingsCommand,
   ListNetworkSettingsCommand,
   ListPortalsCommand,
+  ListSessionsCommand,
   ListTagsForResourceCommand,
   ListTrustStoreCertificatesCommand,
   ListTrustStoresCommand,
@@ -334,6 +389,7 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateBrowserSettingsCommand,
+  UpdateDataProtectionSettingsCommand,
   UpdateIdentityProviderCommand,
   UpdateIpAccessSettingsCommand,
   UpdateNetworkSettingsCommand,
@@ -359,6 +415,23 @@ export interface WorkSpacesWeb {
     args: AssociateBrowserSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AssociateBrowserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link AssociateDataProtectionSettingsCommand}
+   */
+  associateDataProtectionSettings(
+    args: AssociateDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<AssociateDataProtectionSettingsCommandOutput>;
+  associateDataProtectionSettings(
+    args: AssociateDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: AssociateDataProtectionSettingsCommandOutput) => void
+  ): void;
+  associateDataProtectionSettings(
+    args: AssociateDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: AssociateDataProtectionSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -461,6 +534,24 @@ export interface WorkSpacesWeb {
     args: CreateBrowserSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBrowserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateDataProtectionSettingsCommand}
+   */
+  createDataProtectionSettings(): Promise<CreateDataProtectionSettingsCommandOutput>;
+  createDataProtectionSettings(
+    args: CreateDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateDataProtectionSettingsCommandOutput>;
+  createDataProtectionSettings(
+    args: CreateDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: CreateDataProtectionSettingsCommandOutput) => void
+  ): void;
+  createDataProtectionSettings(
+    args: CreateDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateDataProtectionSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -595,6 +686,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link DeleteDataProtectionSettingsCommand}
+   */
+  deleteDataProtectionSettings(
+    args: DeleteDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteDataProtectionSettingsCommandOutput>;
+  deleteDataProtectionSettings(
+    args: DeleteDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: DeleteDataProtectionSettingsCommandOutput) => void
+  ): void;
+  deleteDataProtectionSettings(
+    args: DeleteDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteDataProtectionSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteIdentityProviderCommand}
    */
   deleteIdentityProvider(
@@ -725,6 +833,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link DisassociateDataProtectionSettingsCommand}
+   */
+  disassociateDataProtectionSettings(
+    args: DisassociateDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisassociateDataProtectionSettingsCommandOutput>;
+  disassociateDataProtectionSettings(
+    args: DisassociateDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: DisassociateDataProtectionSettingsCommandOutput) => void
+  ): void;
+  disassociateDataProtectionSettings(
+    args: DisassociateDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisassociateDataProtectionSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisassociateIpAccessSettingsCommand}
    */
   disassociateIpAccessSettings(
@@ -810,6 +935,17 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link ExpireSessionCommand}
+   */
+  expireSession(args: ExpireSessionCommandInput, options?: __HttpHandlerOptions): Promise<ExpireSessionCommandOutput>;
+  expireSession(args: ExpireSessionCommandInput, cb: (err: any, data?: ExpireSessionCommandOutput) => void): void;
+  expireSession(
+    args: ExpireSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ExpireSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetBrowserSettingsCommand}
    */
   getBrowserSettings(
@@ -824,6 +960,23 @@ export interface WorkSpacesWeb {
     args: GetBrowserSettingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetBrowserSettingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetDataProtectionSettingsCommand}
+   */
+  getDataProtectionSettings(
+    args: GetDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetDataProtectionSettingsCommandOutput>;
+  getDataProtectionSettings(
+    args: GetDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: GetDataProtectionSettingsCommandOutput) => void
+  ): void;
+  getDataProtectionSettings(
+    args: GetDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetDataProtectionSettingsCommandOutput) => void
   ): void;
 
   /**
@@ -906,6 +1059,17 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link GetSessionCommand}
+   */
+  getSession(args: GetSessionCommandInput, options?: __HttpHandlerOptions): Promise<GetSessionCommandOutput>;
+  getSession(args: GetSessionCommandInput, cb: (err: any, data?: GetSessionCommandOutput) => void): void;
+  getSession(
+    args: GetSessionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetSessionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetTrustStoreCommand}
    */
   getTrustStore(args: GetTrustStoreCommandInput, options?: __HttpHandlerOptions): Promise<GetTrustStoreCommandOutput>;
@@ -983,6 +1147,24 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link ListDataProtectionSettingsCommand}
+   */
+  listDataProtectionSettings(): Promise<ListDataProtectionSettingsCommandOutput>;
+  listDataProtectionSettings(
+    args: ListDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListDataProtectionSettingsCommandOutput>;
+  listDataProtectionSettings(
+    args: ListDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: ListDataProtectionSettingsCommandOutput) => void
+  ): void;
+  listDataProtectionSettings(
+    args: ListDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListDataProtectionSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListIdentityProvidersCommand}
    */
   listIdentityProviders(
@@ -1045,6 +1227,17 @@ export interface WorkSpacesWeb {
     args: ListPortalsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListPortalsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListSessionsCommand}
+   */
+  listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
+  listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
+  listSessions(
+    args: ListSessionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListSessionsCommandOutput) => void
   ): void;
 
   /**
@@ -1172,6 +1365,23 @@ export interface WorkSpacesWeb {
   ): void;
 
   /**
+   * @see {@link UpdateDataProtectionSettingsCommand}
+   */
+  updateDataProtectionSettings(
+    args: UpdateDataProtectionSettingsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateDataProtectionSettingsCommandOutput>;
+  updateDataProtectionSettings(
+    args: UpdateDataProtectionSettingsCommandInput,
+    cb: (err: any, data?: UpdateDataProtectionSettingsCommandOutput) => void
+  ): void;
+  updateDataProtectionSettings(
+    args: UpdateDataProtectionSettingsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateDataProtectionSettingsCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateIdentityProviderCommand}
    */
   updateIdentityProvider(
@@ -1286,12 +1496,13 @@ export interface WorkSpacesWeb {
 }
 
 /**
- * <p>WorkSpaces Web is a low cost, fully managed WorkSpace built specifically to facilitate
- *          secure, web-based workloads. WorkSpaces Web makes it easy for customers to safely provide
- *          their employees with access to internal websites and SaaS web applications without the
- *          administrative burden of appliances or specialized client software. WorkSpaces Web provides
- *          simple policy tools tailored for user interactions, while offloading common tasks like
- *          capacity management, scaling, and maintaining browser images.</p>
+ * <p>Amazon WorkSpaces Secure Browser is a low cost, fully managed WorkSpace built
+ *          specifically to facilitate secure, web-based workloads. WorkSpaces Secure Browser makes it
+ *          easy for customers to safely provide their employees with access to internal websites and
+ *          SaaS web applications without the administrative burden of appliances or specialized client
+ *          software. WorkSpaces Secure Browser provides simple policy tools tailored for user
+ *          interactions, while offloading common tasks like capacity management, scaling, and
+ *          maintaining browser images.</p>
  * @public
  */
 export class WorkSpacesWeb extends WorkSpacesWebClient implements WorkSpacesWeb {}

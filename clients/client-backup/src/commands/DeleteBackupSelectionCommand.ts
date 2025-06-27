@@ -12,7 +12,8 @@ import { de_DeleteBackupSelectionCommand, se_DeleteBackupSelectionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteBackupSelectionCommandOutput extends __MetadataBearer {}
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class DeleteBackupSelectionCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteBackupSelectionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteBackupSelectionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteBackupSelectionCommand)
   .de(de_DeleteBackupSelectionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteBackupSelectionInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteBackupSelectionCommandInput;
+      output: DeleteBackupSelectionCommandOutput;
+    };
+  };
+}

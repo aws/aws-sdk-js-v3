@@ -12,7 +12,8 @@ import { de_DescribeStackInstanceCommand, se_DescribeStackInstanceCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface DescribeStackInstanceCommandInput extends DescribeStackInstance
 export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanceOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account, and
- *     Amazon Web Services Region.</p>
+ * <p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account,
+ *       and Amazon Web Services Region.</p>
  *          <p>For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +88,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackInstanceCommand extends $Command
@@ -97,9 +99,7 @@ export class DescribeStackInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class DescribeStackInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackInstanceCommand)
   .de(de_DescribeStackInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackInstanceInput;
+      output: DescribeStackInstanceOutput;
+    };
+    sdk: {
+      input: DescribeStackInstanceCommandInput;
+      output: DescribeStackInstanceCommandOutput;
+    };
+  };
+}

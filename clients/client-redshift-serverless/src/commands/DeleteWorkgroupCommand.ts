@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //               subnetId: "STRING_VALUE",
  * //               privateIpAddress: "STRING_VALUE",
  * //               availabilityZone: "STRING_VALUE",
+ * //               ipv6Address: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -94,6 +96,13 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * //     crossAccountVpcs: [ // VpcIds
  * //       "STRING_VALUE",
  * //     ],
+ * //     ipAddressType: "STRING_VALUE",
+ * //     pricePerformanceTarget: { // PerformanceTarget
+ * //       status: "STRING_VALUE",
+ * //       level: Number("int"),
+ * //     },
+ * //     trackName: "STRING_VALUE",
+ * //     pendingTrackName: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -120,6 +129,7 @@ export interface DeleteWorkgroupCommandOutput extends DeleteWorkgroupResponse, _
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class DeleteWorkgroupCommand extends $Command
@@ -130,9 +140,7 @@ export class DeleteWorkgroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +152,16 @@ export class DeleteWorkgroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteWorkgroupCommand)
   .de(de_DeleteWorkgroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteWorkgroupRequest;
+      output: DeleteWorkgroupResponse;
+    };
+    sdk: {
+      input: DeleteWorkgroupCommandInput;
+      output: DeleteWorkgroupCommandOutput;
+    };
+  };
+}

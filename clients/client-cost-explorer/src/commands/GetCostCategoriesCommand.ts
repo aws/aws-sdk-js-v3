@@ -12,7 +12,8 @@ import { de_GetCostCategoriesCommand, se_GetCostCategoriesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -118,6 +119,7 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *       SortOrder: "ASCENDING" || "DESCENDING",
  *     },
  *   ],
+ *   BillingViewArn: "STRING_VALUE",
  *   MaxResults: Number("int"),
  *   NextPageToken: "STRING_VALUE",
  * };
@@ -159,8 +161,12 @@ export interface GetCostCategoriesCommandOutput extends GetCostCategoriesRespons
  *  <p>Your request parameters changed between pages. Try again with the old parameters or
  *             without a pagination token.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p> The specified ARN in the request doesn't exist. </p>
+ *
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
+ *
  *
  * @public
  */
@@ -172,9 +178,7 @@ export class GetCostCategoriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -186,4 +190,16 @@ export class GetCostCategoriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCostCategoriesCommand)
   .de(de_GetCostCategoriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCostCategoriesRequest;
+      output: GetCostCategoriesResponse;
+    };
+    sdk: {
+      input: GetCostCategoriesCommandInput;
+      output: GetCostCategoriesCommandOutput;
+    };
+  };
+}

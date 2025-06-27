@@ -13,21 +13,19 @@ import {
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
 import {
-  EndpointsInputConfig,
-  EndpointsResolvedConfig,
-  RegionInputConfig,
-  RegionResolvedConfig,
-  resolveEndpointsConfig,
-  resolveRegionConfig,
-} from "@smithy/config-resolver";
-import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import {
   CompressionInputConfig,
   CompressionResolvedConfig,
   resolveCompressionConfig,
 } from "@smithy/middleware-compression";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
+import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
 import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
@@ -43,12 +41,12 @@ import {
   ChecksumConstructor as __ChecksumConstructor,
   Decoder as __Decoder,
   Encoder as __Encoder,
+  EndpointV2 as __EndpointV2,
   HashConstructor as __HashConstructor,
   HttpHandlerOptions as __HttpHandlerOptions,
   Logger as __Logger,
   Provider as __Provider,
   Provider,
-  RegionInfoProvider,
   StreamCollector as __StreamCollector,
   UrlParser as __UrlParser,
   UserAgent as __UserAgent,
@@ -73,6 +71,10 @@ import {
   ConstantQueryStringCommandInput,
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
+import {
+  ContentTypeParametersCommandInput,
+  ContentTypeParametersCommandOutput,
+} from "./commands/ContentTypeParametersCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
 import {
   EmptyInputAndEmptyOutputCommandInput,
@@ -98,6 +100,10 @@ import {
 } from "./commands/FlattenedXmlMapWithXmlNamespaceCommand";
 import { FractionalSecondsCommandInput, FractionalSecondsCommandOutput } from "./commands/FractionalSecondsCommand";
 import { GreetingWithErrorsCommandInput, GreetingWithErrorsCommandOutput } from "./commands/GreetingWithErrorsCommand";
+import {
+  HttpEmptyPrefixHeadersCommandInput,
+  HttpEmptyPrefixHeadersCommandOutput,
+} from "./commands/HttpEmptyPrefixHeadersCommand";
 import { HttpEnumPayloadCommandInput, HttpEnumPayloadCommandOutput } from "./commands/HttpEnumPayloadCommand";
 import { HttpPayloadTraitsCommandInput, HttpPayloadTraitsCommandOutput } from "./commands/HttpPayloadTraitsCommand";
 import {
@@ -156,6 +162,10 @@ import {
   InputAndOutputWithHeadersCommandOutput,
 } from "./commands/InputAndOutputWithHeadersCommand";
 import { NestedXmlMapsCommandInput, NestedXmlMapsCommandOutput } from "./commands/NestedXmlMapsCommand";
+import {
+  NestedXmlMapWithXmlNameCommandInput,
+  NestedXmlMapWithXmlNameCommandOutput,
+} from "./commands/NestedXmlMapWithXmlNameCommand";
 import { NoInputAndNoOutputCommandInput, NoInputAndNoOutputCommandOutput } from "./commands/NoInputAndNoOutputCommand";
 import { NoInputAndOutputCommandInput, NoInputAndOutputCommandOutput } from "./commands/NoInputAndOutputCommand";
 import {
@@ -214,6 +224,12 @@ import {
 import { XmlNamespacesCommandInput, XmlNamespacesCommandOutput } from "./commands/XmlNamespacesCommand";
 import { XmlTimestampsCommandInput, XmlTimestampsCommandOutput } from "./commands/XmlTimestampsCommand";
 import { XmlUnionsCommandInput, XmlUnionsCommandOutput } from "./commands/XmlUnionsCommand";
+import {
+  ClientInputEndpointParameters,
+  ClientResolvedEndpointParameters,
+  EndpointParameters,
+  resolveClientEndpointParameters,
+} from "./endpoint/EndpointParameters";
 import { getRuntimeConfig as __getRuntimeConfig } from "./runtimeConfig";
 import { resolveRuntimeExtensions, RuntimeExtension, RuntimeExtensionsConfig } from "./runtimeExtensions";
 
@@ -227,6 +243,7 @@ export type ServiceInputTypes =
   | BodyWithXmlNameCommandInput
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
+  | ContentTypeParametersCommandInput
   | DatetimeOffsetsCommandInput
   | EmptyInputAndEmptyOutputCommandInput
   | EndpointOperationCommandInput
@@ -237,6 +254,7 @@ export type ServiceInputTypes =
   | FlattenedXmlMapWithXmlNamespaceCommandInput
   | FractionalSecondsCommandInput
   | GreetingWithErrorsCommandInput
+  | HttpEmptyPrefixHeadersCommandInput
   | HttpEnumPayloadCommandInput
   | HttpPayloadTraitsCommandInput
   | HttpPayloadTraitsWithMediaTypeCommandInput
@@ -255,6 +273,7 @@ export type ServiceInputTypes =
   | HttpStringPayloadCommandInput
   | IgnoreQueryParamsInResponseCommandInput
   | InputAndOutputWithHeadersCommandInput
+  | NestedXmlMapWithXmlNameCommandInput
   | NestedXmlMapsCommandInput
   | NoInputAndNoOutputCommandInput
   | NoInputAndOutputCommandInput
@@ -293,6 +312,7 @@ export type ServiceOutputTypes =
   | BodyWithXmlNameCommandOutput
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
+  | ContentTypeParametersCommandOutput
   | DatetimeOffsetsCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
   | EndpointOperationCommandOutput
@@ -303,6 +323,7 @@ export type ServiceOutputTypes =
   | FlattenedXmlMapWithXmlNamespaceCommandOutput
   | FractionalSecondsCommandOutput
   | GreetingWithErrorsCommandOutput
+  | HttpEmptyPrefixHeadersCommandOutput
   | HttpEnumPayloadCommandOutput
   | HttpPayloadTraitsCommandOutput
   | HttpPayloadTraitsWithMediaTypeCommandOutput
@@ -321,6 +342,7 @@ export type ServiceOutputTypes =
   | HttpStringPayloadCommandOutput
   | IgnoreQueryParamsInResponseCommandOutput
   | InputAndOutputWithHeadersCommandOutput
+  | NestedXmlMapWithXmlNameCommandOutput
   | NestedXmlMapsCommandOutput
   | NoInputAndNoOutputCommandOutput
   | NoInputAndOutputCommandOutput
@@ -443,10 +465,23 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
-   * Fetch related hostname, signing name or signing region with given region.
-   * @internal
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
    */
-  regionInfoProvider?: RegionInfoProvider;
+  profile?: string;
 
   /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
@@ -494,13 +529,14 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type RestXmlProtocolClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointsInputConfig &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
-  CompressionInputConfig;
+  CompressionInputConfig &
+  ClientInputEndpointParameters;
 /**
  * @public
  *
@@ -514,13 +550,14 @@ export interface RestXmlProtocolClientConfig extends RestXmlProtocolClientConfig
 export type RestXmlProtocolClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointsResolvedConfig &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
-  CompressionResolvedConfig;
+  CompressionResolvedConfig &
+  ClientResolvedEndpointParameters;
 /**
  * @public
  *
@@ -545,26 +582,31 @@ export class RestXmlProtocolClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<RestXmlProtocolClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
-    const _config_1 = resolveRegionConfig(_config_0);
-    const _config_2 = resolveEndpointsConfig(_config_1);
+    super(_config_0 as any);
+    this.initConfig = _config_0;
+    const _config_1 = resolveClientEndpointParameters(_config_0);
+    const _config_2 = resolveUserAgentConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
-    const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
-    const _config_7 = resolveCompressionConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_4 = resolveRegionConfig(_config_3);
+    const _config_5 = resolveHostHeaderConfig(_config_4);
+    const _config_6 = resolveEndpointConfig(_config_5);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    const _config_8 = resolveCompressionConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    this.config = _config_9;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
-      getHttpAuthSchemePlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: defaultRestXmlProtocolHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: RestXmlProtocolClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -577,14 +619,5 @@ export class RestXmlProtocolClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultRestXmlProtocolHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: RestXmlProtocolClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

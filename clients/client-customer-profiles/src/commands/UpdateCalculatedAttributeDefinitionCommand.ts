@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,9 +38,9 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates an existing calculated attribute definition. When updating the Conditions, note that increasing
- *          the date range of a calculated attribute will not trigger inclusion of historical data greater than the
- *          current date range.</p>
+ * <p>Updates an existing calculated attribute definition. When updating the Conditions, note
+ *          that increasing the date range of a calculated attribute will not trigger inclusion of
+ *          historical data greater than the current date range.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,8 +54,14 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
  *   Description: "STRING_VALUE",
  *   Conditions: { // Conditions
  *     Range: { // Range
- *       Value: Number("int"), // required
- *       Unit: "DAYS", // required
+ *       Value: Number("int"),
+ *       Unit: "DAYS",
+ *       ValueRange: { // ValueRange
+ *         Start: Number("int"), // required
+ *         End: Number("int"), // required
+ *       },
+ *       TimestampSource: "STRING_VALUE",
+ *       TimestampFormat: "STRING_VALUE",
  *     },
  *     ObjectCount: Number("int"),
  *     Threshold: { // Threshold
@@ -74,8 +81,14 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
  * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
  * //   Conditions: { // Conditions
  * //     Range: { // Range
- * //       Value: Number("int"), // required
- * //       Unit: "DAYS", // required
+ * //       Value: Number("int"),
+ * //       Unit: "DAYS",
+ * //       ValueRange: { // ValueRange
+ * //         Start: Number("int"), // required
+ * //         End: Number("int"), // required
+ * //       },
+ * //       TimestampSource: "STRING_VALUE",
+ * //       TimestampFormat: "STRING_VALUE",
  * //     },
  * //     ObjectCount: Number("int"),
  * //     Threshold: { // Threshold
@@ -90,6 +103,12 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
  * //       },
  * //     ],
  * //     Expression: "STRING_VALUE", // required
+ * //   },
+ * //   UseHistoricalData: true || false,
+ * //   Status: "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //   Readiness: { // Readiness
+ * //     ProgressPercentage: Number("int"),
+ * //     Message: "STRING_VALUE",
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -122,6 +141,7 @@ export interface UpdateCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class UpdateCalculatedAttributeDefinitionCommand extends $Command
@@ -132,9 +152,7 @@ export class UpdateCalculatedAttributeDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +167,16 @@ export class UpdateCalculatedAttributeDefinitionCommand extends $Command
   )
   .ser(se_UpdateCalculatedAttributeDefinitionCommand)
   .de(de_UpdateCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCalculatedAttributeDefinitionRequest;
+      output: UpdateCalculatedAttributeDefinitionResponse;
+    };
+    sdk: {
+      input: UpdateCalculatedAttributeDefinitionCommandInput;
+      output: UpdateCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

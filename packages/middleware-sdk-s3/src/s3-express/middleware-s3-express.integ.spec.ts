@@ -1,5 +1,6 @@
 import { S3 } from "@aws-sdk/client-s3";
-import { AwsCredentialIdentity } from "@aws-sdk/types";
+import { AwsCredentialIdentity, AwsSdkFeatures } from "@aws-sdk/types";
+import { describe, expect, test as it } from "vitest";
 
 import { requireRequestsFrom } from "../../../../private/aws-util-test/src";
 import { S3ExpressIdentity, S3ExpressIdentityProvider } from "./index";
@@ -19,6 +20,23 @@ describe("middleware-s3-express", () => {
   };
 
   describe(S3.name, () => {
+    it("should not send the x-amz-create-session-mode header", async () => {
+      const client = new S3({ region: "us-west-2", s3ExpressIdentityProvider });
+
+      requireRequestsFrom(client).toMatch({
+        headers: {
+          "x-amz-create-session-mode": /undefined/,
+        },
+      });
+
+      await client.getObject({
+        Bucket: "aws-sdk-js-v3-test--usw2-az1--x-s3",
+        Key: "1",
+      });
+
+      expect.hasAssertions();
+    });
+
     it("should default to CRC32 checksum when the request requires a checksum and none is specified", async () => {
       const client = new S3({ region: "us-west-2", s3ExpressIdentityProvider });
 
@@ -83,6 +101,26 @@ describe("middleware-s3-express", () => {
       });
 
       expect.hasAssertions();
+    });
+
+    it("should feature-detect S3 express bucket", async () => {
+      const client = new S3({
+        region: "us-west-2",
+        s3ExpressIdentityProvider,
+      });
+
+      requireRequestsFrom(client).toMatch({
+        headers: {
+          ["user-agent"](ua) {
+            const metadata = ua.match(/(.*?) m\/(.*?)$/)[2];
+            expect(metadata).toContain("J" as AwsSdkFeatures["S3_EXPRESS_BUCKET"]);
+          },
+        },
+      });
+
+      await client.headBucket({
+        Bucket: "aws-sdk-js-v3-test--usw2-az1--x-s3",
+      });
     });
   });
 });

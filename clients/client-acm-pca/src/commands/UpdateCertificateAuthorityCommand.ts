@@ -12,7 +12,8 @@ import { de_UpdateCertificateAuthorityCommand, se_UpdateCertificateAuthorityComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +57,8 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  *       CrlDistributionPointExtensionConfiguration: { // CrlDistributionPointExtensionConfiguration
  *         OmitExtension: true || false, // required
  *       },
+ *       CrlType: "COMPLETE" || "PARTITIONED",
+ *       CustomPath: "STRING_VALUE",
  *     },
  *     OcspConfiguration: { // OcspConfiguration
  *       Enabled: true || false, // required
@@ -100,6 +103,7 @@ export interface UpdateCertificateAuthorityCommandOutput extends __MetadataBeare
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class UpdateCertificateAuthorityCommand extends $Command
@@ -110,9 +114,7 @@ export class UpdateCertificateAuthorityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +126,16 @@ export class UpdateCertificateAuthorityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCertificateAuthorityCommand)
   .de(de_UpdateCertificateAuthorityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCertificateAuthorityRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCertificateAuthorityCommandInput;
+      output: UpdateCertificateAuthorityCommandOutput;
+    };
+  };
+}

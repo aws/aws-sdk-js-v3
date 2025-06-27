@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * //       Configuration: "STRING_VALUE", // required
  * //     },
  * //   ],
+ * //   AvailableSecurityUpdatesComplianceStatus: "COMPLIANT" || "NON_COMPLIANT",
  * // };
  *
  * ```
@@ -126,6 +128,7 @@ export interface GetPatchBaselineCommandOutput extends GetPatchBaselineResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class GetPatchBaselineCommand extends $Command
@@ -136,9 +139,7 @@ export class GetPatchBaselineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +151,16 @@ export class GetPatchBaselineCommand extends $Command
   .f(void 0, GetPatchBaselineResultFilterSensitiveLog)
   .ser(se_GetPatchBaselineCommand)
   .de(de_GetPatchBaselineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPatchBaselineRequest;
+      output: GetPatchBaselineResult;
+    };
+    sdk: {
+      input: GetPatchBaselineCommandInput;
+      output: GetPatchBaselineCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_PutInsightSelectorsCommand, se_PutInsightSelectorsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *             <code>write</code> management events. You can call <code>GetEventSelectors</code> on a trail
  *          to check whether the trail logs management events. You can call <code>GetEventDataStore</code> on an
  *       event data store to check whether the event data store logs management events.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Logging CloudTrail Insights events</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-insights-events-with-cloudtrail.html">Working with CloudTrail Insights</a> in the <i>CloudTrail User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -87,12 +88,18 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  *          <p>The following is the format of an event data store ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:eventdatastore/EXAMPLE-f852-4e8f-8bd1-bcf6cEXAMPLE</code>
  *          </p>
+ *          <p>The following is the format of a dashboard ARN: <code>arn:aws:cloudtrail:us-east-1:123456789012:dashboard/exampleDash</code>
+ *          </p>
  *          <p>The following is the format of a channel ARN:
  *          <code>arn:aws:cloudtrail:us-east-2:123456789012:channel/01234567890</code>
  *          </p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InsufficientS3BucketPolicyException} (client fault)
@@ -176,6 +183,7 @@ export interface PutInsightSelectorsCommandOutput extends PutInsightSelectorsRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class PutInsightSelectorsCommand extends $Command
@@ -186,9 +194,7 @@ export class PutInsightSelectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +206,16 @@ export class PutInsightSelectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutInsightSelectorsCommand)
   .de(de_PutInsightSelectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutInsightSelectorsRequest;
+      output: PutInsightSelectorsResponse;
+    };
+    sdk: {
+      input: PutInsightSelectorsCommandInput;
+      output: PutInsightSelectorsCommandOutput;
+    };
+  };
+}

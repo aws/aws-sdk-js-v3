@@ -12,7 +12,8 @@ import { de_GetIpamPoolAllocationsCommand, se_GetIpamPoolAllocationsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
 /**
  * <p>Get a list of all the CIDR allocations in an IPAM pool. The Region you use should be the IPAM pool locale. The locale is the Amazon Web Services Region where this IPAM pool is available for allocations.</p>
  *          <note>
- *             <p>If you use this action after <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">AllocateIpamPoolCidr</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/query-api-troubleshooting.html#eventual-consistency">eventual consistency</a> model.</p>
+ *             <p>If you use this action after <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AllocateIpamPoolCidr.html">AllocateIpamPoolCidr</a> or <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ReleaseIpamPoolAllocation.html">ReleaseIpamPoolAllocation</a>, note that all EC2 API actions follow an <a href="https://docs.aws.amazon.com/ec2/latest/devguide/eventual-consistency.html">eventual consistency</a> model.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,7 +62,7 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * //       IpamPoolAllocationId: "STRING_VALUE",
  * //       Description: "STRING_VALUE",
  * //       ResourceId: "STRING_VALUE",
- * //       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet",
+ * //       ResourceType: "ipam-pool" || "vpc" || "ec2-public-ipv4-pool" || "custom" || "subnet" || "eip",
  * //       ResourceRegion: "STRING_VALUE",
  * //       ResourceOwner: "STRING_VALUE",
  * //     },
@@ -80,6 +81,7 @@ export interface GetIpamPoolAllocationsCommandOutput extends GetIpamPoolAllocati
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetIpamPoolAllocationsCommand extends $Command
@@ -90,9 +92,7 @@ export class GetIpamPoolAllocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetIpamPoolAllocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamPoolAllocationsCommand)
   .de(de_GetIpamPoolAllocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamPoolAllocationsRequest;
+      output: GetIpamPoolAllocationsResult;
+    };
+    sdk: {
+      input: GetIpamPoolAllocationsCommandInput;
+      output: GetIpamPoolAllocationsCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_ListSubscriptionTargetsCommand, se_ListSubscriptionTargetsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,7 +65,7 @@ export interface ListSubscriptionTargetsCommandOutput extends ListSubscriptionTa
  * //       updatedBy: "STRING_VALUE",
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"),
- * //       manageAccessRole: "STRING_VALUE", // required
+ * //       manageAccessRole: "STRING_VALUE",
  * //       applicableAssetTypes: [ // ApplicableAssetTypes // required
  * //         "STRING_VALUE",
  * //       ],
@@ -109,6 +110,7 @@ export interface ListSubscriptionTargetsCommandOutput extends ListSubscriptionTa
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListSubscriptionTargetsCommand extends $Command
@@ -119,9 +121,7 @@ export class ListSubscriptionTargetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +133,16 @@ export class ListSubscriptionTargetsCommand extends $Command
   .f(void 0, ListSubscriptionTargetsOutputFilterSensitiveLog)
   .ser(se_ListSubscriptionTargetsCommand)
   .de(de_ListSubscriptionTargetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSubscriptionTargetsInput;
+      output: ListSubscriptionTargetsOutput;
+    };
+    sdk: {
+      input: ListSubscriptionTargetsCommandInput;
+      output: ListSubscriptionTargetsCommandOutput;
+    };
+  };
+}

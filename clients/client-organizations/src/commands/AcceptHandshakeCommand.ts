@@ -16,7 +16,8 @@ import { de_AcceptHandshakeCommand, se_AcceptHandshakeCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -178,10 +179,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_FROM_DIFFERENT_SELLER_OF_RECORD: The request failed because the
- *                     account is from a different marketplace than the accounts in the organization.
- *                     For example, accounts with India addresses must be associated with the AISPL
- *                     marketplace. All accounts in an organization must be from the same
- *                     marketplace.</p>
+ *                     account is from a different marketplace than the accounts in the
+ *                     organization.</p>
  *             </li>
  *             <li>
  *                <p>ORGANIZATION_MEMBERSHIP_CHANGE_RATE_LIMIT_EXCEEDED: You attempted to change
@@ -257,6 +256,10 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                     the required pattern.</p>
  *             </li>
  *             <li>
+ *                <p>INVALID_PRINCIPAL: You specified an invalid principal element in the
+ *                     policy.</p>
+ *             </li>
+ *             <li>
  *                <p>INVALID_ROLE_NAME: You provided a role name that isn't valid. A role name
  *                     can't begin with the reserved prefix <code>AWSServiceRoleFor</code>.</p>
  *             </li>
@@ -297,6 +300,9 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  *                     entities in the same root.</p>
  *             </li>
  *             <li>
+ *                <p>NON_DETACHABLE_POLICY: You can't detach this Amazon Web Services Managed Policy.</p>
+ *             </li>
+ *             <li>
  *                <p>TARGET_NOT_SUPPORTED: You can't perform the specified operation on that target
  *                     entity.</p>
  *             </li>
@@ -319,64 +325,8 @@ export interface AcceptHandshakeCommandOutput extends AcceptHandshakeResponse, _
  * @throws {@link OrganizationsServiceException}
  * <p>Base exception class for all service exceptions from Organizations service.</p>
  *
- * @public
- * @example To accept a handshake from another account
- * ```javascript
- * // Bill is the owner of an organization, and he invites Juan's account (222222222222) to join his organization. The following example shows Juan's account accepting the handshake and thus agreeing to the invitation.
- * const input = {
- *   "HandshakeId": "h-examplehandshakeid111"
- * };
- * const command = new AcceptHandshakeCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Handshake": {
- *     "Action": "INVITE",
- *     "Arn": "arn:aws:organizations::111111111111:handshake/o-exampleorgid/invite/h-examplehandshakeid111",
- *     "ExpirationTimestamp": "20170228T1215Z",
- *     "Id": "h-examplehandshakeid111",
- *     "Parties": [
- *       {
- *         "Id": "o-exampleorgid",
- *         "Type": "ORGANIZATION"
- *       },
- *       {
- *         "Id": "juan@example.com",
- *         "Type": "EMAIL"
- *       }
- *     ],
- *     "RequestedTimestamp": "20170214T1215Z",
- *     "Resources": [
- *       {
- *         "Resources": [
- *           {
- *             "Type": "MASTER_EMAIL",
- *             "Value": "bill@amazon.com"
- *           },
- *           {
- *             "Type": "MASTER_NAME",
- *             "Value": "Org Master Account"
- *           },
- *           {
- *             "Type": "ORGANIZATION_FEATURE_SET",
- *             "Value": "ALL"
- *           }
- *         ],
- *         "Type": "ORGANIZATION",
- *         "Value": "o-exampleorgid"
- *       },
- *       {
- *         "Type": "ACCOUNT",
- *         "Value": "222222222222"
- *       }
- *     ],
- *     "State": "ACCEPTED"
- *   }
- * }
- * *\/
- * // example id: to-accept-a-handshake-from-another-account-1472500561150
- * ```
  *
+ * @public
  */
 export class AcceptHandshakeCommand extends $Command
   .classBuilder<
@@ -386,9 +336,7 @@ export class AcceptHandshakeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OrganizationsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -400,4 +348,16 @@ export class AcceptHandshakeCommand extends $Command
   .f(void 0, AcceptHandshakeResponseFilterSensitiveLog)
   .ser(se_AcceptHandshakeCommand)
   .de(de_AcceptHandshakeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AcceptHandshakeRequest;
+      output: AcceptHandshakeResponse;
+    };
+    sdk: {
+      input: AcceptHandshakeCommandInput;
+      output: AcceptHandshakeCommandOutput;
+    };
+  };
+}

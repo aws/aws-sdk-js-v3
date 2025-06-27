@@ -12,7 +12,8 @@ import { de_PutMetadataFlagCommand, se_PutMetadataFlagCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface PutMetadataFlagCommandOutput extends __MetadataBearer {}
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class PutMetadataFlagCommand extends $Command
@@ -73,9 +75,7 @@ export class PutMetadataFlagCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class PutMetadataFlagCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutMetadataFlagCommand)
   .de(de_PutMetadataFlagCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutMetadataFlagRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutMetadataFlagCommandInput;
+      output: PutMetadataFlagCommandOutput;
+    };
+  };
+}

@@ -16,6 +16,7 @@ export * from "./ListGroupResourcesCommand";
 export * from "./ListGroupsCommand";
 export * from "./ListTagsForResourceCommand";
 export * from "./StartCanaryCommand";
+export * from "./StartCanaryDryRunCommand";
 export * from "./StopCanaryCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";

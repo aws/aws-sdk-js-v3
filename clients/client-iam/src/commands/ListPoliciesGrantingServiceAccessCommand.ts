@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -128,55 +129,55 @@ export interface ListPoliciesGrantingServiceAccessCommandOutput
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list policies that allow access to a service
  * ```javascript
  * // The following operation lists policies that allow ExampleUser01 to access IAM or EC2.
  * const input = {
- *   "Arn": "arn:aws:iam::123456789012:user/ExampleUser01",
- *   "ServiceNamespaces": [
+ *   Arn: "arn:aws:iam::123456789012:user/ExampleUser01",
+ *   ServiceNamespaces: [
  *     "iam",
  *     "ec2"
  *   ]
  * };
  * const command = new ListPoliciesGrantingServiceAccessCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "IsTruncated": false,
- *   "PoliciesGrantingServiceAccess": [
+ *   IsTruncated: false,
+ *   PoliciesGrantingServiceAccess: [
  *     {
- *       "Policies": [
+ *       Policies: [
  *         {
- *           "PolicyArn": "arn:aws:iam::123456789012:policy/ExampleIamPolicy",
- *           "PolicyName": "ExampleIamPolicy",
- *           "PolicyType": "MANAGED"
+ *           PolicyArn: "arn:aws:iam::123456789012:policy/ExampleIamPolicy",
+ *           PolicyName: "ExampleIamPolicy",
+ *           PolicyType: "MANAGED"
  *         },
  *         {
- *           "EntityName": "AWSExampleGroup1",
- *           "EntityType": "GROUP",
- *           "PolicyName": "ExampleGroup1Policy",
- *           "PolicyType": "INLINE"
+ *           EntityName: "AWSExampleGroup1",
+ *           EntityType: "GROUP",
+ *           PolicyName: "ExampleGroup1Policy",
+ *           PolicyType: "INLINE"
  *         }
  *       ],
- *       "ServiceNamespace": "iam"
+ *       ServiceNamespace: "iam"
  *     },
  *     {
- *       "Policies": [
+ *       Policies: [
  *         {
- *           "PolicyArn": "arn:aws:iam::123456789012:policy/ExampleEc2Policy",
- *           "PolicyName": "ExampleEc2Policy",
- *           "PolicyType": "MANAGED"
+ *           PolicyArn: "arn:aws:iam::123456789012:policy/ExampleEc2Policy",
+ *           PolicyName: "ExampleEc2Policy",
+ *           PolicyType: "MANAGED"
  *         }
  *       ],
- *       "ServiceNamespace": "ec2"
+ *       ServiceNamespace: "ec2"
  *     }
  *   ]
  * }
  * *\/
- * // example id: listpoliciesaccess-user-1541698749508
  * ```
  *
+ * @public
  */
 export class ListPoliciesGrantingServiceAccessCommand extends $Command
   .classBuilder<
@@ -186,9 +187,7 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -200,4 +199,16 @@ export class ListPoliciesGrantingServiceAccessCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPoliciesGrantingServiceAccessCommand)
   .de(de_ListPoliciesGrantingServiceAccessCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPoliciesGrantingServiceAccessRequest;
+      output: ListPoliciesGrantingServiceAccessResponse;
+    };
+    sdk: {
+      input: ListPoliciesGrantingServiceAccessCommandInput;
+      output: ListPoliciesGrantingServiceAccessCommandOutput;
+    };
+  };
+}

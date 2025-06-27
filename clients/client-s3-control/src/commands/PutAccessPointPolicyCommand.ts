@@ -13,7 +13,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,10 +29,7 @@ export interface PutAccessPointPolicyCommandInput extends PutAccessPointPolicyRe
 export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <note>
- *             <p>This operation is not supported by directory buckets.</p>
- *          </note>
- *          <p>Associates an access policy with the specified access point. Each access point can have only one policy,
+ * <p>Associates an access policy with the specified access point. Each access point can have only one policy,
  *          so a request made to this API replaces any existing policy associated with the specified
  *          access point.</p>
  *          <p></p>
@@ -75,6 +73,7 @@ export interface PutAccessPointPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutAccessPointPolicyCommand extends $Command
@@ -88,7 +87,7 @@ export class PutAccessPointPolicyCommand extends $Command
   .ep({
     ...commonParams,
     RequiresAccountId: { type: "staticContextParams", value: true },
-    AccessPointName: { type: "contextParams", name: "AccessPointName" },
+    AccessPointName: { type: "contextParams", name: "Name" },
     AccountId: { type: "contextParams", name: "AccountId" },
   })
   .m(function (this: any, Command: any, cs: any, config: S3ControlClientResolvedConfig, o: any) {
@@ -103,4 +102,16 @@ export class PutAccessPointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccessPointPolicyCommand)
   .de(de_PutAccessPointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccessPointPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutAccessPointPolicyCommandInput;
+      output: PutAccessPointPolicyCommandOutput;
+    };
+  };
+}

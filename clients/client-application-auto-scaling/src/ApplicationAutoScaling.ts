@@ -39,6 +39,11 @@ import {
   DescribeScheduledActionsCommandOutput,
 } from "./commands/DescribeScheduledActionsCommand";
 import {
+  GetPredictiveScalingForecastCommand,
+  GetPredictiveScalingForecastCommandInput,
+  GetPredictiveScalingForecastCommandOutput,
+} from "./commands/GetPredictiveScalingForecastCommand";
+import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -73,6 +78,7 @@ const commands = {
   DescribeScalingActivitiesCommand,
   DescribeScalingPoliciesCommand,
   DescribeScheduledActionsCommand,
+  GetPredictiveScalingForecastCommand,
   ListTagsForResourceCommand,
   PutScalingPolicyCommand,
   PutScheduledActionCommand,
@@ -202,6 +208,23 @@ export interface ApplicationAutoScaling {
   ): void;
 
   /**
+   * @see {@link GetPredictiveScalingForecastCommand}
+   */
+  getPredictiveScalingForecast(
+    args: GetPredictiveScalingForecastCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPredictiveScalingForecastCommandOutput>;
+  getPredictiveScalingForecast(
+    args: GetPredictiveScalingForecastCommandInput,
+    cb: (err: any, data?: GetPredictiveScalingForecastCommandOutput) => void
+  ): void;
+  getPredictiveScalingForecast(
+    args: GetPredictiveScalingForecastCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPredictiveScalingForecastCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListTagsForResourceCommand}
    */
   listTagsForResource(
@@ -312,7 +335,7 @@ export interface ApplicationAutoScaling {
  *                <p>Amazon ECS services</p>
  *             </li>
  *             <li>
- *                <p>Amazon ElastiCache for Redis clusters (replication groups)</p>
+ *                <p>Amazon ElastiCache replication groups (Redis OSS and Valkey) and Memcached clusters</p>
  *             </li>
  *             <li>
  *                <p>Amazon EMR clusters</p>
@@ -333,13 +356,16 @@ export interface ApplicationAutoScaling {
  *                <p>Amazon SageMaker endpoint variants</p>
  *             </li>
  *             <li>
- *                <p>Amazon SageMaker Serverless endpoint provisioned concurrency</p>
- *             </li>
- *             <li>
  *                <p>Amazon SageMaker inference components</p>
  *             </li>
  *             <li>
+ *                <p>Amazon SageMaker serverless endpoint provisioned concurrency</p>
+ *             </li>
+ *             <li>
  *                <p>Spot Fleets (Amazon EC2)</p>
+ *             </li>
+ *             <li>
+ *                <p>Pool of WorkSpaces</p>
  *             </li>
  *             <li>
  *                <p>Custom resources provided by your own applications or services</p>

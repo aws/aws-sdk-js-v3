@@ -12,7 +12,8 @@ import { de_CloseInstancePublicPortsCommand, se_CloseInstancePublicPortsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * <p>Closes ports for a specific Amazon Lightsail instance.</p>
  *          <p>The <code>CloseInstancePublicPorts</code> action supports tag-based access control via
  *       resource tags applied to the resource identified by <code>instanceName</code>. For more
- *       information, see the <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
+ *       information, see the <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-controlling-access-using-tags">Amazon Lightsail Developer Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +118,7 @@ export interface CloseInstancePublicPortsCommandOutput extends CloseInstancePubl
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class CloseInstancePublicPortsCommand extends $Command
@@ -127,9 +129,7 @@ export class CloseInstancePublicPortsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class CloseInstancePublicPortsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CloseInstancePublicPortsCommand)
   .de(de_CloseInstancePublicPortsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CloseInstancePublicPortsRequest;
+      output: CloseInstancePublicPortsResult;
+    };
+    sdk: {
+      input: CloseInstancePublicPortsCommandInput;
+      output: CloseInstancePublicPortsCommandOutput;
+    };
+  };
+}

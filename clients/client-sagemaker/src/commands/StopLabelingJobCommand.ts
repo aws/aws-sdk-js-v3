@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopLabelingJobRequest } from "../models/models_4";
+import { StopLabelingJobRequest } from "../models/models_5";
 import { de_StopLabelingJobCommand, se_StopLabelingJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface StopLabelingJobCommandInput extends StopLabelingJobRequest {}
 export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results
- *             obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
+ * <p>Stops a running labeling job. A job that is stopped cannot be restarted. Any results obtained before the job is stopped are placed in the Amazon S3 output bucket.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,7 @@ export interface StopLabelingJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopLabelingJobCommand extends $Command
@@ -66,9 +67,7 @@ export class StopLabelingJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -80,4 +79,16 @@ export class StopLabelingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopLabelingJobCommand)
   .de(de_StopLabelingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopLabelingJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopLabelingJobCommandInput;
+      output: StopLabelingJobCommandOutput;
+    };
+  };
+}

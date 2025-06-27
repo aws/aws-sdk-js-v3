@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,12 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       instanceProfileName: "STRING_VALUE",
+ * //       placement: { // Placement
+ * //         availabilityZone: "STRING_VALUE",
+ * //         tenancy: "default" || "dedicated" || "host",
+ * //         hostId: "STRING_VALUE",
+ * //         hostResourceGroupArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -112,6 +119,7 @@ export interface ListInfrastructureConfigurationsCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListInfrastructureConfigurationsCommand extends $Command
@@ -122,9 +130,7 @@ export class ListInfrastructureConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +142,16 @@ export class ListInfrastructureConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInfrastructureConfigurationsCommand)
   .de(de_ListInfrastructureConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInfrastructureConfigurationsRequest;
+      output: ListInfrastructureConfigurationsResponse;
+    };
+    sdk: {
+      input: ListInfrastructureConfigurationsCommandInput;
+      output: ListInfrastructureConfigurationsCommandOutput;
+    };
+  };
+}

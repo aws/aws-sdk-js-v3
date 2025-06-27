@@ -12,7 +12,8 @@ import { de_CreateFrameworkCommand, se_CreateFrameworkCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface CreateFrameworkCommandOutput extends CreateFrameworkOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CreateFrameworkCommand extends $Command
@@ -112,9 +114,7 @@ export class CreateFrameworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class CreateFrameworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFrameworkCommand)
   .de(de_CreateFrameworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFrameworkInput;
+      output: CreateFrameworkOutput;
+    };
+    sdk: {
+      input: CreateFrameworkCommandInput;
+      output: CreateFrameworkCommandOutput;
+    };
+  };
+}

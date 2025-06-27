@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,7 @@ export interface PutRecommendationPreferencesCommandOutput
  * // const { ComputeOptimizerClient, PutRecommendationPreferencesCommand } = require("@aws-sdk/client-compute-optimizer"); // CommonJS import
  * const client = new ComputeOptimizerClient(config);
  * const input = { // PutRecommendationPreferencesRequest
- *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License", // required
+ *   resourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "NotApplicable" || "EcsService" || "License" || "RdsDBInstance" || "AuroraDBClusterStorage" || "Idle", // required
  *   scope: { // Scope
  *     name: "Organization" || "AccountId" || "ResourceArn",
  *     value: "STRING_VALUE",
@@ -117,6 +118,7 @@ export interface PutRecommendationPreferencesCommandOutput
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class PutRecommendationPreferencesCommand extends $Command
@@ -127,9 +129,7 @@ export class PutRecommendationPreferencesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class PutRecommendationPreferencesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutRecommendationPreferencesCommand)
   .de(de_PutRecommendationPreferencesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutRecommendationPreferencesRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutRecommendationPreferencesCommandInput;
+      output: PutRecommendationPreferencesCommandOutput;
+    };
+  };
+}

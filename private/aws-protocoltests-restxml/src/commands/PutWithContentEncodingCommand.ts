@@ -1,9 +1,11 @@
 // smithy-typescript generated code
 import { getCompressionPlugin } from "@smithy/middleware-compression";
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { PutWithContentEncodingInput } from "../models/models_0";
 import { de_PutWithContentEncodingCommand, se_PutWithContentEncodingCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
@@ -11,7 +13,8 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,6 +56,7 @@ export interface PutWithContentEncodingCommandOutput extends __MetadataBearer {}
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class PutWithContentEncodingCommand extends $Command
   .classBuilder<
@@ -62,10 +66,14 @@ export class PutWithContentEncodingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
-      getCompressionPlugin(config, { encodings: ["gzip"] }),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getCompressionPlugin(config, {
+        encodings: ["gzip"],
+      }),
     ];
   })
   .s("RestXml", "PutWithContentEncoding", {})
@@ -73,4 +81,16 @@ export class PutWithContentEncodingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutWithContentEncodingCommand)
   .de(de_PutWithContentEncodingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutWithContentEncodingInput;
+      output: {};
+    };
+    sdk: {
+      input: PutWithContentEncodingCommandInput;
+      output: PutWithContentEncodingCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateSlotTypeVersionCommand, se_CreateSlotTypeVersionCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -118,6 +119,7 @@ export interface CreateSlotTypeVersionCommandOutput extends CreateSlotTypeVersio
  * @throws {@link LexModelBuildingServiceServiceException}
  * <p>Base exception class for all service exceptions from LexModelBuildingService service.</p>
  *
+ *
  * @public
  */
 export class CreateSlotTypeVersionCommand extends $Command
@@ -128,9 +130,7 @@ export class CreateSlotTypeVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelBuildingServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -142,4 +142,16 @@ export class CreateSlotTypeVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSlotTypeVersionCommand)
   .de(de_CreateSlotTypeVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSlotTypeVersionRequest;
+      output: CreateSlotTypeVersionResponse;
+    };
+    sdk: {
+      input: CreateSlotTypeVersionCommandInput;
+      output: CreateSlotTypeVersionCommandOutput;
+    };
+  };
+}

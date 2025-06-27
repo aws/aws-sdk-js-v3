@@ -16,7 +16,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -108,6 +109,7 @@ export interface CreateAccessPointForObjectLambdaCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class CreateAccessPointForObjectLambdaCommand extends $Command
@@ -135,4 +137,16 @@ export class CreateAccessPointForObjectLambdaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAccessPointForObjectLambdaCommand)
   .de(de_CreateAccessPointForObjectLambdaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAccessPointForObjectLambdaRequest;
+      output: CreateAccessPointForObjectLambdaResult;
+    };
+    sdk: {
+      input: CreateAccessPointForObjectLambdaCommandInput;
+      output: CreateAccessPointForObjectLambdaCommandOutput;
+    };
+  };
+}

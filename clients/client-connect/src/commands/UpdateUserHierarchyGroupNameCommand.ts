@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserHierarchyGroupNameRequest } from "../models/models_2";
+import { UpdateUserHierarchyGroupNameRequest } from "../models/models_3";
 import {
   de_UpdateUserHierarchyGroupNameCommand,
   se_UpdateUserHierarchyGroupNameCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateUserHierarchyGroupNameCommandOutput extends __MetadataBea
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserHierarchyGroupNameCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateUserHierarchyGroupNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserHierarchyGroupNameCommand)
   .de(de_UpdateUserHierarchyGroupNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserHierarchyGroupNameRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserHierarchyGroupNameCommandInput;
+      output: UpdateUserHierarchyGroupNameCommandOutput;
+    };
+  };
+}

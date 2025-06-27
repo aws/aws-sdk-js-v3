@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSpotFleetRequestHistoryRequest, DescribeSpotFleetRequestHistoryResponse } from "../models/models_4";
+import { DescribeSpotFleetRequestHistoryRequest, DescribeSpotFleetRequestHistoryResponse } from "../models/models_5";
 import {
   de_DescribeSpotFleetRequestHistoryCommand,
   se_DescribeSpotFleetRequestHistoryCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,11 +48,11 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotFleetRequestHistoryRequest
  *   DryRun: true || false,
- *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   EventType: "instanceChange" || "fleetRequestChange" || "error" || "information",
  *   StartTime: new Date("TIMESTAMP"), // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);
@@ -84,58 +85,58 @@ export interface DescribeSpotFleetRequestHistoryCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe Spot fleet history
  * ```javascript
  * // This example returns the history for the specified Spot fleet starting at the specified time.
  * const input = {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
- *   "StartTime": "2015-05-26T00:00:00Z"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *   StartTime: "2015-05-26T00:00:00Z"
  * };
  * const command = new DescribeSpotFleetRequestHistoryCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "HistoryRecords": [
+ *   HistoryRecords: [
  *     {
- *       "EventInformation": {
- *         "EventSubType": "submitted"
+ *       EventInformation: {
+ *         EventSubType: "submitted"
  *       },
- *       "EventType": "fleetRequestChange",
- *       "Timestamp": "2015-05-26T23:17:20.697Z"
+ *       EventType: "fleetRequestChange",
+ *       Timestamp: "2015-05-26T23:17:20.697Z"
  *     },
  *     {
- *       "EventInformation": {
- *         "EventSubType": "active"
+ *       EventInformation: {
+ *         EventSubType: "active"
  *       },
- *       "EventType": "fleetRequestChange",
- *       "Timestamp": "2015-05-26T23:17:20.873Z"
+ *       EventType: "fleetRequestChange",
+ *       Timestamp: "2015-05-26T23:17:20.873Z"
  *     },
  *     {
- *       "EventInformation": {
- *         "EventSubType": "launched",
- *         "InstanceId": "i-1234567890abcdef0"
+ *       EventInformation: {
+ *         EventSubType: "launched",
+ *         InstanceId: "i-1234567890abcdef0"
  *       },
- *       "EventType": "instanceChange",
- *       "Timestamp": "2015-05-26T23:21:21.712Z"
+ *       EventType: "instanceChange",
+ *       Timestamp: "2015-05-26T23:21:21.712Z"
  *     },
  *     {
- *       "EventInformation": {
- *         "EventSubType": "launched",
- *         "InstanceId": "i-1234567890abcdef1"
+ *       EventInformation: {
+ *         EventSubType: "launched",
+ *         InstanceId: "i-1234567890abcdef1"
  *       },
- *       "EventType": "instanceChange",
- *       "Timestamp": "2015-05-26T23:21:21.816Z"
+ *       EventType: "instanceChange",
+ *       Timestamp: "2015-05-26T23:21:21.816Z"
  *     }
  *   ],
- *   "NextToken": "CpHNsscimcV5oH7bSbub03CI2Qms5+ypNpNm+53MNlR0YcXAkp0xFlfKf91yVxSExmbtma3awYxMFzNA663ZskT0AHtJ6TCb2Z8bQC2EnZgyELbymtWPfpZ1ZbauVg+P+TfGlWxWWB/Vr5dk5d4LfdgA/DRAHUrYgxzrEXAMPLE=",
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
- *   "StartTime": "2015-05-26T00:00:00Z"
+ *   NextToken: "CpHNsscimcV5oH7bSbub03CI2Qms5+ypNpNm+53MNlR0YcXAkp0xFlfKf91yVxSExmbtma3awYxMFzNA663ZskT0AHtJ6TCb2Z8bQC2EnZgyELbymtWPfpZ1ZbauVg+P+TfGlWxWWB/Vr5dk5d4LfdgA/DRAHUrYgxzrEXAMPLE=",
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE",
+ *   StartTime: "2015-05-26T00:00:00Z"
  * }
  * *\/
- * // example id: ec2-describe-spot-fleet-request-history-1
  * ```
  *
+ * @public
  */
 export class DescribeSpotFleetRequestHistoryCommand extends $Command
   .classBuilder<
@@ -145,9 +146,7 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +158,16 @@ export class DescribeSpotFleetRequestHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpotFleetRequestHistoryCommand)
   .de(de_DescribeSpotFleetRequestHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpotFleetRequestHistoryRequest;
+      output: DescribeSpotFleetRequestHistoryResponse;
+    };
+    sdk: {
+      input: DescribeSpotFleetRequestHistoryCommandInput;
+      output: DescribeSpotFleetRequestHistoryCommandOutput;
+    };
+  };
+}

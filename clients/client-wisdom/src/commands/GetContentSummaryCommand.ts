@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WisdomClientResolvedConfig } fro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface GetContentSummaryCommandOutput extends GetContentSummaryRespons
  * @throws {@link WisdomServiceException}
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
+ *
  * @public
  */
 export class GetContentSummaryCommand extends $Command
@@ -90,9 +92,7 @@ export class GetContentSummaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WisdomClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class GetContentSummaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContentSummaryCommand)
   .de(de_GetContentSummaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContentSummaryRequest;
+      output: GetContentSummaryResponse;
+    };
+    sdk: {
+      input: GetContentSummaryCommandInput;
+      output: GetContentSummaryCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListBackupVaultsCommand, se_ListBackupVaultsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * // const { BackupClient, ListBackupVaultsCommand } = require("@aws-sdk/client-backup"); // CommonJS import
  * const client = new BackupClient(config);
  * const input = { // ListBackupVaultsInput
- *   ByVaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ *   ByVaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
  *   ByShared: true || false,
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -48,6 +49,8 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * //     { // BackupVaultListMember
  * //       BackupVaultName: "STRING_VALUE",
  * //       BackupVaultArn: "STRING_VALUE",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
+ * //       VaultState: "CREATING" || "AVAILABLE" || "FAILED",
  * //       CreationDate: new Date("TIMESTAMP"),
  * //       EncryptionKeyArn: "STRING_VALUE",
  * //       CreatorRequestId: "STRING_VALUE",
@@ -85,6 +88,7 @@ export interface ListBackupVaultsCommandOutput extends ListBackupVaultsOutput, _
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListBackupVaultsCommand extends $Command
@@ -95,9 +99,7 @@ export class ListBackupVaultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +111,16 @@ export class ListBackupVaultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBackupVaultsCommand)
   .de(de_ListBackupVaultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBackupVaultsInput;
+      output: ListBackupVaultsOutput;
+    };
+    sdk: {
+      input: ListBackupVaultsCommandInput;
+      output: ListBackupVaultsCommandOutput;
+    };
+  };
+}

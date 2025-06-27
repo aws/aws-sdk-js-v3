@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -137,45 +138,8 @@ export interface DescribeClusterCommandOutput extends DescribeClusterResult, __M
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
- * @example To describe a cluster
- * ```javascript
- * // Returns information about a specific cluster including shipping information, cluster status, and other important metadata.
- * const input = {
- *   "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000"
- * };
- * const command = new DescribeClusterCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ClusterMetadata": {
- *     "AddressId": "ADID1234ab12-3eec-4eb3-9be6-9374c10eb51b",
- *     "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000",
- *     "ClusterState": "Pending",
- *     "CreationDate": "1480475517.0",
- *     "Description": "MyCluster",
- *     "JobType": "LOCAL_USE",
- *     "KmsKeyARN": "arn:aws:kms:us-east-1:123456789012:key/abcd1234-12ab-34cd-56ef-123456123456",
- *     "Notification": {
- *       "JobStatesToNotify": [],
- *       "NotifyAll": false
- *     },
- *     "Resources": {
- *       "S3Resources": [
- *         {
- *           "BucketArn": "arn:aws:s3:::MyBucket",
- *           "KeyRange": {}
- *         }
- *       ]
- *     },
- *     "RoleARN": "arn:aws:iam::123456789012:role/snowball-import-S3-role",
- *     "ShippingOption": "SECOND_DAY"
- *   }
- * }
- * *\/
- * // example id: to-describe-a-cluster-1482864218396
- * ```
  *
+ * @public
  */
 export class DescribeClusterCommand extends $Command
   .classBuilder<
@@ -185,9 +149,7 @@ export class DescribeClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -199,4 +161,16 @@ export class DescribeClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeClusterCommand)
   .de(de_DescribeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeClusterRequest;
+      output: DescribeClusterResult;
+    };
+    sdk: {
+      input: DescribeClusterCommandInput;
+      output: DescribeClusterCommandOutput;
+    };
+  };
+}

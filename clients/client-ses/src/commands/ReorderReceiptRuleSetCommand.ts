@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,22 +69,25 @@ export interface ReorderReceiptRuleSetCommandOutput extends ReorderReceiptRuleSe
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example ReorderReceiptRuleSet
  * ```javascript
  * // The following example reorders the receipt rules within a receipt rule set:
  * const input = {
- *   "RuleNames": [
+ *   RuleNames: [
  *     "MyRule",
  *     "MyOtherRule"
  *   ],
- *   "RuleSetName": "MyRuleSet"
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new ReorderReceiptRuleSetCommand(input);
- * await client.send(command);
- * // example id: reorderreceiptruleset-1469058156806
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ReorderReceiptRuleSetCommand extends $Command
   .classBuilder<
@@ -93,9 +97,7 @@ export class ReorderReceiptRuleSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +109,16 @@ export class ReorderReceiptRuleSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReorderReceiptRuleSetCommand)
   .de(de_ReorderReceiptRuleSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReorderReceiptRuleSetRequest;
+      output: {};
+    };
+    sdk: {
+      input: ReorderReceiptRuleSetCommandInput;
+      output: ReorderReceiptRuleSetCommandOutput;
+    };
+  };
+}

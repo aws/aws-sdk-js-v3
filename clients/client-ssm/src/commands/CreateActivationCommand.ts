@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,11 +30,10 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
 /**
  * <p>Generates an activation code and activation ID you can use to register your on-premises
  *    servers, edge devices, or virtual machine (VM) with Amazon Web Services Systems Manager. Registering these machines with
- *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
- *    ID when installing SSM Agent on machines in your hybrid environment. For more information about
- *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
- *     Amazon Web Services Systems Manager for hybrid and multicloud environments</a> in the
- *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ *    Systems Manager makes it possible to manage them using Systems Manager tools. You use the activation code and ID when
+ *    installing SSM Agent on machines in your hybrid environment. For more information about
+ *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-hybrid-multicloud.html">Using Amazon Web Services Systems Manager in
+ *     hybrid and multicloud environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  *          <note>
  *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
  *     configured for Systems Manager are all called <i>managed nodes</i>.</p>
@@ -88,6 +88,7 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class CreateActivationCommand extends $Command
@@ -98,9 +99,7 @@ export class CreateActivationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class CreateActivationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateActivationCommand)
   .de(de_CreateActivationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateActivationRequest;
+      output: CreateActivationResult;
+    };
+    sdk: {
+      input: CreateActivationCommandInput;
+      output: CreateActivationCommandOutput;
+    };
+  };
+}

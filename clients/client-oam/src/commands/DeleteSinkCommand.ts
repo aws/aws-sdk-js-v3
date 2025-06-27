@@ -12,7 +12,8 @@ import { de_DeleteSinkCommand, se_DeleteSinkCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DeleteSinkCommandOutput extends DeleteSinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class DeleteSinkCommand extends $Command
@@ -77,9 +79,7 @@ export class DeleteSinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DeleteSinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSinkCommand)
   .de(de_DeleteSinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSinkInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSinkCommandInput;
+      output: DeleteSinkCommandOutput;
+    };
+  };
+}

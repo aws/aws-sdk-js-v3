@@ -12,7 +12,8 @@ import { de_GetConfigCommand, se_GetConfigCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * const client = new GroundStationClient(config);
  * const input = { // GetConfigRequest
  *   configId: "STRING_VALUE", // required
- *   configType: "STRING_VALUE", // required
+ *   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording", // required
  * };
  * const command = new GetConfigCommand(input);
  * const response = await client.send(command);
@@ -45,23 +46,23 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //   configId: "STRING_VALUE", // required
  * //   configArn: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
- * //   configType: "STRING_VALUE",
+ * //   configType: "antenna-downlink" || "antenna-downlink-demod-decode" || "tracking" || "dataflow-endpoint" || "antenna-uplink" || "uplink-echo" || "s3-recording",
  * //   configData: { // ConfigTypeData Union: only one key present
  * //     antennaDownlinkConfig: { // AntennaDownlinkConfig
  * //       spectrumConfig: { // SpectrumConfig
  * //         centerFrequency: { // Frequency
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
  * //         bandwidth: { // FrequencyBandwidth
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
- * //         polarization: "STRING_VALUE",
+ * //         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  * //       },
  * //     },
  * //     trackingConfig: { // TrackingConfig
- * //       autotrack: "STRING_VALUE", // required
+ * //       autotrack: "REQUIRED" || "PREFERRED" || "REMOVED", // required
  * //     },
  * //     dataflowEndpointConfig: { // DataflowEndpointConfig
  * //       dataflowEndpointName: "STRING_VALUE", // required
@@ -71,13 +72,13 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //       spectrumConfig: {
  * //         centerFrequency: {
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
  * //         bandwidth: {
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
- * //         polarization: "STRING_VALUE",
+ * //         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  * //       },
  * //       demodulationConfig: { // DemodulationConfig
  * //         unvalidatedJSON: "STRING_VALUE", // required
@@ -91,13 +92,13 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * //       spectrumConfig: { // UplinkSpectrumConfig
  * //         centerFrequency: {
  * //           value: Number("double"), // required
- * //           units: "STRING_VALUE", // required
+ * //           units: "GHz" || "MHz" || "kHz", // required
  * //         },
- * //         polarization: "STRING_VALUE",
+ * //         polarization: "RIGHT_HAND" || "LEFT_HAND" || "NONE",
  * //       },
  * //       targetEirp: { // Eirp
  * //         value: Number("double"), // required
- * //         units: "STRING_VALUE", // required
+ * //         units: "dBW", // required
  * //       },
  * //     },
  * //     uplinkEchoConfig: { // UplinkEchoConfig
@@ -135,6 +136,7 @@ export interface GetConfigCommandOutput extends GetConfigResponse, __MetadataBea
  * @throws {@link GroundStationServiceException}
  * <p>Base exception class for all service exceptions from GroundStation service.</p>
  *
+ *
  * @public
  */
 export class GetConfigCommand extends $Command
@@ -145,9 +147,7 @@ export class GetConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GroundStationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class GetConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConfigCommand)
   .de(de_GetConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConfigRequest;
+      output: GetConfigResponse;
+    };
+    sdk: {
+      input: GetConfigCommandInput;
+      output: GetConfigCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { RolesAnywhereClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,7 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  *     "STRING_VALUE",
  *   ],
  *   durationSeconds: Number("int"),
+ *   acceptRoleSessionName: true || false,
  * };
  * const command = new UpdateProfileCommand(input);
  * const response = await client.send(command);
@@ -72,6 +74,7 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),
  * //     durationSeconds: Number("int"),
+ * //     acceptRoleSessionName: true || false,
  * //     attributeMappings: [ // AttributeMappings
  * //       { // AttributeMapping
  * //         certificateField: "STRING_VALUE",
@@ -105,6 +108,7 @@ export interface UpdateProfileCommandOutput extends ProfileDetailResponse, __Met
  * @throws {@link RolesAnywhereServiceException}
  * <p>Base exception class for all service exceptions from RolesAnywhere service.</p>
  *
+ *
  * @public
  */
 export class UpdateProfileCommand extends $Command
@@ -115,9 +119,7 @@ export class UpdateProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RolesAnywhereClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +131,16 @@ export class UpdateProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateProfileCommand)
   .de(de_UpdateProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateProfileRequest;
+      output: ProfileDetailResponse;
+    };
+    sdk: {
+      input: UpdateProfileCommandInput;
+      output: UpdateProfileCommandOutput;
+    };
+  };
+}

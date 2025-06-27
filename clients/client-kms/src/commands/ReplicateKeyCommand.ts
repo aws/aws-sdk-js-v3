@@ -12,7 +12,8 @@ import { de_ReplicateKeyCommand, se_ReplicateKeyCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,14 +40,10 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          <p>A <i>replica key</i> is a fully-functional KMS key that can be used
  *       independently of its primary and peer replica keys. A primary key and its replica keys share
  *       properties that make them interoperable. They have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-id-key-id">key ID</a> and key material. They also
- *       have the same <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-spec">key
- *         spec</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-usage">key
- *         usage</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-origin">key
- *         material origin</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html">automatic key rotation status</a>. KMS automatically synchronizes these shared
- *       properties among related multi-Region keys. All other properties of a replica key can differ,
- *       including its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key
- *         policy</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">tags</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">aliases</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a>. KMS pricing and quotas for KMS keys apply to each
- *       primary key and replica key.</p>
+ *       have the same key spec, key usage, key material origin, and automatic key rotation status.
+ *       KMS automatically synchronizes these shared properties among related multi-Region keys. All
+ *       other properties of a replica key can differ, including its <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html">key policy</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/tagging-keys.html">tags</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-alias.html">aliases</a>, and <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">key state</a>. KMS pricing and quotas for KMS keys
+ *       apply to each primary key and replica key.</p>
  *          <p>When this operation completes, the new replica key has a transient key state of
  *         <code>Creating</code>. This key state changes to <code>Enabled</code> (or
  *         <code>PendingImport</code>) after a few seconds when the process of creating the new replica
@@ -66,8 +63,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *         <code>ReplicateKey</code> operation in the primary key's Region and a <a>CreateKey</a> operation in the replica key's Region.</p>
  *          <p>If you replicate a multi-Region primary key with imported key material, the replica key is
  *       created with no key material. You must import the same key material that you imported into the
- *       primary key. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-import.html">Importing key material into multi-Region
- *         keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
+ *       primary key.</p>
  *          <p>To convert a replica key to a primary key, use the <a>UpdatePrimaryRegion</a>
  *       operation.</p>
  *          <note>
@@ -113,7 +109,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -143,7 +139,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     CreationDate: new Date("TIMESTAMP"),
  * //     Enabled: true || false,
  * //     Description: "STRING_VALUE",
- * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC",
+ * //     KeyUsage: "SIGN_VERIFY" || "ENCRYPT_DECRYPT" || "GENERATE_VERIFY_MAC" || "KEY_AGREEMENT",
  * //     KeyState: "Creating" || "Enabled" || "Disabled" || "PendingDeletion" || "PendingImport" || "PendingReplicaDeletion" || "Unavailable" || "Updating",
  * //     DeletionDate: new Date("TIMESTAMP"),
  * //     ValidTo: new Date("TIMESTAMP"),
@@ -153,12 +149,15 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
  * //     KeyManager: "AWS" || "CUSTOMER",
  * //     CustomerMasterKeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
- * //     KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2",
+ * //     KeySpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SYMMETRIC_DEFAULT" || "HMAC_224" || "HMAC_256" || "HMAC_384" || "HMAC_512" || "SM2" || "ML_DSA_44" || "ML_DSA_65" || "ML_DSA_87",
  * //     EncryptionAlgorithms: [ // EncryptionAlgorithmSpecList
  * //       "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * //     ],
  * //     SigningAlgorithms: [ // SigningAlgorithmSpecList
- * //       "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //       "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256",
+ * //     ],
+ * //     KeyAgreementAlgorithms: [ // KeyAgreementAlgorithmSpecList
+ * //       "ECDH",
  * //     ],
  * //     MultiRegion: true || false,
  * //     MultiRegionConfiguration: { // MultiRegionConfiguration
@@ -181,6 +180,7 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * //     XksKeyConfiguration: { // XksKeyConfigurationType
  * //       Id: "STRING_VALUE",
  * //     },
+ * //     CurrentKeyMaterialId: "STRING_VALUE",
  * //   },
  * //   ReplicaPolicy: "STRING_VALUE",
  * //   ReplicaTags: [ // TagList
@@ -235,8 +235,9 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link MalformedPolicyDocumentException} (client fault)
  *  <p>The request was rejected because the specified policy is not syntactically or semantically
@@ -256,55 +257,57 @@ export interface ReplicateKeyCommandOutput extends ReplicateKeyResponse, __Metad
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To replicate a multi-Region key in a different AWS Region
  * ```javascript
  * // This example creates a multi-Region replica key in us-west-2 of a multi-Region primary key in us-east-1.
  * const input = {
- *   "KeyId": "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *   "ReplicaRegion": "us-west-2"
+ *   KeyId: "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *   ReplicaRegion: "us-west-2"
  * };
  * const command = new ReplicateKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReplicaKeyMetadata": {
- *     "AWSAccountId": "111122223333",
- *     "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *     "CreationDate": 1607472987.918,
- *     "CustomerMasterKeySpec": "SYMMETRIC_DEFAULT",
- *     "Description": "",
- *     "Enabled": true,
- *     "EncryptionAlgorithms": [
+ *   ReplicaKeyMetadata: {
+ *     AWSAccountId: "111122223333",
+ *     Arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     CreationDate: 1.607472987918E9,
+ *     CustomerMasterKeySpec: "SYMMETRIC_DEFAULT",
+ *     Description: "",
+ *     Enabled: true,
+ *     EncryptionAlgorithms: [
  *       "SYMMETRIC_DEFAULT"
  *     ],
- *     "KeyId": "mrk-1234abcd12ab34cd56ef1234567890ab",
- *     "KeyManager": "CUSTOMER",
- *     "KeyState": "Enabled",
- *     "KeyUsage": "ENCRYPT_DECRYPT",
- *     "MultiRegion": true,
- *     "MultiRegionConfiguration": {
- *       "MultiRegionKeyType": "REPLICA",
- *       "PrimaryKey": {
- *         "Arn": "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *         "Region": "us-east-1"
+ *     KeyId: "mrk-1234abcd12ab34cd56ef1234567890ab",
+ *     KeyManager: "CUSTOMER",
+ *     KeyState: "Enabled",
+ *     KeyUsage: "ENCRYPT_DECRYPT",
+ *     MultiRegion: true,
+ *     MultiRegionConfiguration: {
+ *       MultiRegionKeyType: "REPLICA",
+ *       PrimaryKey: {
+ *         Arn: "arn:aws:kms:us-east-1:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *         Region: "us-east-1"
  *       },
- *       "ReplicaKeys": [
+ *       ReplicaKeys: [
  *         {
- *           "Arn": "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
- *           "Region": "us-west-2"
+ *           Arn: "arn:aws:kms:us-west-2:111122223333:key/mrk-1234abcd12ab34cd56ef1234567890ab",
+ *           Region: "us-west-2"
  *         }
  *       ]
  *     },
- *     "Origin": "AWS_KMS"
+ *     Origin: "AWS_KMS"
  *   },
- *   "ReplicaPolicy": "{\n  \"Version\" : \"2012-10-17\",\n  \"Id\" : \"key-default-1\",...}",
- *   "ReplicaTags": []
+ *   ReplicaPolicy: `{
+ *   "Version" : "2012-10-17",
+ *   "Id" : "key-default-1",...}`,
+ *   ReplicaTags:   []
  * }
  * *\/
- * // example id: to-replicate-a-multi-region-key-in-a-different-aws-region-1628622402887
  * ```
  *
+ * @public
  */
 export class ReplicateKeyCommand extends $Command
   .classBuilder<
@@ -314,9 +317,7 @@ export class ReplicateKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -328,4 +329,16 @@ export class ReplicateKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplicateKeyCommand)
   .de(de_ReplicateKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplicateKeyRequest;
+      output: ReplicateKeyResponse;
+    };
+    sdk: {
+      input: ReplicateKeyCommandInput;
+      output: ReplicateKeyCommandOutput;
+    };
+  };
+}

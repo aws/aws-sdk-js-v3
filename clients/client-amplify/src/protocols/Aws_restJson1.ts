@@ -99,11 +99,13 @@ import {
   BackendEnvironment,
   BadRequestException,
   Branch,
+  CacheConfig,
   CertificateSettings,
   CustomRule,
   DependentServiceFailureException,
   InternalFailureException,
   Job,
+  JobConfig,
   JobSummary,
   LimitExceededException,
   NotFoundException,
@@ -135,6 +137,8 @@ export const se_CreateAppCommand = async (
       autoBranchCreationPatterns: (_) => _json(_),
       basicAuthCredentials: [],
       buildSpec: [],
+      cacheConfig: (_) => _json(_),
+      computeRoleArn: [],
       customHeaders: [],
       customRules: (_) => _json(_),
       description: [],
@@ -144,6 +148,7 @@ export const se_CreateAppCommand = async (
       enableBranchAutoDeletion: [],
       environmentVariables: (_) => _json(_),
       iamServiceRoleArn: [],
+      jobConfig: (_) => _json(_),
       name: [],
       oauthToken: [],
       platform: [],
@@ -201,6 +206,7 @@ export const se_CreateBranchCommand = async (
       basicAuthCredentials: [],
       branchName: [],
       buildSpec: [],
+      computeRoleArn: [],
       description: [],
       displayName: [],
       enableAutoBuild: [],
@@ -208,6 +214,7 @@ export const se_CreateBranchCommand = async (
       enableNotification: [],
       enablePerformanceMode: [],
       enablePullRequestPreview: [],
+      enableSkewProtection: [],
       environmentVariables: (_) => _json(_),
       framework: [],
       pullRequestEnvironmentName: [],
@@ -711,6 +718,7 @@ export const se_StartDeploymentCommand = async (
     take(input, {
       jobId: [],
       sourceUrl: [],
+      sourceUrlType: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -799,10 +807,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -830,6 +835,8 @@ export const se_UpdateAppCommand = async (
       autoBranchCreationPatterns: (_) => _json(_),
       basicAuthCredentials: [],
       buildSpec: [],
+      cacheConfig: (_) => _json(_),
+      computeRoleArn: [],
       customHeaders: [],
       customRules: (_) => _json(_),
       description: [],
@@ -839,6 +846,7 @@ export const se_UpdateAppCommand = async (
       enableBranchAutoDeletion: [],
       environmentVariables: (_) => _json(_),
       iamServiceRoleArn: [],
+      jobConfig: (_) => _json(_),
       name: [],
       oauthToken: [],
       platform: [],
@@ -870,6 +878,7 @@ export const se_UpdateBranchCommand = async (
       backendEnvironmentArn: [],
       basicAuthCredentials: [],
       buildSpec: [],
+      computeRoleArn: [],
       description: [],
       displayName: [],
       enableAutoBuild: [],
@@ -877,6 +886,7 @@ export const se_UpdateBranchCommand = async (
       enableNotification: [],
       enablePerformanceMode: [],
       enablePullRequestPreview: [],
+      enableSkewProtection: [],
       environmentVariables: (_) => _json(_),
       framework: [],
       pullRequestEnvironmentName: [],
@@ -1904,6 +1914,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_Backend omitted.
 
+// se_CacheConfig omitted.
+
 // se_CertificateSettings omitted.
 
 // se_CustomRule omitted.
@@ -1913,6 +1925,8 @@ const de_UnauthorizedExceptionRes = async (
 // se_EnvironmentVariables omitted.
 
 // se_FileMap omitted.
+
+// se_JobConfig omitted.
 
 // se_SubDomainSetting omitted.
 
@@ -1931,6 +1945,8 @@ const de_App = (output: any, context: __SerdeContext): App => {
     autoBranchCreationPatterns: _json,
     basicAuthCredentials: __expectString,
     buildSpec: __expectString,
+    cacheConfig: _json,
+    computeRoleArn: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     customHeaders: __expectString,
     customRules: _json,
@@ -1942,6 +1958,7 @@ const de_App = (output: any, context: __SerdeContext): App => {
     enableBranchAutoDeletion: __expectBoolean,
     environmentVariables: _json,
     iamServiceRoleArn: __expectString,
+    jobConfig: _json,
     name: __expectString,
     platform: __expectString,
     productionBranch: (_: any) => de_ProductionBranch(_, context),
@@ -1949,6 +1966,8 @@ const de_App = (output: any, context: __SerdeContext): App => {
     repositoryCloneMethod: __expectString,
     tags: _json,
     updateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    wafConfiguration: _json,
+    webhookCreateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
   }) as any;
 };
 
@@ -2017,6 +2036,7 @@ const de_Branch = (output: any, context: __SerdeContext): Branch => {
     branchArn: __expectString,
     branchName: __expectString,
     buildSpec: __expectString,
+    computeRoleArn: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     customDomains: _json,
     description: __expectString,
@@ -2027,6 +2047,7 @@ const de_Branch = (output: any, context: __SerdeContext): Branch => {
     enableNotification: __expectBoolean,
     enablePerformanceMode: __expectBoolean,
     enablePullRequestPreview: __expectBoolean,
+    enableSkewProtection: __expectBoolean,
     environmentVariables: _json,
     framework: __expectString,
     pullRequestEnvironmentName: __expectString,
@@ -2051,6 +2072,8 @@ const de_Branches = (output: any, context: __SerdeContext): Branch[] => {
     });
   return retVal;
 };
+
+// de_CacheConfig omitted.
 
 // de_Certificate omitted.
 
@@ -2078,6 +2101,8 @@ const de_Job = (output: any, context: __SerdeContext): Job => {
   }) as any;
 };
 
+// de_JobConfig omitted.
+
 /**
  * deserializeAws_restJson1JobSummaries
  */
@@ -2102,6 +2127,8 @@ const de_JobSummary = (output: any, context: __SerdeContext): JobSummary => {
     jobArn: __expectString,
     jobId: __expectString,
     jobType: __expectString,
+    sourceUrl: __expectString,
+    sourceUrlType: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
   }) as any;
@@ -2160,11 +2187,14 @@ const de_Steps = (output: any, context: __SerdeContext): Step[] => {
 
 // de_TagMap omitted.
 
+// de_WafConfiguration omitted.
+
 /**
  * deserializeAws_restJson1Webhook
  */
 const de_Webhook = (output: any, context: __SerdeContext): Webhook => {
   return take(output, {
+    appId: __expectString,
     branchName: __expectString,
     createTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
@@ -2198,13 +2228,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _eN = "environmentName";
 const _mR = "maxResults";

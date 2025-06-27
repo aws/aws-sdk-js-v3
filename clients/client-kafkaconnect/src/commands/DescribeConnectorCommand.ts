@@ -16,7 +16,8 @@ import { de_DescribeConnectorCommand, se_DescribeConnectorCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,7 +63,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //     },
  * //   },
  * //   connectorArn: "STRING_VALUE",
- * //   connectorConfiguration: { // __sensitive__mapOf__string
+ * //   connectorConfiguration: { // ConnectorConfiguration
  * //     "<keys>": "STRING_VALUE",
  * //   },
  * //   connectorDescription: "STRING_VALUE",
@@ -164,6 +165,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * @throws {@link KafkaConnectServiceException}
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
+ *
  * @public
  */
 export class DescribeConnectorCommand extends $Command
@@ -174,9 +176,7 @@ export class DescribeConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -188,4 +188,16 @@ export class DescribeConnectorCommand extends $Command
   .f(void 0, DescribeConnectorResponseFilterSensitiveLog)
   .ser(se_DescribeConnectorCommand)
   .de(de_DescribeConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectorRequest;
+      output: DescribeConnectorResponse;
+    };
+    sdk: {
+      input: DescribeConnectorCommandInput;
+      output: DescribeConnectorCommandOutput;
+    };
+  };
+}

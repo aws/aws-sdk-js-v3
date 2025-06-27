@@ -36,7 +36,7 @@ export interface InvalidParameterDetail {
    * <p>The reason the parameter is invalid.</p>
    * @public
    */
-  Problem?: InvalidParameterProblem;
+  Problem?: InvalidParameterProblem | undefined;
 }
 
 /**
@@ -102,18 +102,18 @@ export type BadRequestReason = (typeof BadRequestReason)[keyof typeof BadRequest
 export class BadRequestException extends __BaseException {
   readonly name: "BadRequestException" = "BadRequestException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>Code indicating the reason the request was invalid.</p>
    * @public
    */
-  Reason?: BadRequestReason;
+  Reason?: BadRequestReason | undefined;
 
   /**
    * <p>Details describing why the request was invalid.</p>
    * @public
    */
-  Details?: BadRequestDetails;
+  Details?: BadRequestDetails | undefined;
   /**
    * @internal
    */
@@ -137,7 +137,7 @@ export class BadRequestException extends __BaseException {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -191,19 +191,19 @@ export type ResourceType = (typeof ResourceType)[keyof typeof ResourceType];
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The type of resource that was not found.</p>
    * @public
    */
-  ResourceType?: ResourceType;
+  ResourceType?: ResourceType | undefined;
 
   /**
    * <p>A map indicating which parameters in the request reference the resource that was not
    *          found.</p>
    * @public
    */
-  ReferencedBy?: Record<string, string>;
+  ReferencedBy?: Record<string, string> | undefined;
   /**
    * @internal
    */
@@ -248,7 +248,7 @@ export interface StartConfigurationSessionRequest {
    *          more frequently than every 60 seconds.</p>
    * @public
    */
-  RequiredMinimumPollIntervalInSeconds?: number;
+  RequiredMinimumPollIntervalInSeconds?: number | undefined;
 }
 
 /**
@@ -272,7 +272,7 @@ export interface StartConfigurationSessionResponse {
    *          </important>
    * @public
    */
-  InitialConfigurationToken?: string;
+  InitialConfigurationToken?: string | undefined;
 }
 
 /**
@@ -282,7 +282,7 @@ export interface StartConfigurationSessionResponse {
 export class ThrottlingException extends __BaseException {
   readonly name: "ThrottlingException" = "ThrottlingException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -335,7 +335,7 @@ export interface GetLatestConfigurationResponse {
    *          </important>
    * @public
    */
-  NextPollConfigurationToken?: string;
+  NextPollConfigurationToken?: string | undefined;
 
   /**
    * <p>The amount of time the client should wait before polling for configuration updates
@@ -343,26 +343,26 @@ export interface GetLatestConfigurationResponse {
    *          interval.</p>
    * @public
    */
-  NextPollIntervalInSeconds?: number;
+  NextPollIntervalInSeconds?: number | undefined;
 
   /**
    * <p>A standard MIME type describing the format of the configuration content.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The data of the configuration. This may be empty if the client already has the latest
    *          version of configuration.</p>
    * @public
    */
-  Configuration?: Uint8Array;
+  Configuration?: Uint8Array | undefined;
 
   /**
    * <p>The user-defined label for the AppConfig hosted configuration version. This attribute doesn't apply if the configuration is not from an AppConfig hosted configuration version. If the client already has the latest version of the configuration data, this value is empty.</p>
    * @public
    */
-  VersionLabel?: string;
+  VersionLabel?: string | undefined;
 }
 
 /**

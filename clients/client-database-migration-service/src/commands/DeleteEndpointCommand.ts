@@ -20,7 +20,8 @@ import { de_DeleteEndpointCommand, se_DeleteEndpointCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -150,6 +151,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       IncludeControlDetails: true || false,
  * //       IncludeNullAndEmpty: true || false,
  * //       NoHexPrefix: true || false,
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     KafkaSettings: { // KafkaSettings
  * //       Broker: "STRING_VALUE",
@@ -172,6 +174,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       NoHexPrefix: true || false,
  * //       SaslMechanism: "scram-sha-512" || "plain",
  * //       SslEndpointIdentificationAlgorithm: "none" || "https",
+ * //       UseLargeIntegerValue: true || false,
  * //     },
  * //     ElasticsearchSettings: { // ElasticsearchSettings
  * //       ServiceAccessRoleArn: "STRING_VALUE", // required
@@ -247,6 +250,9 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       MapLongVarcharAs: "wstring" || "clob" || "nclob",
  * //       DatabaseMode: "default" || "babelfish",
  * //       BabelfishDatabaseName: "STRING_VALUE",
+ * //       DisableUnicodeSourceFilter: true || false,
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       AuthenticationMethod: "password" || "iam",
  * //     },
  * //     MySQLSettings: { // MySQLSettings
  * //       AfterConnectScript: "STRING_VALUE",
@@ -264,6 +270,8 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       SecretsManagerAccessRoleArn: "STRING_VALUE",
  * //       SecretsManagerSecretId: "STRING_VALUE",
  * //       ExecuteTimeout: Number("int"),
+ * //       ServiceAccessRoleArn: "STRING_VALUE",
+ * //       AuthenticationMethod: "password" || "iam",
  * //     },
  * //     OracleSettings: { // OracleSettings
  * //       AddSupplementalLogging: true || false,
@@ -311,6 +319,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       ConvertTimestampWithZoneToUTC: true || false,
  * //       OpenTransactionWindow: Number("int"),
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     SybaseSettings: { // SybaseSettings
  * //       DatabaseName: "STRING_VALUE",
@@ -339,6 +348,7 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * //       TrimSpaceInChar: true || false,
  * //       TlogAccessMode: "BackupOnly" || "PreferBackup" || "PreferTlog" || "TlogOnly",
  * //       ForceLobLookup: true || false,
+ * //       AuthenticationMethod: "password" || "kerberos",
  * //     },
  * //     IBMDb2Settings: { // IBMDb2Settings
  * //       DatabaseName: "STRING_VALUE",
@@ -423,34 +433,34 @@ export interface DeleteEndpointCommandOutput extends DeleteEndpointResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Delete Endpoint
  * ```javascript
  * // Deletes the specified endpoint. All tasks associated with the endpoint must be deleted before you can delete the endpoint.
- * //
+ *
  * const input = {
- *   "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM"
+ *   EndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM"
  * };
  * const command = new DeleteEndpointCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Endpoint": {
- *     "EndpointArn": "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
- *     "EndpointIdentifier": "test-endpoint-1",
- *     "EndpointType": "source",
- *     "EngineName": "mysql",
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
- *     "Port": 3306,
- *     "ServerName": "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
- *     "Status": "active",
- *     "Username": "username"
+ *   Endpoint: {
+ *     EndpointArn: "arn:aws:dms:us-east-1:123456789012:endpoint:RAAR3R22XSH46S3PWLC3NJAWKM",
+ *     EndpointIdentifier: "test-endpoint-1",
+ *     EndpointType: "source",
+ *     EngineName: "mysql",
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/4c1731d6-5435-ed4d-be13-d53411a7cfbd",
+ *     Port: 3306,
+ *     ServerName: "mydb.cx1llnox7iyx.us-west-2.rds.amazonaws.com",
+ *     Status: "active",
+ *     Username: "username"
  *   }
  * }
  * *\/
- * // example id: delete-endpoint-1481752425530
  * ```
  *
+ * @public
  */
 export class DeleteEndpointCommand extends $Command
   .classBuilder<
@@ -460,9 +470,7 @@ export class DeleteEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -474,4 +482,16 @@ export class DeleteEndpointCommand extends $Command
   .f(void 0, DeleteEndpointResponseFilterSensitiveLog)
   .ser(se_DeleteEndpointCommand)
   .de(de_DeleteEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEndpointMessage;
+      output: DeleteEndpointResponse;
+    };
+    sdk: {
+      input: DeleteEndpointCommandInput;
+      output: DeleteEndpointCommandOutput;
+    };
+  };
+}

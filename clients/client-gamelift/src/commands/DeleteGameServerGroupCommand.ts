@@ -12,7 +12,8 @@ import { de_DeleteGameServerGroupCommand, se_DeleteGameServerGroupCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
 
 /**
  * <p>
- *             <b>This operation is used with the Amazon GameLift FleetIQ solution and game server groups.</b>
+ *             <b>This operation is used with the Amazon GameLift Servers FleetIQ solution and game server groups.</b>
  *          </p>
  *          <p>Terminates a game server group
  *             and permanently deletes the game server group record. You have several options for how
@@ -51,15 +52,15 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  *          <p>If the delete request is successful, a series of operations are kicked off. The game
  *             server group status is changed to <code>DELETE_SCHEDULED</code>, which prevents new game
  *             servers from being registered and stops automatic scaling activity. Once all game
- *             servers in the game server group are deregistered, Amazon GameLift FleetIQ can begin deleting resources.
+ *             servers in the game server group are deregistered, Amazon GameLift Servers FleetIQ can begin deleting resources.
  *             If any of the delete operations fail, the game server group is placed in
  *                 <code>ERROR</code> status.</p>
- *          <p>Amazon GameLift FleetIQ emits delete events to Amazon CloudWatch.</p>
+ *          <p>Amazon GameLift Servers FleetIQ emits delete events to Amazon CloudWatch.</p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift FleetIQ
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/fleetiqguide/gsg-intro.html">Amazon GameLift Servers FleetIQ
  *                 Guide</a>
  *          </p>
  * @example
@@ -115,13 +116,14 @@ export interface DeleteGameServerGroupCommandOutput extends DeleteGameServerGrou
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -133,9 +135,7 @@ export class DeleteGameServerGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class DeleteGameServerGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteGameServerGroupCommand)
   .de(de_DeleteGameServerGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteGameServerGroupInput;
+      output: DeleteGameServerGroupOutput;
+    };
+    sdk: {
+      input: DeleteGameServerGroupCommandInput;
+      output: DeleteGameServerGroupCommandOutput;
+    };
+  };
+}

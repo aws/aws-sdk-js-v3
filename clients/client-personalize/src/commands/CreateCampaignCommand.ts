@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateCampaignRequest, CreateCampaignResponse } from "../models/models_0";
+import {
+  CreateCampaignRequest,
+  CreateCampaignRequestFilterSensitiveLog,
+  CreateCampaignResponse,
+} from "../models/models_0";
 import { PersonalizeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../PersonalizeClient";
 import { de_CreateCampaignCommand, se_CreateCampaignCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -161,6 +166,7 @@ export interface CreateCampaignCommandOutput extends CreateCampaignResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class CreateCampaignCommand extends $Command
@@ -171,9 +177,7 @@ export class CreateCampaignCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -182,7 +186,19 @@ export class CreateCampaignCommand extends $Command
   })
   .s("AmazonPersonalize", "CreateCampaign", {})
   .n("PersonalizeClient", "CreateCampaignCommand")
-  .f(void 0, void 0)
+  .f(CreateCampaignRequestFilterSensitiveLog, void 0)
   .ser(se_CreateCampaignCommand)
   .de(de_CreateCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCampaignRequest;
+      output: CreateCampaignResponse;
+    };
+    sdk: {
+      input: CreateCampaignCommandInput;
+      output: CreateCampaignCommandOutput;
+    };
+  };
+}

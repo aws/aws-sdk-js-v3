@@ -12,7 +12,8 @@ import { de_DeleteCapacityReservationCommand, se_DeleteCapacityReservationComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DeleteCapacityReservationCommandOutput extends DeleteCapacityRe
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class DeleteCapacityReservationCommand extends $Command
@@ -74,9 +76,7 @@ export class DeleteCapacityReservationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DeleteCapacityReservationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCapacityReservationCommand)
   .de(de_DeleteCapacityReservationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCapacityReservationInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCapacityReservationCommandInput;
+      output: DeleteCapacityReservationCommandOutput;
+    };
+  };
+}

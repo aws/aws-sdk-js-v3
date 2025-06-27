@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface ListApplicationInstanceDependenciesCommandOutput
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class ListApplicationInstanceDependenciesCommand extends $Command
@@ -87,9 +89,7 @@ export class ListApplicationInstanceDependenciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class ListApplicationInstanceDependenciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListApplicationInstanceDependenciesCommand)
   .de(de_ListApplicationInstanceDependenciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListApplicationInstanceDependenciesRequest;
+      output: ListApplicationInstanceDependenciesResponse;
+    };
+    sdk: {
+      input: ListApplicationInstanceDependenciesCommandInput;
+      output: ListApplicationInstanceDependenciesCommandOutput;
+    };
+  };
+}

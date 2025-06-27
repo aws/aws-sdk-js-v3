@@ -1,5 +1,6 @@
 import { HttpRequest } from "@smithy/protocol-http";
 import { DeserializeHandlerArguments } from "@smithy/types";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { PreviouslyResolved } from "./configuration";
 import { ChecksumAlgorithm } from "./constants";
@@ -10,14 +11,14 @@ import { isChecksumWithPartNumber } from "./isChecksumWithPartNumber";
 import { isStreaming } from "./isStreaming";
 import { validateChecksumFromResponse } from "./validateChecksumFromResponse";
 
-jest.mock("@smithy/protocol-http");
-jest.mock("./isChecksumWithPartNumber");
-jest.mock("./isStreaming");
-jest.mock("./getChecksumLocationName");
-jest.mock("./validateChecksumFromResponse");
+vi.mock("@smithy/protocol-http");
+vi.mock("./isChecksumWithPartNumber");
+vi.mock("./isStreaming");
+vi.mock("./getChecksumLocationName");
+vi.mock("./validateChecksumFromResponse");
 
 describe(flexibleChecksumsResponseMiddleware.name, () => {
-  const mockNext = jest.fn();
+  const mockNext = vi.fn();
   const mockContext = {
     clientName: "mockClientName",
     commandName: "mockCommandName",
@@ -47,21 +48,21 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
   beforeEach(() => {
     mockNext.mockResolvedValueOnce(mockResult);
     const { isInstance } = HttpRequest;
-    (isInstance as unknown as jest.Mock).mockReturnValue(true);
-    (isChecksumWithPartNumber as jest.Mock).mockReturnValue(false);
-    (isStreaming as jest.Mock).mockReturnValue(false);
-    (getChecksumLocationName as jest.Mock).mockImplementation((algorithm) => algorithm);
+    (isInstance as unknown as any).mockReturnValue(true);
+    vi.mocked(isChecksumWithPartNumber).mockReturnValue(false);
+    vi.mocked(isStreaming).mockReturnValue(false);
+    vi.mocked(getChecksumLocationName).mockImplementation((algorithm) => algorithm);
   });
 
   afterEach(() => {
     expect(mockNext).toHaveBeenCalledTimes(1);
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   describe("skips", () => {
     it("if not an instance of HttpRequest", async () => {
       const { isInstance } = HttpRequest;
-      (isInstance as unknown as jest.Mock).mockReturnValue(false);
+      (isInstance as unknown as any).mockReturnValue(false);
       const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, mockContext);
       await handler(mockArgs);
       expect(validateChecksumFromResponse).not.toHaveBeenCalled();
@@ -83,7 +84,7 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
       });
 
       it("if checksum is for S3 whole-object multipart GET", async () => {
-        (isChecksumWithPartNumber as jest.Mock).mockReturnValue(true);
+        vi.mocked(isChecksumWithPartNumber).mockReturnValue(true);
         const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {
           clientName: "S3Client",
           commandName: "GetObjectCommand",
@@ -108,7 +109,7 @@ describe(flexibleChecksumsResponseMiddleware.name, () => {
     });
 
     it("if checksum is for S3 GET without part number", async () => {
-      (isChecksumWithPartNumber as jest.Mock).mockReturnValue(false);
+      vi.mocked(isChecksumWithPartNumber).mockReturnValue(false);
       const handler = flexibleChecksumsResponseMiddleware(mockConfig, mockMiddlewareConfig)(mockNext, {
         clientName: "S3Client",
         commandName: "GetObjectCommand",

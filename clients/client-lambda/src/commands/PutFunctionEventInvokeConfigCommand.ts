@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,9 +39,12 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  *       events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous
  *       invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with
  *         <a>UpdateFunctionConfiguration</a>.</p>
- *          <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
+ *          <p>To send an invocation record to a queue, topic, S3 bucket, function, or event bus, specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">destination</a>. You can configure separate destinations for successful invocations (on-success) and events
  *       that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a
  *       dead-letter queue.</p>
+ *          <note>
+ *             <p>S3 buckets are supported only for on-failure destinations. To retain records of successful invocations, use another destination type.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,6 +108,31 @@ export interface PutFunctionEventInvokeConfigCommandOutput extends FunctionEvent
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To configure error handling for asynchronous invocation
+ * ```javascript
+ * // The following example sets a maximum event age of one hour and disables retries for the specified function.
+ * const input = {
+ *   FunctionName: "my-function",
+ *   MaximumEventAgeInSeconds: 3600,
+ *   MaximumRetryAttempts: 0
+ * };
+ * const command = new PutFunctionEventInvokeConfigCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DestinationConfig: {
+ *     OnFailure:     { /* empty *\/ },
+ *     OnSuccess:     { /* empty *\/ }
+ *   },
+ *   FunctionArn: "arn:aws:lambda:us-east-2:123456789012:function:my-function:$LATEST",
+ *   LastModified: "2016-11-21T19:49:20.006Z",
+ *   MaximumEventAgeInSeconds: 3600,
+ *   MaximumRetryAttempts: 0
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutFunctionEventInvokeConfigCommand extends $Command
@@ -114,9 +143,7 @@ export class PutFunctionEventInvokeConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +155,16 @@ export class PutFunctionEventInvokeConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutFunctionEventInvokeConfigCommand)
   .de(de_PutFunctionEventInvokeConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutFunctionEventInvokeConfigRequest;
+      output: FunctionEventInvokeConfig;
+    };
+    sdk: {
+      input: PutFunctionEventInvokeConfigCommandInput;
+      output: PutFunctionEventInvokeConfigCommandOutput;
+    };
+  };
+}

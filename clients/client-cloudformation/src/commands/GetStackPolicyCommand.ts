@@ -12,7 +12,8 @@ import { de_GetStackPolicyCommand, se_GetStackPolicyCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface GetStackPolicyCommandInput extends GetStackPolicyInput {}
 export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null value is
- *    returned.</p>
+ * <p>Returns the stack policy for a specified stack. If a stack doesn't have a policy, a null
+ *       value is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +56,7 @@ export interface GetStackPolicyCommandOutput extends GetStackPolicyOutput, __Met
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class GetStackPolicyCommand extends $Command
@@ -65,9 +67,7 @@ export class GetStackPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -79,4 +79,16 @@ export class GetStackPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetStackPolicyCommand)
   .de(de_GetStackPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStackPolicyInput;
+      output: GetStackPolicyOutput;
+    };
+    sdk: {
+      input: GetStackPolicyCommandInput;
+      output: GetStackPolicyCommandOutput;
+    };
+  };
+}

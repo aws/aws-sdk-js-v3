@@ -17,7 +17,8 @@ import { de_CreateDataSourceCommand, se_CreateDataSourceCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,7 +45,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *   description: "STRING_VALUE",
  *   domainIdentifier: "STRING_VALUE", // required
  *   projectIdentifier: "STRING_VALUE", // required
- *   environmentIdentifier: "STRING_VALUE", // required
+ *   environmentIdentifier: "STRING_VALUE",
+ *   connectionIdentifier: "STRING_VALUE",
  *   type: "STRING_VALUE", // required
  *   configuration: { // DataSourceConfigurationInput Union: only one key present
  *     glueRunConfiguration: { // GlueRunConfigurationInput
@@ -62,6 +64,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *         },
  *       ],
  *       autoImportDataQualityResult: true || false,
+ *       catalogName: "STRING_VALUE",
  *     },
  *     redshiftRunConfiguration: { // RedshiftRunConfigurationInput
  *       dataAccessRole: "STRING_VALUE",
@@ -87,6 +90,13 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  *         redshiftServerlessSource: { // RedshiftServerlessStorage
  *           workgroupName: "STRING_VALUE", // required
  *         },
+ *       },
+ *     },
+ *     sageMakerRunConfiguration: { // SageMakerRunConfigurationInput
+ *       trackingAssets: { // TrackingAssets // required
+ *         "<keys>": [ // TrackingAssetArns
+ *           "STRING_VALUE",
+ *         ],
  *       },
  *     },
  *   },
@@ -119,7 +129,8 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -138,6 +149,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -165,6 +177,15 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * //         redshiftServerlessSource: { // RedshiftServerlessStorage
  * //           workgroupName: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   },
@@ -234,6 +255,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceOutput, _
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class CreateDataSourceCommand extends $Command
@@ -244,9 +266,7 @@ export class CreateDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -258,4 +278,16 @@ export class CreateDataSourceCommand extends $Command
   .f(CreateDataSourceInputFilterSensitiveLog, CreateDataSourceOutputFilterSensitiveLog)
   .ser(se_CreateDataSourceCommand)
   .de(de_CreateDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDataSourceInput;
+      output: CreateDataSourceOutput;
+    };
+    sdk: {
+      input: CreateDataSourceCommandInput;
+      output: CreateDataSourceCommandOutput;
+    };
+  };
+}

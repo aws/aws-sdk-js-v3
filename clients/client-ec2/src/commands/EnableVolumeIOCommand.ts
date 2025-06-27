@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { EnableVolumeIORequest } from "../models/models_5";
+import { EnableVolumeIORequest } from "../models/models_6";
 import { de_EnableVolumeIOCommand, se_EnableVolumeIOCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,18 +55,21 @@ export interface EnableVolumeIOCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To enable I/O for a volume
  * ```javascript
  * // This example enables I/O on volume ``vol-1234567890abcdef0``.
  * const input = {
- *   "VolumeId": "vol-1234567890abcdef0"
+ *   VolumeId: "vol-1234567890abcdef0"
  * };
  * const command = new EnableVolumeIOCommand(input);
- * await client.send(command);
- * // example id: to-enable-io-for-a-volume-1472508114867
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableVolumeIOCommand extends $Command
   .classBuilder<
@@ -75,9 +79,7 @@ export class EnableVolumeIOCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +91,16 @@ export class EnableVolumeIOCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableVolumeIOCommand)
   .de(de_EnableVolumeIOCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableVolumeIORequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableVolumeIOCommandInput;
+      output: EnableVolumeIOCommandOutput;
+    };
+  };
+}

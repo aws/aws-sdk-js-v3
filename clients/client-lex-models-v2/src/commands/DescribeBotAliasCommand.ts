@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeBotAliasRequest, DescribeBotAliasResponse } from "../models/models_0";
+import { DescribeBotAliasRequest, DescribeBotAliasResponse } from "../models/models_1";
 import { de_DescribeBotAliasCommand, se_DescribeBotAliasCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -135,6 +136,7 @@ export interface DescribeBotAliasCommandOutput extends DescribeBotAliasResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeBotAliasCommand extends $Command
@@ -145,9 +147,7 @@ export class DescribeBotAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class DescribeBotAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBotAliasCommand)
   .de(de_DescribeBotAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBotAliasRequest;
+      output: DescribeBotAliasResponse;
+    };
+    sdk: {
+      input: DescribeBotAliasCommandInput;
+      output: DescribeBotAliasCommandOutput;
+    };
+  };
+}

@@ -19,6 +19,11 @@ import {
   DeleteBrokerCommandInput,
   DeleteBrokerCommandOutput,
 } from "./commands/DeleteBrokerCommand";
+import {
+  DeleteConfigurationCommand,
+  DeleteConfigurationCommandInput,
+  DeleteConfigurationCommandOutput,
+} from "./commands/DeleteConfigurationCommand";
 import { DeleteTagsCommand, DeleteTagsCommandInput, DeleteTagsCommandOutput } from "./commands/DeleteTagsCommand";
 import { DeleteUserCommand, DeleteUserCommandInput, DeleteUserCommandOutput } from "./commands/DeleteUserCommand";
 import {
@@ -89,6 +94,7 @@ const commands = {
   CreateTagsCommand,
   CreateUserCommand,
   DeleteBrokerCommand,
+  DeleteConfigurationCommand,
   DeleteTagsCommand,
   DeleteUserCommand,
   DescribeBrokerCommand,
@@ -169,6 +175,23 @@ export interface Mq {
     args: DeleteBrokerCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBrokerCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConfigurationCommand}
+   */
+  deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConfigurationCommandOutput>;
+  deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
+  ): void;
+  deleteConfiguration(
+    args: DeleteConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConfigurationCommandOutput) => void
   ): void;
 
   /**

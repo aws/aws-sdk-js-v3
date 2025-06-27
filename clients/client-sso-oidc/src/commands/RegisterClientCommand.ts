@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,9 @@ export interface RegisterClientCommandInput extends RegisterClientRequest {}
 export interface RegisterClientCommandOutput extends RegisterClientResponse, __MetadataBearer {}
 
 /**
- * <p>Registers a client with IAM Identity Center. This allows clients to initiate device authorization.
- *       The output should be persisted for reuse through many authentication requests.</p>
+ * <p>Registers a public client with IAM Identity Center. This allows clients to perform authorization using
+ *       the authorization code grant with Proof Key for Code Exchange (PKCE) or the device
+ *       code grant.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,7 +84,8 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  *       invalid.</p>
  *
  * @throws {@link InvalidRedirectUriException} (client fault)
- *  <p>Indicates that one or more redirect URI in the request is not supported for this operation.</p>
+ *  <p>Indicates that one or more redirect URI in the request is not supported for this
+ *       operation.</p>
  *
  * @throws {@link InvalidRequestException} (client fault)
  *  <p>Indicates that something is wrong with the input to the request. For example, a required
@@ -97,40 +100,40 @@ export interface RegisterClientCommandOutput extends RegisterClientResponse, __M
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
- * @public
+ *
  * @example Call OAuth/OIDC /register-client endpoint
  * ```javascript
  * //
  * const input = {
- *   "clientName": "My IDE Plugin",
- *   "clientType": "public",
- *   "entitledApplicationArn": "arn:aws:sso::ACCOUNTID:application/ssoins-1111111111111111/apl-1111111111111111",
- *   "grantTypes": [
+ *   clientName: "My IDE Plugin",
+ *   clientType: "public",
+ *   entitledApplicationArn: "arn:aws:sso::ACCOUNTID:application/ssoins-1111111111111111/apl-1111111111111111",
+ *   grantTypes: [
  *     "authorization_code",
  *     "refresh_token"
  *   ],
- *   "issuerUrl": "https://identitycenter.amazonaws.com/ssoins-1111111111111111",
- *   "redirectUris": [
+ *   issuerUrl: "https://identitycenter.amazonaws.com/ssoins-1111111111111111",
+ *   redirectUris: [
  *     "127.0.0.1:PORT/oauth/callback"
  *   ],
- *   "scopes": [
+ *   scopes: [
  *     "sso:account:access",
  *     "codewhisperer:completions"
  *   ]
  * };
  * const command = new RegisterClientCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
- *   "clientIdIssuedAt": 1579725929,
- *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
- *   "clientSecretExpiresAt": 1587584729
+ *   clientId: "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   clientIdIssuedAt: 1579725929,
+ *   clientSecret: "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   clientSecretExpiresAt: 1587584729
  * }
  * *\/
- * // example id: register-client
  * ```
  *
+ * @public
  */
 export class RegisterClientCommand extends $Command
   .classBuilder<
@@ -140,9 +143,7 @@ export class RegisterClientCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +155,16 @@ export class RegisterClientCommand extends $Command
   .f(void 0, RegisterClientResponseFilterSensitiveLog)
   .ser(se_RegisterClientCommand)
   .de(de_RegisterClientCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterClientRequest;
+      output: RegisterClientResponse;
+    };
+    sdk: {
+      input: RegisterClientCommandInput;
+      output: RegisterClientCommandOutput;
+    };
+  };
+}

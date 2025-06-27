@@ -16,7 +16,8 @@ import { de_RefreshSchemasCommand, se_RefreshSchemasCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,24 +80,24 @@ export interface RefreshSchemasCommandOutput extends RefreshSchemasResponse, __M
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Refresh schema
  * ```javascript
  * // Populates the schema for the specified endpoint. This is an asynchronous operation and can take several minutes. You can check the status of this operation by calling the describe-refresh-schemas-status operation.
  * const input = {
- *   "EndpointArn": "",
- *   "ReplicationInstanceArn": ""
+ *   EndpointArn: "",
+ *   ReplicationInstanceArn: ""
  * };
  * const command = new RefreshSchemasCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "RefreshSchemasStatus": {}
+ *   RefreshSchemasStatus:   { /* empty *\/ }
  * }
  * *\/
- * // example id: refresh-schema-1481762399111
  * ```
  *
+ * @public
  */
 export class RefreshSchemasCommand extends $Command
   .classBuilder<
@@ -106,9 +107,7 @@ export class RefreshSchemasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class RefreshSchemasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RefreshSchemasCommand)
   .de(de_RefreshSchemasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RefreshSchemasMessage;
+      output: RefreshSchemasResponse;
+    };
+    sdk: {
+      input: RefreshSchemasCommandInput;
+      output: RefreshSchemasCommandOutput;
+    };
+  };
+}

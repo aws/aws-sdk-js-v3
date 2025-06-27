@@ -12,7 +12,8 @@ import { de_ImportDatasetCommand, se_ImportDatasetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface ImportDatasetCommandOutput extends ImportDatasetResponse, __Met
  * @throws {@link LookoutEquipmentServiceException}
  * <p>Base exception class for all service exceptions from LookoutEquipment service.</p>
  *
+ *
  * @public
  */
 export class ImportDatasetCommand extends $Command
@@ -102,9 +104,7 @@ export class ImportDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutEquipmentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class ImportDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportDatasetCommand)
   .de(de_ImportDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportDatasetRequest;
+      output: ImportDatasetResponse;
+    };
+    sdk: {
+      input: ImportDatasetCommandInput;
+      output: ImportDatasetCommandOutput;
+    };
+  };
+}

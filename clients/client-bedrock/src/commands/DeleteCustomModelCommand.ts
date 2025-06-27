@@ -12,7 +12,8 @@ import { de_DeleteCustomModelCommand, se_DeleteCustomModelCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface DeleteCustomModelCommandInput extends DeleteCustomModelRequest 
 export interface DeleteCustomModelCommandOutput extends DeleteCustomModelResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes a custom model that you created earlier. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the Amazon Bedrock User Guide.</p>
+ * <p>Deletes a custom model that you created earlier. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models.html">Custom models</a> in the <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-service.html">Amazon Bedrock User Guide</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +71,7 @@ export interface DeleteCustomModelCommandOutput extends DeleteCustomModelRespons
  * @throws {@link BedrockServiceException}
  * <p>Base exception class for all service exceptions from Bedrock service.</p>
  *
+ *
  * @public
  */
 export class DeleteCustomModelCommand extends $Command
@@ -80,9 +82,7 @@ export class DeleteCustomModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class DeleteCustomModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomModelCommand)
   .de(de_DeleteCustomModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomModelRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomModelCommandInput;
+      output: DeleteCustomModelCommandOutput;
+    };
+  };
+}

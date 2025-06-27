@@ -12,7 +12,8 @@ import { de_ListAnomalyGroupTimeSeriesCommand, se_ListAnomalyGroupTimeSeriesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface ListAnomalyGroupTimeSeriesCommandOutput extends ListAnomalyGrou
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class ListAnomalyGroupTimeSeriesCommand extends $Command
@@ -103,9 +105,7 @@ export class ListAnomalyGroupTimeSeriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class ListAnomalyGroupTimeSeriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAnomalyGroupTimeSeriesCommand)
   .de(de_ListAnomalyGroupTimeSeriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAnomalyGroupTimeSeriesRequest;
+      output: ListAnomalyGroupTimeSeriesResponse;
+    };
+    sdk: {
+      input: ListAnomalyGroupTimeSeriesCommandInput;
+      output: ListAnomalyGroupTimeSeriesCommandOutput;
+    };
+  };
+}

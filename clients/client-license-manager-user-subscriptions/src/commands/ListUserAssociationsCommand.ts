@@ -16,7 +16,8 @@ import { de_ListUserAssociationsCommand, se_ListUserAssociationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,6 +44,23 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
  *   MaxResults: Number("int"),
@@ -65,9 +83,27 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * //       IdentityProvider: { // IdentityProvider Union: only one key present
  * //         ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //           DirectoryId: "STRING_VALUE",
+ * //           ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //             DomainName: "STRING_VALUE",
+ * //             DomainIpv4List: [ // IpV4List
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //               SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //                 SecretId: "STRING_VALUE",
+ * //               },
+ * //             },
+ * //             DomainNetworkSettings: { // DomainNetworkSettings
+ * //               Subnets: [ // Subnets // required
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //             },
+ * //           },
+ * //           ActiveDirectoryType: "STRING_VALUE",
  * //         },
  * //       },
  * //       Status: "STRING_VALUE", // required
+ * //       InstanceUserArn: "STRING_VALUE",
  * //       StatusMessage: "STRING_VALUE",
  * //       Domain: "STRING_VALUE",
  * //       AssociationDate: "STRING_VALUE",
@@ -90,7 +126,7 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -110,6 +146,7 @@ export interface ListUserAssociationsCommandOutput extends ListUserAssociationsR
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class ListUserAssociationsCommand extends $Command
@@ -120,9 +157,7 @@ export class ListUserAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +169,16 @@ export class ListUserAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListUserAssociationsCommand)
   .de(de_ListUserAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListUserAssociationsRequest;
+      output: ListUserAssociationsResponse;
+    };
+    sdk: {
+      input: ListUserAssociationsCommandInput;
+      output: ListUserAssociationsCommandOutput;
+    };
+  };
+}

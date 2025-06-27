@@ -10,7 +10,7 @@ import { CloudFrontKeyValueStoreServiceException as __BaseException } from "./Cl
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -32,7 +32,7 @@ export class AccessDeniedException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -101,7 +101,7 @@ export interface DeleteKeyResponse {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -123,7 +123,7 @@ export class InternalServerException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -145,7 +145,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -167,7 +167,7 @@ export class ServiceQuotaExceededException extends __BaseException {
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -232,19 +232,19 @@ export interface DescribeKeyValueStoreResponse {
    * <p>Date and time when the key value pairs in the Key Value Store was last modified.</p>
    * @public
    */
-  LastModified?: Date;
+  LastModified?: Date | undefined;
 
   /**
    * <p>The current status of the Key Value Store.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The reason for Key Value Store creation failure.</p>
    * @public
    */
-  FailureReason?: string;
+  FailureReason?: string | undefined;
 }
 
 /**
@@ -308,13 +308,13 @@ export interface ListKeysRequest {
    * <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Maximum number of results that are returned per call. The default is 10 and maximum allowed page is 50.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -343,13 +343,13 @@ export interface ListKeysResponse {
    * <p>If nextToken is returned in the response, there are more results available. Make the next call using the returned token to retrieve the next page.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Key value pairs</p>
    * @public
    */
-  Items?: ListKeysResponseListItem[];
+  Items?: ListKeysResponseListItem[] | undefined;
 }
 
 /**
@@ -456,13 +456,13 @@ export interface UpdateKeysRequest {
    * <p>List of key value pairs to put.</p>
    * @public
    */
-  Puts?: PutKeyRequestListItem[];
+  Puts?: PutKeyRequestListItem[] | undefined;
 
   /**
    * <p>List of keys to delete.</p>
    * @public
    */
-  Deletes?: DeleteKeyRequestListItem[];
+  Deletes?: DeleteKeyRequestListItem[] | undefined;
 }
 
 /**

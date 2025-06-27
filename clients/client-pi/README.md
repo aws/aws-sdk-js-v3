@@ -35,7 +35,7 @@ dimensions, measured at that time point. Examples include SQL, Wait event, User,
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pi
+To install this package, simply type add or install @aws-sdk/client-pi
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pi`

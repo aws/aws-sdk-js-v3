@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface OptInPhoneNumberCommandOutput extends OptInPhoneNumberResponse,
  * @throws {@link SNSServiceException}
  * <p>Base exception class for all service exceptions from SNS service.</p>
  *
+ *
  * @public
  */
 export class OptInPhoneNumberCommand extends $Command
@@ -81,9 +83,7 @@ export class OptInPhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SNSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class OptInPhoneNumberCommand extends $Command
   .f(OptInPhoneNumberInputFilterSensitiveLog, void 0)
   .ser(se_OptInPhoneNumberCommand)
   .de(de_OptInPhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: OptInPhoneNumberInput;
+      output: {};
+    };
+    sdk: {
+      input: OptInPhoneNumberCommandInput;
+      output: OptInPhoneNumberCommandOutput;
+    };
+  };
+}

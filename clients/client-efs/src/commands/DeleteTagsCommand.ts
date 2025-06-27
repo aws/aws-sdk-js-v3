@@ -12,7 +12,8 @@ import { de_DeleteTagsCommand, se_DeleteTagsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,21 +78,24 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
- * @public
+ *
  * @example To delete tags for an EFS file system
  * ```javascript
  * // This operation deletes tags for an EFS file system.
  * const input = {
- *   "FileSystemId": "fs-01234567",
- *   "TagKeys": [
+ *   FileSystemId: "fs-01234567",
+ *   TagKeys: [
  *     "Name"
  *   ]
  * };
  * const command = new DeleteTagsCommand(input);
- * await client.send(command);
- * // example id: to-delete-tags-for-an-efs-file-system-1481848189061
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteTagsCommand extends $Command
   .classBuilder<
@@ -101,9 +105,7 @@ export class DeleteTagsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +117,16 @@ export class DeleteTagsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTagsCommand)
   .de(de_DeleteTagsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTagsRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTagsCommandInput;
+      output: DeleteTagsCommandOutput;
+    };
+  };
+}

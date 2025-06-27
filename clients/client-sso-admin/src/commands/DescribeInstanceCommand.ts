@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,19 +28,22 @@ export interface DescribeInstanceCommandInput extends DescribeInstanceRequest {}
 export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse, __MetadataBearer {}
 
 /**
- * <p>Returns the details of an instance of IAM Identity Center. The status can be one of the following:</p>
+ * <p>Returns the details of an instance of IAM Identity Center. The status can be one of the
+ *             following:</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>CREATE_IN_PROGRESS</code> - The instance is in the process of being created. When the
- *                 instance is ready for use, DescribeInstance returns the status of
- *                 <code>ACTIVE</code>. While the instance is in the
- *                 <code>CREATE_IN_PROGRESS</code> state, you can call only DescribeInstance
- *                 and DeleteInstance operations.</p>
+ *                   <code>CREATE_IN_PROGRESS</code> - The instance is in the process of being
+ *                     created. When the instance is ready for use, DescribeInstance returns the status
+ *                     of <code>ACTIVE</code>. While the instance is in the
+ *                         <code>CREATE_IN_PROGRESS</code> state, you can call only DescribeInstance
+ *                     and DeleteInstance operations.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>DELETE_IN_PROGRESS</code> - The instance is being deleted. Returns <code>AccessDeniedException</code> after the delete operation completes. </p>
+ *                   <code>DELETE_IN_PROGRESS</code> - The instance is being deleted. Returns
+ *                         <code>AccessDeniedException</code> after the delete operation completes.
+ *                 </p>
  *             </li>
  *             <li>
  *                <p>
@@ -91,6 +95,7 @@ export interface DescribeInstanceCommandOutput extends DescribeInstanceResponse,
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class DescribeInstanceCommand extends $Command
@@ -101,9 +106,7 @@ export class DescribeInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +118,16 @@ export class DescribeInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInstanceCommand)
   .de(de_DescribeInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInstanceRequest;
+      output: DescribeInstanceResponse;
+    };
+    sdk: {
+      input: DescribeInstanceCommandInput;
+      output: DescribeInstanceCommandOutput;
+    };
+  };
+}

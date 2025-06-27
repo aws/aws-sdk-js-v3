@@ -12,7 +12,8 @@ import { de_DescribeRouteCommand, se_DescribeRouteCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -296,6 +297,7 @@ export interface DescribeRouteCommandOutput extends DescribeRouteOutput, __Metad
  * @throws {@link AppMeshServiceException}
  * <p>Base exception class for all service exceptions from AppMesh service.</p>
  *
+ *
  * @public
  */
 export class DescribeRouteCommand extends $Command
@@ -306,9 +308,7 @@ export class DescribeRouteCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppMeshClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -320,4 +320,16 @@ export class DescribeRouteCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRouteCommand)
   .de(de_DescribeRouteCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRouteInput;
+      output: DescribeRouteOutput;
+    };
+    sdk: {
+      input: DescribeRouteCommandInput;
+      output: DescribeRouteCommandOutput;
+    };
+  };
+}

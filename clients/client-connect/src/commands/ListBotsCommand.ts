@@ -12,7 +12,8 @@ import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
 
 /**
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
- *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to returns both Amazon Lex V1 and V2 bots.</p>
+ *          <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. Use this API to return both Amazon Lex V1 and V2 bots.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,6 +82,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListBotsCommand extends $Command
@@ -91,9 +93,7 @@ export class ListBotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListBotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBotsCommand)
   .de(de_ListBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotsRequest;
+      output: ListBotsResponse;
+    };
+    sdk: {
+      input: ListBotsCommandInput;
+      output: ListBotsCommandOutput;
+    };
+  };
+}

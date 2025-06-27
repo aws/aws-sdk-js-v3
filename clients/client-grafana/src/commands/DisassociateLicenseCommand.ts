@@ -16,7 +16,8 @@ import { de_DisassociateLicenseCommand, se_DisassociateLicenseCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,6 +128,7 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * @throws {@link GrafanaServiceException}
  * <p>Base exception class for all service exceptions from Grafana service.</p>
  *
+ *
  * @public
  */
 export class DisassociateLicenseCommand extends $Command
@@ -137,9 +139,7 @@ export class DisassociateLicenseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GrafanaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +151,16 @@ export class DisassociateLicenseCommand extends $Command
   .f(void 0, DisassociateLicenseResponseFilterSensitiveLog)
   .ser(se_DisassociateLicenseCommand)
   .de(de_DisassociateLicenseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateLicenseRequest;
+      output: DisassociateLicenseResponse;
+    };
+    sdk: {
+      input: DisassociateLicenseCommandInput;
+      output: DisassociateLicenseCommandOutput;
+    };
+  };
+}

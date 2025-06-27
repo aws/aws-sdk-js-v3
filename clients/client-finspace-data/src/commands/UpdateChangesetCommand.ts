@@ -12,7 +12,8 @@ import { de_UpdateChangesetCommand, se_UpdateChangesetCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  * @throws {@link FinspaceDataServiceException}
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
+ *
  * @public
  */
 export class UpdateChangesetCommand extends $Command
@@ -94,9 +96,7 @@ export class UpdateChangesetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FinspaceDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class UpdateChangesetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateChangesetCommand)
   .de(de_UpdateChangesetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateChangesetRequest;
+      output: UpdateChangesetResponse;
+    };
+    sdk: {
+      input: UpdateChangesetCommandInput;
+      output: UpdateChangesetCommandOutput;
+    };
+  };
+}

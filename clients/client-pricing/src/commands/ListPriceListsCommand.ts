@@ -12,7 +12,8 @@ import { de_ListPriceListsCommand, se_ListPriceListsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface ListPriceListsCommandOutput extends ListPriceListsResponse, __M
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *
+ *
  * @public
  */
 export class ListPriceListsCommand extends $Command
@@ -115,9 +117,7 @@ export class ListPriceListsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PricingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class ListPriceListsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPriceListsCommand)
   .de(de_ListPriceListsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPriceListsRequest;
+      output: ListPriceListsResponse;
+    };
+    sdk: {
+      input: ListPriceListsCommandInput;
+      output: ListPriceListsCommandOutput;
+    };
+  };
+}

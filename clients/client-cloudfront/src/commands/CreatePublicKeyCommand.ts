@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreatePublicKeyRequest, CreatePublicKeyResult } from "../models/models_0";
+import { CreatePublicKeyRequest, CreatePublicKeyResult } from "../models/models_1";
 import { de_CreatePublicKeyCommand, se_CreatePublicKeyCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,11 +75,11 @@ export interface CreatePublicKeyCommandOutput extends CreatePublicKeyResult, __M
  *  <p>The specified public key already exists.</p>
  *
  * @throws {@link TooManyPublicKeys} (client fault)
- *  <p>The maximum number of public keys for field-level encryption have been created. To
- * 			create a new public key, delete one of the existing keys.</p>
+ *  <p>The maximum number of public keys for field-level encryption have been created. To create a new public key, delete one of the existing keys.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -90,9 +91,7 @@ export class CreatePublicKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +103,16 @@ export class CreatePublicKeyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreatePublicKeyCommand)
   .de(de_CreatePublicKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePublicKeyRequest;
+      output: CreatePublicKeyResult;
+    };
+    sdk: {
+      input: CreatePublicKeyCommandInput;
+      output: CreatePublicKeyCommandOutput;
+    };
+  };
+}

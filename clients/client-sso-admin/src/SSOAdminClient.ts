@@ -568,6 +568,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -613,11 +632,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type SSOAdminClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -633,11 +652,11 @@ export interface SSOAdminClientConfig extends SSOAdminClientConfigType {}
 export type SSOAdminClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -648,19 +667,27 @@ export type SSOAdminClientResolvedConfigType = __SmithyResolvedConfiguration<__H
 export interface SSOAdminClientResolvedConfig extends SSOAdminClientResolvedConfigType {}
 
 /**
- * <p>IAM Identity Center (successor to Single Sign-On) helps you securely create, or connect, your workforce identities and manage
- *             their access centrally across Amazon Web Services accounts and applications. IAM Identity Center is the recommended
- *             approach for workforce authentication and authorization in Amazon Web Services, for organizations of
- *             any size and type.</p>
+ * <p>IAM Identity Center is the Amazon Web Services solution for connecting your workforce users to Amazon Web Services managed
+ *             applications and other Amazon Web Services resources. You can connect your existing identity provider
+ *             and synchronize users and groups from your directory, or create and manage your users
+ *             directly in IAM Identity Center. You can then use IAM Identity Center for either or both of the following:</p>
+ *          <ul>
+ *             <li>
+ *                <p>User access to applications</p>
+ *             </li>
+ *             <li>
+ *                <p>User access to Amazon Web Services accounts</p>
+ *             </li>
+ *          </ul>
+ *          <p>This guide provides information about single sign-on operations that you can use for access to applications and
+ *             Amazon Web Services accounts. For information about IAM Identity Center features, see the
+ *             <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center
+ *                 User Guide</a>.</p>
  *          <note>
  *             <p>IAM Identity Center uses the <code>sso</code> and <code>identitystore</code> API
  *                 namespaces.</p>
  *          </note>
- *          <p>This reference guide provides information on single sign-on operations which could be
- *             used for access management of Amazon Web Services accounts. For information about IAM Identity Center features, see
- *             the <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/what-is.html">IAM Identity Center
- *                 User Guide</a>.</p>
- *          <p>Many operations in the IAM Identity Center APIs rely on identifiers for users and groups, known as
+ *          <p>Many API operations for IAM Identity Center rely on identifiers for users and groups, known as
  *             principals. For more information about how to work with principals and principal IDs in
  *             IAM Identity Center, see the <a href="https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/welcome.html">Identity Store API
  *                 Reference</a>.</p>
@@ -687,26 +714,30 @@ export class SSOAdminClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<SSOAdminClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultSSOAdminHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: SSOAdminClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -719,14 +750,5 @@ export class SSOAdminClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultSSOAdminHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: SSOAdminClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

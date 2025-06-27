@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_2";
+import { UpdateWorkflowRequest, UpdateWorkflowResponse } from "../models/models_3";
 import { de_UpdateWorkflowCommand, se_UpdateWorkflowCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface UpdateWorkflowCommandOutput extends UpdateWorkflowResponse, __M
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateWorkflowCommand extends $Command
@@ -84,9 +86,7 @@ export class UpdateWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class UpdateWorkflowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateWorkflowCommand)
   .de(de_UpdateWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateWorkflowRequest;
+      output: UpdateWorkflowResponse;
+    };
+    sdk: {
+      input: UpdateWorkflowCommandInput;
+      output: UpdateWorkflowCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetLogRecordCommand, se_GetLogRecordCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface GetLogRecordCommandOutput extends GetLogRecordResponse, __Metad
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class GetLogRecordCommand extends $Command
@@ -82,9 +84,7 @@ export class GetLogRecordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class GetLogRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLogRecordCommand)
   .de(de_GetLogRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLogRecordRequest;
+      output: GetLogRecordResponse;
+    };
+    sdk: {
+      input: GetLogRecordCommandInput;
+      output: GetLogRecordCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetQueryResultsCommand, se_GetQueryResultsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,6 +41,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *   QueryId: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxQueryResults: Number("int"),
+ *   EventDataStoreOwnerAccountId: "STRING_VALUE",
  * };
  * const command = new GetQueryResultsCommand(input);
  * const response = await client.send(command);
@@ -80,7 +82,11 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  *  <p>The event data store is inactive.</p>
  *
  * @throws {@link InsufficientEncryptionPolicyException} (client fault)
- *  <p>This exception is thrown when the policy on the S3 bucket or KMS key does
+ *  <p>For the <code>CreateTrail</code>
+ *             <code>PutInsightSelectors</code>, <code>UpdateTrail</code>, <code>StartQuery</code>, and <code>StartImport</code> operations, this exception is thrown
+ *          when the policy on the S3 bucket or KMS key does
+ *          not have sufficient permissions for the operation.</p>
+ *          <p>For all other operations, this exception is thrown when the policy for the KMS key does
  *          not have sufficient permissions for the operation.</p>
  *
  * @throws {@link InvalidMaxResultsException} (client fault)
@@ -109,6 +115,7 @@ export interface GetQueryResultsCommandOutput extends GetQueryResultsResponse, _
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class GetQueryResultsCommand extends $Command
@@ -119,9 +126,7 @@ export class GetQueryResultsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +138,16 @@ export class GetQueryResultsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQueryResultsCommand)
   .de(de_GetQueryResultsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQueryResultsRequest;
+      output: GetQueryResultsResponse;
+    };
+    sdk: {
+      input: GetQueryResultsCommandInput;
+      output: GetQueryResultsCommandOutput;
+    };
+  };
+}

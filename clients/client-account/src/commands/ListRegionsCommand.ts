@@ -12,7 +12,8 @@ import { de_ListRegionsCommand, se_ListRegionsCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListRegionsCommandInput extends ListRegionsRequest {}
 export interface ListRegionsCommandOutput extends ListRegionsResponse, __MetadataBearer {}
 
 /**
- * <p>Lists all the Regions for a given account and their respective opt-in statuses.
- *             Optionally, this list can be filtered by the <code>region-opt-status-contains</code>
- *             parameter. </p>
+ * <p>Lists all the Regions for a given account and their respective opt-in statuses. Optionally, this list can be filtered by the <code>region-opt-status-contains</code> parameter. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -65,22 +64,20 @@ export interface ListRegionsCommandOutput extends ListRegionsResponse, __Metadat
  * @see {@link AccountClientResolvedConfig | config} for AccountClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The operation failed because the calling identity doesn't have the minimum required
- *             permissions.</p>
+ *  <p>The operation failed because the calling identity doesn't have the minimum required permissions.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again
- *             later.</p>
+ *  <p>The operation failed because of an error internal to Amazon Web Services. Try your operation again later.</p>
  *
  * @throws {@link TooManyRequestsException} (client fault)
- *  <p>The operation failed because it was called too frequently and exceeded a throttle
- *             limit.</p>
+ *  <p>The operation failed because it was called too frequently and exceeded a throttle limit.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed because one of the input parameters was invalid.</p>
  *
  * @throws {@link AccountServiceException}
  * <p>Base exception class for all service exceptions from Account service.</p>
+ *
  *
  * @public
  */
@@ -92,9 +89,7 @@ export class ListRegionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccountClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +101,16 @@ export class ListRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRegionsCommand)
   .de(de_ListRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRegionsRequest;
+      output: ListRegionsResponse;
+    };
+    sdk: {
+      input: ListRegionsCommandInput;
+      output: ListRegionsCommandOutput;
+    };
+  };
+}

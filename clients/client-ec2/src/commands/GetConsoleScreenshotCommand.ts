@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetConsoleScreenshotRequest, GetConsoleScreenshotResult } from "../models/models_5";
+import { GetConsoleScreenshotRequest, GetConsoleScreenshotResult } from "../models/models_6";
 import { de_GetConsoleScreenshotCommand, se_GetConsoleScreenshotCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -60,6 +61,7 @@ export interface GetConsoleScreenshotCommandOutput extends GetConsoleScreenshotR
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetConsoleScreenshotCommand extends $Command
@@ -70,9 +72,7 @@ export class GetConsoleScreenshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +84,16 @@ export class GetConsoleScreenshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConsoleScreenshotCommand)
   .de(de_GetConsoleScreenshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConsoleScreenshotRequest;
+      output: GetConsoleScreenshotResult;
+    };
+    sdk: {
+      input: GetConsoleScreenshotCommandInput;
+      output: GetConsoleScreenshotCommandOutput;
+    };
+  };
+}

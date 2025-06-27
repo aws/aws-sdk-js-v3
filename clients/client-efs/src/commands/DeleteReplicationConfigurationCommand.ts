@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,6 +45,7 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * const client = new EFSClient(config);
  * const input = { // DeleteReplicationConfigurationRequest
  *   SourceFileSystemId: "STRING_VALUE", // required
+ *   DeletionMode: "ALL_CONFIGURATIONS" || "LOCAL_CONFIGURATION_ONLY",
  * };
  * const command = new DeleteReplicationConfigurationCommand(input);
  * const response = await client.send(command);
@@ -75,6 +77,7 @@ export interface DeleteReplicationConfigurationCommandOutput extends __MetadataB
  * @throws {@link EFSServiceException}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
+ *
  * @public
  */
 export class DeleteReplicationConfigurationCommand extends $Command
@@ -85,9 +88,7 @@ export class DeleteReplicationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EFSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +100,16 @@ export class DeleteReplicationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReplicationConfigurationCommand)
   .de(de_DeleteReplicationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReplicationConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReplicationConfigurationCommandInput;
+      output: DeleteReplicationConfigurationCommandOutput;
+    };
+  };
+}

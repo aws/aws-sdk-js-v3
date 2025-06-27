@@ -12,7 +12,8 @@ import { de_SuspendContactRecordingCommand, se_SuspendContactRecordingCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,13 +29,12 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
 
 /**
  * <p>When a contact is being recorded, this API suspends recording whatever is selected in the
- *    flow configuration: call, screen, or both. If only call recording or only screen recording is
- *    enabled, then it would be suspended. For example, you might suspend the screen recording while
- *    collecting sensitive information, such as a credit card number. Then use ResumeContactRecording
- *    to restart recording the screen.</p>
+ *    flow configuration: call (IVR or agent), screen, or both. If only call recording or only screen
+ *    recording is enabled, then it would be suspended. For example, you might suspend the screen
+ *    recording while collecting sensitive information, such as a credit card number. Then use <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_ResumeContactRecording.html">ResumeContactRecording</a> to restart recording the screen.</p>
  *          <p>The period of time that the recording is suspended is filled with silence in the final
- *    recording.</p>
- *          <p>Voice and screen recordings are supported.</p>
+ *    recording. </p>
+ *          <p> Voice (IVR, agent) and screen recordings are supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,6 +45,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  *   InstanceId: "STRING_VALUE", // required
  *   ContactId: "STRING_VALUE", // required
  *   InitialContactId: "STRING_VALUE", // required
+ *   ContactRecordingType: "AGENT" || "IVR" || "SCREEN",
  * };
  * const command = new SuspendContactRecordingCommand(input);
  * const response = await client.send(command);
@@ -70,6 +71,7 @@ export interface SuspendContactRecordingCommandOutput extends SuspendContactReco
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SuspendContactRecordingCommand extends $Command
@@ -80,9 +82,7 @@ export class SuspendContactRecordingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class SuspendContactRecordingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SuspendContactRecordingCommand)
   .de(de_SuspendContactRecordingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SuspendContactRecordingRequest;
+      output: {};
+    };
+    sdk: {
+      input: SuspendContactRecordingCommandInput;
+      output: SuspendContactRecordingCommandOutput;
+    };
+  };
+}

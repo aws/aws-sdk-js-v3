@@ -16,7 +16,8 @@ import { de_ModifyReplicationConfigCommand, se_ModifyReplicationConfigCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,14 +32,14 @@ export interface ModifyReplicationConfigCommandInput extends ModifyReplicationCo
 export interface ModifyReplicationConfigCommandOutput extends ModifyReplicationConfigResponse, __MetadataBearer {}
 
 /**
- * <p>Modifies an existing DMS Serverless replication configuration that you can use
- *          to start a replication. This command includes input validation and logic to check
- *          the state of any replication that uses this configuration. You can only modify a replication
- *          configuration before any replication that uses it has started. As soon as you have initially
- *          started a replication with a given configuiration, you can't modify that configuration,
- *          even if you stop it.</p>
- *          <p>Other run statuses that allow you to run this command include FAILED and CREATED.
- *          A provisioning state that allows you to run this command is FAILED_PROVISION.</p>
+ * <p>Modifies an existing DMS Serverless replication configuration that you can use to
+ *          start a replication. This command includes input validation and logic to check the state of
+ *          any replication that uses this configuration. You can only modify a replication
+ *          configuration before any replication that uses it has started. As soon as you have
+ *          initially started a replication with a given configuiration, you can't modify that
+ *          configuration, even if you stop it.</p>
+ *          <p>Other run statuses that allow you to run this command include FAILED and CREATED. A
+ *          provisioning state that allows you to run this command is FAILED_PROVISION.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,6 +129,7 @@ export interface ModifyReplicationConfigCommandOutput extends ModifyReplicationC
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class ModifyReplicationConfigCommand extends $Command
@@ -138,9 +140,7 @@ export class ModifyReplicationConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -152,4 +152,16 @@ export class ModifyReplicationConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyReplicationConfigCommand)
   .de(de_ModifyReplicationConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyReplicationConfigMessage;
+      output: ModifyReplicationConfigResponse;
+    };
+    sdk: {
+      input: ModifyReplicationConfigCommandInput;
+      output: ModifyReplicationConfigCommandOutput;
+    };
+  };
+}

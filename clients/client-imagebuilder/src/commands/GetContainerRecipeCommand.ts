@@ -12,7 +12,8 @@ import { de_GetContainerRecipeCommand, se_GetContainerRecipeCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * //     containerType: "DOCKER",
  * //     name: "STRING_VALUE",
  * //     description: "STRING_VALUE",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     owner: "STRING_VALUE",
  * //     version: "STRING_VALUE",
  * //     components: [ // ComponentConfigurationList
@@ -130,6 +131,7 @@ export interface GetContainerRecipeCommandOutput extends GetContainerRecipeRespo
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetContainerRecipeCommand extends $Command
@@ -140,9 +142,7 @@ export class GetContainerRecipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +154,16 @@ export class GetContainerRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetContainerRecipeCommand)
   .de(de_GetContainerRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetContainerRecipeRequest;
+      output: GetContainerRecipeResponse;
+    };
+    sdk: {
+      input: GetContainerRecipeCommandInput;
+      output: GetContainerRecipeCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +30,7 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the tag-set of an object. You send the GET request against the tagging
  *          subresource associated with the object.</p>
@@ -95,58 +97,57 @@ export interface GetObjectTaggingCommandOutput extends GetObjectTaggingOutput, _
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
- * @example To retrieve tag set of an object
- * ```javascript
- * // The following example retrieves tag set of an object.
- * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "HappyFace.jpg"
- * };
- * const command = new GetObjectTaggingCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "TagSet": [
- *     {
- *       "Key": "Key4",
- *       "Value": "Value4"
- *     },
- *     {
- *       "Key": "Key3",
- *       "Value": "Value3"
- *     }
- *   ],
- *   "VersionId": "null"
- * }
- * *\/
- * // example id: to-retrieve-tag-set-of-an-object-1481833847896
- * ```
  *
  * @example To retrieve tag set of a specific object version
  * ```javascript
  * // The following example retrieves tag set of an object. The request specifies object version.
  * const input = {
- *   "Bucket": "examplebucket",
- *   "Key": "exampleobject",
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ *   Bucket: "examplebucket",
+ *   Key: "exampleobject",
+ *   VersionId: "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
  * };
  * const command = new GetObjectTaggingCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TagSet": [
+ *   TagSet: [
  *     {
- *       "Key": "Key1",
- *       "Value": "Value1"
+ *       Key: "Key1",
+ *       Value: "Value1"
  *     }
  *   ],
- *   "VersionId": "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
+ *   VersionId: "ydlaNkwWm0SfKJR.T1b1fIdPRbldTYRI"
  * }
  * *\/
- * // example id: to-retrieve-tag-set-of-a-specific-object-version-1483400283663
  * ```
  *
+ * @example To retrieve tag set of an object
+ * ```javascript
+ * // The following example retrieves tag set of an object.
+ * const input = {
+ *   Bucket: "examplebucket",
+ *   Key: "HappyFace.jpg"
+ * };
+ * const command = new GetObjectTaggingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TagSet: [
+ *     {
+ *       Key: "Key4",
+ *       Value: "Value4"
+ *     },
+ *     {
+ *       Key: "Key3",
+ *       Value: "Value3"
+ *     }
+ *   ],
+ *   VersionId: "null"
+ * }
+ * *\/
+ * ```
+ *
+ * @public
  */
 export class GetObjectTaggingCommand extends $Command
   .classBuilder<
@@ -164,6 +165,7 @@ export class GetObjectTaggingCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetObjectTagging", {})
@@ -171,4 +173,16 @@ export class GetObjectTaggingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetObjectTaggingCommand)
   .de(de_GetObjectTaggingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetObjectTaggingRequest;
+      output: GetObjectTaggingOutput;
+    };
+    sdk: {
+      input: GetObjectTaggingCommandInput;
+      output: GetObjectTaggingCommandOutput;
+    };
+  };
+}

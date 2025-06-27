@@ -32,6 +32,10 @@ import {
 } from "@smithy/types";
 
 import { BatchGetTracesCommandInput, BatchGetTracesCommandOutput } from "../commands/BatchGetTracesCommand";
+import {
+  CancelTraceRetrievalCommandInput,
+  CancelTraceRetrievalCommandOutput,
+} from "../commands/CancelTraceRetrievalCommand";
 import { CreateGroupCommandInput, CreateGroupCommandOutput } from "../commands/CreateGroupCommand";
 import { CreateSamplingRuleCommandInput, CreateSamplingRuleCommandOutput } from "../commands/CreateSamplingRuleCommand";
 import { DeleteGroupCommandInput, DeleteGroupCommandOutput } from "../commands/DeleteGroupCommand";
@@ -46,6 +50,7 @@ import {
 } from "../commands/GetEncryptionConfigCommand";
 import { GetGroupCommandInput, GetGroupCommandOutput } from "../commands/GetGroupCommand";
 import { GetGroupsCommandInput, GetGroupsCommandOutput } from "../commands/GetGroupsCommand";
+import { GetIndexingRulesCommandInput, GetIndexingRulesCommandOutput } from "../commands/GetIndexingRulesCommand";
 import { GetInsightCommandInput, GetInsightCommandOutput } from "../commands/GetInsightCommand";
 import { GetInsightEventsCommandInput, GetInsightEventsCommandOutput } from "../commands/GetInsightEventsCommand";
 import {
@@ -56,6 +61,10 @@ import {
   GetInsightSummariesCommandInput,
   GetInsightSummariesCommandOutput,
 } from "../commands/GetInsightSummariesCommand";
+import {
+  GetRetrievedTracesGraphCommandInput,
+  GetRetrievedTracesGraphCommandOutput,
+} from "../commands/GetRetrievedTracesGraphCommand";
 import { GetSamplingRulesCommandInput, GetSamplingRulesCommandOutput } from "../commands/GetSamplingRulesCommand";
 import {
   GetSamplingStatisticSummariesCommandInput,
@@ -68,11 +77,19 @@ import {
   GetTimeSeriesServiceStatisticsCommandOutput,
 } from "../commands/GetTimeSeriesServiceStatisticsCommand";
 import { GetTraceGraphCommandInput, GetTraceGraphCommandOutput } from "../commands/GetTraceGraphCommand";
+import {
+  GetTraceSegmentDestinationCommandInput,
+  GetTraceSegmentDestinationCommandOutput,
+} from "../commands/GetTraceSegmentDestinationCommand";
 import { GetTraceSummariesCommandInput, GetTraceSummariesCommandOutput } from "../commands/GetTraceSummariesCommand";
 import {
   ListResourcePoliciesCommandInput,
   ListResourcePoliciesCommandOutput,
 } from "../commands/ListResourcePoliciesCommand";
+import {
+  ListRetrievedTracesCommandInput,
+  ListRetrievedTracesCommandOutput,
+} from "../commands/ListRetrievedTracesCommand";
 import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
@@ -87,16 +104,28 @@ import {
   PutTelemetryRecordsCommandOutput,
 } from "../commands/PutTelemetryRecordsCommand";
 import { PutTraceSegmentsCommandInput, PutTraceSegmentsCommandOutput } from "../commands/PutTraceSegmentsCommand";
+import {
+  StartTraceRetrievalCommandInput,
+  StartTraceRetrievalCommandOutput,
+} from "../commands/StartTraceRetrievalCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateGroupCommandInput, UpdateGroupCommandOutput } from "../commands/UpdateGroupCommand";
+import { UpdateIndexingRuleCommandInput, UpdateIndexingRuleCommandOutput } from "../commands/UpdateIndexingRuleCommand";
 import { UpdateSamplingRuleCommandInput, UpdateSamplingRuleCommandOutput } from "../commands/UpdateSamplingRuleCommand";
+import {
+  UpdateTraceSegmentDestinationCommandInput,
+  UpdateTraceSegmentDestinationCommandOutput,
+} from "../commands/UpdateTraceSegmentDestinationCommand";
 import {
   AnnotationValue,
   BackendConnectionErrors,
   Edge,
   EdgeStatistics,
   HistogramEntry,
+  IndexingRule,
+  IndexingRuleValue,
+  IndexingRuleValueUpdate,
   Insight,
   InsightEvent,
   InsightsConfiguration,
@@ -108,11 +137,15 @@ import {
   MalformedPolicyDocumentException,
   PolicyCountLimitExceededException,
   PolicySizeLimitExceededException,
+  ProbabilisticRuleValue,
+  ProbabilisticRuleValueUpdate,
   ResourceNotFoundException,
   ResourcePolicy,
   ResponseTimeRootCause,
   ResponseTimeRootCauseEntity,
   ResponseTimeRootCauseService,
+  RetrievedService,
+  RetrievedTrace,
   RuleLimitExceededException,
   SamplingRule,
   SamplingRuleRecord,
@@ -151,6 +184,28 @@ export const se_BatchGetTracesCommand = async (
     take(input, {
       NextToken: [],
       TraceIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelTraceRetrievalCommand
+ */
+export const se_CancelTraceRetrievalCommand = async (
+  input: CancelTraceRetrievalCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/CancelTraceRetrieval");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      RetrievalToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -282,12 +337,9 @@ export const se_GetEncryptionConfigCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/EncryptionConfig");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -327,6 +379,28 @@ export const se_GetGroupsCommand = async (
     "content-type": "application/json",
   };
   b.bp("/Groups");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetIndexingRulesCommand
+ */
+export const se_GetIndexingRulesCommand = async (
+  input: GetIndexingRulesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetIndexingRules");
   let body: any;
   body = JSON.stringify(
     take(input, {
@@ -430,6 +504,29 @@ export const se_GetInsightSummariesCommand = async (
       NextToken: [],
       StartTime: (_) => _.getTime() / 1_000,
       States: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetRetrievedTracesGraphCommand
+ */
+export const se_GetRetrievedTracesGraphCommand = async (
+  input: GetRetrievedTracesGraphCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/GetRetrievedTracesGraph");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      RetrievalToken: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -581,6 +678,21 @@ export const se_GetTraceGraphCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetTraceSegmentDestinationCommand
+ */
+export const se_GetTraceSegmentDestinationCommand = async (
+  input: GetTraceSegmentDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/GetTraceSegmentDestination");
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetTraceSummariesCommand
  */
 export const se_GetTraceSummariesCommand = async (
@@ -624,6 +736,30 @@ export const se_ListResourcePoliciesCommand = async (
   body = JSON.stringify(
     take(input, {
       NextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListRetrievedTracesCommand
+ */
+export const se_ListRetrievedTracesCommand = async (
+  input: ListRetrievedTracesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/ListRetrievedTraces");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      NextToken: [],
+      RetrievalToken: [],
+      TraceFormat: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -749,6 +885,30 @@ export const se_PutTraceSegmentsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartTraceRetrievalCommand
+ */
+export const se_StartTraceRetrievalCommand = async (
+  input: StartTraceRetrievalCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/StartTraceRetrieval");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      EndTime: (_) => _.getTime() / 1_000,
+      StartTime: (_) => _.getTime() / 1_000,
+      TraceIds: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1TagResourceCommand
  */
 export const se_TagResourceCommand = async (
@@ -820,6 +980,29 @@ export const se_UpdateGroupCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateIndexingRuleCommand
+ */
+export const se_UpdateIndexingRuleCommand = async (
+  input: UpdateIndexingRuleCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateIndexingRule");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Name: [],
+      Rule: (_) => se_IndexingRuleValueUpdate(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateSamplingRuleCommand
  */
 export const se_UpdateSamplingRuleCommand = async (
@@ -835,6 +1018,28 @@ export const se_UpdateSamplingRuleCommand = async (
   body = JSON.stringify(
     take(input, {
       SamplingRuleUpdate: (_) => se_SamplingRuleUpdate(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateTraceSegmentDestinationCommand
+ */
+export const se_UpdateTraceSegmentDestinationCommand = async (
+  input: UpdateTraceSegmentDestinationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/UpdateTraceSegmentDestination");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      Destination: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -861,6 +1066,23 @@ export const de_BatchGetTracesCommand = async (
     UnprocessedTraceIds: _json,
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CancelTraceRetrievalCommand
+ */
+export const de_CancelTraceRetrievalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelTraceRetrievalCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -1026,6 +1248,28 @@ export const de_GetGroupsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetIndexingRulesCommand
+ */
+export const de_GetIndexingRulesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetIndexingRulesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IndexingRules: (_) => de_IndexingRuleList(_, context),
+    NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetInsightCommand
  */
 export const de_GetInsightCommand = async (
@@ -1112,6 +1356,29 @@ export const de_GetInsightSummariesCommand = async (
   const doc = take(data, {
     InsightSummaries: (_) => de_InsightSummaryList(_, context),
     NextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetRetrievedTracesGraphCommand
+ */
+export const de_GetRetrievedTracesGraphCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetRetrievedTracesGraphCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RetrievalStatus: __expectString,
+    Services: (_) => de_RetrievedServicesList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1255,6 +1522,28 @@ export const de_GetTraceGraphCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetTraceSegmentDestinationCommand
+ */
+export const de_GetTraceSegmentDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetTraceSegmentDestinationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Destination: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetTraceSummariesCommand
  */
 export const de_GetTraceSummariesCommand = async (
@@ -1295,6 +1584,30 @@ export const de_ListResourcePoliciesCommand = async (
   const doc = take(data, {
     NextToken: __expectString,
     ResourcePolicies: (_) => de_ResourcePolicyList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListRetrievedTracesCommand
+ */
+export const de_ListRetrievedTracesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRetrievedTracesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    NextToken: __expectString,
+    RetrievalStatus: __expectString,
+    TraceFormat: __expectString,
+    Traces: (_) => de_TraceSpanList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1403,6 +1716,27 @@ export const de_PutTraceSegmentsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartTraceRetrievalCommand
+ */
+export const de_StartTraceRetrievalCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartTraceRetrievalCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    RetrievalToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -1458,6 +1792,27 @@ export const de_UpdateGroupCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateIndexingRuleCommand
+ */
+export const de_UpdateIndexingRuleCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateIndexingRuleCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    IndexingRule: (_) => de_IndexingRule(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateSamplingRuleCommand
  */
 export const de_UpdateSamplingRuleCommand = async (
@@ -1479,6 +1834,28 @@ export const de_UpdateSamplingRuleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateTraceSegmentDestinationCommand
+ */
+export const de_UpdateTraceSegmentDestinationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTraceSegmentDestinationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Destination: __expectString,
+    Status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserialize_Aws_restJson1CommandError
  */
 const de_CommandError = async (output: __HttpResponse, context: __SerdeContext): Promise<never> => {
@@ -1494,15 +1871,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ThrottledException":
     case "com.amazonaws.xray#ThrottledException":
       throw await de_ThrottledExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.xray#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "RuleLimitExceededException":
     case "com.amazonaws.xray#RuleLimitExceededException":
       throw await de_RuleLimitExceededExceptionRes(parsedOutput, context);
     case "InvalidPolicyRevisionIdException":
     case "com.amazonaws.xray#InvalidPolicyRevisionIdException":
       throw await de_InvalidPolicyRevisionIdExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.xray#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "LockoutPreventionException":
     case "com.amazonaws.xray#LockoutPreventionException":
       throw await de_LockoutPreventionExceptionRes(parsedOutput, context);
@@ -1732,9 +2109,28 @@ const de_TooManyTagsExceptionRes = async (
 
 // se_BackendConnectionErrors omitted.
 
+/**
+ * serializeAws_restJson1IndexingRuleValueUpdate
+ */
+const se_IndexingRuleValueUpdate = (input: IndexingRuleValueUpdate, context: __SerdeContext): any => {
+  return IndexingRuleValueUpdate.visit(input, {
+    Probabilistic: (value) => ({ Probabilistic: se_ProbabilisticRuleValueUpdate(value, context) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
+
 // se_InsightsConfiguration omitted.
 
 // se_InsightStateList omitted.
+
+/**
+ * serializeAws_restJson1ProbabilisticRuleValueUpdate
+ */
+const se_ProbabilisticRuleValueUpdate = (input: ProbabilisticRuleValueUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    DesiredSamplingPercentage: __serializeFloat,
+  });
+};
 
 /**
  * serializeAws_restJson1SamplingRule
@@ -1844,6 +2240,8 @@ const se_TelemetryRecordList = (input: TelemetryRecord[], context: __SerdeContex
 };
 
 // se_TraceIdList omitted.
+
+// se_TraceIdListForRetrieval omitted.
 
 // se_TraceSegmentDocumentList omitted.
 
@@ -1963,6 +2361,8 @@ const de_EdgeStatistics = (output: any, context: __SerdeContext): EdgeStatistics
 
 // de_ForecastStatistics omitted.
 
+// de_GraphLink omitted.
+
 // de_Group omitted.
 
 // de_GroupSummary omitted.
@@ -1992,6 +2392,41 @@ const de_HistogramEntry = (output: any, context: __SerdeContext): HistogramEntry
 };
 
 // de_Http omitted.
+
+/**
+ * deserializeAws_restJson1IndexingRule
+ */
+const de_IndexingRule = (output: any, context: __SerdeContext): IndexingRule => {
+  return take(output, {
+    ModifiedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Name: __expectString,
+    Rule: (_: any) => de_IndexingRuleValue(__expectUnion(_), context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1IndexingRuleList
+ */
+const de_IndexingRuleList = (output: any, context: __SerdeContext): IndexingRule[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_IndexingRule(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1IndexingRuleValue
+ */
+const de_IndexingRuleValue = (output: any, context: __SerdeContext): IndexingRuleValue => {
+  if (output.Probabilistic != null) {
+    return {
+      Probabilistic: de_ProbabilisticRuleValue(output.Probabilistic, context),
+    };
+  }
+  return { $unknown: Object.entries(output)[0] };
+};
 
 /**
  * deserializeAws_restJson1Insight
@@ -2084,6 +2519,18 @@ const de_InsightSummaryList = (output: any, context: __SerdeContext): InsightSum
 };
 
 // de_InstanceIdDetail omitted.
+
+// de_LinksList omitted.
+
+/**
+ * deserializeAws_restJson1ProbabilisticRuleValue
+ */
+const de_ProbabilisticRuleValue = (output: any, context: __SerdeContext): ProbabilisticRuleValue => {
+  return take(output, {
+    ActualSamplingPercentage: __limitedParseDouble,
+    DesiredSamplingPercentage: __limitedParseDouble,
+  }) as any;
+};
 
 // de_RequestImpactStatistics omitted.
 
@@ -2182,6 +2629,39 @@ const de_ResponseTimeRootCauseServices = (output: any, context: __SerdeContext):
       return de_ResponseTimeRootCauseService(entry, context);
     });
   return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RetrievedService
+ */
+const de_RetrievedService = (output: any, context: __SerdeContext): RetrievedService => {
+  return take(output, {
+    Links: _json,
+    Service: (_: any) => de_Service(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1RetrievedServicesList
+ */
+const de_RetrievedServicesList = (output: any, context: __SerdeContext): RetrievedService[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RetrievedService(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1RetrievedTrace
+ */
+const de_RetrievedTrace = (output: any, context: __SerdeContext): RetrievedTrace => {
+  return take(output, {
+    Duration: __limitedParseDouble,
+    Id: __expectString,
+    Spans: _json,
+  }) as any;
 };
 
 // de_RootCauseException omitted.
@@ -2338,6 +2818,10 @@ const de_ServiceStatistics = (output: any, context: __SerdeContext): ServiceStat
   }) as any;
 };
 
+// de_Span omitted.
+
+// de_SpanList omitted.
+
 // de_Tag omitted.
 
 // de_TagList omitted.
@@ -2381,6 +2865,8 @@ const de_Trace = (output: any, context: __SerdeContext): Trace => {
 
 // de_TraceAvailabilityZones omitted.
 
+// de_TraceIdList omitted.
+
 // de_TraceInstanceIds omitted.
 
 /**
@@ -2396,6 +2882,18 @@ const de_TraceList = (output: any, context: __SerdeContext): Trace[] => {
 };
 
 // de_TraceResourceARNs omitted.
+
+/**
+ * deserializeAws_restJson1TraceSpanList
+ */
+const de_TraceSpanList = (output: any, context: __SerdeContext): RetrievedTrace[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RetrievedTrace(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1TraceSummary
@@ -2485,10 +2983,3 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);

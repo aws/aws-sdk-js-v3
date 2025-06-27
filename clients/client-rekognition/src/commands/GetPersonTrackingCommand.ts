@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,14 @@ export interface GetPersonTrackingCommandInput extends GetPersonTrackingRequest 
 export interface GetPersonTrackingCommandOutput extends GetPersonTrackingResponse, __MetadataBearer {}
 
 /**
- * <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
+ * <note>
+ *             <p>
+ *                <i>End of support notice:</i> On October 31, 2025, AWS will discontinue
+ *          support for Amazon Rekognition People Pathing. After October 31, 2025, you will no
+ *          longer be able to use the Rekognition People Pathing capability. For more information,
+ *          visit this <a href="https://aws.amazon.com/blogs/machine-learning/transitioning-from-amazon-rekognition-people-pathing-exploring-other-alternatives/">blog post</a>.</p>
+ *          </note>
+ *          <p>Gets the path tracking results of a Amazon Rekognition Video analysis started by <a>StartPersonTracking</a>.</p>
  *          <p>The person path tracking operation is started by a call to <code>StartPersonTracking</code>
  *      which returns a job identifier (<code>JobId</code>). When the operation finishes, Amazon Rekognition Video publishes a completion status to
  *      the Amazon Simple Notification Service topic registered in the initial call to <code>StartPersonTracking</code>.</p>
@@ -214,6 +222,7 @@ export interface GetPersonTrackingCommandOutput extends GetPersonTrackingRespons
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
+ *
  * @public
  */
 export class GetPersonTrackingCommand extends $Command
@@ -224,9 +233,7 @@ export class GetPersonTrackingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -238,4 +245,16 @@ export class GetPersonTrackingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPersonTrackingCommand)
   .de(de_GetPersonTrackingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPersonTrackingRequest;
+      output: GetPersonTrackingResponse;
+    };
+    sdk: {
+      input: GetPersonTrackingCommandInput;
+      output: GetPersonTrackingCommandOutput;
+    };
+  };
+}

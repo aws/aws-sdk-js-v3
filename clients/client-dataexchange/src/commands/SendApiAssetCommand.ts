@@ -12,7 +12,8 @@ import { de_SendApiAssetCommand, se_SendApiAssetCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface SendApiAssetCommandInput extends SendApiAssetRequest {}
 export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __MetadataBearer {}
 
 /**
- * <p>This operation invokes an API Gateway API asset. The request is proxied to the provider’s API Gateway API.</p>
+ * <p>This operation invokes an API Gateway API asset. The request is proxied to the
+ *          provider’s API Gateway API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,6 +85,7 @@ export interface SendApiAssetCommandOutput extends SendApiAssetResponse, __Metad
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class SendApiAssetCommand extends $Command
@@ -93,9 +96,7 @@ export class SendApiAssetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +108,16 @@ export class SendApiAssetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SendApiAssetCommand)
   .de(de_SendApiAssetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SendApiAssetRequest;
+      output: SendApiAssetResponse;
+    };
+    sdk: {
+      input: SendApiAssetCommandInput;
+      output: SendApiAssetCommandOutput;
+    };
+  };
+}

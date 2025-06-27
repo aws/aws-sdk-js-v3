@@ -12,7 +12,8 @@ import { de_GetPackageVersionReadmeCommand, se_GetPackageVersionReadmeCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,7 +44,7 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -51,7 +52,7 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * const command = new GetPackageVersionReadmeCommand(input);
  * const response = await client.send(command);
  * // { // GetPackageVersionReadmeResult
- * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //   namespace: "STRING_VALUE",
  * //   package: "STRING_VALUE",
  * //   version: "STRING_VALUE",
@@ -93,6 +94,7 @@ export interface GetPackageVersionReadmeCommandOutput extends GetPackageVersionR
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class GetPackageVersionReadmeCommand extends $Command
@@ -103,9 +105,7 @@ export class GetPackageVersionReadmeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetPackageVersionReadmeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPackageVersionReadmeCommand)
   .de(de_GetPackageVersionReadmeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPackageVersionReadmeRequest;
+      output: GetPackageVersionReadmeResult;
+    };
+    sdk: {
+      input: GetPackageVersionReadmeCommandInput;
+      output: GetPackageVersionReadmeCommandOutput;
+    };
+  };
+}

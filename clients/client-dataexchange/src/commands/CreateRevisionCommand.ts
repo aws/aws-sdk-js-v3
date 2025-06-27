@@ -12,7 +12,8 @@ import { de_CreateRevisionCommand, se_CreateRevisionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface CreateRevisionCommandOutput extends CreateRevisionResponse, __M
  * @throws {@link DataExchangeServiceException}
  * <p>Base exception class for all service exceptions from DataExchange service.</p>
  *
+ *
  * @public
  */
 export class CreateRevisionCommand extends $Command
@@ -96,9 +98,7 @@ export class CreateRevisionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataExchangeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class CreateRevisionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRevisionCommand)
   .de(de_CreateRevisionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRevisionRequest;
+      output: CreateRevisionResponse;
+    };
+    sdk: {
+      input: CreateRevisionCommandInput;
+      output: CreateRevisionCommandOutput;
+    };
+  };
+}

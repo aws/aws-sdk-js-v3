@@ -16,7 +16,8 @@ import { de_GetEventPredictionCommand, se_GetEventPredictionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -129,6 +130,7 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  * @throws {@link FraudDetectorServiceException}
  * <p>Base exception class for all service exceptions from FraudDetector service.</p>
  *
+ *
  * @public
  */
 export class GetEventPredictionCommand extends $Command
@@ -139,9 +141,7 @@ export class GetEventPredictionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FraudDetectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +153,16 @@ export class GetEventPredictionCommand extends $Command
   .f(GetEventPredictionRequestFilterSensitiveLog, void 0)
   .ser(se_GetEventPredictionCommand)
   .de(de_GetEventPredictionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEventPredictionRequest;
+      output: GetEventPredictionResult;
+    };
+    sdk: {
+      input: GetEventPredictionCommandInput;
+      output: GetEventPredictionCommandOutput;
+    };
+  };
+}

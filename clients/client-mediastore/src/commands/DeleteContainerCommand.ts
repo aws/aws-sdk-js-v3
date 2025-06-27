@@ -12,7 +12,8 @@ import { de_DeleteContainerCommand, se_DeleteContainerCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DeleteContainerCommandOutput extends DeleteContainerOutput, __M
  * @throws {@link MediaStoreServiceException}
  * <p>Base exception class for all service exceptions from MediaStore service.</p>
  *
+ *
  * @public
  */
 export class DeleteContainerCommand extends $Command
@@ -74,9 +76,7 @@ export class DeleteContainerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DeleteContainerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteContainerCommand)
   .de(de_DeleteContainerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteContainerInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteContainerCommandInput;
+      output: DeleteContainerCommandOutput;
+    };
+  };
+}

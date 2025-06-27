@@ -16,7 +16,8 @@ import { de_DescribeGameSessionsCommand, se_DescribeGameSessionsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,7 +63,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             queues. Continuously polling with <code>DescribeGameSessions</code> should only be used
  *             for games in development with low game session usage. </p>
  *          <p>
- *             <i>Available in Amazon GameLift Local.</i>
+ *             <i>Available in Amazon GameLift Servers Local.</i>
  *          </p>
  *          <p>
  *             <b>Learn more</b>
@@ -102,7 +103,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * //       CurrentPlayerSessionCount: Number("int"),
  * //       MaximumPlayerSessionCount: Number("int"),
  * //       Status: "ACTIVE" || "ACTIVATING" || "TERMINATED" || "TERMINATING" || "ERROR",
- * //       StatusReason: "INTERRUPTED",
+ * //       StatusReason: "INTERRUPTED" || "TRIGGERED_ON_PROCESS_TERMINATE" || "FORCE_TERMINATED",
  * //       GameProperties: [ // GamePropertyList
  * //         { // GameProperty
  * //           Key: "STRING_VALUE", // required
@@ -139,7 +140,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
  *  <p>The service is unable to resolve the routing for a particular alias because it has a
@@ -156,6 +157,7 @@ export interface DescribeGameSessionsCommandOutput extends DescribeGameSessionsO
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class DescribeGameSessionsCommand extends $Command
@@ -166,9 +168,7 @@ export class DescribeGameSessionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -180,4 +180,16 @@ export class DescribeGameSessionsCommand extends $Command
   .f(void 0, DescribeGameSessionsOutputFilterSensitiveLog)
   .ser(se_DescribeGameSessionsCommand)
   .de(de_DescribeGameSessionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeGameSessionsInput;
+      output: DescribeGameSessionsOutput;
+    };
+    sdk: {
+      input: DescribeGameSessionsCommandInput;
+      output: DescribeGameSessionsCommandOutput;
+    };
+  };
+}

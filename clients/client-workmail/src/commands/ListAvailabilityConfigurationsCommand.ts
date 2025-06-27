@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkMailClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,9 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * @see {@link ListAvailabilityConfigurationsCommandOutput} for command's `response` shape.
  * @see {@link WorkMailClientResolvedConfig | config} for WorkMailClient's `config` shape.
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>One or more of the input parameters don't match the service's restrictions.</p>
+ *
  * @throws {@link OrganizationNotFoundException} (client fault)
  *  <p>An operation received a valid organization identifier that either doesn't belong or
  *          exist in the system.</p>
@@ -84,6 +88,7 @@ export interface ListAvailabilityConfigurationsCommandOutput
  * @throws {@link WorkMailServiceException}
  * <p>Base exception class for all service exceptions from WorkMail service.</p>
  *
+ *
  * @public
  */
 export class ListAvailabilityConfigurationsCommand extends $Command
@@ -94,9 +99,7 @@ export class ListAvailabilityConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkMailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +111,16 @@ export class ListAvailabilityConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAvailabilityConfigurationsCommand)
   .de(de_ListAvailabilityConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAvailabilityConfigurationsRequest;
+      output: ListAvailabilityConfigurationsResponse;
+    };
+    sdk: {
+      input: ListAvailabilityConfigurationsCommandInput;
+      output: ListAvailabilityConfigurationsCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,27 +83,27 @@ export interface DescribeOrganizationConfigurationCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To get information about organization configuration
  * ```javascript
  * // This operation provides information about the way your organization is configured in Security Hub. Only a Security Hub administrator account can invoke this operation.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeOrganizationConfigurationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoEnable": false,
- *   "AutoEnableStandards": "NONE",
- *   "MemberAccountLimitReached": false,
- *   "OrganizationConfiguration": {
- *     "ConfigurationType": "CENTRAL",
- *     "Status": "ENABLED"
+ *   AutoEnable: false,
+ *   AutoEnableStandards: "NONE",
+ *   MemberAccountLimitReached: false,
+ *   OrganizationConfiguration: {
+ *     ConfigurationType: "CENTRAL",
+ *     Status: "ENABLED"
  *   }
  * }
  * *\/
- * // example id: to-get-information-about-organization-configuration-1676059786304
  * ```
  *
+ * @public
  */
 export class DescribeOrganizationConfigurationCommand extends $Command
   .classBuilder<
@@ -112,9 +113,7 @@ export class DescribeOrganizationConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +125,16 @@ export class DescribeOrganizationConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeOrganizationConfigurationCommand)
   .de(de_DescribeOrganizationConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: DescribeOrganizationConfigurationResponse;
+    };
+    sdk: {
+      input: DescribeOrganizationConfigurationCommandInput;
+      output: DescribeOrganizationConfigurationCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateNetworkCommand, se_CreateNetworkCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,6 +128,7 @@ export interface CreateNetworkCommandOutput extends CreateNetworkOutput, __Metad
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class CreateNetworkCommand extends $Command
@@ -137,9 +139,7 @@ export class CreateNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +151,16 @@ export class CreateNetworkCommand extends $Command
   .f(CreateNetworkInputFilterSensitiveLog, void 0)
   .ser(se_CreateNetworkCommand)
   .de(de_CreateNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNetworkInput;
+      output: CreateNetworkOutput;
+    };
+    sdk: {
+      input: CreateNetworkCommandInput;
+      output: CreateNetworkCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteVaultAccessPolicyCommand, se_DeleteVaultAccessPolicyCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,19 +73,22 @@ export interface DeleteVaultAccessPolicyCommandOutput extends __MetadataBearer {
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To delete the vault access policy
  * ```javascript
  * // The example deletes the access policy associated with the vault named examplevault.
  * const input = {
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new DeleteVaultAccessPolicyCommand(input);
- * await client.send(command);
- * // example id: to-delete-the-vault-access-policy-1481840424677
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteVaultAccessPolicyCommand extends $Command
   .classBuilder<
@@ -94,9 +98,7 @@ export class DeleteVaultAccessPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class DeleteVaultAccessPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVaultAccessPolicyCommand)
   .de(de_DeleteVaultAccessPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVaultAccessPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVaultAccessPolicyCommandInput;
+      output: DeleteVaultAccessPolicyCommandOutput;
+    };
+  };
+}

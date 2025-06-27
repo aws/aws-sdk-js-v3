@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SnowballClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,28 +71,8 @@ export interface ListClustersCommandOutput extends ListClustersResult, __Metadat
  * @throws {@link SnowballServiceException}
  * <p>Base exception class for all service exceptions from Snowball service.</p>
  *
- * @public
- * @example To get a list of clusters that you've created for AWS Snowball
- * ```javascript
- * // Returns an array of ClusterListEntry objects of the specified length. Each ClusterListEntry object contains a cluster's state, a cluster's ID, and other important status information.
- * const input = {};
- * const command = new ListClustersCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "ClusterListEntries": [
- *     {
- *       "ClusterId": "CID123e4567-e89b-12d3-a456-426655440000",
- *       "ClusterState": "Pending",
- *       "CreationDate": "1480475517.0",
- *       "Description": "MyCluster"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-a-list-of-clusters-that-youve-created-for-aws-snowball-1482862223003
- * ```
  *
+ * @public
  */
 export class ListClustersCommand extends $Command
   .classBuilder<
@@ -101,9 +82,7 @@ export class ListClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SnowballClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +94,16 @@ export class ListClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListClustersCommand)
   .de(de_ListClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListClustersRequest;
+      output: ListClustersResult;
+    };
+    sdk: {
+      input: ListClustersCommandInput;
+      output: ListClustersCommandOutput;
+    };
+  };
+}

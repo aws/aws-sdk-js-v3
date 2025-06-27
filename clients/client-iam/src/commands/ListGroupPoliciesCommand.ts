@@ -12,7 +12,8 @@ import { de_ListGroupPoliciesCommand, se_ListGroupPoliciesCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,26 +77,26 @@ export interface ListGroupPoliciesCommandOutput extends ListGroupPoliciesRespons
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To list the in-line policies for an IAM group
  * ```javascript
  * // The following command lists the names of in-line policies that are embedded in the IAM group named Admins.
  * const input = {
- *   "GroupName": "Admins"
+ *   GroupName: "Admins"
  * };
  * const command = new ListGroupPoliciesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "PolicyNames": [
+ *   PolicyNames: [
  *     "AdminRoot",
  *     "KeyPolicy"
  *   ]
  * }
  * *\/
- * // example id: 02de5095-2410-4d3a-ac1b-cc40234af68f
  * ```
  *
+ * @public
  */
 export class ListGroupPoliciesCommand extends $Command
   .classBuilder<
@@ -105,9 +106,7 @@ export class ListGroupPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +118,16 @@ export class ListGroupPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGroupPoliciesCommand)
   .de(de_ListGroupPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGroupPoliciesRequest;
+      output: ListGroupPoliciesResponse;
+    };
+    sdk: {
+      input: ListGroupPoliciesCommandInput;
+      output: ListGroupPoliciesCommandOutput;
+    };
+  };
+}

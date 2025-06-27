@@ -12,7 +12,8 @@ import { de_ListAppsCommand, se_ListAppsCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,7 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * //       platform: "WEB" || "WEB_DYNAMIC" || "WEB_COMPUTE", // required
  * //       createTime: new Date("TIMESTAMP"), // required
  * //       updateTime: new Date("TIMESTAMP"), // required
+ * //       computeRoleArn: "STRING_VALUE",
  * //       iamServiceRoleArn: "STRING_VALUE",
  * //       environmentVariables: { // EnvironmentVariables // required
  * //         "<keys>": "STRING_VALUE",
@@ -98,6 +100,18 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * //         pullRequestEnvironmentName: "STRING_VALUE",
  * //       },
  * //       repositoryCloneMethod: "SSH" || "TOKEN" || "SIGV4",
+ * //       cacheConfig: { // CacheConfig
+ * //         type: "AMPLIFY_MANAGED" || "AMPLIFY_MANAGED_NO_COOKIES", // required
+ * //       },
+ * //       webhookCreateTime: new Date("TIMESTAMP"),
+ * //       wafConfiguration: { // WafConfiguration
+ * //         webAclArn: "STRING_VALUE",
+ * //         wafStatus: "ASSOCIATING" || "ASSOCIATION_FAILED" || "ASSOCIATION_SUCCESS" || "DISASSOCIATING" || "DISASSOCIATION_FAILED",
+ * //         statusReason: "STRING_VALUE",
+ * //       },
+ * //       jobConfig: { // JobConfig
+ * //         buildComputeType: "STANDARD_8GB" || "LARGE_16GB" || "XLARGE_72GB", // required
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",
@@ -123,6 +137,7 @@ export interface ListAppsCommandOutput extends ListAppsResult, __MetadataBearer 
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class ListAppsCommand extends $Command
@@ -133,9 +148,7 @@ export class ListAppsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +160,16 @@ export class ListAppsCommand extends $Command
   .f(void 0, ListAppsResultFilterSensitiveLog)
   .ser(se_ListAppsCommand)
   .de(de_ListAppsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppsRequest;
+      output: ListAppsResult;
+    };
+    sdk: {
+      input: ListAppsCommandInput;
+      output: ListAppsCommandOutput;
+    };
+  };
+}

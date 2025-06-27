@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { isStaticCredsProfile, resolveStaticCredentials } from "./resolveStaticCredentials";
 
 const getMockStaticCredsProfile = () => ({
@@ -5,6 +7,7 @@ const getMockStaticCredsProfile = () => ({
   aws_secret_access_key: "mock_aws_secret_access_key",
   aws_session_token: "mock_aws_session_token",
   aws_credential_scope: "mock_aws_credential_scope",
+  aws_account_id: "mock_aws_account_id",
 });
 
 describe(isStaticCredsProfile.name, () => {
@@ -32,6 +35,12 @@ describe(isStaticCredsProfile.name, () => {
     });
   });
 
+  it.each(["aws_account_id"])("value at '%s' is not of type string | undefined", (key) => {
+    [true, null, 1, NaN, {}].forEach((value) => {
+      expect(isStaticCredsProfile({ ...getMockStaticCredsProfile(), [key]: value })).toEqual(false);
+    });
+  });
+
   it("returns true for StaticCredentialsProfile", () => {
     expect(isStaticCredsProfile(getMockStaticCredsProfile())).toEqual(true);
   });
@@ -46,6 +55,10 @@ describe(resolveStaticCredentials.name, () => {
       secretAccessKey: mockProfile.aws_secret_access_key,
       sessionToken: mockProfile.aws_session_token,
       credentialScope: mockProfile.aws_credential_scope,
+      accountId: mockProfile.aws_account_id,
+      $source: {
+        CREDENTIALS_PROFILE: "n",
+      },
     });
   });
 });

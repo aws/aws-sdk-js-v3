@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface UnshareApplicationCommandOutput extends __MetadataBearer {}
  * @throws {@link ServerlessApplicationRepositoryServiceException}
  * <p>Base exception class for all service exceptions from ServerlessApplicationRepository service.</p>
  *
+ *
  * @public
  */
 export class UnshareApplicationCommand extends $Command
@@ -82,9 +84,7 @@ export class UnshareApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ServerlessApplicationRepositoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class UnshareApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnshareApplicationCommand)
   .de(de_UnshareApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnshareApplicationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UnshareApplicationCommandInput;
+      output: UnshareApplicationCommandOutput;
+    };
+  };
+}

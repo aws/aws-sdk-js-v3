@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMonitoringAlertsRequest, ListMonitoringAlertsResponse } from "../models/models_3";
+import { ListMonitoringAlertsRequest, ListMonitoringAlertsResponse } from "../models/models_4";
 import { de_ListMonitoringAlertsCommand, se_ListMonitoringAlertsCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface ListMonitoringAlertsCommandOutput extends ListMonitoringAlertsR
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListMonitoringAlertsCommand extends $Command
@@ -84,9 +86,7 @@ export class ListMonitoringAlertsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class ListMonitoringAlertsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMonitoringAlertsCommand)
   .de(de_ListMonitoringAlertsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMonitoringAlertsRequest;
+      output: ListMonitoringAlertsResponse;
+    };
+    sdk: {
+      input: ListMonitoringAlertsCommandInput;
+      output: ListMonitoringAlertsCommandOutput;
+    };
+  };
+}

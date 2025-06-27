@@ -12,7 +12,7 @@ import { KinesisVideoArchivedMediaServiceException as __BaseException } from "./
 export class ClientLimitExceededException extends __BaseException {
   readonly name: "ClientLimitExceededException" = "ClientLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -104,14 +104,14 @@ export interface GetClipInput {
    *          <p>You must specify either the StreamName or the StreamARN. </p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the media clip. </p>
    *          <p>You must specify either the StreamName or the StreamARN. </p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The time range of the requested clip and the source of the timestamps.</p>
@@ -128,7 +128,7 @@ export interface GetClipOutput {
    * <p>The content type of the media in the requested clip.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>Traditional MP4 file that contains the media clip from the specified video stream. The
@@ -137,7 +137,7 @@ export interface GetClipOutput {
    *                 Video Streams Limits</a>. </p>
    * @public
    */
-  Payload?: StreamingBlobTypes;
+  Payload?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -148,7 +148,7 @@ export interface GetClipOutput {
 export class InvalidArgumentException extends __BaseException {
   readonly name: "InvalidArgumentException" = "InvalidArgumentException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -171,7 +171,7 @@ export class InvalidArgumentException extends __BaseException {
 export class InvalidCodecPrivateDataException extends __BaseException {
   readonly name: "InvalidCodecPrivateDataException" = "InvalidCodecPrivateDataException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -194,7 +194,7 @@ export class InvalidCodecPrivateDataException extends __BaseException {
 export class InvalidMediaFrameException extends __BaseException {
   readonly name: "InvalidMediaFrameException" = "InvalidMediaFrameException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -216,7 +216,7 @@ export class InvalidMediaFrameException extends __BaseException {
 export class MissingCodecPrivateDataException extends __BaseException {
   readonly name: "MissingCodecPrivateDataException" = "MissingCodecPrivateDataException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -240,7 +240,7 @@ export class MissingCodecPrivateDataException extends __BaseException {
 export class NoDataRetentionException extends __BaseException {
   readonly name: "NoDataRetentionException" = "NoDataRetentionException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -263,7 +263,7 @@ export class NoDataRetentionException extends __BaseException {
 export class NotAuthorizedException extends __BaseException {
   readonly name: "NotAuthorizedException" = "NotAuthorizedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -294,7 +294,7 @@ export class NotAuthorizedException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -319,7 +319,7 @@ export class ResourceNotFoundException extends __BaseException {
 export class UnsupportedStreamMediaTypeException extends __BaseException {
   readonly name: "UnsupportedStreamMediaTypeException" = "UnsupportedStreamMediaTypeException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -369,7 +369,7 @@ export interface DASHTimestampRange {
    *             the stream head. </p>
    * @public
    */
-  StartTimestamp?: Date;
+  StartTimestamp?: Date | undefined;
 
   /**
    * <p>The end of the timestamp range for the requested media. This value must be within 24
@@ -389,7 +389,7 @@ export interface DASHTimestampRange {
    *          </note>
    * @public
    */
-  EndTimestamp?: Date;
+  EndTimestamp?: Date | undefined;
 }
 
 /**
@@ -422,7 +422,7 @@ export interface DASHFragmentSelector {
    *          <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    * @public
    */
-  FragmentSelectorType?: DASHFragmentSelectorType;
+  FragmentSelectorType?: DASHFragmentSelectorType | undefined;
 
   /**
    * <p>The start and end of the timestamp range for the requested media.</p>
@@ -430,7 +430,7 @@ export interface DASHFragmentSelector {
    *             <code>LIVE</code>.</p>
    * @public
    */
-  TimestampRange?: DASHTimestampRange;
+  TimestampRange?: DASHTimestampRange | undefined;
 }
 
 /**
@@ -487,7 +487,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the MPEG-DASH
@@ -496,7 +496,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>Whether to retrieve live, live replay, or archived, on-demand data.</p>
@@ -561,7 +561,7 @@ export interface GetDASHStreamingSessionURLInput {
    *          <p>The default is <code>LIVE</code>.</p>
    * @public
    */
-  PlaybackMode?: DASHPlaybackMode;
+  PlaybackMode?: DASHPlaybackMode | undefined;
 
   /**
    * <p>Per the MPEG-DASH specification, the wall-clock time of fragments in the manifest file
@@ -580,7 +580,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             timestamps. </p>
    * @public
    */
-  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp;
+  DisplayFragmentTimestamp?: DASHDisplayFragmentTimestamp | undefined;
 
   /**
    * <p>Fragments are identified in the manifest file based on their sequence number in the
@@ -593,7 +593,7 @@ export interface GetDASHStreamingSessionURLInput {
    *          <p>The default value is <code>NEVER</code>.</p>
    * @public
    */
-  DisplayFragmentNumber?: DASHDisplayFragmentNumber;
+  DisplayFragmentNumber?: DASHDisplayFragmentNumber | undefined;
 
   /**
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
@@ -606,7 +606,7 @@ export interface GetDASHStreamingSessionURLInput {
    *                 <code>TimestampRange</code> must be set.</p>
    * @public
    */
-  DASHFragmentSelector?: DASHFragmentSelector;
+  DASHFragmentSelector?: DASHFragmentSelector | undefined;
 
   /**
    * <p>The time in seconds until the requested session expires. This value can be between 300
@@ -617,7 +617,7 @@ export interface GetDASHStreamingSessionURLInput {
    *          <p>The default is 300 (5 minutes).</p>
    * @public
    */
-  Expires?: number;
+  Expires?: number | undefined;
 
   /**
    * <p>The maximum number of fragments that are returned in the MPEG-DASH manifest.</p>
@@ -637,7 +637,7 @@ export interface GetDASHStreamingSessionURLInput {
    *             10-second fragments.</p>
    * @public
    */
-  MaxManifestFragmentResults?: number;
+  MaxManifestFragmentResults?: number | undefined;
 }
 
 /**
@@ -649,7 +649,7 @@ export interface GetDASHStreamingSessionURLOutput {
    *             MPEG-DASH manifest.</p>
    * @public
    */
-  DASHStreamingSessionURL?: string;
+  DASHStreamingSessionURL?: string | undefined;
 }
 
 /**
@@ -728,7 +728,7 @@ export interface HLSTimestampRange {
    *             the stream head. </p>
    * @public
    */
-  StartTimestamp?: Date;
+  StartTimestamp?: Date | undefined;
 
   /**
    * <p>The end of the timestamp range for the requested media. This value must be within 24
@@ -748,7 +748,7 @@ export interface HLSTimestampRange {
    *          </note>
    * @public
    */
-  EndTimestamp?: Date;
+  EndTimestamp?: Date | undefined;
 }
 
 /**
@@ -781,7 +781,7 @@ export interface HLSFragmentSelector {
    *          <p>The default is <code>SERVER_TIMESTAMP</code>.</p>
    * @public
    */
-  FragmentSelectorType?: HLSFragmentSelectorType;
+  FragmentSelectorType?: HLSFragmentSelectorType | undefined;
 
   /**
    * <p>The start and end of the timestamp range for the requested media.</p>
@@ -789,7 +789,7 @@ export interface HLSFragmentSelector {
    *             <code>LIVE</code>.</p>
    * @public
    */
-  TimestampRange?: HLSTimestampRange;
+  TimestampRange?: HLSTimestampRange | undefined;
 }
 
 /**
@@ -817,7 +817,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream for which to retrieve the HLS master
@@ -826,7 +826,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>Whether to retrieve live, live replay, or archived, on-demand data.</p>
@@ -891,7 +891,7 @@ export interface GetHLSStreamingSessionURLInput {
    *          <p>The default is <code>LIVE</code>.</p>
    * @public
    */
-  PlaybackMode?: HLSPlaybackMode;
+  PlaybackMode?: HLSPlaybackMode | undefined;
 
   /**
    * <p>The time range of the requested fragment and the source of the timestamps.</p>
@@ -904,7 +904,7 @@ export interface GetHLSStreamingSessionURLInput {
    *                 <code>TimestampRange</code> must be set.</p>
    * @public
    */
-  HLSFragmentSelector?: HLSFragmentSelector;
+  HLSFragmentSelector?: HLSFragmentSelector | undefined;
 
   /**
    * <p>Specifies which format should be used for packaging the media. Specifying the
@@ -917,7 +917,7 @@ export interface GetHLSStreamingSessionURLInput {
    *          <p>The default is <code>FRAGMENTED_MP4</code>.</p>
    * @public
    */
-  ContainerFormat?: ContainerFormat;
+  ContainerFormat?: ContainerFormat | undefined;
 
   /**
    * <p>Specifies when flags marking discontinuities between fragments are added to the media
@@ -960,7 +960,7 @@ export interface GetHLSStreamingSessionURLInput {
    *                 <code>PRODUCER_TIMESTAMP</code>.</p>
    * @public
    */
-  DiscontinuityMode?: HLSDiscontinuityMode;
+  DiscontinuityMode?: HLSDiscontinuityMode | undefined;
 
   /**
    * <p>Specifies when the fragment start timestamps should be included in the HLS media
@@ -977,7 +977,7 @@ export interface GetHLSStreamingSessionURLInput {
    *         </p>
    * @public
    */
-  DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp;
+  DisplayFragmentTimestamp?: HLSDisplayFragmentTimestamp | undefined;
 
   /**
    * <p>The time in seconds until the requested session expires. This value can be between 300
@@ -989,7 +989,7 @@ export interface GetHLSStreamingSessionURLInput {
    *          <p>The default is 300 (5 minutes).</p>
    * @public
    */
-  Expires?: number;
+  Expires?: number | undefined;
 
   /**
    * <p>The maximum number of fragments that are returned in the HLS media playlists.</p>
@@ -1009,7 +1009,7 @@ export interface GetHLSStreamingSessionURLInput {
    *             10-second fragments.</p>
    * @public
    */
-  MaxMediaPlaylistFragmentResults?: number;
+  MaxMediaPlaylistFragmentResults?: number | undefined;
 }
 
 /**
@@ -1021,7 +1021,7 @@ export interface GetHLSStreamingSessionURLOutput {
    *             master playlist.</p>
    * @public
    */
-  HLSStreamingSessionURL?: string;
+  HLSStreamingSessionURL?: string | undefined;
 }
 
 /**
@@ -1073,13 +1073,13 @@ export interface GetImagesInput {
    * <p>The name of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream from which to retrieve the images. You must specify either the <code>StreamName</code> or the <code>StreamARN</code>.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The origin of the Server or Producer timestamps to use to generate the images.</p>
@@ -1104,7 +1104,7 @@ export interface GetImagesInput {
    *         </p>
    * @public
    */
-  SamplingInterval?: number;
+  SamplingInterval?: number | undefined;
 
   /**
    * <p>The format that will be used to encode the image.</p>
@@ -1118,7 +1118,7 @@ export interface GetImagesInput {
    *             If the value is 100, the image will be generated with the best quality and less compression. If no value is provided, the default value of the <code>JPEGQuality</code> key will be set to 80.</p>
    * @public
    */
-  FormatConfig?: Partial<Record<FormatConfigKey, string>>;
+  FormatConfig?: Partial<Record<FormatConfigKey, string>> | undefined;
 
   /**
    * <p>The width of the output image that is used in conjunction with the <code>HeightPixels</code> parameter. When both <code>WidthPixels</code> and <code>HeightPixels</code> parameters are provided,
@@ -1126,7 +1126,7 @@ export interface GetImagesInput {
    *             If neither parameter is provided, the original image size from the stream will be returned.</p>
    * @public
    */
-  WidthPixels?: number;
+  WidthPixels?: number | undefined;
 
   /**
    * <p>The height of the output image that is used in conjunction with the <code>WidthPixels</code> parameter. When both <code>HeightPixels</code> and <code>WidthPixels</code> parameters are provided, the image will be stretched to fit the
@@ -1134,7 +1134,7 @@ export interface GetImagesInput {
    *             the original image size will be returned.</p>
    * @public
    */
-  HeightPixels?: number;
+  HeightPixels?: number | undefined;
 
   /**
    * <p>The maximum number of images to be returned by the API. </p>
@@ -1143,13 +1143,13 @@ export interface GetImagesInput {
    *          </note>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token that specifies where to start paginating the next set of Images. This is the <code>GetImages:NextToken</code> from a previously truncated response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1176,7 +1176,7 @@ export interface Image {
    *         window.</p>
    * @public
    */
-  TimeStamp?: Date;
+  TimeStamp?: Date | undefined;
 
   /**
    * <p>The error message shown when the image for the provided timestamp was not extracted due to a non-tryable error. An error will be returned if: </p>
@@ -1193,13 +1193,13 @@ export interface Image {
    *          </ul>
    * @public
    */
-  Error?: ImageError;
+  Error?: ImageError | undefined;
 
   /**
    * <p>An attribute of the <code>Image</code> object that is Base64 encoded.</p>
    * @public
    */
-  ImageContent?: string;
+  ImageContent?: string | undefined;
 }
 
 /**
@@ -1211,13 +1211,13 @@ export interface GetImagesOutput {
    *             If an error occurs while the image is being generated, the <code>MEDIA_ERROR</code> will be listed in the output as the cause of the missing image. </p>
    * @public
    */
-  Images?: Image[];
+  Images?: Image[] | undefined;
 
   /**
    * <p>The encrypted token that was  used in the request to get more images.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -1228,13 +1228,13 @@ export interface GetMediaForFragmentListInput {
    * <p>The name of the stream from which to retrieve fragment media. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream from which to retrieve fragment media. Specify either this parameter or the <code>StreamName</code> parameter.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>A list of the numbers of fragments for which to retrieve media. You retrieve these
@@ -1252,7 +1252,7 @@ export interface GetMediaForFragmentListOutput {
    * <p>The content type of the requested media.</p>
    * @public
    */
-  ContentType?: string;
+  ContentType?: string | undefined;
 
   /**
    * <p>The payload that Kinesis Video Streams returns is a sequence of chunks from the
@@ -1290,7 +1290,7 @@ export interface GetMediaForFragmentListOutput {
    *          </ul>
    * @public
    */
-  Payload?: StreamingBlobTypes;
+  Payload?: StreamingBlobTypes | undefined;
 }
 
 /**
@@ -1371,13 +1371,13 @@ export interface ListFragmentsInput {
    * <p>The name of the stream from which to retrieve a fragment list. Specify either this parameter or the <code>StreamARN</code> parameter.</p>
    * @public
    */
-  StreamName?: string;
+  StreamName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the stream from which to retrieve a fragment list. Specify either this parameter or the <code>StreamName</code> parameter.</p>
    * @public
    */
-  StreamARN?: string;
+  StreamARN?: string | undefined;
 
   /**
    * <p>The total number of fragments to return. If the total number of fragments available is
@@ -1385,14 +1385,14 @@ export interface ListFragmentsInput {
    *             to resume pagination.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>A token to specify where to start paginating. This is the <a>ListFragmentsOutput$NextToken</a> from a previously truncated
    *             response.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>Describes the timestamp range and timestamp origin for the range of fragments to
@@ -1402,7 +1402,7 @@ export interface ListFragmentsInput {
    *          </note>
    * @public
    */
-  FragmentSelector?: FragmentSelector;
+  FragmentSelector?: FragmentSelector | undefined;
 }
 
 /**
@@ -1415,32 +1415,32 @@ export interface Fragment {
    *             ingestion order.</p>
    * @public
    */
-  FragmentNumber?: string;
+  FragmentNumber?: string | undefined;
 
   /**
    * <p>The total fragment size, including information about the fragment and contained media
    *             data.</p>
    * @public
    */
-  FragmentSizeInBytes?: number;
+  FragmentSizeInBytes?: number | undefined;
 
   /**
    * <p>The timestamp from the producer corresponding to the fragment.</p>
    * @public
    */
-  ProducerTimestamp?: Date;
+  ProducerTimestamp?: Date | undefined;
 
   /**
    * <p>The timestamp from the Amazon Web Services server corresponding to the fragment.</p>
    * @public
    */
-  ServerTimestamp?: Date;
+  ServerTimestamp?: Date | undefined;
 
   /**
    * <p>The playback duration or other time value associated with the fragment.</p>
    * @public
    */
-  FragmentLengthInMilliseconds?: number;
+  FragmentLengthInMilliseconds?: number | undefined;
 }
 
 /**
@@ -1452,7 +1452,7 @@ export interface ListFragmentsOutput {
    *             selector criteria. Results are in no specific order, even across pages.</p>
    * @public
    */
-  Fragments?: Fragment[];
+  Fragments?: Fragment[] | undefined;
 
   /**
    * <p>If the returned list is truncated, the operation returns this token to use to retrieve
@@ -1460,7 +1460,7 @@ export interface ListFragmentsOutput {
    *             to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

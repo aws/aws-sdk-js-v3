@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,23 +74,23 @@ export interface DeleteSnapshotScheduleCommandOutput extends DeleteSnapshotSched
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To delete a snapshot of a volume
  * ```javascript
  * // This action enables you to delete a snapshot schedule for a volume.
  * const input = {
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * };
  * const command = new DeleteSnapshotScheduleCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "VolumeARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
+ *   VolumeARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B/volume/vol-1122AABB"
  * }
  * *\/
- * // example id: to-delete-a-snapshot-of-a-volume-1471382234377
  * ```
  *
+ * @public
  */
 export class DeleteSnapshotScheduleCommand extends $Command
   .classBuilder<
@@ -99,9 +100,7 @@ export class DeleteSnapshotScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DeleteSnapshotScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSnapshotScheduleCommand)
   .de(de_DeleteSnapshotScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSnapshotScheduleInput;
+      output: DeleteSnapshotScheduleOutput;
+    };
+    sdk: {
+      input: DeleteSnapshotScheduleCommandInput;
+      output: DeleteSnapshotScheduleCommandOutput;
+    };
+  };
+}

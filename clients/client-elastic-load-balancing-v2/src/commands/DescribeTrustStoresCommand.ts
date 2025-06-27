@@ -16,7 +16,8 @@ import { de_DescribeTrustStoresCommand, se_DescribeTrustStoresCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,7 @@ export interface DescribeTrustStoresCommandInput extends DescribeTrustStoresInpu
 export interface DescribeTrustStoresCommandOutput extends DescribeTrustStoresOutput, __MetadataBearer {}
 
 /**
- * <p>Describes all trust stores for a given account
- *       by trust store arn’s or name.</p>
+ * <p>Describes all trust stores for the specified account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,6 +78,7 @@ export interface DescribeTrustStoresCommandOutput extends DescribeTrustStoresOut
  * @throws {@link ElasticLoadBalancingV2ServiceException}
  * <p>Base exception class for all service exceptions from ElasticLoadBalancingV2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeTrustStoresCommand extends $Command
@@ -88,9 +89,7 @@ export class DescribeTrustStoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticLoadBalancingV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +101,16 @@ export class DescribeTrustStoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTrustStoresCommand)
   .de(de_DescribeTrustStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTrustStoresInput;
+      output: DescribeTrustStoresOutput;
+    };
+    sdk: {
+      input: DescribeTrustStoresCommandInput;
+      output: DescribeTrustStoresCommandOutput;
+    };
+  };
+}

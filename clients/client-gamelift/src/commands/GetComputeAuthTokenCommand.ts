@@ -12,7 +12,8 @@ import { de_GetComputeAuthTokenCommand, se_GetComputeAuthTokenCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,24 +28,26 @@ export interface GetComputeAuthTokenCommandInput extends GetComputeAuthTokenInpu
 export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOutput, __MetadataBearer {}
 
 /**
- * <p>Requests an authentication token from Amazon GameLift for a compute resource in an Amazon GameLift
- *             Anywhere fleet or container fleet. Game servers that are running on the compute use this
- *             token to communicate with the Amazon GameLift service, such as when calling the Amazon GameLift server
- *             SDK action <code>InitSDK()</code>. Authentication tokens are valid for a limited time
- *             span, so you need to request a fresh token before the current token expires.</p>
- *          <p>Use this operation based on the fleet compute type:</p>
+ * <p>Requests an authentication token from Amazon GameLift Servers for a compute resource in an Amazon GameLift Servers
+ *             fleet. Game servers that are running on the compute use this token to communicate
+ *             with the Amazon GameLift Servers service, such as when calling the Amazon GameLift Servers server SDK action
+ *                 <code>InitSDK()</code>. Authentication tokens are valid for a limited time span, so
+ *             you need to request a fresh token before the current token expires.</p>
+ *          <p>
+ *             <b>Request options</b>
+ *          </p>
  *          <ul>
  *             <li>
- *                <p>For <code>EC2</code> fleets, auth token retrieval and refresh is handled
- *                     automatically. All game servers that are running on all fleet instances have
- *                     access to a valid auth token.</p>
+ *                <p>For managed EC2 fleets (compute type <code>EC2</code>), auth token retrieval
+ *                     and refresh is handled automatically. All game servers that are running on all
+ *                     fleet instances have access to a valid auth token.</p>
  *             </li>
  *             <li>
- *                <p>For <code>ANYWHERE</code> and <code>CONTAINER</code> fleets, if you're using
- *                     the Amazon GameLift Agent, auth token retrieval and refresh is handled automatically for
- *                     any container or Anywhere compute where the Agent is running. If you're not
- *                     using the Agent, create a mechanism to retrieve and refresh auth tokens for
- *                     computes that are running game server processes. </p>
+ *                <p>For Anywhere fleets (compute type <code>ANYWHERE</code>), if you're using the
+ *                     Amazon GameLift Servers Agent, auth token retrieval and refresh is handled automatically for any
+ *                     compute where the Agent is running. If you're not using
+ *                     the Agent, create a mechanism to retrieve and refresh auth tokens for computes
+ *                     that are running game server processes.</p>
  *             </li>
  *          </ul>
  *          <p>
@@ -107,13 +110,17 @@ export interface GetComputeAuthTokenCommandOutput extends GetComputeAuthTokenOut
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
+ * @throws {@link UnsupportedRegionException} (client fault)
+ *  <p>The requested operation is not supported in the Region specified.</p>
+ *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -125,9 +132,7 @@ export class GetComputeAuthTokenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +144,16 @@ export class GetComputeAuthTokenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComputeAuthTokenCommand)
   .de(de_GetComputeAuthTokenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComputeAuthTokenInput;
+      output: GetComputeAuthTokenOutput;
+    };
+    sdk: {
+      input: GetComputeAuthTokenCommandInput;
+      output: GetComputeAuthTokenCommandOutput;
+    };
+  };
+}

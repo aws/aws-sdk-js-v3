@@ -12,7 +12,8 @@ import { de_ListProjectsCommand, se_ListProjectsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,35 +85,8 @@ export interface ListProjectsCommandOutput extends ListProjectsResult, __Metadat
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
- * @example To get information about a Device Farm project
- * ```javascript
- * // The following example returns information about the specified project in Device Farm.
- * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:7ad300ed-8183-41a7-bf94-12345EXAMPLE",
- *   "nextToken": "RW5DdDJkMWYwZjM2MzM2VHVpOHJIUXlDUXlhc2QzRGViYnc9SEXAMPLE"
- * };
- * const command = new ListProjectsCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "projects": [
- *     {
- *       "name": "My Test Project",
- *       "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:7ad300ed-8183-41a7-bf94-12345EXAMPLE",
- *       "created": "1453163262.105"
- *     },
- *     {
- *       "name": "Hello World",
- *       "arn": "arn:aws:devicefarm:us-west-2:123456789101:project:d6b087d9-56db-4e44-b9ec-12345EXAMPLE",
- *       "created": "1470350112.439"
- *     }
- *   ]
- * }
- * *\/
- * // example id: to-get-information-about-a-device-farm-project-1472564014388
- * ```
  *
+ * @public
  */
 export class ListProjectsCommand extends $Command
   .classBuilder<
@@ -122,9 +96,7 @@ export class ListProjectsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +108,16 @@ export class ListProjectsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListProjectsCommand)
   .de(de_ListProjectsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListProjectsRequest;
+      output: ListProjectsResult;
+    };
+    sdk: {
+      input: ListProjectsCommandInput;
+      output: ListProjectsCommandOutput;
+    };
+  };
+}

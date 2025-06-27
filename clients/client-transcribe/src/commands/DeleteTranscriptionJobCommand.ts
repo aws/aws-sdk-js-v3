@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TranscribeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface DeleteTranscriptionJobCommandOutput extends __MetadataBearer {}
  * @throws {@link TranscribeServiceException}
  * <p>Base exception class for all service exceptions from Transcribe service.</p>
  *
+ *
  * @public
  */
 export class DeleteTranscriptionJobCommand extends $Command
@@ -78,9 +80,7 @@ export class DeleteTranscriptionJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranscribeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class DeleteTranscriptionJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTranscriptionJobCommand)
   .de(de_DeleteTranscriptionJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTranscriptionJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteTranscriptionJobCommandInput;
+      output: DeleteTranscriptionJobCommandOutput;
+    };
+  };
+}

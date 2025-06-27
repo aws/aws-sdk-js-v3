@@ -16,7 +16,8 @@ import { de_CreateIntegrationWorkflowCommand, se_CreateIntegrationWorkflowComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +32,8 @@ export interface CreateIntegrationWorkflowCommandInput extends CreateIntegration
 export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegrationWorkflowResponse, __MetadataBearer {}
 
 /**
- * <p>
- * 	Creates an integration workflow. An integration workflow is an async process which ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo.
- * 	</p>
+ * <p> Creates an integration workflow. An integration workflow is an async process which
+ *          ingests historic data and sets up an integration for ongoing updates. The supported Amazon AppFlow sources are Salesforce, ServiceNow, and Marketo. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -157,6 +157,7 @@ export interface CreateIntegrationWorkflowCommandOutput extends CreateIntegratio
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class CreateIntegrationWorkflowCommand extends $Command
@@ -167,9 +168,7 @@ export class CreateIntegrationWorkflowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -181,4 +180,16 @@ export class CreateIntegrationWorkflowCommand extends $Command
   .f(CreateIntegrationWorkflowRequestFilterSensitiveLog, void 0)
   .ser(se_CreateIntegrationWorkflowCommand)
   .de(de_CreateIntegrationWorkflowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateIntegrationWorkflowRequest;
+      output: CreateIntegrationWorkflowResponse;
+    };
+    sdk: {
+      input: CreateIntegrationWorkflowCommandInput;
+      output: CreateIntegrationWorkflowCommandOutput;
+    };
+  };
+}

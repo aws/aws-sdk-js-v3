@@ -12,7 +12,8 @@ import { de_UpdateModelManifestCommand, se_UpdateModelManifestCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,7 +73,8 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  *  <p>The request couldn't be completed because the server temporarily failed.</p>
  *
  * @throws {@link InvalidSignalsException} (client fault)
- *  <p>The request couldn't be completed because it contains signals that aren't valid.</p>
+ *  <p>The request couldn't be completed because it contains signals that aren't
+ *             valid.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The resource wasn't found.</p>
@@ -86,6 +88,7 @@ export interface UpdateModelManifestCommandOutput extends UpdateModelManifestRes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateModelManifestCommand extends $Command
@@ -96,9 +99,7 @@ export class UpdateModelManifestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class UpdateModelManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateModelManifestCommand)
   .de(de_UpdateModelManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateModelManifestRequest;
+      output: UpdateModelManifestResponse;
+    };
+    sdk: {
+      input: UpdateModelManifestCommandInput;
+      output: UpdateModelManifestCommandOutput;
+    };
+  };
+}

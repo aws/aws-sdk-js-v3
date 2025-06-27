@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,12 @@ export interface CreateTrustedTokenIssuerCommandInput extends CreateTrustedToken
 export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted identity propagation to be used with applications that authenticate outside of Amazon Web Services.</p>
- *          <p>This trusted token issuer describes an external identity
- *             provider (IdP) that can generate claims or assertions in the form of access tokens for a
- *             user. Applications enabled for IAM Identity Center can use these tokens for authentication. </p>
+ * <p>Creates a connection to a trusted token issuer in an instance of IAM Identity Center. A trusted token issuer enables trusted
+ *             identity propagation to be used with applications that authenticate outside of
+ *             Amazon Web Services.</p>
+ *          <p>This trusted token issuer describes an external identity provider (IdP) that can generate claims or
+ *             assertions in the form of access tokens for a user. Applications enabled for IAM Identity Center
+ *             can use these tokens for authentication. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,6 +101,7 @@ export interface CreateTrustedTokenIssuerCommandOutput extends CreateTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class CreateTrustedTokenIssuerCommand extends $Command
@@ -108,9 +112,7 @@ export class CreateTrustedTokenIssuerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +124,16 @@ export class CreateTrustedTokenIssuerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrustedTokenIssuerCommand)
   .de(de_CreateTrustedTokenIssuerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrustedTokenIssuerRequest;
+      output: CreateTrustedTokenIssuerResponse;
+    };
+    sdk: {
+      input: CreateTrustedTokenIssuerCommandInput;
+      output: CreateTrustedTokenIssuerCommandOutput;
+    };
+  };
+}

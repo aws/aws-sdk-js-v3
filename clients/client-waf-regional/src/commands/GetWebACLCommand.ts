@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFRegionalClientResolvedConfig 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,39 +98,39 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * @throws {@link WAFRegionalServiceException}
  * <p>Base exception class for all service exceptions from WAFRegional service.</p>
  *
- * @public
+ *
  * @example To get a web ACL
  * ```javascript
  * // The following example returns the details of a web ACL with the ID createwebacl-1472061481310.
  * const input = {
- *   "WebACLId": "createwebacl-1472061481310"
+ *   WebACLId: "createwebacl-1472061481310"
  * };
  * const command = new GetWebACLCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "WebACL": {
- *     "DefaultAction": {
- *       "Type": "ALLOW"
+ *   WebACL: {
+ *     DefaultAction: {
+ *       Type: "ALLOW"
  *     },
- *     "MetricName": "CreateExample",
- *     "Name": "CreateExample",
- *     "Rules": [
+ *     MetricName: "CreateExample",
+ *     Name: "CreateExample",
+ *     Rules: [
  *       {
- *         "Action": {
- *           "Type": "ALLOW"
+ *         Action: {
+ *           Type: "ALLOW"
  *         },
- *         "Priority": 1,
- *         "RuleId": "WAFRule-1-Example"
+ *         Priority: 1,
+ *         RuleId: "WAFRule-1-Example"
  *       }
  *     ],
- *     "WebACLId": "createwebacl-1472061481310"
+ *     WebACLId: "createwebacl-1472061481310"
  *   }
  * }
  * *\/
- * // example id: getwebacl-1475006348525
  * ```
  *
+ * @public
  */
 export class GetWebACLCommand extends $Command
   .classBuilder<
@@ -139,9 +140,7 @@ export class GetWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFRegionalClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class GetWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetWebACLCommand)
   .de(de_GetWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetWebACLRequest;
+      output: GetWebACLResponse;
+    };
+    sdk: {
+      input: GetWebACLCommandInput;
+      output: GetWebACLCommandOutput;
+    };
+  };
+}

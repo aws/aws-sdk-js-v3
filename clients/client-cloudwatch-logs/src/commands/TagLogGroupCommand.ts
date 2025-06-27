@@ -12,7 +12,8 @@ import { de_TagLogGroupCommand, se_TagLogGroupCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  *       To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>.</p>
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a>
  *       in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
- *          <p>CloudWatch Logs doesn’t support IAM policies that prevent users from assigning specified tags to
+ *          <p>CloudWatch Logs doesn't support IAM policies that prevent users from assigning specified tags to
  *       log groups using the <code>aws:Resource/<i>key-name</i>
  *             </code> or <code>aws:TagKeys</code> condition keys.
  *       For more information about using tags to control access, see
@@ -76,6 +77,7 @@ export interface TagLogGroupCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class TagLogGroupCommand extends $Command
@@ -86,9 +88,7 @@ export class TagLogGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class TagLogGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagLogGroupCommand)
   .de(de_TagLogGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagLogGroupRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagLogGroupCommandInput;
+      output: TagLogGroupCommandOutput;
+    };
+  };
+}

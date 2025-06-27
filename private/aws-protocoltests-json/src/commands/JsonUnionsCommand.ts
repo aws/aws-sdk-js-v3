@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { UnionInputOutput } from "../models/models_0";
 import { de_JsonUnionsCommand, se_JsonUnionsCommand } from "../protocols/Aws_json1_1";
@@ -10,7 +12,8 @@ import { de_JsonUnionsCommand, se_JsonUnionsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +87,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonUnionsCommand extends $Command
@@ -94,12 +98,28 @@ export class JsonUnionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("JsonProtocol", "JsonUnions", {})
   .n("JsonProtocolClient", "JsonUnionsCommand")
   .f(void 0, void 0)
   .ser(se_JsonUnionsCommand)
   .de(de_JsonUnionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnionInputOutput;
+      output: UnionInputOutput;
+    };
+    sdk: {
+      input: JsonUnionsCommandInput;
+      output: JsonUnionsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteObjectCommand, se_DeleteObjectCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectResponse, __Metad
  * @throws {@link MediaStoreDataServiceException}
  * <p>Base exception class for all service exceptions from MediaStoreData service.</p>
  *
+ *
  * @public
  */
 export class DeleteObjectCommand extends $Command
@@ -71,9 +73,7 @@ export class DeleteObjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaStoreDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeleteObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteObjectCommand)
   .de(de_DeleteObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteObjectRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteObjectCommandInput;
+      output: DeleteObjectCommandOutput;
+    };
+  };
+}

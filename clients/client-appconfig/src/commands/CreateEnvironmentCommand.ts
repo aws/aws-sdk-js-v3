@@ -12,7 +12,8 @@ import { de_CreateEnvironmentCommand, se_CreateEnvironmentCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -62,7 +63,7 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * //   Id: "STRING_VALUE",
  * //   Name: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
- * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK",
+ * //   State: "READY_FOR_DEPLOYMENT" || "DEPLOYING" || "ROLLING_BACK" || "ROLLED_BACK" || "REVERTED",
  * //   Monitors: [ // MonitorList
  * //     { // Monitor
  * //       AlarmArn: "STRING_VALUE", // required
@@ -102,27 +103,27 @@ export interface CreateEnvironmentCommandOutput extends Environment, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To create an environment
  * ```javascript
  * // The following create-environment example creates an AWS AppConfig environment named Example-Environment using the application you created using create-application
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "Name": "Example-Environment"
+ *   ApplicationId: "339ohji",
+ *   Name: "Example-Environment"
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ApplicationId": "339ohji",
- *   "Id": "54j1r29",
- *   "Name": "Example-Environment",
- *   "State": "READY_FOR_DEPLOYMENT"
+ *   ApplicationId: "339ohji",
+ *   Id: "54j1r29",
+ *   Name: "Example-Environment",
+ *   State: "READY_FOR_DEPLOYMENT"
  * }
  * *\/
- * // example id: to-create-an-environment-1632265124975
  * ```
  *
+ * @public
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<
@@ -132,9 +133,7 @@ export class CreateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class CreateEnvironmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEnvironmentCommand)
   .de(de_CreateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentRequest;
+      output: Environment;
+    };
+    sdk: {
+      input: CreateEnvironmentCommandInput;
+      output: CreateEnvironmentCommandOutput;
+    };
+  };
+}

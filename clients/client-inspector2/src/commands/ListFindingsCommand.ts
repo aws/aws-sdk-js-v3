@@ -12,7 +12,8 @@ import { de_ListFindingsCommand, se_ListFindingsCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,6 +117,18 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *     ecrImageRepositoryName: "<StringFilterList>",
  *     ecrImageTags: "<StringFilterList>",
  *     ecrImageHash: "<StringFilterList>",
+ *     ecrImageLastInUseAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageInUseCount: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *     portRange: [ // PortRangeFilterList
  *       { // PortRangeFilter
  *         beginInclusive: Number("int"),
@@ -140,6 +153,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         architecture: "<StringFilter>",
  *         sourceLayerHash: "<StringFilter>",
  *         sourceLambdaLayerArn: "<StringFilter>",
+ *         filePath: "<StringFilter>",
  *       },
  *     ],
  *     relatedVulnerabilities: "<StringFilterList>",
@@ -147,12 +161,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *     lambdaFunctionName: "<StringFilterList>",
  *     lambdaFunctionLayers: "<StringFilterList>",
  *     lambdaFunctionRuntime: "<StringFilterList>",
- *     lambdaFunctionLastModifiedAt: [
- *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
- *       },
- *     ],
+ *     lambdaFunctionLastModifiedAt: "<DateFilterList>",
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
  *     codeVulnerabilityDetectorName: "<StringFilterList>",
@@ -164,6 +173,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  *         lowerInclusive: Number("double"),
  *       },
  *     ],
+ *     codeRepositoryProjectName: "<StringFilterList>",
+ *     codeRepositoryProviderType: "<StringFilterList>",
  *   },
  *   sortCriteria: { // SortCriteria
  *     field: "STRING_VALUE", // required
@@ -229,6 +240,8 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //               imageHash: "STRING_VALUE", // required
  * //               registry: "STRING_VALUE", // required
  * //               platform: "STRING_VALUE",
+ * //               lastInUseAt: new Date("TIMESTAMP"),
+ * //               inUseCount: Number("long"),
  * //             },
  * //             awsLambdaFunction: { // AwsLambdaFunctionDetails
  * //               functionName: "STRING_VALUE", // required
@@ -253,6 +266,11 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //                 "STRING_VALUE",
  * //               ],
  * //               lastModifiedAt: new Date("TIMESTAMP"),
+ * //             },
+ * //             codeRepository: { // CodeRepositoryDetails
+ * //               projectName: "STRING_VALUE",
+ * //               integrationArn: "STRING_VALUE",
+ * //               providerType: "STRING_VALUE",
  * //             },
  * //           },
  * //         },
@@ -284,6 +302,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * //             { // Step
  * //               componentId: "STRING_VALUE", // required
  * //               componentType: "STRING_VALUE", // required
+ * //               componentArn: "STRING_VALUE",
  * //             },
  * //           ],
  * //         },
@@ -379,6 +398,7 @@ export interface ListFindingsCommandOutput extends ListFindingsResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListFindingsCommand extends $Command
@@ -389,9 +409,7 @@ export class ListFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -403,4 +421,16 @@ export class ListFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFindingsCommand)
   .de(de_ListFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFindingsRequest;
+      output: ListFindingsResponse;
+    };
+    sdk: {
+      input: ListFindingsCommandInput;
+      output: ListFindingsCommandOutput;
+    };
+  };
+}

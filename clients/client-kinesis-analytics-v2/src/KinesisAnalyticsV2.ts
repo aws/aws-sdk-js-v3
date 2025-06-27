@@ -88,6 +88,11 @@ import {
   DescribeApplicationCommandOutput,
 } from "./commands/DescribeApplicationCommand";
 import {
+  DescribeApplicationOperationCommand,
+  DescribeApplicationOperationCommandInput,
+  DescribeApplicationOperationCommandOutput,
+} from "./commands/DescribeApplicationOperationCommand";
+import {
   DescribeApplicationSnapshotCommand,
   DescribeApplicationSnapshotCommandInput,
   DescribeApplicationSnapshotCommandOutput,
@@ -102,6 +107,11 @@ import {
   DiscoverInputSchemaCommandInput,
   DiscoverInputSchemaCommandOutput,
 } from "./commands/DiscoverInputSchemaCommand";
+import {
+  ListApplicationOperationsCommand,
+  ListApplicationOperationsCommandInput,
+  ListApplicationOperationsCommandOutput,
+} from "./commands/ListApplicationOperationsCommand";
 import {
   ListApplicationsCommand,
   ListApplicationsCommandInput,
@@ -173,9 +183,11 @@ const commands = {
   DeleteApplicationSnapshotCommand,
   DeleteApplicationVpcConfigurationCommand,
   DescribeApplicationCommand,
+  DescribeApplicationOperationCommand,
   DescribeApplicationSnapshotCommand,
   DescribeApplicationVersionCommand,
   DiscoverInputSchemaCommand,
+  ListApplicationOperationsCommand,
   ListApplicationsCommand,
   ListApplicationSnapshotsCommand,
   ListApplicationVersionsCommand,
@@ -480,6 +492,23 @@ export interface KinesisAnalyticsV2 {
   ): void;
 
   /**
+   * @see {@link DescribeApplicationOperationCommand}
+   */
+  describeApplicationOperation(
+    args: DescribeApplicationOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeApplicationOperationCommandOutput>;
+  describeApplicationOperation(
+    args: DescribeApplicationOperationCommandInput,
+    cb: (err: any, data?: DescribeApplicationOperationCommandOutput) => void
+  ): void;
+  describeApplicationOperation(
+    args: DescribeApplicationOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeApplicationOperationCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeApplicationSnapshotCommand}
    */
   describeApplicationSnapshot(
@@ -528,6 +557,23 @@ export interface KinesisAnalyticsV2 {
     args: DiscoverInputSchemaCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DiscoverInputSchemaCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListApplicationOperationsCommand}
+   */
+  listApplicationOperations(
+    args: ListApplicationOperationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListApplicationOperationsCommandOutput>;
+  listApplicationOperations(
+    args: ListApplicationOperationsCommandInput,
+    cb: (err: any, data?: ListApplicationOperationsCommandOutput) => void
+  ): void;
+  listApplicationOperations(
+    args: ListApplicationOperationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListApplicationOperationsCommandOutput) => void
   ): void;
 
   /**

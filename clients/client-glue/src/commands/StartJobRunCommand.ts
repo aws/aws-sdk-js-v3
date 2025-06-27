@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { StartJobRunRequest, StartJobRunResponse } from "../models/models_2";
+import { StartJobRunRequest, StartJobRunResponse } from "../models/models_3";
 import { de_StartJobRunCommand, se_StartJobRunCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,6 +37,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * const client = new GlueClient(config);
  * const input = { // StartJobRunRequest
  *   JobName: "STRING_VALUE", // required
+ *   JobRunQueuingEnabled: true || false,
  *   JobRunId: "STRING_VALUE",
  *   Arguments: { // GenericMap
  *     "<keys>": "STRING_VALUE",
@@ -86,6 +88,7 @@ export interface StartJobRunCommandOutput extends StartJobRunResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class StartJobRunCommand extends $Command
@@ -96,9 +99,7 @@ export class StartJobRunCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class StartJobRunCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartJobRunCommand)
   .de(de_StartJobRunCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartJobRunRequest;
+      output: StartJobRunResponse;
+    };
+    sdk: {
+      input: StartJobRunCommandInput;
+      output: StartJobRunCommandOutput;
+    };
+  };
+}

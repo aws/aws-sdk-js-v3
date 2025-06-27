@@ -1,24 +1,26 @@
-// Run using AWS_SMOKE_TEST_REGION=[Region] AWS_SMOKE_TEST_BUCKET=[Bucket] yarn test:e2e
-// These params are established in /tests/e2e.
-
 import { NoSuchKey, S3 } from "@aws-sdk/client-s3";
+import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, test as it } from "vitest";
+
 const FormData = require("form-data");
 
 import { createReadStream, existsSync, rmSync, writeFileSync } from "fs";
 import { join } from "path";
 
+import { getIntegTestResources } from "../../../tests/e2e/get-integ-test-resources";
 import { createPresignedPost } from "./createPresignedPost";
 
-const region = process.env.AWS_SMOKE_TEST_REGION ?? "";
-const Bucket = process.env.AWS_SMOKE_TEST_BUCKET ?? "";
-if (!Bucket) {
-  throw new Error("process.env.AWS_SMOKE_TEST_BUCKET is not set.");
-}
-if (!region) {
-  throw new Error("process.env.AWS_SMOKE_TEST_REGION is not set.");
-}
-
 describe(createPresignedPost.name, () => {
+  let Bucket: string;
+  let region: string;
+
+  beforeAll(async () => {
+    const integTestResourcesEnv = await getIntegTestResources();
+    Object.assign(process.env, integTestResourcesEnv);
+
+    region = process?.env?.AWS_SMOKE_TEST_REGION as string;
+    Bucket = process?.env?.AWS_SMOKE_TEST_BUCKET as string;
+  });
+
   it("should allow custom endpoints to be modified by endpoint resolution options", async () => {
     const Key = "test-key";
     {

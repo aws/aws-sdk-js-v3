@@ -17,7 +17,8 @@ import { de_ListAppInstanceBotsCommand, se_ListAppInstanceBotsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface ListAppInstanceBotsCommandOutput extends ListAppInstanceBotsRes
  * @throws {@link ChimeSDKIdentityServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKIdentity service.</p>
  *
+ *
  * @public
  */
 export class ListAppInstanceBotsCommand extends $Command
@@ -100,9 +102,7 @@ export class ListAppInstanceBotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListAppInstanceBotsCommand extends $Command
   .f(ListAppInstanceBotsRequestFilterSensitiveLog, ListAppInstanceBotsResponseFilterSensitiveLog)
   .ser(se_ListAppInstanceBotsCommand)
   .de(de_ListAppInstanceBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppInstanceBotsRequest;
+      output: ListAppInstanceBotsResponse;
+    };
+    sdk: {
+      input: ListAppInstanceBotsCommandInput;
+      output: ListAppInstanceBotsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface ListWorkforcesCommandInput extends ListWorkforcesRequest {}
 export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __MetadataBearer {}
 
 /**
- * <p>Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only
- *            have one private workforce per Amazon Web Services Region.</p>
+ * <p>Use this operation to list all private and vendor workforces in an Amazon Web Services Region. Note that you can only have one private workforce per Amazon Web Services Region.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,6 +68,10 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * //         UserInfoEndpoint: "STRING_VALUE",
  * //         LogoutEndpoint: "STRING_VALUE",
  * //         JwksUri: "STRING_VALUE",
+ * //         Scope: "STRING_VALUE",
+ * //         AuthenticationRequestExtraParams: { // AuthenticationRequestExtraParams
+ * //           "<keys>": "STRING_VALUE",
+ * //         },
  * //       },
  * //       CreateDate: new Date("TIMESTAMP"),
  * //       WorkforceVpcConfig: { // WorkforceVpcConfigResponse
@@ -98,6 +102,7 @@ export interface ListWorkforcesCommandOutput extends ListWorkforcesResponse, __M
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListWorkforcesCommand extends $Command
@@ -108,9 +113,7 @@ export class ListWorkforcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +125,16 @@ export class ListWorkforcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWorkforcesCommand)
   .de(de_ListWorkforcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWorkforcesRequest;
+      output: ListWorkforcesResponse;
+    };
+    sdk: {
+      input: ListWorkforcesCommandInput;
+      output: ListWorkforcesCommandOutput;
+    };
+  };
+}

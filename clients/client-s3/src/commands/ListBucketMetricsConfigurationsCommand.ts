@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -15,7 +16,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +35,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Lists the metrics configurations for the bucket. The metrics configurations are only for
  *          the request metrics of the bucket and do not provide information on daily storage metrics.
@@ -124,6 +126,7 @@ export interface ListBucketMetricsConfigurationsCommandOutput
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
+ *
  * @public
  */
 export class ListBucketMetricsConfigurationsCommand extends $Command
@@ -142,6 +145,7 @@ export class ListBucketMetricsConfigurationsCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "ListBucketMetricsConfigurations", {})
@@ -149,4 +153,16 @@ export class ListBucketMetricsConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBucketMetricsConfigurationsCommand)
   .de(de_ListBucketMetricsConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBucketMetricsConfigurationsRequest;
+      output: ListBucketMetricsConfigurationsOutput;
+    };
+    sdk: {
+      input: ListBucketMetricsConfigurationsCommandInput;
+      output: ListBucketMetricsConfigurationsCommandOutput;
+    };
+  };
+}

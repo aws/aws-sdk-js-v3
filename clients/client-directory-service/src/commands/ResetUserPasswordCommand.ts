@@ -16,7 +16,8 @@ import { de_ResetUserPasswordCommand, se_ResetUserPasswordCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,8 @@ export interface ResetUserPasswordCommandInput extends ResetUserPasswordRequest 
 export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult, __MetadataBearer {}
 
 /**
- * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD
- *       directory.</p>
+ * <p>Resets the password for any user in your Managed Microsoft AD or Simple AD directory. Disabled
+ *       users will become enabled and can be authenticated following the API call.</p>
  *          <p>You can reset the password for any user in your directory with the following
  *       exceptions:</p>
  *          <ul>
@@ -42,11 +43,12 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *             Admins</b> group except for the administrator user.</p>
  *             </li>
  *             <li>
- *                <p>For Managed Microsoft AD, you can only reset the password for a user that is in an
- *           OU based off of the NetBIOS name that you typed when you created your directory. For
- *           example, you cannot reset the password for a user in the <b>Amazon Web Services
- *             Reserved</b> OU. For more information about the OU structure for an Managed Microsoft AD directory, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html">What Gets Created</a> in the <i>Directory Service Administration
- *             Guide</i>.</p>
+ *                <p>For Managed Microsoft AD, you can only reset the password for a user that is in an OU based
+ *           off of the NetBIOS name that you typed when you created your directory. For example, you
+ *           cannot reset the password for a user in the <b>Amazon Web Services
+ *             Reserved</b> OU. For more information about the OU structure for an Managed Microsoft AD
+ *           directory, see <a href="https://docs.aws.amazon.com/directoryservice/latest/admin-guide/ms_ad_getting_started_what_gets_created.html">What Gets Created</a> in the <i>Directory Service Administration
+ *           Guide</i>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -76,7 +78,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  *  <p>A client exception has occurred.</p>
  *
  * @throws {@link DirectoryUnavailableException} (client fault)
- *  <p>The specified directory is unavailable or could not be found.</p>
+ *  <p>The specified directory is unavailable.</p>
  *
  * @throws {@link EntityDoesNotExistException} (client fault)
  *  <p>The specified entity could not be found.</p>
@@ -97,6 +99,7 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
  * @public
  */
 export class ResetUserPasswordCommand extends $Command
@@ -107,9 +110,7 @@ export class ResetUserPasswordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +122,16 @@ export class ResetUserPasswordCommand extends $Command
   .f(ResetUserPasswordRequestFilterSensitiveLog, void 0)
   .ser(se_ResetUserPasswordCommand)
   .de(de_ResetUserPasswordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetUserPasswordRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetUserPasswordCommandInput;
+      output: ResetUserPasswordCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteTrustCommand, se_DeleteTrustCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,23 @@ export interface DeleteTrustCommandOutput extends DeleteTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To delete a trust
+ * ```javascript
+ * // The following example deletes an existing trust between your Microsoft AD in the AWS cloud and an external domain.
+ * const input = {
+ *   DeleteAssociatedConditionalForwarder: true,
+ *   TrustId: "t-9267353743"
+ * };
+ * const command = new DeleteTrustCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrustId: "t-9267353743"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteTrustCommand extends $Command
@@ -81,9 +99,7 @@ export class DeleteTrustCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +111,16 @@ export class DeleteTrustCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteTrustCommand)
   .de(de_DeleteTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteTrustRequest;
+      output: DeleteTrustResult;
+    };
+    sdk: {
+      input: DeleteTrustCommandInput;
+      output: DeleteTrustCommandOutput;
+    };
+  };
+}

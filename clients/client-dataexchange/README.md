@@ -6,26 +6,28 @@
 
 AWS SDK for JavaScript DataExchange Client for Node.js, Browser and React Native.
 
-<p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access file-based data set in the AWS Cloud.</p>
-<p>As a subscriber, you can view and access the data sets that you have an entitlement to through
-a subscription. You can use the APIs to download or copy your entitled data sets to Amazon
-Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and machine
-learning services.</p>
-<p>As a provider, you can create and manage your data sets that you would like to publish to a
-product. Being able to package and provide your data sets into products requires a few
+<p>AWS Data Exchange is a service that makes it easy for AWS customers to exchange data in
+the cloud. You can use the AWS Data Exchange APIs to create, update, manage, and access
+file-based data set in the AWS Cloud.</p>
+<p>As a subscriber, you can view and access the data sets that you have an entitlement to
+through a subscription. You can use the APIs to download or copy your entitled data sets to
+Amazon Simple Storage Service (Amazon S3) for use across a variety of AWS analytics and
+machine learning services.</p>
+<p>As a provider, you can create and manage your data sets that you would like to publish
+to a product. Being able to package and provide your data sets into products requires a few
 steps to determine eligibility. For more information, visit the <i>AWS Data Exchange
 User Guide</i>.</p>
-<p>A data set is a collection of data that can be changed or updated over time. Data sets can be
-updated using revisions, which represent a new version or incremental change to a data set.
-A revision contains one or more assets. An asset in AWS Data Exchange is a piece of data
-that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS Lake
-Formation data permission, or Amazon S3 data access. The asset can be a structured data
-file, an image file, or some other data file. Jobs are asynchronous import or export
+<p>A data set is a collection of data that can be changed or updated over time. Data sets
+can be updated using revisions, which represent a new version or incremental change to a
+data set. A revision contains one or more assets. An asset in AWS Data Exchange is a piece
+of data that can be stored as an Amazon S3 object, Redshift datashare, API Gateway API, AWS
+Lake Formation data permission, or Amazon S3 data access. The asset can be a structured
+data file, an image file, or some other data file. Jobs are asynchronous import or export
 operations used to create or copy assets.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-dataexchange
+To install this package, simply type add or install @aws-sdk/client-dataexchange
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-dataexchange`
@@ -220,10 +222,26 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AcceptDataGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/AcceptDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/AcceptDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/AcceptDataGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelJob
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CancelJobCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CancelJobCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CancelJobCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateDataGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/CreateDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/CreateDataGrantCommandOutput/)
 
 </details>
 <details>
@@ -268,6 +286,14 @@ DeleteAsset
 </details>
 <details>
 <summary>
+DeleteDataGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/DeleteDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/DeleteDataGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteDataSet
 </summary>
 
@@ -300,6 +326,14 @@ GetAsset
 </details>
 <details>
 <summary>
+GetDataGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetDataGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetDataSet
 </summary>
 
@@ -324,10 +358,26 @@ GetJob
 </details>
 <details>
 <summary>
+GetReceivedDataGrant
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetReceivedDataGrantCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetReceivedDataGrantCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetReceivedDataGrantCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetRevision
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/GetRevisionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetRevisionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/GetRevisionCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListDataGrants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListDataGrantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataGrantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListDataGrantsCommandOutput/)
 
 </details>
 <details>
@@ -360,6 +410,14 @@ ListJobs
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListJobsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListJobsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListJobsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListReceivedDataGrants
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/dataexchange/command/ListReceivedDataGrantsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListReceivedDataGrantsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-dataexchange/Interface/ListReceivedDataGrantsCommandOutput/)
 
 </details>
 <details>

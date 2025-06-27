@@ -12,7 +12,8 @@ import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,6 +38,7 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * const input = { // RestoreAnalysisRequest
  *   AwsAccountId: "STRING_VALUE", // required
  *   AnalysisId: "STRING_VALUE", // required
+ *   RestoreToFolders: true || false,
  * };
  * const command = new RestoreAnalysisCommand(input);
  * const response = await client.send(command);
@@ -45,6 +47,9 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * //   Arn: "STRING_VALUE",
  * //   AnalysisId: "STRING_VALUE",
  * //   RequestId: "STRING_VALUE",
+ * //   RestorationFailedFolderArns: [ // FolderArnList
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
@@ -64,6 +69,12 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * @throws {@link InvalidParameterValueException} (client fault)
  *  <p>One or more parameters has a value that isn't valid.</p>
  *
+ * @throws {@link LimitExceededException} (client fault)
+ *  <p>A limit is exceeded.</p>
+ *
+ * @throws {@link PreconditionNotMetException} (client fault)
+ *  <p>One or more preconditions aren't met.</p>
+ *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>One or more resources can't be found.</p>
  *
@@ -79,6 +90,7 @@ export interface RestoreAnalysisCommandOutput extends RestoreAnalysisResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class RestoreAnalysisCommand extends $Command
@@ -89,9 +101,7 @@ export class RestoreAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +113,16 @@ export class RestoreAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreAnalysisCommand)
   .de(de_RestoreAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreAnalysisRequest;
+      output: RestoreAnalysisResponse;
+    };
+    sdk: {
+      input: RestoreAnalysisCommandInput;
+      output: RestoreAnalysisCommandOutput;
+    };
+  };
+}

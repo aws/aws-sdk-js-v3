@@ -15,7 +15,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,28 +95,28 @@ export interface ModifyCurrentDBClusterCapacityCommandOutput extends DBClusterCa
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To scale the capacity of an Aurora Serverless DB cluster
  * ```javascript
  * // The following example scales the capacity of an Aurora Serverless DB cluster to 8.
  * const input = {
- *   "Capacity": 8,
- *   "DBClusterIdentifier": "mydbcluster"
+ *   Capacity: 8,
+ *   DBClusterIdentifier: "mydbcluster"
  * };
  * const command = new ModifyCurrentDBClusterCapacityCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CurrentCapacity": 1,
- *   "DBClusterIdentifier": "mydbcluster",
- *   "PendingCapacity": 8,
- *   "SecondsBeforeTimeout": 300,
- *   "TimeoutAction": "ForceApplyCapacityChange"
+ *   CurrentCapacity: 1,
+ *   DBClusterIdentifier: "mydbcluster",
+ *   PendingCapacity: 8,
+ *   SecondsBeforeTimeout: 300,
+ *   TimeoutAction: "ForceApplyCapacityChange"
  * }
  * *\/
- * // example id: to-scale-the-capacity-of-an-aurora-serverless-db-cluster-1680307179599
  * ```
  *
+ * @public
  */
 export class ModifyCurrentDBClusterCapacityCommand extends $Command
   .classBuilder<
@@ -125,9 +126,7 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +138,16 @@ export class ModifyCurrentDBClusterCapacityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyCurrentDBClusterCapacityCommand)
   .de(de_ModifyCurrentDBClusterCapacityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyCurrentDBClusterCapacityMessage;
+      output: DBClusterCapacityInfo;
+    };
+    sdk: {
+      input: ModifyCurrentDBClusterCapacityCommandInput;
+      output: ModifyCurrentDBClusterCapacityCommandOutput;
+    };
+  };
+}

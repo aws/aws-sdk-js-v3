@@ -12,7 +12,8 @@ import { de_UpdateVoiceConnectorCommand, se_UpdateVoiceConnectorCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,7 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * //     CreatedTimestamp: new Date("TIMESTAMP"),
  * //     UpdatedTimestamp: new Date("TIMESTAMP"),
  * //     VoiceConnectorArn: "STRING_VALUE",
+ * //     IntegrationType: "CONNECT_CALL_TRANSFER_CONNECTOR" || "CONNECT_ANALYTICS_CONNECTOR",
  * //   },
  * // };
  *
@@ -86,6 +88,7 @@ export interface UpdateVoiceConnectorCommandOutput extends UpdateVoiceConnectorR
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class UpdateVoiceConnectorCommand extends $Command
@@ -96,9 +99,7 @@ export class UpdateVoiceConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +111,16 @@ export class UpdateVoiceConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateVoiceConnectorCommand)
   .de(de_UpdateVoiceConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVoiceConnectorRequest;
+      output: UpdateVoiceConnectorResponse;
+    };
+    sdk: {
+      input: UpdateVoiceConnectorCommandInput;
+      output: UpdateVoiceConnectorCommandOutput;
+    };
+  };
+}

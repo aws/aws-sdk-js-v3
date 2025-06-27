@@ -12,7 +12,8 @@ import { de_RestoreTableCommand, se_RestoreTableCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,52 +28,7 @@ export interface RestoreTableCommandInput extends RestoreTableRequest {}
 export interface RestoreTableCommandOutput extends RestoreTableResponse, __MetadataBearer {}
 
 /**
- * <p>Restores the table to the specified point in time within the
- *          <code>earliest_restorable_timestamp</code> and the current time. For more information about restore points, see
- *          <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window">
- *             Time window for PITR continuous backups</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
- *          <p>Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.</p>
- *          <p>When you restore using point in time recovery,
- *          Amazon Keyspaces restores your source table's schema and data to the state
- *          based on the selected timestamp <code>(day:hour:minute:second)</code> to a new table. The Time to Live (TTL) settings
- *       are also restored to the state based on the selected timestamp.</p>
- *          <p>In addition to the table's schema, data, and TTL settings,
- *          <code>RestoreTable</code> restores the capacity mode, auto scaling settings, encryption settings, and
- *          point-in-time recovery settings from the source table.
- *          Unlike the table's schema data and TTL settings, which are restored based on the selected timestamp,
- *          these settings are always restored based on the table's settings as of the current time or when the table was deleted.</p>
- *          <p>You can also overwrite
- *             these settings during restore:</p>
- *          <ul>
- *             <li>
- *                <p>Read/write capacity mode</p>
- *             </li>
- *             <li>
- *                <p>Provisioned throughput capacity units</p>
- *             </li>
- *             <li>
- *                <p>Auto scaling settings</p>
- *             </li>
- *             <li>
- *                <p>Point-in-time (PITR) settings</p>
- *             </li>
- *             <li>
- *                <p>Tags</p>
- *             </li>
- *          </ul>
- *          <p>For more
- *                information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings">PITR restore settings</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
- *          <p>Note that the following settings are not restored, and you must configure them manually for
- *          the new table:</p>
- *          <ul>
- *             <li>
- *                <p>Identity and Access Management (IAM) policies</p>
- *             </li>
- *             <li>
- *                <p>Amazon CloudWatch metrics and alarms</p>
- *             </li>
- *          </ul>
+ * <p>Restores the table to the specified point in time within the <code>earliest_restorable_timestamp</code> and the current time. For more information about restore points, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_window"> Time window for PITR continuous backups</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>Any number of users can execute up to 4 concurrent restores (any type of restore) in a given account.</p> <p>When you restore using point in time recovery, Amazon Keyspaces restores your source table's schema and data to the state based on the selected timestamp <code>(day:hour:minute:second)</code> to a new table. The Time to Live (TTL) settings are also restored to the state based on the selected timestamp.</p> <p>In addition to the table's schema, data, and TTL settings, <code>RestoreTable</code> restores the capacity mode, auto scaling settings, encryption settings, and point-in-time recovery settings from the source table. Unlike the table's schema data and TTL settings, which are restored based on the selected timestamp, these settings are always restored based on the table's settings as of the current time or when the table was deleted.</p> <p>You can also overwrite these settings during restore:</p> <ul> <li> <p>Read/write capacity mode</p> </li> <li> <p>Provisioned throughput capacity units</p> </li> <li> <p>Auto scaling settings</p> </li> <li> <p>Point-in-time (PITR) settings</p> </li> <li> <p>Tags</p> </li> </ul> <p>For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/PointInTimeRecovery_HowItWorks.html#howitworks_backup_settings">PITR restore settings</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p> <p>Note that the following settings are not restored, and you must configure them manually for the new table:</p> <ul> <li> <p>Identity and Access Management (IAM) policies</p> </li> <li> <p>Amazon CloudWatch metrics and alarms</p> </li> </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -169,25 +125,23 @@ export interface RestoreTableCommandOutput extends RestoreTableResponse, __Metad
  *  <p>You don't have sufficient access permissions to perform this action. </p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to
- *          perform an action and the same or a different action is already
- *          in progress, or if you try to create a resource that already exists. </p>
+ *  <p>Amazon Keyspaces couldn't complete the requested action. This error may occur if you try to perform an action and the same or a different action is already in progress, or if you try to create a resource that already exists. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Amazon Keyspaces was unable to fully process this request because of an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access a keyspace or table that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
+ *  <p>The operation tried to access a keyspace, table, or type that doesn't exist. The resource might not be specified correctly, or its status might not be <code>ACTIVE</code>.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  <p>The operation exceeded the service quota for this resource.  For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer
- *             Guide</i>.</p>
+ *  <p>The operation exceeded the service quota for this resource. For more information on service quotas, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/quotas.html">Quotas</a> in the <i>Amazon Keyspaces Developer Guide</i>.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>The operation failed due to an invalid or malformed request.</p>
  *
  * @throws {@link KeyspacesServiceException}
  * <p>Base exception class for all service exceptions from Keyspaces service.</p>
+ *
  *
  * @public
  */
@@ -199,9 +153,7 @@ export class RestoreTableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KeyspacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +165,16 @@ export class RestoreTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreTableCommand)
   .de(de_RestoreTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreTableRequest;
+      output: RestoreTableResponse;
+    };
+    sdk: {
+      input: RestoreTableCommandInput;
+      output: RestoreTableCommandOutput;
+    };
+  };
+}

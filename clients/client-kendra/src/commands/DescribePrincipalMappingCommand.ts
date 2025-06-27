@@ -12,7 +12,8 @@ import { de_DescribePrincipalMappingCommand, se_DescribePrincipalMappingCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface DescribePrincipalMappingCommandOutput extends DescribePrincipal
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DescribePrincipalMappingCommand extends $Command
@@ -104,9 +106,7 @@ export class DescribePrincipalMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class DescribePrincipalMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribePrincipalMappingCommand)
   .de(de_DescribePrincipalMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribePrincipalMappingRequest;
+      output: DescribePrincipalMappingResponse;
+    };
+    sdk: {
+      input: DescribePrincipalMappingCommandInput;
+      output: DescribePrincipalMappingCommandOutput;
+    };
+  };
+}

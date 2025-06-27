@@ -12,7 +12,8 @@ import { de_CancelLegalHoldCommand, se_CancelLegalHoldCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface CancelLegalHoldCommandInput extends CancelLegalHoldInput {}
 export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __MetadataBearer {}
 
 /**
- * <p>This action removes the specified legal hold on a recovery point.
- *          This action can only be performed by a user with sufficient permissions.</p>
+ * <p>Removes the specified legal hold on a recovery point. This action can only be performed
+ *          by a user with sufficient permissions.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,6 +73,7 @@ export interface CancelLegalHoldCommandOutput extends CancelLegalHoldOutput, __M
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class CancelLegalHoldCommand extends $Command
@@ -82,9 +84,7 @@ export class CancelLegalHoldCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class CancelLegalHoldCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelLegalHoldCommand)
   .de(de_CancelLegalHoldCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelLegalHoldInput;
+      output: {};
+    };
+    sdk: {
+      input: CancelLegalHoldCommandInput;
+      output: CancelLegalHoldCommandOutput;
+    };
+  };
+}

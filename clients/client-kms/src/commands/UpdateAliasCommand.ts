@@ -12,7 +12,8 @@ import { de_UpdateAliasCommand, se_UpdateAliasCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,7 +93,7 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -144,8 +145,9 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  *          </ul>
  *
  * @throws {@link LimitExceededException} (client fault)
- *  <p>The request was rejected because a quota was exceeded. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in the
- *       <i>Key Management Service Developer Guide</i>.</p>
+ *  <p>The request was rejected because a length constraint or quota was exceeded. For more
+ *       information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/limits.html">Quotas</a> in
+ *       the <i>Key Management Service Developer Guide</i>.</p>
  *
  * @throws {@link NotFoundException} (client fault)
  *  <p>The request was rejected because the specified entity or resource could not be
@@ -154,19 +156,22 @@ export interface UpdateAliasCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To update an alias
  * ```javascript
  * // The following example updates the specified alias to refer to the specified KMS key.
  * const input = {
- *   "AliasName": "alias/ExampleAlias",
- *   "TargetKeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   AliasName: "alias/ExampleAlias",
+ *   TargetKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new UpdateAliasCommand(input);
- * await client.send(command);
- * // example id: to-update-an-alias-1481572726920
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class UpdateAliasCommand extends $Command
   .classBuilder<
@@ -176,9 +181,7 @@ export class UpdateAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -190,4 +193,16 @@ export class UpdateAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAliasCommand)
   .de(de_UpdateAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAliasRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAliasCommandInput;
+      output: UpdateAliasCommandOutput;
+    };
+  };
+}

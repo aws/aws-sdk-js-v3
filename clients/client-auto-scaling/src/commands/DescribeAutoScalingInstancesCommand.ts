@@ -12,7 +12,8 @@ import { de_DescribeAutoScalingInstancesCommand, se_DescribeAutoScalingInstances
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,36 +84,36 @@ export interface DescribeAutoScalingInstancesCommandOutput extends AutoScalingIn
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe one or more Auto Scaling instances
  * ```javascript
  * // This example describes the specified Auto Scaling instance.
  * const input = {
- *   "InstanceIds": [
+ *   InstanceIds: [
  *     "i-05b4f7d5be44822a6"
  *   ]
  * };
  * const command = new DescribeAutoScalingInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AutoScalingInstances": [
+ *   AutoScalingInstances: [
  *     {
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "AvailabilityZone": "us-west-2c",
- *       "HealthStatus": "HEALTHY",
- *       "InstanceId": "i-05b4f7d5be44822a6",
- *       "InstanceType": "t3.micro",
- *       "LaunchConfigurationName": "my-launch-config",
- *       "LifecycleState": "InService",
- *       "ProtectedFromScaleIn": false
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       AvailabilityZone: "us-west-2c",
+ *       HealthStatus: "HEALTHY",
+ *       InstanceId: "i-05b4f7d5be44822a6",
+ *       InstanceType: "t3.micro",
+ *       LaunchConfigurationName: "my-launch-config",
+ *       LifecycleState: "InService",
+ *       ProtectedFromScaleIn: false
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-auto-scaling-instances-1
  * ```
  *
+ * @public
  */
 export class DescribeAutoScalingInstancesCommand extends $Command
   .classBuilder<
@@ -122,9 +123,7 @@ export class DescribeAutoScalingInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +135,16 @@ export class DescribeAutoScalingInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAutoScalingInstancesCommand)
   .de(de_DescribeAutoScalingInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAutoScalingInstancesType;
+      output: AutoScalingInstancesType;
+    };
+    sdk: {
+      input: DescribeAutoScalingInstancesCommandInput;
+      output: DescribeAutoScalingInstancesCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_UpdateAnomalyCommand, se_UpdateAnomalyCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,9 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Use this operation to <i>suppress</i> anomaly detection for a specified anomaly or pattern. If you suppress
- *        an anomaly, CloudWatch Logs won’t report new occurrences of that anomaly and won't
+ *        an anomaly, CloudWatch Logs won't report new occurrences of that anomaly and won't
  *        update that anomaly
- *        with new data. If you suppress a pattern, CloudWatch Logs won’t report any anomalies related to that pattern.</p>
+ *        with new data. If you suppress a pattern, CloudWatch Logs won't report any anomalies related to that pattern.</p>
  *          <p>You must specify either <code>anomalyId</code> or <code>patternId</code>, but you can't specify both parameters in the
  *      same operation.</p>
  *          <p>If you have previously used this operation to suppress detection of a pattern or anomaly, you can use it again to cause
@@ -51,6 +52,7 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
  *     value: Number("int"),
  *     suppressionUnit: "SECONDS" || "MINUTES" || "HOURS",
  *   },
+ *   baseline: true || false,
  * };
  * const command = new UpdateAnomalyCommand(input);
  * const response = await client.send(command);
@@ -79,6 +81,7 @@ export interface UpdateAnomalyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class UpdateAnomalyCommand extends $Command
@@ -89,9 +92,7 @@ export class UpdateAnomalyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +104,16 @@ export class UpdateAnomalyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAnomalyCommand)
   .de(de_UpdateAnomalyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAnomalyRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateAnomalyCommandInput;
+      output: UpdateAnomalyCommandOutput;
+    };
+  };
+}

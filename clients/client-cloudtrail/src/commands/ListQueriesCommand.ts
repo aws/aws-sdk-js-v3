@@ -12,7 +12,8 @@ import { de_ListQueriesCommand, se_ListQueriesCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -110,6 +111,7 @@ export interface ListQueriesCommandOutput extends ListQueriesResponse, __Metadat
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class ListQueriesCommand extends $Command
@@ -120,9 +122,7 @@ export class ListQueriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class ListQueriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQueriesCommand)
   .de(de_ListQueriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQueriesRequest;
+      output: ListQueriesResponse;
+    };
+    sdk: {
+      input: ListQueriesCommandInput;
+      output: ListQueriesCommandOutput;
+    };
+  };
+}

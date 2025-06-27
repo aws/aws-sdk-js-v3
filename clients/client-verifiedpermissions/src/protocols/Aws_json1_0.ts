@@ -26,6 +26,7 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import { BatchGetPolicyCommandInput, BatchGetPolicyCommandOutput } from "../commands/BatchGetPolicyCommand";
 import { BatchIsAuthorizedCommandInput, BatchIsAuthorizedCommandOutput } from "../commands/BatchIsAuthorizedCommand";
 import {
   BatchIsAuthorizedWithTokenCommandInput,
@@ -71,7 +72,13 @@ import {
   ListPolicyTemplatesCommandInput,
   ListPolicyTemplatesCommandOutput,
 } from "../commands/ListPolicyTemplatesCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { PutSchemaCommandInput, PutSchemaCommandOutput } from "../commands/PutSchemaCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import {
   UpdateIdentitySourceCommandInput,
   UpdateIdentitySourceCommandOutput,
@@ -86,6 +93,10 @@ import {
   AccessDeniedException,
   ActionIdentifier,
   AttributeValue,
+  BatchGetPolicyInput,
+  BatchGetPolicyInputItem,
+  BatchGetPolicyOutput,
+  BatchGetPolicyOutputItem,
   BatchIsAuthorizedInput,
   BatchIsAuthorizedInputItem,
   BatchIsAuthorizedOutput,
@@ -128,6 +139,7 @@ import {
   IdentitySourceFilter,
   IdentitySourceItem,
   InternalServerException,
+  InvalidStateException,
   IsAuthorizedInput,
   IsAuthorizedWithTokenInput,
   ListIdentitySourcesInput,
@@ -138,6 +150,12 @@ import {
   ListPolicyStoresOutput,
   ListPolicyTemplatesInput,
   ListPolicyTemplatesOutput,
+  ListTagsForResourceInput,
+  OpenIdConnectAccessTokenConfiguration,
+  OpenIdConnectConfiguration,
+  OpenIdConnectGroupConfiguration,
+  OpenIdConnectIdentityTokenConfiguration,
+  OpenIdConnectTokenSelection,
   PolicyDefinition,
   PolicyFilter,
   PolicyItem,
@@ -149,13 +167,21 @@ import {
   SchemaDefinition,
   ServiceQuotaExceededException,
   StaticPolicyDefinition,
+  TagResourceInput,
   TemplateLinkedPolicyDefinition,
   ThrottlingException,
+  TooManyTagsException,
+  UntagResourceInput,
   UpdateCognitoGroupConfiguration,
   UpdateCognitoUserPoolConfiguration,
   UpdateConfiguration,
   UpdateIdentitySourceInput,
   UpdateIdentitySourceOutput,
+  UpdateOpenIdConnectAccessTokenConfiguration,
+  UpdateOpenIdConnectConfiguration,
+  UpdateOpenIdConnectGroupConfiguration,
+  UpdateOpenIdConnectIdentityTokenConfiguration,
+  UpdateOpenIdConnectTokenSelection,
   UpdatePolicyDefinition,
   UpdatePolicyInput,
   UpdatePolicyOutput,
@@ -168,6 +194,19 @@ import {
   ValidationSettings,
 } from "../models/models_0";
 import { VerifiedPermissionsServiceException as __BaseException } from "../models/VerifiedPermissionsServiceException";
+
+/**
+ * serializeAws_json1_0BatchGetPolicyCommand
+ */
+export const se_BatchGetPolicyCommand = async (
+  input: BatchGetPolicyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("BatchGetPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
 
 /**
  * serializeAws_json1_0BatchIsAuthorizedCommand
@@ -443,6 +482,19 @@ export const se_ListPolicyTemplatesCommand = async (
 };
 
 /**
+ * serializeAws_json1_0ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_0PutSchemaCommand
  */
 export const se_PutSchemaCommand = async (
@@ -450,6 +502,32 @@ export const se_PutSchemaCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("PutSchema");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_0UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -505,6 +583,26 @@ export const se_UpdatePolicyTemplateCommand = async (
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyCommand
+ */
+export const de_BatchGetPolicyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchGetPolicyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_BatchGetPolicyOutput(data, context);
+  const response: BatchGetPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
 };
 
 /**
@@ -928,6 +1026,26 @@ export const de_ListPolicyTemplatesCommand = async (
 };
 
 /**
+ * deserializeAws_json1_0ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_0PutSchemaCommand
  */
 export const de_PutSchemaCommand = async (
@@ -941,6 +1059,46 @@ export const de_PutSchemaCommand = async (
   let contents: any = {};
   contents = de_PutSchemaOutput(data, context);
   const response: PutSchemaCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_0UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: UntagResourceCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1043,21 +1201,27 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.verifiedpermissions#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.verifiedpermissions#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.verifiedpermissions#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.verifiedpermissions#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.verifiedpermissions#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ConflictException":
     case "com.amazonaws.verifiedpermissions#ConflictException":
       throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.verifiedpermissions#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
+    case "InvalidStateException":
+    case "com.amazonaws.verifiedpermissions#InvalidStateException":
+      throw await de_InvalidStateExceptionRes(parsedOutput, context);
+    case "TooManyTagsException":
+    case "com.amazonaws.verifiedpermissions#TooManyTagsException":
+      throw await de_TooManyTagsExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -1114,6 +1278,22 @@ const de_InternalServerExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_0InvalidStateExceptionRes
+ */
+const de_InvalidStateExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InvalidStateException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InvalidStateException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_0ResourceNotFoundExceptionRes
  */
 const de_ResourceNotFoundExceptionRes = async (
@@ -1159,6 +1339,22 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 };
 
 /**
+ * deserializeAws_json1_0TooManyTagsExceptionRes
+ */
+const de_TooManyTagsExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<TooManyTagsException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new TooManyTagsException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_0ValidationExceptionRes
  */
 const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ValidationException> => {
@@ -1179,14 +1375,24 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const se_AttributeValue = (input: AttributeValue, context: __SerdeContext): any => {
   return AttributeValue.visit(input, {
     boolean: (value) => ({ boolean: value }),
+    decimal: (value) => ({ decimal: value }),
     entityIdentifier: (value) => ({ entityIdentifier: _json(value) }),
+    ipaddr: (value) => ({ ipaddr: value }),
     long: (value) => ({ long: value }),
     record: (value) => ({ record: se_RecordAttribute(value, context) }),
     set: (value) => ({ set: se_SetAttribute(value, context) }),
     string: (value) => ({ string: value }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
+
+// se_Audiences omitted.
+
+// se_BatchGetPolicyInput omitted.
+
+// se_BatchGetPolicyInputItem omitted.
+
+// se_BatchGetPolicyInputList omitted.
 
 /**
  * serializeAws_json1_0BatchIsAuthorizedInput
@@ -1276,8 +1482,9 @@ const se_BatchIsAuthorizedWithTokenInputList = (
  */
 const se_ContextDefinition = (input: ContextDefinition, context: __SerdeContext): any => {
   return ContextDefinition.visit(input, {
+    cedarJson: (value) => ({ cedarJson: value }),
     contextMap: (value) => ({ contextMap: se_ContextMap(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1323,7 +1530,9 @@ const se_CreatePolicyInput = (input: CreatePolicyInput, context: __SerdeContext)
 const se_CreatePolicyStoreInput = (input: CreatePolicyStoreInput, context: __SerdeContext): any => {
   return take(input, {
     clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+    deletionProtection: [],
     description: [],
+    tags: _json,
     validationSettings: _json,
   });
 };
@@ -1353,8 +1562,9 @@ const se_CreatePolicyTemplateInput = (input: CreatePolicyTemplateInput, context:
  */
 const se_EntitiesDefinition = (input: EntitiesDefinition, context: __SerdeContext): any => {
   return EntitiesDefinition.visit(input, {
+    cedarJson: (value) => ({ cedarJson: value }),
     entityList: (value) => ({ entityList: se_EntityList(value, context) }),
-    _: (name, value) => ({ name: value } as any),
+    _: (name, value) => ({ [name]: value } as any),
   });
 };
 
@@ -1448,6 +1658,18 @@ const se_IsAuthorizedWithTokenInput = (input: IsAuthorizedWithTokenInput, contex
 
 // se_ListPolicyTemplatesInput omitted.
 
+// se_ListTagsForResourceInput omitted.
+
+// se_OpenIdConnectAccessTokenConfiguration omitted.
+
+// se_OpenIdConnectConfiguration omitted.
+
+// se_OpenIdConnectGroupConfiguration omitted.
+
+// se_OpenIdConnectIdentityTokenConfiguration omitted.
+
+// se_OpenIdConnectTokenSelection omitted.
+
 // se_ParentList omitted.
 
 // se_PolicyDefinition omitted.
@@ -1484,7 +1706,15 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 
 // se_StaticPolicyDefinition omitted.
 
+// se_TagKeyList omitted.
+
+// se_TagMap omitted.
+
+// se_TagResourceInput omitted.
+
 // se_TemplateLinkedPolicyDefinition omitted.
+
+// se_UntagResourceInput omitted.
 
 // se_UpdateCognitoGroupConfiguration omitted.
 
@@ -1493,6 +1723,16 @@ const se_SetAttribute = (input: AttributeValue[], context: __SerdeContext): any 
 // se_UpdateConfiguration omitted.
 
 // se_UpdateIdentitySourceInput omitted.
+
+// se_UpdateOpenIdConnectAccessTokenConfiguration omitted.
+
+// se_UpdateOpenIdConnectConfiguration omitted.
+
+// se_UpdateOpenIdConnectGroupConfiguration omitted.
+
+// se_UpdateOpenIdConnectIdentityTokenConfiguration omitted.
+
+// se_UpdateOpenIdConnectTokenSelection omitted.
 
 // se_UpdatePolicyDefinition omitted.
 
@@ -1519,10 +1759,16 @@ const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue
   if (__expectBoolean(output.boolean) !== undefined) {
     return { boolean: __expectBoolean(output.boolean) as any };
   }
+  if (__expectString(output.decimal) !== undefined) {
+    return { decimal: __expectString(output.decimal) as any };
+  }
   if (output.entityIdentifier != null) {
     return {
       entityIdentifier: _json(output.entityIdentifier),
     };
+  }
+  if (__expectString(output.ipaddr) !== undefined) {
+    return { ipaddr: __expectString(output.ipaddr) as any };
   }
   if (__expectLong(output.long) !== undefined) {
     return { long: __expectLong(output.long) as any };
@@ -1541,6 +1787,48 @@ const de_AttributeValue = (output: any, context: __SerdeContext): AttributeValue
     return { string: __expectString(output.string) as any };
   }
   return { $unknown: Object.entries(output)[0] };
+};
+
+// de_Audiences omitted.
+
+// de_BatchGetPolicyErrorItem omitted.
+
+// de_BatchGetPolicyErrorList omitted.
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyOutput
+ */
+const de_BatchGetPolicyOutput = (output: any, context: __SerdeContext): BatchGetPolicyOutput => {
+  return take(output, {
+    errors: _json,
+    results: (_: any) => de_BatchGetPolicyOutputList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyOutputItem
+ */
+const de_BatchGetPolicyOutputItem = (output: any, context: __SerdeContext): BatchGetPolicyOutputItem => {
+  return take(output, {
+    createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    definition: (_: any) => _json(__expectUnion(_)),
+    lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    policyId: __expectString,
+    policyStoreId: __expectString,
+    policyType: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0BatchGetPolicyOutputList
+ */
+const de_BatchGetPolicyOutputList = (output: any, context: __SerdeContext): BatchGetPolicyOutputItem[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BatchGetPolicyOutputItem(entry, context);
+    });
+  return retVal;
 };
 
 /**
@@ -1665,6 +1953,9 @@ const de_BatchIsAuthorizedWithTokenOutputList = (
  * deserializeAws_json1_0ContextDefinition
  */
 const de_ContextDefinition = (output: any, context: __SerdeContext): ContextDefinition => {
+  if (__expectString(output.cedarJson) !== undefined) {
+    return { cedarJson: __expectString(output.cedarJson) as any };
+  }
   if (output.contextMap != null) {
     return {
       contextMap: de_ContextMap(output.contextMap, context),
@@ -1796,10 +2087,13 @@ const de_GetPolicyOutput = (output: any, context: __SerdeContext): GetPolicyOutp
 const de_GetPolicyStoreOutput = (output: any, context: __SerdeContext): GetPolicyStoreOutput => {
   return take(output, {
     arn: __expectString,
+    cedarVersion: __expectString,
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    deletionProtection: __expectString,
     description: __expectString,
     lastUpdatedDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     policyStoreId: __expectString,
+    tags: _json,
     validationSettings: _json,
   }) as any;
 };
@@ -1864,6 +2158,8 @@ const de_IdentitySources = (output: any, context: __SerdeContext): IdentitySourc
 
 // de_InternalServerException omitted.
 
+// de_InvalidStateException omitted.
+
 // de_IsAuthorizedOutput omitted.
 
 // de_IsAuthorizedWithTokenOutput omitted.
@@ -1908,7 +2204,29 @@ const de_ListPolicyTemplatesOutput = (output: any, context: __SerdeContext): Lis
   }) as any;
 };
 
+// de_ListTagsForResourceOutput omitted.
+
 // de_NamespaceList omitted.
+
+// de_OpenIdConnectAccessTokenConfigurationDetail omitted.
+
+// de_OpenIdConnectAccessTokenConfigurationItem omitted.
+
+// de_OpenIdConnectConfigurationDetail omitted.
+
+// de_OpenIdConnectConfigurationItem omitted.
+
+// de_OpenIdConnectGroupConfigurationDetail omitted.
+
+// de_OpenIdConnectGroupConfigurationItem omitted.
+
+// de_OpenIdConnectIdentityTokenConfigurationDetail omitted.
+
+// de_OpenIdConnectIdentityTokenConfigurationItem omitted.
+
+// de_OpenIdConnectTokenSelectionDetail omitted.
+
+// de_OpenIdConnectTokenSelectionItem omitted.
 
 // de_PolicyDefinitionDetail omitted.
 
@@ -2043,11 +2361,19 @@ const de_SetAttribute = (output: any, context: __SerdeContext): AttributeValue[]
 
 // de_StaticPolicyDefinitionItem omitted.
 
+// de_TagMap omitted.
+
+// de_TagResourceOutput omitted.
+
 // de_TemplateLinkedPolicyDefinitionDetail omitted.
 
 // de_TemplateLinkedPolicyDefinitionItem omitted.
 
 // de_ThrottlingException omitted.
+
+// de_TooManyTagsException omitted.
+
+// de_UntagResourceOutput omitted.
 
 /**
  * deserializeAws_json1_0UpdateIdentitySourceOutput

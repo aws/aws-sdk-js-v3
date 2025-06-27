@@ -12,7 +12,8 @@ import { de_CreateContactFlowCommand, se_CreateContactFlowCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * const input = { // CreateContactFlowRequest
  *   InstanceId: "STRING_VALUE", // required
  *   Name: "STRING_VALUE", // required
- *   Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER", // required
+ *   Type: "CONTACT_FLOW" || "CUSTOMER_QUEUE" || "CUSTOMER_HOLD" || "CUSTOMER_WHISPER" || "AGENT_HOLD" || "AGENT_WHISPER" || "OUTBOUND_WHISPER" || "AGENT_TRANSFER" || "QUEUE_TRANSFER" || "CAMPAIGN", // required
  *   Description: "STRING_VALUE",
  *   Content: "STRING_VALUE", // required
  *   Status: "PUBLISHED" || "SAVED",
@@ -52,6 +53,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * // { // CreateContactFlowResponse
  * //   ContactFlowId: "STRING_VALUE",
  * //   ContactFlowArn: "STRING_VALUE",
+ * //   FlowContentSha256: "STRING_VALUE",
  * // };
  *
  * ```
@@ -89,6 +91,7 @@ export interface CreateContactFlowCommandOutput extends CreateContactFlowRespons
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class CreateContactFlowCommand extends $Command
@@ -99,9 +102,7 @@ export class CreateContactFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +114,16 @@ export class CreateContactFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateContactFlowCommand)
   .de(de_CreateContactFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateContactFlowRequest;
+      output: CreateContactFlowResponse;
+    };
+    sdk: {
+      input: CreateContactFlowCommandInput;
+      output: CreateContactFlowCommandOutput;
+    };
+  };
+}

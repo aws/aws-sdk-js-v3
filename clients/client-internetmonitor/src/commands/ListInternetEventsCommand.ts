@@ -12,7 +12,8 @@ import { de_ListInternetEventsCommand, se_ListInternetEventsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface ListInternetEventsCommandOutput extends ListInternetEventsOutpu
  * @throws {@link InternetMonitorServiceException}
  * <p>Base exception class for all service exceptions from InternetMonitor service.</p>
  *
+ *
  * @public
  */
 export class ListInternetEventsCommand extends $Command
@@ -108,9 +110,7 @@ export class ListInternetEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InternetMonitorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class ListInternetEventsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInternetEventsCommand)
   .de(de_ListInternetEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInternetEventsInput;
+      output: ListInternetEventsOutput;
+    };
+    sdk: {
+      input: ListInternetEventsCommandInput;
+      output: ListInternetEventsCommandOutput;
+    };
+  };
+}

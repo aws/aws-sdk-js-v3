@@ -22,7 +22,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -274,6 +275,7 @@ export interface DescribeElasticsearchDomainConfigCommandOutput
  * @throws {@link ElasticsearchServiceServiceException}
  * <p>Base exception class for all service exceptions from ElasticsearchService service.</p>
  *
+ *
  * @public
  */
 export class DescribeElasticsearchDomainConfigCommand extends $Command
@@ -284,9 +286,7 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticsearchServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -298,4 +298,16 @@ export class DescribeElasticsearchDomainConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeElasticsearchDomainConfigCommand)
   .de(de_DescribeElasticsearchDomainConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeElasticsearchDomainConfigRequest;
+      output: DescribeElasticsearchDomainConfigResponse;
+    };
+    sdk: {
+      input: DescribeElasticsearchDomainConfigCommandInput;
+      output: DescribeElasticsearchDomainConfigCommandOutput;
+    };
+  };
+}

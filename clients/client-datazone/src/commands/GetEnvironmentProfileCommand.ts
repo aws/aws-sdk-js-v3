@@ -10,13 +10,14 @@ import {
   GetEnvironmentProfileInput,
   GetEnvironmentProfileOutput,
   GetEnvironmentProfileOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import { de_GetEnvironmentProfileCommand, se_GetEnvironmentProfileCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface GetEnvironmentProfileCommandOutput extends GetEnvironmentProfil
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetEnvironmentProfileCommand extends $Command
@@ -107,9 +109,7 @@ export class GetEnvironmentProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class GetEnvironmentProfileCommand extends $Command
   .f(void 0, GetEnvironmentProfileOutputFilterSensitiveLog)
   .ser(se_GetEnvironmentProfileCommand)
   .de(de_GetEnvironmentProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetEnvironmentProfileInput;
+      output: GetEnvironmentProfileOutput;
+    };
+    sdk: {
+      input: GetEnvironmentProfileCommandInput;
+      output: GetEnvironmentProfileCommandOutput;
+    };
+  };
+}

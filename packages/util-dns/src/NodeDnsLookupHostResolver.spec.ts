@@ -1,5 +1,6 @@
 import { HostAddress, HostAddressType, HostResolverArguments } from "@aws-sdk/types";
 import { LookupAddress } from "dns";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import { NodeDnsLookupHostResolver } from "./NodeDnsLookupHostResolver";
 import { HostEntryTable } from "./util/HostEntryTable";
@@ -38,7 +39,7 @@ describe(NodeDnsLookupHostResolver.name, () => {
   let TEST_HOST_RESOLVER_TABLE: HostEntryTable;
   let TEST_HOST_RESOLVER: NodeDnsLookupHostResolver;
   beforeEach(() => {
-    jest.useFakeTimers();
+    vi.useFakeTimers();
     TEST_HOST_RESOLVER_TABLE = new HostEntryTable();
     TEST_HOST_RESOLVER = new NodeDnsLookupHostResolver({
       cache: TEST_HOST_RESOLVER_TABLE,
@@ -406,7 +407,7 @@ describe(NodeDnsLookupHostResolver.name, () => {
         expectedIpV4Size: 1,
         expectedIpV6Size: 2,
       });
-      jest.advanceTimersByTime(30_000);
+      vi.advanceTimersByTime(30_000);
       // Second resolveAddress() call which fails to update
       await TEST_HOST_RESOLVER.resolveAddress(TEST_HOST_RESOLVER_ARGUMENTS);
       await testResolveAddressOnce({
@@ -480,7 +481,7 @@ describe(NodeDnsLookupHostResolver.name, () => {
         expectedIpV4Size: 1,
         expectedIpV6Size: 1,
       });
-      jest.advanceTimersByTime(30_000);
+      vi.advanceTimersByTime(30_000);
       // Second resolveAddress() call with an update
       await testResolveAddressOnce({
         expectedIpV4Address: TEST_A_HOST_ADDRESS_0,
@@ -591,7 +592,7 @@ describe(NodeDnsLookupHostResolver.name, () => {
       TEST_HOST_RESOLVER.reportFailureOnAddress(TEST_A_HOST_ADDRESS_0);
       TEST_HOST_RESOLVER.reportFailureOnAddress(TEST_AAAA_HOST_ADDRESS_0);
       TEST_HOST_RESOLVER.reportFailureOnAddress(TEST_AAAA_HOST_ADDRESS_1);
-      jest.advanceTimersByTime(30_000);
+      vi.advanceTimersByTime(30_000);
       // Second resolveAddress() call with no upgrades
       await expect(TEST_HOST_RESOLVER.resolveAddress(TEST_HOST_RESOLVER_ARGUMENTS)).rejects.toThrowError(
         'Could not resolve addresses for "TEST_HOST_NAME"'

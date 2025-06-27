@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { BedrockAgentClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../BedrockAgentClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteAgentVersionRequest, DeleteAgentVersionResponse } from "../models/models_0";
+import { DeleteAgentVersionRequest, DeleteAgentVersionResponse } from "../models/models_1";
 import { de_DeleteAgentVersionCommand, se_DeleteAgentVersionCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface DeleteAgentVersionCommandOutput extends DeleteAgentVersionRespo
  * @throws {@link BedrockAgentServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgent service.</p>
  *
+ *
  * @public
  */
 export class DeleteAgentVersionCommand extends $Command
@@ -86,9 +88,7 @@ export class DeleteAgentVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BedrockAgentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class DeleteAgentVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAgentVersionCommand)
   .de(de_DeleteAgentVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAgentVersionRequest;
+      output: DeleteAgentVersionResponse;
+    };
+    sdk: {
+      input: DeleteAgentVersionCommandInput;
+      output: DeleteAgentVersionCommandOutput;
+    };
+  };
+}

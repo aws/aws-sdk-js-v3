@@ -12,7 +12,8 @@ import { RekognitionClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,25 +95,28 @@ export interface DistributeDatasetEntriesCommandOutput extends DistributeDataset
  * @throws {@link RekognitionServiceException}
  * <p>Base exception class for all service exceptions from Rekognition service.</p>
  *
- * @public
+ *
  * @example To distribute an Amazon Rekognition Custom Labels dataset
  * ```javascript
  * // Distributes an Amazon Rekognition Custom Labels training dataset to a test dataset.
  * const input = {
- *   "Datasets": [
+ *   Datasets: [
  *     {
- *       "Arn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106"
+ *       Arn: "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/train/1690564858106"
  *     },
  *     {
- *       "Arn": "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/test/1690564858106"
+ *       Arn: "arn:aws:rekognition:us-east-1:111122223333:project/my-proj-2/dataset/test/1690564858106"
  *     }
  *   ]
  * };
  * const command = new DistributeDatasetEntriesCommand(input);
- * await client.send(command);
- * // example id: to-distribute-to-an-amazon-rekognition-custom-labels-dataset-1690816977073
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DistributeDatasetEntriesCommand extends $Command
   .classBuilder<
@@ -122,9 +126,7 @@ export class DistributeDatasetEntriesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RekognitionClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +138,16 @@ export class DistributeDatasetEntriesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DistributeDatasetEntriesCommand)
   .de(de_DistributeDatasetEntriesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DistributeDatasetEntriesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DistributeDatasetEntriesCommandInput;
+      output: DistributeDatasetEntriesCommandOutput;
+    };
+  };
+}

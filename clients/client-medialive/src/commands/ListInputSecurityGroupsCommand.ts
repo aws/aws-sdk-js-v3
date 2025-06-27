@@ -12,7 +12,8 @@ import { de_ListInputSecurityGroupsCommand, se_ListInputSecurityGroupsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface ListInputSecurityGroupsCommandOutput extends ListInputSecurityG
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListInputSecurityGroupsCommand extends $Command
@@ -101,9 +103,7 @@ export class ListInputSecurityGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class ListInputSecurityGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInputSecurityGroupsCommand)
   .de(de_ListInputSecurityGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInputSecurityGroupsRequest;
+      output: ListInputSecurityGroupsResponse;
+    };
+    sdk: {
+      input: ListInputSecurityGroupsCommandInput;
+      output: ListInputSecurityGroupsCommandOutput;
+    };
+  };
+}

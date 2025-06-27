@@ -10,7 +10,7 @@ import {
   ListDataSourceRunActivitiesInput,
   ListDataSourceRunActivitiesOutput,
   ListDataSourceRunActivitiesOutputFilterSensitiveLog,
-} from "../models/models_0";
+} from "../models/models_1";
 import {
   de_ListDataSourceRunActivitiesCommand,
   se_ListDataSourceRunActivitiesCommand,
@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,11 @@ export interface ListDataSourceRunActivitiesCommandOutput extends ListDataSource
  * //         errorType: "ACCESS_DENIED_EXCEPTION" || "CONFLICT_EXCEPTION" || "INTERNAL_SERVER_EXCEPTION" || "RESOURCE_NOT_FOUND_EXCEPTION" || "SERVICE_QUOTA_EXCEEDED_EXCEPTION" || "THROTTLING_EXCEPTION" || "VALIDATION_EXCEPTION", // required
  * //         errorDetail: "STRING_VALUE",
  * //       },
+ * //       lineageSummary: { // LineageInfo
+ * //         eventId: "STRING_VALUE",
+ * //         eventStatus: "REQUESTED" || "PROCESSING" || "SUCCESS" || "FAILED",
+ * //         errorMessage: "STRING_VALUE",
+ * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required
  * //       updatedAt: new Date("TIMESTAMP"), // required
  * //     },
@@ -106,6 +112,7 @@ export interface ListDataSourceRunActivitiesCommandOutput extends ListDataSource
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class ListDataSourceRunActivitiesCommand extends $Command
@@ -116,9 +123,7 @@ export class ListDataSourceRunActivitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +135,16 @@ export class ListDataSourceRunActivitiesCommand extends $Command
   .f(void 0, ListDataSourceRunActivitiesOutputFilterSensitiveLog)
   .ser(se_ListDataSourceRunActivitiesCommand)
   .de(de_ListDataSourceRunActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDataSourceRunActivitiesInput;
+      output: ListDataSourceRunActivitiesOutput;
+    };
+    sdk: {
+      input: ListDataSourceRunActivitiesCommandInput;
+      output: ListDataSourceRunActivitiesCommandOutput;
+    };
+  };
+}

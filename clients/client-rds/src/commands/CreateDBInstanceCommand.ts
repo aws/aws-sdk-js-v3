@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  *   PromotionTier: Number("int"),
  *   Timezone: "STRING_VALUE",
  *   EnableIAMDatabaseAuthentication: true || false,
+ *   DatabaseInsightsMode: "standard" || "advanced",
  *   EnablePerformanceInsights: true || false,
  *   PerformanceInsightsKMSKeyId: "STRING_VALUE",
  *   PerformanceInsightsRetentionPeriod: Number("int"),
@@ -284,6 +286,7 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -446,115 +449,115 @@ export interface CreateDBInstanceCommandOutput extends CreateDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB instance
  * ```javascript
  * // The following example uses the required options to launch a new DB instance.
  * const input = {
- *   "AllocatedStorage": 20,
- *   "DBInstanceClass": "db.t3.micro",
- *   "DBInstanceIdentifier": "test-mysql-instance",
- *   "Engine": "mysql",
- *   "MasterUserPassword": "secret99",
- *   "MasterUsername": "admin"
+ *   AllocatedStorage: 20,
+ *   DBInstanceClass: "db.t3.micro",
+ *   DBInstanceIdentifier: "test-mysql-instance",
+ *   Engine: "mysql",
+ *   MasterUserPassword: "secret99",
+ *   MasterUsername: "admin"
  * };
  * const command = new CreateDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "AllocatedStorage": 20,
- *     "AssociatedRoles": [],
- *     "AutoMinorVersionUpgrade": true,
- *     "BackupRetentionPeriod": 1,
- *     "CACertificateIdentifier": "rds-ca-2019",
- *     "CopyTagsToSnapshot": false,
- *     "DBInstanceArn": "arn:aws:rds:us-west-2:123456789012:db:test-mysql-instance",
- *     "DBInstanceClass": "db.t3.micro",
- *     "DBInstanceIdentifier": "test-mysql-instance",
- *     "DBInstanceStatus": "creating",
- *     "DBParameterGroups": [
+ *   DBInstance: {
+ *     AllocatedStorage: 20,
+ *     AssociatedRoles:     [],
+ *     AutoMinorVersionUpgrade: true,
+ *     BackupRetentionPeriod: 1,
+ *     CACertificateIdentifier: "rds-ca-2019",
+ *     CopyTagsToSnapshot: false,
+ *     DBInstanceArn: "arn:aws:rds:us-west-2:123456789012:db:test-mysql-instance",
+ *     DBInstanceClass: "db.t3.micro",
+ *     DBInstanceIdentifier: "test-mysql-instance",
+ *     DBInstanceStatus: "creating",
+ *     DBParameterGroups: [
  *       {
- *         "DBParameterGroupName": "default.mysql5.7",
- *         "ParameterApplyStatus": "in-sync"
+ *         DBParameterGroupName: "default.mysql5.7",
+ *         ParameterApplyStatus: "in-sync"
  *       }
  *     ],
- *     "DBSecurityGroups": [],
- *     "DBSubnetGroup": {
- *       "DBSubnetGroupDescription": "default",
- *       "DBSubnetGroupName": "default",
- *       "SubnetGroupStatus": "Complete",
- *       "Subnets": [
+ *     DBSecurityGroups:     [],
+ *     DBSubnetGroup: {
+ *       DBSubnetGroupDescription: "default",
+ *       DBSubnetGroupName: "default",
+ *       SubnetGroupStatus: "Complete",
+ *       Subnets: [
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2c"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2c"
  *           },
- *           "SubnetIdentifier": "subnet-########",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-########",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2d"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2d"
  *           },
- *           "SubnetIdentifier": "subnet-########",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-########",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2a"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2a"
  *           },
- *           "SubnetIdentifier": "subnet-########",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-########",
+ *           SubnetStatus: "Active"
  *         },
  *         {
- *           "SubnetAvailabilityZone": {
- *             "Name": "us-west-2b"
+ *           SubnetAvailabilityZone: {
+ *             Name: "us-west-2b"
  *           },
- *           "SubnetIdentifier": "subnet-########",
- *           "SubnetStatus": "Active"
+ *           SubnetIdentifier: "subnet-########",
+ *           SubnetStatus: "Active"
  *         }
  *       ],
- *       "VpcId": "vpc-2ff2ff2f"
+ *       VpcId: "vpc-2ff2ff2f"
  *     },
- *     "DbInstancePort": 0,
- *     "DbiResourceId": "db-5555EXAMPLE44444444EXAMPLE",
- *     "DeletionProtection": false,
- *     "DomainMemberships": [],
- *     "Engine": "mysql",
- *     "EngineVersion": "5.7.22",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "admin",
- *     "MonitoringInterval": 0,
- *     "MultiAZ": false,
- *     "OptionGroupMemberships": [
+ *     DbInstancePort: 0,
+ *     DbiResourceId: "db-5555EXAMPLE44444444EXAMPLE",
+ *     DeletionProtection: false,
+ *     DomainMemberships:     [],
+ *     Engine: "mysql",
+ *     EngineVersion: "5.7.22",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     LicenseModel: "general-public-license",
+ *     MasterUsername: "admin",
+ *     MonitoringInterval: 0,
+ *     MultiAZ: false,
+ *     OptionGroupMemberships: [
  *       {
- *         "OptionGroupName": "default:mysql-5-7",
- *         "Status": "in-sync"
+ *         OptionGroupName: "default:mysql-5-7",
+ *         Status: "in-sync"
  *       }
  *     ],
- *     "PendingModifiedValues": {
- *       "MasterUserPassword": "****"
+ *     PendingModifiedValues: {
+ *       MasterUserPassword: "****"
  *     },
- *     "PerformanceInsightsEnabled": false,
- *     "PreferredBackupWindow": "12:55-13:25",
- *     "PreferredMaintenanceWindow": "sun:08:07-sun:08:37",
- *     "PubliclyAccessible": true,
- *     "ReadReplicaDBInstanceIdentifiers": [],
- *     "StorageEncrypted": false,
- *     "StorageType": "gp2",
- *     "VpcSecurityGroups": [
+ *     PerformanceInsightsEnabled: false,
+ *     PreferredBackupWindow: "12:55-13:25",
+ *     PreferredMaintenanceWindow: "sun:08:07-sun:08:37",
+ *     PubliclyAccessible: true,
+ *     ReadReplicaDBInstanceIdentifiers:     [],
+ *     StorageEncrypted: false,
+ *     StorageType: "gp2",
+ *     VpcSecurityGroups: [
  *       {
- *         "Status": "active",
- *         "VpcSecurityGroupId": "sg-12345abc"
+ *         Status: "active",
+ *         VpcSecurityGroupId: "sg-12345abc"
  *       }
  *     ]
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-instance-1679703299533
  * ```
  *
+ * @public
  */
 export class CreateDBInstanceCommand extends $Command
   .classBuilder<
@@ -564,9 +567,7 @@ export class CreateDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -578,4 +579,16 @@ export class CreateDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBInstanceCommand)
   .de(de_CreateDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBInstanceMessage;
+      output: CreateDBInstanceResult;
+    };
+    sdk: {
+      input: CreateDBInstanceCommandInput;
+      output: CreateDBInstanceCommandOutput;
+    };
+  };
+}

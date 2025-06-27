@@ -54,7 +54,17 @@ import {
   GetSiteAddressCommandOutput,
 } from "./commands/GetSiteAddressCommand";
 import { GetSiteCommand, GetSiteCommandInput, GetSiteCommandOutput } from "./commands/GetSiteCommand";
+import {
+  ListAssetInstancesCommand,
+  ListAssetInstancesCommandInput,
+  ListAssetInstancesCommandOutput,
+} from "./commands/ListAssetInstancesCommand";
 import { ListAssetsCommand, ListAssetsCommandInput, ListAssetsCommandOutput } from "./commands/ListAssetsCommand";
+import {
+  ListBlockingInstancesForCapacityTaskCommand,
+  ListBlockingInstancesForCapacityTaskCommandInput,
+  ListBlockingInstancesForCapacityTaskCommandOutput,
+} from "./commands/ListBlockingInstancesForCapacityTaskCommand";
 import {
   ListCapacityTasksCommand,
   ListCapacityTasksCommandInput,
@@ -128,7 +138,9 @@ const commands = {
   GetOutpostSupportedInstanceTypesCommand,
   GetSiteCommand,
   GetSiteAddressCommand,
+  ListAssetInstancesCommand,
   ListAssetsCommand,
+  ListBlockingInstancesForCapacityTaskCommand,
   ListCapacityTasksCommand,
   ListCatalogItemsCommand,
   ListOrdersCommand,
@@ -350,6 +362,23 @@ export interface Outposts {
   ): void;
 
   /**
+   * @see {@link ListAssetInstancesCommand}
+   */
+  listAssetInstances(
+    args: ListAssetInstancesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAssetInstancesCommandOutput>;
+  listAssetInstances(
+    args: ListAssetInstancesCommandInput,
+    cb: (err: any, data?: ListAssetInstancesCommandOutput) => void
+  ): void;
+  listAssetInstances(
+    args: ListAssetInstancesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAssetInstancesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAssetsCommand}
    */
   listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
@@ -358,6 +387,23 @@ export interface Outposts {
     args: ListAssetsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAssetsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBlockingInstancesForCapacityTaskCommand}
+   */
+  listBlockingInstancesForCapacityTask(
+    args: ListBlockingInstancesForCapacityTaskCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBlockingInstancesForCapacityTaskCommandOutput>;
+  listBlockingInstancesForCapacityTask(
+    args: ListBlockingInstancesForCapacityTaskCommandInput,
+    cb: (err: any, data?: ListBlockingInstancesForCapacityTaskCommandOutput) => void
+  ): void;
+  listBlockingInstancesForCapacityTask(
+    args: ListBlockingInstancesForCapacityTaskCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBlockingInstancesForCapacityTaskCommandOutput) => void
   ): void;
 
   /**

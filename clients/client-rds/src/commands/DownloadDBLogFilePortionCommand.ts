@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,6 +30,11 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
 /**
  * <p>Downloads all or a portion of the specified log file, up to 1 MB in size.</p>
  *          <p>This command doesn't apply to RDS Custom.</p>
+ *          <note>
+ *             <p>This operation uses resources on database instances. Because of this, we recommend publishing database logs to CloudWatch and then
+ *                 using the GetLogEvents operation. For more information,
+ *                 see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogEvents.html">GetLogEvents</a> in the <i>Amazon CloudWatch Logs API Reference</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -61,6 +67,9 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  *  <p>
  *             <code>DBInstanceIdentifier</code> doesn't refer to an existing DB instance.</p>
  *
+ * @throws {@link DBInstanceNotReadyFault} (server fault)
+ *  <p>An attempt to download or examine log files didn't succeed because an Aurora Serverless v2 instance was paused.</p>
+ *
  * @throws {@link DBLogFileNotFoundFault} (client fault)
  *  <p>
  *             <code>LogFileName</code> doesn't refer to an existing DB log file.</p>
@@ -68,19 +77,22 @@ export interface DownloadDBLogFilePortionCommandOutput extends DownloadDBLogFile
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To download a DB log file
  * ```javascript
  * // The following example downloads only the latest part of your log file.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance",
- *   "LogFileName": "log.txt"
+ *   DBInstanceIdentifier: "test-instance",
+ *   LogFileName: "log.txt"
  * };
  * const command = new DownloadDBLogFilePortionCommand(input);
- * await client.send(command);
- * // example id: to-download-a-db-log-file-1680284895898
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DownloadDBLogFilePortionCommand extends $Command
   .classBuilder<
@@ -90,9 +102,7 @@ export class DownloadDBLogFilePortionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +114,16 @@ export class DownloadDBLogFilePortionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DownloadDBLogFilePortionCommand)
   .de(de_DownloadDBLogFilePortionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DownloadDBLogFilePortionMessage;
+      output: DownloadDBLogFilePortionDetails;
+    };
+    sdk: {
+      input: DownloadDBLogFilePortionCommandInput;
+      output: DownloadDBLogFilePortionCommandOutput;
+    };
+  };
+}

@@ -10,14 +10,14 @@ import {
   ServiceOutputTypes,
 } from "../CognitoIdentityProviderClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SetLogDeliveryConfigurationRequest } from "../models/models_0";
-import { SetLogDeliveryConfigurationResponse } from "../models/models_1";
+import { SetLogDeliveryConfigurationRequest, SetLogDeliveryConfigurationResponse } from "../models/models_1";
 import { de_SetLogDeliveryConfigurationCommand, se_SetLogDeliveryConfigurationCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +34,10 @@ export interface SetLogDeliveryConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Sets up or modifies the detailed activity logging configuration of a user pool.</p>
+ * <p>Sets up or modifies the logging configuration of a user pool. User pools can export
+ *             user notification logs and, when threat protection is active, user-activity logs. For
+ *             more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/exporting-quotas-and-usage.html">Exporting user
+ *                 pool logs</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -45,10 +48,16 @@ export interface SetLogDeliveryConfigurationCommandOutput
  *   UserPoolId: "STRING_VALUE", // required
  *   LogConfigurations: [ // LogConfigurationListType // required
  *     { // LogConfigurationType
- *       LogLevel: "ERROR", // required
- *       EventSource: "userNotification", // required
+ *       LogLevel: "ERROR" || "INFO", // required
+ *       EventSource: "userNotification" || "userAuthEvents", // required
  *       CloudWatchLogsConfiguration: { // CloudWatchLogsConfigurationType
  *         LogGroupArn: "STRING_VALUE",
+ *       },
+ *       S3Configuration: { // S3ConfigurationType
+ *         BucketArn: "STRING_VALUE",
+ *       },
+ *       FirehoseConfiguration: { // FirehoseConfigurationType
+ *         StreamArn: "STRING_VALUE",
  *       },
  *     },
  *   ],
@@ -60,10 +69,16 @@ export interface SetLogDeliveryConfigurationCommandOutput
  * //     UserPoolId: "STRING_VALUE", // required
  * //     LogConfigurations: [ // LogConfigurationListType // required
  * //       { // LogConfigurationType
- * //         LogLevel: "ERROR", // required
- * //         EventSource: "userNotification", // required
+ * //         LogLevel: "ERROR" || "INFO", // required
+ * //         EventSource: "userNotification" || "userAuthEvents", // required
  * //         CloudWatchLogsConfiguration: { // CloudWatchLogsConfigurationType
  * //           LogGroupArn: "STRING_VALUE",
+ * //         },
+ * //         S3Configuration: { // S3ConfigurationType
+ * //           BucketArn: "STRING_VALUE",
+ * //         },
+ * //         FirehoseConfiguration: { // FirehoseConfigurationType
+ * //           StreamArn: "STRING_VALUE",
  * //         },
  * //       },
  * //     ],
@@ -77,6 +92,10 @@ export interface SetLogDeliveryConfigurationCommandOutput
  * @see {@link SetLogDeliveryConfigurationCommandInput} for command's `input` shape.
  * @see {@link SetLogDeliveryConfigurationCommandOutput} for command's `response` shape.
  * @see {@link CognitoIdentityProviderClientResolvedConfig | config} for CognitoIdentityProviderClient's `config` shape.
+ *
+ * @throws {@link FeatureUnavailableInTierException} (client fault)
+ *  <p>This exception is thrown when a feature you attempted to configure isn't
+ *             available in your current feature plan.</p>
  *
  * @throws {@link InternalErrorException} (server fault)
  *  <p>This exception is thrown when Amazon Cognito encounters an internal error.</p>
@@ -99,6 +118,7 @@ export interface SetLogDeliveryConfigurationCommandOutput
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class SetLogDeliveryConfigurationCommand extends $Command
@@ -109,9 +129,7 @@ export class SetLogDeliveryConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +141,16 @@ export class SetLogDeliveryConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetLogDeliveryConfigurationCommand)
   .de(de_SetLogDeliveryConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetLogDeliveryConfigurationRequest;
+      output: SetLogDeliveryConfigurationResponse;
+    };
+    sdk: {
+      input: SetLogDeliveryConfigurationCommandInput;
+      output: SetLogDeliveryConfigurationCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListSlotsCommand, se_ListSlotsCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -181,6 +182,7 @@ export interface ListSlotsCommandOutput extends ListSlotsResponse, __MetadataBea
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class ListSlotsCommand extends $Command
@@ -191,9 +193,7 @@ export class ListSlotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -205,4 +205,16 @@ export class ListSlotsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSlotsCommand)
   .de(de_ListSlotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSlotsRequest;
+      output: ListSlotsResponse;
+    };
+    sdk: {
+      input: ListSlotsCommandInput;
+      output: ListSlotsCommandOutput;
+    };
+  };
+}

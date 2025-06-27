@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkDocsClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -130,6 +131,7 @@ export interface GetResourcesCommandOutput extends GetResourcesResponse, __Metad
  * @throws {@link WorkDocsServiceException}
  * <p>Base exception class for all service exceptions from WorkDocs service.</p>
  *
+ *
  * @public
  */
 export class GetResourcesCommand extends $Command
@@ -140,9 +142,7 @@ export class GetResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkDocsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +154,16 @@ export class GetResourcesCommand extends $Command
   .f(GetResourcesRequestFilterSensitiveLog, GetResourcesResponseFilterSensitiveLog)
   .ser(se_GetResourcesCommand)
   .de(de_GetResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetResourcesRequest;
+      output: GetResourcesResponse;
+    };
+    sdk: {
+      input: GetResourcesCommandInput;
+      output: GetResourcesCommandOutput;
+    };
+  };
+}

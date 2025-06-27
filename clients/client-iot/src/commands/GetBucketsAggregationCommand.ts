@@ -12,7 +12,8 @@ import { de_GetBucketsAggregationCommand, se_GetBucketsAggregationCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface GetBucketsAggregationCommandOutput extends GetBucketsAggregatio
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class GetBucketsAggregationCommand extends $Command
@@ -106,9 +108,7 @@ export class GetBucketsAggregationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class GetBucketsAggregationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketsAggregationCommand)
   .de(de_GetBucketsAggregationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketsAggregationRequest;
+      output: GetBucketsAggregationResponse;
+    };
+    sdk: {
+      input: GetBucketsAggregationCommandInput;
+      output: GetBucketsAggregationCommandOutput;
+    };
+  };
+}

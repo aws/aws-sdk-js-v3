@@ -12,7 +12,8 @@ import { de_GetKeyGroupCommand, se_GetKeyGroupCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,13 +28,7 @@ export interface GetKeyGroupCommandInput extends GetKeyGroupRequest {}
 export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataBearer {}
 
 /**
- * <p>Gets a key group, including the date and time when the key group was last
- * 			modified.</p>
- *          <p>To get a key group, you must provide the key group's identifier. If the key group is
- * 			referenced in a distribution's cache behavior, you can get the key group's identifier
- * 			using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group
- * 			is not referenced in a cache behavior, you can get the identifier using
- * 				<code>ListKeyGroups</code>.</p>
+ * <p>Gets a key group, including the date and time when the key group was last modified.</p> <p>To get a key group, you must provide the key group's identifier. If the key group is referenced in a distribution's cache behavior, you can get the key group's identifier using <code>ListDistributions</code> or <code>GetDistribution</code>. If the key group is not referenced in a cache behavior, you can get the identifier using <code>ListKeyGroups</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +69,7 @@ export interface GetKeyGroupCommandOutput extends GetKeyGroupResult, __MetadataB
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetKeyGroupCommand extends $Command
@@ -84,9 +80,7 @@ export class GetKeyGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +92,16 @@ export class GetKeyGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetKeyGroupCommand)
   .de(de_GetKeyGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetKeyGroupRequest;
+      output: GetKeyGroupResult;
+    };
+    sdk: {
+      input: GetKeyGroupCommandInput;
+      output: GetKeyGroupCommandOutput;
+    };
+  };
+}

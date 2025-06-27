@@ -12,7 +12,8 @@ import { de_ListGlobalTablesCommand, se_ListGlobalTablesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,13 +30,8 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
 /**
  * <p>Lists all global tables that have a replica in the specified Region.</p>
  *          <important>
- *             <p>For global tables, this operation only applies to global tables using Version 2019.11.21 (Current version), as it provides greater flexibility, higher efficiency and consumes less write capacity than
- *                 2017.11.29 (Legacy). To determine which version you are using, see
- *                 <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the version</a>.
- *                 To update existing global tables from version 2017.11.29 (Legacy) to version
- *                 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">
- *                     Updating global tables</a>.
- *             </p>
+ *             <p>This documentation is for version 2017.11.29 (Legacy) of global tables, which should be avoided for new global tables. Customers should use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">Global Tables version 2019.11.21 (Current)</a> when possible, because it provides greater flexibility, higher efficiency, and consumes less write capacity than 2017.11.29 (Legacy).</p>
+ *             <p>To determine which version you're using, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.DetermineVersion.html">Determining the global table version you are using</a>. To update existing global tables from version 2017.11.29 (Legacy) to version 2019.11.21 (Current), see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/V2globaltables_upgrade.html">Upgrading global tables</a>.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -80,6 +76,7 @@ export interface ListGlobalTablesCommandOutput extends ListGlobalTablesOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ListGlobalTablesCommand extends $Command
@@ -90,9 +87,7 @@ export class ListGlobalTablesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +99,16 @@ export class ListGlobalTablesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGlobalTablesCommand)
   .de(de_ListGlobalTablesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGlobalTablesInput;
+      output: ListGlobalTablesOutput;
+    };
+    sdk: {
+      input: ListGlobalTablesCommandInput;
+      output: ListGlobalTablesCommandOutput;
+    };
+  };
+}

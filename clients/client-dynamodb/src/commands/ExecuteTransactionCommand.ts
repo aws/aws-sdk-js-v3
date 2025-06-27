@@ -12,7 +12,8 @@ import { de_ExecuteTransactionCommand, se_ExecuteTransactionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -200,7 +201,7 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -515,6 +516,7 @@ export interface ExecuteTransactionCommandOutput extends ExecuteTransactionOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ExecuteTransactionCommand extends $Command
@@ -525,9 +527,7 @@ export class ExecuteTransactionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -539,4 +539,16 @@ export class ExecuteTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ExecuteTransactionCommand)
   .de(de_ExecuteTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ExecuteTransactionInput;
+      output: ExecuteTransactionOutput;
+    };
+    sdk: {
+      input: ExecuteTransactionCommandInput;
+      output: ExecuteTransactionCommandOutput;
+    };
+  };
+}

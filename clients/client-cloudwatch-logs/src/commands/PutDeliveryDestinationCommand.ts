@@ -12,7 +12,8 @@ import { de_PutDeliveryDestinationCommand, se_PutDeliveryDestinationCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,7 +39,8 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
  *          information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDeliverySource.html">PutDeliverySource</a>.</p>
  *             </li>
  *             <li>
- *                <p>Use <code>PutDeliveryDestination</code> to create a <i>delivery destination</i>, which is a logical object that represents the actual
+ *                <p>Use <code>PutDeliveryDestination</code> to create a <i>delivery destination</i> in the same account of the actual delivery destination.
+ *          The delivery destination that you create is a logical object that represents the actual
  *          delivery destination.  </p>
  *             </li>
  *             <li>
@@ -126,6 +128,7 @@ export interface PutDeliveryDestinationCommandOutput extends PutDeliveryDestinat
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class PutDeliveryDestinationCommand extends $Command
@@ -136,9 +139,7 @@ export class PutDeliveryDestinationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +151,16 @@ export class PutDeliveryDestinationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutDeliveryDestinationCommand)
   .de(de_PutDeliveryDestinationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutDeliveryDestinationRequest;
+      output: PutDeliveryDestinationResponse;
+    };
+    sdk: {
+      input: PutDeliveryDestinationCommandInput;
+      output: PutDeliveryDestinationCommandOutput;
+    };
+  };
+}

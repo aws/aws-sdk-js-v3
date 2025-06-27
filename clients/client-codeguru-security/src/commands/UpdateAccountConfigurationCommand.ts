@@ -12,7 +12,8 @@ import { de_UpdateAccountConfigurationCommand, se_UpdateAccountConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface UpdateAccountConfigurationCommandOutput extends UpdateAccountCo
  * @throws {@link CodeGuruSecurityServiceException}
  * <p>Base exception class for all service exceptions from CodeGuruSecurity service.</p>
  *
+ *
  * @public
  */
 export class UpdateAccountConfigurationCommand extends $Command
@@ -83,9 +85,7 @@ export class UpdateAccountConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeGuruSecurityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class UpdateAccountConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAccountConfigurationCommand)
   .de(de_UpdateAccountConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAccountConfigurationRequest;
+      output: UpdateAccountConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateAccountConfigurationCommandInput;
+      output: UpdateAccountConfigurationCommandOutput;
+    };
+  };
+}

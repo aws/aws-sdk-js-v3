@@ -16,7 +16,8 @@ import { de_StartReplicationCommand, se_StartReplicationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,10 +32,11 @@ export interface StartReplicationCommandInput extends StartReplicationMessage {}
 export interface StartReplicationCommandOutput extends StartReplicationResponse, __MetadataBearer {}
 
 /**
- * <p>For a given DMS Serverless replication configuration, DMS connects to the source endpoint and
- *          collects the metadata to analyze the replication workload. Using this metadata, DMS then
- *          computes and provisions the required capacity and starts replicating to the target endpoint
- *          using the server resources that DMS has provisioned for the DMS Serverless replication.</p>
+ * <p>For a given DMS Serverless replication configuration, DMS connects to the source
+ *          endpoint and collects the metadata to analyze the replication workload. Using this
+ *          metadata, DMS then computes and provisions the required capacity and starts replicating
+ *          to the target endpoint using the server resources that DMS has provisioned for the DMS
+ *          Serverless replication.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,6 +46,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * const input = { // StartReplicationMessage
  *   ReplicationConfigArn: "STRING_VALUE", // required
  *   StartReplicationType: "STRING_VALUE", // required
+ *   PremigrationAssessmentSettings: "STRING_VALUE",
  *   CdcStartTime: new Date("TIMESTAMP"),
  *   CdcStartPosition: "STRING_VALUE",
  *   CdcStopPosition: "STRING_VALUE",
@@ -66,6 +69,31 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * //       DateNewProvisioningDataAvailable: new Date("TIMESTAMP"),
  * //       ReasonForNewProvisioningData: "STRING_VALUE",
  * //     },
+ * //     PremigrationAssessmentStatuses: [ // PremigrationAssessmentStatusList
+ * //       { // PremigrationAssessmentStatus
+ * //         PremigrationAssessmentRunArn: "STRING_VALUE",
+ * //         FailOnAssessmentFailure: true || false,
+ * //         Status: "STRING_VALUE",
+ * //         PremigrationAssessmentRunCreationDate: new Date("TIMESTAMP"),
+ * //         AssessmentProgress: { // ReplicationTaskAssessmentRunProgress
+ * //           IndividualAssessmentCount: Number("int"),
+ * //           IndividualAssessmentCompletedCount: Number("int"),
+ * //         },
+ * //         LastFailureMessage: "STRING_VALUE",
+ * //         ResultLocationBucket: "STRING_VALUE",
+ * //         ResultLocationFolder: "STRING_VALUE",
+ * //         ResultEncryptionMode: "STRING_VALUE",
+ * //         ResultKmsKeyArn: "STRING_VALUE",
+ * //         ResultStatistic: { // ReplicationTaskAssessmentRunResultStatistic
+ * //           Passed: Number("int"),
+ * //           Failed: Number("int"),
+ * //           Error: Number("int"),
+ * //           Warning: Number("int"),
+ * //           Cancelled: Number("int"),
+ * //           Skipped: Number("int"),
+ * //         },
+ * //       },
+ * //     ],
  * //     StopReason: "STRING_VALUE",
  * //     FailureMessages: [ // StringList
  * //       "STRING_VALUE",
@@ -116,6 +144,7 @@ export interface StartReplicationCommandOutput extends StartReplicationResponse,
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class StartReplicationCommand extends $Command
@@ -126,9 +155,7 @@ export class StartReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +167,16 @@ export class StartReplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartReplicationCommand)
   .de(de_StartReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationMessage;
+      output: StartReplicationResponse;
+    };
+    sdk: {
+      input: StartReplicationCommandInput;
+      output: StartReplicationCommandOutput;
+    };
+  };
+}

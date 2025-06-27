@@ -67,6 +67,11 @@
  *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_CreateWebLoginToken.html">CreateWebLoginToken</a>
  *                      </p>
  *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <a href="https://docs.aws.amazon.com/mwaa/latest/API/API_InvokeRestApi.html">InvokeRestApi</a>
+ *                      </p>
+ *                   </li>
  *                </ul>
  *             </li>
  *          </ul>
@@ -80,8 +85,8 @@
 export * from "./MWAAClient";
 export * from "./MWAA";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { MWAAExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { MWAAExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

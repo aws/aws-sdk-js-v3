@@ -12,7 +12,8 @@ import { de_DeleteVoiceProfileCommand, se_DeleteVoiceProfileCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface DeleteVoiceProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class DeleteVoiceProfileCommand extends $Command
@@ -89,9 +91,7 @@ export class DeleteVoiceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class DeleteVoiceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteVoiceProfileCommand)
   .de(de_DeleteVoiceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteVoiceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteVoiceProfileCommandInput;
+      output: DeleteVoiceProfileCommandOutput;
+    };
+  };
+}

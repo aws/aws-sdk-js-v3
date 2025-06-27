@@ -12,7 +12,8 @@ import { de_GetClassificationScopeCommand, se_GetClassificationScopeCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface GetClassificationScopeCommandOutput extends GetClassificationSc
  * @throws {@link Macie2ServiceException}
  * <p>Base exception class for all service exceptions from Macie2 service.</p>
  *
+ *
  * @public
  */
 export class GetClassificationScopeCommand extends $Command
@@ -87,9 +89,7 @@ export class GetClassificationScopeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Macie2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class GetClassificationScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetClassificationScopeCommand)
   .de(de_GetClassificationScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClassificationScopeRequest;
+      output: GetClassificationScopeResponse;
+    };
+    sdk: {
+      input: GetClassificationScopeCommandInput;
+      output: GetClassificationScopeCommandOutput;
+    };
+  };
+}

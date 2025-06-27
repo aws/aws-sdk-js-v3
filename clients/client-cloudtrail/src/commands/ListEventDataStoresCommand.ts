@@ -12,7 +12,8 @@ import { de_ListEventDataStoresCommand, se_ListEventDataStoresCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +113,7 @@ export interface ListEventDataStoresCommandOutput extends ListEventDataStoresRes
  * @throws {@link CloudTrailServiceException}
  * <p>Base exception class for all service exceptions from CloudTrail service.</p>
  *
+ *
  * @public
  */
 export class ListEventDataStoresCommand extends $Command
@@ -122,9 +124,7 @@ export class ListEventDataStoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudTrailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -136,4 +136,16 @@ export class ListEventDataStoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEventDataStoresCommand)
   .de(de_ListEventDataStoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEventDataStoresRequest;
+      output: ListEventDataStoresResponse;
+    };
+    sdk: {
+      input: ListEventDataStoresCommandInput;
+      output: ListEventDataStoresCommandOutput;
+    };
+  };
+}

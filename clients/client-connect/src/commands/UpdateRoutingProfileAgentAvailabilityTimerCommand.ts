@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_2";
+import { UpdateRoutingProfileAgentAvailabilityTimerRequest } from "../models/models_3";
 import {
   de_UpdateRoutingProfileAgentAvailabilityTimerCommand,
   se_UpdateRoutingProfileAgentAvailabilityTimerCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface UpdateRoutingProfileAgentAvailabilityTimerCommandOutput extends
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command
@@ -85,9 +87,7 @@ export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class UpdateRoutingProfileAgentAvailabilityTimerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRoutingProfileAgentAvailabilityTimerCommand)
   .de(de_UpdateRoutingProfileAgentAvailabilityTimerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoutingProfileAgentAvailabilityTimerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateRoutingProfileAgentAvailabilityTimerCommandInput;
+      output: UpdateRoutingProfileAgentAvailabilityTimerCommandOutput;
+    };
+  };
+}

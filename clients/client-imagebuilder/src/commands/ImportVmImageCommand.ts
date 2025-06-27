@@ -12,7 +12,8 @@ import { de_ImportVmImageCommand, se_ImportVmImageCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,7 +46,7 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  *   name: "STRING_VALUE", // required
  *   semanticVersion: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
- *   platform: "Windows" || "Linux", // required
+ *   platform: "Windows" || "Linux" || "macOS", // required
  *   osVersion: "STRING_VALUE",
  *   vmImportTaskId: "STRING_VALUE", // required
  *   tags: { // TagMap
@@ -84,6 +85,7 @@ export interface ImportVmImageCommandOutput extends ImportVmImageResponse, __Met
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ImportVmImageCommand extends $Command
@@ -94,9 +96,7 @@ export class ImportVmImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ImportVmImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ImportVmImageCommand)
   .de(de_ImportVmImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ImportVmImageRequest;
+      output: ImportVmImageResponse;
+    };
+    sdk: {
+      input: ImportVmImageCommandInput;
+      output: ImportVmImageCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,41 +97,41 @@ export interface DescribeReservedDBInstancesOfferingsCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To describe reserved DB instance offerings
  * ```javascript
  * // The following example retrieves details about reserved DB instance options for RDS for Oracle.
  * const input = {
- *   "ProductDescription": "oracle"
+ *   ProductDescription: "oracle"
  * };
  * const command = new DescribeReservedDBInstancesOfferingsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ReservedDBInstancesOfferings": [
+ *   ReservedDBInstancesOfferings: [
  *     {
- *       "CurrencyCode": "USD",
- *       "DBInstanceClass": "db.m4.xlarge",
- *       "Duration": 31536000,
- *       "FixedPrice": 4089,
- *       "MultiAZ": true,
- *       "OfferingType": "Partial Upfront",
- *       "ProductDescription": "oracle-se2(li)",
- *       "RecurringCharges": [
+ *       CurrencyCode: "USD",
+ *       DBInstanceClass: "db.m4.xlarge",
+ *       Duration: 31536000,
+ *       FixedPrice: 4089,
+ *       MultiAZ: true,
+ *       OfferingType: "Partial Upfront",
+ *       ProductDescription: "oracle-se2(li)",
+ *       RecurringCharges: [
  *         {
- *           "RecurringChargeAmount": 0.594,
- *           "RecurringChargeFrequency": "Hourly"
+ *           RecurringChargeAmount: 0.594,
+ *           RecurringChargeFrequency: "Hourly"
  *         }
  *       ],
- *       "ReservedDBInstancesOfferingId": "005bdee3-9ef4-4182-aa0c-58ef7cb6c2f8",
- *       "UsagePrice": 0
+ *       ReservedDBInstancesOfferingId: "005bdee3-9ef4-4182-aa0c-58ef7cb6c2f8",
+ *       UsagePrice: 0
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-describe-reserved-db-instance-offerings-1680283755054
  * ```
  *
+ * @public
  */
 export class DescribeReservedDBInstancesOfferingsCommand extends $Command
   .classBuilder<
@@ -140,9 +141,7 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +153,16 @@ export class DescribeReservedDBInstancesOfferingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReservedDBInstancesOfferingsCommand)
   .de(de_DescribeReservedDBInstancesOfferingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReservedDBInstancesOfferingsMessage;
+      output: ReservedDBInstancesOfferingMessage;
+    };
+    sdk: {
+      input: DescribeReservedDBInstancesOfferingsCommandInput;
+      output: DescribeReservedDBInstancesOfferingsCommandOutput;
+    };
+  };
+}

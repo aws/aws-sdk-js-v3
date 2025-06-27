@@ -12,7 +12,8 @@ import { de_GetSparqlStreamCommand, se_GetSparqlStreamCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -131,6 +132,7 @@ export interface GetSparqlStreamCommandOutput extends GetSparqlStreamOutput, __M
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class GetSparqlStreamCommand extends $Command
@@ -141,9 +143,7 @@ export class GetSparqlStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -155,4 +155,16 @@ export class GetSparqlStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSparqlStreamCommand)
   .de(de_GetSparqlStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSparqlStreamInput;
+      output: GetSparqlStreamOutput;
+    };
+    sdk: {
+      input: GetSparqlStreamCommandInput;
+      output: GetSparqlStreamCommandOutput;
+    };
+  };
+}

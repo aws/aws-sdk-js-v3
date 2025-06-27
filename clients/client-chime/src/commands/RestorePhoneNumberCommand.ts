@@ -10,13 +10,14 @@ import {
   RestorePhoneNumberRequest,
   RestorePhoneNumberResponse,
   RestorePhoneNumberResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_RestorePhoneNumberCommand, se_RestorePhoneNumberCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -110,6 +111,7 @@ export interface RestorePhoneNumberCommandOutput extends RestorePhoneNumberRespo
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class RestorePhoneNumberCommand extends $Command
@@ -120,9 +122,7 @@ export class RestorePhoneNumberCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +134,16 @@ export class RestorePhoneNumberCommand extends $Command
   .f(void 0, RestorePhoneNumberResponseFilterSensitiveLog)
   .ser(se_RestorePhoneNumberCommand)
   .de(de_RestorePhoneNumberCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestorePhoneNumberRequest;
+      output: RestorePhoneNumberResponse;
+    };
+    sdk: {
+      input: RestorePhoneNumberCommandInput;
+      output: RestorePhoneNumberCommandOutput;
+    };
+  };
+}

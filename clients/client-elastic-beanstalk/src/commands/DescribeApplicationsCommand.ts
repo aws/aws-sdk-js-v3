@@ -12,7 +12,8 @@ import { de_DescribeApplicationsCommand, se_DescribeApplicationsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,41 +86,41 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view a list of applications
  * ```javascript
  * // The following operation retrieves information about applications in the current region:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new DescribeApplicationsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Applications": [
+ *   Applications: [
  *     {
- *       "ApplicationName": "ruby",
- *       "ConfigurationTemplates": [],
- *       "DateCreated": "2015-08-13T21:05:44.376Z",
- *       "DateUpdated": "2015-08-13T21:05:44.376Z",
- *       "Versions": [
+ *       ApplicationName: "ruby",
+ *       ConfigurationTemplates:       [],
+ *       DateCreated: "2015-08-13T21:05:44.376Z",
+ *       DateUpdated: "2015-08-13T21:05:44.376Z",
+ *       Versions: [
  *         "Sample Application"
  *       ]
  *     },
  *     {
- *       "ApplicationName": "pythonsample",
- *       "ConfigurationTemplates": [],
- *       "DateCreated": "2015-08-13T19:05:43.637Z",
- *       "DateUpdated": "2015-08-13T19:05:43.637Z",
- *       "Description": "Application created from the EB CLI using \"eb init\"",
- *       "Versions": [
+ *       ApplicationName: "pythonsample",
+ *       ConfigurationTemplates:       [],
+ *       DateCreated: "2015-08-13T19:05:43.637Z",
+ *       DateUpdated: "2015-08-13T19:05:43.637Z",
+ *       Description: `Application created from the EB CLI using "eb init"`,
+ *       Versions: [
  *         "Sample Application"
  *       ]
  *     },
  *     {
- *       "ApplicationName": "nodejs-example",
- *       "ConfigurationTemplates": [],
- *       "DateCreated": "2015-08-06T17:50:02.486Z",
- *       "DateUpdated": "2015-08-06T17:50:02.486Z",
- *       "Versions": [
+ *       ApplicationName: "nodejs-example",
+ *       ConfigurationTemplates:       [],
+ *       DateCreated: "2015-08-06T17:50:02.486Z",
+ *       DateUpdated: "2015-08-06T17:50:02.486Z",
+ *       Versions: [
  *         "add elasticache",
  *         "First Release"
  *       ]
@@ -127,9 +128,9 @@ export interface DescribeApplicationsCommandOutput extends ApplicationDescriptio
  *   ]
  * }
  * *\/
- * // example id: to-view-a-list-of-applications-1456270027373
  * ```
  *
+ * @public
  */
 export class DescribeApplicationsCommand extends $Command
   .classBuilder<
@@ -139,9 +140,7 @@ export class DescribeApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -153,4 +152,16 @@ export class DescribeApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationsCommand)
   .de(de_DescribeApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationsMessage;
+      output: ApplicationDescriptionsMessage;
+    };
+    sdk: {
+      input: DescribeApplicationsCommandInput;
+      output: DescribeApplicationsCommandOutput;
+    };
+  };
+}

@@ -11,13 +11,14 @@ import {
   UpdateRoomRequestFilterSensitiveLog,
   UpdateRoomResponse,
   UpdateRoomResponseFilterSensitiveLog,
-} from "../models/models_1";
+} from "../models/models_0";
 import { de_UpdateRoomCommand, se_UpdateRoomCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class UpdateRoomCommand extends $Command
@@ -99,9 +101,7 @@ export class UpdateRoomCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class UpdateRoomCommand extends $Command
   .f(UpdateRoomRequestFilterSensitiveLog, UpdateRoomResponseFilterSensitiveLog)
   .ser(se_UpdateRoomCommand)
   .de(de_UpdateRoomCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRoomRequest;
+      output: UpdateRoomResponse;
+    };
+    sdk: {
+      input: UpdateRoomCommandInput;
+      output: UpdateRoomCommandOutput;
+    };
+  };
+}

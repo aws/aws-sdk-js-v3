@@ -12,7 +12,8 @@ import { de_BatchGetAccountStatusCommand, se_BatchGetAccountStatusCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * //           errorCode: "STRING_VALUE", // required
  * //           errorMessage: "STRING_VALUE", // required
  * //         },
+ * //         codeRepository: "<State>",
  * //       },
  * //     },
  * //   ],
@@ -83,6 +85,7 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * //         ecr: "STRING_VALUE", // required
  * //         lambda: "STRING_VALUE",
  * //         lambdaCode: "STRING_VALUE",
+ * //         codeRepository: "STRING_VALUE",
  * //       },
  * //       errorCode: "STRING_VALUE", // required
  * //       errorMessage: "STRING_VALUE", // required
@@ -100,12 +103,15 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -117,6 +123,7 @@ export interface BatchGetAccountStatusCommandOutput extends BatchGetAccountStatu
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class BatchGetAccountStatusCommand extends $Command
@@ -127,9 +134,7 @@ export class BatchGetAccountStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +146,16 @@ export class BatchGetAccountStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAccountStatusCommand)
   .de(de_BatchGetAccountStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAccountStatusRequest;
+      output: BatchGetAccountStatusResponse;
+    };
+    sdk: {
+      input: BatchGetAccountStatusCommandInput;
+      output: BatchGetAccountStatusCommandOutput;
+    };
+  };
+}

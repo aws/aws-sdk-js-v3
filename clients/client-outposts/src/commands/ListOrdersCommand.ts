@@ -12,7 +12,8 @@ import { de_ListOrdersCommand, se_ListOrdersCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,7 +48,7 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * //       OutpostId: "STRING_VALUE",
  * //       OrderId: "STRING_VALUE",
  * //       OrderType: "OUTPOST" || "REPLACEMENT",
- * //       Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "ERROR",
+ * //       Status: "RECEIVED" || "PENDING" || "PROCESSING" || "INSTALLING" || "FULFILLED" || "CANCELLED" || "PREPARING" || "IN_PROGRESS" || "DELIVERED" || "COMPLETED" || "ERROR",
  * //       LineItemCountsByStatus: { // LineItemStatusCounts
  * //         "<keys>": Number("int"),
  * //       },
@@ -81,6 +82,7 @@ export interface ListOrdersCommandOutput extends ListOrdersOutput, __MetadataBea
  * @throws {@link OutpostsServiceException}
  * <p>Base exception class for all service exceptions from Outposts service.</p>
  *
+ *
  * @public
  */
 export class ListOrdersCommand extends $Command
@@ -91,9 +93,7 @@ export class ListOrdersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OutpostsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class ListOrdersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrdersCommand)
   .de(de_ListOrdersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrdersInput;
+      output: ListOrdersOutput;
+    };
+    sdk: {
+      input: ListOrdersCommandInput;
+      output: ListOrdersCommandOutput;
+    };
+  };
+}

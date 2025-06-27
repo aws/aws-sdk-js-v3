@@ -12,7 +12,8 @@ import { de_PutStorageConfigurationCommand, se_PutStorageConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  *     numberOfDays: Number("int"),
  *     unlimited: true || false,
  *   },
+ *   disallowIngestNullNaN: true || false,
  * };
  * const command = new PutStorageConfigurationCommand(input);
  * const response = await client.send(command);
@@ -80,6 +82,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * //     numberOfDays: Number("int"),
  * //     unlimited: true || false,
  * //   },
+ * //   disallowIngestNullNaN: true || false,
  * // };
  *
  * ```
@@ -122,6 +125,7 @@ export interface PutStorageConfigurationCommandOutput extends PutStorageConfigur
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class PutStorageConfigurationCommand extends $Command
@@ -132,9 +136,7 @@ export class PutStorageConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +148,16 @@ export class PutStorageConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutStorageConfigurationCommand)
   .de(de_PutStorageConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutStorageConfigurationRequest;
+      output: PutStorageConfigurationResponse;
+    };
+    sdk: {
+      input: PutStorageConfigurationCommandInput;
+      output: PutStorageConfigurationCommandOutput;
+    };
+  };
+}

@@ -20,7 +20,7 @@ documentation is part of the SimSpace Weaver app SDK distributable package.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-simspaceweaver
+To install this package, simply type add or install @aws-sdk/client-simspaceweaver
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-simspaceweaver`

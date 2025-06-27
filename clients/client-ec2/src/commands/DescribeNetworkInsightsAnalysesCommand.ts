@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeNetworkInsightsAnalysesRequest, DescribeNetworkInsightsAnalysesResult } from "../models/models_4";
+import { DescribeNetworkInsightsAnalysesRequest, DescribeNetworkInsightsAnalysesResult } from "../models/models_5";
 import {
   de_DescribeNetworkInsightsAnalysesCommand,
   se_DescribeNetworkInsightsAnalysesCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,9 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //         "STRING_VALUE",
  * //       ],
  * //       FilterInArns: [ // ArnList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       FilterOutArns: [
  * //         "STRING_VALUE",
  * //       ],
  * //       StartDate: new Date("TIMESTAMP"),
@@ -250,6 +254,9 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               AvailabilityZones: [
  * //                 "STRING_VALUE",
  * //               ],
+ * //               AvailabilityZoneIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
  * //               Cidrs: [
  * //                 "STRING_VALUE",
  * //               ],
@@ -270,6 +277,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               LoadBalancerTarget: { // AnalysisLoadBalancerTarget
  * //                 Address: "STRING_VALUE",
  * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 AvailabilityZoneId: "STRING_VALUE",
  * //                 Instance: "<AnalysisComponent>",
  * //                 Port: Number("int"),
  * //               },
@@ -505,6 +513,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               Addresses: "<IpAddressList>",
  * //               AttachedTo: "<AnalysisComponent>",
  * //               AvailabilityZones: "<ValueStringList>",
+ * //               AvailabilityZoneIds: "<ValueStringList>",
  * //               Cidrs: "<ValueStringList>",
  * //               Component: "<AnalysisComponent>",
  * //               CustomerGateway: "<AnalysisComponent>",
@@ -523,6 +532,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //               LoadBalancerTarget: {
  * //                 Address: "STRING_VALUE",
  * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 AvailabilityZoneId: "STRING_VALUE",
  * //                 Instance: "<AnalysisComponent>",
  * //                 Port: Number("int"),
  * //               },
@@ -655,6 +665,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //           Addresses: "<IpAddressList>",
  * //           AttachedTo: "<AnalysisComponent>",
  * //           AvailabilityZones: "<ValueStringList>",
+ * //           AvailabilityZoneIds: "<ValueStringList>",
  * //           Cidrs: "<ValueStringList>",
  * //           Component: "<AnalysisComponent>",
  * //           CustomerGateway: "<AnalysisComponent>",
@@ -673,6 +684,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * //           LoadBalancerTarget: {
  * //             Address: "STRING_VALUE",
  * //             AvailabilityZone: "STRING_VALUE",
+ * //             AvailabilityZoneId: "STRING_VALUE",
  * //             Instance: "<AnalysisComponent>",
  * //             Port: Number("int"),
  * //           },
@@ -791,6 +803,7 @@ export interface DescribeNetworkInsightsAnalysesCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeNetworkInsightsAnalysesCommand extends $Command
@@ -801,9 +814,7 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -815,4 +826,16 @@ export class DescribeNetworkInsightsAnalysesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeNetworkInsightsAnalysesCommand)
   .de(de_DescribeNetworkInsightsAnalysesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeNetworkInsightsAnalysesRequest;
+      output: DescribeNetworkInsightsAnalysesResult;
+    };
+    sdk: {
+      input: DescribeNetworkInsightsAnalysesCommandInput;
+      output: DescribeNetworkInsightsAnalysesCommandOutput;
+    };
+  };
+}

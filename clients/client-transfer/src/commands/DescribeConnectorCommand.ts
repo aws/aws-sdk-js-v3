@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TransferClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DescribeConnectorCommandInput extends DescribeConnectorRequest 
 export interface DescribeConnectorCommandOutput extends DescribeConnectorResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the connector that's identified by the <code>ConnectorId.</code>
- *          </p>
+ * <p>Describes the connector that's identified by the <code>ConnectorId.</code> </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +55,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //       MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
  * //       MdnResponse: "SYNC" || "NONE",
  * //       BasicAuthSecretId: "STRING_VALUE",
+ * //       PreserveContentType: "ENABLED" || "DISABLED",
  * //     },
  * //     AccessRole: "STRING_VALUE",
  * //     LoggingRole: "STRING_VALUE",
@@ -69,6 +70,7 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  * //       TrustedHostKeys: [ // SftpConnectorTrustedHostKeyList
  * //         "STRING_VALUE",
  * //       ],
+ * //       MaxConcurrentConnections: Number("int"),
  * //     },
  * //     ServiceManagedEgressIpAddresses: [ // ServiceManagedEgressIpAddresses
  * //       "STRING_VALUE",
@@ -92,14 +94,14 @@ export interface DescribeConnectorCommandOutput extends DescribeConnectorRespons
  *  <p>This exception is thrown when the client submits a malformed request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family
- *       service.</p>
+ *  <p>This exception is thrown when a resource is not found by the Amazon Web ServicesTransfer Family service.</p>
  *
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The request has failed because the Amazon Web ServicesTransfer Family service is not available.</p>
  *
  * @throws {@link TransferServiceException}
  * <p>Base exception class for all service exceptions from Transfer service.</p>
+ *
  *
  * @public
  */
@@ -111,9 +113,7 @@ export class DescribeConnectorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TransferClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class DescribeConnectorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConnectorCommand)
   .de(de_DescribeConnectorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConnectorRequest;
+      output: DescribeConnectorResponse;
+    };
+    sdk: {
+      input: DescribeConnectorCommandInput;
+      output: DescribeConnectorCommandOutput;
+    };
+  };
+}

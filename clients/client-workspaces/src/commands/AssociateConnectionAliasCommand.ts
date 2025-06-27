@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface AssociateConnectionAliasCommandOutput extends AssociateConnecti
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class AssociateConnectionAliasCommand extends $Command
@@ -90,9 +92,7 @@ export class AssociateConnectionAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class AssociateConnectionAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateConnectionAliasCommand)
   .de(de_AssociateConnectionAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateConnectionAliasRequest;
+      output: AssociateConnectionAliasResult;
+    };
+    sdk: {
+      input: AssociateConnectionAliasCommandInput;
+      output: AssociateConnectionAliasCommandOutput;
+    };
+  };
+}

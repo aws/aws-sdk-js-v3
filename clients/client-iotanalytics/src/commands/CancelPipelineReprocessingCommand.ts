@@ -12,7 +12,8 @@ import { de_CancelPipelineReprocessingCommand, se_CancelPipelineReprocessingComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,7 @@ export interface CancelPipelineReprocessingCommandOutput extends CancelPipelineR
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class CancelPipelineReprocessingCommand extends $Command
@@ -78,9 +80,7 @@ export class CancelPipelineReprocessingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +92,16 @@ export class CancelPipelineReprocessingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelPipelineReprocessingCommand)
   .de(de_CancelPipelineReprocessingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelPipelineReprocessingRequest;
+      output: {};
+    };
+    sdk: {
+      input: CancelPipelineReprocessingCommandInput;
+      output: CancelPipelineReprocessingCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,7 +33,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns detailed information about all the recovery points of the type specified by a
+ * <p>The information about the recovery points of the type specified by a
  *          resource Amazon Resource Name (ARN).</p>
  *          <note>
  *             <p>For Amazon EFS and Amazon EC2, this action only lists recovery points
@@ -58,7 +59,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * //     { // RecoveryPointByResource
  * //       RecoveryPointArn: "STRING_VALUE",
  * //       CreationDate: new Date("TIMESTAMP"),
- * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED",
+ * //       Status: "COMPLETED" || "PARTIAL" || "DELETING" || "EXPIRED" || "AVAILABLE" || "STOPPED" || "CREATING",
  * //       StatusMessage: "STRING_VALUE",
  * //       EncryptionKeyArn: "STRING_VALUE",
  * //       BackupSizeBytes: Number("long"),
@@ -66,7 +67,9 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * //       IsParent: true || false,
  * //       ParentRecoveryPointArn: "STRING_VALUE",
  * //       ResourceName: "STRING_VALUE",
- * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT" || "RESTORE_ACCESS_BACKUP_VAULT",
+ * //       IndexStatus: "PENDING" || "ACTIVE" || "FAILED" || "DELETING",
+ * //       IndexStatusMessage: "STRING_VALUE",
  * //     },
  * //   ],
  * // };
@@ -95,6 +98,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * @throws {@link BackupServiceException}
  * <p>Base exception class for all service exceptions from Backup service.</p>
  *
+ *
  * @public
  */
 export class ListRecoveryPointsByResourceCommand extends $Command
@@ -105,9 +109,7 @@ export class ListRecoveryPointsByResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +121,16 @@ export class ListRecoveryPointsByResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRecoveryPointsByResourceCommand)
   .de(de_ListRecoveryPointsByResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRecoveryPointsByResourceInput;
+      output: ListRecoveryPointsByResourceOutput;
+    };
+    sdk: {
+      input: ListRecoveryPointsByResourceCommandInput;
+      output: ListRecoveryPointsByResourceCommandOutput;
+    };
+  };
+}

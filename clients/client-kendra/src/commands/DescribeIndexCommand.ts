@@ -16,7 +16,8 @@ import { de_DescribeIndexCommand, se_DescribeIndexCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * // { // DescribeIndexResponse
  * //   Name: "STRING_VALUE",
  * //   Id: "STRING_VALUE",
- * //   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION",
+ * //   Edition: "DEVELOPER_EDITION" || "ENTERPRISE_EDITION" || "GEN_AI_ENTERPRISE_EDITION",
  * //   RoleArn: "STRING_VALUE",
  * //   ServerSideEncryptionConfiguration: { // ServerSideEncryptionConfiguration
  * //     KmsKeyId: "STRING_VALUE",
@@ -144,6 +145,7 @@ export interface DescribeIndexCommandOutput extends DescribeIndexResponse, __Met
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class DescribeIndexCommand extends $Command
@@ -154,9 +156,7 @@ export class DescribeIndexCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -168,4 +168,16 @@ export class DescribeIndexCommand extends $Command
   .f(void 0, DescribeIndexResponseFilterSensitiveLog)
   .ser(se_DescribeIndexCommand)
   .de(de_DescribeIndexCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIndexRequest;
+      output: DescribeIndexResponse;
+    };
+    sdk: {
+      input: DescribeIndexCommandInput;
+      output: DescribeIndexCommandOutput;
+    };
+  };
+}

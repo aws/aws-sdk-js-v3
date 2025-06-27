@@ -12,7 +12,8 @@ import { de_StopRemoteAccessSessionCommand, se_StopRemoteAccessSessionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -124,6 +125,10 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * //       ],
  * //       vpcId: "STRING_VALUE", // required
  * //     },
+ * //     deviceProxy: { // DeviceProxy
+ * //       host: "STRING_VALUE", // required
+ * //       port: Number("int"), // required
+ * //     },
  * //   },
  * // };
  *
@@ -150,6 +155,7 @@ export interface StopRemoteAccessSessionCommandOutput extends StopRemoteAccessSe
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
+ *
  * @public
  */
 export class StopRemoteAccessSessionCommand extends $Command
@@ -160,9 +166,7 @@ export class StopRemoteAccessSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -174,4 +178,16 @@ export class StopRemoteAccessSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopRemoteAccessSessionCommand)
   .de(de_StopRemoteAccessSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopRemoteAccessSessionRequest;
+      output: StopRemoteAccessSessionResult;
+    };
+    sdk: {
+      input: StopRemoteAccessSessionCommandInput;
+      output: StopRemoteAccessSessionCommandOutput;
+    };
+  };
+}

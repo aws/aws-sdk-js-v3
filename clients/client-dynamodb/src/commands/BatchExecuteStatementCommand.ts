@@ -12,7 +12,8 @@ import { de_BatchExecuteStatementCommand, se_BatchExecuteStatementCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  * <p>This operation allows you to perform batch reads or writes on data stored in DynamoDB,
  *             using PartiQL. Each read statement in a <code>BatchExecuteStatement</code> must specify
  *             an equality condition on all key attributes. This enforces that each <code>SELECT</code>
- *             statement in a batch returns at most a single item.</p>
+ *             statement in a batch returns at most a single item. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ql-reference.multiplestatements.batching.html">Running batch operations with PartiQL for DynamoDB </a>.</p>
  *          <note>
  *             <p>The entire batch must consist of either read statements or write statements, you
  *                 cannot mix both in one batch.</p>
@@ -203,11 +204,12 @@ export interface BatchExecuteStatementCommandOutput extends BatchExecuteStatemen
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
+ *
  *
  * @public
  */
@@ -219,9 +221,7 @@ export class BatchExecuteStatementCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -233,4 +233,16 @@ export class BatchExecuteStatementCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchExecuteStatementCommand)
   .de(de_BatchExecuteStatementCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchExecuteStatementInput;
+      output: BatchExecuteStatementOutput;
+    };
+    sdk: {
+      input: BatchExecuteStatementCommandInput;
+      output: BatchExecuteStatementCommandOutput;
+    };
+  };
+}

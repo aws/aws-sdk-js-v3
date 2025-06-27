@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_2";
+import { CancelIngestionRequest, CancelIngestionResponse } from "../models/models_3";
 import { de_CancelIngestionCommand, se_CancelIngestionCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface CancelIngestionCommandOutput extends CancelIngestionResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CancelIngestionCommand extends $Command
@@ -90,9 +92,7 @@ export class CancelIngestionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class CancelIngestionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelIngestionCommand)
   .de(de_CancelIngestionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelIngestionRequest;
+      output: CancelIngestionResponse;
+    };
+    sdk: {
+      input: CancelIngestionCommandInput;
+      output: CancelIngestionCommandOutput;
+    };
+  };
+}

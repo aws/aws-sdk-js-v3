@@ -16,7 +16,8 @@ import { de_GenerateDataKeyCommand, se_GenerateDataKeyCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,7 +53,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
- *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+ *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption Context</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>
  *             <code>GenerateDataKey</code> also supports <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html">Amazon Web Services Nitro Enclaves</a>, which provide an
@@ -136,7 +137,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -166,6 +167,7 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * //   Plaintext: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   CiphertextForRecipient: new Uint8Array(),
+ * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -205,8 +207,9 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -245,50 +248,27 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate a data key
  * ```javascript
  * // The following example generates a 256-bit symmetric data encryption key (data key) in two formats. One is the unencrypted (plainext) data key, and the other is the data key encrypted with the specified KMS key.
  * const input = {
- *   "KeyId": "alias/ExampleAlias",
- *   "KeySpec": "AES_256"
+ *   KeyId: "alias/ExampleAlias",
+ *   KeySpec: "AES_256"
  * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": "<binary data>"
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyMaterialId: "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6",
+ *   Plaintext: "<binary data>"
  * }
  * *\/
- * // example id: to-generate-a-data-key-1
  * ```
  *
- * @example To generate a data key pair for a Nitro enclave
- * ```javascript
- * // The following example includes the Recipient parameter with a signed attestation document from an AWS Nitro enclave. Instead of returning a copy of the data key encrypted by the KMS key and a plaintext copy of the data key, GenerateDataKey returns one copy of the data key encrypted by the KMS key (CiphertextBlob) and one copy of the data key encrypted by the public key from the attestation document (CiphertextForRecipient). The operation doesn't return a plaintext data key.
- * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "KeySpec": "AES_256",
- *   "Recipient": {
- *     "AttestationDocument": "<attestation document>",
- *     "KeyEncryptionAlgorithm": "RSAES_OAEP_SHA_256"
- *   }
- * };
- * const command = new GenerateDataKeyCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "CiphertextBlob": "<binary data>",
- *   "CiphertextForRecipient": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "Plaintext": ""
- * }
- * *\/
- * // example id: to-generate-a-data-key-for-a-nitro-enclave-2
- * ```
- *
+ * @public
  */
 export class GenerateDataKeyCommand extends $Command
   .classBuilder<
@@ -298,9 +278,7 @@ export class GenerateDataKeyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -312,4 +290,16 @@ export class GenerateDataKeyCommand extends $Command
   .f(void 0, GenerateDataKeyResponseFilterSensitiveLog)
   .ser(se_GenerateDataKeyCommand)
   .de(de_GenerateDataKeyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyRequest;
+      output: GenerateDataKeyResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyCommandInput;
+      output: GenerateDataKeyCommandOutput;
+    };
+  };
+}

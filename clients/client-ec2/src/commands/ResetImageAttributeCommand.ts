@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ResetImageAttributeRequest } from "../models/models_7";
+import { ResetImageAttributeRequest } from "../models/models_8";
 import { de_ResetImageAttributeCommand, se_ResetImageAttributeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,19 +55,22 @@ export interface ResetImageAttributeCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To reset the launchPermission attribute
  * ```javascript
  * // This example resets the launchPermission attribute for the specified AMI. By default, AMIs are private.
  * const input = {
- *   "Attribute": "launchPermission",
- *   "ImageId": "ami-5731123e"
+ *   Attribute: "launchPermission",
+ *   ImageId: "ami-5731123e"
  * };
  * const command = new ResetImageAttributeCommand(input);
- * await client.send(command);
- * // example id: to-reset-the-launchpermission-attribute-1529359519534
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class ResetImageAttributeCommand extends $Command
   .classBuilder<
@@ -76,9 +80,7 @@ export class ResetImageAttributeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +92,16 @@ export class ResetImageAttributeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetImageAttributeCommand)
   .de(de_ResetImageAttributeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetImageAttributeRequest;
+      output: {};
+    };
+    sdk: {
+      input: ResetImageAttributeCommandInput;
+      output: ResetImageAttributeCommandOutput;
+    };
+  };
+}

@@ -13,7 +13,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -257,6 +258,7 @@ export interface ResumeClusterCommandOutput extends ResumeClusterResult, __Metad
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class ResumeClusterCommand extends $Command
@@ -267,9 +269,7 @@ export class ResumeClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -281,4 +281,16 @@ export class ResumeClusterCommand extends $Command
   .f(void 0, ResumeClusterResultFilterSensitiveLog)
   .ser(se_ResumeClusterCommand)
   .de(de_ResumeClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResumeClusterMessage;
+      output: ResumeClusterResult;
+    };
+    sdk: {
+      input: ResumeClusterCommandInput;
+      output: ResumeClusterCommandOutput;
+    };
+  };
+}

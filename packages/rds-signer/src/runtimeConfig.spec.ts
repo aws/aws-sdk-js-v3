@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { getRuntimeConfig as getBrowserRuntimeConfig } from "./runtimeConfig.browser";
 import { getRuntimeConfig as getRnRuntimeConfig } from "./runtimeConfig.native";
 import { SignerConfig } from "./Signer";
@@ -13,7 +15,7 @@ describe("getRuntimeConfig", () => {
       port: 5432,
     };
     const { credentials, region } = getRuntimeConfig(minimalParams);
-    expect(credentials).rejects.toEqual("Credential is missing");
-    expect(region).rejects.toEqual("Region is missing");
+    await expect(credentials).rejects.toEqual("Credential is missing");
+    await expect(region).rejects.toEqual("Region is missing");
   });
 });

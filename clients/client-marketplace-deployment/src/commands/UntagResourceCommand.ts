@@ -16,7 +16,8 @@ import { de_UntagResourceCommand, se_UntagResourceCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,24 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * @throws {@link MarketplaceDeploymentServiceException}
  * <p>Base exception class for all service exceptions from MarketplaceDeployment service.</p>
  *
+ *
+ * @example Removing tags from a deployment parameter
+ * ```javascript
+ * // The following example demonstrates removing two tags from a deployment parameter. For each, both the tag and the associated value are removed. There is no output from this API.
+ * const input = {
+ *   resourceArn: "arn:aws:aws-marketplace:us-east-1:123456789012:DeploymentParameter:catalogs/AWSMarketplace/products/product-1234/dp-uniqueidentifier",
+ *   tagKeys: [
+ *     "FooKey",
+ *     "HelloKey"
+ *   ]
+ * };
+ * const command = new UntagResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class UntagResourceCommand extends $Command
@@ -87,9 +106,7 @@ export class UntagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MarketplaceDeploymentClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +118,16 @@ export class UntagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UntagResourceCommand)
   .de(de_UntagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UntagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: UntagResourceCommandInput;
+      output: UntagResourceCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListRoutingProfilesRequest, ListRoutingProfilesResponse } from "../models/models_1";
+import { ListRoutingProfilesRequest, ListRoutingProfilesResponse } from "../models/models_2";
 import { de_ListRoutingProfilesCommand, se_ListRoutingProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface ListRoutingProfilesCommandOutput extends ListRoutingProfilesRes
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class ListRoutingProfilesCommand extends $Command
@@ -93,9 +95,7 @@ export class ListRoutingProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class ListRoutingProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRoutingProfilesCommand)
   .de(de_ListRoutingProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRoutingProfilesRequest;
+      output: ListRoutingProfilesResponse;
+    };
+    sdk: {
+      input: ListRoutingProfilesCommandInput;
+      output: ListRoutingProfilesCommandOutput;
+    };
+  };
+}

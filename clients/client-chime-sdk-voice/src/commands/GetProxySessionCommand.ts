@@ -16,7 +16,8 @@ import { de_GetProxySessionCommand, se_GetProxySessionCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,6 +105,7 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetProxySessionCommand extends $Command
@@ -114,9 +116,7 @@ export class GetProxySessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class GetProxySessionCommand extends $Command
   .f(void 0, GetProxySessionResponseFilterSensitiveLog)
   .ser(se_GetProxySessionCommand)
   .de(de_GetProxySessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetProxySessionRequest;
+      output: GetProxySessionResponse;
+    };
+    sdk: {
+      input: GetProxySessionCommandInput;
+      output: GetProxySessionCommandOutput;
+    };
+  };
+}

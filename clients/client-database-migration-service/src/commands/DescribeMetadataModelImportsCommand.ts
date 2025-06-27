@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,40 +93,40 @@ export interface DescribeMetadataModelImportsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe Metadata Model Imports
  * ```javascript
  * // Returns a paginated list of metadata model imports.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "request-id",
- *       "Values": [
+ *       Name: "request-id",
+ *       Values: [
  *         "01234567-89ab-cdef-0123-456789abcdef"
  *       ]
  *     }
  *   ],
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "MaxRecords": 20,
- *   "MigrationProjectIdentifier": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   MaxRecords: 20,
+ *   MigrationProjectIdentifier: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012"
  * };
  * const command = new DescribeMetadataModelImportsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "0123456789abcdefghijklmnopqrs",
- *   "Requests": [
+ *   Marker: "0123456789abcdefghijklmnopqrs",
+ *   Requests: [
  *     {
- *       "MigrationProjectArn": "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
- *       "RequestIdentifier": "01234567-89ab-cdef-0123-456789abcdef",
- *       "Status": "SUCCESS"
+ *       MigrationProjectArn: "arn:aws:dms:us-east-1:012345678901:migration-project:0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ012",
+ *       RequestIdentifier: "01234567-89ab-cdef-0123-456789abcdef",
+ *       Status: "SUCCESS"
  *     }
  *   ]
  * }
  * *\/
- * // example id: describe-metadata-model-imports-1689719771322
  * ```
  *
+ * @public
  */
 export class DescribeMetadataModelImportsCommand extends $Command
   .classBuilder<
@@ -135,9 +136,7 @@ export class DescribeMetadataModelImportsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -149,4 +148,16 @@ export class DescribeMetadataModelImportsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeMetadataModelImportsCommand)
   .de(de_DescribeMetadataModelImportsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeMetadataModelImportsMessage;
+      output: DescribeMetadataModelImportsResponse;
+    };
+    sdk: {
+      input: DescribeMetadataModelImportsCommandInput;
+      output: DescribeMetadataModelImportsCommandOutput;
+    };
+  };
+}

@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { AwsSdkSigV4Signer } from "./AwsSdkSigV4Signer";
 
 describe(AwsSdkSigV4Signer.name, () => {

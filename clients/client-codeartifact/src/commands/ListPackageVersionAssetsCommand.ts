@@ -12,7 +12,8 @@ import { de_ListPackageVersionAssetsCommand, se_ListPackageVersionAssetsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  *   domain: "STRING_VALUE", // required
  *   domainOwner: "STRING_VALUE",
  *   repository: "STRING_VALUE", // required
- *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift", // required
+ *   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo", // required
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
@@ -52,7 +53,7 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  * const command = new ListPackageVersionAssetsCommand(input);
  * const response = await client.send(command);
  * // { // ListPackageVersionAssetsResult
- * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift",
+ * //   format: "npm" || "pypi" || "maven" || "nuget" || "generic" || "ruby" || "swift" || "cargo",
  * //   namespace: "STRING_VALUE",
  * //   package: "STRING_VALUE",
  * //   version: "STRING_VALUE",
@@ -103,6 +104,7 @@ export interface ListPackageVersionAssetsCommandOutput extends ListPackageVersio
  * @throws {@link CodeartifactServiceException}
  * <p>Base exception class for all service exceptions from Codeartifact service.</p>
  *
+ *
  * @public
  */
 export class ListPackageVersionAssetsCommand extends $Command
@@ -113,9 +115,7 @@ export class ListPackageVersionAssetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeartifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class ListPackageVersionAssetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPackageVersionAssetsCommand)
   .de(de_ListPackageVersionAssetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPackageVersionAssetsRequest;
+      output: ListPackageVersionAssetsResult;
+    };
+    sdk: {
+      input: ListPackageVersionAssetsCommandInput;
+      output: ListPackageVersionAssetsCommandOutput;
+    };
+  };
+}

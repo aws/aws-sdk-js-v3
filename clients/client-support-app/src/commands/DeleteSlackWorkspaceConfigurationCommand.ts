@@ -15,7 +15,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SupportAppClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -100,6 +101,7 @@ export interface DeleteSlackWorkspaceConfigurationCommandOutput
  * @throws {@link SupportAppServiceException}
  * <p>Base exception class for all service exceptions from SupportApp service.</p>
  *
+ *
  * @public
  */
 export class DeleteSlackWorkspaceConfigurationCommand extends $Command
@@ -110,9 +112,7 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SupportAppClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class DeleteSlackWorkspaceConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteSlackWorkspaceConfigurationCommand)
   .de(de_DeleteSlackWorkspaceConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteSlackWorkspaceConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteSlackWorkspaceConfigurationCommandInput;
+      output: DeleteSlackWorkspaceConfigurationCommandOutput;
+    };
+  };
+}

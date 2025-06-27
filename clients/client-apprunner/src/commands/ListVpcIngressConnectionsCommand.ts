@@ -12,7 +12,8 @@ import { de_ListVpcIngressConnectionsCommand, se_ListVpcIngressConnectionsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface ListVpcIngressConnectionsCommandOutput extends ListVpcIngressCo
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class ListVpcIngressConnectionsCommand extends $Command
@@ -81,9 +83,7 @@ export class ListVpcIngressConnectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class ListVpcIngressConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVpcIngressConnectionsCommand)
   .de(de_ListVpcIngressConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVpcIngressConnectionsRequest;
+      output: ListVpcIngressConnectionsResponse;
+    };
+    sdk: {
+      input: ListVpcIngressConnectionsCommandInput;
+      output: ListVpcIngressConnectionsCommandOutput;
+    };
+  };
+}

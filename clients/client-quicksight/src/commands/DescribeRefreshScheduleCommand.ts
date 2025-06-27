@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeRefreshScheduleRequest, DescribeRefreshScheduleResponse } from "../models/models_3";
+import { DescribeRefreshScheduleRequest, DescribeRefreshScheduleResponse } from "../models/models_4";
 import { de_DescribeRefreshScheduleCommand, se_DescribeRefreshScheduleCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface DescribeRefreshScheduleCommandOutput extends DescribeRefreshSch
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class DescribeRefreshScheduleCommand extends $Command
@@ -104,9 +106,7 @@ export class DescribeRefreshScheduleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class DescribeRefreshScheduleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRefreshScheduleCommand)
   .de(de_DescribeRefreshScheduleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRefreshScheduleRequest;
+      output: DescribeRefreshScheduleResponse;
+    };
+    sdk: {
+      input: DescribeRefreshScheduleCommandInput;
+      output: DescribeRefreshScheduleCommandOutput;
+    };
+  };
+}

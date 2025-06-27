@@ -12,7 +12,8 @@ import { de_ListAuditFindingsCommand, se_ListAuditFindingsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -155,6 +156,7 @@ export interface ListAuditFindingsCommandOutput extends ListAuditFindingsRespons
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListAuditFindingsCommand extends $Command
@@ -165,9 +167,7 @@ export class ListAuditFindingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -179,4 +179,16 @@ export class ListAuditFindingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAuditFindingsCommand)
   .de(de_ListAuditFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAuditFindingsRequest;
+      output: ListAuditFindingsResponse;
+    };
+    sdk: {
+      input: ListAuditFindingsCommandInput;
+      output: ListAuditFindingsCommandOutput;
+    };
+  };
+}

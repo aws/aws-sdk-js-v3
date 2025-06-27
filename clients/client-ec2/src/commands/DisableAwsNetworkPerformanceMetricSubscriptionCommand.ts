@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DisableAwsNetworkPerformanceMetricSubscriptionRequest,
   DisableAwsNetworkPerformanceMetricSubscriptionResult,
-} from "../models/models_5";
+} from "../models/models_6";
 import {
   de_DisableAwsNetworkPerformanceMetricSubscriptionCommand,
   se_DisableAwsNetworkPerformanceMetricSubscriptionCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Command
@@ -77,9 +79,7 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class DisableAwsNetworkPerformanceMetricSubscriptionCommand extends $Comm
   .f(void 0, void 0)
   .ser(se_DisableAwsNetworkPerformanceMetricSubscriptionCommand)
   .de(de_DisableAwsNetworkPerformanceMetricSubscriptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableAwsNetworkPerformanceMetricSubscriptionRequest;
+      output: DisableAwsNetworkPerformanceMetricSubscriptionResult;
+    };
+    sdk: {
+      input: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput;
+      output: DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput;
+    };
+  };
+}

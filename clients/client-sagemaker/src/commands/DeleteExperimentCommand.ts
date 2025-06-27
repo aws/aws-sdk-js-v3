@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface DeleteExperimentCommandInput extends DeleteExperimentRequest {}
 export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse, __MetadataBearer {}
 
 /**
- * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted
- *       first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html">ListTrials</a> API to get a list of the trials associated with
- *       the experiment.</p>
+ * <p>Deletes an SageMaker experiment. All trials associated with the experiment must be deleted first. Use the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_ListTrials.html">ListTrials</a> API to get a list of the trials associated with the experiment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +58,7 @@ export interface DeleteExperimentCommandOutput extends DeleteExperimentResponse,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteExperimentCommand extends $Command
@@ -69,9 +69,7 @@ export class DeleteExperimentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +81,16 @@ export class DeleteExperimentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteExperimentCommand)
   .de(de_DeleteExperimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteExperimentRequest;
+      output: DeleteExperimentResponse;
+    };
+    sdk: {
+      input: DeleteExperimentCommandInput;
+      output: DeleteExperimentCommandOutput;
+    };
+  };
+}

@@ -32,6 +32,10 @@ import {
   BatchGetCustomDataIdentifiersCommandInput,
   BatchGetCustomDataIdentifiersCommandOutput,
 } from "../commands/BatchGetCustomDataIdentifiersCommand";
+import {
+  BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+  BatchUpdateAutomatedDiscoveryAccountsCommandOutput,
+} from "../commands/BatchUpdateAutomatedDiscoveryAccountsCommand";
 import { CreateAllowListCommandInput, CreateAllowListCommandOutput } from "../commands/CreateAllowListCommand";
 import {
   CreateClassificationJobCommandInput,
@@ -154,6 +158,10 @@ import { GetUsageStatisticsCommandInput, GetUsageStatisticsCommandOutput } from 
 import { GetUsageTotalsCommandInput, GetUsageTotalsCommandOutput } from "../commands/GetUsageTotalsCommand";
 import { ListAllowListsCommandInput, ListAllowListsCommandOutput } from "../commands/ListAllowListsCommand";
 import {
+  ListAutomatedDiscoveryAccountsCommandInput,
+  ListAutomatedDiscoveryAccountsCommandOutput,
+} from "../commands/ListAutomatedDiscoveryAccountsCommand";
+import {
   ListClassificationJobsCommandInput,
   ListClassificationJobsCommandOutput,
 } from "../commands/ListClassificationJobsCommand";
@@ -266,6 +274,9 @@ import {
   AllowListSummary,
   ApiCallDetails,
   AssumedRole,
+  AutomatedDiscoveryAccount,
+  AutomatedDiscoveryAccountUpdate,
+  AutomatedDiscoveryAccountUpdateError,
   AwsAccount,
   AwsService,
   BatchGetCustomDataIdentifierSummary,
@@ -325,9 +336,7 @@ import {
   JobSummary,
   KeyValuePair,
   LastRunErrorStatus,
-  ListJobsFilterCriteria,
   ListJobsFilterTerm,
-  ListJobsSortCriteria,
   ManagedDataIdentifierSummary,
   MatchingBucket,
   MatchingResource,
@@ -399,6 +408,8 @@ import {
   WeeklySchedule,
 } from "../models/models_0";
 import {
+  ListJobsFilterCriteria,
+  ListJobsSortCriteria,
   S3ClassificationScopeExclusionUpdate,
   S3ClassificationScopeUpdate,
   SearchResourcesBucketCriteria,
@@ -450,6 +461,28 @@ export const se_BatchGetCustomDataIdentifiersCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchUpdateAutomatedDiscoveryAccountsCommand
+ */
+export const se_BatchUpdateAutomatedDiscoveryAccountsCommand = async (
+  input: BatchUpdateAutomatedDiscoveryAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/automated-discovery/accounts");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      accounts: [, (_) => se___listOfAutomatedDiscoveryAccountUpdate(_, context), `accounts`],
+    })
+  );
+  b.m("PATCH").h(headers).b(body);
   return b.build();
 };
 
@@ -800,12 +833,9 @@ export const se_DescribeOrganizationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/admin/configuration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -818,12 +848,9 @@ export const se_DisableMacieCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/macie");
   let body: any;
-  body = "";
   b.m("DELETE").h(headers).b(body);
   return b.build();
 };
@@ -854,12 +881,9 @@ export const se_DisassociateFromAdministratorAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/administrator/disassociate");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -872,12 +896,9 @@ export const se_DisassociateFromMasterAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/master/disassociate");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -953,12 +974,9 @@ export const se_GetAdministratorAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/administrator");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -987,12 +1005,9 @@ export const se_GetAutomatedDiscoveryConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/automated-discovery/configuration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1027,12 +1042,9 @@ export const se_GetClassificationExportConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/classification-export-configuration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1116,12 +1128,9 @@ export const se_GetFindingsPublicationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/findings-publication-configuration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1159,12 +1168,9 @@ export const se_GetInvitationsCountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/invitations/count");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1177,12 +1183,9 @@ export const se_GetMacieSessionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/macie");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1195,12 +1198,9 @@ export const se_GetMasterAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/master");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1247,12 +1247,9 @@ export const se_GetRevealConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/reveal-configuration");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -1360,6 +1357,26 @@ export const se_ListAllowListsCommand = async (
   const headers: any = {};
   b.bp("/allow-lists");
   const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListAutomatedDiscoveryAccountsCommand
+ */
+export const se_ListAutomatedDiscoveryAccountsCommand = async (
+  input: ListAutomatedDiscoveryAccountsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/automated-discovery/accounts");
+  const query: any = map({
+    [_aI]: [() => input.accountIds !== void 0, () => input[_aI]! || []],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
   });
@@ -1764,10 +1781,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1814,6 +1828,7 @@ export const se_UpdateAutomatedDiscoveryConfigurationCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      autoEnableOrganizationMembers: [, , `autoEnableOrganizationMembers`],
       status: [, , `status`],
     })
   );
@@ -2099,6 +2114,27 @@ export const de_BatchGetCustomDataIdentifiersCommand = async (
       `customDataIdentifiers`,
     ],
     notFoundIdentifierIds: [, _json, `notFoundIdentifierIds`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchUpdateAutomatedDiscoveryAccountsCommand
+ */
+export const de_BatchUpdateAutomatedDiscoveryAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchUpdateAutomatedDiscoveryAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    errors: [, (_) => de___listOfAutomatedDiscoveryAccountUpdateError(_, context), `errors`],
   });
   Object.assign(contents, doc);
   return contents;
@@ -2629,6 +2665,7 @@ export const de_GetAutomatedDiscoveryConfigurationCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    autoEnableOrganizationMembers: [, __expectString, `autoEnableOrganizationMembers`],
     classificationScopeId: [, __expectString, `classificationScopeId`],
     disabledAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `disabledAt`],
     firstEnabledAt: [, (_) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `firstEnabledAt`],
@@ -3130,6 +3167,28 @@ export const de_ListAllowListsCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     allowLists: [, (_) => de___listOfAllowListSummary(_, context), `allowLists`],
+    nextToken: [, __expectString, `nextToken`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListAutomatedDiscoveryAccountsCommand
+ */
+export const de_ListAutomatedDiscoveryAccountsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListAutomatedDiscoveryAccountsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    items: [, (_) => de___listOfAutomatedDiscoveryAccount(_, context), `items`],
     nextToken: [, __expectString, `nextToken`],
   });
   Object.assign(contents, doc);
@@ -3958,6 +4017,20 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se___listOf__string omitted.
 
 /**
+ * serializeAws_restJson1__listOfAutomatedDiscoveryAccountUpdate
+ */
+const se___listOfAutomatedDiscoveryAccountUpdate = (
+  input: AutomatedDiscoveryAccountUpdate[],
+  context: __SerdeContext
+): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_AutomatedDiscoveryAccountUpdate(entry, context);
+    });
+};
+
+/**
  * serializeAws_restJson1__listOfCriteriaForJob
  */
 const se___listOfCriteriaForJob = (input: CriteriaForJob[], context: __SerdeContext): any => {
@@ -4091,6 +4164,16 @@ const se_AllowListCriteria = (input: AllowListCriteria, context: __SerdeContext)
   return take(input, {
     regex: [, , `regex`],
     s3WordsList: [, (_) => se_S3WordsList(_, context), `s3WordsList`],
+  });
+};
+
+/**
+ * serializeAws_restJson1AutomatedDiscoveryAccountUpdate
+ */
+const se_AutomatedDiscoveryAccountUpdate = (input: AutomatedDiscoveryAccountUpdate, context: __SerdeContext): any => {
+  return take(input, {
+    accountId: [, , `accountId`],
+    status: [, , `status`],
   });
 };
 
@@ -4659,6 +4742,33 @@ const de___listOfAllowListSummary = (output: any, context: __SerdeContext): Allo
 };
 
 /**
+ * deserializeAws_restJson1__listOfAutomatedDiscoveryAccount
+ */
+const de___listOfAutomatedDiscoveryAccount = (output: any, context: __SerdeContext): AutomatedDiscoveryAccount[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedDiscoveryAccount(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1__listOfAutomatedDiscoveryAccountUpdateError
+ */
+const de___listOfAutomatedDiscoveryAccountUpdateError = (
+  output: any,
+  context: __SerdeContext
+): AutomatedDiscoveryAccountUpdateError[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_AutomatedDiscoveryAccountUpdateError(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1__listOfBatchGetCustomDataIdentifierSummary
  */
 const de___listOfBatchGetCustomDataIdentifierSummary = (
@@ -5075,6 +5185,29 @@ const de_AssumedRole = (output: any, context: __SerdeContext): AssumedRole => {
 };
 
 /**
+ * deserializeAws_restJson1AutomatedDiscoveryAccount
+ */
+const de_AutomatedDiscoveryAccount = (output: any, context: __SerdeContext): AutomatedDiscoveryAccount => {
+  return take(output, {
+    accountId: [, __expectString, `accountId`],
+    status: [, __expectString, `status`],
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1AutomatedDiscoveryAccountUpdateError
+ */
+const de_AutomatedDiscoveryAccountUpdateError = (
+  output: any,
+  context: __SerdeContext
+): AutomatedDiscoveryAccountUpdateError => {
+  return take(output, {
+    accountId: [, __expectString, `accountId`],
+    errorCode: [, __expectString, `errorCode`],
+  }) as any;
+};
+
+/**
  * deserializeAws_restJson1AwsAccount
  */
 const de_AwsAccount = (output: any, context: __SerdeContext): AwsAccount => {
@@ -5193,6 +5326,7 @@ const de_BucketMetadata = (output: any, context: __SerdeContext): BucketMetadata
   return take(output, {
     accountId: [, __expectString, `accountId`],
     allowsUnencryptedObjectUploads: [, __expectString, `allowsUnencryptedObjectUploads`],
+    automatedDiscoveryMonitoringStatus: [, __expectString, `automatedDiscoveryMonitoringStatus`],
     bucketArn: [, __expectString, `bucketArn`],
     bucketCreatedAt: [, (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)), `bucketCreatedAt`],
     bucketName: [, __expectString, `bucketName`],
@@ -5797,6 +5931,7 @@ const de_ManagedDataIdentifierSummary = (output: any, context: __SerdeContext): 
 const de_MatchingBucket = (output: any, context: __SerdeContext): MatchingBucket => {
   return take(output, {
     accountId: [, __expectString, `accountId`],
+    automatedDiscoveryMonitoringStatus: [, __expectString, `automatedDiscoveryMonitoringStatus`],
     bucketName: [, __expectString, `bucketName`],
     classifiableObjectCount: [, __expectLong, `classifiableObjectCount`],
     classifiableSizeInBytes: [, __expectLong, `classifiableSizeInBytes`],
@@ -6539,14 +6674,8 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
 const _aAI = "adminAccountId";
+const _aI = "accountIds";
 const _iJC = "ignoreJobChecks";
 const _mR = "maxResults";
 const _n = "name";

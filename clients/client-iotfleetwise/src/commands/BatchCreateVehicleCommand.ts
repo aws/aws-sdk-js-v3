@@ -12,7 +12,8 @@ import { de_BatchCreateVehicleCommand, se_BatchCreateVehicleCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,20 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  *         { // Tag
  *           Key: "STRING_VALUE", // required
  *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
+ *       stateTemplates: [ // StateTemplateAssociations
+ *         { // StateTemplateAssociation
+ *           identifier: "STRING_VALUE", // required
+ *           stateTemplateUpdateStrategy: { // StateTemplateUpdateStrategy Union: only one key present
+ *             periodic: { // PeriodicStateTemplateUpdateStrategy
+ *               stateTemplateUpdateRate: { // TimePeriod
+ *                 unit: "MILLISECOND" || "SECOND" || "MINUTE" || "HOUR", // required
+ *                 value: Number("int"), // required
+ *               },
+ *             },
+ *             onChange: {},
+ *           },
  *         },
  *       ],
  *     },
@@ -104,6 +119,7 @@ export interface BatchCreateVehicleCommandOutput extends BatchCreateVehicleRespo
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class BatchCreateVehicleCommand extends $Command
@@ -114,9 +130,7 @@ export class BatchCreateVehicleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +142,16 @@ export class BatchCreateVehicleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchCreateVehicleCommand)
   .de(de_BatchCreateVehicleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchCreateVehicleRequest;
+      output: BatchCreateVehicleResponse;
+    };
+    sdk: {
+      input: BatchCreateVehicleCommandInput;
+      output: BatchCreateVehicleCommandOutput;
+    };
+  };
+}

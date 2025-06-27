@@ -12,7 +12,8 @@ import { de_ListCisScansCommand, se_ListCisScansCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -140,6 +141,8 @@ export interface ListCisScansCommandOutput extends ListCisScansResponse, __Metad
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -154,6 +157,42 @@ export interface ListCisScansCommandOutput extends ListCisScansResponse, __Metad
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample ListCisScans Call
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListCisScansCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   scans: [
+ *     {
+ *       failedChecks: 2,
+ *       scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       scanConfigurationArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-configuration/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       scanDate: "2023-04-12T23:20:50.52Z",
+ *       scanName: "sample",
+ *       scheduledBy: "Delegated Admin",
+ *       securityLevel: "LEVEL_1",
+ *       status: "COMPLETED",
+ *       targets: {
+ *         accountIds: [
+ *           "123412341234"
+ *         ],
+ *         targetResourceTags: {
+ *           key: [
+ *             "value"
+ *           ]
+ *         }
+ *       },
+ *       totalChecks: 150
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListCisScansCommand extends $Command
@@ -164,9 +203,7 @@ export class ListCisScansCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +215,16 @@ export class ListCisScansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCisScansCommand)
   .de(de_ListCisScansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCisScansRequest;
+      output: ListCisScansResponse;
+    };
+    sdk: {
+      input: ListCisScansCommandInput;
+      output: ListCisScansCommandOutput;
+    };
+  };
+}

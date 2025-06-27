@@ -12,7 +12,8 @@ import { de_DescribeApplicationCommand, se_DescribeApplicationCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -190,6 +191,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationCommand extends $Command
@@ -200,9 +202,7 @@ export class DescribeApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -214,4 +214,16 @@ export class DescribeApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationCommand)
   .de(de_DescribeApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationRequest;
+      output: DescribeApplicationResponse;
+    };
+    sdk: {
+      input: DescribeApplicationCommandInput;
+      output: DescribeApplicationCommandOutput;
+    };
+  };
+}

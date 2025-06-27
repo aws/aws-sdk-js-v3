@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -82,6 +83,7 @@ export interface ListArtifactsCommandOutput extends ListArtifactsResponse, __Met
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListArtifactsCommand extends $Command
@@ -92,9 +94,7 @@ export class ListArtifactsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +106,16 @@ export class ListArtifactsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListArtifactsCommand)
   .de(de_ListArtifactsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListArtifactsRequest;
+      output: ListArtifactsResponse;
+    };
+    sdk: {
+      input: ListArtifactsCommandInput;
+      output: ListArtifactsCommandOutput;
+    };
+  };
+}

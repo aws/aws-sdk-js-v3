@@ -46,7 +46,7 @@ const signer = new Signer({
    */
   username: "user1",
   /**
-   * Optional. The AWS credentials to sign requests with. Uses the default credential provider chain in not specified.
+   * Optional. The AWS credentials to sign requests with. Uses the default credential provider chain if not specified.
    */
   credentials: fromNodeCredentialProvider(),
   /**

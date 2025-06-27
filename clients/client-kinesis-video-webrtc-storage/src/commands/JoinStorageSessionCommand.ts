@@ -16,7 +16,8 @@ import { de_JoinStorageSessionCommand, se_JoinStorageSessionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,28 +32,61 @@ export interface JoinStorageSessionCommandInput extends JoinStorageSessionInput 
 export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>
- *       Join the ongoing one way-video and/or multi-way audio WebRTC session as
- *       a video producing device for an input channel. If there’s no existing
- *       session for the channel, a new streaming session needs to be created, and the
- *       Amazon Resource Name (ARN) of the signaling channel must be provided.
- *     </p>
+ * <note>
+ *             <p>Before using this API, you must call the <code>GetSignalingChannelEndpoint</code> API to request the WEBRTC endpoint. You then specify the endpoint and region in your <code>JoinStorageSession</code> API request.</p>
+ *          </note>
+ *          <p>Join the ongoing one way-video and/or multi-way audio WebRTC session as a video producing
+ *       device for an input channel. If there’s no existing session for the channel, a new streaming
+ *       session needs to be created, and the Amazon Resource Name (ARN) of the signaling channel must
+ *       be provided. </p>
  *          <p>Currently for the <code>SINGLE_MASTER</code> type, a video producing
- *       device is able to ingest both audio and video media into a stream,
- *       while viewers can only ingest audio. Both a video producing device
- *       and viewers can join the session first, and wait for other participants.</p>
- *          <p>While participants are having peer to peer conversations through webRTC,
- *       the ingested media session will be stored into the Kinesis Video Stream.
- *       Multiple viewers are able to playback real-time media.</p>
- *          <p>Customers can also use existing Kinesis Video Streams features like
- *       <code>HLS</code> or <code>DASH</code> playback, Image generation, and more
+ *       device is able to ingest both audio and video media into a stream. Only video producing devices can join the session and record media.</p>
+ *          <important>
+ *             <p>Both audio and video tracks are currently required for WebRTC ingestion.</p>
+ *             <p>Current requirements:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Video track: H.264</p>
+ *                </li>
+ *                <li>
+ *                   <p>Audio track: Opus</p>
+ *                </li>
+ *             </ul>
+ *          </important>
+ *          <p>The resulting ingested video in the Kinesis video stream will have the following
+ *       parameters: H.264 video and AAC audio.</p>
+ *          <p>Once a master participant has negotiated a connection through WebRTC, the ingested media
+ *       session will be stored in the Kinesis video stream. Multiple viewers are then able to play
+ *       back real-time media through our Playback APIs.</p>
+ *          <p>You can also use existing Kinesis Video Streams features like <code>HLS</code> or
+ *       <code>DASH</code> playback, image generation via <a href="https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/gs-getImages.html">GetImages</a>, and more
  *       with ingested WebRTC media.</p>
+ *          <note>
+ *             <p>S3 image delivery and notifications are not currently supported.</p>
+ *          </note>
  *          <note>
  *             <p>Assume that only one video producing device client
  *       can be associated with a session for the channel. If more than one
  *       client joins the session of a specific channel as a video producing device,
  *       the most recent client request takes precedence. </p>
  *          </note>
+ *          <p>
+ *             <b>Additional information</b>
+ *          </p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <b>Idempotent</b> - This API is not idempotent.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Retry behavior</b> - This is counted as a new API call.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <b>Concurrent calls</b> - Concurrent calls are allowed. An offer is sent once per each call.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +125,7 @@ export interface JoinStorageSessionCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisVideoWebRTCStorageServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoWebRTCStorage service.</p>
  *
+ *
  * @public
  */
 export class JoinStorageSessionCommand extends $Command
@@ -101,9 +136,7 @@ export class JoinStorageSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoWebRTCStorageClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +148,16 @@ export class JoinStorageSessionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_JoinStorageSessionCommand)
   .de(de_JoinStorageSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JoinStorageSessionInput;
+      output: {};
+    };
+    sdk: {
+      input: JoinStorageSessionCommandInput;
+      output: JoinStorageSessionCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DescribeFleetPortSettingsCommand, se_DescribeFleetPortSettingsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,8 +35,7 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  * <p>Retrieves a fleet's inbound connection permissions. Connection permissions specify IP
  *             addresses and port settings that incoming traffic can use to access server processes in
  *             the fleet. Game server processes that are running in the fleet must use a port that
- *             falls within this range. To connect to game server processes on a container fleet, the
- *             port settings should include one or more of the fleet's connection ports. </p>
+ *             falls within this range. </p>
  *          <p>Use this operation in the following ways: </p>
  *          <ul>
  *             <li>
@@ -55,7 +55,7 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example
@@ -102,7 +102,7 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
@@ -112,6 +112,7 @@ export interface DescribeFleetPortSettingsCommandOutput extends DescribeFleetPor
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -123,9 +124,7 @@ export class DescribeFleetPortSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +136,16 @@ export class DescribeFleetPortSettingsCommand extends $Command
   .f(void 0, DescribeFleetPortSettingsOutputFilterSensitiveLog)
   .ser(se_DescribeFleetPortSettingsCommand)
   .de(de_DescribeFleetPortSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetPortSettingsInput;
+      output: DescribeFleetPortSettingsOutput;
+    };
+    sdk: {
+      input: DescribeFleetPortSettingsCommandInput;
+      output: DescribeFleetPortSettingsCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_0";
+import { GetSubscriptionGrantInput, GetSubscriptionGrantOutput } from "../models/models_1";
 import { de_GetSubscriptionGrantCommand, se_GetSubscriptionGrantCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,14 @@ export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantO
  * //       },
  * //       grantedTimestamp: new Date("TIMESTAMP"),
  * //       failureTimestamp: new Date("TIMESTAMP"),
+ * //       assetScope: { // AssetScope
+ * //         assetId: "STRING_VALUE", // required
+ * //         filterIds: [ // FilterIds // required
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         status: "STRING_VALUE", // required
+ * //         errorMessage: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   subscriptionId: "STRING_VALUE",
@@ -100,6 +109,7 @@ export interface GetSubscriptionGrantCommandOutput extends GetSubscriptionGrantO
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetSubscriptionGrantCommand extends $Command
@@ -110,9 +120,7 @@ export class GetSubscriptionGrantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +132,16 @@ export class GetSubscriptionGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSubscriptionGrantCommand)
   .de(de_GetSubscriptionGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSubscriptionGrantInput;
+      output: GetSubscriptionGrantOutput;
+    };
+    sdk: {
+      input: GetSubscriptionGrantCommandInput;
+      output: GetSubscriptionGrantCommandOutput;
+    };
+  };
+}

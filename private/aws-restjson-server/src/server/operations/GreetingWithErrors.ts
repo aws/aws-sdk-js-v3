@@ -49,7 +49,7 @@ export namespace GreetingWithErrorsServerInput {
 }
 export interface GreetingWithErrorsServerOutput extends GreetingWithErrorsOutput {}
 
-export type GreetingWithErrorsErrors = FooError | ComplexError | InvalidGreeting;
+export type GreetingWithErrorsErrors = InvalidGreeting | ComplexError | FooError;
 
 export class GreetingWithErrorsSerializer
   implements __OperationSerializer<RestJsonService<any>, "GreetingWithErrors", GreetingWithErrorsErrors>
@@ -58,20 +58,20 @@ export class GreetingWithErrorsSerializer
   deserialize = deserializeGreetingWithErrorsRequest;
 
   isOperationError(error: any): error is GreetingWithErrorsErrors {
-    const names: GreetingWithErrorsErrors["name"][] = ["FooError", "ComplexError", "InvalidGreeting"];
+    const names: GreetingWithErrorsErrors["name"][] = ["InvalidGreeting", "ComplexError", "FooError"];
     return names.includes(error.name);
   }
 
   serializeError(error: GreetingWithErrorsErrors, ctx: ServerSerdeContext): Promise<__HttpResponse> {
     switch (error.name) {
-      case "FooError": {
-        return serializeFooErrorError(error, ctx);
+      case "InvalidGreeting": {
+        return serializeInvalidGreetingError(error, ctx);
       }
       case "ComplexError": {
         return serializeComplexErrorError(error, ctx);
       }
-      case "InvalidGreeting": {
-        return serializeInvalidGreetingError(error, ctx);
+      case "FooError": {
+        return serializeFooErrorError(error, ctx);
       }
       default: {
         throw error;

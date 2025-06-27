@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_2";
+import { DeleteFlowLogsRequest, DeleteFlowLogsResult } from "../models/models_3";
 import { de_DeleteFlowLogsCommand, se_DeleteFlowLogsCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,6 +66,7 @@ export interface DeleteFlowLogsCommandOutput extends DeleteFlowLogsResult, __Met
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteFlowLogsCommand extends $Command
@@ -75,9 +77,7 @@ export class DeleteFlowLogsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +89,16 @@ export class DeleteFlowLogsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFlowLogsCommand)
   .de(de_DeleteFlowLogsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFlowLogsRequest;
+      output: DeleteFlowLogsResult;
+    };
+    sdk: {
+      input: DeleteFlowLogsCommandInput;
+      output: DeleteFlowLogsCommandOutput;
+    };
+  };
+}

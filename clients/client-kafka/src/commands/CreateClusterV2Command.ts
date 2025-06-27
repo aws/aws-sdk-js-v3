@@ -12,7 +12,8 @@ import { de_CreateClusterV2Command, se_CreateClusterV2Command } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -205,6 +206,7 @@ export interface CreateClusterV2CommandOutput extends CreateClusterV2Response, _
  * @throws {@link KafkaServiceException}
  * <p>Base exception class for all service exceptions from Kafka service.</p>
  *
+ *
  * @public
  */
 export class CreateClusterV2Command extends $Command
@@ -215,9 +217,7 @@ export class CreateClusterV2Command extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KafkaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -229,4 +229,16 @@ export class CreateClusterV2Command extends $Command
   .f(void 0, void 0)
   .ser(se_CreateClusterV2Command)
   .de(de_CreateClusterV2Command)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateClusterV2Request;
+      output: CreateClusterV2Response;
+    };
+    sdk: {
+      input: CreateClusterV2CommandInput;
+      output: CreateClusterV2CommandOutput;
+    };
+  };
+}

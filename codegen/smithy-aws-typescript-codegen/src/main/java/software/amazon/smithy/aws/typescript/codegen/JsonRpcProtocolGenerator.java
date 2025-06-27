@@ -15,7 +15,10 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.protocols.AwsQueryCompatibleTrait;
 import software.amazon.smithy.aws.typescript.codegen.protocols.DeserializerElisionDenyList;
@@ -54,6 +57,37 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     JsonRpcProtocolGenerator() {
         // AWS JSON RPC protocols will attempt to parse error codes from response bodies.
         super(true);
+    }
+
+    @Override
+    public void generateSharedComponents(GenerationContext context) {
+        super.generateSharedComponents(context);
+        AwsProtocolUtils.generateJsonParseBody(context);
+        AwsProtocolUtils.generateJsonParseErrorBody(context);
+        AwsProtocolUtils.addItempotencyAutofillImport(context);
+
+        TypeScriptWriter writer = context.getWriter();
+        writer.addUseImports(getApplicationProtocol().getResponseType());
+        writer.addDependency(AwsDependency.AWS_SDK_CORE);
+        writer.addImport("loadRestJsonErrorCode", null, AwsDependency.AWS_SDK_CORE);
+
+        if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
+            AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
+        }
+        writer.write(
+            context.getStringStore().flushVariableDeclarationCode()
+        );
+    }
+
+    @Override
+    public void generateProtocolTests(GenerationContext context) {
+        AwsProtocolUtils.generateProtocolTests(this, context);
+    }
+
+    @Override
+    public Map<String, TreeSet<String>> getErrorAliases(GenerationContext context,
+                                                        Collection<OperationShape> operations) {
+        return AwsProtocolUtils.getErrorAliases(context, operations);
     }
 
     @Override
@@ -98,26 +132,6 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
     }
 
     @Override
-    public void generateSharedComponents(GenerationContext context) {
-        super.generateSharedComponents(context);
-        AwsProtocolUtils.generateJsonParseBody(context);
-        AwsProtocolUtils.generateJsonParseErrorBody(context);
-        AwsProtocolUtils.addItempotencyAutofillImport(context);
-
-        TypeScriptWriter writer = context.getWriter();
-        writer.addUseImports(getApplicationProtocol().getResponseType());
-        writer.addDependency(AwsDependency.AWS_SDK_CORE);
-        writer.addImport("loadRestJsonErrorCode", null, AwsDependency.AWS_SDK_CORE);
-
-        if (context.getService().hasTrait(AwsQueryCompatibleTrait.class)) {
-            AwsProtocolUtils.generateJsonParseBodyWithQueryHeader(context);
-        }
-        writer.write(
-            context.getStringStore().flushVariableDeclarationCode()
-        );
-    }
-
-    @Override
     protected void writeRequestHeaders(GenerationContext context, OperationShape operation) {
         TypeScriptWriter writer = context.getWriter();
         ServiceShape serviceShape = context.getService();
@@ -144,6 +158,11 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
                     // AWS JSON RPC protocols use a combination of the service and operation shape names,
                     // separated by a '.' character, for the target header.
                     writer.write("'x-amz-target': `$L`,", targetHeader);
+                    if (serviceShape.hasTrait(AwsQueryCompatibleTrait.class)) {
+                        writer.write("""
+                            "x-amzn-query-mode": "true",
+                        """);
+                    }
                 }
         );
     }
@@ -157,10 +176,6 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
 
         writer.write("body = JSON.stringify($L);", inputStructure.accept(getMemberSerVisitor(context, "input")));
-    }
-
-    private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
-        return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
     }
 
     @Override
@@ -198,17 +213,16 @@ abstract class JsonRpcProtocolGenerator extends HttpRpcProtocolGenerator {
         writer.write("contents = $L;", outputStructure.accept(getMemberDeserVisitor(context, "data")));
     }
 
-    private ShapeVisitor<String> getMemberDeserVisitor(GenerationContext context, String dataSource) {
-        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
-    }
-
-    @Override
-    public void generateProtocolTests(GenerationContext context) {
-        AwsProtocolUtils.generateProtocolTests(this, context);
-    }
-
     @Override
     protected boolean enableSerdeElision() {
         return true;
+    }
+
+    private DocumentMemberSerVisitor getMemberSerVisitor(GenerationContext context, String dataSource) {
+        return new JsonMemberSerVisitor(context, dataSource, getDocumentTimestampFormat());
+    }
+
+    private ShapeVisitor<String> getMemberDeserVisitor(GenerationContext context, String dataSource) {
+        return new JsonMemberDeserVisitor(context, dataSource, getDocumentTimestampFormat());
     }
 }

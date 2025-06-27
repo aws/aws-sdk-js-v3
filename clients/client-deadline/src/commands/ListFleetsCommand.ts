@@ -12,7 +12,8 @@ import { de_ListFleetsCommand, se_ListFleetsCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //             ],
  * //           },
  * //           storageProfileId: "STRING_VALUE",
+ * //           tagPropagationMode: "NO_PROPAGATION" || "PROPAGATE_TAGS_TO_WORKERS_AT_LAUNCH",
  * //         },
  * //         serviceManagedEc2: { // ServiceManagedEc2FleetConfiguration
  * //           instanceCapabilities: { // ServiceManagedEc2InstanceCapabilities
@@ -115,6 +117,18 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //               sizeGiB: Number("int"),
  * //               iops: Number("int"),
  * //               throughputMiB: Number("int"),
+ * //             },
+ * //             acceleratorCapabilities: { // AcceleratorCapabilities
+ * //               selections: [ // AcceleratorSelections // required
+ * //                 { // AcceleratorSelection
+ * //                   name: "t4" || "a10g" || "l4" || "l40s", // required
+ * //                   runtime: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //               count: {
+ * //                 min: Number("int"), // required
+ * //                 max: Number("int"),
+ * //               },
  * //             },
  * //             allowedInstanceTypes: [ // InstanceTypes
  * //               "STRING_VALUE",
@@ -141,6 +155,7 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  * //           instanceMarketOptions: { // ServiceManagedEc2InstanceMarketOptions
  * //             type: "on-demand" || "spot", // required
  * //           },
+ * //           storageProfileId: "STRING_VALUE",
  * //         },
  * //       },
  * //       createdAt: new Date("TIMESTAMP"), // required
@@ -173,11 +188,11 @@ export interface ListFleetsCommandOutput extends ListFleetsResponse, __MetadataB
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -189,9 +204,7 @@ export class ListFleetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +216,16 @@ export class ListFleetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFleetsCommand)
   .de(de_ListFleetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFleetsRequest;
+      output: ListFleetsResponse;
+    };
+    sdk: {
+      input: ListFleetsCommandInput;
+      output: ListFleetsCommandOutput;
+    };
+  };
+}

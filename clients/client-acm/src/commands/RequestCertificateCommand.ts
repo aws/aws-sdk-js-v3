@@ -12,7 +12,8 @@ import { de_RequestCertificateCommand, se_RequestCertificateCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,22 +28,7 @@ export interface RequestCertificateCommandInput extends RequestCertificateReques
 export interface RequestCertificateCommandOutput extends RequestCertificateResponse, __MetadataBearer {}
 
 /**
- * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM
- *       certificate, you must specify a fully qualified domain name (FQDN) in the
- *         <code>DomainName</code> parameter. You can also specify additional FQDNs in the
- *         <code>SubjectAlternativeNames</code> parameter. </p>
- *          <p>If you are requesting a private certificate, domain validation is not required. If you are
- *       requesting a public certificate, each domain name that you specify must be validated to verify
- *       that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email validation</a>.
- *       We recommend that you use DNS validation. ACM issues public certificates after receiving
- *       approval from the domain owner. </p>
- *          <note>
- *             <p>ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC 6125</a>
- *         specification of the certificate validation process. ACM first checks for a Subject
- *         Alternative Name, and, if it finds one, ignores the common name (CN).</p>
- *          </note>
- *          <p>After successful completion of the <code>RequestCertificate</code> action, there is a
- *       delay of several seconds before you can retrieve information about the new certificate.</p>
+ * <p>Requests an ACM certificate for use with other Amazon Web Services services. To request an ACM certificate, you must specify a fully qualified domain name (FQDN) in the <code>DomainName</code> parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code> parameter. </p> <p>If you are requesting a private certificate, domain validation is not required. If you are requesting a public certificate, each domain name that you specify must be validated to verify that you own or control the domain. You can use <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-dns.html">DNS validation</a> or <a href="https://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate-email.html">email validation</a>. We recommend that you use DNS validation.</p> <note> <p>ACM behavior differs from the <a href="https://datatracker.ietf.org/doc/html/rfc6125#appendix-B.2">RFC 6125</a> specification of the certificate validation process. ACM first checks for a Subject Alternative Name, and, if it finds one, ignores the common name (CN).</p> </note> <p>After successful completion of the <code>RequestCertificate</code> action, there is a delay of several seconds before you can retrieve information about the new certificate.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -51,7 +37,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * const client = new ACMClient(config);
  * const input = { // RequestCertificateRequest
  *   DomainName: "STRING_VALUE", // required
- *   ValidationMethod: "EMAIL" || "DNS",
+ *   ValidationMethod: "EMAIL" || "DNS" || "HTTP",
  *   SubjectAlternativeNames: [ // DomainList
  *     "STRING_VALUE",
  *   ],
@@ -64,6 +50,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *   ],
  *   Options: { // CertificateOptions
  *     CertificateTransparencyLoggingPreference: "ENABLED" || "DISABLED",
+ *     Export: "ENABLED" || "DISABLED",
  *   },
  *   CertificateAuthorityArn: "STRING_VALUE",
  *   Tags: [ // TagList
@@ -73,6 +60,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *     },
  *   ],
  *   KeyAlgorithm: "RSA_1024" || "RSA_2048" || "RSA_3072" || "RSA_4096" || "EC_prime256v1" || "EC_secp384r1" || "EC_secp521r1",
+ *   ManagedBy: "CLOUDFRONT",
  * };
  * const command = new RequestCertificateCommand(input);
  * const response = await client.send(command);
@@ -92,15 +80,13 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  *  <p>The requested Amazon Resource Name (ARN) does not refer to an existing resource.</p>
  *
  * @throws {@link InvalidDomainValidationOptionsException} (client fault)
- *  <p>One or more values in the <a>DomainValidationOption</a> structure is
- *       incorrect.</p>
+ *  <p>One or more values in the <a>DomainValidationOption</a> structure is incorrect.</p>
  *
  * @throws {@link InvalidParameterException} (client fault)
  *  <p>An input parameter was invalid.</p>
  *
  * @throws {@link InvalidTagException} (client fault)
- *  <p>One or both of the values that make up the key-value pair is not valid. For example, you
- *       cannot specify a tag value that begins with <code>aws:</code>.</p>
+ *  <p>One or both of the values that make up the key-value pair is not valid. For example, you cannot specify a tag value that begins with <code>aws:</code>.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>An ACM quota has been exceeded.</p>
@@ -114,6 +100,7 @@ export interface RequestCertificateCommandOutput extends RequestCertificateRespo
  * @throws {@link ACMServiceException}
  * <p>Base exception class for all service exceptions from ACM service.</p>
  *
+ *
  * @public
  */
 export class RequestCertificateCommand extends $Command
@@ -124,9 +111,7 @@ export class RequestCertificateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +123,16 @@ export class RequestCertificateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RequestCertificateCommand)
   .de(de_RequestCertificateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RequestCertificateRequest;
+      output: RequestCertificateResponse;
+    };
+    sdk: {
+      input: RequestCertificateCommandInput;
+      output: RequestCertificateCommandOutput;
+    };
+  };
+}

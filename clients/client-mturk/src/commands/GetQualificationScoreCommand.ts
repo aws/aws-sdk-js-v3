@@ -12,7 +12,8 @@ import { de_GetQualificationScoreCommand, se_GetQualificationScoreCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface GetQualificationScoreCommandOutput extends GetQualificationScor
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class GetQualificationScoreCommand extends $Command
@@ -94,9 +96,7 @@ export class GetQualificationScoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class GetQualificationScoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetQualificationScoreCommand)
   .de(de_GetQualificationScoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetQualificationScoreRequest;
+      output: GetQualificationScoreResponse;
+    };
+    sdk: {
+      input: GetQualificationScoreCommandInput;
+      output: GetQualificationScoreCommandOutput;
+    };
+  };
+}

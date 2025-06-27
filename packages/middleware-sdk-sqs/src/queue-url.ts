@@ -36,10 +36,9 @@ export interface PreviouslyResolved {
 export const resolveQueueUrlConfig = <T>(
   config: T & PreviouslyResolved & QueueUrlInputConfig
 ): T & QueueUrlResolvedConfig => {
-  return {
-    ...config,
+  return Object.assign(config, {
     useQueueUrlAsEndpoint: config.useQueueUrlAsEndpoint ?? true,
-  };
+  });
 };
 
 /**
@@ -66,7 +65,10 @@ export function queueUrlMiddleware({ useQueueUrlAsEndpoint, endpoint }: QueueUrl
               } differs from SQSClient resolved endpoint=${resolvedEndpoint.url.toString()}, using QueueUrl host as endpoint.
 Set [endpoint=string] or [useQueueUrlAsEndpoint=false] on the SQSClient.`
             );
-            resolvedEndpoint.url = queueUrlOrigin;
+            context.endpointV2 = {
+              ...resolvedEndpoint,
+              url: queueUrlOrigin,
+            };
           }
         } catch (e: unknown) {
           logger.warn(e);

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult } from "../models/models_0";
+import { ModifyWorkspaceStateRequest, ModifyWorkspaceStateResult } from "../models/models_1";
 import { de_ModifyWorkspaceStateCommand, se_ModifyWorkspaceStateCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,6 +71,7 @@ export interface ModifyWorkspaceStateCommandOutput extends ModifyWorkspaceStateR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class ModifyWorkspaceStateCommand extends $Command
@@ -80,9 +82,7 @@ export class ModifyWorkspaceStateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -94,4 +94,16 @@ export class ModifyWorkspaceStateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyWorkspaceStateCommand)
   .de(de_ModifyWorkspaceStateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyWorkspaceStateRequest;
+      output: {};
+    };
+    sdk: {
+      input: ModifyWorkspaceStateCommandInput;
+      output: ModifyWorkspaceStateCommandOutput;
+    };
+  };
+}

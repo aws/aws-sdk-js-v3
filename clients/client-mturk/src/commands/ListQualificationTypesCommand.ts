@@ -12,7 +12,8 @@ import { de_ListQualificationTypesCommand, se_ListQualificationTypesCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface ListQualificationTypesCommandOutput extends ListQualificationTy
  * @throws {@link MTurkServiceException}
  * <p>Base exception class for all service exceptions from MTurk service.</p>
  *
+ *
  * @public
  */
 export class ListQualificationTypesCommand extends $Command
@@ -97,9 +99,7 @@ export class ListQualificationTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MTurkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class ListQualificationTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListQualificationTypesCommand)
   .de(de_ListQualificationTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListQualificationTypesRequest;
+      output: ListQualificationTypesResponse;
+    };
+    sdk: {
+      input: ListQualificationTypesCommandInput;
+      output: ListQualificationTypesCommandOutput;
+    };
+  };
+}

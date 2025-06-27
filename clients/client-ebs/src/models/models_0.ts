@@ -27,7 +27,7 @@ export type AccessDeniedExceptionReason =
 export class AccessDeniedException extends __BaseException {
   readonly name: "AccessDeniedException" = "AccessDeniedException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
@@ -57,13 +57,13 @@ export interface Block {
    * <p>The block index.</p>
    * @public
    */
-  BlockIndex?: number;
+  BlockIndex?: number | undefined;
 
   /**
    * <p>The block token for the block index.</p>
    * @public
    */
-  BlockToken?: string;
+  BlockToken?: string | undefined;
 }
 
 /**
@@ -76,7 +76,7 @@ export interface ChangedBlock {
    * <p>The block index.</p>
    * @public
    */
-  BlockIndex?: number;
+  BlockIndex?: number | undefined;
 
   /**
    * <p>The block token for the block index of the <code>FirstSnapshotId</code> specified in
@@ -84,14 +84,14 @@ export interface ChangedBlock {
    *             does not have the changed block that is on the second snapshot.</p>
    * @public
    */
-  FirstBlockToken?: string;
+  FirstBlockToken?: string | undefined;
 
   /**
    * <p>The block token for the block index of the <code>SecondSnapshotId</code> specified in
    *             the <code>ListChangedBlocks</code> operation.</p>
    * @public
    */
-  SecondBlockToken?: string;
+  SecondBlockToken?: string | undefined;
 }
 
 /**
@@ -145,21 +145,21 @@ export interface CompleteSnapshotRequest {
    *             the SHA256 algorithm.</p>
    * @public
    */
-  Checksum?: string;
+  Checksum?: string | undefined;
 
   /**
    * <p>The algorithm used to generate the checksum. Currently, the only supported algorithm
    *             is <code>SHA256</code>.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 
   /**
    * <p>The aggregation method used to generate the checksum. Currently, the only supported
    *             aggregation method is <code>LINEAR</code>.</p>
    * @public
    */
-  ChecksumAggregationMethod?: ChecksumAggregationMethod;
+  ChecksumAggregationMethod?: ChecksumAggregationMethod | undefined;
 }
 
 /**
@@ -185,7 +185,7 @@ export interface CompleteSnapshotResponse {
    * <p>The status of the snapshot.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 }
 
 /**
@@ -195,7 +195,7 @@ export interface CompleteSnapshotResponse {
 export class InternalServerException extends __BaseException {
   readonly name: "InternalServerException" = "InternalServerException";
   readonly $fault: "server" = "server";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -234,12 +234,12 @@ export type RequestThrottledExceptionReason =
 export class RequestThrottledException extends __BaseException {
   readonly name: "RequestThrottledException" = "RequestThrottledException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: RequestThrottledExceptionReason;
+  Reason?: RequestThrottledExceptionReason | undefined;
   /**
    * @internal
    */
@@ -279,12 +279,12 @@ export type ResourceNotFoundExceptionReason =
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: ResourceNotFoundExceptionReason;
+  Reason?: ResourceNotFoundExceptionReason | undefined;
   /**
    * @internal
    */
@@ -321,12 +321,12 @@ export type ServiceQuotaExceededExceptionReason =
 export class ServiceQuotaExceededException extends __BaseException {
   readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the exception.</p>
    * @public
    */
-  Reason?: ServiceQuotaExceededExceptionReason;
+  Reason?: ServiceQuotaExceededExceptionReason | undefined;
   /**
    * @internal
    */
@@ -376,12 +376,12 @@ export type ValidationExceptionReason = (typeof ValidationExceptionReason)[keyof
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * <p>The reason for the validation exception.</p>
    * @public
    */
-  Reason?: ValidationExceptionReason;
+  Reason?: ValidationExceptionReason | undefined;
   /**
    * @internal
    */
@@ -406,7 +406,7 @@ export class ValidationException extends __BaseException {
 export class ConcurrentLimitExceededException extends __BaseException {
   readonly name: "ConcurrentLimitExceededException" = "ConcurrentLimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -429,7 +429,7 @@ export class ConcurrentLimitExceededException extends __BaseException {
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -487,25 +487,25 @@ export interface GetSnapshotBlockResponse {
    * <p>The size of the data in the block.</p>
    * @public
    */
-  DataLength?: number;
+  DataLength?: number | undefined;
 
   /**
    * <p>The data content of the block.</p>
    * @public
    */
-  BlockData?: StreamingBlobTypes;
+  BlockData?: StreamingBlobTypes | undefined;
 
   /**
    * <p>The checksum generated for the block, which is Base64 encoded.</p>
    * @public
    */
-  Checksum?: string;
+  Checksum?: string | undefined;
 
   /**
    * <p>The algorithm used to generate the checksum for the block, such as SHA256.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -520,7 +520,7 @@ export interface ListChangedBlocksRequest {
    *          </important>
    * @public
    */
-  FirstSnapshotId?: string;
+  FirstSnapshotId?: string | undefined;
 
   /**
    * <p>The ID of the second snapshot to use for the comparison.</p>
@@ -538,7 +538,7 @@ export interface ListChangedBlocksRequest {
    *             <b>StartingBlockIndex</b> is ignored.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of blocks to be returned by the request.</p>
@@ -551,7 +551,7 @@ export interface ListChangedBlocksRequest {
    *             more blocks to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The block index from which the comparison should start.</p>
@@ -561,7 +561,7 @@ export interface ListChangedBlocksRequest {
    *             <b>StartingBlockIndex</b> is ignored.</p>
    * @public
    */
-  StartingBlockIndex?: number;
+  StartingBlockIndex?: number | undefined;
 }
 
 /**
@@ -572,32 +572,32 @@ export interface ListChangedBlocksResponse {
    * <p>An array of objects containing information about the changed blocks.</p>
    * @public
    */
-  ChangedBlocks?: ChangedBlock[];
+  ChangedBlocks?: ChangedBlock[] | undefined;
 
   /**
    * <p>The time when the <code>BlockToken</code> expires.</p>
    * @public
    */
-  ExpiryTime?: Date;
+  ExpiryTime?: Date | undefined;
 
   /**
    * <p>The size of the volume in GB.</p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>The size of the blocks in the snapshot, in bytes.</p>
    * @public
    */
-  BlockSize?: number;
+  BlockSize?: number | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -616,7 +616,7 @@ export interface ListSnapshotBlocksRequest {
    *             <b>StartingBlockIndex</b> is ignored.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of blocks to be returned by the request.</p>
@@ -629,7 +629,7 @@ export interface ListSnapshotBlocksRequest {
    *             more blocks to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The block index from which the list should start. The list in the response will start
@@ -638,7 +638,7 @@ export interface ListSnapshotBlocksRequest {
    *             <b>StartingBlockIndex</b> is ignored.</p>
    * @public
    */
-  StartingBlockIndex?: number;
+  StartingBlockIndex?: number | undefined;
 }
 
 /**
@@ -649,32 +649,32 @@ export interface ListSnapshotBlocksResponse {
    * <p>An array of objects containing information about the blocks.</p>
    * @public
    */
-  Blocks?: Block[];
+  Blocks?: Block[] | undefined;
 
   /**
    * <p>The time when the <code>BlockToken</code> expires.</p>
    * @public
    */
-  ExpiryTime?: Date;
+  ExpiryTime?: Date | undefined;
 
   /**
    * <p>The size of the volume in GB.</p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>The size of the blocks in the snapshot, in bytes.</p>
    * @public
    */
-  BlockSize?: number;
+  BlockSize?: number | undefined;
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is null when there
    *             are no more results to return.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -733,7 +733,7 @@ export interface PutSnapshotBlockRequest {
    * <p>The progress of the write process, as a percentage.</p>
    * @public
    */
-  Progress?: number;
+  Progress?: number | undefined;
 
   /**
    * <p>A Base64-encoded SHA256 checksum of the data. Only SHA256 checksums are
@@ -758,13 +758,13 @@ export interface PutSnapshotBlockResponse {
    * <p>The SHA256 checksum generated for the block data by Amazon EBS.</p>
    * @public
    */
-  Checksum?: string;
+  Checksum?: string | undefined;
 
   /**
    * <p>The algorithm used by Amazon EBS to generate the checksum.</p>
    * @public
    */
-  ChecksumAlgorithm?: ChecksumAlgorithm;
+  ChecksumAlgorithm?: ChecksumAlgorithm | undefined;
 }
 
 /**
@@ -776,13 +776,13 @@ export interface Tag {
    * <p>The key of the tag.</p>
    * @public
    */
-  Key?: string;
+  Key?: string | undefined;
 
   /**
    * <p>The value of the tag.</p>
    * @public
    */
-  Value?: string;
+  Value?: string | undefined;
 }
 
 /**
@@ -817,19 +817,19 @@ export interface StartSnapshotRequest {
    *          </important>
    * @public
    */
-  ParentSnapshotId?: string;
+  ParentSnapshotId?: string | undefined;
 
   /**
    * <p>The tags to apply to the snapshot.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>A description for the snapshot.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
@@ -842,7 +842,7 @@ export interface StartSnapshotRequest {
    *     		Idempotency for StartSnapshot API</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    * @public
    */
-  ClientToken?: string;
+  ClientToken?: string | undefined;
 
   /**
    * <p>Indicates whether to encrypt the snapshot.</p>
@@ -863,7 +863,7 @@ export interface StartSnapshotRequest {
    *          </important>
    * @public
    */
-  Encrypted?: boolean;
+  Encrypted?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key to be used to encrypt the snapshot.</p>
@@ -881,7 +881,7 @@ export interface StartSnapshotRequest {
    *          </important>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>The amount of time (in minutes) after which the snapshot is automatically cancelled
@@ -897,7 +897,7 @@ export interface StartSnapshotRequest {
    *          <p>If no value is specified, the timeout defaults to <code>60</code> minutes.</p>
    * @public
    */
-  Timeout?: number;
+  Timeout?: number | undefined;
 }
 
 /**
@@ -923,43 +923,43 @@ export interface StartSnapshotResponse {
    * <p>The description of the snapshot.</p>
    * @public
    */
-  Description?: string;
+  Description?: string | undefined;
 
   /**
    * <p>The ID of the snapshot.</p>
    * @public
    */
-  SnapshotId?: string;
+  SnapshotId?: string | undefined;
 
   /**
    * <p>The Amazon Web Services account ID of the snapshot owner.</p>
    * @public
    */
-  OwnerId?: string;
+  OwnerId?: string | undefined;
 
   /**
    * <p>The status of the snapshot.</p>
    * @public
    */
-  Status?: Status;
+  Status?: Status | undefined;
 
   /**
    * <p>The timestamp when the snapshot was created.</p>
    * @public
    */
-  StartTime?: Date;
+  StartTime?: Date | undefined;
 
   /**
    * <p>The size of the volume, in GiB.</p>
    * @public
    */
-  VolumeSize?: number;
+  VolumeSize?: number | undefined;
 
   /**
    * <p>The size of the blocks in the snapshot, in bytes.</p>
    * @public
    */
-  BlockSize?: number;
+  BlockSize?: number | undefined;
 
   /**
    * <p>The tags applied to the snapshot. You can specify up to 50 tags per snapshot. For more
@@ -967,25 +967,25 @@ export interface StartSnapshotResponse {
    *                 resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The ID of the parent snapshot.</p>
    * @public
    */
-  ParentSnapshotId?: string;
+  ParentSnapshotId?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Key Management Service (KMS) key used to encrypt the snapshot.</p>
    * @public
    */
-  KmsKeyArn?: string;
+  KmsKeyArn?: string | undefined;
 
   /**
    * <p>Reserved for future use.</p>
    * @public
    */
-  SseType?: SSEType;
+  SseType?: SSEType | undefined;
 }
 
 /**

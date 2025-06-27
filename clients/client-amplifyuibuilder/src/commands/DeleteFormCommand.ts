@@ -12,7 +12,8 @@ import { de_DeleteFormCommand, se_DeleteFormCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface DeleteFormCommandOutput extends __MetadataBearer {}
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class DeleteFormCommand extends $Command
@@ -73,9 +75,7 @@ export class DeleteFormCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class DeleteFormCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFormCommand)
   .de(de_DeleteFormCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFormRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFormCommandInput;
+      output: DeleteFormCommandOutput;
+    };
+  };
+}

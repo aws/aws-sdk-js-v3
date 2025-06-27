@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,7 +64,7 @@ export interface BatchGetAttachedFileMetadataCommandOutput
  * //         ConnectUserArn: "STRING_VALUE",
  * //         AWSIdentityArn: "STRING_VALUE",
  * //       },
- * //       FileUseCaseType: "ATTACHMENT",
+ * //       FileUseCaseType: "EMAIL_MESSAGE" || "ATTACHMENT",
  * //       AssociatedResourceArn: "STRING_VALUE",
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
@@ -105,6 +106,7 @@ export interface BatchGetAttachedFileMetadataCommandOutput
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class BatchGetAttachedFileMetadataCommand extends $Command
@@ -115,9 +117,7 @@ export class BatchGetAttachedFileMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class BatchGetAttachedFileMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetAttachedFileMetadataCommand)
   .de(de_BatchGetAttachedFileMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetAttachedFileMetadataRequest;
+      output: BatchGetAttachedFileMetadataResponse;
+    };
+    sdk: {
+      input: BatchGetAttachedFileMetadataCommandInput;
+      output: BatchGetAttachedFileMetadataCommandOutput;
+    };
+  };
+}

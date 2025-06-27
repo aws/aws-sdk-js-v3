@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_0";
+import { RebootWorkspacesRequest, RebootWorkspacesResult } from "../models/models_1";
 import { de_RebootWorkspacesCommand, se_RebootWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface RebootWorkspacesCommandOutput extends RebootWorkspacesResult, _
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class RebootWorkspacesCommand extends $Command
@@ -81,9 +83,7 @@ export class RebootWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class RebootWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RebootWorkspacesCommand)
   .de(de_RebootWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RebootWorkspacesRequest;
+      output: RebootWorkspacesResult;
+    };
+    sdk: {
+      input: RebootWorkspacesCommandInput;
+      output: RebootWorkspacesCommandOutput;
+    };
+  };
+}

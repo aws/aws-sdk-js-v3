@@ -21,7 +21,8 @@ import { de_CreateMediaCapturePipelineCommand, se_CreateMediaCapturePipelineComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,11 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  *       },
  *     },
  *   },
+ *   SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ *     AwsKmsKeyId: "STRING_VALUE", // required
+ *     AwsKmsEncryptionContext: "STRING_VALUE",
+ *   },
+ *   SinkIamRoleArn: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required
@@ -183,6 +189,11 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * //         },
  * //       },
  * //     },
+ * //     SseAwsKeyManagementParams: { // SseAwsKeyManagementParams
+ * //       AwsKmsKeyId: "STRING_VALUE", // required
+ * //       AwsKmsEncryptionContext: "STRING_VALUE",
+ * //     },
+ * //     SinkIamRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -218,6 +229,7 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
  * @throws {@link ChimeSDKMediaPipelinesServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMediaPipelines service.</p>
  *
+ *
  * @public
  */
 export class CreateMediaCapturePipelineCommand extends $Command
@@ -228,9 +240,7 @@ export class CreateMediaCapturePipelineCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMediaPipelinesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -242,4 +252,16 @@ export class CreateMediaCapturePipelineCommand extends $Command
   .f(CreateMediaCapturePipelineRequestFilterSensitiveLog, CreateMediaCapturePipelineResponseFilterSensitiveLog)
   .ser(se_CreateMediaCapturePipelineCommand)
   .de(de_CreateMediaCapturePipelineCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateMediaCapturePipelineRequest;
+      output: CreateMediaCapturePipelineResponse;
+    };
+    sdk: {
+      input: CreateMediaCapturePipelineCommandInput;
+      output: CreateMediaCapturePipelineCommandOutput;
+    };
+  };
+}

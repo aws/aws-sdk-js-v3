@@ -12,7 +12,8 @@ import { de_BatchGetTableOptimizerCommand, se_BatchGetTableOptimizerCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -40,7 +41,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  *       catalogId: "STRING_VALUE",
  *       databaseName: "STRING_VALUE",
  *       tableName: "STRING_VALUE",
- *       type: "compaction",
+ *       type: "compaction" || "retention" || "orphan_file_deletion",
  *     },
  *   ],
  * };
@@ -53,10 +54,31 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //       databaseName: "STRING_VALUE",
  * //       tableName: "STRING_VALUE",
  * //       tableOptimizer: { // TableOptimizer
- * //         type: "compaction",
+ * //         type: "compaction" || "retention" || "orphan_file_deletion",
  * //         configuration: { // TableOptimizerConfiguration
  * //           roleArn: "STRING_VALUE",
  * //           enabled: true || false,
+ * //           vpcConfiguration: { // TableOptimizerVpcConfiguration Union: only one key present
+ * //             glueConnectionName: "STRING_VALUE",
+ * //           },
+ * //           compactionConfiguration: { // CompactionConfiguration
+ * //             icebergConfiguration: { // IcebergCompactionConfiguration
+ * //               strategy: "binpack" || "sort" || "z-order",
+ * //             },
+ * //           },
+ * //           retentionConfiguration: { // RetentionConfiguration
+ * //             icebergConfiguration: { // IcebergRetentionConfiguration
+ * //               snapshotRetentionPeriodInDays: Number("int"),
+ * //               numberOfSnapshotsToRetain: Number("int"),
+ * //               cleanExpiredFiles: true || false,
+ * //             },
+ * //           },
+ * //           orphanFileDeletionConfiguration: { // OrphanFileDeletionConfiguration
+ * //             icebergConfiguration: { // IcebergOrphanFileDeletionConfiguration
+ * //               orphanFileRetentionPeriodInDays: Number("int"),
+ * //               location: "STRING_VALUE",
+ * //             },
+ * //           },
  * //         },
  * //         lastRun: { // TableOptimizerRun
  * //           eventType: "starting" || "completed" || "failed" || "in_progress",
@@ -69,6 +91,34 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //             JobDurationInHour: "STRING_VALUE",
  * //           },
  * //           error: "STRING_VALUE",
+ * //           compactionMetrics: { // CompactionMetrics
+ * //             IcebergMetrics: { // IcebergCompactionMetrics
+ * //               NumberOfBytesCompacted: Number("long"),
+ * //               NumberOfFilesCompacted: Number("long"),
+ * //               DpuHours: Number("double"),
+ * //               NumberOfDpus: Number("int"),
+ * //               JobDurationInHour: Number("double"),
+ * //             },
+ * //           },
+ * //           compactionStrategy: "binpack" || "sort" || "z-order",
+ * //           retentionMetrics: { // RetentionMetrics
+ * //             IcebergMetrics: { // IcebergRetentionMetrics
+ * //               NumberOfDataFilesDeleted: Number("long"),
+ * //               NumberOfManifestFilesDeleted: Number("long"),
+ * //               NumberOfManifestListsDeleted: Number("long"),
+ * //               DpuHours: Number("double"),
+ * //               NumberOfDpus: Number("int"),
+ * //               JobDurationInHour: Number("double"),
+ * //             },
+ * //           },
+ * //           orphanFileDeletionMetrics: { // OrphanFileDeletionMetrics
+ * //             IcebergMetrics: { // IcebergOrphanFileDeletionMetrics
+ * //               NumberOfOrphanFilesDeleted: Number("long"),
+ * //               DpuHours: Number("double"),
+ * //               NumberOfDpus: Number("int"),
+ * //               JobDurationInHour: Number("double"),
+ * //             },
+ * //           },
  * //         },
  * //       },
  * //     },
@@ -82,7 +132,7 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * //       catalogId: "STRING_VALUE",
  * //       databaseName: "STRING_VALUE",
  * //       tableName: "STRING_VALUE",
- * //       type: "compaction",
+ * //       type: "compaction" || "retention" || "orphan_file_deletion",
  * //     },
  * //   ],
  * // };
@@ -95,11 +145,24 @@ export interface BatchGetTableOptimizerCommandOutput extends BatchGetTableOptimi
  * @see {@link BatchGetTableOptimizerCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>Access to a resource was denied.</p>
+ *
+ * @throws {@link EntityNotFoundException} (client fault)
+ *  <p>A specified entity does not exist</p>
+ *
  * @throws {@link InternalServiceException} (server fault)
  *  <p>An internal service error occurred.</p>
  *
+ * @throws {@link InvalidInputException} (client fault)
+ *  <p>The input provided was not valid.</p>
+ *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>The throttling threshhold was exceeded.</p>
+ *
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
+ *
  *
  * @public
  */
@@ -111,9 +174,7 @@ export class BatchGetTableOptimizerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +186,16 @@ export class BatchGetTableOptimizerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchGetTableOptimizerCommand)
   .de(de_BatchGetTableOptimizerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchGetTableOptimizerRequest;
+      output: BatchGetTableOptimizerResponse;
+    };
+    sdk: {
+      input: BatchGetTableOptimizerCommandInput;
+      output: BatchGetTableOptimizerCommandOutput;
+    };
+  };
+}

@@ -19,7 +19,8 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,7 +59,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * const input = { // ListTrafficPolicyInstancesByHostedZoneRequest
  *   HostedZoneId: "STRING_VALUE", // required
  *   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
- *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ *   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS",
  *   MaxItems: Number("int"),
  * };
  * const command = new ListTrafficPolicyInstancesByHostedZoneCommand(input);
@@ -74,11 +75,11 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * //       Message: "STRING_VALUE", // required
  * //       TrafficPolicyId: "STRING_VALUE", // required
  * //       TrafficPolicyVersion: Number("int"), // required
- * //       TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //       TrafficPolicyType: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //     },
  * //   ],
  * //   TrafficPolicyInstanceNameMarker: "STRING_VALUE",
- * //   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS",
+ * //   TrafficPolicyInstanceTypeMarker: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS",
  * //   IsTruncated: true || false, // required
  * //   MaxItems: Number("int"), // required
  * // };
@@ -103,6 +104,7 @@ export interface ListTrafficPolicyInstancesByHostedZoneCommandOutput
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
@@ -113,9 +115,7 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +128,16 @@ export class ListTrafficPolicyInstancesByHostedZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTrafficPolicyInstancesByHostedZoneCommand)
   .de(de_ListTrafficPolicyInstancesByHostedZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTrafficPolicyInstancesByHostedZoneRequest;
+      output: ListTrafficPolicyInstancesByHostedZoneResponse;
+    };
+    sdk: {
+      input: ListTrafficPolicyInstancesByHostedZoneCommandInput;
+      output: ListTrafficPolicyInstancesByHostedZoneCommandOutput;
+    };
+  };
+}

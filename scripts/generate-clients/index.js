@@ -5,6 +5,7 @@ const { emptyDirSync, rmdirSync } = require("fs-extra");
 const { generateClients, generateGenericClient, generateProtocolTests } = require("./code-gen");
 const { codeOrdering } = require("./code-ordering");
 const { copyToClients, copyServerTests } = require("./copy-to-clients");
+const generateNestedClients = require("./nested-clients/generate-nested-clients");
 const {
   CODE_GEN_SDK_OUTPUT_DIR,
   CODE_GEN_GENERIC_CLIENT_OUTPUT_DIR,
@@ -16,7 +17,10 @@ const { prettifyCode } = require("./code-prettify");
 const { eslintFixCode } = require("./code-eslint-fix");
 const { buildSmithyTypeScript } = require("./build-smithy-typescript");
 const { SMITHY_TS_COMMIT } = require("./config");
+const { spawnProcess } = require("../utils/spawn-process");
+const { cwd } = require("process");
 
+const REPO_ROOT = path.join(__dirname, "..", "..");
 const SMITHY_TS_DIR = path.normalize(path.join(__dirname, "..", "..", "..", "smithy-typescript"));
 const SDK_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "clients"));
 const PRIVATE_CLIENTS_DIR = path.normalize(path.join(__dirname, "..", "..", "private"));
@@ -123,8 +127,6 @@ const {
       await copyServerTests(CODE_GEN_PROTOCOL_TESTS_OUTPUT_DIR, PRIVATE_CLIENTS_DIR);
     }
 
-    require("../api-examples/get-examples");
-    await require("../api-examples/merge-examples").merge();
     const compress = require("../endpoints-ruleset/compress");
     compress();
 
@@ -139,6 +141,16 @@ const {
     }
 
     require("./customizations/workspaces-thin-client")();
+
+    if (!protocolTestsOnly && !globs) {
+      await generateNestedClients();
+    }
+
+    await spawnProcess("yarn", ["install", "--no-immutable"], {
+      cwd: REPO_ROOT,
+      stdio: "inherit",
+      env: { ...process.env, CI: "" },
+    });
     require("../runtime-dependency-version-check/runtime-dep-version-check");
   } catch (e) {
     console.log(e);

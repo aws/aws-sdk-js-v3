@@ -12,7 +12,8 @@ import { de_DescribeEntityAggregatesCommand, se_DescribeEntityAggregatesCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DescribeEntityAggregatesCommandOutput extends DescribeEntityAgg
  * @throws {@link HealthServiceException}
  * <p>Base exception class for all service exceptions from Health service.</p>
  *
+ *
  * @public
  */
 export class DescribeEntityAggregatesCommand extends $Command
@@ -74,9 +76,7 @@ export class DescribeEntityAggregatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DescribeEntityAggregatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEntityAggregatesCommand)
   .de(de_DescribeEntityAggregatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEntityAggregatesRequest;
+      output: DescribeEntityAggregatesResponse;
+    };
+    sdk: {
+      input: DescribeEntityAggregatesCommandInput;
+      output: DescribeEntityAggregatesCommandOutput;
+    };
+  };
+}

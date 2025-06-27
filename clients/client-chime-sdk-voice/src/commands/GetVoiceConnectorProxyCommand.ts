@@ -16,7 +16,8 @@ import { de_GetVoiceConnectorProxyCommand, se_GetVoiceConnectorProxyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class GetVoiceConnectorProxyCommand extends $Command
@@ -97,9 +99,7 @@ export class GetVoiceConnectorProxyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class GetVoiceConnectorProxyCommand extends $Command
   .f(void 0, GetVoiceConnectorProxyResponseFilterSensitiveLog)
   .ser(se_GetVoiceConnectorProxyCommand)
   .de(de_GetVoiceConnectorProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetVoiceConnectorProxyRequest;
+      output: GetVoiceConnectorProxyResponse;
+    };
+    sdk: {
+      input: GetVoiceConnectorProxyCommandInput;
+      output: GetVoiceConnectorProxyCommandOutput;
+    };
+  };
+}

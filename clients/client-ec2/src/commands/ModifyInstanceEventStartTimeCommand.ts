@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResult } from "../models/models_6";
+import { ModifyInstanceEventStartTimeRequest, ModifyInstanceEventStartTimeResult } from "../models/models_7";
 import { de_ModifyInstanceEventStartTimeCommand, se_ModifyInstanceEventStartTimeCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface ModifyInstanceEventStartTimeCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class ModifyInstanceEventStartTimeCommand extends $Command
@@ -76,9 +78,7 @@ export class ModifyInstanceEventStartTimeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class ModifyInstanceEventStartTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyInstanceEventStartTimeCommand)
   .de(de_ModifyInstanceEventStartTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyInstanceEventStartTimeRequest;
+      output: ModifyInstanceEventStartTimeResult;
+    };
+    sdk: {
+      input: ModifyInstanceEventStartTimeCommandInput;
+      output: ModifyInstanceEventStartTimeCommandOutput;
+    };
+  };
+}

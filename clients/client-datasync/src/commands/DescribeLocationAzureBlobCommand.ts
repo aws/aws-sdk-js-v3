@@ -12,7 +12,8 @@ import { de_DescribeLocationAzureBlobCommand, se_DescribeLocationAzureBlobComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface DescribeLocationAzureBlobCommandInput extends DescribeLocationA
 export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocationAzureBlobResponse, __MetadataBearer {}
 
 /**
- * <p>Provides details about how an DataSync transfer location for Microsoft Azure Blob Storage is configured.</p>
+ * <p>Provides details about how an DataSync transfer location for Microsoft Azure
+ *       Blob Storage is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,13 +44,24 @@ export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocation
  * // { // DescribeLocationAzureBlobResponse
  * //   LocationArn: "STRING_VALUE",
  * //   LocationUri: "STRING_VALUE",
- * //   AuthenticationType: "SAS",
+ * //   AuthenticationType: "SAS" || "NONE",
  * //   BlobType: "BLOCK",
  * //   AccessTier: "HOT" || "COOL" || "ARCHIVE",
  * //   AgentArns: [ // AgentArnList
  * //     "STRING_VALUE",
  * //   ],
  * //   CreationTime: new Date("TIMESTAMP"),
+ * //   ManagedSecretConfig: { // ManagedSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //   },
+ * //   CmkSecretConfig: { // CmkSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     KmsKeyArn: "STRING_VALUE",
+ * //   },
+ * //   CustomSecretConfig: { // CustomSecretConfig
+ * //     SecretArn: "STRING_VALUE",
+ * //     SecretAccessRoleArn: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```
@@ -69,6 +82,7 @@ export interface DescribeLocationAzureBlobCommandOutput extends DescribeLocation
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocationAzureBlobCommand extends $Command
@@ -79,9 +93,7 @@ export class DescribeLocationAzureBlobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +105,16 @@ export class DescribeLocationAzureBlobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocationAzureBlobCommand)
   .de(de_DescribeLocationAzureBlobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocationAzureBlobRequest;
+      output: DescribeLocationAzureBlobResponse;
+    };
+    sdk: {
+      input: DescribeLocationAzureBlobCommandInput;
+      output: DescribeLocationAzureBlobCommandOutput;
+    };
+  };
+}

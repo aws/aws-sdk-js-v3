@@ -17,7 +17,8 @@ import { de_UpdatePricingPlanCommand, se_UpdatePricingPlanCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface UpdatePricingPlanCommandOutput extends UpdatePricingPlanOutput,
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class UpdatePricingPlanCommand extends $Command
@@ -99,9 +101,7 @@ export class UpdatePricingPlanCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class UpdatePricingPlanCommand extends $Command
   .f(UpdatePricingPlanInputFilterSensitiveLog, UpdatePricingPlanOutputFilterSensitiveLog)
   .ser(se_UpdatePricingPlanCommand)
   .de(de_UpdatePricingPlanCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePricingPlanInput;
+      output: UpdatePricingPlanOutput;
+    };
+    sdk: {
+      input: UpdatePricingPlanCommandInput;
+      output: UpdatePricingPlanCommandOutput;
+    };
+  };
+}

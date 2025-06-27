@@ -17,7 +17,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -130,6 +131,7 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class TranslateDocumentCommand extends $Command
@@ -140,9 +142,7 @@ export class TranslateDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +154,16 @@ export class TranslateDocumentCommand extends $Command
   .f(TranslateDocumentRequestFilterSensitiveLog, TranslateDocumentResponseFilterSensitiveLog)
   .ser(se_TranslateDocumentCommand)
   .de(de_TranslateDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TranslateDocumentRequest;
+      output: TranslateDocumentResponse;
+    };
+    sdk: {
+      input: TranslateDocumentCommandInput;
+      output: TranslateDocumentCommandOutput;
+    };
+  };
+}

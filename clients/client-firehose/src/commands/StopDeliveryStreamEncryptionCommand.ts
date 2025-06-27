@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,24 +33,24 @@ export interface StopDeliveryStreamEncryptionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Disables server-side encryption (SSE) for the delivery stream. </p>
+ * <p>Disables server-side encryption (SSE) for the Firehose stream. </p>
  *          <p>This operation is asynchronous. It returns immediately. When you invoke it, Firehose first sets the encryption status of the stream to <code>DISABLING</code>, and then
  *          to <code>DISABLED</code>. You can continue to read and write data to your stream while its
  *          status is <code>DISABLING</code>. It can take up to 5 seconds after the encryption status
- *          changes to <code>DISABLED</code> before all records written to the delivery stream are no
+ *          changes to <code>DISABLED</code> before all records written to the Firehose stream are no
  *          longer subject to encryption. To find out whether a record or a batch of records was
  *          encrypted, check the response elements <a>PutRecordOutput$Encrypted</a> and
  *             <a>PutRecordBatchOutput$Encrypted</a>, respectively.</p>
- *          <p>To check the encryption state of a delivery stream, use <a>DescribeDeliveryStream</a>. </p>
+ *          <p>To check the encryption state of a Firehose stream, use <a>DescribeDeliveryStream</a>. </p>
  *          <p>If SSE is enabled using a customer managed CMK and then you invoke
  *             <code>StopDeliveryStreamEncryption</code>, Firehose schedules the related
  *          KMS grant for retirement and then retires it after it ensures that it is finished
  *          delivering records to the destination.</p>
  *          <p>The <code>StartDeliveryStreamEncryption</code> and
  *             <code>StopDeliveryStreamEncryption</code> operations have a combined limit of 25 calls
- *          per delivery stream per 24 hours. For example, you reach the limit if you call
+ *          per Firehose stream per 24 hours. For example, you reach the limit if you call
  *             <code>StartDeliveryStreamEncryption</code> 13 times and
- *             <code>StopDeliveryStreamEncryption</code> 12 times for the same delivery stream in a
+ *             <code>StopDeliveryStreamEncryption</code> 12 times for the same Firehose stream in a
  *          24-hour period.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -87,6 +88,7 @@ export interface StopDeliveryStreamEncryptionCommandOutput
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class StopDeliveryStreamEncryptionCommand extends $Command
@@ -97,9 +99,7 @@ export class StopDeliveryStreamEncryptionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class StopDeliveryStreamEncryptionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopDeliveryStreamEncryptionCommand)
   .de(de_StopDeliveryStreamEncryptionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopDeliveryStreamEncryptionInput;
+      output: {};
+    };
+    sdk: {
+      input: StopDeliveryStreamEncryptionCommandInput;
+      output: StopDeliveryStreamEncryptionCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DescribeScalingActivitiesCommand, se_DescribeScalingActivitiesComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
 /**
  * <p>Gets information about the scaling activities in the account and Region.</p>
  *          <p>When scaling events occur, you see a record of the scaling activity in the scaling
- *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verifying a scaling
+ *             activities. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-verify-scaling-activity.html">Verify a scaling
  *                 activity for an Auto Scaling group</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  *          <p>If the scaling event succeeds, the value of the <code>StatusCode</code> element in the
  *             response is <code>Successful</code>. If an attempt to launch instances failed, the
@@ -91,36 +92,36 @@ export interface DescribeScalingActivitiesCommandOutput extends ActivitiesType, 
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To describe the scaling activities for an Auto Scaling group
  * ```javascript
  * // This example describes the scaling activities for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group"
+ *   AutoScalingGroupName: "my-auto-scaling-group"
  * };
  * const command = new DescribeScalingActivitiesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Activities": [
+ *   Activities: [
  *     {
- *       "ActivityId": "f9f2d65b-f1f2-43e7-b46d-d86756459699",
- *       "AutoScalingGroupARN": "arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
- *       "AutoScalingGroupName": "my-auto-scaling-group",
- *       "Cause": "At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.",
- *       "Description": "Launching a new EC2 instance: i-4ba0837f",
- *       "Details": "details",
- *       "EndTime": "2013-08-19T20:54:02Z",
- *       "Progress": 100,
- *       "StartTime": "2013-08-19T20:53:29.930Z",
- *       "StatusCode": "Successful"
+ *       ActivityId: "f9f2d65b-f1f2-43e7-b46d-d86756459699",
+ *       AutoScalingGroupARN: "arn:aws:autoscaling:us-east-1:123456789012:autoScalingGroup:12345678-1234-1234-1234-123456789012:autoScalingGroupName/my-auto-scaling-group",
+ *       AutoScalingGroupName: "my-auto-scaling-group",
+ *       Cause: "At 2013-08-19T20:53:25Z a user request created an AutoScalingGroup changing the desired capacity from 0 to 1.  At 2013-08-19T20:53:29Z an instance was started in response to a difference between desired and actual capacity, increasing the capacity from 0 to 1.",
+ *       Description: "Launching a new EC2 instance: i-4ba0837f",
+ *       Details: "details",
+ *       EndTime: "2013-08-19T20:54:02Z",
+ *       Progress: 100,
+ *       StartTime: "2013-08-19T20:53:29.930Z",
+ *       StatusCode: "Successful"
  *     }
  *   ]
  * }
  * *\/
- * // example id: autoscaling-describe-scaling-activities-1
  * ```
  *
+ * @public
  */
 export class DescribeScalingActivitiesCommand extends $Command
   .classBuilder<
@@ -130,9 +131,7 @@ export class DescribeScalingActivitiesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class DescribeScalingActivitiesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScalingActivitiesCommand)
   .de(de_DescribeScalingActivitiesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScalingActivitiesType;
+      output: ActivitiesType;
+    };
+    sdk: {
+      input: DescribeScalingActivitiesCommandInput;
+      output: DescribeScalingActivitiesCommandOutput;
+    };
+  };
+}

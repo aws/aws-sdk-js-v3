@@ -73,6 +73,11 @@ export class InternalServerException extends __BaseException {
 
 /**
  * <p>The shape containing the requested deployment parameter name and secretString.</p>
+ *          <note>
+ *             <p>To support AWS CloudFormation dynamic references to this resource using Quick Launch,
+ *         this value must match a parameter defined in the CloudFormation templated provided to
+ *         buyers.</p>
+ *          </note>
  * @public
  */
 export interface DeploymentParameterInput {
@@ -94,7 +99,7 @@ export interface DeploymentParameterInput {
  */
 export interface PutDeploymentParameterRequest {
   /**
-   * <p>The catalog related to the request. Fixed value: <code>AWS Marketplace</code>
+   * <p>The catalog related to the request. Fixed value: <code>AWSMarketplace</code>
    *          </p>
    * @public
    */
@@ -122,19 +127,23 @@ export interface PutDeploymentParameterRequest {
    * <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The date when deployment parameters expire and are scheduled for deletion.</p>
    * @public
    */
-  expirationDate?: Date;
+  expirationDate?: Date | undefined;
 
   /**
    * <p>The idempotency token for deployment parameters. A unique identifier for the new version.</p>
+   *          <note>
+   *             <p>This field is not required if you're calling using an AWS SDK. Otherwise, a
+   *           <code>clientToken</code> must be provided with the request.</p>
+   *          </note>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -163,7 +172,7 @@ export interface PutDeploymentParameterResponse {
    * <p>A map of key-value pairs, where each pair represents a tag saved to the resource. Tags will only be applied for create operations, and they'll be ignored if the resource already exists.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -275,7 +284,7 @@ export interface ListTagsForResourceResponse {
    * <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -292,7 +301,7 @@ export interface TagResourceRequest {
    * <p>A map of key-value pairs, where each pair represents a tag present on the resource.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**

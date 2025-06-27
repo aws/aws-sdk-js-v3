@@ -12,7 +12,8 @@ import { de_CreateDBClusterCommand, se_CreateDBClusterCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,8 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   DeletionProtection: true || false,
  *   GlobalClusterIdentifier: "STRING_VALUE",
  *   StorageType: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -128,6 +131,11 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //     ],
  * //     DeletionProtection: true || false,
  * //     StorageType: "STRING_VALUE",
+ * //     MasterUserSecret: { // ClusterMasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -201,6 +209,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class CreateDBClusterCommand extends $Command
@@ -211,9 +220,7 @@ export class CreateDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -225,4 +232,16 @@ export class CreateDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBClusterCommand)
   .de(de_CreateDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBClusterMessage;
+      output: CreateDBClusterResult;
+    };
+    sdk: {
+      input: CreateDBClusterCommandInput;
+      output: CreateDBClusterCommandOutput;
+    };
+  };
+}

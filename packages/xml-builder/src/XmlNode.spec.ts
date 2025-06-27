@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { XmlNode } from "./XmlNode";
 import { XmlText } from "./XmlText";
 
@@ -115,7 +117,7 @@ describe("XmlNode", () => {
         expect(node.toString()).toEqual("<root><member>aaa</member><member>bbb</member></root>");
       });
     });
-    describe('.lc() "list with container"', () => {
+    it('.lc() "list with container"', () => {
       const data = { alist: [XmlNode.of("a", "aaa"), XmlNode.of("b", "bbb")] };
 
       const node = new XmlNode("root");

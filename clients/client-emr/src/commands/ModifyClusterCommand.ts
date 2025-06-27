@@ -12,7 +12,8 @@ import { de_ModifyClusterCommand, se_ModifyClusterCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,6 +64,7 @@ export interface ModifyClusterCommandOutput extends ModifyClusterOutput, __Metad
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class ModifyClusterCommand extends $Command
@@ -73,9 +75,7 @@ export class ModifyClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -87,4 +87,16 @@ export class ModifyClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyClusterCommand)
   .de(de_ModifyClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyClusterInput;
+      output: ModifyClusterOutput;
+    };
+    sdk: {
+      input: ModifyClusterCommandInput;
+      output: ModifyClusterCommandOutput;
+    };
+  };
+}

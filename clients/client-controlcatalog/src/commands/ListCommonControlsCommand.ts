@@ -12,7 +12,8 @@ import { de_ListCommonControlsCommand, se_ListCommonControlsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface ListCommonControlsCommandInput extends ListCommonControlsReques
 export interface ListCommonControlsCommandOutput extends ListCommonControlsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns a paginated list of common controls from the Amazon Web Services Control
- *       Catalog.</p>
- *          <p>You can apply an optional filter to see common controls that have a specific objective. If
- *       you don’t provide a filter, the operation returns all common controls. </p>
+ * <p>Returns a paginated list of common controls from the Amazon Web Services Control Catalog.</p> <p>You can apply an optional filter to see common controls that have a specific objective. If you don’t provide a filter, the operation returns all common controls. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,6 +92,7 @@ export interface ListCommonControlsCommandOutput extends ListCommonControlsRespo
  * @throws {@link ControlCatalogServiceException}
  * <p>Base exception class for all service exceptions from ControlCatalog service.</p>
  *
+ *
  * @public
  */
 export class ListCommonControlsCommand extends $Command
@@ -104,9 +103,7 @@ export class ListCommonControlsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlCatalogClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +115,16 @@ export class ListCommonControlsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCommonControlsCommand)
   .de(de_ListCommonControlsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCommonControlsRequest;
+      output: ListCommonControlsResponse;
+    };
+    sdk: {
+      input: ListCommonControlsCommandInput;
+      output: ListCommonControlsCommandOutput;
+    };
+  };
+}

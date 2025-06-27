@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,19 +73,22 @@ export interface RemoveRoleFromDBClusterCommandOutput extends __MetadataBearer {
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To disassociate an Identity and Access Management (IAM) role from a DB cluster
  * ```javascript
  * // The following example removes a role from a DB cluster.
  * const input = {
- *   "DBClusterIdentifier": "mydbcluster",
- *   "RoleArn": "arn:aws:iam::123456789012:role/RDSLoadFromS3"
+ *   DBClusterIdentifier: "mydbcluster",
+ *   RoleArn: "arn:aws:iam::123456789012:role/RDSLoadFromS3"
  * };
  * const command = new RemoveRoleFromDBClusterCommand(input);
- * await client.send(command);
- * // example id: to-disassociate-an-identity-and-access-management-iam-role-from-a-db-cluster-1680072359521
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveRoleFromDBClusterCommand extends $Command
   .classBuilder<
@@ -94,9 +98,7 @@ export class RemoveRoleFromDBClusterCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +110,16 @@ export class RemoveRoleFromDBClusterCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveRoleFromDBClusterCommand)
   .de(de_RemoveRoleFromDBClusterCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveRoleFromDBClusterMessage;
+      output: {};
+    };
+    sdk: {
+      input: RemoveRoleFromDBClusterCommandInput;
+      output: RemoveRoleFromDBClusterCommandOutput;
+    };
+  };
+}

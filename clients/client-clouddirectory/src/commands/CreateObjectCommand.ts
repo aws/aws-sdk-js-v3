@@ -12,7 +12,8 @@ import { de_CreateObjectCommand, se_CreateObjectCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,6 +120,28 @@ export interface CreateObjectCommandOutput extends CreateObjectResponse, __Metad
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To create an object
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8",
+ *   SchemaFacets: [
+ *     {
+ *       FacetName: "Organization_Person",
+ *       SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8/schema/ExampleOrgPersonSchema/1"
+ *     }
+ *   ]
+ * };
+ * const command = new CreateObjectCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ObjectIdentifier: "AQF0Fw173YJDlpLUV1eB50WvScvjsYXcS3K2nP1HwDuuYQ"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateObjectCommand extends $Command
@@ -129,9 +152,7 @@ export class CreateObjectCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +164,16 @@ export class CreateObjectCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateObjectCommand)
   .de(de_CreateObjectCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateObjectRequest;
+      output: CreateObjectResponse;
+    };
+    sdk: {
+      input: CreateObjectCommandInput;
+      output: CreateObjectCommandOutput;
+    };
+  };
+}

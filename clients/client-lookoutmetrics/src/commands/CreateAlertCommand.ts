@@ -12,7 +12,8 @@ import { de_CreateAlertCommand, se_CreateAlertCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface CreateAlertCommandOutput extends CreateAlertResponse, __Metadat
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class CreateAlertCommand extends $Command
@@ -116,9 +118,7 @@ export class CreateAlertCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class CreateAlertCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateAlertCommand)
   .de(de_CreateAlertCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateAlertRequest;
+      output: CreateAlertResponse;
+    };
+    sdk: {
+      input: CreateAlertCommandInput;
+      output: CreateAlertCommandOutput;
+    };
+  };
+}

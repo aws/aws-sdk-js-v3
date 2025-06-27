@@ -12,7 +12,8 @@ import { de_DeleteAccountPolicyCommand, se_DeleteAccountPolicyCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,8 @@ export interface DeleteAccountPolicyCommandInput extends DeleteAccountPolicyRequ
 export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a CloudWatch Logs account policy. This stops the policy from applying to all log groups
- *     or a subset of log groups in the account. Log-group level policies will still be in effect.</p>
+ * <p>Deletes a CloudWatch Logs account policy. This stops the account-wide policy from applying to log groups in the account. If you delete a data protection
+ *       policy or subscription filter policy, any log-group level policies of those types remain in effect.</p>
  *          <p>To use this operation, you must be signed on with the correct permissions depending on the type of policy
  *       that you are deleting.</p>
  *          <ul>
@@ -40,7 +41,16 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  *                <p>To delete a subscription filter policy, you must have the <code>logs:DeleteSubscriptionFilter</code> and
  *         <code>logs:DeleteAccountPolicy</code> permissions.</p>
  *             </li>
+ *             <li>
+ *                <p>To delete a transformer policy, you must have the <code>logs:DeleteTransformer</code> and <code>logs:DeleteAccountPolicy</code> permissions.</p>
+ *             </li>
+ *             <li>
+ *                <p>To delete a field index policy, you must have the <code>logs:DeleteIndexPolicy</code> and
+ *         <code>logs:DeleteAccountPolicy</code> permissions.</p>
+ *             </li>
  *          </ul>
+ *          <p>If you delete a field index policy, the indexing of the log events that happened before
+ *       you deleted the policy will still be used for up to 30 days to improve CloudWatch Logs Insights queries.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +59,7 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  * const client = new CloudWatchLogsClient(config);
  * const input = { // DeleteAccountPolicyRequest
  *   policyName: "STRING_VALUE", // required
- *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY", // required
+ *   policyType: "DATA_PROTECTION_POLICY" || "SUBSCRIPTION_FILTER_POLICY" || "FIELD_INDEX_POLICY" || "TRANSFORMER_POLICY", // required
  * };
  * const command = new DeleteAccountPolicyCommand(input);
  * const response = await client.send(command);
@@ -78,6 +88,7 @@ export interface DeleteAccountPolicyCommandOutput extends __MetadataBearer {}
  * @throws {@link CloudWatchLogsServiceException}
  * <p>Base exception class for all service exceptions from CloudWatchLogs service.</p>
  *
+ *
  * @public
  */
 export class DeleteAccountPolicyCommand extends $Command
@@ -88,9 +99,7 @@ export class DeleteAccountPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudWatchLogsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +111,16 @@ export class DeleteAccountPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAccountPolicyCommand)
   .de(de_DeleteAccountPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAccountPolicyRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAccountPolicyCommandInput;
+      output: DeleteAccountPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,24 +100,24 @@ export interface ResetDBClusterParameterGroupCommandOutput
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To reset all parameters to their default values
  * ```javascript
  * // The following example resets all parameter values in a customer-created DB cluster parameter group to their default values.
  * const input = {
- *   "DBClusterParameterGroupName": "mydbclpg",
- *   "ResetAllParameters": true
+ *   DBClusterParameterGroupName: "mydbclpg",
+ *   ResetAllParameters: true
  * };
  * const command = new ResetDBClusterParameterGroupCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterParameterGroupName": "mydbclpg"
+ *   DBClusterParameterGroupName: "mydbclpg"
  * }
  * *\/
- * // example id: to-reset-all-parameters-to-their-default-values-1680070254216
  * ```
  *
+ * @public
  */
 export class ResetDBClusterParameterGroupCommand extends $Command
   .classBuilder<
@@ -126,9 +127,7 @@ export class ResetDBClusterParameterGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +139,16 @@ export class ResetDBClusterParameterGroupCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResetDBClusterParameterGroupCommand)
   .de(de_ResetDBClusterParameterGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResetDBClusterParameterGroupMessage;
+      output: DBClusterParameterGroupNameMessage;
+    };
+    sdk: {
+      input: ResetDBClusterParameterGroupCommandInput;
+      output: ResetDBClusterParameterGroupCommandOutput;
+    };
+  };
+}

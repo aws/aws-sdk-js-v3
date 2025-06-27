@@ -12,7 +12,8 @@ import { de_StartInstanceRefreshCommand, se_StartInstanceRefreshCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,20 +36,21 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *             script. Then start an instance refresh to immediately begin the process of updating
  *             instances in the group. </p>
  *          <p>If successful, the request's response contains a unique ID that you can use to track
- *             the progress of the instance refresh. To query its status, call the <a>DescribeInstanceRefreshes</a> API. To describe the instance refreshes that
- *             have already run, call the <a>DescribeInstanceRefreshes</a> API. To cancel an
- *             instance refresh that is in progress, use the <a>CancelInstanceRefresh</a>
+ *             the progress of the instance refresh. To query its status, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a> API.
+ *             To describe the instance refreshes that
+ *             have already run, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeInstanceRefreshes.html">DescribeInstanceRefreshes</a> API. To cancel an
+ *             instance refresh that is in progress, use the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_CancelInstanceRefresh.html">CancelInstanceRefresh</a>
  *             API. </p>
  *          <p>An instance refresh might fail for several reasons, such as EC2 launch failures,
  *             misconfigured health checks, or not ignoring or allowing the termination of instances
  *             that are in <code>Standby</code> state or protected from scale in. You can monitor for
  *             failed EC2 launches using the scaling activities. To find the scaling activities, call
- *             the <a>DescribeScalingActivities</a> API.</p>
+ *             the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_DescribeScalingActivities.html">DescribeScalingActivities</a> API.</p>
  *          <p>If you enable auto rollback, your Auto Scaling group will be rolled back automatically when
  *             the instance refresh fails. You can enable this feature before starting an instance
  *             refresh by specifying the <code>AutoRollback</code> property in the instance refresh
  *             preferences. Otherwise, to roll back an instance refresh before it finishes, use the
- *                 <a>RollbackInstanceRefresh</a> API. </p>
+ *             <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_RollbackInstanceRefresh.html">RollbackInstanceRefresh</a> API. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +88,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *                 Max: Number("int"),
  *               },
  *               CpuManufacturers: [ // CpuManufacturers
- *                 "intel" || "amd" || "amazon-web-services",
+ *                 "intel" || "amd" || "amazon-web-services" || "apple",
  *               ],
  *               MemoryGiBPerVCpu: { // MemoryGiBPerVCpuRequest
  *                 Min: Number("double"),
@@ -144,6 +146,15 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *               AllowedInstanceTypes: [ // AllowedInstanceTypes
  *                 "STRING_VALUE",
  *               ],
+ *               BaselinePerformanceFactors: { // BaselinePerformanceFactorsRequest
+ *                 Cpu: { // CpuPerformanceFactorRequest
+ *                   References: [ // PerformanceFactorReferenceSetRequest
+ *                     { // PerformanceFactorReferenceRequest
+ *                       InstanceFamily: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                 },
+ *               },
  *             },
  *           },
  *         ],
@@ -175,6 +186,7 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  *       ],
  *     },
  *     MaxHealthyPercentage: Number("int"),
+ *     BakeTime: Number("int"),
  *   },
  * };
  * const command = new StartInstanceRefreshCommand(input);
@@ -208,40 +220,40 @@ export interface StartInstanceRefreshCommandOutput extends StartInstanceRefreshA
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To start an instance refresh
  * ```javascript
  * // This example starts an instance refresh for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "DesiredConfiguration": {
- *     "LaunchTemplate": {
- *       "LaunchTemplateName": "my-template-for-auto-scaling",
- *       "Version": "$Latest"
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   DesiredConfiguration: {
+ *     LaunchTemplate: {
+ *       LaunchTemplateName: "my-template-for-auto-scaling",
+ *       Version: "$Latest"
  *     }
  *   },
- *   "Preferences": {
- *     "AlarmSpecification": {
- *       "Alarms": [
+ *   Preferences: {
+ *     AlarmSpecification: {
+ *       Alarms: [
  *         "my-alarm"
  *       ]
  *     },
- *     "AutoRollback": true,
- *     "InstanceWarmup": 200,
- *     "MaxHealthyPercentage": 120,
- *     "MinHealthyPercentage": 90
+ *     AutoRollback: true,
+ *     InstanceWarmup: 200,
+ *     MaxHealthyPercentage: 120,
+ *     MinHealthyPercentage: 90
  *   }
  * };
  * const command = new StartInstanceRefreshCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "InstanceRefreshId": "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
+ *   InstanceRefreshId: "08b91cf7-8fa6-48af-b6a6-d227f40f1b9b"
  * }
  * *\/
- * // example id: to-start-an-instance-refresh-1592957271522
  * ```
  *
+ * @public
  */
 export class StartInstanceRefreshCommand extends $Command
   .classBuilder<
@@ -251,9 +263,7 @@ export class StartInstanceRefreshCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -265,4 +275,16 @@ export class StartInstanceRefreshCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartInstanceRefreshCommand)
   .de(de_StartInstanceRefreshCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartInstanceRefreshType;
+      output: StartInstanceRefreshAnswer;
+    };
+    sdk: {
+      input: StartInstanceRefreshCommandInput;
+      output: StartInstanceRefreshCommandOutput;
+    };
+  };
+}

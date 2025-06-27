@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface DeleteModelCommandInput extends DeleteModelInput {}
 export interface DeleteModelCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that
- *             was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete
- *             model artifacts, inference code, or the IAM role that you specified when creating the
- *             model. </p>
+ * <p>Deletes a model. The <code>DeleteModel</code> API deletes only the model entry that was created in SageMaker when you called the <code>CreateModel</code> API. It does not delete model artifacts, inference code, or the IAM role that you specified when creating the model. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -55,6 +53,7 @@ export interface DeleteModelCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteModelCommand extends $Command
@@ -65,9 +64,7 @@ export class DeleteModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -79,4 +76,16 @@ export class DeleteModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelCommand)
   .de(de_DeleteModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelInput;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelCommandInput;
+      output: DeleteModelCommandOutput;
+    };
+  };
+}

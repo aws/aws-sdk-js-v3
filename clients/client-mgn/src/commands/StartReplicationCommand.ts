@@ -12,7 +12,8 @@ import { de_StartReplicationCommand, se_StartReplicationCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -185,6 +186,7 @@ export interface StartReplicationCommandOutput extends SourceServer, __MetadataB
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class StartReplicationCommand extends $Command
@@ -195,9 +197,7 @@ export class StartReplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -209,4 +209,16 @@ export class StartReplicationCommand extends $Command
   .f(void 0, SourceServerFilterSensitiveLog)
   .ser(se_StartReplicationCommand)
   .de(de_StartReplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartReplicationRequest;
+      output: SourceServer;
+    };
+    sdk: {
+      input: StartReplicationCommandInput;
+      output: StartReplicationCommandOutput;
+    };
+  };
+}

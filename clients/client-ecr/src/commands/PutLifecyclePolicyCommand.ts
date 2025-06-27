@@ -12,7 +12,8 @@ import { de_PutLifecyclePolicyCommand, se_PutLifecyclePolicyCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,7 @@ export interface PutLifecyclePolicyCommandOutput extends PutLifecyclePolicyRespo
  * @throws {@link ECRServiceException}
  * <p>Base exception class for all service exceptions from ECR service.</p>
  *
+ *
  * @public
  */
 export class PutLifecyclePolicyCommand extends $Command
@@ -84,9 +86,7 @@ export class PutLifecyclePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ECRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +98,16 @@ export class PutLifecyclePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutLifecyclePolicyCommand)
   .de(de_PutLifecyclePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutLifecyclePolicyRequest;
+      output: PutLifecyclePolicyResponse;
+    };
+    sdk: {
+      input: PutLifecyclePolicyCommandInput;
+      output: PutLifecyclePolicyCommandOutput;
+    };
+  };
+}

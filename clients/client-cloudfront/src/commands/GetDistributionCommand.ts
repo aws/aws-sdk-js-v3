@@ -16,7 +16,8 @@ import { de_GetDistributionCommand, se_GetDistributionCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -122,6 +123,11 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //               OriginReadTimeout: Number("int"),
  * //               OriginKeepaliveTimeout: Number("int"),
  * //             },
+ * //             VpcOriginConfig: { // VpcOriginConfig
+ * //               VpcOriginId: "STRING_VALUE", // required
+ * //               OriginReadTimeout: Number("int"),
+ * //               OriginKeepaliveTimeout: Number("int"),
+ * //             },
  * //             ConnectionAttempts: Number("int"),
  * //             ConnectionTimeout: Number("int"),
  * //             OriginShield: { // OriginShield
@@ -153,6 +159,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //                 },
  * //               ],
  * //             },
+ * //             SelectionCriteria: "default" || "media-quality-based",
  * //           },
  * //         ],
  * //       },
@@ -211,6 +218,9 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //         CachePolicyId: "STRING_VALUE",
  * //         OriginRequestPolicyId: "STRING_VALUE",
  * //         ResponseHeadersPolicyId: "STRING_VALUE",
+ * //         GrpcConfig: { // GrpcConfig
+ * //           Enabled: true || false, // required
+ * //         },
  * //         ForwardedValues: { // ForwardedValues
  * //           QueryString: true || false, // required
  * //           Cookies: { // CookiePreference
@@ -294,6 +304,9 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //             CachePolicyId: "STRING_VALUE",
  * //             OriginRequestPolicyId: "STRING_VALUE",
  * //             ResponseHeadersPolicyId: "STRING_VALUE",
+ * //             GrpcConfig: {
+ * //               Enabled: true || false, // required
+ * //             },
  * //             ForwardedValues: {
  * //               QueryString: true || false, // required
  * //               Cookies: {
@@ -337,12 +350,12 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //       },
  * //       Comment: "STRING_VALUE", // required
  * //       Logging: { // LoggingConfig
- * //         Enabled: true || false, // required
- * //         IncludeCookies: true || false, // required
- * //         Bucket: "STRING_VALUE", // required
- * //         Prefix: "STRING_VALUE", // required
+ * //         Enabled: true || false,
+ * //         IncludeCookies: true || false,
+ * //         Bucket: "STRING_VALUE",
+ * //         Prefix: "STRING_VALUE",
  * //       },
- * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All",
+ * //       PriceClass: "PriceClass_100" || "PriceClass_200" || "PriceClass_All" || "None",
  * //       Enabled: true || false, // required
  * //       ViewerCertificate: { // ViewerCertificate
  * //         CloudFrontDefaultCertificate: true || false,
@@ -367,6 +380,22 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * //       IsIPV6Enabled: true || false,
  * //       ContinuousDeploymentPolicyId: "STRING_VALUE",
  * //       Staging: true || false,
+ * //       AnycastIpListId: "STRING_VALUE",
+ * //       TenantConfig: { // TenantConfig
+ * //         ParameterDefinitions: [ // ParameterDefinitions
+ * //           { // ParameterDefinition
+ * //             Name: "STRING_VALUE", // required
+ * //             Definition: { // ParameterDefinitionSchema
+ * //               StringSchema: { // StringSchemaConfig
+ * //                 Comment: "STRING_VALUE",
+ * //                 DefaultValue: "STRING_VALUE",
+ * //                 Required: true || false, // required
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //       ConnectionMode: "direct" || "tenant-only",
  * //     },
  * //     AliasICPRecordals: [ // AliasICPRecordals
  * //       { // AliasICPRecordal
@@ -395,6 +424,7 @@ export interface GetDistributionCommandOutput extends GetDistributionResult, __M
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class GetDistributionCommand extends $Command
@@ -405,9 +435,7 @@ export class GetDistributionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -419,4 +447,16 @@ export class GetDistributionCommand extends $Command
   .f(void 0, GetDistributionResultFilterSensitiveLog)
   .ser(se_GetDistributionCommand)
   .de(de_GetDistributionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDistributionRequest;
+      output: GetDistributionResult;
+    };
+    sdk: {
+      input: GetDistributionCommandInput;
+      output: GetDistributionCommandOutput;
+    };
+  };
+}

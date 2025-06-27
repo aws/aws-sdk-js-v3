@@ -16,7 +16,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -47,6 +48,11 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  *     },
  *   },
  *   dbParameterGroupIdentifier: "STRING_VALUE",
+ *   port: Number("int"),
+ *   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
+ *   deploymentType: "SINGLE_AZ" || "WITH_MULTIAZ_STANDBY",
+ *   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
+ *   allocatedStorage: Number("int"),
  * };
  * const command = new UpdateDbInstanceCommand(input);
  * const response = await client.send(command);
@@ -54,8 +60,10 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * //   id: "STRING_VALUE", // required
  * //   name: "STRING_VALUE", // required
  * //   arn: "STRING_VALUE", // required
- * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED",
+ * //   status: "CREATING" || "AVAILABLE" || "DELETING" || "MODIFYING" || "UPDATING" || "DELETED" || "FAILED" || "UPDATING_DEPLOYMENT_TYPE" || "UPDATING_INSTANCE_TYPE",
  * //   endpoint: "STRING_VALUE",
+ * //   port: Number("int"),
+ * //   networkType: "IPV4" || "DUAL",
  * //   dbInstanceType: "db.influx.medium" || "db.influx.large" || "db.influx.xlarge" || "db.influx.2xlarge" || "db.influx.4xlarge" || "db.influx.8xlarge" || "db.influx.12xlarge" || "db.influx.16xlarge",
  * //   dbStorageType: "InfluxIOIncludedT1" || "InfluxIOIncludedT2" || "InfluxIOIncludedT3",
  * //   allocatedStorage: Number("int"),
@@ -77,6 +85,8 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * //     },
  * //   },
  * //   influxAuthParametersSecretArn: "STRING_VALUE",
+ * //   dbClusterId: "STRING_VALUE",
+ * //   instanceMode: "PRIMARY" || "STANDBY" || "REPLICA",
  * // };
  *
  * ```
@@ -108,6 +118,7 @@ export interface UpdateDbInstanceCommandOutput extends UpdateDbInstanceOutput, _
  * @throws {@link TimestreamInfluxDBServiceException}
  * <p>Base exception class for all service exceptions from TimestreamInfluxDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateDbInstanceCommand extends $Command
@@ -118,9 +129,7 @@ export class UpdateDbInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TimestreamInfluxDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +141,16 @@ export class UpdateDbInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDbInstanceCommand)
   .de(de_UpdateDbInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDbInstanceInput;
+      output: UpdateDbInstanceOutput;
+    };
+    sdk: {
+      input: UpdateDbInstanceCommandInput;
+      output: UpdateDbInstanceCommandOutput;
+    };
+  };
+}

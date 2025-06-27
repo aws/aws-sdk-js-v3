@@ -7,14 +7,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult } from "../models/models_0";
+import { ListMultiRegionAccessPointsRequest, ListMultiRegionAccessPointsResult } from "../models/models_1";
 import { de_ListMultiRegionAccessPointsCommand, se_ListMultiRegionAccessPointsCommand } from "../protocols/Aws_restXml";
 import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../S3ControlClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -110,6 +111,7 @@ export interface ListMultiRegionAccessPointsCommandOutput extends ListMultiRegio
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class ListMultiRegionAccessPointsCommand extends $Command
@@ -138,4 +140,16 @@ export class ListMultiRegionAccessPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultiRegionAccessPointsCommand)
   .de(de_ListMultiRegionAccessPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultiRegionAccessPointsRequest;
+      output: ListMultiRegionAccessPointsResult;
+    };
+    sdk: {
+      input: ListMultiRegionAccessPointsCommandInput;
+      output: ListMultiRegionAccessPointsCommandOutput;
+    };
+  };
+}

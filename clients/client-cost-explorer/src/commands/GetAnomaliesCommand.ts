@@ -12,7 +12,8 @@ import { de_GetAnomaliesCommand, se_GetAnomaliesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,8 +66,11 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * //           Service: "STRING_VALUE",
  * //           Region: "STRING_VALUE",
  * //           LinkedAccount: "STRING_VALUE",
- * //           UsageType: "STRING_VALUE",
  * //           LinkedAccountName: "STRING_VALUE",
+ * //           UsageType: "STRING_VALUE",
+ * //           Impact: { // RootCauseImpact
+ * //             Contribution: Number("double"), // required
+ * //           },
  * //         },
  * //       ],
  * //       AnomalyScore: { // AnomalyScore
@@ -104,6 +108,7 @@ export interface GetAnomaliesCommandOutput extends GetAnomaliesResponse, __Metad
  * @throws {@link CostExplorerServiceException}
  * <p>Base exception class for all service exceptions from CostExplorer service.</p>
  *
+ *
  * @public
  */
 export class GetAnomaliesCommand extends $Command
@@ -114,9 +119,7 @@ export class GetAnomaliesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CostExplorerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -128,4 +131,16 @@ export class GetAnomaliesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAnomaliesCommand)
   .de(de_GetAnomaliesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAnomaliesRequest;
+      output: GetAnomaliesResponse;
+    };
+    sdk: {
+      input: GetAnomaliesCommandInput;
+      output: GetAnomaliesCommandOutput;
+    };
+  };
+}

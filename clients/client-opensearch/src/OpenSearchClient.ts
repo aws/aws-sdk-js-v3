@@ -58,8 +58,13 @@ import {
   AcceptInboundConnectionCommandOutput,
 } from "./commands/AcceptInboundConnectionCommand";
 import { AddDataSourceCommandInput, AddDataSourceCommandOutput } from "./commands/AddDataSourceCommand";
+import {
+  AddDirectQueryDataSourceCommandInput,
+  AddDirectQueryDataSourceCommandOutput,
+} from "./commands/AddDirectQueryDataSourceCommand";
 import { AddTagsCommandInput, AddTagsCommandOutput } from "./commands/AddTagsCommand";
 import { AssociatePackageCommandInput, AssociatePackageCommandOutput } from "./commands/AssociatePackageCommand";
+import { AssociatePackagesCommandInput, AssociatePackagesCommandOutput } from "./commands/AssociatePackagesCommand";
 import {
   AuthorizeVpcEndpointAccessCommandInput,
   AuthorizeVpcEndpointAccessCommandOutput,
@@ -72,6 +77,7 @@ import {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
+import { CreateApplicationCommandInput, CreateApplicationCommandOutput } from "./commands/CreateApplicationCommand";
 import { CreateDomainCommandInput, CreateDomainCommandOutput } from "./commands/CreateDomainCommand";
 import {
   CreateOutboundConnectionCommandInput,
@@ -79,7 +85,12 @@ import {
 } from "./commands/CreateOutboundConnectionCommand";
 import { CreatePackageCommandInput, CreatePackageCommandOutput } from "./commands/CreatePackageCommand";
 import { CreateVpcEndpointCommandInput, CreateVpcEndpointCommandOutput } from "./commands/CreateVpcEndpointCommand";
+import { DeleteApplicationCommandInput, DeleteApplicationCommandOutput } from "./commands/DeleteApplicationCommand";
 import { DeleteDataSourceCommandInput, DeleteDataSourceCommandOutput } from "./commands/DeleteDataSourceCommand";
+import {
+  DeleteDirectQueryDataSourceCommandInput,
+  DeleteDirectQueryDataSourceCommandOutput,
+} from "./commands/DeleteDirectQueryDataSourceCommand";
 import { DeleteDomainCommandInput, DeleteDomainCommandOutput } from "./commands/DeleteDomainCommand";
 import {
   DeleteInboundConnectionCommandInput,
@@ -143,11 +154,17 @@ import {
   DescribeVpcEndpointsCommandOutput,
 } from "./commands/DescribeVpcEndpointsCommand";
 import { DissociatePackageCommandInput, DissociatePackageCommandOutput } from "./commands/DissociatePackageCommand";
+import { DissociatePackagesCommandInput, DissociatePackagesCommandOutput } from "./commands/DissociatePackagesCommand";
+import { GetApplicationCommandInput, GetApplicationCommandOutput } from "./commands/GetApplicationCommand";
 import {
   GetCompatibleVersionsCommandInput,
   GetCompatibleVersionsCommandOutput,
 } from "./commands/GetCompatibleVersionsCommand";
 import { GetDataSourceCommandInput, GetDataSourceCommandOutput } from "./commands/GetDataSourceCommand";
+import {
+  GetDirectQueryDataSourceCommandInput,
+  GetDirectQueryDataSourceCommandOutput,
+} from "./commands/GetDirectQueryDataSourceCommand";
 import {
   GetDomainMaintenanceStatusCommandInput,
   GetDomainMaintenanceStatusCommandOutput,
@@ -158,7 +175,12 @@ import {
 } from "./commands/GetPackageVersionHistoryCommand";
 import { GetUpgradeHistoryCommandInput, GetUpgradeHistoryCommandOutput } from "./commands/GetUpgradeHistoryCommand";
 import { GetUpgradeStatusCommandInput, GetUpgradeStatusCommandOutput } from "./commands/GetUpgradeStatusCommand";
+import { ListApplicationsCommandInput, ListApplicationsCommandOutput } from "./commands/ListApplicationsCommand";
 import { ListDataSourcesCommandInput, ListDataSourcesCommandOutput } from "./commands/ListDataSourcesCommand";
+import {
+  ListDirectQueryDataSourcesCommandInput,
+  ListDirectQueryDataSourcesCommandOutput,
+} from "./commands/ListDirectQueryDataSourcesCommand";
 import {
   ListDomainMaintenancesCommandInput,
   ListDomainMaintenancesCommandOutput,
@@ -212,9 +234,15 @@ import {
   StartServiceSoftwareUpdateCommandInput,
   StartServiceSoftwareUpdateCommandOutput,
 } from "./commands/StartServiceSoftwareUpdateCommand";
+import { UpdateApplicationCommandInput, UpdateApplicationCommandOutput } from "./commands/UpdateApplicationCommand";
 import { UpdateDataSourceCommandInput, UpdateDataSourceCommandOutput } from "./commands/UpdateDataSourceCommand";
+import {
+  UpdateDirectQueryDataSourceCommandInput,
+  UpdateDirectQueryDataSourceCommandOutput,
+} from "./commands/UpdateDirectQueryDataSourceCommand";
 import { UpdateDomainConfigCommandInput, UpdateDomainConfigCommandOutput } from "./commands/UpdateDomainConfigCommand";
 import { UpdatePackageCommandInput, UpdatePackageCommandOutput } from "./commands/UpdatePackageCommand";
+import { UpdatePackageScopeCommandInput, UpdatePackageScopeCommandOutput } from "./commands/UpdatePackageScopeCommand";
 import {
   UpdateScheduledActionCommandInput,
   UpdateScheduledActionCommandOutput,
@@ -238,16 +266,21 @@ export { __Client };
 export type ServiceInputTypes =
   | AcceptInboundConnectionCommandInput
   | AddDataSourceCommandInput
+  | AddDirectQueryDataSourceCommandInput
   | AddTagsCommandInput
   | AssociatePackageCommandInput
+  | AssociatePackagesCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
   | CancelDomainConfigChangeCommandInput
   | CancelServiceSoftwareUpdateCommandInput
+  | CreateApplicationCommandInput
   | CreateDomainCommandInput
   | CreateOutboundConnectionCommandInput
   | CreatePackageCommandInput
   | CreateVpcEndpointCommandInput
+  | DeleteApplicationCommandInput
   | DeleteDataSourceCommandInput
+  | DeleteDirectQueryDataSourceCommandInput
   | DeleteDomainCommandInput
   | DeleteInboundConnectionCommandInput
   | DeleteOutboundConnectionCommandInput
@@ -269,13 +302,18 @@ export type ServiceInputTypes =
   | DescribeReservedInstancesCommandInput
   | DescribeVpcEndpointsCommandInput
   | DissociatePackageCommandInput
+  | DissociatePackagesCommandInput
+  | GetApplicationCommandInput
   | GetCompatibleVersionsCommandInput
   | GetDataSourceCommandInput
+  | GetDirectQueryDataSourceCommandInput
   | GetDomainMaintenanceStatusCommandInput
   | GetPackageVersionHistoryCommandInput
   | GetUpgradeHistoryCommandInput
   | GetUpgradeStatusCommandInput
+  | ListApplicationsCommandInput
   | ListDataSourcesCommandInput
+  | ListDirectQueryDataSourcesCommandInput
   | ListDomainMaintenancesCommandInput
   | ListDomainNamesCommandInput
   | ListDomainsForPackageCommandInput
@@ -293,9 +331,12 @@ export type ServiceInputTypes =
   | RevokeVpcEndpointAccessCommandInput
   | StartDomainMaintenanceCommandInput
   | StartServiceSoftwareUpdateCommandInput
+  | UpdateApplicationCommandInput
   | UpdateDataSourceCommandInput
+  | UpdateDirectQueryDataSourceCommandInput
   | UpdateDomainConfigCommandInput
   | UpdatePackageCommandInput
+  | UpdatePackageScopeCommandInput
   | UpdateScheduledActionCommandInput
   | UpdateVpcEndpointCommandInput
   | UpgradeDomainCommandInput;
@@ -306,16 +347,21 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | AcceptInboundConnectionCommandOutput
   | AddDataSourceCommandOutput
+  | AddDirectQueryDataSourceCommandOutput
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
+  | AssociatePackagesCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
   | CancelDomainConfigChangeCommandOutput
   | CancelServiceSoftwareUpdateCommandOutput
+  | CreateApplicationCommandOutput
   | CreateDomainCommandOutput
   | CreateOutboundConnectionCommandOutput
   | CreatePackageCommandOutput
   | CreateVpcEndpointCommandOutput
+  | DeleteApplicationCommandOutput
   | DeleteDataSourceCommandOutput
+  | DeleteDirectQueryDataSourceCommandOutput
   | DeleteDomainCommandOutput
   | DeleteInboundConnectionCommandOutput
   | DeleteOutboundConnectionCommandOutput
@@ -337,13 +383,18 @@ export type ServiceOutputTypes =
   | DescribeReservedInstancesCommandOutput
   | DescribeVpcEndpointsCommandOutput
   | DissociatePackageCommandOutput
+  | DissociatePackagesCommandOutput
+  | GetApplicationCommandOutput
   | GetCompatibleVersionsCommandOutput
   | GetDataSourceCommandOutput
+  | GetDirectQueryDataSourceCommandOutput
   | GetDomainMaintenanceStatusCommandOutput
   | GetPackageVersionHistoryCommandOutput
   | GetUpgradeHistoryCommandOutput
   | GetUpgradeStatusCommandOutput
+  | ListApplicationsCommandOutput
   | ListDataSourcesCommandOutput
+  | ListDirectQueryDataSourcesCommandOutput
   | ListDomainMaintenancesCommandOutput
   | ListDomainNamesCommandOutput
   | ListDomainsForPackageCommandOutput
@@ -361,9 +412,12 @@ export type ServiceOutputTypes =
   | RevokeVpcEndpointAccessCommandOutput
   | StartDomainMaintenanceCommandOutput
   | StartServiceSoftwareUpdateCommandOutput
+  | UpdateApplicationCommandOutput
   | UpdateDataSourceCommandOutput
+  | UpdateDirectQueryDataSourceCommandOutput
   | UpdateDomainConfigCommandOutput
   | UpdatePackageCommandOutput
+  | UpdatePackageScopeCommandOutput
   | UpdateScheduledActionCommandOutput
   | UpdateVpcEndpointCommandOutput
   | UpgradeDomainCommandOutput;
@@ -460,6 +514,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -505,11 +578,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type OpenSearchClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -525,11 +598,11 @@ export interface OpenSearchClientConfig extends OpenSearchClientConfigType {}
 export type OpenSearchClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -560,26 +633,30 @@ export class OpenSearchClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<OpenSearchClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultOpenSearchHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: OpenSearchClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -592,14 +669,5 @@ export class OpenSearchClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultOpenSearchHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: OpenSearchClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

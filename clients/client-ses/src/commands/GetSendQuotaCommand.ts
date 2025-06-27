@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,23 +56,23 @@ export interface GetSendQuotaCommandOutput extends GetSendQuotaResponse, __Metad
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetSendQuota
  * ```javascript
  * // The following example returns the Amazon SES sending limits for an AWS account:
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new GetSendQuotaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Max24HourSend": 200,
- *   "MaxSendRate": 1,
- *   "SentLast24Hours": 1
+ *   Max24HourSend: 200,
+ *   MaxSendRate: 1,
+ *   SentLast24Hours: 1
  * }
  * *\/
- * // example id: getsendquota-1469047324508
  * ```
  *
+ * @public
  */
 export class GetSendQuotaCommand extends $Command
   .classBuilder<
@@ -81,9 +82,7 @@ export class GetSendQuotaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +94,16 @@ export class GetSendQuotaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSendQuotaCommand)
   .de(de_GetSendQuotaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetSendQuotaResponse;
+    };
+    sdk: {
+      input: GetSendQuotaCommandInput;
+      output: GetSendQuotaCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetChannelCommand, se_GetChannelCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,12 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * //       passphrase: "STRING_VALUE",
  * //     },
  * //     playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //     multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //       enabled: true || false,
+ * //       policy: "ALLOW" || "REQUIRE",
+ * //       maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //     },
+ * //     containerFormat: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -82,6 +89,7 @@ export interface GetChannelCommandOutput extends GetChannelResponse, __MetadataB
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetChannelCommand extends $Command
@@ -92,9 +100,7 @@ export class GetChannelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +112,16 @@ export class GetChannelCommand extends $Command
   .f(void 0, GetChannelResponseFilterSensitiveLog)
   .ser(se_GetChannelCommand)
   .de(de_GetChannelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetChannelRequest;
+      output: GetChannelResponse;
+    };
+    sdk: {
+      input: GetChannelCommandInput;
+      output: GetChannelCommandOutput;
+    };
+  };
+}

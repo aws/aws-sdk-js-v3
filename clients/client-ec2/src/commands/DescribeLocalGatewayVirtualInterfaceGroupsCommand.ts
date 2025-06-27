@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeLocalGatewayVirtualInterfaceGroupsRequest,
   DescribeLocalGatewayVirtualInterfaceGroupsResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeLocalGatewayVirtualInterfaceGroupsCommand,
   se_DescribeLocalGatewayVirtualInterfaceGroupsCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -70,12 +71,16 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
  * //       ],
  * //       LocalGatewayId: "STRING_VALUE",
  * //       OwnerId: "STRING_VALUE",
+ * //       LocalBgpAsn: Number("int"),
+ * //       LocalBgpAsnExtended: Number("long"),
+ * //       LocalGatewayVirtualInterfaceGroupArn: "STRING_VALUE",
  * //       Tags: [ // TagList
  * //         { // Tag
  * //           Key: "STRING_VALUE",
  * //           Value: "STRING_VALUE",
  * //         },
  * //       ],
+ * //       ConfigurationState: "pending" || "incomplete" || "available" || "deleting" || "deleted",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -92,6 +97,7 @@ export interface DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command
@@ -102,9 +108,7 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +120,16 @@ export class DescribeLocalGatewayVirtualInterfaceGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeLocalGatewayVirtualInterfaceGroupsCommand)
   .de(de_DescribeLocalGatewayVirtualInterfaceGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeLocalGatewayVirtualInterfaceGroupsRequest;
+      output: DescribeLocalGatewayVirtualInterfaceGroupsResult;
+    };
+    sdk: {
+      input: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput;
+      output: DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_StartContactRecordingCommand, se_StartContactRecordingCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -58,6 +59,7 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  *   InitialContactId: "STRING_VALUE", // required
  *   VoiceRecordingConfiguration: { // VoiceRecordingConfiguration
  *     VoiceRecordingTrack: "FROM_AGENT" || "TO_AGENT" || "ALL",
+ *     IvrRecordingTrack: "ALL",
  *   },
  * };
  * const command = new StartContactRecordingCommand(input);
@@ -87,6 +89,7 @@ export interface StartContactRecordingCommandOutput extends StartContactRecordin
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class StartContactRecordingCommand extends $Command
@@ -97,9 +100,7 @@ export class StartContactRecordingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +112,16 @@ export class StartContactRecordingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartContactRecordingCommand)
   .de(de_StartContactRecordingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartContactRecordingRequest;
+      output: {};
+    };
+    sdk: {
+      input: StartContactRecordingCommandInput;
+      output: StartContactRecordingCommandOutput;
+    };
+  };
+}

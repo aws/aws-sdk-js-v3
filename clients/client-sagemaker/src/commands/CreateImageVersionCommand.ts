@@ -12,7 +12,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface CreateImageVersionCommandInput extends CreateImageVersionReques
 export interface CreateImageVersionCommandOutput extends CreateImageVersionResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a version of the SageMaker image specified by <code>ImageName</code>. The version
- *         represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
+ * <p>Creates a version of the SageMaker AI image specified by <code>ImageName</code>. The version represents the Amazon ECR container image specified by <code>BaseImage</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,14 +68,14 @@ export interface CreateImageVersionCommandOutput extends CreateImageVersionRespo
  *  <p>Resource being accessed is in use.</p>
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link ResourceNotFound} (client fault)
  *  <p>Resource being access is not found.</p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -87,9 +87,7 @@ export class CreateImageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +99,16 @@ export class CreateImageVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateImageVersionCommand)
   .de(de_CreateImageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateImageVersionRequest;
+      output: CreateImageVersionResponse;
+    };
+    sdk: {
+      input: CreateImageVersionCommandInput;
+      output: CreateImageVersionCommandOutput;
+    };
+  };
+}

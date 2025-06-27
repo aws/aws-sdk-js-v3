@@ -1,5 +1,6 @@
 // smithy-typescript generated code
 export * from "./AssociateServiceQuotaTemplateCommand";
+export * from "./CreateSupportCaseCommand";
 export * from "./DeleteServiceQuotaIncreaseRequestFromTemplateCommand";
 export * from "./DisassociateServiceQuotaTemplateCommand";
 export * from "./GetAWSDefaultServiceQuotaCommand";

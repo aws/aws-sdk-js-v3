@@ -12,7 +12,8 @@ import { de_UpdateScriptCommand, se_UpdateScriptCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,13 +36,13 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *             original script was uploaded. Use the <i>Version</i> parameter to track
  *             updates to the script.</p>
  *          <p>If the call is successful, the updated metadata is stored in the script record and a
- *             revised script is uploaded to the Amazon GameLift service. Once the script is updated and
+ *             revised script is uploaded to the Amazon GameLift Servers service. Once the script is updated and
  *             acquired by a fleet instance, the new version is used for all new game sessions. </p>
  *          <p>
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Realtime Servers</a>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/realtime-intro.html">Amazon GameLift Servers Amazon GameLift Servers Realtime</a>
  *          </p>
  *          <p>
  *             <b>Related actions</b>
@@ -103,13 +104,14 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -121,9 +123,7 @@ export class UpdateScriptCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +135,16 @@ export class UpdateScriptCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateScriptCommand)
   .de(de_UpdateScriptCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateScriptInput;
+      output: UpdateScriptOutput;
+    };
+    sdk: {
+      input: UpdateScriptCommandInput;
+      output: UpdateScriptCommandOutput;
+    };
+  };
+}

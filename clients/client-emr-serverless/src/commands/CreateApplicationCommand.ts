@@ -16,7 +16,8 @@ import { de_CreateApplicationCommand, se_CreateApplicationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -133,6 +134,13 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     studioEnabled: true || false,
  *     livyEndpointEnabled: true || false,
  *   },
+ *   schedulerConfiguration: { // SchedulerConfiguration
+ *     queueTimeoutMinutes: Number("int"),
+ *     maxConcurrentRuns: Number("int"),
+ *   },
+ *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
+ *     identityCenterInstanceArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateApplicationCommand(input);
  * const response = await client.send(command);
@@ -151,8 +159,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  * @see {@link EMRServerlessClientResolvedConfig | config} for EMRServerlessClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The request could not be processed because of conflict in the current state of the
- *          resource.</p>
+ *  <p>The request could not be processed because of conflict in the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Request processing failed because of an error or failure with the service.</p>
@@ -161,11 +168,11 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
+ *
  *
  * @public
  */
@@ -177,9 +184,7 @@ export class CreateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -191,4 +196,16 @@ export class CreateApplicationCommand extends $Command
   .f(CreateApplicationRequestFilterSensitiveLog, void 0)
   .ser(se_CreateApplicationCommand)
   .de(de_CreateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateApplicationRequest;
+      output: CreateApplicationResponse;
+    };
+    sdk: {
+      input: CreateApplicationCommandInput;
+      output: CreateApplicationCommandOutput;
+    };
+  };
+}

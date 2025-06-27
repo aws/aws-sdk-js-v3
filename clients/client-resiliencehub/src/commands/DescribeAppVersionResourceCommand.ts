@@ -12,7 +12,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
 /**
  * <p>Describes a resource of the Resilience Hub application.</p>
  *          <note>
- *             <p>This API accepts only one of the following parameters to descibe the resource:</p>
+ *             <p>This API accepts only one of the following parameters to describe the resource:</p>
  *             <ul>
  *                <li>
  *                   <p>
@@ -43,8 +44,8 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  *                </li>
  *                <li>
  *                   <p>
- *                      <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can also
- *             provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p>
+ *                      <code>physicalResourceId</code> (Along with <code>physicalResourceId</code>, you can
+ *             also provide <code>awsAccountId</code>, and <code>awsRegion</code>)</p>
  *                </li>
  *             </ul>
  *          </note>
@@ -85,7 +86,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * //     },
  * //     physicalResourceId: { // PhysicalResourceId
  * //       identifier: "STRING_VALUE", // required
- * //       type: "STRING_VALUE", // required
+ * //       type: "Arn" || "Native", // required
  * //       awsRegion: "STRING_VALUE",
  * //       awsAccountId: "STRING_VALUE",
  * //     },
@@ -108,7 +109,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * //       ],
  * //     },
  * //     excluded: true || false,
- * //     sourceType: "STRING_VALUE",
+ * //     sourceType: "AppTemplate" || "Discovered",
  * //     parentResourceName: "STRING_VALUE",
  * //   },
  * // };
@@ -148,6 +149,7 @@ export interface DescribeAppVersionResourceCommandOutput extends DescribeAppVers
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class DescribeAppVersionResourceCommand extends $Command
@@ -158,9 +160,7 @@ export class DescribeAppVersionResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -172,4 +172,16 @@ export class DescribeAppVersionResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAppVersionResourceCommand)
   .de(de_DescribeAppVersionResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAppVersionResourceRequest;
+      output: DescribeAppVersionResourceResponse;
+    };
+    sdk: {
+      input: DescribeAppVersionResourceCommandInput;
+      output: DescribeAppVersionResourceCommandOutput;
+    };
+  };
+}

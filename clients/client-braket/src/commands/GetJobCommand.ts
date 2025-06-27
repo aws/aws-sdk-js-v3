@@ -12,7 +12,8 @@ import { de_GetJobCommand, se_GetJobCommand } from "../protocols/Aws_restJson1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -145,6 +146,7 @@ export interface GetJobCommandOutput extends GetJobResponse, __MetadataBearer {}
  * @throws {@link BraketServiceException}
  * <p>Base exception class for all service exceptions from Braket service.</p>
  *
+ *
  * @public
  */
 export class GetJobCommand extends $Command
@@ -155,9 +157,7 @@ export class GetJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BraketClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +169,16 @@ export class GetJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetJobCommand)
   .de(de_GetJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetJobRequest;
+      output: GetJobResponse;
+    };
+    sdk: {
+      input: GetJobCommandInput;
+      output: GetJobCommandOutput;
+    };
+  };
+}

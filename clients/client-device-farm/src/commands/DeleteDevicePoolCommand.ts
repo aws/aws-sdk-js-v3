@@ -12,7 +12,8 @@ import { de_DeleteDevicePoolCommand, se_DeleteDevicePoolCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,18 +66,21 @@ export interface DeleteDevicePoolCommandOutput extends DeleteDevicePoolResult, _
  * @throws {@link DeviceFarmServiceException}
  * <p>Base exception class for all service exceptions from DeviceFarm service.</p>
  *
- * @public
+ *
  * @example To delete a device pool
  * ```javascript
  * // The following example deletes a specific device pool.
  * const input = {
- *   "arn": "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID"
+ *   arn: "arn:aws:devicefarm:us-west-2::devicepool:123-456-EXAMPLE-GUID"
  * };
  * const command = new DeleteDevicePoolCommand(input);
- * await client.send(command);
- * // example id: deletedevicepool-example-1470866975494
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteDevicePoolCommand extends $Command
   .classBuilder<
@@ -86,9 +90,7 @@ export class DeleteDevicePoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeviceFarmClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +102,16 @@ export class DeleteDevicePoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDevicePoolCommand)
   .de(de_DeleteDevicePoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDevicePoolRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteDevicePoolCommandInput;
+      output: DeleteDevicePoolCommandOutput;
+    };
+  };
+}

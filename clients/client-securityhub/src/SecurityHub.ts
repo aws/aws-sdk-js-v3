@@ -63,25 +63,50 @@ import {
   BatchUpdateFindingsCommandOutput,
 } from "./commands/BatchUpdateFindingsCommand";
 import {
+  BatchUpdateFindingsV2Command,
+  BatchUpdateFindingsV2CommandInput,
+  BatchUpdateFindingsV2CommandOutput,
+} from "./commands/BatchUpdateFindingsV2Command";
+import {
   BatchUpdateStandardsControlAssociationsCommand,
   BatchUpdateStandardsControlAssociationsCommandInput,
   BatchUpdateStandardsControlAssociationsCommandOutput,
 } from "./commands/BatchUpdateStandardsControlAssociationsCommand";
+import {
+  ConnectorRegistrationsV2Command,
+  ConnectorRegistrationsV2CommandInput,
+  ConnectorRegistrationsV2CommandOutput,
+} from "./commands/ConnectorRegistrationsV2Command";
 import {
   CreateActionTargetCommand,
   CreateActionTargetCommandInput,
   CreateActionTargetCommandOutput,
 } from "./commands/CreateActionTargetCommand";
 import {
+  CreateAggregatorV2Command,
+  CreateAggregatorV2CommandInput,
+  CreateAggregatorV2CommandOutput,
+} from "./commands/CreateAggregatorV2Command";
+import {
   CreateAutomationRuleCommand,
   CreateAutomationRuleCommandInput,
   CreateAutomationRuleCommandOutput,
 } from "./commands/CreateAutomationRuleCommand";
 import {
+  CreateAutomationRuleV2Command,
+  CreateAutomationRuleV2CommandInput,
+  CreateAutomationRuleV2CommandOutput,
+} from "./commands/CreateAutomationRuleV2Command";
+import {
   CreateConfigurationPolicyCommand,
   CreateConfigurationPolicyCommandInput,
   CreateConfigurationPolicyCommandOutput,
 } from "./commands/CreateConfigurationPolicyCommand";
+import {
+  CreateConnectorV2Command,
+  CreateConnectorV2CommandInput,
+  CreateConnectorV2CommandOutput,
+} from "./commands/CreateConnectorV2Command";
 import {
   CreateFindingAggregatorCommand,
   CreateFindingAggregatorCommandInput,
@@ -98,6 +123,11 @@ import {
   CreateMembersCommandOutput,
 } from "./commands/CreateMembersCommand";
 import {
+  CreateTicketV2Command,
+  CreateTicketV2CommandInput,
+  CreateTicketV2CommandOutput,
+} from "./commands/CreateTicketV2Command";
+import {
   DeclineInvitationsCommand,
   DeclineInvitationsCommandInput,
   DeclineInvitationsCommandOutput,
@@ -108,10 +138,25 @@ import {
   DeleteActionTargetCommandOutput,
 } from "./commands/DeleteActionTargetCommand";
 import {
+  DeleteAggregatorV2Command,
+  DeleteAggregatorV2CommandInput,
+  DeleteAggregatorV2CommandOutput,
+} from "./commands/DeleteAggregatorV2Command";
+import {
+  DeleteAutomationRuleV2Command,
+  DeleteAutomationRuleV2CommandInput,
+  DeleteAutomationRuleV2CommandOutput,
+} from "./commands/DeleteAutomationRuleV2Command";
+import {
   DeleteConfigurationPolicyCommand,
   DeleteConfigurationPolicyCommandInput,
   DeleteConfigurationPolicyCommandOutput,
 } from "./commands/DeleteConfigurationPolicyCommand";
+import {
+  DeleteConnectorV2Command,
+  DeleteConnectorV2CommandInput,
+  DeleteConnectorV2CommandOutput,
+} from "./commands/DeleteConnectorV2Command";
 import {
   DeleteFindingAggregatorCommand,
   DeleteFindingAggregatorCommandInput,
@@ -149,6 +194,16 @@ import {
   DescribeProductsCommandOutput,
 } from "./commands/DescribeProductsCommand";
 import {
+  DescribeProductsV2Command,
+  DescribeProductsV2CommandInput,
+  DescribeProductsV2CommandOutput,
+} from "./commands/DescribeProductsV2Command";
+import {
+  DescribeSecurityHubV2Command,
+  DescribeSecurityHubV2CommandInput,
+  DescribeSecurityHubV2CommandOutput,
+} from "./commands/DescribeSecurityHubV2Command";
+import {
   DescribeStandardsCommand,
   DescribeStandardsCommandInput,
   DescribeStandardsCommandOutput,
@@ -173,6 +228,11 @@ import {
   DisableSecurityHubCommandInput,
   DisableSecurityHubCommandOutput,
 } from "./commands/DisableSecurityHubCommand";
+import {
+  DisableSecurityHubV2Command,
+  DisableSecurityHubV2CommandInput,
+  DisableSecurityHubV2CommandOutput,
+} from "./commands/DisableSecurityHubV2Command";
 import {
   DisassociateFromAdministratorAccountCommand,
   DisassociateFromAdministratorAccountCommandInput,
@@ -204,10 +264,25 @@ import {
   EnableSecurityHubCommandOutput,
 } from "./commands/EnableSecurityHubCommand";
 import {
+  EnableSecurityHubV2Command,
+  EnableSecurityHubV2CommandInput,
+  EnableSecurityHubV2CommandOutput,
+} from "./commands/EnableSecurityHubV2Command";
+import {
   GetAdministratorAccountCommand,
   GetAdministratorAccountCommandInput,
   GetAdministratorAccountCommandOutput,
 } from "./commands/GetAdministratorAccountCommand";
+import {
+  GetAggregatorV2Command,
+  GetAggregatorV2CommandInput,
+  GetAggregatorV2CommandOutput,
+} from "./commands/GetAggregatorV2Command";
+import {
+  GetAutomationRuleV2Command,
+  GetAutomationRuleV2CommandInput,
+  GetAutomationRuleV2CommandOutput,
+} from "./commands/GetAutomationRuleV2Command";
 import {
   GetConfigurationPolicyAssociationCommand,
   GetConfigurationPolicyAssociationCommandInput,
@@ -218,6 +293,11 @@ import {
   GetConfigurationPolicyCommandInput,
   GetConfigurationPolicyCommandOutput,
 } from "./commands/GetConfigurationPolicyCommand";
+import {
+  GetConnectorV2Command,
+  GetConnectorV2CommandInput,
+  GetConnectorV2CommandOutput,
+} from "./commands/GetConnectorV2Command";
 import {
   GetEnabledStandardsCommand,
   GetEnabledStandardsCommandInput,
@@ -234,6 +314,16 @@ import {
   GetFindingHistoryCommandOutput,
 } from "./commands/GetFindingHistoryCommand";
 import { GetFindingsCommand, GetFindingsCommandInput, GetFindingsCommandOutput } from "./commands/GetFindingsCommand";
+import {
+  GetFindingStatisticsV2Command,
+  GetFindingStatisticsV2CommandInput,
+  GetFindingStatisticsV2CommandOutput,
+} from "./commands/GetFindingStatisticsV2Command";
+import {
+  GetFindingsV2Command,
+  GetFindingsV2CommandInput,
+  GetFindingsV2CommandOutput,
+} from "./commands/GetFindingsV2Command";
 import {
   GetInsightResultsCommand,
   GetInsightResultsCommandInput,
@@ -252,6 +342,16 @@ import {
 } from "./commands/GetMasterAccountCommand";
 import { GetMembersCommand, GetMembersCommandInput, GetMembersCommandOutput } from "./commands/GetMembersCommand";
 import {
+  GetResourcesStatisticsV2Command,
+  GetResourcesStatisticsV2CommandInput,
+  GetResourcesStatisticsV2CommandOutput,
+} from "./commands/GetResourcesStatisticsV2Command";
+import {
+  GetResourcesV2Command,
+  GetResourcesV2CommandInput,
+  GetResourcesV2CommandOutput,
+} from "./commands/GetResourcesV2Command";
+import {
   GetSecurityControlDefinitionCommand,
   GetSecurityControlDefinitionCommandInput,
   GetSecurityControlDefinitionCommandOutput,
@@ -262,10 +362,20 @@ import {
   InviteMembersCommandOutput,
 } from "./commands/InviteMembersCommand";
 import {
+  ListAggregatorsV2Command,
+  ListAggregatorsV2CommandInput,
+  ListAggregatorsV2CommandOutput,
+} from "./commands/ListAggregatorsV2Command";
+import {
   ListAutomationRulesCommand,
   ListAutomationRulesCommandInput,
   ListAutomationRulesCommandOutput,
 } from "./commands/ListAutomationRulesCommand";
+import {
+  ListAutomationRulesV2Command,
+  ListAutomationRulesV2CommandInput,
+  ListAutomationRulesV2CommandOutput,
+} from "./commands/ListAutomationRulesV2Command";
 import {
   ListConfigurationPoliciesCommand,
   ListConfigurationPoliciesCommandInput,
@@ -276,6 +386,11 @@ import {
   ListConfigurationPolicyAssociationsCommandInput,
   ListConfigurationPolicyAssociationsCommandOutput,
 } from "./commands/ListConfigurationPolicyAssociationsCommand";
+import {
+  ListConnectorsV2Command,
+  ListConnectorsV2CommandInput,
+  ListConnectorsV2CommandOutput,
+} from "./commands/ListConnectorsV2Command";
 import {
   ListEnabledProductsForImportCommand,
   ListEnabledProductsForImportCommandInput,
@@ -334,10 +449,25 @@ import {
   UpdateActionTargetCommandOutput,
 } from "./commands/UpdateActionTargetCommand";
 import {
+  UpdateAggregatorV2Command,
+  UpdateAggregatorV2CommandInput,
+  UpdateAggregatorV2CommandOutput,
+} from "./commands/UpdateAggregatorV2Command";
+import {
+  UpdateAutomationRuleV2Command,
+  UpdateAutomationRuleV2CommandInput,
+  UpdateAutomationRuleV2CommandOutput,
+} from "./commands/UpdateAutomationRuleV2Command";
+import {
   UpdateConfigurationPolicyCommand,
   UpdateConfigurationPolicyCommandInput,
   UpdateConfigurationPolicyCommandOutput,
 } from "./commands/UpdateConfigurationPolicyCommand";
+import {
+  UpdateConnectorV2Command,
+  UpdateConnectorV2CommandInput,
+  UpdateConnectorV2CommandOutput,
+} from "./commands/UpdateConnectorV2Command";
 import {
   UpdateFindingAggregatorCommand,
   UpdateFindingAggregatorCommandInput,
@@ -388,16 +518,25 @@ const commands = {
   BatchImportFindingsCommand,
   BatchUpdateAutomationRulesCommand,
   BatchUpdateFindingsCommand,
+  BatchUpdateFindingsV2Command,
   BatchUpdateStandardsControlAssociationsCommand,
+  ConnectorRegistrationsV2Command,
   CreateActionTargetCommand,
+  CreateAggregatorV2Command,
   CreateAutomationRuleCommand,
+  CreateAutomationRuleV2Command,
   CreateConfigurationPolicyCommand,
+  CreateConnectorV2Command,
   CreateFindingAggregatorCommand,
   CreateInsightCommand,
   CreateMembersCommand,
+  CreateTicketV2Command,
   DeclineInvitationsCommand,
   DeleteActionTargetCommand,
+  DeleteAggregatorV2Command,
+  DeleteAutomationRuleV2Command,
   DeleteConfigurationPolicyCommand,
+  DeleteConnectorV2Command,
   DeleteFindingAggregatorCommand,
   DeleteInsightCommand,
   DeleteInvitationsCommand,
@@ -406,34 +545,48 @@ const commands = {
   DescribeHubCommand,
   DescribeOrganizationConfigurationCommand,
   DescribeProductsCommand,
+  DescribeProductsV2Command,
+  DescribeSecurityHubV2Command,
   DescribeStandardsCommand,
   DescribeStandardsControlsCommand,
   DisableImportFindingsForProductCommand,
   DisableOrganizationAdminAccountCommand,
   DisableSecurityHubCommand,
+  DisableSecurityHubV2Command,
   DisassociateFromAdministratorAccountCommand,
   DisassociateFromMasterAccountCommand,
   DisassociateMembersCommand,
   EnableImportFindingsForProductCommand,
   EnableOrganizationAdminAccountCommand,
   EnableSecurityHubCommand,
+  EnableSecurityHubV2Command,
   GetAdministratorAccountCommand,
+  GetAggregatorV2Command,
+  GetAutomationRuleV2Command,
   GetConfigurationPolicyCommand,
   GetConfigurationPolicyAssociationCommand,
+  GetConnectorV2Command,
   GetEnabledStandardsCommand,
   GetFindingAggregatorCommand,
   GetFindingHistoryCommand,
   GetFindingsCommand,
+  GetFindingStatisticsV2Command,
+  GetFindingsV2Command,
   GetInsightResultsCommand,
   GetInsightsCommand,
   GetInvitationsCountCommand,
   GetMasterAccountCommand,
   GetMembersCommand,
+  GetResourcesStatisticsV2Command,
+  GetResourcesV2Command,
   GetSecurityControlDefinitionCommand,
   InviteMembersCommand,
+  ListAggregatorsV2Command,
   ListAutomationRulesCommand,
+  ListAutomationRulesV2Command,
   ListConfigurationPoliciesCommand,
   ListConfigurationPolicyAssociationsCommand,
+  ListConnectorsV2Command,
   ListEnabledProductsForImportCommand,
   ListFindingAggregatorsCommand,
   ListInvitationsCommand,
@@ -447,7 +600,10 @@ const commands = {
   TagResourceCommand,
   UntagResourceCommand,
   UpdateActionTargetCommand,
+  UpdateAggregatorV2Command,
+  UpdateAutomationRuleV2Command,
   UpdateConfigurationPolicyCommand,
+  UpdateConnectorV2Command,
   UpdateFindingAggregatorCommand,
   UpdateFindingsCommand,
   UpdateInsightCommand,
@@ -663,6 +819,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link BatchUpdateFindingsV2Command}
+   */
+  batchUpdateFindingsV2(): Promise<BatchUpdateFindingsV2CommandOutput>;
+  batchUpdateFindingsV2(
+    args: BatchUpdateFindingsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<BatchUpdateFindingsV2CommandOutput>;
+  batchUpdateFindingsV2(
+    args: BatchUpdateFindingsV2CommandInput,
+    cb: (err: any, data?: BatchUpdateFindingsV2CommandOutput) => void
+  ): void;
+  batchUpdateFindingsV2(
+    args: BatchUpdateFindingsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: BatchUpdateFindingsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link BatchUpdateStandardsControlAssociationsCommand}
    */
   batchUpdateStandardsControlAssociations(
@@ -677,6 +851,23 @@ export interface SecurityHub {
     args: BatchUpdateStandardsControlAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: BatchUpdateStandardsControlAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ConnectorRegistrationsV2Command}
+   */
+  connectorRegistrationsV2(
+    args: ConnectorRegistrationsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ConnectorRegistrationsV2CommandOutput>;
+  connectorRegistrationsV2(
+    args: ConnectorRegistrationsV2CommandInput,
+    cb: (err: any, data?: ConnectorRegistrationsV2CommandOutput) => void
+  ): void;
+  connectorRegistrationsV2(
+    args: ConnectorRegistrationsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ConnectorRegistrationsV2CommandOutput) => void
   ): void;
 
   /**
@@ -697,6 +888,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link CreateAggregatorV2Command}
+   */
+  createAggregatorV2(
+    args: CreateAggregatorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAggregatorV2CommandOutput>;
+  createAggregatorV2(
+    args: CreateAggregatorV2CommandInput,
+    cb: (err: any, data?: CreateAggregatorV2CommandOutput) => void
+  ): void;
+  createAggregatorV2(
+    args: CreateAggregatorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAggregatorV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateAutomationRuleCommand}
    */
   createAutomationRule(
@@ -714,6 +922,23 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link CreateAutomationRuleV2Command}
+   */
+  createAutomationRuleV2(
+    args: CreateAutomationRuleV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateAutomationRuleV2CommandOutput>;
+  createAutomationRuleV2(
+    args: CreateAutomationRuleV2CommandInput,
+    cb: (err: any, data?: CreateAutomationRuleV2CommandOutput) => void
+  ): void;
+  createAutomationRuleV2(
+    args: CreateAutomationRuleV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateAutomationRuleV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link CreateConfigurationPolicyCommand}
    */
   createConfigurationPolicy(
@@ -728,6 +953,23 @@ export interface SecurityHub {
     args: CreateConfigurationPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateConnectorV2Command}
+   */
+  createConnectorV2(
+    args: CreateConnectorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateConnectorV2CommandOutput>;
+  createConnectorV2(
+    args: CreateConnectorV2CommandInput,
+    cb: (err: any, data?: CreateConnectorV2CommandOutput) => void
+  ): void;
+  createConnectorV2(
+    args: CreateConnectorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateConnectorV2CommandOutput) => void
   ): void;
 
   /**
@@ -770,6 +1012,20 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link CreateTicketV2Command}
+   */
+  createTicketV2(
+    args: CreateTicketV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTicketV2CommandOutput>;
+  createTicketV2(args: CreateTicketV2CommandInput, cb: (err: any, data?: CreateTicketV2CommandOutput) => void): void;
+  createTicketV2(
+    args: CreateTicketV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTicketV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeclineInvitationsCommand}
    */
   declineInvitations(
@@ -804,6 +1060,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link DeleteAggregatorV2Command}
+   */
+  deleteAggregatorV2(
+    args: DeleteAggregatorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAggregatorV2CommandOutput>;
+  deleteAggregatorV2(
+    args: DeleteAggregatorV2CommandInput,
+    cb: (err: any, data?: DeleteAggregatorV2CommandOutput) => void
+  ): void;
+  deleteAggregatorV2(
+    args: DeleteAggregatorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAggregatorV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAutomationRuleV2Command}
+   */
+  deleteAutomationRuleV2(
+    args: DeleteAutomationRuleV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteAutomationRuleV2CommandOutput>;
+  deleteAutomationRuleV2(
+    args: DeleteAutomationRuleV2CommandInput,
+    cb: (err: any, data?: DeleteAutomationRuleV2CommandOutput) => void
+  ): void;
+  deleteAutomationRuleV2(
+    args: DeleteAutomationRuleV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAutomationRuleV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DeleteConfigurationPolicyCommand}
    */
   deleteConfigurationPolicy(
@@ -818,6 +1108,23 @@ export interface SecurityHub {
     args: DeleteConfigurationPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteConnectorV2Command}
+   */
+  deleteConnectorV2(
+    args: DeleteConnectorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteConnectorV2CommandOutput>;
+  deleteConnectorV2(
+    args: DeleteConnectorV2CommandInput,
+    cb: (err: any, data?: DeleteConnectorV2CommandOutput) => void
+  ): void;
+  deleteConnectorV2(
+    args: DeleteConnectorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteConnectorV2CommandOutput) => void
   ): void;
 
   /**
@@ -943,6 +1250,42 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link DescribeProductsV2Command}
+   */
+  describeProductsV2(): Promise<DescribeProductsV2CommandOutput>;
+  describeProductsV2(
+    args: DescribeProductsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeProductsV2CommandOutput>;
+  describeProductsV2(
+    args: DescribeProductsV2CommandInput,
+    cb: (err: any, data?: DescribeProductsV2CommandOutput) => void
+  ): void;
+  describeProductsV2(
+    args: DescribeProductsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeProductsV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeSecurityHubV2Command}
+   */
+  describeSecurityHubV2(): Promise<DescribeSecurityHubV2CommandOutput>;
+  describeSecurityHubV2(
+    args: DescribeSecurityHubV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeSecurityHubV2CommandOutput>;
+  describeSecurityHubV2(
+    args: DescribeSecurityHubV2CommandInput,
+    cb: (err: any, data?: DescribeSecurityHubV2CommandOutput) => void
+  ): void;
+  describeSecurityHubV2(
+    args: DescribeSecurityHubV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeSecurityHubV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DescribeStandardsCommand}
    */
   describeStandards(): Promise<DescribeStandardsCommandOutput>;
@@ -1027,6 +1370,24 @@ export interface SecurityHub {
     args: DisableSecurityHubCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DisableSecurityHubCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DisableSecurityHubV2Command}
+   */
+  disableSecurityHubV2(): Promise<DisableSecurityHubV2CommandOutput>;
+  disableSecurityHubV2(
+    args: DisableSecurityHubV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableSecurityHubV2CommandOutput>;
+  disableSecurityHubV2(
+    args: DisableSecurityHubV2CommandInput,
+    cb: (err: any, data?: DisableSecurityHubV2CommandOutput) => void
+  ): void;
+  disableSecurityHubV2(
+    args: DisableSecurityHubV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableSecurityHubV2CommandOutput) => void
   ): void;
 
   /**
@@ -1135,6 +1496,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link EnableSecurityHubV2Command}
+   */
+  enableSecurityHubV2(): Promise<EnableSecurityHubV2CommandOutput>;
+  enableSecurityHubV2(
+    args: EnableSecurityHubV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableSecurityHubV2CommandOutput>;
+  enableSecurityHubV2(
+    args: EnableSecurityHubV2CommandInput,
+    cb: (err: any, data?: EnableSecurityHubV2CommandOutput) => void
+  ): void;
+  enableSecurityHubV2(
+    args: EnableSecurityHubV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableSecurityHubV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetAdministratorAccountCommand}
    */
   getAdministratorAccount(): Promise<GetAdministratorAccountCommandOutput>;
@@ -1150,6 +1529,37 @@ export interface SecurityHub {
     args: GetAdministratorAccountCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAdministratorAccountCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAggregatorV2Command}
+   */
+  getAggregatorV2(
+    args: GetAggregatorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAggregatorV2CommandOutput>;
+  getAggregatorV2(args: GetAggregatorV2CommandInput, cb: (err: any, data?: GetAggregatorV2CommandOutput) => void): void;
+  getAggregatorV2(
+    args: GetAggregatorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAggregatorV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetAutomationRuleV2Command}
+   */
+  getAutomationRuleV2(
+    args: GetAutomationRuleV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetAutomationRuleV2CommandOutput>;
+  getAutomationRuleV2(
+    args: GetAutomationRuleV2CommandInput,
+    cb: (err: any, data?: GetAutomationRuleV2CommandOutput) => void
+  ): void;
+  getAutomationRuleV2(
+    args: GetAutomationRuleV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetAutomationRuleV2CommandOutput) => void
   ): void;
 
   /**
@@ -1184,6 +1594,20 @@ export interface SecurityHub {
     args: GetConfigurationPolicyAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetConfigurationPolicyAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetConnectorV2Command}
+   */
+  getConnectorV2(
+    args: GetConnectorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetConnectorV2CommandOutput>;
+  getConnectorV2(args: GetConnectorV2CommandInput, cb: (err: any, data?: GetConnectorV2CommandOutput) => void): void;
+  getConnectorV2(
+    args: GetConnectorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetConnectorV2CommandOutput) => void
   ): void;
 
   /**
@@ -1248,6 +1672,35 @@ export interface SecurityHub {
     args: GetFindingsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetFindingsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFindingStatisticsV2Command}
+   */
+  getFindingStatisticsV2(
+    args: GetFindingStatisticsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetFindingStatisticsV2CommandOutput>;
+  getFindingStatisticsV2(
+    args: GetFindingStatisticsV2CommandInput,
+    cb: (err: any, data?: GetFindingStatisticsV2CommandOutput) => void
+  ): void;
+  getFindingStatisticsV2(
+    args: GetFindingStatisticsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingStatisticsV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetFindingsV2Command}
+   */
+  getFindingsV2(): Promise<GetFindingsV2CommandOutput>;
+  getFindingsV2(args: GetFindingsV2CommandInput, options?: __HttpHandlerOptions): Promise<GetFindingsV2CommandOutput>;
+  getFindingsV2(args: GetFindingsV2CommandInput, cb: (err: any, data?: GetFindingsV2CommandOutput) => void): void;
+  getFindingsV2(
+    args: GetFindingsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetFindingsV2CommandOutput) => void
   ): void;
 
   /**
@@ -1327,6 +1780,38 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link GetResourcesStatisticsV2Command}
+   */
+  getResourcesStatisticsV2(
+    args: GetResourcesStatisticsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcesStatisticsV2CommandOutput>;
+  getResourcesStatisticsV2(
+    args: GetResourcesStatisticsV2CommandInput,
+    cb: (err: any, data?: GetResourcesStatisticsV2CommandOutput) => void
+  ): void;
+  getResourcesStatisticsV2(
+    args: GetResourcesStatisticsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcesStatisticsV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetResourcesV2Command}
+   */
+  getResourcesV2(): Promise<GetResourcesV2CommandOutput>;
+  getResourcesV2(
+    args: GetResourcesV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetResourcesV2CommandOutput>;
+  getResourcesV2(args: GetResourcesV2CommandInput, cb: (err: any, data?: GetResourcesV2CommandOutput) => void): void;
+  getResourcesV2(
+    args: GetResourcesV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetResourcesV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetSecurityControlDefinitionCommand}
    */
   getSecurityControlDefinition(
@@ -1355,6 +1840,24 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link ListAggregatorsV2Command}
+   */
+  listAggregatorsV2(): Promise<ListAggregatorsV2CommandOutput>;
+  listAggregatorsV2(
+    args: ListAggregatorsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAggregatorsV2CommandOutput>;
+  listAggregatorsV2(
+    args: ListAggregatorsV2CommandInput,
+    cb: (err: any, data?: ListAggregatorsV2CommandOutput) => void
+  ): void;
+  listAggregatorsV2(
+    args: ListAggregatorsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAggregatorsV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListAutomationRulesCommand}
    */
   listAutomationRules(): Promise<ListAutomationRulesCommandOutput>;
@@ -1370,6 +1873,24 @@ export interface SecurityHub {
     args: ListAutomationRulesCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListAutomationRulesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListAutomationRulesV2Command}
+   */
+  listAutomationRulesV2(): Promise<ListAutomationRulesV2CommandOutput>;
+  listAutomationRulesV2(
+    args: ListAutomationRulesV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListAutomationRulesV2CommandOutput>;
+  listAutomationRulesV2(
+    args: ListAutomationRulesV2CommandInput,
+    cb: (err: any, data?: ListAutomationRulesV2CommandOutput) => void
+  ): void;
+  listAutomationRulesV2(
+    args: ListAutomationRulesV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListAutomationRulesV2CommandOutput) => void
   ): void;
 
   /**
@@ -1406,6 +1927,24 @@ export interface SecurityHub {
     args: ListConfigurationPolicyAssociationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListConfigurationPolicyAssociationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListConnectorsV2Command}
+   */
+  listConnectorsV2(): Promise<ListConnectorsV2CommandOutput>;
+  listConnectorsV2(
+    args: ListConnectorsV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListConnectorsV2CommandOutput>;
+  listConnectorsV2(
+    args: ListConnectorsV2CommandInput,
+    cb: (err: any, data?: ListConnectorsV2CommandOutput) => void
+  ): void;
+  listConnectorsV2(
+    args: ListConnectorsV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListConnectorsV2CommandOutput) => void
   ): void;
 
   /**
@@ -1615,6 +2154,40 @@ export interface SecurityHub {
   ): void;
 
   /**
+   * @see {@link UpdateAggregatorV2Command}
+   */
+  updateAggregatorV2(
+    args: UpdateAggregatorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAggregatorV2CommandOutput>;
+  updateAggregatorV2(
+    args: UpdateAggregatorV2CommandInput,
+    cb: (err: any, data?: UpdateAggregatorV2CommandOutput) => void
+  ): void;
+  updateAggregatorV2(
+    args: UpdateAggregatorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAggregatorV2CommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateAutomationRuleV2Command}
+   */
+  updateAutomationRuleV2(
+    args: UpdateAutomationRuleV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateAutomationRuleV2CommandOutput>;
+  updateAutomationRuleV2(
+    args: UpdateAutomationRuleV2CommandInput,
+    cb: (err: any, data?: UpdateAutomationRuleV2CommandOutput) => void
+  ): void;
+  updateAutomationRuleV2(
+    args: UpdateAutomationRuleV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateAutomationRuleV2CommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateConfigurationPolicyCommand}
    */
   updateConfigurationPolicy(
@@ -1629,6 +2202,23 @@ export interface SecurityHub {
     args: UpdateConfigurationPolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateConfigurationPolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateConnectorV2Command}
+   */
+  updateConnectorV2(
+    args: UpdateConnectorV2CommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateConnectorV2CommandOutput>;
+  updateConnectorV2(
+    args: UpdateConnectorV2CommandInput,
+    cb: (err: any, data?: UpdateConnectorV2CommandOutput) => void
+  ): void;
+  updateConnectorV2(
+    args: UpdateConnectorV2CommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateConnectorV2CommandOutput) => void
   ): void;
 
   /**
@@ -1746,7 +2336,7 @@ export interface SecurityHub {
 /**
  * <p>Security Hub provides you with a comprehensive view of your security state in Amazon Web Services and helps
  *            you assess your Amazon Web Services environment against security industry standards and best practices.</p>
- *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services, and
+ *          <p>Security Hub collects security data across Amazon Web Services accounts, Amazon Web Services services, and
  *             supported third-party products and helps you analyze your security trends and identify the highest priority security
  *             issues.</p>
  *          <p>To help you manage the security state of your organization, Security Hub supports multiple security standards.
@@ -1755,10 +2345,10 @@ export interface SecurityHub {
  *             Security Standard (PCI DSS), and the National Institute of Standards and Technology (NIST). Each standard includes
  *             several security controls, each of which represents a security best practice. Security Hub runs checks against
  *             security controls and generates control findings to help you assess your compliance against security best practices.</p>
- *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services,
+ *          <p>In addition to generating control findings, Security Hub also receives findings from other Amazon Web Services services,
  *             such as Amazon GuardDuty and Amazon Inspector, and
  *             supported third-party products. This gives you a single pane of glass into a variety of security-related issues. You
- *             can also send Security Hub findings to other Amazon Web Services and supported third-party products.</p>
+ *             can also send Security Hub findings to other Amazon Web Services services and supported third-party products.</p>
  *          <p>Security Hub offers automation features that help you triage and remediate security issues. For example,
  *            you can use automation rules to automatically update critical findings when a security check fails. You can also leverage the integration with
  *            Amazon EventBridge  to trigger automatic responses to specific findings.</p>
@@ -1769,12 +2359,12 @@ export interface SecurityHub {
  *             </a>. The
  *            user guide explains key concepts and provides procedures
  *            that demonstrate how to use Security Hub features. It also provides information about topics such as
- *            integrating Security Hub with other Amazon Web Services.</p>
+ *            integrating Security Hub with other Amazon Web Services services.</p>
  *          <p>In addition to interacting with Security Hub  by making calls to the Security Hub API, you can
  *            use a current version of an Amazon Web Services command line tool or SDK. Amazon Web Services provides tools
  *             and SDKs that consist of libraries and sample code for various languages and platforms, such as PowerShell,
  *            Java, Go, Python, C++, and .NET. These tools and SDKs provide convenient, programmatic access to
- *            Security Hub  and other Amazon Web Services . They also handle tasks such as signing requests,
+ *            Security Hub  and other Amazon Web Services services . They also handle tasks such as signing requests,
  *            managing errors, and retrying requests automatically. For information about installing and using the Amazon Web Services  tools
  *            and SDKs, see <a href="http://aws.amazon.com/developer/tools/">Tools to Build on Amazon Web Services</a>.</p>
  *          <p>With the exception of operations that are related to central configuration, Security Hub API requests are executed only in

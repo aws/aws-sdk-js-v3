@@ -12,7 +12,8 @@ import { de_CreateSbomExportCommand, se_CreateSbomExportCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,12 +106,15 @@ export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse,
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -122,6 +126,7 @@ export interface CreateSbomExportCommandOutput extends CreateSbomExportResponse,
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class CreateSbomExportCommand extends $Command
@@ -132,9 +137,7 @@ export class CreateSbomExportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +149,16 @@ export class CreateSbomExportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateSbomExportCommand)
   .de(de_CreateSbomExportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateSbomExportRequest;
+      output: CreateSbomExportResponse;
+    };
+    sdk: {
+      input: CreateSbomExportCommandInput;
+      output: CreateSbomExportCommandOutput;
+    };
+  };
+}

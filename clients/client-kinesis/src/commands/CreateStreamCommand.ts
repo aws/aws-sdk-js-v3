@@ -12,7 +12,8 @@ import { de_CreateStreamCommand, se_CreateStreamCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *          <p>
  *             <a>CreateStream</a> has a limit of five transactions per second per
  *             account.</p>
+ *          <p>You can add tags to the stream when making a <code>CreateStream</code> request by setting the <code>Tags</code> parameter. If you pass the <code>Tags</code> parameter, in addition to having the <code>kinesis:CreateStream</code> permission, you must also have the <code>kinesis:AddTagsToStream</code> permission for the stream that will be created. The <code>kinesis:TagResource</code> permission won’t work to tag streams on creation. Tags will take effect from the <code>CREATING</code> status of the stream, but you can't make any updates to the tags until the stream is in <code>ACTIVE</code> state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -82,6 +84,9 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  *   ShardCount: Number("int"),
  *   StreamModeDetails: { // StreamModeDetails
  *     StreamMode: "PROVISIONED" || "ON_DEMAND", // required
+ *   },
+ *   Tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateStreamCommand(input);
@@ -111,6 +116,7 @@ export interface CreateStreamCommandOutput extends __MetadataBearer {}
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
  *
+ *
  * @public
  */
 export class CreateStreamCommand extends $Command
@@ -121,9 +127,7 @@ export class CreateStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +139,16 @@ export class CreateStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateStreamCommand)
   .de(de_CreateStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateStreamInput;
+      output: {};
+    };
+    sdk: {
+      input: CreateStreamCommandInput;
+      output: CreateStreamCommandOutput;
+    };
+  };
+}

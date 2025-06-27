@@ -12,7 +12,8 @@ import { de_AttachTypedLinkCommand, se_AttachTypedLinkCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -132,6 +133,59 @@ export interface AttachTypedLinkCommandOutput extends AttachTypedLinkResponse, _
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To attach a typed link to an object
+ * ```javascript
+ * //
+ * const input = {
+ *   Attributes: [
+ *     {
+ *       AttributeName: "22",
+ *       Value: {
+ *         BinaryValue: "c3Ry"
+ *       }
+ *     }
+ *   ],
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   SourceObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *   },
+ *   TargetObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   },
+ *   TypedLinkFacet: {
+ *     SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *     TypedLinkName: "exampletypedlink8"
+ *   }
+ * };
+ * const command = new AttachTypedLinkCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TypedLinkSpecifier: {
+ *     IdentityAttributeValues: [
+ *       {
+ *         AttributeName: "22",
+ *         Value: {
+ *           BinaryValue: "c3Ry"
+ *         }
+ *       }
+ *     ],
+ *     SourceObjectReference: {
+ *       Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *     },
+ *     TargetObjectReference: {
+ *       Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *     },
+ *     TypedLinkFacet: {
+ *       SchemaArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY/schema/org/1",
+ *       TypedLinkName: "exampletypedlink8"
+ *     }
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AttachTypedLinkCommand extends $Command
@@ -142,9 +196,7 @@ export class AttachTypedLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +208,16 @@ export class AttachTypedLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AttachTypedLinkCommand)
   .de(de_AttachTypedLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AttachTypedLinkRequest;
+      output: AttachTypedLinkResponse;
+    };
+    sdk: {
+      input: AttachTypedLinkCommandInput;
+      output: AttachTypedLinkCommandOutput;
+    };
+  };
+}

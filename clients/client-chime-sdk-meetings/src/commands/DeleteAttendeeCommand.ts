@@ -12,7 +12,8 @@ import { de_DeleteAttendeeCommand, se_DeleteAttendeeCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DeleteAttendeeCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMeetingsServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMeetings service.</p>
  *
+ *
  * @public
  */
 export class DeleteAttendeeCommand extends $Command
@@ -87,9 +89,7 @@ export class DeleteAttendeeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMeetingsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DeleteAttendeeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteAttendeeCommand)
   .de(de_DeleteAttendeeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteAttendeeRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteAttendeeCommandInput;
+      output: DeleteAttendeeCommandOutput;
+    };
+  };
+}

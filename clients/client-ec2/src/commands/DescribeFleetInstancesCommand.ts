@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeFleetInstancesRequest, DescribeFleetInstancesResult } from "../models/models_3";
+import { DescribeFleetInstancesRequest, DescribeFleetInstancesResult } from "../models/models_4";
 import { de_DescribeFleetInstancesCommand, se_DescribeFleetInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,7 @@ export interface DescribeFleetInstancesCommandOutput extends DescribeFleetInstan
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeFleetInstancesCommand extends $Command
@@ -91,9 +93,7 @@ export class DescribeFleetInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +105,16 @@ export class DescribeFleetInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeFleetInstancesCommand)
   .de(de_DescribeFleetInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeFleetInstancesRequest;
+      output: DescribeFleetInstancesResult;
+    };
+    sdk: {
+      input: DescribeFleetInstancesCommandInput;
+      output: DescribeFleetInstancesCommandOutput;
+    };
+  };
+}

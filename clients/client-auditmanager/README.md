@@ -45,7 +45,7 @@ Audit Manager User Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-auditmanager
+To install this package, simply type add or install @aws-sdk/client-auditmanager
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-auditmanager`

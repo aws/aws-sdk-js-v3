@@ -12,7 +12,8 @@ import { de_CreateDomainCommand, se_CreateDomainCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,6 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  *         <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_CreateIntegrationAssociation.html">CreateIntegrationAssociation</a> API. You need specific IAM
  *         permissions to successfully associate the Cases domain. For more information, see
  *           <a href="https://docs.aws.amazon.com/connect/latest/adminguide/required-permissions-iam-cases.html#onboard-cases-iam">Onboard to Cases</a>.</p>
- *
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -88,6 +88,7 @@ export interface CreateDomainCommandOutput extends CreateDomainResponse, __Metad
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class CreateDomainCommand extends $Command
@@ -98,9 +99,7 @@ export class CreateDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +111,16 @@ export class CreateDomainCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDomainCommand)
   .de(de_CreateDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDomainRequest;
+      output: CreateDomainResponse;
+    };
+    sdk: {
+      input: CreateDomainCommandInput;
+      output: CreateDomainCommandOutput;
+    };
+  };
+}

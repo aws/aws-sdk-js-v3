@@ -6,13 +6,19 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchRelatedItemsRequest, SearchRelatedItemsResponse } from "../models/models_0";
+import {
+  SearchRelatedItemsRequest,
+  SearchRelatedItemsRequestFilterSensitiveLog,
+  SearchRelatedItemsResponse,
+  SearchRelatedItemsResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_SearchRelatedItemsCommand, se_SearchRelatedItemsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +61,10 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  *       file: { // FileFilter
  *         fileArn: "STRING_VALUE",
  *       },
+ *       sla: { // SlaFilter
+ *         name: "STRING_VALUE",
+ *         status: "STRING_VALUE",
+ *       },
  *     },
  *   ],
  * };
@@ -80,12 +90,32 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * //         file: { // FileContent
  * //           fileArn: "STRING_VALUE", // required
  * //         },
+ * //         sla: { // SlaContent
+ * //           slaConfiguration: { // SlaConfiguration
+ * //             name: "STRING_VALUE", // required
+ * //             type: "STRING_VALUE", // required
+ * //             status: "STRING_VALUE", // required
+ * //             fieldId: "STRING_VALUE",
+ * //             targetFieldValues: [ // SlaFieldValueUnionList
+ * //               { // FieldValueUnion Union: only one key present
+ * //                 stringValue: "STRING_VALUE",
+ * //                 doubleValue: Number("double"),
+ * //                 booleanValue: true || false,
+ * //                 emptyValue: {},
+ * //                 userArnValue: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //             targetTime: new Date("TIMESTAMP"), // required
+ * //             completionTime: new Date("TIMESTAMP"),
+ * //           },
+ * //         },
  * //       },
  * //       tags: { // Tags
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       performedBy: { // UserUnion Union: only one key present
  * //         userArn: "STRING_VALUE",
+ * //         customEntity: "STRING_VALUE",
  * //       },
  * //     },
  * //   ],
@@ -119,6 +149,7 @@ export interface SearchRelatedItemsCommandOutput extends SearchRelatedItemsRespo
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class SearchRelatedItemsCommand extends $Command
@@ -129,9 +160,7 @@ export class SearchRelatedItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,7 +169,19 @@ export class SearchRelatedItemsCommand extends $Command
   })
   .s("AmazonConnectCases", "SearchRelatedItems", {})
   .n("ConnectCasesClient", "SearchRelatedItemsCommand")
-  .f(void 0, void 0)
+  .f(SearchRelatedItemsRequestFilterSensitiveLog, SearchRelatedItemsResponseFilterSensitiveLog)
   .ser(se_SearchRelatedItemsCommand)
   .de(de_SearchRelatedItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchRelatedItemsRequest;
+      output: SearchRelatedItemsResponse;
+    };
+    sdk: {
+      input: SearchRelatedItemsCommandInput;
+      output: SearchRelatedItemsCommandOutput;
+    };
+  };
+}

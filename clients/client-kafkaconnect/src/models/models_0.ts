@@ -4,6 +4,130 @@ import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "
 import { KafkaConnectServiceException as __BaseException } from "./KafkaConnectServiceException";
 
 /**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationStepState = {
+  CANCELLED: "CANCELLED",
+  COMPLETED: "COMPLETED",
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationStepState =
+  (typeof ConnectorOperationStepState)[keyof typeof ConnectorOperationStepState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationStepType = {
+  FINALIZE_UPDATE: "FINALIZE_UPDATE",
+  INITIALIZE_UPDATE: "INITIALIZE_UPDATE",
+  UPDATE_CONNECTOR_CONFIGURATION: "UPDATE_CONNECTOR_CONFIGURATION",
+  UPDATE_WORKER_SETTING: "UPDATE_WORKER_SETTING",
+  VALIDATE_UPDATE: "VALIDATE_UPDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationStepType = (typeof ConnectorOperationStepType)[keyof typeof ConnectorOperationStepType];
+
+/**
+ * <p>Details of a step that is involved in a connector's operation.</p>
+ * @public
+ */
+export interface ConnectorOperationStep {
+  /**
+   * <p>The step type of the operation.</p>
+   * @public
+   */
+  stepType?: ConnectorOperationStepType | undefined;
+
+  /**
+   * <p>The step state of the operation.</p>
+   * @public
+   */
+  stepState?: ConnectorOperationStepState | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationState = {
+  PENDING: "PENDING",
+  ROLLBACK_COMPLETE: "ROLLBACK_COMPLETE",
+  ROLLBACK_FAILED: "ROLLBACK_FAILED",
+  ROLLBACK_IN_PROGRESS: "ROLLBACK_IN_PROGRESS",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+  UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationState = (typeof ConnectorOperationState)[keyof typeof ConnectorOperationState];
+
+/**
+ * @public
+ * @enum
+ */
+export const ConnectorOperationType = {
+  ISOLATE_CONNECTOR: "ISOLATE_CONNECTOR",
+  RESTORE_CONNECTOR: "RESTORE_CONNECTOR",
+  UPDATE_CONNECTOR_CONFIGURATION: "UPDATE_CONNECTOR_CONFIGURATION",
+  UPDATE_WORKER_SETTING: "UPDATE_WORKER_SETTING",
+} as const;
+
+/**
+ * @public
+ */
+export type ConnectorOperationType = (typeof ConnectorOperationType)[keyof typeof ConnectorOperationType];
+
+/**
+ * <p>Summary of a connector operation.</p>
+ * @public
+ */
+export interface ConnectorOperationSummary {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+
+  /**
+   * <p>The type of connector operation performed.</p>
+   * @public
+   */
+  connectorOperationType?: ConnectorOperationType | undefined;
+
+  /**
+   * <p>The state of the connector operation.</p>
+   * @public
+   */
+  connectorOperationState?: ConnectorOperationState | undefined;
+
+  /**
+   * <p>The time when operation was created.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The time when operation ended.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
+}
+
+/**
  * <p>The description of the scale-in policy for the connector.</p>
  * @public
  */
@@ -13,7 +137,7 @@ export interface ScaleInPolicyDescription {
    *          to be triggered.</p>
    * @public
    */
-  cpuUtilizationPercentage?: number;
+  cpuUtilizationPercentage?: number | undefined;
 }
 
 /**
@@ -26,7 +150,7 @@ export interface ScaleOutPolicyDescription {
    *          triggered.</p>
    * @public
    */
-  cpuUtilizationPercentage?: number;
+  cpuUtilizationPercentage?: number | undefined;
 }
 
 /**
@@ -38,32 +162,32 @@ export interface AutoScalingDescription {
    * <p>The maximum number of workers allocated to the connector.</p>
    * @public
    */
-  maxWorkerCount?: number;
+  maxWorkerCount?: number | undefined;
 
   /**
    * <p>The number of microcontroller units (MCUs) allocated to each connector worker. The valid
    *          values are 1,2,4,8.</p>
    * @public
    */
-  mcuCount?: number;
+  mcuCount?: number | undefined;
 
   /**
    * <p>The minimum number of workers allocated to the connector.</p>
    * @public
    */
-  minWorkerCount?: number;
+  minWorkerCount?: number | undefined;
 
   /**
    * <p>The sacle-in policy for the connector.</p>
    * @public
    */
-  scaleInPolicy?: ScaleInPolicyDescription;
+  scaleInPolicy?: ScaleInPolicyDescription | undefined;
 
   /**
    * <p>The sacle-out policy for the connector.&gt;</p>
    * @public
    */
-  scaleOutPolicy?: ScaleOutPolicyDescription;
+  scaleOutPolicy?: ScaleOutPolicyDescription | undefined;
 }
 
 /**
@@ -76,13 +200,13 @@ export interface ProvisionedCapacityDescription {
    *          values are 1,2,4,8.</p>
    * @public
    */
-  mcuCount?: number;
+  mcuCount?: number | undefined;
 
   /**
    * <p>The number of workers that are allocated to the connector.</p>
    * @public
    */
-  workerCount?: number;
+  workerCount?: number | undefined;
 }
 
 /**
@@ -94,13 +218,13 @@ export interface CapacityDescription {
    * <p>Describes the connector's auto scaling capacity.</p>
    * @public
    */
-  autoScaling?: AutoScalingDescription;
+  autoScaling?: AutoScalingDescription | undefined;
 
   /**
    * <p>Describes a connector's provisioned capacity.</p>
    * @public
    */
-  provisionedCapacity?: ProvisionedCapacityDescription;
+  provisionedCapacity?: ProvisionedCapacityDescription | undefined;
 }
 
 /**
@@ -129,13 +253,13 @@ export interface VpcDescription {
    * <p>The security groups for the connector.</p>
    * @public
    */
-  securityGroups?: string[];
+  securityGroups?: string[] | undefined;
 
   /**
    * <p>The subnets for the connector.</p>
    * @public
    */
-  subnets?: string[];
+  subnets?: string[] | undefined;
 }
 
 /**
@@ -147,14 +271,14 @@ export interface ApacheKafkaClusterDescription {
    * <p>The bootstrap servers of the cluster.</p>
    * @public
    */
-  bootstrapServers?: string;
+  bootstrapServers?: string | undefined;
 
   /**
    * <p>Details of an Amazon VPC which has network connectivity to the Apache Kafka
    *          cluster.</p>
    * @public
    */
-  vpc?: VpcDescription;
+  vpc?: VpcDescription | undefined;
 }
 
 /**
@@ -166,7 +290,7 @@ export interface KafkaClusterDescription {
    * <p>The Apache Kafka cluster to which the connector is connected.</p>
    * @public
    */
-  apacheKafkaCluster?: ApacheKafkaClusterDescription;
+  apacheKafkaCluster?: ApacheKafkaClusterDescription | undefined;
 }
 
 /**
@@ -195,7 +319,7 @@ export interface KafkaClusterClientAuthenticationDescription {
    *          NONE means that no client authentication is used.</p>
    * @public
    */
-  authenticationType?: KafkaClusterClientAuthenticationType;
+  authenticationType?: KafkaClusterClientAuthenticationType | undefined;
 }
 
 /**
@@ -222,7 +346,7 @@ export interface KafkaClusterEncryptionInTransitDescription {
    * <p>The type of encryption in transit to the Apache Kafka cluster.</p>
    * @public
    */
-  encryptionType?: KafkaClusterEncryptionInTransitType;
+  encryptionType?: KafkaClusterEncryptionInTransitType | undefined;
 }
 
 /**
@@ -234,13 +358,13 @@ export interface CloudWatchLogsLogDeliveryDescription {
    * <p>Whether log delivery to Amazon CloudWatch Logs is enabled.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The name of the CloudWatch log group that is the destination for log delivery.</p>
    * @public
    */
-  logGroup?: string;
+  logGroup?: string | undefined;
 }
 
 /**
@@ -254,13 +378,13 @@ export interface FirehoseLogDeliveryDescription {
    *          delivery.</p>
    * @public
    */
-  deliveryStream?: string;
+  deliveryStream?: string | undefined;
 
   /**
    * <p>Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 }
 
 /**
@@ -272,19 +396,19 @@ export interface S3LogDeliveryDescription {
    * <p>The name of the S3 bucket that is the destination for log delivery.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>Specifies whether connector logs get sent to the specified Amazon S3 destination.</p>
    * @public
    */
-  enabled?: boolean;
+  enabled?: boolean | undefined;
 
   /**
    * <p>The S3 prefix that is the destination for log delivery.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -297,19 +421,19 @@ export interface WorkerLogDeliveryDescription {
    * <p>Details about delivering logs to Amazon CloudWatch Logs.</p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsLogDeliveryDescription;
+  cloudWatchLogs?: CloudWatchLogsLogDeliveryDescription | undefined;
 
   /**
    * <p>Details about delivering logs to Amazon Kinesis Data Firehose.</p>
    * @public
    */
-  firehose?: FirehoseLogDeliveryDescription;
+  firehose?: FirehoseLogDeliveryDescription | undefined;
 
   /**
    * <p>Details about delivering logs to Amazon S3.</p>
    * @public
    */
-  s3?: S3LogDeliveryDescription;
+  s3?: S3LogDeliveryDescription | undefined;
 }
 
 /**
@@ -322,7 +446,7 @@ export interface LogDeliveryDescription {
    *          specifies the details of these destinations.</p>
    * @public
    */
-  workerLogDelivery?: WorkerLogDeliveryDescription;
+  workerLogDelivery?: WorkerLogDeliveryDescription | undefined;
 }
 
 /**
@@ -334,13 +458,13 @@ export interface CustomPluginDescription {
    * <p>The Amazon Resource Name (ARN) of the custom plugin.</p>
    * @public
    */
-  customPluginArn?: string;
+  customPluginArn?: string | undefined;
 
   /**
    * <p>The revision of the custom plugin.</p>
    * @public
    */
-  revision?: number;
+  revision?: number | undefined;
 }
 
 /**
@@ -352,7 +476,7 @@ export interface PluginDescription {
    * <p>Details about a custom plugin.</p>
    * @public
    */
-  customPlugin?: CustomPluginDescription;
+  customPlugin?: CustomPluginDescription | undefined;
 }
 
 /**
@@ -364,13 +488,13 @@ export interface WorkerConfigurationDescription {
    * <p>The revision of the worker configuration.</p>
    * @public
    */
-  revision?: number;
+  revision?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
    * @public
    */
-  workerConfigurationArn?: string;
+  workerConfigurationArn?: string | undefined;
 }
 
 /**
@@ -382,94 +506,94 @@ export interface ConnectorSummary {
    * <p>The connector's compute capacity settings.</p>
    * @public
    */
-  capacity?: CapacityDescription;
+  capacity?: CapacityDescription | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  connectorArn?: string;
+  connectorArn?: string | undefined;
 
   /**
    * <p>The description of the connector.</p>
    * @public
    */
-  connectorDescription?: string;
+  connectorDescription?: string | undefined;
 
   /**
    * <p>The name of the connector.</p>
    * @public
    */
-  connectorName?: string;
+  connectorName?: string | undefined;
 
   /**
    * <p>The state of the connector.</p>
    * @public
    */
-  connectorState?: ConnectorState;
+  connectorState?: ConnectorState | undefined;
 
   /**
    * <p>The time that the connector was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The current version of the connector.</p>
    * @public
    */
-  currentVersion?: string;
+  currentVersion?: string | undefined;
 
   /**
    * <p>The details of the Apache Kafka cluster to which the connector is connected.</p>
    * @public
    */
-  kafkaCluster?: KafkaClusterDescription;
+  kafkaCluster?: KafkaClusterDescription | undefined;
 
   /**
    * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value
    *          is NONE when no client authentication is used.</p>
    * @public
    */
-  kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription;
+  kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription | undefined;
 
   /**
    * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
    * @public
    */
-  kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription;
+  kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription | undefined;
 
   /**
    * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
    *          cluster's version and the plugins.</p>
    * @public
    */
-  kafkaConnectVersion?: string;
+  kafkaConnectVersion?: string | undefined;
 
   /**
    * <p>The settings for delivering connector logs to Amazon CloudWatch Logs.</p>
    * @public
    */
-  logDelivery?: LogDeliveryDescription;
+  logDelivery?: LogDeliveryDescription | undefined;
 
   /**
    * <p>Specifies which plugins were used for this connector.</p>
    * @public
    */
-  plugins?: PluginDescription[];
+  plugins?: PluginDescription[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon
    *          Web Services resources.</p>
    * @public
    */
-  serviceExecutionRoleArn?: string;
+  serviceExecutionRoleArn?: string | undefined;
 
   /**
    * <p>The worker configurations that are in use with the connector.</p>
    * @public
    */
-  workerConfiguration?: WorkerConfigurationDescription;
+  workerConfiguration?: WorkerConfigurationDescription | undefined;
 }
 
 /**
@@ -514,13 +638,13 @@ export interface CustomPluginFileDescription {
    *          file.</p>
    * @public
    */
-  fileMd5?: string;
+  fileMd5?: string | undefined;
 
   /**
    * <p>The size in bytes of the custom plugin file. You can use it to validate the file.</p>
    * @public
    */
-  fileSize?: number;
+  fileSize?: number | undefined;
 }
 
 /**
@@ -532,19 +656,19 @@ export interface S3LocationDescription {
    * <p>The Amazon Resource Name (ARN) of an S3 bucket.</p>
    * @public
    */
-  bucketArn?: string;
+  bucketArn?: string | undefined;
 
   /**
    * <p>The file key for an object in an S3 bucket.</p>
    * @public
    */
-  fileKey?: string;
+  fileKey?: string | undefined;
 
   /**
    * <p>The version of an object in an S3 bucket.</p>
    * @public
    */
-  objectVersion?: string;
+  objectVersion?: string | undefined;
 }
 
 /**
@@ -557,7 +681,7 @@ export interface CustomPluginLocationDescription {
    *          file stored in Amazon S3.</p>
    * @public
    */
-  s3Location?: S3LocationDescription;
+  s3Location?: S3LocationDescription | undefined;
 }
 
 /**
@@ -569,37 +693,37 @@ export interface CustomPluginRevisionSummary {
    * <p>The format of the plugin file.</p>
    * @public
    */
-  contentType?: CustomPluginContentType;
+  contentType?: CustomPluginContentType | undefined;
 
   /**
    * <p>The time that the custom plugin was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The description of the custom plugin.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Details about the custom plugin file.</p>
    * @public
    */
-  fileDescription?: CustomPluginFileDescription;
+  fileDescription?: CustomPluginFileDescription | undefined;
 
   /**
    * <p>Information about the location of the custom plugin.</p>
    * @public
    */
-  location?: CustomPluginLocationDescription;
+  location?: CustomPluginLocationDescription | undefined;
 
   /**
    * <p>The revision of the custom plugin.</p>
    * @public
    */
-  revision?: number;
+  revision?: number | undefined;
 }
 
 /**
@@ -611,37 +735,37 @@ export interface CustomPluginSummary {
    * <p>The time that the custom plugin was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the custom plugin.</p>
    * @public
    */
-  customPluginArn?: string;
+  customPluginArn?: string | undefined;
 
   /**
    * <p>The state of the custom plugin.</p>
    * @public
    */
-  customPluginState?: CustomPluginState;
+  customPluginState?: CustomPluginState | undefined;
 
   /**
    * <p>A description of the custom plugin.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The latest revision of the custom plugin.</p>
    * @public
    */
-  latestRevision?: CustomPluginRevisionSummary;
+  latestRevision?: CustomPluginRevisionSummary | undefined;
 
   /**
    * <p>The name of the custom plugin.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 }
 
 /**
@@ -683,19 +807,19 @@ export interface WorkerConfigurationRevisionSummary {
    * <p>The time that a worker configuration revision was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The description of a worker configuration revision.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The revision of a worker configuration.</p>
    * @public
    */
-  revision?: number;
+  revision?: number | undefined;
 }
 
 /**
@@ -721,37 +845,37 @@ export interface WorkerConfigurationSummary {
    * <p>The time that a worker configuration was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The description of a worker configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The latest revision of a worker configuration.</p>
    * @public
    */
-  latestRevision?: WorkerConfigurationRevisionSummary;
+  latestRevision?: WorkerConfigurationRevisionSummary | undefined;
 
   /**
    * <p>The name of the worker configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
    * @public
    */
-  workerConfigurationArn?: string;
+  workerConfigurationArn?: string | undefined;
 
   /**
    * <p>The state of the worker configuration.</p>
    * @public
    */
-  workerConfigurationState?: WorkerConfigurationState;
+  workerConfigurationState?: WorkerConfigurationState | undefined;
 }
 
 /**
@@ -763,7 +887,7 @@ export interface Vpc {
    * <p>The security groups for the connector.</p>
    * @public
    */
-  securityGroups?: string[];
+  securityGroups?: string[] | undefined;
 
   /**
    * <p>The subnets for the connector.</p>
@@ -845,13 +969,13 @@ export interface AutoScaling {
    * <p>The sacle-in policy for the connector.</p>
    * @public
    */
-  scaleInPolicy?: ScaleInPolicy;
+  scaleInPolicy?: ScaleInPolicy | undefined;
 
   /**
    * <p>The sacle-out policy for the connector.</p>
    * @public
    */
-  scaleOutPolicy?: ScaleOutPolicy;
+  scaleOutPolicy?: ScaleOutPolicy | undefined;
 }
 
 /**
@@ -967,13 +1091,13 @@ export interface Capacity {
    * <p>Information about the auto scaling parameters for the connector.</p>
    * @public
    */
-  autoScaling?: AutoScaling;
+  autoScaling?: AutoScaling | undefined;
 
   /**
    * <p>Details about a fixed capacity allocated to a connector.</p>
    * @public
    */
-  provisionedCapacity?: ProvisionedCapacity;
+  provisionedCapacity?: ProvisionedCapacity | undefined;
 }
 
 /**
@@ -1005,13 +1129,13 @@ export interface CapacityUpdate {
    * <p>The target auto scaling setting.</p>
    * @public
    */
-  autoScaling?: AutoScalingUpdate;
+  autoScaling?: AutoScalingUpdate | undefined;
 
   /**
    * <p>The target settings for provisioned capacity.</p>
    * @public
    */
-  provisionedCapacity?: ProvisionedCapacityUpdate;
+  provisionedCapacity?: ProvisionedCapacityUpdate | undefined;
 }
 
 /**
@@ -1029,7 +1153,7 @@ export interface CloudWatchLogsLogDelivery {
    * <p>The name of the CloudWatch log group that is the destination for log delivery.</p>
    * @public
    */
-  logGroup?: string;
+  logGroup?: string | undefined;
 }
 
 /**
@@ -1101,7 +1225,7 @@ export interface FirehoseLogDelivery {
    *          delivery.</p>
    * @public
    */
-  deliveryStream?: string;
+  deliveryStream?: string | undefined;
 
   /**
    * <p>Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.</p>
@@ -1119,7 +1243,7 @@ export interface S3LogDelivery {
    * <p>The name of the S3 bucket that is the destination for log delivery.</p>
    * @public
    */
-  bucket?: string;
+  bucket?: string | undefined;
 
   /**
    * <p>Specifies whether connector logs get sent to the specified Amazon S3 destination.</p>
@@ -1131,7 +1255,7 @@ export interface S3LogDelivery {
    * <p>The S3 prefix that is the destination for log delivery.</p>
    * @public
    */
-  prefix?: string;
+  prefix?: string | undefined;
 }
 
 /**
@@ -1144,19 +1268,19 @@ export interface WorkerLogDelivery {
    * <p>Details about delivering logs to Amazon CloudWatch Logs.</p>
    * @public
    */
-  cloudWatchLogs?: CloudWatchLogsLogDelivery;
+  cloudWatchLogs?: CloudWatchLogsLogDelivery | undefined;
 
   /**
    * <p>Details about delivering logs to Amazon Kinesis Data Firehose.</p>
    * @public
    */
-  firehose?: FirehoseLogDelivery;
+  firehose?: FirehoseLogDelivery | undefined;
 
   /**
    * <p>Details about delivering logs to Amazon S3.</p>
    * @public
    */
-  s3?: S3LogDelivery;
+  s3?: S3LogDelivery | undefined;
 }
 
 /**
@@ -1212,7 +1336,7 @@ export interface CreateConnectorRequest {
    * <p>A summary description of the connector.</p>
    * @public
    */
-  connectorDescription?: string;
+  connectorDescription?: string | undefined;
 
   /**
    * <p>The name of the connector.</p>
@@ -1249,7 +1373,7 @@ export interface CreateConnectorRequest {
    * <p>Details about log delivery.</p>
    * @public
    */
-  logDelivery?: LogDelivery;
+  logDelivery?: LogDelivery | undefined;
 
   /**
    * <important>
@@ -1273,13 +1397,13 @@ export interface CreateConnectorRequest {
    * <p>Specifies which worker configuration to use with the connector.</p>
    * @public
    */
-  workerConfiguration?: WorkerConfiguration;
+  workerConfiguration?: WorkerConfiguration | undefined;
 
   /**
    * <p>The tags you want to attach to the connector.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1290,19 +1414,19 @@ export interface CreateConnectorResponse {
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the connector.</p>
    * @public
    */
-  connectorArn?: string;
+  connectorArn?: string | undefined;
 
   /**
    * <p>The name of the connector.</p>
    * @public
    */
-  connectorName?: string;
+  connectorName?: string | undefined;
 
   /**
    * <p>The state of the connector.</p>
    * @public
    */
-  connectorState?: ConnectorState;
+  connectorState?: ConnectorState | undefined;
 }
 
 /**
@@ -1451,7 +1575,7 @@ export interface S3Location {
    * <p>The version of an object in an S3 bucket.</p>
    * @public
    */
-  objectVersion?: string;
+  objectVersion?: string | undefined;
 }
 
 /**
@@ -1481,7 +1605,7 @@ export interface CreateCustomPluginRequest {
    * <p>A summary description of the custom plugin.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Information about the location of a custom plugin.</p>
@@ -1499,7 +1623,7 @@ export interface CreateCustomPluginRequest {
    * <p>The tags you want to attach to the custom plugin.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1510,25 +1634,25 @@ export interface CreateCustomPluginResponse {
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the custom plugin.</p>
    * @public
    */
-  customPluginArn?: string;
+  customPluginArn?: string | undefined;
 
   /**
    * <p>The state of the custom plugin.</p>
    * @public
    */
-  customPluginState?: CustomPluginState;
+  customPluginState?: CustomPluginState | undefined;
 
   /**
    * <p>The name of the custom plugin.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The revision of the custom plugin.</p>
    * @public
    */
-  revision?: number;
+  revision?: number | undefined;
 }
 
 /**
@@ -1539,7 +1663,7 @@ export interface CreateWorkerConfigurationRequest {
    * <p>A summary description of the worker configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The name of the worker configuration.</p>
@@ -1557,7 +1681,7 @@ export interface CreateWorkerConfigurationRequest {
    * <p>The tags you want to attach to the worker configuration.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1568,31 +1692,31 @@ export interface CreateWorkerConfigurationResponse {
    * <p>The time that the worker configuration was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The latest revision of the worker configuration.</p>
    * @public
    */
-  latestRevision?: WorkerConfigurationRevisionSummary;
+  latestRevision?: WorkerConfigurationRevisionSummary | undefined;
 
   /**
    * <p>The name of the worker configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the worker configuration.</p>
    * @public
    */
-  workerConfigurationArn?: string;
+  workerConfigurationArn?: string | undefined;
 
   /**
    * <p>The state of the worker configuration.</p>
    * @public
    */
-  workerConfigurationState?: WorkerConfigurationState;
+  workerConfigurationState?: WorkerConfigurationState | undefined;
 }
 
 /**
@@ -1609,7 +1733,7 @@ export interface DeleteConnectorRequest {
    * <p>The current version of the connector that you want to delete.</p>
    * @public
    */
-  currentVersion?: string;
+  currentVersion?: string | undefined;
 }
 
 /**
@@ -1620,13 +1744,13 @@ export interface DeleteConnectorResponse {
    * <p>The Amazon Resource Name (ARN) of the connector that you requested to delete.</p>
    * @public
    */
-  connectorArn?: string;
+  connectorArn?: string | undefined;
 
   /**
    * <p>The state of the connector that you requested to delete.</p>
    * @public
    */
-  connectorState?: ConnectorState;
+  connectorState?: ConnectorState | undefined;
 }
 
 /**
@@ -1648,13 +1772,13 @@ export interface DeleteCustomPluginResponse {
    * <p>The Amazon Resource Name (ARN) of the custom plugin that you requested to delete.</p>
    * @public
    */
-  customPluginArn?: string;
+  customPluginArn?: string | undefined;
 
   /**
    * <p>The state of the custom plugin.</p>
    * @public
    */
-  customPluginState?: CustomPluginState;
+  customPluginState?: CustomPluginState | undefined;
 }
 
 /**
@@ -1676,13 +1800,13 @@ export interface DeleteWorkerConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the worker configuration that you requested to delete.</p>
    * @public
    */
-  workerConfigurationArn?: string;
+  workerConfigurationArn?: string | undefined;
 
   /**
    * <p>The state of the worker configuration.</p>
    * @public
    */
-  workerConfigurationState?: WorkerConfigurationState;
+  workerConfigurationState?: WorkerConfigurationState | undefined;
 }
 
 /**
@@ -1705,13 +1829,13 @@ export interface StateDescription {
    * <p>A code that describes the state of a resource.</p>
    * @public
    */
-  code?: string;
+  code?: string | undefined;
 
   /**
    * <p>A message that describes the state of a resource.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1723,106 +1847,206 @@ export interface DescribeConnectorResponse {
    *          provisioned.</p>
    * @public
    */
-  capacity?: CapacityDescription;
+  capacity?: CapacityDescription | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  connectorArn?: string;
+  connectorArn?: string | undefined;
 
   /**
    * <p>A map of keys to values that represent the configuration for the connector.</p>
    * @public
    */
-  connectorConfiguration?: Record<string, string>;
+  connectorConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>A summary description of the connector.</p>
    * @public
    */
-  connectorDescription?: string;
+  connectorDescription?: string | undefined;
 
   /**
    * <p>The name of the connector.</p>
    * @public
    */
-  connectorName?: string;
+  connectorName?: string | undefined;
 
   /**
    * <p>The state of the connector.</p>
    * @public
    */
-  connectorState?: ConnectorState;
+  connectorState?: ConnectorState | undefined;
 
   /**
    * <p>The time the connector was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The current version of the connector.</p>
    * @public
    */
-  currentVersion?: string;
+  currentVersion?: string | undefined;
 
   /**
    * <p>The Apache Kafka cluster that the connector is connected to.</p>
    * @public
    */
-  kafkaCluster?: KafkaClusterDescription;
+  kafkaCluster?: KafkaClusterDescription | undefined;
 
   /**
    * <p>The type of client authentication used to connect to the Apache Kafka cluster. The value
    *          is NONE when no client authentication is used.</p>
    * @public
    */
-  kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription;
+  kafkaClusterClientAuthentication?: KafkaClusterClientAuthenticationDescription | undefined;
 
   /**
    * <p>Details of encryption in transit to the Apache Kafka cluster.</p>
    * @public
    */
-  kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription;
+  kafkaClusterEncryptionInTransit?: KafkaClusterEncryptionInTransitDescription | undefined;
 
   /**
    * <p>The version of Kafka Connect. It has to be compatible with both the Apache Kafka
    *          cluster's version and the plugins.</p>
    * @public
    */
-  kafkaConnectVersion?: string;
+  kafkaConnectVersion?: string | undefined;
 
   /**
    * <p>Details about delivering logs to Amazon CloudWatch Logs.</p>
    * @public
    */
-  logDelivery?: LogDeliveryDescription;
+  logDelivery?: LogDeliveryDescription | undefined;
 
   /**
    * <p>Specifies which plugins were used for this connector.</p>
    * @public
    */
-  plugins?: PluginDescription[];
+  plugins?: PluginDescription[] | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role used by the connector to access Amazon
    *          Web Services resources.</p>
    * @public
    */
-  serviceExecutionRoleArn?: string;
+  serviceExecutionRoleArn?: string | undefined;
 
   /**
    * <p>Specifies which worker configuration was used for the connector.</p>
    * @public
    */
-  workerConfiguration?: WorkerConfigurationDescription;
+  workerConfiguration?: WorkerConfigurationDescription | undefined;
 
   /**
    * <p>Details about the state of a connector.</p>
    * @public
    */
-  stateDescription?: StateDescription;
+  stateDescription?: StateDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectorOperationRequest {
+  /**
+   * <p>ARN of the connector operation to be described.</p>
+   * @public
+   */
+  connectorOperationArn: string | undefined;
+}
+
+/**
+ * <p>Details about worker setting of a connector</p>
+ * @public
+ */
+export interface WorkerSetting {
+  /**
+   * <p>A description of the connector's capacity.</p>
+   * @public
+   */
+  capacity?: CapacityDescription | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DescribeConnectorOperationResponse {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector.</p>
+   * @public
+   */
+  connectorArn?: string | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
+
+  /**
+   * <p>The state of the connector operation.</p>
+   * @public
+   */
+  connectorOperationState?: ConnectorOperationState | undefined;
+
+  /**
+   * <p>The type of connector operation performed.</p>
+   * @public
+   */
+  connectorOperationType?: ConnectorOperationType | undefined;
+
+  /**
+   * <p>The array of operation steps taken.</p>
+   * @public
+   */
+  operationSteps?: ConnectorOperationStep[] | undefined;
+
+  /**
+   * <p>The origin worker setting.</p>
+   * @public
+   */
+  originWorkerSetting?: WorkerSetting | undefined;
+
+  /**
+   * <p>The origin connector configuration.</p>
+   * @public
+   */
+  originConnectorConfiguration?: Record<string, string> | undefined;
+
+  /**
+   * <p>The target worker setting.</p>
+   * @public
+   */
+  targetWorkerSetting?: WorkerSetting | undefined;
+
+  /**
+   * <p>The target connector configuration.</p>
+   * @public
+   */
+  targetConnectorConfiguration?: Record<string, string> | undefined;
+
+  /**
+   * <p>Details about the state of a resource.</p>
+   * @public
+   */
+  errorInfo?: StateDescription | undefined;
+
+  /**
+   * <p>The time when the operation was created.</p>
+   * @public
+   */
+  creationTime?: Date | undefined;
+
+  /**
+   * <p>The time when the operation ended.</p>
+   * @public
+   */
+  endTime?: Date | undefined;
 }
 
 /**
@@ -1844,44 +2068,44 @@ export interface DescribeCustomPluginResponse {
    * <p>The time that the custom plugin was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the custom plugin.</p>
    * @public
    */
-  customPluginArn?: string;
+  customPluginArn?: string | undefined;
 
   /**
    * <p>The state of the custom plugin.</p>
    * @public
    */
-  customPluginState?: CustomPluginState;
+  customPluginState?: CustomPluginState | undefined;
 
   /**
    * <p>The description of the custom plugin.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The latest successfully created revision of the custom plugin. If there are no
    *          successfully created revisions, this field will be absent.</p>
    * @public
    */
-  latestRevision?: CustomPluginRevisionSummary;
+  latestRevision?: CustomPluginRevisionSummary | undefined;
 
   /**
    * <p>The name of the custom plugin.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Details about the state of a custom plugin.</p>
    * @public
    */
-  stateDescription?: StateDescription;
+  stateDescription?: StateDescription | undefined;
 }
 
 /**
@@ -1905,25 +2129,25 @@ export interface WorkerConfigurationRevisionDescription {
    * <p>The time that the worker configuration was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The description of the worker configuration revision.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>Base64 encoded contents of the connect-distributed.properties file.</p>
    * @public
    */
-  propertiesFileContent?: string;
+  propertiesFileContent?: string | undefined;
 
   /**
    * <p>The description of a revision of the worker configuration.</p>
    * @public
    */
-  revision?: number;
+  revision?: number | undefined;
 }
 
 /**
@@ -1934,37 +2158,77 @@ export interface DescribeWorkerConfigurationResponse {
    * <p>The time that the worker configuration was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The description of the worker configuration.</p>
    * @public
    */
-  description?: string;
+  description?: string | undefined;
 
   /**
    * <p>The latest revision of the custom configuration.</p>
    * @public
    */
-  latestRevision?: WorkerConfigurationRevisionDescription;
+  latestRevision?: WorkerConfigurationRevisionDescription | undefined;
 
   /**
    * <p>The name of the worker configuration.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the custom configuration.</p>
    * @public
    */
-  workerConfigurationArn?: string;
+  workerConfigurationArn?: string | undefined;
 
   /**
    * <p>The state of the worker configuration.</p>
    * @public
    */
-  workerConfigurationState?: WorkerConfigurationState;
+  workerConfigurationState?: WorkerConfigurationState | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorOperationsRequest {
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector for which to list operations.</p>
+   * @public
+   */
+  connectorArn: string | undefined;
+
+  /**
+   * <p>Maximum number of connector operations to fetch in one get request.</p>
+   * @public
+   */
+  maxResults?: number | undefined;
+
+  /**
+   * <p>If the response is truncated, it includes a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListConnectorOperationsResponse {
+  /**
+   * <p>An array of connector operation descriptions.</p>
+   * @public
+   */
+  connectorOperations?: ConnectorOperationSummary[] | undefined;
+
+  /**
+   * <p>If the response is truncated, it includes a NextToken. Send this NextToken in a subsequent request to continue listing from where it left off.</p>
+   * @public
+   */
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1975,13 +2239,13 @@ export interface ListConnectorsRequest {
    * <p>The name prefix that you want to use to search for and list connectors.</p>
    * @public
    */
-  connectorNamePrefix?: string;
+  connectorNamePrefix?: string | undefined;
 
   /**
    * <p>The maximum number of connectors to list in one response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken.
@@ -1989,7 +2253,7 @@ export interface ListConnectorsRequest {
    *          operation left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2000,7 +2264,7 @@ export interface ListConnectorsResponse {
    * <p>An array of connector descriptions.</p>
    * @public
    */
-  connectors?: ConnectorSummary[];
+  connectors?: ConnectorSummary[] | undefined;
 
   /**
    * <p>If the response of a ListConnectors operation is truncated, it will include a NextToken.
@@ -2008,7 +2272,7 @@ export interface ListConnectorsResponse {
    *          off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2019,7 +2283,7 @@ export interface ListCustomPluginsRequest {
    * <p>The maximum number of custom plugins to list in one response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the response of a ListCustomPlugins operation is truncated, it will include a
@@ -2027,13 +2291,13 @@ export interface ListCustomPluginsRequest {
    *          previous operation left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Lists custom plugin names that start with the specified text string.</p>
    * @public
    */
-  namePrefix?: string;
+  namePrefix?: string | undefined;
 }
 
 /**
@@ -2044,7 +2308,7 @@ export interface ListCustomPluginsResponse {
    * <p>An array of custom plugin descriptions.</p>
    * @public
    */
-  customPlugins?: CustomPluginSummary[];
+  customPlugins?: CustomPluginSummary[] | undefined;
 
   /**
    * <p>If the response of a ListCustomPlugins operation is truncated, it will include a
@@ -2052,7 +2316,7 @@ export interface ListCustomPluginsResponse {
    *          previous operation left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2074,7 +2338,7 @@ export interface ListTagsForResourceResponse {
    * <p>Lists the tags attached to the specified resource in the corresponding request.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2085,7 +2349,7 @@ export interface ListWorkerConfigurationsRequest {
    * <p>The maximum number of worker configurations to list in one response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>If the response of a ListWorkerConfigurations operation is truncated, it will include a
@@ -2093,13 +2357,13 @@ export interface ListWorkerConfigurationsRequest {
    *          previous operation left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Lists worker configuration names that start with the specified text string.</p>
    * @public
    */
-  namePrefix?: string;
+  namePrefix?: string | undefined;
 }
 
 /**
@@ -2112,13 +2376,13 @@ export interface ListWorkerConfigurationsResponse {
    *          previous operation left off.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>An array of worker configuration descriptions.</p>
    * @public
    */
-  workerConfigurations?: WorkerConfigurationSummary[];
+  workerConfigurations?: WorkerConfigurationSummary[] | undefined;
 }
 
 /**
@@ -2173,7 +2437,13 @@ export interface UpdateConnectorRequest {
    * <p>The target capacity.</p>
    * @public
    */
-  capacity: CapacityUpdate | undefined;
+  capacity?: CapacityUpdate | undefined;
+
+  /**
+   * <p>A map of keys to values that represent the configuration for the connector.</p>
+   * @public
+   */
+  connectorConfiguration?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the connector that you want to update.</p>
@@ -2196,13 +2466,19 @@ export interface UpdateConnectorResponse {
    * <p>The Amazon Resource Name (ARN) of the connector.</p>
    * @public
    */
-  connectorArn?: string;
+  connectorArn?: string | undefined;
 
   /**
    * <p>The state of the connector.</p>
    * @public
    */
-  connectorState?: ConnectorState;
+  connectorState?: ConnectorState | undefined;
+
+  /**
+   * <p>The Amazon Resource Name (ARN) of the connector operation.</p>
+   * @public
+   */
+  connectorOperationArn?: string | undefined;
 }
 
 /**
@@ -2232,6 +2508,15 @@ export const DescribeConnectorResponseFilterSensitiveLog = (obj: DescribeConnect
 /**
  * @internal
  */
+export const DescribeConnectorOperationResponseFilterSensitiveLog = (obj: DescribeConnectorOperationResponse): any => ({
+  ...obj,
+  ...(obj.originConnectorConfiguration && { originConnectorConfiguration: SENSITIVE_STRING }),
+  ...(obj.targetConnectorConfiguration && { targetConnectorConfiguration: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const WorkerConfigurationRevisionDescriptionFilterSensitiveLog = (
   obj: WorkerConfigurationRevisionDescription
 ): any => ({
@@ -2249,4 +2534,12 @@ export const DescribeWorkerConfigurationResponseFilterSensitiveLog = (
   ...(obj.latestRevision && {
     latestRevision: WorkerConfigurationRevisionDescriptionFilterSensitiveLog(obj.latestRevision),
   }),
+});
+
+/**
+ * @internal
+ */
+export const UpdateConnectorRequestFilterSensitiveLog = (obj: UpdateConnectorRequest): any => ({
+  ...obj,
+  ...(obj.connectorConfiguration && { connectorConfiguration: SENSITIVE_STRING }),
 });

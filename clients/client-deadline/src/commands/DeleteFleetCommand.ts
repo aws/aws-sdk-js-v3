@@ -12,7 +12,8 @@ import { de_DeleteFleetCommand, se_DeleteFleetCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,8 +56,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  *  <p>You don't have permission to perform the action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>Your request has conflicting operations. This can occur if you're trying to perform more
- *          than one operation on the same resource at the same time.</p>
+ *  <p>Your request has conflicting operations. This can occur if you're trying to perform more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link InternalServerErrorException} (server fault)
  *  <p>Deadline Cloud can't process your request right now. Try again later.</p>
@@ -68,11 +68,11 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResponse, __Metadat
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -84,9 +84,7 @@ export class DeleteFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +96,16 @@ export class DeleteFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetCommand)
   .de(de_DeleteFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFleetCommandInput;
+      output: DeleteFleetCommandOutput;
+    };
+  };
+}

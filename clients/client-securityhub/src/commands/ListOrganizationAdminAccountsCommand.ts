@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_2";
+import { ListOrganizationAdminAccountsRequest, ListOrganizationAdminAccountsResponse } from "../models/models_3";
 import {
   de_ListOrganizationAdminAccountsCommand,
   se_ListOrganizationAdminAccountsCommand,
@@ -15,7 +15,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,6 +44,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * const input = { // ListOrganizationAdminAccountsRequest
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Feature: "SecurityHub" || "SecurityHubV2",
  * };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
@@ -54,6 +56,7 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
+ * //   Feature: "SecurityHub" || "SecurityHubV2",
  * // };
  *
  * ```
@@ -81,28 +84,28 @@ export interface ListOrganizationAdminAccountsCommandOutput
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To list administrator acccounts for an organization
  * ```javascript
  * // The following example lists the Security  Hub administrator accounts for an organization. Only the organization management account can call this operation.
- * const input = {};
+ * const input = { /* empty *\/ };
  * const command = new ListOrganizationAdminAccountsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AdminAccounts": [
+ *   AdminAccounts: [
  *     {
- *       "AccountId": "777788889999"
+ *       AccountId: "777788889999"
  *     },
  *     {
- *       "Status": "ENABLED"
+ *       Status: "ENABLED"
  *     }
  *   ]
  * }
  * *\/
- * // example id: to-list-administrator-acccounts-for-an-organization-1678386548110
  * ```
  *
+ * @public
  */
 export class ListOrganizationAdminAccountsCommand extends $Command
   .classBuilder<
@@ -112,9 +115,7 @@ export class ListOrganizationAdminAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +127,16 @@ export class ListOrganizationAdminAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListOrganizationAdminAccountsCommand)
   .de(de_ListOrganizationAdminAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListOrganizationAdminAccountsRequest;
+      output: ListOrganizationAdminAccountsResponse;
+    };
+    sdk: {
+      input: ListOrganizationAdminAccountsCommandInput;
+      output: ListOrganizationAdminAccountsCommandOutput;
+    };
+  };
+}

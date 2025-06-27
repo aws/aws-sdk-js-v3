@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ListLocationsInput, ListLocationsOutput } from "../models/models_0";
+import { ListLocationsInput, ListLocationsOutput } from "../models/models_1";
 import { de_ListLocationsCommand, se_ListLocationsCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,19 @@ export interface ListLocationsCommandInput extends ListLocationsInput {}
 export interface ListLocationsCommandOutput extends ListLocationsOutput, __MetadataBearer {}
 
 /**
- * <p>Lists all custom and Amazon Web Services locations.</p>
+ * <p>Lists all custom and Amazon Web Services locations where Amazon GameLift Servers can host game servers. </p>
+ *          <p>Note that if you call this API using a location that doesn't have a service endpoint,
+ *             such as one that can only be a remote location in a multi-location fleet, the API
+ *             returns an error.</p>
+ *          <p>Consult the table of supported locations in <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Amazon GameLift Servers service
+ *                 locations</a> to identify home Regions that support single and multi-location
+ *             fleets.</p>
+ *          <p>
+ *             <b>Learn more</b>
+ *          </p>
+ *          <p>
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-regions.html">Service locations</a>
+ *          </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +61,12 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * //     { // LocationModel
  * //       LocationName: "STRING_VALUE",
  * //       LocationArn: "STRING_VALUE",
+ * //       PingBeacon: { // PingBeacon
+ * //         UDPEndpoint: { // UDPEndpoint
+ * //           Domain: "STRING_VALUE",
+ * //           Port: Number("int"),
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -75,6 +94,7 @@ export interface ListLocationsCommandOutput extends ListLocationsOutput, __Metad
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ListLocationsCommand extends $Command
@@ -85,9 +105,7 @@ export class ListLocationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +117,16 @@ export class ListLocationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLocationsCommand)
   .de(de_ListLocationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLocationsInput;
+      output: ListLocationsOutput;
+    };
+    sdk: {
+      input: ListLocationsCommandInput;
+      output: ListLocationsCommandOutput;
+    };
+  };
+}

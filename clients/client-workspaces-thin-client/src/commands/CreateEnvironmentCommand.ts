@@ -21,7 +21,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -49,7 +50,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   desktopEndpoint: "STRING_VALUE",
  *   softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  *   maintenanceWindow: { // MaintenanceWindow
- *     type: "SYSTEM" || "CUSTOM",
+ *     type: "SYSTEM" || "CUSTOM", // required
  *     startTimeHour: Number("int"),
  *     startTimeMinute: Number("int"),
  *     endTimeHour: Number("int"),
@@ -66,6 +67,9 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *   tags: { // TagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   deviceCreationTags: { // DeviceCreationTagsMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateEnvironmentCommand(input);
  * const response = await client.send(command);
@@ -79,7 +83,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * //     activationCode: "STRING_VALUE",
  * //     softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
  * //     maintenanceWindow: { // MaintenanceWindow
- * //       type: "SYSTEM" || "CUSTOM",
+ * //       type: "SYSTEM" || "CUSTOM", // required
  * //       startTimeHour: Number("int"),
  * //       startTimeMinute: Number("int"),
  * //       endTimeHour: Number("int"),
@@ -110,9 +114,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>The requested operation would cause a conflict with the current state of a service
- *             resource associated with the request. Resolve the conflict before retrying this
- *             request.</p>
+ *  <p>The requested operation would cause a conflict with the current state of a service resource associated with the request. Resolve the conflict before retrying this request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The server encountered an internal error and is unable to complete the request.</p>
@@ -132,6 +134,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * @throws {@link WorkSpacesThinClientServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesThinClient service.</p>
  *
+ *
  * @public
  */
 export class CreateEnvironmentCommand extends $Command
@@ -142,9 +145,7 @@ export class CreateEnvironmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesThinClientClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -156,4 +157,16 @@ export class CreateEnvironmentCommand extends $Command
   .f(CreateEnvironmentRequestFilterSensitiveLog, CreateEnvironmentResponseFilterSensitiveLog)
   .ser(se_CreateEnvironmentCommand)
   .de(de_CreateEnvironmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEnvironmentRequest;
+      output: CreateEnvironmentResponse;
+    };
+    sdk: {
+      input: CreateEnvironmentCommandInput;
+      output: CreateEnvironmentCommandOutput;
+    };
+  };
+}

@@ -2,3 +2,4 @@
 export * from "./Interfaces";
 export * from "./ListClusterSnapshotsPaginator";
 export * from "./ListClustersPaginator";
+export * from "./ListPendingMaintenanceActionsPaginator";

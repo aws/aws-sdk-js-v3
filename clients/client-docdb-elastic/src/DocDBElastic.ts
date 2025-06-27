@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  ApplyPendingMaintenanceActionCommand,
+  ApplyPendingMaintenanceActionCommandInput,
+  ApplyPendingMaintenanceActionCommandOutput,
+} from "./commands/ApplyPendingMaintenanceActionCommand";
+import {
   CopyClusterSnapshotCommand,
   CopyClusterSnapshotCommandInput,
   CopyClusterSnapshotCommandOutput,
@@ -34,6 +39,11 @@ import {
   GetClusterSnapshotCommandOutput,
 } from "./commands/GetClusterSnapshotCommand";
 import {
+  GetPendingMaintenanceActionCommand,
+  GetPendingMaintenanceActionCommandInput,
+  GetPendingMaintenanceActionCommandOutput,
+} from "./commands/GetPendingMaintenanceActionCommand";
+import {
   ListClustersCommand,
   ListClustersCommandInput,
   ListClustersCommandOutput,
@@ -43,6 +53,11 @@ import {
   ListClusterSnapshotsCommandInput,
   ListClusterSnapshotsCommandOutput,
 } from "./commands/ListClusterSnapshotsCommand";
+import {
+  ListPendingMaintenanceActionsCommand,
+  ListPendingMaintenanceActionsCommandInput,
+  ListPendingMaintenanceActionsCommandOutput,
+} from "./commands/ListPendingMaintenanceActionsCommand";
 import {
   ListTagsForResourceCommand,
   ListTagsForResourceCommandInput,
@@ -73,6 +88,7 @@ import {
 import { DocDBElasticClient, DocDBElasticClientConfig } from "./DocDBElasticClient";
 
 const commands = {
+  ApplyPendingMaintenanceActionCommand,
   CopyClusterSnapshotCommand,
   CreateClusterCommand,
   CreateClusterSnapshotCommand,
@@ -80,8 +96,10 @@ const commands = {
   DeleteClusterSnapshotCommand,
   GetClusterCommand,
   GetClusterSnapshotCommand,
+  GetPendingMaintenanceActionCommand,
   ListClustersCommand,
   ListClusterSnapshotsCommand,
+  ListPendingMaintenanceActionsCommand,
   ListTagsForResourceCommand,
   RestoreClusterFromSnapshotCommand,
   StartClusterCommand,
@@ -92,6 +110,23 @@ const commands = {
 };
 
 export interface DocDBElastic {
+  /**
+   * @see {@link ApplyPendingMaintenanceActionCommand}
+   */
+  applyPendingMaintenanceAction(
+    args: ApplyPendingMaintenanceActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ApplyPendingMaintenanceActionCommandOutput>;
+  applyPendingMaintenanceAction(
+    args: ApplyPendingMaintenanceActionCommandInput,
+    cb: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
+  ): void;
+  applyPendingMaintenanceAction(
+    args: ApplyPendingMaintenanceActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ApplyPendingMaintenanceActionCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CopyClusterSnapshotCommand}
    */
@@ -194,6 +229,23 @@ export interface DocDBElastic {
   ): void;
 
   /**
+   * @see {@link GetPendingMaintenanceActionCommand}
+   */
+  getPendingMaintenanceAction(
+    args: GetPendingMaintenanceActionCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetPendingMaintenanceActionCommandOutput>;
+  getPendingMaintenanceAction(
+    args: GetPendingMaintenanceActionCommandInput,
+    cb: (err: any, data?: GetPendingMaintenanceActionCommandOutput) => void
+  ): void;
+  getPendingMaintenanceAction(
+    args: GetPendingMaintenanceActionCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetPendingMaintenanceActionCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListClustersCommand}
    */
   listClusters(): Promise<ListClustersCommandOutput>;
@@ -221,6 +273,24 @@ export interface DocDBElastic {
     args: ListClusterSnapshotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListClusterSnapshotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListPendingMaintenanceActionsCommand}
+   */
+  listPendingMaintenanceActions(): Promise<ListPendingMaintenanceActionsCommandOutput>;
+  listPendingMaintenanceActions(
+    args: ListPendingMaintenanceActionsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListPendingMaintenanceActionsCommandOutput>;
+  listPendingMaintenanceActions(
+    args: ListPendingMaintenanceActionsCommandInput,
+    cb: (err: any, data?: ListPendingMaintenanceActionsCommandOutput) => void
+  ): void;
+  listPendingMaintenanceActions(
+    args: ListPendingMaintenanceActionsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListPendingMaintenanceActionsCommandOutput) => void
   ): void;
 
   /**

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMIncidentsClientResolvedConfig
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface UpdateIncidentRecordCommandOutput extends UpdateIncidentRecordO
  * @throws {@link SSMIncidentsServiceException}
  * <p>Base exception class for all service exceptions from SSMIncidents service.</p>
  *
+ *
  * @public
  */
 export class UpdateIncidentRecordCommand extends $Command
@@ -100,9 +102,7 @@ export class UpdateIncidentRecordCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMIncidentsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class UpdateIncidentRecordCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateIncidentRecordCommand)
   .de(de_UpdateIncidentRecordCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateIncidentRecordInput;
+      output: {};
+    };
+    sdk: {
+      input: UpdateIncidentRecordCommandInput;
+      output: UpdateIncidentRecordCommandOutput;
+    };
+  };
+}

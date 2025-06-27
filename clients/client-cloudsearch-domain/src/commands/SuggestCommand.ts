@@ -16,7 +16,8 @@ import { de_SuggestCommand, se_SuggestCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface SuggestCommandOutput extends SuggestResponse, __MetadataBearer 
  * @throws {@link CloudSearchDomainServiceException}
  * <p>Base exception class for all service exceptions from CloudSearchDomain service.</p>
  *
+ *
  * @public
  */
 export class SuggestCommand extends $Command
@@ -90,9 +92,7 @@ export class SuggestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudSearchDomainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class SuggestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SuggestCommand)
   .de(de_SuggestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SuggestRequest;
+      output: SuggestResponse;
+    };
+    sdk: {
+      input: SuggestCommandInput;
+      output: SuggestCommandOutput;
+    };
+  };
+}

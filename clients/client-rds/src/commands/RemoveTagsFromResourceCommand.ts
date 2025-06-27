@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,9 +30,8 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
 /**
  * <p>Removes metadata tags from an Amazon RDS resource.</p>
  *          <p>For an overview on tagging an Amazon RDS resource,
- *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html">Tagging Amazon RDS Resources</a>
- *           in the <i>Amazon RDS User Guide.</i>
- *          </p>
+ *           see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html">Tagging Amazon RDS Resources</a> in the <i>Amazon RDS User Guide</i>
+ *           or <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_Tagging.html">Tagging Amazon Aurora and Amazon RDS Resources</a> in the <i>Amazon Aurora User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,22 +90,25 @@ export interface RemoveTagsFromResourceCommandOutput extends __MetadataBearer {}
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To remove tags from a resource
  * ```javascript
  * // The following example removes tags from a resource.
  * const input = {
- *   "ResourceName": "arn:aws:rds:us-east-1:123456789012:db:mydbinstance",
- *   "TagKeys": [
+ *   ResourceName: "arn:aws:rds:us-east-1:123456789012:db:mydbinstance",
+ *   TagKeys: [
  *     "Name",
  *     "Environment"
  *   ]
  * };
  * const command = new RemoveTagsFromResourceCommand(input);
- * await client.send(command);
- * // example id: to-remove-tags-from-a-resource-1680070522922
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveTagsFromResourceCommand extends $Command
   .classBuilder<
@@ -115,9 +118,7 @@ export class RemoveTagsFromResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +130,16 @@ export class RemoveTagsFromResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromResourceCommand)
   .de(de_RemoveTagsFromResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromResourceMessage;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromResourceCommandInput;
+      output: RemoveTagsFromResourceCommandOutput;
+    };
+  };
+}

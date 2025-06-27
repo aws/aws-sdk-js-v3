@@ -12,7 +12,8 @@ import { de_StartRouteAnalysisCommand, se_StartRouteAnalysisCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -148,6 +149,7 @@ export interface StartRouteAnalysisCommandOutput extends StartRouteAnalysisRespo
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class StartRouteAnalysisCommand extends $Command
@@ -158,9 +160,7 @@ export class StartRouteAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -172,4 +172,16 @@ export class StartRouteAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartRouteAnalysisCommand)
   .de(de_StartRouteAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartRouteAnalysisRequest;
+      output: StartRouteAnalysisResponse;
+    };
+    sdk: {
+      input: StartRouteAnalysisCommandInput;
+      output: StartRouteAnalysisCommandOutput;
+    };
+  };
+}

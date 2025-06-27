@@ -12,7 +12,8 @@ import { de_GetStepCommand, se_GetStepCommand } from "../protocols/Aws_restJson1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +52,7 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  * //   taskRunStatusCounts: { // TaskRunStatusCounts // required
  * //     "<keys>": Number("int"),
  * //   },
+ * //   taskFailureRetryCount: Number("int"),
  * //   targetTaskRunStatus: "READY" || "FAILED" || "SUCCEEDED" || "CANCELED" || "SUSPENDED" || "PENDING",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * //   createdBy: "STRING_VALUE", // required
@@ -118,11 +120,11 @@ export interface GetStepCommandOutput extends GetStepResponse, __MetadataBearer 
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -134,9 +136,7 @@ export class GetStepCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class GetStepCommand extends $Command
   .f(void 0, GetStepResponseFilterSensitiveLog)
   .ser(se_GetStepCommand)
   .de(de_GetStepCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStepRequest;
+      output: GetStepResponse;
+    };
+    sdk: {
+      input: GetStepCommandInput;
+      output: GetStepCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DeleteEmailTemplateCommand, se_DeleteEmailTemplateCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface DeleteEmailTemplateCommandOutput extends DeleteEmailTemplateRes
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class DeleteEmailTemplateCommand extends $Command
@@ -89,9 +91,7 @@ export class DeleteEmailTemplateCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class DeleteEmailTemplateCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteEmailTemplateCommand)
   .de(de_DeleteEmailTemplateCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteEmailTemplateRequest;
+      output: DeleteEmailTemplateResponse;
+    };
+    sdk: {
+      input: DeleteEmailTemplateCommandInput;
+      output: DeleteEmailTemplateCommandOutput;
+    };
+  };
+}

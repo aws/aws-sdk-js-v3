@@ -12,7 +12,8 @@ import { de_CreateEventSourceMappingCommand, se_CreateEventSourceMappingCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,15 +74,11 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *                </p>
  *             </li>
  *          </ul>
- *          <p>The following error handling options are available only for stream sources (DynamoDB and Kinesis):</p>
+ *          <p>The following error handling options are available only for DynamoDB and Kinesis event sources:</p>
  *          <ul>
  *             <li>
  *                <p>
  *                   <code>BisectBatchOnFunctionError</code> – If the function returns an error, split the batch in two and retry.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>DestinationConfig</code> – Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p>
  *             </li>
  *             <li>
  *                <p>
@@ -94,6 +91,14 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *             <li>
  *                <p>
  *                   <code>ParallelizationFactor</code> – Process multiple batches from each shard concurrently.</p>
+ *             </li>
+ *          </ul>
+ *          <p>For stream sources (DynamoDB, Kinesis, Amazon MSK, and self-managed Apache Kafka), the following option is also available:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>OnFailure</code> – Send discarded records to an Amazon SQS queue, Amazon SNS topic, or
+ *             Amazon S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async-retain-records.html#invocation-async-destinations">Adding a destination</a>.</p>
  *             </li>
  *          </ul>
  *          <p>For information about which configuration parameters apply to each event source, see the following topics.</p>
@@ -174,6 +179,9 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   MaximumRecordAgeInSeconds: Number("int"),
  *   BisectBatchOnFunctionError: true || false,
  *   MaximumRetryAttempts: Number("int"),
+ *   Tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  *   TumblingWindowInSeconds: Number("int"),
  *   Topics: [ // Topics
  *     "STRING_VALUE",
@@ -199,9 +207,39 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *   ],
  *   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
+ *     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ *       SchemaRegistryURI: "STRING_VALUE",
+ *       EventRecordFormat: "JSON" || "SOURCE",
+ *       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ *         { // KafkaSchemaRegistryAccessConfig
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           URI: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ *         { // KafkaSchemaValidationConfig
+ *           Attribute: "KEY" || "VALUE",
+ *         },
+ *       ],
+ *     },
  *   },
  *   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  *     ConsumerGroupId: "STRING_VALUE",
+ *     SchemaRegistryConfig: {
+ *       SchemaRegistryURI: "STRING_VALUE",
+ *       EventRecordFormat: "JSON" || "SOURCE",
+ *       AccessConfigs: [
+ *         {
+ *           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ *           URI: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SchemaValidationConfigs: [
+ *         {
+ *           Attribute: "KEY" || "VALUE",
+ *         },
+ *       ],
+ *     },
  *   },
  *   ScalingConfig: { // ScalingConfig
  *     MaximumConcurrency: Number("int"),
@@ -210,6 +248,16 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  *     DatabaseName: "STRING_VALUE",
  *     CollectionName: "STRING_VALUE",
  *     FullDocument: "UpdateLookup" || "Default",
+ *   },
+ *   KMSKeyArn: "STRING_VALUE",
+ *   MetricsConfig: { // EventSourceMappingMetricsConfig
+ *     Metrics: [ // EventSourceMappingMetricList
+ *       "EventCount",
+ *     ],
+ *   },
+ *   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ *     MinimumPollers: Number("int"),
+ *     MaximumPollers: Number("int"),
  *   },
  * };
  * const command = new CreateEventSourceMappingCommand(input);
@@ -270,9 +318,39 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //   ],
  * //   AmazonManagedKafkaEventSourceConfig: { // AmazonManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: { // KafkaSchemaRegistryConfig
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [ // KafkaSchemaRegistryAccessConfigList
+ * //         { // KafkaSchemaRegistryAccessConfig
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [ // KafkaSchemaValidationConfigList
+ * //         { // KafkaSchemaValidationConfig
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   SelfManagedKafkaEventSourceConfig: { // SelfManagedKafkaEventSourceConfig
  * //     ConsumerGroupId: "STRING_VALUE",
+ * //     SchemaRegistryConfig: {
+ * //       SchemaRegistryURI: "STRING_VALUE",
+ * //       EventRecordFormat: "JSON" || "SOURCE",
+ * //       AccessConfigs: [
+ * //         {
+ * //           Type: "BASIC_AUTH" || "CLIENT_CERTIFICATE_TLS_AUTH" || "SERVER_ROOT_CA_CERTIFICATE",
+ * //           URI: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       SchemaValidationConfigs: [
+ * //         {
+ * //           Attribute: "KEY" || "VALUE",
+ * //         },
+ * //       ],
+ * //     },
  * //   },
  * //   ScalingConfig: { // ScalingConfig
  * //     MaximumConcurrency: Number("int"),
@@ -281,6 +359,21 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * //     DatabaseName: "STRING_VALUE",
  * //     CollectionName: "STRING_VALUE",
  * //     FullDocument: "UpdateLookup" || "Default",
+ * //   },
+ * //   KMSKeyArn: "STRING_VALUE",
+ * //   FilterCriteriaError: { // FilterCriteriaError
+ * //     ErrorCode: "STRING_VALUE",
+ * //     Message: "STRING_VALUE",
+ * //   },
+ * //   EventSourceMappingArn: "STRING_VALUE",
+ * //   MetricsConfig: { // EventSourceMappingMetricsConfig
+ * //     Metrics: [ // EventSourceMappingMetricList
+ * //       "EventCount",
+ * //     ],
+ * //   },
+ * //   ProvisionedPollerConfig: { // ProvisionedPollerConfig
+ * //     MinimumPollers: Number("int"),
+ * //     MaximumPollers: Number("int"),
  * //   },
  * // };
  *
@@ -310,6 +403,30 @@ export interface CreateEventSourceMappingCommandOutput extends EventSourceMappin
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To create a mapping between an event source and an AWS Lambda function
+ * ```javascript
+ * // The following example creates a mapping between an SQS queue and the my-function Lambda function.
+ * const input = {
+ *   BatchSize: 5,
+ *   EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:my-queue",
+ *   FunctionName: "my-function"
+ * };
+ * const command = new CreateEventSourceMappingCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   BatchSize: 5,
+ *   EventSourceArn: "arn:aws:sqs:us-west-2:123456789012:my-queue",
+ *   FunctionArn: "arn:aws:lambda:us-west-2:123456789012:function:my-function",
+ *   LastModified: 1.569284520333E9,
+ *   State: "Creating",
+ *   StateTransitionReason: "USER_INITIATED",
+ *   UUID: "a1b2c3d4-5678-90ab-cdef-11111EXAMPLE"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateEventSourceMappingCommand extends $Command
@@ -320,9 +437,7 @@ export class CreateEventSourceMappingCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -334,4 +449,16 @@ export class CreateEventSourceMappingCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateEventSourceMappingCommand)
   .de(de_CreateEventSourceMappingCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateEventSourceMappingRequest;
+      output: EventSourceMappingConfiguration;
+    };
+    sdk: {
+      input: CreateEventSourceMappingCommandInput;
+      output: CreateEventSourceMappingCommandOutput;
+    };
+  };
+}

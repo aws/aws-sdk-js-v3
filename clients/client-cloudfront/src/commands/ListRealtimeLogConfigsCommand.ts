@@ -12,7 +12,8 @@ import { de_ListRealtimeLogConfigsCommand, se_ListRealtimeLogConfigsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,7 @@ export interface ListRealtimeLogConfigsCommandInput extends ListRealtimeLogConfi
 export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConfigsResult, __MetadataBearer {}
 
 /**
- * <p>Gets a list of real-time log configurations.</p>
- *          <p>You can optionally specify the maximum number of items to receive in the response. If
- * 			the total number of items in the list exceeds the maximum that you specify, or the
- * 			default maximum, the response is paginated. To get the next page of items, send a
- * 			subsequent request that specifies the <code>NextMarker</code> value from the current
- * 			response as the <code>Marker</code> value in the subsequent request.</p>
+ * <p>Gets a list of real-time log configurations.</p> <p>You can optionally specify the maximum number of items to receive in the response. If the total number of items in the list exceeds the maximum that you specify, or the default maximum, the response is paginated. To get the next page of items, send a subsequent request that specifies the <code>NextMarker</code> value from the current response as the <code>Marker</code> value in the subsequent request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -93,6 +89,7 @@ export interface ListRealtimeLogConfigsCommandOutput extends ListRealtimeLogConf
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
  *
+ *
  * @public
  */
 export class ListRealtimeLogConfigsCommand extends $Command
@@ -103,9 +100,7 @@ export class ListRealtimeLogConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +112,16 @@ export class ListRealtimeLogConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListRealtimeLogConfigsCommand)
   .de(de_ListRealtimeLogConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListRealtimeLogConfigsRequest;
+      output: ListRealtimeLogConfigsResult;
+    };
+    sdk: {
+      input: ListRealtimeLogConfigsCommandInput;
+      output: ListRealtimeLogConfigsCommandOutput;
+    };
+  };
+}

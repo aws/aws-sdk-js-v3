@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,7 +93,7 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  *  <p>An error occurred on the server side.</p>
  *
  * @throws {@link InvalidFilter} (client fault)
- *  <p>The filter name isn't valid. Verify the you entered the correct name and try again.</p>
+ *  <p>The filter name isn't valid. Verify that you entered the correct name and try again.</p>
  *
  * @throws {@link InvalidNextToken} (client fault)
  *  <p>The specified token isn't valid.</p>
@@ -107,6 +108,7 @@ export interface ListComplianceItemsCommandOutput extends ListComplianceItemsRes
  * @throws {@link SSMServiceException}
  * <p>Base exception class for all service exceptions from SSM service.</p>
  *
+ *
  * @public
  */
 export class ListComplianceItemsCommand extends $Command
@@ -117,9 +119,7 @@ export class ListComplianceItemsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -131,4 +131,16 @@ export class ListComplianceItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListComplianceItemsCommand)
   .de(de_ListComplianceItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListComplianceItemsRequest;
+      output: ListComplianceItemsResult;
+    };
+    sdk: {
+      input: ListComplianceItemsCommandInput;
+      output: ListComplianceItemsCommandOutput;
+    };
+  };
+}

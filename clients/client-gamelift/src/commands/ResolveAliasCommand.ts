@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GameLiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GameLiftClient";
-import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_0";
+import { ResolveAliasInput, ResolveAliasOutput } from "../models/models_1";
 import { de_ResolveAliasCommand, se_ResolveAliasCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
 /**
  * <p>Attempts to retrieve a fleet ID that is associated with an alias. Specify a unique
  *             alias identifier.</p>
- *          <p>If the alias has a <code>SIMPLE</code> routing strategy, Amazon GameLift returns a fleet ID.
+ *          <p>If the alias has a <code>SIMPLE</code> routing strategy, Amazon GameLift Servers returns a fleet ID.
  *             If the alias has a <code>TERMINAL</code> routing strategy, the result is a
  *                 <code>TerminalRoutingStrategyException</code>.</p>
  *          <p>
@@ -71,7 +72,7 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link TerminalRoutingStrategyException} (client fault)
  *  <p>The service is unable to resolve the routing for a particular alias because it has a
@@ -85,6 +86,7 @@ export interface ResolveAliasCommandOutput extends ResolveAliasOutput, __Metadat
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
  *
+ *
  * @public
  */
 export class ResolveAliasCommand extends $Command
@@ -95,9 +97,7 @@ export class ResolveAliasCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class ResolveAliasCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ResolveAliasCommand)
   .de(de_ResolveAliasCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ResolveAliasInput;
+      output: ResolveAliasOutput;
+    };
+    sdk: {
+      input: ResolveAliasCommandInput;
+      output: ResolveAliasCommandOutput;
+    };
+  };
+}

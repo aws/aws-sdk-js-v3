@@ -12,7 +12,8 @@ import { de_ListChannelGroupsCommand, se_ListChannelGroupsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListChannelGroupsCommandInput extends ListChannelGroupsRequest 
 export interface ListChannelGroupsCommandOutput extends ListChannelGroupsResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves all channel groups that are configured in AWS Elemental MediaPackage, including the channels and origin endpoints that are associated with it.</p>
+ * <p>Retrieves all channel groups that are configured in Elemental MediaPackage.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -76,6 +77,34 @@ export interface ListChannelGroupsCommandOutput extends ListChannelGroupsRespons
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Listing all Channel Groups
+ * ```javascript
+ * //
+ * const input = { /* empty *\/ };
+ * const command = new ListChannelGroupsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Items: [
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/exampleChannelGroup",
+ *       ChannelGroupName: "exampleChannelGroup",
+ *       CreatedAt: "2022-10-18T09:36:00.00Z",
+ *       Description: "Description for exampleChannelGroup",
+ *       ModifiedAt: "2022-10-18T09:36:00.00Z"
+ *     },
+ *     {
+ *       Arn: "arn:aws:mediapackagev2:us-west-2:123456789012:channelGroup/anotherExampleChannelGroup",
+ *       ChannelGroupName: "anotherExampleChannelGroup",
+ *       CreatedAt: "2022-10-18T10:36:00.00Z",
+ *       ModifiedAt: "2022-10-18T10:36:00.00Z"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListChannelGroupsCommand extends $Command
@@ -86,9 +115,7 @@ export class ListChannelGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +127,16 @@ export class ListChannelGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListChannelGroupsCommand)
   .de(de_ListChannelGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListChannelGroupsRequest;
+      output: ListChannelGroupsResponse;
+    };
+    sdk: {
+      input: ListChannelGroupsCommandInput;
+      output: ListChannelGroupsCommandOutput;
+    };
+  };
+}

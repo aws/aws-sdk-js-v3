@@ -20,7 +20,8 @@ import { de_AdminListUserAuthEventsCommand, se_AdminListUserAuthEventsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,8 +36,8 @@ export interface AdminListUserAuthEventsCommandInput extends AdminListUserAuthEv
 export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthEventsResponse, __MetadataBearer {}
 
 /**
- * <p>A history of user activity and any risks detected as part of Amazon Cognito advanced
- *             security.</p>
+ * <p>Requests a history of user activity and any risks detected as part of Amazon Cognito threat
+ *             protection. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pool-settings-adaptive-authentication.html#user-pool-settings-adaptive-authentication-event-user-history">Viewing user event history</a>.</p>
  *          <note>
  *             <p>Amazon Cognito evaluates Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you must use IAM credentials to authorize requests, and you must
@@ -141,6 +142,7 @@ export interface AdminListUserAuthEventsCommandOutput extends AdminListUserAuthE
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class AdminListUserAuthEventsCommand extends $Command
@@ -151,9 +153,7 @@ export class AdminListUserAuthEventsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -165,4 +165,16 @@ export class AdminListUserAuthEventsCommand extends $Command
   .f(AdminListUserAuthEventsRequestFilterSensitiveLog, void 0)
   .ser(se_AdminListUserAuthEventsCommand)
   .de(de_AdminListUserAuthEventsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AdminListUserAuthEventsRequest;
+      output: AdminListUserAuthEventsResponse;
+    };
+    sdk: {
+      input: AdminListUserAuthEventsCommandInput;
+      output: AdminListUserAuthEventsCommandOutput;
+    };
+  };
+}

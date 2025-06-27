@@ -16,7 +16,8 @@ import { de_GetNetworkCommand, se_GetNetworkCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface GetNetworkCommandOutput extends GetNetworkOutput, __MetadataBea
  * @throws {@link ManagedBlockchainServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchain service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkCommand extends $Command
@@ -116,9 +118,7 @@ export class GetNetworkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class GetNetworkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNetworkCommand)
   .de(de_GetNetworkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkInput;
+      output: GetNetworkOutput;
+    };
+    sdk: {
+      input: GetNetworkCommandInput;
+      output: GetNetworkCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_0";
+import { StopWorkspacesRequest, StopWorkspacesResult } from "../models/models_1";
 import { de_StopWorkspacesCommand, se_StopWorkspacesCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,10 @@ export interface StopWorkspacesCommandInput extends StopWorkspacesRequest {}
 export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __MetadataBearer {}
 
 /**
- * <p> Stops the specified WorkSpaces.</p>
- *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> and a
- *          state of <code>AVAILABLE</code>, <code>IMPAIRED</code>, <code>UNHEALTHY</code>, or
- *             <code>ERROR</code>.</p>
+ * <p>Stops the specified WorkSpaces.</p>
+ *          <p>You cannot stop a WorkSpace unless it has a running mode of <code>AutoStop</code> or
+ *          <code>Manual</code> and a state of <code>AVAILABLE</code>, <code>IMPAIRED</code>,
+ *          <code>UNHEALTHY</code>, or <code>ERROR</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,6 +68,7 @@ export interface StopWorkspacesCommandOutput extends StopWorkspacesResult, __Met
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class StopWorkspacesCommand extends $Command
@@ -77,9 +79,7 @@ export class StopWorkspacesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class StopWorkspacesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopWorkspacesCommand)
   .de(de_StopWorkspacesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopWorkspacesRequest;
+      output: StopWorkspacesResult;
+    };
+    sdk: {
+      input: StopWorkspacesCommandInput;
+      output: StopWorkspacesCommandOutput;
+    };
+  };
+}

@@ -409,6 +409,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -454,11 +473,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type WAFV2ClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -474,11 +493,11 @@ export interface WAFV2ClientConfig extends WAFV2ClientConfigType {}
 export type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -489,7 +508,7 @@ export type WAFV2ClientResolvedConfigType = __SmithyResolvedConfiguration<__Http
 export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType {}
 
 /**
- * <fullname>WAF</fullname>
+ * <fullname>WAF </fullname>
  *          <note>
  *             <p>This is the latest version of the <b>WAF</b> API,
  *             released in November, 2019. The names of the entities that you use to access this API,
@@ -497,15 +516,13 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *             "v2", to distinguish from the prior version. We recommend migrating your resources to
  *             this version, because it has a number of significant improvements.</p>
  *             <p>If you used WAF prior to this release, you can't use this WAFV2 API to access any
- *             WAF resources that you created before. You can access your old rules, web ACLs, and
- *             other WAF resources only through the WAF Classic APIs. The WAF Classic APIs
- *             have retained the prior names, endpoints, and namespaces. </p>
- *             <p>For information, including how to migrate your WAF resources to this version,
+ *             WAF resources that you created before. WAF Classic support will end on September 30, 2025. </p>
+ *             <p>For information about WAF, including how to migrate your WAF Classic resources to this version,
  *             see the <a href="https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html">WAF Developer Guide</a>. </p>
  *          </note>
  *          <p>WAF is a web application firewall that lets you monitor the HTTP and HTTPS
- *          requests that are forwarded to an Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
- *       GraphQL API, Amazon Cognito user pool, App Runner service, or Amazon Web Services Verified Access instance. WAF also lets you control access to your content,
+ *          requests that are forwarded to a protected resource. Protected resource types include Amazon CloudFront distribution, Amazon API Gateway REST API, Application Load Balancer, AppSync
+ *       GraphQL API, Amazon Cognito user pool, App Runner service, Amplify application, and Amazon Web Services Verified Access instance. WAF also lets you control access to your content,
  *       to protect the Amazon Web Services resource that WAF is monitoring. Based on conditions that
  *          you specify, such as the IP addresses that requests originate from or the values of query
  *          strings, the protected resource responds to requests with either the requested content, an HTTP 403 status code
@@ -517,36 +534,16 @@ export interface WAFV2ClientResolvedConfig extends WAFV2ClientResolvedConfigType
  *          <p>You can make calls using the endpoints listed in <a href="https://docs.aws.amazon.com/general/latest/gr/waf.html">WAF endpoints and quotas</a>. </p>
  *          <ul>
  *             <li>
- *                <p>For regional applications, you can use any of the endpoints in the list.
+ *                <p>For regional resources, you can use any of the endpoints in the list.
  *                A regional application can be an Application Load Balancer (ALB), an Amazon API Gateway REST API, an AppSync GraphQL API, an Amazon Cognito user pool, an App Runner service, or an Amazon Web Services Verified Access instance. </p>
  *             </li>
  *             <li>
- *                <p>For Amazon CloudFront applications, you must use the API endpoint listed for
+ *                <p>For Amazon CloudFront and Amplify, you must use the API endpoint listed for
  *                US East (N. Virginia): us-east-1.</p>
  *             </li>
  *          </ul>
  *          <p>Alternatively, you can use one of the Amazon Web Services SDKs to access an API that's tailored to the
  *          programming language or platform that you're using. For more information, see <a href="http://aws.amazon.com/tools/#SDKs">Amazon Web Services SDKs</a>.</p>
- *          <p>We currently provide two versions of the WAF API: this API and the prior versions,
- *          the classic WAF APIs. This new API provides the same functionality as the older versions,
- *          with the following major improvements:</p>
- *          <ul>
- *             <li>
- *                <p>You use one API for both global and regional applications. Where you need to
- *                distinguish the scope, you specify a <code>Scope</code> parameter and set it to
- *                   <code>CLOUDFRONT</code> or <code>REGIONAL</code>. </p>
- *             </li>
- *             <li>
- *                <p>You can define a web ACL or rule group with a single call, and update it with a
- *                single call. You define all rule specifications in JSON format, and pass them to your
- *                rule group or web ACL calls.</p>
- *             </li>
- *             <li>
- *                <p>The limits WAF places on the use of rules more closely reflects the cost of
- *                running each type of rule. Rule groups include capacity settings, so you know the
- *                maximum cost of a rule group when you use it.</p>
- *             </li>
- *          </ul>
  * @public
  */
 export class WAFV2Client extends __Client<
@@ -562,26 +559,30 @@ export class WAFV2Client extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<WAFV2ClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultWAFV2HttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: WAFV2ClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -594,14 +595,5 @@ export class WAFV2Client extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultWAFV2HttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: WAFV2ClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

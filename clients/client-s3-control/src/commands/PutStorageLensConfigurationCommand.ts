@@ -13,7 +13,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -159,6 +160,7 @@ export interface PutStorageLensConfigurationCommandOutput extends __MetadataBear
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class PutStorageLensConfigurationCommand extends $Command
@@ -186,4 +188,16 @@ export class PutStorageLensConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutStorageLensConfigurationCommand)
   .de(de_PutStorageLensConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutStorageLensConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: PutStorageLensConfigurationCommandInput;
+      output: PutStorageLensConfigurationCommandOutput;
+    };
+  };
+}

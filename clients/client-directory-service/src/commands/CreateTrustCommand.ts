@@ -12,7 +12,8 @@ import { de_CreateTrustCommand, se_CreateTrustCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,29 @@ export interface CreateTrustCommandOutput extends CreateTrustResult, __MetadataB
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To create a trust
+ * ```javascript
+ * // The following example creates a trust between Microsoft AD in the AWS cloud and an external domain.
+ * const input = {
+ *   ConditionalForwarderIpAddrs: [
+ *     "172.30.21.228"
+ *   ],
+ *   DirectoryId: "d-92654abfed",
+ *   RemoteDomainName: "europe.example.com",
+ *   TrustDirection: "One-Way: Outgoing",
+ *   TrustPassword: "Str0ngP@ssw0rd",
+ *   TrustType: "Forest"
+ * };
+ * const command = new CreateTrustCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   TrustId: "t-9267353743"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CreateTrustCommand extends $Command
@@ -96,9 +120,7 @@ export class CreateTrustCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +132,16 @@ export class CreateTrustCommand extends $Command
   .f(CreateTrustRequestFilterSensitiveLog, void 0)
   .ser(se_CreateTrustCommand)
   .de(de_CreateTrustCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrustRequest;
+      output: CreateTrustResult;
+    };
+    sdk: {
+      input: CreateTrustCommandInput;
+      output: CreateTrustCommandOutput;
+    };
+  };
+}

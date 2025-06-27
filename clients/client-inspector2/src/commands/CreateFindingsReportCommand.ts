@@ -12,7 +12,8 @@ import { de_CreateFindingsReportCommand, se_CreateFindingsReportCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,9 @@ export interface CreateFindingsReportCommandInput extends CreateFindingsReportRe
 export interface CreateFindingsReportCommandOutput extends CreateFindingsReportResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a finding report. By default only <code>ACTIVE</code> findings are returned in the report. To see <code>SUPRESSED</code> or <code>CLOSED</code> findings you must specify a value for the <code>findingStatus</code> filter criteria. </p>
+ * <p>Creates a finding report. By default only <code>ACTIVE</code> findings are returned in
+ *          the report. To see <code>SUPRESSED</code> or <code>CLOSED</code> findings you must specify
+ *          a value for the <code>findingStatus</code> filter criteria. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -114,6 +117,18 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *     ecrImageRepositoryName: "<StringFilterList>",
  *     ecrImageTags: "<StringFilterList>",
  *     ecrImageHash: "<StringFilterList>",
+ *     ecrImageLastInUseAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageInUseCount: [
+ *       {
+ *         upperInclusive: Number("double"),
+ *         lowerInclusive: Number("double"),
+ *       },
+ *     ],
  *     portRange: [ // PortRangeFilterList
  *       { // PortRangeFilter
  *         beginInclusive: Number("int"),
@@ -138,6 +153,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *         architecture: "<StringFilter>",
  *         sourceLayerHash: "<StringFilter>",
  *         sourceLambdaLayerArn: "<StringFilter>",
+ *         filePath: "<StringFilter>",
  *       },
  *     ],
  *     relatedVulnerabilities: "<StringFilterList>",
@@ -145,12 +161,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *     lambdaFunctionName: "<StringFilterList>",
  *     lambdaFunctionLayers: "<StringFilterList>",
  *     lambdaFunctionRuntime: "<StringFilterList>",
- *     lambdaFunctionLastModifiedAt: [
- *       {
- *         startInclusive: new Date("TIMESTAMP"),
- *         endInclusive: new Date("TIMESTAMP"),
- *       },
- *     ],
+ *     lambdaFunctionLastModifiedAt: "<DateFilterList>",
  *     lambdaFunctionExecutionRoleArn: "<StringFilterList>",
  *     exploitAvailable: "<StringFilterList>",
  *     codeVulnerabilityDetectorName: "<StringFilterList>",
@@ -162,6 +173,8 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *         lowerInclusive: Number("double"),
  *       },
  *     ],
+ *     codeRepositoryProjectName: "<StringFilterList>",
+ *     codeRepositoryProviderType: "<StringFilterList>",
  *   },
  *   reportFormat: "STRING_VALUE", // required
  *   s3Destination: { // Destination
@@ -186,12 +199,15 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The operation tried to access an invalid resource. Make sure the resource is specified correctly.</p>
+ *  <p>The operation tried to access an invalid resource. Make sure the resource is specified
+ *          correctly.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
@@ -203,6 +219,7 @@ export interface CreateFindingsReportCommandOutput extends CreateFindingsReportR
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class CreateFindingsReportCommand extends $Command
@@ -213,9 +230,7 @@ export class CreateFindingsReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -227,4 +242,16 @@ export class CreateFindingsReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFindingsReportCommand)
   .de(de_CreateFindingsReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFindingsReportRequest;
+      output: CreateFindingsReportResponse;
+    };
+    sdk: {
+      input: CreateFindingsReportCommandInput;
+      output: CreateFindingsReportCommandOutput;
+    };
+  };
+}

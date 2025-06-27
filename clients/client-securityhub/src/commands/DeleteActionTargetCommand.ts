@@ -12,7 +12,8 @@ import { SecurityHubClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,23 +70,23 @@ export interface DeleteActionTargetCommandOutput extends DeleteActionTargetRespo
  * @throws {@link SecurityHubServiceException}
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
- * @public
+ *
  * @example To delete a custom action target
  * ```javascript
  * // The following example deletes a custom action target that triggers target actions in Amazon CloudWatch Events. Deleting a custom action target doesn't affect findings or insights that were already sent to CloudWatch Events based on the custom action.
  * const input = {
- *   "ActionTargetArn": "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
+ *   ActionTargetArn: "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
  * };
  * const command = new DeleteActionTargetCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ActionTargetArn": "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
+ *   ActionTargetArn: "arn:aws:securityhub:us-west-1:123456789012:action/custom/Remediation"
  * }
  * *\/
- * // example id: to-delete-a-custom-action-target-1675449272793
  * ```
  *
+ * @public
  */
 export class DeleteActionTargetCommand extends $Command
   .classBuilder<
@@ -95,9 +96,7 @@ export class DeleteActionTargetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecurityHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +108,16 @@ export class DeleteActionTargetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteActionTargetCommand)
   .de(de_DeleteActionTargetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteActionTargetRequest;
+      output: DeleteActionTargetResponse;
+    };
+    sdk: {
+      input: DeleteActionTargetCommandInput;
+      output: DeleteActionTargetCommandOutput;
+    };
+  };
+}

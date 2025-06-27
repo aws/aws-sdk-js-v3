@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOAdminClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,11 @@ export interface UpdateTrustedTokenIssuerCommandInput extends UpdateTrustedToken
 export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedTokenIssuerResponse, __MetadataBearer {}
 
 /**
- * <p>Updates the name of the trusted token issuer, or the path of a source attribute or destination attribute for a trusted token issuer configuration.</p>
+ * <p>Updates the name of the trusted token issuer, or the path of a source attribute or destination
+ *             attribute for a trusted token issuer configuration.</p>
  *          <note>
- *             <p>Updating this trusted token issuer configuration might cause users to lose access to any applications that are configured to use the trusted token issuer.</p>
+ *             <p>Updating this trusted token issuer configuration might cause users to lose access to any
+ *                 applications that are configured to use the trusted token issuer.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -86,6 +89,7 @@ export interface UpdateTrustedTokenIssuerCommandOutput extends UpdateTrustedToke
  * @throws {@link SSOAdminServiceException}
  * <p>Base exception class for all service exceptions from SSOAdmin service.</p>
  *
+ *
  * @public
  */
 export class UpdateTrustedTokenIssuerCommand extends $Command
@@ -96,9 +100,7 @@ export class UpdateTrustedTokenIssuerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOAdminClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +112,16 @@ export class UpdateTrustedTokenIssuerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTrustedTokenIssuerCommand)
   .de(de_UpdateTrustedTokenIssuerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTrustedTokenIssuerRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTrustedTokenIssuerCommandInput;
+      output: UpdateTrustedTokenIssuerCommandOutput;
+    };
+  };
+}

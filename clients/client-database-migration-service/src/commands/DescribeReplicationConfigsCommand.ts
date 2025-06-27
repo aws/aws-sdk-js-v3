@@ -16,7 +16,8 @@ import { de_DescribeReplicationConfigsCommand, se_DescribeReplicationConfigsComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,8 @@ export interface DescribeReplicationConfigsCommandInput extends DescribeReplicat
 export interface DescribeReplicationConfigsCommandOutput extends DescribeReplicationConfigsResponse, __MetadataBearer {}
 
 /**
- * <p>Returns one or more existing DMS Serverless replication configurations as a list of structures.</p>
+ * <p>Returns one or more existing DMS Serverless replication configurations as a list of
+ *          structures.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,6 +99,7 @@ export interface DescribeReplicationConfigsCommandOutput extends DescribeReplica
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplicationConfigsCommand extends $Command
@@ -107,9 +110,7 @@ export class DescribeReplicationConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +122,16 @@ export class DescribeReplicationConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationConfigsCommand)
   .de(de_DescribeReplicationConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationConfigsMessage;
+      output: DescribeReplicationConfigsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationConfigsCommandInput;
+      output: DescribeReplicationConfigsCommandOutput;
+    };
+  };
+}

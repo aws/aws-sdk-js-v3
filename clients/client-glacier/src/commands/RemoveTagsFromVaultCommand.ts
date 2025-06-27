@@ -12,7 +12,8 @@ import { de_RemoveTagsFromVaultCommand, se_RemoveTagsFromVaultCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,23 +73,26 @@ export interface RemoveTagsFromVaultCommandOutput extends __MetadataBearer {}
  * @throws {@link GlacierServiceException}
  * <p>Base exception class for all service exceptions from Glacier service.</p>
  *
- * @public
+ *
  * @example To remove tags from a vault
  * ```javascript
  * // The example removes two tags from the vault named examplevault.
  * const input = {
- *   "TagKeys": [
+ *   TagKeys: [
  *     "examplekey1",
  *     "examplekey2"
  *   ],
- *   "accountId": "-",
- *   "vaultName": "examplevault"
+ *   accountId: "-",
+ *   vaultName: "examplevault"
  * };
  * const command = new RemoveTagsFromVaultCommand(input);
- * await client.send(command);
- * // example id: remove-tags-from-vault-1481754998801
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RemoveTagsFromVaultCommand extends $Command
   .classBuilder<
@@ -98,9 +102,7 @@ export class RemoveTagsFromVaultCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlacierClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +114,16 @@ export class RemoveTagsFromVaultCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveTagsFromVaultCommand)
   .de(de_RemoveTagsFromVaultCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveTagsFromVaultInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveTagsFromVaultCommandInput;
+      output: RemoveTagsFromVaultCommandOutput;
+    };
+  };
+}

@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { JsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../JsonProtocolClient";
 import { JsonEnumsInputOutput } from "../models/models_0";
 import { de_JsonEnumsCommand, se_JsonEnumsCommand } from "../protocols/Aws_json1_1";
@@ -10,7 +12,8 @@ import { de_JsonEnumsCommand, se_JsonEnumsCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +77,7 @@ export interface JsonEnumsCommandOutput extends JsonEnumsInputOutput, __Metadata
  * @throws {@link JsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from JsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class JsonEnumsCommand extends $Command
@@ -84,12 +88,28 @@ export class JsonEnumsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: JsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("JsonProtocol", "JsonEnums", {})
   .n("JsonProtocolClient", "JsonEnumsCommand")
   .f(void 0, void 0)
   .ser(se_JsonEnumsCommand)
   .de(de_JsonEnumsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: JsonEnumsInputOutput;
+      output: JsonEnumsInputOutput;
+    };
+    sdk: {
+      input: JsonEnumsCommandInput;
+      output: JsonEnumsCommandOutput;
+    };
+  };
+}

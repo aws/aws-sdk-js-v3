@@ -12,7 +12,8 @@ import { de_ListCodeSigningConfigsCommand, se_ListCodeSigningConfigsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListCodeSigningConfigsCommandOutput extends ListCodeSigningConf
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
  * @public
  */
 export class ListCodeSigningConfigsCommand extends $Command
@@ -89,9 +91,7 @@ export class ListCodeSigningConfigsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListCodeSigningConfigsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCodeSigningConfigsCommand)
   .de(de_ListCodeSigningConfigsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCodeSigningConfigsRequest;
+      output: ListCodeSigningConfigsResponse;
+    };
+    sdk: {
+      input: ListCodeSigningConfigsCommandInput;
+      output: ListCodeSigningConfigsCommandOutput;
+    };
+  };
+}

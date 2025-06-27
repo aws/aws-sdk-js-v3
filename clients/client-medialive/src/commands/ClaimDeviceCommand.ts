@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { MediaLiveClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../MediaLiveClient";
-import { ClaimDeviceRequest, ClaimDeviceResponse } from "../models/models_1";
+import { ClaimDeviceRequest, ClaimDeviceResponse } from "../models/models_2";
 import { de_ClaimDeviceCommand, se_ClaimDeviceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,7 @@ export interface ClaimDeviceCommandOutput extends ClaimDeviceResponse, __Metadat
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ClaimDeviceCommand extends $Command
@@ -86,9 +88,7 @@ export class ClaimDeviceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class ClaimDeviceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ClaimDeviceCommand)
   .de(de_ClaimDeviceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ClaimDeviceRequest;
+      output: {};
+    };
+    sdk: {
+      input: ClaimDeviceCommandInput;
+      output: ClaimDeviceCommandOutput;
+    };
+  };
+}

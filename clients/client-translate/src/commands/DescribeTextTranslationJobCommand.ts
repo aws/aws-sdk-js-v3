@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TranslateClientResolvedConfig } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface DescribeTextTranslationJobCommandOutput extends DescribeTextTra
  * @throws {@link TranslateServiceException}
  * <p>Base exception class for all service exceptions from Translate service.</p>
  *
+ *
  * @public
  */
 export class DescribeTextTranslationJobCommand extends $Command
@@ -116,9 +118,7 @@ export class DescribeTextTranslationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TranslateClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class DescribeTextTranslationJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeTextTranslationJobCommand)
   .de(de_DescribeTextTranslationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeTextTranslationJobRequest;
+      output: DescribeTextTranslationJobResponse;
+    };
+    sdk: {
+      input: DescribeTextTranslationJobCommandInput;
+      output: DescribeTextTranslationJobCommandOutput;
+    };
+  };
+}

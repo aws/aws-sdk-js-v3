@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SSOOIDCClientResolvedConfig } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,30 +88,30 @@ export interface StartDeviceAuthorizationCommandOutput extends StartDeviceAuthor
  * @throws {@link SSOOIDCServiceException}
  * <p>Base exception class for all service exceptions from SSOOIDC service.</p>
  *
- * @public
+ *
  * @example Call OAuth/OIDC /start-device-authorization endpoint
  * ```javascript
  * //
  * const input = {
- *   "clientId": "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
- *   "clientSecret": "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
- *   "startUrl": "https://identitycenter.amazonaws.com/ssoins-111111111111"
+ *   clientId: "_yzkThXVzLWVhc3QtMQEXAMPLECLIENTID",
+ *   clientSecret: "VERYLONGSECRETeyJraWQiOiJrZXktMTU2NDAyODA5OSIsImFsZyI6IkhTMzg0In0",
+ *   startUrl: "https://identitycenter.amazonaws.com/ssoins-111111111111"
  * };
  * const command = new StartDeviceAuthorizationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "deviceCode": "yJraWQiOiJrZXktMTU2Njk2ODA4OCIsImFsZyI6IkhTMzIn0EXAMPLEDEVICECODE",
- *   "expiresIn": 1579729529,
- *   "interval": 1,
- *   "userCode": "makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE",
- *   "verificationUri": "https://device.sso.us-west-2.amazonaws.com",
- *   "verificationUriComplete": "https://device.sso.us-west-2.amazonaws.com?user_code=makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE"
+ *   deviceCode: "yJraWQiOiJrZXktMTU2Njk2ODA4OCIsImFsZyI6IkhTMzIn0EXAMPLEDEVICECODE",
+ *   expiresIn: 1579729529,
+ *   interval: 1,
+ *   userCode: "makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE",
+ *   verificationUri: "https://directory-alias-example.awsapps.com/start/#/device",
+ *   verificationUriComplete: "https://directory-alias-example.awsapps.com/start/#/device?user_code=makdfsk83yJraWQiOiJrZXktMTU2Njk2sImFsZyI6IkhTMzIn0EXAMPLEUSERCODE"
  * }
  * *\/
- * // example id: start-device-authorization
  * ```
  *
+ * @public
  */
 export class StartDeviceAuthorizationCommand extends $Command
   .classBuilder<
@@ -120,9 +121,7 @@ export class StartDeviceAuthorizationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SSOOIDCClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -134,4 +133,16 @@ export class StartDeviceAuthorizationCommand extends $Command
   .f(StartDeviceAuthorizationRequestFilterSensitiveLog, void 0)
   .ser(se_StartDeviceAuthorizationCommand)
   .de(de_StartDeviceAuthorizationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartDeviceAuthorizationRequest;
+      output: StartDeviceAuthorizationResponse;
+    };
+    sdk: {
+      input: StartDeviceAuthorizationCommandInput;
+      output: StartDeviceAuthorizationCommandOutput;
+    };
+  };
+}

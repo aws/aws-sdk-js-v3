@@ -3411,6 +3411,9 @@
       },
       "errors": [
         {
+          "target": "com.amazonaws.servicecatalog#InvalidParametersException"
+        },
+        {
           "target": "com.amazonaws.servicecatalog#ResourceInUseException"
         },
         {
@@ -4949,6 +4952,9 @@
         "target": "com.amazonaws.servicecatalog#DisassociateServiceActionFromProvisioningArtifactOutput"
       },
       "errors": [
+        {
+          "target": "com.amazonaws.servicecatalog#InvalidParametersException"
+        },
         {
           "target": "com.amazonaws.servicecatalog#ResourceNotFoundException"
         }
@@ -10524,7 +10530,7 @@
         "AccessLevelFilter": {
           "target": "com.amazonaws.servicecatalog#AccessLevelFilter",
           "traits": {
-            "smithy.api#documentation": "<p>The access level to use to obtain results. The default is <code>User</code>.</p>"
+            "smithy.api#documentation": "<p>The access level to use to obtain results. The default is\n         <code>Account</code>.</p>"
           }
         },
         "Filters": {

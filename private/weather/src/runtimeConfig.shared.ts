@@ -1,5 +1,10 @@
 // smithy-typescript generated code
+import { defaultWeatherHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
+import { defaultEndpointResolver } from "./endpoint/endpointResolver";
+import { HttpApiKeyAuthSigner, HttpBearerAuthSigner, NoAuthSigner } from "@smithy/core";
+import { SigV4Signer } from "@smithy/experimental-identity-and-auth";
 import { NoOpLogger } from "@smithy/smithy-client";
+import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
@@ -14,7 +19,32 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     base64Decoder: config?.base64Decoder ?? fromBase64,
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
+    endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultWeatherHttpAuthSchemeProvider,
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        signer: new SigV4Signer(),
+      },
+      {
+        schemeId: "smithy.api#httpApiKeyAuth",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpApiKeyAuth"),
+        signer: new HttpApiKeyAuthSigner(),
+      },
+      {
+        schemeId: "smithy.api#httpBearerAuth",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("smithy.api#httpBearerAuth"),
+        signer: new HttpBearerAuthSigner(),
+      },
+      {
+        schemeId: "smithy.api#noAuth",
+        identityProvider: (ipc: IdentityProviderConfig) =>
+          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
+        signer: new NoAuthSigner(),
+      },
+    ],
     logger: config?.logger ?? new NoOpLogger(),
     signingName: config?.signingName ?? "weather",
     urlParser: config?.urlParser ?? parseUrl,

@@ -12,7 +12,8 @@ import { de_DeleteLayerVersionCommand, se_DeleteLayerVersionCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,21 @@ export interface DeleteLayerVersionCommandOutput extends __MetadataBearer {}
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To delete a version of a Lambda layer
+ * ```javascript
+ * // The following example deletes version 2 of a layer named my-layer.
+ * const input = {
+ *   LayerName: "my-layer",
+ *   VersionNumber: 2
+ * };
+ * const command = new DeleteLayerVersionCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteLayerVersionCommand extends $Command
@@ -71,9 +87,7 @@ export class DeleteLayerVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +99,16 @@ export class DeleteLayerVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLayerVersionCommand)
   .de(de_DeleteLayerVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLayerVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteLayerVersionCommandInput;
+      output: DeleteLayerVersionCommandOutput;
+    };
+  };
+}

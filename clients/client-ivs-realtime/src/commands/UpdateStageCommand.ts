@@ -12,7 +12,8 @@ import { de_UpdateStageCommand, se_UpdateStageCommand } from "../protocols/Aws_r
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,6 +38,24 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * const input = { // UpdateStageRequest
  *   arn: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
+ *   autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
+ *     storageConfigurationArn: "STRING_VALUE", // required
+ *     mediaTypes: [ // ParticipantRecordingMediaTypeList
+ *       "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
+ *     ],
+ *     thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ *       targetIntervalSeconds: Number("int"),
+ *       storage: [ // ThumbnailStorageTypeList
+ *         "SEQUENTIAL" || "LATEST",
+ *       ],
+ *       recordingMode: "INTERVAL" || "DISABLED",
+ *     },
+ *     recordingReconnectWindowSeconds: Number("int"),
+ *     hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ *       targetSegmentDurationSeconds: Number("int"),
+ *     },
+ *     recordParticipantReplicas: true || false,
+ *   },
  * };
  * const command = new UpdateStageCommand(input);
  * const response = await client.send(command);
@@ -47,6 +66,30 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * //     activeSessionId: "STRING_VALUE",
  * //     tags: { // Tags
  * //       "<keys>": "STRING_VALUE",
+ * //     },
+ * //     autoParticipantRecordingConfiguration: { // AutoParticipantRecordingConfiguration
+ * //       storageConfigurationArn: "STRING_VALUE", // required
+ * //       mediaTypes: [ // ParticipantRecordingMediaTypeList
+ * //         "AUDIO_VIDEO" || "AUDIO_ONLY" || "NONE",
+ * //       ],
+ * //       thumbnailConfiguration: { // ParticipantThumbnailConfiguration
+ * //         targetIntervalSeconds: Number("int"),
+ * //         storage: [ // ThumbnailStorageTypeList
+ * //           "SEQUENTIAL" || "LATEST",
+ * //         ],
+ * //         recordingMode: "INTERVAL" || "DISABLED",
+ * //       },
+ * //       recordingReconnectWindowSeconds: Number("int"),
+ * //       hlsConfiguration: { // ParticipantRecordingHlsConfiguration
+ * //         targetSegmentDurationSeconds: Number("int"),
+ * //       },
+ * //       recordParticipantReplicas: true || false,
+ * //     },
+ * //     endpoints: { // StageEndpoints
+ * //       events: "STRING_VALUE",
+ * //       whip: "STRING_VALUE",
+ * //       rtmp: "STRING_VALUE",
+ * //       rtmps: "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -80,6 +123,7 @@ export interface UpdateStageCommandOutput extends UpdateStageResponse, __Metadat
  * @throws {@link IVSRealTimeServiceException}
  * <p>Base exception class for all service exceptions from IVSRealTime service.</p>
  *
+ *
  * @public
  */
 export class UpdateStageCommand extends $Command
@@ -90,9 +134,7 @@ export class UpdateStageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IVSRealTimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +146,16 @@ export class UpdateStageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateStageCommand)
   .de(de_UpdateStageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateStageRequest;
+      output: UpdateStageResponse;
+    };
+    sdk: {
+      input: UpdateStageCommandInput;
+      output: UpdateStageCommandOutput;
+    };
+  };
+}

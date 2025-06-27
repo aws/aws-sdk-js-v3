@@ -12,7 +12,8 @@ import { de_DeleteRoomMembershipCommand, se_DeleteRoomMembershipCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface DeleteRoomMembershipCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class DeleteRoomMembershipCommand extends $Command
@@ -85,9 +87,7 @@ export class DeleteRoomMembershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class DeleteRoomMembershipCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteRoomMembershipCommand)
   .de(de_DeleteRoomMembershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteRoomMembershipRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteRoomMembershipCommandInput;
+      output: DeleteRoomMembershipCommandOutput;
+    };
+  };
+}

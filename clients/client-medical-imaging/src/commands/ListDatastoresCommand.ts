@@ -12,7 +12,8 @@ import { de_ListDatastoresCommand, se_ListDatastoresCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface ListDatastoresCommandOutput extends ListDatastoresResponse, __M
  * @throws {@link MedicalImagingServiceException}
  * <p>Base exception class for all service exceptions from MedicalImaging service.</p>
  *
+ *
  * @public
  */
 export class ListDatastoresCommand extends $Command
@@ -88,9 +90,7 @@ export class ListDatastoresCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MedicalImagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ListDatastoresCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDatastoresCommand)
   .de(de_ListDatastoresCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDatastoresRequest;
+      output: ListDatastoresResponse;
+    };
+    sdk: {
+      input: ListDatastoresCommandInput;
+      output: ListDatastoresCommandOutput;
+    };
+  };
+}

@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,34 +96,34 @@ export interface DescribeReplicationSubnetGroupsCommandOutput
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Describe replication subnet groups
  * ```javascript
  * // Returns information about the replication subnet groups.
  * const input = {
- *   "Filters": [
+ *   Filters: [
  *     {
- *       "Name": "string",
- *       "Values": [
+ *       Name: "string",
+ *       Values: [
  *         "string",
  *         "string"
  *       ]
  *     }
  *   ],
- *   "Marker": "",
- *   "MaxRecords": 123
+ *   Marker: "",
+ *   MaxRecords: 123
  * };
  * const command = new DescribeReplicationSubnetGroupsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Marker": "",
- *   "ReplicationSubnetGroups": []
+ *   Marker: "",
+ *   ReplicationSubnetGroups:   []
  * }
  * *\/
- * // example id: describe-replication-subnet-groups-1481755621284
  * ```
  *
+ * @public
  */
 export class DescribeReplicationSubnetGroupsCommand extends $Command
   .classBuilder<
@@ -132,9 +133,7 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -146,4 +145,16 @@ export class DescribeReplicationSubnetGroupsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplicationSubnetGroupsCommand)
   .de(de_DescribeReplicationSubnetGroupsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplicationSubnetGroupsMessage;
+      output: DescribeReplicationSubnetGroupsResponse;
+    };
+    sdk: {
+      input: DescribeReplicationSubnetGroupsCommandInput;
+      output: DescribeReplicationSubnetGroupsCommandOutput;
+    };
+  };
+}

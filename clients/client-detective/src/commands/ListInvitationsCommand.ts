@@ -16,7 +16,8 @@ import { de_ListInvitationsCommand, se_ListInvitationsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,6 +102,7 @@ export interface ListInvitationsCommandOutput extends ListInvitationsResponse, _
  * @throws {@link DetectiveServiceException}
  * <p>Base exception class for all service exceptions from Detective service.</p>
  *
+ *
  * @public
  */
 export class ListInvitationsCommand extends $Command
@@ -111,9 +113,7 @@ export class ListInvitationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DetectiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class ListInvitationsCommand extends $Command
   .f(void 0, ListInvitationsResponseFilterSensitiveLog)
   .ser(se_ListInvitationsCommand)
   .de(de_ListInvitationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInvitationsRequest;
+      output: ListInvitationsResponse;
+    };
+    sdk: {
+      input: ListInvitationsCommandInput;
+      output: ListInvitationsCommandOutput;
+    };
+  };
+}

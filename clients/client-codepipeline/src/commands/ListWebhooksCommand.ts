@@ -12,7 +12,8 @@ import { de_ListWebhooksCommand, se_ListWebhooksCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,6 +31,9 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * <p>Gets a listing of all the webhooks in this Amazon Web Services Region for this
  *             account. The output lists all webhooks and includes the webhook URL and ARN and the
  *             configuration for each webhook.</p>
+ *          <note>
+ *             <p>If a secret token was provided, it will be redacted in the response.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +99,7 @@ export interface ListWebhooksCommandOutput extends ListWebhooksOutput, __Metadat
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class ListWebhooksCommand extends $Command
@@ -105,9 +110,7 @@ export class ListWebhooksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +122,16 @@ export class ListWebhooksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListWebhooksCommand)
   .de(de_ListWebhooksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListWebhooksInput;
+      output: ListWebhooksOutput;
+    };
+    sdk: {
+      input: ListWebhooksCommandInput;
+      output: ListWebhooksCommandOutput;
+    };
+  };
+}

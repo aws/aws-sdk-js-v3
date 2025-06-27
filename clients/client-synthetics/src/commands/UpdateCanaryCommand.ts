@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,6 +33,9 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *          <p>You can't use this operation to update the tags of an existing canary. To
  *          change the tags of an existing canary, use
  *          <a href="https://docs.aws.amazon.com/AmazonSynthetics/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
+ *          <note>
+ *             <p>When you use the <code>dryRunId</code> field when updating a canary, the only other field you can provide is the <code>Schedule</code>. Adding any other field will thrown an exception.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,6 +56,9 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *   Schedule: { // CanaryScheduleInput
  *     Expression: "STRING_VALUE", // required
  *     DurationInSeconds: Number("long"),
+ *     RetryConfig: { // RetryConfigInput
+ *       MaxRetries: Number("int"), // required
+ *     },
  *   },
  *   RunConfig: { // CanaryRunConfigInput
  *     TimeoutInSeconds: Number("int"),
@@ -60,6 +67,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     EnvironmentVariables: { // EnvironmentVariablesMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     EphemeralStorage: Number("int"),
  *   },
  *   SuccessRetentionPeriodInDays: Number("int"),
  *   FailureRetentionPeriodInDays: Number("int"),
@@ -70,6 +78,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
  *   VisualReference: { // VisualReferenceInput
  *     BaseScreenshots: [ // BaseScreenshots
@@ -89,6 +98,8 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *       KmsKeyArn: "STRING_VALUE",
  *     },
  *   },
+ *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
+ *   DryRunId: "STRING_VALUE",
  * };
  * const command = new UpdateCanaryCommand(input);
  * const response = await client.send(command);
@@ -101,6 +112,9 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @see {@link UpdateCanaryCommandInput} for command's `input` shape.
  * @see {@link UpdateCanaryCommandOutput} for command's `response` shape.
  * @see {@link SyntheticsClientResolvedConfig | config} for SyntheticsClient's `config` shape.
+ *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have permission to perform this operation on this resource.</p>
  *
  * @throws {@link ConflictException} (client fault)
  *  <p>A conflicting operation is already in progress.</p>
@@ -120,6 +134,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class UpdateCanaryCommand extends $Command
@@ -130,9 +145,7 @@ export class UpdateCanaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +157,16 @@ export class UpdateCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateCanaryCommand)
   .de(de_UpdateCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCanaryRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCanaryCommandInput;
+      output: UpdateCanaryCommandOutput;
+    };
+  };
+}

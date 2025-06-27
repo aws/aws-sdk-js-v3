@@ -69,6 +69,10 @@ import {
   ListStreamConsumersCommandOutput,
 } from "../commands/ListStreamConsumersCommand";
 import { ListStreamsCommandInput, ListStreamsCommandOutput } from "../commands/ListStreamsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
 import { ListTagsForStreamCommandInput, ListTagsForStreamCommandOutput } from "../commands/ListTagsForStreamCommand";
 import { MergeShardsCommandInput, MergeShardsCommandOutput } from "../commands/MergeShardsCommand";
 import { PutRecordCommandInput, PutRecordCommandOutput } from "../commands/PutRecordCommand";
@@ -92,6 +96,8 @@ import {
   StopStreamEncryptionCommandOutput,
 } from "../commands/StopStreamEncryptionCommand";
 import { SubscribeToShardCommandInput, SubscribeToShardCommandOutput } from "../commands/SubscribeToShardCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateShardCountCommandInput, UpdateShardCountCommandOutput } from "../commands/UpdateShardCountCommand";
 import { UpdateStreamModeCommandInput, UpdateStreamModeCommandOutput } from "../commands/UpdateStreamModeCommand";
 import { KinesisServiceException as __BaseException } from "../models/KinesisServiceException";
@@ -136,6 +142,7 @@ import {
   ListStreamConsumersOutput,
   ListStreamsInput,
   ListStreamsOutput,
+  ListTagsForResourceInput,
   ListTagsForStreamInput,
   MergeShardsInput,
   MetricsName,
@@ -161,6 +168,8 @@ import {
   SubscribeToShardEvent,
   SubscribeToShardEventStream,
   SubscribeToShardInput,
+  TagResourceInput,
+  UntagResourceInput,
   UpdateShardCountInput,
   UpdateStreamModeInput,
   ValidationException,
@@ -414,6 +423,19 @@ export const se_ListStreamsCommand = async (
 };
 
 /**
+ * serializeAws_json1_1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("ListTagsForResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1ListTagsForStreamCommand
  */
 export const se_ListTagsForStreamCommand = async (
@@ -553,6 +575,32 @@ export const se_SubscribeToShardCommand = async (
   const headers: __HeaderBag = sharedHeaders("SubscribeToShard");
   let body: any;
   body = JSON.stringify(se_SubscribeToShardInput(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("TagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UntagResource");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -942,6 +990,26 @@ export const de_ListStreamsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: ListTagsForResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1ListTagsForStreamCommand
  */
 export const de_ListTagsForStreamCommand = async (
@@ -1142,6 +1210,40 @@ export const de_SubscribeToShardCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: TagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: UntagResourceCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateShardCountCommand
  */
 export const de_UpdateShardCountCommand = async (
@@ -1206,6 +1308,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ExpiredIteratorException":
     case "com.amazonaws.kinesis#ExpiredIteratorException":
       throw await de_ExpiredIteratorExceptionRes(parsedOutput, context);
+    case "InternalFailureException":
+    case "com.amazonaws.kinesis#InternalFailureException":
+      throw await de_InternalFailureExceptionRes(parsedOutput, context);
     case "KMSAccessDeniedException":
     case "com.amazonaws.kinesis#KMSAccessDeniedException":
       throw await de_KMSAccessDeniedExceptionRes(parsedOutput, context);
@@ -1285,6 +1390,22 @@ const de_ExpiredNextTokenExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ExpiredNextTokenException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1InternalFailureExceptionRes
+ */
+const de_InternalFailureExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<InternalFailureException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new InternalFailureException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -1538,7 +1659,7 @@ const de_SubscribeToShardEventStream = (
         InternalFailureException: await de_InternalFailureException_event(event["InternalFailureException"], context),
       };
     }
-    return { $unknown: output };
+    return { $unknown: event as any };
   });
 };
 const de_InternalFailureException_event = async (
@@ -1628,22 +1749,6 @@ const de_SubscribeToShardEvent_event = async (output: any, context: __SerdeConte
   Object.assign(contents, de_SubscribeToShardEvent(data, context));
   return contents;
 };
-/**
- * deserializeAws_json1_1InternalFailureExceptionRes
- */
-const de_InternalFailureExceptionRes = async (
-  parsedOutput: any,
-  context: __SerdeContext
-): Promise<InternalFailureException> => {
-  const body = parsedOutput.body;
-  const deserialized: any = _json(body);
-  const exception = new InternalFailureException({
-    $metadata: deserializeMetadata(parsedOutput),
-    ...deserialized,
-  });
-  return __decorateServiceException(exception, body);
-};
-
 // se_AddTagsToStreamInput omitted.
 
 // se_CreateStreamInput omitted.
@@ -1716,6 +1821,8 @@ const se_ListStreamConsumersInput = (input: ListStreamConsumersInput, context: _
 };
 
 // se_ListStreamsInput omitted.
+
+// se_ListTagsForResourceInput omitted.
 
 // se_ListTagsForStreamInput omitted.
 
@@ -1820,6 +1927,10 @@ const se_SubscribeToShardInput = (input: SubscribeToShardInput, context: __Serde
 // se_TagKeyList omitted.
 
 // se_TagMap omitted.
+
+// se_TagResourceInput omitted.
+
+// se_UntagResourceInput omitted.
 
 // se_UpdateShardCountInput omitted.
 
@@ -1966,6 +2077,8 @@ const de_ListStreamsOutput = (output: any, context: __SerdeContext): ListStreams
     StreamSummaries: (_: any) => de_StreamSummaryList(_, context),
   }) as any;
 };
+
+// de_ListTagsForResourceOutput omitted.
 
 // de_ListTagsForStreamOutput omitted.
 

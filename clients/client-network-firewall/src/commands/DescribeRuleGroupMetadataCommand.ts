@@ -12,7 +12,8 @@ import { de_DescribeRuleGroupMetadataCommand, se_DescribeRuleGroupMetadataComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface DescribeRuleGroupMetadataCommandOutput extends DescribeRuleGrou
  * @throws {@link NetworkFirewallServiceException}
  * <p>Base exception class for all service exceptions from NetworkFirewall service.</p>
  *
+ *
  * @public
  */
 export class DescribeRuleGroupMetadataCommand extends $Command
@@ -103,9 +105,7 @@ export class DescribeRuleGroupMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkFirewallClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class DescribeRuleGroupMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRuleGroupMetadataCommand)
   .de(de_DescribeRuleGroupMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRuleGroupMetadataRequest;
+      output: DescribeRuleGroupMetadataResponse;
+    };
+    sdk: {
+      input: DescribeRuleGroupMetadataCommandInput;
+      output: DescribeRuleGroupMetadataCommandOutput;
+    };
+  };
+}

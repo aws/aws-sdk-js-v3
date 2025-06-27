@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +55,7 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *           BucketName: "STRING_VALUE", // required
  *           ObjectKeyPrefix: "STRING_VALUE",
  *           KmsKeyArn: "STRING_VALUE",
+ *           IamRoleArn: "STRING_VALUE",
  *         },
  *         BounceAction: { // BounceAction
  *           TopicArn: "STRING_VALUE",
@@ -82,6 +84,10 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  *         SNSAction: { // SNSAction
  *           TopicArn: "STRING_VALUE", // required
  *           Encoding: "UTF-8" || "Base64",
+ *         },
+ *         ConnectAction: { // ConnectAction
+ *           InstanceARN: "STRING_VALUE", // required
+ *           IAMRoleARN: "STRING_VALUE", // required
  *         },
  *       },
  *     ],
@@ -135,33 +141,36 @@ export interface CreateReceiptRuleCommandOutput extends CreateReceiptRuleRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example CreateReceiptRule
  * ```javascript
  * // The following example creates a new receipt rule:
  * const input = {
- *   "After": "",
- *   "Rule": {
- *     "Actions": [
+ *   After: "",
+ *   Rule: {
+ *     Actions: [
  *       {
- *         "S3Action": {
- *           "BucketName": "MyBucket",
- *           "ObjectKeyPrefix": "email"
+ *         S3Action: {
+ *           BucketName: "MyBucket",
+ *           ObjectKeyPrefix: "email"
  *         }
  *       }
  *     ],
- *     "Enabled": true,
- *     "Name": "MyRule",
- *     "ScanEnabled": true,
- *     "TlsPolicy": "Optional"
+ *     Enabled: true,
+ *     Name: "MyRule",
+ *     ScanEnabled: true,
+ *     TlsPolicy: "Optional"
  *   },
- *   "RuleSetName": "MyRuleSet"
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new CreateReceiptRuleCommand(input);
- * await client.send(command);
- * // example id: createreceiptrule-1469122946515
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class CreateReceiptRuleCommand extends $Command
   .classBuilder<
@@ -171,9 +180,7 @@ export class CreateReceiptRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -185,4 +192,16 @@ export class CreateReceiptRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateReceiptRuleCommand)
   .de(de_CreateReceiptRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateReceiptRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: CreateReceiptRuleCommandInput;
+      output: CreateReceiptRuleCommandOutput;
+    };
+  };
+}

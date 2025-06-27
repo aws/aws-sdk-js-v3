@@ -64,6 +64,19 @@ export interface CopyDestinationImageSet {
 }
 
 /**
+ * <p>Contains copiable <code>Attributes</code> structure and wraps information related to specific copy use cases.
+ *             For example, when copying subsets.</p>
+ * @public
+ */
+export interface MetadataCopies {
+  /**
+   * <p>The JSON string used to specify a subset of SOP Instances to copy from source to destination image set.</p>
+   * @public
+   */
+  copiableAttributes: string | undefined;
+}
+
+/**
  * <p>Copy source image set information.</p>
  * @public
  */
@@ -73,6 +86,13 @@ export interface CopySourceImageSetInformation {
    * @public
    */
   latestVersionId: string | undefined;
+
+  /**
+   * <p>Contains <code>MetadataCopies</code> structure and wraps information related to specific copy use cases.
+   *             For example, when copying subsets.</p>
+   * @public
+   */
+  DICOMCopies?: MetadataCopies | undefined;
 }
 
 /**
@@ -90,7 +110,7 @@ export interface CopyImageSetInformation {
    * <p>The destination image set.</p>
    * @public
    */
-  destinationImageSet?: CopyDestinationImageSet;
+  destinationImageSet?: CopyDestinationImageSet | undefined;
 }
 
 /**
@@ -114,6 +134,13 @@ export interface CopyImageSetRequest {
    * @public
    */
   copyImageSetInformation: CopyImageSetInformation | undefined;
+
+  /**
+   * <p>Setting this flag will force the <code>CopyImageSet</code> operation, even if Patient, Study, or Series level
+   *             metadata are mismatched across the <code>sourceImageSet</code> and <code>destinationImageSet</code>.</p>
+   * @public
+   */
+  force?: boolean | undefined;
 }
 
 /**
@@ -174,31 +201,31 @@ export interface CopyDestinationImageSetProperties {
    * <p>The image set state of the destination image set properties.</p>
    * @public
    */
-  imageSetState?: ImageSetState;
+  imageSetState?: ImageSetState | undefined;
 
   /**
    * <p>The image set workflow status of the destination image set properties.</p>
    * @public
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
    * <p>The timestamp when the destination image set properties were created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the destination image set properties were last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the destination image set.</p>
    * @public
    */
-  imageSetArn?: string;
+  imageSetArn?: string | undefined;
 }
 
 /**
@@ -222,31 +249,31 @@ export interface CopySourceImageSetProperties {
    * <p>The image set state of the copied source image set.</p>
    * @public
    */
-  imageSetState?: ImageSetState;
+  imageSetState?: ImageSetState | undefined;
 
   /**
    * <p>The workflow status of the copied source image set.</p>
    * @public
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
    * <p>The timestamp when the source image set properties were created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the source image set properties were updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the source image set.</p>
    * @public
    */
-  imageSetArn?: string;
+  imageSetArn?: string | undefined;
 }
 
 /**
@@ -380,25 +407,25 @@ export interface CreateDatastoreRequest {
    * <p>The data store name.</p>
    * @public
    */
-  datastoreName?: string;
+  datastoreName?: string | undefined;
 
   /**
    * <p>A unique identifier for API idempotency.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The tags provided when creating a data store.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 }
 
 /**
@@ -501,25 +528,25 @@ export interface DatastoreProperties {
    * <p>The Amazon Resource Name (ARN) assigned to the Key Management Service (KMS) key for accessing encrypted data.</p>
    * @public
    */
-  kmsKeyArn?: string;
+  kmsKeyArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) for the data store.</p>
    * @public
    */
-  datastoreArn?: string;
+  datastoreArn?: string | undefined;
 
   /**
    * <p>The timestamp when the data store was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the data store was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -541,19 +568,19 @@ export interface ListDatastoresRequest {
    * <p>The data store status.</p>
    * @public
    */
-  datastoreStatus?: DatastoreStatus;
+  datastoreStatus?: DatastoreStatus | undefined;
 
   /**
    * <p>The pagination token used to request the list of data stores on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Valid Range: Minimum value of 1. Maximum value of 50.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -583,19 +610,19 @@ export interface DatastoreSummary {
    * <p>The Amazon Resource Name (ARN) for the data store.</p>
    * @public
    */
-  datastoreArn?: string;
+  datastoreArn?: string | undefined;
 
   /**
    * <p>The timestamp when the data store was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the data store was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 }
 
 /**
@@ -606,13 +633,13 @@ export interface ListDatastoresResponse {
    * <p>The list of summaries of data stores.</p>
    * @public
    */
-  datastoreSummaries?: DatastoreSummary[];
+  datastoreSummaries?: DatastoreSummary[] | undefined;
 
   /**
    * <p>The pagination token used to retrieve the list of data stores on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -733,13 +760,13 @@ export interface DICOMImportJobProperties {
    * <p>The timestamp for when the import job was ended.</p>
    * @public
    */
-  endedAt?: Date;
+  endedAt?: Date | undefined;
 
   /**
    * <p>The timestamp for when the import job was submitted.</p>
    * @public
    */
-  submittedAt?: Date;
+  submittedAt?: Date | undefined;
 
   /**
    * <p>The input prefix path for the S3 bucket that contains the DICOM P10 files to be imported.</p>
@@ -757,7 +784,7 @@ export interface DICOMImportJobProperties {
    * <p>The error message thrown if an import job fails.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -821,7 +848,7 @@ export interface GetImageFrameResponse {
    *            <code>application/octet-stream</code>.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 }
 
 /**
@@ -844,7 +871,21 @@ export interface GetImageSetRequest {
    * <p>The image set version identifier.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
+}
+
+/**
+ * <p>Specifies the overrides used in image set modification calls to <code>CopyImageSet</code> and
+ *                 <code>UpdateImageSetMetadata</code>.</p>
+ * @public
+ */
+export interface Overrides {
+  /**
+   * <p>Setting this flag will force the <code>CopyImageSet</code> and <code>UpdateImageSetMetadata</code>
+   *             operations, even if Patient, Study, or Series level metadata are mismatched.</p>
+   * @public
+   */
+  forced?: boolean | undefined;
 }
 
 /**
@@ -879,37 +920,45 @@ export interface GetImageSetResponse {
    * <p>The image set workflow status.</p>
    * @public
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
    * <p>The timestamp when image set properties were created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when image set properties were updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the image set properties were deleted.</p>
    * @public
    */
-  deletedAt?: Date;
+  deletedAt?: Date | undefined;
 
   /**
    * <p>The error message thrown if an image set action fails.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) assigned to the image set.</p>
    * @public
    */
-  imageSetArn?: string;
+  imageSetArn?: string | undefined;
+
+  /**
+   * <p>This object contains the details of any overrides used while creating a specific image set version.
+   *             If an image set was copied or updated using the <code>force</code> flag, this object will contain the
+   *             <code>forced</code> flag.</p>
+   * @public
+   */
+  overrides?: Overrides | undefined;
 }
 
 /**
@@ -932,7 +981,7 @@ export interface GetImageSetMetadataRequest {
    * <p>The image set version identifier.</p>
    * @public
    */
-  versionId?: string;
+  versionId?: string | undefined;
 }
 
 /**
@@ -949,13 +998,13 @@ export interface GetImageSetMetadataResponse {
    * <p>The format in which the study metadata is returned to the customer. Default is <code>text/plain</code>.</p>
    * @public
    */
-  contentType?: string;
+  contentType?: string | undefined;
 
   /**
    * <p>The compression format in which image set metadata attributes are returned.</p>
    * @public
    */
-  contentEncoding?: string;
+  contentEncoding?: string | undefined;
 }
 
 /**
@@ -972,19 +1021,19 @@ export interface ListDICOMImportJobsRequest {
    * <p>The filters for listing import jobs based on status.</p>
    * @public
    */
-  jobStatus?: JobStatus;
+  jobStatus?: JobStatus | undefined;
 
   /**
    * <p>The pagination token used to request the list of import jobs on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The max results count. The upper bound is determined by load testing.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1020,25 +1069,25 @@ export interface DICOMImportJobSummary {
    * <p>The Amazon Resource Name (ARN) that grants permissions to access medical imaging resources.</p>
    * @public
    */
-  dataAccessRoleArn?: string;
+  dataAccessRoleArn?: string | undefined;
 
   /**
    * <p>The timestamp when an import job ended.</p>
    * @public
    */
-  endedAt?: Date;
+  endedAt?: Date | undefined;
 
   /**
    * <p>The timestamp when an import job was submitted.</p>
    * @public
    */
-  submittedAt?: Date;
+  submittedAt?: Date | undefined;
 
   /**
    * <p>The error message thrown if an import job fails.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
 
 /**
@@ -1055,7 +1104,7 @@ export interface ListDICOMImportJobsResponse {
    * <p>The pagination token used to retrieve the list of import jobs on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1078,13 +1127,13 @@ export interface ListImageSetVersionsRequest {
    * <p>The pagination token used to request the list of image set versions on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>The max results count.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -1114,31 +1163,39 @@ export interface ImageSetProperties {
    * <p>The image set workflow status.</p>
    * @public
    */
-  ImageSetWorkflowStatus?: ImageSetWorkflowStatus;
+  ImageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
    * <p>The timestamp when the image set properties were created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the image set properties were updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The timestamp when the image set properties were deleted.</p>
    * @public
    */
-  deletedAt?: Date;
+  deletedAt?: Date | undefined;
 
   /**
    * <p>The error message thrown if an image set action fails.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
+
+  /**
+   * <p>Contains details on overrides used when creating the returned version of an image set.
+   *             For example, if <code>forced</code> exists, the <code>forced</code> flag was used when
+   *             creating the image set.</p>
+   * @public
+   */
+  overrides?: Overrides | undefined;
 }
 
 /**
@@ -1155,7 +1212,7 @@ export interface ListImageSetVersionsResponse {
    * <p>The pagination token used to retrieve the list of image set versions on the next page.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1209,7 +1266,7 @@ export interface DICOMStudyDateAndTime {
    * <p>The DICOM study time provided in <code>HHmmss.FFFFFF</code> format.</p>
    * @public
    */
-  DICOMStudyTime?: string;
+  DICOMStudyTime?: string | undefined;
 }
 
 /**
@@ -1473,13 +1530,13 @@ export interface SearchCriteria {
    * <p>The filters for the search criteria.</p>
    * @public
    */
-  filters?: SearchFilter[];
+  filters?: SearchFilter[] | undefined;
 
   /**
    * <p>The sort input for search criteria.</p>
    * @public
    */
-  sort?: Sort;
+  sort?: Sort | undefined;
 }
 
 /**
@@ -1496,20 +1553,20 @@ export interface SearchImageSetsRequest {
    * <p>The search criteria that filters by applying a maximum of 1 item to <code>SearchByAttribute</code>.</p>
    * @public
    */
-  searchCriteria?: SearchCriteria;
+  searchCriteria?: SearchCriteria | undefined;
 
   /**
    * <p>The maximum number of results that can be returned in a search.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token used for pagination of results returned in the response. Use the token returned from the previous
    *            request to continue results where the previous request ended.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1522,97 +1579,97 @@ export interface DICOMTags {
    * <p>The unique identifier for a patient in a DICOM Study.</p>
    * @public
    */
-  DICOMPatientId?: string;
+  DICOMPatientId?: string | undefined;
 
   /**
    * <p>The patient name.</p>
    * @public
    */
-  DICOMPatientName?: string;
+  DICOMPatientName?: string | undefined;
 
   /**
    * <p>The patient birth date.</p>
    * @public
    */
-  DICOMPatientBirthDate?: string;
+  DICOMPatientBirthDate?: string | undefined;
 
   /**
    * <p>The patient sex.</p>
    * @public
    */
-  DICOMPatientSex?: string;
+  DICOMPatientSex?: string | undefined;
 
   /**
    * <p>The DICOM provided identifier for the Study Instance UID.</p>
    * @public
    */
-  DICOMStudyInstanceUID?: string;
+  DICOMStudyInstanceUID?: string | undefined;
 
   /**
    * <p>The DICOM provided identifier for the Study ID.</p>
    * @public
    */
-  DICOMStudyId?: string;
+  DICOMStudyId?: string | undefined;
 
   /**
    * <p>The DICOM provided Study Description.</p>
    * @public
    */
-  DICOMStudyDescription?: string;
+  DICOMStudyDescription?: string | undefined;
 
   /**
    * <p>The total number of series in the DICOM study.</p>
    * @public
    */
-  DICOMNumberOfStudyRelatedSeries?: number;
+  DICOMNumberOfStudyRelatedSeries?: number | undefined;
 
   /**
    * <p>The total number of instances in the DICOM study.</p>
    * @public
    */
-  DICOMNumberOfStudyRelatedInstances?: number;
+  DICOMNumberOfStudyRelatedInstances?: number | undefined;
 
   /**
    * <p>The accession number for the DICOM study.</p>
    * @public
    */
-  DICOMAccessionNumber?: string;
+  DICOMAccessionNumber?: string | undefined;
 
   /**
    * <p>The DICOM provided identifier for the Series Instance UID.</p>
    * @public
    */
-  DICOMSeriesInstanceUID?: string;
+  DICOMSeriesInstanceUID?: string | undefined;
 
   /**
    * <p>The DICOM provided identifier for the series Modality.</p>
    * @public
    */
-  DICOMSeriesModality?: string;
+  DICOMSeriesModality?: string | undefined;
 
   /**
    * <p>The DICOM provided identifier for the series Body Part Examined.</p>
    * @public
    */
-  DICOMSeriesBodyPart?: string;
+  DICOMSeriesBodyPart?: string | undefined;
 
   /**
    * <p>The DICOM provided identifier for the Series Number.</p>
    * @public
    */
-  DICOMSeriesNumber?: number;
+  DICOMSeriesNumber?: number | undefined;
 
   /**
    * <p>The study date.</p>
    * @public
    */
-  DICOMStudyDate?: string;
+  DICOMStudyDate?: string | undefined;
 
   /**
    * <p>The study time.</p>
    * @public
    */
-  DICOMStudyTime?: string;
+  DICOMStudyTime?: string | undefined;
 }
 
 /**
@@ -1630,26 +1687,26 @@ export interface ImageSetsMetadataSummary {
    * <p>The image set version.</p>
    * @public
    */
-  version?: number;
+  version?: number | undefined;
 
   /**
    * <p>The time an image set is created. Sample creation
    *             date is provided in <code>1985-04-12T23:20:50.52Z</code> format.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The time an image set was last updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The DICOM tags associated with the image set.</p>
    * @public
    */
-  DICOMTags?: DICOMTags;
+  DICOMTags?: DICOMTags | undefined;
 }
 
 /**
@@ -1666,13 +1723,13 @@ export interface SearchImageSetsResponse {
    * <p>The sort order for image set search results.</p>
    * @public
    */
-  sort?: Sort;
+  sort?: Sort | undefined;
 
   /**
    * <p>The token for pagination results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1683,7 +1740,7 @@ export interface StartDICOMImportJobRequest {
    * <p>The import job name.</p>
    * @public
    */
-  jobName?: string;
+  jobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the IAM role that grants permission to access medical imaging resources.</p>
@@ -1695,7 +1752,7 @@ export interface StartDICOMImportJobRequest {
    * <p>A unique identifier for API idempotency.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>The data store identifier.</p>
@@ -1719,7 +1776,7 @@ export interface StartDICOMImportJobRequest {
    * <p>The account ID of the source S3 bucket owner.</p>
    * @public
    */
-  inputOwnerAccountId?: string;
+  inputOwnerAccountId?: string | undefined;
 }
 
 /**
@@ -1804,20 +1861,23 @@ export interface DICOMUpdates {
    * <p>The DICOM tags to be removed from <code>ImageSetMetadata</code>.</p>
    * @public
    */
-  removableAttributes?: Uint8Array;
+  removableAttributes?: Uint8Array | undefined;
 
   /**
    * <p>The DICOM tags that need to be updated in <code>ImageSetMetadata</code>.</p>
    * @public
    */
-  updatableAttributes?: Uint8Array;
+  updatableAttributes?: Uint8Array | undefined;
 }
 
 /**
  * <p>Contains DICOMUpdates.</p>
  * @public
  */
-export type MetadataUpdates = MetadataUpdates.DICOMUpdatesMember | MetadataUpdates.$UnknownMember;
+export type MetadataUpdates =
+  | MetadataUpdates.DICOMUpdatesMember
+  | MetadataUpdates.RevertToVersionIdMember
+  | MetadataUpdates.$UnknownMember;
 
 /**
  * @public
@@ -1829,6 +1889,21 @@ export namespace MetadataUpdates {
    */
   export interface DICOMUpdatesMember {
     DICOMUpdates: DICOMUpdates;
+    revertToVersionId?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * <p>Specifies the previous image set version ID to revert the current image set back to.</p>
+   *          <note>
+   *             <p>You must provide either <code>revertToVersionId</code> or <code>DICOMUpdates</code> in your request. A
+   *                 <code>ValidationException</code> error is thrown if both parameters are provided at the same time.</p>
+   *          </note>
+   * @public
+   */
+  export interface RevertToVersionIdMember {
+    DICOMUpdates?: never;
+    revertToVersionId: string;
     $unknown?: never;
   }
 
@@ -1837,16 +1912,19 @@ export namespace MetadataUpdates {
    */
   export interface $UnknownMember {
     DICOMUpdates?: never;
+    revertToVersionId?: never;
     $unknown: [string, any];
   }
 
   export interface Visitor<T> {
     DICOMUpdates: (value: DICOMUpdates) => T;
+    revertToVersionId: (value: string) => T;
     _: (name: string, value: any) => T;
   }
 
   export const visit = <T>(value: MetadataUpdates, visitor: Visitor<T>): T => {
     if (value.DICOMUpdates !== undefined) return visitor.DICOMUpdates(value.DICOMUpdates);
+    if (value.revertToVersionId !== undefined) return visitor.revertToVersionId(value.revertToVersionId);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -1872,6 +1950,22 @@ export interface UpdateImageSetMetadataRequest {
    * @public
    */
   latestVersionId: string | undefined;
+
+  /**
+   * <p>Setting this flag will force the <code>UpdateImageSetMetadata</code> operation for the following attributes:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>Tag.StudyInstanceUID</code>, <code>Tag.SeriesInstanceUID</code>, <code>Tag.SOPInstanceUID</code>, and <code>Tag.StudyID</code>
+   *                </p>
+   *             </li>
+   *             <li>
+   *                <p>Adding, removing, or updating private tags for an individual SOP Instance</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  force?: boolean | undefined;
 
   /**
    * <p>Update image set metadata updates.</p>
@@ -1912,26 +2006,60 @@ export interface UpdateImageSetMetadataResponse {
    * <p>The image set workflow status.</p>
    * @public
    */
-  imageSetWorkflowStatus?: ImageSetWorkflowStatus;
+  imageSetWorkflowStatus?: ImageSetWorkflowStatus | undefined;
 
   /**
    * <p>The timestamp when image set metadata was created.</p>
    * @public
    */
-  createdAt?: Date;
+  createdAt?: Date | undefined;
 
   /**
    * <p>The timestamp when image set metadata was updated.</p>
    * @public
    */
-  updatedAt?: Date;
+  updatedAt?: Date | undefined;
 
   /**
    * <p>The error message thrown if an update image set metadata action fails.</p>
    * @public
    */
-  message?: string;
+  message?: string | undefined;
 }
+
+/**
+ * @internal
+ */
+export const MetadataCopiesFilterSensitiveLog = (obj: MetadataCopies): any => ({
+  ...obj,
+  ...(obj.copiableAttributes && { copiableAttributes: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CopySourceImageSetInformationFilterSensitiveLog = (obj: CopySourceImageSetInformation): any => ({
+  ...obj,
+  ...(obj.DICOMCopies && { DICOMCopies: MetadataCopiesFilterSensitiveLog(obj.DICOMCopies) }),
+});
+
+/**
+ * @internal
+ */
+export const CopyImageSetInformationFilterSensitiveLog = (obj: CopyImageSetInformation): any => ({
+  ...obj,
+  ...(obj.sourceImageSet && { sourceImageSet: CopySourceImageSetInformationFilterSensitiveLog(obj.sourceImageSet) }),
+});
+
+/**
+ * @internal
+ */
+export const CopyImageSetRequestFilterSensitiveLog = (obj: CopyImageSetRequest): any => ({
+  ...obj,
+  ...(obj.copyImageSetInformation && {
+    copyImageSetInformation: CopyImageSetInformationFilterSensitiveLog(obj.copyImageSetInformation),
+  }),
+});
 
 /**
  * @internal
@@ -2051,6 +2179,7 @@ export const DICOMUpdatesFilterSensitiveLog = (obj: DICOMUpdates): any => ({
  */
 export const MetadataUpdatesFilterSensitiveLog = (obj: MetadataUpdates): any => {
   if (obj.DICOMUpdates !== undefined) return { DICOMUpdates: DICOMUpdatesFilterSensitiveLog(obj.DICOMUpdates) };
+  if (obj.revertToVersionId !== undefined) return { revertToVersionId: obj.revertToVersionId };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 

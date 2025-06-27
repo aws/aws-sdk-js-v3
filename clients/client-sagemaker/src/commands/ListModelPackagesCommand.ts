@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListModelPackagesInput, ListModelPackagesOutput } from "../models/models_3";
+import { ListModelPackagesInput, ListModelPackagesOutput } from "../models/models_4";
 import { de_ListModelPackagesCommand, se_ListModelPackagesCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,6 +60,11 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * //       CreationTime: new Date("TIMESTAMP"), // required
  * //       ModelPackageStatus: "Pending" || "InProgress" || "Completed" || "Failed" || "Deleting", // required
  * //       ModelApprovalStatus: "Approved" || "Rejected" || "PendingManualApproval",
+ * //       ModelLifeCycle: { // ModelLifeCycle
+ * //         Stage: "STRING_VALUE", // required
+ * //         StageStatus: "STRING_VALUE", // required
+ * //         StageDescription: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -75,6 +81,7 @@ export interface ListModelPackagesCommandOutput extends ListModelPackagesOutput,
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListModelPackagesCommand extends $Command
@@ -85,9 +92,7 @@ export class ListModelPackagesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +104,16 @@ export class ListModelPackagesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListModelPackagesCommand)
   .de(de_ListModelPackagesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListModelPackagesInput;
+      output: ListModelPackagesOutput;
+    };
+    sdk: {
+      input: ListModelPackagesCommandInput;
+      output: ListModelPackagesCommandOutput;
+    };
+  };
+}

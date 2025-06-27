@@ -12,7 +12,8 @@ import { de_TransactGetItemsCommand, se_TransactGetItemsCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -221,7 +222,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  *
  * @throws {@link RequestLimitExceeded} (client fault)
  *  <p>Throughput exceeds the current throughput quota for your account. Please contact
- *                 <a href="https://aws.amazon.com/support">Amazon Web Services Support</a> to request a
+ *                 <a href="https://aws.amazon.com/support">Amazon Web ServicesSupport</a> to request a
  *             quota increase.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
@@ -471,6 +472,7 @@ export interface TransactGetItemsCommandOutput extends TransactGetItemsOutput, _
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class TransactGetItemsCommand extends $Command
@@ -483,6 +485,10 @@ export class TransactGetItemsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArnList: {
+      type: "operationContextParams",
+      get: (input?: any) => input?.TransactItems?.map((obj: any) => obj?.Get?.TableName),
+    },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -495,4 +501,16 @@ export class TransactGetItemsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TransactGetItemsCommand)
   .de(de_TransactGetItemsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TransactGetItemsInput;
+      output: TransactGetItemsOutput;
+    };
+    sdk: {
+      input: TransactGetItemsCommandInput;
+      output: TransactGetItemsCommandOutput;
+    };
+  };
+}

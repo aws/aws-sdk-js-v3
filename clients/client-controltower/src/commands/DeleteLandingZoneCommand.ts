@@ -12,7 +12,8 @@ import { de_DeleteLandingZoneCommand, se_DeleteLandingZoneCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,7 @@ export interface DeleteLandingZoneCommandInput extends DeleteLandingZoneInput {}
 export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput, __MetadataBearer {}
 
 /**
- * <p>Decommissions a landing zone. This API call starts an asynchronous operation that deletes Amazon Web Services Control Tower
- *          resources deployed in accounts managed by Amazon Web Services Control Tower.</p>
+ * <p>Decommissions a landing zone. This API call starts an asynchronous operation that deletes Amazon Web Services Control Tower resources deployed in accounts managed by Amazon Web Services Control Tower.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +73,7 @@ export interface DeleteLandingZoneCommandOutput extends DeleteLandingZoneOutput,
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class DeleteLandingZoneCommand extends $Command
@@ -83,9 +84,7 @@ export class DeleteLandingZoneCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +96,16 @@ export class DeleteLandingZoneCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteLandingZoneCommand)
   .de(de_DeleteLandingZoneCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteLandingZoneInput;
+      output: DeleteLandingZoneOutput;
+    };
+    sdk: {
+      input: DeleteLandingZoneCommandInput;
+      output: DeleteLandingZoneCommandOutput;
+    };
+  };
+}

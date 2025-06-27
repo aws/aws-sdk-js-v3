@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -143,6 +144,8 @@ export interface ListCisScanResultsAggregatedByTargetResourceCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -157,6 +160,40 @@ export interface ListCisScanResultsAggregatedByTargetResourceCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
+ * @example Sample ListCisScanResultsAggregatedByTargetResource Call
+ * ```javascript
+ * //
+ * const input = {
+ *   scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38"
+ * };
+ * const command = new ListCisScanResultsAggregatedByTargetResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   targetResourceAggregations: [
+ *     {
+ *       accountId: "123412341234",
+ *       platform: "AMAZON_LINUX_2",
+ *       scanArn: "arn:aws:inspector2:us-east-1:123412341234:owner/123412341234/cis-scan/624b746d-e080-44ae-8c1d-48e653365a38",
+ *       statusCounts: {
+ *         failed: 0,
+ *         passed: 2,
+ *         skipped: 1
+ *       },
+ *       targetResourceId: "i-12341234",
+ *       targetResourceTags: {
+ *         key: [
+ *           "value"
+ *         ]
+ *       },
+ *       targetStatus: "COMPLETED"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListCisScanResultsAggregatedByTargetResourceCommand extends $Command
@@ -167,9 +204,7 @@ export class ListCisScanResultsAggregatedByTargetResourceCommand extends $Comman
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -181,4 +216,16 @@ export class ListCisScanResultsAggregatedByTargetResourceCommand extends $Comman
   .f(void 0, void 0)
   .ser(se_ListCisScanResultsAggregatedByTargetResourceCommand)
   .de(de_ListCisScanResultsAggregatedByTargetResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCisScanResultsAggregatedByTargetResourceRequest;
+      output: ListCisScanResultsAggregatedByTargetResourceResponse;
+    };
+    sdk: {
+      input: ListCisScanResultsAggregatedByTargetResourceCommandInput;
+      output: ListCisScanResultsAggregatedByTargetResourceCommandOutput;
+    };
+  };
+}

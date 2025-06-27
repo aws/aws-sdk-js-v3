@@ -16,7 +16,8 @@ import { de_CheckAccessNotGrantedCommand, se_CheckAccessNotGrantedCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,10 @@ export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrante
  *   policyDocument: "STRING_VALUE", // required
  *   access: [ // AccessList // required
  *     { // Access
- *       actions: [ // ActionsList // required
+ *       actions: [ // ActionsList
+ *         "STRING_VALUE",
+ *       ],
+ *       resources: [ // ResourcesList
  *         "STRING_VALUE",
  *       ],
  *     },
@@ -92,6 +96,86 @@ export interface CheckAccessNotGrantedCommandOutput extends CheckAccessNotGrante
  * @throws {@link AccessAnalyzerServiceException}
  * <p>Base exception class for all service exceptions from AccessAnalyzer service.</p>
  *
+ *
+ * @example Passing check. Restrictive identity policy.
+ * ```javascript
+ * //
+ * const input = {
+ *   access: [
+ *     {
+ *       actions: [
+ *         "s3:PutObject"
+ *       ]
+ *     }
+ *   ],
+ *   policyDocument: `{"Version":"2012-10-17","Id":"123","Statement":[{"Sid":"AllowJohnDoe","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/JohnDoe"},"Action":"s3:GetObject","Resource":"*"}]}`,
+ *   policyType: "RESOURCE_POLICY"
+ * };
+ * const command = new CheckAccessNotGrantedCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   message: "The policy document does not grant access to perform the listed actions or resources.",
+ *   result: "PASS"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Passing check. Restrictive S3 Bucket resource policy.
+ * ```javascript
+ * //
+ * const input = {
+ *   access: [
+ *     {
+ *       resources: [
+ *         "arn:aws:s3:::sensitive-bucket/*"
+ *       ]
+ *     }
+ *   ],
+ *   policyDocument: `{"Version":"2012-10-17","Id":"123","Statement":[{"Sid":"AllowJohnDoe","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/JohnDoe"},"Action":"s3:PutObject","Resource":"arn:aws:s3:::non-sensitive-bucket/*"}]}`,
+ *   policyType: "RESOURCE_POLICY"
+ * };
+ * const command = new CheckAccessNotGrantedCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   message: "The policy document does not grant access to perform the listed actions or resources.",
+ *   result: "PASS"
+ * }
+ * *\/
+ * ```
+ *
+ * @example Failing check. Permissive S3 Bucket resource policy.
+ * ```javascript
+ * //
+ * const input = {
+ *   access: [
+ *     {
+ *       resources: [
+ *         "arn:aws:s3:::my-bucket/*"
+ *       ]
+ *     }
+ *   ],
+ *   policyDocument: `{"Version":"2012-10-17","Id":"123","Statement":[{"Sid":"AllowJohnDoe","Effect":"Allow","Principal":{"AWS":"arn:aws:iam::123456789012:user/JohnDoe"},"Action":"s3:PutObject","Resource":"arn:aws:s3:::my-bucket/*"}]}`,
+ *   policyType: "RESOURCE_POLICY"
+ * };
+ * const command = new CheckAccessNotGrantedCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   message: "The policy document grants access to perform one or more of the listed actions or resources.",
+ *   reasons: [
+ *     {
+ *       description: "One or more of the listed actions or resources in the statement with sid: AllowJohnDoe.",
+ *       statementId: "AllowJohnDoe",
+ *       statementIndex: 0
+ *     }
+ *   ],
+ *   result: "FAIL"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class CheckAccessNotGrantedCommand extends $Command
@@ -102,9 +186,7 @@ export class CheckAccessNotGrantedCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AccessAnalyzerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +198,16 @@ export class CheckAccessNotGrantedCommand extends $Command
   .f(CheckAccessNotGrantedRequestFilterSensitiveLog, void 0)
   .ser(se_CheckAccessNotGrantedCommand)
   .de(de_CheckAccessNotGrantedCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CheckAccessNotGrantedRequest;
+      output: CheckAccessNotGrantedResponse;
+    };
+    sdk: {
+      input: CheckAccessNotGrantedCommandInput;
+      output: CheckAccessNotGrantedCommandOutput;
+    };
+  };
+}

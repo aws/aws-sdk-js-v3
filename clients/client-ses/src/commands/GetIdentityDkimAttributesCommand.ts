@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,40 +88,40 @@ export interface GetIdentityDkimAttributesCommandOutput extends GetIdentityDkimA
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example GetIdentityDkimAttributes
  * ```javascript
  * // The following example retrieves the Amazon SES Easy DKIM attributes for a list of identities:
  * const input = {
- *   "Identities": [
+ *   Identities: [
  *     "example.com",
  *     "user@example.com"
  *   ]
  * };
  * const command = new GetIdentityDkimAttributesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DkimAttributes": {
- *     "example.com": {
- *       "DkimEnabled": true,
- *       "DkimTokens": [
+ *   DkimAttributes: {
+ *     example.com: {
+ *       DkimEnabled: true,
+ *       DkimTokens: [
  *         "EXAMPLEjcs5xoyqytjsotsijas7236gr",
  *         "EXAMPLEjr76cvoc6mysspnioorxsn6ep",
  *         "EXAMPLEkbmkqkhlm2lyz77ppkulerm4k"
  *       ],
- *       "DkimVerificationStatus": "Success"
+ *       DkimVerificationStatus: "Success"
  *     },
- *     "user@example.com": {
- *       "DkimEnabled": false,
- *       "DkimVerificationStatus": "NotStarted"
+ *     user@example.com: {
+ *       DkimEnabled: false,
+ *       DkimVerificationStatus: "NotStarted"
  *     }
  *   }
  * }
  * *\/
- * // example id: getidentitydkimattributes-1469050695628
  * ```
  *
+ * @public
  */
 export class GetIdentityDkimAttributesCommand extends $Command
   .classBuilder<
@@ -130,9 +131,7 @@ export class GetIdentityDkimAttributesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +143,16 @@ export class GetIdentityDkimAttributesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIdentityDkimAttributesCommand)
   .de(de_GetIdentityDkimAttributesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIdentityDkimAttributesRequest;
+      output: GetIdentityDkimAttributesResponse;
+    };
+    sdk: {
+      input: GetIdentityDkimAttributesCommandInput;
+      output: GetIdentityDkimAttributesCommandOutput;
+    };
+  };
+}

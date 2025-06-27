@@ -1,13 +1,14 @@
 import { HttpRequest } from "@smithy/protocol-http";
+import { beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { addGlacierApiVersionMiddleware } from "./add-glacier-api-version";
 
 describe("addGlacierApiVersion", () => {
-  const mockNextHandler = jest.fn();
-  const unusedDep = jest.fn();
+  const mockNextHandler = vi.fn();
+  const unusedDep = vi.fn();
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const config = {

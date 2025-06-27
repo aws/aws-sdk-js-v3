@@ -37,6 +37,14 @@ import { v4 as generateIdempotencyToken } from "uuid";
 
 import { AssociateMemberCommandInput, AssociateMemberCommandOutput } from "../commands/AssociateMemberCommand";
 import {
+  BatchAssociateCodeSecurityScanConfigurationCommandInput,
+  BatchAssociateCodeSecurityScanConfigurationCommandOutput,
+} from "../commands/BatchAssociateCodeSecurityScanConfigurationCommand";
+import {
+  BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+  BatchDisassociateCodeSecurityScanConfigurationCommandOutput,
+} from "../commands/BatchDisassociateCodeSecurityScanConfigurationCommand";
+import {
   BatchGetAccountStatusCommandInput,
   BatchGetAccountStatusCommandOutput,
 } from "../commands/BatchGetAccountStatusCommand";
@@ -69,6 +77,14 @@ import {
   CreateCisScanConfigurationCommandInput,
   CreateCisScanConfigurationCommandOutput,
 } from "../commands/CreateCisScanConfigurationCommand";
+import {
+  CreateCodeSecurityIntegrationCommandInput,
+  CreateCodeSecurityIntegrationCommandOutput,
+} from "../commands/CreateCodeSecurityIntegrationCommand";
+import {
+  CreateCodeSecurityScanConfigurationCommandInput,
+  CreateCodeSecurityScanConfigurationCommandOutput,
+} from "../commands/CreateCodeSecurityScanConfigurationCommand";
 import { CreateFilterCommandInput, CreateFilterCommandOutput } from "../commands/CreateFilterCommand";
 import {
   CreateFindingsReportCommandInput,
@@ -79,6 +95,14 @@ import {
   DeleteCisScanConfigurationCommandInput,
   DeleteCisScanConfigurationCommandOutput,
 } from "../commands/DeleteCisScanConfigurationCommand";
+import {
+  DeleteCodeSecurityIntegrationCommandInput,
+  DeleteCodeSecurityIntegrationCommandOutput,
+} from "../commands/DeleteCodeSecurityIntegrationCommand";
+import {
+  DeleteCodeSecurityScanConfigurationCommandInput,
+  DeleteCodeSecurityScanConfigurationCommandOutput,
+} from "../commands/DeleteCodeSecurityScanConfigurationCommand";
 import { DeleteFilterCommandInput, DeleteFilterCommandOutput } from "../commands/DeleteFilterCommand";
 import {
   DescribeOrganizationConfigurationCommandInput,
@@ -100,6 +124,22 @@ import {
   GetCisScanResultDetailsCommandInput,
   GetCisScanResultDetailsCommandOutput,
 } from "../commands/GetCisScanResultDetailsCommand";
+import {
+  GetClustersForImageCommandInput,
+  GetClustersForImageCommandOutput,
+} from "../commands/GetClustersForImageCommand";
+import {
+  GetCodeSecurityIntegrationCommandInput,
+  GetCodeSecurityIntegrationCommandOutput,
+} from "../commands/GetCodeSecurityIntegrationCommand";
+import {
+  GetCodeSecurityScanCommandInput,
+  GetCodeSecurityScanCommandOutput,
+} from "../commands/GetCodeSecurityScanCommand";
+import {
+  GetCodeSecurityScanConfigurationCommandInput,
+  GetCodeSecurityScanConfigurationCommandOutput,
+} from "../commands/GetCodeSecurityScanConfigurationCommand";
 import { GetConfigurationCommandInput, GetConfigurationCommandOutput } from "../commands/GetConfigurationCommand";
 import {
   GetDelegatedAdminAccountCommandInput,
@@ -133,6 +173,18 @@ import {
   ListCisScanResultsAggregatedByTargetResourceCommandOutput,
 } from "../commands/ListCisScanResultsAggregatedByTargetResourceCommand";
 import { ListCisScansCommandInput, ListCisScansCommandOutput } from "../commands/ListCisScansCommand";
+import {
+  ListCodeSecurityIntegrationsCommandInput,
+  ListCodeSecurityIntegrationsCommandOutput,
+} from "../commands/ListCodeSecurityIntegrationsCommand";
+import {
+  ListCodeSecurityScanConfigurationAssociationsCommandInput,
+  ListCodeSecurityScanConfigurationAssociationsCommandOutput,
+} from "../commands/ListCodeSecurityScanConfigurationAssociationsCommand";
+import {
+  ListCodeSecurityScanConfigurationsCommandInput,
+  ListCodeSecurityScanConfigurationsCommandOutput,
+} from "../commands/ListCodeSecurityScanConfigurationsCommand";
 import { ListCoverageCommandInput, ListCoverageCommandOutput } from "../commands/ListCoverageCommand";
 import {
   ListCoverageStatisticsCommandInput,
@@ -168,6 +220,10 @@ import {
   SendCisSessionTelemetryCommandOutput,
 } from "../commands/SendCisSessionTelemetryCommand";
 import { StartCisSessionCommandInput, StartCisSessionCommandOutput } from "../commands/StartCisSessionCommand";
+import {
+  StartCodeSecurityScanCommandInput,
+  StartCodeSecurityScanCommandOutput,
+} from "../commands/StartCodeSecurityScanCommand";
 import { StopCisSessionCommandInput, StopCisSessionCommandOutput } from "../commands/StopCisSessionCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
@@ -175,6 +231,14 @@ import {
   UpdateCisScanConfigurationCommandInput,
   UpdateCisScanConfigurationCommandOutput,
 } from "../commands/UpdateCisScanConfigurationCommand";
+import {
+  UpdateCodeSecurityIntegrationCommandInput,
+  UpdateCodeSecurityIntegrationCommandOutput,
+} from "../commands/UpdateCodeSecurityIntegrationCommand";
+import {
+  UpdateCodeSecurityScanConfigurationCommandInput,
+  UpdateCodeSecurityScanConfigurationCommandOutput,
+} from "../commands/UpdateCodeSecurityScanConfigurationCommand";
 import {
   UpdateConfigurationCommandInput,
   UpdateConfigurationCommandOutput,
@@ -203,10 +267,12 @@ import {
   AggregationRequest,
   AggregationResponse,
   AmiAggregation,
+  AssociateConfigurationRequest,
   AtigData,
   AutoEnable,
   AwsEc2InstanceDetails,
   AwsEcrContainerAggregation,
+  AwsEcrContainerAggregationResponse,
   AwsEcrContainerImageDetails,
   AwsLambdaFunctionDetails,
   BadRequestException,
@@ -225,14 +291,28 @@ import {
   CisStringFilter,
   CisTargetStatusFilter,
   CisTargetStatusReasonFilter,
+  ClusterDetails,
+  ClusterForImageFilterCriteria,
+  ClusterInformation,
+  CodeRepositoryAggregation,
+  CodeRepositoryMetadata,
+  CodeRepositoryOnDemandScan,
+  CodeSecurityIntegrationSummary,
+  CodeSecurityResource,
+  CodeSecurityScanConfiguration,
   ComputePlatform,
   ConflictException,
+  ContinuousIntegrationScanConfiguration,
+  ContinuousIntegrationScanEvent,
   CoverageDateFilter,
   CoverageFilterCriteria,
   CoverageMapFilter,
+  CoverageNumberFilter,
   CoverageStringFilter,
   CoveredResource,
   CreateCisTargets,
+  CreateGitLabSelfManagedIntegrationDetail,
+  CreateIntegrationDetail,
   Cvss2,
   Cvss3,
   CvssScore,
@@ -241,6 +321,7 @@ import {
   DateFilter,
   Day,
   Destination,
+  DisassociateConfigurationRequest,
   Ec2Configuration,
   Ec2InstanceAggregation,
   EcrConfiguration,
@@ -248,43 +329,36 @@ import {
   EcrContainerImageMetadata,
   EcrRescanDurationState,
   Epss,
-  EpssDetails,
-  ExploitabilityDetails,
   ExploitObserved,
-  Filter,
   FilterCriteria,
-  Finding,
   FindingDetail,
   FindingTypeAggregation,
   FreeTrialAccountInfo,
   FreeTrialInfo,
   ImageLayerAggregation,
-  InspectorScoreDetails,
   InternalServerException,
   LambdaFunctionAggregation,
   LambdaFunctionAggregationResponse,
   LambdaLayerAggregation,
-  ListCisScanConfigurationsFilterCriteria,
   MapFilter,
-  Member,
   MemberAccountEc2DeepInspectionStatus,
   MonthlySchedule,
   NumberFilter,
   OneTimeSchedule,
   PackageAggregation,
   PackageFilter,
-  PackageVulnerabilityDetails,
+  PeriodicScanConfiguration,
   PortRangeFilter,
   RepositoryAggregation,
-  Resource,
-  ResourceDetails,
   ResourceFilterCriteria,
   ResourceMapFilter,
   ResourceNotFoundException,
   ResourceScanMetadata,
   ResourceScanType,
   ResourceStringFilter,
+  RuleSetCategory,
   Schedule,
+  ScopeSettings,
   ServiceQuotaExceededException,
   StringFilter,
   TagFilter,
@@ -295,13 +369,26 @@ import {
   WeeklySchedule,
 } from "../models/models_0";
 import {
+  EpssDetails,
+  ExploitabilityDetails,
+  Filter,
+  Finding,
+  InspectorScoreDetails,
+  ListCisScanConfigurationsFilterCriteria,
   ListCisScansFilterCriteria,
+  Member,
+  PackageVulnerabilityDetails,
+  Resource,
+  ResourceDetails,
   SearchVulnerabilitiesFilterCriteria,
   SortCriteria,
   StartCisSessionMessage,
   StopCisMessageProgress,
   StopCisSessionMessage,
   UpdateCisTargets,
+  UpdateGitHubIntegrationDetail,
+  UpdateGitLabSelfManagedIntegrationDetail,
+  UpdateIntegrationDetails,
   Usage,
   UsageTotal,
   Vulnerability,
@@ -323,6 +410,50 @@ export const se_AssociateMemberCommand = async (
   body = JSON.stringify(
     take(input, {
       accountId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchAssociateCodeSecurityScanConfigurationCommand
+ */
+export const se_BatchAssociateCodeSecurityScanConfigurationCommand = async (
+  input: BatchAssociateCodeSecurityScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/batch/associate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      associateConfigurationRequests: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1BatchDisassociateCodeSecurityScanConfigurationCommand
+ */
+export const se_BatchDisassociateCodeSecurityScanConfigurationCommand = async (
+  input: BatchDisassociateCodeSecurityScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/batch/disassociate");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      disassociateConfigurationRequests: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -532,6 +663,57 @@ export const se_CreateCisScanConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateCodeSecurityIntegrationCommand
+ */
+export const se_CreateCodeSecurityIntegrationCommand = async (
+  input: CreateCodeSecurityIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/integration/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      details: (_) => _json(_),
+      name: [],
+      tags: (_) => _json(_),
+      type: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CreateCodeSecurityScanConfigurationCommand
+ */
+export const se_CreateCodeSecurityScanConfigurationCommand = async (
+  input: CreateCodeSecurityScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/create");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => _json(_),
+      level: [],
+      name: [],
+      scopeSettings: (_) => _json(_),
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateFilterCommand
  */
 export const se_CreateFilterCommand = async (
@@ -629,6 +811,50 @@ export const se_DeleteCisScanConfigurationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteCodeSecurityIntegrationCommand
+ */
+export const se_DeleteCodeSecurityIntegrationCommand = async (
+  input: DeleteCodeSecurityIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/integration/delete");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      integrationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteCodeSecurityScanConfigurationCommand
+ */
+export const se_DeleteCodeSecurityScanConfigurationCommand = async (
+  input: DeleteCodeSecurityScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/delete");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteFilterCommand
  */
 export const se_DeleteFilterCommand = async (
@@ -658,12 +884,9 @@ export const se_DescribeOrganizationConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/organizationconfiguration/describe");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -833,6 +1056,98 @@ export const se_GetCisScanResultDetailsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetClustersForImageCommand
+ */
+export const se_GetClustersForImageCommand = async (
+  input: GetClustersForImageCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cluster/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCodeSecurityIntegrationCommand
+ */
+export const se_GetCodeSecurityIntegrationCommand = async (
+  input: GetCodeSecurityIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/integration/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      integrationArn: [],
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCodeSecurityScanCommand
+ */
+export const se_GetCodeSecurityScanCommand = async (
+  input: GetCodeSecurityScanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      resource: (_) => _json(_),
+      scanId: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetCodeSecurityScanConfigurationCommand
+ */
+export const se_GetCodeSecurityScanConfigurationCommand = async (
+  input: GetCodeSecurityScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/get");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetConfigurationCommand
  */
 export const se_GetConfigurationCommand = async (
@@ -840,12 +1155,9 @@ export const se_GetConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/configuration/get");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -858,12 +1170,9 @@ export const se_GetDelegatedAdminAccountCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/delegatedadminaccounts/get");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -876,12 +1185,9 @@ export const se_GetEc2DeepInspectionConfigurationCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/ec2deepinspectionconfiguration/get");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -1103,6 +1409,70 @@ export const se_ListCisScansCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListCodeSecurityIntegrationsCommand
+ */
+export const se_ListCodeSecurityIntegrationsCommand = async (
+  input: ListCodeSecurityIntegrationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/codesecurity/integration/list");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCodeSecurityScanConfigurationAssociationsCommand
+ */
+export const se_ListCodeSecurityScanConfigurationAssociationsCommand = async (
+  input: ListCodeSecurityScanConfigurationAssociationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/associations/list");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      scanConfigurationArn: [],
+    })
+  );
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCodeSecurityScanConfigurationsCommand
+ */
+export const se_ListCodeSecurityScanConfigurationsCommand = async (
+  input: ListCodeSecurityScanConfigurationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/codesecurity/scan-configuration/list");
+  const query: any = map({
+    [_nT]: [, input[_nT]!],
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+  });
+  let body: any;
+  b.m("POST").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListCoverageCommand
  */
 export const se_ListCoverageCommand = async (
@@ -1214,7 +1584,7 @@ export const se_ListFindingAggregationsCommand = async (
   body = JSON.stringify(
     take(input, {
       accountIds: (_) => _json(_),
-      aggregationRequest: (_) => _json(_),
+      aggregationRequest: (_) => se_AggregationRequest(_, context),
       aggregationType: [],
       maxResults: [],
       nextToken: [],
@@ -1430,6 +1800,29 @@ export const se_StartCisSessionCommand = async (
 };
 
 /**
+ * serializeAws_restJson1StartCodeSecurityScanCommand
+ */
+export const se_StartCodeSecurityScanCommand = async (
+  input: StartCodeSecurityScanCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan/start");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      resource: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1StopCisSessionCommand
  */
 export const se_StopCisSessionCommand = async (
@@ -1488,10 +1881,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceArn}");
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -1518,6 +1908,52 @@ export const se_UpdateCisScanConfigurationCommand = async (
       schedule: (_) => _json(_),
       securityLevel: [],
       targets: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCodeSecurityIntegrationCommand
+ */
+export const se_UpdateCodeSecurityIntegrationCommand = async (
+  input: UpdateCodeSecurityIntegrationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/integration/update");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      details: (_) => _json(_),
+      integrationArn: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateCodeSecurityScanConfigurationCommand
+ */
+export const se_UpdateCodeSecurityScanConfigurationCommand = async (
+  input: UpdateCodeSecurityScanConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/codesecurity/scan-configuration/update");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      configuration: (_) => _json(_),
+      scanConfigurationArn: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1681,6 +2117,50 @@ export const de_AssociateMemberCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     accountId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchAssociateCodeSecurityScanConfigurationCommand
+ */
+export const de_BatchAssociateCodeSecurityScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchAssociateCodeSecurityScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedAssociations: _json,
+    successfulAssociations: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1BatchDisassociateCodeSecurityScanConfigurationCommand
+ */
+export const de_BatchDisassociateCodeSecurityScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<BatchDisassociateCodeSecurityScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    failedAssociations: _json,
+    successfulAssociations: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -1882,6 +2362,50 @@ export const de_CreateCisScanConfigurationCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateCodeSecurityIntegrationCommand
+ */
+export const de_CreateCodeSecurityIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCodeSecurityIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    authorizationUrl: __expectString,
+    integrationArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1CreateCodeSecurityScanConfigurationCommand
+ */
+export const de_CreateCodeSecurityScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateCodeSecurityScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateFilterCommand
  */
 export const de_CreateFilterCommand = async (
@@ -1951,6 +2475,48 @@ export const de_DeleteCisScanConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<DeleteCisScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCodeSecurityIntegrationCommand
+ */
+export const de_DeleteCodeSecurityIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCodeSecurityIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    integrationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteCodeSecurityScanConfigurationCommand
+ */
+export const de_DeleteCodeSecurityScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteCodeSecurityScanConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2154,6 +2720,113 @@ export const de_GetCisScanResultDetailsCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     scanResultDetails: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetClustersForImageCommand
+ */
+export const de_GetClustersForImageCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetClustersForImageCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    cluster: (_) => de_ClusterInformationList(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCodeSecurityIntegrationCommand
+ */
+export const de_GetCodeSecurityIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCodeSecurityIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    authorizationUrl: __expectString,
+    createdOn: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    integrationArn: __expectString,
+    lastUpdateOn: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+    type: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCodeSecurityScanCommand
+ */
+export const de_GetCodeSecurityScanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCodeSecurityScanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    accountId: __expectString,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastCommitId: __expectString,
+    resource: (_) => _json(__expectUnion(_)),
+    scanId: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    updatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetCodeSecurityScanConfigurationCommand
+ */
+export const de_GetCodeSecurityScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetCodeSecurityScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configuration: _json,
+    createdAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastUpdatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    level: __expectString,
+    name: __expectString,
+    scanConfigurationArn: __expectString,
+    scopeSettings: _json,
+    tags: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2426,6 +3099,72 @@ export const de_ListCisScansCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     scans: (_) => de_CisScanList(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCodeSecurityIntegrationsCommand
+ */
+export const de_ListCodeSecurityIntegrationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCodeSecurityIntegrationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    integrations: (_) => de_IntegrationSummaries(_, context),
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCodeSecurityScanConfigurationAssociationsCommand
+ */
+export const de_ListCodeSecurityScanConfigurationAssociationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCodeSecurityScanConfigurationAssociationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    associations: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCodeSecurityScanConfigurationsCommand
+ */
+export const de_ListCodeSecurityScanConfigurationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCodeSecurityScanConfigurationsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    configurations: _json,
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -2721,6 +3460,28 @@ export const de_StartCisSessionCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartCodeSecurityScanCommand
+ */
+export const de_StartCodeSecurityScanCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartCodeSecurityScanCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanId: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StopCisSessionCommand
  */
 export const de_StopCisSessionCommand = async (
@@ -2778,6 +3539,49 @@ export const de_UpdateCisScanConfigurationCommand = async (
   output: __HttpResponse,
   context: __SerdeContext
 ): Promise<UpdateCisScanConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    scanConfigurationArn: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCodeSecurityIntegrationCommand
+ */
+export const de_UpdateCodeSecurityIntegrationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCodeSecurityIntegrationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    integrationArn: __expectString,
+    status: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateCodeSecurityScanConfigurationCommand
+ */
+export const de_UpdateCodeSecurityScanConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateCodeSecurityScanConfigurationCommandOutput> => {
   if (output.statusCode !== 200 && output.statusCode >= 300) {
     return de_CommandError(output, context);
   }
@@ -2925,24 +3729,24 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.inspector2#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ServiceQuotaExceededException":
+    case "com.amazonaws.inspector2#ServiceQuotaExceededException":
+      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
     case "ThrottlingException":
     case "com.amazonaws.inspector2#ThrottlingException":
       throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "ValidationException":
     case "com.amazonaws.inspector2#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.inspector2#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "ResourceNotFoundException":
     case "com.amazonaws.inspector2#ResourceNotFoundException":
       throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "BadRequestException":
     case "com.amazonaws.inspector2#BadRequestException":
       throw await de_BadRequestExceptionRes(parsedOutput, context);
-    case "ServiceQuotaExceededException":
-    case "com.amazonaws.inspector2#ServiceQuotaExceededException":
-      throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "ConflictException":
-    case "com.amazonaws.inspector2#ConflictException":
-      throw await de_ConflictExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -3117,13 +3921,53 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AccountIdSet omitted.
 
-// se_AggregationRequest omitted.
+/**
+ * serializeAws_restJson1AggregationRequest
+ */
+const se_AggregationRequest = (input: AggregationRequest, context: __SerdeContext): any => {
+  return AggregationRequest.visit(input, {
+    accountAggregation: (value) => ({ accountAggregation: _json(value) }),
+    amiAggregation: (value) => ({ amiAggregation: _json(value) }),
+    awsEcrContainerAggregation: (value) => ({
+      awsEcrContainerAggregation: se_AwsEcrContainerAggregation(value, context),
+    }),
+    codeRepositoryAggregation: (value) => ({ codeRepositoryAggregation: _json(value) }),
+    ec2InstanceAggregation: (value) => ({ ec2InstanceAggregation: _json(value) }),
+    findingTypeAggregation: (value) => ({ findingTypeAggregation: _json(value) }),
+    imageLayerAggregation: (value) => ({ imageLayerAggregation: _json(value) }),
+    lambdaFunctionAggregation: (value) => ({ lambdaFunctionAggregation: _json(value) }),
+    lambdaLayerAggregation: (value) => ({ lambdaLayerAggregation: _json(value) }),
+    packageAggregation: (value) => ({ packageAggregation: _json(value) }),
+    repositoryAggregation: (value) => ({ repositoryAggregation: _json(value) }),
+    titleAggregation: (value) => ({ titleAggregation: _json(value) }),
+    _: (name, value) => ({ [name]: value } as any),
+  });
+};
 
 // se_AmiAggregation omitted.
 
+// se_AssociateConfigurationRequest omitted.
+
+// se_AssociateConfigurationRequestList omitted.
+
 // se_AutoEnable omitted.
 
-// se_AwsEcrContainerAggregation omitted.
+/**
+ * serializeAws_restJson1AwsEcrContainerAggregation
+ */
+const se_AwsEcrContainerAggregation = (input: AwsEcrContainerAggregation, context: __SerdeContext): any => {
+  return take(input, {
+    architectures: _json,
+    imageShas: _json,
+    imageTags: _json,
+    inUseCount: (_) => se_NumberFilterList(_, context),
+    lastInUseAt: (_) => se_DateFilterList(_, context),
+    repositories: _json,
+    resourceIds: _json,
+    sortBy: [],
+    sortOrder: [],
+  });
+};
 
 // se_CheckIdFilterList omitted.
 
@@ -3214,7 +4058,19 @@ const se_CisSessionMessages = (input: CisSessionMessage[], context: __SerdeConte
 
 // se_CisTargetStatusReasonFilter omitted.
 
+// se_ClusterForImageFilterCriteria omitted.
+
+// se_CodeRepositoryAggregation omitted.
+
+// se_CodeSecurityResource omitted.
+
+// se_CodeSecurityScanConfiguration omitted.
+
 // se_ComputePlatform omitted.
+
+// se_ContinuousIntegrationScanConfiguration omitted.
+
+// se_ContinuousIntegrationScanSupportedEvents omitted.
 
 /**
  * serializeAws_restJson1CoverageDateFilter
@@ -3243,7 +4099,12 @@ const se_CoverageDateFilterList = (input: CoverageDateFilter[], context: __Serde
 const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __SerdeContext): any => {
   return take(input, {
     accountId: _json,
+    codeRepositoryProjectName: _json,
+    codeRepositoryProviderType: _json,
+    codeRepositoryProviderTypeVisibility: _json,
     ec2InstanceTags: _json,
+    ecrImageInUseCount: _json,
+    ecrImageLastInUseAt: (_) => se_CoverageDateFilterList(_, context),
     ecrImageTags: _json,
     ecrRepositoryName: _json,
     imagePulledAt: (_) => se_CoverageDateFilterList(_, context),
@@ -3251,6 +4112,7 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
     lambdaFunctionRuntime: _json,
     lambdaFunctionTags: _json,
     lastScannedAt: (_) => se_CoverageDateFilterList(_, context),
+    lastScannedCommitId: _json,
     resourceId: _json,
     resourceType: _json,
     scanMode: _json,
@@ -3264,11 +4126,19 @@ const se_CoverageFilterCriteria = (input: CoverageFilterCriteria, context: __Ser
 
 // se_CoverageMapFilterList omitted.
 
+// se_CoverageNumberFilter omitted.
+
+// se_CoverageNumberFilterList omitted.
+
 // se_CoverageStringFilter omitted.
 
 // se_CoverageStringFilterList omitted.
 
 // se_CreateCisTargets omitted.
+
+// se_CreateGitLabSelfManagedIntegrationDetail omitted.
+
+// se_CreateIntegrationDetail omitted.
 
 // se_DailySchedule omitted.
 
@@ -3299,6 +4169,10 @@ const se_DateFilterList = (input: DateFilter[], context: __SerdeContext): any =>
 
 // se_DisableResourceTypeList omitted.
 
+// se_DisassociateConfigurationRequest omitted.
+
+// se_DisassociateConfigurationRequestList omitted.
+
 // se_Ec2Configuration omitted.
 
 // se_Ec2InstanceAggregation omitted.
@@ -3315,6 +4189,8 @@ const se_DateFilterList = (input: DateFilter[], context: __SerdeContext): any =>
 const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any => {
   return take(input, {
     awsAccountId: _json,
+    codeRepositoryProjectName: _json,
+    codeRepositoryProviderType: _json,
     codeVulnerabilityDetectorName: _json,
     codeVulnerabilityDetectorTags: _json,
     codeVulnerabilityFilePath: _json,
@@ -3325,6 +4201,8 @@ const se_FilterCriteria = (input: FilterCriteria, context: __SerdeContext): any 
     ec2InstanceVpcId: _json,
     ecrImageArchitecture: _json,
     ecrImageHash: _json,
+    ecrImageInUseCount: (_) => se_NumberFilterList(_, context),
+    ecrImageLastInUseAt: (_) => se_DateFilterList(_, context),
     ecrImagePushedAt: (_) => se_DateFilterList(_, context),
     ecrImageRegistry: _json,
     ecrImageRepositoryName: _json,
@@ -3437,6 +4315,7 @@ const se_PackageFilter = (input: PackageFilter, context: __SerdeContext): any =>
   return take(input, {
     architecture: _json,
     epoch: (_) => se_NumberFilter(_, context),
+    filePath: _json,
     name: _json,
     release: _json,
     sourceLambdaLayerArn: _json,
@@ -3457,6 +4336,8 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 };
 
 // se_PathList omitted.
+
+// se_PeriodicScanConfiguration omitted.
 
 // se_PlatformFilterList omitted.
 
@@ -3482,7 +4363,11 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 
 // se_ResourceTagFilterList omitted.
 
+// se_RuleSetCategories omitted.
+
 // se_Schedule omitted.
+
+// se_ScopeSettings omitted.
 
 // se_SearchVulnerabilitiesFilterCriteria omitted.
 
@@ -3520,6 +4405,12 @@ const se_PackageFilterList = (input: PackageFilter[], context: __SerdeContext): 
 
 // se_UpdateCisTargets omitted.
 
+// se_UpdateGitHubIntegrationDetail omitted.
+
+// se_UpdateGitLabSelfManagedIntegrationDetail omitted.
+
+// se_UpdateIntegrationDetails omitted.
+
 // se_UsageAccountIdList omitted.
 
 // se_VulnIdList omitted.
@@ -3552,7 +4443,12 @@ const de_AggregationResponse = (output: any, context: __SerdeContext): Aggregati
   }
   if (output.awsEcrContainerAggregation != null) {
     return {
-      awsEcrContainerAggregation: _json(output.awsEcrContainerAggregation),
+      awsEcrContainerAggregation: de_AwsEcrContainerAggregationResponse(output.awsEcrContainerAggregation, context),
+    };
+  }
+  if (output.codeRepositoryAggregation != null) {
+    return {
+      codeRepositoryAggregation: _json(output.codeRepositoryAggregation),
     };
   }
   if (output.ec2InstanceAggregation != null) {
@@ -3646,7 +4542,25 @@ const de_AwsEc2InstanceDetails = (output: any, context: __SerdeContext): AwsEc2I
   }) as any;
 };
 
-// de_AwsEcrContainerAggregationResponse omitted.
+/**
+ * deserializeAws_restJson1AwsEcrContainerAggregationResponse
+ */
+const de_AwsEcrContainerAggregationResponse = (
+  output: any,
+  context: __SerdeContext
+): AwsEcrContainerAggregationResponse => {
+  return take(output, {
+    accountId: __expectString,
+    architecture: __expectString,
+    imageSha: __expectString,
+    imageTags: _json,
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    repository: __expectString,
+    resourceId: __expectString,
+    severityCounts: _json,
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1AwsEcrContainerImageDetails
@@ -3657,12 +4571,22 @@ const de_AwsEcrContainerImageDetails = (output: any, context: __SerdeContext): A
     author: __expectString,
     imageHash: __expectString,
     imageTags: _json,
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     platform: __expectString,
     pushedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     registry: __expectString,
     repositoryName: __expectString,
   }) as any;
 };
+
+// de_AwsEcsMetadataDetails omitted.
+
+// de_AwsEksMetadataDetails omitted.
+
+// de_AwsEksWorkloadInfo omitted.
+
+// de_AwsEksWorkloadInfoList omitted.
 
 /**
  * deserializeAws_restJson1AwsLambdaFunctionDetails
@@ -3745,11 +4669,117 @@ const de_CisScanList = (output: any, context: __SerdeContext): CisScan[] => {
 
 // de_CisTargets omitted.
 
+/**
+ * deserializeAws_restJson1ClusterDetails
+ */
+const de_ClusterDetails = (output: any, context: __SerdeContext): ClusterDetails => {
+  return take(output, {
+    clusterMetadata: (_: any) => _json(__expectUnion(_)),
+    lastInUse: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    runningUnitCount: __expectLong,
+    stoppedUnitCount: __expectLong,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterDetailsList
+ */
+const de_ClusterDetailsList = (output: any, context: __SerdeContext): ClusterDetails[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterDetails(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1ClusterInformation
+ */
+const de_ClusterInformation = (output: any, context: __SerdeContext): ClusterInformation => {
+  return take(output, {
+    clusterArn: __expectString,
+    clusterDetails: (_: any) => de_ClusterDetailsList(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1ClusterInformationList
+ */
+const de_ClusterInformationList = (output: any, context: __SerdeContext): ClusterInformation[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ClusterInformation(entry, context);
+    });
+  return retVal;
+};
+
+// de_ClusterMetadata omitted.
+
 // de_CodeFilePath omitted.
 
 // de_CodeLine omitted.
 
 // de_CodeLineList omitted.
+
+// de_CodeRepositoryAggregationResponse omitted.
+
+// de_CodeRepositoryDetails omitted.
+
+/**
+ * deserializeAws_restJson1CodeRepositoryMetadata
+ */
+const de_CodeRepositoryMetadata = (output: any, context: __SerdeContext): CodeRepositoryMetadata => {
+  return take(output, {
+    integrationArn: __expectString,
+    lastScannedCommitId: __expectString,
+    onDemandScan: (_: any) => de_CodeRepositoryOnDemandScan(_, context),
+    projectName: __expectString,
+    providerType: __expectString,
+    providerTypeVisibility: __expectString,
+    scanConfiguration: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CodeRepositoryOnDemandScan
+ */
+const de_CodeRepositoryOnDemandScan = (output: any, context: __SerdeContext): CodeRepositoryOnDemandScan => {
+  return take(output, {
+    lastScanAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    lastScannedCommitId: __expectString,
+    scanStatus: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1CodeSecurityIntegrationSummary
+ */
+const de_CodeSecurityIntegrationSummary = (output: any, context: __SerdeContext): CodeSecurityIntegrationSummary => {
+  return take(output, {
+    createdOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    integrationArn: __expectString,
+    lastUpdateOn: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    name: __expectString,
+    status: __expectString,
+    statusReason: __expectString,
+    tags: _json,
+    type: __expectString,
+  }) as any;
+};
+
+// de_CodeSecurityResource omitted.
+
+// de_CodeSecurityScanConfiguration omitted.
+
+// de_CodeSecurityScanConfigurationAssociationSummaries omitted.
+
+// de_CodeSecurityScanConfigurationAssociationSummary omitted.
+
+// de_CodeSecurityScanConfigurationSummaries omitted.
+
+// de_CodeSecurityScanConfigurationSummary omitted.
 
 // de_CodeSnippetError omitted.
 
@@ -3760,6 +4790,10 @@ const de_CisScanList = (output: any, context: __SerdeContext): CisScan[] => {
 // de_CodeSnippetResultList omitted.
 
 // de_CodeVulnerabilityDetails omitted.
+
+// de_ContinuousIntegrationScanConfiguration omitted.
+
+// de_ContinuousIntegrationScanSupportedEvents omitted.
 
 // de_Counts omitted.
 
@@ -3920,6 +4954,8 @@ const de_EcrConfigurationState = (output: any, context: __SerdeContext): EcrConf
 const de_EcrContainerImageMetadata = (output: any, context: __SerdeContext): EcrContainerImageMetadata => {
   return take(output, {
     imagePulledAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    inUseCount: __expectLong,
+    lastInUseAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     tags: _json,
   }) as any;
 };
@@ -3932,6 +4968,7 @@ const de_EcrContainerImageMetadata = (output: any, context: __SerdeContext): Ecr
 const de_EcrRescanDurationState = (output: any, context: __SerdeContext): EcrRescanDurationState => {
   return take(output, {
     pullDateRescanDuration: __expectString,
+    pullDateRescanMode: __expectString,
     rescanDuration: __expectString,
     status: __expectString,
     updatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3983,6 +5020,10 @@ const de_ExploitObserved = (output: any, context: __SerdeContext): ExploitObserv
 
 // de_FailedAccountList omitted.
 
+// de_FailedAssociationResult omitted.
+
+// de_FailedAssociationResultList omitted.
+
 // de_FailedMemberAccountEc2DeepInspectionStatusState omitted.
 
 // de_FailedMemberAccountEc2DeepInspectionStatusStateList omitted.
@@ -4011,6 +5052,8 @@ const de_Filter = (output: any, context: __SerdeContext): Filter => {
 const de_FilterCriteria = (output: any, context: __SerdeContext): FilterCriteria => {
   return take(output, {
     awsAccountId: _json,
+    codeRepositoryProjectName: _json,
+    codeRepositoryProviderType: _json,
     codeVulnerabilityDetectorName: _json,
     codeVulnerabilityDetectorTags: _json,
     codeVulnerabilityFilePath: _json,
@@ -4021,6 +5064,8 @@ const de_FilterCriteria = (output: any, context: __SerdeContext): FilterCriteria
     ec2InstanceVpcId: _json,
     ecrImageArchitecture: _json,
     ecrImageHash: _json,
+    ecrImageInUseCount: (_: any) => de_NumberFilterList(_, context),
+    ecrImageLastInUseAt: (_: any) => de_DateFilterList(_, context),
     ecrImagePushedAt: (_: any) => de_DateFilterList(_, context),
     ecrImageRegistry: _json,
     ecrImageRepositoryName: _json,
@@ -4207,6 +5252,18 @@ const de_InspectorScoreDetails = (output: any, context: __SerdeContext): Inspect
   }) as any;
 };
 
+/**
+ * deserializeAws_restJson1IntegrationSummaries
+ */
+const de_IntegrationSummaries = (output: any, context: __SerdeContext): CodeSecurityIntegrationSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CodeSecurityIntegrationSummary(entry, context);
+    });
+  return retVal;
+};
+
 // de_IpV4AddressList omitted.
 
 // de_IpV6AddressList omitted.
@@ -4312,6 +5369,7 @@ const de_PackageFilter = (output: any, context: __SerdeContext): PackageFilter =
   return take(output, {
     architecture: _json,
     epoch: (_: any) => de_NumberFilter(_, context),
+    filePath: _json,
     name: _json,
     release: _json,
     sourceLambdaLayerArn: _json,
@@ -4352,6 +5410,8 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 
 // de_PathList omitted.
 
+// de_PeriodicScanConfiguration omitted.
+
 // de_Permission omitted.
 
 // de_Permissions omitted.
@@ -4361,6 +5421,16 @@ const de_PackageVulnerabilityDetails = (output: any, context: __SerdeContext): P
 // de_PortRangeFilter omitted.
 
 // de_PortRangeFilterList omitted.
+
+// de_ProjectCodeSecurityScanConfiguration omitted.
+
+// de_ProjectContinuousIntegrationScanConfiguration omitted.
+
+// de_ProjectContinuousIntegrationScanConfigurationList omitted.
+
+// de_ProjectPeriodicScanConfiguration omitted.
+
+// de_ProjectPeriodicScanConfigurationList omitted.
 
 // de_Recommendation omitted.
 
@@ -4394,6 +5464,7 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
     awsEc2Instance: (_: any) => de_AwsEc2InstanceDetails(_, context),
     awsEcrContainerImage: (_: any) => de_AwsEcrContainerImageDetails(_, context),
     awsLambdaFunction: (_: any) => de_AwsLambdaFunctionDetails(_, context),
+    codeRepository: _json,
   }) as any;
 };
 
@@ -4420,6 +5491,7 @@ const de_ResourceList = (output: any, context: __SerdeContext): Resource[] => {
  */
 const de_ResourceScanMetadata = (output: any, context: __SerdeContext): ResourceScanMetadata => {
   return take(output, {
+    codeRepository: (_: any) => de_CodeRepositoryMetadata(_, context),
     ec2: _json,
     ecrImage: (_: any) => de_EcrContainerImageMetadata(_, context),
     ecrRepository: _json,
@@ -4435,9 +5507,13 @@ const de_ResourceScanMetadata = (output: any, context: __SerdeContext): Resource
 
 // de_ResourceStringFilterList omitted.
 
+// de_RuleSetCategories omitted.
+
 // de_ScanStatus omitted.
 
 // de_Schedule omitted.
+
+// de_ScopeSettings omitted.
 
 // de_SecurityGroupIdList omitted.
 
@@ -4458,6 +5534,10 @@ const de_ResourceScanMetadata = (output: any, context: __SerdeContext): Resource
 // de_StringList omitted.
 
 // de_SubnetIdList omitted.
+
+// de_SuccessfulAssociationResult omitted.
+
+// de_SuccessfulAssociationResultList omitted.
 
 // de_SuggestedFix omitted.
 
@@ -4590,13 +5670,8 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
 
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
-
+const _mR = "maxResults";
+const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";
 const _rT = "resourceType";
 const _ra = "retry-after";

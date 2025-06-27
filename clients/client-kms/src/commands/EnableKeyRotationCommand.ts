@@ -12,7 +12,8 @@ import { de_EnableKeyRotationCommand, se_EnableKeyRotationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,22 +28,19 @@ export interface EnableKeyRotationCommandInput extends EnableKeyRotationRequest 
 export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#rotating-keys-enable-disable">automatic rotation
- *         of the key material</a> of the specified symmetric encryption KMS key. </p>
+ * <p>Enables <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotating-keys-enable-disable.html">automatic rotation of the key material</a> of the specified symmetric encryption KMS
+ *       key. </p>
  *          <p>By default, when you enable automatic rotation of a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#customer-cmk">customer managed KMS key</a>, KMS
  *       rotates the key material of the KMS key one year (approximately 365 days) from the enable date
  *       and every year thereafter. You can use the optional <code>RotationPeriodInDays</code>
  *       parameter to specify a custom rotation period when you enable key rotation, or you can use
- *       <code>RotationPeriodInDays</code> to modify the rotation period of a key that you previously
+ *         <code>RotationPeriodInDays</code> to modify the rotation period of a key that you previously
  *       enabled automatic key rotation on.</p>
- *          <p>You can monitor rotation of the key material
- *       for your KMS keys in CloudTrail and Amazon CloudWatch. To disable rotation of the key
- *       material in a customer managed KMS key, use the <a>DisableKeyRotation</a>
- *       operation. You can use the <a>GetKeyRotationStatus</a> operation to identify any in progress
- *       rotations. You can use the <a>ListKeyRotations</a> operation to view the details of
- *       completed rotations.</p>
- *          <p>Automatic key rotation is supported only on <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#symmetric-cmks">symmetric encryption KMS keys</a>.
- *       You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/custom-key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-manage.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key. </p>
+ *          <p>You can monitor rotation of the key material for your KMS keys in CloudTrail and Amazon CloudWatch. To disable rotation of the key material in a customer managed KMS key, use
+ *       the <a>DisableKeyRotation</a> operation. You can use the <a>GetKeyRotationStatus</a> operation to identify any in progress rotations. You can
+ *       use the <a>ListKeyRotations</a> operation to view the details of completed
+ *       rotations.</p>
+ *          <p>Automatic key rotation is supported only on symmetric encryption KMS keys. You cannot enable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/symmetric-asymmetric.html">asymmetric KMS keys</a>, <a href="https://docs.aws.amazon.com/kms/latest/developerguide/hmac.html">HMAC KMS keys</a>, KMS keys with <a href="https://docs.aws.amazon.com/kms/latest/developerguide/importing-keys.html">imported key material</a>, or KMS keys in a <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-store-overview.html">custom key store</a>. To enable or disable automatic rotation of a set of related <a href="https://docs.aws.amazon.com/kms/latest/developerguide/rotate-keys.html#multi-region-rotate">multi-Region keys</a>, set the property on the primary key. </p>
  *          <p>You cannot enable or disable automatic rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-managed-cmk">Amazon Web Services managed KMS keys</a>. KMS
  *       always rotates the key material of Amazon Web Services managed keys every year. Rotation of <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#aws-owned-cmk">Amazon Web Services owned KMS
  *         keys</a> is managed by the Amazon Web Services service that owns the key.</p>
@@ -84,14 +82,15 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  *                   <a>RotateKeyOnDemand</a>
  *                </p>
  *                <note>
- *                   <p>You can perform on-demand (<a>RotateKeyOnDemand</a>) rotation of the
- *             key material in customer managed KMS keys, regardless of whether or not automatic key rotation is enabled.</p>
+ *                   <p>You can perform on-demand (<a>RotateKeyOnDemand</a>) rotation of the key
+ *             material in customer managed KMS keys, regardless of whether or not automatic key
+ *             rotation is enabled.</p>
  *                </note>
  *             </li>
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -160,19 +159,22 @@ export interface EnableKeyRotationCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To enable automatic rotation of key material
  * ```javascript
  * // The following example enables automatic rotation with a rotation period of 365 days for the specified KMS key.
  * const input = {
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "RotationPeriodInDays": 365
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   RotationPeriodInDays: 365
  * };
  * const command = new EnableKeyRotationCommand(input);
- * await client.send(command);
- * // example id: to-enable-automatic-rotation-of-key-material-1712499675853
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class EnableKeyRotationCommand extends $Command
   .classBuilder<
@@ -182,9 +184,7 @@ export class EnableKeyRotationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +196,16 @@ export class EnableKeyRotationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_EnableKeyRotationCommand)
   .de(de_EnableKeyRotationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: EnableKeyRotationRequest;
+      output: {};
+    };
+    sdk: {
+      input: EnableKeyRotationCommandInput;
+      output: EnableKeyRotationCommandOutput;
+    };
+  };
+}

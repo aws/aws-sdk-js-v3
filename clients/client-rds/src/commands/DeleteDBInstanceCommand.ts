@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -221,6 +222,7 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -325,28 +327,28 @@ export interface DeleteDBInstanceCommandOutput extends DeleteDBInstanceResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a DB instance
  * ```javascript
  * // The following example deletes the specified DB instance after creating a final DB snapshot named test-instance-final-snap.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance",
- *   "FinalDBSnapshotIdentifier": "test-instance-final-snap",
- *   "SkipFinalSnapshot": false
+ *   DBInstanceIdentifier: "test-instance",
+ *   FinalDBSnapshotIdentifier: "test-instance-final-snap",
+ *   SkipFinalSnapshot: false
  * };
  * const command = new DeleteDBInstanceCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceIdentifier": "test-instance",
- *     "DBInstanceStatus": "deleting"
+ *   DBInstance: {
+ *     DBInstanceIdentifier: "test-instance",
+ *     DBInstanceStatus: "deleting"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-db-instance-1680197458232
  * ```
  *
+ * @public
  */
 export class DeleteDBInstanceCommand extends $Command
   .classBuilder<
@@ -356,9 +358,7 @@ export class DeleteDBInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -370,4 +370,16 @@ export class DeleteDBInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBInstanceCommand)
   .de(de_DeleteDBInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBInstanceMessage;
+      output: DeleteDBInstanceResult;
+    };
+    sdk: {
+      input: DeleteDBInstanceCommandInput;
+      output: DeleteDBInstanceCommandOutput;
+    };
+  };
+}

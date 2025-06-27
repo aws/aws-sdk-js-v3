@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -101,25 +102,35 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example To add a resource-based policy to a secret
  * ```javascript
  * // The following example shows how to add a resource-based policy to a secret.
  * const input = {
- *   "ResourcePolicy": "{\n\"Version\":\"2012-10-17\",\n\"Statement\":[{\n\"Effect\":\"Allow\",\n\"Principal\":{\n\"AWS\":\"arn:aws:iam::123456789012:root\"\n},\n\"Action\":\"secretsmanager:GetSecretValue\",\n\"Resource\":\"*\"\n}]\n}",
- *   "SecretId": "MyTestDatabaseSecret"
+ *   ResourcePolicy: `{
+ * "Version":"2012-10-17",
+ * "Statement":[{
+ * "Effect":"Allow",
+ * "Principal":{
+ * "AWS":"arn:aws:iam::123456789012:root"
+ * },
+ * "Action":"secretsmanager:GetSecretValue",
+ * "Resource":"*"
+ * }]
+ * }`,
+ *   SecretId: "MyTestDatabaseSecret"
  * };
  * const command = new PutResourcePolicyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
- *   "Name": "MyTestDatabaseSecret"
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestDatabaseSecret-a1b2c3",
+ *   Name: "MyTestDatabaseSecret"
  * }
  * *\/
- * // example id: to-add-a-resource-based-policy-to-a-secret-1530209881839
  * ```
  *
+ * @public
  */
 export class PutResourcePolicyCommand extends $Command
   .classBuilder<
@@ -129,9 +140,7 @@ export class PutResourcePolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +152,16 @@ export class PutResourcePolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutResourcePolicyCommand)
   .de(de_PutResourcePolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutResourcePolicyRequest;
+      output: PutResourcePolicyResponse;
+    };
+    sdk: {
+      input: PutResourcePolicyCommandInput;
+      output: PutResourcePolicyCommandOutput;
+    };
+  };
+}

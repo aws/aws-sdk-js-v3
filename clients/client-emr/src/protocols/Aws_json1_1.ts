@@ -36,6 +36,10 @@ import { AddJobFlowStepsCommandInput, AddJobFlowStepsCommandOutput } from "../co
 import { AddTagsCommandInput, AddTagsCommandOutput } from "../commands/AddTagsCommand";
 import { CancelStepsCommandInput, CancelStepsCommandOutput } from "../commands/CancelStepsCommand";
 import {
+  CreatePersistentAppUICommandInput,
+  CreatePersistentAppUICommandOutput,
+} from "../commands/CreatePersistentAppUICommand";
+import {
   CreateSecurityConfigurationCommandInput,
   CreateSecurityConfigurationCommandOutput,
 } from "../commands/CreateSecurityConfigurationCommand";
@@ -59,6 +63,10 @@ import {
   DescribeNotebookExecutionCommandInput,
   DescribeNotebookExecutionCommandOutput,
 } from "../commands/DescribeNotebookExecutionCommand";
+import {
+  DescribePersistentAppUICommandInput,
+  DescribePersistentAppUICommandOutput,
+} from "../commands/DescribePersistentAppUICommand";
 import {
   DescribeReleaseLabelCommandInput,
   DescribeReleaseLabelCommandOutput,
@@ -85,6 +93,14 @@ import {
   GetManagedScalingPolicyCommandInput,
   GetManagedScalingPolicyCommandOutput,
 } from "../commands/GetManagedScalingPolicyCommand";
+import {
+  GetOnClusterAppUIPresignedURLCommandInput,
+  GetOnClusterAppUIPresignedURLCommandOutput,
+} from "../commands/GetOnClusterAppUIPresignedURLCommand";
+import {
+  GetPersistentAppUIPresignedURLCommandInput,
+  GetPersistentAppUIPresignedURLCommandOutput,
+} from "../commands/GetPersistentAppUIPresignedURLCommand";
 import {
   GetStudioSessionMappingCommandInput,
   GetStudioSessionMappingCommandOutput,
@@ -207,6 +223,7 @@ import {
   ClusterTimeline,
   ComputeLimits,
   Configuration,
+  CreatePersistentAppUIInput,
   CreateSecurityConfigurationInput,
   CreateSecurityConfigurationOutput,
   CreateStudioInput,
@@ -220,6 +237,8 @@ import {
   DescribeJobFlowsOutput,
   DescribeNotebookExecutionInput,
   DescribeNotebookExecutionOutput,
+  DescribePersistentAppUIInput,
+  DescribePersistentAppUIOutput,
   DescribeReleaseLabelInput,
   DescribeSecurityConfigurationInput,
   DescribeSecurityConfigurationOutput,
@@ -229,6 +248,7 @@ import {
   DescribeStudioOutput,
   EbsBlockDeviceConfig,
   EbsConfiguration,
+  EMRContainersConfig,
   ExecutionEngineConfig,
   GetAutoTerminationPolicyInput,
   GetBlockPublicAccessConfigurationInput,
@@ -236,6 +256,8 @@ import {
   GetClusterSessionCredentialsInput,
   GetClusterSessionCredentialsOutput,
   GetManagedScalingPolicyInput,
+  GetOnClusterAppUIPresignedURLInput,
+  GetPersistentAppUIPresignedURLInput,
   GetStudioSessionMappingInput,
   GetStudioSessionMappingOutput,
   HadoopJarStepConfig,
@@ -304,6 +326,7 @@ import {
   OnDemandProvisioningSpecification,
   OnDemandResizingSpecification,
   OutputNotebookS3LocationFromInput,
+  PersistentAppUI,
   PlacementGroupConfig,
   PlacementType,
   PortRange,
@@ -415,6 +438,19 @@ export const se_CancelStepsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("CancelSteps");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1CreatePersistentAppUICommand
+ */
+export const se_CreatePersistentAppUICommand = async (
+  input: CreatePersistentAppUICommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("CreatePersistentAppUI");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -538,6 +574,19 @@ export const se_DescribeNotebookExecutionCommand = async (
 };
 
 /**
+ * serializeAws_json1_1DescribePersistentAppUICommand
+ */
+export const se_DescribePersistentAppUICommand = async (
+  input: DescribePersistentAppUICommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DescribePersistentAppUI");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
  * serializeAws_json1_1DescribeReleaseLabelCommand
  */
 export const se_DescribeReleaseLabelCommand = async (
@@ -636,6 +685,32 @@ export const se_GetManagedScalingPolicyCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetManagedScalingPolicy");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetOnClusterAppUIPresignedURLCommand
+ */
+export const se_GetOnClusterAppUIPresignedURLCommand = async (
+  input: GetOnClusterAppUIPresignedURLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetOnClusterAppUIPresignedURL");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetPersistentAppUIPresignedURLCommand
+ */
+export const se_GetPersistentAppUIPresignedURLCommand = async (
+  input: GetPersistentAppUIPresignedURLCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetPersistentAppUIPresignedURL");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -832,7 +907,7 @@ export const se_ModifyInstanceFleetCommand = async (
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("ModifyInstanceFleet");
   let body: any;
-  body = JSON.stringify(_json(input));
+  body = JSON.stringify(se_ModifyInstanceFleetInput(input, context));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1184,6 +1259,26 @@ export const de_CancelStepsCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1CreatePersistentAppUICommand
+ */
+export const de_CreatePersistentAppUICommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreatePersistentAppUICommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: CreatePersistentAppUICommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1CreateSecurityConfigurationCommand
  */
 export const de_CreateSecurityConfigurationCommand = async (
@@ -1355,6 +1450,26 @@ export const de_DescribeNotebookExecutionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1DescribePersistentAppUICommand
+ */
+export const de_DescribePersistentAppUICommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribePersistentAppUICommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_DescribePersistentAppUIOutput(data, context);
+  const response: DescribePersistentAppUICommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1DescribeReleaseLabelCommand
  */
 export const de_DescribeReleaseLabelCommand = async (
@@ -1508,6 +1623,46 @@ export const de_GetManagedScalingPolicyCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: GetManagedScalingPolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetOnClusterAppUIPresignedURLCommand
+ */
+export const de_GetOnClusterAppUIPresignedURLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetOnClusterAppUIPresignedURLCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetOnClusterAppUIPresignedURLCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetPersistentAppUIPresignedURLCommand
+ */
+export const de_GetPersistentAppUIPresignedURLCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetPersistentAppUIPresignedURLCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetPersistentAppUIPresignedURLCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2340,6 +2495,8 @@ const se_ConfigurationList = (input: Configuration[], context: __SerdeContext): 
     });
 };
 
+// se_CreatePersistentAppUIInput omitted.
+
 // se_CreateSecurityConfigurationInput omitted.
 
 // se_CreateStudioInput omitted.
@@ -2368,6 +2525,8 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
 
 // se_DescribeNotebookExecutionInput omitted.
 
+// se_DescribePersistentAppUIInput omitted.
+
 // se_DescribeReleaseLabelInput omitted.
 
 // se_DescribeSecurityConfigurationInput omitted.
@@ -2386,6 +2545,8 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
 
 // se_EC2InstanceIdsToTerminateList omitted.
 
+// se_EMRContainersConfig omitted.
+
 // se_EnvironmentVariablesMap omitted.
 
 // se_ExecutionEngineConfig omitted.
@@ -2398,6 +2559,10 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
 
 // se_GetManagedScalingPolicyInput omitted.
 
+// se_GetOnClusterAppUIPresignedURLInput omitted.
+
+// se_GetPersistentAppUIPresignedURLInput omitted.
+
 // se_GetStudioSessionMappingInput omitted.
 
 // se_HadoopJarStepConfig omitted.
@@ -2407,6 +2572,7 @@ const se_DescribeJobFlowsInput = (input: DescribeJobFlowsInput, context: __Serde
  */
 const se_InstanceFleetConfig = (input: InstanceFleetConfig, context: __SerdeContext): any => {
   return take(input, {
+    Context: [],
     InstanceFleetType: [],
     InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
     LaunchSpecifications: _json,
@@ -2428,7 +2594,19 @@ const se_InstanceFleetConfigList = (input: InstanceFleetConfig[], context: __Ser
     });
 };
 
-// se_InstanceFleetModifyConfig omitted.
+/**
+ * serializeAws_json1_1InstanceFleetModifyConfig
+ */
+const se_InstanceFleetModifyConfig = (input: InstanceFleetModifyConfig, context: __SerdeContext): any => {
+  return take(input, {
+    Context: [],
+    InstanceFleetId: [],
+    InstanceTypeConfigs: (_) => se_InstanceTypeConfigList(_, context),
+    ResizeSpecifications: _json,
+    TargetOnDemandCapacity: [],
+    TargetSpotCapacity: [],
+  });
+};
 
 // se_InstanceFleetProvisioningSpecifications omitted.
 
@@ -2505,6 +2683,7 @@ const se_InstanceTypeConfig = (input: InstanceTypeConfig, context: __SerdeContex
     CustomAmiId: [],
     EbsConfiguration: _json,
     InstanceType: [],
+    Priority: __serializeFloat,
     WeightedCapacity: [],
   });
 };
@@ -2608,7 +2787,15 @@ const se_ListNotebookExecutionsInput = (input: ListNotebookExecutionsInput, cont
 
 // se_ModifyClusterInput omitted.
 
-// se_ModifyInstanceFleetInput omitted.
+/**
+ * serializeAws_json1_1ModifyInstanceFleetInput
+ */
+const se_ModifyInstanceFleetInput = (input: ModifyInstanceFleetInput, context: __SerdeContext): any => {
+  return take(input, {
+    ClusterId: [],
+    InstanceFleet: (_) => se_InstanceFleetModifyConfig(_, context),
+  });
+};
 
 /**
  * serializeAws_json1_1ModifyInstanceGroupsInput
@@ -3018,6 +3205,8 @@ const de_ConfigurationList = (output: any, context: __SerdeContext): Configurati
   return retVal;
 };
 
+// de_CreatePersistentAppUIOutput omitted.
+
 /**
  * deserializeAws_json1_1CreateSecurityConfigurationOutput
  */
@@ -3061,6 +3250,15 @@ const de_DescribeJobFlowsOutput = (output: any, context: __SerdeContext): Descri
 const de_DescribeNotebookExecutionOutput = (output: any, context: __SerdeContext): DescribeNotebookExecutionOutput => {
   return take(output, {
     NotebookExecution: (_: any) => de_NotebookExecution(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1DescribePersistentAppUIOutput
+ */
+const de_DescribePersistentAppUIOutput = (output: any, context: __SerdeContext): DescribePersistentAppUIOutput => {
+  return take(output, {
+    PersistentAppUI: (_: any) => de_PersistentAppUI(_, context),
   }) as any;
 };
 
@@ -3152,6 +3350,10 @@ const de_GetClusterSessionCredentialsOutput = (
 
 // de_GetManagedScalingPolicyOutput omitted.
 
+// de_GetOnClusterAppUIPresignedURLOutput omitted.
+
+// de_GetPersistentAppUIPresignedURLOutput omitted.
+
 /**
  * deserializeAws_json1_1GetStudioSessionMappingOutput
  */
@@ -3190,6 +3392,7 @@ const de_Instance = (output: any, context: __SerdeContext): Instance => {
  */
 const de_InstanceFleet = (output: any, context: __SerdeContext): InstanceFleet => {
   return take(output, {
+    Context: __expectString,
     Id: __expectString,
     InstanceFleetType: __expectString,
     InstanceTypeSpecifications: (_: any) => de_InstanceTypeSpecificationList(_, context),
@@ -3393,6 +3596,7 @@ const de_InstanceTypeSpecification = (output: any, context: __SerdeContext): Ins
     EbsBlockDevices: _json,
     EbsOptimized: __expectBoolean,
     InstanceType: __expectString,
+    Priority: __limitedParseDouble,
     WeightedCapacity: __expectInt32,
   }) as any;
 };
@@ -3676,6 +3880,24 @@ const de_NotebookExecutionSummaryList = (output: any, context: __SerdeContext): 
 // de_OSReleaseList omitted.
 
 // de_OutputNotebookS3LocationForOutput omitted.
+
+/**
+ * deserializeAws_json1_1PersistentAppUI
+ */
+const de_PersistentAppUI = (output: any, context: __SerdeContext): PersistentAppUI => {
+  return take(output, {
+    AuthorId: __expectString,
+    CreationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    LastStateChangeReason: __expectString,
+    PersistentAppUIId: __expectString,
+    PersistentAppUIStatus: __expectString,
+    PersistentAppUITypeList: _json,
+    Tags: _json,
+  }) as any;
+};
+
+// de_PersistentAppUITypeList omitted.
 
 // de_PlacementGroupConfig omitted.
 

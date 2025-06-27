@@ -12,7 +12,8 @@ import { de_GetImageCommand, se_GetImageCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //     type: "AMI" || "DOCKER",
  * //     name: "STRING_VALUE",
  * //     version: "STRING_VALUE",
- * //     platform: "Windows" || "Linux",
+ * //     platform: "Windows" || "Linux" || "macOS",
  * //     enhancedImageMetadataEnabled: true || false,
  * //     osVersion: "STRING_VALUE",
  * //     state: { // ImageState
@@ -58,7 +59,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       type: "AMI" || "DOCKER",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       version: "STRING_VALUE",
  * //       components: [ // ComponentConfigurationList
@@ -109,7 +110,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       containerType: "DOCKER",
  * //       name: "STRING_VALUE",
  * //       description: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       version: "STRING_VALUE",
  * //       components: [
@@ -194,6 +195,12 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       tags: {
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       placement: { // Placement
+ * //         availabilityZone: "STRING_VALUE",
+ * //         tenancy: "default" || "dedicated" || "host",
+ * //         hostId: "STRING_VALUE",
+ * //         hostResourceGroupArn: "STRING_VALUE",
+ * //       },
  * //     },
  * //     distributionConfiguration: { // DistributionConfiguration
  * //       arn: "STRING_VALUE",
@@ -268,6 +275,13 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //               accountId: "STRING_VALUE",
  * //             },
  * //           ],
+ * //           ssmParameterConfigurations: [ // SsmParameterConfigurationList
+ * //             { // SsmParameterConfiguration
+ * //               amiAccountId: "STRING_VALUE",
+ * //               parameterName: "STRING_VALUE", // required
+ * //               dataType: "text" || "aws:ec2:image",
+ * //             },
+ * //           ],
  * //         },
  * //       ],
  * //       timeoutMinutes: Number("int"), // required
@@ -304,7 +318,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * //       ],
  * //     },
  * //     tags: "<TagMap>",
- * //     buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT",
+ * //     buildType: "USER_INITIATED" || "SCHEDULED" || "IMPORT" || "IMPORT_ISO",
  * //     imageSource: "AMAZON_MANAGED" || "AWS_MARKETPLACE" || "IMPORTED" || "CUSTOM",
  * //     scanState: { // ImageScanState
  * //       status: "PENDING" || "SCANNING" || "COLLECTING" || "COMPLETED" || "ABANDONED" || "FAILED" || "TIMED_OUT",
@@ -370,6 +384,7 @@ export interface GetImageCommandOutput extends GetImageResponse, __MetadataBeare
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class GetImageCommand extends $Command
@@ -380,9 +395,7 @@ export class GetImageCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -394,4 +407,16 @@ export class GetImageCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetImageCommand)
   .de(de_GetImageCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetImageRequest;
+      output: GetImageResponse;
+    };
+    sdk: {
+      input: GetImageCommandInput;
+      output: GetImageCommandOutput;
+    };
+  };
+}

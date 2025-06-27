@@ -27,7 +27,7 @@ following some related topics from the user guide.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-neptune
+To install this package, simply type add or install @aws-sdk/client-neptune
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-neptune`
@@ -770,5 +770,13 @@ StopDBCluster
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune/command/StopDBClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune/Interface/StopDBClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune/Interface/StopDBClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
+SwitchoverGlobalCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/neptune/command/SwitchoverGlobalClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune/Interface/SwitchoverGlobalClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-neptune/Interface/SwitchoverGlobalClusterCommandOutput/)
 
 </details>

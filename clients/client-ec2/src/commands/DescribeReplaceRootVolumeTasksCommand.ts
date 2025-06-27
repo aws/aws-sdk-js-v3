@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_4";
+import { DescribeReplaceRootVolumeTasksRequest, DescribeReplaceRootVolumeTasksResult } from "../models/models_5";
 import {
   de_DescribeReplaceRootVolumeTasksCommand,
   se_DescribeReplaceRootVolumeTasksCommand,
@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,7 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
 
 /**
  * <p>Describes a root volume replacement task. For more information, see
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replace-root.html">Replace a root volume</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +92,7 @@ export interface DescribeReplaceRootVolumeTasksCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeReplaceRootVolumeTasksCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeReplaceRootVolumeTasksCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeReplaceRootVolumeTasksCommand)
   .de(de_DescribeReplaceRootVolumeTasksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeReplaceRootVolumeTasksRequest;
+      output: DescribeReplaceRootVolumeTasksResult;
+    };
+    sdk: {
+      input: DescribeReplaceRootVolumeTasksCommandInput;
+      output: DescribeReplaceRootVolumeTasksCommandOutput;
+    };
+  };
+}

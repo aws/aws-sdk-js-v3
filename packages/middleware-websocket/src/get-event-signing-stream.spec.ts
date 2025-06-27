@@ -1,9 +1,7 @@
-/**
- * @jest-environment jsdom
- */
 import { EventStreamCodec } from "@smithy/eventstream-codec";
 import { Message, MessageHeaders, SignedMessage } from "@smithy/types";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 import { TransformStream } from "web-streams-polyfill";
 
 import { getEventSigningTransformStream } from "./get-event-signing-stream";
@@ -16,7 +14,7 @@ describe(getEventSigningTransformStream.name, () => {
     window.TransformStream = TransformStream;
   });
   afterEach(() => {
-    Date = originalDate;
+    window.Date = originalDate;
     window.TransformStream = originalTransformStreamCtor;
   });
 
@@ -58,29 +56,26 @@ describe(getEventSigningTransformStream.name, () => {
       headers: {},
       body: fromUtf8("bar"),
     };
-    const mockMessageSigner = jest
+    const mockMessageSigner = vi
       .fn()
       .mockReturnValueOnce({ message: message1, signature: "7369676e617475726531" } as SignedMessage) //'signature1'
       .mockReturnValueOnce({ message: message2, signature: "7369676e617475726532" } as SignedMessage); //'signature2'
 
-    // mock 'new Date()'
     let mockDateCount = 0;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const mockDate = jest
-      .spyOn(window, "Date")
-      //@ts-ignore: https://stackoverflow.com/questions/60912023/jest-typescript-mock-date-constructor/60918716#60918716
-      .mockImplementation((input) => {
-        if (input) return new originalDate(input);
-        mockDateCount += 1;
-        return expected[mockDateCount - 1][":date"].value;
-      });
+    function MockDate(input?: any): Date {
+      return input ? new originalDate(input) : (expected[mockDateCount++][":date"].value as Date);
+    }
+    MockDate.now = () => MockDate().getTime();
+    window.Date = MockDate as any;
+
     const signingStream = getEventSigningTransformStream(
       "initial",
       {
         sign: mockMessageSigner,
         signMessage: mockMessageSigner,
       },
-      eventStreamCodec
+      eventStreamCodec,
+      async () => 0
     );
     const output: Array<MessageHeaders> = [];
 

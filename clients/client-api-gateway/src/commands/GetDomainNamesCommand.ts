@@ -12,7 +12,8 @@ import { de_GetDomainNamesCommand, se_GetDomainNamesCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,6 +38,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * const input = { // GetDomainNamesRequest
  *   position: "STRING_VALUE",
  *   limit: Number("int"),
+ *   resourceOwner: "SELF" || "OTHER_ACCOUNTS",
  * };
  * const command = new GetDomainNamesCommand(input);
  * const response = await client.send(command);
@@ -44,6 +46,8 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * //   items: [ // ListOfDomainName
  * //     { // DomainName
  * //       domainName: "STRING_VALUE",
+ * //       domainNameId: "STRING_VALUE",
+ * //       domainNameArn: "STRING_VALUE",
  * //       certificateName: "STRING_VALUE",
  * //       certificateArn: "STRING_VALUE",
  * //       certificateUploadDate: new Date("TIMESTAMP"),
@@ -57,6 +61,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * //         types: [ // ListOfEndpointType
  * //           "REGIONAL" || "EDGE" || "PRIVATE",
  * //         ],
+ * //         ipAddressType: "ipv4" || "dualstack",
  * //         vpcEndpointIds: [ // ListOfString
  * //           "STRING_VALUE",
  * //         ],
@@ -75,6 +80,9 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * //         ],
  * //       },
  * //       ownershipVerificationCertificateArn: "STRING_VALUE",
+ * //       managementPolicy: "STRING_VALUE",
+ * //       policy: "STRING_VALUE",
+ * //       routingMode: "BASE_PATH_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_BASE_PATH_MAPPING",
  * //     },
  * //   ],
  * //   position: "STRING_VALUE",
@@ -103,6 +111,7 @@ export interface GetDomainNamesCommandOutput extends DomainNames, __MetadataBear
  * @throws {@link APIGatewayServiceException}
  * <p>Base exception class for all service exceptions from APIGateway service.</p>
  *
+ *
  * @public
  */
 export class GetDomainNamesCommand extends $Command
@@ -113,9 +122,7 @@ export class GetDomainNamesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: APIGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +134,16 @@ export class GetDomainNamesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainNamesCommand)
   .de(de_GetDomainNamesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainNamesRequest;
+      output: DomainNames;
+    };
+    sdk: {
+      input: GetDomainNamesCommandInput;
+      output: GetDomainNamesCommandOutput;
+    };
+  };
+}

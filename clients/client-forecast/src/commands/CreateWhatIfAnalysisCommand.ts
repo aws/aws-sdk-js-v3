@@ -16,7 +16,8 @@ import { de_CreateWhatIfAnalysisCommand, se_CreateWhatIfAnalysisCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,7 @@ export interface CreateWhatIfAnalysisCommandOutput extends CreateWhatIfAnalysisR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreateWhatIfAnalysisCommand extends $Command
@@ -124,9 +126,7 @@ export class CreateWhatIfAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -138,4 +138,16 @@ export class CreateWhatIfAnalysisCommand extends $Command
   .f(CreateWhatIfAnalysisRequestFilterSensitiveLog, void 0)
   .ser(se_CreateWhatIfAnalysisCommand)
   .de(de_CreateWhatIfAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateWhatIfAnalysisRequest;
+      output: CreateWhatIfAnalysisResponse;
+    };
+    sdk: {
+      input: CreateWhatIfAnalysisCommandInput;
+      output: CreateWhatIfAnalysisCommandOutput;
+    };
+  };
+}

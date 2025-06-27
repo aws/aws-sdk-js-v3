@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StopTransformJobRequest } from "../models/models_4";
+import { StopTransformJobRequest } from "../models/models_5";
 import { de_StopTransformJobCommand, se_StopTransformJobCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,7 @@ export interface StopTransformJobCommandInput extends StopTransformJobRequest {}
 export interface StopTransformJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Stops a batch transform job.</p>
- *          <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job
- *             changes to <code>Stopping</code>. After Amazon SageMaker
- *             stops
- *             the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before
- *             it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
+ * <p>Stops a batch transform job.</p> <p>When Amazon SageMaker receives a <code>StopTransformJob</code> request, the status of the job changes to <code>Stopping</code>. After Amazon SageMaker stops the job, the status is set to <code>Stopped</code>. When you stop a batch transform job before it is completed, Amazon SageMaker doesn't store the job's output in Amazon S3.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +56,7 @@ export interface StopTransformJobCommandOutput extends __MetadataBearer {}
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class StopTransformJobCommand extends $Command
@@ -70,9 +67,7 @@ export class StopTransformJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -84,4 +79,16 @@ export class StopTransformJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StopTransformJobCommand)
   .de(de_StopTransformJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StopTransformJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: StopTransformJobCommandInput;
+      output: StopTransformJobCommandOutput;
+    };
+  };
+}

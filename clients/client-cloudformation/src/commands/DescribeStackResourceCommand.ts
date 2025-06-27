@@ -12,7 +12,8 @@ import { de_DescribeStackResourceCommand, se_DescribeStackResourceCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,8 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
 
 /**
  * <p>Returns a description of the specified resource in the specified stack.</p>
- *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days after the stack has
- *    been deleted.</p>
+ *          <p>For deleted stacks, DescribeStackResource returns resource information for up to 90 days
+ *       after the stack has been deleted.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,7 +51,7 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  * //     PhysicalResourceId: "STRING_VALUE",
  * //     ResourceType: "STRING_VALUE", // required
  * //     LastUpdatedTimestamp: new Date("TIMESTAMP"), // required
- * //     ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED", // required
+ * //     ResourceStatus: "CREATE_IN_PROGRESS" || "CREATE_FAILED" || "CREATE_COMPLETE" || "DELETE_IN_PROGRESS" || "DELETE_FAILED" || "DELETE_COMPLETE" || "DELETE_SKIPPED" || "UPDATE_IN_PROGRESS" || "UPDATE_FAILED" || "UPDATE_COMPLETE" || "IMPORT_FAILED" || "IMPORT_COMPLETE" || "IMPORT_IN_PROGRESS" || "IMPORT_ROLLBACK_IN_PROGRESS" || "IMPORT_ROLLBACK_FAILED" || "IMPORT_ROLLBACK_COMPLETE" || "EXPORT_FAILED" || "EXPORT_COMPLETE" || "EXPORT_IN_PROGRESS" || "EXPORT_ROLLBACK_IN_PROGRESS" || "EXPORT_ROLLBACK_FAILED" || "EXPORT_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_IN_PROGRESS" || "UPDATE_ROLLBACK_COMPLETE" || "UPDATE_ROLLBACK_FAILED" || "ROLLBACK_IN_PROGRESS" || "ROLLBACK_COMPLETE" || "ROLLBACK_FAILED", // required
  * //     ResourceStatusReason: "STRING_VALUE",
  * //     Description: "STRING_VALUE",
  * //     Metadata: "STRING_VALUE",
@@ -76,6 +77,7 @@ export interface DescribeStackResourceCommandOutput extends DescribeStackResourc
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>
  *
+ *
  * @public
  */
 export class DescribeStackResourceCommand extends $Command
@@ -86,9 +88,7 @@ export class DescribeStackResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFormationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +100,16 @@ export class DescribeStackResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeStackResourceCommand)
   .de(de_DescribeStackResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeStackResourceInput;
+      output: DescribeStackResourceOutput;
+    };
+    sdk: {
+      input: DescribeStackResourceCommandInput;
+      output: DescribeStackResourceCommandOutput;
+    };
+  };
+}

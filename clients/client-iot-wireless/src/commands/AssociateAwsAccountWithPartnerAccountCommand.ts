@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface AssociateAwsAccountWithPartnerAccountCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
@@ -107,9 +109,7 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class AssociateAwsAccountWithPartnerAccountCommand extends $Command
   )
   .ser(se_AssociateAwsAccountWithPartnerAccountCommand)
   .de(de_AssociateAwsAccountWithPartnerAccountCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAwsAccountWithPartnerAccountRequest;
+      output: AssociateAwsAccountWithPartnerAccountResponse;
+    };
+    sdk: {
+      input: AssociateAwsAccountWithPartnerAccountCommandInput;
+      output: AssociateAwsAccountWithPartnerAccountCommandOutput;
+    };
+  };
+}

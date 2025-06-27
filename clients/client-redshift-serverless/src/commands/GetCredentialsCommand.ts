@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,11 +40,9 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  *          temporary authorization to log in to Amazon Redshift Serverless.</p>
  *          <p>By default, the temporary credentials expire in 900 seconds.
  *          You can optionally specify a duration between 900 seconds (15 minutes) and 3600 seconds (60 minutes).</p>
- *
  *          <p>The Identity and Access Management (IAM) user or role that runs
  *       GetCredentials must have an IAM policy attached that allows access to all
  *       necessary actions and resources.</p>
- *
  *          <p>If the <code>DbName</code> parameter is specified, the IAM policy must
  *       allow access to the resource dbname for the specified database name.</p>
  * @example
@@ -87,6 +86,7 @@ export interface GetCredentialsCommandOutput extends GetCredentialsResponse, __M
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class GetCredentialsCommand extends $Command
@@ -97,9 +97,7 @@ export class GetCredentialsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +109,16 @@ export class GetCredentialsCommand extends $Command
   .f(void 0, GetCredentialsResponseFilterSensitiveLog)
   .ser(se_GetCredentialsCommand)
   .de(de_GetCredentialsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCredentialsRequest;
+      output: GetCredentialsResponse;
+    };
+    sdk: {
+      input: GetCredentialsCommandInput;
+      output: GetCredentialsCommandOutput;
+    };
+  };
+}

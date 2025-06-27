@@ -12,7 +12,8 @@ import { de_RestoreFromSnapshotCommand, se_RestoreFromSnapshotCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,20 @@ export interface RestoreFromSnapshotCommandOutput extends RestoreFromSnapshotRes
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To restore a snapshot
+ * ```javascript
+ * // The following example restores a directory using an existing directory snapshot.
+ * const input = {
+ *   SnapshotId: "s-9267f6da4e"
+ * };
+ * const command = new RestoreFromSnapshotCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RestoreFromSnapshotCommand extends $Command
@@ -79,9 +94,7 @@ export class RestoreFromSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +106,16 @@ export class RestoreFromSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreFromSnapshotCommand)
   .de(de_RestoreFromSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreFromSnapshotRequest;
+      output: {};
+    };
+    sdk: {
+      input: RestoreFromSnapshotCommandInput;
+      output: RestoreFromSnapshotCommandOutput;
+    };
+  };
+}

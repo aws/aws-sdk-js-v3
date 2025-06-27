@@ -12,7 +12,8 @@ import { de_VerifyCommand, se_VerifyCommand } from "../protocols/Aws_json1_1";
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,7 +51,7 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *       the KMS key to verify signatures.</p>
  *          <p>To verify a signature outside of KMS with an SM2 public key (China Regions only), you
  *       must specify the distinguishing ID. By default, KMS uses <code>1234567812345678</code> as
- *       the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/asymmetric-key-specs.html#key-spec-sm-offline-verification">Offline
+ *       the distinguishing ID. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/offline-operations.html#key-spec-sm-offline-verification">Offline
  *         verification with SM2 key pairs</a>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -64,7 +65,7 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *          </p>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,9 +75,9 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * const input = { // VerifyRequest
  *   KeyId: "STRING_VALUE", // required
  *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   MessageType: "RAW" || "DIGEST",
+ *   MessageType: "RAW" || "DIGEST" || "EXTERNAL_MU",
  *   Signature: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
- *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256", // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],
@@ -87,7 +88,7 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * // { // VerifyResponse
  * //   KeyId: "STRING_VALUE",
  * //   SignatureValid: true || false,
- * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
+ * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA" || "ML_DSA_SHAKE_256",
  * // };
  *
  * ```
@@ -127,8 +128,9 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -172,51 +174,50 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To use an asymmetric KMS key to verify a digital signature
  * ```javascript
  * // This operation uses the public key in an elliptic curve (ECC) asymmetric key to verify a digital signature within AWS KMS.
  * const input = {
- *   "KeyId": "alias/ECC_signing_key",
- *   "Message": "<message to be verified>",
- *   "MessageType": "RAW",
- *   "Signature": "<binary data>",
- *   "SigningAlgorithm": "ECDSA_SHA_384"
+ *   KeyId: "alias/ECC_signing_key",
+ *   Message: "<message to be verified>",
+ *   MessageType: "RAW",
+ *   Signature: "<binary data>",
+ *   SigningAlgorithm: "ECDSA_SHA_384"
  * };
  * const command = new VerifyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
- *   "SignatureValid": true,
- *   "SigningAlgorithm": "ECDSA_SHA_384"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   SignatureValid: true,
+ *   SigningAlgorithm: "ECDSA_SHA_384"
  * }
  * *\/
- * // example id: to-use-an-asymmetric-kms-key-to-verify-a-digital-signature-1
  * ```
  *
  * @example To use an asymmetric KMS key to verify a digital signature on a message digest
  * ```javascript
  * // This operation uses the public key in an RSA asymmetric signing key pair to verify the digital signature of a message digest. Hashing a message into a digest before sending it to KMS lets you verify messages that exceed the 4096-byte message size limit. To indicate that the value of Message is a digest, use the MessageType parameter
  * const input = {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "Message": "<message digest to be verified>",
- *   "MessageType": "DIGEST",
- *   "Signature": "<binary data>",
- *   "SigningAlgorithm": "RSASSA_PSS_SHA_512"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   Message: "<message digest to be verified>",
+ *   MessageType: "DIGEST",
+ *   Signature: "<binary data>",
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_512"
  * };
  * const command = new VerifyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
- *   "SignatureValid": true,
- *   "SigningAlgorithm": "RSASSA_PSS_SHA_512"
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/0987dcba-09fe-87dc-65ba-ab0987654321",
+ *   SignatureValid: true,
+ *   SigningAlgorithm: "RSASSA_PSS_SHA_512"
  * }
  * *\/
- * // example id: to-use-an-asymmetric-kms-key-to-verify-a-digital-signature-on-a-message-digest-2
  * ```
  *
+ * @public
  */
 export class VerifyCommand extends $Command
   .classBuilder<
@@ -226,9 +227,7 @@ export class VerifyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -240,4 +239,16 @@ export class VerifyCommand extends $Command
   .f(VerifyRequestFilterSensitiveLog, void 0)
   .ser(se_VerifyCommand)
   .de(de_VerifyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: VerifyRequest;
+      output: VerifyResponse;
+    };
+    sdk: {
+      input: VerifyCommandInput;
+      output: VerifyCommandOutput;
+    };
+  };
+}

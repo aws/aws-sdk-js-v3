@@ -12,7 +12,8 @@ import { de_RemoveManagedScalingPolicyCommand, se_RemoveManagedScalingPolicyComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -52,6 +53,7 @@ export interface RemoveManagedScalingPolicyCommandOutput extends RemoveManagedSc
  * @throws {@link EMRServiceException}
  * <p>Base exception class for all service exceptions from EMR service.</p>
  *
+ *
  * @public
  */
 export class RemoveManagedScalingPolicyCommand extends $Command
@@ -62,9 +64,7 @@ export class RemoveManagedScalingPolicyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -76,4 +76,16 @@ export class RemoveManagedScalingPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveManagedScalingPolicyCommand)
   .de(de_RemoveManagedScalingPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveManagedScalingPolicyInput;
+      output: {};
+    };
+    sdk: {
+      input: RemoveManagedScalingPolicyCommandInput;
+      output: RemoveManagedScalingPolicyCommandOutput;
+    };
+  };
+}

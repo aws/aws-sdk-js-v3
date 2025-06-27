@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { StartNotebookInstanceInput } from "../models/models_4";
+import { StartNotebookInstanceInput } from "../models/models_5";
 import { de_StartNotebookInstanceCommand, se_StartNotebookInstanceCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,10 +28,7 @@ export interface StartNotebookInstanceCommandInput extends StartNotebookInstance
 export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Launches an ML compute instance with the latest version of the libraries and
- *             attaches your ML storage volume. After configuring the notebook instance, SageMaker sets the
- *             notebook instance status to <code>InService</code>. A notebook instance's status must be
- *                 <code>InService</code> before you can connect to your Jupyter notebook. </p>
+ * <p>Launches an ML compute instance with the latest version of the libraries and attaches your ML storage volume. After configuring the notebook instance, SageMaker AI sets the notebook instance status to <code>InService</code>. A notebook instance's status must be <code>InService</code> before you can connect to your Jupyter notebook. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -53,11 +51,11 @@ export interface StartNotebookInstanceCommandOutput extends __MetadataBearer {}
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -69,9 +67,7 @@ export class StartNotebookInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -83,4 +79,16 @@ export class StartNotebookInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartNotebookInstanceCommand)
   .de(de_StartNotebookInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartNotebookInstanceInput;
+      output: {};
+    };
+    sdk: {
+      input: StartNotebookInstanceCommandInput;
+      output: StartNotebookInstanceCommandOutput;
+    };
+  };
+}

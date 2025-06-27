@@ -12,7 +12,8 @@ import { de_DeregisterJobDefinitionCommand, se_DeregisterJobDefinitionCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,18 +62,21 @@ export interface DeregisterJobDefinitionCommandOutput extends DeregisterJobDefin
  * @throws {@link BatchServiceException}
  * <p>Base exception class for all service exceptions from Batch service.</p>
  *
- * @public
+ *
  * @example To deregister a job definition
  * ```javascript
  * // This example deregisters a job definition called sleep10.
  * const input = {
- *   "jobDefinition": "sleep10"
+ *   jobDefinition: "sleep10"
  * };
  * const command = new DeregisterJobDefinitionCommand(input);
- * await client.send(command);
- * // example id: to-deregister-a-job-definition-1481153579565
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeregisterJobDefinitionCommand extends $Command
   .classBuilder<
@@ -82,9 +86,7 @@ export class DeregisterJobDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BatchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +98,16 @@ export class DeregisterJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeregisterJobDefinitionCommand)
   .de(de_DeregisterJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeregisterJobDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeregisterJobDefinitionCommandInput;
+      output: DeregisterJobDefinitionCommandOutput;
+    };
+  };
+}

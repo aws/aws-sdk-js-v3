@@ -12,7 +12,8 @@ import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,27 +68,27 @@ export interface UpdateApplicationCommandOutput extends Application, __MetadataB
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To update an application
  * ```javascript
  * // The following update-application example updates the name of the specified application.
  * const input = {
- *   "ApplicationId": "339ohji",
- *   "Description": "",
- *   "Name": "Example-Application"
+ *   ApplicationId: "339ohji",
+ *   Description: "",
+ *   Name: "Example-Application"
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "Description": "An application used for creating an example.",
- *   "Id": "339ohji",
- *   "Name": "Example-Application"
+ *   Description: "An application used for creating an example.",
+ *   Id: "339ohji",
+ *   Name: "Example-Application"
  * }
  * *\/
- * // example id: to-update-an-application-1632330585893
  * ```
  *
+ * @public
  */
 export class UpdateApplicationCommand extends $Command
   .classBuilder<
@@ -97,9 +98,7 @@ export class UpdateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +110,16 @@ export class UpdateApplicationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateApplicationCommand)
   .de(de_UpdateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationRequest;
+      output: Application;
+    };
+    sdk: {
+      input: UpdateApplicationCommandInput;
+      output: UpdateApplicationCommandOutput;
+    };
+  };
+}

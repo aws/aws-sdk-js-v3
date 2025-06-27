@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -119,6 +120,7 @@ export interface AddApplicationReferenceDataSourceCommandOutput
  * @throws {@link KinesisAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from KinesisAnalytics service.</p>
  *
+ *
  * @public
  */
 export class AddApplicationReferenceDataSourceCommand extends $Command
@@ -129,9 +131,7 @@ export class AddApplicationReferenceDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +143,16 @@ export class AddApplicationReferenceDataSourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddApplicationReferenceDataSourceCommand)
   .de(de_AddApplicationReferenceDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddApplicationReferenceDataSourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddApplicationReferenceDataSourceCommandInput;
+      output: AddApplicationReferenceDataSourceCommandOutput;
+    };
+  };
+}

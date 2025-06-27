@@ -12,7 +12,8 @@ import { de_DeleteFHIRDatastoreCommand, se_DeleteFHIRDatastoreCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface DeleteFHIRDatastoreCommandOutput extends DeleteFHIRDatastoreRes
  * @throws {@link HealthLakeServiceException}
  * <p>Base exception class for all service exceptions from HealthLake service.</p>
  *
+ *
  * @public
  */
 export class DeleteFHIRDatastoreCommand extends $Command
@@ -85,9 +87,7 @@ export class DeleteFHIRDatastoreCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: HealthLakeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class DeleteFHIRDatastoreCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFHIRDatastoreCommand)
   .de(de_DeleteFHIRDatastoreCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFHIRDatastoreRequest;
+      output: DeleteFHIRDatastoreResponse;
+    };
+    sdk: {
+      input: DeleteFHIRDatastoreCommandInput;
+      output: DeleteFHIRDatastoreCommandOutput;
+    };
+  };
+}

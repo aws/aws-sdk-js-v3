@@ -16,7 +16,8 @@ import { de_UpdateVoiceProfileDomainCommand, se_UpdateVoiceProfileDomainCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface UpdateVoiceProfileDomainCommandOutput extends UpdateVoiceProfil
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class UpdateVoiceProfileDomainCommand extends $Command
@@ -104,9 +106,7 @@ export class UpdateVoiceProfileDomainCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class UpdateVoiceProfileDomainCommand extends $Command
   .f(void 0, UpdateVoiceProfileDomainResponseFilterSensitiveLog)
   .ser(se_UpdateVoiceProfileDomainCommand)
   .de(de_UpdateVoiceProfileDomainCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateVoiceProfileDomainRequest;
+      output: UpdateVoiceProfileDomainResponse;
+    };
+    sdk: {
+      input: UpdateVoiceProfileDomainCommandInput;
+      output: UpdateVoiceProfileDomainCommandOutput;
+    };
+  };
+}

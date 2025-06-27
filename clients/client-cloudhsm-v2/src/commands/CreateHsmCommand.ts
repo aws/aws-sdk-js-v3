@@ -12,7 +12,8 @@ import { de_CreateHsmCommand, se_CreateHsmCommand } from "../protocols/Aws_json1
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,8 +28,10 @@ export interface CreateHsmCommandInput extends CreateHsmRequest {}
 export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBearer {}
 
 /**
- * <p>Creates a new hardware security module (HSM) in the specified AWS CloudHSM
+ * <p>Creates a new hardware security module (HSM) in the specified CloudHSM
  *       cluster.</p>
+ *          <p>
+ *             <b>Cross-account use:</b> No. You cannot perform this operation on an CloudHSM cluster in a different Amazon Web Service account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -49,7 +52,9 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * //     SubnetId: "STRING_VALUE",
  * //     EniId: "STRING_VALUE",
  * //     EniIp: "STRING_VALUE",
+ * //     EniIpV6: "STRING_VALUE",
  * //     HsmId: "STRING_VALUE", // required
+ * //     HsmType: "STRING_VALUE",
  * //     State: "CREATE_IN_PROGRESS" || "ACTIVE" || "DEGRADED" || "DELETE_IN_PROGRESS" || "DELETED",
  * //     StateMessage: "STRING_VALUE",
  * //   },
@@ -68,7 +73,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  *       requested operation.</p>
  *
  * @throws {@link CloudHsmInternalFailureException} (server fault)
- *  <p>The request was rejected because of an AWS CloudHSM internal failure. The request can
+ *  <p>The request was rejected because of an CloudHSM internal failure. The request can
  *       be retried.</p>
  *
  * @throws {@link CloudHsmInvalidRequestException} (client fault)
@@ -84,6 +89,7 @@ export interface CreateHsmCommandOutput extends CreateHsmResponse, __MetadataBea
  * @throws {@link CloudHSMV2ServiceException}
  * <p>Base exception class for all service exceptions from CloudHSMV2 service.</p>
  *
+ *
  * @public
  */
 export class CreateHsmCommand extends $Command
@@ -94,9 +100,7 @@ export class CreateHsmCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudHSMV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +112,16 @@ export class CreateHsmCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateHsmCommand)
   .de(de_CreateHsmCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateHsmRequest;
+      output: CreateHsmResponse;
+    };
+    sdk: {
+      input: CreateHsmCommandInput;
+      output: CreateHsmCommandOutput;
+    };
+  };
+}

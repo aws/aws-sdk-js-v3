@@ -16,7 +16,8 @@ import { de_GetTransactionCommand, se_GetTransactionCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -108,6 +109,7 @@ export interface GetTransactionCommandOutput extends GetTransactionOutput, __Met
  * @throws {@link ManagedBlockchainQueryServiceException}
  * <p>Base exception class for all service exceptions from ManagedBlockchainQuery service.</p>
  *
+ *
  * @public
  */
 export class GetTransactionCommand extends $Command
@@ -118,9 +120,7 @@ export class GetTransactionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ManagedBlockchainQueryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +132,16 @@ export class GetTransactionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransactionCommand)
   .de(de_GetTransactionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransactionInput;
+      output: GetTransactionOutput;
+    };
+    sdk: {
+      input: GetTransactionCommandInput;
+      output: GetTransactionCommandOutput;
+    };
+  };
+}

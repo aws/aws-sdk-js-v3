@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectCasesClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectCasesClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateCaseRequest, UpdateCaseResponse } from "../models/models_0";
+import { UpdateCaseRequest, UpdateCaseRequestFilterSensitiveLog, UpdateCaseResponse } from "../models/models_0";
 import { de_UpdateCaseCommand, se_UpdateCaseCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,6 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * <note>
  *             <p>If you provide a value for <code>PerformedBy.UserArn</code> you must also have <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DescribeUser.html">connect:DescribeUser</a> permission on the User ARN resource that you provide</p>
  *          </note>
- *
  *          <p>Updates the values of fields on a case. Fields to be updated are received as an array of
  *       id/value pairs identical to the <code>CreateCase</code> input .</p>
  *          <p>If the action is successful, the service sends back an HTTP 200 response with an empty
@@ -58,6 +58,7 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  *   ],
  *   performedBy: { // UserUnion Union: only one key present
  *     userArn: "STRING_VALUE",
+ *     customEntity: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateCaseCommand(input);
@@ -92,6 +93,7 @@ export interface UpdateCaseCommandOutput extends UpdateCaseResponse, __MetadataB
  * @throws {@link ConnectCasesServiceException}
  * <p>Base exception class for all service exceptions from ConnectCases service.</p>
  *
+ *
  * @public
  */
 export class UpdateCaseCommand extends $Command
@@ -102,9 +104,7 @@ export class UpdateCaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectCasesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,7 +113,19 @@ export class UpdateCaseCommand extends $Command
   })
   .s("AmazonConnectCases", "UpdateCase", {})
   .n("ConnectCasesClient", "UpdateCaseCommand")
-  .f(void 0, void 0)
+  .f(UpdateCaseRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateCaseCommand)
   .de(de_UpdateCaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCaseRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateCaseCommandInput;
+      output: UpdateCaseCommandOutput;
+    };
+  };
+}

@@ -305,7 +305,7 @@ export interface AdditionalDataset {
    *          </ul>
    * @public
    */
-  Configuration?: Record<string, string[]>;
+  Configuration?: Record<string, string[]> | undefined;
 }
 
 /**
@@ -419,13 +419,13 @@ export interface DataConfig {
    * <p>Aggregation and filling options for attributes in your dataset group.</p>
    * @public
    */
-  AttributeConfigs?: AttributeConfig[];
+  AttributeConfigs?: AttributeConfig[] | undefined;
 
   /**
    * <p>Additional built-in datasets like Holidays and the Weather Index.</p>
    * @public
    */
-  AdditionalDatasets?: AdditionalDataset[];
+  AdditionalDatasets?: AdditionalDataset[] | undefined;
 }
 
 /**
@@ -593,25 +593,25 @@ export interface TimeAlignmentBoundary {
    * <p>The month to use for time alignment during aggregation. The month must be in uppercase.</p>
    * @public
    */
-  Month?: Month;
+  Month?: Month | undefined;
 
   /**
    * <p>The day of the month to use for time alignment during aggregation.</p>
    * @public
    */
-  DayOfMonth?: number;
+  DayOfMonth?: number | undefined;
 
   /**
    * <p>The day of week to use for time alignment during aggregation. The day must be in uppercase.</p>
    * @public
    */
-  DayOfWeek?: DayOfWeek;
+  DayOfWeek?: DayOfWeek | undefined;
 
   /**
    * <p>The hour of day to use for time alignment during aggregation.</p>
    * @public
    */
-  Hour?: number;
+  Hour?: number | undefined;
 }
 
 /**
@@ -636,7 +636,7 @@ export interface CreateAutoPredictorRequest {
    *             longer time-series in the dataset.</p>
    * @public
    */
-  ForecastHorizon?: number;
+  ForecastHorizon?: number | undefined;
 
   /**
    * <p>The forecast types used to train a predictor. You can specify up to five forecast
@@ -644,7 +644,7 @@ export interface CreateAutoPredictorRequest {
    *             higher. You can also specify the mean forecast with <code>mean</code>.</p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 
   /**
    * <p>An array of dimension (field) names that specify how to group the generated
@@ -654,7 +654,7 @@ export interface CreateAutoPredictorRequest {
    *                 <code>store_id</code> as a dimension to group sales forecasts for each store.</p>
    * @public
    */
-  ForecastDimensions?: string[];
+  ForecastDimensions?: string[] | undefined;
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
@@ -687,13 +687,13 @@ export interface CreateAutoPredictorRequest {
    *             RELATED_TIME_SERIES dataset frequency.</p>
    * @public
    */
-  ForecastFrequency?: string;
+  ForecastFrequency?: string | undefined;
 
   /**
    * <p>The data configuration for your dataset group and any additional datasets.</p>
    * @public
    */
-  DataConfig?: DataConfig;
+  DataConfig?: DataConfig | undefined;
 
   /**
    * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
@@ -701,7 +701,7 @@ export interface CreateAutoPredictorRequest {
    *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
    * @public
    */
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>The ARN of the predictor to retrain or upgrade. This parameter is only used when
@@ -712,19 +712,19 @@ export interface CreateAutoPredictorRequest {
    *                 <code>PredictorName</code> must be a unique predictor name.</p>
    * @public
    */
-  ReferencePredictorArn?: string;
+  ReferencePredictorArn?: string | undefined;
 
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    * @public
    */
-  OptimizationMetric?: OptimizationMetric;
+  OptimizationMetric?: OptimizationMetric | undefined;
 
   /**
    * <p>Create an Explainability resource for the predictor.</p>
    * @public
    */
-  ExplainPredictor?: boolean;
+  ExplainPredictor?: boolean | undefined;
 
   /**
    * <p>Optional metadata to help you categorize and organize your predictors. Each tag
@@ -761,7 +761,7 @@ export interface CreateAutoPredictorRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The configuration details for predictor monitoring. Provide a name for the monitor resource to enable predictor monitoring.</p>
@@ -769,7 +769,7 @@ export interface CreateAutoPredictorRequest {
    *          For more information, see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring.html">Predictor Monitoring</a>.</p>
    * @public
    */
-  MonitorConfig?: MonitorConfig;
+  MonitorConfig?: MonitorConfig | undefined;
 
   /**
    * <p>The time boundary Forecast uses to align and aggregate any data that doesn't align with your forecast frequency. Provide the unit of time and the time boundary as a key value pair.
@@ -778,7 +778,7 @@ export interface CreateAutoPredictorRequest {
    *             don't provide a time boundary, Forecast uses a set of <a href="https://docs.aws.amazon.com/forecast/latest/dg/data-aggregation.html#default-time-boundaries">Default Time Boundaries</a>.</p>
    * @public
    */
-  TimeAlignmentBoundary?: TimeAlignmentBoundary;
+  TimeAlignmentBoundary?: TimeAlignmentBoundary | undefined;
 }
 
 /**
@@ -789,7 +789,7 @@ export interface CreateAutoPredictorResponse {
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 }
 
 /**
@@ -800,7 +800,7 @@ export interface CreateAutoPredictorResponse {
 export class InvalidInputException extends __BaseException {
   readonly name: "InvalidInputException" = "InvalidInputException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -822,7 +822,7 @@ export class InvalidInputException extends __BaseException {
 export class LimitExceededException extends __BaseException {
   readonly name: "LimitExceededException" = "LimitExceededException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -844,7 +844,7 @@ export class LimitExceededException extends __BaseException {
 export class ResourceAlreadyExistsException extends __BaseException {
   readonly name: "ResourceAlreadyExistsException" = "ResourceAlreadyExistsException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -866,7 +866,7 @@ export class ResourceAlreadyExistsException extends __BaseException {
 export class ResourceInUseException extends __BaseException {
   readonly name: "ResourceInUseException" = "ResourceInUseException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -889,7 +889,7 @@ export class ResourceInUseException extends __BaseException {
 export class ResourceNotFoundException extends __BaseException {
   readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -966,14 +966,14 @@ export interface SchemaAttribute {
    * <p>The name of the dataset field.</p>
    * @public
    */
-  AttributeName?: string;
+  AttributeName?: string | undefined;
 
   /**
    * <p>The data type of the field.</p>
    *          <p>For a related time series dataset, other than date, item_id, and forecast dimensions attributes, all attributes should be of numerical type (integer/float).</p>
    * @public
    */
-  AttributeType?: AttributeType;
+  AttributeType?: AttributeType | undefined;
 }
 
 /**
@@ -985,7 +985,7 @@ export interface Schema {
    * <p>An array of attributes specifying the name and type of each field in a dataset.</p>
    * @public
    */
-  Attributes?: SchemaAttribute[];
+  Attributes?: SchemaAttribute[] | undefined;
 }
 
 /**
@@ -1045,7 +1045,7 @@ export interface CreateDatasetRequest {
    *          <p>Thus, if you want every other week forecasts, specify "2W". Or, if you want quarterly forecasts, you specify "3M".</p>
    * @public
    */
-  DataFrequency?: string;
+  DataFrequency?: string | undefined;
 
   /**
    * <p>The schema for the dataset. The schema attributes and their order must match the fields in
@@ -1062,7 +1062,7 @@ export interface CreateDatasetRequest {
    *       the key.</p>
    * @public
    */
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>The optional metadata that you apply to the dataset to help you categorize and organize
@@ -1102,7 +1102,7 @@ export interface CreateDatasetRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1113,7 +1113,7 @@ export interface CreateDatasetResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 }
 
 /**
@@ -1145,7 +1145,7 @@ export interface CreateDatasetGroupRequest {
    *       dataset group.</p>
    * @public
    */
-  DatasetArns?: string[];
+  DatasetArns?: string[] | undefined;
 
   /**
    * <p>The optional metadata that you apply to the dataset group to help you categorize and
@@ -1186,7 +1186,7 @@ export interface CreateDatasetGroupRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1197,7 +1197,7 @@ export interface CreateDatasetGroupResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    * @public
    */
-  DatasetGroupArn?: string;
+  DatasetGroupArn?: string | undefined;
 }
 
 /**
@@ -1227,7 +1227,7 @@ export interface S3Config {
    * <p>The Amazon Resource Name (ARN) of an Key Management Service (KMS) key.</p>
    * @public
    */
-  KMSKeyArn?: string;
+  KMSKeyArn?: string | undefined;
 }
 
 /**
@@ -1307,7 +1307,7 @@ export interface CreateDatasetImportJobRequest {
    *       HH:mm:ss".</p>
    * @public
    */
-  TimestampFormat?: string;
+  TimestampFormat?: string | undefined;
 
   /**
    * <p>A single time zone for every item in your dataset. This option is ideal for datasets
@@ -1317,7 +1317,7 @@ export interface CreateDatasetImportJobRequest {
    *                 API</a> for a complete list of valid time zone names.</p>
    * @public
    */
-  TimeZone?: string;
+  TimeZone?: string | undefined;
 
   /**
    * <p>Automatically derive time zone information from the geolocation attribute. This option
@@ -1325,7 +1325,7 @@ export interface CreateDatasetImportJobRequest {
    *             timestamps are expressed in local time.</p>
    * @public
    */
-  UseGeolocationForTimeZone?: boolean;
+  UseGeolocationForTimeZone?: boolean | undefined;
 
   /**
    * <p>The format of the geolocation attribute. The geolocation attribute can be formatted in
@@ -1342,7 +1342,7 @@ export interface CreateDatasetImportJobRequest {
    *          </ul>
    * @public
    */
-  GeolocationFormat?: string;
+  GeolocationFormat?: string | undefined;
 
   /**
    * <p>The optional metadata that you apply to the dataset import job to help you categorize and
@@ -1383,19 +1383,19 @@ export interface CreateDatasetImportJobRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The format of the imported data, CSV or PARQUET. The default value is CSV.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 
   /**
    * <p>Specifies whether the dataset import job is a <code>FULL</code> or <code>INCREMENTAL</code> import. A <code>FULL</code> dataset import replaces all of the existing data with the newly imported data. An <code>INCREMENTAL</code> import appends the imported data to the existing data.</p>
    * @public
    */
-  ImportMode?: ImportMode;
+  ImportMode?: ImportMode | undefined;
 }
 
 /**
@@ -1406,7 +1406,7 @@ export interface CreateDatasetImportJobResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    * @public
    */
-  DatasetImportJobArn?: string;
+  DatasetImportJobArn?: string | undefined;
 }
 
 /**
@@ -1500,19 +1500,19 @@ export interface CreateExplainabilityRequest {
    *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>Defines the fields of a dataset.</p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 
   /**
    * <p>Create an Explainability visualization that is viewable within the Amazon Web Services console.</p>
    * @public
    */
-  EnableVisualization?: boolean;
+  EnableVisualization?: boolean | undefined;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the first
@@ -1521,7 +1521,7 @@ export interface CreateExplainabilityRequest {
    *             2015-01-01T20:00:00)</p>
    * @public
    */
-  StartDateTime?: string;
+  StartDateTime?: string | undefined;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, define the last
@@ -1530,7 +1530,7 @@ export interface CreateExplainabilityRequest {
    *             2015-01-01T20:00:00)</p>
    * @public
    */
-  EndDateTime?: string;
+  EndDateTime?: string | undefined;
 
   /**
    * <p>Optional metadata to help you categorize and organize your resources. Each tag
@@ -1567,7 +1567,7 @@ export interface CreateExplainabilityRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1578,7 +1578,7 @@ export interface CreateExplainabilityResponse {
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
    * @public
    */
-  ExplainabilityArn?: string;
+  ExplainabilityArn?: string | undefined;
 }
 
 /**
@@ -1653,13 +1653,13 @@ export interface CreateExplainabilityExportRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -1670,7 +1670,7 @@ export interface CreateExplainabilityExportResponse {
    * <p>The Amazon Resource Name (ARN) of the export.</p>
    * @public
    */
-  ExplainabilityExportArn?: string;
+  ExplainabilityExportArn?: string | undefined;
 }
 
 /**
@@ -1683,19 +1683,19 @@ export interface TimeSeriesIdentifiers {
    *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>Defines the fields of a dataset.</p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 
   /**
    * <p>The format of the data, either CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -1725,7 +1725,7 @@ export interface TimeSeriesSelector {
    * <p>Details about the import file that contains the time series for which you want to create forecasts.</p>
    * @public
    */
-  TimeSeriesIdentifiers?: TimeSeriesIdentifiers;
+  TimeSeriesIdentifiers?: TimeSeriesIdentifiers | undefined;
 }
 
 /**
@@ -1756,7 +1756,7 @@ export interface CreateForecastRequest {
    *     </p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 
   /**
    * <p>The optional metadata that you apply to the forecast to help you categorize and organize
@@ -1796,7 +1796,7 @@ export interface CreateForecastRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
@@ -1820,7 +1820,7 @@ export interface CreateForecastRequest {
    *          </ul>
    * @public
    */
-  TimeSeriesSelector?: TimeSeriesSelector;
+  TimeSeriesSelector?: TimeSeriesSelector | undefined;
 }
 
 /**
@@ -1831,7 +1831,7 @@ export interface CreateForecastResponse {
    * <p>The Amazon Resource Name (ARN) of the forecast.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 }
 
 /**
@@ -1899,13 +1899,13 @@ export interface CreateForecastExportJobRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET. The default value is CSV.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -1916,7 +1916,7 @@ export interface CreateForecastExportJobResponse {
    * <p>The Amazon Resource Name (ARN) of the export job.</p>
    * @public
    */
-  ForecastExportJobArn?: string;
+  ForecastExportJobArn?: string | undefined;
 }
 
 /**
@@ -1939,7 +1939,7 @@ export interface CreateMonitorRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the monitor resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -1950,7 +1950,7 @@ export interface CreateMonitorResponse {
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 }
 
 /**
@@ -1979,7 +1979,7 @@ export interface EvaluationParameters {
    *       5.</p>
    * @public
    */
-  NumberOfBacktestWindows?: number;
+  NumberOfBacktestWindows?: number | undefined;
 
   /**
    * <p>The point from the end of the dataset where you want to split the data for model training
@@ -1992,7 +1992,7 @@ export interface EvaluationParameters {
    *       TARGET_TIME_SERIES dataset length</p>
    * @public
    */
-  BackTestWindowOffset?: number;
+  BackTestWindowOffset?: number | undefined;
 }
 
 /**
@@ -2096,7 +2096,7 @@ export interface FeaturizationMethod {
    *         <code>"backfill_value":"2"</code>. </p>
    * @public
    */
-  FeaturizationMethodParameters?: Record<string, string>;
+  FeaturizationMethodParameters?: Record<string, string> | undefined;
 }
 
 /**
@@ -2147,7 +2147,7 @@ export interface Featurization {
    *       transformation method.</p>
    * @public
    */
-  FeaturizationPipeline?: FeaturizationMethod[];
+  FeaturizationPipeline?: FeaturizationMethod[] | undefined;
 }
 
 /**
@@ -2216,13 +2216,13 @@ export interface FeaturizationConfig {
    *         <code>CreatePredictor</code> request.</p>
    * @public
    */
-  ForecastDimensions?: string[];
+  ForecastDimensions?: string[] | undefined;
 
   /**
    * <p>An array of featurization (transformation) information for the fields of a dataset.</p>
    * @public
    */
-  Featurizations?: Featurization[];
+  Featurizations?: Featurization[] | undefined;
 }
 
 /**
@@ -2316,7 +2316,7 @@ export interface ContinuousParameterRange {
    *       One of the following values:</p>
    * @public
    */
-  ScalingType?: ScalingType;
+  ScalingType?: ScalingType | undefined;
 }
 
 /**
@@ -2374,7 +2374,7 @@ export interface IntegerParameterRange {
    *       One of the following values:</p>
    * @public
    */
-  ScalingType?: ScalingType;
+  ScalingType?: ScalingType | undefined;
 }
 
 /**
@@ -2389,19 +2389,19 @@ export interface ParameterRanges {
    * <p>Specifies the tunable range for each categorical hyperparameter.</p>
    * @public
    */
-  CategoricalParameterRanges?: CategoricalParameterRange[];
+  CategoricalParameterRanges?: CategoricalParameterRange[] | undefined;
 
   /**
    * <p>Specifies the tunable range for each continuous hyperparameter.</p>
    * @public
    */
-  ContinuousParameterRanges?: ContinuousParameterRange[];
+  ContinuousParameterRanges?: ContinuousParameterRange[] | undefined;
 
   /**
    * <p>Specifies the tunable range for each integer hyperparameter.</p>
    * @public
    */
-  IntegerParameterRanges?: IntegerParameterRange[];
+  IntegerParameterRanges?: IntegerParameterRange[] | undefined;
 }
 
 /**
@@ -2421,7 +2421,7 @@ export interface HyperParameterTuningJobConfig {
    * <p>Specifies the ranges of valid values for the hyperparameters.</p>
    * @public
    */
-  ParameterRanges?: ParameterRanges;
+  ParameterRanges?: ParameterRanges | undefined;
 }
 
 /**
@@ -2694,7 +2694,7 @@ export interface InputDataConfig {
    *       calendar.</p>
    * @public
    */
-  SupplementaryFeatures?: SupplementaryFeature[];
+  SupplementaryFeatures?: SupplementaryFeature[] | undefined;
 }
 
 /**
@@ -2747,7 +2747,7 @@ export interface CreatePredictorRequest {
    *          </ul>
    * @public
    */
-  AlgorithmArn?: string;
+  AlgorithmArn?: string | undefined;
 
   /**
    * <p>Specifies the number of time-steps that the model is trained to predict. The forecast
@@ -2768,7 +2768,7 @@ export interface CreatePredictorRequest {
    *          <p>The default value is <code>["0.10", "0.50", "0.9"]</code>.</p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 
   /**
    * <p>Whether to perform AutoML. When Amazon Forecast performs AutoML, it evaluates the algorithms it
@@ -2780,7 +2780,7 @@ export interface CreatePredictorRequest {
    *       this case, <code>PerformHPO</code> must be false.</p>
    * @public
    */
-  PerformAutoML?: boolean;
+  PerformAutoML?: boolean | undefined;
 
   /**
    * <note>
@@ -2794,7 +2794,7 @@ export interface CreatePredictorRequest {
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    * @public
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | undefined;
 
   /**
    * <p>Whether to perform hyperparameter optimization (HPO). HPO finds optimal hyperparameter
@@ -2818,7 +2818,7 @@ export interface CreatePredictorRequest {
    *          </ul>
    * @public
    */
-  PerformHPO?: boolean;
+  PerformHPO?: boolean | undefined;
 
   /**
    * <p>The hyperparameters to override for model training. The hyperparameters that you can
@@ -2826,7 +2826,7 @@ export interface CreatePredictorRequest {
    *         <a>aws-forecast-choosing-recipes</a>.</p>
    * @public
    */
-  TrainingParameters?: Record<string, string>;
+  TrainingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
@@ -2834,7 +2834,7 @@ export interface CreatePredictorRequest {
    *       evaluation parameters define how to perform the split and the number of iterations.</p>
    * @public
    */
-  EvaluationParameters?: EvaluationParameters;
+  EvaluationParameters?: EvaluationParameters | undefined;
 
   /**
    * <p>Provides hyperparameter override values for the algorithm. If you don't provide this
@@ -2844,7 +2844,7 @@ export interface CreatePredictorRequest {
    *       true.</p>
    * @public
    */
-  HPOConfig?: HyperParameterTuningJobConfig;
+  HPOConfig?: HyperParameterTuningJobConfig | undefined;
 
   /**
    * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
@@ -2863,7 +2863,7 @@ export interface CreatePredictorRequest {
    *       the key.</p>
    * @public
    */
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>The optional metadata that you apply to the predictor to help you categorize and organize
@@ -2903,13 +2903,13 @@ export interface CreatePredictorRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    * @public
    */
-  OptimizationMetric?: OptimizationMetric;
+  OptimizationMetric?: OptimizationMetric | undefined;
 }
 
 /**
@@ -2920,7 +2920,7 @@ export interface CreatePredictorResponse {
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 }
 
 /**
@@ -2981,13 +2981,13 @@ export interface CreatePredictorBacktestExportJobRequest {
    *          </ul>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET. The default value is CSV.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -2999,7 +2999,7 @@ export interface CreatePredictorBacktestExportJobResponse {
    *             export.</p>
    * @public
    */
-  PredictorBacktestExportJobArn?: string;
+  PredictorBacktestExportJobArn?: string | undefined;
 }
 
 /**
@@ -3041,13 +3041,13 @@ export interface CreateWhatIfAnalysisRequest {
    *          </ul>
    * @public
    */
-  TimeSeriesSelector?: TimeSeriesSelector;
+  TimeSeriesSelector?: TimeSeriesSelector | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the what if forecast.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3058,7 +3058,7 @@ export interface CreateWhatIfAnalysisResponse {
    * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
    * @public
    */
-  WhatIfAnalysisArn?: string;
+  WhatIfAnalysisArn?: string | undefined;
 }
 
 /**
@@ -3088,13 +3088,13 @@ export interface TimeSeriesReplacementsDataSource {
    * <p>The format of the replacement data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 
   /**
    * <p>The timestamp format of the replacement data.</p>
    * @public
    */
-  TimestampFormat?: string;
+  TimestampFormat?: string | undefined;
 }
 
 /**
@@ -3148,13 +3148,13 @@ export interface TimeSeriesTransformation {
    *       time series that is used for the what-if analysis.</p>
    * @public
    */
-  Action?: Action;
+  Action?: Action | undefined;
 
   /**
    * <p>An array of conditions that define which members of the related time series are transformed.</p>
    * @public
    */
-  TimeSeriesConditions?: TimeSeriesCondition[];
+  TimeSeriesConditions?: TimeSeriesCondition[] | undefined;
 }
 
 /**
@@ -3177,7 +3177,7 @@ export interface CreateWhatIfForecastRequest {
    * <p>The transformations that are applied to the baseline time series. Each transformation contains an action and a set of conditions. An action is applied only when all conditions are met. If no conditions are provided, the action is applied to all items.</p>
    * @public
    */
-  TimeSeriesTransformations?: TimeSeriesTransformation[];
+  TimeSeriesTransformations?: TimeSeriesTransformation[] | undefined;
 
   /**
    * <p>The replacement time series dataset, which contains the rows that you want to change in the related time
@@ -3190,13 +3190,13 @@ export interface CreateWhatIfForecastRequest {
    *          <p>Timestamps and item_ids not included in this dataset are not included in the what-if analysis. </p>
    * @public
    */
-  TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource;
+  TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource | undefined;
 
   /**
    * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the what if forecast.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -3207,7 +3207,7 @@ export interface CreateWhatIfForecastResponse {
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
    * @public
    */
-  WhatIfForecastArn?: string;
+  WhatIfForecastArn?: string | undefined;
 }
 
 /**
@@ -3240,13 +3240,13 @@ export interface CreateWhatIfForecastExportRequest {
    * <p>A list of <a href="https://docs.aws.amazon.com/forecast/latest/dg/tagging-forecast-resources.html">tags</a> to apply to the what if forecast.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -3257,7 +3257,7 @@ export interface CreateWhatIfForecastExportResponse {
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
    * @public
    */
-  WhatIfForecastExportArn?: string;
+  WhatIfForecastExportArn?: string | undefined;
 }
 
 /**
@@ -3435,7 +3435,7 @@ export interface ExplainabilityInfo {
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
    * @public
    */
-  ExplainabilityArn?: string;
+  ExplainabilityArn?: string | undefined;
 
   /**
    * <p>The status of the Explainability. States include: </p>
@@ -3465,7 +3465,7 @@ export interface ExplainabilityInfo {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -3477,7 +3477,7 @@ export interface MonitorInfo {
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>The status of the monitor. States include:</p>
@@ -3510,7 +3510,7 @@ export interface MonitorInfo {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 }
 
 /**
@@ -3537,13 +3537,13 @@ export interface ReferencePredictorSummary {
    * <p>The ARN of the reference predictor.</p>
    * @public
    */
-  Arn?: string;
+  Arn?: string | undefined;
 
   /**
    * <p>Whether the reference predictor is <code>Active</code> or <code>Deleted</code>.</p>
    * @public
    */
-  State?: State;
+  State?: State | undefined;
 }
 
 /**
@@ -3554,27 +3554,27 @@ export interface DescribeAutoPredictorResponse {
    * <p>The Amazon Resource Name (ARN) of the predictor</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 
   /**
    * <p>The name of the predictor.</p>
    * @public
    */
-  PredictorName?: string;
+  PredictorName?: string | undefined;
 
   /**
    * <p>The number of time-steps that the model predicts. The forecast horizon is also called
    *             the prediction length.</p>
    * @public
    */
-  ForecastHorizon?: number;
+  ForecastHorizon?: number | undefined;
 
   /**
    * <p>The forecast types used during predictor training. Default value is
    *             ["0.1","0.5","0.9"].</p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 
   /**
    * <p>The frequency of predictions in a forecast.</p>
@@ -3583,27 +3583,27 @@ export interface DescribeAutoPredictorResponse {
    *             For example, "Y" indicates every year and "5min" indicates every five minutes.</p>
    * @public
    */
-  ForecastFrequency?: string;
+  ForecastFrequency?: string | undefined;
 
   /**
    * <p>An array of dimension (field) names that specify the attributes used to group your
    *             time series.</p>
    * @public
    */
-  ForecastDimensions?: string[];
+  ForecastDimensions?: string[] | undefined;
 
   /**
    * <p>An array of the ARNs of the dataset import jobs used to import training data for the
    *             predictor.</p>
    * @public
    */
-  DatasetImportJobArns?: string[];
+  DatasetImportJobArns?: string[] | undefined;
 
   /**
    * <p>The data configuration for your dataset group and any additional datasets.</p>
    * @public
    */
-  DataConfig?: DataConfig;
+  DataConfig?: DataConfig | undefined;
 
   /**
    * <p>An Key Management Service (KMS) key and an Identity and Access Management (IAM) role that Amazon Forecast can assume to
@@ -3611,21 +3611,21 @@ export interface DescribeAutoPredictorResponse {
    *       <a>CreateDataset</a> and <a>CreatePredictor</a> requests.</p>
    * @public
    */
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>The ARN and state of the reference predictor. This parameter is only valid for
    *             retrained or upgraded predictors.</p>
    * @public
    */
-  ReferencePredictorSummary?: ReferencePredictorSummary;
+  ReferencePredictorSummary?: ReferencePredictorSummary | undefined;
 
   /**
    * <p>The estimated time remaining in minutes for the predictor training job to
    *             complete.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>The status of the predictor. States include: </p>
@@ -3655,19 +3655,19 @@ export interface DescribeAutoPredictorResponse {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>In the event of an error, a message detailing the cause of the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The timestamp of the CreateAutoPredictor request.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -3697,31 +3697,31 @@ export interface DescribeAutoPredictorResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    * @public
    */
-  OptimizationMetric?: OptimizationMetric;
+  OptimizationMetric?: OptimizationMetric | undefined;
 
   /**
    * <p>Provides the status and ARN of the Predictor Explainability.</p>
    * @public
    */
-  ExplainabilityInfo?: ExplainabilityInfo;
+  ExplainabilityInfo?: ExplainabilityInfo | undefined;
 
   /**
    * <p>A  object with the Amazon Resource Name (ARN) and status of the monitor resource.</p>
    * @public
    */
-  MonitorInfo?: MonitorInfo;
+  MonitorInfo?: MonitorInfo | undefined;
 
   /**
    * <p>The time boundary Forecast uses when aggregating data.</p>
    * @public
    */
-  TimeAlignmentBoundary?: TimeAlignmentBoundary;
+  TimeAlignmentBoundary?: TimeAlignmentBoundary | undefined;
 }
 
 /**
@@ -3743,25 +3743,25 @@ export interface DescribeDatasetResponse {
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The name of the dataset.</p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The domain associated with the dataset.</p>
    * @public
    */
-  Domain?: Domain;
+  Domain?: Domain | undefined;
 
   /**
    * <p>The dataset type.</p>
    * @public
    */
-  DatasetType?: DatasetType;
+  DatasetType?: DatasetType | undefined;
 
   /**
    * <p>The frequency of data collection.</p>
@@ -3770,21 +3770,21 @@ export interface DescribeDatasetResponse {
    *       "M" indicates every month and "30min" indicates every 30 minutes.</p>
    * @public
    */
-  DataFrequency?: string;
+  DataFrequency?: string | undefined;
 
   /**
    * <p>An array of <code>SchemaAttribute</code> objects that specify the dataset fields. Each
    *         <code>SchemaAttribute</code> specifies the name and data type of a field.</p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 
   /**
    * <p>The Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    * @public
    */
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>The status of the dataset. States include:</p>
@@ -3823,13 +3823,13 @@ export interface DescribeDatasetResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the dataset was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
@@ -3840,7 +3840,7 @@ export interface DescribeDatasetResponse {
    *       failed.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -3862,26 +3862,26 @@ export interface DescribeDatasetGroupResponse {
    * <p>The name of the dataset group.</p>
    * @public
    */
-  DatasetGroupName?: string;
+  DatasetGroupName?: string | undefined;
 
   /**
    * <p>The ARN of the dataset group.</p>
    * @public
    */
-  DatasetGroupArn?: string;
+  DatasetGroupArn?: string | undefined;
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) of the datasets contained in the dataset
    *       group.</p>
    * @public
    */
-  DatasetArns?: string[];
+  DatasetArns?: string[] | undefined;
 
   /**
    * <p>The domain associated with the dataset group.</p>
    * @public
    */
-  Domain?: Domain;
+  Domain?: Domain | undefined;
 
   /**
    * <p>The status of the dataset group. States include:</p>
@@ -3918,13 +3918,13 @@ export interface DescribeDatasetGroupResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the dataset group was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the dataset group was created or last updated from a call to the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation. While the dataset group is being updated,
@@ -3932,7 +3932,7 @@ export interface DescribeDatasetGroupResponse {
    *         <code>DescribeDatasetGroup</code> call.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -3957,80 +3957,80 @@ export interface Statistics {
    *         <code>CountLong</code>.</p>
    * @public
    */
-  Count?: number;
+  Count?: number | undefined;
 
   /**
    * <p>The number of distinct values in the field. If the response value is -1, refer to
    *         <code>CountDistinctLong</code>.</p>
    * @public
    */
-  CountDistinct?: number;
+  CountDistinct?: number | undefined;
 
   /**
    * <p>The number of null values in the field. If the response value is -1, refer to
    *         <code>CountNullLong</code>.</p>
    * @public
    */
-  CountNull?: number;
+  CountNull?: number | undefined;
 
   /**
    * <p>The number of NAN (not a number) values in the field. If the response value is -1, refer
    *       to <code>CountNanLong</code>.</p>
    * @public
    */
-  CountNan?: number;
+  CountNan?: number | undefined;
 
   /**
    * <p>For a numeric field, the minimum value in the field.</p>
    * @public
    */
-  Min?: string;
+  Min?: string | undefined;
 
   /**
    * <p>For a numeric field, the maximum value in the field.</p>
    * @public
    */
-  Max?: string;
+  Max?: string | undefined;
 
   /**
    * <p>For a numeric field, the average value in the field.</p>
    * @public
    */
-  Avg?: number;
+  Avg?: number | undefined;
 
   /**
    * <p>For a numeric field, the standard deviation.</p>
    * @public
    */
-  Stddev?: number;
+  Stddev?: number | undefined;
 
   /**
    * <p>The number of values in the field. <code>CountLong</code> is used instead of
    *         <code>Count</code> if the value is greater than 2,147,483,647.</p>
    * @public
    */
-  CountLong?: number;
+  CountLong?: number | undefined;
 
   /**
    * <p>The number of distinct values in the field. <code>CountDistinctLong</code> is used instead
    *       of <code>CountDistinct</code> if the value is greater than 2,147,483,647.</p>
    * @public
    */
-  CountDistinctLong?: number;
+  CountDistinctLong?: number | undefined;
 
   /**
    * <p>The number of null values in the field. <code>CountNullLong</code> is used instead of
    *         <code>CountNull</code> if the value is greater than 2,147,483,647.</p>
    * @public
    */
-  CountNullLong?: number;
+  CountNullLong?: number | undefined;
 
   /**
    * <p>The number of NAN (not a number) values in the field. <code>CountNanLong</code> is used
    *       instead of <code>CountNan</code> if the value is greater than 2,147,483,647.</p>
    * @public
    */
-  CountNanLong?: number;
+  CountNanLong?: number | undefined;
 }
 
 /**
@@ -4041,20 +4041,20 @@ export interface DescribeDatasetImportJobResponse {
    * <p>The name of the dataset import job.</p>
    * @public
    */
-  DatasetImportJobName?: string;
+  DatasetImportJobName?: string | undefined;
 
   /**
    * <p>The ARN of the dataset import job.</p>
    * @public
    */
-  DatasetImportJobArn?: string;
+  DatasetImportJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset that the training data was imported
    *       to.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The format of timestamps in the dataset. The format that you specify depends on the
@@ -4073,27 +4073,27 @@ export interface DescribeDatasetImportJobResponse {
    *          </ul>
    * @public
    */
-  TimestampFormat?: string;
+  TimestampFormat?: string | undefined;
 
   /**
    * <p>The single time zone applied to every item in the dataset</p>
    * @public
    */
-  TimeZone?: string;
+  TimeZone?: string | undefined;
 
   /**
    * <p>Whether <code>TimeZone</code> is automatically derived from the geolocation
    *             attribute.</p>
    * @public
    */
-  UseGeolocationForTimeZone?: boolean;
+  UseGeolocationForTimeZone?: boolean | undefined;
 
   /**
    * <p>The format of the geolocation attribute. Valid Values:<code>"LAT_LONG"</code> and
    *                 <code>"CC_POSTALCODE"</code>.</p>
    * @public
    */
-  GeolocationFormat?: string;
+  GeolocationFormat?: string | undefined;
 
   /**
    * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
@@ -4101,25 +4101,25 @@ export interface DescribeDatasetImportJobResponse {
    *          <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>The estimated time remaining in minutes for the dataset import job to complete.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>Statistical information about each field in the input data.</p>
    * @public
    */
-  FieldStatistics?: Record<string, Statistics>;
+  FieldStatistics?: Record<string, Statistics> | undefined;
 
   /**
    * <p>The size of the dataset in gigabytes (GB) after the import job has finished.</p>
    * @public
    */
-  DataSize?: number;
+  DataSize?: number | undefined;
 
   /**
    * <p>The status of the dataset import job. States include:</p>
@@ -4149,19 +4149,19 @@ export interface DescribeDatasetImportJobResponse {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the dataset import job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -4191,19 +4191,19 @@ export interface DescribeDatasetImportJobResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The format of the imported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 
   /**
    * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
    * @public
    */
-  ImportMode?: ImportMode;
+  ImportMode?: ImportMode | undefined;
 }
 
 /**
@@ -4225,73 +4225,73 @@ export interface DescribeExplainabilityResponse {
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
    * @public
    */
-  ExplainabilityArn?: string;
+  ExplainabilityArn?: string | undefined;
 
   /**
    * <p>The name of the Explainability.</p>
    * @public
    */
-  ExplainabilityName?: string;
+  ExplainabilityName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Predictor or Forecast used to create the
    *             Explainability resource.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The configuration settings that define the granularity of time series and time points
    *             for the Explainability.</p>
    * @public
    */
-  ExplainabilityConfig?: ExplainabilityConfig;
+  ExplainabilityConfig?: ExplainabilityConfig | undefined;
 
   /**
    * <p>Whether the visualization was enabled for the Explainability resource.</p>
    * @public
    */
-  EnableVisualization?: boolean;
+  EnableVisualization?: boolean | undefined;
 
   /**
    * <p>The source of your data, an Identity and Access Management (IAM) role that allows Amazon Forecast to
    *       access the data and, optionally, an Key Management Service (KMS) key.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>Defines the fields of a dataset.</p>
    * @public
    */
-  Schema?: Schema;
+  Schema?: Schema | undefined;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, the first time
    *             point in the Explainability.</p>
    * @public
    */
-  StartDateTime?: string;
+  StartDateTime?: string | undefined;
 
   /**
    * <p>If <code>TimePointGranularity</code> is set to <code>SPECIFIC</code>, the last time
    *             point in the Explainability.</p>
    * @public
    */
-  EndDateTime?: string;
+  EndDateTime?: string | undefined;
 
   /**
    * <p>The estimated time remaining in minutes for the <a>CreateExplainability</a>
    *             job to complete.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>If an error occurred, a message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The status of the Explainability resource. States include: </p>
@@ -4321,13 +4321,13 @@ export interface DescribeExplainabilityResponse {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the Explainability resource was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -4357,7 +4357,7 @@ export interface DescribeExplainabilityResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -4379,32 +4379,32 @@ export interface DescribeExplainabilityExportResponse {
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
    * @public
    */
-  ExplainabilityExportArn?: string;
+  ExplainabilityExportArn?: string | undefined;
 
   /**
    * <p>The name of the Explainability export.</p>
    * @public
    */
-  ExplainabilityExportName?: string;
+  ExplainabilityExportName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
    * @public
    */
-  ExplainabilityArn?: string;
+  ExplainabilityArn?: string | undefined;
 
   /**
    * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
    *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>Information about any errors that occurred during the export.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The status of the Explainability export. States include: </p>
@@ -4434,13 +4434,13 @@ export interface DescribeExplainabilityExportResponse {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the Explainability export was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -4470,13 +4470,13 @@ export interface DescribeExplainabilityExportResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -4498,37 +4498,37 @@ export interface DescribeForecastResponse {
    * <p>The forecast ARN as specified in the request.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 
   /**
    * <p>The name of the forecast.</p>
    * @public
    */
-  ForecastName?: string;
+  ForecastName?: string | undefined;
 
   /**
    * <p>The quantiles at which probabilistic forecasts were generated.</p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 
   /**
    * <p>The ARN of the predictor used to generate the forecast.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 
   /**
    * <p>The ARN of the dataset group that provided the data used to train the predictor.</p>
    * @public
    */
-  DatasetGroupArn?: string;
+  DatasetGroupArn?: string | undefined;
 
   /**
    * <p>The estimated time remaining in minutes for the forecast job to complete.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -4562,19 +4562,19 @@ export interface DescribeForecastResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the forecast creation task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -4603,13 +4603,13 @@ export interface DescribeForecastResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The time series to include in the forecast.</p>
    * @public
    */
-  TimeSeriesSelector?: TimeSeriesSelector;
+  TimeSeriesSelector?: TimeSeriesSelector | undefined;
 }
 
 /**
@@ -4631,31 +4631,31 @@ export interface DescribeForecastExportJobResponse {
    * <p>The ARN of the forecast export job.</p>
    * @public
    */
-  ForecastExportJobArn?: string;
+  ForecastExportJobArn?: string | undefined;
 
   /**
    * <p>The name of the forecast export job.</p>
    * @public
    */
-  ForecastExportJobName?: string;
+  ForecastExportJobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the exported forecast.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 
   /**
    * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The status of the forecast export job. States include:</p>
@@ -4689,13 +4689,13 @@ export interface DescribeForecastExportJobResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the forecast export job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -4724,13 +4724,13 @@ export interface DescribeForecastExportJobResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -4753,13 +4753,13 @@ export interface BaselineMetric {
    * <p>The name of the metric.</p>
    * @public
    */
-  Name?: string;
+  Name?: string | undefined;
 
   /**
    * <p>The value for the metric.</p>
    * @public
    */
-  Value?: number;
+  Value?: number | undefined;
 }
 
 /**
@@ -4772,7 +4772,7 @@ export interface PredictorBaseline {
    *          use your predictor and the metrics change.</p>
    * @public
    */
-  BaselineMetrics?: BaselineMetric[];
+  BaselineMetrics?: BaselineMetric[] | undefined;
 }
 
 /**
@@ -4785,7 +4785,7 @@ export interface Baseline {
    *          use your predictor and the metrics change.</p>
    * @public
    */
-  PredictorBaseline?: PredictorBaseline;
+  PredictorBaseline?: PredictorBaseline | undefined;
 }
 
 /**
@@ -4796,67 +4796,67 @@ export interface DescribeMonitorResponse {
    * <p>The name of the monitor.</p>
    * @public
    */
-  MonitorName?: string;
+  MonitorName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource described.</p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the auto predictor being monitored.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The status of the monitor resource.</p>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>The timestamp of the latest evaluation completed by the monitor.</p>
    * @public
    */
-  LastEvaluationTime?: Date;
+  LastEvaluationTime?: Date | undefined;
 
   /**
    * <p>The state of the monitor's latest evaluation.</p>
    * @public
    */
-  LastEvaluationState?: string;
+  LastEvaluationState?: string | undefined;
 
   /**
    * <p>Metrics you can use as a baseline for comparison purposes. Use these values you interpret monitoring results for an auto predictor.</p>
    * @public
    */
-  Baseline?: Baseline;
+  Baseline?: Baseline | undefined;
 
   /**
    * <p>An error message, if any, for the monitor.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The timestamp for when the monitor resource was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The timestamp of the latest modification to the monitor.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The estimated number of minutes remaining before the monitor resource finishes its current evaluation.</p>
    * @public
    */
-  EstimatedEvaluationTimeRemainingInMinutes?: number;
+  EstimatedEvaluationTimeRemainingInMinutes?: number | undefined;
 }
 
 /**
@@ -4880,13 +4880,13 @@ export interface TestWindowSummary {
    * <p>The time at which the test began.</p>
    * @public
    */
-  TestWindowStart?: Date;
+  TestWindowStart?: Date | undefined;
 
   /**
    * <p>The time at which the test ended.</p>
    * @public
    */
-  TestWindowEnd?: Date;
+  TestWindowEnd?: Date | undefined;
 
   /**
    * <p>The status of the test. Possible status values are:</p>
@@ -4909,13 +4909,13 @@ export interface TestWindowSummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If the test failed, the reason why it failed.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -4927,7 +4927,7 @@ export interface PredictorExecution {
    * <p>The ARN of the algorithm used to test the predictor.</p>
    * @public
    */
-  AlgorithmArn?: string;
+  AlgorithmArn?: string | undefined;
 
   /**
    * <p>An array of test windows used to evaluate the algorithm. The
@@ -4935,7 +4935,7 @@ export interface PredictorExecution {
    *       object determines the number of windows in the array.</p>
    * @public
    */
-  TestWindows?: TestWindowSummary[];
+  TestWindows?: TestWindowSummary[] | undefined;
 }
 
 /**
@@ -4951,7 +4951,7 @@ export interface PredictorExecutionDetails {
    *       array.</p>
    * @public
    */
-  PredictorExecutions?: PredictorExecution[];
+  PredictorExecutions?: PredictorExecution[] | undefined;
 }
 
 /**
@@ -4962,32 +4962,32 @@ export interface DescribePredictorResponse {
    * <p>The ARN of the predictor.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 
   /**
    * <p>The name of the predictor.</p>
    * @public
    */
-  PredictorName?: string;
+  PredictorName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the algorithm used for model training.</p>
    * @public
    */
-  AlgorithmArn?: string;
+  AlgorithmArn?: string | undefined;
 
   /**
    * <p>When <code>PerformAutoML</code> is specified, the ARN of the chosen algorithm.</p>
    * @public
    */
-  AutoMLAlgorithmArns?: string[];
+  AutoMLAlgorithmArns?: string[] | undefined;
 
   /**
    * <p>The number of time-steps of the forecast. The forecast horizon is also called the
    *       prediction length.</p>
    * @public
    */
-  ForecastHorizon?: number;
+  ForecastHorizon?: number | undefined;
 
   /**
    * <p>The forecast types used during predictor training. Default value is
@@ -4995,13 +4995,13 @@ export interface DescribePredictorResponse {
    *          </p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 
   /**
    * <p>Whether the predictor is set to perform AutoML.</p>
    * @public
    */
-  PerformAutoML?: boolean;
+  PerformAutoML?: boolean | undefined;
 
   /**
    * <note>
@@ -5014,13 +5014,13 @@ export interface DescribePredictorResponse {
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    * @public
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | undefined;
 
   /**
    * <p>Whether the predictor is set to perform hyperparameter optimization (HPO).</p>
    * @public
    */
-  PerformHPO?: boolean;
+  PerformHPO?: boolean | undefined;
 
   /**
    * <p>The default training parameters or overrides selected during model training. When running
@@ -5028,7 +5028,7 @@ export interface DescribePredictorResponse {
    *       hyperparameters are returned. For more information, see <a>aws-forecast-choosing-recipes</a>.</p>
    * @public
    */
-  TrainingParameters?: Record<string, string>;
+  TrainingParameters?: Record<string, string> | undefined;
 
   /**
    * <p>Used to override the default evaluation parameters of the specified algorithm. Amazon Forecast
@@ -5036,58 +5036,58 @@ export interface DescribePredictorResponse {
    *       evaluation parameters define how to perform the split and the number of iterations.</p>
    * @public
    */
-  EvaluationParameters?: EvaluationParameters;
+  EvaluationParameters?: EvaluationParameters | undefined;
 
   /**
    * <p>The hyperparameter override values for the algorithm.</p>
    * @public
    */
-  HPOConfig?: HyperParameterTuningJobConfig;
+  HPOConfig?: HyperParameterTuningJobConfig | undefined;
 
   /**
    * <p>Describes the dataset group that contains the data to use to train the predictor.</p>
    * @public
    */
-  InputDataConfig?: InputDataConfig;
+  InputDataConfig?: InputDataConfig | undefined;
 
   /**
    * <p>The featurization configuration.</p>
    * @public
    */
-  FeaturizationConfig?: FeaturizationConfig;
+  FeaturizationConfig?: FeaturizationConfig | undefined;
 
   /**
    * <p>An Key Management Service (KMS) key and the Identity and Access Management (IAM) role that Amazon Forecast can assume to access
    *       the key.</p>
    * @public
    */
-  EncryptionConfig?: EncryptionConfig;
+  EncryptionConfig?: EncryptionConfig | undefined;
 
   /**
    * <p>Details on the the status and results of the backtests performed to evaluate the accuracy
    *       of the predictor. You specify the number of backtests to perform when you call the  operation.</p>
    * @public
    */
-  PredictorExecutionDetails?: PredictorExecutionDetails;
+  PredictorExecutionDetails?: PredictorExecutionDetails | undefined;
 
   /**
    * <p>The estimated time remaining in minutes for the predictor training job to complete.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>Whether the predictor was created with <a>CreateAutoPredictor</a>.</p>
    * @public
    */
-  IsAutoPredictor?: boolean;
+  IsAutoPredictor?: boolean | undefined;
 
   /**
    * <p>An array of the ARNs of the dataset import jobs used to import training data for the
    *       predictor.</p>
    * @public
    */
-  DatasetImportJobArns?: string[];
+  DatasetImportJobArns?: string[] | undefined;
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -5121,19 +5121,19 @@ export interface DescribePredictorResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the model training task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -5163,13 +5163,13 @@ export interface DescribePredictorResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    * @public
    */
-  OptimizationMetric?: OptimizationMetric;
+  OptimizationMetric?: OptimizationMetric | undefined;
 }
 
 /**
@@ -5191,32 +5191,32 @@ export interface DescribePredictorBacktestExportJobResponse {
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
    * @public
    */
-  PredictorBacktestExportJobArn?: string;
+  PredictorBacktestExportJobArn?: string | undefined;
 
   /**
    * <p>The name of the predictor backtest export job.</p>
    * @public
    */
-  PredictorBacktestExportJobName?: string;
+  PredictorBacktestExportJobName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 
   /**
    * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
    *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>Information about any errors that may have occurred during the backtest export.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
@@ -5246,13 +5246,13 @@ export interface DescribePredictorBacktestExportJobResponse {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the predictor backtest export job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -5282,13 +5282,13 @@ export interface DescribePredictorBacktestExportJobResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -5310,25 +5310,25 @@ export interface DescribeWhatIfAnalysisResponse {
    * <p>The name of the what-if analysis.</p>
    * @public
    */
-  WhatIfAnalysisName?: string;
+  WhatIfAnalysisName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
    * @public
    */
-  WhatIfAnalysisArn?: string;
+  WhatIfAnalysisArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 
   /**
    * <p>The approximate time remaining to complete the what-if analysis, in minutes.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>The status of the what-if analysis. States include:</p>
@@ -5362,19 +5362,19 @@ export interface DescribeWhatIfAnalysisResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the what-if analysis was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -5403,7 +5403,7 @@ export interface DescribeWhatIfAnalysisResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>Defines the set of time series that are used to create the forecasts in a <code>TimeSeriesIdentifiers</code> object.</p>
@@ -5427,7 +5427,7 @@ export interface DescribeWhatIfAnalysisResponse {
    *          </ul>
    * @public
    */
-  TimeSeriesSelector?: TimeSeriesSelector;
+  TimeSeriesSelector?: TimeSeriesSelector | undefined;
 }
 
 /**
@@ -5449,25 +5449,25 @@ export interface DescribeWhatIfForecastResponse {
    * <p>The name of the what-if forecast.</p>
    * @public
    */
-  WhatIfForecastName?: string;
+  WhatIfForecastName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
    * @public
    */
-  WhatIfForecastArn?: string;
+  WhatIfForecastArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis that contains this forecast.</p>
    * @public
    */
-  WhatIfAnalysisArn?: string;
+  WhatIfAnalysisArn?: string | undefined;
 
   /**
    * <p>The approximate time remaining to complete the what-if forecast, in minutes.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>The status of the what-if forecast. States include:</p>
@@ -5501,19 +5501,19 @@ export interface DescribeWhatIfForecastResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the what-if forecast was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -5542,19 +5542,19 @@ export interface DescribeWhatIfForecastResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>An array of <code>Action</code> and <code>TimeSeriesConditions</code> elements that describe what transformations were applied to which time series.</p>
    * @public
    */
-  TimeSeriesTransformations?: TimeSeriesTransformation[];
+  TimeSeriesTransformations?: TimeSeriesTransformation[] | undefined;
 
   /**
    * <p>An array of <code>S3Config</code>, <code>Schema</code>, and <code>Format</code> elements that describe the replacement time series.</p>
    * @public
    */
-  TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource;
+  TimeSeriesReplacementsDataSource?: TimeSeriesReplacementsDataSource | undefined;
 
   /**
    * <p>The quantiles at which probabilistic forecasts are generated. You can specify up to five quantiles per what-if
@@ -5562,7 +5562,7 @@ export interface DescribeWhatIfForecastResponse {
    *       values are <code>["0.1", "0.5", "0.9"]</code>. </p>
    * @public
    */
-  ForecastTypes?: string[];
+  ForecastTypes?: string[] | undefined;
 }
 
 /**
@@ -5584,33 +5584,33 @@ export interface DescribeWhatIfForecastExportResponse {
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>
    * @public
    */
-  WhatIfForecastExportArn?: string;
+  WhatIfForecastExportArn?: string | undefined;
 
   /**
    * <p>The name of the what-if forecast export.</p>
    * @public
    */
-  WhatIfForecastExportName?: string;
+  WhatIfForecastExportName?: string | undefined;
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) that represent all of the what-if forecasts exported in this
    *       resource.</p>
    * @public
    */
-  WhatIfForecastArns?: string[];
+  WhatIfForecastArns?: string[] | undefined;
 
   /**
    * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
    *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>The status of the what-if forecast. States include:</p>
@@ -5644,19 +5644,19 @@ export interface DescribeWhatIfForecastExportResponse {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the what-if forecast export was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The approximate time remaining to complete the what-if forecast export, in minutes.</p>
    * @public
    */
-  EstimatedTimeRemainingInMinutes?: number;
+  EstimatedTimeRemainingInMinutes?: number | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -5685,13 +5685,13 @@ export interface DescribeWhatIfForecastExportResponse {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The format of the exported data, CSV or PARQUET.</p>
    * @public
    */
-  Format?: string;
+  Format?: string | undefined;
 }
 
 /**
@@ -5729,31 +5729,31 @@ export interface ErrorMetric {
    * <p> The Forecast type used to compute WAPE, MAPE, MASE, and RMSE. </p>
    * @public
    */
-  ForecastType?: string;
+  ForecastType?: string | undefined;
 
   /**
    * <p> The weighted absolute percentage error (WAPE). </p>
    * @public
    */
-  WAPE?: number;
+  WAPE?: number | undefined;
 
   /**
    * <p> The root-mean-square error (RMSE). </p>
    * @public
    */
-  RMSE?: number;
+  RMSE?: number | undefined;
 
   /**
    * <p>The Mean Absolute Scaled Error (MASE)</p>
    * @public
    */
-  MASE?: number;
+  MASE?: number | undefined;
 
   /**
    * <p>The Mean Absolute Percentage Error (MAPE)</p>
    * @public
    */
-  MAPE?: number;
+  MAPE?: number | undefined;
 }
 
 /**
@@ -5767,14 +5767,14 @@ export interface WeightedQuantileLoss {
    *       the quantiles would be 0.2, 0.4, 0.6, and 0.8.</p>
    * @public
    */
-  Quantile?: number;
+  Quantile?: number | undefined;
 
   /**
    * <p>The difference between the predicted value and the actual value over the quantile,
    *       weighted (normalized) by dividing by the sum over all quantiles.</p>
    * @public
    */
-  LossValue?: number;
+  LossValue?: number | undefined;
 }
 
 /**
@@ -5784,19 +5784,19 @@ export interface WeightedQuantileLoss {
  */
 export interface Metrics {
   /**
-   * @deprecated
-   *
    * <p>The root-mean-square error (RMSE).</p>
+   *
+   * @deprecated
    * @public
    */
-  RMSE?: number;
+  RMSE?: number | undefined;
 
   /**
    * <p>An array of weighted quantile losses. Quantiles divide a probability distribution into
    *       regions of equal probability. The distribution in this case is the loss function.</p>
    * @public
    */
-  WeightedQuantileLosses?: WeightedQuantileLoss[];
+  WeightedQuantileLosses?: WeightedQuantileLoss[] | undefined;
 
   /**
    * <p> Provides detailed error metrics for each forecast type. Metrics include root-mean
@@ -5804,13 +5804,13 @@ export interface Metrics {
    *       and weighted average percentage error (WAPE). </p>
    * @public
    */
-  ErrorMetrics?: ErrorMetric[];
+  ErrorMetrics?: ErrorMetric[] | undefined;
 
   /**
    * <p>The average value of all weighted quantile losses.</p>
    * @public
    */
-  AverageWeightedQuantileLoss?: number;
+  AverageWeightedQuantileLoss?: number | undefined;
 }
 
 /**
@@ -5825,19 +5825,19 @@ export interface WindowSummary {
    * <p>The timestamp that defines the start of the window.</p>
    * @public
    */
-  TestWindowStart?: Date;
+  TestWindowStart?: Date | undefined;
 
   /**
    * <p>The timestamp that defines the end of the window.</p>
    * @public
    */
-  TestWindowEnd?: Date;
+  TestWindowEnd?: Date | undefined;
 
   /**
    * <p>The number of data points within the window.</p>
    * @public
    */
-  ItemCount?: number;
+  ItemCount?: number | undefined;
 
   /**
    * <p>The type of evaluation.</p>
@@ -5853,13 +5853,13 @@ export interface WindowSummary {
    *          </ul>
    * @public
    */
-  EvaluationType?: EvaluationType;
+  EvaluationType?: EvaluationType | undefined;
 
   /**
    * <p>Provides metrics used to evaluate the performance of a predictor.</p>
    * @public
    */
-  Metrics?: Metrics;
+  Metrics?: Metrics | undefined;
 }
 
 /**
@@ -5871,7 +5871,7 @@ export interface EvaluationResult {
    * <p>The Amazon Resource Name (ARN) of the algorithm that was evaluated.</p>
    * @public
    */
-  AlgorithmArn?: string;
+  AlgorithmArn?: string | undefined;
 
   /**
    * <p>The array of test windows used for evaluating the algorithm. The
@@ -5879,7 +5879,7 @@ export interface EvaluationResult {
    *       determines the number of windows in the array.</p>
    * @public
    */
-  TestWindows?: WindowSummary[];
+  TestWindows?: WindowSummary[] | undefined;
 }
 
 /**
@@ -5890,13 +5890,13 @@ export interface GetAccuracyMetricsResponse {
    * <p>An array of results from evaluating the predictor.</p>
    * @public
    */
-  PredictorEvaluationResults?: EvaluationResult[];
+  PredictorEvaluationResults?: EvaluationResult[] | undefined;
 
   /**
    * <p>Whether the predictor was created with <a>CreateAutoPredictor</a>.</p>
    * @public
    */
-  IsAutoPredictor?: boolean;
+  IsAutoPredictor?: boolean | undefined;
 
   /**
    * <note>
@@ -5909,13 +5909,13 @@ export interface GetAccuracyMetricsResponse {
    *          <p>This parameter is only valid for predictors trained using AutoML.</p>
    * @public
    */
-  AutoMLOverrideStrategy?: AutoMLOverrideStrategy;
+  AutoMLOverrideStrategy?: AutoMLOverrideStrategy | undefined;
 
   /**
    * <p>The accuracy metric used to optimize the predictor.</p>
    * @public
    */
-  OptimizationMetric?: OptimizationMetric;
+  OptimizationMetric?: OptimizationMetric | undefined;
 }
 
 /**
@@ -5925,7 +5925,7 @@ export interface GetAccuracyMetricsResponse {
 export class InvalidNextTokenException extends __BaseException {
   readonly name: "InvalidNextTokenException" = "InvalidNextTokenException";
   readonly $fault: "client" = "client";
-  Message?: string;
+  Message?: string | undefined;
   /**
    * @internal
    */
@@ -5950,13 +5950,13 @@ export interface ListDatasetGroupsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -5970,19 +5970,19 @@ export interface DatasetGroupSummary {
    * <p>The Amazon Resource Name (ARN) of the dataset group.</p>
    * @public
    */
-  DatasetGroupArn?: string;
+  DatasetGroupArn?: string | undefined;
 
   /**
    * <p>The name of the dataset group.</p>
    * @public
    */
-  DatasetGroupName?: string;
+  DatasetGroupName?: string | undefined;
 
   /**
    * <p>When the dataset group was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When the dataset group was created or last updated from a call to the <a href="https://docs.aws.amazon.com/forecast/latest/dg/API_UpdateDatasetGroup.html">UpdateDatasetGroup</a> operation. While the dataset group is being updated,
@@ -5990,7 +5990,7 @@ export interface DatasetGroupSummary {
    *       call.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -6001,14 +6001,14 @@ export interface ListDatasetGroupsResponse {
    * <p>An array of objects that summarize each dataset group's properties.</p>
    * @public
    */
-  DatasetGroups?: DatasetGroupSummary[];
+  DatasetGroups?: DatasetGroupSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6064,13 +6064,13 @@ export interface ListDatasetImportJobsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
@@ -6104,7 +6104,7 @@ export interface ListDatasetImportJobsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -6118,13 +6118,13 @@ export interface DatasetImportJobSummary {
    * <p>The Amazon Resource Name (ARN) of the dataset import job.</p>
    * @public
    */
-  DatasetImportJobArn?: string;
+  DatasetImportJobArn?: string | undefined;
 
   /**
    * <p>The name of the dataset import job.</p>
    * @public
    */
-  DatasetImportJobName?: string;
+  DatasetImportJobName?: string | undefined;
 
   /**
    * <p>The location of the training data to import and an Identity and Access Management (IAM) role that Amazon Forecast
@@ -6132,7 +6132,7 @@ export interface DatasetImportJobSummary {
    *          <p>If encryption is used, <code>DataSource</code> includes an Key Management Service (KMS) key.</p>
    * @public
    */
-  DataSource?: DataSource;
+  DataSource?: DataSource | undefined;
 
   /**
    * <p>The status of the dataset import job. States include:</p>
@@ -6162,19 +6162,19 @@ export interface DatasetImportJobSummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the dataset import job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -6204,13 +6204,13 @@ export interface DatasetImportJobSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 
   /**
    * <p>The import mode of the dataset import job, FULL or INCREMENTAL.</p>
    * @public
    */
-  ImportMode?: ImportMode;
+  ImportMode?: ImportMode | undefined;
 }
 
 /**
@@ -6221,14 +6221,14 @@ export interface ListDatasetImportJobsResponse {
    * <p>An array of objects that summarize each dataset import job's properties.</p>
    * @public
    */
-  DatasetImportJobs?: DatasetImportJobSummary[];
+  DatasetImportJobs?: DatasetImportJobSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6241,13 +6241,13 @@ export interface ListDatasetsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 }
 
 /**
@@ -6261,31 +6261,31 @@ export interface DatasetSummary {
    * <p>The Amazon Resource Name (ARN) of the dataset.</p>
    * @public
    */
-  DatasetArn?: string;
+  DatasetArn?: string | undefined;
 
   /**
    * <p>The name of the dataset.</p>
    * @public
    */
-  DatasetName?: string;
+  DatasetName?: string | undefined;
 
   /**
    * <p>The dataset type.</p>
    * @public
    */
-  DatasetType?: DatasetType;
+  DatasetType?: DatasetType | undefined;
 
   /**
    * <p>The domain associated with the dataset.</p>
    * @public
    */
-  Domain?: Domain;
+  Domain?: Domain | undefined;
 
   /**
    * <p>When the dataset was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>When you create a dataset, <code>LastModificationTime</code> is the same as
@@ -6295,7 +6295,7 @@ export interface DatasetSummary {
    *       when the import job completed or failed.</p>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -6306,14 +6306,14 @@ export interface ListDatasetsResponse {
    * <p>An array of objects that summarize each dataset's properties.</p>
    * @public
    */
-  Datasets?: DatasetSummary[];
+  Datasets?: DatasetSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6326,13 +6326,13 @@ export interface ListExplainabilitiesRequest {
    *             Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items returned in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, provide a condition and a match statement. The
@@ -6360,7 +6360,7 @@ export interface ListExplainabilitiesRequest {
    *          </ul>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -6374,27 +6374,27 @@ export interface ExplainabilitySummary {
    * <p>The Amazon Resource Name (ARN) of the Explainability.</p>
    * @public
    */
-  ExplainabilityArn?: string;
+  ExplainabilityArn?: string | undefined;
 
   /**
    * <p>The name of the Explainability.</p>
    * @public
    */
-  ExplainabilityName?: string;
+  ExplainabilityName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the Predictor or Forecast used to create the
    *             Explainability.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The configuration settings that define the granularity of time series and time points
    *             for the Explainability.</p>
    * @public
    */
-  ExplainabilityConfig?: ExplainabilityConfig;
+  ExplainabilityConfig?: ExplainabilityConfig | undefined;
 
   /**
    * <p>The status of the Explainability. States include: </p>
@@ -6424,20 +6424,20 @@ export interface ExplainabilitySummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Information about any errors that may have occurred during the Explainability creation
    *             process.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the Explainability was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -6467,7 +6467,7 @@ export interface ExplainabilitySummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -6479,14 +6479,14 @@ export interface ListExplainabilitiesResponse {
    *             resource.</p>
    * @public
    */
-  Explainabilities?: ExplainabilitySummary[];
+  Explainabilities?: ExplainabilitySummary[] | undefined;
 
   /**
    * <p>Returns this token if the response is truncated. To retrieve the next set of results,
    *             use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6499,13 +6499,13 @@ export interface ListExplainabilityExportsRequest {
    *             Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, provide a condition and a match statement. The
@@ -6533,7 +6533,7 @@ export interface ListExplainabilityExportsRequest {
    *          </ul>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -6547,20 +6547,20 @@ export interface ExplainabilityExportSummary {
    * <p>The Amazon Resource Name (ARN) of the Explainability export.</p>
    * @public
    */
-  ExplainabilityExportArn?: string;
+  ExplainabilityExportArn?: string | undefined;
 
   /**
    * <p>The name of the Explainability export</p>
    * @public
    */
-  ExplainabilityExportName?: string;
+  ExplainabilityExportName?: string | undefined;
 
   /**
    * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
    *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>The status of the Explainability export. States include: </p>
@@ -6590,20 +6590,20 @@ export interface ExplainabilityExportSummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Information about any errors that may have occurred during the Explainability
    *             export.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the Explainability was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -6633,7 +6633,7 @@ export interface ExplainabilityExportSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -6645,14 +6645,14 @@ export interface ListExplainabilityExportsResponse {
    *             export.</p>
    * @public
    */
-  ExplainabilityExports?: ExplainabilityExportSummary[];
+  ExplainabilityExports?: ExplainabilityExportSummary[] | undefined;
 
   /**
    * <p>Returns this token if the response is truncated. To retrieve the next set of results,
    *             use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6665,13 +6665,13 @@ export interface ListForecastExportJobsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
@@ -6707,7 +6707,7 @@ export interface ListForecastExportJobsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -6721,19 +6721,19 @@ export interface ForecastExportJobSummary {
    * <p>The Amazon Resource Name (ARN) of the forecast export job.</p>
    * @public
    */
-  ForecastExportJobArn?: string;
+  ForecastExportJobArn?: string | undefined;
 
   /**
    * <p>The name of the forecast export job.</p>
    * @public
    */
-  ForecastExportJobName?: string;
+  ForecastExportJobName?: string | undefined;
 
   /**
    * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>The status of the forecast export job. States include:</p>
@@ -6767,19 +6767,19 @@ export interface ForecastExportJobSummary {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the forecast export job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -6808,7 +6808,7 @@ export interface ForecastExportJobSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -6819,14 +6819,14 @@ export interface ListForecastExportJobsResponse {
    * <p>An array of objects that summarize each export job's properties.</p>
    * @public
    */
-  ForecastExportJobs?: ForecastExportJobSummary[];
+  ForecastExportJobs?: ForecastExportJobSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -6839,13 +6839,13 @@ export interface ListForecastsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
@@ -6879,7 +6879,7 @@ export interface ListForecastsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -6893,32 +6893,32 @@ export interface ForecastSummary {
    * <p>The ARN of the forecast.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 
   /**
    * <p>The name of the forecast.</p>
    * @public
    */
-  ForecastName?: string;
+  ForecastName?: string | undefined;
 
   /**
    * <p>The ARN of the predictor used to generate the forecast.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 
   /**
    * <p>Whether the Forecast was created from an AutoPredictor.</p>
    * @public
    */
-  CreatedUsingAutoPredictor?: boolean;
+  CreatedUsingAutoPredictor?: boolean | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that provided the data used to train
    *       the predictor.</p>
    * @public
    */
-  DatasetGroupArn?: string;
+  DatasetGroupArn?: string | undefined;
 
   /**
    * <p>The status of the forecast. States include:</p>
@@ -6952,19 +6952,19 @@ export interface ForecastSummary {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the forecast creation task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -6993,7 +6993,7 @@ export interface ForecastSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -7004,14 +7004,14 @@ export interface ListForecastsResponse {
    * <p>An array of objects that summarize each forecast's properties.</p>
    * @public
    */
-  Forecasts?: ForecastSummary[];
+  Forecasts?: ForecastSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set
    *       of results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7024,13 +7024,13 @@ export interface ListMonitorEvaluationsRequest {
    *          request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of monitoring results to return.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource to get results from.</p>
@@ -7068,7 +7068,7 @@ export interface ListMonitorEvaluationsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7082,13 +7082,13 @@ export interface MetricResult {
    * <p>The name of the metric.</p>
    * @public
    */
-  MetricName?: string;
+  MetricName?: string | undefined;
 
   /**
    * <p>The value for the metric.</p>
    * @public
    */
-  MetricValue?: number;
+  MetricValue?: number | undefined;
 }
 
 /**
@@ -7100,19 +7100,19 @@ export interface MonitorDataSource {
    * <p>The Amazon Resource Name (ARN) of the dataset import job used to import the data that initiated the monitor evaluation.</p>
    * @public
    */
-  DatasetImportJobArn?: string;
+  DatasetImportJobArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the forecast the monitor used during the evaluation.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor resource you are monitoring.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 }
 
 /**
@@ -7124,13 +7124,13 @@ export interface PredictorEvent {
    * <p>The type of event. For example, <code>Retrain</code>. A retraining event denotes the timepoint when a predictor was retrained. Any monitor results from before the <code>Datetime</code> are from the previous predictor. Any new metrics are for the newly retrained predictor.</p>
    * @public
    */
-  Detail?: string;
+  Detail?: string | undefined;
 
   /**
    * <p>The timestamp for when the event occurred.</p>
    * @public
    */
-  Datetime?: Date;
+  Datetime?: Date | undefined;
 }
 
 /**
@@ -7142,67 +7142,67 @@ export interface PredictorMonitorEvaluation {
    * <p>The Amazon Resource Name (ARN) of the resource to monitor.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>The timestamp that indicates when the monitor evaluation was started. </p>
    * @public
    */
-  EvaluationTime?: Date;
+  EvaluationTime?: Date | undefined;
 
   /**
    * <p>The status of the monitor evaluation. The state can be <code>SUCCESS</code> or <code>FAILURE</code>.</p>
    * @public
    */
-  EvaluationState?: string;
+  EvaluationState?: string | undefined;
 
   /**
    * <p>The timestamp that indicates the start of the window that is used for monitor evaluation.</p>
    * @public
    */
-  WindowStartDatetime?: Date;
+  WindowStartDatetime?: Date | undefined;
 
   /**
    * <p>The timestamp that indicates the end of the window that is used for monitor evaluation.</p>
    * @public
    */
-  WindowEndDatetime?: Date;
+  WindowEndDatetime?: Date | undefined;
 
   /**
    * <p>Provides details about a predictor event, such as a retraining.</p>
    * @public
    */
-  PredictorEvent?: PredictorEvent;
+  PredictorEvent?: PredictorEvent | undefined;
 
   /**
    * <p>The source of the data the monitor resource used during the evaluation.</p>
    * @public
    */
-  MonitorDataSource?: MonitorDataSource;
+  MonitorDataSource?: MonitorDataSource | undefined;
 
   /**
    * <p>A list of metrics Forecast calculated when monitoring a predictor. You can compare the value for each metric in the list to the metric's value in the <a>Baseline</a> to see how your predictor's performance is changing.</p>
    * @public
    */
-  MetricResults?: MetricResult[];
+  MetricResults?: MetricResult[] | undefined;
 
   /**
    * <p>The number of items considered during the evaluation.</p>
    * @public
    */
-  NumItemsEvaluated?: number;
+  NumItemsEvaluated?: number | undefined;
 
   /**
    * <p>Information about any errors that may have occurred during the monitor evaluation.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 }
 
 /**
@@ -7214,14 +7214,14 @@ export interface ListMonitorEvaluationsResponse {
    *          results, use the token in the next request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The monitoring results and predictor events collected by the monitor resource during different windows of time.</p>
    *          <p>For information about monitoring see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>. For more information about retrieving monitoring results see <a href="https://docs.aws.amazon.com/forecast/latest/dg/predictor-monitoring-results.html">Viewing Monitoring Results</a>.</p>
    * @public
    */
-  PredictorMonitorEvaluations?: PredictorMonitorEvaluation[];
+  PredictorMonitorEvaluations?: PredictorMonitorEvaluation[] | undefined;
 }
 
 /**
@@ -7234,13 +7234,13 @@ export interface ListMonitorsRequest {
    *          request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The maximum number of monitors to include in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, provide a condition and a match statement. The
@@ -7272,7 +7272,7 @@ export interface ListMonitorsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7286,19 +7286,19 @@ export interface MonitorSummary {
    * <p>The Amazon Resource Name (ARN) of the monitor resource.</p>
    * @public
    */
-  MonitorArn?: string;
+  MonitorArn?: string | undefined;
 
   /**
    * <p>The name of the monitor resource.</p>
    * @public
    */
-  MonitorName?: string;
+  MonitorName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the predictor being monitored.</p>
    * @public
    */
-  ResourceArn?: string;
+  ResourceArn?: string | undefined;
 
   /**
    * <p>The status of the monitor. States include:</p>
@@ -7331,13 +7331,13 @@ export interface MonitorSummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>When the monitor resource was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the monitor resource was modified. The timestamp depends on the status of the
@@ -7363,7 +7363,7 @@ export interface MonitorSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -7374,14 +7374,14 @@ export interface ListMonitorsResponse {
    * <p>An array of objects that summarize each monitor's properties.</p>
    * @public
    */
-  Monitors?: MonitorSummary[];
+  Monitors?: MonitorSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *          results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7394,13 +7394,13 @@ export interface ListPredictorBacktestExportJobsRequest {
    *             Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, provide a condition and a match statement. The
@@ -7430,7 +7430,7 @@ export interface ListPredictorBacktestExportJobsRequest {
    *          </ul>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7444,20 +7444,20 @@ export interface PredictorBacktestExportJobSummary {
    * <p>The Amazon Resource Name (ARN) of the predictor backtest export job.</p>
    * @public
    */
-  PredictorBacktestExportJobArn?: string;
+  PredictorBacktestExportJobArn?: string | undefined;
 
   /**
    * <p>The name of the predictor backtest export job.</p>
    * @public
    */
-  PredictorBacktestExportJobName?: string;
+  PredictorBacktestExportJobName?: string | undefined;
 
   /**
    * <p>The destination for an export job. Provide an S3 path, an Identity and Access Management (IAM) role that allows Amazon Forecast
    *       to access the location, and an Key Management Service (KMS) key (optional). </p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>The status of the predictor backtest export job. States include: </p>
@@ -7487,19 +7487,19 @@ export interface PredictorBacktestExportJobSummary {
    *          </ul>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>Information about any errors that may have occurred during the backtest export.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the predictor backtest export job was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -7529,7 +7529,7 @@ export interface PredictorBacktestExportJobSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -7541,14 +7541,14 @@ export interface ListPredictorBacktestExportJobsResponse {
    *             job.</p>
    * @public
    */
-  PredictorBacktestExportJobs?: PredictorBacktestExportJobSummary[];
+  PredictorBacktestExportJobs?: PredictorBacktestExportJobSummary[] | undefined;
 
   /**
    * <p>Returns this token if the response is truncated. To retrieve the next set of results,
    *             use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7561,13 +7561,13 @@ export interface ListPredictorsRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The
@@ -7601,7 +7601,7 @@ export interface ListPredictorsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7614,33 +7614,33 @@ export interface PredictorSummary {
    * <p>The ARN of the predictor.</p>
    * @public
    */
-  PredictorArn?: string;
+  PredictorArn?: string | undefined;
 
   /**
    * <p>The name of the predictor.</p>
    * @public
    */
-  PredictorName?: string;
+  PredictorName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the dataset group that contains the data used to train
    *       the predictor.</p>
    * @public
    */
-  DatasetGroupArn?: string;
+  DatasetGroupArn?: string | undefined;
 
   /**
    * <p>Whether AutoPredictor was used to create the predictor.</p>
    * @public
    */
-  IsAutoPredictor?: boolean;
+  IsAutoPredictor?: boolean | undefined;
 
   /**
    * <p>A summary of the reference predictor used if the predictor was retrained or
    *             upgraded.</p>
    * @public
    */
-  ReferencePredictorSummary?: ReferencePredictorSummary;
+  ReferencePredictorSummary?: ReferencePredictorSummary | undefined;
 
   /**
    * <p>The status of the predictor. States include:</p>
@@ -7674,19 +7674,19 @@ export interface PredictorSummary {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the model training task was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the
@@ -7716,7 +7716,7 @@ export interface PredictorSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -7727,14 +7727,14 @@ export interface ListPredictorsResponse {
    * <p>An array of objects that summarize each predictor's properties.</p>
    * @public
    */
-  Predictors?: PredictorSummary[];
+  Predictors?: PredictorSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Amazon Forecast returns this token. To retrieve the next set of
    *       results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7757,7 +7757,7 @@ export interface ListTagsForResourceResponse {
    * <p>The tags for the resource.</p>
    * @public
    */
-  Tags?: Tag[];
+  Tags?: Tag[] | undefined;
 }
 
 /**
@@ -7770,13 +7770,13 @@ export interface ListWhatIfAnalysesRequest {
    *       request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either
@@ -7810,7 +7810,7 @@ export interface ListWhatIfAnalysesRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7822,19 +7822,19 @@ export interface WhatIfAnalysisSummary {
    * <p>The Amazon Resource Name (ARN) of the what-if analysis.</p>
    * @public
    */
-  WhatIfAnalysisArn?: string;
+  WhatIfAnalysisArn?: string | undefined;
 
   /**
    * <p>The name of the what-if analysis.</p>
    * @public
    */
-  WhatIfAnalysisName?: string;
+  WhatIfAnalysisName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the baseline forecast that is being used in this what-if analysis.</p>
    * @public
    */
-  ForecastArn?: string;
+  ForecastArn?: string | undefined;
 
   /**
    * <p>The status of the what-if analysis. States include:</p>
@@ -7868,19 +7868,19 @@ export interface WhatIfAnalysisSummary {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the what-if analysis was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -7909,7 +7909,7 @@ export interface WhatIfAnalysisSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -7920,13 +7920,13 @@ export interface ListWhatIfAnalysesResponse {
    * <p>An array of <code>WhatIfAnalysisSummary</code> objects that describe the matched analyses.</p>
    * @public
    */
-  WhatIfAnalyses?: WhatIfAnalysisSummary[];
+  WhatIfAnalyses?: WhatIfAnalysisSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -7937,13 +7937,13 @@ export interface ListWhatIfForecastExportsRequest {
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either
@@ -7979,7 +7979,7 @@ export interface ListWhatIfForecastExportsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -7991,25 +7991,25 @@ export interface WhatIfForecastExportSummary {
    * <p>The Amazon Resource Name (ARN) of the what-if forecast export.</p>
    * @public
    */
-  WhatIfForecastExportArn?: string;
+  WhatIfForecastExportArn?: string | undefined;
 
   /**
    * <p>An array of Amazon Resource Names (ARNs) that define the what-if forecasts included in the export.</p>
    * @public
    */
-  WhatIfForecastArns?: string[];
+  WhatIfForecastArns?: string[] | undefined;
 
   /**
    * <p>The what-if forecast export name.</p>
    * @public
    */
-  WhatIfForecastExportName?: string;
+  WhatIfForecastExportName?: string | undefined;
 
   /**
    * <p>The path to the Amazon Simple Storage Service (Amazon S3) bucket where the forecast is exported.</p>
    * @public
    */
-  Destination?: DataDestination;
+  Destination?: DataDestination | undefined;
 
   /**
    * <p>The status of the what-if forecast export. States include:</p>
@@ -8043,19 +8043,19 @@ export interface WhatIfForecastExportSummary {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the what-if forecast export was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -8084,7 +8084,7 @@ export interface WhatIfForecastExportSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -8095,13 +8095,13 @@ export interface ListWhatIfForecastExportsResponse {
    * <p>An array of <code>WhatIfForecastExports</code> objects that describe the matched forecast exports.</p>
    * @public
    */
-  WhatIfForecastExports?: WhatIfForecastExportSummary[];
+  WhatIfForecastExports?: WhatIfForecastExportSummary[] | undefined;
 
   /**
    * <p>If the response is truncated, Forecast returns this token. To retrieve the next set of results, use the token in the next request.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**
@@ -8112,13 +8112,13 @@ export interface ListWhatIfForecastsRequest {
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 
   /**
    * <p>The number of items to return in the response.</p>
    * @public
    */
-  MaxResults?: number;
+  MaxResults?: number | undefined;
 
   /**
    * <p>An array of filters. For each filter, you provide a condition and a match statement. The condition is either
@@ -8154,7 +8154,7 @@ export interface ListWhatIfForecastsRequest {
    *          </p>
    * @public
    */
-  Filters?: Filter[];
+  Filters?: Filter[] | undefined;
 }
 
 /**
@@ -8166,19 +8166,19 @@ export interface WhatIfForecastSummary {
    * <p>The Amazon Resource Name (ARN) of the what-if forecast.</p>
    * @public
    */
-  WhatIfForecastArn?: string;
+  WhatIfForecastArn?: string | undefined;
 
   /**
    * <p>The name of the what-if forecast.</p>
    * @public
    */
-  WhatIfForecastName?: string;
+  WhatIfForecastName?: string | undefined;
 
   /**
    * <p>The Amazon Resource Name (ARN) of the what-if analysis that contains this what-if forecast.</p>
    * @public
    */
-  WhatIfAnalysisArn?: string;
+  WhatIfAnalysisArn?: string | undefined;
 
   /**
    * <p>The status of the what-if forecast. States include:</p>
@@ -8212,19 +8212,19 @@ export interface WhatIfForecastSummary {
    *          </note>
    * @public
    */
-  Status?: string;
+  Status?: string | undefined;
 
   /**
    * <p>If an error occurred, an informational message about the error.</p>
    * @public
    */
-  Message?: string;
+  Message?: string | undefined;
 
   /**
    * <p>When the what-if forecast was created.</p>
    * @public
    */
-  CreationTime?: Date;
+  CreationTime?: Date | undefined;
 
   /**
    * <p>The last time the resource was modified. The timestamp depends on the status of the job:</p>
@@ -8253,7 +8253,7 @@ export interface WhatIfForecastSummary {
    *          </ul>
    * @public
    */
-  LastModificationTime?: Date;
+  LastModificationTime?: Date | undefined;
 }
 
 /**
@@ -8264,13 +8264,13 @@ export interface ListWhatIfForecastsResponse {
    * <p>An array of <code>WhatIfForecasts</code> objects that describe the matched forecasts.</p>
    * @public
    */
-  WhatIfForecasts?: WhatIfForecastSummary[];
+  WhatIfForecasts?: WhatIfForecastSummary[] | undefined;
 
   /**
    * <p>If the result of the previous request was truncated, the response includes a <code>NextToken</code>. To retrieve the next set of results, use the token in the next  request. Tokens expire after 24 hours.</p>
    * @public
    */
-  NextToken?: string;
+  NextToken?: string | undefined;
 }
 
 /**

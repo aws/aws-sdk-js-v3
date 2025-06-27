@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -37,7 +38,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
 
 /**
  * <p>Converts a recovery point to a snapshot. For more information about recovery points and snapshots,
- *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery.html">Working with snapshots and recovery points</a>.</p>
+ *          see <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/serverless-snapshots-recovery-points.html">Working with snapshots and recovery points</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -117,6 +118,7 @@ export interface ConvertRecoveryPointToSnapshotCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ConvertRecoveryPointToSnapshotCommand extends $Command
@@ -127,9 +129,7 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class ConvertRecoveryPointToSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ConvertRecoveryPointToSnapshotCommand)
   .de(de_ConvertRecoveryPointToSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ConvertRecoveryPointToSnapshotRequest;
+      output: ConvertRecoveryPointToSnapshotResponse;
+    };
+    sdk: {
+      input: ConvertRecoveryPointToSnapshotCommandInput;
+      output: ConvertRecoveryPointToSnapshotCommandOutput;
+    };
+  };
+}

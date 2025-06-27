@@ -1,3 +1,5 @@
+import { describe, expect, test as it } from "vitest";
+
 import { XmlText } from "./XmlText";
 
 describe("XmlText", () => {

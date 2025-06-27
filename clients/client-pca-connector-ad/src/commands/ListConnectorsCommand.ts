@@ -12,7 +12,8 @@ import { de_ListConnectorsCommand, se_ListConnectorsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,12 +49,13 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * //       CertificateEnrollmentPolicyServerEndpoint: "STRING_VALUE",
  * //       DirectoryId: "STRING_VALUE",
  * //       VpcInformation: { // VpcInformation
+ * //         IpAddressType: "IPV4" || "DUALSTACK",
  * //         SecurityGroupIds: [ // SecurityGroupIdList // required
  * //           "STRING_VALUE",
  * //         ],
  * //       },
  * //       Status: "CREATING" || "ACTIVE" || "DELETING" || "FAILED",
- * //       StatusReason: "DIRECTORY_ACCESS_DENIED" || "INTERNAL_FAILURE" || "PRIVATECA_ACCESS_DENIED" || "PRIVATECA_RESOURCE_NOT_FOUND" || "SECURITY_GROUP_NOT_IN_VPC" || "VPC_ACCESS_DENIED" || "VPC_ENDPOINT_LIMIT_EXCEEDED" || "VPC_RESOURCE_NOT_FOUND",
+ * //       StatusReason: "CA_CERTIFICATE_REGISTRATION_FAILED" || "DIRECTORY_ACCESS_DENIED" || "INTERNAL_FAILURE" || "INSUFFICIENT_FREE_ADDRESSES" || "INVALID_SUBNET_IP_PROTOCOL" || "PRIVATECA_ACCESS_DENIED" || "PRIVATECA_RESOURCE_NOT_FOUND" || "SECURITY_GROUP_NOT_IN_VPC" || "VPC_ACCESS_DENIED" || "VPC_ENDPOINT_LIMIT_EXCEEDED" || "VPC_RESOURCE_NOT_FOUND",
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       UpdatedAt: new Date("TIMESTAMP"),
  * //     },
@@ -90,6 +92,7 @@ export interface ListConnectorsCommandOutput extends ListConnectorsResponse, __M
  * @throws {@link PcaConnectorAdServiceException}
  * <p>Base exception class for all service exceptions from PcaConnectorAd service.</p>
  *
+ *
  * @public
  */
 export class ListConnectorsCommand extends $Command
@@ -100,9 +103,7 @@ export class ListConnectorsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PcaConnectorAdClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +115,16 @@ export class ListConnectorsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListConnectorsCommand)
   .de(de_ListConnectorsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListConnectorsRequest;
+      output: ListConnectorsResponse;
+    };
+    sdk: {
+      input: ListConnectorsCommandInput;
+      output: ListConnectorsCommandOutput;
+    };
+  };
+}

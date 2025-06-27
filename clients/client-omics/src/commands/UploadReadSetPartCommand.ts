@@ -16,7 +16,8 @@ import { de_UploadReadSetPartCommand, se_UploadReadSetPartCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,8 +35,7 @@ export interface UploadReadSetPartCommandInput extends Omit<UploadReadSetPartReq
 export interface UploadReadSetPartCommandOutput extends UploadReadSetPartResponse, __MetadataBearer {}
 
 /**
- * <p>This operation uploads a specific part of a read set. If you upload a new part using a previously used part number,
- *       the previously uploaded part will be overwritten.</p>
+ * <p>This operation uploads a specific part of a read set. If you upload a new part using a previously used part number, the previously uploaded part will be overwritten.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,9 +70,7 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link NotSupportedOperationException} (client fault)
- *  <p>
- *       The operation is not supported by Amazon Omics, or the API does not exist.
- *     </p>
+ *  <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
  *
  * @throws {@link RequestTimeoutException} (client fault)
  *  <p>The request timed out.</p>
@@ -92,6 +90,7 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class UploadReadSetPartCommand extends $Command
@@ -102,9 +101,7 @@ export class UploadReadSetPartCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +113,16 @@ export class UploadReadSetPartCommand extends $Command
   .f(UploadReadSetPartRequestFilterSensitiveLog, void 0)
   .ser(se_UploadReadSetPartCommand)
   .de(de_UploadReadSetPartCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UploadReadSetPartRequest;
+      output: UploadReadSetPartResponse;
+    };
+    sdk: {
+      input: UploadReadSetPartCommandInput;
+      output: UploadReadSetPartCommandOutput;
+    };
+  };
+}

@@ -27,12 +27,17 @@ import { GetAccountSettingsCommandInput, GetAccountSettingsCommandOutput } from 
 import { GetReportCommandInput, GetReportCommandOutput } from "../commands/GetReportCommand";
 import { GetReportMetadataCommandInput, GetReportMetadataCommandOutput } from "../commands/GetReportMetadataCommand";
 import { GetTermForReportCommandInput, GetTermForReportCommandOutput } from "../commands/GetTermForReportCommand";
+import {
+  ListCustomerAgreementsCommandInput,
+  ListCustomerAgreementsCommandOutput,
+} from "../commands/ListCustomerAgreementsCommand";
 import { ListReportsCommandInput, ListReportsCommandOutput } from "../commands/ListReportsCommand";
 import { PutAccountSettingsCommandInput, PutAccountSettingsCommandOutput } from "../commands/PutAccountSettingsCommand";
 import { ArtifactServiceException as __BaseException } from "../models/ArtifactServiceException";
 import {
   AccessDeniedException,
   ConflictException,
+  CustomerAgreementSummary,
   InternalServerException,
   ReportDetail,
   ReportSummary,
@@ -50,12 +55,9 @@ export const se_GetAccountSettingsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/v1/account-settings/get");
   let body: any;
-  body = "";
   b.m("GET").h(headers).b(body);
   return b.build();
 };
@@ -112,6 +114,25 @@ export const se_GetTermForReportCommand = async (
   const query: any = map({
     [_rI]: [, __expectNonNull(input[_rI]!, `reportId`)],
     [_rV]: [() => input.reportVersion !== void 0, () => input[_rV]!.toString()],
+  });
+  let body: any;
+  b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListCustomerAgreementsCommand
+ */
+export const se_ListCustomerAgreementsCommand = async (
+  input: ListCustomerAgreementsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/customer-agreement/list");
+  const query: any = map({
+    [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_nT]: [, input[_nT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -239,6 +260,28 @@ export const de_GetTermForReportCommand = async (
   const doc = take(data, {
     documentPresignedUrl: __expectString,
     termToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListCustomerAgreementsCommand
+ */
+export const de_ListCustomerAgreementsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListCustomerAgreementsCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    customerAgreements: (_) => de_CustomerAgreementList(_, context),
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -478,6 +521,41 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_AccountSettings omitted.
 
+// de_AgreementTerms omitted.
+
+/**
+ * deserializeAws_restJson1CustomerAgreementList
+ */
+const de_CustomerAgreementList = (output: any, context: __SerdeContext): CustomerAgreementSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_CustomerAgreementSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1CustomerAgreementSummary
+ */
+const de_CustomerAgreementSummary = (output: any, context: __SerdeContext): CustomerAgreementSummary => {
+  return take(output, {
+    acceptanceTerms: _json,
+    agreementArn: __expectString,
+    arn: __expectString,
+    awsAccountId: __expectString,
+    description: __expectString,
+    effectiveEnd: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    effectiveStart: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    id: __expectString,
+    name: __expectString,
+    organizationArn: __expectString,
+    state: __expectString,
+    terminateTerms: _json,
+    type: __expectString,
+  }) as any;
+};
+
 /**
  * deserializeAws_restJson1ReportDetail
  */
@@ -523,6 +601,7 @@ const de_ReportsList = (output: any, context: __SerdeContext): ReportSummary[] =
  */
 const de_ReportSummary = (output: any, context: __SerdeContext): ReportSummary => {
   return take(output, {
+    acceptanceType: __expectString,
     arn: __expectString,
     category: __expectString,
     companyName: __expectString,
@@ -555,13 +634,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _mR = "maxResults";
 const _nT = "nextToken";

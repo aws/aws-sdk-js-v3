@@ -12,7 +12,8 @@ import { de_DeleteProgressUpdateStreamCommand, se_DeleteProgressUpdateStreamComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -117,6 +118,7 @@ export interface DeleteProgressUpdateStreamCommandOutput extends DeleteProgressU
  * @throws {@link MigrationHubServiceException}
  * <p>Base exception class for all service exceptions from MigrationHub service.</p>
  *
+ *
  * @public
  */
 export class DeleteProgressUpdateStreamCommand extends $Command
@@ -127,9 +129,7 @@ export class DeleteProgressUpdateStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MigrationHubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -141,4 +141,16 @@ export class DeleteProgressUpdateStreamCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteProgressUpdateStreamCommand)
   .de(de_DeleteProgressUpdateStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteProgressUpdateStreamRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteProgressUpdateStreamCommandInput;
+      output: DeleteProgressUpdateStreamCommandOutput;
+    };
+  };
+}

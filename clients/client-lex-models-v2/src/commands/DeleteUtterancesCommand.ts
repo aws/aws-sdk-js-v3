@@ -12,7 +12,8 @@ import { de_DeleteUtterancesCommand, se_DeleteUtterancesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface DeleteUtterancesCommandOutput extends DeleteUtterancesResponse,
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class DeleteUtterancesCommand extends $Command
@@ -87,9 +89,7 @@ export class DeleteUtterancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class DeleteUtterancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteUtterancesCommand)
   .de(de_DeleteUtterancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteUtterancesRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteUtterancesCommandInput;
+      output: DeleteUtterancesCommandOutput;
+    };
+  };
+}

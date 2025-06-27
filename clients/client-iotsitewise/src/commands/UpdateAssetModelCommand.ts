@@ -12,7 +12,8 @@ import { de_UpdateAssetModelCommand, se_UpdateAssetModelCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,13 +33,21 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/update-assets-and-models.html">Updating assets and models</a> in the
  *         <i>IoT SiteWise User Guide</i>.</p>
  *          <important>
- *             <p>This operation overwrites the existing model with the provided model. To avoid deleting
- *         your asset model's properties or hierarchies, you must include their IDs and definitions in
- *         the updated asset model payload. For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/APIReference/API_DescribeAssetModel.html">DescribeAssetModel</a>.</p>
  *             <p>If you remove a property from an asset model, IoT SiteWise deletes all previous data for that
- *         property. If you remove a hierarchy definition from an asset model, IoT SiteWise disassociates every
- *         asset associated with that hierarchy. You can't change the type or data type of an existing
- *         property.</p>
+ *         property. You can’t change the type or data type of an existing property.</p>
+ *             <p>To replace an existing asset model property with a new one with the same
+ *           <code>name</code>, do the following:</p>
+ *             <ol>
+ *                <li>
+ *                   <p>Submit an <code>UpdateAssetModel</code> request with the entire existing property
+ *             removed.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Submit a second <code>UpdateAssetModel</code> request that includes the new
+ *             property. The new asset property will have the same <code>name</code> as the previous
+ *             one and IoT SiteWise will generate a new unique <code>id</code>.</p>
+ *                </li>
+ *             </ol>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -48,11 +57,13 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * const client = new IoTSiteWiseClient(config);
  * const input = { // UpdateAssetModelRequest
  *   assetModelId: "STRING_VALUE", // required
+ *   assetModelExternalId: "STRING_VALUE",
  *   assetModelName: "STRING_VALUE", // required
  *   assetModelDescription: "STRING_VALUE",
  *   assetModelProperties: [ // AssetModelProperties
  *     { // AssetModelProperty
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *       dataTypeSpec: "STRING_VALUE",
@@ -126,15 +137,14 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *           name: "STRING_VALUE",
  *         },
  *       ],
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelHierarchies: [ // AssetModelHierarchies
  *     { // AssetModelHierarchy
  *       id: "STRING_VALUE",
+ *       externalId: "STRING_VALUE",
  *       name: "STRING_VALUE", // required
  *       childAssetModelId: "STRING_VALUE", // required
- *       externalId: "STRING_VALUE",
  *     },
  *   ],
  *   assetModelCompositeModels: [ // AssetModelCompositeModels
@@ -145,6 +155,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       properties: [
  *         {
  *           id: "STRING_VALUE",
+ *           externalId: "STRING_VALUE",
  *           name: "STRING_VALUE", // required
  *           dataType: "STRING" || "INTEGER" || "DOUBLE" || "BOOLEAN" || "STRUCT", // required
  *           dataTypeSpec: "STRING_VALUE",
@@ -203,7 +214,6 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *             },
  *           },
  *           path: "<AssetModelPropertyPath>",
- *           externalId: "STRING_VALUE",
  *         },
  *       ],
  *       id: "STRING_VALUE",
@@ -211,7 +221,9 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *     },
  *   ],
  *   clientToken: "STRING_VALUE",
- *   assetModelExternalId: "STRING_VALUE",
+ *   ifMatch: "STRING_VALUE",
+ *   ifNoneMatch: "STRING_VALUE",
+ *   matchForVersionType: "LATEST" || "ACTIVE",
  * };
  * const command = new UpdateAssetModelCommand(input);
  * const response = await client.send(command);
@@ -256,6 +268,10 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  *       allowed number of properties for an asset model.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot-sitewise/latest/userguide/quotas.html">Quotas</a> in the <i>IoT SiteWise User Guide</i>.</p>
  *
+ * @throws {@link PreconditionFailedException} (client fault)
+ *  <p>The precondition in one or more of the request-header fields evaluated to
+ *         <code>FALSE</code>.</p>
+ *
  * @throws {@link ResourceAlreadyExistsException} (client fault)
  *  <p>The resource already exists.</p>
  *
@@ -271,6 +287,7 @@ export interface UpdateAssetModelCommandOutput extends UpdateAssetModelResponse,
  * @throws {@link IoTSiteWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTSiteWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateAssetModelCommand extends $Command
@@ -281,9 +298,7 @@ export class UpdateAssetModelCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTSiteWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -295,4 +310,16 @@ export class UpdateAssetModelCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAssetModelCommand)
   .de(de_UpdateAssetModelCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAssetModelRequest;
+      output: UpdateAssetModelResponse;
+    };
+    sdk: {
+      input: UpdateAssetModelCommandInput;
+      output: UpdateAssetModelCommandOutput;
+    };
+  };
+}

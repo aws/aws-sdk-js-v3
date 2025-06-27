@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_0";
+import { RegisterWorkspaceDirectoryRequest, RegisterWorkspaceDirectoryResult } from "../models/models_1";
 import { de_RegisterWorkspaceDirectoryCommand, se_RegisterWorkspaceDirectoryCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig } from "../WorkSpacesClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,11 +40,10 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * // const { WorkSpacesClient, RegisterWorkspaceDirectoryCommand } = require("@aws-sdk/client-workspaces"); // CommonJS import
  * const client = new WorkSpacesClient(config);
  * const input = { // RegisterWorkspaceDirectoryRequest
- *   DirectoryId: "STRING_VALUE", // required
+ *   DirectoryId: "STRING_VALUE",
  *   SubnetIds: [ // SubnetIds
  *     "STRING_VALUE",
  *   ],
- *   EnableWorkDocs: true || false, // required
  *   EnableSelfService: true || false,
  *   Tenancy: "DEDICATED" || "SHARED",
  *   Tags: [ // TagList
@@ -52,10 +52,26 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   WorkspaceDirectoryName: "STRING_VALUE",
+ *   WorkspaceDirectoryDescription: "STRING_VALUE",
+ *   UserIdentityType: "CUSTOMER_MANAGED" || "AWS_DIRECTORY_SERVICE" || "AWS_IAM_IDENTITY_CENTER",
+ *   IdcInstanceArn: "STRING_VALUE",
+ *   MicrosoftEntraConfig: { // MicrosoftEntraConfig
+ *     TenantId: "STRING_VALUE",
+ *     ApplicationConfigSecretArn: "STRING_VALUE",
+ *   },
+ *   WorkspaceType: "PERSONAL" || "POOLS",
+ *   ActiveDirectoryConfig: { // ActiveDirectoryConfig
+ *     DomainName: "STRING_VALUE", // required
+ *     ServiceAccountSecretArn: "STRING_VALUE", // required
+ *   },
  * };
  * const command = new RegisterWorkspaceDirectoryCommand(input);
  * const response = await client.send(command);
- * // {};
+ * // { // RegisterWorkspaceDirectoryResult
+ * //   DirectoryId: "STRING_VALUE",
+ * //   State: "REGISTERING" || "REGISTERED" || "DEREGISTERING" || "DEREGISTERED" || "ERROR",
+ * // };
  *
  * ```
  *
@@ -77,6 +93,9 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @throws {@link OperationNotSupportedException} (client fault)
  *  <p>This operation is not supported.</p>
  *
+ * @throws {@link ResourceAlreadyExistsException} (client fault)
+ *  <p>The specified resource already exists.</p>
+ *
  * @throws {@link ResourceLimitExceededException} (client fault)
  *  <p>Your resource limits have been exceeded.</p>
  *
@@ -96,6 +115,7 @@ export interface RegisterWorkspaceDirectoryCommandOutput extends RegisterWorkspa
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class RegisterWorkspaceDirectoryCommand extends $Command
@@ -106,9 +126,7 @@ export class RegisterWorkspaceDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +138,16 @@ export class RegisterWorkspaceDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterWorkspaceDirectoryCommand)
   .de(de_RegisterWorkspaceDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterWorkspaceDirectoryRequest;
+      output: RegisterWorkspaceDirectoryResult;
+    };
+    sdk: {
+      input: RegisterWorkspaceDirectoryCommandInput;
+      output: RegisterWorkspaceDirectoryCommandOutput;
+    };
+  };
+}

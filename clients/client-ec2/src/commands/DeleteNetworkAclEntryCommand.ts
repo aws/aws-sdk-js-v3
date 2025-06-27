@@ -12,7 +12,8 @@ import { de_DeleteNetworkAclEntryCommand, se_DeleteNetworkAclEntryCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,9 +37,9 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * const client = new EC2Client(config);
  * const input = { // DeleteNetworkAclEntryRequest
  *   DryRun: true || false,
- *   Egress: true || false, // required
  *   NetworkAclId: "STRING_VALUE", // required
  *   RuleNumber: Number("int"), // required
+ *   Egress: true || false, // required
  * };
  * const command = new DeleteNetworkAclEntryCommand(input);
  * const response = await client.send(command);
@@ -55,20 +56,23 @@ export interface DeleteNetworkAclEntryCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a network ACL entry
  * ```javascript
  * // This example deletes ingress rule number 100 from the specified network ACL.
  * const input = {
- *   "Egress": true,
- *   "NetworkAclId": "acl-5fb85d36",
- *   "RuleNumber": 100
+ *   Egress: true,
+ *   NetworkAclId: "acl-5fb85d36",
+ *   RuleNumber: 100
  * };
  * const command = new DeleteNetworkAclEntryCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-network-acl-entry-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteNetworkAclEntryCommand extends $Command
   .classBuilder<
@@ -78,9 +82,7 @@ export class DeleteNetworkAclEntryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +94,16 @@ export class DeleteNetworkAclEntryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteNetworkAclEntryCommand)
   .de(de_DeleteNetworkAclEntryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteNetworkAclEntryRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteNetworkAclEntryCommandInput;
+      output: DeleteNetworkAclEntryCommandOutput;
+    };
+  };
+}

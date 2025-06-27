@@ -16,7 +16,8 @@ import { de_GetStreamSessionCommand, se_GetStreamSessionCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,12 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         passphrase: "STRING_VALUE",
  * //       },
  * //       playbackRestrictionPolicyArn: "STRING_VALUE",
+ * //       multitrackInputConfiguration: { // MultitrackInputConfiguration
+ * //         enabled: true || false,
+ * //         policy: "ALLOW" || "REQUIRE",
+ * //         maximumResolution: "SD" || "HD" || "FULL_HD",
+ * //       },
+ * //       containerFormat: "STRING_VALUE",
  * //     },
  * //     ingestConfiguration: { // IngestConfiguration
  * //       video: { // VideoConfiguration
@@ -79,13 +86,43 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         targetFramerate: Number("long"),
  * //         videoHeight: Number("long"),
  * //         videoWidth: Number("long"),
+ * //         level: "STRING_VALUE",
+ * //         track: "STRING_VALUE",
+ * //         profile: "STRING_VALUE",
  * //       },
  * //       audio: { // AudioConfiguration
  * //         codec: "STRING_VALUE",
  * //         targetBitrate: Number("long"),
  * //         sampleRate: Number("long"),
  * //         channels: Number("long"),
+ * //         track: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     ingestConfigurations: { // IngestConfigurations
+ * //       videoConfigurations: [ // VideoConfigurationList // required
+ * //         {
+ * //           avcProfile: "STRING_VALUE",
+ * //           avcLevel: "STRING_VALUE",
+ * //           codec: "STRING_VALUE",
+ * //           encoder: "STRING_VALUE",
+ * //           targetBitrate: Number("long"),
+ * //           targetFramerate: Number("long"),
+ * //           videoHeight: Number("long"),
+ * //           videoWidth: Number("long"),
+ * //           level: "STRING_VALUE",
+ * //           track: "STRING_VALUE",
+ * //           profile: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //       audioConfigurations: [ // AudioConfigurationList // required
+ * //         {
+ * //           codec: "STRING_VALUE",
+ * //           targetBitrate: Number("long"),
+ * //           sampleRate: Number("long"),
+ * //           channels: Number("long"),
+ * //           track: "STRING_VALUE",
+ * //         },
+ * //       ],
  * //     },
  * //     recordingConfiguration: { // RecordingConfiguration
  * //       arn: "STRING_VALUE", // required
@@ -102,7 +139,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       thumbnailConfiguration: { // ThumbnailConfiguration
  * //         recordingMode: "STRING_VALUE",
  * //         targetIntervalSeconds: Number("long"),
- * //         resolution: "STRING_VALUE",
+ * //         resolution: "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //         storage: [ // ThumbnailConfigurationStorageList
  * //           "STRING_VALUE",
  * //         ],
@@ -111,7 +148,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //       renditionConfiguration: { // RenditionConfiguration
  * //         renditionSelection: "STRING_VALUE",
  * //         renditions: [ // RenditionConfigurationRenditionList
- * //           "STRING_VALUE",
+ * //           "SD" || "HD" || "FULL_HD" || "LOWEST_RESOLUTION",
  * //         ],
  * //       },
  * //     },
@@ -120,6 +157,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * //         name: "STRING_VALUE",
  * //         type: "STRING_VALUE",
  * //         eventTime: new Date("TIMESTAMP"),
+ * //         code: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },
@@ -145,6 +183,7 @@ export interface GetStreamSessionCommandOutput extends GetStreamSessionResponse,
  * @throws {@link IvsServiceException}
  * <p>Base exception class for all service exceptions from Ivs service.</p>
  *
+ *
  * @public
  */
 export class GetStreamSessionCommand extends $Command
@@ -155,9 +194,7 @@ export class GetStreamSessionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IvsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +206,16 @@ export class GetStreamSessionCommand extends $Command
   .f(void 0, GetStreamSessionResponseFilterSensitiveLog)
   .ser(se_GetStreamSessionCommand)
   .de(de_GetStreamSessionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetStreamSessionRequest;
+      output: GetStreamSessionResponse;
+    };
+    sdk: {
+      input: GetStreamSessionCommandInput;
+      output: GetStreamSessionCommandOutput;
+    };
+  };
+}

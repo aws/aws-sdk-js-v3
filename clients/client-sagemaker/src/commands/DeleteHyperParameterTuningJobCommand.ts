@@ -15,7 +15,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,10 +31,7 @@ export interface DeleteHyperParameterTuningJobCommandInput extends DeleteHyperPa
 export interface DeleteHyperParameterTuningJobCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes a hyperparameter tuning job. The <code>DeleteHyperParameterTuningJob</code>
- *             API deletes only the tuning job entry that was created in SageMaker when you called the
- *                 <code>CreateHyperParameterTuningJob</code> API. It does not delete training jobs,
- *             artifacts, or the IAM role that you specified when creating the model.</p>
+ * <p>Deletes a hyperparameter tuning job. The <code>DeleteHyperParameterTuningJob</code> API deletes only the tuning job entry that was created in SageMaker when you called the <code>CreateHyperParameterTuningJob</code> API. It does not delete training jobs, artifacts, or the IAM role that you specified when creating the model.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +56,7 @@ export interface DeleteHyperParameterTuningJobCommandOutput extends __MetadataBe
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteHyperParameterTuningJobCommand extends $Command
@@ -68,9 +67,7 @@ export class DeleteHyperParameterTuningJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +79,16 @@ export class DeleteHyperParameterTuningJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteHyperParameterTuningJobCommand)
   .de(de_DeleteHyperParameterTuningJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteHyperParameterTuningJobRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteHyperParameterTuningJobCommandInput;
+      output: DeleteHyperParameterTuningJobCommandOutput;
+    };
+  };
+}

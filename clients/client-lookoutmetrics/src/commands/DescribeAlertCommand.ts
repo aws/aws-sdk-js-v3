@@ -12,7 +12,8 @@ import { de_DescribeAlertCommand, se_DescribeAlertCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -106,6 +107,7 @@ export interface DescribeAlertCommandOutput extends DescribeAlertResponse, __Met
  * @throws {@link LookoutMetricsServiceException}
  * <p>Base exception class for all service exceptions from LookoutMetrics service.</p>
  *
+ *
  * @public
  */
 export class DescribeAlertCommand extends $Command
@@ -116,9 +118,7 @@ export class DescribeAlertCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LookoutMetricsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +130,16 @@ export class DescribeAlertCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeAlertCommand)
   .de(de_DescribeAlertCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeAlertRequest;
+      output: DescribeAlertResponse;
+    };
+    sdk: {
+      input: DescribeAlertCommandInput;
+      output: DescribeAlertCommandOutput;
+    };
+  };
+}

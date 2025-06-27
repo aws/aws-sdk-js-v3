@@ -3,6 +3,956 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.835.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.834.0...v3.835.0) (2025-06-23)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.830.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.829.0...v3.830.0) (2025-06-16)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.828.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.827.1...v3.828.0) (2025-06-11)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.826.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.825.0...v3.826.0) (2025-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.825.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.824.0...v3.825.0) (2025-06-05)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.823.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.822.0...v3.823.0) (2025-06-03)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.821.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.820.0...v3.821.0) (2025-05-30)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.817.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.816.0...v3.817.0) (2025-05-23)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.816.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.815.0...v3.816.0) (2025-05-22)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.812.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.811.0...v3.812.0) (2025-05-16)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.811.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.810.0...v3.811.0) (2025-05-15)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports Docker Server capability ([4be4416](https://github.com/aws/aws-sdk-js-v3/commit/4be4416037be596a1d0ad888a7d6542dc0cd4af7))
+
+
+
+
+
+# [3.810.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.809.0...v3.810.0) (2025-05-14)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.808.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.807.0...v3.808.0) (2025-05-12)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.806.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.805.0...v3.806.0) (2025-05-08)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.804.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.803.0...v3.804.0) (2025-05-06)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.803.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.802.0...v3.803.0) (2025-05-05)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.799.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.798.0...v3.799.0) (2025-04-29)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.798.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.797.0...v3.798.0) (2025-04-28)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.797.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.796.0...v3.797.0) (2025-04-25)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.796.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.795.0...v3.796.0) (2025-04-24)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.795.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.794.0...v3.795.0) (2025-04-23)
+
+
+### Features
+
+* **client-codebuild:** Add support for custom instance type for reserved capacity fleets ([7c92ddd](https://github.com/aws/aws-sdk-js-v3/commit/7c92ddd97a2eab15802ea1ba7953cfa1b5a22c99))
+
+
+
+
+
+# [3.787.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.786.0...v3.787.0) (2025-04-10)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.784.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.783.0...v3.784.0) (2025-04-07)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now offers an enhanced debugging experience. ([7f2f029](https://github.com/aws/aws-sdk-js-v3/commit/7f2f029d523a40867ea1a5788851ac1bbe1687b1))
+
+
+
+
+
+# [3.782.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.781.0...v3.782.0) (2025-04-03)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.781.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.780.0...v3.781.0) (2025-04-02)
+
+
+### Features
+
+* **client-codebuild:** This release adds support for environment type WINDOWS_SERVER_2022_CONTAINER in ProjectEnvironment ([3fbd78f](https://github.com/aws/aws-sdk-js-v3/commit/3fbd78f96381acf499ab7be815d2e048d0138f23))
+
+
+
+
+
+# [3.778.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.777.0...v3.778.0) (2025-03-28)
+
+
+### Features
+
+* **client-codebuild:** This release adds support for cacheNamespace in ProjectCache ([add93bd](https://github.com/aws/aws-sdk-js-v3/commit/add93bd50f87b240884dd949429eab5227e7428a))
+
+
+
+
+
+# [3.777.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.776.0...v3.777.0) (2025-03-27)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.775.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.774.0...v3.775.0) (2025-03-25)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.774.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.773.0...v3.774.0) (2025-03-24)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.772.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.771.0...v3.772.0) (2025-03-20)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.767.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.766.0...v3.767.0) (2025-03-13)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports webhook filtering by organization name ([0712dd4](https://github.com/aws/aws-sdk-js-v3/commit/0712dd4e7a345c581f02620268b7fdb4708bb2ad))
+
+
+
+
+
+# [3.758.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.757.0...v3.758.0) (2025-02-27)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.756.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.755.0...v3.756.0) (2025-02-25)
+
+
+### Features
+
+* **client-codebuild:** Adding "reportArns" field in output of BatchGetBuildBatches API. "reportArns" is an array that contains the ARNs of reports created by merging reports from builds associated with the batch build. ([7e91040](https://github.com/aws/aws-sdk-js-v3/commit/7e9104058e26665391ee98d60cad8bb2d5590ee5))
+
+
+
+
+
+# [3.753.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.752.0...v3.753.0) (2025-02-20)
+
+
+### Features
+
+* **client-codebuild:** Add webhook status and status message to AWS CodeBuild webhooks ([a5e8b89](https://github.com/aws/aws-sdk-js-v3/commit/a5e8b8976e2fda3f1b9a1184116eacc496532201))
+
+
+
+
+
+# [3.750.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.749.0...v3.750.0) (2025-02-17)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.749.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.748.0...v3.749.0) (2025-02-14)
+
+
+### Features
+
+* **client-codebuild:** Added test suite names to test case metadata ([a6db26e](https://github.com/aws/aws-sdk-js-v3/commit/a6db26e5799037d11e87c9723d40287ca26177f5))
+
+
+
+
+
+# [3.747.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.746.0...v3.747.0) (2025-02-12)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.744.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.743.0...v3.744.0) (2025-02-07)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.743.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.742.1...v3.743.0) (2025-02-06)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.741.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.740.0...v3.741.0) (2025-02-03)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.740.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.739.0...v3.740.0) (2025-01-31)
+
+
+### Features
+
+* **client-codebuild:** Added support for CodeBuild self-hosted Buildkite runner builds ([87c823e](https://github.com/aws/aws-sdk-js-v3/commit/87c823eedb59c7ab1d1ae881e6f1b63c3f169196))
+
+
+
+
+
+# [3.738.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.737.0...v3.738.0) (2025-01-29)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.734.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.733.0...v3.734.0) (2025-01-23)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+## [3.731.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.731.0...v3.731.1) (2025-01-18)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.731.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.730.0...v3.731.0) (2025-01-17)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.730.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.729.0...v3.730.0) (2025-01-16)
+
+
+### Bug Fixes
+
+* **nested-clients:** create nested clients for internal use ([#6791](https://github.com/aws/aws-sdk-js-v3/issues/6791)) ([5c53685](https://github.com/aws/aws-sdk-js-v3/commit/5c5368554d13a3b798a72c53e30cd3d897621135))
+
+
+
+
+
+## [3.726.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.726.0...v3.726.1) (2025-01-10)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.726.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.725.0...v3.726.0) (2025-01-09)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild Now Supports BuildBatch in Reserved Capacity and Lambda ([4fb5b7e](https://github.com/aws/aws-sdk-js-v3/commit/4fb5b7ee64872d25732ee4637903543b934f50e8))
+
+
+
+
+
+# [3.723.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.722.0...v3.723.0) (2025-01-06)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.721.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.720.0...v3.721.0) (2025-01-02)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.716.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.715.0...v3.716.0) (2024-12-19)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.714.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.713.0...v3.714.0) (2024-12-17)
+
+
+### Features
+
+* **clients:** profile setting for clients ([#6728](https://github.com/aws/aws-sdk-js-v3/issues/6728)) ([afd9eea](https://github.com/aws/aws-sdk-js-v3/commit/afd9eea89fd0d63a377123f1ca999daeefd904a7))
+
+
+
+
+
+# [3.713.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.712.0...v3.713.0) (2024-12-16)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.712.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.711.0...v3.712.0) (2024-12-13)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.709.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.708.0...v3.709.0) (2024-12-10)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.699.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.698.0...v3.699.0) (2024-11-22)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.696.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.695.0...v3.696.0) (2024-11-19)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.693.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.692.0...v3.693.0) (2024-11-15)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.692.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.691.0...v3.692.0) (2024-11-14)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.691.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.690.0...v3.691.0) (2024-11-13)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.690.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.689.0...v3.690.0) (2024-11-12)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports non-containerized Linux and Windows builds on Reserved Capacity. ([1661962](https://github.com/aws/aws-sdk-js-v3/commit/16619628b3ad1baaaf085ccc02c1744cb231131e))
+
+
+
+
+
+# [3.687.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.686.0...v3.687.0) (2024-11-07)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.686.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.685.0...v3.686.0) (2024-11-06)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now adds additional compute types for reserved capacity fleet. ([73be619](https://github.com/aws/aws-sdk-js-v3/commit/73be61960f5cc83ae5788a928c72b9092d3914fb))
+
+
+
+
+
+# [3.682.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.681.0...v3.682.0) (2024-10-29)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.680.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.679.0...v3.680.0) (2024-10-25)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports automatically retrying failed builds ([0642ee5](https://github.com/aws/aws-sdk-js-v3/commit/0642ee5995caddebc2365fba905e9364872ae284))
+
+
+
+
+
+# [3.679.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.678.0...v3.679.0) (2024-10-24)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.678.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.677.0...v3.678.0) (2024-10-23)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.677.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.676.0...v3.677.0) (2024-10-22)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.675.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.674.0...v3.675.0) (2024-10-18)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.672.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.671.0...v3.672.0) (2024-10-15)
+
+
+### Features
+
+* **client-codebuild:** Enable proxy for reserved capacity fleet. ([f16069b](https://github.com/aws/aws-sdk-js-v3/commit/f16069bcd088e724a31e5b216218e6aeec048f28))
+
+
+
+
+
+# [3.670.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.669.0...v3.670.0) (2024-10-11)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.669.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.668.0...v3.669.0) (2024-10-10)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.668.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.667.0...v3.668.0) (2024-10-09)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.667.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.666.0...v3.667.0) (2024-10-08)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.666.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.665.0...v3.666.0) (2024-10-07)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.665.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.664.0...v3.665.0) (2024-10-04)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.664.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.663.0...v3.664.0) (2024-10-03)
+
+
+### Features
+
+* **middleware-user-agent:** add client config for userAgentAppId ([#6524](https://github.com/aws/aws-sdk-js-v3/issues/6524)) ([2990ea8](https://github.com/aws/aws-sdk-js-v3/commit/2990ea8f0d689966a9de0000d579f147c2d4af81))
+
+
+
+
+
+# [3.662.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.661.0...v3.662.0) (2024-10-01)
+
+
+### Bug Fixes
+
+* **s3-request-presigner:** enable overriding hoistable headers ([#6535](https://github.com/aws/aws-sdk-js-v3/issues/6535)) ([3c2e59c](https://github.com/aws/aws-sdk-js-v3/commit/3c2e59cfddd753d1c9739332b9195ae5eadde4df))
+
+
+
+
+
+## [3.658.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.658.0...v3.658.1) (2024-09-25)
+
+
+### Bug Fixes
+
+* **clients:** allow empty string field values for headers ([#6511](https://github.com/aws/aws-sdk-js-v3/issues/6511)) ([1273ff3](https://github.com/aws/aws-sdk-js-v3/commit/1273ff317071749cfeb88caad9df7492256c03e2))
+
+
+
+
+
+# [3.658.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.657.0...v3.658.0) (2024-09-24)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.654.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.653.0...v3.654.0) (2024-09-18)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.653.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.652.0...v3.653.0) (2024-09-17)
+
+
+### Features
+
+* **client-codebuild:** GitLab Enhancements - Add support for Self-Hosted GitLab runners in CodeBuild. Add group webhooks ([42807fe](https://github.com/aws/aws-sdk-js-v3/commit/42807fe487095378f0b8ec2d82ad493c4de43188))
+
+
+
+
+
+## [3.651.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.651.0...v3.651.1) (2024-09-13)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.650.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.649.0...v3.650.0) (2024-09-11)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.649.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.648.0...v3.649.0) (2024-09-10)
+
+
+### Features
+
+* **endpoints:** codegen sync for request creation performance improvements ([#6449](https://github.com/aws/aws-sdk-js-v3/issues/6449)) ([c8e8f28](https://github.com/aws/aws-sdk-js-v3/commit/c8e8f28d0714c8165162e1411b5f740ba729a93a))
+
+
+
+
+
+# [3.645.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.644.0...v3.645.0) (2024-09-04)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.638.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.637.0...v3.638.0) (2024-08-23)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.637.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.636.0...v3.637.0) (2024-08-22)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.635.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.634.0...v3.635.0) (2024-08-20)
+
+
+### Features
+
+* **codegen:** add Smithy RPCv2 CBOR to list of protocols ([#6096](https://github.com/aws/aws-sdk-js-v3/issues/6096)) ([5154d4f](https://github.com/aws/aws-sdk-js-v3/commit/5154d4f19bc77a7bad075b35ce135d3b5f60ad1d))
+
+
+
+
+
+# [3.634.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.633.0...v3.634.0) (2024-08-19)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports creating fleets with macOS platform for running builds. ([0394488](https://github.com/aws/aws-sdk-js-v3/commit/03944887ca54f298c2af18e61543c852828c01d2))
+
+
+
+
+
+# [3.632.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.631.0...v3.632.0) (2024-08-15)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.631.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.630.0...v3.631.0) (2024-08-14)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports using Secrets Manager to store git credentials and using multiple source credentials in a single project. ([9e44d9f](https://github.com/aws/aws-sdk-js-v3/commit/9e44d9f430fbe1f28ca655124e55851bb1292331))
+
+
+
+
+
+# [3.629.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.628.0...v3.629.0) (2024-08-12)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.624.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.623.0...v3.624.0) (2024-08-05)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.623.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.622.0...v3.623.0) (2024-08-02)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.622.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.621.0...v3.622.0) (2024-08-01)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.621.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.1...v3.621.0) (2024-07-30)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+## [3.620.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.620.0...v3.620.1) (2024-07-29)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.620.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.619.0...v3.620.0) (2024-07-25)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.616.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.615.0...v3.616.0) (2024-07-18)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.614.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.613.0...v3.614.0) (2024-07-10)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.613.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.612.0...v3.613.0) (2024-07-09)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.609.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.608.0...v3.609.0) (2024-07-02)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.606.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.605.0...v3.606.0) (2024-06-27)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.600.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.599.0...v3.600.0) (2024-06-18)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.599.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.598.0...v3.599.0) (2024-06-17)
+
+
+### Features
+
+* **client-codebuild:** AWS CodeBuild now supports global and organization GitHub webhooks ([a7798f3](https://github.com/aws/aws-sdk-js-v3/commit/a7798f3b311435199e321afc5d4577ab40ca13e9))
+
+
+
+
+
+# [3.598.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.597.0...v3.598.0) (2024-06-14)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.596.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.595.0...v3.596.0) (2024-06-12)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
+# [3.592.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.591.0...v3.592.0) (2024-06-06)
+
+**Note:** Version bump only for package @aws-sdk/client-codebuild
+
+
+
+
+
 # [3.590.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.589.0...v3.590.0) (2024-06-04)
 
 

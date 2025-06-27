@@ -5,14 +5,19 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListKnowledgeBasesRequest, ListKnowledgeBasesResponse } from "../models/models_0";
+import {
+  ListKnowledgeBasesRequest,
+  ListKnowledgeBasesResponse,
+  ListKnowledgeBasesResponseFilterSensitiveLog,
+} from "../models/models_1";
 import { de_ListKnowledgeBasesCommand, se_ListKnowledgeBasesCommand } from "../protocols/Aws_restJson1";
 import { QConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QConnectClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +60,58 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * //             "STRING_VALUE",
  * //           ],
  * //         },
+ * //         managedSourceConfiguration: { // ManagedSourceConfiguration Union: only one key present
+ * //           webCrawlerConfiguration: { // WebCrawlerConfiguration
+ * //             urlConfiguration: { // UrlConfiguration
+ * //               seedUrls: [ // SeedUrls
+ * //                 { // SeedUrl
+ * //                   url: "STRING_VALUE",
+ * //                 },
+ * //               ],
+ * //             },
+ * //             crawlerLimits: { // WebCrawlerLimits
+ * //               rateLimit: Number("int"),
+ * //             },
+ * //             inclusionFilters: [ // UrlFilterList
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             exclusionFilters: [
+ * //               "STRING_VALUE",
+ * //             ],
+ * //             scope: "STRING_VALUE",
+ * //           },
+ * //         },
+ * //       },
+ * //       vectorIngestionConfiguration: { // VectorIngestionConfiguration
+ * //         chunkingConfiguration: { // ChunkingConfiguration
+ * //           chunkingStrategy: "STRING_VALUE", // required
+ * //           fixedSizeChunkingConfiguration: { // FixedSizeChunkingConfiguration
+ * //             maxTokens: Number("int"), // required
+ * //             overlapPercentage: Number("int"), // required
+ * //           },
+ * //           hierarchicalChunkingConfiguration: { // HierarchicalChunkingConfiguration
+ * //             levelConfigurations: [ // HierarchicalChunkingLevelConfigurations // required
+ * //               { // HierarchicalChunkingLevelConfiguration
+ * //                 maxTokens: Number("int"), // required
+ * //               },
+ * //             ],
+ * //             overlapTokens: Number("int"), // required
+ * //           },
+ * //           semanticChunkingConfiguration: { // SemanticChunkingConfiguration
+ * //             maxTokens: Number("int"), // required
+ * //             bufferSize: Number("int"), // required
+ * //             breakpointPercentileThreshold: Number("int"), // required
+ * //           },
+ * //         },
+ * //         parsingConfiguration: { // ParsingConfiguration
+ * //           parsingStrategy: "STRING_VALUE", // required
+ * //           bedrockFoundationModelConfiguration: { // BedrockFoundationModelConfigurationForParsing
+ * //             modelArn: "STRING_VALUE", // required
+ * //             parsingPrompt: { // ParsingPrompt
+ * //               parsingPromptText: "STRING_VALUE", // required
+ * //             },
+ * //           },
+ * //         },
  * //       },
  * //       renderingConfiguration: { // RenderingConfiguration
  * //         templateUri: "STRING_VALUE",
@@ -88,6 +145,7 @@ export interface ListKnowledgeBasesCommandOutput extends ListKnowledgeBasesRespo
  * @throws {@link QConnectServiceException}
  * <p>Base exception class for all service exceptions from QConnect service.</p>
  *
+ *
  * @public
  */
 export class ListKnowledgeBasesCommand extends $Command
@@ -98,9 +156,7 @@ export class ListKnowledgeBasesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,7 +165,19 @@ export class ListKnowledgeBasesCommand extends $Command
   })
   .s("WisdomService", "ListKnowledgeBases", {})
   .n("QConnectClient", "ListKnowledgeBasesCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListKnowledgeBasesResponseFilterSensitiveLog)
   .ser(se_ListKnowledgeBasesCommand)
   .de(de_ListKnowledgeBasesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListKnowledgeBasesRequest;
+      output: ListKnowledgeBasesResponse;
+    };
+    sdk: {
+      input: ListKnowledgeBasesCommandInput;
+      output: ListKnowledgeBasesCommandOutput;
+    };
+  };
+}

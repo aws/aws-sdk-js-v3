@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ChimeClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ChimeClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListBotsRequest, ListBotsResponse, ListBotsResponseFilterSensitiveLog } from "../models/models_1";
+import { ListBotsRequest, ListBotsResponse, ListBotsResponseFilterSensitiveLog } from "../models/models_0";
 import { de_ListBotsCommand, se_ListBotsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface ListBotsCommandOutput extends ListBotsResponse, __MetadataBeare
  * @throws {@link ChimeServiceException}
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
+ *
  * @public
  */
 export class ListBotsCommand extends $Command
@@ -100,9 +102,7 @@ export class ListBotsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListBotsCommand extends $Command
   .f(void 0, ListBotsResponseFilterSensitiveLog)
   .ser(se_ListBotsCommand)
   .de(de_ListBotsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBotsRequest;
+      output: ListBotsResponse;
+    };
+    sdk: {
+      input: ListBotsCommandInput;
+      output: ListBotsCommandOutput;
+    };
+  };
+}

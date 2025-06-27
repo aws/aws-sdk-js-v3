@@ -12,7 +12,8 @@ import { de_RevokeGrantCommand, se_RevokeGrantCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,8 +29,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
 
 /**
  * <p>Deletes the specified grant. You revoke a grant to terminate the permissions that the
- *       grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-manage.html#grant-delete">Retiring and revoking grants</a> in
- *       the <i>
+ *       grant allows. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grant-delete.html">Retiring and revoking grants</a> in the
+ *         <i>
  *                <i>Key Management Service Developer Guide</i>
  *             </i>.</p>
  *          <p>When you create, retire, or revoke a grant, there might be a brief delay, usually less than five minutes, until the grant is available throughout KMS. This state is known as <i>eventual consistency</i>. For details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html#terms-eventual-consistency">Eventual consistency</a> in
@@ -39,8 +40,8 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *          <p>For detailed information about grants, including grant terminology, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants in KMS</a> in the
  *         <i>
  *                <i>Key Management Service Developer Guide</i>
- *             </i>. For examples of working with grants in several
- *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-grants.html">Programming grants</a>. </p>
+ *             </i>. For examples of creating grants in several
+ *       programming languages, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/example_kms_CreateGrant_section.html">Use CreateGrant with an Amazon Web Services SDK or CLI</a>. </p>
  *          <p>
  *             <b>Cross-account use</b>: Yes. To perform this operation on a KMS key in a different Amazon Web Services account, specify the key
  *   ARN in the value of the <code>KeyId</code> parameter.</p>
@@ -73,7 +74,7 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -142,19 +143,22 @@ export interface RevokeGrantCommandOutput extends __MetadataBearer {}
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To revoke a grant
  * ```javascript
  * // The following example revokes a grant.
  * const input = {
- *   "GrantId": "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
- *   "KeyId": "1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   GrantId: "0c237476b39f8bc44e45212e08498fbe3151305030726c0590dd8d3e9f3d6a60",
+ *   KeyId: "1234abcd-12ab-34cd-56ef-1234567890ab"
  * };
  * const command = new RevokeGrantCommand(input);
- * await client.send(command);
- * // example id: to-revoke-a-grant-1481329549302
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class RevokeGrantCommand extends $Command
   .classBuilder<
@@ -164,9 +168,7 @@ export class RevokeGrantCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +180,16 @@ export class RevokeGrantCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RevokeGrantCommand)
   .de(de_RevokeGrantCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RevokeGrantRequest;
+      output: {};
+    };
+    sdk: {
+      input: RevokeGrantCommandInput;
+      output: RevokeGrantCommandOutput;
+    };
+  };
+}

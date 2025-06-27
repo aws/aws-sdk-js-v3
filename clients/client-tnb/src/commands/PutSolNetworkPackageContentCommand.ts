@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { BlobPayloadInputTypes, MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PutSolNetworkPackageContentInput, PutSolNetworkPackageContentOutput } from "../models/models_0";
+import {
+  PutSolNetworkPackageContentInput,
+  PutSolNetworkPackageContentInputFilterSensitiveLog,
+  PutSolNetworkPackageContentOutput,
+} from "../models/models_0";
 import {
   de_PutSolNetworkPackageContentCommand,
   se_PutSolNetworkPackageContentCommand,
@@ -15,7 +19,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TnbClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  */
@@ -94,10 +99,50 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  *  <p>Exception caused by throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ *  <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  *
  * @throws {@link TnbServiceException}
  * <p>Base exception class for all service exceptions from Tnb service.</p>
+ *
+ *
+ * @example Upload the network package content of an NSD archive
+ * ```javascript
+ * //
+ * const input = {
+ *   contentType: "application/zip",
+ *   file: "UEsDBBQAAAAAAPqLiVMAAAAAAAAAAAAAA",
+ *   nsdInfoId: "np-0d5b823eb5c2a9241"
+ * };
+ * const command = new PutSolNetworkPackageContentCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   arn: "arn:aws:tnb:us-west-2:123456789000:network-package/np-0d5b823eb5c2a9241",
+ *   id: "np-0d5b823eb5c2a9241",
+ *   metadata: {
+ *     nsd: {
+ *       overrides: [
+ *         {
+ *           defaultValue: "10.0.0.0/24",
+ *           name: "cidr_block"
+ *         },
+ *         {
+ *           name: "some_vnf.vnf_prop"
+ *         }
+ *       ]
+ *     }
+ *   },
+ *   nsdId: "0d72acd9-e45d-4644-9bcd-1fe67cd0e2c8",
+ *   nsdName: "Sample Single Cluster",
+ *   nsdVersion: "1.0.0",
+ *   vnfPkgIds: [
+ *     "fp-1234567890abcdabc",
+ *     "fp-0b627c4a170a97f79"
+ *   ]
+ * }
+ * *\/
+ * ```
  *
  * @public
  */
@@ -109,9 +154,7 @@ export class PutSolNetworkPackageContentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TnbClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,7 +163,19 @@ export class PutSolNetworkPackageContentCommand extends $Command
   })
   .s("TNB", "PutSolNetworkPackageContent", {})
   .n("TnbClient", "PutSolNetworkPackageContentCommand")
-  .f(void 0, void 0)
+  .f(PutSolNetworkPackageContentInputFilterSensitiveLog, void 0)
   .ser(se_PutSolNetworkPackageContentCommand)
   .de(de_PutSolNetworkPackageContentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutSolNetworkPackageContentInput;
+      output: PutSolNetworkPackageContentOutput;
+    };
+    sdk: {
+      input: PutSolNetworkPackageContentCommandInput;
+      output: PutSolNetworkPackageContentCommandOutput;
+    };
+  };
+}

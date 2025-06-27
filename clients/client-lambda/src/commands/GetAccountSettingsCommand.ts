@@ -12,7 +12,8 @@ import { de_GetAccountSettingsCommand, se_GetAccountSettingsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -68,6 +69,30 @@ export interface GetAccountSettingsCommandOutput extends GetAccountSettingsRespo
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get account settings
+ * ```javascript
+ * // This operation takes no parameters and returns details about storage and concurrency quotas in the current Region.
+ * const input = { /* empty *\/ };
+ * const command = new GetAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   AccountLimit: {
+ *     CodeSizeUnzipped: 262144000,
+ *     CodeSizeZipped: 52428800,
+ *     ConcurrentExecutions: 1000,
+ *     TotalCodeSize: 80530636800,
+ *     UnreservedConcurrentExecutions: 1000
+ *   },
+ *   AccountUsage: {
+ *     FunctionCount: 4,
+ *     TotalCodeSize: 9426
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetAccountSettingsCommand extends $Command
@@ -78,9 +103,7 @@ export class GetAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -92,4 +115,16 @@ export class GetAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAccountSettingsCommand)
   .de(de_GetAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetAccountSettingsResponse;
+    };
+    sdk: {
+      input: GetAccountSettingsCommandInput;
+      output: GetAccountSettingsCommandOutput;
+    };
+  };
+}

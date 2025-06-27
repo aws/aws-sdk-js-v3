@@ -12,7 +12,8 @@ import { de_UpdateRuntimeConfigurationCommand, se_UpdateRuntimeConfigurationComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,9 +29,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
 
 /**
  * <p>Updates the runtime configuration for the specified fleet. The runtime configuration
- *             tells Amazon GameLift how to launch server processes on computes in the fleet. For managed EC2
- *             fleets, it determines what server processes to run on each fleet instance. For container
- *             fleets, it describes what server processes to run in each replica container group. You
+ *             tells Amazon GameLift Servers how to launch server processes on computes in managed EC2 and Anywhere fleets. You
  *             can update a fleet's runtime configuration at any time after the fleet is created; it
  *             does not need to be in <code>ACTIVE</code> status.</p>
  *          <p>To update runtime configuration, specify the fleet ID and provide a
@@ -46,7 +45,7 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *             <b>Learn more</b>
  *          </p>
  *          <p>
- *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift
+ *             <a href="https://docs.aws.amazon.com/gamelift/latest/developerguide/fleets-intro.html">Setting up Amazon GameLift Servers
  *                 fleets</a>
  *          </p>
  * @example
@@ -111,13 +110,14 @@ export interface UpdateRuntimeConfigurationCommandOutput extends UpdateRuntimeCo
  *             Resolve the issue before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -129,9 +129,7 @@ export class UpdateRuntimeConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -143,4 +141,16 @@ export class UpdateRuntimeConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuntimeConfigurationCommand)
   .de(de_UpdateRuntimeConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuntimeConfigurationInput;
+      output: UpdateRuntimeConfigurationOutput;
+    };
+    sdk: {
+      input: UpdateRuntimeConfigurationCommandInput;
+      output: UpdateRuntimeConfigurationCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { de_UpdateBotRecommendationCommand, se_UpdateBotRecommendationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,6 +128,7 @@ export interface UpdateBotRecommendationCommandOutput extends UpdateBotRecommend
  * @throws {@link LexModelsV2ServiceException}
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateBotRecommendationCommand extends $Command
@@ -137,9 +139,7 @@ export class UpdateBotRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LexModelsV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +151,16 @@ export class UpdateBotRecommendationCommand extends $Command
   .f(UpdateBotRecommendationRequestFilterSensitiveLog, UpdateBotRecommendationResponseFilterSensitiveLog)
   .ser(se_UpdateBotRecommendationCommand)
   .de(de_UpdateBotRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBotRecommendationRequest;
+      output: UpdateBotRecommendationResponse;
+    };
+    sdk: {
+      input: UpdateBotRecommendationCommandInput;
+      output: UpdateBotRecommendationCommandOutput;
+    };
+  };
+}

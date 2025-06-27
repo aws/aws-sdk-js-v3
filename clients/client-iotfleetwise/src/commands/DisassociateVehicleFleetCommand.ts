@@ -12,7 +12,8 @@ import { de_DisassociateVehicleFleetCommand, se_DisassociateVehicleFleetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,10 +30,6 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
 /**
  * <p>Removes, or disassociates, a vehicle from a fleet. Disassociating a vehicle from a
  *             fleet doesn't delete the vehicle.</p>
- *          <note>
- *             <p>If the vehicle is successfully dissociated from a fleet, Amazon Web Services IoT FleetWise sends back an
- *                 HTTP 200 response with an empty body.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -73,6 +70,7 @@ export interface DisassociateVehicleFleetCommandOutput extends DisassociateVehic
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class DisassociateVehicleFleetCommand extends $Command
@@ -83,9 +81,7 @@ export class DisassociateVehicleFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +93,16 @@ export class DisassociateVehicleFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateVehicleFleetCommand)
   .de(de_DisassociateVehicleFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateVehicleFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DisassociateVehicleFleetCommandInput;
+      output: DisassociateVehicleFleetCommandOutput;
+    };
+  };
+}

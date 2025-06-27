@@ -12,7 +12,8 @@ import { QBusinessClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,23 +28,7 @@ export interface BatchPutDocumentCommandInput extends BatchPutDocumentRequest {}
 export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse, __MetadataBearer {}
 
 /**
- * <p>Adds one or more documents to an Amazon Q Business index.</p>
- *          <p>You use this API to:</p>
- *          <ul>
- *             <li>
- *                <p>ingest your structured and unstructured documents and documents stored in an
- *                         Amazon S3 bucket into an Amazon Q Business index.</p>
- *             </li>
- *             <li>
- *                <p>add custom attributes to documents in an Amazon Q Business index.</p>
- *             </li>
- *             <li>
- *                <p>attach an access control list to the documents added to an Amazon Q Business
- *                     index.</p>
- *             </li>
- *          </ul>
- *          <p>You can see the progress of the deletion, and any error messages related to the
- *             process, by using CloudWatch.</p>
+ * <p>Adds one or more documents to an Amazon Q Business index.</p> <p>You use this API to:</p> <ul> <li> <p>ingest your structured and unstructured documents and documents stored in an Amazon S3 bucket into an Amazon Q Business index.</p> </li> <li> <p>add custom attributes to documents in an Amazon Q Business index.</p> </li> <li> <p>attach an access control list to the documents added to an Amazon Q Business index.</p> </li> </ul> <p>You can see the progress of the deletion, and any error messages related to the process, by using CloudWatch.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -151,6 +136,17 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *           roleArn: "STRING_VALUE",
  *         },
  *       },
+ *       mediaExtractionConfiguration: { // MediaExtractionConfiguration
+ *         imageExtractionConfiguration: { // ImageExtractionConfiguration
+ *           imageExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *         audioExtractionConfiguration: { // AudioExtractionConfiguration
+ *           audioExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *         videoExtractionConfiguration: { // VideoExtractionConfiguration
+ *           videoExtractionStatus: "ENABLED" || "DISABLED", // required
+ *         },
+ *       },
  *     },
  *   ],
  *   roleArn: "STRING_VALUE",
@@ -180,34 +176,29 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  * @see {@link QBusinessClientResolvedConfig | config} for QBusinessClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p> You don't have access to perform this action. Make sure you have the required
- *             permission policies and user accounts and try again.</p>
+ *  <p> You don't have access to perform this action. Make sure you have the required permission policies and user accounts and try again.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>You are trying to perform an action that conflicts with the current status of your
- *             resource. Fix any inconsistences with your resources and try again.</p>
+ *  <p>You are trying to perform an action that conflicts with the current status of your resource. Fix any inconsistencies with your resources and try again.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait
- *             some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
+ *  <p>An issue occurred with the internal server used for your Amazon Q Business service. Wait some minutes and try again, or contact <a href="http://aws.amazon.com/contact-us/">Support</a> for help.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  <p>The resource you want to use doesn’t exist. Make sure you have provided the correct
- *             resource and try again.</p>
+ *  <p>The application or plugin resource you want to use doesn’t exist. Make sure you have provided the correct resource and try again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
  *  <p>You have exceeded the set limits for your Amazon Q Business service. </p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>The request was denied due to throttling. Reduce the number of requests and try
- *             again.</p>
+ *  <p>The request was denied due to throttling. Reduce the number of requests and try again.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the
- *             correct input and try again.</p>
+ *  <p>The input doesn't meet the constraints set by the Amazon Q Business service. Provide the correct input and try again.</p>
  *
  * @throws {@link QBusinessServiceException}
  * <p>Base exception class for all service exceptions from QBusiness service.</p>
+ *
  *
  * @public
  */
@@ -219,9 +210,7 @@ export class BatchPutDocumentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QBusinessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -233,4 +222,16 @@ export class BatchPutDocumentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_BatchPutDocumentCommand)
   .de(de_BatchPutDocumentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchPutDocumentRequest;
+      output: BatchPutDocumentResponse;
+    };
+    sdk: {
+      input: BatchPutDocumentCommandInput;
+      output: BatchPutDocumentCommandOutput;
+    };
+  };
+}

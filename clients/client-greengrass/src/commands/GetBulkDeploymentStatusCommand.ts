@@ -12,7 +12,8 @@ import { de_GetBulkDeploymentStatusCommand, se_GetBulkDeploymentStatusCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface GetBulkDeploymentStatusCommandOutput extends GetBulkDeploymentS
  * @throws {@link GreengrassServiceException}
  * <p>Base exception class for all service exceptions from Greengrass service.</p>
  *
+ *
  * @public
  */
 export class GetBulkDeploymentStatusCommand extends $Command
@@ -83,9 +85,7 @@ export class GetBulkDeploymentStatusCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GreengrassClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -97,4 +97,16 @@ export class GetBulkDeploymentStatusCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBulkDeploymentStatusCommand)
   .de(de_GetBulkDeploymentStatusCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBulkDeploymentStatusRequest;
+      output: GetBulkDeploymentStatusResponse;
+    };
+    sdk: {
+      input: GetBulkDeploymentStatusCommandInput;
+      output: GetBulkDeploymentStatusCommandOutput;
+    };
+  };
+}

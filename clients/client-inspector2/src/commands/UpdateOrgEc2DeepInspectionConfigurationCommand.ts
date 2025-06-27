@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,8 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Updates the Amazon Inspector deep inspection custom paths for your organization. You must be an Amazon Inspector delegated administrator to use this API.</p>
+ * <p>Updates the Amazon Inspector deep inspection custom paths for your organization. You must be an
+ *          Amazon Inspector delegated administrator to use this API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,6 +64,8 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>You do not have sufficient access to perform this action.</p>
+ *          <p> For <code>Enable</code>, you receive this error if you attempt to use a feature in an
+ *          unsupported Amazon Web Services Region. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>The request has failed due to an internal failure of the Amazon Inspector service.</p>
@@ -76,6 +80,7 @@ export interface UpdateOrgEc2DeepInspectionConfigurationCommandOutput
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateOrgEc2DeepInspectionConfigurationCommand extends $Command
@@ -86,9 +91,7 @@ export class UpdateOrgEc2DeepInspectionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -100,4 +103,16 @@ export class UpdateOrgEc2DeepInspectionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOrgEc2DeepInspectionConfigurationCommand)
   .de(de_UpdateOrgEc2DeepInspectionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOrgEc2DeepInspectionConfigurationRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateOrgEc2DeepInspectionConfigurationCommandInput;
+      output: UpdateOrgEc2DeepInspectionConfigurationCommandOutput;
+    };
+  };
+}

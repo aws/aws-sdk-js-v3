@@ -12,7 +12,8 @@ import { de_GetComponentTypeCommand, se_GetComponentTypeCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -189,6 +190,7 @@ export interface GetComponentTypeCommandOutput extends GetComponentTypeResponse,
  * @throws {@link IoTTwinMakerServiceException}
  * <p>Base exception class for all service exceptions from IoTTwinMaker service.</p>
  *
+ *
  * @public
  */
 export class GetComponentTypeCommand extends $Command
@@ -199,9 +201,7 @@ export class GetComponentTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTTwinMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -213,4 +213,16 @@ export class GetComponentTypeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetComponentTypeCommand)
   .de(de_GetComponentTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetComponentTypeRequest;
+      output: GetComponentTypeResponse;
+    };
+    sdk: {
+      input: GetComponentTypeCommandInput;
+      output: GetComponentTypeCommandOutput;
+    };
+  };
+}

@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   DescribeScheduledInstanceAvailabilityRequest,
   DescribeScheduledInstanceAvailabilityResult,
-} from "../models/models_4";
+} from "../models/models_5";
 import {
   de_DescribeScheduledInstanceAvailabilityCommand,
   se_DescribeScheduledInstanceAvailabilityCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -116,6 +117,7 @@ export interface DescribeScheduledInstanceAvailabilityCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class DescribeScheduledInstanceAvailabilityCommand extends $Command
@@ -126,9 +128,7 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +140,16 @@ export class DescribeScheduledInstanceAvailabilityCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeScheduledInstanceAvailabilityCommand)
   .de(de_DescribeScheduledInstanceAvailabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeScheduledInstanceAvailabilityRequest;
+      output: DescribeScheduledInstanceAvailabilityResult;
+    };
+    sdk: {
+      input: DescribeScheduledInstanceAvailabilityCommandInput;
+      output: DescribeScheduledInstanceAvailabilityCommandOutput;
+    };
+  };
+}

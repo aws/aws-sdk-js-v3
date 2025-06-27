@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateRealtimeLogConfigRequest, CreateRealtimeLogConfigResult } from "../models/models_0";
+import { CreateRealtimeLogConfigRequest, CreateRealtimeLogConfigResult } from "../models/models_1";
 import { de_CreateRealtimeLogConfigCommand, se_CreateRealtimeLogConfigCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,11 +28,7 @@ export interface CreateRealtimeLogConfigCommandInput extends CreateRealtimeLogCo
 export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogConfigResult, __MetadataBearer {}
 
 /**
- * <p>Creates a real-time log configuration.</p>
- *          <p>After you create a real-time log configuration, you can attach it to one or more cache
- * 			behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p>
- *          <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ * <p>Creates a real-time log configuration.</p> <p>After you create a real-time log configuration, you can attach it to one or more cache behaviors to send real-time log data to the specified Amazon Kinesis data stream.</p> <p>For more information about real-time log configurations, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/real-time-logs.html">Real-time logs</a> in the <i>Amazon CloudFront Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,17 +88,14 @@ export interface CreateRealtimeLogConfigCommandOutput extends CreateRealtimeLogC
  *  <p>An argument is invalid.</p>
  *
  * @throws {@link RealtimeLogConfigAlreadyExists} (client fault)
- *  <p>A real-time log configuration with this name already exists. You must provide a unique
- * 			name. To modify an existing real-time log configuration, use
- * 				<code>UpdateRealtimeLogConfig</code>.</p>
+ *  <p>A real-time log configuration with this name already exists. You must provide a unique name. To modify an existing real-time log configuration, use <code>UpdateRealtimeLogConfig</code>.</p>
  *
  * @throws {@link TooManyRealtimeLogConfigs} (client fault)
- *  <p>You have reached the maximum number of real-time log configurations for this
- * 			Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the
- * 				<i>Amazon CloudFront Developer Guide</i>.</p>
+ *  <p>You have reached the maximum number of real-time log configurations for this Amazon Web Services account. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cloudfront-limits.html">Quotas</a> (formerly known as limits) in the <i>Amazon CloudFront Developer Guide</i>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -113,9 +107,7 @@ export class CreateRealtimeLogConfigCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +119,16 @@ export class CreateRealtimeLogConfigCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateRealtimeLogConfigCommand)
   .de(de_CreateRealtimeLogConfigCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateRealtimeLogConfigRequest;
+      output: CreateRealtimeLogConfigResult;
+    };
+    sdk: {
+      input: CreateRealtimeLogConfigCommandInput;
+      output: CreateRealtimeLogConfigCommandOutput;
+    };
+  };
+}

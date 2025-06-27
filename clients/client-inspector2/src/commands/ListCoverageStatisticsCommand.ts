@@ -12,7 +12,8 @@ import { de_ListCoverageStatisticsCommand, se_ListCoverageStatisticsCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,22 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  *         endInclusive: new Date("TIMESTAMP"),
  *       },
  *     ],
+ *     ecrImageLastInUseAt: [
+ *       {
+ *         startInclusive: new Date("TIMESTAMP"),
+ *         endInclusive: new Date("TIMESTAMP"),
+ *       },
+ *     ],
+ *     ecrImageInUseCount: [ // CoverageNumberFilterList
+ *       { // CoverageNumberFilter
+ *         upperInclusive: Number("long"),
+ *         lowerInclusive: Number("long"),
+ *       },
+ *     ],
+ *     codeRepositoryProjectName: "<CoverageStringFilterList>",
+ *     codeRepositoryProviderType: "<CoverageStringFilterList>",
+ *     codeRepositoryProviderTypeVisibility: "<CoverageStringFilterList>",
+ *     lastScannedCommitId: "<CoverageStringFilterList>",
  *   },
  *   groupBy: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
@@ -136,6 +153,7 @@ export interface ListCoverageStatisticsCommandOutput extends ListCoverageStatist
  * @throws {@link Inspector2ServiceException}
  * <p>Base exception class for all service exceptions from Inspector2 service.</p>
  *
+ *
  * @public
  */
 export class ListCoverageStatisticsCommand extends $Command
@@ -146,9 +164,7 @@ export class ListCoverageStatisticsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Inspector2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -160,4 +176,16 @@ export class ListCoverageStatisticsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCoverageStatisticsCommand)
   .de(de_ListCoverageStatisticsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCoverageStatisticsRequest;
+      output: ListCoverageStatisticsResponse;
+    };
+    sdk: {
+      input: ListCoverageStatisticsCommandInput;
+      output: ListCoverageStatisticsCommandOutput;
+    };
+  };
+}

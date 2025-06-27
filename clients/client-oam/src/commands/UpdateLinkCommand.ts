@@ -12,7 +12,8 @@ import { de_UpdateLinkCommand, se_UpdateLinkCommand } from "../protocols/Aws_res
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,12 +28,7 @@ export interface UpdateLinkCommandInput extends UpdateLinkInput {}
 export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBearer {}
 
 /**
- * <p>Use this operation to change what types of data are shared from a source account to its linked
- *       monitoring account sink. You can't change the sink or change the monitoring account with this operation.</p>
- *          <p>When you update a link, you can optionally specify filters
- *      that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p>
- *          <p>To update the list of tags associated with the sink, use
- *        <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
+ * <p>Use this operation to change what types of data are shared from a source account to its linked monitoring account sink. You can't change the sink or change the monitoring account with this operation.</p> <p>When you update a link, you can optionally specify filters that specify which metric namespaces and which log groups are shared from the source account to the monitoring account.</p> <p>To update the list of tags associated with the sink, use <a href="https://docs.aws.amazon.com/OAM/latest/APIReference/API_TagResource.html">TagResource</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,7 +38,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * const input = { // UpdateLinkInput
  *   Identifier: "STRING_VALUE", // required
  *   ResourceTypes: [ // ResourceTypesInput // required
- *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor",
+ *     "AWS::CloudWatch::Metric" || "AWS::Logs::LogGroup" || "AWS::XRay::Trace" || "AWS::ApplicationInsights::Application" || "AWS::InternetMonitor::Monitor" || "AWS::ApplicationSignals::Service" || "AWS::ApplicationSignals::ServiceLevelObjective",
  *   ],
  *   LinkConfiguration: { // LinkConfiguration
  *     LogGroupConfiguration: { // LogGroupConfiguration
@@ -52,6 +48,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  *       Filter: "STRING_VALUE", // required
  *     },
  *   },
+ *   IncludeTags: true || false,
  * };
  * const command = new UpdateLinkCommand(input);
  * const response = await client.send(command);
@@ -100,6 +97,7 @@ export interface UpdateLinkCommandOutput extends UpdateLinkOutput, __MetadataBea
  * @throws {@link OAMServiceException}
  * <p>Base exception class for all service exceptions from OAM service.</p>
  *
+ *
  * @public
  */
 export class UpdateLinkCommand extends $Command
@@ -110,9 +108,7 @@ export class UpdateLinkCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +120,16 @@ export class UpdateLinkCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateLinkCommand)
   .de(de_UpdateLinkCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLinkInput;
+      output: UpdateLinkOutput;
+    };
+    sdk: {
+      input: UpdateLinkCommandInput;
+      output: UpdateLinkCommandOutput;
+    };
+  };
+}

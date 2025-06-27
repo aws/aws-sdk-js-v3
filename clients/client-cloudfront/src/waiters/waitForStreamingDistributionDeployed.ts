@@ -36,7 +36,7 @@ export const waitForStreamingDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetStreamingDistributionCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 60, maxDelay: 1500 };
   return createWaiter({ ...serviceDefaults, ...params }, input, checkState);
 };
 /**
@@ -48,7 +48,7 @@ export const waitUntilStreamingDistributionDeployed = async (
   params: WaiterConfiguration<CloudFrontClient>,
   input: GetStreamingDistributionCommandInput
 ): Promise<WaiterResult> => {
-  const serviceDefaults = { minDelay: 60, maxDelay: 120 };
+  const serviceDefaults = { minDelay: 60, maxDelay: 1500 };
   const result = await createWaiter({ ...serviceDefaults, ...params }, input, checkState);
   return checkExceptions(result);
 };

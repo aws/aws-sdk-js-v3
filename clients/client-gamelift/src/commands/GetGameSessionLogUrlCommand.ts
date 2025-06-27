@@ -12,7 +12,8 @@ import { de_GetGameSessionLogUrlCommand, se_GetGameSessionLogUrlCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +29,7 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
 
 /**
  * <p>Retrieves the location of stored game session logs for a specified game session on
- *             Amazon GameLift managed fleets. When a game session is terminated, Amazon GameLift automatically stores
+ *             Amazon GameLift Servers managed fleets. When a game session is terminated, Amazon GameLift Servers automatically stores
  *             the logs in Amazon S3 and retains them for 14 days. Use this URL to download the logs.</p>
  *          <note>
  *             <p>See the <a href="https://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">Amazon Web Services Service
@@ -70,13 +71,14 @@ export interface GetGameSessionLogUrlCommandOutput extends GetGameSessionLogUrlO
  *             values before retrying.</p>
  *
  * @throws {@link NotFoundException} (client fault)
- *  <p>THe requested resources was not found. The resource was either not created yet or deleted.</p>
+ *  <p>The requested resources was not found. The resource was either not created yet or deleted.</p>
  *
  * @throws {@link UnauthorizedException} (client fault)
  *  <p>The client failed authentication. Clients should not retry such requests.</p>
  *
  * @throws {@link GameLiftServiceException}
  * <p>Base exception class for all service exceptions from GameLift service.</p>
+ *
  *
  * @public
  */
@@ -88,9 +90,7 @@ export class GetGameSessionLogUrlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GameLiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class GetGameSessionLogUrlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetGameSessionLogUrlCommand)
   .de(de_GetGameSessionLogUrlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetGameSessionLogUrlInput;
+      output: GetGameSessionLogUrlOutput;
+    };
+    sdk: {
+      input: GetGameSessionLogUrlCommandInput;
+      output: GetGameSessionLogUrlCommandOutput;
+    };
+  };
+}

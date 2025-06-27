@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CloudFrontClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CloudFrontClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_1";
+import { UpdateOriginAccessControlRequest, UpdateOriginAccessControlResult } from "../models/models_2";
 import { de_UpdateOriginAccessControlCommand, se_UpdateOriginAccessControlCommand } from "../protocols/Aws_restXml";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,11 +89,11 @@ export interface UpdateOriginAccessControlCommandOutput extends UpdateOriginAcce
  *  <p>An origin access control with the specified parameters already exists.</p>
  *
  * @throws {@link PreconditionFailed} (client fault)
- *  <p>The precondition in one or more of the request fields evaluated to
- * 			<code>false</code>.</p>
+ *  <p>The precondition in one or more of the request fields evaluated to <code>false</code>.</p>
  *
  * @throws {@link CloudFrontServiceException}
  * <p>Base exception class for all service exceptions from CloudFront service.</p>
+ *
  *
  * @public
  */
@@ -104,9 +105,7 @@ export class UpdateOriginAccessControlCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudFrontClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +117,16 @@ export class UpdateOriginAccessControlCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateOriginAccessControlCommand)
   .de(de_UpdateOriginAccessControlCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateOriginAccessControlRequest;
+      output: UpdateOriginAccessControlResult;
+    };
+    sdk: {
+      input: UpdateOriginAccessControlCommandInput;
+      output: UpdateOriginAccessControlCommandOutput;
+    };
+  };
+}

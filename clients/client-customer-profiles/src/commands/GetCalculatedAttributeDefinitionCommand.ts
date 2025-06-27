@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,8 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Provides more information on a calculated attribute definition for Customer Profiles.</p>
+ * <p>Provides more information on a calculated attribute definition for Customer
+ *          Profiles.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,10 +58,36 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
  * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
+ * //   Filter: { // Filter
+ * //     Include: "ALL" || "ANY" || "NONE", // required
+ * //     Groups: [ // GroupList // required
+ * //       { // FilterGroup
+ * //         Type: "ALL" || "ANY" || "NONE", // required
+ * //         Dimensions: [ // FilterDimensionList // required
+ * //           { // FilterDimension
+ * //             Attributes: { // AttributeMap // required
+ * //               "<keys>": { // FilterAttributeDimension
+ * //                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ * //                 Values: [ // ValueList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
  * //   Conditions: { // Conditions
  * //     Range: { // Range
- * //       Value: Number("int"), // required
- * //       Unit: "DAYS", // required
+ * //       Value: Number("int"),
+ * //       Unit: "DAYS",
+ * //       ValueRange: { // ValueRange
+ * //         Start: Number("int"), // required
+ * //         End: Number("int"), // required
+ * //       },
+ * //       TimestampSource: "STRING_VALUE",
+ * //       TimestampFormat: "STRING_VALUE",
  * //     },
  * //     ObjectCount: Number("int"),
  * //     Threshold: { // Threshold
@@ -74,6 +102,12 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * //       },
  * //     ],
  * //     Expression: "STRING_VALUE", // required
+ * //   },
+ * //   UseHistoricalData: true || false,
+ * //   Status: "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //   Readiness: { // Readiness
+ * //     ProgressPercentage: Number("int"),
+ * //     Message: "STRING_VALUE",
  * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
@@ -106,6 +140,7 @@ export interface GetCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class GetCalculatedAttributeDefinitionCommand extends $Command
@@ -116,9 +151,7 @@ export class GetCalculatedAttributeDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +163,16 @@ export class GetCalculatedAttributeDefinitionCommand extends $Command
   .f(void 0, GetCalculatedAttributeDefinitionResponseFilterSensitiveLog)
   .ser(se_GetCalculatedAttributeDefinitionCommand)
   .de(de_GetCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCalculatedAttributeDefinitionRequest;
+      output: GetCalculatedAttributeDefinitionResponse;
+    };
+    sdk: {
+      input: GetCalculatedAttributeDefinitionCommandInput;
+      output: GetCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

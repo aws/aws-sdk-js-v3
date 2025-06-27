@@ -12,7 +12,8 @@ import { de_RegisterEventTopicCommand, se_RegisterEventTopicCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -69,6 +70,21 @@ export interface RegisterEventTopicCommandOutput extends RegisterEventTopicResul
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To register an event topic
+ * ```javascript
+ * // The following example associates a directory with an SNS topic.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   TopicName: "snstopicexample"
+ * };
+ * const command = new RegisterEventTopicCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class RegisterEventTopicCommand extends $Command
@@ -79,9 +95,7 @@ export class RegisterEventTopicCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -93,4 +107,16 @@ export class RegisterEventTopicCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RegisterEventTopicCommand)
   .de(de_RegisterEventTopicCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RegisterEventTopicRequest;
+      output: {};
+    };
+    sdk: {
+      input: RegisterEventTopicCommandInput;
+      output: RegisterEventTopicCommandOutput;
+    };
+  };
+}

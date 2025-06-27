@@ -17,7 +17,8 @@ import { QLDBClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface GetBlockCommandOutput extends GetBlockResponse, __MetadataBeare
  * @throws {@link QLDBServiceException}
  * <p>Base exception class for all service exceptions from QLDB service.</p>
  *
+ *
  * @public
  */
 export class GetBlockCommand extends $Command
@@ -98,9 +100,7 @@ export class GetBlockCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QLDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class GetBlockCommand extends $Command
   .f(GetBlockRequestFilterSensitiveLog, GetBlockResponseFilterSensitiveLog)
   .ser(se_GetBlockCommand)
   .de(de_GetBlockCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBlockRequest;
+      output: GetBlockResponse;
+    };
+    sdk: {
+      input: GetBlockCommandInput;
+      output: GetBlockCommandOutput;
+    };
+  };
+}

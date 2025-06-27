@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * //       ResourceId: "STRING_VALUE",
  * //       ResourceOwnerId: "STRING_VALUE",
  * //       ResourceCidr: "STRING_VALUE",
+ * //       IpSource: "amazon" || "byoip" || "none",
  * //       ResourceType: "vpc" || "subnet" || "eip" || "public-ipv4-pool" || "ipv6-pool" || "eni",
  * //       ResourceTags: [ // IpamResourceTagList
  * //         { // IpamResourceTag
@@ -73,7 +75,10 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * //       ],
  * //       IpUsage: Number("double"),
  * //       VpcId: "STRING_VALUE",
+ * //       SubnetId: "STRING_VALUE",
+ * //       NetworkInterfaceAttachmentStatus: "available" || "in-use",
  * //       SampleTime: new Date("TIMESTAMP"),
+ * //       AvailabilityZoneId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -90,6 +95,7 @@ export interface GetIpamDiscoveredResourceCidrsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetIpamDiscoveredResourceCidrsCommand extends $Command
@@ -100,9 +106,7 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +118,16 @@ export class GetIpamDiscoveredResourceCidrsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetIpamDiscoveredResourceCidrsCommand)
   .de(de_GetIpamDiscoveredResourceCidrsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetIpamDiscoveredResourceCidrsRequest;
+      output: GetIpamDiscoveredResourceCidrsResult;
+    };
+    sdk: {
+      input: GetIpamDiscoveredResourceCidrsCommandInput;
+      output: GetIpamDiscoveredResourceCidrsCommandOutput;
+    };
+  };
+}

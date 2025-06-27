@@ -12,7 +12,8 @@ import { de_UpdateSyncConfigurationCommand, se_UpdateSyncConfigurationCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -43,6 +44,7 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  *   SyncType: "CFN_STACK_SYNC", // required
  *   PublishDeploymentStatus: "ENABLED" || "DISABLED",
  *   TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
+ *   PullRequestComment: "ENABLED" || "DISABLED",
  * };
  * const command = new UpdateSyncConfigurationCommand(input);
  * const response = await client.send(command);
@@ -59,6 +61,7 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  * //     SyncType: "CFN_STACK_SYNC", // required
  * //     PublishDeploymentStatus: "ENABLED" || "DISABLED",
  * //     TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
+ * //     PullRequestComment: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *
@@ -94,6 +97,7 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  * @throws {@link CodeConnectionsServiceException}
  * <p>Base exception class for all service exceptions from CodeConnections service.</p>
  *
+ *
  * @public
  */
 export class UpdateSyncConfigurationCommand extends $Command
@@ -104,9 +108,7 @@ export class UpdateSyncConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeConnectionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class UpdateSyncConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateSyncConfigurationCommand)
   .de(de_UpdateSyncConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateSyncConfigurationInput;
+      output: UpdateSyncConfigurationOutput;
+    };
+    sdk: {
+      input: UpdateSyncConfigurationCommandInput;
+      output: UpdateSyncConfigurationCommandOutput;
+    };
+  };
+}

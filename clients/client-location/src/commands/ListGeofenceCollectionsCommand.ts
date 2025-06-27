@@ -12,7 +12,8 @@ import { de_ListGeofenceCollectionsCommand, se_ListGeofenceCollectionsCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -78,6 +79,7 @@ export interface ListGeofenceCollectionsCommandOutput extends ListGeofenceCollec
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class ListGeofenceCollectionsCommand extends $Command
@@ -88,9 +90,7 @@ export class ListGeofenceCollectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -102,4 +102,16 @@ export class ListGeofenceCollectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListGeofenceCollectionsCommand)
   .de(de_ListGeofenceCollectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListGeofenceCollectionsRequest;
+      output: ListGeofenceCollectionsResponse;
+    };
+    sdk: {
+      input: ListGeofenceCollectionsCommandInput;
+      output: ListGeofenceCollectionsCommandOutput;
+    };
+  };
+}

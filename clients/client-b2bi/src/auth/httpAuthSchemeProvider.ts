@@ -12,6 +12,7 @@ import {
   HttpAuthSchemeParameters,
   HttpAuthSchemeParametersProvider,
   HttpAuthSchemeProvider,
+  Provider,
 } from "@smithy/types";
 import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
 
@@ -60,7 +61,7 @@ function createAwsAuthSigv4HttpAuthOption(authParameters: B2biHttpAuthSchemePara
       name: "b2bi",
       region: authParameters.region,
     },
-    propertiesExtractor: (config: B2biClientConfig, context) => ({
+    propertiesExtractor: (config: Partial<B2biClientConfig>, context) => ({
       /**
        * @internal
        */
@@ -95,13 +96,21 @@ export const defaultB2biHttpAuthSchemeProvider: B2biHttpAuthSchemeProvider = (au
  */
 export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
+   */
+  authSchemePreference?: string[] | Provider<string[]>;
+
+  /**
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   httpAuthSchemes?: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   httpAuthSchemeProvider?: B2biHttpAuthSchemeProvider;
@@ -112,13 +121,21 @@ export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
  */
 export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
   /**
-   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * A comma-separated list of case-sensitive auth scheme names.
+   * An auth scheme name is a fully qualified auth scheme ID with the namespace prefix trimmed.
+   * For example, the auth scheme with ID aws.auth#sigv4 is named sigv4.
+   * @public
+   */
+  readonly authSchemePreference: Provider<string[]>;
+
+  /**
+   * Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
    * @internal
    */
   readonly httpAuthSchemes: HttpAuthScheme[];
 
   /**
-   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
    * @internal
    */
   readonly httpAuthSchemeProvider: B2biHttpAuthSchemeProvider;
@@ -131,7 +148,7 @@ export const resolveHttpAuthSchemeConfig = <T>(
   config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
 ): T & HttpAuthSchemeResolvedConfig => {
   const config_0 = resolveAwsSdkSigV4Config(config);
-  return {
-    ...config_0,
-  } as T & HttpAuthSchemeResolvedConfig;
+  return Object.assign(config_0, {
+    authSchemePreference: normalizeProvider(config.authSchemePreference ?? []),
+  }) as T & HttpAuthSchemeResolvedConfig;
 };

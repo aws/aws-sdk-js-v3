@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,7 +68,7 @@ export interface ListCloudWatchAlarmTemplatesCommandOutput
  * //       Tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
- * //       TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET", // required
+ * //       TargetResourceType: "CLOUDFRONT_DISTRIBUTION" || "MEDIALIVE_MULTIPLEX" || "MEDIALIVE_CHANNEL" || "MEDIALIVE_INPUT_DEVICE" || "MEDIAPACKAGE_CHANNEL" || "MEDIAPACKAGE_ORIGIN_ENDPOINT" || "MEDIACONNECT_FLOW" || "S3_BUCKET" || "MEDIATAILOR_PLAYBACK_CONFIGURATION", // required
  * //       Threshold: Number("double"), // required
  * //       TreatMissingData: "notBreaching" || "breaching" || "ignore" || "missing", // required
  * //     },
@@ -101,6 +102,7 @@ export interface ListCloudWatchAlarmTemplatesCommandOutput
  * @throws {@link MediaLiveServiceException}
  * <p>Base exception class for all service exceptions from MediaLive service.</p>
  *
+ *
  * @public
  */
 export class ListCloudWatchAlarmTemplatesCommand extends $Command
@@ -111,9 +113,7 @@ export class ListCloudWatchAlarmTemplatesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaLiveClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +125,16 @@ export class ListCloudWatchAlarmTemplatesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListCloudWatchAlarmTemplatesCommand)
   .de(de_ListCloudWatchAlarmTemplatesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListCloudWatchAlarmTemplatesRequest;
+      output: ListCloudWatchAlarmTemplatesResponse;
+    };
+    sdk: {
+      input: ListCloudWatchAlarmTemplatesCommandInput;
+      output: ListCloudWatchAlarmTemplatesCommandOutput;
+    };
+  };
+}

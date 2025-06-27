@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VoiceIDClientResolvedConfig } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface ListFraudstersCommandOutput extends ListFraudstersResponse, __M
  * @throws {@link VoiceIDServiceException}
  * <p>Base exception class for all service exceptions from VoiceID service.</p>
  *
+ *
  * @public
  */
 export class ListFraudstersCommand extends $Command
@@ -98,9 +100,7 @@ export class ListFraudstersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VoiceIDClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListFraudstersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFraudstersCommand)
   .de(de_ListFraudstersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFraudstersRequest;
+      output: ListFraudstersResponse;
+    };
+    sdk: {
+      input: ListFraudstersCommandInput;
+      output: ListFraudstersCommandOutput;
+    };
+  };
+}

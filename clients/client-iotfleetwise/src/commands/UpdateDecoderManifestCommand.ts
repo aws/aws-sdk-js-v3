@@ -12,7 +12,8 @@ import { de_UpdateDecoderManifestCommand, se_UpdateDecoderManifestCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *   signalDecodersToAdd: [ // SignalDecoders
  *     { // SignalDecoder
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL" || "CUSTOM_DECODING_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: { // CanSignal
  *         messageId: Number("int"), // required
@@ -53,6 +54,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         factor: Number("double"), // required
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       obdSignal: { // ObdSignal
  *         pidResponseLength: Number("int"), // required
@@ -64,6 +66,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         byteLength: Number("int"), // required
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
+ *         isSigned: true || false,
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       messageSignal: { // MessageSignal
  *         topicName: "STRING_VALUE", // required
@@ -111,12 +115,15 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *           ],
  *         },
  *       },
+ *       customDecodingSignal: { // CustomDecodingSignal
+ *         id: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   signalDecodersToUpdate: [
  *     {
  *       fullyQualifiedName: "STRING_VALUE", // required
- *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL", // required
+ *       type: "CAN_SIGNAL" || "OBD_SIGNAL" || "MESSAGE_SIGNAL" || "CUSTOM_DECODING_SIGNAL", // required
  *       interfaceId: "STRING_VALUE", // required
  *       canSignal: {
  *         messageId: Number("int"), // required
@@ -127,6 +134,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         factor: Number("double"), // required
  *         length: Number("int"), // required
  *         name: "STRING_VALUE",
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       obdSignal: {
  *         pidResponseLength: Number("int"), // required
@@ -138,10 +146,15 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         byteLength: Number("int"), // required
  *         bitRightShift: Number("int"),
  *         bitMaskLength: Number("int"),
+ *         isSigned: true || false,
+ *         signalValueType: "INTEGER" || "FLOATING_POINT",
  *       },
  *       messageSignal: {
  *         topicName: "STRING_VALUE", // required
  *         structuredMessage: "<StructuredMessage>", // required
+ *       },
+ *       customDecodingSignal: {
+ *         id: "STRING_VALUE", // required
  *       },
  *     },
  *   ],
@@ -151,7 +164,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *   networkInterfacesToAdd: [ // NetworkInterfaces
  *     { // NetworkInterface
  *       interfaceId: "STRING_VALUE", // required
- *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE" || "CUSTOM_DECODING_INTERFACE", // required
  *       canInterface: { // CanInterface
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -170,12 +183,15 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         name: "STRING_VALUE", // required
  *         protocolName: "ROS_2", // required
  *       },
+ *       customDecodingInterface: { // CustomDecodingInterface
+ *         name: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   networkInterfacesToUpdate: [
  *     {
  *       interfaceId: "STRING_VALUE", // required
- *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE", // required
+ *       type: "CAN_INTERFACE" || "OBD_INTERFACE" || "VEHICLE_MIDDLEWARE" || "CUSTOM_DECODING_INTERFACE", // required
  *       canInterface: {
  *         name: "STRING_VALUE", // required
  *         protocolName: "STRING_VALUE",
@@ -194,12 +210,16 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *         name: "STRING_VALUE", // required
  *         protocolName: "ROS_2", // required
  *       },
+ *       customDecodingInterface: {
+ *         name: "STRING_VALUE", // required
+ *       },
  *     },
  *   ],
  *   networkInterfacesToRemove: [ // InterfaceIds
  *     "STRING_VALUE",
  *   ],
  *   status: "ACTIVE" || "DRAFT" || "INVALID" || "VALIDATING",
+ *   defaultForUnmappedSignals: "CUSTOM_DECODING",
  * };
  * const command = new UpdateDecoderManifestCommand(input);
  * const response = await client.send(command);
@@ -224,7 +244,8 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  *             more than one operation on the same resource at the same time.</p>
  *
  * @throws {@link DecoderManifestValidationException} (client fault)
- *  <p>The request couldn't be completed because it contains signal decoders with one or more validation errors.</p>
+ *  <p>The request couldn't be completed because it contains signal decoders with one or more
+ *             validation errors.</p>
  *
  * @throws {@link LimitExceededException} (client fault)
  *  <p>A service quota was exceeded. </p>
@@ -244,6 +265,7 @@ export interface UpdateDecoderManifestCommandOutput extends UpdateDecoderManifes
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateDecoderManifestCommand extends $Command
@@ -254,9 +276,7 @@ export class UpdateDecoderManifestCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -268,4 +288,16 @@ export class UpdateDecoderManifestCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDecoderManifestCommand)
   .de(de_UpdateDecoderManifestCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDecoderManifestRequest;
+      output: UpdateDecoderManifestResponse;
+    };
+    sdk: {
+      input: UpdateDecoderManifestCommandInput;
+      output: UpdateDecoderManifestCommandOutput;
+    };
+  };
+}

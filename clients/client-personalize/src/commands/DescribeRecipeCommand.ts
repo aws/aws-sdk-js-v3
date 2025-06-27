@@ -12,7 +12,8 @@ import { de_DescribeRecipeCommand, se_DescribeRecipeCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface DescribeRecipeCommandOutput extends DescribeRecipeResponse, __M
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeRecipeCommand extends $Command
@@ -98,9 +100,7 @@ export class DescribeRecipeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class DescribeRecipeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeRecipeCommand)
   .de(de_DescribeRecipeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeRecipeRequest;
+      output: DescribeRecipeResponse;
+    };
+    sdk: {
+      input: DescribeRecipeCommandInput;
+      output: DescribeRecipeCommandOutput;
+    };
+  };
+}

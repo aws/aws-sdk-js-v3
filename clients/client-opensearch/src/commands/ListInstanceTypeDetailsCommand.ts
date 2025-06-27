@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListInstanceTypeDetailsRequest, ListInstanceTypeDetailsResponse } from "../models/models_0";
+import { ListInstanceTypeDetailsRequest, ListInstanceTypeDetailsResponse } from "../models/models_1";
 import { OpenSearchClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../OpenSearchClient";
 import { de_ListInstanceTypeDetailsCommand, se_ListInstanceTypeDetailsCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface ListInstanceTypeDetailsCommandOutput extends ListInstanceTypeDe
  * @throws {@link OpenSearchServiceException}
  * <p>Base exception class for all service exceptions from OpenSearch service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceTypeDetailsCommand extends $Command
@@ -98,9 +100,7 @@ export class ListInstanceTypeDetailsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OpenSearchClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class ListInstanceTypeDetailsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceTypeDetailsCommand)
   .de(de_ListInstanceTypeDetailsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceTypeDetailsRequest;
+      output: ListInstanceTypeDetailsResponse;
+    };
+    sdk: {
+      input: ListInstanceTypeDetailsCommandInput;
+      output: ListInstanceTypeDetailsCommandOutput;
+    };
+  };
+}

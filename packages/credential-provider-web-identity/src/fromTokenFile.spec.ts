@@ -1,4 +1,5 @@
 import { readFileSync } from "fs";
+import { afterEach, beforeEach, describe, expect, test as it, vi } from "vitest";
 
 import { fromTokenFile } from "./fromTokenFile";
 import { fromWebToken } from "./fromWebToken";
@@ -9,8 +10,8 @@ const ENV_ROLE_SESSION_NAME = "AWS_ROLE_SESSION_NAME";
 
 import { CredentialsProviderError } from "@smithy/property-provider";
 
-jest.mock("fs");
-jest.mock("./fromWebToken");
+vi.mock("fs");
+vi.mock("./fromWebToken");
 
 const MOCK_CREDS = {
   accessKeyId: "accessKeyId",
@@ -25,13 +26,13 @@ const mockRoleSessionName = "mockRoleSessionName";
 
 describe(fromTokenFile.name, () => {
   beforeEach(() => {
-    (readFileSync as jest.Mock).mockReturnValue(mockTokenValue);
-    (fromWebToken as jest.Mock).mockReturnValue(() => Promise.resolve(MOCK_CREDS));
+    vi.mocked(readFileSync).mockReturnValue(mockTokenValue);
+    vi.mocked(fromWebToken).mockReturnValue(() => Promise.resolve(MOCK_CREDS));
   });
 
   afterEach(() => {
-    jest.clearAllMocks();
-    jest.restoreAllMocks();
+    vi.clearAllMocks();
+    vi.restoreAllMocks();
   });
 
   describe("reads config from env", () => {
@@ -52,13 +53,13 @@ describe(fromTokenFile.name, () => {
     });
 
     it(`passes values to ${fromWebToken.name}`, async () => {
-      const roleAssumerWithWebIdentity = jest.fn();
+      const roleAssumerWithWebIdentity = vi.fn();
       const creds = await fromTokenFile({
         roleAssumerWithWebIdentity,
       })();
       expect(creds).toEqual(MOCK_CREDS);
-      expect(fromWebToken as jest.Mock).toHaveBeenCalledTimes(1);
-      const webTokenInit = (fromWebToken as jest.Mock).mock.calls[0][0];
+      expect(vi.mocked(fromWebToken)).toHaveBeenCalledTimes(1);
+      const webTokenInit = vi.mocked(fromWebToken).mock.calls[0][0];
       expect(webTokenInit.webIdentityToken).toBe(mockTokenValue);
       expect(webTokenInit.roleSessionName).toBe(mockRoleSessionName);
       expect(webTokenInit.roleArn).toBe(mockRoleArn);
@@ -66,7 +67,7 @@ describe(fromTokenFile.name, () => {
     });
 
     it("prefers init parameters over environmental variables", async () => {
-      const roleAssumerWithWebIdentity = jest.fn();
+      const roleAssumerWithWebIdentity = vi.fn();
       const init = {
         webIdentityTokenFile: "anotherTokenFile",
         roleArn: "anotherRoleArn",
@@ -75,22 +76,22 @@ describe(fromTokenFile.name, () => {
       };
       const creds = await fromTokenFile(init)();
       expect(creds).toEqual(MOCK_CREDS);
-      expect(fromWebToken as jest.Mock).toHaveBeenCalledTimes(1);
-      const webTokenInit = (fromWebToken as jest.Mock).mock.calls[0][0];
+      expect(vi.mocked(fromWebToken)).toHaveBeenCalledTimes(1);
+      const webTokenInit = vi.mocked(fromWebToken).mock.calls[0][0];
       expect(webTokenInit.roleSessionName).toBe(init.roleSessionName);
       expect(webTokenInit.roleArn).toBe(init.roleArn);
       expect(webTokenInit.roleAssumerWithWebIdentity).toBe(roleAssumerWithWebIdentity);
-      expect(readFileSync as jest.Mock).toHaveBeenCalledTimes(1);
-      expect((readFileSync as jest.Mock).mock.calls[0][0]).toBe(init.webIdentityTokenFile);
+      expect(vi.mocked(readFileSync)).toHaveBeenCalledTimes(1);
+      expect(vi.mocked(readFileSync).mock.calls[0][0]).toBe(init.webIdentityTokenFile);
     });
 
     it("throws if ENV_TOKEN_FILE read from disk failed", async () => {
       const readFileSyncError = new Error("readFileSyncError");
-      (readFileSync as jest.Mock).mockImplementation(() => {
+      vi.mocked(readFileSync).mockImplementation(() => {
         throw readFileSyncError;
       });
       try {
-        await fromTokenFile({ roleAssumerWithWebIdentity: jest.fn() })();
+        await fromTokenFile({ roleAssumerWithWebIdentity: vi.fn() })();
         fail(`Expected error to be thrown`);
       } catch (error) {
         expect(error).toEqual(readFileSyncError);
@@ -100,7 +101,7 @@ describe(fromTokenFile.name, () => {
 
     it("throws if web_identity_token_file read from disk failed", async () => {
       const readFileSyncError = new Error("readFileSyncError");
-      (readFileSync as jest.Mock).mockImplementation(() => {
+      vi.mocked(readFileSync).mockImplementation(() => {
         throw readFileSyncError;
       });
       try {
@@ -108,7 +109,7 @@ describe(fromTokenFile.name, () => {
           webIdentityTokenFile: mockTokenFile,
           roleArn: mockRoleArn,
           roleSessionName: mockRoleSessionName,
-          roleAssumerWithWebIdentity: jest.fn(),
+          roleAssumerWithWebIdentity: vi.fn(),
         })();
         fail(`Expected error to be thrown`);
       } catch (error) {

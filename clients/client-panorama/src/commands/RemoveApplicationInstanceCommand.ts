@@ -12,7 +12,8 @@ import { de_RemoveApplicationInstanceCommand, se_RemoveApplicationInstanceComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,7 @@ export interface RemoveApplicationInstanceCommandOutput extends RemoveApplicatio
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class RemoveApplicationInstanceCommand extends $Command
@@ -77,9 +79,7 @@ export class RemoveApplicationInstanceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +91,16 @@ export class RemoveApplicationInstanceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RemoveApplicationInstanceCommand)
   .de(de_RemoveApplicationInstanceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RemoveApplicationInstanceRequest;
+      output: {};
+    };
+    sdk: {
+      input: RemoveApplicationInstanceCommandInput;
+      output: RemoveApplicationInstanceCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetSnapshotLimitsCommand, se_GetSnapshotLimitsCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,26 @@ export interface GetSnapshotLimitsCommandOutput extends GetSnapshotLimitsResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To get snapshot limits
+ * ```javascript
+ * // The following example obtains the manual snapshot limits for a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed"
+ * };
+ * const command = new GetSnapshotLimitsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   SnapshotLimits: {
+ *     ManualSnapshotsCurrentCount: 1,
+ *     ManualSnapshotsLimit: 5,
+ *     ManualSnapshotsLimitReached: false
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetSnapshotLimitsCommand extends $Command
@@ -77,9 +98,7 @@ export class GetSnapshotLimitsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +110,16 @@ export class GetSnapshotLimitsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSnapshotLimitsCommand)
   .de(de_GetSnapshotLimitsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSnapshotLimitsRequest;
+      output: GetSnapshotLimitsResult;
+    };
+    sdk: {
+      input: GetSnapshotLimitsCommandInput;
+      output: GetSnapshotLimitsCommandOutput;
+    };
+  };
+}

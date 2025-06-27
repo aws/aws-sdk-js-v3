@@ -18,7 +18,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,8 +37,7 @@ export interface GetScalingConfigurationRecommendationCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies
- *          that you can apply to your SageMaker endpoint.</p>
+ * <p>Starts an Amazon SageMaker Inference Recommender autoscaling recommendation job. Returns recommendations for autoscaling policies that you can apply to your SageMaker endpoint.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,6 +108,7 @@ export interface GetScalingConfigurationRecommendationCommandOutput
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class GetScalingConfigurationRecommendationCommand extends $Command
@@ -118,9 +119,7 @@ export class GetScalingConfigurationRecommendationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +131,16 @@ export class GetScalingConfigurationRecommendationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetScalingConfigurationRecommendationCommand)
   .de(de_GetScalingConfigurationRecommendationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetScalingConfigurationRecommendationRequest;
+      output: GetScalingConfigurationRecommendationResponse;
+    };
+    sdk: {
+      input: GetScalingConfigurationRecommendationCommandInput;
+      output: GetScalingConfigurationRecommendationCommandOutput;
+    };
+  };
+}

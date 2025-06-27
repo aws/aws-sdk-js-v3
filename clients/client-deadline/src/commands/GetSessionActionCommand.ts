@@ -16,7 +16,8 @@ import { de_GetSessionActionCommand, se_GetSessionActionCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,7 +65,7 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //       environmentId: "STRING_VALUE", // required
  * //     },
  * //     taskRun: { // TaskRunSessionActionDefinition
- * //       taskId: "STRING_VALUE", // required
+ * //       taskId: "STRING_VALUE",
  * //       stepId: "STRING_VALUE", // required
  * //       parameters: { // TaskParameters // required
  * //         "<keys>": { // TaskParameterValue Union: only one key present
@@ -79,6 +80,12 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  * //       stepId: "STRING_VALUE",
  * //     },
  * //   },
+ * //   acquiredLimits: [ // AcquiredLimits
+ * //     { // AcquiredLimit
+ * //       limitId: "STRING_VALUE", // required
+ * //       count: Number("int"), // required
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -102,11 +109,11 @@ export interface GetSessionActionCommandOutput extends GetSessionActionResponse,
  *  <p>Your request exceeded a request rate quota.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The request isn't valid. This can occur if your request contains malformed JSON or
- *          unsupported characters.</p>
+ *  <p>The request isn't valid. This can occur if your request contains malformed JSON or unsupported characters.</p>
  *
  * @throws {@link DeadlineServiceException}
  * <p>Base exception class for all service exceptions from Deadline service.</p>
+ *
  *
  * @public
  */
@@ -118,9 +125,7 @@ export class GetSessionActionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DeadlineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +137,16 @@ export class GetSessionActionCommand extends $Command
   .f(void 0, GetSessionActionResponseFilterSensitiveLog)
   .ser(se_GetSessionActionCommand)
   .de(de_GetSessionActionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSessionActionRequest;
+      output: GetSessionActionResponse;
+    };
+    sdk: {
+      input: GetSessionActionCommandInput;
+      output: GetSessionActionCommandOutput;
+    };
+  };
+}

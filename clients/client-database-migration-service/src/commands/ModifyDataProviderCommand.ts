@@ -16,7 +16,8 @@ import { de_ModifyDataProviderCommand, se_ModifyDataProviderCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,7 +34,8 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
 /**
  * <p>Modifies the specified data provider using the provided settings.</p>
  *          <note>
- *             <p>You must remove the data provider from all migration projects before you can modify it.</p>
+ *             <p>You must remove the data provider from all migration projects before you can modify
+ *             it.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -46,12 +48,15 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *   DataProviderName: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   Engine: "STRING_VALUE",
+ *   Virtual: true || false,
  *   ExactSettings: true || false,
  *   Settings: { // DataProviderSettings Union: only one key present
  *     RedshiftSettings: { // RedshiftDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
  *       DatabaseName: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -59,12 +64,16 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MySqlSettings: { // MySqlDataProviderSettings
  *       ServerName: "STRING_VALUE",
  *       Port: Number("int"),
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     OracleSettings: { // OracleDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -77,6 +86,8 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *       SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  *       SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  *       SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -84,6 +95,8 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *       DatabaseName: "STRING_VALUE",
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     DocDbSettings: { // DocDbDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -97,6 +110,26 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *       Port: Number("int"),
  *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
  *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
+ *     },
+ *     IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
+ *     },
+ *     IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ *       ServerName: "STRING_VALUE",
+ *       Port: Number("int"),
+ *       DatabaseName: "STRING_VALUE",
+ *       SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ *       CertificateArn: "STRING_VALUE",
+ *       S3Path: "STRING_VALUE",
+ *       S3AccessRoleArn: "STRING_VALUE",
  *     },
  *     MongoDbSettings: { // MongoDbDataProviderSettings
  *       ServerName: "STRING_VALUE",
@@ -119,11 +152,14 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //     DataProviderCreationTime: new Date("TIMESTAMP"),
  * //     Description: "STRING_VALUE",
  * //     Engine: "STRING_VALUE",
+ * //     Virtual: true || false,
  * //     Settings: { // DataProviderSettings Union: only one key present
  * //       RedshiftSettings: { // RedshiftDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         DatabaseName: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       PostgreSqlSettings: { // PostgreSqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -131,12 +167,16 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MySqlSettings: { // MySqlDataProviderSettings
  * //         ServerName: "STRING_VALUE",
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       OracleSettings: { // OracleDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -149,6 +189,8 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //         SecretsManagerOracleAsmAccessRoleArn: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionSecretId: "STRING_VALUE",
  * //         SecretsManagerSecurityDbEncryptionAccessRoleArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MicrosoftSqlServerSettings: { // MicrosoftSqlServerDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -156,6 +198,8 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //         DatabaseName: "STRING_VALUE",
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       DocDbSettings: { // DocDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -169,6 +213,26 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * //         Port: Number("int"),
  * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
  * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       IbmDb2LuwSettings: { // IbmDb2LuwDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
+ * //       },
+ * //       IbmDb2zOsSettings: { // IbmDb2zOsDataProviderSettings
+ * //         ServerName: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         DatabaseName: "STRING_VALUE",
+ * //         SslMode: "none" || "require" || "verify-ca" || "verify-full",
+ * //         CertificateArn: "STRING_VALUE",
+ * //         S3Path: "STRING_VALUE",
+ * //         S3AccessRoleArn: "STRING_VALUE",
  * //       },
  * //       MongoDbSettings: { // MongoDbDataProviderSettings
  * //         ServerName: "STRING_VALUE",
@@ -196,6 +260,9 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  *  <p>DMS was denied access to the endpoint. Check that the
  *             role is correctly configured.</p>
  *
+ * @throws {@link FailedDependencyFault} (client fault)
+ *  <p>A dependency threw an exception.</p>
+ *
  * @throws {@link InvalidResourceStateFault} (client fault)
  *  <p>The resource is in a state that prevents it from being used for database migration.</p>
  *
@@ -205,47 +272,47 @@ export interface ModifyDataProviderCommandOutput extends ModifyDataProviderRespo
  * @throws {@link DatabaseMigrationServiceServiceException}
  * <p>Base exception class for all service exceptions from DatabaseMigrationService service.</p>
  *
- * @public
+ *
  * @example Modify Data Provider
  * ```javascript
  * // Modifies the specified data provider using the provided settings.
  * const input = {
- *   "DataProviderIdentifier": "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
- *   "DataProviderName": "new-name",
- *   "Description": "description",
- *   "Engine": "sqlserver",
- *   "Settings": {
- *     "MicrosoftSqlServerSettings": {
- *       "DatabaseName": "DatabaseName",
- *       "Port": 11112,
- *       "ServerName": "ServerName2",
- *       "SslMode": "none"
+ *   DataProviderIdentifier: "arn:aws:dms:us-east-1:012345678901:data-provider:EXAMPLEABCDEFGHIJKLMNOPQRSTUVWXYZ012345",
+ *   DataProviderName: "new-name",
+ *   Description: "description",
+ *   Engine: "sqlserver",
+ *   Settings: {
+ *     MicrosoftSqlServerSettings: {
+ *       DatabaseName: "DatabaseName",
+ *       Port: 11112,
+ *       ServerName: "ServerName2",
+ *       SslMode: "none"
  *     }
  *   }
  * };
  * const command = new ModifyDataProviderCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DataProvider": {
- *     "DataProviderArn": "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
- *     "DataProviderCreationTime": "2023-05-12T10:50:41.988561Z",
- *     "DataProviderName": "my-target-data-provider",
- *     "Engine": "postgres",
- *     "Settings": {
- *       "PostgreSqlSettings": {
- *         "DatabaseName": "target",
- *         "Port": 5432,
- *         "ServerName": "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
- *         "SslMode": "none"
+ *   DataProvider: {
+ *     DataProviderArn: "arn:aws:dms:us-east-1:012345678901:data-provider:my-target-data-provider",
+ *     DataProviderCreationTime: "2023-05-12T10:50:41.988561Z",
+ *     DataProviderName: "my-target-data-provider",
+ *     Engine: "postgres",
+ *     Settings: {
+ *       PostgreSqlSettings: {
+ *         DatabaseName: "target",
+ *         Port: 5432,
+ *         ServerName: "postrgesql.0a1b2c3d4e5f.us-east-1.rds.amazonaws.com",
+ *         SslMode: "none"
  *       }
  *     }
  *   }
  * }
  * *\/
- * // example id: modify-data-provider-1689720700567
  * ```
  *
+ * @public
  */
 export class ModifyDataProviderCommand extends $Command
   .classBuilder<
@@ -255,9 +322,7 @@ export class ModifyDataProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DatabaseMigrationServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -269,4 +334,16 @@ export class ModifyDataProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ModifyDataProviderCommand)
   .de(de_ModifyDataProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ModifyDataProviderMessage;
+      output: ModifyDataProviderResponse;
+    };
+    sdk: {
+      input: ModifyDataProviderCommandInput;
+      output: ModifyDataProviderCommandOutput;
+    };
+  };
+}

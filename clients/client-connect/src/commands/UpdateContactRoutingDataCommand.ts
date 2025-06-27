@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateContactRoutingDataRequest, UpdateContactRoutingDataResponse } from "../models/models_2";
+import { UpdateContactRoutingDataResponse } from "../models/models_2";
+import { UpdateContactRoutingDataRequest } from "../models/models_3";
 import { de_UpdateContactRoutingDataCommand, se_UpdateContactRoutingDataCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -51,6 +53,98 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  *   ContactId: "STRING_VALUE", // required
  *   QueueTimeAdjustmentSeconds: Number("int"),
  *   QueuePriority: Number("long"),
+ *   RoutingCriteria: { // RoutingCriteriaInput
+ *     Steps: [ // RoutingCriteriaInputSteps
+ *       { // RoutingCriteriaInputStep
+ *         Expiry: { // RoutingCriteriaInputStepExpiry
+ *           DurationInSeconds: Number("int"),
+ *         },
+ *         Expression: { // Expression
+ *           AttributeCondition: { // AttributeCondition
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             ProficiencyLevel: Number("float"),
+ *             Range: { // Range
+ *               MinProficiencyLevel: Number("float"),
+ *               MaxProficiencyLevel: Number("float"),
+ *             },
+ *             MatchCriteria: { // MatchCriteria
+ *               AgentsCriteria: { // AgentsCriteria
+ *                 AgentIds: [ // AgentIds
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             ComparisonOperator: "STRING_VALUE",
+ *           },
+ *           AndExpression: [ // Expressions
+ *             {
+ *               AttributeCondition: {
+ *                 Name: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *                 ProficiencyLevel: Number("float"),
+ *                 Range: {
+ *                   MinProficiencyLevel: Number("float"),
+ *                   MaxProficiencyLevel: Number("float"),
+ *                 },
+ *                 MatchCriteria: {
+ *                   AgentsCriteria: {
+ *                     AgentIds: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 ComparisonOperator: "STRING_VALUE",
+ *               },
+ *               AndExpression: [
+ *                 "<Expression>",
+ *               ],
+ *               OrExpression: [
+ *                 "<Expression>",
+ *               ],
+ *               NotAttributeCondition: {
+ *                 Name: "STRING_VALUE",
+ *                 Value: "STRING_VALUE",
+ *                 ProficiencyLevel: Number("float"),
+ *                 Range: {
+ *                   MinProficiencyLevel: Number("float"),
+ *                   MaxProficiencyLevel: Number("float"),
+ *                 },
+ *                 MatchCriteria: {
+ *                   AgentsCriteria: {
+ *                     AgentIds: [
+ *                       "STRING_VALUE",
+ *                     ],
+ *                   },
+ *                 },
+ *                 ComparisonOperator: "STRING_VALUE",
+ *               },
+ *             },
+ *           ],
+ *           OrExpression: [
+ *             "<Expression>",
+ *           ],
+ *           NotAttributeCondition: {
+ *             Name: "STRING_VALUE",
+ *             Value: "STRING_VALUE",
+ *             ProficiencyLevel: Number("float"),
+ *             Range: {
+ *               MinProficiencyLevel: Number("float"),
+ *               MaxProficiencyLevel: Number("float"),
+ *             },
+ *             MatchCriteria: {
+ *               AgentsCriteria: {
+ *                 AgentIds: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *             ComparisonOperator: "STRING_VALUE",
+ *           },
+ *         },
+ *       },
+ *     ],
+ *   },
  * };
  * const command = new UpdateContactRoutingDataCommand(input);
  * const response = await client.send(command);
@@ -85,6 +179,7 @@ export interface UpdateContactRoutingDataCommandOutput extends UpdateContactRout
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateContactRoutingDataCommand extends $Command
@@ -95,9 +190,7 @@ export class UpdateContactRoutingDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +202,16 @@ export class UpdateContactRoutingDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContactRoutingDataCommand)
   .de(de_UpdateContactRoutingDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContactRoutingDataRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateContactRoutingDataCommandInput;
+      output: UpdateContactRoutingDataCommandOutput;
+    };
+  };
+}

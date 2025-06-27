@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   GetTransitGatewayPolicyTableAssociationsRequest,
   GetTransitGatewayPolicyTableAssociationsResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_GetTransitGatewayPolicyTableAssociationsCommand,
   se_GetTransitGatewayPolicyTableAssociationsCommand,
@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -83,6 +84,7 @@ export interface GetTransitGatewayPolicyTableAssociationsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command
@@ -93,9 +95,7 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -107,4 +107,16 @@ export class GetTransitGatewayPolicyTableAssociationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetTransitGatewayPolicyTableAssociationsCommand)
   .de(de_GetTransitGatewayPolicyTableAssociationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetTransitGatewayPolicyTableAssociationsRequest;
+      output: GetTransitGatewayPolicyTableAssociationsResult;
+    };
+    sdk: {
+      input: GetTransitGatewayPolicyTableAssociationsCommandInput;
+      output: GetTransitGatewayPolicyTableAssociationsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_ListFeaturesCommand, se_ListFeaturesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface ListFeaturesCommandOutput extends ListFeaturesResponse, __Metad
  * @throws {@link EvidentlyServiceException}
  * <p>Base exception class for all service exceptions from Evidently service.</p>
  *
+ *
  * @public
  */
 export class ListFeaturesCommand extends $Command
@@ -99,9 +101,7 @@ export class ListFeaturesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EvidentlyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class ListFeaturesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFeaturesCommand)
   .de(de_ListFeaturesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFeaturesRequest;
+      output: ListFeaturesResponse;
+    };
+    sdk: {
+      input: ListFeaturesCommandInput;
+      output: ListFeaturesCommandOutput;
+    };
+  };
+}

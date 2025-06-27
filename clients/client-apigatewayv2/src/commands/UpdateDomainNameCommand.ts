@@ -12,7 +12,8 @@ import { de_UpdateDomainNameCommand, se_UpdateDomainNameCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,6 +47,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  *       DomainNameStatusMessage: "STRING_VALUE",
  *       EndpointType: "REGIONAL" || "EDGE",
  *       HostedZoneId: "STRING_VALUE",
+ *       IpAddressType: "ipv4" || "dualstack",
  *       SecurityPolicy: "TLS_1_0" || "TLS_1_2",
  *       OwnershipVerificationCertificateArn: "STRING_VALUE",
  *     },
@@ -54,12 +56,14 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  *     TruststoreUri: "STRING_VALUE",
  *     TruststoreVersion: "STRING_VALUE",
  *   },
+ *   RoutingMode: "API_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_API_MAPPING",
  * };
  * const command = new UpdateDomainNameCommand(input);
  * const response = await client.send(command);
  * // { // UpdateDomainNameResponse
  * //   ApiMappingSelectionExpression: "STRING_VALUE",
  * //   DomainName: "STRING_VALUE",
+ * //   DomainNameArn: "STRING_VALUE",
  * //   DomainNameConfigurations: [ // DomainNameConfigurations
  * //     { // DomainNameConfiguration
  * //       ApiGatewayDomainName: "STRING_VALUE",
@@ -70,6 +74,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * //       DomainNameStatusMessage: "STRING_VALUE",
  * //       EndpointType: "REGIONAL" || "EDGE",
  * //       HostedZoneId: "STRING_VALUE",
+ * //       IpAddressType: "ipv4" || "dualstack",
  * //       SecurityPolicy: "TLS_1_0" || "TLS_1_2",
  * //       OwnershipVerificationCertificateArn: "STRING_VALUE",
  * //     },
@@ -81,6 +86,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   RoutingMode: "API_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_API_MAPPING",
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -109,6 +115,7 @@ export interface UpdateDomainNameCommandOutput extends UpdateDomainNameResponse,
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class UpdateDomainNameCommand extends $Command
@@ -119,9 +126,7 @@ export class UpdateDomainNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -133,4 +138,16 @@ export class UpdateDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateDomainNameCommand)
   .de(de_UpdateDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateDomainNameRequest;
+      output: UpdateDomainNameResponse;
+    };
+    sdk: {
+      input: UpdateDomainNameCommandInput;
+      output: UpdateDomainNameCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, VPCLatticeClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface UpdateRuleCommandInput extends UpdateRuleRequest {}
 export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a rule for the listener. You can't modify a default listener rule. To modify a
+ * <p>Updates a specified rule for the listener. You can't modify a default listener rule. To modify a
  *    default listener rule, use <code>UpdateListener</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -144,6 +145,9 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The request references a resource that does not exist.</p>
  *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The limit on the number of requests per second was exceeded.</p>
  *
@@ -153,6 +157,7 @@ export interface UpdateRuleCommandOutput extends UpdateRuleResponse, __MetadataB
  *
  * @throws {@link VPCLatticeServiceException}
  * <p>Base exception class for all service exceptions from VPCLattice service.</p>
+ *
  *
  * @public
  */
@@ -164,9 +169,7 @@ export class UpdateRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: VPCLatticeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +181,16 @@ export class UpdateRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateRuleCommand)
   .de(de_UpdateRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateRuleRequest;
+      output: UpdateRuleResponse;
+    };
+    sdk: {
+      input: UpdateRuleCommandInput;
+      output: UpdateRuleCommandOutput;
+    };
+  };
+}

@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getThrow200ExceptionsPlugin } from "@aws-sdk/middleware-sdk-s3";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -12,7 +13,8 @@ import { S3ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from ".
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,7 +30,7 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
 
 /**
  * <note>
- *             <p>This operation is not supported by directory buckets.</p>
+ *             <p>This operation is not supported for directory buckets.</p>
  *          </note>
  *          <p>Returns the versioning state of a bucket.</p>
  *          <p>To retrieve the versioning state of a bucket, you must be the bucket owner.</p>
@@ -81,24 +83,24 @@ export interface GetBucketVersioningCommandOutput extends GetBucketVersioningOut
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @public
+ *
  * @example To get bucket versioning configuration
  * ```javascript
  * // The following example retrieves bucket versioning configuration.
  * const input = {
- *   "Bucket": "examplebucket"
+ *   Bucket: "examplebucket"
  * };
  * const command = new GetBucketVersioningCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "MFADelete": "Disabled",
- *   "Status": "Enabled"
+ *   MFADelete: "Disabled",
+ *   Status: "Enabled"
  * }
  * *\/
- * // example id: to-get-bucket-versioning-configuration-1483037183929
  * ```
  *
+ * @public
  */
 export class GetBucketVersioningCommand extends $Command
   .classBuilder<
@@ -117,6 +119,7 @@ export class GetBucketVersioningCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getThrow200ExceptionsPlugin(config),
     ];
   })
   .s("AmazonS3", "GetBucketVersioning", {})
@@ -124,4 +127,16 @@ export class GetBucketVersioningCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetBucketVersioningCommand)
   .de(de_GetBucketVersioningCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBucketVersioningRequest;
+      output: GetBucketVersioningOutput;
+    };
+    sdk: {
+      input: GetBucketVersioningCommandInput;
+      output: GetBucketVersioningCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetAdminScopeCommand, se_GetAdminScopeCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,6 +106,7 @@ export interface GetAdminScopeCommandOutput extends GetAdminScopeResponse, __Met
  * @throws {@link FMSServiceException}
  * <p>Base exception class for all service exceptions from FMS service.</p>
  *
+ *
  * @public
  */
 export class GetAdminScopeCommand extends $Command
@@ -115,9 +117,7 @@ export class GetAdminScopeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +129,16 @@ export class GetAdminScopeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAdminScopeCommand)
   .de(de_GetAdminScopeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAdminScopeRequest;
+      output: GetAdminScopeResponse;
+    };
+    sdk: {
+      input: GetAdminScopeCommandInput;
+      output: GetAdminScopeCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { de_ValidateE911AddressCommand, se_ValidateE911AddressCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,9 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * @see {@link ValidateE911AddressCommandOutput} for command's `response` shape.
  * @see {@link ChimeSDKVoiceClientResolvedConfig | config} for ChimeSDKVoiceClient's `config` shape.
  *
+ * @throws {@link AccessDeniedException} (client fault)
+ *  <p>You don't have the permissions needed to run this action.</p>
+ *
  * @throws {@link BadRequestException} (client fault)
  *  <p>The input parameters don't match the service's restrictions.</p>
  *
@@ -113,6 +117,7 @@ export interface ValidateE911AddressCommandOutput extends ValidateE911AddressRes
  * @throws {@link ChimeSDKVoiceServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKVoice service.</p>
  *
+ *
  * @public
  */
 export class ValidateE911AddressCommand extends $Command
@@ -123,9 +128,7 @@ export class ValidateE911AddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKVoiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -137,4 +140,16 @@ export class ValidateE911AddressCommand extends $Command
   .f(ValidateE911AddressRequestFilterSensitiveLog, ValidateE911AddressResponseFilterSensitiveLog)
   .ser(se_ValidateE911AddressCommand)
   .de(de_ValidateE911AddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidateE911AddressRequest;
+      output: ValidateE911AddressResponse;
+    };
+    sdk: {
+      input: ValidateE911AddressCommandInput;
+      output: ValidateE911AddressCommandOutput;
+    };
+  };
+}

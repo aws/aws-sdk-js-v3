@@ -16,7 +16,8 @@ import { de_StartAttachmentUploadCommand, se_StartAttachmentUploadCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -33,6 +34,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
 /**
  * <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to
  *             S3.</p>
+ *          <p>For security recommendations, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security-best-practices.html#bp-security-chat">Amazon Connect Chat security best practices</a>.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -92,6 +94,7 @@ export interface StartAttachmentUploadCommandOutput extends StartAttachmentUploa
  * @throws {@link ConnectParticipantServiceException}
  * <p>Base exception class for all service exceptions from ConnectParticipant service.</p>
  *
+ *
  * @public
  */
 export class StartAttachmentUploadCommand extends $Command
@@ -102,9 +105,7 @@ export class StartAttachmentUploadCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectParticipantClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +117,16 @@ export class StartAttachmentUploadCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartAttachmentUploadCommand)
   .de(de_StartAttachmentUploadCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartAttachmentUploadRequest;
+      output: StartAttachmentUploadResponse;
+    };
+    sdk: {
+      input: StartAttachmentUploadCommandInput;
+      output: StartAttachmentUploadCommandOutput;
+    };
+  };
+}

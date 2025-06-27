@@ -12,7 +12,8 @@ import { RedshiftDataClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,6 +30,11 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
 /**
  * <p>List of SQL statements. By default, only finished statements are shown.
  *         A token is returned to page through the statement list. </p>
+ *          <p>When you use identity-enhanced role sessions to list statements, you must provide either the
+ *      <code>cluster-identifier</code> or <code>workgroup-name</code> parameter. This ensures that the IdC user
+ *      can only access the Amazon Redshift IdC applications they are assigned. For more information, see
+ *        <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/trustedidentitypropagation-overview.html">
+ *          Trusted identity propagation overview</a>.</p>
  *          <p>For more information about the Amazon Redshift Data API and CLI usage examples, see
  *        <a href="https://docs.aws.amazon.com/redshift/latest/mgmt/data-api.html">Using the Amazon Redshift Data API</a> in the
  *        <i>Amazon Redshift Management Guide</i>. </p>
@@ -44,6 +50,9 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  *   StatementName: "STRING_VALUE",
  *   Status: "STRING_VALUE",
  *   RoleLevel: true || false,
+ *   Database: "STRING_VALUE",
+ *   ClusterIdentifier: "STRING_VALUE",
+ *   WorkgroupName: "STRING_VALUE",
  * };
  * const command = new ListStatementsCommand(input);
  * const response = await client.send(command);
@@ -67,6 +76,8 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * //         },
  * //       ],
  * //       IsBatchStatement: true || false,
+ * //       ResultFormat: "STRING_VALUE",
+ * //       SessionId: "STRING_VALUE",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",
@@ -89,6 +100,7 @@ export interface ListStatementsCommandOutput extends ListStatementsResponse, __M
  * @throws {@link RedshiftDataServiceException}
  * <p>Base exception class for all service exceptions from RedshiftData service.</p>
  *
+ *
  * @public
  */
 export class ListStatementsCommand extends $Command
@@ -99,9 +111,7 @@ export class ListStatementsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftDataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +123,16 @@ export class ListStatementsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListStatementsCommand)
   .de(de_ListStatementsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListStatementsRequest;
+      output: ListStatementsResponse;
+    };
+    sdk: {
+      input: ListStatementsCommandInput;
+      output: ListStatementsCommandOutput;
+    };
+  };
+}

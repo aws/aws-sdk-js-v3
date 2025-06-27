@@ -12,7 +12,8 @@ import { de_ListSuiteDefinitionsCommand, se_ListSuiteDefinitionsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface ListSuiteDefinitionsCommandOutput extends ListSuiteDefinitionsR
  * @throws {@link IotDeviceAdvisorServiceException}
  * <p>Base exception class for all service exceptions from IotDeviceAdvisor service.</p>
  *
+ *
  * @public
  */
 export class ListSuiteDefinitionsCommand extends $Command
@@ -89,9 +91,7 @@ export class ListSuiteDefinitionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IotDeviceAdvisorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class ListSuiteDefinitionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSuiteDefinitionsCommand)
   .de(de_ListSuiteDefinitionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSuiteDefinitionsRequest;
+      output: ListSuiteDefinitionsResponse;
+    };
+    sdk: {
+      input: ListSuiteDefinitionsCommandInput;
+      output: ListSuiteDefinitionsCommandOutput;
+    };
+  };
+}

@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListEdgeDeploymentPlansRequest, ListEdgeDeploymentPlansResponse } from "../models/models_3";
+import { ListEdgeDeploymentPlansRequest, ListEdgeDeploymentPlansResponse } from "../models/models_4";
 import { de_ListEdgeDeploymentPlansCommand, se_ListEdgeDeploymentPlansCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,7 @@ export interface ListEdgeDeploymentPlansCommandOutput extends ListEdgeDeployment
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class ListEdgeDeploymentPlansCommand extends $Command
@@ -85,9 +87,7 @@ export class ListEdgeDeploymentPlansCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +99,16 @@ export class ListEdgeDeploymentPlansCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEdgeDeploymentPlansCommand)
   .de(de_ListEdgeDeploymentPlansCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEdgeDeploymentPlansRequest;
+      output: ListEdgeDeploymentPlansResponse;
+    };
+    sdk: {
+      input: ListEdgeDeploymentPlansCommandInput;
+      output: ListEdgeDeploymentPlansCommandOutput;
+    };
+  };
+}

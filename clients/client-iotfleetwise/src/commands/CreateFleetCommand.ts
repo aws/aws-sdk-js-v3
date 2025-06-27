@@ -12,7 +12,8 @@ import { de_CreateFleetCommand, se_CreateFleetCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -92,6 +93,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class CreateFleetCommand extends $Command
@@ -102,9 +104,7 @@ export class CreateFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -116,4 +116,16 @@ export class CreateFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFleetCommand)
   .de(de_CreateFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFleetRequest;
+      output: CreateFleetResponse;
+    };
+    sdk: {
+      input: CreateFleetCommandInput;
+      output: CreateFleetCommandOutput;
+    };
+  };
+}

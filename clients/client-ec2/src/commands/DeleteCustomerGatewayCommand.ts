@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteCustomerGatewayRequest } from "../models/models_2";
+import { DeleteCustomerGatewayRequest } from "../models/models_3";
 import { de_DeleteCustomerGatewayCommand, se_DeleteCustomerGatewayCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,18 +55,21 @@ export interface DeleteCustomerGatewayCommandOutput extends __MetadataBearer {}
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To delete a customer gateway
  * ```javascript
  * // This example deletes the specified customer gateway.
  * const input = {
- *   "CustomerGatewayId": "cgw-0e11f167"
+ *   CustomerGatewayId: "cgw-0e11f167"
  * };
  * const command = new DeleteCustomerGatewayCommand(input);
- * await client.send(command);
- * // example id: ec2-delete-customer-gateway-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteCustomerGatewayCommand extends $Command
   .classBuilder<
@@ -75,9 +79,7 @@ export class DeleteCustomerGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -89,4 +91,16 @@ export class DeleteCustomerGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCustomerGatewayCommand)
   .de(de_DeleteCustomerGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCustomerGatewayRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCustomerGatewayCommandInput;
+      output: DeleteCustomerGatewayCommandOutput;
+    };
+  };
+}

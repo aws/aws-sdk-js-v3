@@ -6,13 +6,15 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { SearchContactFlowModulesRequest, SearchContactFlowModulesResponse } from "../models/models_2";
+import { SearchContactFlowModulesResponse } from "../models/models_2";
+import { SearchContactFlowModulesRequest } from "../models/models_3";
 import { de_SearchContactFlowModulesCommand, se_SearchContactFlowModulesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +73,8 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
+ *         StateCondition: "ACTIVE" || "ARCHIVED",
+ *         StatusCondition: "PUBLISHED" || "SAVED",
  *       },
  *     ],
  *     AndConditions: [
@@ -81,6 +85,8 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  *       Value: "STRING_VALUE",
  *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *     },
+ *     StateCondition: "ACTIVE" || "ARCHIVED",
+ *     StatusCondition: "PUBLISHED" || "SAVED",
  *   },
  * };
  * const command = new SearchContactFlowModulesCommand(input);
@@ -130,6 +136,7 @@ export interface SearchContactFlowModulesCommandOutput extends SearchContactFlow
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class SearchContactFlowModulesCommand extends $Command
@@ -140,9 +147,7 @@ export class SearchContactFlowModulesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -154,4 +159,16 @@ export class SearchContactFlowModulesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SearchContactFlowModulesCommand)
   .de(de_SearchContactFlowModulesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SearchContactFlowModulesRequest;
+      output: SearchContactFlowModulesResponse;
+    };
+    sdk: {
+      input: SearchContactFlowModulesCommandInput;
+      output: SearchContactFlowModulesCommandOutput;
+    };
+  };
+}

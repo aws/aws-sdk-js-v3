@@ -28,6 +28,11 @@ import {
   DeleteNamespaceCommandOutput,
 } from "./commands/DeleteNamespaceCommand";
 import {
+  DeleteServiceAttributesCommand,
+  DeleteServiceAttributesCommandInput,
+  DeleteServiceAttributesCommandOutput,
+} from "./commands/DeleteServiceAttributesCommand";
+import {
   DeleteServiceCommand,
   DeleteServiceCommandInput,
   DeleteServiceCommandOutput,
@@ -63,6 +68,11 @@ import {
   GetOperationCommandInput,
   GetOperationCommandOutput,
 } from "./commands/GetOperationCommand";
+import {
+  GetServiceAttributesCommand,
+  GetServiceAttributesCommandInput,
+  GetServiceAttributesCommandOutput,
+} from "./commands/GetServiceAttributesCommand";
 import { GetServiceCommand, GetServiceCommandInput, GetServiceCommandOutput } from "./commands/GetServiceCommand";
 import {
   ListInstancesCommand,
@@ -121,6 +131,11 @@ import {
   UpdatePublicDnsNamespaceCommandOutput,
 } from "./commands/UpdatePublicDnsNamespaceCommand";
 import {
+  UpdateServiceAttributesCommand,
+  UpdateServiceAttributesCommandInput,
+  UpdateServiceAttributesCommandOutput,
+} from "./commands/UpdateServiceAttributesCommand";
+import {
   UpdateServiceCommand,
   UpdateServiceCommandInput,
   UpdateServiceCommandOutput,
@@ -134,6 +149,7 @@ const commands = {
   CreateServiceCommand,
   DeleteNamespaceCommand,
   DeleteServiceCommand,
+  DeleteServiceAttributesCommand,
   DeregisterInstanceCommand,
   DiscoverInstancesCommand,
   DiscoverInstancesRevisionCommand,
@@ -142,6 +158,7 @@ const commands = {
   GetNamespaceCommand,
   GetOperationCommand,
   GetServiceCommand,
+  GetServiceAttributesCommand,
   ListInstancesCommand,
   ListNamespacesCommand,
   ListOperationsCommand,
@@ -155,6 +172,7 @@ const commands = {
   UpdatePrivateDnsNamespaceCommand,
   UpdatePublicDnsNamespaceCommand,
   UpdateServiceCommand,
+  UpdateServiceAttributesCommand,
 };
 
 export interface ServiceDiscovery {
@@ -243,6 +261,23 @@ export interface ServiceDiscovery {
     args: DeleteServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteServiceAttributesCommand}
+   */
+  deleteServiceAttributes(
+    args: DeleteServiceAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteServiceAttributesCommandOutput>;
+  deleteServiceAttributes(
+    args: DeleteServiceAttributesCommandInput,
+    cb: (err: any, data?: DeleteServiceAttributesCommandOutput) => void
+  ): void;
+  deleteServiceAttributes(
+    args: DeleteServiceAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteServiceAttributesCommandOutput) => void
   ): void;
 
   /**
@@ -355,6 +390,23 @@ export interface ServiceDiscovery {
     args: GetServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetServiceAttributesCommand}
+   */
+  getServiceAttributes(
+    args: GetServiceAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetServiceAttributesCommandOutput>;
+  getServiceAttributes(
+    args: GetServiceAttributesCommandInput,
+    cb: (err: any, data?: GetServiceAttributesCommandOutput) => void
+  ): void;
+  getServiceAttributes(
+    args: GetServiceAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetServiceAttributesCommandOutput) => void
   ): void;
 
   /**
@@ -543,6 +595,23 @@ export interface ServiceDiscovery {
     args: UpdateServiceCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateServiceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateServiceAttributesCommand}
+   */
+  updateServiceAttributes(
+    args: UpdateServiceAttributesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateServiceAttributesCommandOutput>;
+  updateServiceAttributes(
+    args: UpdateServiceAttributesCommandInput,
+    cb: (err: any, data?: UpdateServiceAttributesCommandOutput) => void
+  ): void;
+  updateServiceAttributes(
+    args: UpdateServiceAttributesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateServiceAttributesCommandOutput) => void
   ): void;
 }
 

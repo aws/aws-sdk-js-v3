@@ -16,7 +16,8 @@ import { de_UpdatePackageVersionCommand, se_UpdatePackageVersionCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -46,7 +47,15 @@ export interface UpdatePackageVersionCommandOutput extends UpdatePackageVersionR
  *   attributes: { // ResourceAttributes
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   artifact: { // PackageVersionArtifact
+ *     s3Location: { // S3Location
+ *       bucket: "STRING_VALUE",
+ *       key: "STRING_VALUE",
+ *       version: "STRING_VALUE",
+ *     },
+ *   },
  *   action: "PUBLISH" || "DEPRECATE",
+ *   recipe: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new UpdatePackageVersionCommand(input);
@@ -62,7 +71,7 @@ export interface UpdatePackageVersionCommandOutput extends UpdatePackageVersionR
  * @see {@link IoTClientResolvedConfig | config} for IoTClient's `config` shape.
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>A resource with the same name already exists.</p>
+ *  <p>The request conflicts with the current state of the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>Internal error from the service that indicates an unexpected error or that the service
@@ -80,6 +89,7 @@ export interface UpdatePackageVersionCommandOutput extends UpdatePackageVersionR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class UpdatePackageVersionCommand extends $Command
@@ -90,9 +100,7 @@ export class UpdatePackageVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +112,16 @@ export class UpdatePackageVersionCommand extends $Command
   .f(UpdatePackageVersionRequestFilterSensitiveLog, void 0)
   .ser(se_UpdatePackageVersionCommand)
   .de(de_UpdatePackageVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdatePackageVersionRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdatePackageVersionCommandInput;
+      output: UpdatePackageVersionCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_CreateBillingGroupCommand, se_CreateBillingGroupCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,7 @@ export interface CreateBillingGroupCommandOutput extends CreateBillingGroupOutpu
  * @throws {@link BillingconductorServiceException}
  * <p>Base exception class for all service exceptions from Billingconductor service.</p>
  *
+ *
  * @public
  */
 export class CreateBillingGroupCommand extends $Command
@@ -108,9 +110,7 @@ export class CreateBillingGroupCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BillingconductorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +122,16 @@ export class CreateBillingGroupCommand extends $Command
   .f(CreateBillingGroupInputFilterSensitiveLog, void 0)
   .ser(se_CreateBillingGroupCommand)
   .de(de_CreateBillingGroupCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateBillingGroupInput;
+      output: CreateBillingGroupOutput;
+    };
+    sdk: {
+      input: CreateBillingGroupCommandInput;
+      output: CreateBillingGroupCommandOutput;
+    };
+  };
+}

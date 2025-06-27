@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -154,6 +155,7 @@ export interface SetIdentityPoolConfigurationCommandOutput
  * @throws {@link CognitoSyncServiceException}
  * <p>Base exception class for all service exceptions from CognitoSync service.</p>
  *
+ *
  * @public
  */
 export class SetIdentityPoolConfigurationCommand extends $Command
@@ -164,9 +166,7 @@ export class SetIdentityPoolConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -178,4 +178,16 @@ export class SetIdentityPoolConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SetIdentityPoolConfigurationCommand)
   .de(de_SetIdentityPoolConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SetIdentityPoolConfigurationRequest;
+      output: SetIdentityPoolConfigurationResponse;
+    };
+    sdk: {
+      input: SetIdentityPoolConfigurationCommandInput;
+      output: SetIdentityPoolConfigurationCommandOutput;
+    };
+  };
+}

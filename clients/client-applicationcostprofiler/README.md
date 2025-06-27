@@ -15,7 +15,7 @@ Profiler User Guide</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-applicationcostprofiler
+To install this package, simply type add or install @aws-sdk/client-applicationcostprofiler
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-applicationcostprofiler`

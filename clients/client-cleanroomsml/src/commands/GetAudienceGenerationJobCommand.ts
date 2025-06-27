@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { CleanRoomsMLClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../CleanRoomsMLClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAudienceGenerationJobRequest, GetAudienceGenerationJobResponse } from "../models/models_0";
+import {
+  GetAudienceGenerationJobRequest,
+  GetAudienceGenerationJobResponse,
+  GetAudienceGenerationJobResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_GetAudienceGenerationJobCommand, se_GetAudienceGenerationJobCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -56,6 +61,19 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * //       s3Uri: "STRING_VALUE", // required
  * //     },
  * //     roleArn: "STRING_VALUE", // required
+ * //     sqlParameters: { // ProtectedQuerySQLParameters
+ * //       queryString: "STRING_VALUE",
+ * //       analysisTemplateArn: "STRING_VALUE",
+ * //       parameters: { // ParameterMap
+ * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //     },
+ * //     sqlComputeConfiguration: { // ComputeConfiguration Union: only one key present
+ * //       worker: { // WorkerComputeConfiguration
+ * //         type: "CR.1X" || "CR.4X",
+ * //         number: Number("int"),
+ * //       },
+ * //     },
  * //   },
  * //   includeSeedInOutput: true || false,
  * //   collaborationId: "STRING_VALUE",
@@ -75,6 +93,7 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
+ * //   protectedQueryIdentifier: "STRING_VALUE",
  * // };
  *
  * ```
@@ -97,6 +116,7 @@ export interface GetAudienceGenerationJobCommandOutput extends GetAudienceGenera
  * @throws {@link CleanRoomsMLServiceException}
  * <p>Base exception class for all service exceptions from CleanRoomsML service.</p>
  *
+ *
  * @public
  */
 export class GetAudienceGenerationJobCommand extends $Command
@@ -107,9 +127,7 @@ export class GetAudienceGenerationJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CleanRoomsMLClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,7 +136,19 @@ export class GetAudienceGenerationJobCommand extends $Command
   })
   .s("AWSStarkControlService", "GetAudienceGenerationJob", {})
   .n("CleanRoomsMLClient", "GetAudienceGenerationJobCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetAudienceGenerationJobResponseFilterSensitiveLog)
   .ser(se_GetAudienceGenerationJobCommand)
   .de(de_GetAudienceGenerationJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAudienceGenerationJobRequest;
+      output: GetAudienceGenerationJobResponse;
+    };
+    sdk: {
+      input: GetAudienceGenerationJobCommandInput;
+      output: GetAudienceGenerationJobCommandOutput;
+    };
+  };
+}

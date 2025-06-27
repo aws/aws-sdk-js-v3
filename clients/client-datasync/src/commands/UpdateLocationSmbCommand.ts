@@ -16,7 +16,8 @@ import { de_UpdateLocationSmbCommand, se_UpdateLocationSmbCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,8 +32,10 @@ export interface UpdateLocationSmbCommandInput extends UpdateLocationSmbRequest 
 export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbResponse, __MetadataBearer {}
 
 /**
- * <p>Updates some of the parameters of a Server Message Block
- *       (SMB) file server location that you can use for DataSync transfers.</p>
+ * <p>Modifies the following configuration parameters of the Server Message Block (SMB) transfer
+ *       location that you're using with DataSync.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html">Configuring DataSync
+ *         transfers with an SMB file server</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -42,6 +45,7 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * const input = { // UpdateLocationSmbRequest
  *   LocationArn: "STRING_VALUE", // required
  *   Subdirectory: "STRING_VALUE",
+ *   ServerHostname: "STRING_VALUE",
  *   User: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  *   Password: "STRING_VALUE",
@@ -51,6 +55,13 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  *   MountOptions: { // SmbMountOptions
  *     Version: "AUTOMATIC" || "SMB2" || "SMB3" || "SMB1" || "SMB2_0",
  *   },
+ *   AuthenticationType: "NTLM" || "KERBEROS",
+ *   DnsIpAddresses: [ // DnsIpList
+ *     "STRING_VALUE",
+ *   ],
+ *   KerberosPrincipal: "STRING_VALUE",
+ *   KerberosKeytab: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   KerberosKrb5Conf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new UpdateLocationSmbCommand(input);
  * const response = await client.send(command);
@@ -74,6 +85,7 @@ export interface UpdateLocationSmbCommandOutput extends UpdateLocationSmbRespons
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class UpdateLocationSmbCommand extends $Command
@@ -84,9 +96,7 @@ export class UpdateLocationSmbCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +108,16 @@ export class UpdateLocationSmbCommand extends $Command
   .f(UpdateLocationSmbRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateLocationSmbCommand)
   .de(de_UpdateLocationSmbCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateLocationSmbRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateLocationSmbCommandInput;
+      output: UpdateLocationSmbCommandOutput;
+    };
+  };
+}

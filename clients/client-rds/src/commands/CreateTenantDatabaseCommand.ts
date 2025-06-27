@@ -17,7 +17,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -44,9 +45,11 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  *   DBInstanceIdentifier: "STRING_VALUE", // required
  *   TenantDBName: "STRING_VALUE", // required
  *   MasterUsername: "STRING_VALUE", // required
- *   MasterUserPassword: "STRING_VALUE", // required
+ *   MasterUserPassword: "STRING_VALUE",
  *   CharacterSetName: "STRING_VALUE",
  *   NcharCharacterSetName: "STRING_VALUE",
+ *   ManageMasterUserPassword: true || false,
+ *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE",
@@ -73,6 +76,11 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  * //       MasterUserPassword: "STRING_VALUE",
  * //       TenantDBName: "STRING_VALUE",
  * //     },
+ * //     MasterUserSecret: { // MasterUserSecret
+ * //       SecretArn: "STRING_VALUE",
+ * //       SecretStatus: "STRING_VALUE",
+ * //       KmsKeyId: "STRING_VALUE",
+ * //     },
  * //     TagList: [ // TagList
  * //       { // Tag
  * //         Key: "STRING_VALUE",
@@ -97,6 +105,9 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  * @throws {@link InvalidDBInstanceStateFault} (client fault)
  *  <p>The DB instance isn't in a valid state.</p>
  *
+ * @throws {@link KMSKeyNotAccessibleFault} (client fault)
+ *  <p>An error occurred accessing an Amazon Web Services KMS key.</p>
+ *
  * @throws {@link TenantDatabaseAlreadyExistsFault} (client fault)
  *  <p>You attempted to either create a tenant database that already exists or
  *                 modify a tenant database to use the name of an existing tenant database.</p>
@@ -108,6 +119,7 @@ export interface CreateTenantDatabaseCommandOutput extends CreateTenantDatabaseR
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class CreateTenantDatabaseCommand extends $Command
@@ -118,9 +130,7 @@ export class CreateTenantDatabaseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +142,16 @@ export class CreateTenantDatabaseCommand extends $Command
   .f(CreateTenantDatabaseMessageFilterSensitiveLog, CreateTenantDatabaseResultFilterSensitiveLog)
   .ser(se_CreateTenantDatabaseCommand)
   .de(de_CreateTenantDatabaseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTenantDatabaseMessage;
+      output: CreateTenantDatabaseResult;
+    };
+    sdk: {
+      input: CreateTenantDatabaseCommandInput;
+      output: CreateTenantDatabaseCommandOutput;
+    };
+  };
+}

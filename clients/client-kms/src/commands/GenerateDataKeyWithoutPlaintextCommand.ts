@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -65,7 +66,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *          <p>You can use an optional encryption context to add additional security to the encryption
  *       operation. If you specify an <code>EncryptionContext</code>, you must specify the same
  *       encryption context (a case-sensitive exact match) when decrypting the encrypted data key.
- *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#encrypt_context">Encryption Context</a> in the
+ *       Otherwise, the request to decrypt fails with an <code>InvalidCiphertextException</code>. For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/encrypt_context.html">Encryption Context</a> in the
  *       <i>Key Management Service Developer Guide</i>.</p>
  *          <p>The KMS key that you use for this operation must be in a compatible key state. For
  * details, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key states of KMS keys</a> in the <i>Key Management Service Developer Guide</i>.</p>
@@ -107,7 +108,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *          </ul>
  *          <p>
  *             <b>Eventual consistency</b>: The KMS API follows an eventual consistency model.
- *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/programming-eventual-consistency.html">KMS eventual consistency</a>.</p>
+ *   For more information, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/accessing-kms.html#programming-eventual-consistency">KMS eventual consistency</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -131,6 +132,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * // { // GenerateDataKeyWithoutPlaintextResponse
  * //   CiphertextBlob: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
+ * //   KeyMaterialId: "STRING_VALUE",
  * // };
  *
  * ```
@@ -170,8 +172,9 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  *         <code>KeyUsage</code> must be <code>ENCRYPT_DECRYPT</code>. For signing and verifying
  *       messages, the <code>KeyUsage</code> must be <code>SIGN_VERIFY</code>. For generating and
  *       verifying message authentication codes (MACs), the <code>KeyUsage</code> must be
- *         <code>GENERATE_VERIFY_MAC</code>. To find the <code>KeyUsage</code> of a KMS key, use the
- *         <a>DescribeKey</a> operation.</p>
+ *         <code>GENERATE_VERIFY_MAC</code>. For deriving key agreement secrets, the
+ *         <code>KeyUsage</code> must be <code>KEY_AGREEMENT</code>. To find the <code>KeyUsage</code>
+ *       of a KMS key, use the <a>DescribeKey</a> operation.</p>
  *          <p>To find the encryption or signing algorithms supported for a particular KMS key, use the
  *         <a>DescribeKey</a> operation.</p>
  *
@@ -210,25 +213,26 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * @throws {@link KMSServiceException}
  * <p>Base exception class for all service exceptions from KMS service.</p>
  *
- * @public
+ *
  * @example To generate an encrypted data key
  * ```javascript
  * // The following example generates an encrypted copy of a 256-bit symmetric data encryption key (data key). The data key is encrypted with the specified KMS key.
  * const input = {
- *   "KeyId": "alias/ExampleAlias",
- *   "KeySpec": "AES_256"
+ *   KeyId: "alias/ExampleAlias",
+ *   KeySpec: "AES_256"
  * };
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "CiphertextBlob": "<binary data>",
- *   "KeyId": "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+ *   CiphertextBlob: "<binary data>",
+ *   KeyId: "arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+ *   KeyMaterialId: "0b7fd7ddbac6eef27907413567cad8c810e2883dc8a7534067a82ee1142fc1e6"
  * }
  * *\/
- * // example id: to-generate-an-encrypted-data-key-1478914121134
  * ```
  *
+ * @public
  */
 export class GenerateDataKeyWithoutPlaintextCommand extends $Command
   .classBuilder<
@@ -238,9 +242,7 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KMSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -252,4 +254,16 @@ export class GenerateDataKeyWithoutPlaintextCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GenerateDataKeyWithoutPlaintextCommand)
   .de(de_GenerateDataKeyWithoutPlaintextCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GenerateDataKeyWithoutPlaintextRequest;
+      output: GenerateDataKeyWithoutPlaintextResponse;
+    };
+    sdk: {
+      input: GenerateDataKeyWithoutPlaintextCommandInput;
+      output: GenerateDataKeyWithoutPlaintextCommandOutput;
+    };
+  };
+}

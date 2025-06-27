@@ -12,7 +12,8 @@ import { de_GetDomainNameCommand, se_GetDomainNameCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,6 +43,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * // { // GetDomainNameResponse
  * //   ApiMappingSelectionExpression: "STRING_VALUE",
  * //   DomainName: "STRING_VALUE",
+ * //   DomainNameArn: "STRING_VALUE",
  * //   DomainNameConfigurations: [ // DomainNameConfigurations
  * //     { // DomainNameConfiguration
  * //       ApiGatewayDomainName: "STRING_VALUE",
@@ -52,6 +54,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * //       DomainNameStatusMessage: "STRING_VALUE",
  * //       EndpointType: "REGIONAL" || "EDGE",
  * //       HostedZoneId: "STRING_VALUE",
+ * //       IpAddressType: "ipv4" || "dualstack",
  * //       SecurityPolicy: "TLS_1_0" || "TLS_1_2",
  * //       OwnershipVerificationCertificateArn: "STRING_VALUE",
  * //     },
@@ -63,6 +66,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * //       "STRING_VALUE",
  * //     ],
  * //   },
+ * //   RoutingMode: "API_MAPPING_ONLY" || "ROUTING_RULE_ONLY" || "ROUTING_RULE_THEN_API_MAPPING",
  * //   Tags: { // Tags
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -85,6 +89,7 @@ export interface GetDomainNameCommandOutput extends GetDomainNameResponse, __Met
  * @throws {@link ApiGatewayV2ServiceException}
  * <p>Base exception class for all service exceptions from ApiGatewayV2 service.</p>
  *
+ *
  * @public
  */
 export class GetDomainNameCommand extends $Command
@@ -95,9 +100,7 @@ export class GetDomainNameCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApiGatewayV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +112,16 @@ export class GetDomainNameCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDomainNameCommand)
   .de(de_GetDomainNameCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDomainNameRequest;
+      output: GetDomainNameResponse;
+    };
+    sdk: {
+      input: GetDomainNameCommandInput;
+      output: GetDomainNameCommandOutput;
+    };
+  };
+}

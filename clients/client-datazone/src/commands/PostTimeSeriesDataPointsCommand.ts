@@ -12,7 +12,8 @@ import { de_PostTimeSeriesDataPointsCommand, se_PostTimeSeriesDataPointsCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -102,6 +103,7 @@ export interface PostTimeSeriesDataPointsCommandOutput extends PostTimeSeriesDat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class PostTimeSeriesDataPointsCommand extends $Command
@@ -112,9 +114,7 @@ export class PostTimeSeriesDataPointsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -126,4 +126,16 @@ export class PostTimeSeriesDataPointsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PostTimeSeriesDataPointsCommand)
   .de(de_PostTimeSeriesDataPointsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PostTimeSeriesDataPointsInput;
+      output: PostTimeSeriesDataPointsOutput;
+    };
+    sdk: {
+      input: PostTimeSeriesDataPointsCommandInput;
+      output: PostTimeSeriesDataPointsCommandOutput;
+    };
+  };
+}

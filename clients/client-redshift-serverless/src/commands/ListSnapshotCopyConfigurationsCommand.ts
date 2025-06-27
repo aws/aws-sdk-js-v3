@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface ListSnapshotCopyConfigurationsCommandOutput
  * @throws {@link RedshiftServerlessServiceException}
  * <p>Base exception class for all service exceptions from RedshiftServerless service.</p>
  *
+ *
  * @public
  */
 export class ListSnapshotCopyConfigurationsCommand extends $Command
@@ -100,9 +102,7 @@ export class ListSnapshotCopyConfigurationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class ListSnapshotCopyConfigurationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListSnapshotCopyConfigurationsCommand)
   .de(de_ListSnapshotCopyConfigurationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListSnapshotCopyConfigurationsRequest;
+      output: ListSnapshotCopyConfigurationsResponse;
+    };
+    sdk: {
+      input: ListSnapshotCopyConfigurationsCommandInput;
+      output: ListSnapshotCopyConfigurationsCommandOutput;
+    };
+  };
+}

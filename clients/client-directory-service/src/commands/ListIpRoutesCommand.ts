@@ -12,7 +12,8 @@ import { de_ListIpRoutesCommand, se_ListIpRoutesCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,31 @@ export interface ListIpRoutesCommandOutput extends ListIpRoutesResult, __Metadat
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To list IP routes
+ * ```javascript
+ * // The following example lists the address blocks that have been added to a specified directory.
+ * const input = {
+ *   DirectoryId: "d-92654abfed",
+ *   Limit: 0
+ * };
+ * const command = new ListIpRoutesCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   IpRoutesInfo: [
+ *     {
+ *       AddedDateTime: 1.48157763163E9,
+ *       CidrIp: "12.12.12.12/32",
+ *       Description: "example",
+ *       DirectoryId: "d-92654abfed",
+ *       IpRouteStatusMsg: "Added"
+ *     }
+ *   ]
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListIpRoutesCommand extends $Command
@@ -91,9 +117,7 @@ export class ListIpRoutesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +129,16 @@ export class ListIpRoutesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListIpRoutesCommand)
   .de(de_ListIpRoutesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListIpRoutesRequest;
+      output: ListIpRoutesResult;
+    };
+    sdk: {
+      input: ListIpRoutesCommandInput;
+      output: ListIpRoutesCommandOutput;
+    };
+  };
+}

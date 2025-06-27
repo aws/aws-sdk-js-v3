@@ -15,7 +15,8 @@ import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,7 +31,7 @@ export interface DeleteModelBiasJobDefinitionCommandInput extends DeleteModelBia
 export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBearer {}
 
 /**
- * <p>Deletes an Amazon SageMaker model bias job definition.</p>
+ * <p>Deletes an Amazon SageMaker AI model bias job definition.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,6 +59,7 @@ export interface DeleteModelBiasJobDefinitionCommandOutput extends __MetadataBea
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
  *
+ *
  * @public
  */
 export class DeleteModelBiasJobDefinitionCommand extends $Command
@@ -68,9 +70,7 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -82,4 +82,16 @@ export class DeleteModelBiasJobDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteModelBiasJobDefinitionCommand)
   .de(de_DeleteModelBiasJobDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteModelBiasJobDefinitionRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteModelBiasJobDefinitionCommandInput;
+      output: DeleteModelBiasJobDefinitionCommandOutput;
+    };
+  };
+}

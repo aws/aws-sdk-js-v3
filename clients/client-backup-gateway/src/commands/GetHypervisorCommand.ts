@@ -12,7 +12,8 @@ import { de_GetHypervisorCommand, se_GetHypervisorCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface GetHypervisorCommandOutput extends GetHypervisorOutput, __Metad
  * @throws {@link BackupGatewayServiceException}
  * <p>Base exception class for all service exceptions from BackupGateway service.</p>
  *
+ *
  * @public
  */
 export class GetHypervisorCommand extends $Command
@@ -89,9 +91,7 @@ export class GetHypervisorCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: BackupGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class GetHypervisorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetHypervisorCommand)
   .de(de_GetHypervisorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetHypervisorInput;
+      output: GetHypervisorOutput;
+    };
+    sdk: {
+      input: GetHypervisorCommandInput;
+      output: GetHypervisorCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { Route53ResolverClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,6 +46,7 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  *         Port: Number("int"),
  *         Ipv6: "STRING_VALUE",
  *         Protocol: "DoH" || "Do53" || "DoH-FIPS",
+ *         ServerNameIndication: "STRING_VALUE",
  *       },
  *     ],
  *     ResolverEndpointId: "STRING_VALUE",
@@ -60,7 +62,7 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * //     DomainName: "STRING_VALUE",
  * //     Status: "COMPLETE" || "DELETING" || "UPDATING" || "FAILED",
  * //     StatusMessage: "STRING_VALUE",
- * //     RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE",
+ * //     RuleType: "FORWARD" || "SYSTEM" || "RECURSIVE" || "DELEGATE",
  * //     Name: "STRING_VALUE",
  * //     TargetIps: [ // TargetList
  * //       { // TargetAddress
@@ -68,6 +70,7 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * //         Port: Number("int"),
  * //         Ipv6: "STRING_VALUE",
  * //         Protocol: "DoH" || "Do53" || "DoH-FIPS",
+ * //         ServerNameIndication: "STRING_VALUE",
  * //       },
  * //     ],
  * //     ResolverEndpointId: "STRING_VALUE",
@@ -75,6 +78,7 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * //     ShareStatus: "NOT_SHARED" || "SHARED_WITH_ME" || "SHARED_BY_ME",
  * //     CreationTime: "STRING_VALUE",
  * //     ModificationTime: "STRING_VALUE",
+ * //     DelegationRecord: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -115,6 +119,7 @@ export interface UpdateResolverRuleCommandOutput extends UpdateResolverRuleRespo
  * @throws {@link Route53ResolverServiceException}
  * <p>Base exception class for all service exceptions from Route53Resolver service.</p>
  *
+ *
  * @public
  */
 export class UpdateResolverRuleCommand extends $Command
@@ -125,9 +130,7 @@ export class UpdateResolverRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ResolverClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -139,4 +142,16 @@ export class UpdateResolverRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateResolverRuleCommand)
   .de(de_UpdateResolverRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateResolverRuleRequest;
+      output: UpdateResolverRuleResponse;
+    };
+    sdk: {
+      input: UpdateResolverRuleCommandInput;
+      output: UpdateResolverRuleCommandOutput;
+    };
+  };
+}

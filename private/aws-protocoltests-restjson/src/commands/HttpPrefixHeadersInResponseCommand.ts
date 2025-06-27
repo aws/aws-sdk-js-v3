@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HttpPrefixHeadersInResponseInput, HttpPrefixHeadersInResponseOutput } from "../models/models_0";
 import {
   de_HttpPrefixHeadersInResponseCommand,
@@ -13,7 +15,8 @@ import { RestJsonProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputT
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,6 +58,7 @@ export interface HttpPrefixHeadersInResponseCommandOutput extends HttpPrefixHead
  * @throws {@link RestJsonProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestJsonProtocol service.</p>
  *
+ *
  * @public
  */
 export class HttpPrefixHeadersInResponseCommand extends $Command
@@ -65,12 +69,28 @@ export class HttpPrefixHeadersInResponseCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestJsonProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestJson", "HttpPrefixHeadersInResponse", {})
   .n("RestJsonProtocolClient", "HttpPrefixHeadersInResponseCommand")
   .f(void 0, void 0)
   .ser(se_HttpPrefixHeadersInResponseCommand)
   .de(de_HttpPrefixHeadersInResponseCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: HttpPrefixHeadersInResponseOutput;
+    };
+    sdk: {
+      input: HttpPrefixHeadersInResponseCommandInput;
+      output: HttpPrefixHeadersInResponseCommandOutput;
+    };
+  };
+}

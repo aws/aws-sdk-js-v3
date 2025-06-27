@@ -12,7 +12,8 @@ import { SecretsManagerClientResolvedConfig, ServiceInputTypes, ServiceOutputTyp
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -104,36 +105,36 @@ export interface ReplicateSecretToRegionsCommandOutput extends ReplicateSecretTo
  * @throws {@link SecretsManagerServiceException}
  * <p>Base exception class for all service exceptions from SecretsManager service.</p>
  *
- * @public
+ *
  * @example Example
  * ```javascript
  * // The following example replicates a secret to eu-west-3. The replica is encrypted with the AWS managed key aws/secretsmanager.
  * const input = {
- *   "AddReplicaRegions": [
+ *   AddReplicaRegions: [
  *     {
- *       "Region": "eu-west-3"
+ *       Region: "eu-west-3"
  *     }
  *   ],
- *   "ForceOverwriteReplicaSecret": true,
- *   "SecretId": "MyTestSecret"
+ *   ForceOverwriteReplicaSecret: true,
+ *   SecretId: "MyTestSecret"
  * };
  * const command = new ReplicateSecretToRegionsCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ARN": "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestSecret-1a2b3c",
- *   "ReplicationStatus": [
+ *   ARN: "arn:aws:secretsmanager:us-west-2:123456789012:secret:MyTestSecret-1a2b3c",
+ *   ReplicationStatus: [
  *     {
- *       "KmsKeyId": "alias/aws/secretsmanager",
- *       "Region": "eu-west-3",
- *       "Status": "InProgress"
+ *       KmsKeyId: "alias/aws/secretsmanager",
+ *       Region: "eu-west-3",
+ *       Status: "InProgress"
  *     }
  *   ]
  * }
  * *\/
- * // example id: example-1679591984774
  * ```
  *
+ * @public
  */
 export class ReplicateSecretToRegionsCommand extends $Command
   .classBuilder<
@@ -143,9 +144,7 @@ export class ReplicateSecretToRegionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SecretsManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +156,16 @@ export class ReplicateSecretToRegionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ReplicateSecretToRegionsCommand)
   .de(de_ReplicateSecretToRegionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ReplicateSecretToRegionsRequest;
+      output: ReplicateSecretToRegionsResponse;
+    };
+    sdk: {
+      input: ReplicateSecretToRegionsCommandInput;
+      output: ReplicateSecretToRegionsCommandOutput;
+    };
+  };
+}

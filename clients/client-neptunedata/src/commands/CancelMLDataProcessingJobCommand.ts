@@ -12,7 +12,8 @@ import { de_CancelMLDataProcessingJobCommand, se_CancelMLDataProcessingJobComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -94,6 +95,7 @@ export interface CancelMLDataProcessingJobCommandOutput extends CancelMLDataProc
  * @throws {@link NeptunedataServiceException}
  * <p>Base exception class for all service exceptions from Neptunedata service.</p>
  *
+ *
  * @public
  */
 export class CancelMLDataProcessingJobCommand extends $Command
@@ -104,9 +106,7 @@ export class CancelMLDataProcessingJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptunedataClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class CancelMLDataProcessingJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelMLDataProcessingJobCommand)
   .de(de_CancelMLDataProcessingJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelMLDataProcessingJobInput;
+      output: CancelMLDataProcessingJobOutput;
+    };
+    sdk: {
+      input: CancelMLDataProcessingJobCommandInput;
+      output: CancelMLDataProcessingJobCommandOutput;
+    };
+  };
+}

@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,6 +75,11 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * //         cidr: "STRING_VALUE",
  * //       },
  * //     ],
+ * //     associatedCoreNetwork: { // AssociatedCoreNetwork
+ * //       id: "STRING_VALUE",
+ * //       ownerAccount: "STRING_VALUE",
+ * //       attachmentId: "STRING_VALUE",
+ * //     },
  * //     virtualGatewayId: "STRING_VALUE",
  * //     virtualGatewayRegion: "STRING_VALUE",
  * //     virtualGatewayOwnerAccount: "STRING_VALUE",
@@ -97,6 +103,7 @@ export interface CreateDirectConnectGatewayAssociationCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class CreateDirectConnectGatewayAssociationCommand extends $Command
@@ -107,9 +114,7 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +126,16 @@ export class CreateDirectConnectGatewayAssociationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDirectConnectGatewayAssociationCommand)
   .de(de_CreateDirectConnectGatewayAssociationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDirectConnectGatewayAssociationRequest;
+      output: CreateDirectConnectGatewayAssociationResult;
+    };
+    sdk: {
+      input: CreateDirectConnectGatewayAssociationCommandInput;
+      output: CreateDirectConnectGatewayAssociationCommandOutput;
+    };
+  };
+}

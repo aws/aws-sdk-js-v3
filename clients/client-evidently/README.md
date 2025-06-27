@@ -19,7 +19,7 @@ and backend features.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-evidently
+To install this package, simply type add or install @aws-sdk/client-evidently
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-evidently`

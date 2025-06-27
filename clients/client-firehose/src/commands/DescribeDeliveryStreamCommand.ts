@@ -16,7 +16,8 @@ import { de_DescribeDeliveryStreamCommand, se_DescribeDeliveryStreamCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,10 +32,10 @@ export interface DescribeDeliveryStreamCommandInput extends DescribeDeliveryStre
 export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStreamOutput, __MetadataBearer {}
 
 /**
- * <p>Describes the specified delivery stream and its status. For example, after your
- *          delivery stream is created, call <code>DescribeDeliveryStream</code> to see whether the
- *          delivery stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
- *          <p>If the status of a delivery stream is <code>CREATING_FAILED</code>, this status
+ * <p>Describes the specified Firehose stream and its status. For example, after your
+ *          Firehose stream is created, call <code>DescribeDeliveryStream</code> to see whether the
+ *          Firehose stream is <code>ACTIVE</code> and therefore ready for data to be sent to it. </p>
+ *          <p>If the status of a Firehose stream is <code>CREATING_FAILED</code>, this status
  *          doesn't change, and you can't invoke <a>CreateDeliveryStream</a> again on it.
  *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete it.
  *          If the status is <code>DELETING_FAILED</code>, you can force deletion by invoking <a>DeleteDeliveryStream</a> again but with <a>DeleteDeliveryStreamInput$AllowForceDelete</a> set to true.</p>
@@ -57,7 +58,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //     DeliveryStreamARN: "STRING_VALUE", // required
  * //     DeliveryStreamStatus: "CREATING" || "CREATING_FAILED" || "DELETING" || "DELETING_FAILED" || "ACTIVE", // required
  * //     FailureDescription: { // FailureDescription
- * //       Type: "RETIRE_KMS_GRANT_FAILED" || "CREATE_KMS_GRANT_FAILED" || "KMS_ACCESS_DENIED" || "DISABLED_KMS_KEY" || "INVALID_KMS_KEY" || "KMS_KEY_NOT_FOUND" || "KMS_OPT_IN_REQUIRED" || "CREATE_ENI_FAILED" || "DELETE_ENI_FAILED" || "SUBNET_NOT_FOUND" || "SECURITY_GROUP_NOT_FOUND" || "ENI_ACCESS_DENIED" || "SUBNET_ACCESS_DENIED" || "SECURITY_GROUP_ACCESS_DENIED" || "UNKNOWN_ERROR", // required
+ * //       Type: "VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND" || "VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED" || "RETIRE_KMS_GRANT_FAILED" || "CREATE_KMS_GRANT_FAILED" || "KMS_ACCESS_DENIED" || "DISABLED_KMS_KEY" || "INVALID_KMS_KEY" || "KMS_KEY_NOT_FOUND" || "KMS_OPT_IN_REQUIRED" || "CREATE_ENI_FAILED" || "DELETE_ENI_FAILED" || "SUBNET_NOT_FOUND" || "SECURITY_GROUP_NOT_FOUND" || "ENI_ACCESS_DENIED" || "SUBNET_ACCESS_DENIED" || "SECURITY_GROUP_ACCESS_DENIED" || "UNKNOWN_ERROR", // required
  * //       Details: "STRING_VALUE", // required
  * //     },
  * //     DeliveryStreamEncryptionConfiguration: { // DeliveryStreamEncryptionConfiguration
@@ -65,15 +66,18 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //       KeyType: "AWS_OWNED_CMK" || "CUSTOMER_MANAGED_CMK",
  * //       Status: "ENABLED" || "ENABLING" || "ENABLING_FAILED" || "DISABLED" || "DISABLING" || "DISABLING_FAILED",
  * //       FailureDescription: {
- * //         Type: "RETIRE_KMS_GRANT_FAILED" || "CREATE_KMS_GRANT_FAILED" || "KMS_ACCESS_DENIED" || "DISABLED_KMS_KEY" || "INVALID_KMS_KEY" || "KMS_KEY_NOT_FOUND" || "KMS_OPT_IN_REQUIRED" || "CREATE_ENI_FAILED" || "DELETE_ENI_FAILED" || "SUBNET_NOT_FOUND" || "SECURITY_GROUP_NOT_FOUND" || "ENI_ACCESS_DENIED" || "SUBNET_ACCESS_DENIED" || "SECURITY_GROUP_ACCESS_DENIED" || "UNKNOWN_ERROR", // required
+ * //         Type: "VPC_ENDPOINT_SERVICE_NAME_NOT_FOUND" || "VPC_INTERFACE_ENDPOINT_SERVICE_ACCESS_DENIED" || "RETIRE_KMS_GRANT_FAILED" || "CREATE_KMS_GRANT_FAILED" || "KMS_ACCESS_DENIED" || "DISABLED_KMS_KEY" || "INVALID_KMS_KEY" || "KMS_KEY_NOT_FOUND" || "KMS_OPT_IN_REQUIRED" || "CREATE_ENI_FAILED" || "DELETE_ENI_FAILED" || "SUBNET_NOT_FOUND" || "SECURITY_GROUP_NOT_FOUND" || "ENI_ACCESS_DENIED" || "SUBNET_ACCESS_DENIED" || "SECURITY_GROUP_ACCESS_DENIED" || "UNKNOWN_ERROR", // required
  * //         Details: "STRING_VALUE", // required
  * //       },
  * //     },
- * //     DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource", // required
+ * //     DeliveryStreamType: "DirectPut" || "KinesisStreamAsSource" || "MSKAsSource" || "DatabaseAsSource", // required
  * //     VersionId: "STRING_VALUE", // required
  * //     CreateTimestamp: new Date("TIMESTAMP"),
  * //     LastUpdateTimestamp: new Date("TIMESTAMP"),
  * //     Source: { // SourceDescription
+ * //       DirectPutSourceDescription: { // DirectPutSourceDescription
+ * //         ThroughputHintInMBs: Number("int"),
+ * //       },
  * //       KinesisStreamSourceDescription: { // KinesisStreamSourceDescription
  * //         KinesisStreamARN: "STRING_VALUE",
  * //         RoleARN: "STRING_VALUE",
@@ -87,6 +91,61 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //           Connectivity: "PUBLIC" || "PRIVATE", // required
  * //         },
  * //         DeliveryStartTimestamp: new Date("TIMESTAMP"),
+ * //         ReadFromTimestamp: new Date("TIMESTAMP"),
+ * //       },
+ * //       DatabaseSourceDescription: { // DatabaseSourceDescription
+ * //         Type: "MySQL" || "PostgreSQL",
+ * //         Endpoint: "STRING_VALUE",
+ * //         Port: Number("int"),
+ * //         SSLMode: "Disabled" || "Enabled",
+ * //         Databases: { // DatabaseList
+ * //           Include: [ // DatabaseIncludeOrExcludeList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Exclude: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         Tables: { // DatabaseTableList
+ * //           Include: [ // DatabaseTableIncludeOrExcludeList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Exclude: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         Columns: { // DatabaseColumnList
+ * //           Include: [ // DatabaseColumnIncludeOrExcludeList
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           Exclude: [
+ * //             "STRING_VALUE",
+ * //           ],
+ * //         },
+ * //         SurrogateKeys: [
+ * //           "STRING_VALUE",
+ * //         ],
+ * //         SnapshotWatermarkTable: "STRING_VALUE",
+ * //         SnapshotInfo: [ // DatabaseSnapshotInfoList
+ * //           { // DatabaseSnapshotInfo
+ * //             Id: "STRING_VALUE", // required
+ * //             Table: "STRING_VALUE", // required
+ * //             RequestTimestamp: new Date("TIMESTAMP"), // required
+ * //             RequestedBy: "USER" || "FIREHOSE", // required
+ * //             Status: "IN_PROGRESS" || "COMPLETE" || "SUSPENDED", // required
+ * //             FailureDescription: "<FailureDescription>",
+ * //           },
+ * //         ],
+ * //         DatabaseSourceAuthenticationConfiguration: { // DatabaseSourceAuthenticationConfiguration
+ * //           SecretsManagerConfiguration: { // SecretsManagerConfiguration
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
+ * //         },
+ * //         DatabaseSourceVPCConfiguration: { // DatabaseSourceVPCConfiguration
+ * //           VpcEndpointServiceName: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //     },
  * //     Destinations: [ // DestinationDescriptionList // required
@@ -242,7 +301,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             DataTableColumns: "STRING_VALUE",
  * //             CopyOptions: "STRING_VALUE",
  * //           },
- * //           Username: "STRING_VALUE", // required
+ * //           Username: "STRING_VALUE",
  * //           RetryOptions: { // RedshiftRetryOptions
  * //             DurationInSeconds: Number("int"),
  * //           },
@@ -306,6 +365,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             },
  * //           },
  * //           CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         ElasticsearchDestinationDescription: { // ElasticsearchDestinationDescription
  * //           RoleARN: "STRING_VALUE",
@@ -435,6 +499,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             IntervalInSeconds: Number("int"),
  * //             SizeInMBs: Number("int"),
  * //           },
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         HttpEndpointDestinationDescription: { // HttpEndpointDestinationDescription
  * //           EndpointConfiguration: { // HttpEndpointDescription
@@ -462,6 +531,11 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //           },
  * //           S3BackupMode: "FailedDataOnly" || "AllData",
  * //           S3DestinationDescription: "<S3DestinationDescription>",
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
  * //         },
  * //         SnowflakeDestinationDescription: { // SnowflakeDestinationDescription
  * //           AccountUrl: "STRING_VALUE",
@@ -487,6 +561,15 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //           },
  * //           S3BackupMode: "FailedDataOnly" || "AllData",
  * //           S3DestinationDescription: "<S3DestinationDescription>",
+ * //           SecretsManagerConfiguration: {
+ * //             SecretARN: "STRING_VALUE",
+ * //             RoleARN: "STRING_VALUE",
+ * //             Enabled: true || false, // required
+ * //           },
+ * //           BufferingHints: { // SnowflakeBufferingHints
+ * //             SizeInMBs: Number("int"),
+ * //             IntervalInSeconds: Number("int"),
+ * //           },
  * //         },
  * //         AmazonOpenSearchServerlessDestinationDescription: { // AmazonOpenSearchServerlessDestinationDescription
  * //           RoleARN: "STRING_VALUE",
@@ -514,6 +597,45 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             VpcId: "STRING_VALUE", // required
  * //           },
  * //         },
+ * //         IcebergDestinationDescription: { // IcebergDestinationDescription
+ * //           DestinationTableConfigurationList: [ // DestinationTableConfigurationList
+ * //             { // DestinationTableConfiguration
+ * //               DestinationTableName: "STRING_VALUE", // required
+ * //               DestinationDatabaseName: "STRING_VALUE", // required
+ * //               UniqueKeys: [
+ * //                 "STRING_VALUE",
+ * //               ],
+ * //               PartitionSpec: { // PartitionSpec
+ * //                 Identity: [ // PartitionFields
+ * //                   { // PartitionField
+ * //                     SourceName: "STRING_VALUE", // required
+ * //                   },
+ * //                 ],
+ * //               },
+ * //               S3ErrorOutputPrefix: "STRING_VALUE",
+ * //             },
+ * //           ],
+ * //           SchemaEvolutionConfiguration: { // SchemaEvolutionConfiguration
+ * //             Enabled: true || false, // required
+ * //           },
+ * //           TableCreationConfiguration: { // TableCreationConfiguration
+ * //             Enabled: true || false, // required
+ * //           },
+ * //           BufferingHints: "<BufferingHints>",
+ * //           CloudWatchLoggingOptions: "<CloudWatchLoggingOptions>",
+ * //           ProcessingConfiguration: "<ProcessingConfiguration>",
+ * //           S3BackupMode: "FailedDataOnly" || "AllData",
+ * //           RetryOptions: {
+ * //             DurationInSeconds: Number("int"),
+ * //           },
+ * //           RoleARN: "STRING_VALUE",
+ * //           AppendOnly: true || false,
+ * //           CatalogConfiguration: { // CatalogConfiguration
+ * //             CatalogARN: "STRING_VALUE",
+ * //             WarehouseLocation: "STRING_VALUE",
+ * //           },
+ * //           S3DestinationDescription: "<S3DestinationDescription>",
+ * //         },
  * //       },
  * //     ],
  * //     HasMoreDestinations: true || false, // required
@@ -534,6 +656,7 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * @throws {@link FirehoseServiceException}
  * <p>Base exception class for all service exceptions from Firehose service.</p>
  *
+ *
  * @public
  */
 export class DescribeDeliveryStreamCommand extends $Command
@@ -544,9 +667,7 @@ export class DescribeDeliveryStreamCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: FirehoseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -558,4 +679,16 @@ export class DescribeDeliveryStreamCommand extends $Command
   .f(void 0, DescribeDeliveryStreamOutputFilterSensitiveLog)
   .ser(se_DescribeDeliveryStreamCommand)
   .de(de_DescribeDeliveryStreamCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDeliveryStreamInput;
+      output: DescribeDeliveryStreamOutput;
+    };
+    sdk: {
+      input: DescribeDeliveryStreamCommandInput;
+      output: DescribeDeliveryStreamCommandOutput;
+    };
+  };
+}

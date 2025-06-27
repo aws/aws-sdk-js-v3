@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -215,6 +216,7 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * //     DBInstanceArn: "STRING_VALUE",
  * //     Timezone: "STRING_VALUE",
  * //     IAMDatabaseAuthenticationEnabled: true || false,
+ * //     DatabaseInsightsMode: "standard" || "advanced",
  * //     PerformanceInsightsEnabled: true || false,
  * //     PerformanceInsightsKMSKeyId: "STRING_VALUE",
  * //     PerformanceInsightsRetentionPeriod: Number("int"),
@@ -303,28 +305,28 @@ export interface PromoteReadReplicaCommandOutput extends PromoteReadReplicaResul
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To promote a read replica
  * ```javascript
  * // The following example promotes the specified read replica to become a standalone DB instance.
  * const input = {
- *   "DBInstanceIdentifier": "test-instance-repl"
+ *   DBInstanceIdentifier: "test-instance-repl"
  * };
  * const command = new PromoteReadReplicaCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBInstance": {
- *     "DBInstanceArn": "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
- *     "DBInstanceStatus": "modifying",
- *     "ReadReplicaSourceDBInstanceIdentifier": "test-instance",
- *     "StorageType": "standard"
+ *   DBInstance: {
+ *     DBInstanceArn: "arn:aws:rds:us-east-1:123456789012:db:test-instance-repl",
+ *     DBInstanceStatus: "modifying",
+ *     ReadReplicaSourceDBInstanceIdentifier: "test-instance",
+ *     StorageType: "standard"
  *   }
  * }
  * *\/
- * // example id: to-promote-a-read-replica-1680263877808
  * ```
  *
+ * @public
  */
 export class PromoteReadReplicaCommand extends $Command
   .classBuilder<
@@ -334,9 +336,7 @@ export class PromoteReadReplicaCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -348,4 +348,16 @@ export class PromoteReadReplicaCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PromoteReadReplicaCommand)
   .de(de_PromoteReadReplicaCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PromoteReadReplicaMessage;
+      output: PromoteReadReplicaResult;
+    };
+    sdk: {
+      input: PromoteReadReplicaCommandInput;
+      output: PromoteReadReplicaCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WAFV2ClientResolvedConfig } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,7 @@ export interface ListResourcesForWebACLCommandInput extends ListResourcesForWebA
 export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWebACLResponse, __MetadataBearer {}
 
 /**
- * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the regional resources that
+ * <p>Retrieves an array of the Amazon Resource Names (ARNs) for the resources that
  *       are associated with the specified web ACL. </p>
  *          <p>For Amazon CloudFront, don't use this call. Instead, use the CloudFront call
  *           <code>ListDistributionsByWebACLId</code>. For information, see <a href="https://docs.aws.amazon.com/cloudfront/latest/APIReference/API_ListDistributionsByWebACLId.html">ListDistributionsByWebACLId</a>
@@ -45,7 +46,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * const client = new WAFV2Client(config);
  * const input = { // ListResourcesForWebACLRequest
  *   WebACLArn: "STRING_VALUE", // required
- *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE" || "VERIFIED_ACCESS_INSTANCE",
+ *   ResourceType: "APPLICATION_LOAD_BALANCER" || "API_GATEWAY" || "APPSYNC" || "COGNITO_USER_POOL" || "APP_RUNNER_SERVICE" || "VERIFIED_ACCESS_INSTANCE" || "AMPLIFY",
  * };
  * const command = new ListResourcesForWebACLCommand(input);
  * const response = await client.send(command);
@@ -100,6 +101,7 @@ export interface ListResourcesForWebACLCommandOutput extends ListResourcesForWeb
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
+ *
  * @public
  */
 export class ListResourcesForWebACLCommand extends $Command
@@ -110,9 +112,7 @@ export class ListResourcesForWebACLCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WAFV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +124,16 @@ export class ListResourcesForWebACLCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListResourcesForWebACLCommand)
   .de(de_ListResourcesForWebACLCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListResourcesForWebACLRequest;
+      output: ListResourcesForWebACLResponse;
+    };
+    sdk: {
+      input: ListResourcesForWebACLCommandInput;
+      output: ListResourcesForWebACLCommandOutput;
+    };
+  };
+}

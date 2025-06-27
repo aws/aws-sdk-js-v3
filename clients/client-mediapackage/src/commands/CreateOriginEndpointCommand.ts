@@ -12,7 +12,8 @@ import { de_CreateOriginEndpointCommand, se_CreateOriginEndpointCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -398,6 +399,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * @throws {@link MediaPackageServiceException}
  * <p>Base exception class for all service exceptions from MediaPackage service.</p>
  *
+ *
  * @public
  */
 export class CreateOriginEndpointCommand extends $Command
@@ -408,9 +410,7 @@ export class CreateOriginEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -422,4 +422,16 @@ export class CreateOriginEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateOriginEndpointCommand)
   .de(de_CreateOriginEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateOriginEndpointRequest;
+      output: CreateOriginEndpointResponse;
+    };
+    sdk: {
+      input: CreateOriginEndpointCommandInput;
+      output: CreateOriginEndpointCommandOutput;
+    };
+  };
+}

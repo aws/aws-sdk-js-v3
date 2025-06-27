@@ -17,7 +17,8 @@ import { S3ControlClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface GetMultiRegionAccessPointPolicyCommandOutput
  * @throws {@link S3ControlServiceException}
  * <p>Base exception class for all service exceptions from S3Control service.</p>
  *
+ *
  * @public
  */
 export class GetMultiRegionAccessPointPolicyCommand extends $Command
@@ -117,4 +119,16 @@ export class GetMultiRegionAccessPointPolicyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetMultiRegionAccessPointPolicyCommand)
   .de(de_GetMultiRegionAccessPointPolicyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetMultiRegionAccessPointPolicyRequest;
+      output: GetMultiRegionAccessPointPolicyResult;
+    };
+    sdk: {
+      input: GetMultiRegionAccessPointPolicyCommandInput;
+      output: GetMultiRegionAccessPointPolicyCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetDeploymentStrategyCommand, se_GetDeploymentStrategyCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -74,29 +75,29 @@ export interface GetDeploymentStrategyCommandOutput extends DeploymentStrategy, 
  * @throws {@link AppConfigServiceException}
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
- * @public
+ *
  * @example To retrieve details of a deployment strategy
  * ```javascript
  * // The following get-deployment-strategy example lists the details of the specified deployment strategy.
  * const input = {
- *   "DeploymentStrategyId": "1225qzk"
+ *   DeploymentStrategyId: "1225qzk"
  * };
  * const command = new GetDeploymentStrategyCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DeploymentDurationInMinutes": 15,
- *   "FinalBakeTimeInMinutes": 0,
- *   "GrowthFactor": 25,
- *   "GrowthType": "LINEAR",
- *   "Id": "1225qzk",
- *   "Name": "Example-Deployment",
- *   "ReplicateTo": "SSM_DOCUMENT"
+ *   DeploymentDurationInMinutes: 15,
+ *   FinalBakeTimeInMinutes: 0,
+ *   GrowthFactor: 25,
+ *   GrowthType: "LINEAR",
+ *   Id: "1225qzk",
+ *   Name: "Example-Deployment",
+ *   ReplicateTo: "SSM_DOCUMENT"
  * }
  * *\/
- * // example id: to-retrieve-details-of-a-deployment-strategy-1632266385805
  * ```
  *
+ * @public
  */
 export class GetDeploymentStrategyCommand extends $Command
   .classBuilder<
@@ -106,9 +107,7 @@ export class GetDeploymentStrategyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppConfigClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +119,16 @@ export class GetDeploymentStrategyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetDeploymentStrategyCommand)
   .de(de_GetDeploymentStrategyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDeploymentStrategyRequest;
+      output: DeploymentStrategy;
+    };
+    sdk: {
+      input: GetDeploymentStrategyCommandInput;
+      output: GetDeploymentStrategyCommandOutput;
+    };
+  };
+}

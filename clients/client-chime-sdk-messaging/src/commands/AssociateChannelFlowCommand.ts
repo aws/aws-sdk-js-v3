@@ -16,7 +16,8 @@ import { de_AssociateChannelFlowCommand, se_AssociateChannelFlowCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -90,6 +91,7 @@ export interface AssociateChannelFlowCommandOutput extends __MetadataBearer {}
  * @throws {@link ChimeSDKMessagingServiceException}
  * <p>Base exception class for all service exceptions from ChimeSDKMessaging service.</p>
  *
+ *
  * @public
  */
 export class AssociateChannelFlowCommand extends $Command
@@ -100,9 +102,7 @@ export class AssociateChannelFlowCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ChimeSDKMessagingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -114,4 +114,16 @@ export class AssociateChannelFlowCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateChannelFlowCommand)
   .de(de_AssociateChannelFlowCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateChannelFlowRequest;
+      output: {};
+    };
+    sdk: {
+      input: AssociateChannelFlowCommandInput;
+      output: AssociateChannelFlowCommandOutput;
+    };
+  };
+}

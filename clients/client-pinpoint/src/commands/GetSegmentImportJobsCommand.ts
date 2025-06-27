@@ -12,7 +12,8 @@ import { de_GetSegmentImportJobsCommand, se_GetSegmentImportJobsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -108,6 +109,7 @@ export interface GetSegmentImportJobsCommandOutput extends GetSegmentImportJobsR
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class GetSegmentImportJobsCommand extends $Command
@@ -118,9 +120,7 @@ export class GetSegmentImportJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +132,16 @@ export class GetSegmentImportJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetSegmentImportJobsCommand)
   .de(de_GetSegmentImportJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetSegmentImportJobsRequest;
+      output: GetSegmentImportJobsResponse;
+    };
+    sdk: {
+      input: GetSegmentImportJobsCommandInput;
+      output: GetSegmentImportJobsCommandOutput;
+    };
+  };
+}

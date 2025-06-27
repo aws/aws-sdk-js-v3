@@ -12,7 +12,8 @@ import { de_ListContainerRecipesCommand, se_ListContainerRecipesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,7 +36,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * // const { ImagebuilderClient, ListContainerRecipesCommand } = require("@aws-sdk/client-imagebuilder"); // CommonJS import
  * const client = new ImagebuilderClient(config);
  * const input = { // ListContainerRecipesRequest
- *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty",
+ *   owner: "Self" || "Shared" || "Amazon" || "ThirdParty" || "AWSMarketplace",
  *   filters: [ // FilterList
  *     { // Filter
  *       name: "STRING_VALUE",
@@ -56,7 +57,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * //       arn: "STRING_VALUE",
  * //       containerType: "DOCKER",
  * //       name: "STRING_VALUE",
- * //       platform: "Windows" || "Linux",
+ * //       platform: "Windows" || "Linux" || "macOS",
  * //       owner: "STRING_VALUE",
  * //       parentImage: "STRING_VALUE",
  * //       dateCreated: "STRING_VALUE",
@@ -103,6 +104,7 @@ export interface ListContainerRecipesCommandOutput extends ListContainerRecipesR
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class ListContainerRecipesCommand extends $Command
@@ -113,9 +115,7 @@ export class ListContainerRecipesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +127,16 @@ export class ListContainerRecipesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListContainerRecipesCommand)
   .de(de_ListContainerRecipesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListContainerRecipesRequest;
+      output: ListContainerRecipesResponse;
+    };
+    sdk: {
+      input: ListContainerRecipesCommandInput;
+      output: ListContainerRecipesCommandOutput;
+    };
+  };
+}

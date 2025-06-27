@@ -97,7 +97,8 @@ export class ThrottlingException extends __BaseException {
 }
 
 /**
- * <p>Unable to process the request because the client provided input failed to satisfy request constraints.</p>
+ * <p>Unable to process the request because the client provided input failed to satisfy
+ *          request constraints.</p>
  * @public
  */
 export class ValidationException extends __BaseException {
@@ -124,7 +125,7 @@ export interface CreateSolFunctionPackageInput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -208,7 +209,7 @@ export interface CreateSolFunctionPackageOutput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -251,13 +252,13 @@ export interface CreateSolNetworkInstanceInput {
    * <p>Network instance description.</p>
    * @public
    */
-  nsDescription?: string;
+  nsDescription?: string | undefined;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -292,7 +293,7 @@ export interface CreateSolNetworkInstanceOutput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -303,7 +304,7 @@ export interface CreateSolNetworkPackageInput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -387,7 +388,7 @@ export interface CreateSolNetworkPackageOutput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -445,13 +446,13 @@ export interface ErrorInfo {
    * <p>Error cause.</p>
    * @public
    */
-  cause?: string;
+  cause?: string | undefined;
 
   /**
    * <p>Error details.</p>
    * @public
    */
-  details?: string;
+  details?: string | undefined;
 }
 
 /**
@@ -463,13 +464,13 @@ export interface ToscaOverride {
    * <p>Name of the TOSCA override.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Default value for the override.</p>
    * @public
    */
-  defaultValue?: string;
+  defaultValue?: string | undefined;
 }
 
 /**
@@ -482,7 +483,7 @@ export interface FunctionArtifactMeta {
    * <p>Lists of function package overrides.</p>
    * @public
    */
-  overrides?: ToscaOverride[];
+  overrides?: ToscaOverride[] | undefined;
 }
 
 /**
@@ -506,19 +507,19 @@ export interface GetSolVnfcResourceInfoMetadata {
    * <p>Information about the node group.</p>
    * @public
    */
-  nodeGroup?: string;
+  nodeGroup?: string | undefined;
 
   /**
    * <p>Information about the cluster.</p>
    * @public
    */
-  cluster?: string;
+  cluster?: string | undefined;
 
   /**
    * <p>Information about the helm chart.</p>
    * @public
    */
-  helmChart?: string;
+  helmChart?: string | undefined;
 }
 
 /**
@@ -531,7 +532,7 @@ export interface GetSolVnfcResourceInfo {
    * <p>The metadata of the network function compute.</p>
    * @public
    */
-  metadata?: GetSolVnfcResourceInfoMetadata;
+  metadata?: GetSolVnfcResourceInfoMetadata | undefined;
 }
 
 /**
@@ -558,13 +559,13 @@ export interface GetSolVnfInfo {
    * <p>State of the network function instance.</p>
    * @public
    */
-  vnfState?: VnfOperationalState;
+  vnfState?: VnfOperationalState | undefined;
 
   /**
    * <p>Compute info used by the network function instance.</p>
    * @public
    */
-  vnfcResourceInfo?: GetSolVnfcResourceInfo[];
+  vnfcResourceInfo?: GetSolVnfcResourceInfo[] | undefined;
 }
 
 /**
@@ -638,19 +639,19 @@ export interface GetSolFunctionInstanceOutput {
    * <p>Network function provider.</p>
    * @public
    */
-  vnfProvider?: string;
+  vnfProvider?: string | undefined;
 
   /**
    * <p>Network function product name.</p>
    * @public
    */
-  vnfProductName?: string;
+  vnfProductName?: string | undefined;
 
   /**
    * <p>Function package descriptor version.</p>
    * @public
    */
-  vnfdVersion?: string;
+  vnfdVersion?: string | undefined;
 
   /**
    * <p>Network function instantiation state.</p>
@@ -663,7 +664,7 @@ export interface GetSolFunctionInstanceOutput {
    *          <p>A network function instance is a function in a function package .</p>
    * @public
    */
-  instantiatedVnfInfo?: GetSolVnfInfo;
+  instantiatedVnfInfo?: GetSolVnfInfo | undefined;
 
   /**
    * <p>The metadata of a network function instance.</p>
@@ -676,7 +677,7 @@ export interface GetSolFunctionInstanceOutput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -700,7 +701,7 @@ export interface GetSolFunctionPackageMetadata {
    * <p>Metadata related to the function package descriptor of the function package.</p>
    * @public
    */
-  vnfd?: FunctionArtifactMeta;
+  vnfd?: FunctionArtifactMeta | undefined;
 
   /**
    * <p>The date that the resource was created.</p>
@@ -750,41 +751,41 @@ export interface GetSolFunctionPackageOutput {
   usageState: UsageState | undefined;
 
   /**
-   * <p>Function package descriptor  ID.</p>
+   * <p>Function package descriptor ID.</p>
    * @public
    */
-  vnfdId?: string;
+  vnfdId?: string | undefined;
 
   /**
    * <p>Network function provider.</p>
    * @public
    */
-  vnfProvider?: string;
+  vnfProvider?: string | undefined;
 
   /**
    * <p>Network function product name.</p>
    * @public
    */
-  vnfProductName?: string;
+  vnfProductName?: string | undefined;
 
   /**
    * <p>Function package descriptor version.</p>
    * @public
    */
-  vnfdVersion?: string;
+  vnfdVersion?: string | undefined;
 
   /**
    * <p>Metadata related to the function package.</p>
    *          <p>A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
    * @public
    */
-  metadata?: GetSolFunctionPackageMetadata;
+  metadata?: GetSolFunctionPackageMetadata | undefined;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -825,13 +826,13 @@ export interface GetSolFunctionPackageContentOutput {
    * <p>Indicates the media type of the resource.</p>
    * @public
    */
-  contentType?: PackageContentType;
+  contentType?: PackageContentType | undefined;
 
   /**
    * <p>Contents of the function package.</p>
    * @public
    */
-  packageContent?: Uint8Array;
+  packageContent?: Uint8Array | undefined;
 }
 
 /**
@@ -845,7 +846,8 @@ export interface GetSolFunctionPackageDescriptorInput {
   vnfPkgId: string | undefined;
 
   /**
-   * <p>Indicates which content types, expressed as MIME types, the client is able to understand.</p>
+   * <p>Indicates which content types, expressed as MIME types, the client is able to
+   *          understand.</p>
    * @public
    */
   accept: DescriptorContentType | undefined;
@@ -859,13 +861,13 @@ export interface GetSolFunctionPackageDescriptorOutput {
    * <p>Indicates the media type of the resource.</p>
    * @public
    */
-  contentType?: DescriptorContentType;
+  contentType?: DescriptorContentType | undefined;
 
   /**
    * <p>Contents of the function package descriptor.</p>
    * @public
    */
-  vnfd?: Uint8Array;
+  vnfd?: Uint8Array | undefined;
 }
 
 /**
@@ -878,7 +880,7 @@ export interface GetSolInstantiatedVnfInfo {
    * <p>State of the network function.</p>
    * @public
    */
-  vnfState?: VnfOperationalState;
+  vnfState?: VnfOperationalState | undefined;
 }
 
 /**
@@ -933,9 +935,12 @@ export const NsState = {
   IMPAIRED: "IMPAIRED",
   INSTANTIATED: "INSTANTIATED",
   INSTANTIATE_IN_PROGRESS: "INSTANTIATE_IN_PROGRESS",
+  INTENT_TO_UPDATE_IN_PROGRESS: "INTENT_TO_UPDATE_IN_PROGRESS",
   NOT_INSTANTIATED: "NOT_INSTANTIATED",
   STOPPED: "STOPPED",
   TERMINATE_IN_PROGRESS: "TERMINATE_IN_PROGRESS",
+  UPDATED: "UPDATED",
+  UPDATE_FAILED: "UPDATE_FAILED",
   UPDATE_IN_PROGRESS: "UPDATE_IN_PROGRESS",
 } as const;
 
@@ -988,14 +993,14 @@ export interface GetSolNetworkInstanceOutput {
    * <p>Network instance state.</p>
    * @public
    */
-  nsState?: NsState;
+  nsState?: NsState | undefined;
 
   /**
    * <p>Lifecycle management operation details on the network instance.</p>
    *          <p>Lifecycle management operations are deploy, update, or delete operations.</p>
    * @public
    */
-  lcmOpInfo?: LcmOperationInfo;
+  lcmOpInfo?: LcmOperationInfo | undefined;
 
   /**
    * <p>The metadata of a network instance.</p>
@@ -1008,7 +1013,7 @@ export interface GetSolNetworkInstanceOutput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1037,7 +1042,7 @@ export interface ProblemDetails {
    * <p>A human-readable title of the problem type.</p>
    * @public
    */
-  title?: string;
+  title?: string | undefined;
 }
 
 /**
@@ -1056,11 +1061,89 @@ export const LcmOperationType = {
 export type LcmOperationType = (typeof LcmOperationType)[keyof typeof LcmOperationType];
 
 /**
+ * <p>Metadata related to the configuration properties used during instantiation of the network instance.</p>
+ * @public
+ */
+export interface InstantiateMetadata {
+  /**
+   * <p>The network service descriptor used for instantiating the network instance.</p>
+   * @public
+   */
+  nsdInfoId: string | undefined;
+
+  /**
+   * <p>The configurable properties used during instantiation.</p>
+   * @public
+   */
+  additionalParamsForNs?: __DocumentType | undefined;
+}
+
+/**
+ * <p>Metadata related to the configuration properties used during update of a specific
+ *          network function in a network instance.</p>
+ * @public
+ */
+export interface ModifyVnfInfoMetadata {
+  /**
+   * <p>The network function instance that was updated in the network instance.</p>
+   * @public
+   */
+  vnfInstanceId: string | undefined;
+
+  /**
+   * <p>The configurable properties used during update of the network function instance.</p>
+   * @public
+   */
+  vnfConfigurableProperties: __DocumentType | undefined;
+}
+
+/**
+ * <p>Metadata related to the configuration properties used during update of a network instance.</p>
+ * @public
+ */
+export interface UpdateNsMetadata {
+  /**
+   * <p>The network service descriptor used for updating the network instance.</p>
+   * @public
+   */
+  nsdInfoId: string | undefined;
+
+  /**
+   * <p>The configurable properties used during update.</p>
+   * @public
+   */
+  additionalParamsForNs?: __DocumentType | undefined;
+}
+
+/**
  * <p>Metadata related to a network operation occurrence.</p>
  *          <p>A network operation is any operation that is done to your network, such as network instance instantiation or termination.</p>
  * @public
  */
 export interface GetSolNetworkOperationMetadata {
+  /**
+   * <p>Metadata related to the network operation occurrence for network instance updates.
+   *          This is populated only if the lcmOperationType is <code>UPDATE</code> and the
+   *          updateType is <code>UPDATE_NS</code>.</p>
+   * @public
+   */
+  updateNsMetadata?: UpdateNsMetadata | undefined;
+
+  /**
+   * <p>Metadata related to the network operation occurrence for network function updates in a network instance.
+   *          This is populated only if the lcmOperationType is <code>UPDATE</code> and the
+   *          updateType is <code>MODIFY_VNF_INFORMATION</code>.</p>
+   * @public
+   */
+  modifyVnfInfoMetadata?: ModifyVnfInfoMetadata | undefined;
+
+  /**
+   * <p>Metadata related to the network operation occurrence for network instantiation.
+   *          This is populated only if the lcmOperationType is <code>INSTANTIATE</code>.</p>
+   * @public
+   */
+  instantiateMetadata?: InstantiateMetadata | undefined;
+
   /**
    * <p>The date that the resource was created.</p>
    * @public
@@ -1120,38 +1203,52 @@ export interface GetSolNetworkOperationTaskDetails {
    * <p>Task name.</p>
    * @public
    */
-  taskName?: string;
+  taskName?: string | undefined;
 
   /**
    * <p>Context for the network operation task.</p>
    * @public
    */
-  taskContext?: Record<string, string>;
+  taskContext?: Record<string, string> | undefined;
 
   /**
    * <p>Task error details.</p>
    * @public
    */
-  taskErrorDetails?: ErrorInfo;
+  taskErrorDetails?: ErrorInfo | undefined;
 
   /**
    * <p>Task status.</p>
    * @public
    */
-  taskStatus?: TaskStatus;
+  taskStatus?: TaskStatus | undefined;
 
   /**
    * <p>Task start time.</p>
    * @public
    */
-  taskStartTime?: Date;
+  taskStartTime?: Date | undefined;
 
   /**
    * <p>Task end time.</p>
    * @public
    */
-  taskEndTime?: Date;
+  taskEndTime?: Date | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const UpdateSolNetworkType = {
+  MODIFY_VNF_INFORMATION: "MODIFY_VNF_INFORMATION",
+  UPDATE_NS: "UPDATE_NS",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateSolNetworkType = (typeof UpdateSolNetworkType)[keyof typeof UpdateSolNetworkType];
 
 /**
  * @public
@@ -1161,7 +1258,7 @@ export interface GetSolNetworkOperationOutput {
    * <p>ID of this network operation occurrence.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>Network operation ARN.</p>
@@ -1173,43 +1270,50 @@ export interface GetSolNetworkOperationOutput {
    * <p>The state of the network operation.</p>
    * @public
    */
-  operationState?: NsLcmOperationState;
+  operationState?: NsLcmOperationState | undefined;
 
   /**
    * <p>ID of the network operation instance.</p>
    * @public
    */
-  nsInstanceId?: string;
+  nsInstanceId?: string | undefined;
 
   /**
    * <p>Type of the operation represented by this occurrence.</p>
    * @public
    */
-  lcmOperationType?: LcmOperationType;
+  lcmOperationType?: LcmOperationType | undefined;
+
+  /**
+   * <p>Type of the update. Only present if the network operation
+   *          lcmOperationType is <code>UPDATE</code>.</p>
+   * @public
+   */
+  updateType?: UpdateSolNetworkType | undefined;
 
   /**
    * <p>Error related to this specific network operation occurrence.</p>
    * @public
    */
-  error?: ProblemDetails;
+  error?: ProblemDetails | undefined;
 
   /**
    * <p>Metadata of this network operation occurrence.</p>
    * @public
    */
-  metadata?: GetSolNetworkOperationMetadata;
+  metadata?: GetSolNetworkOperationMetadata | undefined;
 
   /**
    * <p>All tasks associated with this operation occurrence.</p>
    * @public
    */
-  tasks?: GetSolNetworkOperationTaskDetails[];
+  tasks?: GetSolNetworkOperationTaskDetails[] | undefined;
 
   /**
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1233,7 +1337,7 @@ export interface NetworkArtifactMeta {
    * <p>Lists network package overrides.</p>
    * @public
    */
-  overrides?: ToscaOverride[];
+  overrides?: ToscaOverride[] | undefined;
 }
 
 /**
@@ -1243,10 +1347,11 @@ export interface NetworkArtifactMeta {
  */
 export interface GetSolNetworkPackageMetadata {
   /**
-   * <p>Metadata related to the onboarded network service descriptor in the network package.</p>
+   * <p>Metadata related to the onboarded network service descriptor in the network
+   *          package.</p>
    * @public
    */
-  nsd?: NetworkArtifactMeta;
+  nsd?: NetworkArtifactMeta | undefined;
 
   /**
    * <p>The date that the resource was created.</p>
@@ -1314,7 +1419,8 @@ export interface GetSolNetworkPackageOutput {
   nsdVersion: string | undefined;
 
   /**
-   * <p>Identifies the function package for the function package descriptor referenced by the onboarded network package.</p>
+   * <p>Identifies the function package for the function package descriptor referenced by the
+   *          onboarded network package.</p>
    * @public
    */
   vnfPkgIds: string[] | undefined;
@@ -1330,7 +1436,7 @@ export interface GetSolNetworkPackageOutput {
    * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. You can use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1358,13 +1464,13 @@ export interface GetSolNetworkPackageContentOutput {
    * <p>Indicates the media type of the resource.</p>
    * @public
    */
-  contentType?: PackageContentType;
+  contentType?: PackageContentType | undefined;
 
   /**
    * <p>Content of the network service descriptor in the network package.</p>
    * @public
    */
-  nsdContent?: Uint8Array;
+  nsdContent?: Uint8Array | undefined;
 }
 
 /**
@@ -1386,13 +1492,13 @@ export interface GetSolNetworkPackageDescriptorOutput {
    * <p>Indicates the media type of the resource.</p>
    * @public
    */
-  contentType?: DescriptorContentType;
+  contentType?: DescriptorContentType | undefined;
 
   /**
    * <p>Contents of the network service descriptor in the network package.</p>
    * @public
    */
-  nsd?: Uint8Array;
+  nsd?: Uint8Array | undefined;
 }
 
 /**
@@ -1411,19 +1517,19 @@ export interface InstantiateSolNetworkInstanceInput {
    *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
    * @public
    */
-  dryRun?: boolean;
+  dryRun?: boolean | undefined;
 
   /**
    * <p>Provides values for the configurable properties.</p>
    * @public
    */
-  additionalParamsForNs?: __DocumentType;
+  additionalParamsForNs?: __DocumentType | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1437,10 +1543,10 @@ export interface InstantiateSolNetworkInstanceOutput {
   nsLcmOpOccId: string | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -1496,7 +1602,7 @@ export interface ListSolFunctionInstanceInfo {
    * <p>Function package name.</p>
    * @public
    */
-  vnfPkgName?: string;
+  vnfPkgName?: string | undefined;
 
   /**
    * <p>Network function instance instantiation state.</p>
@@ -1509,7 +1615,7 @@ export interface ListSolFunctionInstanceInfo {
    *          <p>A network instance is a single network created in Amazon Web Services TNB that can be deployed and on which life-cycle operations (like terminate, update, and delete) can be performed.</p>
    * @public
    */
-  instantiatedVnfInfo?: GetSolInstantiatedVnfInfo;
+  instantiatedVnfInfo?: GetSolInstantiatedVnfInfo | undefined;
 
   /**
    * <p>Network function instance metadata.</p>
@@ -1526,13 +1632,13 @@ export interface ListSolFunctionInstancesInput {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1543,13 +1649,13 @@ export interface ListSolFunctionInstancesOutput {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Network function instances.</p>
    * @public
    */
-  functionInstances?: ListSolFunctionInstanceInfo[];
+  functionInstances?: ListSolFunctionInstanceInfo[] | undefined;
 }
 
 /**
@@ -1611,31 +1717,31 @@ export interface ListSolFunctionPackageInfo {
    * <p>Identifies the function package and the function package descriptor.</p>
    * @public
    */
-  vnfdId?: string;
+  vnfdId?: string | undefined;
 
   /**
    * <p>Provider of the function package and the function package descriptor.</p>
    * @public
    */
-  vnfProvider?: string;
+  vnfProvider?: string | undefined;
 
   /**
    * <p>The product name for the network function.</p>
    * @public
    */
-  vnfProductName?: string;
+  vnfProductName?: string | undefined;
 
   /**
    * <p>Identifies the version of the function package descriptor.</p>
    * @public
    */
-  vnfdVersion?: string;
+  vnfdVersion?: string | undefined;
 
   /**
    * <p>The metadata of the function package.</p>
    * @public
    */
-  metadata?: ListSolFunctionPackageMetadata;
+  metadata?: ListSolFunctionPackageMetadata | undefined;
 }
 
 /**
@@ -1646,13 +1752,13 @@ export interface ListSolFunctionPackagesInput {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1663,7 +1769,7 @@ export interface ListSolFunctionPackagesOutput {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Function packages. A function package is a .zip file in CSAR (Cloud Service Archive) format that contains a network function (an ETSI standard telecommunication application) and function package descriptor that uses the TOSCA standard to describe how the network functions should run on your network.</p>
@@ -1754,13 +1860,13 @@ export interface ListSolNetworkInstancesInput {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1771,13 +1877,13 @@ export interface ListSolNetworkInstancesOutput {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Lists network instances.</p>
    * @public
    */
-  networkInstances?: ListSolNetworkInstanceInfo[];
+  networkInstances?: ListSolNetworkInstanceInfo[] | undefined;
 }
 
 /**
@@ -1785,16 +1891,22 @@ export interface ListSolNetworkInstancesOutput {
  */
 export interface ListSolNetworkOperationsInput {
   /**
+   * <p>Network instance id filter, to retrieve network operations associated to a network instance.</p>
+   * @public
+   */
+  nsInstanceId?: string | undefined;
+
+  /**
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -1803,6 +1915,20 @@ export interface ListSolNetworkOperationsInput {
  * @public
  */
 export interface ListSolNetworkOperationsMetadata {
+  /**
+   * <p>The network service descriptor id used for the operation.</p>
+   *          <p>Only present if the updateType is <code>UPDATE_NS</code>.</p>
+   * @public
+   */
+  nsdInfoId?: string | undefined;
+
+  /**
+   * <p>The network function id used for the operation.</p>
+   *          <p>Only present if the updateType is <code>MODIFY_VNF_INFO</code>.</p>
+   * @public
+   */
+  vnfInstanceId?: string | undefined;
+
   /**
    * <p>The date that the resource was created.</p>
    * @public
@@ -1852,16 +1978,22 @@ export interface ListSolNetworkOperationsInfo {
   lcmOperationType: LcmOperationType | undefined;
 
   /**
+   * <p>Type of the update. Only present if the network operation lcmOperationType is <code>UPDATE</code>.</p>
+   * @public
+   */
+  updateType?: UpdateSolNetworkType | undefined;
+
+  /**
    * <p>Error related to this specific network operation.</p>
    * @public
    */
-  error?: ProblemDetails;
+  error?: ProblemDetails | undefined;
 
   /**
    * <p>Metadata related to this network operation.</p>
    * @public
    */
-  metadata?: ListSolNetworkOperationsMetadata;
+  metadata?: ListSolNetworkOperationsMetadata | undefined;
 }
 
 /**
@@ -1872,13 +2004,13 @@ export interface ListSolNetworkOperationsOutput {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Lists network operation occurrences. Lifecycle management operations are deploy, update, or delete operations.</p>
    * @public
    */
-  networkOperations?: ListSolNetworkOperationsInfo[];
+  networkOperations?: ListSolNetworkOperationsInfo[] | undefined;
 }
 
 /**
@@ -1940,37 +2072,38 @@ export interface ListSolNetworkPackageInfo {
    * <p>ID of the network service descriptor on which the network package is based.</p>
    * @public
    */
-  nsdId?: string;
+  nsdId?: string | undefined;
 
   /**
    * <p>Name of the onboarded network service descriptor in the network package.</p>
    * @public
    */
-  nsdName?: string;
+  nsdName?: string | undefined;
 
   /**
    * <p>Version of the onboarded network service descriptor in the network package.</p>
    * @public
    */
-  nsdVersion?: string;
+  nsdVersion?: string | undefined;
 
   /**
    * <p>Designer of the onboarded network service descriptor in the network package.</p>
    * @public
    */
-  nsdDesigner?: string;
+  nsdDesigner?: string | undefined;
 
   /**
    * <p>Identifies a network service descriptor in a version independent manner.</p>
    * @public
    */
-  nsdInvariantId?: string;
+  nsdInvariantId?: string | undefined;
 
   /**
-   * <p>Identifies the function package for the function package descriptor referenced by the onboarded network package.</p>
+   * <p>Identifies the function package for the function package descriptor referenced by the
+   *          onboarded network package.</p>
    * @public
    */
-  vnfPkgIds?: string[];
+  vnfPkgIds?: string[] | undefined;
 
   /**
    * <p>The metadata of the network package.</p>
@@ -1987,13 +2120,13 @@ export interface ListSolNetworkPackagesInput {
    * <p>The maximum number of results to include in the response.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>The token for the next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2004,7 +2137,7 @@ export interface ListSolNetworkPackagesOutput {
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Network packages. A network package is a .zip file in CSAR (Cloud Service Archive) format defines the function packages you want to deploy and the Amazon Web Services infrastructure you want to deploy them on.</p>
@@ -2049,7 +2182,7 @@ export interface PutSolFunctionPackageContentInput {
    * <p>Function package content type.</p>
    * @public
    */
-  contentType?: PackageContentType;
+  contentType?: PackageContentType | undefined;
 
   /**
    * <p>Function package file.</p>
@@ -2069,7 +2202,7 @@ export interface PutSolFunctionPackageContentMetadata {
    *          <p>Artifacts are the contents of the package descriptor file and the state of the package.</p>
    * @public
    */
-  vnfd?: FunctionArtifactMeta;
+  vnfd?: FunctionArtifactMeta | undefined;
 }
 
 /**
@@ -2127,7 +2260,7 @@ export interface PutSolNetworkPackageContentInput {
    * <p>Network package content type.</p>
    * @public
    */
-  contentType?: PackageContentType;
+  contentType?: PackageContentType | undefined;
 
   /**
    * <p>Network package file.</p>
@@ -2147,7 +2280,7 @@ export interface PutSolNetworkPackageContentMetadata {
    *          <p>Artifacts are the contents of the package descriptor file and the state of the package.</p>
    * @public
    */
-  nsd?: NetworkArtifactMeta;
+  nsd?: NetworkArtifactMeta | undefined;
 }
 
 /**
@@ -2230,10 +2363,10 @@ export interface TerminateSolNetworkInstanceInput {
   nsInstanceId: string | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2244,13 +2377,13 @@ export interface TerminateSolNetworkInstanceOutput {
    * <p>The identifier of the network operation.</p>
    * @public
    */
-  nsLcmOpOccId?: string;
+  nsLcmOpOccId?: string | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2317,24 +2450,30 @@ export interface UpdateSolNetworkModify {
   vnfInstanceId: string | undefined;
 
   /**
-   * <p>Provides values for the configurable properties declared in the function package descriptor.</p>
+   * <p>Provides values for the configurable properties declared in the function package
+   *          descriptor.</p>
    * @public
    */
   vnfConfigurableProperties: __DocumentType | undefined;
 }
 
 /**
+ * <p>Information parameters and/or the configurable properties for a network descriptor used for update.</p>
  * @public
- * @enum
  */
-export const UpdateSolNetworkType = {
-  MODIFY_VNF_INFORMATION: "MODIFY_VNF_INFORMATION",
-} as const;
+export interface UpdateSolNetworkServiceData {
+  /**
+   * <p>ID of the network service descriptor.</p>
+   * @public
+   */
+  nsdInfoId: string | undefined;
 
-/**
- * @public
- */
-export type UpdateSolNetworkType = (typeof UpdateSolNetworkType)[keyof typeof UpdateSolNetworkType];
+  /**
+   * <p>Values for the configurable properties declared in the network service descriptor.</p>
+   * @public
+   */
+  additionalParamsForNs?: __DocumentType | undefined;
+}
 
 /**
  * @public
@@ -2348,21 +2487,41 @@ export interface UpdateSolNetworkInstanceInput {
 
   /**
    * <p>The type of update.</p>
+   *          <ul>
+   *             <li>
+   *                <p>Use the <code>MODIFY_VNF_INFORMATION</code> update type, to update a specific network function
+   *                configuration, in the network instance.</p>
+   *             </li>
+   *             <li>
+   *                <p>Use the <code>UPDATE_NS</code> update type, to update the network instance to a
+   *                new network service descriptor.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   updateType: UpdateSolNetworkType | undefined;
 
   /**
-   * <p>Identifies the network function information parameters and/or the configurable properties of the network function to be modified.</p>
+   * <p>Identifies the network function information parameters and/or the configurable
+   *          properties of the network function to be modified.</p>
+   *          <p>Include this property only if the update type is <code>MODIFY_VNF_INFORMATION</code>.</p>
    * @public
    */
-  modifyVnfInfoData?: UpdateSolNetworkModify;
+  modifyVnfInfoData?: UpdateSolNetworkModify | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>Identifies the network service descriptor and the configurable
+   *          properties of the descriptor, to be used for the update.</p>
+   *          <p>Include this property only if the update type is <code>UPDATE_NS</code>.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  updateNs?: UpdateSolNetworkServiceData | undefined;
+
+  /**
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * @public
+   */
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2373,13 +2532,13 @@ export interface UpdateSolNetworkInstanceOutput {
    * <p>The identifier of the network operation.</p>
    * @public
    */
-  nsLcmOpOccId?: string;
+  nsLcmOpOccId?: string | undefined;
 
   /**
-   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are transferred to the network operation that is created. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
+   * <p>A tag is a label that you assign to an Amazon Web Services resource. Each tag consists of a key and an optional value. When you use this API, the tags are only applied to the network operation that is created. These tags are not applied to the network instance. Use tags to search and filter your resources or track your Amazon Web Services costs.</p>
    * @public
    */
-  tags?: Record<string, string>;
+  tags?: Record<string, string> | undefined;
 }
 
 /**
@@ -2424,7 +2583,7 @@ export interface ValidateSolFunctionPackageContentInput {
    * <p>Function package content type.</p>
    * @public
    */
-  contentType?: PackageContentType;
+  contentType?: PackageContentType | undefined;
 
   /**
    * <p>Function package file.</p>
@@ -2444,7 +2603,7 @@ export interface ValidateSolFunctionPackageContentMetadata {
    *          <p>Artifacts are the contents of the package descriptor file and the state of the package.</p>
    * @public
    */
-  vnfd?: FunctionArtifactMeta;
+  vnfd?: FunctionArtifactMeta | undefined;
 }
 
 /**
@@ -2502,7 +2661,7 @@ export interface ValidateSolNetworkPackageContentInput {
    * <p>Network package content type.</p>
    * @public
    */
-  contentType?: PackageContentType;
+  contentType?: PackageContentType | undefined;
 
   /**
    * <p>Network package file.</p>
@@ -2522,7 +2681,7 @@ export interface ValidateSolNetworkPackageContentMetadata {
    *          <p>Artifacts are the contents of the package descriptor file and the state of the package.</p>
    * @public
    */
-  nsd?: NetworkArtifactMeta;
+  nsd?: NetworkArtifactMeta | undefined;
 }
 
 /**
@@ -2689,6 +2848,22 @@ export const ListTagsForResourceOutputFilterSensitiveLog = (obj: ListTagsForReso
 /**
  * @internal
  */
+export const PutSolFunctionPackageContentInputFilterSensitiveLog = (obj: PutSolFunctionPackageContentInput): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PutSolNetworkPackageContentInputFilterSensitiveLog = (obj: PutSolNetworkPackageContentInput): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const TagResourceInputFilterSensitiveLog = (obj: TagResourceInput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
@@ -2724,4 +2899,24 @@ export const UpdateSolNetworkInstanceInputFilterSensitiveLog = (obj: UpdateSolNe
 export const UpdateSolNetworkInstanceOutputFilterSensitiveLog = (obj: UpdateSolNetworkInstanceOutput): any => ({
   ...obj,
   ...(obj.tags && { tags: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateSolFunctionPackageContentInputFilterSensitiveLog = (
+  obj: ValidateSolFunctionPackageContentInput
+): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ValidateSolNetworkPackageContentInputFilterSensitiveLog = (
+  obj: ValidateSolNetworkPackageContentInput
+): any => ({
+  ...obj,
+  ...(obj.file && { file: SENSITIVE_STRING }),
 });

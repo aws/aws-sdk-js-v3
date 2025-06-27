@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -97,6 +98,7 @@ export interface DescribeValidDBInstanceModificationsCommandOutput
  * @throws {@link NeptuneServiceException}
  * <p>Base exception class for all service exceptions from Neptune service.</p>
  *
+ *
  * @public
  */
 export class DescribeValidDBInstanceModificationsCommand extends $Command
@@ -107,9 +109,7 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NeptuneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -121,4 +121,16 @@ export class DescribeValidDBInstanceModificationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeValidDBInstanceModificationsCommand)
   .de(de_DescribeValidDBInstanceModificationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeValidDBInstanceModificationsMessage;
+      output: DescribeValidDBInstanceModificationsResult;
+    };
+    sdk: {
+      input: DescribeValidDBInstanceModificationsCommandInput;
+      output: DescribeValidDBInstanceModificationsCommandOutput;
+    };
+  };
+}

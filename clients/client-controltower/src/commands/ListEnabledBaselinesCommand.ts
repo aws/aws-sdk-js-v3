@@ -12,7 +12,8 @@ import { de_ListEnabledBaselinesCommand, se_ListEnabledBaselinesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListEnabledBaselinesCommandInput extends ListEnabledBaselinesIn
 export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Returns a list of summaries describing <code>EnabledBaseline</code> resources. You can filter the list by the corresponding <code>Baseline</code> or <code>Target</code> of the <code>EnabledBaseline</code> resources. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/baseline-api-examples.html"> <i>the Amazon Web Services Control Tower User Guide</i> </a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,9 +43,19 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  *     baselineIdentifiers: [ // EnabledBaselineBaselineIdentifiers
  *       "STRING_VALUE",
  *     ],
+ *     parentIdentifiers: [ // EnabledBaselineParentIdentifiers
+ *       "STRING_VALUE",
+ *     ],
+ *     statuses: [ // EnabledBaselineEnablementStatuses
+ *       "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
+ *     ],
+ *     inheritanceDriftStatuses: [ // EnabledBaselineDriftStatuses
+ *       "IN_SYNC" || "DRIFTED",
+ *     ],
  *   },
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   includeChildren: true || false,
  * };
  * const command = new ListEnabledBaselinesCommand(input);
  * const response = await client.send(command);
@@ -56,7 +65,15 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  * //       arn: "STRING_VALUE", // required
  * //       baselineIdentifier: "STRING_VALUE", // required
  * //       baselineVersion: "STRING_VALUE",
+ * //       driftStatusSummary: { // EnabledBaselineDriftStatusSummary
+ * //         types: { // EnabledBaselineDriftTypes
+ * //           inheritance: { // EnabledBaselineInheritanceDrift
+ * //             status: "IN_SYNC" || "DRIFTED",
+ * //           },
+ * //         },
+ * //       },
  * //       targetIdentifier: "STRING_VALUE", // required
+ * //       parentIdentifier: "STRING_VALUE",
  * //       statusSummary: { // EnablementStatusSummary
  * //         status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
  * //         lastOperationIdentifier: "STRING_VALUE",
@@ -89,6 +106,7 @@ export interface ListEnabledBaselinesCommandOutput extends ListEnabledBaselinesO
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListEnabledBaselinesCommand extends $Command
@@ -99,9 +117,7 @@ export class ListEnabledBaselinesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +129,16 @@ export class ListEnabledBaselinesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListEnabledBaselinesCommand)
   .de(de_ListEnabledBaselinesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListEnabledBaselinesInput;
+      output: ListEnabledBaselinesOutput;
+    };
+    sdk: {
+      input: ListEnabledBaselinesCommandInput;
+      output: ListEnabledBaselinesCommandOutput;
+    };
+  };
+}

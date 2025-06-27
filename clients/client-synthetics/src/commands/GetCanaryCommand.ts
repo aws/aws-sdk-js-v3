@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -38,6 +39,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * const client = new SyntheticsClient(config);
  * const input = { // GetCanaryRequest
  *   Name: "STRING_VALUE", // required
+ *   DryRunId: "STRING_VALUE",
  * };
  * const command = new GetCanaryCommand(input);
  * const response = await client.send(command);
@@ -53,11 +55,15 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //     Schedule: { // CanaryScheduleOutput
  * //       Expression: "STRING_VALUE",
  * //       DurationInSeconds: Number("long"),
+ * //       RetryConfig: { // RetryConfigOutput
+ * //         MaxRetries: Number("int"),
+ * //       },
  * //     },
  * //     RunConfig: { // CanaryRunConfigOutput
  * //       TimeoutInSeconds: Number("int"),
  * //       MemoryInMB: Number("int"),
  * //       ActiveTracing: true || false,
+ * //       EphemeralStorage: Number("int"),
  * //     },
  * //     SuccessRetentionPeriodInDays: Number("int"),
  * //     FailureRetentionPeriodInDays: Number("int"),
@@ -83,6 +89,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //       SecurityGroupIds: [ // SecurityGroupIds
  * //         "STRING_VALUE",
  * //       ],
+ * //       Ipv6AllowedForDualStack: true || false,
  * //     },
  * //     VisualReference: { // VisualReferenceOutput
  * //       BaseScreenshots: [ // BaseScreenshots
@@ -95,6 +102,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
  * //     },
+ * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -103,6 +111,10 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * //         EncryptionMode: "SSE_S3" || "SSE_KMS",
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     DryRunConfig: { // DryRunConfigOutput
+ * //       DryRunId: "STRING_VALUE",
+ * //       LastDryRunExecutionStatus: "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -124,6 +136,7 @@ export interface GetCanaryCommandOutput extends GetCanaryResponse, __MetadataBea
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class GetCanaryCommand extends $Command
@@ -134,9 +147,7 @@ export class GetCanaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +159,16 @@ export class GetCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetCanaryCommand)
   .de(de_GetCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetCanaryRequest;
+      output: GetCanaryResponse;
+    };
+    sdk: {
+      input: GetCanaryCommandInput;
+      output: GetCanaryCommandOutput;
+    };
+  };
+}

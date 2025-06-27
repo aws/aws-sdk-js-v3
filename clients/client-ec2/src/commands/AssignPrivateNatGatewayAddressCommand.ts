@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,8 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Assigns one or more private IPv4 addresses to a private NAT gateway. For more information, see
- *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-nat-gateway.html#nat-gateway-working-with">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
+ * <p>Assigns private IPv4 addresses to a private NAT gateway. For more information, see
+ *             <a href="https://docs.aws.amazon.com/vpc/latest/userguide/nat-gateway-working-with.html">Work with NAT gateways</a> in the <i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -77,6 +78,7 @@ export interface AssignPrivateNatGatewayAddressCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class AssignPrivateNatGatewayAddressCommand extends $Command
@@ -87,9 +89,7 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class AssignPrivateNatGatewayAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssignPrivateNatGatewayAddressCommand)
   .de(de_AssignPrivateNatGatewayAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssignPrivateNatGatewayAddressRequest;
+      output: AssignPrivateNatGatewayAddressResult;
+    };
+    sdk: {
+      input: AssignPrivateNatGatewayAddressCommandInput;
+      output: AssignPrivateNatGatewayAddressCommandOutput;
+    };
+  };
+}

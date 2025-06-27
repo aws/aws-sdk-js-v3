@@ -12,7 +12,8 @@ import { de_DeleteOriginEndpointCommand, se_DeleteOriginEndpointCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,22 @@ export interface DeleteOriginEndpointCommandOutput extends DeleteOriginEndpointR
  * @throws {@link MediaPackageV2ServiceException}
  * <p>Base exception class for all service exceptions from MediaPackageV2 service.</p>
  *
+ *
+ * @example Deleting an OriginEndpoint
+ * ```javascript
+ * //
+ * const input = {
+ *   ChannelGroupName: "exampleChannelGroup",
+ *   ChannelName: "exampleChannel",
+ *   OriginEndpointName: "exampleOriginEndpointTS"
+ * };
+ * const command = new DeleteOriginEndpointCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DeleteOriginEndpointCommand extends $Command
@@ -76,9 +93,7 @@ export class DeleteOriginEndpointCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MediaPackageV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +105,16 @@ export class DeleteOriginEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteOriginEndpointCommand)
   .de(de_DeleteOriginEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteOriginEndpointRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteOriginEndpointCommandInput;
+      output: DeleteOriginEndpointCommandOutput;
+    };
+  };
+}

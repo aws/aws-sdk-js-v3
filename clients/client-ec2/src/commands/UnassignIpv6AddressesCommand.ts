@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_7";
+import { UnassignIpv6AddressesRequest, UnassignIpv6AddressesResult } from "../models/models_8";
 import { de_UnassignIpv6AddressesCommand, se_UnassignIpv6AddressesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,7 +28,8 @@ export interface UnassignIpv6AddressesCommandInput extends UnassignIpv6Addresses
 export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6AddressesResult, __MetadataBearer {}
 
 /**
- * <p>Unassigns one or more IPv6 addresses IPv4 Prefix Delegation prefixes from a network interface.</p>
+ * <p>Unassigns the specified IPv6 addresses or Prefix Delegation prefixes from a network
+ *             interface.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -35,13 +37,13 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * // const { EC2Client, UnassignIpv6AddressesCommand } = require("@aws-sdk/client-ec2"); // CommonJS import
  * const client = new EC2Client(config);
  * const input = { // UnassignIpv6AddressesRequest
- *   Ipv6Addresses: [ // Ipv6AddressList
- *     "STRING_VALUE",
- *   ],
  *   Ipv6Prefixes: [ // IpPrefixList
  *     "STRING_VALUE",
  *   ],
  *   NetworkInterfaceId: "STRING_VALUE", // required
+ *   Ipv6Addresses: [ // Ipv6AddressList
+ *     "STRING_VALUE",
+ *   ],
  * };
  * const command = new UnassignIpv6AddressesCommand(input);
  * const response = await client.send(command);
@@ -66,6 +68,7 @@ export interface UnassignIpv6AddressesCommandOutput extends UnassignIpv6Addresse
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class UnassignIpv6AddressesCommand extends $Command
@@ -76,9 +79,7 @@ export class UnassignIpv6AddressesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +91,16 @@ export class UnassignIpv6AddressesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UnassignIpv6AddressesCommand)
   .de(de_UnassignIpv6AddressesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UnassignIpv6AddressesRequest;
+      output: UnassignIpv6AddressesResult;
+    };
+    sdk: {
+      input: UnassignIpv6AddressesCommandInput;
+      output: UnassignIpv6AddressesCommandOutput;
+    };
+  };
+}

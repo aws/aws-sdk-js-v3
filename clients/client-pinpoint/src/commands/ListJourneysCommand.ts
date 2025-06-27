@@ -12,7 +12,8 @@ import { de_ListJourneysCommand, se_ListJourneysCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -467,6 +468,7 @@ export interface ListJourneysCommandOutput extends ListJourneysResponse, __Metad
  * @throws {@link PinpointServiceException}
  * <p>Base exception class for all service exceptions from Pinpoint service.</p>
  *
+ *
  * @public
  */
 export class ListJourneysCommand extends $Command
@@ -477,9 +479,7 @@ export class ListJourneysCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -491,4 +491,16 @@ export class ListJourneysCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListJourneysCommand)
   .de(de_ListJourneysCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListJourneysRequest;
+      output: ListJourneysResponse;
+    };
+    sdk: {
+      input: ListJourneysCommandInput;
+      output: ListJourneysCommandOutput;
+    };
+  };
+}

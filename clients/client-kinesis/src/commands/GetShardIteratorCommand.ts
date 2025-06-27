@@ -12,7 +12,8 @@ import { de_GetShardIteratorCommand, se_GetShardIteratorCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -98,6 +99,10 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *  <p>Specifies that you do not have the permissions required to perform this
  *             operation.</p>
  *
+ * @throws {@link InternalFailureException} (server fault)
+ *  <p>The processing of the request failed because of an unknown error, exception, or
+ *             failure.</p>
+ *
  * @throws {@link InvalidArgumentException} (client fault)
  *  <p>A specified parameter exceeds its restrictions, is not supported, or can't be used.
  *             For more information, see the returned message.</p>
@@ -115,6 +120,7 @@ export interface GetShardIteratorCommandOutput extends GetShardIteratorOutput, _
  *
  * @throws {@link KinesisServiceException}
  * <p>Base exception class for all service exceptions from Kinesis service.</p>
+ *
  *
  * @public
  */
@@ -142,4 +148,16 @@ export class GetShardIteratorCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetShardIteratorCommand)
   .de(de_GetShardIteratorCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetShardIteratorInput;
+      output: GetShardIteratorOutput;
+    };
+    sdk: {
+      input: GetShardIteratorCommandInput;
+      output: GetShardIteratorCommandOutput;
+    };
+  };
+}

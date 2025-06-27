@@ -12,7 +12,8 @@ import { de_ListLandingZonesCommand, se_ListLandingZonesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -27,9 +28,7 @@ export interface ListLandingZonesCommandInput extends ListLandingZonesInput {}
 export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, __MetadataBearer {}
 
 /**
- * <p>Returns the landing zone ARN for the landing zone deployed in your managed account. This API also
- *          creates an ARN for existing accounts that do not yet have a landing zone ARN. </p>
- *          <p>Returns one landing zone ARN.</p>
+ * <p>Returns the landing zone ARN for the landing zone deployed in your managed account. This API also creates an ARN for existing accounts that do not yet have a landing zone ARN. </p> <p>Returns one landing zone ARN.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -74,6 +73,7 @@ export interface ListLandingZonesCommandOutput extends ListLandingZonesOutput, _
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
+ *
  * @public
  */
 export class ListLandingZonesCommand extends $Command
@@ -84,9 +84,7 @@ export class ListLandingZonesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ControlTowerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -98,4 +96,16 @@ export class ListLandingZonesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListLandingZonesCommand)
   .de(de_ListLandingZonesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListLandingZonesInput;
+      output: ListLandingZonesOutput;
+    };
+    sdk: {
+      input: ListLandingZonesCommandInput;
+      output: ListLandingZonesCommandOutput;
+    };
+  };
+}

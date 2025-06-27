@@ -12,7 +12,8 @@ import { de_RetryStageExecutionCommand, se_RetryStageExecutionCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,9 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @see {@link RetryStageExecutionCommandOutput} for command's `response` shape.
  * @see {@link CodePipelineClientResolvedConfig | config} for CodePipelineClient's `config` shape.
  *
+ * @throws {@link ConcurrentPipelineExecutionsLimitExceededException} (client fault)
+ *  <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ *
  * @throws {@link ConflictException} (client fault)
  *  <p>Your request cannot be handled because the pipeline is busy handling ongoing
  *             activities. Try again later.</p>
@@ -87,6 +91,7 @@ export interface RetryStageExecutionCommandOutput extends RetryStageExecutionOut
  * @throws {@link CodePipelineServiceException}
  * <p>Base exception class for all service exceptions from CodePipeline service.</p>
  *
+ *
  * @public
  */
 export class RetryStageExecutionCommand extends $Command
@@ -97,9 +102,7 @@ export class RetryStageExecutionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodePipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +114,16 @@ export class RetryStageExecutionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RetryStageExecutionCommand)
   .de(de_RetryStageExecutionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RetryStageExecutionInput;
+      output: RetryStageExecutionOutput;
+    };
+    sdk: {
+      input: RetryStageExecutionCommandInput;
+      output: RetryStageExecutionCommandOutput;
+    };
+  };
+}

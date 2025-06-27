@@ -2,7 +2,7 @@
 /* eslint-disable */
 /**
  * <fullname>Step Functions</fullname>
- *          <p>Step Functions is a service that lets you coordinate the components of distributed applications
+ *          <p>Step Functions coordinates the components of distributed applications
  *       and microservices using visual workflows.</p>
  *          <p>You can use Step Functions to build applications from individual components, each of which performs
  *       a discrete function, or <i>task</i>, allowing you to scale and change
@@ -26,8 +26,8 @@
 export * from "./SFNClient";
 export * from "./SFN";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { SFNExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { SFNExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

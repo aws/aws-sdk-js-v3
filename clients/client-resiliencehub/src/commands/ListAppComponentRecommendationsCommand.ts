@@ -15,7 +15,8 @@ import { ResiliencehubClientResolvedConfig, ServiceInputTypes, ServiceOutputType
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -50,13 +51,13 @@ export interface ListAppComponentRecommendationsCommandOutput
  * //   componentRecommendations: [ // ComponentRecommendationList // required
  * //     { // ComponentRecommendation
  * //       appComponentName: "STRING_VALUE", // required
- * //       recommendationStatus: "STRING_VALUE", // required
+ * //       recommendationStatus: "BreachedUnattainable" || "BreachedCanMeet" || "MetCanImprove" || "MissingPolicy", // required
  * //       configRecommendations: [ // ConfigRecommendationList // required
  * //         { // ConfigRecommendation
  * //           cost: { // Cost
  * //             amount: Number("double"), // required
  * //             currency: "STRING_VALUE", // required
- * //             frequency: "STRING_VALUE", // required
+ * //             frequency: "Hourly" || "Daily" || "Monthly" || "Yearly", // required
  * //           },
  * //           appComponentName: "STRING_VALUE",
  * //           compliance: { // AssessmentCompliance
@@ -68,27 +69,27 @@ export interface ListAppComponentRecommendationsCommandOutput
  * //               currentRpoInSecs: Number("int"),
  * //               rpoReferenceId: "STRING_VALUE",
  * //               rpoDescription: "STRING_VALUE",
- * //               complianceStatus: "STRING_VALUE", // required
+ * //               complianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //               achievableRpoInSecs: Number("int"),
  * //               message: "STRING_VALUE",
  * //             },
  * //           },
  * //           recommendationCompliance: { // RecommendationCompliance
  * //             "<keys>": { // RecommendationDisruptionCompliance
- * //               expectedComplianceStatus: "STRING_VALUE", // required
+ * //               expectedComplianceStatus: "PolicyBreached" || "PolicyMet" || "NotApplicable" || "MissingPolicy", // required
  * //               expectedRtoInSecs: Number("int"),
  * //               expectedRtoDescription: "STRING_VALUE",
  * //               expectedRpoInSecs: Number("int"),
  * //               expectedRpoDescription: "STRING_VALUE",
  * //             },
  * //           },
- * //           optimizationType: "STRING_VALUE", // required
+ * //           optimizationType: "LeastCost" || "LeastChange" || "BestAZRecovery" || "LeastErrors" || "BestAttainable" || "BestRegionRecovery", // required
  * //           name: "STRING_VALUE", // required
  * //           description: "STRING_VALUE",
  * //           suggestedChanges: [ // SuggestedChangesList
  * //             "STRING_VALUE",
  * //           ],
- * //           haArchitecture: "STRING_VALUE",
+ * //           haArchitecture: "MultiSite" || "WarmStandby" || "PilotLight" || "BackupAndRestore" || "NoRecoveryPlan",
  * //           referenceId: "STRING_VALUE", // required
  * //         },
  * //       ],
@@ -126,6 +127,7 @@ export interface ListAppComponentRecommendationsCommandOutput
  * @throws {@link ResiliencehubServiceException}
  * <p>Base exception class for all service exceptions from Resiliencehub service.</p>
  *
+ *
  * @public
  */
 export class ListAppComponentRecommendationsCommand extends $Command
@@ -136,9 +138,7 @@ export class ListAppComponentRecommendationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ResiliencehubClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -150,4 +150,16 @@ export class ListAppComponentRecommendationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListAppComponentRecommendationsCommand)
   .de(de_ListAppComponentRecommendationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAppComponentRecommendationsRequest;
+      output: ListAppComponentRecommendationsResponse;
+    };
+    sdk: {
+      input: ListAppComponentRecommendationsCommandInput;
+      output: ListAppComponentRecommendationsCommandOutput;
+    };
+  };
+}

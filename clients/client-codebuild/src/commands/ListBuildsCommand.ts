@@ -12,7 +12,8 @@ import { de_ListBuildsCommand, se_ListBuildsCommand } from "../protocols/Aws_jso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface ListBuildsCommandOutput extends ListBuildsOutput, __MetadataBea
  * @throws {@link CodeBuildServiceException}
  * <p>Base exception class for all service exceptions from CodeBuild service.</p>
  *
+ *
  * @public
  */
 export class ListBuildsCommand extends $Command
@@ -71,9 +73,7 @@ export class ListBuildsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CodeBuildClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class ListBuildsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListBuildsCommand)
   .de(de_ListBuildsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListBuildsInput;
+      output: ListBuildsOutput;
+    };
+    sdk: {
+      input: ListBuildsCommandInput;
+      output: ListBuildsCommandOutput;
+    };
+  };
+}

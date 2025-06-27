@@ -51,9 +51,11 @@ import {
   AccessDeniedException,
   AccountEnrollmentStatus,
   ActionType,
+  AuroraDbClusterStorage,
   BlockStoragePerformanceConfiguration,
   ComputeConfiguration,
   ComputeSavingsPlans,
+  DynamoDbReservedCapacity,
   EbsVolume,
   EbsVolumeConfiguration,
   Ec2AutoScalingGroup,
@@ -78,8 +80,13 @@ import {
   ListRecommendationsResponse,
   ListRecommendationSummariesRequest,
   ListRecommendationSummariesResponse,
+  MemoryDbReservedInstances,
   OpenSearchReservedInstances,
   OrderBy,
+  PreferredCommitment,
+  RdsDbInstance,
+  RdsDbInstanceStorage,
+  RdsDbInstanceStorageConfiguration,
   RdsReservedInstances,
   Recommendation,
   RecommendationSummary,
@@ -95,6 +102,7 @@ import {
   SavingsPlansCostCalculation,
   SavingsPlansPricing,
   StorageConfiguration,
+  SummaryMetrics,
   Tag,
   ThrottlingException,
   UpdateEnrollmentStatusRequest,
@@ -463,6 +471,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_OrderBy omitted.
 
+// se_PreferredCommitment omitted.
+
 // se_RecommendationIdList omitted.
 
 // se_RegionList omitted.
@@ -472,6 +482,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_ResourceIdList omitted.
 
 // se_ResourceTypeList omitted.
+
+// se_SummaryMetricsList omitted.
 
 // se_Tag omitted.
 
@@ -506,6 +518,18 @@ const de_AccountEnrollmentStatuses = (output: any, context: __SerdeContext): Acc
     });
   return retVal;
 };
+
+/**
+ * deserializeAws_json1_0AuroraDbClusterStorage
+ */
+const de_AuroraDbClusterStorage = (output: any, context: __SerdeContext): AuroraDbClusterStorage => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ResourceCostCalculation(_, context),
+  }) as any;
+};
+
+// de_AuroraDbClusterStorageConfiguration omitted.
 
 /**
  * deserializeAws_json1_0BlockStoragePerformanceConfiguration
@@ -543,6 +567,20 @@ const de_ComputeSavingsPlans = (output: any, context: __SerdeContext): ComputeSa
 };
 
 // de_ComputeSavingsPlansConfiguration omitted.
+
+// de_DbInstanceConfiguration omitted.
+
+/**
+ * deserializeAws_json1_0DynamoDbReservedCapacity
+ */
+const de_DynamoDbReservedCapacity = (output: any, context: __SerdeContext): DynamoDbReservedCapacity => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ReservedInstancesCostCalculation(_, context),
+  }) as any;
+};
+
+// de_DynamoDbReservedCapacityConfiguration omitted.
 
 /**
  * deserializeAws_json1_0EbsVolume
@@ -744,9 +782,26 @@ const de_ListRecommendationSummariesResponse = (
     estimatedTotalDedupedSavings: __limitedParseDouble,
     groupBy: __expectString,
     items: (_: any) => de_RecommendationSummariesList(_, context),
+    metrics: _json,
     nextToken: __expectString,
   }) as any;
 };
+
+/**
+ * deserializeAws_json1_0MemoryDbReservedInstances
+ */
+const de_MemoryDbReservedInstances = (output: any, context: __SerdeContext): MemoryDbReservedInstances => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ReservedInstancesCostCalculation(_, context),
+  }) as any;
+};
+
+// de_MemoryDbReservedInstancesConfiguration omitted.
+
+// de_MixedInstanceConfiguration omitted.
+
+// de_MixedInstanceConfigurationList omitted.
 
 /**
  * deserializeAws_json1_0OpenSearchReservedInstances
@@ -759,6 +814,45 @@ const de_OpenSearchReservedInstances = (output: any, context: __SerdeContext): O
 };
 
 // de_OpenSearchReservedInstancesConfiguration omitted.
+
+// de_PreferredCommitment omitted.
+
+/**
+ * deserializeAws_json1_0RdsDbInstance
+ */
+const de_RdsDbInstance = (output: any, context: __SerdeContext): RdsDbInstance => {
+  return take(output, {
+    configuration: _json,
+    costCalculation: (_: any) => de_ResourceCostCalculation(_, context),
+  }) as any;
+};
+
+// de_RdsDbInstanceConfiguration omitted.
+
+/**
+ * deserializeAws_json1_0RdsDbInstanceStorage
+ */
+const de_RdsDbInstanceStorage = (output: any, context: __SerdeContext): RdsDbInstanceStorage => {
+  return take(output, {
+    configuration: (_: any) => de_RdsDbInstanceStorageConfiguration(_, context),
+    costCalculation: (_: any) => de_ResourceCostCalculation(_, context),
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_0RdsDbInstanceStorageConfiguration
+ */
+const de_RdsDbInstanceStorageConfiguration = (
+  output: any,
+  context: __SerdeContext
+): RdsDbInstanceStorageConfiguration => {
+  return take(output, {
+    allocatedStorageInGb: __limitedParseDouble,
+    iops: __limitedParseDouble,
+    storageThroughput: __limitedParseDouble,
+    storageType: __expectString,
+  }) as any;
+};
 
 /**
  * deserializeAws_json1_0RdsReservedInstances
@@ -886,9 +980,19 @@ const de_ResourceCostCalculation = (output: any, context: __SerdeContext): Resou
  * deserializeAws_json1_0ResourceDetails
  */
 const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetails => {
+  if (output.auroraDbClusterStorage != null) {
+    return {
+      auroraDbClusterStorage: de_AuroraDbClusterStorage(output.auroraDbClusterStorage, context),
+    };
+  }
   if (output.computeSavingsPlans != null) {
     return {
       computeSavingsPlans: de_ComputeSavingsPlans(output.computeSavingsPlans, context),
+    };
+  }
+  if (output.dynamoDbReservedCapacity != null) {
+    return {
+      dynamoDbReservedCapacity: de_DynamoDbReservedCapacity(output.dynamoDbReservedCapacity, context),
     };
   }
   if (output.ebsVolume != null) {
@@ -931,9 +1035,24 @@ const de_ResourceDetails = (output: any, context: __SerdeContext): ResourceDetai
       lambdaFunction: de_LambdaFunction(output.lambdaFunction, context),
     };
   }
+  if (output.memoryDbReservedInstances != null) {
+    return {
+      memoryDbReservedInstances: de_MemoryDbReservedInstances(output.memoryDbReservedInstances, context),
+    };
+  }
   if (output.openSearchReservedInstances != null) {
     return {
       openSearchReservedInstances: de_OpenSearchReservedInstances(output.openSearchReservedInstances, context),
+    };
+  }
+  if (output.rdsDbInstance != null) {
+    return {
+      rdsDbInstance: de_RdsDbInstance(output.rdsDbInstance, context),
+    };
+  }
+  if (output.rdsDbInstanceStorage != null) {
+    return {
+      rdsDbInstanceStorage: de_RdsDbInstanceStorage(output.rdsDbInstanceStorage, context),
     };
   }
   if (output.rdsReservedInstances != null) {
@@ -1010,6 +1129,8 @@ const de_StorageConfiguration = (output: any, context: __SerdeContext): StorageC
     type: __expectString,
   }) as any;
 };
+
+// de_SummaryMetricsResult omitted.
 
 // de_Tag omitted.
 

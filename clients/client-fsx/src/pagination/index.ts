@@ -10,6 +10,8 @@ export * from "./DescribeFileSystemAliasesPaginator";
 
 export * from "./DescribeFileSystemsPaginator";
 
+export * from "./DescribeS3AccessPointAttachmentsPaginator";
+
 export * from "./DescribeSnapshotsPaginator";
 
 export * from "./DescribeStorageVirtualMachinesPaginator";

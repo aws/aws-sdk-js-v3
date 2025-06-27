@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,6 +65,7 @@ export interface DeleteFileShareCommandOutput extends DeleteFileShareOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
+ *
  * @public
  */
 export class DeleteFileShareCommand extends $Command
@@ -74,9 +76,7 @@ export class DeleteFileShareCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -88,4 +88,16 @@ export class DeleteFileShareCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFileShareCommand)
   .de(de_DeleteFileShareCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFileShareInput;
+      output: DeleteFileShareOutput;
+    };
+    sdk: {
+      input: DeleteFileShareCommandInput;
+      output: DeleteFileShareCommandOutput;
+    };
+  };
+}

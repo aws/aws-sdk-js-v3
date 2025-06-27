@@ -38,13 +38,23 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  **/
 @SmithyInternalApi
 public class AddTranscribeStreamingDependency implements TypeScriptIntegration {
+
+    @Override
+    public List<String> runAfter() {
+        return List.of(
+            AddBuiltinPlugins.class.getCanonicalName(),
+            AddEventStreamHandlingDependency.class.getCanonicalName()
+        );
+    }
+
     @Override
     public List<RuntimeClientPlugin> getClientPlugins() {
         return ListUtils.of(
                 RuntimeClientPlugin.builder()
                         .withConventions(AwsDependency.TRANSCRIBE_STREAMING_MIDDLEWARE.dependency,
                                 "TranscribeStreaming", RuntimeClientPlugin.Convention.HAS_MIDDLEWARE)
-                        .servicePredicate((m, s) -> isTranscribeStreaming(s))
+                        .operationPredicate((m, s, o) -> isTranscribeStreaming(s)
+                            && AddEventStreamHandlingDependency.hasEventStreamInput(m, o))
                         .build()
         );
     }

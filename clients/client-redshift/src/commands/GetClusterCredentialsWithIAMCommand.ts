@@ -13,7 +13,8 @@ import { RedshiftClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,6 +78,7 @@ export interface GetClusterCredentialsWithIAMCommandOutput extends ClusterExtend
  * @throws {@link RedshiftServiceException}
  * <p>Base exception class for all service exceptions from Redshift service.</p>
  *
+ *
  * @public
  */
 export class GetClusterCredentialsWithIAMCommand extends $Command
@@ -87,9 +89,7 @@ export class GetClusterCredentialsWithIAMCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RedshiftClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +101,16 @@ export class GetClusterCredentialsWithIAMCommand extends $Command
   .f(void 0, ClusterExtendedCredentialsFilterSensitiveLog)
   .ser(se_GetClusterCredentialsWithIAMCommand)
   .de(de_GetClusterCredentialsWithIAMCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetClusterCredentialsWithIAMMessage;
+      output: ClusterExtendedCredentials;
+    };
+    sdk: {
+      input: GetClusterCredentialsWithIAMCommandInput;
+      output: GetClusterCredentialsWithIAMCommandOutput;
+    };
+  };
+}

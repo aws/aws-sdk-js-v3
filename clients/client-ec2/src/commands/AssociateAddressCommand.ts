@@ -12,7 +12,8 @@ import { de_AssociateAddressCommand, se_AssociateAddressCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,10 +56,10 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  *   AllocationId: "STRING_VALUE",
  *   InstanceId: "STRING_VALUE",
  *   PublicIp: "STRING_VALUE",
- *   AllowReassociation: true || false,
  *   DryRun: true || false,
  *   NetworkInterfaceId: "STRING_VALUE",
  *   PrivateIpAddress: "STRING_VALUE",
+ *   AllowReassociation: true || false,
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
@@ -77,41 +78,40 @@ export interface AssociateAddressCommandOutput extends AssociateAddressResult, _
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To associate an Elastic IP address
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified instance.
  * const input = {
- *   "AllocationId": "eipalloc-64d5890a",
- *   "InstanceId": "i-0b263919b6498b123"
+ *   AllocationId: "eipalloc-64d5890a",
+ *   InstanceId: "i-0b263919b6498b123"
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociationId": "eipassoc-2bebb745"
+ *   AssociationId: "eipassoc-2bebb745"
  * }
  * *\/
- * // example id: ec2-associate-address-1
  * ```
  *
  * @example To associate an Elastic IP address with a network interface
  * ```javascript
  * // This example associates the specified Elastic IP address with the specified network interface.
  * const input = {
- *   "AllocationId": "eipalloc-64d5890a",
- *   "NetworkInterfaceId": "eni-1a2b3c4d"
+ *   AllocationId: "eipalloc-64d5890a",
+ *   NetworkInterfaceId: "eni-1a2b3c4d"
  * };
  * const command = new AssociateAddressCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "AssociationId": "eipassoc-2bebb745"
+ *   AssociationId: "eipassoc-2bebb745"
  * }
  * *\/
- * // example id: ec2-associate-address-2
  * ```
  *
+ * @public
  */
 export class AssociateAddressCommand extends $Command
   .classBuilder<
@@ -121,9 +121,7 @@ export class AssociateAddressCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +133,16 @@ export class AssociateAddressCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AssociateAddressCommand)
   .de(de_AssociateAddressCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AssociateAddressRequest;
+      output: AssociateAddressResult;
+    };
+    sdk: {
+      input: AssociateAddressCommandInput;
+      output: AssociateAddressCommandOutput;
+    };
+  };
+}

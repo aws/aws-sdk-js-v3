@@ -12,7 +12,8 @@ import { de_ListObjectChildrenCommand, se_ListObjectChildrenCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,27 @@ export interface ListObjectChildrenCommandOutput extends ListObjectChildrenRespo
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To list an objects children
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AYb8AOV81kHNgdj8mAO3dNY",
+ *   ObjectReference: {
+ *     Selector: "$AQGG_ADlfNZBzYHY_JgDt3TWcU7IARvOTeaR09zme1sVsw"
+ *   }
+ * };
+ * const command = new ListObjectChildrenCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   Children: {
+ *     link2: "AQGG_ADlfNZBzYHY_JgDt3TWSvfuEnDqTdmeCuTs6YBNUA"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class ListObjectChildrenCommand extends $Command
@@ -106,9 +128,7 @@ export class ListObjectChildrenCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +140,16 @@ export class ListObjectChildrenCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListObjectChildrenCommand)
   .de(de_ListObjectChildrenCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListObjectChildrenRequest;
+      output: ListObjectChildrenResponse;
+    };
+    sdk: {
+      input: ListObjectChildrenCommandInput;
+      output: ListObjectChildrenCommandOutput;
+    };
+  };
+}

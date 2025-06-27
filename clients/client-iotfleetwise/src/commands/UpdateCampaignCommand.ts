@@ -6,13 +6,18 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTFleetWiseClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTFleetWiseClient";
-import { UpdateCampaignRequest, UpdateCampaignResponse } from "../models/models_0";
+import {
+  UpdateCampaignRequest,
+  UpdateCampaignRequestFilterSensitiveLog,
+  UpdateCampaignResponse,
+} from "../models/models_0";
 import { de_UpdateCampaignCommand, se_UpdateCampaignCommand } from "../protocols/Aws_json1_0";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +85,7 @@ export interface UpdateCampaignCommandOutput extends UpdateCampaignResponse, __M
  * @throws {@link IoTFleetWiseServiceException}
  * <p>Base exception class for all service exceptions from IoTFleetWise service.</p>
  *
+ *
  * @public
  */
 export class UpdateCampaignCommand extends $Command
@@ -90,9 +96,7 @@ export class UpdateCampaignCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTFleetWiseClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,7 +105,19 @@ export class UpdateCampaignCommand extends $Command
   })
   .s("IoTAutobahnControlPlane", "UpdateCampaign", {})
   .n("IoTFleetWiseClient", "UpdateCampaignCommand")
-  .f(void 0, void 0)
+  .f(UpdateCampaignRequestFilterSensitiveLog, void 0)
   .ser(se_UpdateCampaignCommand)
   .de(de_UpdateCampaignCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateCampaignRequest;
+      output: UpdateCampaignResponse;
+    };
+    sdk: {
+      input: UpdateCampaignCommandInput;
+      output: UpdateCampaignCommandOutput;
+    };
+  };
+}

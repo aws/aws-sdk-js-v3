@@ -12,7 +12,8 @@ import { de_SubscribeToEventCommand, se_SubscribeToEventCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,20 +77,23 @@ export interface SubscribeToEventCommandOutput extends __MetadataBearer {}
  * @throws {@link InspectorServiceException}
  * <p>Base exception class for all service exceptions from Inspector service.</p>
  *
- * @public
+ *
  * @example Subscribe to event
  * ```javascript
  * // Enables the process of sending Amazon Simple Notification Service (SNS) notifications about a specified event to a specified SNS topic.
  * const input = {
- *   "event": "ASSESSMENT_RUN_COMPLETED",
- *   "resourceArn": "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
- *   "topicArn": "arn:aws:sns:us-west-2:123456789012:exampletopic"
+ *   event: "ASSESSMENT_RUN_COMPLETED",
+ *   resourceArn: "arn:aws:inspector:us-west-2:123456789012:target/0-nvgVhaxX/template/0-7sbz2Kz0",
+ *   topicArn: "arn:aws:sns:us-west-2:123456789012:exampletopic"
  * };
  * const command = new SubscribeToEventCommand(input);
- * await client.send(command);
- * // example id: subscribe-to-event-1481067686031
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SubscribeToEventCommand extends $Command
   .classBuilder<
@@ -99,9 +103,7 @@ export class SubscribeToEventCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: InspectorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +115,16 @@ export class SubscribeToEventCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SubscribeToEventCommand)
   .de(de_SubscribeToEventCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: SubscribeToEventRequest;
+      output: {};
+    };
+    sdk: {
+      input: SubscribeToEventCommandInput;
+      output: SubscribeToEventCommandOutput;
+    };
+  };
+}

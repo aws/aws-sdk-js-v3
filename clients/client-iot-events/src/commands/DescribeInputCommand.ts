@@ -12,7 +12,8 @@ import { de_DescribeInputCommand, se_DescribeInputCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface DescribeInputCommandOutput extends DescribeInputResponse, __Met
  * @throws {@link IoTEventsServiceException}
  * <p>Base exception class for all service exceptions from IoTEvents service.</p>
  *
+ *
  * @public
  */
 export class DescribeInputCommand extends $Command
@@ -95,9 +97,7 @@ export class DescribeInputCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTEventsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class DescribeInputCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeInputCommand)
   .de(de_DescribeInputCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeInputRequest;
+      output: DescribeInputResponse;
+    };
+    sdk: {
+      input: DescribeInputCommandInput;
+      output: DescribeInputCommandOutput;
+    };
+  };
+}

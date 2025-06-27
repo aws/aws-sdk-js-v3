@@ -12,7 +12,8 @@ import { de_GetBranchCommand, se_GetBranchCommand } from "../protocols/Aws_restJ
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -57,6 +58,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     enableAutoBuild: true || false, // required
+ * //     enableSkewProtection: true || false,
  * //     customDomains: [ // CustomDomains // required
  * //       "STRING_VALUE",
  * //     ],
@@ -80,6 +82,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * //     backend: { // Backend
  * //       stackArn: "STRING_VALUE",
  * //     },
+ * //     computeRoleArn: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -106,6 +109,7 @@ export interface GetBranchCommandOutput extends GetBranchResult, __MetadataBeare
  * @throws {@link AmplifyServiceException}
  * <p>Base exception class for all service exceptions from Amplify service.</p>
  *
+ *
  * @public
  */
 export class GetBranchCommand extends $Command
@@ -116,9 +120,7 @@ export class GetBranchCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -130,4 +132,16 @@ export class GetBranchCommand extends $Command
   .f(void 0, GetBranchResultFilterSensitiveLog)
   .ser(se_GetBranchCommand)
   .de(de_GetBranchCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetBranchRequest;
+      output: GetBranchResult;
+    };
+    sdk: {
+      input: GetBranchCommandInput;
+      output: GetBranchCommandOutput;
+    };
+  };
+}

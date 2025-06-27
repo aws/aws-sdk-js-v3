@@ -12,7 +12,8 @@ import { de_CreateDatasetCommand, se_CreateDatasetCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -172,6 +173,7 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * @throws {@link IoTAnalyticsServiceException}
  * <p>Base exception class for all service exceptions from IoTAnalytics service.</p>
  *
+ *
  * @public
  */
 export class CreateDatasetCommand extends $Command
@@ -182,9 +184,7 @@ export class CreateDatasetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTAnalyticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -196,4 +196,16 @@ export class CreateDatasetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDatasetCommand)
   .de(de_CreateDatasetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDatasetRequest;
+      output: CreateDatasetResponse;
+    };
+    sdk: {
+      input: CreateDatasetCommandInput;
+      output: CreateDatasetCommandOutput;
+    };
+  };
+}

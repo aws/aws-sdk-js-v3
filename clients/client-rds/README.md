@@ -63,7 +63,7 @@ from the user guide.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-rds
+To install this package, simply type add or install @aws-sdk/client-rds
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-rds`
@@ -814,6 +814,14 @@ DescribeDBLogFiles
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/DescribeDBLogFilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeDBLogFilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeDBLogFilesCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeDBMajorEngineVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/rds/command/DescribeDBMajorEngineVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeDBMajorEngineVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-rds/Interface/DescribeDBMajorEngineVersionsCommandOutput/)
 
 </details>
 <details>

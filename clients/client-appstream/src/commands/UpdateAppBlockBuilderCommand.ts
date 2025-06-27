@@ -12,7 +12,8 @@ import { de_UpdateAppBlockBuilderCommand, se_UpdateAppBlockBuilderCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -42,7 +43,7 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  *   Name: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
  *   DisplayName: "STRING_VALUE",
- *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2",
+ *   Platform: "WINDOWS" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "AMAZON_LINUX2" || "RHEL8" || "ROCKY_LINUX8",
  *   InstanceType: "STRING_VALUE",
  *   VpcConfig: { // VpcConfig
  *     SubnetIds: [ // SubnetIdList
@@ -147,6 +148,7 @@ export interface UpdateAppBlockBuilderCommandOutput extends UpdateAppBlockBuilde
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class UpdateAppBlockBuilderCommand extends $Command
@@ -157,9 +159,7 @@ export class UpdateAppBlockBuilderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -171,4 +171,16 @@ export class UpdateAppBlockBuilderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateAppBlockBuilderCommand)
   .de(de_UpdateAppBlockBuilderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateAppBlockBuilderRequest;
+      output: UpdateAppBlockBuilderResult;
+    };
+    sdk: {
+      input: UpdateAppBlockBuilderCommandInput;
+      output: UpdateAppBlockBuilderCommandOutput;
+    };
+  };
+}

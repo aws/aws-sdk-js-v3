@@ -12,7 +12,8 @@ import { de_GetNotebookMetadataCommand, se_GetNotebookMetadataCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface GetNotebookMetadataCommandOutput extends GetNotebookMetadataOut
  * @throws {@link AthenaServiceException}
  * <p>Base exception class for all service exceptions from Athena service.</p>
  *
+ *
  * @public
  */
 export class GetNotebookMetadataCommand extends $Command
@@ -82,9 +84,7 @@ export class GetNotebookMetadataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AthenaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -96,4 +96,16 @@ export class GetNotebookMetadataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetNotebookMetadataCommand)
   .de(de_GetNotebookMetadataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNotebookMetadataInput;
+      output: GetNotebookMetadataOutput;
+    };
+    sdk: {
+      input: GetNotebookMetadataCommandInput;
+      output: GetNotebookMetadataCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_CreateTriggerCommand, se_CreateTriggerCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -28,6 +29,7 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
 
 /**
  * <p>Creates a new trigger.</p>
+ *          <p>Job arguments may be logged. Do not pass plaintext secrets as arguments. Retrieve secrets from a Glue Connection, Amazon Web Services Secrets Manager or other secret management mechanism if you intend to keep them within the Job.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -116,6 +118,7 @@ export interface CreateTriggerCommandOutput extends CreateTriggerResponse, __Met
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class CreateTriggerCommand extends $Command
@@ -126,9 +129,7 @@ export class CreateTriggerCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -140,4 +141,16 @@ export class CreateTriggerCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTriggerCommand)
   .de(de_CreateTriggerCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTriggerRequest;
+      output: CreateTriggerResponse;
+    };
+    sdk: {
+      input: CreateTriggerCommandInput;
+      output: CreateTriggerCommandOutput;
+    };
+  };
+}

@@ -16,7 +16,8 @@ import { de_DescribeConfigurationSetsCommand, se_DescribeConfigurationSetsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,13 +32,7 @@ export interface DescribeConfigurationSetsCommandInput extends DescribeConfigura
 export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigurationSetsResult, __MetadataBearer {}
 
 /**
- * <p>Describes the specified configuration sets or all in your account.</p>
- *          <p>If you specify configuration set names, the output includes information for only the
- *             specified configuration sets. If you specify filters, the output includes information
- *             for only those configuration sets that meet the filter criteria. If you don't specify
- *             configuration set names or filters, the output includes information for all
- *             configuration sets.</p>
- *          <p>If you specify a configuration set name that isn't valid, an error is returned.</p>
+ * <p>Describes the specified configuration sets or all in your account.</p> <p>If you specify configuration set names, the output includes information for only the specified configuration sets. If you specify filters, the output includes information for only those configuration sets that meet the filter criteria. If you don't specify configuration set names or filters, the output includes information for all configuration sets.</p> <p>If you specify a configuration set name that isn't valid, an error is returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -88,6 +83,7 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * //       ],
  * //       DefaultMessageType: "STRING_VALUE",
  * //       DefaultSenderId: "STRING_VALUE",
+ * //       DefaultMessageFeedbackEnabled: true || false,
  * //       CreatedTimestamp: new Date("TIMESTAMP"), // required
  * //       ProtectConfigurationId: "STRING_VALUE",
  * //     },
@@ -104,25 +100,23 @@ export interface DescribeConfigurationSetsCommandOutput extends DescribeConfigur
  * @see {@link PinpointSMSVoiceV2ClientResolvedConfig | config} for PinpointSMSVoiceV2Client's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  <p>The request was denied because you don't have sufficient permissions to access the
- *             resource.</p>
+ *  <p>The request was denied because you don't have sufficient permissions to access the resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  <p>The API encountered an unexpected error and couldn't complete the request. You might
- *             be able to successfully issue the request again in the future.</p>
+ *  <p>The API encountered an unexpected error and couldn't complete the request. You might be able to successfully issue the request again in the future.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>A requested resource couldn't be found.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  <p>An error that occurred because too many requests were sent during a certain amount of
- *             time.</p>
+ *  <p>An error that occurred because too many requests were sent during a certain amount of time.</p>
  *
  * @throws {@link ValidationException} (client fault)
  *  <p>A validation exception for a field.</p>
  *
  * @throws {@link PinpointSMSVoiceV2ServiceException}
  * <p>Base exception class for all service exceptions from PinpointSMSVoiceV2 service.</p>
+ *
  *
  * @public
  */
@@ -134,9 +128,7 @@ export class DescribeConfigurationSetsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PinpointSMSVoiceV2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +140,16 @@ export class DescribeConfigurationSetsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeConfigurationSetsCommand)
   .de(de_DescribeConfigurationSetsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeConfigurationSetsRequest;
+      output: DescribeConfigurationSetsResult;
+    };
+    sdk: {
+      input: DescribeConfigurationSetsCommandInput;
+      output: DescribeConfigurationSetsCommandOutput;
+    };
+  };
+}

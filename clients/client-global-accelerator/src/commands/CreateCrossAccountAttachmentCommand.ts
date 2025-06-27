@@ -19,7 +19,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -127,6 +128,7 @@ export interface CreateCrossAccountAttachmentCommandOutput
  * @throws {@link GlobalAcceleratorServiceException}
  * <p>Base exception class for all service exceptions from GlobalAccelerator service.</p>
  *
+ *
  * @public
  */
 export class CreateCrossAccountAttachmentCommand extends $Command
@@ -137,9 +139,7 @@ export class CreateCrossAccountAttachmentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlobalAcceleratorClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -151,4 +151,16 @@ export class CreateCrossAccountAttachmentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCrossAccountAttachmentCommand)
   .de(de_CreateCrossAccountAttachmentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCrossAccountAttachmentRequest;
+      output: CreateCrossAccountAttachmentResponse;
+    };
+    sdk: {
+      input: CreateCrossAccountAttachmentCommandInput;
+      output: CreateCrossAccountAttachmentCommandOutput;
+    };
+  };
+}

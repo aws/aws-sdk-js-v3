@@ -12,7 +12,8 @@ import { de_UpdateContributorInsightsCommand, se_UpdateContributorInsightsComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface UpdateContributorInsightsCommandOutput extends UpdateContributo
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class UpdateContributorInsightsCommand extends $Command
@@ -83,6 +85,7 @@ export class UpdateContributorInsightsCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -95,4 +98,16 @@ export class UpdateContributorInsightsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateContributorInsightsCommand)
   .de(de_UpdateContributorInsightsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateContributorInsightsInput;
+      output: UpdateContributorInsightsOutput;
+    };
+    sdk: {
+      input: UpdateContributorInsightsCommandInput;
+      output: UpdateContributorInsightsCommandOutput;
+    };
+  };
+}

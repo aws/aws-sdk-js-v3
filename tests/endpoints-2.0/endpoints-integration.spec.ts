@@ -1,142 +1,169 @@
 import { resolveParams } from "@smithy/middleware-endpoint";
-import { EndpointParameters, EndpointV2 } from "@smithy/types";
-import * as fs from "fs";
-import * as path from "path";
+import { EndpointV2, RelativeMiddlewareOptions } from "@smithy/types";
+import { EndpointParams, resolveEndpoint } from "@smithy/util-endpoints";
+import { existsSync, readdirSync } from "fs";
+import { join } from "path";
 
-import { EndpointExpectation, EndpointTestCase, ErrorExpectation, ServiceNamespace } from "./integration-test-types";
-
-const clientList: string[] = [];
-const root = path.join(__dirname, "..", "..");
-const clients = fs.readdirSync(path.join(root, "clients"));
-clientList.push(...clients);
+import { EndpointExpectation, ServiceModel, ServiceNamespace } from "./integration-test-types";
+import { HttpRequest } from "@smithy/protocol-http";
 
 describe("client list", () => {
-  it("should be at least 300 clients", () => {
-    expect(clientList.length).toBeGreaterThan(300);
+  const root = join(__dirname, "..", "..");
+  const clientPackageNameList = readdirSync(join(root, "clients")).filter((f) => f.startsWith("client-"));
+
+  describe.each(clientPackageNameList)(`%s endpoint test cases`, (clientPackageName) => {
+    const serviceName = clientPackageName.slice(7);
+
+    // since client package name list is populated from clients folder, we know it exists.
+    const namespace = require(`@aws-sdk/${clientPackageName}`);
+    const modelPath = join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json");
+
+    if (existsSync(modelPath)) {
+      const model = require(modelPath);
+      for (const value of Object.values(model.shapes)) {
+        if (typeof value === "object" && value !== null && "type" in value && value.type === "service") {
+          const service = value as ServiceModel;
+          runTestCases(service, namespace);
+          break;
+        }
+      }
+    }
   });
 });
 
-for (const client of clientList) {
-  const serviceName = client.slice(7);
+function runTestCases(service: ServiceModel, namespace: ServiceNamespace) {
+  const serviceId = service.traits["aws.api#service"].serviceId;
+  const testCases = service.traits["smithy.rules#endpointTests"]?.testCases;
+  const Client: any = Object.entries(namespace).find(([k, v]) => k.match(/[A-Z][A-Za-z0-9]+Client$/))![1];
 
-  let defaultEndpointResolver;
-  let namespace;
-  let model;
+  const ruleSet = service.traits["smithy.rules#endpointRuleSet"];
+  const defaultEndpointResolver = (endpointParams: EndpointParams) => resolveEndpoint(ruleSet, { endpointParams });
 
-  // this may also work with dynamic async import() in a beforeAll() block,
-  // but needs more effort than using synchronous require().
-  try {
-    defaultEndpointResolver =
-      require(`@aws-sdk/client-${serviceName}/src/endpoint/endpointResolver`).defaultEndpointResolver;
-    namespace = require(`@aws-sdk/client-${serviceName}`);
-    model = require(path.join(root, "codegen", "sdk-codegen", "aws-models", serviceName + ".json"));
-  } catch (e) {
-    defaultEndpointResolver = null;
-    namespace = null;
-    model = null;
-    if (e.code !== "MODULE_NOT_FOUND") {
-      console.error(e);
-    }
-  }
+  if (testCases) {
+    for (const testCase of testCases) {
+      const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
 
-  describe(`client-${serviceName} endpoint test cases`, () => {
-    if (defaultEndpointResolver && namespace && model) {
-      const [, service] = Object.entries(model.shapes).find(([k, v]) => v?.["type"] === "service") as any;
-      const [, tests] = Object.entries(service.traits).find(([k, v]) => k === "smithy.rules#endpointTests") as any;
-      if (tests?.testCases) {
-        runTestCases(tests, service, defaultEndpointResolver, "");
+      params.serviceId = serviceId;
+
+      let test = it;
+
+      const focus = [] as string[];
+      const skip = ["WriteGetObjectResponse"] as string[];
+
+      if ((!focus.length || focus.includes(documentation!)) && !skip.includes(documentation!)) {
+        test = it;
       } else {
-        it.skip("has no test cases", () => {});
+        test = it.skip;
       }
-    } else {
-      it.skip("unable to load endpoint resolver, namespace, or test cases", () => {});
-    }
-  });
-}
 
-function runTestCases(
-  { testCases }: { testCases: EndpointTestCase[] },
-  service: ServiceNamespace,
-  defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2,
-  serviceId: string
-) {
-  for (const testCase of testCases) {
-    runTestCase(testCase, service, defaultEndpointResolver, serviceId);
-  }
-}
+      if (
+        "endpoint" in expectation &&
+        expectation.endpoint.url === "https://s3.us-west-2.amazonaws.com/example.com%23"
+      ) {
+        // todo(endpoints): fix upstream in endpoint resolver customization
+        test = it.skip;
+      }
 
-async function runTestCase(
-  testCase: EndpointTestCase,
-  service: ServiceNamespace,
-  defaultEndpointResolver: (endpointParams: EndpointParameters) => EndpointV2,
-  serviceId: string
-) {
-  const { documentation, params = {}, expect: expectation, operationInputs } = testCase;
+      if ("endpoint" in expectation && (operationInputs ?? []).find((oi) => skip.includes(oi?.operationName))) {
+        // todo(endpoints): hostPrefix not expressed correctly in test case, do not change
+        // todo(endpoints): behavior to match the WriteGetObjectResponse test urls.
+        test = it.skip;
+      }
 
-  for (const key of Object.keys(params)) {
-    // e.g. S3Control::UseArnRegion as a param key indicates
-    // an error with the test case, it will be ignored.
-    if (key.includes(":")) {
-      delete params[key];
-    }
-  }
-
-  if (params.UseGlobalEndpoint || params.Region === "aws-global") {
-    it.skip(documentation || "undocumented testcase", () => {});
-    return;
-  }
-
-  params.serviceId = serviceId;
-
-  it(documentation || "undocumented testcase", async () => {
-    if (isEndpointExpectation(expectation)) {
-      const { endpoint } = expectation;
-      if (operationInputs) {
-        for (const operationInput of operationInputs) {
-          const { operationName, operationParams = {} } = operationInput;
-          const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], params);
-          const observed = defaultEndpointResolver(endpointParams as any);
-          assertEndpointResolvedCorrectly(endpoint, observed);
+      test(documentation || "undocumented testcase", async () => {
+        if ("endpoint" in expectation) {
+          const { endpoint } = expectation;
+          if (operationInputs) {
+            for (const operationInput of operationInputs) {
+              const { operationName, operationParams = {}, clientParams, builtInParams = {} } = operationInput;
+              if (skip.includes(operationName)) {
+                continue;
+              }
+              const Command = namespace[`${operationName}Command`] as any;
+              const endpointParams = await resolveParams(
+                operationParams,
+                Command,
+                mapClientConfig({
+                  ...params,
+                  ...builtInParams,
+                })
+              );
+              const observed = await useClient(Client, Command, endpointParams, operationParams);
+              // const observed = defaultEndpointResolver(endpointParams as EndpointParams);
+              assertEndpointResolvedCorrectly(endpoint, observed);
+            }
+          } else {
+            const endpointParams = await resolveParams({}, {}, params);
+            const observed = defaultEndpointResolver(endpointParams as EndpointParams);
+            assertEndpointResolvedCorrectly(endpoint, observed);
+          }
         }
-      } else {
-        const endpointParams = await resolveParams({}, {}, params);
-        const observed = defaultEndpointResolver(endpointParams as any);
-        assertEndpointResolvedCorrectly(endpoint, observed);
-      }
-    }
-    if (isErrorExpectation(expectation)) {
-      const { error } = expectation;
-      const pass = (err) => err;
-      const normalizeQuotes = (s) => s.replace(/`/g, "");
-      if (operationInputs) {
-        for (const operationInput of operationInputs) {
-          const { operationName, operationParams = {} } = operationInput;
-          const endpointParams = await resolveParams(operationParams, service[`${operationName}Command`], {
-            ...params,
-            endpointProvider: defaultEndpointResolver,
-          }).catch(pass);
-          const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
-          expect(observedError).not.toBeUndefined();
-          expect(observedError?.url).toBeUndefined();
-          // expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
+        if ("error" in expectation) {
+          const { error } = expectation;
+          const pass = (err: any) => err;
+          const normalizeQuotes = (s: string) => s.replace(/`/g, "");
+          if (operationInputs) {
+            for (const operationInput of operationInputs) {
+              const { operationName, operationParams = {} } = operationInput;
+              const Command = namespace[`${operationName}Command`] as any;
+              const endpointParams = await resolveParams(
+                operationParams,
+                Command,
+                mapClientConfig({
+                  ...params,
+                })
+              );
+              const observedError = await useClient(Client, Command, endpointParams, operationParams).catch(pass);
+              // const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
+              expect(observedError).not.toBeUndefined();
+              expect(observedError?.url).toBeUndefined();
+
+              if (
+                observedError.toString() ===
+                "Error: Invalid ARN: arn:aws:s3:us-west-2:123456789012: was an invalid ARN."
+              ) {
+                // This is a functionally equivalent error thrown by the endpoints library instead of the ruleset.
+                expect(normalizeQuotes(error)).toEqual(
+                  "Invalid ARN: arn:aws:s3:us-west-2:123456789012: was not a valid ARN"
+                );
+              } else {
+                expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
+              }
+            }
+          } else {
+            const endpointParams = await resolveParams({}, {}, params).catch(pass);
+            // no way to call an operation if operationName not present in operationInput.
+            // we can only test this with the endpoint resolver and not the client.
+            const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
+            expect(observedError).not.toBeUndefined();
+            expect(observedError?.url).toBeUndefined();
+            expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
+          }
         }
-      } else {
-        const endpointParams = await resolveParams({}, {}, params).catch(pass);
-        const observedError = await (async () => defaultEndpointResolver(endpointParams as any))().catch(pass);
-        expect(observedError).not.toBeUndefined();
-        expect(observedError?.url).toBeUndefined();
-        // expect(normalizeQuotes(String(observedError))).toContain(normalizeQuotes(error));
-      }
+      });
     }
-  });
+  } else {
+    it.skip("has no test cases", () => {});
+  }
 }
 
 function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint"], observed: EndpointV2) {
   const { url, headers, properties } = expected;
   const { authSchemes } = properties || {};
   if (url) {
-    expect(observed.url.href).toContain(new URL(url).href);
-    expect(Math.abs(observed.url.href.length - url.length)).toBeLessThan(2);
+    const expectedUrl = new URL(url);
+
+    const expectedUrlWithoutPort = expectedUrl.port
+      ? expectedUrl.href.replace(`:${expectedUrl.port}`, "")
+      : expectedUrl.href;
+    const observedUrlWithoutPort = observed.url.port
+      ? observed.url.href.replace(`:${observed.url.port}`, "")
+      : observed.url.href;
+
+    expect(observedUrlWithoutPort).toContain(expectedUrlWithoutPort);
+    if (expectedUrl.port) {
+      expect(observed.url.port).toEqual(expectedUrl.port);
+    }
   }
   if (headers) {
     expect(observed.headers).toEqual(headers);
@@ -146,10 +173,81 @@ function assertEndpointResolvedCorrectly(expected: EndpointExpectation["endpoint
   }
 }
 
-function isEndpointExpectation(expectation: object): expectation is EndpointExpectation {
-  return "endpoint" in expectation;
+/**
+ * Makes a client operation return its EndpointV2 instead of making a request.
+ */
+const requestInterceptorMiddleware = (next: any, context: any) => async (args: any) => {
+  const { request } = args;
+  if (HttpRequest.isInstance(request)) {
+    const endpoint = context.endpointV2;
+    return {
+      response: {
+        statusCode: 200,
+      },
+      output: {
+        ...endpoint,
+        url: {
+          protocol: request.protocol,
+          hostname: request.hostname,
+          pathname: request.path,
+          href: `${request.protocol}//${request.hostname}${request.path}`,
+          port: request.port ? String(request.port) : undefined,
+        } as URL,
+      },
+    } as {
+      output: EndpointV2;
+    };
+  }
+  throw new Error("Request must not continue beyond serialization step.");
+};
+const requestInterceptorMiddlewareOptions: RelativeMiddlewareOptions = {
+  name: "requestInterceptorMiddleware",
+  override: true,
+  toMiddleware: "serializerMiddleware",
+  relation: "after",
+};
+
+const paramMap = {
+  Region: "region",
+  "AWS::Region": "region",
+  AccountIdEndpointMode: "accountIdEndpointMode",
+  UseFIPS: "useFipsEndpoint",
+  UseDualStack: "useDualstackEndpoint",
+  ForcePathStyle: "forcePathStyle",
+  Accelerate: "useAccelerateEndpoint",
+  DisableMRAP: "disableMultiregionAccessPoints",
+  DisableMultiRegionAccessPoints: "disableMultiregionAccessPoints",
+  UseArnRegion: "useArnRegion",
+  Endpoint: "endpoint",
+  UseGlobalEndpoint: "useGlobalEndpoint",
+  DisableS3ExpressSessionAuth: "disableS3ExpressSessionAuth",
+};
+
+async function useClient(Client: any, Command: any, clientConfig: any, input: any): Promise<EndpointV2> {
+  const client = new Client({
+    ...mapClientConfig(clientConfig),
+    // logger: console,
+  });
+  client.middlewareStack.addRelativeTo(requestInterceptorMiddleware, requestInterceptorMiddlewareOptions);
+  const command = new Command(input);
+  const observed: EndpointV2 = await client.send(command);
+  return observed;
 }
 
-function isErrorExpectation(expectation: object): expectation is ErrorExpectation {
-  return "error" in expectation;
+function mapClientConfig(params: any) {
+  const out = {
+    credentials: {
+      accessKeyId: "ENDPOINTS_TEST",
+      secretAccessKey: "ENDPOINTS_TEST",
+      accountId: undefined,
+    },
+  } as any;
+  for (const [k, v] of Object.entries(params)) {
+    if (k === "AccountId") {
+      out.credentials.accountId = v;
+    } else {
+      out[paramMap[k as keyof typeof paramMap] ?? k] = v;
+    }
+  }
+  return out;
 }

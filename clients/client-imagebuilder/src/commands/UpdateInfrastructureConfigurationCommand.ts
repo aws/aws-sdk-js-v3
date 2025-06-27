@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -63,7 +64,6 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  *   keyPair: "STRING_VALUE",
  *   terminateInstanceOnFailure: true || false,
  *   snsTopicArn: "STRING_VALUE",
- *   clientToken: "STRING_VALUE", // required
  *   resourceTags: { // ResourceTagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -71,6 +71,13 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  *     httpTokens: "STRING_VALUE",
  *     httpPutResponseHopLimit: Number("int"),
  *   },
+ *   placement: { // Placement
+ *     availabilityZone: "STRING_VALUE",
+ *     tenancy: "default" || "dedicated" || "host",
+ *     hostId: "STRING_VALUE",
+ *     hostResourceGroupArn: "STRING_VALUE",
+ *   },
+ *   clientToken: "STRING_VALUE", // required
  * };
  * const command = new UpdateInfrastructureConfigurationCommand(input);
  * const response = await client.send(command);
@@ -120,6 +127,7 @@ export interface UpdateInfrastructureConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class UpdateInfrastructureConfigurationCommand extends $Command
@@ -130,9 +138,7 @@ export class UpdateInfrastructureConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -144,4 +150,16 @@ export class UpdateInfrastructureConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInfrastructureConfigurationCommand)
   .de(de_UpdateInfrastructureConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInfrastructureConfigurationRequest;
+      output: UpdateInfrastructureConfigurationResponse;
+    };
+    sdk: {
+      input: UpdateInfrastructureConfigurationCommandInput;
+      output: UpdateInfrastructureConfigurationCommandOutput;
+    };
+  };
+}

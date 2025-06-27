@@ -105,7 +105,11 @@ export interface marshallOptions {
    */
   convertEmptyValues?: boolean;
   /**
-   * Whether to remove undefined values while marshalling.
+   * Whether to remove undefined values from JS arrays/Sets/objects
+   * when marshalling to DynamoDB lists/sets/maps respectively.
+   *
+   * A DynamoDB item is not itself considered a map. Only
+   * attributes of an item are examined.
    */
   removeUndefinedValues?: boolean;
   /**
@@ -120,15 +124,26 @@ export interface marshallOptions {
    * but false if directly using the marshall function (backwards compatibility).
    */
   convertTopLevelContainer?: boolean;
+  /**
+   * Whether to allow numbers beyond Number.MAX_SAFE_INTEGER during marshalling.
+   * When set to true, allows numbers that may lose precision when converted to JavaScript numbers.
+   * When false (default), throws an error if a number exceeds Number.MAX_SAFE_INTEGER to prevent
+   * unintended loss of precision. Consider using the NumberValue type from @aws-sdk/lib-dynamodb
+   * for precise handling of large numbers.
+   */
+  allowImpreciseNumbers?: boolean;
 }
 
 export interface unmarshallOptions {
   /**
-   * Whether to return numbers as a string instead of converting them to native JavaScript numbers.
+   * Whether to modify how numbers are unmarshalled from DynamoDB.
+   * When set to true, returns numbers as NumberValue instances instead of native JavaScript numbers.
    * This allows for the safe round-trip transport of numbers of arbitrary size.
+   *
+   * If a function is provided, it will be called with the string representation of numbers to handle
+   * custom conversions (e.g., using BigInt or decimal libraries).
    */
-  wrapNumbers?: boolean;
-
+  wrapNumbers?: boolean | ((value: string) => number | bigint | NumberValue | any);
   /**
    * When true, skip wrapping the data in `{ M: data }` before converting.
    *
@@ -235,9 +250,58 @@ const response = await client.get({
 const value = response.Item.bigNumber;
 ```
 
+You can also provide a custom function to handle number conversion during unmarshalling:
+
+```typescript
+const client = DynamoDBDocument.from(new DynamoDB({}), {
+  unmarshallOptions: {
+    // Use BigInt for all numbers
+    wrapNumbers: (str) => BigInt(str),
+  },
+});
+
+const response = await client.get({
+  Key: { id: 1 },
+});
+
+// Numbers in response will be BigInt instead of NumberValue or regular numbers
+```
+
 `NumberValue` does not provide a way to do mathematical operations on itself.
 To do mathematical operations, take the string value of `NumberValue` by calling
 `.toString()` and supply it to your chosen big number implementation.
+
+The client protects against precision loss by throwing an error on large numbers, but you can either
+allow imprecise values with `allowImpreciseNumbers` or maintain exact precision using `NumberValue`.
+
+```typescript
+const preciseValue = "34567890123456789012345678901234567890";
+
+// 1. Default behavior - will throw error
+await client.send(
+  new PutCommand({
+    TableName: "Table",
+    Item: {
+      id: "1",
+      number: Number(preciseValue), // Throws error: Number is greater than Number.MAX_SAFE_INTEGER
+    },
+  })
+);
+
+// 2. Using allowImpreciseNumbers - will store but loses precision (mimics the v2 implicit behavior)
+const impreciseClient = DynamoDBDocumentClient.from(new DynamoDBClient({}), {
+  marshallOptions: { allowImpreciseNumbers: true },
+});
+await impreciseClient.send(
+  new PutCommand({
+    TableName: "Table",
+    Item: {
+      id: "2",
+      number: Number(preciseValue), // Loses precision 34567890123456790000000000000000000000n
+    },
+  })
+);
+```
 
 ### Client and Command middleware stacks
 

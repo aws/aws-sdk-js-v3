@@ -12,7 +12,8 @@ import { de_DescribeEnvironmentResourcesCommand, se_DescribeEnvironmentResources
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -99,47 +100,47 @@ export interface DescribeEnvironmentResourcesCommandOutput
  * @throws {@link ElasticBeanstalkServiceException}
  * <p>Base exception class for all service exceptions from ElasticBeanstalk service.</p>
  *
- * @public
+ *
  * @example To view information about the AWS resources in your environment
  * ```javascript
  * // The following operation retrieves information about resources in an environment named my-env:
  * const input = {
- *   "EnvironmentName": "my-env"
+ *   EnvironmentName: "my-env"
  * };
  * const command = new DescribeEnvironmentResourcesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "EnvironmentResources": {
- *     "AutoScalingGroups": [
+ *   EnvironmentResources: {
+ *     AutoScalingGroups: [
  *       {
- *         "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingGroup-QSB2ZO88SXZT"
+ *         Name: "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingGroup-QSB2ZO88SXZT"
  *       }
  *     ],
- *     "EnvironmentName": "my-env",
- *     "Instances": [
+ *     EnvironmentName: "my-env",
+ *     Instances: [
  *       {
- *         "Id": "i-0c91c786"
+ *         Id: "i-0c91c786"
  *       }
  *     ],
- *     "LaunchConfigurations": [
+ *     LaunchConfigurations: [
  *       {
- *         "Name": "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingLaunchConfiguration-1UUVQIBC96TQ2"
+ *         Name: "awseb-e-qu3fyyjyjs-stack-AWSEBAutoScalingLaunchConfiguration-1UUVQIBC96TQ2"
  *       }
  *     ],
- *     "LoadBalancers": [
+ *     LoadBalancers: [
  *       {
- *         "Name": "awseb-e-q-AWSEBLoa-1EEPZ0K98BIF0"
+ *         Name: "awseb-e-q-AWSEBLoa-1EEPZ0K98BIF0"
  *       }
  *     ],
- *     "Queues": [],
- *     "Triggers": []
+ *     Queues:     [],
+ *     Triggers:     []
  *   }
  * }
  * *\/
- * // example id: to-view-information-about-the-aws-resources-in-your-environment-1456277206232
  * ```
  *
+ * @public
  */
 export class DescribeEnvironmentResourcesCommand extends $Command
   .classBuilder<
@@ -149,9 +150,7 @@ export class DescribeEnvironmentResourcesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ElasticBeanstalkClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -163,4 +162,16 @@ export class DescribeEnvironmentResourcesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeEnvironmentResourcesCommand)
   .de(de_DescribeEnvironmentResourcesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeEnvironmentResourcesMessage;
+      output: EnvironmentResourceDescriptionsMessage;
+    };
+    sdk: {
+      input: DescribeEnvironmentResourcesCommandInput;
+      output: DescribeEnvironmentResourcesCommandOutput;
+    };
+  };
+}

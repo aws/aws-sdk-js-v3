@@ -12,7 +12,8 @@ import { de_RestoreTableToPointInTimeCommand, se_RestoreTableToPointInTimeComman
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,12 +30,13 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
 /**
  * <p>Restores the specified table to the specified point in time within
  *                 <code>EarliestRestorableDateTime</code> and <code>LatestRestorableDateTime</code>.
- *             You can restore your table to any point in time during the last 35 days. Any number of
- *             users can execute up to 50 concurrent restores (any type of restore) in a given account. </p>
+ *             You can restore your table to any point in time in the last 35 days. You can set the
+ *             recovery period to any value between 1 and 35 days. Any number of users can execute up
+ *             to 50 concurrent restores (any type of restore) in a given account. </p>
  *          <p>When you restore using point in time recovery, DynamoDB restores your table data to
  *             the state based on the selected date and time (day:hour:minute:second) to a new table. </p>
- *          <p>Along with data, the following are also included on the new restored table using
- *             point in time recovery: </p>
+ *          <p>Along with data, the following are also included on the new restored table using point
+ *             in time recovery: </p>
  *          <ul>
  *             <li>
  *                <p>Global secondary indexes (GSIs)</p>
@@ -112,6 +114,10 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  *       OnDemandThroughput: { // OnDemandThroughput
  *         MaxReadRequestUnits: Number("long"),
  *         MaxWriteRequestUnits: Number("long"),
+ *       },
+ *       WarmThroughput: { // WarmThroughput
+ *         ReadUnitsPerSecond: Number("long"),
+ *         WriteUnitsPerSecond: Number("long"),
  *       },
  *     },
  *   ],
@@ -231,6 +237,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //           MaxReadRequestUnits: Number("long"),
  * //           MaxWriteRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // GlobalSecondaryIndexWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
+ * //         },
  * //       },
  * //     ],
  * //     StreamSpecification: { // StreamSpecification
@@ -253,6 +264,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //         OnDemandThroughputOverride: { // OnDemandThroughputOverride
  * //           MaxReadRequestUnits: Number("long"),
  * //         },
+ * //         WarmThroughput: { // TableWarmThroughputDescription
+ * //           ReadUnitsPerSecond: Number("long"),
+ * //           WriteUnitsPerSecond: Number("long"),
+ * //           Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //         },
  * //         GlobalSecondaryIndexes: [ // ReplicaGlobalSecondaryIndexDescriptionList
  * //           { // ReplicaGlobalSecondaryIndexDescription
  * //             IndexName: "STRING_VALUE",
@@ -261,6 +277,11 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //             },
  * //             OnDemandThroughputOverride: {
  * //               MaxReadRequestUnits: Number("long"),
+ * //             },
+ * //             WarmThroughput: {
+ * //               ReadUnitsPerSecond: Number("long"),
+ * //               WriteUnitsPerSecond: Number("long"),
+ * //               Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE",
  * //             },
  * //           },
  * //         ],
@@ -297,6 +318,12 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * //       MaxReadRequestUnits: Number("long"),
  * //       MaxWriteRequestUnits: Number("long"),
  * //     },
+ * //     WarmThroughput: {
+ * //       ReadUnitsPerSecond: Number("long"),
+ * //       WriteUnitsPerSecond: Number("long"),
+ * //       Status: "CREATING" || "UPDATING" || "DELETING" || "ACTIVE" || "INACCESSIBLE_ENCRYPTION_CREDENTIALS" || "ARCHIVING" || "ARCHIVED",
+ * //     },
+ * //     MultiRegionConsistency: "EVENTUAL" || "STRONG",
  * //   },
  * // };
  *
@@ -350,6 +377,7 @@ export interface RestoreTableToPointInTimeCommandOutput extends RestoreTableToPo
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class RestoreTableToPointInTimeCommand extends $Command
@@ -362,6 +390,7 @@ export class RestoreTableToPointInTimeCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "TargetTableName" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -374,4 +403,16 @@ export class RestoreTableToPointInTimeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_RestoreTableToPointInTimeCommand)
   .de(de_RestoreTableToPointInTimeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: RestoreTableToPointInTimeInput;
+      output: RestoreTableToPointInTimeOutput;
+    };
+    sdk: {
+      input: RestoreTableToPointInTimeCommandInput;
+      output: RestoreTableToPointInTimeCommandOutput;
+    };
+  };
+}

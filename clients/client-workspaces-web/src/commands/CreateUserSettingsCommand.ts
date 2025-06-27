@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,15 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  *   additionalEncryptionContext: { // EncryptionContextMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   deepLinkAllowed: "STRING_VALUE",
+ *   toolbarConfiguration: { // ToolbarConfiguration
+ *     toolbarType: "STRING_VALUE",
+ *     visualMode: "STRING_VALUE",
+ *     hiddenToolbarItems: [ // HiddenToolbarItemList
+ *       "STRING_VALUE",
+ *     ],
+ *     maxDisplayResolution: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateUserSettingsCommand(input);
  * const response = await client.send(command);
@@ -111,6 +121,7 @@ export interface CreateUserSettingsCommandOutput extends CreateUserSettingsRespo
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class CreateUserSettingsCommand extends $Command
@@ -121,9 +132,7 @@ export class CreateUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +144,16 @@ export class CreateUserSettingsCommand extends $Command
   .f(CreateUserSettingsRequestFilterSensitiveLog, void 0)
   .ser(se_CreateUserSettingsCommand)
   .de(de_CreateUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateUserSettingsRequest;
+      output: CreateUserSettingsResponse;
+    };
+    sdk: {
+      input: CreateUserSettingsCommandInput;
+      output: CreateUserSettingsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetConnectionsCommand, se_GetConnectionsCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface GetConnectionsCommandOutput extends GetConnectionsResponse, __M
  * @throws {@link NetworkManagerServiceException}
  * <p>Base exception class for all service exceptions from NetworkManager service.</p>
  *
+ *
  * @public
  */
 export class GetConnectionsCommand extends $Command
@@ -105,9 +107,7 @@ export class GetConnectionsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: NetworkManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class GetConnectionsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetConnectionsCommand)
   .de(de_GetConnectionsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetConnectionsRequest;
+      output: GetConnectionsResponse;
+    };
+    sdk: {
+      input: GetConnectionsCommandInput;
+      output: GetConnectionsCommandOutput;
+    };
+  };
+}

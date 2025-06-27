@@ -12,7 +12,8 @@ import { de_GetThemeCommand, se_GetThemeCommand } from "../protocols/Aws_restJso
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -93,6 +94,7 @@ export interface GetThemeCommandOutput extends GetThemeResponse, __MetadataBeare
  * @throws {@link AmplifyUIBuilderServiceException}
  * <p>Base exception class for all service exceptions from AmplifyUIBuilder service.</p>
  *
+ *
  * @public
  */
 export class GetThemeCommand extends $Command
@@ -103,9 +105,7 @@ export class GetThemeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AmplifyUIBuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -117,4 +117,16 @@ export class GetThemeCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetThemeCommand)
   .de(de_GetThemeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetThemeRequest;
+      output: GetThemeResponse;
+    };
+    sdk: {
+      input: GetThemeCommandInput;
+      output: GetThemeCommandOutput;
+    };
+  };
+}

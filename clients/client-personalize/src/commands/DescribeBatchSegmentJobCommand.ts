@@ -12,7 +12,8 @@ import { de_DescribeBatchSegmentJobCommand, se_DescribeBatchSegmentJobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -85,6 +86,7 @@ export interface DescribeBatchSegmentJobCommandOutput extends DescribeBatchSegme
  * @throws {@link PersonalizeServiceException}
  * <p>Base exception class for all service exceptions from Personalize service.</p>
  *
+ *
  * @public
  */
 export class DescribeBatchSegmentJobCommand extends $Command
@@ -95,9 +97,7 @@ export class DescribeBatchSegmentJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PersonalizeClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +109,16 @@ export class DescribeBatchSegmentJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeBatchSegmentJobCommand)
   .de(de_DescribeBatchSegmentJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeBatchSegmentJobRequest;
+      output: DescribeBatchSegmentJobResponse;
+    };
+    sdk: {
+      input: DescribeBatchSegmentJobCommandInput;
+      output: DescribeBatchSegmentJobCommandOutput;
+    };
+  };
+}

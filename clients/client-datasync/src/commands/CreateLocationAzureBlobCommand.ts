@@ -16,7 +16,8 @@ import { de_CreateLocationAzureBlobCommand, se_CreateLocationAzureBlobCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,10 +33,10 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
 
 /**
  * <p>Creates a transfer <i>location</i> for a Microsoft Azure Blob Storage
- *       container. DataSync can use this location as a transfer source or
- *       destination.</p>
- *          <p>Before you begin, make sure you know <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access">how DataSync accesses Azure Blob Storage</a> and works with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">access tiers</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types">blob types</a>. You also need a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent">DataSync agent</a> that can connect to your
+ *       container. DataSync can use this location as a transfer source or destination.
+ *       You can make transfers with or without a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent">DataSync agent</a> that connects to your
  *       container.</p>
+ *          <p>Before you begin, make sure you know <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access">how DataSync accesses Azure Blob Storage</a> and works with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">access tiers</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types">blob types</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -44,14 +45,14 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  * const client = new DataSyncClient(config);
  * const input = { // CreateLocationAzureBlobRequest
  *   ContainerUrl: "STRING_VALUE", // required
- *   AuthenticationType: "SAS", // required
+ *   AuthenticationType: "SAS" || "NONE", // required
  *   SasConfiguration: { // AzureBlobSasConfiguration
  *     Token: "STRING_VALUE", // required
  *   },
  *   BlobType: "BLOCK",
  *   AccessTier: "HOT" || "COOL" || "ARCHIVE",
  *   Subdirectory: "STRING_VALUE",
- *   AgentArns: [ // AgentArnList // required
+ *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
  *   Tags: [ // InputTagList
@@ -60,6 +61,14 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   CmkSecretConfig: { // CmkSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     KmsKeyArn: "STRING_VALUE",
+ *   },
+ *   CustomSecretConfig: { // CustomSecretConfig
+ *     SecretArn: "STRING_VALUE",
+ *     SecretAccessRoleArn: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateLocationAzureBlobCommand(input);
  * const response = await client.send(command);
@@ -85,6 +94,7 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
  * @throws {@link DataSyncServiceException}
  * <p>Base exception class for all service exceptions from DataSync service.</p>
  *
+ *
  * @public
  */
 export class CreateLocationAzureBlobCommand extends $Command
@@ -95,9 +105,7 @@ export class CreateLocationAzureBlobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataSyncClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -109,4 +117,16 @@ export class CreateLocationAzureBlobCommand extends $Command
   .f(CreateLocationAzureBlobRequestFilterSensitiveLog, void 0)
   .ser(se_CreateLocationAzureBlobCommand)
   .de(de_CreateLocationAzureBlobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateLocationAzureBlobRequest;
+      output: CreateLocationAzureBlobResponse;
+    };
+    sdk: {
+      input: CreateLocationAzureBlobCommandInput;
+      output: CreateLocationAzureBlobCommandOutput;
+    };
+  };
+}

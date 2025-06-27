@@ -12,7 +12,8 @@ import { RAMClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface ListPrincipalsCommandOutput extends ListPrincipalsResponse, __M
  * @throws {@link RAMServiceException}
  * <p>Base exception class for all service exceptions from RAM service.</p>
  *
+ *
  * @public
  */
 export class ListPrincipalsCommand extends $Command
@@ -106,9 +108,7 @@ export class ListPrincipalsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -120,4 +120,16 @@ export class ListPrincipalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPrincipalsCommand)
   .de(de_ListPrincipalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPrincipalsRequest;
+      output: ListPrincipalsResponse;
+    };
+    sdk: {
+      input: ListPrincipalsCommandInput;
+      output: ListPrincipalsCommandOutput;
+    };
+  };
+}

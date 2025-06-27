@@ -16,7 +16,8 @@ import { de_GetDevicePositionHistoryCommand, se_GetDevicePositionHistoryCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,7 +65,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * //       Accuracy: { // PositionalAccuracy
  * //         Horizontal: Number("double"), // required
  * //       },
- * //       PositionProperties: { // PropertyMap
+ * //       PositionProperties: { // PositionPropertyMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //     },
@@ -99,6 +100,7 @@ export interface GetDevicePositionHistoryCommandOutput extends GetDevicePosition
  * @throws {@link LocationServiceException}
  * <p>Base exception class for all service exceptions from Location service.</p>
  *
+ *
  * @public
  */
 export class GetDevicePositionHistoryCommand extends $Command
@@ -109,9 +111,7 @@ export class GetDevicePositionHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LocationClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -123,4 +123,16 @@ export class GetDevicePositionHistoryCommand extends $Command
   .f(void 0, GetDevicePositionHistoryResponseFilterSensitiveLog)
   .ser(se_GetDevicePositionHistoryCommand)
   .de(de_GetDevicePositionHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDevicePositionHistoryRequest;
+      output: GetDevicePositionHistoryResponse;
+    };
+    sdk: {
+      input: GetDevicePositionHistoryCommandInput;
+      output: GetDevicePositionHistoryCommandOutput;
+    };
+  };
+}

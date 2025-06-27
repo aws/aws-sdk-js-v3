@@ -16,7 +16,8 @@ import { de_ListAssessmentFrameworksCommand, se_ListAssessmentFrameworksCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -87,6 +88,7 @@ export interface ListAssessmentFrameworksCommandOutput extends ListAssessmentFra
  * @throws {@link AuditManagerServiceException}
  * <p>Base exception class for all service exceptions from AuditManager service.</p>
  *
+ *
  * @public
  */
 export class ListAssessmentFrameworksCommand extends $Command
@@ -97,9 +99,7 @@ export class ListAssessmentFrameworksCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AuditManagerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -111,4 +111,16 @@ export class ListAssessmentFrameworksCommand extends $Command
   .f(void 0, ListAssessmentFrameworksResponseFilterSensitiveLog)
   .ser(se_ListAssessmentFrameworksCommand)
   .de(de_ListAssessmentFrameworksCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListAssessmentFrameworksRequest;
+      output: ListAssessmentFrameworksResponse;
+    };
+    sdk: {
+      input: ListAssessmentFrameworksCommandInput;
+      output: ListAssessmentFrameworksCommandOutput;
+    };
+  };
+}

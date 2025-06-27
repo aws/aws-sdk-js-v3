@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -105,47 +106,47 @@ export interface DeleteDBClusterSnapshotCommandOutput extends DeleteDBClusterSna
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To delete a DB cluster snapshot
  * ```javascript
  * //
  * const input = {
- *   "DBClusterSnapshotIdentifier": "mydbclustersnapshot"
+ *   DBClusterSnapshotIdentifier: "mydbclustersnapshot"
  * };
  * const command = new DeleteDBClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBClusterSnapshot": {
- *     "AllocatedStorage": 0,
- *     "AvailabilityZones": [
+ *   DBClusterSnapshot: {
+ *     AllocatedStorage: 0,
+ *     AvailabilityZones: [
  *       "us-east-1a",
  *       "us-east-1b",
  *       "us-east-1e"
  *     ],
- *     "ClusterCreateTime": "2019-04-15T14:18:42.785Z",
- *     "DBClusterIdentifier": "mydbcluster",
- *     "DBClusterSnapshotArn": "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:mydbclustersnapshot",
- *     "DBClusterSnapshotIdentifier": "mydbclustersnapshot",
- *     "Engine": "aurora-mysql",
- *     "EngineVersion": "5.7.mysql_aurora.2.04.2",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *     "LicenseModel": "aurora-mysql",
- *     "MasterUsername": "myadmin",
- *     "PercentProgress": 100,
- *     "Port": 0,
- *     "SnapshotCreateTime": "2019-06-18T21:21:00.469Z",
- *     "SnapshotType": "manual",
- *     "Status": "available",
- *     "StorageEncrypted": true,
- *     "VpcId": "vpc-6594f31c"
+ *     ClusterCreateTime: "2019-04-15T14:18:42.785Z",
+ *     DBClusterIdentifier: "mydbcluster",
+ *     DBClusterSnapshotArn: "arn:aws:rds:us-east-1:123456789012:cluster-snapshot:mydbclustersnapshot",
+ *     DBClusterSnapshotIdentifier: "mydbclustersnapshot",
+ *     Engine: "aurora-mysql",
+ *     EngineVersion: "5.7.mysql_aurora.2.04.2",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     LicenseModel: "aurora-mysql",
+ *     MasterUsername: "myadmin",
+ *     PercentProgress: 100,
+ *     Port: 0,
+ *     SnapshotCreateTime: "2019-06-18T21:21:00.469Z",
+ *     SnapshotType: "manual",
+ *     Status: "available",
+ *     StorageEncrypted: true,
+ *     VpcId: "vpc-6594f31c"
  *   }
  * }
  * *\/
- * // example id: to-delete-a-db-cluster-snapshot-1679962808509
  * ```
  *
+ * @public
  */
 export class DeleteDBClusterSnapshotCommand extends $Command
   .classBuilder<
@@ -155,9 +156,7 @@ export class DeleteDBClusterSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -169,4 +168,16 @@ export class DeleteDBClusterSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBClusterSnapshotCommand)
   .de(de_DeleteDBClusterSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBClusterSnapshotMessage;
+      output: DeleteDBClusterSnapshotResult;
+    };
+    sdk: {
+      input: DeleteDBClusterSnapshotCommandInput;
+      output: DeleteDBClusterSnapshotCommandOutput;
+    };
+  };
+}

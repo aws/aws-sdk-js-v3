@@ -12,7 +12,8 @@ import { de_GetLoadBalancerTlsPoliciesCommand, se_GetLoadBalancerTlsPoliciesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,7 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
 /**
  * <p>Returns a list of TLS security policies that you can apply to Lightsail load
  *       balancers.</p>
- *          <p>For more information about load balancer TLS security policies, see <a href="https://lightsail.aws.amazon.com/ls/docs/en_us/articles/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
+ *          <p>For more information about load balancer TLS security policies, see <a href="https://docs.aws.amazon.com/lightsail/latest/userguide/amazon-lightsail-configure-load-balancer-tls-security-policy">Configuring TLS security policies on your Amazon Lightsail load
  *         balancers</a> in the <i>Amazon Lightsail Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -94,6 +95,7 @@ export interface GetLoadBalancerTlsPoliciesCommandOutput extends GetLoadBalancer
  * @throws {@link LightsailServiceException}
  * <p>Base exception class for all service exceptions from Lightsail service.</p>
  *
+ *
  * @public
  */
 export class GetLoadBalancerTlsPoliciesCommand extends $Command
@@ -104,9 +106,7 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LightsailClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class GetLoadBalancerTlsPoliciesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLoadBalancerTlsPoliciesCommand)
   .de(de_GetLoadBalancerTlsPoliciesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLoadBalancerTlsPoliciesRequest;
+      output: GetLoadBalancerTlsPoliciesResult;
+    };
+    sdk: {
+      input: GetLoadBalancerTlsPoliciesCommandInput;
+      output: GetLoadBalancerTlsPoliciesCommandOutput;
+    };
+  };
+}

@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Lists multipart read set uploads and for in progress uploads.
- *       Once the upload is completed, a read set is created and the upload will no longer be returned in the response.</p>
+ * <p>Lists multipart read set uploads and for in progress uploads. Once the upload is completed, a read set is created and the upload will no longer be returned in the response.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,9 +83,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
  *  <p>An unexpected error occurred. Try the request again.</p>
  *
  * @throws {@link NotSupportedOperationException} (client fault)
- *  <p>
- *       The operation is not supported by Amazon Omics, or the API does not exist.
- *     </p>
+ *  <p> The operation is not supported by Amazon Omics, or the API does not exist. </p>
  *
  * @throws {@link RequestTimeoutException} (client fault)
  *  <p>The request timed out.</p>
@@ -105,6 +103,7 @@ export interface ListMultipartReadSetUploadsCommandOutput
  * @throws {@link OmicsServiceException}
  * <p>Base exception class for all service exceptions from Omics service.</p>
  *
+ *
  * @public
  */
 export class ListMultipartReadSetUploadsCommand extends $Command
@@ -115,9 +114,7 @@ export class ListMultipartReadSetUploadsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: OmicsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +126,16 @@ export class ListMultipartReadSetUploadsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListMultipartReadSetUploadsCommand)
   .de(de_ListMultipartReadSetUploadsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListMultipartReadSetUploadsRequest;
+      output: ListMultipartReadSetUploadsResponse;
+    };
+    sdk: {
+      input: ListMultipartReadSetUploadsCommandInput;
+      output: ListMultipartReadSetUploadsCommandOutput;
+    };
+  };
+}

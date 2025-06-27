@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -124,6 +125,7 @@ export interface BatchDetectTargetedSentimentCommandOutput
  * @throws {@link ComprehendServiceException}
  * <p>Base exception class for all service exceptions from Comprehend service.</p>
  *
+ *
  * @public
  */
 export class BatchDetectTargetedSentimentCommand extends $Command
@@ -134,9 +136,7 @@ export class BatchDetectTargetedSentimentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComprehendClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -148,4 +148,16 @@ export class BatchDetectTargetedSentimentCommand extends $Command
   .f(BatchDetectTargetedSentimentRequestFilterSensitiveLog, BatchDetectTargetedSentimentResponseFilterSensitiveLog)
   .ser(se_BatchDetectTargetedSentimentCommand)
   .de(de_BatchDetectTargetedSentimentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: BatchDetectTargetedSentimentRequest;
+      output: BatchDetectTargetedSentimentResponse;
+    };
+    sdk: {
+      input: BatchDetectTargetedSentimentCommandInput;
+      output: BatchDetectTargetedSentimentCommandOutput;
+    };
+  };
+}

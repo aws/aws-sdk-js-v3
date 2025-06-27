@@ -15,7 +15,7 @@ auditing.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-backup
+To install this package, simply type add or install @aws-sdk/client-backup
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-backup`
@@ -210,6 +210,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+AssociateBackupVaultMpaApprovalTeam
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/AssociateBackupVaultMpaApprovalTeamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/AssociateBackupVaultMpaApprovalTeamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/AssociateBackupVaultMpaApprovalTeamCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelLegalHold
 </summary>
 
@@ -270,6 +278,14 @@ CreateReportPlan
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/CreateReportPlanCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateReportPlanCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateReportPlanCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateRestoreAccessBackupVault
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/CreateRestoreAccessBackupVaultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateRestoreAccessBackupVaultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/CreateRestoreAccessBackupVaultCommandOutput/)
 
 </details>
 <details>
@@ -466,6 +482,14 @@ DescribeRestoreJob
 </details>
 <details>
 <summary>
+DisassociateBackupVaultMpaApprovalTeam
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/DisassociateBackupVaultMpaApprovalTeamCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DisassociateBackupVaultMpaApprovalTeamCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/DisassociateBackupVaultMpaApprovalTeamCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisassociateRecoveryPoint
 </summary>
 
@@ -542,6 +566,14 @@ GetLegalHold
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/GetLegalHoldCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetLegalHoldCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetLegalHoldCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetRecoveryPointIndexDetails
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/GetRecoveryPointIndexDetailsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetRecoveryPointIndexDetailsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/GetRecoveryPointIndexDetailsCommandOutput/)
 
 </details>
 <details>
@@ -674,6 +706,14 @@ ListFrameworks
 </details>
 <details>
 <summary>
+ListIndexedRecoveryPoints
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListIndexedRecoveryPointsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListIndexedRecoveryPointsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListIndexedRecoveryPointsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListLegalHolds
 </summary>
 
@@ -734,6 +774,14 @@ ListReportPlans
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListReportPlansCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListReportPlansCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListReportPlansCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRestoreAccessBackupVaults
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/ListRestoreAccessBackupVaultsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListRestoreAccessBackupVaultsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/ListRestoreAccessBackupVaultsCommandOutput/)
 
 </details>
 <details>
@@ -818,6 +866,14 @@ PutRestoreValidationResult
 </details>
 <details>
 <summary>
+RevokeRestoreAccessBackupVault
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/RevokeRestoreAccessBackupVaultCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/RevokeRestoreAccessBackupVaultCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/RevokeRestoreAccessBackupVaultCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartBackupJob
 </summary>
 
@@ -894,6 +950,14 @@ UpdateGlobalSettings
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/UpdateGlobalSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateGlobalSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateGlobalSettingsCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateRecoveryPointIndexSettings
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/backup/command/UpdateRecoveryPointIndexSettingsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateRecoveryPointIndexSettingsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-backup/Interface/UpdateRecoveryPointIndexSettingsCommandOutput/)
 
 </details>
 <details>

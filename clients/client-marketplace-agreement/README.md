@@ -30,7 +30,7 @@ their agreements.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-marketplace-agreement
+To install this package, simply type add or install @aws-sdk/client-marketplace-agreement
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-marketplace-agreement`

@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,7 +60,7 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * //         AuthScheme: "SECRETS",
  * //         SecretArn: "STRING_VALUE",
  * //         IAMAuth: "DISABLED" || "REQUIRED" || "ENABLED",
- * //         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
+ * //         ClientPasswordAuthType: "MYSQL_NATIVE_PASSWORD" || "MYSQL_CACHING_SHA2_PASSWORD" || "POSTGRES_SCRAM_SHA_256" || "POSTGRES_MD5" || "SQL_SERVER_AUTHENTICATION",
  * //       },
  * //     ],
  * //     RoleArn: "STRING_VALUE",
@@ -89,6 +90,7 @@ export interface DeleteDBProxyCommandOutput extends DeleteDBProxyResponse, __Met
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
+ *
  * @public
  */
 export class DeleteDBProxyCommand extends $Command
@@ -99,9 +101,7 @@ export class DeleteDBProxyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DeleteDBProxyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteDBProxyCommand)
   .de(de_DeleteDBProxyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteDBProxyRequest;
+      output: DeleteDBProxyResponse;
+    };
+    sdk: {
+      input: DeleteDBProxyCommandInput;
+      output: DeleteDBProxyCommandOutput;
+    };
+  };
+}

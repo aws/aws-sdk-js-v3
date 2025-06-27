@@ -12,7 +12,8 @@ import { de_DeleteInstanceProfileCommand, se_DeleteInstanceProfileCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -77,18 +78,21 @@ export interface DeleteInstanceProfileCommandOutput extends __MetadataBearer {}
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
- * @public
+ *
  * @example To delete an instance profile
  * ```javascript
  * // The following command deletes the instance profile named ExampleInstanceProfile
  * const input = {
- *   "InstanceProfileName": "ExampleInstanceProfile"
+ *   InstanceProfileName: "ExampleInstanceProfile"
  * };
  * const command = new DeleteInstanceProfileCommand(input);
- * await client.send(command);
- * // example id: 12d74fb8-3433-49db-8171-a1fc764e354d
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteInstanceProfileCommand extends $Command
   .classBuilder<
@@ -98,9 +102,7 @@ export class DeleteInstanceProfileCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +114,16 @@ export class DeleteInstanceProfileCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteInstanceProfileCommand)
   .de(de_DeleteInstanceProfileCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteInstanceProfileRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteInstanceProfileCommandInput;
+      output: DeleteInstanceProfileCommandOutput;
+    };
+  };
+}

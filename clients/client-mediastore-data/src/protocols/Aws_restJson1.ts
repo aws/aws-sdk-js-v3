@@ -12,6 +12,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   map,
   parseEpochTimestamp as __parseEpochTimestamp,
   parseRfc7231DateTime as __parseRfc7231DateTime,
@@ -121,7 +122,7 @@ export const se_PutObjectCommand = async (
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
     "x-amz-content-sha256": "UNSIGNED-PAYLOAD",
-    [_ct]: input[_CT]! || "application/octet-stream",
+    [_ct]: input[_CT] || "application/octet-stream",
     [_cc]: input[_CC]!,
     [_xasc]: input[_SC]!,
     [_xaua]: input[_UA]!,
@@ -395,13 +396,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _CC = "CacheControl";
 const _CL = "ContentLength";

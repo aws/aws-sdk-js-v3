@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DataZoneClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DataZoneClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetDataSourceInput, GetDataSourceOutput, GetDataSourceOutputFilterSensitiveLog } from "../models/models_0";
+import { GetDataSourceInput, GetDataSourceOutput, GetDataSourceOutputFilterSensitiveLog } from "../models/models_1";
 import { de_GetDataSourceCommand, se_GetDataSourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -48,7 +49,8 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //   description: "STRING_VALUE",
  * //   domainId: "STRING_VALUE", // required
  * //   projectId: "STRING_VALUE", // required
- * //   environmentId: "STRING_VALUE", // required
+ * //   environmentId: "STRING_VALUE",
+ * //   connectionId: "STRING_VALUE",
  * //   configuration: { // DataSourceConfigurationOutput Union: only one key present
  * //     glueRunConfiguration: { // GlueRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -67,6 +69,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //         },
  * //       ],
  * //       autoImportDataQualityResult: true || false,
+ * //       catalogName: "STRING_VALUE",
  * //     },
  * //     redshiftRunConfiguration: { // RedshiftRunConfigurationOutput
  * //       accountId: "STRING_VALUE",
@@ -94,6 +97,15 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //         redshiftServerlessSource: { // RedshiftServerlessStorage
  * //           workgroupName: "STRING_VALUE", // required
  * //         },
+ * //       },
+ * //     },
+ * //     sageMakerRunConfiguration: { // SageMakerRunConfigurationOutput
+ * //       accountId: "STRING_VALUE",
+ * //       region: "STRING_VALUE",
+ * //       trackingAssets: { // TrackingAssets // required
+ * //         "<keys>": [ // TrackingAssetArns
+ * //           "STRING_VALUE",
+ * //         ],
  * //       },
  * //     },
  * //   },
@@ -127,6 +139,28 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * //   },
  * //   createdAt: new Date("TIMESTAMP"),
  * //   updatedAt: new Date("TIMESTAMP"),
+ * //   selfGrantStatus: { // SelfGrantStatusOutput Union: only one key present
+ * //     glueSelfGrantStatus: { // GlueSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // SelfGrantStatusDetails // required
+ * //         { // SelfGrantStatusDetail
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //     redshiftSelfGrantStatus: { // RedshiftSelfGrantStatusOutput
+ * //       selfGrantStatusDetails: [ // required
+ * //         {
+ * //           databaseName: "STRING_VALUE", // required
+ * //           schemaName: "STRING_VALUE",
+ * //           status: "GRANT_PENDING" || "REVOKE_PENDING" || "GRANT_IN_PROGRESS" || "REVOKE_IN_PROGRESS" || "GRANTED" || "GRANT_FAILED" || "REVOKE_FAILED", // required
+ * //           failureCause: "STRING_VALUE",
+ * //         },
+ * //       ],
+ * //     },
+ * //   },
  * // };
  *
  * ```
@@ -164,6 +198,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceOutput, __Metad
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetDataSourceCommand extends $Command
@@ -174,9 +209,7 @@ export class GetDataSourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -188,4 +221,16 @@ export class GetDataSourceCommand extends $Command
   .f(void 0, GetDataSourceOutputFilterSensitiveLog)
   .ser(se_GetDataSourceCommand)
   .de(de_GetDataSourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetDataSourceInput;
+      output: GetDataSourceOutput;
+    };
+    sdk: {
+      input: GetDataSourceCommandInput;
+      output: GetDataSourceCommandOutput;
+    };
+  };
+}

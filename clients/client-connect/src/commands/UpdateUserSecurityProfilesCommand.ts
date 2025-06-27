@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ConnectClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateUserSecurityProfilesRequest } from "../models/models_2";
+import { UpdateUserSecurityProfilesRequest } from "../models/models_3";
 import { de_UpdateUserSecurityProfilesCommand, se_UpdateUserSecurityProfilesCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -71,6 +72,7 @@ export interface UpdateUserSecurityProfilesCommandOutput extends __MetadataBeare
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class UpdateUserSecurityProfilesCommand extends $Command
@@ -81,9 +83,7 @@ export class UpdateUserSecurityProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +95,16 @@ export class UpdateUserSecurityProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateUserSecurityProfilesCommand)
   .de(de_UpdateUserSecurityProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateUserSecurityProfilesRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateUserSecurityProfilesCommandInput;
+      output: UpdateUserSecurityProfilesCommandOutput;
+    };
+  };
+}

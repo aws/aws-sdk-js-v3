@@ -1,8 +1,10 @@
 // smithy-typescript generated code
+import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
+import { commonParams } from "../endpoint/EndpointParameters";
 import { HostLabelHeaderInput } from "../models/models_0";
 import {
   de_EndpointWithHostLabelHeaderOperationCommand,
@@ -13,7 +15,8 @@ import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTy
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -54,6 +57,7 @@ export interface EndpointWithHostLabelHeaderOperationCommandOutput extends __Met
  * @throws {@link RestXmlProtocolServiceException}
  * <p>Base exception class for all service exceptions from RestXmlProtocol service.</p>
  *
+ *
  */
 export class EndpointWithHostLabelHeaderOperationCommand extends $Command
   .classBuilder<
@@ -63,12 +67,28 @@ export class EndpointWithHostLabelHeaderOperationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RestXmlProtocolClientResolvedConfig, o: any) {
-    return [getSerdePlugin(config, this.serialize, this.deserialize)];
+    return [
+      getSerdePlugin(config, this.serialize, this.deserialize),
+      getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+    ];
   })
   .s("RestXml", "EndpointWithHostLabelHeaderOperation", {})
   .n("RestXmlProtocolClient", "EndpointWithHostLabelHeaderOperationCommand")
   .f(void 0, void 0)
   .ser(se_EndpointWithHostLabelHeaderOperationCommand)
   .de(de_EndpointWithHostLabelHeaderOperationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: HostLabelHeaderInput;
+      output: {};
+    };
+    sdk: {
+      input: EndpointWithHostLabelHeaderOperationCommandInput;
+      output: EndpointWithHostLabelHeaderOperationCommandOutput;
+    };
+  };
+}

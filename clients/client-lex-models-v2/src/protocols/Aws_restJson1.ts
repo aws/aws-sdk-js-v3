@@ -280,7 +280,9 @@ import {
   AudioLogDestination,
   AudioLogSetting,
   AudioSpecification,
+  BedrockGuardrailConfiguration,
   BedrockKnowledgeStoreConfiguration,
+  BedrockKnowledgeStoreExactResponseFields,
   BedrockModelSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
@@ -332,7 +334,7 @@ import {
   DialogCodeHookSettings,
   DTMFSpecification,
   ElicitationCodeHookInvocationSetting,
-  EncryptionSetting,
+  ErrorLogSettings,
   ExactResponseFields,
   ExportResourceSpecification,
   ExternalSourceSetting,
@@ -351,6 +353,7 @@ import {
   MessageGroup,
   MultipleValuesSetting,
   NewCustomVocabularyItem,
+  NluImprovementSpecification,
   ObfuscationSetting,
   OpensearchConfiguration,
   OutputContext,
@@ -360,6 +363,8 @@ import {
   PromptAttempt,
   PromptAttemptSpecification,
   PromptSpecification,
+  QInConnectAssistantConfiguration,
+  QInConnectIntentConfiguration,
   QnAIntentConfiguration,
   QnAKendraConfiguration,
   ResourceNotFoundException,
@@ -402,6 +407,7 @@ import {
   DefaultConditionalBranch,
   DialogCodeHookInvocationSetting,
   DialogState,
+  EncryptionSetting,
   ExportFilter,
   ExportSortBy,
   ExportSummary,
@@ -583,6 +589,7 @@ export const se_CreateBotCommand = async (
       botType: [],
       dataPrivacy: (_) => _json(_),
       description: [],
+      errorLogSettings: (_) => _json(_),
       idleSessionTTLInSeconds: [],
       roleArn: [],
       testBotAliasTags: (_) => _json(_),
@@ -749,6 +756,7 @@ export const se_CreateIntentCommand = async (
       kendraConfiguration: (_) => _json(_),
       outputContexts: (_) => _json(_),
       parentIntentSignature: [],
+      qInConnectIntentConfiguration: (_) => _json(_),
       qnAIntentConfiguration: (_) => _json(_),
       sampleUtterances: (_) => _json(_),
     })
@@ -904,12 +912,9 @@ export const se_CreateUploadUrlCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
-    "content-type": "application/json",
-  };
+  const headers: any = {};
   b.bp("/createuploadurl");
   let body: any;
-  body = "";
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -2572,10 +2577,7 @@ export const se_UntagResourceCommand = async (
   b.bp("/tags/{resourceARN}");
   b.p("resourceARN", () => input.resourceARN!, "{resourceARN}", false);
   const query: any = map({
-    [_tK]: [
-      __expectNonNull(input.tagKeys, `tagKeys`) != null,
-      () => (input[_tK]! || []).map((_entry) => _entry as any),
-    ],
+    [_tK]: [__expectNonNull(input.tagKeys, `tagKeys`) != null, () => input[_tK]! || []],
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
@@ -2603,6 +2605,7 @@ export const se_UpdateBotCommand = async (
       botType: [],
       dataPrivacy: (_) => _json(_),
       description: [],
+      errorLogSettings: (_) => _json(_),
       idleSessionTTLInSeconds: [],
       roleArn: [],
     })
@@ -2747,6 +2750,7 @@ export const se_UpdateIntentCommand = async (
       kendraConfiguration: (_) => _json(_),
       outputContexts: (_) => _json(_),
       parentIntentSignature: [],
+      qInConnectIntentConfiguration: (_) => _json(_),
       qnAIntentConfiguration: (_) => _json(_),
       sampleUtterances: (_) => _json(_),
       slotPriorities: (_) => _json(_),
@@ -2995,6 +2999,7 @@ export const de_CreateBotCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataPrivacy: _json,
     description: __expectString,
+    errorLogSettings: _json,
     idleSessionTTLInSeconds: __expectInt32,
     roleArn: __expectString,
     testBotAliasTags: _json,
@@ -3171,6 +3176,7 @@ export const de_CreateIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qInConnectIntentConfiguration: _json,
     qnAIntentConfiguration: _json,
     sampleUtterances: _json,
   });
@@ -3668,6 +3674,7 @@ export const de_DescribeBotCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataPrivacy: _json,
     description: __expectString,
+    errorLogSettings: _json,
     failureReasons: _json,
     idleSessionTTLInSeconds: __expectInt32,
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3983,6 +3990,7 @@ export const de_DescribeIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qInConnectIntentConfiguration: _json,
     qnAIntentConfiguration: _json,
     sampleUtterances: _json,
     slotPriorities: _json,
@@ -5228,6 +5236,7 @@ export const de_UpdateBotCommand = async (
     creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     dataPrivacy: _json,
     description: __expectString,
+    errorLogSettings: _json,
     idleSessionTTLInSeconds: __expectInt32,
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     roleArn: __expectString,
@@ -5387,6 +5396,7 @@ export const de_UpdateIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qInConnectIntentConfiguration: _json,
     qnAIntentConfiguration: _json,
     sampleUtterances: _json,
     slotPriorities: _json,
@@ -5775,7 +5785,11 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioSpecification omitted.
 
+// se_BedrockGuardrailConfiguration omitted.
+
 // se_BedrockKnowledgeStoreConfiguration omitted.
+
+// se_BedrockKnowledgeStoreExactResponseFields omitted.
 
 // se_BedrockModelSpecification omitted.
 
@@ -5987,6 +6001,8 @@ const se_DialogState = (input: DialogState, context: __SerdeContext): any => {
 
 // se_EncryptionSetting omitted.
 
+// se_ErrorLogSettings omitted.
+
 // se_ExactResponseFields omitted.
 
 // se_ExportFilter omitted.
@@ -6137,6 +6153,8 @@ const se_LexTranscriptFilter = (input: LexTranscriptFilter, context: __SerdeCont
 
 // se_NewCustomVocabularyItem omitted.
 
+// se_NluImprovementSpecification omitted.
+
 // se_ObfuscationSetting omitted.
 
 // se_ObjectPrefixes omitted.
@@ -6204,6 +6222,10 @@ const se_PostFulfillmentStatusSpecification = (
 // se_PromptAttemptsSpecificationMap omitted.
 
 // se_PromptSpecification omitted.
+
+// se_QInConnectAssistantConfiguration omitted.
+
+// se_QInConnectIntentConfiguration omitted.
 
 // se_QnAIntentConfiguration omitted.
 
@@ -6729,7 +6751,11 @@ const de_AnalyticsUtteranceResults = (output: any, context: __SerdeContext): Ana
 
 // de_AudioSpecification omitted.
 
+// de_BedrockGuardrailConfiguration omitted.
+
 // de_BedrockKnowledgeStoreConfiguration omitted.
+
+// de_BedrockKnowledgeStoreExactResponseFields omitted.
 
 // de_BedrockModelSpecification omitted.
 
@@ -7188,6 +7214,8 @@ const de_DialogState = (output: any, context: __SerdeContext): DialogState => {
 
 // de_EncryptionSetting omitted.
 
+// de_ErrorLogSettings omitted.
+
 // de_ExactResponseFields omitted.
 
 // de_ExecutionErrorDetails omitted.
@@ -7458,6 +7486,8 @@ const de_LexTranscriptFilter = (output: any, context: __SerdeContext): LexTransc
 
 // de_MultipleValuesSetting omitted.
 
+// de_NluImprovementSpecification omitted.
+
 // de_ObfuscationSetting omitted.
 
 // de_ObjectPrefixes omitted.
@@ -7529,6 +7559,10 @@ const de_PostFulfillmentStatusSpecification = (
 // de_PromptAttemptsSpecificationMap omitted.
 
 // de_PromptSpecification omitted.
+
+// de_QInConnectAssistantConfiguration omitted.
+
+// de_QInConnectIntentConfiguration omitted.
 
 // de_QnAIntentConfiguration omitted.
 
@@ -8231,13 +8265,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _eRI = "expectedRevisionId";
 const _lI = "localeId";

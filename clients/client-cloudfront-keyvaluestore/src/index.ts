@@ -8,8 +8,8 @@
 export * from "./CloudFrontKeyValueStoreClient";
 export * from "./CloudFrontKeyValueStore";
 export { ClientInputEndpointParameters } from "./endpoint/EndpointParameters";
-export { RuntimeExtension } from "./runtimeExtensions";
-export { CloudFrontKeyValueStoreExtensionConfiguration } from "./extensionConfiguration";
+export type { RuntimeExtension } from "./runtimeExtensions";
+export type { CloudFrontKeyValueStoreExtensionConfiguration } from "./extensionConfiguration";
 export * from "./commands";
 export * from "./pagination";
 export * from "./models";

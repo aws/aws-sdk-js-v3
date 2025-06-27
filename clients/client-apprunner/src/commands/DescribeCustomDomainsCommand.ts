@@ -12,7 +12,8 @@ import { de_DescribeCustomDomainsCommand, se_DescribeCustomDomainsCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -89,6 +90,7 @@ export interface DescribeCustomDomainsCommandOutput extends DescribeCustomDomain
  * @throws {@link AppRunnerServiceException}
  * <p>Base exception class for all service exceptions from AppRunner service.</p>
  *
+ *
  * @public
  */
 export class DescribeCustomDomainsCommand extends $Command
@@ -99,9 +101,7 @@ export class DescribeCustomDomainsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppRunnerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +113,16 @@ export class DescribeCustomDomainsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeCustomDomainsCommand)
   .de(de_DescribeCustomDomainsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeCustomDomainsRequest;
+      output: DescribeCustomDomainsResponse;
+    };
+    sdk: {
+      input: DescribeCustomDomainsCommandInput;
+      output: DescribeCustomDomainsCommandOutput;
+    };
+  };
+}

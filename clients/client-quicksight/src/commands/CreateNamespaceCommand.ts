@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateNamespaceRequest, CreateNamespaceResponse } from "../models/models_2";
+import { CreateNamespaceRequest, CreateNamespaceResponse } from "../models/models_3";
 import { de_CreateNamespaceCommand, se_CreateNamespaceCommand } from "../protocols/Aws_restJson1";
 import { QuickSightClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../QuickSightClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -34,7 +35,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  *             namespaces. You can create a namespace after your Amazon Web Services account is subscribed to
  *             Amazon QuickSight. The namespace must be unique within the Amazon Web Services account. By default, there is a
  *             limit of 100 namespaces per Amazon Web Services account. To increase your limit, create a ticket with
- *             Amazon Web Services Support. </p>
+ *             Amazon Web ServicesSupport. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -108,6 +109,7 @@ export interface CreateNamespaceCommandOutput extends CreateNamespaceResponse, _
  * @throws {@link QuickSightServiceException}
  * <p>Base exception class for all service exceptions from QuickSight service.</p>
  *
+ *
  * @public
  */
 export class CreateNamespaceCommand extends $Command
@@ -118,9 +120,7 @@ export class CreateNamespaceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: QuickSightClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -132,4 +132,16 @@ export class CreateNamespaceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateNamespaceCommand)
   .de(de_CreateNamespaceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateNamespaceRequest;
+      output: CreateNamespaceResponse;
+    };
+    sdk: {
+      input: CreateNamespaceCommandInput;
+      output: CreateNamespaceCommandOutput;
+    };
+  };
+}

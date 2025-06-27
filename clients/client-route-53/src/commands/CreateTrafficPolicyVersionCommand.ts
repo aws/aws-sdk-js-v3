@@ -13,7 +13,8 @@ import { Route53ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -53,7 +54,7 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * //     Id: "STRING_VALUE", // required
  * //     Version: Number("int"), // required
  * //     Name: "STRING_VALUE", // required
- * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS", // required
+ * //     Type: "SOA" || "A" || "TXT" || "NS" || "CNAME" || "MX" || "NAPTR" || "PTR" || "SRV" || "SPF" || "AAAA" || "CAA" || "DS" || "TLSA" || "SSHFP" || "SVCB" || "HTTPS", // required
  * //     Document: "STRING_VALUE", // required
  * //     Comment: "STRING_VALUE",
  * //   },
@@ -93,6 +94,7 @@ export interface CreateTrafficPolicyVersionCommandOutput extends CreateTrafficPo
  * @throws {@link Route53ServiceException}
  * <p>Base exception class for all service exceptions from Route53 service.</p>
  *
+ *
  * @public
  */
 export class CreateTrafficPolicyVersionCommand extends $Command
@@ -103,9 +105,7 @@ export class CreateTrafficPolicyVersionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: Route53ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +118,16 @@ export class CreateTrafficPolicyVersionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateTrafficPolicyVersionCommand)
   .de(de_CreateTrafficPolicyVersionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateTrafficPolicyVersionRequest;
+      output: CreateTrafficPolicyVersionResponse;
+    };
+    sdk: {
+      input: CreateTrafficPolicyVersionCommandInput;
+      output: CreateTrafficPolicyVersionCommandOutput;
+    };
+  };
+}

@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { DeleteCertificateProviderRequest, DeleteCertificateProviderResponse } from "../models/models_0";
+import { DeleteCertificateProviderRequest, DeleteCertificateProviderResponse } from "../models/models_1";
 import { de_DeleteCertificateProviderCommand, se_DeleteCertificateProviderCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -79,6 +80,7 @@ export interface DeleteCertificateProviderCommandOutput extends DeleteCertificat
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class DeleteCertificateProviderCommand extends $Command
@@ -89,9 +91,7 @@ export class DeleteCertificateProviderCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -103,4 +103,16 @@ export class DeleteCertificateProviderCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteCertificateProviderCommand)
   .de(de_DeleteCertificateProviderCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteCertificateProviderRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteCertificateProviderCommandInput;
+      output: DeleteCertificateProviderCommandOutput;
+    };
+  };
+}

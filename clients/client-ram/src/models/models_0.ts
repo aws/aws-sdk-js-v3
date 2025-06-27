@@ -27,7 +27,7 @@ export interface AcceptResourceShareInvitationRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -72,13 +72,13 @@ export interface ResourceShareAssociation {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>The name of the resource share.</p>
    * @public
    */
-  resourceShareName?: string;
+  resourceShareName?: string | undefined;
 
   /**
    * <p>The associated entity. This can be either of the following:</p>
@@ -109,44 +109,44 @@ export interface ResourceShareAssociation {
    *          </ul>
    * @public
    */
-  associatedEntity?: string;
+  associatedEntity?: string | undefined;
 
   /**
    * <p>The type of entity included in this association.</p>
    * @public
    */
-  associationType?: ResourceShareAssociationType;
+  associationType?: ResourceShareAssociationType | undefined;
 
   /**
    * <p>The current status of the association.</p>
    * @public
    */
-  status?: ResourceShareAssociationStatus;
+  status?: ResourceShareAssociationStatus | undefined;
 
   /**
    * <p>A message about the status of the association.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The date and time when the association was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date and time when the association was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Indicates whether the principal belongs to the same organization in Organizations as the
    *             Amazon Web Services account that owns the resource share.</p>
    * @public
    */
-  external?: boolean;
+  external?: boolean | undefined;
 }
 
 /**
@@ -175,57 +175,57 @@ export interface ResourceShareInvitation {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the invitation.</p>
    * @public
    */
-  resourceShareInvitationArn?: string;
+  resourceShareInvitationArn?: string | undefined;
 
   /**
    * <p>The name of the resource share.</p>
    * @public
    */
-  resourceShareName?: string;
+  resourceShareName?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that sent the invitation.</p>
    * @public
    */
-  senderAccountId?: string;
+  senderAccountId?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that received the invitation.</p>
    * @public
    */
-  receiverAccountId?: string;
+  receiverAccountId?: string | undefined;
 
   /**
    * <p>The date and time when the invitation was sent.</p>
    * @public
    */
-  invitationTimestamp?: Date;
+  invitationTimestamp?: Date | undefined;
 
   /**
    * <p>The current status of the invitation.</p>
    * @public
    */
-  status?: ResourceShareInvitationStatus;
+  status?: ResourceShareInvitationStatus | undefined;
 
   /**
-   * @deprecated
-   *
    * <p>To view the resources associated with a pending resource share invitation, use <a>ListPendingInvitationResources</a>.</p>
+   *
+   * @deprecated
    * @public
    */
-  resourceShareAssociations?: ResourceShareAssociation[];
+  resourceShareAssociations?: ResourceShareAssociation[] | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the IAM user or role that received the invitation.</p>
    * @public
    */
-  receiverArn?: string;
+  receiverArn?: string | undefined;
 }
 
 /**
@@ -236,7 +236,7 @@ export interface AcceptResourceShareInvitationResponse {
    * <p>An object that contains information about the specified invitation.</p>
    * @public
    */
-  resourceShareInvitation?: ResourceShareInvitation;
+  resourceShareInvitation?: ResourceShareInvitation | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -245,7 +245,7 @@ export interface AcceptResourceShareInvitationResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -470,7 +470,7 @@ export interface AssociateResourceShareRequest {
    *                 <code>null</code> if you want to add only principals.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>Specifies a list of principals to whom you want to the resource share. This can be
@@ -511,7 +511,7 @@ export interface AssociateResourceShareRequest {
    *          </note>
    * @public
    */
-  principals?: string[];
+  principals?: string[] | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
@@ -527,14 +527,14 @@ export interface AssociateResourceShareRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies from which source accounts the service principal
    *             has access to the resources in this resource share.</p>
    * @public
    */
-  sources?: string[];
+  sources?: string[] | undefined;
 }
 
 /**
@@ -545,7 +545,7 @@ export interface AssociateResourceShareResponse {
    * <p>An array of objects that contain information about the associations.</p>
    * @public
    */
-  resourceShareAssociations?: ResourceShareAssociation[];
+  resourceShareAssociations?: ResourceShareAssociation[] | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -554,7 +554,7 @@ export interface AssociateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -693,7 +693,7 @@ export interface AssociateResourceSharePermissionRequest {
    *          </note>
    * @public
    */
-  replace?: boolean;
+  replace?: boolean | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
@@ -709,7 +709,7 @@ export interface AssociateResourceSharePermissionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the version of the RAM permission to associate with the resource share. You can
@@ -724,7 +724,7 @@ export interface AssociateResourceSharePermissionRequest {
    *          </note>
    * @public
    */
-  permissionVersion?: number;
+  permissionVersion?: number | undefined;
 }
 
 /**
@@ -736,7 +736,7 @@ export interface AssociateResourceSharePermissionResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -745,7 +745,7 @@ export interface AssociateResourceSharePermissionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -763,14 +763,14 @@ export interface Tag {
    *             sensitive.</p>
    * @public
    */
-  key?: string;
+  key?: string | undefined;
 
   /**
    * <p>The string value attached to the tag. The value can be an empty string. Key values are
    *             case sensitive.</p>
    * @public
    */
-  value?: string;
+  value?: string | undefined;
 }
 
 /**
@@ -848,14 +848,14 @@ export interface CreatePermissionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies a list of one or more tag key and value pairs to attach to the
    *             permission.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -896,26 +896,26 @@ export interface ResourceSharePermissionSummary {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the permission you want information about.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The version of the permission associated with this resource share.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>Specifies whether the version of the managed permission used by this resource share is the default version for
    *             this managed permission.</p>
    * @public
    */
-  defaultVersion?: boolean;
+  defaultVersion?: boolean | undefined;
 
   /**
    * <p>The name of this managed permission.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The type of resource to which this permission applies. This takes the form of:
@@ -924,32 +924,32 @@ export interface ResourceSharePermissionSummary {
    *             <code>ec2:subnet</code>.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The current status of the permission.</p>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>The date and time when the permission was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date and time when the permission was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Specifies whether the managed permission associated with this resource share is the default managed permission for all
    *             resources of this resource type.</p>
    * @public
    */
-  isResourceTypeDefault?: boolean;
+  isResourceTypeDefault?: boolean | undefined;
 
   /**
    * <p>The type of managed permission. This can be one of the following values:</p>
@@ -968,7 +968,7 @@ export interface ResourceSharePermissionSummary {
    *          </ul>
    * @public
    */
-  permissionType?: PermissionType;
+  permissionType?: PermissionType | undefined;
 
   /**
    * <p>Indicates what features are available for this resource share. This parameter can have one of
@@ -1002,13 +1002,13 @@ export interface ResourceSharePermissionSummary {
    *          </ul>
    * @public
    */
-  featureSet?: PermissionFeatureSet;
+  featureSet?: PermissionFeatureSet | undefined;
 
   /**
    * <p>A list of the tag key value pairs currently attached to the permission.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1019,7 +1019,7 @@ export interface CreatePermissionResponse {
    * <p>A structure with information about this customer managed permission.</p>
    * @public
    */
-  permission?: ResourceSharePermissionSummary;
+  permission?: ResourceSharePermissionSummary | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1028,7 +1028,7 @@ export interface CreatePermissionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1175,7 +1175,7 @@ export interface CreatePermissionVersionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1203,32 +1203,32 @@ export interface ResourceSharePermissionDetail {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of this RAM managed permission.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The version of the permission described in this response.</p>
    * @public
    */
-  version?: string;
+  version?: string | undefined;
 
   /**
    * <p>Specifies whether the version of the permission represented in this response is the
    *             default version for this permission.</p>
    * @public
    */
-  defaultVersion?: boolean;
+  defaultVersion?: boolean | undefined;
 
   /**
    * <p>The name of this permission.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The resource type to which this permission applies.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The permission's effect and actions in JSON format. The <code>effect</code> indicates
@@ -1236,26 +1236,26 @@ export interface ResourceSharePermissionDetail {
    *             operations to which the principal is granted or denied access.</p>
    * @public
    */
-  permission?: string;
+  permission?: string | undefined;
 
   /**
    * <p>The date and time when the permission was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date and time when the permission was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Specifies whether the version of the permission represented in this response is the
    *             default version for all resources of this resource type.</p>
    * @public
    */
-  isResourceTypeDefault?: boolean;
+  isResourceTypeDefault?: boolean | undefined;
 
   /**
    * <p>The type of managed permission. This can be one of the following values:</p>
@@ -1274,7 +1274,7 @@ export interface ResourceSharePermissionDetail {
    *          </ul>
    * @public
    */
-  permissionType?: PermissionType;
+  permissionType?: PermissionType | undefined;
 
   /**
    * <p>Indicates what features are available for this resource share. This parameter can have one of
@@ -1308,7 +1308,7 @@ export interface ResourceSharePermissionDetail {
    *          </ul>
    * @public
    */
-  featureSet?: PermissionFeatureSet;
+  featureSet?: PermissionFeatureSet | undefined;
 
   /**
    * <p>The current status of the association between the permission and the resource share.
@@ -1336,13 +1336,13 @@ export interface ResourceSharePermissionDetail {
    *          </ul>
    * @public
    */
-  status?: PermissionStatus;
+  status?: PermissionStatus | undefined;
 
   /**
    * <p>The tag key and value pairs attached to the resource share.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 }
 
 /**
@@ -1353,7 +1353,7 @@ export interface CreatePermissionVersionResponse {
    * <p>Information about a RAM managed permission.</p>
    * @public
    */
-  permission?: ResourceSharePermissionDetail;
+  permission?: ResourceSharePermissionDetail | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1362,7 +1362,7 @@ export interface CreatePermissionVersionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1402,7 +1402,7 @@ export interface CreateResourceShareRequest {
    *             resource share.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>Specifies a list of one or more principals to associate with the resource share.</p>
@@ -1440,14 +1440,14 @@ export interface CreateResourceShareRequest {
    *          </note>
    * @public
    */
-  principals?: string[];
+  principals?: string[] | undefined;
 
   /**
    * <p>Specifies one or more tags to attach to the resource share itself. It doesn't attach the tags to
    *             the resources associated with the resource share.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>Specifies whether principals outside your organization in Organizations can be associated
@@ -1457,7 +1457,7 @@ export interface CreateResourceShareRequest {
    *             is <code>true</code>.</p>
    * @public
    */
-  allowExternalPrincipals?: boolean;
+  allowExternalPrincipals?: boolean | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
@@ -1473,7 +1473,7 @@ export interface CreateResourceShareRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the RAM permission to associate with the resource share. If you do
@@ -1482,14 +1482,14 @@ export interface CreateResourceShareRequest {
    *             each resource type included in the resource share.</p>
    * @public
    */
-  permissionArns?: string[];
+  permissionArns?: string[] | undefined;
 
   /**
    * <p>Specifies from which source accounts the service principal
    *             has access to the resources in this resource share.</p>
    * @public
    */
-  sources?: string[];
+  sources?: string[] | undefined;
 }
 
 /**
@@ -1533,19 +1533,19 @@ export interface ResourceShare {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>The name of the resource share.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>The ID of the Amazon Web Services account that owns the resource share.</p>
    * @public
    */
-  owningAccountId?: string;
+  owningAccountId?: string | undefined;
 
   /**
    * <p>Indicates whether principals outside your organization in Organizations can be associated
@@ -1565,37 +1565,37 @@ export interface ResourceShare {
    *          </ul>
    * @public
    */
-  allowExternalPrincipals?: boolean;
+  allowExternalPrincipals?: boolean | undefined;
 
   /**
    * <p>The current status of the resource share.</p>
    * @public
    */
-  status?: ResourceShareStatus;
+  status?: ResourceShareStatus | undefined;
 
   /**
    * <p>A message about the status of the resource share.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The tag key and value pairs attached to the resource share.</p>
    * @public
    */
-  tags?: Tag[];
+  tags?: Tag[] | undefined;
 
   /**
    * <p>The date and time when the resource share was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date and time when the resource share was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Indicates what features are available for this resource share. This parameter can have one of
@@ -1629,7 +1629,7 @@ export interface ResourceShare {
    *          </ul>
    * @public
    */
-  featureSet?: ResourceShareFeatureSet;
+  featureSet?: ResourceShareFeatureSet | undefined;
 }
 
 /**
@@ -1640,7 +1640,7 @@ export interface CreateResourceShareResponse {
    * <p>An object with information about the new resource share.</p>
    * @public
    */
-  resourceShare?: ResourceShare;
+  resourceShare?: ResourceShare | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1649,7 +1649,7 @@ export interface CreateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1718,7 +1718,7 @@ export interface DeletePermissionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1729,7 +1729,7 @@ export interface DeletePermissionResponse {
    * <p>A boolean that indicates whether the delete operations succeeded.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1738,14 +1738,14 @@ export interface DeletePermissionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>This operation is performed asynchronously, and this response parameter indicates the
    *             current status.</p>
    * @public
    */
-  permissionStatus?: PermissionStatus;
+  permissionStatus?: PermissionStatus | undefined;
 }
 
 /**
@@ -1785,7 +1785,7 @@ export interface DeletePermissionVersionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1796,7 +1796,7 @@ export interface DeletePermissionVersionResponse {
    * <p>A boolean value that indicates whether the operation is successful.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1805,14 +1805,14 @@ export interface DeletePermissionVersionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>This operation is performed asynchronously, and this response parameter indicates the
    *             current status.</p>
    * @public
    */
-  permissionStatus?: PermissionStatus;
+  permissionStatus?: PermissionStatus | undefined;
 }
 
 /**
@@ -1839,7 +1839,7 @@ export interface DeleteResourceShareRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1851,7 +1851,7 @@ export interface DeleteResourceShareResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1860,7 +1860,7 @@ export interface DeleteResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1880,7 +1880,7 @@ export interface DisassociateResourceShareRequest {
    *             associated with the resource share.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>Specifies a list of one or more principals that no longer are to have access to the
@@ -1919,7 +1919,7 @@ export interface DisassociateResourceShareRequest {
    *          </note>
    * @public
    */
-  principals?: string[];
+  principals?: string[] | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
@@ -1935,14 +1935,14 @@ export interface DisassociateResourceShareRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 
   /**
    * <p>Specifies from which source accounts the
    *             service principal no longer has access to the resources in this resource share.</p>
    * @public
    */
-  sources?: string[];
+  sources?: string[] | undefined;
 }
 
 /**
@@ -1954,7 +1954,7 @@ export interface DisassociateResourceShareResponse {
    *             resource share.</p>
    * @public
    */
-  resourceShareAssociations?: ResourceShareAssociation[];
+  resourceShareAssociations?: ResourceShareAssociation[] | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -1963,7 +1963,7 @@ export interface DisassociateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -1997,7 +1997,7 @@ export interface DisassociateResourceSharePermissionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2009,7 +2009,7 @@ export interface DisassociateResourceSharePermissionResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -2018,7 +2018,7 @@ export interface DisassociateResourceSharePermissionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -2035,7 +2035,7 @@ export interface EnableSharingWithAwsOrganizationResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 }
 
 /**
@@ -2056,7 +2056,7 @@ export interface GetPermissionRequest {
    *          <p>To see the list of available versions, use <a>ListPermissionVersions</a>.</p>
    * @public
    */
-  permissionVersion?: number;
+  permissionVersion?: number | undefined;
 }
 
 /**
@@ -2067,7 +2067,7 @@ export interface GetPermissionResponse {
    * <p>An object with details about the permission.</p>
    * @public
    */
-  permission?: ResourceSharePermissionDetail;
+  permission?: ResourceSharePermissionDetail | undefined;
 }
 
 /**
@@ -2084,7 +2084,7 @@ export interface GetResourcePoliciesRequest {
    * <p>Specifies the principal.</p>
    * @public
    */
-  principal?: string;
+  principal?: string | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2094,7 +2094,7 @@ export interface GetResourcePoliciesRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2108,7 +2108,7 @@ export interface GetResourcePoliciesRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2119,7 +2119,7 @@ export interface GetResourcePoliciesResponse {
    * <p>An array of resource policy documents in JSON format.</p>
    * @public
    */
-  policies?: string[];
+  policies?: string[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -2129,7 +2129,7 @@ export interface GetResourcePoliciesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2202,7 +2202,7 @@ export interface GetResourceShareAssociationsRequest {
    *             retrieve.</p>
    * @public
    */
-  resourceShareArns?: string[];
+  resourceShareArns?: string[] | undefined;
 
   /**
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource whose resource shares you want to retrieve.</p>
@@ -2210,7 +2210,7 @@ export interface GetResourceShareAssociationsRequest {
    *             <code>PRINCIPAL</code>.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>Specifies the ID of the principal whose resource shares you want to retrieve. This can be an
@@ -2220,13 +2220,13 @@ export interface GetResourceShareAssociationsRequest {
    *             <code>RESOURCE</code>.</p>
    * @public
    */
-  principal?: string;
+  principal?: string | undefined;
 
   /**
    * <p>Specifies that you want to retrieve only associations that have this status.</p>
    * @public
    */
-  associationStatus?: ResourceShareAssociationStatus;
+  associationStatus?: ResourceShareAssociationStatus | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2236,7 +2236,7 @@ export interface GetResourceShareAssociationsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2250,7 +2250,7 @@ export interface GetResourceShareAssociationsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2261,7 +2261,7 @@ export interface GetResourceShareAssociationsResponse {
    * <p>An array of objects that contain the details about the associations.</p>
    * @public
    */
-  resourceShareAssociations?: ResourceShareAssociation[];
+  resourceShareAssociations?: ResourceShareAssociation[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -2271,7 +2271,7 @@ export interface GetResourceShareAssociationsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2282,7 +2282,7 @@ export interface GetResourceShareInvitationsRequest {
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of the resource share invitations you want information about.</p>
    * @public
    */
-  resourceShareInvitationArns?: string[];
+  resourceShareInvitationArns?: string[] | undefined;
 
   /**
    * <p>Specifies that you want details about invitations only for the resource shares described by this
@@ -2290,7 +2290,7 @@ export interface GetResourceShareInvitationsRequest {
    *          </p>
    * @public
    */
-  resourceShareArns?: string[];
+  resourceShareArns?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2300,7 +2300,7 @@ export interface GetResourceShareInvitationsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2314,7 +2314,7 @@ export interface GetResourceShareInvitationsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2325,7 +2325,7 @@ export interface GetResourceShareInvitationsResponse {
    * <p>An array of objects that contain the details about the invitations.</p>
    * @public
    */
-  resourceShareInvitations?: ResourceShareInvitation[];
+  resourceShareInvitations?: ResourceShareInvitation[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -2335,7 +2335,7 @@ export interface GetResourceShareInvitationsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2383,14 +2383,14 @@ export interface TagFilter {
    * <p>The tag key. This must have a valid string value and can't be empty.</p>
    * @public
    */
-  tagKey?: string;
+  tagKey?: string | undefined;
 
   /**
    * <p>A list of zero or more tag values. If no values are provided, then the filter matches
    *             any tag with the specified key, regardless of its value.</p>
    * @public
    */
-  tagValues?: string[];
+  tagValues?: string[] | undefined;
 }
 
 /**
@@ -2401,14 +2401,14 @@ export interface GetResourceSharesRequest {
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a> of individual resource shares that you want information about.</p>
    * @public
    */
-  resourceShareArns?: string[];
+  resourceShareArns?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to retrieve details of only those resource shares that have this
    *             status.</p>
    * @public
    */
-  resourceShareStatus?: ResourceShareStatus;
+  resourceShareStatus?: ResourceShareStatus | undefined;
 
   /**
    * <p>Specifies that you want to retrieve details of only those resource shares that match the
@@ -2438,14 +2438,14 @@ export interface GetResourceSharesRequest {
    *             about.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Specifies that you want to retrieve details of only those resource shares that match the
    *             specified tag keys and values.</p>
    * @public
    */
-  tagFilters?: TagFilter[];
+  tagFilters?: TagFilter[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2455,7 +2455,7 @@ export interface GetResourceSharesRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2469,21 +2469,21 @@ export interface GetResourceSharesRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies that you want to retrieve details of only those resource shares that use the managed permission with
    *             this <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>.</p>
    * @public
    */
-  permissionArn?: string;
+  permissionArn?: string | undefined;
 
   /**
    * <p>Specifies that you want to retrieve details for only those resource shares that use the
    *             specified version of the managed permission.</p>
    * @public
    */
-  permissionVersion?: number;
+  permissionVersion?: number | undefined;
 }
 
 /**
@@ -2494,7 +2494,7 @@ export interface GetResourceSharesResponse {
    * <p>An array of objects that contain the information about the resource shares.</p>
    * @public
    */
-  resourceShares?: ResourceShare[];
+  resourceShares?: ResourceShare[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -2504,7 +2504,7 @@ export interface GetResourceSharesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2540,7 +2540,7 @@ export interface ListPendingInvitationResourcesRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2554,7 +2554,7 @@ export interface ListPendingInvitationResourcesRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies that you want the results to include only
@@ -2579,7 +2579,7 @@ export interface ListPendingInvitationResourcesRequest {
    *          <p>The default value is <code>ALL</code>.</p>
    * @public
    */
-  resourceRegionScope?: ResourceRegionScopeFilter;
+  resourceRegionScope?: ResourceRegionScopeFilter | undefined;
 }
 
 /**
@@ -2622,7 +2622,7 @@ export interface Resource {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The resource type. This takes the form of:
@@ -2631,45 +2631,45 @@ export interface Resource {
    *             <code>ec2:subnet</code>.</p>
    * @public
    */
-  type?: string;
+  type?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource share this resource is associated with.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the resource group. This value is available only if the resource is
    *             part of a resource group.</p>
    * @public
    */
-  resourceGroupArn?: string;
+  resourceGroupArn?: string | undefined;
 
   /**
    * <p>The current status of the resource.</p>
    * @public
    */
-  status?: ResourceStatus;
+  status?: ResourceStatus | undefined;
 
   /**
    * <p>A message about the status of the resource.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The date and time when the resource was associated with the resource share.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date an time when the association between the resource and the resource share was
    *             last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Specifies the scope of visibility of this resource:</p>
@@ -2688,7 +2688,7 @@ export interface Resource {
    *          </ul>
    * @public
    */
-  resourceRegionScope?: ResourceRegionScope;
+  resourceRegionScope?: ResourceRegionScope | undefined;
 }
 
 /**
@@ -2700,7 +2700,7 @@ export interface ListPendingInvitationResourcesResponse {
    *             specified resource share.</p>
    * @public
    */
-  resources?: Resource[];
+  resources?: Resource[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -2710,7 +2710,7 @@ export interface ListPendingInvitationResourcesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2741,7 +2741,7 @@ export interface ListPermissionAssociationsRequest {
    * <p>Specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission.</p>
    * @public
    */
-  permissionArn?: string;
+  permissionArn?: string | undefined;
 
   /**
    * <p>Specifies that you want to list only those associations with resource shares that use this
@@ -2750,28 +2750,28 @@ export interface ListPermissionAssociationsRequest {
    *             managed permission.</p>
    * @public
    */
-  permissionVersion?: number;
+  permissionVersion?: number | undefined;
 
   /**
    * <p>Specifies that you want to list only those associations with resource shares that match this
    *             status.</p>
    * @public
    */
-  associationStatus?: ResourceShareAssociationStatus;
+  associationStatus?: ResourceShareAssociationStatus | undefined;
 
   /**
    * <p>Specifies that you want to list only those associations with resource shares that include at
    *             least one resource of this resource type.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>Specifies that you want to list only those associations with resource shares that have a
    *                 <code>featureSet</code> with this value.</p>
    * @public
    */
-  featureSet?: PermissionFeatureSet;
+  featureSet?: PermissionFeatureSet | undefined;
 
   /**
    * <p>When <code>true</code>, specifies that you want to list only those associations with
@@ -2780,7 +2780,7 @@ export interface ListPermissionAssociationsRequest {
    *             any version of the specified managed permission.</p>
    * @public
    */
-  defaultVersion?: boolean;
+  defaultVersion?: boolean | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2790,7 +2790,7 @@ export interface ListPermissionAssociationsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2804,7 +2804,7 @@ export interface ListPermissionAssociationsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -2816,26 +2816,26 @@ export interface AssociatedPermission {
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the associated managed permission.</p>
    * @public
    */
-  arn?: string;
+  arn?: string | undefined;
 
   /**
    * <p>The version of the permission currently associated with the resource share.</p>
    * @public
    */
-  permissionVersion?: string;
+  permissionVersion?: string | undefined;
 
   /**
    * <p>Indicates whether the associated resource share is using the default version of the
    *             permission.</p>
    * @public
    */
-  defaultVersion?: boolean;
+  defaultVersion?: boolean | undefined;
 
   /**
    * <p>The resource type to which this permission applies.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The current status of the association between the permission and the resource share.
@@ -2863,7 +2863,7 @@ export interface AssociatedPermission {
    *          </ul>
    * @public
    */
-  status?: string;
+  status?: string | undefined;
 
   /**
    * <p>Indicates what features are available for this resource share. This parameter can have one of
@@ -2897,20 +2897,20 @@ export interface AssociatedPermission {
    *          </ul>
    * @public
    */
-  featureSet?: PermissionFeatureSet;
+  featureSet?: PermissionFeatureSet | undefined;
 
   /**
    * <p>The date and time when the association between the permission and the resource share
    *             was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource share associated with this permission.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 }
 
 /**
@@ -2921,7 +2921,7 @@ export interface ListPermissionAssociationsResponse {
    * <p>A structure with information about this customer managed permission.</p>
    * @public
    */
-  permissions?: AssociatedPermission[];
+  permissions?: AssociatedPermission[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -2931,7 +2931,7 @@ export interface ListPermissionAssociationsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -2961,7 +2961,7 @@ export interface ListPermissionsRequest {
    *             operation to get the specific string required.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -2971,7 +2971,7 @@ export interface ListPermissionsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -2985,7 +2985,7 @@ export interface ListPermissionsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies that you want to list only permissions of this type:</p>
@@ -3006,7 +3006,7 @@ export interface ListPermissionsRequest {
    *          <p>If you don't specify this parameter, the default is <code>All</code>.</p>
    * @public
    */
-  permissionType?: PermissionTypeFilter;
+  permissionType?: PermissionTypeFilter | undefined;
 }
 
 /**
@@ -3017,7 +3017,7 @@ export interface ListPermissionsResponse {
    * <p>An array of objects with information about the permissions.</p>
    * @public
    */
-  permissions?: ResourceSharePermissionSummary[];
+  permissions?: ResourceSharePermissionSummary[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3027,7 +3027,7 @@ export interface ListPermissionsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3050,7 +3050,7 @@ export interface ListPermissionVersionsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -3064,7 +3064,7 @@ export interface ListPermissionVersionsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3075,7 +3075,7 @@ export interface ListPermissionVersionsResponse {
    * <p>An array of objects that contain details for each of the available versions.</p>
    * @public
    */
-  permissions?: ResourceSharePermissionSummary[];
+  permissions?: ResourceSharePermissionSummary[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3085,7 +3085,7 @@ export interface ListPermissionVersionsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3120,7 +3120,7 @@ export interface ListPrincipalsRequest {
    *             <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a>.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 
   /**
    * <p>Specifies that you want to list information for only the listed principals.</p>
@@ -3158,7 +3158,7 @@ export interface ListPrincipalsRequest {
    *          </note>
    * @public
    */
-  principals?: string[];
+  principals?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to list information for only principals associated with resource shares
@@ -3167,14 +3167,14 @@ export interface ListPrincipalsRequest {
    *             operation.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>Specifies that you want to list information for only principals associated with the
    *             resource shares specified by a list the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    * @public
    */
-  resourceShareArns?: string[];
+  resourceShareArns?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -3184,7 +3184,7 @@ export interface ListPrincipalsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -3198,7 +3198,7 @@ export interface ListPrincipalsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3210,26 +3210,26 @@ export interface Principal {
    * <p>The ID of the principal that can be associated with a resource share.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a resource share the principal is associated with.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>The date and time when the principal was associated with the resource share.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date and time when the association between the resource share and the principal
    *             was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 
   /**
    * <p>Indicates the relationship between the Amazon Web Services account the principal belongs to and the
@@ -3248,7 +3248,7 @@ export interface Principal {
    *          </ul>
    * @public
    */
-  external?: boolean;
+  external?: boolean | undefined;
 }
 
 /**
@@ -3259,7 +3259,7 @@ export interface ListPrincipalsResponse {
    * <p>An array of objects that contain the details about the principals.</p>
    * @public
    */
-  principals?: Principal[];
+  principals?: Principal[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3269,7 +3269,7 @@ export interface ListPrincipalsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3297,14 +3297,14 @@ export interface ListReplacePermissionAssociationsWorkRequest {
    *                 <code>replacePermissionAssociationsWork</code>structure returned by the <a>ReplacePermissionAssociations</a> operation. </p>
    * @public
    */
-  workIds?: string[];
+  workIds?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to see only the details about requests with a status that
    *             matches this value.</p>
    * @public
    */
-  status?: ReplacePermissionAssociationsWorkStatus;
+  status?: ReplacePermissionAssociationsWorkStatus | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -3314,7 +3314,7 @@ export interface ListReplacePermissionAssociationsWorkRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -3328,7 +3328,7 @@ export interface ListReplacePermissionAssociationsWorkRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3341,19 +3341,19 @@ export interface ReplacePermissionAssociationsWork {
    * <p>The unique identifier for the background task associated with one <a>ReplacePermissionAssociations</a> request.</p>
    * @public
    */
-  id?: string;
+  id?: string | undefined;
 
   /**
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the managed permission that this background task is replacing.</p>
    * @public
    */
-  fromPermissionArn?: string;
+  fromPermissionArn?: string | undefined;
 
   /**
    * <p>The version of the managed permission that this background task is replacing.</p>
    * @public
    */
-  fromPermissionVersion?: string;
+  fromPermissionVersion?: string | undefined;
 
   /**
    * <p>The ARN of the managed permission that this background task is associating with the resource shares in place
@@ -3361,14 +3361,14 @@ export interface ReplacePermissionAssociationsWork {
    *                 <code>fromPermissionVersion</code>.</p>
    * @public
    */
-  toPermissionArn?: string;
+  toPermissionArn?: string | undefined;
 
   /**
    * <p>The version of the managed permission that this background task is associating with the resource shares. This
    *             is always the version that is currently the default for this managed permission.</p>
    * @public
    */
-  toPermissionVersion?: string;
+  toPermissionVersion?: string | undefined;
 
   /**
    * <p>Specifies the current status of the background tasks for the specified ID. The output
@@ -3392,26 +3392,26 @@ export interface ReplacePermissionAssociationsWork {
    *          </ul>
    * @public
    */
-  status?: ReplacePermissionAssociationsWorkStatus;
+  status?: ReplacePermissionAssociationsWorkStatus | undefined;
 
   /**
    * <p>Specifies the reason for a <code>FAILED</code> status. This field is present only when
    *             there <code>status</code> is <code>FAILED</code>.</p>
    * @public
    */
-  statusMessage?: string;
+  statusMessage?: string | undefined;
 
   /**
    * <p>The date and time when this asynchronous background task was created.</p>
    * @public
    */
-  creationTime?: Date;
+  creationTime?: Date | undefined;
 
   /**
    * <p>The date and time when the status of this background task was last updated.</p>
    * @public
    */
-  lastUpdatedTime?: Date;
+  lastUpdatedTime?: Date | undefined;
 }
 
 /**
@@ -3422,7 +3422,7 @@ export interface ListReplacePermissionAssociationsWorkResponse {
    * <p>An array of data structures that provide details of the matching work IDs.</p>
    * @public
    */
-  replacePermissionAssociationsWorks?: ReplacePermissionAssociationsWork[];
+  replacePermissionAssociationsWorks?: ReplacePermissionAssociationsWork[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3432,7 +3432,7 @@ export interface ListReplacePermissionAssociationsWorkResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3486,7 +3486,7 @@ export interface ListResourcesRequest {
    *             principal.</p>
    * @public
    */
-  principal?: string;
+  principal?: string | undefined;
 
   /**
    * <p>Specifies that you want to list only the resource shares that include resources of the specified
@@ -3494,21 +3494,21 @@ export interface ListResourcesRequest {
    *          <p>For valid values, query the <a>ListResourceTypes</a> operation.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>Specifies that you want to list only the resource shares that include resources with the
    *             specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    * @public
    */
-  resourceArns?: string[];
+  resourceArns?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to list only resources in the resource shares identified by the
    *             specified <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Names (ARNs)</a>.</p>
    * @public
    */
-  resourceShareArns?: string[];
+  resourceShareArns?: string[] | undefined;
 
   /**
    * <p>Specifies that you want to receive the next page of results. Valid
@@ -3518,7 +3518,7 @@ export interface ListResourcesRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -3532,7 +3532,7 @@ export interface ListResourcesRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies that you want the results to include only
@@ -3557,7 +3557,7 @@ export interface ListResourcesRequest {
    *          <p>The default value is <code>ALL</code>.</p>
    * @public
    */
-  resourceRegionScope?: ResourceRegionScopeFilter;
+  resourceRegionScope?: ResourceRegionScopeFilter | undefined;
 }
 
 /**
@@ -3568,7 +3568,7 @@ export interface ListResourcesResponse {
    * <p>An array of objects that contain information about the resources.</p>
    * @public
    */
-  resources?: Resource[];
+  resources?: Resource[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3578,7 +3578,7 @@ export interface ListResourcesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3600,7 +3600,7 @@ export interface ListResourceSharePermissionsRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -3614,7 +3614,7 @@ export interface ListResourceSharePermissionsRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 }
 
 /**
@@ -3625,7 +3625,7 @@ export interface ListResourceSharePermissionsResponse {
    * <p>An array of objects that describe the permissions associated with the resource share.</p>
    * @public
    */
-  permissions?: ResourceSharePermissionSummary[];
+  permissions?: ResourceSharePermissionSummary[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3635,7 +3635,7 @@ export interface ListResourceSharePermissionsResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3650,7 +3650,7 @@ export interface ListResourceTypesRequest {
    *              next page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 
   /**
    * <p>Specifies the total number of results that you want included on each page
@@ -3664,7 +3664,7 @@ export interface ListResourceTypesRequest {
    *              of the results.</p>
    * @public
    */
-  maxResults?: number;
+  maxResults?: number | undefined;
 
   /**
    * <p>Specifies that you want the results to include only
@@ -3689,7 +3689,7 @@ export interface ListResourceTypesRequest {
    *          <p>The default value is <code>ALL</code>.</p>
    * @public
    */
-  resourceRegionScope?: ResourceRegionScopeFilter;
+  resourceRegionScope?: ResourceRegionScopeFilter | undefined;
 }
 
 /**
@@ -3705,13 +3705,13 @@ export interface ServiceNameAndResourceType {
    *             <code>ec2:subnet</code>.</p>
    * @public
    */
-  resourceType?: string;
+  resourceType?: string | undefined;
 
   /**
    * <p>The name of the Amazon Web Services service to which resources of this type belong.</p>
    * @public
    */
-  serviceName?: string;
+  serviceName?: string | undefined;
 
   /**
    * <p>Specifies the scope of visibility of resources of this type:</p>
@@ -3730,7 +3730,7 @@ export interface ServiceNameAndResourceType {
    *          </ul>
    * @public
    */
-  resourceRegionScope?: ResourceRegionScope;
+  resourceRegionScope?: ResourceRegionScope | undefined;
 }
 
 /**
@@ -3742,7 +3742,7 @@ export interface ListResourceTypesResponse {
    *             shared using RAM.</p>
    * @public
    */
-  resourceTypes?: ServiceNameAndResourceType[];
+  resourceTypes?: ServiceNameAndResourceType[] | undefined;
 
   /**
    * <p>If present, this value indicates that more output is available than
@@ -3752,7 +3752,7 @@ export interface ListResourceTypesResponse {
    *              back as <code>null</code>. This indicates that this is the last page of results.</p>
    * @public
    */
-  nextToken?: string;
+  nextToken?: string | undefined;
 }
 
 /**
@@ -3786,7 +3786,7 @@ export interface PromotePermissionCreatedFromPolicyRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3797,7 +3797,7 @@ export interface PromotePermissionCreatedFromPolicyResponse {
    * <p>Information about an RAM permission.</p>
    * @public
    */
-  permission?: ResourceSharePermissionSummary;
+  permission?: ResourceSharePermissionSummary | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -3806,7 +3806,7 @@ export interface PromotePermissionCreatedFromPolicyResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3829,7 +3829,7 @@ export interface PromoteResourceShareCreatedFromPolicyResponse {
    *              A value of <code>false</code> indicates that the request failed.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 }
 
 /**
@@ -3877,7 +3877,7 @@ export interface RejectResourceShareInvitationRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3888,7 +3888,7 @@ export interface RejectResourceShareInvitationResponse {
    * <p>An object that contains the details about the rejected invitation.</p>
    * @public
    */
-  resourceShareInvitation?: ResourceShareInvitation;
+  resourceShareInvitation?: ResourceShareInvitation | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -3897,7 +3897,7 @@ export interface RejectResourceShareInvitationResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3915,7 +3915,7 @@ export interface ReplacePermissionAssociationsRequest {
    *             specified version of the managed permission.</p>
    * @public
    */
-  fromPermissionVersion?: number;
+  fromPermissionVersion?: number | undefined;
 
   /**
    * <p>Specifies the ARN of the managed permission that you want to associate with resource
@@ -3941,7 +3941,7 @@ export interface ReplacePermissionAssociationsRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3954,7 +3954,7 @@ export interface ReplacePermissionAssociationsResponse {
    *                 <code>id</code> value returned in this structure.</p>
    * @public
    */
-  replacePermissionAssociationsWork?: ReplacePermissionAssociationsWork;
+  replacePermissionAssociationsWork?: ReplacePermissionAssociationsWork | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -3963,7 +3963,7 @@ export interface ReplacePermissionAssociationsResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -3997,7 +3997,7 @@ export interface SetDefaultPermissionVersionRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -4008,7 +4008,7 @@ export interface SetDefaultPermissionVersionResponse {
    * <p>A boolean value that indicates whether the operation was successful.</p>
    * @public
    */
-  returnValue?: boolean;
+  returnValue?: boolean | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -4017,7 +4017,7 @@ export interface SetDefaultPermissionVersionResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -4030,7 +4030,7 @@ export interface TagResourceRequest {
    *             <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>A list of one or more tag key and value pairs. The tag key must be present and not be
@@ -4045,7 +4045,7 @@ export interface TagResourceRequest {
    *             <code>resourceArn</code>, or <code>resourceShareArn</code>, but not both.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 }
 
 /**
@@ -4063,7 +4063,7 @@ export interface UntagResourceRequest {
    *                 <code>resourceShareArn</code>, or <code>resourceArn</code>, but not both.</p>
    * @public
    */
-  resourceShareArn?: string;
+  resourceShareArn?: string | undefined;
 
   /**
    * <p>Specifies a list of one or more tag keys that you want to remove.</p>
@@ -4077,7 +4077,7 @@ export interface UntagResourceRequest {
    *             both.</p>
    * @public
    */
-  resourceArn?: string;
+  resourceArn?: string | undefined;
 }
 
 /**
@@ -4099,14 +4099,14 @@ export interface UpdateResourceShareRequest {
    * <p>If specified, the new name that you want to attach to the resource share.</p>
    * @public
    */
-  name?: string;
+  name?: string | undefined;
 
   /**
    * <p>Specifies whether principals outside your organization in Organizations can be associated
    *             with a resource share.</p>
    * @public
    */
-  allowExternalPrincipals?: boolean;
+  allowExternalPrincipals?: boolean | undefined;
 
   /**
    * <p>Specifies a unique, case-sensitive identifier that you provide to
@@ -4122,7 +4122,7 @@ export interface UpdateResourceShareRequest {
    *              error.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }
 
 /**
@@ -4133,7 +4133,7 @@ export interface UpdateResourceShareResponse {
    * <p>Information about the resource share.</p>
    * @public
    */
-  resourceShare?: ResourceShare;
+  resourceShare?: ResourceShare | undefined;
 
   /**
    * <p>The idempotency identifier associated with this request. If you
@@ -4142,5 +4142,5 @@ export interface UpdateResourceShareResponse {
    *              parameters must also have the same values that you used in the first call.</p>
    * @public
    */
-  clientToken?: string;
+  clientToken?: string | undefined;
 }

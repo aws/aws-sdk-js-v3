@@ -20,7 +20,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,10 +40,10 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
 /**
  * <p>Creates a new calculated attribute definition. After creation, new object data ingested
  *          into Customer Profiles will be included in the calculated attribute, which can be retrieved
- *          for a profile using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html">GetCalculatedAttributeForProfile</a> API.
- *          Defining a calculated attribute makes it available for all profiles within a domain. Each
- *          calculated attribute can only reference one <code>ObjectType</code> and at most, two fields
- *          from that <code>ObjectType</code>.</p>
+ *          for a profile using the <a href="https://docs.aws.amazon.com/customerprofiles/latest/APIReference/API_GetCalculatedAttributeForProfile.html">GetCalculatedAttributeForProfile</a> API. Defining a calculated attribute makes it
+ *          available for all profiles within a domain. Each calculated attribute can only reference
+ *          one <code>ObjectType</code> and at most, two fields from that
+ *          <code>ObjectType</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,8 +65,14 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  *   },
  *   Conditions: { // Conditions
  *     Range: { // Range
- *       Value: Number("int"), // required
- *       Unit: "DAYS", // required
+ *       Value: Number("int"),
+ *       Unit: "DAYS",
+ *       ValueRange: { // ValueRange
+ *         Start: Number("int"), // required
+ *         End: Number("int"), // required
+ *       },
+ *       TimestampSource: "STRING_VALUE",
+ *       TimestampFormat: "STRING_VALUE",
  *     },
  *     ObjectCount: Number("int"),
  *     Threshold: { // Threshold
@@ -73,7 +80,28 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  *       Operator: "EQUAL_TO" || "GREATER_THAN" || "LESS_THAN" || "NOT_EQUAL_TO", // required
  *     },
  *   },
+ *   Filter: { // Filter
+ *     Include: "ALL" || "ANY" || "NONE", // required
+ *     Groups: [ // GroupList // required
+ *       { // FilterGroup
+ *         Type: "ALL" || "ANY" || "NONE", // required
+ *         Dimensions: [ // FilterDimensionList // required
+ *           { // FilterDimension
+ *             Attributes: { // AttributeMap // required
+ *               "<keys>": { // FilterAttributeDimension
+ *                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ *                 Values: [ // ValueList // required
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           },
+ *         ],
+ *       },
+ *     ],
+ *   },
  *   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE", // required
+ *   UseHistoricalData: true || false,
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -94,8 +122,14 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * //   },
  * //   Conditions: { // Conditions
  * //     Range: { // Range
- * //       Value: Number("int"), // required
- * //       Unit: "DAYS", // required
+ * //       Value: Number("int"),
+ * //       Unit: "DAYS",
+ * //       ValueRange: { // ValueRange
+ * //         Start: Number("int"), // required
+ * //         End: Number("int"), // required
+ * //       },
+ * //       TimestampSource: "STRING_VALUE",
+ * //       TimestampFormat: "STRING_VALUE",
  * //     },
  * //     ObjectCount: Number("int"),
  * //     Threshold: { // Threshold
@@ -103,9 +137,35 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * //       Operator: "EQUAL_TO" || "GREATER_THAN" || "LESS_THAN" || "NOT_EQUAL_TO", // required
  * //     },
  * //   },
+ * //   Filter: { // Filter
+ * //     Include: "ALL" || "ANY" || "NONE", // required
+ * //     Groups: [ // GroupList // required
+ * //       { // FilterGroup
+ * //         Type: "ALL" || "ANY" || "NONE", // required
+ * //         Dimensions: [ // FilterDimensionList // required
+ * //           { // FilterDimension
+ * //             Attributes: { // AttributeMap // required
+ * //               "<keys>": { // FilterAttributeDimension
+ * //                 DimensionType: "INCLUSIVE" || "EXCLUSIVE" || "CONTAINS" || "BEGINS_WITH" || "ENDS_WITH" || "BEFORE" || "AFTER" || "BETWEEN" || "NOT_BETWEEN" || "ON" || "GREATER_THAN" || "LESS_THAN" || "GREATER_THAN_OR_EQUAL" || "LESS_THAN_OR_EQUAL" || "EQUAL", // required
+ * //                 Values: [ // ValueList // required
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           },
+ * //         ],
+ * //       },
+ * //     ],
+ * //   },
  * //   Statistic: "FIRST_OCCURRENCE" || "LAST_OCCURRENCE" || "COUNT" || "SUM" || "MINIMUM" || "MAXIMUM" || "AVERAGE" || "MAX_OCCURRENCE",
  * //   CreatedAt: new Date("TIMESTAMP"),
  * //   LastUpdatedAt: new Date("TIMESTAMP"),
+ * //   UseHistoricalData: true || false,
+ * //   Status: "PREPARING" || "IN_PROGRESS" || "COMPLETED" || "FAILED",
+ * //   Readiness: { // Readiness
+ * //     ProgressPercentage: Number("int"),
+ * //     Message: "STRING_VALUE",
+ * //   },
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -137,6 +197,7 @@ export interface CreateCalculatedAttributeDefinitionCommandOutput
  * @throws {@link CustomerProfilesServiceException}
  * <p>Base exception class for all service exceptions from CustomerProfiles service.</p>
  *
+ *
  * @public
  */
 export class CreateCalculatedAttributeDefinitionCommand extends $Command
@@ -147,9 +208,7 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CustomerProfilesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -164,4 +223,16 @@ export class CreateCalculatedAttributeDefinitionCommand extends $Command
   )
   .ser(se_CreateCalculatedAttributeDefinitionCommand)
   .de(de_CreateCalculatedAttributeDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCalculatedAttributeDefinitionRequest;
+      output: CreateCalculatedAttributeDefinitionResponse;
+    };
+    sdk: {
+      input: CreateCalculatedAttributeDefinitionCommandInput;
+      output: CreateCalculatedAttributeDefinitionCommandOutput;
+    };
+  };
+}

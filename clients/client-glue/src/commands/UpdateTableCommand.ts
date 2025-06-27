@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GlueClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GlueClient";
-import { UpdateTableRequest, UpdateTableResponse } from "../models/models_2";
+import { UpdateTableRequest, UpdateTableResponse } from "../models/models_3";
 import { de_UpdateTableCommand, se_UpdateTableCommand } from "../protocols/Aws_json1_1";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -120,10 +121,28 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  *       Name: "STRING_VALUE",
  *       Region: "STRING_VALUE",
  *     },
+ *     ViewDefinition: { // ViewDefinitionInput
+ *       IsProtected: true || false,
+ *       Definer: "STRING_VALUE",
+ *       Representations: [ // ViewRepresentationInputList
+ *         { // ViewRepresentationInput
+ *           Dialect: "REDSHIFT" || "ATHENA" || "SPARK",
+ *           DialectVersion: "STRING_VALUE",
+ *           ViewOriginalText: "STRING_VALUE",
+ *           ValidationConnection: "STRING_VALUE",
+ *           ViewExpandedText: "STRING_VALUE",
+ *         },
+ *       ],
+ *       SubObjects: [ // ViewSubObjectsList
+ *         "STRING_VALUE",
+ *       ],
+ *     },
  *   },
  *   SkipArchive: true || false,
  *   TransactionId: "STRING_VALUE",
  *   VersionId: "STRING_VALUE",
+ *   ViewUpdateAction: "ADD" || "REPLACE" || "ADD_OR_REPLACE" || "DROP",
+ *   Force: true || false,
  * };
  * const command = new UpdateTableCommand(input);
  * const response = await client.send(command);
@@ -137,11 +156,20 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @see {@link UpdateTableCommandOutput} for command's `response` shape.
  * @see {@link GlueClientResolvedConfig | config} for GlueClient's `config` shape.
  *
+ * @throws {@link AlreadyExistsException} (client fault)
+ *  <p>A resource to be created or added already exists.</p>
+ *
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>Two processes are trying to modify a resource simultaneously.</p>
  *
  * @throws {@link EntityNotFoundException} (client fault)
  *  <p>A specified entity does not exist</p>
+ *
+ * @throws {@link FederationSourceException} (client fault)
+ *  <p>A federation source failed.</p>
+ *
+ * @throws {@link FederationSourceRetryableException} (client fault)
+ *  <p>A federation source failed, but the operation may be retried.</p>
  *
  * @throws {@link GlueEncryptionException} (client fault)
  *  <p>An encryption operation failed.</p>
@@ -164,6 +192,7 @@ export interface UpdateTableCommandOutput extends UpdateTableResponse, __Metadat
  * @throws {@link GlueServiceException}
  * <p>Base exception class for all service exceptions from Glue service.</p>
  *
+ *
  * @public
  */
 export class UpdateTableCommand extends $Command
@@ -174,9 +203,7 @@ export class UpdateTableCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: GlueClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -188,4 +215,16 @@ export class UpdateTableCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateTableCommand)
   .de(de_UpdateTableCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateTableRequest;
+      output: {};
+    };
+    sdk: {
+      input: UpdateTableCommandInput;
+      output: UpdateTableCommandOutput;
+    };
+  };
+}

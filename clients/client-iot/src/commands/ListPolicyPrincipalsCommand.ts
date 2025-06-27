@@ -12,7 +12,8 @@ import { de_ListPolicyPrincipalsCommand, se_ListPolicyPrincipalsCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface ListPolicyPrincipalsCommandOutput extends ListPolicyPrincipalsR
  * @throws {@link IoTServiceException}
  * <p>Base exception class for all service exceptions from IoT service.</p>
  *
+ *
  * @public
  */
 export class ListPolicyPrincipalsCommand extends $Command
@@ -94,9 +96,7 @@ export class ListPolicyPrincipalsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class ListPolicyPrincipalsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListPolicyPrincipalsCommand)
   .de(de_ListPolicyPrincipalsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListPolicyPrincipalsRequest;
+      output: ListPolicyPrincipalsResponse;
+    };
+    sdk: {
+      input: ListPolicyPrincipalsCommandInput;
+      output: ListPolicyPrincipalsCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetPrivateGraphEndpointCommand, se_GetPrivateGraphEndpointCommand } 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -72,6 +73,7 @@ export interface GetPrivateGraphEndpointCommandOutput extends GetPrivateGraphEnd
  * @throws {@link NeptuneGraphServiceException}
  * <p>Base exception class for all service exceptions from NeptuneGraph service.</p>
  *
+ *
  * @public
  */
 export class GetPrivateGraphEndpointCommand extends $Command
@@ -97,4 +99,16 @@ export class GetPrivateGraphEndpointCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetPrivateGraphEndpointCommand)
   .de(de_GetPrivateGraphEndpointCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetPrivateGraphEndpointInput;
+      output: GetPrivateGraphEndpointOutput;
+    };
+    sdk: {
+      input: GetPrivateGraphEndpointCommandInput;
+      output: GetPrivateGraphEndpointCommandOutput;
+    };
+  };
+}

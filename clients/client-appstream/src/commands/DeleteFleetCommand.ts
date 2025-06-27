@@ -12,7 +12,8 @@ import { de_DeleteFleetCommand, se_DeleteFleetCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,7 @@ export interface DeleteFleetCommandOutput extends DeleteFleetResult, __MetadataB
  * @throws {@link AppStreamServiceException}
  * <p>Base exception class for all service exceptions from AppStream service.</p>
  *
+ *
  * @public
  */
 export class DeleteFleetCommand extends $Command
@@ -71,9 +73,7 @@ export class DeleteFleetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AppStreamClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -85,4 +85,16 @@ export class DeleteFleetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteFleetCommand)
   .de(de_DeleteFleetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteFleetRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteFleetCommandInput;
+      output: DeleteFleetCommandOutput;
+    };
+  };
+}

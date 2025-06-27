@@ -6,6 +6,19 @@
 
 AWS SDK for JavaScript Connect Client for Node.js, Browser and React Native.
 
+<ul>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Operations_Amazon_Connect_Service.html">Amazon Connect actions</a>
+</p>
+</li>
+<li>
+<p>
+<a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_Types_Amazon_Connect_Service.html">Amazon Connect
+data types</a>
+</p>
+</li>
+</ul>
 <p>Amazon Connect is a cloud-based contact center solution that you use to set up and
 manage a customer contact center and provide reliable customer engagement at any scale.</p>
 <p>Amazon Connect provides metrics and real-time reporting that enable you to optimize
@@ -15,12 +28,12 @@ touch with the appropriate agents.</p>
 are also limits to the number of requests that you can make per second. For more information, see
 <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator
 Guide</i>.</p>
-<p>You can connect programmatically to an Amazon Web Services service by using an endpoint. For
-a list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
+<p>You can use an endpoint to connect programmatically to an Amazon Web Services service. For a
+list of Amazon Connect endpoints, see <a href="https://docs.aws.amazon.com/general/latest/gr/connect_region.html">Amazon Connect Endpoints</a>.</p>
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-connect
+To install this package, simply type add or install @aws-sdk/client-connect
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-connect`
@@ -399,6 +412,14 @@ CreateAgentStatus
 </details>
 <details>
 <summary>
+CreateContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateContactCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateContactFlow
 </summary>
 
@@ -415,6 +436,22 @@ CreateContactFlowModule
 </details>
 <details>
 <summary>
+CreateContactFlowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateContactFlowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateContactFlowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateContactFlowVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateEmailAddress
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateEmailAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateEmailAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateEmailAddressCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateEvaluationForm
 </summary>
 
@@ -427,6 +464,14 @@ CreateHoursOfOperation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateHoursOfOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateHoursOfOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateHoursOfOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreateHoursOfOperationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreateHoursOfOperationOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateHoursOfOperationOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreateHoursOfOperationOverrideCommandOutput/)
 
 </details>
 <details>
@@ -475,6 +520,14 @@ CreatePrompt
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreatePromptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreatePromptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreatePromptCommandOutput/)
+
+</details>
+<details>
+<summary>
+CreatePushNotificationRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/CreatePushNotificationRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreatePushNotificationRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/CreatePushNotificationRegistrationCommandOutput/)
 
 </details>
 <details>
@@ -623,6 +676,22 @@ DeleteContactFlowModule
 </details>
 <details>
 <summary>
+DeleteContactFlowVersion
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteContactFlowVersionCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactFlowVersionCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteContactFlowVersionCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteEmailAddress
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteEmailAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteEmailAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteEmailAddressCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteEvaluationForm
 </summary>
 
@@ -635,6 +704,14 @@ DeleteHoursOfOperation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteHoursOfOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteHoursOfOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteHoursOfOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteHoursOfOperationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeleteHoursOfOperationOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteHoursOfOperationOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeleteHoursOfOperationOverrideCommandOutput/)
 
 </details>
 <details>
@@ -667,6 +744,14 @@ DeletePrompt
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeletePromptCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePromptCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePromptCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeletePushNotificationRegistration
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DeletePushNotificationRegistrationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePushNotificationRegistrationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DeletePushNotificationRegistrationCommandOutput/)
 
 </details>
 <details>
@@ -783,6 +868,14 @@ DescribeAgentStatus
 </details>
 <details>
 <summary>
+DescribeAuthenticationProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DescribeAuthenticationProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeAuthenticationProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeAuthenticationProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeContact
 </summary>
 
@@ -815,6 +908,14 @@ DescribeContactFlowModule
 </details>
 <details>
 <summary>
+DescribeEmailAddress
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DescribeEmailAddressCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeEmailAddressCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeEmailAddressCommandOutput/)
+
+</details>
+<details>
+<summary>
 DescribeEvaluationForm
 </summary>
 
@@ -827,6 +928,14 @@ DescribeHoursOfOperation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DescribeHoursOfOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeHoursOfOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeHoursOfOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeHoursOfOperationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/DescribeHoursOfOperationOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeHoursOfOperationOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/DescribeHoursOfOperationOverrideCommandOutput/)
 
 </details>
 <details>
@@ -1111,6 +1220,14 @@ GetCurrentUserData
 </details>
 <details>
 <summary>
+GetEffectiveHoursOfOperations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/GetEffectiveHoursOfOperationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/GetEffectiveHoursOfOperationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/GetEffectiveHoursOfOperationsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetFederationToken
 </summary>
 
@@ -1191,10 +1308,34 @@ ListAnalyticsDataAssociations
 </details>
 <details>
 <summary>
+ListAnalyticsDataLakeDataSets
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListAnalyticsDataLakeDataSetsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAnalyticsDataLakeDataSetsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAnalyticsDataLakeDataSetsCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListApprovedOrigins
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListApprovedOriginsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListApprovedOriginsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListApprovedOriginsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAssociatedContacts
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListAssociatedContactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAssociatedContactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAssociatedContactsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListAuthenticationProfiles
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListAuthenticationProfilesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAuthenticationProfilesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListAuthenticationProfilesCommandOutput/)
 
 </details>
 <details>
@@ -1227,6 +1368,14 @@ ListContactFlows
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListContactFlowsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListContactFlowsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListContactFlowsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListContactFlowVersions
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListContactFlowVersionsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListContactFlowVersionsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListContactFlowVersionsCommandOutput/)
 
 </details>
 <details>
@@ -1267,6 +1416,14 @@ ListFlowAssociations
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListFlowAssociationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListFlowAssociationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListFlowAssociationsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListHoursOfOperationOverrides
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/ListHoursOfOperationOverridesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListHoursOfOperationOverridesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/ListHoursOfOperationOverridesCommandOutput/)
 
 </details>
 <details>
@@ -1583,6 +1740,14 @@ ResumeContactRecording
 </details>
 <details>
 <summary>
+SearchAgentStatuses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchAgentStatusesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchAgentStatusesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchAgentStatusesCommandOutput/)
+
+</details>
+<details>
+<summary>
 SearchAvailablePhoneNumbers
 </summary>
 
@@ -1611,6 +1776,22 @@ SearchContacts
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchContactsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchContactsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchContactsCommandOutput/)
+
+</details>
+<details>
+<summary>
+SearchEmailAddresses
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchEmailAddressesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchEmailAddressesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchEmailAddressesCommandOutput/)
+
+</details>
+<details>
+<summary>
+SearchHoursOfOperationOverrides
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchHoursOfOperationOverridesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchHoursOfOperationOverridesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchHoursOfOperationOverridesCommandOutput/)
 
 </details>
 <details>
@@ -1679,6 +1860,14 @@ SearchSecurityProfiles
 </details>
 <details>
 <summary>
+SearchUserHierarchyGroups
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SearchUserHierarchyGroupsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchUserHierarchyGroupsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SearchUserHierarchyGroupsCommandOutput/)
+
+</details>
+<details>
+<summary>
 SearchUsers
 </summary>
 
@@ -1699,6 +1888,14 @@ SendChatIntegrationEvent
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SendChatIntegrationEventCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SendChatIntegrationEventCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SendChatIntegrationEventCommandOutput/)
+
+</details>
+<details>
+<summary>
+SendOutboundEmail
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/SendOutboundEmailCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SendOutboundEmailCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/SendOutboundEmailCommandOutput/)
 
 </details>
 <details>
@@ -1743,10 +1940,42 @@ StartContactStreaming
 </details>
 <details>
 <summary>
+StartEmailContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartEmailContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartEmailContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartEmailContactCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartOutboundChatContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartOutboundChatContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundChatContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundChatContactCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartOutboundEmailContact
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartOutboundEmailContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundEmailContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundEmailContactCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartOutboundVoiceContact
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartOutboundVoiceContactCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundVoiceContactCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartOutboundVoiceContactCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartScreenSharing
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/StartScreenSharingCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartScreenSharingCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/StartScreenSharingCommandOutput/)
 
 </details>
 <details>
@@ -1855,6 +2084,14 @@ UpdateAgentStatus
 </details>
 <details>
 <summary>
+UpdateAuthenticationProfile
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateAuthenticationProfileCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateAuthenticationProfileCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateAuthenticationProfileCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateContact
 </summary>
 
@@ -1935,6 +2172,14 @@ UpdateContactSchedule
 </details>
 <details>
 <summary>
+UpdateEmailAddressMetadata
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateEmailAddressMetadataCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateEmailAddressMetadataCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateEmailAddressMetadataCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateEvaluationForm
 </summary>
 
@@ -1951,6 +2196,14 @@ UpdateHoursOfOperation
 </details>
 <details>
 <summary>
+UpdateHoursOfOperationOverride
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateHoursOfOperationOverrideCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateHoursOfOperationOverrideCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateHoursOfOperationOverrideCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateInstanceAttribute
 </summary>
 
@@ -1963,6 +2216,14 @@ UpdateInstanceStorageConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateInstanceStorageConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateInstanceStorageConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateInstanceStorageConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateParticipantAuthentication
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateParticipantAuthenticationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateParticipantAuthenticationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateParticipantAuthenticationCommandOutput/)
 
 </details>
 <details>
@@ -2035,6 +2296,14 @@ UpdateQueueOutboundCallerConfig
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateQueueOutboundCallerConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateQueueOutboundCallerConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateQueueOutboundCallerConfigCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateQueueOutboundEmailConfig
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/connect/command/UpdateQueueOutboundEmailConfigCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateQueueOutboundEmailConfigCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-connect/Interface/UpdateQueueOutboundEmailConfigCommandOutput/)
 
 </details>
 <details>

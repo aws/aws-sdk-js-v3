@@ -5,14 +5,15 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { UpdateInferenceComponentInput, UpdateInferenceComponentOutput } from "../models/models_4";
+import { UpdateInferenceComponentInput, UpdateInferenceComponentOutput } from "../models/models_5";
 import { de_UpdateInferenceComponentCommand, se_UpdateInferenceComponentCommand } from "../protocols/Aws_json1_1";
 import { SageMakerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../SageMakerClient";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -55,9 +56,31 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  *       MinMemoryRequiredInMb: Number("int"), // required
  *       MaxMemoryRequiredInMb: Number("int"),
  *     },
+ *     BaseInferenceComponentName: "STRING_VALUE",
  *   },
  *   RuntimeConfig: { // InferenceComponentRuntimeConfig
  *     CopyCount: Number("int"), // required
+ *   },
+ *   DeploymentConfig: { // InferenceComponentDeploymentConfig
+ *     RollingUpdatePolicy: { // InferenceComponentRollingUpdatePolicy
+ *       MaximumBatchSize: { // InferenceComponentCapacitySize
+ *         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *       WaitIntervalInSeconds: Number("int"), // required
+ *       MaximumExecutionTimeoutInSeconds: Number("int"),
+ *       RollbackMaximumBatchSize: {
+ *         Type: "COPY_COUNT" || "CAPACITY_PERCENT", // required
+ *         Value: Number("int"), // required
+ *       },
+ *     },
+ *     AutoRollbackConfiguration: { // AutoRollbackConfig
+ *       Alarms: [ // AlarmList
+ *         { // Alarm
+ *           AlarmName: "STRING_VALUE",
+ *         },
+ *       ],
+ *     },
  *   },
  * };
  * const command = new UpdateInferenceComponentCommand(input);
@@ -75,11 +98,11 @@ export interface UpdateInferenceComponentCommandOutput extends UpdateInferenceCo
  * @see {@link SageMakerClientResolvedConfig | config} for SageMakerClient's `config` shape.
  *
  * @throws {@link ResourceLimitExceeded} (client fault)
- *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many
- *             training jobs created. </p>
+ *  <p> You have exceeded an SageMaker resource limit. For example, you might have too many training jobs created. </p>
  *
  * @throws {@link SageMakerServiceException}
  * <p>Base exception class for all service exceptions from SageMaker service.</p>
+ *
  *
  * @public
  */
@@ -91,9 +114,7 @@ export class UpdateInferenceComponentCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SageMakerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +126,16 @@ export class UpdateInferenceComponentCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateInferenceComponentCommand)
   .de(de_UpdateInferenceComponentCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateInferenceComponentInput;
+      output: UpdateInferenceComponentOutput;
+    };
+    sdk: {
+      input: UpdateInferenceComponentCommandInput;
+      output: UpdateInferenceComponentCommandOutput;
+    };
+  };
+}

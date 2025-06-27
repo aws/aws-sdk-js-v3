@@ -16,7 +16,8 @@ import { de_ListFragmentsCommand, se_ListFragmentsCommand } from "../protocols/A
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -135,6 +136,7 @@ export interface ListFragmentsCommandOutput extends ListFragmentsOutput, __Metad
  * @throws {@link KinesisVideoArchivedMediaServiceException}
  * <p>Base exception class for all service exceptions from KinesisVideoArchivedMedia service.</p>
  *
+ *
  * @public
  */
 export class ListFragmentsCommand extends $Command
@@ -145,9 +147,7 @@ export class ListFragmentsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KinesisVideoArchivedMediaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -159,4 +159,16 @@ export class ListFragmentsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListFragmentsCommand)
   .de(de_ListFragmentsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListFragmentsInput;
+      output: ListFragmentsOutput;
+    };
+    sdk: {
+      input: ListFragmentsCommandInput;
+      output: ListFragmentsCommandOutput;
+    };
+  };
+}

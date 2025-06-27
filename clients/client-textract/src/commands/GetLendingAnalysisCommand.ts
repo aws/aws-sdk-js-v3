@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, TextractClientResolvedConfig } f
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -96,6 +97,7 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * //                         Y: Number("float"),
  * //                       },
  * //                     ],
+ * //                     RotationAngle: Number("float"),
  * //                   },
  * //                   Confidence: Number("float"),
  * //                 },
@@ -116,6 +118,7 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * //                           Y: Number("float"),
  * //                         },
  * //                       ],
+ * //                       RotationAngle: Number("float"),
  * //                     },
  * //                     Confidence: Number("float"),
  * //                   },
@@ -355,6 +358,7 @@ export interface GetLendingAnalysisCommandOutput extends GetLendingAnalysisRespo
  * @throws {@link TextractServiceException}
  * <p>Base exception class for all service exceptions from Textract service.</p>
  *
+ *
  * @public
  */
 export class GetLendingAnalysisCommand extends $Command
@@ -365,9 +369,7 @@ export class GetLendingAnalysisCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: TextractClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -379,4 +381,16 @@ export class GetLendingAnalysisCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLendingAnalysisCommand)
   .de(de_GetLendingAnalysisCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetLendingAnalysisRequest;
+      output: GetLendingAnalysisResponse;
+    };
+    sdk: {
+      input: GetLendingAnalysisCommandInput;
+      output: GetLendingAnalysisCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SESClientResolvedConfig } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -59,19 +60,22 @@ export interface DeleteReceiptRuleCommandOutput extends DeleteReceiptRuleRespons
  * @throws {@link SESServiceException}
  * <p>Base exception class for all service exceptions from SES service.</p>
  *
- * @public
+ *
  * @example DeleteReceiptRule
  * ```javascript
  * // The following example deletes a receipt rule:
  * const input = {
- *   "RuleName": "MyRule",
- *   "RuleSetName": "MyRuleSet"
+ *   RuleName: "MyRule",
+ *   RuleSetName: "MyRuleSet"
  * };
  * const command = new DeleteReceiptRuleCommand(input);
- * await client.send(command);
- * // example id: deletereceiptrule-1469055563599
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class DeleteReceiptRuleCommand extends $Command
   .classBuilder<
@@ -81,9 +85,7 @@ export class DeleteReceiptRuleCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SESClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -95,4 +97,16 @@ export class DeleteReceiptRuleCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DeleteReceiptRuleCommand)
   .de(de_DeleteReceiptRuleCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DeleteReceiptRuleRequest;
+      output: {};
+    };
+    sdk: {
+      input: DeleteReceiptRuleCommandInput;
+      output: DeleteReceiptRuleCommandOutput;
+    };
+  };
+}

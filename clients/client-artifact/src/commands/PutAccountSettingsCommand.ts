@@ -12,7 +12,8 @@ import { de_PutAccountSettingsCommand, se_PutAccountSettingsCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -35,13 +36,13 @@ export interface PutAccountSettingsCommandOutput extends PutAccountSettingsRespo
  * // const { ArtifactClient, PutAccountSettingsCommand } = require("@aws-sdk/client-artifact"); // CommonJS import
  * const client = new ArtifactClient(config);
  * const input = { // PutAccountSettingsRequest
- *   notificationSubscriptionStatus: "STRING_VALUE",
+ *   notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",
  * };
  * const command = new PutAccountSettingsCommand(input);
  * const response = await client.send(command);
  * // { // PutAccountSettingsResponse
  * //   accountSettings: { // AccountSettings
- * //     notificationSubscriptionStatus: "STRING_VALUE",
+ * //     notificationSubscriptionStatus: "SUBSCRIBED" || "NOT_SUBSCRIBED",
  * //   },
  * // };
  *
@@ -77,6 +78,24 @@ export interface PutAccountSettingsCommandOutput extends PutAccountSettingsRespo
  * @throws {@link ArtifactServiceException}
  * <p>Base exception class for all service exceptions from Artifact service.</p>
  *
+ *
+ * @example Invoke PutAccountSettings operation
+ * ```javascript
+ * // Set the account settings.
+ * const input = {
+ *   notificationSubscriptionStatus: "SUBSCRIBED"
+ * };
+ * const command = new PutAccountSettingsCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   accountSettings: {
+ *     notificationSubscriptionStatus: "SUBSCRIBED"
+ *   }
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class PutAccountSettingsCommand extends $Command
@@ -87,9 +106,7 @@ export class PutAccountSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ArtifactClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -101,4 +118,16 @@ export class PutAccountSettingsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_PutAccountSettingsCommand)
   .de(de_PutAccountSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: PutAccountSettingsRequest;
+      output: PutAccountSettingsResponse;
+    };
+    sdk: {
+      input: PutAccountSettingsCommandInput;
+      output: PutAccountSettingsCommandOutput;
+    };
+  };
+}

@@ -17,7 +17,8 @@ import { de_UpdateApplicationCommand, se_UpdateApplicationCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,8 +33,7 @@ export interface UpdateApplicationCommandInput extends UpdateApplicationRequest 
 export interface UpdateApplicationCommandOutput extends UpdateApplicationResponse, __MetadataBearer {}
 
 /**
- * <p>Updates a specified application. An application has to be in a stopped or created state
- *          in order to be updated.</p>
+ * <p>Updates a specified application. An application has to be in a stopped or created state in order to be updated.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -130,6 +130,13 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     prometheusMonitoringConfiguration: { // PrometheusMonitoringConfiguration
  *       remoteWriteUrl: "STRING_VALUE",
  *     },
+ *   },
+ *   schedulerConfiguration: { // SchedulerConfiguration
+ *     queueTimeoutMinutes: Number("int"),
+ *     maxConcurrentRuns: Number("int"),
+ *   },
+ *   identityCenterConfiguration: { // IdentityCenterConfigurationInput
+ *     identityCenterInstanceArn: "STRING_VALUE",
  *   },
  * };
  * const command = new UpdateApplicationCommand(input);
@@ -237,6 +244,14 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  * //       studioEnabled: true || false,
  * //       livyEndpointEnabled: true || false,
  * //     },
+ * //     schedulerConfiguration: { // SchedulerConfiguration
+ * //       queueTimeoutMinutes: Number("int"),
+ * //       maxConcurrentRuns: Number("int"),
+ * //     },
+ * //     identityCenterConfiguration: { // IdentityCenterConfiguration
+ * //       identityCenterInstanceArn: "STRING_VALUE",
+ * //       identityCenterApplicationArn: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -255,11 +270,11 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *  <p>The specified resource was not found.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
- *          service.</p>
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link EMRServerlessServiceException}
  * <p>Base exception class for all service exceptions from EMRServerless service.</p>
+ *
  *
  * @public
  */
@@ -271,9 +286,7 @@ export class UpdateApplicationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EMRServerlessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -285,4 +298,16 @@ export class UpdateApplicationCommand extends $Command
   .f(UpdateApplicationRequestFilterSensitiveLog, UpdateApplicationResponseFilterSensitiveLog)
   .ser(se_UpdateApplicationCommand)
   .de(de_UpdateApplicationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateApplicationRequest;
+      output: UpdateApplicationResponse;
+    };
+    sdk: {
+      input: UpdateApplicationCommandInput;
+      output: UpdateApplicationCommandOutput;
+    };
+  };
+}

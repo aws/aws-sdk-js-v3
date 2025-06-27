@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, SyntheticsClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -61,6 +62,9 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *   Schedule: { // CanaryScheduleInput
  *     Expression: "STRING_VALUE", // required
  *     DurationInSeconds: Number("long"),
+ *     RetryConfig: { // RetryConfigInput
+ *       MaxRetries: Number("int"), // required
+ *     },
  *   },
  *   RunConfig: { // CanaryRunConfigInput
  *     TimeoutInSeconds: Number("int"),
@@ -69,6 +73,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     EnvironmentVariables: { // EnvironmentVariablesMap
  *       "<keys>": "STRING_VALUE",
  *     },
+ *     EphemeralStorage: Number("int"),
  *   },
  *   SuccessRetentionPeriodInDays: Number("int"),
  *   FailureRetentionPeriodInDays: Number("int"),
@@ -80,7 +85,12 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  *     SecurityGroupIds: [ // SecurityGroupIds
  *       "STRING_VALUE",
  *     ],
+ *     Ipv6AllowedForDualStack: true || false,
  *   },
+ *   ResourcesToReplicateTags: [ // ResourceList
+ *     "lambda-function",
+ *   ],
+ *   ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  *   Tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -105,11 +115,15 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //     Schedule: { // CanaryScheduleOutput
  * //       Expression: "STRING_VALUE",
  * //       DurationInSeconds: Number("long"),
+ * //       RetryConfig: { // RetryConfigOutput
+ * //         MaxRetries: Number("int"),
+ * //       },
  * //     },
  * //     RunConfig: { // CanaryRunConfigOutput
  * //       TimeoutInSeconds: Number("int"),
  * //       MemoryInMB: Number("int"),
  * //       ActiveTracing: true || false,
+ * //       EphemeralStorage: Number("int"),
  * //     },
  * //     SuccessRetentionPeriodInDays: Number("int"),
  * //     FailureRetentionPeriodInDays: Number("int"),
@@ -135,6 +149,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       SecurityGroupIds: [ // SecurityGroupIds
  * //         "STRING_VALUE",
  * //       ],
+ * //       Ipv6AllowedForDualStack: true || false,
  * //     },
  * //     VisualReference: { // VisualReferenceOutput
  * //       BaseScreenshots: [ // BaseScreenshots
@@ -147,6 +162,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //       ],
  * //       BaseCanaryRunId: "STRING_VALUE",
  * //     },
+ * //     ProvisionedResourceCleanup: "AUTOMATIC" || "OFF",
  * //     Tags: { // TagMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
@@ -155,6 +171,10 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * //         EncryptionMode: "SSE_S3" || "SSE_KMS",
  * //         KmsKeyArn: "STRING_VALUE",
  * //       },
+ * //     },
+ * //     DryRunConfig: { // DryRunConfigOutput
+ * //       DryRunId: "STRING_VALUE",
+ * //       LastDryRunExecutionStatus: "STRING_VALUE",
  * //     },
  * //   },
  * // };
@@ -179,6 +199,7 @@ export interface CreateCanaryCommandOutput extends CreateCanaryResponse, __Metad
  * @throws {@link SyntheticsServiceException}
  * <p>Base exception class for all service exceptions from Synthetics service.</p>
  *
+ *
  * @public
  */
 export class CreateCanaryCommand extends $Command
@@ -189,9 +210,7 @@ export class CreateCanaryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: SyntheticsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +222,16 @@ export class CreateCanaryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCanaryCommand)
   .de(de_CreateCanaryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCanaryRequest;
+      output: CreateCanaryResponse;
+    };
+    sdk: {
+      input: CreateCanaryCommandInput;
+      output: CreateCanaryCommandOutput;
+    };
+  };
+}

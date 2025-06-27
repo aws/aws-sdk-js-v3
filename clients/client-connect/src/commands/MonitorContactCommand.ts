@@ -12,7 +12,8 @@ import { de_MonitorContactCommand, se_MonitorContactCommand } from "../protocols
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -84,6 +85,7 @@ export interface MonitorContactCommandOutput extends MonitorContactResponse, __M
  * @throws {@link ConnectServiceException}
  * <p>Base exception class for all service exceptions from Connect service.</p>
  *
+ *
  * @public
  */
 export class MonitorContactCommand extends $Command
@@ -94,9 +96,7 @@ export class MonitorContactCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -108,4 +108,16 @@ export class MonitorContactCommand extends $Command
   .f(void 0, void 0)
   .ser(se_MonitorContactCommand)
   .de(de_MonitorContactCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: MonitorContactRequest;
+      output: MonitorContactResponse;
+    };
+    sdk: {
+      input: MonitorContactCommandInput;
+      output: MonitorContactCommandOutput;
+    };
+  };
+}

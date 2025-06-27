@@ -12,7 +12,8 @@ import { de_GetRecommendationSummariesCommand, se_GetRecommendationSummariesComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,7 +37,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
- *                <p>Auto Scaling groups in an account that are <code>NotOptimized</code>, or
+ *                <p>EC2Auto Scaling groups in an account that are <code>NotOptimized</code>, or
  *                         <code>Optimized</code>.</p>
  *             </li>
  *             <li>
@@ -50,6 +51,14 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  *             <li>
  *                <p>Amazon ECS services in an account that are <code>Underprovisioned</code>,
  *                     <code>Overprovisioned</code>, or <code>Optimized</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Commercial software licenses in an account that are <code>InsufficientMetrics</code>,
+ *                     <code>NotOptimized</code> or <code>Optimized</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Amazon Aurora and Amazon RDS databases in an account that are <code>Underprovisioned</code>,
+ *                     <code>Overprovisioned</code>, <code>Optimized</code>, or <code>NotOptimized</code>.</p>
  *             </li>
  *          </ul>
  * @example
@@ -83,11 +92,31 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * //           ],
  * //         },
  * //       ],
- * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License",
+ * //       idleSummaries: [ // IdleSummaries
+ * //         { // IdleSummary
+ * //           name: "Idle" || "Unattached",
+ * //           value: Number("double"),
+ * //         },
+ * //       ],
+ * //       recommendationResourceType: "Ec2Instance" || "AutoScalingGroup" || "EbsVolume" || "LambdaFunction" || "EcsService" || "License" || "RdsDBInstance" || "RdsDBInstanceStorage" || "AuroraDBClusterStorage",
  * //       accountId: "STRING_VALUE",
  * //       savingsOpportunity: { // SavingsOpportunity
  * //         savingsOpportunityPercentage: Number("double"),
  * //         estimatedMonthlySavings: { // EstimatedMonthlySavings
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       idleSavingsOpportunity: {
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: {
+ * //           currency: "USD" || "CNY",
+ * //           value: Number("double"),
+ * //         },
+ * //       },
+ * //       aggregatedSavingsOpportunity: {
+ * //         savingsOpportunityPercentage: Number("double"),
+ * //         estimatedMonthlySavings: {
  * //           currency: "USD" || "CNY",
  * //           value: Number("double"),
  * //         },
@@ -146,6 +175,7 @@ export interface GetRecommendationSummariesCommandOutput extends GetRecommendati
  * @throws {@link ComputeOptimizerServiceException}
  * <p>Base exception class for all service exceptions from ComputeOptimizer service.</p>
  *
+ *
  * @public
  */
 export class GetRecommendationSummariesCommand extends $Command
@@ -156,9 +186,7 @@ export class GetRecommendationSummariesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ComputeOptimizerClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -170,4 +198,16 @@ export class GetRecommendationSummariesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetRecommendationSummariesCommand)
   .de(de_GetRecommendationSummariesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetRecommendationSummariesRequest;
+      output: GetRecommendationSummariesResponse;
+    };
+    sdk: {
+      input: GetRecommendationSummariesCommandInput;
+      output: GetRecommendationSummariesCommandOutput;
+    };
+  };
+}

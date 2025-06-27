@@ -12,7 +12,8 @@ import { de_ListTagsOfResourceCommand, se_ListTagsOfResourceCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,6 +74,7 @@ export interface ListTagsOfResourceCommandOutput extends ListTagsOfResourceOutpu
  * @throws {@link DynamoDBServiceException}
  * <p>Base exception class for all service exceptions from DynamoDB service.</p>
  *
+ *
  * @public
  */
 export class ListTagsOfResourceCommand extends $Command
@@ -85,6 +87,7 @@ export class ListTagsOfResourceCommand extends $Command
   >()
   .ep({
     ...commonParams,
+    ResourceArn: { type: "contextParams", name: "ResourceArn" },
   })
   .m(function (this: any, Command: any, cs: any, config: DynamoDBClientResolvedConfig, o: any) {
     return [
@@ -97,4 +100,16 @@ export class ListTagsOfResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListTagsOfResourceCommand)
   .de(de_ListTagsOfResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListTagsOfResourceInput;
+      output: ListTagsOfResourceOutput;
+    };
+    sdk: {
+      input: ListTagsOfResourceCommandInput;
+      output: ListTagsOfResourceCommandOutput;
+    };
+  };
+}

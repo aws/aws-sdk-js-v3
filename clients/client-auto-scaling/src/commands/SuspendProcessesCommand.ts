@@ -12,7 +12,8 @@ import { de_SuspendProcessesCommand, se_SuspendProcessesCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,9 +32,9 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  *             Auto Scaling group.</p>
  *          <p>If you suspend either the <code>Launch</code> or <code>Terminate</code> process types,
  *             it can prevent other process types from functioning properly. For more information, see
- *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspending and
- *                 resuming scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
- *          <p>To resume processes that have been suspended, call the <a>ResumeProcesses</a> API.</p>
+ *                 <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-suspend-resume-processes.html">Suspend and resume
+ *                 Amazon EC2 Auto Scaling processes</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ *          <p>To resume processes that have been suspended, call the <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_ResumeProcesses.html">ResumeProcesses</a> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,21 +69,24 @@ export interface SuspendProcessesCommandOutput extends __MetadataBearer {}
  * @throws {@link AutoScalingServiceException}
  * <p>Base exception class for all service exceptions from AutoScaling service.</p>
  *
- * @public
+ *
  * @example To suspend Auto Scaling processes
  * ```javascript
  * // This example suspends the specified scaling process for the specified Auto Scaling group.
  * const input = {
- *   "AutoScalingGroupName": "my-auto-scaling-group",
- *   "ScalingProcesses": [
+ *   AutoScalingGroupName: "my-auto-scaling-group",
+ *   ScalingProcesses: [
  *     "AlarmNotification"
  *   ]
  * };
  * const command = new SuspendProcessesCommand(input);
- * await client.send(command);
- * // example id: autoscaling-suspend-processes-1
+ * const response = await client.send(command);
+ * /* response is
+ * { /* metadata only *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class SuspendProcessesCommand extends $Command
   .classBuilder<
@@ -92,9 +96,7 @@ export class SuspendProcessesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: AutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -106,4 +108,16 @@ export class SuspendProcessesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_SuspendProcessesCommand)
   .de(de_SuspendProcessesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ScalingProcessQuery;
+      output: {};
+    };
+    sdk: {
+      input: SuspendProcessesCommandInput;
+      output: SuspendProcessesCommandOutput;
+    };
+  };
+}

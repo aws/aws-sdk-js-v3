@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -64,24 +65,24 @@ export interface CancelArchivalCommandOutput extends CancelArchivalOutput, __Met
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To cancel virtual tape archiving
  * ```javascript
  * // Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving process is initiated.
  * const input = {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B",
+ *   TapeARN: "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
  * };
  * const command = new CancelArchivalCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "TapeARN": "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
+ *   TapeARN: "arn:aws:storagegateway:us-east-1:999999999999:tape/AMZN01A2A4"
  * }
  * *\/
- * // example id: to-cancel-virtual-tape-archiving-1471294865203
  * ```
  *
+ * @public
  */
 export class CancelArchivalCommand extends $Command
   .classBuilder<
@@ -91,9 +92,7 @@ export class CancelArchivalCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +104,16 @@ export class CancelArchivalCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CancelArchivalCommand)
   .de(de_CancelArchivalCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CancelArchivalInput;
+      output: CancelArchivalOutput;
+    };
+    sdk: {
+      input: CancelArchivalCommandInput;
+      output: CancelArchivalCommandOutput;
+    };
+  };
+}

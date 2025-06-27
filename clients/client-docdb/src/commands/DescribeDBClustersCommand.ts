@@ -12,7 +12,8 @@ import { de_DescribeDBClustersCommand, se_DescribeDBClustersCommand } from "../p
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -114,6 +115,11 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //       ],
  * //       DeletionProtection: true || false,
  * //       StorageType: "STRING_VALUE",
+ * //       MasterUserSecret: { // ClusterMasterUserSecret
+ * //         SecretArn: "STRING_VALUE",
+ * //         SecretStatus: "STRING_VALUE",
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };
@@ -133,6 +139,7 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * @throws {@link DocDBServiceException}
  * <p>Base exception class for all service exceptions from DocDB service.</p>
  *
+ *
  * @public
  */
 export class DescribeDBClustersCommand extends $Command
@@ -143,9 +150,7 @@ export class DescribeDBClustersCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DocDBClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -157,4 +162,16 @@ export class DescribeDBClustersCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeDBClustersCommand)
   .de(de_DescribeDBClustersCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeDBClustersMessage;
+      output: DBClusterMessage;
+    };
+    sdk: {
+      input: DescribeDBClustersCommandInput;
+      output: DescribeDBClustersCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_GetAssetTypeCommand, se_GetAssetTypeCommand } from "../protocols/Aws
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -91,6 +92,7 @@ export interface GetAssetTypeCommandOutput extends GetAssetTypeOutput, __Metadat
  * @throws {@link DataZoneServiceException}
  * <p>Base exception class for all service exceptions from DataZone service.</p>
  *
+ *
  * @public
  */
 export class GetAssetTypeCommand extends $Command
@@ -101,9 +103,7 @@ export class GetAssetTypeCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataZoneClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class GetAssetTypeCommand extends $Command
   .f(void 0, GetAssetTypeOutputFilterSensitiveLog)
   .ser(se_GetAssetTypeCommand)
   .de(de_GetAssetTypeCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAssetTypeInput;
+      output: GetAssetTypeOutput;
+    };
+    sdk: {
+      input: GetAssetTypeCommandInput;
+      output: GetAssetTypeCommandOutput;
+    };
+  };
+}

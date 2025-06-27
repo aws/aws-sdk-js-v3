@@ -11,6 +11,7 @@ import {
   expectObject as __expectObject,
   expectString as __expectString,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
+  isSerializableHeaderValue,
   limitedParseDouble as __limitedParseDouble,
   map,
   take,
@@ -89,7 +90,7 @@ export const se_UploadDocumentsCommand = async (
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
   const headers: any = map({}, isSerializableHeaderValue, {
-    [_ct]: input[_cT]! || "application/octet-stream",
+    [_ct]: input[_cT] || "application/octet-stream",
   });
   b.bp("/2013-01-01/documents/batch");
   const query: any = map({
@@ -314,13 +315,6 @@ const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
 // Encode Uint8Array data into string with utf-8.
 const collectBodyString = (streamBody: any, context: __SerdeContext): Promise<string> =>
   collectBody(streamBody, context).then((body) => context.utf8Encoder(body));
-
-const isSerializableHeaderValue = (value: any): boolean =>
-  value !== undefined &&
-  value !== null &&
-  value !== "" &&
-  (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
-  (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _c = "cursor";
 const _cT = "contentType";

@@ -17,7 +17,8 @@ import { de_CreatePartnershipCommand, se_CreatePartnershipCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -45,9 +46,37 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  *   name: "STRING_VALUE", // required
  *   email: "STRING_VALUE", // required
  *   phone: "STRING_VALUE",
- *   capabilities: [ // PartnershipCapabilities
+ *   capabilities: [ // PartnershipCapabilities // required
  *     "STRING_VALUE",
  *   ],
+ *   capabilityOptions: { // CapabilityOptions
+ *     outboundEdi: { // OutboundEdiOptions Union: only one key present
+ *       x12: { // X12Envelope
+ *         common: { // X12OutboundEdiHeaders
+ *           interchangeControlHeaders: { // X12InterchangeControlHeaders
+ *             senderIdQualifier: "STRING_VALUE",
+ *             senderId: "STRING_VALUE",
+ *             receiverIdQualifier: "STRING_VALUE",
+ *             receiverId: "STRING_VALUE",
+ *             repetitionSeparator: "STRING_VALUE",
+ *             acknowledgmentRequestedCode: "STRING_VALUE",
+ *             usageIndicatorCode: "STRING_VALUE",
+ *           },
+ *           functionalGroupHeaders: { // X12FunctionalGroupHeaders
+ *             applicationSenderCode: "STRING_VALUE",
+ *             applicationReceiverCode: "STRING_VALUE",
+ *             responsibleAgencyCode: "STRING_VALUE",
+ *           },
+ *           delimiters: { // X12Delimiters
+ *             componentSeparator: "STRING_VALUE",
+ *             dataElementSeparator: "STRING_VALUE",
+ *             segmentTerminator: "STRING_VALUE",
+ *           },
+ *           validateEdi: true || false,
+ *         },
+ *       },
+ *     },
+ *   },
  *   clientToken: "STRING_VALUE",
  *   tags: [ // TagList
  *     { // Tag
@@ -68,6 +97,34 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  * //   capabilities: [ // PartnershipCapabilities
  * //     "STRING_VALUE",
  * //   ],
+ * //   capabilityOptions: { // CapabilityOptions
+ * //     outboundEdi: { // OutboundEdiOptions Union: only one key present
+ * //       x12: { // X12Envelope
+ * //         common: { // X12OutboundEdiHeaders
+ * //           interchangeControlHeaders: { // X12InterchangeControlHeaders
+ * //             senderIdQualifier: "STRING_VALUE",
+ * //             senderId: "STRING_VALUE",
+ * //             receiverIdQualifier: "STRING_VALUE",
+ * //             receiverId: "STRING_VALUE",
+ * //             repetitionSeparator: "STRING_VALUE",
+ * //             acknowledgmentRequestedCode: "STRING_VALUE",
+ * //             usageIndicatorCode: "STRING_VALUE",
+ * //           },
+ * //           functionalGroupHeaders: { // X12FunctionalGroupHeaders
+ * //             applicationSenderCode: "STRING_VALUE",
+ * //             applicationReceiverCode: "STRING_VALUE",
+ * //             responsibleAgencyCode: "STRING_VALUE",
+ * //           },
+ * //           delimiters: { // X12Delimiters
+ * //             componentSeparator: "STRING_VALUE",
+ * //             dataElementSeparator: "STRING_VALUE",
+ * //             segmentTerminator: "STRING_VALUE",
+ * //           },
+ * //           validateEdi: true || false,
+ * //         },
+ * //       },
+ * //     },
+ * //   },
  * //   tradingPartnerId: "STRING_VALUE",
  * //   createdAt: new Date("TIMESTAMP"), // required
  * // };
@@ -104,46 +161,46 @@ export interface CreatePartnershipCommandOutput extends CreatePartnershipRespons
  * @throws {@link B2biServiceException}
  * <p>Base exception class for all service exceptions from B2bi service.</p>
  *
- * @public
+ *
  * @example Sample CreatePartnership call
  * ```javascript
  * //
  * const input = {
- *   "name": "b2bipartner",
- *   "capabilities": [
+ *   capabilities: [
  *     "ca-963a8121e4fc4e348"
  *   ],
- *   "clientToken": "foo",
- *   "email": "john@example.com",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tags": [
+ *   clientToken: "foo",
+ *   email: "john@example.com",
+ *   name: "b2bipartner",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9",
+ *   tags: [
  *     {
- *       "Key": "sampleKey1",
- *       "Value": "sampleValue1"
+ *       Key: "sampleKey1",
+ *       Value: "sampleValue1"
  *     }
  *   ]
  * };
  * const command = new CreatePartnershipCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "name": "b2bipartner",
- *   "capabilities": [
+ *   capabilities: [
  *     "ca-963a8121e4fc4e348"
  *   ],
- *   "createdAt": "2023-11-01T21:51:05.504Z",
- *   "email": "john@example.com",
- *   "partnershipArn": "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-60fbc37c87f04fce9",
- *   "partnershipId": "ps-219fa02f5b4242af8",
- *   "phone": "5555555555",
- *   "profileId": "p-60fbc37c87f04fce9",
- *   "tradingPartnerId": "tp-2a17ca447f6f4a8a8"
+ *   createdAt: "2023-11-01T21:51:05.504Z",
+ *   email: "john@example.com",
+ *   name: "b2bipartner",
+ *   partnershipArn: "arn:aws:b2bi:us-west-2:123456789012:partnership/ps-60fbc37c87f04fce9",
+ *   partnershipId: "ps-219fa02f5b4242af8",
+ *   phone: "5555555555",
+ *   profileId: "p-60fbc37c87f04fce9",
+ *   tradingPartnerId: "tp-2a17ca447f6f4a8a8"
  * }
  * *\/
- * // example id: example-1
  * ```
  *
+ * @public
  */
 export class CreatePartnershipCommand extends $Command
   .classBuilder<
@@ -153,9 +210,7 @@ export class CreatePartnershipCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: B2biClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -167,4 +222,16 @@ export class CreatePartnershipCommand extends $Command
   .f(CreatePartnershipRequestFilterSensitiveLog, CreatePartnershipResponseFilterSensitiveLog)
   .ser(se_CreatePartnershipCommand)
   .de(de_CreatePartnershipCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreatePartnershipRequest;
+      output: CreatePartnershipResponse;
+    };
+    sdk: {
+      input: CreatePartnershipCommandInput;
+      output: CreatePartnershipCommandOutput;
+    };
+  };
+}

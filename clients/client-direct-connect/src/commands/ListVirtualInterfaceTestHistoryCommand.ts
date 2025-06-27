@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -86,6 +87,7 @@ export interface ListVirtualInterfaceTestHistoryCommandOutput
  * @throws {@link DirectConnectServiceException}
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
+ *
  * @public
  */
 export class ListVirtualInterfaceTestHistoryCommand extends $Command
@@ -96,9 +98,7 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectConnectClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -110,4 +110,16 @@ export class ListVirtualInterfaceTestHistoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListVirtualInterfaceTestHistoryCommand)
   .de(de_ListVirtualInterfaceTestHistoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListVirtualInterfaceTestHistoryRequest;
+      output: ListVirtualInterfaceTestHistoryResponse;
+    };
+    sdk: {
+      input: ListVirtualInterfaceTestHistoryCommandInput;
+      output: ListVirtualInterfaceTestHistoryCommandOutput;
+    };
+  };
+}

@@ -12,7 +12,8 @@ import { de_DisableDirectoryCommand, se_DisableDirectoryCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,6 +82,22 @@ export interface DisableDirectoryCommandOutput extends DisableDirectoryResponse,
  * @throws {@link CloudDirectoryServiceException}
  * <p>Base exception class for all service exceptions from CloudDirectory service.</p>
  *
+ *
+ * @example To disable a directory
+ * ```javascript
+ * //
+ * const input = {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8"
+ * };
+ * const command = new DisableDirectoryCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   DirectoryArn: "arn:aws:clouddirectory:us-west-2:45132example:directory/AXQXDXvdgkOWktRXV4HnRa8"
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class DisableDirectoryCommand extends $Command
@@ -91,9 +108,7 @@ export class DisableDirectoryCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CloudDirectoryClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -105,4 +120,16 @@ export class DisableDirectoryCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisableDirectoryCommand)
   .de(de_DisableDirectoryCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisableDirectoryRequest;
+      output: DisableDirectoryResponse;
+    };
+    sdk: {
+      input: DisableDirectoryCommandInput;
+      output: DisableDirectoryCommandOutput;
+    };
+  };
+}

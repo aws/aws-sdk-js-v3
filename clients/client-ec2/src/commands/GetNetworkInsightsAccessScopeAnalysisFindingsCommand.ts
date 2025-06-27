@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -232,6 +233,9 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * //               AvailabilityZones: [ // ValueStringList
  * //                 "STRING_VALUE",
  * //               ],
+ * //               AvailabilityZoneIds: [
+ * //                 "STRING_VALUE",
+ * //               ],
  * //               Cidrs: [
  * //                 "STRING_VALUE",
  * //               ],
@@ -252,6 +256,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * //               LoadBalancerTarget: { // AnalysisLoadBalancerTarget
  * //                 Address: "STRING_VALUE",
  * //                 AvailabilityZone: "STRING_VALUE",
+ * //                 AvailabilityZoneId: "STRING_VALUE",
  * //                 Instance: "<AnalysisComponent>",
  * //                 Port: Number("int"),
  * //               },
@@ -341,9 +346,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * //               },
  * //               FirewallStatefulRule: { // FirewallStatefulRule
  * //                 RuleGroupArn: "STRING_VALUE",
- * //                 Sources: [
- * //                   "STRING_VALUE",
- * //                 ],
+ * //                 Sources: "<ValueStringList>",
  * //                 Destinations: "<ValueStringList>",
  * //                 SourcePorts: "<PortRangeList>",
  * //                 DestinationPorts: "<PortRangeList>",
@@ -395,6 +398,7 @@ export interface GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Command
@@ -405,9 +409,7 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -419,4 +421,16 @@ export class GetNetworkInsightsAccessScopeAnalysisFindingsCommand extends $Comma
   .f(void 0, void 0)
   .ser(se_GetNetworkInsightsAccessScopeAnalysisFindingsCommand)
   .de(de_GetNetworkInsightsAccessScopeAnalysisFindingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetNetworkInsightsAccessScopeAnalysisFindingsRequest;
+      output: GetNetworkInsightsAccessScopeAnalysisFindingsResult;
+    };
+    sdk: {
+      input: GetNetworkInsightsAccessScopeAnalysisFindingsCommandInput;
+      output: GetNetworkInsightsAccessScopeAnalysisFindingsCommandOutput;
+    };
+  };
+}

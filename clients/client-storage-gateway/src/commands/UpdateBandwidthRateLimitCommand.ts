@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -73,25 +74,25 @@ export interface UpdateBandwidthRateLimitCommandOutput extends UpdateBandwidthRa
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To update the bandwidth rate limits of a gateway
  * ```javascript
  * // Updates the bandwidth rate limits of a gateway. Both the upload and download bandwidth rate limit can be set, or either one of the two. If a new limit is not set, the existing rate limit remains.
  * const input = {
- *   "AverageDownloadRateLimitInBitsPerSec": 102400,
- *   "AverageUploadRateLimitInBitsPerSec": 51200,
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   AverageDownloadRateLimitInBitsPerSec: 102400,
+ *   AverageUploadRateLimitInBitsPerSec: 51200,
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * };
  * const command = new UpdateBandwidthRateLimitCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-12A3456B"
  * }
  * *\/
- * // example id: to-update-the-bandwidth-rate-limits-of-a-gateway-1472151016202
  * ```
  *
+ * @public
  */
 export class UpdateBandwidthRateLimitCommand extends $Command
   .classBuilder<
@@ -101,9 +102,7 @@ export class UpdateBandwidthRateLimitCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +114,16 @@ export class UpdateBandwidthRateLimitCommand extends $Command
   .f(void 0, void 0)
   .ser(se_UpdateBandwidthRateLimitCommand)
   .de(de_UpdateBandwidthRateLimitCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: UpdateBandwidthRateLimitInput;
+      output: UpdateBandwidthRateLimitOutput;
+    };
+    sdk: {
+      input: UpdateBandwidthRateLimitCommandInput;
+      output: UpdateBandwidthRateLimitCommandOutput;
+    };
+  };
+}

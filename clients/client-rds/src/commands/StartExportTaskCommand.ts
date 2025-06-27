@@ -13,7 +13,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -30,8 +31,9 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
 /**
  * <p>Starts an export of DB snapshot or DB cluster data to Amazon S3.
  *             The provided IAM role must have access to the S3 bucket.</p>
- *          <p>You can't export snapshot data from Db2 or RDS Custom DB instances.</p>
- *          <p>You can't export cluster data from Multi-AZ DB clusters.</p>
+ *          <p>You can't export snapshot data from RDS Custom DB instances. For more information,
+ *             see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.ExportSnapshotToS3.html">
+ *                 Supported Regions and DB engines for exporting snapshots to S3 in Amazon RDS</a>.</p>
  *          <p>For more information on exporting DB snapshot data, see
  *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ExportSnapshot.html">Exporting DB snapshot
  *             data to Amazon S3</a> in the <i>Amazon RDS User Guide</i>
@@ -125,35 +127,35 @@ export interface StartExportTaskCommandOutput extends ExportTask, __MetadataBear
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To export a snapshot to Amazon S3
  * ```javascript
  * // The following example exports a DB snapshot named db5-snapshot-test to the Amazon S3 bucket named mybucket.
  * const input = {
- *   "ExportTaskIdentifier": "my-s3-export",
- *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/ExportRole",
- *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
- *   "S3BucketName": "mybucket",
- *   "SourceArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test"
+ *   ExportTaskIdentifier: "my-s3-export",
+ *   IamRoleArn: "arn:aws:iam::123456789012:role/service-role/ExportRole",
+ *   KmsKeyId: "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
+ *   S3BucketName: "mybucket",
+ *   SourceArn: "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test"
  * };
  * const command = new StartExportTaskCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ExportTaskIdentifier": "my-s3-export",
- *   "IamRoleArn": "arn:aws:iam::123456789012:role/service-role/ExportRole",
- *   "KmsKeyId": "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
- *   "PercentProgress": 0,
- *   "S3Bucket": "mybucket",
- *   "SnapshotTime": "2020-03-27T20:48:42.023Z",
- *   "SourceArn": "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test",
- *   "Status": "STARTING",
- *   "TotalExtractedDataInGB": 0
+ *   ExportTaskIdentifier: "my-s3-export",
+ *   IamRoleArn: "arn:aws:iam::123456789012:role/service-role/ExportRole",
+ *   KmsKeyId: "arn:aws:kms:us-west-2:123456789012:key/abcd0000-7fca-4128-82f2-aabbccddeeff",
+ *   PercentProgress: 0,
+ *   S3Bucket: "mybucket",
+ *   SnapshotTime: "2020-03-27T20:48:42.023Z",
+ *   SourceArn: "arn:aws:rds:us-west-2:123456789012:snapshot:db5-snapshot-test",
+ *   Status: "STARTING",
+ *   TotalExtractedDataInGB: 0
  * }
  * *\/
- * // example id: to-export-a-snapshot-to-amazon-s3-1679950669718
  * ```
  *
+ * @public
  */
 export class StartExportTaskCommand extends $Command
   .classBuilder<
@@ -163,9 +165,7 @@ export class StartExportTaskCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -177,4 +177,16 @@ export class StartExportTaskCommand extends $Command
   .f(void 0, void 0)
   .ser(se_StartExportTaskCommand)
   .de(de_StartExportTaskCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: StartExportTaskMessage;
+      output: ExportTask;
+    };
+    sdk: {
+      input: StartExportTaskCommandInput;
+      output: StartExportTaskCommandOutput;
+    };
+  };
+}

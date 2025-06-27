@@ -12,7 +12,8 @@ import { de_ValidatePipelineDefinitionCommand, se_ValidatePipelineDefinitionComm
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -263,6 +264,7 @@ export interface ValidatePipelineDefinitionCommandOutput extends ValidatePipelin
  * @throws {@link DataPipelineServiceException}
  * <p>Base exception class for all service exceptions from DataPipeline service.</p>
  *
+ *
  * @public
  */
 export class ValidatePipelineDefinitionCommand extends $Command
@@ -273,9 +275,7 @@ export class ValidatePipelineDefinitionCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DataPipelineClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -287,4 +287,16 @@ export class ValidatePipelineDefinitionCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ValidatePipelineDefinitionCommand)
   .de(de_ValidatePipelineDefinitionCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ValidatePipelineDefinitionInput;
+      output: ValidatePipelineDefinitionOutput;
+    };
+    sdk: {
+      input: ValidatePipelineDefinitionCommandInput;
+      output: ValidatePipelineDefinitionCommandOutput;
+    };
+  };
+}

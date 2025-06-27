@@ -18,7 +18,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,16 +37,9 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Creates an audit report that lists every time that your CA private key is used. The
- * 			report is saved in the Amazon S3 bucket that you specify on input. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
- * 			the private key. </p>
- *          <note>
- *             <p>Both Amazon Web Services Private CA and the IAM principal must have permission to write to
- *                         the S3 bucket that you specify. If the IAM principal making the call
- *                         does not have permission to write to the bucket, then an exception is
- *                         thrown. For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/crl-planning.html#s3-policies">Access
- * 						policies for CRLs in Amazon S3</a>.</p>
- *          </note>
+ * <p>Creates an audit report that lists every time that your CA private key is used to issue a certificate. The <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_IssueCertificate.html">IssueCertificate</a> and <a href="https://docs.aws.amazon.com/privateca/latest/APIReference/API_RevokeCertificate.html">RevokeCertificate</a> actions use
+ * 			the private key.</p>
+ *          <p>To save the audit report to your designated Amazon S3 bucket, you must create a bucket policy that grants Amazon Web Services Private CA permission to access and write to it. For an example policy, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#s3-access">Prepare an Amazon S3 bucket for audit reports</a>.</p>
  *          <p>Amazon Web Services Private CA assets that are stored in Amazon S3 can be protected with encryption.
  *   For more information, see <a href="https://docs.aws.amazon.com/privateca/latest/userguide/PcaAuditReport.html#audit-report-encryption">Encrypting Your Audit
  * 				Reports</a>.</p>
@@ -101,6 +95,7 @@ export interface CreateCertificateAuthorityAuditReportCommandOutput
  * @throws {@link ACMPCAServiceException}
  * <p>Base exception class for all service exceptions from ACMPCA service.</p>
  *
+ *
  * @public
  */
 export class CreateCertificateAuthorityAuditReportCommand extends $Command
@@ -111,9 +106,7 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ACMPCAClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -125,4 +118,16 @@ export class CreateCertificateAuthorityAuditReportCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateCertificateAuthorityAuditReportCommand)
   .de(de_CreateCertificateAuthorityAuditReportCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateCertificateAuthorityAuditReportRequest;
+      output: CreateCertificateAuthorityAuditReportResponse;
+    };
+    sdk: {
+      input: CreateCertificateAuthorityAuditReportCommandInput;
+      output: CreateCertificateAuthorityAuditReportCommandOutput;
+    };
+  };
+}

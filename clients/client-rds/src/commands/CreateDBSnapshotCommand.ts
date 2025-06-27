@@ -12,7 +12,8 @@ import { RDSClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -95,6 +96,7 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * //     DBSystemId: "STRING_VALUE",
  * //     DedicatedLogVolume: true || false,
  * //     MultiTenant: true || false,
+ * //     SnapshotAvailabilityZone: "STRING_VALUE",
  * //   },
  * // };
  *
@@ -124,48 +126,48 @@ export interface CreateDBSnapshotCommandOutput extends CreateDBSnapshotResult, _
  * @throws {@link RDSServiceException}
  * <p>Base exception class for all service exceptions from RDS service.</p>
  *
- * @public
+ *
  * @example To create a DB snapshot
  * ```javascript
  * // The following example creates a DB snapshot.
  * const input = {
- *   "DBInstanceIdentifier": "mydbsnapshot",
- *   "DBSnapshotIdentifier": "database-mysql"
+ *   DBInstanceIdentifier: "mydbsnapshot",
+ *   DBSnapshotIdentifier: "database-mysql"
  * };
  * const command = new CreateDBSnapshotCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "DBSnapshot": {
- *     "AllocatedStorage": 100,
- *     "AvailabilityZone": "us-east-1b",
- *     "DBInstanceIdentifier": "database-mysql",
- *     "DBSnapshotArn": "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
- *     "DBSnapshotIdentifier": "mydbsnapshot",
- *     "DbiResourceId": "db-AKIAIOSFODNN7EXAMPLE",
- *     "Encrypted": true,
- *     "Engine": "mysql",
- *     "EngineVersion": "8.0.32",
- *     "IAMDatabaseAuthenticationEnabled": false,
- *     "InstanceCreateTime": "2019-04-30T15:45:53.663Z",
- *     "Iops": 1000,
- *     "KmsKeyId": "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
- *     "LicenseModel": "general-public-license",
- *     "MasterUsername": "admin",
- *     "OptionGroupName": "default:mysql-8-0",
- *     "PercentProgress": 0,
- *     "Port": 3306,
- *     "ProcessorFeatures": [],
- *     "SnapshotType": "manual",
- *     "Status": "creating",
- *     "StorageType": "io1",
- *     "VpcId": "vpc-6594f31c"
+ *   DBSnapshot: {
+ *     AllocatedStorage: 100,
+ *     AvailabilityZone: "us-east-1b",
+ *     DBInstanceIdentifier: "database-mysql",
+ *     DBSnapshotArn: "arn:aws:rds:us-east-1:123456789012:snapshot:mydbsnapshot",
+ *     DBSnapshotIdentifier: "mydbsnapshot",
+ *     DbiResourceId: "db-AKIAIOSFODNN7EXAMPLE",
+ *     Encrypted: true,
+ *     Engine: "mysql",
+ *     EngineVersion: "8.0.32",
+ *     IAMDatabaseAuthenticationEnabled: false,
+ *     InstanceCreateTime: "2019-04-30T15:45:53.663Z",
+ *     Iops: 1000,
+ *     KmsKeyId: "arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE",
+ *     LicenseModel: "general-public-license",
+ *     MasterUsername: "admin",
+ *     OptionGroupName: "default:mysql-8-0",
+ *     PercentProgress: 0,
+ *     Port: 3306,
+ *     ProcessorFeatures:     [],
+ *     SnapshotType: "manual",
+ *     Status: "creating",
+ *     StorageType: "io1",
+ *     VpcId: "vpc-6594f31c"
  *   }
  * }
  * *\/
- * // example id: to-create-a-db-snapshot-1679939585361
  * ```
  *
+ * @public
  */
 export class CreateDBSnapshotCommand extends $Command
   .classBuilder<
@@ -175,9 +177,7 @@ export class CreateDBSnapshotCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: RDSClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -189,4 +189,16 @@ export class CreateDBSnapshotCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDBSnapshotCommand)
   .de(de_CreateDBSnapshotCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDBSnapshotMessage;
+      output: CreateDBSnapshotResult;
+    };
+    sdk: {
+      input: CreateDBSnapshotCommandInput;
+      output: CreateDBSnapshotCommandOutput;
+    };
+  };
+}

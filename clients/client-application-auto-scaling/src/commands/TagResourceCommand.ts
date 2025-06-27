@@ -16,7 +16,8 @@ import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_j
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,7 +40,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  *          scaling policy or scheduled action.</p>
  *          <p>You can also add tags to an Application Auto Scaling scalable target while creating it
  *             (<code>RegisterScalableTarget</code>).</p>
- *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
+ *          <p>For general information about tags, including the format and syntax, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging your Amazon Web Services
  *             resources</a> in the <i>Amazon Web Services General Reference</i>.</p>
  *          <p>Use tags to control access to a scalable target. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/application/userguide/resource-tagging-support.html">Tagging support
  *             for Application Auto Scaling</a> in the <i>Application Auto Scaling User Guide</i>.</p>
@@ -80,21 +81,24 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
  * @throws {@link ApplicationAutoScalingServiceException}
  * <p>Base exception class for all service exceptions from ApplicationAutoScaling service.</p>
  *
- * @public
+ *
  * @example To add a tag to a scalable target
  * ```javascript
  * // This example adds a tag with the key name "environment" and the value "production" to the scalable target specified by its ARN.
  * const input = {
- *   "ResourceARN": "arn:aws:application-autoscaling:us-west-2:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123",
- *   "Tags": {
- *     "environment": "production"
+ *   ResourceARN: "arn:aws:application-autoscaling:us-west-2:123456789012:scalable-target/1234abcd56ab78cd901ef1234567890ab123",
+ *   Tags: {
+ *     environment: "production"
  *   }
  * };
  * const command = new TagResourceCommand(input);
- * await client.send(command);
- * // example id: to-add-a-tag-to-a-scalable-target-1677970764620
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
  * ```
  *
+ * @public
  */
 export class TagResourceCommand extends $Command
   .classBuilder<
@@ -104,9 +108,7 @@ export class TagResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ApplicationAutoScalingClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -118,4 +120,16 @@ export class TagResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_TagResourceCommand)
   .de(de_TagResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: TagResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: TagResourceCommandInput;
+      output: TagResourceCommandOutput;
+    };
+  };
+}

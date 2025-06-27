@@ -62,6 +62,10 @@ import {
   CreateLoggingConfigurationCommandOutput,
 } from "./commands/CreateLoggingConfigurationCommand";
 import {
+  CreateQueryLoggingConfigurationCommandInput,
+  CreateQueryLoggingConfigurationCommandOutput,
+} from "./commands/CreateQueryLoggingConfigurationCommand";
+import {
   CreateRuleGroupsNamespaceCommandInput,
   CreateRuleGroupsNamespaceCommandOutput,
 } from "./commands/CreateRuleGroupsNamespaceCommand";
@@ -75,6 +79,10 @@ import {
   DeleteLoggingConfigurationCommandInput,
   DeleteLoggingConfigurationCommandOutput,
 } from "./commands/DeleteLoggingConfigurationCommand";
+import {
+  DeleteQueryLoggingConfigurationCommandInput,
+  DeleteQueryLoggingConfigurationCommandOutput,
+} from "./commands/DeleteQueryLoggingConfigurationCommand";
 import {
   DeleteRuleGroupsNamespaceCommandInput,
   DeleteRuleGroupsNamespaceCommandOutput,
@@ -90,11 +98,19 @@ import {
   DescribeLoggingConfigurationCommandOutput,
 } from "./commands/DescribeLoggingConfigurationCommand";
 import {
+  DescribeQueryLoggingConfigurationCommandInput,
+  DescribeQueryLoggingConfigurationCommandOutput,
+} from "./commands/DescribeQueryLoggingConfigurationCommand";
+import {
   DescribeRuleGroupsNamespaceCommandInput,
   DescribeRuleGroupsNamespaceCommandOutput,
 } from "./commands/DescribeRuleGroupsNamespaceCommand";
 import { DescribeScraperCommandInput, DescribeScraperCommandOutput } from "./commands/DescribeScraperCommand";
 import { DescribeWorkspaceCommandInput, DescribeWorkspaceCommandOutput } from "./commands/DescribeWorkspaceCommand";
+import {
+  DescribeWorkspaceConfigurationCommandInput,
+  DescribeWorkspaceConfigurationCommandOutput,
+} from "./commands/DescribeWorkspaceConfigurationCommand";
 import {
   GetDefaultScraperConfigurationCommandInput,
   GetDefaultScraperConfigurationCommandOutput,
@@ -124,9 +140,18 @@ import {
   UpdateLoggingConfigurationCommandOutput,
 } from "./commands/UpdateLoggingConfigurationCommand";
 import {
+  UpdateQueryLoggingConfigurationCommandInput,
+  UpdateQueryLoggingConfigurationCommandOutput,
+} from "./commands/UpdateQueryLoggingConfigurationCommand";
+import { UpdateScraperCommandInput, UpdateScraperCommandOutput } from "./commands/UpdateScraperCommand";
+import {
   UpdateWorkspaceAliasCommandInput,
   UpdateWorkspaceAliasCommandOutput,
 } from "./commands/UpdateWorkspaceAliasCommand";
+import {
+  UpdateWorkspaceConfigurationCommandInput,
+  UpdateWorkspaceConfigurationCommandOutput,
+} from "./commands/UpdateWorkspaceConfigurationCommand";
 import {
   ClientInputEndpointParameters,
   ClientResolvedEndpointParameters,
@@ -144,19 +169,23 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateAlertManagerDefinitionCommandInput
   | CreateLoggingConfigurationCommandInput
+  | CreateQueryLoggingConfigurationCommandInput
   | CreateRuleGroupsNamespaceCommandInput
   | CreateScraperCommandInput
   | CreateWorkspaceCommandInput
   | DeleteAlertManagerDefinitionCommandInput
   | DeleteLoggingConfigurationCommandInput
+  | DeleteQueryLoggingConfigurationCommandInput
   | DeleteRuleGroupsNamespaceCommandInput
   | DeleteScraperCommandInput
   | DeleteWorkspaceCommandInput
   | DescribeAlertManagerDefinitionCommandInput
   | DescribeLoggingConfigurationCommandInput
+  | DescribeQueryLoggingConfigurationCommandInput
   | DescribeRuleGroupsNamespaceCommandInput
   | DescribeScraperCommandInput
   | DescribeWorkspaceCommandInput
+  | DescribeWorkspaceConfigurationCommandInput
   | GetDefaultScraperConfigurationCommandInput
   | ListRuleGroupsNamespacesCommandInput
   | ListScrapersCommandInput
@@ -167,7 +196,10 @@ export type ServiceInputTypes =
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateLoggingConfigurationCommandInput
-  | UpdateWorkspaceAliasCommandInput;
+  | UpdateQueryLoggingConfigurationCommandInput
+  | UpdateScraperCommandInput
+  | UpdateWorkspaceAliasCommandInput
+  | UpdateWorkspaceConfigurationCommandInput;
 
 /**
  * @public
@@ -175,19 +207,23 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateAlertManagerDefinitionCommandOutput
   | CreateLoggingConfigurationCommandOutput
+  | CreateQueryLoggingConfigurationCommandOutput
   | CreateRuleGroupsNamespaceCommandOutput
   | CreateScraperCommandOutput
   | CreateWorkspaceCommandOutput
   | DeleteAlertManagerDefinitionCommandOutput
   | DeleteLoggingConfigurationCommandOutput
+  | DeleteQueryLoggingConfigurationCommandOutput
   | DeleteRuleGroupsNamespaceCommandOutput
   | DeleteScraperCommandOutput
   | DeleteWorkspaceCommandOutput
   | DescribeAlertManagerDefinitionCommandOutput
   | DescribeLoggingConfigurationCommandOutput
+  | DescribeQueryLoggingConfigurationCommandOutput
   | DescribeRuleGroupsNamespaceCommandOutput
   | DescribeScraperCommandOutput
   | DescribeWorkspaceCommandOutput
+  | DescribeWorkspaceConfigurationCommandOutput
   | GetDefaultScraperConfigurationCommandOutput
   | ListRuleGroupsNamespacesCommandOutput
   | ListScrapersCommandOutput
@@ -198,7 +234,10 @@ export type ServiceOutputTypes =
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateLoggingConfigurationCommandOutput
-  | UpdateWorkspaceAliasCommandOutput;
+  | UpdateQueryLoggingConfigurationCommandOutput
+  | UpdateScraperCommandOutput
+  | UpdateWorkspaceAliasCommandOutput
+  | UpdateWorkspaceConfigurationCommandOutput;
 
 /**
  * @public
@@ -292,6 +331,25 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   region?: string | __Provider<string>;
 
   /**
+   * Setting a client profile is similar to setting a value for the
+   * AWS_PROFILE environment variable. Setting a profile on a client
+   * in code only affects the single client instance, unlike AWS_PROFILE.
+   *
+   * When set, and only for environments where an AWS configuration
+   * file exists, fields configurable by this file will be retrieved
+   * from the specified profile within that file.
+   * Conflicting code configuration and environment variables will
+   * still have higher priority.
+   *
+   * For client credential resolution that involves checking the AWS
+   * configuration file, the client's profile (this value) will be
+   * used unless a different profile is set in the credential
+   * provider options.
+   *
+   */
+  profile?: string;
+
+  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
@@ -337,11 +395,11 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
  */
 export type AmpClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOptions>> &
   ClientDefaults &
-  RegionInputConfig &
-  EndpointInputConfig<EndpointParameters> &
-  RetryInputConfig &
-  HostHeaderInputConfig &
   UserAgentInputConfig &
+  RetryInputConfig &
+  RegionInputConfig &
+  HostHeaderInputConfig &
+  EndpointInputConfig<EndpointParameters> &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -357,11 +415,11 @@ export interface AmpClientConfig extends AmpClientConfigType {}
 export type AmpClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHandlerOptions> &
   Required<ClientDefaults> &
   RuntimeExtensionsConfig &
-  RegionResolvedConfig &
-  EndpointResolvedConfig<EndpointParameters> &
-  RetryResolvedConfig &
-  HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  RetryResolvedConfig &
+  RegionResolvedConfig &
+  HostHeaderResolvedConfig &
+  EndpointResolvedConfig<EndpointParameters> &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -372,24 +430,7 @@ export type AmpClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
 export interface AmpClientResolvedConfig extends AmpClientResolvedConfigType {}
 
 /**
- * <p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for
- *             container metrics that makes it easier to securely monitor container environments at
- *             scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data
- *             model and query language that you use today to monitor the performance of your
- *             containerized workloads, and also enjoy improved scalability, availability, and security
- *             without having to manage the underlying infrastructure.</p>
- *          <p>For more information about Amazon Managed Service for Prometheus, see the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a> User Guide.</p>
- *          <p>Amazon Managed Service for Prometheus includes two APIs.</p>
- *          <ul>
- *             <li>
- *                <p>Use the Amazon Web Services API described in this guide to manage Amazon Managed Service for Prometheus resources, such as workspaces, rule groups, and alert
- *                     managers.</p>
- *             </li>
- *             <li>
- *                <p>Use the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis">Prometheus-compatible API</a> to work within your Prometheus
- *                     workspace.</p>
- *             </li>
- *          </ul>
+ * <p>Amazon Managed Service for Prometheus is a serverless, Prometheus-compatible monitoring service for container metrics that makes it easier to securely monitor container environments at scale. With Amazon Managed Service for Prometheus, you can use the same open-source Prometheus data model and query language that you use today to monitor the performance of your containerized workloads, and also enjoy improved scalability, availability, and security without having to manage the underlying infrastructure.</p> <p>For more information about Amazon Managed Service for Prometheus, see the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/what-is-Amazon-Managed-Service-Prometheus.html">Amazon Managed Service for Prometheus</a> User Guide.</p> <p>Amazon Managed Service for Prometheus includes two APIs.</p> <ul> <li> <p>Use the Amazon Web Services API described in this guide to manage Amazon Managed Service for Prometheus resources, such as workspaces, rule groups, and alert managers.</p> </li> <li> <p>Use the <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-APIReference.html#AMP-APIReference-Prometheus-Compatible-Apis">Prometheus-compatible API</a> to work within your Prometheus workspace.</p> </li> </ul>
  * @public
  */
 export class AmpClient extends __Client<
@@ -405,26 +446,30 @@ export class AmpClient extends __Client<
 
   constructor(...[configuration]: __CheckOptionalClientConfig<AmpClientConfig>) {
     const _config_0 = __getRuntimeConfig(configuration || {});
+    super(_config_0 as any);
+    this.initConfig = _config_0;
     const _config_1 = resolveClientEndpointParameters(_config_0);
-    const _config_2 = resolveRegionConfig(_config_1);
-    const _config_3 = resolveEndpointConfig(_config_2);
-    const _config_4 = resolveRetryConfig(_config_3);
+    const _config_2 = resolveUserAgentConfig(_config_1);
+    const _config_3 = resolveRetryConfig(_config_2);
+    const _config_4 = resolveRegionConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_6 = resolveEndpointConfig(_config_5);
     const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
     this.config = _config_8;
+    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
-        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
-        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+        httpAuthSchemeParametersProvider: defaultAmpHttpAuthSchemeParametersProvider,
+        identityProviderConfigProvider: async (config: AmpClientResolvedConfig) =>
+          new DefaultIdentityProviderConfig({
+            "aws.auth#sigv4": config.credentials,
+          }),
       })
     );
     this.middlewareStack.use(getHttpSigningPlugin(this.config));
@@ -437,14 +482,5 @@ export class AmpClient extends __Client<
    */
   destroy(): void {
     super.destroy();
-  }
-  private getDefaultHttpAuthSchemeParametersProvider() {
-    return defaultAmpHttpAuthSchemeParametersProvider;
-  }
-  private getIdentityProviderConfigProvider() {
-    return async (config: AmpClientResolvedConfig) =>
-      new DefaultIdentityProviderConfig({
-        "aws.auth#sigv4": config.credentials,
-      });
   }
 }

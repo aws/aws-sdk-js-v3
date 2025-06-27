@@ -16,7 +16,8 @@ import { de_DisassociateUserCommand, se_DisassociateUserCommand } from "../proto
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,13 +40,31 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * // const { LicenseManagerUserSubscriptionsClient, DisassociateUserCommand } = require("@aws-sdk/client-license-manager-user-subscriptions"); // CommonJS import
  * const client = new LicenseManagerUserSubscriptionsClient(config);
  * const input = { // DisassociateUserRequest
- *   Username: "STRING_VALUE", // required
- *   InstanceId: "STRING_VALUE", // required
+ *   Username: "STRING_VALUE",
+ *   InstanceId: "STRING_VALUE",
  *   IdentityProvider: { // IdentityProvider Union: only one key present
  *     ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  *       DirectoryId: "STRING_VALUE",
+ *       ActiveDirectorySettings: { // ActiveDirectorySettings
+ *         DomainName: "STRING_VALUE",
+ *         DomainIpv4List: [ // IpV4List
+ *           "STRING_VALUE",
+ *         ],
+ *         DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ *           SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ *             SecretId: "STRING_VALUE",
+ *           },
+ *         },
+ *         DomainNetworkSettings: { // DomainNetworkSettings
+ *           Subnets: [ // Subnets // required
+ *             "STRING_VALUE",
+ *           ],
+ *         },
+ *       },
+ *       ActiveDirectoryType: "STRING_VALUE",
  *     },
  *   },
+ *   InstanceUserArn: "STRING_VALUE",
  *   Domain: "STRING_VALUE",
  * };
  * const command = new DisassociateUserCommand(input);
@@ -57,9 +76,27 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * //     IdentityProvider: { // IdentityProvider Union: only one key present
  * //       ActiveDirectoryIdentityProvider: { // ActiveDirectoryIdentityProvider
  * //         DirectoryId: "STRING_VALUE",
+ * //         ActiveDirectorySettings: { // ActiveDirectorySettings
+ * //           DomainName: "STRING_VALUE",
+ * //           DomainIpv4List: [ // IpV4List
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           DomainCredentialsProvider: { // CredentialsProvider Union: only one key present
+ * //             SecretsManagerCredentialsProvider: { // SecretsManagerCredentialsProvider
+ * //               SecretId: "STRING_VALUE",
+ * //             },
+ * //           },
+ * //           DomainNetworkSettings: { // DomainNetworkSettings
+ * //             Subnets: [ // Subnets // required
+ * //               "STRING_VALUE",
+ * //             ],
+ * //           },
+ * //         },
+ * //         ActiveDirectoryType: "STRING_VALUE",
  * //       },
  * //     },
  * //     Status: "STRING_VALUE", // required
+ * //     InstanceUserArn: "STRING_VALUE",
  * //     StatusMessage: "STRING_VALUE",
  * //     Domain: "STRING_VALUE",
  * //     AssociationDate: "STRING_VALUE",
@@ -80,7 +117,7 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  *
  * @throws {@link ConflictException} (server fault)
  *  <p>The request couldn't be completed because it conflicted with the current state of the
- *       resource.</p>
+ * 			resource.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>An exception occurred with the service.</p>
@@ -100,6 +137,7 @@ export interface DisassociateUserCommandOutput extends DisassociateUserResponse,
  * @throws {@link LicenseManagerUserSubscriptionsServiceException}
  * <p>Base exception class for all service exceptions from LicenseManagerUserSubscriptions service.</p>
  *
+ *
  * @public
  */
 export class DisassociateUserCommand extends $Command
@@ -110,9 +148,7 @@ export class DisassociateUserCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LicenseManagerUserSubscriptionsClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -124,4 +160,16 @@ export class DisassociateUserCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DisassociateUserCommand)
   .de(de_DisassociateUserCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DisassociateUserRequest;
+      output: DisassociateUserResponse;
+    };
+    sdk: {
+      input: DisassociateUserCommandInput;
+      output: DisassociateUserCommandOutput;
+    };
+  };
+}

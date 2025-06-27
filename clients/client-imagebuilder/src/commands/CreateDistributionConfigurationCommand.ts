@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -112,6 +113,13 @@ export interface CreateDistributionConfigurationCommandOutput
  *           accountId: "STRING_VALUE",
  *         },
  *       ],
+ *       ssmParameterConfigurations: [ // SsmParameterConfigurationList
+ *         { // SsmParameterConfiguration
+ *           amiAccountId: "STRING_VALUE",
+ *           parameterName: "STRING_VALUE", // required
+ *           dataType: "text" || "aws:ec2:image",
+ *         },
+ *       ],
  *     },
  *   ],
  *   tags: {
@@ -179,6 +187,7 @@ export interface CreateDistributionConfigurationCommandOutput
  * @throws {@link ImagebuilderServiceException}
  * <p>Base exception class for all service exceptions from Imagebuilder service.</p>
  *
+ *
  * @public
  */
 export class CreateDistributionConfigurationCommand extends $Command
@@ -189,9 +198,7 @@ export class CreateDistributionConfigurationCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ImagebuilderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -203,4 +210,16 @@ export class CreateDistributionConfigurationCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateDistributionConfigurationCommand)
   .de(de_CreateDistributionConfigurationCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateDistributionConfigurationRequest;
+      output: CreateDistributionConfigurationResponse;
+    };
+    sdk: {
+      input: CreateDistributionConfigurationCommandInput;
+      output: CreateDistributionConfigurationCommandOutput;
+    };
+  };
+}

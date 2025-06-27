@@ -12,7 +12,8 @@ import { de_CreateFeaturedResultsSetCommand, se_CreateFeaturedResultsSetCommand 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -123,6 +124,7 @@ export interface CreateFeaturedResultsSetCommandOutput extends CreateFeaturedRes
  * @throws {@link KendraServiceException}
  * <p>Base exception class for all service exceptions from Kendra service.</p>
  *
+ *
  * @public
  */
 export class CreateFeaturedResultsSetCommand extends $Command
@@ -133,9 +135,7 @@ export class CreateFeaturedResultsSetCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: KendraClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -147,4 +147,16 @@ export class CreateFeaturedResultsSetCommand extends $Command
   .f(void 0, void 0)
   .ser(se_CreateFeaturedResultsSetCommand)
   .de(de_CreateFeaturedResultsSetCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateFeaturedResultsSetRequest;
+      output: CreateFeaturedResultsSetResponse;
+    };
+    sdk: {
+      input: CreateFeaturedResultsSetCommandInput;
+      output: CreateFeaturedResultsSetCommandOutput;
+    };
+  };
+}

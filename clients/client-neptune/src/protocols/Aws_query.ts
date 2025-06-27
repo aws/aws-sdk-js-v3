@@ -258,6 +258,10 @@ import {
 import { StartDBClusterCommandInput, StartDBClusterCommandOutput } from "../commands/StartDBClusterCommand";
 import { StopDBClusterCommandInput, StopDBClusterCommandOutput } from "../commands/StopDBClusterCommand";
 import {
+  SwitchoverGlobalClusterCommandInput,
+  SwitchoverGlobalClusterCommandOutput,
+} from "../commands/SwitchoverGlobalClusterCommand";
+import {
   AddRoleToDBClusterMessage,
   AddSourceIdentifierToSubscriptionMessage,
   AddSourceIdentifierToSubscriptionResult,
@@ -403,6 +407,7 @@ import {
   FailoverDBClusterResult,
   FailoverGlobalClusterMessage,
   FailoverGlobalClusterResult,
+  FailoverState,
   Filter,
   GlobalCluster,
   GlobalClusterAlreadyExistsFault,
@@ -494,6 +499,8 @@ import {
   SubscriptionAlreadyExistFault,
   SubscriptionCategoryNotFoundFault,
   SubscriptionNotFoundFault,
+  SwitchoverGlobalClusterMessage,
+  SwitchoverGlobalClusterResult,
   Tag,
   TagListMessage,
   Timezone,
@@ -1672,6 +1679,23 @@ export const se_StopDBClusterCommand = async (
   body = buildFormUrlencodedString({
     ...se_StopDBClusterMessage(input, context),
     [_A]: _SDBCt,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const se_SwitchoverGlobalClusterCommand = async (
+  input: SwitchoverGlobalClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_SwitchoverGlobalClusterMessage(input, context),
+    [_A]: _SGC,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -3036,6 +3060,26 @@ export const de_StopDBClusterCommand = async (
   let contents: any = {};
   contents = de_StopDBClusterResult(data.StopDBClusterResult, context);
   const response: StopDBClusterCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_querySwitchoverGlobalClusterCommand
+ */
+export const de_SwitchoverGlobalClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SwitchoverGlobalClusterCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_SwitchoverGlobalClusterResult(data.SwitchoverGlobalClusterResult, context);
+  const response: SwitchoverGlobalClusterCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -5841,6 +5885,12 @@ const se_FailoverGlobalClusterMessage = (input: FailoverGlobalClusterMessage, co
   if (input[_TDCI] != null) {
     entries[_TDCI] = input[_TDCI];
   }
+  if (input[_ADL] != null) {
+    entries[_ADL] = input[_ADL];
+  }
+  if (input[_Sw] != null) {
+    entries[_Sw] = input[_Sw];
+  }
   return entries;
 };
 
@@ -6838,6 +6888,20 @@ const se_SubnetIdentifierList = (input: string[], context: __SerdeContext): any 
     }
     entries[`SubnetIdentifier.${counter}`] = entry;
     counter++;
+  }
+  return entries;
+};
+
+/**
+ * serializeAws_querySwitchoverGlobalClusterMessage
+ */
+const se_SwitchoverGlobalClusterMessage = (input: SwitchoverGlobalClusterMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_GCI] != null) {
+    entries[_GCI] = input[_GCI];
+  }
+  if (input[_TDCI] != null) {
+    entries[_TDCI] = input[_TDCI];
   }
   return entries;
 };
@@ -9045,6 +9109,26 @@ const de_FailoverGlobalClusterResult = (output: any, context: __SerdeContext): F
 };
 
 /**
+ * deserializeAws_queryFailoverState
+ */
+const de_FailoverState = (output: any, context: __SerdeContext): FailoverState => {
+  const contents: any = {};
+  if (output[_St] != null) {
+    contents[_St] = __expectString(output[_St]);
+  }
+  if (output[_FDCA] != null) {
+    contents[_FDCA] = __expectString(output[_FDCA]);
+  }
+  if (output[_TDCA] != null) {
+    contents[_TDCA] = __expectString(output[_TDCA]);
+  }
+  if (output[_IDLA] != null) {
+    contents[_IDLA] = __parseBoolean(output[_IDLA]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryGlobalCluster
  */
 const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster => {
@@ -9077,6 +9161,9 @@ const de_GlobalCluster = (output: any, context: __SerdeContext): GlobalCluster =
     contents[_GCM] = [];
   } else if (output[_GCM] != null && output[_GCM][_GCMl] != null) {
     contents[_GCM] = de_GlobalClusterMemberList(__getArrayIfSingleItem(output[_GCM][_GCMl]), context);
+  }
+  if (output[_FS] != null) {
+    contents[_FS] = de_FailoverState(output[_FS], context);
   }
   return contents;
 };
@@ -10293,6 +10380,17 @@ const de_SupportedTimezonesList = (output: any, context: __SerdeContext): Timezo
 };
 
 /**
+ * deserializeAws_querySwitchoverGlobalClusterResult
+ */
+const de_SwitchoverGlobalClusterResult = (output: any, context: __SerdeContext): SwitchoverGlobalClusterResult => {
+  const contents: any = {};
+  if (output[_GC] != null) {
+    contents[_GC] = de_GlobalCluster(output[_GC], context);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryTag
  */
 const de_Tag = (output: any, context: __SerdeContext): Tag => {
@@ -10501,6 +10599,7 @@ const _ = "2014-10-31";
 const _A = "Action";
 const _AA = "ApplyAction";
 const _AAAD = "AutoAppliedAfterDate";
+const _ADL = "AllowDataLoss";
 const _AI = "ApplyImmediately";
 const _AM = "ApplyMethod";
 const _AMVU = "AutoMinorVersionUpgrade";
@@ -10679,10 +10778,12 @@ const _F = "Filters";
 const _FAD = "ForcedApplyDate";
 const _FDBC = "FailoverDBCluster";
 const _FDBSI = "FinalDBSnapshotIdentifier";
+const _FDCA = "FromDbClusterArn";
 const _FF = "ForceFailover";
 const _FGC = "FailoverGlobalCluster";
 const _FN = "FeatureName";
 const _FQDN = "FQDN";
+const _FS = "FailoverState";
 const _Fr = "From";
 const _GC = "GlobalCluster";
 const _GCA = "GlobalClusterArn";
@@ -10697,6 +10798,7 @@ const _IAMDAE = "IAMDatabaseAuthenticationEnabled";
 const _IAMRN = "IAMRoleName";
 const _ICT = "InstanceCreateTime";
 const _ICW = "IsClusterWriter";
+const _IDLA = "IsDataLossAllowed";
 const _IM = "IsModifiable";
 const _IMVU = "IsMajorVersionUpgrade";
 const _IOONAMT = "IOOptimizedNextAllowedModificationTime";
@@ -10818,6 +10920,7 @@ const _SDBPGI = "SourceDBParameterGroupIdentifier";
 const _SE = "StorageEncrypted";
 const _SEM = "SupportsEnhancedMonitoring";
 const _SFS = "SkipFinalSnapshot";
+const _SGC = "SwitchoverGlobalCluster";
 const _SGD = "SupportsGlobalDatabases";
 const _SGS = "SubnetGroupStatus";
 const _SI = "SourceIdentifier";
@@ -10851,6 +10954,7 @@ const _Ste = "Step";
 const _Sto = "Storage";
 const _Su = "Subnets";
 const _Sub = "Subnet";
+const _Sw = "Switchover";
 const _T = "Tags";
 const _TCA = "TdeCredentialArn";
 const _TCP = "TdeCredentialPassword";
@@ -10860,6 +10964,7 @@ const _TDBCSI = "TargetDBClusterSnapshotIdentifier";
 const _TDBII = "TargetDBInstanceIdentifier";
 const _TDBPGD = "TargetDBParameterGroupDescription";
 const _TDBPGI = "TargetDBParameterGroupIdentifier";
+const _TDCA = "ToDbClusterArn";
 const _TDCI = "TargetDbClusterIdentifier";
 const _TK = "TagKeys";
 const _TL = "TagList";

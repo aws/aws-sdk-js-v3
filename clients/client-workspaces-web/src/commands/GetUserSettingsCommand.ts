@@ -16,7 +16,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesWebClientResolvedConfi
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -76,6 +77,15 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * //     additionalEncryptionContext: { // EncryptionContextMap
  * //       "<keys>": "STRING_VALUE",
  * //     },
+ * //     deepLinkAllowed: "STRING_VALUE",
+ * //     toolbarConfiguration: { // ToolbarConfiguration
+ * //       toolbarType: "STRING_VALUE",
+ * //       visualMode: "STRING_VALUE",
+ * //       hiddenToolbarItems: [ // HiddenToolbarItemList
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       maxDisplayResolution: "STRING_VALUE",
+ * //     },
  * //   },
  * // };
  *
@@ -105,6 +115,7 @@ export interface GetUserSettingsCommandOutput extends GetUserSettingsResponse, _
  * @throws {@link WorkSpacesWebServiceException}
  * <p>Base exception class for all service exceptions from WorkSpacesWeb service.</p>
  *
+ *
  * @public
  */
 export class GetUserSettingsCommand extends $Command
@@ -115,9 +126,7 @@ export class GetUserSettingsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesWebClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -129,4 +138,16 @@ export class GetUserSettingsCommand extends $Command
   .f(void 0, GetUserSettingsResponseFilterSensitiveLog)
   .ser(se_GetUserSettingsCommand)
   .de(de_GetUserSettingsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetUserSettingsRequest;
+      output: GetUserSettingsResponse;
+    };
+    sdk: {
+      input: GetUserSettingsCommandInput;
+      output: GetUserSettingsCommandOutput;
+    };
+  };
+}

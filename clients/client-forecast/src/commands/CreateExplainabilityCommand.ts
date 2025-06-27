@@ -16,7 +16,8 @@ import { de_CreateExplainabilityCommand, se_CreateExplainabilityCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -222,6 +223,7 @@ export interface CreateExplainabilityCommandOutput extends CreateExplainabilityR
  * @throws {@link ForecastServiceException}
  * <p>Base exception class for all service exceptions from Forecast service.</p>
  *
+ *
  * @public
  */
 export class CreateExplainabilityCommand extends $Command
@@ -232,9 +234,7 @@ export class CreateExplainabilityCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: ForecastClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -246,4 +246,16 @@ export class CreateExplainabilityCommand extends $Command
   .f(CreateExplainabilityRequestFilterSensitiveLog, void 0)
   .ser(se_CreateExplainabilityCommand)
   .de(de_CreateExplainabilityCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: CreateExplainabilityRequest;
+      output: CreateExplainabilityResponse;
+    };
+    sdk: {
+      input: CreateExplainabilityCommandInput;
+      output: CreateExplainabilityCommandOutput;
+    };
+  };
+}

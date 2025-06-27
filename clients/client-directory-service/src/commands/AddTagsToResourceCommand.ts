@@ -12,7 +12,8 @@ import { de_AddTagsToResourceCommand, se_AddTagsToResourceCommand } from "../pro
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -75,6 +76,26 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  * @throws {@link DirectoryServiceServiceException}
  * <p>Base exception class for all service exceptions from DirectoryService service.</p>
  *
+ *
+ * @example To add tags to a directory
+ * ```javascript
+ * // The following example adds or overwrites one or more tags for the specified directory.
+ * const input = {
+ *   ResourceId: "d-92654abfed",
+ *   Tags: [
+ *     {
+ *       Key: "environment",
+ *       Value: "production"
+ *     }
+ *   ]
+ * };
+ * const command = new AddTagsToResourceCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * { /* empty *\/ }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class AddTagsToResourceCommand extends $Command
@@ -85,9 +106,7 @@ export class AddTagsToResourceCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: DirectoryServiceClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -99,4 +118,16 @@ export class AddTagsToResourceCommand extends $Command
   .f(void 0, void 0)
   .ser(se_AddTagsToResourceCommand)
   .de(de_AddTagsToResourceCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: AddTagsToResourceRequest;
+      output: {};
+    };
+    sdk: {
+      input: AddTagsToResourceCommandInput;
+      output: AddTagsToResourceCommandOutput;
+    };
+  };
+}

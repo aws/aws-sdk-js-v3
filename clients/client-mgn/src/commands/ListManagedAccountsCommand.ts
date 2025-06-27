@@ -12,7 +12,8 @@ import { de_ListManagedAccountsCommand, se_ListManagedAccountsCommand } from "..
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -66,6 +67,7 @@ export interface ListManagedAccountsCommandOutput extends ListManagedAccountsRes
  * @throws {@link MgnServiceException}
  * <p>Base exception class for all service exceptions from Mgn service.</p>
  *
+ *
  * @public
  */
 export class ListManagedAccountsCommand extends $Command
@@ -76,9 +78,7 @@ export class ListManagedAccountsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: MgnClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -90,4 +90,16 @@ export class ListManagedAccountsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListManagedAccountsCommand)
   .de(de_ListManagedAccountsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListManagedAccountsRequest;
+      output: ListManagedAccountsResponse;
+    };
+    sdk: {
+      input: ListManagedAccountsCommandInput;
+      output: ListManagedAccountsCommandOutput;
+    };
+  };
+}

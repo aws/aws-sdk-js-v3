@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSpotFleetInstancesRequest, DescribeSpotFleetInstancesResponse } from "../models/models_4";
+import { DescribeSpotFleetInstancesRequest, DescribeSpotFleetInstancesResponse } from "../models/models_5";
 import { de_DescribeSpotFleetInstancesCommand, se_DescribeSpotFleetInstancesCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -36,9 +37,9 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * const client = new EC2Client(config);
  * const input = { // DescribeSpotFleetInstancesRequest
  *   DryRun: true || false,
- *   MaxResults: Number("int"),
- *   NextToken: "STRING_VALUE",
  *   SpotFleetRequestId: "STRING_VALUE", // required
+ *   NextToken: "STRING_VALUE",
+ *   MaxResults: Number("int"),
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
@@ -66,30 +67,30 @@ export interface DescribeSpotFleetInstancesCommandOutput extends DescribeSpotFle
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
- * @public
+ *
  * @example To describe the Spot Instances associated with a Spot fleet
  * ```javascript
  * // This example lists the Spot Instances associated with the specified Spot fleet.
  * const input = {
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * };
  * const command = new DescribeSpotFleetInstancesCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "ActiveInstances": [
+ *   ActiveInstances: [
  *     {
- *       "InstanceId": "i-1234567890abcdef0",
- *       "InstanceType": "m3.medium",
- *       "SpotInstanceRequestId": "sir-08b93456"
+ *       InstanceId: "i-1234567890abcdef0",
+ *       InstanceType: "m3.medium",
+ *       SpotInstanceRequestId: "sir-08b93456"
  *     }
  *   ],
- *   "SpotFleetRequestId": "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
+ *   SpotFleetRequestId: "sfr-73fbd2ce-aa30-494c-8788-1cee4EXAMPLE"
  * }
  * *\/
- * // example id: ec2-describe-spot-fleet-instances-1
  * ```
  *
+ * @public
  */
 export class DescribeSpotFleetInstancesCommand extends $Command
   .classBuilder<
@@ -99,9 +100,7 @@ export class DescribeSpotFleetInstancesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -113,4 +112,16 @@ export class DescribeSpotFleetInstancesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeSpotFleetInstancesCommand)
   .de(de_DescribeSpotFleetInstancesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeSpotFleetInstancesRequest;
+      output: DescribeSpotFleetInstancesResponse;
+    };
+    sdk: {
+      input: DescribeSpotFleetInstancesCommandInput;
+      output: DescribeSpotFleetInstancesCommandOutput;
+    };
+  };
+}

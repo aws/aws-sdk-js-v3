@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, StorageGatewayClientResolvedConf
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -81,29 +82,29 @@ export interface ActivateGatewayCommandOutput extends ActivateGatewayOutput, __M
  * @throws {@link StorageGatewayServiceException}
  * <p>Base exception class for all service exceptions from StorageGateway service.</p>
  *
- * @public
+ *
  * @example To activate the gateway
  * ```javascript
  * // Activates the gateway you previously deployed on your host.
  * const input = {
- *   "ActivationKey": "29AV1-3OFV9-VVIUB-NKT0I-LRO6V",
- *   "GatewayName": "My_Gateway",
- *   "GatewayRegion": "us-east-1",
- *   "GatewayTimezone": "GMT-12:00",
- *   "GatewayType": "STORED",
- *   "MediumChangerType": "AWS-Gateway-VTL",
- *   "TapeDriveType": "IBM-ULT3580-TD5"
+ *   ActivationKey: "29AV1-3OFV9-VVIUB-NKT0I-LRO6V",
+ *   GatewayName: "My_Gateway",
+ *   GatewayRegion: "us-east-1",
+ *   GatewayTimezone: "GMT-12:00",
+ *   GatewayType: "STORED",
+ *   MediumChangerType: "AWS-Gateway-VTL",
+ *   TapeDriveType: "IBM-ULT3580-TD5"
  * };
  * const command = new ActivateGatewayCommand(input);
  * const response = await client.send(command);
- * /* response ==
+ * /* response is
  * {
- *   "GatewayARN": "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
+ *   GatewayARN: "arn:aws:storagegateway:us-east-1:111122223333:gateway/sgw-11A2222B"
  * }
  * *\/
- * // example id: to-activate-the-gateway-1471281611207
  * ```
  *
+ * @public
  */
 export class ActivateGatewayCommand extends $Command
   .classBuilder<
@@ -113,9 +114,7 @@ export class ActivateGatewayCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: StorageGatewayClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -127,4 +126,16 @@ export class ActivateGatewayCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ActivateGatewayCommand)
   .de(de_ActivateGatewayCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ActivateGatewayInput;
+      output: ActivateGatewayOutput;
+    };
+    sdk: {
+      input: ActivateGatewayCommandInput;
+      output: ActivateGatewayCommandOutput;
+    };
+  };
+}

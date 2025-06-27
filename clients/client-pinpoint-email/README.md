@@ -39,7 +39,7 @@ available in each Region, see <a href="http://aws.amazon.com/about-aws/global-in
 
 ## Installing
 
-To install the this package, simply type add or install @aws-sdk/client-pinpoint-email
+To install this package, simply type add or install @aws-sdk/client-pinpoint-email
 using your favorite package manager:
 
 - `npm install @aws-sdk/client-pinpoint-email`

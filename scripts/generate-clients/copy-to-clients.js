@@ -45,11 +45,11 @@ const mergeManifest = (fromContent = {}, toContent = {}, parentKey = "root") => 
         // After moving to yarn modern, we'll use constraints feature to enforce
         // consistency in dependency versions https://yarnpkg.com/features/constraints
         const devDepToVersionHash = {
-          "@tsconfig/node16": "16.1.3",
+          "@tsconfig/node18": "18.2.4",
           concurrently: "7.0.0",
           "downlevel-dts": "0.10.1",
           rimraf: "3.0.2",
-          typescript: "~4.9.5",
+          typescript: "~5.8.3",
         };
 
         fromContent[name] = Object.keys(fromContent[name])
@@ -229,7 +229,7 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           },
         };
         if (!mergedManifest.scripts.test) {
-          mergedManifest.scripts.test = "jest --coverage --passWithNoTests";
+          mergedManifest.scripts.test = "jest";
         }
         if (mergedManifest.private) {
           // don't generate documentation for private packages
@@ -245,11 +245,6 @@ const copyServerTests = async (sourceDir, destinationDir) => {
           overwrite: true,
         });
       }
-      const jestConfigPath = join(destPath, "jest.config.js");
-      writeFileSync(
-        jestConfigPath,
-        'const base = require("../../jest.config.base.js");\n' + "\n" + "module.exports = {\n" + "  ...base,\n" + "};\n"
-      );
     }
   }
 };

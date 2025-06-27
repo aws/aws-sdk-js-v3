@@ -8,7 +8,7 @@ export interface S3ControlInputConfig {
   /**
    * Whether to override the request region with the region inferred from requested resource's ARN. Defaults to false
    */
-  useArnRegion?: boolean | Provider<boolean>;
+  useArnRegion?: boolean | undefined | Provider<boolean | undefined>;
 }
 
 interface PreviouslyResolved {
@@ -36,7 +36,7 @@ export interface S3ControlResolvedConfig {
   /**
    * Resolved value for input config {@link S3ControlInputConfig.useArnRegion}
    */
-  useArnRegion: Provider<boolean>;
+  useArnRegion: Provider<boolean | undefined>;
   /**
    * Resolved value for input config {@link RegionInputConfig.region}
    */
@@ -51,9 +51,9 @@ export interface S3ControlResolvedConfig {
 export function resolveS3ControlConfig<T>(
   input: T & PreviouslyResolved & S3ControlInputConfig
 ): T & S3ControlResolvedConfig {
-  const { useArnRegion = false } = input;
-  return {
-    ...input,
+  const { useArnRegion } = input;
+  // useArnRegion has specific behavior when undefined instead of false.
+  return Object.assign(input, {
     useArnRegion: typeof useArnRegion === "function" ? useArnRegion : () => Promise.resolve(useArnRegion),
-  };
+  });
 }

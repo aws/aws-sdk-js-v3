@@ -12,7 +12,8 @@ import { de_DescribeIdentityPoolCommand, se_DescribeIdentityPoolCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -29,7 +30,8 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
 /**
  * <p>Gets details about a particular identity pool, including the pool name, ID
  *          description, creation date, and current number of users.</p>
- *          <p>You must use AWS Developer credentials to call this API.</p>
+ *          <p>You must use Amazon Web Services developer credentials to call this
+ *          operation.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -95,6 +97,7 @@ export interface DescribeIdentityPoolCommandOutput extends IdentityPool, __Metad
  * @throws {@link CognitoIdentityServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentity service.</p>
  *
+ *
  * @public
  */
 export class DescribeIdentityPoolCommand extends $Command
@@ -105,9 +108,7 @@ export class DescribeIdentityPoolCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +120,16 @@ export class DescribeIdentityPoolCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeIdentityPoolCommand)
   .de(de_DescribeIdentityPoolCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeIdentityPoolInput;
+      output: IdentityPool;
+    };
+    sdk: {
+      input: DescribeIdentityPoolCommandInput;
+      output: DescribeIdentityPoolCommandOutput;
+    };
+  };
+}

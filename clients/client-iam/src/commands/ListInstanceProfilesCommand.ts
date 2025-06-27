@@ -12,7 +12,8 @@ import { de_ListInstanceProfilesCommand, se_ListInstanceProfilesCommand } from "
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -111,6 +112,7 @@ export interface ListInstanceProfilesCommandOutput extends ListInstanceProfilesR
  * @throws {@link IAMServiceException}
  * <p>Base exception class for all service exceptions from IAM service.</p>
  *
+ *
  * @public
  */
 export class ListInstanceProfilesCommand extends $Command
@@ -121,9 +123,7 @@ export class ListInstanceProfilesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IAMClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -135,4 +135,16 @@ export class ListInstanceProfilesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListInstanceProfilesCommand)
   .de(de_ListInstanceProfilesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListInstanceProfilesRequest;
+      output: ListInstanceProfilesResponse;
+    };
+    sdk: {
+      input: ListInstanceProfilesCommandInput;
+      output: ListInstanceProfilesCommandOutput;
+    };
+  };
+}

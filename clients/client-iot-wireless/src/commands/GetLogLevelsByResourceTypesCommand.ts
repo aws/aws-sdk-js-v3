@@ -15,7 +15,8 @@ import {
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -32,9 +33,9 @@ export interface GetLogLevelsByResourceTypesCommandOutput
     __MetadataBearer {}
 
 /**
- * <p>Returns current default log levels or log levels by resource types. Based on resource
- *             types, log levels can be for wireless device log options or wireless gateway log
- *             options.</p>
+ * <p>Returns current default log levels or log levels by resource types. Based on the
+ *             resource type, log levels can be returned for wireless device, wireless gateway, or
+ *             FUOTA task log options.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,6 +71,18 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * //       ],
  * //     },
  * //   ],
+ * //   FuotaTaskLogOptions: [ // FuotaTaskLogOptionList
+ * //     { // FuotaTaskLogOption
+ * //       Type: "LoRaWAN", // required
+ * //       LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //       Events: [ // FuotaTaskEventLogOptionList
+ * //         { // FuotaTaskEventLogOption
+ * //           Event: "Fuota", // required
+ * //           LogLevel: "INFO" || "ERROR" || "DISABLED", // required
+ * //         },
+ * //       ],
+ * //     },
+ * //   ],
  * // };
  *
  * ```
@@ -98,6 +111,7 @@ export interface GetLogLevelsByResourceTypesCommandOutput
  * @throws {@link IoTWirelessServiceException}
  * <p>Base exception class for all service exceptions from IoTWireless service.</p>
  *
+ *
  * @public
  */
 export class GetLogLevelsByResourceTypesCommand extends $Command
@@ -108,9 +122,7 @@ export class GetLogLevelsByResourceTypesCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: IoTWirelessClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -122,4 +134,16 @@ export class GetLogLevelsByResourceTypesCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetLogLevelsByResourceTypesCommand)
   .de(de_GetLogLevelsByResourceTypesCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: {};
+      output: GetLogLevelsByResourceTypesResponse;
+    };
+    sdk: {
+      input: GetLogLevelsByResourceTypesCommandInput;
+      output: GetLogLevelsByResourceTypesCommandOutput;
+    };
+  };
+}

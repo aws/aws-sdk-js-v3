@@ -12,7 +12,8 @@ import { ServiceInputTypes, ServiceOutputTypes, WorkSpacesClientResolvedConfig }
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -39,11 +40,11 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  *     "STRING_VALUE",
  *   ],
  *   ComputeTypeNames: [ // ComputeList
- *     "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ *     "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  *   ],
  *   LicenseType: "LICENSED" || "UNLICENSED",
  *   OperatingSystemNames: [ // OperatingSystemNameList
- *     "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022",
+ *     "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
  *   ],
  *   Owner: "STRING_VALUE",
  *   MaxResults: Number("int"),
@@ -62,10 +63,10 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * //       Owner: "STRING_VALUE",
  * //       State: "PENDING" || "ERROR" || "AVAILABLE" || "UNINSTALL_ONLY",
  * //       SupportedComputeTypeNames: [ // ComputeList
- * //         "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
+ * //         "VALUE" || "STANDARD" || "PERFORMANCE" || "POWER" || "GRAPHICS" || "POWERPRO" || "GENERALPURPOSE_4XLARGE" || "GENERALPURPOSE_8XLARGE" || "GRAPHICSPRO" || "GRAPHICS_G4DN" || "GRAPHICSPRO_G4DN",
  * //       ],
  * //       SupportedOperatingSystemNames: [ // OperatingSystemNameList
- * //         "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022",
+ * //         "AMAZON_LINUX_2" || "UBUNTU_18_04" || "UBUNTU_20_04" || "UBUNTU_22_04" || "UNKNOWN" || "WINDOWS_10" || "WINDOWS_11" || "WINDOWS_7" || "WINDOWS_SERVER_2016" || "WINDOWS_SERVER_2019" || "WINDOWS_SERVER_2022" || "RHEL_8" || "ROCKY_8",
  * //       ],
  * //     },
  * //   ],
@@ -95,6 +96,7 @@ export interface DescribeApplicationsCommandOutput extends DescribeApplicationsR
  * @throws {@link WorkSpacesServiceException}
  * <p>Base exception class for all service exceptions from WorkSpaces service.</p>
  *
+ *
  * @public
  */
 export class DescribeApplicationsCommand extends $Command
@@ -105,9 +107,7 @@ export class DescribeApplicationsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: WorkSpacesClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -119,4 +119,16 @@ export class DescribeApplicationsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeApplicationsCommand)
   .de(de_DescribeApplicationsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeApplicationsRequest;
+      output: DescribeApplicationsResult;
+    };
+    sdk: {
+      input: DescribeApplicationsCommandInput;
+      output: DescribeApplicationsCommandOutput;
+    };
+  };
+}

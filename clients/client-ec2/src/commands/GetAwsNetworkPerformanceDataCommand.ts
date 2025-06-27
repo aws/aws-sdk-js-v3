@@ -6,13 +6,14 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetAwsNetworkPerformanceDataRequest, GetAwsNetworkPerformanceDataResult } from "../models/models_5";
+import { GetAwsNetworkPerformanceDataRequest, GetAwsNetworkPerformanceDataResult } from "../models/models_6";
 import { de_GetAwsNetworkPerformanceDataCommand, se_GetAwsNetworkPerformanceDataCommand } from "../protocols/Aws_ec2";
 
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -88,6 +89,7 @@ export interface GetAwsNetworkPerformanceDataCommandOutput
  * @throws {@link EC2ServiceException}
  * <p>Base exception class for all service exceptions from EC2 service.</p>
  *
+ *
  * @public
  */
 export class GetAwsNetworkPerformanceDataCommand extends $Command
@@ -98,9 +100,7 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: EC2ClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -112,4 +112,16 @@ export class GetAwsNetworkPerformanceDataCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetAwsNetworkPerformanceDataCommand)
   .de(de_GetAwsNetworkPerformanceDataCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetAwsNetworkPerformanceDataRequest;
+      output: GetAwsNetworkPerformanceDataResult;
+    };
+    sdk: {
+      input: GetAwsNetworkPerformanceDataCommandInput;
+      output: GetAwsNetworkPerformanceDataCommandOutput;
+    };
+  };
+}

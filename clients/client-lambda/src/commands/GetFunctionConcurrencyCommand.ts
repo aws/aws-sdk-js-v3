@@ -12,7 +12,8 @@ import { de_GetFunctionConcurrencyCommand, se_GetFunctionConcurrencyCommand } fr
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -67,6 +68,22 @@ export interface GetFunctionConcurrencyCommandOutput extends GetFunctionConcurre
  * @throws {@link LambdaServiceException}
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
+ *
+ * @example To get the reserved concurrency setting for a function
+ * ```javascript
+ * // The following example returns the reserved concurrency setting for a function named my-function.
+ * const input = {
+ *   FunctionName: "my-function"
+ * };
+ * const command = new GetFunctionConcurrencyCommand(input);
+ * const response = await client.send(command);
+ * /* response is
+ * {
+ *   ReservedConcurrentExecutions: 250
+ * }
+ * *\/
+ * ```
+ *
  * @public
  */
 export class GetFunctionConcurrencyCommand extends $Command
@@ -77,9 +94,7 @@ export class GetFunctionConcurrencyCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: LambdaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -91,4 +106,16 @@ export class GetFunctionConcurrencyCommand extends $Command
   .f(void 0, void 0)
   .ser(se_GetFunctionConcurrencyCommand)
   .de(de_GetFunctionConcurrencyCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: GetFunctionConcurrencyRequest;
+      output: GetFunctionConcurrencyResponse;
+    };
+    sdk: {
+      input: GetFunctionConcurrencyCommandInput;
+      output: GetFunctionConcurrencyCommandOutput;
+    };
+  };
+}

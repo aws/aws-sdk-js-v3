@@ -16,7 +16,8 @@ import { de_DescribeUserImportJobCommand, se_DescribeUserImportJobCommand } from
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -31,7 +32,7 @@ export interface DescribeUserImportJobCommandInput extends DescribeUserImportJob
 export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJobResponse, __MetadataBearer {}
 
 /**
- * <p>Describes the user import job.</p>
+ * <p>Describes a user import job. For more information about user CSV import, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-using-import-tool.html">Importing users from a CSV file</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -91,6 +92,7 @@ export interface DescribeUserImportJobCommandOutput extends DescribeUserImportJo
  * @throws {@link CognitoIdentityProviderServiceException}
  * <p>Base exception class for all service exceptions from CognitoIdentityProvider service.</p>
  *
+ *
  * @public
  */
 export class DescribeUserImportJobCommand extends $Command
@@ -101,9 +103,7 @@ export class DescribeUserImportJobCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: CognitoIdentityProviderClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -115,4 +115,16 @@ export class DescribeUserImportJobCommand extends $Command
   .f(void 0, void 0)
   .ser(se_DescribeUserImportJobCommand)
   .de(de_DescribeUserImportJobCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: DescribeUserImportJobRequest;
+      output: DescribeUserImportJobResponse;
+    };
+    sdk: {
+      input: DescribeUserImportJobCommandInput;
+      output: DescribeUserImportJobCommandOutput;
+    };
+  };
+}

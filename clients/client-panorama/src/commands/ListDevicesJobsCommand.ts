@@ -12,7 +12,8 @@ import { de_ListDevicesJobsCommand, se_ListDevicesJobsCommand } from "../protoco
 /**
  * @public
  */
-export { __MetadataBearer, $Command };
+export type { __MetadataBearer };
+export { $Command };
 /**
  * @public
  *
@@ -80,6 +81,7 @@ export interface ListDevicesJobsCommandOutput extends ListDevicesJobsResponse, _
  * @throws {@link PanoramaServiceException}
  * <p>Base exception class for all service exceptions from Panorama service.</p>
  *
+ *
  * @public
  */
 export class ListDevicesJobsCommand extends $Command
@@ -90,9 +92,7 @@ export class ListDevicesJobsCommand extends $Command
     ServiceInputTypes,
     ServiceOutputTypes
   >()
-  .ep({
-    ...commonParams,
-  })
+  .ep(commonParams)
   .m(function (this: any, Command: any, cs: any, config: PanoramaClientResolvedConfig, o: any) {
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
@@ -104,4 +104,16 @@ export class ListDevicesJobsCommand extends $Command
   .f(void 0, void 0)
   .ser(se_ListDevicesJobsCommand)
   .de(de_ListDevicesJobsCommand)
-  .build() {}
+  .build() {
+  /** @internal type navigation helper, not in runtime. */
+  protected declare static __types: {
+    api: {
+      input: ListDevicesJobsRequest;
+      output: ListDevicesJobsResponse;
+    };
+    sdk: {
+      input: ListDevicesJobsCommandInput;
+      output: ListDevicesJobsCommandOutput;
+    };
+  };
+}
